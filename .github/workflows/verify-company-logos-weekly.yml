@@ -41,6 +41,10 @@ jobs:
       - uses: actions/setup-node@v5
         with:
           node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
 
       - name: Prepare Firebase credentials for push auth
         env:
@@ -60,7 +64,7 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs --no-summaries
 
       - name: Verify company logos
-        run: npx tsx scripts/verify-company-logos.mjs
+        run: ./node_modules/.bin/tsx scripts/verify-company-logos.mjs
 
       - name: Commit + push broken-logos report
         run: |
@@ -78,7 +82,7 @@ jobs:
           # pushes. On rebase conflict, regenerate the broken-logos report
           # against the rebased base.
           bash scripts/lib/git-push-with-retry.sh \
-            --regenerate-cmd "npx tsx scripts/verify-company-logos.mjs; git add data/company-logos-broken.json"
+            --regenerate-cmd "./node_modules/.bin/tsx scripts/verify-company-logos.mjs; git add data/company-logos-broken.json"
 
       - name: Report failure to GitHub Issues
         if: failure()

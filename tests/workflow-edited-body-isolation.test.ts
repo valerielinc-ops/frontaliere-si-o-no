@@ -124,7 +124,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
       eventName,
       repo: { owner: 'owner', repo: 'repo' },
       payload: eventName === 'workflow_run'
-        ? { workflow_run: { id: eventRunId, name: 'tests', status: 'completed', conclusion, event: 'pull_request', run_attempt: eventRunAttempt, created_at: '2026-09-19T09:00:00Z', head_sha: 'head', repository: { full_name: 'owner/repo' }, pull_requests: [{ number: 1, base: { ref: 'main' }, head: { sha: 'head' } }] } }
+        ? { workflow_run: { id: eventRunId, name: 'Code checks and review · PR #1 · synchronize', path: '.github/workflows/tests.yml', status: 'completed', conclusion, event: 'pull_request', run_attempt: eventRunAttempt, created_at: '2026-09-19T09:00:00Z', head_sha: 'head', repository: { full_name: 'owner/repo' }, pull_requests: [{ number: 1, base: { ref: 'main' }, head: { sha: 'head' } }] } }
         : { pull_request: { number: 1, head: { sha: 'head' } } },
     }, { info: () => undefined, warning: () => undefined }, require);
   } catch (caught) {

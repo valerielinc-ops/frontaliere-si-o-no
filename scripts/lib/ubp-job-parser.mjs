@@ -23,7 +23,11 @@ export const UBP_KEY = 'ubp';
 export const UBP_COMPANY_NAME = 'Union Bancaire Privée';
 export const UBP_COMPANY_DOMAIN = 'ubp.com';
 
-const CAREER_URL = 'https://www.ubp.com/en/careers';
+// The Oracle HCM tenant linked by UBP no longer resolves. This canonical
+// employer page is live and is the safe application fallback until UBP
+// publishes a replacement job portal.
+export const UBP_CAREERS_URL = 'https://www.ubp.com/en/about-us/careers/experienced-professionals';
+const CAREER_URL = UBP_CAREERS_URL;
 const BASE_URL = 'https://www.ubp.com';
 const HQ = getCompanyDefaults('ubp');
 
@@ -339,7 +343,7 @@ export async function fetchAllUbpJobs() {
       currency: 'CHF',
       featured: false,
       postedDate,
-      applyUrl: publicUrl,
+      applyUrl: UBP_CAREERS_URL,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
     };

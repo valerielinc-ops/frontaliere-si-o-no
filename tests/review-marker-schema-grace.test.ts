@@ -70,10 +70,12 @@ function reviewWithMarker(revision: string) {
 }
 
 const vitestCheck = {
+  id: 9406001,
   name: 'vitest (unit + integration)',
   head_sha: HEAD,
   status: 'completed',
   conclusion: 'success',
+  created_at: '2026-09-19T23:30:00Z',
   completed_at: '2026-09-19T23:31:00Z',
 };
 

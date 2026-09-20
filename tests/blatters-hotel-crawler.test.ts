@@ -7,11 +7,11 @@ import {
 } from '../scripts/lib/blatters-hotel-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
-describe('Blatter's Arosa Hotel crawler parser', () => {
+describe("Blatter's Arosa Hotel crawler parser", () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
     expect(BLATTERS_HOTEL_KEY).toBe('blatters-hotel');
-    expect(BLATTERS_HOTEL_COMPANY_NAME).toBe('Blatter's Arosa Hotel');
+    expect(BLATTERS_HOTEL_COMPANY_NAME).toBe("Blatter's Arosa Hotel");
   });
 
   // ── isCompanyJob ──
@@ -21,7 +21,7 @@ describe('Blatter's Arosa Hotel crawler parser', () => {
     });
 
     it('matches by company name', () => {
-      expect(isBlattersHotelJob({ company: 'Blatter's Arosa Hotel' })).toBe(true);
+      expect(isBlattersHotelJob({ company: "Blatter's Arosa Hotel" })).toBe(true);
     });
 
     it('matches by URL domain', () => {
@@ -87,7 +87,7 @@ describe('Blatter's Arosa Hotel crawler parser', () => {
       id: 'blatters-hotel-abc123',
       slug: 'test-position-blatters-hotel-ch',
       slugByLocale: { de: 'test-position-blatters-hotel-ch' },
-      company: 'Blatter's Arosa Hotel',
+      company: "Blatter's Arosa Hotel",
       companyKey: 'blatters-hotel',
       title: 'Test Position',
       titleByLocale: { de: 'Test Position' },
@@ -96,7 +96,7 @@ describe('Blatter's Arosa Hotel crawler parser', () => {
       location: 'Lugano',
       canton: 'TI',
       url: 'https://hotelcareer.ch/jobs/test',
-      source: 'Blatter's Arosa Hotel Dedicated Parser',
+      source: "Blatter's Arosa Hotel Dedicated Parser",
       sourceLang: 'de',
       crawledAt: new Date().toISOString(),
     };

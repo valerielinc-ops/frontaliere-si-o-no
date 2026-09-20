@@ -12,16 +12,16 @@ import {
   fetchAllC1aHunkelerJobs,
   isC1aHunkelerJob,
   isTrustedDomain,
-  1A_HUNKELER_KEY,
-  1A_HUNKELER_COMPANY_NAME,
+  A1_HUNKELER_KEY,
+  A1_HUNKELER_COMPANY_NAME,
 } from './lib/1a-hunkeler-job-parser.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
 
 runStandardCrawlerPipeline({
-  companyKey: 1A_HUNKELER_KEY,
-  companyLabel: 1A_HUNKELER_COMPANY_NAME,
+  companyKey: A1_HUNKELER_KEY,
+  companyLabel: A1_HUNKELER_COMPANY_NAME,
   root: ROOT,
   fetchJobs: fetchAllC1aHunkelerJobs,
   isCompanyJob: isC1aHunkelerJob,

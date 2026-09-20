@@ -60,6 +60,10 @@ const MAX_PAGES = 100000; // uncapped — loop breaks naturally on empty API pag
 const EFG_COMPANY_NAME = 'EFG International AG';
 const EFG_COMPANY_HOST = 'fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com';
 const EFG_OFFICIAL_HOST = 'efginternational.com';
+// The Oracle candidate-facing host currently returns an Akamai DNS failure.
+// Keep the Oracle URL as the source record, but hand candidates to the live
+// employer careers page until EFG publishes a verified replacement ATS URL.
+export const EFG_CAREERS_URL = 'https://www.efginternational.com/us/about/careers';
 
 /**
  * Map Oracle HCM Category values to our canonical job categories.
@@ -159,6 +163,10 @@ function isTrustedEfgDomain(rawUrl = '') {
   } catch {
     return false;
   }
+}
+
+export function buildEfgApplicationUrl() {
+  return EFG_CAREERS_URL;
 }
 
 function deriveLocalizedSlug(job, locale) {
@@ -553,6 +561,7 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
       featured: false,
       postedDate,
       url,
+      applyUrl: buildEfgApplicationUrl(),
       source: 'Oracle HCM API',
       sourceLang: detectLang(description || title),
       companyKey: EFG_KEY,
@@ -586,6 +595,7 @@ function injectJobsFromApi(requisitions, descriptions, metadata = new Map()) {
       existing.company = EFG_COMPANY_NAME;
       existing.companyKey = EFG_KEY;
       existing.companyDomain = EFG_OFFICIAL_HOST;
+      existing.applyUrl = buildEfgApplicationUrl();
       existing.category = jobEntry.category || existing.category;
       existing.contract = jobEntry.contract || existing.contract;
       existing.postedDate = jobEntry.postedDate || existing.postedDate;
@@ -809,6 +819,15 @@ function postProcessEfgJobs(requisitions = [], descriptions = new Map(), metadat
 
   for (const job of jobs) {
     if (!isEfgJob(job)) continue;
+
+    // Oracle's public candidate host is no longer a usable destination. The
+    // listing URL remains the source identity, while every application CTA
+    // uses the verified employer careers page.
+    const fallbackApplyUrl = buildEfgApplicationUrl();
+    if (job.applyUrl !== fallbackApplyUrl) {
+      job.applyUrl = fallbackApplyUrl;
+      fixed++;
+    }
 
     // Fix company name (base crawler may extract boilerplate text)
     if (job.company !== EFG_COMPANY_NAME) {

@@ -7,7 +7,7 @@ name: PR 🔴 fixer (bounded loop-closure on bot PRs)
 # nuovo, questo workflow ri-parte fino al round cap. Una PR umana non opt-in
 # resta esclusa.
 #
-# ANTI-LOOP: un marker nascosto `<!-- REDFLAG_FIX_ROUND: N -->` sulla PR conta i
+# ANTI-LOOP: un marker nascosto `<!-- REDFLAG_FIX_ROUND: N HEAD: <sha> -->` sulla PR conta i
 # round. A N>=2 → label `needs-human` + escalation, STOP senza Claude: il limite
 # protegge il branch da tentativi ripetitivi che non producono progresso.
 
@@ -860,20 +860,76 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          EXPECTED_REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
           HAS_PAT: ${{ env.APP_TOKEN_WORKFLOWS == 'true' || env.GITHUB_PAT != '' }}
         run: |
           set -uo pipefail
           MAX_ROUNDS=2
 
-          # Round corrente = numero di marker già presenti.
-          if ! comments=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
-            --jq '[.[] | .body] | join("\n")' 2>/dev/null); then
+          # Round corrente = marker persistiti dal fixer stesso sulla HEAD/body
+          # corrente. Conserviamo le pagine raw: il testo libero di un utente non
+          # può armare il cap e un JSON parziale non può diventare ROUND=0.
+          if ! trusted_actor=$("$TRUSTED_GH_BIN" api user --jq '.login' 2>/dev/null) \
+             || [ -z "$trusted_actor" ]; then
+            echo "::error::Identità trusted del fixer illeggibile: stop fail-closed prima di Claude."
+            exit 1
+          fi
+          if ! comments_json=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp 2>/dev/null); then
             echo "::error::Commenti PR illeggibili: impossibile verificare il round cap redflag."
             exit 1
           fi
-          ROUND=$(printf '%s' "$comments" | grep -oE 'REDFLAG_FIX_ROUND: [0-9]+' \
-            | grep -oE '[0-9]+' | sort -rn | head -1 || true)
-          ROUND=${ROUND:-0}
+          if ! printf '%s' "$comments_json" | jq -e 'type == "array" and all(.[]; type == "array" and all(.[]; type == "object"))' >/dev/null 2>&1; then
+            echo "::error::Pagine commenti PR malformate: impossibile verificare il round cap redflag."
+            exit 1
+          fi
+          if ! comments=$(printf '%s' "$comments_json" | jq -r '[.[].[] | (.body // "")] | join("\n")' 2>/dev/null); then
+            echo "::error::Corpo commenti PR illeggibile: impossibile verificare il round cap redflag."
+            exit 1
+          fi
+          # Un'assenza di marker e' l'unico caso legittimo di exit 1 di grep.
+          # Ogni altro errore del parser deve fermare il guard: procedere con
+          # ROUND=0 brucerebbe un turno Claude e potrebbe oltrepassare il cap.
+          round_matches=$(printf '%s' "$comments_json" | jq -r \
+            --arg actor "$trusted_actor" \
+            --arg expected_head "$HEAD_SHA" \
+            --arg expected_body "$EXPECTED_REVIEW_REVISION" '
+              [.[].[]
+               | select((.user.login // "") == $actor)
+               | (.body // "")
+               | if test("^<!-- REDFLAG_FIX_ROUND: [0-9]+ HEAD: [0-9a-fA-F]{40} BODY: body:[0-9a-fA-F]{64} -->\\n") then
+                   capture("^<!-- REDFLAG_FIX_ROUND: (?<round>[0-9]+) HEAD: (?<head>[0-9a-fA-F]{40}) BODY: (?<body>body:[0-9a-fA-F]{64}) -->\\n")
+                   | select(.head == $expected_head and .body == $expected_body)
+                   | .round
+                 elif test("^<!-- REDFLAG_FIX_ROUND: [0-9]+ HEAD: [0-9a-fA-F]{40} -->\\n") then
+                   capture("^<!-- REDFLAG_FIX_ROUND: (?<round>[0-9]+) HEAD: (?<head>[0-9a-fA-F]{40}) -->\\n")
+                   | select(.head == $expected_head)
+                   | .round
+                 else empty end] | .[]' 2>/dev/null)
+          round_status=$?
+          if [ "$round_status" -gt 1 ]; then
+            echo "::error::Parser dei marker REDFLAG_FIX_ROUND fallito (exit $round_status): stop fail-closed prima di Claude."
+            exit 1
+          fi
+          ROUND=0
+          if [ -n "$round_matches" ]; then
+            ROUND=$(printf '%s\n' "$round_matches" | sed -E 's/.*: ([0-9]+).*/\1/' | sort -rn | head -n 1)
+            if ! [[ "$ROUND" =~ ^[0-9]+$ ]]; then
+              echo "::error::Marker REDFLAG_FIX_ROUND non interpretabile: stop fail-closed prima di Claude."
+              exit 1
+            fi
+            ROUND=$(printf '%s' "$ROUND" | sed -E 's/^0+//')
+            ROUND=${ROUND:-0}
+          fi
+          # Non fare aritmetica su un marker enorme o corrotto: Bash puo'
+          # convertirlo in overflow prima del confronto con il cap. La forma
+          # canonica e il confronto lessicografico a parita' di lunghezza
+          # validano 0..MAX_ROUNDS senza perdere precisione.
+          if [ "${#ROUND}" -gt "${#MAX_ROUNDS}" ] || \
+             { [ "${#ROUND}" -eq "${#MAX_ROUNDS}" ] && [ "$ROUND" -gt "$MAX_ROUNDS" ]; }; then
+            echo "::error::Marker REDFLAG_FIX_ROUND fuori intervallo 0..$MAX_ROUNDS ($ROUND): claim retryable, nessun Claude."
+            exit 1
+          fi
           NEXT=$((ROUND + 1))
           echo "Round 🔴-fix correnti: $ROUND (cap $MAX_ROUNDS)"
 
@@ -958,13 +1014,97 @@ jobs:
 
           # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
           # run muore, il round è comunque contato → l'anti-loop tiene).
-          if ! "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_FIX_ROUND: %s -->\n_🔴-fixer round %s/%s avviato (auto)._' "$NEXT" "$NEXT" "$MAX_ROUNDS")" \
-            2>/dev/null; then
+          MARKER_BODY=$(printf '<!-- REDFLAG_FIX_ROUND: %s HEAD: %s BODY: %s -->\n_🔴-fixer round %s/%s avviato (auto)._' "$NEXT" "$HEAD_SHA" "$EXPECTED_REVIEW_REVISION" "$NEXT" "$MAX_ROUNDS")
+          refund_marker() {
+            local requested_id="${1:-}" pages='' candidate_ids='' candidate_id='' refund_ok='true'
+            if [[ "$requested_id" =~ ^[1-9][0-9]*$ ]] && "$TRUSTED_GH_BIN" api --method DELETE \
+              "repos/$REPO/issues/comments/$requested_id" >/dev/null 2>&1; then
+              return 0
+            fi
+            # POST response malformed or direct DELETE failed: bounded
+            # reconciliation by exact body + trusted actor. Delete every exact
+            # current-round match, never a user-forged marker or another HEAD.
+            for refund_attempt in 1 2 3; do
+              pages=''
+              if pages=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp 2>/dev/null) \
+                 && candidate_ids=$(printf '%s' "$pages" | jq -r \
+                   --arg expected "$MARKER_BODY" --arg actor "$trusted_actor" \
+                   '[.[].[] | select((.user.login // "") == $actor and (.body // "") == $expected) | select((.id | type) == "number" and .id > 0) | .id] | unique | .[]' 2>/dev/null); then
+                if [ -n "$candidate_ids" ]; then
+                  refund_ok='true'
+                  while IFS= read -r candidate_id; do
+                    if ! [[ "$candidate_id" =~ ^[1-9][0-9]*$ ]] \
+                       || ! "$TRUSTED_GH_BIN" api --method DELETE \
+                         "repos/$REPO/issues/comments/$candidate_id" >/dev/null 2>&1; then
+                      refund_ok='false'
+                    fi
+                  done <<< "$candidate_ids"
+                  if [ "$refund_ok" = 'true' ]; then return 0; fi
+                fi
+              fi
+              if [ "$refund_attempt" -lt 3 ]; then sleep 2; fi
+            done
+            return 1
+          }
+          if ! marker_response=$(
+            "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" \
+              --method POST --raw-field "body=$MARKER_BODY" 2>/dev/null
+          ); then
             echo "::error::Marker REDFLAG_FIX_ROUND non persistito: stop fail-closed prima di Claude."
             exit 1
           fi
-          echo "proceed=true" >> "$GITHUB_OUTPUT"
-          echo "round=$NEXT"  >> "$GITHUB_OUTPUT"
+          marker_id=''
+          if ! marker_id=$(printf '%s' "$marker_response" \
+            | jq -er 'if (.id | type) == "number" and .id > 0 then .id else error("comment id mancante") end' 2>/dev/null); then
+            echo "::error::Risposta POST marker REDFLAG_FIX_ROUND senza id verificabile: avvio refund bounded, claim retryable, nessun Claude."
+            refund_marker || echo "::warning::Refund marker REDFLAG_FIX_ROUND non riconciliabile automaticamente: claim rilasciato, serve riconciliazione."
+            exit 1
+          fi
+          marker_author=''
+          if ! marker_author=$(printf '%s' "$marker_response" \
+            | jq -er 'if (.user.login | type) == "string" and (.user.login | length) > 0 then .user.login else error("autore mancante") end' 2>/dev/null) \
+             || [ "$marker_author" != "$trusted_actor" ]; then
+            echo "::error::Risposta POST marker REDFLAG_FIX_ROUND senza autore trusted: avvio refund bounded, claim retryable, nessun Claude."
+            refund_marker "$marker_id" || echo "::warning::Refund marker REDFLAG_FIX_ROUND non riconciliabile automaticamente: claim rilasciato, serve riconciliazione."
+            exit 1
+          fi
+          # La POST puo' essere visibile con ritardo o una lettura puo' fallire.
+          # Tre probe bounded evitano di consumare il round per consistenza
+          # eventuale; se nessun probe conferma il body esatto, cancelliamo il
+          # commento identificato e lasciamo il claim retryable.
+          marker_verified=false
+          marker_count=0
+          for marker_attempt in 1 2 3; do
+            comments_after=''
+            if comments_after=$(
+              "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" \
+                --paginate --slurp 2>/dev/null
+            ); then
+              marker_count=''
+              if marker_count=$(printf '%s' "$comments_after" \
+                | jq --arg expected "$MARKER_BODY" --arg marker_id "$marker_id" --arg marker_author "$trusted_actor" \
+                  '[.[].[] | select((.id | tostring) == $marker_id and .user.login == $marker_author and .body == $expected)] | length' 2>/dev/null); then
+                if [[ "$marker_count" =~ ^1$ ]]; then
+                  marker_verified=true
+                  break
+                fi
+              fi
+            fi
+            if [ "$marker_attempt" -lt 3 ]; then sleep 2; fi
+          done
+          if [ "$marker_verified" != 'true' ]; then
+            if refund_marker "$marker_id"; then
+              echo "Marker REDFLAG_FIX_ROUND non verificabile dopo 3 probe: commento $marker_id cancellato, claim retryable, nessun Claude."
+            else
+              echo "::error::Marker REDFLAG_FIX_ROUND non verificabile e rimborso del commento $marker_id fallito: claim retryable, nessun Claude."
+            fi
+            exit 1
+          fi
+          {
+            echo "marker_id=$marker_id"
+            echo "proceed=true"
+            echo "round=$NEXT"
+          } >> "$GITHUB_OUTPUT"
 
       - name: Configure git identity
         if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
@@ -1223,6 +1363,58 @@ jobs:
           echo "::error::Claim redflag cambiato dopo il prefetch e prima del modello → nessun fixer Claude."
           exit 1
 
+      - name: Revalidate redflag PR snapshot immediately before model
+        id: snapshot_final
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify_final.outputs.claim_valid == 'true' && steps.ctx.outcome == 'success' && steps.body_gate.outcome == 'success'
+        continue-on-error: true
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          EXPECTED_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          EXPECTED_REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
+          MARKER_ID: ${{ steps.guard.outputs.marker_id }}
+        run: |
+          set -uo pipefail
+          snapshot=''
+          reason=''
+          if ! snapshot=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" 2>/dev/null); then
+            reason='PR snapshot API illeggibile'
+          elif ! printf '%s' "$snapshot" | jq -e 'type == "object" and (.state | type) == "string" and (.draft | type) == "boolean" and (.head.sha | type) == "string" and ((.body == null) or ((.body | type) == "string"))' >/dev/null 2>&1; then
+            reason='PR snapshot malformato'
+          else
+            snapshot_state=$(printf '%s' "$snapshot" | jq -r '.state')
+            snapshot_draft=$(printf '%s' "$snapshot" | jq -r '.draft')
+            snapshot_head=$(printf '%s' "$snapshot" | jq -r '.head.sha')
+            # Hasha il body in streaming: jq -r + command substitution
+            # eliminerebbero i newline finali e farebbero divergere la
+            # revisione dalla preflight per un body valido.
+            snapshot_revision=$(printf '%s' "$snapshot" | jq -j '.body // ""' | shasum -a 256 | awk '{print "body:" $1}')
+            if [ "$snapshot_state" != 'open' ] || [ "$snapshot_draft" != 'false' ] \
+              || [ "$snapshot_head" != "$EXPECTED_HEAD_SHA" ] \
+              || [ "$snapshot_revision" != "$EXPECTED_REVIEW_REVISION" ]; then
+              reason="PR snapshot cambiato (state=$snapshot_state draft=$snapshot_draft head=$snapshot_head revision=$snapshot_revision)"
+            fi
+          fi
+          if [ -n "$reason" ]; then
+            echo "::error::$reason dopo il claim finale e prima di Codex: nessun fixer Claude."
+            echo 'CLAIM_STATUS=released' >> "$GITHUB_ENV"
+            if [[ "$MARKER_ID" =~ ^[1-9][0-9]*$ ]]; then
+              if "$TRUSTED_GH_BIN" api --method DELETE \
+                "repos/$REPO/issues/comments/$MARKER_ID" >/dev/null 2>&1; then
+                echo "Marker REDFLAG_FIX_ROUND $MARKER_ID cancellato: round rimborsato."
+              else
+                echo "::warning::Impossibile cancellare marker REDFLAG_FIX_ROUND $MARKER_ID; claim rilasciato ma il round potrebbe restare contato."
+              fi
+            else
+              echo "::warning::Marker REDFLAG_FIX_ROUND non identificato; claim rilasciato senza rimborso verificabile."
+            fi
+            echo 'snapshot_valid=false' >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          echo 'snapshot_valid=true' >> "$GITHUB_OUTPUT"
+
       - name: Run Codex Luna Max 🔴-fix
         # Tetto sullo step: senza, l'unico limite era il cap del job
         # (40min) e la run ci moriva `cancelled` — che NON fa scattare
@@ -1232,7 +1424,7 @@ jobs:
         # sulle ultime run) e una coda per gli step `if: always()`.
         timeout-minutes: 30
         id: codex_fix
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify_final.outputs.claim_valid == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify_final.outputs.claim_valid == 'true' && steps.snapshot_final.outputs.snapshot_valid == 'true'
         # Non far fallire il job sull'exit non-zero della action: lo `Classify
         # outcome` finale decide il colore in base al LAVORO reale (commit pushato),
         # non al subtype della CLI. Un error_max_turns DOPO un push valido non è un

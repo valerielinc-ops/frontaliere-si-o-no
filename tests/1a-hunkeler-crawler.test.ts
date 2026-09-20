@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
-  1A_HUNKELER_KEY,
-  1A_HUNKELER_COMPANY_NAME,
+  A1_HUNKELER_KEY,
+  A1_HUNKELER_COMPANY_NAME,
   isC1aHunkelerJob,
   isTrustedDomain,
 } from '../scripts/lib/1a-hunkeler-job-parser.mjs';
@@ -10,8 +10,8 @@ import { slugify } from '../scripts/lib/crawler-template.mjs';
 describe('1a-hunkeler crawler parser', () => {
   // ── Constants ──
   it('exports valid company key and name', () => {
-    expect(1A_HUNKELER_KEY).toBe('1a-hunkeler');
-    expect(1A_HUNKELER_COMPANY_NAME).toBe('1a-hunkeler');
+    expect(A1_HUNKELER_KEY).toBe('1a-hunkeler');
+    expect(A1_HUNKELER_COMPANY_NAME).toBe('1a-hunkeler');
   });
 
   // ── isCompanyJob ──

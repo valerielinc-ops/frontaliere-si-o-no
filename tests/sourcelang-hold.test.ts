@@ -114,4 +114,15 @@ describe('sourceLang hold guard', () => {
     expect(source).toContain('SOURCE_LANG_HOLD_CONFIDENCE');
     expect(source).not.toMatch(/detected\.confidence\s*>=\s*0\.65/);
   });
+
+  it('Coop detail repair uses the shared hold for source locale writes', () => {
+    const source = fs.readFileSync(
+      new URL('../scripts/update-coop-jobs.mjs', import.meta.url),
+      'utf8',
+    );
+    expect(source).toContain("import { holdSourceLang } from './lib/job-locale-utils.mjs';");
+    expect(source).toMatch(/const sourceLang = holdSourceLang\(job, fullDesc, descLang\);/);
+    expect(source).toContain('{ [sourceLang]: fullDesc }');
+    expect(source).not.toContain('job.sourceLang = descLang;');
+  });
 });

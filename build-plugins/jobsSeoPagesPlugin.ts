@@ -48,6 +48,8 @@ import { buildSoftLandingThinHtml } from './shared/softLandingThinShell';
 import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/gscKeywordThinShell';
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
+ buildActiveJobPageInput,
+ buildExpiredSoftLandingPageInput,
  buildMinimalJobInput,
  getIncrementalManifestInputCache,
  getIncrementalManifestMap,
@@ -119,6 +121,7 @@ import {
 } from './shared/jobDetailHtml';
 import { renderEmployerCtaJobPage } from './shared/employerCtaBlock';
 import { deriveJobPostalCode } from '../services/jobLocationSnapshot';
+import { resolveJobApplicationUrl } from '../services/jobApplicationDestination';
 import { buildFallbackCanonicalContent, canonicalizeFallbackCleaned, localizeFallbackCanonical, type CleanedFallbackContent } from '../services/jobs/canonicalFallback';
 import {
  loadWinners,
@@ -2410,16 +2413,17 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  return `<img src="${LOGO_FALLBACK_SRC}" alt="${safeAlt}" width="${width}" height="${height}" loading="lazy" data-logo-url="${esc(url)}" onerror="this.onerror=null;this.src='${LOGO_FALLBACK_SRC}'"${styleAttr}>`;
  };
 
- const referralUrl = (raw: string, job: { slug?: string; id?: string }): string => {
+ const referralUrl = (raw: string, job: { slug?: string; id?: string; companyKey?: string; company?: string; url?: string; applyUrl?: string }): string => {
+ const effectiveRaw = resolveJobApplicationUrl(job, raw);
  try {
- const u = new URL(raw);
+ const u = new URL(effectiveRaw);
  u.searchParams.set('utm_source', 'frontaliereticino');
  u.searchParams.set('utm_medium', 'referral');
  u.searchParams.set('utm_campaign', 'job-board');
  u.searchParams.set('utm_content', job.slug || job.id || '');
  return u.toString();
  } catch {
- return raw;
+ return effectiveRaw;
  }
  };
 
@@ -3136,13 +3140,22 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  // The page itself is still emitted with its own URL (breadcrumbs,
  // JobPosting, etc. describe THIS page) so existing backlinks resolve.
  const effectiveCanonicalUrl = resolveCanonicalUrl(perLocaleSlug[locale], canonicalUrl);
+ // `relatedArticlesHtml` is the SAME string the template below interpolates
+ // (`recentArticlesHtmlFor(locale)`, memoized per locale): the input digests
+ // exactly the bytes the page emits, so the two cannot drift apart.
  const activeJobManifestInput = incrementalManifests
-  ? {
-   ...buildMinimalJobInput(job, locale, perLocaleSlug[locale], perJob_relatedJobs || [], incrementalManifestInputCache, job),
+  ? buildActiveJobPageInput({
+   job,
+   locale,
+   slug: perLocaleSlug[locale],
+   relatedJobs: perJob_relatedJobs || [],
+   inputCache: incrementalManifestInputCache,
+   canonicalJob: job,
    canton: jobCanton,
    canonicalUrl: effectiveCanonicalUrl,
+   relatedArticlesHtml: recentArticlesHtmlFor(locale),
    renderDateBucket: jobsSeoReuseBuildDay,
-  }
+  })
  : null;
  const outDir = np.join(distDir, canonicalPath.slice(1));
  const activeReuse = jobsSeoReuse?.lookup(
@@ -3584,7 +3597,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  const faqResolvedCanton = sharedResolveJobCanton(job).toUpperCase();
  const faqOpts: BuildJobPostingFaqOptions = {
  locale,
- jobUrl: job.url || canonicalUrl,
+ jobUrl: resolveJobApplicationUrl(job, job.url || canonicalUrl),
  cantonDisplay: getCantonDisplayLabel(faqResolvedCanton, locale),
  isTicino: faqResolvedCanton === 'TI',
  isRemote,
@@ -13307,15 +13320,18 @@ ${staticAnalyticsHtml}
  const __slAction: 'full' | 'thin' =
  __slDecision.action === 'thin' ? 'thin' : 'full';
  recordPhase('ejp:decide', __tEjpDecide);
+ // `expiredPayloadJson` is the SAME string the template below interpolates into
+ // `<script>window.__EXPIRED_JOB_DATA__=…</script>`, and `postalCode` the same
+ // value the JSON-LD builder receives: the input digests exactly the bytes the
+ // page emits from `gscInfo`/`slugInfo`, two ledgers read with `fs.readFileSync`
+ // that neither the emitter fingerprint nor any other input field can see.
  const softLandingManifestInput = incrementalManifests
-  ? {
-   ...buildMinimalJobInput(
-    ejData || { slug },
-    locale,
-    slug,
-    sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug),
-    incrementalManifestInputCache,
-   ),
+  ? buildExpiredSoftLandingPageInput({
+   job: ejData || { slug },
+   locale,
+   slug,
+   relatedJobs: sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug),
+   inputCache: incrementalManifestInputCache,
    path: relPath,
    title: pageTitleRaw,
    trackingPaths: paths,
@@ -13332,7 +13348,10 @@ ${staticAnalyticsHtml}
    prosePaths: __slProsePaths,
    keepProse: __slKeepProse,
    action: __slAction,
-  }
+   expiredPayloadJson: expiredWindowData,
+   postalCode: ejData?.postalCode || slugInfo?.postalCode || '',
+   derivedFromUnhashedSource: Boolean(gscInfo) || Boolean(slugInfo),
+  })
   : null;
  const softLandingReuse = jobsSeoReuse?.lookup(
   locale,

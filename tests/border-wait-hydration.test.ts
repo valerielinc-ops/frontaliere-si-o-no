@@ -144,6 +144,18 @@ describe('border-wait pages — hydration injection', () => {
     expect(html).toContain('<script src="/border-wait-hydrate.js"');
   });
 
+  it('shares the localized source-label map once across hub rows', () => {
+    const html = pages[buildRootHubPath('it')];
+    expect(html.match(/data-bw-source-labels=/g)).toHaveLength(1);
+    expect(html).not.toMatch(/data-bw-field="source" data-bw-source-labels=/);
+  });
+
+  it('shares the localized source-label map across the leaf status and comparison rows', () => {
+    const html = pages[buildOggiPath('it', 'chiasso-brogeda')];
+    expect(html.match(/data-bw-source-labels=/g)).toHaveLength(1);
+    expect(html).not.toMatch(/data-bw-field="source" data-bw-source-labels=/);
+  });
+
   it('also injects the hydration <script src> on regional hubs', () => {
     const html = pages[buildRegionalHubPath('en', 'ticino-como')];
     expect(html).toBeDefined();

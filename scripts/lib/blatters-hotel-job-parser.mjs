@@ -20,7 +20,7 @@ import { resolveSourceBackedSwissGeography } from './prospector/location-evidenc
 /* ── Constants ─────────────────────────────────────────────── */
 
 export const BLATTERS_HOTEL_KEY = 'blatters-hotel';
-export const BLATTERS_HOTEL_COMPANY_NAME = 'Blatter's Arosa Hotel';
+export const BLATTERS_HOTEL_COMPANY_NAME = "Blatter's Arosa Hotel";
 export const BLATTERS_HOTEL_COMPANY_DOMAIN = 'hotelcareer.ch';
 
 const CAREER_URL = 'https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340';
@@ -53,7 +53,7 @@ export function isBlattersHotelJob(job) {
   return (
     key === BLATTERS_HOTEL_KEY ||
     key.startsWith('blatters-hotel-') ||
-    company.includes('blatter's arosa hotel') ||
+    company.includes("blatter's arosa hotel") ||
     url.includes('hotelcareer.ch')
   );
 }
@@ -172,7 +172,7 @@ export async function fetchAllBlattersHotelJobs() {
       location,
       canton,
       url: publicUrl,
-      source: 'Blatter's Arosa Hotel Dedicated Parser',
+      source: "Blatter's Arosa Hotel Dedicated Parser",
       sourceLang,
       crawledAt: new Date().toISOString(),
 

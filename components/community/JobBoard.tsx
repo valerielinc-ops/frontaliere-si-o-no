@@ -10,6 +10,7 @@ import { lazyRetry } from '@/services/lazyRetry';
 import { resilientImport } from '@/services/resilientImport';
 import { cdnDataUrl } from '@/services/cdnDataBase';
 import { cdnImageUrl } from '@/services/cdnImageBase';
+import { resolveJobApplicationUrl } from '@/services/jobApplicationDestination';
 import { requestJobAlertOpen } from '@/services/jobAlertOpenSignal';
 import { baseCompanySlug, rawCompanySlug } from '@/build-plugins/shared/companyProfileSlug.mjs';
 import { firstParsableDateStr, firstParsableMs } from '@/build-plugins/shared/firstParsableDate';
@@ -723,7 +724,7 @@ const CONTRACT_TO_EMPLOYMENT_TYPE: Record<ContractType, string> = {
 
 /** Append UTM referral parameters to the effective application destination. */
 function buildReferralUrl(job: JobListing): string {
- const raw = job.applyUrl || job.url || '';
+ const raw = resolveJobApplicationUrl(job);
  try {
  const u = new URL(raw);
  u.searchParams.set('utm_source', 'frontaliereticino');
@@ -7141,8 +7142,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // Save account-gating sign-in prompt (#4466 follow-up). Deliberately
  // separate from authGateModalJsx below — that one gates job-detail content
- // unlock (real login OR email-capture OR crawler bypass); saving requires a
- // real account only, no email fallback.
+ // unlock (real login OR email-capture OR crawler bypass); saving still
+ // requires a real account, with the shared prompt handling its access link.
  const saveAuthPromptJsx = saveAuthPromptOpen ? (
  <Suspense fallback={null}>
  <SaveSignInPromptModal locale={locale} onDismiss={handleSaveAuthPromptDismiss} />
@@ -9111,7 +9112,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  const jobFaqPairs: JobFaqPair[] = buildJobPostingFaqPairs(faqSchema, {
  locale,
- jobUrl: String(selectedJob.applyUrl || selectedJob.url || detailPageUrl),
+ jobUrl: resolveJobApplicationUrl(selectedJob, detailPageUrl),
  cantonDisplay: faqCantonDisplay,
  isTicino: faqIsTicino,
  isRemote: faqIsRemote,

@@ -443,7 +443,28 @@ const protectedTokenScrubRe = () =>
 // matcher intentionally narrow: it requires the sentinel's ZQ prefix and a
 // circled/ASCII marker ending in `%`, so ordinary prose containing “ZQ” stays.
 const mangledProtectedTokenScrubRe = () =>
-  new RegExp(`z${TOKEN_SEP}q${TOKEN_SEP}(?:x${TOKEN_SEP})?[①-⑳0-9oOxX][\\s\\S]{0,8}?%`, 'giu');
+  new RegExp(`z${TOKEN_SEP}q${TOKEN_SEP}(?:[①-⑳][\\s\\S]{0,8}?%|x${TOKEN_SEP}[0-9oOxX][\\s\\S]{0,8}?%)`, 'giu');
+
+const PROTECTED_TOKEN_COMPARISON_PLACEHOLDER = '\u0000protected-token\u0000';
+
+/**
+ * Normalize every known protected-token shape to one comparison marker.
+ *
+ * A provider can echo the masked source while changing the sentinel — for
+ * example `ZQX0XQZ` → `ZQ ①000%`. That output is still a passthrough, but the
+ * finalizer must not be the first place that sees the mangled form: it would
+ * scrub the sentinel and publish the source text without the protected token.
+ * Valid sentinels are replaced first so the broad last-resort scrubber cannot
+ * mistake them for mangled debris.
+ */
+export function normalizeProtectedTokenSentinels(text = '') {
+  const input = String(text ?? '');
+  if (!input) return input;
+  return input
+    .replace(protectedTokenRe(), PROTECTED_TOKEN_COMPARISON_PLACEHOLDER)
+    .replace(protectedTokenScrubRe(), PROTECTED_TOKEN_COMPARISON_PLACEHOLDER)
+    .replace(mangledProtectedTokenScrubRe(), PROTECTED_TOKEN_COMPARISON_PLACEHOLDER);
+}
 
 /**
  * Collapse the Swiss German inclusive compound `…frau:mann` to the masculine

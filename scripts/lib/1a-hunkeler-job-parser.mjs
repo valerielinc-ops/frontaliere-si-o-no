@@ -19,9 +19,9 @@ import { resolveSourceBackedSwissGeography } from './prospector/location-evidenc
 
 /* ── Constants ─────────────────────────────────────────────── */
 
-export const 1A_HUNKELER_KEY = '1a-hunkeler';
-export const 1A_HUNKELER_COMPANY_NAME = '1a-hunkeler';
-export const 1A_HUNKELER_COMPANY_DOMAIN = '1a-hunkeler.ch';
+export const A1_HUNKELER_KEY = '1a-hunkeler';
+export const A1_HUNKELER_COMPANY_NAME = '1a-hunkeler';
+export const A1_HUNKELER_COMPANY_DOMAIN = '1a-hunkeler.ch';
 
 const CAREER_URL = 'https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur';
 
@@ -51,7 +51,7 @@ export function isC1aHunkelerJob(job) {
   const url = normalize(job?.url || '');
 
   return (
-    key === 1A_HUNKELER_KEY ||
+    key === A1_HUNKELER_KEY ||
     key.startsWith('1a-hunkeler-') ||
     company.includes('1a-hunkeler') ||
     url.includes('1a-hunkeler.ch')
@@ -109,7 +109,7 @@ function detectEmploymentType(text = '') {
  * template degli URL di dettaglio, appresi dalla pagina reale.
  */
 async function fetchJobListings() {
-  const spec = loadSpec(1A_HUNKELER_KEY);
+  const spec = loadSpec(A1_HUNKELER_KEY);
   return runSpecInProduction(spec);
 }
 
@@ -162,9 +162,9 @@ export async function fetchAllC1aHunkelerJobs() {
       id: `1a-hunkeler-${urlHash}`,
       slug: jobSlug,
       slugByLocale: { [sourceLang]: jobSlug },
-      company: 1A_HUNKELER_COMPANY_NAME,
-      companyKey: 1A_HUNKELER_KEY,
-      companyDomain: 1A_HUNKELER_COMPANY_DOMAIN,
+      company: A1_HUNKELER_COMPANY_NAME,
+      companyKey: A1_HUNKELER_KEY,
+      companyDomain: A1_HUNKELER_COMPANY_DOMAIN,
       title,
       titleByLocale: { [sourceLang]: title },
       description: descriptionText,

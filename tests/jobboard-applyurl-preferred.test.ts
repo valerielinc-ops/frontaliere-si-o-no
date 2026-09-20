@@ -23,7 +23,7 @@ describe('JobBoard apply URL preference', () => {
     expect(plugin).toContain('applyUrl: job.applyUrl,');
     expect(plugin).toContain('referralUrl(job.applyUrl || job.url || canonicalUrl, job)');
     expect(context).toContain('readonly applyUrl?: string;');
-    expect(mobileBlock).toContain('referralUrl(job.applyUrl || job.url || canonicalUrl, job)');
+    expect(mobileBlock).toContain('resolveJobApplicationUrl(job, canonicalUrl)');
     expect(plugin).not.toContain('const referralUrl = (raw: string, job: any): string =>');
   });
 });

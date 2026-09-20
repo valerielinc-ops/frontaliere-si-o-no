@@ -49,6 +49,12 @@ describe('trigger — parte solo su un rosso vero, di una PR vera', () => {
     expect(trigger).not.toMatch(/^    branches:/mu);
   });
 
+  it('pagine tutte le PR aperte prima di cercare la head del workflow run', () => {
+    const discovery = src.slice(src.indexOf('PR=$(gh api'));
+    expect(discovery).toContain('--paginate');
+    expect(discovery).toContain('--slurp');
+  });
+
   it('NON si restringe a `pull_request`: le head rebasate arrivano da dispatch', () => {
     // `pr-autorebase.yml` ri-testa una head rebasata con un `workflow_dispatch`
     // di `tests`, perché un push con PAT non ri-triggera affidabilmente i
