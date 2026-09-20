@@ -75,6 +75,34 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 8
     steps:
+      # Pin the runner-owned GitHub CLI before checkout so every API read and
+      # rescue mutation below uses the attested absolute executable.
+      - name: Resolve trusted GitHub CLI (before checkout)
+        id: trusted_gh
+        run: |
+          set -euo pipefail
+          gh_bin="$(command -v gh || true)"
+          if [ -z "$gh_bin" ] || [[ "$gh_bin" != /* ]] || [ ! -x "$gh_bin" ]; then
+            echo "::error::GitHub CLI path non assoluto o non eseguibile: ${gh_bin:-missing}"
+            exit 1
+          fi
+          gh_bin="$(realpath "$gh_bin")"
+          case "$gh_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::GitHub CLI risolve in un path controllabile dal runner: $gh_bin"
+              exit 1
+              ;;
+          esac
+          probe="$gh_bin"
+          while [ "$probe" != "/" ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::GitHub CLI o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+
       # `secrets.GITHUB_TOKEN` è deliberatamente un fallback soltanto: un evento
       # GitHub scritto da quell'identità non avvia un altro workflow. Il minter è
       # zero-dep e viene preso in sparse checkout per mantenere questo rescuer
@@ -108,6 +136,7 @@ jobs:
       - name: Scan open PRs and flag stalled ones
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           REPO: ${{ github.repository }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: |
@@ -122,7 +151,7 @@ jobs:
           # quelle che questo rescuer deve recuperare. Se una pagina API non
           # è leggibile, il job fallisce e il cron ritenta: non si dichiara
           # verde lasciando una PR invisibile.
-          if ! prs=$(gh api --paginate "repos/$REPO/pulls?state=open&per_page=100" \
+          if ! prs=$("$TRUSTED_GH_BIN" api --paginate "repos/$REPO/pulls?state=open&per_page=100" \
             --jq '.[] | {number, headRefName: .head.ref, headRefOid: .head.sha, updatedAt: .updated_at, labels: [.labels[] | {name}], isDraft: .draft}' \
             | jq -s '.'); then
             echo "::error::Query PR aperte fallita o non valida: scan stale non eseguito." >&2
@@ -175,7 +204,7 @@ jobs:
             # `updated_at` resta il ripiego quando la data del commit non è
             # leggibile: è sempre >= la data del push, quindi al massimo
             # ritarda un intervento, non ne anticipa uno.
-            PUSHED_AT=$(gh api "repos/$REPO/commits/$HEAD" --jq '.commit.committer.date' 2>/dev/null || true)
+            PUSHED_AT=$("$TRUSTED_GH_BIN" api "repos/$REPO/commits/$HEAD" --jq '.commit.committer.date' 2>/dev/null || true)
             IDLE_SINCE="${PUSHED_AT:-$UPD}"
             UPD_S=$(date -u -d "$IDLE_SINCE" +%s 2>/dev/null || echo "$NOW")
             if [ $((NOW - UPD_S)) -lt $AGE_MIN_S ]; then echo "PR #$N con push recente (<2h) — skip"; continue; fi
@@ -193,7 +222,7 @@ jobs:
             # Segnale affidabile invece: il check-run di `tests.yml` (trigger
             # `pull_request`, quindi SI attacca correttamente all'head reale della
             # PR) + la review API (il suo `commit_id` è anch'esso corretto).
-            checks=$(gh api "repos/$REPO/commits/$HEAD/check-runs" 2>/dev/null || echo '{}')
+            checks=$("$TRUSTED_GH_BIN" api "repos/$REPO/commits/$HEAD/check-runs" 2>/dev/null || echo '{}')
             # Selezione allineata a `latestCompletedVitestConclusion`
             # (scripts/ci/lib/vitestCheck.mjs): ULTIMO check-run COMPLETATO con
             # verdetto per `completed_at`, non `last` per ordine API. Un job
@@ -208,7 +237,7 @@ jobs:
             TESTS_PENDING=$(echo "$checks" | jq -r '[.check_runs[] | select((.name=="vitest (unit + integration)" or .name=="vitest execution") and .status!="completed")] | length')
 
             # Ultima review del bot reviewer (claude) + commit a cui si riferisce.
-            reviews=$(gh api "repos/$REPO/pulls/$N/reviews" 2>/dev/null || echo '[]')
+            reviews=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$N/reviews" 2>/dev/null || echo '[]')
 
             # Fencing sulla REVISIONE del body, non solo su `commit_id`. Una
             # modifica del body non cambia la HEAD: senza questo confronto un
@@ -219,7 +248,7 @@ jobs:
             # stesso job.
             PR_JSON="${RUNNER_TEMP:-/tmp}/rescuer-pr-$N.json"
             CUR_REV=""
-            if gh api "repos/$REPO/pulls/$N" > "$PR_JSON" 2>/dev/null; then
+            if "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$N" > "$PR_JSON" 2>/dev/null; then
               CUR_REV=$(node scripts/ci/lib/review-input-revision.mjs hash-pr-json --file "$PR_JSON" 2>/dev/null || true)
             fi
             # Una review SENZA marker resta ammessa: il reviewer di questo repo
@@ -320,14 +349,14 @@ jobs:
             # non è più un semaforo che nasconde la PR al giro successivo.
             # La chiave (classe, head) permette di riprovare uno stallo quando
             # cambia il commit o la diagnosi, senza commentare a ogni cron.
-            posted=$(gh api --paginate "repos/$REPO/issues/$N/comments?per_page=100" 2>/dev/null || echo '[]')
+            posted=$("$TRUSTED_GH_BIN" api --paginate "repos/$REPO/issues/$N/comments?per_page=100" 2>/dev/null || echo '[]')
             POSTED_BODIES=$(echo "$posted" | jq -rs '[.[][]? | .body // ""] | join("\n")' 2>/dev/null || echo "")
             MARKER="<!-- stale-pr-rescuer class=$CLASS head=${HEAD:0:7} -->"
             case "$POSTED_BODIES" in
               *"$MARKER"*) echo "PR #$N: classe $CLASS su ${HEAD:0:7} già segnalata — nessuna azione"; continue ;;
             esac
 
-            gh pr edit "$N" --repo "$REPO" --add-label "stale-review" 2>/dev/null || \
+            "$TRUSTED_GH_BIN" pr edit "$N" --repo "$REPO" --add-label "stale-review" 2>/dev/null || \
               echo "label stale-review assente nel repo — creala una volta: gh label create stale-review"
             # Rerun the existing pull_request run: labels are metadata and do
             # not start tests.yml. Keeping its event preserves PR review context.
@@ -340,7 +369,7 @@ jobs:
               | (try (capture("/actions/runs/(?<id>[0-9]+)").id) catch "")')
             ACTION_OK=true
             if [ -n "$RESCUE_RUN" ]; then
-              gh run rerun "$RESCUE_RUN" --repo "$REPO" || {
+              "$TRUSTED_GH_BIN" run rerun "$RESCUE_RUN" --repo "$REPO" || {
                 ACTION_OK=false
                 echo "::warning::Cannot rerun code checks for PR #$N."
               }
@@ -350,7 +379,7 @@ jobs:
             fi
             COMMENT_MARKER=""
             if [ "$ACTION_OK" = "true" ]; then COMMENT_MARKER="$MARKER"; fi
-            gh pr comment "$N" --repo "$REPO" --body "$(printf '🔧 **stale-review** (auto): PR ferma >2h.\n\nClasse: %s\n\nRescue: %s\n\n_Segnale deterministico da stale-pr-rescuer.yml (zero-Claude). Auto-rescue con push = follow-up (serve PAT scope workflows)._\n%s' "$REASON" "$RESCUE" "$COMMENT_MARKER")" \
+            "$TRUSTED_GH_BIN" pr comment "$N" --repo "$REPO" --body "$(printf '🔧 **stale-review** (auto): PR ferma >2h.\n\nClasse: %s\n\nRescue: %s\n\n_Segnale deterministico da stale-pr-rescuer.yml (zero-Claude). Auto-rescue con push = follow-up (serve PAT scope workflows)._\n%s' "$REASON" "$RESCUE" "$COMMENT_MARKER")" \
               2>/dev/null || echo "comment fallito PR #$N"
           done
           echo "Scan completo."
@@ -364,6 +393,7 @@ jobs:
       - name: Orphan PR custodian
         env:
           GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           REPO: ${{ github.repository }}
           DRY_RUN: ${{ github.event.inputs.dry_run }}
         run: node scripts/ci/orphan-pr-custodian.mjs

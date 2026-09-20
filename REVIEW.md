@@ -178,6 +178,56 @@ Behavior claims richiedono `file:linea`. No speculazione. Incerto → `❓ q:`.
 
 **Escalation ❓ funnel-critical → 🔴.** Un `❓ q` resta `❓` solo se l'impatto è non-funnel o cosmetico. Se il dubbio impatta monetizzazione/traffico (gate writeJson/persistenza su dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense placement, indicizzabilità) → NON lasciarlo accanto a un `## LGTM`: promuovilo a 🔴 Important (blocca auto-merge) **oppure** apri una follow-up issue e linkala nel finding. "Pre-existing / out of scope" non cancella un bug funnel-critical.
 
+## Identità di un finding
+
+Ogni 🔴 ha un **id stabile** `(path, simbolo, classe)` calcolato da
+`scripts/ci/lib/review-findings.mjs` → `stableFindingId()`. L'id **non contiene
+il numero di riga**: un rebase, un merge di main o un fix altrove nel file
+spostano l'anchor `path:Lline` ma non l'identità del rilievo.
+
+- `path` — primo path citato dal finding (`PR body` per un rilievo sul body).
+- `simbolo` — primo identificatore in backtick che non è un path
+  (`parseFoo()`, `NONCODE_RE`); se manca, la prosa del problema normalizzata.
+- `classe` — dichiarata fra parentesi quadre **subito dopo il marker**:
+  `🔴 Important: [regression] <problema>`. Valori ammessi: `regression`, `correctness`,
+  `contract`, `funnel`, `process`, `other` (default). Una classe inventata vale
+  `other`.
+
+Il bundle della review porta la sezione `## Findings ledger (id stabile +
+stato)`: ogni voce è `open` o `confirmed-fixed`. **Riporta un `open` con lo
+stesso id e lo stesso testo; non rialzare un `confirmed-fixed`.**
+
+### 🔴 nuovi su righe non cambiate
+
+Un 🔴 **nuovo** (id mai visto prima) ancorato **solo** a righe che nessuno ha
+toccato dall'ultima review descrive codice già giudicato: o valeva anche allora,
+o non vale adesso. Il review gate lo declassa e lo logga
+`DECLASSIFIED-UNCHANGED-LINE`. Misura del 19-09 su 220 review: 7 casi
+`## LGTM` → 🔴 senza nessun cambio di codice in mezzo (#9238: LGTM alle 12:35,
+poi un solo merge di main, poi 2 Important nuovi).
+
+Due sole vie per tenerlo bloccante, entrambe legittime:
+
+- **è una regressione** introdotta dopo la review precedente → scrivi
+  `🔴 Important: [regression] <problema>`: la classe è l'eccezione esplicita e passa;
+- **non ha un anchor di riga** (finding senza `:L`) → non si può dimostrare che
+  la riga non è cambiata, quindi resta bloccante.
+
+La regola non tocca i finding già aperti (vanno riportati), non si applica alla
+prima review, e non si applica quando il delta fra le due review non è
+calcolabile: su un dato mancante il finding si tiene.
+
+## Igiene del body della review
+
+Il body è il verdetto: un body malformato **viene scartato**, non interpretato
+(`reviewBodyDefects()`; il gate esce `body della review malformato`). Le due
+forme misurate il 19-09 (9 review su 220):
+
+- `\n` **letterali** al posto degli a capo — emetti testo, non la stringa
+  serializzata di un JSON;
+- `Fix di : ok` / `` Fix di ``: ok `` con l'anchor **vuoto** — una conferma senza
+  bersaglio non chiude niente. Scrivi sempre `` Fix di `path:L<linea>`: ok. ``.
+
 ## Re-review convergence
 
 Dopo prima review:

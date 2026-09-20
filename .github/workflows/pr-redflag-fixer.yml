@@ -71,10 +71,41 @@ jobs:
     outputs:
       actionable: ${{ steps.pre.outputs.actionable }}
     steps:
+      # The preflight itself reads PR metadata and must not resolve `gh` from a
+      # PATH that a later checkout/npm step could influence. Resolve and pin the
+      # runner-owned binary before the first API call, then pass that absolute
+      # path into the guard below.
+      - name: Resolve trusted GitHub CLI (before preflight)
+        id: trusted_gh
+        run: |
+          set -euo pipefail
+          gh_bin="$(command -v gh || true)"
+          if [ -z "$gh_bin" ] || [[ "$gh_bin" != /* ]] || [ ! -x "$gh_bin" ]; then
+            echo "::error::GitHub CLI path non assoluto o non eseguibile: ${gh_bin:-missing}"
+            exit 1
+          fi
+          gh_bin="$(realpath "$gh_bin")"
+          case "$gh_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::GitHub CLI risolve in un path controllabile dal runner: $gh_bin"
+              exit 1
+              ;;
+          esac
+          probe="$gh_bin"
+          while [ "$probe" != "/" ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::GitHub CLI o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+
       - name: PR still actionable?
         id: pre
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
@@ -130,7 +161,7 @@ jobs:
           # locali/aggregati che usano un altro branch. Una PR umana non opt-in
           # resta fuori scope: il prefisso/label è consenso esplicito, non
           # un'inferenza dal solo nome dell'account.
-          PR_AUTOFIX=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json labels \
+          PR_AUTOFIX=$("$TRUSTED_GH_BIN" pr view "$PR_NUMBER" --repo "$REPO" --json labels \
             --jq 'if any(.labels[]?.name; . == "agent:autofix") then "true" else "false" end' \
             2>/dev/null || echo false)
           autonomous=false
@@ -144,20 +175,20 @@ jobs:
           esac
           if [ "$autonomous" != "true" ]; then
             echo "PR autore umano, branch non riservato e senza label agent:autofix → fuori scope autonomo (per design) → skip 🔴-fix."
-            already=$(gh api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            already=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
               --jq '[.[] | select(.body | contains("REDFLAG_OUT_OF_SCOPE"))] | length' 2>/dev/null || echo 0)
             if [ "${already:-0}" = "0" ]; then
-              gh pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_OUT_OF_SCOPE -->\nℹ️ 🔴-fixer: la review più recente contiene un finding \x60🔴 Important\x60, ma questa PR è fuori dallo scope autonomo (autore umano, branch non \x60fix/*\x60/\x60automerge-*\x60, senza \x60agent:autofix\x60) — nessun fix automatico verrà tentato (per design). Se il finding resta aperto senza un commit nuovo, serve intervento manuale o il label esplicito.')" \
+              "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_OUT_OF_SCOPE -->\nℹ️ 🔴-fixer: la review più recente contiene un finding \x60🔴 Important\x60, ma questa PR è fuori dallo scope autonomo (autore umano, branch non \x60fix/*\x60/\x60automerge-*\x60, senza \x60agent:autofix\x60) — nessun fix automatico verrà tentato (per design). Se il finding resta aperto senza un commit nuovo, serve intervento manuale o il label esplicito.')" \
                 2>/dev/null || true
             fi
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
           fi
-          state=$(gh pr view "$PR_NUMBER" --repo "$REPO" --json state --jq '.state' 2>/dev/null || echo UNKNOWN)
+          state=$("$TRUSTED_GH_BIN" pr view "$PR_NUMBER" --repo "$REPO" --json state --jq '.state' 2>/dev/null || echo UNKNOWN)
           if [ "$state" != "OPEN" ]; then
             echo "PR #$PR_NUMBER non più OPEN (state=$state) → già risolta, skip 🔴-fix (no-op)."
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
           fi
-          if ! gh api "repos/$REPO/branches/$HEAD_REF" --jq '.name' >/dev/null 2>&1; then
+          if ! "$TRUSTED_GH_BIN" api "repos/$REPO/branches/$HEAD_REF" --jq '.name' >/dev/null 2>&1; then
             echo "Branch '$HEAD_REF' sparito (PR risolta + delete_branch_on_merge) → skip 🔴-fix (no-op)."
             echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
           fi
@@ -417,19 +448,27 @@ jobs:
         id: trusted_policy
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: main
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/redflag-trusted-policy-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
           download_main() {
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
@@ -529,19 +568,27 @@ jobs:
         if: steps.admission.outputs.actionable == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: main
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/redflag-trusted-policy-final-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
           download_main() {
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
@@ -960,18 +1007,26 @@ jobs:
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: main
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/redflag-trusted-policy-claim-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
           download_main() {
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \
@@ -1174,19 +1229,27 @@ jobs:
         if: always() && steps.claim.outputs.claim_acquired == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          POLICY_REF: ${{ github.event.pull_request.base.sha }}
+          POLICY_REF: main
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
         run: |
           set -euo pipefail
           policy_root="${RUNNER_TEMP}/redflag-trusted-policy-post-${GITHUB_RUN_ID}"
           rm -rf "$policy_root"
           mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
           download_main() {
             local path="$1"
             local destination="$policy_root/$path"
             mkdir -p "$(dirname "$destination")"
-            "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
-              --header 'Accept: application/vnd.github.raw+json' > "$destination"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
           }
           for trusted_path in \
             scripts/ci/pr-fixer-claim.mjs \

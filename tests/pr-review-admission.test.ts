@@ -450,6 +450,7 @@ describe('workflow wiring for one review per HEAD', () => {
   const testsYml = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
   const fixerYml = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
   const redcheckYml = readFileSync(new URL('../.github/workflows/pr-redcheck-fixer.yml', import.meta.url), 'utf8');
+  const staleRescuerYml = readFileSync(new URL('../.github/workflows/stale-pr-rescuer.yml', import.meta.url), 'utf8');
   const bodyRecoveryYml = readFileSync(new URL('../.github/workflows/retry-code-check-after-body-edit.yml', import.meta.url), 'utf8');
   const reviewGateSource = readFileSync(new URL('../scripts/ci/review-gate.mjs', import.meta.url), 'utf8');
   const trustedPolicySources = [
@@ -496,6 +497,30 @@ describe('workflow wiring for one review per HEAD', () => {
     expect(fixerYml).toContain('Admit only the first terminal');
     expect(fixerYml).not.toMatch(/git commit --allow-empty/);
     expect(fixerYml).toMatch(/Niente commit vuoto|non pushare un commit vuoto/i);
+  });
+
+  it('attesta il CLI anche prima del preflight e nel watcher di superseded HEAD', () => {
+    const preflightStart = fixerYml.indexOf('steps:\n      # The preflight itself');
+    const preflightEnd = fixerYml.indexOf('\n  # Lo scope viene deciso prima', preflightStart);
+    expect(preflightStart).toBeGreaterThanOrEqual(0);
+    expect(preflightEnd).toBeGreaterThan(preflightStart);
+    const preflight = fixerYml.slice(preflightStart, preflightEnd);
+    expect(preflight).toContain('Resolve trusted GitHub CLI (before preflight)');
+    expect(preflight).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    expect(preflight).not.toMatch(/^\s+gh (?:api|pr|run)\s/m);
+
+    const watcherStart = testsYml.indexOf('- name: Start superseded-head watcher');
+    const watcherEnd = testsYml.indexOf('\n      # `git checkout` scrive', watcherStart);
+    expect(watcherStart).toBeGreaterThanOrEqual(0);
+    expect(watcherEnd).toBeGreaterThan(watcherStart);
+    const watcher = testsYml.slice(watcherStart, watcherEnd);
+    expect(watcher).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    expect(watcher).toContain('"$TRUSTED_GH_BIN" api -X POST');
+    expect(watcher).not.toMatch(/^\s+gh (?:api|pr|run)\s/m);
+
+    expect(staleRescuerYml).toContain('Resolve trusted GitHub CLI (before checkout)');
+    expect(staleRescuerYml).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    expect(staleRescuerYml).not.toMatch(/^\s+gh (?:api|pr|run)\s/m);
   });
 
   it('binds every post-checkout review publisher to the attested GitHub CLI', () => {
