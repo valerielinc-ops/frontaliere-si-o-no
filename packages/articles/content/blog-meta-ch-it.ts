@@ -6614,6 +6614,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.referendum-nuove-centrali-nucleari.title': 'Referendum riuscito: 125\'000 firme contro nuove centrali',
     'blog.article.referendum-nuove-centrali-nucleari.excerpt': 'Il comitato ha raccolto oltre 125\'000 firme in 3 mesi. Il voto è previsto per il 28 febbraio 2027.',
     'blog.article.referendum-nuove-centrali-nucleari.imageAlt': 'Centrali nucleari e vista sul Lago di Lugano: il referendum contro le nuove costruzioni è riuscito',
+    'blog.article.migros-fusione-cooperative-2035.title': 'Migros valuta fusione delle 10 cooperative',
+    'blog.article.migros-fusione-cooperative-2035.excerpt': 'CEO Irminger valuta un\'unica cooperativa nazionale. 2,3 milioni di soci potenzialmente coinvolti, decisione in corso.',
+    'blog.article.migros-fusione-cooperative-2035.imageAlt': 'Vista dell\'edificio del Palazzo Federale a Berna, sede delle istituzioni svizzere, al crepuscolo.',
 };
 
 export default blogMetaChIt;

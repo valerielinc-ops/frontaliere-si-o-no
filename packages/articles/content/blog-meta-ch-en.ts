@@ -6614,6 +6614,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.referendum-nuove-centrali-nucleari.title': 'Successful referendum: 125,000 signatures against new plants',
     'blog.article.referendum-nuove-centrali-nucleari.excerpt': 'The committee collected over 125,000 signatures in 3 months. The vote is scheduled for February 28, 2027.',
     'blog.article.referendum-nuove-centrali-nucleari.imageAlt': 'Nuclear power plants and view of Lake Lugano: referendum against new constructions succeeded',
+    'blog.article.migros-fusione-cooperative-2035.title': 'Migros evaluates merger of the 10 cooperatives',
+    'blog.article.migros-fusione-cooperative-2035.excerpt': 'CEO Irminger evaluates a single national cooperative. 2.3 million members potentially involved, decision in progress.',
+    'blog.article.migros-fusione-cooperative-2035.imageAlt': 'View of the Federal Palace in Bern, headquarters of Swiss institutions, at dusk.',
 };
 
 export default blogMetaChEn;
