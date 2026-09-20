@@ -63,6 +63,7 @@ import {
   resolveCoopCantonCode,
 } from './lib/coop-job-parser.mjs';
 import { detectLanguage } from './lib/detect-language.mjs';
+import { holdSourceLang } from './lib/job-locale-utils.mjs';
 import { assertJsonListShape } from './lib/assert-json-list-shape.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -921,8 +922,10 @@ async function postProcessCoopJobs() {
 
           const fullDesc = lines.join('\n');
           job.description = fullDesc;
-          // Detect source language and assign to the correct locale (FRO-309)
+          // Detect source language and keep an existing source locale when the
+          // fresh detection is too weak to justify a flip (FRO-309/#8065).
           const descLang = detectLang(fullDesc);
+          const sourceLang = holdSourceLang(job, fullDesc, descLang);
           // Issue #3453: this used to reset the WHOLE descriptionByLocale map
           // to `{ [descLang]: fullDesc }` whenever the rebuilt text differed
           // from the previously stored description by >100 chars — a bound
@@ -937,13 +940,13 @@ async function postProcessCoopJobs() {
           // destroyed up front to achieve that.
           job.descriptionByLocale = mergeLocaleTextMap(
             job.descriptionByLocale || {},
-            { [descLang]: fullDesc },
+            { [sourceLang]: fullDesc },
             30,
-            descLang,
+            sourceLang,
           );
-          // Update sourceLang to match detected language (FRO-309)
-          if (descLang !== 'it') {
-            job.sourceLang = descLang;
+          // Update sourceLang only when the shared hold permits the change.
+          if (sourceLang !== 'it') {
+            job.sourceLang = sourceLang;
           }
           // Post-process runs AFTER the localization step, so a freshly fetched
           // German/French description leaves descriptionByLocale.it empty. The
@@ -963,7 +966,7 @@ async function postProcessCoopJobs() {
           // description actually changed from the previous crawl, so a
           // rewritten live posting still reaches the translation pipeline.
           const sourceContentChanged = normalizeSpace(priorDescriptionText) !== normalizeSpace(fullDesc);
-          if ((!wasFullyLocalized || sourceContentChanged) && (descLang !== 'it' || !String(job.descriptionByLocale?.it || '').trim())) {
+          if ((!wasFullyLocalized || sourceContentChanged) && (sourceLang !== 'it' || !String(job.descriptionByLocale?.it || '').trim())) {
             job.needsRetranslation = true;
           }
           changed = true;
