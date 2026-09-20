@@ -72,6 +72,7 @@ jobs:
             /*
             !/public/images/
             !/data/seo-404-compat/
+            !/data/translation-cache/
             !/packages/articles/content/
             !/docs/
             !/public/data/
@@ -99,6 +100,7 @@ jobs:
             /*
             !/public/images/
             !/data/seo-404-compat/
+            !/data/translation-cache/
             !/packages/articles/content/
             !/docs/
             !/public/data/
@@ -144,6 +146,26 @@ jobs:
           cache: npm
       - name: Install dependencies
         run: bash scripts/ci/crawler-retry-cmd.sh npm ci
+      - name: Restore per-company translation cache
+        id: translation_cache_restore
+        uses: actions/cache/restore@v5
+        with:
+          path: data/translation-cache
+          key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: translation-cache-v1-translate-pending-
+      - name: Prepare per-company translation cache
+        if: always() && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        env:
+          TRANSLATION_CACHE_MATCHED_KEY: ${{ steps.translation_cache_restore.outputs.cache-matched-key }}
+        run: |
+          mkdir -p data/translation-cache
+          if [ -n "$TRANSLATION_CACHE_MATCHED_KEY" ]; then
+            echo "✅ Per-company translation cache restored: $TRANSLATION_CACHE_MATCHED_KEY"
+            echo "translation-cache: hit ($TRANSLATION_CACHE_MATCHED_KEY)" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "ℹ️ Per-company translation cache miss; translations will repopulate it."
+            echo "translation-cache: miss" >> "$GITHUB_STEP_SUMMARY"
+          fi
       - name: Cache Opus-MT models
         uses: actions/cache@v5
         with:
@@ -372,7 +394,7 @@ jobs:
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: |
           before="$(git rev-parse HEAD)"
-          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json data/cascade-company-skip.json
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json data/cascade-company-skip.json
           after="$(git rev-parse HEAD)"
           if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
@@ -525,6 +547,13 @@ jobs:
       - name: Commit slug regeneration
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
+      - name: Save per-company translation cache
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: data/translation-cache
+          key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Trigger deploy
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: |

@@ -68,6 +68,10 @@ data/seo-health/latest.json
 # lo stato che sopravvive fra due deploy vive nel commento dell'issue canonica.
 data/profession-canton-coverage-gaps.json
 
+# Per-company translation cache: reconstructed from the Actions cache; never
+# commit the runtime-only files back into this repository.
+data/translation-cache/
+
 # Aggregated data files — assembled at build/deploy time from per-crawler slices
 # (like dist/, these are generated artifacts, not source of truth)
 data/jobs.json
