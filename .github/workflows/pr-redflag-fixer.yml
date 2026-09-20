@@ -134,7 +134,12 @@ jobs:
           # exit 1 dimostra che `grep -P` ha compilato anche il verbo `(*UTF)`. Qualsiasi
           # altro stato (opzione assente, verbo rifiutato o match inatteso) è un errore
           # del guard, non «nessun finding».
-          if printf '%s' '' | grep -qP '(*UTF)a'; then
+          # Redirezione da /dev/null, non `printf | grep -q`: con `pipefail` lo
+          # stato della pipeline puo' venire dal SIGPIPE di printf invece che da
+          # grep, e il preflight leggerebbe un exit != 1 come «grep -P rotto»,
+          # uscendo 1 su un runner sano. `< /dev/null` e' lo stesso input vuoto
+          # senza pipeline.
+          if grep -qP '(*UTF)a' < /dev/null; then
             echo "::error::grep -P preflight inatteso: il pattern (*UTF)a ha matchato input vuoto."
             exit 1
           else
@@ -651,7 +656,10 @@ jobs:
             exit 1
           fi
           review_revision=$(node "$TRUSTED_POLICY_ROOT/scripts/ci/lib/review-input-revision.mjs" hash-pr-json --file "$pr_file")
-          printf '%s\n' "$review_revision" | grep -qE '^body:[0-9a-f]{64}$' || {
+          # Here-string, non `printf | grep -q`: con `pipefail` il SIGPIPE di
+          # printf quando grep -q esce al primo match rende falso il guard e
+          # blocca il 🔴-fix su una revision valida (stessa trappola di #9283).
+          grep -qE '^body:[0-9a-f]{64}$' <<<"$review_revision" || {
             echo "::error::PR body non verificabile → review input unavailable, nessun Codex."
             exit 1
           }
