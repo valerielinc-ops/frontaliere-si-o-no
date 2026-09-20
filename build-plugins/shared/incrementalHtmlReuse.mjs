@@ -63,6 +63,12 @@ export const JOBS_SEO_REUSE_BLOCKS = Object.freeze([
   'cross-locale-reconciliation',
 ]);
 
+// Both budgets are per (locale, block), not per build. They used to be global,
+// and in deploy 35507082715 the `active` block — verified first — spent all 20
+// console slots and all 20 diagnostics of the `it` locale on its own 244
+// mismatches, leaving the 14 mismatches of the other three blocks with no
+// evidence at all: their summary counted them, nothing said what differed.
+// A noisy block must not silence the quiet ones.
 const MAX_MISMATCH_LOGS = 20;
 const MAX_VERIFY_DIAGNOSTICS = 20;
 const MISMATCH_CONTEXT_RADIUS = 60;
@@ -1303,9 +1309,23 @@ export class JobsSeoHtmlReuse {
     this.mode = verify ? (verifySample < 1 ? 'verify-sample' : 'verify-render') : 'reuse';
     this.emitterFingerprints = emitterFingerprints;
     this.stats = new Map(JOBS_SEO_REUSE_BLOCKS.map((block) => [block, newBlockStats()]));
-    this.mismatchLogCount = 0;
+    this.mismatchLogCounts = new Map();
+    this.diagnosticCounts = new Map();
     this.diagnosticsByLocale = new Map();
     this.packStores = new Map();
+  }
+
+  /**
+   * Claim one slot of a per (locale, block) budget. Returns false once that
+   * pair has used its quota, so a block with thousands of mismatches cannot
+   * consume the evidence budget of a block with five.
+   */
+  claimBudget(counts, locale, block, max) {
+    const key = `${locale}\0${block}`;
+    const used = counts.get(key) || 0;
+    if (used >= max) return false;
+    counts.set(key, used + 1);
+    return true;
   }
 
   packStore(locale, block) {
@@ -1516,8 +1536,7 @@ export class JobsSeoHtmlReuse {
       state.differing += 1;
       const mismatchReason = classifyHtmlReuseMismatch(candidate.html, renderedHtml);
       const diagnostic = diagnoseHtmlReuseMismatch(candidate.html, renderedHtml, mismatchReason);
-      if (this.mismatchLogCount < MAX_MISMATCH_LOGS) {
-        this.mismatchLogCount += 1;
+      if (this.claimBudget(this.mismatchLogCounts, candidate.locale, candidate.block, MAX_MISMATCH_LOGS)) {
         console.warn(
           `[jobs-seo-reuse-probe] differing block=${candidate.block} locale=${candidate.locale}`
           + ` path=${candidate.path} reason=${mismatchReason} stratum=${JSON.stringify(stratum)}`
@@ -1667,7 +1686,7 @@ export class JobsSeoHtmlReuse {
         (stats.mismatchReasons.get(mismatchReason) || 0) + 1,
       );
       const localeDiagnostics = this.diagnosticsByLocale.get(candidate.locale) || [];
-      if (localeDiagnostics.length < MAX_VERIFY_DIAGNOSTICS) {
+      if (this.claimBudget(this.diagnosticCounts, candidate.locale, candidate.block, MAX_VERIFY_DIAGNOSTICS)) {
         localeDiagnostics.push({
           block: candidate.block,
           locale: candidate.locale,
@@ -1677,8 +1696,7 @@ export class JobsSeoHtmlReuse {
         });
         this.diagnosticsByLocale.set(candidate.locale, localeDiagnostics);
       }
-      if (this.mismatchLogCount < MAX_MISMATCH_LOGS) {
-        this.mismatchLogCount += 1;
+      if (this.claimBudget(this.mismatchLogCounts, candidate.locale, candidate.block, MAX_MISMATCH_LOGS)) {
         console.warn(
           `[jobs-seo-reuse] verify=mismatch block=${candidate.block} locale=${candidate.locale}`
           + ` path=${candidate.path} reason=${mismatchReason}`

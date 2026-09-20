@@ -165,7 +165,7 @@ describe('incremental manifest input contract', () => {
   });
 
   it('bumps the digest contract when the reuse input shape changes', () => {
-    expect(JOB_DIGEST_ALGORITHM_VERSION).toBe('job-digest@6');
+    expect(JOB_DIGEST_ALGORITHM_VERSION).toBe('job-digest@7');
   });
 
   it('changes the cross-locale hash when the rendered datePosted changes', () => {

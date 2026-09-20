@@ -8,6 +8,7 @@ import { performance } from 'node:perf_hooks';
 process.env.INCREMENTAL_MANIFEST = '1';
 
 const {
+  buildActiveJobPageInput,
   buildMinimalJobInput,
   computeInputHash,
   getIncrementalManifestInputCache,
@@ -23,6 +24,10 @@ const ESTIMATE_RELATED_COUNT = 30;
 const TARGET_MS_PER_PAGE = 0.5;
 const MAX_FIXED_MS_PER_PAGE = 0.35;
 const BENCHMARK_LOCALE = 'it';
+// Stand-in for the rendered recent-articles block the active template embeds.
+const BENCHMARK_RELATED_ARTICLES_HTML = '<section class="related s-Duf2at"><ul class="s-QkRjp8">'
+  + '<li class="s-86Qi7h"><a class="s-KkZ9xy" href="/articoli-frontaliere/bench-article/">Bench article</a></li>'
+  + '</ul></section>';
 const jsonOutput = process.argv.includes('--json');
 const noAssert = process.argv.includes('--no-assert');
 
@@ -197,18 +202,20 @@ function runCompactBridgeScenario(sourceJob, selectedRelatedJobs) {
   const manifest = getIncrementalManifestMap(rootDir, [BENCHMARK_LOCALE]).get(BENCHMARK_LOCALE);
   const inputCache = getIncrementalManifestInputCache(rootDir);
   const startedAt = performance.now();
-  const activeInput = {
-    ...buildMinimalJobInput(
-      sourceJob,
-      BENCHMARK_LOCALE,
-      sourceJob.slug,
-      selectedRelatedJobs,
-      inputCache,
-      sourceJob,
-    ),
+  // Same assembler the emitter uses: a second literal copy of the active-page
+  // shape here would drift from production the next time a field is added,
+  // and the bench would measure a shape nobody emits.
+  const activeInput = buildActiveJobPageInput({
+    job: sourceJob,
+    locale: BENCHMARK_LOCALE,
+    slug: sourceJob.slug,
+    relatedJobs: selectedRelatedJobs,
+    inputCache,
+    canonicalJob: sourceJob,
     canton: 'TI',
     canonicalUrl: 'https://frontaliereticino.ch/cerca-lavoro-ticino/current-role/',
-  };
+    relatedArticlesHtml: BENCHMARK_RELATED_ARTICLES_HTML,
+  });
   const sourceInputHash = computeInputHash(activeInput, 'active-job');
 
   for (let pageIndex = 0; pageIndex < PAGE_COUNT; pageIndex += 1) {
