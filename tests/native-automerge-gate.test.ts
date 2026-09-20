@@ -16,12 +16,21 @@ import {
   reviewHasZeroFindings,
   isTransientGithubReadError,
   withTransientGithubReadRetry,
+  bodyRecoveryBarrierDecision,
+  nativeAutoMergeLeaseDecision,
 } from '../scripts/ci/native-automerge-gate.mjs';
 import { LOOP_FLEET_LEDGER_REVIEW_MARKER, TEST_REVIEW_MARKER } from '../scripts/ci/review-test-policy.mjs';
+import {
+  reviewInputMarker,
+  reviewInputRevisionFromBody,
+} from '../scripts/ci/lib/review-input-revision.mjs';
 import { CONTROL_PLANE_PATHS } from '../scripts/ci/lib/automation-risk-policy.mjs';
 
 const HEAD = 'a'.repeat(40);
 const OLD_HEAD = 'b'.repeat(40);
+const PR_BODY = '';
+const REVIEW_REVISION = reviewInputRevisionFromBody(PR_BODY);
+const REVIEW_MARKER = reviewInputMarker(REVIEW_REVISION);
 const CLEAN_BODY = '## Findings (Important: 0, Nit: 0)\n\n## LGTM';
 const BODY_WITH_NON_BLOCKING_NIT = '## Findings (Important: 0, Nit: 1)\n\n`packages/articles/content/swiss-articles-data.ts:L19421`: 🟡 Nit: scope documentation can be clearer.\n\n## LGTM';
 const CODEX_FALLBACK_REVIEW = '<!-- CODEX_FALLBACK_REVIEW -->';
@@ -32,14 +41,20 @@ function review(
   submitted_at = '2026-09-13T12:00:00Z',
   overrides: Record<string, unknown> = {},
 ) {
+  const { omitInputRevisionMarker, ...reviewOverrides } = overrides as Record<string, unknown> & {
+    omitInputRevisionMarker?: boolean;
+  };
+  const markedBody = omitInputRevisionMarker || body.includes('REVIEW_INPUT_REVISION')
+    ? body
+    : `${REVIEW_MARKER}\n${body}`;
   return {
     id: 1,
     user: { type: 'Bot', login: 'claude[bot]' },
     state: 'COMMENTED',
-    body,
+    body: markedBody,
     commit_id,
     submitted_at,
-    ...overrides,
+    ...reviewOverrides,
   };
 }
 
@@ -49,7 +64,7 @@ function pr(overrides: Record<string, unknown> = {}) {
     isDraft: false,
     baseRefName: 'main',
     title: 'Safe change',
-    body: '',
+    body: PR_BODY,
     labels: [],
     headRefOid: HEAD,
     autoMergeRequest: null,
@@ -71,7 +86,7 @@ function vitest(overrides: Record<string, unknown> = {}) {
 }
 
 function testsOnlyReview(
-  body = `${TEST_REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
+  body = `${REVIEW_MARKER}\n${TEST_REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
   overrides: Record<string, unknown> = {},
 ) {
   return {
@@ -136,7 +151,7 @@ const OUTSIDE_FINDINGS_BODY = [
 ].join('\n');
 
 function codexFallbackReview(
-  body = `${CODEX_FALLBACK_REVIEW}\n${OUTSIDE_FINDINGS_BODY}`,
+  body = `${REVIEW_MARKER}\n${CODEX_FALLBACK_REVIEW}\n${OUTSIDE_FINDINGS_BODY}`,
   overrides: Record<string, unknown> = {},
 ) {
   return {
@@ -160,6 +175,46 @@ describe('native auto-merge gate (#8512)', () => {
 
     expect(result.allow).toBe(true);
     expect(result.reason).toContain('success');
+  });
+
+  it('denies a clean current-HEAD review whose marker belongs to an older PR body', () => {
+    const oldMarker = `<!-- REVIEW_INPUT_REVISION: body:${'d'.repeat(64)} -->`;
+    const staleBodyReview = review(
+      `${oldMarker}\n${CLEAN_BODY}`,
+      HEAD,
+      '2026-09-13T12:00:00Z',
+      { omitInputRevisionMarker: true },
+    );
+    expect(reviewIsApproved(staleBodyReview)).toBe(true);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [staleBodyReview],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: false });
+  });
+
+  it('fails closed when a current review has no state field', () => {
+    const missingState = review(CLEAN_BODY) as Record<string, unknown>;
+    delete missingState.state;
+    expect(reviewIsApproved(missingState)).toBe(false);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [missingState],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: false });
+  });
+
+  it('fails closed when a malformed decoded review is beside a valid verdict', () => {
+    const malformed = review(CLEAN_BODY) as Record<string, unknown>;
+    delete malformed.state;
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [review(CLEAN_BODY), malformed],
+      checkRuns: [vitest()],
+    })).toMatchObject({
+      allow: false,
+      reason: expect.stringMatching(/malformato|assente/i),
+    });
   });
 
   it('accepts the bounded ledger App review through the existing reviewer path', () => {
@@ -218,6 +273,7 @@ describe('native auto-merge gate (#8512)', () => {
       id: 9,
       user: { type: 'User', login: 'owner' },
       state: 'APPROVED',
+      body: null,
       commit_id: HEAD,
       submitted_at: '2026-09-13T12:02:00Z',
     };
@@ -340,6 +396,7 @@ describe('native auto-merge gate (#8512)', () => {
       repo: 'valerielinc-ops/frontaliere-si-o-no',
       head: HEAD,
       review: ordinaryReview,
+      reviewRevision: REVIEW_REVISION,
     })).toMatchObject({ allow: false });
     expect(evaluateNativeAutoMerge({
       pr: pr(),
@@ -394,6 +451,7 @@ describe('native auto-merge gate (#8512)', () => {
       repo: 'valerielinc-ops/frontaliere-si-o-no',
       head: HEAD,
       review: rawReview,
+      reviewRevision: REVIEW_REVISION,
     }).allow).toBe(false);
   });
 
@@ -416,6 +474,7 @@ describe('native auto-merge gate (#8512)', () => {
       repo: 'valerielinc-ops/frontaliere-si-o-no',
       head: HEAD,
       review: rawReview,
+      reviewRevision: REVIEW_REVISION,
     }).allow).toBe(false);
 
     const newerCheck = vitest({
@@ -442,12 +501,14 @@ describe('native auto-merge gate (#8512)', () => {
       repo: 'valerielinc-ops/frontaliere-si-o-no',
       head: HEAD,
       review: rawReview,
+      reviewRevision: REVIEW_REVISION,
     }).allow).toBe(false);
     expect(reviewGateEvidenceDecision({
       evidence,
       repo: 'valerielinc-ops/frontaliere-si-o-no',
       head: HEAD,
       review: { ...rawReview, state: 'CHANGES_REQUESTED' },
+      reviewRevision: REVIEW_REVISION,
     }).allow).toBe(false);
   });
 
@@ -625,7 +686,7 @@ describe('native auto-merge gate (#8512)', () => {
   it('binds the native opt-in to the exact HEAD that passed the gate', () => {
     const gateSource = readFileSync(new URL('../scripts/ci/native-automerge-gate.mjs', import.meta.url), 'utf8');
 
-    expect(gateSource).toContain("nativeAutoMergeArgs({ repo, prNumber, headSha: fresh.headRefOid })");
+    expect(gateSource).toContain("nativeAutoMergeArgs({ repo, prNumber, headSha: beforeMutation.headRefOid })");
     expect(nativeAutoMergeArgs({
       repo: 'valerielinc-ops/frontaliere-si-o-no',
       prNumber: '8517',
@@ -690,6 +751,10 @@ describe('native auto-merge gate (#8512)', () => {
     const finalMetadataRead = gateSource.indexOf('fresh = ghJson');
     const finalGate = gateSource.indexOf('const finalDecision = revalidateNativeAutoMerge');
     const nativeOptIn = gateSource.indexOf("execFileSync('gh', nativeAutoMergeArgs");
+    const casRead = gateSource.indexOf('beforeMutation = ghJson');
+    const mutationReviewRead = gateSource.indexOf('mutationReviews = loadReviews');
+    const mutationCheckRead = gateSource.indexOf('mutationCheckRuns = loadCheckRuns');
+    const mutationBarrier = gateSource.indexOf('recoveryBarrier = loadBodyRecoveryBarrier');
 
     expect(headRead).toBeGreaterThanOrEqual(0);
     expect(finalReviewRead).toBeGreaterThan(headRead);
@@ -698,6 +763,12 @@ describe('native auto-merge gate (#8512)', () => {
     expect(finalGate).toBeGreaterThan(finalCheckRead);
     expect(finalGate).toBeGreaterThan(finalMetadataRead);
     expect(nativeOptIn).toBeGreaterThan(finalGate);
+    expect(casRead).toBeGreaterThan(finalGate);
+    expect(nativeOptIn).toBeGreaterThan(casRead);
+    expect(mutationReviewRead).toBeGreaterThan(casRead);
+    expect(mutationCheckRead).toBeGreaterThan(mutationReviewRead);
+    expect(mutationBarrier).toBeGreaterThan(mutationCheckRead);
+    expect(nativeOptIn).toBeGreaterThan(mutationBarrier);
     expect(gateSource).toContain("if (finalDecision.action === 'revoke')");
     expect(gateSource).toContain('concurrentOptInSucceeded');
     expect(gateSource).toContain('function ghJson(args)');
@@ -706,7 +777,90 @@ describe('native auto-merge gate (#8512)', () => {
     expect(gateSource).toContain('const response = ghJsonOnce');
     expect(gateSource).toContain("stdio: ['ignore', 'pipe', 'pipe']");
     expect(gateSource).toContain('function samePrMetadata');
+    expect(gateSource).toContain('body/metadata cambiati immediatamente prima dell’opt-in');
     expect(gateSource).toContain('title,body,labels,state,isDraft,baseRefName,headRefOid,autoMergeRequest');
+    expect(gateSource).toContain('parseReviewPages(ghJson');
+    expect(gateSource).toContain('acquireNativeAutoMergeLease');
+    expect(gateSource).toContain('nativeAutoMergeLeaseDecision');
+    expect(gateSource).toContain('lease body/HEAD cambiato al confine della mutation');
+    expect(gateSource).toContain('body/HEAD/barrier/lease cambiati dopo la mutation');
+  });
+
+  it('blocks an in-flight or stale body-recovery epoch at the mutation boundary', () => {
+    const revision = reviewInputRevisionFromBody(PR_BODY);
+    const marker = (status: string, bodyRevision = revision, headSha = HEAD) => ({
+      user: { type: 'Bot', login: 'github-actions[bot]' },
+      body: `<!-- BODY_REVIEW_RECOVERY_PENDING: ${JSON.stringify({
+        version: 1, status, prNumber: 1, runId: 42, runAttempt: 1,
+        headSha, bodyRevision,
+      })} -->`,
+    });
+    expect(bodyRecoveryBarrierDecision({
+      comments: [], prNumber: 1, headSha: HEAD, bodyRevision: revision,
+    })).toMatchObject({ allow: true });
+    expect(bodyRecoveryBarrierDecision({
+      comments: [{}], prNumber: 1, headSha: HEAD, bodyRevision: revision,
+    })).toMatchObject({ allow: false });
+    expect(bodyRecoveryBarrierDecision({
+      comments: [[]], prNumber: 1, headSha: HEAD, bodyRevision: revision,
+    })).toMatchObject({ allow: false });
+    expect(bodyRecoveryBarrierDecision({
+      comments: {} as any, prNumber: 1, headSha: HEAD, bodyRevision: revision,
+    })).toMatchObject({ allow: false });
+    expect(bodyRecoveryBarrierDecision({
+      comments: [marker('pending')], prNumber: 1, headSha: HEAD, bodyRevision: revision,
+    })).toMatchObject({ allow: false });
+    expect(bodyRecoveryBarrierDecision({
+      comments: [marker('completed', reviewInputRevisionFromBody('new body'))],
+      prNumber: 1, headSha: HEAD, bodyRevision: revision,
+    })).toMatchObject({ allow: false });
+    expect(bodyRecoveryBarrierDecision({
+      comments: [marker('completed')], prNumber: 1, headSha: HEAD, bodyRevision: revision,
+    })).toMatchObject({ allow: true });
+    expect(bodyRecoveryBarrierDecision({
+      comments: [{
+        ...marker('completed'),
+        user: { type: 'User', login: 'valerielinc-ops' },
+      }], prNumber: 1, headSha: HEAD, bodyRevision: revision,
+    })).toMatchObject({ allow: true });
+    expect(bodyRecoveryBarrierDecision({
+      comments: [marker('completed', revision, OLD_HEAD)],
+      prNumber: 1, headSha: HEAD, bodyRevision: revision,
+    })).toMatchObject({ allow: false });
+  });
+
+  it('richiede una lease held esatta e fail-closes su release o race body/HEAD', () => {
+    const lease = (status: string, headSha = HEAD, bodyRevision = REVIEW_REVISION) => ({
+      user: { type: 'Bot', login: 'github-actions[bot]' },
+      body: `<!-- NATIVE_AUTO_MERGE_LEASE: ${JSON.stringify({
+        version: 1, status, prNumber: 1, headSha, bodyRevision, leaseId: 'run-1:1:7',
+      })} -->`,
+    });
+    expect(nativeAutoMergeLeaseDecision({
+      comments: [lease('held')], prNumber: 1, headSha: HEAD, bodyRevision: REVIEW_REVISION,
+    })).toMatchObject({ allow: true, leaseId: 'run-1:1:7' });
+    expect(nativeAutoMergeLeaseDecision({
+      comments: [{
+        ...lease('held'),
+        user: { type: 'User', login: 'valerielinc-ops' },
+      }], prNumber: 1, headSha: HEAD, bodyRevision: REVIEW_REVISION,
+    })).toMatchObject({ allow: true, leaseId: 'run-1:1:7' });
+    expect(nativeAutoMergeLeaseDecision({
+      comments: [{
+        ...lease('held'),
+        user: { type: 'User', login: 'untrusted-human' },
+      }], prNumber: 1, headSha: HEAD, bodyRevision: REVIEW_REVISION,
+    })).toMatchObject({ allow: false });
+    expect(nativeAutoMergeLeaseDecision({
+      comments: [lease('released')], prNumber: 1, headSha: HEAD, bodyRevision: REVIEW_REVISION,
+    })).toMatchObject({ allow: false, status: 'released' });
+    expect(nativeAutoMergeLeaseDecision({
+      comments: [lease('held', OLD_HEAD)], prNumber: 1, headSha: HEAD, bodyRevision: REVIEW_REVISION,
+    })).toMatchObject({ allow: false });
+    expect(nativeAutoMergeLeaseDecision({
+      comments: [lease('held'), lease('released', HEAD, reviewInputRevisionFromBody('edited'))],
+      prNumber: 1, headSha: HEAD, bodyRevision: REVIEW_REVISION,
+    })).toMatchObject({ allow: false });
   });
 
   it('fails closed when the final same-HEAD snapshot gains a check failure', () => {

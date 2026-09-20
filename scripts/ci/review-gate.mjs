@@ -13,10 +13,13 @@
  * fuori dal diff.
  * Ogni informazione mancante resta bloccante: una lista incompleta, vuota o un
  * tree non risolvibile non autorizzano mai un'inferenza «fuori dal diff».
+ * La review deve inoltre riportare il digest della body revision trusted
+ * corrente; una review sulla sola HEAD non è sufficiente dopo un body edit.
  */
 import { isReviewTestPath, findTestOnlyApproval } from './review-test-policy.mjs';
 import { execFileSync } from 'node:child_process';
 import { realpathSync, readFileSync, appendFileSync } from 'node:fs';
+import { isAbsolute } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
 import { boundReviewsToFirstHeadVerdict } from './lib/pr-review-admission.mjs';
@@ -25,6 +28,15 @@ import {
   isCarryForwardReview,
   verifyCarryForwardReview,
 } from './lib/review-carry-forward.mjs';
+import {
+  isTerminalManagedReview,
+  parseReviewPages,
+} from './lib/pr-review-admission.mjs';
+import {
+  normalizeReviewInputRevision,
+  reviewHasInputRevision,
+  reviewInputRevisionFromPullRequest,
+} from './lib/review-input-revision.mjs';
 import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
 import { createGithubIssue } from '../lib/github-issue-creator.mjs';
 import {
@@ -585,7 +597,11 @@ export function followupIssueBody({ repo, pr, prUrl, findings, existingBody = ''
 
 function gh(args, { json = true, allowFail = false } = {}) {
   try {
-    const output = execFileSync('gh', args, {
+    const trustedGhBin = process.env.TRUSTED_GH_BIN || '';
+    if (!isAbsolute(trustedGhBin)) {
+      throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+    }
+    const output = execFileSync(trustedGhBin, args, {
       encoding: 'utf8',
       maxBuffer: 64 * 1024 * 1024,
     });
@@ -792,7 +808,9 @@ export function historicalImportantFindings(
   } = {},
 ) {
   const bots = reviewerList(reviews).filter((review) =>
-    review?.user?.type === 'Bot' && REVIEWER_LOGIN_RE.test(review.user.login || ''),
+    review?.user?.type === 'Bot'
+      && REVIEWER_LOGIN_RE.test(review.user.login || '')
+      && isTerminalManagedReview(review),
   );
   if (bots.length < (includeLatest ? 1 : 2)) return [];
 
@@ -924,20 +942,31 @@ export function reviewBodyWithHistoricalFindings(body, historicalFindings) {
   return `${String(body || '').slice(0, lgtm)}${section}${String(body || '').slice(lgtm)}`;
 }
 
-function latestReviewer(reviews) {
+function latestReviewer(reviews, { reviewRevision } = {}) {
+  const revision = reviewRevision === undefined
+    ? undefined
+    : normalizeReviewInputRevision(reviewRevision);
   const bots = reviewerList(reviews).filter((review) =>
-    review?.user?.type === 'Bot' && REVIEWER_LOGIN_RE.test(review.user.login || ''),
+    review?.user?.type === 'Bot'
+      && REVIEWER_LOGIN_RE.test(review.user.login || '')
+      && isTerminalManagedReview(review)
+      && (revision === undefined || reviewHasInputRevision(review?.body, revision)),
   );
   return bots.length ? bots[bots.length - 1] : null;
 }
 
-function latestCodexReviewer(reviews, headSha) {
+function latestCodexReviewer(reviews, headSha, { reviewRevision } = {}) {
+  const revision = reviewRevision === undefined
+    ? undefined
+    : normalizeReviewInputRevision(reviewRevision);
   const list = reviewerList(reviews);
   for (let index = list.length - 1; index >= 0; index -= 1) {
     const review = list[index];
     if (review?.user?.type !== 'Bot' || !CODEX_REVIEWER_LOGIN_RE.test(review.user.login || '')) continue;
+    if (!isTerminalManagedReview(review)) continue;
     if (String(review.commit_id || '') !== String(headSha || '')) continue;
     if (!String(review.body || '').includes(CODEX_REVIEW_MARKER)) continue;
+    if (revision !== undefined && !reviewHasInputRevision(review.body, revision)) continue;
     return review;
   }
   return null;
@@ -1059,7 +1088,10 @@ function readPrBody(repo, pr) {
 }
 
 function readReviews(repo, pr) {
-  return gh(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp']);
+  const pages = gh(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp']);
+  const reviews = parseReviewPages(pages);
+  if (!reviews) throw new Error('reviews PR: JSON/pagine/entry malformate');
+  return reviews;
 }
 
 function changedPathsBetween(fromSha, toSha) {
@@ -1082,6 +1114,7 @@ function staleFallbackCarryForward({
   reviews,
   latest,
   headSha,
+  reviewRevision,
   changedPathsFn = changedPathsBetween,
 } = {}) {
   // This optimization is only a replay of a fallback emitted for the current
@@ -1092,6 +1125,7 @@ function staleFallbackCarryForward({
   const latestBody = normalizeReviewBody(latest?.body || '');
   if (!latestBody.includes(CODEX_REVIEW_MARKER)
       || /^##\s+LGTM\b/imu.test(latestBody)) return null;
+  if (reviewRevision !== undefined && !reviewHasInputRevision(latestBody, reviewRevision)) return null;
 
   const findings = importantFindings(latestBody);
   // A fallback with a new, ambiguous or unanchored Important must still go
@@ -1102,6 +1136,7 @@ function staleFallbackCarryForward({
 
   const bots = reviewerList(reviews).filter((review) =>
     review?.user?.type === 'Bot'
+      && isTerminalManagedReview(review)
       && (REVIEWER_LOGIN_RE.test(review.user.login || '')
         || CODEX_REVIEWER_LOGIN_RE.test(review.user.login || '')),
   );
@@ -1343,6 +1378,7 @@ export async function runReviewGate({
   reviews,
   codexEvidence,
   codexEvidenceFile,
+  reviewRevision,
   repositoryPaths,
   repositoryPathsFromFallback = false,
   changedPathsFn = changedPathsBetween,
@@ -1354,13 +1390,42 @@ export async function runReviewGate({
     throw new Error('repo, PR number or HEAD SHA non valido');
   }
 
+  const expectedRevision = reviewRevision === undefined
+    ? undefined
+    : normalizeReviewInputRevision(reviewRevision);
+  if (reviewRevision !== undefined && !expectedRevision) {
+    return { approved: false, reason: 'review input revision assente o non verificabile' };
+  }
+
+  // Keep the injected/test harness path under the same strict schema gate as
+  // the API path.  Otherwise a caller could pass a decoded array containing a
+  // malformed entry, bypass `readReviews()`/`parseReviewPages()`, and let the
+  // historical flattening logic treat a partial response as a real verdict.
+  let parsedReviews;
+  try {
+    parsedReviews = parseReviewPages(reviews === undefined ? readReviews(repo, pr) : reviews);
+  } catch {
+    parsedReviews = null;
+  }
+  if (!parsedReviews) {
+    return {
+      approved: false,
+      reason: 'nessuna review Codex verificabile: elenco review malformato o non disponibile',
+    };
+  }
   const reviewHistory = boundReviewsToFirstHeadVerdict(
-    reviews ?? readReviews(repo, pr),
+    parsedReviews,
     headSha,
+    { reviewRevision: expectedRevision },
   );
   const structuredCodexEvidence = codexEvidence
     || readCodexEvidenceFile(codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
-  const automatic = findTestOnlyApproval(reviewHistory, headSha, { ghFn: gh, repo, pr });
+  const automatic = findTestOnlyApproval(reviewHistory, headSha, {
+    ghFn: gh,
+    repo,
+    pr,
+    reviewRevision: expectedRevision,
+  });
   if (automatic) return { approved: true, reason: 'tests-only owner policy', review: automatic, reviewCommit: headSha };
   const codexEvidenceRequested = Boolean(codexEvidence || codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
   if (codexEvidenceRequested
@@ -1369,13 +1434,20 @@ export async function runReviewGate({
     return { approved: false, reason: 'evidenza Codex assente, non valida o fallita' };
   }
   const codexReview = structuredCodexEvidence?.status === FALLBACK_STATUS.SUCCESS
-    ? latestCodexReviewer(reviewHistory, headSha)
+    ? latestCodexReviewer(reviewHistory, headSha, { reviewRevision: expectedRevision })
     : null;
   if (codexEvidenceRequested && !codexReview) {
     return { approved: false, reason: 'evidenza Codex valida ma nessuna review Codex marcata sulla HEAD' };
   }
-  const latest = codexReview || latestReviewer(reviewHistory);
-  if (!latest) return { approved: false, reason: 'nessuna review Codex leggibile' };
+  const latest = codexReview || latestReviewer(reviewHistory, { reviewRevision: expectedRevision });
+  if (!latest) {
+    return {
+      approved: false,
+      reason: expectedRevision === undefined
+        ? 'nessuna review Codex leggibile'
+        : 'nessuna review sulla revisione body corrente',
+    };
+  }
   const body = normalizeReviewBody(latest.body || '');
   // A verdict carried onto this HEAD without a model run is accepted only
   // after the gate re-derives, on its own, that the origin was an approving
@@ -1396,6 +1468,7 @@ export async function runReviewGate({
     reviews: reviewHistory,
     latest,
     headSha,
+    reviewRevision: expectedRevision,
     changedPathsFn,
   });
   if (staleCarry) {
@@ -1479,6 +1552,9 @@ async function main() {
   const pr = process.env.PR_NUMBER || '';
   const headSha = process.env.HEAD_SHA || '';
   const tree = fetchRepositoryHeadPaths(repo, pr);
+  const reviewRevision = reviewInputRevisionFromPullRequest(gh([
+    'api', `repos/${repo}/pulls/${pr}`,
+  ]));
   const result = await runReviewGate({
     repo,
     pr,
@@ -1487,6 +1563,7 @@ async function main() {
     prUrl: process.env.PR_URL,
     repositoryPaths: tree.paths,
     repositoryPathsFromFallback: tree.fromFallback,
+    reviewRevision,
     bodyContractPassed: process.env.BODY_CONTRACT_OUTCOME === 'success',
   });
   writeApproved(result.approved);

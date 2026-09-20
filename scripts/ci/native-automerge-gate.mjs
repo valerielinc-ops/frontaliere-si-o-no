@@ -30,10 +30,16 @@ import { REVIEW_GATE_STEP_NAME } from './lib/vitestCheck.mjs';
 import {
   CODEX_FALLBACK_REVIEW_MARKER,
   firstTerminalBotReviewOnHead,
+  isTerminalManagedReview,
+  parseReviewPages,
   reviewBodyIsApproving,
   reviewHasLgtm,
   reviewHasZeroFindings,
 } from './lib/pr-review-admission.mjs';
+import {
+  reviewHasInputRevision,
+  reviewInputRevisionFromBody,
+} from './lib/review-input-revision.mjs';
 
 export {
   firstTerminalBotReviewOnHead,
@@ -51,6 +57,21 @@ const IN_JOB_RUN_ID_ENV = 'NATIVE_AUTOMERGE_IN_JOB_RUN_ID';
 const MAX_TRANSIENT_GH_READ_ATTEMPTS = 3;
 const TRANSIENT_GH_READ_RETRY_DELAYS_MS = Object.freeze([250, 750]);
 const TRANSIENT_GH_READ_ERROR_RE = /(?:\bHTTP\s+5\d{2}\b|\b5\d{2}\s+(?:bad gateway|service unavailable|gateway timeout)\b|service unavailable|bad gateway|gateway timeout|timed?\s*out|ECONNRESET|ETIMEDOUT|EAI_AGAIN)/iu;
+const BODY_RECOVERY_MARKER_PREFIX = '<!-- BODY_REVIEW_RECOVERY_PENDING:';
+const BODY_RECOVERY_STATUSES = new Set(['pending', 'queued', 'manual', 'completed']);
+const NATIVE_AUTO_MERGE_LEASE_PREFIX = '<!-- NATIVE_AUTO_MERGE_LEASE:';
+const NATIVE_AUTO_MERGE_LEASE_STATUSES = new Set(['held', 'released']);
+const TRUSTED_AUTOMATION_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/iu;
+// The scheduled/manual fallback workflows use the repository owner's PAT from
+// Remote Config. Keep that user identity explicit; arbitrary human comments
+// must never be able to create or release a native auto-merge lease.
+const TRUSTED_AUTOMATION_USER_RE = /^valerielinc-ops$/iu;
+
+export function isTrustedNativeAutomationCommentAuthor(user) {
+  const login = String(user?.login || '');
+  return (user?.type === 'Bot' && TRUSTED_AUTOMATION_BOT_RE.test(login))
+    || (user?.type === 'User' && TRUSTED_AUTOMATION_USER_RE.test(login));
+}
 
 function flattenPages(value) {
   if (!Array.isArray(value)) return [];
@@ -90,6 +111,7 @@ function latestReviewMatching(reviews, predicate) {
 function latestBotReviewMatching(reviews, predicate) {
   if (typeof predicate !== 'function') return null;
   return latestReviewMatching(reviews, (review) => isReviewerBot(review?.user)
+    && isTerminalManagedReview(review)
     && predicate(review));
 }
 
@@ -99,12 +121,15 @@ function latestBotReviewMatching(reviews, predicate) {
  * an exact current HEAD. Keep this identity narrower than the normal
  * Claude/frontaliere reviewer allowlist.
  */
-function isCodexFallbackReviewOnHead(review, head) {
+function isCodexFallbackReviewOnHead(review, head, reviewRevision) {
   return typeof head === 'string'
     && /^[0-9a-f]{40}$/iu.test(head)
+    && typeof reviewRevision === 'string'
     && review?.user?.type === 'Bot'
     && CODEX_FALLBACK_REVIEWER_RE.test(review.user.login || '')
+    && isTerminalManagedReview(review)
     && review.commit_id === head
+    && reviewHasInputRevision(review.body, reviewRevision)
     && String(review.body || '').includes(CODEX_FALLBACK_REVIEW_MARKER);
 }
 
@@ -113,11 +138,14 @@ function isCodexFallbackReviewOnHead(review, head) {
  * If the first terminal verdict is not approving, keep the latest HEAD review
  * so structured/stale-fallback evidence still sees the current body.
  */
-function firstReviewGateCandidate(reviews, head) {
-  const first = firstTerminalBotReviewOnHead(reviews, head);
+function firstReviewGateCandidate(reviews, head, reviewRevision) {
+  const first = firstTerminalBotReviewOnHead(reviews, head, { reviewRevision });
   if (first && reviewBodyIsApproving(first.body)) return first;
-  return latestReviewMatching(reviews, (review) => isCodexFallbackReviewOnHead(review, head)
-    || (isReviewerBot(review?.user) && review?.commit_id === head));
+  return latestReviewMatching(reviews, (review) => reviewHasInputRevision(review?.body, reviewRevision)
+    && (isCodexFallbackReviewOnHead(review, head, reviewRevision)
+      || (isReviewerBot(review?.user)
+        && isTerminalManagedReview(review)
+        && review?.commit_id === head)));
 }
 
 /** Return the latest reviewer-bot review, regardless of the commit it names. */
@@ -159,12 +187,13 @@ export function reviewIsApprovedOnHead(review, head) {
  * the result of `findTestOnlyApproval`, which independently re-checks the
  * complete PR file list before this pure decision function is called.
  */
-function testOnlyReviewIsApproved(review, head) {
+function testOnlyReviewIsApproved(review, head, reviewRevision) {
   if (!review || review.commit_id !== head) return false;
   if (review.user?.type !== 'Bot' || !TEST_ONLY_REVIEW_BOT_RE.test(review.user.login || '')) {
     return false;
   }
   if (!String(review.body || '').includes(TEST_REVIEW_MARKER)) return false;
+  if (!reviewHasInputRevision(review.body, reviewRevision)) return false;
   if (!['COMMENTED', 'APPROVED'].includes(String(review.state || '').toUpperCase())) return false;
   return reviewHasZeroFindings(review.body) && reviewHasLgtm(review.body);
 }
@@ -348,6 +377,7 @@ export function reviewGateEvidenceDecision({
   repo,
   head,
   review,
+  reviewRevision,
 } = {}) {
   const deny = (reason) => ({ allow: false, reason });
   if (!evidence || typeof evidence !== 'object' || Array.isArray(evidence)) {
@@ -356,7 +386,10 @@ export function reviewGateEvidenceDecision({
   if (typeof head !== 'string' || !/^[0-9a-f]{40}$/iu.test(head)) {
     return deny('HEAD non verificabile per la prova review-gate');
   }
-  if (!isReviewerBot(review?.user) && !isCodexFallbackReviewOnHead(review, head)) {
+  if (!reviewHasInputRevision(review?.body, reviewRevision)) {
+    return deny('review input revision assente o diversa dalla body corrente');
+  }
+  if (!isReviewerBot(review?.user) && !isCodexFallbackReviewOnHead(review, head, reviewRevision)) {
     return deny('identità review non autorizzata per la prova review-gate');
   }
   const reviewId = reviewIdKey(review?.id);
@@ -482,8 +515,31 @@ export function evaluateNativeAutoMerge({
       humanApprovalVerified: false,
     };
   }
+  let reviewRevision;
+  try {
+    reviewRevision = reviewInputRevisionFromBody(pr.body);
+  } catch {
+    return {
+      allow: false,
+      reason: 'body revision review non verificabile; deny fail-closed senza approvazione umana',
+      humanApprovalRequired: false,
+      humanApprovalVerified: false,
+    };
+  }
   if (!Object.hasOwn(pr, 'autoMergeRequest')) {
     return { allow: false, reason: 'stato auto-merge non verificabile' };
+  }
+
+  // The production loader validates the API response, but this exported pure
+  // entry point is also used by workflow/test callers. Validate that path too:
+  // flattening an injected array before parsing would let one malformed
+  // historical review sit beside a valid LGTM and still authorize a mutation.
+  const parsedReviews = parseReviewPages(reviews);
+  if (!parsedReviews) {
+    return {
+      allow: false,
+      reason: 'review history non verificabile: elenco review malformato o assente',
+    };
   }
 
   const files = changedFiles !== undefined ? changedFiles : pr.changedFiles;
@@ -514,9 +570,9 @@ export function evaluateNativeAutoMerge({
   // The required check is the complete `tests` job. Its review gate and this
   // native helper both require the exact current HEAD, so a completed check or
   // LGTM from an autorebase predecessor cannot unlock this commit.
-  const review = firstReviewGateCandidate(reviews, pr.headRefOid);
+  const review = firstReviewGateCandidate(parsedReviews, pr.headRefOid, reviewRevision);
   const testOnlyApproval = !review
-    && testOnlyReviewIsApproved(verifiedTestOnlyReview, pr.headRefOid);
+    && testOnlyReviewIsApproved(verifiedTestOnlyReview, pr.headRefOid, reviewRevision);
   if (!review && !testOnlyApproval) {
     return { allow: false, reason: 'nessuna review bot verificabile' };
   }
@@ -526,6 +582,7 @@ export function evaluateNativeAutoMerge({
       repo: repository,
       head: pr.headRefOid,
       review,
+      reviewRevision,
     })
     : { allow: false, reason: 'review raw già approvante' };
   if (review && !reviewIsApproved(review) && !reviewGateException.allow) {
@@ -686,11 +743,12 @@ function ghForTestOnlyReview(args, options = {}) {
   return withTransientGithubReadRetry(() => ghForTestOnlyReviewOnce(args, options));
 }
 
-function loadVerifiedTestOnlyReview(repo, pr, head, reviews) {
+function loadVerifiedTestOnlyReview(repo, pr, head, reviews, reviewRevision) {
   return findTestOnlyApproval(reviews, head, {
     ghFn: ghForTestOnlyReview,
     repo,
     pr,
+    reviewRevision,
   });
 }
 
@@ -725,9 +783,10 @@ function loadReviewMetadata(repo, pr) {
 }
 
 function loadReviews(repo, pr) {
-  const reviews = flattenPages(ghJson([
+  const reviews = parseReviewPages(ghJson([
     'api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp',
   ]));
+  if (!reviews) throw new Error('reviews PR: JSON/pagine/entry malformate');
   const metadataById = new Map();
   for (const metadata of loadReviewMetadata(repo, pr)) {
     if (metadata?.databaseId !== null && metadata?.databaseId !== undefined) {
@@ -750,6 +809,56 @@ function loadReviews(repo, pr) {
   });
 }
 
+function loadBodyRecoveryBarrier(repo, prNumber, headSha, bodyRevision) {
+  const comments = ghJson([
+    'api', `repos/${repo}/issues/${prNumber}/comments`, '--paginate', '--slurp',
+  ]);
+  const decision = bodyRecoveryBarrierDecision({
+    comments,
+    prNumber: Number(prNumber),
+    headSha,
+    bodyRevision,
+  });
+  if (!decision.allow && !Array.isArray(comments)) {
+    throw new Error(decision.reason);
+  }
+  return decision;
+}
+
+function loadNativeAutoMergeLease(repo, prNumber, headSha, bodyRevision) {
+  const comments = ghJson([
+    'api', `repos/${repo}/issues/${prNumber}/comments`, '--paginate', '--slurp',
+  ]);
+  return nativeAutoMergeLeaseDecision({
+    comments,
+    prNumber: Number(prNumber),
+    headSha,
+    bodyRevision,
+  });
+}
+
+function acquireNativeAutoMergeLease(repo, prNumber, headSha, bodyRevision) {
+  const existing = loadNativeAutoMergeLease(repo, prNumber, headSha, bodyRevision);
+  // A held lease for another HEAD/body epoch is historical state, not a lock
+  // on the new review input. Publishing the new identity makes the latest
+  // comment authoritative and prevents a missed body-edited webhook from
+  // stranding the PR behind a stale lease forever. A held lease on the exact
+  // identity remains shareable between concurrent gate readers.
+  if (existing.allow) return { leaseId: existing.leaseId, owned: false };
+  const leaseId = `${process.env.GITHUB_RUN_ID || 'local'}:${process.env.GITHUB_RUN_ATTEMPT || '1'}:${process.pid}`;
+  ghRaw([
+    'pr', 'comment', String(prNumber), '--repo', repo,
+    '--body', nativeAutoMergeLeaseBody({
+      status: 'held', prNumber: Number(prNumber), headSha, bodyRevision, leaseId,
+    }),
+  ]);
+  const confirmed = loadNativeAutoMergeLease(repo, prNumber, headSha, bodyRevision);
+  if (!confirmed.allow || confirmed.leaseId !== leaseId) {
+    throw new Error(`lease native auto-merge non confermato dopo la scrittura: ${confirmed.reason}`);
+  }
+  return { leaseId, owned: true };
+}
+
 function loadCheckRuns(repo, head) {
   const pages = ghJson([
     'api', `repos/${repo}/commits/${head}/check-runs?per_page=100`, '--paginate', '--slurp',
@@ -758,7 +867,7 @@ function loadCheckRuns(repo, head) {
     .flatMap((page) => Array.isArray(page?.check_runs) ? page.check_runs : []);
 }
 
-function loadReviewGateEvidence(repo, head, checkRuns, review) {
+function loadReviewGateEvidence(repo, head, checkRuns, review, reviewRevision) {
   if (!review || reviewIsApproved(review)) return null;
   const checkDecision = requiredVitestDecision(checkRuns, head);
   if (!checkDecision.allow) return null;
@@ -844,6 +953,7 @@ function normalizedPrLabels(pr) {
 
 /** Metadata that must remain stable between the first and final reads. */
 function samePrMetadata(left, right) {
+  const autoMergeEnabled = (value) => value !== null && value !== undefined;
   return left?.number === right?.number
     && left?.id === right?.id
     && left?.state === right?.state
@@ -852,7 +962,225 @@ function samePrMetadata(left, right) {
     && left?.headRefOid === right?.headRefOid
     && left?.title === right?.title
     && left?.body === right?.body
+    && autoMergeEnabled(left?.autoMergeRequest) === autoMergeEnabled(right?.autoMergeRequest)
     && JSON.stringify(normalizedPrLabels(left)) === JSON.stringify(normalizedPrLabels(right));
+}
+
+function parseBodyRecoveryMarker(body) {
+  const match = String(body || '').match(/<!-- BODY_REVIEW_RECOVERY_PENDING:\s*(\{[\s\S]*?\})\s*-->/u);
+  if (!match) return null;
+  let value;
+  try {
+    value = JSON.parse(match[1]);
+  } catch {
+    return { valid: false, reason: 'marker recovery JSON malformato' };
+  }
+  const status = String(value?.status || '').trim().toLowerCase();
+  const headSha = String(value?.headSha || '').trim().toLowerCase();
+  const bodyRevision = String(value?.bodyRevision || '').trim().toLowerCase();
+  const runId = value?.runId;
+  const runAttempt = value?.runAttempt;
+  const validRunIdentity = Number.isSafeInteger(runId) && runId > 0
+    && Number.isSafeInteger(runAttempt) && runAttempt > 0;
+  // A manual checkpoint may predate a run (no-existing-pull-request-run), or
+  // retain the exact attempt whose rerun API call was ambiguous. Both shapes
+  // are fail-closed until a later workflow_run/scheduled reconciliation marks
+  // the marker completed; neither is treated as a clean recovery epoch.
+  const runFieldsValid = status === 'manual'
+    ? (runId === null && runAttempt === null) || validRunIdentity
+    : validRunIdentity;
+  if (!value || typeof value !== 'object' || Array.isArray(value)
+      || value.version !== 1
+      || !Number.isSafeInteger(value.prNumber) || value.prNumber <= 0
+      || !BODY_RECOVERY_STATUSES.has(status)
+      || !/^[0-9a-f]{40}$/iu.test(headSha)
+      || !/^body:[0-9a-f]{64}$/iu.test(bodyRevision)
+      || !Object.hasOwn(value, 'runId')
+      || !Object.hasOwn(value, 'runAttempt')
+      || !runFieldsValid) {
+    return { valid: false, reason: 'marker recovery schema non verificabile' };
+  }
+  return {
+    valid: true,
+    status,
+    prNumber: value.prNumber,
+    headSha,
+    bodyRevision,
+  };
+}
+
+function strictCommentEntries(comments) {
+  if (!Array.isArray(comments)) return null;
+  const entries = [];
+  for (const page of comments) {
+    if (Array.isArray(page)) {
+      if (page.length === 0 || page.some((comment) => Array.isArray(comment))) return null;
+      entries.push(...page);
+    } else {
+      entries.push(page);
+    }
+  }
+  if (entries.some((comment) => !comment || typeof comment !== 'object'
+    || Array.isArray(comment) || typeof comment.body !== 'string')) return null;
+  return entries;
+}
+
+function parseNativeAutoMergeLease(body) {
+  const match = String(body || '').match(/<!-- NATIVE_AUTO_MERGE_LEASE:\s*(\{[\s\S]*?\})\s*-->/u);
+  if (!match) return null;
+  let value;
+  try {
+    value = JSON.parse(match[1]);
+  } catch {
+    return { valid: false, reason: 'lease native auto-merge JSON malformato' };
+  }
+  const status = String(value?.status || '').trim().toLowerCase();
+  const headSha = String(value?.headSha || '').trim().toLowerCase();
+  const bodyRevision = String(value?.bodyRevision || '').trim().toLowerCase();
+  if (!value || typeof value !== 'object' || Array.isArray(value)
+      || value.version !== 1
+      || !NATIVE_AUTO_MERGE_LEASE_STATUSES.has(status)
+      || !Number.isSafeInteger(value.prNumber) || value.prNumber <= 0
+      || !/^[0-9a-f]{40}$/iu.test(headSha)
+      || !/^body:[0-9a-f]{64}$/iu.test(bodyRevision)
+      || typeof value.leaseId !== 'string' || value.leaseId.length < 1
+      || value.leaseId.length > 200) {
+    return { valid: false, reason: 'lease native auto-merge schema non verificabile' };
+  }
+  return {
+    valid: true,
+    status,
+    prNumber: value.prNumber,
+    headSha,
+    bodyRevision,
+    leaseId: value.leaseId,
+  };
+}
+
+function nativeAutoMergeLeaseBody({ status, prNumber, headSha, bodyRevision, leaseId, reason = null }) {
+  const value = {
+    version: 1,
+    status,
+    prNumber,
+    headSha: String(headSha).toLowerCase(),
+    bodyRevision: String(bodyRevision).toLowerCase(),
+    leaseId,
+  };
+  if (reason) value.reason = reason;
+  return `${NATIVE_AUTO_MERGE_LEASE_PREFIX} ${JSON.stringify(value)} -->\n`
+    + `_native auto-merge lease ${status} · head ${String(headSha).slice(0, 12)} · body ${bodyRevision}._`;
+}
+
+/**
+ * A comment-backed, fail-closed lease shared by the native gate and body
+ * recovery. GitHub has no conditional PR-merge mutation keyed to body text;
+ * the lease therefore narrows the race to the final API window and leaves a
+ * durable released marker for a concurrent body recovery to invalidate. The
+ * post-mutation read below is still mandatory because the two GitHub calls are
+ * not one atomic transaction.
+ */
+export function nativeAutoMergeLeaseDecision({ comments, prNumber, headSha, bodyRevision } = {}) {
+  const deny = (reason, extra = {}) => ({ allow: false, reason, ...extra });
+  const entries = strictCommentEntries(comments);
+  if (!entries) return deny('commenti lease native auto-merge non verificabili');
+  if (!Number.isSafeInteger(prNumber) || prNumber <= 0
+      || !/^[0-9a-f]{40}$/iu.test(String(headSha || ''))
+      || !/^body:[0-9a-f]{64}$/iu.test(String(bodyRevision || ''))) {
+    return deny('identità lease native auto-merge non verificabile');
+  }
+  const leases = [];
+  for (const comment of entries) {
+    if (!comment.body.includes(NATIVE_AUTO_MERGE_LEASE_PREFIX)) continue;
+    if (!isTrustedNativeAutomationCommentAuthor(comment.user)) {
+      return deny('lease native auto-merge senza autore automation trusted');
+    }
+    const lease = parseNativeAutoMergeLease(comment.body);
+    if (!lease?.valid) return deny(lease?.reason || 'lease native auto-merge non verificabile');
+    if (lease.prNumber !== prNumber) return deny('lease native auto-merge associato a una PR diversa');
+    leases.push(lease);
+  }
+  const latest = leases.at(-1);
+  if (!latest) return deny('lease native auto-merge assente', { status: null, leaseId: null });
+  if (latest.headSha !== String(headSha).toLowerCase()
+      || latest.bodyRevision !== String(bodyRevision).toLowerCase()) {
+    return deny('lease native auto-merge su HEAD/body revision diversa', {
+      status: latest.status,
+      leaseId: latest.leaseId,
+    });
+  }
+  if (latest.status !== 'held') {
+    return deny('lease native auto-merge rilasciato', {
+      status: latest.status,
+      leaseId: latest.leaseId,
+    });
+  }
+  return { allow: true, reason: 'lease native auto-merge held su HEAD/body revision correnti', status: latest.status, leaseId: latest.leaseId };
+}
+
+/**
+ * Durable body-edit epoch barrier shared with retry-code-check-after-body-edit.
+ * An active/manual marker or a marker for a different body revision means the
+ * revocation/re-review hand-off is incomplete; native auto-merge must not be
+ * enabled from a stale review snapshot. Unknown/malformed marker data is also
+ * a denial, never an implicit clean state.
+ */
+export function bodyRecoveryBarrierDecision({
+  comments,
+  prNumber,
+  headSha,
+  bodyRevision,
+} = {}) {
+  const deny = (reason) => ({ allow: false, reason });
+  if (!Array.isArray(comments)) return deny('commenti recovery non verificabili');
+  if (!Number.isSafeInteger(prNumber) || prNumber <= 0
+      || !/^[0-9a-f]{40}$/iu.test(String(headSha || ''))
+      || !/^body:[0-9a-f]{64}$/iu.test(String(bodyRevision || ''))) {
+    return deny('epoch body recovery non verificabile');
+  }
+  const markers = [];
+  const flattenedComments = [];
+  for (const page of comments) {
+    if (Array.isArray(page)) {
+      // `gh api --paginate --slurp` returns pages, while pure callers/tests may
+      // pass one flat comment array. An empty nested page is not an empty
+      // history: it is an unverified API shape and must not authorize retain.
+      if (page.length === 0 || page.some((comment) => Array.isArray(comment))) {
+        return deny('pagine commenti recovery non verificabili');
+      }
+      flattenedComments.push(...page);
+    } else {
+      flattenedComments.push(page);
+    }
+  }
+  for (const comment of flattenedComments) {
+    if (!comment || typeof comment !== 'object' || Array.isArray(comment)) {
+      return deny('commento recovery malformato');
+    }
+    if (typeof comment.body !== 'string') {
+      return deny('commento recovery senza body testuale');
+    }
+    const text = comment.body;
+    if (!text.includes(BODY_RECOVERY_MARKER_PREFIX)) continue;
+    if (!isTrustedNativeAutomationCommentAuthor(comment.user)) {
+      return deny('marker recovery senza autore automation trusted');
+    }
+    const marker = parseBodyRecoveryMarker(text);
+    if (!marker?.valid) return deny(marker?.reason || 'marker recovery non verificabile');
+    if (marker.prNumber !== prNumber) return deny('marker recovery associato a una PR diversa');
+    markers.push(marker);
+  }
+  const latest = markers.at(-1);
+  if (!latest) return { allow: true, reason: 'nessun epoch recovery attivo' };
+  if (latest.bodyRevision !== String(bodyRevision).toLowerCase()) {
+    return deny('body revision diversa dall’ultimo epoch recovery');
+  }
+  if (latest.status !== 'completed') {
+    return deny(`epoch recovery ${latest.status} non completato`);
+  }
+  if (latest.headSha !== String(headSha).toLowerCase()) {
+    return deny('epoch recovery completato su una HEAD diversa');
+  }
+  return { allow: true, reason: 'epoch recovery completato sulla body revision e HEAD correnti' };
 }
 
 /** Bind the native opt-in to the exact HEAD that passed the gate. */
@@ -878,16 +1206,64 @@ function capturedErrorOutput(error) {
     .join('\n');
 }
 
-/** Confirm that a concurrent opt-in achieved the intended state before going green. */
-function concurrentOptInSucceeded(repo, prNumber, expectedHead) {
+/** Confirm a concurrent opt-in only after the same body/HEAD/barrier read. */
+function concurrentOptInSucceeded(repo, prNumber, expectedHead, expectedBodyRevision, expectedLeaseId) {
+  return verifyPostMutationState(repo, prNumber, expectedHead, expectedBodyRevision, expectedLeaseId);
+}
+
+/**
+ * Close the post-mutation TOCTOU window. `--match-head-commit` binds only the
+ * commit; a body edit can race the mutation and revoke the review epoch while
+ * GitHub is accepting the native request. Re-read the body/barrier and revoke
+ * an unsafe open request immediately; a merged request with a changed body is
+ * a hard failure because GitHub cannot undo that mutation here.
+ */
+function verifyPostMutationState(repo, prNumber, expectedHead, expectedBodyRevision, expectedLeaseId) {
+  let observed;
   try {
-    const observed = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
-      'state,headRefOid,autoMergeRequest']);
-    if (observed.state === 'MERGED') return true;
-    return observed.state === 'OPEN'
+    observed = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
+      'number,id,body,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
+    const observedRevision = reviewInputRevisionFromBody(observed.body);
+    const lease = loadNativeAutoMergeLease(repo, prNumber, observed.headRefOid, observedRevision);
+    if (observed.state === 'MERGED') {
+      const safe = observed.headRefOid === expectedHead
+        && observedRevision === expectedBodyRevision
+        && lease.allow
+        && lease.leaseId === expectedLeaseId;
+      if (!safe) {
+        console.error('::error::native auto-merge guard: PR merged ma body/HEAD/lease diversa dal CAS finale');
+        process.exitCode = 1;
+      }
+      return safe;
+    }
+    const barrier = loadBodyRecoveryBarrier(
+      repo,
+      prNumber,
+      observed.headRefOid,
+      observedRevision,
+    );
+    const safe = observed.state === 'OPEN'
+      && observed.isDraft === false
+      && observed.baseRefName === 'main'
       && observed.headRefOid === expectedHead
-      && observed.autoMergeRequest !== null;
-  } catch {
+      && observedRevision === expectedBodyRevision
+      && observed.autoMergeRequest !== null
+      && barrier.allow
+      && lease.allow
+      && lease.leaseId === expectedLeaseId;
+    if (safe) return true;
+    if (observed.autoMergeRequest !== null) {
+      revokeExistingAutoMerge(repo, observed, `body/HEAD/barrier/lease cambiati dopo la mutation: ${barrier.reason}; ${lease.reason}`);
+    }
+    console.error('::error::native auto-merge guard: opt-in post-mutation non più verificabile');
+    process.exitCode = 1;
+    return false;
+  } catch (error) {
+    if (observed?.autoMergeRequest !== null) {
+      revokeExistingAutoMerge(repo, observed, 'rilettura body/barrier fallita dopo la mutation');
+    }
+    console.error(`::error::native auto-merge guard: verifica post-mutation fallita: ${String(error).slice(0, 240)}`);
+    process.exitCode = 1;
     return false;
   }
 }
@@ -912,6 +1288,18 @@ function main() {
     return skip('PR non aperta, draft o non basata su main');
   }
   const hadAutoMerge = pr.autoMergeRequest !== null;
+  let reviewRevision;
+  try {
+    reviewRevision = reviewInputRevisionFromBody(pr.body);
+  } catch (error) {
+    if (hadAutoMerge) {
+      revokeExistingAutoMerge(repo, pr, 'body revision review non verificabile');
+      return;
+    }
+    console.error(`::error::native auto-merge guard: body revision review non verificabile: ${String(error).slice(0, 240)}`);
+    process.exitCode = 1;
+    return;
+  }
 
   let changedFileSnapshot;
   try {
@@ -935,12 +1323,19 @@ function main() {
     reviews = loadReviews(repo, prNumber);
     checkRuns = loadCheckRuns(repo, pr.headRefOid);
     inJobRun = loadInJobRun(repo, pr.headRefOid, checkRuns);
-    verifiedTestOnlyReview = loadVerifiedTestOnlyReview(repo, prNumber, pr.headRefOid, reviews);
+    verifiedTestOnlyReview = loadVerifiedTestOnlyReview(
+      repo,
+      prNumber,
+      pr.headRefOid,
+      reviews,
+      reviewRevision,
+    );
     reviewGateEvidence = loadReviewGateEvidence(
       repo,
       pr.headRefOid,
       checkRuns,
-      firstReviewGateCandidate(reviews, pr.headRefOid),
+      firstReviewGateCandidate(reviews, pr.headRefOid, reviewRevision),
+      reviewRevision,
     );
   } catch (error) {
     if (hadAutoMerge) {
@@ -1003,17 +1398,20 @@ function main() {
     finalReviews = loadReviews(repo, prNumber);
     finalCheckRuns = loadCheckRuns(repo, current.headRefOid);
     finalInJobRun = loadInJobRun(repo, current.headRefOid, finalCheckRuns);
+    const finalReviewRevision = reviewInputRevisionFromBody(current.body);
     finalVerifiedTestOnlyReview = loadVerifiedTestOnlyReview(
       repo,
       prNumber,
       current.headRefOid,
       finalReviews,
+      finalReviewRevision,
     );
     finalReviewGateEvidence = loadReviewGateEvidence(
       repo,
       current.headRefOid,
       finalCheckRuns,
-      firstReviewGateCandidate(finalReviews, current.headRefOid),
+      firstReviewGateCandidate(finalReviews, current.headRefOid, finalReviewRevision),
+      finalReviewRevision,
     );
   } catch (error) {
     if (current.autoMergeRequest !== null) {
@@ -1059,6 +1457,30 @@ function main() {
     changedFilesComplete: finalChangedFileSnapshot.complete,
     inJobRun: finalInJobRun,
   });
+  let freshRecoveryBarrier;
+  try {
+    const freshRevision = reviewInputRevisionFromBody(fresh.body);
+    freshRecoveryBarrier = loadBodyRecoveryBarrier(
+      repo,
+      prNumber,
+      fresh.headRefOid,
+      freshRevision,
+    );
+  } catch (error) {
+    if (fresh.autoMergeRequest !== null) {
+      revokeExistingAutoMerge(repo, fresh, 'barrier body recovery non leggibile prima del retain');
+      return;
+    }
+    console.error(`::error::native auto-merge guard: barrier body recovery illeggibile prima del retain: ${String(error).slice(0, 240)}`);
+    process.exitCode = 1;
+    return;
+  }
+  if (!freshRecoveryBarrier.allow) {
+    if (fresh.autoMergeRequest !== null) {
+      revokeExistingAutoMerge(repo, fresh, `barrier body recovery non concluso: ${freshRecoveryBarrier.reason}`);
+    }
+    return skip(`barrier body recovery non concluso prima del retain: ${freshRecoveryBarrier.reason}`);
+  }
   console.log(`Native auto-merge guard PR #${prNumber} final gate: ${finalDecision.reason}`);
   if (finalDecision.action === 'revoke') {
     revokeExistingAutoMerge(repo, current, `fresh gate finale fallito: ${finalDecision.reason}`);
@@ -1071,17 +1493,161 @@ function main() {
     return skip('native auto-merge già abilitato e rivalidato sulla HEAD corrente');
   }
 
+  // Acquire a durable comment-backed lease only after the final recovery
+  // barrier/review snapshot is clean. Body recovery publishes a released lease
+  // before it revokes native auto-merge; the final checks below then observe
+  // that release and fail closed. GitHub exposes no atomic body+merge CAS, so
+  // the post-mutation read remains part of the safety protocol.
+  let nativeLease;
   try {
-    const output = execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: fresh.headRefOid }), {
+    const leaseRevision = reviewInputRevisionFromBody(fresh.body);
+    nativeLease = acquireNativeAutoMergeLease(
+      repo,
+      prNumber,
+      fresh.headRefOid,
+      leaseRevision,
+    );
+  } catch (error) {
+    console.error(`::error::native auto-merge guard: lease body/HEAD non acquisibile: ${String(error).slice(0, 240)}`);
+    process.exitCode = 1;
+    return;
+  }
+
+  // One last metadata/body read is the narrow CAS-style boundary immediately
+  // before the only enabling mutation. If a body edit or another opt-in lands
+  // between the final gate and this read, do not hand an old review to GitHub.
+  let beforeMutation;
+  try {
+    beforeMutation = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
+      'number,id,title,body,labels,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
+  } catch (error) {
+    if (fresh.autoMergeRequest !== null) {
+      revokeExistingAutoMerge(repo, fresh, 'metadata PR illeggibili al confine della mutation');
+      return;
+    }
+    console.error(`::error::native auto-merge guard: CAS metadata finale illeggibile: ${String(error).slice(0, 240)}`);
+    process.exitCode = 1;
+    return;
+  }
+  if (!samePrMetadata(fresh, beforeMutation)) {
+    if (beforeMutation.state === 'OPEN' && beforeMutation.autoMergeRequest !== null) {
+      revokeExistingAutoMerge(repo, beforeMutation, 'body/metadata cambiati al confine della mutation');
+    }
+    return skip('body/metadata cambiati immediatamente prima dell’opt-in; serve una nuova review');
+  }
+  if (beforeMutation.autoMergeRequest !== null) {
+    return skip('native auto-merge abilitato da un writer concorrente durante il CAS finale');
+  }
+
+  // The body read above is not enough: review/check API responses may have
+  // changed while the metadata CAS was being acquired. Re-read the complete
+  // review/check pair and the body-derived revision in the same narrow final
+  // window; only this snapshot may feed the enabling mutation.
+  let mutationRevision;
+  let mutationReviews;
+  let mutationCheckRuns;
+  let mutationVerifiedTestOnlyReview;
+  let mutationReviewGateEvidence;
+  let mutationInJobRun;
+  let recoveryBarrier;
+  let mutationMetadata;
+  try {
+    mutationRevision = reviewInputRevisionFromBody(beforeMutation.body);
+    mutationReviews = loadReviews(repo, prNumber);
+    mutationCheckRuns = loadCheckRuns(repo, beforeMutation.headRefOid);
+    mutationInJobRun = loadInJobRun(repo, beforeMutation.headRefOid, mutationCheckRuns);
+    mutationVerifiedTestOnlyReview = loadVerifiedTestOnlyReview(
+      repo,
+      prNumber,
+      beforeMutation.headRefOid,
+      mutationReviews,
+      mutationRevision,
+    );
+    mutationReviewGateEvidence = loadReviewGateEvidence(
+      repo,
+      beforeMutation.headRefOid,
+      mutationCheckRuns,
+      firstReviewGateCandidate(mutationReviews, beforeMutation.headRefOid, mutationRevision),
+      mutationRevision,
+    );
+    // Re-acquire PR metadata after the full review/check reads. This binds the
+    // body-derived revision and HEAD used below to the exact final API window;
+    // a body edit during those reads is a conflict, never a stale merge.
+    mutationMetadata = ghJson(['pr', 'view', prNumber, '--repo', repo, '--json',
+      'number,id,title,body,labels,state,isDraft,baseRefName,headRefOid,autoMergeRequest']);
+    if (!samePrMetadata(beforeMutation, mutationMetadata)) {
+      return skip('body/metadata cambiati durante lo snapshot finale review/check; serve una nuova valutazione');
+    }
+    const finalMutationRevision = reviewInputRevisionFromBody(mutationMetadata.body);
+    if (finalMutationRevision !== mutationRevision) {
+      return skip('body revision cambiata durante lo snapshot finale; serve una nuova review');
+    }
+    recoveryBarrier = loadBodyRecoveryBarrier(
+      repo,
+      prNumber,
+      mutationMetadata.headRefOid,
+      finalMutationRevision,
+    );
+  } catch (error) {
+    console.error(`::error::native auto-merge guard: snapshot finale review/check/body non leggibile: ${String(error).slice(0, 240)}`);
+    process.exitCode = 1;
+    return;
+  }
+  if (!recoveryBarrier.allow) {
+    return skip(`body recovery non concluso al confine della mutation: ${recoveryBarrier.reason}`);
+  }
+  const mutationLease = loadNativeAutoMergeLease(
+    repo,
+    prNumber,
+    mutationMetadata.headRefOid,
+    mutationRevision,
+  );
+  if (!mutationLease.allow || mutationLease.leaseId !== nativeLease.leaseId) {
+    return skip(`lease body/HEAD cambiato al confine della mutation: ${mutationLease.reason}`);
+  }
+  const mutationDecision = revalidateNativeAutoMerge({
+    pr: mutationMetadata,
+    reviews: mutationReviews,
+    checkRuns: mutationCheckRuns,
+    verifiedTestOnlyReview: mutationVerifiedTestOnlyReview,
+    reviewGateEvidence: mutationReviewGateEvidence,
+    repository: repo,
+    changedFiles: finalChangedFileSnapshot.files,
+    changedFilesComplete: finalChangedFileSnapshot.complete,
+    inJobRun: mutationInJobRun,
+  });
+  console.log(`Native auto-merge guard PR #${prNumber} mutation snapshot: ${mutationDecision.reason}`);
+  if (!mutationDecision.allow) {
+    return skip('review/check/body revision cambiati al confine della mutation; nessun merge.');
+  }
+  if (beforeMutation.autoMergeRequest !== null) {
+    return skip('native auto-merge abilitato da un writer concorrente al confine della mutation');
+  }
+
+  try {
+    const output = execFileSync('gh', nativeAutoMergeArgs({ repo, prNumber, headSha: beforeMutation.headRefOid }), {
       encoding: 'utf8',
       stdio: ['ignore', 'pipe', 'pipe'],
       env: { ...process.env },
     });
     if (output) process.stdout.write(output);
+    if (!verifyPostMutationState(
+      repo,
+      prNumber,
+      beforeMutation.headRefOid,
+      mutationRevision,
+      nativeLease.leaseId,
+    )) return;
   } catch (error) {
     const details = capturedErrorOutput(error);
     if (isAlreadyInProgressOutput(details)
-      && concurrentOptInSucceeded(repo, prNumber, fresh.headRefOid)) {
+      && concurrentOptInSucceeded(
+        repo,
+        prNumber,
+        beforeMutation.headRefOid,
+        mutationRevision,
+        nativeLease.leaseId,
+      )) {
       console.log(`Native auto-merge guard: opt-in concorrente confermato per PR #${prNumber} sulla HEAD corrente`);
       return;
     }

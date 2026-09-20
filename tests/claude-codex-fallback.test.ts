@@ -38,6 +38,7 @@ import {
   SHUTDOWN_TIMEOUT_MS as GH_SHUTDOWN_TIMEOUT_MS,
   CORPUS_REPOSITORY,
   isMutatingGhArgs,
+  materializeConditionalBodyPatch,
   resolveGhScope,
   validatePrBodyContract,
   validateGhArgs,
@@ -289,7 +290,8 @@ describe('validator dei bridge host-side', () => {
     mkdirSync(workspace, { recursive: true });
     mkdirSync(scratch, { recursive: true });
     writeFileSync(join(workspace, 'body.md'), 'body');
-    writeFileSync(join(scratch, 'payload.json'), '{}');
+    writeFileSync(join(scratch, 'payload.json'), '## Implementato\n\n- body valido in questa PR\n\n## Non implementato (ancora)\n\nNessuno\n');
+    writeFileSync(join(scratch, 'invalid-body.md'), 'not a PR body');
     writeFileSync(outsideAuth, 'fixture-secret');
     symlinkSync(outsideAuth, join(scratch, 'auth-link'));
     const context = {
@@ -330,6 +332,40 @@ describe('validator dei bridge host-side', () => {
       }
       expect(validateGhArgs(['api', 'repos/owner/repo/issues', '-Fstate=@' + outsideAuth], context)).toMatch(/body flags.*explicit GET/);
       expect(validateGhArgs(['api', 'repos/owner/repo/issues', '--method', 'GET', '-Fstate=@' + outsideAuth], context)).toMatch(/workspace\/scratch/);
+      expect(validateGhArgs(['api', '--include', 'repos/owner/repo/pulls/123'], context)).toBe('');
+      expect(validateGhArgs(['api', '--include', 'repos/owner/repo/issues'], context)).toMatch(/gh flag is not permitted/);
+      expect(validateGhArgs([
+        'api', 'repos/owner/repo/pulls/123', '--method', 'PATCH',
+        '--header', 'If-Match: W/"v1"', '--field', `body=@${join(scratch, 'payload.json')}`,
+      ], context)).toBe('');
+      expect(validateGhArgs([
+        'api', 'repos/owner/repo/pulls/123', '--method', 'PATCH',
+        '--header', 'If-Match: W/"v1"', '--field', `body=@${outsideAuth}`,
+      ], context)).toMatch(/workspace\/scratch/);
+      expect(validateGhArgs([
+        'api', 'repos/owner/repo/pulls/123', '--method', 'PATCH',
+        '--header', 'If-Match: W/"v1"', '--field', `body=@${join(scratch, 'invalid-body.md')}`,
+      ], context)).toMatch(/body contract/);
+      expect(validateGhArgs([
+        'api', 'repos/owner/repo/pulls/123', '--method', 'PATCH',
+        '--header', 'If-Match: W/"v1"', '--input', '-',
+      ], context)).toMatch(/body flags.*explicit GET/);
+      expect(validateGhArgs([
+        'api', 'repos/owner/repo/pulls/123', '--method', 'PATCH',
+        '--header', 'If-Match: W/"v1"', '--field', `body=@${join(scratch, 'payload.json')}`, '--field', 'body=x',
+      ], context)).toMatch(/body flags.*explicit GET/);
+      expect(validateGhArgs([
+        'api', 'repos/owner/repo/pulls/123', '--method', 'PATCH',
+        '--header', 'Authorization: token nope', '--field', `body=@${join(scratch, 'payload.json')}`,
+      ], context)).toMatch(/body flags.*explicit GET/);
+      expect(validateGhArgs([
+        'api', 'repos/owner/repo/pulls/123', '--method', 'PATCH',
+        '--header', 'If-Match: *', '--field', `body=@${join(scratch, 'payload.json')}`,
+      ], context)).toMatch(/body flags.*explicit GET/);
+      expect(validateGhArgs([
+        'api', 'repos/owner/repo/issues/123', '--method', 'PATCH',
+        '--header', 'If-Match: W/"v1"', '--field', `body=@${join(scratch, 'payload.json')}`,
+      ], context)).toMatch(/body flags.*explicit GET/);
       expect(validateGhArgs(['search', 'code', 'secret'], context)).toMatch(/not permitted/);
       expect(validateGhArgs(['search', 'issues'], context)).toMatch(/explicit current-repository/);
       expect(validateGhArgs(['search', 'issues', '--repo', 'owner/repo'], context)).toBe('');
@@ -345,6 +381,37 @@ describe('validator dei bridge host-side', () => {
       expect(validateGhArgs(['api', 'repos/owner/repo/issues', '--method', 'DELETE'], context)).toMatch(/mutations/);
       expect(validateGhArgs(['api', 'repos/owner/repo/issues', '-XPOST'], context)).toMatch(/mutations/);
     } finally {
+      rmSync(root, { recursive: true, force: true });
+    }
+  });
+
+  it('materializza il body CAS in un file host-private contro la race locale', () => {
+    const root = mkdtempSync(join(tmpdir(), 'codex-gh-body-cas-'));
+    const workspace = join(root, 'workspace');
+    const scratch = join(root, 'scratch');
+    const source = join(scratch, 'body.md');
+    mkdirSync(workspace, { recursive: true });
+    mkdirSync(scratch, { recursive: true });
+    const validBody = '## Implementato\n\n- body fissato in questa PR\n\n## Non implementato (ancora)\n\nNessuno\n';
+    writeFileSync(source, validBody, 'utf8');
+    let cleanup = () => {};
+    try {
+      const prepared = materializeConditionalBodyPatch([
+        'api', 'repos/owner/repo/pulls/123', '--method', 'PATCH',
+        '--header', 'If-Match: W/"v1"', '--field', `body=@${source}`,
+      ], 1, {
+        repository: 'owner/repo',
+        cwd: workspace,
+        allowedRoots: [realpathSync(workspace), realpathSync(scratch)],
+      });
+      cleanup = prepared.cleanup;
+      writeFileSync(source, 'not a PR body', 'utf8');
+      expect(prepared.args.some((arg) => arg === `body=@${prepared.bodyPath}`)).toBe(true);
+      expect(readFileSync(prepared.bodyPath, 'utf8')).toBe(validBody);
+      cleanup();
+      expect(() => readFileSync(prepared.bodyPath, 'utf8')).toThrow();
+    } finally {
+      cleanup();
       rmSync(root, { recursive: true, force: true });
     }
   });
@@ -1006,7 +1073,11 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('body_gate_dir="${PR_BODY_GATE_BIN:-}"');
     expect(action).toContain('PR_BODY_GATE_BIN must stay under RUNNER_TEMP');
     expect(action).toContain('[permissions.codex-fallback.filesystem."$body_gate_dir_toml"]');
-    expect(action).toContain('codex_command_path="$body_gate_dir:$codex_command_path"');
+    const bodyGateRewriteStart = action.indexOf('for name in CTX_DIR PR_BODY_GATE_BIN');
+    const bodyGatePathUse = action.indexOf('codex_command_path="$PR_BODY_GATE_BIN:$codex_command_path"');
+    expect(bodyGateRewriteStart).toBeGreaterThanOrEqual(0);
+    expect(bodyGatePathUse).toBeGreaterThan(bodyGateRewriteStart);
+    expect(action).not.toContain('codex_command_path="$body_gate_dir:$codex_command_path"');
     expect(action).toContain('"PATH=$codex_command_path"');
     expect(action).toContain('[permissions.codex-fallback.filesystem."$bridge_dir_toml"]');
     expect(action).toContain('"TMPDIR=$scratch_dir"');

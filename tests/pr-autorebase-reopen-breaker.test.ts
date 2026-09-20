@@ -244,13 +244,15 @@ describe('stuck-red: un failure PROVATO non attribuibile non blocca il reopen', 
     }).action).toBe('skip-breaker');
   });
 
-  it('WIRING: il call-site post-rebase dispatcha test + review sulla nuova HEAD', () => {
-    // Il dispatch parametrizzato ha sostituito il close+reopen: il workflow
-    // può risolvere la PR dal numero anche quando il push PAT non produce un
-    // evento pull_request, e la review riparte senza una race di stato.
+  it('WIRING: il call-site post-rebase attende test + review sull’evento synchronize', () => {
+    // Il push trusted del branch PR deve produrre `pull_request.synchronize`;
+    // un workflow_dispatch su un ref controllato dalla PR eseguirebbe YAML
+    // non attestato con permessi trusted e non è più ammesso.
     const postRebase = script.slice(script.indexOf('// Riesegui test E review'));
     expect(postRebase).toContain('dispatchTests(num, branch)');
-    expect(postRebase).toContain('pr_number=${num}');
+    expect(postRebase).toContain('pull_request.synchronize');
+    expect(postRebase).not.toContain('pr_number=${num}');
+    expect(postRebase).not.toContain("workflow', 'run'");
     expect(postRebase).not.toContain('guardedReopen(num, head');
     expect(script).toMatch(/failureNotAttributable:\s*stuckRedReason/);
   });
