@@ -1048,6 +1048,13 @@ describe('copertura workflow diretti', () => {
     expect(codexBlock).not.toContain('npm install --global');
     expect(codexBlock).toContain('"$codex_bin" sandbox');
     expect(codexBlock).toContain('"$codex_bin" exec');
+    expect(codexBlock).toContain('/usr/bin/timeout');
+    expect(codexBlock).toContain('codex_exec_timeout_seconds=900');
+    expect(codexBlock).toContain('codex_exec_kill_grace_seconds=30');
+    expect(codexBlock).toContain('--signal=TERM');
+    expect(codexBlock).toContain('--kill-after="${codex_exec_kill_grace_seconds}s"');
+    expect(codexBlock).toContain('codex_timed_out=%s');
+    expect(action).toContain('CODEX_TIMED_OUT: ${{ steps.codex.outputs.codex_timed_out }}');
     expect(codexBlock).toContain('"$CODEX_NODE_REAL" "$CODEX_REALPATH" --version');
     expect(action).toContain('CODEX_SANITIZER_GIT="$git_host_realpath"');
     expect(action).toContain('"$node_realpath" "$runtime_snapshot/action/sanitize-git-config.mjs"');
@@ -1093,11 +1100,12 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain('-c \'default_permissions="codex-fallback"\'');
     expect(action).toContain('-c shell_environment_policy.ignore_default_excludes=false');
     expect(action).toContain('-c "shell_environment_policy.include_only=$codex_env_patterns"');
-    expect(action).toContain('env -i "${codex_env[@]}" "$codex_bin" exec');
+    expect(action).toContain('env -i "${codex_env[@]}" "$codex_timeout_bin"');
+    expect(action).toContain('"${codex_exec_timeout_seconds}s" "$codex_bin" exec');
     expect(action).toContain('CODEX_GH_AUTH: ${{ inputs.codex_github_token }}');
     expect(action).toContain('codex_github_token:');
     const bridgeGuard = action.indexOf('if [ -z "$codex_github_auth" ]');
-    const codexExec = action.indexOf('env -i "${codex_env[@]}" "$codex_bin" exec');
+    const codexExec = action.indexOf('env -i "${codex_env[@]}" "$codex_timeout_bin"');
     expect(bridgeGuard).toBeGreaterThanOrEqual(0);
     expect(codexExec).toBeGreaterThan(bridgeGuard);
     expect(action).not.toContain('CODEX_GH_AUTH: ${{ inputs.github_token }}');

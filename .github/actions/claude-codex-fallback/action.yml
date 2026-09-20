@@ -79,6 +79,9 @@ outputs:
   codex_outcome:
     description: "GitHub Actions outcome of the Codex primary step."
     value: ${{ steps.finalize.outputs.codex_outcome }}
+  codex_timed_out:
+    description: "true when the internal Codex watchdog stopped the primary process."
+    value: ${{ steps.finalize.outputs.codex_timed_out }}
   claude_used:
     description: "Deprecated compatibility output; always false for the Codex-only action."
     value: ${{ steps.finalize.outputs.claude_used }}
@@ -126,7 +129,7 @@ runs:
           Linux:x86_64) ;;
           *) echo '::error::Codex primary requires Ubuntu Linux x64.'; exit 1 ;;
         esac
-        for host_tool in /usr/bin/curl /usr/bin/sha256sum /usr/bin/cut /usr/bin/tar /usr/bin/xz /usr/bin/mktemp /usr/bin/mkdir /usr/bin/chmod /usr/bin/dirname /usr/bin/realpath /usr/bin/stat /usr/bin/tr; do
+        for host_tool in /usr/bin/curl /usr/bin/sha256sum /usr/bin/cut /usr/bin/tar /usr/bin/xz /usr/bin/mktemp /usr/bin/mkdir /usr/bin/chmod /usr/bin/dirname /usr/bin/realpath /usr/bin/stat /usr/bin/tr /usr/bin/timeout; do
           [ -x "$host_tool" ] || { echo "::error::Required root-owned host tool is unavailable: $host_tool"; exit 1; }
         done
         realpath_cmd=/usr/bin/realpath
@@ -1118,8 +1121,23 @@ runs:
           *) echo "::error::Unsupported reasoning_effort '$codex_reasoning_effort' (allowed: high, max)."; exit 1 ;;
         esac
         echo "Codex reasoning effort: $codex_reasoning_effort"
+        # The caller's `timeout-minutes` is a last-resort runner kill. Keep a
+        # shorter provider-process cap so this action can stop the bridges,
+        # restore git config, publish its outcome, and let the workflow's
+        # retry path run instead of leaving the review step in progress until
+        # GitHub kills the whole step.
+        codex_exec_timeout_seconds=900
+        codex_exec_kill_grace_seconds=30
+        codex_timeout_bin=/usr/bin/timeout
+        [ -x "$codex_timeout_bin" ] || {
+          echo '::error::Trusted Codex timeout utility is unavailable.'
+          exit 1
+        }
         set +e
-        printf '%s' "$prompt" | env -i "${codex_env[@]}" "$codex_bin" exec \
+        printf '%s' "$prompt" | env -i "${codex_env[@]}" "$codex_timeout_bin" \
+          --signal=TERM \
+          --kill-after="${codex_exec_kill_grace_seconds}s" \
+          "${codex_exec_timeout_seconds}s" "$codex_bin" exec \
           --ephemeral \
           --strict-config \
           --ignore-user-config \
@@ -1134,6 +1152,11 @@ runs:
           --output-last-message "$CODEX_OUTPUT" \
           -
         codex_status=$?
+        codex_timed_out=false
+        if [ "$codex_status" -eq 124 ]; then
+          codex_timed_out=true
+          echo '::error::Codex primary exceeded its 15-minute internal watchdog.'
+        fi
         if [ "$CODEX_OUTPUT" != "$codex_output_destination" ] && [ -f "$CODEX_OUTPUT" ]; then
           cp -- "$CODEX_OUTPUT" "$codex_output_destination" || echo "::warning::Codex output could not be copied to the workflow artifact path."
         fi
@@ -1156,6 +1179,7 @@ runs:
         fi
         printf 'side_effect_detected=%s\n' "$side_effect_detected" >> "$GITHUB_OUTPUT"
         printf 'codex_output=%s\n' "$codex_output_destination" >> "$GITHUB_OUTPUT"
+        printf 'codex_timed_out=%s\n' "$codex_timed_out" >> "$GITHUB_OUTPUT"
         exit "$codex_status"
 
     - name: Record structured Codex primary evidence
@@ -1166,6 +1190,7 @@ runs:
         CODEX_OUTCOME: ${{ steps.codex.outcome }}
         CODEX_SIDE_EFFECT_DETECTED: ${{ steps.codex.outputs.side_effect_detected }}
         CODEX_OUTPUT: ${{ steps.codex.outputs.codex_output }}
+        CODEX_TIMED_OUT: ${{ steps.codex.outputs.codex_timed_out }}
         REPAIR_QUOTA_ADMIT: ${{ steps.repair_quota.outputs.admit }}
         REPAIR_QUOTA_HELD: ${{ steps.repair_quota.outputs.held }}
         EVIDENCE_FILE: ${{ runner.temp }}/codex-primary-evidence-${{ github.run_id }}-${{ github.run_attempt }}.md
@@ -1185,11 +1210,13 @@ runs:
           printf 'execution_file=\n' >> "$GITHUB_OUTPUT"
           printf 'fallback_used=false\nfallback_success=false\nfallback_trigger=\n' >> "$GITHUB_OUTPUT"
           printf 'fallback_evidence_file=\ncodex_output_file=\n' >> "$GITHUB_OUTPUT"
-          printf 'codex_outcome=skipped\nclaude_outcome=skipped\nclaude_used=false\nclaude_success=false\n' >> "$GITHUB_OUTPUT"
+          printf 'codex_outcome=skipped\ncodex_timed_out=false\nclaude_outcome=skipped\nclaude_used=false\nclaude_success=false\n' >> "$GITHUB_OUTPUT"
           printf 'side_effect_detected=false\nprimary_provider=codex\nprimary_success=false\nselected_provider=none\naction_success=true\n' >> "$GITHUB_OUTPUT"
           exit 0
         fi
         codex_outcome="${CODEX_OUTCOME:-skipped}"
+        codex_timed_out="${CODEX_TIMED_OUT:-false}"
+        [ "$codex_timed_out" = 'true' ] || codex_timed_out=false
         side_effect_detected="${CODEX_SIDE_EFFECT_DETECTED:-unknown}"
         if [ "$codex_outcome" = 'skipped' ]; then
           side_effect_detected=false
@@ -1240,6 +1267,7 @@ runs:
         printf 'fallback_evidence_file=%s\n' "$evidence_file" >> "$GITHUB_OUTPUT"
         printf 'codex_output_file=%s\n' "${CODEX_OUTPUT:-}" >> "$GITHUB_OUTPUT"
         printf 'codex_outcome=%s\n' "$codex_outcome" >> "$GITHUB_OUTPUT"
+        printf 'codex_timed_out=%s\n' "$codex_timed_out" >> "$GITHUB_OUTPUT"
         printf 'claude_outcome=skipped\n' >> "$GITHUB_OUTPUT"
         printf 'claude_used=%s\n' "$claude_used" >> "$GITHUB_OUTPUT"
         printf 'claude_success=%s\n' "$claude_success" >> "$GITHUB_OUTPUT"
