@@ -45,6 +45,7 @@ const OUTPUTS = [
   'data/jobs-crawler-summaries.json',
   'data/jobs-stats.json',
   'data/jobs-stats-history.json',
+  'data/jobs-stats-history',
   'data/jobs-keys-snapshot.json',
 ];
 

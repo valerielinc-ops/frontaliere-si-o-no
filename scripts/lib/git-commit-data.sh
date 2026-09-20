@@ -79,6 +79,10 @@ git config merge.known-slugs-shard.driver 'node scripts/ci/merge-known-slugs-sha
 # of git's default line merge, which on a re-serialised sorted JSON ARRAY
 # produces duplicate records rather than bloat alone.
 git config merge.orphan-enriched-shard.driver 'node scripts/ci/merge-orphan-enriched-shard.mjs %O %A %B' || true
+
+# Same registration for monthly job stats history shards
+# (.gitattributes `merge=job-stats-history-shard`).
+git config merge.job-stats-history-shard.driver 'node scripts/ci/merge-job-stats-history-shard.mjs %O %A %B' || true
 # ── Clear orphaned .git/index.lock left by a crashed prior git operation ────
 # In the grouped crawler-group-*.yml workflows (post-#3701 consolidation),
 # every crawler in a group runs as a concurrent `background: true` step

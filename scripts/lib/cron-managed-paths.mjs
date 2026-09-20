@@ -21,6 +21,7 @@ export const CRON_MANAGED_GLOBS = Object.freeze([
   'data/jobs-crawler-parser-proposals.json',
   'data/jobs-keys-snapshot.json',
   'data/jobs-stats-history.json',
+  'data/jobs-stats-history/*',
   'data/jobs-snapshots-history/*',
   'public/data/expired-jobs.json',
 

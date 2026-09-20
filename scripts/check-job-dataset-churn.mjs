@@ -2,8 +2,8 @@
 /**
  * Job dataset churn guard CLI (#6702).
  *
- * Reads `data/jobs-stats-history.json` (already regenerated for "today" by
- * `assemble-jobs-dataset.mjs --stats`, which this script must run AFTER) and
+ * Reads the logical job stats history store (already regenerated for "today"
+ * by `assemble-jobs-dataset.mjs --stats`, which this script must run AFTER) and
  * flags a day whose `added`/`removed` blows past its own trailing baseline —
  * see `scripts/lib/job-dataset-churn-guard.mjs` for the detection method.
  *
@@ -20,24 +20,14 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { detectChurnAnomalies } from './lib/job-dataset-churn-guard.mjs';
+import { readJobsStatsHistory } from './lib/job-stats-history-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
-const HISTORY_PATH = path.join(ROOT, 'data', 'jobs-stats-history.json');
 const ISSUES_PATH = path.join(ROOT, 'data', 'job-dataset-churn-issues.json');
 
-function readJson(filePath, fallback) {
-  if (!fs.existsSync(filePath)) return fallback;
-  try {
-    return JSON.parse(fs.readFileSync(filePath, 'utf8'));
-  } catch (error) {
-    console.warn(`⚠️ Failed to parse ${path.relative(ROOT, filePath)}: ${error.message}`);
-    return fallback;
-  }
-}
-
 function main() {
-  const history = readJson(HISTORY_PATH, { entries: [] });
+  const history = readJobsStatsHistory(ROOT);
   const anomalies = detectChurnAnomalies(history);
 
   if (anomalies.length === 0) {
