@@ -263,8 +263,11 @@ vi.mock('@/services/firebase', () => ({
 }));
 
 vi.mock('@/services/authService', () => ({
-  useAuth: () => ({ user: null, loading: false }),
+  useAuth: () => ({ user: null, loading: false, signIn: vi.fn() }),
   getAuthEmail: () => null,
+  renderGoogleButtonWithReadiness: vi.fn(async () => false),
+  isLinkedInSignInAvailable: vi.fn(async () => false),
+  signInWithLinkedIn: vi.fn(async () => null),
 }));
 
 vi.mock('@/services/analytics', () => ({ Analytics: doubles.analytics }));
