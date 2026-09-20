@@ -4,6 +4,7 @@ import {
   applyGlossaryCorrections,
   getGlossaryVetoStats,
   normalizeGermanGenderForms,
+  restoreProtectedTokens,
   resetGlossaryVetoStats,
 } from '../scripts/lib/translation-glossary.mjs';
 
@@ -16,6 +17,12 @@ describe('translation glossary — German gender compounds', () => {
 });
 
 describe('translation glossary — protected-term corrections', () => {
+  it('does not scrub ordinary ZQ percentage prose when a protected token is present', () => {
+    const tokens = [{ hasThird: true, thirdMarker: 'd', upper: false, bracketed: true }];
+    expect(restoreProtectedTokens('ZQ 100%', tokens, 'it', { fieldType: 'description' })).toBe('ZQ 100%');
+    expect(restoreProtectedTokens('ZQ ①000%', tokens, 'it', { fieldType: 'description' })).toBe('');
+  });
+
   it('fixes Nachtwache → IT timepiece mistranslation', () => {
     expect(applyGlossaryCorrections({
       sourceText: 'Nachtwache',

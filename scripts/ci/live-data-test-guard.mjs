@@ -189,6 +189,11 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   // production translations still carry the keys used by the modal.
   { file: 'tests/signup-prompt-funnel.test.ts', roots: ['services/locales/'] },
   { file: 'tests/corpus-wide-test-partition.test.ts', roots: ['data/jobs/', 'packages/articles/content/'] },
+  // This regression verifies that the pipeline-produced locale source keeps
+  // the four follow-signup keys required by the shared modal. The generated
+  // locale files are intentionally the subject of the assertion, so pinning
+  // a fixture would hide a missing key from the shipped source.
+  { file: 'tests/signup-prompt-funnel.test.ts', roots: ['services/locales/'] },
   // Corpus genuinely the subject: this negative production invariant verifies
   // that the three poisoned learned specs retired by #7001 stay absent from
   // the live prospector registry. A fixture would not catch their resurrection.

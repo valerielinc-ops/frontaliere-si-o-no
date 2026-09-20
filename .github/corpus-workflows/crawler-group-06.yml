@@ -151,6 +151,7 @@ jobs:
         run: bash scripts/ci/crawler-retry-cmd.sh npm ci --ignore-scripts
       - name: Restore per-company translation cache
         id: translation_cache_restore
+        continue-on-error: true
         uses: actions/cache/restore@v5
         with:
           path: data/translation-cache

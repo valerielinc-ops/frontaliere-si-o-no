@@ -443,7 +443,7 @@ const protectedTokenScrubRe = () =>
 // matcher intentionally narrow: it requires the sentinel's ZQ prefix and a
 // circled/ASCII marker ending in `%`, so ordinary prose containing “ZQ” stays.
 const mangledProtectedTokenScrubRe = () =>
-  new RegExp(`z${TOKEN_SEP}q${TOKEN_SEP}(?:x${TOKEN_SEP})?[①-⑳0-9oOxX][\\s\\S]{0,8}?%`, 'giu');
+  new RegExp(`z${TOKEN_SEP}q${TOKEN_SEP}(?:[①-⑳][\\s\\S]{0,8}?%|x${TOKEN_SEP}[0-9oOxX][\\s\\S]{0,8}?%)`, 'giu');
 
 /**
  * Collapse the Swiss German inclusive compound `…frau:mann` to the masculine

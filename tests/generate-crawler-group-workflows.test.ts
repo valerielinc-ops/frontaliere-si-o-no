@@ -293,6 +293,7 @@ describe('generate() — shared install step reflects per-crawler prep requireme
       const restore = job.steps.find((step) => step.id === 'translation_cache_restore');
       expect(restore).toMatchObject({
         name: 'Restore per-company translation cache',
+        'continue-on-error': true,
         uses: 'actions/cache/restore@v5',
         with: {
           path: 'data/translation-cache',
