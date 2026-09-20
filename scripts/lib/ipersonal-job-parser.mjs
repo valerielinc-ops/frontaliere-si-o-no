@@ -13,7 +13,8 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { jobUrlHost } from './job-url-host.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
+import { stripHtml } from './crawler-template.mjs';
+import { buildSlug } from './regenerate-slugs-helpers.mjs';
 import { resolveSourceBackedSwissGeography } from './prospector/location-evidence.mjs';
 import { loadSpec } from './prospector/spec-crawler.mjs';
 import {
@@ -169,7 +170,7 @@ export async function fetchAllIpersonalJobs() {
     const publicUrl = listing.url || CAREER_URL;
 
     const sourceLang = detectLang(descriptionText || title, 'de');
-    const jobSlug = slugify(`${title} ipersonal ch`);
+    const jobSlug = buildSlug(title, IPERSONAL_COMPANY_NAME, location);
     const urlHash = createHash('sha1').update(publicUrl).digest('hex').slice(0, 12);
 
     const job = {

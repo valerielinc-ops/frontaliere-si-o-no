@@ -199,7 +199,9 @@ async function main() {
         const sourceTitle = (tbl[sourceLang] || '').trim();
         const slugEncodesTitle = Boolean(currentSlug)
           && slugMatchesTitle(currentSlug, title, company, location, disambiguator);
-        const skipUntranslatedGuard = sourceBrandRefresh || (brandRefresh && slugEncodesTitle);
+        // A declared brand refresh must update every locale, even when a
+        // translated title currently looks like a source-language copy.
+        const skipUntranslatedGuard = brandRefresh;
         if (!skipUntranslatedGuard && sourceTitle && isLikelyUntranslated(title, sourceTitle)) continue;
 
         // If slug already matches title+company+location (+ disambiguator), skip
@@ -213,7 +215,11 @@ async function main() {
         const otherSlugs = new Set(
           LOCALES.filter(l => l !== locale).map(l => (sbl[l] || '').trim()).filter(Boolean)
         );
-        if (otherSlugs.has(newSlug)) continue;
+        // A declared brand refresh is authoritative even when a copied
+        // translation currently has the same candidate. Locale prefixes keep
+        // those routes distinct, and skipping one locale leaves a stale
+        // source-brand slug active (#7722).
+        if (!brandRefresh && otherSlugs.has(newSlug)) continue;
 
         // Cross-job uniqueness check (Phase 4 case 5).
         // If another active job already owns `newSlug` for this locale,
