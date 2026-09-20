@@ -24,6 +24,7 @@ export const BLATTERS_HOTEL_COMPANY_NAME = "Blatter's Arosa Hotel";
 export const BLATTERS_HOTEL_COMPANY_DOMAIN = 'hotelcareer.ch';
 
 const CAREER_URL = 'https://www.hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340?intcid=autosuggest-company-4340';
+const BLATTERS_HOTEL_PATH = '/jobs/blatter-s-hotel-arosa-4340';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -33,6 +34,18 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isBlattersHotelListingUrl(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl);
+    const host = url.hostname.toLowerCase();
+    const path = url.pathname.toLowerCase();
+    return (host === BLATTERS_HOTEL_COMPANY_DOMAIN || host.endsWith(`.${BLATTERS_HOTEL_COMPANY_DOMAIN}`))
+      && (path === BLATTERS_HOTEL_PATH || path.startsWith(`${BLATTERS_HOTEL_PATH}/`));
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -48,13 +61,13 @@ export function isBlattersHotelJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
+  const url = job?.url || '';
 
   return (
     key === BLATTERS_HOTEL_KEY ||
     key.startsWith('blatters-hotel-') ||
     company.includes("blatter's arosa hotel") ||
-    url.includes('hotelcareer.ch')
+    isBlattersHotelListingUrl(url)
   );
 }
 

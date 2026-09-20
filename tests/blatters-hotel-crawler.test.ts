@@ -24,8 +24,12 @@ describe("Blatter's Arosa Hotel crawler parser", () => {
       expect(isBlattersHotelJob({ company: "Blatter's Arosa Hotel" })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isBlattersHotelJob({ url: 'https://hotelcareer.ch/jobs/123' })).toBe(true);
+    it('matches by HotelCareer company URL', () => {
+      expect(isBlattersHotelJob({ url: 'https://hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/123' })).toBe(true);
+    });
+
+    it('rejects unrelated HotelCareer listings', () => {
+      expect(isBlattersHotelJob({ url: 'https://hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933/123' })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

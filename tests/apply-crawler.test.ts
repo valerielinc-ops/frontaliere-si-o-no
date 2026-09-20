@@ -24,8 +24,12 @@ describe('LEITpuls AG crawler parser', () => {
       expect(isApplyJob({ company: 'LEITpuls AG' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isApplyJob({ url: 'https://apply.refline.ch/jobs/123' })).toBe(true);
+    it('matches by Refline tenant URL', () => {
+      expect(isApplyJob({ url: 'https://apply.refline.ch/968123/1468/123/pub/1/index.html' })).toBe(true);
+    });
+
+    it('rejects unrelated Refline tenants', () => {
+      expect(isApplyJob({ url: 'https://apply.refline.ch/123456/789/123/pub/1/index.html' })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {

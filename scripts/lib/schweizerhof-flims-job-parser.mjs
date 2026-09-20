@@ -24,6 +24,7 @@ export const SCHWEIZERHOF_FLIMS_COMPANY_NAME = 'Schweizerhof';
 export const SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN = 'hotelcareer.ch';
 
 const CAREER_URL = 'https://www.hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933';
+const SCHWEIZERHOF_FLIMS_PATH = '/jobs/romantik-hotel-schweizerhof-11933';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -33,6 +34,18 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isSchweizerhofFlimsListingUrl(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl);
+    const host = url.hostname.toLowerCase();
+    const path = url.pathname.toLowerCase();
+    return (host === SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN || host.endsWith(`.${SCHWEIZERHOF_FLIMS_COMPANY_DOMAIN}`))
+      && (path === SCHWEIZERHOF_FLIMS_PATH || path.startsWith(`${SCHWEIZERHOF_FLIMS_PATH}/`));
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -48,13 +61,13 @@ export function isSchweizerhofFlimsJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
+  const url = job?.url || '';
 
   return (
     key === SCHWEIZERHOF_FLIMS_KEY ||
     key.startsWith('schweizerhof-flims-') ||
     company.includes('schweizerhof') ||
-    url.includes('hotelcareer.ch')
+    isSchweizerhofFlimsListingUrl(url)
   );
 }
 

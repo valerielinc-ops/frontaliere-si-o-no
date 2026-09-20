@@ -24,6 +24,7 @@ export const APPLY_COMPANY_NAME = 'LEITpuls AG';
 export const APPLY_COMPANY_DOMAIN = 'apply.refline.ch';
 
 const CAREER_URL = 'https://apply.refline.ch/968123/1468/pub/de/index.html';
+const APPLY_PATH = '/968123/1468';
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -33,6 +34,18 @@ function normalize(value = '') {
 
 function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
+}
+
+function isApplyListingUrl(rawUrl = '') {
+  try {
+    const url = new URL(rawUrl);
+    const host = url.hostname.toLowerCase();
+    const path = url.pathname.toLowerCase();
+    return (host === APPLY_COMPANY_DOMAIN || host.endsWith(`.${APPLY_COMPANY_DOMAIN}`))
+      && (path === APPLY_PATH || path.startsWith(`${APPLY_PATH}/`));
+  } catch {
+    return false;
+  }
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */
@@ -48,13 +61,13 @@ export function isApplyJob(job) {
     .replace(/[^a-z0-9]+/g, '-')
     .replace(/^-+|-+$/g, '');
   const company = normalize(job?.company || '');
-  const url = normalize(job?.url || '');
+  const url = job?.url || '';
 
   return (
     key === APPLY_KEY ||
     key.startsWith('apply-') ||
     company.includes('leitpuls ag') ||
-    url.includes('apply.refline.ch')
+    isApplyListingUrl(url)
   );
 }
 

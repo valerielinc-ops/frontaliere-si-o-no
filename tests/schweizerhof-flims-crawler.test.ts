@@ -24,8 +24,12 @@ describe('Schweizerhof crawler parser', () => {
       expect(isSchweizerhofFlimsJob({ company: 'Schweizerhof' })).toBe(true);
     });
 
-    it('matches by URL domain', () => {
-      expect(isSchweizerhofFlimsJob({ url: 'https://hotelcareer.ch/jobs/123' })).toBe(true);
+    it('matches by HotelCareer company URL', () => {
+      expect(isSchweizerhofFlimsJob({ url: 'https://hotelcareer.ch/jobs/romantik-hotel-schweizerhof-11933/123' })).toBe(true);
+    });
+
+    it('rejects unrelated HotelCareer listings', () => {
+      expect(isSchweizerhofFlimsJob({ url: 'https://hotelcareer.ch/jobs/blatter-s-hotel-arosa-4340/123' })).toBe(false);
     });
 
     it('rejects unrelated jobs', () => {
