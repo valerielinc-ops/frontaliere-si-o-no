@@ -7,6 +7,7 @@ import { pathToFileURL } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
 
 import { WriteCollector } from '../build-plugins/batchWrite';
+import { JOBS_SEO_REUSE_PROBE_BUILD_ID } from '../build-plugins/shared/incrementalHtmlReuse.mjs';
 import { IncrementalManifest } from '../build-plugins/shared/incrementalManifest.mjs';
 import {
   buildSharedHtmlPathIndex,
@@ -269,6 +270,58 @@ describe('post-walk incremental planning', () => {
     if ('reason' in loaded) throw new Error(loaded.reason);
     expect(loaded.state.current.entries.has('jobs/changed')).toBe(true);
     expect(loaded.state.fallbackReason).toContain('emitter fingerprint cambiato');
+  });
+
+  it('keeps the delta when the jobs SEO output probe inherited every changed block', async () => {
+    const root = fixtureRoot();
+    const entry = { path: 'jobs/changed/', kind: 'active-job', input: { jobId: 'job-1', title: 'same' } };
+    const before = { 'active-job': 'active@old', 'expired-soft-landing': 'expired@old' };
+    const after = { 'active-job': 'active@new', 'expired-soft-landing': 'expired@new' };
+    writeManifest(root, 'incremental-manifest-prev', [entry], true, before);
+    writeManifest(root, 'incremental-manifest', [entry], true, after);
+    const probeFile = path.join(root, '.cache', 'incremental-html', 'probe-it.json');
+    fs.mkdirSync(path.dirname(probeFile), { recursive: true });
+    const writeVerdict = (active: string) => fs.writeFileSync(probeFile, JSON.stringify({
+      version: 2,
+      buildId: JOBS_SEO_REUSE_PROBE_BUILD_ID,
+      locale: 'it',
+      previousFingerprint: before,
+      currentFingerprint: after,
+      blocks: {
+        active: { verdict: active },
+        'expired-soft-landing': { verdict: 'inherit' },
+      },
+    }));
+    const previousProbe = process.env.JOBS_SEO_REUSE_PROBE;
+    process.env.JOBS_SEO_REUSE_PROBE = '1';
+    try {
+      writeVerdict('inherit');
+      const inherited = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+      if ('reason' in inherited) throw new Error(inherited.reason);
+      expect(inherited.state.fallbackReason).toBeUndefined();
+
+      writeVerdict('invalidate');
+      const invalidated = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+      if ('reason' in invalidated) throw new Error(invalidated.reason);
+      expect(invalidated.state.fallbackReason).toContain('emitter fingerprint cambiato');
+
+      delete process.env.JOBS_SEO_REUSE_PROBE;
+      writeVerdict('inherit');
+      const disabled = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+      if ('reason' in disabled) throw new Error(disabled.reason);
+      expect(disabled.state.fallbackReason).toContain('emitter fingerprint cambiato');
+
+      // A verdict restored from another build never answers for this one.
+      process.env.JOBS_SEO_REUSE_PROBE = '1';
+      const record = JSON.parse(fs.readFileSync(probeFile, 'utf8'));
+      fs.writeFileSync(probeFile, JSON.stringify({ ...record, buildId: 'another-build' }));
+      const foreign = await loadPostWalkManifestState(root, ['it'], BASE_URL);
+      if ('reason' in foreign) throw new Error(foreign.reason);
+      expect(foreign.state.fallbackReason).toContain('emitter fingerprint cambiato');
+    } finally {
+      if (previousProbe === undefined) delete process.env.JOBS_SEO_REUSE_PROBE;
+      else process.env.JOBS_SEO_REUSE_PROBE = previousProbe;
+    }
   });
 
   it('can omit unmanifested paths only for the sampled-verifier plan', async () => {
