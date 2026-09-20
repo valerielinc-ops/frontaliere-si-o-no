@@ -450,6 +450,7 @@ describe('audit findings', () => {
     ['posta-svizzera-centro-regionale', 'postauto'],
     ['migros-ticino', 'denner'],
     ['migros-ticino', 'migrolino'],
+    ['swiss-medical-network', 'villa-im-park'],
   ])('treats source ownership %s / %s as unordered when cardinality reverses', (broad, dedicated) => {
     const shared = Array.from({ length: 5 }, (_, i) => ({ url: `https://${dedicated}.example.ch/job/${i}` }));
     const broadOnly = Array.from({ length: 5 }, (_, i) => ({ url: `https://${broad}.example.ch/job/broad-${i}` }));

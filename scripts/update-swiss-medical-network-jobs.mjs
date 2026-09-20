@@ -32,6 +32,7 @@ import { matchesHopitalDeMoutierPosting } from './lib/hopital-de-moutier-job-par
 import { matchesKlinikSiloahPosting } from './lib/klinik-siloah-job-parser.mjs';
 import { matchesPrivatklinikBethanienPosting } from './lib/privatklinik-bethanien-job-parser.mjs';
 import { matchesPrivatklinikObachPosting } from './lib/privatklinik-obach-job-parser.mjs';
+import { matchesVillaImParkPosting } from './lib/villa-im-park-job-parser.mjs';
 import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -63,6 +64,7 @@ const DEDICATED_CLINIC_MATCHERS = [
   matchesKlinikSiloahPosting,
   matchesPrivatklinikBethanienPosting,
   matchesPrivatklinikObachPosting,
+  matchesVillaImParkPosting,
 ];
 
 function normalize(value = '') { return String(value || '').trim().toLowerCase(); }

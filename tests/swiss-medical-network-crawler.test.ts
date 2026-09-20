@@ -31,6 +31,14 @@ describe('Swiss Medical Network umbrella ownership', () => {
     expect(isDedicatedClinicOwnedPosting(obachPosting, new Set())).toBe(true);
   });
 
+  it('excludes Villa im Park PKV postings before the dedicated slice contains the id', () => {
+    expect(isDedicatedClinicOwnedPosting({
+      id: '744000124593045',
+      location: { city: 'Rothrist' },
+      customField: [{ fieldLabel: 'Brands', valueId: 'PKV' }],
+    }, new Set())).toBe(true);
+  });
+
   it('keeps unrelated SMN postings unless a dedicated slice owns the id', () => {
     const networkPosting = {
       id: '744000100000000',
