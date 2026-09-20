@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-13T23:49:17.286Z",
+  "generatedAt": "2026-09-20T23:44:41.599Z",
   "weights": {
     "gsc": 0.4,
     "suggest": 0.3,
@@ -70,13 +70,6 @@
       "cluster": "fiscale"
     },
     {
-      "kw": "cifre",
-      "normalizedKeyword": "cifre",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
-    },
-    {
       "kw": "contante",
       "normalizedKeyword": "contante",
       "weight": 0.3,
@@ -119,6 +112,13 @@
       "cluster": "generic"
     },
     {
+      "kw": "multa",
+      "normalizedKeyword": "multa",
+      "weight": 0.3,
+      "source": "fingerprint",
+      "cluster": "generic"
+    },
+    {
       "kw": "permesso",
       "normalizedKeyword": "permesso",
       "weight": 0.3,
@@ -144,6 +144,13 @@
       "normalizedKeyword": "ristorni frontalieri ticino",
       "weight": 0.3,
       "source": "suggest",
+      "cluster": "fiscale"
+    },
+    {
+      "kw": "stipendio",
+      "normalizedKeyword": "stipendio",
+      "weight": 0.3,
+      "source": "fingerprint",
       "cluster": "fiscale"
     },
     {
@@ -177,13 +184,6 @@
     {
       "kw": "ticino",
       "normalizedKeyword": "ticino",
-      "weight": 0.3,
-      "source": "fingerprint",
-      "cluster": "generic"
-    },
-    {
-      "kw": "urgenti",
-      "normalizedKeyword": "urgenti",
       "weight": 0.3,
       "source": "fingerprint",
       "cluster": "generic"
