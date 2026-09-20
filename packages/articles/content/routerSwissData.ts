@@ -2224,6 +2224,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'scuola-canton-vaud-iscrizioni-cicli': { it: 'scuola-canton-vaud-iscrizioni-cicli', en: 'vaud-school-system-enrollment-cycles', de: 'schulsystem-kanton-waadt-anmeldung', fr: 'systeme-scolaire-canton-vaud-inscription' },
  'permesso-l-grigioni-validita-proroga': { it: 'permesso-l-grigioni-validita-proroga', en: 'permit-l-grisons-validity-extension', de: 'aufenthaltsbewilligung-l-graubunden-gueltigkeit-verlaengerung', fr: 'permis-l-grisons-validite-prolongation' },
  'apprendistato-formazione-professionale-vaud': { it: 'apprendistato-formazione-professionale-vaud', en: 'apprenticeship-vocational-training-vaud', de: 'lehre-berufsbildung-waadt', fr: 'apprentissage-formation-professionnelle-vaud' },
+ 'revolut-hacker-svizzera-pec': { it: 'revolut-hacker-svizzera-pec', en: 'revolut-hacker-switzerland-pec', de: 'revolut-hacker-schweiz-pec', fr: 'revolut-hacker-suisse-pec' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

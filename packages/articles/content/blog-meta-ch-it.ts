@@ -6605,6 +6605,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-vaud.title': 'Apprendistato e formazione professionale Vaud',
     'blog.article.apprendistato-formazione-professionale-vaud.excerpt': 'Guida completa su come trovare un posto di tirocinio nel Canton Vaud: contratto, retribuzione apprendista e maturità professionale.',
     'blog.article.apprendistato-formazione-professionale-vaud.imageAlt': 'Vigneti terrazzati del Canton Vaud al tramonto, con vista sul Lago di Ginevra',
+    'blog.article.revolut-hacker-svizzera-pec.title': 'Revolut hacker: dati di 700 clienti svizzeri',
+    'blog.article.revolut-hacker-svizzera-pec.excerpt': 'Attacco hacker a Revolut: quasi 700 clienti svizzeri colpiti. I criminali chiedono 3 milioni di dollari per non pubblicare i dati.',
+    'blog.article.revolut-hacker-svizzera-pec.imageAlt': 'Smartphone con app bancaria e icona di sicurezza su scrivania',
 };
 
 export default blogMetaChIt;

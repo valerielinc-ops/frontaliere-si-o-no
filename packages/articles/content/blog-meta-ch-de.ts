@@ -6605,6 +6605,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.apprendistato-formazione-professionale-vaud.title': 'Lehre und Berufsausbildung Waadt',
     'blog.article.apprendistato-formazione-professionale-vaud.excerpt': 'Vollständiger Leitfaden zur Suche nach einer Lehrstelle im Kanton Waadt: Vertrag, Lehrlingsentgelt und Berufsmaturität.',
     'blog.article.apprendistato-formazione-professionale-vaud.imageAlt': 'Terrassierte Weinberge im Kanton Waadt bei Sonnenuntergang mit Blick auf den Genfersee',
+    'blog.article.revolut-hacker-svizzera-pec.title': 'Revolut Hacker: Daten von 700 Schweizer Kunden',
+    'blog.article.revolut-hacker-svizzera-pec.excerpt': 'Hacker-Angriff auf Revolut: Fast 700 Schweizer Kunden betroffen. Die Kriminellen fordern 3 Millionen Dollar, um die Daten nicht zu veröffentlichen.',
+    'blog.article.revolut-hacker-svizzera-pec.imageAlt': 'Smartphone mit Banking-App und Sicherheits-Symbol auf Schreibtisch',
 };
 
 export default blogMetaChDe;
