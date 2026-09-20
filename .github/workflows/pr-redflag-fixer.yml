@@ -1342,6 +1342,16 @@ jobs:
           FIX_ROUND: ${{ steps.guard.outputs.round }}
         run: |
           set -uo pipefail
+          # Solo un round che lo scope ha dichiarato `body_only`. Senza questo
+          # filtro, un edit del body fatto da qualcun altro mentre il round
+          # girava avrebbe fatto avanzare la HEAD — e bruciato una re-review —
+          # su un round che di codice non aveva fatto niente (domanda `❓ q:`
+          # della review 5259835406). Il caso «body cambiato, HEAD ferma» resta
+          # comunque coperto: `Classify outcome` lo marca RED, mai verde.
+          if [ "${BODY_ONLY:-false}" != "true" ]; then
+            echo "Round non body-only (body_only=${BODY_ONLY:-false}) → nessun avanzamento di HEAD da qui."
+            echo "advanced=not-body-only" >> "$GITHUB_OUTPUT"; exit 0
+          fi
           now_digest=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '.body // ""' 2>/dev/null \
             | shasum -a 256 | awk '{print $1}')
           if [ "${BASE_BODY_DIGEST:-unknown}" = "unknown" ] || [ -z "${now_digest:-}" ]; then

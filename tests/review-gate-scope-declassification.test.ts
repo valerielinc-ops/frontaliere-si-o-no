@@ -403,6 +403,10 @@ describe('pr-redflag-fixer.yml: il workflow consuma davvero il verdetto', () => 
     // Si spinge SOLO quando il body è cambiato e la HEAD non è avanzata: non è
     // il commit vuoto che il prompt vieta (quello nasce da un round che non ha
     // fatto nulla).
+    // Solo su un round body-only: un edit del body concorrente, su un round
+    // che di codice non ha fatto nulla, non deve far avanzare la HEAD e
+    // bruciare una re-review (❓ q: della review 5259835406).
+    expect(run).toMatch(/\$\{BODY_ONLY:-false\}" != "true"/u);
     expect(run).toContain('BASE_BODY_DIGEST');
     expect(run).toContain('git rev-parse HEAD');
     expect(run).toMatch(/git commit --allow-empty/u);
