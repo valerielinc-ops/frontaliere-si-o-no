@@ -61,6 +61,7 @@ jobs:
             !/public/data/
             !/data/related-search-candidates.json
             !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
             !/data/dist-size-history.jsonl
             !/data/jobs-stats-history.json
             !/data/url-first-seen.json
