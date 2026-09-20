@@ -94,6 +94,36 @@ describe('job localization pipeline', () => {
     expect(stats.providerHits.libretranslate).toBe(1);
   });
 
+  it('falls back when NLLB echoes a source sentinel in a mangled form', async () => {
+    const fetchMock = vi.fn(async (url: string) => {
+      if (String(url).includes(':9001')) {
+        return {
+          ok: true,
+          json: async () => ({ translatedText: 'Tecnico laboratorio ZQ ①000%' }),
+        };
+      }
+      return {
+        ok: true,
+        json: async () => ({ translatedText: 'Technicien de laboratoire ZQX0XQZ' }),
+      };
+    });
+    vi.stubGlobal('fetch', fetchMock as unknown as typeof fetch);
+
+    const translated = await translateTextWithLocalPipeline({
+      text: 'Tecnico laboratorio (m/w/d)',
+      sourceLang: 'it',
+      targetLang: 'fr',
+      kind: 'title',
+      minChars: 2,
+    });
+
+    expect(translated).toBe('Technicien de laboratoire (h/f/d)');
+    expect(fetchMock).toHaveBeenCalledTimes(2);
+    const stats = getJobLocalizationPipelineStats();
+    expect(stats.providerFailures.nllb).toBe(1);
+    expect(stats.providerHits.libretranslate).toBe(1);
+  });
+
   it('keeps the two-character requirement floor when a caller passes a lower minimum', async () => {
     const fetchMock = vi.fn(async () => ({
       ok: true,
