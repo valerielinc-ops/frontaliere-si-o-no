@@ -43,29 +43,39 @@ const listingCard = ({
     <div class="ff-job-entry__column ff-job-entry__region"><span>Region:</span> ${location}</div>
   </li>`;
 
-const listingHtml = (...cards: string[]) => `<html><body><ul>${cards.join('\n')}</ul></body></html>`;
+const listingHtml = (...cards: string[]) => `<html><body><div data-count="${cards.length}"><ul>${cards.join('\n')}</ul></div></body></html>`;
+
+const paginatedListingHtml = (count: number, nextHref: string | null, ...cards: string[]) => `
+  <html><body>
+    <div class="results" data-count="${count}">
+      <ul>${cards.join('\n')}</ul>
+      ${nextHref ? `<a class="pagination__link ff-pagination__next" rel="next" href="${nextHref}">Weiter</a>` : ''}
+    </div>
+  </body></html>`;
 
 const detailHtml = ({
   title,
   description,
   location = 'Luzern',
+  canton = 'LU',
 }: {
   title: string;
   description: string;
   location?: string;
+  canton?: string;
 }) => `<html><head><script type="application/ld+json">${JSON.stringify({
   '@context': 'https://schema.org',
   '@type': 'JobPosting',
   title,
   description,
   jobLocation: {
-    '@type': 'Place',
-    address: {
-      '@type': 'PostalAddress',
-      addressLocality: location,
-      addressRegion: 'LU',
-      addressCountry: 'CH',
-    },
+      '@type': 'Place',
+      address: {
+        '@type': 'PostalAddress',
+        addressLocality: location,
+        addressRegion: canton,
+        addressCountry: 'CH',
+      },
   },
 })}</script></head><body></body></html>`;
 
@@ -227,6 +237,103 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       expect(() => parseFachkraftListingPage('<html></html>')).toThrow(/no ff-job-entry/i);
       const duplicate = listingCard({ title: 'Polymechaniker/in', path: 'same-123' });
       expect(() => parseFachkraftListingPage(listingHtml(duplicate, duplicate))).toThrow(/duplicate URL/i);
+    });
+
+    it('follows every listing page and verifies the source-declared total before fetching details (#9398)', async () => {
+      const firstTitle = 'Polymechaniker/in';
+      const secondTitle = 'Montage-Elektriker/in';
+      const firstUrl = 'https://www.fachkraft.ch/stellen/polymechaniker-in-luzern-123/';
+      const secondUrl = 'https://www.fachkraft.ch/stellen/montage-elektriker-in-zug-456/';
+      const secondPageUrl = 'https://www.fachkraft.ch/stellen/page/2/';
+      const fetchImpl = vi.fn(async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (target === 'https://www.fachkraft.ch/stellen/') {
+          return new Response(paginatedListingHtml(
+            2,
+            '/stellen/page/2/',
+            listingCard({ title: firstTitle, path: 'polymechaniker-in-luzern-123' }),
+          ), { status: 200 });
+        }
+        if (target === secondPageUrl) {
+          return new Response(paginatedListingHtml(
+            2,
+            null,
+            listingCard({ title: secondTitle, path: 'montage-elektriker-in-zug-456', location: 'Zug', canton: 'ZG' }),
+          ), { status: 200 });
+        }
+        const detail = target === firstUrl
+          ? { title: firstTitle, description: words(55, 'first') }
+          : { title: secondTitle, description: words(55, 'second'), location: 'Zug', canton: 'ZG' };
+        return new Response(detailHtml(detail), { status: 200 });
+      });
+
+      const snapshot = await fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        existingJobs: [],
+        detailWorkers: 1,
+      });
+
+      expect(fetchImpl.mock.calls.map(([target]) => target)).toContain(secondPageUrl);
+      expect(snapshot).toHaveLength(2);
+      expect(snapshot.fachkraftSnapshot).toMatchObject({
+        listingPages: 2,
+        listingDeclaredCount: 2,
+        discovered: 2,
+        detailCompleted: 2,
+      });
+      expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+    });
+
+    it('fails closed when the source declares more listings than the fetched pages contain', async () => {
+      const fetchImpl = async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        return new Response(paginatedListingHtml(
+          2,
+          null,
+          listingCard({ title: 'Polymechaniker/in', path: 'polymechaniker-in-luzern-123' }),
+        ), { status: 200 });
+      };
+
+      await expect(fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        existingJobs: [],
+      })).rejects.toThrow(/pagination incomplete/i);
+    });
+
+    it('fails closed when the initial listing omits the source-declared total', async () => {
+      const fetchImpl = async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        return new Response(`<html><body><ul>${listingCard({
+          title: 'Polymechaniker/in',
+          path: 'polymechaniker-in-luzern-123',
+        })}</ul></body></html>`, { status: 200 });
+      };
+
+      await expect(fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        existingJobs: [],
+      })).rejects.toThrow(/initial listing missing authoritative data-count/i);
+    });
+
+    it('rejects a complete audit without the source-declared total', () => {
+      const jobs = Object.assign([], {
+        fachkraftSnapshot: {
+          complete: true,
+          listingDeclaredCount: null,
+          discovered: 1,
+          fetchFailures: 0,
+          detailCompleted: 0,
+          detailRequested: 0,
+          accounted: 1,
+          published: 0,
+        },
+      });
+
+      expect(() => validateFachkraftAuthoritativeSnapshot(jobs))
+        .toThrow(/authoritative snapshot proof missing or incomplete/i);
     });
 
     it('retries a transient listing status within the local request budget', async () => {
