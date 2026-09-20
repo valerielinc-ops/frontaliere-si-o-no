@@ -98,6 +98,20 @@ describe('local-opus-mt — English pivot for non-EN pairs', () => {
     await translateWithLocalOpusMt('Cerchiamo personale', 'it', 'fr');
     expect(f.loaded).toEqual(['Xenova/opus-mt-it-en', 'Xenova/opus-mt-en-fr']);
   });
+
+  it('reuses the src→en pivot when the same source feeds multiple targets', async () => {
+    const f = fakeFactory();
+    setLocalOpusMtForTests(f);
+    await translateWithLocalOpusMt('Wir suchen einen Pfleger', 'de', 'fr');
+    await translateWithLocalOpusMt('Wir suchen einen Pfleger', 'de', 'it');
+
+    expect(f.loaded.filter((model) => model === 'Xenova/opus-mt-de-en')).toHaveLength(1);
+    expect(f.loaded).toEqual([
+      'Xenova/opus-mt-de-en',
+      'Xenova/opus-mt-en-fr',
+      'Xenova/opus-mt-en-it',
+    ]);
+  });
 });
 
 describe('local-opus-mt — guards (fail closed)', () => {

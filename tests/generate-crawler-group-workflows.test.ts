@@ -2031,21 +2031,17 @@ describe('cross-repo crawler execution artifacts', () => {
     const translationSetupStep = Object.values(translation.jobs)[0].steps.find(
       (step: any) => step.uses === './.github/actions/setup-claude-haiku-fallback',
     );
-    expect(translationSetupStep?.id).toBe('setup_claude_haiku_fallback');
-    expect(translationSetupStep?.with?.codex_auth_json).toBe('${{ secrets.CODEX_AUTH_JSON }}');
+    expect(translationSetupStep).toBeUndefined();
     const translationStep = Object.values(translation.jobs)[0].steps.find(
       (step: any) => step.env?.JOBS_CRAWLER_USE_FIRESTORE_CONFIG === '1',
     );
     expect(translationStep.env.CODEX_AUTH_JSON).toBeUndefined();
-    expect(translationStep.env.CODEX_AUTH_BROKER_SOCKET)
-      .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
+    expect(translationStep.env.CODEX_AUTH_BROKER_SOCKET).toBeUndefined();
     expect(translationStep.env.CLAUDE_CODE_OAUTH_TOKEN).toBeUndefined();
     const translationCleanupStep = Object.values(translation.jobs)[0].steps.find(
       (step: any) => step.name === 'Cleanup Codex auth broker',
     );
-    expect(translationCleanupStep?.if).toBe('always()');
-    expect(translationCleanupStep?.env?.CODEX_AUTH_BROKER_SOCKET)
-      .toBe('${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}');
+    expect(translationCleanupStep).toBeUndefined();
   });
 
   it('avvolge tutte le installazioni standalone nei retry site-owned', () => {
@@ -2213,8 +2209,8 @@ describe('cross-repo crawler execution artifacts', () => {
       .slice(job.steps.indexOf(guard) + 1)
       .filter((step: any) => typeof step.if === 'string' && step.if.includes('always()'));
     const cleanup = postGuardAlways.find((step: any) => step.name === 'Cleanup Codex auth broker');
-    expect(cleanup?.if).toBe('always()');
-    for (const step of postGuardAlways.filter((step: any) => step !== cleanup)) {
+    expect(cleanup).toBeUndefined();
+    for (const step of postGuardAlways) {
       expect(step.if, step.name).toContain(recoveryReady);
     }
     expect(postGuardAlways.some((step: any) => step.name === 'Install Argos Translate (local MT engine)')).toBe(true);

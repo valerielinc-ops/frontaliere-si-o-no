@@ -1,5 +1,19 @@
-import { describe, it, expect } from 'vitest';
-import { detectLanguage, detectLanguageWithConfidence, isSameLanguage } from '../scripts/lib/detect-language.mjs';
+import { describe, it, expect, afterEach } from 'vitest';
+import {
+  clearLanguageDetectionMemo,
+  detectLanguage,
+  detectLanguageWithConfidence,
+  isSameLanguage,
+  languageDetectionMemoStats,
+} from '../scripts/lib/detect-language.mjs';
+
+const ORIGINAL_MEMO = process.env.TRANSLATION_DETECTOR_MEMO;
+
+afterEach(() => {
+  clearLanguageDetectionMemo();
+  if (ORIGINAL_MEMO === undefined) delete process.env.TRANSLATION_DETECTOR_MEMO;
+  else process.env.TRANSLATION_DETECTOR_MEMO = ORIGINAL_MEMO;
+});
 
 describe('detectLanguage', () => {
   describe('Italian texts', () => {
@@ -114,5 +128,29 @@ describe('isSameLanguage', () => {
       'We are looking for a software engineer with experience',
       'Stiamo cercando un sviluppatore software con esperienza'
     )).toBe(false);
+  });
+});
+
+describe('language detection memo', () => {
+  const sample = 'We are looking for an experienced software developer with strong communication skills.';
+
+  it('memoizes repeated confidence checks when explicitly enabled', () => {
+    process.env.TRANSLATION_DETECTOR_MEMO = '1';
+    clearLanguageDetectionMemo();
+    detectLanguageWithConfidence(sample);
+    const afterFirst = languageDetectionMemoStats();
+    detectLanguageWithConfidence(sample);
+    const afterSecond = languageDetectionMemoStats();
+
+    expect(afterFirst).toMatchObject({ enabled: true, size: 1 });
+    expect(afterSecond).toMatchObject({ enabled: true, size: 1 });
+  });
+
+  it('keeps the historical uncached path when disabled', () => {
+    process.env.TRANSLATION_DETECTOR_MEMO = '0';
+    clearLanguageDetectionMemo();
+    detectLanguageWithConfidence(sample);
+    detectLanguageWithConfidence(sample);
+    expect(languageDetectionMemoStats()).toMatchObject({ enabled: false, size: 0 });
   });
 });

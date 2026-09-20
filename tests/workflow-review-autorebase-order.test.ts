@@ -12,22 +12,25 @@ const nativeAutoMerge = readFileSync(new URL('../.github/workflows/enable-native
 const nativeAutoMergeRetry = readFileSync(new URL('../.github/workflows/retry-native-automerge.yml', import.meta.url), 'utf8');
 const redflagFixer = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
 const translatePendingLogic = readFileSync(new URL('../.github/workflows/translate-pending-logic.yml', import.meta.url), 'utf8');
+const housekeepingLogic = readFileSync(new URL('../.github/workflows/housekeeping-jobs-logic.yml', import.meta.url), 'utf8');
 
 describe('review → autorebase ordering', () => {
   it('keeps delegated daily housekeeping fail-closed before committing', () => {
-    const housekeepingStart = translatePendingLogic.indexOf('name: "Phase 1: Housekeeping"');
-    const commitStart = translatePendingLogic.indexOf('name: Commit housekeeping');
-    const housekeepingBlock = translatePendingLogic.slice(housekeepingStart, commitStart);
-    const commitBlock = translatePendingLogic.slice(commitStart, translatePendingLogic.indexOf('\n      - name:', commitStart + 1));
-    const commitIf = commitBlock.split('\n').find((line) => /^\s+if:/.test(line));
+    const housekeepingStart = housekeepingLogic.indexOf('name: Validate and clean job slices');
+    const commitStart = housekeepingLogic.indexOf('name: Commit housekeeping changes');
+    const housekeepingBlock = housekeepingLogic.slice(housekeepingStart, commitStart);
+    const commitBlock = housekeepingLogic.slice(commitStart);
 
     expect(housekeepingStart).toBeGreaterThanOrEqual(0);
     expect(commitStart).toBeGreaterThan(housekeepingStart);
-    expect(housekeepingBlock).toContain('JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs');
+    expect(housekeepingBlock).toContain('JOBS_SLICE_FILE="$slice"');
+    expect(housekeepingBlock).toContain('node scripts/cleanup-jobs.mjs');
     expect(housekeepingBlock).not.toContain('JOBS_SLICE_FILE="$slice" node scripts/cleanup-jobs.mjs || true');
     expect(housekeepingBlock).not.toContain('continue-on-error: true');
-    expect(commitIf).toContain('success()');
-    expect(commitIf).not.toContain('always()');
+    expect(commitBlock).toContain("SKIP_AI_TRANSLATION: '1'");
+    expect(commitBlock).toContain("JOBS_SKIP_LOCALE_HARDENING: '1'");
+    expect(translatePendingLogic).not.toContain('Phase 1: Housekeeping');
+    expect(translatePendingLogic).not.toContain('Commit housekeeping');
   });
 
   it('non consuma stale-review finché non esiste un tests.yml synchronize osservato', () => {

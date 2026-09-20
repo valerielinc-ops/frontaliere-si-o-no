@@ -1,0 +1,121 @@
+name: Housekeeping jobs logic
+
+on:
+  workflow_call:
+    inputs:
+      lane:
+        description: 'Housekeeping lane to process'
+        required: true
+        type: string
+    secrets:
+      FIREBASE_SERVICE_ACCOUNT_JSON:
+        required: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  housekeeping:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    concurrency:
+      group: jobs-housekeeping-${{ inputs.lane }}
+      cancel-in-progress: false
+    env:
+      HOUSEKEEPING_LANE: ${{ inputs.lane }}
+      JOBS_SKIP_LOCALE_HARDENING: '1'
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v5
+        with:
+          repository: valerielinc-ops/frontaliere-si-o-no
+          ref: main
+          fetch-depth: 1
+          sparse-checkout: |
+            data/jobs/by-crawler
+            data/jobs/expired/by-crawler
+            package.json
+            package-lock.json
+            scripts
+          sparse-checkout-cone-mode: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Load production environment
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/frontaliere-sa.json"
+            export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/frontaliere-sa.json"
+          fi
+          node scripts/load-rc-env.mjs
+
+      - name: Bootstrap write auth for source repository
+        run: |
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::GITHUB_PAT missing from Remote Config — cannot push housekeeping changes to valerielinc-ops/frontaliere-si-o-no."
+            exit 1
+          fi
+          git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/valerielinc-ops/frontaliere-si-o-no.git"
+          echo "GH_TOKEN=${GITHUB_PAT}" >> "$GITHUB_ENV"
+          echo "GH_REPO=valerielinc-ops/frontaliere-si-o-no" >> "$GITHUB_ENV"
+
+      - name: Validate and clean job slices
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          case "$HOUSEKEEPING_LANE" in
+            prospective)
+              lane_pattern='prospective\.ch'
+              ;;
+            rest)
+              lane_pattern='prospective\.ch'
+              ;;
+            *)
+              echo "Unknown housekeeping lane: $HOUSEKEEPING_LANE" >&2
+              exit 2
+              ;;
+          esac
+
+          shopt -s nullglob
+          processed=0
+          for slice in data/jobs/by-crawler/*.json; do
+            if [ "$HOUSEKEEPING_LANE" = prospective ]; then
+              rg -qi -- "$lane_pattern" "$slice" || continue
+            else
+              rg -qi -- "$lane_pattern" "$slice" && continue
+            fi
+
+            echo "🧹 [$HOUSEKEEPING_LANE] $slice"
+            JOBS_SLICE_FILE="$slice" \
+              JOBS_SKIP_LOCALE_HARDENING=1 \
+              node scripts/cleanup-jobs.mjs
+            processed=$((processed + 1))
+          done
+
+          echo "Housekeeping lane $HOUSEKEEPING_LANE processed $processed slice(s)."
+
+      - name: Configure data remote
+        run: |
+          git remote get-url origin
+
+      - name: Commit housekeeping changes
+        env:
+          SKIP_AI_TRANSLATION: '1'
+          JOBS_SKIP_LOCALE_HARDENING: '1'
+        run: |
+          bash scripts/lib/git-commit-data.sh \
+            --slice-only \
+            "🧹 Housekeeping jobs ($HOUSEKEEPING_LANE)" \
+            data/jobs/by-crawler/ \
+            data/jobs/expired/by-crawler/

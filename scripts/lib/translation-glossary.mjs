@@ -438,6 +438,25 @@ const protectedTokenRe = () =>
  *  (e.g. "ZQXOXQZ" — digit read as a letter). Never leave debris in a title. */
 const protectedTokenScrubRe = () =>
   new RegExp(`z${TOKEN_SEP}q${TOKEN_SEP}x.{0,6}?x${TOKEN_SEP}q${TOKEN_SEP}z`, 'gi');
+// Some engines turn the numbered sentinel into a percentage-like fragment
+// instead of preserving its XQZ envelope (for example `ZQ ①000%`). Keep this
+// matcher intentionally narrow: it requires the sentinel's ZQ prefix and a
+// circled/ASCII marker ending in `%`, so ordinary prose containing “ZQ” stays.
+const mangledProtectedTokenScrubRe = () =>
+  new RegExp(`z${TOKEN_SEP}q${TOKEN_SEP}(?:x${TOKEN_SEP})?[①-⑳0-9oOxX][\\s\\S]{0,8}?%`, 'giu');
+
+/**
+ * Collapse the Swiss German inclusive compound `…frau:mann` to the masculine
+ * lexical form before a translator sees it. The colon form is common in newly
+ * crawled Coop titles and otherwise gets copied or rendered as a literal
+ * gender suffix by local MT. Standalone `Frau:mann` is handled separately;
+ * compounds retain their stem (`Fachfrau:mann` → `Fachmann`).
+ */
+export function normalizeGermanGenderForms(text = '') {
+  return String(text ?? '')
+    .replace(/\bfrau\s*:\s*mann\b/giu, 'mann')
+    .replace(/\b(\p{L}[\p{L}-]*)frau\s*:\s*mann\b/giu, '$1mann');
+}
 
 /** Describe one matched trigraph: arity, third marker, and letter case. */
 function parseGenderTrigraph(raw = '') {
@@ -562,6 +581,7 @@ export function restoreProtectedTokens(text = '', tokens = [], targetLang = '', 
       return genderTrigraphForLocale(targetLang, token);
     });
     out = out.replace(protectedTokenScrubRe(), '');
+    out = out.replace(mangledProtectedTokenScrubRe(), '');
     // Only tidy when a sentinel was actually swapped out, so the guard never
     // reflows the indentation of a description that had nothing to protect
     // (nested markdown bullets rely on their leading double spaces).

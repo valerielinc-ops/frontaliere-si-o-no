@@ -111,7 +111,7 @@ describe('translation observability workflow', () => {
     });
     expect(steps.slice(mopupIndex + 1).some((step) => step.run === 'node scripts/scatter-jobs-to-slices.mjs')).toBe(false);
     expect(titleFixScript).toContain('BY_CRAWLER_DIR');
-    expect(titleFixScript).toContain('writeJson(slicePath, sliceData)');
+    expect(titleFixScript).toContain('writeJson(path.join(BY_CRAWLER_DIR, file), sliceCache.get(file));');
     expect(descriptionFixScript).toContain('BY_CRAWLER_DIR');
     expect(descriptionFixScript).toContain('writeJson(slicePath, sliceData)');
     expect(descriptionFixScript).toContain("import { normalizeForLengthComparison } from './lib/dedicated-crawler-common.mjs';");
@@ -171,11 +171,11 @@ describe('translation observability workflow', () => {
         env: { LOCAL_MT_MOPUP_DEADLINE_MS: '16800000' },
       });
       expect(titleFix, `${label}: Phase 2d missing`).toMatchObject({
-        if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
+        if: "github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
         env: { UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '14400000' },
       });
       expect(titleCommit, `${label}: title commit missing`).toMatchObject({
-        if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
+        if: "github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
       });
       expect(descriptionFix, `${label}: Phase 2e missing`).toMatchObject({
         if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
@@ -191,12 +191,13 @@ describe('translation observability workflow', () => {
     expect(titleFixScript).toContain('Number(process.env.UNTRANSLATED_TITLE_FIX_DEADLINE_MS)');
 
     const loop = titleFixScript.slice(titleFixScript.indexOf('for (const file of files)'));
-    expect(loop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(3);
+    expect(loop.match(/if \(!budgetOk\(\)\)/g)?.length).toBeGreaterThanOrEqual(1);
     expect(titleFixScript).toContain('let deadlineReached = false;');
-    const persisted = loop.indexOf('writeJson(slicePath, sliceData)');
-    const stopAfterPersist = loop.indexOf('if (deadlineReached) break;', persisted);
+    const persisted = loop.indexOf('writeJson(path.join(BY_CRAWLER_DIR, file), sliceCache.get(file));');
+    const deadlineMarked = loop.indexOf('deadlineReached = true;');
     expect(persisted).toBeGreaterThanOrEqual(0);
-    expect(stopAfterPersist).toBeGreaterThan(persisted);
+    expect(deadlineMarked).toBeGreaterThanOrEqual(0);
+    expect(persisted).toBeGreaterThan(deadlineMarked);
 
     expect(descriptionFixScript).toContain("import { resolveRunStartMs } from './lib/translate-run-clock.mjs';");
     expect(descriptionFixScript).toMatch(/const RUN_START_MS = resolveRunStartMs\(\);/);

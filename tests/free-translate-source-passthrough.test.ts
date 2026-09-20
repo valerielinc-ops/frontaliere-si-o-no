@@ -165,8 +165,8 @@ function runExhaustedTierSkipScenario(
         ${JSON.stringify(myMemoryStub)},
       )
       .replace(
-        "import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';",
-        "const finalizeTranslatedText = ({ translatedText }) => translatedText; const maskProtectedTokens = (text) => ({ text, tokens: [] });",
+        "import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms } from './translation-glossary.mjs';",
+        "const finalizeTranslatedText = ({ translatedText }) => translatedText; const maskProtectedTokens = (text) => ({ text, tokens: [] }); const normalizeGermanGenderForms = (text) => text;",
       )
       .replace(
         "import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';",
@@ -261,8 +261,8 @@ function runRetryOutcomeResetScenario() {
         "const translateWithMyMemory = async () => '';",
       )
       .replace(
-        "import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';",
-        "const finalizeTranslatedText = ({ translatedText }) => translatedText; const maskProtectedTokens = (text) => ({ text, tokens: [] });",
+        "import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms } from './translation-glossary.mjs';",
+        "const finalizeTranslatedText = ({ translatedText }) => translatedText; const maskProtectedTokens = (text) => ({ text, tokens: [] }); const normalizeGermanGenderForms = (text) => text;",
       )
       .replace(
         "import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';",

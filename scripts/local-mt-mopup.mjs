@@ -48,25 +48,31 @@
  */
 
 import fs from 'node:fs';
+import crypto from 'node:crypto';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 
 import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-jobs.mjs';
-import { titleLooksUntranslated } from './lib/job-locale-utils.mjs';
+import { isTitleSourceCopy, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
 import { resolveRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
-import { finalizeTranslatedText, maskProtectedTokens } from './lib/translation-glossary.mjs';
+import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms } from './lib/translation-glossary.mjs';
 import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
 import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { translateWithLocalOpusMt } from './lib/local-opus-mt.mjs';
+import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
 const ROOT = path.resolve(__dirname, '..');
 
 const BY_CRAWLER_DIR = path.join(ROOT, 'data', 'jobs', 'by-crawler');
+// Keep this outside data/translation-cache/: the latter is a slug-keyed store
+// consumed by enrich-compat-orphan-slugs.mjs, which must never interpret a
+// negative slot key as an SEO slug.
+const NEGATIVE_CACHE_PATH = path.join(ROOT, 'data', 'local-mt-negative-cache.json');
 const PY_SCRIPT = path.join(__dirname, 'local-mt-translate.py');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
@@ -78,11 +84,21 @@ const WRITE_GUARD_DECISIONS = [
   'skip:finalize-empty',
   'skip:source-locale',
   'skip:empty-raw',
+  'skip:no-op',
 ];
 const OPUS_MT_RESCUE_DECISIONS = new Set([
   'skip:candidate-untranslated',
   'skip:source-copy',
 ]);
+const NEGATIVE_CACHE_DECISIONS = new Set([
+  'skip:candidate-untranslated',
+  'skip:source-copy',
+  'skip:finalize-empty',
+  'skip:no-op',
+]);
+const NEGATIVE_CACHE_TTL_MS = Number(process.env.LOCAL_MT_NEGATIVE_CACHE_TTL_MS) || 7 * 24 * 60 * 60 * 1000;
+const NEGATIVE_CACHE_JITTER_MS = Number(process.env.LOCAL_MT_NEGATIVE_CACHE_JITTER_MS) || 6 * 60 * 60 * 1000;
+const NEGATIVE_CACHE_VERSION = 'local-mt-v2:glossary-v2';
 
 /**
  * Rollout switch for the language arm of classifyMopupWrite() (workspace issue
@@ -106,6 +122,11 @@ export function opusMtRescueEnabled(value) {
 }
 
 const OPUS_MT_RESCUE = opusMtRescueEnabled(process.env.LOCAL_MT_OPUSMT_RESCUE);
+
+function negativeCacheTierSignature() {
+  return process.env.LOCAL_MT_TIER_SIGNATURE
+    || `argos-v1|opus-rescue:${OPUS_MT_RESCUE ? 'on' : 'off'}|lang-aware:${LANG_AWARE_OVERWRITE ? 'on' : 'off'}`;
+}
 
 const PYTHON = process.env.LOCAL_MT_PYTHON || 'python3';
 // Per-step ceiling: a fresh budget measured from THIS process's start.
@@ -148,6 +169,61 @@ function readJson(filePath) {
   }
 }
 
+function readNegativeCache() {
+  const fallback = { version: NEGATIVE_CACHE_VERSION, entries: {} };
+  const value = readJson(NEGATIVE_CACHE_PATH);
+  if (!value || typeof value !== 'object' || Array.isArray(value)) return fallback;
+  // The key schema includes the version, but discard an old file wholesale so
+  // a future format change cannot retain stale decisions accidentally.
+  if (value.version !== NEGATIVE_CACHE_VERSION) return fallback;
+  return {
+    version: NEGATIVE_CACHE_VERSION,
+    entries: value.entries && typeof value.entries === 'object' ? value.entries : {},
+  };
+}
+
+export function negativeMopupCacheKey({ text, from, to, field, existing = '' }) {
+  const existingHash = crypto.createHash('sha256').update(String(existing || '')).digest('hex');
+  return crypto.createHash('sha256')
+    .update(JSON.stringify({
+      version: NEGATIVE_CACHE_VERSION,
+      tiers: negativeCacheTierSignature(),
+      text: String(text || ''),
+      from: String(from || ''),
+      to: String(to || ''),
+      field: String(field || ''),
+      // The same source can be rejected for a different stored value. Include
+      // that slot's digest so a real edit is a new attempt instead of inheriting
+      // a stale negative decision until the TTL expires, without storing the
+      // full existing text in the cache key payload.
+      existingHash,
+    }))
+    .digest('hex');
+}
+
+function negativeCacheHas(cache, key, now = Date.now()) {
+  const entry = cache.entries[key];
+  if (!entry) return false;
+  const expiresAt = Date.parse(String(entry.expiresAt || ''));
+  if (Number.isFinite(expiresAt)) return now < expiresAt;
+  const createdAt = Date.parse(String(entry.createdAt || ''));
+  return Number.isFinite(createdAt) && now - createdAt < NEGATIVE_CACHE_TTL_MS;
+}
+
+function negativeCacheEntry(key, decision, now = Date.now()) {
+  const jitterRange = Math.max(0, NEGATIVE_CACHE_JITTER_MS);
+  const digest = crypto.createHash('sha256').update(String(key)).digest();
+  const jitter = jitterRange > 0
+    ? (digest.readUInt32BE(0) % (jitterRange * 2 + 1)) - jitterRange
+    : 0;
+  const createdAt = new Date(now).toISOString();
+  return {
+    decision,
+    createdAt,
+    expiresAt: new Date(now + NEGATIVE_CACHE_TTL_MS + jitter).toISOString(),
+  };
+}
+
 /**
  * Same gate relocalize-pending-jobs.mjs uses to decide a job needs work, minus
  * the cross-file sourceChangedSinceSuppression nuance which is irrelevant here
@@ -183,7 +259,6 @@ export function missingSlots(job) {
   const dbl = job.descriptionByLocale || {};
   const sourceTitle = (job.title || tbl[srcLang] || '').trim();
   const sourceDesc = (job.description || dbl[srcLang] || '').trim();
-  const sourceTitleLc = sourceTitle.toLowerCase();
   const sourceDescLc = sourceDesc.toLowerCase();
   const slots = [];
 
@@ -201,7 +276,7 @@ export function missingSlots(job) {
     // MIN_TITLE_CHARS would silently exempt any job whose source title is
     // shorter than the floor from the lexical check too (issue #6539).
     const tooShortOrCopy = sourceTitle.length >= MIN_TITLE_CHARS &&
-      (title.length < MIN_TITLE_CHARS || title.toLowerCase() === sourceTitleLc);
+      (title.length < MIN_TITLE_CHARS || isTitleSourceCopy(title, sourceTitle));
     const lexicallyUntranslated = titleLooksUntranslated({
       title,
       sourceTitle,
@@ -289,7 +364,7 @@ export function masculineGermanTitle(text) {
 
 function normalizeArgosText(text, from, field) {
   return field === 'title' && String(from).toLowerCase().startsWith('de')
-    ? masculineGermanTitle(text)
+    ? normalizeGermanGenderForms(masculineGermanTitle(text))
     : text;
 }
 
@@ -492,14 +567,19 @@ export function classifyMopupWrite({
   if (!incoming) return { ...base, decision: 'skip:finalize-empty' };
 
   // Never write a value that is just a copy of the source (would re-flag).
-  if (incoming.toLowerCase() === normalizedSourceText.toLowerCase()) {
+  const sourceCopy = field === 'title'
+    ? isTitleSourceCopy(incoming, normalizedSourceText)
+    : incoming.toLowerCase() === normalizedSourceText.toLowerCase();
+  if (sourceCopy) {
     return { ...base, incoming, decision: 'skip:source-copy' };
   }
 
   // Don't overwrite an already-good translation (one that isn't a source copy
   // and meets the min length). Only fill genuinely-missing/bad slots.
   const existingIsBad = existing.length < (field === 'title' ? MIN_TITLE_CHARS : MIN_DESC_CHARS)
-    || existing.toLowerCase() === normalizedSourceText.toLowerCase();
+    || (field === 'title'
+      ? isTitleSourceCopy(existing, normalizedSourceText)
+      : existing.toLowerCase() === normalizedSourceText.toLowerCase());
   if (existing && !existingIsBad) {
     // LANGUAGE ARM (workspace issue 16). Length and byte-exact copy are not the
     // only ways an existing value can be bad: it can be the wrong LANGUAGE.
@@ -533,7 +613,11 @@ export function classifyMopupWrite({
     // exactly this same length-or-copy test, so the two predicates already
     // agree and the blocked set is empty (0 of 14'989 description slots).
     if (!langAware || field !== 'title') {
-      return { ...base, incoming, decision: 'skip:existing-good' };
+      return {
+        ...base,
+        incoming,
+        decision: existing === incoming ? 'skip:no-op' : 'skip:existing-good',
+      };
     }
     const ask = (title) => titleLooksUntranslated({
       title,
@@ -545,7 +629,11 @@ export function classifyMopupWrite({
     });
     const existingVerdict = ask(existing);
     if (!existingVerdict.untranslated) {
-      return { ...base, incoming, decision: 'skip:existing-good' };
+      return {
+        ...base,
+        incoming,
+        decision: existing === incoming ? 'skip:no-op' : 'skip:existing-good',
+      };
     }
     const candidateVerdict = ask(incoming);
     if (candidateVerdict.untranslated) {
@@ -722,6 +810,9 @@ async function main() {
   }
 
   const sliceFiles = listSliceFileNames(BY_CRAWLER_DIR);
+  const negativeCache = readNegativeCache();
+  let negativeCacheHits = 0;
+  let negativeCacheChanged = false;
 
   // Build the FULL candidate list first — no early exit on maxJobs here. The
   // old code capped mid-scan while walking sliceFiles alphabetically, so any
@@ -791,13 +882,28 @@ async function main() {
     for (const { locale, field } of slots) {
       const text = field === 'title' ? sourceTitle : sourceDesc;
       if (!text) continue;
+      const normalizedText = normalizeArgosText(text, srcLang, field);
+      const existing = field === 'title'
+        ? String(tbl[locale] || '').trim()
+        : String(dbl[locale] || '').trim();
+      const negativeCacheKey = negativeMopupCacheKey({
+        text: normalizedText,
+        from: srcLang,
+        to: locale,
+        field,
+        existing,
+      });
+      if (negativeCacheHas(negativeCache, negativeCacheKey)) {
+        negativeCacheHits++;
+        continue;
+      }
       const id = `r${nextId++}`;
       // Mask gender trigraphs so Argos never sees the raw code (see
       // buildMopupRequest). The sentinels are carried on the target entry and
       // restored — in the target locale's display form — by the write loop.
       const { request, protectedTokens } = buildMopupRequest({ id, text, from: srcLang, to: locale, field });
       requests.push(request);
-      targets.set(id, { file, jobIdx, job, locale, field, request, protectedTokens });
+      targets.set(id, { file, jobIdx, job, locale, field, request, protectedTokens, negativeCacheKey });
       queued++;
     }
     if (queued > 0) {
@@ -808,9 +914,14 @@ async function main() {
 
   console.log(`📊 [local-mt] Scanned ${scannedJobs} jobs across ${sliceFiles.length} slices · ${candidates.length} candidates in the queue.`);
   console.log(`   ${jobsInScope.length} jobs in scope · ${requests.length} field translations queued.\n`);
+  if (negativeCacheHits > 0) {
+    console.log(`   ♻️  ${negativeCacheHits} fields skipped by the negative MT cache (TTL ${Math.round(NEGATIVE_CACHE_TTL_MS / 86400000)}d).`);
+  }
 
   if (requests.length === 0) {
-    console.log('✅ [local-mt] Nothing to mop up — all locale fields already complete.');
+    console.log(negativeCacheHits > 0
+      ? '✅ [local-mt] No uncached mop-up requests remain — rejected fields stay deferred for the next cache expiry or source change.'
+      : '✅ [local-mt] Nothing to mop up — all locale fields already complete.');
     return;
   }
 
@@ -929,7 +1040,7 @@ async function main() {
     let fileChanged = false;
     const touchedJobs = new Set();
 
-    for (const { id, jobIdx, locale, field, text, protectedTokens } of edits) {
+    for (const { id, jobIdx, locale, field, text, protectedTokens, negativeCacheKey } of edits) {
       const job = data.jobs[jobIdx];
       if (!job) continue;
       const srcLang = job.sourceLang || 'it';
@@ -973,6 +1084,18 @@ async function main() {
             protectedTokens,
           })
         : { decision, incoming, languageDriven };
+      if (rescue && finalCandidate.decision === 'write') {
+        if (negativeCache.entries[negativeCacheKey]) {
+          delete negativeCache.entries[negativeCacheKey];
+          negativeCacheChanged = true;
+        }
+      } else if (NEGATIVE_CACHE_DECISIONS.has(finalCandidate.decision)) {
+        negativeCache.entries[negativeCacheKey] = negativeCacheEntry(
+          negativeCacheKey,
+          finalCandidate.decision,
+        );
+        negativeCacheChanged = true;
+      }
       if (!shouldApplyMopupWrite({
         decision: finalCandidate.decision,
         languageDriven: finalCandidate.languageDriven,
@@ -980,6 +1103,19 @@ async function main() {
       })) {
         if (decision === 'write' && languageDriven) {
           shadowWithheld++;
+        }
+        continue;
+      }
+
+      const current = String(job[bag][locale] || '').trim();
+      if (current === String(finalCandidate.incoming || '').trim()) {
+        decisionTally['skip:no-op'] = (decisionTally['skip:no-op'] || 0) + 1;
+        if (!negativeCache.entries[negativeCacheKey]) {
+          negativeCache.entries[negativeCacheKey] = negativeCacheEntry(
+            negativeCacheKey,
+            'skip:no-op',
+          );
+          negativeCacheChanged = true;
         }
         continue;
       }
@@ -1017,6 +1153,8 @@ async function main() {
       filesWritten++;
     }
   }
+
+  if (!dryRun && negativeCacheChanged) writeJson(NEGATIVE_CACHE_PATH, negativeCache);
 
   console.log(`\n📈 [local-mt] Mop-up results:`);
   console.log(`   ${fieldsFilled} locale fields filled across ${filesWritten} slice files`);

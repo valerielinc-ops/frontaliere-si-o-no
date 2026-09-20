@@ -22,7 +22,7 @@
 
 import { performance } from 'node:perf_hooks';
 import { translateWithMyMemory } from './mymemory-translate.mjs';
-import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';
+import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms } from './translation-glossary.mjs';
 import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';
 
 // ── Config ──────────────────────────────────────────────────────────────────
@@ -1339,7 +1339,10 @@ export function mergeTranslationOutcome(target, source) {
 }
 
 export async function freeTranslate({ text, sourceLang, targetLang, fieldType = 'title', _outcome = null }) {
-  const sourceClean = normalizeBlock(text);
+  const sourceInput = fieldType === 'title' && String(sourceLang || '').toLowerCase().startsWith('de')
+    ? normalizeGermanGenderForms(text)
+    : text;
+  const sourceClean = normalizeBlock(sourceInput);
   if (!sourceClean) return '';
   if (sourceLang === targetLang) return sourceClean;
 

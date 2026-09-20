@@ -9,6 +9,7 @@ import {
   detectJobTitleLang,
   detectJobTitleLocaleDetails,
   pinnedTitleSourceLang,
+  titleContainsLlmReasoning,
   titleLooksUntranslated,
   titleLooksUntranslatedFromSource,
 } from '../scripts/lib/job-locale-utils.mjs';
@@ -180,6 +181,26 @@ describe('titleLooksUntranslated — correctly-translated sibling slots must sta
 });
 
 describe('titleLooksUntranslated — contract edges', () => {
+  it('flags leaked LLM reasoning as a dedicated title defect', () => {
+    expect(titleContainsLlmReasoning('I need to translate the job title: Pflegefachfrau')).toBe(true);
+    expect(titleLooksUntranslated({
+      title: 'Here is the translation: Infermiera diplomata',
+      sourceTitle: 'Dipl. Pflegefachfrau',
+      sourceLang: 'de',
+      targetLocale: 'it',
+    })).toMatchObject({ untranslated: true, reason: 'llm-reasoning' });
+  });
+
+  it('does not flag ordinary translated prose containing a harmless AI token', () => {
+    expect(titleContainsLlmReasoning('AI Product Manager')).toBe(false);
+    expect(titleLooksUntranslated({
+      title: 'Responsabile prodotto AI',
+      sourceTitle: 'AI Product Manager',
+      sourceLang: 'en',
+      targetLocale: 'it',
+    }).untranslated).toBe(false);
+  });
+
   it('returns untranslated:false when sourceLang === targetLocale', () => {
     expect(titleLooksUntranslated({
       title: 'Pflegefachfrau Gesundheit', sourceLang: 'de', targetLocale: 'de',

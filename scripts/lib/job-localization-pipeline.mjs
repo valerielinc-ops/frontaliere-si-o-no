@@ -2,7 +2,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { createHash } from 'node:crypto';
 import { fileURLToPath } from 'node:url';
-import { finalizeTranslatedText, maskProtectedTokens } from './translation-glossary.mjs';
+import {
+  finalizeTranslatedText,
+  maskProtectedTokens,
+  normalizeGermanGenderForms,
+} from './translation-glossary.mjs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { intFromEnv } from './int-from-env.mjs';
 import { MIN_TITLE_CHARS } from './translation-quality.mjs';
@@ -369,7 +373,10 @@ export async function translateTextWithLocalPipeline({
   context = {},
   minChars = 0,
 }) {
-  const clean = normalizeParagraphs(text);
+  const rawClean = normalizeParagraphs(text);
+  const clean = kind === 'title' && String(sourceLang || '').toLowerCase().startsWith('de')
+    ? normalizeGermanGenderForms(rawClean)
+    : rawClean;
   if (!clean) return '';
   if (sourceLang === targetLang) return clean;
   if (!hasProviderConfigured()) return '';

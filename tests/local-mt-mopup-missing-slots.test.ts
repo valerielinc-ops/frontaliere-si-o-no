@@ -3,11 +3,21 @@ import {
   buildMopupRequest,
   classifyMopupWrite,
   missingSlots,
+  negativeMopupCacheKey,
   opusMtRescueEnabled,
   rescueMopupRejects,
 } from '../scripts/local-mt-mopup.mjs';
 
 describe('local-mt-mopup missingSlots()', () => {
+  it('versions negative cache keys by field and translation input', () => {
+    const base = { text: 'Fachfrau:mann EFZ', from: 'de', to: 'it', field: 'title' };
+    expect(negativeMopupCacheKey(base)).toMatch(/^[a-f0-9]{64}$/);
+    expect(negativeMopupCacheKey(base)).toBe(negativeMopupCacheKey({ ...base }));
+    expect(negativeMopupCacheKey({ ...base, field: 'description' })).not.toBe(negativeMopupCacheKey(base));
+    expect(negativeMopupCacheKey({ ...base, text: 'Fachmann EFZ' })).not.toBe(negativeMopupCacheKey(base));
+    expect(negativeMopupCacheKey({ ...base, existing: 'Fachfrau:mann EFZ' })).not.toBe(negativeMopupCacheKey(base));
+  });
+
   it('flags a title slot that is present but still lexically German (compound-residue) — issue #6354', () => {
     const job = {
       sourceLang: 'de',
