@@ -164,7 +164,7 @@ describe('company-logo-audit', () => {
       expect(workflow).toContain('node scripts/assemble-jobs-dataset.mjs --no-summaries');
       expect(workflow).toContain("COMPANY_LOGO_AUDIT_MIN_JOBS: '1000'");
       expect(workflow).toContain('COMPANY_LOGO_AUDIT_ASSET_BASE_URL: https://cdn.frontaliereticino.ch');
-      expect(workflow).toContain('npx tsx scripts/');
+      expect(workflow).toMatch(/(?:npx tsx|\.\/node_modules\/\.bin\/tsx) scripts\//);
       expect(workflow).not.toContain('|| true; git add data/company-logos');
     }
   });
