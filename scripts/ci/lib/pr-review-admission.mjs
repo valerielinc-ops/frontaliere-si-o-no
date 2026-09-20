@@ -20,6 +20,8 @@ export const TEST_ONLY_REVIEW_MARKER = '<!-- TEST_ONLY_AUTOMATIC_REVIEW -->';
 const CODEX_FALLBACK_REVIEWER_RE = /^github-actions\[bot\]$/i;
 const TEST_ONLY_REVIEW_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/i;
 const FINDINGS_HEADING_RE = /^\s{0,3}#{1,3}\s+Findings\b[^\n]*$/i;
+const ANY_HEADING_RE = /^\s{0,3}#{1,3}\s+\S/;
+const IMPORTANT_COUNT_RE = /\bImportant\s*:\s*(\d+)\b/gi;
 const LGTM_HEADING_RE = /^\s{0,3}##\s+LGTM\s*$/m;
 const TERMINAL_STATES = new Set(['APPROVED', 'COMMENTED', 'CHANGES_REQUESTED']);
 const NON_TERMINAL_STATES = new Set(['PENDING', 'DISMISSED']);
@@ -182,17 +184,51 @@ export function shouldRunRedflagFixer({
 }
 
 /**
+ * Righe della sezione `## Findings`: dal titolo (incluso) fino al titolo
+ * successivo, escluso. `null` quando la sezione non esiste.
+ */
+function findingsSectionLines(body) {
+  const lines = body.split(/\r?\n/);
+  const start = lines.findIndex((line) => FINDINGS_HEADING_RE.test(line));
+  if (start === -1) return null;
+  const section = [lines[start]];
+  for (let index = start + 1; index < lines.length; index += 1) {
+    if (ANY_HEADING_RE.test(lines[index])) break;
+    section.push(lines[index]);
+  }
+  return section;
+}
+
+/**
  * Zero blocking findings. A missing `## Findings` heading is approving when
  * the body also has no real `🔴 Important` (the 9066/9074 clean-LGTM shape).
- * A Findings heading that declares Important != 0 still blocks.
+ * A Findings section that declares Important != 0 still blocks.
+ *
+ * Il conteggio si legge nella SEZIONE, non solo sulla riga del titolo. Il
+ * reviewer oggi emette entrambe le forme: `## Findings (Important: 0, Nit: 0)`
+ * e un titolo nudo `## Findings` con `Important: 0` una riga sotto (osservato
+ * sulla review 5258385493 della PR #9315, commit e1fe8e3e). Leggendo solo il
+ * titolo la seconda forma risultava non-approvante con zero finding e `## LGTM`
+ * finale: `native-automerge-gate.mjs` non apriva l'auto-merge e
+ * `pr-watch-classify.mjs` la classificava `not-lgtm`, mandando gli agenti a
+ * correggere finding inesistenti.
+ *
+ * Senza un conteggio riconoscibile nella sezione la risposta resta `false`
+ * (fail-closed). Non è una stretta: è esattamente ciò che la riga del titolo
+ * faceva già prima: un `## Findings` nudo non matchava `Important: 0` e
+ * bloccava. Un 🔴 Important reale, ovunque nel body, blocca comunque.
  */
 export function reviewHasZeroFindings(body) {
   if (typeof body !== 'string') return false;
   REDFLAG_IMPORTANT_RE.lastIndex = 0;
   if (REDFLAG_IMPORTANT_RE.test(body)) return false;
-  const findingsHeading = body.split(/\r?\n/).find((line) => FINDINGS_HEADING_RE.test(line));
-  if (!findingsHeading) return true;
-  return /\bImportant\s*:\s*0\b/i.test(findingsHeading);
+  const section = findingsSectionLines(body);
+  if (!section) return true;
+  IMPORTANT_COUNT_RE.lastIndex = 0;
+  const counts = [...section.join('\n').matchAll(IMPORTANT_COUNT_RE)]
+    .map((match) => Number(match[1]));
+  if (counts.length === 0) return false;
+  return counts.every((count) => count === 0);
 }
 
 export function reviewHasLgtm(body) {
