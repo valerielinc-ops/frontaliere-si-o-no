@@ -52,7 +52,22 @@ describe.each(FIXERS)('$file', ({ file, kind }) => {
     expect(elseAt).toBeGreaterThan(0);
     const body = guard.slice(elseAt, fiAt);
     expect(body).toContain('--add-label "needs-human"');
-    expect(body).toContain('pr comment');
-    expect(src.match(/--add-label "needs-human"/gu)?.length).toBe(1);
+    // `gh` nudo non esiste più in questi due job dal 2026-09-19 (#9339, «attest
+    // all trusted review tools»): ogni chiamata passa dal binario attestato
+    // prima del checkout. `main` ha già tolto il rosso allentando l'assert a
+    // `pr comment`; qui si pinna la forma attestata, che è più stretta e vieta
+    // anche il ritorno al `gh` nudo (sostituibile su PATH dalla PR in esame).
+    expect(body).toMatch(/"\$TRUSTED_GH_BIN" pr comment/u);
+    // L'invariante è «una escalation per causa, mai ripostata», non «una sola
+    // riga in tutto il file»: il redflag-fixer ha una seconda causa distinta
+    // (body corretto ma HEAD ferma → nessuna review può giudicarlo). Ogni
+    // `--add-label "needs-human"` deve stare dentro un ramo protetto dal
+    // proprio marker nascosto, letto con una here-string (con `pipefail` il
+    // SIGPIPE di `printf | grep -q` su un elenco commenti grande rendeva falso
+    // il guard e ripostava — #9283).
+    const escalations = src.match(/--add-label "needs-human"/gu)?.length ?? 0;
+    expect(escalations).toBeGreaterThanOrEqual(1);
+    const markers = src.match(/grep -qF '<!--[^']*-->' <<<"\$comments"/gu)?.length ?? 0;
+    expect(markers).toBeGreaterThanOrEqual(escalations);
   });
 });

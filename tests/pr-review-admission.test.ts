@@ -495,8 +495,24 @@ describe('workflow wiring for one review per HEAD', () => {
     expect(fixerYml).toContain('--revision "$review_revision"');
     expect(fixerYml).toMatch(/Reviews API illeggibile.*nessun Codex/s);
     expect(fixerYml).toContain('Admit only the first terminal');
-    expect(fixerYml).not.toMatch(/git commit --allow-empty/);
+    // L'invariante è che il MODELLO non fabbrichi una HEAD nuova su lavoro che
+    // non ha fatto (storm #9066/#9074): il prompt glielo vieta, e glielo deve
+    // continuare a vietare.
     expect(fixerYml).toMatch(/Niente commit vuoto|non pushare un commit vuoto/i);
+    // L'unico `--allow-empty` ammesso è quello deterministico che sblocca il
+    // 🔴 solo-body, ed è l'opposto del caso vietato: parte solo DOPO che il
+    // body è cambiato davvero, e serve perché `tests.yml` non è triggerato da
+    // `edited` e il re-review guard salta su una review terminale già presente
+    // — senza una HEAD nuova nessuna review può giudicare il body corretto e
+    // la PR resta ferma in silenzio.
+    const emptyCommits = fixerYml.match(/git commit --allow-empty/gu) ?? [];
+    expect(emptyCommits).toHaveLength(1);
+    const advanceStart = fixerYml.indexOf('- name: Advance HEAD after a PR-body fix');
+    expect(advanceStart).toBeGreaterThan(0);
+    const advanceEnd = fixerYml.indexOf('\n      - name:', advanceStart + 1);
+    const advance = fixerYml.slice(advanceStart, advanceEnd);
+    expect(advance).toContain('git commit --allow-empty');
+    expect(advance).toContain('BASE_BODY_DIGEST');
   });
 
   it('attesta il CLI anche prima del preflight e nel watcher di superseded HEAD', () => {

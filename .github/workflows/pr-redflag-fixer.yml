@@ -206,6 +206,18 @@ jobs:
     outputs:
       blocking: ${{ steps.scope.outputs.blocking }}
       error: ${{ steps.scope.outputs.error }}
+      # Il 🔴 non nomina nessun file e si ancora a `PR body:L<n>`: il bersaglio
+      # del fix e' il body della PR, non l'albero. 14 finding su 85 nella
+      # finestra 18→19 settembre, lo stesso ripetuto 4 volte su #9238 fino a
+      # `needs-human`, perche' il fixer partiva a cercarlo nei file.
+      body_only: ${{ steps.scope.outputs.body_only }}
+      # Il classificatore uscirebbe VERDE senza lasciare niente sulla PR:
+      # nessuna follow-up coniata (il mint guarda solo `outside`), `redflag-fix`
+      # skippato dalla `if:` sotto, round fermo. Il job `declassified-notice`
+      # esiste per rendere esplicita esattamente questa uscita.
+      silent_exit: ${{ steps.scope.outputs.silent_exit }}
+      exit_kind: ${{ steps.scope.outputs.exit_kind }}
+      declassified: ${{ steps.scope.outputs.declassified }}
     steps:
       # The scope classifier runs trusted policy from main and calls review-gate;
       # attest the runner-owned CLI before checkout just like the fixer job.
@@ -290,6 +302,30 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
+      # Il delta «righe toccate dall'ultima review» e' l'input che decide se un
+      # 🔴 ripetuto fa ripartire il fixer. Il checkout qui sopra e' `main` a
+      # `fetch-depth: 1`: i commit della PR non ci sono e il `git diff` a due
+      # punti fallirebbe sempre. La compare API da sola non basta — su questo
+      # repo risponde `422 "this diff is taking too long to generate"` sugli
+      # intervalli lunghi: 14 delta risolti su 50 nel replay del 2026-09-20,
+      # contro 44 con questo pre-fetch. Blobless + depth: si scaricano solo i
+      # tree dei commit recenti della PR, che e' tutto cio' che serve a un
+      # `git diff A..B` (i blob dei soli file cambiati arrivano pigri dal
+      # promisor). `continue-on-error`: un pre-fetch fallito non e' un errore,
+      # e' il ritorno al fallback — e un delta non calcolabile non declassa
+      # niente, quindi il fixer resta azionabile.
+      - name: Prefetch the PR commit range (review delta)
+        continue-on-error: true
+        env:
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -uo pipefail
+          if ! "$TRUSTED_GIT_BIN" fetch --no-tags --filter=blob:none --depth=50 \
+              origin "+refs/pull/${PR_NUMBER}/head:refs/remotes/origin/pr/${PR_NUMBER}"; then
+            echo "::warning::refs/pull/${PR_NUMBER}/head non pre-fetchato → il classificatore ricade sulla compare API; un delta non calcolabile non declassa nulla."
+          fi
+
       - name: Classify review scope
         id: scope
         env:
@@ -314,19 +350,125 @@ jobs:
             echo "::error::scope classifier failed; keep the 🔴-fixer actionable (fail-closed)."
             echo "blocking=true" >> "$GITHUB_OUTPUT"
             echo "error=true" >> "$GITHUB_OUTPUT"
+            echo "body_only=false" >> "$GITHUB_OUTPUT"
+            echo "silent_exit=false" >> "$GITHUB_OUTPUT"
+            echo "exit_kind=error" >> "$GITHUB_OUTPUT"
+            echo "declassified=[]" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           json=$(printf '%s\n' "$output" | tail -n 1)
-          if ! printf '%s' "$json" | jq -e '(.blocking | type == "boolean") and (.error == null or (.error | type == "string"))' >/dev/null; then
+          # Lo schema pretende ANCHE i tre campi nuovi: una copia vecchia del
+          # classificatore (checkout di `main` non ancora aggiornato) non deve
+          # poter produrre un verdetto in cui `silentExit` manca e l'uscita
+          # silenziosa torna a essere invisibile. Campo assente → fail-closed.
+          if ! printf '%s' "$json" | jq -e '(.blocking | type == "boolean") and (.error == null or (.error | type == "string")) and (.bodyOnly | type == "boolean") and (.silentExit | type == "boolean") and (.declassified | type == "array")' >/dev/null; then
             echo "::error::scope classifier returned no valid JSON verdict; keep the 🔴-fixer actionable (fail-closed)."
             echo "blocking=true" >> "$GITHUB_OUTPUT"
             echo "error=true" >> "$GITHUB_OUTPUT"
+            echo "body_only=false" >> "$GITHUB_OUTPUT"
+            echo "silent_exit=false" >> "$GITHUB_OUTPUT"
+            echo "exit_kind=error" >> "$GITHUB_OUTPUT"
+            echo "declassified=[]" >> "$GITHUB_OUTPUT"
             exit 0
           fi
           blocking=$(printf '%s' "$json" | jq -r '.blocking | tostring')
           error=$(printf '%s' "$json" | jq -r 'if .error == null then "false" else "true" end')
           echo "blocking=$blocking" >> "$GITHUB_OUTPUT"
           echo "error=$error" >> "$GITHUB_OUTPUT"
+          echo "body_only=$(printf '%s' "$json" | jq -r '.bodyOnly | tostring')" >> "$GITHUB_OUTPUT"
+          echo "silent_exit=$(printf '%s' "$json" | jq -r '.silentExit | tostring')" >> "$GITHUB_OUTPUT"
+          echo "exit_kind=$(printf '%s' "$json" | jq -r '.exit // "unknown"')" >> "$GITHUB_OUTPUT"
+          echo "declassified=$(printf '%s' "$json" | jq -c '.declassified')" >> "$GITHUB_OUTPUT"
+
+  # ── Uscita esplicita al posto del verde muto ──────────────────────────────
+  #
+  # `redflag-fix` parte solo su `blocking`. Ogni altra uscita e' un no-op verde,
+  # e una di quelle non lasciava NIENTE sulla PR: quando l'unico 🔴 viene
+  # declassato per body o per riga non cambiata, `outside` e' vuoto, quindi la
+  # follow-up aggregata non viene coniata, il fixer e' skippato e la review
+  # sparisce senza commento, senza label e senza che il round avanzi.
+  #
+  # Prima del 2026-09-20 il caso era irraggiungibile da qui (il classificatore
+  # `--scope` non riceveva ne' `priorFindingIds` ne' `changedLinesSince`, quindi
+  # non declassava mai). La fix che glieli passa — 11 round Codex risparmiati su
+  # 47 nella finestra 18→19 settembre — lo rende raggiungibile 11 volte in due
+  # giorni e mezzo: le due correzioni sono accoppiate, e questa e' la seconda.
+  #
+  # Il commento e' idempotente sul marker nascosto: la stessa review non deve
+  # poter riportare lo stesso avviso a ogni re-trigger.
+  declassified-notice:
+    needs: [preflight, scope]
+    if: always() && needs.preflight.outputs.actionable == 'true' && needs.scope.result == 'success' && needs.scope.outputs.silent_exit == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Resolve trusted GitHub CLI (before notice)
+        id: trusted_gh
+        run: |
+          set -euo pipefail
+          gh_bin="$(command -v gh || true)"
+          if [ -z "$gh_bin" ] || [[ "$gh_bin" != /* ]] || [ ! -x "$gh_bin" ]; then
+            echo "::error::GitHub CLI path non assoluto o non eseguibile: ${gh_bin:-missing}"
+            exit 1
+          fi
+          gh_bin="$(realpath "$gh_bin")"
+          case "$gh_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::GitHub CLI risolve in un path controllabile dal runner: $gh_bin"
+              exit 1
+              ;;
+          esac
+          probe="$gh_bin"
+          while [ "$probe" != "/" ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::GitHub CLI o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+
+      - name: Announce the declassified 🔴 (no silent green)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_URL: ${{ github.event.review.html_url }}
+          DECLASSIFIED: ${{ needs.scope.outputs.declassified }}
+          EXIT_KIND: ${{ needs.scope.outputs.exit_kind }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -uo pipefail
+          marker="<!-- REDFLAG_DECLASSED: ${HEAD_SHA} -->"
+          if ! comments=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq '[.[] | .body] | join("\n")' 2>/dev/null); then
+            echo "::error::Commenti PR illeggibili: impossibile garantire che l'uscita non sia silenziosa."
+            exit 1
+          fi
+          if grep -qF "$marker" <<<"$comments"; then
+            echo "Avviso di declassazione già presente per la HEAD $HEAD_SHA → nessun duplicato."
+            exit 0
+          fi
+          detail=$(printf '%s' "${DECLASSIFIED:-[]}" \
+            | jq -r 'if length == 0 then "- (elenco non disponibile)" else (.[] | "- finding #\(.findingNumber) — declassato per `\(.reason)` (id stabile `\(.stableId)`)") end' 2>/dev/null \
+            || echo '- (elenco non disponibile)')
+          body=$(printf '%s\n%s\n\n%s\n\n%s\n\n%s\n' \
+            "$marker" \
+            "ℹ️ **🔴-fixer: nessun round avviato, e il motivo è scritto qui.**" \
+            "Il classificatore di scope ha declassato ogni \`🔴 Important\` della [review più recente]($REVIEW_URL) (uscita \`${EXIT_KIND}\`): nessun finding resta in-diff, quindi non c'è niente che questo fixer possa correggere sul branch. Nessuna follow-up aggregata viene coniata perché nessun finding risolve fuori dal diff." \
+            "$detail" \
+            "Se uno di questi rilievi è ancora valido, il reviewer deve rialzarlo dichiarandolo \`🔴 Important: [regression] …\`: la classe \`regression\` è l'unica che la regola «riga non cambiata» non declassa. ([run]($RUN_URL))")
+          if ! "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$body"; then
+            echo "::error::Avviso di declassazione non postato: l'uscita resterebbe silenziosa. Fail-closed."
+            exit 1
+          fi
+          echo "✓ Uscita di scope resa esplicita sulla PR #$PR_NUMBER."
 
   redflag-fix:
     needs: [preflight, scope]
@@ -863,6 +1005,13 @@ jobs:
           # 'success' senza push (issue #5534).
           n=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo 0)
           echo "comments=${n:-0}" >> "$GITHUB_OUTPUT"
+          # Digest del BODY pre-Codex. Un 🔴 ancorato a `PR body:L<n>` si chiude
+          # riscrivendo il body, non con un commit: senza questa baseline il
+          # classify finale leggeva «nessun push, nessun commento» e marcava RED
+          # un round che aveva fatto esattamente il lavoro richiesto.
+          body_digest=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '.body // ""' 2>/dev/null \
+            | shasum -a 256 | awk '{print $1}')
+          echo "body_digest=${body_digest:-unknown}" >> "$GITHUB_OUTPUT"
 
       # Contesto della PR + della review, deterministico e BOUNDED, prima di
       # spendere un turno Claude. Stesso pattern del gemello `pr-redcheck-fixer.yml`
@@ -1091,6 +1240,9 @@ jobs:
           PR_BODY_EXPECTED_REVISION: ${{ steps.admission.outputs.review_revision }}
           FIX_TIER: ${{ steps.guard.outputs.tier }}
           FIX_ROUND: ${{ steps.guard.outputs.round }}
+          # Verdetto deterministico dello scope: ogni 🔴 aperto si ancora al
+          # body della PR e non a un file. Il bersaglio del round è il body.
+          REDFLAG_BODY_ONLY: ${{ needs.scope.outputs.body_only }}
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
           # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
@@ -1129,6 +1281,13 @@ jobs:
 
             **Obiettivo:** applica un fix CLASS-COMPLETE ai SOLI findings `🔴 Important` della review più recente su QUESTO branch. NON mergiare.
 
+            **Verdetto deterministico dello scope — 🔴 SOLO-BODY: `${{ needs.scope.outputs.body_only }}`.**
+            Quando vale `true`, il classificatore ha già stabilito che OGNI `🔴 Important` aperto si ancora a `PR body:L<n>` e non cita nessun file: **il difetto è nel BODY della PR, non nell'albero.** In quel caso:
+            - **NON cercare il fix nel codice.** Non aprire i file citati altrove nella review, non sweepare sibling, non committare: non c'è niente da correggere nel tree e un round speso a cercarlo è il round che ha portato la PR #9238 a `needs-human` dopo aver ripetuto lo stesso `PR body:L14` su quattro review consecutive.
+            - **Il fix è riscrivere il body**, ed è nel tuo potere: scrivi il testo completo in `$RUNNER_TEMP/pr-redflag-pr-body.md`, valida con `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e applica con `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"` (stessa procedura della regola sul body più sotto).
+            - **Correggere il body è necessario ma NON sufficiente, e non devi occupartene tu.** `tests.yml` non è triggerato da `edited` e il suo re-review guard salta quando esiste già una review terminale su questa HEAD: finché la HEAD non cambia, nessuna review potrà mai giudicare il body che hai appena corretto, e la PR resta ferma con il 🔴 terminale addosso. Lo step deterministico `Advance HEAD after a PR-body fix`, subito dopo di te, se ne accorge dal digest del body e spinge lui il commit che fa avanzare la HEAD. **Non pushare tu un commit vuoto per questo**: ne uscirebbero due.
+            - **Se il body NON si può correggere** (il finding chiede una decisione che non puoi prendere, o il gate deterministico rifiuta ogni riscrittura onesta), **non uscire in silenzio**: commenta sulla PR `🔴 solo-body non auto-fixabile: <motivo>` citando il bullet e il finding, così il round-cap può escalare a `needs-human` con la diagnosi giusta. Un'uscita senza body riscritto E senza commento viene marcata RED come non-progress silenzioso.
+
             **Regole:**
             - **PRIMA di applicare qualunque fix, leggi gli STATI GIÀ DICHIARATI nel body della PR — sono già calcolati nel bundle** (sezione "Stati già dichiarati...", `closing-states.json`): stessa logica `extractSection`/`sectionBullets`/`bulletState`/`NON_IMPL_ANCORA_RE` di `scripts/lib/pr-body-sections-check.mjs`, risolta da `main` (non dalla HEAD di questa PR, che può essere un branch nato PRIMA di #5916, dove `bulletState` non è esportato o il file non c'è affatto — la tassonomia che conta è quella di `main`, perché è `main` che poi giudica il body). **NON ricalcolarli con un fetch/parse tuo, e NON scrivere un secondo parser** né una regex tua: se il bundle mostra `[]` ma il body ha davvero una sezione `## Non implementato` non vuota, quello è un segnale che il prefetch è fallito (fetch di `main` non riuscito) — solo in quel caso rifai a mano `gh pr view $PR_NUMBER --json body -q .body`, poi `git fetch --no-tags origin main` e recupera **sia** `scripts/lib/pr-body-sections-check.mjs` **sia** `scripts/ci/lib/false-positive-declaration.mjs` con `git show FETCH_HEAD:...` (`mkdir -p /tmp/scripts/lib /tmp/scripts/ci/lib && git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs > /tmp/scripts/lib/pr-body-sections-check.mjs && git show FETCH_HEAD:scripts/ci/lib/false-positive-declaration.mjs > /tmp/scripts/ci/lib/false-positive-declaration.mjs`), mantenendo la stessa struttura relativa (il primo importa il secondo con un percorso relativo, risolto dalla posizione del file — appiattirlo in un unico file isolato rompe l'import con `ERR_MODULE_NOT_FOUND`), e l'import delle stesse quattro funzioni (`extractSection`, `sectionBullets`, `bulletState`, `NON_IMPL_ANCORA_RE` — è `extractSection` che applica `stripNonContent`, senza il quale gli ESEMPI di tassonomia dentro un blocco fenced del body vengono letti come stati dichiarati). `scripts/ci/followup-has-candidates.mjs` importa le stesse funzioni: una tassonomia riscritta a mano diverge in silenzio dal gate che poi giudica lo stesso body.
             - **Quali stati CHIUDONO un follow-up e quali no — `blocked:` NON è monolitico.** La lista canonica è la costante `CLOSING_STATES` di `scripts/ci/followup-has-candidates.mjs`, alimentata dalla stessa `bulletState`/tassonomia che il gate usa. Chiudono tutti e cinque: `in-this-pr` (`in questa PR`), `chained-pr` (`PR concatenata #N`), `by-choice` (`per scelta`), `by-construction` (`by construction`) e `blocked-owner` (`blocked: decisione del proprietario` / `blocked: owner decision`). I primi due indicano lavoro già tracciato; solo gli ultimi tre sono un NO motivato e richiedono il motivo scritto dopo lo stato. NON chiude `blocked-technical`, cioè ogni altro `blocked: <causa>`, che è lavoro aperto su una causa esterna e il cui 🔴 va comunque fixato: leggi la CAUSA, non il prefisso. `PR concatenata` senza `#N` non è uno stato chiudente e viola il contratto: trattala sempre come finding aperto.
@@ -1149,6 +1308,95 @@ jobs:
             - SOLO i 🔴 della review corrente. Non rifare l'intera PR, non drive-by.
             - Se i 🔴 non sono fixabili con confidenza (root cause non chiara / serve giudizio umano) → commenta "🔴 non auto-fixabile: <motivo>" e TERMINA senza commit (il round cap + needs-human gestiranno l'escalation).
             - Una sola passata: applica, valida, committa, pusha, aggiorna body, STOP.
+
+      # ── Un body riscritto senza una HEAD nuova è uno stallo, non un fix ──────
+      #
+      # `tests.yml` NON è più triggerato da `edited` (tolto il 2026-09-18: 33%
+      # delle run su PR nascevano da lì e rimisuravano codice immutato) e il suo
+      # `Re-review guard` salta quando esiste già una review terminale sulla
+      # HEAD. Le due cose insieme rendono un 🔴 che vive solo nel body
+      # ASSORBENTE: il fixer corregge il body, nessuna review nuova può essere
+      # emessa sulla stessa HEAD, il verdetto 🔴 resta terminale e la PR si
+      # ferma per sempre — in silenzio, con la run verde. Correggere il body è
+      # necessario e non sufficiente.
+      #
+      # Quindi: quando il body è cambiato in questo round e la HEAD NON è
+      # avanzata, qui si fa avanzare la HEAD. Il commit è vuoto nell'albero
+      # perché il lavoro del round sta nel body, che l'albero non contiene; non
+      # è il commit vuoto che il prompt vieta (quello nasce da un round che non
+      # ha fatto NIENTE e produce una seconda review sullo stesso lavoro —
+      # storm #9066/#9074). Qui la condizione è l'opposta: si spinge solo se una
+      # modifica c'è stata, ed è limitata dal round cap a 2.
+      - name: Advance HEAD after a PR-body fix (un body nuovo non è rivedibile senza un commit)
+        id: body_advance
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          BASE_SHA: ${{ steps.base.outputs.sha }}
+          BASE_BODY_DIGEST: ${{ steps.base.outputs.body_digest }}
+          BODY_ONLY: ${{ needs.scope.outputs.body_only }}
+          FIX_ROUND: ${{ steps.guard.outputs.round }}
+        run: |
+          set -uo pipefail
+          # Solo un round che lo scope ha dichiarato `body_only`. Senza questo
+          # filtro, un edit del body fatto da qualcun altro mentre il round
+          # girava avrebbe fatto avanzare la HEAD — e bruciato una re-review —
+          # su un round che di codice non aveva fatto niente (domanda `❓ q:`
+          # della review 5259835406). Il caso «body cambiato, HEAD ferma» resta
+          # comunque coperto: `Classify outcome` lo marca RED, mai verde.
+          if [ "${BODY_ONLY:-false}" != "true" ]; then
+            echo "Round non body-only (body_only=${BODY_ONLY:-false}) → nessun avanzamento di HEAD da qui."
+            echo "advanced=not-body-only" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          now_digest=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '.body // ""' 2>/dev/null \
+            | shasum -a 256 | awk '{print $1}')
+          if [ "${BASE_BODY_DIGEST:-unknown}" = "unknown" ] || [ -z "${now_digest:-}" ]; then
+            echo "Digest del body non confrontabile → nessuna decisione qui; il classify sotto resta l'arbitro."
+            echo "advanced=unknown" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$now_digest" = "$BASE_BODY_DIGEST" ]; then
+            echo "Body invariato in questo round (body_only=${BODY_ONLY:-false}) → niente da sbloccare."
+            echo "advanced=no-body-change" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          head_now=$(git rev-parse HEAD 2>/dev/null || echo "")
+          if [ -n "$head_now" ] && [ "$head_now" != "$BASE_SHA" ]; then
+            echo "Body riscritto e HEAD già avanzata ($BASE_SHA → $head_now): la re-review parte dal push del fix."
+            echo "advanced=by-fix" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "Body riscritto ma HEAD ferma su $BASE_SHA → senza un commit nuovo nessuna review può giudicare il body corretto."
+          if ! git commit --allow-empty \
+              -m "chore(pr-body): rendi rivedibile il body corretto dal 🔴-fixer (round ${FIX_ROUND:-?})" \
+              --trailer "Fixer: redflag-round-${FIX_ROUND:-0}"; then
+            echo "::error::Commit di sblocco non creato: la PR resterebbe ferma su una review terminale."
+            exit 1
+          fi
+          if git push origin "HEAD:${HEAD_REF}"; then
+            echo "✓ HEAD avanzata dopo la correzione del body → la re-review può essere emessa."
+            echo "advanced=by-unblock-commit" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          # Il push è l'unico modo di uscire dallo stallo: se non atterra, non
+          # si esce verdi. Si rende visibile e si attiva il percorso di sblocco.
+          echo "::error::Push del commit di sblocco fallito: il body è corretto ma nessuna review nuova può essere emessa sulla HEAD $BASE_SHA."
+          echo "advanced=push-failed" >> "$GITHUB_OUTPUT"
+          # Idempotente sul marker, come l'escalation del round cap: il round 2
+          # ripasserebbe di qui e riposterebbe la stessa diagnosi. Here-string,
+          # non `printf | grep -q`: con pipefail il SIGPIPE su un elenco
+          # commenti grande rende falso il guard (stessa trappola di #9283).
+          comments=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq '[.[] | .body] | join("\n")' 2>/dev/null || echo "")
+          if grep -qF '<!-- REDFLAG_BODY_DEADLOCK -->' <<<"$comments"; then
+            echo "Stallo del body già escalato su questa PR → nessun nuovo label/commento."
+          else
+            "$TRUSTED_GH_BIN" pr edit "$PR_NUMBER" --repo "$REPO" --add-label "needs-human" 2>/dev/null \
+              || echo "label needs-human assente — creala: gh label create needs-human"
+            "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_BODY_DEADLOCK -->\n🛑 **needs-human** (auto): il 🔴-fixer ha corretto il body della PR, ma il push del commit che rende quel body rivedibile è fallito. Senza una HEAD nuova nessuna review può essere emessa (`tests.yml` non è triggerato da `edited` e il re-review guard salta su una review terminale già presente): la PR resterebbe ferma in silenzio. Serve un commit manuale sul branch.')" \
+              2>/dev/null || true
+          fi
+          exit 1
 
       - name: Cleanup Firebase credentials
         if: always()
@@ -1184,6 +1432,9 @@ jobs:
           HEAD_REF: ${{ github.event.pull_request.head.ref }}
           BASE_SHA: ${{ steps.base.outputs.sha }}
           BASE_COMMENTS: ${{ steps.base.outputs.comments }}
+          BASE_BODY_DIGEST: ${{ steps.base.outputs.body_digest }}
+          BODY_ONLY: ${{ needs.scope.outputs.body_only }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
         run: |
           set -uo pipefail
@@ -1212,6 +1463,20 @@ jobs:
           fi
           if [ "$ACTION_OUTCOME" = "failure" ]; then
             echo "::error::🔴-fix: nessun commit pushato e l'azione è fallita ('$ACTION_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
+            exit 1
+          fi
+          # Un body riscritto SENZA una HEAD nuova non è un terminale
+          # legittimo: è lo stallo. `tests.yml` non è triggerato da `edited` e
+          # il suo re-review guard salta su una review terminale già presente,
+          # quindi nessuna review potrà mai giudicare il body corretto e la PR
+          # resta ferma. Lo step `Advance HEAD after a PR-body fix` esiste per
+          # impedirlo; se siamo qui, non ci è riuscito, e la cosa peggiore che
+          # si possa fare è uscire verdi.
+          NOW_BODY_DIGEST=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '.body // ""' 2>/dev/null \
+            | shasum -a 256 | awk '{print $1}')
+          if [ -n "${NOW_BODY_DIGEST:-}" ] && [ "${BASE_BODY_DIGEST:-unknown}" != "unknown" ] \
+             && [ "$NOW_BODY_DIGEST" != "$BASE_BODY_DIGEST" ]; then
+            echo "::error::🔴-fix: body riscritto (digest ${BASE_BODY_DIGEST:0:12}→${NOW_BODY_DIGEST:0:12}, body_only=${BODY_ONLY:-false}) ma HEAD ferma su $BASE_SHA → nessuna review potrà giudicare il body corretto e la PR resta bloccata. Job RED (sblocco: label needs-human dallo step precedente, oppure un commit manuale sul branch)."
             exit 1
           fi
           NOW_COMMENTS=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
