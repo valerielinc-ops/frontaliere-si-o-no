@@ -34,6 +34,7 @@ export const FACHKRAFT_COMPANY_NAME = 'fachkraft.ch GmbH';
 export const FACHKRAFT_COMPANY_DOMAIN = 'fachkraft.ch';
 
 const CAREER_URL = 'https://www.fachkraft.ch/stellen/';
+const FACHKRAFT_MAX_LISTING_PAGES = 300;
 
 export const FACHKRAFT_DESCRIPTION_MIN_WORDS = 50;
 export const FACHKRAFT_FETCH_BUDGET = Object.freeze({
@@ -178,6 +179,37 @@ function classBody(html, className, tags = 'p|div|span') {
     'i',
   ).exec(html);
   return stripHtml(match?.[2] || '');
+}
+
+function htmlAttribute(attributes, name) {
+  return new RegExp(`\\b${name}\\s*=\\s*["']([^"']*)["']`, 'i').exec(attributes)?.[1] || '';
+}
+
+function parseFachkraftListingNavigation(html, currentUrl) {
+  const source = String(html || '');
+  const countMatch = /\bdata-count\s*=\s*["'](\d+)["']/i.exec(source);
+  const declaredCount = countMatch ? Number(countMatch[1]) : null;
+  let nextUrl = null;
+
+  for (const match of source.matchAll(/<a\b[^>]*>/gi)) {
+    const attributes = match[0];
+    const className = htmlAttribute(attributes, 'class');
+    const rel = htmlAttribute(attributes, 'rel');
+    const ariaLabel = htmlAttribute(attributes, 'aria-label');
+    if (!/\bff-pagination__next\b/i.test(className)
+      && !/^next$/i.test(rel)
+      && !/\b(next|weiter|successiva)\b/i.test(ariaLabel)) continue;
+    const href = htmlAttribute(attributes, 'href');
+    if (!href) continue;
+    try {
+      nextUrl = new URL(href, currentUrl).toString();
+    } catch {
+      throw new Error('fachkraft listing pagination contained an invalid next URL');
+    }
+    break;
+  }
+
+  return { declaredCount, nextUrl };
 }
 
 /** Parse the authoritative current listing index. Malformed cards fail closed. */
@@ -341,6 +373,61 @@ async function fetchFachkraftPage(url, transport, urlPolicy, signal, label) {
   throw error;
 }
 
+async function fetchFachkraftListingSnapshot({ transport, urlPolicy, signal, maxPages }) {
+  const rows = [];
+  const seenPages = new Set();
+  const seenRows = new Set();
+  let declaredCount = null;
+  let nextUrl = CAREER_URL;
+  let pages = 0;
+
+  while (nextUrl) {
+    const pageUrl = new URL(nextUrl, CAREER_URL).toString();
+    if (seenPages.has(pageUrl)) {
+      throw new Error(`fachkraft listing pagination cycle detected at ${pageUrl}`);
+    }
+    if (pages >= maxPages) {
+      throw new Error(`fachkraft listing pagination exceeded ${maxPages} pages`);
+    }
+    seenPages.add(pageUrl);
+
+    const listingPage = await fetchFachkraftPage(
+      pageUrl,
+      transport,
+      urlPolicy,
+      signal,
+      pages === 0 ? 'listing' : `listing page ${pages + 1}`,
+    );
+    const pageRows = parseFachkraftListingPage(listingPage.body);
+    const navigation = parseFachkraftListingNavigation(listingPage.body, pageUrl);
+    if (navigation.declaredCount !== null) {
+      if (declaredCount !== null && declaredCount !== navigation.declaredCount) {
+        throw new Error(
+          `fachkraft listing declared count changed across pages: ${declaredCount}/${navigation.declaredCount}`,
+        );
+      }
+      declaredCount = navigation.declaredCount;
+    }
+    for (const row of pageRows) {
+      if (seenRows.has(row.url)) {
+        throw new Error(`fachkraft listing snapshot has duplicate URL across pages: ${row.url}`);
+      }
+      seenRows.add(row.url);
+      rows.push(row);
+    }
+
+    pages++;
+    nextUrl = navigation.nextUrl;
+  }
+
+  if (declaredCount !== null && rows.length !== declaredCount) {
+    throw new Error(
+      `fachkraft listing pagination incomplete: collected ${rows.length}/${declaredCount} cards across ${pages} page(s)`,
+    );
+  }
+  return { rows, pages, declaredCount };
+}
+
 /**
  * One complete, all-or-nothing source snapshot. A failed detail aborts sibling
  * workers and rejects before the standard pipeline can write a scratch slice.
@@ -362,14 +449,16 @@ export async function fetchFachkraftSnapshot(options = {}) {
     console.log(
       `[fachkraft] bounded transport: request=${transport.requestTimeoutMs}ms retries=${transport.retries} run=${runTimeoutMs}ms`,
     );
-    const listingPage = await fetchFachkraftPage(
-      CAREER_URL,
+    const listing = await fetchFachkraftListingSnapshot({
       transport,
       urlPolicy,
-      runController.signal,
-      'listing',
+      signal: runController.signal,
+      maxPages: FACHKRAFT_MAX_LISTING_PAGES,
+    });
+    const { rows } = listing;
+    console.log(
+      `[fachkraft] listing-pages=${listing.pages} declared=${listing.declaredCount ?? 'unknown'} cards=${rows.length}`,
     );
-    const rows = parseFachkraftListingPage(listingPage.body);
     const existingByUrl = new Map(readExistingFachkraftJobs(options).map((job) => [job?.url, job]));
     const enriched = new Array(rows.length);
     const pending = [];
@@ -429,6 +518,8 @@ export async function fetchFachkraftSnapshot(options = {}) {
     const listings = enriched.filter(Boolean);
     const audit = Object.freeze({
       complete: true,
+      listingPages: listing.pages,
+      listingDeclaredCount: listing.declaredCount,
       discovered: rows.length,
       published: listings.length,
       reused,
@@ -458,6 +549,7 @@ export function validateFachkraftAuthoritativeSnapshot(jobs) {
     );
   }
   if (!audit?.complete
+    || (audit.listingDeclaredCount != null && audit.listingDeclaredCount !== audit.discovered)
     || audit.discovered <= 0
     || audit.fetchFailures !== 0
     || audit.detailCompleted !== audit.detailRequested
