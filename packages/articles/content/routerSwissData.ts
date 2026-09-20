@@ -2227,6 +2227,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'revolut-hacker-svizzera-pec': { it: 'revolut-hacker-svizzera-pec', en: 'revolut-hacker-switzerland-pec', de: 'revolut-hacker-schweiz-pec', fr: 'revolut-hacker-suisse-pec' },
  'votazioni-cantoni-27-settembre': { it: 'votazioni-cantoni-27-settembre', en: 'swiss-cantonal-votes-september-27', de: 'kantonsabstimmungen-27-september', fr: 'votations-cantonales-27-septembre' },
  'referendum-nuove-centrali-nucleari': { it: 'referendum-nuove-centrali-nucleari', en: 'new-nuclear-plants-referendum', de: 'neue-kernkraftwerke-referendum', fr: 'nouvelles-centrales-nucleaires-referendum' },
+ 'migros-fusione-cooperative-2035': { it: 'migros-fusione-cooperative-2035', en: 'migros-merger-cooperatives-2035', de: 'migros-fusion-konsumvereine-2035', fr: 'migros-fusion-cooperatives-2035' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

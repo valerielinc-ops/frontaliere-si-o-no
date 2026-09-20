@@ -85742,6 +85742,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-migros-fusione-cooperative-2035': {
+    title: 'Migros valuta fusione delle 10 cooperative | Frontaliere Ticino',
+    description: 'Migros valuta la fusione delle 10 cooperative regionali in un\'unica entità nazionale. 2,3 milioni di soci coinvolti, decisione in corso. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, migros, valuta, fusione, cooperative',
+    ogTitle: 'Migros valuta fusione delle 10 cooperative',
+    ogDescription: 'Il CEO di Migros, Mario Irminger, valuta una profonda ristrutturazione: fusione delle 10 cooperative regionali in un\'unica entità nazionale o riduzione a 3. 2,3 milioni di soci potrebbero essere consultati. Dettagli sulla strategia Vision 2035.',
+    canonicalPath: '/articoli-svizzera/migros-fusione-cooperative-2035/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Migros valuta fusione delle 10 cooperative",
+      "description": "Migros valuta la fusione delle 10 cooperative regionali in un'unica entità nazionale. 2,3 milioni di soci coinvolti, decisione in corso. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/migros-fusione-cooperative-2035.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista dell'edificio del Palazzo Federale a Berna, sede delle istituzioni svizzere, al crepuscolo."
+      },
+      "datePublished": "2026-09-20T08:43:50+00:00",
+      "dateModified": "2026-09-20T08:43:50+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/migros-fusione-cooperative-2035/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
