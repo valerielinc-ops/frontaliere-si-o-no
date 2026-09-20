@@ -7,6 +7,11 @@
  * Also writes sitemap-jobs.xml and patches it into the main sitemap index.
  */
 
+// Banco pgain-same (20/09/2026): questa riga esiste solo per muovere il
+// fingerprint del grafo sorgente (`computeJobsSeoEmitterFingerprints`) senza
+// poter cambiare un solo byte dell'HTML emesso. Serve a misurare il guadagno
+// di JOBS_SEO_REUSE_PROBE a dataset fermo. Non ha effetto a runtime.
+
 // Import statici, NON `await import()` dentro closeBundle (#5001): closeBundle e'
 // un hook Rollup async/parallelo, quindi quell'await sospende il plugin e un
 // altro plugin `enforce:'post'` puo' girare per intero prima che questo
