@@ -11866,6 +11866,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-20.imageAlt': 'Les chiffres du jour pour les frontaliers – 20 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-20.seoDescription': 'Bulletin du frontalier du 20 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-20.ogDescription': 'Les chiffres du 20 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.comuni-frontiera-ristorni-108-milioni.title': 'Ristors frontière : 89-108 millions, les maires se réjouissent',
+    'blog.article.comuni-frontiera-ristorni-108-milioni.excerpt': 'Le gouvernement italien augmente les fonds pour les communes frontalières. Les maires : « Satisfaits de l\'augmentation des restaurations ».',
+    'blog.article.comuni-frontiera-ristorni-108-milioni.imageAlt': 'Une vue panoramique de la ville de Lugano, au Tessin, en Suisse.',
 };
 
 export default blogMetaFr;

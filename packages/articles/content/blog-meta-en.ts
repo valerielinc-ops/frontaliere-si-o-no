@@ -11864,6 +11864,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-20.imageAlt': 'The day\'s numbers for cross-border commuters – September 20, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-20.seoDescription': 'Cross-border brief, September 20, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-20.ogDescription': 'The numbers for September 20, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.comuni-frontiera-ristorni-108-milioni.title': 'Border refurbishment: 89-108 million, mayors rejoice',
+    'blog.article.comuni-frontiera-ristorni-108-milioni.excerpt': 'The Italian government increases funds for border municipalities. The mayors: \'Satisfied with the increase in refreshments\'.',
+    'blog.article.comuni-frontiera-ristorni-108-milioni.imageAlt': 'A panoramic view of the city of Lugano, in Ticino, Switzerland.',
 };
 
 export default blogMetaEn;
