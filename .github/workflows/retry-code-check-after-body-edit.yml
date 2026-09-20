@@ -479,7 +479,14 @@ jobs:
             }
             async function handleWorkflowRun() {
               const run = context.payload.workflow_run;
-              if (!run || run.name !== 'tests' || run.status !== 'completed'
+              // `workflow_run.name` is the dynamic run-name from tests.yml
+              // (for example, `Code checks and review · PR #9389 · opened`),
+              // not the static workflow name `tests`. Bind the event to the
+              // immutable workflow path or the recovery would leave every
+              // queued body epoch pending forever.
+              const isTestsWorkflow = run?.path === '.github/workflows/tests.yml'
+                || (!run?.path && run?.name === 'tests');
+              if (!run || !isTestsWorkflow || run.status !== 'completed'
                   || run.event !== 'pull_request'
                   || run.repository?.full_name !== `${repo.owner}/${repo.repo}`
                   || typeof run.head_sha !== 'string') return;
