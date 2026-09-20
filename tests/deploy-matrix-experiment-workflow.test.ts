@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { readFileSync } from 'node:fs';
+import { readdirSync, readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import YAML from 'yaml';
 import {
@@ -9,7 +9,8 @@ import {
 } from '../scripts/ci/matrix-experiment-variants.mjs';
 
 const ROOT = resolve(import.meta.dirname, '..');
-const WORKFLOW_PATH = resolve(ROOT, '.github/workflows/deploy-matrix-experiment.yml');
+const WORKFLOWS_DIR = resolve(ROOT, '.github/workflows');
+const WORKFLOW_PATH = resolve(WORKFLOWS_DIR, 'deploy-matrix-experiment.yml');
 const WORKFLOW_TEXT = readFileSync(WORKFLOW_PATH, 'utf8');
 const WORKFLOW = YAML.parse(WORKFLOW_TEXT) as any;
 
@@ -62,8 +63,102 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     ]));
     expect(WORKFLOW_TEXT).not.toMatch(/hashFiles\([^)]*(?:incremental-html|dist)\/\*\*/u);
     expect(WORKFLOW_TEXT).not.toMatch(/uses:\s*actions\/cache@/u);
-    expect(WORKFLOW.concurrency.group).toBe('deploy-matrix-experiment-${{ github.run_id }}');
+    expect(WORKFLOW.concurrency.group).toBe('deploy-matrix-experiment');
     expect(String(WORKFLOW.concurrency.group)).not.toBe('pages-build-run');
+  });
+
+  // Osservatore del budget di capacità (misura 2026-09-19: 3.091 job-minuti/24 h,
+  // media 2,14 slot, picco 6, media 5,24 nel plateau 18:30→19:45Z, su un tetto
+  // account di 20-22 job). Lo studio scarta il proprio output: il costo va
+  // tenuto limitato per costruzione, non per disciplina di chi fa il dispatch.
+  describe('budget di capacità', () => {
+    it('serializza i dispatch con un gruppo di concorrenza STABILE', () => {
+      // `github.run_id` è unico per run: un gruppo che lo contiene non può
+      // serializzare nulla ed è ciò che permetteva 6 run vivi insieme.
+      const group = String(WORKFLOW.concurrency.group);
+      expect(group).toBe('deploy-matrix-experiment');
+      expect(group).not.toMatch(/github\.run_id|github\.run_number|github\.sha/u);
+      // Un run già partito non va ucciso a metà misura.
+      expect(WORKFLOW.concurrency['cancel-in-progress']).toBe(false);
+    });
+
+    it('fa girare UNA gamba per volta, cosi\u2019 il tetto dichiarato vale per costruzione', () => {
+      // Con 2 un dispatch `variants` multilinea terrebbe due runner di build
+      // insieme e il tetto di ~1 slot annunciato in testa al file sarebbe
+      // falso proprio nel caso peggiore.
+      expect(WORKFLOW.jobs['build-locale'].strategy['max-parallel']).toBe(1);
+    });
+
+    it('nessun job di build puo\u2019 girare accanto a un altro nello stesso run', () => {
+      // `max-parallel: 1` serializza solo le gambe della matrix. Il job
+      // `monolith` di `compare_monolith` condivideva i soli prerequisiti
+      // `matrix-setup`/`prep`, quindi partiva in parallelo a `build-locale` e
+      // il dispatch teneva DUE runner di build: il tetto di ~1 slot dichiarato
+      // in testa al file era falso proprio nella modalita' di confronto.
+      expect(WORKFLOW.jobs.monolith.needs).toContain('build-locale');
+      // E deve comunque girare quando uno shard fallisce (`fail-fast: false`),
+      // altrimenti il termine di paragone sparisce nel giro in cui serve.
+      expect(String(WORKFLOW.jobs.monolith.if)).toContain('!cancelled()');
+
+      // Tutti i job che accendono un runner di build devono stare in catena.
+      const buildJobs = ['prep', 'build-locale', 'monolith'];
+      for (const [index, job] of buildJobs.slice(1).entries()) {
+        expect(WORKFLOW.jobs[job].needs, job).toContain(buildJobs[index]);
+      }
+    });
+
+    it('il gate di scadenza rifiuta una data di CALENDARIO impossibile, non solo la forma', () => {
+      const guard = String((WORKFLOW.jobs['matrix-setup'].steps as Array<Record<string, any>>)[0].run);
+      // La sola regex lascia passare `2026-02-31`, che non esiste: una scadenza
+      // malformata resterebbe attiva invece di fallire subito.
+      // Validazione in bash puro: `date -d` e' GNU e non esiste su BSD/macOS,
+      // quindi legare il gate all'immagine del runner lo renderebbe una bomba
+      // a orologeria il giorno in cui quell'immagine cambia base.
+      expect(guard).not.toMatch(/date\s+-u?\s*-d\b/u);
+      expect(guard).toMatch(/days_in_month/u);
+      // Anno bisestile gestito, altrimenti `2028-02-29` verrebbe respinto.
+      expect(guard).toMatch(/% 4 == 0/u);
+      expect(guard).toMatch(/% 400 == 0/u);
+    });
+
+    it('nessun altro workflow contende i gruppi di concorrenza degli studi', () => {
+      // I gruppi ora sono letterali: se un altro workflow ne usasse uno, i due
+      // si serializzerebbero a vicenda senza che nessuno l\u2019abbia chiesto.
+      const groups = new Map<string, string[]>();
+      for (const name of readdirSync(WORKFLOWS_DIR).filter((f) => f.endsWith('.yml'))) {
+        let doc: any;
+        try {
+          doc = YAML.parse(readFileSync(resolve(WORKFLOWS_DIR, name), 'utf8'));
+        } catch {
+          continue;
+        }
+        const seen = [doc?.concurrency, ...Object.values(doc?.jobs ?? {}).map((job: any) => job?.concurrency)];
+        for (const entry of seen) {
+          const group = typeof entry === 'string' ? entry : entry?.group;
+          if (typeof group !== 'string' || !group.trim()) continue;
+          groups.set(group, [...(groups.get(group) ?? []), name]);
+        }
+      }
+      for (const group of ['deploy-matrix-experiment', 'cluster-pages-experiment', 'matrix-equivalence', 'post-build-matrix-test']) {
+        expect(groups.get(group), group).toEqual([`${group === 'matrix-equivalence' ? 'matrix-equivalence-check' : group}.yml`]);
+      }
+    });
+
+    it('dichiara una scadenza e la fa valere prima di accendere un runner di build', () => {
+      const expiry = String(WORKFLOW.env?.EXPERIMENT_EXPIRES_ON ?? '');
+      expect(expiry).toMatch(/^\d{4}-\d{2}-\d{2}$/u);
+      expect(Number.isNaN(Date.parse(`${expiry}T00:00:00Z`))).toBe(false);
+
+      const setupSteps = WORKFLOW.jobs['matrix-setup'].steps as Array<Record<string, any>>;
+      const guard = setupSteps[0];
+      expect(String(guard.name)).toMatch(/expiry/iu);
+      expect(String(guard.run)).toContain('EXPERIMENT_EXPIRES_ON');
+
+      // `prep` da solo vale ~11 job-minuti a dispatch: senza questa dipendenza
+      // girerebbe anche a studio scaduto, perché non ha altri `needs`.
+      expect(WORKFLOW.jobs.prep.needs).toContain('matrix-setup');
+      expect(WORKFLOW.jobs['build-locale'].needs).toContain('matrix-setup');
+    });
   });
 
   it('builds the expected locale × variant include rows', () => {

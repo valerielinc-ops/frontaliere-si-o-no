@@ -33,10 +33,17 @@ on:
 permissions:
   contents: read
 
+# Gruppo di concorrenza STABILE: uno studio manuale non deve poter tenere
+# N runner insieme. Il tetto dell'account e' 20-22 job e il 2026-09-19
+# `Deploy Matrix Experiment`, con un gruppo per-run identico a questo,
+# arrivava a 6 run vivi insieme (3.091 job-minuti in 24 h) rubando slot a
+# `tests`. `cancel-in-progress: false` protegge la misura gia' partita:
+# l'eccedenza resta pendente e non occupa mai un runner.
+# (La nota precedente diceva «per-run group so multiple test invocations don't
+# queue»: e' esattamente il comportamento che la misura ha mostrato insostenibile.
+# Questo workflow continua a NON condividere il lock pages-deploy: non deploya.)
 concurrency:
-  # Per-run group so multiple test invocations don't queue. Doesn't share
-  # the pages-deploy lock — this workflow never deploys.
-  group: post-build-matrix-test-${{ github.run_id }}
+  group: post-build-matrix-test
   cancel-in-progress: false
 
 env:
