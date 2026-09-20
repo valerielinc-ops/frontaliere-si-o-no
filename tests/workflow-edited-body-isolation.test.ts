@@ -35,18 +35,13 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
     request: async (route: string, input: { comment_id: number; body?: string; headers?: Record<string, string> }) => {
       const target = comments.find(comment => comment.id === input.comment_id);
       if (!target) throw new Error(`comment ${input.comment_id} not found`);
-      const etag = `"marker-${target.id}-${target.body.length}"`;
       if (route.startsWith('GET ')) {
-        return { data: target, headers: { etag } };
+        return { data: target };
       }
       if (route.startsWith('PATCH ')) {
-        if (input.headers?.['If-Match'] !== etag) {
-          const error = new Error('precondition failed') as Error & { status?: number };
-          error.status = 412;
-          throw error;
-        }
+        if (input.headers?.['If-Match']) throw new Error('conditional headers are not supported by this endpoint');
         target.body = input.body || '';
-        return { data: target, headers: { etag: `"marker-${target.id}-${target.body.length}"` } };
+        return { data: target };
       }
       throw new Error(`unexpected request ${route}`);
     },
@@ -285,13 +280,14 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(recovery.permissions.contents).toBe('read');
     expect(recovery.jobs.recover.if).toContain("github.event_name == 'workflow_run'");
     expect(recovery.jobs.recover.if).toContain('github.event.changes.body != null');
-    expect(recovery.jobs.recover.steps).toHaveLength(3);
+    expect(recovery.jobs.recover.steps).toHaveLength(4);
     const trustedCheckout = recovery.jobs.recover.steps.find((step: { uses?: string }) => step.uses === 'actions/checkout@v5') as { with?: Record<string, string | boolean> } | undefined;
     expect(trustedCheckout?.with?.ref).toBe('main');
     expect(trustedCheckout?.with?.path).toBe('.trusted-main');
     expect(trustedCheckout?.with?.['persist-credentials']).toBe(false);
     expect(trustedCheckout?.with?.['sparse-checkout']).toContain('scripts/ci/mint-app-token.mjs');
     expect(trustedCheckout?.with?.['sparse-checkout']).toContain('scripts/lib/githubApiHeaders.mjs');
+    expect(trustedCheckout?.with?.['sparse-checkout']).toContain('scripts/lib/github-issue-creator.mjs');
     expect(trustedCheckout?.with?.['sparse-checkout']).toContain('functions/src/githubApiHeaders.js');
     const mint = recovery.jobs.recover.steps.find((step: { id?: string }) => step.id === 'mint_recovery_token') as { run?: string; env?: Record<string, string> } | undefined;
     expect(mint?.run).toBe('node .trusted-main/scripts/ci/mint-app-token.mjs');
@@ -322,10 +318,17 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(script).toContain("native-revoke-token-unavailable");
     expect(script).toContain("native-revoke-failed");
     expect(script).toContain('MarkerWriteConflict');
-    expect(script).toContain("headers: { 'If-Match': current.etag }");
-    expect(script).toContain('readCommentWithEtag');
+    expect(script).not.toContain("headers: { 'If-Match'");
+    expect(script).not.toContain('current.etag');
+    expect(script).not.toContain('readCommentWithEtag');
+    expect(script).toContain('readMarkerComment');
     expect(script).toContain('await revokeNativeAutoMerge(number)');
     expect(script).not.toContain('setTimeout');
+    const alert = recovery.jobs.recover.steps.find((step: { name?: string }) => step.name === 'Report recovery failure to GitHub Issues') as { if?: string; run?: string; ['continue-on-error']?: boolean } | undefined;
+    expect(alert?.if).toBe('failure()');
+    expect(alert?.['continue-on-error']).toBe(true);
+    expect(alert?.run).toContain('github-issue-creator.mjs');
+    expect(alert?.run).toContain('Workflow Failure: ${{ github.workflow }}');
   });
 
   it('retries a failed body preflight after an edit', async () => {
