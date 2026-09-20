@@ -144,7 +144,7 @@ jobs:
               exit 1
             fi
           fi
-          if printf '%s' "$REVIEW_BODY" | grep -qP '(*UTF)^(?:[^🟡🟢]*(?<!\x60)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]|[ \t]*(?:[-*+>][ \t]*)?(?:\x60[^\x60\n]*:L?\d+(?:[-–]\d+)?\x60?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?):[ \t]*🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?=\s+\S))'; then
+          if grep -qP '(*UTF)^(?:[^🟡🟢]*(?<!\x60)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]|[ \t]*(?:[-*+>][ \t]*)?(?:\x60[^\x60\n]*:L?\d+(?:[-–]\d+)?\x60?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?):[ \t]*🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?=\s+\S))' <<< "$REVIEW_BODY"; then
             :
           else
             marker_status=$?
