@@ -1689,14 +1689,17 @@ export class JobsSeoHtmlReuse {
       // the verdict at `inherit`, the post-walk would skip `fallback=full`, and
       // every OTHER page of the block would stay reused and be declared
       // unchanged — only the verified page would land fresh on disk. The state
-      // is looked up, never created: no probe state means no verdict to spoil,
-      // and with the probe off there is nothing to invalidate at all.
-      const probeState = this.probe
-        ? this.probeStates.get(`${candidate.locale}\0${candidate.block}`)
-        : null;
-      if (probeState) {
+      // is CREATED when missing, because its absence is not innocent: a block
+      // maps several kinds (`legacy-slug-bridge` and `previous-slugs-full-content`
+      // share `previous-slug-legacy`), so a page whose own kind is unchanged
+      // reuses without ever entering the probe branch while the block still
+      // counts as changed. Without a state `probeVerdicts()` synthesizes an
+      // empty one and answers `inherit`/`no-eligible-pages` — the same
+      // fail-open, one level up. With the probe off there is no verdict file at
+      // all and the branch stays a silent no-op.
+      if (this.probe) {
         this.invalidateProbe(
-          probeState,
+          this.probeState(candidate.locale, candidate.block),
           candidate.block,
           candidate.locale,
           `verify-output-differs:${mismatchReason}`,

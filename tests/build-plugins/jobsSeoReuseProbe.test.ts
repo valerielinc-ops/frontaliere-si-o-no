@@ -305,6 +305,78 @@ describe('the sampled verify feeds the same verdict as the probe', () => {
     expect(jobsSeoProbeInheritsEmitterChange(rootDir, ['it'], V1, V2)).toMatchObject({ inherit: true });
   });
 
+  it('invalidates a block that has no probe state because only its sibling kind changed', async () => {
+    // `previous-slug-legacy` maps TWO kinds. When only `legacy-slug-bridge`
+    // moves, a `previous-slugs-full-content` page reuses without ever entering
+    // the probe branch, so the block has no probe state — while the block still
+    // counts as changed. Looking the state up instead of creating it would let
+    // `probeVerdicts()` synthesize an empty one and answer
+    // `inherit`/`no-eligible-pages`: the same fail-open, one level up.
+    const allPages = pages(3);
+    const rootDir = fs.mkdtempSync(path.join(os.tmpdir(), 'jobs-seo-reuse-probe-'));
+    roots.push(rootDir);
+    const manifest = new IncrementalManifest('it');
+    for (const page of allPages) manifest.register(page.path, 'previous-slugs-full-content', page.input);
+    manifest.setJobsSeoEmitterFingerprint(V1);
+    manifest.write(rootDir, path.join(rootDir, '.cache', 'incremental-manifest-prev'));
+    for (const page of allPages) {
+      const file = htmlReuseCachePath(
+        rootDir,
+        'it',
+        page.path,
+        null,
+        'previous-slugs-full-content',
+        computeInputHash(page.input, 'previous-slugs-full-content'),
+      );
+      fs.mkdirSync(path.dirname(file), { recursive: true });
+      fs.writeFileSync(file, renderV1(page), 'utf8');
+    }
+    enableProbeAndVerify();
+    const current = { ...V1, 'legacy-slug-bridge': 'legacy-slug-bridge:v2' };
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    const reuse = (await createJobsSeoHtmlReuse(rootDir, ['it'], current))!;
+    const first = reuse.lookup(
+      'it',
+      allPages[0].path,
+      'previous-slugs-full-content',
+      allPages[0].input,
+      'previous-slug-legacy',
+    );
+    // The page reuses on its own unchanged fingerprint: no probe involved.
+    expect(first.hit).toBe(true);
+    expect(first.probe).toBeNull();
+    expect(first.verify).toBe(true);
+    reuse.finish(first, renderV1(allPages[0]).replace('<h1>', '<h1 class="v2">'));
+    reuse.logSummary();
+    const verdict = JSON.parse(fs.readFileSync(jobsSeoReuseProbePath(rootDir, 'it'), 'utf8'));
+    expect(verdict.blocks['previous-slug-legacy'].verdict).toBe('invalidate');
+    expect(verdict.blocks['previous-slug-legacy'].reason).toMatch(/^verify-output-differs:/);
+    expect(verdict.blocks['previous-slug-legacy'].eligible).toBe(0);
+    expect(jobsSeoProbeInheritsEmitterChange(rootDir, ['it'], V1, current)).toMatchObject({
+      inherit: false,
+      reason: 'probe-invalidate:it:previous-slug-legacy',
+    });
+  });
+
+  it('keeps the first reason and the first exposure on repeated verify mismatches', async () => {
+    const allPages = pages(6);
+    const rootDir = fixture(allPages);
+    enableProbeAndVerify();
+    const { verdict } = await build(
+      rootDir,
+      allPages,
+      (page) => (page.path === allPages[0].path
+        ? renderV1(page)
+        : renderV1(page).replace('<h1>', '<h1 class="v2">')),
+    );
+    // `invalidateProbe` returns early once the state is already `invalidate`,
+    // so a second mismatch cannot overwrite the reason nor inflate the
+    // exposure counter that the verdict file carries.
+    expect(verdict.blocks.active).toMatchObject({ verdict: 'invalidate', reusedBeforeInvalidate: 1 });
+    expect(verdict.blocks.active.reason).toMatch(/^verify-output-differs:/);
+  });
+
   it('stays a silent no-op on a verify mismatch when the probe is off', async () => {
     const allPages = pages(2);
     const rootDir = fixture(allPages);
