@@ -1344,6 +1344,209 @@ function changedPathsBetween(fromSha, toSha) {
   }
 }
 
+// ── Delta riga-per-riga per il percorso `--scope` ───────────────────────────
+//
+// `runReviewGate()` gira in `tests.yml` su un checkout completo e ricava il
+// delta con `git diff`. Il job `scope` di `pr-redflag-fixer.yml` gira invece su
+// un checkout di `main` a `fetch-depth: 1` e SPARSE: i commit della PR non ci
+// sono, `git diff` esce non-zero e il delta risulterebbe sempre `null`. Fino al
+// 2026-09-20 `scopeMain()` non provava nemmeno a calcolarlo, quindi il fixer
+// ripartiva su 🔴 che il gate gemello aveva già declassato: 11 round su 47
+// (23%) nella finestra 18→19 settembre, ognuno un turno Codex piu' una run
+// completa di `tests.yml`.
+//
+// La sorgente qui e' la compare API, che non costa un fetch del repo. Due
+// vincoli la rendono equivalente al `git diff --unified=0 A..B` del gemello, e
+// vanno verificati entrambi prima di usarla:
+//
+//   1. la compare API e' a TRE punti (merge-base…head). Coincide con i due
+//      punti solo quando `merge_base_commit.sha === from`, cioe' quando la HEAD
+//      discende davvero dal commit della review precedente. Dopo un
+//      force-push/rebase i due insiemi divergono e il tre-punti e' piu' PICCOLO:
+//      userebbe «riga non cambiata» su righe che invece erano state riscritte.
+//      In quel caso qui si restituisce `null` (delta non calcolabile).
+//   2. una risposta TRONCATA (>= 300 file, o un file con `changes > 0` e nessun
+//      `patch`) non e' un delta parziale utilizzabile: `classifyReview()` semina
+//      la Map con TUTTI i file della PR e un path senza patch diventerebbe
+//      «confrontato e immutato». Anche qui: `null`.
+const COMPARE_FILES_HARD_LIMIT = 300;
+
+/**
+ * Map path → Set(righe) da una risposta della compare API, oppure `null`
+ * quando la risposta non prova il delta a due punti. Pura e testabile: la
+ * chiamata di rete sta in `changedLinesFromCompareApi()`.
+ */
+export function compareChangedLines(compare, fromSha) {
+  if (!compare || typeof compare !== 'object') return null;
+  if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))) return null;
+  // Tre punti ≡ due punti solo se la base del confronto E' il commit di
+  // partenza: altrimenti c'e' stato un rebase/force-push in mezzo.
+  if (String(compare.merge_base_commit?.sha || '').toLowerCase() !== String(fromSha).toLowerCase()) {
+    return null;
+  }
+  const files = Array.isArray(compare.files) ? compare.files : null;
+  if (!files) return null;
+  if (files.length >= COMPARE_FILES_HARD_LIMIT) return null;
+  const map = new Map();
+  for (const file of files) {
+    const path = normalizePath(file?.filename, { stripGitPrefix: false });
+    if (!path) return null;
+    const changes = Number(file?.changes ?? 0);
+    if (Number.isFinite(changes) && changes > 0 && typeof file?.patch !== 'string') return null;
+    if (typeof file?.patch !== 'string') {
+      map.set(path, new Set());
+      continue;
+    }
+    // `changedLinesFromPatch()` e' la stessa copia della regola usata dal
+    // gemello: gli si ricostruisce solo l'intestazione di file che la compare
+    // API non include nel campo `patch`.
+    const parsed = changedLinesFromPatch(`+++ b/${path}\n${file.patch}`);
+    if (!(parsed instanceof Map)) return null;
+    map.set(path, parsed.get(path) ?? new Set());
+  }
+  return map;
+}
+
+/** Delta a due punti verificato, letto dalla compare API. `null` = non calcolabile. */
+export function changedLinesFromCompareApi(repo, fromSha, toSha, { ghFn = gh } = {}) {
+  if (!repo
+    || !/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
+    || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
+  if (String(fromSha).toLowerCase() === String(toSha).toLowerCase()) return null;
+  const compare = ghFn(
+    ['api', `repos/${repo}/compare/${fromSha}...${toSha}`, '--paginate', '--slurp'],
+    { allowFail: true },
+  );
+  // `--paginate --slurp` restituisce un array di pagine: i `files` vanno
+  // concatenati, ma se una pagina manca il delta non e' completo.
+  const pages = Array.isArray(compare) ? compare : compare ? [compare] : null;
+  if (!pages || pages.length === 0) return null;
+  const merged = {
+    merge_base_commit: pages[0]?.merge_base_commit,
+    files: pages.flatMap((page) => Array.isArray(page?.files) ? page.files : []),
+  };
+  if (pages.some((page) => !Array.isArray(page?.files))) return null;
+  return compareChangedLines(merged, fromSha);
+}
+
+/**
+ * Delta per il percorso `--scope`: prima il `git diff` a due punti (esatto, e
+ * disponibile quando il job ha pre-fetchato `refs/pull/<n>/head`), poi la
+ * compare API.
+ *
+ * L'ordine non e' arbitrario, e' misurato: sulle 50 run replayate il
+ * 2026-09-20 la sola compare API risolveva 14 delta su 50 — GitHub risponde
+ * `422 "this diff is taking too long to generate"` sugli intervalli lunghi di
+ * questo repo — e risparmiava 5 round su 47; con il `git diff` davanti i delta
+ * risolti diventano 44 e i round risparmiati 11. La compare API resta come
+ * rete: copre il caso in cui il pre-fetch del workflow fallisce.
+ */
+export function changedLinesForScope(repo, fromSha, toSha, {
+  gitFn = changedLinesBetween,
+  apiFn = changedLinesFromCompareApi,
+} = {}) {
+  const local = gitFn(fromSha, toSha);
+  if (local instanceof Map) return local;
+  return apiFn(repo, fromSha, toSha);
+}
+
+/**
+ * Gli stessi due parametri che `runReviewGate()` calcola, ricavati per il
+ * percorso `--scope`. Esportata perche' e' la regola che il fixer condivide col
+ * gate: una seconda copia in bash divergerebbe in silenzio.
+ */
+export function scopeDeclassificationOptions({
+  reviews,
+  latest,
+  reviewCommit = '',
+  headSha,
+  repo,
+  repositoryPaths = null,
+  repositoryPathsFromFallback = false,
+  changedLinesFn = changedLinesForScope,
+} = {}) {
+  const parsed = reviewerList(reviews);
+  // La review che ha triggerato il workflow e' identificata dal suo commit:
+  // agganciarsi a `latestReviewer()` e basta sposterebbe la finestra di
+  // confronto se una review nuova arriva mentre il job gira.
+  const managed = parsed.filter((review) =>
+    review?.user?.type === 'Bot'
+      && REVIEWER_LOGIN_RE.test(review.user.login || '')
+      && isTerminalManagedReview(review));
+  const byCommit = /^[0-9a-f]{40}$/iu.test(String(reviewCommit || ''))
+    ? [...managed].reverse().find((review) =>
+      String(review?.commit_id || '').toLowerCase() === String(reviewCommit).toLowerCase())
+    : null;
+  const resolved = latest || byCommit || latestReviewer(parsed);
+  if (!resolved) return {};
+  const prior = priorManagedReview(parsed, resolved);
+  if (!prior) return {};
+  const priorFindingIds = new Set(
+    historicalImportantFindings(parsed, {
+      includeLatest: false,
+      repositoryPaths,
+      repositoryPathsFromFallback,
+    }).map(stableFindingId),
+  );
+  const changedLinesSince = changedLinesFn(repo, String(prior.commit_id || ''), String(headSha || ''));
+  return { priorFindingIds, changedLinesSince, priorReviewCommit: String(prior.commit_id || '') };
+}
+
+// ── Uscita esplicita del classificatore di scope ───────────────────────────
+//
+// `pr-redflag-fixer.yml` lancia il job `redflag-fix` solo quando lo scope e'
+// `blocking`. Ogni altra uscita e' un no-op VERDE, e fino al 2026-09-20 due di
+// quelle uscite non lasciavano nessuna traccia sulla PR:
+//
+//   • `bodyDeclassified` / `staleDeclassified` senza nessun `outside`: nessuna
+//     follow-up viene coniata (il mint guarda solo `outside`), il fixer e'
+//     skippato, la run e' verde e il 🔴 sparisce senza che nessuno lo legga.
+//     Irraggiungibile prima della fix qui sopra, raggiungibile 11 volte su 47
+//     subito dopo: le due fix sono accoppiate.
+//   • il 🔴 ancorato al solo `PR body:L<n>` (14 finding su 85 nella finestra,
+//     lo stesso ripetuto 4 volte su #9238 fino a `needs-human`): oggi finisce
+//     in `unresolved`, quindi il fixer parte ma cerca il difetto NELL'ALBERO,
+//     dove non c'e'.
+//
+// `scopeExit()` da' un nome a ciascuna uscita, cosi' il workflow puo' trattarle
+// diversamente invece di collassarle tutte in «verde, niente da fare».
+export const SCOPE_EXITS = Object.freeze({
+  NONE: 'none',
+  BLOCKING: 'blocking',
+  FOLLOWUP: 'followup',
+  DECLASSIFIED: 'declassified',
+});
+
+/** Il 🔴 non nomina nessun file e si ancora al body della PR. */
+export function isBodyAnchoredFinding(finding) {
+  return (finding?.citations?.length ?? 0) === 0 && prBodyFindingLine(finding) !== null;
+}
+
+/**
+ * Classifica l'uscita dello scope. `silent` e' vero esattamente quando la run
+ * uscirebbe verde senza lasciare niente sulla PR: e' il predicato che il
+ * workflow usa per emettere l'avviso e, se serve, il percorso di sblocco.
+ */
+export function scopeExit(classification) {
+  const findings = classification?.findings || [];
+  const bodyOnly = findings.length > 0 && findings.every(isBodyAnchoredFinding);
+  if (findings.length === 0) {
+    return { kind: SCOPE_EXITS.NONE, bodyOnly: false, silent: false, declassified: [] };
+  }
+  const declassified = [
+    ...(classification.bodyDeclassified || []).map((finding) => ({ finding, reason: 'body' })),
+    ...(classification.staleDeclassified || []).map((finding) => ({ finding, reason: 'stale' })),
+  ];
+  if (classification.blocking === true) {
+    return { kind: SCOPE_EXITS.BLOCKING, bodyOnly, silent: false, declassified };
+  }
+  // Un `outside` conia la follow-up aggregata: la traccia esiste gia'.
+  if ((classification.outside || []).length > 0) {
+    return { kind: SCOPE_EXITS.FOLLOWUP, bodyOnly, silent: false, declassified };
+  }
+  return { kind: SCOPE_EXITS.DECLASSIFIED, bodyOnly, silent: true, declassified };
+}
+
 function staleFallbackCarryForward({
   reviews,
   latest,
@@ -1876,18 +2079,65 @@ async function auditHistoricalCitationsMain() {
 async function scopeMain() {
   const repo = process.env.REPO || process.env.GITHUB_REPOSITORY || '';
   const pr = process.env.PR_NUMBER || '';
-  const result = await classifyAndMintReview(process.env.REVIEW_BODY || '', {
+  const headSha = process.env.HEAD_SHA || '';
+  const options = {
     repo,
     pr,
     prUrl: process.env.PR_URL,
     mutate: process.env.REVIEW_SCOPE_MUTATE !== 'false',
     reviewCommit: process.env.REVIEW_COMMIT,
-    headSha: process.env.HEAD_SHA,
-  });
+    headSha,
+  };
+  // Gli stessi tre input che `runReviewGate()` passa gia' al classificatore e
+  // che questo percorso lasciava cadere: senza, ogni 🔴 ripetuto su righe che
+  // nessuno ha toccato rifaceva partire il fixer. Ogni lettura e' fail-open
+  // verso il BLOCCO: un dato che non si riesce a leggere lascia l'opzione
+  // assente, quindi nessuna declassazione.
+  const tree = fetchRepositoryHeadPaths(repo, pr);
+  if (tree.paths) options.repositoryPaths = tree.paths;
+  // NB: `bodyContractPassed` resta deliberatamente FUORI da questo percorso.
+  // Nel gate gemello declassa il 🔴 ancorato al body, che li' e' l'uscita
+  // giusta (il contratto deterministico ha gia' giudicato il body). Qui
+  // l'uscita giusta e' l'opposta: il fixer PUO' riscrivere il body, quindi il
+  // finding resta azionabile e viene instradato con `bodyOnly`.
+  let reviews = null;
+  try {
+    reviews = readReviews(repo, pr);
+  } catch {
+    reviews = null;
+  }
+  if (reviews) {
+    const declass = scopeDeclassificationOptions({
+      reviews,
+      reviewCommit: process.env.REVIEW_COMMIT || '',
+      headSha,
+      repo,
+      repositoryPaths: tree.paths ?? null,
+      repositoryPathsFromFallback: tree.fromFallback,
+    });
+    if (declass.priorFindingIds) options.priorFindingIds = declass.priorFindingIds;
+    if (declass.changedLinesSince instanceof Map) {
+      options.changedLinesSince = declass.changedLinesSince;
+    }
+  }
+  const result = await classifyAndMintReview(process.env.REVIEW_BODY || '', options);
+  const exit = scopeExit(result);
   console.log(JSON.stringify({
     blocking: result.blocking === true,
     error: result.error || null,
     outsideOnly: result.outsideOnly === true,
+    exit: exit.kind,
+    // Il 🔴 non e' nell'albero: e' nel body della PR, che il fixer PUO'
+    // riscrivere. Senza questo flag il round partiva a cercarlo nei file.
+    bodyOnly: exit.bodyOnly === true,
+    // Uscita verde che non lascerebbe niente sulla PR: il workflow deve
+    // renderla esplicita, mai passarci sopra in silenzio.
+    silentExit: exit.silent === true,
+    declassified: exit.declassified.map(({ finding, reason }) => ({
+      findingNumber: finding.findingNumber,
+      reason,
+      stableId: stableFindingId(finding),
+    })),
     outside: result.outside.map((finding) => ({
       findingNumber: finding.findingNumber,
       paths: finding.resolvedFiles,
