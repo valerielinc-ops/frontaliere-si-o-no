@@ -183,6 +183,11 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/evergreen-pool-consumption.test.ts', roots: ['packages/articles/content/'], transitive: true },
   { file: 'tests/build-emit-skip-gate.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/company-alert.test.ts', roots: ['services/locales/'] },
+  // Corpus genuinely the subject: this funnel contract checks that the
+  // shipped locale bundles expose the follow-specific copy in all four
+  // supported locales. A fixture would only prove the fixture, not that the
+  // production translations still carry the keys used by the modal.
+  { file: 'tests/signup-prompt-funnel.test.ts', roots: ['services/locales/'] },
   { file: 'tests/corpus-wide-test-partition.test.ts', roots: ['data/jobs/', 'packages/articles/content/'] },
   // Corpus genuinely the subject: this negative production invariant verifies
   // that the three poisoned learned specs retired by #7001 stay absent from
