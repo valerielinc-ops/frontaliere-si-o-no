@@ -30,6 +30,7 @@ import {
   TABLE_CLASS,
   TABLE_HEAD_CLASS,
 } from './shared/seoContentTokens';
+import { renderPeerComparison, type PeerRow } from './shared/peerCohortComparison';
 
 export interface BorderWaitComparisonEntry {
   waitTimeMinutes?: number | null;
@@ -135,9 +136,52 @@ function historicalValue(value: string | undefined, locale: BorderWaitLocale): s
   return value;
 }
 
+/** Use the midpoint of a checked-in band; unknown (`---`) stays out of rank. */
+function avgWaitMorningMinutes(value: string | undefined): number | null {
+  const numbers = value?.match(/\d+(?:[.,]\d+)?/g)?.map((part) => Number(part.replace(',', '.'))) ?? [];
+  const finite = numbers.filter((number) => Number.isFinite(number));
+  return finite.length > 0 ? finite.reduce((sum, number) => sum + number, 0) / finite.length : null;
+}
+
+const PEER_RANKING_COPY: Record<
+  BorderWaitLocale,
+  { heading: string; metricLabel: string; peerNoun: string; sourceNote: string }
+> = {
+  it: {
+    heading: 'Classifica delle attese mattutine nel corridoio',
+    metricLabel: "l'attesa media del mattino",
+    peerNoun: 'valichi',
+    sourceNote: 'Valori centrali delle fasce avgWaitMorning archiviate nel dataset del sito.',
+  },
+  en: {
+    heading: 'Morning-wait ranking in this corridor',
+    metricLabel: 'the typical morning wait',
+    peerNoun: 'crossings',
+    sourceNote: 'Midpoints of the checked-in avgWaitMorning bands in the site dataset.',
+  },
+  de: {
+    heading: 'Rangliste der morgendlichen Wartezeiten im Korridor',
+    metricLabel: 'die übliche Wartezeit am Morgen',
+    peerNoun: 'Übergängen',
+    sourceNote: 'Mittelpunkte der im Website-Datensatz gespeicherten avgWaitMorning-Spannen.',
+  },
+  fr: {
+    heading: 'Classement des attentes matinales du corridor',
+    metricLabel: "l'attente moyenne du matin",
+    peerNoun: 'passages',
+    sourceNote: 'Milieux des fourchettes avgWaitMorning enregistrées dans le jeu de données du site.',
+  },
+};
+
 function sourceLabel(source: string | null | undefined, labels: Record<string, string>, locale: BorderWaitLocale): string {
   if (!source) return locale === 'it' ? 'n.d.' : locale === 'de' ? 'k.A.' : locale === 'fr' ? 'n.d.' : 'n/a';
   return labels[source] ?? source;
+}
+
+function joinCrossingNames(names: readonly string[], locale: BorderWaitLocale): string {
+  if (names.length <= 1) return names[0] ?? '';
+  const conjunction = locale === 'it' ? ' e ' : locale === 'de' ? ' und ' : locale === 'fr' ? ' et ' : ' and ';
+  return `${names.slice(0, -1).join(', ')}${conjunction}${names[names.length - 1]}`;
 }
 
 function comparisonCopy(locale: BorderWaitLocale, regionLabel: string, count: number) {
@@ -210,11 +254,44 @@ export function renderBorderWaitComparison(params: {
   sourceLabels: Record<string, string>;
   limit?: number;
 }): string {
-  const { locale, currentSlug, current, perCrossing, regionLabel, sourceLabels, limit = 4 } = params;
+  const { locale, currentSlug, current, perCrossing, regionLabel, sourceLabels, limit = 5 } = params;
   const candidates = getBorderComparisonCandidates(currentSlug, limit);
   if (candidates.length === 0) return '';
 
   const copy = comparisonCopy(locale, regionLabel, candidates.length + 1);
+  const peerNames = joinCrossingNames(
+    candidates.map(({ slug }) => BORDER_CROSSING_DISPLAY[slug]),
+    locale,
+  );
+  const peerLead = {
+    it: `I valichi vicini, in ordine di distanza, sono ${peerNames}.`,
+    en: `The nearby crossings, in distance order, are ${peerNames}.`,
+    de: `Die nahegelegenen Übergänge sind nach Entfernung geordnet: ${peerNames}.`,
+    fr: `Les passages proches, classés par distance, sont ${peerNames}.`,
+  }[locale];
+  const region = CROSSING_TO_REGION[currentSlug];
+  const rankingRows: PeerRow[] = region
+    ? BORDER_WAIT_CROSSINGS.filter((slug) => CROSSING_TO_REGION[slug] === region).flatMap((slug) => {
+        const crossing = crossingForSlug(slug);
+        if (!crossing) return [];
+        return [{
+          key: slug,
+          name: BORDER_CROSSING_DISPLAY[slug],
+          href: buildOggiPath(locale, slug),
+          value: avgWaitMorningMinutes(crossing.avgWaitMorning),
+        }];
+      })
+    : [];
+  const rankingCopy = PEER_RANKING_COPY[locale];
+  const rankingHtml = renderPeerComparison({
+    locale,
+    currentKey: currentSlug,
+    rows: rankingRows,
+    labels: rankingCopy,
+    formatValue: (value) => `${Math.round(value)} min`,
+    higherIsBetter: false,
+    sourceNote: rankingCopy.sourceNote,
+  });
   const rows: Array<{ slug: BorderCrossingSlug; crossing: BorderCrossing; distanceKm: number; entry: BorderWaitComparisonEntry | undefined; isCurrent: boolean }> = [
     {
       slug: currentSlug,
@@ -257,6 +334,8 @@ export function renderBorderWaitComparison(params: {
   return `<section class="s-ziawP1" aria-labelledby="borderComparison-${escapeHtml(currentSlug)}" data-bw-comparison="true">
     <h2 id="borderComparison-${escapeHtml(currentSlug)}" style="${H2_STYLE}">${escapeHtml(copy.heading)}</h2>
     <p class="s-sau7he">${escapeHtml(copy.lead)}</p>
+    <p class="s-sau7he">${escapeHtml(peerLead)}</p>
+    ${rankingHtml}
     <div class="s-card" style="overflow-x:auto;padding:0">
       <table class="${TABLE_CLASS}" style="font-size:14px;min-width:680px" data-bw-comparison-table>
         <caption class="s-li0wom">${escapeHtml(copy.heading)}</caption>
