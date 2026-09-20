@@ -330,13 +330,19 @@ describe('stale-pr-rescuer — cablaggio', () => {
     // `has-conflicts` e rimanda la PR da solo.
     expect(classifyOrphan({ ...base, pr: pr({ autoMergeEnabled: false, mergeableState: 'dirty' }) }).action)
       .toBe('none');
-    // `needs-human` dice gia' che questa PR aspetta una persona: un secondo
-    // cartello sarebbe rumore sopra l'informazione. Stessa esclusione del ramo
-    // di adozione.
+  });
+
+  // `needs-human` e' un veto sull'ADOZIONE (ramo b), non sul merge: una PR con
+  // quel label mergia comunque appena l'auto-merge e' attivo. Escluderla da
+  // questo ramo l'avrebbe rimessa nel silenzio da cui il ramo la tira fuori.
+  it('segnala lo stallo anche su una PR con `needs-human`, che sul merge e\' solo tracking', () => {
     expect(classifyOrphan({
-      ...base,
+      checkRuns: [checkRun(1, 7, 'success')],
+      reviews: [review('## LGTM')],
+      comments: [],
+      nowS: NOW_S,
       pr: pr({ autoMergeEnabled: false, mergeableState: 'clean', labels: ['needs-human'] }),
-    }).action).toBe('none');
+    }).action).toBe('stalled-automerge');
   });
 
   it('non confonde una suite cancellata accanto a una verde con il verde dello stato (c)', () => {
