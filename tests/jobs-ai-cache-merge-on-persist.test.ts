@@ -9,7 +9,7 @@ const { persistAiCacheToDisk, seedAiCacheForTests, resetAiCacheStateForTests } =
 
 // Regression coverage for a last-write-wins clobber: crawler-group jobs run
 // ~25 sibling processes concurrently against one shared checkout, each
-// loading data/jobs-ai-cache.json once at startup, then overwriting it
+// loading the restored local AI cache once at startup, then overwriting it
 // wholesale at exit. Without merging, whichever process persists last would
 // erase every key a sibling added or refreshed after this process's own
 // load. persistAiCacheToDisk now re-reads the on-disk snapshot right before
@@ -23,6 +23,7 @@ describe('persistAiCacheToDisk merges concurrent sibling writes', () => {
       try { fs.rmSync(p, { recursive: true, force: true }); } catch { /* already gone */ }
     }
     delete process.env.AI_CACHE_PATH_OVERRIDE;
+    delete process.env.AI_CACHE_PATH;
     resetAiCacheStateForTests();
   });
 

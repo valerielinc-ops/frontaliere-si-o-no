@@ -876,7 +876,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
     }
   });
 
-  it('3-way merges a shared tracked file (jobs-ai-cache) for the sequential directory-wide writer', () => {
+  it('does not publish a local AI cache from the sequential directory-wide writer', () => {
     const { originDir, repoDir } = initClonePair();
     const otherDir = mkdtempSync(join(tmpdir(), 'gcd-grouped-other-'));
 
@@ -889,7 +889,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
       execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
       execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
 
-      // Another group's crawler adds ITS ai-cache entry on the remote.
+      // Another group's crawler adds its legacy cache entry on the remote.
       execFileSync('git', ['clone', '-q', originDir, join(otherDir, 'clone')]);
       const otherClone = join(otherDir, 'clone');
       execFileSync('git', ['config', 'user.email', 'other@example.com'], { cwd: otherClone });
@@ -899,18 +899,21 @@ exec ${JSON.stringify(process.execPath)} "$@"
       execFileSync('git', ['commit', '-q', '-m', 'other group: ai-cache'], { cwd: otherClone });
       execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: otherClone });
 
-      // This workspace's crawler also added a DIFFERENT ai-cache entry.
+      // This workspace's crawler also has a local-only cache update. The
+      // directory-wide writer must publish the slice without carrying it into
+      // the data commit now that the cache lives in Actions cache.
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
       writeFileSync(join(repoDir, 'data/jobs-ai-cache.json'), '{"seed":1,"localEntry":3}\n');
 
       runScript(repoDir, '');
 
       execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
-      const merged = JSON.parse(
+      const remoteCache = JSON.parse(
         execFileSync('git', ['show', 'origin/main:data/jobs-ai-cache.json'], { cwd: repoDir, encoding: 'utf-8' }),
       );
-      // Neither side's concurrent addition may be clobbered.
-      expect(merged).toMatchObject({ seed: 1, remoteEntry: 2, localEntry: 3 });
+      expect(remoteCache).toMatchObject({ seed: 1, remoteEntry: 2 });
+      expect(remoteCache).not.toHaveProperty('localEntry');
+      expect(readFileSync(join(repoDir, 'data/jobs-ai-cache.json'), 'utf-8')).toContain('localEntry');
     } finally {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });

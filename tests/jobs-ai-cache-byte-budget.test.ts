@@ -7,6 +7,7 @@ import { __testables } from '../scripts/lib/shared-jobs-crawler.mjs';
 
 const {
   persistAiCacheToDisk,
+  resolveAiCachePath,
   seedAiCacheForTests,
   resetAiCacheStateForTests,
   trimAiCacheEntriesToByteBudget,
@@ -15,12 +16,12 @@ const {
 } = __testables;
 
 /**
- * `data/jobs-ai-cache.json` was bounded in the WRONG UNIT (issue #4248
+ * The crawler's local AI cache was bounded in the WRONG UNIT (issue #4248
  * follow-up).
  *
- * `AI_CACHE_DISK_MAX_ENTRIES` caps the cache at 30,000 ENTRIES while GitHub
- * rejects a push — the whole push — when a blob crosses 100 MB, which is a
- * limit in BYTES. Entry size here spans two orders of magnitude (median 2.0 KB,
+ * `AI_CACHE_DISK_MAX_ENTRIES` caps the cache at 30,000 ENTRIES while the old
+ * git transport rejected the whole push when a blob crossed 100 MB, which is
+ * a limit in BYTES. Entry size here spans two orders of magnitude (median 2.0 KB,
  * mean 3.5 KB, max 73.7 KB), so the count cap cannot bound the file: at the
  * measured mean the DEFAULT cap already permits ~104 MB.
  *
@@ -41,6 +42,7 @@ afterEach(() => {
     try { fs.rmSync(p, { recursive: true, force: true }); } catch { /* already gone */ }
   }
   delete process.env.AI_CACHE_PATH_OVERRIDE;
+  delete process.env.AI_CACHE_PATH;
   delete process.env.JOBS_AI_CACHE_DISK_MAX_BYTES;
   resetAiCacheStateForTests();
 });
@@ -168,16 +170,22 @@ describe('AI cache byte budget — the invariant', () => {
 });
 
 describe('AI cache byte budget — configuration', () => {
-  it('defaults to 64 MiB, far below GitHub 100 MB push limit', () => {
+  it('defaults to a runner-local cache path and a 64 MiB byte ceiling', () => {
+    expect(resolveAiCachePath()).toMatch(/[\\/]\.cache[\\/]jobs-ai-cache\.json$/);
     expect(AI_CACHE_DISK_MAX_BYTES_DEFAULT).toBe(64 * 1024 * 1024);
     expect(resolveAiCacheDiskMaxBytes()).toBe(64 * 1024 * 1024);
   });
 
-  it('never lets an override reach the push limit', () => {
+  it('honours an explicit CI cache path', () => {
+    process.env.AI_CACHE_PATH = '/tmp/frontaliere-ai-cache/jobs-ai-cache.json';
+    expect(resolveAiCachePath()).toBe('/tmp/frontaliere-ai-cache/jobs-ai-cache.json');
+  });
+
+  it('keeps an override under the finite cache ceiling', () => {
     // The old entry cap could be raised to 100,000 (~347 MB at the measured
-    // mean entry size). A byte budget that could be raised past 100 MB would
-    // reintroduce exactly the bug it exists to remove, so the clamp is the
-    // guarantee — not the default.
+    // mean entry size). A byte budget that could grow without a ceiling would
+    // make the runner cache unbounded, so the clamp remains the guarantee —
+    // not the default.
     process.env.JOBS_AI_CACHE_DISK_MAX_BYTES = String(500 * 1024 * 1024);
     expect(resolveAiCacheDiskMaxBytes()).toBeLessThan(100 * 1024 * 1024);
     expect(resolveAiCacheDiskMaxBytes()).toBe(90 * 1024 * 1024);

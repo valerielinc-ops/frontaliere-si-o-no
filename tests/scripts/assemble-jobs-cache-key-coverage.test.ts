@@ -54,7 +54,7 @@ const NOT_ASSEMBLY_INPUTS: Record<string, string> = {
   'data/items': 'not a path: `data.items` field of an HTTP response in scripts/lib/ai-models.mjs',
   'data/translation-cache': 'crawler-time translation cache (dedicated-crawler-common loadTranslationCache), never read by assembleJobsDataset',
   'data/slug-registry.json': 'crawler-time slug registry (shared-jobs-crawler / dedicated-crawler-common), never read by assembleJobsDataset',
-  'data/jobs-ai-cache.json': 'crawler-time AI cache (shared-jobs-crawler, ai-cache-budget), never read by assembleJobsDataset',
+  '.cache/jobs-ai-cache.json': 'crawler-time AI cache (shared-jobs-crawler, ai-cache-budget), never read by assembleJobsDataset',
   'data/jobs-localization-memory.json': 'crawler-time localization memory (job-localization-pipeline), untracked',
   'data/jobs-crawler-audit.json': 'crawler audit written by shared-jobs-crawler, untracked',
   'data/seo-404-compat': 'shard naming helper only (shard-file-naming), not read by the assembly',

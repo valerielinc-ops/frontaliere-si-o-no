@@ -84,7 +84,8 @@ data/job-canton-pins.json
 data/jobs-crawler-audit.json
 data/jobs-stats.json
 data/location-audit-report.json
-# data/jobs-ai-cache.json — tracked: shared crawler AI response cache, persists across CI runs
+# Crawler AI response cache — restored/saved by CI outside git history
+data/jobs-ai-cache.json
 public/data/jobs.json
 public/data/jobs-stats.json
 

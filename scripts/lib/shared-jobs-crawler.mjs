@@ -103,10 +103,10 @@ import {
   normalizeCompanyKeyAlias,
 } from './company-key.mjs';
 import { writeJsonAtomic as writeJson } from './atomic-write-json.mjs';
-// The cache's size bound lives in ONE module because two writers must agree on
-// it: this file at persist time, and scripts/ci/merge-ai-cache.mjs when git
-// reconciles two crawlers' commits. See that module for why the bound is in
-// bytes and not entries (issue #4248 follow-up).
+// The cache's size bound lives in ONE module because every crawler process must
+// agree on it at persist time. The cache is restored/saved outside git, so
+// there is no merge driver or commit-time writer to keep in sync. See that
+// module for why the bound is in bytes and not entries (issue #4248 follow-up).
 import {
   trimAiCacheEntriesToByteBudget,
   resolveAiCacheDiskMaxBytes,
@@ -268,13 +268,16 @@ const SLUG_REGISTRY_PATH = path.resolve(ROOT, 'data', 'slug-registry.json');
 const ADAPTERS_REGISTRY_PATH = path.resolve(ROOT, 'data', 'jobs-crawler-adapters', 'registry.json');
 const ADAPTERS_BASE_DIR = path.resolve(ROOT, 'data', 'jobs-crawler-adapters');
 const CRAWLER_FIRESTORE_DOC = 'admin_config/jobsCrawler';
-const AI_CACHE_PATH_DEFAULT = path.resolve(ROOT, 'data', 'jobs-ai-cache.json');
+const AI_CACHE_PATH_DEFAULT = path.resolve(ROOT, '.cache', 'jobs-ai-cache.json');
 
 // Resolved at call time so tests can point load/persist at a controlled fixture
-// via AI_CACHE_PATH_OVERRIDE. Unset in all prod/CI paths → identical behavior.
+// via AI_CACHE_PATH_OVERRIDE. CI may set AI_CACHE_PATH explicitly; relative
+// paths resolve from the repository root. Unset in prod/CI → .cache/.
 function resolveAiCachePath() {
-  const override = process.env.AI_CACHE_PATH_OVERRIDE;
-  return override ? path.resolve(override) : AI_CACHE_PATH_DEFAULT;
+  const override = process.env.AI_CACHE_PATH_OVERRIDE || process.env.AI_CACHE_PATH;
+  return override
+    ? (path.isAbsolute(override) ? override : path.resolve(ROOT, override))
+    : AI_CACHE_PATH_DEFAULT;
 }
 
 function loadLocalEnvFile(filePath) {
@@ -3141,7 +3144,7 @@ async function aiValidateJobDetailPage({ html, pageUrl, companyName }) {
   if (!isAnyModelAvailable()) return { isJob: true, confidence: 0.5, reason: 'no_llm_keys' };
 
   const text = stripHtml(html).slice(0, 5000);
-  // Content-hash cache (persisted in data/jobs-ai-cache.json across runs): a page
+  // Content-hash cache (persisted in the restored local cache across runs): a page
   // whose visible text is unchanged returns the prior verdict without spending an
   // LLM call OR a per-run budget slot. This was the only AI call site in this file
   // without a cache; a re-crawled ambiguous page used to re-classify every run.
@@ -6684,6 +6687,7 @@ export const __testables = {
   clearAiResponseCacheForTests() { aiResponseCache.clear(); },
   persistAiCacheToDisk,
   loadPersistentAiCache,
+  resolveAiCachePath,
   trimAiCacheEntriesToByteBudget,
   resolveAiCacheDiskMaxBytes,
   AI_CACHE_DISK_MAX_BYTES_DEFAULT,

@@ -1,7 +1,7 @@
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 // #3080 (adversarial follow-up on PR #3074): aiValidateJobDetailPage's
-// persistent cache (data/jobs-ai-cache.json) is keyed on `validate-page-v1` +
+// persistent runner cache is keyed on `validate-page-v1` +
 // pageUrl + page text. Without a model dimension in that key, a verdict
 // produced by a FALLBACK model during a primary-model outage would freeze
 // under a model-agnostic key and get replayed forever — even once the

@@ -1,24 +1,22 @@
 /**
- * Byte budget for `data/jobs-ai-cache.json` — the ONE place the cache's size
- * bound lives (AGENTS.md #6).
+ * Byte budget for the crawler's local `jobs-ai-cache.json` — the ONE place the
+ * cache's size bound lives (AGENTS.md #6).
  *
  * Why a byte budget at all (issue #4248 follow-up)
  * -----------------------------------------------
  * The cache was bounded in the wrong unit. `AI_CACHE_DISK_MAX_ENTRIES` caps it
- * at 30,000 ENTRIES, while GitHub rejects a push — the entire push, every file
- * travelling with it — when any single blob crosses 100 MB, a limit in BYTES.
+ * at 30,000 ENTRIES, while the old git-backed transport rejected the entire
+ * push when any single blob crossed 100 MB, a limit in BYTES.
  * Entry size here spans two orders of magnitude (median 2.0 KB, mean 3.5 KB,
  * max 73.7 KB: a `__RAW__` marker sits next to a four-locale translation with
  * full descriptions), so a count cap cannot bound the file. Measured
  * 2026-08-05: 24,602 entries / 85.5 MB, i.e. the DEFAULT cap already permits
  * ~104 MB, and the env override allows 100,000 entries — about 347 MB.
  *
- * Not hypothetical: the committed blob went 72.93 MB (2026-07-26) → 85.49 MB
- * (2026-08-05), ~1.26 MB/day, so it reaches 100 MB in roughly eleven days. And
- * every crawler commits it through `STANDARD_FILES` in
- * scripts/lib/git-commit-data.sh, so unlike #4248 — which took down one
- * workflow for three weeks — this would take down ~40 at once, all with the
- * same opaque GH001.
+ * Not hypothetical: the former committed blob went 72.93 MB (2026-07-26) →
+ * 85.49 MB (2026-08-05), ~1.26 MB/day. It now lives in the runner cache, so
+ * the same byte bound protects restore/save size without putting the cache in
+ * repository history.
  *
  * Why a budget instead of sharding
  * --------------------------------
@@ -35,12 +33,9 @@
  *
  * Why this module is shared
  * -------------------------
- * Two writers must agree on the bound or it does not hold: the crawler
- * (`scripts/lib/shared-jobs-crawler.mjs`, at persist time) and the git merge
- * driver (`scripts/ci/merge-ai-cache.mjs`, when two crawlers' commits are
- * reconciled). The merge unions both sides' entries by key, so a merged file
- * can be larger than either input — a budget enforced only at persist time
- * would be silently re-exceeded by the very merge that follows it.
+ * Every concurrent crawler writer must agree on the bound or it does not hold.
+ * `shared-jobs-crawler.mjs` re-reads the restored local snapshot immediately
+ * before persisting, unions newer entries, and applies this byte budget once.
  */
 
 /** Default ceiling on the SERIALIZED cache file. */
@@ -95,7 +90,7 @@ export function aiCacheEntryCost(entry) {
   return Buffer.byteLength(s, 'utf8') + newlines * 4 + 6;
 }
 
-/** UTF-8 byte size of the rendered document — the unit git actually enforces. */
+/** UTF-8 byte size of the rendered document — the unit the cache bound enforces. */
 export function aiCacheDocumentBytes(entries) {
   return Buffer.byteLength(renderAiCacheDocument(entries), 'utf8');
 }

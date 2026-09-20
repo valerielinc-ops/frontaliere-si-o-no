@@ -122,8 +122,9 @@ describe('profili di sparse-checkout', () => {
     const excluded = ['public/images/', 'public/data/', 'data/jobs-stats-history.json'];
     expect(isExcludedBy(excluded, 'public/data/jobs.json')).toBe(true);
     expect(isExcludedBy(excluded, 'data/jobs-stats-history.json')).toBe(true);
-    // e non deve sbagliare per prefisso: `data/jobs-ai-cache.json` NON sta in `data/jobs/`
-    expect(isExcludedBy(['data/jobs/'], 'data/jobs-ai-cache.json')).toBe(false);
+    // e non deve sbagliare per prefisso: un file direttamente sotto data/ NON
+    // sta in `data/jobs/`.
+    expect(isExcludedBy(['data/jobs/'], 'data/legacy-cache.json')).toBe(false);
     expect(isExcludedBy(excluded, 'scripts/lib/x.mjs')).toBe(false);
   });
 

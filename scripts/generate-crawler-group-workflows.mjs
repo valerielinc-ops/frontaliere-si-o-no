@@ -133,6 +133,47 @@ const CRAWLER_RUNTIME_INPUTS = Object.freeze({
   },
 });
 
+// The LLM response cache is reconstructible and must not travel through git.
+// Keep one cache namespace per crawler group: sibling processes in the same
+// job intentionally share the restored path, while groups never overwrite one
+// another's cache entry. Run coordinates make each save key unique; the
+// restore prefix reuses the newest prior run for that group.
+const CRAWLER_AI_CACHE_PATH = '.cache/jobs-ai-cache.json';
+function crawlerAiCacheKey(groupName) {
+  return `jobs-ai-cache-v1-${groupName}-\${{ github.repository }}-\${{ runner.os }}-\${{ github.run_id }}-\${{ github.run_attempt }}`;
+}
+
+function crawlerAiCacheRestoreKey(groupName) {
+  return `jobs-ai-cache-v1-${groupName}-\${{ github.repository }}-\${{ runner.os }}-`;
+}
+
+function restoreCrawlerAiCacheStep(groupName) {
+  return {
+    name: 'Restore crawler AI cache',
+    id: 'restore_crawler_ai_cache',
+    'continue-on-error': true,
+    uses: 'actions/cache/restore@v5',
+    with: {
+      path: CRAWLER_AI_CACHE_PATH,
+      key: crawlerAiCacheKey(groupName),
+      'restore-keys': crawlerAiCacheRestoreKey(groupName),
+    },
+  };
+}
+
+function saveCrawlerAiCacheStep(groupName) {
+  return {
+    name: 'Save crawler AI cache',
+    if: `always() && hashFiles('${CRAWLER_AI_CACHE_PATH}') != ''`,
+    'continue-on-error': true,
+    uses: 'actions/cache/save@v5',
+    with: {
+      path: CRAWLER_AI_CACHE_PATH,
+      key: crawlerAiCacheKey(groupName),
+    },
+  };
+}
+
 function normalizeCrawlerInputReferences(value) {
   return typeof value === 'string'
     ? value
@@ -1442,6 +1483,8 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
     with: { 'fetch-depth': 50 },
   });
 
+  steps.push(restoreCrawlerAiCacheStep(groupName));
+
   steps.push({
     name: 'Setup Node.js',
     uses: 'actions/setup-node@v5',
@@ -1621,6 +1664,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
       'exit "$git_commit_exit"',
     ].join('\n'),
   });
+  steps.push(saveCrawlerAiCacheStep(groupName));
   steps.push(codexAuthBrokerCleanupStep());
   steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));
   steps.push({
@@ -1680,6 +1724,9 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
           CRAWLER_GENERATION_RECEIPT_DIR: 'crawler-generation/receipts',
           CRAWLER_GROUP_COMMIT_DIR: 'crawler-generation/commit-batch',
           CRAWLER_GROUP_MAX_PARALLEL: String(CRAWLER_GROUP_MAX_PARALLEL),
+          // The reconstructible LLM cache is runner-local and persisted by
+          // actions/cache, never by the crawler's git commit path.
+          AI_CACHE_PATH: CRAWLER_AI_CACHE_PATH,
           // Crawler groups publish disjoint slices through the private-index /
           // ref-retry path in git-commit-data.sh. A global Firestore lease here
           // would serialize all 23 groups behind the slowest crawler, while

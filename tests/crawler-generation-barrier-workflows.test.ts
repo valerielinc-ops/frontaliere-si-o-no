@@ -52,7 +52,6 @@ function benchmarkReceipt(crawlerId: string, primarySlice: string) {
       `data/jobs/expired/by-crawler/${crawlerId}.json`,
       `data/jobs-crawler-summaries/by-crawler/${crawlerId}.json`,
       `data/translation-cache/${crawlerId}.json`,
-      'data/jobs-ai-cache.json',
     ].sort().map((filePath) => ({
       path: filePath,
       state: 'present',

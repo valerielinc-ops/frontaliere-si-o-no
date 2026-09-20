@@ -143,14 +143,16 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       execFileSync('git', ['config', 'user.name', 'Test'], { cwd: repoDir });
 
       mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      mkdirSync(join(repoDir, '.cache'), { recursive: true });
+      writeFileSync(join(repoDir, '.gitignore'), '.cache/\n');
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[]\n');
-      writeFileSync(join(repoDir, 'data/jobs-ai-cache.json'), '{"entries":[]}\n');
+      writeFileSync(join(repoDir, '.cache/jobs-ai-cache.json'), '{"entries":[]}\n');
       execFileSync('git', ['add', '.'], { cwd: repoDir });
       execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
       execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
 
       writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
-      writeFileSync(join(repoDir, 'data/jobs-ai-cache.json'), '{"entries":[{"key":"a","touchedAt":1}]}\n');
+      writeFileSync(join(repoDir, '.cache/jobs-ai-cache.json'), '{"entries":[{"key":"a","touchedAt":1}]}\n');
 
       execFileSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'slice without shared cache'], {
         cwd: repoDir,
@@ -174,8 +176,9 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       );
       expect(committedFiles).toContain('a.json');
       expect(committedFiles).not.toContain('jobs-ai-cache.json');
-      expect(readFileSync(join(repoDir, 'data/jobs-ai-cache.json'), 'utf-8')).toContain('"touchedAt":1');
-      expect(execFileSync('git', ['status', '--short'], { cwd: repoDir, encoding: 'utf-8' })).toContain('jobs-ai-cache.json');
+      expect(readFileSync(join(repoDir, '.cache/jobs-ai-cache.json'), 'utf-8')).toContain('"touchedAt":1');
+      expect(execFileSync('git', ['status', '--short', '--untracked-files=all'], { cwd: repoDir, encoding: 'utf-8' })).not.toContain('.cache/jobs-ai-cache.json');
+      expect(() => execFileSync('git', ['check-ignore', '--no-index', '--', '.cache/jobs-ai-cache.json'], { cwd: repoDir })).not.toThrow();
     } finally {
       rmSync(originDir, { recursive: true, force: true });
       rmSync(repoDir, { recursive: true, force: true });
