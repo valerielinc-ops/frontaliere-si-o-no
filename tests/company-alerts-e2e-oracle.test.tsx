@@ -311,16 +311,14 @@ describe('E oracle: public company identity and hydrated CTA', () => {
       : null;
     check('E-POS-03-popup-keeps-inline-acceptance', Boolean(accept), true, errors);
     if (accept) {
-      // Oracle correction: the label and the input both match the old
-      // queryByLabelText(/azienda|company/i), so waitFor timed out on an
-      // ambiguous query even though the capture form had opened correctly;
-      // the stable input id is the unambiguous public seam for this form.
+      // The shared prompt owns the email path; its stable input id is the
+      // unambiguous public seam for this form.
       await act(async () => {
         fireEvent.click(accept);
       });
       check('E-POS-03-popup-accept-does-not-write-alert', subscribe.mock.calls.length, 0, errors);
       check('E-POS-03-popup-accept-opens-capture',
-        document.querySelector('#company-follow-email') !== null,
+        document.querySelector('#signup-prompt-email-follow') !== null,
         true,
         errors);
     }
@@ -353,8 +351,8 @@ describe('E oracle: public company identity and hydrated CTA', () => {
     await waitFor(() => screen.getByRole('button', { name: /Segui questa azienda/i }));
     fireEvent.click(screen.getByRole('button', { name: /Segui questa azienda/i }));
     const emailInput = await waitFor(() => {
-      const input = document.querySelector('#company-follow-email');
-      if (!input) throw new Error('company follow capture input was not mounted');
+      const input = document.querySelector('#signup-prompt-email-follow');
+      if (!input) throw new Error('shared follow prompt input was not mounted');
       return input as HTMLInputElement;
     });
     fireEvent.change(emailInput, { target: { value: CONTROLLED_EMAIL } });

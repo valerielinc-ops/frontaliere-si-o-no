@@ -1,8 +1,7 @@
-import React, { useCallback, useEffect, useState } from 'react';
-import { BellRing, Check, Loader2, Mail } from 'lucide-react';
+import React, { useCallback, useEffect, useRef, useState } from 'react';
+import { BellRing, Check, Loader2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import type { Locale } from '@/services/i18n';
-import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import {
   companyAlertKey,
   deleteAlert,
@@ -10,12 +9,9 @@ import {
   subscribeCompanyAlert,
 } from '@/services/jobAlertService';
 import { savePendingCompanyFollow } from '@/services/companyFollowIntent';
-import { upsertUnifiedEmailSubscriber, requestConfirmationEmail } from '@/services/newsletterSubscribers';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import CompanyFollowPlaceholder from './CompanyFollowPlaceholder';
-import { getFirestore } from 'firebase/firestore';
-import { getApp } from '@/services/firebase';
-import { reportCaughtError } from '@/services/errorReporter';
+import SignupPromptModal from './SignupPromptModal';
 import { buildPath } from '@/services/router';
 
 export type CompanyFollowButtonStatus =
@@ -23,20 +19,16 @@ export type CompanyFollowButtonStatus =
   | 'loading'
   | 'submitting'
   | 'following'
-  | 'error'
-  /** Anonymous visitor tapped "Segui": the email field is open (#5012 phase 2). */
-  | 'capture'
-  /** Access email sent; the follow is parked until the link is used. */
-  | 'pendingOptIn';
+  | 'error';
 
 export interface CompanyFollowButtonProps {
   /** Employer display name (`job.company`). */
   company: string;
   /** Optional crawler company key (`job.companyKey`) — improves canonicalisation. */
   companyKey?: string | null;
-  /** Authenticated user id. `null`/absent → the anonymous email-capture path. */
+  /** Authenticated user id. `null`/absent → the shared sign-in prompt. */
   userId?: string | null;
-  /** Authenticated user email. `null`/absent → the anonymous email-capture path. */
+  /** Authenticated user email. `null`/absent → the shared sign-in prompt. */
   email?: string | null;
   /** Active locale — passed straight to the alert config. */
   locale: Locale;
@@ -50,7 +42,7 @@ export interface CompanyFollowButtonProps {
   onSubscribed?: () => void;
   /** Called on a successful unfollow. */
   onUnsubscribed?: () => void;
-  /** Called once an anonymous visitor's opt-in email has been requested. */
+  /** Called once an anonymous visitor's access email has been requested. */
   onOptInRequested?: (email: string) => void;
   /** Called when a write throws. */
   onErrored?: (error: unknown) => void;
@@ -71,8 +63,9 @@ export interface CompanyFollowButtonProps {
  *
  * ── TWO PATHS (phase 2) ───────────────────────────────────────────────────
  * Signed in  → write the alert immediately (`subscribeCompanyAlert`).
- * Anonymous  → register the address under the site's terms-based relationship,
- *              request an access link, and PARK the follow in
+ * Anonymous  → open the shared Google/LinkedIn/email prompt. The email path
+ *              registers the address under the site's terms-based relationship,
+ *              requests an access link, and PARKS the follow in
  *              services/companyFollowIntent.ts. App.tsx replays it once the
  *              login link signs the visitor in.
  *
@@ -123,14 +116,15 @@ export default function CompanyFollowButton({
   const { t } = useTranslation();
   const [status, setStatus] = useState<CompanyFollowButtonStatus>('loading');
   const [alertId, setAlertId] = useState<string | null>(null);
- const [typedEmail, setTypedEmail] = useState('');
- const [captureError, setCaptureError] = useState('');
+  const [authPromptOpen, setAuthPromptOpen] = useState(false);
+  const authFollowInFlightRef = useRef(false);
 
   const slug = companyAlertKey(company, companyKey || undefined);
   const signedIn = Boolean(userId && email);
 
   useEffect(() => {
     let cancelled = false;
+    if (authPromptOpen || authFollowInFlightRef.current) return () => { cancelled = true; };
     if (!slug || !userId) { setStatus('idle'); return undefined; }
     setStatus('loading');
     lookup(userId, { name: company, companyKey })
@@ -141,14 +135,14 @@ export default function CompanyFollowButton({
       })
       .catch(() => { if (!cancelled) setStatus('idle'); });
     return () => { cancelled = true; };
-  }, [company, companyKey, lookup, slug, userId]);
+  }, [authPromptOpen, company, companyKey, lookup, slug, userId]);
 
   const handleFollow = useCallback(async () => {
     if (!slug) return;
-    // Anonymous: open the capture field instead of writing. The concrete alert
-    // needs an authenticated user id; asking for the address here supplies the
-    // identity needed to replay the follow after the access link is used.
-    if (!signedIn) { setStatus('capture'); return; }
+    // Anonymous: the shared prompt owns Google, LinkedIn, and the email path.
+    // The concrete alert still needs an authenticated user id, so the email
+    // branch parks the follow until its access link signs the visitor in.
+    if (!signedIn) { setAuthPromptOpen(true); return; }
     setStatus('submitting');
     try {
       const created = await subscribe(userId as string, email as string, { name: company, companyKey }, locale, {
@@ -181,74 +175,34 @@ export default function CompanyFollowButton({
   }, [company, companyKey, email, locale, onErrored, onSubscribed, signedIn, slug, sourceJobSlug, sourceJobTitle, sourceJobUrl, subscribe, userId]);
 
   /**
-   * Anonymous submit. Reuses the site's ONE consent mechanism end to end:
-   * `upsertUnifiedEmailSubscriber` writes the terms-based relationship. The
-   * access email is separate from consent: it only authenticates the address
-   * so App.tsx can replay the parked follow. A proofless historical row may
-   * still receive the dedicated remediation flow; without an access branch a
-   * returning visitor would tap "Segui", receive no email, and never be
-   * followed.
+   * A successful email branch parks the follow. The shared prompt owns the
+   * unified relationship and access-link request; this callback owns only the
+   * company-specific replay intent.
    */
-  const handleCaptureSubmit = useCallback(async (e: React.FormEvent) => {
-    e.preventDefault();
-    if (status === 'submitting') return;
-    const trimmed = typedEmail.trim().toLowerCase();
-    if (!validateEmailStrict(trimmed).valid) {
-      setCaptureError(t('newsletter.invalidEmail'));
-      return;
-    }
-    setCaptureError('');
-    setStatus('submitting');
-    try {
-      if (captureEmail) {
-        await captureEmail(trimmed, { company, companyKey });
-      } else {
-        const firestore = getFirestore(await getApp());
-        const upsert = await upsertUnifiedEmailSubscriber(firestore, {
-          email: trimmed,
-          source: 'company_follow_button',
-          // Do not use the legacy `company_follow_button` channel here: that
-          // compatibility path intentionally authorises only the follow
-          // purpose. This gate is the unified email choice and enables the
-          // shared jobs relationship; company-follow remains a separate alert
-          // record under that relationship.
-          sourceChannel: 'company_follow_unified',
-          sourcePage: typeof window !== 'undefined' ? window.location.pathname : '',
-          sourceCta: 'company_follow_button',
-          sourceComponent: 'CompanyFollowButton',
-          sourceRouteFamily: 'company-follow',
-          locale,
-          jobContext: { company },
-        });
-        // A proofless historical row can remain `pending` while the dedicated
-        // remediation flow is open; in that case the upsert already requested
-        // the fresh DOI and a second login email would be redundant. A row with
-        // existing proof still needs the access link because no DOI is sent.
-        if (upsert.status !== 'pending' || upsert.hadConfirmationProof) {
-          await requestConfirmationEmail(trimmed, 'login');
-        }
-      }
-      // Park the follow. It becomes a concrete alert after the login link lands
-      // (App.tsx → flushPendingCompanyFollows), while the base relationship is
-      // already present.
-      savePendingCompanyFollow({
-        company,
-        companyKey: companyKey ?? null,
-        locale: locale as 'it' | 'en' | 'de' | 'fr',
-        sourceJobSlug: sourceJobSlug ?? null,
-        sourceJobUrl: sourceJobUrl ?? null,
-        sourceJobTitle: sourceJobTitle ?? null,
-        email: trimmed,
-      });
-      setStatus('pendingOptIn');
-      if (onOptInRequested) onOptInRequested(trimmed);
-    } catch (error: unknown) {
-      reportCaughtError(error, 'companyFollow.captureEmail');
-      setCaptureError(t('jobAlert.companyFollow.error'));
-      setStatus('capture');
-      if (onErrored) onErrored(error);
-    }
-  }, [captureEmail, company, companyKey, locale, onErrored, onOptInRequested, sourceJobSlug, sourceJobTitle, sourceJobUrl, status, t, typedEmail]);
+  const handleEmailRequested = useCallback((requestedEmail: string) => {
+    savePendingCompanyFollow({
+      company,
+      companyKey: companyKey ?? null,
+      locale: locale as 'it' | 'en' | 'de' | 'fr',
+      sourceJobSlug: sourceJobSlug ?? null,
+      sourceJobUrl: sourceJobUrl ?? null,
+      sourceJobTitle: sourceJobTitle ?? null,
+      email: requestedEmail,
+    });
+    onOptInRequested?.(requestedEmail);
+  }, [company, companyKey, locale, onOptInRequested, sourceJobSlug, sourceJobTitle, sourceJobUrl]);
+
+  // Social sign-in completes in the shared prompt. Once the parent supplies
+  // the authenticated identity, close the prompt and perform the same follow
+  // write as a signed-in click.
+  useEffect(() => {
+    if (!authPromptOpen || !signedIn || authFollowInFlightRef.current) return;
+    authFollowInFlightRef.current = true;
+    setAuthPromptOpen(false);
+    void handleFollow().finally(() => {
+      authFollowInFlightRef.current = false;
+    });
+  }, [authPromptOpen, handleFollow, signedIn]);
 
   const handleUnfollow = useCallback(async () => {
     if (!alertId || !email) return;
@@ -278,64 +232,25 @@ export default function CompanyFollowButton({
   // and is a layout shift now that the job detail renders it in the header.
   if (status === 'loading') return <CompanyFollowPlaceholder />;
 
-  if (status === 'pendingOptIn') {
-    return (
-      <div className="mt-3 rounded-lg border border-edge bg-surface-raised px-4 py-3">
-        <p className="text-sm font-semibold text-heading flex items-center gap-2">
-          <Mail className="w-4 h-4 text-accent" aria-hidden="true" />
-          {t('jobAlert.companyFollow.optInSentTitle')}
-        </p>
-        <p className="mt-1 text-xs text-muted">
-          {t('jobAlert.companyFollow.optInSentBody')}
-        </p>
-      </div>
-    );
-  }
-
   const busy = status === 'submitting';
   const following = status === 'following';
 
-  if (status === 'capture' || (busy && !signedIn)) {
-    return (
-      <form className="mt-3 rounded-lg border border-edge bg-surface-raised px-4 py-3" onSubmit={handleCaptureSubmit}>
-        <label className="block text-sm font-semibold text-heading" htmlFor="company-follow-email">
-          {t('jobAlert.companyFollow.emailLabel')}
-        </label>
-        <p className="mt-1 text-xs text-muted">
-          {t('jobAlert.companyFollow.emailHint')}
-        </p>
-        <div className="mt-2 flex flex-col sm:flex-row gap-2">
-          <EmailInput
-            id="company-follow-email"
-            value={typedEmail}
-            onChange={setTypedEmail}
-            className="flex-1"
-            ariaLabel={t('jobAlert.companyFollow.emailLabel')}
-          />
-          <button
-            type="submit"
-            disabled={busy}
-            aria-busy={busy}
-            className="inline-flex items-center justify-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold rounded-lg border border-accent-border bg-accent text-on-accent hover:bg-accent-hover disabled:opacity-60"
-          >
-            {busy ? <Loader2 className="w-4 h-4 animate-spin" aria-hidden="true" /> : <BellRing className="w-4 h-4" aria-hidden="true" />}
-            {t('jobAlert.companyFollow.cta')}
-          </button>
-        </div>
-        <EmailConsentCheckbox
-          id="company-follow-email-consent"
-          locale={locale}
-          consentKey="communicationsOptIn"
-          className="mt-2 flex items-start gap-2 cursor-pointer"
-          noticeClassName="text-[10px] text-muted leading-snug"
-        />
-        {captureError && <p className="mt-2 text-xs text-danger">{captureError}</p>}
-      </form>
-    );
-  }
+  const signupPrompt = authPromptOpen ? (
+    <SignupPromptModal
+      locale={locale}
+      intent="follow"
+      company={company}
+      onDismiss={() => setAuthPromptOpen(false)}
+      submitEmail={captureEmail ? (requestedEmail) => captureEmail(requestedEmail, { company, companyKey }) : undefined}
+      onEmailRequested={handleEmailRequested}
+      onEmailError={onErrored}
+    />
+  ) : null;
 
   return (
-    <div className="mt-3">
+    <>
+      {signupPrompt}
+      <div className="mt-3">
       <button
         type="button"
         onClick={following ? handleUnfollow : handleFollow}
@@ -397,6 +312,7 @@ export default function CompanyFollowButton({
           {t('jobAlert.companyFollow.error', 'Non sono riuscito ad aggiornare il seguito. Riprova.')}
         </p>
       )}
-    </div>
+      </div>
+    </>
   );
 }
