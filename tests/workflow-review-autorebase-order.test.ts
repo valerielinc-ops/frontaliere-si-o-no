@@ -76,7 +76,7 @@ describe('review → autorebase ordering', () => {
     expect(staleRescuer).toContain('APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}');
     expect(staleRescuer).toContain('functions/src/githubApiHeaders.js');
     expect(staleRescuer).toContain('GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}');
-    expect(staleRescuer).toContain('gh run rerun "$RESCUE_RUN"');
+    expect(staleRescuer).toMatch(/(?:gh|"\$TRUSTED_GH_BIN") run rerun "\$RESCUE_RUN"/);
     expect(staleRescuer).not.toContain('gh workflow run tests.yml --repo "$REPO" --ref "$BRANCH"');
     expect(staleRescuer).toContain('checkpoint manuale, nessun dispatch trusted');
     expect(staleRescuer).toContain('and .conclusion != "skipped"');
