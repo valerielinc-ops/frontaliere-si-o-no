@@ -561,6 +561,7 @@ describe('check-health publication gate', () => {
       'utf8',
     );
     expect(workflow).toContain('check-health.mjs --blocking-only');
-    expect(workflow).toContain('steps.commit.outputs.health_failed');
+    expect(workflow).toContain("steps.health.outcome == 'failure'");
+    expect(workflow).not.toContain('steps.commit.outputs.health_failed');
   });
 });
