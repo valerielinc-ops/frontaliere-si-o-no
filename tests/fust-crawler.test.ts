@@ -146,6 +146,7 @@ describe('Fust authoritative discovery', () => {
     const addressBlock = '<h4 data-type="section-title"><b>Arbeitsort</b></h4>'
       + '<p>Fust <br> Riedmoosstrasse 10 <br> 3172 Niederwangen BE</p>';
     expect(extractFustWorkplaceFromHtml(addressBlock)).toBe('Niederwangen BE');
+    expect(deriveFustWorkplaceCanton('Niederwangen BE')).toBe('BE');
     expect(deriveFustWorkplaceCanton('Köniz BE', 'BE')).toBe('BE');
     expect(extractFustWorkplaceFromHtml(
       `<script>var utag_data = { job_arbeitsort: 'Fust' };</script>${fixture.details[3].html}`,
