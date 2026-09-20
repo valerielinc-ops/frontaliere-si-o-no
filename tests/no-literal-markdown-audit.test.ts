@@ -48,6 +48,14 @@ describe('audit-no-literal-markdown — what it must NOT flag', () => {
     expect(r.offendersTotal).toBe(0);
   });
 
+  it('does not flag a real triple-star brand when a later close-like pair shares the text node', () => {
+    const r = runOn(page(
+      '<p>***delicatessa, Conseiller/ère de vente à 100% pour nos rayons '
+      + 'Boucherie, Charcuterie et/ou Poissonnerie au sein de notre **</p>',
+    ));
+    expect(r.offendersTotal).toBe(0);
+  });
+
   it('does not flag the German gender star', () => {
     expect(runOn(page('<h3>Verkäufer*in Detailhandel 100%</h3>')).passed).toBe(true);
   });

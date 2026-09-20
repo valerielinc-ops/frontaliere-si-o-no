@@ -37,8 +37,9 @@ import { isJobBoardSectionPath } from './lib/jobBoardSections.mjs';
 const SEO_STATIC_OPEN = /<main\b(?=[^>]*\bclass=(?:"[^"]*\bseo-static-content\b[^"]*"|'[^']*\bseo-static-content\b[^']*'|seo-static-content)(?=[\s>]))[^>]*>/i;
 const MAIN_CLOSE = /<\/main>/i;
 
-// `\*\*[^*\n]{1,200}\*\*` — bold tokens with non-empty body
-const LITERAL_BOLD_RE = /\*\*[^*\n]{1,200}\*\*/g;
+// Require the bold pair to stand alone so a real `***brand` cannot be read
+// from its second star as a markdown opener.
+const LITERAL_BOLD_RE = /(?<!\*)\*\*[^*\n]{1,200}(?<!\*)\*\*(?!\*)/g;
 // 3+ run of `_`, `=`, `~` as separator decoration
 const SEPARATOR_RUN_RE = /[_=~]{3,}/g;
 // Inline <script>/<style> blocks are code, not visible body. Their contents
