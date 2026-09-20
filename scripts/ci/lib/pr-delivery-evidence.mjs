@@ -267,9 +267,14 @@ export function evaluatePrDelivery({
     const previous = baselineByNumber.get(record.number);
     const currentTimes = recordTimes(record);
     if (!previous) {
-      if (currentTimes.createdAt !== null && currentTimes.createdAt >= startedAt) {
+      // A PR opened and then closed without merging is not delivery.  GitHub
+      // still returns it from `--state all`, so the new-record branch must not
+      // treat creation alone as proof for CLOSED records.
+      if ((record.state === 'OPEN' || record.state === 'MERGED')
+        && currentTimes.createdAt !== null && currentTimes.createdAt >= startedAt) {
         return delivered('new-pr-this-attempt', record);
       }
+      if (record.state === 'CLOSED') continue;
       return {
         status: DELIVERY_STATUS.UNAVAILABLE,
         reason: 'pr-absent-from-baseline-before-run',
