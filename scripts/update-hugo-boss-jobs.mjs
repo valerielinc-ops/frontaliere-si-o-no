@@ -51,6 +51,7 @@ const COMPANY_HOST = 'careers.hugoboss.com';
 const CAREERS_URL = 'https://careers.hugoboss.com/global/en/search-results?keywords=';
 const PAGE_SIZE = 100;
 const MAX_PAGES = 20;
+const DUPLICATE_PAGE_RETRIES = 2;
 const LOCALES = ['it', 'en', 'de', 'fr'];
 
 function normalize(value = '') { return String(value || '').trim().toLowerCase(); }
@@ -75,6 +76,8 @@ async function fetchPage(url, timeoutMs = 20000) {
       headers: {
         Accept: 'text/html,application/xhtml+xml',
         'Accept-Language': 'en,it-CH;q=0.9',
+        'Cache-Control': 'no-cache',
+        Pragma: 'no-cache',
         'User-Agent': process.env.JOBS_CRAWLER_USER_AGENT || 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch/)',
       },
     });
@@ -109,45 +112,65 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     const pageUrl = new URL(CAREERS_URL);
     pageUrl.searchParams.set('from', String(from));
     pageUrl.searchParams.set('pageSize', String(PAGE_SIZE));
-    const html = await fetchHtml(pageUrl.href, 25000);
+    let html = await fetchHtml(pageUrl.href, 25000);
     if (!html) {
       if (page === 0) console.error('❌ Failed to fetch Hugo Boss careers page.');
       break;
     }
-    const ddo = extractPhenomDdo(html);
-    const reportedTotal = Number(
-      ddo?.eagerLoadRefineSearch?.data?.totalHits
-      ?? ddo?.eagerLoadRefineSearch?.data?.total
-      ?? ddo?.eagerLoadRefineSearch?.totalHits
-      ?? 0,
-    );
-    if (reportedTotal > 0) totalHits = reportedTotal;
-    const rawPageJobs = ddo?.eagerLoadRefineSearch?.data?.jobs;
-    if (!Array.isArray(rawPageJobs)) {
-      const coverage = totalHits === null
-        ? 'totalHits is unavailable to confirm national coverage'
-        : `declared totalHits=${totalHits} cannot confirm coverage after a missing DDO envelope`;
-      throw new Error(
-        `Hugo Boss page ${page + 1} is missing a valid Phenom DDO/data envelope `
-        + `(expected eagerLoadRefineSearch.data.jobs); ${coverage}. `
-        + 'Aborting without a proven terminal page.',
+    let rawPageJobs;
+    let rawPageCount;
+    let uniquePageRecordKeys;
+    let newRecordKeys;
+    for (let duplicateRetry = 0; ; duplicateRetry += 1) {
+      const ddo = extractPhenomDdo(html);
+      const reportedTotal = Number(
+        ddo?.eagerLoadRefineSearch?.data?.totalHits
+        ?? ddo?.eagerLoadRefineSearch?.data?.total
+        ?? ddo?.eagerLoadRefineSearch?.totalHits
+        ?? 0,
       );
-    }
-    const rawPageCount = rawPageJobs.length;
-    const pageRecordKeys = rawPageJobs.map(rawHugoRecordKey);
-    if (pageRecordKeys.some((key) => !key)) {
-      throw new Error(
-        `Hugo Boss national DDO page ${page + 1} contains a record without a stable record identity (jobId/reqId). `
-        + 'Refusing to count a source row that the final deduplication map cannot retain.',
+      if (reportedTotal > 0) totalHits = reportedTotal;
+      rawPageJobs = ddo?.eagerLoadRefineSearch?.data?.jobs;
+      if (!Array.isArray(rawPageJobs)) {
+        const coverage = totalHits === null
+          ? 'totalHits is unavailable to confirm national coverage'
+          : `declared totalHits=${totalHits} cannot confirm coverage after a missing DDO envelope`;
+        throw new Error(
+          `Hugo Boss page ${page + 1} is missing a valid Phenom DDO/data envelope `
+          + `(expected eagerLoadRefineSearch.data.jobs); ${coverage}. `
+          + 'Aborting without a proven terminal page.',
+        );
+      }
+      rawPageCount = rawPageJobs.length;
+      const pageRecordKeys = rawPageJobs.map(rawHugoRecordKey);
+      if (pageRecordKeys.some((key) => !key)) {
+        throw new Error(
+          `Hugo Boss national DDO page ${page + 1} contains a record without a stable record identity (jobId/reqId). `
+          + 'Refusing to count a source row that the final deduplication map cannot retain.',
+        );
+      }
+      uniquePageRecordKeys = [...new Set(pageRecordKeys)];
+      newRecordKeys = uniquePageRecordKeys.filter((key) => !seenRawRecordKeys.has(key));
+      const madeNoProgress = uniquePageRecordKeys.length !== pageRecordKeys.length
+        || newRecordKeys.length !== uniquePageRecordKeys.length;
+      if (!madeNoProgress) break;
+      if (duplicateRetry >= DUPLICATE_PAGE_RETRIES) {
+        throw new Error(
+          `Hugo Boss national DDO page ${page + 1} made no progress: repeated page or no new raw records. `
+          + 'Refusing to conclude national coverage from a duplicated response.',
+        );
+      }
+      console.warn(
+        `⚠️ Hugo Boss national DDO page ${page + 1} repeated previously seen records; `
+        + `retrying (${duplicateRetry + 1}/${DUPLICATE_PAGE_RETRIES}).`,
       );
-    }
-    const uniquePageRecordKeys = [...new Set(pageRecordKeys)];
-    const newRecordKeys = uniquePageRecordKeys.filter((key) => !seenRawRecordKeys.has(key));
-    if (uniquePageRecordKeys.length !== pageRecordKeys.length || newRecordKeys.length !== uniquePageRecordKeys.length) {
-      throw new Error(
-        `Hugo Boss national DDO page ${page + 1} made no progress: repeated page or no new raw records. `
-        + 'Refusing to conclude national coverage from a duplicated response.',
-      );
+      html = await fetchHtml(pageUrl.href, 25000);
+      if (!html) {
+        throw new Error(
+          `Hugo Boss national DDO page ${page + 1} could not be refetched after a duplicated response. `
+          + 'Aborting without a proven terminal page.',
+        );
+      }
     }
     for (const key of newRecordKeys) seenRawRecordKeys.add(key);
     const pageRecordCount = uniquePageRecordKeys.length;

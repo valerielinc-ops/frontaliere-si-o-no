@@ -259,7 +259,36 @@ describe('fetchJobs national pagination', () => {
     const fetchHtml = vi.fn(async () => repeatedPage);
 
     await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/repeated page or no new raw records/);
-    expect(fetchHtml).toHaveBeenCalledTimes(2);
+    expect(fetchHtml).toHaveBeenCalledTimes(4);
+  });
+
+  it('retries a transient repeated page before failing the national read', async () => {
+    const firstPage = makeSearchPage(4, [
+      makeSwissJob('first-1'),
+      makeSwissJob('first-2'),
+    ]);
+    const repeatedPage = firstPage;
+    const recoveredPage = makeSearchPage(4, [
+      makeSwissJob('second-1'),
+      makeSwissJob('second-2'),
+    ]);
+    let pageTwoAttempts = 0;
+    const fetchHtml = vi.fn(async (url: string | URL) => {
+      const from = new URL(String(url)).searchParams.get('from') || '';
+      if (from === '0') return firstPage;
+      pageTwoAttempts += 1;
+      return pageTwoAttempts === 1 ? repeatedPage : recoveredPage;
+    });
+
+    const jobs = await fetchJobs({ fetchHtml });
+
+    expect(pageTwoAttempts).toBe(2);
+    expect(jobs.map((job) => job.title)).toEqual([
+      'Swiss job first-1',
+      'Swiss job first-2',
+      'Swiss job second-1',
+      'Swiss job second-2',
+    ]);
   });
 
   it('fails closed when a page has no identity used by the final deduplication map', async () => {
