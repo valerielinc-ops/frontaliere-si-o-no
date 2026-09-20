@@ -16,11 +16,20 @@ describe('tsmg-job-parser', () => {
     expect(isTsmgTargetLocation('Lugano, Italy')).toBe(false);
     // Cathedral 2026-05-10: Zurich (ZH) is now a target canton — assertion updated to true.
     expect(isTsmgTargetLocation('Zurich')).toBe(true);
+    expect(isTsmgTargetLocation('Furttal')).toBe(true);
   });
 
-  it('maps target locations to TI/GR', () => {
+  it('maps target locations to their cantons', () => {
     expect(inferTsmgRegion('Bellinzona').canton).toBe('TI');
     expect(inferTsmgRegion('Chur').canton).toBe('GR');
+    expect(inferTsmgRegion('Furttal')).toEqual({ canton: 'ZH', country: 'CH' });
+    const furttalSnapshot = [{
+      id: 'furttal-job',
+      hostedUrl: 'https://jobs.lever.co/tsmg/furttal-job',
+      country: 'CH',
+      categories: { location: 'Furttal' },
+    }];
+    expect(assertCompleteTsmgSourceSnapshot(furttalSnapshot)).toEqual(furttalSnapshot);
   });
 
   it('builds localized content and locale slugs', () => {

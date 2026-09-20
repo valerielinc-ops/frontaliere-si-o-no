@@ -60,7 +60,7 @@ export const SWISS_CANTONS = {
   VD: { code: 'VD', names: ['vaud', 'waadt', 'lausanne', 'montreux', 'vevey', 'nyon', 'morges', 'renens', 'yverdon', 'yverdon-les-bains'] },
   VS: { code: 'VS', names: ['valais', 'wallis', 'vallese', 'sion', 'sitten', 'brig', 'visp', 'martigny', 'monthey', 'zermatt', 'sierre', 'naters', 'crans-montana', 'leukerbad', 'saas-fee', 'verbier'] },
   ZG: { code: 'ZG', names: ['zug', 'zoug', 'zugo', 'baar', 'cham'] },
-  ZH: { code: 'ZH', names: ['zürich', 'zurich', 'zuerich', 'zurigo', 'winterthur', 'uster', 'dübendorf', 'kloten', 'wetzikon', 'dietikon', 'opfikon', 'kilchberg'] },
+  ZH: { code: 'ZH', names: ['zürich', 'zurich', 'zuerich', 'zurigo', 'winterthur', 'uster', 'dübendorf', 'kloten', 'wetzikon', 'dietikon', 'opfikon', 'kilchberg', 'furttal'] },
 };
 
 export const ALL_CANTON_CODES = Object.keys(SWISS_CANTONS);
