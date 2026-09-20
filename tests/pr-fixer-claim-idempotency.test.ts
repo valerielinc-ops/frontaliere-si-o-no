@@ -408,6 +408,14 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
     expect(redcheck).toContain('Marker REDCHECK_FIX_ROUND $MARKER_ID cancellato: round rimborsato.');
   });
 
+  it('revalidates redflag PR HEAD/body immediately before Codex and releases on a race', () => {
+    expect(redflag).toContain('Revalidate redflag PR snapshot immediately before model');
+    expect(redflag).toContain('snapshot_final.outputs.snapshot_valid');
+    expect(redflag).toContain('EXPECTED_REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}');
+    expect(redflag).toContain("echo 'CLAIM_STATUS=released' >> \"$GITHUB_ENV\"");
+    expect(redflag).toContain('Marker REDFLAG_FIX_ROUND $MARKER_ID cancellato: round rimborsato.');
+  });
+
   it('releases a run superseded by an external branch push before failure classification', () => {
     for (const [name, source] of [['redflag', redflag], ['redcheck', redcheck] as const]) {
       const classify = source.slice(source.indexOf('Classify outcome (work-done, not CLI exit)'));

@@ -1298,6 +1298,56 @@ jobs:
           echo "::error::Claim redflag cambiato dopo il prefetch e prima del modello → nessun fixer Claude."
           exit 1
 
+      - name: Revalidate redflag PR snapshot immediately before model
+        id: snapshot_final
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify_final.outputs.claim_valid == 'true' && steps.ctx.outcome == 'success' && steps.body_gate.outcome == 'success'
+        continue-on-error: true
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          EXPECTED_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          EXPECTED_REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
+          MARKER_ID: ${{ steps.guard.outputs.marker_id }}
+        run: |
+          set -uo pipefail
+          snapshot=''
+          reason=''
+          if ! snapshot=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" 2>/dev/null); then
+            reason='PR snapshot API illeggibile'
+          elif ! printf '%s' "$snapshot" | jq -e 'type == "object" and (.state | type) == "string" and (.draft | type) == "boolean" and (.head.sha | type) == "string" and ((.body == null) or ((.body | type) == "string"))' >/dev/null 2>&1; then
+            reason='PR snapshot malformato'
+          else
+            snapshot_state=$(printf '%s' "$snapshot" | jq -r '.state')
+            snapshot_draft=$(printf '%s' "$snapshot" | jq -r '.draft')
+            snapshot_head=$(printf '%s' "$snapshot" | jq -r '.head.sha')
+            snapshot_body=$(printf '%s' "$snapshot" | jq -r '.body // ""')
+            snapshot_revision=$(printf '%s' "$snapshot_body" | shasum -a 256 | awk '{print "body:" $1}')
+            if [ "$snapshot_state" != 'open' ] || [ "$snapshot_draft" != 'false' ] \
+              || [ "$snapshot_head" != "$EXPECTED_HEAD_SHA" ] \
+              || [ "$snapshot_revision" != "$EXPECTED_REVIEW_REVISION" ]; then
+              reason="PR snapshot cambiato (state=$snapshot_state draft=$snapshot_draft head=$snapshot_head revision=$snapshot_revision)"
+            fi
+          fi
+          if [ -n "$reason" ]; then
+            echo "::error::$reason dopo il claim finale e prima di Codex: nessun fixer Claude."
+            echo 'CLAIM_STATUS=released' >> "$GITHUB_ENV"
+            if [[ "$MARKER_ID" =~ ^[1-9][0-9]*$ ]]; then
+              if "$TRUSTED_GH_BIN" api --method DELETE \
+                "repos/$REPO/issues/comments/$MARKER_ID" >/dev/null 2>&1; then
+                echo "Marker REDFLAG_FIX_ROUND $MARKER_ID cancellato: round rimborsato."
+              else
+                echo "::warning::Impossibile cancellare marker REDFLAG_FIX_ROUND $MARKER_ID; claim rilasciato ma il round potrebbe restare contato."
+              fi
+            else
+              echo "::warning::Marker REDFLAG_FIX_ROUND non identificato; claim rilasciato senza rimborso verificabile."
+            fi
+            echo 'snapshot_valid=false' >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          echo 'snapshot_valid=true' >> "$GITHUB_OUTPUT"
+
       - name: Run Codex Luna Max 🔴-fix
         # Tetto sullo step: senza, l'unico limite era il cap del job
         # (40min) e la run ci moriva `cancelled` — che NON fa scattare
@@ -1307,7 +1357,7 @@ jobs:
         # sulle ultime run) e una coda per gli step `if: always()`.
         timeout-minutes: 30
         id: codex_fix
-        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify_final.outputs.claim_valid == 'true'
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify_final.outputs.claim_valid == 'true' && steps.snapshot_final.outputs.snapshot_valid == 'true'
         # Non far fallire il job sull'exit non-zero della action: lo `Classify
         # outcome` finale decide il colore in base al LAVORO reale (commit pushato),
         # non al subtype della CLI. Un error_max_turns DOPO un push valido non è un
