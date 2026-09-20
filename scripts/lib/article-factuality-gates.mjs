@@ -152,6 +152,55 @@ const SENTENCE_END = /[.!?:;»›"”')\]}…]$/;
 // would lose its "000" and pass on the "60." left behind.
 const TRAILING_FOOTNOTE_REF = /\s+\[?\^?\d{1,3}\]?$/;
 
+// A translation can end on a perfectly valid sentence after silently dropping
+// a paragraph. Punctuation-only checks cannot see that loss, so the
+// translation path also compares each body section with its Italian source.
+// Keep the floor conservative: short sections vary naturally between
+// languages, while a material drop in a real body section is actionable.
+const TRANSLATION_WORD_RE = /[\p{L}\p{N}]+(?:[’'][\p{L}\p{N}]+)*/gu;
+const MIN_TRANSLATION_REFERENCE_WORDS = 40;
+const TRANSLATION_RATIO_THRESHOLD = 0.70;
+const TRANSLATION_PARAGRAPH_DROP_RATIO = 0.85;
+const TRANSLATION_CRITICAL_RATIO = 0.50;
+
+function countTranslationWords(text) {
+  return typeof text === 'string' ? (text.match(TRANSLATION_WORD_RE) || []).length : 0;
+}
+
+function countParagraphs(text) {
+  return typeof text === 'string'
+    ? text.split(/\n{2,}/).filter((paragraph) => paragraph.trim()).length
+    : 0;
+}
+
+function detectSemanticTruncation(text, referenceText, opts = {}) {
+  if (opts.locale === 'it' || typeof text !== 'string' || typeof referenceText !== 'string') return [];
+  if (!text.trim() || !referenceText.trim()) return [];
+
+  const referenceWords = countTranslationWords(referenceText);
+  if (referenceWords < MIN_TRANSLATION_REFERENCE_WORDS) return [];
+
+  const translatedWords = countTranslationWords(text);
+  const ratio = translatedWords / referenceWords;
+  const lostParagraph = countParagraphs(text) < countParagraphs(referenceText);
+  const threshold = lostParagraph
+    ? TRANSLATION_PARAGRAPH_DROP_RATIO
+    : TRANSLATION_RATIO_THRESHOLD;
+  if (ratio >= threshold) return [];
+
+  const label = opts.label ? `[${opts.label}] ` : '';
+  const percentage = Math.round(ratio * 100);
+  const severity = ratio < TRANSLATION_CRITICAL_RATIO ? 'critical' : 'major';
+  return [issue(
+    'translation-semantic-truncation',
+    severity,
+    `${label}La traduzione contiene solo ${translatedWords}/${referenceWords} parole dell'italiano (${percentage}%) — possibile paragrafo omesso anche se la frase finale è chiusa`,
+    `${label}paragrafi: ${countParagraphs(referenceText)} → ${countParagraphs(text)}; parole: ${referenceWords} → ${translatedWords}`,
+    `Confronta la sezione ${label || 'tradotta'} con l'italiano e reintegra ogni paragrafo mancante. `
+      + 'Il testo tradotto deve conservare tutto il contenuto, non solo terminare con punteggiatura valida.',
+  )];
+}
+
 /**
  * Detects text that was cut off mid-generation.
  * @param {string} text
@@ -314,6 +363,14 @@ export function detectTruncation(text, opts = {}) {
       `Completa la frase finale di ${label || 'questa sezione'} e chiudila con un punto. Non lasciare il periodo sospeso.`,
     ));
   }
+
+  // Formal truncation can be cleanly punctuated when the model drops a whole
+  // paragraph. The reference is supplied only for translated sections; the
+  // Italian source remains governed by the punctuation/markup checks above.
+  issues.push(...detectSemanticTruncation(text, opts.referenceText, {
+    label: opts.label,
+    locale: opts.locale,
+  }));
 
   return issues;
 }
@@ -2497,7 +2554,12 @@ export function runFactualityGates(params = {}) {
   for (const [label, text] of Object.entries(sections)) {
     if (typeof text !== 'string' || !text.trim()) continue;
     const sectionLabel = locale === 'it' ? label : `${locale}/${label}`;
-    issues.push(...detectTruncation(text, { label: sectionLabel }));
+    const referenceText = locale === 'it' ? undefined : italianSections?.[label];
+    issues.push(...detectTruncation(text, {
+      label: sectionLabel,
+      locale,
+      referenceText,
+    }));
     issues.push(...detectLeakedScaffolding(text, { label: sectionLabel }));
   }
   issues.push(...checkInlineArithmetic(fullText, localeOptions));
@@ -2523,6 +2585,22 @@ export function runFactualityGates(params = {}) {
     }
   } else if (italianSections) {
     const italianText = joined(italianSections);
+
+    // A whole body section can disappear while the remaining translation still
+    // ends cleanly. Report that structural loss separately because the loop
+    // above only visits sections that are present in the translation.
+    for (const [label, italianSection] of Object.entries(italianSections)) {
+      if (typeof italianSection !== 'string' || !italianSection.trim()) continue;
+      const translatedSection = sections?.[label];
+      if (typeof translatedSection === 'string' && translatedSection.trim()) continue;
+      issues.push(issue(
+        'translation-section-missing',
+        'critical',
+        `[${locale}/${label}] Sezione presente nell'italiano ma assente dalla traduzione`,
+        `${label}: ${countTranslationWords(italianSection)} parole nell'italiano`,
+        `Ripristina la sezione ${label} nella versione ${locale}: una traduzione non può omettere un intero blocco di contenuto.`,
+      ));
+    }
 
     // What the Italian says about its own numbers, used to adjudicate the
     // content claims above — see ITALIAN_ADJUDICATED_CODES.
