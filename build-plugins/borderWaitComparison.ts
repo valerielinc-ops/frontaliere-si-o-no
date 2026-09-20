@@ -320,7 +320,7 @@ export function renderBorderWaitComparison(params: {
         <span data-bw-field="status" style="display:block;font-size:12px;color:var(--color-subtle)">${escapeHtml(statusLabel(entry?.status, locale))}</span>
       </td>
       <td class="${TABLE_CELL_CLASS}" style="white-space:nowrap;color:var(--color-subtle)" data-bw-field="lastUpdate">${escapeHtml(formatSnapshotTimestamp(entry?.lastUpdate, locale))}</td>
-      <td class="${TABLE_CELL_CLASS}" style="color:var(--color-subtle)" data-bw-field="source" data-bw-source-labels="${sourceLabelMap}">${escapeHtml(sourceLabel(entry?.source, sourceLabels, locale))}</td>
+      <td class="${TABLE_CELL_CLASS}" style="color:var(--color-subtle)" data-bw-field="source">${escapeHtml(sourceLabel(entry?.source, sourceLabels, locale))}</td>
     </tr>`;
   }).join('\n');
 
@@ -336,7 +336,7 @@ export function renderBorderWaitComparison(params: {
     <p class="s-sau7he">${escapeHtml(copy.lead)}</p>
     <p class="s-sau7he">${escapeHtml(peerLead)}</p>
     ${rankingHtml}
-    <div class="s-card" style="overflow-x:auto;padding:0">
+    <div class="s-card" data-bw-source-labels="${sourceLabelMap}" style="overflow-x:auto;padding:0">
       <table class="${TABLE_CLASS}" style="font-size:14px;min-width:680px" data-bw-comparison-table>
         <caption class="s-li0wom">${escapeHtml(copy.heading)}</caption>
         <thead><tr>
