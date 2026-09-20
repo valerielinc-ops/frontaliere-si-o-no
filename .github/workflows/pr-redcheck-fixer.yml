@@ -19,7 +19,7 @@ name: PR ❌ check fixer (bounded, red required check on bot PRs)
 # NON agisce mai su PR scritte da umani, ne' su un rosso che non e' piu' quello
 # della HEAD corrente (un rosso stantio non e' un difetto da fixare).
 #
-# ANTI-LOOP: marker `<!-- REDCHECK_FIX_ROUND: N -->`, cap 2 → `needs-human` e
+# ANTI-LOOP: marker `<!-- REDCHECK_FIX_ROUND: N HEAD: <sha> -->`, cap 2 → `needs-human` e
 # STOP senza Claude, identico al gemello e per la stessa ragione: non ripetere
 # tentativi sullo stesso rosso quando il branch non sta avanzando.
 
@@ -109,7 +109,8 @@ jobs:
             # `pull_requests` del workflow_run e' spesso vuoto: la via robusta e'
             # cercare la PR aperta con questo head branch.
             PR=$(gh api "repos/$REPO/pulls?state=open&per_page=100" \
-              --jq "[.[] | select(.head.ref==\"$RUN_BRANCH\")][0].number" 2>/dev/null || echo "")
+              --paginate --slurp \
+              --jq "[.[].[] | select(.head.ref==\"$RUN_BRANCH\")][0].number // empty" 2>/dev/null || echo "")
             if [ -z "$PR" ] || [ "$PR" = "null" ]; then
               skip "Nessuna PR aperta per il branch '$RUN_BRANCH' → skip (no-op)."
             fi
@@ -608,6 +609,7 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
+          HEAD_SHA: ${{ needs.preflight.outputs.head_sha }}
           HAS_PAT: ${{ env.APP_TOKEN_WORKFLOWS == 'true' || env.GITHUB_PAT != '' }}
         run: |
           set -uo pipefail
@@ -619,9 +621,23 @@ jobs:
             echo "::error::Commenti PR illeggibili: impossibile verificare il round cap redcheck."
             exit 1
           fi
-          ROUND=$(printf '%s' "$comments" | grep -oE 'REDCHECK_FIX_ROUND: [0-9]+' \
-            | grep -oE '[0-9]+' | sort -rn | head -1 || true)
-          ROUND=${ROUND:-0}
+          # Un'assenza di marker e' l'unico caso legittimo di exit 1 di grep.
+          # Ogni altro errore del parser deve fermare il guard: procedere con
+          # ROUND=0 brucerebbe un turno Claude e potrebbe oltrepassare il cap.
+          round_matches=$(printf '%s' "$comments" | grep -oE 'REDCHECK_FIX_ROUND: [0-9]+')
+          round_status=$?
+          if [ "$round_status" -gt 1 ]; then
+            echo "::error::Parser dei marker REDCHECK_FIX_ROUND fallito (exit $round_status): stop fail-closed prima di Claude."
+            exit 1
+          fi
+          ROUND=0
+          if [ -n "$round_matches" ]; then
+            ROUND=$(printf '%s\n' "$round_matches" | sed -E 's/.*: ([0-9]+).*/\1/' | sort -rn | head -n 1)
+            if ! [[ "$ROUND" =~ ^[0-9]+$ ]]; then
+              echo "::error::Marker REDCHECK_FIX_ROUND non interpretabile: stop fail-closed prima di Claude."
+              exit 1
+            fi
+          fi
           NEXT=$((ROUND + 1))
           echo "Round ❌-check-fix correnti: $ROUND (cap $MAX_ROUNDS)"
 
@@ -706,9 +722,31 @@ jobs:
 
           # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
           # run muore, il round è comunque contato → l'anti-loop tiene).
-          if ! "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDCHECK_FIX_ROUND: %s -->\n_❌-check-fixer round %s/%s avviato (auto)._' "$NEXT" "$NEXT" "$MAX_ROUNDS")" \
+          MARKER_BODY=$(printf '<!-- REDCHECK_FIX_ROUND: %s HEAD: %s -->\n_❌-check-fixer round %s/%s avviato (auto)._' "$NEXT" "$HEAD_SHA" "$NEXT" "$MAX_ROUNDS")
+          if ! "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$MARKER_BODY" \
             2>/dev/null; then
             echo "::error::Marker REDCHECK_FIX_ROUND non persistito: stop fail-closed prima di Claude."
+            exit 1
+          fi
+          # Verifica at-least-once della POST su tutte le pagine dei commenti,
+          # confrontando il body completo: round e HEAD non possono essere
+          # sostituiti da un marker storico o da una risposta parziale. Errore,
+          # mismatch o duplicato = retryable; il finalize rilascia il claim senza
+          # invocare Claude.
+          if ! comments_after=$(
+            "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" \
+              --paginate --slurp 2>/dev/null
+          ); then
+            echo "::error::Commenti PR illeggibili dopo REDCHECK_FIX_ROUND: claim retryable, nessun Claude."
+            exit 1
+          fi
+          if ! marker_count=$(printf '%s' "$comments_after" \
+            | jq --arg expected "$MARKER_BODY" '[.[].[] | select(.body == $expected)] | length' 2>/dev/null); then
+            echo "::error::Verifica JSON del marker REDCHECK_FIX_ROUND fallita: claim retryable, nessun Claude."
+            exit 1
+          fi
+          if ! [[ "$marker_count" =~ ^1$ ]]; then
+            echo "::error::Marker REDCHECK_FIX_ROUND mismatch (attesi 1 marker per round=$NEXT HEAD=$HEAD_SHA, trovati ${marker_count:-invalid}): claim retryable, nessun Claude."
             exit 1
           fi
           echo "proceed=true" >> "$GITHUB_OUTPUT"

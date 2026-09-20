@@ -380,6 +380,20 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
     expect(redcheck).toMatch(/\.check_runs\[\].*\.name\] \| sort \| @json/u);
   });
 
+  it('verifies the persisted round marker against the same HEAD before spending Claude', () => {
+    for (const [name, source, marker] of [
+      ['redflag', redflag, 'REDFLAG_FIX_ROUND'],
+      ['redcheck', redcheck, 'REDCHECK_FIX_ROUND'],
+    ] as const) {
+      const guard = source.slice(source.indexOf('MAX_ROUNDS=2'), source.indexOf('Configure git identity'));
+      expect(guard, `${name}: marker must carry HEAD`).toContain(`${marker}: %s HEAD: %s`);
+      expect(guard, `${name}: marker read-back must paginate`).toContain('--paginate --slurp');
+      expect(guard, `${name}: marker read-back must compare the complete body`).toContain('select(.body == $expected)');
+      expect(guard, `${name}: read-back mismatch must not proceed`).toContain('claim retryable, nessun Claude');
+      expect(guard, `${name}: parser errors must not default to round zero`).not.toMatch(/ROUND=.*\|\| true/u);
+    }
+  });
+
   it('releases a run superseded by an external branch push before failure classification', () => {
     for (const [name, source] of [['redflag', redflag], ['redcheck', redcheck] as const]) {
       const classify = source.slice(source.indexOf('Classify outcome (work-done, not CLI exit)'));
