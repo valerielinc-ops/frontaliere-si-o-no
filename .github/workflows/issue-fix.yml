@@ -1192,15 +1192,22 @@ jobs:
           status_file="$RUNNER_TEMP/pr-body-gate-status"
           : > "$status_file"
           baseline_file="$RUNNER_TEMP/pr-body-gate-existing-prs"
-          : > "$baseline_file"
-          gh pr list --repo "$REPO" --head "fix/issue-$ISSUE" --state all \
-            --json number --jq '.[].number' > "$baseline_file"
+          delivery_baseline="$RUNNER_TEMP/pr-delivery-baseline-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}.json"
+          node "$GITHUB_WORKSPACE/scripts/ci/lib/pr-delivery-evidence.mjs" capture \
+            --repo "$REPO" \
+            --issue "$ISSUE" \
+            --branch "fix/issue-$ISSUE" \
+            --run-id "$GITHUB_RUN_ID" \
+            --run-attempt "$GITHUB_RUN_ATTEMPT" \
+            --output "$delivery_baseline" \
+            --legacy-output "$baseline_file"
           ln -sf "$GITHUB_WORKSPACE/scripts/gh-pr-body-check.mjs" "$gate_dir/gh"
           echo "$gate_dir" >> "$GITHUB_PATH"
           {
             echo "PR_BODY_GATE_BIN=$gate_dir"
             echo "PR_BODY_GATE_STATUS_FILE=$status_file"
             echo "PR_BODY_GATE_BASELINE_FILE=$baseline_file"
+            echo "PR_DELIVERY_BASELINE_FILE=$delivery_baseline"
           } >> "$GITHUB_ENV"
 
       - name: Run Codex Luna Max fix
@@ -1389,7 +1396,11 @@ jobs:
           set -uo pipefail
           BRANCH="fix/issue-$ISSUE"
 
-          PR_STATE=$(gh pr list --head "$BRANCH" --state all --json state             --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | length' 2>/dev/null || echo 0)
+          if ! PR_STATE=$(gh pr list --head "$BRANCH" --state all --json state \
+            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | length' 2>/dev/null); then
+            echo "::warning::wip-salvage: lookup PR non disponibile su $BRANCH — nessuna mutazione di recovery eseguita."
+            exit 0
+          fi
           if [ "${PR_STATE:-0}" != "0" ]; then
             echo "wip-salvage: PR già aperta/mergiata su $BRANCH → il lavoro è consegnato, niente da salvare."
             exit 0
@@ -1450,6 +1461,39 @@ jobs:
             echo "::warning::wip-salvage: push di $BRANCH fallito — il lavoro resta solo nel container e andrà perso."
           fi
 
+      - name: Evaluate current PR delivery evidence (zero-Claude)
+        # Una sola snapshot bounded, condivisa da verifica best-effort, backstop
+        # e classificatore. Un errore resta `unavailable`: non diventa una lista
+        # vuota e non autorizza marker o falso-verde.
+        if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true' && steps.diff_gate.outcome == 'success'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          ISSUE: ${{ github.event.issue.number }}
+        run: |
+          set -u
+          evidence_file="$RUNNER_TEMP/pr-delivery-evidence-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}.json"
+          baseline_file="${PR_DELIVERY_BASELINE_FILE:-}"
+          if [ -z "$baseline_file" ] || [ ! -r "$baseline_file" ]; then
+            printf '%s\n' '{"status":"unavailable","reason":"baseline-missing","prNumber":null}' > "$evidence_file"
+          else
+            temp_file="$evidence_file.tmp"
+            if node "$GITHUB_WORKSPACE/scripts/ci/lib/pr-delivery-evidence.mjs" evaluate \
+              --baseline "$baseline_file" \
+              --repo "$REPO" \
+              --issue "$ISSUE" \
+              --branch "fix/issue-$ISSUE" \
+              --run-id "$GITHUB_RUN_ID" \
+              --run-attempt "$GITHUB_RUN_ATTEMPT" > "$temp_file"; then
+              mv "$temp_file" "$evidence_file"
+            else
+              rm -f "$temp_file"
+              printf '%s\n' '{"status":"unavailable","reason":"delivery-evaluation-failed","prNumber":null}' > "$evidence_file"
+            fi
+          fi
+          echo "PR_DELIVERY_EVIDENCE_FILE=$evidence_file" >> "$GITHUB_ENV"
+          cat "$evidence_file"
+
       - name: Verify best-effort PR writes (zero-Claude)
         # Il wrapper mantiene best-effort il lavoro già eseguito, ma registra
         # una scrittura remota fallita. In quel caso il job non può classificare
@@ -1465,7 +1509,7 @@ jobs:
           set -euo pipefail
           BRANCH="fix/issue-$ISSUE"
           status_file="${PR_BODY_GATE_STATUS_FILE:-}"
-          baseline_file="${PR_BODY_GATE_BASELINE_FILE:-}"
+          evidence_file="${PR_DELIVERY_EVIDENCE_FILE:-}"
           action_outcome="${ACTION_OUTCOME:-}"
           if [ -z "$status_file" ] || [ ! -s "$status_file" ]; then
             if [ "$action_outcome" = "failure" ]; then
@@ -1477,29 +1521,20 @@ jobs:
           if ! grep -Fxq 'best-effort-failed' "$status_file"; then
             exit 0
           fi
-          if [ -z "$baseline_file" ] || [ ! -r "$baseline_file" ]; then
-            echo "::error::baseline delle PR sul branch $BRANCH non disponibile: delivery non verificabile."
+          if [ -z "$evidence_file" ] || [ ! -r "$evidence_file" ]; then
+            echo "::error::evidenza PR sul branch $BRANCH non disponibile: delivery non verificabile."
             exit 1
           fi
-
-          CANDIDATES=$(gh pr list --repo "$REPO" --head "$BRANCH" --state all --json number,state,createdAt \
-            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | sort_by(.createdAt) | reverse | .[].number') || {
-            echo "::error::gh pr list non ha potuto verificare la consegna su $BRANCH."
+          if ! DELIVERY=$(jq -e 'select(.status == "verified-delivery")' "$evidence_file" 2>/dev/null); then
+            echo "::error::gh-pr-body-check ha registrato una scrittura remota fallita ma la delivery non è verificata."
             exit 1
-          }
-          PR=$(while IFS= read -r candidate; do
-            [ -z "$candidate" ] && continue
-            if grep -Fxq "$candidate" "$baseline_file"; then
-              continue
-            fi
-            printf '%s\n' "$candidate"
-            break
-          done <<< "$CANDIDATES")
-          if [ -n "${PR:-}" ]; then
-            echo "best-effort PR write verificata: nuova #$PR su $BRANCH."
+          fi
+          PR=$(printf '%s\n' "$DELIVERY" | jq -r '.prNumber // empty')
+          if [[ "$PR" =~ ^[1-9][0-9]*$ ]]; then
+            echo "best-effort PR write verificata: delivery corrente #$PR su $BRANCH."
             exit 0
           fi
-          echo "::error::gh-pr-body-check ha registrato una scrittura remota fallita e non esiste una nuova PR su $BRANCH."
+          echo "::error::gh-pr-body-check ha registrato una scrittura remota fallita ma il numero PR è invalido."
           exit 1
 
       - name: Mark autonomous PR provenance (zero-Claude)
@@ -1515,10 +1550,19 @@ jobs:
           ISSUE: ${{ github.event.issue.number }}
         run: |
           set -uo pipefail
-          PR=$(gh pr list --repo "$REPO" --head "fix/issue-$ISSUE" --state open --json number,createdAt \
-            --jq 'sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
-          if [ -z "${PR:-}" ]; then
-            echo "provenance: nessuna PR aperta su fix/issue-$ISSUE da marcare."
+          evidence_file="${PR_DELIVERY_EVIDENCE_FILE:-}"
+          if [ -z "$evidence_file" ] || [ ! -r "$evidence_file" ]; then
+            echo "provenance: evidenza delivery non disponibile su fix/issue-$ISSUE — skip."
+            exit 0
+          fi
+          DELIVERY_STATUS=$(jq -er '.status // "unavailable"' "$evidence_file" 2>/dev/null) || DELIVERY_STATUS=unavailable
+          if [ "$DELIVERY_STATUS" != "verified-delivery" ]; then
+            echo "provenance: delivery=$DELIVERY_STATUS su fix/issue-$ISSUE — skip."
+            exit 0
+          fi
+          PR=$(jq -er '.prNumber // empty' "$evidence_file" 2>/dev/null || true)
+          if [[ ! "$PR" =~ ^[1-9][0-9]*$ ]]; then
+            echo "provenance: numero PR della delivery corrente non verificabile su fix/issue-$ISSUE — skip."
             exit 0
           fi
           gh label create agent:autofix --repo "$REPO" --color 1d76db \
@@ -1534,55 +1578,66 @@ jobs:
         # lessons-harvester signal. (The step's own `HAS` check below is belt-and-
         # suspenders for the same reason — this `if:` avoids the extra `gh` round-trip.)
         # The agent SHOULD post a granular `<!-- FIX_OUTCOME: <code> -->` marker,
-        # but prompt-emitted markers are unreliable (observed: #974 ran with the
-        # marker prompt on main yet posted none). This backstop guarantees the
-        # lessons-harvester always has a queryable marker: pr-created if this run
-        # opened a PR on fix/issue-<N>, else a coarse no-pr-unspecified. It never
-        # overwrites a granular marker from the CURRENT run. Historical markers
-        # must not suppress telemetry for this run. Best-effort: never fails.
+        # but prompt-emitted markers are unreliable. This backstop emits a marker
+        # only when the current-run comments and PR evidence are both readable;
+        # an API error is not interpreted as no PR. Historical markers must not
+        # suppress telemetry for this run. A hard cancellation may prevent this
+        # post-step entirely, so this is best-effort and never promises a marker.
         if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           ISSUE: ${{ github.event.issue.number }}
+          ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
         run: |
           set -uo pipefail
-          RUN_STARTED_AT=$(gh api "repos/$REPO/actions/runs/$GITHUB_RUN_ID" \
-            --jq '.run_started_at // .created_at' 2>/dev/null || true)
-          if [ -z "${RUN_STARTED_AT:-}" ]; then
-            echo "::warning::RUN_STARTED_AT non disponibile: backstop non emesso."
+          action_outcome="${ACTION_OUTCOME:-}"
+          if [ "$action_outcome" = "skipped" ] || [ "$action_outcome" = "cancelled" ]; then
+            echo "FIX_OUTCOME backstop: action=$action_outcome — nessun marker forzato."
             exit 0
           fi
-          COMMENTS=$(gh issue view "$ISSUE" --json comments 2>/dev/null || echo '{"comments":[]}')
-          HAS=$(printf '%s\n' "$COMMENTS" | jq -r --arg started "$RUN_STARTED_AT" \
-            '[.comments[] | select((.createdAt // "") >= $started) | select((.body // "") | test("<!-- FIX_OUTCOME:"))] | length' \
-            2>/dev/null || echo 0)
+          baseline_file="${PR_DELIVERY_BASELINE_FILE:-}"
+          evidence_file="${PR_DELIVERY_EVIDENCE_FILE:-}"
+          if [ -z "$baseline_file" ] || [ ! -r "$baseline_file" ] || [ -z "$evidence_file" ] || [ ! -r "$evidence_file" ]; then
+            echo "::warning::baseline/evidenza delivery non disponibile: backstop non emesso."
+            exit 0
+          fi
+          if ! RUN_STARTED_AT=$(jq -er '.runStartedAt // empty' "$baseline_file" 2>/dev/null); then
+            echo "::warning::RUN_STARTED_AT non verificabile dal baseline: backstop non emesso."
+            exit 0
+          fi
+          if ! COMMENTS=$(gh issue view "$ISSUE" --json comments 2>/dev/null); then
+            echo "::warning::lookup commenti issue non disponibile: backstop non emesso."
+            exit 0
+          fi
+          if ! HAS=$(printf '%s\n' "$COMMENTS" | jq -r --arg started "$RUN_STARTED_AT" \
+            'if (.comments | type) != "array" then error("comments-shape") else [.comments[] | select((.createdAt // "") >= $started) | select((.body // "") | test("<!-- FIX_OUTCOME:"))] | length end' \
+            2>/dev/null); then
+            echo "::warning::commenti issue non classificabili: backstop non emesso."
+            exit 0
+          fi
           if [ "${HAS:-0}" != "0" ]; then
             echo "FIX_OUTCOME marker already present in this run — no backstop needed."
             exit 0
           fi
-          PR=$(gh pr list --head "fix/issue-$ISSUE" --state open --json number,createdAt \
-            --jq 'sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
-          if [ -n "${PR:-}" ]; then OUT=pr-created; else OUT=no-pr-unspecified; fi
+          DELIVERY_STATUS=$(jq -er '.status // "unavailable"' "$evidence_file" 2>/dev/null) || DELIVERY_STATUS=unavailable
+          case "$DELIVERY_STATUS" in
+            verified-delivery) OUT=pr-created ;;
+            verified-none) OUT=no-pr-unspecified ;;
+            *)
+              echo "::warning::delivery=$DELIVERY_STATUS: backstop non emesso."
+              exit 0
+              ;;
+          esac
           echo "FIX_OUTCOME issue=$ISSUE outcome=$OUT (deterministic backstop)"
-          gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._' "$OUT")" || true
+          if ! gh issue comment "$ISSUE" --body "$(printf '<!-- FIX_OUTCOME: %s -->\n_Outcome rilevato dal post-step deterministico (telemetria lessons-harvester)._' "$OUT")"; then
+            echo "::warning::marker FIX_OUTCOME non postato; nessuna garanzia di telemetria."
+          fi
 
-      # Colore del job = LAVORO reale del run, non l'exit della CLI Claude.
-      #  • PR aperta o gia' MERGED per la issue (`fix/issue-<N>`)  → run SUCCESS
-      #    (la PR e' in pr-review-loop / gia' mergiata). Vale ANCHE se la CLI e'
-      #    morta `error_max_turns` DOPO `gh pr create` (false-failure: #1951 = 4/11
-      #    fail avevano una PR, 3 gia' MERGED).
-      #  • nessuna PR + CLI FAILED  → non-delivery reale (budget esaurito senza PR,
-      #    oppure branch pushato ma PR mai aperta) → RED (segnale preservato per
-      #    loop-health-report + followup-drainer). NON mascherato: il run non ha
-      #    consegnato una PR.
-      #  • nessuna PR + CLI SUCCESS → terminale pulito (capability-guard / overlap
-      #    / already-fixed / no-root-cause: l'agent ha deciso di NON aprire PR) →
-      #    GREEN, comportamento invariato vs oggi.
-      # I fail infra a monte (npm ci, setup, pre-flight) restano RED da soli:
-      # quegli step non hanno continue-on-error. Nessun gate abbassato: la PR
-      # passa comunque dal reviewer (cfr. #2514 / #2288 — disambigua intenzionale
-      # vs crash, colore != gate).
+      # La classificazione distingue l'esito del workflow dall'evidenza di
+      # delivery. La policy condivisa del modulo rifiuta PR storiche, lookup
+      # non disponibili e conclusioni sconosciute; conserva invece no-op
+      # success, skipped intenzionali e cancellazioni senza promettere marker.
       - name: Classify outcome (work-done, not CLI exit)
         if: always() && steps.issue_snapshot.outputs.verified == 'true' && steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
@@ -1590,35 +1645,14 @@ jobs:
           ISSUE: ${{ github.event.issue.number }}
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
         run: |
-          set -uo pipefail
-          # PR aperta o gia' mergiata sul branch di questa issue (head esatto).
-          PR_STATE=$(gh pr list --head "fix/issue-$ISSUE" --state all --json number,state,createdAt \
-            --jq '[.[] | select(.state=="OPEN" or .state=="MERGED")] | sort_by(.createdAt) | last | .number // empty' 2>/dev/null || true)
-          echo "issue=$ISSUE pr(head fix/issue-$ISSUE, open|merged)=${PR_STATE:-<none>} action=$ACTION_OUTCOME"
-          if [ -n "${PR_STATE:-}" ]; then
-            echo "✓ PR #$PR_STATE esiste (open/merged) per la issue → run SUCCESS. Job verde anche se la CLI e' uscita '$ACTION_OUTCOME' (false-failure: lavoro consegnato)."
-            exit 0
-          fi
-          if [ "$ACTION_OUTCOME" = "failure" ]; then
-            # Quota esaurita (429): il job resta comunque RED — non e' un
-            # successo e non ha consegnato niente, quindi nessun falso-verde
-            # (Non-Negotiable #2, nessun error→warning). Cambia solo il MESSAGGIO:
-            # attribuire questi run al "fixer che non sa fixare" e' una
-            # misattribuzione che ha tenuto acceso l'allarme del tracker #1951 per
-            # ≥7 report senza che nessuno risalisse alla causa. Claude non ha
-            # eseguito (0 turni, $0): il recupero corretto e' aspettare la
-            # finestra, non ri-tentare — e lo fa il marker `rate-limited` emesso
-            # dallo step precedente, letto da followup-drainer.mjs.
-            RL=$(gh issue view "$ISSUE" --json comments \
-              --jq '[.comments[].body | select(test("<!-- FIX_OUTCOME: rate-limited -->"))] | length' 2>/dev/null || echo 0)
-            if [ "${RL:-0}" != "0" ]; then
-              echo "::error::issue-fix #$ISSUE: run terminata su QUOTA Claude esaurita (HTTP 429) al primo turno — l'agent non ha letto la issue (0 turni, costo 0). Non e' un fallimento di diagnosi/fix: la issue e' stata ri-accodata SENZA consumare un tentativo e il drainer sospende le promozioni fino al reset. Job RED perche' nessuna PR e' stata consegnata (nessun falso-verde)."
-              exit 1
-            fi
-            echo "::error::issue-fix #$ISSUE: nessuna PR aperta/mergiata e la CLI e' fallita ('$ACTION_OUTCOME') → non-delivery reale. Job RED (segnale preservato per loop-health + drainer)."
-            exit 1
-          fi
-          echo "Nessuna PR ma la CLI e' uscita pulita ('$ACTION_OUTCOME') → terminale legittimo (blocked/already-fixed/no-root-cause). Job verde."
+          set +e
+          node "$GITHUB_WORKSPACE/scripts/ci/lib/pr-delivery-evidence.mjs" classify \
+            --evidence "${PR_DELIVERY_EVIDENCE_FILE:-}" \
+            --action-outcome "${ACTION_OUTCOME:-}" \
+            --issue "$ISSUE"
+          status=$?
+          set -e
+          exit "$status"
 
       - name: Release in-progress claim (zero-Claude, mutex)
         # Symmetric to the claim step above: runs on EVERY terminal path (success,

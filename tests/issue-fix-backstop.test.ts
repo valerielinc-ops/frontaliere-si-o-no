@@ -414,13 +414,16 @@ describe('issue-fix F1/F7 policy gate', () => {
 describe('issue-fix FIX_OUTCOME backstop', () => {
   it('non lascia che un marker storico sopprima il run corrente', () => {
     expect(workflow).toMatch(/permissions:\n(?:  .*\n)*  actions: read\n/);
-    expect(workflow).toContain('RUN_STARTED_AT=$(gh api "repos/$REPO/actions/runs/$GITHUB_RUN_ID"');
-    expect(workflow).toContain("--jq '.run_started_at // .created_at'");
+    expect(workflow).toContain('PR_DELIVERY_BASELINE_FILE=$delivery_baseline');
+    expect(workflow).toContain("RUN_STARTED_AT=$(jq -er '.runStartedAt // empty' \"$baseline_file\"");
     expect(workflow).toContain('--arg started "$RUN_STARTED_AT"');
     expect(workflow).toContain('.createdAt // "") >= $started');
     expect(workflow).toMatch(
-      /RUN_STARTED_AT non disponibile: backstop non emesso\.[\s\S]*?\n\s+exit 0\n\s+fi/,
+      /RUN_STARTED_AT non verificabile dal baseline: backstop non emesso\.[\s\S]*?\n\s+exit 0\n\s+fi/,
     );
+    expect(workflow).toContain('lookup commenti issue non disponibile: backstop non emesso.');
+    expect(workflow).toContain('delivery=$DELIVERY_STATUS: backstop non emesso.');
+    expect(workflow).toContain('jq -r --arg started "$RUN_STARTED_AT"');
     expect(workflow).not.toContain(
       '--jq \'[.comments[].body | select(test("<!-- FIX_OUTCOME:"))] | length\'',
     );
@@ -436,17 +439,57 @@ describe('issue-fix PR delivery verification', () => {
     expect(start).toBeGreaterThan(-1);
     expect(workflow).toContain('PR_BODY_GATE_STATUS_FILE=$status_file');
     expect(workflow).toContain('PR_BODY_GATE_BASELINE_FILE=$baseline_file');
+    expect(workflow).toContain('PR_DELIVERY_BASELINE_FILE=$delivery_baseline');
     expect(verificationStep).toContain('status_file="${PR_BODY_GATE_STATUS_FILE:-}"');
-    expect(verificationStep).toContain('baseline_file="${PR_BODY_GATE_BASELINE_FILE:-}"');
+    expect(verificationStep).toContain('evidence_file="${PR_DELIVERY_EVIDENCE_FILE:-}"');
     expect(verificationStep).toContain('ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}');
     expect(verificationStep).toContain('action_outcome');
     expect(verificationStep).toContain('grep -Fxq \'best-effort-failed\' "$status_file"');
-    expect(verificationStep).toContain('grep -Fxq "$candidate" "$baseline_file"');
-    expect(verificationStep).toContain('gh pr list --repo "$REPO" --head "$BRANCH" --state all');
+    expect(verificationStep).toContain('jq -e \'select(.status == "verified-delivery")\' "$evidence_file"');
+    expect(verificationStep).not.toContain('gh pr list --repo "$REPO" --head "$BRANCH" --state all');
     expect(verificationStep).toContain('echo "::error::gh-pr-body-check ha registrato');
     expect(verificationStep).toContain('exit 1');
     expect(verificationStep).not.toContain('continue-on-error: true');
     expect(end).toBeGreaterThan(start);
     expect(workflow.indexOf('Classify outcome (work-done, not CLI exit)')).toBeGreaterThan(end);
+  });
+
+  it('lega baseline, snapshot e classify allo stesso helper tri-state', () => {
+    expect(workflow).toContain('pr-delivery-evidence.mjs" capture');
+    expect(workflow).toContain('--run-attempt "$GITHUB_RUN_ATTEMPT"');
+    expect(workflow).toContain('--legacy-output "$baseline_file"');
+    expect(workflow).toContain('pr-delivery-evidence.mjs" evaluate');
+    expect(workflow).toContain('pr-delivery-evidence.mjs" classify');
+    expect(workflow).toContain('pr-delivery-baseline-${GITHUB_RUN_ID}-${GITHUB_RUN_ATTEMPT}.json');
+
+    const classifyStart = workflow.indexOf('- name: Classify outcome (work-done, not CLI exit)');
+    const releaseStart = workflow.indexOf('- name: Release in-progress claim', classifyStart);
+    const classifyStep = workflow.slice(classifyStart, releaseStart);
+    expect(classifyStep).not.toContain('gh pr list');
+    expect(classifyStep).not.toContain('gh issue view');
+    expect(classifyStep).not.toContain('FIX_OUTCOME: rate-limited');
+    expect(classifyStep).toContain('--evidence "${PR_DELIVERY_EVIDENCE_FILE:-}"');
+
+    const provenanceStart = workflow.indexOf('- name: Mark autonomous PR provenance (zero-Claude)');
+    const backstopStart = workflow.indexOf('- name: Emit FIX_OUTCOME telemetry (deterministic backstop)', provenanceStart);
+    const provenanceStep = workflow.slice(provenanceStart, backstopStart);
+    expect(provenanceStep).toContain('PR_DELIVERY_EVIDENCE_FILE');
+    expect(provenanceStep).toContain('verified-delivery');
+    expect(provenanceStep).not.toContain('gh pr list');
+    expect(provenanceStep).not.toContain('sort_by(.createdAt)');
+  });
+
+  it('non forza marker su skipped/cancelled e non collassa lookup failure in lista vuota', () => {
+    const backstopStart = workflow.indexOf('- name: Emit FIX_OUTCOME telemetry (deterministic backstop)');
+    const classifyStart = workflow.indexOf('- name: Classify outcome (work-done, not CLI exit)', backstopStart);
+    const backstop = workflow.slice(backstopStart, classifyStart);
+    expect(backstop).toContain('[ "$action_outcome" = "skipped" ]');
+    expect(backstop).toContain('[ "$action_outcome" = "cancelled" ]');
+    expect(backstop).toContain('lookup commenti issue non disponibile: backstop non emesso.');
+    expect(backstop).not.toContain('|| echo \'{"comments":[]}\'');
+    expect(backstop).not.toContain('pr list --head');
+    expect(backstop).toContain('verified-delivery');
+    expect(backstop).toContain('verified-none');
+    expect(backstop).toContain('delivery=$DELIVERY_STATUS: backstop non emesso.');
   });
 });
