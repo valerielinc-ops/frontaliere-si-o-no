@@ -20,6 +20,7 @@ on:
 
 permissions:
   actions: write
+  contents: read
   pull-requests: write
   issues: write
 
@@ -41,9 +42,40 @@ jobs:
     if: github.event_name == 'workflow_run' || github.event_name == 'schedule' || github.event.changes.body != null
     runs-on: ubuntu-latest
     steps:
+      # This recovery is pull_request_target/schedule code, but the default
+      # GITHUB_TOKEN is intentionally unable to disable native auto-merge for
+      # this repository (run 35489008488: Resource not accessible by
+      # integration). Keep the capability bootstrap API-only: checkout only
+      # these helpers from the protected main ref, never the PR tree.
+      - name: Checkout trusted App-token minter from main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          path: .trusted-main
+          fetch-depth: 1
+          persist-credentials: false
+          sparse-checkout: |
+            scripts/ci/mint-app-token.mjs
+            scripts/lib/githubApiHeaders.mjs
+            functions/src/githubApiHeaders.js
+          sparse-checkout-cone-mode: false
+
+      - name: Mint trusted App token for native auto-merge recovery
+        id: mint_recovery_token
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node .trusted-main/scripts/ci/mint-app-token.mjs
+
       - name: Retry a failed body or review gate on the current head
         uses: actions/github-script@v8
         with:
+          # APP_TOKEN is written by the trusted-main minter through
+          # GITHUB_ENV. The repository token remains a read/marker fallback;
+          # the inline script refuses native mutation without APP_TOKEN/PAT.
+          github-token: ${{ env.APP_TOKEN || env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
           script: |
             const repo = context.repo;
             const PENDING_MARKER = '<!-- BODY_REVIEW_RECOVERY_PENDING:';
@@ -53,6 +85,8 @@ jobs:
             // repository owner's Remote Config PAT. No other human may create
             // or release a lease comment.
             const TRUSTED_AUTOMATION_USER_RE = /^valerielinc-ops$/iu;
+            const trustedMutationToken = () => String(process.env.APP_TOKEN || process.env.GITHUB_PAT || '').trim();
+            const nativeRevokeCapabilityAvailable = () => trustedMutationToken().length > 0;
             const trustedAutomationAuthor = (user) => (user?.type === 'Bot'
               && TRUSTED_AUTOMATION_BOT_RE.test(String(user.login || '')))
               || (user?.type === 'User'
@@ -372,17 +406,36 @@ jobs:
               const number = context.payload.pull_request.number;
               const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
               if (pr.state !== 'open' || pr.base?.ref !== 'main' || pr.head.sha !== context.payload.pull_request.head.sha) return;
+              const existing = await pendingComment(number);
+              const bodyRevision = BODY_REVISION(pr.body);
+              if (!nativeRevokeCapabilityAvailable()) {
+                await persistMarker(number, {
+                  version: 1, status: 'manual', prNumber: number, runId: null,
+                  runAttempt: null, headSha: pr.head.sha, bodyRevision,
+                  sourceEvent: 'native-revoke-token-unavailable',
+                }, existing);
+                core.warning(`Native auto-merge non revocabile per PR #${number}: capability App/PAT assente; checkpoint durevole, nessun retry cieco.`);
+                return;
+              }
               // Revoke first. A body revision must never leave an old native
               // opt-in active while this recovery writes its marker/retries.
-              await revokeNativeAutoMerge(number);
-              // Never release the durable lease before the native opt-in is
-              // confirmed revoked. If comment publication fails afterwards,
-              // the stale lease is safer than an active stale auto-merge.
-              await releaseNativeAutoMergeLease(number, pr);
+              try {
+                await revokeNativeAutoMerge(number);
+                // Never release the durable lease before the native opt-in is
+                // confirmed revoked. If comment publication fails afterwards,
+                // the stale lease is safer than an active stale auto-merge.
+                await releaseNativeAutoMergeLease(number, pr);
+              } catch (error) {
+                await persistMarker(number, {
+                  version: 1, status: 'manual', prNumber: number, runId: null,
+                  runAttempt: null, headSha: pr.head.sha, bodyRevision,
+                  sourceEvent: 'native-revoke-failed',
+                }, existing);
+                core.warning(`Native auto-merge non revocabile per PR #${number}: ${String(error)}; checkpoint durevole, nessun retry cieco.`);
+                return;
+              }
               const latest = await runForHead(pr.head.sha, number);
-              const existing = await pendingComment(number);
               if (!latest) {
-                const bodyRevision = BODY_REVISION(pr.body);
                 // Never dispatch the trusted tests workflow against a fork
                 // SHA: a trusted-workflow dispatch would execute PR-controlled code with
                 // this job's write/id-token secrets. Leave a durable manual
@@ -504,10 +557,23 @@ jobs:
                 const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
                 if (pr.state !== 'open' || pr.base?.ref !== 'main' || !pr.head?.sha) continue;
                 const existing = await pendingComment(number);
+                const sourceEvent = existing?.state?.sourceEvent;
+                const nativeRevokeRequired = ['native-revoke-token-unavailable', 'native-revoke-failed'].includes(sourceEvent);
                 if (!existing?.state || existing.state.status !== 'manual'
-                    || !['rerun-ambiguous', 'no-existing-pull-request-run'].includes(existing.state.sourceEvent)) continue;
+                    || (!nativeRevokeRequired
+                      && !['rerun-ambiguous', 'no-existing-pull-request-run'].includes(sourceEvent))) continue;
                 if (existing.state.headSha !== pr.head.sha
                     || existing.state.bodyRevision !== BODY_REVISION(pr.body)) continue;
+                if (nativeRevokeRequired) {
+                  if (!nativeRevokeCapabilityAvailable()) continue;
+                  try {
+                    await revokeNativeAutoMerge(number);
+                    await releaseNativeAutoMergeLease(number, pr);
+                  } catch (error) {
+                    core.warning(`Native auto-merge ancora non revocabile per PR #${number}: ${String(error)}; checkpoint manuale conservato.`);
+                    continue;
+                  }
+                }
                 const latest = await runForHead(pr.head.sha, number);
                 if (!latest) continue;
                 const observedAttempt = validRunAttempt(latest.run_attempt);
@@ -539,7 +605,9 @@ jobs:
                   continue;
                 }
                 try {
-                  await retryCompletedRun(number, pr, latest, existing, 'scheduled reconciliation of ambiguous rerun');
+                  await retryCompletedRun(number, pr, latest, existing,
+                    nativeRevokeRequired ? 'scheduled reconciliation after trusted native revoke'
+                      : 'scheduled reconciliation of ambiguous rerun');
                 } catch (error) {
                   core.warning(`Riconciliazione rerun ambigua fallita per PR #${number}: ${String(error)}`);
                 }
