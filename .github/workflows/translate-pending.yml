@@ -106,6 +106,28 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
+      - name: Restore per-company translation cache
+        id: translation_cache_restore
+        uses: actions/cache/restore@v5
+        with:
+          path: data/translation-cache
+          key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: translation-cache-v1-translate-pending-
+
+      - name: Prepare per-company translation cache
+        if: always()
+        env:
+          TRANSLATION_CACHE_MATCHED_KEY: ${{ steps.translation_cache_restore.outputs.cache-matched-key }}
+        run: |
+          mkdir -p data/translation-cache
+          if [ -n "$TRANSLATION_CACHE_MATCHED_KEY" ]; then
+            echo "✅ Per-company translation cache restored: $TRANSLATION_CACHE_MATCHED_KEY"
+            echo "translation-cache: hit ($TRANSLATION_CACHE_MATCHED_KEY)" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "ℹ️ Per-company translation cache miss; translations will repopulate it."
+            echo "translation-cache: miss" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
       # Cache the local Opus-MT ONNX weights (~50-80MB/q8 model, 6 models for the
       # IT/EN/DE/FR directions). First run downloads from the HF CDN once (~minutes,
       # one-time); cached runs reuse them so the in-cascade local tier pays no
@@ -440,7 +462,7 @@ jobs:
 
       - name: Commit translations
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
-        run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json
 
       # ── Phase 2d: Fix source-copy titles (daily 07:00 only) ──────────────
       # Only runs on the daily cron — no point retrying the same 30 failed titles
@@ -469,6 +491,14 @@ jobs:
       - name: Commit slug regeneration
         if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
         run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
+
+      - name: Save per-company translation cache
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: data/translation-cache
+          key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
 
       # ── Phase 4: Validate + Deploy ──────────────────────────────────────
       - name: Trigger deploy

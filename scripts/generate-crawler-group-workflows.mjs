@@ -174,6 +174,62 @@ function saveCrawlerAiCacheStep(groupName) {
   };
 }
 
+// Per-company translation responses are runtime-only and must not travel
+// through the crawler's git commit path. Keep one immutable Actions-cache
+// namespace per crawler group so sibling jobs share the restored directory
+// without colliding with another group; a miss only costs retranslation.
+const TRANSLATION_CACHE_PATH = 'data/translation-cache';
+function translationCacheKey(cacheNamespace) {
+  return `translation-cache-v1-${cacheNamespace}-\${{ github.run_id }}-\${{ github.run_attempt }}`;
+}
+
+function translationCacheRestoreStep(cacheNamespace) {
+  const keyPrefix = `translation-cache-v1-${cacheNamespace}`;
+  return {
+    name: 'Restore per-company translation cache',
+    id: 'translation_cache_restore',
+    uses: 'actions/cache/restore@v5',
+    with: {
+      path: TRANSLATION_CACHE_PATH,
+      key: translationCacheKey(cacheNamespace),
+      'restore-keys': `${keyPrefix}-`,
+    },
+  };
+}
+
+function translationCachePrepareStep() {
+  return {
+    name: 'Prepare per-company translation cache',
+    if: 'always()',
+    env: {
+      TRANSLATION_CACHE_MATCHED_KEY: '${{ steps.translation_cache_restore.outputs.cache-matched-key }}',
+    },
+    run: [
+      `mkdir -p ${TRANSLATION_CACHE_PATH}`,
+      'if [ -n "$TRANSLATION_CACHE_MATCHED_KEY" ]; then',
+      '  echo "✅ Per-company translation cache restored: $TRANSLATION_CACHE_MATCHED_KEY"',
+      '  echo "translation-cache: hit ($TRANSLATION_CACHE_MATCHED_KEY)" >> "$GITHUB_STEP_SUMMARY"',
+      'else',
+      '  echo "ℹ️ Per-company translation cache miss; translations will repopulate it."',
+      '  echo "translation-cache: miss" >> "$GITHUB_STEP_SUMMARY"',
+      'fi',
+    ].join('\n'),
+  };
+}
+
+function translationCacheSaveStep(ifExpression, cacheNamespace) {
+  return {
+    name: 'Save per-company translation cache',
+    if: ifExpression,
+    'continue-on-error': true,
+    uses: 'actions/cache/save@v5',
+    with: {
+      path: TRANSLATION_CACHE_PATH,
+      key: translationCacheKey(cacheNamespace),
+    },
+  };
+}
+
 function normalizeCrawlerInputReferences(value) {
   return typeof value === 'string'
     ? value
@@ -236,6 +292,7 @@ const CRAWLER_STEP_ID_OVERRIDES = Object.freeze({
 const CROSS_REPO_SAFE_EXCLUDED_BUCKETS = new Set([
   'public/images/',
   'data/seo-404-compat/',
+  'data/translation-cache/',
   'packages/articles/content/',
   'docs/',
   'public/data/',
@@ -1508,6 +1565,12 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
     run: needsIgnoreScripts ? 'npm ci --ignore-scripts' : 'npm ci',
   });
 
+  // Translation cache files are runtime-only. Restore the latest immutable
+  // archive after dependencies and publish this run's hydrated directory
+  // after the group has finished; a miss only costs translation work.
+  steps.push(translationCacheRestoreStep(groupName));
+  steps.push(translationCachePrepareStep());
+
   if (needsPlaywright) {
     steps.push({
       name: 'Install Playwright browsers',
@@ -1665,6 +1728,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
     ].join('\n'),
   });
   steps.push(saveCrawlerAiCacheStep(groupName));
+  steps.push(translationCacheSaveStep("always() && steps.crawler_group_setup.outcome == 'success'", groupName));
   steps.push(codexAuthBrokerCleanupStep());
   steps.push(...crawlerGenerationTerminalSteps(groupIndex, crawlerGenerationMembers(group)));
   steps.push({

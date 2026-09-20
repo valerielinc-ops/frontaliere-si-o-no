@@ -1883,8 +1883,10 @@ export function hardenJobLocaleFields({ dataJobsPath }) {
 
 // ── Translation Cache (FRO-324) ──────────────────────────────────────────
 // Avoids re-translating jobs whose title+description haven't changed.
-// Cache lives in data/translation-cache/{companySlug}.json.
-// TTL: 30 days — after that, force re-translation.
+// Cache lives in data/translation-cache/{companySlug}.json at runtime. The
+// directory is intentionally ignored by git and hydrated by the GitHub Actions
+// cache; a cold cache is safe and only causes the affected jobs to be translated
+// again. TTL: 30 days — after that, force re-translation.
 const TRANSLATION_CACHE_DIR = path.resolve(import.meta.dirname || path.dirname(new URL(import.meta.url).pathname), '..', '..', 'data', 'translation-cache');
 const TRANSLATION_CACHE_TTL_MS = 30 * 24 * 60 * 60 * 1000; // 30 days
 

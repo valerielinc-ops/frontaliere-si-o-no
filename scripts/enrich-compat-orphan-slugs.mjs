@@ -86,6 +86,10 @@ function readJson(p, fallback = null) {
 function loadCache() {
   const map = new Map();
   const keys = [];
+  // The per-company cache is runtime-only after #6382. A fresh checkout or a
+  // cache miss is valid: orphan enrichment simply has no historical entries
+  // to reuse in that run.
+  if (!fs.existsSync(CACHE_DIR)) return { map, keys };
   for (const f of fs.readdirSync(CACHE_DIR)) {
     if (!f.endsWith('.json')) continue;
     const data = readJson(path.join(CACHE_DIR, f), {});

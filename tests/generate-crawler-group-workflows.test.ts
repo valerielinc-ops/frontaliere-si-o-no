@@ -280,6 +280,44 @@ describe('generate() — shared install step reflects per-crawler prep requireme
       expect(installStep.run).toBe('npm ci');
     }
   });
+
+  it('hydrates and saves the runtime-only per-company translation cache around every group', () => {
+    const crawlers = Array.from({ length: CRAWLER_COUNT }, (_, i) => baseCrawler(`cache-${i}`));
+    writeManifestAndBaseline(crawlers);
+
+    const results = generate({ manifestPath, baselinePath, outDir, write: false });
+    for (const result of results) {
+      const cacheNamespace = result.fileName.replace(/\.yml$/, '');
+      const doc = YAML.parse(result.content);
+      const job = doc.jobs[Object.keys(doc.jobs)[0]];
+      const restore = job.steps.find((step) => step.id === 'translation_cache_restore');
+      expect(restore).toMatchObject({
+        name: 'Restore per-company translation cache',
+        uses: 'actions/cache/restore@v5',
+        with: {
+          path: 'data/translation-cache',
+          key: `translation-cache-v1-${cacheNamespace}-\${{ github.run_id }}-\${{ github.run_attempt }}`,
+          'restore-keys': `translation-cache-v1-${cacheNamespace}-`,
+        },
+      });
+      expect(job.steps.find((step) => step.name === 'Prepare per-company translation cache'))
+        .toMatchObject({ if: 'always()' });
+      const commitIndex = job.steps.findIndex((step) => step.name === 'Commit crawler group data atomically');
+      const saveIndex = job.steps.findIndex((step) => step.name === 'Save per-company translation cache');
+      const cleanupIndex = job.steps.findIndex((step) => step.name === 'Cleanup Codex auth broker');
+      expect(saveIndex).toBeGreaterThan(commitIndex);
+      expect(saveIndex).toBeLessThan(cleanupIndex);
+      expect(job.steps[saveIndex]).toMatchObject({
+        if: "always() && steps.crawler_group_setup.outcome == 'success'",
+        'continue-on-error': true,
+        uses: 'actions/cache/save@v5',
+        with: {
+          path: 'data/translation-cache',
+          key: `translation-cache-v1-${cacheNamespace}-\${{ github.run_id }}-\${{ github.run_attempt }}`,
+        },
+      });
+    }
+  });
 });
 
 describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 fix)', () => {
@@ -1612,11 +1650,13 @@ describe('cross-repo crawler execution artifacts', () => {
     fs.writeFileSync(bucketsPath, JSON.stringify({
       buckets: [
         { id: 'public/images/', mb: 4_409 },
+        { id: 'data/translation-cache/', mb: 190 },
         { id: 'data/future-crawler-input/', mb: 900 },
       ],
     }));
     const patterns = crossRepoCrawlerSparsePatterns({ bucketsPath });
     expect(patterns).toContain('!/public/images/');
+    expect(patterns).toContain('!/data/translation-cache/');
     expect(patterns).not.toContain('!/data/future-crawler-input/');
   });
 

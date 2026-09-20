@@ -185,6 +185,61 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
     }
   });
 
+  it('does not publish a runtime-only per-company translation cache from a slice commit', () => {
+    const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
+    const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
+
+    try {
+      execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
+      execFileSync('git', ['clone', '-q', originDir, repoDir]);
+      execFileSync('git', ['config', 'user.email', 'test@example.com'], { cwd: repoDir });
+      execFileSync('git', ['config', 'user.name', 'Test'], { cwd: repoDir });
+
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[]\n');
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), '[{"id":"a1"}]\n');
+      mkdirSync(join(repoDir, 'data/translation-cache'), { recursive: true });
+      writeFileSync(join(repoDir, 'data/translation-cache/a.json'), '{"cache":"runtime"}\n');
+
+      execFileSync(BASH_BIN, [SCRIPT_PATH, '--slice-only', 'slice with runtime cache'], {
+        cwd: repoDir,
+        env: {
+          ...process.env,
+          JOBS_SLICE_FILE: 'data/jobs/by-crawler/a.json',
+          SKIP_AI_TRANSLATION: '1',
+          SLUG_HISTORY_SUMMARY_FILE: join(repoDir, 'no-such-slug-history-summary.txt'),
+          GH_TOKEN: '',
+          GITHUB_TOKEN: '',
+          GITHUB_RUN_ID: '',
+          GITHUB_REPOSITORY: '',
+          GITHUB_OUTPUT: '',
+        },
+      });
+
+      const committedFiles = execFileSync(
+        'git',
+        ['show', '--stat', '--format=', 'origin/main'],
+        { cwd: repoDir, encoding: 'utf-8' },
+      );
+      expect(committedFiles).toContain('a.json');
+      expect(committedFiles).not.toContain('translation-cache');
+      expect(() => execFileSync(
+        'git',
+        ['cat-file', '-e', 'origin/main:data/translation-cache/a.json'],
+        { cwd: repoDir, stdio: 'pipe' },
+      )).toThrow();
+      expect(execFileSync('git', ['status', '--short'], { cwd: repoDir, encoding: 'utf-8' }))
+        .toContain('?? data/translation-cache/');
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
   it('falls back to directory-wide staging when JOBS_SLICE_FILE is unset (e.g. translate-pending.yml)', () => {
     const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
     const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
@@ -328,14 +383,14 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
         ['cat-file', '-e', 'origin/main:data/jobs/by-crawler/retired.json'],
         { cwd: repoDir, stdio: 'pipe' },
       )).toThrow();
-      // The retirement guard is deliberately limited to active/expired job
-      // slices. Non-slice consumers retain their pre-existing merge behavior
-      // instead of inheriting an unreviewed global delete-wins policy.
-      expect(execFileSync(
+      // Translation-cache files are runtime-only now, so the sequential
+      // writer no longer republishes a local cache file after its remote
+      // retirement. The job-slice retirement guard remains unchanged.
+      expect(() => execFileSync(
         'git',
-        ['show', 'origin/main:data/translation-cache/retired.json'],
-        { cwd: repoDir, encoding: 'utf8' },
-      )).toContain('stale');
+        ['cat-file', '-e', 'origin/main:data/translation-cache/retired.json'],
+        { cwd: repoDir, stdio: 'pipe' },
+      )).toThrow();
 
       // A writer starting only after retirement has no base blob. Registry
       // absence must still distinguish the retired path from a genuine new,
@@ -545,7 +600,7 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
     const originDir = mkdtempSync(join(tmpdir(), 'git-commit-data-origin-'));
     const repoDir = mkdtempSync(join(tmpdir(), 'git-commit-data-repo-'));
     const concurrentDir = mkdtempSync(join(tmpdir(), 'git-commit-data-concurrent-'));
-    const COMPANION_PATH = 'data/translation-cache/companion.json';
+    const COMPANION_PATH = 'data/jobs-crawler-summaries/by-crawler/companion.json';
 
     try {
       execFileSync('git', ['init', '-q', '--bare', '--initial-branch=main', originDir]);
@@ -556,7 +611,6 @@ describe('git-commit-data.sh --slice-only scoping via JOBS_SLICE_FILE', () => {
       mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
       mkdirSync(join(repoDir, 'data/jobs/expired/by-crawler'), { recursive: true });
       mkdirSync(join(repoDir, 'data/jobs-crawler-summaries/by-crawler'), { recursive: true });
-      mkdirSync(join(repoDir, 'data/translation-cache'), { recursive: true });
       writeFileSync(join(repoDir, REGISTERED_SLICE_PATH), '[]\n');
       writeFileSync(join(repoDir, 'data/jobs/expired/by-crawler/.gitkeep'), '');
       writeFileSync(join(repoDir, 'data/jobs-crawler-summaries/by-crawler/.gitkeep'), '');
