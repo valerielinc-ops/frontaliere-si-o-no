@@ -47,6 +47,55 @@ function trackedMatching(pattern: string): string[] {
   return out.split('\n').filter((line) => line.trim() !== '');
 }
 
+/**
+ * I file sotto `data/`/`public/data/` che una riga di codice IMPORTA davvero.
+ * Si legge dal sorgente, non da un elenco scritto a mano, perche' l'elenco
+ * scritto a mano e' esattamente cio' che va a male in silenzio. E' anche il
+ * criterio che usa `scripts/ci/run-related-tests.mjs` per scegliere i test:
+ * un grafo di import statici, non le menzioni.
+ */
+function staticallyImportedDataFiles(): Set<string> {
+  const pattern = String.raw`from '[^']*(public/)?data/[^']*\.(json|jsonl)'`;
+  const out = grep(['-hoE', pattern, '--', '*.ts', '*.tsx', '*.mjs', '*.js']);
+  const files = new Set<string>();
+  for (const line of out) {
+    // Le righe di commento citano gli import per spiegare perche' NON si fanno
+    // (`// NOT a static import … from '@/data/job-popularity.json'`): contarle
+    // renderebbe il controllo inservibile con due falsi positivi.
+    if (/^\s*(\/\/|\*|"\/\/)/u.test(line)) continue;
+    const match = /((?:public\/)?data\/[^']*\.(?:json|jsonl))'$/u.exec(line.trim());
+    if (match) files.add(match[1]);
+  }
+  return files;
+}
+
+/**
+ * I file di `data/` che un test apre dal DISCO per path assoluto o relativo al
+ * repo. Non sono selezionati dal grafo di import, quindi `tests.yml` su un push
+ * di soli dati non li girerebbe comunque — ma ignorare il file li toglierebbe
+ * da `main` per sempre, ed e' una porta che questa PR non vuole chiudere.
+ * Le letture dentro un repo temporaneo (`join(repoDir, 'data/...')`) non
+ * contano: sono fixture, non l'albero vero.
+ */
+function diskReadDataFiles(): Set<string> {
+  const pattern = String.raw`(readFileSync|readFile|existsSync|readdirSync)\([^)]*(path\.resolve|__dirname|'data/)[^)]*data/[^']*\.(json|jsonl)`;
+  const out = grep(['-hoE', pattern, '--', 'tests/']);
+  const files = new Set<string>();
+  for (const line of out) {
+    for (const match of line.matchAll(/(data\/[^']*\.(?:json|jsonl))/gu)) files.add(match[1]);
+  }
+  return files;
+}
+
+function grep(args: string[]): string[] {
+  try {
+    return execFileSync('git', ['grep', ...args], { cwd: ROOT, encoding: 'utf8' })
+      .split('\n').filter((line) => line.trim() !== '');
+  } catch {
+    return []; // `git grep` esce 1 quando non trova niente.
+  }
+}
+
 describe('tests.yml — filtro di path sui push a main', () => {
   it('dichiara un `paths-ignore` sul push a main e lascia intatti PR e merge queue', () => {
     expect(Array.isArray(IGNORED)).toBe(true);
@@ -69,6 +118,37 @@ describe('tests.yml — filtro di path sui push a main', () => {
     }
   });
 
+  // IL controllo che rende sicuro il filtro, e quello che una lista per
+  // directory non avrebbe superato. `data/` non e' una cartella di soli
+  // payload: 37 dei suoi JSON sono importati STATICAMENTE da test e sorgenti,
+  // e 9 di quei 37 sono stati toccati dai commit di soli dati del 2026-09-19.
+  // Un `data/**/*.json` secco sembra prudente — esclude le estensioni di
+  // codice — ma spegnerebbe `tests/canton-registry-integrity.test.ts` proprio
+  // sul file che quel test legge. Il grafo si ricalcola qui a ogni run, quindi
+  // il giorno in cui qualcuno importa un file oggi ignorato, questo diventa
+  // rosso e l'elenco deve accorciarsi.
+  it('nessun file ignorato è importato staticamente da test o sorgenti', () => {
+    const imported = staticallyImportedDataFiles();
+    expect(imported.size, 'grafo di import vuoto: la misura non ha misurato niente')
+      .toBeGreaterThan(10);
+    // Prova che il rilevatore vede i casi reali, non un insieme a caso.
+    expect(imported).toContain('data/canton-url-slugs.json');
+    expect(imported).toContain('data/pharmacy-duties-ticino.json');
+    const swallowed = IGNORED
+      .flatMap(trackedMatching)
+      .filter((file) => imported.has(file));
+    expect(swallowed).toEqual([]);
+  });
+
+  it('nessun file ignorato è aperto dal disco da un test', () => {
+    const read = diskReadDataFiles();
+    expect(read, 'rilevatore delle letture da disco cieco').toContain('data/slug-registry.json');
+    const swallowed = IGNORED
+      .flatMap(trackedMatching)
+      .filter((file) => read.has(file));
+    expect(swallowed).toEqual([]);
+  });
+
   it('nessun file di codice tracciato finisce dentro un pattern ignorato', () => {
     const swallowed = IGNORED
       .flatMap(trackedMatching)
@@ -79,7 +159,7 @@ describe('tests.yml — filtro di path sui push a main', () => {
   it('il filtro copre davvero i payload che i cron riversano, non un insieme vuoto', () => {
     // Se un refactor spostasse i dati altrove, il filtro resterebbe formalmente
     // valido ma non salterebbe piu' niente: questo lo rende visibile.
-    expect(trackedMatching('data/**/*.json').length).toBeGreaterThan(100);
+    expect(IGNORED.flatMap(trackedMatching).length).toBeGreaterThan(100);
   });
 
   it('ogni path tolto a tests.yml resta coperto da guard-data-integrity.yml', () => {

@@ -29,30 +29,71 @@ on:
     # il required check vive sull'evento `pull_request` e sulla merge queue,
     # che questo filtro non tocca. Misurato il 2026-09-19 su 24 h: 288 run di
     # `tests` da push su main (45,6% delle 631 run del workflow), ~10,7 minuti
-    # l'una, e 198 dei 333 commit di quella giornata (59,5%) non toccano una
-    # riga di codice — sono i payload che i cron riversano in `data/`.
+    # l'una, e 198 dei 333 commit di quella giornata non toccano una riga di
+    # codice — sono i payload che i cron riversano in `data/`.
     #
     # `paths-ignore` salta SOLO quando TUTTI i path del push sono ignorati: un
     # push che mescola un refresh di dati e un file di codice gira comunque.
     #
-    # L'elenco e' per ESTENSIONE, non per directory, ed e' la parte che conta:
-    # `data/` contiene 32 moduli TypeScript veri (`data/authors.ts`,
-    # `data/faq-hub/**`, `data/blog-articles-data.ts`, ...), quindi un
-    # `data/**` secco avrebbe spento i test proprio sul codice. Nei 204 commit
-    # di soli dati della giornata i 1.438 file toccati sono tutti `.json`,
-    # `.jsonl` o `.xml`: zero file di codice.
+    # L'ELENCO E' ESPLICITO, e questa e' la parte che conta. `data/` non e' una
+    # cartella di soli payload: ci vivono 32 moduli TypeScript, e 37 dei suoi
+    # JSON sono importati STATICAMENTE da test e sorgenti — `canton-url-slugs`,
+    # `pharmacy-duties-ticino`, `border-wait-current`, `fuel-prices`... Un
+    # `data/**/*.json` secco sembrerebbe prudente perche' esclude le estensioni
+    # di codice, e invece spegnerebbe i test proprio sui file che quei test
+    # leggono: 9 di quei 37 sono stati toccati nei commit di soli dati della
+    # giornata misurata. Qui si ignorano soltanto le directory di churn e i file
+    # di radice che NESSUNA riga di codice importa, e
+    # `tests/tests-push-main-data-filter.test.ts` ricalcola a ogni run sia quel
+    # grafo di import sia i path che i test aprono dal disco: il giorno in cui
+    # qualcuno importa o legge uno di questi file, il test diventa rosso e
+    # l'elenco deve accorciarsi.
     #
-    # Nessun gate sui dati si indebolisce: `guard-data-integrity.yml` gira su
-    # push a main con `paths: ['data/**', 'public/data/**']`, cioe' copre per
-    # costruzione l'intero insieme ignorato qui, e `deploy.yml` continua a
-    # partire su questi stessi commit (la sua `paths-ignore` elenca solo una
-    # manciata di file di churn). `tests/tests-push-main-data-filter.test.ts`
-    # tiene insieme le due meta'.
+    # Chiusura misurata: 94 dei 333 commit (28,2%), zero file di codice dentro.
+    #
+    # Nessun gate sui dati si indebolisce: `guard-data-integrity.yml` gira sullo
+    # stesso push a main con `paths: ['data/**', 'public/data/**']`, nessun
+    # `paths-ignore` proprio e nessun `continue-on-error` — copre per
+    # costruzione l'intero insieme ignorato qui — e `deploy.yml` continua a
+    # partire su questi stessi commit.
     paths-ignore:
-      - 'data/**/*.json'
-      - 'data/**/*.jsonl'
-      - 'public/data/**/*.json'
-      - 'public/data/**/*.jsonl'
+      # Directory di churn dei cron.
+      - 'data/jobs/**/*.json'
+      - 'data/jobs-crawler-summaries/**/*.json'
+      - 'data/jobs-crawler-adapters/**/*.json'
+      - 'data/translation-cache/**/*.json'
+      - 'data/all-known-job-slugs/**/*.json'
+      - 'data/prospector/**/*.json'
+      - 'data/seo-404-compat/**/*.json'
+      - 'data/border-wait-history/**/*.json'
+      # File di radice riscritti dai cron, che nessuna riga di codice importa
+      # e nessun test legge dal disco. `data/slug-registry.json`,
+      # `data/job-popularity.json`, `data/job-popularity.meta.json`,
+      # `data/jobs-ai-cache.json` e `data/weather-snapshot.json` sono churn
+      # altrettanto rumoroso e sono deliberatamente FUORI: un test li apre per
+      # path, e ignorarli toglierebbe da `main` l'unico posto in cui quel
+      # controllo puo' ancora girare.
+      - 'data/cascade-company-skip.json'
+      - 'data/cf-5xx-history.jsonl'
+      - 'data/crawler-generation-ledger.jsonl'
+      - 'data/crawler-health.json'
+      - 'data/cron-dispatch-history.jsonl'
+      - 'data/dist-size-history.jsonl'
+      - 'data/job-canton-pins.json'
+      - 'data/jobs-keys-snapshot.json'
+      - 'data/jobs-stats-history.json'
+      - 'data/previous-slug-winners.json'
+      - 'data/quota-history.jsonl'
+      - 'data/quota-state.json'
+      - 'data/seo-health-state.json'
+      - 'data/telegram-member-count-history.jsonl'
+      - 'data/telegram-posted-jobs.json'
+      - 'data/thin-page-promotions-active.json'
+      - 'data/thin-page-promotions.jsonl'
+      - 'data/translation-observability-history.json'
+      - 'data/translation-observability-state.json'
+      - 'data/translation-stats-history.json'
+      - 'data/url-first-seen.json'
   # Required checks are evaluated on the merge queue ref, not on the PR event.
   merge_group:
 # Union of the three original workflows' `permissions:` (tests.yml itself had
