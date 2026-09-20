@@ -1684,6 +1684,25 @@ export class JobsSeoHtmlReuse {
           + (diagnostic.asset ? ` asset=${JSON.stringify(diagnostic.asset)}` : ''),
         );
       }
+      // Same evidence as a probe mismatch: with the new code this block does
+      // NOT render what the cache holds. Counting it and moving on would leave
+      // the verdict at `inherit`, the post-walk would skip `fallback=full`, and
+      // every OTHER page of the block would stay reused and be declared
+      // unchanged — only the verified page would land fresh on disk. The state
+      // is looked up, never created: no probe state means no verdict to spoil,
+      // and with the probe off there is nothing to invalidate at all.
+      const probeState = this.probe
+        ? this.probeStates.get(`${candidate.locale}\0${candidate.block}`)
+        : null;
+      if (probeState) {
+        this.invalidateProbe(
+          probeState,
+          candidate.block,
+          candidate.locale,
+          `verify-output-differs:${mismatchReason}`,
+          candidate.path,
+        );
+      }
     }
     if (!candidate.cacheable) return;
     this.persist(candidate, renderedHtml);
