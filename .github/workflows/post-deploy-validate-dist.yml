@@ -1583,7 +1583,7 @@ jobs:
           # audit:all is a bundle: expand its failed auditor names so the
           # default-deny classifier can distinguish quality from structure.
           # Missing marker stays opaque and therefore blocks publish.
-          if printf '%s' "$FAILED" | tr ',' '\n' | grep -qx 'audit:all'; then
+          if printf '%s' "$FAILED" | tr ',' '\n' | grep -x 'audit:all' >/dev/null; then
             SUBS="$(sed -n 's/^audit-all: failed-audits=//p' /tmp/g10.log | tail -n1)"
             if [ -n "${SUBS:-}" ]; then
               EXPANDED="$(printf '%s' "$SUBS" | tr ',' '\n' \

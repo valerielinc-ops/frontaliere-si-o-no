@@ -333,7 +333,7 @@ jobs:
           manifest=""
           for i in $(seq 1 12); do
             manifest="$(curl -s --max-time 20 "$base/manifest.json" || true)"
-            printf '%s' "$manifest" | grep -q '"total"' && break
+            grep -q '"total"' <<<"$manifest" && break
             echo "  attempt $i: manifest not ready"
             manifest=""
             sleep 10

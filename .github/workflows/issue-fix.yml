@@ -900,9 +900,9 @@ jobs:
             echo "$SECRETS_NOTE"
             echo "SECRETS_NOTE_EOF"
           } >> "$GITHUB_OUTPUT"
-          if echo "$body" | grep -qiE 'crawler|parser|build-plugin|\.github/workflows/|test gate|validator|migrator' \
-             || echo "$body" | grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)' \
-             || echo "$body" | grep -qiE 'seo-[a-z0-9]|audit-dist|validate-dist'; then
+          if grep -qiE 'crawler|parser|build-plugin|\.github/workflows/|test gate|validator|migrator' <<<"$body" \
+             || grep -qiE 'scripts/[a-z0-9_./-]*(backfill|migrate|assemble|sitemap|canonical|slug|structured-data|seo|index)' <<<"$body" \
+             || grep -qiE 'seo-[a-z0-9]|audit-dist|validate-dist' <<<"$body"; then
             {
               echo "tier=high"
               echo "model=gpt-5.6-luna"

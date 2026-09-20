@@ -133,7 +133,7 @@ jobs:
           pr_number="${PR_NUMBER:-}"
           # Un input a mano non è una prova: il gate rifiuta tutto ciò che non è
           # un numero di PR, e resta lui l'unico a decidere l'opt-in.
-          if ! printf '%s' "$pr_number" | grep -qE '^[0-9]+$'; then
+          if ! grep -qE '^[0-9]+$' <<<"$pr_number"; then
             echo "::error::pr_number non valido: serve il numero di una PR aperta su main."
             exit 1
           fi

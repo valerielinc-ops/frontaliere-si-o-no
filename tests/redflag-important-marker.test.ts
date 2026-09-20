@@ -275,13 +275,49 @@ describe.each([
   });
 });
 
+// I due guard sopra pinnano UNA riga per file. La trappola e' di classe: sotto
+// `bash -eo pipefail` QUALSIASI `printf|echo|cat | grep -q` puo' restituire 141
+// (128+SIGPIPE) quando grep -q esce al primo match prima che l'input sia stato
+// scritto tutto, quindi il chiamante legge un match valido come errore. Questo
+// guard copre l'intero file invece di una riga sola.
+describe.each([
+  'pr-redflag-fixer.yml',
+  'stale-pr-rescuer.yml',
+] as const)('%s — nessuna pipeline verso grep -q (SIGPIPE sotto pipefail)', (file) => {
+  const workflow = readFileSync(new URL(`../.github/workflows/${file}`, import.meta.url), 'utf8');
+
+  it('non usa printf/echo/cat in pipe verso grep -q', () => {
+    const offenders = workflow
+      .split('\n')
+      .map((line, index) => [index + 1, line] as const)
+      // I commenti citano la forma vietata per spiegare perche' e' vietata.
+      .filter(([, line]) => !/^\s*#/.test(line))
+      .filter(([, line]) => /\b(printf|echo|cat)\b[^|]*\|[^|]*\bgrep\b[^|]*\s-[A-Za-z]*q/.test(line))
+      .map(([lineNumber, line]) => `${file}:L${lineNumber}: ${line.trim()}`);
+
+    expect(
+      offenders,
+      'usa un here-string (<<<"$var") o una redirezione, non una pipeline verso grep -q',
+    ).toEqual([]);
+  });
+});
+
 describe('pr-redflag-fixer — preflight esplicito del supporto PCRE (#8015)', () => {
   const workflow = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
 
   function preflightBlock(): string {
-    const start = workflow.indexOf("          if printf '%s' '' | grep -qP '(*UTF)a'; then");
-    const end = workflow.indexOf('          if grep -qP ', start);
+    // Redirezione da /dev/null, non `printf | grep -q`: sotto `pipefail` lo stato
+    // della pipeline poteva venire dal SIGPIPE di printf e il preflight leggeva
+    // un exit != 1 come «grep -P rotto», uscendo 1 su un runner sano.
+    const start = workflow.indexOf("          if grep -qP '(*UTF)a' < /dev/null; then");
+    // Il marker guard e' l'ALTRO `grep -qP`, quello con la regex `(*UTF)^(?:`:
+    // cercarlo dal solo prefisso ritroverebbe la riga del preflight stesso.
+    const end = workflow.indexOf("          if grep -qP '(*UTF)^(?:", start);
     expect(start, 'pr-redflag-fixer PCRE preflight not found').toBeGreaterThanOrEqual(0);
+    expect(
+      workflow,
+      'pr-redflag-fixer PCRE preflight regressed to a SIGPIPE-prone pipeline',
+    ).not.toContain("printf '%s' '' | grep -qP");
     expect(end, 'pr-redflag-fixer marker guard not found after preflight').toBeGreaterThan(start);
     return workflow.slice(start, end);
   }

@@ -221,7 +221,7 @@ jobs:
           rc=$?
           set -e
           echo "$PUSH_LOG"
-          if echo "$PUSH_LOG" | grep -q '::warning::Failed to push after'; then
+          if grep -q '::warning::Failed to push after' <<<"$PUSH_LOG"; then
             echo "push_exhausted=true" >> "$GITHUB_OUTPUT"
           else
             echo "push_exhausted=false" >> "$GITHUB_OUTPUT"

@@ -155,7 +155,7 @@ jobs:
           # The patch must never touch the published surface. content/, engine/
           # and the root data files are what the live site consumes; this change
           # is confined to generator/ plus repo-level config.
-          if git status --porcelain -- content engine index.ts articleSections.ts | grep -q .; then
+          if git status --porcelain -- content engine index.ts articleSections.ts | grep . >/dev/null; then
             echo "::error::patch modified the published corpus — refusing to push"
             git status --porcelain -- content engine index.ts articleSections.ts
             exit 1

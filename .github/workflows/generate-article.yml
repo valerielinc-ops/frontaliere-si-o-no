@@ -696,7 +696,7 @@ jobs:
             # "Auto-generated blog article" message would misleadingly label
             # a state-only commit as an article publish.
             CHANGED_PATHS="$(git diff --cached --name-only)"
-            if ! echo "$CHANGED_PATHS" | grep -qE '^data/(blog|swiss)-articles-data\.ts$'; then
+            if ! grep -qE '^data/(blog|swiss)-articles-data\.ts$' <<<"$CHANGED_PATHS"; then
               git commit -m "chore(article-gen): update run-state tracker (nessun articolo questo run)"
             else
               git commit -m "📰 Auto-generated blog article"
