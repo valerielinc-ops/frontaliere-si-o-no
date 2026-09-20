@@ -30,6 +30,7 @@ export const PR_LIST_FIELDS = Object.freeze([
   'state',
   'headRefName',
   'headRefOid',
+  'headRepository',
   'createdAt',
   'updatedAt',
   'mergedAt',
@@ -70,10 +71,10 @@ function invalid(reason) {
 /**
  * Validate the minimum REST/gh PR record shape used by this contract.
  * @param {unknown} record
- * @param {{branch?: string}} [options]
+ * @param {{branch?: string, repo?: string}} [options]
  * @returns {{ok:true, record: object}|{ok:false, reason:string}}
  */
-export function normalizePrRecord(record, { branch } = {}) {
+export function normalizePrRecord(record, { branch, repo } = {}) {
   if (!record || typeof record !== 'object' || Array.isArray(record)) {
     return invalid('pr-record-not-object');
   }
@@ -81,6 +82,11 @@ export function normalizePrRecord(record, { branch } = {}) {
   const state = typeof record.state === 'string' ? record.state.toUpperCase() : '';
   const headRefName = identityText(record.headRefName);
   const headSha = identityText(record.headRefOid);
+  const headRepository = typeof record.headRepository === 'string'
+    ? identityText(record.headRepository)
+    : record.headRepository && typeof record.headRepository === 'object'
+      ? identityText(record.headRepository.nameWithOwner)
+      : null;
   const createdAt = canonicalTimestamp(record.createdAt);
   const updatedAt = canonicalTimestamp(record.updatedAt);
   const mergedAt = record.mergedAt == null ? null : canonicalTimestamp(record.mergedAt);
@@ -89,6 +95,8 @@ export function normalizePrRecord(record, { branch } = {}) {
   if (!PR_STATES.has(state)) return invalid('pr-state-invalid');
   if (!headRefName || (branch && headRefName !== branch)) return invalid('pr-head-invalid');
   if (!headSha) return invalid('pr-head-sha-invalid');
+  if (!headRepository) return invalid('pr-head-repository-invalid');
+  if (repo && headRepository !== repo) return invalid('pr-head-repository-mismatch');
   if (!createdAt || !updatedAt) return invalid('pr-timestamp-invalid');
   if (record.mergedAt != null && !mergedAt) return invalid('pr-merged-at-invalid');
   if (state === 'MERGED' && !mergedAt) return invalid('pr-merged-at-missing');
@@ -100,6 +108,7 @@ export function normalizePrRecord(record, { branch } = {}) {
       state,
       headRefName,
       headRefOid: headSha,
+      headRepository,
       createdAt,
       updatedAt,
       mergedAt,
@@ -115,6 +124,7 @@ export function normalizePrRecord(record, { branch } = {}) {
  */
 export function normalizePrList(records, {
   branch,
+  repo,
   limit = PR_LIST_LIMIT,
   truncated = false,
 } = {}) {
@@ -122,7 +132,7 @@ export function normalizePrList(records, {
   if (truncated || records.length >= limit) return invalid('pr-list-capped');
   const normalized = [];
   for (const record of records) {
-    const parsed = normalizePrRecord(record, { branch });
+    const parsed = normalizePrRecord(record, { branch, repo });
     if (!parsed.ok) return parsed;
     normalized.push(parsed.record);
   }
@@ -163,6 +173,7 @@ export function createDeliveryBaseline(input) {
   if (!context.ok) return context;
   const list = normalizePrList(input.prs, {
     branch: context.context.branch,
+    repo: context.context.repo,
     truncated: input.truncated === true,
   });
   if (!list.ok) return list;
@@ -200,7 +211,10 @@ export function validateDeliveryBaseline(baseline, context) {
   if (String(baseline.issue) !== String(expected.context.issue)) {
     return invalid('baseline-issue-mismatch');
   }
-  const list = normalizePrList(baseline.prs, { branch: expected.context.branch });
+  const list = normalizePrList(baseline.prs, {
+    branch: expected.context.branch,
+    repo: expected.context.repo,
+  });
   if (!list.ok) return list;
   return {
     ok: true,
@@ -225,6 +239,42 @@ function delivered(reason, record) {
     status: DELIVERY_STATUS.DELIVERED,
     reason,
     prNumber: record.number,
+  };
+}
+
+function unavailableEvidence(reason) {
+  return {
+    status: DELIVERY_STATUS.UNAVAILABLE,
+    reason,
+    prNumber: null,
+  };
+}
+
+/**
+ * Validate the sidecar boundary before it reaches workflow classification.
+ * A parseable object with an unknown/missing status is not a no-op: it is an
+ * unavailable proof and must fail closed for success/failure decisions.
+ * @param {unknown} value
+ */
+export function normalizeDeliveryEvidence(value) {
+  if (!value || typeof value !== 'object' || Array.isArray(value)) {
+    return unavailableEvidence('evidence-invalid');
+  }
+  const status = identityText(value.status);
+  if (!Object.values(DELIVERY_STATUS).includes(status)) {
+    return unavailableEvidence('evidence-status-invalid');
+  }
+  const prNumber = value.prNumber == null ? null : positiveInteger(value.prNumber);
+  if (value.prNumber != null && !prNumber) {
+    return unavailableEvidence('evidence-pr-number-invalid');
+  }
+  if (status === DELIVERY_STATUS.DELIVERED && !prNumber) {
+    return unavailableEvidence('evidence-pr-number-missing');
+  }
+  return {
+    status,
+    reason: identityText(value.reason) || null,
+    prNumber,
   };
 }
 
@@ -254,6 +304,7 @@ export function evaluatePrDelivery({
   }
   const current = normalizePrList(currentPrs, {
     branch: validBaseline.baseline.branch,
+    repo: validBaseline.baseline.repo,
     truncated: currentPrsComplete !== true,
   });
   if (!current.ok) {
@@ -327,7 +378,8 @@ export function evaluatePrDelivery({
  */
 export function classifyWorkflowOutcome({ actionOutcome, delivery } = {}) {
   const action = typeof actionOutcome === 'string' ? actionOutcome.toLowerCase() : '';
-  const evidence = delivery?.status;
+  const normalizedDelivery = normalizeDeliveryEvidence(delivery);
+  const evidence = normalizedDelivery.status;
   if (action === 'skipped') {
     return { classification: 'skipped', exitCode: 0, reason: 'intentional-or-preflight-skip' };
   }
@@ -336,22 +388,22 @@ export function classifyWorkflowOutcome({ actionOutcome, delivery } = {}) {
   }
   if (action === 'failure') {
     if (evidence === DELIVERY_STATUS.DELIVERED) {
-      return { classification: 'delivered-despite-failure', exitCode: 0, reason: delivery.reason };
+      return { classification: 'delivered-despite-failure', exitCode: 0, reason: normalizedDelivery.reason };
     }
     return {
       classification: evidence === DELIVERY_STATUS.UNAVAILABLE ? 'unknown' : 'non-delivery',
       exitCode: 1,
-      reason: delivery?.reason || 'no-current-delivery-evidence',
+      reason: normalizedDelivery.reason || 'no-current-delivery-evidence',
     };
   }
   if (action === 'success') {
     if (evidence === DELIVERY_STATUS.UNAVAILABLE) {
-      return { classification: 'unknown', exitCode: 1, reason: delivery.reason };
+      return { classification: 'unknown', exitCode: 1, reason: normalizedDelivery.reason };
     }
     return {
       classification: evidence === DELIVERY_STATUS.DELIVERED ? 'delivered' : 'legitimate-no-op',
       exitCode: 0,
-      reason: delivery?.reason || 'no-current-delivery-evidence',
+      reason: normalizedDelivery.reason || 'no-current-delivery-evidence',
     };
   }
   return { classification: 'unknown', exitCode: 1, reason: 'action-outcome-unclassifiable' };
@@ -487,9 +539,9 @@ function evaluate(args) {
 function readEvidence(file) {
   try {
     const value = JSON.parse(fs.readFileSync(file, 'utf8'));
-    return value && typeof value === 'object' ? value : { status: DELIVERY_STATUS.UNAVAILABLE, reason: 'evidence-invalid' };
+    return normalizeDeliveryEvidence(value);
   } catch {
-    return { status: DELIVERY_STATUS.UNAVAILABLE, reason: 'evidence-unreadable', prNumber: null };
+    return unavailableEvidence('evidence-unreadable');
   }
 }
 
