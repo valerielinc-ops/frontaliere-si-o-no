@@ -283,7 +283,10 @@ function buildTechnicalAuditRecords({ report, reportPath, policy, now }) {
     sourceSnapshot,
     observationWindow: observation.observationWindow,
     cohort: observation.cohort,
-    decision: quality === 'observed' ? 'observing' : 'candidate',
+    // An independent outcome must be attached to a candidate decision.  The
+    // candidate is the evidence lifecycle state here, not a defect verdict;
+    // a healthy inventory still keeps its `observe` action class.
+    decision: 'candidate',
     reason: summaryValid
       ? (quality === 'observed' ? 'workflow inventory is structurally healthy' : `${summary.error} errors and ${summary.warning} warnings require review`)
       : 'technical operations report is missing a trustworthy summary',
