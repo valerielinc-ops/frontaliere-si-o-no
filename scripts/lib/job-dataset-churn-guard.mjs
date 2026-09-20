@@ -1,7 +1,7 @@
 /**
  * Job dataset churn guard (#6702).
  *
- * `data/jobs-stats-history.json` records daily added/removed job counts, but
+ * The logical job stats history store records daily added/removed job counts, but
  * nothing ever compared a day against its own recent history: a host that
  * dumps +3.015 pages in one day and gets it reabsorbed 3 days later nets out
  * to ~zero on `totalJobs` and passes every existing check in silence
@@ -99,7 +99,7 @@ function detectStaleSnapshot(entries) {
 }
 
 /**
- * @param {object} history - parsed `data/jobs-stats-history.json`
+ * @param {object} history - parsed logical job stats history
  * @param {object} [options]
  * @param {number} [options.minBaselineDays]
  * @param {number} [options.stddevMultiplier]

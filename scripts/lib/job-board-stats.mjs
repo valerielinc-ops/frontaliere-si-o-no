@@ -23,8 +23,9 @@ const HISTORY_LIMIT = 180;
 const COMPACT_AFTER_DAYS = 30;
 const ZURICH_TIMEZONE = 'Europe/Zurich';
 
-// Retention / file-size ceiling — data/jobs-stats-history.json grows on every
-// deploy and MUST stay well under GitHub's 100 MB hard push limit (a 100+ MB
+// Retention / file-size ceiling — the logical job stats history store grows on
+// every deploy and MUST keep each monthly shard well under GitHub's 100 MB hard
+// push limit (a 100+ MB
 // blob makes `git push` reject the whole commit and breaks the Persist Job
 // Stats workflow, see issue #1358). Three layers bound the file by construction:
 //
@@ -406,7 +407,7 @@ export function updateJobsStatsHistory(existingHistory = {}, diff = {}, currentJ
   history.entries = deduplicateEntriesByDate(history.entries);
 
   // Compact old entries: strip verbose fields for entries older than COMPACT_AFTER_DAYS
-  // to keep the history file under GitHub's 100 MB file size limit.
+  // to keep each history shard under GitHub's 100 MB file size limit.
   const compactCutoff = zurichDate(
     new Date(new Date(now).getTime() - COMPACT_AFTER_DAYS * 86_400_000).toISOString()
   );
