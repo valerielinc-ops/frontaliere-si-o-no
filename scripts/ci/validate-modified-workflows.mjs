@@ -136,16 +136,14 @@ const PUSH_PATH_FILTER_KEYS = Object.freeze(['paths', 'paths-ignore']);
  *
  * Una voce è un debito misurato, non un permesso: porta il costo che la
  * deroga impone alla coda e va tolta quando il filtro arriva.
+ *
+ * Oggi è vuoto, e non per caso: la sola voce che conteneva — `tests.yml`, con
+ * il suo costo misurato — è stata saldata il 2026-09-20 dando a quel workflow
+ * il `paths-ignore` sui payload di dati. È il comportamento che questo registro
+ * doveva produrre: la deroga è servita a rendere il debito visibile, non a
+ * renderlo permanente.
  */
-export const PUSH_MAIN_PATH_FILTER_EXEMPTIONS = Object.freeze({
-  '.github/workflows/tests.yml': [
-    'required check di main e delle PR: un filtro di path qui cambia quali',
-    'commit hanno un check verde, quindi è una decisione del contratto di',
-    'merge, non di questo gate. Costo misurato il 2026-09-19: 293 run da',
-    'push su main in 24 h, ~1.600 job-minuti, di cui ~63% su commit che non',
-    'toccano codice.',
-  ].join(' '),
-});
+export const PUSH_MAIN_PATH_FILTER_EXEMPTIONS = Object.freeze({});
 
 function blockBaseIndent(lines) {
   return lines
