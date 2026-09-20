@@ -1,6 +1,11 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { markerCli, parseReviewPages, reviewMarkerDecision } from '../scripts/ci/review-marker-recovery.mjs';
+import {
+  markerCli,
+  parseReviewPages,
+  reviewMarkerDecision,
+  reviewMarkerRepairDecision,
+} from '../scripts/ci/review-marker-recovery.mjs';
 import { reviewInputMarker } from '../scripts/ci/lib/review-input-revision.mjs';
 
 const HEAD = 'a'.repeat(40);
@@ -57,6 +62,43 @@ describe('deterministic review input marker recovery', () => {
       .toMatchObject({ ok: false });
   });
 
+  it('repairs only a current-head Codex fallback body without changing the verdict', () => {
+    const original = '<!-- CODEX_FALLBACK_REVIEW -->\n## Findings (Important: 0, Nit: 0)\n\n## LGTM';
+    const result = reviewMarkerRepairDecision({
+      reviews: [[review(original)]],
+      headSha: HEAD,
+      reviewRevision: REVISION,
+    });
+    expect(result).toMatchObject({ ok: true, repaired: true, reviewId: '42' });
+    expect(result.body).toBe(`${MARKER}\n${original}`);
+  });
+
+  it('does not repair stale, duplicate, or non-Codex review bodies', () => {
+    const stale = review(`${reviewInputMarker(`body:${'c'.repeat(64)}`)}\n<!-- CODEX_FALLBACK_REVIEW -->\n## LGTM`);
+    expect(reviewMarkerRepairDecision({
+      reviews: [[stale]],
+      headSha: HEAD,
+      reviewRevision: REVISION,
+    })).toMatchObject({ ok: false, repaired: false });
+
+    const duplicate = review(`<!-- CODEX_FALLBACK_REVIEW -->\n${MARKER}\n${MARKER}\n## LGTM`);
+    expect(reviewMarkerRepairDecision({
+      reviews: [[duplicate]],
+      headSha: HEAD,
+      reviewRevision: REVISION,
+    })).toMatchObject({ ok: false, repaired: false });
+
+    const nonCodex = {
+      ...review('## Findings (Important: 0, Nit: 0)\n\n## LGTM'),
+      user: { type: 'Bot', login: 'claude[bot]' },
+    };
+    expect(reviewMarkerRepairDecision({
+      reviews: [[nonCodex]],
+      headSha: HEAD,
+      reviewRevision: REVISION,
+    })).toMatchObject({ ok: true, repaired: false });
+  });
+
   it.each([
     ['malformed JSON', '{'],
     ['malformed pages', JSON.stringify([review()])],
@@ -72,10 +114,16 @@ describe('deterministic review input marker recovery', () => {
 
   it('wires the zero-agent validator between review action and gate', () => {
     const workflow = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
+    const repair = workflow.indexOf('name: Repair missing deterministic review input marker');
     const marker = workflow.indexOf('name: Validate deterministic review input marker');
     const gate = workflow.indexOf('name: Require approving Codex review');
+    expect(repair).toBeGreaterThan(-1);
     expect(marker).toBeGreaterThan(-1);
+    expect(repair).toBeLessThan(marker);
     expect(marker).toBeLessThan(gate);
+    expect(workflow.slice(repair, marker)).toContain('review-marker-recovery.mjs" repair');
+    expect(workflow.slice(repair, marker)).toContain('pulls/$PR_NUMBER/reviews');
+    expect(workflow.slice(repair, marker)).toContain('--method POST');
     expect(workflow.slice(marker, gate)).toContain('review-marker-recovery.mjs" validate');
     expect(workflow.slice(marker, gate)).toContain('nessun retry Codex');
   });

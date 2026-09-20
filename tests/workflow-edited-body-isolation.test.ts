@@ -39,11 +39,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
         return { data: target, headers: { etag } };
       }
       if (route.startsWith('PATCH ')) {
-        if (input.headers?.['If-Match'] !== etag) {
-          const error = new Error('precondition failed') as Error & { status?: number };
-          error.status = 412;
-          throw error;
-        }
+        if (input.headers?.['If-Match']) throw new Error('conditional headers are not supported for PATCH');
         target.body = input.body || '';
         return { data: target, headers: { etag: `"marker-${target.id}-${target.body.length}"` } };
       }
@@ -297,8 +293,9 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(script).toContain('NATIVE_AUTO_MERGE_LEASE');
     expect(script).toContain('disablePullRequestAutoMerge');
     expect(script).toContain('MarkerWriteConflict');
-    expect(script).toContain("headers: { 'If-Match': current.etag }");
-    expect(script).toContain('readCommentWithEtag');
+    expect(script).not.toContain("headers: { 'If-Match': current.etag }");
+    expect(script).toContain('readComment');
+    expect(script).toContain('read-before/read-after checks');
     expect(script).toContain('await revokeNativeAutoMerge(number)');
     expect(script).not.toContain('setTimeout');
   });

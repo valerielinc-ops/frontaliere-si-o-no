@@ -113,7 +113,10 @@ jobs:
                 this.name = 'MarkerWriteConflict';
               }
             }
-            async function readCommentWithEtag(commentId) {
+            // GitHub rejects conditional headers on this unsafe endpoint with
+            // HTTP 400. Keep the read-before/read-after checks as the
+            // supported conflict signal and never send If-Match to PATCH.
+            async function readComment(commentId) {
               const response = await github.request('GET /repos/{owner}/{repo}/issues/comments/{comment_id}', {
                 ...repo,
                 comment_id: commentId,
@@ -122,9 +125,7 @@ jobs:
               if (!comment || typeof comment.body !== 'string') {
                 throw new Error(`commento marker ${commentId} non leggibile`);
               }
-              const etag = response?.headers?.etag || response?.headers?.ETag || null;
-              if (!etag) throw new Error(`ETag assente per il commento marker ${commentId}`);
-              return { comment, etag };
+              return { comment };
             }
             async function revokeNativeAutoMerge(number) {
               const query = await github.graphql(`
@@ -165,7 +166,7 @@ jobs:
             async function persistMarker(number, state, existing = null) {
               const body = markerBody(state);
               if (existing?.comment?.id) {
-                const current = await readCommentWithEtag(existing.comment.id);
+                const current = await readComment(existing.comment.id);
                 if (current.comment.body !== existing.comment.body) {
                   throw new MarkerWriteConflict(`marker ${existing.comment.id} cambiato da un writer concorrente`);
                 }
@@ -175,7 +176,6 @@ jobs:
                     ...repo,
                     comment_id: existing.comment.id,
                     body,
-                    headers: { 'If-Match': current.etag },
                   });
                 } catch (error) {
                   const status = Number(error?.status ?? error?.statusCode ?? 0);
@@ -184,7 +184,7 @@ jobs:
                   }
                   throw error;
                 }
-                const observed = await readCommentWithEtag(existing.comment.id);
+                const observed = await readComment(existing.comment.id);
                 if (observed.comment.body !== body) {
                   throw new MarkerWriteConflict(`marker ${existing.comment.id} sovrascritto da un writer concorrente`);
                 }
