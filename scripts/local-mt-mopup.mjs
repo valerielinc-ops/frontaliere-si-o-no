@@ -58,7 +58,12 @@ import { isIncomplete, reconcileRetranslationState } from './relocalize-pending-
 import { isTitleSourceCopy, titleLooksUntranslated } from './lib/job-locale-utils.mjs';
 import { resolveRunStartMs, markRunStart, recordRunPhase, readRunPhases } from './lib/translate-run-clock.mjs';
 import { balanceMarkdownMarkers } from './lib/free-translate.mjs';
-import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms } from './lib/translation-glossary.mjs';
+import {
+  finalizeTranslatedText,
+  maskProtectedTokens,
+  normalizeGermanGenderForms,
+  normalizeProtectedTokenSentinels,
+} from './lib/translation-glossary.mjs';
 import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
 import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { translateWithLocalOpusMt } from './lib/local-opus-mt.mjs';
@@ -410,6 +415,22 @@ export function finalizeMopupTranslation({
   }).trim();
 }
 
+function isProtectedSourceCopy(sourceText = '', candidate = '') {
+  const maskedCandidate = maskProtectedTokens(candidate).text;
+  const normalizedCandidate = normalizeProtectedTokenSentinels(maskedCandidate);
+  const hasMangledSentinel = normalizedCandidate !== maskedCandidate
+    && !/z[\s._·•\-]*q[\s._·•\-]*x[\s._·•\-]*\d{1,3}[\s._·•\-]*x[\s._·•\-]*q[\s._·•\-]*z/iu.test(maskedCandidate);
+  if (!hasMangledSentinel) return false;
+
+  const normalize = (value) => normalizeProtectedTokenSentinels(maskProtectedTokens(value).text)
+    .replace(/\s+/g, ' ')
+    .trim()
+    .toLowerCase();
+  const source = normalize(sourceText);
+  const output = normalize(candidate);
+  return Boolean(source && output && source === output);
+}
+
 /**
  * The write loop's REJECTION CHAIN, in one place, so the thing that decides
  * whether an Argos output reaches the corpus is a single callable instead of a
@@ -567,9 +588,15 @@ export function classifyMopupWrite({
   if (!incoming) return { ...base, decision: 'skip:finalize-empty' };
 
   // Never write a value that is just a copy of the source (would re-flag).
-  const sourceCopy = field === 'title'
-    ? isTitleSourceCopy(incoming, normalizedSourceText)
-    : incoming.toLowerCase() === normalizedSourceText.toLowerCase();
+  // Compare the raw provider output before finalization as well: a provider
+  // can echo the masked source while changing `ZQX0XQZ` into a mangled form
+  // such as `ZQ ①000%`. The finalizer scrubs that debris and re-appends the
+  // target-locale gender form, which would otherwise make a source echo look
+  // like a translation and let the source text through this writer.
+  const sourceCopy = isProtectedSourceCopy(normalizedSourceText, raw)
+    || (field === 'title'
+      ? isTitleSourceCopy(incoming, normalizedSourceText)
+      : incoming.toLowerCase() === normalizedSourceText.toLowerCase());
   if (sourceCopy) {
     return { ...base, incoming, decision: 'skip:source-copy' };
   }
