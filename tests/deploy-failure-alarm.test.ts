@@ -252,8 +252,10 @@ describe('il workflow osservatore: forma pinnata', () => {
   });
 
   it('usa una coda distinta per ogni run osservata', () => {
-    expect(String(WF.concurrency.group)).toContain('github.event.workflow_run.id');
-    expect(String(WF.concurrency.group)).toContain('github.run_id');
+    const group = String(WF.concurrency.group);
+    expect(group).toContain('github.event.workflow_run.id');
+    expect(group).toContain('github.run_id');
+    expect(group).not.toBe('deploy-failure-alarm');
   });
 
   it('apre e chiude lo STESSO titolo — il dedup e la chiusura sono la stessa chiave', () => {
@@ -287,6 +289,31 @@ describe('accoppiamento con il canale d allarme esistente', () => {
     expect(opener, 'l opener deve comparire nell inventario').toBeDefined();
     expect(opener!.failureGated, 'deve essere riconosciuto come failure-gated').toBe(true);
     expect(coverageOf(opener!, record)).toEqual({ by: 'close-recovered-failure-issues' });
+  });
+
+  it('legge anche un block scalar con indicatore di indentazione', () => {
+    // `>2-` e `|1+` sono YAML valido. Senza la cifra la condizione verrebbe
+    // letta come il testo `>2-`, cioè nessuna condizione, e l'opener uscirebbe
+    // dall'inventario in silenzio.
+    expect(isFailureGated("      - name: x\n        if: >2-\n           github.event.workflow_run.conclusion == 'failure'\n        run: y")).toBe(true);
+    expect(isFailureGated("      - name: x\n        if: |1+\n         failure()\n        run: y")).toBe(true);
+  });
+
+  it('`workflows:` si legge SOLO dal blocco di workflow_run', () => {
+    // Agganciare una `workflows:` di un'altra sezione farebbe leggere come
+    // «osservato» un nome che non lo è, cioè un titolo che SEMBRA coperto
+    // mentre `gh run list -w` non risolve niente — il caso peggiore.
+    const fuorviante = [
+      'name: X',
+      'on:',
+      '  workflow_run:',
+      '    types: [completed]',
+      '  workflow_dispatch:',
+      '    inputs:',
+      "      workflows: ['Bersaglio Falso']",
+    ].join('\n');
+    expect(observedWorkflowNames(fuorviante)).toEqual([]);
+    expect(observedWorkflowNames(WF_RAW)).toEqual([OBSERVED]);
   });
 
   it('riconosce un `if:` failure-gated anche scritto su più righe', () => {

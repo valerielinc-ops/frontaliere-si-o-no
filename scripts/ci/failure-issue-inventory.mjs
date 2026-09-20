@@ -111,9 +111,22 @@ export function stepBlocks(source) {
  */
 export function observedWorkflowNames(source) {
   const text = String(source);
-  const at = text.search(/^\s*workflow_run:\s*$/m);
-  if (at < 0) return [];
-  const rest = text.slice(at);
+  const head = text.match(/^([ \t]*)workflow_run:[ \t]*$/m);
+  if (!head) return [];
+  // SOLO il blocco indentato sotto `workflow_run:`. Cercare nel resto del file
+  // lascerebbe agganciare una chiave `workflows:` di un'altra sezione — per
+  // esempio un input di `workflow_dispatch` — e `coverageOf` leggerebbe come
+  // «osservato» un nome che non lo è: cioè il caso peggiore, un titolo che
+  // SEMBRA coperto mentre `gh run list -w` non risolve niente.
+  const indent = head[1].length;
+  const lines = text.slice(head.index + head[0].length).split('\n');
+  const body = [];
+  for (const line of lines) {
+    if (line.trim() === '' || /^\s*#/.test(line)) { body.push(line); continue; }
+    if (line.match(/^[ \t]*/)[0].length <= indent) break;
+    body.push(line);
+  }
+  const rest = body.join('\n');
   const flow = rest.match(/^\s*workflows:\s*\[(.+?)\]\s*$/m);
   if (flow) {
     return flow[1].split(',')
@@ -207,7 +220,11 @@ export function ifConditionText(stepText) {
   for (let i = 0; i < lines.length; i++) {
     const inline = lines[i].match(/^(\s*)if:\s*(\S.*)$/);
     if (!inline) continue;
-    if (!/^[>|][-+]?$/.test(inline[2].trim())) return inline[2];
+    // `>-`, `|`, ma anche `>2-` / `|1+`: l'indicatore di indentazione è YAML
+    // valido e senza questa cifra la condizione verrebbe letta come il testo
+    // `>2-`, cioè NESSUNA condizione, e l'opener uscirebbe dall'inventario in
+    // silenzio — lo stesso buco che questa funzione è nata per chiudere.
+    if (!/^[>|]\d?[-+]?$/.test(inline[2].trim())) return inline[2];
     // Block scalar: le righe più rientrate dell'`if:` sono il corpo.
     const indent = inline[1].length;
     const body = [];

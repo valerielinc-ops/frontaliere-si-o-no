@@ -30,6 +30,7 @@ import {
   failureSignature,
   signatureAlreadyRecorded,
   SIGNATURE_MARKER,
+  SIGNATURE_MAX_LEN,
   workflowScheduleFromSource,
   workflowNameFromIssue,
   latestIssuePerWorkflow,
@@ -592,5 +593,41 @@ describe('«issue aperta e attiva» non significa «questo guasto è già segnal
       { conclusion: 'cancelled', event: 'push', head_branch: 'main', updated_at: new Date().toISOString() },
       { since: new Date(Date.now() - 3600_000).toISOString() },
     )).toBe(false);
+  });
+});
+
+describe('la firma resta iniettiva anche quando è troppo lunga per essere leggibile', () => {
+  const manyJobs = (n: number) => ({
+    total_count: n,
+    jobs: Array.from({ length: n }, (_, i) => ({
+      name: `job-numero-${String(i).padStart(3, '0')}-con-un-nome-abbastanza-lungo`,
+      conclusion: 'failure',
+      steps: [{ name: 'step', conclusion: 'failure' }],
+    })),
+  });
+
+  it('due guasti che condividono i primi 300 caratteri NON collassano', () => {
+    // Troncare e basta sarebbe un silenzio: su una matrice larga le coppie
+    // iniziali sono identiche e cambia solo la coda, quindi il secondo guasto
+    // verrebbe letto come «già registrato» e non commentato. Di nuovo un
+    // allarme mancato — la classe di guasto che questo file ripara.
+    const a = failureSignature(manyJobs(20))!;
+    const b = failureSignature(manyJobs(21))!;
+    expect(a.slice(0, SIGNATURE_MAX_LEN)).toBe(b.slice(0, SIGNATURE_MAX_LEN));
+    expect(a).not.toBe(b);
+    expect(signatureAlreadyRecorded([`<!-- ${SIGNATURE_MARKER} ${a} -->`], b)).toBe(false);
+  });
+
+  it('il prefisso resta leggibile: la firma non diventa un hash opaco', () => {
+    const sig = failureSignature(manyJobs(20))!;
+    expect(sig.startsWith('job-numero-000-')).toBe(true);
+    expect(sig).toMatch(/sha [0-9a-f]{12}\)$/);
+  });
+
+  it('una firma corta non viene toccata', () => {
+    expect(failureSignature({
+      total_count: 1,
+      jobs: [{ name: 'a', conclusion: 'failure', steps: [{ name: 'b', conclusion: 'failure' }] }],
+    })).toBe('a — step: b');
   });
 });

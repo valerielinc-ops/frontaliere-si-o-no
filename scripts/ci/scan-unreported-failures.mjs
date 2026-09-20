@@ -112,6 +112,7 @@
  */
 
 import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
@@ -307,8 +308,21 @@ export function failureSignature(jobs) {
     pairs.add(`${strip(j.name) || '(job senza nome)'} — step: ${step ? (strip(step.name) || '(step senza nome)') : '(nessuno step attribuito)'}`);
   }
   if (!pairs.size) return null;
-  return [...pairs].sort().join(' | ').slice(0, 300);
+  const full = [...pairs].sort().join(' | ');
+  if (full.length <= SIGNATURE_MAX_LEN) return full;
+  // TRONCARE E BASTA sarebbe un silenzio: due guasti che condividono i primi
+  // 300 caratteri — facilissimo su una matrice larga, dove le coppie iniziali
+  // sono identiche e cambia solo la coda — collasserebbero sulla stessa firma,
+  // e il secondo verrebbe letto come «già registrato». Cioè di nuovo un
+  // allarme mancato, la classe di guasto che questo file ripara. Il prefisso
+  // resta perché la firma va anche LETTA da chi apre la issue; a renderla
+  // iniettiva ci pensa il digest della stringa intera.
+  const digest = createHash('sha256').update(full).digest('hex').slice(0, 12);
+  return `${full.slice(0, SIGNATURE_MAX_LEN)}… +${pairs.size} coppie (sha ${digest})`;
 }
+
+/** Quanto della firma resta leggibile prima del digest. */
+export const SIGNATURE_MAX_LEN = 300;
 
 /** Il marker leggibile a macchina che porta la firma dentro il thread. */
 export const SIGNATURE_MARKER = 'failure-signature:';
