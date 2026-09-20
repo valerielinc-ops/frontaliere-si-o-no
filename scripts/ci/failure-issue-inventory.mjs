@@ -95,6 +95,40 @@ export function stepBlocks(source) {
   });
 }
 
+/**
+ * I `name:` dei workflow OSSERVATI via `on: workflow_run: workflows: [...]`.
+ *
+ * Testuale come il resto del modulo, e ancorato al blocco `workflow_run:`: la
+ * lista può stare in flow (`['A', 'B']`) o in block (`- 'A'`). È l'unica cosa
+ * che serve sapere, perché per il reconciler centrale conta solo che il nome
+ * nel titolo sia risolvibile da `gh run list -w <nome>` — e un workflow
+ * dichiarato qui esiste per costruzione, altrimenti GitHub rifiuterebbe il
+ * file (`workflow_run` con una lista vuota o assente è un file INVALIDO,
+ * #6656).
+ *
+ * @param {string} source
+ * @returns {string[]}
+ */
+export function observedWorkflowNames(source) {
+  const text = String(source);
+  const at = text.search(/^\s*workflow_run:\s*$/m);
+  if (at < 0) return [];
+  const rest = text.slice(at);
+  const flow = rest.match(/^\s*workflows:\s*\[(.+?)\]\s*$/m);
+  if (flow) {
+    return flow[1].split(',')
+      .map((v) => v.trim().replace(/^["']|["']$/g, ''))
+      .filter(Boolean);
+  }
+  const block = rest.match(/^(\s*)workflows:\s*$((?:\r?\n\s*-\s*.+)+)/m);
+  if (block) {
+    return block[2].split('\n')
+      .map((l) => l.replace(/^\s*-\s*/, '').trim().replace(/^["']|["']$/g, ''))
+      .filter(Boolean);
+  }
+  return [];
+}
+
 /** Assegnazioni shell `NAME="value"` su riga singola, per risolvere `--title "$VAR"`. */
 function shellAssignments(source) {
   const map = new Map();
@@ -148,12 +182,68 @@ function expandTitle(raw, fileAssignments, stepText = '') {
  * viene giudicato qui.
  */
 export function isFailureGated(stepText) {
-  const m = String(stepText).match(/^\s*if:\s*(.+)$/m);
-  const cond = m ? m[1] : '';
+  const cond = ifConditionText(stepText);
   return /failure\(\)/.test(cond)
     || /outcome\s*==\s*'failure'/.test(cond)
-    || /result\s*==\s*'failure'/.test(cond);
+    || /result\s*==\s*'failure'/.test(cond)
+    || WORKFLOW_RUN_FAILURE_GATE.test(cond);
 }
+
+/**
+ * La condizione di un `if:`, anche quando è scritta su più righe.
+ *
+ * `if: >-` (folded) e `if: |` (literal) sono la forma normale appena la
+ * condizione supera una riga, e la lettura inline le vedeva come la stringa
+ * `>-`: cioè NESSUNA condizione. Un opener con un `if:` multi-riga risultava
+ * quindi non-failure-gated e usciva dall'inventario — un buco silenzioso nel
+ * gate, non una scelta. Misurato sul repo: 21 `if:` in forma block, di cui 5
+ * failure-gated, e nessuno di quei 5 era visibile prima.
+ *
+ * @param {string} stepText
+ * @returns {string} la condizione su una riga sola, o '' se non c'è `if:`
+ */
+export function ifConditionText(stepText) {
+  const lines = String(stepText).split('\n');
+  for (let i = 0; i < lines.length; i++) {
+    const inline = lines[i].match(/^(\s*)if:\s*(\S.*)$/);
+    if (!inline) continue;
+    if (!/^[>|][-+]?$/.test(inline[2].trim())) return inline[2];
+    // Block scalar: le righe più rientrate dell'`if:` sono il corpo.
+    const indent = inline[1].length;
+    const body = [];
+    for (let j = i + 1; j < lines.length; j++) {
+      if (lines[j].trim() === '') { body.push(''); continue; }
+      if (lines[j].match(/^\s*/)[0].length <= indent) break;
+      body.push(lines[j].trim());
+    }
+    return body.join(' ').trim();
+  }
+  return '';
+}
+
+/**
+ * Il gate di un osservatore CROSS-WORKFLOW: uno step che apre su
+ * `github.event.workflow_run.conclusion == 'failure'`, cioè sul rosso di un
+ * ALTRO workflow, non del proprio run.
+ *
+ * Perché l'inventario deve vederlo. Un reporter che vive dentro il workflow
+ * osservato non può segnalare un guasto che impedisce al suo job di partire:
+ * se il rosso è a monte, il job che lo ospita non è rosso, è `skipped`, e un
+ * `if: failure()` di un job saltato non viene mai valutato. È ciò che ha
+ * lasciato `Deploy to GitHub Pages` rosso per 10h24m il 2026-09-19 con tutti i
+ * suoi reporter regolarmente montati — dentro `build-locale`, saltato. La
+ * risposta è un osservatore esterno, e un osservatore esterno che APRE una
+ * issue ha esattamente lo stesso obbligo di chiusura di ogni altro opener:
+ * senza questa riga sarebbe l'unica famiglia di opener invisibile al gate di
+ * `tests/failure-issue-closers.test.ts`.
+ *
+ * Volutamente ANCORATA alla forma completa `github.event.workflow_run.…`: un
+ * `conclusion == 'failure'` nudo matcherebbe anche `steps.<id>.conclusion`,
+ * che è un'altra cosa e che gli step del repo scrivono sempre insieme a
+ * `failure()` (verificato: cinque file, tutti già inventariati).
+ */
+export const WORKFLOW_RUN_FAILURE_GATE =
+  /github\.event\.workflow_run\.conclusion\s*==\s*'(?:failure|timed_out|startup_failure)'/;
 
 /** Valore di un input `with:` (letterale, con o senza apici). */
 function withInput(stepText, name) {
@@ -179,6 +269,7 @@ function withInput(stepText, name) {
 export function parseWorkflow(source, file) {
   const nameMatch = String(source).match(/^name:\s*(.+)$/m);
   const workflowName = nameMatch ? nameMatch[1].trim().replace(/^["']|["']$/g, '') : '';
+  const observedWorkflows = observedWorkflowNames(source);
   const assignments = shellAssignments(source);
   const openers = [];
   const closers = [];
@@ -213,7 +304,7 @@ export function parseWorkflow(source, file) {
       }
     }
   }
-  return { file, workflowName, openers, closers };
+  return { file, workflowName, observedWorkflows, openers, closers };
 }
 
 export function inventory(dir = WORKFLOWS_DIR) {
@@ -237,12 +328,24 @@ export function coverageOf(opener, record) {
   const m = TITLE_RE.exec(opener.title);
   if (m) {
     const named = m[1].trim();
-    // Il reconciler fa `gh run list -w <named>`: se `<named>` non è il display
-    // name del workflow non trova nessun run e la issue resta aperta — coperta
-    // solo all'apparenza. Vale la pena distinguerlo dal non-coperto.
-    return named === record.workflowName
-      ? { by: 'close-recovered-failure-issues' }
-      : { by: 'close-recovered-failure-issues', detail: `nome nel titolo "${named}" ≠ name: "${record.workflowName}" → gh run list -w non risolve` };
+    // Il reconciler fa `gh run list -w <named>`: la domanda non è "chi ha
+    // scritto la issue" ma "quel nome risolve a un workflow reale". Risolve in
+    // DUE casi, non uno:
+    //   - il workflow parla di se stesso (`name:` proprio);
+    //   - il workflow è un OSSERVATORE e parla del workflow che osserva, cioè
+    //     di un nome dichiarato nel proprio `on: workflow_run: workflows:`.
+    // Il secondo caso è quello di un reporter esterno, l'unico che può vedere
+    // un guasto a monte del build — dove il job che ospiterebbe un reporter
+    // interno risulta `skipped` e il suo `if: failure()` non viene valutato.
+    // Fuori da questi due il titolo NON risolve: `close-recovered-failure-issues`
+    // lo prende in carico, non trova run, e per bias conservativo lascia la
+    // issue aperta. Per sempre, in silenzio — il caso peggiore, perché a occhio
+    // sembra coperto.
+    const observed = Array.isArray(record.observedWorkflows) ? record.observedWorkflows : [];
+    if (named === record.workflowName || observed.includes(named)) {
+      return { by: 'close-recovered-failure-issues' };
+    }
+    return { by: 'close-recovered-failure-issues', detail: `nome nel titolo "${named}" ≠ name: "${record.workflowName}" e non è fra i workflow osservati → gh run list -w non risolve` };
   }
   if (opener.title.startsWith(TITLE_PREFIX.trimEnd())) {
     return { by: 'report-validate-dist-failure' };

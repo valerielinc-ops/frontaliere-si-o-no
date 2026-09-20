@@ -27,6 +27,9 @@ import {
   maxCronGapMinutes,
   dormancyThresholdMinutes,
   isCoveredIssueStale,
+  failureSignature,
+  signatureAlreadyRecorded,
+  SIGNATURE_MARKER,
   workflowScheduleFromSource,
   workflowNameFromIssue,
   latestIssuePerWorkflow,
@@ -500,5 +503,94 @@ describe('corpo della issue di dormienza', () => {
       workflowName: 'x', crons: ['0 5 * * 1'], gapMinutes: 10080, lastRunAt: null, thresholdHours: 504,
     });
     expect(body).toContain('nessuna run registrata');
+  });
+});
+
+describe('«issue aperta e attiva» non significa «questo guasto è già segnalato» (2026-09-19)', () => {
+  /**
+   * Il guasto reale, ricostruito dai dati. `isCoveredIssueStale` misura se una
+   * ISSUE è ferma; non misura se il GUASTO è ancora quello. La issue #9247 —
+   * aperta da questo stesso scanner l'11:46Z del 19/09 per un rosso del 18/09
+   * in `build-locale`, poi etichettata `needs-human` e tenuta calda dal triage
+   * — ha fatto passare per «già segnalato» un guasto ENTRATO alle 20:54Z, in
+   * un job diverso e a monte del build. Dieci ore e ventiquattro minuti, 78
+   * run rosse, zero commenti, scanner verde a ogni passata oraria.
+   */
+  const INCIDENTE = {
+    total_count: 6,
+    jobs: [
+      { name: 'validate production promotion trigger', conclusion: 'success', steps: [] },
+      {
+        name: 'approve production promotion',
+        conclusion: 'failure',
+        steps: [
+          { name: 'Checkout promotion gate', conclusion: 'success' },
+          { name: 'Verify required reviewers and environment attestation', conclusion: 'failure' },
+        ],
+      },
+      { name: 'build-locale', conclusion: 'skipped', steps: [] },
+    ],
+  };
+  /** Quello che #9247 descrive davvero: tre gambe di matrice, un solo guasto. */
+  const VECCHIO = {
+    total_count: 6,
+    jobs: ['fr', 'en', 'de'].map((l) => ({
+      name: `build-locale (${l})`,
+      conclusion: 'failure',
+      steps: [{ name: `Build (BUILD_LOCALE=${l})`, conclusion: 'failure' }],
+    })),
+  };
+
+  it('le gambe di una matrice collassano in UNA firma', () => {
+    // Altrimenti la firma cambierebbe a ogni combinazione di locali caduti, e
+    // ogni passata oraria leggerebbe «guasto nuovo»: la valanga, non l'allarme.
+    expect(failureSignature(VECCHIO)).toBe('build-locale — step: Build');
+  });
+
+  it('nomina il job e lo step veri del guasto del 19/09', () => {
+    expect(failureSignature(INCIDENTE))
+      .toBe('approve production promotion — step: Verify required reviewers and environment attestation');
+  });
+
+  it('LA RIPARAZIONE: la firma del 19/09 è nuova per il thread di #9247', () => {
+    const thread = [`corpo di #9247 …\n<!-- ${SIGNATURE_MARKER} ${failureSignature(VECCHIO)} -->`];
+    expect(signatureAlreadyRecorded(thread, failureSignature(VECCHIO)!)).toBe(true);
+    // Questa riga è tutta la differenza fra dieci ore di silenzio e un commento.
+    expect(signatureAlreadyRecorded(thread, failureSignature(INCIDENTE)!)).toBe(false);
+  });
+
+  it('una firma già registrata resta silenziosa: nessun commento per passata', () => {
+    const thread = ['x', `<!-- ${SIGNATURE_MARKER} ${failureSignature(INCIDENTE)} -->`];
+    expect(signatureAlreadyRecorded(thread, failureSignature(INCIDENTE)!)).toBe(true);
+  });
+
+  it('il marker non si confonde col testo libero della issue', () => {
+    // Un body riscritto a mano che CITA il job non deve valere come
+    // registrazione: il marker lo scrive questo file e lo legge questo file.
+    expect(signatureAlreadyRecorded(
+      ['ho guardato `approve production promotion` e mi sembra a posto'],
+      failureSignature(INCIDENTE)!,
+    )).toBe(false);
+  });
+
+  it('job illeggibili → nessuna firma, quindi nessuna novità affermata', () => {
+    // In dubbio si TACE sulla novità (la staleness resta la rete sotto a 24 h):
+    // affermarla a ogni passata oraria sarebbe un commento all'ora.
+    expect(failureSignature(null)).toBeNull();
+    expect(failureSignature({ total_count: 3, jobs: [] })).toBeNull();
+    expect(signatureAlreadyRecorded([], '')).toBe(true);
+  });
+
+  it('uno startup failure ha una firma propria, perché è una condizione distinta', () => {
+    expect(failureSignature({ total_count: 0, jobs: [] })).toBe('startup-failure: zero job');
+  });
+
+  it('una run `cancelled` non arriva mai fin qui', () => {
+    // La firma «zero job» non può nascere da una cancellazione di coda: il
+    // perimetro scarta tutto ciò che non è `conclusion: failure` prima.
+    expect(isReportableRun(
+      { conclusion: 'cancelled', event: 'push', head_branch: 'main', updated_at: new Date().toISOString() },
+      { since: new Date(Date.now() - 3600_000).toISOString() },
+    )).toBe(false);
   });
 });
