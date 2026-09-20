@@ -76,12 +76,21 @@ jobs:
       CRAWLER_GENERATION_RECEIPT_DIR: crawler-generation/receipts
       CRAWLER_GROUP_COMMIT_DIR: crawler-generation/commit-batch
       CRAWLER_GROUP_MAX_PARALLEL: "4"
+      AI_CACHE_PATH: .cache/jobs-ai-cache.json
     steps:
       - name: Checkout frontaliere-si-o-no (public, read-only)
         uses: actions/checkout@v5
         with:
           repository: valerielinc-ops/frontaliere-si-o-no
           fetch-depth: 50
+      - name: Restore crawler AI cache
+        id: restore_crawler_ai_cache
+        continue-on-error: true
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/jobs-ai-cache.json
+          key: jobs-ai-cache-v1-crawler-group-13-${{ github.repository }}-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: jobs-ai-cache-v1-crawler-group-13-${{ github.repository }}-${{ runner.os }}-
       - name: Setup Node.js
         uses: actions/setup-node@v5
         with:
@@ -6957,6 +6966,13 @@ jobs:
             exit 0
           fi
           exit "$git_commit_exit"
+      - name: Save crawler AI cache
+        if: always() && hashFiles('.cache/jobs-ai-cache.json') != ''
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/jobs-ai-cache.json
+          key: jobs-ai-cache-v1-crawler-group-13-${{ github.repository }}-${{ runner.os }}-${{ github.run_id }}-${{ github.run_attempt }}
       - name: Cleanup Codex auth broker
         if: always()
         continue-on-error: true
