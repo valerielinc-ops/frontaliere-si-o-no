@@ -82,6 +82,8 @@ const WORKDAY_SITES = [
 
 const WORKDAY_API_BASE = 'https://capri.wd1.myworkdayjobs.com/wday/cxs/capri';
 const WORKDAY_PUBLIC_BASE = 'https://capri.wd1.myworkdayjobs.com/en-US';
+const WORKDAY_TOTAL_DRIFT_RETRIES = 2;
+const WORKDAY_TOTAL_DRIFT_RETRY_DELAY_MS = 500;
 
 /* ── Helpers ──────────────────────────────────────────────── */
 
@@ -366,8 +368,7 @@ export async function listSwissJobs(site, brand) {
     const queryPostingIdentities = new Set();
     while (true) {
       const body = JSON.stringify({ appliedFacets: {}, limit, offset, searchText });
-      const data = await fetchJson(apiUrl, { method: 'POST', body });
-      const { jobPostings, declaredTotal } = assertWorkdayPage(data, {
+      const { jobPostings, declaredTotal } = await fetchWorkdayPage(apiUrl, body, {
         brand,
         searchText,
         offset,
@@ -442,12 +443,36 @@ export function assertWorkdayPage(data, {
     );
   }
   if (expectedTotal !== undefined && declaredTotal !== expectedTotal) {
-    throw new Error(
+    const error = new Error(
       `Workday ${brand} ${searchText || 'empty'} search changed its total from `
       + `${expectedTotal} to ${declaredTotal} at offset ${offset}`,
     );
+    error.code = 'WORKDAY_TOTAL_CHANGED';
+    throw error;
   }
   return { jobPostings: data.jobPostings, declaredTotal };
+}
+
+async function fetchWorkdayPage(apiUrl, body, context) {
+  let retries = 0;
+  while (true) {
+    const data = await fetchJson(apiUrl, { method: 'POST', body });
+    try {
+      return assertWorkdayPage(data, context);
+    } catch (error) {
+      if (error?.code !== 'WORKDAY_TOTAL_CHANGED' || retries >= WORKDAY_TOTAL_DRIFT_RETRIES) {
+        throw error;
+      }
+      retries += 1;
+      const delayMs = WORKDAY_TOTAL_DRIFT_RETRY_DELAY_MS * retries;
+      console.warn(
+        `⚠️ Workday ${context.brand} ${context.searchText || 'empty'} search total drift at `
+        + `offset ${context.offset}; retrying page (${retries}/${WORKDAY_TOTAL_DRIFT_RETRIES}) `
+        + `in ${delayMs}ms`,
+      );
+      await new Promise((resolve) => setTimeout(resolve, delayMs));
+    }
+  }
 }
 
 export function assertUniqueWorkdayPostings(
