@@ -35373,6 +35373,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'ristorni-comuni-frontiera-incremento',
+ category: 'novita',
+ date: '2026-09-20T16:48:27.979Z',
+ image: '/images/blog/ristorni-comuni-frontiera-incremento.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

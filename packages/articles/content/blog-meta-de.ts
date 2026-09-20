@@ -11866,6 +11866,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.comuni-frontiera-ristorni-108-milioni.title': 'Erfrischungen an der Grenze: 89-108 Millionen, Bürgermeister jubeln',
     'blog.article.comuni-frontiera-ristorni-108-milioni.excerpt': 'Die italienische Regierung erhöht die Mittel für die Grenzgemeinden. Die Bürgermeister: \'Zufrieden mit der Zunahme der Erfrischungen\'.',
     'blog.article.comuni-frontiera-ristorni-108-milioni.imageAlt': 'Eine Panoramansicht der Stadt Lugano im Tessin, Schweiz.',
+    'blog.article.ristorni-comuni-frontiera-incremento.title': 'Mittel für Grenzgemeinden: Erstattungen steigen auf 108 Millionen',
+    'blog.article.ristorni-comuni-frontiera-incremento.excerpt': 'Der Verband der italienischen Grenzgemeinden (Acif) begrüßt die Erhöhung des Rückforderungsfonds von 89 auf 108 Millionen Euro und die Zuweisung der zusätzlichen Einnahmen.',
+    'blog.article.ristorni-comuni-frontiera-incremento.imageAlt': 'Grenzübergang zwischen Italien und der Schweiz in der Region Mendrisiotto',
 };
 
 export default blogMetaDe;
