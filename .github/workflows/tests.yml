@@ -3703,8 +3703,31 @@ jobs:
             exit 0
           fi
           cd "$NATIVE_AUTOMERGE_SOURCE_ROOT"
+          # Il verdetto del gate non puo' restare solo nel log. Un declino
+          # PERMANENTE — predicato divergente, non un 5xx — esce comunque
+          # `success` e nessuno lo vede: `retry-native-automerge.yml` rivaluta
+          # lo STESSO predicato ogni 20 minuti e declina identicamente per
+          # sempre, quindi la «rete di ritentativo» descritta sopra copre il
+          # guasto transitorio ma non questo. Misurato sulla PR #9344 il
+          # 2026-09-20: job `post-review` chiuso `success` alle 02:09:56 dopo
+          # aver stampato «review bot sulla HEAD non e' LGTM senza 🔴
+          # Important», check verdi, `## LGTM` sulla HEAD, `autoMergeRequest`
+          # nullo — PR ferma fino a uno sblocco manuale un'ora e mezza dopo.
+          #
+          # Il gate stampa `... final gate: ...` SOLO quando supera la prima
+          # decisione: la sua assenza distingue il declino a monte da un
+          # abbandono tardivo per stato cambiato, e non costa una lettura API
+          # in piu' ne' un secondo uso del token.
+          set +e
           GH_TOKEN="$APP_TOKEN" node "$NATIVE_AUTOMERGE_HELPER_DIR/native-automerge-gate.mjs" \
-            "$REPOSITORY" "$PR_NUMBER"
+            "$REPOSITORY" "$PR_NUMBER" 2>&1 | tee "$RUNNER_TEMP/native-automerge-gate.log"
+          gate_status=${PIPESTATUS[0]}
+          set -e
+          if ! grep -q 'final gate:' "$RUNNER_TEMP/native-automerge-gate.log"; then
+            reason=$(grep -m1 -o 'HEAD=[0-9a-f]*: .*' "$RUNNER_TEMP/native-automerge-gate.log" | cut -d' ' -f2- || true)
+            echo "::warning::opt-in all'auto-merge DECLINATO con il job required verde e la review approvata: ${reason:-nessun motivo stampato dal gate}. retry-native-automerge.yml rivaluta lo STESSO predicato, quindi se il motivo non e' transitorio la PR resta ferma: orphan-pr-custodian la segnala come \`stalled-automerge\` dopo 2 h."
+          fi
+          exit "$gate_status"
 
       # `pr-autorebase.mjs` importa `typescript` (duplicateDeclarations), quindi
       # serve l'install; `--ignore-scripts` perche' nessun postinstall serve a
