@@ -28,7 +28,15 @@ export const SOURCE_VERSION = 'input@1';
 // job-digest@6: active-page input now depends only on the selected related-job
 // projections. The renderer never reads the complete candidate pool, and the
 // selected projections already cover every related link it emits.
-export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@6';
+// job-digest@7: the active page also renders a "recent articles" block read at
+// build time from data/blog-articles-data.ts + services/routerBlogData.ts +
+// services/seo/seo-blog*.ts. Those three files are read with fs.readFileSync,
+// never imported, so they are invisible to the emitter fingerprint's import
+// walk — and nothing in the job record moves when the corpus publishes an
+// article. Deploy 35507082715 reused 12'818 active pages and every one of the
+// 244 verified pages mismatched on that block alone. The rendered block now
+// enters the input as a digest (`relatedArticlesDigest`).
+export const JOB_DIGEST_ALGORITHM_VERSION = 'job-digest@7';
 export const INCREMENTAL_MANIFEST_ENABLED = process.env.INCREMENTAL_MANIFEST === '1';
 
 export const PAGE_KINDS = Object.freeze([
@@ -481,6 +489,52 @@ export function buildMinimalJobInput(
   };
   canonicalMinimalJobInputs.add(input);
   return input;
+}
+
+/**
+ * Digest of the rendered "recent articles" block an active job page embeds.
+ *
+ * The block is a function of three files the plugin reads with
+ * `fs.readFileSync` (data/blog-articles-data.ts, services/routerBlogData.ts,
+ * services/seo/seo-blog*.ts) — never imported, therefore absent from the
+ * emitter fingerprint's import walk — and it carries the five most recent
+ * articles of the corpus. Hashing the RENDERED block, instead of those
+ * sources, keeps the field minimal by construction: it can only move when the
+ * bytes the page emits move, so no upstream field that does not reach the HTML
+ * can cost reuse, and the digest can never drift away from the renderer.
+ */
+export function relatedArticlesFeedDigest(relatedArticlesHtml) {
+  return sha256(String(relatedArticlesHtml ?? '')).slice(0, 16);
+}
+
+/**
+ * The whole page input of an active job page, in one place.
+ *
+ * It lives here rather than inline at the emit site because `buildMinimalJobInput()`
+ * alone does NOT describe that page: the active template also renders the
+ * recent-articles feed, the canton, the (possibly overridden) canonical URL and
+ * the build-day bucket. Assembling them at the call site is what let the feed
+ * stay out of the hash unnoticed.
+ */
+export function buildActiveJobPageInput({
+  job,
+  locale,
+  slug,
+  relatedJobs = [],
+  inputCache = null,
+  canonicalJob = null,
+  canton,
+  canonicalUrl,
+  relatedArticlesHtml,
+  renderDateBucket,
+}) {
+  return {
+    ...buildMinimalJobInput(job, locale, slug, relatedJobs, inputCache, canonicalJob),
+    canton,
+    canonicalUrl,
+    relatedArticlesDigest: relatedArticlesFeedDigest(relatedArticlesHtml),
+    renderDateBucket,
+  };
 }
 
 export function verifyRuntimeInputExclusion() {
