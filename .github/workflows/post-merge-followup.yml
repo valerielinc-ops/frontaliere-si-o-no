@@ -74,7 +74,9 @@ jobs:
       #    applica i DUE gate per-PR esistenti (grandchild-suppression + no-op pre-gate,
       #    invocati come subprocess: risparmio preservato anche in batch).
       #  - workflow_dispatch → batch = [pr_number] diretto (backfill volontario,
-      #    bypass gate: il prompt Codex ri-verifica eligibility).
+      #    bypass gate: il prompt Codex ri-verifica eligibility). Il collector
+      #    distingue i due eventi nella stessa entrypoint: il dispatch non esegue
+      #    la ricerca schedulata e non tocca il confine della finestra.
       # PROCEED-SAFE: un gate per-PR inconcludente → PR inclusa nel batch (mai persa);
       # errori delle sorgenti di raccolta → collection_ok=false e run rossa.
       # Se il batch supera il limite della sessione provider, il collector emette
@@ -99,23 +101,10 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
-          # Dispatch inputs reach the shell as DATA, never as script text.
+          # Dispatch input reaches the Node entrypoint as DATA, never as script text.
           INPUT_PR_NUMBER: ${{ github.event.inputs.pr_number }}
         run: |
-          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
-            PR="$INPUT_PR_NUMBER"
-            echo "::notice::Backfill dispatch per PR #${PR} (eligibility ri-verificata nel prompt Codex)."
-            {
-              echo "batch_prs=${PR}"
-              echo "batch_count=1"
-              echo "collection_ok=true"
-              echo "deferred_count=0" # un backfill esplicito non rinvia nulla
-              echo "max_turns=34" # = maxTurnsFor(1) — tenere allineato a collect-followup-batch.mjs
-              echo "daily_key=$(TZ=Europe/Zurich date +%F)"
-            } >> "$GITHUB_OUTPUT"
-          else
-            node scripts/ci/collect-followup-batch.mjs
-          fi
+          node scripts/ci/collect-followup-batch.mjs
 
       # Sibling della stessa classe misurata su issue-fix.yml (2026-08-05). Il
       # tracker #1951 segnalava questo workflow al 38% di failure-rate: scaricati
