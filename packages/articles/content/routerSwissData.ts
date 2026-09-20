@@ -2226,6 +2226,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'apprendistato-formazione-professionale-vaud': { it: 'apprendistato-formazione-professionale-vaud', en: 'apprenticeship-vocational-training-vaud', de: 'lehre-berufsbildung-waadt', fr: 'apprentissage-formation-professionnelle-vaud' },
  'revolut-hacker-svizzera-pec': { it: 'revolut-hacker-svizzera-pec', en: 'revolut-hacker-switzerland-pec', de: 'revolut-hacker-schweiz-pec', fr: 'revolut-hacker-suisse-pec' },
  'votazioni-cantoni-27-settembre': { it: 'votazioni-cantoni-27-settembre', en: 'swiss-cantonal-votes-september-27', de: 'kantonsabstimmungen-27-september', fr: 'votations-cantonales-27-septembre' },
+ 'referendum-nuove-centrali-nucleari': { it: 'referendum-nuove-centrali-nucleari', en: 'new-nuclear-plants-referendum', de: 'neue-kernkraftwerke-referendum', fr: 'nouvelles-centrales-nucleaires-referendum' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
