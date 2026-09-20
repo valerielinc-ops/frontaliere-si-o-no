@@ -136,6 +136,8 @@ describe('deterministic review input marker recovery', () => {
     expect(repair).toBeLessThan(marker);
     expect(workflow.slice(repair, marker)).toContain('module.reviewMarkerRepair');
     expect(workflow.slice(repair, marker)).toContain('deferring zero-agent repair');
+    expect(workflow.slice(repair, marker)).toContain('candidate_review_id');
+    expect(workflow.slice(repair, marker)).toContain('Marker repair candidate changed during the race check');
     expect(marker).toBeGreaterThan(-1);
     expect(marker).toBeLessThan(gate);
     expect(workflow.slice(marker, gate)).toContain('review-marker-recovery.mjs" validate');

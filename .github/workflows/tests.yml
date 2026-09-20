@@ -3344,9 +3344,16 @@ jobs:
               echo '✓ Codex review marker already valid; no model retry.'
               ;;
             repair)
+              candidate_review_id=$(jq -r '.reviewId // empty' "$decision_file")
+              if ! [[ "$candidate_review_id" =~ ^[1-9][0-9]*$ ]]; then
+                echo '::error::Marker repair did not return a stable review id; refusing mutation.'
+                exit 1
+              fi
               # Re-read immediately before the mutation. If another writer
               # repaired the same HEAD meanwhile, the second decision is a
-              # no-op; otherwise only the same review id may be copied.
+              # no-op; otherwise only the same review id may be copied. A
+              # newly-arrived clean review must never replace the candidate
+              # whose verdict was admitted by the first read.
               if ! "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp > "$reviews_file"; then
                 echo "::error::Reviews API unavailable during marker repair race check."
                 exit 1
@@ -3360,6 +3367,10 @@ jobs:
               if [ "$action" = 'noop' ]; then
                 echo '✓ Concurrent writer already repaired the Codex marker; no duplicate review.'
                 exit 0
+              fi
+              if [ "$action" != 'repair' ] || [ "$(jq -r '.reviewId // empty' "$decision_file")" != "$candidate_review_id" ]; then
+                echo '::error::Marker repair candidate changed during the race check; refusing mutation.'
+                exit 1
               fi
               jq -r '.body // empty' "$decision_file" > "$body_file"
               if [ ! -s "$body_file" ]; then
