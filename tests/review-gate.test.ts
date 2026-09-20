@@ -136,6 +136,18 @@ describe('review gate: scope classification is fail-closed', () => {
     expect(result.unresolved[0]?.reason).toMatch(/nessun file citato/i);
   });
 
+  it('parses a location-bound bare Important marker from the documented format', () => {
+    const body = '## Findings\n\nsrc/changed.mjs:L12: 🔴 Important parser is unsafe\n\n## LGTM';
+    expect(importantFindings(body)).toHaveLength(1);
+    const result = classifyReview(body, {
+      files: DIFF_FILES,
+      complete: true,
+      repositoryPaths: TREE_FILES,
+    });
+    expect(result.blocking).toBe(true);
+    expect(result.inScope).toHaveLength(1);
+  });
+
   it.each(['nessuno dei due rami è coperto', '0 elementi passano il controllo', 'none of the branches are safe'])
     ('treats prose beginning with %s as a finding, not as a count row', (prose) => {
       const body = reviewFor('src/changed.mjs', prose);
