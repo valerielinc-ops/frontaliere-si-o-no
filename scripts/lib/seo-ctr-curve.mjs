@@ -297,6 +297,23 @@ const MANUAL_SEO_CTR_FAMILIES = [
     measuredOn: '2026-08-23',
   },
   {
+    // Flagged unregistered by discoverUnregisteredFamilies (issue #9425):
+    // `/articoli-svizzera/` is an editorial hub/archive, not one repeatable
+    // title/description generator that the CTR monitor could remediate. Its
+    // localized aliases must share the same listing exemption so discovery
+    // cannot re-open the gap one locale at a time.
+    id: 'articoli-svizzera',
+    label: 'Articoli Svizzera (listing editoriale)',
+    pathContains: '/articoli-svizzera/',
+    pathAliases: ['/swiss-articles/', '/schweiz-artikel/', '/articles-suisse/'],
+    kind: 'listing',
+    note: 'Hub e archivio editoriali aggregano articoli con metadati per-articolo e non hanno un unico generator di title/description da monitorare come famiglia CTR.',
+    targetCtr: null,
+    monitored: false,
+    impressions90d: 56021,
+    measuredOn: '2026-09-20',
+  },
+  {
     // Item 1 of follow-up #5964 (originally deferred from #5962): flagged by
     // discoverUnregisteredFamilies as an unregistered family above
     // MIN_IMPRESSIONS_TO_MONITOR. Confirmed to be the SAME shared
