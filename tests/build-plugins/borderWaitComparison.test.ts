@@ -56,6 +56,9 @@ describe('border-wait comparison', () => {
     expect(html).toContain('Stima TomTom');
     expect(html).toContain('14 min');
     expect(html).toContain('Profilo storico indicativo');
+    expect(html).toContain('data-peer-comparison="1"');
+    expect(html).toContain('Classifica delle attese mattutine nel corridoio');
+    expect(html).toContain('I valichi vicini, in ordine di distanza');
     const expectedMorning = borderCrossings.find(({ name }) => name === 'Chiasso-Brogeda')?.avgWaitMorning;
     expect(expectedMorning).toEqual(expect.any(String));
     if (!expectedMorning) throw new Error('Chiasso-Brogeda has no checked-in morning average');
