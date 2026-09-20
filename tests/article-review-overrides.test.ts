@@ -6,6 +6,7 @@ import {
   loadArticleReviewOverrides,
   resolveArticleReviewerSlug,
 } from '../packages/articles/engine/shared/articleReviewOverrides';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 // Issue #6337 (follow-up to PR #6326): `reviewedBy` E-E-A-T signal for
 // fiscal/legal (YMYL) articles. The map defaults to `{}` — no article is
@@ -14,7 +15,8 @@ import {
 // valore #4).
 
 describe('data/article-reviewed-by.json ships empty by default', () => {
-  it('is checked in and starts as {} — no fabricated review signal', () => {
+  // Legge la mappa spedita in `packages/articles/engine/shared/article-reviewed-by.json`, che vive nell'albero del corpus e non nel checkout di questa PR.
+  it.skipIf(SKIP_LIVE_DATA)('is checked in and starts as {} — no fabricated review signal', () => {
     const path = resolve(__dirname, '..', 'packages', 'articles', 'engine', 'shared', 'article-reviewed-by.json');
     const overrides = loadArticleReviewOverrides({ readFileSync }, path);
     expect(overrides).toEqual({});

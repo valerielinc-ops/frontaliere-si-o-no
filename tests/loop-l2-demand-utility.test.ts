@@ -8,6 +8,7 @@ import {
   runL2,
   validateDemandSnapshot,
 } from '../scripts/ci/loop-l2-demand-utility.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const NOW = new Date('2026-09-12T12:00:00.000Z');
 
@@ -159,7 +160,8 @@ describe('L2 Demand → Utility', () => {
     expect(result.observation.denominator).toBeNull();
   });
 
-  it('emits numeric outcomes from the default shipped dry-run JSON', async () => {
+  // Unico caso senza `--source`: gira sul DEFAULT_SOURCE_PATH, cioe' `data/gsc-orphan-queries-clusters.json` che il cron GSC riscrive su main.
+  it.skipIf(SKIP_LIVE_DATA)('emits numeric outcomes from the default shipped dry-run JSON', async () => {
     const lines: string[] = [];
     await main({
       argv: ['--json', '--dry-run'],

@@ -18,6 +18,7 @@ import {
   readAllKnownJobSlugs,
   knownSlugsStoreExists,
 } from '../scripts/lib/all-known-job-slugs-store.mjs';
+import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 import {
   buildOrphanLandingHubPath,
@@ -306,7 +307,8 @@ describe('cluster-orphan-queries.mjs — deterministic output', () => {
     expect(after, 'lo script ha scritto il file TRACCIATO nonostante il redirect').toBe(before);
   });
 
-  it('produces a valid clusters file when run against the repo data', () => {
+  // Dato vivo: i cluster nascono da data/gsc-orphan-queries.json, lo snapshot GSC che il cron riscrive.
+  it.skipIf(SKIP_LIVE_DATA)('produces a valid clusters file when run against the repo data', () => {
     if (!fs.existsSync(inputPath)) {
       // Missing input is OK in CI — plugin degrades gracefully.
       return;
@@ -340,7 +342,8 @@ describe('cluster-orphan-queries.mjs — deterministic output', () => {
     expect(new Set(ids).size).toBe(ids.length);
   });
 
-  it('skips clusters whose canonical slug collides with a known job slug', () => {
+  // Dato vivo: incrocia i cluster GSC con il registro data/all-known-job-slugs/**, entrambi riscritti dai cron.
+  it.skipIf(SKIP_LIVE_DATA)('skips clusters whose canonical slug collides with a known job slug', () => {
     // La condizione e' ancorata a `inputPath`, non a `outputPath`: quest'ultimo
     // vive in os.tmpdir() e lo scrive il caso precedente, che salta esattamente
     // quando manca lo stesso `inputPath`. Guardare l'output significherebbe
