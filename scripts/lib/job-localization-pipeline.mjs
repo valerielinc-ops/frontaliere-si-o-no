@@ -6,6 +6,7 @@ import {
   finalizeTranslatedText,
   maskProtectedTokens,
   normalizeGermanGenderForms,
+  normalizeProtectedTokenSentinels,
 } from './translation-glossary.mjs';
 import { writeJsonAtomic } from './atomic-write-json.mjs';
 import { intFromEnv } from './int-from-env.mjs';
@@ -188,8 +189,10 @@ function countHeadings(text = '') {
 }
 
 function looksLikeCopy(source = '', candidate = '', kind = 'description') {
-  const sourceNorm = normalizeParagraphs(source).toLowerCase();
-  const candidateNorm = normalizeParagraphs(candidate).toLowerCase();
+  const sourceMasked = maskProtectedTokens(source).text;
+  const candidateMasked = maskProtectedTokens(candidate).text;
+  const sourceNorm = normalizeParagraphs(normalizeProtectedTokenSentinels(sourceMasked)).toLowerCase();
+  const candidateNorm = normalizeParagraphs(normalizeProtectedTokenSentinels(candidateMasked)).toLowerCase();
   if (!sourceNorm || !candidateNorm) return false;
   if (sourceNorm !== candidateNorm) return false;
   if (kind !== 'title') return true;

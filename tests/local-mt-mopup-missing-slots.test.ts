@@ -167,6 +167,24 @@ describe('local-mt-mopup OpusMT rescue', () => {
     expect(classifyMopupWrite({ ...target, rawText: opusRaw })).toMatchObject({ decision: 'write' });
   });
 
+  it('rejects a source echo whose protected sentinel is mangled before finalization', () => {
+    const target = auditTitleTarget({
+      id: 'mangled-sentinel',
+      sourceLang: 'it',
+      locale: 'fr',
+      company: 'example',
+      sourceText: 'Tecnico laboratorio (m/w/d)',
+      existing: '',
+    });
+    const result = classifyMopupWrite({
+      ...target,
+      rawText: 'Tecnico laboratorio ZQ ①000%',
+    });
+
+    expect(result.decision).toBe('skip:source-copy');
+    expect(result.incoming).toBe('Tecnico laboratorio (h/f/d)');
+  });
+
   it('keeps a report case rejected when both Argos and OpusMT fail the candidate guard', async () => {
     const id = 'r1';
     const target = auditTitleTarget({

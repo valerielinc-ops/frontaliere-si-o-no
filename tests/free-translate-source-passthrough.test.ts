@@ -165,8 +165,8 @@ function runExhaustedTierSkipScenario(
         ${JSON.stringify(myMemoryStub)},
       )
       .replace(
-        "import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms } from './translation-glossary.mjs';",
-        "const finalizeTranslatedText = ({ translatedText }) => translatedText; const maskProtectedTokens = (text) => ({ text, tokens: [] }); const normalizeGermanGenderForms = (text) => text;",
+        "import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms, normalizeProtectedTokenSentinels } from './translation-glossary.mjs';",
+        "const finalizeTranslatedText = ({ translatedText }) => translatedText; const maskProtectedTokens = (text) => ({ text, tokens: [] }); const normalizeGermanGenderForms = (text) => text; const normalizeProtectedTokenSentinels = (text) => text;",
       )
       .replace(
         "import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';",
@@ -261,8 +261,8 @@ function runRetryOutcomeResetScenario() {
         "const translateWithMyMemory = async () => '';",
       )
       .replace(
-        "import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms } from './translation-glossary.mjs';",
-        "const finalizeTranslatedText = ({ translatedText }) => translatedText; const maskProtectedTokens = (text) => ({ text, tokens: [] }); const normalizeGermanGenderForms = (text) => text;",
+        "import { finalizeTranslatedText, maskProtectedTokens, normalizeGermanGenderForms, normalizeProtectedTokenSentinels } from './translation-glossary.mjs';",
+        "const finalizeTranslatedText = ({ translatedText }) => translatedText; const maskProtectedTokens = (text) => ({ text, tokens: [] }); const normalizeGermanGenderForms = (text) => text; const normalizeProtectedTokenSentinels = (text) => text;",
       )
       .replace(
         "import { translateWithLocalOpusMt, localOpusMtEnabled } from './local-opus-mt.mjs';",
@@ -385,6 +385,22 @@ describe('freeTranslate — guardia «uscita == sorgente»', () => {
     expect(out).toBe('');
     expect(statsSnapshot().passthroughs - before.passthroughs).toBe(1);
     expect(statsSnapshot().chunks - before.chunks).toBe(0);
+  });
+
+  it('rifiuta il passthrough quando il provider altera il sentinel protetto', async () => {
+    vi.mocked(translateWithMyMemory).mockResolvedValue('Tecnico ZQ ①000%');
+    const before = statsSnapshot();
+
+    const out = await freeTranslate({
+      text: 'Tecnico (m/w/d)',
+      sourceLang: 'de',
+      targetLang: 'it',
+      fieldType: 'title',
+    });
+
+    expect(out).toBe('');
+    expect(statsSnapshot().passthroughs - before.passthroughs).toBe(1);
+    expect(statsSnapshot().hits - before.hits).toBe(0);
   });
 
   it('conta il passthrough anche sul ramo a CHUNK, che e\' quello dei body lunghi', async () => {
@@ -639,5 +655,12 @@ describe('isSourcePassthrough', () => {
     // il bucket direbbe che la guardia lavora dove non c'e' niente da tradurre.
     expect(isSourcePassthrough('', '')).toBe(false);
     expect(isSourcePassthrough('   ', 'qualcosa')).toBe(false);
+  });
+
+  it('normalizza i sentinel mangled prima del confronto senza toccare le percentuali ordinarie', () => {
+    const source = 'Tecnico ZQX0XQZ';
+    expect(isSourcePassthrough(source, 'Tecnico ZQ ①000%')).toBe(true);
+    expect(isSourcePassthrough(source, 'Tecnico ZQXOXQZ')).toBe(true);
+    expect(isSourcePassthrough('ZQ 100%', 'ZQ 100%')).toBe(true);
   });
 });
