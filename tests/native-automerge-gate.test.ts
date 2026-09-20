@@ -76,10 +76,12 @@ function pr(overrides: Record<string, unknown> = {}) {
 
 function vitest(overrides: Record<string, unknown> = {}) {
   return {
+    id: 101,
     name: 'vitest (unit + integration)',
     head_sha: HEAD,
     status: 'completed',
     conclusion: 'success',
+    created_at: '2026-09-13T12:00:00Z',
     completed_at: '2026-09-13T12:01:00Z',
     ...overrides,
   };

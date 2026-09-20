@@ -7,8 +7,7 @@
  * manuali di tests.yml). Il vecchio `[...][0].conclusion` ne pescava uno per
  * ordine API: un dispatch cancellato (→ `failure`) poteva mascherare il
  * `success` reale → auto-merge bloccato pur coi test verdi. Qui fissiamo che
- * vince l'ultimo COMPLETATO con verdetto per `completed_at`, ignorando i run
- * in-progress e i job `skipped`.
+ * vince l'ultima GENERAZIONE verificabile, non il runner che termina dopo.
  */
 import { describe, it, expect } from 'vitest';
 import {
@@ -16,6 +15,8 @@ import {
   latestCompletedVitestExecutionRun,
   latestCompletedRunByName,
   latestCompletedConclusionByName,
+  latestCompletedRunSelectionByName,
+  RUN_SELECTION_STATES,
   vitestVerdictIsTransientCancellation,
   vitestFailureIsNotAttributableToPr,
   jobRefFromCheckRun,
@@ -29,11 +30,28 @@ import {
   VITEST_EXECUTION_JOB_NAME,
 } from '../scripts/ci/lib/constants.mjs';
 
-const vitest = (conclusion: string | null, completed_at: string | null, status = 'completed') => ({
+const HEAD = 'a'.repeat(40);
+function stableRunId(value: string): number {
+  let hash = 17;
+  for (const char of value) hash = (hash * 31 + char.charCodeAt(0)) % 900_000_000;
+  return hash + 1;
+}
+const vitest = (
+  conclusion: string | null,
+  completed_at: string | null,
+  status = 'completed',
+  options: { id?: number; created_at?: string; head_sha?: string; run_attempt?: number } = {},
+) => ({
+  id: options.id ?? stableRunId(`${conclusion}|${completed_at}|${status}|${options.created_at || ''}`),
   name: VITEST_CHECK_NAME,
   status,
   conclusion,
+  head_sha: options.head_sha || HEAD,
+  // Pending fixtures need a generation marker too; otherwise the selector
+  // must correctly classify the payload as ambiguous rather than old verdict.
+  created_at: options.created_at ?? completed_at ?? '2026-06-17T08:08:00Z',
   completed_at,
+  ...(options.run_attempt === undefined ? {} : { run_attempt: options.run_attempt }),
 });
 
 describe('identità del job condivisa con il corpus', () => {
@@ -150,12 +168,12 @@ describe('latestCompletedVitestConclusion (#2394 stale-check-run guard)', () => 
     expect(latestCompletedVitestConclusion(runs)).toBe('failure');
   });
 
-  it('un run in-progress (senza completed_at) NON blocca: vince l’ultimo completato', () => {
+  it('una generazione pending più nuova non riusa il verdetto precedente', () => {
     const runs = [
       vitest('success', '2026-06-17T08:07:03Z'),
       vitest(null, null, 'in_progress'), // dispatch manuale appeso
     ];
-    expect(latestCompletedVitestConclusion(runs)).toBe('success');
+    expect(latestCompletedVitestConclusion(runs)).toBe('');
   });
 
   it('un job skipped più recente non sostituisce un verdetto reale', () => {
@@ -178,6 +196,9 @@ describe('latestCompletedVitestConclusion (#2394 stale-check-run guard)', () => 
         status: 'completed',
         conclusion: 'failure',
         completed_at: '2026-06-17T08:29:00Z',
+        id: 2,
+        head_sha: HEAD,
+        created_at: '2026-06-17T08:29:00Z',
         details_url: 'https://github.com/owner/repo/actions/runs/1/job/2',
       },
     ];
@@ -218,15 +239,21 @@ describe('latestCompletedVitestConclusion (#2394 stale-check-run guard)', () => 
  * altrimenti resta ferma: pr-autorebase la skippava, auto-merge esige `success`.
  */
 const agg = (conclusion: string | null, completed_at: string | null, status = 'completed') => ({
+  id: stableRunId(`agg|${conclusion}|${completed_at}|${status}`),
   name: VITEST_CHECK_NAME,
   status,
   conclusion,
+  head_sha: HEAD,
+  created_at: completed_at || '2026-06-17T08:06:00Z',
   completed_at,
 });
 const shard = (n: number, conclusion: string | null, status = 'completed') => ({
+  id: stableRunId(`shard|${n}|${conclusion}|${status}`),
   name: `vitest shard ${n}/4`,
   status,
   conclusion,
+  head_sha: HEAD,
+  created_at: status === 'completed' ? '2026-06-17T08:00:00Z' : '2026-06-17T08:01:00Z',
   completed_at: status === 'completed' ? '2026-06-17T08:00:00Z' : null,
 });
 const cancelledRun = [
@@ -532,9 +559,12 @@ describe('vitestFailureIsNotAttributableToPr (stato assorbente stuck-red)', () =
  */
 describe('latestCompletedRunByName / latestCompletedConclusionByName (#242)', () => {
   const named = (name: string, conclusion: string | null, completed_at: string | null, status = 'completed') => ({
+    id: stableRunId(`${name}|${conclusion}|${completed_at}|${status}`),
     name,
     status,
     conclusion,
+    head_sha: HEAD,
+    created_at: completed_at || '2026-08-10T08:30:00Z',
     completed_at,
   });
 
@@ -562,10 +592,10 @@ describe('latestCompletedRunByName / latestCompletedConclusionByName (#242)', ()
     expect(latestCompletedRunByName([], 'test')).toBeNull();
   });
 
-  it('preserva `skipped` per un nome generico, ma lo esclude per Vitest', () => {
+  it('esclude `skipped` per ogni nome: non è un verdetto', () => {
     const skipped = [named('test', 'skipped', '2026-08-10T08:30:00Z')];
-    expect(latestCompletedConclusionByName(skipped, 'test')).toBe('skipped');
-    expect(latestCompletedRunByName(skipped, 'test', { excludeSkipped: true })).toBeNull();
+    expect(latestCompletedConclusionByName(skipped, 'test')).toBe('');
+    expect(latestCompletedRunByName(skipped, 'test')).toBeNull();
     expect(latestCompletedVitestConclusion([vitest('skipped', '2026-08-10T08:30:00Z')])).toBe('');
   });
 
@@ -585,5 +615,84 @@ describe('latestCompletedRunByName / latestCompletedConclusionByName (#242)', ()
     expect(latestCompletedConclusionByName(runs, VITEST_CHECK_NAME)).toBe(
       latestCompletedVitestConclusion(runs),
     );
+  });
+});
+
+describe('selezione generation-aware del check-run (#1648)', () => {
+  it('la generazione nuova vince anche se il rerun vecchio finisce dopo', () => {
+    const newer = vitest('success', '2026-09-20T10:06:00Z', 'completed', {
+      id: 200,
+      created_at: '2026-09-20T10:05:00Z',
+    });
+    const oldRerun = vitest('failure', '2026-09-20T10:07:00Z', 'completed', {
+      id: 199,
+      created_at: '2026-09-20T10:00:00Z',
+    });
+    const selected = latestCompletedRunSelectionByName([newer, oldRerun], VITEST_CHECK_NAME);
+    expect(selected.state).toBe(RUN_SELECTION_STATES.SELECTED);
+    expect(selected.run).toBe(newer);
+  });
+
+  it('una generazione nuova pending impedisce il carry-forward del successo vecchio', () => {
+    const oldSuccess = vitest('success', '2026-09-20T11:01:00Z', 'completed', {
+      id: 300,
+      created_at: '2026-09-20T11:00:00Z',
+    });
+    const newerPending = vitest(null, null, 'in_progress', {
+      id: 301,
+      created_at: '2026-09-20T11:05:00Z',
+    });
+    const selected = latestCompletedRunSelectionByName([oldSuccess, newerPending], VITEST_CHECK_NAME);
+    expect(selected.state).toBe(RUN_SELECTION_STATES.PENDING);
+    expect(latestCompletedVitestConclusion([oldSuccess, newerPending])).toBe('');
+  });
+
+  it('usa run_attempt prima del check ID quando created_at coincide', () => {
+    const first = vitest('failure', '2026-09-20T12:02:00Z', 'completed', {
+      id: 402,
+      created_at: '2026-09-20T12:00:00Z',
+      run_attempt: 1,
+    });
+    const rerun = vitest('success', '2026-09-20T12:01:00Z', 'completed', {
+      id: 401,
+      created_at: '2026-09-20T12:00:00Z',
+      run_attempt: 2,
+    });
+    expect(latestCompletedRunByName([first, rerun], VITEST_CHECK_NAME)).toBe(rerun);
+  });
+
+  it('rifiuta SHA misti, metadati mancanti e duplicati conflittuali', () => {
+    const valid = vitest('success', '2026-09-20T13:00:00Z', 'completed', { id: 500 });
+    const cases = [
+      [valid, vitest('failure', '2026-09-20T13:01:00Z', 'completed', { id: 501, head_sha: 'b'.repeat(40) })],
+      [{ ...valid, id: undefined }],
+      [{ ...valid, head_sha: undefined }],
+      [{ ...valid, created_at: 'not-a-date' }],
+      [{ ...valid, created_at: null }],
+      [valid, { ...valid, id: 500, conclusion: 'failure' }],
+    ];
+    for (const runs of cases) {
+      const selected = latestCompletedRunSelectionByName(runs, VITEST_CHECK_NAME);
+      expect(selected.state).toBe(RUN_SELECTION_STATES.AMBIGUOUS);
+      expect(latestCompletedRunByName(runs, VITEST_CHECK_NAME)).toBeNull();
+    }
+  });
+
+  it('usa workflow-run ID come fallback solo con check_suite ed external_id integri', () => {
+    const make = (id: number, runId: string, conclusion: string) => ({
+      id,
+      name: VITEST_CHECK_NAME,
+      status: 'completed',
+      conclusion,
+      head_sha: HEAD,
+      created_at: null,
+      completed_at: '2026-09-20T14:00:00Z',
+      details_url: `https://github.com/owner/repo/actions/runs/${runId}/job/${id}`,
+      check_suite: { id, head_sha: HEAD },
+      external_id: `00000000-0000-4000-8000-${String(id).padStart(12, '0')}`,
+    });
+    const newer = make(701, '2002', 'success');
+    const older = make(799, '2001', 'failure');
+    expect(latestCompletedRunByName([newer, older], VITEST_CHECK_NAME)).toBe(newer);
   });
 });
