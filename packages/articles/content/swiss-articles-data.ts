@@ -19769,6 +19769,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-l-grigioni-validita-proroga',
+    category: 'pratico',
+    date: '2026-09-20T01:34:30.789Z',
+    image: '/images/blog/permesso-l-grigioni-validita-proroga.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'apprendistato-formazione-professionale-vaud',
+    category: 'pratico',
+    date: '2026-09-20T01:51:22.074Z',
+    image: '/images/blog/apprendistato-formazione-professionale-vaud.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

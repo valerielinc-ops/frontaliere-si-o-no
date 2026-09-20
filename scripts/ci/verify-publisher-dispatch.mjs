@@ -208,7 +208,7 @@ function compareMetadata(attestation, runMetadata, workflowMetadata, reasons, no
   // already completed. Result: every `articles-published` dispatch from
   // 8d953d627c8 (2026-09-16T19:25Z) onward denied with
   // publisher-source-run-status-not-allowed, `Commit if changed` never ran,
-  // and packages/articles/content froze at 49b38547dad (2026-09-16T12:00Z)
+  // and the synced article corpus froze at 49b38547dad (2026-09-16T12:00Z)
   // with 2157 svizzera articles against the 2183 the corpus announced.
   //
   // Freshness carries the anti-replay property instead, and it is the stronger

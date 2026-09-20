@@ -85547,6 +85547,83 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-l-grigioni-validita-proroga': {
+    title: 'Permesso L Grigioni: validità e proroga | Frontaliere Ticino',
+    description: 'Scopri la validità del permesso L nei Grigioni, le possibilità di proroga e i requisiti per il passaggio a un permesso B. Informazioni pratiche per lavoratori',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, grigioni, validità, proroga',
+    ogTitle: 'Permesso L Grigioni: validità e proroga',
+    ogDescription: 'Il permesso di lavoro di breve durata (Permesso L) nei Grigioni ha una validità massima di 1 anno. Esplora le opzioni di proroga, i requisiti per il datore di lavoro e le procedure per il passaggio al permesso B per soggiorni più lunghi.',
+    canonicalPath: '/articoli-svizzera/permesso-l-grigioni-validita-proroga/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso L Grigioni: validità e proroga",
+      "description": "Scopri la validità del permesso L nei Grigioni, le possibilità di proroga e i requisiti per il passaggio a un permesso B. Informazioni pratiche per lavoratori",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-l-grigioni-validita-proroga.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Castelli di Bellinzona, Cantone dei Grigioni, Svizzera"
+      },
+      "datePublished": "2026-09-20T01:34:30+00:00",
+      "dateModified": "2026-09-20T01:34:30+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-l-grigioni-validita-proroga/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-apprendistato-formazione-professionale-vaud': {
+    title: 'Apprendistato e formazione professionale Vaud | Frontaliere Ticino',
+    description: 'Guida completa per trovare un posto di tirocinio nel Canton Vaud: contratto, retribuzione apprendista, maturità professionale e consigli pratici.',
+    keywords: 'frontalieri, ticino, svizzera, italia, apprendistato, formazione, professionale, vaud',
+    ogTitle: 'Apprendistato e formazione professionale nel Canton Vaud: trovalo!',
+    ogDescription: 'Scopri come trovare un posto di tirocinio nel Canton Vaud. Tutto sul contratto, la retribuzione dell\'apprendista e la maturità professionale. La tua guida completa per iniziare la carriera in Svizzera.',
+    canonicalPath: '/articoli-svizzera/apprendistato-formazione-professionale-vaud/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Apprendistato e formazione professionale Vaud",
+      "description": "Guida completa per trovare un posto di tirocinio nel Canton Vaud: contratto, retribuzione apprendista, maturità professionale e consigli pratici.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/apprendistato-formazione-professionale-vaud.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vigneti terrazzati del Canton Vaud al tramonto, con vista sul Lago di Ginevra"
+      },
+      "datePublished": "2026-09-20T01:51:22+00:00",
+      "dateModified": "2026-09-20T01:51:22+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/apprendistato-formazione-professionale-vaud/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
 };
 
 export default BLOG_CH_SEO_METADATA;

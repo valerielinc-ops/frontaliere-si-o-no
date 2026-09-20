@@ -185,10 +185,10 @@ export default function PharmacyItalyDutyWeek({ page, now, duties, status, sourc
       <p className="max-w-3xl text-base leading-7 text-muted">{copy.lede}</p>
       <p className="text-sm leading-6 text-body"><strong>{copy.week}:</strong> {formatWeekRange(model, locale)}</p>
       {model.indexable
-        ? <p className="rounded-xl border border-emerald-300 bg-emerald-50 p-4 text-sm leading-6 text-emerald-900" role="status">{copy.coverage}</p>
+        ? <p className="rounded-xl border border-success-border bg-success-subtle p-4 text-sm leading-6 text-success" role="status">{copy.coverage}</p>
         : model.publishable
-          ? <aside className="rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm leading-6 text-amber-950" role="status"><strong>{copy.partial}</strong><p className="mt-1">{model.reason}</p></aside>
-          : <aside className="rounded-xl border border-amber-300 bg-amber-50 p-4 text-sm leading-6 text-amber-950" role="status"><strong>{copy.unavailable}</strong><p className="mt-1">{model.reason}</p><p className="mt-1">{copy.noOperationalData}</p></aside>}
+          ? <aside className="rounded-xl border border-warning-border bg-warning-subtle p-4 text-sm leading-6 text-warning" role="status"><strong>{copy.partial}</strong><p className="mt-1">{model.reason}</p></aside>
+          : <aside className="rounded-xl border border-warning-border bg-warning-subtle p-4 text-sm leading-6 text-warning" role="status"><strong>{copy.unavailable}</strong><p className="mt-1">{model.reason}</p><p className="mt-1">{copy.noOperationalData}</p></aside>}
       <nav className="flex flex-wrap gap-2 pt-2" aria-label={copy.italy}>
         <a className="inline-flex min-h-11 items-center rounded-full border border-accent/40 bg-accent-subtle px-4 py-2 text-sm font-semibold text-link focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={hubPath}>{copy.hub}</a>
         <a className="inline-flex min-h-11 items-center rounded-full border border-edge bg-surface px-4 py-2 text-sm text-body hover:border-accent focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={swissDutyPath}>{copy.swissDuty}</a>
@@ -200,7 +200,7 @@ export default function PharmacyItalyDutyWeek({ page, now, duties, status, sourc
         <header className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <h2 className="font-display text-xl font-bold text-heading">{province.name}</h2>
-            <p className={`text-xs font-semibold uppercase tracking-wide ${province.publishable ? 'text-emerald-700' : 'text-amber-800'}`}>{province.publishable ? copy.published : copy.notPublished}</p>
+            <p className={`text-xs font-semibold uppercase tracking-wide ${province.publishable ? 'text-success' : 'text-warning'}`}>{province.publishable ? copy.published : copy.notPublished}</p>
           </div>
           {province.sourceUrl && <a className="inline-flex items-center gap-1 text-sm font-semibold text-link underline-offset-4 hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent" href={province.sourceUrl} rel="nofollow noopener">{copy.openSource}<ExternalLink aria-hidden="true" className="h-3.5 w-3.5" /></a>}
         </header>

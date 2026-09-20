@@ -6599,6 +6599,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.scuola-canton-vaud-iscrizioni-cicli.title': 'Sistema scolastico Canton Vaud: iscrizioni e cicli',
     'blog.article.scuola-canton-vaud-iscrizioni-cicli.excerpt': 'Guida completa alla scuola dell\'obbligo nel Canton Vaud: cicli di studio, età di iscrizione, lingue e passaggio alle medie superiori.',
     'blog.article.scuola-canton-vaud-iscrizioni-cicli.imageAlt': 'Edificio scolastico moderno nel Canton Vaud',
+    'blog.article.permesso-l-grigioni-validita-proroga.title': 'Permesso L Grigioni: validità e proroga',
+    'blog.article.permesso-l-grigioni-validita-proroga.excerpt': 'Il permesso L per i Grigioni ha validità fino a 1 anno, con possibilità di proroga e passaggio a permesso B sotto specifiche condizioni e vincoli per il datore di lavoro.',
+    'blog.article.permesso-l-grigioni-validita-proroga.imageAlt': 'Castelli di Bellinzona, Cantone dei Grigioni, Svizzera',
+    'blog.article.apprendistato-formazione-professionale-vaud.title': 'Apprendistato e formazione professionale Vaud',
+    'blog.article.apprendistato-formazione-professionale-vaud.excerpt': 'Guida completa su come trovare un posto di tirocinio nel Canton Vaud: contratto, retribuzione apprendista e maturità professionale.',
+    'blog.article.apprendistato-formazione-professionale-vaud.imageAlt': 'Vigneti terrazzati del Canton Vaud al tramonto, con vista sul Lago di Ginevra',
 };
 
 export default blogMetaChIt;

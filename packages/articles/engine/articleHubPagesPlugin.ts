@@ -1063,8 +1063,11 @@ export function renderPagination(locale: HubLocale, basePath: string, current: n
 
   // Flat ladder — every page-N anchor, collapsed for mobile.
   // Skip when totalPages ≤ 1 (no pagination needed) or ≤ 5 (compact nav
-  // already shows all pages, ladder would be redundant).
-  if (total <= 5) return compactNav;
+  // already shows all pages, ladder would be redundant). Deep pages (> 1)
+  // keep only the compact nav: page 1 is the BFS bridge to every page-N, so
+  // repeating the O(total) ladder on each page-N was pure weight — same rule
+  // as build-plugins/seoHubsPlugin.ts `renderPagination` (#7790).
+  if (total <= 5 || current > 1) return compactNav;
   const flatLabel = {
     it: "Sfoglia tutto l'archivio per pagina",
     en: 'Browse the full archive by page',
@@ -1100,16 +1103,21 @@ export function renderPagination(locale: HubLocale, basePath: string, current: n
   // "browse by page" context, so the numbers stay understandable. Same
   // byte-shave class as the prior inline-style→class and BASE_URL-prefix drops
   // on this exact ladder; every anchor is preserved so BFS depth is unchanged.
+  //
+  // Per-anchor `class="hp"`/`class="hc"` dropped for the container rule
+  // `.hpl a` / `.hpl strong` (public/assets/seo-static.css), in lockstep with
+  // build-plugins/seoHubsPlugin.ts `renderFlatPaginationLadder` (#7790):
+  // tests/render-article-hub-pages-narrow-vs-full.test.ts pins byte equality.
   const flatAnchors: string[] = [];
   for (let p = 1; p <= total; p++) {
     const href = paginatedPath(basePath, p);
     if (p === current) {
-      flatAnchors.push(`<strong class="hc" aria-current="page">${p}</strong>`);
+      flatAnchors.push(`<strong aria-current="page">${p}</strong>`);
     } else {
-      flatAnchors.push(`<a href="${href}" class="hp">${p}</a>`);
+      flatAnchors.push(`<a href="${href}">${p}</a>`);
     }
   }
-  const flatNav = `<nav class="s-4nYHgH" aria-label="${flatLabel}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${flatLabel} (${total})</summary><div class="s-6_t7LY">${flatAnchors.join('')}</div></details></nav>`;
+  const flatNav = `<nav class="s-4nYHgH" aria-label="${flatLabel}"><details class="s-Ery2Xe"><summary class="s-goeAUL">${flatLabel} (${total})</summary><div class="s-6_t7LY hpl">${flatAnchors.join('')}</div></details></nav>`;
 
   return `${compactNav}${flatNav}`;
 }

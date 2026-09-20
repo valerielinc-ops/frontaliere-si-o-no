@@ -87,13 +87,17 @@ editoriale.
 
 **In parte, e non per assenza della libreria.** La mappa geografica c'è ed è
 in produzione: `leaflet` e `react-leaflet` sono dipendenze installate
-(`package.json`) e sono usate da **sei** componenti — `LivabilityMap`,
-`SupermarketMap`, `TicinoCompanies` (`components/vita/`),
-`BorderMunicipalitiesMap`, `FrontierGuide`, `TrafficAlerts`
-(`components/guide/`). Quello che manca non è la capacità di disegnare una
-mappa, è il **guscio condiviso**: i sei duplicano import di `leaflet.css`,
-`MapContainer`/`TileLayer` e altezza riservata, senza un componente comune che
-un contenuto editoriale possa istanziare (issue #7339, aperta).
+(`package.json`). Il guscio condiviso che mancava al momento dell'audit
+(issue #7339) ora esiste: `MapCanvas` (`components/shared/`) è l'unico punto
+che importa `leaflet.css`, monta `MapContainer`/`TileLayer` e riserva
+l'altezza (`tests/map-canvas-single-shell.test.ts`). Lo usano **otto**
+componenti — `LivabilityMap`, `SupermarketMap`, `TicinoCompanies`
+(`components/vita/`), `BorderMunicipalitiesMap`, `FrontierGuide`,
+`TrafficAlerts` (`components/guide/`), `PharmacyMap`
+(`components/pharmacies/`) e `FuelStationMap` (`components/pages/`); tutti
+tranne `FrontierGuide` importano ancora da `react-leaflet` i propri marker e
+popup. Quello che manca non è più il guscio, è un componente editoriale che un
+contenuto longform possa istanziare con i propri dati.
 
 Sulle infografiche il finding regge: i grafici esistenti servono dati interni
 (es. `InlineBorderWaitRanking`, i grafici del traffico ai valichi) e nessuno è

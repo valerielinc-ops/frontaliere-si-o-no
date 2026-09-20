@@ -343,11 +343,17 @@ describe('il registro si rigenera a ogni promozione, non a mano', () => {
     // Stesso gap di #6301/#6279: un file pubblico modificato dal diff e mai
     // citato nel body. Entrambi i rami devono dire qualcosa — anche quello di
     // fallimento, che informa che la directory e' indietro.
-    const bodyStart = at(promoteSrc, 'const body = `## Implementato');
+    // Dal #9251 il corpo e' costruito in `buildPromotionPrBody()` (esportata e
+    // coperta anche da tests/prospect-promote-pr-body.test.ts): il template
+    // parte dal suo `return`, e il chiamante deve passarle l'esito della
+    // rigenerazione.
+    const bodyStart = at(promoteSrc, 'return `## Implementato');
     const nonImpl = promoteSrc.indexOf('## Non implementato (ancora)', bodyStart);
     const implementato = promoteSrc.slice(bodyStart, nonImpl);
     expect(implementato).toContain('${companiesNote}');
     expect(promoteSrc).toContain('const companiesNote = companiesRegenerated');
+    const call = promoteSrc.slice(at(promoteSrc, 'const body = buildPromotionPrBody({'));
+    expect(call.slice(0, call.indexOf('});'))).toContain('companiesRegenerated,');
   });
 
   it('il corpo rende effettive le soglie del gate ridotto', () => {
@@ -359,10 +365,14 @@ describe('il registro si rigenera a ogni promozione, non a mano', () => {
     expect(promoteSrc).toContain('const stabilityRequirement =');
     expect(promoteSrc).toContain('const stabilityClaim = minRuns === 1 && minDays === 1');
 
-    const bodyStart = at(promoteSrc, 'const body = `## Implementato');
+    const bodyStart = at(promoteSrc, 'return `## Implementato');
     const nonImpl = promoteSrc.indexOf('## Non implementato (ancora)', bodyStart);
     const implementato = promoteSrc.slice(bodyStart, nonImpl);
     const nonImplementato = promoteSrc.slice(nonImpl);
+    const call = promoteSrc.slice(at(promoteSrc, 'const body = buildPromotionPrBody({'));
+    const callArgs = call.slice(0, call.indexOf('});'));
+    expect(callArgs).toContain('stabilityRequirement,');
+    expect(callArgs).toContain('stabilityClaim,');
     expect(implementato).toContain('con **${stabilityRequirement}**${stabilityClaim}');
     expect(nonImplementato).toContain('stabilita\' richiesta da ${stabilityRequirement}');
     expect(nonImplementato).not.toContain("stabilita' su due giorni");
