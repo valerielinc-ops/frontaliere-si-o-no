@@ -49,6 +49,7 @@ import { buildGscKeywordThinBody, GSC_KEYWORD_THIN_HEAD_SCRIPT } from './shared/
 import { shouldEmitLocale } from './shared/localeEmitFilter';
 import {
  buildActiveJobPageInput,
+ buildExpiredSoftLandingPageInput,
  buildMinimalJobInput,
  getIncrementalManifestInputCache,
  getIncrementalManifestMap,
@@ -13319,15 +13320,18 @@ ${staticAnalyticsHtml}
  const __slAction: 'full' | 'thin' =
  __slDecision.action === 'thin' ? 'thin' : 'full';
  recordPhase('ejp:decide', __tEjpDecide);
+ // `expiredPayloadJson` is the SAME string the template below interpolates into
+ // `<script>window.__EXPIRED_JOB_DATA__=…</script>`, and `postalCode` the same
+ // value the JSON-LD builder receives: the input digests exactly the bytes the
+ // page emits from `gscInfo`/`slugInfo`, two ledgers read with `fs.readFileSync`
+ // that neither the emitter fingerprint nor any other input field can see.
  const softLandingManifestInput = incrementalManifests
-  ? {
-   ...buildMinimalJobInput(
-    ejData || { slug },
-    locale,
-    slug,
-    sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug),
-    incrementalManifestInputCache,
-   ),
+  ? buildExpiredSoftLandingPageInput({
+   job: ejData || { slug },
+   locale,
+   slug,
+   relatedJobs: sameCompanyActiveJobs.length > 0 ? sameCompanyActiveJobs : selectRecentJobs(slug, slug),
+   inputCache: incrementalManifestInputCache,
    path: relPath,
    title: pageTitleRaw,
    trackingPaths: paths,
@@ -13344,7 +13348,10 @@ ${staticAnalyticsHtml}
    prosePaths: __slProsePaths,
    keepProse: __slKeepProse,
    action: __slAction,
-  }
+   expiredPayloadJson: expiredWindowData,
+   postalCode: ejData?.postalCode || slugInfo?.postalCode || '',
+   derivedFromUnhashedSource: Boolean(gscInfo) || Boolean(slugInfo),
+  })
   : null;
  const softLandingReuse = jobsSeoReuse?.lookup(
   locale,

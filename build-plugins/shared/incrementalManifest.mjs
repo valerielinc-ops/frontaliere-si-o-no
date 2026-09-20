@@ -537,6 +537,106 @@ export function buildActiveJobPageInput({
   };
 }
 
+/**
+ * Digest of everything an expired soft-landing page renders from a source the
+ * emitter fingerprint cannot see.
+ *
+ * Same shape as `relatedArticlesFeedDigest`: it digests the bytes the page
+ * EMITS (`window.__EXPIRED_JOB_DATA__`), not the ledgers they came from, so it
+ * is minimal by construction and cannot drift away from the renderer. The JSON-LD
+ * `postalCode` rides along because it is the one slug-derived field that the
+ * inline payload does not carry.
+ */
+export function expiredSoftLandingPayloadDigest(expiredPayloadJson, postalCode) {
+  return sha256(JSON.stringify([
+    String(expiredPayloadJson ?? ''),
+    String(postalCode ?? ''),
+  ])).slice(0, 16);
+}
+
+/**
+ * The whole page input of an expired soft-landing page, in one place.
+ *
+ * Why the extra digest. The template serialises `expiredDataObj` into
+ * `<script>window.__EXPIRED_JOB_DATA__=…</script>` and renders its prose. That
+ * object is assembled from THREE sources, and only one of them was hashed:
+ *
+ *   - `ejData` (data/expired-jobs.json + the per-crawler slices) — covered by
+ *     `jobRecordDigest`, which digests the whole record;
+ *   - `gscInfo` (`readOrphanEnriched()` → data/orphan-enriched-data/part-*.json)
+ *     — NOT covered: the page input carried only `title`, `company`, `location`,
+ *     `sector` and the first six `queries`, while the emitted payload also
+ *     carries `titleByLocale`, `descriptionByLocale`, `companyKey`,
+ *     `slugByLocale`, the FULL query list, `gscImpressions` and `gscClicks`;
+ *   - `slugInfo` (`extractInfoFromSlug()` → data/jobs-crawler-adapters/adapters
+ *     and data/swiss-postal-codes.json) — NOT covered for `companyKey` and
+ *     `postalCode`.
+ *
+ * Both uncovered sources are read with `fs.readFileSync` at render time, so they
+ * are invisible to `computeJobsSeoEmitterFingerprints()` too, which walks the
+ * static import graph. Identical input hash + identical fingerprint = reuse of an
+ * HTML that the current data no longer produces. Same defect as #9411, one block
+ * over.
+ *
+ * Why it is conditional. `derivedFromUnhashedSource` is the renderer's own
+ * `Boolean(gscInfo) || Boolean(slugInfo)`, and `slugInfo` exists exactly when
+ * `ejData.title` is missing. When both are absent, every field of the emitted
+ * payload is a projection of `ejData`, `slug` and `locale` — already in the
+ * hash — so adding the digest there would cost a full re-render of the largest
+ * reuse block (258'998 pages on the IT leg) and buy nothing. The predicate is
+ * fail-closed: it asks whether an unhashed source COULD have contributed, not
+ * whether it did.
+ */
+export function buildExpiredSoftLandingPageInput({
+  job,
+  locale,
+  slug,
+  relatedJobs = [],
+  inputCache = null,
+  path,
+  title,
+  trackingPaths,
+  company,
+  location,
+  canton,
+  sector,
+  contract,
+  datePosted,
+  expiredAt,
+  gscQueries,
+  currentYear,
+  candidatePaths,
+  prosePaths,
+  keepProse,
+  action,
+  expiredPayloadJson,
+  postalCode,
+  derivedFromUnhashedSource,
+}) {
+  return {
+    ...buildMinimalJobInput(job, locale, slug, relatedJobs, inputCache),
+    path,
+    title,
+    trackingPaths,
+    company,
+    location,
+    canton,
+    sector,
+    contract,
+    datePosted,
+    expiredAt,
+    gscQueries,
+    currentYear,
+    candidatePaths,
+    prosePaths,
+    keepProse,
+    action,
+    ...(derivedFromUnhashedSource
+      ? { expiredPayloadDigest: expiredSoftLandingPayloadDigest(expiredPayloadJson, postalCode) }
+      : {}),
+  };
+}
+
 export function verifyRuntimeInputExclusion() {
   const base = {
     content: { title: 'Role', description: 'Description' },
