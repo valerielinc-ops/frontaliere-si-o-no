@@ -1,16 +1,16 @@
 {
   "key": "cambiavalute",
   "label": "Cambiavalute",
-  "generatedAt": "2026-09-13T14:17:06.502Z",
+  "generatedAt": "2026-09-19T23:16:58.336Z",
   "total": 2,
   "newCount": 0,
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 139831,
-  "avgDurationMs": 139831,
+  "durationMs": 80999,
+  "avgDurationMs": 80999,
   "durationHistory": [
-    139831
+    80999
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -35,7 +35,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-13T14:17:04.173Z",
+      "crawledAt": "2026-09-19T23:16:52.757Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -77,7 +77,7 @@
       },
       "companyKey": "cambiavalute",
       "companyDomain": "cambiavalute.ch",
-      "crawledAt": "2026-09-12T13:18:31.129Z",
+      "crawledAt": "2026-09-19T23:16:52.757Z",
       "firstSeenAt": "2026-07-08T11:14:55.248Z",
       "country": "CH",
       "sourceLang": "it",
@@ -88,7 +88,7 @@
       "addressCountry": "CH",
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "applyUrl": "https://cambiavalute.ch/annuncio-di-lavoro/sales-marketing-customer-support-assistant-mercato-tedesco/",
       "needsRetranslation": true,
       "_qualityScore": 88,
       "_qualityBreakdown": {
