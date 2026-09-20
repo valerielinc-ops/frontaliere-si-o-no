@@ -11,7 +11,7 @@
  *   - slugify() / stripHtml() — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { detectLang } from './dedicated-crawler-common.mjs';
+import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
 import {
@@ -184,8 +184,14 @@ export async function fetchAllRocheJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
+    const rawLocation = String(listing.location || '').trim();
+    if (rawLocation && isLocationExplicitlyForeign(rawLocation)) {
+      console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
+      continue;
+    }
+
     // Roche HQ is Basel (BS); fall back there if Workday omits the location.
-    const location = listing.location || 'Basel';
+    const location = rawLocation || 'Basel';
     const canton = inferSwissTargetCanton(location) || 'BS';
     const publicUrl = String(listing.url || '').trim();
     if (!publicUrl) {

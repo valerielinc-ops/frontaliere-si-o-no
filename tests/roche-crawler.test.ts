@@ -70,6 +70,35 @@ describe('Roche crawler parser', () => {
     expect(mocks.fetchWorkdayJobDescriptionText).toHaveBeenCalledTimes(1);
   });
 
+  it('skips explicit foreign locations instead of assigning the Basel fallback', async () => {
+    mocks.fetchWorkdayJobs.mockImplementation(async function* fetchMockJobs() {
+      yield {
+        title: 'Madrid role should not enter Swiss slice',
+        location: 'Madrid',
+        externalPath: '/job/Madrid/Foreign-role_JR9',
+        applyUrl: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Madrid/Foreign-role_JR9',
+        jobReqId: 'JR9',
+      };
+      yield {
+        title: 'Swiss role without location fallback',
+        location: '',
+        externalPath: '/job/Basel/Swiss-role_JR10',
+        applyUrl: 'https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Basel/Swiss-role_JR10',
+        jobReqId: 'JR10',
+      };
+    });
+
+    const jobs = await fetchAllRocheJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({
+      title: 'Swiss role without location fallback',
+      location: 'Basel',
+      canton: 'BS',
+    });
+    expect(mocks.fetchWorkdayJobDescriptionText).toHaveBeenCalledTimes(1);
+  });
+
   // ── isCompanyJob ──
   describe('isRocheJob', () => {
     it('matches by companyKey', () => {
