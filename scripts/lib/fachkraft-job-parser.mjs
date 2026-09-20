@@ -400,6 +400,9 @@ async function fetchFachkraftListingSnapshot({ transport, urlPolicy, signal, max
     );
     const pageRows = parseFachkraftListingPage(listingPage.body);
     const navigation = parseFachkraftListingNavigation(listingPage.body, pageUrl);
+    if (pages === 0 && navigation.declaredCount === null) {
+      throw new Error('fachkraft initial listing missing authoritative data-count');
+    }
     if (navigation.declaredCount !== null) {
       if (declaredCount !== null && declaredCount !== navigation.declaredCount) {
         throw new Error(
@@ -549,7 +552,8 @@ export function validateFachkraftAuthoritativeSnapshot(jobs) {
     );
   }
   if (!audit?.complete
-    || (audit.listingDeclaredCount != null && audit.listingDeclaredCount !== audit.discovered)
+    || audit.listingDeclaredCount == null
+    || audit.listingDeclaredCount !== audit.discovered
     || audit.discovered <= 0
     || audit.fetchFailures !== 0
     || audit.detailCompleted !== audit.detailRequested

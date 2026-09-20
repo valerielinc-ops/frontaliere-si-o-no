@@ -43,7 +43,7 @@ const listingCard = ({
     <div class="ff-job-entry__column ff-job-entry__region"><span>Region:</span> ${location}</div>
   </li>`;
 
-const listingHtml = (...cards: string[]) => `<html><body><ul>${cards.join('\n')}</ul></body></html>`;
+const listingHtml = (...cards: string[]) => `<html><body><div data-count="${cards.length}"><ul>${cards.join('\n')}</ul></div></body></html>`;
 
 const paginatedListingHtml = (count: number, nextHref: string | null, ...cards: string[]) => `
   <html><body>
@@ -300,6 +300,40 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         fetchImpl,
         existingJobs: [],
       })).rejects.toThrow(/pagination incomplete/i);
+    });
+
+    it('fails closed when the initial listing omits the source-declared total', async () => {
+      const fetchImpl = async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        return new Response(`<html><body><ul>${listingCard({
+          title: 'Polymechaniker/in',
+          path: 'polymechaniker-in-luzern-123',
+        })}</ul></body></html>`, { status: 200 });
+      };
+
+      await expect(fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        existingJobs: [],
+      })).rejects.toThrow(/initial listing missing authoritative data-count/i);
+    });
+
+    it('rejects a complete audit without the source-declared total', () => {
+      const jobs = Object.assign([], {
+        fachkraftSnapshot: {
+          complete: true,
+          listingDeclaredCount: null,
+          discovered: 1,
+          fetchFailures: 0,
+          detailCompleted: 0,
+          detailRequested: 0,
+          accounted: 1,
+          published: 0,
+        },
+      });
+
+      expect(() => validateFachkraftAuthoritativeSnapshot(jobs))
+        .toThrow(/authoritative snapshot proof missing or incomplete/i);
     });
 
     it('retries a transient listing status within the local request budget', async () => {
