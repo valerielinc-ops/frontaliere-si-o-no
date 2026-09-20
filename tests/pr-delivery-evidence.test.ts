@@ -29,6 +29,7 @@ function pr(overrides: Record<string, unknown> = {}) {
     state: 'OPEN',
     headRefName: BRANCH,
     headRefOid: 'sha-before',
+    headRepository: { nameWithOwner: REPO },
     createdAt: '2026-09-19T09:00:00Z',
     updatedAt: '2026-09-19T09:30:00Z',
     mergedAt: null,
@@ -88,6 +89,20 @@ describe('pr-delivery-evidence', () => {
     expect(evaluate(baseline(), [closed])).toEqual({
       status: DELIVERY_STATUS.NONE,
       reason: 'no-current-delivery-evidence',
+      prNumber: null,
+    });
+  });
+
+  it('rifiuta una PR omonima proveniente da un fork', () => {
+    const forkPr = pr({
+      number: 703,
+      headRepository: { nameWithOwner: 'fork-owner/frontaliere-si-o-no' },
+      createdAt: '2026-09-19T10:04:00Z',
+      updatedAt: '2026-09-19T10:04:00Z',
+    });
+    expect(evaluate(baseline(), [forkPr])).toEqual({
+      status: DELIVERY_STATUS.UNAVAILABLE,
+      reason: 'pr-head-repository-mismatch',
       prNumber: null,
     });
   });
@@ -179,6 +194,18 @@ describe('pr-delivery-evidence', () => {
       actionOutcome: 'success',
       delivery: { status: DELIVERY_STATUS.UNAVAILABLE, reason: 'github-read-failed' },
     })).toMatchObject({ classification: 'unknown', exitCode: 1 });
+    expect(classifyWorkflowOutcome({
+      actionOutcome: 'success',
+      delivery: {},
+    })).toMatchObject({ classification: 'unknown', exitCode: 1, reason: 'evidence-status-invalid' });
+    expect(classifyWorkflowOutcome({
+      actionOutcome: 'success',
+      delivery: { status: 'future-status' },
+    })).toMatchObject({ classification: 'unknown', exitCode: 1, reason: 'evidence-status-invalid' });
+    expect(classifyWorkflowOutcome({
+      actionOutcome: 'success',
+      delivery: { status: DELIVERY_STATUS.DELIVERED },
+    })).toMatchObject({ classification: 'unknown', exitCode: 1, reason: 'evidence-pr-number-missing' });
   });
 
   it('il baseline conserva il file numerico legacy senza JSON wrapping', () => {

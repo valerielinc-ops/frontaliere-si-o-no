@@ -6611,6 +6611,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.votazioni-cantoni-27-settembre.title': 'Abstimmungen in neun Kantonen: Steuern und Wahlmobilität',
     'blog.article.votazioni-cantoni-27-settembre.excerpt': 'Am Sonntag, 27. September, wird in neun Kantonen abgestimmt: Steuer in Waadt, Empfängnisverhütung in Genf und grenzüberschreitende Mobilität von 39,5 Millionen.',
     'blog.article.votazioni-cantoni-27-settembre.imageAlt': 'Wähler vor einem schweizerischen Regierungsgebäude zu den Kantonsabstimmungen am 27. September',
+    'blog.article.referendum-nuove-centrali-nucleari.title': 'Erfolgreiches Referendum: 125\'000 Unterschriften gegen neue Kraftwerke',
+    'blog.article.referendum-nuove-centrali-nucleari.excerpt': 'Das Komitee hat in 3 Monaten über 125\'000 Unterschriften gesammelt. Die Abstimmung ist für den 28. Februar 2027 vorgesehen.',
+    'blog.article.referendum-nuove-centrali-nucleari.imageAlt': 'Kernkraftwerke und Blick auf den Luganersee: Referendum gegen neue Bauwerke erfolgreich',
 };
 
 export default blogMetaChDe;

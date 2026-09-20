@@ -180,7 +180,7 @@ describe('crawler generation contracts', () => {
 
   it('rejects receipts missing the crawler-bound primary slice, including a wrong slice', () => {
     for (const files of [
-      [{ path: 'data/jobs-ai-cache.json', state: 'present', blobOid, sha256: null }],
+      [{ path: 'data/jobs-crawler-summaries/by-crawler/wrong.json', state: 'present', blobOid, sha256: null }],
       [{ path: 'data/jobs/by-crawler/wrong.json', state: 'present', blobOid, sha256: hash }],
     ]) {
       const payload = {

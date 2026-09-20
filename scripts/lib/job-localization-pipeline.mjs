@@ -91,7 +91,8 @@ function persistStore() {
   // Crawler-group jobs run ~25 sibling processes concurrently against one
   // shared checkout, each loading this memory once at startup then persisting
   // on every setMemoryEntry() call — the same last-write-wins race as
-  // data/jobs-ai-cache.json (see persistAiCacheToDisk in shared-jobs-crawler.mjs).
+  // the crawler's restored local AI cache (see persistAiCacheToDisk in
+  // shared-jobs-crawler.mjs).
   // Re-read the on-disk snapshot right before writing and fold in any entry
   // with a newer touchedAt than what this process already holds, so concurrent
   // siblings' translations merge by actual recency instead of clobbering
