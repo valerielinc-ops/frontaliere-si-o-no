@@ -171,7 +171,7 @@ const INDEXED_CONTENT_WORD_FLOOR = 50;
 
 /** Findings caused by transport failures, not by page policy/content. */
 export function isTransportFinding(value = '') {
-  return /^(?:page_(?:unreachable|fetch_error)|homepage_unreachable|ads_txt_unreachable):/i.test(String(value));
+  return /^(?:page_(?:unreachable|fetch_error)|homepage_unreachable|ads_txt_unreachable|site_checks_error):/i.test(String(value));
 }
 
 function fmtDate(d = new Date()) {
@@ -689,7 +689,7 @@ async function runSiteChecks(base) {
     }
     site.checked = true;
   } catch (err) {
-    site.warnings.push(`site_checks_error:${String(err?.message || err).slice(0, 120)}`);
+    site.issues.push(`site_checks_error:${String(err?.message || err).slice(0, 120)}`);
   }
   return site;
 }

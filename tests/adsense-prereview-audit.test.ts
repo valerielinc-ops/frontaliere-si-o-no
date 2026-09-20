@@ -44,6 +44,7 @@ describe('transport findings stay separate from policy findings', () => {
     expect(isTransportFinding('page_fetch_error:fetch failed')).toBe(true);
     expect(isTransportFinding('homepage_unreachable:502')).toBe(true);
     expect(isTransportFinding('ads_txt_unreachable:503')).toBe(true);
+    expect(isTransportFinding('site_checks_error:fetch failed')).toBe(true);
   });
 
   it('does not reclassify content or revenue-policy findings as transport errors', () => {
