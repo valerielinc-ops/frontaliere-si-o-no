@@ -55,6 +55,8 @@ import { buildProfessionCantonPath, PROFESSION_CANTON_KEYS } from '@/build-plugi
 import { ALL_CANTON_PROFESSION_IDS, type AnyProfessionId } from '@/build-plugins/professionLandingsData';
 import type { ProfessionJobsSnapshot } from '@/build-plugins/professionJobsAggregate';
 import { renderWeeklyEmployersCorpus } from './weekly-employers-peer-fixture';
+import { generateBorderWaitPages } from '@/build-plugins/borderWaitPagesPlugin';
+import { BUILD_DATE_STAMP } from '@/build-plugins/constants';
 
 const DIST = '/tmp/information-gain-families';
 
@@ -298,5 +300,48 @@ describe('information gain delle famiglie a floor, misurato sull’output dei pl
       .filter((r) => (r.cohort?.zeroGainPages ?? 0) > 0)
       .map((r) => `${r.name}: ${r.cohort!.zeroGainPages}/${r.cohort!.pages}`);
     expect(offenders).toEqual([]);
+  });
+});
+
+/**
+ * The border-wait leaves are split into structural cohorts by optional charts
+ * and corridor copy. Keep the same pre-deploy measurement as the production
+ * audit so the page-specific peer names cannot silently disappear again.
+ */
+const BORDER_WAIT_GATED_MIN_PAGES = 12;
+/** Measured 5.68% on 2026-09-20, with a one-point observer margin. */
+const BORDER_WAIT_MIN_MEDIAN = 4.68;
+
+const measureBorderWaitCohorts = () => {
+  const pages = generateBorderWaitPages({
+    current: { perCrossing: {} } as never,
+    today: new Date(BUILD_DATE_STAMP),
+  });
+  const leaves = Object.entries(pages).filter(([urlPath]) =>
+    /^\/traffico-dogane\/[^/]+\/oggi\/$/.test(urlPath),
+  );
+  const fingerprints = leaves.map(([urlPath, html]) =>
+    fingerprintPage(`${urlPath.replace(/^\//, '').replace(/\/$/, '')}/index.html`, html),
+  );
+  return scoreCohorts(fingerprints, { minCohortPages: 2 }).cohorts;
+};
+
+describe('information gain delle pagine-valico, misurato sull’output del plugin', () => {
+  it(`ogni coorte gatata resta sopra ${BORDER_WAIT_MIN_MEDIAN}%`, () => {
+    const gated = measureBorderWaitCohorts().filter(
+      (cohort) => cohort.pages >= BORDER_WAIT_GATED_MIN_PAGES,
+    );
+    expect(gated.length, 'nessuna coorte gatata: il plugin non ha reso le leaf').toBeGreaterThan(0);
+    const offenders = gated
+      .filter((cohort) => cohort.medianIgs < BORDER_WAIT_MIN_MEDIAN)
+      .map((cohort) => `${cohort.key}: ${cohort.medianIgs.toFixed(1)}% su ${cohort.pages} pagine`);
+    expect(offenders).toEqual([]);
+  });
+
+  it('nessuna pagina-valico resta senza niente di proprio', () => {
+    const zeroGain = measureBorderWaitCohorts()
+      .filter((cohort) => cohort.zeroGainPages > 0)
+      .map((cohort) => `${cohort.key}: ${cohort.zeroGainPages}/${cohort.pages}`);
+    expect(zeroGain).toEqual([]);
   });
 });
