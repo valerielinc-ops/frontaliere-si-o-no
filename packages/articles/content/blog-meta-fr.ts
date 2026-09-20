@@ -11861,6 +11861,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-19.imageAlt': 'Les chiffres du jour pour les frontaliers – 19 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-19.seoDescription': 'Bulletin du frontalier du 19 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-19.ogDescription': 'Les chiffres du 19 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-20.title': 'Bulletin du frontalier – 20 septembre 2026 : 39 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-09-20.excerpt': 'Les chiffres du jour, 20 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-20.imageAlt': 'Les chiffres du jour pour les frontaliers – 20 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-20.seoDescription': 'Bulletin du frontalier du 20 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-20.ogDescription': 'Les chiffres du 20 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
