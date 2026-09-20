@@ -52,7 +52,14 @@ describe.each(FIXERS)('$file', ({ file, kind }) => {
     expect(elseAt).toBeGreaterThan(0);
     const body = guard.slice(elseAt, fiAt);
     expect(body).toContain('--add-label "needs-human"');
-    expect(body).toContain('gh pr comment');
+    // `gh` nudo non esiste più in questi due job dal 2026-09-19 (#9339, «attest
+    // all trusted review tools»): ogni chiamata passa dal binario attestato
+    // prima del checkout. L'assert letterale su `gh pr comment` è rimasto
+    // indietro ed è rosso su `main` per ENTRAMBI i fixer da allora — un rosso
+    // ereditato che ogni PR su un fixer si porta dietro senza averlo causato.
+    // Pinnare la forma attestata è anche più forte: un ritorno al `gh` nudo
+    // (che la PR sotto esame potrebbe sostituire su PATH) ora fallisce.
+    expect(body).toMatch(/"\$TRUSTED_GH_BIN" pr comment/u);
     expect(src.match(/--add-label "needs-human"/gu)?.length).toBe(1);
   });
 });
