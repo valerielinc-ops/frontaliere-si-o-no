@@ -309,6 +309,29 @@ describe('tests.yml wiring of the post-review opt-in', () => {
     expect(testsWorkflow).not.toContain('load-rc-env.mjs');
   });
 
+  // Un declino del gate esce `success` come un opt-in riuscito: senza questo
+  // il job required verde, la review approvata e l'auto-merge spento sono
+  // indistinguibili da una PR che sta per mergiare (PR #9344, 2026-09-20).
+  it('annota il declino dell\'opt-in invece di chiudere in silenzio', () => {
+    const run = String(optIn?.run ?? '');
+    // Il gate stampa `final gate:` solo se supera la PRIMA decisione: la sua
+    // assenza e' il segnale del declino a monte, e non costa una lettura API.
+    expect(run).toContain("grep -q 'final gate:'");
+    expect(run).toContain('::warning::');
+    expect(run).toContain('DECLINATO');
+    // Il motivo del gate deve finire nell'annotazione, non solo nel log.
+    expect(run).toContain("grep -m1 -o 'HEAD=[0-9a-f]*: .*'");
+    // L'esito dello step resta quello del gate: l'annotazione non lo cambia,
+    // e `continue-on-error` continua a proteggere il check required.
+    expect(run).toContain('gate_status=${PIPESTATUS[0]}');
+    expect(run).toContain('exit "$gate_status"');
+    // Il log sta in `$RUNNER_TEMP`, non nel checkout validato da main.
+    expect(run).toContain('"$RUNNER_TEMP/native-automerge-gate.log"');
+    expect(run).not.toMatch(/tee\s+\/tmp\//u);
+    // Nessun secondo uso del token per una lettura di conferma.
+    expect(run.match(/GH_TOKEN="\$APP_TOKEN"/gu) ?? []).toHaveLength(1);
+  });
+
   it('leaves the verdict-summary step last in the required job, with the decision before it', () => {
     expect(vitestNames.at(-1)).toBe('Explain the job verdict in the run summary');
     expect(vitestNames.indexOf('Decide post-review follow-up'))

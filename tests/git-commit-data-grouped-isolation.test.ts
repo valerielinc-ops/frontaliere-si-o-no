@@ -103,6 +103,48 @@ function commitGroup(repoDir: string, runnerTemp: string) {
 // shared worktree/index at all: it builds the commit via a private temp index
 // on top of the freshly fetched origin/main and pushes the sha directly.
 describe('git-commit-data.sh grouped-isolated commit path (shared workspace)', () => {
+  it('rechecks remote crawler ownership before publishing a stale second claim', () => {
+    const { originDir, repoDir } = initClonePair();
+    try {
+      mkdirSync(join(repoDir, 'data/jobs/by-crawler'), { recursive: true });
+      const emptySlice = (crawlerKey: string) => JSON.stringify({ crawlerKey, jobs: [] }, null, 2) + '\n';
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/a.json'), emptySlice('a'));
+      writeFileSync(join(repoDir, 'data/jobs/by-crawler/b.json'), emptySlice('b'));
+      execFileSync('git', ['add', '.'], { cwd: repoDir });
+      execFileSync('git', ['commit', '-q', '-m', 'seed'], { cwd: repoDir });
+      execFileSync('git', ['push', '-q', 'origin', 'HEAD:main'], { cwd: repoDir });
+
+      const url = 'https://jobs.example.test/offene-stellen/cross-workflow-race';
+      writeFileSync(
+        join(repoDir, 'data/jobs/by-crawler/b.json'),
+        JSON.stringify({ crawlerKey: 'b', jobs: [{ url }] }, null, 2) + '\n',
+      );
+      writeFileSync(
+        join(repoDir, 'data/jobs/by-crawler/a.json'),
+        JSON.stringify({ crawlerKey: 'a', jobs: [{ url }] }, null, 2) + '\n',
+      );
+
+      // Both writers started from the seed checkout. The first writer claims
+      // the URL; the second one must rebuild its private tree from the now
+      // current remote ownership snapshot and become a no-op.
+      runScript(repoDir, 'data/jobs/by-crawler/b.json');
+      runScript(repoDir, 'data/jobs/by-crawler/a.json');
+
+      execFileSync('git', ['fetch', '-q', 'origin', 'main'], { cwd: repoDir });
+      const publishedA = JSON.parse(execFileSync(
+        'git', ['show', 'origin/main:data/jobs/by-crawler/a.json'], { cwd: repoDir, encoding: 'utf8' },
+      ));
+      const publishedB = JSON.parse(execFileSync(
+        'git', ['show', 'origin/main:data/jobs/by-crawler/b.json'], { cwd: repoDir, encoding: 'utf8' },
+      ));
+      expect(publishedA.jobs).toEqual([]);
+      expect(publishedB.jobs).toEqual([{ url }]);
+    } finally {
+      rmSync(originDir, { recursive: true, force: true });
+      rmSync(repoDir, { recursive: true, force: true });
+    }
+  });
+
   it.each([
     ['missing', '', /Missing CRAWLER_GENERATION_TOKEN/],
     // resolveCrawlerGenerationToken rejects malformed explicit input before the

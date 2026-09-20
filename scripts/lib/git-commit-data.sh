@@ -1695,11 +1695,19 @@ commit_isolated_from_worktree() {
   local tmp_index merge_dir
   local f local_blob remote_blob base_blob blob_to_stage key_hint mode_to_stage local_merge_path conflict_scan_path
   local snapshot_operation snapshot_state registry_status
-  local delay
+  local ownership_root ownership_base_path ownership_output_path ownership_result crawler_key ownership_helper
+  local has_primary_slice=false delay
 
   base_sha="$(git rev-parse HEAD)"
   tmp_index="$(mktemp /tmp/crawler-commit-index.XXXXXX)"
   merge_dir="$(mktemp -d /tmp/crawler-commit-merge.XXXXXX)"
+  ownership_helper="$(dirname "$0")/crawler-commit-ownership.mjs"
+  for f in "${RESOLVED_FILES[@]}"; do
+    if [[ "$f" == data/jobs/by-crawler/*.json ]]; then
+      has_primary_slice=true
+      break
+    fi
+  done
   # shellcheck disable=SC2064
   trap "rm -f '$tmp_index'; rm -rf '$merge_dir'" RETURN
 
@@ -1735,6 +1743,25 @@ commit_isolated_from_worktree() {
     # Private index seeded from the CURRENT remote head — never the shared
     # .git/index (GIT_INDEX_FILE scopes every index operation below).
     GIT_INDEX_FILE="$tmp_index" git read-tree "$remote_sha"
+
+    # A crawler group can be the second writer to main even when its checkout
+    # started from the same base as the first writer. The write-time guard has
+    # already run against that stale checkout, so build a fresh ownership view
+    # from the remote tree before staging any primary slice. The filtered local
+    # slices are added to this temporary view as we go, which also makes the
+    # atomic batch deterministic when two descriptors in the same group claim
+    # one URL.
+    if [ "$has_primary_slice" = true ]; then
+      ownership_root="$merge_dir/remote-ownership"
+      rm -rf "$ownership_root"
+      mkdir -p "$ownership_root/data/jobs/by-crawler"
+      if git cat-file -e "$remote_sha:data/jobs/by-crawler" 2>/dev/null; then
+        if ! git archive --format=tar "$remote_sha" data/jobs/by-crawler | tar -xf - -C "$ownership_root"; then
+          echo "❌ grouped-isolated: could not materialise remote crawler slices for ownership guard"
+          return 1
+        fi
+      fi
+    fi
 
     for f in "${RESOLVED_FILES[@]}"; do
       remote_blob="$(git rev-parse -q --verify "${remote_sha}:${f}" 2>/dev/null || true)"
@@ -1877,6 +1904,38 @@ commit_isolated_from_worktree() {
               fi
               ;;
           esac
+        fi
+      fi
+
+      if [[ "$f" == data/jobs/by-crawler/*.json ]]; then
+        crawler_key="${f##*/}"
+        crawler_key="${crawler_key%.json}"
+        ownership_base_path="-"
+        if [ -n "$base_blob" ]; then
+          ownership_base_path="$merge_dir/ownership-base/$f"
+          mkdir -p "$(dirname "$ownership_base_path")"
+          if ! git cat-file blob "$base_blob" > "$ownership_base_path"; then
+            echo "❌ grouped-isolated: could not read base slice for ownership guard: $f"
+            return 1
+          fi
+        fi
+        ownership_output_path="$merge_dir/ownership-filtered/$f"
+        mkdir -p "$(dirname "$ownership_output_path")"
+        if ! ownership_result="$(node "$ownership_helper" \
+          "$crawler_key" \
+          "$ownership_base_path" \
+          "$local_merge_path" \
+          "$ownership_root" \
+          "$ownership_output_path")"; then
+          echo "❌ grouped-isolated: crawler ownership guard failed for $f"
+          return 1
+        fi
+        local_blob="$(git hash-object -w -- "$ownership_output_path")"
+        local_merge_path="$ownership_output_path"
+        mkdir -p "$ownership_root/data/jobs/by-crawler"
+        cp "$ownership_output_path" "$ownership_root/$f"
+        if [ "$ownership_result" != '{"dropped":[]}' ]; then
+          echo "⚠️ grouped-isolated: ownership guard filtered new claims from $f: $ownership_result"
         fi
       fi
 
