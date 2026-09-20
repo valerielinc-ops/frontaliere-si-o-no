@@ -150,7 +150,25 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-09-19T23:04:40.184Z"
+      "firstSeenAt": "2026-09-19T23:04:40.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medico-in-formazione-specialistica-in-radiologia-kantonsspital-graubunden-chur",
+          "radiology-resident-physician-kantonsspital-graubunden-chur",
+          "medecin-assistant-en-radiologie-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "radiology-resident-physician-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "medecin-assistant-en-radiologie-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "medico-in-formazione-specialistica-in-radiologia-kantonsspital-graubunden-chur",
+        "radiology-resident-physician-kantonsspital-graubunden-chur",
+        "medecin-assistant-en-radiologie-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10191919",
@@ -3747,7 +3765,7 @@
       "crawledAt": "2026-09-19T23:04:40.185Z",
       "slug": "professionisti-professionisti-industria-alberghiera-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur",
+        "de": "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522",
         "it": "professionisti-professionisti-industria-alberghiera-kantonsspital-graubunden-chur",
         "en": "professionals-professionals-hotel-industry-kantonsspital-graubunden-chur",
         "fr": "professionnels-professionnels-industrie-hoteliere-kantonsspital-graubunden-chur"

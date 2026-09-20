@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-software-engineer-duferco-lugano",
-        "ingegnere-di-software-senior-duferco-lugano"
+        "senior-software-engineer-duferco-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-software-engineer-duferco-lugano",
-          "ingegnere-di-software-senior-duferco-lugano"
+          "senior-software-engineer-duferco-lugano"
         ]
       },
       "firstSeenAt": "2026-06-10T06:06:36.064Z",
@@ -124,17 +122,14 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-engineering-manager-duferco-lugano",
-        "responsabile-ingegneria-del-software-duferco-lugano"
+        "software-engineering-manager-duferco-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-engineering-manager-duferco-lugano",
-          "responsabile-ingegneria-del-software-duferco-lugano"
+          "software-engineering-manager-duferco-lugano"
         ]
       },
       "firstSeenAt": "2026-06-10T06:06:36.061Z",
-      "needsRetranslation": true,
       "salaryMin": 79500,
       "salaryMax": 120500,
       "salarySource": "estimated",
@@ -204,20 +199,17 @@
       },
       "previousSlugs": [
         "platform-engineer-duferco-lugano",
-        "plattformingenieur-duferco-lugano",
-        "ingegnere-della-piattaforma-duferco-lugano"
+        "plattformingenieur-duferco-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "platform-engineer-duferco-lugano",
-          "ingegnere-della-piattaforma-duferco-lugano"
+          "platform-engineer-duferco-lugano"
         ],
         "de": [
           "plattformingenieur-duferco-lugano"
         ]
       },
       "firstSeenAt": "2026-06-10T06:06:36.042Z",
-      "needsRetranslation": true,
       "salaryMin": 58000,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -281,13 +273,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "ai-engineer-duferco-lugano",
-        "ai-ingegnere-duferco-lugano"
+        "ai-engineer-duferco-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ai-engineer-duferco-lugano",
-          "ai-ingegnere-duferco-lugano"
+          "ai-engineer-duferco-lugano"
         ],
         "de": [
           "ai-engineer-duferco-lugano"
@@ -362,14 +352,12 @@
       "previousSlugs": [
         "forward-deployed-engineer-duferco-lugano",
         "ingegnere-di-distribuzione-avanzato-duferco-lugano",
-        "vorgeschobener-pionier-duferco-lugano",
-        "ingegnere-dispiegato-in-avanti-duferco-lugano"
+        "vorgeschobener-pionier-duferco-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
           "forward-deployed-engineer-duferco-lugano",
-          "ingegnere-di-distribuzione-avanzato-duferco-lugano",
-          "ingegnere-dispiegato-in-avanti-duferco-lugano"
+          "ingegnere-di-distribuzione-avanzato-duferco-lugano"
         ],
         "de": [
           "forward-deployed-engineer-duferco-lugano",
@@ -443,13 +431,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "software-architect-duferco-lugano",
-        "software-architetto-duferco-lugano"
+        "software-architect-duferco-lugano"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "software-architect-duferco-lugano",
-          "software-architetto-duferco-lugano"
+          "software-architect-duferco-lugano"
         ],
         "de": [
           "software-architect-duferco-lugano"
@@ -459,7 +445,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T10:55:24.056Z",
-      "needsRetranslation": true,
       "salaryMin": 51500,
       "salaryMax": 88000,
       "salarySource": "estimated",
@@ -476,12 +461,12 @@
     },
     {
       "id": "duferco-1cf7268a-a1ec-4fda-8e3a-94da072587c4",
-      "slug": "operations-research-engineer-duferco-lugano",
+      "slug": "operations-ricerca-ingegnere-duferco-lugano",
       "slugByLocale": {
         "en": "operations-research-engineer-duferco-lugano",
-        "it": "operations-research-engineer-duferco-lugano",
-        "de": "operations-research-engineer-duferco-lugano",
-        "fr": "operations-research-engineer-duferco-lugano"
+        "it": "operations-ricerca-ingegnere-duferco-lugano",
+        "de": "operations-forschung-ingenieur-duferco-lugano",
+        "fr": "operations-recherche-ingenieur-duferco-lugano"
       },
       "company": "Duferco",
       "companyKey": "duferco",
@@ -538,7 +523,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:59:32.207Z"
+      "firstSeenAt": "2026-09-19T22:59:32.207Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "operations-research-engineer-duferco-lugano"
+        ],
+        "de": [
+          "operations-research-engineer-duferco-lugano"
+        ],
+        "fr": [
+          "operations-research-engineer-duferco-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "operations-research-engineer-duferco-lugano"
+      ]
     }
   ]
 }

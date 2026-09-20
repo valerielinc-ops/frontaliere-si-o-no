@@ -511,8 +511,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-mit-fundierter-berufspraxis-schwyz-schwyz-stellenpartner-ch",
         "it": "installatore-trice-elettrico-a-in-con-fundierter-berufspraxis-stellenpartner-ag-schwyz",
-        "en": "elektroinstallateur-in-mit-fundierter-berufspraxis-schwyz-schwyz-stellenpartner-ch",
-        "fr": "elektroinstallateur-in-mit-fundierter-berufspraxis-schwyz-schwyz-stellenpartner-ch"
+        "en": "electrical-installer-mit-fundierter-berufspraxis-stellenpartner-ag-schwyz-schwyz",
+        "fr": "installateur-trice-electricien-ne-mit-fundierter-berufspraxis-stellenpartner-ag-schwyz-schwyz"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -557,6 +557,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-mit-fundierter-berufspraxis-schwyz-schwyz-stellenpartner-ch"
+        ],
+        "en": [
+          "elektroinstallateur-in-mit-fundierter-berufspraxis-schwyz-schwyz-stellenpartner-ch"
+        ],
+        "fr": [
           "elektroinstallateur-in-mit-fundierter-berufspraxis-schwyz-schwyz-stellenpartner-ch"
         ]
       },
@@ -730,8 +736,8 @@
       "slugByLocale": {
         "de": "elektroinstallateur-in-hilfsarbeiter-in-fur-lampenmontagen-hochdorf-luzern-stellenpartner",
         "it": "installatore-trice-elettrico-a-in-hilfsarbeiter-in-per-lampenmontagen-stellenpartner-ag-hochdorf",
-        "en": "elektroinstallateur-in-hilfsarbeiter-in-fur-lampenmontagen-hochdorf-luzern-stellenpartner",
-        "fr": "elektroinstallateur-in-hilfsarbeiter-in-fur-lampenmontagen-hochdorf-luzern-stellenpartner"
+        "en": "electrical-installer-hilfsarbeiter-in-fur-lampenmontagen-stellenpartner-ag-hochdorf-luzern",
+        "fr": "installateur-trice-electricien-ne-hilfsarbeiter-in-fur-lampenmontagen-stellenpartner-ag-hochdorf-luzern"
       },
       "company": "Stellenpartner AG",
       "companyKey": "stellenpartner",
@@ -776,6 +782,12 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "elektroinstallateur-in-hilfsarbeiter-in-fur-lampenmontagen-hochdorf-luzern-stellenpartner"
+        ],
+        "en": [
+          "elektroinstallateur-in-hilfsarbeiter-in-fur-lampenmontagen-hochdorf-luzern-stellenpartner"
+        ],
+        "fr": [
           "elektroinstallateur-in-hilfsarbeiter-in-fur-lampenmontagen-hochdorf-luzern-stellenpartner"
         ]
       },
@@ -997,8 +1009,7 @@
         "zimmermann-auxiliary-worker-for-interior-construction-work-stellenpartner-ag-baden-aargau",
         "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauarbeiten-baden-aargau-stellenpartner",
         "zimmermann-ouvrier-auxiliaire-pour-travaux-de-construction-interieure-stellenpartner-ag-baden-aargau",
-        "zimmermann-zimmerin-hilfsarbeiter-in-per-innenausbauarbeiten-stellenpartner-ag-baden",
-        "zimmermann-lavoratore-ausiliario-per-interni-stellenpartner-ag-baden-aargau"
+        "zimmermann-zimmerin-hilfsarbeiter-in-per-innenausbauarbeiten-stellenpartner-ag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1008,8 +1019,7 @@
           "zimmermann-auxiliary-worker-for-interior-construction-work-stellenpartner-ag-baden-aargau",
           "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauarbeiten-baden-aargau-stellenpartner",
           "zimmermann-ouvrier-auxiliaire-pour-travaux-de-construction-interieure-stellenpartner-ag-baden-aargau",
-          "zimmermann-zimmerin-hilfsarbeiter-in-per-innenausbauarbeiten-stellenpartner-ag-baden",
-          "zimmermann-lavoratore-ausiliario-per-interni-stellenpartner-ag-baden-aargau"
+          "zimmermann-zimmerin-hilfsarbeiter-in-per-innenausbauarbeiten-stellenpartner-ag-baden"
         ],
         "en": [
           "zimmermann-zimmerin-hilfsarbeiter-in-fur-innenausbauten-baden-aargau-stellenpartner-ch",
@@ -1087,14 +1097,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "malerpraktiker-in-fur-renovationsprojekte-zurich-zurich-stellenpartner-ch",
-        "malerpraktiker-in-per-renovationsprojekte-stellenpartner-ag-zurich",
-        "professionisti-della-pittura-per-progetti-di-ristrutturazione-stellenpartner-ag-zurich-zurich"
+        "malerpraktiker-in-per-renovationsprojekte-stellenpartner-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "malerpraktiker-in-fur-renovationsprojekte-zurich-zurich-stellenpartner-ch",
-          "malerpraktiker-in-per-renovationsprojekte-stellenpartner-ag-zurich",
-          "professionisti-della-pittura-per-progetti-di-ristrutturazione-stellenpartner-ag-zurich-zurich"
+          "malerpraktiker-in-per-renovationsprojekte-stellenpartner-ag-zurich"
         ],
         "en": [
           "malerpraktiker-in-fur-renovationsprojekte-zurich-zurich-stellenpartner-ch"
@@ -1167,14 +1175,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "malerpraktiker-in-fur-neu-und-umbauten-bulach-zurich-stellenpartner-ch",
-        "malerpraktiker-in-per-neu-e-umbauten-stellenpartner-ag-bulach",
-        "i-professionisti-della-pittura-per-nuove-e-ristrutturazioni-stellenpartner-ag-bulach-zurich"
+        "malerpraktiker-in-per-neu-e-umbauten-stellenpartner-ag-bulach"
       ],
       "previousSlugsByLocale": {
         "it": [
           "malerpraktiker-in-fur-neu-und-umbauten-bulach-zurich-stellenpartner-ch",
-          "malerpraktiker-in-per-neu-e-umbauten-stellenpartner-ag-bulach",
-          "i-professionisti-della-pittura-per-nuove-e-ristrutturazioni-stellenpartner-ag-bulach-zurich"
+          "malerpraktiker-in-per-neu-e-umbauten-stellenpartner-ag-bulach"
         ],
         "en": [
           "malerpraktiker-in-fur-neu-und-umbauten-bulach-zurich-stellenpartner-ch"
@@ -1252,8 +1258,7 @@
         "painter-with-experience-in-renovation-and-new-construction-projects-stellenpartner-ag-muri-ag-aargau",
         "maler-in-mit-erfahrung-in-renovations-und-neubauprojekten-muri-ag-aargau-stellenpartner-ch",
         "peintre-avec-experience-en-renovation-et-nouveaux-projets-de-construction-stellenpartner-ag-muri-ag-aargau",
-        "maler-in-con-erfahrung-in-renovations-e-neubauprojekten-stellenpartner-ag-muri-ag",
-        "pittore-per-nuovi-oggetti-di-costruzione-e-ristrutturazione-stellenpartner-ag-muri-ag-aargau"
+        "maler-in-con-erfahrung-in-renovations-e-neubauprojekten-stellenpartner-ag-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1263,8 +1268,7 @@
           "painter-with-experience-in-renovation-and-new-construction-projects-stellenpartner-ag-muri-ag-aargau",
           "maler-in-mit-erfahrung-in-renovations-und-neubauprojekten-muri-ag-aargau-stellenpartner-ch",
           "peintre-avec-experience-en-renovation-et-nouveaux-projets-de-construction-stellenpartner-ag-muri-ag-aargau",
-          "maler-in-con-erfahrung-in-renovations-e-neubauprojekten-stellenpartner-ag-muri-ag",
-          "pittore-per-nuovi-oggetti-di-costruzione-e-ristrutturazione-stellenpartner-ag-muri-ag-aargau"
+          "maler-in-con-erfahrung-in-renovations-e-neubauprojekten-stellenpartner-ag-muri-ag"
         ],
         "en": [
           "maler-in-fur-neubau-und-renovationsobjekte-muri-ag-aargau-stellenpartner-ch",
@@ -1342,14 +1346,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauarbeiter-in-hochbau-mit-beton-und-maurerarbeiten-wil-sg-st-gallen-stellenpartner-ch",
-        "bauarbeiter-in-hochbau-con-beton-e-maurerarbeiten-stellenpartner-ag-wil-sg",
-        "costruzionisti-costruzione-con-lavori-di-cemento-e-muratura-stellenpartner-ag-wil-sg-st-gallen"
+        "bauarbeiter-in-hochbau-con-beton-e-maurerarbeiten-stellenpartner-ag-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauarbeiter-in-hochbau-mit-beton-und-maurerarbeiten-wil-sg-st-gallen-stellenpartner-ch",
-          "bauarbeiter-in-hochbau-con-beton-e-maurerarbeiten-stellenpartner-ag-wil-sg",
-          "costruzionisti-costruzione-con-lavori-di-cemento-e-muratura-stellenpartner-ag-wil-sg-st-gallen"
+          "bauarbeiter-in-hochbau-con-beton-e-maurerarbeiten-stellenpartner-ag-wil-sg"
         ],
         "en": [
           "bauarbeiter-in-hochbau-mit-beton-und-maurerarbeiten-wil-sg-st-gallen-stellenpartner-ch"
@@ -1425,8 +1427,7 @@
         "carpenter-lavoratore-ausiliario-con-resilienza-fisica-stellenpartner-ag-zug-zug",
         "carpenter-auxiliary-worker-with-physical-resilience-stellenpartner-ag-zug-zug",
         "schreiner-in-hilfsarbeiter-in-mit-korperlicher-belastbarkeit-zug-zug-stellenpartner-ch",
-        "charpentier-ouvrier-auxiliaire-avec-resilience-physique-stellenpartner-ag-zug-zug",
-        "carpenter-lavoratore-ausiliario-con-resilienza-stellenpartner-ag-zug-zug"
+        "charpentier-ouvrier-auxiliaire-avec-resilience-physique-stellenpartner-ag-zug-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1434,8 +1435,7 @@
           "carpenter-lavoratore-ausiliario-con-resilienza-fisica-stellenpartner-ag-zug-zug",
           "carpenter-auxiliary-worker-with-physical-resilience-stellenpartner-ag-zug-zug",
           "schreiner-in-hilfsarbeiter-in-mit-korperlicher-belastbarkeit-zug-zug-stellenpartner-ch",
-          "charpentier-ouvrier-auxiliaire-avec-resilience-physique-stellenpartner-ag-zug-zug",
-          "carpenter-lavoratore-ausiliario-con-resilienza-stellenpartner-ag-zug-zug"
+          "charpentier-ouvrier-auxiliaire-avec-resilience-physique-stellenpartner-ag-zug-zug"
         ],
         "en": [
           "schreiner-in-hilfsarbeiter-in-mit-belastbarkeit-zug-zug-stellenpartner-ch",
@@ -1513,14 +1513,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-fassaden-und-innenanstriche-muri-ag-aargau-stellenpartner-ch",
-        "maler-in-per-fassaden-e-innenanstriche-stellenpartner-ag-muri-ag",
-        "pittori-per-facciate-e-dipinti-interni-stellenpartner-ag-muri-ag-aargau"
+        "maler-in-per-fassaden-e-innenanstriche-stellenpartner-ag-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-fassaden-und-innenanstriche-muri-ag-aargau-stellenpartner-ch",
-          "maler-in-per-fassaden-e-innenanstriche-stellenpartner-ag-muri-ag",
-          "pittori-per-facciate-e-dipinti-interni-stellenpartner-ag-muri-ag-aargau"
+          "maler-in-per-fassaden-e-innenanstriche-stellenpartner-ag-muri-ag"
         ],
         "en": [
           "maler-in-fur-fassaden-und-innenanstriche-muri-ag-aargau-stellenpartner-ch"
@@ -2590,8 +2588,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-3207c330e33b",
@@ -5462,8 +5459,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-affcb0553691",
@@ -6250,8 +6246,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-3e09770fb633",
@@ -8096,8 +8091,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-370682100f2e",
@@ -8176,8 +8170,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-f3949c315c31",
@@ -8335,8 +8328,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-369d2ab84520",
@@ -8731,8 +8723,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-b10828cbefb0",
@@ -9099,18 +9090,35 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "schreiner-in-fur-innenausbau-und-montage-weinfelden-thurgau-stellenpartner-ch",
-        "schreiner-in-per-innenausbau-e-montage-stellenpartner-ag-weinfelden"
+        "schreiner-in-per-innenausbau-e-montage-stellenpartner-ag-weinfelden",
+        "carpentieri-con-entusiasmante-officina-e-lavori-interni-stellenpartner-ag-weinfelden-thurgau",
+        "carpenters-with-exciting-workshop-and-interior-work-stellenpartner-ag-weinfelden-thurgau",
+        "schreiner-in-mit-spannenden-werkstatt-und-innenausbauarbeiten-weinfelden-thurgau",
+        "charpentiers-avec-atelier-passionnant-et-travail-d-interieur-stellenpartner-ag-weinfelden-thurgau",
+        "schreiner-in-con-spannenden-werkstatt-e-innenausbauarbeiten-stellenpartner-ag-weinfelden",
+        "schreiner-in-mit-spannenden-werkstatt-und-innenausbauarbeiten-stellenpartner-ag-weinfelden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "schreiner-in-fur-innenausbau-und-montage-weinfelden-thurgau-stellenpartner-ch",
-          "schreiner-in-per-innenausbau-e-montage-stellenpartner-ag-weinfelden"
+          "schreiner-in-per-innenausbau-e-montage-stellenpartner-ag-weinfelden",
+          "carpentieri-con-entusiasmante-officina-e-lavori-interni-stellenpartner-ag-weinfelden-thurgau",
+          "carpenters-with-exciting-workshop-and-interior-work-stellenpartner-ag-weinfelden-thurgau",
+          "schreiner-in-mit-spannenden-werkstatt-und-innenausbauarbeiten-weinfelden-thurgau",
+          "charpentiers-avec-atelier-passionnant-et-travail-d-interieur-stellenpartner-ag-weinfelden-thurgau",
+          "schreiner-in-con-spannenden-werkstatt-e-innenausbauarbeiten-stellenpartner-ag-weinfelden",
+          "schreiner-in-mit-spannenden-werkstatt-und-innenausbauarbeiten-stellenpartner-ag-weinfelden"
         ],
         "en": [
-          "schreiner-in-fur-innenausbau-und-montage-weinfelden-thurgau-stellenpartner-ch"
+          "schreiner-in-fur-innenausbau-und-montage-weinfelden-thurgau-stellenpartner-ch",
+          "carpenters-with-exciting-workshop-and-interior-work-stellenpartner-ag-weinfelden-thurgau"
         ],
         "fr": [
-          "schreiner-in-fur-innenausbau-und-montage-weinfelden-thurgau-stellenpartner-ch"
+          "schreiner-in-fur-innenausbau-und-montage-weinfelden-thurgau-stellenpartner-ch",
+          "charpentiers-avec-atelier-passionnant-et-travail-d-interieur-stellenpartner-ag-weinfelden-thurgau"
+        ],
+        "de": [
+          "schreiner-in-mit-spannenden-werkstatt-und-innenausbauarbeiten-weinfelden-thurgau"
         ]
       },
       "firstSeenAt": "2026-09-08T13:58:12.481Z",
@@ -9693,8 +9701,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-69f6c985dc5d",
@@ -9773,8 +9780,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-a0701d66e6c2",
@@ -9853,8 +9859,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-c22c991289c8",
@@ -9933,8 +9938,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-b514c38e63c2",
@@ -13787,8 +13791,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-7e2f6947c03c",
@@ -14420,8 +14423,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-df663d42cbb0",
@@ -16097,8 +16099,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-b105ceefe353",
@@ -17217,8 +17218,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-01dd56295ca3",
@@ -19245,8 +19245,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-65af0593ee61",
@@ -24508,8 +24507,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "montage-elektriker-in-mit-anspruchsvollen-projekten-luzern-luzern-stellenpartner-ch",
-        "electricien-d-assemblage-avec-des-projets-difficiles-stellenpartner-ag-luzern-luzern",
-        "montage-elektriker-in-mit-anspruchsvollen-projekten-stellenpartner-ag-luzern"
+        "electricien-d-assemblage-avec-des-projets-difficiles-stellenpartner-ag-luzern-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -24520,8 +24518,7 @@
         ],
         "fr": [
           "montage-elektriker-in-mit-anspruchsvollen-projekten-luzern-luzern-stellenpartner-ch",
-          "electricien-d-assemblage-avec-des-projets-difficiles-stellenpartner-ag-luzern-luzern",
-          "montage-elektriker-in-mit-anspruchsvollen-projekten-stellenpartner-ag-luzern"
+          "electricien-d-assemblage-avec-des-projets-difficiles-stellenpartner-ag-luzern-luzern"
         ]
       },
       "firstSeenAt": "2026-09-08T13:58:12.394Z",
@@ -26094,18 +26091,33 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "metallbaupraktiker-in-mit-erfahrung-in-service-und-montage-wil-sg-st-gallen-stellenpartner",
-        "metallbaupraktiker-in-con-erfahrung-in-service-e-montage-stellenpartner-ag-wil-sg"
+        "metallbaupraktiker-in-con-erfahrung-in-service-e-montage-stellenpartner-ag-wil-sg",
+        "i-professionisti-della-costruzione-del-metallo-con-esperienza-nel-montaggio-e-nel-servizio-stellenpartner-ag-wil-sg-st",
+        "metal-construction-practitioners-with-experience-in-assembly-and-service-stellenpartner-ag-wil-sg-st-gallen",
+        "metallbaupraktiker-in-mit-erfahrung-in-montage-und-service-wil-sg-st-gallen-stellenpartner",
+        "specialistes-de-la-construction-metallique-ayant-une-experience-de-montage-et-de-service-stellenpartner-ag-wil-sg-st",
+        "metallbaupraktiker-in-con-erfahrung-in-montage-e-service-stellenpartner-ag-wil-sg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "metallbaupraktiker-in-mit-erfahrung-in-service-und-montage-wil-sg-st-gallen-stellenpartner",
-          "metallbaupraktiker-in-con-erfahrung-in-service-e-montage-stellenpartner-ag-wil-sg"
+          "metallbaupraktiker-in-con-erfahrung-in-service-e-montage-stellenpartner-ag-wil-sg",
+          "i-professionisti-della-costruzione-del-metallo-con-esperienza-nel-montaggio-e-nel-servizio-stellenpartner-ag-wil-sg-st",
+          "metal-construction-practitioners-with-experience-in-assembly-and-service-stellenpartner-ag-wil-sg-st-gallen",
+          "metallbaupraktiker-in-mit-erfahrung-in-montage-und-service-wil-sg-st-gallen-stellenpartner",
+          "specialistes-de-la-construction-metallique-ayant-une-experience-de-montage-et-de-service-stellenpartner-ag-wil-sg-st",
+          "metallbaupraktiker-in-con-erfahrung-in-montage-e-service-stellenpartner-ag-wil-sg"
         ],
         "en": [
-          "metallbaupraktiker-in-mit-erfahrung-in-service-und-montage-wil-sg-st-gallen-stellenpartner"
+          "metallbaupraktiker-in-mit-erfahrung-in-service-und-montage-wil-sg-st-gallen-stellenpartner",
+          "metal-construction-practitioners-with-experience-in-assembly-and-service-stellenpartner-ag-wil-sg-st-gallen"
         ],
         "fr": [
-          "metallbaupraktiker-in-mit-erfahrung-in-service-und-montage-wil-sg-st-gallen-stellenpartner"
+          "metallbaupraktiker-in-mit-erfahrung-in-service-und-montage-wil-sg-st-gallen-stellenpartner",
+          "specialistes-de-la-construction-metallique-ayant-une-experience-de-montage-et-de-service-stellenpartner-ag-wil-sg-st"
+        ],
+        "de": [
+          "metallbaupraktiker-in-mit-erfahrung-in-montage-und-service-wil-sg-st-gallen-stellenpartner"
         ]
       },
       "firstSeenAt": "2026-09-08T13:58:12.388Z",
@@ -35766,8 +35778,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-af310e3c5992",
@@ -36491,8 +36502,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-29e346fb5bdb",
@@ -36571,8 +36581,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-4e6526d48a9c",
@@ -36651,8 +36660,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-64378d7bb994",
@@ -36731,8 +36739,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-c0b32d5bd80a",
@@ -37173,18 +37180,33 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-hilfsarbeiter-in-fur-attraktiven-arbeitgeber-baden-aargau-stellenpartner-ch",
-        "maler-in-hilfsarbeiter-in-per-attraktiven-arbeitgeber-stellenpartner-ag-baden"
+        "maler-in-hilfsarbeiter-in-per-attraktiven-arbeitgeber-stellenpartner-ag-baden",
+        "pittore-per-i-datori-di-lavoro-attraenti-stellenpartner-ag-muri-ag-aargau",
+        "painter-for-attractive-employers-stellenpartner-ag-muri-ag-aargau",
+        "maler-in-fur-attraktiven-arbeitgeber-muri-ag-aargau-stellenpartner-ch",
+        "peintre-pour-employeurs-attrayants-stellenpartner-ag-muri-ag-aargau",
+        "maler-in-per-attraktiven-arbeitgeber-stellenpartner-ag-muri-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-hilfsarbeiter-in-fur-attraktiven-arbeitgeber-baden-aargau-stellenpartner-ch",
-          "maler-in-hilfsarbeiter-in-per-attraktiven-arbeitgeber-stellenpartner-ag-baden"
+          "maler-in-hilfsarbeiter-in-per-attraktiven-arbeitgeber-stellenpartner-ag-baden",
+          "pittore-per-i-datori-di-lavoro-attraenti-stellenpartner-ag-muri-ag-aargau",
+          "painter-for-attractive-employers-stellenpartner-ag-muri-ag-aargau",
+          "maler-in-fur-attraktiven-arbeitgeber-muri-ag-aargau-stellenpartner-ch",
+          "peintre-pour-employeurs-attrayants-stellenpartner-ag-muri-ag-aargau",
+          "maler-in-per-attraktiven-arbeitgeber-stellenpartner-ag-muri-ag"
         ],
         "en": [
-          "maler-in-hilfsarbeiter-in-fur-attraktiven-arbeitgeber-baden-aargau-stellenpartner-ch"
+          "maler-in-hilfsarbeiter-in-fur-attraktiven-arbeitgeber-baden-aargau-stellenpartner-ch",
+          "painter-for-attractive-employers-stellenpartner-ag-muri-ag-aargau"
         ],
         "fr": [
-          "maler-in-hilfsarbeiter-in-fur-attraktiven-arbeitgeber-baden-aargau-stellenpartner-ch"
+          "maler-in-hilfsarbeiter-in-fur-attraktiven-arbeitgeber-baden-aargau-stellenpartner-ch",
+          "peintre-pour-employeurs-attrayants-stellenpartner-ag-muri-ag-aargau"
+        ],
+        "de": [
+          "maler-in-fur-attraktiven-arbeitgeber-muri-ag-aargau-stellenpartner-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T13:58:12.340Z",
@@ -37410,18 +37432,33 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-hilfsarbeiter-in-fur-anstricharbeiten-und-sanierung-aarau-aargau-stellenpartner",
-        "maler-in-hilfsarbeiter-in-per-anstricharbeiten-e-sanierung-stellenpartner-ag-aarau"
+        "maler-in-hilfsarbeiter-in-per-anstricharbeiten-e-sanierung-stellenpartner-ag-aarau",
+        "pittura-per-restauro-e-verniciatura-a-spruzzo-stellenpartner-ag-aarau-aargau",
+        "painter-for-renovation-and-spray-painting-stellenpartner-ag-aarau-aargau",
+        "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-aarau-aargau-stellenpartner-ch",
+        "peintre-pour-la-renovation-et-la-peinture-par-pulverisation-stellenpartner-ag-aarau-aargau",
+        "maler-in-per-renovationsarbeiten-e-spritzlackierungen-stellenpartner-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-hilfsarbeiter-in-fur-anstricharbeiten-und-sanierung-aarau-aargau-stellenpartner",
-          "maler-in-hilfsarbeiter-in-per-anstricharbeiten-e-sanierung-stellenpartner-ag-aarau"
+          "maler-in-hilfsarbeiter-in-per-anstricharbeiten-e-sanierung-stellenpartner-ag-aarau",
+          "pittura-per-restauro-e-verniciatura-a-spruzzo-stellenpartner-ag-aarau-aargau",
+          "painter-for-renovation-and-spray-painting-stellenpartner-ag-aarau-aargau",
+          "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-aarau-aargau-stellenpartner-ch",
+          "peintre-pour-la-renovation-et-la-peinture-par-pulverisation-stellenpartner-ag-aarau-aargau",
+          "maler-in-per-renovationsarbeiten-e-spritzlackierungen-stellenpartner-ag-aarau"
         ],
         "en": [
-          "maler-in-hilfsarbeiter-in-fur-anstricharbeiten-und-sanierung-aarau-aargau-stellenpartner"
+          "maler-in-hilfsarbeiter-in-fur-anstricharbeiten-und-sanierung-aarau-aargau-stellenpartner",
+          "painter-for-renovation-and-spray-painting-stellenpartner-ag-aarau-aargau"
         ],
         "fr": [
-          "maler-in-hilfsarbeiter-in-fur-anstricharbeiten-und-sanierung-aarau-aargau-stellenpartner"
+          "maler-in-hilfsarbeiter-in-fur-anstricharbeiten-und-sanierung-aarau-aargau-stellenpartner",
+          "peintre-pour-la-renovation-et-la-peinture-par-pulverisation-stellenpartner-ag-aarau-aargau"
+        ],
+        "de": [
+          "maler-in-fur-renovationsarbeiten-und-spritzlackierungen-aarau-aargau-stellenpartner-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T13:58:12.340Z",
@@ -38574,8 +38611,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-53dcad3b6d23",
@@ -39017,8 +39053,7 @@
       "previousSlugs": [
         "konstrukteur-in-fur-projektabwicklung-im-werkzeugbau-baden-aargau-stellenpartner-ch",
         "konstrukteur-in-per-projektabwicklung-im-werkzeugbau-stellenpartner-ag-baden",
-        "ingenieur-de-conception-pour-la-realisation-de-projets-dans-la-fabrication-d-outils-stellenpartner-ag-baden-aargau",
-        "konstrukteur-in-fur-projektabwicklung-im-werkzeugbau-stellenpartner-ag-baden"
+        "ingenieur-de-conception-pour-la-realisation-de-projets-dans-la-fabrication-d-outils-stellenpartner-ag-baden-aargau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -39030,8 +39065,7 @@
         ],
         "fr": [
           "konstrukteur-in-fur-projektabwicklung-im-werkzeugbau-baden-aargau-stellenpartner-ch",
-          "ingenieur-de-conception-pour-la-realisation-de-projets-dans-la-fabrication-d-outils-stellenpartner-ag-baden-aargau",
-          "konstrukteur-in-fur-projektabwicklung-im-werkzeugbau-stellenpartner-ag-baden"
+          "ingenieur-de-conception-pour-la-realisation-de-projets-dans-la-fabrication-d-outils-stellenpartner-ag-baden-aargau"
         ]
       },
       "firstSeenAt": "2026-09-08T13:58:12.333Z",
@@ -39128,8 +39162,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-48138c4655a0",
@@ -40624,8 +40657,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-e573e39f28fc",
@@ -41495,8 +41527,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-0ae3691bb128",
@@ -41731,8 +41762,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-05eb35d802f4",
@@ -43408,8 +43438,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-e4ae058ced62",
@@ -43488,8 +43517,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-8a5a51f93e73",
@@ -44042,8 +44070,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-dd9d7e54e13b",
@@ -44387,8 +44414,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-c3379be0a4c5",
@@ -45681,8 +45707,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-b25c57bf3158",
@@ -45733,18 +45758,35 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gartner-in-8211-garten-und-landschaftsbau-mit-abwechslungsreichen-aufgaben-zug-zug",
-        "gartner-in-garten-e-landschaftsbau-con-abwechslungsreichen-aufgaben-stellenpartner-ag-zug"
+        "gartner-in-garten-e-landschaftsbau-con-abwechslungsreichen-aufgaben-stellenpartner-ag-zug",
+        "giardinieri-giardinaggio-e-paesaggi-con-responsabilita-personale-stellenpartner-ag-zug-zug",
+        "gardeners-gardening-and-landscaping-with-personal-responsibility-stellenpartner-ag-zug-zug",
+        "gartner-in-8211-garten-und-landschaftsbau-mit-eigenverantwortung-zug-zug-stellenpartner-ch",
+        "jardiniers-jardinage-et-amenagement-paysager-avec-responsabilite-personnelle-stellenpartner-ag-zug-zug",
+        "gartner-in-garten-e-landschaftsbau-con-eigenverantwortung-stellenpartner-ag-zug",
+        "gartner-in-garten-und-landschaftsbau-mit-eigenverantwortung-zug-zug-stellenpartner-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gartner-in-8211-garten-und-landschaftsbau-mit-abwechslungsreichen-aufgaben-zug-zug",
-          "gartner-in-garten-e-landschaftsbau-con-abwechslungsreichen-aufgaben-stellenpartner-ag-zug"
+          "gartner-in-garten-e-landschaftsbau-con-abwechslungsreichen-aufgaben-stellenpartner-ag-zug",
+          "giardinieri-giardinaggio-e-paesaggi-con-responsabilita-personale-stellenpartner-ag-zug-zug",
+          "gardeners-gardening-and-landscaping-with-personal-responsibility-stellenpartner-ag-zug-zug",
+          "gartner-in-8211-garten-und-landschaftsbau-mit-eigenverantwortung-zug-zug-stellenpartner-ch",
+          "jardiniers-jardinage-et-amenagement-paysager-avec-responsabilite-personnelle-stellenpartner-ag-zug-zug",
+          "gartner-in-garten-e-landschaftsbau-con-eigenverantwortung-stellenpartner-ag-zug",
+          "gartner-in-garten-und-landschaftsbau-mit-eigenverantwortung-zug-zug-stellenpartner-ch"
         ],
         "en": [
-          "gartner-in-8211-garten-und-landschaftsbau-mit-abwechslungsreichen-aufgaben-zug-zug"
+          "gartner-in-8211-garten-und-landschaftsbau-mit-abwechslungsreichen-aufgaben-zug-zug",
+          "gardeners-gardening-and-landscaping-with-personal-responsibility-stellenpartner-ag-zug-zug"
         ],
         "fr": [
-          "gartner-in-8211-garten-und-landschaftsbau-mit-abwechslungsreichen-aufgaben-zug-zug"
+          "gartner-in-8211-garten-und-landschaftsbau-mit-abwechslungsreichen-aufgaben-zug-zug",
+          "jardiniers-jardinage-et-amenagement-paysager-avec-responsabilite-personnelle-stellenpartner-ag-zug-zug"
+        ],
+        "de": [
+          "gartner-in-8211-garten-und-landschaftsbau-mit-eigenverantwortung-zug-zug-stellenpartner-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T13:58:12.308Z",
@@ -48029,20 +48071,37 @@
         "elektroinstallateur-in-mit-kundenbetreuung-baden-aargau-stellenpartner-ch",
         "installatore-trice-elettrico-a-in-con-kundenbetreuung-stellenpartner-ag-baden",
         "electrical-installer-mit-kundenbetreuung-stellenpartner-ag-baden",
-        "installateur-trice-electricien-ne-mit-kundenbetreuung-stellenpartner-ag-baden"
+        "installateur-trice-electricien-ne-mit-kundenbetreuung-stellenpartner-ag-baden",
+        "installatore-trice-elettrico-a-in-con-service-e-unterhaltsaufgaben-stellenpartner-ag-baden",
+        "electrical-installer-with-service-and-maintenance-tasks-stellenpartner-ag-baden-aargau",
+        "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-baden-aargau-stellenpartner-ch",
+        "installation-electrique-avec-entretien-et-entretien-stellenpartner-ag-baden-aargau",
+        "electrical-installer-mit-service-und-unterhaltsaufgaben-stellenpartner-ag-baden",
+        "installateur-trice-electricien-ne-mit-service-und-unterhaltsaufgaben-stellenpartner-ag-baden"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-mit-kundenbetreuung-baden-aargau-stellenpartner-ch",
-          "installatore-trice-elettrico-a-in-con-kundenbetreuung-stellenpartner-ag-baden"
+          "installatore-trice-elettrico-a-in-con-kundenbetreuung-stellenpartner-ag-baden",
+          "installatore-trice-elettrico-a-in-con-service-e-unterhaltsaufgaben-stellenpartner-ag-baden",
+          "electrical-installer-with-service-and-maintenance-tasks-stellenpartner-ag-baden-aargau",
+          "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-baden-aargau-stellenpartner-ch",
+          "installation-electrique-avec-entretien-et-entretien-stellenpartner-ag-baden-aargau",
+          "electrical-installer-mit-service-und-unterhaltsaufgaben-stellenpartner-ag-baden",
+          "installateur-trice-electricien-ne-mit-service-und-unterhaltsaufgaben-stellenpartner-ag-baden"
         ],
         "en": [
           "elektroinstallateur-in-mit-kundenbetreuung-baden-aargau-stellenpartner-ch",
-          "electrical-installer-mit-kundenbetreuung-stellenpartner-ag-baden"
+          "electrical-installer-mit-kundenbetreuung-stellenpartner-ag-baden",
+          "electrical-installer-with-service-and-maintenance-tasks-stellenpartner-ag-baden-aargau"
         ],
         "fr": [
           "elektroinstallateur-in-mit-kundenbetreuung-baden-aargau-stellenpartner-ch",
-          "installateur-trice-electricien-ne-mit-kundenbetreuung-stellenpartner-ag-baden"
+          "installateur-trice-electricien-ne-mit-kundenbetreuung-stellenpartner-ag-baden",
+          "installation-electrique-avec-entretien-et-entretien-stellenpartner-ag-baden-aargau"
+        ],
+        "de": [
+          "elektroinstallateur-in-mit-service-und-unterhaltsaufgaben-baden-aargau-stellenpartner-ch"
         ]
       },
       "firstSeenAt": "2026-09-08T13:58:12.297Z",
@@ -48142,8 +48201,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-c58fbfcb3d4e",
@@ -49201,8 +49259,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-1a1e67211f1a",
@@ -49365,8 +49422,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-b1e3841a926d",
@@ -49446,8 +49502,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-9bff1c6bc011",
@@ -49527,8 +49582,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-271186f9a765",
@@ -49608,8 +49662,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-9bc9c4fe2505",
@@ -49689,8 +49742,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-c24263ea7126",
@@ -49771,8 +49823,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-7720fcc5f1e9",
@@ -50507,8 +50558,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-38dcfe2494e4",
@@ -51326,8 +51376,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-18442fe24dc3",
@@ -51491,8 +51540,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-906e305142c9",
@@ -51575,8 +51623,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-f506eac5d2b2",
@@ -51742,8 +51789,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-093c80196d71",
@@ -51985,8 +52031,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-8d10720d83a7",
@@ -52300,8 +52345,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-0c65e309652a",
@@ -53286,18 +53330,31 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauarbeiter-in-fur-neu-und-umbau-winterthur-zurich-stellenpartner-ch",
-        "bauarbeiter-in-per-neu-e-umbau-stellenpartner-ag-winterthur"
+        "bauarbeiter-in-per-neu-e-umbau-stellenpartner-ag-winterthur",
+        "lavoratori-con-esperienza-nella-costruzione-di-metalli-tradizionali-stellenpartner-ag-winterthur-zurich",
+        "metalworkers-with-experience-in-traditional-metal-construction-stellenpartner-ag-winterthur-zurich",
+        "metallbauer-in-mit-erfahrung-im-traditionellen-metallbau-winterthur-zurich-stellenpartner",
+        "metaux-avec-une-experience-dans-la-construction-metallique-traditionnelle-stellenpartner-ag-winterthur-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauarbeiter-in-fur-neu-und-umbau-winterthur-zurich-stellenpartner-ch",
-          "bauarbeiter-in-per-neu-e-umbau-stellenpartner-ag-winterthur"
+          "bauarbeiter-in-per-neu-e-umbau-stellenpartner-ag-winterthur",
+          "lavoratori-con-esperienza-nella-costruzione-di-metalli-tradizionali-stellenpartner-ag-winterthur-zurich",
+          "metalworkers-with-experience-in-traditional-metal-construction-stellenpartner-ag-winterthur-zurich",
+          "metallbauer-in-mit-erfahrung-im-traditionellen-metallbau-winterthur-zurich-stellenpartner",
+          "metaux-avec-une-experience-dans-la-construction-metallique-traditionnelle-stellenpartner-ag-winterthur-zurich"
         ],
         "en": [
-          "bauarbeiter-in-fur-neu-und-umbau-winterthur-zurich-stellenpartner-ch"
+          "bauarbeiter-in-fur-neu-und-umbau-winterthur-zurich-stellenpartner-ch",
+          "metalworkers-with-experience-in-traditional-metal-construction-stellenpartner-ag-winterthur-zurich"
         ],
         "fr": [
-          "bauarbeiter-in-fur-neu-und-umbau-winterthur-zurich-stellenpartner-ch"
+          "bauarbeiter-in-fur-neu-und-umbau-winterthur-zurich-stellenpartner-ch",
+          "metaux-avec-une-experience-dans-la-construction-metallique-traditionnelle-stellenpartner-ag-winterthur-zurich"
+        ],
+        "de": [
+          "metallbauer-in-mit-erfahrung-im-traditionellen-metallbau-winterthur-zurich-stellenpartner"
         ]
       },
       "firstSeenAt": "2026-09-09T14:06:45.338Z",
@@ -57409,18 +57466,32 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-wil-sg-st-gallen-stellenpartner-ch",
-        "anlagen-e-apparatebauer-in-con-schweisskenntnissen-stellenpartner-ag-wil-sg"
+        "anlagen-e-apparatebauer-in-con-schweisskenntnissen-stellenpartner-ag-wil-sg",
+        "installazione-e-apparati-per-costruzioni-metalliche-e-strutture-di-saldatura-stellenpartner-ag-wil-sg-st-gallen",
+        "anlagen-e-apparatebauer-in-per-metallbau-e-schweisskonstruktionen-stellenpartner-ag-wil-sg",
+        "anlagen-und-apparatebauer-in-fur-metallbau-und-schweisskonstruktionen-stellenpartner-ag-wil-sg",
+        "installation-and-apparatus-builders-for-metal-construction-and-welding-structures-stellenpartner-ag-wil-sg-st-gallen",
+        "anlagen-und-apparatebauer-in-fur-metallbau-und-schweisskonstruktionen-wil-sg-st-gallen",
+        "installations-et-constructeurs-d-appareils-pour-la-construction-et-la-soudure-de-metaux-stellenpartner-ag-wil-sg-st"
       ],
       "previousSlugsByLocale": {
         "it": [
           "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-wil-sg-st-gallen-stellenpartner-ch",
-          "anlagen-e-apparatebauer-in-con-schweisskenntnissen-stellenpartner-ag-wil-sg"
+          "anlagen-e-apparatebauer-in-con-schweisskenntnissen-stellenpartner-ag-wil-sg",
+          "installazione-e-apparati-per-costruzioni-metalliche-e-strutture-di-saldatura-stellenpartner-ag-wil-sg-st-gallen",
+          "anlagen-e-apparatebauer-in-per-metallbau-e-schweisskonstruktionen-stellenpartner-ag-wil-sg",
+          "anlagen-und-apparatebauer-in-fur-metallbau-und-schweisskonstruktionen-stellenpartner-ag-wil-sg"
         ],
         "en": [
-          "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-wil-sg-st-gallen-stellenpartner-ch"
+          "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-wil-sg-st-gallen-stellenpartner-ch",
+          "installation-and-apparatus-builders-for-metal-construction-and-welding-structures-stellenpartner-ag-wil-sg-st-gallen"
         ],
         "fr": [
-          "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-wil-sg-st-gallen-stellenpartner-ch"
+          "anlagen-und-apparatebauer-in-mit-schweisskenntnissen-wil-sg-st-gallen-stellenpartner-ch",
+          "installations-et-constructeurs-d-appareils-pour-la-construction-et-la-soudure-de-metaux-stellenpartner-ag-wil-sg-st"
+        ],
+        "de": [
+          "anlagen-und-apparatebauer-in-fur-metallbau-und-schweisskonstruktionen-wil-sg-st-gallen"
         ]
       },
       "firstSeenAt": "2026-09-08T13:58:12.259Z",
@@ -58150,8 +58221,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-ed15911bd6cd",
@@ -58549,8 +58619,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-c7374e686214",
@@ -59510,8 +59579,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stellenpartner-a52a05d6a898",
