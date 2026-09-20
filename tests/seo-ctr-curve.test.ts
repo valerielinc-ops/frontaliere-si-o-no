@@ -276,6 +276,30 @@ describe('seo-ctr-curve (issue #4300)', () => {
       expect(fam.impressions90d).toBe(96180);
     });
 
+    it('registers /articoli-svizzera/ and its localized aliases as a listing (issue #9425)', () => {
+      const fam = SEO_CTR_FAMILIES.find((f) => f.id === 'articoli-svizzera')!;
+      expect(fam).toBeDefined();
+      expect(fam).toMatchObject({
+        pathContains: '/articoli-svizzera/',
+        kind: 'listing',
+        monitored: false,
+        targetCtr: null,
+        impressions90d: 56021,
+      });
+      expect(familyPathPrefixes(fam).sort()).toEqual([
+        '/articles-suisse/',
+        '/articoli-svizzera/',
+        '/schweiz-artikel/',
+        '/swiss-articles/',
+      ]);
+
+      const rows = familyPathPrefixes(fam).map((prefix) => ({
+        path: `${prefix}notizia/`,
+        impressions: MIN_IMPRESSIONS_TO_MONITOR * 2,
+      }));
+      expect(discoverUnregisteredFamilies(rows)).toEqual([]);
+    });
+
     it('registers the fuel-price template with all four locale slugs (issue #6704)', () => {
       // Il caso che ha aperto la issue: lo slug IT e quello EN dello STESSO
       // template fuel superavano la soglia separatamente e venivano rialzati
