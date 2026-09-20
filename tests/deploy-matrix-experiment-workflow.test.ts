@@ -111,8 +111,14 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       const guard = String((WORKFLOW.jobs['matrix-setup'].steps as Array<Record<string, any>>)[0].run);
       // La sola regex lascia passare `2026-02-31`, che non esiste: una scadenza
       // malformata resterebbe attiva invece di fallire subito.
-      expect(guard).toMatch(/date -u -d/u);
-      expect(guard).toMatch(/canonical/u);
+      // Validazione in bash puro: `date -d` e' GNU e non esiste su BSD/macOS,
+      // quindi legare il gate all'immagine del runner lo renderebbe una bomba
+      // a orologeria il giorno in cui quell'immagine cambia base.
+      expect(guard).not.toMatch(/date\s+-u?\s*-d\b/u);
+      expect(guard).toMatch(/days_in_month/u);
+      // Anno bisestile gestito, altrimenti `2028-02-29` verrebbe respinto.
+      expect(guard).toMatch(/% 4 == 0/u);
+      expect(guard).toMatch(/% 400 == 0/u);
     });
 
     it('nessun altro workflow contende i gruppi di concorrenza degli studi', () => {

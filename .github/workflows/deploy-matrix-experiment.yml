@@ -143,14 +143,27 @@ jobs:
         run: |
           set -euo pipefail
           today="$(date -u +%Y-%m-%d)"
-          # La forma NON basta: `2026-02-31` la supera ed e' una data che non
-          # esiste, quindi una scadenza malformata resterebbe attiva per sempre
-          # invece di fallire subito. `date -d` la rifiuta e ne ristampa la
-          # forma canonica, che deve coincidere carattere per carattere.
-          if [[ ! "${EXPERIMENT_EXPIRES_ON}" =~ ^[0-9]{4}-[0-9]{2}-[0-9]{2}$ ]] \
-            || ! canonical="$(date -u -d "${EXPERIMENT_EXPIRES_ON}" +%Y-%m-%d 2>/dev/null)" \
-            || [[ "${canonical}" != "${EXPERIMENT_EXPIRES_ON}" ]]; then
-            echo "::error::EXPERIMENT_EXPIRES_ON non è una data di calendario YYYY-MM-DD: '${EXPERIMENT_EXPIRES_ON}'"
+          # La forma NON basta: `2026-02-31` supera la regex ed e' una data che
+          # non esiste, quindi una scadenza malformata resterebbe attiva per
+          # sempre invece di fallire subito.
+          #
+          # La validazione del calendario e' fatta in bash puro, non con
+          # `date -d`: quell'opzione e' GNU e non esiste su BSD/macOS, quindi
+          # legare il gate all'immagine del runner lo renderebbe una bomba a
+          # orologeria il giorno in cui `ubuntu-latest` cambia base o qualcuno
+          # esegue lo stesso script altrove (❓ della review su #9341). Qui non
+          # si dipende da nessun binario esterno.
+          if [[ ! "${EXPERIMENT_EXPIRES_ON}" =~ ^([0-9]{4})-([0-9]{2})-([0-9]{2})$ ]]; then
+            echo "::error::EXPERIMENT_EXPIRES_ON non è nella forma YYYY-MM-DD: '${EXPERIMENT_EXPIRES_ON}'"
+            exit 1
+          fi
+          exp_y=$((10#${BASH_REMATCH[1]})); exp_m=$((10#${BASH_REMATCH[2]})); exp_d=$((10#${BASH_REMATCH[3]}))
+          days_in_month=(0 31 28 31 30 31 30 31 31 30 31 30 31)
+          if (( exp_y % 4 == 0 && (exp_y % 100 != 0 || exp_y % 400 == 0) )); then
+            days_in_month[2]=29
+          fi
+          if (( exp_m < 1 || exp_m > 12 || exp_d < 1 || exp_d > days_in_month[exp_m] )); then
+            echo "::error::EXPERIMENT_EXPIRES_ON non è una data di calendario esistente: '${EXPERIMENT_EXPIRES_ON}'"
             exit 1
           fi
           if [[ "${today}" > "${EXPERIMENT_EXPIRES_ON}" ]]; then
