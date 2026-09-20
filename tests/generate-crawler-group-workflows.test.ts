@@ -962,7 +962,7 @@ describe('#6380 — one atomic commit per crawler group', () => {
         .filter(({ step }) => step.name === 'Commit crawler group data atomically');
       expect(batchIndexes).toHaveLength(1);
       expect(batchIndexes[0].index).toBeGreaterThan(Math.max(...results.map((step) => job.steps.indexOf(step))));
-      expect(batchIndexes[0].step.if).toBe("always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'");
+      expect(batchIndexes[0].step.if).toBe("always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success' && steps.crawler_aggregate.outputs.wait_outcome == 'success'");
       expect(batchIndexes[0].step.run).toContain('git-commit-data.sh --group-batch');
       const cleanupIndex = job.steps.findIndex((step) => step.name === 'Cleanup Codex auth broker');
       if (cleanupIndex >= 0) expect(cleanupIndex).toBeGreaterThan(batchIndexes[0].index);

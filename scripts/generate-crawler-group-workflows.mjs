@@ -1586,14 +1586,12 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   steps.push({
     name: 'Commit crawler group data atomically',
     // The reusable workflow keeps a coordinate-derived token only as a
-    // diagnostic fallback for legacy callers. It is not a barrier binding:
-    // publishing its slices would let an unregistered caller reach main
-    // before the central observer rejects the manifest. A shared-setup
-    // failure is likewise not allowed to publish a partial batch; an
-    // individual crawler failure is isolated, so healthy siblings may publish
-    // their descriptors while the central observer keeps the generation
-    // barrier fail-closed until the missing receipt is recovered.
-    if: "always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success'",
+    // diagnostic fallback for legacy callers. The aggregate is the
+    // pre-publish, fail-closed terminal barrier: every crawler result remains
+    // continue-on-error so siblings can finish, while the explicit
+    // `wait_outcome` prevents a partial batch from reaching main. The finalizer
+    // below is deliberately post-push and verifies receipt persistence.
+    if: "always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success' && steps.crawler_aggregate.outputs.wait_outcome == 'success'",
     // PUSH-CONTENTION CLASS (exit 42 from git-commit-data.sh, see
     // commit_isolated_from_worktree): with `--group-batch`, GROUP_BATCH=true
     // takes it out of the sequential soft-success path (JOBS_SLICE_FILE
