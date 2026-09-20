@@ -296,6 +296,86 @@ describe('stale-pr-rescuer — cablaggio', () => {
     expect(WORKFLOW).toMatch(/sparse-checkout: \|\n(?:\s+\S+\n)*\s+scripts\/ci\/lib\/review-input-revision\.mjs\n/);
   });
 
+  // Stato (c): verde + LGTM + auto-merge non attivo. Stessa forma di stallo
+  // del check cancellato, altra causa. Misurato sul sito il 2026-09-20 sulla
+  // PR #9344, dove il custode rispondeva `LGTM senza check cancellati` e non
+  // faceva nulla mentre la PR restava ferma a tempo indeterminato.
+  it('segnala il verde con LGTM che non e\' mai entrato nell\'auto-merge', () => {
+    const decision = classifyOrphan({
+      pr: pr({ autoMergeEnabled: false, mergeableState: 'clean' }),
+      checkRuns: [checkRun(1, 7, 'success')],
+      reviews: [review('## LGTM\nTutto ok.')],
+      comments: [],
+      nowS: NOW_S,
+    });
+    expect(decision.action).toBe('stalled-automerge');
+    expect(decision.reason).toContain("l'auto-merge nativo non risulta attivo");
+  });
+
+  it('tace quando l\'auto-merge e\' gia\' attivo, non e\' leggibile, o la PR ha conflitti', () => {
+    const base = {
+      checkRuns: [checkRun(1, 7, 'success')],
+      reviews: [review('## LGTM')],
+      comments: [] as unknown[],
+      nowS: NOW_S,
+    };
+    // Opt-in gia' avvenuto: il merge sta arrivando da solo.
+    expect(classifyOrphan({ ...base, pr: pr({ autoMergeEnabled: true, mergeableState: 'clean' }) }).action)
+      .toBe('none');
+    // Campo assente: uno stato NON LETTO non e' uno stato rotto. Il predicato
+    // e' `=== false`, quindi un chiamante che non sa dire nulla non fa
+    // scattare un allarme.
+    expect(classifyOrphan({ ...base, pr: pr() }).action).toBe('none');
+    // I conflitti sono il dominio di `pr-autorebase`, che etichetta
+    // `has-conflicts` e rimanda la PR da solo.
+    expect(classifyOrphan({ ...base, pr: pr({ autoMergeEnabled: false, mergeableState: 'dirty' }) }).action)
+      .toBe('none');
+  });
+
+  it('non confonde una suite cancellata accanto a una verde con il verde dello stato (c)', () => {
+    // `succeeded` legge l'ULTIMA generazione di OGNI suite: con una suite
+    // cancellata accanto a una verde il rollup di GitHub e' verde, ma il merge
+    // e' bloccato — e quello e' il caso (a), non il (c).
+    const decision = classifyOrphan({
+      pr: pr({ autoMergeEnabled: false, mergeableState: 'clean' }),
+      checkRuns: [checkRun(1, 7, 'cancelled'), checkRun(2, 8, 'success')],
+      reviews: [review('## LGTM')],
+      comments: [],
+      nowS: NOW_S,
+    });
+    expect(decision.action).toBe('rerun');
+    expect(cancelledRequiredSuites(
+      [checkRun(1, 7, 'cancelled'), checkRun(2, 8, 'success')], HEAD, VITEST_CHECK_NAME,
+    ).succeeded).toBe(false);
+    expect(cancelledRequiredSuites([checkRun(2, 8, 'success')], HEAD, VITEST_CHECK_NAME).succeeded)
+      .toBe(true);
+    // Nessuna generazione del check richiesto sulla HEAD: niente verde da
+    // dichiarare, quindi niente allarme.
+    expect(cancelledRequiredSuites([], HEAD, VITEST_CHECK_NAME).succeeded).toBe(false);
+  });
+
+  it('e\' idempotente per HEAD: il marker gia\' scritto spegne la segnalazione', () => {
+    const args = {
+      pr: pr({ autoMergeEnabled: false, mergeableState: 'clean' }),
+      checkRuns: [checkRun(1, 7, 'success')],
+      reviews: [review('## LGTM')],
+      nowS: NOW_S,
+    };
+    expect(classifyOrphan({ ...args, comments: [] }).action).toBe('stalled-automerge');
+    expect(classifyOrphan({
+      ...args,
+      comments: [{ user: { login: 'github-actions[bot]' }, body: actionMarker('stalled-automerge', HEAD) }],
+    }).action).toBe('none');
+  });
+
+  it('non manda i fixer su una PR pulita: solo `orphaned`, mai `agent:autofix`', () => {
+    const src = readFileSync(new URL('../scripts/ci/orphan-pr-custodian.mjs', import.meta.url), 'utf8');
+    const branch = src.slice(src.indexOf("} else if (decision.action === 'stalled-automerge') {"));
+    const body = branch.slice(0, branch.indexOf('\n    } else {'));
+    expect(body).toContain("'--add-label', ORPHANED_LABEL");
+    expect(body).not.toContain('AUTOFIX_LABEL');
+  });
+
   it('esegue il custode con lo script e le costanti presenti nel checkout sparse', () => {
     expect(WORKFLOW).toMatch(/sparse-checkout: \|\n(?:\s+\S+\n)*\s+scripts\/ci\/orphan-pr-custodian\.mjs\n/);
     expect(WORKFLOW).toContain('scripts/ci/lib/constants.mjs');
