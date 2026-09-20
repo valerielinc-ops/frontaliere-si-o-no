@@ -66,7 +66,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:23:06.096Z",
-      "needsRetranslation": true,
       "salaryMin": 57600,
       "salaryMax": 88800,
       "salarySource": "estimated",
@@ -130,7 +129,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-28T05:23:03.917Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -284,7 +282,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T14:16:04.933Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -364,7 +361,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:39:22.216Z",
-      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -458,8 +454,7 @@
         }
       },
       "addressRegion": "VS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

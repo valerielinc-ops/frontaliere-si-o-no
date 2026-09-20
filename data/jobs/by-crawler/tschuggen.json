@@ -261,7 +261,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:33.506Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -517,7 +516,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:13:23.134Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -606,8 +604,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "needsRetranslation": true
+      "addressRegion": "GR"
     },
     {
       "id": "tschuggen-1f5a3eec85b4",
@@ -944,8 +941,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

@@ -2865,7 +2865,6 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:32:23.669Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -4308,11 +4307,37 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-im-verkauf-m-w-d-80-mit-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch"
+          "mitarbeiter-im-verkauf-m-w-d-80-mit-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
+          "addetto-a-alle-vendite-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+          "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch",
+          "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
+          "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+          "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+          "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch",
+          "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
+          "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
+        ],
+        "en": [
+          "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch"
+        ],
+        "de": [
+          "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
+          "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch"
+        ],
+        "fr": [
+          "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-im-verkauf-m-w-d-80-mit-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch"
+        "mitarbeiter-im-verkauf-m-w-d-80-mit-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
+        "addetto-a-alle-vendite-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+        "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch",
+        "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
+        "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+        "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+        "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch",
+        "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
+        "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
       ],
       "salaryMin": 66400,
       "salaryMax": 102000,

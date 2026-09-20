@@ -5633,7 +5633,8 @@
         ]
       },
       "retranslationAttempts": 1,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Sanitärinstallateur/in (80 - 100%)",
@@ -7083,11 +7084,13 @@
       "id": "burkhalter-group-ec31614384f5",
       "previousSlugsByLocale": {
         "it": [
-          "unterhaltsfachmann-frau-servicetechniker-in-80-100-imwinkelried-luftung-und-klima-ag-visp"
+          "unterhaltsfachmann-frau-servicetechniker-in-80-100-imwinkelried-luftung-und-klima-ag-visp",
+          "tecnico-a-di-manutenzione-tecnico-a-di-servizio-80-100-imwinkelried-luftung-und-klima-ag-v"
         ]
       },
       "previousSlugs": [
-        "unterhaltsfachmann-frau-servicetechniker-in-80-100-imwinkelried-luftung-und-klima-ag-visp"
+        "unterhaltsfachmann-frau-servicetechniker-in-80-100-imwinkelried-luftung-und-klima-ag-visp",
+        "tecnico-a-di-manutenzione-tecnico-a-di-servizio-80-100-imwinkelried-luftung-und-klima-ag-v"
       ],
       "salaryMin": 71000,
       "salaryMax": 107500,
@@ -12606,7 +12609,8 @@
       "previousSlugs": [
         "installatore-trice-di-sanitari-100-sada-ag-glattpark-opfikon"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/in Planung Sanitär (80 - 100%)",
@@ -13711,7 +13715,8 @@
         ]
       },
       "retranslationAttempts": 1,
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Sanitärinstallateur/in (100%)",
@@ -13784,7 +13789,8 @@
       "previousSlugs": [
         "installatore-trice-di-sanitari-100-demuth-ag-baden-dattwil"
       ],
-      "salarySource": "reported"
+      "salarySource": "reported",
+      "needsRetranslation": true
     },
     {
       "title": "Bauleitende/r Sanitärinstallateur/in (100%)",
