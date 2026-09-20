@@ -85664,6 +85664,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-votazioni-cantoni-27-settembre': {
+    title: 'Votazioni in nove Cantoni: fisco e mobilità al voto',
+    description: 'Domenica 27 settembre si vota in nove Cantoni svizzeri. In gioco: tagli fiscali a Vaud, contraccezione a Ginevra e 39,5 milioni per la mobilità',
+    keywords: 'frontalieri, ticino, svizzera, italia, votazioni, nove, cantoni, fisco',
+    ogTitle: 'Votazioni in nove Cantoni: fisco e mobilità al voto',
+    ogDescription: 'Domenica 27 settembre gli elettori di nove Cantoni svizzeri decideranno su temi cruciali: dalla riduzione delle imposte in Vaud alla contraccezione gratuita a Ginevra. In palio anche 39,5 milioni di franchi per la mobilità transfrontaliera',
+    canonicalPath: '/articoli-svizzera/votazioni-cantoni-27-settembre/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Votazioni in nove Cantoni: fisco e mobilità al voto",
+      "description": "Domenica 27 settembre si vota in nove Cantoni svizzeri. In gioco: tagli fiscali a Vaud, contraccezione a Ginevra e 39,5 milioni per la mobilità",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/votazioni-cantoni-27-settembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Elettori in coda all'esterno di un edificio governativo svizzero per le votazioni cantonali del 27 settembre"
+      },
+      "datePublished": "2026-09-20T07:41:41+00:00",
+      "dateModified": "2026-09-20T07:41:41+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/votazioni-cantoni-27-settembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
