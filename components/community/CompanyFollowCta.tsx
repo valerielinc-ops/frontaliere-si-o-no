@@ -1,8 +1,8 @@
 /**
  * CompanyFollowCta — the ONE wiring of «Segui questa azienda» (issue #5012).
  *
- * `CompanyFollowButton` is the interaction (follow / unfollow / anonymous email
- * capture). This is everything that has to happen AROUND it and had started to
+ * `CompanyFollowButton` is the interaction (follow / unfollow / the shared
+ * anonymous sign-in prompt). This is everything that has to happen AROUND it and had started to
  * be retyped per surface: the session, the four analytics callbacks, and the
  * `invalidateUserAlertsCache()` every write owes the other surfaces' cached
  * eligibility reads.

@@ -1074,7 +1074,10 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
 
     const button = readRepoFile('components/community/CompanyFollowButton.tsx');
     expect(button.includes('if (!slug || !userId || !email) return null;')).toBe(false);
-    expect(button).toContain('if (!signedIn) { setStatus(\'capture\'); return; }');
+    expect(button).toContain('if (!signedIn) { setAuthPromptOpen(true); return; }');
+    expect(button).toContain('<SignupPromptModal');
+    expect(button).not.toContain('<EmailInput');
+    expect(button).not.toContain('company-follow-email');
   });
 
   it('renders the CTA in the AUTH-GATED branch too, not only the unlocked one', () => {
@@ -1110,18 +1113,19 @@ describe('anonymous capture + double opt-in (#5012 phase 2)', () => {
     // newsletterSendConfirmation; an ALREADY-KNOWN address needs the explicit
     // purpose:'login' link (SaveSignInPromptModal's precedent) or the visitor
     // gets no email at all and is never followed — silently.
+    const prompt = readRepoFile('components/community/SignupPromptModal.tsx');
     const button = readRepoFile('components/community/CompanyFollowButton.tsx');
-    expect(button).toContain('upsertUnifiedEmailSubscriber');
-    expect(button).toContain("requestConfirmationEmail(trimmed, 'login')");
+    expect(prompt).toContain('upsertUnifiedEmailSubscriber');
+    expect(prompt).toContain("requestConfirmationEmail(trimmed, 'login')");
     // Was `consentGiven: true` until #5712, which removed the claim: this form
-    // has no consent checkbox, so nothing here is an affirmative opt-in and
+    // has no affirmative consent checkbox, so nothing here is an affirmative opt-in and
     // asserting one would let `hasAffirmativeJobAlertConsent` create job
     // alerts for people who only typed an address to follow an employer. The
     // shared mechanism this test is really about is the register: one formula,
     // rendered and stored by the same function.
-    expect(button).toContain('consentKey="communicationsOptIn"');
-    expect(button).toContain('<EmailConsentCheckbox');
-    expect(button).not.toContain('consentGiven: true');
+    expect(prompt).toContain('consentKey="communicationsOptIn"');
+    expect(prompt).toContain('<EmailConsentCheckbox');
+    expect(prompt).not.toContain('consentGiven: true');
     // No bespoke token, no bespoke confirmation endpoint.
     expect(button.includes('createHmac')).toBe(false);
 
@@ -2195,6 +2199,9 @@ describe('the follow CTA copy exists in all four locales (#5012 phase 2)', () =>
     const src = readRepoFile(`services/locales/${loc}-core.ts`);
     for (const key of [
       'jobAlert.companyFollow.cta',
+      'jobAlert.companyFollow.authPrompt.title',
+      'jobAlert.companyFollow.authPrompt.body',
+      'jobAlert.companyFollow.authPrompt.checkEmailBody',
       'jobAlert.companyFollow.following',
       'jobAlert.companyFollow.hint',
       'jobAlert.companyFollow.followingHint',

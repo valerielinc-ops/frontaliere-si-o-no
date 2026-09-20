@@ -263,8 +263,11 @@ vi.mock('@/services/firebase', () => ({
 }));
 
 vi.mock('@/services/authService', () => ({
-  useAuth: () => ({ user: null, loading: false }),
+  useAuth: () => ({ user: null, loading: false, signIn: vi.fn() }),
   getAuthEmail: () => null,
+  renderGoogleButtonWithReadiness: vi.fn(async () => false),
+  isLinkedInSignInAvailable: vi.fn(async () => false),
+  signInWithLinkedIn: vi.fn(async () => null),
 }));
 
 vi.mock('@/services/analytics', () => ({ Analytics: doubles.analytics }));
@@ -499,7 +502,7 @@ async function runChain(locale: 'it' | 'en', round: number) {
   expect(doubles.state.alerts, 'ring 2: opening popup creates no CompanyAlert').toHaveLength(0);
   expect(doubles.state.subscriber, 'ring 2: opening popup creates no newsletter subscriber').toBeNull();
 
-  // Ring 3 — explicit popup action only opens the canonical inline capture.
+  // Ring 3 — explicit popup action opens the shared sign-in prompt.
   expect(readPendingCompanyFollows(), 'ring 3: no pending follow before explicit action').toHaveLength(0);
   const dialog = screen.getByRole('dialog');
   const accept = Array.from(dialog.querySelectorAll('button')).find(
@@ -508,18 +511,18 @@ async function runChain(locale: 'it' | 'en', round: number) {
   expect(accept, 'ring 3: popup exposes an explicit follow action').toBeTruthy();
   fireEvent.click(accept as HTMLButtonElement);
   await waitFor(() => {
-    expect(document.querySelector('#company-follow-email'), 'ring 3: explicit action opens email capture').not.toBeNull();
+    expect(document.querySelector('#signup-prompt-email-follow'), 'ring 3: explicit action opens the shared email path').not.toBeNull();
   });
   expect(doubles.state.alerts, 'ring 3: popup action still creates no CompanyAlert').toHaveLength(0);
   expect(doubles.state.subscriber, 'ring 3: popup action still creates no subscriber').toBeNull();
 
-  // Ring 4 — anonymous capture is pending until the synthetic confirmation.
-  const input = document.querySelector('#company-follow-email') as HTMLInputElement | null;
-  expect(input, 'ring 4: anonymous branch exposes email input').not.toBeNull();
+  // Ring 4 — anonymous email registration is pending until synthetic confirmation.
+  const input = document.querySelector('#signup-prompt-email-follow') as HTMLInputElement | null;
+  expect(input, 'ring 4: shared prompt exposes email input').not.toBeNull();
   fireEvent.change(input as HTMLInputElement, { target: { value: email } });
   expect(screen.queryByRole('checkbox'), 'ring 4: registration has no second consent checkbox').toBeNull();
   const form = input?.closest('form');
-  expect(form, 'ring 4: anonymous branch exposes capture form').not.toBeNull();
+  expect(form, 'ring 4: shared prompt exposes email form').not.toBeNull();
   fireEvent.submit(form as HTMLFormElement);
   await waitFor(() => {
     expect(doubles.state.subscriber?.status, 'ring 4: captured subscriber is pending').toBe('pending');

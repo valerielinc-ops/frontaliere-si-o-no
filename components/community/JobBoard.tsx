@@ -7142,8 +7142,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  // Save account-gating sign-in prompt (#4466 follow-up). Deliberately
  // separate from authGateModalJsx below — that one gates job-detail content
- // unlock (real login OR email-capture OR crawler bypass); saving requires a
- // real account only, no email fallback.
+ // unlock (real login OR email-capture OR crawler bypass); saving still
+ // requires a real account, with the shared prompt handling its access link.
  const saveAuthPromptJsx = saveAuthPromptOpen ? (
  <Suspense fallback={null}>
  <SaveSignInPromptModal locale={locale} onDismiss={handleSaveAuthPromptDismiss} />

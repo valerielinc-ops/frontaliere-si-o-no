@@ -214,15 +214,10 @@ const VERDICTS: Record<string, Verdict> = {
   'components/community/JobOrphanView.tsx': { verdict: 'shown', notices: 1, why: 'notice under the unlock form' },
   'components/community/JobBridgeView.tsx': { verdict: 'shown', notices: 1, why: 'notice under the unlock form' },
   'components/community/JobExpiredView.tsx': { verdict: 'shown', notices: 1, why: 'notice under the unlock form' },
-  'components/community/CompanyFollowButton.tsx': {
-    verdict: 'shown',
-    notices: 2,
-    why: 'two gate surfaces, one notice each: the email-capture form (anonymous) and the signed-in "Segui" button, which records a job-alert consent-upgrade proof on the same click (#5902)',
-  },
-  'components/community/SaveSignInPromptModal.tsx': {
+  'components/community/SignupPromptModal.tsx': {
     verdict: 'shown',
     notices: 1,
-    why: 'its own upsert covers the EMAIL branch only, and that branch renders what it stores; the social branch is recorded by App.tsx and is declared there',
+    why: 'the shared save/follow gate renders one communications notice for its email branch; provider authentication remains access-only',
   },
   'components/pages/PublisherPublishPage.tsx': {
     verdict: 'shown',
@@ -630,7 +625,7 @@ describe('the verdicts hold', () => {
  * WHAT THIS BLOCK DOES NOT DO, and why that is the point. It does not demand a
  * notice on those five: authentication is now access-only there. The old
  * `signInAutoSubscribe`/`chatbotSignIn` register entries remain pinned for
- * historical records, but no live call site writes them. `SaveSignInPromptModal`
+ * historical records, but no live call site writes them. `SignupPromptModal`
  * says exactly this at its own provider buttons and has since #5712.
  *
  * So the rule enforced here is the one that IS available: a surface may show
@@ -710,9 +705,9 @@ const SIGN_IN_SURFACES: Record<string, SignInSurface> = {
   'components/community/JobOrphanView.tsx': { consent: 'email-branch-only', why: 'unlock form' },
   'components/community/JobBridgeView.tsx': { consent: 'email-branch-only', why: 'unlock form' },
   'components/community/JobExpiredView.tsx': { consent: 'email-branch-only', why: 'unlock form' },
-  'components/community/SaveSignInPromptModal.tsx': {
+  'components/community/SignupPromptModal.tsx': {
     consent: 'email-branch-only',
-    why: 'the file that states this position in its own source, and the reason it is a position and not an oversight',
+    why: 'the shared save/follow gate owns the email branch and its single communications notice',
   },
 
   'components/pages/SubscribePage.tsx': {
