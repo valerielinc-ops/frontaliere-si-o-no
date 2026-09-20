@@ -673,6 +673,27 @@ jobs:
             probe="$(dirname "$probe")"
           done
           printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+          git_bin="$(command -v git || true)"
+          if [ -z "$git_bin" ] || [[ "$git_bin" != /* ]] || [ ! -x "$git_bin" ]; then
+            echo "::error::Git path non assoluto o non eseguibile: ${git_bin:-missing}"
+            exit 1
+          fi
+          git_bin="$(realpath "$git_bin")"
+          case "$git_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::Git risolve in un path controllabile dalla PR: $git_bin"
+              exit 1
+              ;;
+          esac
+          probe="$git_bin"
+          while [ "$probe" != '/' ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::Git o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'git_path=%s\n' "$git_bin" >> "$GITHUB_OUTPUT"
 
       # `base.sha` è il commit di main da cui la PR è partita, non la policy che
       # main applica oggi. Se main ha AGGIUNTO un modulo del gate dopo
@@ -883,6 +904,8 @@ jobs:
         id: ledger_scope
         if: ${{ steps.body_contract.outcome != 'failure' && steps.ledger_policy.outcome == 'success' && !cancelled() }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -971,6 +994,7 @@ jobs:
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           REPO: ${{ github.repository }}
           PRN: ${{ github.event.pull_request.number }}
           HEAD_SHA: ${{ github.event.pull_request.head.sha || github.sha }}
@@ -1013,7 +1037,7 @@ jobs:
             [ -e "$WATCH_DIR/stop" ] && exit 0
             printf '%s\n' "$current" > "$WATCH_DIR/superseded-by"
             echo "$(date -u +%FT%TZ) PR #$PRN head ${HEAD_SHA:0:12} -> ${current:0:12}: cancel della run $RUN_ID"
-            gh api -X POST "repos/${REPO}/actions/runs/${RUN_ID}/cancel" --silent || echo "cancel non riuscito"
+            "$TRUSTED_GH_BIN" api -X POST "repos/${REPO}/actions/runs/${RUN_ID}/cancel" --silent || echo "cancel non riuscito"
             exit 0
           done
           WATCH_EOF
@@ -2252,6 +2276,7 @@ jobs:
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && github.event_name == 'pull_request' && steps.vitest_related.outcome == 'failure') }}
         continue-on-error: true
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -2641,6 +2666,7 @@ jobs:
         # `Read` invece di rieseguire le stesse `gh` call a ogni turno.
         env:
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
@@ -2903,6 +2929,7 @@ jobs:
         id: test_only_review
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'tests-only' }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
@@ -2921,6 +2948,7 @@ jobs:
         # da capo; senza token App lo step fallisce e il gate resta rosso.
         if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && success() && steps.resolve.outputs.should_review == 'true' && steps.guard.outputs.skip != 'true' && steps.tier.outputs.tier == 'carry-forward' }}
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
           HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
@@ -3305,6 +3333,7 @@ jobs:
           # `PR body:L<n>` does not block when this contract passed.
           BODY_CONTRACT_OUTCOME: ${{ steps.body_contract.outcome }}
           TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
           REVIEW_POLICY_ROOT: ${{ steps.review_policy_final.outputs.final_root }}
         run: |
           set -euo pipefail
@@ -3364,6 +3393,7 @@ jobs:
         if: ${{ always() && cancelled() }}
         continue-on-error: true
         env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ github.event.pull_request.number }}
@@ -3371,7 +3401,7 @@ jobs:
         run: |
           set +e
           classification='cancelled_external'
-          if [ -n "${PR_NUMBER:-}" ] && current_sha="$(gh pr view "$PR_NUMBER" --repo "$REPO" --json headRefOid --jq .headRefOid 2>/dev/null)"; then
+          if [ -n "${PR_NUMBER:-}" ] && current_sha=$("$TRUSTED_GH_BIN" pr view "$PR_NUMBER" --repo "$REPO" --json headRefOid --jq .headRefOid 2>/dev/null); then
             if [ -n "$current_sha" ] && [ "$current_sha" != "$HEAD_SHA" ]; then
               classification='superseded'
             fi
