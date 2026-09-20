@@ -288,6 +288,13 @@ export function classifyOrphan({
     // non fa scattare nulla: uno stato non letto non e' uno stato rotto.
     // `dirty` esce di scena perche' quello e' il dominio di `pr-autorebase`,
     // che etichetta `has-conflicts` e rimanda la PR da solo.
+    // `needs-human` e' gia' il segnale che questa PR aspetta una persona: il
+    // gate nativo la trattiene per la sua policy di rischio, e un secondo
+    // cartello che dice la stessa cosa sarebbe rumore sopra l'informazione.
+    // Stessa esclusione del ramo (b).
+    if (succeeded && (pr.labels || []).includes(NEEDS_HUMAN_LABEL)) {
+      return none('needs-human: l\'attesa di una persona e\' gia\' dichiarata');
+    }
     if (succeeded && pr.autoMergeEnabled === false && pr.mergeableState !== 'dirty') {
       if (alreadyDone('stalled-automerge')) {
         return none('stallo auto-merge gia segnalato su questa HEAD');

@@ -330,6 +330,13 @@ describe('stale-pr-rescuer — cablaggio', () => {
     // `has-conflicts` e rimanda la PR da solo.
     expect(classifyOrphan({ ...base, pr: pr({ autoMergeEnabled: false, mergeableState: 'dirty' }) }).action)
       .toBe('none');
+    // `needs-human` dice gia' che questa PR aspetta una persona: un secondo
+    // cartello sarebbe rumore sopra l'informazione. Stessa esclusione del ramo
+    // di adozione.
+    expect(classifyOrphan({
+      ...base,
+      pr: pr({ autoMergeEnabled: false, mergeableState: 'clean', labels: ['needs-human'] }),
+    }).action).toBe('none');
   });
 
   it('non confonde una suite cancellata accanto a una verde con il verde dello stato (c)', () => {
