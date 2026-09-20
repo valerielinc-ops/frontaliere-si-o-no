@@ -40,6 +40,10 @@ import {
   reviewHasInputRevision,
   reviewInputRevisionFromBody,
 } from './lib/review-input-revision.mjs';
+import {
+  reviewMarkerDecision,
+  reviewMarkerRepairDecision,
+} from './review-marker-recovery.mjs';
 
 export {
   firstTerminalBotReviewOnHead,
@@ -727,6 +731,15 @@ function ghJsonOnce(args) {
   return JSON.parse(ghRaw(args));
 }
 
+function ghJsonWithInput(args, input) {
+  return JSON.parse(execFileSync('gh', args, {
+    input,
+    encoding: 'utf8',
+    maxBuffer: 64 * 1024 * 1024,
+    env: { ...process.env },
+  }));
+}
+
 // `review-test-policy` needs both parsed GitHub responses and raw newline
 // output for the paginated REST file list. Keep this adapter local so the
 // native gate remains fail-closed without changing the shared gh helper.
@@ -807,6 +820,41 @@ function loadReviews(repo, pr) {
       updated_at: metadata.updatedAt || review.updated_at,
     };
   });
+}
+
+function publishRecoveredReview(repo, pr, headSha, repair) {
+  const response = ghJsonWithInput([
+    'api', `repos/${repo}/pulls/${pr}/reviews`, '--method', 'POST', '--input', '-',
+  ], JSON.stringify({
+    commit_id: headSha,
+    event: 'COMMENT',
+    body: repair.body,
+  }));
+  if (!response || typeof response.body !== 'string' || response.body !== repair.body
+      || (response.commit_id && response.commit_id !== headSha)) {
+    throw new Error(`review marker repair non confermato per PR #${pr}`);
+  }
+}
+
+function repairMissingReviewMarker(repo, pr, headSha, reviewRevision, reviews) {
+  const decision = reviewMarkerRepairDecision({ reviews, headSha, reviewRevision });
+  if (!decision.ok) {
+    throw new Error(`review marker non riparabile: ${decision.reason}`);
+  }
+  if (!decision.repaired) return reviews;
+
+  publishRecoveredReview(repo, pr, headSha, decision);
+  const refreshed = loadReviews(repo, pr);
+  const verified = reviewMarkerDecision({
+    reviews: refreshed,
+    headSha,
+    reviewRevision,
+  });
+  if (!verified.ok) {
+    throw new Error(`review marker repair non verificato: ${verified.reason}`);
+  }
+  console.log(`Native auto-merge guard PR #${pr}: marker review riparato dalla review ${decision.reviewId}`);
+  return refreshed;
 }
 
 function loadBodyRecoveryBarrier(repo, prNumber, headSha, bodyRevision) {
@@ -1321,6 +1369,13 @@ function main() {
   let inJobRun;
   try {
     reviews = loadReviews(repo, prNumber);
+    reviews = repairMissingReviewMarker(
+      repo,
+      prNumber,
+      pr.headRefOid,
+      reviewRevision,
+      reviews,
+    );
     checkRuns = loadCheckRuns(repo, pr.headRefOid);
     inJobRun = loadInJobRun(repo, pr.headRefOid, checkRuns);
     verifiedTestOnlyReview = loadVerifiedTestOnlyReview(
@@ -1399,6 +1454,13 @@ function main() {
     finalCheckRuns = loadCheckRuns(repo, current.headRefOid);
     finalInJobRun = loadInJobRun(repo, current.headRefOid, finalCheckRuns);
     const finalReviewRevision = reviewInputRevisionFromBody(current.body);
+    finalReviews = repairMissingReviewMarker(
+      repo,
+      prNumber,
+      current.headRefOid,
+      finalReviewRevision,
+      finalReviews,
+    );
     finalVerifiedTestOnlyReview = loadVerifiedTestOnlyReview(
       repo,
       prNumber,
@@ -1554,6 +1616,13 @@ function main() {
   try {
     mutationRevision = reviewInputRevisionFromBody(beforeMutation.body);
     mutationReviews = loadReviews(repo, prNumber);
+    mutationReviews = repairMissingReviewMarker(
+      repo,
+      prNumber,
+      beforeMutation.headRefOid,
+      mutationRevision,
+      mutationReviews,
+    );
     mutationCheckRuns = loadCheckRuns(repo, beforeMutation.headRefOid);
     mutationInJobRun = loadInJobRun(repo, beforeMutation.headRefOid, mutationCheckRuns);
     mutationVerifiedTestOnlyReview = loadVerifiedTestOnlyReview(

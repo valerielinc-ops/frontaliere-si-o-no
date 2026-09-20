@@ -3196,6 +3196,55 @@ jobs:
           done
           printf 'final_root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
 
+      - name: Repair missing deterministic review input marker
+        id: review_marker_repair
+        # A Codex fallback may have posted a terminal review without the
+        # prompt-requested marker. Preserve that exact verdict only when a
+        # trusted App/PAT writer can publish one new COMMENT review; stale,
+        # duplicate, non-Codex, and unavailable inputs remain fail-closed.
+        # This is deterministic recovery, never a model retry.
+        if: ${{ steps.ledger_scope.outputs.ledger_only != 'true' && steps.body_contract.outcome != 'failure' && (always() && !cancelled() && steps.resolve.outputs.should_review == 'true') }}
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          GH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          APP_TOKEN: ${{ env.APP_TOKEN }}
+          GITHUB_PAT: ${{ env.GITHUB_PAT }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
+          HEAD_SHA: ${{ steps.resolve.outputs.head_sha }}
+          REVIEW_REVISION: ${{ steps.review_input.outputs.review_revision }}
+          REVIEW_POLICY_ROOT: ${{ steps.review_policy_final.outputs.final_root }}
+        run: |
+          set -euo pipefail
+          if [ -z "${APP_TOKEN:-}" ] && [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::Trusted review marker repair requires the App/PAT writer; no model retry is allowed."
+            exit 1
+          fi
+          patch_file="${RUNNER_TEMP}/review-marker-repair-${GITHUB_RUN_ID}.json"
+          rm -f "$patch_file"
+          if ! reviews=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp); then
+            echo "::error::Reviews API unavailable before deterministic marker repair."
+            exit 1
+          fi
+          printf '%s' "$reviews" | node "$REVIEW_POLICY_ROOT/scripts/ci/review-marker-recovery.mjs" repair \
+            --head "$HEAD_SHA" --revision "$REVIEW_REVISION" --output "$patch_file"
+          if [ ! -s "$patch_file" ]; then
+            echo "No deterministic marker repair needed."
+            exit 0
+          fi
+          payload=$(node --input-type=module -e '
+            import { readFileSync } from "node:fs";
+            const patch = JSON.parse(readFileSync(process.argv[1], "utf8"));
+            process.stdout.write(JSON.stringify({
+              commit_id: process.env.HEAD_SHA,
+              event: "COMMENT",
+              body: patch.body,
+            }));
+          ' "$patch_file")
+          printf '%s' "$payload" | GH_TOKEN="${APP_TOKEN:-$GITHUB_PAT}" \
+            "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" \
+            --method POST --input - --jq '.id'
+
       - name: Validate deterministic review input marker
         id: review_marker
         # This is a zero-agent recovery gate: a missing/duplicate/stale marker
@@ -3442,6 +3491,7 @@ jobs:
             /scripts/ci/lib/constants.mjs
             /scripts/ci/lib/pr-review-admission.mjs
             /scripts/ci/lib/review-input-revision.mjs
+            /scripts/ci/review-marker-recovery.mjs
             /scripts/lib/loop-fleet-contract.mjs
             /data/loop-fleet/loop-registry.json
           sparse-checkout-cone-mode: false
