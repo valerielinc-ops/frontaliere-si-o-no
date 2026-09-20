@@ -192,9 +192,12 @@ export function readJobsStatsHistory(rootDir = process.cwd()) {
 }
 
 /**
- * Write only the current month's shard. Existing legacy dates are deliberately
- * not backfilled: the first post-migration run writes today's complete entry,
- * and the reader keeps older legacy dates visible without a 50+ MB diff.
+ * Write the current month's shard and reconcile shards already materialized.
+ * Existing legacy dates are deliberately not backfilled: the first
+ * post-migration run writes today's complete entry, and the reader keeps older
+ * legacy dates visible without a 50+ MB diff. Existing shards are rebuilt from
+ * the canonical history so compaction and retention are not bypassed after the
+ * shard's month has stopped receiving daily writes.
  */
 export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), options = {}) {
   const entries = historyEntries(history);
@@ -203,18 +206,50 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
 
   const month = currentDate.slice(0, 7);
   const filePath = jobStatsHistoryShardFile(month, rootDir);
-  const existing = readShardDocument(filePath);
-  if (!existing.ok) throw new Error(`Cannot safely update corrupt job stats shard: ${filePath}`);
-
   const currentEntry = entries.find((entry) => entry.date === currentDate);
   if (!currentEntry) throw new Error(`History does not contain current date ${currentDate}`);
 
-  const shardEntries = new Map(existing.entries.map((entry) => [entry.date, clone(entry)]));
-  shardEntries.set(currentDate, clone(currentEntry));
-  const serialized = JSON.stringify({ entries: [...shardEntries.values()].sort((a, b) => a.date.localeCompare(b.date)) }, null, 2) + '\n';
+  const canonicalByDate = new Map(entries.map((entry) => [entry.date, entry]));
+  const shardFiles = new Set(listJobStatsHistoryShardFiles(rootDir));
+  shardFiles.add(filePath);
+  let shardChanged = false;
 
-  fs.mkdirSync(path.dirname(filePath), { recursive: true });
-  const shardChanged = writeShardFileIfChanged(filePath, serialized);
+  for (const shardFile of shardFiles) {
+    const existing = readShardDocument(shardFile);
+    if (!existing.ok) {
+      if (shardFile === filePath) {
+        throw new Error(`Cannot safely update corrupt job stats shard: ${shardFile}`);
+      }
+      continue;
+    }
+
+    const shardEntries = new Map();
+    for (const existingEntry of existing.entries) {
+      const canonicalEntry = canonicalByDate.get(existingEntry.date);
+      if (!canonicalEntry) continue;
+      // The current shard remains authoritative for its already-written past
+      // days. Closed-month shards use the canonical, compacted representation
+      // so they cannot retain verbose payloads after the month rolls over.
+      const nextEntry = shardFile === filePath ? existingEntry : canonicalEntry;
+      shardEntries.set(existingEntry.date, clone(nextEntry));
+    }
+    if (shardFile === filePath) shardEntries.set(currentDate, clone(currentEntry));
+
+    if (shardEntries.size === 0) {
+      if (existing.exists) {
+        fs.unlinkSync(shardFile);
+        shardChanged = true;
+      }
+      continue;
+    }
+
+    const serialized = JSON.stringify({
+      entries: [...shardEntries.values()].sort((a, b) => a.date.localeCompare(b.date)),
+    }, null, 2) + '\n';
+    fs.mkdirSync(path.dirname(shardFile), { recursive: true });
+    shardChanged = writeShardFileIfChanged(shardFile, serialized) || shardChanged;
+  }
+
   const months = listJobStatsHistoryShardFiles(rootDir)
     .map((file) => path.basename(file, '.json'))
     .sort();

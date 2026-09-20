@@ -102,6 +102,31 @@ describe('job stats history store', () => {
     });
   });
 
+  it('reconciles existing shards with compacted history and prunes expired entries', () => {
+    withTempRoot((root) => {
+      const oldShardPath = path.join(root, 'data/jobs-stats-history/2026-07.json');
+      const expiredShardPath = path.join(root, 'data/jobs-stats-history/2025-12.json');
+      fs.mkdirSync(path.dirname(oldShardPath), { recursive: true });
+      fs.writeFileSync(oldShardPath, JSON.stringify({ entries: [entry('2026-07-01', {
+        updated: 1,
+        updatedKeys: ['url:stale'],
+        companyStats: [{ key: 'acme', updatedKeys: ['url:stale'] }],
+      })] }));
+      fs.writeFileSync(expiredShardPath, JSON.stringify({ entries: [entry('2025-12-01')] }));
+
+      const compacted = entry('2026-07-01', { updated: 1 });
+      writeJobsStatsHistory({ entries: [
+        compacted,
+        entry('2026-09-20', { totalJobs: 13 }),
+      ] }, root, { currentDate: '2026-09-20' });
+
+      expect(JSON.parse(fs.readFileSync(oldShardPath, 'utf8')).entries).toEqual([compacted]);
+      expect(fs.existsSync(expiredShardPath)).toBe(false);
+      expect(JSON.parse(fs.readFileSync(path.join(root, 'data/jobs-stats-history/manifest.json'), 'utf8')).months)
+        .toEqual(['2026-07', '2026-09']);
+    });
+  });
+
   it('merges concurrent shard rewrites by date and action key', () => {
     withTempRoot((root) => {
       const basePath = path.join(root, 'base.json');
