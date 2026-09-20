@@ -24,6 +24,7 @@ import {
   UNRESOLVED_CANTON_KEY,
   UNRESOLVED_CANTON_LABEL,
 } from './events-utils.mjs';
+import { hasUsableContentText } from './usable-content-text.mjs';
 
 /** Stable, evergreen identity — never changes (no date in id/slug → no flooding). */
 export const DIGEST_ARTICLE_ID = 'eventi-weekend-ticino';
@@ -191,7 +192,11 @@ function renderComuneBlocks(byComune, locale, basePath) {
     const slug = slugifyComune(comune);
     const lines = evs
       .slice(0, MAX_EVENTS_PER_COMUNE)
-      .map((ev) => `- **${humanDay(ev.startDate, locale)}${eventTime(ev)}** — ${String(ev.title || '').trim()}`)
+      .map((ev) => {
+        const localizedTitle = ev?.titleByLocale?.[locale];
+        const title = hasUsableContentText(localizedTitle) ? localizedTitle : ev.title;
+        return `- **${humanDay(ev.startDate, locale)}${eventTime(ev)}** — ${String(title || '').trim()}`;
+      })
       .join('\n');
     return `### [${comune}](${basePath}/${slug}/)\n${lines}`;
   });
