@@ -23,6 +23,7 @@ export type JobDetailLocale = 'it' | 'en' | 'de' | 'fr';
 export interface JobDetailJob {
   readonly slug?: string;
   readonly id?: string;
+  readonly companyKey?: string;
   readonly title?: string;
   readonly company?: string;
   readonly location?: string;
