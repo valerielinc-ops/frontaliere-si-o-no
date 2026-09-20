@@ -6602,6 +6602,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-l-grigioni-validita-proroga.title': 'Permis L Grisons : validité et prolongation',
     'blog.article.permesso-l-grigioni-validita-proroga.excerpt': 'Le permis L pour les Grisons est valable jusqu\'à 1 an, avec possibilité de prolongation et de passage au permis B sous des conditions et des contraintes spécifiques pour l\'employeur.',
     'blog.article.permesso-l-grigioni-validita-proroga.imageAlt': 'Châteaux de Bellinzone, Canton des Grisons, Suisse',
+    'blog.article.apprendistato-formazione-professionale-vaud.title': 'Apprentissage et formation professionnelle Vaud',
+    'blog.article.apprendistato-formazione-professionale-vaud.excerpt': 'Guide complet sur la façon de trouver un poste d\'apprentissage dans le canton de Vaud : contrat, rémunération d\'apprenti et maturité professionnelle.',
+    'blog.article.apprendistato-formazione-professionale-vaud.imageAlt': 'Vignes en terrasses dans le canton de Vaud au coucher du soleil, surplombant le lac Léman',
 };
 
 export default blogMetaChFr;

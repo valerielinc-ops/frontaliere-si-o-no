@@ -6602,6 +6602,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-l-grigioni-validita-proroga.title': 'Genehmigung L Graubünden: Gültigkeit und Verlängerung',
     'blog.article.permesso-l-grigioni-validita-proroga.excerpt': 'Die L-Bewilligung für Graubünden ist bis zu 1 Jahr gültig, mit der Möglichkeit der Verlängerung und des Übergangs auf die B-Bewilligung unter bestimmten Bedingungen und Einschränkungen für den Arbeitgeber.',
     'blog.article.permesso-l-grigioni-validita-proroga.imageAlt': 'Burgen von Bellinzona, Kanton Graubünden, Schweiz',
+    'blog.article.apprendistato-formazione-professionale-vaud.title': 'Lehre und Berufsausbildung Waadt',
+    'blog.article.apprendistato-formazione-professionale-vaud.excerpt': 'Vollständiger Leitfaden zur Suche nach einer Lehrstelle im Kanton Waadt: Vertrag, Lehrlingsentgelt und Berufsmaturität.',
+    'blog.article.apprendistato-formazione-professionale-vaud.imageAlt': 'Terrassierte Weinberge im Kanton Waadt bei Sonnenuntergang mit Blick auf den Genfersee',
 };
 
 export default blogMetaChDe;
