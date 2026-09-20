@@ -13,6 +13,49 @@ import {
 export const JOBS_SEO_REUSE_ENV = 'JOBS_SEO_REUSE';
 export const JOBS_SEO_REUSE_VERIFY_ENV = 'JOBS_SEO_REUSE_VERIFY';
 export const JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV = 'JOBS_SEO_REUSE_VERIFY_SAMPLE';
+// Output-validated fingerprint (opt-in). When only the emitter fingerprint of
+// the render source graph changed, render a deterministic stratified sample of
+// otherwise reusable pages and compare it with the cached HTML before deciding
+// whether the block may keep reusing. See `JobsSeoHtmlReuse.lookup()`.
+export const JOBS_SEO_REUSE_PROBE_ENV = 'JOBS_SEO_REUSE_PROBE';
+export const JOBS_SEO_REUSE_PROBE_RATE_ENV = 'JOBS_SEO_REUSE_PROBE_RATE';
+export const JOBS_SEO_REUSE_PROBE_MIN_ENV = 'JOBS_SEO_REUSE_PROBE_MIN';
+export const JOBS_SEO_REUSE_PROBE_MAX_ENV = 'JOBS_SEO_REUSE_PROBE_MAX';
+export const JOBS_SEO_REUSE_PROBE_PER_STRATUM_ENV = 'JOBS_SEO_REUSE_PROBE_PER_STRATUM';
+export const JOBS_SEO_REUSE_PROBE_DEFAULTS = Object.freeze({
+  rate: 0.015,
+  min: 200,
+  max: 5000,
+  perStratum: 3,
+});
+const JOBS_SEO_REUSE_PROBE_VERSION = 2;
+// Identity of THIS build process. The verdict sidecar lives in the same cache
+// directory that CI restores between builds, so a file restored (or left over)
+// from another build could otherwise vouch for a fingerprint change that this
+// build never probed. Only the process that wrote the sidecar can read it back
+// as valid; anything else — another build, a restored cache, a second process —
+// fails closed on the historical full invalidation.
+function resolveProbeBuildId() {
+  const explicit = String(process.env.JOBS_SEO_REUSE_PROBE_BUILD_TAG || '').trim();
+  if (explicit) return `tag:${explicit}`;
+  // A build leg can run the jobs SEO emitter and the post-walk coordinator in
+  // different Node processes. A per-process nonce would then force the full
+  // fallback on every such build, so prefer an identity that is stable inside
+  // ONE build leg and different in every other run: the CI run/attempt/job and
+  // the locale the leg owns. Outside CI (and with no explicit tag) fall back to
+  // the process nonce, which is single-process and still fails closed.
+  const run = String(process.env.GITHUB_RUN_ID || '').trim();
+  if (run) {
+    const attempt = String(process.env.GITHUB_RUN_ATTEMPT || '1').trim();
+    const job = String(process.env.GITHUB_JOB || '').trim();
+    const locale = String(process.env.BUILD_LOCALE || '').trim();
+    const shard = String(process.env.SHARD_INDEX || process.env.BUILD_SHARD || '').trim();
+    return `gha:${run}:${attempt}:${job}:${locale}:${shard}`;
+  }
+  return `pid:${process.pid}:${randomBytes(12).toString('hex')}`;
+}
+
+export const JOBS_SEO_REUSE_PROBE_BUILD_ID = resolveProbeBuildId();
 export const JOBS_SEO_REUSE_BLOCKS = Object.freeze([
   'active',
   'expired-soft-landing',
@@ -353,6 +396,252 @@ function verifySampleIncludes(locale, block, pagePath, sample) {
     .update(`${locale}\0${block}\0${pagePath}`, 'utf8')
     .digest();
   return digest.readUInt32BE(0) / 0x100000000 < sample;
+}
+
+function parseProbeNumber(name, fallback, { integer = false, max = Infinity } = {}) {
+  const raw = process.env[name];
+  if (raw === undefined || String(raw).trim() === '') return fallback;
+  const value = Number(raw);
+  if (!Number.isFinite(value) || value < 0 || value > max || (integer && !Number.isInteger(value))) {
+    throw new Error(`${name} must be ${integer ? 'a non-negative integer' : 'a non-negative number'}${Number.isFinite(max) ? ` <= ${max}` : ''}`);
+  }
+  return value;
+}
+
+export function parseJobsSeoReuseProbeConfig() {
+  if (process.env[JOBS_SEO_REUSE_PROBE_ENV] !== '1') return null;
+  const config = {
+    rate: parseProbeNumber(JOBS_SEO_REUSE_PROBE_RATE_ENV, JOBS_SEO_REUSE_PROBE_DEFAULTS.rate, { max: 1 }),
+    min: parseProbeNumber(JOBS_SEO_REUSE_PROBE_MIN_ENV, JOBS_SEO_REUSE_PROBE_DEFAULTS.min, { integer: true }),
+    max: parseProbeNumber(JOBS_SEO_REUSE_PROBE_MAX_ENV, JOBS_SEO_REUSE_PROBE_DEFAULTS.max, { integer: true }),
+    perStratum: parseProbeNumber(
+      JOBS_SEO_REUSE_PROBE_PER_STRATUM_ENV,
+      JOBS_SEO_REUSE_PROBE_DEFAULTS.perStratum,
+      { integer: true },
+    ),
+  };
+  if (config.max < config.min) config.max = config.min;
+  if (config.perStratum < 1) config.perStratum = 1;
+  return config;
+}
+
+/** Probe target for one block: rate of the previous block size, clamped. */
+export function jobsSeoReuseProbeTarget(blockSize, config) {
+  const size = Math.max(0, Number(blockSize) || 0);
+  const wanted = Math.min(config.max, Math.max(config.min, Math.ceil(size * config.rate)));
+  return Math.min(size, wanted);
+}
+
+// String fields whose value (not only presence) selects a different template
+// branch. Everything else is reduced to presence/cardinality so the number of
+// strata stays small (tens, not thousands).
+// Per-page identity and free text: the renderer consumes these as DATA, the
+// same way for every page, so they cannot select a template branch. They are
+// reduced to presence — including them by value would give every page its own
+// stratum and the probe could never generalize.
+// Everything else keeps its VALUE in the stratum key. The default is
+// deliberately this way round: a string nobody enumerated (contract type,
+// sector, traffic tier, a field added tomorrow) must split the strata rather
+// than silently share the verdict of a page rendered through another branch.
+// The cost of a finer key is bounded by construction: a page is either reused
+// or rendered exactly once, so the worst case is today's full re-render.
+const PROBE_IDENTITY_KEYS = new Set([
+  'jobId',
+  'jobRecordDigest',
+  'jobVersion',
+  'slug',
+  'baseSlug',
+  'foreignSlug',
+  'legacySlug',
+  'oldSlug',
+  'currentSlug',
+  'winnerId',
+  'path',
+  'relPath',
+  'sourcePath',
+  'targetPath',
+  'canonicalUrl',
+  'url',
+  'title',
+  'description',
+  'company',
+  'companyKey',
+  'companyDomain',
+  'expiredAt',
+  'datePosted',
+]);
+const PROBE_SHAPE_VALUE_MAX = 64;
+
+function probeCardinality(length) {
+  if (length <= 0) return '0';
+  if (length === 1) return '1';
+  if (length <= 3) return '2-3';
+  return '4+';
+}
+
+function probeValueShape(key, value) {
+  if (value === null || value === undefined) return '-';
+  if (typeof value === 'boolean') return value ? 'T' : 'F';
+  if (typeof value === 'number') return 'n';
+  if (typeof value === 'string') {
+    if (value.length === 0) return 'e';
+    if (PROBE_IDENTITY_KEYS.has(key)) return 's';
+    return `=${value.length > PROBE_SHAPE_VALUE_MAX ? sha256(value).slice(0, 16) : value}`;
+  }
+  if (Array.isArray(value)) return `a${probeCardinality(value.length)}`;
+  if (typeof value === 'object') return `o${probeCardinality(Object.keys(value).length)}`;
+  return typeof value;
+}
+
+function hasText(value) {
+  if (Array.isArray(value)) return value.some(hasText);
+  if (value && typeof value === 'object') return Object.values(value).some(hasText);
+  return value !== null && value !== undefined && String(value).trim() !== '';
+}
+
+/**
+ * Optional page-shape hints from the source job record. The manifest input is
+ * a digest, so neither the optional render branches (salary block, company
+ * logo, multiple locations, requirements list, …) nor the low-cardinality
+ * fields that select a branch VALUE (contract, sector, canton, currency) are
+ * visible from it; the call sites of the heavy page kinds pass them here so a
+ * page never inherits the verdict of a page rendered through another branch.
+ */
+export function jobsSeoProbeShapeHints(job) {
+  if (!job || typeof job !== 'object') return null;
+  const location = String(job.location ?? '');
+  const short = (value) => {
+    const text = String(value ?? '').trim().toLowerCase();
+    return text.length > 32 ? sha256(text).slice(0, 12) : text;
+  };
+  return {
+    salary: hasText(job.salaryMin) || hasText(job.salaryMax),
+    logo: hasText(job.companyDomain) || hasText(job.companyLogo) || hasText(job.logo),
+    multiLocation: /[,;/|]|\s(?:e|and|und|et)\s/i.test(location),
+    requirements: hasText(job.requirements) || hasText(job.requirementsByLocale),
+    street: hasText(job.streetAddress),
+    previousSlugs: hasText(job.previousSlugs),
+    description: hasText(job.description),
+    // Values, not presence: these pick WHICH branch the emitter renders.
+    contract: short(job.contract || job.employmentType),
+    sector: short(job.sector || job.category),
+    canton: short(job.canton || job.addressRegion),
+    currency: short(job.currency),
+    country: short(job.addressCountry),
+  };
+}
+
+/** Stratum of one page: kind × locale × shape of the input and the hints. */
+export function jobsSeoProbeStratum(kind, locale, input, hints = null) {
+  const parts = [String(kind), String(locale)];
+  if (input && typeof input === 'object' && !Array.isArray(input)) {
+    for (const key of Object.keys(input).sort()) {
+      parts.push(`${key}:${probeValueShape(key, input[key])}`);
+    }
+  }
+  if (hints && typeof hints === 'object') {
+    for (const key of Object.keys(hints).sort()) {
+      const value = hints[key];
+      parts.push(`h.${key}:${typeof value === 'string' ? `=${value}` : (value ? 1 : 0)}`);
+    }
+  }
+  return parts.join('|');
+}
+
+function newProbeState(target) {
+  return {
+    state: 'pending',
+    reason: null,
+    target,
+    eligible: 0,
+    sampled: 0,
+    identical: 0,
+    differing: 0,
+    unavailable: 0,
+    reused: 0,
+    reusedBeforeInvalidate: 0,
+    wallMs: 0,
+    strata: new Map(),
+  };
+}
+
+/** Drop any verdict left by another build before this one can consult it. */
+export function discardJobsSeoReuseProbeVerdicts(rootDir, locales) {
+  for (const locale of locales) {
+    try {
+      fs.rmSync(jobsSeoReuseProbePath(rootDir, locale), { force: true });
+    } catch (error) {
+      console.warn(
+        `[jobs-seo-reuse-probe] verdict-discard-failed locale=${locale}`
+        + ` reason=${error?.message || error}`,
+      );
+    }
+  }
+}
+
+export function jobsSeoReuseProbePath(rootDir, locale) {
+  const cacheRoot = configuredPath(
+    rootDir,
+    process.env.JOBS_SEO_REUSE_HTML_CACHE_DIR,
+    path.join(rootDir, '.cache', 'incremental-html'),
+  );
+  return path.join(cacheRoot, `probe-${safeLocale(locale)}.json`);
+}
+
+function stableFingerprintJson(value) {
+  if (!value || typeof value !== 'object') return 'null';
+  return JSON.stringify(Object.fromEntries(
+    Object.entries(value).sort(([left], [right]) => (left < right ? -1 : left > right ? 1 : 0)),
+  ));
+}
+
+/**
+ * Post-walk side of the probe. A changed emitter fingerprint normally makes
+ * the whole post-walk delta unusable. It stays usable when, for every locale,
+ * the jobs SEO probe of THIS build proved that each block whose kinds changed
+ * fingerprint renders byte-identical HTML (verdict `inherit`). The sidecar is
+ * bound to the exact previous/current fingerprints, so a stale file from an
+ * older build can never vouch for a different change.
+ */
+export function jobsSeoProbeInheritsEmitterChange(rootDir, locales, previousFingerprint, currentFingerprint) {
+  if (process.env[JOBS_SEO_REUSE_PROBE_ENV] !== '1') return { inherit: false, reason: 'probe-disabled' };
+  if (!previousFingerprint || !currentFingerprint) return { inherit: false, reason: 'fingerprint-missing' };
+  const kinds = new Set([...Object.keys(previousFingerprint), ...Object.keys(currentFingerprint)]);
+  const changedKinds = [...kinds].filter((kind) => previousFingerprint[kind] !== currentFingerprint[kind]);
+  if (changedKinds.length === 0) return { inherit: true, reason: 'unchanged' };
+  const changedBlocks = new Set();
+  for (const kind of changedKinds) {
+    const block = KIND_TO_REUSE_BLOCK[kind];
+    if (!block || !previousFingerprint[kind] || !currentFingerprint[kind]) {
+      return { inherit: false, reason: `kind-not-probed:${kind}` };
+    }
+    changedBlocks.add(block);
+  }
+  for (const locale of locales) {
+    let record;
+    try {
+      record = JSON.parse(fs.readFileSync(jobsSeoReuseProbePath(rootDir, locale), 'utf8'));
+    } catch {
+      return { inherit: false, reason: `probe-verdict-missing:${locale}` };
+    }
+    if (record?.buildId !== JOBS_SEO_REUSE_PROBE_BUILD_ID) {
+      return { inherit: false, reason: `probe-verdict-foreign-build:${locale}` };
+    }
+    if (
+      record?.version !== JOBS_SEO_REUSE_PROBE_VERSION
+      || stableFingerprintJson(record.previousFingerprint) !== stableFingerprintJson(previousFingerprint)
+      || stableFingerprintJson(record.currentFingerprint) !== stableFingerprintJson(currentFingerprint)
+    ) {
+      return { inherit: false, reason: `probe-verdict-stale:${locale}` };
+    }
+    for (const block of changedBlocks) {
+      const verdict = record.blocks?.[block]?.verdict;
+      if (verdict !== 'inherit') {
+        return { inherit: false, reason: `probe-${verdict || 'missing'}:${locale}:${block}` };
+      }
+    }
+  }
+  return { inherit: true, reason: `probe-inherit:${[...changedBlocks].sort().join(',')}` };
 }
 
 function configuredPath(rootDir, value, fallback) {
@@ -961,6 +1250,7 @@ function newBlockStats() {
     reused: 0,
     reusable: 0,
     verified: 0,
+    probed: 0,
     wouldSaveMs: 0,
     wallMs: 0,
     mismatches: 0,
@@ -996,8 +1286,17 @@ function manifestCacheEntries(manifest) {
 }
 
 export class JobsSeoHtmlReuse {
-  constructor({ cacheRoot, previousByLocale, verify, verifySample = 1, emitterFingerprints = {} }) {
+  constructor({
+    cacheRoot,
+    previousByLocale,
+    verify,
+    verifySample = 1,
+    emitterFingerprints = {},
+    probe = null,
+  }) {
     this.cacheRoot = cacheRoot;
+    this.probe = probe;
+    this.probeStates = new Map();
     this.previousByLocale = previousByLocale;
     this.verify = verify;
     this.verifySample = verifySample;
@@ -1023,7 +1322,59 @@ export class JobsSeoHtmlReuse {
     return Boolean(candidate?.verify);
   }
 
-  lookup(locale, pagePath, kind, input, block) {
+  probeBlockSize(locale, block) {
+    const byKind = this.previousByLocale.get(String(locale))?.data?.counts?.byKind || {};
+    let size = 0;
+    for (const [kind, kindBlock] of Object.entries(KIND_TO_REUSE_BLOCK)) {
+      if (kindBlock === block) size += Number(byKind[kind]) || 0;
+    }
+    return size;
+  }
+
+  probeState(locale, block) {
+    const key = `${locale}\0${block}`;
+    let state = this.probeStates.get(key);
+    if (!state) {
+      state = newProbeState(jobsSeoReuseProbeTarget(this.probeBlockSize(locale, block), this.probe));
+      this.probeStates.set(key, state);
+    }
+    return state;
+  }
+
+  /**
+   * Only the emitter fingerprint differs: kind, liveness and template version
+   * of the previous entry are unchanged and both fingerprints exist. Anything
+   * else keeps the historical hard invalidation.
+   */
+  probeEligibleFingerprintChange(previous, entry, kind) {
+    if (!this.probe) return false;
+    const current = this.emitterFingerprints[entry.kind];
+    const before = previous.data.jobsSeoEmitterFingerprint?.[entry.kind];
+    return Boolean(current && before && current !== before)
+      && previous.data.kinds[entry.kind]?.templateVersion === templateVersionForKind(kind);
+  }
+
+  readCachedHtml(packStore, cacheKey, locale, normalizedPath, entry) {
+    const html = packStore.read(cacheKey);
+    if (html) return { html, storage: 'pack' };
+    try {
+      const previousCachePath = htmlReuseCachePath(
+        this.cacheRoot,
+        locale,
+        normalizedPath,
+        this.cacheRoot,
+        entry.kind,
+        entry.inputHash,
+      );
+      const legacy = fs.readFileSync(previousCachePath, 'utf8');
+      if (legacy) return { html: legacy, storage: 'legacy' };
+    } catch {
+      // The old one-file layout is a migration fallback only.
+    }
+    return { html: null, storage: null };
+  }
+
+  lookup(locale, pagePath, kind, input, block, shapeHints = null) {
     const stats = this.stats.get(block);
     if (!stats) throw new Error(`Unknown jobs SEO reuse block: ${block}`);
     const normalizedPath = normalizeManifestPath(pagePath);
@@ -1041,6 +1392,7 @@ export class JobsSeoHtmlReuse {
     let missReason = inputUnavailable ? 'input-unavailable' : null;
     let html = null;
     let storage = null;
+    let probe = null;
 
     if (!missReason && !previous) {
       missReason = 'manifest-missing';
@@ -1052,6 +1404,37 @@ export class JobsSeoHtmlReuse {
         missReason = 'kind-changed';
       } else if (previous.data.kinds[entry.kind]?.state !== 'live') {
         missReason = 'kind-not-live';
+      } else if (this.probeEligibleFingerprintChange(previous, entry, kind)) {
+        // Output-validated fingerprint: same page, same input, only the
+        // render source graph changed. Decide from the rendered bytes.
+        if (entry.inputHash !== inputHash) {
+          missReason = 'input-hash-changed';
+        } else {
+          const state = this.probeState(String(locale), block);
+          state.eligible += 1;
+          if (state.state === 'invalidate') {
+            missReason = 'emitter-fingerprint-changed';
+          } else {
+            ({ html, storage } = this.readCachedHtml(packStore, cacheKey, locale, normalizedPath, entry));
+            if (!html) {
+              missReason = 'html-unavailable';
+              state.unavailable += 1;
+              // A cache that cannot produce a page it claims is not evidence:
+              // stop inheriting instead of guessing for the rest of the block.
+              this.invalidateProbe(state, block, String(locale), 'cache-unavailable', normalizedPath);
+            } else {
+              const stratum = jobsSeoProbeStratum(kind, locale, input, shapeHints);
+              if (
+                state.identical < state.target
+                || (state.strata.get(stratum) || 0) < this.probe.perStratum
+              ) {
+                probe = { state, stratum };
+              } else {
+                state.reused += 1;
+              }
+            }
+          }
+        }
       } else if (
         !this.emitterFingerprints[entry.kind]
         || previous.data.jobsSeoEmitterFingerprint?.[entry.kind] !== this.emitterFingerprints[entry.kind]
@@ -1061,26 +1444,8 @@ export class JobsSeoHtmlReuse {
       } else if (entry.inputHash !== inputHash) {
         missReason = 'input-hash-changed';
       } else {
-        html = packStore.read(cacheKey);
-        if (html) {
-          storage = 'pack';
-        } else {
-          try {
-            const previousCachePath = htmlReuseCachePath(
-              this.cacheRoot,
-              locale,
-              normalizedPath,
-              this.cacheRoot,
-              entry.kind,
-              entry.inputHash,
-            );
-            html = fs.readFileSync(previousCachePath, 'utf8');
-            if (html) storage = 'legacy';
-          } catch {
-            // The old one-file layout is a migration fallback only.
-          }
-          if (!html) missReason = 'html-unavailable';
-        }
+        ({ html, storage } = this.readCachedHtml(packStore, cacheKey, locale, normalizedPath, entry));
+        if (!html) missReason = 'html-unavailable';
       }
     }
 
@@ -1094,9 +1459,10 @@ export class JobsSeoHtmlReuse {
       }
     }
 
-    const verify = html !== null
-      && this.verify
-      && verifySampleIncludes(String(locale), block, normalizedPath, this.verifySample);
+    const verify = html !== null && (
+      probe !== null
+      || (this.verify && verifySampleIncludes(String(locale), block, normalizedPath, this.verifySample))
+    );
 
     return {
       block,
@@ -1108,9 +1474,161 @@ export class JobsSeoHtmlReuse {
       hit: html !== null,
       storage,
       verify,
+      probe,
       cacheable: !inputUnavailable,
       startedAt: process.hrtime.bigint(),
     };
+  }
+
+  /**
+   * A block stops inheriting from here on. Pages already reused belong to
+   * strata that each collected `perStratum` byte-identical renders with the
+   * new code, and they still pass through the sampled verify; the counter
+   * `reusedBeforeInvalidate` keeps that exposure visible in the verdict file.
+   */
+  invalidateProbe(state, block, locale, reason, pagePath) {
+    if (state.state === 'invalidate') return;
+    state.reusedBeforeInvalidate = state.reused;
+    state.state = 'invalidate';
+    state.reason = reason;
+    console.warn(
+      `[jobs-seo-reuse-probe] block=${block} locale=${locale} verdict=invalidate reason=${reason}`
+      + ` path=${pagePath} sampled=${state.sampled} identical=${state.identical}`
+      + ` reused-before=${state.reused}`,
+    );
+  }
+
+  finishProbe(candidate, renderedHtml, elapsed) {
+    const { state, stratum } = candidate.probe;
+    const stats = this.stats.get(candidate.block);
+    stats.rendered += 1;
+    stats.probed += 1;
+    state.sampled += 1;
+    state.wallMs += elapsed;
+    if (normalizeHtmlForReuse(candidate.html) === normalizeHtmlForReuse(renderedHtml)) {
+      state.identical += 1;
+      state.strata.set(stratum, (state.strata.get(stratum) || 0) + 1);
+    } else {
+      state.differing += 1;
+      const mismatchReason = classifyHtmlReuseMismatch(candidate.html, renderedHtml);
+      const diagnostic = diagnoseHtmlReuseMismatch(candidate.html, renderedHtml, mismatchReason);
+      if (this.mismatchLogCount < MAX_MISMATCH_LOGS) {
+        this.mismatchLogCount += 1;
+        console.warn(
+          `[jobs-seo-reuse-probe] differing block=${candidate.block} locale=${candidate.locale}`
+          + ` path=${candidate.path} reason=${mismatchReason} stratum=${JSON.stringify(stratum)}`
+          + ` offset=${diagnostic.offset}`
+          + ` expected=${JSON.stringify(diagnostic.expectedContext)}`
+          + ` actual=${JSON.stringify(diagnostic.actualContext)}`,
+        );
+      }
+      this.invalidateProbe(state, candidate.block, candidate.locale, `output-differs:${mismatchReason}`, candidate.path);
+    }
+    if (candidate.cacheable) this.persist(candidate, renderedHtml);
+  }
+
+  /** Final per-locale, per-block verdict of the output probe. */
+  probeVerdicts(locale) {
+    const previous = this.previousByLocale.get(String(locale));
+    return Object.fromEntries(JOBS_SEO_REUSE_BLOCKS.map((block) => {
+      const kinds = Object.entries(KIND_TO_REUSE_BLOCK)
+        .filter(([, kindBlock]) => kindBlock === block)
+        .map(([kind]) => kind);
+      const changed = kinds.some((kind) => (
+        (previous?.data?.jobsSeoEmitterFingerprint?.[kind] ?? null) !== (this.emitterFingerprints[kind] ?? null)
+      ));
+      const state = this.probeStates.get(`${locale}\0${block}`) || newProbeState(0);
+      let verdict;
+      let reason;
+      if (!previous) {
+        verdict = 'invalidate';
+        reason = 'manifest-missing';
+      } else if (!changed) {
+        verdict = 'unchanged';
+        reason = 'fingerprint-unchanged';
+      } else if (state.state === 'invalidate') {
+        verdict = 'invalidate';
+        reason = state.reason;
+      } else if (kinds.some((kind) => (
+        !previous.data.jobsSeoEmitterFingerprint?.[kind]
+        || !this.emitterFingerprints[kind]
+        || (previous.data.kinds?.[kind] && previous.data.kinds[kind].templateVersion !== templateVersionForKind(kind))
+      ))) {
+        verdict = 'invalidate';
+        reason = 'template-or-fingerprint-contract-changed';
+      } else if (state.eligible === 0) {
+        verdict = 'inherit';
+        reason = 'no-eligible-pages';
+      } else {
+        verdict = 'inherit';
+        reason = 'sample-identical';
+      }
+      return [block, {
+        verdict,
+        reason,
+        target: state.target,
+        eligible: state.eligible,
+        sampled: state.sampled,
+        identical: state.identical,
+        differing: state.differing,
+        unavailable: state.unavailable,
+        strata: state.strata.size,
+        reused: state.reused,
+        reusedBeforeInvalidate: state.reusedBeforeInvalidate,
+        probeWallMs: Math.round(state.wallMs),
+      }];
+    }));
+  }
+
+  writeProbeVerdicts() {
+    for (const locale of this.previousByLocale.keys()) {
+      let outputPath;
+      try {
+        outputPath = path.join(this.cacheRoot, `probe-${safeLocale(locale)}.json`);
+        if (!this.probe) {
+          // A verdict file must describe THIS build or not exist at all.
+          fs.rmSync(outputPath, { force: true });
+          continue;
+        }
+        const blocks = this.probeVerdicts(locale);
+        for (const [block, result] of Object.entries(blocks)) {
+          console.log(
+            `[jobs-seo-reuse-probe] block=${block} locale=${locale}`
+            + ` target=${result.target} eligible=${result.eligible} sampled=${result.sampled}`
+            + ` identical=${result.identical} differing=${result.differing}`
+            + ` unavailable=${result.unavailable} strata=${result.strata} reused=${result.reused}`
+            + ` probe_wall_ms=${result.probeWallMs}`
+            + ` verdict=${result.verdict} reason=${result.reason}`,
+          );
+        }
+        fs.mkdirSync(this.cacheRoot, { recursive: true });
+        // Atomic and fail-closed: a half-written or unwritable verdict must
+        // leave NO file behind, otherwise an older sidecar with the same
+        // fingerprint pair would answer for a probe that never ran.
+        const temp = `${outputPath}.${process.pid}.tmp`;
+        fs.writeFileSync(temp, `${JSON.stringify({
+          version: JOBS_SEO_REUSE_PROBE_VERSION,
+          buildId: JOBS_SEO_REUSE_PROBE_BUILD_ID,
+          locale,
+          previousFingerprint: this.previousByLocale.get(locale)?.data?.jobsSeoEmitterFingerprint || null,
+          currentFingerprint: this.emitterFingerprints || null,
+          config: this.probe,
+          blocks,
+        }, null, 2)}\n`, 'utf8');
+        fs.renameSync(temp, outputPath);
+      } catch (error) {
+        try {
+          if (outputPath) fs.rmSync(outputPath, { force: true });
+          if (outputPath) fs.rmSync(`${outputPath}.${process.pid}.tmp`, { force: true });
+        } catch {
+          // Best effort: the post-walk still refuses a verdict it cannot read.
+        }
+        console.warn(
+          `[jobs-seo-reuse-probe] verdict-write-failed locale=${locale} path=${outputPath}`
+          + ` verdict=discarded reason=${error?.message || error}`,
+        );
+      }
+    }
   }
 
   finish(candidate, renderedHtml) {
@@ -1118,6 +1636,10 @@ export class JobsSeoHtmlReuse {
     const stats = this.stats.get(candidate.block);
     const elapsed = elapsedMs(candidate.startedAt);
     stats.wallMs += elapsed;
+    if (candidate.probe) {
+      this.finishProbe(candidate, renderedHtml, elapsed);
+      return;
+    }
     if (candidate.hit) {
       stats.reusable += 1;
       if (!candidate.verify) {
@@ -1243,6 +1765,7 @@ export class JobsSeoHtmlReuse {
         reused: stats.reused,
         reusable: stats.reusable,
         verified: stats.verified,
+        probed: stats.probed,
         wouldSaveMs: stats.wouldSaveMs,
         wallMs: stats.wallMs,
         mismatches: stats.mismatches,
@@ -1254,6 +1777,7 @@ export class JobsSeoHtmlReuse {
 
   logSummary() {
     if (this.verify) this.writeVerifyDiagnostics();
+    this.writeProbeVerdicts();
     for (const block of JOBS_SEO_REUSE_BLOCKS) {
       const stats = this.stats.get(block);
       const missReasons = [...stats.missReasons.entries()]
@@ -1267,7 +1791,7 @@ export class JobsSeoHtmlReuse {
       console.log(
         `[jobs-seo-reuse] block=${block} mode=${this.mode}`
         + ` rendered=${stats.rendered} reused=${stats.reused} reusable=${stats.reusable}`
-        + ` verified=${stats.verified} would-save_ms=${stats.wouldSaveMs.toFixed(1)}`
+        + ` verified=${stats.verified} probed=${stats.probed} would-save_ms=${stats.wouldSaveMs.toFixed(1)}`
         + ` miss-reason=${missReasons} wall_ms=${stats.wallMs.toFixed(1)}`
         + ` mismatches=${stats.mismatches} mismatch-reason=${mismatchReasons}`,
       );
@@ -1317,6 +1841,10 @@ export async function createJobsSeoHtmlReuse(rootDir, locales, emitterFingerprin
     process.env.JOBS_SEO_REUSE_HTML_CACHE_DIR,
     path.join(rootDir, '.cache', 'incremental-html'),
   );
+  // The HTML cache is restored from the previous build, so it can carry that
+  // build's verdicts. Discard them before anything can read them: only the
+  // verdict written by this build at the end of jobs-seo may be consulted.
+  discardJobsSeoReuseProbeVerdicts(rootDir, locales);
   const previousByLocale = new Map();
   for (const rawLocale of locales) {
     const locale = safeLocale(rawLocale);
@@ -1343,5 +1871,6 @@ export async function createJobsSeoHtmlReuse(rootDir, locales, emitterFingerprin
     verify: process.env[JOBS_SEO_REUSE_VERIFY_ENV] === '1',
     verifySample: parseVerifySample(process.env[JOBS_SEO_REUSE_VERIFY_SAMPLE_ENV]),
     emitterFingerprints: currentEmitterFingerprints,
+    probe: parseJobsSeoReuseProbeConfig(),
   });
 }

@@ -59,6 +59,7 @@ import { stableJobId } from './shared/stableJobId.mjs';
 import {
   computeJobsSeoEmitterFingerprints,
   createJobsSeoHtmlReuse,
+  jobsSeoProbeShapeHints,
   htmlHasIndexableRobots,
 } from './shared/incrementalHtmlReuse.mjs';
 import {
@@ -3150,6 +3151,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
   'active-job',
   activeJobManifestInput,
   'active',
+  jobsSeoProbeShapeHints(job),
  );
  let html: string;
  if (!activeReuse?.hit || jobsSeoReuse?.shouldRender(activeReuse)) {
@@ -4109,6 +4111,7 @@ ${staticAnalyticsHtml}
   'legacy-slug-bridge',
   legacyReuseInput,
   'previous-slug-legacy',
+  jobsSeoProbeShapeHints(job),
  );
  let legacyIndexHtml: string;
  if (legacyReuse?.hit && !jobsSeoReuse?.shouldRender(legacyReuse)) {
@@ -4167,6 +4170,7 @@ ${staticAnalyticsHtml}
   'legacy-slug-bridge',
   legacyTIReuseInput,
   'previous-slug-legacy',
+  jobsSeoProbeShapeHints(job),
  );
  let legacyTIIndexHtml: string;
  if (legacyTIReuse?.hit && !jobsSeoReuse?.shouldRender(legacyTIReuse)) {
@@ -13336,6 +13340,7 @@ ${staticAnalyticsHtml}
   'expired-soft-landing',
   softLandingManifestInput,
   'expired-soft-landing',
+  jobsSeoProbeShapeHints(ejData),
  );
  let softLandingHtml: string;
  if (!softLandingReuse?.hit || jobsSeoReuse?.shouldRender(softLandingReuse)) {
@@ -13806,6 +13811,7 @@ ${staticAnalyticsHtml}
   'legacy-slug-bridge',
   legacySoftLandingReuseInput,
   'previous-slug-legacy',
+  jobsSeoProbeShapeHints(ejData),
  );
  const legacySoftLandingHtml = legacySoftLandingReuse?.hit && !jobsSeoReuse?.shouldRender(legacySoftLandingReuse)
   ? jobsSeoReuse.reusedHtml(legacySoftLandingReuse, STATIC_PAGE_BUILD_ID) || legacySoftLandingReuse.html
