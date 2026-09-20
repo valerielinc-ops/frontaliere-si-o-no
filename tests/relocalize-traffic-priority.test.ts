@@ -106,16 +106,13 @@ describe('cascade cap (#5650) — il tetto non puo tornare giu in silenzio', () 
   });
 });
 
-describe('lane Codex (#5650) — la preferenza e il broker restano dichiarati', () => {
-  it('Phase 2b mette Codex Luna Max in testa alla catena', () => {
-    const m = workflowText.match(/AI_MODELS_PREFER:\s*(\S+)/);
-    expect(m, 'AI_MODELS_PREFER assente: la catena torna al puro ordine per score, '
-      + 'dove il lane Codex non viene mai raggiunto').not.toBeNull();
-    expect(m![1]).toContain('codex-cli/gpt-5.6-luna');
+describe('lane Codex (#5650) — il fallback non rientra nel workflow traduzioni', () => {
+  it('Phase 2b non reintroduce la preferenza Codex rimossa dal percorso di traduzione', () => {
+    expect(workflowText).not.toMatch(/AI_MODELS_PREFER:\s*.*codex-cli\/gpt-5\.6-luna/);
   });
 
-  it('il processo riceve il socket privato del broker Codex', () => {
-    expect(workflowText).toMatch(/CODEX_AUTH_BROKER_SOCKET:\s*\$\{\{/);
+  it('il processo non riceve il socket privato del broker Codex', () => {
+    expect(workflowText).not.toMatch(/CODEX_AUTH_BROKER_SOCKET:\s*\$\{\{/);
   });
 });
 
