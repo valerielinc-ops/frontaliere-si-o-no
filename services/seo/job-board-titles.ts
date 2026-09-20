@@ -39,6 +39,7 @@
  */
 
 import { peelDanglingClauseTail } from '../../build-plugins/shared/clauseTail.mjs';
+import { buildTitleWithBrand } from '../../build-plugins/shared/titleSuffix';
 
 export type JobPageLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -54,6 +55,11 @@ export const TITLE_MIN_CHARS = 50;
 export const TITLE_MAX_CHARS = 66;
 /** Minimum active jobs above which we append 🔥 to boost CTR. */
 export const FIRE_EMOJI_THRESHOLD = 500;
+
+/** Build the Italian title used by per-canton job-board landing pages. */
+export function buildItalianCantonLandingTitle(cantonDisplay: string): string {
+  return buildTitleWithBrand(`Offerte di lavoro in ${cantonDisplay}`);
+}
 
 /**
  * Count visible characters (code points), which is what Google displays
