@@ -1485,6 +1485,10 @@ export class JobsSeoHtmlReuse {
    * strata that each collected `perStratum` byte-identical renders with the
    * new code, and they still pass through the sampled verify; the counter
    * `reusedBeforeInvalidate` keeps that exposure visible in the verdict file.
+   *
+   * Idempotent on purpose: the first caller wins, so the reason that reaches
+   * the verdict and the reuse count frozen with it describe the moment the
+   * block stopped being trusted, not the last mismatch that happened to arrive.
    */
   invalidateProbe(state, block, locale, reason, pagePath) {
     if (state.state === 'invalidate') return;
@@ -1682,6 +1686,28 @@ export class JobsSeoHtmlReuse {
           + ` expected=${JSON.stringify(diagnostic.expectedContext)}`
           + ` actual=${JSON.stringify(diagnostic.actualContext)}`
           + (diagnostic.asset ? ` asset=${JSON.stringify(diagnostic.asset)}` : ''),
+        );
+      }
+      // Same evidence as a probe mismatch: with the new code this block does
+      // NOT render what the cache holds. Counting it and moving on would leave
+      // the verdict at `inherit`, the post-walk would skip `fallback=full`, and
+      // every OTHER page of the block would stay reused and be declared
+      // unchanged — only the verified page would land fresh on disk. The state
+      // is CREATED when missing, because its absence is not innocent: a block
+      // maps several kinds (`legacy-slug-bridge` and `previous-slugs-full-content`
+      // share `previous-slug-legacy`), so a page whose own kind is unchanged
+      // reuses without ever entering the probe branch while the block still
+      // counts as changed. Without a state `probeVerdicts()` synthesizes an
+      // empty one and answers `inherit`/`no-eligible-pages` — the same
+      // fail-open, one level up. With the probe off there is no verdict file at
+      // all and the branch stays a silent no-op.
+      if (this.probe) {
+        this.invalidateProbe(
+          this.probeState(candidate.locale, candidate.block),
+          candidate.block,
+          candidate.locale,
+          `verify-output-differs:${mismatchReason}`,
+          candidate.path,
         );
       }
     }
