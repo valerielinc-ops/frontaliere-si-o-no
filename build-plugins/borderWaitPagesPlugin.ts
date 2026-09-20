@@ -1788,9 +1788,10 @@ function renderLeafPage(inp: LeafInputs): string {
 
   // Current-status card
   const sourceText = sourceLabel(liveSource, copy);
-  // Localized source→label map so the hydration script can update the "Fonte"
-  // badge in-place from the LIVE Firestore source (otherwise it stays on the
-  // build-time label, e.g. showing "Dati statistici" even when live data is fresh).
+  // Localized source→label map passed to the comparison block so the hydration
+  // script can update every "Fonte" badge in-place from the LIVE Firestore
+  // source (otherwise it stays on the build-time label, e.g. showing
+  // "Dati statistici" even when live data is fresh).
   // Only LIVE sources — hydration runs against fresh Firestore data, whose
   // source is always one of these (never 'static'/'mock', which are the
   // build-time/SPA fallbacks). Omitting 'static' also keeps the "Dati statistici"
@@ -1812,7 +1813,6 @@ function renderLeafPage(inp: LeafInputs): string {
     'official+webcam': copy.sourceOfficialWebcam,
     webcam: copy.sourceWebcam,
   };
-  const sourceLabelMap = JSON.stringify(sourceLabels);
   const staticBannerHtml = staticFallback
     ? `<div class="s-rUEUjv">${esc(copy.staticFallbackBanner)}</div>`
     : '';
@@ -1840,7 +1840,7 @@ function renderLeafPage(inp: LeafInputs): string {
       </div>
       <div class="s-Zv0TZw">
         <div class="s-QHHL-d">${esc(copy.sourceLabel)}</div>
-        <div class="s-iUCmjg" data-bw-field="source" data-bw-source-labels="${esc(sourceLabelMap)}">${esc(sourceText)}</div>
+        <div class="s-iUCmjg" data-bw-field="source">${esc(sourceText)}</div>
       </div>
       <div class="s-Zv0TZw">
         <div class="s-QHHL-d">${esc(copy.updatedLabel)}</div>
@@ -2296,11 +2296,11 @@ function renderHubPage(inp: HubInputs): string {
         <span data-bw-field="totalCrossingMinutes" style="display:inline-block;padding:4px 10px;border-radius:9999px;font-size:13px;font-weight:700;background:${sc.bg};color:${sc.text};border:1px solid ${sc.border}">${esc(waitFmt)}</span>
       </td>
       <td class="s-tcl" data-bw-field="lastUpdate" style="font-size:12px;color:var(--color-subtle)">${esc(updated)}</td>
-      <td class="s-tcl" data-bw-field="source" data-bw-source-labels="${esc(hubSourceLabelMap)}" style="font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
+      <td class="s-tcl" data-bw-field="source" style="font-size:12px;color:var(--color-subtle)">${esc(sourceLabel(src, copy))}</td>
     </tr>`;
   });
 
-  const tableHtml = `<div class="s-card" style="overflow-x:auto;padding:0"><table class="s-tbl" style="font-size:14px">
+  const tableHtml = `<div class="s-card" data-bw-source-labels="${esc(hubSourceLabelMap)}" style="overflow-x:auto;padding:0"><table class="s-tbl" style="font-size:14px">
     <thead><tr>
       <th class="s-thd">${esc(
         locale === 'it' ? 'Valico' : locale === 'de' ? 'Grenzübergang' : locale === 'fr' ? 'Poste' : 'Crossing',
