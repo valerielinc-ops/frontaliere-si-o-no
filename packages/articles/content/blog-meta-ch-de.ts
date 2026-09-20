@@ -6599,6 +6599,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.scuola-canton-vaud-iscrizioni-cicli.title': 'Schulsystem Kanton Waadt: Einschreibungen und Zyklen',
     'blog.article.scuola-canton-vaud-iscrizioni-cicli.excerpt': 'Vollständiger Leitfaden zur obligatorischen Schule im Kanton Waadt: Studiengänge, Einschreibungsalter, Sprachen und Übergang in die Sekundarstufe II',
     'blog.article.scuola-canton-vaud-iscrizioni-cicli.imageAlt': 'Modernes Schulgebäude im Kanton Waadt',
+    'blog.article.permesso-l-grigioni-validita-proroga.title': 'Genehmigung L Graubünden: Gültigkeit und Verlängerung',
+    'blog.article.permesso-l-grigioni-validita-proroga.excerpt': 'Die L-Bewilligung für Graubünden ist bis zu 1 Jahr gültig, mit der Möglichkeit der Verlängerung und des Übergangs auf die B-Bewilligung unter bestimmten Bedingungen und Einschränkungen für den Arbeitgeber.',
+    'blog.article.permesso-l-grigioni-validita-proroga.imageAlt': 'Burgen von Bellinzona, Kanton Graubünden, Schweiz',
 };
 
 export default blogMetaChDe;

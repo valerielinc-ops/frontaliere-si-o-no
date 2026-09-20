@@ -6599,6 +6599,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.scuola-canton-vaud-iscrizioni-cicli.title': 'Canton Vaud school system: enrolments and cycles',
     'blog.article.scuola-canton-vaud-iscrizioni-cicli.excerpt': 'Complete guide to compulsory education in the Canton of Vaud: study cycles, age of enrollment, languages and transition to high school.',
     'blog.article.scuola-canton-vaud-iscrizioni-cicli.imageAlt': 'Modern school building in Canton Vaud',
+    'blog.article.permesso-l-grigioni-validita-proroga.title': 'Permit L Graubünden: validity and extension',
+    'blog.article.permesso-l-grigioni-validita-proroga.excerpt': 'The L permit for Grisons is valid for up to 1 year, with the possibility of extension and transfer to B permit under specific conditions and constraints for the employer.',
+    'blog.article.permesso-l-grigioni-validita-proroga.imageAlt': 'Castles of Bellinzona, Canton of Grisons, Switzerland',
 };
 
 export default blogMetaChEn;
