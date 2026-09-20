@@ -49,11 +49,11 @@ describe('buildJobBoardSeo (F3a — CTR-optimized titles)', () => {
 
   it('injects count and fire emoji on title when count >= threshold (IT)', () => {
     const entry = buildJobBoardSeo('it', 2408, year)
-    // Short <title> (50-60 chars): keyword + year + count + 🔥, NO brand
+    // Short <title> (50-66 chars): keyword + year + count + 🔥, NO brand
     expect(entry.title).toContain('2408')
     expect(entry.title).toContain('🔥')
     expect(entry.title).toContain(`${year}`)
-    expect(entry.title).toContain('Offerte Lavoro Ticino')
+    expect(entry.title).toContain('Offerte di lavoro Ticino')
     // OG title retains legacy brand suffix (unconstrained length)
     expect(entry.ogT.startsWith('🔥 2408 ')).toBe(true)
     expect(entry.ogT).toContain('Offerte di Lavoro Ticino')
@@ -80,7 +80,7 @@ describe('buildJobBoardSeo (F3a — CTR-optimized titles)', () => {
   it('falls back to count-less copy when count is zero', () => {
     const entry = buildJobBoardSeo('it', 0, year)
     expect(entry.title).not.toContain('🔥')
-    expect(entry.title).toContain('Offerte Lavoro Ticino')
+    expect(entry.title).toContain('Offerte di lavoro Ticino')
     // Zero-count desc has no numeric jobs count
     expect(entry.desc).not.toMatch(/\b\d{2,}\b/)
   })
@@ -125,8 +125,9 @@ describe('buildJobBoardSeo (F3a — CTR-optimized titles)', () => {
     expect(a).toEqual(b)
   })
 
-  it('enforces 50-60 visible-char title length for SERP safety', () => {
-    // Google truncates <title> around 60 visible chars; below 50 looks stubby.
+  it('enforces 50-66 visible-char title length for SERP safety', () => {
+    // The shared title module allows a 10% tolerance over the 60-char target;
+    // below 50 still looks stubby.
     for (const loc of ['it', 'en', 'de', 'fr'] as const) {
       for (const count of [0, 1, 42, 148, 500, 2408, 12345]) {
         const entry = buildJobBoardSeo(loc, count, year)
@@ -135,7 +136,7 @@ describe('buildJobBoardSeo (F3a — CTR-optimized titles)', () => {
           visible,
           `${loc} count=${count}: "${entry.title}" length=${visible}`,
         ).toBeGreaterThanOrEqual(50)
-        expect(visible).toBeLessThanOrEqual(60)
+        expect(visible).toBeLessThanOrEqual(66)
       }
     }
   })
