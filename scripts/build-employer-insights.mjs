@@ -2662,6 +2662,9 @@ function exactGa4EventExpression(eventName) {
  * Keep the GA4 report contract in one place. `pagePath` is intentional: the
  * static gtag pageview has no custom employer parameters, so the existing
  * explicit route aliases can still attribute that signal without guessing.
+ * `emission_id` is emitted for other analytics consumers but is not a
+ * registered GA4 custom dimension, so asking the Data API for it rejects the
+ * whole report. Keep the GA4 value unavailable rather than failing refresh.
  */
 export function buildGa4EventQueryBody(window, { limit = GA4_EVENT_QUERY_PAGE_SIZE, offset = 0 } = {}) {
   const startDate = ga4DateForValue(window?.from, 'window.from');
@@ -2676,7 +2679,6 @@ export function buildGa4EventQueryBody(window, { limit = GA4_EVENT_QUERY_PAGE_SI
       { name: 'eventName' },
       { name: 'customEvent:employer_key' },
       { name: 'customEvent:job_slug' },
-      { name: 'customEvent:emission_id' },
       { name: 'pagePath' },
     ],
     metrics: [
@@ -2692,7 +2694,6 @@ export function buildGa4EventQueryBody(window, { limit = GA4_EVENT_QUERY_PAGE_SI
       { dimension: { dimensionName: 'eventName' } },
       { dimension: { dimensionName: 'customEvent:employer_key' } },
       { dimension: { dimensionName: 'customEvent:job_slug' } },
-      { dimension: { dimensionName: 'customEvent:emission_id' } },
       { dimension: { dimensionName: 'pagePath' } },
     ],
     limit,
@@ -2711,7 +2712,7 @@ export function normalizeGa4EventRows(rows = []) {
       event,
       timestamp,
       week: weekStart(timestamp),
-      path: ga4DimensionValue(row, 5),
+      path: ga4DimensionValue(row, 4),
       jobSlug: ga4DimensionValue(row, 3),
       jobId: '',
       providerId: '',
@@ -2723,7 +2724,7 @@ export function normalizeGa4EventRows(rows = []) {
       observed,
       persons: ga4MetricValue(row, 1),
       sessions: ga4MetricValue(row, 2),
-      emissionId: ga4DimensionValue(row, 4),
+      emissionId: '',
     };
   });
 }
