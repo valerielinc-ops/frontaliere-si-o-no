@@ -35364,6 +35364,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'comuni-frontiera-ristorni-108-milioni',
+ category: 'novita',
+ date: '2026-09-20T09:52:25.227Z',
+ image: '/images/blog/comuni-frontiera-ristorni-108-milioni.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11865,6 +11865,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-20.imageAlt': 'I numeri del giorno per i frontalieri – 20 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-20.seoDescription': 'Bollettino frontalieri del 20 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-20.ogDescription': 'I numeri del 20 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.comuni-frontiera-ristorni-108-milioni.title': 'Ristori frontiera: 89-108 mln, sindaci esultano',
+    'blog.article.comuni-frontiera-ristorni-108-milioni.excerpt': 'Il governo italiano aumenta i fondi per i comuni di frontiera. I sindaci: \'Soddisfatti per l\'aumento dei ristorni\'.',
+    'blog.article.comuni-frontiera-ristorni-108-milioni.imageAlt': 'Una vista panoramica della città di Lugano, in Ticino, Svizzera.',
 };
 
 export default blogMetaIt;

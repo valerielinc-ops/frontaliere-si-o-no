@@ -11863,6 +11863,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-20.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 20. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-20.seoDescription': 'Grenzgänger-Bulletin vom 20. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-20.ogDescription': 'Die Zahlen vom 20. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.comuni-frontiera-ristorni-108-milioni.title': 'Erfrischungen an der Grenze: 89-108 Millionen, Bürgermeister jubeln',
+    'blog.article.comuni-frontiera-ristorni-108-milioni.excerpt': 'Die italienische Regierung erhöht die Mittel für die Grenzgemeinden. Die Bürgermeister: \'Zufrieden mit der Zunahme der Erfrischungen\'.',
+    'blog.article.comuni-frontiera-ristorni-108-milioni.imageAlt': 'Eine Panoramansicht der Stadt Lugano im Tessin, Schweiz.',
 };
 
 export default blogMetaDe;
