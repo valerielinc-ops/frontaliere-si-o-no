@@ -821,13 +821,28 @@ function cardinalityPairedCitations(finding, confirmations, openFindings) {
     }
   }
 
+  // La guardia globale di `confirmationHasUniqueTarget`, riusata candidato per
+  // candidato: un path che denota piu' di un finding aperto resta ambiguo FRA
+  // finding, e la cardinalita' dentro un singolo finding non puo' scioglierlo.
+  // Senza questo controllo una conferma sul basename nudo `foo.js` chiuderebbe
+  // due citazioni `a/foo.js` mentre un altro finding aperto cita `b/foo.js`:
+  // il suffix-matching le fa denotare entrambe, e il conteggio del gruppo non
+  // se ne accorge perche' confronta `b/foo.js` con `a/foo.js`, non col
+  // candidato.
+  const candidateHasSingleOpenTarget = (candidate) => openFindings.filter(
+    (openFinding) => openFinding.citations.some(
+      (citation) => citationPathMatches(candidate.path, citation.path),
+    ),
+  ).length === 1;
+
   for (const group of groups) {
     const matchesGroup = (path) => group.some((citation) => citationPathMatches(path, citation.path));
     const otherOpen = openFindings.filter((openFinding) => openFinding !== finding
       && openFinding.citations.some((citation) => matchesGroup(citation.path)));
     if (otherOpen.length > 0) continue;
 
-    const pool = candidates.filter((candidate) => matchesGroup(candidate.path));
+    const pool = candidates.filter((candidate) => matchesGroup(candidate.path)
+      && candidateHasSingleOpenTarget(candidate));
     if (pool.length < group.length) continue;
 
     const consumed = new Set();

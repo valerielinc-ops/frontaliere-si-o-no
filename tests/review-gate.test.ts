@@ -1254,6 +1254,36 @@ describe('review gate: citazioni e conferme', () => {
       .toHaveLength(2);
   });
 
+  // La guardia globale vale sul CANDIDATO, non solo sulle citazioni del
+  // gruppo: col suffix-matching un basename nudo denota anche un path omonimo
+  // sotto un'altra directory, e quel path può appartenere a un altro finding
+  // aperto. Senza il controllo per candidato la conferma su `foo.js` chiudeva
+  // le due citazioni `src/foo.js` mentre `lib/foo.js` era ancora aperto altrove.
+  it('non chiude per cardinalità quando la conferma è un basename che denota anche un altro finding aperto', () => {
+    const first = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`src/foo.js:L10`: 🔴 Important: il ramo è invertito; anche `src/foo.js:L20`.',
+    ].join('\n'));
+    const second = bot([
+      '## Findings (Important: 1, Nit: 0)',
+      '',
+      '`lib/foo.js:L30`: 🔴 Important: il guard manca del tutto.',
+    ].join('\n'));
+    const confirmed = bot([
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `foo.js:L11`: ok.',
+      'Fix di `foo.js:L21`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n'));
+
+    const remaining = historicalImportantFindings([first, second, confirmed], { includeLatest: true });
+    expect(remaining).toHaveLength(2);
+    expect(remaining.map((finding) => finding.citations.length).sort()).toEqual([1, 2]);
+  });
+
   // Controllo: con una citazione sola il cammino è quello di prima, invariato.
   it('lascia invariato il caso a citazione singola, con riga esatta o spostata', () => {
     const opened = bot([
