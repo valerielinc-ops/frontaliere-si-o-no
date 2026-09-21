@@ -6629,6 +6629,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.estate-2026-perdita-produttivita.title': 'Summer 2026: over 2 billion francs of lost productivity',
     'blog.article.estate-2026-perdita-produttivita.excerpt': 'Summer 2026 caused productivity losses of over CHF 2 billion, with Birsfelden at 2.47% and the affected cities at 1.3 billion.',
     'blog.article.estate-2026-perdita-produttivita.imageAlt': 'Swiss street in summer with people seeking shade and sweating due to intense heat',
+    'blog.article.guida-lavoro-argovia-2026.title': 'Practical guide to looking for a job in Aargau 2026',
+    'blog.article.guida-lavoro-argovia-2026.excerpt': 'The 2026 Swiss market offers places in engineering, technology, healthcare and logistics; in Aargau taxation is on three levels and AVS/AI/IPG contributions amount to 5.3% for employees.',
+    'blog.article.guida-lavoro-argovia-2026.imageAlt': 'Modern office building in Aarau, Argovia, with professionals walking past and Swiss flag in the background.',
 };
 
 export default blogMetaChEn;

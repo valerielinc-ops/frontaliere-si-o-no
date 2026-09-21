@@ -6629,6 +6629,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.estate-2026-perdita-produttivita.title': 'Sommer 2026: Über 2 Milliarden Franken Produktivitätsverlust',
     'blog.article.estate-2026-perdita-produttivita.excerpt': 'Der Sommer 2026 verursachte Produktivitätsverluste von über 2 Milliarden Franken, mit Birsfelden bei 2,47% und den betroffenen Städten bei 1,3 Milliarden.',
     'blog.article.estate-2026-perdita-produttivita.imageAlt': 'Schweizer Straße im Sommer mit Personen, die Schatten suchen und wegen intensiver Hitze schwitzen',
+    'blog.article.guida-lavoro-argovia-2026.title': 'Praxisleitfaden zur Stellensuche im Aargau 2026',
+    'blog.article.guida-lavoro-argovia-2026.excerpt': 'Der Schweizer Markt 2026 bietet Stellen im Ingenieurwesen, in der Technik, im Gesundheitswesen und in der Logistik; im Aargau ist die Besteuerung dreistufig und die AHV/IV/EO-Beiträge betragen 5,3% für die Mitarbeitenden.',
+    'blog.article.guida-lavoro-argovia-2026.imageAlt': 'Modernes Bürogebäude in Aarau, Argovia, mit vorbeigehenden Fachkräften und Schweizer Flagge im Hintergrund.',
 };
 
 export default blogMetaChDe;

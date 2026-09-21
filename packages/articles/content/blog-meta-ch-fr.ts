@@ -6629,6 +6629,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.estate-2026-perdita-produttivita.title': 'Été 2026 : plus de 2 milliards de francs de productivité perdus',
     'blog.article.estate-2026-perdita-produttivita.excerpt': 'L\'été 2026 a entraîné des pertes de productivité de plus de 2 milliards de francs, avec Birsfelden à 2,47% et les villes touchées à 1,3 milliard.',
     'blog.article.estate-2026-perdita-produttivita.imageAlt': 'Rue suisse en été avec des personnes cherchant de l\'ombre et transpirant à cause de la chaleur intense',
+    'blog.article.guida-lavoro-argovia-2026.title': 'Guide pratique pour chercher un emploi en Argovie 2026',
+    'blog.article.guida-lavoro-argovia-2026.excerpt': 'Le marché suisse 2026 offre des postes dans l\'ingénierie, la technologie, la santé et la logistique ; en Argovie, la fiscalité est à trois niveaux et les cotisations AVS/AI/APG s\'élèvent à 5,3% pour les employés.',
+    'blog.article.guida-lavoro-argovia-2026.imageAlt': 'Bureau moderne à Aarau, Argovie, avec des professionnels qui passent et le drapeau suisse en arrière-plan.',
 };
 
 export default blogMetaChFr;

@@ -85937,6 +85937,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-guida-lavoro-argovia-2026': {
+    title: 'Guida pratica per cercare lavoro in Argovia 2026',
+    description: 'Scopri le opportunità in ingegneria, tecnologia, sanità e logistica, il sistema fiscale a tre livelli dell\'Argovia, i contributi AVS/AI/IPG al 5,3% e i permessi',
+    keywords: 'frontalieri, ticino, svizzera, italia, pratica, cercare, lavoro, argovia',
+    ogTitle: 'Guida pratica per cercare lavoro in Argovia 2026',
+    ogDescription: 'Nel 2026 il mercato del lavoro svizzero, soprattutto in Argovia, è ricco di posti in ingegneria, tecnologia, sanità e logistica. Scopri come funziona la tassazione a tre livelli, i contributi previdenziali al 5,3% per i dipendenti e quali permessi',
+    canonicalPath: '/articoli-svizzera/guida-lavoro-argovia-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Guida pratica per cercare lavoro in Argovia 2026",
+      "description": "Scopri le opportunità in ingegneria, tecnologia, sanità e logistica, il sistema fiscale a tre livelli dell'Argovia, i contributi AVS/AI/IPG al 5,3% e i permessi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/guida-lavoro-argovia-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio moderno ad Aarau, Argovia, con professionisti in movimento e bandiera svizzera sullo sfondo."
+      },
+      "datePublished": "2026-09-21T05:53:43+00:00",
+      "dateModified": "2026-09-21T05:53:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/guida-lavoro-argovia-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
