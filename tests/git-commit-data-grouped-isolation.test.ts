@@ -547,7 +547,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
   it.each<[string, string, string[]]>([
     ['active slice', 'data/jobs/by-crawler/a.json', []],
     ['crawler summary', 'data/jobs-crawler-summaries/by-crawler/a.json', []],
-    ['translation cache', 'data/translation-cache/a.json', []],
+    ['translation cache', 'data/translation-cache/a.json', ['data/translation-cache/a.json']],
     ['explicit adapter', 'data/jobs-crawler-adapters/adapters/a.json', ['data/jobs-crawler-adapters/adapters/a.json']],
   ])('aborts instead of resurrecting a remotely deleted %s after defer', (_kind, targetPath, extraPaths) => {
     const { originDir, repoDir } = initClonePair();
@@ -603,7 +603,7 @@ exec ${JSON.stringify(process.execPath)} "$@"
   // summary line reports non-"unchanged" operations by class.
   it.each<[string, string, string[]]>([
     ['crawler summary', 'data/jobs-crawler-summaries/by-crawler/a.json', []],
-    ['translation cache', 'data/translation-cache/a.json', []],
+    ['translation cache', 'data/translation-cache/a.json', ['data/translation-cache/a.json']],
     ['explicit adapter', 'data/jobs-crawler-adapters/adapters/a.json', ['data/jobs-crawler-adapters/adapters/a.json']],
   ])('tags the fail-closed abort for a remotely deleted %s with its path class', (_kind, targetPath, extraPaths) => {
     const { originDir, repoDir } = initClonePair();
