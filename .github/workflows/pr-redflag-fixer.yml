@@ -867,14 +867,13 @@ jobs:
           set -uo pipefail
           MAX_ROUNDS=2
 
-          # Round corrente = marker persistiti dal fixer stesso sulla HEAD/body
-          # corrente. Conserviamo le pagine raw: il testo libero di un utente non
-          # può armare il cap e un JSON parziale non può diventare ROUND=0.
-          if ! trusted_actor=$("$TRUSTED_GH_BIN" api user --jq '.login' 2>/dev/null) \
-             || [ -z "$trusted_actor" ]; then
-            echo "::error::Identità trusted del fixer illeggibile: stop fail-closed prima di Claude."
-            exit 1
-          fi
+          # GITHUB_TOKEN è un installation token di Actions, non un token utente:
+          # `gh api user` non può identificarlo e fallisce anche se le API della
+          # repository sono leggibili. I marker qui sotto vengono pubblicati con
+          # questo stesso token e la REST API li attribuisce a github-actions[bot].
+          # Fissiamo quindi l'identità attesa senza una chiamata `/user`, così un
+          # commento di un utente non può armare il round cap.
+          trusted_actor='github-actions[bot]'
           if ! comments_json=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp 2>/dev/null); then
             echo "::error::Commenti PR illeggibili: impossibile verificare il round cap redflag."
             exit 1
