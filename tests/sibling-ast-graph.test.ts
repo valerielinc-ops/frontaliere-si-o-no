@@ -160,6 +160,30 @@ describe('sibling AST layer', () => {
     expect(matchAstFacts(factsContainingToken(changed, 'propertyName'), candidate)).toEqual([]);
   });
 
+  it('does not promote directly imported package calls to sibling evidence', () => {
+    const changed = collectAstFacts(
+      'scripts/parser.mjs',
+      [
+        "import { createSourceFile } from 'typescript';",
+        'const source = createSourceFile(name, text, target);',
+      ].join('\n'),
+      { files: new Set(['scripts/parser.mjs', 'scripts/other-parser.mjs']) },
+    );
+    const candidate = collectAstFacts(
+      'scripts/other-parser.mjs',
+      [
+        "import { createSourceFile } from 'typescript';",
+        'const source = createSourceFile(other, text, target);',
+      ].join('\n'),
+      { files: new Set(['scripts/parser.mjs', 'scripts/other-parser.mjs']) },
+    );
+    const changedCalls = factsContainingToken(changed, 'createSourceFile');
+
+    expect(changedCalls.some((fact) => fact.kind === 'identifier' && fact.role === 'call')).toBe(true);
+    expect(changedCalls.some(isActionableAstFact)).toBe(false);
+    expect(matchAstFacts(changedCalls, candidate)).toEqual([]);
+  });
+
   it('does not match same-named private helpers from different files', () => {
     const changed = collectAstFacts(
       'scripts/one.mjs',
