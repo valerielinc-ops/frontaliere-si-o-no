@@ -1,0 +1,24 @@
+{
+  "companyKey": "burgenstock-resort",
+  "companyName": "Bürgenstock Resort",
+  "companyHost": "recruitingapp-2850.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2850.umantis.com/Jobs/All?DesignID=00&amp;CompanyID=1&amp;Search=1&amp;Reset=G"
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 29,
+  "sampleTitles": [
+    "Commis de Rang In-Room Dining 100% (w/m/i)",
+    "Assistant Restaurant Manager Lakeview Lounge & Roomservice 100% (w/m/i)",
+    "Assistant Banqueting Manager 100% (w/m/i)",
+    "In-Room Dining Supervisor 100% (w/m/i)",
+    "Restaurant Manager 100 % (w/m/i)"
+  ],
+  "canton": "NW",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-21T10:48:20.285Z"
+}

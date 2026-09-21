@@ -1,0 +1,20 @@
+{
+  "companyKey": "ahapersonal",
+  "companyName": "AHA Personal AG",
+  "companyHost": "ahapersonal.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://ahapersonal.ch/Vacancyboard/Detail/34400"
+  ],
+  "detailTemplate": "/Vacancyboard/Detail/34400",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Heizungsmonteur/in"
+  ],
+  "canton": "LU",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-21T10:48:27.440Z"
+}
