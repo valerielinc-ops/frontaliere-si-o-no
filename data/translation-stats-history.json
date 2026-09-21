@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-04T16:57:38.508Z",
-    "label": "before",
-    "total": 28978,
-    "needsRetranslation": 18093,
-    "suppressed": 103,
-    "incomplete": 13115,
-    "complete": 15863,
-    "slotsPresent": 15863,
-    "flaggedAmongSlotsPresent": 5753,
-    "verifiedTranslated": 10110,
-    "sourceCopyExcused": 777,
-    "slotsPresentByLength": 28498,
-    "languageVerified": 16754,
-    "missingByLocale": {
-      "it": 3045,
-      "en": 2467,
-      "de": 951,
-      "fr": 2500
-    },
-    "queueAge": {
-      "count": 18093,
-      "withTimestamp": 18093,
-      "oldestAgeDays": 144.3,
-      "p50AgeDays": 23.3,
-      "p90AgeDays": 93.1,
-      "buckets": {
-        "0-1d": 385,
-        "1-2d": 540,
-        "2-7d": 3029,
-        "0-7d": 3954,
-        "7-30d": 6076,
-        "30-90d": 6044,
-        "90-180d": 2019,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 1770
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1394
-      },
-      {
-        "company": "Roche",
-        "pending": 689
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 343
-      },
-      {
-        "company": "Migros Restaurant",
-        "pending": 278
-      },
-      {
-        "company": "BKW",
-        "pending": 244
-      },
-      {
-        "company": "Sulzer",
-        "pending": 213
-      },
-      {
-        "company": "PEMSA",
-        "pending": 203
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 196
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 195
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-04T17:01:06.843Z",
     "label": "after",
     "total": 28978,
@@ -19002,6 +18919,118 @@
       {
         "company": "Galenica AG (Galenica)",
         "pending": 49
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-21T18:58:38.726Z",
+    "label": "after",
+    "total": 28297,
+    "needsRetranslation": 10814,
+    "suppressed": 218,
+    "incomplete": 4994,
+    "complete": 23303,
+    "slotsPresent": 23303,
+    "flaggedAmongSlotsPresent": 6266,
+    "verifiedTranslated": 17037,
+    "sourceCopyExcused": 737,
+    "slotsPresentByLength": 28075,
+    "languageVerified": 24215,
+    "missingByLocale": {
+      "it": 885,
+      "en": 715,
+      "de": 433,
+      "fr": 775
+    },
+    "queueAge": {
+      "count": 10814,
+      "withTimestamp": 10814,
+      "oldestAgeDays": 161.4,
+      "p50AgeDays": 26.9,
+      "p90AgeDays": 109.7,
+      "buckets": {
+        "0-1d": 629,
+        "1-2d": 847,
+        "2-7d": 435,
+        "0-7d": 1911,
+        "7-30d": 3755,
+        "30-90d": 3477,
+        "90-180d": 1671,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 25,
+      "withTimestamp": 25,
+      "oldestAgeDays": 66.9,
+      "p50AgeDays": 20.9,
+      "p90AgeDays": 41.9,
+      "buckets": {
+        "0-1d": 0,
+        "1-2d": 1,
+        "2-7d": 1,
+        "0-7d": 2,
+        "7-30d": 18,
+        "30-90d": 5,
+        "90-180d": 0,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 425,
+      "sampled": 120,
+      "processed": 2,
+      "residual": 0,
+      "residualRate": 0
+    },
+    "topPending": [
+      {
+        "company": "Roche",
+        "pending": 447
+      },
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 200
+      },
+      {
+        "company": "Anker Swiss Ticino AG",
+        "pending": 194
+      },
+      {
+        "company": "Sulzer",
+        "pending": 189
+      },
+      {
+        "company": "PEMSA",
+        "pending": 186
+      },
+      {
+        "company": "Migros Restaurant",
+        "pending": 165
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 156
+      },
+      {
+        "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+        "pending": 124
+      },
+      {
+        "company": "Hirslanden Klinik",
+        "pending": 111
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 108
       }
     ]
   }
