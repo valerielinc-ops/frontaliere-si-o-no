@@ -20,7 +20,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   const callOrder: string[] = [];
   let nativeAutoMergeRevoked = false;
   let reads = 0;
-  const run = { id: 42, status, conclusion, run_attempt: 1, event: 'pull_request', head_sha: 'head' };
+  const run = { id: 42, status, conclusion, run_attempt: changedAttempt ? 2 : 1, event: 'pull_request', head_sha: 'head' };
   const manualRun = { ...run, id: 43, event: 'pull_request' };
   const comments = pendingStatus ? [{
       id: 900,
@@ -318,7 +318,10 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(recovery.concurrency.group).not.toContain('workflow_run.head_branch');
     expect(recovery.concurrency['cancel-in-progress']).toBe(false);
     expect(script).toContain('markerMatchesRun');
-    expect(script).not.toContain('createWorkflowDispatch');
+    expect(script).toContain('createWorkflowDispatch');
+    expect(script).toContain("workflow_id: 'enable-native-automerge.yml'");
+    expect(script).toContain("nativeMergeStatus: 'pending'");
+    expect(script).toContain("nativeMergeStatus: 'dispatched'");
     expect(script).toContain('status: \'manual\'');
     expect(script).toContain("status: 'completed'");
     expect(script).toContain('queuedAt');
@@ -391,7 +394,13 @@ describe('one code verdict and metadata-triggered review recovery', () => {
       eventName: 'workflow_run',
       pendingStatus: 'pending',
       failedSteps: ['vitest related (PR diff)'],
-    })).toEqual({ reruns: [], dispatches: [] });
+    })).toEqual({
+      reruns: [],
+      dispatches: [{
+        owner: 'owner', repo: 'repo', workflow_id: 'enable-native-automerge.yml',
+        ref: 'main', inputs: { pr_number: '1' },
+      }],
+    });
   });
 
   it('retries a review-only failure, but not a matching Codex auth block', async () => {
@@ -409,7 +418,13 @@ describe('one code verdict and metadata-triggered review recovery', () => {
         'Require approving Codex review',
       ],
       codexAuthBlocked: true,
-    })).toEqual({ reruns: [], dispatches: [] });
+    })).toEqual({
+      reruns: [],
+      dispatches: [{
+        owner: 'owner', repo: 'repo', workflow_id: 'enable-native-automerge.yml',
+        ref: 'main', inputs: { pr_number: '1' },
+      }],
+    });
   });
 
   it('preserves a newer queued attempt instead of rerunning an older failed body', async () => {
@@ -452,6 +467,33 @@ describe('one code verdict and metadata-triggered review recovery', () => {
       eventName: 'workflow_run', pendingStatus: 'queued', status: 'completed',
     });
     expect(result.reruns).toEqual([]);
+    expect(result.dispatches).toEqual([{
+      owner: 'owner', repo: 'repo', workflow_id: 'enable-native-automerge.yml',
+      ref: 'main', inputs: { pr_number: '1' },
+    }]);
+  });
+
+  it('dispatches native auto-merge when the scheduled reconciler finds a completed recovery', async () => {
+    expect(await runRecovery({ eventName: 'schedule', pendingStatus: 'completed' })).toEqual({
+      reruns: [],
+      dispatches: [{
+        owner: 'owner', repo: 'repo', workflow_id: 'enable-native-automerge.yml',
+        ref: 'main', inputs: { pr_number: '1' },
+      }],
+    });
+  });
+
+  it('keeps a completed recovery retryable when the native dispatch fails', async () => {
+    const result = await runRecovery({
+      eventName: 'workflow_run',
+      pendingStatus: 'queued',
+      status: 'completed',
+      dispatchFails: true,
+      returnComments: true,
+    });
+    expect(result.error).toMatch(/dispatch failed/u);
+    expect(result.comments.at(-1)?.body).toContain('"status":"completed"');
+    expect(result.comments.at(-1)?.body).toContain('"nativeMergeStatus":"pending"');
   });
 
   it('does not close a pending marker for another run or attempt', async () => {
@@ -476,12 +518,24 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(result.dispatches).toEqual([]);
   });
 
+  it('dispatches native auto-merge when a scheduled reconciliation observes the accepted rerun completed', async () => {
+    const result = await runRecovery({ eventName: 'schedule', pendingStatus: 'manual', changedAttempt: true });
+    expect(result.reruns).toEqual([]);
+    expect(result.dispatches).toEqual([{
+      owner: 'owner', repo: 'repo', workflow_id: 'enable-native-automerge.yml',
+      ref: 'main', inputs: { pr_number: '1' },
+    }]);
+  });
+
   it('consumes the exact completion event for an accepted ambiguous rerun', async () => {
     const result = await runRecovery({
       eventName: 'workflow_run', pendingStatus: 'manual', eventRunAttempt: 2, changedAttempt: true,
     });
     expect(result.reruns).toEqual([]);
-    expect(result.dispatches).toEqual([]);
+    expect(result.dispatches).toEqual([{
+      owner: 'owner', repo: 'repo', workflow_id: 'enable-native-automerge.yml',
+      ref: 'main', inputs: { pr_number: '1' },
+    }]);
   });
 
   it('does not restart an old head, while adopting an observed newer attempt', async () => {

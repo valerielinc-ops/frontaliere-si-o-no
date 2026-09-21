@@ -4,8 +4,9 @@ run-name: 'Body recovery · PR #${{ github.event.pull_request.number || github.e
 # API-only recovery on trusted main. It only re-runs an already-created
 # pull_request tests workflow, without executing any file/string from the PR.
 # A body edit that races an active tests run leaves a durable PR-comment marker;
-# the `workflow_run` completion event consumes that marker, so liveness does
-# not depend on a short runner-side polling window.
+# the `workflow_run` completion event consumes that marker and immediately
+# dispatches the trusted native auto-merge gate, so liveness does not depend
+# on a short runner-side polling window or on the native retry cron.
 on:
   pull_request_target:
     types: [edited]
@@ -89,6 +90,18 @@ jobs:
             const TRUSTED_AUTOMATION_USER_RE = /^valerielinc-ops$/iu;
             const trustedMutationToken = () => String(process.env.APP_TOKEN || process.env.GITHUB_PAT || '').trim();
             const nativeRevokeCapabilityAvailable = () => trustedMutationToken().length > 0;
+            async function dispatchNativeAutoMerge(number) {
+              if (!trustedMutationToken()) {
+                throw new Error('token trusted per il dispatch del native auto-merge assente');
+              }
+              await github.rest.actions.createWorkflowDispatch({
+                ...repo,
+                workflow_id: 'enable-native-automerge.yml',
+                ref: 'main',
+                inputs: { pr_number: String(number) },
+              });
+              core.info(`Native auto-merge rivalutazione dispatchata per PR #${number}.`);
+            }
             const trustedAutomationAuthor = (user) => (user?.type === 'Bot'
               && TRUSTED_AUTOMATION_BOT_RE.test(String(user.login || '')))
               || (user?.type === 'User'
@@ -256,6 +269,19 @@ jobs:
               });
               return { comment: response?.data || null, state };
             }
+            async function completeRecoveryAndDispatch(number, state, existing) {
+              const completedState = {
+                ...state,
+                status: 'completed',
+                nativeMergeStatus: 'pending',
+              };
+              const completed = await persistMarker(number, completedState, existing);
+              await dispatchNativeAutoMerge(number);
+              await persistMarker(number, {
+                ...completedState,
+                nativeMergeStatus: 'dispatched',
+              }, completed);
+            }
             async function releaseNativeAutoMergeLease(number, pr) {
               const comments = await github.paginate(github.rest.issues.listComments, {
                 ...repo, issue_number: number, per_page: 100,
@@ -368,9 +394,8 @@ jobs:
               if (attempt === null) {
                 throw new Error(`run ${latest.id} attempt non verificabile: marker resta pending`);
               }
-              await persistMarker(number, {
+              await completeRecoveryAndDispatch(number, {
                 ...existing.state,
-                status: 'completed',
                 runId: latest.id,
                 runAttempt: attempt,
                 headSha: pr.head.sha,
@@ -408,9 +433,8 @@ jobs:
                   && existing.state.headSha === pr.head.sha
                   && existing.state.bodyRevision === bodyRevision) {
                 if (observedAttempt >= Number(existing.state.runAttempt)) {
-                  await persistMarker(number, {
+                  await completeRecoveryAndDispatch(number, {
                     ...existing.state,
-                    status: 'completed',
                     runId: latest.id,
                     runAttempt: observedAttempt,
                   }, existing);
@@ -580,7 +604,9 @@ jobs:
                     await retryCompletedRun(number, pr, candidate, existing, 'body changed while retry was active');
                     continue;
                   }
-                  await persistMarker(number, { ...existing.state, status: 'completed' }, existing);
+                  await completeRecoveryAndDispatch(number, {
+                    ...existing.state,
+                  }, existing);
                   continue;
                 }
                 if (existing.state.status === 'manual'
@@ -600,8 +626,8 @@ jobs:
                     await retryCompletedRun(number, pr, run, existing, 'body changed while ambiguous retry was active');
                     continue;
                   }
-                  await persistMarker(number, {
-                    ...existing.state, status: 'completed', runId: run.id,
+                  await completeRecoveryAndDispatch(number, {
+                    ...existing.state, runId: run.id,
                     runAttempt: validRunAttempt(run.run_attempt),
                   }, existing);
                   continue;
@@ -630,11 +656,25 @@ jobs:
                 const existing = await pendingComment(number);
                 const sourceEvent = existing?.state?.sourceEvent;
                 const nativeRevokeRequired = ['native-revoke-token-unavailable', 'native-revoke-failed'].includes(sourceEvent);
-                if (!existing?.state || existing.state.status !== 'manual'
-                    || (!nativeRevokeRequired
-                      && !['rerun-ambiguous', 'no-existing-pull-request-run'].includes(sourceEvent))) continue;
+                if (!existing?.state) continue;
                 if (existing.state.headSha !== pr.head.sha
                     || existing.state.bodyRevision !== BODY_REVISION(pr.body)) continue;
+                if (existing.state.status === 'completed'
+                    && existing.state.nativeMergeStatus !== 'dispatched') {
+                  try {
+                    await dispatchNativeAutoMerge(number);
+                    await persistMarker(number, {
+                      ...existing.state,
+                      nativeMergeStatus: 'dispatched',
+                    }, existing);
+                  } catch (error) {
+                    core.warning(`Native auto-merge dispatch ancora non riuscito per PR #${number}: ${String(error)}`);
+                  }
+                  continue;
+                }
+                if (existing.state.status !== 'manual'
+                    || (!nativeRevokeRequired
+                      && !['rerun-ambiguous', 'no-existing-pull-request-run'].includes(sourceEvent))) continue;
                 if (nativeRevokeRequired) {
                   if (!nativeRevokeCapabilityAvailable()) continue;
                   try {
@@ -653,8 +693,9 @@ jobs:
                 if (existing.state.sourceEvent === 'rerun-ambiguous' && expectedAttempt !== null
                     && observedAttempt >= expectedAttempt) {
                   if (latest.status === 'completed') {
-                    await persistMarker(number, {
-                      ...existing.state, status: 'completed', runId: latest.id,
+                    await completeRecoveryAndDispatch(number, {
+                      ...existing.state,
+                      runId: latest.id,
                       runAttempt: observedAttempt,
                     }, existing);
                   } else {
