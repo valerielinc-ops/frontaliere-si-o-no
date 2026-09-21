@@ -18,7 +18,7 @@ import {
 import { buildPharmacyPath, type PharmacyPath } from './paths';
 import { buildDutyWeekModel } from './dutyWeek';
 import { buildDutyCoverageMatrix, type DutyCoverageMatrixModel } from './dutyCoverageMatrix';
-import { buildItalyDutyWeekModel, currentItalyDutyWeekStart, type ItalyDutyWeekModel } from './italyDuty';
+import { buildItalyDutyWeekModel, currentItalyDutyWeekStart, type ItalyDutySourceRegistry, type ItalyDutyWeekModel } from './italyDuty';
 import { currentDutyForRegion } from './duties';
 import { buildPharmacyTitle } from './title';
 import { safePharmacyUrl, type Pharmacy, type PharmacyCatalogueDataset, type PharmacyDutiesDataset } from './types';
@@ -148,20 +148,29 @@ function pharmacyPathForRecord(pharmacy: Pharmacy, locale: Locale): PharmacyPath
     };
 }
 
+function isIsoMonday(value: unknown): value is string {
+  if (typeof value !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(value)) return false;
+  const date = new Date(`${value}T00:00:00.000Z`);
+  return Number.isFinite(date.getTime())
+    && date.toISOString().slice(0, 10) === value
+    && date.getUTCDay() === 1;
+}
+
 function pharmacyRuntimeTitle(path: PharmacyPath, locale: Locale): { title: string; resolved: boolean; pharmacy?: Pharmacy } {
   const copy = RUNTIME_PHARMACY_COPY[locale];
   if (path.kind === 'hub') return { title: copy.hubTitle, resolved: true };
   if (path.kind === 'canton') return { title: copy.cantonTitle, resolved: true };
   if (path.kind === 'country') return { title: copy.italyTitle, resolved: true };
-  if (path.kind === 'duty-hub') return { title: copy.dutyHubTitle, resolved: true };
+  if (path.kind === 'duty-hub') return { title: path.country === 'IT' ? copy.italyDutyHubTitle : copy.dutyHubTitle, resolved: true };
   if (path.kind === 'italy-duty-hub') return { title: copy.italyDutyHubTitle, resolved: true };
   if (path.kind === 'duty-week') {
-    return path.weekStart
-      ? { title: copy.dutyWeekTitle(path.weekStart), resolved: true }
-      : { title: copy.dutyHubTitle, resolved: false };
+    if (!isIsoMonday(path.weekStart)) {
+      return { title: path.country === 'IT' ? copy.italyDutyHubTitle : copy.dutyHubTitle, resolved: false };
+    }
+    return { title: path.country === 'IT' ? copy.italyDutyWeekTitle(path.weekStart) : copy.dutyWeekTitle(path.weekStart), resolved: true };
   }
   if (path.kind === 'italy-duty-week') {
-    return path.weekStart
+    return isIsoMonday(path.weekStart)
       ? { title: copy.italyDutyWeekTitle(path.weekStart), resolved: true }
       : { title: copy.italyDutyHubTitle, resolved: false };
   }
@@ -407,26 +416,32 @@ export function resolvePharmacySeoMetadata(
     catalogue?: PharmacyCatalogueDataset;
     italyDuties?: Record<string, unknown>;
     italyStatus?: Record<string, unknown>;
+    italySources?: ItalyDutySourceRegistry;
+    italyCatalogue?: readonly Pharmacy[];
   } = {},
 ): PharmacyRuntimeSeoMetadata {
   const locale = path.locale;
   const copy = RUNTIME_PHARMACY_COPY[locale];
   const { title, resolved, pharmacy } = pharmacyRuntimeTitle(path, locale);
-  const model = path.kind === 'duty-week' && path.weekStart
+  const model = path.kind === 'duty-week' && path.country !== 'IT' && isIsoMonday(path.weekStart)
     ? buildDutyWeekModel(options.duties ?? RUNTIME_PHARMACY_DUTIES, path.weekStart, {
       now: options.now,
       catalogue: options.catalogue ?? RUNTIME_PHARMACY_CATALOGUE,
     })
     : null;
-  const coverageMatrix = path.kind === 'duty-hub'
+  const coverageMatrix = path.kind === 'duty-hub' && path.country !== 'IT'
     ? buildDutyCoverageMatrix({ locale, now: options.now, duties: options.duties ?? RUNTIME_PHARMACY_DUTIES, catalogue: options.catalogue ?? RUNTIME_PHARMACY_CATALOGUE })
     : null;
-  const italyModel = path.kind === 'italy-duty-hub' || path.kind === 'italy-duty-week'
+  const italyHub = path.kind === 'italy-duty-hub' || (path.kind === 'duty-hub' && path.country === 'IT');
+  const italyWeek = path.kind === 'italy-duty-week' || (path.kind === 'duty-week' && path.country === 'IT');
+  const italyModel = italyHub || italyWeek
     ? buildItalyDutyWeekModel({
       now: options.now,
-      weekStart: path.weekStart || currentItalyDutyWeekStart(options.now),
+      weekStart: italyWeek && isIsoMonday(path.weekStart) ? path.weekStart : currentItalyDutyWeekStart(options.now),
       duties: options.italyDuties ?? RUNTIME_ITALY_DUTIES,
       status: options.italyStatus ?? RUNTIME_ITALY_STATUS,
+      sources: options.italySources,
+      pharmacyIds: options.italyCatalogue ? new Set(options.italyCatalogue.map((pharmacy) => pharmacy.id)) : undefined,
     })
     : null;
   const indexable = resolved && path.kind !== 'duty-city' && (model
