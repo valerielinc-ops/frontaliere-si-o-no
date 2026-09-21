@@ -11891,6 +11891,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-cantu-lavorare-ticino.title': 'Vivere a Cantù e lavorare in Ticino da frontaliere',
     'blog.article.vivere-cantu-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Cantù come residenza: fiscalità, nuovo accordo frontalieri, AVS, LAMal e gestione del pendolarismo quotidiano verso il Ticino.',
     'blog.article.vivere-cantu-lavorare-ticino.imageAlt': 'Vista panoramica di Lugano, luogo centrale per i frontalieri che lavorano in Ticino',
+    'blog.article.vivere-fenegro-lavorare-ticino.title': 'Vivere a Fenegrò e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-fenegro-lavorare-ticino.excerpt': 'Guida pratica su fiscalità, collegamenti e costi per chi sceglie Fenegrò come residenza lavorando nel Canton Ticino.',
+    'blog.article.vivere-fenegro-lavorare-ticino.imageAlt': 'Vista di un borgo residenziale vicino al confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;

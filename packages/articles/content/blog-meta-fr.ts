@@ -11892,6 +11892,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-cantu-lavorare-ticino.title': 'Vivre à Cantú et travailler au Tessin en tant que frontalière',
     'blog.article.vivere-cantu-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui choisissent Cantù comme résidence : fiscalité, nouvel accord frontalier, AVS, LAMal et gestion des déplacements quotidiens vers le Tessin.',
     'blog.article.vivere-cantu-lavorare-ticino.imageAlt': 'Vue panoramique de Lugano, un lieu central pour les travailleurs frontaliers en Suisse',
+    'blog.article.vivere-fenegro-lavorare-ticino.title': 'Vivre à Fenegrò et travailler au Tessin en tant que frontalier',
+    'blog.article.vivere-fenegro-lavorare-ticino.excerpt': 'Guide pratique sur la fiscalité, les connexions et les coûts pour ceux qui choisissent Fenegrò comme résidence en travaillant dans le canton du Tessin.',
+    'blog.article.vivere-fenegro-lavorare-ticino.imageAlt': 'Vue d\'un village résidentiel à la frontière entre l\'Italie et la Suisse',
 };
 
 export default blogMetaFr;
