@@ -18,12 +18,10 @@ describe('followup-drainer trigger durability', () => {
     expect(WORKFLOW).toContain('cancel-in-progress: false');
   });
 
-  it('mantiene la misura storica #7581 ma con mutex dedicato', () => {
-    expect(WORKFLOW).toMatch(/group:\s*followup-drainer-\$\{\{\s*github\.repository\s*\}\}/);
+  it('condivide il mutex daily a livello di run', () => {
     expect(WORKFLOW).not.toMatch(/group:\s*followup-drainer-\$\{\{\s*github\.repository\s*\}\}-\$\{\{\s*github\.event\.issue\.number/);
-    expect(WORKFLOW).toMatch(/group:\s*followup-drainer-scan-\$\{\{\s*github\.repository\s*\}\}/);
-    expect(WORKFLOW).not.toMatch(/group:\s*followup-daily-\$\{\{\s*github\.repository\s*\}\}/);
-    expect(WORKFLOW).toContain('1,426/1,710 historical runs (83.4%)');
+    expect(WORKFLOW).toMatch(/group:\s*followup-daily-\$\{\{\s*github\.repository\s*\}\}/);
+    expect(WORKFLOW).not.toMatch(/group:\s*followup-drainer-\$\{\{\s*github\.repository\s*\}\}/);
   });
 
   it('propaga al drainer il fallback Codex già usato da issue-fix', () => {

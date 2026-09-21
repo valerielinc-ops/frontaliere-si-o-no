@@ -42,8 +42,16 @@ const DAILY_WRITER_WORKFLOWS = [
   'post-merge-followup.yml',
   'followup-reconcile.yml',
 ];
+const DRAINER_WORKFLOW = 'followup-drainer.yml';
 
 function dailyWriterWorkflow(name: string) {
+  const path = fileURLToPath(new URL(`../.github/workflows/${name}`, import.meta.url));
+  return YAML.parse(readFileSync(path, 'utf8')) as {
+    concurrency?: { group?: string; 'cancel-in-progress'?: boolean };
+  };
+}
+
+function dailyWorkflow(name: string) {
   const path = fileURLToPath(new URL(`../.github/workflows/${name}`, import.meta.url));
   return YAML.parse(readFileSync(path, 'utf8')) as {
     concurrency?: { group?: string; 'cancel-in-progress'?: boolean };
@@ -58,6 +66,12 @@ describe('daily writer concurrency contract', () => {
       DAILY_MUTEX_GROUP,
     ]);
     expect(workflows.every((workflow) => workflow.concurrency?.['cancel-in-progress'] === false)).toBe(true);
+  });
+
+  it('il drainer acquisisce lo stesso lock daily prima di leggere la coda', () => {
+    const workflow = dailyWorkflow(DRAINER_WORKFLOW);
+    expect(workflow.concurrency?.group).toBe(DAILY_MUTEX_GROUP);
+    expect(workflow.concurrency?.['cancel-in-progress']).toBe(false);
   });
 });
 

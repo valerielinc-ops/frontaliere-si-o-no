@@ -33,6 +33,7 @@ import {
 
 const REPO_ROOT = resolve(dirname(fileURLToPath(import.meta.url)), '..');
 const GATE = join(REPO_ROOT, 'scripts', 'ci', 'pr-body-check-gate.mjs');
+const SIBLING_GATE = join(REPO_ROOT, 'scripts', 'ci', 'sibling-check-gate.mjs');
 const args = process.argv.slice(2);
 
 const FLAG_ALIASES = {
@@ -221,6 +222,39 @@ function runGate(bodyFile) {
     return BODY_FILE_INFRA;
   }
   return result.status ?? BODY_FILE_INFRA;
+}
+
+function shellQuote(value) {
+  return `'${String(value).replaceAll("'", "'\\''")}'`;
+}
+
+/**
+ * The Actions wrapper is the remote equivalent of Claude's local PreToolUse
+ * hook. Keep the invocation on the same sibling-check-gate module instead of
+ * maintaining a second candidate/body implementation. `--head HEAD` pins the
+ * check to the committed tree that the agent is about to publish; pre-push
+ * already checked the same SHA, but this is the final PR-opening barrier.
+ */
+function runSiblingGate(effectiveBodyFile) {
+  const gateArgs = bodyFile === '-' ? replaceBodyFileArg(effectiveBodyFile) : args;
+  const command = [
+    'gh',
+    ...gateArgs,
+    '--body-file',
+    shellQuote(effectiveBodyFile),
+    '--head',
+    'HEAD',
+  ].map((value) => (value.startsWith("'") ? value : shellQuote(value))).join(' ');
+  const payload = JSON.stringify({
+    tool_name: 'Bash',
+    tool_input: { command, cwd: process.cwd() },
+  });
+  const result = spawnSync(
+    process.execPath,
+    [SIBLING_GATE],
+    { cwd: process.cwd(), env: process.env, input: payload, stdio: ['pipe', 'inherit', 'inherit'] },
+  );
+  return result.error ? BODY_FILE_INFRA : (result.status ?? BODY_FILE_INFRA);
 }
 
 function runRealGh({ bestEffort = false, commandArgs = args } = {}) {
@@ -449,21 +483,33 @@ if (!mutation) {
       );
       process.exitCode = 0;
     } else {
-      const commandArgs = bodyFile === '-' ? replaceBodyFileArg(effectiveBodyFile) : args;
-      const target = mutation.subcommand === 'edit' ? pullRequestTarget() : null;
-      const expectedRevision = normalizeReviewInputRevision(process.env.PR_BODY_EXPECTED_REVISION || '');
-      if (mutation.subcommand === 'edit' && expectedRevision && !bodyOnlyEdit(target)) {
-        process.exitCode = block('body CAS richiede una modifica body-only; separa titolo/label dalla scrittura del body');
-      } else if (mutation.subcommand === 'edit' && bodyOnlyEdit(target)) {
-        process.exitCode = runConditionalBodyEdit(effectiveBodyFile, target);
-      } else if (mutation.subcommand === 'edit' && !verifyExpectedBodyRevision()) {
-        process.exitCode = EXIT_BLOCK;
+      const siblingStatus = mutation.subcommand === 'create'
+        ? runSiblingGate(effectiveBodyFile)
+        : 0;
+      if (siblingStatus !== 0) {
+        if (siblingStatus !== EXIT_BLOCK) {
+          workflowWarning(
+            `verifica sibling non completata (exit ${siblingStatus}); nessuna PR aperta`,
+          );
+        }
+        process.exitCode = siblingStatus === EXIT_BLOCK ? EXIT_BLOCK : BODY_FILE_INFRA;
       } else {
-        const remoteStatus = runRealGh({ bestEffort: mutation.subcommand === 'create', commandArgs });
-        process.exitCode = remoteStatus;
-        if (mutation.subcommand === 'edit' && remoteStatus === 0
-            && !verifyWrittenBodyRevision(effectiveBodyFile)) {
+        const commandArgs = bodyFile === '-' ? replaceBodyFileArg(effectiveBodyFile) : args;
+        const target = mutation.subcommand === 'edit' ? pullRequestTarget() : null;
+        const expectedRevision = normalizeReviewInputRevision(process.env.PR_BODY_EXPECTED_REVISION || '');
+        if (mutation.subcommand === 'edit' && expectedRevision && !bodyOnlyEdit(target)) {
+          process.exitCode = block('body CAS richiede una modifica body-only; separa titolo/label dalla scrittura del body');
+        } else if (mutation.subcommand === 'edit' && bodyOnlyEdit(target)) {
+          process.exitCode = runConditionalBodyEdit(effectiveBodyFile, target);
+        } else if (mutation.subcommand === 'edit' && !verifyExpectedBodyRevision()) {
           process.exitCode = EXIT_BLOCK;
+        } else {
+          const remoteStatus = runRealGh({ bestEffort: mutation.subcommand === 'create', commandArgs });
+          process.exitCode = remoteStatus;
+          if (mutation.subcommand === 'edit' && remoteStatus === 0
+              && !verifyWrittenBodyRevision(effectiveBodyFile)) {
+            process.exitCode = EXIT_BLOCK;
+          }
         }
       }
     }

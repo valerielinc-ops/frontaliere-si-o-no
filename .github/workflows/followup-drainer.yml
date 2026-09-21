@@ -22,16 +22,12 @@ on:
     workflows: ['Issue fix (Codex Luna Max → PR)']
     types: [completed]
 
-# Il gruppo della run è repo-scoped: ogni wake-up legge la stessa coda condivisa
-# e non deve eseguire scansioni concorrenti su issue diverse. Il job mantiene un
-# semaforo globale dedicato come seconda barriera; il cron resta il recupero se
-# una pending viene sostituita durante un burst.
+# Il gruppo della run è il mutex repo-scoped condiviso con i writer daily:
+# nessun wake-up può leggere lo stesso bucket mentre viene appeso o sigillato.
+# cancel:false e il cron rendono recuperabile una pending sostituita durante
+# un burst.
 concurrency:
-  # Regression #7581: 1,426/1,710 historical runs (83.4%) were cancelled when
-  # workflow_run alimentava un gruppo condiviso con i writer daily. Separare il
-  # mutex elimina lo sfratto strutturale; cron e idempotenza recuperano eventuali
-  # pending perse.
-  group: followup-drainer-${{ github.repository }}
+  group: followup-daily-${{ github.repository }}
   cancel-in-progress: false
 
 permissions:
@@ -41,10 +37,6 @@ permissions:
 
 jobs:
   drain:
-    # Serializza la scansione condivisa senza riusare il mutex dei writer daily.
-    concurrency:
-      group: followup-drainer-scan-${{ github.repository }}
-      cancel-in-progress: false
     if: >-
       github.event_name != 'issues' ||
       github.event.label.name == 'agent:fix-queued' ||
