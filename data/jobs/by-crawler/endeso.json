@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "endeso-277af4da9b39",
-      "slug": "regionalbetreiber-bern-region-bern-endeso-ch",
+      "slug": "operatore-regionale-berna-endeso-gmbh-region-bern",
       "slugByLocale": {
         "de": "regionalbetreiber-bern-region-bern-endeso-ch",
-        "it": "regionalbetreiber-bern-region-bern-endeso-ch",
-        "en": "regionalbetreiber-bern-region-bern-endeso-ch",
-        "fr": "regionalbetreiber-bern-region-bern-endeso-ch"
+        "it": "operatore-regionale-berna-endeso-gmbh-region-bern",
+        "en": "regional-operator-bern-endeso-gmbh-region-bern",
+        "fr": "operateur-regional-bern-endeso-gmbh-region-bern"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -66,16 +66,30 @@
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T23:00:29.195Z"
+      "firstSeenAt": "2026-09-19T23:00:29.195Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "regionalbetreiber-bern-region-bern-endeso-ch"
+        ],
+        "en": [
+          "regionalbetreiber-bern-region-bern-endeso-ch"
+        ],
+        "fr": [
+          "regionalbetreiber-bern-region-bern-endeso-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regionalbetreiber-bern-region-bern-endeso-ch"
+      ]
     },
     {
       "id": "endeso-bebfd27b943c",
-      "slug": "praktikum-im-kundendienst-der-direkte-weg-zur-festanstellung-frauenfeld-endeso-ch",
+      "slug": "stage-nel-servizio-clienti-il-percorso-diretto-per-l-occupazione-permanente-endeso-gmbh-frauenfeld",
       "slugByLocale": {
         "de": "praktikum-im-kundendienst-der-direkte-weg-zur-festanstellung-frauenfeld-endeso-ch",
-        "it": "praktikum-im-kundendienst-der-direkte-weg-zur-festanstellung-frauenfeld-endeso-ch",
-        "en": "praktikum-im-kundendienst-der-direkte-weg-zur-festanstellung-frauenfeld-endeso-ch",
-        "fr": "praktikum-im-kundendienst-der-direkte-weg-zur-festanstellung-frauenfeld-endeso-ch"
+        "it": "stage-nel-servizio-clienti-il-percorso-diretto-per-l-occupazione-permanente-endeso-gmbh-frauenfeld",
+        "en": "internship-in-customer-service-the-direct-path-to-permanent-employment-endeso-gmbh-frauenfeld",
+        "fr": "stage-en-service-a-la-clientele-la-voie-directe-vers-l-emploi-permanent-endeso-gmbh-frauenfeld"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -132,16 +146,30 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T23:00:29.193Z"
+      "firstSeenAt": "2026-09-19T23:00:29.193Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-im-kundendienst-der-direkte-weg-zur-festanstellung-frauenfeld-endeso-ch"
+        ],
+        "en": [
+          "praktikum-im-kundendienst-der-direkte-weg-zur-festanstellung-frauenfeld-endeso-ch"
+        ],
+        "fr": [
+          "praktikum-im-kundendienst-der-direkte-weg-zur-festanstellung-frauenfeld-endeso-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-im-kundendienst-der-direkte-weg-zur-festanstellung-frauenfeld-endeso-ch"
+      ]
     },
     {
       "id": "endeso-2bbd6a5ad26f",
-      "slug": "recruiting-amp-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch",
+      "slug": "reclutamento-e-interviste-specialistiche-endeso-gmbh-frauenfeld",
       "slugByLocale": {
         "de": "recruiting-amp-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch",
-        "it": "recruiting-amp-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch",
-        "en": "recruiting-amp-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch",
-        "fr": "recruiting-amp-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch"
+        "it": "reclutamento-e-interviste-specialistiche-endeso-gmbh-frauenfeld",
+        "en": "recruiting-specialist-interviews-housekeeping-endeso-gmbh-frauenfeld",
+        "fr": "recrutement-et-entrevues-de-specialistes-endeso-gmbh-frauenfeld"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -198,7 +226,21 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T23:00:29.191Z"
+      "firstSeenAt": "2026-09-19T23:00:29.191Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "recruiting-amp-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch"
+        ],
+        "en": [
+          "recruiting-amp-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch"
+        ],
+        "fr": [
+          "recruiting-amp-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch"
+        ]
+      },
+      "previousSlugs": [
+        "recruiting-amp-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch"
+      ]
     },
     {
       "id": "endeso-dd1fa0ab22db",
@@ -206,8 +248,8 @@
       "slugByLocale": {
         "de": "regionale-reprasentantin-swissbutler-luzern-endeso-ch",
         "it": "regionale-reprasentantin-swissbutler-luzern-endeso-ch",
-        "en": "regionale-reprasentantin-swissbutler-luzern-endeso-ch",
-        "fr": "regionale-reprasentantin-swissbutler-luzern-endeso-ch"
+        "en": "regional-representative-swissbutler-endeso-gmbh-luzern",
+        "fr": "representant-regional-suisse-endeso-gmbh-luzern"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -268,12 +310,12 @@
     },
     {
       "id": "endeso-2f9a1ce2abd1",
-      "slug": "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch",
+      "slug": "housekeeper-impiegato-in-stipendio-mensile-famiglia-privata-endeso-gmbh-zug",
       "slugByLocale": {
         "de": "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch",
-        "it": "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch",
-        "en": "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch",
-        "fr": "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch"
+        "it": "housekeeper-impiegato-in-stipendio-mensile-famiglia-privata-endeso-gmbh-zug",
+        "en": "housekeeper-employed-in-monthly-salary-private-household-endeso-gmbh-zug",
+        "fr": "menage-employe-dans-le-salaire-mensuel-menage-prive-endeso-gmbh-zug"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -330,16 +372,30 @@
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T23:00:29.189Z"
+      "firstSeenAt": "2026-09-19T23:00:29.189Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch"
+        ],
+        "en": [
+          "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch"
+        ],
+        "fr": [
+          "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch"
+        ]
+      },
+      "previousSlugs": [
+        "haushalterin-im-monatsgehalt-angestellt-privathaushalt-zug-endeso-ch"
+      ]
     },
     {
       "id": "endeso-cfb4d432ca3b",
-      "slug": "chefgartner-in-per-la-parkanlage-eines-schlosses-endeso-gmbh-zug",
+      "slug": "capo-giardiniere-per-il-parcheggio-di-un-castello-endeso-gmbh-zug",
       "slugByLocale": {
         "de": "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch",
-        "it": "chefgartner-in-per-la-parkanlage-eines-schlosses-endeso-gmbh-zug",
-        "en": "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch",
-        "fr": "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch"
+        "it": "capo-giardiniere-per-il-parcheggio-di-un-castello-endeso-gmbh-zug",
+        "en": "chief-gardener-for-the-parking-of-a-castle-endeso-gmbh-zug",
+        "fr": "chef-jardinier-pour-le-parking-d-un-chateau-endeso-gmbh-zug"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -398,11 +454,19 @@
       "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
+          "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch",
+          "chefgartner-in-per-la-parkanlage-eines-schlosses-endeso-gmbh-zug"
+        ],
+        "en": [
+          "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch"
+        ],
+        "fr": [
           "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch"
         ]
       },
       "previousSlugs": [
-        "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch"
+        "chefgartner-in-fur-die-parkanlage-eines-schlosses-zug-endeso-ch",
+        "chefgartner-in-per-la-parkanlage-eines-schlosses-endeso-gmbh-zug"
       ],
       "firstSeenAt": "2026-09-19T23:00:29.183Z"
     },
@@ -488,12 +552,12 @@
     },
     {
       "id": "endeso-cdeb6adcab82",
-      "slug": "hr-fachspezialist-in-lohn-frauenfeld-endeso-ch",
+      "slug": "specialista-delle-risorse-umane-vecchia-endeso-gmbh-frauenfeld",
       "slugByLocale": {
         "de": "hr-fachspezialist-in-lohn-frauenfeld-endeso-ch",
-        "it": "hr-fachspezialist-in-lohn-frauenfeld-endeso-ch",
-        "en": "hr-fachspezialist-in-lohn-frauenfeld-endeso-ch",
-        "fr": "hr-fachspezialist-in-lohn-frauenfeld-endeso-ch"
+        "it": "specialista-delle-risorse-umane-vecchia-endeso-gmbh-frauenfeld",
+        "en": "hr-specialist-wage-endeso-gmbh-frauenfeld",
+        "fr": "specialiste-des-ressources-humaines-salaires-endeso-gmbh-frauenfeld"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -550,16 +614,30 @@
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
-      "firstSeenAt": "2026-09-19T23:00:29.179Z"
+      "firstSeenAt": "2026-09-19T23:00:29.179Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hr-fachspezialist-in-lohn-frauenfeld-endeso-ch"
+        ],
+        "en": [
+          "hr-fachspezialist-in-lohn-frauenfeld-endeso-ch"
+        ],
+        "fr": [
+          "hr-fachspezialist-in-lohn-frauenfeld-endeso-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hr-fachspezialist-in-lohn-frauenfeld-endeso-ch"
+      ]
     },
     {
       "id": "endeso-abdf1a8ad051",
-      "slug": "remote-grafiker-in-per-webgrafiken-come-freelance-endeso-gmbh-thurgau-bodensee",
+      "slug": "remote-graphic-designer-per-la-grafica-web-come-freelance-endeso-gmbh-thurgau-bodensee",
       "slugByLocale": {
         "de": "remote-grafiker-in-fur-webgrafiken-als-freelance-thurgau-bodensee-endeso-ch",
-        "it": "remote-grafiker-in-per-webgrafiken-come-freelance-endeso-gmbh-thurgau-bodensee",
-        "en": "remote-grafiker-in-fur-webgrafiken-als-freelance-thurgau-bodensee-endeso-ch",
-        "fr": "remote-grafiker-in-fur-webgrafiken-als-freelance-thurgau-bodensee-endeso-ch"
+        "it": "remote-graphic-designer-per-la-grafica-web-come-freelance-endeso-gmbh-thurgau-bodensee",
+        "en": "remote-graphic-designer-for-web-graphics-as-freelance-endeso-gmbh-thurgau-bodensee",
+        "fr": "remote-graphiste-pour-les-graphiques-web-freelance-endeso-gmbh-thurgau-bodensee"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -618,22 +696,30 @@
       "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
+          "remote-grafiker-in-fur-webgrafiken-als-freelance-thurgau-bodensee-endeso-ch",
+          "remote-grafiker-in-per-webgrafiken-come-freelance-endeso-gmbh-thurgau-bodensee"
+        ],
+        "en": [
+          "remote-grafiker-in-fur-webgrafiken-als-freelance-thurgau-bodensee-endeso-ch"
+        ],
+        "fr": [
           "remote-grafiker-in-fur-webgrafiken-als-freelance-thurgau-bodensee-endeso-ch"
         ]
       },
       "previousSlugs": [
-        "remote-grafiker-in-fur-webgrafiken-als-freelance-thurgau-bodensee-endeso-ch"
+        "remote-grafiker-in-fur-webgrafiken-als-freelance-thurgau-bodensee-endeso-ch",
+        "remote-grafiker-in-per-webgrafiken-come-freelance-endeso-gmbh-thurgau-bodensee"
       ],
       "firstSeenAt": "2026-09-19T23:00:29.174Z"
     },
     {
       "id": "endeso-2dc7d53cbe3c",
-      "slug": "praktikum-personalwesen-e-disposition-option-auf-festanstellung-endeso-gmbh-frauenfeld",
+      "slug": "internship-risorse-umane-e-disposizione-opzione-permanente-per-l-occupazione-endeso-gmbh-frauenfeld",
       "slugByLocale": {
         "de": "praktikum-personalwesen-und-disposition-option-auf-festanstellung-frauenfeld-endeso-ch",
-        "it": "praktikum-personalwesen-e-disposition-option-auf-festanstellung-endeso-gmbh-frauenfeld",
-        "en": "praktikum-personalwesen-und-disposition-option-auf-festanstellung-frauenfeld-endeso-ch",
-        "fr": "praktikum-personalwesen-und-disposition-option-auf-festanstellung-frauenfeld-endeso-ch"
+        "it": "internship-risorse-umane-e-disposizione-opzione-permanente-per-l-occupazione-endeso-gmbh-frauenfeld",
+        "en": "internship-human-resources-and-disposition-permanent-employment-option-endeso-gmbh-frauenfeld",
+        "fr": "stage-ressources-humaines-et-disposition-option-emploi-permanent-endeso-gmbh-frauenfeld"
       },
       "company": "endeso GmbH",
       "companyKey": "endeso",
@@ -692,11 +778,19 @@
       "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-personalwesen-und-disposition-option-auf-festanstellung-frauenfeld-endeso-ch",
+          "praktikum-personalwesen-e-disposition-option-auf-festanstellung-endeso-gmbh-frauenfeld"
+        ],
+        "en": [
+          "praktikum-personalwesen-und-disposition-option-auf-festanstellung-frauenfeld-endeso-ch"
+        ],
+        "fr": [
           "praktikum-personalwesen-und-disposition-option-auf-festanstellung-frauenfeld-endeso-ch"
         ]
       },
       "previousSlugs": [
-        "praktikum-personalwesen-und-disposition-option-auf-festanstellung-frauenfeld-endeso-ch"
+        "praktikum-personalwesen-und-disposition-option-auf-festanstellung-frauenfeld-endeso-ch",
+        "praktikum-personalwesen-e-disposition-option-auf-festanstellung-endeso-gmbh-frauenfeld"
       ],
       "firstSeenAt": "2026-09-19T23:00:29.167Z"
     }

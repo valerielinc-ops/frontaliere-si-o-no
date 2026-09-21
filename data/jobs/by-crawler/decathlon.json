@@ -3682,12 +3682,12 @@
     },
     {
       "id": "decathlon-ee0064181a5e",
-      "slug": "capo-squadra-abteilungsleiter-m-w-d-100-chur-decathlon-chur",
+      "slug": "team-leader-dipartimento-manager-m-f-d-100-copertina-decathlon-chur",
       "slugByLocale": {
         "de": "team-leader-abteilungsleiter-m-w-d-100-chur-decathlon-ch",
-        "it": "capo-squadra-abteilungsleiter-m-w-d-100-chur-decathlon-chur",
+        "it": "team-leader-dipartimento-manager-m-f-d-100-copertina-decathlon-chur",
         "en": "team-leader-abteilungsleiter-m-w-d-100-chur-decathlon-ch",
-        "fr": "team-leader-abteilungsleiter-m-w-d-100-chur-decathlon-ch"
+        "fr": "chef-d-equipe-directeur-de-departement-h-f-d-100-chur-decathlon-chur"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3745,21 +3745,26 @@
       "firstSeenAt": "2026-09-19T23:07:45.720Z",
       "previousSlugsByLocale": {
         "it": [
+          "team-leader-abteilungsleiter-m-w-d-100-chur-decathlon-ch",
+          "capo-squadra-abteilungsleiter-m-w-d-100-chur-decathlon-chur"
+        ],
+        "fr": [
           "team-leader-abteilungsleiter-m-w-d-100-chur-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "team-leader-abteilungsleiter-m-w-d-100-chur-decathlon-ch"
+        "team-leader-abteilungsleiter-m-w-d-100-chur-decathlon-ch",
+        "capo-squadra-abteilungsleiter-m-w-d-100-chur-decathlon-chur"
       ]
     },
     {
       "id": "decathlon-3d67a5e79381",
-      "slug": "sport-leader-verkaufsberater-m-w-d-20-befristet-bern-shoppyland-decathlon-urtenen-schonbuhl",
+      "slug": "leader-sportivo-consulente-commerciale-m-f-d-20-temporaneo-bern-shoppyland-decathlon-urtenen-schonbuhl",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-20-befristet-bern-shoppyland-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-m-w-d-20-befristet-bern-shoppyland-decathlon-urtenen-schonbuhl",
-        "en": "sport-leader-verkaufsberater-m-w-d-20-befristet-bern-shoppyland-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-20-befristet-bern-shoppyland-decathlon-ch"
+        "it": "leader-sportivo-consulente-commerciale-m-f-d-20-temporaneo-bern-shoppyland-decathlon-urtenen-schonbuhl",
+        "en": "sport-leader-sales-advisor-m-f-d-20-temporary-bern-shoppyland-decathlon-urtenen-schonbuhl",
+        "fr": "leader-sportif-conseiller-commercial-h-f-d-20-temporaire-bern-shoppyland-decathlon-urtenen-schonbuhl"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3803,11 +3808,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sport-leader-verkaufsberater-m-w-d-20-befristet-bern-shoppyland-decathlon-ch",
+          "sport-leader-verkaufsberater-m-w-d-20-befristet-bern-shoppyland-decathlon-urtenen-schonbuhl"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-20-befristet-bern-shoppyland-decathlon-ch"
+        ],
+        "fr": [
           "sport-leader-verkaufsberater-m-w-d-20-befristet-bern-shoppyland-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-20-befristet-bern-shoppyland-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-20-befristet-bern-shoppyland-decathlon-ch",
+        "sport-leader-verkaufsberater-m-w-d-20-befristet-bern-shoppyland-decathlon-urtenen-schonbuhl"
       ],
       "salaryMin": 15500,
       "salaryMax": 23700,
@@ -3890,12 +3903,12 @@
     },
     {
       "id": "decathlon-9cec54c7a2e5",
-      "slug": "befristet-sport-leader-verkaufsberater-m-w-d-60-80-wintersport-basel-decathlon-basel",
+      "slug": "temporary-sports-leader-sales-advisor-m-f-d-60-80-sport-invernali-basilea-decathlon-basel",
       "slugByLocale": {
         "de": "befristet-sport-leader-verkaufsberater-m-w-d-60-80-wintersport-basel-decathlon-ch",
-        "it": "befristet-sport-leader-verkaufsberater-m-w-d-60-80-wintersport-basel-decathlon-basel",
-        "en": "befristet-sport-leader-verkaufsberater-m-w-d-60-80-wintersport-basel-decathlon-ch",
-        "fr": "befristet-sport-leader-verkaufsberater-m-w-d-60-80-wintersport-basel-decathlon-ch"
+        "it": "temporary-sports-leader-sales-advisor-m-f-d-60-80-sport-invernali-basilea-decathlon-basel",
+        "en": "temporary-sports-leader-sales-advisor-m-f-d-60-80-winter-sports-basel-decathlon-basel",
+        "fr": "leader-sportif-temporaire-conseiller-en-ventes-h-f-d-60-80-sports-d-hiver-bale-decathlon-basel"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -3939,11 +3952,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "befristet-sport-leader-verkaufsberater-m-w-d-60-80-wintersport-basel-decathlon-ch",
+          "befristet-sport-leader-verkaufsberater-m-w-d-60-80-wintersport-basel-decathlon-basel"
+        ],
+        "en": [
+          "befristet-sport-leader-verkaufsberater-m-w-d-60-80-wintersport-basel-decathlon-ch"
+        ],
+        "fr": [
           "befristet-sport-leader-verkaufsberater-m-w-d-60-80-wintersport-basel-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "befristet-sport-leader-verkaufsberater-m-w-d-60-80-wintersport-basel-decathlon-ch"
+        "befristet-sport-leader-verkaufsberater-m-w-d-60-80-wintersport-basel-decathlon-ch",
+        "befristet-sport-leader-verkaufsberater-m-w-d-60-80-wintersport-basel-decathlon-basel"
       ],
       "salaryMin": 59200,
       "salaryMax": 90800,
@@ -4027,12 +4048,12 @@
     },
     {
       "id": "decathlon-5b63d3b87071",
-      "slug": "befristet-sport-leader-verkaufsberater-m-w-d-20-40-skivermietung-decathlon-suhr",
+      "slug": "temporary-sport-leader-sales-advisor-m-f-d-20-40-noleggio-sci-decathlon-suhr",
       "slugByLocale": {
         "de": "befristet-sport-leader-verkaufsberater-m-w-d-20-40-skivermietung-decathlon-ch",
-        "it": "befristet-sport-leader-verkaufsberater-m-w-d-20-40-skivermietung-decathlon-suhr",
-        "en": "befristet-sport-leader-verkaufsberater-m-w-d-20-40-skivermietung-decathlon-ch",
-        "fr": "befristet-sport-leader-verkaufsberater-m-w-d-20-40-skivermietung-decathlon-ch"
+        "it": "temporary-sport-leader-sales-advisor-m-f-d-20-40-noleggio-sci-decathlon-suhr",
+        "en": "temporary-sport-leader-sales-advisor-m-f-d-20-40-ski-rental-decathlon-suhr",
+        "fr": "leader-sportif-temporaire-conseiller-commercial-h-f-d-20-40-location-de-ski-decathlon-suhr"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4076,11 +4097,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "befristet-sport-leader-verkaufsberater-m-w-d-20-40-skivermietung-decathlon-ch",
+          "befristet-sport-leader-verkaufsberater-m-w-d-20-40-skivermietung-decathlon-suhr"
+        ],
+        "en": [
+          "befristet-sport-leader-verkaufsberater-m-w-d-20-40-skivermietung-decathlon-ch"
+        ],
+        "fr": [
           "befristet-sport-leader-verkaufsberater-m-w-d-20-40-skivermietung-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "befristet-sport-leader-verkaufsberater-m-w-d-20-40-skivermietung-decathlon-ch"
+        "befristet-sport-leader-verkaufsberater-m-w-d-20-40-skivermietung-decathlon-ch",
+        "befristet-sport-leader-verkaufsberater-m-w-d-20-40-skivermietung-decathlon-suhr"
       ],
       "salaryMin": 29600,
       "salaryMax": 45400,
@@ -4099,12 +4128,12 @@
     },
     {
       "id": "decathlon-c418c905a03d",
-      "slug": "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-befristet-decathlon-rickenbach",
+      "slug": "leader-sportivo-consulente-commerciale-m-f-d-40-decathlon-rickenbach-temporaneo-decathlon-rickenbach",
       "slugByLocale": {
         "de": "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-befristet-decathlon-ch",
-        "it": "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-befristet-decathlon-rickenbach",
-        "en": "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-befristet-decathlon-ch",
-        "fr": "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-befristet-decathlon-ch"
+        "it": "leader-sportivo-consulente-commerciale-m-f-d-40-decathlon-rickenbach-temporaneo-decathlon-rickenbach",
+        "en": "sport-leader-sales-advisor-m-f-d-40-decathlon-rickenbach-temporary-decathlon-rickenbach",
+        "fr": "leader-sportif-conseiller-commercial-h-f-d-40-decathlon-rickenbach-temporaire-decathlon-rickenbach"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4148,11 +4177,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-befristet-decathlon-ch",
+          "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-befristet-decathlon-rickenbach"
+        ],
+        "en": [
+          "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-befristet-decathlon-ch"
+        ],
+        "fr": [
           "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-befristet-decathlon-ch"
         ]
       },
       "previousSlugs": [
-        "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-befristet-decathlon-ch"
+        "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-befristet-decathlon-ch",
+        "sport-leader-verkaufsberater-m-w-d-40-decathlon-rickenbach-befristet-decathlon-rickenbach"
       ],
       "salaryMin": 28800,
       "salaryMax": 44400,
@@ -4171,12 +4208,12 @@
     },
     {
       "id": "decathlon-357abf5d576b",
-      "slug": "unbefristet-sport-leader-verkaufsberater-m-w-d-50-bergsport-basel-decathlon-ch",
+      "slug": "indefinite-sport-leader-sales-advisor-m-f-d-50-mountain-sports-basel-decathlon-basel",
       "slugByLocale": {
         "de": "unbefristet-sport-leader-verkaufsberater-m-w-d-50-bergsport-basel-decathlon-ch",
-        "it": "unbefristet-sport-leader-verkaufsberater-m-w-d-50-bergsport-basel-decathlon-ch",
+        "it": "indefinite-sport-leader-sales-advisor-m-f-d-50-mountain-sports-basel-decathlon-basel",
         "en": "unbefristet-sport-leader-verkaufsberater-m-w-d-50-bergsport-basel-decathlon-ch",
-        "fr": "unbefristet-sport-leader-verkaufsberater-m-w-d-50-bergsport-basel-decathlon-ch"
+        "fr": "leader-sportif-indefini-conseiller-en-ventes-h-f-d-50-mountain-sports-bale-decathlon-basel"
       },
       "company": "Decathlon",
       "companyKey": "decathlon",
@@ -4231,7 +4268,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:07:43.069Z"
+      "firstSeenAt": "2026-09-19T23:07:43.069Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "unbefristet-sport-leader-verkaufsberater-m-w-d-50-bergsport-basel-decathlon-ch"
+        ],
+        "fr": [
+          "unbefristet-sport-leader-verkaufsberater-m-w-d-50-bergsport-basel-decathlon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "unbefristet-sport-leader-verkaufsberater-m-w-d-50-bergsport-basel-decathlon-ch"
+      ]
     },
     {
       "id": "decathlon-07a146ee896d",

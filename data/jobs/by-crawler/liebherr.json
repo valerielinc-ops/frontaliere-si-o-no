@@ -476,12 +476,12 @@
     },
     {
       "id": "liebherr-79ad1460baab",
-      "slug": "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
+      "slug": "transfer-prezzo-studente-di-lavoro-60-80-liebherr-nussbaumen",
       "slugByLocale": {
         "en": "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
-        "it": "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
-        "de": "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
-        "fr": "transfer-pricing-working-student-60-80-liebherr-nussbaumen"
+        "it": "transfer-prezzo-studente-di-lavoro-60-80-liebherr-nussbaumen",
+        "de": "transferpreise-arbeitsstudent-60-80-liebherr-nussbaumen",
+        "fr": "prix-de-transfert-etudiant-travailleur-60-80-liebherr-nussbaumen"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -537,7 +537,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:15:15.582Z"
+      "firstSeenAt": "2026-09-19T23:15:15.582Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "transfer-pricing-working-student-60-80-liebherr-nussbaumen"
+        ],
+        "de": [
+          "transfer-pricing-working-student-60-80-liebherr-nussbaumen"
+        ],
+        "fr": [
+          "transfer-pricing-working-student-60-80-liebherr-nussbaumen"
+        ]
+      },
+      "previousSlugs": [
+        "transfer-pricing-working-student-60-80-liebherr-nussbaumen"
+      ]
     },
     {
       "id": "liebherr-250751af3911",
@@ -862,12 +876,12 @@
     },
     {
       "id": "liebherr-decbac76aebb",
-      "slug": "apprenti-employe-de-commerce-h-f-x-rentree-2027-liebherr-bulle",
+      "slug": "apprendista-commerciale-h-f-x-inizio-2027-liebherr-bulle",
       "slugByLocale": {
         "fr": "apprenti-employe-de-commerce-h-f-x-rentree-2027-liebherr-bulle",
-        "it": "apprenti-employe-de-commerce-h-f-x-rentree-2027-liebherr-bulle",
-        "en": "apprenti-employe-de-commerce-h-f-x-rentree-2027-liebherr-bulle",
-        "de": "apprenti-employe-de-commerce-h-f-x-rentree-2027-liebherr-bulle"
+        "it": "apprendista-commerciale-h-f-x-inizio-2027-liebherr-bulle",
+        "en": "commercial-apprentice-h-f-x-start-2027-liebherr-bulle",
+        "de": "handelsapprentiz-h-f-x-beginn-2027-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -925,7 +939,21 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:15:13.668Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-employe-de-commerce-h-f-x-rentree-2027-liebherr-bulle"
+        ],
+        "en": [
+          "apprenti-employe-de-commerce-h-f-x-rentree-2027-liebherr-bulle"
+        ],
+        "de": [
+          "apprenti-employe-de-commerce-h-f-x-rentree-2027-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-employe-de-commerce-h-f-x-rentree-2027-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-3b8dc1f1ad58",
@@ -1008,12 +1036,12 @@
     },
     {
       "id": "liebherr-db71cfa0a015",
-      "slug": "mecanicien-outilleur-cnc-liebherr-bulle",
+      "slug": "strumento-meccanico-cnc-liebherr-bulle",
       "slugByLocale": {
         "fr": "mecanicien-outilleur-cnc-liebherr-bulle",
-        "it": "mecanicien-outilleur-cnc-liebherr-bulle",
-        "en": "mecanicien-outilleur-cnc-liebherr-bulle",
-        "de": "mecanicien-outilleur-cnc-liebherr-bulle"
+        "it": "strumento-meccanico-cnc-liebherr-bulle",
+        "en": "cnc-mechanic-tool-liebherr-bulle",
+        "de": "cnc-mechanisches-werkzeug-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1069,7 +1097,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:15:12.867Z"
+      "firstSeenAt": "2026-09-19T23:15:12.867Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mecanicien-outilleur-cnc-liebherr-bulle"
+        ],
+        "en": [
+          "mecanicien-outilleur-cnc-liebherr-bulle"
+        ],
+        "de": [
+          "mecanicien-outilleur-cnc-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "mecanicien-outilleur-cnc-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-6fe27c3c767f",
@@ -1608,12 +1650,12 @@
     },
     {
       "id": "liebherr-8ae7e463bccf",
-      "slug": "apprenti-dessinateur-constructeur-industriel-h-f-x-rentree-2027-liebherr-bulle",
+      "slug": "apprendista-disegnatore-costruttore-industriale-h-f-x-inizio-2027-liebherr-bulle",
       "slugByLocale": {
         "fr": "apprenti-dessinateur-constructeur-industriel-h-f-x-rentree-2027-liebherr-bulle",
-        "it": "apprenti-dessinateur-constructeur-industriel-h-f-x-rentree-2027-liebherr-bulle",
-        "en": "apprenti-dessinateur-constructeur-industriel-h-f-x-rentree-2027-liebherr-bulle",
-        "de": "apprenti-dessinateur-constructeur-industriel-h-f-x-rentree-2027-liebherr-bulle"
+        "it": "apprendista-disegnatore-costruttore-industriale-h-f-x-inizio-2027-liebherr-bulle",
+        "en": "industrial-draftsman-constructor-apprentice-h-f-x-start-2027-liebherr-bulle",
+        "de": "industriezeichner-constructor-praktikant-h-f-x-start-2027-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1671,7 +1713,21 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:15:09.719Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-dessinateur-constructeur-industriel-h-f-x-rentree-2027-liebherr-bulle"
+        ],
+        "en": [
+          "apprenti-dessinateur-constructeur-industriel-h-f-x-rentree-2027-liebherr-bulle"
+        ],
+        "de": [
+          "apprenti-dessinateur-constructeur-industriel-h-f-x-rentree-2027-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-dessinateur-constructeur-industriel-h-f-x-rentree-2027-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-5247f4283f10",
@@ -1833,12 +1889,12 @@
     },
     {
       "id": "liebherr-9a2087a76fa9",
-      "slug": "bachelor-masterarbeit-im-technology-innovation-management-m-w-d-liebherr-baden",
+      "slug": "tesi-di-laurea-master-in-tecnologia-innovation-management-m-f-d-liebherr-baden",
       "slugByLocale": {
         "de": "bachelor-masterarbeit-im-technology-innovation-management-m-w-d-liebherr-baden",
-        "it": "bachelor-masterarbeit-im-technology-innovation-management-m-w-d-liebherr-baden",
+        "it": "tesi-di-laurea-master-in-tecnologia-innovation-management-m-f-d-liebherr-baden",
         "en": "bachelor-masterarbeit-im-technology-innovation-management-m-w-d-liebherr-baden",
-        "fr": "bachelor-masterarbeit-im-technology-innovation-management-m-w-d-liebherr-baden"
+        "fr": "baccalaureat-maitrise-en-technologie-et-gestion-de-l-innovation-h-f-d-liebherr-baden"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -1894,7 +1950,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:15:08.543Z"
+      "firstSeenAt": "2026-09-19T23:15:08.543Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bachelor-masterarbeit-im-technology-innovation-management-m-w-d-liebherr-baden"
+        ],
+        "fr": [
+          "bachelor-masterarbeit-im-technology-innovation-management-m-w-d-liebherr-baden"
+        ]
+      },
+      "previousSlugs": [
+        "bachelor-masterarbeit-im-technology-innovation-management-m-w-d-liebherr-baden"
+      ]
     },
     {
       "id": "liebherr-22a7e988b83f",
@@ -2069,12 +2136,12 @@
     },
     {
       "id": "liebherr-fb39c8f3840f",
-      "slug": "stagiaire-mpc-3-1-h-f-x-rentree-2027-liebherr-bulle",
+      "slug": "intern-mpc-3-1-m-f-x-ritorno-2027-liebherr-bulle",
       "slugByLocale": {
         "fr": "stagiaire-mpc-3-1-h-f-x-rentree-2027-liebherr-bulle",
-        "it": "stagiaire-mpc-3-1-h-f-x-rentree-2027-liebherr-bulle",
-        "en": "stagiaire-mpc-3-1-h-f-x-rentree-2027-liebherr-bulle",
-        "de": "stagiaire-mpc-3-1-h-f-x-rentree-2027-liebherr-bulle"
+        "it": "intern-mpc-3-1-m-f-x-ritorno-2027-liebherr-bulle",
+        "en": "intern-mpc-3-1-m-f-x-return-2027-liebherr-bulle",
+        "de": "intern-mpc-3-1-m-w-x-ruckkehr-2027-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2130,16 +2197,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:15:07.342Z"
+      "firstSeenAt": "2026-09-19T23:15:07.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stagiaire-mpc-3-1-h-f-x-rentree-2027-liebherr-bulle"
+        ],
+        "en": [
+          "stagiaire-mpc-3-1-h-f-x-rentree-2027-liebherr-bulle"
+        ],
+        "de": [
+          "stagiaire-mpc-3-1-h-f-x-rentree-2027-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "stagiaire-mpc-3-1-h-f-x-rentree-2027-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-cf5ed4e3e0fd",
-      "slug": "apprenti-logisticien-h-f-x-rentree-2027-liebherr-bulle",
+      "slug": "apprendista-addetto-alla-logistica-m-f-x-ritorno-al-2027-liebherr-bulle",
       "slugByLocale": {
         "fr": "apprenti-logisticien-h-f-x-rentree-2027-liebherr-bulle",
-        "it": "apprenti-logisticien-h-f-x-rentree-2027-liebherr-bulle",
+        "it": "apprendista-addetto-alla-logistica-m-f-x-ritorno-al-2027-liebherr-bulle",
         "en": "apprenti-logisticien-h-f-x-rentree-2027-liebherr-bulle",
-        "de": "apprenti-logisticien-h-f-x-rentree-2027-liebherr-bulle"
+        "de": "apprenti-logistien-m-w-x-ruckkehr-2027-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -2197,7 +2278,18 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:15:06.927Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-logisticien-h-f-x-rentree-2027-liebherr-bulle"
+        ],
+        "de": [
+          "apprenti-logisticien-h-f-x-rentree-2027-liebherr-bulle"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-logisticien-h-f-x-rentree-2027-liebherr-bulle"
+      ]
     },
     {
       "id": "liebherr-d8ae44289f51",
@@ -2278,9 +2370,9 @@
     },
     {
       "id": "liebherr-5006b8cc15c6",
-      "slug": "group-internal-auditor-m-w-d-liebherr-nussbaumen",
+      "slug": "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen",
       "slugByLocale": {
-        "it": "group-internal-auditor-m-w-d-liebherr-nussbaumen",
+        "it": "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen",
         "en": "group-internal-auditor-m-w-d-liebherr-nussbaumen",
         "de": "group-internal-auditor-m-w-d-liebherr-nussbaumen",
         "fr": "groupe-auditeur-interne-h-f-d-liebherr-nussbaumen"
@@ -2326,12 +2418,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen-15530f",
-        "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen"
+        "group-internal-auditor-m-w-d-liebherr-nussbaumen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen-15530f",
-          "auditore-interno-gruppo-m-f-d-liebherr-nussbaumen"
+          "group-internal-auditor-m-w-d-liebherr-nussbaumen"
         ]
       },
       "firstSeenAt": "2026-09-04T13:49:36.119Z",
@@ -4960,12 +5052,12 @@
     },
     {
       "id": "liebherr-b2c132525b1e",
-      "slug": "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2",
+      "slug": "transfer-prezzo-studente-di-lavoro-60-80-liebherr-nussbaumen-05e489",
       "slugByLocale": {
         "en": "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
-        "it": "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2",
-        "de": "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2",
-        "fr": "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2"
+        "it": "transfer-prezzo-studente-di-lavoro-60-80-liebherr-nussbaumen-05e489",
+        "de": "transferpreise-arbeitsstudent-60-80-liebherr-nussbaumen-05e489",
+        "fr": "prix-de-transfert-etudiant-travailleur-60-80-liebherr-nussbaumen-05e489"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -5024,11 +5116,19 @@
       "firstSeenAt": "2026-09-19T23:14:52.484Z",
       "previousSlugsByLocale": {
         "it": [
-          "transfer-pricing-working-student-60-80-liebherr-nussbaumen"
+          "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
+          "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2"
+        ],
+        "de": [
+          "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2"
+        ],
+        "fr": [
+          "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2"
         ]
       },
       "previousSlugs": [
-        "transfer-pricing-working-student-60-80-liebherr-nussbaumen"
+        "transfer-pricing-working-student-60-80-liebherr-nussbaumen",
+        "transfer-pricing-working-student-60-80-liebherr-nussbaumen-2"
       ]
     },
     {
@@ -5726,10 +5826,10 @@
     },
     {
       "id": "liebherr-464913ecbe0f",
-      "slug": "test-technician-m-w-x-liebherr-bulle",
+      "slug": "test-tecnico-m-f-x-liebherr-bulle",
       "slugByLocale": {
         "en": "test-technician-m-w-x-liebherr-bulle",
-        "it": "test-technician-m-w-x-liebherr-bulle",
+        "it": "test-tecnico-m-f-x-liebherr-bulle",
         "de": "test-techniker-m-w-x-liebherr-bulle",
         "fr": "test-technicien-m-w-x-liebherr-bulle"
       },
@@ -5791,12 +5891,14 @@
       "previousSlugsByLocale": {
         "it": [
           "technician-m-f-x-liebherr-bulle",
-          "technician-m-w-d-liebherr-bulle"
+          "technician-m-w-d-liebherr-bulle",
+          "test-technician-m-w-x-liebherr-bulle"
         ]
       },
       "previousSlugs": [
         "technician-m-f-x-liebherr-bulle",
-        "technician-m-w-d-liebherr-bulle"
+        "technician-m-w-d-liebherr-bulle",
+        "test-technician-m-w-x-liebherr-bulle"
       ]
     },
     {
@@ -6613,12 +6715,12 @@
     },
     {
       "id": "liebherr-c24242f3b056",
-      "slug": "development-engineer-exhaust-after-treatment-temporary-contract-12-months-m-w-x-liebherr",
+      "slug": "esaurimento-dell-ingegnere-di-sviluppo-dopo-il-trattamento-contratto-temporaneo-12-mesi-m-f-x-liebherr-bulle",
       "slugByLocale": {
         "en": "development-engineer-exhaust-after-treatment-temporary-contract-12-months-m-w-x-liebherr",
-        "it": "development-engineer-exhaust-after-treatment-temporary-contract-12-months-m-w-x-liebherr",
-        "de": "development-engineer-exhaust-after-treatment-temporary-contract-12-months-m-w-x-liebherr",
-        "fr": "development-engineer-exhaust-after-treatment-temporary-contract-12-months-m-w-x-liebherr"
+        "it": "esaurimento-dell-ingegnere-di-sviluppo-dopo-il-trattamento-contratto-temporaneo-12-mesi-m-f-x-liebherr-bulle",
+        "de": "entwicklungsingenieur-nachbehandlung-vorubergehender-vertrag-12-monate-m-w-x-liebherr-bulle",
+        "fr": "ingenieur-de-developpement-echappement-apres-traitement-contrat-temporaire-12-mois-h-f-x-liebherr-bulle"
       },
       "company": "Liebherr",
       "companyKey": "liebherr",
@@ -6674,7 +6776,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:14:43.246Z"
+      "firstSeenAt": "2026-09-19T23:14:43.246Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "development-engineer-exhaust-after-treatment-temporary-contract-12-months-m-w-x-liebherr"
+        ],
+        "de": [
+          "development-engineer-exhaust-after-treatment-temporary-contract-12-months-m-w-x-liebherr"
+        ],
+        "fr": [
+          "development-engineer-exhaust-after-treatment-temporary-contract-12-months-m-w-x-liebherr"
+        ]
+      },
+      "previousSlugs": [
+        "development-engineer-exhaust-after-treatment-temporary-contract-12-months-m-w-x-liebherr"
+      ]
     },
     {
       "id": "liebherr-36c8b25356df",

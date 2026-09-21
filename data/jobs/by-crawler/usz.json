@@ -15059,12 +15059,12 @@
     },
     {
       "id": "usz-4410e8dbce52",
-      "slug": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
+      "slug": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-        "it": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-        "en": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
-        "fr": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch"
+        "it": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
+        "en": "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich",
+        "fr": "pre-internat-en-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15120,7 +15120,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:10.378Z"
+      "firstSeenAt": "2026-09-19T23:11:10.378Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch"
+        ],
+        "en": [
+          "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch"
+        ],
+        "fr": [
+          "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch"
+      ]
     },
     {
       "id": "usz-004b01ff0d98",
@@ -15205,12 +15219,12 @@
     },
     {
       "id": "usz-a4342091a8d4",
-      "slug": "assistenzarztin-assistenzarzt-m-w-d-klinik-per-immunologie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "assistente-medico-m-f-d-clinica-per-immunologia-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch",
-        "it": "assistenzarztin-assistenzarzt-m-w-d-klinik-per-immunologie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch",
-        "fr": "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch"
+        "it": "assistente-medico-m-f-d-clinica-per-immunologia-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "assistant-physician-m-f-d-clinic-for-immunology-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "medecin-adjoint-h-f-d-clinique-d-immunologie-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15255,11 +15269,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch",
+          "assistenzarztin-assistenzarzt-m-w-d-klinik-per-immunologie-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch"
+        ],
+        "fr": [
           "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch"
+        "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch",
+        "assistenzarztin-assistenzarzt-m-w-d-klinik-per-immunologie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15278,12 +15300,12 @@
     },
     {
       "id": "usz-a334820f2ab8",
-      "slug": "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch",
+      "slug": "radiologia-specializzata-radiologia-interventistica-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch",
-        "it": "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch",
-        "en": "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch",
-        "fr": "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch"
+        "it": "radiologia-specializzata-radiologia-interventistica-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "radiology-specialist-interventional-radiology-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "radiologie-interventionnelle-specialisee-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15339,7 +15361,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:10.376Z"
+      "firstSeenAt": "2026-09-19T23:11:10.376Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch"
+        ],
+        "en": [
+          "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch"
+        ],
+        "fr": [
+          "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-9b69c1e64dbe",
@@ -15348,7 +15384,7 @@
         "de": "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch",
         "it": "senior-system-ingegnere-architetto-fokus-oneidentity-e-iam-gesamtarchitektur-80-100-universitatsspital-zurich-usz-zurich",
         "en": "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch",
-        "fr": "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch"
+        "fr": "ingenieur-de-systeme-architecte-principal-centre-oneidentity-et-architecture-globale-iam-80-100-universitatsspital"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15393,6 +15429,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch"
+        ],
+        "fr": [
           "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch"
         ]
       },
@@ -15495,12 +15534,12 @@
     },
     {
       "id": "usz-306196bd27f5",
-      "slug": "spezialpflege-expertin-experte-w-m-d-anasthesiepflege-mkg-orl-aug-plastische",
+      "slug": "cura-speciale-esperto-esperto-m-f-d-anestesia-cura-mkg-orl-aug-plastica-neurochirurgia-50-100-universitatsspital-zurich",
       "slugByLocale": {
         "de": "spezialpflege-expertin-experte-w-m-d-anasthesiepflege-mkg-orl-aug-plastische",
-        "it": "spezialpflege-expertin-experte-w-m-d-anasthesiepflege-mkg-orl-aug-plastische",
-        "en": "spezialpflege-expertin-experte-w-m-d-anasthesiepflege-mkg-orl-aug-plastische",
-        "fr": "spezialpflege-expertin-experte-w-m-d-anasthesiepflege-mkg-orl-aug-plastische"
+        "it": "cura-speciale-esperto-esperto-m-f-d-anestesia-cura-mkg-orl-aug-plastica-neurochirurgia-50-100-universitatsspital-zurich",
+        "en": "special-care-expert-expert-m-f-d-anesthesia-care-mkg-orl-aug-plastic-neurosurgery-50-100-universitatsspital-zurich-usz",
+        "fr": "soins-speciaux-expert-expert-h-f-d-soins-anesthesie-mkg-orl-aug-plastique-neurochirurgie-50-100-universitatsspital"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15556,16 +15595,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:10.371Z"
+      "firstSeenAt": "2026-09-19T23:11:10.371Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialpflege-expertin-experte-w-m-d-anasthesiepflege-mkg-orl-aug-plastische"
+        ],
+        "en": [
+          "spezialpflege-expertin-experte-w-m-d-anasthesiepflege-mkg-orl-aug-plastische"
+        ],
+        "fr": [
+          "spezialpflege-expertin-experte-w-m-d-anasthesiepflege-mkg-orl-aug-plastische"
+        ]
+      },
+      "previousSlugs": [
+        "spezialpflege-expertin-experte-w-m-d-anasthesiepflege-mkg-orl-aug-plastische"
+      ]
     },
     {
       "id": "usz-cd6a8cd011d2",
-      "slug": "schichtverantwortliche-r-aemp-80-100-usz-ch",
+      "slug": "shift-responsabile-r-aemp-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "schichtverantwortliche-r-aemp-80-100-usz-ch",
-        "it": "schichtverantwortliche-r-aemp-80-100-usz-ch",
-        "en": "schichtverantwortliche-r-aemp-80-100-usz-ch",
-        "fr": "schichtverantwortliche-r-aemp-80-100-usz-ch"
+        "it": "shift-responsabile-r-aemp-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "shift-responsible-r-aemp-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "poste-responsable-r-aemp-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15621,16 +15674,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:10.370Z"
+      "firstSeenAt": "2026-09-19T23:11:10.370Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schichtverantwortliche-r-aemp-80-100-usz-ch"
+        ],
+        "en": [
+          "schichtverantwortliche-r-aemp-80-100-usz-ch"
+        ],
+        "fr": [
+          "schichtverantwortliche-r-aemp-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "schichtverantwortliche-r-aemp-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-aa52f0f9fa81",
-      "slug": "pflegefachperson-per-la-kardiologie-e-herzchirurgie-40-100-universitatsspital-zurich-usz-zurich",
+      "slug": "infermiere-cardiochirurgia-40-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch",
-        "it": "pflegefachperson-per-la-kardiologie-e-herzchirurgie-40-100-universitatsspital-zurich-usz-zurich",
-        "en": "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch",
-        "fr": "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch"
+        "it": "infermiere-cardiochirurgia-40-100-universitatsspital-zurich-usz-zurich",
+        "en": "cardiology-and-cardiac-surgery-nurse-40-100-universitatsspital-zurich-usz-zurich",
+        "fr": "infirmiere-en-cardiologie-et-chirurgie-cardiaque-40-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15675,11 +15742,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch",
+          "pflegefachperson-per-la-kardiologie-e-herzchirurgie-40-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch"
+        ],
+        "fr": [
           "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch"
+        "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch",
+        "pflegefachperson-per-la-kardiologie-e-herzchirurgie-40-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -15698,12 +15773,12 @@
     },
     {
       "id": "usz-8b24c9cc8b23",
-      "slug": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch",
+      "slug": "servizi-coordinatori-finanza-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch",
-        "it": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch",
-        "en": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch",
-        "fr": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
+        "it": "servizi-coordinatori-finanza-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "coordinator-services-finance-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "coordonnatrice-services-finances-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -15759,7 +15834,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:10.369Z"
+      "firstSeenAt": "2026-09-19T23:11:10.369Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
+        ],
+        "en": [
+          "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
+        ],
+        "fr": [
+          "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-7699f7069324",
@@ -16054,12 +16143,12 @@
     },
     {
       "id": "usz-68988eab8c2b",
-      "slug": "pflegeexpert-in-nurse-practitioner-tumorpfad-dermatoonkologie-w-m-d-80-100-usz-ch",
+      "slug": "infermiera-practitioner-tumor-pathway-dermatooncology-m-f-d-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "pflegeexpert-in-nurse-practitioner-tumorpfad-dermatoonkologie-w-m-d-80-100-usz-ch",
-        "it": "pflegeexpert-in-nurse-practitioner-tumorpfad-dermatoonkologie-w-m-d-80-100-usz-ch",
-        "en": "pflegeexpert-in-nurse-practitioner-tumorpfad-dermatoonkologie-w-m-d-80-100-usz-ch",
-        "fr": "pflegeexpert-in-nurse-practitioner-tumorpfad-dermatoonkologie-w-m-d-80-100-usz-ch"
+        "it": "infermiera-practitioner-tumor-pathway-dermatooncology-m-f-d-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "care-expert-nurse-practitioner-tumor-pathway-dermatooncology-m-f-d-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "infirmiere-praticienne-dermatooncologie-voie-tumorale-h-f-d-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16115,7 +16204,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:10.363Z"
+      "firstSeenAt": "2026-09-19T23:11:10.363Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpert-in-nurse-practitioner-tumorpfad-dermatoonkologie-w-m-d-80-100-usz-ch"
+        ],
+        "en": [
+          "pflegeexpert-in-nurse-practitioner-tumorpfad-dermatoonkologie-w-m-d-80-100-usz-ch"
+        ],
+        "fr": [
+          "pflegeexpert-in-nurse-practitioner-tumorpfad-dermatoonkologie-w-m-d-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpert-in-nurse-practitioner-tumorpfad-dermatoonkologie-w-m-d-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-8e29c3f87d1b",
@@ -16283,8 +16386,8 @@
       "slugByLocale": {
         "de": "ernahrungsberater-n-therapeut-in-bsc-in-ernahrung-und-diatetik-80-100-usz-ch",
         "it": "ernahrungsberater-n-therapeut-in-bsc-in-ernahrung-e-diatetik-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "ernahrungsberater-n-therapeut-in-bsc-in-ernahrung-und-diatetik-80-100-usz-ch",
-        "fr": "ernahrungsberater-n-therapeut-in-bsc-in-ernahrung-und-diatetik-80-100-usz-ch"
+        "en": "nutritionist-n-therapist-in-bsc-in-nutrition-and-dietetics-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "nutritionniste-n-therapeute-en-bsc-en-nutrition-et-dietetique-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16331,6 +16434,12 @@
       "previousSlugsByLocale": {
         "it": [
           "ernahrungsberater-n-therapeut-in-bsc-in-ernahrung-und-diatetik-80-100-usz-ch"
+        ],
+        "en": [
+          "ernahrungsberater-n-therapeut-in-bsc-in-ernahrung-und-diatetik-80-100-usz-ch"
+        ],
+        "fr": [
+          "ernahrungsberater-n-therapeut-in-bsc-in-ernahrung-und-diatetik-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
@@ -16353,12 +16462,12 @@
     },
     {
       "id": "usz-3e8643dbf2e3",
-      "slug": "pflegefachperson-per-la-interdisziplinare-privatstation-innere-medizin-onkologie-hamatologie-70-100-universitatsspital-zurich-usz-zurich",
+      "slug": "specialista-infermieristico-per-l-unita-privata-interdisciplinare-medicina-interna-oncologia-ematologia-70-100",
       "slugByLocale": {
         "de": "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie",
-        "it": "pflegefachperson-per-la-interdisziplinare-privatstation-innere-medizin-onkologie-hamatologie-70-100-universitatsspital-zurich-usz-zurich",
-        "en": "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie",
-        "fr": "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie"
+        "it": "specialista-infermieristico-per-l-unita-privata-interdisciplinare-medicina-interna-oncologia-ematologia-70-100",
+        "en": "nursing-specialist-for-the-interdisciplinary-private-unit-internal-medicine-oncology-hematology-70-100",
+        "fr": "specialiste-des-soins-infirmiers-pour-l-unite-privee-interdisciplinaire-medecine-interne-oncologie-hematologie-70-100"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16407,7 +16516,14 @@
           "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie-hamatolo",
           "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie-hamatolo-2",
           "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie-hamatologie-40-70-universitatsspital-z",
-          "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie-hamatologie-70-100-universitatsspital-"
+          "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie-hamatologie-70-100-universitatsspital-",
+          "pflegefachperson-per-la-interdisziplinare-privatstation-innere-medizin-onkologie-hamatologie-70-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie"
+        ],
+        "fr": [
+          "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie"
         ]
       },
       "previousSlugs": [
@@ -16415,7 +16531,8 @@
         "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie-hamatolo",
         "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie-hamatolo-2",
         "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie-hamatologie-40-70-universitatsspital-z",
-        "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie-hamatologie-70-100-universitatsspital-"
+        "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie-hamatologie-70-100-universitatsspital-",
+        "pflegefachperson-per-la-interdisziplinare-privatstation-innere-medizin-onkologie-hamatologie-70-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16434,12 +16551,12 @@
     },
     {
       "id": "usz-ec004752f095",
-      "slug": "fachperson-gesundheit-cfc-per-la-abteilung-stamm-e-immunzelltherapie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "specialista-sanitario-efz-per-il-dipartimento-di-terapia-cellulare-stem-e-immune-80-100-universitatsspital-zurich-usz",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-fur-die-abteilung-stamm-und-immunzelltherapie-80-100-usz-ch",
-        "it": "fachperson-gesundheit-cfc-per-la-abteilung-stamm-e-immunzelltherapie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "fachperson-gesundheit-efz-fur-die-abteilung-stamm-und-immunzelltherapie-80-100-usz-ch",
-        "fr": "fachperson-gesundheit-efz-fur-die-abteilung-stamm-und-immunzelltherapie-80-100-usz-ch"
+        "it": "specialista-sanitario-efz-per-il-dipartimento-di-terapia-cellulare-stem-e-immune-80-100-universitatsspital-zurich-usz",
+        "en": "health-specialist-efz-for-the-department-of-stem-and-immune-cell-therapy-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "specialiste-de-la-sante-efz-pour-le-departement-de-therapie-par-cellules-souches-et-immunitaires-80-100"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16484,11 +16601,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachperson-gesundheit-efz-fur-die-abteilung-stamm-und-immunzelltherapie-80-100-usz-ch",
+          "fachperson-gesundheit-cfc-per-la-abteilung-stamm-e-immunzelltherapie-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-fur-die-abteilung-stamm-und-immunzelltherapie-80-100-usz-ch"
+        ],
+        "fr": [
           "fachperson-gesundheit-efz-fur-die-abteilung-stamm-und-immunzelltherapie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "fachperson-gesundheit-efz-fur-die-abteilung-stamm-und-immunzelltherapie-80-100-usz-ch"
+        "fachperson-gesundheit-efz-fur-die-abteilung-stamm-und-immunzelltherapie-80-100-usz-ch",
+        "fachperson-gesundheit-cfc-per-la-abteilung-stamm-e-immunzelltherapie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16507,12 +16632,12 @@
     },
     {
       "id": "usz-22ded3035dd1",
-      "slug": "hochschulpraktikant-in-health-data-analyst-80-100-usz-ch",
+      "slug": "stage-universitario-dati-sanitari-analista-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "hochschulpraktikant-in-health-data-analyst-80-100-usz-ch",
-        "it": "hochschulpraktikant-in-health-data-analyst-80-100-usz-ch",
+        "it": "stage-universitario-dati-sanitari-analista-80-100-universitatsspital-zurich-usz-zurich",
         "en": "hochschulpraktikant-in-health-data-analyst-80-100-usz-ch",
-        "fr": "hochschulpraktikant-in-health-data-analyst-80-100-usz-ch"
+        "fr": "stagiaire-universitaire-analyste-des-donnees-sur-la-sante-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16568,16 +16693,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:10.355Z"
+      "firstSeenAt": "2026-09-19T23:11:10.355Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hochschulpraktikant-in-health-data-analyst-80-100-usz-ch"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-health-data-analyst-80-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "hochschulpraktikant-in-health-data-analyst-80-100-usz-ch"
+      ]
     },
     {
       "id": "usz-9967203313ac",
-      "slug": "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host",
+      "slug": "professore-aggiunto-supporto-per-junior-group-leader-position-in-virologia-e-o-interazioni-host-pathogen-80-100",
       "slugByLocale": {
         "en": "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host",
-        "it": "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host",
-        "de": "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host",
-        "fr": "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host"
+        "it": "professore-aggiunto-supporto-per-junior-group-leader-position-in-virologia-e-o-interazioni-host-pathogen-80-100",
+        "de": "assistenzprofessur-unterstutzung-fur-junior-group-leader-position-in-virologie-und-oder-host-pathogen-interaktionen-80",
+        "fr": "professeur-adjoint-soutien-au-poste-de-chef-de-groupe-junior-en-virologie-et-ou-en-interaction-hote-pathogene-80-100"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16633,16 +16769,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:10.352Z"
+      "firstSeenAt": "2026-09-19T23:11:10.352Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host"
+        ],
+        "de": [
+          "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host"
+        ],
+        "fr": [
+          "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host"
+      ]
     },
     {
       "id": "usz-14e285706723",
-      "slug": "teamleiter-in-patienten-e-kurierservices-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "servizi-di-pazienti-e-corrieri-leader-del-team-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "teamleiter-in-patienten-und-kurierservices-80-100-usz-ch",
-        "it": "teamleiter-in-patienten-e-kurierservices-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "teamleiter-in-patienten-und-kurierservices-80-100-usz-ch",
-        "fr": "teamleiter-in-patienten-und-kurierservices-80-100-usz-ch"
+        "it": "servizi-di-pazienti-e-corrieri-leader-del-team-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "team-leader-patient-and-courier-services-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "chef-d-equipe-services-de-patient-et-de-messagerie-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16687,11 +16837,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "teamleiter-in-patienten-und-kurierservices-80-100-usz-ch",
+          "teamleiter-in-patienten-e-kurierservices-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "teamleiter-in-patienten-und-kurierservices-80-100-usz-ch"
+        ],
+        "fr": [
           "teamleiter-in-patienten-und-kurierservices-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "teamleiter-in-patienten-und-kurierservices-80-100-usz-ch"
+        "teamleiter-in-patienten-und-kurierservices-80-100-usz-ch",
+        "teamleiter-in-patienten-e-kurierservices-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16710,12 +16868,12 @@
     },
     {
       "id": "usz-4f7a04372615",
-      "slug": "spezialpflege-gruppenleitung-per-la-internistisch-gefuhrte-interdisziplinare-imc-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "assistenza-speciale-gestione-del-gruppo-per-l-icm-interdisciplinare-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "spezialpflege-gruppenleitung-fur-die-internistisch-gefuhrte-interdisziplinare-imc-80-100",
-        "it": "spezialpflege-gruppenleitung-per-la-internistisch-gefuhrte-interdisziplinare-imc-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "spezialpflege-gruppenleitung-fur-die-internistisch-gefuhrte-interdisziplinare-imc-80-100",
-        "fr": "spezialpflege-gruppenleitung-fur-die-internistisch-gefuhrte-interdisziplinare-imc-80-100"
+        "it": "assistenza-speciale-gestione-del-gruppo-per-l-icm-interdisciplinare-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "special-care-group-management-for-the-interdisciplinary-imc-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "soins-speciaux-gestion-de-groupe-pour-imc-interdisciplinaire-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16760,11 +16918,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "spezialpflege-gruppenleitung-fur-die-internistisch-gefuhrte-interdisziplinare-imc-80-100",
+          "spezialpflege-gruppenleitung-per-la-internistisch-gefuhrte-interdisziplinare-imc-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "spezialpflege-gruppenleitung-fur-die-internistisch-gefuhrte-interdisziplinare-imc-80-100"
+        ],
+        "fr": [
           "spezialpflege-gruppenleitung-fur-die-internistisch-gefuhrte-interdisziplinare-imc-80-100"
         ]
       },
       "previousSlugs": [
-        "spezialpflege-gruppenleitung-fur-die-internistisch-gefuhrte-interdisziplinare-imc-80-100"
+        "spezialpflege-gruppenleitung-fur-die-internistisch-gefuhrte-interdisziplinare-imc-80-100",
+        "spezialpflege-gruppenleitung-per-la-internistisch-gefuhrte-interdisziplinare-imc-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -16929,12 +17095,12 @@
     },
     {
       "id": "usz-73a2efb0f1c4",
-      "slug": "pflegefachperson-per-la-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "infermiera-per-il-reparto-privato-di-traumatologia-varie-missioni-possibili-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "pflegefachperson-fur-die-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80",
-        "it": "pflegefachperson-per-la-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "pflegefachperson-fur-die-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80",
-        "fr": "pflegefachperson-fur-die-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80"
+        "it": "infermiera-per-il-reparto-privato-di-traumatologia-varie-missioni-possibili-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "nurse-for-the-private-ward-of-traumatology-various-missions-possible-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "infirmiere-du-service-prive-de-traumatologie-diverses-missions-possibles-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -16979,11 +17145,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "pflegefachperson-fur-die-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80",
+          "pflegefachperson-per-la-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "pflegefachperson-fur-die-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80"
+        ],
+        "fr": [
           "pflegefachperson-fur-die-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80"
         ]
       },
       "previousSlugs": [
-        "pflegefachperson-fur-die-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80"
+        "pflegefachperson-fur-die-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80",
+        "pflegefachperson-per-la-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17002,12 +17176,12 @@
     },
     {
       "id": "usz-140a20aafb15",
-      "slug": "berufsbildner-in-pflege-per-la-bettenstation-dermatologie-80-100-fixe-dienste-e-tage-moglich-universitatsspital-zurich-usz-zurich",
+      "slug": "cura-per-la-stazione-di-letto-dermatology-80-100-servizi-fissi-e-giorni-possibili-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "berufsbildner-in-pflege-fur-die-bettenstation-dermatologie-80-100-fixe-dienste-und-tage",
-        "it": "berufsbildner-in-pflege-per-la-bettenstation-dermatologie-80-100-fixe-dienste-e-tage-moglich-universitatsspital-zurich-usz-zurich",
-        "en": "berufsbildner-in-pflege-fur-die-bettenstation-dermatologie-80-100-fixe-dienste-und-tage",
-        "fr": "berufsbildner-in-pflege-fur-die-bettenstation-dermatologie-80-100-fixe-dienste-und-tage"
+        "it": "cura-per-la-stazione-di-letto-dermatology-80-100-servizi-fissi-e-giorni-possibili-universitatsspital-zurich-usz-zurich",
+        "en": "care-for-the-bed-station-dermatology-80-100-fixed-services-and-days-possible-universitatsspital-zurich-usz-zurich",
+        "fr": "soins-pour-la-station-lit-dermatologie-80-100-services-fixes-et-jours-possibles-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17052,11 +17226,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "berufsbildner-in-pflege-fur-die-bettenstation-dermatologie-80-100-fixe-dienste-und-tage",
+          "berufsbildner-in-pflege-per-la-bettenstation-dermatologie-80-100-fixe-dienste-e-tage-moglich-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "berufsbildner-in-pflege-fur-die-bettenstation-dermatologie-80-100-fixe-dienste-und-tage"
+        ],
+        "fr": [
           "berufsbildner-in-pflege-fur-die-bettenstation-dermatologie-80-100-fixe-dienste-und-tage"
         ]
       },
       "previousSlugs": [
-        "berufsbildner-in-pflege-fur-die-bettenstation-dermatologie-80-100-fixe-dienste-und-tage"
+        "berufsbildner-in-pflege-fur-die-bettenstation-dermatologie-80-100-fixe-dienste-und-tage",
+        "berufsbildner-in-pflege-per-la-bettenstation-dermatologie-80-100-fixe-dienste-e-tage-moglich-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17075,12 +17257,12 @@
     },
     {
       "id": "usz-7e0c9a2bca55",
-      "slug": "assistenzarztin-assistenzarzt-m-w-d-per-la-klinik-per-radio-onkologie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "assistente-medico-m-f-d-per-la-clinica-di-radio-oncologia-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-radio-onkologie-80-100-usz-ch",
-        "it": "assistenzarztin-assistenzarzt-m-w-d-per-la-klinik-per-radio-onkologie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-radio-onkologie-80-100-usz-ch",
-        "fr": "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-radio-onkologie-80-100-usz-ch"
+        "it": "assistente-medico-m-f-d-per-la-clinica-di-radio-oncologia-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "assistant-physician-m-f-d-for-the-clinic-of-radio-oncology-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "medecin-adjoint-h-f-d-pour-la-clinique-de-radio-oncologie-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17125,11 +17307,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-radio-onkologie-80-100-usz-ch",
+          "assistenzarztin-assistenzarzt-m-w-d-per-la-klinik-per-radio-onkologie-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-radio-onkologie-80-100-usz-ch"
+        ],
+        "fr": [
           "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-radio-onkologie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-radio-onkologie-80-100-usz-ch"
+        "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-radio-onkologie-80-100-usz-ch",
+        "assistenzarztin-assistenzarzt-m-w-d-per-la-klinik-per-radio-onkologie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17148,12 +17338,12 @@
     },
     {
       "id": "usz-78573231d61d",
-      "slug": "oberarztin-oberarzt-m-w-d-institut-per-notfallmedizin-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "medico-senior-medico-senior-m-f-d-istituto-di-medicina-di-emergenza-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-w-m-d-institut-fur-notfallmedizin-80-100-usz-ch",
-        "it": "oberarztin-oberarzt-m-w-d-institut-per-notfallmedizin-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "oberarztin-oberarzt-w-m-d-institut-fur-notfallmedizin-80-100-usz-ch",
-        "fr": "oberarztin-oberarzt-w-m-d-institut-fur-notfallmedizin-80-100-usz-ch"
+        "it": "medico-senior-medico-senior-m-f-d-istituto-di-medicina-di-emergenza-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "senior-physician-senior-physician-m-f-d-institute-of-emergency-medicine-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "medecin-principal-medecin-principal-h-f-d-institut-de-medecine-d-urgence-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17198,11 +17388,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "oberarztin-oberarzt-w-m-d-institut-fur-notfallmedizin-80-100-usz-ch",
+          "oberarztin-oberarzt-m-w-d-institut-per-notfallmedizin-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "oberarztin-oberarzt-w-m-d-institut-fur-notfallmedizin-80-100-usz-ch"
+        ],
+        "fr": [
           "oberarztin-oberarzt-w-m-d-institut-fur-notfallmedizin-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-w-m-d-institut-fur-notfallmedizin-80-100-usz-ch"
+        "oberarztin-oberarzt-w-m-d-institut-fur-notfallmedizin-80-100-usz-ch",
+        "oberarztin-oberarzt-m-w-d-institut-per-notfallmedizin-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17221,12 +17419,12 @@
     },
     {
       "id": "usz-084c14755654",
-      "slug": "pflegefachperson-hamato-onkologie-60-100-usz-ch",
+      "slug": "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "pflegefachperson-hamato-onkologie-60-100-usz-ch",
-        "it": "pflegefachperson-hamato-onkologie-60-100-usz-ch",
-        "en": "pflegefachperson-hamato-onkologie-60-100-usz-ch",
-        "fr": "pflegefachperson-hamato-onkologie-60-100-usz-ch"
+        "it": "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
+        "en": "nursing-professional-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
+        "fr": "specialiste-des-soins-infirmiers-hemato-oncologie-60-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17282,7 +17480,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:10.336Z"
+      "firstSeenAt": "2026-09-19T23:11:10.336Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachperson-hamato-onkologie-60-100-usz-ch"
+        ],
+        "en": [
+          "pflegefachperson-hamato-onkologie-60-100-usz-ch"
+        ],
+        "fr": [
+          "pflegefachperson-hamato-onkologie-60-100-usz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachperson-hamato-onkologie-60-100-usz-ch"
+      ]
     },
     {
       "id": "usz-336aa73bcdbb",
@@ -17367,12 +17579,12 @@
     },
     {
       "id": "usz-dfd4b627b193",
-      "slug": "collaboratore-trice-security-im-personen-objektschutz-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "sicurezza-dei-dipendenti-nella-protezione-personale-oggetto-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-security-im-personen-objektschutz-80-100-usz-ch",
-        "it": "collaboratore-trice-security-im-personen-objektschutz-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "mitarbeiter-in-security-im-personen-objektschutz-80-100-usz-ch",
-        "fr": "mitarbeiter-in-security-im-personen-objektschutz-80-100-usz-ch"
+        "it": "sicurezza-dei-dipendenti-nella-protezione-personale-oggetto-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "employee-security-in-personal-object-protection-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "securite-des-employes-en-matiere-de-protection-des-personnes-des-objets-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17417,11 +17629,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-security-im-personen-objektschutz-80-100-usz-ch",
+          "collaboratore-trice-security-im-personen-objektschutz-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-security-im-personen-objektschutz-80-100-usz-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-security-im-personen-objektschutz-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-security-im-personen-objektschutz-80-100-usz-ch"
+        "mitarbeiter-in-security-im-personen-objektschutz-80-100-usz-ch",
+        "collaboratore-trice-security-im-personen-objektschutz-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17440,12 +17660,12 @@
     },
     {
       "id": "usz-8c06afbe4185",
-      "slug": "direktionsassistent-in-klinik-per-kardiologie-80-100-universitatsspital-zurich-usz-zurich",
+      "slug": "direzione-assistente-clinica-di-cardiologia-80-100-universitatsspital-zurich-usz-zurich",
       "slugByLocale": {
         "de": "direktionsassistent-in-klinik-fur-kardiologie-80-100-usz-ch",
-        "it": "direktionsassistent-in-klinik-per-kardiologie-80-100-universitatsspital-zurich-usz-zurich",
-        "en": "direktionsassistent-in-klinik-fur-kardiologie-80-100-usz-ch",
-        "fr": "direktionsassistent-in-klinik-fur-kardiologie-80-100-usz-ch"
+        "it": "direzione-assistente-clinica-di-cardiologia-80-100-universitatsspital-zurich-usz-zurich",
+        "en": "directorate-assistant-clinic-of-cardiology-80-100-universitatsspital-zurich-usz-zurich",
+        "fr": "direction-clinique-assistante-de-cardiologie-80-100-universitatsspital-zurich-usz-zurich"
       },
       "company": "Universitätsspital Zürich (USZ)",
       "companyKey": "usz",
@@ -17490,11 +17710,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "direktionsassistent-in-klinik-fur-kardiologie-80-100-usz-ch",
+          "direktionsassistent-in-klinik-per-kardiologie-80-100-universitatsspital-zurich-usz-zurich"
+        ],
+        "en": [
+          "direktionsassistent-in-klinik-fur-kardiologie-80-100-usz-ch"
+        ],
+        "fr": [
           "direktionsassistent-in-klinik-fur-kardiologie-80-100-usz-ch"
         ]
       },
       "previousSlugs": [
-        "direktionsassistent-in-klinik-fur-kardiologie-80-100-usz-ch"
+        "direktionsassistent-in-klinik-fur-kardiologie-80-100-usz-ch",
+        "direktionsassistent-in-klinik-per-kardiologie-80-100-universitatsspital-zurich-usz-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

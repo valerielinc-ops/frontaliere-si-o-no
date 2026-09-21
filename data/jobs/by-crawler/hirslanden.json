@@ -7701,15 +7701,7 @@
           "maxValue": 110500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-hirslanden-klinik-aarau"
-        ]
-      },
-      "previousSlugs": [
-        "praktikantin-praktikant-a-pflege-3-6-monate-80-100-hirslanden-hirslanden-klinik-aarau"
-      ]
+      }
     },
     {
       "id": "hirslanden-9a5b8bc51228",
@@ -8796,15 +8788,7 @@
           "maxValue": 83300,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "mitarbeiterin-mitarbeiter-rezeption-a-50-70-hirslanden-hirslanden-salem-spital"
-        ]
-      },
-      "previousSlugs": [
-        "mitarbeiterin-mitarbeiter-rezeption-a-50-70-hirslanden-hirslanden-salem-spital"
-      ]
+      }
     },
     {
       "id": "hirslanden-757287311675",
@@ -9458,12 +9442,12 @@
     },
     {
       "id": "hirslanden-105418ea043c",
-      "slug": "mitarbeiterin-mitarbeiter-reception-a-50-hirslanden-hirslanden-klinik-st-anna",
+      "slug": "ricevimento-dei-dipendenti-a-50-hirslanden-klinik-hirslanden-klinik-st-anna",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-reception-a-50-hirslanden-hirslanden-klinik-st-anna",
-        "it": "mitarbeiterin-collaboratore-trice-reception-a-50-hirslanden-klinik-st-anna",
-        "en": "mitarbeiterin-mitarbeiter-reception-a-50-hirslanden-hirslanden-klinik-st-anna",
-        "fr": "mitarbeiterin-mitarbeiter-reception-a-50-hirslanden-hirslanden-klinik-st-anna"
+        "it": "ricevimento-dei-dipendenti-a-50-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "en": "employee-reception-a-50-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "fr": "reception-des-employes-a-50-hirslanden-klinik-hirslanden-klinik-st-anna"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -9519,7 +9503,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:01:41.461Z"
+      "firstSeenAt": "2026-09-19T23:01:41.461Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-collaboratore-trice-reception-a-50-hirslanden-klinik-st-anna",
+          "mitarbeiterin-mitarbeiter-reception-a-50-hirslanden-hirslanden-klinik-st-anna"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-reception-a-50-hirslanden-hirslanden-klinik-st-anna"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-reception-a-50-hirslanden-hirslanden-klinik-st-anna"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-collaboratore-trice-reception-a-50-hirslanden-klinik-st-anna",
+        "mitarbeiterin-mitarbeiter-reception-a-50-hirslanden-hirslanden-klinik-st-anna"
+      ]
     },
     {
       "id": "hirslanden-d3c535c8f277",
@@ -17542,16 +17542,14 @@
           "aide-soignant-e-hirslanden-geneve"
         ],
         "it": [
-          "aide-soignant-e-hirslanden-geneve",
-          "aide-soignant-e-hirslanden-klinik-geneve"
+          "aide-soignant-e-hirslanden-geneve"
         ],
         "en": [
           "aide-soignant-e-hirslanden-geneve"
         ]
       },
       "previousSlugs": [
-        "aide-soignant-e-hirslanden-geneve",
-        "aide-soignant-e-hirslanden-klinik-geneve"
+        "aide-soignant-e-hirslanden-geneve"
       ],
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3057,
@@ -20937,12 +20935,12 @@
     },
     {
       "id": "hirslanden-2f2b9ec4a0d1",
-      "slug": "pflegeexpertin-pflegeexperte-apn-neurologie-schwerpunkt-stroke-a-80-hirslanden-hirslanden",
+      "slug": "esperto-infermieristico-apn-neurologia-focus-stroke-a-80-hirslanden-klinik-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "pflegeexpertin-pflegeexperte-apn-neurologie-schwerpunkt-stroke-a-80-hirslanden-hirslanden",
-        "it": "pflegeexpertin-pflegeexperte-apn-neurologie-schwerpunkt-stroke-a-80-hirslanden-hirslanden",
-        "en": "pflegeexpertin-pflegeexperte-apn-neurologie-schwerpunkt-stroke-a-80-hirslanden-hirslanden",
-        "fr": "pflegeexpertin-pflegeexperte-apn-neurologie-schwerpunkt-stroke-a-80-hirslanden-hirslanden"
+        "it": "esperto-infermieristico-apn-neurologia-focus-stroke-a-80-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "en": "nursing-expert-apn-neurology-focus-stroke-a-80-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "fr": "expert-en-soins-infirmiers-neurologie-de-l-apn-focus-stroke-a-80-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -20998,16 +20996,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:57:00.221Z"
+      "firstSeenAt": "2026-09-19T22:57:00.221Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeexpertin-pflegeexperte-apn-neurologie-schwerpunkt-stroke-a-80-hirslanden-hirslanden"
+        ],
+        "en": [
+          "pflegeexpertin-pflegeexperte-apn-neurologie-schwerpunkt-stroke-a-80-hirslanden-hirslanden"
+        ],
+        "fr": [
+          "pflegeexpertin-pflegeexperte-apn-neurologie-schwerpunkt-stroke-a-80-hirslanden-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeexpertin-pflegeexperte-apn-neurologie-schwerpunkt-stroke-a-80-hirslanden-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-9c80e9fb4ca9",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-hirslanden-andreasklinik",
+      "slug": "dipl-specialista-tecnologia-chirurgica-hf-a-80-100-hirslanden-klinik-hirslanden-andreasklinik-cham",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-hirslanden-andreasklinik",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-hirslanden-andreasklinik",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-hirslanden-andreasklinik",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-hirslanden-andreasklinik"
+        "it": "dipl-specialista-tecnologia-chirurgica-hf-a-80-100-hirslanden-klinik-hirslanden-andreasklinik-cham",
+        "en": "dipl-specialist-surgical-technology-hf-a-80-100-hirslanden-klinik-hirslanden-andreasklinik-cham",
+        "fr": "dipl-specialiste-technologie-chirurgicale-hf-a-80-100-hirslanden-klinik-hirslanden-andreasklinik-cham"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -21063,7 +21075,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:56:59.166Z"
+      "firstSeenAt": "2026-09-19T22:56:59.166Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-hirslanden-andreasklinik"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-hirslanden-andreasklinik"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-hirslanden-andreasklinik"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-a-80-100-hirslanden-hirslanden-andreasklinik"
+      ]
     },
     {
       "id": "hirslanden-380ad8bbf965",
@@ -21209,8 +21235,7 @@
         ],
         "it": [
           "infermiera-di-emergenza-per-adulti-hirslanden-klinik-geneve",
-          "infirmier-e-urgences-adultes-hirslanden-geneve",
-          "infirmier-e-urgences-adultes-hirslanden-klinik-geneve"
+          "infirmier-e-urgences-adultes-hirslanden-geneve"
         ],
         "en": [
           "infirmier-e-urgences-adultes-hirslanden-geneve"
@@ -21221,8 +21246,7 @@
         "notfallpflegekraft-erwachsene-hirslanden-klinik-geneve",
         "krankenschwester-e-notfall-erwachsene-hirslanden-klinik-geneve",
         "infermiera-di-emergenza-per-adulti-hirslanden-klinik-geneve",
-        "infirmier-e-urgences-adultes-hirslanden-geneve",
-        "infirmier-e-urgences-adultes-hirslanden-klinik-geneve"
+        "infirmier-e-urgences-adultes-hirslanden-geneve"
       ],
       "firstSeenAt": "2026-06-19T21:55:35.121Z",
       "salaryMin": 86500,
@@ -21466,15 +21490,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachfrau-pflegefachmann-mit-uberwachungspflegekurs-a-80-100-hirslanden"
-        ]
-      },
-      "previousSlugs": [
-        "dipl-pflegefachfrau-pflegefachmann-mit-uberwachungspflegekurs-a-80-100-hirslanden"
-      ]
+      }
     },
     {
       "id": "hirslanden-1e976c1e05d5",
@@ -22428,12 +22444,12 @@
     },
     {
       "id": "hirslanden-ff42d1811242",
-      "slug": "mitarbeiterin-mitarbeiter-empfang-a-60-hirslanden-hirslanden-klinik-stephanshorn",
+      "slug": "ricevimento-dei-dipendenti-a-60-hirslanden-klinik-hirslanden-klinik-stephanshorn",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-empfang-a-60-hirslanden-hirslanden-klinik-stephanshorn",
-        "it": "mitarbeiterin-collaboratore-trice-empfang-a-60-hirslanden-klinik-stephanshorn",
-        "en": "mitarbeiterin-mitarbeiter-empfang-a-60-hirslanden-hirslanden-klinik-stephanshorn",
-        "fr": "mitarbeiterin-mitarbeiter-empfang-a-60-hirslanden-hirslanden-klinik-stephanshorn"
+        "it": "ricevimento-dei-dipendenti-a-60-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "en": "employee-reception-a-60-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "fr": "reception-des-employes-a-60-hirslanden-klinik-hirslanden-klinik-stephanshorn"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -22489,16 +22505,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:56:13.809Z"
+      "firstSeenAt": "2026-09-19T22:56:13.809Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-collaboratore-trice-empfang-a-60-hirslanden-klinik-stephanshorn",
+          "mitarbeiterin-mitarbeiter-empfang-a-60-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-empfang-a-60-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-empfang-a-60-hirslanden-hirslanden-klinik-stephanshorn"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-collaboratore-trice-empfang-a-60-hirslanden-klinik-stephanshorn",
+        "mitarbeiterin-mitarbeiter-empfang-a-60-hirslanden-hirslanden-klinik-stephanshorn"
+      ]
     },
     {
       "id": "hirslanden-30c374dbf122",
-      "slug": "studierende-dipl-radiologiefachfrau-radiologiefachmann-hf-hirslanden-hirslanden-klinik",
+      "slug": "gli-studenti-dipl-specialista-di-radiologia-specialista-di-radiologia-hf-hirslanden-klinik-hirslanden-klinik",
       "slugByLocale": {
         "de": "studierende-dipl-radiologiefachfrau-radiologiefachmann-hf-hirslanden-hirslanden-klinik",
-        "it": "studierende-dipl-radiologiefachfrau-radiologiefachmann-hf-hirslanden-hirslanden-klinik",
-        "en": "studierende-dipl-radiologiefachfrau-radiologiefachmann-hf-hirslanden-hirslanden-klinik",
-        "fr": "studierende-dipl-radiologiefachfrau-radiologiefachmann-hf-hirslanden-hirslanden-klinik"
+        "it": "gli-studenti-dipl-specialista-di-radiologia-specialista-di-radiologia-hf-hirslanden-klinik-hirslanden-klinik",
+        "en": "students-dipl-radiology-specialist-radiology-specialist-hf-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "fr": "les-etudiants-dipl-specialiste-en-radiologie-specialiste-en-radiologie-hf-hirslanden-klinik-hirslanden-klinik"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -22554,7 +22586,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:56:12.726Z"
+      "firstSeenAt": "2026-09-19T22:56:12.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "studierende-dipl-radiologiefachfrau-radiologiefachmann-hf-hirslanden-hirslanden-klinik"
+        ],
+        "en": [
+          "studierende-dipl-radiologiefachfrau-radiologiefachmann-hf-hirslanden-hirslanden-klinik"
+        ],
+        "fr": [
+          "studierende-dipl-radiologiefachfrau-radiologiefachmann-hf-hirslanden-hirslanden-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "studierende-dipl-radiologiefachfrau-radiologiefachmann-hf-hirslanden-hirslanden-klinik"
+      ]
     },
     {
       "id": "hirslanden-8dce03cc4f3f",
@@ -24969,12 +25015,12 @@
     },
     {
       "id": "hirslanden-b44775b8bc83",
-      "slug": "mitarbeiterin-mitarbeiter-services-radiologie-a-60-hirslanden-hirslanden-klinik-hirslanden",
+      "slug": "dipendenti-dipendenti-servizi-radiologia-a-60-hirslanden-klinik-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "mitarbeiterin-mitarbeiter-services-radiologie-a-60-hirslanden-hirslanden-klinik-hirslanden",
-        "it": "mitarbeiterin-collaboratore-trice-services-radiologie-a-60-hirslanden-klinik-hirslanden",
-        "en": "mitarbeiterin-mitarbeiter-services-radiologie-a-60-hirslanden-hirslanden-klinik-hirslanden",
-        "fr": "mitarbeiterin-mitarbeiter-services-radiologie-a-60-hirslanden-hirslanden-klinik-hirslanden"
+        "it": "dipendenti-dipendenti-servizi-radiologia-a-60-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "en": "employee-employee-services-radiology-a-60-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "fr": "services-aux-employes-radiologie-a-60-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25030,16 +25076,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:55:14.342Z"
+      "firstSeenAt": "2026-09-19T22:55:14.342Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiterin-collaboratore-trice-services-radiologie-a-60-hirslanden-klinik-hirslanden",
+          "mitarbeiterin-mitarbeiter-services-radiologie-a-60-hirslanden-hirslanden-klinik-hirslanden"
+        ],
+        "en": [
+          "mitarbeiterin-mitarbeiter-services-radiologie-a-60-hirslanden-hirslanden-klinik-hirslanden"
+        ],
+        "fr": [
+          "mitarbeiterin-mitarbeiter-services-radiologie-a-60-hirslanden-hirslanden-klinik-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiterin-collaboratore-trice-services-radiologie-a-60-hirslanden-klinik-hirslanden",
+        "mitarbeiterin-mitarbeiter-services-radiologie-a-60-hirslanden-hirslanden-klinik-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-a3b54dec4092",
-      "slug": "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn",
+      "slug": "dipl-fisioterapeuta-fisioterapista-a-40-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
       "slugByLocale": {
         "de": "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn",
-        "it": "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn",
+        "it": "dipl-fisioterapeuta-fisioterapista-a-40-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
         "en": "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn",
-        "fr": "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn"
+        "fr": "dipl-physiotherpeutine-physiotherapiste-a-40-100-hirslanden-klinik-hirslanden-klinik-stephanshorn"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25095,16 +25157,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:55:13.275Z"
+      "firstSeenAt": "2026-09-19T22:55:13.275Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "fr": [
+          "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-physiotherpeutin-physiotherapeut-a-40-100-hirslanden-hirslanden-klinik-stephanshorn"
+      ]
     },
     {
       "id": "hirslanden-c0117520a915",
-      "slug": "dipl-fachfrau-fachmann-operationstechnik-hf-80-a-fur-das-opera-in-zumikon-mo-fr-hirslanden",
+      "slug": "dipl-tecnologia-professionale-chirurgica-hf-80-a-per-l-opera-a-zumikon-mo-fr-hirslanden-klinik-hirslanden-opera-zumikon",
       "slugByLocale": {
         "de": "dipl-fachfrau-fachmann-operationstechnik-hf-80-a-fur-das-opera-in-zumikon-mo-fr-hirslanden",
-        "it": "dipl-fachfrau-fachmann-operationstechnik-hf-80-a-per-das-opera-in-zumikon-mo-fr-hirslanden-klinik-hirslanden-opera-zumikon-ag",
-        "en": "dipl-fachfrau-fachmann-operationstechnik-hf-80-a-fur-das-opera-in-zumikon-mo-fr-hirslanden",
-        "fr": "dipl-fachfrau-fachmann-operationstechnik-hf-80-a-fur-das-opera-in-zumikon-mo-fr-hirslanden"
+        "it": "dipl-tecnologia-professionale-chirurgica-hf-80-a-per-l-opera-a-zumikon-mo-fr-hirslanden-klinik-hirslanden-opera-zumikon",
+        "en": "dipl-professional-surgical-technology-hf-80-a-for-the-opera-in-zumikon-mo-fr-hirslanden-klinik-hirslanden-opera-zumikon",
+        "fr": "dipl-technologie-professionnelle-chirurgicale-hf-80-a-pour-l-opera-a-zumikon-mo-fr-hirslanden-klinik-hirslanden-opera"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25160,7 +25233,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:55:12.222Z"
+      "firstSeenAt": "2026-09-19T22:55:12.222Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-80-a-per-das-opera-in-zumikon-mo-fr-hirslanden-klinik-hirslanden-opera-zumikon-ag",
+          "dipl-fachfrau-fachmann-operationstechnik-hf-80-a-fur-das-opera-in-zumikon-mo-fr-hirslanden"
+        ],
+        "en": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-80-a-fur-das-opera-in-zumikon-mo-fr-hirslanden"
+        ],
+        "fr": [
+          "dipl-fachfrau-fachmann-operationstechnik-hf-80-a-fur-das-opera-in-zumikon-mo-fr-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-fachfrau-fachmann-operationstechnik-hf-80-a-per-das-opera-in-zumikon-mo-fr-hirslanden-klinik-hirslanden-opera-zumikon-ag",
+        "dipl-fachfrau-fachmann-operationstechnik-hf-80-a-fur-das-opera-in-zumikon-mo-fr-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-6147e4225aa4",
@@ -25546,12 +25635,12 @@
     },
     {
       "id": "hirslanden-51c02be582a3",
-      "slug": "oberarztin-oberarzt-notfallmedizin-a-80-100-hirslanden-hirslanden-klinik-st-anna",
+      "slug": "medico-senior-medico-senior-medicina-di-emergenza-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
       "slugByLocale": {
         "de": "oberarztin-oberarzt-notfallmedizin-a-80-100-hirslanden-hirslanden-klinik-st-anna",
-        "it": "oberarztin-oberarzt-notfallmedizin-a-80-100-hirslanden-hirslanden-klinik-st-anna",
-        "en": "oberarztin-oberarzt-notfallmedizin-a-80-100-hirslanden-hirslanden-klinik-st-anna",
-        "fr": "oberarztin-oberarzt-notfallmedizin-a-80-100-hirslanden-hirslanden-klinik-st-anna"
+        "it": "medico-senior-medico-senior-medicina-di-emergenza-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "en": "senior-physician-senior-physician-emergency-medicine-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna",
+        "fr": "medecin-principal-medecin-principal-medecine-d-urgence-a-80-100-hirslanden-klinik-hirslanden-klinik-st-anna"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25607,16 +25696,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:55:05.692Z"
+      "firstSeenAt": "2026-09-19T22:55:05.692Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberarztin-oberarzt-notfallmedizin-a-80-100-hirslanden-hirslanden-klinik-st-anna"
+        ],
+        "en": [
+          "oberarztin-oberarzt-notfallmedizin-a-80-100-hirslanden-hirslanden-klinik-st-anna"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-notfallmedizin-a-80-100-hirslanden-hirslanden-klinik-st-anna"
+        ]
+      },
+      "previousSlugs": [
+        "oberarztin-oberarzt-notfallmedizin-a-80-100-hirslanden-hirslanden-klinik-st-anna"
+      ]
     },
     {
       "id": "hirslanden-72937e759535",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-mit-zusatzfunktion-berufsbildung-herzchirurgie-a-80-100",
+      "slug": "dipl-specialista-infermieristico-con-funzione-aggiuntiva-formazione-professionale-chirurgia-cardiaca-a-80-100-hirslanden",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-mit-zusatzfunktion-berufsbildung-herzchirurgie-a-80-100",
-        "it": "dipl-pflegefachfrau-pflegefachmann-mit-zusatzfunktion-berufsbildung-herzchirurgie-a-80-100",
-        "en": "dipl-pflegefachfrau-pflegefachmann-mit-zusatzfunktion-berufsbildung-herzchirurgie-a-80-100",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-mit-zusatzfunktion-berufsbildung-herzchirurgie-a-80-100"
+        "it": "dipl-specialista-infermieristico-con-funzione-aggiuntiva-formazione-professionale-chirurgia-cardiaca-a-80-100-hirslanden",
+        "en": "dipl-nursing-specialist-with-additional-function-vocational-training-cardiac-surgery-a-80-100-hirslanden-klinik",
+        "fr": "dipl-specialiste-des-soins-infirmiers-avec-fonction-supplementaire-formation-professionnelle-chirurgie-cardiaque-a-80"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25672,14 +25775,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:55:04.589Z"
+      "firstSeenAt": "2026-09-19T22:55:04.589Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-mit-zusatzfunktion-berufsbildung-herzchirurgie-a-80-100"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-mit-zusatzfunktion-berufsbildung-herzchirurgie-a-80-100"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-mit-zusatzfunktion-berufsbildung-herzchirurgie-a-80-100"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-mit-zusatzfunktion-berufsbildung-herzchirurgie-a-80-100"
+      ]
     },
     {
       "id": "hirslanden-ec4f220ad0da",
-      "slug": "assistant-e-en-soins-et-sante-communautaire-a-10-hirslanden-hirslanden-clinique-cecil",
+      "slug": "assistente-al-trattamento-dei-dati-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
         "de": "assistant-e-en-soins-et-sante-communautaire-a-10-hirslanden-hirslanden-clinique-cecil",
-        "it": "assistant-e-en-soins-et-sante-communautaire-a-10-hirslanden-hirslanden-clinique-cecil",
+        "it": "assistente-al-trattamento-dei-dati-hirslanden-klinik-hirslanden-clinique-cecil",
         "en": "assistant-e-en-soins-et-sante-communautaire-a-10-hirslanden-hirslanden-clinique-cecil",
         "fr": "assistant-e-en-soins-et-sante-communautaire-a-10-hirslanden-hirslanden-clinique-cecil"
       },
@@ -25737,16 +25854,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:55:03.514Z"
+      "firstSeenAt": "2026-09-19T22:55:03.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-en-soins-et-sante-communautaire-a-10-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-en-soins-et-sante-communautaire-a-10-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-223b5dd01454",
-      "slug": "pflegeassistent-in-dialyse-hirslanden-hirslanden-klinik-linde",
+      "slug": "assistente-dialisi-hirslanden-klinik-hirslanden-klinik-linde",
       "slugByLocale": {
         "de": "pflegeassistent-in-dialyse-hirslanden-hirslanden-klinik-linde",
-        "it": "pflegeassistent-in-dialyse-hirslanden-hirslanden-klinik-linde",
-        "en": "pflegeassistent-in-dialyse-hirslanden-hirslanden-klinik-linde",
-        "fr": "pflegeassistent-in-dialyse-hirslanden-hirslanden-klinik-linde"
+        "it": "assistente-dialisi-hirslanden-klinik-hirslanden-klinik-linde",
+        "en": "care-assistant-dialysis-hirslanden-klinik-hirslanden-klinik-linde",
+        "fr": "dialyse-d-assistant-de-soins-hirslanden-klinik-hirslanden-klinik-linde"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -25802,7 +25927,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:55:02.386Z"
+      "firstSeenAt": "2026-09-19T22:55:02.386Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeassistent-in-dialyse-hirslanden-hirslanden-klinik-linde"
+        ],
+        "en": [
+          "pflegeassistent-in-dialyse-hirslanden-hirslanden-klinik-linde"
+        ],
+        "fr": [
+          "pflegeassistent-in-dialyse-hirslanden-hirslanden-klinik-linde"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeassistent-in-dialyse-hirslanden-hirslanden-klinik-linde"
+      ]
     },
     {
       "id": "hirslanden-e732e67b473b",
@@ -26325,11 +26464,11 @@
     },
     {
       "id": "hirslanden-7cc4f9d4a8c6",
-      "slug": "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline",
+      "slug": "per-quanto-riguarda-i-dipartimenti-francesi-d-oltremare-la-commissione-ha-deciso-di-concedere-l-aiuto-ai-dipartimenti",
       "slugByLocale": {
         "de": "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline",
-        "it": "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline",
-        "en": "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline",
+        "it": "per-quanto-riguarda-i-dipartimenti-francesi-d-oltremare-la-commissione-ha-deciso-di-concedere-l-aiuto-ai-dipartimenti",
+        "en": "in-the-case-of-the-french-overseas-departments-the-commission-has-decided-to-grant-the-aid-to-the-french-overseas",
         "fr": "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline"
       },
       "company": "Hirslanden Klinik",
@@ -26386,16 +26525,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:27.816Z"
+      "firstSeenAt": "2026-09-19T22:54:27.816Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline"
+        ],
+        "en": [
+          "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline"
+      ]
     },
     {
       "id": "hirslanden-a7ac6af19316",
-      "slug": "pflegeassistentin-pflegeassistent-mitarbeitenden-pool-a-hirslanden-hirslanden-klinik",
+      "slug": "assistente-infermieristico-infermiera-piscina-dipendente-a-hirslanden-klinik-hirslanden-klinik-hirslanden",
       "slugByLocale": {
         "de": "pflegeassistentin-pflegeassistent-mitarbeitenden-pool-a-hirslanden-hirslanden-klinik",
-        "it": "pflegeassistentin-pflegeassistent-mitarbeitenden-pool-a-hirslanden-hirslanden-klinik",
-        "en": "pflegeassistentin-pflegeassistent-mitarbeitenden-pool-a-hirslanden-hirslanden-klinik",
-        "fr": "pflegeassistentin-pflegeassistent-mitarbeitenden-pool-a-hirslanden-hirslanden-klinik"
+        "it": "assistente-infermieristico-infermiera-piscina-dipendente-a-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "en": "nursing-assistant-nursing-assistant-employee-pool-a-hirslanden-klinik-hirslanden-klinik-hirslanden",
+        "fr": "assistant-infirmier-personnel-infirmier-adjoint-a-hirslanden-klinik-hirslanden-klinik-hirslanden"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26451,16 +26601,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:26.660Z"
+      "firstSeenAt": "2026-09-19T22:54:26.660Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeassistentin-pflegeassistent-mitarbeitenden-pool-a-hirslanden-hirslanden-klinik"
+        ],
+        "en": [
+          "pflegeassistentin-pflegeassistent-mitarbeitenden-pool-a-hirslanden-hirslanden-klinik"
+        ],
+        "fr": [
+          "pflegeassistentin-pflegeassistent-mitarbeitenden-pool-a-hirslanden-hirslanden-klinik"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeassistentin-pflegeassistent-mitarbeitenden-pool-a-hirslanden-hirslanden-klinik"
+      ]
     },
     {
       "id": "hirslanden-6539d26c84dc",
-      "slug": "infirmier-ere-responsable-de-la-formation-en-salle-de-catheterisme-hirslanden-hirslanden",
+      "slug": "per-quanto-riguarda-la-repubblica-francese-la-commissione-non-ha-ancora-preso-alcuna-iniziativa-in-questo-settore",
       "slugByLocale": {
         "de": "infirmier-ere-responsable-de-la-formation-en-salle-de-catheterisme-hirslanden-hirslanden",
-        "it": "infirmier-ere-responsable-de-la-formation-en-salle-de-catheterisme-hirslanden-hirslanden",
-        "en": "infirmier-ere-responsable-de-la-formation-en-salle-de-catheterisme-hirslanden-hirslanden",
-        "fr": "infirmier-ere-responsable-de-la-formation-en-salle-de-catheterisme-hirslanden-hirslanden"
+        "it": "per-quanto-riguarda-la-repubblica-francese-la-commissione-non-ha-ancora-preso-alcuna-iniziativa-in-questo-settore",
+        "en": "in-the-case-of-the-french-republic-the-commission-has-not-yet-taken-any-action-in-this-field-hirslanden-klinik",
+        "fr": "dans-le-cas-de-la-republique-francaise-la-commission-n-a-pas-encore-pris-de-mesures-dans-ce-domaine-hirslanden-klinik"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26516,16 +26680,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:25.514Z"
+      "firstSeenAt": "2026-09-19T22:54:25.514Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-responsable-de-la-formation-en-salle-de-catheterisme-hirslanden-hirslanden"
+        ],
+        "en": [
+          "infirmier-ere-responsable-de-la-formation-en-salle-de-catheterisme-hirslanden-hirslanden"
+        ],
+        "fr": [
+          "infirmier-ere-responsable-de-la-formation-en-salle-de-catheterisme-hirslanden-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-responsable-de-la-formation-en-salle-de-catheterisme-hirslanden-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-34882fbcb570",
-      "slug": "fachfrau-fachmann-gesundheit-a-80-100-mit-oder-ohne-berufsbildnerfunktion-hirslanden",
+      "slug": "salute-professionale-a-80-100-con-o-senza-funzione-di-formazione-professionale-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-a-80-100-mit-oder-ohne-berufsbildnerfunktion-hirslanden",
-        "it": "fachfrau-fachmann-gesundheit-a-80-100-con-o-ohne-berufsbildnerfunktion-hirslanden-klinik-hirslanden-salem-spital",
-        "en": "fachfrau-fachmann-gesundheit-a-80-100-mit-oder-ohne-berufsbildnerfunktion-hirslanden",
-        "fr": "fachfrau-fachmann-gesundheit-a-80-100-mit-oder-ohne-berufsbildnerfunktion-hirslanden"
+        "it": "salute-professionale-a-80-100-con-o-senza-funzione-di-formazione-professionale-hirslanden-klinik-hirslanden-salem-spital",
+        "en": "professional-health-a-80-100-with-or-without-job-training-function-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "sante-professionnelle-a-80-100-avec-ou-sans-fonction-de-formation-professionnelle-hirslanden-klinik-hirslanden-salem"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26581,16 +26759,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:24.353Z"
+      "firstSeenAt": "2026-09-19T22:54:24.353Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-a-80-100-con-o-ohne-berufsbildnerfunktion-hirslanden-klinik-hirslanden-salem-spital",
+          "fachfrau-fachmann-gesundheit-a-80-100-mit-oder-ohne-berufsbildnerfunktion-hirslanden"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-a-80-100-mit-oder-ohne-berufsbildnerfunktion-hirslanden"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-a-80-100-mit-oder-ohne-berufsbildnerfunktion-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-a-80-100-con-o-ohne-berufsbildnerfunktion-hirslanden-klinik-hirslanden-salem-spital",
+        "fachfrau-fachmann-gesundheit-a-80-100-mit-oder-ohne-berufsbildnerfunktion-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-e323703631b6",
-      "slug": "responsable-des-sterilisations-hirslanden-lausanne-hirslanden-hirslanden-clinique-cecil",
+      "slug": "responsabile-delle-sterilizzazioni-hirslanden-lausanne-hirslanden-klinik-hirslanden-clinique-cecil",
       "slugByLocale": {
         "de": "responsable-des-sterilisations-hirslanden-lausanne-hirslanden-hirslanden-clinique-cecil",
-        "it": "responsable-des-sterilisations-hirslanden-lausanne-hirslanden-hirslanden-clinique-cecil",
+        "it": "responsabile-delle-sterilizzazioni-hirslanden-lausanne-hirslanden-klinik-hirslanden-clinique-cecil",
         "en": "responsable-des-sterilisations-hirslanden-lausanne-hirslanden-hirslanden-clinique-cecil",
-        "fr": "responsable-des-sterilisations-hirslanden-lausanne-hirslanden-hirslanden-clinique-cecil"
+        "fr": "les-thermes-hirslanden-lausanne-hirslanden-klinik-hirslanden-clinique-cecil"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26646,16 +26840,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:23.279Z"
+      "firstSeenAt": "2026-09-19T22:54:23.279Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-des-sterilisations-hirslanden-lausanne-hirslanden-hirslanden-clinique-cecil"
+        ],
+        "fr": [
+          "responsable-des-sterilisations-hirslanden-lausanne-hirslanden-hirslanden-clinique-cecil"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-des-sterilisations-hirslanden-lausanne-hirslanden-hirslanden-clinique-cecil"
+      ]
     },
     {
       "id": "hirslanden-05ac1926ac5e",
-      "slug": "dipl-hebamme-a-100-befristet-hirslanden-hirslanden-salem-spital",
+      "slug": "dipl-midwife-a-100-temporaneo-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
         "de": "dipl-hebamme-a-100-befristet-hirslanden-hirslanden-salem-spital",
-        "it": "dipl-hebamme-a-100-befristet-hirslanden-klinik-hirslanden-salem-spital",
-        "en": "dipl-hebamme-a-100-befristet-hirslanden-hirslanden-salem-spital",
-        "fr": "dipl-hebamme-a-100-befristet-hirslanden-hirslanden-salem-spital"
+        "it": "dipl-midwife-a-100-temporaneo-hirslanden-klinik-hirslanden-salem-spital",
+        "en": "dipl-midwife-a-100-temporary-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "dipl-sage-femme-a-100-temporaire-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26711,7 +26916,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:22.153Z"
+      "firstSeenAt": "2026-09-19T22:54:22.153Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-hebamme-a-100-befristet-hirslanden-klinik-hirslanden-salem-spital",
+          "dipl-hebamme-a-100-befristet-hirslanden-hirslanden-salem-spital"
+        ],
+        "en": [
+          "dipl-hebamme-a-100-befristet-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
+          "dipl-hebamme-a-100-befristet-hirslanden-hirslanden-salem-spital"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-hebamme-a-100-befristet-hirslanden-klinik-hirslanden-salem-spital",
+        "dipl-hebamme-a-100-befristet-hirslanden-hirslanden-salem-spital"
+      ]
     },
     {
       "id": "hirslanden-70bc514c5236",
@@ -26785,7 +27006,7 @@
         "de": "ict-service-desk-team-leader-80-ou-100-hirslanden-hirslanden-corporate-office",
         "it": "ict-service-desk-team-leader-80-ou-100-hirslanden-hirslanden-corporate-office",
         "en": "ict-service-desk-team-leader-80-ou-100-hirslanden-hirslanden-corporate-office",
-        "fr": "ict-service-desk-team-leader-80-ou-100-hirslanden-hirslanden-corporate-office"
+        "fr": "chef-d-equipe-du-bureau-de-services-tic-80-ou-100-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -26846,11 +27067,11 @@
     },
     {
       "id": "hirslanden-2e13c1ff8de3",
-      "slug": "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf",
+      "slug": "technica-n-en-radiologia-medicale-a-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
       "slugByLocale": {
         "de": "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf",
-        "it": "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf",
-        "en": "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf",
+        "it": "technica-n-en-radiologia-medicale-a-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
+        "en": "technicia-n-en-radiology-medicale-a-100-hirslanden-klinik-hirslanden-clinique-bois-cerf",
         "fr": "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf"
       },
       "company": "Hirslanden Klinik",
@@ -26907,7 +27128,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:18.877Z"
+      "firstSeenAt": "2026-09-19T22:54:18.877Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf"
+        ],
+        "en": [
+          "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf"
+        ]
+      },
+      "previousSlugs": [
+        "technicien-ne-en-radiologie-medicale-a-100-hirslanden-hirslanden-clinique-bois-cerf"
+      ]
     },
     {
       "id": "hirslanden-9dbb8ab4e878",

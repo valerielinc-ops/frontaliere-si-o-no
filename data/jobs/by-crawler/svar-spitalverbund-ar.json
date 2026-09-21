@@ -496,11 +496,11 @@
     },
     {
       "id": "svar-spitalverbund-ar-eebd89d62be4",
-      "slug": "fachspezialist-in-risorse-umane-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "fachspezialist-in-hr-svar-spitalverbund-ar-herisau",
-        "it": "fachspezialist-in-risorse-umane-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "fachspezialist-in-hr-svar-spitalverbund-ar-herisau",
+        "it": "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "specialist-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "fr": "fachspezialist-in-ressources-humaines-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
@@ -561,24 +561,29 @@
       "firstSeenAt": "2026-09-19T22:53:37.415Z",
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-hr-svar-spitalverbund-ar-herisau"
+          "fachspezialist-in-hr-svar-spitalverbund-ar-herisau",
+          "fachspezialist-in-risorse-umane-spitalverbund-appenzell-ausserrhoden-svar-herisau"
         ],
         "fr": [
+          "fachspezialist-in-hr-svar-spitalverbund-ar-herisau"
+        ],
+        "en": [
           "fachspezialist-in-hr-svar-spitalverbund-ar-herisau"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-hr-svar-spitalverbund-ar-herisau"
+        "fachspezialist-in-hr-svar-spitalverbund-ar-herisau",
+        "fachspezialist-in-risorse-umane-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ]
     },
     {
       "id": "svar-spitalverbund-ar-e08447460f0e",
-      "slug": "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slug": "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
-        "it": "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
-        "fr": "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar"
+        "it": "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-nurse-or-specialist-health-haemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "dipl-infirmiere-ou-specialiste-en-hemodialyse-de-la-sante-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -624,11 +629,19 @@
       "externalId": "4070229",
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
+          "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar"
+        ],
+        "fr": [
           "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar"
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       ],
       "salaryMin": 81000,
       "salaryMax": 113000,
@@ -647,12 +660,12 @@
     },
     {
       "id": "svar-spitalverbund-ar-282f0a147394",
-      "slug": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+      "slug": "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
       "slugByLocale": {
         "de": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "it": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+        "it": "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
         "en": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        "fr": "co-equipe-chef-soins-somatiques-aigus-focus-medecine-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",
@@ -709,7 +722,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:36.275Z"
+      "firstSeenAt": "2026-09-19T22:53:36.275Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "previousSlugs": [
+        "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+      ]
     },
     {
       "id": "svar-spitalverbund-ar-d9c70e8fd7d6",
@@ -717,8 +741,8 @@
       "slugByLocale": {
         "de": "hr-business-partnerin-svar-spitalverbund-ar-herisau",
         "it": "hr-business-partnerin-svar-spitalverbund-ar-herisau",
-        "en": "hr-business-partnerin-svar-spitalverbund-ar-herisau",
-        "fr": "hr-business-partnerin-svar-spitalverbund-ar-herisau"
+        "en": "hr-business-partner-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "fr": "partenaire-operationnel-rh-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
       "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
       "companyKey": "svar-spitalverbund-ar",

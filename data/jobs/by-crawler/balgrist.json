@@ -3242,7 +3242,6 @@
           "b-apprendistato-come-kochin-koch-cfc-m-w-d-b-universitatsklinik-balgrist-zurich"
         ],
         "en": [
-          "b-apprenticeship-as-cook-chef-efz-m-f-d-b-universitatsklinik-balgrist-zurich",
           "b-lehrstelle-als-kochin-koch-efz-m-w-d-b-balgrist-zurich"
         ],
         "fr": [
@@ -3365,12 +3364,12 @@
     },
     {
       "id": "balgrist-830df3d42ed5",
-      "slug": "ernahrungsberaterin-ernahrungsberater-bsc-m-w-d-40-80-balgrist-zurich",
+      "slug": "nutrizione-bsc-m-f-d-40-80-universitatsklinik-balgrist-zurich",
       "slugByLocale": {
         "de": "ernahrungsberaterin-ernahrungsberater-bsc-m-w-d-40-80-balgrist-zurich",
-        "it": "ernahrungsberaterin-ernahrungsberater-bsc-m-w-d-40-80-balgrist-zurich",
-        "en": "ernahrungsberaterin-ernahrungsberater-bsc-m-w-d-40-80-balgrist-zurich",
-        "fr": "ernahrungsberaterin-ernahrungsberater-bsc-m-w-d-40-80-balgrist-zurich"
+        "it": "nutrizione-bsc-m-f-d-40-80-universitatsklinik-balgrist-zurich",
+        "en": "nutritionist-bsc-m-f-d-40-80-universitatsklinik-balgrist-zurich",
+        "fr": "nutritionniste-bsc-h-f-d-40-80-universitatsklinik-balgrist-zurich"
       },
       "company": "Universitätsklinik Balgrist",
       "companyKey": "balgrist",
@@ -3427,7 +3426,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:59:13.213Z"
+      "firstSeenAt": "2026-09-19T22:59:13.213Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ernahrungsberaterin-ernahrungsberater-bsc-m-w-d-40-80-balgrist-zurich"
+        ],
+        "en": [
+          "ernahrungsberaterin-ernahrungsberater-bsc-m-w-d-40-80-balgrist-zurich"
+        ],
+        "fr": [
+          "ernahrungsberaterin-ernahrungsberater-bsc-m-w-d-40-80-balgrist-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "ernahrungsberaterin-ernahrungsberater-bsc-m-w-d-40-80-balgrist-zurich"
+      ]
     },
     {
       "id": "balgrist-d79b9afb12fa",

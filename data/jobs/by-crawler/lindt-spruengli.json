@@ -1236,12 +1236,12 @@
     },
     {
       "id": "lindt-spruengli-5c9617d383d4",
-      "slug": "betriebsmechaniker-in-lindt-sprungli-kilchberg",
+      "slug": "meccanica-operativa-lindt-sprungli-kilchberg",
       "slugByLocale": {
         "de": "betriebsmechaniker-in-lindt-spruengli-kilchberg",
-        "it": "betriebsmechaniker-in-lindt-sprungli-kilchberg",
-        "en": "betriebsmechaniker-in-lindt-sprungli-kilchberg",
-        "fr": "betriebsmechaniker-in-lindt-sprungli-kilchberg"
+        "it": "meccanica-operativa-lindt-sprungli-kilchberg",
+        "en": "operational-mechanics-lindt-sprungli-kilchberg",
+        "fr": "mecanique-operationnelle-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1288,11 +1288,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "betriebsmechaniker-in-lindt-spruengli-kilchberg"
+          "betriebsmechaniker-in-lindt-spruengli-kilchberg",
+          "betriebsmechaniker-in-lindt-sprungli-kilchberg"
+        ],
+        "en": [
+          "betriebsmechaniker-in-lindt-sprungli-kilchberg"
+        ],
+        "fr": [
+          "betriebsmechaniker-in-lindt-sprungli-kilchberg"
         ]
       },
       "previousSlugs": [
-        "betriebsmechaniker-in-lindt-spruengli-kilchberg"
+        "betriebsmechaniker-in-lindt-spruengli-kilchberg",
+        "betriebsmechaniker-in-lindt-sprungli-kilchberg"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1393,12 +1401,12 @@
     },
     {
       "id": "lindt-spruengli-f84482e7cb53",
-      "slug": "collaboratore-trice-in-technologie-100-befristet-bis-30-09-2027-lindt-sprungli-kilchberg",
+      "slug": "tecnologia-dei-dipendenti-100-temporanea-fino-al-30-09-2027-lindt-sprungli-kilchberg",
       "slugByLocale": {
         "de": "mitarbeiter-in-technologie-100-befristet-bis-30-09-2027-lindt-spruengli-kilchberg",
-        "it": "collaboratore-trice-in-technologie-100-befristet-bis-30-09-2027-lindt-sprungli-kilchberg",
-        "en": "mitarbeiter-in-technologie-100-befristet-bis-30-09-2027-lindt-spruengli-kilchberg",
-        "fr": "mitarbeiter-in-technologie-100-befristet-bis-30-09-2027-lindt-spruengli-kilchberg"
+        "it": "tecnologia-dei-dipendenti-100-temporanea-fino-al-30-09-2027-lindt-sprungli-kilchberg",
+        "en": "employee-technology-100-temporary-until-30-09-2027-lindt-sprungli-kilchberg",
+        "fr": "technologie-des-employes-100-temporaire-jusqu-au-30-09-2027-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1445,11 +1453,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-technologie-100-befristet-bis-30-09-2027-lindt-spruengli-kilchberg",
+          "collaboratore-trice-in-technologie-100-befristet-bis-30-09-2027-lindt-sprungli-kilchberg"
+        ],
+        "en": [
+          "mitarbeiter-in-technologie-100-befristet-bis-30-09-2027-lindt-spruengli-kilchberg"
+        ],
+        "fr": [
           "mitarbeiter-in-technologie-100-befristet-bis-30-09-2027-lindt-spruengli-kilchberg"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-technologie-100-befristet-bis-30-09-2027-lindt-spruengli-kilchberg"
+        "mitarbeiter-in-technologie-100-befristet-bis-30-09-2027-lindt-spruengli-kilchberg",
+        "collaboratore-trice-in-technologie-100-befristet-bis-30-09-2027-lindt-sprungli-kilchberg"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1468,12 +1484,12 @@
     },
     {
       "id": "lindt-spruengli-0dfdcc4e0441",
-      "slug": "international-graduate-marketing-lindt-spruengli-kilchberg",
+      "slug": "marketing-di-laurea-internazionale-lindt-sprungli-kilchberg",
       "slugByLocale": {
         "en": "international-graduate-marketing-lindt-spruengli-kilchberg",
-        "it": "international-graduate-marketing-lindt-spruengli-kilchberg",
-        "de": "international-graduate-marketing-lindt-spruengli-kilchberg",
-        "fr": "international-graduate-marketing-lindt-spruengli-kilchberg"
+        "it": "marketing-di-laurea-internazionale-lindt-sprungli-kilchberg",
+        "de": "internationales-graduate-marketing-lindt-sprungli-kilchberg",
+        "fr": "commercialisation-internationale-des-diplomes-lindt-sprungli-kilchberg"
       },
       "company": "Lindt & Sprüngli",
       "companyKey": "lindt-spruengli",
@@ -1531,7 +1547,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:12:40.700Z"
+      "firstSeenAt": "2026-09-19T23:12:40.700Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "international-graduate-marketing-lindt-spruengli-kilchberg"
+        ],
+        "de": [
+          "international-graduate-marketing-lindt-spruengli-kilchberg"
+        ],
+        "fr": [
+          "international-graduate-marketing-lindt-spruengli-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "international-graduate-marketing-lindt-spruengli-kilchberg"
+      ]
     },
     {
       "id": "lindt-spruengli-8f3c9e262010",

@@ -592,12 +592,12 @@
     },
     {
       "id": "sfs-group-11eaf92f960a",
-      "slug": "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
+      "slug": "tecnologia-di-formatura-dell-operatore-macchina-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
         "de": "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
-        "it": "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
-        "en": "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg",
-        "fr": "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
+        "it": "tecnologia-di-formatura-dell-operatore-macchina-m-f-d-sfs-group-heerbrugg",
+        "en": "machine-operator-forming-technology-m-f-d-sfs-group-heerbrugg",
+        "fr": "technologie-de-formage-de-la-machine-operateur-h-f-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -656,16 +656,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:37.535Z"
+      "firstSeenAt": "2026-09-19T23:05:37.535Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
+        ],
+        "en": [
+          "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
+        ],
+        "fr": [
+          "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "maschinenbediener-in-umformtechnik-m-f-d-sfs-group-heerbrugg"
+      ]
     },
     {
       "id": "sfs-group-e7ba8983fe25",
-      "slug": "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz",
+      "slug": "logistica-di-raccolta-2-strati-m-f-d-sfs-group-rotkreuz",
       "slugByLocale": {
         "de": "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
-        "it": "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz",
-        "en": "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
-        "fr": "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
+        "it": "logistica-di-raccolta-2-strati-m-f-d-sfs-group-rotkreuz",
+        "en": "logistics-picking-2-layer-m-f-d-sfs-group-rotkreuz",
+        "fr": "collecte-logistique-2-couches-h-f-d-sfs-group-rotkreuz"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
@@ -712,11 +726,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
+          "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz"
+        ],
+        "en": [
+          "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
+        ],
+        "fr": [
           "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
         ]
       },
       "previousSlugs": [
-        "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz"
+        "logistiker-in-kommissionierung-2-schicht-m-f-d-sfs-group-rotkreuz",
+        "logistiker-in-kommissionierung-2-schicht-m-w-d-sfs-group-rotkreuz"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

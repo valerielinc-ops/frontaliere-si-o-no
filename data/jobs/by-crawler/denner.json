@@ -2296,8 +2296,7 @@
         "vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
         "verkaufer-in-im-stundenlohn-denner-zurich",
         "seller-in-the-hourly-wage-denner-ag-zurich-1f4f1e",
-        "vendeur-dans-le-salaire-horaire-denner-ag-zurich-1f4f1e",
-        "venditore-nel-salario-orario-denner-ag-zurich"
+        "vendeur-dans-le-salaire-horaire-denner-ag-zurich-1f4f1e"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2311,8 +2310,7 @@
           "vendeur-en-salaire-horaire-denner-ag-cham-3hwpq1",
           "verkaufer-in-im-stundenlohn-denner-zurich",
           "seller-in-the-hourly-wage-denner-ag-zurich-1f4f1e",
-          "vendeur-dans-le-salaire-horaire-denner-ag-zurich-1f4f1e",
-          "venditore-nel-salario-orario-denner-ag-zurich"
+          "vendeur-dans-le-salaire-horaire-denner-ag-zurich-1f4f1e"
         ],
         "en": [
           "verkaufer-in-im-stundenlohn-denner-ag-zurich-se0fxo"
@@ -5649,8 +5647,7 @@
         "stv-filialleiter-in-denner-ag-oensingen",
         "stv-branch-manager-in-training-denner-oensingen",
         "stv-branch-manager-in-migros-ticino-unterkulm",
-        "stv-filialleiter-in-migros-ticino-unterkulm",
-        "stv-branch-manager-in-denner-ag-zurich-3e601b"
+        "stv-filialleiter-in-migros-ticino-unterkulm"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5673,8 +5670,7 @@
           "stv-branch-manager-in-migros-ticino-unterkulm",
           "stv-filialleiter-in-migros-ticino-unterkulm",
           "stv-filialleiter-in-denner",
-          "stv-filialleiter-in-denner-14",
-          "stv-branch-manager-in-denner-ag-zurich-3e601b"
+          "stv-filialleiter-in-denner-14"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-zurich",
@@ -19323,7 +19319,6 @@
           "assistant-adjoint-assistante-adjointe-denner"
         ],
         "fr": [
-          "assistant-adjoint-assistante-adjointe-denner",
           "assistant-adjoint-assistante-adjointe-denner-fhyqxc"
         ]
       },
@@ -19344,10 +19339,10 @@
     },
     {
       "id": "denner-36aaf9bb0297",
-      "slug": "assistant-adjoint-assistante-adjointe-denner",
+      "slug": "assistente-assistente-assistente-assistente-denner-nyon",
       "slugByLocale": {
-        "it": "assistant-adjoint-assistante-adjointe-denner",
-        "en": "assistant-adjoint-assistante-adjointe-denner",
+        "it": "assistente-assistente-assistente-assistente-denner-nyon",
+        "en": "assistant-assistant-assistant-denner-nyon",
         "de": "assistant-adjoint-assistante-adjointe-denner",
         "fr": "assistant-adjoint-assistante-adjointe-denner"
       },
@@ -19419,7 +19414,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:55:14.114Z"
+      "firstSeenAt": "2026-09-19T22:55:14.114Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-adjoint-assistante-adjointe-denner"
+        ],
+        "en": [
+          "assistant-adjoint-assistante-adjointe-denner"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-adjoint-assistante-adjointe-denner"
+      ]
     }
   ]
 }

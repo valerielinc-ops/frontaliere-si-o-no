@@ -86,7 +86,7 @@
         "en": "sales-support-w-m-d-40-60-generalagentur-glarus-rheintal-swiss-life-ch",
         "it": "sales-support-m-w-d-40-60-agenzia-generale-glarus-rheintal-swiss-life-st-gallen",
         "de": "sales-support-w-m-d-40-60-generalagentur-glarus-rheintal-swiss-life-ch",
-        "fr": "sales-support-w-m-d-40-60-generalagentur-glarus-rheintal-swiss-life-ch"
+        "fr": "soutien-aux-ventes-h-f-d-40-60-generalagentur-glarus-rheintal-swiss-life-buchs-sg"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -135,6 +135,9 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-support-w-m-d-40-60-generalagentur-glarus-rheintal-swiss-life-ch"
+        ],
+        "fr": [
+          "sales-support-w-m-d-40-60-generalagentur-glarus-rheintal-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -157,10 +160,10 @@
     },
     {
       "id": "swiss-life-1018a191bf7b",
-      "slug": "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch",
+      "slug": "consulente-55-m-f-d-4997-469-lugano-swiss-life-lugano",
       "slugByLocale": {
         "en": "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch",
-        "it": "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch",
+        "it": "consulente-55-m-f-d-4997-469-lugano-swiss-life-lugano",
         "de": "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch",
         "fr": "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch"
       },
@@ -222,7 +225,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:01:41.786Z"
+      "firstSeenAt": "2026-09-19T23:01:41.786Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch"
+        ]
+      },
+      "previousSlugs": [
+        "consulente-immobiliare-f-m-d-agenzia-generale-svizzera-italiana-lugano-swiss-life-ch"
+      ]
     },
     {
       "id": "swiss-life-aeffa620a7e9",
@@ -230,8 +241,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-wil-region-wil-oder",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-wil-region-wil-o-rapperswil-swiss-life-st-gallen",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-wil-region-wil-oder",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-wil-region-wil-oder"
+        "en": "precautionary-and-financial-advisory-m-f-d-with-experience-general-agency-wil-region-wil-or-rapperswil-swiss-life-ga-wil",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-wil-region-wil-ou-rapperswil-swiss-life-ga-wil"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -279,6 +290,12 @@
       "hiringOrganization": "Swiss Life GA Wil",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-wil-region-wil-oder"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-wil-region-wil-oder"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-wil-region-wil-oder"
         ]
       },
@@ -383,8 +400,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-ost-swiss-life-ch",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-bern-ost-swiss-life-bern",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-ost-swiss-life-ch",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-ost-swiss-life-ch"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-bern-ost-swiss-life-bern",
+        "fr": "conseiller-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-bern-ost-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -432,6 +449,12 @@
       "hiringOrganization": "Swiss Life GA Bern-Ost",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-ost-swiss-life-ch"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-ost-swiss-life-ch"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-ost-swiss-life-ch"
         ]
       },
@@ -613,8 +636,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-baden",
         "it": "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-baden-swiss-life-aarau",
-        "en": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-baden",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-baden"
+        "en": "precautionary-and-financial-advisory-m-f-d-within-the-framework-of-a-succession-regulation-general-agency-baden-swiss",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-dans-le-cadre-d-un-reglement-de-succession-agence-generale-baden-swiss-life"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -663,6 +686,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-baden"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-baden"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-baden"
         ]
       },
       "previousSlugs": [
@@ -689,8 +718,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-baden-swiss-life-ch",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-baden-swiss-life-aarau",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-baden-swiss-life-ch",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-baden-swiss-life-ch"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-baden-swiss-life-baden",
+        "fr": "conseiller-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-baden-swiss-life-baden"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -738,6 +767,12 @@
       "hiringOrganization": "Swiss Life GA Baden",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-baden-swiss-life-ch"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-baden-swiss-life-ch"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-baden-swiss-life-ch"
         ]
       },
@@ -919,8 +954,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-biel",
         "it": "previdenza-e-finanzberatende-m-w-d-spezialisierung-pensionsplanungen-agenzia-generale-biel-seeland-swiss-life-bern",
-        "en": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-biel",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-biel"
+        "en": "precautionary-and-financial-advisory-m-f-d-specialization-pension-planning-general-agency-biel-seeland-swiss-life-biel",
+        "fr": "conseil-de-prudence-et-financier-h-f-d-planification-des-pensions-de-specialisation-agence-generale-bienne-seeland-swiss"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -969,6 +1004,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-biel"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-biel"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-biel"
         ]
       },
       "previousSlugs": [
@@ -995,8 +1036,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-biel",
         "it": "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-biel-seeland-swiss-life-bern",
-        "en": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-biel",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-biel"
+        "en": "precautionary-and-financial-advisory-m-f-d-within-the-framework-of-a-succession-regulation-general-agency-biel-seeland",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-dans-le-cadre-d-un-reglement-de-succession-agence-generale-bienne-seeland-swiss"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -1044,6 +1085,12 @@
       "hiringOrganization": "Swiss Life GA Biel-Seeland",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-biel"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-biel"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-biel"
         ]
       },
@@ -1148,8 +1195,8 @@
       "slugByLocale": {
         "de": "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
         "it": "teamleiter-vendita-m-w-d-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
-        "en": "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch",
-        "fr": "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch"
+        "en": "team-leader-sales-m-f-d-general-agency-solothurn-oberaargau-swiss-life-solothurn",
+        "fr": "chef-d-equipe-ventes-h-f-d-agence-generale-soleure-oberaargau-swiss-life-solothurn"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -1202,7 +1249,11 @@
           "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2"
         ],
         "en": [
-          "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2"
+          "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch-2",
+          "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch"
+        ],
+        "fr": [
+          "teamleiter-verkauf-w-m-d-generalagentur-solothurn-oberaargau-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -1231,8 +1282,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-west-swiss-life-ch",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-bern-west-swiss-life-bern",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-west-swiss-life-ch",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-west-swiss-life-ch"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-bern-west-swiss-life-bern",
+        "fr": "conseiller-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-bern-west-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -1281,6 +1332,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-west-swiss-life-ch"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-west-swiss-life-ch"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-bern-west-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -1307,8 +1364,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-binz-swiss-life-ch",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zurich-binz-swiss-life-zurich",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-binz-swiss-life-ch",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-binz-swiss-life-ch"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-zurich-binz-swiss-life-zurich",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-zurich-binz-swiss-life-zurich"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -1356,6 +1413,12 @@
       "hiringOrganization": "Swiss Life GA Zürich-Binz Direkt/Digital",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-binz-swiss-life-ch"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-binz-swiss-life-ch"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-binz-swiss-life-ch"
         ]
       },
@@ -1538,7 +1601,7 @@
         "en": "immobilienberater-w-m-d-generalagentur-basel-swiss-life-ch",
         "it": "immobilienberater-m-w-d-agenzia-generale-basel-swiss-life-basel",
         "de": "immobilienberater-w-m-d-generalagentur-basel-swiss-life-ch",
-        "fr": "immobilienberater-w-m-d-generalagentur-basel-swiss-life-ch"
+        "fr": "immobilier-h-f-d-generalagentur-basel-swiss-life-basel"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -1587,6 +1650,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "immobilienberater-w-m-d-generalagentur-basel-swiss-life-ch"
+        ],
+        "fr": [
           "immobilienberater-w-m-d-generalagentur-basel-swiss-life-ch"
         ]
       },
@@ -1768,8 +1834,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-thun-oberland-swiss-life",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-thun-oberland-swiss-life-bern",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-thun-oberland-swiss-life",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-thun-oberland-swiss-life"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-thun-oberland-swiss-life-thun",
+        "fr": "conseiller-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-thun-oberland-swiss-life-thun"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -1818,6 +1884,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-thun-oberland-swiss-life"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-thun-oberland-swiss-life"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-thun-oberland-swiss-life"
         ]
       },
       "previousSlugs": [
@@ -1844,8 +1916,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-basel-swiss-life-ch",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-basel-swiss-life-basel",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-basel-swiss-life-ch",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-basel-swiss-life-ch"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-basel-swiss-life-basel",
+        "fr": "conseiller-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-bale-swiss-life-basel"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -1893,6 +1965,12 @@
       "hiringOrganization": "Swiss Life GA Basel",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-basel-swiss-life-ch"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-basel-swiss-life-ch"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-basel-swiss-life-ch"
         ]
       },
@@ -2078,7 +2156,7 @@
         "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre",
         "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
         "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-personnes-venant-d-un-autre-metier-bienvenues-agence-generale",
-        "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
+        "fr": "conseiller-conseiller-en-e-et-en-finance-h-f-d-personnes-qui-d-un-organisme-professionnel-en-enece-agence-generale"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -2143,6 +2221,9 @@
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
         ],
         "de": [
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
+        ],
+        "fr": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-personnes-venant-d-un-autre"
         ]
       },
@@ -2239,7 +2320,7 @@
         "en": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-prevoyance",
         "it": "conseiller-conseillere-en-prevoyance-et-en-finanza-f-m-d-avec-specialisation-en-prevoyance-sante-agence-generale-geneve",
         "de": "conseiller-conseillere-en-prevoyance-et-en-finanzen-f-h-d-avec-specialisation-en-prevoyance-sante-agence-generale-geneve",
-        "fr": "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-prevoyance"
+        "fr": "conseiller-conseiller-en-etienne-et-en-finance-h-f-d-avec-specialisation-en-etienne-agence-generale-geneve-rive-gaulois"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -2306,6 +2387,9 @@
         ],
         "de": [
           "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-prevoyance"
+        ],
+        "fr": [
+          "conseiller-conseillere-en-prevoyance-et-en-finance-f-h-d-avec-specialisation-en-prevoyance"
         ]
       },
       "previousSlugs": [
@@ -2314,10 +2398,10 @@
     },
     {
       "id": "swiss-life-6fe8e237bf07",
-      "slug": "responsable-equipe-de-vente-f-h-d-agence-generale-lausanne-succursale-yverdon-les-bains",
+      "slug": "responsabile-m-f-d-swiss-life-gs-yverdon-les-bains",
       "slugByLocale": {
         "en": "responsable-equipe-de-vente-f-h-d-agence-generale-lausanne-succursale-yverdon-les-bains",
-        "it": "responsable-equipe-de-vente-f-h-d-agence-generale-lausanne-succursale-yverdon-les-bains",
+        "it": "responsabile-m-f-d-swiss-life-gs-yverdon-les-bains",
         "de": "responsable-equipe-de-vente-f-h-d-agence-generale-lausanne-succursale-yverdon-les-bains",
         "fr": "responsable-equipe-de-vente-f-h-d-agence-generale-lausanne-succursale-yverdon-les-bains"
       },
@@ -2379,7 +2463,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:01:21.898Z"
+      "firstSeenAt": "2026-09-19T23:01:21.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-equipe-de-vente-f-h-d-agence-generale-lausanne-succursale-yverdon-les-bains"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-equipe-de-vente-f-h-d-agence-generale-lausanne-succursale-yverdon-les-bains"
+      ]
     },
     {
       "id": "swiss-life-65abd0757165",
@@ -2455,8 +2547,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-uster-swiss-life-ch",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-uster-swiss-life-zurich",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-uster-swiss-life-ch",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-uster-swiss-life-ch"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-uster-swiss-life-uster",
+        "fr": "conseiller-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-uster-swiss-life-uster"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -2505,6 +2597,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-uster-swiss-life-ch"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-uster-swiss-life-ch"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-uster-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -2532,7 +2630,7 @@
         "en": "immobilienberater-w-m-d-generalagentur-uster-swiss-life-ch",
         "it": "immobilienberater-m-w-d-agenzia-generale-uster-swiss-life-zurich",
         "de": "immobilienberater-w-m-d-generalagentur-uster-swiss-life-ch",
-        "fr": "immobilienberater-w-m-d-generalagentur-uster-swiss-life-ch"
+        "fr": "immobilier-h-f-d-generalagentur-uster-swiss-life-uster"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -2582,6 +2680,9 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienberater-w-m-d-generalagentur-uster-swiss-life-ch"
+        ],
+        "fr": [
+          "immobilienberater-w-m-d-generalagentur-uster-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -2608,8 +2709,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-schaffhausen",
         "it": "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-schaffhausen-swiss-life-schaffhausen",
-        "en": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-schaffhausen",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-schaffhausen"
+        "en": "precautionary-and-financial-advisory-m-f-d-specialization-collective-general-agency-schaffhausen-swiss-life-schaffhausen",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-collectif-de-specialisation-agence-generale-schaffhausen-swiss-life"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -2658,6 +2759,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-schaffhausen"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-schaffhausen"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-schaffhausen"
         ]
       },
       "previousSlugs": [
@@ -2685,7 +2792,7 @@
         "en": "immobilienberater-w-m-d-generalagentur-schaffhausen-swiss-life-ch",
         "it": "immobilienberater-m-w-d-agenzia-generale-schaffhausen-swiss-life-schaffhausen",
         "de": "immobilienberater-w-m-d-generalagentur-schaffhausen-swiss-life-ch",
-        "fr": "immobilienberater-w-m-d-generalagentur-schaffhausen-swiss-life-ch"
+        "fr": "immobilier-h-f-d-generalagentur-schaffhausen-swiss-life-schaffhausen"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -2735,6 +2842,9 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienberater-w-m-d-generalagentur-schaffhausen-swiss-life-ch"
+        ],
+        "fr": [
+          "immobilienberater-w-m-d-generalagentur-schaffhausen-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -2761,8 +2871,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-winterthur-swiss-life-ch",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-winterthur-swiss-life-winterthur",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-winterthur-swiss-life-ch",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-winterthur-swiss-life-ch"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-winterthur-swiss-life-winterthur",
+        "fr": "conseiller-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-winterthur-swiss-life-winterthur"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -2811,6 +2921,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-winterthur-swiss-life-ch"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-winterthur-swiss-life-ch"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-winterthur-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -2837,8 +2953,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte",
         "it": "previdenza-e-finanzberatende-m-w-d-spezialisierung-hypotheken-finanzierungsexperte-agenzia-generale-wil-swiss-life-st-gallen",
-        "en": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte"
+        "en": "precautionary-and-financial-advisor-m-f-d-specialization-mortgage-financing-expert-general-agency-wil-swiss-life-ga-wil",
+        "fr": "conseiller-de-precaution-et-financier-h-f-d-expert-en-hypotheques-et-financement-specialise-agence-generale-wil-swiss"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -2886,6 +3002,12 @@
       "hiringOrganization": "Swiss Life GA Wil",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-hypotheken-finanzierungsexperte"
         ]
       },
@@ -3222,7 +3344,7 @@
         "en": "immobilienberater-w-m-d-generalagentur-winterthur-swiss-life-ch",
         "it": "immobilienberater-m-w-d-agenzia-generale-winterthur-swiss-life-winterthur",
         "de": "immobilienberater-w-m-d-generalagentur-winterthur-swiss-life-ch",
-        "fr": "immobilienberater-w-m-d-generalagentur-winterthur-swiss-life-ch"
+        "fr": "immobilier-h-f-d-generalagentur-winterthur-swiss-life-winterthur"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -3272,6 +3394,9 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienberater-w-m-d-generalagentur-winterthur-swiss-life-ch"
+        ],
+        "fr": [
+          "immobilienberater-w-m-d-generalagentur-winterthur-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -3299,7 +3424,7 @@
         "en": "sales-support-w-m-d-100-generalagentur-schaffhausen-swiss-life-ch",
         "it": "sales-support-m-w-d-100-agenzia-generale-schaffhausen-swiss-life-schaffhausen",
         "de": "sales-support-w-m-d-100-generalagentur-schaffhausen-swiss-life-ch",
-        "fr": "sales-support-w-m-d-100-generalagentur-schaffhausen-swiss-life-ch"
+        "fr": "soutien-aux-ventes-h-f-d-100-generalagentur-schaffhausen-swiss-life-schaffhausen"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -3348,6 +3473,9 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-support-w-m-d-100-generalagentur-schaffhausen-swiss-life-ch"
+        ],
+        "fr": [
+          "sales-support-w-m-d-100-generalagentur-schaffhausen-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -3375,7 +3503,7 @@
         "en": "immobilienberater-w-m-d-generalagentur-graubunden-swiss-life-ch",
         "it": "immobilienberater-m-w-d-agenzia-generale-graubunden-swiss-life-chur",
         "de": "immobilienberater-w-m-d-generalagentur-graubunden-swiss-life-ch",
-        "fr": "immobilienberater-w-m-d-generalagentur-graubunden-swiss-life-ch"
+        "fr": "immobilier-h-f-d-generalagentur-graubunden-swiss-life-ga-graubunden"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -3425,6 +3553,9 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienberater-w-m-d-generalagentur-graubunden-swiss-life-ch"
+        ],
+        "fr": [
+          "immobilienberater-w-m-d-generalagentur-graubunden-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -3451,8 +3582,8 @@
       "slugByLocale": {
         "en": "sales-support-w-m-d-50-70-generalagentur-wil-swiss-life-ch",
         "it": "sales-support-m-w-d-50-70-agenzia-generale-wil-swiss-life-st-gallen",
-        "de": "sales-support-w-m-d-50-70-generalagentur-wil-swiss-life-ch",
-        "fr": "sales-support-w-m-d-50-70-generalagentur-wil-swiss-life-ch"
+        "de": "verkaufsunterstutzung-m-w-d-50-70-generalagentur-wil-swiss-life-wil-sg",
+        "fr": "soutien-aux-ventes-h-f-d-50-70-generalagentur-wil-swiss-life-wil-sg"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -3501,6 +3632,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-support-w-m-d-50-70-generalagentur-wil-swiss-life-ch"
+        ],
+        "de": [
+          "sales-support-w-m-d-50-70-generalagentur-wil-swiss-life-ch"
+        ],
+        "fr": [
+          "sales-support-w-m-d-50-70-generalagentur-wil-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -3527,8 +3664,8 @@
       "slugByLocale": {
         "de": "teamleiter-verkauf-w-m-d-generalagentur-winterthur-swiss-life-ch",
         "it": "teamleiter-vendita-m-w-d-agenzia-generale-winterthur-swiss-life-winterthur",
-        "en": "teamleiter-verkauf-w-m-d-generalagentur-winterthur-swiss-life-ch",
-        "fr": "teamleiter-verkauf-w-m-d-generalagentur-winterthur-swiss-life-ch"
+        "en": "team-leader-sales-m-f-d-general-agency-winterthur-swiss-life-winterthur",
+        "fr": "chef-d-equipe-ventes-h-f-d-agence-generale-winterthur-swiss-life-winterthur"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -3577,6 +3714,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-verkauf-w-m-d-generalagentur-winterthur-swiss-life-ch"
+        ],
+        "en": [
+          "teamleiter-verkauf-w-m-d-generalagentur-winterthur-swiss-life-ch"
+        ],
+        "fr": [
+          "teamleiter-verkauf-w-m-d-generalagentur-winterthur-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -3603,8 +3746,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-uster",
         "it": "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-uster-swiss-life-zurich",
-        "en": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-uster",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-uster"
+        "en": "precautionary-and-financial-advisory-m-f-d-within-the-framework-of-a-succession-regulation-general-agency-uster-swiss",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-dans-le-cadre-d-un-reglement-de-succession-agence-generale-uster-swiss-life"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -3652,6 +3795,12 @@
       "hiringOrganization": "Swiss Life GA Uster",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-uster"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-uster"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-uster"
         ]
       },
@@ -5269,7 +5418,7 @@
         "de": "sales-support-40-100-generalagentur-st-gallen-appenzellerland-swiss-life-ch",
         "it": "sales-support-40-100-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen",
         "en": "sales-support-40-100-generalagentur-st-gallen-appenzellerland-swiss-life-ch",
-        "fr": "sales-support-40-100-generalagentur-st-gallen-appenzellerland-swiss-life-ch"
+        "fr": "soutien-aux-ventes-40-100-agence-generale-st-gallen-appenzellerland-swiss-life-st-gallen"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -5317,6 +5466,9 @@
       "hiringOrganization": "Swiss Life GA St. Gallen-Appenzellerland",
       "previousSlugsByLocale": {
         "it": [
+          "sales-support-40-100-generalagentur-st-gallen-appenzellerland-swiss-life-ch"
+        ],
+        "fr": [
           "sales-support-40-100-generalagentur-st-gallen-appenzellerland-swiss-life-ch"
         ]
       },
@@ -5422,8 +5574,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-st",
         "it": "previdenza-e-finanzberatende-m-w-d-spezialisierung-pensionsplanungen-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen",
-        "en": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-st",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-st"
+        "en": "precautionary-and-financial-advisory-m-f-d-specialization-pension-planning-general-agency-st-gallen-appenzellerland",
+        "fr": "precautions-et-conseils-financiers-h-f-d-planification-des-pensions-de-specialisation-agence-generale-st-gallen"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -5471,6 +5623,12 @@
       "hiringOrganization": "Swiss Life GA St. Gallen-Appenzellerland",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-st"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-st"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-pensionsplanungen-generalagentur-st"
         ]
       },
@@ -5575,8 +5733,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-st",
         "it": "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-st-gallen-appenzellerland-swiss-life-st-gallen",
-        "en": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-st",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-st"
+        "en": "precautionary-and-financial-advisory-m-f-d-within-the-framework-of-a-succession-regulation-general-agency-st-gallen",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-dans-le-cadre-d-un-reglement-de-succession-agence-generale-st-gallen"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -5624,6 +5782,12 @@
       "hiringOrganization": "Swiss Life GA St. Gallen-Appenzellerland",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-st"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-st"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-st"
         ]
       },
@@ -5728,8 +5892,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-thurgau-swiss",
         "it": "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-thurgau-swiss-life-frauenfeld",
-        "en": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-thurgau-swiss",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-thurgau-swiss"
+        "en": "precautionary-and-financial-advisory-m-f-d-specialization-collective-general-agency-thurgau-swiss-life-weinfelden",
+        "fr": "conseil-de-prudence-et-financier-h-f-d-collectif-de-specialisation-agence-generale-thurgau-swiss-life-weinfelden"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -5777,6 +5941,12 @@
       "hiringOrganization": "Swiss Life GA Thurgau",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-thurgau-swiss"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-thurgau-swiss"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-thurgau-swiss"
         ]
       },
@@ -5882,8 +6052,8 @@
       "slugByLocale": {
         "en": "sales-support-w-m-d-40-generalagentur-zurich-limmat-swiss-life-ch",
         "it": "sales-support-m-w-d-40-agenzia-generale-zurich-limmat-swiss-life-zurich",
-        "de": "sales-support-w-m-d-40-generalagentur-zurich-limmat-swiss-life-ch",
-        "fr": "sales-support-w-m-d-40-generalagentur-zurich-limmat-swiss-life-ch"
+        "de": "verkaufsunterstutzung-m-w-d-40-generalagentur-zurich-limmat-swiss-life-zurich",
+        "fr": "soutien-aux-ventes-h-f-d-40-generalagentur-zurich-limmat-swiss-life-zurich"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -5931,6 +6101,12 @@
       "hiringOrganization": "Swiss Life GA Zürich-Limmat",
       "previousSlugsByLocale": {
         "it": [
+          "sales-support-w-m-d-40-generalagentur-zurich-limmat-swiss-life-ch"
+        ],
+        "de": [
+          "sales-support-w-m-d-40-generalagentur-zurich-limmat-swiss-life-ch"
+        ],
+        "fr": [
           "sales-support-w-m-d-40-generalagentur-zurich-limmat-swiss-life-ch"
         ]
       },
@@ -6112,8 +6288,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-limmat-swiss-life",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zurich-limmat-swiss-life-zurich",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-limmat-swiss-life",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-limmat-swiss-life"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-zurich-limmat-swiss-life-zurich",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-zurich-limmat-swiss-life-zurich"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -6162,6 +6338,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-limmat-swiss-life"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-limmat-swiss-life"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-limmat-swiss-life"
         ]
       },
       "previousSlugs": [
@@ -6188,8 +6370,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zurich",
         "it": "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-zurich-limmat-swiss-life-zurich",
-        "en": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zurich",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zurich"
+        "en": "precautionary-and-financial-advisory-m-f-d-within-the-framework-of-a-succession-regulation-general-agency-zurich-limmat",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-dans-le-cadre-d-un-reglement-de-succession-agence-generale-zurich-limmat-swiss"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -6238,6 +6420,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zurich"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zurich"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zurich"
         ]
       },
       "previousSlugs": [
@@ -6264,8 +6452,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zurich",
         "it": "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-zurich-pfannenstiel-swiss-life-zurich",
-        "en": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zurich",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zurich"
+        "en": "precautionary-and-financial-advisory-m-f-d-specialization-collective-general-agency-zurich-pfannenstiel-swiss-life",
+        "fr": "conseil-de-prudence-et-financier-h-f-d-specialization-collective-agence-generale-zurich-pfannenstiel-swiss-life-meilen"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -6313,6 +6501,12 @@
       "hiringOrganization": "Swiss Life GA Zürich-Pfannenstiel",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zurich"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zurich"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zurich"
         ]
       },
@@ -6417,7 +6611,7 @@
       "slugByLocale": {
         "en": "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-zurich",
         "it": "previdenza-e-finanzberatende-m-w-d-quereinsteigende-willkommen-agenzia-generale-zurich-pfannenstiel-swiss-life-zurich",
-        "de": "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-zurich",
+        "de": "zez-und-finanzberatende-m-w-d-quereinsteigendecb-generalagentur-zurich-pannenstiel-swiss-life-meilen",
         "fr": "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-zurich"
       },
       "company": "Swiss Life",
@@ -6468,6 +6662,9 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-zurich"
+        ],
+        "de": [
+          "vorsorge-und-finanzberatende-m-w-d-quereinsteigende-willkommen-generalagentur-zurich"
         ]
       },
       "previousSlugs": [
@@ -6494,8 +6691,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-aarau-swiss-life-ch",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-aarau-swiss-life-aarau",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-aarau-swiss-life-ch",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-aarau-swiss-life-ch"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-aarau-swiss-life-aarau",
+        "fr": "conseiller-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-aarau-swiss-life-aarau"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -6544,6 +6741,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-aarau-swiss-life-ch"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-aarau-swiss-life-ch"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-aarau-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -6570,8 +6773,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-luzern-stans-gebiet-sarnen",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-luzern-stans-gebiet-sarnen-swiss-life-luzern",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-luzern-stans-gebiet-sarnen",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-luzern-stans-gebiet-sarnen"
+        "en": "precautionary-and-financial-advisory-m-f-d-with-experience-general-agency-lucerne-stans-sarnen-area-swiss-life-kriens",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-lucerne-stans-sarnen-swiss-life-kriens"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -6620,6 +6823,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-luzern-stans-gebiet-sarnen"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-luzern-stans-gebiet-sarnen"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-luzern-stans-gebiet-sarnen"
         ]
       },
       "previousSlugs": [
@@ -6646,8 +6855,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-schwyz-urnerland-swiss",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-schwyz-urnerland-swiss-life-schwyz",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-schwyz-urnerland-swiss",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-schwyz-urnerland-swiss"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-schwyz-urnerland-swiss-life-schwyz",
+        "fr": "conseiller-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-schwyz-urnerland-swiss-life-schwyz"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -6696,6 +6905,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-schwyz-urnerland-swiss"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-schwyz-urnerland-swiss"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-schwyz-urnerland-swiss"
         ]
       },
       "previousSlugs": [
@@ -6722,8 +6937,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zug-swiss-life-ch",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zug-swiss-life-zug",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zug-swiss-life-ch",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zug-swiss-life-ch"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-zug-swiss-life-steinhausen",
+        "fr": "conseiller-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-zug-swiss-life-steinhausen"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -6771,6 +6986,12 @@
       "hiringOrganization": "Swiss Life GA Zug",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zug-swiss-life-ch"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zug-swiss-life-ch"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zug-swiss-life-ch"
         ]
       },
@@ -6876,8 +7097,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zug-swiss-life",
         "it": "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-zug-swiss-life-zug",
-        "en": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zug-swiss-life",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zug-swiss-life"
+        "en": "precautionary-and-financial-advisory-m-f-d-specialization-collective-general-agency-zug-swiss-life-steinhausen",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-collectif-de-specialisation-agence-generale-zug-swiss-life-steinhausen"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -6926,6 +7147,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zug-swiss-life"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zug-swiss-life"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-zug-swiss-life"
         ]
       },
       "previousSlugs": [
@@ -6952,8 +7179,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-schwyz",
         "it": "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-schwyz-urnerland-region-innerschwyz-swiss-life-schwyz",
-        "en": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-schwyz",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-schwyz"
+        "en": "precautionary-and-financial-advisory-m-f-d-within-the-framework-of-a-succession-regulation-general-agency-schwyz",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-dans-le-cadre-d-un-reglement-de-succession-agence-generale-schwyz-urnerland"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -7002,6 +7229,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-schwyz"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-schwyz"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-schwyz"
         ]
       },
       "previousSlugs": [
@@ -7028,8 +7261,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zug",
         "it": "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-zug-swiss-life-zug",
-        "en": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zug",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zug"
+        "en": "precautionary-and-financial-advisory-m-f-d-within-the-framework-of-a-succession-regulation-general-agency-zug-swiss-life",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-dans-le-cadre-d-un-reglement-de-succession-agence-generale-zug-swiss-life"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -7077,6 +7310,12 @@
       "hiringOrganization": "Swiss Life GA Zug",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zug"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zug"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur-zug"
         ]
       },
@@ -7259,7 +7498,7 @@
         "en": "immobilienberater-w-m-d-generalagentur-aarau-swiss-life-ch",
         "it": "immobilienberater-m-w-d-agenzia-generale-aarau-swiss-life-aarau",
         "de": "immobilienberater-w-m-d-generalagentur-aarau-swiss-life-ch",
-        "fr": "immobilienberater-w-m-d-generalagentur-aarau-swiss-life-ch"
+        "fr": "immobilier-h-f-d-generalagentur-aarau-swiss-life-aarau"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -7309,6 +7548,9 @@
       "previousSlugsByLocale": {
         "it": [
           "immobilienberater-w-m-d-generalagentur-aarau-swiss-life-ch"
+        ],
+        "fr": [
+          "immobilienberater-w-m-d-generalagentur-aarau-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -7335,8 +7577,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-zimmerberg-swiss",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-zurich-zimmerberg-swiss-life-zurich",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-zimmerberg-swiss",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-zimmerberg-swiss"
+        "en": "precautionary-and-financial-advisor-m-f-d-with-experience-general-agency-zurich-zimmerberg-swiss-life-horgen",
+        "fr": "conseiller-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-zurich-zimmerberg-swiss-life-horgen"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -7384,6 +7626,12 @@
       "hiringOrganization": "Swiss Life GA Zürich-Zimmerberg",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-zimmerberg-swiss"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-zimmerberg-swiss"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-zurich-zimmerberg-swiss"
         ]
       },
@@ -7488,8 +7736,8 @@
       "slugByLocale": {
         "de": "teamleiter-verkauf-w-m-d-generalagentur-schwyz-urnerland-swiss-life-ch",
         "it": "teamleiter-vendita-m-w-d-agenzia-generale-schwyz-urnerland-swiss-life-schwyz",
-        "en": "teamleiter-verkauf-w-m-d-generalagentur-schwyz-urnerland-swiss-life-ch",
-        "fr": "teamleiter-verkauf-w-m-d-generalagentur-schwyz-urnerland-swiss-life-ch"
+        "en": "team-leader-sales-m-f-d-general-agency-schwyz-urnerland-swiss-life-schwyz",
+        "fr": "chef-d-equipe-ventes-h-f-d-agence-generale-schwyz-urnerland-swiss-life-schwyz"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -7538,6 +7786,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-verkauf-w-m-d-generalagentur-schwyz-urnerland-swiss-life-ch"
+        ],
+        "en": [
+          "teamleiter-verkauf-w-m-d-generalagentur-schwyz-urnerland-swiss-life-ch"
+        ],
+        "fr": [
+          "teamleiter-verkauf-w-m-d-generalagentur-schwyz-urnerland-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -7564,8 +7818,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur",
         "it": "previdenza-e-finanzberatende-m-w-d-im-rahmen-einer-nachfolgeregelung-agenzia-generale-solothurn-oberaargau-swiss-life-solothurn",
-        "en": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur"
+        "en": "precautionary-and-financial-advisory-m-f-d-within-the-framework-of-a-succession-regulation-general-agency-solothurn",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-dans-le-cadre-d-un-reglement-de-succession-agence-generale-soleure-oberaargau"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -7613,6 +7867,12 @@
       "hiringOrganization": "Swiss Life GA Solothurn-Oberaargau",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-im-rahmen-einer-nachfolgeregelung-generalagentur"
         ]
       },
@@ -7875,8 +8135,8 @@
       "slugByLocale": {
         "de": "sales-support-60-generalagentur-aarau-swiss-life-ch",
         "it": "sales-support-60-agenzia-generale-aarau-swiss-life-aarau",
-        "en": "sales-support-60-generalagentur-aarau-swiss-life-ch",
-        "fr": "sales-support-60-generalagentur-aarau-swiss-life-ch"
+        "en": "sales-support-60-general-agency-aarau-swiss-life-aarau",
+        "fr": "soutien-aux-ventes-60-agence-generale-aarau-swiss-life-aarau"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -7925,6 +8185,12 @@
       "previousSlugsByLocale": {
         "it": [
           "sales-support-60-generalagentur-aarau-swiss-life-ch"
+        ],
+        "en": [
+          "sales-support-60-generalagentur-aarau-swiss-life-ch"
+        ],
+        "fr": [
+          "sales-support-60-generalagentur-aarau-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -7951,8 +8217,8 @@
       "slugByLocale": {
         "de": "teamleiter-verkauf-w-m-d-generalagentur-bern-west-swiss-life-ch",
         "it": "teamleiter-vendita-m-w-d-agenzia-generale-bern-west-swiss-life-bern",
-        "en": "teamleiter-verkauf-w-m-d-generalagentur-bern-west-swiss-life-ch",
-        "fr": "teamleiter-verkauf-w-m-d-generalagentur-bern-west-swiss-life-ch"
+        "en": "team-leader-sales-m-f-d-general-agency-bern-west-swiss-life-bern",
+        "fr": "chef-d-equipe-ventes-h-f-d-agence-generale-bern-west-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -8000,6 +8266,12 @@
       "hiringOrganization": "Swiss Life GA Bern-West",
       "previousSlugsByLocale": {
         "it": [
+          "teamleiter-verkauf-w-m-d-generalagentur-bern-west-swiss-life-ch"
+        ],
+        "en": [
+          "teamleiter-verkauf-w-m-d-generalagentur-bern-west-swiss-life-ch"
+        ],
+        "fr": [
           "teamleiter-verkauf-w-m-d-generalagentur-bern-west-swiss-life-ch"
         ]
       },
@@ -8253,8 +8525,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-baden-swiss",
         "it": "previdenza-e-finanzberatende-m-w-d-spezialisierung-kollektiv-agenzia-generale-baden-swiss-life-aarau",
-        "en": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-baden-swiss",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-baden-swiss"
+        "en": "precautionary-and-financial-advisory-m-f-d-specialization-collective-general-agency-baden-swiss-life-baden",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-specialization-collective-general-agency-baden-swiss-life-baden"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -8303,6 +8575,12 @@
       "previousSlugsByLocale": {
         "it": [
           "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-baden-swiss"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-baden-swiss"
+        ],
+        "fr": [
+          "vorsorge-und-finanzberatende-w-m-d-spezialisierung-kollektiv-generalagentur-baden-swiss"
         ]
       },
       "previousSlugs": [
@@ -8325,12 +8603,12 @@
     },
     {
       "id": "swiss-life-447fd3621a4a",
-      "slug": "financial-planner-relationship-manager-w-m-d-100-swiss-life-ch",
+      "slug": "responsabile-della-pianificazione-finanziaria-e-delle-relazioni-m-f-d-100-swiss-life-rapperswil-rathausstrasse",
       "slugByLocale": {
         "en": "financial-planner-relationship-manager-w-m-d-100-swiss-life-ch",
-        "it": "financial-planner-relationship-manager-w-m-d-100-swiss-life-ch",
+        "it": "responsabile-della-pianificazione-finanziaria-e-delle-relazioni-m-f-d-100-swiss-life-rapperswil-rathausstrasse",
         "de": "financial-planner-relationship-manager-w-m-d-100-swiss-life-ch",
-        "fr": "financial-planner-relationship-manager-w-m-d-100-swiss-life-ch"
+        "fr": "planificateur-financier-et-gestionnaire-de-relations-h-f-d-100-swiss-life-rapperswil-rathausstrasse"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -8389,7 +8667,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:00:24.287Z"
+      "firstSeenAt": "2026-09-19T23:00:24.287Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "financial-planner-relationship-manager-w-m-d-100-swiss-life-ch"
+        ],
+        "fr": [
+          "financial-planner-relationship-manager-w-m-d-100-swiss-life-ch"
+        ]
+      },
+      "previousSlugs": [
+        "financial-planner-relationship-manager-w-m-d-100-swiss-life-ch"
+      ]
     },
     {
       "id": "swiss-life-62ec52052cf9",
@@ -8398,7 +8687,7 @@
         "en": "senior-wealth-planner-relationship-manager-w-m-d-100-swiss-life-ch",
         "it": "senior-wealth-planner-relationship-manager-w-m-d-100-swiss-life-ch",
         "de": "senior-wealth-planner-relationship-manager-w-m-d-100-swiss-life-ch",
-        "fr": "senior-wealth-planner-relationship-manager-w-m-d-100-swiss-life-ch"
+        "fr": "aine-planificateur-de-patrimoine-et-gestionnaire-de-relations-h-f-d-100-swiss-life-bern"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -8545,8 +8834,8 @@
       "slugByLocale": {
         "de": "spezialist-buchhaltung-fur-pensionskassen-w-m-d-80-100-swiss-life-ch",
         "it": "spezialist-buchhaltung-per-pensionskassen-m-w-d-80-100-swiss-life-zurich",
-        "en": "spezialist-buchhaltung-fur-pensionskassen-w-m-d-80-100-swiss-life-ch",
-        "fr": "spezialist-buchhaltung-fur-pensionskassen-w-m-d-80-100-swiss-life-ch"
+        "en": "accounting-specialist-for-pension-funds-m-f-d-80-100-swiss-life-zurich",
+        "fr": "specialiste-comptable-des-fonds-de-pension-h-f-d-80-100-swiss-life-zurich"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -8595,6 +8884,12 @@
       "previousSlugsByLocale": {
         "it": [
           "spezialist-buchhaltung-fur-pensionskassen-w-m-d-80-100-swiss-life-ch"
+        ],
+        "en": [
+          "spezialist-buchhaltung-fur-pensionskassen-w-m-d-80-100-swiss-life-ch"
+        ],
+        "fr": [
+          "spezialist-buchhaltung-fur-pensionskassen-w-m-d-80-100-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -8621,8 +8916,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-sales-support-w-m-d-40-generalagentur-winterthur-swiss-life-ch",
         "it": "collaboratore-trice-sales-support-m-w-d-40-agenzia-generale-winterthur-swiss-life-winterthur",
-        "en": "mitarbeiter-sales-support-w-m-d-40-generalagentur-winterthur-swiss-life-ch",
-        "fr": "mitarbeiter-sales-support-w-m-d-40-generalagentur-winterthur-swiss-life-ch"
+        "en": "employee-sales-support-m-f-d-40-general-agency-winterthur-swiss-life-winterthur",
+        "fr": "soutien-aux-ventes-des-employes-h-f-d-40-agence-generale-winterthur-swiss-life-winterthur"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -8671,6 +8966,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-sales-support-w-m-d-40-generalagentur-winterthur-swiss-life-ch"
+        ],
+        "en": [
+          "mitarbeiter-sales-support-w-m-d-40-generalagentur-winterthur-swiss-life-ch"
+        ],
+        "fr": [
+          "mitarbeiter-sales-support-w-m-d-40-generalagentur-winterthur-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -8697,8 +8998,8 @@
       "slugByLocale": {
         "de": "teamleiter-verkauf-w-m-d-generalagentur-thurgau-swiss-life-ch",
         "it": "teamleiter-vendita-m-w-d-agenzia-generale-thurgau-swiss-life-frauenfeld",
-        "en": "teamleiter-verkauf-w-m-d-generalagentur-thurgau-swiss-life-ch",
-        "fr": "teamleiter-verkauf-w-m-d-generalagentur-thurgau-swiss-life-ch"
+        "en": "team-manager-sales-m-f-d-general-agency-thurgau-swiss-life-weinfelden",
+        "fr": "chef-d-equipe-ventes-h-f-d-agence-generale-thurgau-swiss-life-weinfelden"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -8747,6 +9048,12 @@
       "previousSlugsByLocale": {
         "it": [
           "teamleiter-verkauf-w-m-d-generalagentur-thurgau-swiss-life-ch"
+        ],
+        "en": [
+          "teamleiter-verkauf-w-m-d-generalagentur-thurgau-swiss-life-ch"
+        ],
+        "fr": [
+          "teamleiter-verkauf-w-m-d-generalagentur-thurgau-swiss-life-ch"
         ]
       },
       "previousSlugs": [
@@ -8773,8 +9080,8 @@
       "slugByLocale": {
         "de": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-sursee-gebiet-schupfheim",
         "it": "previdenza-e-finanzberatende-m-w-d-con-erfahrung-agenzia-generale-sursee-gebiet-schupfheim-swiss-life-luzern",
-        "en": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-sursee-gebiet-schupfheim",
-        "fr": "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-sursee-gebiet-schupfheim"
+        "en": "precautionary-and-financial-advisory-m-f-d-with-experience-general-agency-sursee-schupfheim-area-swiss-life-sursee",
+        "fr": "conseil-de-precaution-et-financier-h-f-d-avec-experience-agence-generale-sursee-schupfheim-swiss-life-sursee"
       },
       "company": "Swiss Life",
       "companyKey": "swiss-life",
@@ -8822,6 +9129,12 @@
       "hiringOrganization": "Swiss Life GA Sursee",
       "previousSlugsByLocale": {
         "it": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-sursee-gebiet-schupfheim"
+        ],
+        "en": [
+          "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-sursee-gebiet-schupfheim"
+        ],
+        "fr": [
           "vorsorge-und-finanzberatende-w-m-d-mit-erfahrung-generalagentur-sursee-gebiet-schupfheim"
         ]
       },

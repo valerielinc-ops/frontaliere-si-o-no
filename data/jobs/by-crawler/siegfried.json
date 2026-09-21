@@ -502,7 +502,7 @@
       "slugByLocale": {
         "it": "designer-cad-siegfried-evionnaz",
         "en": "cad-designer-siegfried-evionnaz",
-        "de": "cad-designer-siegfried-ch",
+        "de": "cadkex-siegfried-evionnaz",
         "fr": "cad-designer-siegfried-ch"
       },
       "company": "Siegfried",
@@ -549,6 +549,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "cad-designer-siegfried-ch"
+        ],
+        "de": [
           "cad-designer-siegfried-ch"
         ]
       },

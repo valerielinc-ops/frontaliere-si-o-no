@@ -1531,7 +1531,7 @@
       "slug": "designer-di-vendita-al-dettaglio-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
         "it": "designer-di-vendita-al-dettaglio-audemars-piguet-le-brassus-vd-switzerland",
-        "en": "retail-designer-audemars-piguet-le-brassus-vd-switzerland",
+        "en": "gggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggggg",
         "de": "einzelhandelsdesigner-audemars-piguet-le-brassus-vd-switzerland",
         "fr": "retail-designer-audemars-piguet-le-brassus-vd-switzerland"
       },
@@ -1583,6 +1583,9 @@
           "retail-designer-audemars-piguet-le-brassus-vd-switzerland"
         ],
         "de": [
+          "retail-designer-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "en": [
           "retail-designer-audemars-piguet-le-brassus-vd-switzerland"
         ]
       },
@@ -1882,10 +1885,10 @@
     },
     {
       "id": "audemars-piguet-ebcb7a80f466",
-      "slug": "manager-services-generaux-audemars-piguet-le-locle-ne-switzerland",
+      "slug": "responsabile-servizi-generali-audemars-piguet-le-locle-ne-switzerland",
       "slugByLocale": {
         "fr": "manager-services-generaux-audemars-piguet-le-locle-ne-switzerland",
-        "it": "manager-services-generaux-audemars-piguet-le-locle-ne-switzerland",
+        "it": "responsabile-servizi-generali-audemars-piguet-le-locle-ne-switzerland",
         "en": "manager-services-generaux-audemars-piguet-le-locle-ne-switzerland",
         "de": "manager-services-generaux-audemars-piguet-le-locle-ne-switzerland"
       },
@@ -1944,7 +1947,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:59:21.277Z"
+      "firstSeenAt": "2026-09-19T22:59:21.277Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "manager-services-generaux-audemars-piguet-le-locle-ne-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "manager-services-generaux-audemars-piguet-le-locle-ne-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-2e132015731a",
@@ -2014,12 +2025,12 @@
     },
     {
       "id": "audemars-piguet-1ae420878feb",
-      "slug": "horloger-ere-laboratoire-audemars-piguet-le-locle-ne-switzerland",
+      "slug": "laboratorio-orologiero-audemars-piguet-le-locle-ne-switzerland",
       "slugByLocale": {
         "fr": "horloger-ere-laboratoire-audemars-piguet-le-locle-ne-switzerland",
-        "it": "horloger-ere-laboratoire-audemars-piguet-le-locle-ne-switzerland",
-        "en": "horloger-ere-laboratoire-audemars-piguet-le-locle-ne-switzerland",
-        "de": "horloger-ere-laboratoire-audemars-piguet-le-locle-ne-switzerland"
+        "it": "laboratorio-orologiero-audemars-piguet-le-locle-ne-switzerland",
+        "en": "clockmaker-laboratory-audemars-piguet-le-locle-ne-switzerland",
+        "de": "uhrmacherlabor-audemars-piguet-le-locle-ne-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -2076,16 +2087,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:59:21.273Z"
+      "firstSeenAt": "2026-09-19T22:59:21.273Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "horloger-ere-laboratoire-audemars-piguet-le-locle-ne-switzerland"
+        ],
+        "en": [
+          "horloger-ere-laboratoire-audemars-piguet-le-locle-ne-switzerland"
+        ],
+        "de": [
+          "horloger-ere-laboratoire-audemars-piguet-le-locle-ne-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "horloger-ere-laboratoire-audemars-piguet-le-locle-ne-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-34a371e6b421",
-      "slug": "expert-it-operational-security-audemars-piguet-le-brassus-vd-switzerland",
+      "slug": "sicurezza-operativa-it-esperto-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
         "fr": "expert-it-operational-security-audemars-piguet-le-brassus-vd-switzerland",
-        "it": "expert-it-operational-security-audemars-piguet-le-brassus-vd-switzerland",
+        "it": "sicurezza-operativa-it-esperto-audemars-piguet-le-brassus-vd-switzerland",
         "en": "expert-it-operational-security-audemars-piguet-le-brassus-vd-switzerland",
-        "de": "expert-it-operational-security-audemars-piguet-le-brassus-vd-switzerland"
+        "de": "it-betriebssicherheit-audemars-piguet-le-brassus-vd-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -2142,7 +2167,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:59:21.270Z"
+      "firstSeenAt": "2026-09-19T22:59:21.270Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "expert-it-operational-security-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "de": [
+          "expert-it-operational-security-audemars-piguet-le-brassus-vd-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "expert-it-operational-security-audemars-piguet-le-brassus-vd-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-60781556f2f1",
@@ -2306,12 +2342,12 @@
     },
     {
       "id": "audemars-piguet-061da767783d",
-      "slug": "domain-lead-erp-audemars-piguet-le-brassus-vd-switzerland",
+      "slug": "guida-di-dominio-erp-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
         "fr": "domain-lead-erp-audemars-piguet-le-brassus-vd-switzerland",
-        "it": "domain-lead-erp-audemars-piguet-le-brassus-vd-switzerland",
-        "en": "domain-lead-erp-audemars-piguet-le-brassus-vd-switzerland",
-        "de": "domain-lead-erp-audemars-piguet-le-brassus-vd-switzerland"
+        "it": "guida-di-dominio-erp-audemars-piguet-le-brassus-vd-switzerland",
+        "en": "domain-leadhead-audemars-piguet-le-brassus-vd-switzerland",
+        "de": "bereichs-leitkopf-audemars-piguet-le-brassus-vd-switzerland"
       },
       "company": "Audemars Piguet",
       "companyKey": "audemars-piguet",
@@ -2368,7 +2404,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:59:21.250Z"
+      "firstSeenAt": "2026-09-19T22:59:21.250Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "domain-lead-erp-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "en": [
+          "domain-lead-erp-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "de": [
+          "domain-lead-erp-audemars-piguet-le-brassus-vd-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "domain-lead-erp-audemars-piguet-le-brassus-vd-switzerland"
+      ]
     },
     {
       "id": "audemars-piguet-3ffd2e07c914",
