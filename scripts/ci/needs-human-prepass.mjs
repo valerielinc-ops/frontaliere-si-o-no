@@ -81,6 +81,9 @@ import { isFixerExempt } from '../lib/classify-issue.mjs';
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const DRY = process.argv.includes('--dry-run');
+export const VISION_AUTONOMY_LABEL = 'agent:vision-approved';
+export const VISION_AUTONOMY_MARKER = '<!-- VISION_AUTONOMY: vision-v1 -->';
+const VISION_PATH = new URL('../../VISION.md', import.meta.url);
 // Cap volutamente BASSO, e tarato sulla portata a valle e non sulla dimensione
 // della coda: il sito consegna ~15 PR al giorno (108 `pr-created` in 7 giorni
 // misurati il 2026-08-24), quindi immettere 25 issue al giorno riempirebbe la
@@ -461,6 +464,21 @@ export function readDecisionRegistry() {
   }
 }
 
+/** The contract is local on the site; a missing marker disables the handoff. */
+export function readVisionAutonomyContract() {
+  try {
+    const md = fs.readFileSync(VISION_PATH, 'utf8');
+    const present = /<!--\s*AUTONOMY_CONTRACT:\s*vision-v1\s*-->/u.test(md);
+    if (!present) {
+      console.log('::warning::needs-human-prepass: AUTONOMY_CONTRACT vision-v1 assente in VISION.md → nessuna autorizzazione F1/F7 automatica in questo run.');
+    }
+    return present;
+  } catch (e) {
+    console.log(`::warning::needs-human-prepass: VISION.md non leggibile (${String(e).slice(0, 120)}) → rientro automatico fail-closed.`);
+    return false;
+  }
+}
+
 
 /** Ultimo verdetto da una lista di commenti (forma REST o GraphQL). Pura. */
 export function latestVerdict(comments) {
@@ -735,6 +753,21 @@ function gh(args, { json = true } = {}) {
   return json ? JSON.parse(out) : out;
 }
 
+function ensureVisionAutonomyLabel() {
+  try {
+    gh([
+      'label', 'create', VISION_AUTONOMY_LABEL, '--repo', REPO,
+      '--color', '5319E7',
+      '--description', 'Rientro automatico autorizzato dal contratto VISION.md',
+      '--force',
+    ], { json: false });
+    return true;
+  } catch (e) {
+    console.log(`::warning::needs-human-prepass: label ${VISION_AUTONOMY_LABEL} non disponibile (${String(e).slice(0, 100)}) → rientro F1/F7 fail-closed.`);
+    return false;
+  }
+}
+
 /**
  * Lo stato di un riferimento, con cache e budget. `null` = «non lo so» (aperto,
  * non leggibile, budget esaurito) — mai «non scaduto», che sarebbe la stessa
@@ -767,6 +800,7 @@ function makeRefResolver() {
 function main() {
   if (!REPO) { console.log('needs-human-prepass: nessun repo risolvibile → niente da fare.'); return; }
   const registry = readDecisionRegistry();
+  const visionAutonomy = readVisionAutonomyContract();
   let issues = [];
   try {
     // `body` entra qui e non con una chiamata per issue: `gh issue list` lo
@@ -778,7 +812,7 @@ function main() {
     console.log(`::warning::needs-human-prepass: elenco non leggibile (${String(e).slice(0, 100)}) → nessuna azione.`);
     return;
   }
-  console.log(`needs-human-prepass — repo ${REPO}, ${issues.length} issue \`needs-human\`, registro DECISIONS.md: ${registry.length} righe${DRY ? ' [DRY-RUN]' : ''}`);
+  console.log(`needs-human-prepass — repo ${REPO}, ${issues.length} issue \`needs-human\`, registro DECISIONS.md: ${registry.length} righe, autonomy=${visionAutonomy}${DRY ? ' [DRY-RUN]' : ''}`);
 
   // Le più stantie prima: sono quelle che aspettano da più tempo, e il cap non
   // deve tagliarle sempre. `gh issue list` ordina dalla più recente.
@@ -789,6 +823,7 @@ function main() {
   let acted = 0;
   let noted = 0;
   let noteCapLogged = false;
+  let visionLabelReady;
   for (const iss of ordered) {
     const labels = (iss.labels || []).map((l) => l.name);
     const body = iss.body || '';
@@ -844,25 +879,41 @@ function main() {
       console.log(`needs-human-prepass: cap ${MAX_PER_RUN}/run raggiunto → il resto al prossimo giro (no silent cap).`);
       break;
     }
-    acted++;
     const add = d.action === 'requeue' ? 'agent:fix-queued' : 'agent:decompose-queued';
-    if (DRY) { console.log(`[dry] #${iss.number} → ${add} (${d.reason}) — "${iss.title.slice(0, 60)}"`); continue; }
+    const needsVisionApproval = visionAutonomy && d.action === 'requeue';
+    const visionApproved = !DRY && needsVisionApproval
+      && (visionLabelReady ??= ensureVisionAutonomyLabel());
+    if (needsVisionApproval && !DRY && !visionApproved) {
+      console.log(`::warning::needs-human-prepass: #${iss.number} non instradata perché il contratto VISION non ha potuto creare ${VISION_AUTONOMY_LABEL}.`);
+      continue;
+    }
+    acted++;
+    if (DRY) {
+      console.log(`[dry] #${iss.number} → ${add}${needsVisionApproval ? ` + ${VISION_AUTONOMY_LABEL}` : ''} (${d.reason}) — "${iss.title.slice(0, 60)}"`);
+      continue;
+    }
     // La riga che questa PR ripara: prima era `Questa issue non contiene una
     // decisione del proprietario`, affermato SENZA aver letto il registro. Ora è
     // un esito verificato in questo run, e la forma dice quale dei tre casi è.
     const registryVerdict = registry.length
       ? (d.note ? '' : 'Nessuna riga del registro «Decisioni del proprietario già prese» di `DECISIONS.md` riguarda i riferimenti citati nel corpo: verificato in questo run, non assunto.')
       : 'Il registro di `DECISIONS.md` non è stato leggibile in questo run, quindi il riconoscimento del registro non si è pronunciato (fail-open).';
+    const autonomyNote = visionApproved && !comments.some((c) => String(c?.body || '').includes(VISION_AUTONOMY_MARKER))
+      ? `${VISION_AUTONOMY_MARKER}\n\nVISION.md **D1/D3/D5**: rientro deterministico e reversibile; F1/F7 resta evidenza per i gate runtime, non un veto di categoria.`
+      : '';
     const note = [
       `🔁 **Pre-pass deterministico dello sweep (zero-Claude)**: ${d.reason}. Questa issue torna nel ciclo autonomo invece di occupare un'azione del cap del run Claude settimanale.`,
       registryVerdict,
+      autonomyNote,
       already ? '' : d.note,
       already ? '' : d.marker,
     ].filter(Boolean).join('\n\n');
     try {
       gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', note], { json: false });
-      gh(['issue', 'edit', String(iss.number), '--repo', REPO,
-        '--add-label', add, '--remove-label', 'needs-human', '--remove-label', 'fu-parked'], { json: false });
+      const routeArgs = ['issue', 'edit', String(iss.number), '--repo', REPO, '--add-label', add];
+      if (visionApproved) routeArgs.push('--add-label', VISION_AUTONOMY_LABEL);
+      routeArgs.push('--remove-label', 'needs-human', '--remove-label', 'fu-parked');
+      gh(routeArgs, { json: false });
       console.log(`PREPASS #${iss.number} → ${add} (${d.reason})`);
     } catch (e) {
       console.log(`::warning::needs-human-prepass: #${iss.number} non instradata (${String(e).slice(0, 100)}).`);
