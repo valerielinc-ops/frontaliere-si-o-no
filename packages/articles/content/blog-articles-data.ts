@@ -35391,6 +35391,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'pellicini-fdi-indennita-frontiera',
+ category: 'novita',
+ date: '2026-09-21T00:21:17.850Z',
+ image: '/images/blog/pellicini-fdi-indennita-frontiera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
