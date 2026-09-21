@@ -1,18 +1,19 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-09-19T22:52:35.443Z",
+  "generatedAt": "2026-09-21T15:58:05.701Z",
   "total": 17,
-  "newCount": 1,
-  "updatedCount": 15,
+  "newCount": 0,
+  "updatedCount": 16,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5397,
-  "avgDurationMs": 5397,
+  "durationMs": 5025,
+  "avgDurationMs": 5025,
   "durationHistory": [
-    5397
+    5025
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "PLANNER",
       "slug": "planner-lwp-ledermann-wieting-partners-switzerland",
@@ -33,6 +34,9 @@
       "employmentType": "full-time",
       "contractType": "full-time",
       "validThrough": "",
+      "id": "lwphr-3322a7b85508",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-19T22:52:28.939Z",
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -40,9 +44,7 @@
         "translation": 20,
         "completeness": 10
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "​SALES E MARKETING MANAGER",
       "slug": "sales-e-marketing-manager-lwp-ledermann-wieting-partners-switzerland",
@@ -529,7 +531,7 @@
       "salaryMax": 88000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
