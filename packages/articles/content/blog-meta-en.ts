@@ -11887,6 +11887,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-21.imageAlt': 'The day\'s numbers for cross-border commuters – September 21, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-21.seoDescription': 'Cross-border brief, September 21, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-21.ogDescription': 'The numbers for September 21, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.vivere-cantu-lavorare-ticino.title': 'Living in Cantù and working in Ticino as a border worker',
+    'blog.article.vivere-cantu-lavorare-ticino.excerpt': 'Practical guide for those who choose Cantù as their residence: taxation, new border agreement, AVS, LAMal and management of daily commuting to Ticino.',
+    'blog.article.vivere-cantu-lavorare-ticino.imageAlt': 'Panoramic view of Lugano, a central location for cross-border commuters working in Ticino',
 };
 
 export default blogMetaEn;

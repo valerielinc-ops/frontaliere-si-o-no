@@ -11889,6 +11889,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-21.imageAlt': 'Les chiffres du jour pour les frontaliers – 21 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-21.seoDescription': 'Bulletin du frontalier du 21 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-21.ogDescription': 'Les chiffres du 21 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.vivere-cantu-lavorare-ticino.title': 'Vivre à Cantú et travailler au Tessin en tant que frontalière',
+    'blog.article.vivere-cantu-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui choisissent Cantù comme résidence : fiscalité, nouvel accord frontalier, AVS, LAMal et gestion des déplacements quotidiens vers le Tessin.',
+    'blog.article.vivere-cantu-lavorare-ticino.imageAlt': 'Vue panoramique de Lugano, un lieu central pour les travailleurs frontaliers en Suisse',
 };
 
 export default blogMetaFr;
