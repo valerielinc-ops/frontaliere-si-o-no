@@ -20,7 +20,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   const callOrder: string[] = [];
   let nativeAutoMergeRevoked = false;
   let reads = 0;
-  const run = { id: 42, status, conclusion, run_attempt: 1, event: 'pull_request', head_sha: 'head' };
+  const run = { id: 42, status, conclusion, run_attempt: changedAttempt ? 2 : 1, event: 'pull_request', head_sha: 'head' };
   const manualRun = { ...run, id: 43, event: 'pull_request' };
   const comments = pendingStatus ? [{
       id: 900,
@@ -516,6 +516,15 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     const result = await runRecovery({ eventName: 'schedule', pendingStatus: 'manual' });
     expect(result.reruns).toEqual([42]);
     expect(result.dispatches).toEqual([]);
+  });
+
+  it('dispatches native auto-merge when a scheduled reconciliation observes the accepted rerun completed', async () => {
+    const result = await runRecovery({ eventName: 'schedule', pendingStatus: 'manual', changedAttempt: true });
+    expect(result.reruns).toEqual([]);
+    expect(result.dispatches).toEqual([{
+      owner: 'owner', repo: 'repo', workflow_id: 'enable-native-automerge.yml',
+      ref: 'main', inputs: { pr_number: '1' },
+    }]);
   });
 
   it('consumes the exact completion event for an accepted ambiguous rerun', async () => {

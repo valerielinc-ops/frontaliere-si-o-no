@@ -693,8 +693,9 @@ jobs:
                 if (existing.state.sourceEvent === 'rerun-ambiguous' && expectedAttempt !== null
                     && observedAttempt >= expectedAttempt) {
                   if (latest.status === 'completed') {
-                    await persistMarker(number, {
-                      ...existing.state, status: 'completed', runId: latest.id,
+                    await completeRecoveryAndDispatch(number, {
+                      ...existing.state,
+                      runId: latest.id,
                       runAttempt: observedAttempt,
                     }, existing);
                   } else {
