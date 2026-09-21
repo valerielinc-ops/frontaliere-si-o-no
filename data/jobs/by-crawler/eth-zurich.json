@@ -86,8 +86,8 @@
       "slugByLocale": {
         "de": "elektrotechniker-oder-elektroingenieur-m-w-d-eth-zurich-ch",
         "it": "elektrotechniker-o-elektroingenieur-m-w-d-eth-zurich",
-        "en": "elektrotechniker-oder-elektroingenieur-m-w-d-eth-zurich-ch",
-        "fr": "elektrotechniker-oder-elektroingenieur-m-w-d-eth-zurich-ch"
+        "en": "electrical-technician-or-electrical-engineer-m-f-d-eth-zurich-zurich",
+        "fr": "technicien-ou-ingenieur-electrique-h-f-d-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -130,6 +130,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "elektrotechniker-oder-elektroingenieur-m-w-d-eth-zurich-ch"
+        ],
+        "en": [
+          "elektrotechniker-oder-elektroingenieur-m-w-d-eth-zurich-ch"
+        ],
+        "fr": [
           "elektrotechniker-oder-elektroingenieur-m-w-d-eth-zurich-ch"
         ]
       },
@@ -7507,12 +7513,12 @@
     },
     {
       "id": "eth-zurich-dc38c53f7018",
-      "slug": "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch",
+      "slug": "posizione-dottorale-in-rada-ricostruzione-di-immagini-di-istologia-virtuale-eth-zurich-zurich",
       "slugByLocale": {
         "en": "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch",
-        "it": "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch",
-        "de": "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch",
-        "fr": "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch"
+        "it": "posizione-dottorale-in-rada-ricostruzione-di-immagini-di-istologia-virtuale-eth-zurich-zurich",
+        "de": "promotionsposition-in-der-sparlichen-rekonstruktion-virtueller-histologiebilder-eth-zurich-zurich",
+        "fr": "position-doctorale-dans-la-reconstruction-clairsemee-des-images-d-histologie-virtuelle-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7567,16 +7573,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-19T23:09:05.736Z"
+      "firstSeenAt": "2026-09-19T23:09:05.736Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch"
+        ],
+        "de": [
+          "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch"
+        ],
+        "fr": [
+          "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "doctoral-position-in-sparse-reconstruction-of-virtual-histology-images-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-3a7535944fb5",
-      "slug": "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch",
+      "slug": "ricercatore-post-dottorato-negli-interni-ed-evoluzione-dei-sub-neptune-eth-zurich-zurich",
       "slugByLocale": {
         "en": "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch",
-        "it": "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch",
-        "de": "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch",
-        "fr": "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch"
+        "it": "ricercatore-post-dottorato-negli-interni-ed-evoluzione-dei-sub-neptune-eth-zurich-zurich",
+        "de": "postdoktorand-in-innenraumen-und-evolution-von-sub-neptunen-eth-zurich-zurich",
+        "fr": "chercheur-postdoctoral-en-interieur-et-evolution-des-sous-neptunes-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7631,16 +7651,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-19T23:09:05.226Z"
+      "firstSeenAt": "2026-09-19T23:09:05.226Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch"
+        ],
+        "de": [
+          "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-researcher-in-interiors-and-evolution-of-sub-neptunes-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-1d31de0a842e",
-      "slug": "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch",
+      "slug": "posizione-post-dottorale-in-sistemi-e-sicurezza-hardware-eth-zurich-zurich",
       "slugByLocale": {
         "en": "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch",
-        "it": "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch",
-        "de": "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch",
-        "fr": "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch"
+        "it": "posizione-post-dottorale-in-sistemi-e-sicurezza-hardware-eth-zurich-zurich",
+        "de": "postdoc-stelle-in-system-und-hardware-sicherheit-eth-zurich-zurich",
+        "fr": "poste-postdoctoral-en-securite-des-systemes-et-du-materiel-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7695,16 +7729,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-19T23:09:04.716Z"
+      "firstSeenAt": "2026-09-19T23:09:04.716Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch"
+        ],
+        "de": [
+          "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch"
+        ],
+        "fr": [
+          "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-position-in-systems-and-hardware-security-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-ad7e0232aa60",
-      "slug": "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch",
+      "slug": "bioinformaticista-omics-monocellulari-in-biologia-muscolare-vascolare-e-scheletale-eth-zurich-zurich",
       "slugByLocale": {
         "en": "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch",
-        "it": "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch",
+        "it": "bioinformaticista-omics-monocellulari-in-biologia-muscolare-vascolare-e-scheletale-eth-zurich-zurich",
         "de": "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch",
-        "fr": "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch"
+        "fr": "bioinformaticien-omics-monocellulaires-en-biologie-musculaire-vasculaire-et-squelettique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7759,7 +7807,18 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-19T23:09:04.197Z"
+      "firstSeenAt": "2026-09-19T23:09:04.197Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch"
+        ],
+        "fr": [
+          "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "bioinformatician-single-cell-omics-in-vascular-skeletal-muscle-biology-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-e3dd8bde5ba8",
@@ -7890,12 +7949,12 @@
     },
     {
       "id": "eth-zurich-16cb29f8bef2",
-      "slug": "phd-position-in-atmospheric-chemistry-eth-zurich-ch",
+      "slug": "phd-posizione-nella-chimica-atmosferica-eth-zurich-zurich",
       "slugByLocale": {
         "en": "phd-position-in-atmospheric-chemistry-eth-zurich-ch",
-        "it": "phd-position-in-atmospheric-chemistry-eth-zurich-ch",
-        "de": "phd-position-in-atmospheric-chemistry-eth-zurich-ch",
-        "fr": "phd-position-in-atmospheric-chemistry-eth-zurich-ch"
+        "it": "phd-posizione-nella-chimica-atmosferica-eth-zurich-zurich",
+        "de": "phd-position-in-der-atmospharenchemie-eth-zurich-zurich",
+        "fr": "poste-de-doctorat-en-chimie-atmospherique-eth-zurich-zurich"
       },
       "company": "ETH Zürich",
       "companyKey": "eth-zurich",
@@ -7950,7 +8009,21 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-19T23:09:02.641Z"
+      "firstSeenAt": "2026-09-19T23:09:02.641Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "phd-position-in-atmospheric-chemistry-eth-zurich-ch"
+        ],
+        "de": [
+          "phd-position-in-atmospheric-chemistry-eth-zurich-ch"
+        ],
+        "fr": [
+          "phd-position-in-atmospheric-chemistry-eth-zurich-ch"
+        ]
+      },
+      "previousSlugs": [
+        "phd-position-in-atmospheric-chemistry-eth-zurich-ch"
+      ]
     },
     {
       "id": "eth-zurich-288da67c640f",

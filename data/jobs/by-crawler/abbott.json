@@ -1652,10 +1652,10 @@
     },
     {
       "id": "abbott-dfe4bd5d08fc",
-      "slug": "division-counsel-epd-m-f-d-abbott-ch",
+      "slug": "consigliere-di-divisione-epd-m-f-d-abbott-basel",
       "slugByLocale": {
         "en": "division-counsel-epd-m-f-d-abbott-ch",
-        "it": "division-counsel-epd-m-f-d-abbott-ch",
+        "it": "consigliere-di-divisione-epd-m-f-d-abbott-basel",
         "de": "division-counsel-epd-m-f-d-abbott-ch",
         "fr": "division-counsel-epd-m-f-d-abbott-ch"
       },
@@ -1713,7 +1713,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:13:49.463Z"
+      "firstSeenAt": "2026-09-19T23:13:49.463Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "division-counsel-epd-m-f-d-abbott-ch"
+        ]
+      },
+      "previousSlugs": [
+        "division-counsel-epd-m-f-d-abbott-ch"
+      ]
     },
     {
       "id": "abbott-d2551ed36471",

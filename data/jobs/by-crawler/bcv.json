@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "bcv-1107e504b010",
-      "slug": "cash-manager-pour-la-clientele-des-entreprises-bcv-lausanne",
+      "slug": "cash-manager-per-clienti-aziendali-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "cash-manager-pour-la-clientele-des-entreprises-bcv-lausanne",
-        "it": "cash-manager-pour-la-clientele-des-entreprises-bcv-lausanne",
+        "it": "cash-manager-per-clienti-aziendali-banque-cantonale-vaudoise-lausanne",
         "en": "cash-manager-pour-la-clientele-des-entreprises-banque-cantonale-vaudoise-lausanne",
-        "de": "cash-manager-pour-la-clientele-des-entreprises-bcv-lausanne"
+        "de": "cash-manager-fur-geschaftskunden-banque-cantonale-vaudoise-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
       "companyKey": "bcv",
@@ -67,7 +67,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:52:39.969Z"
+      "firstSeenAt": "2026-09-19T22:52:39.969Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cash-manager-pour-la-clientele-des-entreprises-bcv-lausanne"
+        ],
+        "de": [
+          "cash-manager-pour-la-clientele-des-entreprises-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "cash-manager-pour-la-clientele-des-entreprises-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-8cec40759fa7",
@@ -121,14 +132,12 @@
       "sfJobId": "1433973833",
       "previousSlugs": [
         "gestionnaire-avoirs-sans-nouvelles-bcv-lausanne",
-        "gestionnaire-avoirs-sans-nouvelles-banque-cantonale-vaudoise-lausanne",
-        "asset-manager-senza-notizie-banque-cantonale-vaudoise-lausanne"
+        "gestionnaire-avoirs-sans-nouvelles-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gestionnaire-avoirs-sans-nouvelles-bcv-lausanne",
-          "gestionnaire-avoirs-sans-nouvelles-banque-cantonale-vaudoise-lausanne",
-          "asset-manager-senza-notizie-banque-cantonale-vaudoise-lausanne"
+          "gestionnaire-avoirs-sans-nouvelles-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "gestionnaire-avoirs-sans-nouvelles-bcv-lausanne"
@@ -203,13 +212,11 @@
       "requirementsByLocale": {},
       "sfJobId": "1434865933",
       "previousSlugs": [
-        "responsable-regionale-ou-responsable-regional-pme-region-chablais-bcv-aigle",
-        "capo-regionale-o-capo-regionale-pmi-regione-chablais-banque-cantonale-vaudoise-aigle"
+        "responsable-regionale-ou-responsable-regional-pme-region-chablais-bcv-aigle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-regionale-ou-responsable-regional-pme-region-chablais-bcv-aigle",
-          "capo-regionale-o-capo-regionale-pmi-regione-chablais-banque-cantonale-vaudoise-aigle"
+          "responsable-regionale-ou-responsable-regional-pme-region-chablais-bcv-aigle"
         ],
         "en": [
           "responsable-regionale-ou-responsable-regional-pme-region-chablais-bcv-aigle"
@@ -284,13 +291,11 @@
       "requirementsByLocale": {},
       "sfJobId": "1435367333",
       "previousSlugs": [
-        "conseillere-ou-conseiller-a-distance-bcv-lausanne",
-        "consulente-remoto-banque-cantonale-vaudoise-lausanne"
+        "conseillere-ou-conseiller-a-distance-bcv-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseillere-ou-conseiller-a-distance-bcv-lausanne",
-          "consulente-remoto-banque-cantonale-vaudoise-lausanne"
+          "conseillere-ou-conseiller-a-distance-bcv-lausanne"
         ],
         "en": [
           "conseillere-ou-conseiller-a-distance-bcv-lausanne"
@@ -368,8 +373,7 @@
         "senior-it-projektmanager-banque-cantonale-vaudoise-lausanne",
         "chef-de-projets-it-senior-bcv-lausanne",
         "chef-de-projets-it-senior-banque-cantonale-vaudoise-lausanne",
-        "responsable-de-projets-it-expert-bcv-lausanne",
-        "responsabile-progetto-it-sap-banque-cantonale-vaudoise-lausanne"
+        "responsable-de-projets-it-expert-bcv-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -379,8 +383,7 @@
           "senior-it-projektmanager-banque-cantonale-vaudoise-lausanne",
           "chef-de-projets-it-senior-bcv-lausanne",
           "chef-de-projets-it-senior-banque-cantonale-vaudoise-lausanne",
-          "responsable-de-projets-it-expert-bcv-lausanne",
-          "responsabile-progetto-it-sap-banque-cantonale-vaudoise-lausanne"
+          "responsable-de-projets-it-expert-bcv-lausanne"
         ],
         "en": [
           "responsable-de-projets-it-sap-bcv-lausanne",
@@ -629,13 +632,11 @@
       "requirementsByLocale": {},
       "sfJobId": "1414462733",
       "previousSlugs": [
-        "analyse-developpeur-ca-gen-cobol-bcv-lausanne",
-        "analizzatore-sviluppo-ca-gen-cobol-banque-cantonale-vaudoise-lausanne"
+        "analyse-developpeur-ca-gen-cobol-bcv-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analyse-developpeur-ca-gen-cobol-bcv-lausanne",
-          "analizzatore-sviluppo-ca-gen-cobol-banque-cantonale-vaudoise-lausanne"
+          "analyse-developpeur-ca-gen-cobol-bcv-lausanne"
         ]
       },
       "firstSeenAt": "2026-09-03T13:39:05.448Z",
@@ -704,13 +705,11 @@
       "requirementsByLocale": {},
       "sfJobId": "1433821333",
       "previousSlugs": [
-        "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne",
-        "collaborazione-o-collaborazione-in-management-control-cdd-di-6-mesi-banque-cantonale-vaudoise-lausanne"
+        "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne",
-          "collaborazione-o-collaborazione-in-management-control-cdd-di-6-mesi-banque-cantonale-vaudoise-lausanne"
+          "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne"
         ],
         "en": [
           "collaboratrice-ou-collaborateur-au-controle-de-gestion-cdd-de-6-mois-bcv-lausanne"
@@ -786,14 +785,12 @@
       "sfJobId": "1390833833",
       "previousSlugs": [
         "analyste-developpeur-it-trading-ingenieur-financier-bcv-lausanne",
-        "analyste-developpeur-it-trading-bcv-lausanne",
-        "sviluppatore-analista-it-trading-ingegnere-finanziario-banque-cantonale-vaudoise-lausanne"
+        "analyste-developpeur-it-trading-bcv-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "analyste-developpeur-it-trading-ingenieur-financier-bcv-lausanne",
-          "analyste-developpeur-it-trading-bcv-lausanne",
-          "sviluppatore-analista-it-trading-ingegnere-finanziario-banque-cantonale-vaudoise-lausanne"
+          "analyste-developpeur-it-trading-bcv-lausanne"
         ],
         "en": [
           "analyste-developpeur-it-trading-ingenieur-financier-bcv-lausanne"
@@ -868,13 +865,11 @@
       "requirementsByLocale": {},
       "sfJobId": "1426475433",
       "previousSlugs": [
-        "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne",
-        "apprentices-o-commercial-apprentices-bank-agosto-2027-banque-cantonale-vaudoise-lausanne"
+        "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne",
-          "apprentices-o-commercial-apprentices-bank-agosto-2027-banque-cantonale-vaudoise-lausanne"
+          "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne"
         ],
         "en": [
           "apprenties-ou-apprentis-de-commerce-banque-aout-2027-bcv-lausanne"
@@ -1030,13 +1025,11 @@
       "requirementsByLocale": {},
       "sfJobId": "1421186233",
       "previousSlugs": [
-        "conseiller-ou-conseillere-pme-expert-e-region-gros-de-vaud-bcv-echallens",
-        "consulente-pmi-regione-gros-de-vaud-banque-cantonale-vaudoise-echallens"
+        "conseiller-ou-conseillere-pme-expert-e-region-gros-de-vaud-bcv-echallens"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ou-conseillere-pme-expert-e-region-gros-de-vaud-bcv-echallens",
-          "consulente-pmi-regione-gros-de-vaud-banque-cantonale-vaudoise-echallens"
+          "conseiller-ou-conseillere-pme-expert-e-region-gros-de-vaud-bcv-echallens"
         ]
       },
       "firstSeenAt": "2026-09-03T13:39:04.588Z",
@@ -1181,13 +1174,11 @@
       "sfJobId": "1282231601",
       "previousSlugs": [
         "specialiste-en-financement-immobilier-acquisition-et-developpement-bcv-lausanne",
-        "real-estate-finance-spezialist-akquisition-und-entwicklung-banque-cantonale-vaudoise-lausanne",
-        "specialista-in-finanziamento-immobiliare-acquisizione-e-sviluppo-banque-cantonale-vaudoise-lausanne"
+        "real-estate-finance-spezialist-akquisition-und-entwicklung-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-financement-immobilier-acquisition-et-developpement-bcv-lausanne",
-          "specialista-in-finanziamento-immobiliare-acquisizione-e-sviluppo-banque-cantonale-vaudoise-lausanne"
+          "specialiste-en-financement-immobilier-acquisition-et-developpement-bcv-lausanne"
         ],
         "en": [
           "specialiste-en-financement-immobilier-acquisition-et-developpement-bcv-lausanne"
@@ -1347,13 +1338,11 @@
       "requirementsByLocale": {},
       "sfJobId": "1426085933",
       "previousSlugs": [
-        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv",
-        "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne"
+        "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv",
-          "remote-advisor-cliente-internazionale-conformita-guida-banque-cantonale-vaudoise-lausanne"
+          "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv"
         ],
         "en": [
           "conseillere-ou-conseiller-a-distance-clientele-internationale-orientation-compliance-bcv"
@@ -1428,13 +1417,11 @@
       "requirementsByLocale": {},
       "sfJobId": "1420578833",
       "previousSlugs": [
-        "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey",
-        "specialista-pmi-advisor-regione-riviera-banque-cantonale-vaudoise-vevey"
+        "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey",
-          "specialista-pmi-advisor-regione-riviera-banque-cantonale-vaudoise-vevey"
+          "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
         ]
       },
       "firstSeenAt": "2026-09-03T13:39:03.726Z",
@@ -1515,8 +1502,7 @@
         "specialista-pmi-advisor-regione-riviera-banque-cantonale-vaudoise-vevey",
         "specialist-sme-advisor-riviera-region-banque-cantonale-vaudoise-vevey",
         "specialist-sme-advisor-region-riviera-banque-cantonale-vaudoise-vevey",
-        "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey",
-        "consulente-specializzato-per-le-pmi-chablais-banque-cantonale-vaudoise-aigle"
+        "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1532,8 +1518,7 @@
           "specialista-pmi-advisor-regione-riviera-banque-cantonale-vaudoise-vevey",
           "specialist-sme-advisor-riviera-region-banque-cantonale-vaudoise-vevey",
           "specialist-sme-advisor-region-riviera-banque-cantonale-vaudoise-vevey",
-          "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey",
-          "consulente-specializzato-per-le-pmi-chablais-banque-cantonale-vaudoise-aigle"
+          "conseiller-ou-conseillere-pme-specialise-e-region-riviera-bcv-vevey"
         ],
         "en": [
           "specialized-sme-advisor-lausanne-region-banque-cantonale-vaudoise-lausanne",
@@ -1614,13 +1599,11 @@
       "requirementsByLocale": {},
       "sfJobId": "1431013433",
       "previousSlugs": [
-        "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne",
-        "allenamenti-di-stucco-o-di-maturazione-marzo-2027-banque-cantonale-vaudoise-lausanne"
+        "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne",
-          "allenamenti-di-stucco-o-di-maturazione-marzo-2027-banque-cantonale-vaudoise-lausanne"
+          "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne"
         ],
         "en": [
           "stagiaires-maturantes-ou-maturants-mars-2027-bcv-lausanne"
@@ -1698,13 +1681,11 @@
         "it-business-analyst-domaine-operations-de-marche-banque-cantonale-vaudoise-lausanne",
         "it-business-analyst-market-operations-area-banque-cantonale-vaudoise-lausanne",
         "it-business-analyst-marktoperationsgebiet-banque-cantonale-vaudoise-lausanne",
-        "it-business-analyst-domaine-operations-de-marche-bcv-lausanne",
-        "it-business-analista-domaine-operations-de-marche-banque-cantonale-vaudoise-lausanne"
+        "it-business-analyst-domaine-operations-de-marche-bcv-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-business-analyst-domaine-operations-de-marche-bcv-lausanne",
-          "it-business-analista-domaine-operations-de-marche-banque-cantonale-vaudoise-lausanne"
+          "it-business-analyst-domaine-operations-de-marche-bcv-lausanne"
         ],
         "en": [
           "it-business-analyst-domaine-operations-de-marche-banque-cantonale-vaudoise-lausanne",
@@ -1954,8 +1935,7 @@
         "assistant-advisor-private-banking-key-clients-banque-cantonale-vaudoise-lausanne",
         "assistante-conseillere-ou-assistent-conseiller-private-banking-key-clients-banque-cantonale-vaudoise-lausanne",
         "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-bcv-lausanne",
-        "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv",
-        "consulente-senior-per-i-clienti-chiave-di-private-banking-banque-cantonale-vaudoise-lausanne"
+        "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1964,8 +1944,7 @@
           "assistant-advisor-private-banking-key-clients-banque-cantonale-vaudoise-lausanne",
           "assistante-conseillere-ou-assistent-conseiller-private-banking-key-clients-banque-cantonale-vaudoise-lausanne",
           "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-bcv-lausanne",
-          "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv",
-          "consulente-senior-per-i-clienti-chiave-di-private-banking-banque-cantonale-vaudoise-lausanne"
+          "assistante-conseillere-ou-assistant-conseiller-private-banking-key-clients-lausanne-bcv"
         ],
         "en": [
           "conseillere-ou-conseiller-senior-private-banking-key-clients-bcv-lausanne",
@@ -2046,20 +2025,16 @@
       "sfJobId": "1411874433",
       "previousSlugsByLocale": {
         "fr": [
-          "conseillere-successorale-ou-conseiller-successoral-region-lausanne-bcv-lausanne",
-          "conseiller-ere-successoral-e-region-lausanne-bcv-lausanne"
+          "conseillere-successorale-ou-conseiller-successoral-region-lausanne-bcv-lausanne"
         ],
         "it": [
           "conseillere-successorale-ou-conseiller-successoral-region-lausanne-bcv-lausanne",
-          "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne",
-          "consigliere-immobiliare-lausanne-regione-banque-cantonale-vaudoise-lausanne"
+          "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne"
         ]
       },
       "previousSlugs": [
         "conseillere-successorale-ou-conseiller-successoral-region-lausanne-bcv-lausanne",
-        "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne",
-        "conseiller-ere-successoral-e-region-lausanne-bcv-lausanne",
-        "consigliere-immobiliare-lausanne-regione-banque-cantonale-vaudoise-lausanne"
+        "bankberater-region-lausanne-banque-cantonale-vaudoise-lausanne"
       ],
       "firstSeenAt": "2026-09-02T13:36:26.503Z",
       "salaryMin": 72000,
@@ -2128,13 +2103,11 @@
       "sfJobId": "1254978701",
       "previousSlugs": [
         "product-manager-trafic-des-paiements-bcv-lausanne",
-        "product-manager-trafic-des-paiements-banque-cantonale-vaudoise-lausanne",
-        "product-manager-transazioni-di-pagamento-banque-cantonale-vaudoise-lausanne"
+        "product-manager-trafic-des-paiements-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "product-manager-trafic-des-paiements-bcv-lausanne",
-          "product-manager-transazioni-di-pagamento-banque-cantonale-vaudoise-lausanne"
+          "product-manager-trafic-des-paiements-bcv-lausanne"
         ],
         "en": [
           "product-manager-trafic-des-paiements-banque-cantonale-vaudoise-lausanne"
@@ -2209,13 +2182,11 @@
       "requirementsByLocale": {},
       "sfJobId": "1408024733",
       "previousSlugs": [
-        "responsable-du-secteur-conseil-prevoyance-privee-bcv-lausanne",
-        "capo-della-consulenza-privata-sulle-pensioni-banque-cantonale-vaudoise-lausanne"
+        "responsable-du-secteur-conseil-prevoyance-privee-bcv-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-du-secteur-conseil-prevoyance-privee-bcv-lausanne",
-          "capo-della-consulenza-privata-sulle-pensioni-banque-cantonale-vaudoise-lausanne"
+          "responsable-du-secteur-conseil-prevoyance-privee-bcv-lausanne"
         ],
         "en": [
           "responsable-du-secteur-conseil-prevoyance-privee-bcv-lausanne"
@@ -2290,13 +2261,11 @@
       "requirementsByLocale": {},
       "sfJobId": "1265000701",
       "previousSlugs": [
-        "responsable-regional-private-banking-chablais-bcv-aigle",
-        "responsabile-regionale-della-private-banking-chablais-banque-cantonale-vaudoise-aigle"
+        "responsable-regional-private-banking-chablais-bcv-aigle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-regional-private-banking-chablais-bcv-aigle",
-          "responsabile-regionale-della-private-banking-chablais-banque-cantonale-vaudoise-aigle"
+          "responsable-regional-private-banking-chablais-bcv-aigle"
         ],
         "en": [
           "responsable-regional-private-banking-chablais-bcv-aigle"
@@ -2456,14 +2425,12 @@
       "sfJobId": "1281964401",
       "previousSlugs": [
         "verwaltungssachbearbeiter-in-bvg-bcv-lausanne",
-        "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne",
-        "impiegato-amministrativo-bvg-banque-cantonale-vaudoise-lausanne"
+        "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verwaltungssachbearbeiter-in-bvg-bcv-lausanne",
-          "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne",
-          "impiegato-amministrativo-bvg-banque-cantonale-vaudoise-lausanne"
+          "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne"
         ],
         "en": [
           "verwaltungssachbearbeiter-in-bvg-banque-cantonale-vaudoise-lausanne"
@@ -2489,11 +2456,11 @@
     },
     {
       "id": "bcv-ccb242dc0d93",
-      "slug": "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne",
+      "slug": "consulente-bancario-privato-losanna-banque-cantonale-vaudoise-lausanne",
       "slugByLocale": {
         "fr": "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne",
-        "it": "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne",
-        "en": "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne",
+        "it": "consulente-bancario-privato-losanna-banque-cantonale-vaudoise-lausanne",
+        "en": "private-banking-advisor-lausanne-banque-cantonale-vaudoise-lausanne",
         "de": "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne"
       },
       "company": "Banque Cantonale Vaudoise",
@@ -2552,7 +2519,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:52:17.469Z"
+      "firstSeenAt": "2026-09-19T22:52:17.469Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne"
+        ],
+        "en": [
+          "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "conseillere-ou-conseiller-private-banking-lausanne-bcv-lausanne"
+      ]
     },
     {
       "id": "bcv-5e76431e9e02",
@@ -2606,14 +2584,12 @@
       "sfJobId": "1188391001",
       "previousSlugs": [
         "responsable-regional-private-banking-broye-bcv-payerne",
-        "responsable-regional-private-banking-broye-banque-cantonale-vaudoise-payerne",
-        "responsabile-regionale-della-private-banking-broye-banque-cantonale-vaudoise-payerne"
+        "responsable-regional-private-banking-broye-banque-cantonale-vaudoise-payerne"
       ],
       "previousSlugsByLocale": {
         "it": [
           "responsable-regional-private-banking-broye-bcv-payerne",
-          "responsable-regional-private-banking-broye-banque-cantonale-vaudoise-payerne",
-          "responsabile-regionale-della-private-banking-broye-banque-cantonale-vaudoise-payerne"
+          "responsable-regional-private-banking-broye-banque-cantonale-vaudoise-payerne"
         ],
         "en": [
           "responsable-regional-private-banking-broye-bcv-payerne"
@@ -2694,13 +2670,11 @@
         "responsable-de-plateformes-it-distribution-marketing-chef-de-service-bcv-lausanne",
         "responsable-de-plateformes-it-distribution-marketing-chef-de-service-banque-cantonale-vaudoise-lausanne",
         "it-platform-manager-distribution-marketing-head-of-service-banque-cantonale-vaudoise-lausanne",
-        "it-platform-manager-distribution-marketing-leiter-service-banque-cantonale-vaudoise-lausanne",
-        "responsabile-della-piattaforma-it-marketing-distribuzione-capo-dipartimento-banque-cantonale-vaudoise-lausanne"
+        "it-platform-manager-distribution-marketing-leiter-service-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-de-plateformes-it-distribution-marketing-chef-de-service-bcv-lausanne",
-          "responsabile-della-piattaforma-it-marketing-distribuzione-capo-dipartimento-banque-cantonale-vaudoise-lausanne"
+          "responsable-de-plateformes-it-distribution-marketing-chef-de-service-bcv-lausanne"
         ],
         "en": [
           "responsable-de-plateformes-it-distribution-marketing-chef-de-service-banque-cantonale-vaudoise-lausanne",
@@ -2782,8 +2756,7 @@
         "fondo-immobiliare-e-esperto-di-mercato-dei-fondi-banque-cantonale-vaudoise-lausanne",
         "real-estate-fund-and-fund-market-expert-banque-cantonale-vaudoise-lausanne",
         "immobilienfonds-und-fondsmarktexperte-banque-cantonale-vaudoise-lausanne",
-        "expert-e-marche-des-fonds-et-fonds-immobilier-bcv-lausanne",
-        "valutazione-immobiliare-banque-cantonale-vaudoise-lausanne"
+        "expert-e-marche-des-fonds-et-fonds-immobilier-bcv-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2791,8 +2764,7 @@
           "fondo-immobiliare-e-esperto-di-mercato-dei-fondi-banque-cantonale-vaudoise-lausanne",
           "real-estate-fund-and-fund-market-expert-banque-cantonale-vaudoise-lausanne",
           "immobilienfonds-und-fondsmarktexperte-banque-cantonale-vaudoise-lausanne",
-          "expert-e-marche-des-fonds-et-fonds-immobilier-bcv-lausanne",
-          "valutazione-immobiliare-banque-cantonale-vaudoise-lausanne"
+          "expert-e-marche-des-fonds-et-fonds-immobilier-bcv-lausanne"
         ],
         "en": [
           "evaluatrice-ou-evaluateur-immobilier-banque-cantonale-vaudoise-lausanne",
@@ -2875,13 +2847,11 @@
       "sfJobId": "1393940033",
       "previousSlugs": [
         "quantitative-investment-manager-bcv-lausanne",
-        "quantitative-investment-manager-banque-cantonale-vaudoise-lausanne",
-        "gestore-di-investimenti-quantitativi-banque-cantonale-vaudoise-lausanne"
+        "quantitative-investment-manager-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quantitative-investment-manager-bcv-lausanne",
-          "gestore-di-investimenti-quantitativi-banque-cantonale-vaudoise-lausanne"
+          "quantitative-investment-manager-bcv-lausanne"
         ],
         "de": [
           "quantitative-investment-manager-banque-cantonale-vaudoise-lausanne"
@@ -2956,13 +2926,11 @@
       "sfJobId": "1420677933",
       "previousSlugs": [
         "expert-e-marche-des-fonds-et-fonds-immobilier-bcv-lausanne",
-        "expert-e-marche-des-fonds-et-fonds-immobilier-banque-cantonale-vaudoise-lausanne",
-        "fondo-immobiliare-e-esperto-di-mercato-dei-fondi-banque-cantonale-vaudoise-lausanne"
+        "expert-e-marche-des-fonds-et-fonds-immobilier-banque-cantonale-vaudoise-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "expert-e-marche-des-fonds-et-fonds-immobilier-bcv-lausanne",
-          "fondo-immobiliare-e-esperto-di-mercato-dei-fondi-banque-cantonale-vaudoise-lausanne"
+          "expert-e-marche-des-fonds-et-fonds-immobilier-bcv-lausanne"
         ],
         "de": [
           "expert-e-marche-des-fonds-et-fonds-immobilier-banque-cantonale-vaudoise-lausanne"

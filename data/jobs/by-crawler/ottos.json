@@ -3469,12 +3469,12 @@
     },
     {
       "id": "ottos-a0f634c0be71",
-      "slug": "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig",
+      "slug": "assistere-i-fornitori-di-beni-sportivi-otto-s-ag-gamsen-brig",
       "slugByLocale": {
         "de": "aushilfe-sportartikelverkaufer-in-ottos-gamsen-brig",
-        "it": "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig",
-        "en": "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig",
-        "fr": "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
+        "it": "assistere-i-fornitori-di-beni-sportivi-otto-s-ag-gamsen-brig",
+        "en": "assisting-sports-goods-vendors-otto-s-ag-gamsen-brig",
+        "fr": "aider-les-vendeurs-de-biens-sportifs-otto-s-ag-gamsen-brig"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -3524,11 +3524,19 @@
       "pensum": "60 - 80%",
       "previousSlugsByLocale": {
         "it": [
-          "aushilfe-sportartikelverkaufer-in-ottos-gamsen-brig"
+          "aushilfe-sportartikelverkaufer-in-ottos-gamsen-brig",
+          "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
+        ],
+        "en": [
+          "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
+        ],
+        "fr": [
+          "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
         ]
       },
       "previousSlugs": [
-        "aushilfe-sportartikelverkaufer-in-ottos-gamsen-brig"
+        "aushilfe-sportartikelverkaufer-in-ottos-gamsen-brig",
+        "aushilfe-sportartikelverkaufer-in-otto-s-ag-gamsen-brig"
       ],
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -5793,12 +5801,12 @@
     },
     {
       "id": "ottos-31667c552b62",
-      "slug": "aushilfe-verkaufer-in-food-non-food-ottos-wil",
+      "slug": "aiuto-venditore-cibo-non-cibo-otto-s-ag-wil",
       "slugByLocale": {
         "de": "aushilfe-verkaufer-in-food-non-food-ottos-wil",
-        "it": "aushilfe-verkaufer-in-food-non-food-ottos-wil",
-        "en": "aushilfe-verkaufer-in-food-non-food-ottos-wil",
-        "fr": "aushilfe-verkaufer-in-food-non-food-ottos-wil"
+        "it": "aiuto-venditore-cibo-non-cibo-otto-s-ag-wil",
+        "en": "help-seller-food-non-food-otto-s-ag-wil",
+        "fr": "aide-vendeur-alimentation-non-alimentation-otto-s-ag-wil"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5859,16 +5867,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:06:32.633Z"
+      "firstSeenAt": "2026-09-19T23:06:32.633Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-wil"
+        ],
+        "en": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-wil"
+        ],
+        "fr": [
+          "aushilfe-verkaufer-in-food-non-food-ottos-wil"
+        ]
+      },
+      "previousSlugs": [
+        "aushilfe-verkaufer-in-food-non-food-ottos-wil"
+      ]
     },
     {
       "id": "ottos-38c316427438",
-      "slug": "strassentransportfachfrau-mann-otto-s-ag-sursee",
+      "slug": "specialista-del-trasporto-stradale-otto-s-ag-sursee",
       "slugByLocale": {
         "de": "strassentransportfachfrau-mann-ottos-sursee",
-        "it": "strassentransportfachfrau-mann-otto-s-ag-sursee",
-        "en": "strassentransportfachfrau-mann-otto-s-ag-sursee",
-        "fr": "strassentransportfachfrau-mann-otto-s-ag-sursee"
+        "it": "specialista-del-trasporto-stradale-otto-s-ag-sursee",
+        "en": "road-transport-specialist-otto-s-ag-sursee",
+        "fr": "specialiste-des-transports-routiers-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -5918,11 +5940,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "strassentransportfachfrau-mann-ottos-sursee"
+          "strassentransportfachfrau-mann-ottos-sursee",
+          "strassentransportfachfrau-mann-otto-s-ag-sursee"
+        ],
+        "en": [
+          "strassentransportfachfrau-mann-otto-s-ag-sursee"
+        ],
+        "fr": [
+          "strassentransportfachfrau-mann-otto-s-ag-sursee"
         ]
       },
       "previousSlugs": [
-        "strassentransportfachfrau-mann-ottos-sursee"
+        "strassentransportfachfrau-mann-ottos-sursee",
+        "strassentransportfachfrau-mann-otto-s-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -5941,12 +5971,12 @@
     },
     {
       "id": "ottos-742de61475c5",
-      "slug": "assistent-in-einkauf-mobel-ottos-sursee",
+      "slug": "mobili-per-lo-shopping-otto-s-ag-sursee",
       "slugByLocale": {
         "de": "assistent-in-einkauf-mobel-ottos-sursee",
-        "it": "assistent-in-einkauf-mobel-ottos-sursee",
-        "en": "assistent-in-einkauf-mobel-ottos-sursee",
-        "fr": "assistent-in-einkauf-mobel-ottos-sursee"
+        "it": "mobili-per-lo-shopping-otto-s-ag-sursee",
+        "en": "assistant-shopping-furniture-otto-s-ag-sursee",
+        "fr": "mobilier-d-achat-adjoint-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6007,7 +6037,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:06:31.279Z"
+      "firstSeenAt": "2026-09-19T23:06:31.279Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-einkauf-mobel-ottos-sursee"
+        ],
+        "en": [
+          "assistent-in-einkauf-mobel-ottos-sursee"
+        ],
+        "fr": [
+          "assistent-in-einkauf-mobel-ottos-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-einkauf-mobel-ottos-sursee"
+      ]
     },
     {
       "id": "ottos-27535144128c",
@@ -6524,12 +6568,12 @@
     },
     {
       "id": "ottos-e2a9ec420155",
-      "slug": "assistent-in-global-sourcing-ottos-sursee",
+      "slug": "assistente-global-sourcing-otto-s-ag-sursee",
       "slugByLocale": {
         "de": "assistent-in-global-sourcing-ottos-sursee",
-        "it": "assistent-in-global-sourcing-ottos-sursee",
-        "en": "assistent-in-global-sourcing-ottos-sursee",
-        "fr": "assistent-in-global-sourcing-ottos-sursee"
+        "it": "assistente-global-sourcing-otto-s-ag-sursee",
+        "en": "assistant-global-sourcing-otto-s-ag-sursee",
+        "fr": "assistante-d-approvisionnement-mondial-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -6590,7 +6634,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:06:27.038Z"
+      "firstSeenAt": "2026-09-19T23:06:27.038Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistent-in-global-sourcing-ottos-sursee"
+        ],
+        "en": [
+          "assistent-in-global-sourcing-ottos-sursee"
+        ],
+        "fr": [
+          "assistent-in-global-sourcing-ottos-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "assistent-in-global-sourcing-ottos-sursee"
+      ]
     },
     {
       "id": "ottos-8c82aa8da016",
@@ -7621,12 +7679,12 @@
     },
     {
       "id": "ottos-380241a67e87",
-      "slug": "sportartikelverkaufer-in-otto-s-ag-oftringen",
+      "slug": "rivenditori-di-articoli-sportivi-otto-s-ag-oftringen",
       "slugByLocale": {
         "de": "sportartikelverkaufer-in-ottos-oftringen",
-        "it": "sportartikelverkaufer-in-otto-s-ag-oftringen",
-        "en": "sportartikelverkaufer-in-otto-s-ag-oftringen",
-        "fr": "sportartikelverkaufer-in-otto-s-ag-oftringen"
+        "it": "rivenditori-di-articoli-sportivi-otto-s-ag-oftringen",
+        "en": "sports-goods-vendors-otto-s-ag-oftringen",
+        "fr": "fournisseurs-de-biens-de-sport-otto-s-ag-oftringen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -7676,11 +7734,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "sportartikelverkaufer-in-ottos-oftringen"
+          "sportartikelverkaufer-in-ottos-oftringen",
+          "sportartikelverkaufer-in-otto-s-ag-oftringen"
+        ],
+        "en": [
+          "sportartikelverkaufer-in-otto-s-ag-oftringen"
+        ],
+        "fr": [
+          "sportartikelverkaufer-in-otto-s-ag-oftringen"
         ]
       },
       "previousSlugs": [
-        "sportartikelverkaufer-in-ottos-oftringen"
+        "sportartikelverkaufer-in-ottos-oftringen",
+        "sportartikelverkaufer-in-otto-s-ag-oftringen"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -9653,12 +9719,12 @@
     },
     {
       "id": "ottos-7be6ef67c374",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen",
+      "slug": "personale-di-vendita-con-funzione-completa-otto-s-ag-kreuzlingen",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kreuzlingen",
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen"
+        "it": "personale-di-vendita-con-funzione-completa-otto-s-ag-kreuzlingen",
+        "en": "sales-staff-with-all-round-function-otto-s-ag-kreuzlingen",
+        "fr": "personnel-commercial-ayant-une-fonction-complete-otto-s-ag-kreuzlingen"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -9708,11 +9774,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kreuzlingen"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kreuzlingen",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kreuzlingen"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-kreuzlingen",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-kreuzlingen"
       ],
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -11639,12 +11713,12 @@
     },
     {
       "id": "ottos-5cc3cfa49c5e",
-      "slug": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach",
+      "slug": "personale-di-vendita-con-funzione-completa-otto-s-ag-spreitenbach",
       "slugByLocale": {
         "de": "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-spreitenbach",
-        "it": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach",
-        "en": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach",
-        "fr": "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach"
+        "it": "personale-di-vendita-con-funzione-completa-otto-s-ag-spreitenbach",
+        "en": "sales-staff-with-all-round-function-otto-s-ag-spreitenbach",
+        "fr": "personnel-commercial-ayant-une-fonction-complete-otto-s-ag-spreitenbach"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -11694,11 +11768,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-spreitenbach"
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-spreitenbach",
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach"
+        ],
+        "en": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach"
+        ],
+        "fr": [
+          "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach"
         ]
       },
       "previousSlugs": [
-        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-spreitenbach"
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-ottos-spreitenbach",
+        "verkaufsmitarbeiter-in-mit-allroundfunktion-otto-s-ag-spreitenbach"
       ],
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -12950,12 +13032,12 @@
     },
     {
       "id": "ottos-e96a645d2a46",
-      "slug": "abteilungsleiter-in-bike-ski-otto-s-ag-sursee",
+      "slug": "capo-dipartimento-bike-ski-otto-s-ag-sursee",
       "slugByLocale": {
         "de": "abteilungsleiter-in-bike-ski-ottos-sursee",
-        "it": "abteilungsleiter-in-bike-ski-otto-s-ag-sursee",
-        "en": "abteilungsleiter-in-bike-ski-otto-s-ag-sursee",
-        "fr": "abteilungsleiter-in-bike-ski-otto-s-ag-sursee"
+        "it": "capo-dipartimento-bike-ski-otto-s-ag-sursee",
+        "en": "head-of-department-bike-ski-otto-s-ag-sursee",
+        "fr": "chef-du-departement-velo-ski-otto-s-ag-sursee"
       },
       "company": "OTTO'S AG",
       "companyKey": "ottos",
@@ -13005,11 +13087,19 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-bike-ski-ottos-sursee"
+          "abteilungsleiter-in-bike-ski-ottos-sursee",
+          "abteilungsleiter-in-bike-ski-otto-s-ag-sursee"
+        ],
+        "en": [
+          "abteilungsleiter-in-bike-ski-otto-s-ag-sursee"
+        ],
+        "fr": [
+          "abteilungsleiter-in-bike-ski-otto-s-ag-sursee"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-bike-ski-ottos-sursee"
+        "abteilungsleiter-in-bike-ski-ottos-sursee",
+        "abteilungsleiter-in-bike-ski-otto-s-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,

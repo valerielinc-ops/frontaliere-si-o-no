@@ -1477,7 +1477,7 @@
       "slug": "terapeuta-dello-sport-o-terapeuta-del-movimento-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
         "it": "terapeuta-dello-sport-o-terapeuta-del-movimento-sanatorium-kilchberg-kilchberg",
-        "en": "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium-kilchberg",
+        "en": "sports-therapist-or-movement-therapist-sanatorium-kilchberg-kilchberg",
         "de": "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium",
         "fr": "therapeute-sportif-ou-therapeute-des-mouvements-sanatorium-kilchberg-kilchberg"
       },
@@ -1523,7 +1523,7 @@
       "previousSlugs": [
         "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium",
         "sporttherapeutin-sporttherapeut-o-bewegungstherapeutin-bewegungstherapeut-sanatorium-kilchberg",
-        "sports-therapist-or-movement-therapist-sanatorium-kilchberg-kilchberg"
+        "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium-kilchberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1532,7 +1532,7 @@
         ],
         "en": [
           "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium",
-          "sports-therapist-or-movement-therapist-sanatorium-kilchberg-kilchberg"
+          "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium-kilchberg"
         ],
         "fr": [
           "sporttherapeutin-sporttherapeut-oder-bewegungstherapeutin-bewegungstherapeut-sanatorium"
@@ -1636,12 +1636,12 @@
     },
     {
       "id": "sanatorium-kilchberg-de4d9ebaf506",
-      "slug": "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
+      "slug": "dipl-specialista-di-cura-hf-sanatorium-kilchberg-kilchberg",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
-        "it": "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
-        "en": "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg",
-        "fr": "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg"
+        "it": "dipl-specialista-di-cura-hf-sanatorium-kilchberg-kilchberg",
+        "en": "dipl-care-specialist-hf-sanatorium-kilchberg-kilchberg",
+        "fr": "dipl-specialiste-des-soins-hf-sanatorium-kilchberg-kilchberg"
       },
       "company": "Sanatorium Kilchberg",
       "companyKey": "sanatorium-kilchberg",
@@ -1697,7 +1697,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:03:18.489Z"
+      "firstSeenAt": "2026-09-19T23:03:18.489Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-hf-sanatorium-kilchberg-kilchberg"
+      ]
     },
     {
       "id": "sanatorium-kilchberg-46c2a3217d7d",

@@ -2778,8 +2778,8 @@
       "slugByLocale": {
         "de": "leiter-avor-m-w-d-hess-bellach",
         "it": "leiter-avor-m-w-d-carrosserie-hess-ag-bellach",
-        "en": "leiter-avor-m-w-d-hess-bellach",
-        "fr": "leiter-avor-m-w-d-hess-bellach"
+        "en": "head-of-avor-m-f-d-carrosserie-hess-ag-bellach",
+        "fr": "tete-d-avor-h-f-d-carrosserie-hess-ag-bellach"
       },
       "company": "Carrosserie HESS AG",
       "companyKey": "hess-carrosserie",
@@ -2827,6 +2827,12 @@
       "department": "Operation",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-avor-m-w-d-hess-bellach"
+        ],
+        "en": [
+          "leiter-avor-m-w-d-hess-bellach"
+        ],
+        "fr": [
           "leiter-avor-m-w-d-hess-bellach"
         ]
       },

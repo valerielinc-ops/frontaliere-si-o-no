@@ -1361,8 +1361,7 @@
         "elektroinstallateur-efz-80-100-m-w-d-lonza-ch",
         "elektroinstallateur-efz-80-100-m-w-d-lonza-ch-3",
         "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-visp-j4cxxj",
-        "elektroinstallateur-efz-80-100-m-w-d-lonza-ch-2",
-        "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-visp"
+        "elektroinstallateur-efz-80-100-m-w-d-lonza-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1370,8 +1369,7 @@
           "elektroinstallateur-efz-80-100-m-w-d-lonza-ch",
           "elektroinstallateur-efz-80-100-m-w-d-lonza-ch-3",
           "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-visp-j4cxxj",
-          "elektroinstallateur-efz-80-100-m-w-d-lonza-ch-2",
-          "installatore-trice-elettrico-a-cfc-80-100-m-w-d-lonza-visp"
+          "elektroinstallateur-efz-80-100-m-w-d-lonza-ch-2"
         ],
         "en": [
           "elektroinstallateur-efz-80-100-m-w-d-lonza-ch-3",
@@ -14491,7 +14489,6 @@
           "logistics-specialist-80-100-m-w-d-lonza-ch"
         ],
         "de": [
-          "logistics-specialist-80-100-m-w-d-lonza-ch-j4cwei",
           "logistics-specialist-80-100-m-w-d-lonza-ch"
         ],
         "fr": [
@@ -14597,7 +14594,7 @@
       "slugByLocale": {
         "en": "qc-analyst-data-reviewer-lonza-ch",
         "it": "qc-analyst-data-reviewer-lonza-ch",
-        "de": "qc-analyst-data-reviewer-lonza-ch",
+        "de": "qc-ansager-datenprufer-lonza-visp",
         "fr": "qc-analyst-data-reviewer-lonza-ch"
       },
       "company": "Lonza",
@@ -14662,8 +14659,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-werkhof-80-100-m-w-d-lonza-ch",
         "it": "collaboratore-trice-werkhof-80-100-m-w-d-lonza-visp",
-        "en": "mitarbeiter-werkhof-80-100-m-w-d-lonza-ch",
-        "fr": "mitarbeiter-werkhof-80-100-m-w-d-lonza-ch"
+        "en": "employee-workshop-80-100-m-f-d-lonza-visp",
+        "fr": "atelier-des-employes-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14708,6 +14705,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-werkhof-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "mitarbeiter-werkhof-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "mitarbeiter-werkhof-80-100-m-w-d-lonza-ch"
         ]
       },
       "previousSlugs": [
@@ -14731,12 +14734,12 @@
     },
     {
       "id": "lonza-0105a6201bbb",
-      "slug": "anlagetechniker-hvac-80-100-m-w-d-lonza-ch",
+      "slug": "tecnico-di-investimento-hvac-80-100-m-f-d-lonza-visp",
       "slugByLocale": {
         "de": "anlagetechniker-hvac-80-100-m-w-d-lonza-ch",
-        "it": "anlagetechniker-hvac-80-100-m-w-d-lonza-ch",
-        "en": "anlagetechniker-hvac-80-100-m-w-d-lonza-ch",
-        "fr": "anlagetechniker-hvac-80-100-m-w-d-lonza-ch"
+        "it": "tecnico-di-investimento-hvac-80-100-m-f-d-lonza-visp",
+        "en": "investment-technician-hvac-80-100-m-f-d-lonza-visp",
+        "fr": "technicien-en-investissement-cvc-80-100-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14792,7 +14795,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-19T23:11:18.041Z"
+      "firstSeenAt": "2026-09-19T23:11:18.041Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "anlagetechniker-hvac-80-100-m-w-d-lonza-ch"
+        ],
+        "en": [
+          "anlagetechniker-hvac-80-100-m-w-d-lonza-ch"
+        ],
+        "fr": [
+          "anlagetechniker-hvac-80-100-m-w-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "anlagetechniker-hvac-80-100-m-w-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-988ab7ce9bbb",
@@ -14800,7 +14817,7 @@
       "slugByLocale": {
         "en": "laboratory-analyst-m-w-d-qc-hplc-lonza-ch",
         "it": "laboratory-analyst-m-w-d-qc-hplc-lonza-ch",
-        "de": "laboratory-analyst-m-w-d-qc-hplc-lonza-ch",
+        "de": "laboranalyst-m-w-d-qc-hplc-lonza-visp",
         "fr": "laboratory-analyst-m-w-d-qc-hplc-lonza-ch"
       },
       "company": "Lonza",
@@ -14866,7 +14883,7 @@
         "en": "senior-director-strategy-lonza-ch",
         "it": "senior-director-strategy-lonza-ch",
         "de": "senior-director-strategy-lonza-ch",
-        "fr": "senior-director-strategy-lonza-ch"
+        "fr": "directeur-principal-strategie-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14926,12 +14943,12 @@
     },
     {
       "id": "lonza-0a2073b7b939",
-      "slug": "project-manager-80-100-lonza-ch",
+      "slug": "responsabile-del-progetto-80-100-lonza-visp",
       "slugByLocale": {
         "en": "project-manager-80-100-lonza-ch",
-        "it": "project-manager-80-100-lonza-ch",
-        "de": "project-manager-80-100-lonza-ch",
-        "fr": "project-manager-80-100-lonza-ch"
+        "it": "responsabile-del-progetto-80-100-lonza-visp",
+        "de": "projektmanager-80-100-lonza-visp",
+        "fr": "gestionnaire-de-projet-80-100-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -14987,7 +15004,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-19T23:11:15.580Z"
+      "firstSeenAt": "2026-09-19T23:11:15.580Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-manager-80-100-lonza-ch"
+        ],
+        "de": [
+          "project-manager-80-100-lonza-ch"
+        ],
+        "fr": [
+          "project-manager-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-manager-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-83ba75129534",
@@ -15067,12 +15098,12 @@
     },
     {
       "id": "lonza-83474ea6f5c7",
-      "slug": "associate-principal-scientist-bioanalytics-80-100-lonza-ch",
+      "slug": "associate-principali-scienziati-bioanalitici-80-100-lonza-basel",
       "slugByLocale": {
         "en": "associate-principal-scientist-bioanalytics-80-100-lonza-ch",
-        "it": "associate-principal-scientist-bioanalytics-80-100-lonza-ch",
-        "de": "associate-principal-scientist-bioanalytics-80-100-lonza-ch",
-        "fr": "associate-principal-scientist-bioanalytics-80-100-lonza-ch"
+        "it": "associate-principali-scienziati-bioanalitici-80-100-lonza-basel",
+        "de": "assoziierter-hauptwissenschaftler-bioanalytik-80-100-lonza-basel",
+        "fr": "associe-chercheur-principal-bioanalyse-80-100-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -15128,7 +15159,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-19T23:11:13.987Z"
+      "firstSeenAt": "2026-09-19T23:11:13.987Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-principal-scientist-bioanalytics-80-100-lonza-ch"
+        ],
+        "de": [
+          "associate-principal-scientist-bioanalytics-80-100-lonza-ch"
+        ],
+        "fr": [
+          "associate-principal-scientist-bioanalytics-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-principal-scientist-bioanalytics-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-768804df430d",
@@ -15197,11 +15242,11 @@
     },
     {
       "id": "lonza-2d1eccf2ed55",
-      "slug": "operator-biotechnologist-f-m-d-lonza-visp",
+      "slug": "operatore-biotecnologo-m-f-d-lonza-visp",
       "slugByLocale": {
         "en": "operator-biotechnologist-f-m-d-lonza-ch",
-        "it": "operator-biotechnologist-f-m-d-lonza-visp",
-        "de": "operator-biotechnologist-f-m-d-lonza-ch",
+        "it": "operatore-biotecnologo-m-f-d-lonza-visp",
+        "de": "betreiber-biotechnologe-m-w-d-lonza-visp",
         "fr": "operateur-biotechnologist-f-m-d-lonza-visp"
       },
       "company": "Lonza",
@@ -15247,12 +15292,17 @@
       "previousSlugsByLocale": {
         "it": [
           "operator-biotechnologist-f-m-d-lonza-ch",
-          "operator-m-w-d-lonza-visp"
+          "operator-m-w-d-lonza-visp",
+          "operator-biotechnologist-f-m-d-lonza-visp"
+        ],
+        "de": [
+          "operator-biotechnologist-f-m-d-lonza-ch"
         ]
       },
       "previousSlugs": [
         "operator-biotechnologist-f-m-d-lonza-ch",
-        "operator-m-w-d-lonza-visp"
+        "operator-m-w-d-lonza-visp",
+        "operator-biotechnologist-f-m-d-lonza-visp"
       ],
       "salaryMin": 81000,
       "salaryMax": 135000,
@@ -15277,7 +15327,7 @@
         "en": "senior-director-commercial-development-advanced-synthesis-lonza-ch",
         "it": "senior-director-commercial-development-advanced-synthesis-lonza-ch",
         "de": "senior-director-commercial-development-advanced-synthesis-lonza-ch",
-        "fr": "senior-director-commercial-development-advanced-synthesis-lonza-ch"
+        "fr": "directeur-principal-developpement-commercial-synthese-avancee-lonza-basel"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -15488,12 +15538,12 @@
     },
     {
       "id": "lonza-66c39dd396e9",
-      "slug": "senior-scientist-qc-f-m-d-lonza-ch",
+      "slug": "scienziato-senior-qc-m-f-d-lonza-visp",
       "slugByLocale": {
         "en": "senior-scientist-qc-f-m-d-lonza-ch",
-        "it": "senior-scientist-qc-f-m-d-lonza-ch",
-        "de": "senior-scientist-qc-f-m-d-lonza-ch",
-        "fr": "senior-scientist-qc-f-m-d-lonza-ch"
+        "it": "scienziato-senior-qc-m-f-d-lonza-visp",
+        "de": "leitender-wissenschaftler-qc-m-w-d-lonza-visp",
+        "fr": "chercheur-principal-qc-h-f-d-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -15549,7 +15599,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-19T23:11:09.249Z"
+      "firstSeenAt": "2026-09-19T23:11:09.249Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-scientist-qc-f-m-d-lonza-ch"
+        ],
+        "de": [
+          "senior-scientist-qc-f-m-d-lonza-ch"
+        ],
+        "fr": [
+          "senior-scientist-qc-f-m-d-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-scientist-qc-f-m-d-lonza-ch"
+      ]
     },
     {
       "id": "lonza-1e6b5f23aab6",
@@ -15689,7 +15753,7 @@
         "de": "labor-support-mitarbeiter-in-qc-80-100-lonza-ch",
         "it": "labor-support-collaboratore-trice-in-qc-80-100-lonza-visp",
         "en": "labor-support-mitarbeiter-in-qc-80-100-lonza-ch",
-        "fr": "labor-support-mitarbeiter-in-qc-80-100-lonza-ch"
+        "fr": "employe-de-soutien-au-travail-qc-80-100-lonza-visp"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -15734,6 +15798,9 @@
       "previousSlugsByLocale": {
         "it": [
           "labor-support-mitarbeiter-in-qc-80-100-lonza-ch"
+        ],
+        "fr": [
+          "labor-support-mitarbeiter-in-qc-80-100-lonza-ch"
         ]
       },
       "previousSlugs": [
@@ -15757,12 +15824,12 @@
     },
     {
       "id": "lonza-8e37e2e7c36a",
-      "slug": "head-of-direct-procurement-integrated-biologics-advanced-synthesis-and-specialized-modalities-lonza-ch",
+      "slug": "responsabile-procurement-direct-biologics-integrato-sintesi-avanzata-e-modalities-specializzati-lonza-basel",
       "slugByLocale": {
         "en": "head-of-direct-procurement-integrated-biologics-advanced-synthesis-and-specialized-modalities-lonza-ch",
-        "it": "head-of-direct-procurement-integrated-biologics-advanced-synthesis-and-specialized-modalities-lonza-ch",
-        "de": "head-of-direct-procurement-integrated-biologics-advanced-synthesis-and-specialized-modalities-lonza-ch",
-        "fr": "head-of-direct-procurement-integrated-biologics-advanced-synthesis-and-specialized-modalities-lonza-ch"
+        "it": "responsabile-procurement-direct-biologics-integrato-sintesi-avanzata-e-modalities-specializzati-lonza-basel",
+        "de": "leiter-direktbeschaffung-integrierte-biologik-advanced-synthesis-und-spezialisierte-modalitaten-lonza-basel",
+        "fr": "chef-de-l-approvisionnement-direct-des-produits-biologiques-integres-de-la-synthese-avancee-et-des-modalites"
       },
       "company": "Lonza",
       "companyKey": "lonza",
@@ -15818,14 +15885,28 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-19T23:11:06.180Z"
+      "firstSeenAt": "2026-09-19T23:11:06.180Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-of-direct-procurement-integrated-biologics-advanced-synthesis-and-specialized-modalities-lonza-ch"
+        ],
+        "de": [
+          "head-of-direct-procurement-integrated-biologics-advanced-synthesis-and-specialized-modalities-lonza-ch"
+        ],
+        "fr": [
+          "head-of-direct-procurement-integrated-biologics-advanced-synthesis-and-specialized-modalities-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "head-of-direct-procurement-integrated-biologics-advanced-synthesis-and-specialized-modalities-lonza-ch"
+      ]
     },
     {
       "id": "lonza-cefe5458d928",
-      "slug": "senior-scientist-physico-chemical-quality-control-80-100-lonza-ch",
+      "slug": "controllo-di-qualita-fisico-chimico-80-100-lonza-basel",
       "slugByLocale": {
         "en": "senior-scientist-physico-chemical-quality-control-80-100-lonza-ch",
-        "it": "senior-scientist-physico-chemical-quality-control-80-100-lonza-ch",
+        "it": "controllo-di-qualita-fisico-chimico-80-100-lonza-basel",
         "de": "senior-scientist-physico-chemical-quality-control-80-100-lonza-ch",
         "fr": "senior-scientist-physico-chemical-quality-control-80-100-lonza-ch"
       },
@@ -15883,7 +15964,15 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-19T23:11:05.551Z"
+      "firstSeenAt": "2026-09-19T23:11:05.551Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-scientist-physico-chemical-quality-control-80-100-lonza-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-scientist-physico-chemical-quality-control-80-100-lonza-ch"
+      ]
     },
     {
       "id": "lonza-3c813a2e312c",
@@ -15891,7 +15980,7 @@
       "slugByLocale": {
         "en": "revenue-analyst-12-months-fix-term-contract-80-100-lonza-ch",
         "it": "revenue-analyst-12-months-fix-term-contract-80-100-lonza-ch",
-        "de": "revenue-analyst-12-months-fix-term-contract-80-100-lonza-ch",
+        "de": "revenue-analyst-12-monate-befristeter-vertrag-80-100-lonza-basel",
         "fr": "revenue-analyst-12-months-fix-term-contract-80-100-lonza-ch"
       },
       "company": "Lonza",

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "stellentreff-4aed88106b85",
-      "slug": "betriebsmitarbeiter-in-mit-messmittel-erfahrung-sarnen-obwalden-stellentreff-ch",
+      "slug": "personale-operativo-con-esperienza-di-apparecchiature-di-misura-stellentreff-ag-sarnen-obwalden",
       "slugByLocale": {
         "de": "betriebsmitarbeiter-in-mit-messmittel-erfahrung-sarnen-obwalden-stellentreff-ch",
-        "it": "betriebsmitarbeiter-in-mit-messmittel-erfahrung-sarnen-obwalden-stellentreff-ch",
-        "en": "betriebsmitarbeiter-in-mit-messmittel-erfahrung-sarnen-obwalden-stellentreff-ch",
-        "fr": "betriebsmitarbeiter-in-mit-messmittel-erfahrung-sarnen-obwalden-stellentreff-ch"
+        "it": "personale-operativo-con-esperienza-di-apparecchiature-di-misura-stellentreff-ag-sarnen-obwalden",
+        "en": "operating-staff-with-measurement-equipment-experience-stellentreff-ag-sarnen-obwalden",
+        "fr": "personnel-d-exploitation-ayant-une-experience-en-equipement-de-mesure-stellentreff-ag-sarnen-obwalden"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -64,16 +64,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:44.589Z"
+      "firstSeenAt": "2026-09-19T22:53:44.589Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmitarbeiter-in-mit-messmittel-erfahrung-sarnen-obwalden-stellentreff-ch"
+        ],
+        "en": [
+          "betriebsmitarbeiter-in-mit-messmittel-erfahrung-sarnen-obwalden-stellentreff-ch"
+        ],
+        "fr": [
+          "betriebsmitarbeiter-in-mit-messmittel-erfahrung-sarnen-obwalden-stellentreff-ch"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsmitarbeiter-in-mit-messmittel-erfahrung-sarnen-obwalden-stellentreff-ch"
+      ]
     },
     {
       "id": "stellentreff-4be4831f5c4d",
-      "slug": "betriebsmitarbeiter-in-per-montagen-e-lotarbeiten-stellentreff-ag-sarnen",
+      "slug": "lavoratori-di-installazione-e-saldatura-stellentreff-ag-sarnen-obwalden",
       "slugByLocale": {
         "de": "betriebsmitarbeiter-in-fur-montagen-und-lotarbeiten-sarnen-obwalden-stellentreff-ch",
-        "it": "betriebsmitarbeiter-in-per-montagen-e-lotarbeiten-stellentreff-ag-sarnen",
-        "en": "betriebsmitarbeiter-in-fur-montagen-und-lotarbeiten-sarnen-obwalden-stellentreff-ch",
-        "fr": "betriebsmitarbeiter-in-fur-montagen-und-lotarbeiten-sarnen-obwalden-stellentreff-ch"
+        "it": "lavoratori-di-installazione-e-saldatura-stellentreff-ag-sarnen-obwalden",
+        "en": "installation-and-soldering-workers-stellentreff-ag-sarnen-obwalden",
+        "fr": "ouvriers-d-installation-et-de-soudure-stellentreff-ag-sarnen-obwalden"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -117,11 +131,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "betriebsmitarbeiter-in-fur-montagen-und-lotarbeiten-sarnen-obwalden-stellentreff-ch",
+          "betriebsmitarbeiter-in-per-montagen-e-lotarbeiten-stellentreff-ag-sarnen"
+        ],
+        "en": [
+          "betriebsmitarbeiter-in-fur-montagen-und-lotarbeiten-sarnen-obwalden-stellentreff-ch"
+        ],
+        "fr": [
           "betriebsmitarbeiter-in-fur-montagen-und-lotarbeiten-sarnen-obwalden-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "betriebsmitarbeiter-in-fur-montagen-und-lotarbeiten-sarnen-obwalden-stellentreff-ch"
+        "betriebsmitarbeiter-in-fur-montagen-und-lotarbeiten-sarnen-obwalden-stellentreff-ch",
+        "betriebsmitarbeiter-in-per-montagen-e-lotarbeiten-stellentreff-ag-sarnen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -140,12 +162,12 @@
     },
     {
       "id": "stellentreff-ebffe7431338",
-      "slug": "betriebsmitarbeiter-in-per-montage-e-qualitatskontrolle-stellentreff-ag-sarnen",
+      "slug": "installazione-e-controllo-della-qualita-stellentreff-ag-sarnen-obwalden",
       "slugByLocale": {
         "de": "betriebsmitarbeiter-in-fur-montage-und-qualitatskontrolle-sarnen-obwalden-stellentreff-ch",
-        "it": "betriebsmitarbeiter-in-per-montage-e-qualitatskontrolle-stellentreff-ag-sarnen",
-        "en": "betriebsmitarbeiter-in-fur-montage-und-qualitatskontrolle-sarnen-obwalden-stellentreff-ch",
-        "fr": "betriebsmitarbeiter-in-fur-montage-und-qualitatskontrolle-sarnen-obwalden-stellentreff-ch"
+        "it": "installazione-e-controllo-della-qualita-stellentreff-ag-sarnen-obwalden",
+        "en": "installation-and-quality-control-workers-stellentreff-ag-sarnen-obwalden",
+        "fr": "travailleurs-de-l-installation-et-du-controle-de-la-qualite-stellentreff-ag-sarnen-obwalden"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -194,16 +216,19 @@
           "operating-staff-with-assembly-and-soldering-skills-stellentreff-ag-sarnen-obwalden",
           "betriebsmitarbeiter-in-mit-montage-und-lotkompetenz-sarnen-obwalden-stellentreff-ch",
           "personnel-d-exploitation-possedant-des-competences-d-assemblage-et-de-soudure-stellentreff-ag-sarnen-obwalden",
-          "betriebsmitarbeiter-in-con-montage-e-lotkompetenz-stellentreff-ag-sarnen"
+          "betriebsmitarbeiter-in-con-montage-e-lotkompetenz-stellentreff-ag-sarnen",
+          "betriebsmitarbeiter-in-per-montage-e-qualitatskontrolle-stellentreff-ag-sarnen"
         ],
         "en": [
-          "operating-staff-with-assembly-and-soldering-skills-stellentreff-ag-sarnen-obwalden"
+          "operating-staff-with-assembly-and-soldering-skills-stellentreff-ag-sarnen-obwalden",
+          "betriebsmitarbeiter-in-fur-montage-und-qualitatskontrolle-sarnen-obwalden-stellentreff-ch"
         ],
         "de": [
           "betriebsmitarbeiter-in-mit-montage-und-lotkompetenz-sarnen-obwalden-stellentreff-ch"
         ],
         "fr": [
-          "personnel-d-exploitation-possedant-des-competences-d-assemblage-et-de-soudure-stellentreff-ag-sarnen-obwalden"
+          "personnel-d-exploitation-possedant-des-competences-d-assemblage-et-de-soudure-stellentreff-ag-sarnen-obwalden",
+          "betriebsmitarbeiter-in-fur-montage-und-qualitatskontrolle-sarnen-obwalden-stellentreff-ch"
         ]
       },
       "previousSlugs": [
@@ -212,7 +237,8 @@
         "operating-staff-with-assembly-and-soldering-skills-stellentreff-ag-sarnen-obwalden",
         "betriebsmitarbeiter-in-mit-montage-und-lotkompetenz-sarnen-obwalden-stellentreff-ch",
         "personnel-d-exploitation-possedant-des-competences-d-assemblage-et-de-soudure-stellentreff-ag-sarnen-obwalden",
-        "betriebsmitarbeiter-in-con-montage-e-lotkompetenz-stellentreff-ag-sarnen"
+        "betriebsmitarbeiter-in-con-montage-e-lotkompetenz-stellentreff-ag-sarnen",
+        "betriebsmitarbeiter-in-per-montage-e-qualitatskontrolle-stellentreff-ag-sarnen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -231,12 +257,12 @@
     },
     {
       "id": "stellentreff-c8e960592a14",
-      "slug": "betriebsmitarbeiter-in-per-montage-e-lotarbeiten-stellentreff-ag-sarnen",
+      "slug": "lavoratori-di-installazione-e-saldatura-stellentreff-ag-sarnen-obwalden-e02907",
       "slugByLocale": {
         "de": "betriebsmitarbeiter-in-fur-montage-und-lotarbeiten-sarnen-obwalden-stellentreff-ch",
-        "it": "betriebsmitarbeiter-in-per-montage-e-lotarbeiten-stellentreff-ag-sarnen",
-        "en": "betriebsmitarbeiter-in-fur-montage-und-lotarbeiten-sarnen-obwalden-stellentreff-ch",
-        "fr": "betriebsmitarbeiter-in-fur-montage-und-lotarbeiten-sarnen-obwalden-stellentreff-ch"
+        "it": "lavoratori-di-installazione-e-saldatura-stellentreff-ag-sarnen-obwalden-e02907",
+        "en": "installation-and-soldering-workers-stellentreff-ag-sarnen-obwalden-e02907",
+        "fr": "ouvriers-d-installation-et-de-soudure-stellentreff-ag-sarnen-obwalden-e02907"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -280,11 +306,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "betriebsmitarbeiter-in-fur-montage-und-lotarbeiten-sarnen-obwalden-stellentreff-ch",
+          "betriebsmitarbeiter-in-per-montage-e-lotarbeiten-stellentreff-ag-sarnen"
+        ],
+        "en": [
+          "betriebsmitarbeiter-in-fur-montage-und-lotarbeiten-sarnen-obwalden-stellentreff-ch"
+        ],
+        "fr": [
           "betriebsmitarbeiter-in-fur-montage-und-lotarbeiten-sarnen-obwalden-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "betriebsmitarbeiter-in-fur-montage-und-lotarbeiten-sarnen-obwalden-stellentreff-ch"
+        "betriebsmitarbeiter-in-fur-montage-und-lotarbeiten-sarnen-obwalden-stellentreff-ch",
+        "betriebsmitarbeiter-in-per-montage-e-lotarbeiten-stellentreff-ag-sarnen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -303,12 +337,12 @@
     },
     {
       "id": "stellentreff-269b0e027638",
-      "slug": "betriebsmitarbeiter-in-per-baugruppenmontage-stellentreff-ag-sarnen",
+      "slug": "personale-operativo-per-il-montaggio-stellentreff-ag-sarnen-obwalden",
       "slugByLocale": {
         "de": "betriebsmitarbeiter-in-fur-baugruppenmontage-sarnen-obwalden-stellentreff-ch",
-        "it": "betriebsmitarbeiter-in-per-baugruppenmontage-stellentreff-ag-sarnen",
-        "en": "betriebsmitarbeiter-in-fur-baugruppenmontage-sarnen-obwalden-stellentreff-ch",
-        "fr": "betriebsmitarbeiter-in-fur-baugruppenmontage-sarnen-obwalden-stellentreff-ch"
+        "it": "personale-operativo-per-il-montaggio-stellentreff-ag-sarnen-obwalden",
+        "en": "operational-personnel-for-assembly-stellentreff-ag-sarnen-obwalden",
+        "fr": "personnel-operationnel-pour-le-rassemblement-stellentreff-ag-sarnen-obwalden"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -352,11 +386,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "betriebsmitarbeiter-in-fur-baugruppenmontage-sarnen-obwalden-stellentreff-ch",
+          "betriebsmitarbeiter-in-per-baugruppenmontage-stellentreff-ag-sarnen"
+        ],
+        "en": [
+          "betriebsmitarbeiter-in-fur-baugruppenmontage-sarnen-obwalden-stellentreff-ch"
+        ],
+        "fr": [
           "betriebsmitarbeiter-in-fur-baugruppenmontage-sarnen-obwalden-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "betriebsmitarbeiter-in-fur-baugruppenmontage-sarnen-obwalden-stellentreff-ch"
+        "betriebsmitarbeiter-in-fur-baugruppenmontage-sarnen-obwalden-stellentreff-ch",
+        "betriebsmitarbeiter-in-per-baugruppenmontage-stellentreff-ag-sarnen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -375,12 +417,12 @@
     },
     {
       "id": "stellentreff-0cfe972889e6",
-      "slug": "betriebsmitarbeiter-in-per-feinmontage-stellentreff-ag-sarnen",
+      "slug": "funzionamento-del-personale-per-assemblaggio-stellentreff-ag-sarnen-obwalden",
       "slugByLocale": {
         "de": "betriebsmitarbeiter-in-fur-feinmontage-sarnen-obwalden-stellentreff-ch",
-        "it": "betriebsmitarbeiter-in-per-feinmontage-stellentreff-ag-sarnen",
-        "en": "betriebsmitarbeiter-in-fur-feinmontage-sarnen-obwalden-stellentreff-ch",
-        "fr": "betriebsmitarbeiter-in-fur-feinmontage-sarnen-obwalden-stellentreff-ch"
+        "it": "funzionamento-del-personale-per-assemblaggio-stellentreff-ag-sarnen-obwalden",
+        "en": "operations-personnel-for-fine-assembly-stellentreff-ag-sarnen-obwalden",
+        "fr": "personnel-des-operations-pour-le-montage-fin-stellentreff-ag-sarnen-obwalden"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -439,16 +481,19 @@
           "operations-personnel-with-assembly-experience-and-precision-stellentreff-ag-sarnen-obwalden",
           "betriebsmitarbeiter-in-mit-montageerfahrung-und-prazision-sarnen-obwalden-stellentreff-ch",
           "personnel-d-exploitation-avec-experience-et-precision-de-montage-stellentreff-ag-sarnen-obwalden",
-          "betriebsmitarbeiter-in-con-montageerfahrung-e-prazision-stellentreff-ag-sarnen"
+          "betriebsmitarbeiter-in-con-montageerfahrung-e-prazision-stellentreff-ag-sarnen",
+          "betriebsmitarbeiter-in-per-feinmontage-stellentreff-ag-sarnen"
         ],
         "en": [
-          "operations-personnel-for-fine-assembly-and-assembly-equipment-stellentreff-ag-sarnen-obwalden"
+          "operations-personnel-for-fine-assembly-and-assembly-equipment-stellentreff-ag-sarnen-obwalden",
+          "betriebsmitarbeiter-in-fur-feinmontage-sarnen-obwalden-stellentreff-ch"
         ],
         "de": [
           "betriebsmitarbeiter-in-fur-feinmontage-und-montageanlagen-sarnen-obwalden-stellentreff-ch"
         ],
         "fr": [
-          "personnel-d-exploitation-pour-le-materiel-de-montage-et-de-montage-stellentreff-ag-sarnen-obwalden"
+          "personnel-d-exploitation-pour-le-materiel-de-montage-et-de-montage-stellentreff-ag-sarnen-obwalden",
+          "betriebsmitarbeiter-in-fur-feinmontage-sarnen-obwalden-stellentreff-ch"
         ]
       },
       "previousSlugs": [
@@ -467,7 +512,8 @@
         "operations-personnel-with-assembly-experience-and-precision-stellentreff-ag-sarnen-obwalden",
         "betriebsmitarbeiter-in-mit-montageerfahrung-und-prazision-sarnen-obwalden-stellentreff-ch",
         "personnel-d-exploitation-avec-experience-et-precision-de-montage-stellentreff-ag-sarnen-obwalden",
-        "betriebsmitarbeiter-in-con-montageerfahrung-e-prazision-stellentreff-ag-sarnen"
+        "betriebsmitarbeiter-in-con-montageerfahrung-e-prazision-stellentreff-ag-sarnen",
+        "betriebsmitarbeiter-in-per-feinmontage-stellentreff-ag-sarnen"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -486,12 +532,12 @@
     },
     {
       "id": "stellentreff-dbb1e13d7897",
-      "slug": "bauarbeiter-in-per-beton-e-stahlbetonarbeiten-stellentreff-ag-sursee",
+      "slug": "lavoratori-di-costruzione-in-cemento-armato-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
         "de": "bauarbeiter-in-fur-beton-und-stahlbetonarbeiten-sursee-luzern-stellentreff-ch",
-        "it": "bauarbeiter-in-per-beton-e-stahlbetonarbeiten-stellentreff-ag-sursee",
-        "en": "bauarbeiter-in-fur-beton-und-stahlbetonarbeiten-sursee-luzern-stellentreff-ch",
-        "fr": "bauarbeiter-in-fur-beton-und-stahlbetonarbeiten-sursee-luzern-stellentreff-ch"
+        "it": "lavoratori-di-costruzione-in-cemento-armato-stellentreff-ag-sursee-luzern",
+        "en": "concrete-and-reinforced-concrete-construction-workers-stellentreff-ag-sursee-luzern",
+        "fr": "ouvriers-en-beton-arme-stellentreff-ag-sursee-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -535,11 +581,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bauarbeiter-in-fur-beton-und-stahlbetonarbeiten-sursee-luzern-stellentreff-ch",
+          "bauarbeiter-in-per-beton-e-stahlbetonarbeiten-stellentreff-ag-sursee"
+        ],
+        "en": [
+          "bauarbeiter-in-fur-beton-und-stahlbetonarbeiten-sursee-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "bauarbeiter-in-fur-beton-und-stahlbetonarbeiten-sursee-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "bauarbeiter-in-fur-beton-und-stahlbetonarbeiten-sursee-luzern-stellentreff-ch"
+        "bauarbeiter-in-fur-beton-und-stahlbetonarbeiten-sursee-luzern-stellentreff-ch",
+        "bauarbeiter-in-per-beton-e-stahlbetonarbeiten-stellentreff-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -558,12 +612,12 @@
     },
     {
       "id": "stellentreff-19f8a7efa2e3",
-      "slug": "malerpraktiker-in-per-kundenmalerei-stellentreff-ag-sursee",
+      "slug": "dipingere-i-professionisti-per-la-pittura-cliente-stellentreff-ag-sursee-luzern",
       "slugByLocale": {
         "de": "malerpraktiker-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
-        "it": "malerpraktiker-in-per-kundenmalerei-stellentreff-ag-sursee",
-        "en": "malerpraktiker-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
-        "fr": "malerpraktiker-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch"
+        "it": "dipingere-i-professionisti-per-la-pittura-cliente-stellentreff-ag-sursee-luzern",
+        "en": "painting-practitioners-for-client-painting-stellentreff-ag-sursee-luzern",
+        "fr": "pratiques-de-peinture-pour-la-peinture-client-stellentreff-ag-sursee-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -608,22 +662,22 @@
       "previousSlugsByLocale": {
         "it": [
           "malerpraktiker-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
-          "dipingere-i-professionisti-per-la-pittura-cliente-stellentreff-ag-sursee-luzern",
           "painting-practitioners-for-client-painting-stellentreff-ag-sursee-luzern",
-          "pratiques-de-peinture-pour-la-peinture-client-stellentreff-ag-sursee-luzern"
+          "pratiques-de-peinture-pour-la-peinture-client-stellentreff-ag-sursee-luzern",
+          "malerpraktiker-in-per-kundenmalerei-stellentreff-ag-sursee"
         ],
         "en": [
-          "painting-practitioners-for-client-painting-stellentreff-ag-sursee-luzern"
+          "malerpraktiker-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch"
         ],
         "fr": [
-          "pratiques-de-peinture-pour-la-peinture-client-stellentreff-ag-sursee-luzern"
+          "malerpraktiker-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
         "malerpraktiker-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
-        "dipingere-i-professionisti-per-la-pittura-cliente-stellentreff-ag-sursee-luzern",
         "painting-practitioners-for-client-painting-stellentreff-ag-sursee-luzern",
-        "pratiques-de-peinture-pour-la-peinture-client-stellentreff-ag-sursee-luzern"
+        "pratiques-de-peinture-pour-la-peinture-client-stellentreff-ag-sursee-luzern",
+        "malerpraktiker-in-per-kundenmalerei-stellentreff-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -642,12 +696,12 @@
     },
     {
       "id": "stellentreff-e00b867d414b",
-      "slug": "maler-in-per-kundenmalerei-e-renovationen-stellentreff-ag-zurich",
+      "slug": "pittore-per-la-verniciatura-e-la-ristrutturazione-dei-clienti-stellentreff-ag-zurich-zurich",
       "slugByLocale": {
         "de": "maler-in-fur-kundenmalerei-und-renovationen-zurich-zurich-stellentreff-ch",
-        "it": "maler-in-per-kundenmalerei-e-renovationen-stellentreff-ag-zurich",
-        "en": "maler-in-fur-kundenmalerei-und-renovationen-zurich-zurich-stellentreff-ch",
-        "fr": "maler-in-fur-kundenmalerei-und-renovationen-zurich-zurich-stellentreff-ch"
+        "it": "pittore-per-la-verniciatura-e-la-ristrutturazione-dei-clienti-stellentreff-ag-zurich-zurich",
+        "en": "painter-for-client-painting-and-renovations-stellentreff-ag-zurich-zurich",
+        "fr": "peintre-pour-peinture-et-renovations-client-stellentreff-ag-zurich-zurich"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -691,11 +745,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-kundenmalerei-und-renovationen-zurich-zurich-stellentreff-ch",
+          "maler-in-per-kundenmalerei-e-renovationen-stellentreff-ag-zurich"
+        ],
+        "en": [
+          "maler-in-fur-kundenmalerei-und-renovationen-zurich-zurich-stellentreff-ch"
+        ],
+        "fr": [
           "maler-in-fur-kundenmalerei-und-renovationen-zurich-zurich-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-kundenmalerei-und-renovationen-zurich-zurich-stellentreff-ch"
+        "maler-in-fur-kundenmalerei-und-renovationen-zurich-zurich-stellentreff-ch",
+        "maler-in-per-kundenmalerei-e-renovationen-stellentreff-ag-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -714,12 +776,12 @@
     },
     {
       "id": "stellentreff-29a20325d76d",
-      "slug": "maler-in-per-kundenmalerei-stellentreff-ag-sursee",
+      "slug": "pittore-per-la-pittura-cliente-stellentreff-ag-sursee-luzern-37acb0",
       "slugByLocale": {
         "de": "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
-        "it": "maler-in-per-kundenmalerei-stellentreff-ag-sursee",
-        "en": "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
-        "fr": "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch"
+        "it": "pittore-per-la-pittura-cliente-stellentreff-ag-sursee-luzern-37acb0",
+        "en": "painter-for-client-painting-stellentreff-ag-sursee-luzern-37acb0",
+        "fr": "peintre-pour-peinture-client-stellentreff-ag-sursee-luzern-37acb0"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -763,11 +825,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
+          "maler-in-per-kundenmalerei-stellentreff-ag-sursee"
+        ],
+        "en": [
+          "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch"
+        ],
+        "fr": [
           "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch"
+        "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
+        "maler-in-per-kundenmalerei-stellentreff-ag-sursee"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -833,14 +903,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "elektroinstallateur-in-hilfsarbeiter-in-fur-netzwerkverkabelung-und-kabelzug-winterthur",
-        "installatore-trice-elettrico-a-in-hilfsarbeiter-in-per-netzwerkverkabelung-e-kabelzug-stellentreff-ag-winterthur",
-        "installatore-elettrico-lavoratore-ausiliario-per-cablaggio-di-rete-e-treno-via-cavo-stellentreff-ag-winterthur-zurich"
+        "installatore-trice-elettrico-a-in-hilfsarbeiter-in-per-netzwerkverkabelung-e-kabelzug-stellentreff-ag-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "elektroinstallateur-in-hilfsarbeiter-in-fur-netzwerkverkabelung-und-kabelzug-winterthur",
-          "installatore-trice-elettrico-a-in-hilfsarbeiter-in-per-netzwerkverkabelung-e-kabelzug-stellentreff-ag-winterthur",
-          "installatore-elettrico-lavoratore-ausiliario-per-cablaggio-di-rete-e-treno-via-cavo-stellentreff-ag-winterthur-zurich"
+          "installatore-trice-elettrico-a-in-hilfsarbeiter-in-per-netzwerkverkabelung-e-kabelzug-stellentreff-ag-winterthur"
         ],
         "en": [
           "elektroinstallateur-in-hilfsarbeiter-in-fur-netzwerkverkabelung-und-kabelzug-winterthur"
@@ -913,14 +981,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "bauarbeiter-in-fur-ruckbau-und-abbrucharbeiten-luzern-luzern-stellentreff-ch",
-        "bauarbeiter-in-per-ruckbau-e-abbrucharbeiten-stellentreff-ag-luzern",
-        "lavoratori-per-la-demolizione-stellentreff-ag-luzern-luzern"
+        "bauarbeiter-in-per-ruckbau-e-abbrucharbeiten-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "bauarbeiter-in-fur-ruckbau-und-abbrucharbeiten-luzern-luzern-stellentreff-ch",
-          "bauarbeiter-in-per-ruckbau-e-abbrucharbeiten-stellentreff-ag-luzern",
-          "lavoratori-per-la-demolizione-stellentreff-ag-luzern-luzern"
+          "bauarbeiter-in-per-ruckbau-e-abbrucharbeiten-stellentreff-ag-luzern"
         ],
         "en": [
           "bauarbeiter-in-fur-ruckbau-und-abbrucharbeiten-luzern-luzern-stellentreff-ch"
@@ -992,13 +1058,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trockenbauer-in-mit-montage-von-deckensystemen-chur-graubunden-stellentreff-ch",
-        "asciugatrici-con-installazione-di-sistemi-a-soffitto-stellentreff-ag-chur-graubunden"
+        "trockenbauer-in-mit-montage-von-deckensystemen-chur-graubunden-stellentreff-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trockenbauer-in-mit-montage-von-deckensystemen-chur-graubunden-stellentreff-ch",
-          "asciugatrici-con-installazione-di-sistemi-a-soffitto-stellentreff-ag-chur-graubunden"
+          "trockenbauer-in-mit-montage-von-deckensystemen-chur-graubunden-stellentreff-ch"
         ],
         "en": [
           "trockenbauer-in-mit-montage-von-deckensystemen-chur-graubunden-stellentreff-ch"
@@ -1072,14 +1136,12 @@
       "previousSlugs": [
         "produktionsmitarbeiter-in-fur-werkstattarbeiten-und-verpackung-affoltern-am-albis-zurich",
         "produktionsmitarbeiter-in-per-werkstattarbeiten-e-verpackung-stellentreff-ag-affoltern-am-albis",
-        "produktionsmitarbeiter-in-fur-werkstattarbeiten-und-verpackung-stellentreff-ag-affoltern-am-albis",
-        "lavoratori-di-produzione-per-lavori-di-officina-e-confezionamento-stellentreff-ag-affoltern-am-albis-zurich"
+        "produktionsmitarbeiter-in-fur-werkstattarbeiten-und-verpackung-stellentreff-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "produktionsmitarbeiter-in-fur-werkstattarbeiten-und-verpackung-affoltern-am-albis-zurich",
-          "produktionsmitarbeiter-in-per-werkstattarbeiten-e-verpackung-stellentreff-ag-affoltern-am-albis",
-          "lavoratori-di-produzione-per-lavori-di-officina-e-confezionamento-stellentreff-ag-affoltern-am-albis-zurich"
+          "produktionsmitarbeiter-in-per-werkstattarbeiten-e-verpackung-stellentreff-ag-affoltern-am-albis"
         ],
         "en": [
           "produktionsmitarbeiter-in-fur-werkstattarbeiten-und-verpackung-stellentreff-ag-affoltern-am-albis"
@@ -1152,14 +1214,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-hilfsarbeiter-in-fur-neubau-und-umbauprojekte-willisau-luzern-stellentreff-ch",
-        "maler-in-hilfsarbeiter-in-per-neubau-e-umbauprojekte-stellentreff-ag-willisau",
-        "painter-lavoratori-di-aiuto-per-nuovi-progetti-di-costruzione-e-conversione-stellentreff-ag-willisau-luzern"
+        "maler-in-hilfsarbeiter-in-per-neubau-e-umbauprojekte-stellentreff-ag-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-hilfsarbeiter-in-fur-neubau-und-umbauprojekte-willisau-luzern-stellentreff-ch",
-          "maler-in-hilfsarbeiter-in-per-neubau-e-umbauprojekte-stellentreff-ag-willisau",
-          "painter-lavoratori-di-aiuto-per-nuovi-progetti-di-costruzione-e-conversione-stellentreff-ag-willisau-luzern"
+          "maler-in-hilfsarbeiter-in-per-neubau-e-umbauprojekte-stellentreff-ag-willisau"
         ],
         "en": [
           "maler-in-hilfsarbeiter-in-fur-neubau-und-umbauprojekte-willisau-luzern-stellentreff-ch"
@@ -1233,14 +1293,12 @@
       "previousSlugs": [
         "logistiker-in-hilfsarbeiter-in-fur-wareneingang-und-palettenrolli-sursee-luzern",
         "logistiker-in-hilfsarbeiter-in-per-wareneingang-e-palettenrolli-stellentreff-ag-sursee",
-        "logistiker-in-hilfsarbeiter-in-fur-wareneingang-und-palettenrolli-stellentreff-ag-sursee",
-        "logisticista-lavoratori-ausiliari-per-il-ricevimento-delle-merci-e-il-materiale-rotabile-per-pallet-stellentreff-ag"
+        "logistiker-in-hilfsarbeiter-in-fur-wareneingang-und-palettenrolli-stellentreff-ag-sursee"
       ],
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-hilfsarbeiter-in-fur-wareneingang-und-palettenrolli-sursee-luzern",
-          "logistiker-in-hilfsarbeiter-in-per-wareneingang-e-palettenrolli-stellentreff-ag-sursee",
-          "logisticista-lavoratori-ausiliari-per-il-ricevimento-delle-merci-e-il-materiale-rotabile-per-pallet-stellentreff-ag"
+          "logistiker-in-hilfsarbeiter-in-per-wareneingang-e-palettenrolli-stellentreff-ag-sursee"
         ],
         "en": [
           "logistiker-in-hilfsarbeiter-in-fur-wareneingang-und-palettenrolli-stellentreff-ag-sursee"
@@ -1313,14 +1371,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gipser-in-efz-fur-anspruchsvolle-baustellen-chur-graubunden-stellentreff-ch",
-        "gipser-in-cfc-per-anspruchsvolle-baustellen-stellentreff-ag-chur",
-        "plaster-efz-per-siti-di-costruzione-difficili-stellentreff-ag-chur-graubunden"
+        "gipser-in-cfc-per-anspruchsvolle-baustellen-stellentreff-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gipser-in-efz-fur-anspruchsvolle-baustellen-chur-graubunden-stellentreff-ch",
-          "gipser-in-cfc-per-anspruchsvolle-baustellen-stellentreff-ag-chur",
-          "plaster-efz-per-siti-di-costruzione-difficili-stellentreff-ag-chur-graubunden"
+          "gipser-in-cfc-per-anspruchsvolle-baustellen-stellentreff-ag-chur"
         ],
         "en": [
           "gipser-in-efz-fur-anspruchsvolle-baustellen-chur-graubunden-stellentreff-ch"
@@ -1393,14 +1449,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "gipser-in-hilfsarbeiter-in-fur-trockenbauarbeiten-chur-graubunden-stellentreff-ch",
-        "gipser-in-hilfsarbeiter-in-per-trockenbauarbeiten-stellentreff-ag-chur",
-        "plaster-lavoratori-ausiliari-per-lavori-di-costruzione-a-secco-stellentreff-ag-chur-graubunden"
+        "gipser-in-hilfsarbeiter-in-per-trockenbauarbeiten-stellentreff-ag-chur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gipser-in-hilfsarbeiter-in-fur-trockenbauarbeiten-chur-graubunden-stellentreff-ch",
-          "gipser-in-hilfsarbeiter-in-per-trockenbauarbeiten-stellentreff-ag-chur",
-          "plaster-lavoratori-ausiliari-per-lavori-di-costruzione-a-secco-stellentreff-ag-chur-graubunden"
+          "gipser-in-hilfsarbeiter-in-per-trockenbauarbeiten-stellentreff-ag-chur"
         ],
         "en": [
           "gipser-in-hilfsarbeiter-in-fur-trockenbauarbeiten-chur-graubunden-stellentreff-ch"
@@ -1473,14 +1527,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-neubau-und-renovationen-winterthur-zurich-stellentreff-ch",
-        "maler-in-per-neubau-e-renovationen-stellentreff-ag-winterthur",
-        "pittore-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-winterthur-zurich"
+        "maler-in-per-neubau-e-renovationen-stellentreff-ag-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-neubau-und-renovationen-winterthur-zurich-stellentreff-ch",
-          "maler-in-per-neubau-e-renovationen-stellentreff-ag-winterthur",
-          "pittore-per-nuove-costruzioni-e-ristrutturazioni-stellentreff-ag-winterthur-zurich"
+          "maler-in-per-neubau-e-renovationen-stellentreff-ag-winterthur"
         ],
         "en": [
           "maler-in-fur-neubau-und-renovationen-winterthur-zurich-stellentreff-ch"
@@ -22259,7 +22311,7 @@
         "it": "meccanico-di-produzione-con-idraulica-e-pneumatica-stellentreff-ag-luzern-luzern",
         "en": "production-mechanic-with-hydraulics-and-pneumatics-stellentreff-ag-luzern-luzern",
         "de": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-luzern-luzern-stellentreff-ch",
-        "fr": "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern"
+        "fr": "mecanicien-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-luzern-luzern"
       },
       "company": "Stellentreff AG",
       "companyKey": "stellentreff",
@@ -22302,7 +22354,6 @@
       "previousSlugs": [
         "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-luzern-luzern-stellentreff-ch",
         "produktionsmechaniker-in-con-hydraulik-e-pneumatik-stellentreff-ag-luzern",
-        "mecanicien-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-luzern-luzern",
         "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern"
       ],
       "previousSlugsByLocale": {
@@ -22315,7 +22366,6 @@
         ],
         "fr": [
           "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-luzern-luzern-stellentreff-ch",
-          "mecanicien-de-production-avec-hydraulique-et-pneumatique-stellentreff-ag-luzern-luzern",
           "produktionsmechaniker-in-mit-hydraulik-und-pneumatik-stellentreff-ag-luzern"
         ]
       },

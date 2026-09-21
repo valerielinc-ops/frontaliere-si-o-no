@@ -4,10 +4,10 @@
   "jobs": [
     {
       "id": "mcm-group-b46a4aa6f0c2",
-      "slug": "med-praxisassistent-in-mpa-100-malans-gr-medizinisches-center-bonaduz-malans",
+      "slug": "assistente-di-pratica-mpa-al-100-malans-gr-medizinisches-center-bonaduz-malans",
       "slugByLocale": {
         "de": "med-praxisassistent-in-mpa-100-malans-gr-malans-mcm-group-ch",
-        "it": "med-praxisassistent-in-mpa-100-malans-gr-medizinisches-center-bonaduz-malans",
+        "it": "assistente-di-pratica-mpa-al-100-malans-gr-medizinisches-center-bonaduz-malans",
         "en": "med-praxisassistent-in-mpa-100-malans-gr-medizinisches-center-bonaduz-malans",
         "fr": "med-praxisassistent-in-mpa-100-malans-gr-medizinisches-center-bonaduz-malans"
       },
@@ -55,11 +55,13 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "med-praxisassistent-in-mpa-100-malans-gr-malans-mcm-group-ch"
+          "med-praxisassistent-in-mpa-100-malans-gr-malans-mcm-group-ch",
+          "med-praxisassistent-in-mpa-100-malans-gr-medizinisches-center-bonaduz-malans"
         ]
       },
       "previousSlugs": [
-        "med-praxisassistent-in-mpa-100-malans-gr-malans-mcm-group-ch"
+        "med-praxisassistent-in-mpa-100-malans-gr-malans-mcm-group-ch",
+        "med-praxisassistent-in-mpa-100-malans-gr-medizinisches-center-bonaduz-malans"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

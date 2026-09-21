@@ -700,12 +700,12 @@
     },
     {
       "id": "spital-sts-60fb76404183",
-      "slug": "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez",
+      "slug": "vice-capo-della-care-oncology-spital-sts-thun-und-spiez",
       "slugByLocale": {
         "de": "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez",
-        "it": "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez",
-        "en": "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez",
-        "fr": "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez"
+        "it": "vice-capo-della-care-oncology-spital-sts-thun-und-spiez",
+        "en": "deputy-head-of-care-oncology-spital-sts-thun-und-spiez",
+        "fr": "chef-adjoint-des-soins-oncologie-spital-sts-thun-und-spiez"
       },
       "company": "Spital STS",
       "companyKey": "spital-sts",
@@ -750,11 +750,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez",
+          "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez"
+        ],
+        "en": [
+          "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez"
+        ],
+        "fr": [
           "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez"
         ]
       },
       "previousSlugs": [
-        "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez"
+        "stellvertretende-r-leiter-in-pflege-onkologie-spital-sts-thun-und-spiez",
+        "stellvertretende-r-responsabile-pflege-onkologie-spital-sts-thun-und-spiez"
       ],
       "salaryMin": 115000,
       "salaryMax": 160000,

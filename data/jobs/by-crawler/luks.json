@@ -2600,13 +2600,11 @@
         "neuropsicologo-neuropsicologo-80-luzerner-kantonsspital-luks-luzern",
         "neuropsychologist-neuropsychologist-80-luzerner-kantonsspital-luks-luzern",
         "neuropsychologin-neuropsychologe-80-luks-luzern",
-        "neuropsychologue-neuropsychologue-80-luzerner-kantonsspital-luks-luzern",
-        "spitalseelsorgerin-spitalseelsorger-50-luzerner-kantonsspital-luks-luzern"
+        "neuropsychologue-neuropsychologue-80-luzerner-kantonsspital-luks-luzern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "spitalseelsorgerin-spitalseelsorger-50-luks-luzern",
-          "spitalseelsorgerin-spitalseelsorger-50-luzerner-kantonsspital-luks-luzern"
+          "spitalseelsorgerin-spitalseelsorger-50-luks-luzern"
         ],
         "en": [
           "spitalseelsorgerin-spitalseelsorger-50-luks-luzern"
@@ -16298,12 +16296,12 @@
     },
     {
       "id": "luks-753cf8fe4095",
-      "slug": "pflegefachfrau-pflegefachmann-hf-fh-notfallpflege-padiatrie-80-100-luks-luzern",
+      "slug": "specialista-infermieristica-hf-fh-assistenza-di-emergenza-pediatria-80-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-fh-notfallpflege-padiatrie-80-100-luks-luzern",
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-notfallpflege-padiatrie-80-100-luks-luzern",
-        "en": "pflegefachfrau-pflegefachmann-hf-fh-notfallpflege-padiatrie-80-100-luks-luzern",
-        "fr": "pflegefachfrau-pflegefachmann-hf-fh-notfallpflege-padiatrie-80-100-luks-luzern"
+        "it": "specialista-infermieristica-hf-fh-assistenza-di-emergenza-pediatria-80-100-luzerner-kantonsspital-luks-luzern",
+        "en": "nursing-specialist-hf-fh-emergency-care-pediatrics-80-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "specialiste-des-soins-infirmiers-hf-fh-soins-d-urgence-pediatrie-80-100-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16360,7 +16358,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:52:17.100Z"
+      "firstSeenAt": "2026-09-19T22:52:17.100Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-fh-notfallpflege-padiatrie-80-100-luks-luzern"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-fh-notfallpflege-padiatrie-80-100-luks-luzern"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-fh-notfallpflege-padiatrie-80-100-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-fh-notfallpflege-padiatrie-80-100-luks-luzern"
+      ]
     },
     {
       "id": "luks-0d09d53aae54",
@@ -16640,12 +16652,12 @@
     },
     {
       "id": "luks-5e1f8ddfed0d",
-      "slug": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
+      "slug": "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-        "en": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern",
-        "fr": "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
+        "it": "specialista-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
+        "en": "nursing-specialist-hf-fh-urogynecology-60-luzerner-kantonsspital-luks-luzern",
+        "fr": "specialiste-des-soins-infirmiers-hf-fh-urogynecologie-60-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16702,7 +16714,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:52:17.093Z"
+      "firstSeenAt": "2026-09-19T22:52:17.093Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-hf-fh-urogynakologie-60-luks-luzern"
+      ]
     },
     {
       "id": "luks-53b7c7c63953",
@@ -16764,7 +16790,6 @@
           "leiterin-leiter-payroll-e-sozialversicherungen-80-100-luzerner-kantonsspital-luks-luzern"
         ],
         "en": [
-          "head-of-payroll-and-social-security-80-100-luzerner-kantonsspital-luks-luzern",
           "leiterin-leiter-payroll-und-sozialversicherungen-80-100-luks-luzern"
         ],
         "fr": [
@@ -16796,12 +16821,12 @@
     },
     {
       "id": "luks-54ea4110eafe",
-      "slug": "medizinische-patientenkoordinatorin-medizinischer-patientenkoordinator-gefasschirurgie-60",
+      "slug": "coordinatore-medico-del-paziente-coordinatore-medico-della-chirurgia-vascolare-60-100-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "medizinische-patientenkoordinatorin-medizinischer-patientenkoordinator-gefasschirurgie-60",
-        "it": "medizinische-patientenkoordinatorin-medizinischer-patientenkoordinator-gefasschirurgie-60",
-        "en": "medizinische-patientenkoordinatorin-medizinischer-patientenkoordinator-gefasschirurgie-60",
-        "fr": "medizinische-patientenkoordinatorin-medizinischer-patientenkoordinator-gefasschirurgie-60"
+        "it": "coordinatore-medico-del-paziente-coordinatore-medico-della-chirurgia-vascolare-60-100-luzerner-kantonsspital-luks-luzern",
+        "en": "medical-patient-coordinator-medical-patient-coordinator-vascular-surgery-60-100-luzerner-kantonsspital-luks-luzern",
+        "fr": "coordonnateur-des-patients-medicaux-coordonnateur-des-patients-medicaux-chirurgie-vasculaire-60-100-luzerner"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16858,16 +16883,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:52:17.087Z"
+      "firstSeenAt": "2026-09-19T22:52:17.087Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-patientenkoordinatorin-medizinischer-patientenkoordinator-gefasschirurgie-60"
+        ],
+        "en": [
+          "medizinische-patientenkoordinatorin-medizinischer-patientenkoordinator-gefasschirurgie-60"
+        ],
+        "fr": [
+          "medizinische-patientenkoordinatorin-medizinischer-patientenkoordinator-gefasschirurgie-60"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-patientenkoordinatorin-medizinischer-patientenkoordinator-gefasschirurgie-60"
+      ]
     },
     {
       "id": "luks-3e82afbf524d",
-      "slug": "assistentin-assistent-leitung-pflege-medizin-60-80-luks-luzern",
+      "slug": "assistente-assistente-capo-della-medicina-di-cura-60-80-luzerner-kantonsspital-luks-luzern",
       "slugByLocale": {
         "de": "assistentin-assistent-leitung-pflege-medizin-60-80-luks-luzern",
-        "it": "assistentin-assistent-leitung-pflege-medizin-60-80-luks-luzern",
-        "en": "assistentin-assistent-leitung-pflege-medizin-60-80-luks-luzern",
-        "fr": "assistentin-assistent-leitung-pflege-medizin-60-80-luks-luzern"
+        "it": "assistente-assistente-capo-della-medicina-di-cura-60-80-luzerner-kantonsspital-luks-luzern",
+        "en": "assistant-assistant-head-of-care-medicine-60-80-luzerner-kantonsspital-luks-luzern",
+        "fr": "assistant-assistant-chef-de-la-medecine-des-soins-60-80-luzerner-kantonsspital-luks-luzern"
       },
       "company": "Luzerner Kantonsspital (LUKS)",
       "companyKey": "luks",
@@ -16924,7 +16963,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:52:17.082Z"
+      "firstSeenAt": "2026-09-19T22:52:17.082Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistentin-assistent-leitung-pflege-medizin-60-80-luks-luzern"
+        ],
+        "en": [
+          "assistentin-assistent-leitung-pflege-medizin-60-80-luks-luzern"
+        ],
+        "fr": [
+          "assistentin-assistent-leitung-pflege-medizin-60-80-luks-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "assistentin-assistent-leitung-pflege-medizin-60-80-luks-luzern"
+      ]
     },
     {
       "id": "luks-ab62708e83ab",

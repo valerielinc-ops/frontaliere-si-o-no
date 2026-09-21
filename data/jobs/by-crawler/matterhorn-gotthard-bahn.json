@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "matterhorn-gotthard-bahn-a68c8f09f3d3",
-      "slug": "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
+      "slug": "manutenzione-del-veicolo-tecnico-m-f-d-matterhorn-gotthard-bahn-andermatt",
       "slugByLocale": {
         "de": "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-        "it": "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-        "en": "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch",
-        "fr": "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
+        "it": "manutenzione-del-veicolo-tecnico-m-f-d-matterhorn-gotthard-bahn-andermatt",
+        "en": "technical-vehicle-maintenance-m-f-d-matterhorn-gotthard-bahn-andermatt",
+        "fr": "entretien-technique-des-vehicules-h-f-d-matterhorn-gotthard-bahn-andermatt"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -88,7 +88,21 @@
         }
       },
       "addressRegion": "UR",
-      "firstSeenAt": "2026-09-19T23:10:21.709Z"
+      "firstSeenAt": "2026-09-19T23:10:21.709Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "en": [
+          "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
+          "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-fahrzeuginstandhaltung-m-w-d-matterhorn-gotthard-bahn-ch"
+      ]
     },
     {
       "id": "matterhorn-gotthard-bahn-9428927fd6a7",
@@ -384,12 +398,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-9945615ea358",
-      "slug": "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund",
+      "slug": "responsabile-gestione-della-catena-di-fornitura-m-f-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund",
       "slugByLocale": {
         "de": "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
-        "it": "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund",
+        "it": "responsabile-gestione-della-catena-di-fornitura-m-f-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund",
         "en": "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
-        "fr": "leiter-chaine-d-approvisionnement-management-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund"
+        "fr": "responsable-de-la-gestion-de-la-chaine-d-approvisionnement-h-f-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -452,14 +466,18 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-ch"
+          "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
+          "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund"
         ],
         "fr": [
-          "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-ch"
+          "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
+          "leiter-chaine-d-approvisionnement-management-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund"
         ]
       },
       "previousSlugs": [
-        "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-ch"
+        "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
+        "leiter-supply-chain-management-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund",
+        "leiter-chaine-d-approvisionnement-management-m-w-d-80-100-matterhorn-gotthard-bahn-glis-glisergrund"
       ],
       "salaryMin": 97500,
       "salaryMax": 148000,
@@ -574,12 +592,12 @@
     },
     {
       "id": "matterhorn-gotthard-bahn-419f36eae83f",
-      "slug": "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-brig",
+      "slug": "testa-di-digitalizzazione-m-f-d-80-100-matterhorn-gotthard-bahn-brig",
       "slugByLocale": {
         "de": "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
-        "it": "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-brig",
-        "en": "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
-        "fr": "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-ch"
+        "it": "testa-di-digitalizzazione-m-f-d-80-100-matterhorn-gotthard-bahn-brig",
+        "en": "head-of-digitalization-m-f-d-80-100-matterhorn-gotthard-bahn-brig",
+        "fr": "responsable-de-la-numerisation-h-f-d-80-100-matterhorn-gotthard-bahn-brig"
       },
       "company": "Matterhorn Gotthard Bahn",
       "companyKey": "matterhorn-gotthard-bahn",
@@ -646,11 +664,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
+          "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-brig"
+        ],
+        "en": [
+          "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-ch"
+        ],
+        "fr": [
           "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-ch"
         ]
       },
       "previousSlugs": [
-        "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-ch"
+        "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-ch",
+        "leiter-digitalisierung-m-w-d-80-100-matterhorn-gotthard-bahn-brig"
       ],
       "salaryMin": 97500,
       "salaryMax": 148000,

@@ -51,13 +51,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva",
-        "trade-processing-specialist-12-mesi-contratto-a-termine-fisso-pictet-group-geneva"
+        "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva",
-          "trade-processing-specialist-12-mesi-contratto-a-termine-fisso-pictet-group-geneva"
+          "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva"
         ],
         "de": [
           "trade-processing-specialist-12-months-fixed-term-contract-pictet-geneva"
@@ -128,13 +126,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "team-manager-data-operations-pictet-london",
-        "team-manager-operazioni-dati-pictet-group-london"
+        "team-manager-data-operations-pictet-london"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "team-manager-data-operations-pictet-london",
-          "team-manager-operazioni-dati-pictet-group-london"
+          "team-manager-data-operations-pictet-london"
         ],
         "de": [
           "team-manager-data-operations-pictet-london"
@@ -225,10 +221,10 @@
     },
     {
       "id": "pictet-ff4541fd6d77",
-      "slug": "senior-credit-structurer-m-f-d-pictet-frankfurt",
+      "slug": "strutturatore-di-credito-senior-m-f-d-pictet-group-frankfurt",
       "slugByLocale": {
         "en": "senior-credit-structurer-m-f-d-pictet-frankfurt",
-        "it": "senior-credit-structurer-m-f-d-pictet-frankfurt",
+        "it": "strutturatore-di-credito-senior-m-f-d-pictet-group-frankfurt",
         "de": "senior-credit-structurer-m-f-d-pictet-frankfurt",
         "fr": "senior-credit-structurer-m-f-d-pictet-frankfurt"
       },
@@ -286,7 +282,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:55:36.407Z"
+      "firstSeenAt": "2026-09-19T22:55:36.407Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-credit-structurer-m-f-d-pictet-frankfurt"
+        ]
+      },
+      "previousSlugs": [
+        "senior-credit-structurer-m-f-d-pictet-frankfurt"
+      ]
     },
     {
       "id": "pictet-e34d9caf905d",
@@ -424,8 +428,8 @@
       "slugByLocale": {
         "en": "senior-business-manager-risk-and-compliance-12-months-contract-pictet-geneva",
         "it": "senior-business-manager-risk-and-compliance-12-months-contract-pictet-geneva",
-        "de": "senior-business-manager-risk-and-compliance-12-months-contract-pictet-geneva",
-        "fr": "senior-business-manager-risk-and-compliance-12-months-contract-pictet-geneva"
+        "de": "senior-business-manager-risiko-und-compliance-12-monate-vertrag-pictet-group-geneva",
+        "fr": "gestionnaire-d-entreprise-principal-risque-et-conformite-contrat-de-12-mois-pictet-group-geneva"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -616,12 +620,12 @@
     },
     {
       "id": "pictet-e8c8f2884c3e",
-      "slug": "client-relationship-officer-pictet-singapore",
+      "slug": "responsabile-relazioni-cliente-pictet-group-singapore",
       "slugByLocale": {
         "en": "client-relationship-officer-pictet-singapore",
-        "it": "client-relationship-officer-pictet-singapore",
+        "it": "responsabile-relazioni-cliente-pictet-group-singapore",
         "de": "client-relationship-officer-pictet-singapore",
-        "fr": "client-relationship-officer-pictet-singapore"
+        "fr": "agent-de-relations-avec-la-clientele-pictet-group-singapore"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -678,7 +682,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:55:32.498Z"
+      "firstSeenAt": "2026-09-19T22:55:32.498Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "client-relationship-officer-pictet-singapore"
+        ],
+        "fr": [
+          "client-relationship-officer-pictet-singapore"
+        ]
+      },
+      "previousSlugs": [
+        "client-relationship-officer-pictet-singapore"
+      ]
     },
     {
       "id": "pictet-b2365480904e",
@@ -1299,7 +1314,7 @@
         "it": "ufficiale-del-paralegal-pictet-group-luxembourg",
         "en": "paralegal-officer-pictet-luxembourg",
         "de": "paralegaler-offizier-pictet-group-luxembourg",
-        "fr": "paralegal-officer-pictet-group-luxembourg"
+        "fr": "parajuriste-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -1342,7 +1357,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "paralegal-officer-pictet-luxembourg",
-        "parajuriste-pictet-group-luxembourg",
         "paralegal-officer-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
@@ -1354,7 +1368,6 @@
         ],
         "fr": [
           "paralegal-officer-pictet-luxembourg",
-          "parajuriste-pictet-group-luxembourg",
           "paralegal-officer-pictet-group-luxembourg"
         ]
       },
@@ -1595,7 +1608,7 @@
         "it": "apprendista-data-management-pictet-group-luxembourg",
         "en": "trainee-data-management-pictet-luxembourg",
         "de": "auszubildender-data-management-pictet-group-luxembourg",
-        "fr": "trainee-data-management-pictet-group-luxembourg"
+        "fr": "stagiaire-gestion-des-donnees-pictet-group-luxembourg"
       },
       "company": "Pictet Group",
       "companyKey": "pictet",
@@ -1638,7 +1651,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "trainee-data-management-pictet-luxembourg",
-        "stagiaire-gestion-des-donnees-pictet-group-luxembourg",
         "trainee-data-management-pictet-group-luxembourg"
       ],
       "previousSlugsByLocale": {
@@ -1649,7 +1661,6 @@
           "trainee-data-management-pictet-luxembourg"
         ],
         "fr": [
-          "stagiaire-gestion-des-donnees-pictet-group-luxembourg",
           "trainee-data-management-pictet-group-luxembourg"
         ]
       },

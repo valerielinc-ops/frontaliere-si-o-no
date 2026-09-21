@@ -933,12 +933,12 @@
     },
     {
       "id": "spitex-ch-e123cd3ca11d",
-      "slug": "fachfrau-mann-gesundheit-60-spitex-stadt-winterthur",
+      "slug": "specialista-sanitario-60-spitex-spitex-stadt-winterthur-winterthur",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-60-spitex-spitex-ch-winterthur",
-        "it": "fachfrau-mann-gesundheit-60-spitex-stadt-winterthur",
-        "en": "fachfrau-mann-gesundheit-60-spitex-spitex-ch-winterthur",
-        "fr": "fachfrau-mann-gesundheit-60-spitex-spitex-ch-winterthur"
+        "it": "specialista-sanitario-60-spitex-spitex-stadt-winterthur-winterthur",
+        "en": "health-specialist-60-spitex-spitex-stadt-winterthur-winterthur",
+        "fr": "specialiste-de-la-sante-60-spitex-spitex-stadt-winterthur-winterthur"
       },
       "company": "Spitex Stadt Winterthur",
       "companyKey": "spitex-ch",
@@ -984,11 +984,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "fachfrau-mann-gesundheit-60-spitex-spitex-ch-winterthur",
+          "fachfrau-mann-gesundheit-60-spitex-stadt-winterthur"
+        ],
+        "en": [
+          "fachfrau-mann-gesundheit-60-spitex-spitex-ch-winterthur"
+        ],
+        "fr": [
           "fachfrau-mann-gesundheit-60-spitex-spitex-ch-winterthur"
         ]
       },
       "previousSlugs": [
-        "fachfrau-mann-gesundheit-60-spitex-spitex-ch-winterthur"
+        "fachfrau-mann-gesundheit-60-spitex-spitex-ch-winterthur",
+        "fachfrau-mann-gesundheit-60-spitex-stadt-winterthur"
       ],
       "salaryMin": 54900,
       "salaryMax": 76800,
@@ -1303,11 +1311,11 @@
     },
     {
       "id": "spitex-ch-bf1b3e2b11c7",
-      "slug": "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
+      "slug": "dipl-infermiera-hf-psichiatria-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
-        "it": "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
-        "en": "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
+        "it": "dipl-infermiera-hf-psichiatria-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+        "en": "dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
         "fr": "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz"
       },
       "company": "Spitex-Verein Buttisholz/Nottwil",
@@ -1365,16 +1373,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:52:23.155Z"
+      "firstSeenAt": "2026-09-19T22:52:23.155Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz"
+      ]
     },
     {
       "id": "spitex-ch-3799639ac5d2",
-      "slug": "pflegefachperson-hf-80-spitex-verein-buttisholz-nottwil-buttisholz",
+      "slug": "professionista-hf-80-spitex-verein-buttisholz-nottwil-buttisholz",
       "slugByLocale": {
         "de": "pflegefachperson-hf-80-spitex-ch-buttisholz",
-        "it": "pflegefachperson-hf-80-spitex-verein-buttisholz-nottwil-buttisholz",
-        "en": "pflegefachperson-hf-80-spitex-verein-buttisholz-nottwil-buttisholz",
-        "fr": "pflegefachperson-hf-80-spitex-verein-buttisholz-nottwil-buttisholz"
+        "it": "professionista-hf-80-spitex-verein-buttisholz-nottwil-buttisholz",
+        "en": "care-professional-hf-80-spitex-verein-buttisholz-nottwil-buttisholz",
+        "fr": "professionnel-de-soins-hf-80-spitex-verein-buttisholz-nottwil-buttisholz"
       },
       "company": "Spitex-Verein Buttisholz/Nottwil",
       "companyKey": "spitex-ch",
@@ -1421,12 +1440,20 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachperson-hf-80-spitex-ch-buttisholz",
-          "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
+          "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+          "pflegefachperson-hf-80-spitex-verein-buttisholz-nottwil-buttisholz"
+        ],
+        "en": [
+          "pflegefachperson-hf-80-spitex-verein-buttisholz-nottwil-buttisholz"
+        ],
+        "fr": [
+          "pflegefachperson-hf-80-spitex-verein-buttisholz-nottwil-buttisholz"
         ]
       },
       "previousSlugs": [
         "pflegefachperson-hf-80-spitex-ch-buttisholz",
-        "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
+        "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+        "pflegefachperson-hf-80-spitex-verein-buttisholz-nottwil-buttisholz"
       ],
       "salaryMin": 69200,
       "salaryMax": 96400,
@@ -1609,12 +1636,12 @@
     },
     {
       "id": "spitex-ch-32a0bc4aca1d",
-      "slug": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf",
+      "slug": "infermiere-certificato-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf",
-        "it": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf",
-        "en": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf",
-        "fr": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf"
+        "it": "infermiere-certificato-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf",
+        "en": "certified-nurse-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf",
+        "fr": "infirmiere-agreee-hf-fh-h-f-d-60-90-spitex-burgdorf-oberburg-burgdorf"
       },
       "company": "Spitex Burgdorf-Oberburg",
       "companyKey": "spitex-ch",
@@ -1671,7 +1698,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:52:20.811Z"
+      "firstSeenAt": "2026-09-19T22:52:20.811Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf"
+        ]
+      },
+      "previousSlugs": [
+        "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf"
+      ]
     },
     {
       "id": "spitex-ch-86cecf38b511",

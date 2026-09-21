@@ -2241,12 +2241,12 @@
     },
     {
       "id": "hug-ad71e521a4dd",
-      "slug": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-soins-intensifs",
+      "slug": "capo-o-capo-di-clinica-con-o-senza-specializzazione-nel-servizio-di-cura-adulto-intensivo-80-al-100-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-soins-intensifs",
-        "it": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-soins-intensifs",
-        "en": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-soins-intensifs",
-        "de": "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-soins-intensifs"
+        "it": "capo-o-capo-di-clinica-con-o-senza-specializzazione-nel-servizio-di-cura-adulto-intensivo-80-al-100-hug-geneve",
+        "en": "chief-or-chief-of-clinic-with-or-without-specialty-status-in-the-adult-intensive-care-service-80-to-100-hug-geneve",
+        "de": "chef-oder-chef-der-klinik-mit-oder-ohne-spezialstatus-im-adult-intensive-care-service-80-bis-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2302,7 +2302,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:47.897Z"
+      "firstSeenAt": "2026-09-19T22:54:47.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-soins-intensifs"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-soins-intensifs"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-soins-intensifs"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-ou-sans-titre-de-specialite-au-service-des-soins-intensifs"
+      ]
     },
     {
       "id": "hug-f6617ad86808",
@@ -2473,12 +2487,12 @@
     },
     {
       "id": "hug-c14d26e5b914",
-      "slug": "stage-pre-hes-informatique-et-systeme-de-communication-100-hug-carouge",
+      "slug": "internship-pre-hes-sistema-di-comunicazione-e-computer-100-hug-carouge",
       "slugByLocale": {
         "fr": "stage-pre-hes-informatique-et-systeme-de-communication-100-hug-carouge",
-        "it": "stage-pre-hes-informatique-et-systeme-de-communication-100-hug-carouge",
-        "en": "stage-pre-hes-informatique-et-systeme-de-communication-100-hug-carouge",
-        "de": "stage-pre-hes-informatique-et-systeme-de-communication-100-hug-carouge"
+        "it": "internship-pre-hes-sistema-di-comunicazione-e-computer-100-hug-carouge",
+        "en": "pre-hes-internship-computer-and-communication-system-100-hug-carouge",
+        "de": "pre-hes-praktikum-computer-und-kommunikationssystem-100-hug-carouge"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2534,16 +2548,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:47.890Z"
+      "firstSeenAt": "2026-09-19T22:54:47.890Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stage-pre-hes-informatique-et-systeme-de-communication-100-hug-carouge"
+        ],
+        "en": [
+          "stage-pre-hes-informatique-et-systeme-de-communication-100-hug-carouge"
+        ],
+        "de": [
+          "stage-pre-hes-informatique-et-systeme-de-communication-100-hug-carouge"
+        ]
+      },
+      "previousSlugs": [
+        "stage-pre-hes-informatique-et-systeme-de-communication-100-hug-carouge"
+      ]
     },
     {
       "id": "hug-aeacc0889b26",
-      "slug": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve",
+      "slug": "responsabile-clinica-con-status-di-specialita-50-hug-geneve",
       "slugByLocale": {
         "fr": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve",
-        "it": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve",
-        "en": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve",
-        "de": "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve"
+        "it": "responsabile-clinica-con-status-di-specialita-50-hug-geneve",
+        "en": "head-of-clinic-with-specialty-status-50-hug-geneve",
+        "de": "leiter-der-klinik-mit-spezialstatus-50-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2599,16 +2627,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:47.887Z"
+      "firstSeenAt": "2026-09-19T22:54:47.887Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve"
+        ],
+        "en": [
+          "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve"
+        ],
+        "de": [
+          "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "chef-ou-cheffe-de-clinique-avec-titre-de-specialite-50-hug-geneve"
+      ]
     },
     {
       "id": "hug-6a5842dcfa2e",
-      "slug": "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve",
+      "slug": "collaboratore-o-collaboratore-scientifico-100-hug-geneve",
       "slugByLocale": {
         "fr": "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve",
-        "it": "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve",
-        "en": "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve",
-        "de": "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve"
+        "it": "collaboratore-o-collaboratore-scientifico-100-hug-geneve",
+        "en": "collaborator-or-scientific-collaborator-100-hug-geneve",
+        "de": "mitarbeiter-oder-wissenschaftlicher-mitarbeiter-100-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2664,16 +2706,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:47.884Z"
+      "firstSeenAt": "2026-09-19T22:54:47.884Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve"
+        ],
+        "en": [
+          "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve"
+        ],
+        "de": [
+          "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve"
+      ]
     },
     {
       "id": "hug-d875c76a22c1",
-      "slug": "serveur-ou-serveuse-en-restauration-crans-montana-80-hug-crans-montana",
+      "slug": "server-o-server-per-il-ripristino-crans-montana-80-hug-crans-montana",
       "slugByLocale": {
         "fr": "serveur-ou-serveuse-en-restauration-crans-montana-80-hug-crans-montana",
-        "it": "serveur-ou-serveuse-en-restauration-crans-montana-80-hug-crans-montana",
-        "en": "serveur-ou-serveuse-en-restauration-crans-montana-80-hug-crans-montana",
-        "de": "serveur-ou-serveuse-en-restauration-crans-montana-80-hug-crans-montana"
+        "it": "server-o-server-per-il-ripristino-crans-montana-80-hug-crans-montana",
+        "en": "server-or-server-for-restoration-crans-montana-80-hug-crans-montana",
+        "de": "server-oder-server-fur-die-restaurierung-crans-montana-80-hug-crans-montana"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2729,16 +2785,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:47.881Z"
+      "firstSeenAt": "2026-09-19T22:54:47.881Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "serveur-ou-serveuse-en-restauration-crans-montana-80-hug-crans-montana"
+        ],
+        "en": [
+          "serveur-ou-serveuse-en-restauration-crans-montana-80-hug-crans-montana"
+        ],
+        "de": [
+          "serveur-ou-serveuse-en-restauration-crans-montana-80-hug-crans-montana"
+        ]
+      },
+      "previousSlugs": [
+        "serveur-ou-serveuse-en-restauration-crans-montana-80-hug-crans-montana"
+      ]
     },
     {
       "id": "hug-c8b090600f99",
-      "slug": "psychologue-50-hug-geneve",
+      "slug": "psicologo-50-hug-geneve",
       "slugByLocale": {
         "fr": "psychologue-50-hug-geneve",
-        "it": "psychologue-50-hug-geneve",
-        "en": "psychologue-50-hug-geneve",
-        "de": "psychologue-50-hug-geneve"
+        "it": "psicologo-50-hug-geneve",
+        "en": "psychologist-50-hug-geneve",
+        "de": "psychologe-50-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2794,7 +2864,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:47.877Z"
+      "firstSeenAt": "2026-09-19T22:54:47.877Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "psychologue-50-hug-geneve"
+        ],
+        "en": [
+          "psychologue-50-hug-geneve"
+        ],
+        "de": [
+          "psychologue-50-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "psychologue-50-hug-geneve"
+      ]
     },
     {
       "id": "hug-03c62c5e5968",
@@ -2874,12 +2958,12 @@
     },
     {
       "id": "hug-01e66196b463",
-      "slug": "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve",
+      "slug": "biostatistico-o-biostatistico-epidemiologo-della-ricerca-75-hug-geneve",
       "slugByLocale": {
         "fr": "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve",
-        "it": "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve",
-        "en": "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve",
-        "de": "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve"
+        "it": "biostatistico-o-biostatistico-epidemiologo-della-ricerca-75-hug-geneve",
+        "en": "biostatistician-or-biostatistician-epidemiologist-of-research-75-hug-geneve",
+        "de": "biostatistiker-oder-biostatistiker-epidemiologe-der-forschung-75-hug-geneve"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -2935,7 +3019,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:54:47.869Z"
+      "firstSeenAt": "2026-09-19T22:54:47.869Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve"
+        ],
+        "en": [
+          "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve"
+        ],
+        "de": [
+          "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "biostatisticien-ou-biostatisticienne-epidemiologiste-de-recherche-75-hug-geneve"
+      ]
     },
     {
       "id": "hug-285043fb37e6",

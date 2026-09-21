@@ -13384,12 +13384,12 @@
     },
     {
       "id": "soh-solothurner-spitaeler-840d9c2b71ea",
-      "slug": "stv-leitende-arztin-stv-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner",
+      "slug": "medico-responsabile-medico-responsabile-medicina-interna-emergenza-m-f-d-solothurner-spitaler-ag-soh-dornach",
       "slugByLocale": {
         "de": "stv-leitende-arztin-stv-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner",
-        "it": "stv-leitende-arztin-stv-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner",
-        "en": "stv-leitende-arztin-stv-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner",
-        "fr": "stv-leitende-arztin-stv-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner"
+        "it": "medico-responsabile-medico-responsabile-medicina-interna-emergenza-m-f-d-solothurner-spitaler-ag-soh-dornach",
+        "en": "doctor-in-charge-doctor-in-charge-internal-medicine-emergency-m-f-d-solothurner-spitaler-ag-soh-dornach",
+        "fr": "docteur-en-charge-docteur-en-charge-medecine-interne-urgence-h-f-d-solothurner-spitaler-ag-soh-dornach"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13445,16 +13445,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:44.354Z"
+      "firstSeenAt": "2026-09-19T22:51:44.354Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-leitende-arztin-stv-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner"
+        ],
+        "en": [
+          "stv-leitende-arztin-stv-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner"
+        ],
+        "fr": [
+          "stv-leitende-arztin-stv-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner"
+        ]
+      },
+      "previousSlugs": [
+        "stv-leitende-arztin-stv-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-3c25297922ce",
-      "slug": "leitende-arztin-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner-spitaeler",
+      "slug": "medico-senior-medicina-interna-senior-emergenza-m-f-d-solothurner-spitaler-ag-soh-dornach",
       "slugByLocale": {
         "de": "leitende-arztin-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner-spitaeler",
-        "it": "leitende-arztin-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner-spitaeler",
-        "en": "leitende-arztin-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner-spitaeler",
-        "fr": "leitende-arztin-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner-spitaeler"
+        "it": "medico-senior-medicina-interna-senior-emergenza-m-f-d-solothurner-spitaler-ag-soh-dornach",
+        "en": "senior-physician-senior-physician-internal-medicine-emergency-m-f-d-solothurner-spitaler-ag-soh-dornach",
+        "fr": "medecin-principal-medecin-principal-medecine-interne-urgence-h-f-d-solothurner-spitaler-ag-soh-dornach"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13510,16 +13524,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:41.853Z"
+      "firstSeenAt": "2026-09-19T22:51:41.853Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitende-arztin-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner-spitaeler"
+        ],
+        "en": [
+          "leitende-arztin-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner-spitaeler"
+        ],
+        "fr": [
+          "leitende-arztin-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner-spitaeler"
+        ]
+      },
+      "previousSlugs": [
+        "leitende-arztin-leitender-arzt-innere-medizin-notfall-w-m-d-soh-solothurner-spitaeler"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-cae76db7df53",
-      "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dialyse-w-m-d-soh-solothurner-spitaeler-solothurn",
+      "slug": "dipl-specializzato-per-l-allattamento-specialista-in-allattamento-hf-fh-dialysis-m-f-d-solothurner-spitaler-ag-soh",
       "slugByLocale": {
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dialyse-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dialyse-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dialyse-w-m-d-soh-solothurner-spitaeler-solothurn",
-        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-dialyse-w-m-d-soh-solothurner-spitaeler-solothurn"
+        "it": "dipl-specializzato-per-l-allattamento-specialista-in-allattamento-hf-fh-dialysis-m-f-d-solothurner-spitaler-ag-soh",
+        "en": "dipl-nursing-specialist-nursing-specialist-hf-fh-dialysis-m-f-d-solothurner-spitaler-ag-soh-solothurn",
+        "fr": "dipl-specialiste-des-soins-infirmiers-specialiste-des-soins-infirmiers-hf-fh-dialyse-h-f-d-solothurner-spitaler-ag-soh"
       },
       "company": "Solothurner Spitäler AG (soH)",
       "companyKey": "soh-solothurner-spitaeler",
@@ -13575,7 +13603,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:39.352Z"
+      "firstSeenAt": "2026-09-19T22:51:39.352Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dialyse-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "en": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dialyse-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ],
+        "fr": [
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-dialyse-w-m-d-soh-solothurner-spitaeler-solothurn"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-dialyse-w-m-d-soh-solothurner-spitaeler-solothurn"
+      ]
     },
     {
       "id": "soh-solothurner-spitaeler-58cfff4663b1",

@@ -5387,12 +5387,12 @@
     },
     {
       "id": "fmi-2723536bc78f",
-      "slug": "leitung-direktions-e-pflegesekretariat-60-80-spitaler-fmi-ag-unterseen",
+      "slug": "segreteria-di-gestione-e-cura-60-80-spitaler-fmi-ag-unterseen",
       "slugByLocale": {
         "de": "leitung-direktions-und-pflegesekretariat-60-80-fmi-unterseen",
-        "it": "leitung-direktions-e-pflegesekretariat-60-80-spitaler-fmi-ag-unterseen",
-        "en": "leitung-direktions-und-pflegesekretariat-60-80-fmi-unterseen",
-        "fr": "leitung-direktions-und-pflegesekretariat-60-80-fmi-unterseen"
+        "it": "segreteria-di-gestione-e-cura-60-80-spitaler-fmi-ag-unterseen",
+        "en": "management-and-care-secretariat-60-80-spitaler-fmi-ag-unterseen",
+        "fr": "secretariat-de-la-gestion-et-des-soins-60-80-spitaler-fmi-ag-unterseen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5437,11 +5437,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leitung-direktions-und-pflegesekretariat-60-80-fmi-unterseen",
+          "leitung-direktions-e-pflegesekretariat-60-80-spitaler-fmi-ag-unterseen"
+        ],
+        "en": [
+          "leitung-direktions-und-pflegesekretariat-60-80-fmi-unterseen"
+        ],
+        "fr": [
           "leitung-direktions-und-pflegesekretariat-60-80-fmi-unterseen"
         ]
       },
       "previousSlugs": [
-        "leitung-direktions-und-pflegesekretariat-60-80-fmi-unterseen"
+        "leitung-direktions-und-pflegesekretariat-60-80-fmi-unterseen",
+        "leitung-direktions-e-pflegesekretariat-60-80-spitaler-fmi-ag-unterseen"
       ],
       "salaryMin": 68000,
       "salaryMax": 95200,
@@ -5460,12 +5468,12 @@
     },
     {
       "id": "fmi-d87b97c7ecdd",
-      "slug": "integrationsstelle-come-kuchenhilfe-50-80-spitaler-fmi-ag-frutigen",
+      "slug": "punto-di-integrazione-come-aiuto-cucina-50-80-spitaler-fmi-ag-frutigen",
       "slugByLocale": {
         "de": "integrationsstelle-als-kuchenhilfe-50-80-fmi-frutigen",
-        "it": "integrationsstelle-come-kuchenhilfe-50-80-spitaler-fmi-ag-frutigen",
-        "en": "integrationsstelle-als-kuchenhilfe-50-80-fmi-frutigen",
-        "fr": "integrationsstelle-als-kuchenhilfe-50-80-fmi-frutigen"
+        "it": "punto-di-integrazione-come-aiuto-cucina-50-80-spitaler-fmi-ag-frutigen",
+        "en": "integration-point-as-kitchen-aid-50-80-spitaler-fmi-ag-frutigen",
+        "fr": "point-d-integration-comme-aide-a-la-cuisine-50-80-spitaler-fmi-ag-frutigen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5510,11 +5518,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "integrationsstelle-als-kuchenhilfe-50-80-fmi-frutigen",
+          "integrationsstelle-come-kuchenhilfe-50-80-spitaler-fmi-ag-frutigen"
+        ],
+        "en": [
+          "integrationsstelle-als-kuchenhilfe-50-80-fmi-frutigen"
+        ],
+        "fr": [
           "integrationsstelle-als-kuchenhilfe-50-80-fmi-frutigen"
         ]
       },
       "previousSlugs": [
-        "integrationsstelle-als-kuchenhilfe-50-80-fmi-frutigen"
+        "integrationsstelle-als-kuchenhilfe-50-80-fmi-frutigen",
+        "integrationsstelle-come-kuchenhilfe-50-80-spitaler-fmi-ag-frutigen"
       ],
       "salaryMin": 54000,
       "salaryMax": 67600,
@@ -5533,12 +5549,12 @@
     },
     {
       "id": "fmi-9d9cda03f4f5",
-      "slug": "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen",
+      "slug": "infermieristica-professionale-70-100-stagione-invernale-spitaler-fmi-ag-frutigen",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen",
-        "it": "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen",
-        "en": "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen",
-        "fr": "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen"
+        "it": "infermieristica-professionale-70-100-stagione-invernale-spitaler-fmi-ag-frutigen",
+        "en": "nursing-professional-70-100-winter-season-spitaler-fmi-ag-frutigen",
+        "fr": "professionnels-des-soins-infirmiers-70-100-saison-hivernale-spitaler-fmi-ag-frutigen"
       },
       "company": "Spitäler fmi AG",
       "companyKey": "fmi",
@@ -5594,7 +5610,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:23.657Z"
+      "firstSeenAt": "2026-09-19T23:10:23.657Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegefachfrau-pflegefachmann-70-100-wintersaison-fmi-frutigen"
+      ]
     }
   ]
 }

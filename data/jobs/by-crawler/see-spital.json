@@ -2955,7 +2955,7 @@
       "slug": "esperto-di-cura-see-spital-horgen",
       "slugByLocale": {
         "it": "esperto-di-cura-see-spital-horgen",
-        "en": "pflegeexpert-in-see-spital-horgen",
+        "en": "nursing-expert-see-spital-horgen",
         "de": "pflegeexpert-in-see-spital-ch",
         "fr": "specialiste-des-soins-see-spital-horgen"
       },
@@ -3002,7 +3002,7 @@
       "previousSlugs": [
         "pflegeexpert-in-see-spital-ch",
         "care-expert-see-spital-horgen",
-        "nursing-expert-see-spital-horgen"
+        "pflegeexpert-in-see-spital-horgen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3010,7 +3010,7 @@
         ],
         "en": [
           "care-expert-see-spital-horgen",
-          "nursing-expert-see-spital-horgen"
+          "pflegeexpert-in-see-spital-horgen"
         ],
         "fr": [
           "pflegeexpert-in-see-spital-ch"
@@ -3775,12 +3775,12 @@
     },
     {
       "id": "see-spital-8c4ca6d078ca",
-      "slug": "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch",
+      "slug": "team-leader-acute-career-tertianum-see-spital-horgen",
       "slugByLocale": {
         "de": "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch",
-        "it": "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch",
+        "it": "team-leader-acute-career-tertianum-see-spital-horgen",
         "en": "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch",
-        "fr": "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch"
+        "fr": "carriere-aigue-de-chef-d-equipe-tertianum-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3838,16 +3838,27 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-19T23:11:52.279Z"
+      "firstSeenAt": "2026-09-19T23:11:52.279Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch"
+        ],
+        "fr": [
+          "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-akutgeriatrie-tertianum-see-spital-ch"
+      ]
     },
     {
       "id": "see-spital-bebb4c06840d",
-      "slug": "med-praxisassistent-in-frauenklinik-see-spital-ch",
+      "slug": "med-assistente-pratico-clinica-femminile-see-spital-horgen",
       "slugByLocale": {
         "de": "med-praxisassistent-in-frauenklinik-see-spital-ch",
-        "it": "med-praxisassistent-in-frauenklinik-see-spital-ch",
-        "en": "med-praxisassistent-in-frauenklinik-see-spital-ch",
-        "fr": "med-praxisassistent-in-frauenklinik-see-spital-ch"
+        "it": "med-assistente-pratico-clinica-femminile-see-spital-horgen",
+        "en": "med-practical-assistant-women-s-clinic-see-spital-horgen",
+        "fr": "med-assistant-pratique-clinique-pour-femmes-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3905,16 +3916,30 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-19T23:11:51.410Z"
+      "firstSeenAt": "2026-09-19T23:11:51.410Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "med-praxisassistent-in-frauenklinik-see-spital-ch"
+        ],
+        "en": [
+          "med-praxisassistent-in-frauenklinik-see-spital-ch"
+        ],
+        "fr": [
+          "med-praxisassistent-in-frauenklinik-see-spital-ch"
+        ]
+      },
+      "previousSlugs": [
+        "med-praxisassistent-in-frauenklinik-see-spital-ch"
+      ]
     },
     {
       "id": "see-spital-9f9164e305d1",
-      "slug": "collaboratore-trice-in-empfang-see-spital-horgen",
+      "slug": "ricevimento-dei-dipendenti-see-spital-horgen",
       "slugByLocale": {
         "de": "mitarbeiter-in-empfang-see-spital-ch",
-        "it": "collaboratore-trice-in-empfang-see-spital-horgen",
-        "en": "mitarbeiter-in-empfang-see-spital-ch",
-        "fr": "mitarbeiter-in-empfang-see-spital-ch"
+        "it": "ricevimento-dei-dipendenti-see-spital-horgen",
+        "en": "reception-of-employees-see-spital-horgen",
+        "fr": "reception-des-salaries-see-spital-horgen"
       },
       "company": "See-Spital",
       "companyKey": "see-spital",
@@ -3960,11 +3985,19 @@
       "contractDuration": "permanent",
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-empfang-see-spital-ch",
+          "collaboratore-trice-in-empfang-see-spital-horgen"
+        ],
+        "en": [
+          "mitarbeiter-in-empfang-see-spital-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-empfang-see-spital-ch"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-empfang-see-spital-ch"
+        "mitarbeiter-in-empfang-see-spital-ch",
+        "collaboratore-trice-in-empfang-see-spital-horgen"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

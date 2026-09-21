@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "nord-anglia-9e800df5a8b0",
-      "slug": "teachers-primary-nord-anglia-pully",
+      "slug": "insegnanti-primario-nord-anglia-education-switzerland-pully",
       "slugByLocale": {
         "en": "teachers-primary-nord-anglia-pully",
-        "it": "teachers-primary-nord-anglia-pully",
-        "de": "teachers-primary-nord-anglia-pully",
-        "fr": "teachers-primary-nord-anglia-pully"
+        "it": "insegnanti-primario-nord-anglia-education-switzerland-pully",
+        "de": "lehrer-primary-nord-anglia-education-switzerland-pully",
+        "fr": "enseignants-nord-anglia-education-switzerland-pully"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -67,16 +67,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:24.772Z"
+      "firstSeenAt": "2026-09-19T22:53:24.772Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teachers-primary-nord-anglia-pully"
+        ],
+        "de": [
+          "teachers-primary-nord-anglia-pully"
+        ],
+        "fr": [
+          "teachers-primary-nord-anglia-pully"
+        ]
+      },
+      "previousSlugs": [
+        "teachers-primary-nord-anglia-pully"
+      ]
     },
     {
       "id": "nord-anglia-6742d7a9a7da",
-      "slug": "enseignants-es-primaire-nord-anglia-pully",
+      "slug": "ensegnants-es-priori-nord-anglia-education-switzerland-pully",
       "slugByLocale": {
         "en": "enseignants-es-primaire-nord-anglia-pully",
-        "it": "enseignants-es-primaire-nord-anglia-pully",
+        "it": "ensegnants-es-priori-nord-anglia-education-switzerland-pully",
         "de": "enseignants-es-primaire-nord-anglia-pully",
-        "fr": "enseignants-es-primaire-nord-anglia-education-switzerland-lausanne"
+        "fr": "s-es-primaire-nord-anglia-education-switzerland-pully"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -134,16 +148,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:24.102Z"
+      "firstSeenAt": "2026-09-19T22:53:24.102Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "enseignants-es-primaire-nord-anglia-pully"
+        ],
+        "fr": [
+          "enseignants-es-primaire-nord-anglia-education-switzerland-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "enseignants-es-primaire-nord-anglia-pully",
+        "enseignants-es-primaire-nord-anglia-education-switzerland-lausanne"
+      ]
     },
     {
       "id": "nord-anglia-8f9c0f77fd7f",
-      "slug": "ib-teachers-nord-anglia-pully",
+      "slug": "ib-insegnanti-nord-anglia-education-switzerland-pully",
       "slugByLocale": {
         "en": "ib-teachers-nord-anglia-pully",
-        "it": "ib-teachers-nord-anglia-pully",
-        "de": "ib-teachers-nord-anglia-pully",
-        "fr": "ib-teachers-nord-anglia-pully"
+        "it": "ib-insegnanti-nord-anglia-education-switzerland-pully",
+        "de": "ib-lehrer-nord-anglia-education-switzerland-pully",
+        "fr": "ib-enseignants-nord-anglia-education-switzerland-pully"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -201,14 +227,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:23.422Z"
+      "firstSeenAt": "2026-09-19T22:53:23.422Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ib-teachers-nord-anglia-pully"
+        ],
+        "de": [
+          "ib-teachers-nord-anglia-pully"
+        ],
+        "fr": [
+          "ib-teachers-nord-anglia-pully"
+        ]
+      },
+      "previousSlugs": [
+        "ib-teachers-nord-anglia-pully"
+      ]
     },
     {
       "id": "nord-anglia-bbac680e7ffc",
-      "slug": "boarding-assistant-2026-2027-nord-anglia-villars-sur-ollon",
+      "slug": "assistente-di-imbarco-2026-2027-nord-anglia-education-switzerland-villars-sur-ollon",
       "slugByLocale": {
         "en": "boarding-assistant-2026-2027-nord-anglia-villars-sur-ollon",
-        "it": "boarding-assistant-2026-2027-nord-anglia-villars-sur-ollon",
+        "it": "assistente-di-imbarco-2026-2027-nord-anglia-education-switzerland-villars-sur-ollon",
         "de": "boarding-assistant-2026-2027-nord-anglia-villars-sur-ollon",
         "fr": "boarding-assistant-2026-2027-nord-anglia-education-switzerland-lausanne"
       },
@@ -268,7 +308,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:22.737Z"
+      "firstSeenAt": "2026-09-19T22:53:22.737Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "boarding-assistant-2026-2027-nord-anglia-villars-sur-ollon"
+        ]
+      },
+      "previousSlugs": [
+        "boarding-assistant-2026-2027-nord-anglia-villars-sur-ollon"
+      ]
     },
     {
       "id": "nord-anglia-8044b0c14594",
@@ -354,12 +402,12 @@
     },
     {
       "id": "nord-anglia-b46acb0a1e06",
-      "slug": "ict-teacher-45-nord-anglia-pully",
+      "slug": "insegnante-delle-tic-45-nord-anglia-education-switzerland-pully",
       "slugByLocale": {
         "en": "ict-teacher-45-nord-anglia-pully",
-        "it": "ict-teacher-45-nord-anglia-pully",
-        "de": "ict-teacher-45-nord-anglia-pully",
-        "fr": "ict-teacher-45-nord-anglia-pully"
+        "it": "insegnante-delle-tic-45-nord-anglia-education-switzerland-pully",
+        "de": "ict-lehrer-45-nord-anglia-education-switzerland-pully",
+        "fr": "enseignant-en-tic-45-nord-anglia-education-switzerland-pully"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -417,16 +465,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:21.241Z"
+      "firstSeenAt": "2026-09-19T22:53:21.241Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ict-teacher-45-nord-anglia-pully"
+        ],
+        "de": [
+          "ict-teacher-45-nord-anglia-pully"
+        ],
+        "fr": [
+          "ict-teacher-45-nord-anglia-pully"
+        ]
+      },
+      "previousSlugs": [
+        "ict-teacher-45-nord-anglia-pully"
+      ]
     },
     {
       "id": "nord-anglia-b178603e8fed",
-      "slug": "boarding-activity-leader-male-nord-anglia-geneva",
+      "slug": "leader-di-attivita-di-imbarco-maschio-nord-anglia-education-switzerland-geneva",
       "slugByLocale": {
         "en": "boarding-activity-leader-male-nord-anglia-geneva",
-        "it": "boarding-activity-leader-male-nord-anglia-geneva",
+        "it": "leader-di-attivita-di-imbarco-maschio-nord-anglia-education-switzerland-geneva",
         "de": "boarding-activity-leader-male-nord-anglia-geneva",
-        "fr": "boarding-activity-leader-male-nord-anglia-geneva"
+        "fr": "chef-d-activite-d-embarquement-homme-nord-anglia-education-switzerland-geneva"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -484,16 +546,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:20.553Z"
+      "firstSeenAt": "2026-09-19T22:53:20.553Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "boarding-activity-leader-male-nord-anglia-geneva"
+        ],
+        "fr": [
+          "boarding-activity-leader-male-nord-anglia-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "boarding-activity-leader-male-nord-anglia-geneva"
+      ]
     },
     {
       "id": "nord-anglia-e85f3b8b1e97",
-      "slug": "activity-leader-nord-anglia-geneva",
+      "slug": "leader-dell-attivita-nord-anglia-education-switzerland-geneva",
       "slugByLocale": {
         "en": "activity-leader-nord-anglia-geneva",
-        "it": "activity-leader-nord-anglia-geneva",
-        "de": "activity-leader-nord-anglia-education-switzerland-geneve",
-        "fr": "activity-leader-nord-anglia-geneva"
+        "it": "leader-dell-attivita-nord-anglia-education-switzerland-geneva",
+        "de": "leiter-der-tatigkeit-nord-anglia-education-switzerland-geneva",
+        "fr": "chef-d-activite-nord-anglia-education-switzerland-geneva"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -551,16 +624,31 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:19.878Z"
+      "firstSeenAt": "2026-09-19T22:53:19.878Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "activity-leader-nord-anglia-geneva"
+        ],
+        "de": [
+          "activity-leader-nord-anglia-education-switzerland-geneve"
+        ],
+        "fr": [
+          "activity-leader-nord-anglia-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "activity-leader-nord-anglia-geneva",
+        "activity-leader-nord-anglia-education-switzerland-geneve"
+      ]
     },
     {
       "id": "nord-anglia-7c128a042d6f",
-      "slug": "boarding-house-tutor-nord-anglia-geneva",
+      "slug": "pensione-turtor-nord-anglia-education-switzerland-geneva",
       "slugByLocale": {
         "en": "boarding-house-tutor-nord-anglia-geneva",
-        "it": "boarding-house-tutor-nord-anglia-geneva",
-        "de": "boarding-house-tutor-nord-anglia-geneva",
-        "fr": "boarding-house-tutor-nord-anglia-geneva"
+        "it": "pensione-turtor-nord-anglia-education-switzerland-geneva",
+        "de": "pension-haus-tutor-nord-anglia-education-switzerland-geneva",
+        "fr": "tuteur-de-la-maison-d-embarquement-nord-anglia-education-switzerland-geneva"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -618,7 +706,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:19.185Z"
+      "firstSeenAt": "2026-09-19T22:53:19.185Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "boarding-house-tutor-nord-anglia-geneva"
+        ],
+        "de": [
+          "boarding-house-tutor-nord-anglia-geneva"
+        ],
+        "fr": [
+          "boarding-house-tutor-nord-anglia-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "boarding-house-tutor-nord-anglia-geneva"
+      ]
     },
     {
       "id": "nord-anglia-522a8f131938",
@@ -690,12 +792,12 @@
     },
     {
       "id": "nord-anglia-9c5cf2978a86",
-      "slug": "house-parent-part-time-male-nord-anglia-geneva",
+      "slug": "casa-parent-part-time-maschio-nord-anglia-education-switzerland-geneva",
       "slugByLocale": {
         "en": "house-parent-part-time-male-nord-anglia-geneva",
-        "it": "house-parent-part-time-male-nord-anglia-geneva",
+        "it": "casa-parent-part-time-maschio-nord-anglia-education-switzerland-geneva",
         "de": "house-parent-part-time-male-nord-anglia-geneva",
-        "fr": "house-parent-part-time-male-nord-anglia-education-switzerland-geneve"
+        "fr": "maison-parent-temps-partiel-homme-nord-anglia-education-switzerland-geneva"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -753,7 +855,19 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:17.734Z"
+      "firstSeenAt": "2026-09-19T22:53:17.734Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "house-parent-part-time-male-nord-anglia-geneva"
+        ],
+        "fr": [
+          "house-parent-part-time-male-nord-anglia-education-switzerland-geneve"
+        ]
+      },
+      "previousSlugs": [
+        "house-parent-part-time-male-nord-anglia-geneva",
+        "house-parent-part-time-male-nord-anglia-education-switzerland-geneve"
+      ]
     },
     {
       "id": "nord-anglia-6e50a34a9794",
@@ -762,7 +876,7 @@
         "en": "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne",
         "it": "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne",
         "de": "assistant-e-socio-educatif-ve-ase-nord-anglia-aubonne",
-        "fr": "assistant-e-socio-educatif-ve-ase-nord-anglia-education-switzerland-lausanne"
+        "fr": "assistante-e-socio-educatif-ve-superieure-nord-anglia-education-switzerland-aubonne"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -820,7 +934,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:16.952Z"
+      "firstSeenAt": "2026-09-19T22:53:16.952Z",
+      "previousSlugsByLocale": {
+        "fr": [
+          "assistant-e-socio-educatif-ve-ase-nord-anglia-education-switzerland-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-socio-educatif-ve-ase-nord-anglia-education-switzerland-lausanne"
+      ]
     },
     {
       "id": "nord-anglia-7c57e370db0f",
@@ -891,12 +1013,12 @@
     },
     {
       "id": "nord-anglia-61576d008086",
-      "slug": "surveillant-e-nord-anglia-education-switzerland-lausanne",
+      "slug": "sorvegliante-nord-anglia-education-switzerland-pully",
       "slugByLocale": {
         "en": "surveillant-e-nord-anglia-pully",
-        "it": "surveillant-e-nord-anglia-education-switzerland-lausanne",
-        "de": "surveillant-e-nord-anglia-pully",
-        "fr": "surveillant-e-nord-anglia-pully"
+        "it": "sorvegliante-nord-anglia-education-switzerland-pully",
+        "de": "uberwachungs-e-nord-anglia-education-switzerland-pully",
+        "fr": "surveillante-nord-anglia-education-switzerland-pully"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -943,11 +1065,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "surveillant-e-nord-anglia-pully",
+          "surveillant-e-nord-anglia-education-switzerland-lausanne"
+        ],
+        "de": [
+          "surveillant-e-nord-anglia-pully"
+        ],
+        "fr": [
           "surveillant-e-nord-anglia-pully"
         ]
       },
       "previousSlugs": [
-        "surveillant-e-nord-anglia-pully"
+        "surveillant-e-nord-anglia-pully",
+        "surveillant-e-nord-anglia-education-switzerland-lausanne"
       ],
       "salaryMin": 51000,
       "salaryMax": 94500,
@@ -1126,12 +1256,12 @@
     },
     {
       "id": "nord-anglia-5c318091275c",
-      "slug": "study-coaches-nord-anglia-pully",
+      "slug": "allenatori-di-studio-nord-anglia-education-switzerland-pully",
       "slugByLocale": {
         "en": "study-coaches-nord-anglia-pully",
-        "it": "study-coaches-nord-anglia-pully",
-        "de": "study-coaches-nord-anglia-pully",
-        "fr": "study-coaches-nord-anglia-pully"
+        "it": "allenatori-di-studio-nord-anglia-education-switzerland-pully",
+        "de": "studienlehrer-nord-anglia-education-switzerland-pully",
+        "fr": "entraineurs-d-etudes-nord-anglia-education-switzerland-pully"
       },
       "company": "Nord Anglia Education Switzerland",
       "companyKey": "nord-anglia",
@@ -1189,7 +1319,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:13.075Z"
+      "firstSeenAt": "2026-09-19T22:53:13.075Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "study-coaches-nord-anglia-pully"
+        ],
+        "de": [
+          "study-coaches-nord-anglia-pully"
+        ],
+        "fr": [
+          "study-coaches-nord-anglia-pully"
+        ]
+      },
+      "previousSlugs": [
+        "study-coaches-nord-anglia-pully"
+      ]
     }
   ]
 }

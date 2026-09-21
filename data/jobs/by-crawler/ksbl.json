@@ -136,7 +136,6 @@
       "previousSlugs": [
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
         "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
-        "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
         "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
         "unterassistentin-unterassistent-medizin-a-ksbl-liestal-s9bict"
       ],
@@ -144,7 +143,6 @@
         "it": [
           "unterassistentin-unterassistent-medizin-a-ksbl-liestal",
           "unterassistentin-unterassistent-medizin-a-kantonsspital-baselland-ksbl-liestal",
-          "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal",
           "medicina-subassista-a-kantonsspital-baselland-ksbl-liestal-s9bict",
           "unterassistentin-unterassistent-medizin-a-ksbl-liestal-s9bict"
         ],
@@ -2817,12 +2815,12 @@
     },
     {
       "id": "ksbl-635b862bbf61",
-      "slug": "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-herbst-2027-a-ksbl-liestal",
+      "slug": "prepratico-prepratico-fisioterapia-bruderholz-autunno-2027-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-herbst-2027-a-ksbl-liestal",
-        "it": "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-herbst-2027-a-ksbl-liestal",
-        "en": "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-herbst-2027-a-ksbl-liestal",
-        "fr": "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-herbst-2027-a-ksbl-liestal"
+        "it": "prepratico-prepratico-fisioterapia-bruderholz-autunno-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "pre-practicant-pre-practicant-physiotherapy-bruderholz-autumn-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "physiotherapie-prepraticante-prepraticante-bruderholz-automne-2027-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -2881,31 +2879,31 @@
       "firstSeenAt": "2026-09-19T23:13:09.855Z",
       "previousSlugsByLocale": {
         "it": [
-          "prepratico-prepratico-fisioterapia-bruderholz-autunno-2027-a-kantonsspital-baselland-ksbl-liestal",
           "pre-practicant-pre-practicant-physiotherapy-bruderholz-autumn-2027-a-kantonsspital-baselland-ksbl-liestal",
-          "physiotherapie-prepraticante-prepraticante-bruderholz-automne-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "physiotherapie-prepraticante-prepraticante-bruderholz-automne-2027-a-kantonsspital-baselland-ksbl-liestal",
+          "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-herbst-2027-a-ksbl-liestal"
         ],
         "en": [
-          "pre-practicant-pre-practicant-physiotherapy-bruderholz-autumn-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-herbst-2027-a-ksbl-liestal"
         ],
         "fr": [
-          "physiotherapie-prepraticante-prepraticante-bruderholz-automne-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-herbst-2027-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "prepratico-prepratico-fisioterapia-bruderholz-autunno-2027-a-kantonsspital-baselland-ksbl-liestal",
         "pre-practicant-pre-practicant-physiotherapy-bruderholz-autumn-2027-a-kantonsspital-baselland-ksbl-liestal",
-        "physiotherapie-prepraticante-prepraticante-bruderholz-automne-2027-a-kantonsspital-baselland-ksbl-liestal"
+        "physiotherapie-prepraticante-prepraticante-bruderholz-automne-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-herbst-2027-a-ksbl-liestal"
       ]
     },
     {
       "id": "ksbl-4c502c4d2513",
-      "slug": "vorpraktikantin-vorpraktikant-physiotherapie-liestal-fruhling-2027-a-ksbl-liestal",
+      "slug": "pre-pratico-pre-pratico-physiotherapy-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "vorpraktikantin-vorpraktikant-physiotherapie-liestal-fruhling-2027-a-ksbl-liestal",
-        "it": "vorpraktikantin-vorpraktikant-physiotherapie-liestal-fruhling-2027-a-ksbl-liestal",
-        "en": "vorpraktikantin-vorpraktikant-physiotherapie-liestal-fruhling-2027-a-ksbl-liestal",
-        "fr": "vorpraktikantin-vorpraktikant-physiotherapie-liestal-fruhling-2027-a-ksbl-liestal"
+        "it": "pre-pratico-pre-pratico-physiotherapy-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "pre-practical-pre-practical-physiotherapy-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "physiotherapie-prepratique-prepratique-liestal-printemps-2027-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -2964,21 +2962,21 @@
       "firstSeenAt": "2026-09-19T23:13:09.155Z",
       "previousSlugsByLocale": {
         "it": [
-          "pre-pratico-pre-pratico-physiotherapy-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
           "pre-practical-pre-practical-physiotherapy-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
-          "physiotherapie-prepratique-prepratique-liestal-printemps-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "physiotherapie-prepratique-prepratique-liestal-printemps-2027-a-kantonsspital-baselland-ksbl-liestal",
+          "vorpraktikantin-vorpraktikant-physiotherapie-liestal-fruhling-2027-a-ksbl-liestal"
         ],
         "en": [
-          "pre-practical-pre-practical-physiotherapy-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "vorpraktikantin-vorpraktikant-physiotherapie-liestal-fruhling-2027-a-ksbl-liestal"
         ],
         "fr": [
-          "physiotherapie-prepratique-prepratique-liestal-printemps-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "vorpraktikantin-vorpraktikant-physiotherapie-liestal-fruhling-2027-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "pre-pratico-pre-pratico-physiotherapy-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
         "pre-practical-pre-practical-physiotherapy-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
-        "physiotherapie-prepratique-prepratique-liestal-printemps-2027-a-kantonsspital-baselland-ksbl-liestal"
+        "physiotherapie-prepratique-prepratique-liestal-printemps-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "vorpraktikantin-vorpraktikant-physiotherapie-liestal-fruhling-2027-a-ksbl-liestal"
       ]
     },
     {
@@ -3047,22 +3045,18 @@
       "firstSeenAt": "2026-09-19T23:13:07.540Z",
       "previousSlugsByLocale": {
         "it": [
-          "pre-pratico-pre-pratico-fisioterapia-liestale-autunno-2027-a-kantonsspital-baselland-ksbl-liestal",
           "pre-practical-pre-practical-physiotherapy-liestal-autumn-2027-a-kantonsspital-baselland-ksbl-liestal",
           "physiotherapie-prepratique-prepratique-liestal-automne-2027-a-kantonsspital-baselland-ksbl-liestal",
           "vorpraktikantin-vorpraktikant-physiotherapie-liestal-herbst-2027-a-ksbl-liestal"
         ],
         "en": [
-          "pre-practical-pre-practical-physiotherapy-liestal-autumn-2027-a-kantonsspital-baselland-ksbl-liestal",
           "vorpraktikantin-vorpraktikant-physiotherapie-liestal-herbst-2027-a-ksbl-liestal"
         ],
         "fr": [
-          "physiotherapie-prepratique-prepratique-liestal-automne-2027-a-kantonsspital-baselland-ksbl-liestal",
           "vorpraktikantin-vorpraktikant-physiotherapie-liestal-herbst-2027-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "pre-pratico-pre-pratico-fisioterapia-liestale-autunno-2027-a-kantonsspital-baselland-ksbl-liestal",
         "pre-practical-pre-practical-physiotherapy-liestal-autumn-2027-a-kantonsspital-baselland-ksbl-liestal",
         "physiotherapie-prepratique-prepratique-liestal-automne-2027-a-kantonsspital-baselland-ksbl-liestal",
         "vorpraktikantin-vorpraktikant-physiotherapie-liestal-herbst-2027-a-ksbl-liestal"
@@ -3070,12 +3064,12 @@
     },
     {
       "id": "ksbl-db4a051d7143",
-      "slug": "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-fruhling-2027-a-ksbl-liestal",
+      "slug": "pre-pratico-pre-pratico-fisioterapia-bruderholz-primavera-2027-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-fruhling-2027-a-ksbl-liestal",
-        "it": "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-fruhling-2027-a-ksbl-liestal",
-        "en": "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-fruhling-2027-a-ksbl-liestal",
-        "fr": "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-fruhling-2027-a-ksbl-liestal"
+        "it": "pre-pratico-pre-pratico-fisioterapia-bruderholz-primavera-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "pre-practical-pre-practical-physiotherapy-bruderholz-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "physiotherapie-prepratique-prepratique-bruderholz-printemps-2027-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -3134,21 +3128,21 @@
       "firstSeenAt": "2026-09-19T23:13:05.962Z",
       "previousSlugsByLocale": {
         "it": [
-          "pre-pratico-pre-pratico-fisioterapia-bruderholz-primavera-2027-a-kantonsspital-baselland-ksbl-liestal",
           "pre-practical-pre-practical-physiotherapy-bruderholz-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
-          "physiotherapie-prepratique-prepratique-bruderholz-printemps-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "physiotherapie-prepratique-prepratique-bruderholz-printemps-2027-a-kantonsspital-baselland-ksbl-liestal",
+          "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-fruhling-2027-a-ksbl-liestal"
         ],
         "en": [
-          "pre-practical-pre-practical-physiotherapy-bruderholz-spring-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-fruhling-2027-a-ksbl-liestal"
         ],
         "fr": [
-          "physiotherapie-prepratique-prepratique-bruderholz-printemps-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-fruhling-2027-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "pre-pratico-pre-pratico-fisioterapia-bruderholz-primavera-2027-a-kantonsspital-baselland-ksbl-liestal",
         "pre-practical-pre-practical-physiotherapy-bruderholz-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
-        "physiotherapie-prepratique-prepratique-bruderholz-printemps-2027-a-kantonsspital-baselland-ksbl-liestal"
+        "physiotherapie-prepratique-prepratique-bruderholz-printemps-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "vorpraktikantin-vorpraktikant-physiotherapie-bruderholz-fruhling-2027-a-ksbl-liestal"
       ]
     },
     {
@@ -3410,12 +3404,12 @@
     },
     {
       "id": "ksbl-ce6e3d220aed",
-      "slug": "vorpraktikantin-vorpraktikant-handtherapie-bruderholz-fruhling-2027-a-ksbl-liestal",
+      "slug": "pre-pratico-pre-pratico-terapia-a-mano-bruderholz-primavera-2027-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "vorpraktikantin-vorpraktikant-handtherapie-bruderholz-fruhling-2027-a-ksbl-liestal",
-        "it": "vorpraktikantin-vorpraktikant-handtherapie-bruderholz-fruhling-2027-a-ksbl-liestal",
-        "en": "vorpraktikantin-vorpraktikant-handtherapie-bruderholz-fruhling-2027-a-ksbl-liestal",
-        "fr": "vorpraktikantin-vorpraktikant-handtherapie-bruderholz-fruhling-2027-a-ksbl-liestal"
+        "it": "pre-pratico-pre-pratico-terapia-a-mano-bruderholz-primavera-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "pre-practicant-pre-practicant-hand-therapy-bruderholz-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "prepraticant-prepraticant-therapie-manuelle-bruderholz-printemps-2027-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -3474,31 +3468,31 @@
       "firstSeenAt": "2026-09-19T23:13:01.708Z",
       "previousSlugsByLocale": {
         "it": [
-          "pre-pratico-pre-pratico-terapia-a-mano-bruderholz-primavera-2027-a-kantonsspital-baselland-ksbl-liestal",
           "pre-practicant-pre-practicant-hand-therapy-bruderholz-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
-          "prepraticant-prepraticant-therapie-manuelle-bruderholz-printemps-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "prepraticant-prepraticant-therapie-manuelle-bruderholz-printemps-2027-a-kantonsspital-baselland-ksbl-liestal",
+          "vorpraktikantin-vorpraktikant-handtherapie-bruderholz-fruhling-2027-a-ksbl-liestal"
         ],
         "en": [
-          "pre-practicant-pre-practicant-hand-therapy-bruderholz-spring-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "vorpraktikantin-vorpraktikant-handtherapie-bruderholz-fruhling-2027-a-ksbl-liestal"
         ],
         "fr": [
-          "prepraticant-prepraticant-therapie-manuelle-bruderholz-printemps-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "vorpraktikantin-vorpraktikant-handtherapie-bruderholz-fruhling-2027-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "pre-pratico-pre-pratico-terapia-a-mano-bruderholz-primavera-2027-a-kantonsspital-baselland-ksbl-liestal",
         "pre-practicant-pre-practicant-hand-therapy-bruderholz-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
-        "prepraticant-prepraticant-therapie-manuelle-bruderholz-printemps-2027-a-kantonsspital-baselland-ksbl-liestal"
+        "prepraticant-prepraticant-therapie-manuelle-bruderholz-printemps-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "vorpraktikantin-vorpraktikant-handtherapie-bruderholz-fruhling-2027-a-ksbl-liestal"
       ]
     },
     {
       "id": "ksbl-b71b0fa1f707",
-      "slug": "vorpraktikantin-vorpraktikant-handtherapie-liestal-fruhling-2027-a-ksbl-liestal",
+      "slug": "pre-pratico-pre-pratico-terapia-a-mano-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "vorpraktikantin-vorpraktikant-handtherapie-liestal-fruhling-2027-a-ksbl-liestal",
-        "it": "vorpraktikantin-vorpraktikant-handtherapie-liestal-fruhling-2027-a-ksbl-liestal",
-        "en": "vorpraktikantin-vorpraktikant-handtherapie-liestal-fruhling-2027-a-ksbl-liestal",
-        "fr": "vorpraktikantin-vorpraktikant-handtherapie-liestal-fruhling-2027-a-ksbl-liestal"
+        "it": "pre-pratico-pre-pratico-terapia-a-mano-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "pre-practical-practitioner-pre-practical-hand-therapy-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "practicien-pre-pratique-therapie-manuelle-pre-pratique-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -3557,21 +3551,21 @@
       "firstSeenAt": "2026-09-19T23:13:00.177Z",
       "previousSlugsByLocale": {
         "it": [
-          "pre-pratico-pre-pratico-terapia-a-mano-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
           "pre-practical-practitioner-pre-practical-hand-therapy-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
-          "practicien-pre-pratique-therapie-manuelle-pre-pratique-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "practicien-pre-pratique-therapie-manuelle-pre-pratique-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
+          "vorpraktikantin-vorpraktikant-handtherapie-liestal-fruhling-2027-a-ksbl-liestal"
         ],
         "en": [
-          "pre-practical-practitioner-pre-practical-hand-therapy-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "vorpraktikantin-vorpraktikant-handtherapie-liestal-fruhling-2027-a-ksbl-liestal"
         ],
         "fr": [
-          "practicien-pre-pratique-therapie-manuelle-pre-pratique-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal"
+          "vorpraktikantin-vorpraktikant-handtherapie-liestal-fruhling-2027-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "pre-pratico-pre-pratico-terapia-a-mano-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
         "pre-practical-practitioner-pre-practical-hand-therapy-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
-        "practicien-pre-pratique-therapie-manuelle-pre-pratique-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal"
+        "practicien-pre-pratique-therapie-manuelle-pre-pratique-liestal-spring-2027-a-kantonsspital-baselland-ksbl-liestal",
+        "vorpraktikantin-vorpraktikant-handtherapie-liestal-fruhling-2027-a-ksbl-liestal"
       ]
     },
     {
@@ -3807,8 +3801,7 @@
         "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
         "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
         "directeur-de-station-stv-a-kantonsspital-baselland-ksbl-liestal",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+        "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3818,8 +3811,7 @@
         "en": [
           "deputy-ward-manager-kantonsspital-baselland-ksbl-liestal",
           "stv-stationsleiterin-stationsleiter-a-ksbl-liestal",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g",
-          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal"
+          "stv-station-manager-a-kantonsspital-baselland-ksbl-liestal-vla60g"
         ],
         "fr": [
           "responsable-de-service-a-kantonsspital-baselland-ksbl-liestal",
@@ -5301,12 +5293,12 @@
     },
     {
       "id": "ksbl-fdb42344c238",
-      "slug": "dipl-ergotherapeutin-ergotherapeut-handtherapie-a-ksbl-liestal",
+      "slug": "dipl-terapia-a-mano-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "dipl-ergotherapeutin-ergotherapeut-handtherapie-a-ksbl-liestal",
-        "it": "dipl-ergotherapeutin-ergotherapeut-handtherapie-a-ksbl-liestal",
-        "en": "dipl-ergotherapeutin-ergotherapeut-handtherapie-a-ksbl-liestal",
-        "fr": "dipl-ergotherapeutin-ergotherapeut-handtherapie-a-ksbl-liestal"
+        "it": "dipl-terapia-a-mano-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "dipl-occupational-therapist-hand-therapy-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "dipl-ergotherapie-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -5362,7 +5354,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:12:28.779Z"
+      "firstSeenAt": "2026-09-19T23:12:28.779Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-ergotherapeutin-ergotherapeut-handtherapie-a-ksbl-liestal"
+        ],
+        "en": [
+          "dipl-ergotherapeutin-ergotherapeut-handtherapie-a-ksbl-liestal"
+        ],
+        "fr": [
+          "dipl-ergotherapeutin-ergotherapeut-handtherapie-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-ergotherapeutin-ergotherapeut-handtherapie-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-1e0d4e7ed77e",
@@ -6384,7 +6390,6 @@
         "service-en-chambre-des-employes-a-kantonsspital-baselland-ksbl-liestal",
         "gestion-du-milieu-de-travail-des-employes-a-kantonsspital-baselland-ksbl-liestal",
         "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-rzfgnb",
-        "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal",
         "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-f1geyx"
       ],
       "previousSlugsByLocale": {
@@ -6407,7 +6412,6 @@
           "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-lie-rzfgnb",
           "mitarbeiterin-collaboratore-trice-workplace-management-a-kantonsspital-baselland-ksbl-liestal",
           "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-rzfgnb",
-          "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-liestal",
           "mitarbeiterin-collaboratore-trice-hauswirtschaft-a-kantonsspital-baselland-ksbl-f1geyx"
         ],
         "en": [
@@ -6714,7 +6718,7 @@
       "slugByLocale": {
         "de": "stv-leiterin-leiter-ergotherapie-physiotherapie-altersmedizin-rehabilitation-a-ksbl",
         "it": "stv-head-head-of-occupational-therapy-physiotherapy-age-medicine-rehabilitation-a-kantonsspital-baselland-ksbl-liestal",
-        "en": "stv-leiterin-leiter-ergotherapie-physiotherapie-altersmedizin-rehabilitation-a-ksbl",
+        "en": "head-of-occupational-therapy-physiotherapy-aging-medicine-rehabilitation-a-kantonsspital-baselland-ksbl-liestal",
         "fr": "stv-chef-chef-d-ergotherapie-physiotherapie-age-medecine-et-readaptation-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
@@ -6761,18 +6765,19 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-leiterin-leiter-ergotherapie-physiotherapie-altersmedizin-rehabilitation-a-ksbl",
-          "stv-head-head-of-occupational-therapy-physiotherapy-age-medicine-rehabilitation-a-kantonsspital-baselland-ksbl-liestal",
           "stv-chef-chef-de-l-ergotherapie-physiotherapie-age-medecine-et-readaptation-a-kantonsspital-baselland-ksbl-liestal",
           "stv-leiterin-leiter-ergotherapie-physiotherapie-altersmedizin-rehabilitation-a-kantonsspital-baselland-ksbl-liestal"
         ],
         "fr": [
           "stv-chef-chef-de-l-ergotherapie-physiotherapie-age-medecine-et-readaptation-a-kantonsspital-baselland-ksbl-liestal",
           "stv-leiterin-leiter-ergotherapie-physiotherapie-altersmedizin-rehabilitation-a-ksbl"
+        ],
+        "en": [
+          "stv-leiterin-leiter-ergotherapie-physiotherapie-altersmedizin-rehabilitation-a-ksbl"
         ]
       },
       "previousSlugs": [
         "stv-leiterin-leiter-ergotherapie-physiotherapie-altersmedizin-rehabilitation-a-ksbl",
-        "stv-head-head-of-occupational-therapy-physiotherapy-age-medicine-rehabilitation-a-kantonsspital-baselland-ksbl-liestal",
         "stv-chef-chef-de-l-ergotherapie-physiotherapie-age-medecine-et-readaptation-a-kantonsspital-baselland-ksbl-liestal",
         "stv-leiterin-leiter-ergotherapie-physiotherapie-altersmedizin-rehabilitation-a-kantonsspital-baselland-ksbl-liestal"
       ],
@@ -6999,16 +7004,14 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-anasthesie-a-ksbl-liestal",
-          "oberarztin-oberarzt-anasthesie-a-kantonsspital-baselland-ksbl-liestal"
+          "oberarztin-oberarzt-anasthesie-a-ksbl-liestal"
         ],
         "de": [
           "oberarztin-oberarzt-anasthesie-a-ksbl-liestal"
         ]
       },
       "previousSlugs": [
-        "oberarztin-oberarzt-anasthesie-a-ksbl-liestal",
-        "oberarztin-oberarzt-anasthesie-a-kantonsspital-baselland-ksbl-liestal"
+        "oberarztin-oberarzt-anasthesie-a-ksbl-liestal"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -7756,14 +7759,12 @@
         "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-tiu1kw",
-        "infermiera-a-kantonsspital-baselland-ksbl-liestal",
         "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-fapojd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-pflegefachmann-a-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-tiu1kw",
-          "infermiera-a-kantonsspital-baselland-ksbl-liestal",
           "dipl-pflegefachfrau-pflegefachmann-a-kantonsspital-baselland-ksbl-liestal-fapojd"
         ],
         "fr": [
@@ -8112,12 +8113,12 @@
     },
     {
       "id": "ksbl-f6015618ee68",
-      "slug": "mpa-ambulatorium-frauenklinik-a-ksbl-liestal",
+      "slug": "clinica-ambulatoriale-femminile-mpa-a-kantonsspital-baselland-ksbl-liestal",
       "slugByLocale": {
         "de": "mpa-ambulatorium-frauenklinik-a-ksbl-liestal",
-        "it": "mpa-ambulatorium-frauenklinik-a-ksbl-liestal",
-        "en": "mpa-ambulatorium-frauenklinik-a-ksbl-liestal",
-        "fr": "mpa-ambulatorium-frauenklinik-a-ksbl-liestal"
+        "it": "clinica-ambulatoriale-femminile-mpa-a-kantonsspital-baselland-ksbl-liestal",
+        "en": "mpa-ambulatory-female-clinic-a-kantonsspital-baselland-ksbl-liestal",
+        "fr": "mpa-ambulatoire-clinique-feminine-a-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -8173,7 +8174,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:39.281Z"
+      "firstSeenAt": "2026-09-19T23:11:39.281Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-ambulatorium-frauenklinik-a-ksbl-liestal"
+        ],
+        "en": [
+          "mpa-ambulatorium-frauenklinik-a-ksbl-liestal"
+        ],
+        "fr": [
+          "mpa-ambulatorium-frauenklinik-a-ksbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-ambulatorium-frauenklinik-a-ksbl-liestal"
+      ]
     },
     {
       "id": "ksbl-7665c77d105d",
@@ -8181,8 +8196,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-verpflegungsservice-auf-bettenstation-ksbl-liestal",
         "it": "collaboratore-trice-verpflegungsservice-auf-bettenstation-kantonsspital-baselland-ksbl-liestal",
-        "en": "mitarbeiter-in-verpflegungsservice-auf-bettenstation-ksbl-liestal",
-        "fr": "mitarbeiter-in-verpflegungsservice-auf-bettenstation-ksbl-liestal"
+        "en": "staff-catering-service-on-bed-station-kantonsspital-baselland-ksbl-liestal",
+        "fr": "service-de-restauration-du-personnel-sur-la-station-lit-kantonsspital-baselland-ksbl-liestal"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",
@@ -8228,6 +8243,12 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verpflegungsservice-auf-bettenstation-ksbl-liestal"
+        ],
+        "en": [
+          "mitarbeiter-in-verpflegungsservice-auf-bettenstation-ksbl-liestal"
+        ],
+        "fr": [
+          "mitarbeiter-in-verpflegungsservice-auf-bettenstation-ksbl-liestal"
         ]
       },
       "previousSlugs": [
@@ -8255,7 +8276,7 @@
         "de": "mpa-interdisziplinares-ambulatorium-a-ksbl-liestal",
         "it": "mpa-interdisziplinares-ambulatorium-a-ksbl-liestal",
         "en": "mpa-interdisziplinares-ambulatorium-a-ksbl-liestal",
-        "fr": "mpa-interdisziplinares-ambulatorium-a-ksbl-liestal"
+        "fr": "mpa-ambulateur-interdisciplinaire-a-kantonsspital-baselland-ksbl-liestal-533c88"
       },
       "company": "Kantonsspital Baselland (KSBL)",
       "companyKey": "ksbl",

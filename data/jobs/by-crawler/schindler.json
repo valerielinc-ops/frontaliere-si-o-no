@@ -1039,7 +1039,6 @@
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
-          "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
           "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt"
         ]
       },
@@ -1048,8 +1047,6 @@
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-ebikon",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-oberentfelden",
-        "manager-fur-cookie-einwilligungen-schindler-st-gallen",
-        "gestione-delle-autorizzazioni-dei-cookie-schindler-bern",
         "gestione-delle-autorizzazioni-dei-cookie-schindler-bern-fd1b8a-8f3hgt"
       ],
       "firstSeenAt": "2026-08-24T21:32:58.476Z",
@@ -2130,12 +2127,12 @@
     },
     {
       "id": "schindler-59360b94bceb",
-      "slug": "servicetechniker-in-linkes-zurichseeufer-m-w-d-80-100-schindler-wettswil",
+      "slug": "tecnico-di-servizio-sulla-riva-sinistra-del-lago-di-zurigo-m-f-d-80-100-schindler-wettswil",
       "slugByLocale": {
         "de": "servicetechniker-in-linkes-zurichseeufer-m-w-d-80-100-schindler-wettswil",
-        "it": "servicetechniker-in-linkes-zurichseeufer-m-w-d-80-100-schindler-wettswil",
-        "en": "servicetechniker-in-linkes-zurichseeufer-m-w-d-80-100-schindler-wettswil",
-        "fr": "servicetechniker-in-linkes-zurichseeufer-m-w-d-80-100-schindler-wettswil"
+        "it": "tecnico-di-servizio-sulla-riva-sinistra-del-lago-di-zurigo-m-f-d-80-100-schindler-wettswil",
+        "en": "service-technician-on-the-left-shore-of-lake-zurich-m-f-d-80-100-schindler-wettswil",
+        "fr": "technicien-de-service-sur-la-rive-gauche-du-lac-zurich-h-f-d-80-100-schindler-wettswil"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -2191,7 +2188,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:17.208Z"
+      "firstSeenAt": "2026-09-19T23:10:17.208Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "servicetechniker-in-linkes-zurichseeufer-m-w-d-80-100-schindler-wettswil"
+        ],
+        "en": [
+          "servicetechniker-in-linkes-zurichseeufer-m-w-d-80-100-schindler-wettswil"
+        ],
+        "fr": [
+          "servicetechniker-in-linkes-zurichseeufer-m-w-d-80-100-schindler-wettswil"
+        ]
+      },
+      "previousSlugs": [
+        "servicetechniker-in-linkes-zurichseeufer-m-w-d-80-100-schindler-wettswil"
+      ]
     },
     {
       "id": "schindler-fb0e75341671",
@@ -2446,7 +2457,7 @@
       "slug": "contract-specialista-m-w-d-40-schindler-ebikon",
       "slugByLocale": {
         "it": "contract-specialista-m-w-d-40-schindler-ebikon",
-        "en": "contract-specialist-m-w-d-40-schindler-ebikon",
+        "en": "quality-assurance-specialist-m-f-d-40-schindler-ebikon",
         "de": "contract-specialist-m-w-d-40-schindler-ebikon",
         "fr": "contract-specialiste-m-w-d-40-schindler-ebikon"
       },
@@ -2497,6 +2508,9 @@
           "contract-specialist-m-w-d-40-schindler-ebikon"
         ],
         "fr": [
+          "contract-specialist-m-w-d-40-schindler-ebikon"
+        ],
+        "en": [
           "contract-specialist-m-w-d-40-schindler-ebikon"
         ]
       },
@@ -2943,14 +2957,11 @@
         ],
         "it": [
           "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart",
-          "manager-per-cookie-einwilligungen-schindler-bern",
           "manager-per-cookie-einwilligungen-schindler-bern-8f3hgt"
         ]
       },
       "previousSlugs": [
         "schnupperlehre-als-anlagen-und-apparatebauer-in-efz-mit-schwerpunkt-liftmontage-lehrstart",
-        "manager-fur-cookie-einwilligungen-schindler-bern",
-        "manager-per-cookie-einwilligungen-schindler-bern",
         "manager-per-cookie-einwilligungen-schindler-bern-8f3hgt"
       ],
       "firstSeenAt": "2026-09-09T14:06:15.798Z",
@@ -3242,8 +3253,8 @@
       "slugByLocale": {
         "de": "lehrstelle-als-mediamatiker-in-efz-way-up-fur-2027-schindler-ebikon",
         "it": "apprendistato-come-mediamatiker-in-cfc-way-up-per-2027-schindler-ebikon",
-        "en": "lehrstelle-als-mediamatiker-in-efz-way-up-fur-2027-schindler-ebikon",
-        "fr": "lehrstelle-als-mediamatiker-in-efz-way-up-fur-2027-schindler-ebikon"
+        "en": "apprenticeship-as-mediamatist-efz-way-up-for-2027-schindler-ebikon",
+        "fr": "apprentissage-en-tant-que-mediatiste-efz-way-up-pour-2027-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3288,6 +3299,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-mediamatiker-in-efz-way-up-fur-2027-schindler-ebikon"
+        ],
+        "en": [
+          "lehrstelle-als-mediamatiker-in-efz-way-up-fur-2027-schindler-ebikon"
+        ],
+        "fr": [
           "lehrstelle-als-mediamatiker-in-efz-way-up-fur-2027-schindler-ebikon"
         ]
       },
@@ -3845,12 +3862,12 @@
     },
     {
       "id": "schindler-fa85855567eb",
-      "slug": "montagechef-in-m-w-d-80-100-schindler-schonbuhl",
+      "slug": "testa-di-montaggio-m-f-d-80-100-schindler-schonbuhl",
       "slugByLocale": {
         "de": "montagechef-in-m-w-d-80-100-schindler-schonbuhl",
-        "it": "montagechef-in-m-w-d-80-100-schindler-schonbuhl",
-        "en": "montagechef-in-m-w-d-80-100-schindler-schonbuhl",
-        "fr": "montagechef-in-m-w-d-80-100-schindler-schonbuhl"
+        "it": "testa-di-montaggio-m-f-d-80-100-schindler-schonbuhl",
+        "en": "head-of-assembly-m-f-d-80-100-schindler-schonbuhl",
+        "fr": "tete-d-assemblage-h-f-d-80-100-schindler-schonbuhl"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -3906,7 +3923,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:01.283Z"
+      "firstSeenAt": "2026-09-19T23:10:01.283Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "montagechef-in-m-w-d-80-100-schindler-schonbuhl"
+        ],
+        "en": [
+          "montagechef-in-m-w-d-80-100-schindler-schonbuhl"
+        ],
+        "fr": [
+          "montagechef-in-m-w-d-80-100-schindler-schonbuhl"
+        ]
+      },
+      "previousSlugs": [
+        "montagechef-in-m-w-d-80-100-schindler-schonbuhl"
+      ]
     },
     {
       "id": "schindler-8f17cc221973",
@@ -5212,7 +5243,7 @@
         "fr": "working-student-a-bussigny-h-f-d-40-schindler-bussigny",
         "it": "working-student-a-bussigny-h-f-d-40-schindler-bussigny",
         "en": "working-student-a-bussigny-h-f-d-40-schindler-bussigny",
-        "de": "working-student-a-bussigny-h-f-d-40-schindler-bussigny"
+        "de": "werkstudent-in-bussigny-m-w-d-40-schindler-bussigny"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -6970,7 +7001,6 @@
       },
       "previousSlugs": [
         "lehrstelle-als-polymechaniker-in-efz-mit-schwerpunkt-liftmontage-fur-2027-schindler-basel",
-        "gestionnaire-pour-les-consentements-de-cookies-schindler-basel",
         "manager-per-il-consenso-dei-cookie-schindler-basel"
       ],
       "salaryMin": 52000,
@@ -8182,12 +8212,12 @@
     },
     {
       "id": "schindler-237ee2a0669c",
-      "slug": "working-student-global-hr-inclusion-diversity-m-f-d-40-60-schindler-ebikon",
+      "slug": "studente-di-lavoro-global-hr-inclusione-diversity-m-f-d-40-60-schindler-ebikon",
       "slugByLocale": {
         "en": "working-student-global-hr-inclusion-diversity-m-f-d-40-60-schindler-ebikon",
-        "it": "working-student-global-hr-inclusion-diversity-m-f-d-40-60-schindler-ebikon",
-        "de": "working-student-global-hr-inclusion-diversity-m-f-d-40-60-schindler-ebikon",
-        "fr": "working-student-global-hr-inclusion-diversity-m-f-d-40-60-schindler-ebikon"
+        "it": "studente-di-lavoro-global-hr-inclusione-diversity-m-f-d-40-60-schindler-ebikon",
+        "de": "studentische-arbeit-globale-hr-integration-diversitat-m-w-d-40-60-schindler-ebikon",
+        "fr": "etudiante-en-travail-inclusion-mondiale-des-rh-et-diversite-h-f-d-40-60-schindler-ebikon"
       },
       "company": "Schindler",
       "companyKey": "schindler",
@@ -8243,7 +8273,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:09:18.613Z"
+      "firstSeenAt": "2026-09-19T23:09:18.613Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "working-student-global-hr-inclusion-diversity-m-f-d-40-60-schindler-ebikon"
+        ],
+        "de": [
+          "working-student-global-hr-inclusion-diversity-m-f-d-40-60-schindler-ebikon"
+        ],
+        "fr": [
+          "working-student-global-hr-inclusion-diversity-m-f-d-40-60-schindler-ebikon"
+        ]
+      },
+      "previousSlugs": [
+        "working-student-global-hr-inclusion-diversity-m-f-d-40-60-schindler-ebikon"
+      ]
     },
     {
       "id": "schindler-e66bf297a8d0",

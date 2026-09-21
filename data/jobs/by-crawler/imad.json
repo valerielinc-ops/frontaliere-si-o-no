@@ -699,11 +699,11 @@
     },
     {
       "id": "imad-dca48f0866f2",
-      "slug": "infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi-imad-geneva",
+      "slug": "infermiera-team-mobile-di-emergenza-emu-80-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi-imad-geneva",
-        "it": "infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi-imad-geneva",
-        "en": "infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi-imad-geneva",
+        "it": "infermiera-team-mobile-di-emergenza-emu-80-cdi-imad-geneva",
+        "en": "nurse-ere-emergency-mobile-team-emu-80-cdi-imad-geneva",
         "de": "infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi-imad-geneva"
       },
       "company": "imad",
@@ -760,15 +760,26 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:57:00.531Z"
+      "firstSeenAt": "2026-09-19T22:57:00.531Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi-imad-geneva"
+      ]
     },
     {
       "id": "imad-1185b2a93905",
-      "slug": "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva",
+      "slug": "infermiera-di-collegamento-a-80-en-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva",
-        "it": "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva",
-        "en": "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva",
+        "it": "infermiera-di-collegamento-a-80-en-cdi-imad-geneva",
+        "en": "nurse-eere-de-liaison-a-80-en-cdi-imad-geneva",
         "de": "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
       },
       "company": "imad",
@@ -825,16 +836,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:57:00.528Z"
+      "firstSeenAt": "2026-09-19T22:57:00.528Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-de-liaison-a-80-en-cdi-imad-geneva"
+      ]
     },
     {
       "id": "imad-eaab961e080e",
-      "slug": "infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi-imad",
+      "slug": "infermiera-ere-eiso-interprofessional-team-specializzato-in-oncologia-80-in-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi-imad",
-        "it": "infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi-imad",
-        "en": "infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi-imad",
-        "de": "infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi-imad"
+        "it": "infermiera-ere-eiso-interprofessional-team-specializzato-in-oncologia-80-in-cdi-imad-geneva",
+        "en": "nurse-ere-eiso-interprofessional-team-specialized-in-oncology-80-in-cdi-imad-geneva",
+        "de": "nurse-ere-eiso-interprofessionelles-team-spezialisiert-auf-onkologie-80-in-cdi-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -890,16 +912,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:57:00.525Z"
+      "firstSeenAt": "2026-09-19T22:57:00.525Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi-imad"
+        ],
+        "en": [
+          "infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi-imad"
+        ],
+        "de": [
+          "infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi-imad"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-eiso-equipe-interprofessionnelle-specialisee-en-oncologie-a-80-en-cdi-imad"
+      ]
     },
     {
       "id": "imad-827d11647b12",
-      "slug": "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva",
+      "slug": "infermiera-rispetta-alle-famiglie-e-cura-pediatrica-80-in-cdi-imad-geneva",
       "slugByLocale": {
         "fr": "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva",
-        "it": "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva",
-        "en": "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva",
-        "de": "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva"
+        "it": "infermiera-rispetta-alle-famiglie-e-cura-pediatrica-80-in-cdi-imad-geneva",
+        "en": "nurse-respite-to-families-and-paediatric-care-80-in-cdi-imad-geneva",
+        "de": "krankenschwester-trotz-familien-und-kinderbetreuung-80-in-cdi-imad-geneva"
       },
       "company": "imad",
       "companyKey": "imad",
@@ -955,7 +991,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:57:00.519Z"
+      "firstSeenAt": "2026-09-19T22:57:00.519Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva"
+        ],
+        "en": [
+          "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva"
+        ],
+        "de": [
+          "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva"
+        ]
+      },
+      "previousSlugs": [
+        "infirmier-ere-repit-aux-familles-et-soins-pediatriques-a-80-en-cdi-imad-geneva"
+      ]
     },
     {
       "id": "imad-f19f3f794a9d",

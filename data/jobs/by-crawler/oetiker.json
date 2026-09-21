@@ -241,10 +241,10 @@
     },
     {
       "id": "oetiker-367a482ee121",
-      "slug": "head-quality-hse-all-oetiker-horgen-zh-switzerland",
+      "slug": "qualita-della-testa-hse-tutti-oetiker-horgen-zh-switzerland",
       "slugByLocale": {
         "de": "head-quality-hse-all-oetiker-horgen-zh-switzerland",
-        "it": "head-quality-hse-all-oetiker-horgen-zh-switzerland",
+        "it": "qualita-della-testa-hse-tutti-oetiker-horgen-zh-switzerland",
         "en": "head-quality-hse-all-oetiker-horgen-zh-switzerland",
         "fr": "head-quality-hse-all-oetiker-horgen-zh-switzerland"
       },
@@ -304,16 +304,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:53:36.244Z"
+      "firstSeenAt": "2026-09-19T22:53:36.244Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-quality-hse-all-oetiker-horgen-zh-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "head-quality-hse-all-oetiker-horgen-zh-switzerland"
+      ]
     },
     {
       "id": "oetiker-2ec1fb1fcf03",
-      "slug": "leiter-einkauf-avor-pps-all-oetiker-horgen",
+      "slug": "responsabile-acquisti-e-avor-pps-tutti-oetiker-horgen-switzerland",
       "slugByLocale": {
         "de": "leiter-einkauf-avor-pps-all-oetiker-horgen-switzerland",
-        "it": "leiter-einkauf-avor-pps-all-oetiker-horgen",
-        "en": "leiter-einkauf-avor-pps-all-oetiker-horgen-switzerland",
-        "fr": "leiter-einkauf-avor-pps-all-oetiker-horgen-switzerland"
+        "it": "responsabile-acquisti-e-avor-pps-tutti-oetiker-horgen-switzerland",
+        "en": "head-of-purchasing-avor-pps-all-oetiker-horgen-switzerland",
+        "fr": "responsable-des-achats-avor-pps-tous-oetiker-horgen-switzerland"
       },
       "company": "Oetiker",
       "companyKey": "oetiker",
@@ -360,11 +368,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "leiter-einkauf-avor-pps-all-oetiker-horgen-switzerland",
+          "leiter-einkauf-avor-pps-all-oetiker-horgen"
+        ],
+        "en": [
+          "leiter-einkauf-avor-pps-all-oetiker-horgen-switzerland"
+        ],
+        "fr": [
           "leiter-einkauf-avor-pps-all-oetiker-horgen-switzerland"
         ]
       },
       "previousSlugs": [
-        "leiter-einkauf-avor-pps-all-oetiker-horgen-switzerland"
+        "leiter-einkauf-avor-pps-all-oetiker-horgen-switzerland",
+        "leiter-einkauf-avor-pps-all-oetiker-horgen"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,

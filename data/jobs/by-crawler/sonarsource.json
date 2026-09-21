@@ -1132,7 +1132,7 @@
       "slugByLocale": {
         "it": "netsuite-payroll-systems-administrator-sonarsource-ch",
         "en": "netsuite-payroll-systems-administrator-sonarsource-ch",
-        "de": "netsuite-payroll-systems-administrator-sonarsource-ch",
+        "de": "administrator-fur-netsuite-und-gehaltsabrechnungssysteme-sonarsource-sonar-geneva",
         "fr": "administrateur-des-systemes-netsuite-payroll-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
@@ -1356,12 +1356,12 @@
     },
     {
       "id": "sonarsource-bdc61dadc0db",
-      "slug": "identity-product-manager-sonarsource-ch",
+      "slug": "gestore-prodotti-identita-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "identity-product-manager-sonarsource-ch",
-        "it": "identity-product-manager-sonarsource-ch",
-        "de": "identity-product-manager-sonarsource-ch",
-        "fr": "identity-product-manager-sonarsource-ch"
+        "it": "gestore-prodotti-identita-sonarsource-sonar-geneva",
+        "de": "identitatsproduktmanager-sonarsource-sonar-geneva",
+        "fr": "gestionnaire-de-produits-d-identite-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -1416,16 +1416,30 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-09-19T23:12:22.659Z"
+      "firstSeenAt": "2026-09-19T23:12:22.659Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "identity-product-manager-sonarsource-ch"
+        ],
+        "de": [
+          "identity-product-manager-sonarsource-ch"
+        ],
+        "fr": [
+          "identity-product-manager-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "identity-product-manager-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-12d4592de38b",
-      "slug": "enterprise-territory-manager-dach-sonarsource-ch",
+      "slug": "responsabile-del-territorio-aziendale-dach-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "enterprise-territory-manager-dach-sonarsource-ch",
-        "it": "enterprise-territory-manager-dach-sonarsource-ch",
+        "it": "responsabile-del-territorio-aziendale-dach-sonarsource-sonar-geneva",
         "de": "enterprise-territory-manager-dach-sonarsource-ch",
-        "fr": "enterprise-territory-manager-dach-sonarsource-ch"
+        "fr": "gestionnaire-de-territoire-d-entreprise-dach-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
       "companyKey": "sonarsource",
@@ -1482,7 +1496,18 @@
       },
       "addressRegion": "GE",
       "firstSeenAt": "2026-09-19T23:12:22.356Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "enterprise-territory-manager-dach-sonarsource-ch"
+        ],
+        "fr": [
+          "enterprise-territory-manager-dach-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "enterprise-territory-manager-dach-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-22b5b2bdc483",
@@ -1711,10 +1736,10 @@
     },
     {
       "id": "sonarsource-a72b0b5febdf",
-      "slug": "cvp-of-design-sonarsource-ch",
+      "slug": "cvp-di-progettazione-sonarsource-sonar-geneva",
       "slugByLocale": {
         "en": "cvp-of-design-sonarsource-ch",
-        "it": "cvp-of-design-sonarsource-ch",
+        "it": "cvp-di-progettazione-sonarsource-sonar-geneva",
         "de": "cvp-of-design-sonarsource-ch",
         "fr": "cvp-of-design-sonarsource-sonar-geneva"
       },
@@ -1771,7 +1796,15 @@
         }
       },
       "addressRegion": "GE",
-      "firstSeenAt": "2026-09-19T23:12:21.148Z"
+      "firstSeenAt": "2026-09-19T23:12:21.148Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "cvp-of-design-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cvp-of-design-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-83a2584057a0",

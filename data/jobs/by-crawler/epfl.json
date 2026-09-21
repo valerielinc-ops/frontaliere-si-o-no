@@ -634,9 +634,6 @@
       "previousSlugs": [
         "technique-epfl-lausanne",
         "technicien-ne-epfl-lausanne",
-        "tecnologia-epfl-lausanne",
-        "technik-epfl-lausanne",
-        "tecnico-epfl-lausanne",
         "techniker-epfl-lausanne",
         "tecnico-chirurgia-del-topo-e-neuroscienze-epfl-lausanne",
         "technician-mouse-surgery-neuroscience-epfl-lausanne",
@@ -656,8 +653,6 @@
       "previousSlugsByLocale": {
         "it": [
           "technicien-ne-epfl-lausanne",
-          "tecnologia-epfl-lausanne",
-          "tecnico-epfl-lausanne",
           "tecnico-chirurgia-del-topo-e-neuroscienze-epfl-lausanne",
           "technician-mouse-surgery-neuroscience-epfl-lausanne",
           "techniker-mauschirurgie-neurowissenschaften-epfl-lausanne",
@@ -674,7 +669,6 @@
           "technican-mouse-surgery-neuroscience-epfl-lausanne"
         ],
         "de": [
-          "technik-epfl-lausanne",
           "techniker-epfl-lausanne",
           "techniker-mauschirurgie-neurowissenschaften-epfl-lausanne"
         ],
@@ -1100,7 +1094,7 @@
       "slug": "posizione-da-postdoc-in-finanza-quantitativa-presso-l-epfl-epfl-lausanne",
       "slugByLocale": {
         "it": "posizione-da-postdoc-in-finanza-quantitativa-presso-l-epfl-epfl-lausanne",
-        "en": "postdoc-epfl-lausanne-9layc2",
+        "en": "postdoc-epfl-lausanne",
         "de": "postdoktorandenstelle-in-quantitativer-finanz-bei-epfl-epfl-lausanne",
         "fr": "postdoc-position-in-quantitative-finance-at-epfl-epfl-lausanne"
       },
@@ -1181,8 +1175,7 @@
         ],
         "en": [
           "postdoc-in-experimental-biophysics-epfl-lausanne",
-          "postdoc-epfl-lausanne-9layc2",
-          "postdoc-epfl-lausanne"
+          "postdoc-epfl-lausanne-9layc2"
         ],
         "de": [
           "postdoc-in-experimenteller-biophysik-epfl-lausanne",
@@ -2458,7 +2451,7 @@
       "slug": "system-administrator-devops-ingegnere-epfl-lausanne",
       "slugByLocale": {
         "it": "amministratore-di-sistema-dev-ops-epfl-lausanne",
-        "en": "system-administrator-devops-engineer-epfl-lausanne",
+        "en": "system-administrator-dev-ops-epfl-lausanne",
         "de": "systemadministrator-dev-ops-epfl-lausanne",
         "fr": "system-administrator-devops-engineer-epfl-lausanne"
       },
@@ -2514,6 +2507,9 @@
         "de": [
           "system-administrator-devops-engineer-epfl-lausanne",
           "system-administrator-devops-ingenieur-epfl-lausanne"
+        ],
+        "en": [
+          "system-administrator-devops-engineer-epfl-lausanne"
         ]
       },
       "firstSeenAt": "2026-09-03T23:19:35.519Z",
@@ -3866,12 +3862,12 @@
     },
     {
       "id": "epfl-caaa8ed37753",
-      "slug": "responsable-gouvernance-projets-et-qualite-des-services-epfl-lausanne",
+      "slug": "progetti-di-governance-responsabile-e-qualita-dei-servizi-epfl-lausanne",
       "slugByLocale": {
         "fr": "responsable-gouvernance-projets-et-qualite-des-services-epfl-lausanne",
-        "it": "responsable-gouvernance-projets-et-qualite-des-services-epfl-lausanne",
-        "en": "responsable-gouvernance-projets-et-qualite-des-services-epfl-lausanne",
-        "de": "responsable-gouvernance-projets-et-qualite-des-services-epfl-lausanne"
+        "it": "progetti-di-governance-responsabile-e-qualita-dei-servizi-epfl-lausanne",
+        "en": "responsible-governance-projects-and-quality-of-services-epfl-lausanne",
+        "de": "responsible-governance-projekte-und-qualitat-der-dienstleistungen-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3929,16 +3925,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-19T22:57:47.522Z"
+      "firstSeenAt": "2026-09-19T22:57:47.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "responsable-gouvernance-projets-et-qualite-des-services-epfl-lausanne"
+        ],
+        "en": [
+          "responsable-gouvernance-projets-et-qualite-des-services-epfl-lausanne"
+        ],
+        "de": [
+          "responsable-gouvernance-projets-et-qualite-des-services-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "responsable-gouvernance-projets-et-qualite-des-services-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-1c11e98e8d8b",
-      "slug": "adjoint-e-du-vp-pour-les-operations-et-responsable-de-l-unite-etat-major-chief-of-staff-epfl-lausanne",
+      "slug": "vice-vp-per-le-operazioni-e-capo-del-capo-di-stato-maggiore-epfl-lausanne",
       "slugByLocale": {
         "fr": "adjoint-e-du-vp-pour-les-operations-et-responsable-de-l-unite-etat-major-chief-of-staff",
-        "it": "adjoint-e-du-vp-pour-les-operations-et-responsable-de-l-unite-etat-major-chief-of-staff-epfl-lausanne",
-        "en": "adjoint-e-du-vp-pour-les-operations-et-responsable-de-l-unite-etat-major-chief-of-staff",
-        "de": "adjoint-e-du-vp-pour-les-operations-et-responsable-de-l-unite-etat-major-chief-of-staff"
+        "it": "vice-vp-per-le-operazioni-e-capo-del-capo-di-stato-maggiore-epfl-lausanne",
+        "en": "deputy-vp-for-operations-and-head-of-the-chief-of-staff-epfl-lausanne",
+        "de": "stellvertretender-vizeprasident-fur-operationen-und-leiter-des-stabschefs-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -3984,11 +3994,19 @@
       "externalId": "1165436055",
       "previousSlugsByLocale": {
         "it": [
+          "adjoint-e-du-vp-pour-les-operations-et-responsable-de-l-unite-etat-major-chief-of-staff",
+          "adjoint-e-du-vp-pour-les-operations-et-responsable-de-l-unite-etat-major-chief-of-staff-epfl-lausanne"
+        ],
+        "en": [
+          "adjoint-e-du-vp-pour-les-operations-et-responsable-de-l-unite-etat-major-chief-of-staff"
+        ],
+        "de": [
           "adjoint-e-du-vp-pour-les-operations-et-responsable-de-l-unite-etat-major-chief-of-staff"
         ]
       },
       "previousSlugs": [
-        "adjoint-e-du-vp-pour-les-operations-et-responsable-de-l-unite-etat-major-chief-of-staff"
+        "adjoint-e-du-vp-pour-les-operations-et-responsable-de-l-unite-etat-major-chief-of-staff",
+        "adjoint-e-du-vp-pour-les-operations-et-responsable-de-l-unite-etat-major-chief-of-staff-epfl-lausanne"
       ],
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -4008,12 +4026,12 @@
     },
     {
       "id": "epfl-5eaabb66392f",
-      "slug": "postdoctoral-position-in-multiplexed-single-cell-rnaseq-based-antibody-discovery-epfl",
+      "slug": "posizione-post-dottorale-nella-scoperta-dell-anticorpo-basata-su-rnaseq-a-cellule-multiplex-epfl-lausanne",
       "slugByLocale": {
         "fr": "postdoctoral-position-in-multiplexed-single-cell-rnaseq-based-antibody-discovery-epfl",
-        "it": "postdoctoral-position-in-multiplexed-single-cell-rnaseq-based-antibody-discovery-epfl",
+        "it": "posizione-post-dottorale-nella-scoperta-dell-anticorpo-basata-su-rnaseq-a-cellule-multiplex-epfl-lausanne",
         "en": "postdoctoral-position-in-multiplexed-single-cell-rnaseq-based-antibody-discovery-epfl",
-        "de": "postdoctoral-position-in-multiplexed-single-cell-rnaseq-based-antibody-discovery-epfl"
+        "de": "postdoktoralposition-in-der-multiplexten-einzelzell-rnaseq-basierten-antikorperentdeckung-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4072,7 +4090,18 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-19T22:57:46.402Z"
+      "firstSeenAt": "2026-09-19T22:57:46.402Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-position-in-multiplexed-single-cell-rnaseq-based-antibody-discovery-epfl"
+        ],
+        "de": [
+          "postdoctoral-position-in-multiplexed-single-cell-rnaseq-based-antibody-discovery-epfl"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-position-in-multiplexed-single-cell-rnaseq-based-antibody-discovery-epfl"
+      ]
     },
     {
       "id": "epfl-a2e7bee8fd0e",
@@ -4151,12 +4180,12 @@
     },
     {
       "id": "epfl-3e76086c07e7",
-      "slug": "postdoctoral-position-in-microfluidic-rnaseq-based-screening-for-optimal-t-cell-expansion",
+      "slug": "posizione-post-dottorale-nella-proiezione-a-base-di-rnaseq-microfluidica-per-protocolli-di-espansione-t-ottimali-epfl",
       "slugByLocale": {
         "en": "postdoctoral-position-in-microfluidic-rnaseq-based-screening-for-optimal-t-cell-expansion",
-        "it": "postdoctoral-position-in-microfluidic-rnaseq-based-screening-for-optimal-t-cell-expansion",
-        "de": "postdoctoral-position-in-microfluidic-rnaseq-based-screening-for-optimal-t-cell-expansion",
-        "fr": "postdoctoral-position-in-microfluidic-rnaseq-based-screening-for-optimal-t-cell-expansion"
+        "it": "posizione-post-dottorale-nella-proiezione-a-base-di-rnaseq-microfluidica-per-protocolli-di-espansione-t-ottimali-epfl",
+        "de": "postdoc-position-im-mikrofluidischen-rnaseq-basierten-screening-fur-optimale-t-zell-expansionsprotokolle-epfl-lausanne",
+        "fr": "position-postdoctorale-dans-le-depistage-a-base-d-arneq-microfluidique-pour-des-protocoles-d-expansion-des-cellules-t"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4214,7 +4243,21 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-19T22:57:45.284Z"
+      "firstSeenAt": "2026-09-19T22:57:45.284Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoctoral-position-in-microfluidic-rnaseq-based-screening-for-optimal-t-cell-expansion"
+        ],
+        "de": [
+          "postdoctoral-position-in-microfluidic-rnaseq-based-screening-for-optimal-t-cell-expansion"
+        ],
+        "fr": [
+          "postdoctoral-position-in-microfluidic-rnaseq-based-screening-for-optimal-t-cell-expansion"
+        ]
+      },
+      "previousSlugs": [
+        "postdoctoral-position-in-microfluidic-rnaseq-based-screening-for-optimal-t-cell-expansion"
+      ]
     },
     {
       "id": "epfl-dead15a21a44",
@@ -4378,12 +4421,12 @@
     },
     {
       "id": "epfl-3d4980b739f8",
-      "slug": "post-doc-on-formal-verification-and-algorithm-discovery-for-numerical-analysis-epfl",
+      "slug": "post-doc-su-verifica-formale-e-scoperta-dell-algoritmo-per-l-analisi-numerica-epfl-lausanne",
       "slugByLocale": {
         "en": "post-doc-on-formal-verification-and-algorithm-discovery-for-numerical-analysis-epfl",
-        "it": "post-doc-on-formal-verification-and-algorithm-discovery-for-numerical-analysis-epfl",
-        "de": "post-doc-on-formal-verification-and-algorithm-discovery-for-numerical-analysis-epfl",
-        "fr": "post-doc-on-formal-verification-and-algorithm-discovery-for-numerical-analysis-epfl"
+        "it": "post-doc-su-verifica-formale-e-scoperta-dell-algoritmo-per-l-analisi-numerica-epfl-lausanne",
+        "de": "postdoc-uber-formale-verifikation-und-algorithmus-entdeckung-fur-die-numerische-analyse-epfl-lausanne",
+        "fr": "post-doc-sur-la-verification-formelle-et-la-decouverte-d-algorithmes-pour-l-analyse-numerique-epfl-lausanne"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4441,16 +4484,30 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-19T22:57:43.606Z"
+      "firstSeenAt": "2026-09-19T22:57:43.606Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "post-doc-on-formal-verification-and-algorithm-discovery-for-numerical-analysis-epfl"
+        ],
+        "de": [
+          "post-doc-on-formal-verification-and-algorithm-discovery-for-numerical-analysis-epfl"
+        ],
+        "fr": [
+          "post-doc-on-formal-verification-and-algorithm-discovery-for-numerical-analysis-epfl"
+        ]
+      },
+      "previousSlugs": [
+        "post-doc-on-formal-verification-and-algorithm-discovery-for-numerical-analysis-epfl"
+      ]
     },
     {
       "id": "epfl-87e9bb4c9dbd",
-      "slug": "postdoc-position-in-polymer-design-for-vat-photopolymerization-epfl-neuchatel",
+      "slug": "posizione-postdoc-in-polimero-per-fotopolimerizzazione-vat-epfl-neuchatel",
       "slugByLocale": {
         "fr": "postdoc-position-in-polymer-design-for-vat-photopolymerization-epfl-neuchatel",
-        "it": "postdoc-position-in-polymer-design-for-vat-photopolymerization-epfl-neuchatel",
+        "it": "posizione-postdoc-in-polimero-per-fotopolimerizzazione-vat-epfl-neuchatel",
         "en": "postdoc-position-in-polymer-design-for-vat-photopolymerization-epfl-neuchatel",
-        "de": "postdoc-position-in-polymer-design-for-vat-photopolymerization-epfl-neuchatel"
+        "de": "postdoc-position-im-polymerdesign-fur-vat-photopolymerisation-epfl-neuchatel"
       },
       "company": "EPFL",
       "companyKey": "epfl",
@@ -4508,7 +4565,18 @@
         }
       },
       "addressRegion": "NE",
-      "firstSeenAt": "2026-09-19T22:57:43.048Z"
+      "firstSeenAt": "2026-09-19T22:57:43.048Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "postdoc-position-in-polymer-design-for-vat-photopolymerization-epfl-neuchatel"
+        ],
+        "de": [
+          "postdoc-position-in-polymer-design-for-vat-photopolymerization-epfl-neuchatel"
+        ]
+      },
+      "previousSlugs": [
+        "postdoc-position-in-polymer-design-for-vat-photopolymerization-epfl-neuchatel"
+      ]
     },
     {
       "id": "epfl-f317ab8ba434",
@@ -4676,11 +4744,11 @@
     },
     {
       "id": "epfl-888e39971385",
-      "slug": "assistant-e-administratif-ve-gestion-financiere-40-epfl-lausanne",
+      "slug": "assistente-amministrativo-gestione-finanziaria-40-epfl-lausanne",
       "slugByLocale": {
         "fr": "assistant-e-administratif-ve-gestion-financiere-40-epfl-lausanne",
-        "it": "assistant-e-administratif-ve-gestion-financiere-40-epfl-lausanne",
-        "en": "assistant-e-administratif-ve-gestion-financiere-40-epfl-lausanne",
+        "it": "assistente-amministrativo-gestione-finanziaria-40-epfl-lausanne",
+        "en": "administrative-assistant-financial-management-40-epfl-lausanne",
         "de": "assistant-e-administratif-ve-gestion-financiere-40-epfl-lausanne"
       },
       "company": "EPFL",
@@ -4739,7 +4807,18 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-19T22:57:41.362Z"
+      "firstSeenAt": "2026-09-19T22:57:41.362Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-e-administratif-ve-gestion-financiere-40-epfl-lausanne"
+        ],
+        "en": [
+          "assistant-e-administratif-ve-gestion-financiere-40-epfl-lausanne"
+        ]
+      },
+      "previousSlugs": [
+        "assistant-e-administratif-ve-gestion-financiere-40-epfl-lausanne"
+      ]
     },
     {
       "id": "epfl-70073634ab3c",
@@ -4747,7 +4826,7 @@
       "slugByLocale": {
         "fr": "ingenieur-electronicien-team-lead-epfl-lausanne",
         "it": "ingenieur-electronicien-team-lead-epfl-lausanne",
-        "en": "ingenieur-electronicien-team-lead-epfl-lausanne",
+        "en": "electrical-engineer-team-lead-epfl-lausanne",
         "de": "ingenieur-electronicien-teamleiter-epfl-lausanne"
       },
       "company": "EPFL",

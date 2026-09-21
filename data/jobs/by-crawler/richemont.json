@@ -856,11 +856,11 @@
     },
     {
       "id": "richemont-44bc160e0888",
-      "slug": "stagiaire-archiviste-jaeger-lecoultre-le-sentier",
+      "slug": "stagiaire-archivista-jaeger-lecoultre-le-sentier",
       "slugByLocale": {
-        "it": "stagiaire-archiviste-jaeger-lecoultre-le-sentier",
+        "it": "stagiaire-archivista-jaeger-lecoultre-le-sentier",
         "en": "stagiaire-archiviste-richemont-le-sentier",
-        "de": "stagiaire-archiviste-jaeger-lecoultre-le-sentier",
+        "de": "stagiaire-archivist-jaeger-lecoultre-le-sentier",
         "fr": "stagiaire-archiviste-jaeger-lecoultre-le-sentier"
       },
       "company": "Jaeger-LeCoultre",
@@ -905,16 +905,19 @@
       "previousSlugs": [
         "stagiaire-archiviste-richemont-le-sentier",
         "intern-archivist-jaeger-lecoultre-le-sentier",
-        "intern-archivar-jaeger-lecoultre-le-sentier"
+        "intern-archivar-jaeger-lecoultre-le-sentier",
+        "stagiaire-archiviste-jaeger-lecoultre-le-sentier"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stagiaire-archiviste-richemont-le-sentier",
-          "intern-archivist-jaeger-lecoultre-le-sentier"
+          "intern-archivist-jaeger-lecoultre-le-sentier",
+          "stagiaire-archiviste-jaeger-lecoultre-le-sentier"
         ],
         "de": [
           "stagiaire-archiviste-richemont-le-sentier",
-          "intern-archivar-jaeger-lecoultre-le-sentier"
+          "intern-archivar-jaeger-lecoultre-le-sentier",
+          "stagiaire-archiviste-jaeger-lecoultre-le-sentier"
         ]
       },
       "needsRetranslation": true,
@@ -1050,7 +1053,7 @@
       "slug": "internal-warehousing-tech-team-lead-richemont-meyrin",
       "slugByLocale": {
         "it": "internal-warehousing-tech-team-lead-richemont-meyrin",
-        "en": "internal-warehousing-tech-team-lead-richemont-meyrin",
+        "en": "internalare-richemont-meyrin",
         "de": "leiter-technisches-lagerteam-intern-richemont-meyrin",
         "fr": "chef-d-equipe-technique-d-entreposage-interne-richemont-meyrin"
       },
@@ -3467,14 +3470,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates",
-        "procurement-category-manager-piaget-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates",
-          "procurement-category-manager-piaget-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -8771,7 +8772,7 @@
       "slug": "upstream-supply-chain-project-intern-richemont-bellevue",
       "slugByLocale": {
         "it": "upstream-supply-chain-project-intern-richemont-bellevue",
-        "en": "upstream-supply-chain-project-intern-richemont-bellevue",
+        "en": "upstream-suppl-ch-chain-pro-intern-richemont-bellevue",
         "de": "upstream-lieferkette-project-praktikant-richemont-bellevue",
         "fr": "upstream-chaine-d-approvisionnement-project-stagiaire-richemont-bellevue"
       },
@@ -8879,13 +8880,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-associate-richemont-zurich",
-        "sales-associate-richemont-zurich-t0sdvd",
-        "sales-associate-van-cleef-arpels-zurich"
+        "sales-associate-richemont-zurich-t0sdvd"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-richemont-zurich",
-          "sales-associate-van-cleef-arpels-zurich"
+          "sales-associate-richemont-zurich"
         ],
         "de": [
           "sales-associate-richemont-zurich"
@@ -9278,9 +9277,9 @@
       "slug": "chef-de-projets-richemont-buttes",
       "slugByLocale": {
         "it": "chef-de-projets-richemont-buttes",
-        "en": "chef-de-projets-valfleurier-buttes",
+        "en": "chef-de-projects-valfleurier-buttes",
         "de": "chef-de-projets-valfleurier-buttes",
-        "fr": "chef-de-projets-richemont-buttes"
+        "fr": "chef-de-cuisine-professionnel-valfleurier-buttes"
       },
       "company": "ValFleurier",
       "companyKey": "richemont",
@@ -9324,14 +9323,16 @@
       "previousSlugs": [
         "leader-del-progetto-valfleurier-buttes",
         "project-leader-valfleurier-buttes",
-        "projektleiter-valfleurier-buttes"
+        "projektleiter-valfleurier-buttes",
+        "chef-de-projets-valfleurier-buttes"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leader-del-progetto-valfleurier-buttes"
         ],
         "en": [
-          "project-leader-valfleurier-buttes"
+          "project-leader-valfleurier-buttes",
+          "chef-de-projets-valfleurier-buttes"
         ],
         "de": [
           "projektleiter-valfleurier-buttes"
@@ -9882,15 +9883,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "specialiste-analyses-materiaux-richemont-glovelier"
-        ]
-      },
-      "previousSlugs": [
-        "specialiste-analyses-materiaux-richemont-glovelier"
-      ]
+      }
     },
     {
       "id": "richemont-beb532d93689",

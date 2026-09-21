@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-zollikerberg-909d28363026",
-      "slug": "nachdiplomstudium-nds-zur-dipl-expertin-experte-intensivpflege-spital-zollikerberg",
+      "slug": "studi-post-laurea-nds-per-dipl-expert-expert-intensive-care-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "nachdiplomstudium-nds-zur-dipl-expertin-experte-intensivpflege-spital-zollikerberg",
-        "it": "nachdiplomstudium-nds-zur-dipl-expertin-experte-intensivpflege-spital-zollikerberg",
-        "en": "nachdiplomstudium-nds-zur-dipl-expertin-experte-intensivpflege-spital-zollikerberg",
-        "fr": "nachdiplomstudium-nds-zur-dipl-expertin-experte-intensivpflege-spital-zollikerberg"
+        "it": "studi-post-laurea-nds-per-dipl-expert-expert-intensive-care-spital-zollikerberg-zollikerberg",
+        "en": "postgraduate-studies-nds-for-dipl-expert-expert-intensive-care-spital-zollikerberg-zollikerberg",
+        "fr": "etudes-superieures-pdn-pour-dipl-expert-expert-intensive-care-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -65,16 +65,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "nachdiplomstudium-nds-zur-dipl-expertin-experte-intensivpflege-spital-zollikerberg"
+        ],
+        "en": [
+          "nachdiplomstudium-nds-zur-dipl-expertin-experte-intensivpflege-spital-zollikerberg"
+        ],
+        "fr": [
+          "nachdiplomstudium-nds-zur-dipl-expertin-experte-intensivpflege-spital-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "nachdiplomstudium-nds-zur-dipl-expertin-experte-intensivpflege-spital-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-b563cdc11e6d",
-      "slug": "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg",
+      "slug": "unita-di-cura-intensiva-sanitaria-specializzata-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg",
-        "it": "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg",
-        "en": "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg",
-        "fr": "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg"
+        "it": "unita-di-cura-intensiva-sanitaria-specializzata-spital-zollikerberg-zollikerberg",
+        "en": "specialist-health-intensive-care-unit-spital-zollikerberg-zollikerberg",
+        "fr": "unite-specialisee-des-soins-intensifs-de-sante-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -130,16 +144,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-intensivstation-spital-zollikerberg-zollikerberg"
+      ]
     },
     {
       "id": "spital-zollikerberg-1e264c1c7550",
-      "slug": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff",
+      "slug": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-specialista-di-cura-spitex-con-responsabilita-di",
       "slugByLocale": {
         "de": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff",
-        "it": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff",
-        "en": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff",
-        "fr": "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff"
+        "it": "centro-vecchio-hottingen-dipl-infermieristica-professionale-dipl-specialista-di-cura-spitex-con-responsabilita-di",
+        "en": "old-age-center-hottingen-dipl-nursing-professional-dipl-care-specialist-spitex-with-daily-meeting-responsibility-spital",
+        "fr": "centre-de-vieillesse-hottingen-dipl-professionnels-des-soins-infirmiers-dipl-specialiste-de-soins-spitex-avec"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -198,11 +226,19 @@
       "firstSeenAt": "2026-05-19T12:20:47.142Z",
       "previousSlugsByLocale": {
         "it": [
-          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im"
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im",
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff"
+        ],
+        "en": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff"
+        ],
+        "fr": [
+          "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff"
         ]
       },
       "previousSlugs": [
-        "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im"
+        "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-nachtwache-spitex-im",
+        "alterszentrum-hottingen-dipl-pflegefachfrau-dipl-pflegefachmann-spitex-mit-tagestreff"
       ]
     },
     {
@@ -211,8 +247,8 @@
       "slugByLocale": {
         "de": "facharztin-facharzt-psychiatrie-und-psychotherapie-arztbereich-spital-zollikerberg",
         "it": "facharztin-facharzt-psychiatrie-e-psychotherapie-arztbereich-spital-zollikerberg",
-        "en": "facharztin-facharzt-psychiatrie-und-psychotherapie-arztbereich-spital-zollikerberg",
-        "fr": "facharztin-facharzt-psychiatrie-und-psychotherapie-arztbereich-spital-zollikerberg"
+        "en": "specialist-specialist-psychiatry-and-psychotherapy-medical-area-spital-zollikerberg-zollikerberg",
+        "fr": "specialiste-specialiste-psychiatrie-et-psychotherapie-domaine-medical-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -258,6 +294,12 @@
       "previousSlugsByLocale": {
         "it": [
           "facharztin-facharzt-psychiatrie-und-psychotherapie-arztbereich-spital-zollikerberg"
+        ],
+        "en": [
+          "facharztin-facharzt-psychiatrie-und-psychotherapie-arztbereich-spital-zollikerberg"
+        ],
+        "fr": [
+          "facharztin-facharzt-psychiatrie-und-psychotherapie-arztbereich-spital-zollikerberg"
         ]
       },
       "previousSlugs": [
@@ -284,8 +326,8 @@
       "slugByLocale": {
         "de": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-spital",
         "it": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-e-akutgeriatrie-spital-zollikerberg",
-        "en": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-spital",
-        "fr": "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-spital"
+        "en": "specialist-nursing-focus-on-internal-medicine-and-acute-care-spital-zollikerberg-zollikerberg",
+        "fr": "soins-infirmiers-specialises-focus-sur-la-medecine-interne-et-les-soins-aigus-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -332,6 +374,12 @@
         "it": [
           "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-spital",
           "soins-infirmiers-specialises-focus-sur-la-medecine-interne-et-les-soins-aigus-diakoniewerk-neumunster-gesundheitswelt"
+        ],
+        "en": [
+          "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-spital"
+        ],
+        "fr": [
+          "fachexperte-fachexpertin-pflege-schwerpunkte-innere-medizin-und-akutgeriatrie-spital"
         ]
       },
       "previousSlugs": [
@@ -355,12 +403,12 @@
     },
     {
       "id": "spital-zollikerberg-8a7d295a57f7",
-      "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche",
+      "slug": "assistente-di-pratica-medica-assistente-di-pratica-medica-spital-zollikerberg-zollikerberg",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche",
-        "it": "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche",
-        "en": "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche",
-        "fr": "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche"
+        "it": "assistente-di-pratica-medica-assistente-di-pratica-medica-spital-zollikerberg-zollikerberg",
+        "en": "medical-practice-assistant-medical-practice-assistant-medical-engineering-areas-spital-zollikerberg-zollikerberg",
+        "fr": "assistant-de-pratique-medicale-assistant-de-pratique-medicale-domaines-de-genie-medical-spital-zollikerberg-zollikerberg"
       },
       "company": "Spital Zollikerberg",
       "companyKey": "spital-zollikerberg",
@@ -416,7 +464,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-05-19T12:20:47.142Z"
+      "firstSeenAt": "2026-05-19T12:20:47.142Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-medizintechnische-bereiche"
+      ]
     },
     {
       "id": "spital-zollikerberg-f6485ea28377",
@@ -469,14 +531,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "mpa-oder-fage-notfallzentrum-pflege-support-und-administration-spital-zollikerberg",
-        "mpa-o-fage-notfallzentrum-pflege-support-e-administration-spital-zollikerberg",
-        "supporto-e-amministrazione-per-la-cura-del-centro-di-emergenza-di-mpa-o-fage-spital-zollikerberg-zollikerberg"
+        "mpa-o-fage-notfallzentrum-pflege-support-e-administration-spital-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mpa-oder-fage-notfallzentrum-pflege-support-und-administration-spital-zollikerberg",
-          "mpa-o-fage-notfallzentrum-pflege-support-e-administration-spital-zollikerberg",
-          "supporto-e-amministrazione-per-la-cura-del-centro-di-emergenza-di-mpa-o-fage-spital-zollikerberg-zollikerberg"
+          "mpa-o-fage-notfallzentrum-pflege-support-e-administration-spital-zollikerberg"
         ],
         "en": [
           "mpa-oder-fage-notfallzentrum-pflege-support-und-administration-spital-zollikerberg"
@@ -551,13 +611,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie",
-        "gastronomie-neumunster-park-mitarbeiterin-collaboratore-trice-restaurants-events-gastronomie-spital-zollikerberg"
+        "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie",
-          "gastronomie-neumunster-park-mitarbeiterin-collaboratore-trice-restaurants-events-gastronomie-spital-zollikerberg"
+          "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie"
         ],
         "en": [
           "gastronomie-neumunster-park-mitarbeiterin-mitarbeiter-restaurants-events-gastronomie"
@@ -632,14 +690,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "dipl-pflegefachfrau-dipl-pflegefachmann-chirurgie-und-gynakologie-mitarbeitende-im-fokus",
-        "dipl-pflegefachfrau-dipl-pflegefachmann-gynakologie-chirurgie-60-100-spital-zollikerberg",
-        "dipl-infermieristica-professionale-dipl-infermieristica-professionale-gynecology-surgery-60-100-spital-zollikerberg"
+        "dipl-pflegefachfrau-dipl-pflegefachmann-gynakologie-chirurgie-60-100-spital-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-chirurgie-und-gynakologie-mitarbeitende-im-fokus",
-          "dipl-pflegefachfrau-dipl-pflegefachmann-gynakologie-chirurgie-60-100-spital-zollikerberg",
-          "dipl-infermieristica-professionale-dipl-infermieristica-professionale-gynecology-surgery-60-100-spital-zollikerberg"
+          "dipl-pflegefachfrau-dipl-pflegefachmann-gynakologie-chirurgie-60-100-spital-zollikerberg"
         ],
         "en": [
           "dipl-pflegefachfrau-dipl-pflegefachmann-gynakologie-chirurgie-60-100-spital-zollikerberg"
@@ -714,13 +770,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "berufsbildner-berufsbildnerin-gynakologie-chirurgie-80-100-spital-zollikerberg",
-        "formazione-professionale-ginecologia-professionale-chirurgia-80-100-spital-zollikerberg-zollikerberg"
+        "berufsbildner-berufsbildnerin-gynakologie-chirurgie-80-100-spital-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "berufsbildner-berufsbildnerin-gynakologie-chirurgie-80-100-spital-zollikerberg",
-          "formazione-professionale-ginecologia-professionale-chirurgia-80-100-spital-zollikerberg-zollikerberg"
+          "berufsbildner-berufsbildnerin-gynakologie-chirurgie-80-100-spital-zollikerberg"
         ],
         "en": [
           "berufsbildner-berufsbildnerin-gynakologie-chirurgie-80-100-spital-zollikerberg"
@@ -798,16 +852,14 @@
         "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag",
         "disponent-disponentin-medizinisches-ambulatorium-con-geregelten-arbeitszeiten-von-montag-bis-freitag-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zolli",
         "disponent-disponentin-medizinisches-ambulatorium-con-geregelten-arbeitszeiten-von-montag-bis-freitag-middle-office-spital-zollikerberg",
-        "disponent-disponent-medical-ambulatorium-with-regulated-working-hours-from-monday-to-friday-middle-office-diakoniewerk",
-        "disponent-disponent-medical-ambulatorium-con-orario-di-lavoro-regolato-da-lunedi-a-venerdi-middle-office-spital"
+        "disponent-disponent-medical-ambulatorium-with-regulated-working-hours-from-monday-to-friday-middle-office-diakoniewerk"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag",
           "disponent-disponentin-medizinisches-ambulatorium-con-geregelten-arbeitszeiten-von-montag-bis-freitag-middle-office-diakoniewerk-neumunster-gesundheitswelt-zollikerberg-spital-zolli",
           "disponent-disponentin-medizinisches-ambulatorium-con-geregelten-arbeitszeiten-von-montag-bis-freitag-middle-office-spital-zollikerberg",
-          "disponent-disponent-medical-ambulatorium-with-regulated-working-hours-from-monday-to-friday-middle-office-diakoniewerk",
-          "disponent-disponent-medical-ambulatorium-con-orario-di-lavoro-regolato-da-lunedi-a-venerdi-middle-office-spital"
+          "disponent-disponent-medical-ambulatorium-with-regulated-working-hours-from-monday-to-friday-middle-office-diakoniewerk"
         ],
         "en": [
           "disponent-disponentin-medizinisches-ambulatorium-mit-geregelten-arbeitszeiten-von-montag"
@@ -882,13 +934,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "join-our-pool-mitarbeitenden-pool-op-is-im-stundenlohn-spital-zollikerberg-zollikerberg",
-        "entra-nella-nostra-piscina-piscina-per-i-dipendenti-op-is-in-salari-orari-spital-zollikerberg-zollikerberg"
+        "join-our-pool-mitarbeitenden-pool-op-is-im-stundenlohn-spital-zollikerberg-zollikerberg"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "join-our-pool-mitarbeitenden-pool-op-is-im-stundenlohn-spital-zollikerberg-zollikerberg",
-          "entra-nella-nostra-piscina-piscina-per-i-dipendenti-op-is-in-salari-orari-spital-zollikerberg-zollikerberg"
+          "join-our-pool-mitarbeitenden-pool-op-is-im-stundenlohn-spital-zollikerberg-zollikerberg"
         ],
         "en": [
           "join-our-pool-mitarbeitenden-pool-op-is-im-stundenlohn-spital-zollikerberg-zollikerberg"

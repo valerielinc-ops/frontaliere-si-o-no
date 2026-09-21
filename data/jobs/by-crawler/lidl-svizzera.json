@@ -3060,7 +3060,7 @@
       },
       "slugByLocale": {
         "it": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz",
-        "en": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
+        "en": "branch-manager-branch-manager-m-f-d-80-100-st-moritz-lidl-svizzera-st-moritz",
         "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
         "fr": "directeur-de-succursale-stv-directeur-de-succursale-stv-h-f-d-80-100-st-moritz-lidl-svizzera-st-moritz"
       },
@@ -3074,6 +3074,9 @@
           "branch-manager-m-f-d-80-100-lidl-svizzera-st-moritz"
         ],
         "fr": [
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz"
+        ],
+        "en": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz"
         ]
       },
@@ -3101,7 +3104,7 @@
     },
     {
       "id": "company-w09nu0",
-      "slug": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen-w09nu0",
+      "slug": "gestore-di-ramo-gestore-di-ramo-m-f-d-80-100-benessere-lidl-svizzera-wohlen",
       "company": "Lidl Svizzera",
       "title": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Wohlen",
       "location": "Wohlen",
@@ -3138,21 +3141,29 @@
         "fr": "Présentation\n\nLes ventes et les gens sont votre passion ? Voulez-vous faire de votre mieux chaque jour pour offrir à nos clients la meilleure expérience d'achat possible? Voulez-vous faire partie d'une équipe qui est nécessaire tous les jours ? Alors tu as raison avec nous. Des opportunités de carrière passionnantes et polyvalentes vous attendent dans un environnement de vente dynamique.\nVos tâches\n\n- Direction générale adjointe\n\n- Appui à la gestion du personnel et à la planification du personnel de 15 à 35 employés\n\n- Assomption de responsabilité dans la branche et appui actif dans la région\n\n- Mise en œuvre des normes d'orientation des clients et de vente dans la branche\n\n- Disposition et présentation des biens\nVotre profil\n\n- Plusieurs années d'expérience professionnelle dans la vente ou l'industrie comparable\n\n- Idéalement achevée la formation professionnelle dans le commerce de détail\n\n- Leader, idéalement jumelé à la première expérience\n\n- Esprit d'équipe et responsabilité\n\n- Compétences communicatives et plaisir à traiter avec les gens\n\n- Disponibilité, flexibilité et résilience\n\n- Très bonne connaissance de l'allemand en paroles et en écriture\nNous offrons\n\nChez Lidl Suisse, il y a place pour l'ambition et l'innovation. Soyez activement impliqué. Grandir tous les jours sur le plan professionnel et personnel. Nous vous préparons pour vos tâches variées et intéressantes avec une familiarisation intensive. Si vous le souhaitez et si vous avez de bonnes qualités personnelles, des développements internes sont possibles. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du GAV Lidl, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne dès maintenant!"
       },
       "slugByLocale": {
-        "it": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen-w09nu0",
-        "en": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen-w09nu0",
+        "it": "gestore-di-ramo-gestore-di-ramo-m-f-d-80-100-benessere-lidl-svizzera-wohlen",
+        "en": "branch-manager-branch-manager-m-f-d-80-100-well-being-lidl-svizzera-wohlen",
         "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen-w09nu0",
-        "fr": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen-w09nu0"
+        "fr": "gestionnaire-de-succursale-gestionnaire-de-succursale-h-f-d-80-100-bien-etre-lidl-svizzera-wohlen"
       },
       "requirementsByLocale": {},
       "country": "CH",
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen-w09nu0"
+        ],
+        "en": [
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen-w09nu0"
+        ],
+        "fr": [
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen-w09nu0"
         ]
       },
       "previousSlugs": [
-        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen"
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-wohlen-w09nu0"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -7504,8 +7515,7 @@
           "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden",
           "assistent-lieferkette-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
           "assistant-chaine-d-approvisionnement-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-          "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-          "assistente-supply-chain-m-f-d-80-100-lidl-svizzera-weinfelden"
+          "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu"
         ],
         "en": [
           "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-gg2tuc"
@@ -7526,8 +7536,7 @@
         "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden",
         "assistent-lieferkette-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
         "assistant-chaine-d-approvisionnement-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-        "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-        "assistente-supply-chain-m-f-d-80-100-lidl-svizzera-weinfelden"
+        "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -8395,7 +8404,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-gattikon-wbm59z",
-        "en": "allrounder-verkauf-m-w-d-20-40-gattikon-lidl-svizzera-gattikon",
+        "en": "all-rounder-sale-m-f-d-20-40-gattikon-lidl-svizzera-gattikon",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-gattikon-wbm59z",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-gattikon-wbm59z"
       },
@@ -8408,13 +8417,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-gattikon-wbm59z",
-          "all-rounder-sale-m-f-d-20-40-gattikon-lidl-svizzera-gattikon"
+          "allrounder-verkauf-m-w-d-20-40-gattikon-lidl-svizzera-gattikon"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-gattikon",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-gattikon-wbm59z",
-        "all-rounder-sale-m-f-d-20-40-gattikon-lidl-svizzera-gattikon"
+        "allrounder-verkauf-m-w-d-20-40-gattikon-lidl-svizzera-gattikon"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -8802,7 +8811,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-        "en": "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig",
+        "en": "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-brig-mtf0hy"
       },
@@ -8815,13 +8824,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-          "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig"
+          "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-brig-mtf0hy",
-        "all-rounder-sale-m-f-d-20-40-brig-lidl-svizzera-brig"
+        "allrounder-verkauf-m-w-d-20-40-brig-lidl-svizzera-brig"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -9375,7 +9384,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-rudolfstetten-dobckd",
-        "en": "allrounder-verkauf-m-w-d-20-40-rudolfstetten-lidl-svizzera-rudolfstetten",
+        "en": "all-rounder-sale-m-f-d-20-40-rudolfstetten-lidl-svizzera-rudolfstetten",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-rudolfstetten-dobckd",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-rudolfstetten-dobckd"
       },
@@ -9388,13 +9397,13 @@
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-rudolfstetten-dobckd",
-          "all-rounder-sale-m-f-d-20-40-rudolfstetten-lidl-svizzera-rudolfstetten"
+          "allrounder-verkauf-m-w-d-20-40-rudolfstetten-lidl-svizzera-rudolfstetten"
         ]
       },
       "previousSlugs": [
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-rudolfstetten",
         "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-rudolfstetten-dobckd",
-        "all-rounder-sale-m-f-d-20-40-rudolfstetten-lidl-svizzera-rudolfstetten"
+        "allrounder-verkauf-m-w-d-20-40-rudolfstetten-lidl-svizzera-rudolfstetten"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -17482,7 +17491,7 @@
     },
     {
       "id": "company-ud8ora",
-      "slug": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-ud8ora",
+      "slug": "gestore-di-filiali-gestore-di-filiali-m-f-d-80-100-berna-lidl-svizzera-bern",
       "company": "Lidl Svizzera",
       "title": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Bern",
       "location": "Bern",
@@ -17521,7 +17530,8 @@
         "stv-branch-manager-stv-branch-manager-m-w-d-80-100-berne-lidl-svizzera-bern",
         "vicedirettore-a-filiale-m-f-d-80-100-berna-lidl-svizzera-bern",
         "deputy-store-manager-m-f-d-80-100-bern-lidl-svizzera-bern",
-        "stv-filialleiter-m-w-d-80-100-berne-lidl-svizzera-bern-uptbjg"
+        "stv-filialleiter-m-w-d-80-100-berne-lidl-svizzera-bern-uptbjg",
+        "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-ud8ora"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -17535,13 +17545,15 @@
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-t36d3k",
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-uptbjg",
           "stv-branch-manager-stv-branch-manager-m-w-d-80-100-berne-lidl-svizzera-bern",
-          "vicedirettore-a-filiale-m-f-d-80-100-berna-lidl-svizzera-bern"
+          "vicedirettore-a-filiale-m-f-d-80-100-berna-lidl-svizzera-bern",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-ud8ora"
         ],
         "en": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-sqlqbe",
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-t36d3k",
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-uptbjg",
-          "deputy-store-manager-m-f-d-80-100-bern-lidl-svizzera-bern"
+          "deputy-store-manager-m-f-d-80-100-bern-lidl-svizzera-bern",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-ud8ora"
         ],
         "de": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-sqlqbe",
@@ -17552,14 +17564,15 @@
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-sqlqbe",
           "stv-filialleiterin-m-w-d-80-100-berne-lidl-svizzera-bern-t36d3k",
           "stv-filialleiter-m-w-d-80-100-berne-lidl-svizzera-bern-t36d3k",
-          "stv-filialleiter-m-w-d-80-100-berne-lidl-svizzera-bern-uptbjg"
+          "stv-filialleiter-m-w-d-80-100-berne-lidl-svizzera-bern-uptbjg",
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-ud8ora"
         ]
       },
       "slugByLocale": {
         "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-ud8ora",
-        "it": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-ud8ora",
-        "en": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-ud8ora",
-        "fr": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-bern-ud8ora"
+        "it": "gestore-di-filiali-gestore-di-filiali-m-f-d-80-100-berna-lidl-svizzera-bern",
+        "en": "branch-manager-branch-manager-m-f-d-80-100-berne-lidl-svizzera-bern",
+        "fr": "directeur-de-branche-directeur-de-branche-h-f-d-80-100-berne-lidl-svizzera-bern"
       },
       "titleByLocale": {
         "de": "Stv. Filialleiter / Stv. Filialleiterin (m/w/d) 80-100% — Bern",
@@ -18341,7 +18354,7 @@
       },
       "slugByLocale": {
         "it": "stv-branch-manager-stv-branch-manager-m-f-d-80-100-schlieren-lidl-svizzera-schlieren",
-        "en": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g",
+        "en": "branch-manager-branch-manager-m-f-d-80-100-schlieren-lidl-svizzera-schlieren",
         "de": "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g",
         "fr": "directeur-de-succursale-stv-gestionnaire-de-succursale-stv-h-f-d-80-100-schlieren-lidl-svizzera-schlieren"
       },
@@ -18356,7 +18369,7 @@
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g"
         ],
         "en": [
-          "stv-branch-manager-stv-branch-manager-m-f-d-80-100-schlieren-lidl-svizzera-schlieren"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g"
         ],
         "de": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy22o"
@@ -18370,7 +18383,6 @@
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren",
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-2",
         "deputy-store-manager-m-w-d-80-100-schlieren-lidl-svizzera-schlieren-imy22o",
-        "stv-branch-manager-stv-branch-manager-m-f-d-80-100-schlieren-lidl-svizzera-schlieren",
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy22o",
         "gestionnaire-de-succursale-stv-gestionnaire-de-succursale-stv-h-f-d-80-100-schlieren-lidl-svizzera-schlieren",
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-schlieren-imy23g"

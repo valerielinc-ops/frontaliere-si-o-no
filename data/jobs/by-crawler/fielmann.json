@@ -7218,8 +7218,6 @@
         "augenoptiker-w-m-d-fielmann-group-st",
         "ottico-ottico-f-m-d-fielmann-group-st-gallen",
         "projektleiter-m-d-fielmann-group-st",
-        "projektleiter-m-d-fielmann-group-st-gallen",
-        "ottico-ottico-f-m-d-fielmann-group-st",
         "opticians-m-w-d-fielmann-group-st",
         "opticiens-m-w-d-fielmann-group-st",
         "opticiens-m-w-d-fielmann-group-st-gallen"
@@ -7230,7 +7228,6 @@
           "augenoptiker-w-m-d-fielmann-ch",
           "augenoptiker-w-m-d-fielmann-ch-15",
           "ottico-ottico-f-m-d-fielmann-group-st-gallen",
-          "ottico-ottico-f-m-d-fielmann-group-st",
           "opticiens-m-w-d-fielmann-group-st-gallen"
         ],
         "en": [
@@ -9847,12 +9844,12 @@
     },
     {
       "id": "fielmann-dd26e5d36f92",
-      "slug": "hr-sachbearbeiter-w-m-d-100-fielmann-group-basel",
+      "slug": "hr-ufficiale-m-f-d-100-fielmann-group-basel",
       "slugByLocale": {
         "de": "hr-sachbearbeiter-w-m-d-100-fielmann-ch",
-        "it": "hr-sachbearbeiter-w-m-d-100-fielmann-group-basel",
-        "en": "hr-sachbearbeiter-w-m-d-100-fielmann-group-basel",
-        "fr": "hr-sachbearbeiter-w-m-d-100-fielmann-group-basel"
+        "it": "hr-ufficiale-m-f-d-100-fielmann-group-basel",
+        "en": "hr-officer-m-f-d-100-fielmann-group-basel",
+        "fr": "agent-des-rh-h-f-d-100-fielmann-group-basel"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -9898,11 +9895,19 @@
       "jobReqId": "R-65876",
       "previousSlugsByLocale": {
         "it": [
-          "hr-sachbearbeiter-w-m-d-100-fielmann-ch"
+          "hr-sachbearbeiter-w-m-d-100-fielmann-ch",
+          "hr-sachbearbeiter-w-m-d-100-fielmann-group-basel"
+        ],
+        "en": [
+          "hr-sachbearbeiter-w-m-d-100-fielmann-group-basel"
+        ],
+        "fr": [
+          "hr-sachbearbeiter-w-m-d-100-fielmann-group-basel"
         ]
       },
       "previousSlugs": [
-        "hr-sachbearbeiter-w-m-d-100-fielmann-ch"
+        "hr-sachbearbeiter-w-m-d-100-fielmann-ch",
+        "hr-sachbearbeiter-w-m-d-100-fielmann-group-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,

@@ -88,7 +88,7 @@
         "de": "elektroinstallateur-in-efz-fur-try-amp-hire-willisau-luzern-sta-ch",
         "it": "installatore-trice-elettrico-a-in-cfc-per-try-hire-sta-personal-ag-willisau",
         "en": "elektroinstallateur-in-efz-fur-try-hire-sta-personal-ag-willisau",
-        "fr": "installateur-trice-electricien-ne-efz-fur-try-hire-sta-personal-ag-willisau-luzern"
+        "fr": "installation-electrique-efz-pour-essayer-et-louer-sta-personal-ag-willisau-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -135,12 +135,14 @@
           "elektroinstallateur-in-efz-fur-try-amp-hire-willisau-luzern-sta-ch"
         ],
         "fr": [
-          "elektroinstallateur-in-efz-fur-try-hire-sta-personal-ag-willisau"
+          "elektroinstallateur-in-efz-fur-try-hire-sta-personal-ag-willisau",
+          "installateur-trice-electricien-ne-efz-fur-try-hire-sta-personal-ag-willisau-luzern"
         ]
       },
       "previousSlugs": [
         "elektroinstallateur-in-efz-fur-try-amp-hire-willisau-luzern-sta-ch",
-        "elektroinstallateur-in-efz-fur-try-hire-sta-personal-ag-willisau"
+        "elektroinstallateur-in-efz-fur-try-hire-sta-personal-ag-willisau",
+        "installateur-trice-electricien-ne-efz-fur-try-hire-sta-personal-ag-willisau-luzern"
       ],
       "salaryMin": 78500,
       "salaryMax": 119000,
@@ -159,12 +161,12 @@
     },
     {
       "id": "sta-29f2e636507e",
-      "slug": "bauarbeiter-in-per-genio-civile-con-moderner-technik-sta-personal-ag-aarau",
+      "slug": "lavoratori-per-l-ingegneria-civile-con-la-tecnologia-moderna-sta-personal-ag-aarau-aargau",
       "slugByLocale": {
         "de": "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch",
-        "it": "bauarbeiter-in-per-genio-civile-con-moderner-technik-sta-personal-ag-aarau",
-        "en": "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch",
-        "fr": "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch"
+        "it": "lavoratori-per-l-ingegneria-civile-con-la-tecnologia-moderna-sta-personal-ag-aarau-aargau",
+        "en": "construction-workers-for-civil-engineering-with-modern-technology-sta-personal-ag-aarau-aargau",
+        "fr": "travailleurs-de-la-construction-pour-le-genie-civil-avec-technologie-moderne-sta-personal-ag-aarau-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -208,11 +210,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch",
+          "bauarbeiter-in-per-genio-civile-con-moderner-technik-sta-personal-ag-aarau"
+        ],
+        "en": [
+          "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch"
+        ],
+        "fr": [
           "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch"
         ]
       },
       "previousSlugs": [
-        "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch"
+        "bauarbeiter-in-fur-tiefbau-mit-moderner-technik-aarau-aargau-sta-ch",
+        "bauarbeiter-in-per-genio-civile-con-moderner-technik-sta-personal-ag-aarau"
       ],
       "salaryMin": 72500,
       "salaryMax": 110500,
@@ -389,12 +399,12 @@
     },
     {
       "id": "sta-c16ab767f518",
-      "slug": "automatiker-in-per-steuerschrankmontage-sta-personal-ag-aarau",
+      "slug": "operatore-automatico-per-l-assemblaggio-dell-armadio-di-controllo-sta-personal-ag-aarau-aargau",
       "slugByLocale": {
         "de": "automatiker-in-fur-steuerschrankmontage-aarau-aargau-sta-ch",
-        "it": "automatiker-in-per-steuerschrankmontage-sta-personal-ag-aarau",
-        "en": "automatiker-in-fur-steuerschrankmontage-sta-personal-ag-aarau",
-        "fr": "automatiker-in-fur-steuerschrankmontage-sta-personal-ag-aarau"
+        "it": "operatore-automatico-per-l-assemblaggio-dell-armadio-di-controllo-sta-personal-ag-aarau-aargau",
+        "en": "automatic-operator-for-control-cabinet-assembly-sta-personal-ag-aarau-aargau",
+        "fr": "operateur-automatique-pour-l-assemblage-de-l-armoire-de-commande-sta-personal-ag-aarau-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -438,11 +448,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "automatiker-in-fur-steuerschrankmontage-aarau-aargau-sta-ch"
+          "automatiker-in-fur-steuerschrankmontage-aarau-aargau-sta-ch",
+          "automatiker-in-per-steuerschrankmontage-sta-personal-ag-aarau"
+        ],
+        "en": [
+          "automatiker-in-fur-steuerschrankmontage-sta-personal-ag-aarau"
+        ],
+        "fr": [
+          "automatiker-in-fur-steuerschrankmontage-sta-personal-ag-aarau"
         ]
       },
       "previousSlugs": [
-        "automatiker-in-fur-steuerschrankmontage-aarau-aargau-sta-ch"
+        "automatiker-in-fur-steuerschrankmontage-aarau-aargau-sta-ch",
+        "automatiker-in-per-steuerschrankmontage-sta-personal-ag-aarau",
+        "automatiker-in-fur-steuerschrankmontage-sta-personal-ag-aarau"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -793,12 +812,12 @@
     },
     {
       "id": "sta-88bf2f540c5a",
-      "slug": "anlagen-e-apparatebauer-in-con-mig-mag-tig-schweisskenntnissen-sta-personal-ag-luzern",
+      "slug": "produttori-di-impianti-e-apparecchi-con-capacita-di-saldatura-mig-mag-tig-sta-personal-ag-luzern-luzern",
       "slugByLocale": {
         "de": "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch",
-        "it": "anlagen-e-apparatebauer-in-con-mig-mag-tig-schweisskenntnissen-sta-personal-ag-luzern",
-        "en": "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch",
-        "fr": "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch"
+        "it": "produttori-di-impianti-e-apparecchi-con-capacita-di-saldatura-mig-mag-tig-sta-personal-ag-luzern-luzern",
+        "en": "plant-and-apparatus-manufacturers-with-mig-mag-tig-welding-skills-sta-personal-ag-luzern-luzern",
+        "fr": "fabricants-d-installations-et-d-appareils-possedant-des-competences-en-soudage-mig-mag-tig-sta-personal-ag-luzern-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -842,11 +861,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch",
+          "anlagen-e-apparatebauer-in-con-mig-mag-tig-schweisskenntnissen-sta-personal-ag-luzern"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch"
+        ],
+        "fr": [
           "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch"
         ]
       },
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch"
+        "anlagen-und-apparatebauer-in-mit-mig-mag-tig-schweisskenntnissen-luzern-luzern-sta-ch",
+        "anlagen-e-apparatebauer-in-con-mig-mag-tig-schweisskenntnissen-sta-personal-ag-luzern"
       ],
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -943,12 +970,12 @@
     },
     {
       "id": "sta-a7f4b0d9216f",
-      "slug": "anlagen-e-apparatebauer-in-come-collaboratore-trice-lasern-e-abkanten-sta-personal-ag-olten",
+      "slug": "produttori-di-impianti-e-apparecchi-come-laser-e-bordi-dei-dipendenti-sta-personal-ag-olten-solothurn",
       "slugByLocale": {
         "de": "anlagen-und-apparatebauer-in-als-mitarbeiter-lasern-und-abkanten-olten-solothurn-sta-ch",
-        "it": "anlagen-e-apparatebauer-in-come-collaboratore-trice-lasern-e-abkanten-sta-personal-ag-olten",
-        "en": "anlagen-und-apparatebauer-in-als-mitarbeiter-lasern-und-abkanten-sta-personal-ag-olten",
-        "fr": "anlagen-und-apparatebauer-in-als-mitarbeiter-lasern-und-abkanten-sta-personal-ag-olten"
+        "it": "produttori-di-impianti-e-apparecchi-come-laser-e-bordi-dei-dipendenti-sta-personal-ag-olten-solothurn",
+        "en": "plant-and-apparatus-manufacturers-as-employees-lasers-and-edges-sta-personal-ag-olten-solothurn",
+        "fr": "fabricants-d-installations-et-d-appareils-en-tant-qu-employes-lasers-et-bords-sta-personal-ag-olten-solothurn"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -992,11 +1019,20 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "anlagen-und-apparatebauer-in-als-mitarbeiter-lasern-und-abkanten-olten-solothurn-sta-ch"
+          "anlagen-und-apparatebauer-in-als-mitarbeiter-lasern-und-abkanten-olten-solothurn-sta-ch",
+          "anlagen-e-apparatebauer-in-come-collaboratore-trice-lasern-e-abkanten-sta-personal-ag-olten"
+        ],
+        "en": [
+          "anlagen-und-apparatebauer-in-als-mitarbeiter-lasern-und-abkanten-sta-personal-ag-olten"
+        ],
+        "fr": [
+          "anlagen-und-apparatebauer-in-als-mitarbeiter-lasern-und-abkanten-sta-personal-ag-olten"
         ]
       },
       "previousSlugs": [
-        "anlagen-und-apparatebauer-in-als-mitarbeiter-lasern-und-abkanten-olten-solothurn-sta-ch"
+        "anlagen-und-apparatebauer-in-als-mitarbeiter-lasern-und-abkanten-olten-solothurn-sta-ch",
+        "anlagen-e-apparatebauer-in-come-collaboratore-trice-lasern-e-abkanten-sta-personal-ag-olten",
+        "anlagen-und-apparatebauer-in-als-mitarbeiter-lasern-und-abkanten-sta-personal-ag-olten"
       ],
       "salaryMin": 68500,
       "salaryMax": 104000,
@@ -1172,12 +1208,12 @@
     },
     {
       "id": "sta-135f7d382628",
-      "slug": "maler-in-per-aussenfassaden-e-kantenschutz-sta-personal-ag-affoltern-am-albis",
+      "slug": "pittore-per-facciate-esterne-e-protezione-dei-bordi-sta-personal-ag-affoltern-am-albis-zurich",
       "slugByLocale": {
         "de": "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch",
-        "it": "maler-in-per-aussenfassaden-e-kantenschutz-sta-personal-ag-affoltern-am-albis",
-        "en": "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch",
-        "fr": "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch"
+        "it": "pittore-per-facciate-esterne-e-protezione-dei-bordi-sta-personal-ag-affoltern-am-albis-zurich",
+        "en": "painter-for-exterior-facades-and-edge-protection-sta-personal-ag-affoltern-am-albis-zurich",
+        "fr": "peintre-pour-facades-exterieures-et-protection-des-bords-sta-personal-ag-affoltern-am-albis-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -1221,11 +1257,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch",
+          "maler-in-per-aussenfassaden-e-kantenschutz-sta-personal-ag-affoltern-am-albis"
+        ],
+        "en": [
+          "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch"
+        ],
+        "fr": [
           "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch"
         ]
       },
       "previousSlugs": [
-        "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch"
+        "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch",
+        "maler-in-per-aussenfassaden-e-kantenschutz-sta-personal-ag-affoltern-am-albis"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

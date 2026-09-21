@@ -1452,7 +1452,7 @@
         "it": "direttore-portfolio-analytics-novartis-basel-city",
         "en": "director-portfolio-analytics-novartis-ch",
         "de": "direktor-portfolio-analytics-novartis-basel-city",
-        "fr": "director-portfolio-analytics-novartis-basel-city"
+        "fr": "directeur-analyse-de-portefeuille-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -1493,7 +1493,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "director-portfolio-analytics-novartis-ch",
-        "directeur-analyse-de-portefeuille-novartis-basel-city"
+        "director-portfolio-analytics-novartis-basel-city"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1504,7 +1504,7 @@
         ],
         "fr": [
           "director-portfolio-analytics-novartis-ch",
-          "directeur-analyse-de-portefeuille-novartis-basel-city"
+          "director-portfolio-analytics-novartis-basel-city"
         ]
       },
       "firstSeenAt": "2026-08-28T05:26:31.040Z",
@@ -2898,7 +2898,7 @@
         "en": "director-crm-du-strategy-engagement-80-100-novartis-ch",
         "it": "director-crm-du-strategy-engagement-80-100-novartis-ch",
         "de": "director-crm-du-strategy-engagement-80-100-novartis-ch",
-        "fr": "director-crm-du-strategy-engagement-80-100-novartis-ch"
+        "fr": "directeur-strategie-et-engagement-crm-du-80-100-novartis-basel"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -2957,12 +2957,12 @@
     },
     {
       "id": "novartis-54336a58f0bf",
-      "slug": "ad-patient-community-liaison-central-us-region-novartis-ch",
+      "slug": "ad-paziente-community-liaison-regione-centrale-degli-stati-uniti-novartis-basel",
       "slugByLocale": {
         "en": "ad-patient-community-liaison-central-us-region-novartis-ch",
-        "it": "ad-patient-community-liaison-central-us-region-novartis-ch",
+        "it": "ad-paziente-community-liaison-regione-centrale-degli-stati-uniti-novartis-basel",
         "de": "ad-patient-community-liaison-central-us-region-novartis-ch",
-        "fr": "ad-patient-community-liaison-central-us-region-novartis-ch"
+        "fr": "ad-liaison-patient-communaute-region-du-centre-des-etats-unis-novartis-basel"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3017,7 +3017,18 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-19T23:01:15.710Z"
+      "firstSeenAt": "2026-09-19T23:01:15.710Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ad-patient-community-liaison-central-us-region-novartis-ch"
+        ],
+        "fr": [
+          "ad-patient-community-liaison-central-us-region-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ad-patient-community-liaison-central-us-region-novartis-ch"
+      ]
     },
     {
       "id": "novartis-2da0786a310d",
@@ -3093,12 +3104,12 @@
     },
     {
       "id": "novartis-14244d887b82",
-      "slug": "data-science-ai-innovation-postdoctoral-fellow-in-machine-learning-for-chemical-synthesis",
+      "slug": "scienza-dei-dati-ai-innovation-fellow-postdoctoral-in-machine-learning-per-la-sintesi-chimica-e-la-prevenzione-della",
       "slugByLocale": {
         "en": "data-science-ai-innovation-postdoctoral-fellow-in-machine-learning-for-chemical-synthesis",
-        "it": "data-science-ai-innovation-postdoctoral-fellow-in-machine-learning-for-chemical-synthesis",
+        "it": "scienza-dei-dati-ai-innovation-fellow-postdoctoral-in-machine-learning-per-la-sintesi-chimica-e-la-prevenzione-della",
         "de": "data-science-ai-innovation-postdoctoral-fellow-in-machine-learning-for-chemical-synthesis",
-        "fr": "data-science-ai-innovation-postdoctoral-fellow-in-machine-learning-for-chemical-synthesis"
+        "fr": "science-des-donnees-et-innovation-de-l-ia-fellow-postdoctoral-en-apprentissage-automatique-pour-la-synthese-chimique-et"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3153,7 +3164,18 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-19T23:01:13.876Z"
+      "firstSeenAt": "2026-09-19T23:01:13.876Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "data-science-ai-innovation-postdoctoral-fellow-in-machine-learning-for-chemical-synthesis"
+        ],
+        "fr": [
+          "data-science-ai-innovation-postdoctoral-fellow-in-machine-learning-for-chemical-synthesis"
+        ]
+      },
+      "previousSlugs": [
+        "data-science-ai-innovation-postdoctoral-fellow-in-machine-learning-for-chemical-synthesis"
+      ]
     },
     {
       "id": "novartis-35087a2101fc",
@@ -3230,12 +3252,12 @@
     },
     {
       "id": "novartis-24c4dbcf4d6c",
-      "slug": "legal-counsel-global-procurement-dd-it-novartis-ch",
+      "slug": "avvocato-legale-global-procurement-dd-it-novartis-basel-city",
       "slugByLocale": {
         "en": "legal-counsel-global-procurement-dd-it-novartis-ch",
-        "it": "legal-counsel-global-procurement-dd-it-novartis-ch",
-        "de": "legal-counsel-global-procurement-dd-it-novartis-ch",
-        "fr": "legal-counsel-global-procurement-dd-it-novartis-ch"
+        "it": "avvocato-legale-global-procurement-dd-it-novartis-basel-city",
+        "de": "rechtsberater-globale-beschaffung-dd-it-novartis-basel-city",
+        "fr": "conseiller-juridique-achats-mondiaux-dd-ti-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3290,16 +3312,30 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-19T23:01:12.102Z"
+      "firstSeenAt": "2026-09-19T23:01:12.102Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "legal-counsel-global-procurement-dd-it-novartis-ch"
+        ],
+        "de": [
+          "legal-counsel-global-procurement-dd-it-novartis-ch"
+        ],
+        "fr": [
+          "legal-counsel-global-procurement-dd-it-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "legal-counsel-global-procurement-dd-it-novartis-ch"
+      ]
     },
     {
       "id": "novartis-004258e68c12",
-      "slug": "associate-expert-drug-supply-novartis-ch",
+      "slug": "alimentatore-di-droga-esperto-associato-novartis-basel-city",
       "slugByLocale": {
         "en": "associate-expert-drug-supply-novartis-ch",
-        "it": "associate-expert-drug-supply-novartis-ch",
-        "de": "associate-expert-drug-supply-novartis-ch",
-        "fr": "associate-expert-drug-supply-novartis-ch"
+        "it": "alimentatore-di-droga-esperto-associato-novartis-basel-city",
+        "de": "assoziierte-experten-drogenversorgung-novartis-basel-city",
+        "fr": "expert-associe-fourniture-de-medicaments-novartis-basel-city"
       },
       "company": "Novartis",
       "companyKey": "novartis",
@@ -3354,7 +3390,21 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-19T23:01:11.197Z"
+      "firstSeenAt": "2026-09-19T23:01:11.197Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "associate-expert-drug-supply-novartis-ch"
+        ],
+        "de": [
+          "associate-expert-drug-supply-novartis-ch"
+        ],
+        "fr": [
+          "associate-expert-drug-supply-novartis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "associate-expert-drug-supply-novartis-ch"
+      ]
     },
     {
       "id": "novartis-7b474cfb304b",

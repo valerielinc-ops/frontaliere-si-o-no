@@ -449,12 +449,12 @@
     },
     {
       "id": "stryker-7a2c7ac4f1ca",
-      "slug": "praktikum-im-bereich-quality-engineering-m-w-d-stryker-ch",
+      "slug": "stage-in-ingegneria-della-qualita-m-f-d-stryker-selzach",
       "slugByLocale": {
         "de": "praktikum-im-bereich-quality-engineering-m-w-d-stryker-ch",
-        "it": "praktikum-im-bereich-quality-engineering-m-w-d-stryker-ch",
-        "en": "praktikum-im-bereich-quality-engineering-m-w-d-stryker-ch",
-        "fr": "praktikum-im-bereich-quality-engineering-m-w-d-stryker-ch"
+        "it": "stage-in-ingegneria-della-qualita-m-f-d-stryker-selzach",
+        "en": "internship-in-quality-engineering-m-f-d-stryker-selzach",
+        "fr": "stage-en-ingenierie-de-qualite-h-f-d-stryker-selzach"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -510,16 +510,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:07:41.868Z"
+      "firstSeenAt": "2026-09-19T23:07:41.868Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikum-im-bereich-quality-engineering-m-w-d-stryker-ch"
+        ],
+        "en": [
+          "praktikum-im-bereich-quality-engineering-m-w-d-stryker-ch"
+        ],
+        "fr": [
+          "praktikum-im-bereich-quality-engineering-m-w-d-stryker-ch"
+        ]
+      },
+      "previousSlugs": [
+        "praktikum-im-bereich-quality-engineering-m-w-d-stryker-ch"
+      ]
     },
     {
       "id": "stryker-526944234199",
-      "slug": "praktikum-risorse-umane-risorse-umane-projektmanagement-stryker-selzach",
+      "slug": "internship-risorse-umane-hr-project-management-stryker-selzach",
       "slugByLocale": {
         "de": "praktikum-human-resources-hr-projektmanagement-stryker-ch",
-        "it": "praktikum-risorse-umane-risorse-umane-projektmanagement-stryker-selzach",
-        "en": "praktikum-human-resources-hr-projektmanagement-stryker-ch",
-        "fr": "praktikum-human-resources-hr-projektmanagement-stryker-ch"
+        "it": "internship-risorse-umane-hr-project-management-stryker-selzach",
+        "en": "internship-human-resources-hr-project-management-stryker-selzach",
+        "fr": "stage-gestion-de-projets-ressources-humaines-et-rh-stryker-selzach"
       },
       "company": "Stryker",
       "companyKey": "stryker",
@@ -578,11 +592,19 @@
       "firstSeenAt": "2026-09-19T23:07:41.126Z",
       "previousSlugsByLocale": {
         "it": [
+          "praktikum-human-resources-hr-projektmanagement-stryker-ch",
+          "praktikum-risorse-umane-risorse-umane-projektmanagement-stryker-selzach"
+        ],
+        "en": [
+          "praktikum-human-resources-hr-projektmanagement-stryker-ch"
+        ],
+        "fr": [
           "praktikum-human-resources-hr-projektmanagement-stryker-ch"
         ]
       },
       "previousSlugs": [
-        "praktikum-human-resources-hr-projektmanagement-stryker-ch"
+        "praktikum-human-resources-hr-projektmanagement-stryker-ch",
+        "praktikum-risorse-umane-risorse-umane-projektmanagement-stryker-selzach"
       ]
     },
     {

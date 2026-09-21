@@ -174,7 +174,7 @@
       "slug": "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld",
       "slugByLocale": {
         "it": "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld",
-        "en": "field-service-technician-m-w-d-bobst-germany-bielefeld",
+        "en": "automotive-technician-m-f-d-bobst-germany-bielefeld",
         "de": "field-service-technician-m-w-d-bobst-ch",
         "fr": "field-service-technician-m-f-d-bobst-germany-bielefeld"
       },
@@ -252,8 +252,7 @@
         "feldservicetechniker-m-w-d-bobst-germany-bielefeld",
         "tecnico-di-servizio-campo-m-f-d-bobst-germany-bielefeld",
         "technicien-de-service-sur-site-h-f-bobst-germany-bielefeld",
-        "field-service-technician-m-w-d-bobst-germany-bielefeld",
-        "automotive-technician-m-f-d-bobst-germany-bielefeld"
+        "field-service-technician-m-w-d-bobst-germany-bielefeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -263,7 +262,7 @@
         ],
         "en": [
           "field-service-technician-m-w-d-bobst-ch",
-          "automotive-technician-m-f-d-bobst-germany-bielefeld"
+          "field-service-technician-m-w-d-bobst-germany-bielefeld"
         ],
         "de": [
           "feldservicetechniker-m-w-d-bobst-germany-bielefeld"
@@ -293,7 +292,7 @@
       "slug": "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld-ca0680",
       "slugByLocale": {
         "it": "servizio-di-campo-tecnico-m-f-d-bobst-germany-bielefeld-ca0680",
-        "en": "field-service-technician-m-f-d-bobst-germany-bielefeld",
+        "en": "automotive-technician-m-f-d-bobst-germany-bielefeld-ca0680",
         "de": "field-service-technician-m-w-d-bobst-ch",
         "fr": "field-service-technicien-m-w-d-bobst-germany-bielefeld"
       },
@@ -372,7 +371,7 @@
         "servizio-tecnico-m-f-d-bobst-germany-bielefeld",
         "field-service-technician-bobst-germany-bielefeld",
         "field-service-technician-m-w-d-bobst-germany-bielefeld-ca0680",
-        "automotive-technician-m-f-d-bobst-germany-bielefeld-ca0680"
+        "field-service-technician-m-f-d-bobst-germany-bielefeld"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -384,7 +383,7 @@
         "en": [
           "field-service-technician-m-w-d-bobst-ch-2",
           "field-service-technician-m-w-d-bobst-germany-bielefeld-ca0680",
-          "automotive-technician-m-f-d-bobst-germany-bielefeld-ca0680"
+          "field-service-technician-m-f-d-bobst-germany-bielefeld"
         ]
       },
       "firstSeenAt": "2026-05-19T21:41:59.424Z",
@@ -1109,7 +1108,7 @@
         "it": "direttore-della-tecnologia-iot-bobst-switzerland-mex",
         "en": "iot-technology-director-bobst-ch",
         "de": "iot-technologiedirektor-bobst-switzerland-mex",
-        "fr": "iot-technology-director-bobst-switzerland-mex"
+        "fr": "directeur-de-la-technologie-iot-bobst-switzerland-mex"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -1174,7 +1173,6 @@
         "iot-technology-director-bobst-ch",
         "iot-technology-direktor-bobst-switzerland-mex",
         "iot-technology-direttore-bobst-switzerland-mex",
-        "directeur-de-la-technologie-iot-bobst-switzerland-mex",
         "iot-technology-director-bobst-switzerland-mex"
       ],
       "previousSlugsByLocale": {
@@ -1186,7 +1184,7 @@
           "iot-technology-direktor-bobst-switzerland-mex"
         ],
         "fr": [
-          "directeur-de-la-technologie-iot-bobst-switzerland-mex"
+          "iot-technology-director-bobst-switzerland-mex"
         ]
       },
       "firstSeenAt": "2026-07-03T21:32:40.522Z",
@@ -3420,12 +3418,12 @@
     },
     {
       "id": "bobst-e0ff6a7f44e1",
-      "slug": "new-way-of-working-manager-special-project-bobst-ch",
+      "slug": "nuovo-modo-di-gestire-il-lavoro-e-progetto-speciale-bobst-switzerland-mex",
       "slugByLocale": {
         "en": "new-way-of-working-manager-special-project-bobst-ch",
-        "it": "new-way-of-working-manager-special-project-bobst-ch",
+        "it": "nuovo-modo-di-gestire-il-lavoro-e-progetto-speciale-bobst-switzerland-mex",
         "de": "new-way-of-working-manager-special-project-bobst-ch",
-        "fr": "new-way-of-working-manager-special-project-bobst-ch"
+        "fr": "nouvelle-facon-de-travailler-gestionnaire-et-projet-special-bobst-switzerland-mex"
       },
       "company": "Bobst",
       "companyKey": "bobst",
@@ -3481,14 +3479,25 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-19T23:08:16.726Z"
+      "firstSeenAt": "2026-09-19T23:08:16.726Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "new-way-of-working-manager-special-project-bobst-ch"
+        ],
+        "fr": [
+          "new-way-of-working-manager-special-project-bobst-ch"
+        ]
+      },
+      "previousSlugs": [
+        "new-way-of-working-manager-special-project-bobst-ch"
+      ]
     },
     {
       "id": "bobst-a19a24184b89",
-      "slug": "field-service-technician-mechanical-sp-bobst-ch",
+      "slug": "servizio-di-campo-tecnico-meccanico-sp-bobst-usa-parsippany",
       "slugByLocale": {
         "en": "field-service-technician-mechanical-sp-bobst-ch",
-        "it": "field-service-technician-mechanical-sp-bobst-ch",
+        "it": "servizio-di-campo-tecnico-meccanico-sp-bobst-usa-parsippany",
         "de": "field-service-techniker-mechanical-sp-bobst-usa-parsippany",
         "fr": "field-service-technicien-mechanical-sp-bobst-usa-parsippany"
       },
@@ -3546,7 +3555,15 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-19T23:08:15.884Z"
+      "firstSeenAt": "2026-09-19T23:08:15.884Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "field-service-technician-mechanical-sp-bobst-ch"
+        ]
+      },
+      "previousSlugs": [
+        "field-service-technician-mechanical-sp-bobst-ch"
+      ]
     },
     {
       "id": "bobst-1a149cb2f47a",
@@ -3629,10 +3646,10 @@
     },
     {
       "id": "bobst-4d339b477ea5",
-      "slug": "field-service-technician-electrical-sp-bobst-ch",
+      "slug": "servizio-di-campo-tecnico-elettrico-sp-bobst-usa-parsippany",
       "slugByLocale": {
         "en": "field-service-technician-electrical-sp-bobst-ch",
-        "it": "field-service-technician-electrical-sp-bobst-ch",
+        "it": "servizio-di-campo-tecnico-elettrico-sp-bobst-usa-parsippany",
         "de": "field-service-techniker-electrical-sp-bobst-usa-parsippany",
         "fr": "field-service-technicien-electrical-sp-bobst-usa-parsippany"
       },
@@ -3690,7 +3707,15 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-19T23:08:13.635Z"
+      "firstSeenAt": "2026-09-19T23:08:13.635Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "field-service-technician-electrical-sp-bobst-ch"
+        ]
+      },
+      "previousSlugs": [
+        "field-service-technician-electrical-sp-bobst-ch"
+      ]
     },
     {
       "id": "bobst-4d8db0b4e002",

@@ -4011,12 +4011,12 @@
     },
     {
       "id": "spital-buelach-f766b9529471",
-      "slug": "stv-responsabile-finanzbuchhaltung-spital-bulach",
+      "slug": "capo-della-contabilita-finanziaria-spital-bulach-bulach",
       "slugByLocale": {
         "de": "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach",
-        "it": "stv-responsabile-finanzbuchhaltung-spital-bulach",
-        "en": "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach",
-        "fr": "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach"
+        "it": "capo-della-contabilita-finanziaria-spital-bulach-bulach",
+        "en": "head-of-financial-accounting-spital-bulach-bulach",
+        "fr": "chef-de-la-comptabilite-financiere-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4065,20 +4065,24 @@
           "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach",
           "stv-responsabile-finanzbuchhaltung-spital-bulach-k057g5",
           "stv-leiter-in-financial-accounting-spital-bulach-bulach",
-          "stv-leiter-en-comptabilite-financiere-spital-bulach-bulach"
+          "stv-leiter-en-comptabilite-financiere-spital-bulach-bulach",
+          "stv-responsabile-finanzbuchhaltung-spital-bulach"
         ],
         "en": [
-          "stv-leiter-in-financial-accounting-spital-bulach-bulach"
+          "stv-leiter-in-financial-accounting-spital-bulach-bulach",
+          "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach"
         ],
         "fr": [
-          "stv-leiter-en-comptabilite-financiere-spital-bulach-bulach"
+          "stv-leiter-en-comptabilite-financiere-spital-bulach-bulach",
+          "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach"
         ]
       },
       "previousSlugs": [
         "stv-leiter-in-finanzbuchhaltung-spital-buelach-bulach",
         "stv-responsabile-finanzbuchhaltung-spital-bulach-k057g5",
         "stv-leiter-in-financial-accounting-spital-bulach-bulach",
-        "stv-leiter-en-comptabilite-financiere-spital-bulach-bulach"
+        "stv-leiter-en-comptabilite-financiere-spital-bulach-bulach",
+        "stv-responsabile-finanzbuchhaltung-spital-bulach"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -4097,12 +4101,12 @@
     },
     {
       "id": "spital-buelach-ff8f872d5e69",
-      "slug": "mpa-pflegefachperson-urologie-spital-buelach-bulach",
+      "slug": "urologia-praticante-mpa-nurse-spital-bulach-bulach",
       "slugByLocale": {
         "de": "mpa-pflegefachperson-urologie-spital-buelach-bulach",
-        "it": "mpa-pflegefachperson-urologie-spital-buelach-bulach",
-        "en": "mpa-pflegefachperson-urologie-spital-buelach-bulach",
-        "fr": "mpa-pflegefachperson-urologie-spital-buelach-bulach"
+        "it": "urologia-praticante-mpa-nurse-spital-bulach-bulach",
+        "en": "mpa-nurse-practitioner-urology-spital-bulach-bulach",
+        "fr": "mpa-infirmiere-praticien-urologie-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4159,16 +4163,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:14:19.220Z"
+      "firstSeenAt": "2026-09-19T23:14:19.220Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mpa-pflegefachperson-urologie-spital-buelach-bulach"
+        ],
+        "en": [
+          "mpa-pflegefachperson-urologie-spital-buelach-bulach"
+        ],
+        "fr": [
+          "mpa-pflegefachperson-urologie-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "mpa-pflegefachperson-urologie-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-5e732a7150cb",
-      "slug": "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach",
+      "slug": "sottosegretario-medico-mpa-cardiologia-spital-bulach-bulach",
       "slugByLocale": {
         "de": "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach",
-        "it": "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach",
-        "en": "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach",
-        "fr": "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach"
+        "it": "sottosegretario-medico-mpa-cardiologia-spital-bulach-bulach",
+        "en": "medical-secretary-mpa-cardiology-spital-bulach-bulach",
+        "fr": "secretaire-medical-map-cardiologie-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4225,16 +4243,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:14:19.216Z"
+      "firstSeenAt": "2026-09-19T23:14:19.216Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach"
+        ],
+        "en": [
+          "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach"
+        ],
+        "fr": [
+          "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "arztsekretar-in-mpa-kardiologie-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-807aee77bf04",
-      "slug": "fachperson-gesundheit-privatstation-spital-buelach-bulach",
+      "slug": "stazione-privata-specializzata-spital-bulach-bulach",
       "slugByLocale": {
         "de": "fachperson-gesundheit-privatstation-spital-buelach-bulach",
-        "it": "fachperson-gesundheit-privatstation-spital-buelach-bulach",
-        "en": "fachperson-gesundheit-privatstation-spital-buelach-bulach",
-        "fr": "fachperson-gesundheit-privatstation-spital-buelach-bulach"
+        "it": "stazione-privata-specializzata-spital-bulach-bulach",
+        "en": "specialist-health-private-station-spital-bulach-bulach",
+        "fr": "station-privee-specialisee-en-sante-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4294,33 +4326,37 @@
       "firstSeenAt": "2026-09-19T23:14:19.212Z",
       "previousSlugsByLocale": {
         "it": [
-          "salute-professionale-geriatria-acuta-spital-bulach-bulach"
+          "salute-professionale-geriatria-acuta-spital-bulach-bulach",
+          "fachperson-gesundheit-privatstation-spital-buelach-bulach"
         ],
         "en": [
-          "professional-health-acute-geriatrics-spital-bulach-bulach"
+          "professional-health-acute-geriatrics-spital-bulach-bulach",
+          "fachperson-gesundheit-privatstation-spital-buelach-bulach"
         ],
         "de": [
           "fachperson-gesundheit-akutgeriatrie-spital-buelach-bulach"
         ],
         "fr": [
-          "sante-professionnelle-geriatrie-aigue-spital-bulach-bulach"
+          "sante-professionnelle-geriatrie-aigue-spital-bulach-bulach",
+          "fachperson-gesundheit-privatstation-spital-buelach-bulach"
         ]
       },
       "previousSlugs": [
         "salute-professionale-geriatria-acuta-spital-bulach-bulach",
         "professional-health-acute-geriatrics-spital-bulach-bulach",
         "fachperson-gesundheit-akutgeriatrie-spital-buelach-bulach",
-        "sante-professionnelle-geriatrie-aigue-spital-bulach-bulach"
+        "sante-professionnelle-geriatrie-aigue-spital-bulach-bulach",
+        "fachperson-gesundheit-privatstation-spital-buelach-bulach"
       ]
     },
     {
       "id": "spital-buelach-4eff5f432641",
-      "slug": "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach",
+      "slug": "professional-trainer-emergency-dipl-expert-emergency-nds-spital-bulach-bulach",
       "slugByLocale": {
         "de": "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach",
-        "it": "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach",
+        "it": "professional-trainer-emergency-dipl-expert-emergency-nds-spital-bulach-bulach",
         "en": "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach",
-        "fr": "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach"
+        "fr": "entraineur-professionnel-emergency-dipl-expert-emergency-nds-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4377,16 +4413,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:14:19.209Z"
+      "firstSeenAt": "2026-09-19T23:14:19.209Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach"
+        ],
+        "fr": [
+          "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-notfall-dipl-expert-in-notfall-nds-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-57a3263f4672",
-      "slug": "leitung-einkauf-amp-logistik-spital-buelach-bulach",
+      "slug": "responsabile-acquisti-e-logistica-spital-bulach-bulach",
       "slugByLocale": {
         "de": "leitung-einkauf-amp-logistik-spital-buelach-bulach",
-        "it": "leitung-einkauf-amp-logistik-spital-buelach-bulach",
-        "en": "leitung-einkauf-amp-logistik-spital-buelach-bulach",
-        "fr": "leitung-einkauf-amp-logistik-spital-buelach-bulach"
+        "it": "responsabile-acquisti-e-logistica-spital-bulach-bulach",
+        "en": "head-of-purchasing-logistics-spital-bulach-bulach",
+        "fr": "responsable-des-achats-et-de-la-logistique-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4443,16 +4490,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:14:19.206Z"
+      "firstSeenAt": "2026-09-19T23:14:19.206Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-einkauf-amp-logistik-spital-buelach-bulach"
+        ],
+        "en": [
+          "leitung-einkauf-amp-logistik-spital-buelach-bulach"
+        ],
+        "fr": [
+          "leitung-einkauf-amp-logistik-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-einkauf-amp-logistik-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-116bb6df22a5",
-      "slug": "hebamme-spital-buelach-bulach",
+      "slug": "mutua-spital-bulach-bulach",
       "slugByLocale": {
         "de": "hebamme-spital-buelach-bulach",
-        "it": "hebamme-spital-buelach-bulach",
-        "en": "hebamme-spital-buelach-bulach",
-        "fr": "hebamme-spital-buelach-bulach"
+        "it": "mutua-spital-bulach-bulach",
+        "en": "midwife-spital-bulach-bulach",
+        "fr": "une-sage-femme-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4509,16 +4570,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:14:19.203Z"
+      "firstSeenAt": "2026-09-19T23:14:19.203Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hebamme-spital-buelach-bulach"
+        ],
+        "en": [
+          "hebamme-spital-buelach-bulach"
+        ],
+        "fr": [
+          "hebamme-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "hebamme-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-aca4aa2e507d",
-      "slug": "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach",
+      "slug": "tecnologia-tecnologia-dei-dispositivi-medici-assistente-di-sterilizzazione-spital-bulach-bulach",
       "slugByLocale": {
         "de": "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach",
-        "it": "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach",
-        "en": "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach",
-        "fr": "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach"
+        "it": "tecnologia-tecnologia-dei-dispositivi-medici-assistente-di-sterilizzazione-spital-bulach-bulach",
+        "en": "medical-device-technology-technology-sterilization-assistant-spital-bulach-bulach",
+        "fr": "technologie-des-dispositifs-medicaux-technologie-assistant-de-sterilisation-spital-bulach-bulach"
       },
       "company": "Spital Bülach",
       "companyKey": "spital-buelach",
@@ -4575,7 +4650,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:14:19.181Z"
+      "firstSeenAt": "2026-09-19T23:14:19.181Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach"
+        ],
+        "en": [
+          "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach"
+        ],
+        "fr": [
+          "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach"
+        ]
+      },
+      "previousSlugs": [
+        "medizinproduktetechnolog-in-techn-sterilisationsassistent-in-spital-buelach-bulach"
+      ]
     },
     {
       "id": "spital-buelach-298f7bcb6b2f",

@@ -361,7 +361,7 @@
       "crawledAt": "2026-09-19T22:58:10.683Z",
       "slugByLocale": {
         "it": "r-d-project-ingegnere-myinstrument-medacta-international-sa-rancate-mfntq9",
-        "en": "r-d-project-engineer-myinstrument-medacta-international-sa-rancate-mfntq9",
+        "en": "r-d-proect-medacta-international-sa-rancate",
         "de": "r-d-project-ingenieur-myinstrument-medacta-international-sa-rancate-mfntq9",
         "fr": "r-d-project-ingenieur-myinstrument-medacta-international-sa-rancate-mfntq9"
       },
@@ -371,10 +371,14 @@
       "previousSlugsByLocale": {
         "it": [
           "r-d-project-engineer-myinstrument-medacta-rancate"
+        ],
+        "en": [
+          "r-d-project-engineer-myinstrument-medacta-international-sa-rancate-mfntq9"
         ]
       },
       "previousSlugs": [
-        "r-d-project-engineer-myinstrument-medacta-rancate"
+        "r-d-project-engineer-myinstrument-medacta-rancate",
+        "r-d-project-engineer-myinstrument-medacta-international-sa-rancate-mfntq9"
       ],
       "salaryMin": 58000,
       "salaryMax": 88000,

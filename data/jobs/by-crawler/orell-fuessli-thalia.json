@@ -1696,12 +1696,12 @@
     },
     {
       "id": "orell-fuessli-thalia-65aaeaf8c4dc",
-      "slug": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
+      "slug": "libreria-70-90-a-orell-fussli-thalia-bern",
       "slugByLocale": {
         "de": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
-        "it": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern",
+        "it": "libreria-70-90-a-orell-fussli-thalia-bern",
         "en": "buchhandler-in-70-90-a-orell-fussli-thalia-bern",
-        "fr": "buchhandler-in-70-90-a-orell-fuessli-thalia-bern"
+        "fr": "librairie-70-90-a-orell-fussli-thalia-bern"
       },
       "company": "Orell Füssli Thalia",
       "companyKey": "orell-fuessli-thalia",
@@ -1759,7 +1759,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:57.952Z"
+      "firstSeenAt": "2026-09-19T23:11:57.952Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "buchhandler-in-70-90-a-orell-fuessli-thalia-bern"
+        ],
+        "fr": [
+          "buchhandler-in-70-90-a-orell-fuessli-thalia-bern"
+        ]
+      },
+      "previousSlugs": [
+        "buchhandler-in-70-90-a-orell-fuessli-thalia-bern"
+      ]
     }
   ]
 }

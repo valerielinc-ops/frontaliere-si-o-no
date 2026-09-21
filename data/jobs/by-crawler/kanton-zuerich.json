@@ -420,7 +420,6 @@
         "controller-in-kantonale-verwaltung-zurich",
         "certificates-controller-kantonale-verwaltung-zurich",
         "controleur-de-certificats-kantonale-verwaltung-zurich",
-        "aspirant-policier-kantonale-verwaltung-zurich-zurich",
         "polizeiaspirant-in-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
@@ -455,7 +454,6 @@
         "fr": [
           "polizeiaspirant-in-kantonale-verwaltung-zurich-zurich",
           "verwaltungssekretar-in-kantonale-verwaltung-zurich-8001-zurich",
-          "aspirant-policier-kantonale-verwaltung-zurich-zurich",
           "polizeiaspirant-in-kantonale-verwaltung-zurich"
         ]
       },
@@ -600,12 +598,12 @@
     },
     {
       "id": "kanton-zuerich-38af55051091",
-      "slug": "facharbeiter-in-autobahnunterhalt-kantonale-verwaltung-zurich-winterthur",
+      "slug": "manutenzione-autostradale-specializzata-kantonale-verwaltung-zurich-winterthur",
       "slugByLocale": {
         "de": "facharbeiter-in-autobahnunterhalt-kantonale-verwaltung-zurich-winterthur",
-        "it": "facharbeiter-in-autobahnunterhalt-kantonale-verwaltung-zurich-winterthur",
-        "en": "facharbeiter-in-autobahnunterhalt-kantonale-verwaltung-zurich-winterthur",
-        "fr": "facharbeiter-in-autobahnunterhalt-kantonale-verwaltung-zurich-winterthur"
+        "it": "manutenzione-autostradale-specializzata-kantonale-verwaltung-zurich-winterthur",
+        "en": "specialist-motorway-maintenance-kantonale-verwaltung-zurich-winterthur",
+        "fr": "entretien-specialise-des-autoroutes-kantonale-verwaltung-zurich-winterthur"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -654,14 +652,22 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "facharbeiter-in-autobahnunterhalt-kanton-zuerich-winterthur"
+          "facharbeiter-in-autobahnunterhalt-kanton-zuerich-winterthur",
+          "facharbeiter-in-autobahnunterhalt-kantonale-verwaltung-zurich-winterthur"
         ],
         "de": [
           "facharbeiter-in-autobahnunterhalt-kanton-zuerich-winterthur"
+        ],
+        "en": [
+          "facharbeiter-in-autobahnunterhalt-kantonale-verwaltung-zurich-winterthur"
+        ],
+        "fr": [
+          "facharbeiter-in-autobahnunterhalt-kantonale-verwaltung-zurich-winterthur"
         ]
       },
       "previousSlugs": [
-        "facharbeiter-in-autobahnunterhalt-kanton-zuerich-winterthur"
+        "facharbeiter-in-autobahnunterhalt-kanton-zuerich-winterthur",
+        "facharbeiter-in-autobahnunterhalt-kantonale-verwaltung-zurich-winterthur"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -856,12 +862,12 @@
     },
     {
       "id": "kanton-zuerich-0295404ccec0",
-      "slug": "experte-in-konzern-controlling-kanton-zuerich-zurich",
+      "slug": "controllo-del-gruppo-di-esperti-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "experte-in-konzern-controlling-kanton-zuerich-zurich",
-        "it": "experte-in-konzern-controlling-kanton-zuerich-zurich",
+        "it": "controllo-del-gruppo-di-esperti-kantonale-verwaltung-zurich-zurich",
         "en": "experte-in-konzern-controlling-kantonale-verwaltung-zurich-zurich",
-        "fr": "experte-in-konzern-controlling-kanton-zuerich-zurich"
+        "fr": "controle-des-groupes-d-experts-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -921,7 +927,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:06:38.814Z"
+      "firstSeenAt": "2026-09-19T23:06:38.814Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "experte-in-konzern-controlling-kanton-zuerich-zurich"
+        ],
+        "fr": [
+          "experte-in-konzern-controlling-kanton-zuerich-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "experte-in-konzern-controlling-kanton-zuerich-zurich"
+      ]
     },
     {
       "id": "kanton-zuerich-a79e70189a2d",
@@ -1128,8 +1145,8 @@
       "slugByLocale": {
         "de": "sachbearbeiter-in-register-befristet-12-monate-kantonale-verwaltung-zurich-zurich",
         "it": "sachbearbeiter-in-register-befristet-12-monate-kantonale-verwaltung-zurich",
-        "en": "sachbearbeiter-in-register-befristet-12-monate-kantonale-verwaltung-zurich-zurich",
-        "fr": "sachbearbeiter-in-register-befristet-12-monate-kantonale-verwaltung-zurich-zurich"
+        "en": "case-officer-register-limited-12-months-kantonale-verwaltung-zurich-zurich",
+        "fr": "registre-des-fonctionnaires-limite-a-12-mois-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1182,10 +1199,17 @@
         ],
         "de": [
           "sachbearbeiter-in-register-befristet-12-monate-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-register-befristet-12-monate-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-register-befristet-12-monate-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-register-befristet-12-monate-kanton-zuerich-zurich"
+        "sachbearbeiter-in-register-befristet-12-monate-kanton-zuerich-zurich",
+        "sachbearbeiter-in-register-befristet-12-monate-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -1204,12 +1228,12 @@
     },
     {
       "id": "kanton-zuerich-956a00ab9d64",
-      "slug": "abteilungsassistenz-kantonale-verwaltung-zurich-zurich",
+      "slug": "assistenza-dipartimento-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "abteilungsassistenz-kantonale-verwaltung-zurich-zurich",
-        "it": "abteilungsassistenz-kantonale-verwaltung-zurich-zurich",
-        "en": "abteilungsassistenz-kantonale-verwaltung-zurich-zurich",
-        "fr": "abteilungsassistenz-kantonale-verwaltung-zurich-zurich"
+        "it": "assistenza-dipartimento-kantonale-verwaltung-zurich-zurich",
+        "en": "departmental-assistance-kantonale-verwaltung-zurich-zurich",
+        "fr": "aide-ministerielle-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -1258,14 +1282,22 @@
       "pensum": "60 - 80%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsassistenz-kanton-zuerich-zurich"
+          "abteilungsassistenz-kanton-zuerich-zurich",
+          "abteilungsassistenz-kantonale-verwaltung-zurich-zurich"
         ],
         "de": [
           "abteilungsassistenz-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "abteilungsassistenz-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "abteilungsassistenz-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "abteilungsassistenz-kanton-zuerich-zurich"
+        "abteilungsassistenz-kanton-zuerich-zurich",
+        "abteilungsassistenz-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -3193,7 +3225,6 @@
           "studentische-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich"
         ],
         "fr": [
-          "personnel-etudiant-kantonale-verwaltung-zurich-zurich",
           "studentische-r-mitarbeiter-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
@@ -4414,8 +4445,8 @@
       "slugByLocale": {
         "de": "berufsschullehrperson-mba-fur-den-berufskundlichen-unterricht-automatiker-in-18",
         "it": "berufsschullehrperson-mba-per-den-berufskundlichen-unterricht-automatiker-in-18-wochenlektionen-kantonale-verwaltung-zurich-uster",
-        "en": "berufsschullehrperson-mba-fur-den-berufskundlichen-unterricht-automatiker-in-18",
-        "fr": "berufsschullehrperson-mba-fur-den-berufskundlichen-unterricht-automatiker-in-18"
+        "en": "vocational-school-teacher-mba-for-vocational-teaching-automatic-18-weekly-lessons-kantonale-verwaltung-zurich-uster",
+        "fr": "professeur-d-ecole-professionnelle-mba-pour-l-enseignement-professionnel-automatique-18-cours-hebdomadaires-kantonale"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4464,6 +4495,12 @@
       "pensum": "69%",
       "previousSlugsByLocale": {
         "it": [
+          "berufsschullehrperson-mba-fur-den-berufskundlichen-unterricht-automatiker-in-18"
+        ],
+        "en": [
+          "berufsschullehrperson-mba-fur-den-berufskundlichen-unterricht-automatiker-in-18"
+        ],
+        "fr": [
           "berufsschullehrperson-mba-fur-den-berufskundlichen-unterricht-automatiker-in-18"
         ]
       },
@@ -4804,12 +4841,12 @@
     },
     {
       "id": "kanton-zuerich-cf5fe2c8ec68",
-      "slug": "verwaltungssekretar-in-kantonale-verwaltung-zurich-zurich",
+      "slug": "segretario-amministrativo-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "verwaltungssekretar-in-kantonale-verwaltung-zurich-zurich",
-        "it": "verwaltungssekretar-in-kantonale-verwaltung-zurich-zurich",
-        "en": "verwaltungssekretar-in-kantonale-verwaltung-zurich-zurich",
-        "fr": "verwaltungssekretar-in-kantonale-verwaltung-zurich-zurich"
+        "it": "segretario-amministrativo-kantonale-verwaltung-zurich-zurich",
+        "en": "administrative-secretary-kantonale-verwaltung-zurich-zurich",
+        "fr": "secretaire-administratif-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4858,14 +4895,22 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "it": [
-          "verwaltungssekretar-in-kanton-zuerich-zurich"
+          "verwaltungssekretar-in-kanton-zuerich-zurich",
+          "verwaltungssekretar-in-kantonale-verwaltung-zurich-zurich"
         ],
         "de": [
           "verwaltungssekretar-in-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "verwaltungssekretar-in-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "verwaltungssekretar-in-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "verwaltungssekretar-in-kanton-zuerich-zurich"
+        "verwaltungssekretar-in-kanton-zuerich-zurich",
+        "verwaltungssekretar-in-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -4888,8 +4933,8 @@
       "slugByLocale": {
         "de": "berufsschullehrperson-mba-fur-den-berufskundlichen-unterricht-automatiker-in-15",
         "it": "berufsschullehrperson-mba-per-den-berufskundlichen-unterricht-automatiker-in-15-wochenlektionen-kantonale-verwaltung-zurich-uster",
-        "en": "berufsschullehrperson-mba-fur-den-berufskundlichen-unterricht-automatiker-in-15",
-        "fr": "berufsschullehrperson-mba-fur-den-berufskundlichen-unterricht-automatiker-in-15"
+        "en": "vocational-school-teacher-mba-for-vocational-teaching-automatic-15-weekly-lessons-kantonale-verwaltung-zurich-uster",
+        "fr": "professeur-d-ecole-professionnelle-mba-pour-l-enseignement-professionnel-automatique-15-cours-hebdomadaires-kantonale"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -4938,6 +4983,12 @@
       "pensum": "57%",
       "previousSlugsByLocale": {
         "it": [
+          "berufsschullehrperson-mba-fur-den-berufskundlichen-unterricht-automatiker-in-15"
+        ],
+        "en": [
+          "berufsschullehrperson-mba-fur-den-berufskundlichen-unterricht-automatiker-in-15"
+        ],
+        "fr": [
           "berufsschullehrperson-mba-fur-den-berufskundlichen-unterricht-automatiker-in-15"
         ]
       },
@@ -5257,10 +5308,10 @@
     },
     {
       "id": "kanton-zuerich-69e3ed33a127",
-      "slug": "fachperson-administration-befristet-bis-31-12-2028-kantonale-verwaltung-zurich-meilen",
+      "slug": "amministrazione-specialistica-temporanea-fino-al-31-12-2028-kantonale-verwaltung-zurich-meilen",
       "slugByLocale": {
         "de": "fachperson-administration-befristet-bis-31-12-2028-kantonale-verwaltung-zurich-meilen",
-        "it": "fachperson-administration-befristet-bis-31-12-2028-kantonale-verwaltung-zurich-meilen",
+        "it": "amministrazione-specialistica-temporanea-fino-al-31-12-2028-kantonale-verwaltung-zurich-meilen",
         "en": "fachperson-administration-befristet-bis-31-12-2028-kanton-zuerich-meilen",
         "fr": "fachperson-administration-befristet-bis-31-12-2028-kanton-zuerich-meilen"
       },
@@ -5311,14 +5362,16 @@
       "pensum": "80%",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-administration-befristet-bis-31-12-2028-kanton-zuerich-meilen"
+          "fachperson-administration-befristet-bis-31-12-2028-kanton-zuerich-meilen",
+          "fachperson-administration-befristet-bis-31-12-2028-kantonale-verwaltung-zurich-meilen"
         ],
         "de": [
           "fachperson-administration-befristet-bis-31-12-2028-kanton-zuerich-meilen"
         ]
       },
       "previousSlugs": [
-        "fachperson-administration-befristet-bis-31-12-2028-kanton-zuerich-meilen"
+        "fachperson-administration-befristet-bis-31-12-2028-kanton-zuerich-meilen",
+        "fachperson-administration-befristet-bis-31-12-2028-kantonale-verwaltung-zurich-meilen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -5513,12 +5566,12 @@
     },
     {
       "id": "kanton-zuerich-c7a7bdfc8027",
-      "slug": "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-zurich",
+      "slug": "clerks-contabili-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-zurich",
-        "it": "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-zurich",
-        "en": "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-zurich",
-        "fr": "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-zurich"
+        "it": "clerks-contabili-kantonale-verwaltung-zurich-zurich",
+        "en": "accounting-clerks-kantonale-verwaltung-zurich-zurich",
+        "fr": "commis-comptables-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -5567,14 +5620,22 @@
       "pensum": "70 - 80%",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-rechnungswesen-kanton-zuerich-zurich"
+          "sachbearbeiter-in-rechnungswesen-kanton-zuerich-zurich",
+          "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-zurich"
         ],
         "de": [
           "sachbearbeiter-in-rechnungswesen-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-rechnungswesen-kanton-zuerich-zurich"
+        "sachbearbeiter-in-rechnungswesen-kanton-zuerich-zurich",
+        "sachbearbeiter-in-rechnungswesen-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6103,8 +6164,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-schuladministration-kantonale-verwaltung-zurich-8902-urdorf",
         "it": "collaboratore-trice-schuladministration-kantonale-verwaltung-zurich-8902-urdorf",
-        "en": "mitarbeiter-in-schuladministration-kantonale-verwaltung-zurich-8902-urdorf",
-        "fr": "mitarbeiter-in-schuladministration-kantonale-verwaltung-zurich-8902-urdorf"
+        "en": "school-administration-staff-kantonale-verwaltung-zurich-8902-urdorf",
+        "fr": "administration-scolaire-kantonale-verwaltung-zurich-8902-urdorf"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6157,10 +6218,17 @@
         ],
         "de": [
           "mitarbeiter-in-schuladministration-kanton-zuerich-8902-urdorf"
+        ],
+        "en": [
+          "mitarbeiter-in-schuladministration-kantonale-verwaltung-zurich-8902-urdorf"
+        ],
+        "fr": [
+          "mitarbeiter-in-schuladministration-kantonale-verwaltung-zurich-8902-urdorf"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-schuladministration-kanton-zuerich-8902-urdorf"
+        "mitarbeiter-in-schuladministration-kanton-zuerich-8902-urdorf",
+        "mitarbeiter-in-schuladministration-kantonale-verwaltung-zurich-8902-urdorf"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6471,12 +6539,12 @@
     },
     {
       "id": "kanton-zuerich-2d7658c8da1f",
-      "slug": "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-dietikon",
+      "slug": "manutenzione-stradale-kantonale-verwaltung-zurich-dietikon",
       "slugByLocale": {
         "de": "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-dietikon",
-        "it": "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-dietikon",
-        "en": "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-dietikon",
-        "fr": "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-dietikon"
+        "it": "manutenzione-stradale-kantonale-verwaltung-zurich-dietikon",
+        "en": "specialist-road-maintenance-kantonale-verwaltung-zurich-dietikon",
+        "fr": "entretien-routier-specialise-kantonale-verwaltung-zurich-dietikon"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6525,14 +6593,22 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "facharbeiter-in-strassenunterhalt-kanton-zuerich-dietikon"
+          "facharbeiter-in-strassenunterhalt-kanton-zuerich-dietikon",
+          "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-dietikon"
         ],
         "de": [
           "facharbeiter-in-strassenunterhalt-kanton-zuerich-dietikon"
+        ],
+        "en": [
+          "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-dietikon"
+        ],
+        "fr": [
+          "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-dietikon"
         ]
       },
       "previousSlugs": [
-        "facharbeiter-in-strassenunterhalt-kanton-zuerich-dietikon"
+        "facharbeiter-in-strassenunterhalt-kanton-zuerich-dietikon",
+        "facharbeiter-in-strassenunterhalt-kantonale-verwaltung-zurich-dietikon"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6643,12 +6719,12 @@
     },
     {
       "id": "kanton-zuerich-d17887c17cf1",
-      "slug": "betriebsangestellte-r-reinigung-kantonale-verwaltung-zurich-8600",
+      "slug": "lavoratori-pulizia-kantonale-verwaltung-zurich-8600",
       "slugByLocale": {
         "de": "betriebsangestellte-r-reinigung-kantonale-verwaltung-zurich-8600",
-        "it": "betriebsangestellte-r-reinigung-kantonale-verwaltung-zurich-8600",
-        "en": "betriebsangestellte-r-reinigung-kantonale-verwaltung-zurich-8600",
-        "fr": "betriebsangestellte-r-reinigung-kantonale-verwaltung-zurich-8600"
+        "it": "lavoratori-pulizia-kantonale-verwaltung-zurich-8600",
+        "en": "workers-cleaners-kantonale-verwaltung-zurich-8600",
+        "fr": "travailleurs-nettoyeurs-kantonale-verwaltung-zurich-8600"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6697,14 +6773,22 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "it": [
-          "betriebsangestellte-r-reinigung-kanton-zuerich-8600"
+          "betriebsangestellte-r-reinigung-kanton-zuerich-8600",
+          "betriebsangestellte-r-reinigung-kantonale-verwaltung-zurich-8600"
         ],
         "de": [
           "betriebsangestellte-r-reinigung-kanton-zuerich-8600"
+        ],
+        "en": [
+          "betriebsangestellte-r-reinigung-kantonale-verwaltung-zurich-8600"
+        ],
+        "fr": [
+          "betriebsangestellte-r-reinigung-kantonale-verwaltung-zurich-8600"
         ]
       },
       "previousSlugs": [
-        "betriebsangestellte-r-reinigung-kanton-zuerich-8600"
+        "betriebsangestellte-r-reinigung-kanton-zuerich-8600",
+        "betriebsangestellte-r-reinigung-kantonale-verwaltung-zurich-8600"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -6811,8 +6895,8 @@
       "slugByLocale": {
         "de": "berufsschullehrperson-mba-fur-das-fach-deutsch-16-wochenlektionen-kantonale-verwaltung-zurich-uster",
         "it": "berufsschullehrperson-mba-per-das-fach-deutsch-16-wochenlektionen-kantonale-verwaltung-zurich-uster",
-        "en": "berufsschullehrperson-mba-fur-das-fach-deutsch-16-wochenlektionen-kantonale-verwaltung-zurich-uster",
-        "fr": "berufsschullehrperson-mba-fur-das-fach-deutsch-16-wochenlektionen-kantonale-verwaltung-zurich-uster"
+        "en": "vocational-school-teacher-mba-for-the-subject-german-16-weekly-lessons-kantonale-verwaltung-zurich-uster",
+        "fr": "professeur-d-ecole-professionnelle-mba-pour-le-sujet-allemand-16-cours-hebdomadaires-kantonale-verwaltung-zurich-uster"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -6865,10 +6949,17 @@
         ],
         "de": [
           "berufsschullehrperson-mba-fur-das-fach-deutsch-16-wochenlektionen-kanton-zuerich-uster"
+        ],
+        "en": [
+          "berufsschullehrperson-mba-fur-das-fach-deutsch-16-wochenlektionen-kantonale-verwaltung-zurich-uster"
+        ],
+        "fr": [
+          "berufsschullehrperson-mba-fur-das-fach-deutsch-16-wochenlektionen-kantonale-verwaltung-zurich-uster"
         ]
       },
       "previousSlugs": [
-        "berufsschullehrperson-mba-fur-das-fach-deutsch-16-wochenlektionen-kanton-zuerich-uster"
+        "berufsschullehrperson-mba-fur-das-fach-deutsch-16-wochenlektionen-kanton-zuerich-uster",
+        "berufsschullehrperson-mba-fur-das-fach-deutsch-16-wochenlektionen-kantonale-verwaltung-zurich-uster"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -7213,8 +7304,8 @@
       "slugByLocale": {
         "de": "jurist-in-baurecht-kanton-zuerich-zurich",
         "it": "jurist-in-baurecht-kantonale-verwaltung-zurich-zurich",
-        "en": "jurist-in-baurecht-kanton-zuerich-zurich",
-        "fr": "jurist-in-baurecht-kanton-zuerich-zurich"
+        "en": "lawyer-baurecht-kantonale-verwaltung-zurich-zurich",
+        "fr": "avocat-baurecht-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -7263,6 +7354,12 @@
       "pensum": "60%",
       "previousSlugsByLocale": {
         "it": [
+          "jurist-in-baurecht-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "jurist-in-baurecht-kanton-zuerich-zurich"
+        ],
+        "fr": [
           "jurist-in-baurecht-kanton-zuerich-zurich"
         ]
       },
@@ -7655,7 +7752,6 @@
         "neuropsychologin-neuropsychologe-kanton-zuerich-zurich-altstetten",
         "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten",
         "neuropsychologist-neuropsychologist-kantonale-verwaltung-zurich-zurich",
-        "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
         "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
       ],
       "previousSlugsByLocale": {
@@ -7669,7 +7765,6 @@
         ],
         "fr": [
           "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-zurich-altstetten",
-          "neuropsychologue-neuropsychologue-kantonale-verwaltung-zurich-zurich-altstetten",
           "neuropsychologin-neuropsychologe-kantonale-verwaltung-zurich-altstetten"
         ]
       },
@@ -7694,8 +7789,8 @@
       "slugByLocale": {
         "de": "wissenschaftliche-r-mitarbeiter-in-mittelschulen-kantonale-verwaltung-zurich-zurich",
         "it": "wissenschaftliche-r-collaboratore-trice-mittelschulen-kantonale-verwaltung-zurich",
-        "en": "wissenschaftliche-r-mitarbeiter-in-mittelschulen-kantonale-verwaltung-zurich-zurich",
-        "fr": "wissenschaftliche-r-mitarbeiter-in-mittelschulen-kantonale-verwaltung-zurich-zurich"
+        "en": "scientific-employee-secondary-schools-kantonale-verwaltung-zurich-zurich",
+        "fr": "ecoles-secondaires-scientifiques-employes-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -7748,10 +7843,17 @@
         ],
         "de": [
           "wissenschaftliche-r-mitarbeiter-in-mittelschulen-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "wissenschaftliche-r-mitarbeiter-in-mittelschulen-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "wissenschaftliche-r-mitarbeiter-in-mittelschulen-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "wissenschaftliche-r-mitarbeiter-in-mittelschulen-kanton-zuerich-zurich"
+        "wissenschaftliche-r-mitarbeiter-in-mittelschulen-kanton-zuerich-zurich",
+        "wissenschaftliche-r-mitarbeiter-in-mittelschulen-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -9969,7 +10071,6 @@
       "previousSlugs": [
         "rektor-rektorin-kanton-zuerich-zurich",
         "rektor-rektorin-kantonale-verwaltung-zurich-zurich",
-        "rector-rector-kantonale-verwaltung-zurich-zurich",
         "rektor-rektorin-kantonale-verwaltung-zurich"
       ],
       "previousSlugsByLocale": {
@@ -9978,7 +10079,6 @@
         ],
         "en": [
           "rektor-rektorin-kantonale-verwaltung-zurich-zurich",
-          "rector-rector-kantonale-verwaltung-zurich-zurich",
           "rektor-rektorin-kantonale-verwaltung-zurich"
         ],
         "fr": [
@@ -10657,12 +10757,12 @@
     },
     {
       "id": "kanton-zuerich-d0cc72f495bb",
-      "slug": "abteilungsleiter-in-gesamtmobilitat-kantonale-verwaltung-zurich-zurich",
+      "slug": "capo-dipartimento-total-mobility-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "abteilungsleiter-in-gesamtmobilitat-kantonale-verwaltung-zurich-zurich",
-        "it": "abteilungsleiter-in-gesamtmobilitat-kantonale-verwaltung-zurich-zurich",
-        "en": "abteilungsleiter-in-gesamtmobilitat-kantonale-verwaltung-zurich-zurich",
-        "fr": "abteilungsleiter-in-gesamtmobilitat-kantonale-verwaltung-zurich-zurich"
+        "it": "capo-dipartimento-total-mobility-kantonale-verwaltung-zurich-zurich",
+        "en": "head-of-department-total-mobility-kantonale-verwaltung-zurich-zurich",
+        "fr": "chef-du-departement-mobilite-totale-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -10711,14 +10811,22 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "abteilungsleiter-in-gesamtmobilitat-kanton-zuerich-zurich"
+          "abteilungsleiter-in-gesamtmobilitat-kanton-zuerich-zurich",
+          "abteilungsleiter-in-gesamtmobilitat-kantonale-verwaltung-zurich-zurich"
         ],
         "de": [
           "abteilungsleiter-in-gesamtmobilitat-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "abteilungsleiter-in-gesamtmobilitat-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "abteilungsleiter-in-gesamtmobilitat-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "abteilungsleiter-in-gesamtmobilitat-kanton-zuerich-zurich"
+        "abteilungsleiter-in-gesamtmobilitat-kanton-zuerich-zurich",
+        "abteilungsleiter-in-gesamtmobilitat-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -12259,12 +12367,12 @@
     },
     {
       "id": "kanton-zuerich-be6c7124c5fd",
-      "slug": "fachverantwortliche-r-grundbildung-kv-co-leitung-kantonale-verwaltung-zurich-zurich",
+      "slug": "specialista-responsabile-dell-istruzione-di-base-kv-co-direzione-kantonale-verwaltung-zurich-zurich",
       "slugByLocale": {
         "de": "fachverantwortliche-r-grundbildung-kv-co-leitung-kantonale-verwaltung-zurich-zurich",
-        "it": "fachverantwortliche-r-grundbildung-kv-co-leitung-kantonale-verwaltung-zurich-zurich",
-        "en": "fachverantwortliche-r-grundbildung-kv-co-leitung-kantonale-verwaltung-zurich-zurich",
-        "fr": "fachverantwortliche-r-grundbildung-kv-co-leitung-kantonale-verwaltung-zurich-zurich"
+        "it": "specialista-responsabile-dell-istruzione-di-base-kv-co-direzione-kantonale-verwaltung-zurich-zurich",
+        "en": "specialist-responsible-for-basic-education-kv-co-direction-kantonale-verwaltung-zurich-zurich",
+        "fr": "specialiste-responsable-de-l-education-de-base-kv-codirection-kantonale-verwaltung-zurich-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12313,14 +12421,22 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-grundbildung-kv-co-leitung-kanton-zuerich-zurich"
+          "fachverantwortliche-r-grundbildung-kv-co-leitung-kanton-zuerich-zurich",
+          "fachverantwortliche-r-grundbildung-kv-co-leitung-kantonale-verwaltung-zurich-zurich"
         ],
         "de": [
           "fachverantwortliche-r-grundbildung-kv-co-leitung-kanton-zuerich-zurich"
+        ],
+        "en": [
+          "fachverantwortliche-r-grundbildung-kv-co-leitung-kantonale-verwaltung-zurich-zurich"
+        ],
+        "fr": [
+          "fachverantwortliche-r-grundbildung-kv-co-leitung-kantonale-verwaltung-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachverantwortliche-r-grundbildung-kv-co-leitung-kanton-zuerich-zurich"
+        "fachverantwortliche-r-grundbildung-kv-co-leitung-kanton-zuerich-zurich",
+        "fachverantwortliche-r-grundbildung-kv-co-leitung-kantonale-verwaltung-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -12519,12 +12635,12 @@
     },
     {
       "id": "kanton-zuerich-24ff3ebfce3d",
-      "slug": "senior-it-projektleiterin-it-projektleiter-kantonale-verwaltung-zurich-8050-zurich",
+      "slug": "senior-it-progetto-it-progetto-kantonale-verwaltung-zurich-8050-zurich",
       "slugByLocale": {
         "de": "senior-it-projektleiterin-it-projektleiter-kantonale-verwaltung-zurich-8050-zurich",
-        "it": "senior-it-projektleiterin-it-projektleiter-kantonale-verwaltung-zurich-8050-zurich",
-        "en": "senior-it-projektleiterin-it-projektleiter-kantonale-verwaltung-zurich-8050-zurich",
-        "fr": "senior-it-projektleiterin-it-projektleiter-kantonale-verwaltung-zurich-8050-zurich"
+        "it": "senior-it-progetto-it-progetto-kantonale-verwaltung-zurich-8050-zurich",
+        "en": "senior-it-projective-it-projective-kantonale-verwaltung-zurich-8050-zurich",
+        "fr": "senior-it-projectif-it-projectif-kantonale-verwaltung-zurich-8050-zurich"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -12573,14 +12689,22 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "senior-it-projektleiterin-it-projektleiter-kanton-zuerich-8050-zurich"
+          "senior-it-projektleiterin-it-projektleiter-kanton-zuerich-8050-zurich",
+          "senior-it-projektleiterin-it-projektleiter-kantonale-verwaltung-zurich-8050-zurich"
         ],
         "de": [
           "senior-it-projektleiterin-it-projektleiter-kanton-zuerich-8050-zurich"
+        ],
+        "en": [
+          "senior-it-projektleiterin-it-projektleiter-kantonale-verwaltung-zurich-8050-zurich"
+        ],
+        "fr": [
+          "senior-it-projektleiterin-it-projektleiter-kantonale-verwaltung-zurich-8050-zurich"
         ]
       },
       "previousSlugs": [
-        "senior-it-projektleiterin-it-projektleiter-kanton-zuerich-8050-zurich"
+        "senior-it-projektleiterin-it-projektleiter-kanton-zuerich-8050-zurich",
+        "senior-it-projektleiterin-it-projektleiter-kantonale-verwaltung-zurich-8050-zurich"
       ],
       "salaryMin": 121500,
       "salaryMax": 206500,
@@ -13511,7 +13635,6 @@
         "koch-kochin-kanton-zuerich-hinwil",
         "cuire-faire-cuire-kantonale-verwaltung-zurich-hinwil",
         "cuisinier-cuisiniere-kantonale-verwaltung-zurich-hinwil",
-        "cook-chef-kantonale-verwaltung-zurich-lindau",
         "koch-kochin-kantonale-verwaltung-zurich-lindau"
       ],
       "previousSlugsByLocale": {
@@ -13526,7 +13649,6 @@
         ],
         "en": [
           "koch-kochin-kantonale-verwaltung-zurich-hinwil",
-          "cook-chef-kantonale-verwaltung-zurich-lindau",
           "koch-kochin-kantonale-verwaltung-zurich-lindau"
         ],
         "de": [
@@ -13985,12 +14107,12 @@
     },
     {
       "id": "kanton-zuerich-028fcca6edf9",
-      "slug": "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-wadenswil",
+      "slug": "project-manager-riparazione-stradale-kantonale-verwaltung-zurich-wadenswil",
       "slugByLocale": {
         "de": "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-wadenswil",
-        "it": "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-wadenswil",
-        "en": "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-wadenswil",
-        "fr": "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-wadenswil"
+        "it": "project-manager-riparazione-stradale-kantonale-verwaltung-zurich-wadenswil",
+        "en": "project-manager-road-repair-kantonale-verwaltung-zurich-wadenswil",
+        "fr": "directeur-de-projet-kantonale-verwaltung-zurich-wadenswil"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -14039,14 +14161,22 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-strasseninstandsetzung-kanton-zuerich-wadenswil"
+          "projektleiter-in-strasseninstandsetzung-kanton-zuerich-wadenswil",
+          "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-wadenswil"
         ],
         "de": [
           "projektleiter-in-strasseninstandsetzung-kanton-zuerich-wadenswil"
+        ],
+        "en": [
+          "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-wadenswil"
+        ],
+        "fr": [
+          "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-wadenswil"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-strasseninstandsetzung-kanton-zuerich-wadenswil"
+        "projektleiter-in-strasseninstandsetzung-kanton-zuerich-wadenswil",
+        "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-wadenswil"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -14065,12 +14195,12 @@
     },
     {
       "id": "kanton-zuerich-55b47c45a5b1",
-      "slug": "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen",
+      "slug": "project-manager-riparazione-stradale-kantonale-verwaltung-zurich-kleinandelfingen",
       "slugByLocale": {
         "de": "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen",
-        "it": "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen",
-        "en": "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen",
-        "fr": "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen"
+        "it": "project-manager-riparazione-stradale-kantonale-verwaltung-zurich-kleinandelfingen",
+        "en": "project-manager-road-repair-kantonale-verwaltung-zurich-kleinandelfingen",
+        "fr": "directeur-de-projet-kantonale-verwaltung-zurich-kleinandelfingen"
       },
       "company": "Kantonale Verwaltung Zürich",
       "companyKey": "kanton-zuerich",
@@ -14119,14 +14249,22 @@
       "pensum": "80 - 100%",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen"
+          "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen",
+          "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen"
         ],
         "de": [
           "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen"
+        ],
+        "en": [
+          "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen"
+        ],
+        "fr": [
+          "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen"
+        "projektleiter-in-strasseninstandsetzung-kanton-zuerich-kleinandelfingen",
+        "projektleiter-in-strasseninstandsetzung-kantonale-verwaltung-zurich-kleinandelfingen"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -17683,7 +17821,6 @@
           "controleur-medical-kantonale-verwaltung-zurich-zurich",
           "medizincontroller-in-kantonale-verwaltung-zurich-zurich",
           "le-controleur-medical-kantonale-verwaltung-zurich-zurich",
-          "les-controleurs-medicaux-kantonale-verwaltung-zurich-zurich",
           "medizincontroller-in-kantonale-verwaltung-zurich"
         ]
       },
@@ -19003,7 +19140,6 @@
           "stage-de-protection-des-vegetaux-kantonale-verwaltung-zurich-lindau"
         ],
         "de": [
-          "praktikant-in-pflanzenschutz-kanton-zuerich-lindau",
           "praktikant-in-pflanzenschutz-kanton-zuerich-lindau-b4bpfn"
         ]
       },

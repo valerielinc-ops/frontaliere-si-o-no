@@ -3600,12 +3600,12 @@
     },
     {
       "id": "pbl-eb92425069cb",
-      "slug": "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal",
+      "slug": "team-leader-team-leader-residence-windspiel-50-80-m-f-d-psychiatrie-baselland-liestal",
       "slugByLocale": {
         "de": "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal",
-        "it": "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal",
+        "it": "team-leader-team-leader-residence-windspiel-50-80-m-f-d-psychiatrie-baselland-liestal",
         "en": "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal",
-        "fr": "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
+        "fr": "chef-d-equipe-chef-d-equipe-residence-windspiel-50-80-h-f-d-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -3661,16 +3661,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:00:10.721Z"
+      "firstSeenAt": "2026-09-19T23:00:10.721Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
+        ],
+        "fr": [
+          "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiterin-teamleiter-wohnheim-windspiel-50-80-m-w-d-pbl-liestal"
+      ]
     },
     {
       "id": "pbl-954f399a3a9a",
-      "slug": "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal",
+      "slug": "intern-m-f-d-80-nel-residenziale-windspiel-psychiatrie-baselland-liestal",
       "slugByLocale": {
         "de": "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal",
-        "it": "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal",
-        "en": "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal",
-        "fr": "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
+        "it": "intern-m-f-d-80-nel-residenziale-windspiel-psychiatrie-baselland-liestal",
+        "en": "intern-m-f-d-80-in-the-residential-windspiel-psychiatrie-baselland-liestal",
+        "fr": "stage-h-f-d-80-dans-le-windspiel-residentiel-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -3726,16 +3737,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:00:10.317Z"
+      "firstSeenAt": "2026-09-19T23:00:10.317Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
+        ],
+        "en": [
+          "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
+        ],
+        "fr": [
+          "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-praktikantin-m-w-d-80-im-wohnheim-windspiel-pbl-liestal"
+      ]
     },
     {
       "id": "pbl-9f8737f92aca",
-      "slug": "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal",
+      "slug": "pedagoga-sociale-pedagoga-sociale-hf-fh-m-f-d-50-80-psychiatrie-baselland-liestal",
       "slugByLocale": {
         "de": "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-pbl-liestal",
-        "it": "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal",
-        "en": "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal",
-        "fr": "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal"
+        "it": "pedagoga-sociale-pedagoga-sociale-hf-fh-m-f-d-50-80-psychiatrie-baselland-liestal",
+        "en": "social-pedagogue-social-pedagogue-hf-fh-m-f-d-50-80-psychiatrie-baselland-liestal",
+        "fr": "pedagogue-sociale-pedagogue-sociale-hf-fh-h-f-d-50-80-psychiatrie-baselland-liestal"
       },
       "company": "Psychiatrie Baselland",
       "companyKey": "pbl",
@@ -3780,11 +3805,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-pbl-liestal"
+          "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-pbl-liestal",
+          "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal"
+        ],
+        "en": [
+          "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal"
+        ],
+        "fr": [
+          "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal"
         ]
       },
       "previousSlugs": [
-        "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-pbl-liestal"
+        "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-pbl-liestal",
+        "sozialpadagogin-sozialpadagoge-hf-fh-m-w-d-50-80-psychiatrie-baselland-liestal"
       ],
       "salaryMin": 70400,
       "salaryMax": 98400,

@@ -1214,7 +1214,7 @@
       "slug": "responsabile-contratti-procurement-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "responsabile-contratti-procurement-stadler-rail-bussnang",
-        "en": "contract-manager-procurement-stadler-rail-bussnang",
+        "en": "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang",
         "de": "contract-manager-procurement-stadler-rail-ch",
         "fr": "gestion-des-marches-stadler-rail-bussnang"
       },
@@ -1259,8 +1259,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "contract-manager-procurement-stadler-rail-ch",
-        "contract-manager-procurement-stadler-rail-bussnang",
-        "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang"
+        "contract-manager-procurement-stadler-rail-bussnang"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -1268,7 +1267,7 @@
         ],
         "en": [
           "contract-manager-procurement-stadler-rail-ch",
-          "the-commission-s-proposal-is-not-yet-in-force-stadler-rail-bussnang"
+          "contract-manager-procurement-stadler-rail-bussnang"
         ],
         "fr": [
           "contract-manager-procurement-stadler-rail-bussnang"
@@ -11758,7 +11757,7 @@
       "slug": "specialista-in-migrazione-sap-stadler-rail-bussnang",
       "slugByLocale": {
         "it": "specialista-in-migrazione-sap-stadler-rail-bussnang",
-        "en": "migration-specialist-sap-stadler-rail-ch",
+        "en": "quality-assurance-specialist-sap-stadler-rail-bussnang",
         "de": "migration-specialist-sap-stadler-rail-ch",
         "fr": "specialiste-de-la-migration-sap-stadler-rail-bussnang"
       },
@@ -11809,6 +11808,9 @@
           "migration-specialist-sap-stadler-rail-ch"
         ],
         "fr": [
+          "migration-specialist-sap-stadler-rail-ch"
+        ],
+        "en": [
           "migration-specialist-sap-stadler-rail-ch"
         ]
       },
@@ -12601,8 +12603,8 @@
       "slugByLocale": {
         "de": "logistiker-in-efz-stadler-rail-ch",
         "it": "impiegata-impiegato-in-logistica-cfc-stadler-rail-winterthur",
-        "en": "logistiker-in-efz-stadler-rail-ch",
-        "fr": "logistiker-in-efz-stadler-rail-ch"
+        "en": "efz-logistics-stadler-rail-winterthur",
+        "fr": "efz-logistique-stadler-rail-winterthur"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -12648,6 +12650,12 @@
       "previousSlugsByLocale": {
         "it": [
           "logistiker-in-efz-stadler-rail-ch"
+        ],
+        "en": [
+          "logistiker-in-efz-stadler-rail-ch"
+        ],
+        "fr": [
+          "logistiker-in-efz-stadler-rail-ch"
         ]
       },
       "previousSlugs": [
@@ -12670,12 +12678,12 @@
     },
     {
       "id": "stadler-rail-ffd4713d393d",
-      "slug": "qs-wareneingangsprufer-in-100-stadler-rail-ch",
+      "slug": "qs-beni-in-arrivo-ispettore-100-stadler-rail-winterthur",
       "slugByLocale": {
         "de": "qs-wareneingangsprufer-in-100-stadler-rail-ch",
-        "it": "qs-wareneingangsprufer-in-100-stadler-rail-ch",
-        "en": "qs-wareneingangsprufer-in-100-stadler-rail-ch",
-        "fr": "qs-wareneingangsprufer-in-100-stadler-rail-ch"
+        "it": "qs-beni-in-arrivo-ispettore-100-stadler-rail-winterthur",
+        "en": "qs-goods-incoming-inspector-100-stadler-rail-winterthur",
+        "fr": "controle-des-marchandises-qs-100-stadler-rail-winterthur"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",
@@ -12731,7 +12739,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:21:11.563Z"
+      "firstSeenAt": "2026-09-19T23:21:11.563Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "qs-wareneingangsprufer-in-100-stadler-rail-ch"
+        ],
+        "en": [
+          "qs-wareneingangsprufer-in-100-stadler-rail-ch"
+        ],
+        "fr": [
+          "qs-wareneingangsprufer-in-100-stadler-rail-ch"
+        ]
+      },
+      "previousSlugs": [
+        "qs-wareneingangsprufer-in-100-stadler-rail-ch"
+      ]
     },
     {
       "id": "stadler-rail-ebbef4200660",
@@ -13359,7 +13381,7 @@
         "de": "lead-cyber-defense-security-operation-stadler-rail-ch",
         "it": "lead-cyber-defense-security-operation-stadler-rail-ch",
         "en": "lead-cyber-defense-security-operation-stadler-rail-ch",
-        "fr": "lead-cyber-defense-security-operation-stadler-rail-ch"
+        "fr": "diriger-l-operation-de-cyberdefense-et-de-securite-stadler-rail-bussnang"
       },
       "company": "Stadler Rail",
       "companyKey": "stadler-rail",

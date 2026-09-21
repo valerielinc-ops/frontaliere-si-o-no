@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spruengli-036b84971096",
-      "slug": "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon",
+      "slug": "dipendenti-di-produzione-cremepost-100-confiserie-sprungli-ag-dietikon",
       "slugByLocale": {
         "de": "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon",
-        "it": "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon",
-        "en": "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon",
-        "fr": "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon"
+        "it": "dipendenti-di-produzione-cremepost-100-confiserie-sprungli-ag-dietikon",
+        "en": "production-employees-cremepost-100-confiserie-sprungli-ag-dietikon",
+        "fr": "employes-de-production-cremepost-100-confiserie-sprungli-ag-dietikon"
       },
       "company": "Confiserie Sprüngli AG",
       "companyKey": "spruengli",
@@ -57,14 +57,22 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "produktionsmitarbeiter-in-cremeposten-100-spruengli-dietikon"
+          "produktionsmitarbeiter-in-cremeposten-100-spruengli-dietikon",
+          "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon"
         ],
         "de": [
           "produktionsmitarbeiter-in-cremeposten-100-spruengli-dietikon"
+        ],
+        "en": [
+          "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon"
+        ],
+        "fr": [
+          "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon"
         ]
       },
       "previousSlugs": [
-        "produktionsmitarbeiter-in-cremeposten-100-spruengli-dietikon"
+        "produktionsmitarbeiter-in-cremeposten-100-spruengli-dietikon",
+        "produktionsmitarbeiter-in-cremeposten-100-confiserie-sprungli-ag-dietikon"
       ],
       "salaryMin": 76000,
       "salaryMax": 102500,

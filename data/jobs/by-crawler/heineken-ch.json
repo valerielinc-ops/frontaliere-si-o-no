@@ -750,10 +750,10 @@
     {
       "id": "heineken-ch-a85de7fe0f2b",
       "jobReqId": "165451",
-      "slug": "technician-dbo-m-w-d-heineken-ch-denges",
+      "slug": "tecnico-dbo-m-f-d-heineken-switzerland-denges",
       "slugByLocale": {
         "de": "technician-dbo-m-w-d-heineken-ch-denges",
-        "it": "technician-dbo-m-w-d-heineken-ch-denges",
+        "it": "tecnico-dbo-m-f-d-heineken-switzerland-denges",
         "en": "technician-dbo-m-w-d-heineken-ch-denges",
         "fr": "technicien-dbo-m-w-d-heineken-switzerland-denges"
       },
@@ -808,7 +808,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:19.910Z"
+      "firstSeenAt": "2026-09-19T23:10:19.910Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "technician-dbo-m-w-d-heineken-ch-denges"
+        ]
+      },
+      "previousSlugs": [
+        "technician-dbo-m-w-d-heineken-ch-denges"
+      ]
     },
     {
       "id": "heineken-ch-5b1f13bcfca3",

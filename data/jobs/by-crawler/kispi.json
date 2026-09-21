@@ -3456,9 +3456,9 @@
     },
     {
       "id": "kispi-a0b2b8415424",
-      "slug": "disponentin-m-w-d-70-universitats-kinderspital-zurich",
+      "slug": "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
-        "it": "disponentin-m-w-d-70-universitats-kinderspital-zurich",
+        "it": "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich",
         "en": "disponentine-m-f-70-universitats-kinderspital-zurich-zurich",
         "de": "disponentin-m-w-70-kispi-zurich",
         "fr": "depontine-h-f-70-universitats-kinderspital-zurich-zurich"
@@ -3505,12 +3505,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "disponentin-m-w-70-kispi-zurich",
-        "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich"
+        "disponentin-m-w-d-70-universitats-kinderspital-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "disponentin-m-w-70-kispi-zurich",
-          "ampliamento-m-f-70-universitats-kinderspital-zurich-zurich"
+          "disponentin-m-w-d-70-universitats-kinderspital-zurich"
         ],
         "en": [
           "disponentin-m-w-70-kispi-zurich"
@@ -4265,12 +4265,12 @@
     },
     {
       "id": "kispi-73a96b35531c",
-      "slug": "praktikant-m-w-d-kommunikation-public-affairs-100-befristet-per-ein-jahr-universitats-kinderspital-zurich",
+      "slug": "intern-m-f-comunicazione-e-affari-pubblici-100-temporaneo-per-un-anno-universitats-kinderspital-zurich-zurich",
       "slugByLocale": {
         "de": "praktikant-m-w-kommunikation-public-affairs-100-befristet-fur-ein-jahr-kispi-zurich",
-        "it": "praktikant-m-w-d-kommunikation-public-affairs-100-befristet-per-ein-jahr-universitats-kinderspital-zurich",
-        "en": "praktikant-m-w-kommunikation-public-affairs-100-befristet-fur-ein-jahr-kispi-zurich",
-        "fr": "praktikant-m-w-kommunikation-public-affairs-100-befristet-fur-ein-jahr-kispi-zurich"
+        "it": "intern-m-f-comunicazione-e-affari-pubblici-100-temporaneo-per-un-anno-universitats-kinderspital-zurich-zurich",
+        "en": "intern-m-f-communication-public-affairs-100-temporary-for-one-year-universitats-kinderspital-zurich-zurich",
+        "fr": "stage-h-f-communication-affaires-publiques-100-temporaire-pour-un-an-universitats-kinderspital-zurich-zurich"
       },
       "company": "Universitäts-Kinderspital Zürich",
       "companyKey": "kispi",
@@ -4316,11 +4316,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "praktikant-m-w-kommunikation-public-affairs-100-befristet-fur-ein-jahr-kispi-zurich",
+          "praktikant-m-w-d-kommunikation-public-affairs-100-befristet-per-ein-jahr-universitats-kinderspital-zurich"
+        ],
+        "en": [
+          "praktikant-m-w-kommunikation-public-affairs-100-befristet-fur-ein-jahr-kispi-zurich"
+        ],
+        "fr": [
           "praktikant-m-w-kommunikation-public-affairs-100-befristet-fur-ein-jahr-kispi-zurich"
         ]
       },
       "previousSlugs": [
-        "praktikant-m-w-kommunikation-public-affairs-100-befristet-fur-ein-jahr-kispi-zurich"
+        "praktikant-m-w-kommunikation-public-affairs-100-befristet-fur-ein-jahr-kispi-zurich",
+        "praktikant-m-w-d-kommunikation-public-affairs-100-befristet-per-ein-jahr-universitats-kinderspital-zurich"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
