@@ -231,9 +231,10 @@ jobs:
 
           if [ "$blocked" != 'true' ]; then
             if [ "$vision_approved" = 'true' ]; then
+              # A stale approval must never survive a failed write. `set -e`
+              # makes this risk-policy step fail closed if removal is refused.
               gh issue edit "$ISSUE_NUMBER" --repo "$REPO" \
-                --remove-label "agent:vision-approved" \
-                || echo "::warning::label transitoria agent:vision-approved non rimossa; il verdetto VISION resta comunque vincolato a questo snapshot."
+                --remove-label "agent:vision-approved"
             fi
             exit 0
           fi

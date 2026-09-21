@@ -899,7 +899,7 @@ function main() {
       ? (d.note ? '' : 'Nessuna riga del registro «Decisioni del proprietario già prese» di `DECISIONS.md` riguarda i riferimenti citati nel corpo: verificato in questo run, non assunto.')
       : 'Il registro di `DECISIONS.md` non è stato leggibile in questo run, quindi il riconoscimento del registro non si è pronunciato (fail-open).';
     const autonomyNote = visionApproved && !comments.some((c) => String(c?.body || '').includes(VISION_AUTONOMY_MARKER))
-      ? `${VISION_AUTONOMY_MARKER}\n\nVISION.md **D1/D3/D5**: rientro deterministico e reversibile; F1/F7 resta evidenza per i gate runtime, non un veto di categoria.`
+      ? `${VISION_AUTONOMY_MARKER}\n\nVISION.md **D1/D3/D5**: rientro deterministico e reversibile; F1/F7 e control-plane restano veto nel risk gate runtime, e la label non è un bypass.`
       : '';
     const note = [
       `🔁 **Pre-pass deterministico dello sweep (zero-Claude)**: ${d.reason}. Questa issue torna nel ciclo autonomo invece di occupare un'azione del cap del run Claude settimanale.`,
