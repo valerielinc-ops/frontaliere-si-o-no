@@ -1,5 +1,5 @@
 /**
- * Regression guard for the redflag fixer round-cap identity lookup.
+ * Regression guard for the autonomous PR fixer round-cap identity lookup.
  *
  * Actions' `GITHUB_TOKEN` is an installation token: GitHub accepts it for
  * repository APIs but `GET /user` cannot return a user identity for it. The
@@ -12,24 +12,26 @@ import { readFileSync } from 'node:fs';
 import { join } from 'node:path';
 
 const ROOT = process.cwd();
-const FIXER = join(ROOT, '.github/workflows/pr-redflag-fixer.yml');
-const SOURCE = readFileSync(FIXER, 'utf8');
+const FIXERS = ['pr-redflag-fixer.yml', 'pr-redcheck-fixer.yml'];
 
-function roundGuardBlock(): string {
-  const start = SOURCE.indexOf('- name: Round cap + capability guard + tier');
-  const end = SOURCE.indexOf('- name: Configure git identity', start);
+function roundGuardBlock(source: string, fixer: string): string {
+  const start = source.indexOf('- name: Round cap + capability guard');
+  const end = source.indexOf('- name: Configure git identity', start);
   expect(start, 'round-cap guard must exist').toBeGreaterThanOrEqual(0);
-  expect(end, 'round-cap guard must end before git setup').toBeGreaterThan(start);
-  return SOURCE.slice(start, end);
+  expect(end, `${fixer}: round-cap guard must end before git setup`).toBeGreaterThan(start);
+  return source.slice(start, end);
 }
 
-describe('pr-redflag-fixer Actions token identity', () => {
-  it('does not probe /user with GITHUB_TOKEN before starting Claude', () => {
-    const guard = roundGuardBlock();
+describe('autonomous PR fixers Actions token identity', () => {
+  it('do not probe /user with GITHUB_TOKEN before starting Claude', () => {
+    for (const fixer of FIXERS) {
+      const source = readFileSync(join(ROOT, '.github/workflows', fixer), 'utf8');
+      const guard = roundGuardBlock(source, fixer);
 
-    expect(guard).toContain('GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}');
-    expect(guard).toContain("trusted_actor='github-actions[bot]'");
-    expect(guard).not.toContain(' api user ');
-    expect(guard).toContain('select((.user.login // "") == $actor)');
+      expect(guard, fixer).toContain('GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}');
+      expect(guard, fixer).toContain("trusted_actor='github-actions[bot]'");
+      expect(guard, fixer).not.toContain(' api user ');
+      expect(guard, fixer).toContain('select((.user.login // "") == $actor)');
+    }
   });
 });
