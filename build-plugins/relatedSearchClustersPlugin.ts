@@ -48,7 +48,7 @@ import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
 
 import { WriteCollector } from './batchWrite';
-import { BASE_URL, buildCanonicalBridgePage, replaceRobotsMeta } from './constants';
+import { BASE_URL, buildCanonicalBridgePage, countHtmlBodyWords, replaceRobotsMeta } from './constants';
 import { buildFlatBridgeFromSibling } from './flatHtmlRedirectPlugin';
 import { buildSeoPageHtml } from './shared/seoPageShell';
 import { buildLocaleAlternateBlock } from './shared/localeAlternateBlock';
@@ -81,6 +81,7 @@ import {
 } from '../services/clusterSearchSeed';
 import { isJunkSearchKeyword } from '../services/relatedSearchJunkTerms.mjs';
 import { isPromptPlaceholder } from '../scripts/lib/prompt-placeholder.mjs';
+import { ADSENSE_THIN_WORDS } from '../scripts/adsense-prereview-thresholds.mjs';
 import { stemSearchToken, stemHaystack } from '../services/searchStem.mjs';
 import { cantonSearchTokens } from '../services/cantonList';
 import {
@@ -2986,11 +2987,17 @@ export function renderClusterPage(inputs: PageInputs): PageOutput {
   // ~132 B × 180k cluster pages = ~24 MB on the dist artifact. The class
   // is loaded by the shared `seoStaticCssLink` that every cluster page
   // already imports — no extra request.
-  const bodyHtml = `<div class="related-search-cluster">
+  const bodyContentHtml = `<div class="related-search-cluster">
     <h1>${esc(headlineH1)}</h1>
     ${jobLinksHtml}
     ${seoContextBlock}
-    ${endOfContentMultiplexHtml({ indexable: true })}
+  `;
+  // The live AdSense audit classifies pages below ADSENSE_THIN_WORDS as thin.
+  // Do not add the manual multiplex slot to that class: Auto Ads still load
+  // through the shared page shell, while the static slot is the policy failure
+  // reproduced by issue #9244 on short, enriched cluster pages.
+  const bodyHtml = `${bodyContentHtml}
+    ${endOfContentMultiplexHtml({ indexable: countHtmlBodyWords(bodyContentHtml) >= ADSENSE_THIN_WORDS })}
   </div>`;
 
   // Cluster keywords can exceed 60+ chars when the candidate slug is a long
