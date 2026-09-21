@@ -113,6 +113,21 @@ describe('lastminute location normalization', () => {
     });
   });
 
+  it('does not invent addressCountry when the existing source row omitted it', () => {
+    const existing = {
+      location: 'Zürich',
+      addressLocality: 'Zürich',
+      addressRegion: 'ZH',
+      postalCode: '8001',
+      streetAddress: 'Bahnhofstrasse 1',
+      canton: 'ZH',
+      country: 'CH',
+    };
+
+    expect(syncLastminuteExistingLocation(existing, { location: 'Chiasso', canton: 'TI' })).toBe(true);
+    expect(existing).not.toHaveProperty('addressCountry');
+  });
+
   it('fails closed when the listing parser returns zero detail URLs', async () => {
     const fetchSpy = vi.spyOn(globalThis, 'fetch').mockResolvedValue(
       new Response('<html><body>challenge</body></html>', { status: 200 }),

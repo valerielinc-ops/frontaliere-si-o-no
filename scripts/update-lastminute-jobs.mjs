@@ -813,8 +813,7 @@ export function syncLastminuteExistingLocation(existing, detail) {
     || existing.addressLocality !== location
     || existing.addressRegion !== canton
     || existing.canton !== canton
-    || existing.country !== 'CH'
-    || existing.addressCountry !== 'CH';
+    || existing.country !== 'CH';
   if (!changed) return false;
 
   existing.location = location;
@@ -827,7 +826,9 @@ export function syncLastminuteExistingLocation(existing, detail) {
   existing.streetAddress = '';
   existing.canton = canton;
   existing.country = 'CH';
-  existing.addressCountry = 'CH';
+  // Do not stamp addressCountry at persist time (#5403/#5384): an undeclared
+  // country and a source-declared `CH` are different evidence. Consumers
+  // already fall back to `CH` when addressCountry is absent.
   return true;
 }
 

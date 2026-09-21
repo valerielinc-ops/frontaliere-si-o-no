@@ -183,7 +183,7 @@ jobs:
             // Literal headers required by REVIEW.md. Tolerate trailing text on the
             // same line (e.g. "## Non implementato (ancora)"); require start-of-line.
             const hasImpl = /^\s{0,3}#{2,3}\s+Implementato\b/im.test(body);
-            const hasNon  = /^\s{0,3}#{2,3}\s+Non implementato\b/im.test(body);
+            const hasNon  = /^\s{0,3}#{2,3}\s+Non implementato[^\n]*\(ancora\)/im.test(body);
             const missing = [];
             if (!hasImpl) missing.push('`## Implementato`');
             if (!hasNon)  missing.push('`## Non implementato (ancora)`');
@@ -269,6 +269,22 @@ jobs:
 
             const sectionViolations = [];
             const decisionViolations = [];
+            const stateViolations = [];
+            const STATE_PATTERNS = [
+              /\bin questa PR\b/i,
+              /\bPR\s+concatenat[ao]\s*#\s*\d+/i,
+              /\bper\s+scelta\b/i,
+              /\bby\s+construction\b/i,
+              /\bblocked\s*:\s*\S/i,
+              /(?:falso\s+positivo|false\s+positive)/iu,
+            ];
+            const hasLiteralState = (text) => {
+              const value = String(text || '');
+              if (/(?:^|\s)non\s+(?:è|sono|erano)\s+(?:un\s+|una\s+)?(?:falso\s+positivo|false\s+positive)\b/iu.test(value)) {
+                return STATE_PATTERNS.slice(0, -1).some((pattern) => pattern.test(value));
+              }
+              return STATE_PATTERNS.some((pattern) => pattern.test(value));
+            };
             if (hasImpl) {
               const implementedSection = extractSection(body, /^\s{0,3}#{2,3}\s+Implementato[^\n]*/im) ?? '';
               if (!hasMeaningfulContent(implementedSection)) {
@@ -284,16 +300,38 @@ jobs:
                   ? '`## Non implementato (ancora)` contiene solo bullet placeholder vuoti (`- `) non compilati.'
                   : '`## Non implementato (ancora)` è vuota.');
               }
+              const residualBullets = topLevelBullets(nonImplementedSection);
+              for (const bullet of residualBullets) {
+                if (/\bPR\s+concatenat[ao]\b/i.test(bullet.text)
+                  && !/\bPR\s+concatenat[ao]\s*#\s*\d+/i.test(bullet.text)) {
+                  stateViolations.push(
+                    `Voce ${bullet.index}: PR concatenata senza #N non è tracciabile.`,
+                  );
+                } else if (!hasLiteralState(bullet.text)) {
+                  stateViolations.push(
+                    `Voce ${bullet.index}: il bullet residuo non dichiara uno stato letterale `
+                    + '(in questa PR / PR concatenata #N / per scelta / by construction / blocked: <causa>).',
+                  );
+                }
+              }
+
               // Decision deferrals belong to the work-owed section. Keep the
               // source variable explicit: using the same short name as the
               // Implementato block made this gate easy to misread and review.
-              for (const bullet of topLevelBullets(nonImplementedSection)) {
+              for (const bullet of residualBullets) {
                 const decisionViolation = decisionDeferralViolation(bullet.text);
                 if (decisionViolation) {
                   decisionViolations.push(`Voce ${bullet.index}: ${decisionViolation}`);
                 }
               }
             }
+
+            // Keep the mask length-preserving: quoted examples and template comments
+            // are not claims, but their newlines must keep report line numbers stable.
+            const maskQuotedKeepLines = (t) => String(t || '').replace(
+              /```[\s\S]*?```|~~~[\s\S]*?~~~|<!--[\s\S]*?-->|`[^`\n]*`/g,
+              (m) => m.replace(/[^\n]/g, ' '),
+            );
 
             // --- 2) Multi-issue Closes on one line (GitHub closes only the first) ----
             // Mirror of scripts/lib/pr-body-closes-check.mjs (see tests). A closing
@@ -307,14 +345,48 @@ jobs:
               `\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b\\s*(${REF})((?:${SEP}${REF})+)`,
               'gi',
             );
-            const closesViolations = [];
-            body.split(/\r?\n/).forEach((line, i) => {
+            const ALL_REFS = new RegExp(REF, 'g');
+            const PENDING_CLOSE_RE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b\s*[:;,]?\s*$/i;
+            const QUALIFIED_REF_START_RE = /^\s*[\w.-]+\/[\w.-]+#\d+\b/;
+            const REF_START_RE = new RegExp(`^\\s*${REF}\\b`);
+            const isPendingCloseLine = (line) => PENDING_CLOSE_RE.test(String(line || '').trim());
+            const isClosingLine = (line) => {
+              const value = String(line || '').trim();
+              return isPendingCloseLine(value)
+                || /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b\s*(?:[\w.-]+\/[\w.-]+)?#\d+\s*$/i.test(value);
+            };
+            const lineHasMultiCloseViolation = (line, previousLine = '') => {
+              const current = String(line || '');
+              const previous = String(previousLine || '');
+              const continuation = previous
+                && REF_START_RE.test(current)
+                && isClosingLine(previous)
+                && (!QUALIFIED_REF_START_RE.test(current) || isPendingCloseLine(previous))
+                && !lineHasMultiCloseViolation(previous);
+              const source = continuation ? `${previous}\n${current}` : current;
               CHAIN.lastIndex = 0;
-              const m = CHAIN.exec(line);
-              if (!m) return;
-              const nums = (m[0].match(new RegExp(REF, 'g')) || [])
-                .map((r) => r.match(/#(\d+)/)[1]);
-              if (nums.length >= 2) closesViolations.push({ line: i + 1, text: line.trim(), nums });
+              const m = CHAIN.exec(source);
+              if (!m) return null;
+              const nums = [...m[0].matchAll(ALL_REFS)].map((r) => r[0].match(/#(\d+)/)[1]);
+              return nums.length >= 2 ? nums : null;
+            };
+            const maskedBody = maskQuotedKeepLines(body);
+            const maskedLines = maskedBody.split(/\r?\n/);
+            const rawBodyLines = body.split(/\r?\n/);
+            const closesViolations = [];
+            maskedLines.forEach((line, i) => {
+              const previousLine = i > 0 ? maskedLines[i - 1] : '';
+              const refs = lineHasMultiCloseViolation(line, previousLine);
+              if (!refs) return;
+              const continuesChain = previousLine
+                && REF_START_RE.test(line)
+                && isClosingLine(previousLine)
+                && (!QUALIFIED_REF_START_RE.test(line) || isPendingCloseLine(previousLine))
+                && !lineHasMultiCloseViolation(previousLine);
+              const text = continuesChain
+                ? `${(rawBodyLines[i - 1] ?? '').trim()} ${(rawBodyLines[i] ?? '').trim()}`.trim()
+                : (rawBodyLines[i] ?? line).trim();
+              closesViolations.push({ line: continuesChain ? i : i + 1, text, nums: refs });
             });
 
             // --- 2b) Closure intent expressed with a keyword GitHub ignores ---------
@@ -336,10 +408,6 @@ jobs:
             // body that merely DOCUMENTS the bug (this one, or the PR template) would
             // otherwise false-positive on itself. Newlines survive the mask (blanks
             // replace non-newline chars) so line numbers still point at the real line.
-            const maskQuotedKeepLines = (t) => String(t || '').replace(
-              /```[\s\S]*?```|~~~[\s\S]*?~~~|<!--[\s\S]*?-->|`[^`\n]*`/g,
-              (m) => m.replace(/[^\n]/g, ' '),
-            );
             const MD_GAP = '(?:[^\\S\\n]|[:*_`\\[])*';
             const EFFECTIVE_RE = new RegExp(`\\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\\b${MD_GAP}(${REF})`, 'gi');
             // The Italian verbs (measured recurrence) plus the English near-misses
@@ -358,13 +426,27 @@ jobs:
             // stays OPEN — the opposite of an intent. Without it this check tells
             // the author to close an issue the same sentence declares open.
             // `\p{L}` with `u`, not `\w`: `\w` is ASCII and `non è chiusa #849`
-            // broke the chain at the accent. The lookahead keeps `Non solo
-            // chiude #12` reportable — that phrasing concedes the closure.
-            const NEG_REPORT_RE = /\b(?:non|n[éè]|not|never|mai|senza|without)(?!\s+(?:solo|soltanto|only)\b)(?:\s+[\p{L}\p{N}_'’]+){0,2}\s*$/iu;
+            // broke the chain at the accent. `ne'` is the keyboard spelling of
+            // `né`; bare `ne` is an Italian pronoun and must not suppress a real
+            // closure intent. The lookahead keeps every `Non <concessive> ...`
+            // phrasing reportable because it concedes the closure.
+            const CONCESSIVE = '(?:solo|soltanto|solamente|unicamente|esclusivamente|semplicemente|meramente|puramente|only|just|merely|simply)';
+            const NEG_REPORT_RE = new RegExp(
+              `\\b(?:non|n(?:[éè]|e['’])|not|never|mai|senza|without)(?!\\s+${CONCESSIVE}\\b)` +
+              `(?:\\s+[\\p{L}\\p{N}_'’]+){0,2}\\s*$`,
+              'iu',
+            );
             const INTENT_FILLER = "(?:\\s+(?:da|by|the|la|il|lo|le|gli|l'|anche|definitivamente|finalmente|completamente|parzialmente))*";
             const INTENT_RE = new RegExp(`\\b(${INTENT_KW})\\b${INTENT_FILLER}${MD_GAP}(${REF})`, 'gi');
+            const EMPHASIS_RUN_RE = /[*_`]+/g;
+            const WORD_CHAR_RE = /[\p{L}\p{N}]/u;
+            const stripEmphasis = (value) => String(value || '').replace(EMPHASIS_RUN_RE, (run, at, whole) => {
+              const prev = whole[at - 1];
+              const next = whole[at + run.length];
+              return /^_+$/.test(run) && prev && next && WORD_CHAR_RE.test(prev) && WORD_CHAR_RE.test(next) ? '' : ' ';
+            }).replace(/[^\S\n]+/g, ' ');
 
-            const maskedBodyForIntent = maskQuotedKeepLines(body);
+            const maskedBodyForIntent = maskedBody;
             const willCloseRefs = new Set();
             for (const m of maskedBodyForIntent.matchAll(new RegExp(EFFECTIVE_RE.source, EFFECTIVE_RE.flags))) {
               willCloseRefs.add(m[1].toLowerCase());
@@ -375,13 +457,16 @@ jobs:
             maskedBodyForIntent.split(/\r?\n/).forEach((mline, i) => {
               for (const m of mline.matchAll(new RegExp(INTENT_RE.source, INTENT_RE.flags))) {
                 const ref = m[2];
-                const before = mline.slice(Math.max(0, m.index - 24), m.index);
+                const rawCurrent = rawBodyLinesForIntent[i] ?? mline;
+                const rawPrevious = rawBodyLinesForIntent[i - 1] ?? '';
+                const carry = rawPrevious.trim();
+                const before = stripEmphasis((carry ? `${carry} ` : '') + rawCurrent.slice(0, m.index));
                 if (PAST_REPORT_RE.test(before)) continue; // "già chiusa da #66" ≠ intent
                 if (NEG_REPORT_RE.test(before)) continue; // "non chiusi: #849" ≠ intent
                 if (willCloseRefs.has(ref.toLowerCase())) continue; // a real keyword already reaches it
                 if (intentReported.has(ref.toLowerCase())) continue; // one report per ref
                 intentReported.add(ref.toLowerCase());
-                intentViolations.push({ line: i + 1, text: (rawBodyLinesForIntent[i] ?? mline).trim(), ref, keyword: m[1] });
+                intentViolations.push({ line: i + 1, text: rawCurrent.trim(), ref, keyword: m[1] });
               }
             });
 
@@ -466,9 +551,7 @@ jobs:
             // we — otherwise a body that merely DISCUSSES `Closes #N` (docs, this very
             // PR, a fix-instruction example) false-positives. Real fixer closes are
             // plain text on their own line.
-            const bodyNoCode = body
-              .replace(/```[\s\S]*?```/g, ' ')
-              .replace(/`[^`\n]*`/g, ' ');
+            const bodyNoCode = maskedBody;
             // In-repo closing refs only (bare `#N`; owner/repo#N never auto-closes here).
             // `:?` tolerates the colon form `Closes: #N`, which GitHub also honours.
             const CLOSE_SINGLE = /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?)\b:?\s+#(\d+)\b/gi;
@@ -547,8 +630,8 @@ jobs:
             };
 
             // --- All-clear (violations) — advisories can still be present -----------
-            if (missing.length === 0 && sectionViolations.length === 0 && decisionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
-              const okBody = `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`
+            if (missing.length === 0 && sectionViolations.length === 0 && stateViolations.length === 0 && decisionViolations.length === 0 && closesViolations.length === 0 && intentViolations.length === 0 && aggregateCloseViolations.length === 0) {
+              const okBody = `${STICKY}\n✅ **PR-body contract OK** — sezioni obbligatorie presenti e compilate, stati residui dichiarati, nessun \`Closes\` multi-issue su una riga, nessuna keyword di chiusura inefficace, nessun \`Closes\` su follow-up aggregata.`
                 + (advisoryParts.length ? `\n\n${advisoryParts.join('\n\n')}` : '');
               // Solo un prior da aggiornare, oppure un advisory reale da segnalare per
               // la prima volta: un all-clear puro (nessun prior, nessun advisory) non
@@ -581,6 +664,17 @@ jobs:
                 `"Nessuno" (task completo, AGENTS.md #8) oppure elenca gli item residui con stato/next-step.`,
               );
               fails.push(`empty section(s): ${sectionViolations.length}`);
+            }
+            if (stateViolations.length) {
+              parts.push(
+                `🔴 **Stato residuo mancante o non tracciabile** — ogni bullet in ` +
+                `\`## Non implementato (ancora)\` deve dichiarare \`in questa PR\`, ` +
+                `\`PR concatenata #N\`, \`per scelta\`, \`by construction\` oppure ` +
+                `\`blocked: <causa>:\n\n` +
+                stateViolations.map((m) => `- ${m}`).join('\n') + '\n\n' +
+                'Un bullet `PR concatenata` senza numero non è tracciabile.',
+              );
+              fails.push(`residual state(s): ${stateViolations.join('; ')}`);
             }
             if (decisionViolations.length) {
               parts.push(

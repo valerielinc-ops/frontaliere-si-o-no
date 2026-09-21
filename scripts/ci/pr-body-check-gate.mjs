@@ -40,6 +40,7 @@ import {
 } from './lib/hook-target-cwd.mjs';
 // La tassonomia degli stati vive in UN posto solo: riscriverla qui produrrebbe
 // due copie che divergono al primo stato nuovo, in silenzio.
+import { checkClosesLines } from '../lib/pr-body-closes-check.mjs';
 import { bulletsWithoutState, checkPrBodySections, extractSection, filesUncitedInBody } from '../lib/pr-body-sections-check.mjs';
 
 const NON_IMPL_ANCORA_RE = /^[ \t]{0,3}#{2,3}[ \t]+Non[ \t]+implementato[^\n]*/im;
@@ -209,13 +210,15 @@ export function validatePrBody(body, options = {}) {
   // recover it. Historical readers keep the advisory default of the pure
   // section module; only new writes opt into this stronger contract.
   const result = checkPrBodySections(body, { ...options, strictDecisionDeferrals: true });
+  const closes = checkClosesLines(body);
   const stateWarnings = (result.warnings ?? []).filter(
     (warning) => warning.type === 'bullet-without-state',
   );
   return {
     ...result,
-    ok: result.ok && stateWarnings.length === 0,
-    violations: [...result.violations, ...stateWarnings],
+    closes,
+    ok: result.ok && closes.ok && stateWarnings.length === 0,
+    violations: [...result.violations, ...stateWarnings, ...closes.violations],
     warnings: (result.warnings ?? []).filter(
       (warning) => warning.type !== 'bullet-without-state',
     ),

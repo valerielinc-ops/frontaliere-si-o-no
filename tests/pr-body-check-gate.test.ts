@@ -143,6 +143,20 @@ describe('pr-body-check-gate hook (process behavior)', () => {
     expect(res.status).toBe(0);
   });
 
+  it('blocks an ineffective or multi-issue closing reference before the PR is created', () => {
+    const body = `${BOTH_HEADERS}\n\nCloses #12 #34\nChiude #56`;
+    const res = runGate(`gh pr create --title "x" --body '${body}'`);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/multi-ref-close/);
+    expect(res.stderr).toMatch(/ineffective-closing-keyword/);
+  });
+
+  it('allows one effective closing keyword per issue', () => {
+    const body = `${BOTH_HEADERS}\n\nCloses #12\nCloses #34`;
+    const res = runGate(`gh pr create --title "x" --body '${body}'`);
+    expect(res.status).toBe(0);
+  });
+
   it('still validates a corpus PR body while skipping the site-only diff advisory', () => {
     const cmd = `gh pr create --repo nanakokyobashi-rgb/frontaliere-articles --title "x" --body '${MISSING_NON}'`;
     const res = runGate(cmd);

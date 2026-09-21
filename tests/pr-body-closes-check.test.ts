@@ -114,6 +114,18 @@ describe('checkClosesLines — ineffective closing keyword', () => {
     expect(checkClosesLines('La issue è già chiusa da #849').ok).toBe(true);
   });
 
+  it('mantiene il contesto di negazione attraverso un soft-wrap e distingue né/ne\'', () => {
+    expect(checkClosesLines('Il bug non è\nchiuso: #849 resta aperta.').ok).toBe(true);
+    expect(checkClosesLines("Il fix ne' chiude #849 ne' risolve #850").ok).toBe(true);
+    expect(checkClosesLines('Il fix ne chiude #849').violations[0]?.ref).toBe('#849');
+  });
+
+  it('normalizza l’enfasi markdown prima delle guardie di negazione', () => {
+    expect(checkClosesLines('**non** chiude #849 resta aperta').ok).toBe(true);
+    expect(checkClosesLines('Il bug **non è** chiuso: #849').ok).toBe(true);
+    expect(checkClosesLines('**Non solo** chiude #12, ma anche altro').ok).toBe(false);
+  });
+
   it('mantiene NEG_REPORT_RE ancorata alla fine del prefisso', () => {
     const source = readFileSync(new URL('../scripts/lib/pr-body-closes-check.mjs', import.meta.url), 'utf8');
     const start = source.indexOf('const NEG_REPORT_RE');
