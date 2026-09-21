@@ -648,7 +648,7 @@
       "title": "STORE MANAGER 100% ( m,w,d)",
       "titleByLocale": {
         "it": "Direttore 100% (m,w,d)",
-        "en": "STORE MANAGER 100% ( m,w,d)",
+        "en": "Mr Manager 100% (m,w,d)",
         "de": "STORE MANAGER 100% ( m,w,d)",
         "fr": "GESTIONNAIRE À 100 % (m,w,d)"
       },
@@ -688,7 +688,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T12:35:25.243Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -2270,7 +2269,8 @@
       },
       "previousSlugs": [
         "fitting-modelle-tally-weijl-basel",
-        "modeles-d-ajustement-tally-weijl-basel"
+        "modeles-d-ajustement-tally-weijl-basel",
+        "fitting-models-tally-weijl-basel"
       ],
       "previousSlugsByLocale": {
         "de": [
@@ -2278,6 +2278,9 @@
         ],
         "fr": [
           "modeles-d-ajustement-tally-weijl-basel"
+        ],
+        "it": [
+          "fitting-models-tally-weijl-basel"
         ]
       },
       "firstSeenAt": "2026-04-13T11:23:39.249Z",

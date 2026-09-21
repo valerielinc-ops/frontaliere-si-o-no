@@ -662,7 +662,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:52:21.625Z"
+      "firstSeenAt": "2026-09-19T22:52:21.625Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "scienziato-clinico-sepsis-sobi-basel"
+        ],
+        "de": [
+          "klinischer-wissenschaftler-sepsis-sobi-basel"
+        ],
+        "fr": [
+          "scientifique-clinique-sepsis-sobi-basel"
+        ]
+      },
+      "previousSlugs": [
+        "scienziato-clinico-sepsis-sobi-basel",
+        "klinischer-wissenschaftler-sepsis-sobi-basel",
+        "scientifique-clinique-sepsis-sobi-basel"
+      ]
     },
     {
       "id": "sobi-f92897f1c98b",
@@ -850,7 +866,8 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "clinical-scientist-sepsis-sobi-basel"
+        "clinical-scientist-sepsis-sobi-basel",
+        "clinical-scientist-sepsis-sobi-basel-cepet8"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -863,7 +880,8 @@
           "clinical-scientist-sepsis-sobi-basel"
         ],
         "en": [
-          "clinical-scientist-sepsis-sobi-basel"
+          "clinical-scientist-sepsis-sobi-basel",
+          "clinical-scientist-sepsis-sobi-basel-cepet8"
         ]
       },
       "firstSeenAt": "2026-09-10T23:04:50.153Z",
