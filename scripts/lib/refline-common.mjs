@@ -478,7 +478,7 @@ export function createReflineParser(config) {
       const hints = structuredLocation || pickHints(listingWorkplace);
       const location = hints.city;
       const canton = hints.canton;
-      const postalCode = structuredLocation ? hints.postal : (hints.postal || defaultPostalCode);
+      const postalCode = hints.postal || defaultPostalCode;
 
       const description = detail.description && detail.description.split(/\s+/).length >= 40
         ? detail.description

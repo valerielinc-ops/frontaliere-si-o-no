@@ -35,6 +35,8 @@ const DETAIL_HTML = `<!doctype html>
   })}</script>
 </body></html>`;
 
+const DETAIL_HTML_WITHOUT_POSTAL = DETAIL_HTML.replace(/,"postalCode":"8887"/, '');
+
 afterEach(() => {
   vi.unstubAllGlobals();
 });
@@ -66,6 +68,24 @@ describe('Refline structured job location fallback', () => {
       addressLocality: 'Mels',
       addressRegion: 'SG',
       postalCode: '8887',
+    });
+  });
+
+  it('uses the configured safe postal fallback when structured location omits postalCode', async () => {
+    const listingHtml = `<a href="${DETAIL_URL}">Mitarbeiter:in Probenannahme</a>`;
+    const fetchMock = vi.fn(async (url: string) => (
+      String(url).startsWith('https://app.reflinejobs.io/1474/positions.html?lang=de')
+        ? htmlResponse(listingHtml)
+        : htmlResponse(DETAIL_HTML_WITHOUT_POSTAL)
+    ));
+    vi.stubGlobal('fetch', fetchMock);
+
+    const jobs = await fetchAllMedicsLaborJobs();
+
+    expect(jobs[0]).toMatchObject({
+      location: 'Mels',
+      canton: 'SG',
+      postalCode: '3001',
     });
   });
 
