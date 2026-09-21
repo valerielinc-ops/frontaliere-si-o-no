@@ -217,7 +217,7 @@ describe('generation-aware check selection used by the PR loop', () => {
 
     expect(latestCompletedRunSelectionByName([oldSuccess, newerPending], CURRENT_NAME).state)
       .toBe(RUN_SELECTION_STATES.PENDING);
-    expect(latestCompletedRunSelectionByName([skipped], CURRENT_NAME).state)
+    expect(latestCompletedRunSelectionByName([skipped], CURRENT_NAME, { excludeSkipped: true }).state)
       .toBe(RUN_SELECTION_STATES.PENDING);
     expect(latestCompletedRunSelectionByName([currentSuccess], CURRENT_NAME).run?.conclusion)
       .toBe('success');

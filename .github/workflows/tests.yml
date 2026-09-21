@@ -3561,7 +3561,7 @@ jobs:
         continue-on-error: true
         env:
           AUTOMERGE: ${{ job.status == 'success' && steps.review_gate.outputs.approved == 'true' && steps.resolve.outputs.pr_number != '' }}
-          AUTOREBASE: ${{ (job.status == 'success' && steps.review_gate.outputs.approved == 'true') || (steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure') }}
+          AUTOREBASE: ${{ (job.status == 'success' && steps.review_gate.outputs.approved == 'true') || (steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome != 'failure' && steps.review_gate.outcome == 'failure') }}
           PR_NUMBER: ${{ steps.resolve.outputs.pr_number }}
         run: |
           set -euo pipefail
