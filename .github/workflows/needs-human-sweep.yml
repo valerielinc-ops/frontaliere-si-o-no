@@ -89,6 +89,7 @@ jobs:
             /scripts/ci/
             /scripts/lib/
             /DECISIONS.md
+            /VISION.md
           sparse-checkout-cone-mode: false
         timeout-minutes: 10
 
@@ -155,6 +156,16 @@ jobs:
           GITHUB_REPOSITORY: ${{ github.repository }}
         run: node scripts/ci/mint-app-token.mjs
 
+      - name: Ensure VISION autonomy label (zero-Claude)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: >-
+          gh label create agent:vision-approved --repo "$REPO"
+          --color 5319E7
+          --description "Rientro automatico autorizzato dal contratto VISION.md"
+          --force
+
       - name: Pre-flight — Codex lane quota telemetry
         id: quota
         continue-on-error: true
@@ -195,7 +206,7 @@ jobs:
             1. Leggi body + commenti (`gh issue view N --json body,comments,labels`). Cerca PRIMA una decisione del proprietario già registrata (comando nel registro di DECISIONS.md): se c'è, la issue non è più una domanda — applicala.
             2. Classifica in UNA delle quattro:
                - **A — vero vicolo cieco tecnico**: NESSUN driver la copre, e non è un blocco di capacità (quello è B). Con «Sempre umano» rimossa questa classe dovrebbe essere quasi sempre vuota: prima di usarla, verifica che non sia semplicemente una decisione di prodotto/business che ORA il ciclo può prendere da sé citando D1-D8. Se davvero nessun driver risponde, NON toccare le label e aggiungila al digest formulando la domanda in modo DECIDIBILE.
-               - **B — capability/permessi**: era bloccata da una capacità che oggi esiste (scope `workflows` concesso via App quando `APP_TOKEN_WORKFLOWS=true`; il fixer ha tutti i tool incluso `curl` dal 2026-07-02; lo stadio di decomposizione esiste per le issue grandi). Commento che cita il driver o la capacità + `gh issue edit N --remove-label needs-human --remove-label fu-parked --add-label agent:fix-queued` (issue singola con causa chiara) oppure `--add-label agent:decompose-queued` (issue grande/contenitore: più cause o più target).
+               - **B — capability/permessi**: era bloccata da una capacità che oggi esiste (scope `workflows` concesso via App quando `APP_TOKEN_WORKFLOWS=true`; il fixer ha tutti i tool incluso `curl` dal 2026-07-02; lo stadio di decomposizione esiste per le issue grandi). Commento che cita il driver o la capacità + `gh issue edit N --remove-label needs-human --remove-label fu-parked --add-label agent:fix-queued --add-label agent:vision-approved` (issue singola con causa chiara) oppure `--add-label agent:decompose-queued` (issue grande/contenitore: più cause o più target). Per una issue riaperta nel fixer, includi anche `<!-- VISION_AUTONOMY: vision-v1 -->` nel commento: è il contratto auditabile del rientro automatico.
                - **C — claim scaduta**: il difetto descritto non esiste più (verificalo con la misura più economica che decide: un comando dal body, un grep sul codice, una gh api). Commento con la misura osservata e il comando che la riproduce, poi `gh issue close N`. Se NON riesci a misurare, NON chiudere: trattala come A o lasciala.
                - **D — parcheggiata giusta**: needs-human corretto ma già nel digest/registro (es. famiglia job-alert: `DECISIONS.md` dice di lasciarla stare). Non toccare nulla, non metterla nel digest di nuovo se già presente.
             3. VINCOLI: mai chiudere ciò che non hai misurato; mai toccare le issue che il registro di DECISIONS.md riserva (famiglia job-alert: #5705 e affini); mai rimuovere `agent:no-age-out`; un'issue con PR aperta collegata non si tocca.
