@@ -48,7 +48,7 @@
  * which then becomes the PERMANENT stored description (caught by
  * `audit-parser-quality.mjs` as a "too-short" thin description). `fetchPersonioJobs`
  * now backfills `descriptionHtml` from the detail page for exactly the
- * positions the feed left empty, via `fetchPersonioJobDetailDescription`
+ * positions the feed left empty, via `fetchPersonioJobDetailData`
  * (built on the shared `extractJobPostingDescription` JSON-LD extractor —
  * same helper Decathlon/Straumann use for the identical "listing carries
  * only metadata" pattern, AGENTS.md rule #6). Tenants whose feed already
@@ -57,7 +57,10 @@
 
 import { XMLParser } from 'fast-xml-parser';
 import { httpFetchWithRetry } from '../transient-fetch.mjs';
-import { extractJobPostingDescription } from '../jobposting-jsonld.mjs';
+import {
+  extractJobPostingAddress,
+  extractJobPostingDescription,
+} from '../jobposting-jsonld.mjs';
 
 /* ── Constants ───────────────────────────────────────────────── */
 
@@ -138,7 +141,7 @@ function concatJobDescriptions(rawPosition) {
  *   jobReqId: string, title: string, location: string, department: string,
  *   postedAt: string|null, applyUrl: string, descriptionHtml: string,
  *   employmentType: string, seniority: string, schedule: string,
- *   rawPosition: Object,
+ *   rawPosition: Object, locationDetail: Object|null,
  * }}
  */
 export function normalizePersonioJob(rawPosition, options = {}) {
@@ -165,25 +168,8 @@ export function normalizePersonioJob(rawPosition, options = {}) {
   };
 }
 
-/**
- * Fetch a Personio job detail page (`/job/{id}`) and pull the full
- * description out of its embedded schema.org/JobPosting JSON-LD `<script>`
- * block — the same SSR pattern Decathlon/Straumann use, see
- * `extractJobPostingDescription` doc in `jobposting-jsonld.mjs`.
- *
- * Used ONLY as a backfill for positions whose XML-feed `<jobDescriptions>`
- * came back empty (see module doc, #3497). Returns '' on any miss/failure
- * so the caller falls back to its own placeholder — never throws, this must
- * not fail the whole crawl over one detail page.
- *
- * @param {string} url public job detail URL (`normalizePersonioJob().applyUrl`)
- * @param {Object} [options]
- * @param {number} [options.timeoutMs] Default 20_000 ms.
- * @param {string} [options.userAgent] Default polite UA.
- * @returns {Promise<string>} raw HTML description (possibly with markup), or ''.
- */
-async function fetchPersonioJobDetailDescription(url, options = {}) {
-  if (!url) return '';
+async function fetchPersonioJobDetailData(url, options = {}) {
+  if (!url) return { descriptionHtml: '', locationDetail: null };
   const { timeoutMs = DEFAULT_TIMEOUT_MS, userAgent = POLITE_UA } = options;
   try {
     const res = await httpFetchWithRetry(
@@ -191,11 +177,14 @@ async function fetchPersonioJobDetailDescription(url, options = {}) {
       { headers: { 'User-Agent': userAgent, Accept: 'text/html' } },
       { timeout: timeoutMs, label: `personio detail ${url}` },
     );
-    if (!res.ok) return '';
+    if (!res.ok) return { descriptionHtml: '', locationDetail: null };
     const html = await res.text();
-    return extractJobPostingDescription(html);
+    return {
+      descriptionHtml: extractJobPostingDescription(html),
+      locationDetail: extractJobPostingAddress(html),
+    };
   } catch {
-    return ''; // network/timeout — caller falls back to its own placeholder
+    return { descriptionHtml: '', locationDetail: null };
   }
 }
 
@@ -257,7 +246,9 @@ export async function fetchPersonioJobs(subdomain, options = {}) {
   // existing Decathlon detail-page-fallback pattern (no artificial delay).
   for (const job of jobs) {
     if (job.descriptionHtml || !job.applyUrl) continue;
-    job.descriptionHtml = await fetchPersonioJobDetailDescription(job.applyUrl, { timeoutMs, userAgent });
+    const detail = await fetchPersonioJobDetailData(job.applyUrl, { timeoutMs, userAgent });
+    job.descriptionHtml = detail.descriptionHtml;
+    job.locationDetail = detail.locationDetail;
   }
 
   return jobs;

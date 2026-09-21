@@ -161,6 +161,9 @@ function detectEmploymentType(timeType = '', title = '') {
  * @param {string} [config.sector='Altro']
  * @param {string} [config.defaultSourceLang='en']
  * @param {string[]} [config.locationFilters] Override the Swiss country facet.
+ * @param {boolean} [config.preferJobRequisitionLocation=false] Use the
+ *   requisition's structured workplace when the tenant's public listing
+ *   location is a search/region label.
  */
 export function createWorkdaySwissParser(config) {
   const {
@@ -176,6 +179,7 @@ export function createWorkdaySwissParser(config) {
     sector = 'Altro',
     defaultSourceLang = 'en',
     locationFilters = WORKDAY_SWISS_LOCATION_IDS,
+    preferJobRequisitionLocation = false,
   } = config;
 
   if (!companyKey || !companyName || !tenantHost || !sitePath || !defaultCanton) {
@@ -318,11 +322,14 @@ export function createWorkdaySwissParser(config) {
         detail = null;
       }
       const detailInfo = detail?.jobPostingInfo || {};
+      const primaryLocationField = preferJobRequisitionLocation
+        ? detailInfo.jobRequisitionLocation
+        : detailInfo.location;
       const detailLocations = [
-        detailInfo.location,
+        primaryLocationField,
         ...(Array.isArray(detailInfo.additionalLocations) ? detailInfo.additionalLocations : []),
       ].map(locationDescriptor).filter(Boolean);
-      const detailLocation = resolveWorkdayPrimarySwissLocation(detailInfo);
+      const detailLocation = resolveWorkdayPrimarySwissLocation({ location: primaryLocationField });
       const detailIsForeignOnly = detailLocations.length > 0
         && !detailLocation
         && detailLocations.some((value) => isLocationExplicitlyForeign(value));
@@ -342,7 +349,7 @@ export function createWorkdaySwissParser(config) {
       // A primary that is PRESENT but unresolved is evidence about the req, not
       // an absence to be filled in: the only legitimate substitute is a primary
       // that genuinely is not there.
-      const primaryState = workdayPrimaryLocationState(detailInfo);
+      const primaryState = workdayPrimaryLocationState({ location: primaryLocationField });
       const mayFallBackToListing = !primaryState.present;
       const rawLocation = detailLocation || (mayFallBackToListing ? listingRawLocation : '');
       if (isLocationExplicitlyForeign(rawLocation)) {

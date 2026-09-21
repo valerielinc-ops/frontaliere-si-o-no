@@ -7,10 +7,12 @@
  * impressum) is Churerstrasse 135, 8808 Pfäffikon SZ (canton Schwyz) — NOT
  * Zürich. However the company's public Personio feed
  * (https://igroove.jobs.personio.de/xml, verified live) lists its current
- * open position's office as "Zürich Hybrid", so this crawler treats Zürich
- * ZH as the operational HQ fallback (see `scripts/lib/crawler-location-config.mjs`
- * `COMPANY_HQ.igroove` for the documented rationale). Volume is low (single
- * digit open positions observed) but built per issue #3337 backlog anyway.
+ * open position's office as "Zürich Hybrid". The detail page's structured
+ * address gives the physical locality (currently Pfäffikon SZ), which wins
+ * when available; Zürich ZH remains the operational fallback when the detail
+ * address is unavailable (see `scripts/lib/crawler-location-config.mjs`
+ * `COMPANY_HQ.igroove`). Volume is low (single digit open positions observed)
+ * but built per issue #3337 backlog anyway.
  *
  * All XML fetch/parse/normalization is delegated to the shared Personio
  * client (`./ats-clients/personio-client.mjs`) — this file only owns
@@ -28,7 +30,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
 import { fetchPersonioJobs } from './ats-clients/personio-client.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -136,22 +138,27 @@ function detectEmploymentType(text = '') {
 
 /**
  * Resolve the best city / postal code / street / region / canton from the
- * Personio `office` free-text field, falling back to the documented Zürich
- * HQ default when the field is empty or doesn't match a known Swiss target
- * location. Never drops a job just because the office string is unmapped.
+ * Personio `office` free-text field and, when present, its structured detail
+ * address. Fall back to the documented Zürich HQ default only when both
+ * signals are empty or unmapped. Never drops a job just because the office
+ * string is unmapped.
  */
-function resolveLocation(officeText = '') {
+function resolveLocation(officeText = '', locationDetail = null) {
   const office = normalizeSpace(officeText);
-  const canton = inferSwissTargetCanton(office) || HQ.canton;
-  const isHqCity = !office || /z[uü]rich/i.test(office);
+  const detailLocality = normalizeSpace(locationDetail?.locality || '');
+  const city = swissCityFromLocationField(detailLocality) || swissCityFromLocationField(office);
+  const resolvedLocation = city || detailLocality || office;
+  const canton = inferSwissTargetCanton(detailLocality || resolvedLocation) || HQ.canton;
+  const isHqCity = !resolvedLocation || /z[uü]rich/i.test(resolvedLocation);
+  const hasStructuredAddress = Boolean(detailLocality);
 
   return {
-    location: office || HQ.city,
-    city: isHqCity ? HQ.city : office,
+    location: resolvedLocation || HQ.city,
+    city: resolvedLocation || HQ.city,
     canton,
-    postalCode: isHqCity ? HQ.postalCode : '',
-    streetAddress: isHqCity ? HQ.streetAddress : '',
-    region: isHqCity ? HQ.region : canton,
+    postalCode: locationDetail?.postalCode || (isHqCity ? HQ.postalCode : ''),
+    streetAddress: locationDetail?.streetAddress || (isHqCity ? HQ.streetAddress : ''),
+    region: hasStructuredAddress ? canton : (isHqCity ? HQ.region : canton),
   };
 }
 
@@ -195,7 +202,10 @@ export async function fetchAllIgrooveJobs() {
     if (seen.has(publicUrl)) continue;
     seen.add(publicUrl);
 
-    const { location, city, canton, postalCode, streetAddress, region } = resolveLocation(listing.location);
+    const { location, city, canton, postalCode, streetAddress, region } = resolveLocation(
+      listing.location,
+      listing.locationDetail,
+    );
 
     const descriptionHtml = listing.descriptionHtml || '';
     const descriptionText = stripHtml(descriptionHtml);

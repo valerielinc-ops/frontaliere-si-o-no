@@ -284,6 +284,56 @@ describe('createWorkdaySwissParser — detail location wins over an N Locations 
   });
 });
 
+describe('createWorkdaySwissParser — requisition location override', () => {
+  const ORIGINAL_FETCH = global.fetch;
+
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  it('uses the structured requisition workplace when configured', async () => {
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Head of Medical Experts',
+            externalPath: '/job/Zug/Head-of-Medical-Experts_JR1',
+            locationsText: 'Zug',
+            postedOn: 'Posted Today',
+            bulletFields: ['JR1'],
+          }],
+        }), { status: 200 });
+      }
+      return new Response(JSON.stringify({
+        jobPostingInfo: {
+          location: 'Zug',
+          jobRequisitionLocation: { descriptor: 'Lausanne' },
+          jobDescription: '<p>Detailed role description with responsibilities, qualifications, team context, and practical application information.</p>',
+        },
+      }), { status: 200 });
+    });
+
+    const parser = createWorkdaySwissParser({
+      companyKey: 'galderma',
+      companyName: 'Galderma',
+      companyDomain: 'galderma.com',
+      tenantHost: 'galderma.wd3.myworkdayjobs.com',
+      sitePath: 'External',
+      defaultCanton: 'ZG',
+      defaultCity: 'Zug',
+      preferJobRequisitionLocation: true,
+    });
+
+    const jobs = await parser.fetchAllJobs();
+
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0]).toMatchObject({ location: 'Lausanne', canton: 'VD' });
+  });
+});
+
 describe('createWorkdaySwissParser — detail URL is required for vacancy identity', () => {
   const ORIGINAL_FETCH = global.fetch;
 
