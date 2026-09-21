@@ -8,7 +8,8 @@
       "slugByLocale": {
         "it": "direttore-del-progetto-non-it-iii-alpiq-switzerland",
         "de": "projektleiter-nicht-it-iii-alpiq-switzerland",
-        "fr": "gestionnaire-de-projet-non-ti-iii-alpiq-switzerland"
+        "fr": "gestionnaire-de-projet-non-ti-iii-alpiq-switzerland",
+        "en": "project-manager-non-it-iii-alpiq-switzerland"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",
@@ -115,7 +116,6 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-09-19T23:18:10.008Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:23:08.459Z",
       "salaryMin": 130000,
       "salaryMax": 198000,
@@ -129,8 +129,7 @@
           "maxValue": 198000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "alpiq-24db5dc75d88",
@@ -177,7 +176,6 @@
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
       "crawledAt": "2026-09-19T23:18:10.011Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "salaryMin": 83000,
       "salaryMax": 127000,
@@ -201,8 +199,7 @@
       "previousSlugs": [
         "it-domain-architect-trading-alpiq-switzerland",
         "it-domain-architetto-trading-alpiq-lausanne"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "alpiq-afdc6bd66056",
@@ -210,7 +207,8 @@
       "slugByLocale": {
         "it": "capo-della-governance-di-trading-algoritmico-alpiq-lausanne",
         "de": "leiter-algorithmic-trading-governance-alpiq-lausanne",
-        "fr": "responsable-de-la-gouvernance-des-transactions-algorithmiques-alpiq-lausanne"
+        "fr": "responsable-de-la-gouvernance-des-transactions-algorithmiques-alpiq-lausanne",
+        "en": "head-of-algorithmic-trading-governance-alpiq-lausanne"
       },
       "company": "Alpiq",
       "companyKey": "alpiq",

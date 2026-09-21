@@ -1538,7 +1538,7 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 30%",
-        "de": "Mitarbeiter*in Verkauf 30%",
+        "de": "Mitarbeiter*in im Verkauf 30%",
         "en": "Mitarbeiter*in Sales 30%",
         "fr": "Mitarbeiter*in Vente 30%"
       },
@@ -3385,13 +3385,12 @@
       },
       "titleByLocale": {
         "it": "Boucher/ère 70%",
-        "fr": "Boucher/ère 70%",
-        "en": "Boucher/ère 70%",
-        "de": "Boucher/ère 70%"
+        "fr": "Boucher/restaurant 70%",
+        "en": "Boucher/restaurant 70%",
+        "de": "Boucher/Restaurant 70%"
       },
       "sourceLang": "it",
       "id": "manor-1e7b30c5b1d3",
-      "needsRetranslation": true,
       "previousSlugs": [
         "manor-boucher-ere-70-marin-epagnier"
       ],
@@ -3450,13 +3449,12 @@
       },
       "titleByLocale": {
         "it": "Boucher/ère 70%",
-        "fr": "Boucher/ère 70%",
-        "en": "Boucher/ère 70%",
-        "de": "Boucher/ère 70%"
+        "fr": "Boucher/restaurant 70%",
+        "en": "Boucher/restaurant 70%",
+        "de": "Boucher/Restaurant 70%"
       },
       "sourceLang": "it",
       "id": "manor-26035caade52",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:16:57.125Z",
       "crawledAt": "",
       "salaryMin": 50400,
@@ -5134,7 +5132,7 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in vendita 30%",
-        "de": "Mitarbeiter*in Verkauf 30%",
+        "de": "Mitarbeiter*in im Verkauf 30%",
         "en": "Mitarbeiter*in Sales 30%",
         "fr": "Mitarbeiter*in Vente 30%"
       },
@@ -16127,7 +16125,6 @@
           "manor-koch-kochin-100-emmen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-07T12:11:24.549Z",
       "crawledAt": "",
       "salaryMin": 69000,
@@ -16147,7 +16144,6 @@
       "addressLocality": "Emmen",
       "addressRegion": "LU",
       "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1,
       "crawlerMissStreak": 1
     },
     {
