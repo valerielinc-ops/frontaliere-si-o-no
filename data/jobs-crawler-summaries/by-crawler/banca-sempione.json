@@ -1,18 +1,19 @@
 {
   "key": "banca-sempione",
   "label": "Banca del Sempione",
-  "generatedAt": "2026-09-19T23:02:58.747Z",
+  "generatedAt": "2026-09-21T16:02:17.930Z",
   "total": 6,
-  "newCount": 1,
-  "updatedCount": 5,
+  "newCount": 0,
+  "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 5667,
-  "avgDurationMs": 5667,
+  "durationMs": 10043,
+  "avgDurationMs": 10043,
   "durationHistory": [
-    5667
+    10043
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "Junior Legal – Banca del Sempione (Lugano)",
       "company": "Banca del Sempione",
@@ -27,17 +28,18 @@
       "source": "company-website",
       "slug": "banca-del-sempione-junior-legal-banca-del-sempione-lugano",
       "sourceLang": "it",
+      "id": "banca-sempione-00a6adcf50af",
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-19T23:02:49.693Z",
       "crawledAt": "",
-      "_qualityScore": 52,
+      "_qualityScore": 70,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 14,
-        "translation": 2,
+        "translation": 20,
         "completeness": 11
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Global Wealth Management – Assistente alla Consulenza (Lugano)",
       "company": "Banca del Sempione",
