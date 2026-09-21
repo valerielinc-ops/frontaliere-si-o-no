@@ -1,6 +1,6 @@
 {
   "crawlerKey": "spital-thusis",
-  "assembledAt": "2026-09-19T23:11:35.968Z",
+  "assembledAt": "2026-09-21T16:14:45.806Z",
   "jobs": [
     {
       "id": "spital-thusis-f0cec9bc194e",
@@ -33,7 +33,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Radiologiefachperson-Pensum-flexibel-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:31.416Z",
+      "crawledAt": "2026-09-21T16:14:38.797Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -64,11 +64,13 @@
       "previousSlugs": [
         "radiologiefachperson-pensum-flexibel-spital-thusis-ch",
         "radiologiefachperson-pensum-flexibel-spital-thusis-thusis",
-        "radiologiefachperson-pensum-flexibel-spital-thusis"
+        "radiologiefachperson-pensum-flexibel-spital-thusis",
+        "specialista-di-radiologia-pensione-flessibile-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "radiologiefachperson-pensum-flexibel-spital-thusis-ch"
+          "radiologiefachperson-pensum-flexibel-spital-thusis-ch",
+          "specialista-di-radiologia-pensione-flessibile-spital-thusis-thusis"
         ],
         "en": [
           "radiologiefachperson-pensum-flexibel-spital-thusis-ch",
@@ -80,6 +82,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:34.057Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -126,7 +129,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Assistenzaerztin-arzt-Innere-Medizin-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:30.611Z",
+      "crawledAt": "2026-09-21T16:14:37.972Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -163,7 +166,8 @@
         "assistant-doctor-internal-medicine-spital-thusis-thusis",
         "assistenzarztin-arzt-innere-medizin-spital-thusis-ch",
         "assistant-medecin-en-medecine-interne-spital-thusis-thusis",
-        "assistenzarztin-arzt-innere-medizin-100-spital-thusis-ch"
+        "assistenzarztin-arzt-innere-medizin-100-spital-thusis-ch",
+        "assistente-medico-medicina-interna-100-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -171,7 +175,8 @@
           "assistant-doctor-internal-medicine-spital-thusis-thusis",
           "assistenzarztin-arzt-innere-medizin-spital-thusis-ch",
           "assistant-medecin-en-medecine-interne-spital-thusis-thusis",
-          "assistenzarztin-arzt-innere-medizin-100-spital-thusis-ch"
+          "assistenzarztin-arzt-innere-medizin-100-spital-thusis-ch",
+          "assistente-medico-medicina-interna-100-spital-thusis-thusis"
         ],
         "en": [
           "assistant-doctor-internal-medicine-spital-thusis-thusis",
@@ -186,6 +191,7 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:34:18.081Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -232,7 +238,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachperson-Gesundheit-SPITEX-50-70-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:29.936Z",
+      "crawledAt": "2026-09-21T16:14:37.295Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -267,11 +273,13 @@
       "pensumMax": 70,
       "pensum": "50 - 70%",
       "previousSlugs": [
-        "fachperson-gesundheit-spitex-50-70-spital-thusis-ch"
+        "fachperson-gesundheit-spitex-50-70-spital-thusis-ch",
+        "sanita-professionale-spitex-50-70-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-gesundheit-spitex-50-70-spital-thusis-ch"
+          "fachperson-gesundheit-spitex-50-70-spital-thusis-ch",
+          "sanita-professionale-spitex-50-70-spital-thusis-thusis"
         ],
         "en": [
           "fachperson-gesundheit-spitex-50-70-spital-thusis-ch"
@@ -281,6 +289,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:31.549Z",
+      "needsRetranslation": true,
       "salaryMin": 57100,
       "salaryMax": 79800,
       "salarySource": "estimated",
@@ -327,7 +336,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Ausbildungsplatz-als-Pflegefachperson-HF-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:29.270Z",
+      "crawledAt": "2026-09-21T16:14:36.599Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -372,6 +381,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:30.244Z",
+      "needsRetranslation": true,
       "salaryMin": 48500,
       "salaryMax": 89500,
       "salarySource": "estimated",
@@ -415,7 +425,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:28.597Z",
+      "crawledAt": "2026-09-21T16:14:35.928Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -436,11 +446,13 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-80-100-spital-thusis-ch"
+        "dipl-pflegefachperson-hf-80-100-spital-thusis-ch",
+        "dipl-professionista-hf-80-100-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-80-100-spital-thusis-ch"
+          "dipl-pflegefachperson-hf-80-100-spital-thusis-ch",
+          "dipl-professionista-hf-80-100-spital-thusis-thusis"
         ]
       },
       "needsRetranslation": true,
@@ -491,7 +503,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-als-Fachperson-Hotellerie-Hauswirtschaft-EFZ/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:27.919Z",
+      "crawledAt": "2026-09-21T16:14:35.241Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -525,11 +537,13 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
+        "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
+        "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
+          "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch",
+          "apprendistato-come-fachperson-hotellerie-hauswirtschaft-cfc-spital-thusis"
         ],
         "en": [
           "lehrstelle-als-fachperson-hotellerie-hauswirtschaft-efz-spital-thusis-ch"
@@ -539,6 +553,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:28.312Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -585,7 +600,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Lehrstelle-Fachperson-Gesundheit-EFZ-Spitex-Viamala/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:27.256Z",
+      "crawledAt": "2026-09-21T16:14:34.566Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -630,7 +645,8 @@
         "apprendistato-fachperson-gesundheit-cfc-spital-thusis",
         "apprenticeship-professional-health-efz-spital-thusis-spital-thusis-thusis",
         "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
-        "apprentissage-sante-professionnelle-efz-spital-thisis-spital-thusis-thusis"
+        "apprentissage-sante-professionnelle-efz-spital-thisis-spital-thusis-thusis",
+        "apprendistato-fachperson-gesundheit-cfc-spitex-viamala-spital-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -638,7 +654,8 @@
           "apprendistato-fachperson-gesundheit-cfc-spital-thusis",
           "apprenticeship-professional-health-efz-spital-thusis-spital-thusis-thusis",
           "lehrstelle-fachperson-gesundheit-efz-spital-thusis-spital-thusis-ch",
-          "apprentissage-sante-professionnelle-efz-spital-thisis-spital-thusis-thusis"
+          "apprentissage-sante-professionnelle-efz-spital-thisis-spital-thusis-thusis",
+          "apprendistato-fachperson-gesundheit-cfc-spitex-viamala-spital-thusis"
         ],
         "en": [
           "lehrstelle-fachperson-gesundheit-efz-spitex-viamala-spital-thusis-ch",
@@ -653,6 +670,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:27.047Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -699,7 +717,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-FH-mit-Weiterbildung-in-onkologischer-Pflege-20-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:26.558Z",
+      "crawledAt": "2026-09-21T16:14:33.857Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -720,11 +738,13 @@
       "pensumMax": 20,
       "pensum": "20%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-fh-mit-weiterbildung-in-onkologischer-pflege-20-spital-thusis-ch"
+        "dipl-pflegefachperson-hf-fh-mit-weiterbildung-in-onkologischer-pflege-20-spital-thusis-ch",
+        "dipl-specialista-in-allattamento-hf-fh-con-ulteriore-formazione-in-assistenza-oncologica-20-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-fh-mit-weiterbildung-in-onkologischer-pflege-20-spital-thusis-ch"
+          "dipl-pflegefachperson-hf-fh-mit-weiterbildung-in-onkologischer-pflege-20-spital-thusis-ch",
+          "dipl-specialista-in-allattamento-hf-fh-con-ulteriore-formazione-in-assistenza-oncologica-20-spital-thusis-thusis"
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:25.043Z",
@@ -774,7 +794,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-SPITEX-40-80-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:25.744Z",
+      "crawledAt": "2026-09-21T16:14:33.185Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -795,11 +815,13 @@
       "pensumMax": 80,
       "pensum": "40 - 80%",
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-spitex-40-80-spital-thusis-ch"
+        "dipl-pflegefachperson-hf-spitex-40-80-spital-thusis-ch",
+        "dipl-professionista-hf-spitex-40-80-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-hf-spitex-40-80-spital-thusis-ch"
+          "dipl-pflegefachperson-hf-spitex-40-80-spital-thusis-ch",
+          "dipl-professionista-hf-spitex-40-80-spital-thusis-thusis"
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:24.411Z",
@@ -849,7 +871,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Fachperson-Operationstechnik-HF-40-60-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:25.058Z",
+      "crawledAt": "2026-09-21T16:14:32.499Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -880,11 +902,13 @@
       "pensumMax": 60,
       "pensum": "40 - 60%",
       "previousSlugs": [
-        "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch"
+        "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch",
+        "dipl-tecnologia-chirurgica-specialistica-hf-40-60-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch"
+          "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch",
+          "dipl-tecnologia-chirurgica-specialistica-hf-40-60-spital-thusis-thusis"
         ],
         "en": [
           "dipl-fachperson-operationstechnik-hf-40-60-spital-thusis-ch"
@@ -894,6 +918,7 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:24:23.012Z",
+      "needsRetranslation": true,
       "salaryMin": 48900,
       "salaryMax": 68400,
       "salarySource": "estimated",
@@ -940,7 +965,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-HF-FH-50-100-Notfall-Tagesklinik/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:24.373Z",
+      "crawledAt": "2026-09-21T16:14:31.829Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -962,12 +987,14 @@
       "pensum": "50 - 100%",
       "previousSlugs": [
         "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-ch",
-        "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-thusis"
+        "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-thusis",
+        "dipl-infermiera-hf-fh-50-100-clinica-di-emergenza-giorno-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-ch",
-          "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-thusis"
+          "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-thusis",
+          "dipl-infermiera-hf-fh-50-100-clinica-di-emergenza-giorno-spital-thusis-thusis"
         ],
         "en": [
           "dipl-pflegefachperson-hf-fh-50-100-notfall-tagesklinik-spital-thusis-ch"
@@ -1023,7 +1050,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Pflegefachperson-mit-Zusatzaufgabe-Berufsbildner-in-SPITEX-60-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:23.570Z",
+      "crawledAt": "2026-09-21T16:14:31.008Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1047,11 +1074,13 @@
         "dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-60-100-spital-thusis-ch",
         "dipl-nurse-with-additional-task-vocational-trainer-in-60-100-spital-thusis-thusis",
         "dipl-infirmiere-ayant-une-tache-supplementaire-formateur-professionnel-en-60-a-100-spital-thusis-thusis",
-        "dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-spitex-60-100-spital-thusis-ch"
+        "dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-spitex-60-100-spital-thusis-ch",
+        "dipl-infermiera-con-compito-aggiuntivo-formazione-professionale-spitex-60-100-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-spitex-60-100-spital-thusis-ch"
+          "dipl-pflegefachperson-mit-zusatzaufgabe-berufsbildner-in-spitex-60-100-spital-thusis-ch",
+          "dipl-infermiera-con-compito-aggiuntivo-formazione-professionale-spitex-60-100-spital-thusis-thusis"
         ]
       },
       "firstSeenAt": "2026-07-13T12:20:54.567Z",
@@ -1101,7 +1130,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Biomedizinische-n-Analytiker-in-20-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:22.901Z",
+      "crawledAt": "2026-09-21T16:14:30.323Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1130,11 +1159,13 @@
       "pensumMax": 20,
       "pensum": "20%",
       "previousSlugs": [
-        "biomedizinische-n-analytiker-in-20-spital-thusis-ch"
+        "biomedizinische-n-analytiker-in-20-spital-thusis-ch",
+        "analista-biomedicale-i-20-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "biomedizinische-n-analytiker-in-20-spital-thusis-ch"
+          "biomedizinische-n-analytiker-in-20-spital-thusis-ch",
+          "analista-biomedicale-i-20-spital-thusis-thusis"
         ],
         "en": [
           "biomedizinische-n-analytiker-in-20-spital-thusis-ch"
@@ -1144,6 +1175,7 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:46:09.962Z",
+      "needsRetranslation": true,
       "salaryMin": 16300,
       "salaryMax": 22800,
       "salarySource": "estimated",
@@ -1190,7 +1222,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitender-Arzt-Oberarzt-m-w-Innere-Medizin-60-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:22.233Z",
+      "crawledAt": "2026-09-21T16:14:29.643Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1211,11 +1243,13 @@
       "pensumMax": 100,
       "pensum": "60 - 100%",
       "previousSlugs": [
-        "leitender-arzt-oberarzt-m-w-innere-medizin-60-100-spital-thusis-ch"
+        "leitender-arzt-oberarzt-m-w-innere-medizin-60-100-spital-thusis-ch",
+        "medicina-interna-60-100-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitender-arzt-oberarzt-m-w-innere-medizin-60-100-spital-thusis-ch"
+          "leitender-arzt-oberarzt-m-w-innere-medizin-60-100-spital-thusis-ch",
+          "medicina-interna-60-100-spital-thusis-thusis"
         ],
         "en": [
           "leitender-arzt-oberarzt-m-w-innere-medizin-60-100-spital-thusis-ch"
@@ -1271,7 +1305,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitung-Notfallstation-und-Tagesklinik-90-100-mit-NDS-HF-Notfallpflege/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:21.572Z",
+      "crawledAt": "2026-09-21T16:14:28.955Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1293,12 +1327,14 @@
       "pensum": "90 - 100%",
       "previousSlugs": [
         "leitung-notfallstation-und-tagesklinik-90-100-mit-nds-hf-notfallpflege-spital-thusis-ch",
-        "leitung-notfallstation-e-tagesklinik-90-100-con-nds-hf-notfallpflege-spital-thusis"
+        "leitung-notfallstation-e-tagesklinik-90-100-con-nds-hf-notfallpflege-spital-thusis",
+        "gestione-del-reparto-di-emergenza-e-clinica-diurna-90-100-con-nds-hf-assistenza-di-emergenza-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leitung-notfallstation-und-tagesklinik-90-100-mit-nds-hf-notfallpflege-spital-thusis-ch",
-          "leitung-notfallstation-e-tagesklinik-90-100-con-nds-hf-notfallpflege-spital-thusis"
+          "leitung-notfallstation-e-tagesklinik-90-100-con-nds-hf-notfallpflege-spital-thusis",
+          "gestione-del-reparto-di-emergenza-e-clinica-diurna-90-100-con-nds-hf-assistenza-di-emergenza-spital-thusis-thusis"
         ],
         "en": [
           "leitung-notfallstation-und-tagesklinik-90-100-mit-nds-hf-notfallpflege-spital-thusis-ch"
@@ -1354,7 +1390,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Leitung-Hauswirtschaft-mit-Nebenfunktion-Stellvertretende-Leitung-Hospitality-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:20.893Z",
+      "crawledAt": "2026-09-21T16:14:28.255Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1392,14 +1428,17 @@
       "pensumMax": 100,
       "pensum": "80 - 100%",
       "previousSlugs": [
-        "leitung-hauswirtschaft-mit-nebenfunktion-stellvertretende-leitung-hospitality-80-100"
+        "leitung-hauswirtschaft-mit-nebenfunktion-stellvertretende-leitung-hospitality-80-100",
+        "capo-della-casa-con-funzione-secondaria-capo-dell-ospitalita-aggiunto-80-100-spital-thusis-thusis"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "leitung-hauswirtschaft-mit-nebenfunktion-stellvertretende-leitung-hospitality-80-100"
+          "leitung-hauswirtschaft-mit-nebenfunktion-stellvertretende-leitung-hospitality-80-100",
+          "capo-della-casa-con-funzione-secondaria-capo-dell-ospitalita-aggiunto-80-100-spital-thusis-thusis"
         ]
       },
       "firstSeenAt": "2026-08-24T10:19:21.099Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -1419,9 +1458,9 @@
       "id": "spital-thusis-8d451ba10d23",
       "slug": "gestione-professionale-della-contabilita-controllo-100-spital-thusis-thusis",
       "slugByLocale": {
-        "de": "fachliche-leitung-betriebsbuchhaltung-controlling-100-spital-thusis-ch",
         "it": "gestione-professionale-della-contabilita-controllo-100-spital-thusis-thusis",
         "en": "professional-management-of-accounting-controlling-100-spital-thusis-thusis",
+        "de": "fachliche-leitung-betriebsbuchhaltung-controlling-100-spital-thusis-ch",
         "fr": "gestion-professionnelle-de-la-comptabilite-controle-100-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
@@ -1429,16 +1468,16 @@
       "companyDomain": "spitalthusis.ch",
       "title": "Fachliche Leitung Betriebsbuchhaltung/Controlling 100%",
       "titleByLocale": {
-        "de": "Fachliche Leitung Betriebsbuchhaltung/Controlling 100%",
         "it": "Gestione professionale della contabilità/controllo 100%",
         "en": "Professional management of accounting/controlling 100%",
+        "de": "Fachliche Leitung Betriebsbuchhaltung/Controlling 100%",
         "fr": "Gestion professionnelle de la comptabilité/contrôle 100%"
       },
       "description": "Wir bieten:\n• eine verantwortungsvolle, abwechslungsreiche und unbefristete Tätigkeit in unserer Stiftung (ohne personelle Führung)\n\n• enge / direkte Zusammenarbeit mit der Geschäftsleitung und damit kurze Entscheidungswege\n\n• zeitgemässe Anstellungs- und Arbeitsbedingungen sowie mindestens 25 Ferientagen\n\n• individuelle Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• eine moderne Infrastruktur sowie Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung\n\nFühlen Sie sich angesprochen? Dann freuen wir uns auf Ihre Bewerbung!\n\nWeitere",
       "descriptionByLocale": {
-        "de": "Wir bieten:\n• eine verantwortungsvolle, abwechslungsreiche und unbefristete Tätigkeit in unserer Stiftung (ohne personelle Führung)\n\n• enge / direkte Zusammenarbeit mit der Geschäftsleitung und damit kurze Entscheidungswege\n\n• zeitgemässe Anstellungs- und Arbeitsbedingungen sowie mindestens 25 Ferientagen\n\n• individuelle Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• eine moderne Infrastruktur sowie Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung\n\nFühlen Sie sich angesprochen? Dann freuen wir uns auf Ihre Bewerbung!\n\nWeitere",
         "it": "Offriamo:\n• un'attività responsabile, varia e permanente nella nostra fondazione (senza gestione del personale)\n\n• stretta / collaborazione diretta con la gestione e così brevi percorsi decisionali\n\n• Occupazione contemporanea e condizioni di lavoro e almeno 25 giorni di vacanza\n\n• Possibilità di formazione e sviluppo individuali\n\n• una moderna infrastruttura così come offerte e vantaggi nel settore del tempo libero\n\n• un alto valore di svago nell'ambiente turistico molto attraente\n\nTi senti indirizzato? Attendiamo con ansia la vostra applicazione!\n\nAltri",
         "en": "We offer:\n• a responsible, varied and permanent activity in our foundation (without personnel management)\n\n• close / direct cooperation with the management and thus short decision paths\n\n• Contemporary employment and working conditions and at least 25 holiday days\n\n• Individual training and development opportunities\n\n• a modern infrastructure as well as offers and advantages in the leisure sector\n\n• a high leisure value in the touristic very attractive environment\n\nDo you feel addressed? We look forward to your application!\n\nOther",
+        "de": "Wir bieten:\n• eine verantwortungsvolle, abwechslungsreiche und unbefristete Tätigkeit in unserer Stiftung (ohne personelle Führung)\n\n• enge / direkte Zusammenarbeit mit der Geschäftsleitung und damit kurze Entscheidungswege\n\n• zeitgemässe Anstellungs- und Arbeitsbedingungen sowie mindestens 25 Ferientagen\n\n• individuelle Weiterbildungs- und Entwicklungsmöglichkeiten\n\n• eine moderne Infrastruktur sowie Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung\n\nFühlen Sie sich angesprochen? Dann freuen wir uns auf Ihre Bewerbung!\n\nWeitere",
         "fr": "Nous offrons:\n• une activité responsable, variée et permanente dans notre fondation (sans gestion du personnel)\n\n• étroite/coopération directe avec la direction et donc de courtes pistes de décision\n\n• Emploi et conditions de travail contemporains et au moins 25 jours fériés\n\n• Possibilités individuelles de formation et de perfectionnement\n\n• une infrastructure moderne ainsi que des offres et des avantages dans le secteur des loisirs\n\n• une valeur de loisirs élevée dans l'environnement touristique très attrayant\n\nVous sentez-vous adressé ? Nous nous réjouissons de votre candidature!\n\nAutres"
       },
       "location": "Thusis",
@@ -1446,7 +1485,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Fachliche-Leitung-Betriebsbuchhaltung-Controlling-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:20.088Z",
+      "crawledAt": "2026-09-21T16:14:27.584Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1472,18 +1511,31 @@
       ],
       "requirementsByLocale": {
         "de": [
-          "abgeschlossenes Studium (FH oder Universität) oder gleichwertige Aus- und Weiterbildung in Betriebswirtschaft, Finanzen oder Controlling",
-          "mehrjährige fundierte Erfahrung im Controlling und bei der selbstständigen Führung einer Kostenrechnung nach REKOLE in einem Spital oder einer Organisation im Gesundheitswesen – diese setzen wir für die Position voraus",
           "fundierte Kenntnisse in der Erstellung von branchenspezifischen Statistiken",
-          "Erfahrung in der Erstellung und Interpretation von betriebswirtschaftlichen Analysen, Kennzahlen und Management-Reportings",
-          "loyale und integre Persönlichkeit, die zuverlässig ist und Eigeninitiative mitbringt",
-          "hohe Eigenverantwortung und umfassende IT-Anwenderkenntnisse (insbesondere Excel) sowie ein ausgeprägtes analytisches Denkvermögen",
-          "belastbare, verantwortungsbewusste und dienstleistungsorientierte Persönlichkeit mit einer zuverlässigen, exakten und selbstständigen Arbeitsweise"
+          "loyale und integre Persönlichkeit, die zuverlässig ist und Eigeninitiative mitbringt"
         ]
       },
       "pensumMin": 100,
       "pensumMax": 100,
       "pensum": "100%",
+      "previousSlugs": [
+        "fachliche-leitung-betriebsbuchhaltung-controlling-100-spital-thusis-ch",
+        "gestione-professionale-della-contabilita-controllo-100-spital-thusis-thusis"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachliche-leitung-betriebsbuchhaltung-controlling-100-spital-thusis-ch",
+          "gestione-professionale-della-contabilita-controllo-100-spital-thusis-thusis"
+        ],
+        "en": [
+          "fachliche-leitung-betriebsbuchhaltung-controlling-100-spital-thusis-ch"
+        ],
+        "fr": [
+          "fachliche-leitung-betriebsbuchhaltung-controlling-100-spital-thusis-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:11:20.088Z",
+      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
@@ -1497,47 +1549,32 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-09-19T23:11:20.088Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "fachliche-leitung-betriebsbuchhaltung-controlling-100-spital-thusis-ch"
-        ],
-        "en": [
-          "fachliche-leitung-betriebsbuchhaltung-controlling-100-spital-thusis-ch"
-        ],
-        "fr": [
-          "fachliche-leitung-betriebsbuchhaltung-controlling-100-spital-thusis-ch"
-        ]
-      },
-      "previousSlugs": [
-        "fachliche-leitung-betriebsbuchhaltung-controlling-100-spital-thusis-ch"
-      ]
+      "addressRegion": "GR"
     },
     {
       "id": "spital-thusis-7ef55519fb72",
-      "slug": "dipl-rettungssanitater-in-80-100-spital-thusis-ch",
+      "slug": "dipl-paramedici-80-100-spital-thusis-thusis",
       "slugByLocale": {
+        "it": "dipl-paramedici-80-100-spital-thusis-thusis",
+        "en": "dipl-paramedics-80-100-spital-thusis-thusis",
         "de": "dipl-rettungssanitater-in-80-100-spital-thusis-ch",
-        "it": "dipl-rettungssanitater-in-80-100-spital-thusis-ch",
-        "en": "dipl-rettungssanitater-in-80-100-spital-thusis-ch",
-        "fr": "dipl-rettungssanitater-in-80-100-spital-thusis-ch"
+        "fr": "dipl-paramedics-80-100-spital-thusis-thusis"
       },
       "company": "Spital Thusis",
       "companyKey": "spital-thusis",
       "companyDomain": "spitalthusis.ch",
       "title": "Dipl. Rettungssanitäter/in 80–100%",
       "titleByLocale": {
-        "de": "Dipl. Rettungssanitäter/in 80–100%",
         "it": "Dipl. Paramedici 80-100 %",
         "en": "Dipl. Paramedics 80-100 %",
+        "de": "Dipl. Rettungssanitäter/in 80–100%",
         "fr": "Dipl. Paramédics 80-100 %"
       },
       "description": "Aufgaben:\n• Notfallversorgung der Patienten ausserhalb des Spitals\n\n• Durchführung von Patientenverlegungen\n\n• Protokollierung der Einsätze sowie Erfassung der dazugehörigen Leistungen\n\n• Einsatz-Nachbesprechungen und Wahrnehmung von Lehr- und Anleitungsfunktionen\n\n• Übernahme von Aufgaben bei der täglichen Arbeit (Logistik, Materialbewirtschaftung, Unterhalt der Einsatzmittel) sowie Übernahme eines Ressorts und Ausführung der dazugehörigen Arbeiten | Anforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF oder einen vergleichbaren Abschluss.\n\n• Du hast den Führerausweises Kategorie C1 mit Zusatz 121 oder 122.\n\n• Deine Flexibilität, eine hohe psychische und physische Belastbarkeit, hohe Fach- und Sozialkompetenz, Teamfähigkeit sowie Selbständigkeit zeichnen dich aus. | Wir bieten:\n• eine spannende, abwechslungsreiche und verantwortungsvolle Tätigkeit mit weitreichenden Kompetenzen für die Einsätze im grössten Einzugsgebiet des Kanton Graubündens mit langen Transportwegen\n\n• abwechslungsreiche Einsätze bei Wintersportunfällen, Verkehrsunfällen, medizinischen Notfällen und vielem mehr\n\n• die Übernahme von Ressortaufgaben mit Verantwortlichkeiten und Kompetenzen\n\n• eine attraktive Dienstgestaltung\n\n• familienfreundliche Anstellungsbedingungen, u.a. mind. 25 Tage Ferien pro Jahr\n\n• interessante Fort- und Weiterbildungsmöglichkeiten sowie zahlreiche Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung.\n\nWeitere",
       "descriptionByLocale": {
-        "de": "Aufgaben:\n• Notfallversorgung der Patienten ausserhalb des Spitals\n\n• Durchführung von Patientenverlegungen\n\n• Protokollierung der Einsätze sowie Erfassung der dazugehörigen Leistungen\n\n• Einsatz-Nachbesprechungen und Wahrnehmung von Lehr- und Anleitungsfunktionen\n\n• Übernahme von Aufgaben bei der täglichen Arbeit (Logistik, Materialbewirtschaftung, Unterhalt der Einsatzmittel) sowie Übernahme eines Ressorts und Ausführung der dazugehörigen Arbeiten | Anforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF oder einen vergleichbaren Abschluss.\n\n• Du hast den Führerausweises Kategorie C1 mit Zusatz 121 oder 122.\n\n• Deine Flexibilität, eine hohe psychische und physische Belastbarkeit, hohe Fach- und Sozialkompetenz, Teamfähigkeit sowie Selbständigkeit zeichnen dich aus. | Wir bieten:\n• eine spannende, abwechslungsreiche und verantwortungsvolle Tätigkeit mit weitreichenden Kompetenzen für die Einsätze im grössten Einzugsgebiet des Kanton Graubündens mit langen Transportwegen\n\n• abwechslungsreiche Einsätze bei Wintersportunfällen, Verkehrsunfällen, medizinischen Notfällen und vielem mehr\n\n• die Übernahme von Ressortaufgaben mit Verantwortlichkeiten und Kompetenzen\n\n• eine attraktive Dienstgestaltung\n\n• familienfreundliche Anstellungsbedingungen, u.a. mind. 25 Tage Ferien pro Jahr\n\n• interessante Fort- und Weiterbildungsmöglichkeiten sowie zahlreiche Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung.\n\nWeitere",
         "it": "Compiti:\n• Assistenza di emergenza per i pazienti fuori dall'ospedale\n\n• Attuazione dei trasferimenti dei pazienti\n\n• Registrazione delle operazioni e registrazione dei servizi associati\n\n• Funzionalità di debriefing e di insegnamento e di guida\n\n• Assunzione di compiti nel lavoro quotidiano (logistica, gestione dei materiali, manutenzione degli input) nonché assunzione di un dipartimento ed esecuzione del lavoro associato | Requisiti:\n• Hai completato l'allenamento come Dipl. EMT o grado equivalente.\n\n• Hai la patente di guida categoria C1 con aggiunta 121 o 122.\n\n• La vostra flessibilità, un'alta resilienza psicologica e fisica, alte competenze professionali e sociali, il lavoro di squadra e l'indipendenza vi distinguono. Offriamo:\n• un'attività emozionante, varia e responsabile con competenze di vasta portata per le operazioni nella più grande area di cattura del cantone di Grigioni con lunghi percorsi di trasporto\n\n• varie operazioni in incidenti sportivi invernali, incidenti stradali, emergenze mediche e molto altro\n\n• l'assunzione di compiti dipartimentali con responsabilità e competenze\n\n• Un design di servizio attraente\n\n• Condizioni di lavoro a misura di famiglia, compreso min. 25 giorni di vacanze all'anno\n\n• interessanti opportunità di formazione e formazione oltre a numerose offerte e vantaggi nel settore del tempo libero\n\n• un alto valore di svago nell'ambiente turistico molto attraente.\n\nAltri",
         "en": "Tasks:\n• Emergency care for patients outside the hospital\n\n• Implementation of patient transfers\n\n• Logging of operations and recording of associated services\n\n• Operational debriefing and teaching and guidance functions\n\n• Assumption of tasks in daily work (logistics, material management, maintenance of inputs) as well as assumption of a department and execution of the associated work | Requirements:\n• You have completed training as a Dipl. EMT or equivalent degree.\n\n• You have the driving license category C1 with addition 121 or 122.\n\n• Your flexibility, a high psychological and physical resilience, high professional and social skills, teamwork and independence distinguish you. | We offer:\n• an exciting, varied and responsible activity with far-reaching competences for operations in the largest catchment area of the canton of Graubünden with long transport routes\n\n• varied operations in winter sports accidents, traffic accidents, medical emergencies and much more\n\n• the assumption of departmental tasks with responsibilities and competences\n\n• An attractive service design\n\n• Family-friendly employment conditions, including min. 25 days of holidays per year\n\n• interesting further education and training opportunities as well as numerous offers and advantages in the leisure sector\n\n• a high leisure value in the touristy very attractive environment.\n\nOther",
+        "de": "Aufgaben:\n• Notfallversorgung der Patienten ausserhalb des Spitals\n\n• Durchführung von Patientenverlegungen\n\n• Protokollierung der Einsätze sowie Erfassung der dazugehörigen Leistungen\n\n• Einsatz-Nachbesprechungen und Wahrnehmung von Lehr- und Anleitungsfunktionen\n\n• Übernahme von Aufgaben bei der täglichen Arbeit (Logistik, Materialbewirtschaftung, Unterhalt der Einsatzmittel) sowie Übernahme eines Ressorts und Ausführung der dazugehörigen Arbeiten | Anforderungen:\n• Du verfügst über eine abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF oder einen vergleichbaren Abschluss.\n\n• Du hast den Führerausweises Kategorie C1 mit Zusatz 121 oder 122.\n\n• Deine Flexibilität, eine hohe psychische und physische Belastbarkeit, hohe Fach- und Sozialkompetenz, Teamfähigkeit sowie Selbständigkeit zeichnen dich aus. | Wir bieten:\n• eine spannende, abwechslungsreiche und verantwortungsvolle Tätigkeit mit weitreichenden Kompetenzen für die Einsätze im grössten Einzugsgebiet des Kanton Graubündens mit langen Transportwegen\n\n• abwechslungsreiche Einsätze bei Wintersportunfällen, Verkehrsunfällen, medizinischen Notfällen und vielem mehr\n\n• die Übernahme von Ressortaufgaben mit Verantwortlichkeiten und Kompetenzen\n\n• eine attraktive Dienstgestaltung\n\n• familienfreundliche Anstellungsbedingungen, u.a. mind. 25 Tage Ferien pro Jahr\n\n• interessante Fort- und Weiterbildungsmöglichkeiten sowie zahlreiche Angebote und Vergünstigungen im Freizeitbereich\n\n• einen hohen Freizeitwert in der touristisch sehr attraktiven Umgebung.\n\nWeitere",
         "fr": "Tâches :\n• Soins d'urgence pour les patients en dehors de l'hôpital\n\n• Mise en œuvre des transferts de patients\n\n• Enregistrement des opérations et enregistrement des services associés\n\n• Débriefing opérationnel et fonctions d'enseignement et d'orientation\n\n• Assomption des tâches dans le travail quotidien (logistique, gestion du matériel, maintenance des intrants) ainsi que l'hypothèse d'un département et l'exécution du travail connexe.\n• Vous avez terminé la formation en tant que Dipl. EMT ou diplôme équivalent.\n\n• Vous avez le permis de conduire catégorie C1 avec l'ajout 121 ou 122.\n\n• Votre flexibilité, une grande résilience psychologique et physique, des compétences professionnelles et sociales élevées, le travail d'équipe et l'indépendance vous distinguent. Nous offrons:\n• une activité passionnante, variée et responsable avec de vastes compétences pour les opérations dans le plus grand bassin versant du canton des Grisons avec de longs itinéraires de transport\n\n• opérations variées dans les accidents de sports d'hiver, les accidents de la circulation, les urgences médicales et bien plus encore\n\n• la prise en charge des tâches départementales avec responsabilités et compétences\n\n• Un design de service attrayant\n\n• Conditions d'emploi favorables à la famille, y compris min. 25 jours de vacances par an\n\n• des possibilités intéressantes d'éducation et de formation ainsi que de nombreuses offres et avantages dans le secteur des loisirs\n\n• une valeur de loisirs élevée dans l'environnement touristique très attrayant.\n\nAutres"
       },
       "location": "Thusis",
@@ -1545,7 +1582,7 @@
       "url": "https://www.spitalthusis.ch/karriere-jobs/offene-stellen/Dipl-Rettungssanitaeter-in-80-100-/",
       "source": "Spital Thusis Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:11:19.407Z",
+      "crawledAt": "2026-09-21T16:14:26.910Z",
       "addressLocality": "Thusis",
       "postalCode": "7430",
       "streetAddress": "Alte Strasse 31",
@@ -1568,13 +1605,28 @@
       "requirementsByLocale": {
         "de": [
           "Du verfügst über eine abgeschlossene Ausbildung als Dipl. Rettungssanitäter/in HF oder einen vergleichbaren Abschluss.",
-          "Du hast den Führerausweises Kategorie C1 mit Zusatz 121 oder 122.",
-          "Deine Flexibilität, eine hohe psychische und physische Belastbarkeit, hohe Fach- und Sozialkompetenz, Teamfähigkeit sowie Selbständigkeit zeichnen dich aus."
+          "Du hast den Führerausweises Kategorie C1 mit Zusatz 121 oder 122."
         ]
       },
       "pensumMin": 80,
       "pensumMax": 100,
       "pensum": "80 - 100%",
+      "firstSeenAt": "2026-09-19T23:11:19.407Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-rettungssanitater-in-80-100-spital-thusis-ch"
+        ],
+        "en": [
+          "dipl-rettungssanitater-in-80-100-spital-thusis-ch"
+        ],
+        "fr": [
+          "dipl-rettungssanitater-in-80-100-spital-thusis-ch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-rettungssanitater-in-80-100-spital-thusis-ch"
+      ],
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1588,8 +1640,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "firstSeenAt": "2026-09-19T23:11:19.407Z"
+      "addressRegion": "GR"
     }
   ]
 }

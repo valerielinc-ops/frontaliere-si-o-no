@@ -1,27 +1,28 @@
 {
   "key": "saint-gobain-weber-isover",
   "label": "Saint-Gobain Weber/Isover Suisse",
-  "generatedAt": "2026-09-19T23:08:50.902Z",
-  "total": 1,
-  "discovered": null,
-  "parsed": 1,
+  "generatedAt": "2026-09-21T16:13:23.098Z",
+  "total": 0,
+  "discovered": 0,
+  "parsed": 0,
   "lastFetchOutcome": null,
-  "written": 1,
-  "authoritativeEmptySnapshot": false,
+  "written": 0,
+  "authoritativeEmptySnapshot": true,
   "newCount": 0,
-  "updatedCount": 1,
-  "removedCount": 0,
+  "updatedCount": 0,
+  "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 5102,
-  "avgDurationMs": 5102,
+  "durationMs": 1423,
+  "avgDurationMs": 1423,
   "durationHistory": [
-    5102
+    1423
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [
     {
       "id": "saint-gobain-weber-isover-72ec9d90ab7f",
-      "slug": "specialist-in-ventilated-rainscreen-cladding-vhf-100-saint-gobain-weber-isover-volketswil",
+      "slug": "facciata-ventilata-vhf-100-saint-gobain-weber-ag-volketswil",
       "company": "Saint-Gobain Weber AG",
       "companyKey": "saint-gobain-weber-isover",
       "companyDomain": "ch.weber",
@@ -49,15 +50,17 @@
       "postedDate": "2026-08-20",
       "applyUrl": "https://www.jobs.ch/en/vacancies/detail/73bf4167-3e07-445d-a176-1fda156125d7/",
       "firstSeenAt": "2026-08-22T09:53:11.935Z",
-      "_qualityScore": 90,
+      "salaryMin": 83000,
+      "salaryMax": 127500,
+      "salarySource": "estimated",
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": []
 }
