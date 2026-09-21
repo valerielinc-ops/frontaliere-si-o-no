@@ -1,16 +1,16 @@
 {
   "key": "mikron",
   "label": "Mikron",
-  "generatedAt": "2026-09-19T23:09:05.080Z",
+  "generatedAt": "2026-09-21T16:11:10.941Z",
   "total": 6,
   "newCount": 0,
   "updatedCount": 6,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 16919,
-  "avgDurationMs": 16919,
+  "durationMs": 15913,
+  "avgDurationMs": 15913,
   "durationHistory": [
-    16919
+    15913
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -139,6 +139,7 @@
         "canton": "NE",
         "location": "Boudry"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T22:00:19.187Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
