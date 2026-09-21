@@ -6626,6 +6626,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.consiglio-federale-modifica-isos.title': 'The Federal Council improves the application of ISOs',
     'blog.article.consiglio-federale-modifica-isos.excerpt': 'Approve the changes to OISOS and OPT by the Federal Council to simplify and speed up building projects in Switzerland from 1 November 2026.',
     'blog.article.consiglio-federale-modifica-isos.imageAlt': 'OISOS and OPT amendments approved by the Swiss Federal Council',
+    'blog.article.estate-2026-perdita-produttivita.title': 'Summer 2026: over 2 billion francs of lost productivity',
+    'blog.article.estate-2026-perdita-produttivita.excerpt': 'Summer 2026 caused productivity losses of over CHF 2 billion, with Birsfelden at 2.47% and the affected cities at 1.3 billion.',
+    'blog.article.estate-2026-perdita-produttivita.imageAlt': 'Swiss street in summer with people seeking shade and sweating due to intense heat',
 };
 
 export default blogMetaChEn;

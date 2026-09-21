@@ -85898,6 +85898,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-estate-2026-perdita-produttivita': {
+    title: 'Estate 2026: oltre 2 mld di franchi di produttività persi',
+    description: 'L\'estate 2026 ha generato perdite di produttività per oltre 2 miliardi di franchi in Svizzera, con Birsfelden al 2,47% e le città colpite per 1,3 miliardi',
+    keywords: 'frontalieri, ticino, svizzera, italia, estate, oltre, franchi, produttività',
+    ogTitle: 'Estate 2026: oltre 2 mld di franchi di produttività persi',
+    ogDescription: 'L\'estate torrida del 2026 ha provocato perdite di produttività lavorativa per oltre due miliardi di franchi in tutta la Svizzera. Lo studio dell\'Unione delle città svizzere, basato su un modello dell\'ETH Zurigo e sui dati di MeteoSvizzera, mostra',
+    canonicalPath: '/articoli-svizzera/estate-2026-perdita-produttivita/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Estate 2026: oltre 2 mld di franchi di produttività persi",
+      "description": "L'estate 2026 ha generato perdite di produttività per oltre 2 miliardi di franchi in Svizzera, con Birsfelden al 2,47% e le città colpite per 1,3 miliardi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/estate-2026-perdita-produttivita.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Strada svizzera in piena estate con persone che cercano ombra e sudano a causa del caldo intenso"
+      },
+      "datePublished": "2026-09-21T04:48:45+00:00",
+      "dateModified": "2026-09-21T04:48:45+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/estate-2026-perdita-produttivita/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

@@ -2231,6 +2231,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'lidl-abolisce-arrotondamento-cassa': { it: 'lidl-abolisce-arrotondamento-cassa', en: 'lidl-abolishes-cash-rounding', de: 'lidl-schafft-bargeld-rundung-ab', fr: 'lidl-abolit-l-arrondi-de-cassa' },
  'rapporto-schengen-dublino-2026': { it: 'rapporto-schengen-dublino-2026', en: 'schengen-dublin-report-2026', de: 'schengen-dublin-bericht-2026', fr: 'rapport-schengen-dublin-2026' },
  'consiglio-federale-modifica-isos': { it: 'consiglio-federale-modifica-isos', en: 'federal-council-isos-amendments', de: 'bundesrat-isos-aenderungen', fr: 'conseil-federal-modifications-isos' },
+ 'estate-2026-perdita-produttivita': { it: 'estate-2026-perdita-produttivita', en: 'summer-2026-over-2-billion-francs-of-lost-productivity', de: 'sommer-2026-uber-2-milliarden-franken-produktivitatsverlust', fr: 'ete-2026-plus-de-2-milliards-de-francs-de-productivite-perdus' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

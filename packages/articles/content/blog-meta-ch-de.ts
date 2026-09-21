@@ -6626,6 +6626,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.consiglio-federale-modifica-isos.title': 'Der Bundesrat verbessert die Umsetzung der ISOS',
     'blog.article.consiglio-federale-modifica-isos.excerpt': 'Genehmigung der Änderungen an OISOS und OPT durch den Bundesrat zur Vereinfachung und Beschleunigung von Bauprojekten in der Schweiz per 1. November 2026.',
     'blog.article.consiglio-federale-modifica-isos.imageAlt': 'V vom Bundesrat genehmigte OISOS- und RPV-Änderungen',
+    'blog.article.estate-2026-perdita-produttivita.title': 'Sommer 2026: Über 2 Milliarden Franken Produktivitätsverlust',
+    'blog.article.estate-2026-perdita-produttivita.excerpt': 'Der Sommer 2026 verursachte Produktivitätsverluste von über 2 Milliarden Franken, mit Birsfelden bei 2,47% und den betroffenen Städten bei 1,3 Milliarden.',
+    'blog.article.estate-2026-perdita-produttivita.imageAlt': 'Schweizer Straße im Sommer mit Personen, die Schatten suchen und wegen intensiver Hitze schwitzen',
 };
 
 export default blogMetaChDe;
