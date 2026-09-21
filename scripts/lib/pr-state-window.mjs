@@ -37,7 +37,19 @@ export function pickBestPrState(prs) {
 }
 
 export function headQueryCommand(branch) {
-  return `gh pr list --head '${branch}' --state all --limit 10 --json state`;
+  return `gh pr list --head '${branch}' --state all --limit 10 --json state,baseRefName,headRefName,headRefOid`;
+}
+
+// Lo stato MERGED da solo non prova che il contenuto del checkout sia arrivato
+// su main: la PR potrebbe essere stata aperta verso un altro ramo oppure il
+// branch locale potrebbe avere ricevuto commit dopo il merge. Il cleanup può
+// rimuovere solo il commit esatto che GitHub ha dichiarato mergiato in main.
+export function isMergedIntoBaseAtHead(pr, { baseBranch, headOid }) {
+  return pr?.state === 'MERGED'
+    && pr?.baseRefName === baseBranch
+    && typeof headOid === 'string'
+    && headOid.length > 0
+    && pr?.headRefOid === headOid;
 }
 
 // `cache` è la mappa branch → stato già popolata dalla finestra. Il miss viene
