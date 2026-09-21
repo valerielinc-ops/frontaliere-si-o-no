@@ -11879,6 +11879,17 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.regole-chiare-assunzioni-ticino.title': 'Recruitment in the public sector in Ticino: clear rules requested',
     'blog.article.regole-chiare-assunzioni-ticino.excerpt': 'Roncelli and Mirante di Avanti with Ticino & Lavoro ask the government about the Zali case and the 2020 email to the ECO.',
     'blog.article.regole-chiare-assunzioni-ticino.imageAlt': 'Documents and pen on a desk in Bellinzona',
+    'blog.article.plr-strategia-costi-sanitari-ticino.title': 'Health insurance premiums: the PLR proposes a cantonal strategy',
+    'blog.article.plr-strategia-costi-sanitari-ticino.excerpt': 'The PLR calls for quarterly monitoring of healthcare costs after the 7.1% increase in premiums recorded in Ticino in 2026.',
+    'blog.article.plr-strategia-costi-sanitari-ticino.imageAlt': 'Panoramic view of Lugano city with the lake, symbol of the Ticino context.',
+    'blog.article.bollettino-frontaliere-2026-09-21.title': 'Cross-border daily brief – September 21, 2026: 2\'463 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-09-21.excerpt': 'Today\'s numbers, September 21, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-21.imageAlt': 'The day\'s numbers for cross-border commuters – September 21, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-09-21.seoDescription': 'Cross-border brief, September 21, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-09-21.ogDescription': 'The numbers for September 21, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.vivere-cantu-lavorare-ticino.title': 'Living in Cantù and working in Ticino as a border worker',
+    'blog.article.vivere-cantu-lavorare-ticino.excerpt': 'Practical guide for those who choose Cantù as their residence: taxation, new border agreement, AVS, LAMal and management of daily commuting to Ticino.',
+    'blog.article.vivere-cantu-lavorare-ticino.imageAlt': 'Panoramic view of Lugano, a central location for cross-border commuters working in Ticino',
 };
 
 export default blogMetaEn;

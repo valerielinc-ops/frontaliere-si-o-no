@@ -35409,6 +35409,33 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'plr-strategia-costi-sanitari-ticino',
+ category: 'fiscale',
+ date: '2026-09-21T10:18:58.008Z',
+ image: '/images/blog/plr-strategia-costi-sanitari-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'bollettino-frontaliere-2026-09-21',
+ category: 'novita',
+ date: '2026-09-21T10:31:42.496Z',
+ image: '/images/blog/bollettino-frontaliere-2026-09-21.webp',
+ hasCalculator: false,
+ authorSlug: 'samuele-valente',
+ authorName: 'Samuele Valente',
+ },
+ {
+ id: 'vivere-cantu-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-09-21T10:44:54.357Z',
+ image: '/images/blog/vivere-cantu-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11881,6 +11881,17 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.regole-chiare-assunzioni-ticino.title': 'Recrutement dans le secteur public au Tessin : des règles claires demandées',
     'blog.article.regole-chiare-assunzioni-ticino.excerpt': 'Roncelli et Mirante di Avanti avec Ticino & Lavoro interpellent le gouvernement sur l\'affaire Zali et sur le courriel de 2020 à l\'Eoc.',
     'blog.article.regole-chiare-assunzioni-ticino.imageAlt': 'Documents et stylo sur un bureau à Bellinzona',
+    'blog.article.plr-strategia-costi-sanitari-ticino.title': 'Primes caisse-maladie : le PLR propose une stratégie cantonale',
+    'blog.article.plr-strategia-costi-sanitari-ticino.excerpt': 'Le PLR demande un suivi trimestriel des coûts de santé après l\'augmentation des primes de 7,1 % enregistrée au Tessin en 2026.',
+    'blog.article.plr-strategia-costi-sanitari-ticino.imageAlt': 'Vue panoramique de la ville de Lugano avec le lac, symbole du contexte tessinois.',
+    'blog.article.bollettino-frontaliere-2026-09-21.title': 'Bulletin du frontalier – 21 septembre 2026 : 2 463 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-09-21.excerpt': 'Les chiffres du jour, 21 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-21.imageAlt': 'Les chiffres du jour pour les frontaliers – 21 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-21.seoDescription': 'Bulletin du frontalier du 21 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-21.ogDescription': 'Les chiffres du 21 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.vivere-cantu-lavorare-ticino.title': 'Vivre à Cantú et travailler au Tessin en tant que frontalière',
+    'blog.article.vivere-cantu-lavorare-ticino.excerpt': 'Guide pratique pour ceux qui choisissent Cantù comme résidence : fiscalité, nouvel accord frontalier, AVS, LAMal et gestion des déplacements quotidiens vers le Tessin.',
+    'blog.article.vivere-cantu-lavorare-ticino.imageAlt': 'Vue panoramique de Lugano, un lieu central pour les travailleurs frontaliers en Suisse',
 };
 
 export default blogMetaFr;

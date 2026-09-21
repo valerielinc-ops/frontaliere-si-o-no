@@ -11878,6 +11878,17 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.regole-chiare-assunzioni-ticino.title': 'Einstellungen im öffentlichen Sektor im Tessin: klare Regeln gefordert',
     'blog.article.regole-chiare-assunzioni-ticino.excerpt': 'Roncelli und Mirante di Avanti mit Ticino & Lavoro befragen die Regierung zum Fall Zali und in der E-Mail von 2020 an Eoc.',
     'blog.article.regole-chiare-assunzioni-ticino.imageAlt': 'Dokumente und Stift auf einem Schreibtisch in Bellinzona',
+    'blog.article.plr-strategia-costi-sanitari-ticino.title': 'Krankenkassenprämien: FDP schlägt kantonale Strategie vor',
+    'blog.article.plr-strategia-costi-sanitari-ticino.excerpt': 'Die FDP fordert eine vierteljährliche Überwachung der Gesundheitskosten nach der Prämienerhöhung von 7,1% im Tessin im Jahr 2026.',
+    'blog.article.plr-strategia-costi-sanitari-ticino.imageAlt': 'Panoramablick auf die Stadt Lugano mit dem See, Symbol des Tessiner Kontexts.',
+    'blog.article.bollettino-frontaliere-2026-09-21.title': 'Grenzgänger-Tagesbulletin – 21. September 2026: 2\'463 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-09-21.excerpt': 'Die Zahlen von heute, 21. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-21.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 21. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-21.seoDescription': 'Grenzgänger-Bulletin vom 21. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-21.ogDescription': 'Die Zahlen vom 21. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.vivere-cantu-lavorare-ticino.title': 'Wohnen in Cantù und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-cantu-lavorare-ticino.excerpt': 'Praktischer Leitfaden für diejenigen, die Cantù als Wohnsitz wählen: Steuern, neues Grenzgängerabkommen, AHV, KVG und Verwaltung des täglichen Pendelverkehrs in das Tessin.',
+    'blog.article.vivere-cantu-lavorare-ticino.imageAlt': 'Panoramablick auf Lugano, ein zentraler Ort für Grenzgänger, die im Tessin arbeiten',
 };
 
 export default blogMetaDe;

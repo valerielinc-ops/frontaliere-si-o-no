@@ -46,6 +46,40 @@ const runnerRegressionTests = new Set([
   'tests/ci-vitest-check-name.test.ts',
   'tests/agents-related-tests-recipe.test.ts',
 ]);
+// Most workflow readers intentionally depend on every asset in the directory:
+// permissions, timeout and scope guards are repository-wide contracts. A few
+// readers do a broad `readdirSync()` only to select one generated family,
+// though. Keep those bounds explicit so adding an unrelated workflow does not
+// drag an expensive crawler-generator suite into every PR. The root asset is
+// carried through the reverse graph below; a source module may still be
+// traversed, but the final test admission is checked against this scope.
+const crawlerAssetScope = [
+  /^\.github\/workflows\/(?:crawler-group-\d+(?:-logic)?|crawler-generation-[^/]+|orchestrate-crawlers|translate-pending(?:-logic)?|generate-article)\.ya?ml$/i,
+  /^\.github\/corpus-workflows\/(?:crawler-group-\d+|translate-pending)\.ya?ml$/i,
+  /^\.github\/corpus-workflows\/contract\.json$/i,
+  /^\.github\/corpus-workflows\/observers\/workflows\/crawler-generation-[^/]+\.ya?ml$/i,
+];
+const crawlerAssetRelatedTests = [
+  'tests/crawler-generation-barrier-shadow.test.ts',
+  'tests/crawler-generation-barrier-workflows.test.ts',
+  'tests/crawler-generation-contract.test.ts',
+  'tests/crawler-generation-dispatch-workflow.test.ts',
+  'tests/crawler-generation-dispatch.test.ts',
+  'tests/crawler-generation-observer-contract.test.ts',
+  'tests/crawler-generation-observer-runtime.test.ts',
+  'tests/crawler-generation-observer-selector.test.ts',
+  'tests/crawler-generation-observer-workflow.test.ts',
+  'tests/crawler-group-generation-finalizer.test.ts',
+  'tests/workflows/crawler-workflows-corpus-sync.test.ts',
+];
+const relatedAssetFileScopes = new Map([
+  ['build-plugins/crawlerRegistryPlugin.ts', crawlerAssetScope],
+  // This module validates a remote Actions API binding. Its `.github/workflows/`
+  // string is an API identity, not a local file read.
+  ['scripts/lib/githubWorkflowDispatch.mjs', []],
+  ['tests/generate-crawler-group-workflows.test.ts', crawlerAssetScope],
+  ...crawlerAssetRelatedTests.map((file) => [file, crawlerAssetScope]),
+]);
 // faq-readability-gate misura il ratchet sulle FAQ dell'INTERO corpus articoli
 // e si difende dal falso verde con `expect(total).toBeGreaterThan(1000)`. Il job
 // PR non materializza `packages/articles/content`, quindi quel guard scatta
@@ -277,7 +311,10 @@ function importsOf(file, fileSet, assets) {
       if (asset === literal || asset.startsWith(`${literal}/`)) deps.add(asset);
     }
   }
-  return [...deps].sort();
+  const scope = relatedAssetFileScopes.get(file);
+  return [...deps]
+    .filter((asset) => !scope || scope.some((pattern) => pattern.test(asset)))
+    .sort();
 }
 
 function loadGraph(files, assets) {
@@ -427,15 +464,37 @@ if (runnerChanged && !fullSuiteRequired) {
   console.log('run-related-tests.mjs changed → running its explicit regression-test suite.');
 }
 let usedFullFallback = fullSuiteRequired;
-const queue = [...candidates];
+const assetCandidate = (file) => githubAssetRe.test(file) || testFixtureRe.test(file);
+const assetScopeAllows = (test, asset) => {
+  const scope = relatedAssetFileScopes.get(test);
+  return !scope || scope.some((pattern) => pattern.test(asset));
+};
+const queue = candidates.map((file) => ({
+  file,
+  rootAsset: assetCandidate(file) ? file : null,
+}));
+const queued = new Set(queue.map(({ file, rootAsset }) => `${rootAsset || ''}\0${file}`));
 const visited = new Set();
 while (queue.length) {
-  const file = queue.shift();
-  if (visited.has(file)) continue;
-  visited.add(file);
+  const current = queue.shift();
+  const { file, rootAsset } = current;
+  const visitKey = `${rootAsset || ''}\0${file}`;
+  if (visited.has(visitKey)) continue;
+  visited.add(visitKey);
   for (const importer of reverse.get(file) || []) {
-    if (!related.has(importer) && isRunnableTest(importer)) related.add(importer);
-    if (!queue.includes(importer)) queue.push(importer);
+    const importerIsTest = isRunnableTest(importer);
+    const admitted = !rootAsset || !importerIsTest || assetScopeAllows(importer, rootAsset);
+    if (admitted && importerIsTest) related.add(importer);
+    // Once a scoped test rejects this asset, do not use that test as a bridge
+    // to admit more files through the same root. Other source modules remain
+    // traversable, preserving the old conservative behavior for unscoped
+    // consumers.
+    if (!admitted) continue;
+    const queueKey = `${rootAsset || ''}\0${importer}`;
+    if (!queued.has(queueKey)) {
+      queued.add(queueKey);
+      queue.push({ file: importer, rootAsset });
+    }
   }
 }
 // Never report success with zero tests for a source change: an unmodelled

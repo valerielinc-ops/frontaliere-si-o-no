@@ -1,0 +1,22 @@
+{
+  "companyKey": "coworking-neuchatel",
+  "companyName": "Coworking Neuchâtel SARL",
+  "companyHost": "vivre-en-thailande.com",
+  "platform": "vivre-en-thailande.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://vivre-en-thailande.com/bangkok-7-espaces-de-coworking-a-decouvrir/297207/"
+  ],
+  "detailTemplate": "/category/vacances/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Où se rendre ?",
+    "Préparer ses vacances en Thailande",
+    "Les précautions à prendre"
+  ],
+  "canton": "NE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-09-21T10:48:24.704Z"
+}

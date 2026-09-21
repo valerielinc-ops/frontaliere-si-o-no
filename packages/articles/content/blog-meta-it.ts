@@ -11880,6 +11880,17 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.regole-chiare-assunzioni-ticino.title': 'Assunzioni nel settore pubblico in Ticino: chieste regole chiare',
     'blog.article.regole-chiare-assunzioni-ticino.excerpt': 'Roncelli e Mirante di Avanti con Ticino & Lavoro interpellano il governo sul caso Zali e sulla mail del 2020 all\'Eoc.',
     'blog.article.regole-chiare-assunzioni-ticino.imageAlt': 'Documenti e penna su una scrivania a Bellinzona',
+    'blog.article.plr-strategia-costi-sanitari-ticino.title': 'Premi cassa malati: il PLR propone una strategia cantonale',
+    'blog.article.plr-strategia-costi-sanitari-ticino.excerpt': 'Il PLR chiede un monitoraggio trimestrale dei costi sanitari dopo l\'aumento dei premi del 7,1% registrato in Ticino nel 2026.',
+    'blog.article.plr-strategia-costi-sanitari-ticino.imageAlt': 'Vista panoramica della città di Lugano con il lago, simbolo del contesto ticinese.',
+    'blog.article.bollettino-frontaliere-2026-09-21.title': 'Bollettino del frontaliere – 21 settembre 2026: 2463 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-09-21.excerpt': 'I numeri di oggi, 21 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-21.imageAlt': 'I numeri del giorno per i frontalieri – 21 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-21.seoDescription': 'Bollettino frontalieri del 21 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-21.ogDescription': 'I numeri del 21 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.vivere-cantu-lavorare-ticino.title': 'Vivere a Cantù e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-cantu-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Cantù come residenza: fiscalità, nuovo accordo frontalieri, AVS, LAMal e gestione del pendolarismo quotidiano verso il Ticino.',
+    'blog.article.vivere-cantu-lavorare-ticino.imageAlt': 'Vista panoramica di Lugano, luogo centrale per i frontalieri che lavorano in Ticino',
 };
 
 export default blogMetaIt;

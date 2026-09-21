@@ -61,7 +61,7 @@ function selectionOutputFor(
 
 function selectionFor(changedPaths: string[], reuseDir = sharedGraphDir) {
   const stdout = selectionOutputFor(changedPaths, reuseDir);
-  return stdout.split('\n').map((line) => line.trim()).filter((line) => line.endsWith('.test.ts'));
+  return stdout.split('\n').map((line) => line.trim()).filter((line) => /\.test\.[cm]?[jt]sx?$/i.test(line));
 }
 
 function runRunnerWithEnv(
@@ -301,6 +301,42 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selected).toContain('tests/crawler-generation-dispatch-workflow.test.ts');
     expect(selected).toContain('tests/crawler-generation-barrier-workflows.test.ts');
     expect(selected).toContain('tests/generate-crawler-group-workflows.test.ts');
+  }, 120_000);
+
+  it('non trascina il generatore crawler per un workflow o action estraneo', () => {
+    const unrelatedAssets = [
+      '.github/workflows/codex-auth-recovery.yml',
+      '.github/actions/claude-codex-fallback/action.yml',
+    ];
+    for (const [index, asset] of unrelatedAssets.entries()) {
+      const dir = fs.mkdtempSync(path.join(os.tmpdir(), `related-unrelated-crawler-${index}-`));
+      try {
+        const selected = selectionFor([asset], dir);
+        expect(selected).not.toContain('tests/generate-crawler-group-workflows.test.ts');
+        for (const crawlerTest of [
+          'tests/crawler-generation-dispatch.test.ts',
+          'tests/crawler-generation-observer-workflow.test.ts',
+          'tests/crawler-group-generation-finalizer.test.ts',
+          'tests/workflows/crawler-workflows-corpus-sync.test.ts',
+        ]) {
+          expect(selected).not.toContain(crawlerTest);
+        }
+        expect(selected).not.toContain('tests/app-smoke.test.tsx');
+        expect(selected).not.toContain('tests/regression/footer-on-seo-pages.test.tsx');
+      } finally {
+        fs.rmSync(dir, { recursive: true, force: true });
+      }
+    }
+  }, 120_000);
+
+  it('mantiene il generatore crawler per un suo workflow generato', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-crawler-generated-'));
+    try {
+      expect(selectionFor(['.github/workflows/crawler-group-01.yml'], dir))
+        .toContain('tests/generate-crawler-group-workflows.test.ts');
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
   }, 120_000);
 
   it('una rimozione di asset .github conserva il path precedente nel grafo', () => {
