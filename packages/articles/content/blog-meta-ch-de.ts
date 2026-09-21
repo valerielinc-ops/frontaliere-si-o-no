@@ -6632,6 +6632,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.guida-lavoro-argovia-2026.title': 'Praxisleitfaden zur Stellensuche im Aargau 2026',
     'blog.article.guida-lavoro-argovia-2026.excerpt': 'Der Schweizer Markt 2026 bietet Stellen im Ingenieurwesen, in der Technik, im Gesundheitswesen und in der Logistik; im Aargau ist die Besteuerung dreistufig und die AHV/IV/EO-Beiträge betragen 5,3% für die Mitarbeitenden.',
     'blog.article.guida-lavoro-argovia-2026.imageAlt': 'Modernes Bürogebäude in Aarau, Argovia, mit vorbeigehenden Fachkräften und Schweizer Flagge im Hintergrund.',
+    'blog.article.rialzo-tassi-ipotecari-svizzera.title': 'Hypothekarzinsen in der Schweiz: 10 Jahre über 2%',
+    'blog.article.rialzo-tassi-ipotecari-svizzera.excerpt': 'Im September steigen die 10-Jahres-Hypothekarzinsen auf 2,06% und die 5-Jahres-Hypothekarzinsen auf 1,83%. Ende der Ära der Tiefzinsen für den Immobilienmarkt.',
+    'blog.article.rialzo-tassi-ipotecari-svizzera.imageAlt': 'Schweizer Wohnlandschaft mit modernen Häusern und Bergen',
 };
 
 export default blogMetaChDe;
