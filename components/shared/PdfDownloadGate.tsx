@@ -139,6 +139,7 @@ const PdfDownloadGate: React.FC = () => {
         sourceComponent: 'PdfDownloadGate',
         locale: 'it',
         registrationMethod: 'email',
+        explicitConsentAction: true,
       });
       const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
       try {

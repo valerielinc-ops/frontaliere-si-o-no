@@ -368,6 +368,7 @@ const NewsletterPopup: React.FC = () => {
  source: 'popup',
  sourceChannel: 'popup',
  sourcePage: window.location.pathname,
+ explicitConsentAction: true,
  sourceCta: 'newsletter_popup_submit',
  sourceComponent: 'NewsletterPopup',
  sourceRouteFamily: nav?.activeTab || 'web_app',

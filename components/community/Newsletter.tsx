@@ -123,6 +123,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
          sourceRouteFamily: compact ? 'footer' : 'newsletter',
          locale,
          registrationMethod: 'authenticated',
+         explicitConsentAction: true,
        });
        if (!cancelled) {
          if (isRejectedNewsletterCapture(upsert)) {
@@ -224,6 +225,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  sourceRouteFamily: compact ? 'footer' : 'newsletter',
  locale: navigator.language || 'it-IT',
  registrationMethod: 'email',
+ explicitConsentAction: true,
  }),
 8000,
  'newsletter_upsert',

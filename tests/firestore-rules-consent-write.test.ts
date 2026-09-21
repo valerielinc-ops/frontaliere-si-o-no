@@ -234,6 +234,78 @@ describe('firestore.rules — newsletter_subscribers consent field guard', () =>
     );
   });
 
+  it('a verified owner may reactivate an opted-out address after a visible terms action', async () => {
+    await testEnv.withSecurityRulesDisabled(async (context) => {
+      await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'explicit-reactivation@example.com'), {
+        email: 'explicit-reactivation@example.com',
+        status: 'unsubscribed',
+        isActive: false,
+        active: false,
+        unsubscribed_at: '2026-09-12T00:00:00.000Z',
+        unsubscribedAt: '2026-09-12T00:00:00.000Z',
+      });
+    });
+    const owner = testEnv.authenticatedContext('owner-uid', {
+      email: 'explicit-reactivation@example.com',
+      email_verified: true,
+    });
+    await assertSucceeds(setDoc(
+      doc(owner.firestore(), 'newsletter_subscribers', 'explicit-reactivation@example.com'),
+      {
+        status: 'subscribed',
+        isActive: true,
+        active: true,
+        registration_terms_accepted: true,
+        consent_basis: 'registration_terms',
+        consent_text: 'comunicazioni newsletter e avvisi di lavoro',
+        consent_text_displayed: true,
+        consent_act: 'registration_terms_acceptance',
+        consent_method: 'terms_and_conditions',
+        all_email_opted_out: false,
+        all_emails_opted_out: false,
+        global_email_opt_out: false,
+        global_email_opted_out: false,
+        resubscribed_at: '2026-09-12T00:00:01.000Z',
+      },
+      { merge: true },
+    ));
+  });
+
+  it('the terms reactivation rule does not lift a provider suppression', async () => {
+    await testEnv.withSecurityRulesDisabled(async (context) => {
+      await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'hard-suppressed@example.com'), {
+        email: 'hard-suppressed@example.com',
+        status: 'suppressed',
+        isActive: false,
+        active: false,
+      });
+    });
+    const owner = testEnv.authenticatedContext('owner-uid', {
+      email: 'hard-suppressed@example.com',
+      email_verified: true,
+    });
+    await assertFails(setDoc(
+      doc(owner.firestore(), 'newsletter_subscribers', 'hard-suppressed@example.com'),
+      {
+        status: 'subscribed',
+        isActive: true,
+        active: true,
+        registration_terms_accepted: true,
+        consent_basis: 'registration_terms',
+        consent_text: 'comunicazioni newsletter e avvisi di lavoro',
+        consent_text_displayed: true,
+        consent_act: 'registration_terms_acceptance',
+        consent_method: 'terms_and_conditions',
+        all_email_opted_out: false,
+        all_emails_opted_out: false,
+        global_email_opt_out: false,
+        global_email_opted_out: false,
+        resubscribed_at: '2026-09-12T00:00:01.000Z',
+      },
+      { merge: true },
+    ));
+  });
+
   it('an unauthenticated client can record an opt-out but cannot promote it back', async () => {
     await testEnv.withSecurityRulesDisabled(async (context) => {
       await setDoc(doc(context.firestore(), 'newsletter_subscribers', 'optout@example.com'), {

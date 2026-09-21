@@ -108,6 +108,7 @@ service cloud.firestore {
         'confirmation_first_sent_at', 'confirmationFirstSentAt',
         'confirmation_expired_at', 'confirmationExpiredAt',
         'confirmed_via', 'confirmedVia',
+        'resubscribe_pending',
         'bounce_severity', 'bounce_reason', 'complained_at', 'complaint_at',
         'last_complained_at', 'suppressed_at', 'drip_started_at',
         'drip_last_step', 'drip_last_sent_at', 'drip_completed',
@@ -403,6 +404,52 @@ service cloud.firestore {
         && !confirmationProvenanceFieldsTouched(request.resource.data, resource.data);
     }
 
+    // A visible subscription CTA is an explicit terms acceptance. It may lift
+    // a human unsubscribe even when the old row has no DOI confirmation stamp;
+    // the verified owner, the displayed terms proof and the fresh
+    // `resubscribed_*` stamp together are the evidence for this transition.
+    // Provider/address suppressions remain outside this branch and stay hard.
+    function isTermsBasedExplicitReactivation(email) {
+      return isVerifiedSubscriberOwner(email)
+        && request.resource.data.keys().hasAll([
+          'status', 'isActive', 'active',
+          'registration_terms_accepted', 'consent_basis',
+          'consent_text', 'consent_text_displayed', 'consent_act', 'consent_method',
+          'all_email_opted_out', 'all_emails_opted_out',
+          'global_email_opt_out', 'global_email_opted_out',
+        ])
+        && request.resource.data.status == 'subscribed'
+        && request.resource.data.isActive == true
+        && request.resource.data.active == true
+        && request.resource.data.registration_terms_accepted == true
+        && request.resource.data.consent_basis == 'registration_terms'
+        && request.resource.data.consent_text is string
+        && request.resource.data.consent_text != ''
+        && request.resource.data.consent_text_displayed == true
+        && request.resource.data.consent_act == 'registration_terms_acceptance'
+        && request.resource.data.consent_method == 'terms_and_conditions'
+        && request.resource.data.all_email_opted_out == false
+        && request.resource.data.all_emails_opted_out == false
+        && request.resource.data.global_email_opt_out == false
+        && request.resource.data.global_email_opted_out == false
+        && request.resource.data.keys().hasAny(['resubscribed_at', 'resubscribedAt'])
+        && (
+          resource.data.status == 'unsubscribed'
+          || resource.data.keys().hasAny(['unsubscribed_at', 'unsubscribedAt'])
+          || resource.data.all_email_opted_out == true
+          || resource.data.all_emails_opted_out == true
+          || resource.data.global_email_opt_out == true
+          || resource.data.global_email_opted_out == true
+        )
+        && (!resource.data.keys().hasAny(['status'])
+          || (
+            resource.data.status != 'bounced'
+            && resource.data.status != 'complained'
+            && resource.data.status != 'suppressed'
+          ))
+        && !confirmationProvenanceFieldsTouched(request.resource.data, resource.data);
+    }
+
     // Social proof counter — public increment (#5792).
     //
     // The only reader/writer is `counters/simulations`: SocialProofBadge.tsx
@@ -521,6 +568,7 @@ service cloud.firestore {
         || isTermsBasedConfirmedUpdate(email)
         || isVerifiedConfirmedUpdate(email)
         || isVerifiedPriorProofResubscribe(email)
+        || isTermsBasedExplicitReactivation(email)
         || isVerifiedLegacyResubscribe(email);
 
       // Engagement events (subscribe, confirm, click, open) — append-only, and

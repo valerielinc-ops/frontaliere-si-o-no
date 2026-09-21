@@ -851,6 +851,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  locale: navigator.language || 'it-IT',
  isActive: true,
  registrationMethod: 'email',
+ explicitConsentAction: true,
  leadMagnet: variant,
  }),
  8000,

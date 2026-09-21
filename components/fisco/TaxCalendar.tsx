@@ -10,7 +10,6 @@ import Callout from '@/components/shared/Callout';
 import {
  upsertNewsletterSubscriber,
  markNewsletterSubscribedLocally,
- isNewsletterOptedOut,
  type NewsletterCaptureResult,
 } from '@/services/newsletterSubscribers';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
@@ -520,8 +519,8 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
  ]);
  const db = getFirestore(app);
  // Social and typed-email registration use the same terms-based base
- // relationship; the reminder action only adds this calendar preference.
- if (isTrustedAuthSource && await isNewsletterOptedOut(db, email)) return false;
+ // relationship; this click is explicit consent, so an old opt-out is
+ // reactivated for the verified owner or sent through fresh DOI for email.
  const result = await upsertNewsletterSubscriber(db, {
  email,
  name: null,
@@ -534,6 +533,7 @@ const TaxCalendar: React.FC<TaxCalendarProps> = ({ initialTab }) => {
    sourceRouteFamily: 'tax_calendar',
    locale,
    registrationMethod: isTrustedAuthSource ? 'authenticated' : 'email',
+   explicitConsentAction: true,
    });
  if (result.status !== 'pending' || result.hadConfirmationProof) {
    markNewsletterSubscribedLocally();

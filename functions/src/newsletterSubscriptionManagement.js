@@ -44,7 +44,12 @@ import { t, htmlLang, normalizeLocale } from './emailI18n.js';
 import { resolveSubscriberLocale } from './lib/subscriberLocale.js';
 import { forensicsFields } from './lib/requestForensics.js';
 import { isNewsletterOptOutBinding, newsletterOptOutMillis, toEpochMillis } from './lib/newsletterOptOut.js';
-import { isAddressSuppressed, isCrossChannelStop, isTransactionalHardBlock } from './lib/emailSuppression.js';
+import {
+ isAddressSuppressed,
+ isCrossChannelStop,
+ isGlobalEmailOptOut,
+ isTransactionalHardBlock,
+} from './lib/emailSuppression.js';
 import {
  CONFIRMATION_LINK_PROOF,
  hasConfirmationProof,
@@ -1011,6 +1016,10 @@ export async function handleSubscriptionManagement({ action, email, token, local
  if (!existingSubscriber.exists) {
   return { status: 404, json: { success: false, error: 'subscriber_not_found' } };
  }
+ if (desired && isAddressSuppressed(existingSubscriber.data()?.status)) {
+  return { status: 409, json: { success: false, error: 'email_suppressed' } };
+ }
+ const termsText = REGISTRATION_TERMS_TEXT[lang] || REGISTRATION_TERMS_TEXT.it;
  if (desired) {
  await subscriberRef.set({
   email: normalizedEmail,
@@ -1025,6 +1034,21 @@ export async function handleSubscriptionManagement({ action, email, token, local
   global_email_opt_out: false,
   global_email_opted_out: false,
   account_deleted_at: admin.firestore.FieldValue.delete(),
+  ...(!existingSubscriber.data()?.registration_terms_accepted ? {
+   consent_given: true,
+   consent_given_at: admin.firestore.FieldValue.serverTimestamp(),
+   consent_basis: 'registration_terms',
+   registration_terms_accepted: true,
+   registration_terms_version: REGISTRATION_TERMS_VERSION,
+   registration_terms_text: termsText,
+   registration_terms_accepted_at: admin.firestore.FieldValue.serverTimestamp(),
+   consent_text: termsText,
+   consent_text_version: REGISTRATION_TERMS_VERSION,
+   consent_text_displayed: true,
+   consent_act: 'registration_terms_acceptance',
+   consent_method: 'terms_and_conditions',
+   consent_purpose: 'unified_email_channels',
+  } : {}),
  // Both spellings, and NEITHER opt-out stamp is deleted (#5711). The
  // re-opt-in stamp is what lifts the opt-out for every sender now —
  // `isNewsletterOptOutBinding` compares the two — so the lift is no
@@ -1327,6 +1351,9 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
 
  if (action === 'create_alert') {
+ if (httpMethod !== 'POST') {
+  return { status: 405, json: { success: false, error: 'method_not_allowed' } };
+ }
  const kw = parseCsvList(keywords) || [];
  const loc = parseCsvList(locations) || [];
  const sec = parseCsvList(sectors) || [];
@@ -1352,15 +1379,15 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
 
  try {
-  const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
-  const subscriberSnap = await subscriberRef.get();
-  let subscriberData = subscriberSnap.exists ? subscriberSnap.data() || {} : null;
+ const subscriberRef = db.collection('newsletter_subscribers').doc(normalizedEmail);
+ const subscriberSnap = await subscriberRef.get();
+ let subscriberData = subscriberSnap.exists ? subscriberSnap.data() || {} : null;
+  const termsText = REGISTRATION_TERMS_TEXT[lang] || REGISTRATION_TERMS_TEXT.it;
   // The action itself is the activation of this concrete alert. It does not
   // require a second checkbox or a historical DOI stamp. If an old token-mode
   // user has no central row yet, create the same terms-based base relationship
   // used by the browser registration paths.
   if (!subscriberData) {
-   const termsText = REGISTRATION_TERMS_TEXT[lang] || REGISTRATION_TERMS_TEXT.it;
    await subscriberRef.set({
     email: normalizedEmail,
     status: 'confirmed',
@@ -1394,6 +1421,45 @@ export async function handleSubscriptionManagement({ action, email, token, local
     updated_at: admin.firestore.FieldValue.serverTimestamp(),
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
    });
+   subscriberData = (await subscriberRef.get()).data() || {};
+  }
+  // A valid preferences POST is itself an explicit activation click. Lift a
+  // human unsubscribe/stop-all before creating the concrete alert, but never
+  // override a provider/address suppression.
+  if (isAddressSuppressed(subscriberData?.status)) {
+   return { status: 409, json: { success: false, error: 'email_suppressed' } };
+  }
+  if (isCrossChannelStop(subscriberData)) {
+   await subscriberRef.set({
+    email: normalizedEmail,
+    status: 'subscribed',
+    isActive: true,
+    active: true,
+    all_email_opted_out: false,
+    all_emails_opted_out: false,
+    global_email_opt_out: false,
+    global_email_opted_out: false,
+    resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
+    resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
+    resubscribe_pending: admin.firestore.FieldValue.delete(),
+    ...(!subscriberData.registration_terms_accepted ? {
+     consent_given: true,
+     consent_given_at: admin.firestore.FieldValue.serverTimestamp(),
+     consent_basis: 'registration_terms',
+     registration_terms_accepted: true,
+     registration_terms_version: REGISTRATION_TERMS_VERSION,
+     registration_terms_text: termsText,
+     registration_terms_accepted_at: admin.firestore.FieldValue.serverTimestamp(),
+     consent_text: termsText,
+     consent_text_version: REGISTRATION_TERMS_VERSION,
+     consent_text_displayed: true,
+     consent_act: 'registration_terms_acceptance',
+     consent_method: 'terms_and_conditions',
+     consent_purpose: 'unified_email_channels',
+    } : {}),
+    updated_at: admin.firestore.FieldValue.serverTimestamp(),
+    updatedAt: admin.firestore.FieldValue.serverTimestamp(),
+   }, { merge: true });
    subscriberData = (await subscriberRef.get()).data() || {};
   }
   if (isCrossChannelStop(subscriberData)) {
@@ -1630,6 +1696,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
   const subscriberData = subscriberDoc.exists ? (subscriberDoc.data() || {}) : {};
   const loginOnly = String(mode || '').trim().toLowerCase() === 'login';
   const accountDeleted = isAccountDeletedTombstone(subscriberData);
+  const pendingReconsent = subscriberData.resubscribe_pending === true
+   && String(subscriberData.status || '').trim().toLowerCase() === 'pending';
 
   // Login links authenticate the visitor but never change newsletter state.
   // Keeping this lower-privilege path separate prevents an old access link
@@ -1698,7 +1766,8 @@ export async function handleSubscriptionManagement({ action, email, token, local
    subscriberData
    && !accountDeleted
    && (isTransactionalHardBlock({ status: subscriberData.status, bounceSeverity: subscriberData.bounce_severity })
-    || (isNewsletterOptOutBinding(subscriberData) && subscriberData.status !== 'pending'))
+    || ((isNewsletterOptOutBinding(subscriberData) || isGlobalEmailOptOut(subscriberData))
+     && !pendingReconsent))
   ) {
    return {
     status: 409,
@@ -1785,6 +1854,13 @@ export async function handleSubscriptionManagement({ action, email, token, local
      resubscribed_at: admin.firestore.FieldValue.serverTimestamp(),
      resubscribedAt: admin.firestore.FieldValue.serverTimestamp(),
     }),
+    ...(pendingReconsent ? {
+     all_email_opted_out: false,
+     all_emails_opted_out: false,
+     global_email_opt_out: false,
+     global_email_opted_out: false,
+     resubscribe_pending: admin.firestore.FieldValue.delete(),
+    } : {}),
     updated_at: admin.firestore.FieldValue.serverTimestamp(),
     updatedAt: admin.firestore.FieldValue.serverTimestamp(),
    };
@@ -1792,7 +1868,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
 
  await db.collection('newsletter_subscribers').doc(normalizedEmail).collection('events').add({
  email: normalizedEmail,
- event_type: 'confirm',
+ event_type: pendingReconsent ? 'subscription_resubscribed' : 'confirm',
  source_channel: 'confirmation_link',
  timestamp: admin.firestore.FieldValue.serverTimestamp(),
  occurred_at: new Date().toISOString(),
@@ -1886,6 +1962,7 @@ export async function handleSubscriptionManagement({ action, email, token, local
 
  // ── Second layer: a re-subscribe inside the burst window, from the same
  // user agent that opted out, is a scan and is refused — AND RECORDED.
+ // Provider suppressions are checked before this explicit reactivation path.
  //
  // Readable only because `unsubscribed_at` and `unsubscribe_user_agent`
  // now survive a re-subscription (see below): the previous behaviour
@@ -1900,9 +1977,11 @@ export async function handleSubscriptionManagement({ action, email, token, local
  // re-subscriber the only record of their consent. The flag can therefore only
  // ever SUPPRESS a redundant bump, never suppress a first write.
  let priorHasStamp = false;
+ let priorAddressSuppressed = false;
  try {
  const priorSnap = await db.collection('newsletter_subscribers').doc(normalizedEmail).get();
  const prior = priorSnap.exists ? (priorSnap.data() || {}) : {};
+ priorAddressSuppressed = isAddressSuppressed(prior.status);
  priorHasStamp = !!(prior.confirmed_at || prior.confirmedAt);
  const optOutMs = toEpochMillis(prior.unsubscribed_at) ?? toEpochMillis(prior.unsubscribedAt);
  const priorAgent = typeof prior.unsubscribe_user_agent === 'string' ? prior.unsubscribe_user_agent : null;
@@ -1922,6 +2001,22 @@ export async function handleSubscriptionManagement({ action, email, token, local
  }
  } catch (readErr) {
  console.warn('[resubscribe] burst pre-check unavailable (fail-open):', readErr?.message || readErr);
+ }
+
+ if (priorAddressSuppressed) {
+ return {
+  status: 409,
+  resubscribeApplied: false,
+  resubscribeRefusedReason: 'email_suppressed',
+  html: buildResponseHtml({
+   title: t(lang, 'manageErrorTitle'),
+   message: `<strong>${normalizedEmail}</strong> — ${t(lang, 'manageErrorInvalidAction')}`,
+   showResubscribe: false,
+   email: normalizedEmail,
+   token,
+   locale: lang,
+  }),
+ };
  }
 
  if (burst) {

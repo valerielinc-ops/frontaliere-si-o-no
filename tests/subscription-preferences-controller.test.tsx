@@ -13,6 +13,7 @@ vi.mock('@/services/newsletterSubscribers', () => ({
  updateJobAlert: vi.fn(),
  createJobAlert: vi.fn(),
  setDailyBriefFrequency: vi.fn(),
+ upsertUnifiedEmailSubscriber: vi.fn(),
  isNewsletterOptOutBinding: vi.fn(() => false),
  // A VALUE, not a function: the daily-brief card maps over it to render its
  // options, so a mock that omits it takes the whole component down with it.
@@ -561,7 +562,7 @@ describe('SubscriptionPreferencesController — auth-mode source check', () => {
   expect(src).toMatch(/const accountDeleted = isAccountDeletedSubscriber\(data\)/);
   expect(src).toMatch(/isAccountDeletedSubscriber/);
   expect(src).toMatch(/!accountDeleted && !optOutBinding/);
-  expect(src).toMatch(/authToggleNewsletter\(email, next\)/);
+  expect(src).toMatch(/authToggleNewsletter\(email, next, userId\)/);
  });
 
  it('source contains the pause/resume toggle wired to both auth and token modes (issue #4298 follow-up fix)', () => {

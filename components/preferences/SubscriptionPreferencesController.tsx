@@ -36,7 +36,11 @@ import {
  type JobAlertPatch,
  type JobAlertCreatePayload,
 } from '@/services/newsletterSubscribers';
-import { GLOBAL_EMAIL_OPT_OUT_FIELDS } from '@/services/emailSuppression.mjs';
+import {
+ GLOBAL_EMAIL_OPT_OUT_FIELDS,
+ isAddressSuppressed,
+ isCrossChannelStop,
+} from '@/services/emailSuppression.mjs';
 import { ADVERTISING_REACTIVATED_AT_FIELD } from '@/services/communicationChannels';
 import { isAdvertisingSuppressed } from '@/services/publisherBlastMatch.mjs';
 import { getLocale, type Locale } from '@/services/i18n';
@@ -835,8 +839,32 @@ async function authSetSavedJobsDigest(userId: string, email: string, enabled: bo
  const subscriberSnap = await getDoc(subscriberRef);
  const subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
  if (!subscriberData) throw new Error('subscriber-not-created');
- if (enabled && hasExplicitGlobalEmailStop(subscriberData)) {
-  throw new Error('email-suppressed');
+ if (enabled) {
+  // Enabling this digest is an explicit click by the authenticated owner. It
+  // must use the same central writer as follow/job-alert actions so a prior
+  // human stop is reactivated consistently; provider/address suppressions
+  // remain hard blocks.
+  if (isAddressSuppressed(subscriberData.status)) {
+   throw new Error('email-suppressed');
+  }
+  const registration = await upsertUnifiedEmailSubscriber(db as any, {
+   email: email.trim().toLowerCase(),
+   userId,
+   source: 'preference_center',
+   sourceChannel: 'web_app',
+   sourcePage: '/profilo/',
+   sourceCta: 'saved_jobs_digest_toggle',
+   sourceComponent: 'SubscriptionPreferencesController',
+   sourceRouteFamily: 'preferences',
+   locale: getLocale(),
+   registrationMethod: 'authenticated',
+   explicitConsentAction: true,
+  });
+  const refreshed = await getDoc(subscriberRef);
+  const refreshedData = refreshed.exists() ? refreshed.data() || {} : null;
+  if (registration.optedOut || isCrossChannelStop(refreshedData)) {
+   throw new Error('email-suppressed');
+  }
  }
  // Merge, and only under `savedJobsDigest` — services/savedJobsService.ts's
  // ensureUserProfileDoc deliberately never rewrites this key after creation so
@@ -860,11 +888,11 @@ async function authSetSavedJobsDigest(userId: string, email: string, enabled: bo
  );
 }
 
-async function authToggleNewsletter(email: string, subscribed: boolean): Promise<void> {
+async function authToggleNewsletter(email: string, subscribed: boolean, userId?: string | null): Promise<void> {
  // Keep historical opt-out stamps as evidence; only the account-deletion
  // lifecycle marker is removed when this explicit authenticated re-registration
  // turns the newsletter back on.
- const { getFirestore, doc, getDoc, setDoc, addDoc, collection, serverTimestamp, deleteField } =
+ const { getFirestore, doc, getDoc, setDoc, addDoc, collection, serverTimestamp } =
  await resilientImport(
  () => import('firebase/firestore'),
  (m) => typeof m.getFirestore === 'function',
@@ -881,37 +909,28 @@ async function authToggleNewsletter(email: string, subscribed: boolean): Promise
  const existingData = existing.exists() ? existing.data() || {} : null;
  if (!existingData) throw new Error('subscriber_not_found');
  if (subscribed) {
- await setDoc(
- subscriberRef,
- {
- email: key,
- status: 'subscribed',
- isActive: true,
- active: true,
- all_email_opted_out: false,
- all_emails_opted_out: false,
- global_email_opt_out: false,
- global_email_opted_out: false,
- account_deleted_at: deleteField(),
- // Both spellings of the RE-OPT-IN stamp, and neither opt-out stamp is
- // deleted (#5711). scripts/send-newsletter.mjs drops a row carrying
- // either spelling of the opt-out, so the lift has to be visible to it —
- // it now compares the two stamps (`isNewsletterOptOutBinding`,
- // services/newsletterOptOut.mjs) instead of requiring the opt-out to be
- // erased. Erasing it destroyed the only record that the person had
- // unsubscribed, which is the half of the problem #5711 is about.
- resubscribed_at: serverTimestamp(),
- resubscribedAt: serverTimestamp(),
- // This toggle records an explicit re-opt-in, but it is NOT a double-opt-in
- // confirmation. Do not mint `confirmed_at` here: a profile session can prove
- // who is acting, not that the address completed the newsletter DOI. Existing
- // confirmation proof remains intact; ordinary senders use the relationship
- // and suppression state, while the DOI flow may still consult the proof.
- updated_at: serverTimestamp(),
- updatedAt: serverTimestamp(),
- },
- { merge: true },
- );
+ if (isAddressSuppressed(existingData.status)) {
+  throw new Error('email-suppressed');
+ }
+ const registration = await upsertUnifiedEmailSubscriber(db as any, {
+  email: key,
+  userId: userId || null,
+  source: 'preference_center',
+  sourceChannel: 'web_app',
+  sourcePage: '/profilo/',
+  sourceCta: 'newsletter_toggle',
+  sourceComponent: 'SubscriptionPreferencesController',
+  sourceRouteFamily: 'preferences',
+  locale: getLocale(),
+  registrationMethod: 'authenticated',
+  explicitConsentAction: true,
+ });
+ const refreshed = await getDoc(subscriberRef);
+ const refreshedData = refreshed.exists() ? refreshed.data() || {} : null;
+ if (registration.optedOut || isCrossChannelStop(refreshedData)) {
+  throw new Error('email-suppressed');
+ }
+ return;
  } else {
  await setDoc(
  subscriberRef,
@@ -1071,11 +1090,11 @@ async function authCreateAlert(
  const subscriberRef = doc(db, 'newsletter_subscribers', key);
  let subscriberSnap = await getDoc(subscriberRef);
  let subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
- // A concrete search is an activation of the job-alert channel, not a second
- // consent event. Ensure the common terms-based relationship first; the
- // newsletter opt-out remains channel-local, while a hard/global stop still
+ // A concrete search is an activation of the job-alert channel and an
+ // explicit click. Ensure the common terms-based relationship first; a human
+ // stop may be lifted by this action, while a hard/address suppression still
  // blocks a new outbound alert.
- await upsertUnifiedEmailSubscriber(db as any, {
+ const registration = await upsertUnifiedEmailSubscriber(db as any, {
   email: key,
   userId,
   source: 'preference_center',
@@ -1085,6 +1104,7 @@ async function authCreateAlert(
   sourceComponent: 'SubscriptionPreferencesController',
   sourceRouteFamily: 'preferences',
   locale: getLocale(),
+  explicitConsentAction: true,
   jobContext: {
    searchQuery: payload.keywords.join(', '),
    category: payload.sectors.join(', '),
@@ -1093,7 +1113,7 @@ async function authCreateAlert(
  });
  subscriberSnap = await getDoc(subscriberRef);
  subscriberData = subscriberSnap.exists() ? subscriberSnap.data() || {} : null;
- if (hasExplicitGlobalEmailStop(subscriberData)) throw new Error('email-suppressed');
+ if (registration.optedOut || isCrossChannelStop(subscriberData)) throw new Error('email-suppressed');
  if (!subscriberData) throw new Error('subscriber-not-created');
 
  // An explicit alert created from the authenticated preference centre starts a
@@ -1748,7 +1768,7 @@ export function SubscriptionPreferencesController({
  if (!result.success) throw new Error(result.error || 'write_failed');
  setNewsletterSubscribed(result.subscribed === true);
  } else {
- await authToggleNewsletter(email, next);
+ await authToggleNewsletter(email, next, userId);
  setNewsletterSubscribed(next);
  }
  flashSaved('newsletter');
