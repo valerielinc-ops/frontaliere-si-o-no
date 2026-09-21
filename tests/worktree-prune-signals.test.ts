@@ -11,10 +11,18 @@ import {
 import {
   headQueryCommand,
   isMergedIntoBaseAtHead,
+  isMergedPullRequestToBase,
   makePrStateResolver,
+  normalizeAssociatedPr,
+  pickBestAssociatedPr,
   pickBestPrState,
   SAFE_BRANCH_RE,
 } from '../scripts/lib/pr-state-window.mjs';
+import {
+  canDeleteClosedCandidate,
+  canDeleteIssueFix,
+  needsSnapshot,
+} from '../scripts/lib/branch-purge-policy.mjs';
 
 // I due segnali che il 2026-09-04 tenevano in vita 21 worktree per 14 GB:
 //   • la finestra `gh pr list --limit 400` copre nove giorni su questo repo, e
@@ -197,6 +205,51 @@ describe('stato PR oltre la finestra', () => {
       enabled: false,
     });
     expect(resolve('qualsiasi')).toBeUndefined();
+  });
+
+  it('normalizza la risposta REST commit→PR: CLOSED con merged_at è MERGED', () => {
+    expect(normalizeAssociatedPr({ state: 'closed', merged_at: '2026-09-16T07:48:58Z' })?.state)
+      .toBe('MERGED');
+    expect(normalizeAssociatedPr({ state: 'closed', merged_at: null })?.state).toBe('CLOSED');
+  });
+
+  it('sceglie la PR migliore solo sul base branch richiesto', () => {
+    const merged = {
+      number: 8812,
+      state: 'closed',
+      merged_at: '2026-09-16T07:48:58Z',
+      base: { ref: 'main' },
+    };
+    const staging = {
+      number: 8813,
+      state: 'closed',
+      merged_at: '2026-09-16T07:49:00Z',
+      base: { ref: 'staging' },
+    };
+    expect(pickBestAssociatedPr([staging, merged], { baseBranch: 'main' })?.number).toBe(8812);
+    expect(isMergedPullRequestToBase(merged, { baseBranch: 'main' })).toBe(true);
+    expect(isMergedPullRequestToBase(staging, { baseBranch: 'main' })).toBe(false);
+  });
+});
+
+describe('guardie del purge', () => {
+  it('non cancella una PR/issue chiusa con commit locali unici', () => {
+    expect(canDeleteClosedCandidate({ ahead: 3 })).toBe(false);
+    expect(canDeleteClosedCandidate({ ahead: null })).toBe(false);
+    expect(canDeleteClosedCandidate({ ahead: 0 })).toBe(true);
+  });
+
+  it('tratta not_planned come non-prova di lavoro completato', () => {
+    expect(canDeleteIssueFix({ issueState: 'closed', issueReason: 'completed', ahead: 0 })).toBe(true);
+    expect(canDeleteIssueFix({ issueState: 'closed', issueReason: 'not_planned', ahead: 0 })).toBe(false);
+    expect(canDeleteIssueFix({ issueState: 'closed', issueReason: 'completed', ahead: 2 })).toBe(false);
+  });
+
+  it('richiede uno snapshot solo per un merged squashato non già taggato', () => {
+    expect(needsSnapshot({ prState: 'MERGED', ahead: 4, hasSnapshot: false })).toBe(true);
+    expect(needsSnapshot({ prState: 'MERGED', ahead: 4, hasSnapshot: true })).toBe(false);
+    expect(needsSnapshot({ prState: 'MERGED', ahead: 0, hasSnapshot: false })).toBe(false);
+    expect(needsSnapshot({ prState: 'CLOSED', ahead: 4, hasSnapshot: false })).toBe(false);
   });
 });
 
