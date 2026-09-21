@@ -393,7 +393,8 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
       expect(guard, `${name}: marker POST must expose an id for refund`).toContain('--method POST --raw-field');
       expect(guard, `${name}: marker POST must expose the author for read-back identity`).toContain('marker_author');
       expect(guard, `${name}: marker read-back must bind id and author`).toContain('(.id | tostring) == $marker_id and .user.login == $marker_author');
-      expect(guard, `${name}: round cap must use the trusted API actor`).toContain('api user --jq');
+      expect(guard, `${name}: round cap must pin the Actions REST actor`).toContain("trusted_actor='github-actions[bot]'");
+      expect(guard, `${name}: installation token must not probe /user`).not.toContain('api user --jq');
       expect(guard, `${name}: forged/old markers must be filtered by actor and HEAD`).toContain('expected_head');
       expect(guard, `${name}: malformed marker POST must reconcile by exact body`).toContain('refund_marker');
       expect(guard, `${name}: marker mismatch must refund the identified comment`).toContain('--method DELETE');
