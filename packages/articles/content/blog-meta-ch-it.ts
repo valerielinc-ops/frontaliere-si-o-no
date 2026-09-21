@@ -6626,6 +6626,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.consiglio-federale-modifica-isos.title': 'Il Consiglio federale migliora l’applicazione dell’ISOS',
     'blog.article.consiglio-federale-modifica-isos.excerpt': 'Approvate le modifiche a OISOS e OPT dal Consiglio federale per semplificare e velocizzare i progetti edilizi in Svizzera a partire dal 1 novembre 2026.',
     'blog.article.consiglio-federale-modifica-isos.imageAlt': 'Modifica OISOS e OPT approvata dal Consiglio federale svizzero',
+    'blog.article.estate-2026-perdita-produttivita.title': 'Estate 2026: oltre 2 mld di franchi di produttività persi',
+    'blog.article.estate-2026-perdita-produttivita.excerpt': 'L\'estate 2026 ha causato perdite di produttività per oltre 2 miliardi di franchi, con Birsfelden al 2,47% e le città colpite per 1,3 miliardi.',
+    'blog.article.estate-2026-perdita-produttivita.imageAlt': 'Strada svizzera in piena estate con persone che cercano ombra e sudano a causa del caldo intenso',
 };
 
 export default blogMetaChIt;
