@@ -176,6 +176,20 @@ describe("McDonald's Switzerland crawler parser", () => {
       })).toBeNull();
     });
 
+    it('drops a Liechtenstein row whose source label contradicts the CH flag', () => {
+      expect(listingEntryToParsed({
+        title: 'Crew Member',
+        reference: 'P8-LI-1',
+        originalURL: 'fr-ch/crew/job/P8-LI-1',
+        locations: [{
+          city: 'VADUZ',
+          country: 'Switzerland',
+          countryAbbr: 'CH',
+          locationName: 'VADUZ FL (221)',
+        }],
+      })).toBeNull();
+    });
+
     it('fails closed instead of counting malformed rows as legitimate exclusions', () => {
       expect(() => listingEntryToParsed(null)).toThrow(/no verified Swiss source location/);
       expect(() => listingEntryToParsed({ title: 'x' })).toThrow(/no verified Swiss source location/);
