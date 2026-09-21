@@ -329,6 +329,35 @@ describe('mark-mistranslated-jobs — idempotent title marking', () => {
     expect(sel.genderFormHits).toBe(0);
   });
 
+  it('accepts a regional German locale but rejects a non-locale de prefix', () => {
+    const regional = selectMistranslatedJobs([{
+      ...germanGenderFormJob,
+      slug: 'regional-de-source',
+      sourceLang: 'de-CH',
+    }], {
+      titles: false,
+      descriptions: false,
+      genderForms: true,
+      cap: 0,
+      queueCeiling: 0,
+    });
+    expect(regional.slugs.has('regional-de-source')).toBe(true);
+
+    const invalid = selectMistranslatedJobs([{
+      ...germanGenderFormJob,
+      slug: 'invalid-de-prefix',
+      sourceLang: 'debug',
+    }], {
+      titles: false,
+      descriptions: false,
+      genderForms: true,
+      cap: 0,
+      queueCeiling: 0,
+    });
+    expect(invalid.slugs.size).toBe(0);
+    expect(invalid.genderFormHits).toBe(0);
+  });
+
   it('does not re-select a German gender-form job already queued', () => {
     const sel = selectMistranslatedJobs([{ ...germanGenderFormJob, needsRetranslation: true }], {
       titles: false,
