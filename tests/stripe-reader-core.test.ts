@@ -22,7 +22,7 @@
  * across tests with different getRemoteConfigValue mock return values.
  */
 
-import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { describe, it, expect, vi, beforeEach } from 'vitest';
 
 // ── In-memory reader_subscriptions store ────────────────────────────────
 let store: Record<string, Record<string, unknown>> = {};
@@ -173,8 +173,6 @@ vi.mock('stripe', () => {
   return { default: MockStripe };
 });
 
-const fetchMock = vi.fn(async () => ({ ok: true }));
-
 async function load() {
   return import('../functions/src/stripeReaderCore.js');
 }
@@ -239,12 +237,6 @@ beforeEach(() => {
     metadata: { plan: 'reader_noads' },
     created: SESSION_CREATED_UNIX,
   }));
-  fetchMock.mockImplementation(async () => ({ ok: true }));
-  vi.stubGlobal('fetch', fetchMock);
-});
-
-afterEach(() => {
-  vi.unstubAllGlobals();
 });
 
 describe('READER_NOADS_PLAN — drift guard vs services/readerSubscriptionPricing.ts', () => {
@@ -290,25 +282,6 @@ describe('handleCreateReaderCheckout', () => {
     );
     expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(
       expect.objectContaining({ success_url: 'https://a.test/ok?foo=bar&session_id={CHECKOUT_SESSION_ID}' }),
-    );
-  });
-
-  it('guest checkout forwards posthogDistinctId into session metadata when the client sent one', async () => {
-    const { handleCreateReaderCheckout, READER_NOADS_PLAN } = await load();
-    await handleCreateReaderCheckout(
-      req({
-        get: () => undefined,
-        body: {
-          successUrl: 'https://a.test/ok',
-          cancelUrl: 'https://a.test/cancel',
-          posthogDistinctId: 'ph-anon-guest',
-        },
-      }),
-    );
-    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(
-      expect.objectContaining({
-        metadata: { plan: READER_NOADS_PLAN, posthogDistinctId: 'ph-anon-guest' },
-      }),
     );
   });
 
@@ -382,23 +355,6 @@ describe('handleCreateReaderCheckout', () => {
     );
   });
 
-  it('forwards posthogDistinctId into session metadata when the client sent one', async () => {
-    const { handleCreateReaderCheckout, READER_NOADS_PLAN } = await load();
-    await handleCreateReaderCheckout(
-      req({
-        body: {
-          successUrl: 'https://a.test/ok',
-          cancelUrl: 'https://a.test/cancel',
-          posthogDistinctId: 'ph-anon-123',
-        },
-      }),
-    );
-    expect(stripeCheckoutSessionsCreate).toHaveBeenCalledWith(
-      expect.objectContaining({
-        metadata: { plan: READER_NOADS_PLAN, readerUid: 'reader1', posthogDistinctId: 'ph-anon-123' },
-      }),
-    );
-  });
 });
 
 describe('handleClaimReaderCheckout', () => {
@@ -688,7 +644,7 @@ describe('handleReaderWebhookEvent', () => {
           id: 'cs_test_1',
           customer: 'cus_new',
           subscription: 'sub_1',
-          metadata: { plan: READER_NOADS_PLAN, readerUid: 'reader1', posthogDistinctId: 'ph-anon-123' },
+          metadata: { plan: READER_NOADS_PLAN, readerUid: 'reader1' },
         },
       },
     };
@@ -701,33 +657,6 @@ describe('handleReaderWebhookEvent', () => {
       status: 'active',
       updatedAt: ts,
     });
-    expect(fetchMock).toHaveBeenCalledWith(
-      'https://t.frontaliereticino.ch/capture/',
-      expect.objectContaining({
-        method: 'POST',
-        body: expect.stringContaining('"distinct_id":"ph-anon-123"'),
-      }),
-    );
-  });
-
-  it('falls back to the Firebase uid as distinct_id when the client sent no posthogDistinctId', async () => {
-    const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
-    const event = {
-      type: 'checkout.session.completed',
-      data: {
-        object: {
-          id: 'cs_test_1',
-          customer: 'cus_new',
-          subscription: 'sub_1',
-          metadata: { plan: READER_NOADS_PLAN, readerUid: 'reader1' },
-        },
-      },
-    };
-    await handleReaderWebhookEvent(event, fakeCtx(ts));
-    expect(fetchMock).toHaveBeenCalledWith(
-      'https://t.frontaliereticino.ch/capture/',
-      expect.objectContaining({ body: expect.stringContaining('"distinct_id":"reader1"') }),
-    );
   });
 
   it('resolves/creates a Firebase uid from customer_details.email when readerUid metadata is absent (guest checkout)', async () => {
@@ -755,10 +684,6 @@ describe('handleReaderWebhookEvent', () => {
       status: 'active',
       updatedAt: ts,
     });
-    expect(fetchMock).toHaveBeenCalledWith(
-      'https://t.frontaliereticino.ch/capture/',
-      expect.objectContaining({ body: expect.stringContaining('"distinct_id":"guest-uid-1"') }),
-    );
   });
 
   it('reuses the existing Firebase uid for a returning guest email instead of creating a duplicate user', async () => {
@@ -880,27 +805,6 @@ describe('handleReaderWebhookEvent', () => {
     expect(getUserByEmail).not.toHaveBeenCalled();
     expect(createUser).not.toHaveBeenCalled();
     expect(Object.keys(store)).toHaveLength(0);
-  });
-
-  it('does not let a PostHog capture failure break entitlement processing', async () => {
-    fetchMock.mockImplementation(async () => {
-      throw new Error('network down');
-    });
-    const { handleReaderWebhookEvent, READER_NOADS_PLAN } = await load();
-    const event = {
-      type: 'checkout.session.completed',
-      data: {
-        object: {
-          id: 'cs_test_1',
-          customer: 'cus_new',
-          subscription: 'sub_1',
-          metadata: { plan: READER_NOADS_PLAN, readerUid: 'reader1' },
-        },
-      },
-    };
-    const handled = await handleReaderWebhookEvent(event, fakeCtx(ts));
-    expect(handled).toBe(true);
-    expect(store.reader1).toMatchObject({ status: 'active' });
   });
 
   it('invoice.paid re-confirms active status for a known reader subscription', async () => {

@@ -1,13 +1,13 @@
 import { useEffect, useState } from 'react';
 import { Analytics } from './analytics';
-import { getDistinctId, getFeatureFlag, onFeatureFlags, registerSuperProperty } from './posthog';
+import { getConfigValue } from './firebase';
 import { ASSISTED_APPLICATION_PRICE_EUR_CENTS as SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS } from '@/functions/src/assistedApplicationConstants.js';
 
 export const ASSISTED_APPLICATION_PRICE_EUR_CENTS = SHARED_ASSISTED_APPLICATION_PRICE_EUR_CENTS;
 
 /** Stable identifiers shared by the SPA funnel and its analytics queries. */
 export const ASSISTED_APPLICATION_EXPERIMENT_ID = 'assisted-application-v2';
-export const ASSISTED_APPLICATION_FLAG_KEY = ASSISTED_APPLICATION_EXPERIMENT_ID;
+export const ASSISTED_APPLICATION_EXPERIMENT_RC_KEY = 'ASSISTED_APPLICATION_EXPERIMENT_VARIANT';
 export const ASSISTED_APPLICATION_CONSENT_VERSION = 'assisted-application-v1';
 export const ASSISTED_APPLICATION_VARIANTS = ['control', 'assisted_application', 'rewarded_ad'] as const;
 export type AssistedApplicationVariant = (typeof ASSISTED_APPLICATION_VARIANTS)[number];
@@ -54,8 +54,9 @@ function hashDistinctId(value: string): number {
 /**
  * Resolve the fallback assignment. The paid treatment owns 40% of buckets,
  * the rewarded treatment owns 40%, and the control owns the remaining 20%.
- * PostHog's explicit flag wins when present, while this path keeps the
- * experiment usable during SDK/ad-blocker failure.
+ * Remote Config can override the arm globally for rollout/QA. The `auto`
+ * value (or an unavailable/unknown value) keeps the deterministic split so
+ * the experiment remains usable when the public-config endpoint is down.
  */
 export function resolveAssistedApplicationVariant(distinctId: string): AssistedApplicationVariant {
   const normalized = String(distinctId || '').trim();
@@ -81,23 +82,18 @@ function createAnonymousDistinctId(): string {
   return `anon-${Date.now().toString(36)}-${Math.random().toString(36).slice(2, 12)}`;
 }
 
-/** Return PostHog's id, or a non-PII browser id when PostHog is unavailable. */
+/** Return a non-PII browser id used to keep the assignment sticky. */
 export function getAssistedApplicationDistinctId(): string | null {
   if (typeof window === 'undefined') return null;
 
   try {
     const existing = window.localStorage.getItem(ANONYMOUS_DISTINCT_ID_KEY);
     if (existing) return existing;
-    const posthogId = getDistinctId();
-    if (posthogId) {
-      window.localStorage.setItem(ANONYMOUS_DISTINCT_ID_KEY, posthogId);
-      return posthogId;
-    }
     const created = createAnonymousDistinctId();
     window.localStorage.setItem(ANONYMOUS_DISTINCT_ID_KEY, created);
     return created;
   } catch {
-    return getDistinctId();
+    return null;
   }
 }
 
@@ -108,8 +104,8 @@ export interface AssistedApplicationVariantResult {
 }
 
 /**
- * Resolve the sticky assignment once flags are available. Initial render stays
- * control, matching the existing auth-gate experiment's no-flash contract.
+ * Resolve the sticky assignment once Remote Config is available. Initial
+ * render stays control, preserving the no-flash contract.
  */
 export function useAssistedApplicationVariant(): AssistedApplicationVariantResult {
   const [variant, setVariant] = useState<AssistedApplicationVariant>('control');
@@ -117,15 +113,17 @@ export function useAssistedApplicationVariant(): AssistedApplicationVariantResul
 
   useEffect(() => {
     let lastAssignment = '';
+    let cancelled = false;
 
-    const assign = () => {
+    const assign = async () => {
       const distinctId = getAssistedApplicationDistinctId();
-      const flagged = normalizeAssistedApplicationVariant(getFeatureFlag(ASSISTED_APPLICATION_FLAG_KEY));
+      const configured = await getConfigValue(ASSISTED_APPLICATION_EXPERIMENT_RC_KEY).catch(() => '');
+      if (cancelled) return;
+      const flagged = normalizeAssistedApplicationVariant(configured.trim().toLowerCase());
       const resolved = flagged ?? resolveAssistedApplicationVariant(distinctId || '');
       const assignmentKey = `${distinctId || 'unknown'}:${resolved}`;
       setVariant(resolved);
       setReady(true);
-      registerSuperProperty('assisted_application_variant', resolved);
 
       if (assignmentKey === lastAssignment) return;
       lastAssignment = assignmentKey;
@@ -133,9 +131,10 @@ export function useAssistedApplicationVariant(): AssistedApplicationVariantResul
       // view, because only that surface has the required job/company context.
     };
 
-    assign();
-    const unsubscribe = onFeatureFlags(assign);
-    return unsubscribe;
+    void assign();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   return { experimentId: ASSISTED_APPLICATION_EXPERIMENT_ID, variant, ready };
@@ -153,7 +152,7 @@ export function trackAssistedApplicationEvent(
   eventName: (typeof ASSISTED_APPLICATION_EVENT_NAMES)[number],
   context: AssistedApplicationEventContext,
 ): void {
-  Analytics.trackEvent(eventName, {
+  Analytics.trackExperimentEvent(eventName, {
     ...context,
     experiment_id: ASSISTED_APPLICATION_EXPERIMENT_ID,
     variant: context.variant,

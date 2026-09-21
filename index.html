@@ -588,8 +588,10 @@
          Ad Manager for the rewarded_ad arm only (40% of stable buckets). The
          assignment must happen before Funding Choices loads, so seed the same
          non-PII browser id used by services/assistedApplicationExperiment and
-         suppress only OFFERWALL for control/paid buckets. Consent and all other
-         Funding Choices messages continue normally. -->
+         suppress only OFFERWALL for control/paid buckets. The public Remote
+         Config parameter can force an arm for rollout/QA; `auto` preserves
+         the deterministic split. Consent and all other Funding Choices
+         messages continue normally. -->
     <script>
       (function(){
         var g = window.googlefc = window.googlefc || {};
@@ -616,13 +618,51 @@
           }
           return (hash >>> 0) % 100;
         }
-        g.controlledMessagingFunction = function(message){
+        var PUBLIC_CONFIG_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPublicConfig';
+        var isJobBoard = /^\/cerca-lavoro-ticino(?:\/|$)/.test(window.location.pathname);
+        var remoteVariantPromise = null;
+        function remoteVariant(){
+          if (!isJobBoard) return Promise.resolve(null);
+          if (!remoteVariantPromise) {
+            remoteVariantPromise = fetch(PUBLIC_CONFIG_ENDPOINT, { credentials: 'omit' })
+              .then(function(response){ return response.ok ? response.json() : null; })
+              .then(function(config){
+                var value = config && config.ASSISTED_APPLICATION_EXPERIMENT_VARIANT;
+                return value === 'control' || value === 'assisted_application' || value === 'rewarded_ad'
+                  ? value
+                  : null;
+              })
+              .catch(function(){ return null; });
+          }
+          return remoteVariantPromise;
+        }
+        function shouldAllowOfferwall(){
+          return remoteVariant().then(function(variant){
+            if (variant === 'rewarded_ad') return true;
+            if (variant === 'control' || variant === 'assisted_application') return false;
+            return bucket(distinctId()) >= 60;
+          });
+        }
+        g.controlledMessagingFunction = async function(message){
           var E = g.MessageTypeEnum || {};
           // Fail open if the enum is unavailable: never block the consent CMP
           // because an older Funding Choices runtime lacks Offerwall filtering.
-          if (E.OFFERWALL === undefined || bucket(distinctId()) >= 60) {
+          if (E.OFFERWALL === undefined) {
             message.proceed(true);
             return;
+          }
+          try {
+            if (await shouldAllowOfferwall()) {
+              message.proceed(true);
+              return;
+            }
+          } catch (e) {
+            // Keep the old deterministic fallback if the public-config fetch
+            // fails unexpectedly before its own catch handler can settle.
+            if (bucket(distinctId()) >= 60) {
+              message.proceed(true);
+              return;
+            }
           }
           message.proceed(false, [E.OFFERWALL]);
         };

@@ -63,7 +63,7 @@ vi.mock('@/services/firebase', () => ({
  analytics: null,
  db: {},
  getApp: vi.fn(async () => ({})),
- getConfigValue: vi.fn(() => ''),
+ getConfigValue: vi.fn(async () => ''),
  createTrace: vi.fn(async () => null),
  measureTrace: vi.fn(async (_name: string, fn: () => Promise<any>) => fn()),
 }));
@@ -185,9 +185,6 @@ vi.mock('@/services/posthog', () => ({
  captureEvent: vi.fn(),
  capturePageView: vi.fn(),
  identifyUser: vi.fn(),
- getFeatureFlag: vi.fn(() => null),
- onFeatureFlags: vi.fn(() => () => {}),
- registerSuperProperty: vi.fn(),
 }));
 
 // Mock Web Vitals

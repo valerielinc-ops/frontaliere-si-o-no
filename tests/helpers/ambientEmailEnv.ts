@@ -70,27 +70,6 @@ export function stubEmptyAutologinPolicy(): void {
 }
 
 /**
- * Every variable `resolveConfig()`
- * (functions/src/lib/emailExperimentPostHog.js) reads before falling back to
- * Remote Config.
- */
-export const POSTHOG_EMAIL_EXPERIMENT_ENV_KEYS = [
-  'POSTHOG_EMAIL_EXPERIMENT',
-  'POSTHOG_PROJECT_KEY',
-  'POSTHOG_HOST',
-] as const;
-
-/**
- * Stub the PostHog email-experiment variables empty — the "flag unset" state the
- * disabled-by-default assertions describe. With the credentials exported the
- * experiment resolves ENABLED and the no-op assertions fail on the environment,
- * not on the module.
- */
-export function stubNoPostHogEmailExperiment(): void {
-  for (const key of POSTHOG_EMAIL_EXPERIMENT_ENV_KEYS) vi.stubEnv(key, '');
-}
-
-/**
  * Every variable `resolveNewsletterTokenPolicy()`
  * (functions/src/lib/newsletterActionToken.js) reads when no explicit policy is
  * threaded through.
