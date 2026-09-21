@@ -1,5 +1,5 @@
 {
-  "updatedAt": "2026-09-14T17:58:17.409Z",
+  "updatedAt": "2026-09-21T13:35:19.739Z",
   "entries": [
     {
       "date": "2026-06-08",
@@ -524,6 +524,45 @@
       "warnings": [
         "CLS non misurabile: posthog ingested < 500 events/day on 2 of 7 complete day(s) in the 7d window: 2026-09-07 (18), 2026-09-08 (18)"
       ]
+    },
+    {
+      "date": "2026-09-21",
+      "generatedAt": "2026-09-21T13:35:19.672Z",
+      "cls": {
+        "p75Mobile": 0.163,
+        "p75Desktop": 0.174,
+        "window": {
+          "start": "2026-09-13",
+          "end": "2026-09-19"
+        }
+      },
+      "gsc": {
+        "avgPosition": 7.86,
+        "clicksPerDay": 2473.3,
+        "ctrByBucket": {
+          "/job-board/": null,
+          "/calcola-stipendio/": 2.42,
+          "/articoli-frontaliere/": 3.34,
+          "/fisco/": null,
+          "/guida-frontaliere/": 2.31
+        }
+      },
+      "adsense": {
+        "currencyCode": "EUR",
+        "rpm": 6.62,
+        "desktopRpm": 3.88,
+        "revenuePerDay": 21.03,
+        "rpmCHF": 6.62,
+        "desktopRpmCHF": 3.88,
+        "revenuePerDayCHF": 21.03
+      },
+      "sourcesOk": {
+        "cls": true,
+        "gsc": true,
+        "adsense": true
+      },
+      "errors": [],
+      "warnings": []
     }
   ]
 }
