@@ -154,7 +154,7 @@ const CONCESSIVE =
   '(?:solo|soltanto|solamente|unicamente|esclusivamente|semplicemente|meramente|puramente|' +
   'only|just|merely|simply)';
 const NEG_REPORT_RE = new RegExp(
-  `\\b(?:non|n[éè]|not|never|mai|senza|without)(?!\\s+${CONCESSIVE}\\b)` +
+  `\\b(?:non|n(?:[éè]|e['’])|not|never|mai|senza|without)(?!\\s+${CONCESSIVE}\\b)` +
   `(?:\\s+[\\p{L}\\p{N}_'’]+){0,2}\\s*$`,
   'iu',
 );
@@ -197,19 +197,24 @@ function effectiveRefs(body) {
 
 /**
  * Refs a line claims to close with a token GitHub ignores.
+ *
+ * The report guards inspect the whole prefix and one previous body line. A
+ * fixed-width prefix made the result depend on the spelling length of the
+ * sentence, while a soft-wrapped `non è\nchiuso: #849` lost the negation.
  * @returns {Array<{ keyword: string, ref: string }>}
  */
-function lineIntentRefs(line) {
+function lineIntentRefs(line, prev = '', raw = line, rawPrev = prev) {
   const s = String(line || '');
+  const src = String(raw ?? '');
+  const carry = String(rawPrev ?? '').trim();
   INTENT_RE.lastIndex = 0;
   return [...s.matchAll(INTENT_RE)]
     .filter((m) => {
-      // Keep the whole prefix: a fixed-width window can cut away the
-      // negation/past-report word and turn an explicit "still open" report
-      // into a false closure finding. The regexes below already stop at
-      // punctuation and bound the words they accept, so the full prefix does
-      // not make a sentence boundary disappear.
-      const before = stripEmphasis(s.slice(0, m.index));
+      // Keep the whole prefix: the regexes are anchored and bounded, so this
+      // cannot widen the report but does preserve long negated/past reports.
+      // The previous line covers bodies hard-wrapped between the guard word
+      // and the ineffective keyword.
+      const before = stripEmphasis((carry ? `${carry} ` : '') + src.slice(0, m.index));
       return !PAST_REPORT_RE.test(before) && !NEG_REPORT_RE.test(before);
     })
     .map((m) => ({ keyword: m[1], ref: m[2] }));
@@ -276,7 +281,12 @@ export function checkClosesLines(body = '') {
           refs.map((r) => `\`Closes #${r}\``).join(' / ') + '.',
       });
     }
-    for (const { keyword, ref } of lineIntentRefs(lines[i])) {
+    for (const { keyword, ref } of lineIntentRefs(
+      lines[i],
+      lines[i - 1],
+      rawLines[i] ?? lines[i],
+      rawLines[i - 1] ?? lines[i - 1],
+    )) {
       if (willClose.has(ref.toLowerCase())) continue; // già chiusa da una keyword vera altrove
       if (reported.has(ref.toLowerCase())) continue;
       reported.add(ref.toLowerCase());
