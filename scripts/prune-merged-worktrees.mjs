@@ -44,7 +44,11 @@ import {
   rankPrState,
 } from './lib/pr-state-window.mjs';
 import { classifyDirty } from './lib/worktree-dirty.mjs';
-import { canDeleteClosedCandidate, needsSnapshot } from './lib/branch-purge-policy.mjs';
+import {
+  canDeleteClosedCandidate,
+  hasAncestryProof,
+  needsSnapshot,
+} from './lib/branch-purge-policy.mjs';
 
 import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
@@ -95,6 +99,18 @@ function gitOk(args) {
     return true;
   } catch {
     return false;
+  }
+}
+
+function ghOut(args, { allowFail = false } = {}) {
+  try {
+    return execFileSync('gh', args, {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+  } catch (e) {
+    if (allowFail) return '';
+    throw e;
   }
 }
 
@@ -265,6 +281,7 @@ const repoSlug = ghOk
   ? sh('gh repo view --json nameWithOwner --jq .nameWithOwner', { allowFail: true })
   : '';
 const associatedPrCache = new Map(); // commit SHA → record PR migliore o null
+const ancestryProofCache = new Map(); // local tip...PR head → boolean
 const branchPrResolution = new Map(); // branch → { state, source, pr, sha }
 
 function associatedPrForCommit(sha) {
@@ -284,6 +301,25 @@ function associatedPrForCommit(sha) {
   }
   associatedPrCache.set(sha, best || null);
   return best;
+}
+
+function commitIsAncestorOfPrHead(localTip, pr) {
+  const prHead = pr?.head?.sha || pr?.headRefOid;
+  if (!localTip || !prHead || !repoSlug) return false;
+  const key = `${localTip}...${prHead}`;
+  if (ancestryProofCache.has(key)) return ancestryProofCache.get(key);
+  const raw = ghOut([
+    'api',
+    `repos/${repoSlug}/compare/${localTip}...${prHead}`,
+    '--jq',
+    '{behind_by,status}',
+  ], { allowFail: true });
+  let proven = false;
+  if (raw) {
+    try { proven = hasAncestryProof(JSON.parse(raw)); } catch { /* report-only */ }
+  }
+  ancestryProofCache.set(key, proven);
+  return proven;
 }
 
 function resolveBranchPrState(branch) {
@@ -311,7 +347,9 @@ function resolveBranchPrState(branch) {
   }
 
   const associated = associatedPrForCommit(head);
-  if (associated && (
+  const associatedMerged = associated?.state === 'MERGED';
+  const ancestryProven = !associatedMerged || commitIsAncestorOfPrHead(head, associated);
+  if (associated && ancestryProven && (
     !namedState
     || rankPrState(associated.state) > rankPrState(namedState)
     || (namedState === 'MERGED' && associated.state === 'MERGED')
@@ -321,6 +359,7 @@ function resolveBranchPrState(branch) {
       source: 'commit',
       pr: associated,
       sha: head,
+      ancestryProven: associatedMerged,
     });
     return associated.state;
   }
@@ -520,8 +559,8 @@ for (const wt of worktrees) {
     removeWt.push({
       ...wt,
       snapshot: wt.branch ? snapshotNeeded(wt.branch, state, ahead) : false,
-      reason: mergedByCommit
-        ? `PR #${resolution.pr?.number ?? '?'} MERGED provata dal commit ${resolution.sha?.slice(0, 12)}`
+        reason: mergedByCommit
+        ? `PR #${resolution.pr?.number ?? '?'} MERGED: commit ${resolution.sha?.slice(0, 12)} antenato dell'HEAD PR ${resolution.pr?.head?.sha?.slice(0, 12) ?? resolution.pr?.headRefOid?.slice(0, 12) ?? '?'} (behind=0)`
         : 'PR MERGED con HEAD esatto su main',
     });
   } else if (state === 'CLOSED') {
@@ -575,7 +614,7 @@ for (const b of allLocal) {
         name: b,
         snapshot: snapshotNeeded(b, state, aheadOfMain(b)),
         reason: mergedByCommit
-          ? `PR #${resolution.pr?.number ?? '?'} MERGED provata dal commit ${resolution.sha?.slice(0, 12)}`
+          ? `PR #${resolution.pr?.number ?? '?'} MERGED: commit ${resolution.sha?.slice(0, 12)} antenato dell'HEAD PR ${resolution.pr?.head?.sha?.slice(0, 12) ?? resolution.pr?.headRefOid?.slice(0, 12) ?? '?'} (behind=0)`
           : 'PR MERGED con HEAD esatto su main',
       });
     } else reportBranch.push({ name: b, reason: `PR MERGED ma base/SHA non coincidono con main/HEAD (${head || 'unknown'}) — REPORT-ONLY` });

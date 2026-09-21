@@ -17,3 +17,12 @@ export function canDeleteIssueFix({ issueState, issueReason, ahead }) {
 export function needsSnapshot({ prState, ahead, hasSnapshot }) {
   return prState === 'MERGED' && ahead !== 0 && !hasSnapshot;
 }
+
+// `git rev-list` nel clone locale non basta per i PR squashati: il commit
+// della PR puo' non essere presente nel clone, mentre GitHub puo' confrontarlo
+// con l'HEAD remoto. La prova ammessa e' quindi il risultato di
+// `compare/<local-tip>...<pr-head>` con zero commit dietro: il tip locale e'
+// contenuto nella storia della PR mergiata (o coincide con il suo HEAD).
+export function hasAncestryProof(compare) {
+  return Number.isInteger(compare?.behind_by) && compare.behind_by === 0;
+}
