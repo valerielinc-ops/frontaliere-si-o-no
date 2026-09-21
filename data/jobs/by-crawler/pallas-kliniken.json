@@ -1,39 +1,40 @@
 {
   "crawlerKey": "pallas-kliniken",
-  "assembledAt": "2026-09-19T22:59:24.959Z",
+  "assembledAt": "2026-09-21T16:08:31.050Z",
   "jobs": [
     {
       "id": "pallas-kliniken-acf85005b712",
       "slug": "mpa-flessibile-cercasi-pallas-kliniken-olten",
       "slugByLocale": {
-        "de": "flexible-r-mpa-als-springer-in-gesucht-pallas-kliniken-olten",
+        "it": "mpa-flessibile-cercasi-pallas-kliniken-olten",
         "en": "flexible-r-mpa-sought-as-a-jumper-in-pallas-kliniken-olten",
-        "fr": "mpa-flexible-recherche-e-pallas-kliniken-olten",
-        "it": "mpa-flessibile-cercasi-pallas-kliniken-olten"
+        "de": "flexible-r-mpa-als-springer-in-gesucht-pallas-kliniken-olten",
+        "fr": "mpa-flexible-recherche-e-pallas-kliniken-olten"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
       "companyDomain": "pallas-kliniken.ch",
       "title": "Flexible/-r MPA als Springer/-in gesucht!",
       "titleByLocale": {
-        "de": "Flexible/-r MPA als Springer/-in gesucht!",
-        "en": "Flexible/-r MPA wanted as a jumper!",
         "it": "Flessibile /-r MPA voluto come un saltatore!",
+        "en": "Flexible/-r MPA als Springer/-in gesucht!",
+        "de": "Flexible/-r MPA als Springer/-in gesucht!",
         "fr": "MPA flexible/-r recherché comme sauteur!"
       },
       "description": "Die Pallas Kliniken sind auf die Bereiche Augenheilkunde, Dermatologie und ästhetische Medizin spezialisiert. Mit mehr als 350 Mitarbeitenden an 17 Standorten gehört die Klinikgruppe zu den führenden und unabhängigen Privatkliniken in der Deutschschweiz. Exzellente Medizin und die menschliche Behandlung ist dabei die gelebte Leitidee. Der Hauptsitz in Olten, mit rund 50 Mitarbeitenden, übernimmt dabei die operative Leitung. Für unsere Standorte suchen wir eine/-n flexible/-n MPA als Springer/in im Stundenlohn, die/der unser Team unterstützt und flexibel einsetzbar ist.",
       "descriptionByLocale": {
-        "de": "Die Pallas Kliniken sind auf die Bereiche Augenheilkunde, Dermatologie und ästhetische Medizin spezialisiert. Mit mehr als 350 Mitarbeitenden an 17 Standorten gehört die Klinikgruppe zu den führenden und unabhängigen Privatkliniken in der Deutschschweiz. Exzellente Medizin und die menschliche Behandlung ist dabei die gelebte Leitidee. Der Hauptsitz in Olten, mit rund 50 Mitarbeitenden, übernimmt dabei die operative Leitung. Für unsere Standorte suchen wir eine/-n flexible/-n MPA als Springer/in im Stundenlohn, die/der unser Team unterstützt und flexibel einsetzbar ist.",
         "it": "Pallas Clinics è specializzata nelle aree di oftalmologia, dermatologia e medicina estetica. Con oltre 350 dipendenti in 17 sedi, il gruppo clinico è una delle principali e indipendenti cliniche private della Svizzera tedesca. La medicina eccellente e il trattamento umano è il principio guida. La sede centrale di Olten, con circa 50 dipendenti, prende il controllo della gestione operativa. Per le nostre posizioni siamo alla ricerca di un MPA flessibile come saltatore nel salario orario, che supporta il nostro team e può essere utilizzato in modo flessibile.",
         "en": "Pallas Clinics specialize in the areas of ophthalmology, dermatology and aesthetic medicine. With more than 350 employees at 17 locations, the clinic group is one of the leading and independent private clinics in German-speaking Switzerland. Excellent medicine and human treatment is the guiding principle. The headquarters in Olten, with around 50 employees, takes over the operational management. For our locations we are looking for a flexible MPA as a jumper in the hourly wage, which supports our team and can be used flexibly.",
+        "de": "Die Pallas Kliniken sind auf die Bereiche Augenheilkunde, Dermatologie und ästhetische Medizin spezialisiert. Mit mehr als 350 Mitarbeitenden an 17 Standorten gehört die Klinikgruppe zu den führenden und unabhängigen Privatkliniken in der Deutschschweiz. Exzellente Medizin und die menschliche Behandlung ist dabei die gelebte Leitidee. Der Hauptsitz in Olten, mit rund 50 Mitarbeitenden, übernimmt dabei die operative Leitung. Für unsere Standorte suchen wir eine/-n flexible/-n MPA als Springer/in im Stundenlohn, die/der unser Team unterstützt und flexibel einsetzbar ist.",
         "fr": "Les cliniques Pallas se spécialisent dans les domaines de l'ophtalmologie, de la dermatologie et de la médecine esthétique. Avec plus de 350 employés sur 17 sites, le groupe clinique est l'une des cliniques privées leader et indépendante en Suisse germanophone. Excellente médecine et traitement humain est le principe directeur. L'administration centrale d'Olten, avec une cinquantaine d'employés, prend en charge la gestion opérationnelle. Pour nos emplacements, nous recherchons un MPA flexible comme sauteur dans le salaire horaire, qui soutient notre équipe et peut être utilisé avec souplesse."
       },
+      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000Kb2yb2AB",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:59:20.346Z",
+      "crawledAt": "2026-09-21T16:08:26.819Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -50,17 +51,18 @@
       "postedDate": "2026-03-06",
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000Kb2yb2AB",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "flexible-r-mpa-als-springer-in-gesucht-pallas-kliniken-olten",
+        "mpa-flessibile-cercasi-pallas-kliniken-olten"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "flexible-r-mpa-als-springer-in-gesucht-pallas-kliniken-olten"
+          "flexible-r-mpa-als-springer-in-gesucht-pallas-kliniken-olten",
+          "mpa-flessibile-cercasi-pallas-kliniken-olten"
         ]
       },
-      "previousSlugs": [
-        "flexible-r-mpa-als-springer-in-gesucht-pallas-kliniken-olten"
-      ],
+      "firstSeenAt": "2026-09-19T22:59:20.346Z",
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -73,41 +75,41 @@
           "maxValue": 119000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:59:20.346Z"
+      }
     },
     {
       "id": "pallas-kliniken-16b3fff6239b",
       "slug": "assistente-di-studio-medico-40-80-in-moderna-clinica-oculistica-pallas-kliniken-olten",
       "slugByLocale": {
-        "de": "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten",
+        "it": "assistente-di-studio-medico-40-80-in-moderna-clinica-oculistica-pallas-kliniken-olten",
         "en": "medical-practice-assistant-40-80-in-modern-eye-clinic-pallas-kliniken-olten",
-        "fr": "assistant-e-medical-e-40-80-dans-une-clinique-ophtalmologique-moderne-pallas-kliniken-olten",
-        "it": "assistente-di-studio-medico-40-80-in-moderna-clinica-oculistica-pallas-kliniken-olten"
+        "de": "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten",
+        "fr": "assistant-e-medical-e-40-80-dans-une-clinique-ophtalmologique-moderne-pallas-kliniken-olten"
       },
       "company": "Pallas Kliniken",
       "companyKey": "pallas-kliniken",
       "companyDomain": "pallas-kliniken.ch",
       "title": "Medizinische/-r Praxisassistent/-in 40-80% in moderner Augenpraxis",
       "titleByLocale": {
-        "de": "Medizinische/-r Praxisassistent/-in 40-80% in moderner Augenpraxis",
         "it": "Assistente medico 40-80% nella moderna pratica degli occhi",
         "en": "Medical assistant 40-80% in modern eye practice",
+        "de": "Medizinische/-r Praxisassistent/-in 40-80% in moderner Augenpraxis",
         "fr": "Assistant médical 40-80% en pratique oculaire moderne"
       },
       "description": "Die Pallas Kliniken sind auf die Bereiche Augenheilkunde, Dermatologie und ästhetische Medizin spezialisiert. Mit mehr als 350 Mitarbeitenden an 17 Standorten gehört die Klinikgruppe zu den führenden und unabhängigen Privatkliniken in der Deutschschweiz. Exzellente Medizin und die menschliche Behandlung ist dabei die gelebte Leitidee. Der Hauptsitz in Olten, mit rund 50 Mitarbeitenden, übernimmt dabei die operative Leitung. Bist du eine erfahrene MPA mit Hintergrund in der Augenpraxis-Welt? Wir suchen dich in Teilzeit als Verstärkung für unsere Teams an unseren Standorten in der ganzen Deutschschweiz. Ob Empfang, Patientenkontakte oder Messungen – bei uns hast du die Möglichkeit, alle Tätigkeiten zu übernehmen, welche die spannende Welt der Ophthalmologie bietet. Bei uns triffst du auf top Anstellungsbedingungen und ein engagiertes Team, das gemeinsam vorwärtsgeht. Fühlst du dich angesprochen? Dann freuen wir uns sehr auf deine Bewerbung.",
       "descriptionByLocale": {
-        "de": "Die Pallas Kliniken sind auf die Bereiche Augenheilkunde, Dermatologie und ästhetische Medizin spezialisiert. Mit mehr als 350 Mitarbeitenden an 17 Standorten gehört die Klinikgruppe zu den führenden und unabhängigen Privatkliniken in der Deutschschweiz. Exzellente Medizin und die menschliche Behandlung ist dabei die gelebte Leitidee. Der Hauptsitz in Olten, mit rund 50 Mitarbeitenden, übernimmt dabei die operative Leitung. Bist du eine erfahrene MPA mit Hintergrund in der Augenpraxis-Welt? Wir suchen dich in Teilzeit als Verstärkung für unsere Teams an unseren Standorten in der ganzen Deutschschweiz. Ob Empfang, Patientenkontakte oder Messungen – bei uns hast du die Möglichkeit, alle Tätigkeiten zu übernehmen, welche die spannende Welt der Ophthalmologie bietet. Bei uns triffst du auf top Anstellungsbedingungen und ein engagiertes Team, das gemeinsam vorwärtsgeht. Fühlst du dich angesprochen? Dann freuen wir uns sehr auf deine Bewerbung.",
         "it": "Pallas Clinics è specializzata nelle aree di oftalmologia, dermatologia e medicina estetica. Con oltre 350 dipendenti in 17 sedi, il gruppo clinico è una delle principali e indipendenti cliniche private della Svizzera tedesca. La medicina eccellente e il trattamento umano è il principio guida. La sede centrale di Olten, con circa 50 dipendenti, prende il controllo della gestione operativa. Sei un MPA esperto con uno sfondo nel mondo della pratica degli occhi? Ti stiamo cercando a tempo parziale come un rinforzo per le nostre squadre nelle nostre sedi in tutta la Svizzera tedesca. Sia la ricezione, i contatti dei pazienti o le misurazioni – con noi avete la possibilità di assumere tutte le attività che il mondo emozionante di oftalmologia offre. Con noi, incontrerete le migliori condizioni di lavoro e un team dedicato che si muove avanti insieme. Ti senti indirizzato? Attendiamo con ansia la vostra applicazione.",
         "en": "Pallas Clinics specialize in the areas of ophthalmology, dermatology and aesthetic medicine. With more than 350 employees at 17 locations, the clinic group is one of the leading and independent private clinics in German-speaking Switzerland. Excellent medicine and human treatment is the guiding principle. The headquarters in Olten, with around 50 employees, takes over the operational management. Are you an experienced MPA with a background in the eye practice world? We are looking for you part-time as a reinforcement for our teams at our locations throughout German-speaking Switzerland. Whether reception, patient contacts or measurements – with us you have the opportunity to take on all activities that the exciting world of ophthalmology offers. With us, you will meet top employment conditions and a dedicated team that moves forward together. Do you feel addressed? We look forward to your application.",
+        "de": "Die Pallas Kliniken sind auf die Bereiche Augenheilkunde, Dermatologie und ästhetische Medizin spezialisiert. Mit mehr als 350 Mitarbeitenden an 17 Standorten gehört die Klinikgruppe zu den führenden und unabhängigen Privatkliniken in der Deutschschweiz. Exzellente Medizin und die menschliche Behandlung ist dabei die gelebte Leitidee. Der Hauptsitz in Olten, mit rund 50 Mitarbeitenden, übernimmt dabei die operative Leitung. Bist du eine erfahrene MPA mit Hintergrund in der Augenpraxis-Welt? Wir suchen dich in Teilzeit als Verstärkung für unsere Teams an unseren Standorten in der ganzen Deutschschweiz. Ob Empfang, Patientenkontakte oder Messungen – bei uns hast du die Möglichkeit, alle Tätigkeiten zu übernehmen, welche die spannende Welt der Ophthalmologie bietet. Bei uns triffst du auf top Anstellungsbedingungen und ein engagiertes Team, das gemeinsam vorwärtsgeht. Fühlst du dich angesprochen? Dann freuen wir uns sehr auf deine Bewerbung.",
         "fr": "Les cliniques Pallas se spécialisent dans les domaines de l'ophtalmologie, de la dermatologie et de la médecine esthétique. Avec plus de 350 employés sur 17 sites, le groupe clinique est l'une des cliniques privées leader et indépendante en Suisse germanophone. Excellente médecine et traitement humain est le principe directeur. L'administration centrale d'Olten, avec une cinquantaine d'employés, prend en charge la gestion opérationnelle. Êtes-vous un MPA expérimenté avec un fond dans le monde de la pratique oculaire? Nous vous recherchons à temps partiel comme renfort pour nos équipes sur nos sites dans toute la Suisse germanophone. Qu'il s'agisse de réception, de contacts avec le patient ou de mesures – avec nous vous avez l'occasion de prendre toutes les activités que le monde passionnant de l'ophtalmologie offre. Avec nous, vous rencontrerez les meilleures conditions d'emploi et une équipe dévouée qui avance ensemble. Vous sentez-vous adressé ? Nous attendons avec impatience votre candidature."
       },
+      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000HYXar2AH",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:59:19.048Z",
+      "crawledAt": "2026-09-21T16:08:26.349Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -124,12 +126,15 @@
       "postedDate": "2025-11-18",
       "applyUrl": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000HYXar2AH",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
-      },
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten",
+        "assistente-di-studio-medico-40-80-in-moderna-clinica-oculistica-pallas-kliniken-olten"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten"
+          "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten",
+          "assistente-di-studio-medico-40-80-in-moderna-clinica-oculistica-pallas-kliniken-olten"
         ],
         "en": [
           "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten"
@@ -138,9 +143,7 @@
           "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten"
         ]
       },
-      "previousSlugs": [
-        "medizinische-r-praxisassistent-in-40-80-in-moderner-augenpraxis-pallas-kliniken-olten"
-      ],
+      "firstSeenAt": "2026-09-19T22:59:19.048Z",
       "salaryMin": 68000,
       "salaryMax": 95200,
       "salarySource": "estimated",
@@ -153,8 +156,7 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:59:19.048Z"
+      }
     },
     {
       "id": "pallas-kliniken-193ce9f835f8",
@@ -171,7 +173,7 @@
       "title": "Application Manager/-in KIS/PIS (80-100%)",
       "titleByLocale": {
         "it": "Gestione applicazioni KIS/PIS (80-100%)",
-        "en": "Application Manager HIS/PIS (80-100%)",
+        "en": "Application Manager/-in KIS/PIS (80-100%)",
         "de": "Application Manager/-in KIS/PIS (80-100%)",
         "fr": "Gestionnaire d'applications/dans KIS/PIS (80-100%)"
       },
@@ -182,12 +184,13 @@
         "de": "Pallas Kliniken AG ist die führende Klinikgruppe für Augenheilkunde und Dermatologie in der Schweiz. An zahlreichen Standorten setzen wir auf moderne, digital gestützte Prozesse, um unseren Patientinnen und Patienten eine erstklassige medizinische Versorgung zu bieten. Unsere IT-Landschaft verbindet klassische Infrastruktur mit klinischen Fachanwendungen (KIS/PIS), Cloud-Diensten und hohen regulatorischen\n• Anforderungen an Datenschutz und Informationssicherheit im Gesundheitswesen. Zur Verstärkung unseres ICT-Teams am Hauptsitz in Olten suchen wir per sofort oder nach Vereinbarung eine engagierte, service- und lösungsorientierte Persönlichkeit als Application Manager/-in, welche den reibungslosen Betrieb und die kontinuierliche Weiterentwicklung unseres klinischen Informationssystems (KIS/PIS) verantwortet. Application Manager/-in KIS/PIS (80-100%)",
         "fr": "Pallas Kliniken AG est le premier groupe de cliniques en ophtalmologie et dermatologie en Suisse. À de nombreux endroits, nous comptons sur des processus modernes et numériques pour offrir à nos patients des soins médicaux de première classe. Notre paysage informatique combine une infrastructure traditionnelle avec des applications cliniques (KIS/PIS), des services en nuage et des normes réglementaires élevées.\n• Exigences en matière de protection des données et de sécurité de l'information dans le domaine des soins de santé. Afin de renforcer notre équipe TIC à notre siège à Olten, nous recherchons une personnalité dédiée, orientée vers le service et la solution en tant que gestionnaire d'applications responsable du bon fonctionnement et du développement continu de notre système d'information clinique (KIS/PIS). Gestionnaire d'applications/dans KIS/PIS (80-100%)"
       },
+      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PEwHL2A1",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:59:18.509Z",
+      "crawledAt": "2026-09-21T16:08:25.904Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -206,11 +209,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "application-manager-in-kis-pis-80-100-pallas-kliniken-olten"
+        "application-manager-in-kis-pis-80-100-pallas-kliniken-olten",
+        "gestione-delle-applicazioni-in-kis-pis-80-100-pallas-kliniken-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "application-manager-in-kis-pis-80-100-pallas-kliniken-olten"
+          "application-manager-in-kis-pis-80-100-pallas-kliniken-olten",
+          "gestione-delle-applicazioni-in-kis-pis-80-100-pallas-kliniken-olten"
         ],
         "fr": [
           "application-manager-in-kis-pis-80-100-pallas-kliniken-olten"
@@ -257,12 +262,13 @@
         "de": "Die Pallas Kliniken sind auf die Bereiche Augenheilkunde, Dermatologie und ästhetische Medizin spezialisiert. Mit mehr als 350 Mitarbeitenden an 17 Standorten gehört die Klinikgruppe zu den führenden und unabhängigen Privatkliniken in der Deutschschweiz. Exzellente Medizin und die menschliche Behandlung ist dabei die gelebte Leitidee. Der Hauptsitz in Olten, mit rund 50 Mitarbeitenden, übernimmt dabei die operative Leitung. Zur Verstärkung unseres Teams suchen wir per sofort oder nach Vereinbarung eine engagierte Person als IT System Engineer 100%",
         "fr": "Les cliniques Pallas se spécialisent dans les domaines de l'ophtalmologie, de la dermatologie et de la médecine esthétique. Avec plus de 350 employés sur 17 sites, le groupe clinique est l'une des cliniques privées leader et indépendante en Suisse germanophone. Excellente médecine et traitement humain est le principe directeur. Le siège social d'Olten, avec une cinquantaine d'employés, prend en charge la gestion opérationnelle. Pour renforcer notre équipe, nous recherchons une personne engagée en tant qu'ingénieur système informatique à 100% immédiatement ou par accord."
       },
+      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PETyF2AX",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:59:17.940Z",
+      "crawledAt": "2026-09-21T16:08:25.461Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -321,12 +327,13 @@
         "de": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Aesthetics. Hier zählen wir mit über 350 Mitarbeitenden und 17 Standorten zu den führenden Anbietern in der Schweiz.\n• Wir bieten ein hochprofessionelles Umfeld mit attraktiven Anstellungsbedingungen und einem motivierten und dynamischen Team. Wenn Sie hohes Engagement, Interesse an regelmässiger Fortbildung und Freude an der Teamarbeit mitbringen, ist eine hervorragende Zusammenarbeit bereits vorprogrammiert. Unsere moderne Infrastruktur in allen Fachdisziplinen wird kontinuierlich ausgebaut, um Ihre Karriere als Augenärztin oder Augenarzt optimal zu unterstützen. Zur Ergänzung unseres bestehenden Teams in unserer Klinikgruppe suchen wir Sie als initiative und selbstständige Persönlichkeit. Assistenzärztin/Assistenzarzt Ophthalmologie 80-100%, Region Aargau",
         "fr": "Les cliniques Pallas sont spécialisées en ophtalmologie et esthétique. Avec plus de 350 employés et 17 emplacements, nous sommes l'un des principaux fournisseurs en Suisse.\n• Nous offrons un environnement hautement professionnel avec des conditions d'emploi attrayantes et une équipe motivée et dynamique. Si vous avez un grand engagement, un intérêt pour la formation régulière et la jouissance du travail d'équipe, une excellente coopération est déjà inévitable. Notre infrastructure moderne dans toutes les disciplines est continuellement élargie pour soutenir de façon optimale votre carrière en tant qu'ophtalmologiste. Pour compléter notre équipe existante dans notre groupe de cliniques, nous vous recherchons comme une initiative et une personnalité indépendante. Médecin adjoint en ophtalmologie 80-100%, Région d'Argovie"
       },
+      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000PmTir2AF",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:59:16.771Z",
+      "crawledAt": "2026-09-21T16:08:24.883Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -345,11 +352,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten"
+        "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten",
+        "assistente-medico-oftalmologia-80-100-regione-aargau-pallas-kliniken-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten"
+          "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten",
+          "assistente-medico-oftalmologia-80-100-regione-aargau-pallas-kliniken-olten"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-ophthalmologie-80-100-region-aargau-pallas-kliniken-olten"
@@ -399,12 +408,13 @@
         "de": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Aesthetics. Hier zählen wir mit über 350 Mitarbeitenden und 17 Standorten zu den führenden Anbietern in der Schweiz.\n• Wir bieten ein hochprofessionelles Umfeld mit attraktiven Anstellungsbedingungen und einem motivierten und dynamischen Team. Wenn Sie hohes Engagement, Interesse an regelmässiger Fortbildung und Freude an der Teamarbeit mitbringen, ist eine hervorragende Zusammenarbeit bereits vorprogrammiert. Unsere moderne Infrastruktur in allen Fachdisziplinen wird kontinuierlich ausgebaut, um Ihre Karriere als Augenärztin oder Augenarzt optimal zu unterstützen. Zur Ergänzung unseres bestehenden Teams in unserer Klinikgruppe suchen wir Sie als initiative und selbstständige Persönlichkeit. Assistenzärztin/Assistenzarzt Ophthalmologie 80-100% (ab 3. Jahr)",
         "fr": "Descrizione Les cliniques Pallas sont spécialisées en ophtalmologie et en esthétique. Avec plus de 350 employés et 17 sites, nous comptons parmi les principaux fournisseurs en Suisse.\n• Nous offrons un environnement hautement professionnel avec des conditions d'emploi attrayantes et une équipe motivée et dynamique. Si vous apportez un niveau élevé d'engagement, d'intérêt pour la formation continue régulière et de plaisir dans le travail d'équipe, une excellente coopération est déjà préprogrammée. Notre infrastructure moderne dans toutes les disciplines est continuellement développée pour soutenir de manière optimale votre carrière en tant qu'ophtalmologiste. Pour compléter notre équipe existante dans notre groupe de cliniques, nous vous recherchons en tant qu'initiative et personnalité indépendante. Posizione Médecin-assistant en ophtalmologie 80-100 % (à partir de la 3e année)"
       },
+      "needsRetranslation": true,
       "location": "Olten",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000JQ0iz2AD",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:59:15.580Z",
+      "crawledAt": "2026-09-21T16:08:24.430Z",
       "addressLocality": "Olten",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -427,7 +437,8 @@
         "assistente-di-studio-medico-80-100-oftalmologia-pallas-kliniken-olten",
         "medical-practice-assistant-80-100-ophthalmology-pallas-kliniken-olten",
         "medizinische-r-praxisassistent-in-80-100-ophthalmologie-pallas-kliniken-olten",
-        "assistant-e-medical-e-80-100-ophtalmologie-pallas-kliniken-olten"
+        "assistant-e-medical-e-80-100-ophtalmologie-pallas-kliniken-olten",
+        "medico-assistente-in-oftalmologia-80-100-pallas-kliniken-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -435,7 +446,8 @@
           "assistente-di-studio-medico-80-100-oftalmologia-pallas-kliniken-olten",
           "medical-practice-assistant-80-100-ophthalmology-pallas-kliniken-olten",
           "medizinische-r-praxisassistent-in-80-100-ophthalmologie-pallas-kliniken-olten",
-          "assistant-e-medical-e-80-100-ophtalmologie-pallas-kliniken-olten"
+          "assistant-e-medical-e-80-100-ophtalmologie-pallas-kliniken-olten",
+          "medico-assistente-in-oftalmologia-80-100-pallas-kliniken-olten"
         ],
         "en": [
           "medical-practice-assistant-80-100-ophthalmology-pallas-kliniken-olten"
@@ -494,7 +506,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000IDWsX2AX",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:59:14.414Z",
+      "crawledAt": "2026-09-21T16:08:23.965Z",
       "addressLocality": "Langenthal",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -513,11 +525,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "facharztin-facharzt-ophthalmologie-60-80-pallas-kliniken-langenthal"
+        "facharztin-facharzt-ophthalmologie-60-80-pallas-kliniken-langenthal",
+        "medico-specialista-in-oftalmologia-60-80-pallas-kliniken-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-ophthalmologie-60-80-pallas-kliniken-langenthal"
+          "facharztin-facharzt-ophthalmologie-60-80-pallas-kliniken-langenthal",
+          "medico-specialista-in-oftalmologia-60-80-pallas-kliniken-langenthal"
         ]
       },
       "firstSeenAt": "2026-05-19T20:45:54.694Z",
@@ -561,12 +575,13 @@
         "de": "Die Pallas Kliniken sind spezialisiert auf Augenheilkunde und Aesthetics. Hier zählen wir mit über 350 Mitarbeitenden und 17 Standorten zu den führenden Anbietern in der Schweiz.\n• Wir bieten ein hochprofessionelles Umfeld mit attraktiven Anstellungsbedingungen und einem motivierten und dynamischen Team. Wenn Sie hohes Engagement, Interesse an regelmässiger Fortbildung und Freude an der Teamarbeit mitbringen, ist eine hervorragende Zusammenarbeit bereits vorprogrammiert. Unsere moderne Infrastruktur in allen Fachdisziplinen wird kontinuierlich ausgebaut, um Ihre Karriere als Augenärztin oder Augenarzt optimal zu unterstützen. Zur Ergänzung unseres bestehenden Teams in unserer Klinikgruppe am Standort Wohlen suchen wir Sie als initiative und selbstständige Persönlichkeit. Fachärztin/Facharzt Ophthalmologie 60-100%",
         "fr": "Descrizione Les cliniques Pallas sont spécialisées en ophtalmologie et en esthétique. Avec plus de 350 employés et 17 sites, nous comptons parmi les principaux fournisseurs en Suisse.\n• Nous offrons un environnement hautement professionnel avec des conditions d'emploi attrayantes et une équipe motivée et dynamique. Si vous apportez un niveau élevé d'engagement, d'intérêt pour la formation continue régulière et de plaisir dans le travail d'équipe, une excellente coopération est déjà préprogrammée. Notre infrastructure moderne dans toutes les disciplines est continuellement développée pour soutenir de manière optimale votre carrière en tant qu'ophtalmologiste. Pour compléter notre équipe existante dans notre groupe de cliniques sur le site de Wohlen, nous vous recherchons en tant qu'initiative et personnalité indépendante. Mansioni Spécialiste en ophtalmologie (60-100%) Accessoires - Intérêt pour une formation continue régulière - Plaisir du travail d'équipe - Initiative et autonomie"
       },
+      "needsRetranslation": true,
       "location": "Wohlen",
       "canton": "SO",
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000FwYzx2AF",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:59:13.269Z",
+      "crawledAt": "2026-09-21T16:08:23.515Z",
       "addressLocality": "Wohlen",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -601,11 +616,13 @@
         ]
       },
       "previousSlugs": [
-        "facharztin-facharzt-ophthalmologie-60-100-pallas-kliniken-wohlen"
+        "facharztin-facharzt-ophthalmologie-60-100-pallas-kliniken-wohlen",
+        "medico-specialista-in-oftalmologia-60-100-pallas-kliniken-wohlen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "facharztin-facharzt-ophthalmologie-60-100-pallas-kliniken-wohlen"
+          "facharztin-facharzt-ophthalmologie-60-100-pallas-kliniken-wohlen",
+          "medico-specialista-in-oftalmologia-60-100-pallas-kliniken-wohlen"
         ]
       },
       "firstSeenAt": "2026-05-19T20:45:53.494Z",
@@ -655,7 +672,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000QbKVS2A3",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:59:11.923Z",
+      "crawledAt": "2026-09-21T16:08:23.037Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "addressCountry": "CH",
@@ -674,11 +691,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken"
+        "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken",
+        "gestione-del-sito-medico-dermatologia-dermatologia-specialistica-specialista-pallas-kliniken-solothurn"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken"
+          "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken",
+          "gestione-del-sito-medico-dermatologia-dermatologia-specialistica-specialista-pallas-kliniken-solothurn"
         ],
         "en": [
           "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken"
@@ -734,7 +753,7 @@
       "url": "https://pallasjobs.careers.flair.hr/positions/a3LTG00000QbCXw2AN",
       "source": "Pallas Kliniken Dedicated Parser (Flair HR / JSON-LD)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:59:11.475Z",
+      "crawledAt": "2026-09-21T16:08:22.575Z",
       "addressLocality": "Winterthur",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -754,12 +773,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken",
-        "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken-2"
+        "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken-2",
+        "gestione-del-sito-medico-dermatologia-dermatologia-specialistica-specialista-pallas-kliniken-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken",
-          "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken-2"
+          "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken-2",
+          "gestione-del-sito-medico-dermatologia-dermatologia-specialistica-specialista-pallas-kliniken-winterthur"
         ],
         "en": [
           "medizinische-standortleitung-dermatologie-facharztin-facharzt-dermatologie-pallas-kliniken-2"
@@ -861,7 +882,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "pallas-kliniken-dbd4865195b0",
@@ -946,7 +967,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }

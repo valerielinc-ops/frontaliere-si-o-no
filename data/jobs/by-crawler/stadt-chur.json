@@ -1,7 +1,137 @@
 {
   "crawlerKey": "stadt-chur",
-  "assembledAt": "2026-09-19T23:07:38.177Z",
+  "assembledAt": "2026-09-21T16:17:39.571Z",
   "jobs": [
+    {
+      "title": "Stv. Leiter/in Stadtgärtnerei und Bereichsleiter/-in Friedhöfe/Bestattungen (80-100%)",
+      "slug": "stv-responsabile-stadtgartnerei-e-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur",
+      "url": "https://jobs.chur.ch/Stv-Leiterin-Stadtgaertnerei-und-Bereichsleiter-in-Friedho-de-j1716.html",
+      "applyUrl": "https://jobs.chur.ch/Stv-Leiterin-Stadtgaertnerei-und-Bereichsleiter-in-Friedho-de-j1716.html",
+      "company": "Stadt Chur",
+      "companyKey": "stadt-chur",
+      "companyDomain": "chur.ch",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "public-administration",
+      "sector": "Pubblica Amministrazione",
+      "department": "Landwirtschaft / Forstwirtschaft",
+      "source": "stadt-chur-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-20",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Stadtgärtnerei ist verantwortlich für den baulichen und ...",
+      "titleByLocale": {
+        "de": "Stv. Leiter/in Stadtgärtnerei und Bereichsleiter/-in Friedhöfe/Bestattungen (80-100%)",
+        "it": "Stv. Responsabile Stadtgärtnerei e Bereichsleiter/-in Friedhöfe/Bestattungen (80-100%)",
+        "en": "Stv. Leiter/in Stadtgärtnerei und Bereichsleiter/-in Friedhöfe/Bestattungen (80-100%)",
+        "fr": "Stv. Leiter/in Stadtgärtnerei und Bereichsleiter/-in Friedhöfe/Bestattungen (80-100%)"
+      },
+      "descriptionByLocale": {
+        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Stadtgärtnerei ist verantwortlich für den baulichen und ...",
+        "it": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Stadtgärtnerei ist verantwortlich für den baulichen und ...",
+        "en": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Stadtgärtnerei ist verantwortlich für den baulichen und ...",
+        "fr": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen.   Die Abteilung Stadtgärtnerei ist verantwortlich für den baulichen und ..."
+      },
+      "slugByLocale": {
+        "it": "stv-responsabile-stadtgartnerei-e-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur",
+        "en": "stv-leiter-in-stadtgartnerei-und-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur-1716",
+        "de": "stv-leiter-in-stadtgartnerei-und-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur-1716",
+        "fr": "stv-leiter-in-stadtgartnerei-und-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur-1716"
+      },
+      "crawledAt": "2026-09-21T16:10:56.368Z",
+      "id": "stadt-chur-71a3080b1186",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-leiter-in-stadtgartnerei-und-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur-1716"
+        ]
+      },
+      "previousSlugs": [
+        "stv-leiter-in-stadtgartnerei-und-bereichsleiter-in-friedhofe-bestattungen-80-100-stadt-chur-1716"
+      ],
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-21T16:10:56.368Z"
+    },
+    {
+      "title": "Lehrperson Heilpädagogik (SHP) SE Haldenstein",
+      "slug": "lehrperson-heilpadagogik-shp-se-haldenstein-stadt-chur-1719",
+      "url": "https://jobs.chur.ch/Lehrperson-Heilpaedagogik-SHP-SE-Haldenstein-de-j1719.html",
+      "applyUrl": "https://jobs.chur.ch/Lehrperson-Heilpaedagogik-SHP-SE-Haldenstein-de-j1719.html",
+      "company": "Stadt Chur",
+      "companyKey": "stadt-chur",
+      "companyDomain": "chur.ch",
+      "location": "Chur",
+      "addressLocality": "Chur",
+      "addressRegion": "Graubünden",
+      "addressCountry": "CH",
+      "canton": "GR",
+      "country": "CH",
+      "category": "education",
+      "sector": "Pubblica Amministrazione",
+      "department": "Bildung / Soziale Berufe / Sport",
+      "source": "stadt-chur-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-20",
+      "validThrough": "",
+      "employmentType": "full_time",
+      "contractType": "permanent",
+      "description": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Stadtschule Chur ist die grösste öffentliche Schule im Kanton Graubü...",
+      "titleByLocale": {
+        "de": "Lehrperson Heilpädagogik (SHP) SE Haldenstein",
+        "it": "Lehrperson Heilpädagogik (SHP) SE Haldenstein",
+        "en": "Lehrperson Heilpädagogik (SHP) SE Haldenstein",
+        "fr": "Lehrperson Heilpädagogik (SHP) SE Haldenstein"
+      },
+      "descriptionByLocale": {
+        "de": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Stadtschule Chur ist die grösste öffentliche Schule im Kanton Graubü...",
+        "it": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Stadtschule Chur ist die grösste öffentliche Schule im Kanton Graubü...",
+        "en": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Stadtschule Chur ist die grösste öffentliche Schule im Kanton Graubü...",
+        "fr": "Chur ist mit 41'000 Einwohner/innen das urbane Zentrum Graubündens. Als attraktive und vielseitige Stadt sorgt sie mit ihren 1'400 Mitarbeitenden für kundenorientierte und moderne Dienstleistungen. Die Stadtschule Chur ist die grösste öffentliche Schule im Kanton Graubü..."
+      },
+      "slugByLocale": {
+        "it": "lehrperson-heilpadagogik-shp-se-haldenstein-stadt-chur-1719",
+        "en": "lehrperson-heilpadagogik-shp-se-haldenstein-stadt-chur-1719",
+        "de": "lehrperson-heilpadagogik-shp-se-haldenstein-stadt-chur-1719",
+        "fr": "lehrperson-heilpadagogik-shp-se-haldenstein-stadt-chur-1719"
+      },
+      "crawledAt": "2026-09-21T16:12:03.129Z",
+      "id": "stadt-chur-57f9f7d1bc61",
+      "needsRetranslation": true,
+      "salaryMin": 48500,
+      "salaryMax": 89500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 48500,
+          "maxValue": 89500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T16:12:03.129Z"
+    },
     {
       "title": "Kaufmännische Praktikumsstelle (HMS 3+1)",
       "slug": "stage-commerciale-hms-3-1-stadt-chur-chur",
@@ -44,7 +174,7 @@
         "de": "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709",
         "fr": "stage-commercial-hms-3-1-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-19T23:03:09.079Z",
+      "crawledAt": "2026-09-21T16:13:09.886Z",
       "id": "stadt-chur-c0496a08b9e2",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -74,8 +204,7 @@
       },
       "previousSlugs": [
         "kaufmannische-praktikumsstelle-hms-3-1-stadt-chur-1709"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Stellvertretung Klassenlehrperson, zweisprachiger Klassenzug, 3./4. Klasse, Italienisch (93%)",
@@ -119,7 +248,7 @@
         "de": "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712",
         "fr": "professeur-adjoint-formation-bilingue-3e-4e-classe-italien-93-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-19T23:04:15.837Z",
+      "crawledAt": "2026-09-21T16:14:16.643Z",
       "id": "stadt-chur-236d71791b5d",
       "salaryMin": 45100,
       "salaryMax": 83200,
@@ -149,8 +278,7 @@
       },
       "previousSlugs": [
         "stellvertretung-klassenlehrperson-zweisprachiger-klassenzug-3-4-klasse-italienisch-93-stadt-chur-1712"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Lehrstelle als Kauffrau / Kaufmann öffentliche Verwaltung EFZ",
@@ -194,7 +322,7 @@
         "de": "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713",
         "fr": "apprentissage-en-tant-que-commercant-administration-publique-marchande-efz-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-19T23:05:22.594Z",
+      "crawledAt": "2026-09-21T16:15:23.404Z",
       "id": "stadt-chur-820b8f6a45d2",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -226,8 +354,7 @@
       "previousSlugs": [
         "apprendistato-come-kauffrau-kaufmann-offentliche-verwaltung-cfc-stadt-chur",
         "lehrstelle-als-kauffrau-kaufmann-offentliche-verwaltung-efz-stadt-chur-1713"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Lehrstelle als Fachfrau / Fachmann Betreuung EFZ (Fachrichtung Kinderbetreuung)",
@@ -271,7 +398,7 @@
         "de": "lehrstelle-als-fachfrau-fachmann-betreuung-efz-fachrichtung-kinderbetreuung-stadt-chur-1705",
         "fr": "apprentissage-en-tant-que-specialiste-soins-specialises-efz-garderie-specialisee-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-19T23:06:29.351Z",
+      "crawledAt": "2026-09-21T16:16:30.165Z",
       "id": "stadt-chur-6baf9a5642b8",
       "salaryMin": 41600,
       "salaryMax": 76000,
@@ -345,7 +472,7 @@
         "de": "polizeiaspirantinnen-und-polizeiaspiranten-stadt-chur-1446",
         "fr": "aspirants-policiers-et-aspirants-policiers-stadt-chur-chur"
       },
-      "crawledAt": "2026-09-19T23:07:36.108Z",
+      "crawledAt": "2026-09-21T16:17:36.922Z",
       "id": "stadt-chur-b4ceea7ca5ef",
       "previousSlugsByLocale": {
         "en": [
