@@ -246,7 +246,8 @@ export default function PharmacyDirectory({ page }: { page: PharmacyPath }) {
   if (page.kind === 'duty-week') return page.country === 'IT'
     ? <PharmacyItalyDutyWeek page={page} now={now} />
     : <PharmacyDutyWeek page={page} />;
-  if (page.kind === 'italy-duty-hub' || page.kind === 'italy-duty-week') return <PharmacyItalyDutyWeek page={page} now={now} />;
+  if (page.kind === 'italy-duty-hub') return <PharmacyItalyDutyCoverageMatrix locale={page.locale} now={now} />;
+  if (page.kind === 'italy-duty-week') return <PharmacyItalyDutyWeek page={page} now={now} />;
   if (page.kind === 'duty-hub' && page.country === 'IT') return <PharmacyItalyDutyCoverageMatrix locale={page.locale} now={now} />;
   if (page.kind === 'duty-hub' || page.kind === 'duty-city') return <DutyPage page={page} locale={page.locale} now={now} />;
   if (page.kind === 'country') return <CountryDirectoryPage locale={page.locale} />;

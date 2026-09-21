@@ -164,7 +164,7 @@ export default function PharmacyItalyDutyCoverageMatrix({ locale, now, duties, s
   const weekPath: PharmacyPath = { kind: 'duty-week', country: 'IT', locale, weekStart: model.weekStart };
   const sourceOnlyCodes = new Set(model.provinces.filter((province) => !province.publishable).map((province) => province.code));
 
-  return <div className="mx-auto max-w-6xl space-y-8" data-italy-duty-coverage="true" data-release-ready={String(model.publishable)} data-week-ready={String(model.indexable)} data-italy-release-state={model.state}>
+  return <div className="mx-auto max-w-6xl space-y-8" data-italy-duty-coverage="true" data-release-ready={String(model.publishable)} data-week-ready={String(model.indexable)} data-italy-release-state={model.state} data-italy-publishable={String(model.publishable)} data-italy-indexable={String(model.indexable)}>
     <header className="space-y-3">
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">{copy.eyebrow}</p>
       <h1 className="font-display text-3xl font-bold tracking-tight text-heading sm:text-4xl">{copy.title}</h1>
