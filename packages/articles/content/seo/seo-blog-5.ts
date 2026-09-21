@@ -91996,6 +91996,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-inflazione-portafoglio-svizzera': {
+    title: 'Inflazione in Svizzera: quanto pesa sui bilanci?',
+    description: 'Scopri la verità sull\'inflazione in Svizzera e il reale impatto sul portafoglio delle famiglie e dei lavoratori frontalieri tra energia e rincari.',
+    keywords: 'frontalieri, ticino, svizzera, italia, inflazione, quanto, pesa, bilanci',
+    ogTitle: 'Inflazione in Svizzera: quanto pesa sul portafoglio?',
+    ogDescription: 'Analisi approfondita sull\'inflazione in Svizzera e sulla reale pressione economica che grava sui bilanci delle famiglie e dei lavoratori frontalieri tra rincari e costi nascosti.',
+    canonicalPath: '/articoli-frontaliere/inflazione-portafoglio-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Inflazione in Svizzera: quanto pesa sui bilanci?",
+      "description": "Scopri la verità sull'inflazione in Svizzera e il reale impatto sul portafoglio delle famiglie e dei lavoratori frontalieri tra energia e rincari.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/inflazione-portafoglio-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Panorama di Lugano in Ticino con vista sul lago"
+      },
+      "datePublished": "2026-09-21T00:12:24+00:00",
+      "dateModified": "2026-09-21T00:12:24+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/inflazione-portafoglio-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

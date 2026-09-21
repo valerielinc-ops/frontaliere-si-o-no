@@ -11872,6 +11872,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ristorni-comuni-frontiera-incremento.title': 'Fonds pour les communes frontalières : les remboursements s\'élèvent à 108 millions',
     'blog.article.ristorni-comuni-frontiera-incremento.excerpt': 'L\'Association des communes italiennes de la frontière (Acif) accueille l\'augmentation du fonds de restauration de 89 à 108 millions d\'euros et l\'allocation des recettes supplémentaires.',
     'blog.article.ristorni-comuni-frontiera-incremento.imageAlt': 'Passage frontière entre l\'Italie et la Suisse in la région du Mendrisiotto',
+    'blog.article.inflazione-portafoglio-svizzera.title': 'Inflation en Suisse : combien pèse-t-elle sur les bilans ?',
+    'blog.article.inflazione-portafoglio-svizzera.excerpt': 'Analyse de l\'inflation et du pouvoir d\'achat en Suisse : découvrez l\'écart entre l\'indice officiel et le coût de la vie vécu au quotidien.',
+    'blog.article.inflazione-portafoglio-svizzera.imageAlt': 'Panorama de Lugano au Tessin surplombant le lac',
 };
 
 export default blogMetaFr;

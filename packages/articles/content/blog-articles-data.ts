@@ -35382,6 +35382,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'inflazione-portafoglio-svizzera',
+ category: 'pratico',
+ date: '2026-09-21T00:12:24.678Z',
+ image: '/images/blog/inflazione-portafoglio-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
