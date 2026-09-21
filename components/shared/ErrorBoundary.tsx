@@ -6,7 +6,7 @@ import { t } from '../../services/i18n';
 import {
   isVersionSkewError,
   recoverFromStaleChunk,
-  bustAssetHttpCache,
+  clearAssetCaches,
   isChunkLoadError,
   isModuleParseError,
 } from '../../services/resilientImport';
@@ -414,10 +414,10 @@ export class ErrorBoundary extends Component<Props, State> {
  pagePath: this.state.snapshotUrl || window.location.pathname + window.location.search,
  blocked: false,
  });
- // Bust the HTTP cache (not just CacheStorage) before reloading. If the user
- // landed here via a version-skew (#3097), a plain reload re-serves the same
- // stale chunk and leaves them stuck; cache:'reload' refetches a fresh set.
- void bustAssetHttpCache().finally(() => window.location.reload());
+ // Clear both asset cache layers before reloading. If the user landed here via
+ // a version-skew (#3097), a plain reload re-serves the same stale chunk and
+ // leaves them stuck; cache:'reload' refetches a fresh set.
+ void clearAssetCaches().finally(() => window.location.reload());
  }}
  className="flex items-center gap-2 px-6 py-3 bg-accent hover:bg-accent-hover text-on-accent rounded-xl font-bold transition-colors"
  >
@@ -518,8 +518,8 @@ export class SilentErrorBoundary extends Component<SilentBoundaryProps, SilentBo
  // in-progress newsletter autologin (ref cwji52). But leaving the stale
  // chunk unhandled meant the browser's HTTP disk cache kept re-serving
  // the same bad bytes for the rest of the session (and to the next page
- // load), unlike the top-level ErrorBoundary which busts the cache before
- // its manual-reload button. Bust the HTTP cache only — no reload — so a
+ // load), unlike the top-level ErrorBoundary which clears both asset caches before
+ // its manual-reload button. Clear both asset caches only — no reload — so a
  // future fetch (this session or the next) picks up the fresh chunk
  // without disrupting whatever the user is doing right now.
  //
@@ -535,7 +535,7 @@ export class SilentErrorBoundary extends Component<SilentBoundaryProps, SilentBo
  // redundant fetch, while a true positive stops the widget from re-throwing
  // the identical parse error on every subsequent SPA navigation this session.
  if (isChunkLoadError(error) || isVersionSkewError(error) || isModuleParseError(error)) {
- void bustAssetHttpCache();
+ void clearAssetCaches();
  }
  }
 

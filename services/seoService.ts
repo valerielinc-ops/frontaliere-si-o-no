@@ -10,7 +10,7 @@ import { fetchJobsForCanton } from './jobsService';
 import { JOB_CANTON_MANIFEST_PATH, type CantonShardManifest } from './jobCantonShards';
 import { resolveCompanyLogoUrl, isMultiLocation } from './jobDataNormalization';
 import { reportCaughtError } from './errorReporter';
-import { bustAssetHttpCache, isChunkLoadError, isModuleParseError } from './resilientImport';
+import { clearAssetCaches, isChunkLoadError, isModuleParseError } from './resilientImport';
 import { cdnDataUrl } from './cdnDataBase';
 import { seededJobMatchesSlug } from './seededExpiredJob';
 import { normalizeStructuredData } from './seo/schema-normalizers';
@@ -49,14 +49,10 @@ async function retryImport<T>(factory: () => Promise<T>, label: string): Promise
  // link-time skew wordings so that no-retry class keeps its own path.
  if (!isChunkLoadError(err) && !isModuleParseError(err)) throw err;
 
- // Clear SW caches and retry once. CacheStorage alone is not enough: the
- // chunk also lives in the HTTP disk cache (stable-named, max-age=600), which
- // a bare retry would re-read — bust it so the retry fetches current bytes (#3097).
- if ('caches' in window) {
- const names = await caches.keys();
- await Promise.all(names.map(n => caches.delete(n)));
- }
- await bustAssetHttpCache();
+ // Clear both cache layers and retry once. CacheStorage alone is not enough:
+ // the chunk also lives in the HTTP disk cache (stable-named, max-age=600),
+ // which a bare retry would re-read (#3097).
+ await clearAssetCaches();
  try {
  return await factory();
  } catch (retryErr) {

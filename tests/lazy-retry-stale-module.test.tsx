@@ -28,6 +28,8 @@ import React, { Component, Suspense } from 'react';
 import type { ComponentType, ReactElement, ReactNode } from 'react';
 import { render, screen, waitFor } from '@testing-library/react';
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 
 // lazyRetry reports every retry outcome through a dynamic import of the
 // analytics module; stub it so these tests exercise recovery, not telemetry.
@@ -83,6 +85,18 @@ function renderLazy(factory: () => Promise<{ default: ComponentType }>) {
     </Trap>,
   );
 }
+
+describe('NewsFeed dynamic import stability (#8772)', () => {
+  it('keeps the current NewsFeed chunk behind the shared lazy retry', () => {
+    const source = readFileSync(
+      resolve(__dirname, '..', 'components/tabs/CalcolatoreTabContent.tsx'),
+      'utf8',
+    );
+    expect(source).toMatch(
+      /const NewsFeed\s*=\s*lazyRetry\(\s*\(\)\s*=>\s*import\(['"]@\/components\/community\/NewsFeed['"]\)/,
+    );
+  });
+});
 
 describe('lazyRetry — resolved-but-unusable module (#5533)', () => {
   let errorSpy: ReturnType<typeof vi.spyOn>;

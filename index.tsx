@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { installDomReconciliationGuard } from './services/domReconciliationGuard';
 import { maybeHandleCvDownload } from './services/cvDownloadIntercept';
-import { bustAssetHttpCache } from './services/resilientImport';
+import { clearAssetCaches } from './services/resilientImport';
 import { isRewardedApplicationPagePath } from './services/rewardedApplicationHandoff';
 
 // Harden the DOM against third-party mutation (Google Translate, extensions)
@@ -19,9 +19,9 @@ window.addEventListener('vite:preloadError', (_event) => {
  // Allow one reload per 5-minute window to prevent infinite loops
  if (!last || Date.now() - Number(last) > 5 * 60 * 1000) {
  sessionStorage.setItem(key, String(Date.now()));
- // Bust the HTTP cache (not just CacheStorage) before reloading — a stale-but-200
- // preloaded chunk would otherwise be re-served from the disk cache (#3097).
- void bustAssetHttpCache().finally(() => window.location.reload());
+ // Clear both asset cache layers before reloading — a stale-but-200 preloaded
+ // chunk would otherwise be re-served from the disk cache (#3097).
+ void clearAssetCaches().finally(() => window.location.reload());
  }
 });
 

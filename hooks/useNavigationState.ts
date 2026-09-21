@@ -31,12 +31,15 @@ import type { PharmacyPath } from '@/services/pharmacies/paths';
 import { setLocale, onLocaleChange, type Locale } from '@/services/i18n';
 import { hasStaticArticleFallback, restoreStaticArticleFallback } from '@/services/staticArticleFallback';
 import { prefetchTab } from '@/services/prefetch';
-import { enableRuntimeSeo, updateMetaTags, trackSectionView } from '@/hooks/seoHelpers';
+import { enableRuntimeSeo, updateMetaTags, trackSectionView, loadSeoService } from '@/hooks/seoHelpers';
+import { reportCaughtError } from '@/services/errorReporter';
 
 // Apply noindex SEO for 404 pages — NOT gated by runtimeSeoEnabled because
 // soft-404 noindex must be set immediately on initial load before any user interaction.
 const applyNotFoundSeo = (path: string) => {
- import('@/services/seoService').then(m => m.applyNotFoundSeo(path)).catch(() => {});
+ loadSeoService()
+  .then(m => m.applyNotFoundSeo(path))
+  .catch(err => reportCaughtError(err, 'seo.applyNotFoundSeo'));
 };
 
 import { Analytics, unlockAchievement } from '@/services/analyticsProxy';

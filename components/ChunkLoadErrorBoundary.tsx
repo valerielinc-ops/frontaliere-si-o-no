@@ -1,7 +1,7 @@
 import React, { Component, type ReactNode } from 'react';
 import {
   isModuleLinkSkewMessage,
-  bustAssetHttpCache,
+  clearAssetCaches,
   CHUNK_LOAD_ERROR_PATTERN_SOURCE,
 } from '@/services/resilientImport';
 
@@ -73,11 +73,11 @@ export class ChunkLoadErrorBoundary extends Component<Props, State> {
       const last = Number(sessionStorage.getItem(RELOAD_FLAG) ?? '0');
       if (Date.now() - last > RELOAD_COOLDOWN_MS) {
         sessionStorage.setItem(RELOAD_FLAG, String(Date.now()));
-        // Bust the HTTP cache (not just CacheStorage) before reloading: a
-        // link-time version-skew (#3097) re-serves the same stale cross-origin
-        // chunk on a plain reload, so this boundary's one reload would be wasted.
+        // Clear both asset cache layers before reloading: a link-time
+        // version-skew (#3097) re-serves the same stale cross-origin chunk on
+        // a plain reload, so this boundary's one reload would be wasted.
         // Show the "Aggiornamento…" fallback while the async bust + reload run.
-        void bustAssetHttpCache().finally(() => window.location.reload());
+        void clearAssetCaches().finally(() => window.location.reload());
         return { hasError: true };
       }
     } catch {

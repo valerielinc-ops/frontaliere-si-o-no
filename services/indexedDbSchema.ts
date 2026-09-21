@@ -146,11 +146,26 @@ function deleteDatabase(
   });
 }
 
-/**
- * Open a schema-checked database. The returned connection belongs to the
- * caller and must be closed when it is no longer needed.
- */
-export async function openIndexedDbWithSchema(
+// Concurrent startup paths can otherwise all observe the same missing store,
+// delete the database, and race to recreate it. Serialize only the repair/open
+// transaction; each caller still receives its own connection.
+const databaseLocks = new Map<string, Promise<void>>();
+
+async function withDatabaseLock<T>(name: string, operation: () => Promise<T>): Promise<T> {
+ const previous = databaseLocks.get(name) ?? Promise.resolve();
+ let release!: () => void;
+ const current = new Promise<void>((resolve) => { release = resolve; });
+ databaseLocks.set(name, current);
+ await previous;
+ try {
+  return await operation();
+ } finally {
+  release();
+  if (databaseLocks.get(name) === current) databaseLocks.delete(name);
+ }
+}
+
+async function openIndexedDbWithSchemaUnlocked(
   schema: IndexedDbSchema,
   factory: IndexedDbFactory | null = defaultFactory(),
 ): Promise<IndexedDbSchemaResult> {
@@ -190,4 +205,16 @@ export async function openIndexedDbWithSchema(
     return { db: null, status: 'invalid' };
   }
   return { db: repaired.db, status: 'repaired' };
+}
+
+/**
+ * Open a schema-checked database. The returned connection belongs to the
+ * caller and must be closed when it is no longer needed.
+ */
+export async function openIndexedDbWithSchema(
+ schema: IndexedDbSchema,
+ factory: IndexedDbFactory | null = defaultFactory(),
+): Promise<IndexedDbSchemaResult> {
+ if (!factory) return { db: null, status: 'unavailable' };
+ return withDatabaseLock(schema.name, () => openIndexedDbWithSchemaUnlocked(schema, factory));
 }
