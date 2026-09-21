@@ -22,9 +22,11 @@ on:
     workflows: ['Issue fix (Codex Luna Max → PR)']
     types: [completed]
 
-# Il drainer ha un mutex proprio: la promozione è idempotente e non deve restare
-# pending dietro al batch daily, che può durare quaranta minuti. Il cron resta il
-# recupero se una pending viene sostituita durante un burst di wake-up.
+# Il gruppo della run è per-issue quando il wake-up nasce da `issues:labeled`:
+# eventi distinti non si sfrattano prima che il job possa valutarli. Il job ha
+# sotto un semaforo globale del drainer, perché ogni scansione legge la stessa
+# coda condivisa: così le reservation non possono duplicare una promozione.
+# Il cron resta il recupero se una pending viene sostituita durante un burst.
 concurrency:
   # Regression #7581: 1,426/1,710 historical runs (83.4%) were cancelled when
   # workflow_run alimentava un gruppo condiviso con i writer daily. Separare il
@@ -40,6 +42,10 @@ permissions:
 
 jobs:
   drain:
+    # Serializza la scansione condivisa senza riusare il mutex dei writer daily.
+    concurrency:
+      group: followup-drainer-scan-${{ github.repository }}
+      cancel-in-progress: false
     if: >-
       github.event_name != 'issues' ||
       github.event.label.name == 'agent:fix-queued' ||
