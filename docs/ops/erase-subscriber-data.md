@@ -36,10 +36,10 @@ La utility attraversa soltanto questi dati:
 
 Le query sui documenti extra sono paginated e i figli vengono cancellati in
 batch da 450 operazioni, sotto il limite Firestore di 500. Una sottocollezione
-non elencata è un errore bloccante: non viene trattata come vuota e non viene
-cancellata implicitamente. Per aggiungere un nuovo store occorre prima
-verificarne writer, campo di identità e retention e aggiornare test e
-documentazione nella stessa modifica.
+non elencata, anche se annidata sotto un documento figlio, è un errore
+bloccante: non viene trattata come vuota e non viene cancellata implicitamente.
+Per aggiungere un nuovo store occorre prima verificare writer, campo di
+identità e retention e aggiornare test e documentazione nella stessa modifica.
 
 Non eseguire --apply durante i test locali o CI. I test usano solo fake
 Firestore/Auth in memoria e non caricano credenziali di produzione.

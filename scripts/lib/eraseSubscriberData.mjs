@@ -254,7 +254,21 @@ async function readAllQueryDocs(query, context) {
 }
 
 async function countCollection(collectionRef, context) {
-  return (await readAllQueryDocs(collectionRef, context)).length;
+  const docs = await readAllQueryDocs(collectionRef, context);
+  for (const doc of docs) {
+    if (!doc?.ref) {
+      throw new EraseSubscriberDataError(
+        context + ': documento figlio privo di riferimento',
+        { phase: 'listCollections' },
+      );
+    }
+    await listContractSubcollections(
+      doc.ref,
+      [],
+      context + '/' + (doc.id || docKey(doc)),
+    );
+  }
+  return docs.length;
 }
 
 async function inspectDocTree(ref, allowedSubs, context) {
@@ -458,6 +472,11 @@ async function deleteSubcollection(db, parentRef, name) {
           { phase: 'delete' },
         );
       }
+      await listContractSubcollections(
+        doc.ref,
+        [],
+        (parentRef.path || 'document') + '/' + name + '/' + (doc.id || docKey(doc)),
+      );
       batch.delete(doc.ref);
     }
     await phase(

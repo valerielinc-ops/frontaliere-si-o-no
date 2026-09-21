@@ -395,6 +395,18 @@ describe('operator-only subscriber erasure', () => {
       ),
     ).rejects.toMatchObject({ phase: 'listCollections' });
   });
+
+  it('fails closed on a nested subcollection under a contract child', async () => {
+    const seed = seedAll();
+    seed[NEWSLETTER_COLLECTION + '/' + EMAIL + '/events/e1/nested/x'] = { pii: true };
+    await expect(
+      inventorySubscriberData(
+        makeFakeDb(seed),
+        EMAIL,
+        makeFakeAuth({ email: EMAIL, uid: 'uid-target' }),
+      ),
+    ).rejects.toMatchObject({ phase: 'listCollections' });
+  });
 });
 
 function filesUnder(path: string): string[] {
