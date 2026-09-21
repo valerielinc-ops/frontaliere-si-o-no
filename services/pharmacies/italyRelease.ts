@@ -177,7 +177,7 @@ function statusEntries(status: Snapshot): Record<ItalyDutyProvince, Record<strin
   }])) as Record<ItalyDutyProvince, Record<string, unknown>>;
 }
 
-function deriveState(
+export function deriveState(
   duties: Snapshot,
   status: Snapshot,
   provinces: Record<ItalyDutyProvince, Record<string, unknown>>,

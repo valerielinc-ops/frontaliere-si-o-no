@@ -171,8 +171,8 @@ function sourceStatus(source, parsed, fetchedAt) {
     freshness: parsed.freshness,
     coverage: parsed.coverage,
     state,
-    // La classe di pubblicazione viaggia NELLO status, non solo nel registry:
-    // `releaseState` e il checker leggono lo status, non le fonti.
+    // La classe viaggia anche nello status per rendere osservabile la decisione,
+    // ma `releaseState` e il checker usano il registry come fonte autorevole.
     publication: sourcePublicationClass(source),
     coverageModel: sourceCoverageModel(source),
     observedCalendarDays: parsed.observedCalendarDays ?? null,
