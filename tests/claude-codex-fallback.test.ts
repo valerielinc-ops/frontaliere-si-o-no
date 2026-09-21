@@ -1063,7 +1063,42 @@ describe('copertura workflow diretti', () => {
     expect(codexBlock).toContain('codex_timed_out=%s');
     expect(codexBlock).toContain('codex_status=${PIPESTATUS[1]}');
     expect(codexBlock).toContain('codex_log="$scratch_dir/codex-run.log"');
+    expect(codexBlock).toContain('codex_stderr="$scratch_dir/codex-run.stderr"');
+    expect(codexBlock).toContain('2> >(/usr/bin/tee "$codex_stderr"');
+    expect(codexBlock).toContain('[ "$codex_status" -ne 0 ]');
+    expect(codexBlock).not.toMatch(/grep -qiE[^\n]*token_expired[^\n]*"\$codex_log"/u);
     expect(codexBlock).toContain('codex_auth_failure=true');
+    const classifierStart = codexBlock.indexOf('        codex_auth_failure=false\n');
+    const classifierEnd = codexBlock.indexOf('        # Stop both host-side bridges', classifierStart);
+    expect(classifierStart).toBeGreaterThanOrEqual(0);
+    expect(classifierEnd).toBeGreaterThan(classifierStart);
+    const authClassifier = codexBlock.slice(classifierStart, classifierEnd)
+      .split('\n')
+      .map((line) => line.startsWith('        ') ? line.slice(8) : line)
+      .join('\n');
+    const runAuthClassifier = (status: number, stderr: string, log: string) => {
+      const root = mkdtempSync(join(tmpdir(), 'codex-auth-classifier-'));
+      const stderrPath = join(root, 'codex.stderr');
+      const logPath = join(root, 'codex.log');
+      writeFileSync(stderrPath, stderr);
+      writeFileSync(logPath, log);
+      try {
+        const output = execFileSync('/bin/bash', ['-c', `${authClassifier}\nprintf 'auth_failure=%s\\n' "$codex_auth_failure"`], {
+          env: {
+            ...process.env,
+            codex_status: String(status),
+            codex_stderr: stderrPath,
+            codex_log: logPath,
+          },
+          encoding: 'utf8',
+        }).trim();
+        return output.split('\n').pop() || '';
+      } finally {
+        rmSync(root, { recursive: true, force: true });
+      }
+    };
+    expect(runAuthClassifier(0, '', 'review text mentions token_expired')).toBe('auth_failure=false');
+    expect(runAuthClassifier(1, 'Failed to refresh token: refresh token was already used', '')).toBe('auth_failure=true');
     expect(action).toContain('CODEX_TIMED_OUT: ${{ steps.codex.outputs.codex_timed_out }}');
     expect(codexBlock).toContain('"$CODEX_NODE_REAL" "$CODEX_REALPATH" --version');
     expect(action).toContain('CODEX_SANITIZER_GIT="$git_host_realpath"');

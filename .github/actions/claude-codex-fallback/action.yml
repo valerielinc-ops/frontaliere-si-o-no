@@ -1151,6 +1151,9 @@ runs:
         codex_log="$scratch_dir/codex-run.log"
         : > "$codex_log"
         chmod 600 "$codex_log"
+        codex_stderr="$scratch_dir/codex-run.stderr"
+        : > "$codex_stderr"
+        chmod 600 "$codex_stderr"
         set +e
         printf '%s' "$prompt" | env -i "${codex_env[@]}" "$codex_timeout_bin" \
           --signal=TERM \
@@ -1168,7 +1171,8 @@ runs:
           -c shell_environment_policy.ignore_default_excludes=false \
           -c "shell_environment_policy.include_only=$codex_env_patterns" \
           --output-last-message "$CODEX_OUTPUT" \
-          - 2>&1 | /usr/bin/tee "$codex_log"
+          - > >(/usr/bin/tee "$codex_log") \
+          2> >(/usr/bin/tee "$codex_stderr" | /usr/bin/tee -a "$codex_log" >&2)
         codex_status=${PIPESTATUS[1]}
         codex_timed_out=false
         if [ "$codex_status" -eq 124 ]; then
@@ -1179,7 +1183,12 @@ runs:
           cp -- "$CODEX_OUTPUT" "$codex_output_destination" || echo "::warning::Codex output could not be copied to the workflow artifact path."
         fi
         codex_auth_failure=false
-        if grep -qiE '401[[:space:]]+Unauthorized|auth error code:[[:space:]]*token_expired|Failed to refresh token|refresh token was already used|token_expired' "$codex_log"; then
+        # The combined log contains the prompt and Codex's answer. A PR may
+        # legitimately discuss `401`/`token_expired` as text, so never classify
+        # arbitrary model output as an auth failure. Only a non-zero provider
+        # process with an auth-specific stderr line is eligible here.
+        if [ "$codex_status" -ne 0 ] \
+          && grep -qiE '401[[:space:]]+Unauthorized|auth error code:[[:space:]]*token_expired|Failed to refresh token|refresh token was already used' "$codex_stderr"; then
           codex_auth_failure=true
           echo '::error::Codex primary authentication is invalid or its refresh token was consumed; automatic retry is held until CODEX_AUTH_JSON changes.'
         fi
