@@ -4279,10 +4279,10 @@
     },
     {
       "id": "unibe-65d79fae8f8c",
-      "slug": "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
+      "slug": "amministratore-delegato-direttore-amministrativo-direttore-amministrativo-universitat-bern-bern",
       "slugByLocale": {
         "de": "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
-        "it": "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern",
+        "it": "amministratore-delegato-direttore-amministrativo-direttore-amministrativo-universitat-bern-bern",
         "en": "managing-director-administrative-director-administrative-director-universitat-bern-bern",
         "fr": "directeur-general-directeur-administratif-directeur-administratif-universitat-bern-bern"
       },
@@ -4343,7 +4343,15 @@
         }
       },
       "firstSeenAt": "2026-09-19T23:13:09.257Z",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 2,
+      "previousSlugsByLocale": {
+        "it": [
+          "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern"
+        ]
+      },
+      "previousSlugs": [
+        "managing-director-administrativer-direktor-administrative-direktorin-unibe-bern"
+      ]
     },
     {
       "id": "unibe-020f32365279",
