@@ -303,6 +303,31 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     expect(selected).toContain('tests/generate-crawler-group-workflows.test.ts');
   }, 120_000);
 
+  it('non trascina il generatore crawler per un workflow o action estraneo', () => {
+    const unrelatedAssets = [
+      '.github/workflows/codex-auth-recovery.yml',
+      '.github/actions/claude-codex-fallback/action.yml',
+    ];
+    for (const [index, asset] of unrelatedAssets.entries()) {
+      const dir = fs.mkdtempSync(path.join(os.tmpdir(), `related-unrelated-crawler-${index}-`));
+      try {
+        expect(selectionFor([asset], dir)).not.toContain('tests/generate-crawler-group-workflows.test.ts');
+      } finally {
+        fs.rmSync(dir, { recursive: true, force: true });
+      }
+    }
+  }, 120_000);
+
+  it('mantiene il generatore crawler per un suo workflow generato', () => {
+    const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-crawler-generated-'));
+    try {
+      expect(selectionFor(['.github/workflows/crawler-group-01.yml'], dir))
+        .toContain('tests/generate-crawler-group-workflows.test.ts');
+    } finally {
+      fs.rmSync(dir, { recursive: true, force: true });
+    }
+  }, 120_000);
+
   it('una rimozione di asset .github conserva il path precedente nel grafo', () => {
     expect(fs.existsSync(path.join(ROOT, REMOVED_GITHUB_ASSET))).toBe(false);
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'related-deleted-github-'));
