@@ -473,6 +473,14 @@ describe('candidateStrength', () => {
     expect(candidateStrength(['class:"cap-before-mutation"'])).toBe('forte');
   });
 
+  it('un’etichetta AST che spiega lo stesso token non crea una seconda evidenza', () => {
+    expect(candidateStrength(['rawDescription', 'ast:identifier:rawDescription'])).toBe('debole');
+  });
+
+  it('un binding risolto dal grafo è evidenza forte anche da solo', () => {
+    expect(candidateStrength(['rawDescription', 'graph:services/shared.ts#rawDescription'])).toBe('forte');
+  });
+
   it('una espressione verbatim rimossa → forte anche da sola', () => {
     expect(candidateStrength(['removed:"if (isSufficientVacancyDescription(x))"'])).toBe('forte');
   });
