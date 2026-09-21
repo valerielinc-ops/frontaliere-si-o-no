@@ -11888,6 +11888,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-21.imageAlt': 'I numeri del giorno per i frontalieri – 21 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-21.seoDescription': 'Bollettino frontalieri del 21 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-21.ogDescription': 'I numeri del 21 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.vivere-cantu-lavorare-ticino.title': 'Vivere a Cantù e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-cantu-lavorare-ticino.excerpt': 'Guida pratica per chi sceglie Cantù come residenza: fiscalità, nuovo accordo frontalieri, AVS, LAMal e gestione del pendolarismo quotidiano verso il Ticino.',
+    'blog.article.vivere-cantu-lavorare-ticino.imageAlt': 'Vista panoramica di Lugano, luogo centrale per i frontalieri che lavorano in Ticino',
 };
 
 export default blogMetaIt;

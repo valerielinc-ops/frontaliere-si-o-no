@@ -35427,6 +35427,15 @@ const RAW_ARTICLES = [
  authorSlug: 'samuele-valente',
  authorName: 'Samuele Valente',
  },
+ {
+ id: 'vivere-cantu-lavorare-ticino',
+ category: 'pratico',
+ date: '2026-09-21T10:44:54.357Z',
+ image: '/images/blog/vivere-cantu-lavorare-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
