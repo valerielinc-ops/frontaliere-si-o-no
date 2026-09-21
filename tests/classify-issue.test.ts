@@ -373,6 +373,61 @@ describe('policy automazione F1/F7', () => {
     });
   });
 
+  it('VISION.md è provenienza del rientro, non un bypass del veto F1/F7/control-plane', () => {
+    expect(classifyAutomationRisk({
+      title: 'CI Failure: Publish to GitHub Pages',
+      body: 'Il monitor ha rilevato il guasto nel workflow.',
+      labels: ['needs-human'],
+      paths: ['.github/workflows/publish.yml'],
+      pathsComplete: true,
+    })).toMatchObject({
+      blocked: true,
+      decision: 'deny',
+      denyCode: 'needs-human-veto',
+      humanApprovalRequired: true,
+    });
+
+    expect(classifyAutomationRisk({
+      title: 'CI Failure: Publish to GitHub Pages',
+      body: 'Il monitor ha rilevato il guasto nel workflow.',
+      labels: ['needs-human', 'agent:vision-approved'],
+      paths: ['.github/workflows/publish.yml'],
+      pathsComplete: true,
+    })).toMatchObject({
+      blocked: true,
+      decision: 'deny',
+      denyCode: 'control-plane',
+      visionApproved: true,
+      humanApprovalRequired: true,
+    });
+
+    expect(classifyAutomationRisk({
+      title: 'CI Failure: Publish to GitHub Pages',
+      body: 'Il monitor ha rilevato un riferimento ambiguo Europe/Zurich.',
+      labels: ['agent:vision-approved'],
+      paths: ['.github/workflows/publish.yml'],
+      pathsComplete: false,
+    })).toMatchObject({
+      blocked: true,
+      decision: 'deny',
+      denyCode: 'paths-unverifiable',
+      verifiable: false,
+    });
+
+    expect(classifyAutomationRisk({
+      title: 'CI Failure: Publish to GitHub Pages',
+      body: 'Il monitor ha indicato un target non riconosciuto.',
+      labels: ['agent:vision-approved'],
+      paths: ['unknown-zone/agent-target.ts'],
+      pathsComplete: true,
+    })).toMatchObject({
+      blocked: true,
+      decision: 'deny',
+      denyCode: 'unknown-path',
+      humanApprovalRequired: true,
+    });
+  });
+
   it('treats needs-human as tracking only on the pull-request surface', () => {
     expect(classifyAutomationRisk({
       title: 'follow-up: safe maintenance',
@@ -460,6 +515,14 @@ describe('policy automazione F1/F7', () => {
       paths: [],
       pathsComplete: false,
       hasReferences: false,
+    });
+    expect(extractIssueReferences(
+      '> .github/workflows/pr-redflag-fixer.yml:L147: fix the blockquote target',
+      { repository },
+    )).toMatchObject({
+      paths: ['.github/workflows/pr-redflag-fixer.yml'],
+      pathsComplete: true,
+      hasReferences: true,
     });
     expect(extractIssueReferences(
       'https://github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/docs/src/fix.ts',

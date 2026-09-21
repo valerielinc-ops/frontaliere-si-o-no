@@ -33,9 +33,10 @@ permissions:
   # la finestra e' un lookback fisso, vedi collect-followup-batch.mjs)
 
 concurrency:
-  # Questo è il mutex condiviso con followup-reconcile.yml e followup-drainer.yml:
-  # gate, reconciler e queue writer possono toccare lo stesso bucket daily. La chiave
-  # è repo-scoped (non workflow-scoped), e cancel:false conserva la run già partita.
+  # Questo è il mutex condiviso con followup-reconcile.yml: gate e reconciler
+  # possono toccare lo stesso bucket daily. Il drainer ha un mutex dedicato
+  # perché la promozione della coda non deve restare dietro a questo batch.
+  # La chiave è repo-scoped (non workflow-scoped), e cancel:false conserva la run già partita.
   group: followup-daily-${{ github.repository }}
   cancel-in-progress: false
 

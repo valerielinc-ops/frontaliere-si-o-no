@@ -11,9 +11,9 @@
  * diretto da triage ma `agent:fix-queued`. Questo drainer (cron ~20min +
  * dispatch manuale) riempie fino al cap gli slot `agent:fix` per issue diverse;
  * la chiave per-issue del workflow evita gli sfratti fra candidati distinti,
- * mentre lo stesso numero resta serializzato. Il cron è il trigger automatico
- * durevole: il fan-out `workflow_run` è stato rimosso perché creava burst
- * concorrenti che GitHub cancellava sul gruppo serializzato.
+ * mentre lo stesso numero resta serializzato. Il cron resta il trigger
+ * automatico durevole; il workflow aggiunge wake-up bounded su accodamento e
+ * completamento del fixer, con un mutex separato che non sfratta i writer daily.
  *
  * Termina autonomamente (no human): un follow-up promosso che non produce PR
  * (run cancellata/error_max_turns) viene rilevato come orfano e RI-ACCODATO con

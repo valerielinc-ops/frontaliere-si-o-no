@@ -12,8 +12,10 @@
  * blocked item, and must fail closed when a PR file list is not verifiable.
  */
 
-export const AUTOMATION_RISK_POLICY_VERSION = 'f1-f7-v2';
+export const AUTOMATION_RISK_POLICY_VERSION = 'f1-f7-v3';
 export const HUMAN_APPROVAL_LABEL = 'needs-human';
+export const VISION_AUTONOMY_LABEL = 'agent:vision-approved';
+export const VISION_AUTONOMY_CONTRACT_VERSION = 'vision-v1';
 export const CONTROL_PLANE_DOMAIN = 'control-plane';
 
 /**
@@ -147,7 +149,7 @@ const ISSUE_REPEATED_SEPARATOR_RE = /(?<![\w.-])(?:[A-Za-z0-9_.-]+\/){2,}(?![\w.
 const ISSUE_ROOT_PATH_RE = /(?<![\w.-])(?:REVIEW\.md|LICENSE(?:\.[A-Za-z0-9_.-]+)?|README(?:\.[A-Za-z0-9_.-]+)?|CHANGELOG(?:\.[A-Za-z0-9_.-]+)?|Makefile|Dockerfile|CODEOWNERS)(?![\w.-])/giu;
 const ISSUE_FILE_EXTENSION_RE = /\.(?:[cm]?[jt]sx?|json|ya?ml|toml|ini|cfg|conf|md|mdx|css|scss|less|html?|xml|svg|txt|sql|py|rb|go|rs|java|kt|swift|sh|bash|zsh|vue|svelte|lock|rules)$/iu;
 const ISSUE_ROOT_FILE_RE = /(?<![\w./\\-])[A-Za-z0-9_.-]+\.(?:[cm]?[jt]sx?|json|ya?ml|toml|ini|cfg|conf|md|mdx|css|scss|less|html?|xml|svg|txt|sql|py|rb|go|rs|java|kt|swift|sh|bash|zsh|vue|svelte|lock|rules)(?![\w.-])/giu;
-const ISSUE_DOTFILE_RE = /(?<![\w.-])\.[A-Za-z0-9][A-Za-z0-9_.-]*/gu;
+const ISSUE_DOTFILE_RE = /(?<![\w.-])\.[A-Za-z0-9][A-Za-z0-9_.-]*(?![A-Za-z0-9_.-\\/])/gu;
 const ISSUE_SECURITY_DOTFILE_RE = /^\.(?:env(?:\.[A-Za-z0-9_.-]+)?|npmrc|gitignore|dockerignore|netrc|pypirc)$/iu;
 const ISSUE_GITHUB_FILE_HOSTS = new Set(['github.com', 'www.github.com', 'raw.githubusercontent.com']);
 
@@ -205,6 +207,17 @@ function isIssuePathCandidate(value, { fromCommand = false } = {}) {
     || /^(?:\.github|scripts|src|components|services|hooks|build-plugins|packages|tests?|docs|functions)(?:[\\/]|$)/iu.test(candidate)
     || pathDomains(candidate).length > 0
     || /^(?:REVIEW\.md|LICENSE(?:\.[A-Za-z0-9_.-]+)?|README(?:\.[A-Za-z0-9_.-]+)?|CHANGELOG(?:\.[A-Za-z0-9_.-]+)?)$/iu.test(candidate);
+}
+
+// A repeated slash is ambiguous prose only when it is NOT itself a valid
+// repository path. The old boolean test flagged legitimate three-segment
+// paths in blockquotes (for example `.github/workflows/pr-redflag-fixer.yml`)
+// as an incomplete snapshot, so the policy stopped the fixer before it could
+// inspect the already-verifiable target.
+function hasUnrecognizedRepeatedSeparator(text) {
+  ISSUE_REPEATED_SEPARATOR_RE.lastIndex = 0;
+  return [...text.matchAll(ISSUE_REPEATED_SEPARATOR_RE)]
+    .some(([candidate]) => !isIssuePathCandidate(candidate));
 }
 
 function isStandaloneIssuePathCandidate(value) {
@@ -295,8 +308,7 @@ export function extractIssueReferences(text = '', { repository = '' } = {}) {
       for (const token of code.matchAll(ISSUE_ROOT_FILE_RE)) rawPaths.push(token[0]);
       for (const token of code.matchAll(ISSUE_ABSOLUTE_PATH_RE)) rawPaths.push(token[1]);
       for (const token of code.matchAll(ISSUE_RELATIVE_PATH_RE)) rawPaths.push(token[0]);
-      ISSUE_REPEATED_SEPARATOR_RE.lastIndex = 0;
-      if (ISSUE_REPEATED_SEPARATOR_RE.test(code)) {
+      if (hasUnrecognizedRepeatedSeparator(code)) {
         rawPaths.push('');
         complete = false;
       }
@@ -315,8 +327,7 @@ export function extractIssueReferences(text = '', { repository = '' } = {}) {
   for (const match of withoutCode.matchAll(ISSUE_DOTFILE_RE)) {
     if (isIssueDotfileCandidate(match[0])) rawPaths.push(match[0]);
   }
-  ISSUE_REPEATED_SEPARATOR_RE.lastIndex = 0;
-  if (ISSUE_REPEATED_SEPARATOR_RE.test(withoutCode)) {
+  if (hasUnrecognizedRepeatedSeparator(withoutCode)) {
     rawPaths.push('');
     complete = false;
   }
@@ -398,6 +409,12 @@ function reviewTime(review) {
  * including every F1/F7 domain; `needs-human` is not a PR-surface veto.
  * `surface` defaults to `issue`, which retains the original control-plane,
  * high-risk, unknown issue/path, and `needs-human` issue-routing behavior.
+ * The deterministic pre-pass may add `agent:vision-approved` after checking
+ * the VISION.md contract; that label is provenance for the explicit handoff,
+ * not an authorization. F1/F7 and control-plane evidence on the issue surface
+ * remain deny-by-default and must still pass the independent gates. A matching
+ * title is useful provenance for the pre-pass, but is not itself an
+ * authorization. Metadata and incomplete path snapshots still fail closed.
  */
 export function classifyAutomationRisk({
   title = '',
@@ -407,6 +424,7 @@ export function classifyAutomationRisk({
   paths,
   pathsComplete,
   surface = 'issue',
+  visionApproved = false,
 } = {}) {
   const isPullRequestSurface = surface === 'pull-request';
   const invalidMetadata = typeof title !== 'string'
@@ -426,6 +444,7 @@ export function classifyAutomationRisk({
       domains: [],
       unknownPaths: [],
       humanApprovalRequired: !isPullRequestSurface,
+      visionApproved: false,
       reason: isPullRequestSurface
         ? 'metadata PR non verificabili; deny fail-closed senza approvazione umana'
         : 'metadata issue non verificabili; automation deny-by-default',
@@ -433,11 +452,19 @@ export function classifyAutomationRisk({
   }
 
   const labelNames = labels.map(labelName).filter(Boolean);
+  const hasVisionAutonomyApproval = !isPullRequestSurface && (
+    visionApproved === true
+    || labelNames.some((label) => label.toLowerCase() === VISION_AUTONOMY_LABEL)
+  );
   // The issue surface still uses `needs-human` as a terminal routing pin. Keep
   // this explicitly separate from the PR surface: the same label is tracking
   // only for PRs and must never veto their merge/autorebase/dispatch paths.
+  // A deterministic VISION-approved re-entry is the one explicit exception:
+  // it is the machine-readable handoff from needs-human-sweep back to the
+  // normal issue-fix path, not a category allowlist.
   const hasIssueHumanVeto = surface === 'issue'
-    && labelNames.some((label) => label.toLowerCase() === HUMAN_APPROVAL_LABEL);
+    && labelNames.some((label) => label.toLowerCase() === HUMAN_APPROVAL_LABEL)
+    && !hasVisionAutonomyApproval;
   if (hasIssueHumanVeto) {
     return {
       policyVersion: AUTOMATION_RISK_POLICY_VERSION,
@@ -450,6 +477,7 @@ export function classifyAutomationRisk({
       domains: [],
       unknownPaths: [],
       humanApprovalRequired: true,
+      visionApproved: false,
       reason: '`needs-human` è un veto persistente; serve una rimozione umana associata alla HEAD',
     };
   }
@@ -470,6 +498,7 @@ export function classifyAutomationRisk({
       domains: [],
       unknownPaths: [],
       humanApprovalRequired: !isPullRequestSurface,
+      visionApproved: false,
       reason: isPullRequestSurface
         ? 'elenco path PR non verificabile; deny fail-closed senza approvazione umana'
         : 'elenco path issue non verificabile; automation deny-by-default',
@@ -516,6 +545,9 @@ export function classifyAutomationRisk({
           : !hasPathSnapshot && !knownIssue
             ? 'unknown-issue'
             : null;
+  // VISION is provenance for a deterministic re-entry, not a bypass for the
+  // issue-surface risk policy. F1/F7 and control-plane findings must remain
+  // blocked until the independent gates and a human-verifiable path clear them.
   const blocked = denyCode !== null;
   return {
     policyVersion: AUTOMATION_RISK_POLICY_VERSION,
@@ -533,6 +565,7 @@ export function classifyAutomationRisk({
       controlPlane: controlPlaneEvidence,
     },
     humanApprovalRequired: blocked,
+    visionApproved: hasVisionAutonomyApproval,
     reason: blocked
       ? denyCode === 'unknown-issue'
         ? 'issue non classificabile con segnali noti; automation deny-by-default'
