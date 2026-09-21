@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mikron",
-  "assembledAt": "2026-09-19T23:09:02.002Z",
+  "assembledAt": "2026-09-21T16:11:07.590Z",
   "jobs": [
     {
       "url": "https://www.mikron.com/en/polymecanic-team-leader",
@@ -212,6 +212,7 @@
         "canton": "NE",
         "location": "Boudry"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T22:00:19.187Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
@@ -228,9 +229,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      }
     },
     {
       "url": "https://www.mikron.com/en/hardware-engineer-specialist-mfd-0",
