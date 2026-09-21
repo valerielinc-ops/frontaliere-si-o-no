@@ -111,6 +111,25 @@ describe('sibling AST layer', () => {
       .toBeGreaterThan(0);
   });
 
+  it('recognizes exported variable declarations and surfaces their consumers', () => {
+    const changed = collectAstFacts(
+      'services/guard.ts',
+      'export const guardSession = () => true;',
+      { files: new Set(['services/guard.ts', 'components/Panel.tsx']) },
+    );
+    const declaration = changed.find((fact) =>
+      fact.kind === 'identifier' && fact.role === 'declaration' && fact.key === 'guardSession');
+    const candidate = collectAstFacts(
+      'components/Panel.tsx',
+      'const allowed = guardSession();',
+      { files: new Set(['services/guard.ts', 'components/Panel.tsx']) },
+    );
+
+    expect(declaration?.exported).toBe(true);
+    expect(matchAstFacts(factsContainingToken(changed, 'guardSession'), candidate).length)
+      .toBeGreaterThan(0);
+  });
+
   it('does not promote package APIs or generic property names to sibling evidence', () => {
     const changed = collectAstFacts(
       'scripts/parser.mjs',

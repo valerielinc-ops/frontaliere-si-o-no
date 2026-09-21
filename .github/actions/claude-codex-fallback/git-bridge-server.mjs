@@ -278,7 +278,10 @@ export function runRemoteSiblingPrePush({ realGit, cwd, env, workBranchRef }) {
       !/^GIT_CONFIG_(?:KEY|VALUE)_\d+$/.test(key),
     ),
   );
-  const head = spawnSync(realGit, ['rev-parse', 'HEAD'], {
+  // Match the local pre-push input: the bridge only permits the checked-out
+  // work branch, so resolve that exact ref instead of relying on a possibly
+  // detached/stale HEAD in the host checkout.
+  const head = spawnSync(realGit, ['rev-parse', workBranchRef], {
     cwd,
     env: checkerEnv,
     encoding: 'utf8',
@@ -290,7 +293,7 @@ export function runRemoteSiblingPrePush({ realGit, cwd, env, workBranchRef }) {
     return {
       code: 2,
       stdout: '',
-      stderr: `Codex Git bridge: cannot resolve pushed HEAD (${head.stderr || head.error?.message || 'invalid SHA'})\n`,
+      stderr: `Codex Git bridge: cannot resolve pushed work branch (${head.stderr || head.error?.message || 'invalid SHA'})\n`,
     };
   }
   const result = spawnSync(process.execPath, [checker, '--head', headSha], {

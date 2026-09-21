@@ -62,6 +62,7 @@ describe('remote PR agents use the same committed hook contract as local agents'
 
   it('keeps the bridge security boundary but runs the same committed-head sibling check before remote push', () => {
     expect(gitBridge).toContain("path.join(cwd, 'scripts', 'ci', 'check-sibling-patterns.mjs')");
+    expect(gitBridge).toContain("['rev-parse', workBranchRef]");
     expect(gitBridge).toContain("[checker, '--head', headSha]");
     expect(gitBridge).toContain('runRemoteSiblingPrePush');
     expect(gitBridge).toContain("['core.hooksPath', '/dev/null']");
@@ -87,7 +88,21 @@ describe('remote PR agents use the same committed hook contract as local agents'
         'commit', '-q', '-m', 'fixture',
       ]);
       execFileSync('git', ['-C', root, 'checkout', '-qb', 'fixture-branch']);
-      const head = execFileSync('git', ['-C', root, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+      execFileSync('git', ['-C', root, 'checkout', '-qb', 'checked-out-branch']);
+      writeFileSync(resolve(root, 'tracked.txt'), 'checked-out branch change\n');
+      execFileSync('git', ['-C', root, 'add', 'tracked.txt']);
+      execFileSync('git', [
+        '-C', root,
+        '-c', 'user.name=Fixture',
+        '-c', 'user.email=fixture@example.invalid',
+        'commit', '-q', '-m', 'checked-out branch change',
+      ]);
+      const checkedOutHead = execFileSync('git', ['-C', root, 'rev-parse', 'HEAD'], { encoding: 'utf8' }).trim();
+      const pushedBranchHead = execFileSync(
+        'git',
+        ['-C', root, 'rev-parse', 'refs/heads/fixture-branch'],
+        { encoding: 'utf8' },
+      ).trim();
       const result = runRemoteSiblingPrePush({
         realGit: 'git',
         cwd: root,
@@ -103,7 +118,8 @@ describe('remote PR agents use the same committed hook contract as local agents'
         workBranchRef: 'refs/heads/fixture-branch',
       });
       expect(result.code).toBe(0);
-      expect(result.stdout).toContain(`--head ${head}`);
+      expect(result.stdout).toContain(`--head ${pushedBranchHead}`);
+      expect(result.stdout).not.toContain(`--head ${checkedOutHead}`);
       expect(result.stdout).not.toContain('fixture-secret');
     } finally {
       rmSync(root, { recursive: true, force: true });

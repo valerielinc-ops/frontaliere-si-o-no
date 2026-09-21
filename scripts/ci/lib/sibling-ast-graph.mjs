@@ -75,7 +75,7 @@ function declarationIsExported(node) {
   if (!declarationName(node)) return false;
   let declaration = node.parent;
   if (ts.isVariableDeclaration(declaration)) declaration = declaration.parent;
-  if (ts.isVariableStatement(declaration)) declaration = declaration;
+  if (ts.isVariableDeclarationList(declaration)) declaration = declaration.parent;
   return Boolean(declaration.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword));
 }
 
