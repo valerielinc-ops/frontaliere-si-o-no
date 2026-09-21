@@ -11875,6 +11875,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pellicini-fdi-indennita-frontiera.title': 'Pelzmäntel (FDI): Grenzentschädigungen und Fonds für Arbeitnehmer',
     'blog.article.pellicini-fdi-indennita-frontiera.excerpt': 'Ein Abgeordneter der Fratelli d \'Italia interveniert auf die Ressourcen für den Grenzstreifen, um die Beschäftigung in Italien zu verbessern.',
     'blog.article.pellicini-fdi-indennita-frontiera.imageAlt': 'Politische Debatte über Grenzbeihilfe und Ressourcen für Arbeitnehmer',
+    'blog.article.regole-chiare-assunzioni-ticino.title': 'Einstellungen im öffentlichen Sektor im Tessin: klare Regeln gefordert',
+    'blog.article.regole-chiare-assunzioni-ticino.excerpt': 'Roncelli und Mirante di Avanti mit Ticino & Lavoro befragen die Regierung zum Fall Zali und in der E-Mail von 2020 an Eoc.',
+    'blog.article.regole-chiare-assunzioni-ticino.imageAlt': 'Dokumente und Stift auf einem Schreibtisch in Bellinzona',
 };
 
 export default blogMetaDe;

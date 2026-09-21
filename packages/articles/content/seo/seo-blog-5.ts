@@ -92074,6 +92074,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-regole-chiare-assunzioni-ticino': {
+    title: 'Assunzioni nel settore pubblico in Ticino: chieste regole chiare',
+    description: 'Roncelli e Mirante (Avanti con Ticino & Lavoro) interpellano il governo ticinese sul caso Zali e la mail del 2020 all\'Eoc per trasparenza nelle assunzioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, assunzioni, settore, pubblico, chieste',
+    ogTitle: 'Assunzioni Eoc e caso Zali: chieste regole chiare in Ticino',
+    ogDescription: 'Interrogazione al governo ticinese di Roncelli e Mirante sul caso Zali e sulla mail del 2020 all\'Eoc per garantire trasparenza e imparzialità nelle assunzioni.',
+    canonicalPath: '/articoli-frontaliere/regole-chiare-assunzioni-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Assunzioni nel settore pubblico in Ticino: chieste regole chiare",
+      "description": "Roncelli e Mirante (Avanti con Ticino & Lavoro) interpellano il governo ticinese sul caso Zali e la mail del 2020 all'Eoc per trasparenza nelle assunzioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/regole-chiare-assunzioni-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Documenti e penna su una scrivania a Bellinzona"
+      },
+      "datePublished": "2026-09-21T00:30:19+00:00",
+      "dateModified": "2026-09-21T00:30:19+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/regole-chiare-assunzioni-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

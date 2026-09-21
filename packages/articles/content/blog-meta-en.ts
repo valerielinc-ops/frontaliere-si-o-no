@@ -11876,6 +11876,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.pellicini-fdi-indennita-frontiera.title': 'Furs (FDI): Frontier allowances and workers\' funds',
     'blog.article.pellicini-fdi-indennita-frontiera.excerpt': 'A member of the Fratelli d \'Italia parliament intervenes on the resources for the border strip to enhance employment in Italy.',
     'blog.article.pellicini-fdi-indennita-frontiera.imageAlt': 'Political debate on border allowance and resources for workers',
+    'blog.article.regole-chiare-assunzioni-ticino.title': 'Recruitment in the public sector in Ticino: clear rules requested',
+    'blog.article.regole-chiare-assunzioni-ticino.excerpt': 'Roncelli and Mirante di Avanti with Ticino & Lavoro ask the government about the Zali case and the 2020 email to the ECO.',
+    'blog.article.regole-chiare-assunzioni-ticino.imageAlt': 'Documents and pen on a desk in Bellinzona',
 };
 
 export default blogMetaEn;
