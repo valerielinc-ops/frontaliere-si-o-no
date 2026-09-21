@@ -1,44 +1,42 @@
 {
   "key": "etat-de-vaud",
   "label": "État de Vaud (Administration cantonale vaudoise)",
-  "generatedAt": "2026-09-19T23:05:36.220Z",
-  "total": 69,
+  "generatedAt": "2026-09-21T16:10:13.505Z",
+  "total": 70,
   "discovered": null,
-  "parsed": 56,
+  "parsed": 49,
   "lastFetchOutcome": null,
-  "written": 69,
+  "written": 70,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 32832,
-  "avgDurationMs": 32832,
+  "unchangedCount": 0,
+  "durationMs": 26258,
+  "avgDurationMs": 26258,
   "durationHistory": [
-    32832
+    26258
   ],
   "newJobs": [],
-  "updatedJobs": [],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "updatedJobs": [
     {
-      "id": "etat-de-vaud-5809",
-      "slug": "segretario-di-un-unita-decentrata-etat-de-vaud-administration-cantonale-vaudoise-renens-vd",
+      "id": "etat-de-vaud-5838",
+      "slug": "segretario-unita-decente-etat-de-vaud-administration-cantonale-vaudoise-nyon",
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
       "companyDomain": "vd.ch",
-      "title": "Secrétaire d'une unité décentralisée",
-      "location": "Renens VD",
+      "title": "Secrétaire d'unité décentralisée",
+      "location": "Nyon",
       "canton": "VD",
-      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5809",
+      "url": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5838",
       "source": "État de Vaud Dedicated Parser (Oracle Recruiting Cloud)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-12T13:06:33.838Z",
-      "addressLocality": "Renens VD",
+      "crawledAt": "2026-09-13T14:07:43.810Z",
+      "addressLocality": "Nyon",
       "addressRegion": "VD",
       "addressCountry": "CH",
       "country": "CH",
-      "postalCode": "1020",
+      "postalCode": "1260",
       "streetAddress": "Place du Château 1",
       "category": "Altro",
       "contract": "part-time",
@@ -48,8 +46,8 @@
       "currency": "CHF",
       "featured": false,
       "postedDate": "2026-06-08",
-      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5809",
-      "firstSeenAt": "2026-07-05T11:43:20.041Z",
+      "applyUrl": "https://offres-emploi.vd.ch/#fr/sites/CX_1/job/5838",
+      "firstSeenAt": "2026-07-05T11:43:20.864Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -62,5 +60,7 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
