@@ -11871,6 +11871,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ristorni-comuni-frontiera-incremento.title': 'Fondi per comuni di frontiera: ristorni salgono a 108 milioni',
     'blog.article.ristorni-comuni-frontiera-incremento.excerpt': 'L\'Associazione Comuni Italiani di Frontiera (Acif) accoglie l\'incremento del fondo ristorni da 89 a 108 milioni di euro e l\'assegnazione dell\'extra gettito.',
     'blog.article.ristorni-comuni-frontiera-incremento.imageAlt': 'Passaggio di frontiera tra Italia e Svizzera nel Mendrisiotto',
+    'blog.article.inflazione-portafoglio-svizzera.title': 'Inflazione in Svizzera: quanto pesa sui bilanci?',
+    'blog.article.inflazione-portafoglio-svizzera.excerpt': 'Analisi sull\'inflazione e il potere d\'acquisto in Svizzera: scopri la distanza tra l\'indice ufficiale e il costo della vita vissuto ogni giorno.',
+    'blog.article.inflazione-portafoglio-svizzera.imageAlt': 'Panorama di Lugano in Ticino con vista sul lago',
 };
 
 export default blogMetaIt;

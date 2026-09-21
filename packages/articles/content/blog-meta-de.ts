@@ -11869,6 +11869,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.ristorni-comuni-frontiera-incremento.title': 'Mittel für Grenzgemeinden: Erstattungen steigen auf 108 Millionen',
     'blog.article.ristorni-comuni-frontiera-incremento.excerpt': 'Der Verband der italienischen Grenzgemeinden (Acif) begrüßt die Erhöhung des Rückforderungsfonds von 89 auf 108 Millionen Euro und die Zuweisung der zusätzlichen Einnahmen.',
     'blog.article.ristorni-comuni-frontiera-incremento.imageAlt': 'Grenzübergang zwischen Italien und der Schweiz in der Region Mendrisiotto',
+    'blog.article.inflazione-portafoglio-svizzera.title': 'Inflation in der Schweiz: Wie viel lastet auf den Bilanzen?',
+    'blog.article.inflazione-portafoglio-svizzera.excerpt': 'Analyse der Inflation und der Kaufkraft in der Schweiz: Entdecken Sie die Distanz zwischen dem offiziellen Index und den täglichen Lebenshaltungskosten.',
+    'blog.article.inflazione-portafoglio-svizzera.imageAlt': 'Lugano Panorama im Tessin mit Blick auf den See',
 };
 
 export default blogMetaDe;
