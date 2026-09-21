@@ -92229,6 +92229,46 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },
+
+  'blog-vivere-fenegro-lavorare-ticino': {
+    title: 'Vivere a Fenegrò e lavorare in Ticino da frontaliere',
+    description: 'Guida fiscale e pratica per frontalieri a Fenegrò: imposta alla fonte, nuovo accordo 2024, franchigie e contributi AVS/LPP nel Canton Ticino. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, vivere, fenegrò, lavorare, pratica',
+    ogTitle: 'Vivere a Fenegrò e lavorare in Ticino da frontaliere',
+    ogDescription: 'Scopri come gestire tasse, contributi e assicurazione sanitaria vivendo a Fenegrò e lavorando in Ticino. Analisi del nuovo accordo fiscale 2024.',
+    canonicalPath: '/articoli-frontaliere/vivere-fenegro-lavorare-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Vivere a Fenegrò e lavorare in Ticino da frontaliere",
+      "description": "Guida fiscale e pratica per frontalieri a Fenegrò: imposta alla fonte, nuovo accordo 2024, franchigie e contributi AVS/LPP nel Canton Ticino. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/vivere-fenegro-lavorare-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista di un borgo residenziale vicino al confine tra Italia e Svizzera"
+      },
+      "datePublished": "2026-09-21T19:35:43+00:00",
+      "dateModified": "2026-09-21T19:35:43+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/vivere-fenegro-lavorare-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

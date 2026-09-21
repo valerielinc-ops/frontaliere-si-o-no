@@ -373,7 +373,7 @@ describe('policy automazione F1/F7', () => {
     });
   });
 
-  it('VISION.md riapre automaticamente i monitor verificabili, non la prosa generica', () => {
+  it('VISION.md è provenienza del rientro, non un bypass del veto F1/F7/control-plane', () => {
     expect(classifyAutomationRisk({
       title: 'CI Failure: Publish to GitHub Pages',
       body: 'Il monitor ha rilevato il guasto nel workflow.',
@@ -394,11 +394,11 @@ describe('policy automazione F1/F7', () => {
       paths: ['.github/workflows/publish.yml'],
       pathsComplete: true,
     })).toMatchObject({
-      blocked: false,
-      decision: 'allow',
+      blocked: true,
+      decision: 'deny',
       denyCode: 'control-plane',
       visionApproved: true,
-      humanApprovalRequired: false,
+      humanApprovalRequired: true,
     });
 
     expect(classifyAutomationRisk({

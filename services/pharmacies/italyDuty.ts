@@ -40,6 +40,10 @@ export interface ItalyDutyProvinceSourceOnly {
   readonly name: string;
   readonly sourceKey: string | null;
   readonly sourceUrl: string | null;
+  readonly state: ItalyDutyReleaseState;
+  readonly freshness: ItalyDutyProvinceFreshness;
+  readonly coverage: ItalyDutyProvinceCoverage;
+  readonly fetchedAt: string | null;
 }
 
 export interface ItalyDutyWeekProvince {
@@ -356,11 +360,15 @@ export function buildItalyDutyWeekModel(options: BuildItalyDutyWeekOptions = {})
       duties: provinceDuties,
     };
   });
-  const sourceOnly = provinces.map(({ code, name, sourceKey, sourceUrl }) => ({
+  const sourceOnly = provinces.map(({ code, name, sourceKey, sourceUrl, state, freshness, coverage, fetchedAt }) => ({
     code,
     name,
     sourceKey,
     sourceUrl,
+    state,
+    freshness,
+    coverage,
+    fetchedAt,
   }));
   const missingProvinces = provinces
     .filter((province) => !province.publishable || province.duties.length === 0)

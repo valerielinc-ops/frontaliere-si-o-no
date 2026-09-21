@@ -1,11 +1,11 @@
 /**
- * OfferwallNewsletterGate — in-house "subscribe to read" choice for the
- * Google Ad Manager Offerwall (Privacy & Messaging) custom-choice slot.
+ * Legacy newsletter gate retained for the newsletter consent surface. It is
+ * no longer mounted by App.tsx: the custom Offerwall choice is disabled
+ * globally and job-board access now uses a dedicated GPT Rewarded Web page.
  *
- * The Offerwall is configured in the GAM console; an inline script in
- * index.html registers `window.googlefc.offerwall.customchoice.registry`
- * BEFORE Funding Choices loads. That registry's `show()` delegates to the
- * `window.__ftOfferwallSubscribe` hook this component installs on mount.
+ * Older deployments used this component as the Offerwall custom-choice hook.
+ * It remains source-compatible for the newsletter tests, but it must not
+ * register anything with Funding Choices if it is ever imported again.
  *
  * When the user picks "subscribe to read" in the Offerwall, `show()` calls the
  * hook, which opens this modal. On a successful subscribe we resolve `true`
@@ -122,19 +122,7 @@ function normalizeLocale(code?: string | null, fallback?: string): OfferwallLoca
   return 'it';
 }
 
-/**
- * Ensure the Offerwall custom-choice registry exists on `window.googlefc`. On SPA
- * routes index.html sets it inline; STATIC SSG pages (articles, SEO landings) use
- * a different shell whose <head> lacks it — and those are exactly the pages we
- * scope the Offerwall to. This gate hydrates on every page (SPA + static), so we
- * set it here. Idempotent: no-op when already present (SPA). The registry's show()
- * delegates to window.__ftOfferwallSubscribe (installed by this component's effect).
- *
- * NOTE: we do NOT inject the Funding Choices (`fundingchoicesmessages`) loader —
- * per Google Ad Manager support, the Offerwall (and consent, once upgraded to the
- * GPT framework) is delivered via GPT, so no separate FC CMP script is needed
- * alongside GPT. The page's GPT (GptPocSlot) provides the delivery surface.
- */
+/** Legacy compatibility helpers; no active Funding Choices path calls this gate. */
 /**
  * Synchronous "already has access" check for the Offerwall gate. Grants access
  * (suppresses the Offerwall) when the visitor is EITHER an existing newsletter
@@ -154,62 +142,11 @@ function offerwallHasAccess(w: any): boolean {
 }
 
 function ensureOfferwallRegistry(): void {
-  if (typeof window === 'undefined') return;
-  // The job-board Offerwall is configured as Google Rewarded ad only. Do not
-  // re-add the newsletter custom choice after React hydrates that route.
-  if (/^\/cerca-lavoro-ticino(?:\/|$)/.test(window.location.pathname)) return;
-  const w = window as any;
-  const g = (w.googlefc = w.googlefc || {});
-  const ow = (g.offerwall = g.offerwall || {});
-  const cc = (ow.customchoice = ow.customchoice || {});
-  if (cc.registry) return;
-  cc.registry = {
-    initialize(params: { offerwallLanguageCode?: string } | undefined) {
-      const E = cc.InitializeResponseEnum || {};
-      try {
-        if (offerwallHasAccess(w)) {
-          return Promise.resolve(E.ACCESS_GRANTED || 'ACCESS_GRANTED');
-        }
-      } catch { /* ignore */ }
-      w.__ftOfferwallLang = (params && params.offerwallLanguageCode) || null;
-      return Promise.resolve(E.ACCESS_NOT_GRANTED || 'ACCESS_NOT_GRANTED');
-    },
-    show() {
-      const fn = w.__ftOfferwallSubscribe;
-      const run = (f: (lang: unknown) => unknown): Promise<boolean> => {
-        try {
-          return Promise.resolve(f(w.__ftOfferwallLang)).then((ok: unknown) => !!ok);
-        } catch { return Promise.resolve(false); }
-      };
-      if (typeof fn !== 'function') {
-        // The hook is installed by this component's effect, which is lazy
-        // (code-split): FC can call show() before the chunk hydrates. Queue the
-        // request instead of dropping the subscribe choice; drainOfferwallShowQueue
-        // (run on mount) resolves it once the hook is installed.
-        return new Promise<boolean>((resolve) => {
-          let settled = false;
-          const settle = (ok: unknown) => { if (settled) return; settled = true; resolve(!!ok); };
-          const q = (w.__ftOfferwallShowQueue = w.__ftOfferwallShowQueue || []);
-          // Safety net: if the gate never hydrates, fall back to the other choices.
-          // Cleared once the thunk drains so the 10s budget only covers the
-          // hydration wait, never the user's in-progress subscribe interaction.
-          const timer = setTimeout(() => settle(false), 10000);
-          q.push((hook: (lang: unknown) => unknown) => { if (settled) return; clearTimeout(timer); run(hook).then(settle, () => settle(false)); });
-        });
-      }
-      return run(fn);
-    },
-  };
+  // Intentionally empty: the Funding Choices custom-choice registry is
+  // retired globally, so an accidental legacy import must fail safe.
 }
 
-/**
- * Drain any registry.show() calls that fired before this lazy (code-split)
- * chunk hydrated. show() — here, in index.html, and in OFFERWALL_FC_SNIPPET —
- * queues a thunk on window.__ftOfferwallShowQueue when the hook is absent; we
- * run each with the freshly-installed hook so the subscribe overlay still
- * appears instead of the choice being silently dropped. Thunks that already
- * timed out no-op (guarded by their own `settled` flag).
- */
+/** Legacy queue drain retained for source compatibility; no active FC path uses it. */
 function drainOfferwallShowQueue(hook: (offerwallLang?: string | null) => Promise<boolean>): void {
   if (typeof window === 'undefined') return;
   const q = (window as any).__ftOfferwallShowQueue;
@@ -259,13 +196,9 @@ const OfferwallNewsletterGate: React.FC = () => {
       });
     };
     (window as any).__ftOfferwallSubscribe = hook;
-    // Ensure the registry + FC loader exist (esp. on static SSG pages whose head
-    // lacks index.html's inline versions). Runs after the hook is installed so
-    // the registry's show() can delegate to it.
+    // Keep the old hook harmless if a legacy bundle imports this component.
     ensureOfferwallRegistry();
-    // Drain any show() calls that fired before this lazy chunk hydrated (the
-    // race where FC invokes registry.show() before the gate installs the hook),
-    // so the queued subscribe overlay still opens instead of resolving false.
+    // Drain only legacy queued calls; the current Funding Choices path does not use this path.
     drainOfferwallShowQueue(hook);
     return () => {
       if ((window as any).__ftOfferwallSubscribe === hook) {

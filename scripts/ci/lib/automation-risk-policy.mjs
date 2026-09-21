@@ -410,11 +410,11 @@ function reviewTime(review) {
  * `surface` defaults to `issue`, which retains the original control-plane,
  * high-risk, unknown issue/path, and `needs-human` issue-routing behavior.
  * The deterministic pre-pass may add `agent:vision-approved` after checking
- * the VISION.md contract; only that explicit handoff makes F1/F7 and
- * control-plane evidence for the downstream diff/capability gates rather than
- * a human-approval veto. A matching title is useful provenance for the
- * pre-pass, but is not itself an authorization. Metadata and incomplete path
- * snapshots still fail closed before this override can apply.
+  * the VISION.md contract; that label is provenance for the explicit handoff,
+  * not an authorization. F1/F7 and control-plane evidence on the issue surface
+  * remain deny-by-default and must still pass the independent gates. A matching
+  * title is useful provenance for the pre-pass, but is not itself an
+  * authorization. Metadata and incomplete path snapshots still fail closed.
  */
 export function classifyAutomationRisk({
   title = '',
@@ -545,12 +545,10 @@ export function classifyAutomationRisk({
           : !hasPathSnapshot && !knownIssue
             ? 'unknown-issue'
             : null;
-  // VISION removes the stale category veto for a verified monitor/decision,
-  // but it never turns an unknown path or an unclassified issue into a guess.
-  // Those two codes still require a concrete diagnosis before the fixer runs.
-  const visionOverride = hasVisionAutonomyApproval
-    && (denyCode === 'control-plane' || denyCode === 'high-risk-domain');
-  const blocked = denyCode !== null && !visionOverride;
+  // VISION is provenance for a deterministic re-entry, not a bypass for the
+  // issue-surface risk policy. F1/F7 and control-plane findings must remain
+  // blocked until the independent gates and a human-verifiable path clear them.
+  const blocked = denyCode !== null;
   return {
     policyVersion: AUTOMATION_RISK_POLICY_VERSION,
     verifiable: true,
@@ -576,9 +574,7 @@ export function classifyAutomationRisk({
           : controlPlane
             ? `control-plane sotto modifica: ${controlPlanePaths.join(', ') || 'riferimento issue'}`
             : `domini F1/F7 rilevati: ${domains.join(', ')}`
-      : visionOverride
-        ? `VISION.md ${VISION_AUTONOMY_CONTRACT_VERSION} autorizza il rientro deterministico; ${denyCode} resta evidenza per i gate runtime`
-        : isPullRequestSurface
+      : isPullRequestSurface
         ? 'PR con metadata e file-list completi e verificabili; F1/F7, control-plane e path sconosciuti non sono veto policy'
         : 'nessun dominio F1/F7 rilevato e path riconosciuti',
   };

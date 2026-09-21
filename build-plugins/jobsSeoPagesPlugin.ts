@@ -18,7 +18,7 @@ import path from 'path';
 import os from 'node:os';
 import { Worker } from 'node:worker_threads';
 import type { Plugin } from 'vite';
-import { BASE_URL, STATIC_PAGE_BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, ROBOTS_NOINDEX_FOLLOW, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT } from './constants';
+import { BASE_URL, STATIC_PAGE_BUILD_ID, buildCanonicalBridgePage, SPA_ACTION_REDIRECT_SCRIPT, robotsMetaForContent, ROBOTS_INDEX_ENHANCED, ROBOTS_NOINDEX_FOLLOW, robotsMetaEnhancedForContent, countHtmlBodyWords, MIN_INDEXABLE_WORDS, GTAG_SNIPPET, ADSENSE_SNIPPET, PARTNERIZE_TAG_SNIPPET, FAVICON_LINKS, EARLY_BOOT_SCRIPT, CDN_PRECONNECT_HINT, OFFERWALL_FC_SNIPPET } from './constants';
 import { buildSimplePage, asyncCssHeadBlock, rootShell, esc as escHtml } from './htmlTemplate';
 import { railGutters } from './shared/railGutters';
 import { buildSeoPageHtml } from './shared/seoPageShell';
@@ -3137,6 +3137,9 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  const canonicalPath = withSlash(relPath);
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
+ const jobBoardOfferwallTag = locale === 'it' && sectionForJob === 'cerca-lavoro-ticino'
+  ? `\n ${OFFERWALL_FC_SNIPPET}`
+  : '';
  // Cannibalization fix: <link rel="canonical"> and og:url may point to a
  // winner URL (company hub) when this slug is in the override map.
  // The page itself is still emitted with its own URL (breadcrumbs,
@@ -3702,7 +3705,7 @@ ${hreflangHtml}
  ${asyncCssHeadBlock(hasSpaBundle ? entryCss : undefined)}
  ${seedScript}
  ${SPA_ACTION_REDIRECT_SCRIPT}
-${staticAnalyticsHtml}
+${jobBoardOfferwallTag}${staticAnalyticsHtml}
  </head>
  <body>
  ${rootShell(hasSpaBundle)}

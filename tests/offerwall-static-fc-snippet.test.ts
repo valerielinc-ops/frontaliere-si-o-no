@@ -6,9 +6,10 @@
  * NOT carry index.html's inline Offerwall block, so on those pages the only
  * Funding Choices loader that runs is the network-code one pulled in by
  * adsbygoogle.js AFTER hydration — it fetches the Offerwall message but never
- * renders the overlay. OFFERWALL_FC_SNIPPET injects the registry + the
- * publisher-id MESSAGING loader at PARSE TIME so article pages reach parity
- * with index.html's proven render path.
+ * renders the overlay. OFFERWALL_FC_SNIPPET injects the publisher-id
+ * MESSAGING loader at PARSE TIME so article pages reach parity with
+ * index.html's render path. The custom newsletter choice is intentionally not
+ * emitted; Ad Manager owns the available choices.
  *
  * This test pins the snippet contract and asserts it cannot drift from the
  * index.html loader essentials (same pub-id loader URL, data-fc-loader marker,
@@ -28,41 +29,21 @@ import { readBuildPluginSource } from './helpers/buildPluginSource';
 
 const indexHtml = readFileSync(resolve(__dirname, '..', 'index.html'), 'utf8');
 
-describe('OFFERWALL_FC_SNIPPET — registry', () => {
-  it('creates the registry additively on window.googlefc.offerwall.customchoice', () => {
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/offerwall\s*=\s*g\.offerwall\s*\|\|\s*\{\}/);
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/customchoice\s*=\s*ow\.customchoice\s*\|\|\s*\{\}/);
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/if\s*\(\s*cc\.registry\s*\)\s*return/);
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/cc\.registry\s*=\s*\{/);
-  });
-
-  it('initialize() resolves ACCESS_GRANTED/NOT_GRANTED synchronously and stores the language', () => {
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/initialize\s*:\s*function/);
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/ACCESS_GRANTED/);
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/ACCESS_NOT_GRANTED/);
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/__ftOfferwallLang/);
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/Promise\.resolve/);
-  });
-
-  it('initialize() grants access to subscribers AND a persisted Firebase session', () => {
-    // Same dual gate as the index.html registry. The static snippet cannot
-    // embed runtime public configuration, so authService writes an explicit
-    // marker; the hydrated app narrows the check to the active Firebase key.
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/newsletter_subscribed/);
-    expect(OFFERWALL_FC_SNIPPET).toMatch(
-      /localStorage\.getItem\(['"]frontaliere:auth-session['"]\)[\s\S]*['"]true['"]\)/,
-    );
-    expect(OFFERWALL_FC_SNIPPET).not.toMatch(/localStorage\.length|firebase:authUser:/);
-    expect(OFFERWALL_FC_SNIPPET).not.toMatch(/FIREBASE_API_KEY|firebaseApiKey/);
-  });
-
-  it('show() delegates to the React hook window.__ftOfferwallSubscribe', () => {
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/show\s*:\s*function/);
-    expect(OFFERWALL_FC_SNIPPET).toMatch(/window\.__ftOfferwallSubscribe/);
+describe('OFFERWALL_FC_SNIPPET — custom choice', () => {
+  it('does not emit the newsletter custom-choice registry', () => {
+    expect(OFFERWALL_FC_SNIPPET).not.toContain('customchoice');
+    expect(OFFERWALL_FC_SNIPPET).not.toContain('__ftOfferwallSubscribe');
+    expect(OFFERWALL_FC_SNIPPET).not.toContain('cc.registry');
   });
 });
 
 describe('OFFERWALL_FC_SNIPPET — Funding Choices messaging loader', () => {
+  it('filters the native Offerwall only on the Italian job board', () => {
+    expect(OFFERWALL_FC_SNIPPET).toContain('message.proceed(false,[E.OFFERWALL])');
+    expect(OFFERWALL_FC_SNIPPET).toContain('isItalianJobBoard');
+    expect(OFFERWALL_FC_SNIPPET).toContain('message.proceed(true)');
+  });
+
   it('injects the publisher-id messaging loader (not the network-code one)', () => {
     expect(OFFERWALL_FC_SNIPPET).toContain(
       `fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1`,

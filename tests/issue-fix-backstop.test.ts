@@ -412,6 +412,15 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(workflow).toContain('git diff --name-only origin/main');
     expect(workflow).toContain("steps.diff_gate.outcome == 'success'");
   });
+
+  it('fallisce chiuso se la rimozione della label VISION non riesce', () => {
+    const risk = workflow.slice(
+      workflow.indexOf('Preflight F1/F7 path-risk policy before capabilities'),
+      workflow.indexOf('\n  fix:'),
+    );
+    expect(risk).toContain('--remove-label "agent:vision-approved"');
+    expect(risk).not.toContain('label transitoria agent:vision-approved non rimossa');
+  });
 });
 
 describe('issue-fix FIX_OUTCOME backstop', () => {
