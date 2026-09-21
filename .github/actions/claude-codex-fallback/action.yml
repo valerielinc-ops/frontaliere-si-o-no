@@ -82,6 +82,12 @@ outputs:
   codex_timed_out:
     description: "true when the internal Codex watchdog stopped the primary process."
     value: ${{ steps.finalize.outputs.codex_timed_out }}
+  codex_auth_failure:
+    description: "true when the primary failed with a Codex authentication/refresh-token error."
+    value: ${{ steps.finalize.outputs.codex_auth_failure }}
+  codex_auth_digest:
+    description: "SHA-256 digest of the supplied auth.json, never the credential itself."
+    value: ${{ steps.finalize.outputs.codex_auth_digest }}
   claude_used:
     description: "Deprecated compatibility output; always false for the Codex-only action."
     value: ${{ steps.finalize.outputs.claude_used }}
@@ -129,7 +135,7 @@ runs:
           Linux:x86_64) ;;
           *) echo '::error::Codex primary requires Ubuntu Linux x64.'; exit 1 ;;
         esac
-        for host_tool in /usr/bin/curl /usr/bin/sha256sum /usr/bin/cut /usr/bin/tar /usr/bin/xz /usr/bin/mktemp /usr/bin/mkdir /usr/bin/chmod /usr/bin/dirname /usr/bin/realpath /usr/bin/stat /usr/bin/tr /usr/bin/timeout; do
+        for host_tool in /usr/bin/curl /usr/bin/sha256sum /usr/bin/cut /usr/bin/tar /usr/bin/xz /usr/bin/mktemp /usr/bin/mkdir /usr/bin/chmod /usr/bin/dirname /usr/bin/realpath /usr/bin/stat /usr/bin/tr /usr/bin/timeout /usr/bin/tee; do
           [ -x "$host_tool" ] || { echo "::error::Required root-owned host tool is unavailable: $host_tool"; exit 1; }
         done
         realpath_cmd=/usr/bin/realpath
@@ -404,9 +410,18 @@ runs:
         # still removes the directory if validation or the write fails.
         printf 'codex_home=%s\n' "$CODEX_HOME" >> "$GITHUB_OUTPUT"
         if [ -z "${CODEX_AUTH_JSON:-}" ]; then
+          printf 'codex_auth_digest=missing\n' >> "$GITHUB_OUTPUT"
+          printf 'codex_auth_failure=true\n' >> "$GITHUB_OUTPUT"
           echo "::error::CODEX_AUTH_JSON is required for the primary Codex run."
           exit 1
         fi
+        auth_digest="$(printf '%s' "$CODEX_AUTH_JSON" | /usr/bin/sha256sum | /usr/bin/cut -d ' ' -f 1)"
+        if ! [[ "$auth_digest" =~ ^[0-9a-f]{64}$ ]]; then
+          echo '::error::Could not fingerprint CODEX_AUTH_JSON without exposing it.'
+          exit 1
+        fi
+        printf 'codex_auth_digest=%s\n' "$auth_digest" >> "$GITHUB_OUTPUT"
+        printf 'codex_auth_failure=false\n' >> "$GITHUB_OUTPUT"
         printf '%s' "$CODEX_AUTH_JSON" > "$CODEX_HOME/auth.json"
         chmod 600 "$CODEX_HOME/auth.json"
         # Keep this home for the whole fallback: Codex may refresh auth.json in
@@ -1133,6 +1148,12 @@ runs:
           echo '::error::Trusted Codex timeout utility is unavailable.'
           exit 1
         }
+        codex_log="$scratch_dir/codex-run.log"
+        : > "$codex_log"
+        chmod 600 "$codex_log"
+        codex_stderr="$scratch_dir/codex-run.stderr"
+        : > "$codex_stderr"
+        chmod 600 "$codex_stderr"
         set +e
         printf '%s' "$prompt" | env -i "${codex_env[@]}" "$codex_timeout_bin" \
           --signal=TERM \
@@ -1150,8 +1171,9 @@ runs:
           -c shell_environment_policy.ignore_default_excludes=false \
           -c "shell_environment_policy.include_only=$codex_env_patterns" \
           --output-last-message "$CODEX_OUTPUT" \
-          -
-        codex_status=$?
+          - > >(/usr/bin/tee "$codex_log") \
+          2> >(/usr/bin/tee "$codex_stderr" | /usr/bin/tee -a "$codex_log" >&2)
+        codex_status=${PIPESTATUS[1]}
         codex_timed_out=false
         if [ "$codex_status" -eq 124 ]; then
           codex_timed_out=true
@@ -1159,6 +1181,16 @@ runs:
         fi
         if [ "$CODEX_OUTPUT" != "$codex_output_destination" ] && [ -f "$CODEX_OUTPUT" ]; then
           cp -- "$CODEX_OUTPUT" "$codex_output_destination" || echo "::warning::Codex output could not be copied to the workflow artifact path."
+        fi
+        codex_auth_failure=false
+        # The combined log contains the prompt and Codex's answer. A PR may
+        # legitimately discuss `401`/`token_expired` as text, so never classify
+        # arbitrary model output as an auth failure. Only a non-zero provider
+        # process with an auth-specific stderr line is eligible here.
+        if [ "$codex_status" -ne 0 ] \
+          && grep -qiE '401[[:space:]]+Unauthorized|auth error code:[[:space:]]*token_expired|Failed to refresh token|refresh token was already used' "$codex_stderr"; then
+          codex_auth_failure=true
+          echo '::error::Codex primary authentication is invalid or its refresh token was consumed; automatic retry is held until CODEX_AUTH_JSON changes.'
         fi
         # Stop both host-side bridges before inspecting the result so a
         # request that completed just as Codex exited cannot race the marker.
@@ -1180,6 +1212,7 @@ runs:
         printf 'side_effect_detected=%s\n' "$side_effect_detected" >> "$GITHUB_OUTPUT"
         printf 'codex_output=%s\n' "$codex_output_destination" >> "$GITHUB_OUTPUT"
         printf 'codex_timed_out=%s\n' "$codex_timed_out" >> "$GITHUB_OUTPUT"
+        printf 'codex_auth_failure=%s\n' "$codex_auth_failure" >> "$GITHUB_OUTPUT"
         exit "$codex_status"
 
     - name: Record structured Codex primary evidence
@@ -1188,6 +1221,8 @@ runs:
       shell: bash
       env:
         CODEX_OUTCOME: ${{ steps.codex.outcome }}
+        CODEX_AUTH_FAILURE: ${{ steps.codex.outputs.codex_auth_failure || steps.codex_auth.outputs.codex_auth_failure }}
+        CODEX_AUTH_DIGEST: ${{ steps.codex_auth.outputs.codex_auth_digest }}
         CODEX_SIDE_EFFECT_DETECTED: ${{ steps.codex.outputs.side_effect_detected }}
         CODEX_OUTPUT: ${{ steps.codex.outputs.codex_output }}
         CODEX_TIMED_OUT: ${{ steps.codex.outputs.codex_timed_out }}
@@ -1211,11 +1246,15 @@ runs:
           printf 'fallback_used=false\nfallback_success=false\nfallback_trigger=\n' >> "$GITHUB_OUTPUT"
           printf 'fallback_evidence_file=\ncodex_output_file=\n' >> "$GITHUB_OUTPUT"
           printf 'codex_outcome=skipped\ncodex_timed_out=false\nclaude_outcome=skipped\nclaude_used=false\nclaude_success=false\n' >> "$GITHUB_OUTPUT"
+          printf 'codex_auth_failure=false\ncodex_auth_digest=\n' >> "$GITHUB_OUTPUT"
           printf 'side_effect_detected=false\nprimary_provider=codex\nprimary_success=false\nselected_provider=none\naction_success=true\n' >> "$GITHUB_OUTPUT"
           exit 0
         fi
         codex_outcome="${CODEX_OUTCOME:-skipped}"
         codex_timed_out="${CODEX_TIMED_OUT:-false}"
+        codex_auth_failure="${CODEX_AUTH_FAILURE:-false}"
+        [ "$codex_auth_failure" = 'true' ] || codex_auth_failure=false
+        codex_auth_digest="${CODEX_AUTH_DIGEST:-}"
         [ "$codex_timed_out" = 'true' ] || codex_timed_out=false
         side_effect_detected="${CODEX_SIDE_EFFECT_DETECTED:-unknown}"
         if [ "$codex_outcome" = 'skipped' ]; then
@@ -1268,6 +1307,8 @@ runs:
         printf 'codex_output_file=%s\n' "${CODEX_OUTPUT:-}" >> "$GITHUB_OUTPUT"
         printf 'codex_outcome=%s\n' "$codex_outcome" >> "$GITHUB_OUTPUT"
         printf 'codex_timed_out=%s\n' "$codex_timed_out" >> "$GITHUB_OUTPUT"
+        printf 'codex_auth_failure=%s\n' "$codex_auth_failure" >> "$GITHUB_OUTPUT"
+        printf 'codex_auth_digest=%s\n' "$codex_auth_digest" >> "$GITHUB_OUTPUT"
         printf 'claude_outcome=skipped\n' >> "$GITHUB_OUTPUT"
         printf 'claude_used=%s\n' "$claude_used" >> "$GITHUB_OUTPUT"
         printf 'claude_success=%s\n' "$claude_success" >> "$GITHUB_OUTPUT"
@@ -1298,6 +1339,45 @@ runs:
             ;;
           *) echo "::warning::unexpected Codex home path; leaving it untouched" ;;
         esac
+
+    - name: Record Codex authentication checkpoint
+      if: always() && steps.finalize.outputs.codex_auth_failure == 'true' && env.PR_NUMBER != ''
+      continue-on-error: true
+      shell: bash
+      env:
+        GH_TOKEN: ${{ inputs.github_token || github.token }}
+        TRUSTED_GH: ${{ steps.trusted_node.outputs.gh_realpath }}
+        REPO: ${{ github.repository }}
+        PR_NUMBER: ${{ env.PR_NUMBER }}
+        HEAD_SHA: ${{ env.HEAD_SHA }}
+        AUTH_DIGEST: ${{ steps.finalize.outputs.codex_auth_digest }}
+        RUN_ID: ${{ github.run_id }}
+        RUN_ATTEMPT: ${{ github.run_attempt }}
+      run: |
+        set -euo pipefail
+        trusted_gh="${TRUSTED_GH:?Trusted GitHub CLI path unavailable}"
+        pr_number="${PR_NUMBER:?PR number unavailable}"
+        head_sha="${HEAD_SHA:-${GITHUB_SHA:-}}"
+        run_id="${RUN_ID:?Workflow run id unavailable}"
+        run_attempt="${RUN_ATTEMPT:?Workflow run attempt unavailable}"
+        [[ "$pr_number" =~ ^[1-9][0-9]*$ ]] || { echo '::warning::Invalid PR number; auth checkpoint skipped.'; exit 0; }
+        [[ "$head_sha" =~ ^[0-9a-f]{40}$ ]] || { echo '::warning::Invalid PR HEAD; auth checkpoint skipped.'; exit 0; }
+        [[ "$run_id" =~ ^[1-9][0-9]*$ ]] || { echo '::warning::Invalid workflow run id; auth checkpoint skipped.'; exit 0; }
+        [[ "$run_attempt" =~ ^[1-9][0-9]*$ ]] || { echo '::warning::Invalid workflow run attempt; auth checkpoint skipped.'; exit 0; }
+        auth_digest="${AUTH_DIGEST:-missing}"
+        [[ "$auth_digest" =~ ^[0-9a-f]{64}$ ]] || auth_digest=missing
+        marker="$(jq -cn \
+          --argjson version 1 \
+          --arg status blocked \
+          --argjson prNumber "$pr_number" \
+          --arg headSha "$head_sha" \
+          --argjson runId "$run_id" \
+          --argjson runAttempt "$run_attempt" \
+          --arg authDigest "$auth_digest" \
+          '{version:$version,status:$status,prNumber:$prNumber,headSha:$headSha,runId:$runId,runAttempt:$runAttempt,authDigest:$authDigest}')"
+        body="$(printf '⚠️ **Codex review authentication blocked** — the ChatGPT refresh token was rejected or already consumed. The review is held; no blind rerun is scheduled. Re-login to Codex, replace the repository secret \`CODEX_AUTH_JSON\`, and the trusted recovery monitor will retry this exact PR run after the credential digest changes.\n\n<!-- CODEX_AUTH_BLOCKED: %s -->' "$marker")"
+        "$trusted_gh" pr comment "$pr_number" --repo "$REPO" --body "$body" \
+          || echo '::warning::Could not persist the Codex authentication checkpoint comment.'
 
     - name: Cleanup ephemeral Codex CLI install
       if: always() && steps.codex_cli.outputs.codex_install_root != ''
@@ -1387,6 +1467,10 @@ runs:
         fi
         if [ "$action_success" = 'true' ]; then
           exit 0
+        fi
+        if [ "${{ steps.finalize.outputs.codex_auth_failure }}" = 'true' ]; then
+          echo '::error::Codex authentication blocked the primary; automatic recovery waits for a changed CODEX_AUTH_JSON credential.'
+          exit 1
         fi
         echo "::error::Codex Luna Max did not complete successfully (outcome=${{ steps.finalize.outputs.codex_outcome }})."
         exit 1

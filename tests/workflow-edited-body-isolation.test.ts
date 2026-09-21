@@ -14,7 +14,7 @@ const script = recoveryScriptStep.with.script;
 const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 const require = createRequire(import.meta.url);
 
-async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false } = {}) {
+async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false } = {}) {
   const reruns: number[] = [];
   const dispatches: unknown[] = [];
   const callOrder: string[] = [];
@@ -31,6 +31,14 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
         ...(pendingStatus === 'manual' ? { runAttempt: 2, reconcileAttempts: 1, sourceEvent: 'rerun-ambiguous' } : {}),
       })} -->`,
   }] : [];
+  if (codexAuthBlocked) comments.push({
+    id: 902,
+    user: { type: 'Bot', login: 'github-actions[bot]' },
+    body: `⚠️ Codex auth blocked\n\n<!-- CODEX_AUTH_BLOCKED: ${JSON.stringify({
+      version: 1, status: 'blocked', prNumber: 1, headSha: 'head', runId: 42,
+      runAttempt: eventRunAttempt, authDigest: 'a'.repeat(64),
+    })} -->`,
+  });
   const github = {
     request: async (route: string, input: { comment_id: number; body?: string; headers?: Record<string, string> }) => {
       const target = comments.find(comment => comment.id === input.comment_id);
@@ -109,7 +117,10 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
               : [run];
       }
       if (endpoint === 'jobs') {
-        return [{ conclusion, steps: [{ name: 'PR-body completeness + multi-issue Closes (no checkout, all events)', conclusion: body }] }];
+        return [{ conclusion, steps: [
+          { name: 'PR-body completeness + multi-issue Closes (no checkout, all events)', conclusion: body },
+          ...failedSteps.map((name: string) => ({ name, conclusion: 'failure' })),
+        ] }];
       }
       if (endpoint === 'comments') return comments;
       return [];
@@ -298,6 +309,8 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(script).not.toContain('createCheckRun');
     expect(script).not.toContain('exec(');
     expect(script).toContain('BODY_REVIEW_RECOVERY_PENDING');
+    expect(script).toContain('CODEX_AUTH_BLOCKED');
+    expect(script).toContain('retryReasonForCompletedRun');
     expect(script).toContain('workflow_run');
     expect(recovery.concurrency.group).toContain('tests-body-recovery-schedule');
     expect(recovery.concurrency.group).toContain('tests-body-recovery-pr-');
@@ -362,10 +375,41 @@ describe('one code verdict and metadata-triggered review recovery', () => {
   });
 
   it('preserves passing body verdicts, running tests and failures later in the pipeline', async () => {
-    expect(await runRecovery({ body: 'success' })).toEqual({ reruns: [42], dispatches: [] });
+    expect(await runRecovery({ body: 'success' })).toEqual({ reruns: [], dispatches: [] });
     expect(await runRecovery({ body: 'success', status: 'in_progress', conclusion: '' })).toEqual({ reruns: [], dispatches: [] });
     expect(await runRecovery({ body: 'success', conclusion: 'success' })).toEqual({ reruns: [42], dispatches: [] });
-    expect(await runRecovery({ body: 'skipped' })).toEqual({ reruns: [42], dispatches: [] });
+    expect(await runRecovery({ body: 'skipped' })).toEqual({ reruns: [], dispatches: [] });
+  });
+
+  it('does not retry a completed code failure after a body edit', async () => {
+    expect(await runRecovery({
+      body: 'success',
+      failedSteps: ['vitest related (PR diff)'],
+    })).toEqual({ reruns: [], dispatches: [] });
+    expect(await runRecovery({
+      body: 'success',
+      eventName: 'workflow_run',
+      pendingStatus: 'pending',
+      failedSteps: ['vitest related (PR diff)'],
+    })).toEqual({ reruns: [], dispatches: [] });
+  });
+
+  it('retries a review-only failure, but not a matching Codex auth block', async () => {
+    expect(await runRecovery({
+      body: 'success',
+      failedSteps: ['Require approving Codex review'],
+    })).toEqual({ reruns: [42], dispatches: [] });
+    expect(await runRecovery({
+      body: 'success',
+      pendingStatus: 'pending',
+      eventName: 'workflow_run',
+      failedSteps: [
+        'Fail on transient API error (no review posted)',
+        'Validate deterministic review input marker',
+        'Require approving Codex review',
+      ],
+      codexAuthBlocked: true,
+    })).toEqual({ reruns: [], dispatches: [] });
   });
 
   it('preserves a newer queued attempt instead of rerunning an older failed body', async () => {
