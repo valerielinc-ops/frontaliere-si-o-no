@@ -247,6 +247,74 @@ export function resolveCurrentWorkBranchRef({ realGit, cwd, env }) {
   return currentWorkBranchRef(String(result.stdout || '').trim());
 }
 
+/**
+ * The host bridge deliberately disables arbitrary repository hooks: executing
+ * `.githooks/pre-push` in the credential-bearing host process would turn a
+ * repository-controlled shell file into a host-side code path. Preserve the
+ * local hook's deterministic sibling check without re-enabling that trust
+ * boundary. Repositories that do not ship the site hook/checker (for example
+ * the corpus checkout) remain opt-out by construction.
+ */
+export function runRemoteSiblingPrePush({ realGit, cwd, env, workBranchRef }) {
+  const hook = path.join(cwd, '.githooks', 'pre-push');
+  const checker = path.join(cwd, 'scripts', 'ci', 'check-sibling-patterns.mjs');
+  if (!fs.existsSync(hook) || !fs.existsSync(checker)) {
+    return { code: 0, stdout: '', stderr: '' };
+  }
+  if (!currentWorkBranchRef(workBranchRef)) {
+    return {
+      code: 2,
+      stdout: '',
+      stderr: 'Codex Git bridge: sibling pre-push check requires a work branch\n',
+    };
+  }
+  // `env` is the network Git environment and contains the bridge's
+  // Authorization extraheader as numbered GIT_CONFIG_* entries. The checker
+  // only needs the shadow Git metadata, never the credential; do not execute
+  // repository code with that token in its environment.
+  const checkerEnv = Object.fromEntries(
+    Object.entries(env || {}).filter(([key]) =>
+      key !== 'GIT_CONFIG_COUNT' &&
+      !/^GIT_CONFIG_(?:KEY|VALUE)_\d+$/.test(key),
+    ),
+  );
+  const head = spawnSync(realGit, ['rev-parse', 'HEAD'], {
+    cwd,
+    env: checkerEnv,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+    timeout: 5_000,
+  });
+  const headSha = String(head.stdout || '').trim();
+  if (head.error || head.status !== 0 || !/^[0-9a-f]{40}$/i.test(headSha)) {
+    return {
+      code: 2,
+      stdout: '',
+      stderr: `Codex Git bridge: cannot resolve pushed HEAD (${head.stderr || head.error?.message || 'invalid SHA'})\n`,
+    };
+  }
+  const result = spawnSync(process.execPath, [checker, '--head', headSha], {
+    cwd,
+    env: checkerEnv,
+    encoding: 'utf8',
+    stdio: ['ignore', 'pipe', 'pipe'],
+    timeout: CHILD_TIMEOUT_MS,
+    maxBuffer: MAX_OUTPUT_BYTES,
+  });
+  if (result.error) {
+    return {
+      code: 2,
+      stdout: String(result.stdout || ''),
+      stderr: `Codex Git bridge: sibling pre-push check failed to start (${result.error.message})\n`,
+    };
+  }
+  return {
+    code: result.status ?? 2,
+    stdout: String(result.stdout || ''),
+    stderr: String(result.stderr || ''),
+  };
+}
+
 function main() {
   const socketPath = process.env.CODEX_GIT_SOCKET;
   const token = process.env.CODEX_GIT_AUTH;
@@ -401,6 +469,13 @@ function main() {
         finish({ code: 2, stderr: `bridge request: ${error.message}\n` });
         return;
       }
+      const siblingPrePush = args[0] === 'push'
+        ? runRemoteSiblingPrePush({ realGit, cwd, env: baseEnv, workBranchRef: allowedWorkBranch })
+        : { code: 0, stdout: '', stderr: '' };
+      if (siblingPrePush.code !== 0) {
+        finish(siblingPrePush);
+        return;
+      }
       if (isMutatingGitArgs(args)) markSideEffect(sideEffectFile);
       child = spawn(realGit, childArgs, {
         cwd,
@@ -437,7 +512,11 @@ function main() {
         if (useProcessGroups && !terminationRequested) terminateChild('child-exited');
         childExited = true;
         children.delete(child);
-        finish({ code: 1, stdout, stderr: `${stderr}${error.message}\n` });
+        finish({
+          code: 1,
+          stdout: `${siblingPrePush.stdout}${stdout}`,
+          stderr: `${siblingPrePush.stderr}${stderr}${error.message}\n`,
+        });
         if (shuttingDown && children.size === 0 && pendingProcessGroups.size === 0) finalizeShutdown();
       });
       child.on('close', (code) => {
@@ -450,7 +529,11 @@ function main() {
         const detail = timedOut
           ? `${stderr}Codex Git bridge child timed out\n`
           : outputTooLarge ? `${stderr}Codex Git bridge output exceeded its limit\n` : stderr;
-        finish({ code: timedOut || outputTooLarge ? 1 : code ?? 1, stdout, stderr: detail });
+        finish({
+          code: timedOut || outputTooLarge ? 1 : code ?? 1,
+          stdout: `${siblingPrePush.stdout}${stdout}`,
+          stderr: `${siblingPrePush.stderr}${detail}`,
+        });
         if (shuttingDown && children.size === 0 && pendingProcessGroups.size === 0) finalizeShutdown();
       });
     });

@@ -77,8 +77,12 @@
  *      literal), il candidato deve contenere la stessa forma AST. Per gli
  *      import locali viene risolto anche il modulo e il nome esportato, così
  *      due helper omonimi di moduli diversi non vengono trattati come lo stesso
- *      simbolo. È un grafo temporaneo per la singola scansione, non un index
- *      persistente; i token senza forma AST restano sul pass lessicale storico.
+ *      simbolo. API di pacchetto e identificatori locali nudi non sono evidenza
+ *      strutturale: eliminano il rumore di `ts.createSourceFile`, `sourceFile`
+ *      e simili. È un grafo temporaneo per la singola scansione, non un index
+ *      persistente; commenti e API di pacchetto non diventano segnali, mentre
+ *      slug/config literal sono fatti AST di tipo `literal` e file non
+ *      analizzabili dal parser mantengono il pass lessicale storico.
  *
  * Uso:
  *   node scripts/ci/check-sibling-patterns.mjs            # advisory, exit 0
@@ -100,6 +104,8 @@ import {
   collectAstFacts,
   diffLineRanges,
   factsContainingToken,
+  isActionableAstFact,
+  isAstSourceFile,
   matchAstFacts,
 } from './lib/sibling-ast-graph.mjs';
 
@@ -194,6 +200,7 @@ function git(args, { allowFail = false } = {}) {
     return execFileSync('git', args, {
       encoding: 'utf8',
       maxBuffer: 128 * 1024 * 1024,
+      stdio: allowFail ? ['ignore', 'pipe', 'ignore'] : ['ignore', 'pipe', 'pipe'],
     });
   } catch (e) {
     if (allowFail) return '';
@@ -229,6 +236,21 @@ function readTracked(file) {
     }
   }
   return git(['show', `${HEAD_REF}:${file}`], { allowFail: true }) || null;
+}
+
+function readTrackedAt(ref, file) {
+  return git(['show', `${ref}:${file}`], { allowFail: true }) || null;
+}
+
+function astFactSignature(fact) {
+  return JSON.stringify([
+    fact.kind,
+    fact.key,
+    fact.role,
+    fact.binding?.module ?? null,
+    fact.binding?.imported ?? null,
+    fact.fingerprint ?? null,
+  ]);
 }
 
 /** List the code files that exist in the revision being inspected. */
@@ -662,11 +684,15 @@ function main() {
 
   // Raccoglie i token distintivi dalle righe cambiate e le espressioni rimosse.
   // L'AST layer filtra i token che hanno una forma strutturale: un nome in un
-  // commento o in una stringa non basta più a far entrare un candidato, mentre
-  // i token senza una forma AST (slug/config literal) conservano il pass
-  // lessicale storico.
+  // commento o in una stringa non basta più a far entrare un candidato. I
+  // nomi di variabili locali senza una forma strutturale utile vengono scartati
+  // del tutto: sono il principale generatore di falsi positivi del pass
+  // lessicale storico. Slug/config literal vengono letti come fatti AST; i
+  // token senza fatti restano sul percorso lessicale solo per file non
+  // analizzabili dal parser (shell/YAML-like).
   const tokenToChangedFiles = new Map(); // token -> Set(file che l'ha cambiato)
   const astFactsByToken = new Map(); // token -> facts AST presenti nelle righe aggiunte
+  const astParsedTokens = new Set(); // token seen in a parser-backed changed source
   const removedExprs = new Set(); // espressioni verbatim da righe `-` (pass #6)
   const astFiles = new Set([...trackedCodeFiles(), ...changedCode]);
   for (const file of changedCode) {
@@ -686,17 +712,29 @@ function main() {
     }
 
     const source = readTracked(file);
+    if (isAstSourceFile(file)) {
+      for (const tok of changedTokens) astParsedTokens.add(tok);
+    }
     const changedRanges = diffLineRanges(diff, 'new');
     if (source && changedRanges.length > 0) {
       const changedFacts = collectAstFacts(file, source, {
         lineRanges: changedRanges,
         files: astFiles,
       });
+      const baseSource = readTrackedAt(mergeBase, file);
+      const baseFacts = baseSource
+        ? collectAstFacts(file, baseSource, { files: astFiles })
+        : [];
+      const unchangedFacts = new Set(baseFacts.map(astFactSignature));
       for (const tok of changedTokens) {
         const facts = factsContainingToken(changedFacts, tok);
         if (facts.length === 0) continue;
         if (!astFactsByToken.has(tok)) astFactsByToken.set(tok, []);
-        astFactsByToken.get(tok).push(...facts);
+        astFactsByToken.get(tok).push(
+          ...facts
+            .filter(isActionableAstFact)
+            .filter((fact) => !unchangedFacts.has(astFactSignature(fact))),
+        );
       }
     }
     // Pass verbatim: raccogli espressioni significative dalle sole righe rimosse
@@ -738,6 +776,7 @@ function main() {
   for (const [tok, srcFiles] of tokenToChangedFiles) {
     const hits = grepFiles(['-l', '--fixed-strings', '-e', tok], pathspecs);
     if (hits.length > MAX_FILES) continue; // troppo comune → rumore
+    const hasAstEvidence = astFactsByToken.has(tok);
     const changedFacts = astFactsByToken.get(tok) ?? null;
     for (const f of hits) {
       if (changedSet.has(f)) continue; // già nel branch
@@ -750,6 +789,16 @@ function main() {
       // Se il token ha una forma AST nel diff, richiedi la stessa forma nel
       // candidato. I token puramente lessicali seguono invece il comportamento
       // storico e non vengono filtrati.
+      // A token with only non-actionable AST facts (plain local identifiers or
+      // package APIs) is intentionally suppressed, not sent through the old
+      // lexical fallback. This is what prevents `sourceFile` and
+      // `ts.createSourceFile` from flooding the candidate list.
+      if (hasAstEvidence && changedFacts.length === 0) continue;
+      // A parser-backed source with no fact for the token means it came from a
+      // comment/docstring or unsupported prose, not from a code construct. Do
+      // not send it through the old lexical fallback; non-AST files retain
+      // that fallback for shell/YAML-like code.
+      if (!hasAstEvidence && astParsedTokens.has(tok)) continue;
       if (changedFacts && astMatches.length === 0) continue;
       if (!candidateTokens.has(f)) candidateTokens.set(f, new Set());
       candidateTokens.get(f).add(tok);

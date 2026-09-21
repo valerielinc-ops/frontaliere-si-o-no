@@ -4,6 +4,8 @@ import {
   collectAstFacts,
   diffLineRanges,
   factsContainingToken,
+  isActionableAstFact,
+  isAstSourceFile,
   matchAstFacts,
   resolveRelativeModule,
 } from '../scripts/ci/lib/sibling-ast-graph.mjs';
@@ -107,5 +109,53 @@ describe('sibling AST layer', () => {
 
     expect(matchAstFacts(factsContainingToken(changed, 'guardSession'), candidate).length)
       .toBeGreaterThan(0);
+  });
+
+  it('does not promote package APIs or generic property names to sibling evidence', () => {
+    const changed = collectAstFacts(
+      'scripts/parser.mjs',
+      [
+        "import ts from 'typescript';",
+        'const sourceFile = ts.createSourceFile(name, text, ts.ScriptTarget.Latest);',
+        'const propertyName = node.propertyName;',
+      ].join('\n'),
+      { files: new Set(['scripts/parser.mjs', 'scripts/other-parser.mjs']) },
+    );
+    const candidate = collectAstFacts(
+      'scripts/other-parser.mjs',
+      [
+        "import ts from 'typescript';",
+        'const sourceFile = ts.createSourceFile(other, text, ts.ScriptTarget.Latest);',
+        'const propertyName = otherNode.propertyName;',
+      ].join('\n'),
+      { files: new Set(['scripts/parser.mjs', 'scripts/other-parser.mjs']) },
+    );
+
+    expect(factsContainingToken(changed, 'createSourceFile').some(isActionableAstFact)).toBe(false);
+    expect(matchAstFacts(factsContainingToken(changed, 'createSourceFile'), candidate)).toEqual([]);
+    expect(matchAstFacts(factsContainingToken(changed, 'propertyName'), candidate)).toEqual([]);
+  });
+
+  it('does not match same-named private helpers from different files', () => {
+    const changed = collectAstFacts(
+      'scripts/one.mjs',
+      [
+        'function shellQuote(value) { return value; }',
+        'const command = shellQuote(value);',
+      ].join('\n'),
+      { files: new Set(['scripts/one.mjs', 'scripts/two.mjs']) },
+    );
+    const candidate = collectAstFacts(
+      'scripts/two.mjs',
+      [
+        'function shellQuote(value) { return value; }',
+        'const command = shellQuote(value);',
+      ].join('\n'),
+      { files: new Set(['scripts/one.mjs', 'scripts/two.mjs']) },
+    );
+
+    expect(matchAstFacts(factsContainingToken(changed, 'shellQuote'), candidate)).toEqual([]);
+    expect(isAstSourceFile('scripts/one.mjs')).toBe(true);
+    expect(isAstSourceFile('scripts/tool.sh')).toBe(false);
   });
 });

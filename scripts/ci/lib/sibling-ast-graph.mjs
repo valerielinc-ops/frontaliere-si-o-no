@@ -11,6 +11,15 @@ import ts from 'typescript';
 import path from 'node:path';
 
 const SOURCE_EXTENSIONS = ['.ts', '.tsx', '.js', '.jsx', '.mjs', '.cjs'];
+const SYNTAX_TREE_ROOTS = new Set([
+  'node', 'child', 'children', 'statement', 'element', 'clause', 'sourceFile',
+  'parent', 'declaration', 'specifier', 'binding', 'moduleSpecifier',
+  'importClause', 'namedBindings', 'propertyName',
+]);
+
+export function isAstSourceFile(fileName) {
+  return SOURCE_EXTENSIONS.some((extension) => String(fileName).endsWith(extension));
+}
 
 function scriptKind(fileName) {
   if (fileName.endsWith('.tsx')) return ts.ScriptKind.TSX;
@@ -62,6 +71,14 @@ function declarationName(node) {
   return false;
 }
 
+function declarationIsExported(node) {
+  if (!declarationName(node)) return false;
+  let declaration = node.parent;
+  if (ts.isVariableDeclaration(declaration)) declaration = declaration.parent;
+  if (ts.isVariableStatement(declaration)) declaration = declaration;
+  return Boolean(declaration.modifiers?.some((modifier) => modifier.kind === ts.SyntaxKind.ExportKeyword));
+}
+
 function expressionPath(node) {
   if (ts.isIdentifier(node)) return node.text;
   if (ts.isPropertyAccessExpression(node)) {
@@ -77,12 +94,58 @@ function expressionPath(node) {
   return null;
 }
 
+function expressionRoot(node) {
+  if (ts.isIdentifier(node)) return node.text;
+  if (ts.isPropertyAccessExpression(node) || ts.isElementAccessExpression(node)) {
+    return expressionRoot(node.expression);
+  }
+  return null;
+}
+
+function isSyntaxTreeMember(node) {
+  if (!ts.isPropertyAccessExpression(node)) return false;
+  const root = expressionRoot(node.expression);
+  return root ? SYNTAX_TREE_ROOTS.has(root) : false;
+}
+
+function bindingForExpression(node, imports, externalDerived) {
+  const root = expressionRoot(node);
+  if (!root) return null;
+  return imports.get(root) ?? externalDerived.get(root) ?? null;
+}
+
+function initializerBinding(node, imports, externalDerived) {
+  const direct = bindingForExpression(node, imports, externalDerived);
+  if (direct) return direct;
+  if (ts.isCallExpression(node)) {
+    return bindingForExpression(node.expression, imports, externalDerived);
+  }
+  return null;
+}
+
+export function isExternalBinding(binding) {
+  return Boolean(binding?.module && String(binding.module).startsWith('external:'));
+}
+
 function parentRole(node) {
   const parent = node.parent;
   if (ts.isPropertyAccessExpression(parent) && parent.name === node) return 'member';
   if (ts.isCallExpression(parent) && parent.expression === node) return 'call';
   if (declarationName(node)) return 'declaration';
   return 'reference';
+}
+
+function factFingerprint(sourceFile, node, role) {
+  let subject = node;
+  if (role === 'declaration') {
+    subject = node.parent;
+    if (ts.isVariableDeclaration(subject)) subject = subject.parent;
+  } else if (role === 'call' && ts.isIdentifier(node) && ts.isCallExpression(node.parent)) {
+    subject = node.parent;
+  } else if (role === 'member' && ts.isIdentifier(node) && ts.isPropertyAccessExpression(node.parent)) {
+    subject = node.parent;
+  }
+  return subject.getText(sourceFile);
 }
 
 function moduleKey(fileName, specifier, fileSet) {
@@ -141,6 +204,14 @@ export function collectAstFacts(fileName, source, { lineRanges, files = new Set(
     scriptKind(fileName),
   );
   const imports = new Map();
+  const exportedNames = new Set();
+  // A local variable initialized from a package import (for example
+  // `const sourceFile = ts.createSourceFile(...)`) is still package-derived.
+  // Keeping this tiny derived-binding map prevents every TypeScript compiler
+  // API member from becoming a cross-file sibling signal without building a
+  // persistent type graph.
+  const externalDerived = new Map();
+  const localBindings = new Map();
   const facts = [];
   const seen = new Set();
 
@@ -158,6 +229,8 @@ export function collectAstFacts(fileName, source, { lineRanges, files = new Set(
       role,
       tokens: extra.tokens ?? moduleTokens(key),
       binding,
+      exported: extra.exported ?? false,
+      fingerprint: extra.fingerprint ?? factFingerprint(sourceFile, node, role),
     });
   };
 
@@ -198,16 +271,57 @@ export function collectAstFacts(fileName, source, { lineRanges, files = new Set(
         tokens: moduleTokens(specifier),
       });
     }
+    if (ts.isExportDeclaration(statement) && statement.exportClause &&
+        ts.isNamedExports(statement.exportClause)) {
+      for (const element of statement.exportClause.elements) {
+        exportedNames.add(element.propertyName?.text ?? element.name.text);
+      }
+    }
   }
 
-  const factBinding = (name) => imports.get(name) ?? null;
+  const registerLocalDeclarations = (node) => {
+    if (ts.isIdentifier(node) && declarationName(node)) {
+      const exported = declarationIsExported(node) || exportedNames.has(node.text);
+      localBindings.set(node.text, {
+        module: exported ? fileName : `local:${fileName}`,
+        imported: node.text,
+      });
+    }
+    ts.forEachChild(node, registerLocalDeclarations);
+  };
+  registerLocalDeclarations(sourceFile);
+
+  const bindingForLocalName = (name) =>
+    imports.get(name) ?? externalDerived.get(name) ?? localBindings.get(name) ?? null;
+
+  // Resolve a few levels of local aliases. This is intentionally bounded and
+  // syntax-only: it is a noise filter for external APIs, not a replacement
+  // for the TypeScript checker.
+  for (let pass = 0; pass < 3; pass += 1) {
+    let added = 0;
+    const collectAliases = (node) => {
+      if (ts.isVariableDeclaration(node) && ts.isIdentifier(node.name) && node.initializer) {
+        const binding = initializerBinding(node.initializer, imports, externalDerived);
+        if (binding && isExternalBinding(binding) && !externalDerived.has(node.name.text)) {
+          externalDerived.set(node.name.text, {
+            module: 'external:derived',
+            imported: node.name.text,
+          });
+          added += 1;
+        }
+      }
+      ts.forEachChild(node, collectAliases);
+    };
+    collectAliases(sourceFile);
+    if (added === 0) break;
+  }
+
   const visit = (node) => {
     if (ts.isCallExpression(node)) {
       const key = expressionPath(node.expression);
       if (key) {
-        const binding = ts.isIdentifier(node.expression)
-          ? factBinding(node.expression.text)
-          : null;
+        const binding = bindingForExpression(node.expression, imports, externalDerived) ??
+          localBindings.get(expressionRoot(node.expression));
         addFact('call', key, node, {
           role: 'call',
           binding,
@@ -216,11 +330,14 @@ export function collectAstFacts(fileName, source, { lineRanges, files = new Set(
       }
     }
 
-    if (ts.isPropertyAccessExpression(node) && !ts.isCallExpression(node.parent)) {
-      addFact('member', node.name.text, node.name, {
+    if (ts.isPropertyAccessExpression(node) && !ts.isCallExpression(node.parent) &&
+        !isSyntaxTreeMember(node)) {
+      const key = expressionPath(node);
+      if (key) addFact('member', key, node.name, {
         role: 'member',
-        binding: factBinding(node.name.text),
-        tokens: moduleTokens(node.name.text),
+        binding: bindingForExpression(node.expression, imports, externalDerived) ??
+          localBindings.get(expressionRoot(node.expression)),
+        tokens: moduleTokens(key),
       });
     }
 
@@ -237,8 +354,9 @@ export function collectAstFacts(fileName, source, { lineRanges, files = new Set(
       const role = parentRole(node);
       addFact('identifier', node.text, node, {
         role,
-        binding: factBinding(node.text),
+        binding: bindingForLocalName(node.text),
         tokens: [node.text],
+        exported: declarationIsExported(node) || exportedNames.has(node.text),
       });
     }
 
@@ -248,12 +366,39 @@ export function collectAstFacts(fileName, source, { lineRanges, files = new Set(
   return facts;
 }
 
+/**
+ * Keep only facts that can say something structural about a project sibling.
+ * Plain local identifiers are deliberately excluded: matching `sourceFile`,
+ * `moduleSpecifier` or `candidateTokens` across scripts is the exact class of
+ * lexical false positive this layer is meant to remove. Package/API facts are
+ * excluded too; `ts.createSourceFile` is common infrastructure, not a local
+ * relationship between the files being compared.
+ */
+export function isActionableAstFact(fact) {
+  if (!fact) return false;
+  if (fact.kind === 'identifier') {
+    return fact.role === 'call' ||
+      (fact.role === 'declaration' && fact.exported === true);
+  }
+  if (fact.kind === 'import') {
+    return !String(fact.key ?? '').startsWith('external:');
+  }
+  if (!['call', 'member', 'literal'].includes(fact.kind)) return false;
+  return !isExternalBinding(fact.binding);
+}
+
 export function factsContainingToken(facts, token) {
   return facts.filter((fact) => fact.tokens.includes(token));
 }
 
 function compatibleBinding(changed, candidate) {
   if (!changed.binding || !candidate.binding) return true;
+  const changedLocal = String(changed.binding.module).startsWith('local:');
+  const candidateLocal = String(candidate.binding.module).startsWith('local:');
+  if (changedLocal || candidateLocal) {
+    return changed.binding.module === candidate.binding.module &&
+      changed.binding.imported === candidate.binding.imported;
+  }
   return changed.binding.module === candidate.binding.module &&
     changed.binding.imported === candidate.binding.imported;
 }
@@ -266,25 +411,41 @@ function compatibleBinding(changed, candidate) {
  */
 export function matchAstFacts(changedFacts, candidateFacts) {
   const matches = [];
-  for (const changed of changedFacts) {
-    for (const candidate of candidateFacts) {
-      if (changed.kind !== candidate.kind || changed.key !== candidate.key) continue;
+  const changed = changedFacts.filter(isActionableAstFact);
+  // A changed exported declaration may intentionally surface a consumer that
+  // declares the same name locally (the historical weak lexical signal). Keep
+  // candidate declarations available only for that declaration-to-consumer
+  // comparison; plain local identifiers never become evidence on their own.
+  const candidate = candidateFacts.filter((fact) =>
+    isActionableAstFact(fact) ||
+    (fact.kind === 'identifier' && fact.role === 'declaration'),
+  );
+  for (const changedFact of changed) {
+    for (const candidateFact of candidate) {
+      if (changedFact.kind !== candidateFact.kind || changedFact.key !== candidateFact.key) continue;
       // An identifier declaration is intentionally allowed to match a call or
       // reference: changing a shared helper declaration must still surface its
       // consumers. Other structural facts retain their exact role.
       if (
-        changed.kind !== 'identifier' &&
-        changed.role !== candidate.role
+        changedFact.kind !== 'identifier' &&
+        changedFact.role !== candidateFact.role
       ) continue;
-      if (!compatibleBinding(changed, candidate)) continue;
-      const graph = changed.binding && candidate.binding &&
-        changed.binding.module === candidate.binding.module &&
-        changed.binding.imported === candidate.binding.imported;
+      const exportedDeclarationPair =
+        changedFact.kind === 'identifier' &&
+        changedFact.role === 'declaration' &&
+        changedFact.exported === true &&
+        candidateFact.role === 'declaration';
+      if (!exportedDeclarationPair && !compatibleBinding(changedFact, candidateFact)) continue;
+      const graph = changedFact.binding && candidateFact.binding &&
+        !isExternalBinding(changedFact.binding) &&
+        !isExternalBinding(candidateFact.binding) &&
+        changedFact.binding.module === candidateFact.binding.module &&
+        changedFact.binding.imported === candidateFact.binding.imported;
       matches.push({
-        kind: changed.kind,
-        key: changed.key,
-        role: changed.role,
-        graph: graph ? `${changed.binding.module}#${changed.binding.imported}` : null,
+        kind: changedFact.kind,
+        key: changedFact.key,
+        role: changedFact.role,
+        graph: graph ? `${changedFact.binding.module}#${changedFact.binding.imported}` : null,
       });
     }
   }
