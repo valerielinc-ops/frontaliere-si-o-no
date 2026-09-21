@@ -633,10 +633,10 @@ function postProcessZegnaJobs() {
       job.addressRegion = resolvedCanton;
       fixed++;
     }
-    if (job.addressCountry !== 'CH') {
-      job.addressCountry = 'CH';
-      fixed++;
-    }
+    // Do not stamp addressCountry at persist time (#5403/#5384): the source
+    // backed Swiss locality justifies `country`, but an undeclared
+    // addressCountry and a source-declared `CH` remain different evidence.
+    // Runtime consumers already fall back to `CH` when it is absent.
     keptJobs.push(job);
   }
 
