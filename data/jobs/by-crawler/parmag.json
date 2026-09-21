@@ -1,0 +1,737 @@
+{
+  "crawlerKey": "parmag",
+  "assembledAt": "2026-09-21T15:58:30.293Z",
+  "jobs": [
+    {
+      "id": "parmag-da6a774782e1",
+      "slug": "parmag-ag-bern-parmag-ch",
+      "slugByLocale": {
+        "de": "parmag-ag-bern-parmag-ch",
+        "it": "parmag-ag-bern-parmag-ch",
+        "en": "parmag-ag-bern-parmag-ch",
+        "fr": "parmag-ag-bern-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "ParMag AG",
+      "titleByLocale": {
+        "de": "ParMag AG",
+        "it": "ParMag AG",
+        "en": "ParMag AG",
+        "fr": "ParMag AG"
+      },
+      "description": "Unsere Auftraggeberin ist eine IT Unternehmung in Bern. Stets am Puls der neusten Technologien bieten sie Produkte aus den Bereichen Lizenzen, Managend Service und Cloud Lösungen an. Zur Ergänzung des Datenbank Entwicklerteams suchen wir einen technisch versierten und erfahrene",
+      "descriptionByLocale": {
+        "de": "Unsere Auftraggeberin ist eine IT Unternehmung in Bern. Stets am Puls der neusten Technologien bieten sie Produkte aus den Bereichen Lizenzen, Managend Service und Cloud Lösungen an. Zur Ergänzung des Datenbank Entwicklerteams suchen wir einen technisch versierten und erfahrene",
+        "it": "Unsere Auftraggeberin ist eine IT Unternehmung in Bern. Stets am Puls der neusten Technologien bieten sie Produkte aus den Bereichen Lizenzen, Managend Service und Cloud Lösungen an. Zur Ergänzung des Datenbank Entwicklerteams suchen wir einen technisch versierten und erfahrene",
+        "en": "Unsere Auftraggeberin ist eine IT Unternehmung in Bern. Stets am Puls der neusten Technologien bieten sie Produkte aus den Bereichen Lizenzen, Managend Service und Cloud Lösungen an. Zur Ergänzung des Datenbank Entwicklerteams suchen wir einen technisch versierten und erfahrene",
+        "fr": "Unsere Auftraggeberin ist eine IT Unternehmung in Bern. Stets am Puls der neusten Technologien bieten sie Produkte aus den Bereichen Lizenzen, Managend Service und Cloud Lösungen an. Zur Ergänzung des Datenbank Entwicklerteams suchen wir einen technisch versierten und erfahrene"
+      },
+      "location": "Bern",
+      "canton": "BE",
+      "url": "https://parmag.ch/stellen/303?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-21T15:58:24.813Z",
+      "addressLocality": "Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://parmag.ch/stellen/303?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:58:24.813Z"
+    },
+    {
+      "id": "parmag-e93388ebfc05",
+      "slug": "parmag-ag-region-bern-parmag-ch",
+      "slugByLocale": {
+        "de": "parmag-ag-region-bern-parmag-ch",
+        "it": "parmag-ag-region-bern-parmag-ch",
+        "en": "parmag-ag-region-bern-parmag-ch",
+        "fr": "parmag-ag-region-bern-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "ParMag AG",
+      "titleByLocale": {
+        "de": "ParMag AG",
+        "it": "ParMag AG",
+        "en": "ParMag AG",
+        "fr": "ParMag AG"
+      },
+      "description": "Sind Sie ein erfahrender Linux Engineer und suchen eine neue spannende Herausforderung, dann lesen Sie weiter... Unsere Kundin, eine fortschrittliche und innovative Firma im medizinischen Bereich",
+      "descriptionByLocale": {
+        "de": "Sind Sie ein erfahrender Linux Engineer und suchen eine neue spannende Herausforderung, dann lesen Sie weiter... Unsere Kundin, eine fortschrittliche und innovative Firma im medizinischen Bereich",
+        "it": "Sind Sie ein erfahrender Linux Engineer und suchen eine neue spannende Herausforderung, dann lesen Sie weiter... Unsere Kundin, eine fortschrittliche und innovative Firma im medizinischen Bereich",
+        "en": "Sind Sie ein erfahrender Linux Engineer und suchen eine neue spannende Herausforderung, dann lesen Sie weiter... Unsere Kundin, eine fortschrittliche und innovative Firma im medizinischen Bereich",
+        "fr": "Sind Sie ein erfahrender Linux Engineer und suchen eine neue spannende Herausforderung, dann lesen Sie weiter... Unsere Kundin, eine fortschrittliche und innovative Firma im medizinischen Bereich"
+      },
+      "location": "Region Bern",
+      "canton": "BE",
+      "url": "https://parmag.ch/stellen/311?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-21T15:58:24.812Z",
+      "addressLocality": "Region Bern",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://parmag.ch/stellen/311?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:58:24.812Z"
+    },
+    {
+      "id": "parmag-c826da81c3fb",
+      "slug": "parmag-ag-bern-oder-zurich",
+      "slugByLocale": {
+        "de": "parmag-ag-bern-oder-zurich-parmag-ch",
+        "it": "parmag-ag-bern-oder-zurich",
+        "en": "parmag-ag-bern-oder-zurich-parmag-ch",
+        "fr": "parmag-ag-bern-oder-zurich-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "ParMag AG",
+      "titleByLocale": {
+        "de": "ParMag AG",
+        "it": "ParMag AG",
+        "en": "ParMag AG",
+        "fr": "ParMag AG"
+      },
+      "description": "Sind Sie ein SAP-Profi und zudem ein Finanzmensch? Mögen Sie die Herausforderung bei spannenden Kundenprojekten? Unsere Partnerin, ein innovatives IT-Dienstleistungsunternehmen freut sich auf Sie als",
+      "descriptionByLocale": {
+        "de": "Sind Sie ein SAP-Profi und zudem ein Finanzmensch? Mögen Sie die Herausforderung bei spannenden Kundenprojekten? Unsere Partnerin, ein innovatives IT-Dienstleistungsunternehmen freut sich auf Sie als",
+        "it": "Sind Sie ein SAP-Profi und zudem ein Finanzmensch? Mögen Sie die Herausforderung bei spannenden Kundenprojekten? Unsere Partnerin, ein innovatives IT-Dienstleistungsunternehmen freut sich auf Sie als",
+        "en": "Sind Sie ein SAP-Profi und zudem ein Finanzmensch? Mögen Sie die Herausforderung bei spannenden Kundenprojekten? Unsere Partnerin, ein innovatives IT-Dienstleistungsunternehmen freut sich auf Sie als",
+        "fr": "Sind Sie ein SAP-Profi und zudem ein Finanzmensch? Mögen Sie die Herausforderung bei spannenden Kundenprojekten? Unsere Partnerin, ein innovatives IT-Dienstleistungsunternehmen freut sich auf Sie als"
+      },
+      "location": "Bern oder Zürich",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/317?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-21T15:58:24.811Z",
+      "addressLocality": "Bern oder Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://parmag.ch/stellen/317?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "parmag-ag-bern-oder-zurich-parmag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "parmag-ag-bern-oder-zurich-parmag-ch"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:58:24.811Z"
+    },
+    {
+      "id": "parmag-d2899436b83e",
+      "slug": "parmag-ag-zurich-parmag-ch",
+      "slugByLocale": {
+        "de": "parmag-ag-zurich-parmag-ch",
+        "it": "parmag-ag-zurich-parmag-ch",
+        "en": "parmag-ag-zurich-parmag-ch",
+        "fr": "parmag-ag-zurich-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "ParMag AG",
+      "titleByLocale": {
+        "de": "ParMag AG",
+        "it": "ParMag AG",
+        "en": "ParMag AG",
+        "fr": "ParMag AG"
+      },
+      "description": "Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden",
+      "descriptionByLocale": {
+        "de": "Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden",
+        "it": "Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden",
+        "en": "Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden",
+        "fr": "Begeistert Sie Cloud und Kubernets gleichermassen? Dann haben wir hier die optimale Stelle für Sie Unsere Kundin ist spezialisiert für IT-Digitaliserungsprojekte bei ihren Kunden"
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/327?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-21T15:58:24.810Z",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://parmag.ch/stellen/327?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:58:24.810Z"
+    },
+    {
+      "id": "parmag-ee7718ea35cd",
+      "slug": "parmag-ag-st-gallen-parmag-ch",
+      "slugByLocale": {
+        "de": "parmag-ag-st-gallen-parmag-ch",
+        "it": "parmag-ag-st-gallen-parmag-ch",
+        "en": "parmag-ag-st-gallen-parmag-ch",
+        "fr": "parmag-ag-st-gallen-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "ParMag AG",
+      "titleByLocale": {
+        "de": "ParMag AG",
+        "it": "ParMag AG",
+        "en": "ParMag AG",
+        "fr": "ParMag AG"
+      },
+      "description": "Sie sind erfahren mit vSphere und Hyper-V? Die IT-Security ist kein Fremdwort für Sie? Dann lesen Sie weiter, allenfalls haben wir die optimale Stelle für Sie. Unsere Partnerin ist eine führende Schweizer IT-Dienstleisterin im Bereich Industrietechnik",
+      "descriptionByLocale": {
+        "de": "Sie sind erfahren mit vSphere und Hyper-V? Die IT-Security ist kein Fremdwort für Sie? Dann lesen Sie weiter, allenfalls haben wir die optimale Stelle für Sie. Unsere Partnerin ist eine führende Schweizer IT-Dienstleisterin im Bereich Industrietechnik",
+        "it": "Sie sind erfahren mit vSphere und Hyper-V? Die IT-Security ist kein Fremdwort für Sie? Dann lesen Sie weiter, allenfalls haben wir die optimale Stelle für Sie. Unsere Partnerin ist eine führende Schweizer IT-Dienstleisterin im Bereich Industrietechnik",
+        "en": "Sie sind erfahren mit vSphere und Hyper-V? Die IT-Security ist kein Fremdwort für Sie? Dann lesen Sie weiter, allenfalls haben wir die optimale Stelle für Sie. Unsere Partnerin ist eine führende Schweizer IT-Dienstleisterin im Bereich Industrietechnik",
+        "fr": "Sie sind erfahren mit vSphere und Hyper-V? Die IT-Security ist kein Fremdwort für Sie? Dann lesen Sie weiter, allenfalls haben wir die optimale Stelle für Sie. Unsere Partnerin ist eine führende Schweizer IT-Dienstleisterin im Bereich Industrietechnik"
+      },
+      "location": "St. Gallen",
+      "canton": "SG",
+      "url": "https://parmag.ch/stellen/322?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-21T15:58:24.810Z",
+      "addressLocality": "St. Gallen",
+      "addressRegion": "SG",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://parmag.ch/stellen/322?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 57500,
+      "salaryMax": 87000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 57500,
+          "maxValue": 87000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:58:24.810Z"
+    },
+    {
+      "id": "parmag-daeef31b303b",
+      "slug": "parmag-ag-bern-ittigen-parmag-ch",
+      "slugByLocale": {
+        "de": "parmag-ag-bern-ittigen-parmag-ch",
+        "it": "parmag-ag-bern-ittigen-parmag-ch",
+        "en": "parmag-ag-bern-ittigen-parmag-ch",
+        "fr": "parmag-ag-bern-ittigen-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "ParMag AG",
+      "titleByLocale": {
+        "de": "ParMag AG",
+        "it": "ParMag AG",
+        "en": "ParMag AG",
+        "fr": "ParMag AG"
+      },
+      "description": "Verteilt, vernetzt, verfügbar! Unsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick.",
+      "descriptionByLocale": {
+        "de": "Verteilt, vernetzt, verfügbar! Unsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick.",
+        "it": "Verteilt, vernetzt, verfügbar! Unsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick.",
+        "en": "Verteilt, vernetzt, verfügbar! Unsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick.",
+        "fr": "Verteilt, vernetzt, verfügbar! Unsere Mandantin ist die Kontron Transportation Schweiz AG , deren Produkte bringen die mobile Konnektivität in Tunnel, Züge und Gebäude. Mit unserer cloud-basierten Steuerungs- und Betriebssoftwareplattform ermöglichen wir dabei den Kunden die Fernverwaltung per Mausklick."
+      },
+      "location": "Bern / Ittigen",
+      "canton": "BE",
+      "url": "https://parmag.ch/stellen/352?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-21T15:58:24.809Z",
+      "addressLocality": "Bern / Ittigen",
+      "addressRegion": "BE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://parmag.ch/stellen/352?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 68500,
+      "salaryMax": 104000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 68500,
+          "maxValue": 104000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:58:24.809Z"
+    },
+    {
+      "id": "parmag-0d892d16c31e",
+      "slug": "parmag-ag-region-zurich-parmag-ch",
+      "slugByLocale": {
+        "de": "parmag-ag-region-zurich-parmag-ch",
+        "it": "parmag-ag-region-zurich-parmag-ch",
+        "en": "parmag-ag-region-zurich-parmag-ch",
+        "fr": "parmag-ag-region-zurich-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "ParMag AG",
+      "titleByLocale": {
+        "de": "ParMag AG",
+        "it": "ParMag AG",
+        "en": "ParMag AG",
+        "fr": "ParMag AG"
+      },
+      "description": "Du bist ein Machertyp und willst eine neue Softwarelösung vorantreiben? Dann bist du hier richtig. Unsere Kundin, eine IT-Dienstleistungsunternehmung mit Teilbereich öffentliche Verwaltung freut sich auf ein neues Teammitglied",
+      "descriptionByLocale": {
+        "de": "Du bist ein Machertyp und willst eine neue Softwarelösung vorantreiben? Dann bist du hier richtig. Unsere Kundin, eine IT-Dienstleistungsunternehmung mit Teilbereich öffentliche Verwaltung freut sich auf ein neues Teammitglied",
+        "it": "Du bist ein Machertyp und willst eine neue Softwarelösung vorantreiben? Dann bist du hier richtig. Unsere Kundin, eine IT-Dienstleistungsunternehmung mit Teilbereich öffentliche Verwaltung freut sich auf ein neues Teammitglied",
+        "en": "Du bist ein Machertyp und willst eine neue Softwarelösung vorantreiben? Dann bist du hier richtig. Unsere Kundin, eine IT-Dienstleistungsunternehmung mit Teilbereich öffentliche Verwaltung freut sich auf ein neues Teammitglied",
+        "fr": "Du bist ein Machertyp und willst eine neue Softwarelösung vorantreiben? Dann bist du hier richtig. Unsere Kundin, eine IT-Dienstleistungsunternehmung mit Teilbereich öffentliche Verwaltung freut sich auf ein neues Teammitglied"
+      },
+      "location": "Region Zürich",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/365?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-21T15:58:24.806Z",
+      "addressLocality": "Region Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://parmag.ch/stellen/365?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:58:24.806Z"
+    },
+    {
+      "id": "parmag-e8ca7aeee784",
+      "slug": "parmag-ag-zurich-oder-bern",
+      "slugByLocale": {
+        "de": "parmag-ag-zurich-oder-bern-parmag-ch",
+        "it": "parmag-ag-zurich-oder-bern",
+        "en": "parmag-ag-zurich-oder-bern-parmag-ch",
+        "fr": "parmag-ag-zurich-oder-bern-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "ParMag AG",
+      "titleByLocale": {
+        "de": "ParMag AG",
+        "it": "ParMag AG",
+        "en": "ParMag AG",
+        "fr": "ParMag AG"
+      },
+      "description": "Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter. Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten Du hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden.",
+      "descriptionByLocale": {
+        "de": "Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter. Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten Du hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden.",
+        "it": "Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter. Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten Du hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden.",
+        "en": "Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter. Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten Du hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden.",
+        "fr": "Du bist eine erfahrene Java-Persölichkeit? Du sucht eine Stelle mit viel Gestaltungsfreiraum? Dann lies weiter. Unsere Kundin, eine im stetigen Wachstum tätige Consultingfirma ist auf der Suche nach neuen Talenten Du hilfst mit bei der Konzeption und Definition von Lösungen und Entwicklung stabiler, zuverlässiger sowie leistungsstarker Software. Dabei stellst du die Entwicklung des Produktes in Bezug auf Technologie und Qualität sicher und bist in enger Zusammenarbeit mit einem multidisziplinären Team aus Business Analysten, Architekten und Software Engineers. Weiter beteiligst du dich am gesamten Projektzyklus, von der Bedarfsanalyse bis zur endgültigen Lieferung einer Individual-Lösung für die Kunden."
+      },
+      "location": "Zürich oder Bern",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/371?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-21T15:58:24.804Z",
+      "addressLocality": "Zürich oder Bern",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://parmag.ch/stellen/371?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "parmag-ag-zurich-oder-bern-parmag-ch"
+        ]
+      },
+      "previousSlugs": [
+        "parmag-ag-zurich-oder-bern-parmag-ch"
+      ],
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:58:24.804Z"
+    },
+    {
+      "id": "parmag-4d45c49d418c",
+      "slug": "parmag-ag-stadt-zurich-parmag-ch",
+      "slugByLocale": {
+        "de": "parmag-ag-stadt-zurich-parmag-ch",
+        "it": "parmag-ag-stadt-zurich-parmag-ch",
+        "en": "parmag-ag-stadt-zurich-parmag-ch",
+        "fr": "parmag-ag-stadt-zurich-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "ParMag AG",
+      "titleByLocale": {
+        "de": "ParMag AG",
+        "it": "ParMag AG",
+        "en": "ParMag AG",
+        "fr": "ParMag AG"
+      },
+      "description": "Bist du erfahren in der .NET-Softwareentwicklung? Kennst du dich aus mit Angular und Typescript? Dann habe ich hier deine neue Herausforderung. Unsere Kundin, eine Zürcher Unternehmung im Bereich Elektrizität ist auf der Suche nach einem neuen Teammitglied.",
+      "descriptionByLocale": {
+        "de": "Bist du erfahren in der .NET-Softwareentwicklung? Kennst du dich aus mit Angular und Typescript? Dann habe ich hier deine neue Herausforderung. Unsere Kundin, eine Zürcher Unternehmung im Bereich Elektrizität ist auf der Suche nach einem neuen Teammitglied.",
+        "it": "Bist du erfahren in der .NET-Softwareentwicklung? Kennst du dich aus mit Angular und Typescript? Dann habe ich hier deine neue Herausforderung. Unsere Kundin, eine Zürcher Unternehmung im Bereich Elektrizität ist auf der Suche nach einem neuen Teammitglied.",
+        "en": "Bist du erfahren in der .NET-Softwareentwicklung? Kennst du dich aus mit Angular und Typescript? Dann habe ich hier deine neue Herausforderung. Unsere Kundin, eine Zürcher Unternehmung im Bereich Elektrizität ist auf der Suche nach einem neuen Teammitglied.",
+        "fr": "Bist du erfahren in der .NET-Softwareentwicklung? Kennst du dich aus mit Angular und Typescript? Dann habe ich hier deine neue Herausforderung. Unsere Kundin, eine Zürcher Unternehmung im Bereich Elektrizität ist auf der Suche nach einem neuen Teammitglied."
+      },
+      "location": "Stadt Zürich",
+      "canton": "ZH",
+      "url": "https://parmag.ch/stellen/377?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-21T15:58:24.803Z",
+      "addressLocality": "Stadt Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://parmag.ch/stellen/377?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 73500,
+      "salaryMax": 111500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73500,
+          "maxValue": 111500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:58:24.803Z"
+    },
+    {
+      "id": "parmag-9281ee594f8e",
+      "slug": "parmag-ag-biel-neuenburg-freiburg-parmag-ch",
+      "slugByLocale": {
+        "de": "parmag-ag-biel-neuenburg-freiburg-parmag-ch",
+        "it": "parmag-ag-biel-neuenburg-freiburg-parmag-ch",
+        "en": "parmag-ag-biel-neuenburg-freiburg-parmag-ch",
+        "fr": "parmag-ag-biel-neuenburg-freiburg-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "ParMag AG",
+      "titleByLocale": {
+        "de": "ParMag AG",
+        "it": "ParMag AG",
+        "en": "ParMag AG",
+        "fr": "ParMag AG"
+      },
+      "description": "Deine Karriere im Aussendienst – mit Verkaufserfahrung zum Erfolg Für die Regionen Biel, Neuenburg und Freiburg suchen wir mehrere engagierte und verkaufsstarke Kundenberater:innen im Aussendienst. Du verfügst bereits über Erfahrung im Verkauf und möchtest deine Karriere in einer sicheren und zukunftsorientierten Branche weiterentwickeln? Dann bieten wir dir die ideale Plattform für deinen nächsten Karriereschritt. Wir suchen:",
+      "descriptionByLocale": {
+        "de": "Deine Karriere im Aussendienst – mit Verkaufserfahrung zum Erfolg Für die Regionen Biel, Neuenburg und Freiburg suchen wir mehrere engagierte und verkaufsstarke Kundenberater:innen im Aussendienst. Du verfügst bereits über Erfahrung im Verkauf und möchtest deine Karriere in einer sicheren und zukunftsorientierten Branche weiterentwickeln? Dann bieten wir dir die ideale Plattform für deinen nächsten Karriereschritt. Wir suchen:",
+        "it": "Deine Karriere im Aussendienst – mit Verkaufserfahrung zum Erfolg Für die Regionen Biel, Neuenburg und Freiburg suchen wir mehrere engagierte und verkaufsstarke Kundenberater:innen im Aussendienst. Du verfügst bereits über Erfahrung im Verkauf und möchtest deine Karriere in einer sicheren und zukunftsorientierten Branche weiterentwickeln? Dann bieten wir dir die ideale Plattform für deinen nächsten Karriereschritt. Wir suchen:",
+        "en": "Deine Karriere im Aussendienst – mit Verkaufserfahrung zum Erfolg Für die Regionen Biel, Neuenburg und Freiburg suchen wir mehrere engagierte und verkaufsstarke Kundenberater:innen im Aussendienst. Du verfügst bereits über Erfahrung im Verkauf und möchtest deine Karriere in einer sicheren und zukunftsorientierten Branche weiterentwickeln? Dann bieten wir dir die ideale Plattform für deinen nächsten Karriereschritt. Wir suchen:",
+        "fr": "Deine Karriere im Aussendienst – mit Verkaufserfahrung zum Erfolg Für die Regionen Biel, Neuenburg und Freiburg suchen wir mehrere engagierte und verkaufsstarke Kundenberater:innen im Aussendienst. Du verfügst bereits über Erfahrung im Verkauf und möchtest deine Karriere in einer sicheren und zukunftsorientierten Branche weiterentwickeln? Dann bieten wir dir die ideale Plattform für deinen nächsten Karriereschritt. Wir suchen:"
+      },
+      "location": "Biel, Neuenburg & Freiburg",
+      "canton": "NE",
+      "url": "https://parmag.ch/stellen/386?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-21T15:58:24.800Z",
+      "addressLocality": "Biel, Neuenburg & Freiburg",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://parmag.ch/stellen/386?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 60500,
+      "salaryMax": 91500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 60500,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:58:24.800Z"
+    },
+    {
+      "id": "parmag-0d3fad45061e",
+      "slug": "parmag-ag-basel-stadt-basellandschaft-parmag-ch",
+      "slugByLocale": {
+        "de": "parmag-ag-basel-stadt-basellandschaft-parmag-ch",
+        "it": "parmag-ag-basel-stadt-basellandschaft-parmag-ch",
+        "en": "parmag-ag-basel-stadt-basellandschaft-parmag-ch",
+        "fr": "parmag-ag-basel-stadt-basellandschaft-parmag-ch"
+      },
+      "company": "ParMag AG",
+      "companyKey": "parmag",
+      "companyDomain": "parmag.ch",
+      "title": "ParMag AG",
+      "titleByLocale": {
+        "de": "ParMag AG",
+        "it": "ParMag AG",
+        "en": "ParMag AG",
+        "fr": "ParMag AG"
+      },
+      "description": "Suchst du eine neue berufliche Herausforderung im Aussendienst, bei der du Menschen begeistern kannst und gleichzeitig von der Stabilität und dem Wachstum der Versicherungsbranche profitierst? Bei uns bekommst du die Chance, auch als Quereinsteiger:in eine erfolgreiche Aussendienst-Karriere aufzubauen – mit umfassender Ausbildung, Teamunterstützung und klaren Aufstiegsmöglichkeiten. Für vier Regionen im Kanton Basel suchen wir mehrere Kundenberatende.",
+      "descriptionByLocale": {
+        "de": "Suchst du eine neue berufliche Herausforderung im Aussendienst, bei der du Menschen begeistern kannst und gleichzeitig von der Stabilität und dem Wachstum der Versicherungsbranche profitierst? Bei uns bekommst du die Chance, auch als Quereinsteiger:in eine erfolgreiche Aussendienst-Karriere aufzubauen – mit umfassender Ausbildung, Teamunterstützung und klaren Aufstiegsmöglichkeiten. Für vier Regionen im Kanton Basel suchen wir mehrere Kundenberatende.",
+        "it": "Suchst du eine neue berufliche Herausforderung im Aussendienst, bei der du Menschen begeistern kannst und gleichzeitig von der Stabilität und dem Wachstum der Versicherungsbranche profitierst? Bei uns bekommst du die Chance, auch als Quereinsteiger:in eine erfolgreiche Aussendienst-Karriere aufzubauen – mit umfassender Ausbildung, Teamunterstützung und klaren Aufstiegsmöglichkeiten. Für vier Regionen im Kanton Basel suchen wir mehrere Kundenberatende.",
+        "en": "Suchst du eine neue berufliche Herausforderung im Aussendienst, bei der du Menschen begeistern kannst und gleichzeitig von der Stabilität und dem Wachstum der Versicherungsbranche profitierst? Bei uns bekommst du die Chance, auch als Quereinsteiger:in eine erfolgreiche Aussendienst-Karriere aufzubauen – mit umfassender Ausbildung, Teamunterstützung und klaren Aufstiegsmöglichkeiten. Für vier Regionen im Kanton Basel suchen wir mehrere Kundenberatende.",
+        "fr": "Suchst du eine neue berufliche Herausforderung im Aussendienst, bei der du Menschen begeistern kannst und gleichzeitig von der Stabilität und dem Wachstum der Versicherungsbranche profitierst? Bei uns bekommst du die Chance, auch als Quereinsteiger:in eine erfolgreiche Aussendienst-Karriere aufzubauen – mit umfassender Ausbildung, Teamunterstützung und klaren Aufstiegsmöglichkeiten. Für vier Regionen im Kanton Basel suchen wir mehrere Kundenberatende."
+      },
+      "location": "Basel-Stadt, Basellandschaft",
+      "canton": "BS",
+      "url": "https://parmag.ch/stellen/387?view=joblisting",
+      "source": "ParMag AG Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-21T15:58:24.797Z",
+      "addressLocality": "Basel-Stadt, Basellandschaft",
+      "addressRegion": "BS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://parmag.ch/stellen/387?view=joblisting",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 94000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 94000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:58:24.797Z"
+    }
+  ]
+}
