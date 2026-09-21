@@ -10,6 +10,7 @@ import {
 } from '../scripts/lib/worktree-dirty.mjs';
 import {
   headQueryCommand,
+  isMergedIntoBaseAtHead,
   makePrStateResolver,
   pickBestPrState,
   SAFE_BRANCH_RE,
@@ -95,6 +96,31 @@ describe('classificazione dello sporco', () => {
 });
 
 describe('stato PR oltre la finestra', () => {
+  it('richiede merge su main e HEAD esatto prima di autorizzare il cleanup', () => {
+    const merged = {
+      state: 'MERGED',
+      baseRefName: 'main',
+      headRefOid: 'a'.repeat(40),
+    };
+
+    expect(isMergedIntoBaseAtHead(merged, {
+      baseBranch: 'main',
+      headOid: 'a'.repeat(40),
+    })).toBe(true);
+    expect(isMergedIntoBaseAtHead({ ...merged, baseRefName: 'release' }, {
+      baseBranch: 'main',
+      headOid: 'a'.repeat(40),
+    })).toBe(false);
+    expect(isMergedIntoBaseAtHead({ ...merged, headRefOid: 'b'.repeat(40) }, {
+      baseBranch: 'main',
+      headOid: 'a'.repeat(40),
+    })).toBe(false);
+    expect(isMergedIntoBaseAtHead({ ...merged, state: 'CLOSED' }, {
+      baseBranch: 'main',
+      headOid: 'a'.repeat(40),
+    })).toBe(false);
+  });
+
   it('interroga per --head il branch che la finestra non ha risolto', () => {
     const cache = new Map<string, string | undefined>();
     const chiamate: string[] = [];
