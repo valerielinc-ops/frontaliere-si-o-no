@@ -85820,6 +85820,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-rapporto-schengen-dublino-2026': {
+    title: 'Rapporto Schengen Dublino: impatti su PIL e frontalieri',
+    description: 'Il Consiglio federale adotta il rapporto su Schengen e Dublino del 18 settembre 2026: impatti su PIL, frontalieri, turismo e sicurezza interna. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, rapporto, schengen, dublino, impatti',
+    ogTitle: 'Rapporto Schengen Dublino 2026: impatti su PIL e frontalieri',
+    ogDescription: 'Analisi ufficiale del Consiglio federale del 18 settembre 2026 sugli effetti di un eventuale abbandono degli accordi di Schengen e Dublino per la Svizzero, con stime su PIL, frontalieri e sicurezza.',
+    canonicalPath: '/articoli-svizzera/rapporto-schengen-dublino-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Rapporto Schengen Dublino: impatti su PIL e frontalieri",
+      "description": "Il Consiglio federale adotta il rapporto su Schengen e Dublino del 18 settembre 2026: impatti su PIL, frontalieri, turismo e sicurezza interna. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/rapporto-schengen-dublino-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Valico di confine svizzero e infrastrutture doganali analizzate nel rapporto di settembre 2026"
+      },
+      "datePublished": "2026-09-21T00:24:46+00:00",
+      "dateModified": "2026-09-21T00:24:46+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/rapporto-schengen-dublino-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

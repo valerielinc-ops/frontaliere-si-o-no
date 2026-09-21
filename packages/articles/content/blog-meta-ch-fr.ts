@@ -6620,6 +6620,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.lidl-abolisce-arrotondamento-cassa.title': 'Lidl abolit l\'arrondissement en caisse pour les cartes et en ligne',
     'blog.article.lidl-abolisce-arrotondamento-cassa.excerpt': 'Le discount allemand Lidl a éliminé l\'arrondi vers le bas pour les paiements par carte et en ligne, économisant plus d\'un million de francs.',
     'blog.article.lidl-abolisce-arrotondamento-cassa.imageAlt': 'Caisse de supermarché en Suisse avec terminal de paiement',
+    'blog.article.rapporto-schengen-dublino-2026.title': 'Rapport Schengen Dublin : impacts sur le PIB et les frontières',
+    'blog.article.rapporto-schengen-dublino-2026.excerpt': 'Le Conseil fédéral a adopté le rapport sur Schengen et Dublin : l\'abandon pourrait réduire le PIB suisse jusqu\'à 3,9% en 2035.',
+    'blog.article.rapporto-schengen-dublino-2026.imageAlt': 'Poste frontière suisse et infrastructure douanière analysés dans le rapport de septembre 2026',
 };
 
 export default blogMetaChFr;

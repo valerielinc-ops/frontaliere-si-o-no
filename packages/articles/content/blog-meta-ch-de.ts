@@ -6620,6 +6620,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.lidl-abolisce-arrotondamento-cassa.title': 'Lidl schafft die Kassenrundung für Karten und online ab',
     'blog.article.lidl-abolisce-arrotondamento-cassa.excerpt': 'Der deutsche Discounter Lidl hat die Abrundung bei Karten- und Online-Zahlungen abgeschafft und über eine Million Franken gespart.',
     'blog.article.lidl-abolisce-arrotondamento-cassa.imageAlt': 'Supermarktkasse in der Schweiz mit Kartenzahlungsterminal',
+    'blog.article.rapporto-schengen-dublino-2026.title': 'Schengen-Bericht Dublin: Auswirkungen auf BIP und Grenzgänger',
+    'blog.article.rapporto-schengen-dublino-2026.excerpt': 'Der Bundesrat hat den Schengen- und Dublin-Bericht verabschiedet: Durch die Aufgabe könnte das Schweizer BIP bis 2035 um bis zu 3,9% sinken.',
+    'blog.article.rapporto-schengen-dublino-2026.imageAlt': 'Schweizer Grenzübergang und Zollinfrastruktur im Bericht vom September 2026',
 };
 
 export default blogMetaChDe;
