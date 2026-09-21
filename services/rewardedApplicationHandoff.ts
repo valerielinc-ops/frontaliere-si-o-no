@@ -2,6 +2,15 @@ export const REWARDED_APPLICATION_PAGE_PATH = '/rewarded-application/';
 const REWARDED_APPLICATION_HANDOFF_PREFIX = 'frontaliere_rewarded_application_handoff_v1:';
 const HANDOFF_TTL_MS = 15 * 60 * 1000;
 
+/**
+ * This is an entrypoint route, mounted by index.tsx before App/router loads.
+ * Keep the predicate next to the canonical path so the external rewarded page
+ * cannot drift into an unregistered literal in a second bootstrap location.
+ */
+export function isRewardedApplicationPagePath(pathname: string): boolean {
+  return pathname === REWARDED_APPLICATION_PAGE_PATH;
+}
+
 export interface RewardedApplicationHandoff {
   token: string;
   destination: string;

@@ -4,6 +4,7 @@ import './index.css';
 import { installDomReconciliationGuard } from './services/domReconciliationGuard';
 import { maybeHandleCvDownload } from './services/cvDownloadIntercept';
 import { bustAssetHttpCache } from './services/resilientImport';
+import { isRewardedApplicationPagePath } from './services/rewardedApplicationHandoff';
 
 // Harden the DOM against third-party mutation (Google Translate, extensions)
 // crashing React's reconciler with NotFoundError on insertBefore/removeChild.
@@ -129,7 +130,7 @@ const mountApp = async () => {
  let staticPage = hasStaticContent();
 
  const [{ default: RootPage }, { ChunkLoadErrorBoundary }, i18n] = await Promise.all([
- window.location.pathname === '/rewarded-application/'
+  isRewardedApplicationPagePath(window.location.pathname)
   ? import('./components/community/RewardedApplicationPage')
   : import('./App'),
  import('./components/ChunkLoadErrorBoundary'),
@@ -161,7 +162,7 @@ const mountApp = async () => {
  // chunk — it is already loaded with App above, so this resolves from cache.
  // Gated on staticOverlay so true static landings keep their overlay; crawlers
  // (no JS) still get the fallback verbatim.
-  if (window.location.pathname !== '/rewarded-application/') {
+  if (!isRewardedApplicationPagePath(window.location.pathname)) {
    try {
    const { parsePath } = await import('./services/router');
    if (!parsePath(window.location.pathname).route.staticOverlay

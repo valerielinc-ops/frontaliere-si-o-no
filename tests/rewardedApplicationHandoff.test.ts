@@ -5,6 +5,7 @@ import {
   buildRewardedApplicationPageUrl,
   clearRewardedApplicationHandoff,
   createRewardedApplicationHandoff,
+  isRewardedApplicationPagePath,
   readRewardedApplicationHandoff,
 } from '@/services/rewardedApplicationHandoff';
 
@@ -12,6 +13,12 @@ describe('rewarded application external-page handoff', () => {
   beforeEach(() => {
     window.localStorage.clear();
     window.history.replaceState({}, '', '/cerca-lavoro-ticino/');
+  });
+
+  it('registers the standalone page as an entrypoint route', () => {
+    expect(isRewardedApplicationPagePath('/rewarded-application/')).toBe(true);
+    expect(isRewardedApplicationPagePath('/rewarded-application')).toBe(false);
+    expect(isRewardedApplicationPagePath('/cerca-lavoro-ticino/')).toBe(false);
   });
 
   it('stores a short-lived employer destination behind an opaque token', () => {
