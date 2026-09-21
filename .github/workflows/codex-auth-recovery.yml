@@ -1,0 +1,317 @@
+name: Codex auth recovery
+
+# CODEX_AUTH_JSON is a ChatGPT subscription credential, not a renewable GitHub
+# token.  When its refresh token has already been used, a blind rerun can only
+# repeat the 401 and burn another runner slot.  The Codex action writes a
+# durable, non-secret digest marker on the affected PR; this workflow retries
+# the exact pull_request run only after the repository secret has changed.
+#
+# The workflow never dispatches tests on a branch/ref chosen from the PR.  It
+# only re-runs a pre-existing pull_request run whose immutable run metadata and
+# HEAD still match the open PR, so the normal tests/review secret boundary is
+# preserved.
+
+on:
+  workflow_run:
+    workflows: [tests]
+    types: [completed]
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+permissions:
+  actions: write
+  contents: read
+  issues: write
+  pull-requests: write
+
+concurrency:
+  group: codex-auth-recovery
+  cancel-in-progress: false
+
+jobs:
+  recover:
+    if: github.event_name != 'workflow_run' || github.event.workflow_run.event == 'pull_request'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Fingerprint current Codex credential without exposing it
+        id: auth
+        shell: bash
+        env:
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "${CODEX_AUTH_JSON:-}" ]; then
+            printf 'present=false\nfingerprint=missing\n' >> "$GITHUB_OUTPUT"
+            echo '::warning::CODEX_AUTH_JSON is not configured; Codex recovery remains held.'
+            exit 0
+          fi
+          fingerprint="$(printf '%s' "$CODEX_AUTH_JSON" | sha256sum | cut -d ' ' -f 1)"
+          if ! [[ "$fingerprint" =~ ^[0-9a-f]{64}$ ]]; then
+            echo '::error::Unable to fingerprint CODEX_AUTH_JSON safely.'
+            exit 1
+          fi
+          printf 'present=true\nfingerprint=%s\n' "$fingerprint" >> "$GITHUB_OUTPUT"
+
+      - name: Re-enable Codex review only after credential rotation
+        uses: actions/github-script@v8
+        env:
+          CODEX_AUTH_DIGEST: ${{ steps.auth.outputs.fingerprint }}
+          CODEX_AUTH_PRESENT: ${{ steps.auth.outputs.present }}
+          REPOSITORY: ${{ github.repository }}
+        with:
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          script: |
+            const repo = context.repo;
+            const repository = process.env.REPOSITORY;
+            const currentDigest = String(process.env.CODEX_AUTH_DIGEST || '').trim().toLowerCase();
+            const authPresent = process.env.CODEX_AUTH_PRESENT === 'true';
+            const AUTH_BLOCKED_PREFIX = '<!-- CODEX_AUTH_BLOCKED:';
+            const AUTH_RECOVERY_PREFIX = '<!-- CODEX_AUTH_RECOVERY:';
+            const CODEX_AUTH_ALERT_TITLE = 'Codex auth down: CODEX_AUTH_JSON refresh token rejected';
+            const TESTS_WORKFLOW_PATH = '.github/workflows/tests.yml';
+            const CODEX_AUTH_BOT_LOGIN_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/iu;
+            const CODEX_AUTH_SHA_RE = /^[0-9a-f]{40}$/iu;
+            const CODEX_AUTH_DIGEST_RE = /^[0-9a-f]{64}$/iu;
+            const isPositiveCodexId = value => Number.isSafeInteger(Number(value)) && Number(value) > 0;
+
+            function extractMarker(body, prefix) {
+              const text = String(body || '');
+              const start = text.indexOf(prefix);
+              if (start < 0) return null;
+              const jsonStart = text.indexOf('{', start + prefix.length);
+              const end = text.indexOf('-->', jsonStart + 1);
+              if (jsonStart < 0 || end < 0) return null;
+              try {
+                const value = JSON.parse(text.slice(jsonStart, end).trim());
+                return value && typeof value === 'object' && !Array.isArray(value) ? value : null;
+              } catch {
+                return null;
+              }
+            }
+
+            function validBlockedMarker(marker, pr, comment) {
+              return marker?.version === 1
+                && marker.status === 'blocked'
+                && Number(marker.prNumber) === Number(pr.number)
+                && marker.headSha === pr.head.sha
+                && CODEX_AUTH_SHA_RE.test(String(marker.headSha || ''))
+                && isPositiveCodexId(marker.runId)
+                && isPositiveCodexId(marker.runAttempt)
+                && (marker.authDigest === 'missing' || CODEX_AUTH_DIGEST_RE.test(String(marker.authDigest || '')))
+                && CODEX_AUTH_BOT_LOGIN_RE.test(String(comment?.user?.login || ''));
+            }
+
+            function validRecoveryMarker(marker, pr, comment) {
+              return marker?.version === 1
+                && ['queued', 'manual', 'completed'].includes(marker.status)
+                && Number(marker.prNumber) === Number(pr.number)
+                && marker.headSha === pr.head.sha
+                && CODEX_AUTH_SHA_RE.test(String(marker.headSha || ''))
+                && isPositiveCodexId(marker.runId)
+                && isPositiveCodexId(marker.targetAttempt)
+                && (marker.authDigest === 'missing' || CODEX_AUTH_DIGEST_RE.test(String(marker.authDigest || '')))
+                && CODEX_AUTH_BOT_LOGIN_RE.test(String(comment?.user?.login || ''));
+            }
+
+            async function listCodexAuthComments(number) {
+              return github.paginate(github.rest.issues.listComments, {
+                ...repo, issue_number: number, per_page: 100,
+              });
+            }
+
+            async function openCodexAuthAlert() {
+              const issues = await github.paginate(github.rest.issues.listForRepo, {
+                ...repo, state: 'open', labels: 'automation', per_page: 100,
+              });
+              return issues.find(issue => issue.title === CODEX_AUTH_ALERT_TITLE) || null;
+            }
+
+            async function ensureAlert(pr, blocked) {
+              let issue = await openCodexAuthAlert();
+              if (issue) return issue;
+              const { data } = await github.rest.issues.create({
+                ...repo,
+                title: CODEX_AUTH_ALERT_TITLE,
+                labels: ['automation'],
+                body: [
+                  '## Codex review authentication blocked',
+                  '',
+                  `The trusted Codex reviewer recorded a rejected or already-consumed ChatGPT refresh token on PR #${pr.number}.`,
+                  `Run: https://github.com/${repository}/actions/runs/${blocked.runId}`,
+                  '',
+                  '### Action',
+                  '1. Log in again with Codex locally.',
+                  '2. Replace the repository Actions secret `CODEX_AUTH_JSON` with the new auth.json.',
+                  '3. Leave this issue open: `codex-auth-recovery` retries the exact pull_request run after the credential digest changes.',
+                  '',
+                  'The issue contains no credential or token; only the workflow/PR reference is recorded.',
+                ].join('\n'),
+              });
+              return data;
+            }
+
+            async function closeAlert(reason) {
+              const issue = await openCodexAuthAlert();
+              if (!issue) return;
+              await github.rest.issues.createComment({
+                ...repo, issue_number: issue.number,
+                body: `✅ Codex authentication recovered: ${reason}. The exact PR run completed without a new auth-blocked marker; auto-closing.`,
+              });
+              await github.rest.issues.update({ ...repo, issue_number: issue.number, state: 'closed', state_reason: 'completed' });
+            }
+
+            async function postRecovery(number, marker) {
+              await github.rest.issues.createComment({
+                ...repo,
+                issue_number: number,
+                body: `🔁 Codex auth recovery ${marker.status}: exact tests run ${marker.runId}, target attempt ${marker.targetAttempt}.\n\n<!-- CODEX_AUTH_RECOVERY: ${JSON.stringify(marker)} -->`,
+              });
+            }
+
+            async function getExactCodexTestsRun(marker, pr) {
+              let run;
+              try {
+                ({ data: run } = await github.rest.actions.getWorkflowRun({ ...repo, run_id: Number(marker.runId) }));
+              } catch (error) {
+                core.warning(`Cannot read tests run ${marker.runId} for PR #${pr.number}: ${String(error)}`);
+                return null;
+              }
+              if (run.path !== TESTS_WORKFLOW_PATH
+                  || run.event !== 'pull_request'
+                  || run.repository?.full_name !== repository
+                  || run.head_sha !== pr.head.sha
+                  || !Array.isArray(run.pull_requests)
+                  || !run.pull_requests.some(candidate => Number(candidate?.number) === Number(pr.number)
+                    && candidate?.base?.ref === 'main'
+                    && candidate?.head?.sha === pr.head.sha)) {
+                core.warning(`Refusing Codex auth recovery for PR #${pr.number}: run ${marker.runId} is not the exact pull_request HEAD.`);
+                return null;
+              }
+              return run;
+            }
+
+            async function reconcileCodexAuthRerun(pr, latest) {
+              const marker = latest.marker;
+              const run = await getExactCodexTestsRun(marker, pr);
+              if (!run) return;
+              if (Number(run.run_attempt) >= Number(marker.targetAttempt)) {
+                if (run.status === 'completed') {
+                  await postRecovery(pr.number, {
+                    version: 1,
+                    status: 'completed',
+                    prNumber: Number(pr.number),
+                    headSha: pr.head.sha,
+                    runId: Number(run.id),
+                    targetAttempt: Number(run.run_attempt),
+                    authDigest: marker.authDigest,
+                    conclusion: run.conclusion || 'unknown',
+                  });
+                  await closeAlert(`run ${run.id} attempt ${run.run_attempt} reached ${run.conclusion || 'completed'}`);
+                }
+                return;
+              }
+              if (run.status !== 'completed' || !authPresent || currentDigest !== marker.authDigest) return;
+              const attempts = Number(marker.codexAuthReconcileAttempts || 0);
+              if (attempts >= 2) {
+                core.warning(`Codex auth rerun for PR #${pr.number} stayed ambiguous after two reconciliations.`);
+                return;
+              }
+              await queueCodexAuthRerun(pr, run, marker.authDigest, attempts + 1);
+            }
+
+            async function queueCodexAuthRerun(pr, run, digest, codexAuthReconcileAttempts = 0) {
+              const queued = {
+                version: 1,
+                status: 'queued',
+                prNumber: Number(pr.number),
+                headSha: pr.head.sha,
+                runId: Number(run.id),
+                targetAttempt: Number(run.run_attempt) + 1,
+                authDigest: digest,
+                codexAuthReconcileAttempts,
+              };
+              await postRecovery(pr.number, queued);
+              try {
+                await github.rest.actions.reRunWorkflow({ ...repo, run_id: Number(run.id) });
+                core.info(`Queued exact Codex recovery rerun for PR #${pr.number}, run ${run.id}.`);
+              } catch (error) {
+                const manual = { ...queued, status: 'manual', codexAuthReconcileAttempts: codexAuthReconcileAttempts + 1 };
+                await postRecovery(pr.number, manual);
+                core.warning(`Codex recovery rerun for PR #${pr.number} was ambiguous: ${String(error)}`);
+              }
+            }
+
+            async function processPr(number) {
+              const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
+              if (pr.state !== 'open' || pr.base?.ref !== 'main' || pr.draft === true || !CODEX_AUTH_SHA_RE.test(pr.head?.sha || '')) return;
+              const comments = await listCodexAuthComments(number);
+              const events = comments
+                .filter(comment => CODEX_AUTH_BOT_LOGIN_RE.test(String(comment.user?.login || '')))
+                .flatMap(comment => {
+                  const blocked = extractMarker(comment.body, AUTH_BLOCKED_PREFIX);
+                  if (validBlockedMarker(blocked, pr, comment)) return [{ type: 'blocked', marker: blocked, comment }];
+                  const recovery = extractMarker(comment.body, AUTH_RECOVERY_PREFIX);
+                  if (validRecoveryMarker(recovery, pr, comment)) return [{ type: 'recovery', marker: recovery, comment }];
+                  return [];
+                })
+                .sort((a, b) => Number(a.comment.id) - Number(b.comment.id));
+              const latest = events.at(-1);
+              if (!latest) return;
+              if (latest.type === 'recovery') {
+                if (latest.marker.status === 'completed') return;
+                await reconcileCodexAuthRerun(pr, latest);
+                return;
+              }
+              const blocked = latest.marker;
+              await ensureAlert(pr, blocked);
+              if (!authPresent || !CODEX_AUTH_DIGEST_RE.test(currentDigest) || currentDigest === String(blocked.authDigest).toLowerCase()) {
+                core.info(`PR #${number}: Codex auth still blocked; no blind rerun.`);
+                return;
+              }
+              const run = await getExactCodexTestsRun(blocked, pr);
+              if (!run || run.status !== 'completed') return;
+              await queueCodexAuthRerun(pr, run, currentDigest);
+            }
+
+            let numbers;
+            if (context.eventName === 'workflow_run') {
+              const eventRun = context.payload.workflow_run;
+              if (!eventRun || !isPositiveCodexId(eventRun.id)) return;
+              let run;
+              try {
+                ({ data: run } = await github.rest.actions.getWorkflowRun({
+                  ...repo, run_id: Number(eventRun.id),
+                }));
+              } catch (error) {
+                core.warning(`Cannot read workflow_run ${eventRun.id}: ${String(error)}`);
+                return;
+              }
+              if (!run || run.path !== TESTS_WORKFLOW_PATH
+                  || run.status !== 'completed'
+                  || run.event !== 'pull_request'
+                  || run.repository?.full_name !== repository) return;
+              numbers = (run.pull_requests || []).map(pr => Number(pr.number)).filter(isPositiveCodexId);
+              if (numbers.length === 0 && CODEX_AUTH_SHA_RE.test(String(run.head_sha || ''))) {
+                const open = await github.paginate(github.rest.pulls.list, {
+                  ...repo, state: 'open', base: 'main', per_page: 100,
+                });
+                numbers = open
+                  .filter(pr => pr.base?.ref === 'main' && pr.head?.sha === run.head_sha)
+                  .map(pr => Number(pr.number))
+                  .filter(isPositiveCodexId);
+              }
+            } else {
+              const open = await github.paginate(github.rest.pulls.list, {
+                ...repo, state: 'open', base: 'main', per_page: 100,
+              });
+              numbers = open.map(pr => Number(pr.number)).filter(isPositiveCodexId);
+            }
+            for (const number of [...new Set(numbers)]) {
+              try {
+                await processPr(number);
+              } catch (error) {
+                core.warning(`Codex auth recovery failed for PR #${number}: ${String(error)}`);
+              }
+            }
