@@ -25,6 +25,12 @@ for (const violation of violations) {
   if (!violation || typeof violation.file !== 'string' || violation.file.length === 0) {
     throw new Error('Every data-integrity violation must contain a file path');
   }
-  execFileSync('git', ['checkout', before, '--', violation.file], { stdio: 'inherit' });
-  execFileSync('git', ['add', '--', violation.file], { stdio: 'inherit' });
+  // The guard runs with a sparse checkout that excludes the large data paths.
+  // Opt into the path for the restore instead of failing on its skip-worktree bit.
+  execFileSync(
+    'git',
+    ['checkout', '--ignore-skip-worktree-bits', before, '--', violation.file],
+    { stdio: 'inherit' },
+  );
+  execFileSync('git', ['add', '--sparse', '--', violation.file], { stdio: 'inherit' });
 }
