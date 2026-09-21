@@ -798,7 +798,7 @@
       "title": "Configurable Materials Master Data Domain Lead",
       "titleByLocale": {
         "en": "Configurable Materials Master Data Domain Lead",
-        "it": "Con 209ble Materials Master Data Domain Lead",
+        "it": "Lead dominio dati master materiali configurabili",
         "de": "Konfigurierbare Materialien Master Data Domain Lead",
         "fr": "Matériaux configurables Chef de domaine de données principal"
       },
@@ -849,7 +849,6 @@
           "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -863,8 +862,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-07-16T22:17:33.262Z",
-      "retranslationAttempts": 2
+      "firstSeenAt": "2026-07-16T22:17:33.262Z"
     },
     {
       "id": "dormakaba-11917",

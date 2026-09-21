@@ -3007,20 +3007,35 @@
         "it": [
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz",
           "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
-          "branch-manager-m-f-d-80-100-lidl-svizzera-st-moritz"
-        ],
-        "en": [
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz"
+          "branch-manager-m-f-d-80-100-lidl-svizzera-st-moritz",
+          "branch-manager-m-f-d-80-100-st-gallen-lidl-svizzera-st-gallen",
+          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-gallen-wrul66",
+          "gestionnaire-de-succursale-m-f-j-80-100-st-gallen-lidl-svizzera-st-gallen",
+          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-gallen"
         ],
         "fr": [
-          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz"
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
+          "gestionnaire-de-succursale-m-f-j-80-100-st-gallen-lidl-svizzera-st-gallen"
+        ],
+        "en": [
+          "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
+          "branch-manager-m-f-d-80-100-st-gallen-lidl-svizzera-st-gallen"
+        ],
+        "de": [
+          "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-gallen-wrul66"
         ]
       },
       "previousSlugs": [
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz",
         "stv-filialleiter-stv-filialleiterin-m-w-d-80-100-lidl-svizzera-st-moritz-ssgtoz",
-        "branch-manager-m-f-d-80-100-lidl-svizzera-st-moritz"
+        "branch-manager-m-f-d-80-100-lidl-svizzera-st-moritz",
+        "branch-manager-m-f-d-80-100-st-gallen-lidl-svizzera-st-gallen",
+        "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-gallen-wrul66",
+        "gestionnaire-de-succursale-m-f-j-80-100-st-gallen-lidl-svizzera-st-gallen",
+        "filialleiter-filialleiterin-m-w-d-80-100-lidl-svizzera-st-gallen"
       ],
+      "salaryMin": 57500,
+      "salaryMax": 87000,
       "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -3035,9 +3050,7 @@
       "addressLocality": "St. Moritz",
       "addressRegion": "GR",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
-      "salaryMin": 57500,
-      "salaryMax": 87000
+      "needsRetranslation": true
     },
     {
       "id": "company-w09nu0",
@@ -9802,21 +9815,27 @@
           "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern",
           "venditore-m-f-d-80-100-lidl-svizzera-bern",
           "seller-m-f-d-80-100-lidl-svizzera-bern",
-          "verkaufer-verkauferin-m-w-d-80-100-lidl-svizzera-bern-yxqvha"
+          "verkaufer-verkauferin-m-w-d-80-100-lidl-svizzera-bern-yxqvha",
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-bern",
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-bern-t9s1yf",
+          "venditore-m-f-d-20-60-berna-lidl-svizzera-bern"
         ],
         "en": [
           "seller-m-f-d-80-100-lidl-svizzera-bern",
           "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern-ae0lg8",
-          "packager-m-f-d-40-60-lidl-svizzera-bern"
+          "packager-m-f-d-40-60-lidl-svizzera-bern",
+          "seller-m-f-d-20-60-bern-lidl-svizzera-bern"
         ],
         "de": [
           "verkaufer-verkauferin-m-w-d-80-100-lidl-svizzera-bern-yxqvha",
-          "abpacker-m-w-d-40-60-lidl-svizzera-bern-oevhqy"
+          "abpacker-m-w-d-40-60-lidl-svizzera-bern-oevhqy",
+          "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-bern-tmbjur"
         ],
         "fr": [
           "vendeur-m-f-d-80-100-lidl-svizzera-bern",
           "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-bern-ae0lg8",
-          "emballeur-m-f-d-40-60-lidl-svizzera-bern"
+          "emballeur-m-f-d-40-60-lidl-svizzera-bern",
+          "vendeur-m-f-j-20-60-berne-lidl-svizzera-bern"
         ]
       },
       "previousSlugs": [
@@ -9839,7 +9858,13 @@
         "packager-m-f-d-40-60-lidl-svizzera-bern",
         "abpacker-m-w-d-40-60-lidl-svizzera-bern-oevhqy",
         "emballeur-m-f-d-40-60-lidl-svizzera-bern",
-        "abpacker-m-w-d-40-60-lidl-svizzera-bern"
+        "abpacker-m-w-d-40-60-lidl-svizzera-bern",
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-bern",
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-bern-t9s1yf",
+        "venditore-m-f-d-20-60-berna-lidl-svizzera-bern",
+        "seller-m-f-d-20-60-bern-lidl-svizzera-bern",
+        "verkaufer-verkauferin-m-w-d-20-60-lidl-svizzera-bern-tmbjur",
+        "vendeur-m-f-j-20-60-berne-lidl-svizzera-bern"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -9856,9 +9881,9 @@
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://team.lidl.ch/de/jobs/verkaeufer-verkaeuferin-m-w-d-40-60-bern-737365",
-      "needsRetranslation": true,
       "salaryMin": 41100,
-      "salaryMax": 62400
+      "salaryMax": 62400,
+      "needsRetranslation": true
     },
     {
       "id": "company-l8f9vj",
@@ -19698,12 +19723,14 @@
         "allrounder-vente-m-w-d-20-40-1-lidl-svizzera-baden-jlxogl",
         "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-baden-jylox9",
         "allrounder-sale-m-f-d-20-40-1-baden-lidl-svizzera-baden",
-        "all-rounder-sale-m-f-d-20-40-1-baden-lidl-svizzera-baden"
+        "all-rounder-sale-m-f-d-20-40-1-baden-lidl-svizzera-baden",
+        "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-baden-dattwil-jt6fmf"
       ],
       "previousSlugsByLocale": {
         "it": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-baden",
-          "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-baden-jlxogl"
+          "allrounder-vendita-m-w-d-20-40-1-lidl-svizzera-baden-jlxogl",
+          "ch-allrounder-verkauf-m-w-d-20-40-lidl-svizzera-baden-dattwil-jt6fmf"
         ],
         "en": [
           "allrounder-verkauf-m-w-d-20-40-1-lidl-svizzera-baden-jlxogl",
@@ -21824,7 +21851,8 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-reiden"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-reiden",
+          "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-reiden"
         ],
         "en": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-reiden-igswfn"
@@ -21835,7 +21863,8 @@
       },
       "previousSlugs": [
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-reiden",
-        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-reiden-igswfn"
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-80-lidl-svizzera-reiden-igswfn",
+        "verkaufer-verkauferin-m-w-d-40-60-lidl-svizzera-reiden"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -22673,40 +22702,52 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "it": [
-          "seller-with-shift-responsibility-m-w-d-60-802-chur-lidl-svizzera-chur",
-          "vendeur-avec-responsabilite-de-quart-m-f-j-60-80-chur-lidl-svizzera-chur",
-          "vendeur-vendeuse-avec-responsabilite-de-quart-h-f-60-80-lidl-svizzera-st-moritz",
-          "vendeur-vendeuse-avec-responsabilite-de-quart-m-f-d-60-80-lidl-svizzera-st-moritz",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-bremgarten",
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bioggio",
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-cadenazzo",
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-chur-r1a8el",
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-chur-r1a8fc",
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-jhm409",
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-bioggio",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-chur",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-chur-r1a8el",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-jhm409",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-st-moritz",
-          "venditore-con-responsabilita-a-turni-m-f-d-60-80-staad-lidl-svizzera-staad",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad",
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qool7y",
-          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-bremgarten-3bs1a8"
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-kggziw",
+          "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-ce36ab",
+          "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden-ce36ab",
+          "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden-ce36ab",
+          "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+          "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen",
+          "venditore-m-f-d-20-80-1-wettingen-lidl-svizzera-wettingen",
+          "seller-m-f-d-20-80-1-wettingen-lidl-svizzera-wettingen",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-wettingen-68xv5o",
+          "vendeur-m-f-j-20-80-1-wettingen-lidl-svizzera-wettingen",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-wettingen",
+          "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+          "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-baden-dattwil-lmwduj",
+          "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg-y3mn4v",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg",
+          "venditore-m-f-d-20-80-1-brugg-lidl-svizzera-brugg",
+          "seller-m-f-d-20-80-1-brugg-lidl-svizzera-brugg",
+          "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-brugg-a9djgw",
+          "vendeur-m-f-j-20-80-1-brugg-lidl-svizzera-brugg"
         ],
         "en": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-lidl-svizzera-ostermundigen-4011gn",
           "seller-with-shift-responsibility-m-f-d-60-80-staad-lidl-svizzera-staad",
-          "seller-with-shift-responsibility-m-f-d-60-80-1-lidl-svizzera-bremgarten"
+          "seller-with-shift-responsibility-m-f-d-60-80-1-lidl-svizzera-bremgarten",
+          "seller-with-shift-responsibility-m-f-d-60-80-1-baden-lidl-svizzera-baden",
+          "seller-with-shift-responsibility-m-f-d-60-80-1-brugg-lidl-svizzera-brugg",
+          "seller-with-shift-responsibility-m-f-d-60-80-1-hunzenschwil-lidl-svizzera-hunzenschwil",
+          "seller-with-shift-responsibility-m-f-d-60-80-1-wettingen-lidl-svizzera-wettingen"
         ],
         "fr": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-90-lidl-svizzera-ostermundigen-4011gn",
           "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-staad-lidl-svizzera-staad",
-          "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-1-lidl-svizzera-bremgarten"
+          "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-1-lidl-svizzera-bremgarten",
+          "vendeur-responsable-du-quart-m-f-j-60-80-1-baden-lidl-svizzera-baden",
+          "vendeur-avec-responsabilite-de-quart-m-f-j-60-80-1-brugg-lidl-svizzera-brugg",
+          "vendeur-a-responsabilite-de-quart-m-f-d-60-80-1-hunzenschwil-lidl-svizzera-hunzenschwil",
+          "vendeur-avec-responsabilite-de-quart-m-f-j-60-80-1-wettingen-lidl-svizzera-wettingen"
         ],
         "de": [
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qool7y",
-          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-bremgarten-3bs1a8"
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-bremgarten-3bs1a8",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden-6kawt1",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg-y3mn4v",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-hunzenschwil-3xzvvc",
+          "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen-pbr8uj"
         ]
       },
       "previousSlugs": [
@@ -22737,7 +22778,53 @@
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-staad-qool7y",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-bremgarten-3bs1a8",
         "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-staad-lidl-svizzera-staad",
-        "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-1-lidl-svizzera-bremgarten"
+        "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-1-lidl-svizzera-bremgarten",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen",
+        "venditore-m-f-d-20-80-1-wettingen-lidl-svizzera-wettingen",
+        "seller-m-f-d-20-80-1-wettingen-lidl-svizzera-wettingen",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-wettingen-68xv5o",
+        "vendeur-m-f-j-20-80-1-wettingen-lidl-svizzera-wettingen",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-wettingen",
+        "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+        "verkaufer-verkauferin-m-w-d-20-80-lidl-svizzera-baden-dattwil-lmwduj",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg-y3mn4v",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg",
+        "venditore-m-f-d-20-80-1-brugg-lidl-svizzera-brugg",
+        "seller-m-f-d-20-80-1-brugg-lidl-svizzera-brugg",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-brugg-a9djgw",
+        "vendeur-m-f-j-20-80-1-brugg-lidl-svizzera-brugg",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-brugg",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-hunzenschwil-3xzvvc",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-hunzenschwil",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-hunzenschwil-4b6fm4",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-hunzenschwil-4b6fm4",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen-pbr8uj",
+        "seller-with-shift-responsibility-m-f-d-60-80-1-baden-lidl-svizzera-baden",
+        "seller-with-shift-responsibility-m-f-d-60-80-1-brugg-lidl-svizzera-brugg",
+        "seller-with-shift-responsibility-m-f-d-60-80-1-hunzenschwil-lidl-svizzera-hunzenschwil",
+        "seller-with-shift-responsibility-m-f-d-60-80-1-wettingen-lidl-svizzera-wettingen",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden-6kawt1",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg-y3mn4v",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-hunzenschwil-3xzvvc",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-wettingen-pbr8uj",
+        "vendeur-responsable-du-quart-m-f-j-60-80-1-baden-lidl-svizzera-baden",
+        "vendeur-avec-responsabilite-de-quart-m-f-j-60-80-1-brugg-lidl-svizzera-brugg",
+        "vendeur-a-responsabilite-de-quart-m-f-d-60-80-1-hunzenschwil-lidl-svizzera-hunzenschwil",
+        "vendeur-avec-responsabilite-de-quart-m-f-j-60-80-1-wettingen-lidl-svizzera-wettingen",
+        "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden-6kawt1",
+        "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-baden",
+        "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden",
+        "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-k3sykc",
+        "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-0fdn3z",
+        "verkaufer-verkauferin-m-w-d-20-80-1-lidl-svizzera-baden-kggziw",
+        "venditore-m-f-d-20-80-1-baden-lidl-svizzera-baden-ce36ab",
+        "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden-ce36ab",
+        "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden-ce36ab",
+        "seller-m-f-d-20-80-1-baden-lidl-svizzera-baden-6cbdda",
+        "vendeur-m-f-j-20-80-1-baden-lidl-svizzera-baden-6cbdda"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

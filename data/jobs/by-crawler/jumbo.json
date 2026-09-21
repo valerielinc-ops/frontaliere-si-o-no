@@ -12386,31 +12386,45 @@
           "• Die Kundenkontakt und die Teamarbeit bereiten dir Freude."
         ]
       },
-      "needsRetranslation": true,
       "_enrichedFromDetail": true,
       "previousSlugs": [
         "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
         "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach",
         "collaborateur-trice-vente-administration-und-kundendienst-jumbo-hinwil",
         "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-hinwil",
-        "associate-sales-administration-und-kundendienst-jumbo-hinwil"
+        "associate-sales-administration-und-kundendienst-jumbo-hinwil",
+        "vendite-amministrazione-e-servizio-clienti-jumbo-willisau",
+        "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-willisau",
+        "employee-sales-administration-and-customer-service-jumbo-willisau",
+        "employe-en-vente-administration-et-service-a-la-clientele-jumbo-willisau",
+        "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-willisau",
+        "associate-sales-administration-und-kundendienst-jumbo-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
           "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach",
-          "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-hinwil"
+          "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-hinwil",
+          "vendite-amministrazione-e-servizio-clienti-jumbo-willisau",
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-willisau",
+          "employee-sales-administration-and-customer-service-jumbo-willisau",
+          "employe-en-vente-administration-et-service-a-la-clientele-jumbo-willisau",
+          "addetto-a-alle-vendite-administration-e-kundendienst-jumbo-willisau",
+          "associate-sales-administration-und-kundendienst-jumbo-willisau"
         ],
         "de": [
-          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach"
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-freienbach",
+          "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-willisau"
         ],
         "en": [
           "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
-          "associate-sales-administration-und-kundendienst-jumbo-hinwil"
+          "associate-sales-administration-und-kundendienst-jumbo-hinwil",
+          "employee-sales-administration-and-customer-service-jumbo-willisau"
         ],
         "fr": [
           "mitarbeiter-in-verkauf-administration-und-kundendienst-jumbo-hinwil",
-          "collaborateur-trice-vente-administration-und-kundendienst-jumbo-hinwil"
+          "collaborateur-trice-vente-administration-und-kundendienst-jumbo-hinwil",
+          "employe-en-vente-administration-et-service-a-la-clientele-jumbo-willisau"
         ]
       },
       "firstSeenAt": "2026-09-01T14:16:38.745Z",
@@ -12426,7 +12440,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "jumbo-e14a4b85-5eb",

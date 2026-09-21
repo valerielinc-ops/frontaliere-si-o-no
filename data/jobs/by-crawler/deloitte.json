@@ -3727,16 +3727,32 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "manager-fsi-deal-transformation-and-post-merger-integration-advisory-deloitte-zurich",
-        "responsabile-fsi-deal-transformation-and-post-merger-integration-advisor-deloitte-zurich"
+        "responsabile-fsi-deal-transformation-and-post-merger-integration-advisor-deloitte-zurich",
+        "apprendista-ai-scientist-m-a-deal-transformation-and-post-merger-integration-advisory-deloitte-zurich",
+        "trainee-ai-scientist-m-a-deal-transformation-and-post-merger-integration-advisory-deloitte",
+        "auszubildender-ai-scientist-m-a-deal-transformation-and-post-merger-integration-advisory-deloitte-zurich",
+        "apprenti-ai-scientist-m-a-deal-transformation-and-post-merger-integration-advisory-deloitte-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "manager-fsi-deal-transformation-and-post-merger-integration-advisory-deloitte-zurich",
-          "responsabile-fsi-deal-transformation-and-post-merger-integration-advisor-deloitte-zurich"
+          "responsabile-fsi-deal-transformation-and-post-merger-integration-advisor-deloitte-zurich",
+          "apprendista-ai-scientist-m-a-deal-transformation-and-post-merger-integration-advisory-deloitte-zurich",
+          "trainee-ai-scientist-m-a-deal-transformation-and-post-merger-integration-advisory-deloitte",
+          "auszubildender-ai-scientist-m-a-deal-transformation-and-post-merger-integration-advisory-deloitte-zurich",
+          "apprenti-ai-scientist-m-a-deal-transformation-and-post-merger-integration-advisory-deloitte-zurich"
+        ],
+        "en": [
+          "trainee-ai-scientist-m-a-deal-transformation-and-post-merger-integration-advisory-deloitte"
+        ],
+        "de": [
+          "auszubildender-ai-scientist-m-a-deal-transformation-and-post-merger-integration-advisory-deloitte-zurich"
+        ],
+        "fr": [
+          "apprenti-ai-scientist-m-a-deal-transformation-and-post-merger-integration-advisory-deloitte-zurich"
         ]
       },
       "firstSeenAt": "2026-08-11T10:27:26.275Z",
-      "needsRetranslation": true,
       "salaryMin": 113000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -3749,7 +3765,8 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "deloitte-a5edbd64f7f3",

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "coop-ticino",
-  "assembledAt": "2026-09-21T16:32:28.997Z",
+  "assembledAt": "2026-09-21T15:11:18.530Z",
   "jobs": [
     {
       "id": "company-i46ete",
@@ -6085,6 +6085,8 @@
       "addressLocality": "Bern",
       "sourceLang": "de",
       "addressRegion": "BE",
+      "salaryMin": 68500,
+      "salaryMax": 104000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -6110,7 +6112,8 @@
           "verkaufer-in-food-coop-genossenschaft-bern-vw990a",
           "verkaufer-in-food-kiosk-coop-genossenschaft-bern",
           "verkaufer-in-food-coop-genossenschaft-bern",
-          "verkaufer-in-food-coop-bern-3"
+          "verkaufer-in-food-coop-bern-3",
+          "verkaufer-in-food-coop-genossenschaft-wohlen-bei-bern"
         ],
         "en": [
           "verkaufer-in-food-coop-bern-826093",
@@ -6137,11 +6140,10 @@
         "verkaufer-in-food-coop-genossenschaft-bern-vw990a",
         "verkaufer-in-food-kiosk-coop-genossenschaft-bern",
         "verkaufer-in-food-coop-genossenschaft-bern",
-        "verkaufer-in-food-coop-bern-3"
+        "verkaufer-in-food-coop-bern-3",
+        "verkaufer-in-food-coop-genossenschaft-wohlen-bei-bern"
       ],
-      "needsRetranslation": true,
-      "salaryMin": 68500,
-      "salaryMax": 104000
+      "needsRetranslation": true
     },
     {
       "id": "company-154n73",
@@ -13484,6 +13486,8 @@
       "addressLocality": "Crissier",
       "sourceLang": "fr",
       "addressRegion": "VD",
+      "salaryMin": 60500,
+      "salaryMax": 91500,
       "salarySource": "reported",
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -13497,14 +13501,38 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier"
+          "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier",
+          "capo-dipartimento-caisses-servizi-m-f-d-coop-genossenschaft-crissier",
+          "deputy-head-of-department-caisses-services-m-f-d-coop-genossenschaft-crissier",
+          "stellvertretender-leiter-der-abteilung-caisses-services-m-w-d-coop-genossenschaft-crissier",
+          "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier",
+          "adjoint-e-cheffe-chef-de-rayon-caisses-services-m-w-d-coop-crissier",
+          "adjoint-e-cheffe-chef-de-rayon-caisses-services-m-w-d-coop-crissier-i9os2v",
+          "adjoint-e-cheffe-chef-de-rayon-caisses-services-m-w-d-coop-genossenschaft-crissier"
+        ],
+        "en": [
+          "deputy-head-of-department-caisses-services-m-f-d-coop-genossenschaft-crissier"
+        ],
+        "de": [
+          "stellvertretender-leiter-der-abteilung-caisses-services-m-w-d-coop-genossenschaft-crissier"
+        ],
+        "fr": [
+          "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier",
+          "adjoint-e-cheffe-chef-de-rayon-caisses-services-m-w-d-coop-crissier",
+          "adjoint-e-cheffe-chef-de-rayon-caisses-services-m-w-d-coop-crissier-i9os2v",
+          "adjoint-e-cheffe-chef-de-rayon-caisses-services-m-w-d-coop-genossenschaft-crissier"
         ]
       },
       "previousSlugs": [
-        "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier"
-      ],
-      "salaryMin": 60500,
-      "salaryMax": 91500
+        "cheffe-chef-de-rayon-caisse-services-m-w-d-coop-crissier",
+        "capo-dipartimento-caisses-servizi-m-f-d-coop-genossenschaft-crissier",
+        "deputy-head-of-department-caisses-services-m-f-d-coop-genossenschaft-crissier",
+        "stellvertretender-leiter-der-abteilung-caisses-services-m-w-d-coop-genossenschaft-crissier",
+        "adjoint-e-cheffe-chef-de-rayon-caisses-services-f-h-d-coop-genossenschaft-crissier",
+        "adjoint-e-cheffe-chef-de-rayon-caisses-services-m-w-d-coop-crissier",
+        "adjoint-e-cheffe-chef-de-rayon-caisses-services-m-w-d-coop-crissier-i9os2v",
+        "adjoint-e-cheffe-chef-de-rayon-caisses-services-m-w-d-coop-genossenschaft-crissier"
+      ]
     },
     {
       "id": "company-wjsast",
@@ -33244,23 +33272,38 @@
         "it": [
           "verkaufer-in-food-coop-winterthur-zurich-n1wbez",
           "verkaufer-in-food-coop-winterthur-zurich",
-          "verkaufer-in-food-coop-winterthur-zurich-2-2"
+          "verkaufer-in-food-coop-winterthur-zurich-2-2",
+          "seller-in-food-coop-genossenschaft-winterthur-wpc84q",
+          "venditore-in-food-coop-genossenschaft-winterthur",
+          "verkaufer-in-food-coop-winterthur-zurich-2hcfdj",
+          "seller-in-food-coop-genossenschaft-winterthur",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-winterthur"
         ],
         "en": [
-          "verkaufer-in-food-coop-winterthur-zurich-n1wbez"
+          "verkaufer-in-food-coop-winterthur-zurich-n1wbez",
+          "seller-in-food-coop-genossenschaft-winterthur"
         ],
         "fr": [
-          "verkaufer-in-food-coop-winterthur-zurich-n1wbez"
+          "verkaufer-in-food-coop-winterthur-zurich-n1wbez",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-winterthur"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-winterthur-zurich-2hcfdj"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-winterthur-zurich-n1wbez",
         "verkaufer-in-food-coop-winterthur-zurich",
-        "verkaufer-in-food-coop-winterthur-zurich-2-2"
+        "verkaufer-in-food-coop-winterthur-zurich-2-2",
+        "seller-in-food-coop-genossenschaft-winterthur-wpc84q",
+        "venditore-in-food-coop-genossenschaft-winterthur",
+        "verkaufer-in-food-coop-winterthur-zurich-2hcfdj",
+        "seller-in-food-coop-genossenschaft-winterthur",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-winterthur"
       ],
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-kq69eh",
@@ -35771,18 +35814,25 @@
           "addetto-a-alle-vendite-food-coop-genossenschaft-thun-bern",
           "verkaufer-in-food-coop-city-thun-bern",
           "vendeur-vendeuse-de-produits-alimentaires-coop-genossenschaft-bern",
-          "verkaufer-in-food-coop-thun-bern-2-2"
+          "verkaufer-in-food-coop-thun-bern-2-2",
+          "addetto-a-alle-vendite-food-coop-genossenschaft-thun",
+          "verkaufer-in-food-coop-thun-bern-awtob4",
+          "sales-assistant-food-coop-genossenschaft-thun-93s6a1",
+          "vendeur-euse-food-coop-genossenschaft-thun-93s6a1"
         ],
         "en": [
           "verkaufer-in-food-coop-thun-bern-cpx28m",
-          "food-sales-associate-coop-genossenschaft-thun-bern"
+          "food-sales-associate-coop-genossenschaft-thun-bern",
+          "sales-assistant-food-coop-genossenschaft-thun-93s6a1"
         ],
         "de": [
-          "verkaufer-in-food-coop-city-thun-bern-50u05m"
+          "verkaufer-in-food-coop-city-thun-bern-50u05m",
+          "verkaufer-in-food-coop-thun-bern-awtob4"
         ],
         "fr": [
           "verkaufer-in-food-coop-thun-bern-cpx28m",
-          "vendeur-vendeuse-produits-alimentaires-coop-genossenschaft-thun-bern"
+          "vendeur-vendeuse-produits-alimentaires-coop-genossenschaft-thun-bern",
+          "vendeur-euse-food-coop-genossenschaft-thun-93s6a1"
         ]
       },
       "previousSlugs": [
@@ -35794,12 +35844,16 @@
         "food-sales-associate-coop-genossenschaft-thun-bern",
         "verkaufer-in-food-coop-city-thun-bern-50u05m",
         "vendeur-vendeuse-produits-alimentaires-coop-genossenschaft-thun-bern",
-        "verkaufer-in-food-coop-thun-bern-2-2"
+        "verkaufer-in-food-coop-thun-bern-2-2",
+        "addetto-a-alle-vendite-food-coop-genossenschaft-thun",
+        "verkaufer-in-food-coop-thun-bern-awtob4",
+        "sales-assistant-food-coop-genossenschaft-thun-93s6a1",
+        "vendeur-euse-food-coop-genossenschaft-thun-93s6a1"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/4f5b704a-305c-4202-a8e7-19324be6ded5",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-6w13q3",
@@ -46452,7 +46506,8 @@
           "kochin-koch-m-w-d-coop-genossenschaft-saanen-bern",
           "chef-chef-m-f-d-coop-genossenschaft-saanen",
           "cuisinier-cuisiniere-m-f-d-coop-genossenschaft-saanen",
-          "kochin-koch-m-w-d-coop-ristorante-saanen-bern"
+          "kochin-koch-m-w-d-coop-ristorante-saanen-bern",
+          "boucher-et-chef-h-f-d-coop-genossenschaft-bern"
         ],
         "en": [
           "chef-chef-m-f-d-coop-genossenschaft-aarberg-bern",
@@ -46485,12 +46540,13 @@
         "kochin-koch-m-w-d-coop-genossenschaft-saanen-bern",
         "chef-chef-m-f-d-coop-genossenschaft-saanen",
         "cuisinier-cuisiniere-m-f-d-coop-genossenschaft-saanen",
-        "kochin-koch-m-w-d-coop-ristorante-saanen-bern"
+        "kochin-koch-m-w-d-coop-ristorante-saanen-bern",
+        "boucher-et-chef-h-f-d-coop-genossenschaft-bern"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/koechin-koch-w-m-d/42353a0d-03d7-43c0-aebb-96fea9cd7aef",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-kijt7e",
@@ -68161,23 +68217,36 @@
       "previousSlugsByLocale": {
         "it": [
           "stv-geschaftsfuhrer-in-brienz-coop-brienz-bern-d7foy1",
-          "stv-geschaftsfuhrer-in-brienz-coop-brienz-bern"
+          "stv-geschaftsfuhrer-in-brienz-coop-brienz-bern",
+          "2-stv-amministratore-delegato-in-coop-genossenschaft-munchenbuchsee",
+          "2-stv-managing-director-in-coop-genossenschaft-munchenbuchsee",
+          "2-stv-geschaftsfuhrer-in-coop-munchenbuchsee-bern-1oebpr",
+          "2-stv-administrateur-delegue-in-coop-genossenschaft-munchenbuchsee"
         ],
         "en": [
-          "stv-geschaftsfuhrer-in-brienz-coop-brienz-bern-d7foy1"
+          "stv-geschaftsfuhrer-in-brienz-coop-brienz-bern-d7foy1",
+          "2-stv-managing-director-in-coop-genossenschaft-munchenbuchsee"
         ],
         "fr": [
-          "stv-geschaftsfuhrer-in-brienz-coop-brienz-bern-d7foy1"
+          "stv-geschaftsfuhrer-in-brienz-coop-brienz-bern-d7foy1",
+          "2-stv-administrateur-delegue-in-coop-genossenschaft-munchenbuchsee"
+        ],
+        "de": [
+          "2-stv-geschaftsfuhrer-in-coop-munchenbuchsee-bern-1oebpr"
         ]
       },
       "previousSlugs": [
         "stv-geschaftsfuhrer-in-brienz-coop-brienz-bern-d7foy1",
-        "stv-geschaftsfuhrer-in-brienz-coop-brienz-bern"
+        "stv-geschaftsfuhrer-in-brienz-coop-brienz-bern",
+        "2-stv-amministratore-delegato-in-coop-genossenschaft-munchenbuchsee",
+        "2-stv-managing-director-in-coop-genossenschaft-munchenbuchsee",
+        "2-stv-geschaftsfuhrer-in-coop-munchenbuchsee-bern-1oebpr",
+        "2-stv-administrateur-delegue-in-coop-genossenschaft-munchenbuchsee"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/stv-geschaeftsfuehrer-in-brienz/581e4b27-ab20-43f5-a671-cf740da19984",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-1xwtgq",
@@ -68926,7 +68995,9 @@
           "vendeur-dans-la-nourriture-coop-genossenschaft-basel-3cc50c",
           "verkaufer-in-food-coop-genossenschaft-basel-landschaft",
           "venditore-in-food-coop-genossenschaft-basel-89619b",
-          "seller-in-food-drinks-coop-genossenschaft-basel-basel-stadt-855602"
+          "seller-in-food-drinks-coop-genossenschaft-basel-basel-stadt-855602",
+          "seller-in-food-coop-genossenschaft-basel-86b2ac",
+          "vendita-in-alimenti-coop-genossenschaft-basel"
         ],
         "en": [
           "verkaufer-in-food-coop-basel-stadt-i1etnr",
@@ -68934,14 +69005,16 @@
           "seller-seller-food-post-for-student-m-f-d-coop-genossenschaft-basel",
           "seller-in-food-coop-genossenschaft-basel-basel-stadt",
           "verkaufer-in-food-coop-genossenschaft-basel-4tso92",
-          "seller-in-food-coop-genossenschaft-basel-89619b"
+          "seller-in-food-coop-genossenschaft-basel-89619b",
+          "seller-in-food-coop-genossenschaft-basel-dm8m1m"
         ],
         "de": [
           "verkaufer-verkaufer-lebensmittel-m-w-d-coop-genossenschaft-basel",
           "verkaufer-verkaufer-essen-post-fur-schuler-m-w-d-coop-genossenschaft-basel",
           "verkaufer-in-food-coop-city-basel-stadt-nc8s7t",
           "verkaufer-in-food-coop-basel-stadt-4tso92",
-          "verkaufer-in-food-coop-basel-landschaft-qkonfk"
+          "verkaufer-in-food-coop-basel-landschaft-qkonfk",
+          "verkaufer-in-food-coop-city-basel-stadt-dm8m1m"
         ],
         "fr": [
           "verkaufer-in-food-coop-basel-stadt-i1etnr",
@@ -68949,7 +69022,8 @@
           "vendeuse-vendeur-food-poste-pour-etudiant-e-m-w-d-coop-basel-x8ga2y",
           "vendeur-dans-la-nourriture-coop-genossenschaft-basel-basel-stadt",
           "vendeur-dans-la-nourriture-coop-genossenschaft-basel-89619b",
-          "produits-alimentaires-vendus-coop-genossenschaft-basel"
+          "produits-alimentaires-vendus-coop-genossenschaft-basel",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-basel-dm8m1m"
         ]
       },
       "previousSlugs": [
@@ -69018,7 +69092,12 @@
         "seller-in-food-coop-genossenschaft-basel-89619b",
         "verkaufer-in-food-coop-basel-landschaft-qkonfk",
         "vendeur-dans-la-nourriture-coop-genossenschaft-basel-89619b",
-        "produits-alimentaires-vendus-coop-genossenschaft-basel"
+        "produits-alimentaires-vendus-coop-genossenschaft-basel",
+        "seller-in-food-coop-genossenschaft-basel-86b2ac",
+        "vendita-in-alimenti-coop-genossenschaft-basel",
+        "seller-in-food-coop-genossenschaft-basel-dm8m1m",
+        "verkaufer-in-food-coop-city-basel-stadt-dm8m1m",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-basel-dm8m1m"
       ],
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/722ca88a-127d-4b37-921d-d87a5b5969c9",
       "salaryMin": 62000,
@@ -87691,18 +87770,33 @@
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-arlesheim-basel-landschaft",
-        "verkaufer-in-food-coop-arlesheim-basel-landschaft-tao51r"
+        "verkaufer-in-food-coop-arlesheim-basel-landschaft-tao51r",
+        "venditore-food-coop-genossenschaft-arlesheim",
+        "venditore-in-food-coop-genossenschaft-arlesheim",
+        "verkaufer-in-food-coop-genossenschaft-arlesheim-solothurn-sn9ty5",
+        "salesman-in-food-coop-genossenschaft-arlesheim-sn9ty5",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-arlesheim-sn9ty5"
       ],
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-arlesheim-basel-landschaft",
-          "verkaufer-in-food-coop-arlesheim-basel-landschaft-tao51r"
+          "verkaufer-in-food-coop-arlesheim-basel-landschaft-tao51r",
+          "venditore-food-coop-genossenschaft-arlesheim",
+          "venditore-in-food-coop-genossenschaft-arlesheim",
+          "verkaufer-in-food-coop-genossenschaft-arlesheim-solothurn-sn9ty5",
+          "salesman-in-food-coop-genossenschaft-arlesheim-sn9ty5",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-arlesheim-sn9ty5"
         ],
         "en": [
-          "verkaufer-in-food-coop-arlesheim-basel-landschaft-tao51r"
+          "verkaufer-in-food-coop-arlesheim-basel-landschaft-tao51r",
+          "salesman-in-food-coop-genossenschaft-arlesheim-sn9ty5"
         ],
         "fr": [
-          "verkaufer-in-food-coop-arlesheim-basel-landschaft-tao51r"
+          "verkaufer-in-food-coop-arlesheim-basel-landschaft-tao51r",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-arlesheim-sn9ty5"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-genossenschaft-arlesheim-solothurn-sn9ty5"
         ]
       },
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/009334a4-af9e-4e1e-9008-b3ecc3375a6f",
@@ -99838,21 +99932,29 @@
           "verkaufer-dans-les-aliments-coop-genossenschaft-schonenwerd",
           "salesman-in-food-coop-genossenschaft-schonenwerd",
           "verkaufer-in-food-coop-genossenschaft-schonenwerd-solothurn",
-          "verkaufer-in-food-coop-schonenwerd-solothurn-2mxmla"
+          "verkaufer-in-food-coop-schonenwerd-solothurn-2mxmla",
+          "venditore-food-coop-genossenschaft-solothurn",
+          "venditore-in-food-coop-genossenschaft-solothurn",
+          "verkaufer-in-food-coop-solothurn-3kgfz4",
+          "seller-in-food-coop-genossenschaft-solothurn",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-solothurn"
         ],
         "en": [
           "salesman-in-food-coop-genossenschaft-schonenwerd-xjylxr",
           "seller-in-food-coop-genossenschaft-schonenwerd",
-          "verkaufer-in-food-coop-schonenwerd-solothurn-2mxmla"
+          "verkaufer-in-food-coop-schonenwerd-solothurn-2mxmla",
+          "seller-in-food-coop-genossenschaft-solothurn"
         ],
         "de": [
           "verkaufer-in-food-coop-genossenschaft-schonenwerd-solothurn-xjylxr",
-          "verkaufer-in-food-coop-schonenwerd-solothurn-wjnt9x"
+          "verkaufer-in-food-coop-schonenwerd-solothurn-wjnt9x",
+          "verkaufer-in-food-coop-solothurn-3kgfz4"
         ],
         "fr": [
           "vendeur-dans-la-nourriture-coop-genossenschaft-schonenwerd-xjylxr",
           "vendeur-dans-la-nourriture-coop-genossenschaft-schonenwerd",
-          "verkaufer-in-food-coop-schonenwerd-solothurn-2mxmla"
+          "verkaufer-in-food-coop-schonenwerd-solothurn-2mxmla",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-solothurn"
         ]
       },
       "previousSlugs": [
@@ -99869,7 +99971,12 @@
         "verkaufer-dans-les-aliments-coop-genossenschaft-schonenwerd",
         "salesman-in-food-coop-genossenschaft-schonenwerd",
         "verkaufer-in-food-coop-genossenschaft-schonenwerd-solothurn",
-        "verkaufer-in-food-coop-schonenwerd-solothurn-2mxmla"
+        "verkaufer-in-food-coop-schonenwerd-solothurn-2mxmla",
+        "venditore-food-coop-genossenschaft-solothurn",
+        "venditore-in-food-coop-genossenschaft-solothurn",
+        "verkaufer-in-food-coop-solothurn-3kgfz4",
+        "seller-in-food-coop-genossenschaft-solothurn",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-solothurn"
       ],
       "salarySource": "estimated",
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/verkaeufer-in-food/0c07de74-7d46-4ae2-80c8-8463877eed71",

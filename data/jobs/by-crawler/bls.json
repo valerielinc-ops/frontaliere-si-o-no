@@ -672,7 +672,12 @@
         "polymechaniker-in-bls-ag-bonigen",
         "polimeccanico-in-bls-ag-bonigen",
         "polymechanic-in-bls-ag-bonigen",
-        "meccanica-bls-ag-bonigen"
+        "meccanica-bls-ag-bonigen",
+        "meccanica-specialistica-bls-ag-bonigen",
+        "specialist-mechanics-bls-ag-bonigen",
+        "fachperson-mechanik-bls-ch",
+        "mecanique-specialisee-bls-ag-bonigen",
+        "fachperson-mechanik-bls-ag-bonigen"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -680,20 +685,28 @@
           "fachperson-fahrmotoren-bls-ch",
           "polymechaniker-in-bls-ag-bonigen",
           "polimeccanico-in-bls-ag-bonigen",
-          "meccanica-bls-ag-bonigen"
+          "meccanica-bls-ag-bonigen",
+          "meccanica-specialistica-bls-ag-bonigen",
+          "specialist-mechanics-bls-ag-bonigen",
+          "fachperson-mechanik-bls-ch",
+          "mecanique-specialisee-bls-ag-bonigen",
+          "fachperson-mechanik-bls-ag-bonigen"
         ],
         "en": [
           "fachperson-fahrmotoren-bls-ch",
           "polymechaniker-in-bls-ag-bonigen",
-          "polymechanic-in-bls-ag-bonigen"
+          "polymechanic-in-bls-ag-bonigen",
+          "specialist-mechanics-bls-ag-bonigen"
         ],
         "de": [
           "fachperson-fahrmotoren-bls-ag-bonigen",
-          "fachperson-fahrmotoren-bls-ch"
+          "fachperson-fahrmotoren-bls-ch",
+          "fachperson-mechanik-bls-ch"
         ],
         "fr": [
           "fachperson-fahrmotoren-bls-ch",
-          "polymechaniker-in-bls-ag-bonigen"
+          "polymechaniker-in-bls-ag-bonigen",
+          "mecanique-specialisee-bls-ag-bonigen"
         ]
       },
       "firstSeenAt": "2026-08-25T10:08:59.050Z",
