@@ -1,21 +1,21 @@
 {
   "key": "zermatt-bergbahnen",
   "label": "Zermatt Bergbahnen",
-  "generatedAt": "2026-09-19T23:05:51.316Z",
+  "generatedAt": "2026-09-21T16:13:34.780Z",
   "total": 4,
   "discovered": null,
-  "parsed": 4,
+  "parsed": 3,
   "lastFetchOutcome": null,
   "written": 4,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5484,
-  "avgDurationMs": 5484,
+  "unchangedCount": 1,
+  "durationMs": 4117,
+  "avgDurationMs": 4117,
   "durationHistory": [
-    5484
+    4117
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,7 +44,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/mitarbeitende-r-unterhalt-revision-gletscherlifte_job_3001261",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:05:42.045Z",
+      "crawledAt": "2026-09-21T16:13:25.545Z",
       "firstSeenAt": "2026-08-31T17:33:46.526Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -79,7 +79,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-seilbahn-mechatroniker-in-efz-seilbahner-in-eba_job_3704876",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:05:42.633Z",
+      "crawledAt": "2026-09-21T16:13:26.205Z",
       "needsRetranslation": false,
       "firstSeenAt": "2026-08-27T00:53:03.706Z",
       "_qualityScore": 85,
@@ -115,7 +115,7 @@
       "applyUrl": "https://www.matterhornparadise.ch/de/ueber-uns/job-und-karriere/lehrstelle-informatiker-in-efz_job_3706844",
       "source": "Zermatt Bergbahnen Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:05:43.227Z",
+      "crawledAt": "2026-09-21T16:13:26.767Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:53:04.281Z",
       "_qualityScore": 85,
@@ -125,10 +125,13 @@
         "translation": 25,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "zermatt-bergbahnen-51636c8a52d4",
-      "slug": "sachbearbeiter-in-lohnbuchhaltung-zermatt-zermatt-bergbahnen",
+      "slug": "addetto-alla-contabilita-delle-buste-paga-zermatt-bergbahnen-zermatt",
       "company": "Zermatt Bergbahnen",
       "companyKey": "zermatt-bergbahnen",
       "companyDomain": "matterhornparadise.ch",
@@ -153,15 +156,18 @@
       "sourceLang": "de",
       "crawledAt": "2026-09-19T23:05:43.797Z",
       "firstSeenAt": "2026-08-27T00:53:04.855Z",
-      "_qualityScore": 87,
+      "salaryMin": 104500,
+      "salaryMax": 183500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
-        "richness": 20,
+        "richness": 24,
         "translation": 25,
-        "completeness": 17
+        "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
