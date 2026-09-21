@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-21T10:55:17.144Z",
+  "updatedAt": "2026-09-21T10:55:39.031Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -319921,12 +319921,12 @@
     },
     "grischa-personal@thusis": {
       "key": "grischa-personal@thusis",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:27:46.954Z",
-      "updatedAt": "2026-09-21T10:53:16.123Z",
+      "updatedAt": "2026-09-21T10:55:39.009Z",
       "name": "Grischa Personal AG",
       "city": "Thusis",
       "zip": "7430",
@@ -319996,7 +319996,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "9452",
+      "promotionBranch": "prospector/promote-2026-09-21"
     },
     "grischa-plast-kunststofftechnik@maienfeld": {
       "key": "grischa-plast-kunststofftechnik@maienfeld",
@@ -823482,12 +823484,12 @@
     },
     "yellowshark@zurich": {
       "key": "yellowshark@zurich",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:27:46.957Z",
-      "updatedAt": "2026-09-21T10:54:29.444Z",
+      "updatedAt": "2026-09-21T10:55:39.009Z",
       "name": "yellowshark AG",
       "city": "Zürich",
       "zip": "8048",
@@ -823556,7 +823558,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "9452",
+      "promotionBranch": "prospector/promote-2026-09-21"
     },
     "yenikasap.com": {
       "key": "yenikasap.com",
@@ -891127,12 +891131,12 @@
     },
     "bellevue-parkhotel.ch": {
       "key": "bellevue-parkhotel.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-18T08:22:19.726Z",
-      "updatedAt": "2026-09-21T09:05:52.707Z",
+      "updatedAt": "2026-09-21T10:55:39.009Z",
       "name": "Bellevue Parkhotel & Spa",
       "city": "Adelboden",
       "zip": "3715",
@@ -891201,7 +891205,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "9452",
+      "promotionBranch": "prospector/promote-2026-09-21"
     },
     "diamond-nails-beauty@langenthal": {
       "key": "diamond-nails-beauty@langenthal",
