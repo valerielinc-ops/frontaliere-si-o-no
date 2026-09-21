@@ -107,13 +107,22 @@ export interface AssistedApplicationVariantResult {
 export function useAssistedApplicationVariant(enabled = true): AssistedApplicationVariantResult {
   const [variant, setVariant] = useState<AssistedApplicationVariant>(enabled ? 'control' : 'rewarded_ad');
   const [ready, setReady] = useState(!enabled);
+  const [assignmentEnabled, setAssignmentEnabled] = useState(enabled);
 
   useEffect(() => {
     if (!enabled) {
       setVariant('rewarded_ad');
       setReady(true);
+      setAssignmentEnabled(false);
       return undefined;
     }
+
+    // A route transition can leave the previous route-only rewarded arm in
+    // state for one render. Reset before Remote Config resolves so a
+    // non-Ticino surface never exposes a stale rewarded treatment.
+    setVariant('control');
+    setReady(false);
+    setAssignmentEnabled(true);
 
     let lastAssignment = '';
     let cancelled = false;
@@ -145,7 +154,16 @@ export function useAssistedApplicationVariant(enabled = true): AssistedApplicati
     };
   }, [enabled]);
 
-  return { experimentId: ASSISTED_APPLICATION_EXPERIMENT_ID, variant, ready };
+  // Render the safe transition state immediately, before the effect above has
+  // committed its reset after an enabled/disabled route change.
+  const effectiveVariant = assignmentEnabled === enabled
+    ? variant
+    : enabled
+      ? 'control'
+      : 'rewarded_ad';
+  const effectiveReady = assignmentEnabled === enabled ? ready : !enabled;
+
+  return { experimentId: ASSISTED_APPLICATION_EXPERIMENT_ID, variant: effectiveVariant, ready: effectiveReady };
 }
 
 export interface AssistedApplicationEventContext {

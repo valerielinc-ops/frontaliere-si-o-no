@@ -1,6 +1,7 @@
 import { Fragment, useEffect, useMemo, useState } from 'react';
 import { ArrowUpRight, Check, Shield } from 'lucide-react';
 import GptRewardedAd from '@/components/shared/GptRewardedAd';
+import { useKillSwitches } from '@/hooks/useKillSwitches';
 import { trackAssistedApplicationEvent } from '@/services/assistedApplicationExperiment';
 import { grantRewardedApplicationAccess } from '@/services/rewardedApplicationAccess';
 import {
@@ -15,6 +16,7 @@ function readHandoffToken(): string | null {
 }
 
 export default function RewardedApplicationPage() {
+  const killSwitches = useKillSwitches();
   const handoff = useMemo<RewardedApplicationHandoff | null>(
     () => readRewardedApplicationHandoff(readHandoffToken()),
     [],
@@ -102,6 +104,7 @@ export default function RewardedApplicationPage() {
         <div className="mt-5">
           <Fragment key={adAttempt}>
             <GptRewardedAd
+              enabled={!killSwitches.rewardedApplicationAd}
               label="Guarda il video e continua"
               loadingLabel="Preparo il video…"
               unavailableLabel="Il video non è disponibile in questo momento."

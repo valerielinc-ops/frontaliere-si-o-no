@@ -38,9 +38,10 @@ describe('OFFERWALL_FC_SNIPPET — custom choice', () => {
 });
 
 describe('OFFERWALL_FC_SNIPPET — Funding Choices messaging loader', () => {
-  it('filters the native Offerwall because the job flow uses direct GPT Rewarded Web', () => {
+  it('filters the native Offerwall only on the Italian job board', () => {
     expect(OFFERWALL_FC_SNIPPET).toContain('message.proceed(false,[E.OFFERWALL])');
-    expect(OFFERWALL_FC_SNIPPET).not.toContain('isJobBoard');
+    expect(OFFERWALL_FC_SNIPPET).toContain('isItalianJobBoard');
+    expect(OFFERWALL_FC_SNIPPET).toContain('message.proceed(true)');
   });
 
   it('injects the publisher-id messaging loader (not the network-code one)', () => {

@@ -26,6 +26,10 @@ vi.mock('@/services/rewardedApplicationAccess', () => ({
   grantRewardedApplicationAccess: vi.fn(() => Date.now() + 12 * 60 * 60 * 1000),
 }));
 
+vi.mock('@/hooks/useKillSwitches', () => ({
+  useKillSwitches: () => ({ rewardedApplicationAd: false }),
+}));
+
 import RewardedApplicationPage from '@/components/community/RewardedApplicationPage';
 
 describe('RewardedApplicationPage', () => {

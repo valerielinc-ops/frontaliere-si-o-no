@@ -516,9 +516,11 @@
         if (g.controlledMessagingFunction) return;
         g.controlledMessagingFunction = function(message){
           var E = g.MessageTypeEnum || {};
+          var p = window.location && window.location.pathname || '';
+          var isItalianJobBoard = /^\/cerca-lavoro-ticino(?:\/|$)/.test(p);
           // Fail open if the enum is unavailable: never block the consent CMP
           // because an older Funding Choices runtime lacks Offerwall filtering.
-          if (E.OFFERWALL === undefined) {
+          if (!isItalianJobBoard || E.OFFERWALL === undefined) {
             message.proceed(true);
             return;
           }

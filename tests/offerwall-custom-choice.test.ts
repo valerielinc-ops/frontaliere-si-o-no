@@ -42,16 +42,17 @@ describe('Offerwall custom-choice registry — globally disabled', () => {
 });
 
 describe('Offerwall controlled messaging — direct Rewarded Web flow', () => {
-  it('filters native page-level Offerwall so GPT owns the rewarded flow', () => {
+  it('filters native page-level Offerwall only on the Italian job board', () => {
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('controlledMessagingFunction');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain(
       'message.proceed(false, [E.OFFERWALL])',
     );
-    expect(CONTROLLED_MESSAGING_BLOCK).not.toContain('isJobBoard');
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('isItalianJobBoard');
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('message.proceed(true)');
   });
 
   it('fails open when the Funding Choices enum is unavailable', () => {
-    expect(CONTROLLED_MESSAGING_BLOCK).toContain('if (E.OFFERWALL === undefined)');
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('E.OFFERWALL === undefined');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('message.proceed(true)');
   });
 

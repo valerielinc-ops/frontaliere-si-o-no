@@ -49,5 +49,6 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource).toMatch(
       /const assistedApplicationVariant = alwaysRewardedApplicationSurface[\s\S]*'rewarded_ad'/,
     );
+    expect(jobBoardSource).toContain('killSwitches.rewardedApplicationAd');
   });
 });

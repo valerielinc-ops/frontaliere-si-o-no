@@ -2285,13 +2285,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const { t } = useTranslation();
  const [locale] = useLocale();
  const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+ const killSwitches = useKillSwitches();
  const alwaysRewardedApplicationSurface = isAlwaysRewardedApplicationSurface();
  const {
   variant: configuredAssistedApplicationVariant,
   ready: configuredAssistedApplicationVariantReady,
  } = useAssistedApplicationVariant(!alwaysRewardedApplicationSurface);
  const assistedApplicationVariant = alwaysRewardedApplicationSurface
-  ? 'rewarded_ad'
+  ? (killSwitches.rewardedApplicationAd ? 'control' : 'rewarded_ad')
   : configuredAssistedApplicationVariant;
  const assistedApplicationVariantReady = alwaysRewardedApplicationSurface
   || configuredAssistedApplicationVariantReady;
@@ -2302,7 +2303,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const pageSize = 10;
  // Runtime kill-switches for the "Strumenti correlati" sidebar cross-links.
  // Toggle via Firebase Remote Config — each `<li>` respects its own flag.
- const killSwitches = useKillSwitches();
  const adExperimentActive = !killSwitches.adInfeedExperiment;
  const adExperimentVariant = isInfeedAdExperimentSurface(initialFilterCanton)
  ? resolveInfeedAdVariant(initialFilterCanton, { active: adExperimentActive })

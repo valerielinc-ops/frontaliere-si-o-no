@@ -82,6 +82,20 @@ describe('assisted application Remote Config assignment', () => {
     expect(['control', 'assisted_application']).toContain(result.current.variant);
     expect(getConfigValueMock).toHaveBeenCalledWith(ASSISTED_APPLICATION_EXPERIMENT_RC_KEY);
   });
+
+  it('resets a route-only rewarded arm before assigning a newly enabled surface', async () => {
+    const { result, rerender } = renderHook(
+      ({ enabled }: { enabled: boolean }) => useAssistedApplicationVariant(enabled),
+      { initialProps: { enabled: false } },
+    );
+
+    expect(result.current).toMatchObject({ variant: 'rewarded_ad', ready: true });
+    rerender({ enabled: true });
+
+    expect(result.current).toMatchObject({ variant: 'control', ready: false });
+    await waitFor(() => expect(result.current.ready).toBe(true));
+    expect(result.current.variant).not.toBe('rewarded_ad');
+  });
 });
 
 describe('assisted application funnel events', () => {
