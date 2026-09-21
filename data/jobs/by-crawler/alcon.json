@@ -4,9 +4,9 @@
   "jobs": [
     {
       "id": "alcon-f6ce134cf7f1",
-      "slug": "professional-education-development-manager-m-w-d-vision-care-dach-alcon-ch",
+      "slug": "responsabile-formazione-professionale-e-sviluppo-m-f-d-vision-care-dach-alcon-fribourg",
       "slugByLocale": {
-        "it": "professional-education-development-manager-m-w-d-vision-care-dach-alcon-ch",
+        "it": "responsabile-formazione-professionale-e-sviluppo-m-f-d-vision-care-dach-alcon-fribourg",
         "en": "professional-education-development-manager-m-w-d-vision-care-dach-alcon-ch",
         "de": "professional-education-development-manager-m-w-d-vision-care-dach-alcon-ch",
         "fr": "gestionnaire-de-formation-professionnelle-et-de-developpement-h-f-d-vision-care-dach-alcon-fribourg"
@@ -65,7 +65,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "professional-education-development-manager-m-w-d-vision-care-dach-alcon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "professional-education-development-manager-m-w-d-vision-care-dach-alcon-ch"
+      ]
     },
     {
       "id": "alcon-7e8db3a81169",
@@ -116,13 +124,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-2026-49365",
       "previousSlugs": [
-        "manager-accounting-reporting-alcon-ch",
-        "gestione-contabilita-e-reporting-alcon-fribourg"
+        "manager-accounting-reporting-alcon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-accounting-reporting-alcon-ch",
-          "gestione-contabilita-e-reporting-alcon-fribourg"
+          "manager-accounting-reporting-alcon-ch"
         ],
         "de": [
           "manager-accounting-reporting-alcon-ch"
@@ -196,13 +202,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-2026-46854",
       "previousSlugs": [
-        "international-accounting-and-reporting-director-alcon-ch",
-        "international-accounting-and-reporting-direttore-alcon-fribourg"
+        "international-accounting-and-reporting-director-alcon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "international-accounting-and-reporting-director-alcon-ch",
-          "international-accounting-and-reporting-direttore-alcon-fribourg"
+          "international-accounting-and-reporting-director-alcon-ch"
         ],
         "de": [
           "international-accounting-and-reporting-director-alcon-ch"
@@ -275,13 +279,11 @@
       "requirementsByLocale": {},
       "jobReqId": "R-2026-47978",
       "previousSlugs": [
-        "associate-inter-company-order-invoice-flow-alcon-ch",
-        "flusso-associato-ordini-e-fatture-interaziendali-alcon-fribourg"
+        "associate-inter-company-order-invoice-flow-alcon-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "associate-inter-company-order-invoice-flow-alcon-ch",
-          "flusso-associato-ordini-e-fatture-interaziendali-alcon-fribourg"
+          "associate-inter-company-order-invoice-flow-alcon-ch"
         ]
       },
       "firstSeenAt": "2026-06-29T21:33:20.599Z",
