@@ -371,13 +371,14 @@ export function collectAstFacts(fileName, source, { lineRanges, files = new Set(
  * Plain local identifiers are deliberately excluded: matching `sourceFile`,
  * `moduleSpecifier` or `candidateTokens` across scripts is the exact class of
  * lexical false positive this layer is meant to remove. Package/API facts are
- * excluded too; `ts.createSourceFile` is common infrastructure, not a local
- * relationship between the files being compared.
+ * excluded too; `ts.createSourceFile` and a direct `createSourceFile()` import
+ * are common infrastructure, not a local relationship between the files being
+ * compared.
  */
 export function isActionableAstFact(fact) {
   if (!fact) return false;
   if (fact.kind === 'identifier') {
-    return fact.role === 'call' ||
+    return (fact.role === 'call' && !isExternalBinding(fact.binding)) ||
       (fact.role === 'declaration' && fact.exported === true);
   }
   if (fact.kind === 'import') {

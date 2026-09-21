@@ -1152,9 +1152,15 @@ export function bodyRecoveryBarrierDecision({
   for (const page of comments) {
     if (Array.isArray(page)) {
       // `gh api --paginate --slurp` returns pages, while pure callers/tests may
-      // pass one flat comment array. An empty nested page is not an empty
-      // history: it is an unverified API shape and must not authorize retain.
-      if (page.length === 0 || page.some((comment) => Array.isArray(comment))) {
+      // pass one flat comment array. GitHub represents a legitimate empty
+      // comment history as one empty page (`[[]]`); accept only that exact
+      // shape. An empty page mixed with other pages is still unverified and
+      // must not authorize retain.
+      if (page.length === 0) {
+        if (comments.length !== 1) return deny('pagine commenti recovery non verificabili');
+        continue;
+      }
+      if (page.some((comment) => Array.isArray(comment))) {
         return deny('pagine commenti recovery non verificabili');
       }
       flattenedComments.push(...page);
