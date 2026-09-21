@@ -178,7 +178,7 @@ export default function PharmacyItalyDutyWeek({ page, now, duties, status, sourc
   const hubPath = buildPharmacyPath({ kind: 'italy-duty-hub', country: 'IT', locale }, locale);
   const swissDutyPath = buildPharmacyPath({ kind: 'duty-hub', locale }, locale);
 
-  return <div className="mx-auto max-w-6xl space-y-8" data-italy-duty-week="true" data-italy-release-state={model.state} data-italy-publishable={String(model.publishable)} data-italy-indexable={String(model.indexable)}>
+  return <div className="mx-auto max-w-6xl space-y-8" data-italy-duty-week="true" data-release-ready={String(model.publishable)} data-week-ready={String(model.indexable)} data-italy-release-state={model.state} data-italy-publishable={String(model.publishable)} data-italy-indexable={String(model.indexable)}>
     <header className="space-y-3">
       <p className="text-xs font-semibold uppercase tracking-[0.18em] text-accent">{copy.italy}</p>
       <h1 className="font-display text-3xl font-bold tracking-tight text-heading sm:text-4xl">{copy.title(model.weekStart)}</h1>
@@ -196,7 +196,7 @@ export default function PharmacyItalyDutyWeek({ page, now, duties, status, sourc
     </header>
 
     <div className="grid gap-5 md:grid-cols-2">
-      {model.provinces.map((province) => <section key={province.code} className="rounded-2xl border border-edge bg-surface p-5 shadow-sm" data-italy-duty-province={province.code} {...(province.publishable ? { 'data-italy-duty-published': 'true' } : {})}>
+      {model.provinces.map((province) => <section key={province.code} className="rounded-2xl border border-edge bg-surface p-5 shadow-sm" data-italy-duty-province={province.code} {...(province.publishable ? { 'data-italy-duty-published': 'true' } : { 'data-source-only-province': 'true' })}>
         <header className="flex flex-wrap items-start justify-between gap-3">
           <div>
             <h2 className="font-display text-xl font-bold text-heading">{province.name}</h2>

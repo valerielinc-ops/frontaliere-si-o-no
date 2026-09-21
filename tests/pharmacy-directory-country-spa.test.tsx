@@ -3,6 +3,8 @@ import { cleanup, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import PharmacyDirectory from '../components/pages/PharmacyDirectory';
 import { TICINO_CITIES } from '../services/pharmacies/data';
+import { buildItalyDutyWeekModel, currentItalyDutyWeekStart } from '../services/pharmacies/italyDuty';
+import italyDutiesJson from '../data/pharmacy-duties-italy.json';
 
 vi.mock('@/components/pharmacies/PharmacyMap', () => ({ default: () => null }));
 
@@ -57,31 +59,54 @@ describe('pharmacy country SPA route', () => {
   });
 
   it.each(locales)('routes the Italian duty hub and week to a fail-closed country UI (%s)', (locale) => {
-    vi.useFakeTimers({ now: new Date('2026-09-20T12:00:00.000Z') });
+    const now = new Date(Date.parse(String(italyDutiesJson._fetchedAt)) + 60_000);
+    vi.useFakeTimers({ now });
+    const weekStart = currentItalyDutyWeekStart(now);
+    const italyModel = buildItalyDutyWeekModel({ now, weekStart });
+    const expectedRows = italyModel.provinces.flatMap((province) => province.duties).length;
+    const expectedExternalLinks = italyModel.provinces.filter((province) => province.sourceUrl).length + expectedRows;
     const hub = render(<PharmacyDirectory page={{ kind: 'italy-duty-hub', country: 'IT', locale }} />);
     const hubRoot = hub.container.querySelector('[data-italy-duty-week="true"]');
     expect(hubRoot).toHaveAttribute('data-italy-release-state', 'fresh');
     expect(hubRoot).toHaveAttribute('data-italy-publishable', 'true');
     expect(hubRoot).toHaveAttribute('data-italy-indexable', 'false');
     expect(hubRoot?.querySelectorAll('[data-italy-duty-province]')).toHaveLength(3);
-    expect(hubRoot?.querySelectorAll('[data-duty-country="IT"]')).toHaveLength(5);
+    expect(hubRoot?.querySelectorAll('[data-duty-country="IT"]')).toHaveLength(expectedRows);
     expect(hubRoot?.querySelectorAll('time').length).toBeGreaterThan(0);
     expect(hubRoot?.querySelectorAll('[data-italy-duty-published]')).toHaveLength(2);
     expect(hubRoot?.querySelector('[data-italy-duty-province="VB"][data-italy-duty-published]')).toBeNull();
     expect(hubRoot?.querySelectorAll('[data-italy-duty-province="VB"] [data-duty-country="IT"]')).toHaveLength(0);
-    expect(hubRoot?.querySelectorAll('a[href^="https://"]')).toHaveLength(8);
+    expect(hubRoot?.querySelectorAll('a[href^="https://"]')).toHaveLength(expectedExternalLinks);
 
     cleanup();
-    const week = render(<PharmacyDirectory page={{ kind: 'italy-duty-week', country: 'IT', locale, weekStart: '2026-09-14' }} />);
+    const week = render(<PharmacyDirectory page={{ kind: 'italy-duty-week', country: 'IT', locale, weekStart }} />);
     const weekRoot = week.container.querySelector('[data-italy-duty-week="true"]');
     expect(weekRoot).toHaveAttribute('data-italy-release-state', 'fresh');
     expect(weekRoot).toHaveAttribute('data-italy-publishable', 'true');
     expect(weekRoot).toHaveAttribute('data-italy-indexable', 'false');
     expect(weekRoot?.querySelectorAll('[data-italy-duty-province]')).toHaveLength(3);
-    expect(weekRoot?.querySelectorAll('[data-duty-country="IT"]')).toHaveLength(5);
+    expect(weekRoot?.querySelectorAll('[data-duty-country="IT"]')).toHaveLength(expectedRows);
     expect(weekRoot?.querySelectorAll('time').length).toBeGreaterThan(0);
     expect(weekRoot?.querySelectorAll('[data-italy-duty-published]')).toHaveLength(2);
     expect(weekRoot?.querySelector('[data-italy-duty-province="VB"][data-italy-duty-published]')).toBeNull();
-    expect(weekRoot?.querySelectorAll('a[href^="https://"]')).toHaveLength(8);
+    expect(weekRoot?.querySelectorAll('a[href^="https://"]')).toHaveLength(expectedExternalLinks);
+  });
+
+  it.each(locales)('routes the generic Italian duty aliases to the standalone coverage matrix (%s)', (locale) => {
+    const now = new Date(Date.parse(String(italyDutiesJson._fetchedAt)) + 60_000);
+    vi.useFakeTimers({ now });
+    const italyModel = buildItalyDutyWeekModel({ now, weekStart: currentItalyDutyWeekStart(now) });
+    const expectedRows = italyModel.provinces.flatMap((province) => province.duties).length;
+    const { container } = render(<PharmacyDirectory page={{ kind: 'duty-hub', country: 'IT', locale }} />);
+    const matrix = container.querySelector('[data-italy-duty-coverage="true"]');
+
+    expect(matrix).toHaveAttribute('data-release-ready', 'true');
+    expect(matrix).toHaveAttribute('data-week-ready', 'false');
+    expect(matrix?.querySelectorAll('[data-coverage-kind="italy-province"]')).toHaveLength(3);
+    expect(matrix?.querySelectorAll('[data-duty-country="IT"]')).toHaveLength(expectedRows);
+    expect(matrix?.querySelectorAll('[data-source-only-province="VB"]')).toHaveLength(1);
+    expect(matrix?.querySelectorAll('[data-source-only-province="VB"] [data-duty-id]')).toHaveLength(0);
+    const weekSegment = locale === 'it' ? 'settimana' : locale === 'en' ? 'week' : locale === 'de' ? 'woche' : 'semaine';
+    expect(matrix?.querySelector(`a[href*="/${weekSegment}/"]`)).toHaveAttribute('href', expect.stringContaining(currentItalyDutyWeekStart(now)));
   });
 });
