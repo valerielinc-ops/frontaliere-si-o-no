@@ -37,4 +37,14 @@ describe('generic pharmacy route grammar', () => {
     expect(parsePharmacyRoute(hubPath)).toEqual({ kind: 'italy-duty-hub', country: 'IT', locale });
     expect(parsePharmacyRoute(weekPath)).toEqual({ kind: 'italy-duty-week', country: 'IT', locale, weekStart: '2026-09-14' });
   });
+
+  it('canonicalizes generic Italian duty route objects', () => {
+    const hub = { kind: 'duty-hub' as const, country: 'IT' as const, locale: 'it' as const };
+    const week = { kind: 'duty-week' as const, country: 'IT' as const, locale: 'it' as const, weekStart: '2026-09-14' };
+
+    expect(buildPharmacyPath(hub)).toBe('/farmacie/italia/di-turno/');
+    expect(parsePharmacyRoute(buildPharmacyPath(hub))).toEqual({ kind: 'italy-duty-hub', country: 'IT', locale: 'it' });
+    expect(buildPharmacyPath(week)).toBe('/farmacie/italia/di-turno/settimana/2026-09-14/');
+    expect(parsePharmacyRoute(buildPharmacyPath(week))).toEqual({ kind: 'italy-duty-week', country: 'IT', locale: 'it', weekStart: '2026-09-14' });
+  });
 });

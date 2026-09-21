@@ -9,6 +9,7 @@ import { ITALY_BORDER_PHARMACIES, TICINO_CITIES, TICINO_PHARMACIES, pharmacyCity
 import { buildDutyCoverageMatrix } from '../../services/pharmacies/dutyCoverageMatrix';
 import { buildPharmacyPath } from '../../services/pharmacies/paths';
 import { formatDutyDateTime } from '../../services/pharmacies/dutyWeek';
+import { buildItalyDutyWeekModel, currentItalyDutyWeekStart } from '../../services/pharmacies/italyDuty';
 import { extractVisibleText } from '../../scripts/audit-text-html-ratio.mjs';
 import catalogueJson from '../../data/pharmacies-ticino-complete.json';
 import dutiesJson from '../../data/pharmacy-duties-ticino.json';
@@ -238,6 +239,7 @@ describe('pharmacy directory page matrix', () => {
       expect(nav).toContain(String(count));
     }
     expect(page.html.match(/<article\b/g) || []).toHaveLength(0);
+    expect(page.html).toContain(`href="${buildPharmacyPath({ kind: 'duty-hub', country: 'IT', locale }, locale)}"`);
     const schemas = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
     const collection = schemas.find((schema) => schema['@type'] === 'CollectionPage');
     expect(collection.mainEntity.numberOfItems).toBe(3);
@@ -273,6 +275,7 @@ describe('pharmacy directory page matrix', () => {
       expect(hrefs, 'missing ' + detailPath).toContain(detailPath);
       expect(page.html).toContain(pharmacy.sourceUrl);
     }
+    expect(page.html).toContain(`href="${buildPharmacyPath({ kind: 'duty-hub', country: 'IT', locale }, locale)}"`);
   });
 
   it('emits a valid weekly duty route as indexable only for a valid P0 release pair', () => {
@@ -309,22 +312,46 @@ describe('pharmacy directory page matrix', () => {
   it.each(locales)('keeps Italian duty hub and week noindex while exposing only verified provinces (%s)', (locale) => {
     const hub = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'italy-duty-hub');
     const week = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'italy-duty-week');
-    const weekDescriptor = { ...week!, weekStart: '2026-09-14' };
+    const now = new Date(Date.parse(String(italyDutiesJson._fetchedAt)) + 60_000);
+    const weekDescriptor = { ...week!, weekStart: currentItalyDutyWeekStart(now) };
+    const expectedRows = buildItalyDutyWeekModel({ now, weekStart: weekDescriptor.weekStart }).provinces.flatMap((province) => province.duties).length;
 
     for (const descriptor of [hub!, weekDescriptor]) {
-      const page = buildPharmacyDirectoryPage(descriptor, locale, '/tmp/pharmacy-dist');
+      const page = buildPharmacyDirectoryPage(descriptor, locale, '/tmp/pharmacy-dist', undefined, now);
       expect(page.indexable).toBe(false);
       expect(page.html).toContain('noindex,follow');
       expect(page.html).not.toContain('application/ld+json');
+      expect(page.html).toContain(descriptor.kind === 'italy-duty-week' ? 'data-italy-duty-week=true' : 'data-italy-duty-coverage=true');
+      expect(page.html).toContain('data-release-ready=true');
+      expect(page.html).toContain('data-week-ready=false');
       expect(page.html.match(/data-italy-duty-published/g) || []).toHaveLength(2);
-      expect(page.html.match(/data-duty-country=IT/g) || []).toHaveLength(5);
+      expect(page.html.match(/data-duty-country=IT/g) || []).toHaveLength(expectedRows);
       expect(page.html).toMatch(/<time\b/);
+      expect(page.html).toContain('data-source-only-status=true');
       expect(page.html).not.toMatch(/data-italy-duty-province=VB[^>]*data-italy-duty-published/);
       expect(page.html).toContain('novita_138.html');
       expect(page.html).toContain('Dettaglionews?IDNews=400586');
       expect(page.html).toContain('2968938.pdf');
     }
     expect(buildPharmacyPath({ kind: 'italy-duty-hub', country: 'IT', locale }, locale)).toContain('/');
+  });
+
+  it('renders generic Italian duty descriptors with the same canonical static contract', () => {
+    const now = new Date(Date.parse(String(italyDutiesJson._fetchedAt)) + 60_000);
+    const weekStart = currentItalyDutyWeekStart(now);
+    const descriptors = [
+      { kind: 'duty-hub' as const, country: 'IT' as const },
+      { kind: 'duty-week' as const, country: 'IT' as const, weekStart },
+    ];
+
+    for (const descriptor of descriptors) {
+      const page = buildPharmacyDirectoryPage(descriptor, 'it', '/tmp/pharmacy-dist', undefined, now);
+      expect(page.path).toContain('/farmacie/italia/di-turno/');
+      expect(page.indexable).toBe(false);
+      expect(page.html).toContain(descriptor.kind === 'duty-week' ? 'data-italy-duty-week=true' : 'data-italy-duty-coverage=true');
+      expect(page.html).toContain('noindex,follow');
+      expect(page.html).not.toContain('application/ld+json');
+    }
   });
 
   it('keeps the static Italy coverage renderer fail-closed for a partial release', () => {

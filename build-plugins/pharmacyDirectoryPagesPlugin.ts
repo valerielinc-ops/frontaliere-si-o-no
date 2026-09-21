@@ -599,16 +599,20 @@ function pageTitle(kind: PharmacyPageKind, locale: Locale, descriptor: PageDescr
   if (kind === 'canton') return copy.ticinoTitle;
   if (kind === 'country') return copy.italyTitle;
   if (kind === 'area') return copy.italyAreaTitle(descriptor.areaName || descriptor.areaSlug || '');
-  if (kind === 'duty-hub') return copy.dutyHubTitle;
+  if (kind === 'duty-hub') return descriptor.country === 'IT'
+    ? (locale === 'it' ? 'Farmacie di turno in Italia' : locale === 'en' ? 'On-duty pharmacies in Italy' : locale === 'de' ? 'Notdienst-Apotheken in Italien' : 'Pharmacies de garde en Italie')
+    : copy.dutyHubTitle;
   if (kind === 'duty-city') return copy.dutyCityTitle(descriptor.cityName || '');
-  if (kind === 'duty-week') return DUTY_WEEK_COPY[locale].title(descriptor.weekStart || '');
+  if (kind === 'duty-week') return descriptor.country === 'IT'
+    ? ITALY_DUTY_COPY[locale].title(descriptor.weekStart || '')
+    : DUTY_WEEK_COPY[locale].title(descriptor.weekStart || '');
   if (kind === 'italy-duty-hub') return locale === 'it' ? 'Farmacie di turno in Italia' : locale === 'en' ? 'On-duty pharmacies in Italy' : locale === 'de' ? 'Notdienst-Apotheken in Italien' : 'Pharmacies de garde en Italie';
   if (kind === 'italy-duty-week') return ITALY_DUTY_COPY[locale].title(descriptor.weekStart || '');
   if (kind === 'pharmacy') return buildPharmacyTitle(descriptor.pharmacy!, BORDER_PHARMACIES);
   return copy.cityTitle(descriptor.cityName || '', descriptor.country || 'CH');
 }
 
-function pageLede(kind: PharmacyPageKind, locale: Locale): string {
+function pageLede(kind: PharmacyPageKind, locale: Locale, country?: 'CH' | 'IT'): string {
   const copy = COPY[locale];
   const base = kind === 'hub'
     ? copy.hubLede
@@ -618,18 +622,18 @@ function pageLede(kind: PharmacyPageKind, locale: Locale): string {
         ? copy.italyLede
         : kind === 'area'
           ? copy.areaLede
-          : kind === 'duty-hub'
-      ? copy.dutyHubLede
+    : kind === 'duty-hub'
+      ? country === 'IT' ? ITALY_DUTY_COPY[locale].lede : copy.dutyHubLede
       : kind === 'duty-city'
         ? copy.dutyCityLede
         : kind === 'duty-week'
-          ? DUTY_WEEK_COPY[locale].lede
+          ? country === 'IT' ? ITALY_DUTY_COPY[locale].lede : DUTY_WEEK_COPY[locale].lede
           : kind === 'italy-duty-hub' || kind === 'italy-duty-week'
             ? ITALY_DUTY_COPY[locale].lede
           : kind === 'pharmacy'
                 ? copy.detailLede
                 : copy.cityLede;
-  const supplement = RATIO_QUALITY_COPY[locale][kind];
+  const supplement = country === 'IT' && (kind === 'duty-hub' || kind === 'duty-week') ? '' : RATIO_QUALITY_COPY[locale][kind];
   return supplement ? `${base} ${supplement}` : base;
 }
 
@@ -649,9 +653,9 @@ function pageDescription(descriptor: PageDescriptor, locale: Locale): string {
     return `${buildPharmacyTitle(descriptor.pharmacy, BORDER_PHARMACIES)}: ${copy.detailLede}`;
   }
   if (descriptor.kind === 'city' || descriptor.kind === 'area' || descriptor.kind === 'duty-city') {
-    return `${descriptor.cityName || descriptor.areaName || ''}: ${pageLede(descriptor.kind, locale)}`;
+    return `${descriptor.cityName || descriptor.areaName || ''}: ${pageLede(descriptor.kind, locale, descriptor.country)}`;
   }
-  return pageLede(descriptor.kind, locale);
+  return pageLede(descriptor.kind, locale, descriptor.country);
 }
 
 interface PageDescriptor {
@@ -670,7 +674,7 @@ function descriptorPath(descriptor: PageDescriptor, locale: Locale): PharmacyPat
   if (descriptor.kind === 'italy-duty-hub') return { kind: 'italy-duty-hub', country: 'IT', locale };
   if (descriptor.kind === 'pharmacy') return pharmacyPath(descriptor.pharmacy!, locale);
   if (descriptor.kind === 'duty-city') return { kind: 'duty-city', locale, citySlug: descriptor.citySlug };
-  if (descriptor.kind === 'duty-week') return { kind: 'duty-week', locale, weekStart: descriptor.weekStart };
+  if (descriptor.kind === 'duty-week') return { kind: 'duty-week', country: descriptor.country, locale, weekStart: descriptor.weekStart };
   if (descriptor.kind === 'italy-duty-week') return { kind: 'italy-duty-week', country: 'IT', locale, weekStart: descriptor.weekStart };
   return cityPath(descriptor.country || 'CH', locale, descriptor.citySlug || '', descriptor.areaSlug);
 }
@@ -753,7 +757,9 @@ function renderBody(
   emittedPaths: ReadonlySet<string> = emittedPathsForLocale(locale),
 ): string {
   const copy = COPY[locale];
+  if (descriptor.kind === 'duty-week' && descriptor.country === 'IT') return renderItalyDutyWeek({ pathValue: descriptorPath(descriptor, locale), h1, now });
   if (descriptor.kind === 'duty-week') return renderDutyWeek(descriptor, locale, h1, dataset, now);
+  if (descriptor.kind === 'duty-hub' && descriptor.country === 'IT') return renderItalyDutyWeek({ pathValue: descriptorPath(descriptor, locale), h1, now });
   if (descriptor.kind === 'italy-duty-hub' || descriptor.kind === 'italy-duty-week') return renderItalyDutyWeek({ pathValue: descriptorPath(descriptor, locale), h1, now });
   const datasetDuties = Array.isArray(dataset.duties) ? dataset.duties : [];
   let sections = '';
@@ -776,7 +782,7 @@ function renderBody(
       const areaPath: PharmacyPath = { kind: 'area', country: 'IT', areaSlug: area.slug, locale };
       return `<li>${href(areaPath, area.name)} — ${esc(copy.provinceCount(count))}</li>`;
     }).join('');
-    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2><nav aria-label="${esc(copy.directoryHeading)}"><ul style="${BODY_STYLE}">${provinces}</ul></nav><p style="${BODY_STYLE}">${esc(copy.countryDirectoryNote)}</p></section>`;
+    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2><nav aria-label="${esc(copy.directoryHeading)}"><ul style="${BODY_STYLE}">${provinces}</ul></nav><p style="${BODY_STYLE}">${esc(copy.countryDirectoryNote)}</p><p style="${BODY_STYLE}">${href({ kind: 'duty-hub', country: 'IT', locale }, pageTitle('duty-hub', locale, { kind: 'duty-hub', country: 'IT' }))}</p></section>`;
   } else if (descriptor.kind === 'pharmacy') {
     const pharmacy = descriptor.pharmacy!;
     const website = safePharmacyUrl(pharmacy.website);
@@ -788,13 +794,18 @@ function renderBody(
     const directory = descriptor.kind === 'area'
       ? '<ul style="' + BODY_STYLE + '">' + pharmacies.map((pharmacy) => renderCompactPharmacyListItem(pharmacy, locale)).join('') + '</ul>'
       : `<div class="s-XENO3U">${pharmacies.map((pharmacy) => renderPharmacyCard(pharmacy, locale)).join('')}</div>`;
-    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2>${directory}${descriptor.kind === 'city' && descriptor.country === 'CH' ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-city', locale, citySlug: descriptor.citySlug }, copy.viewDuties)}</p>` : ''}</section>`;
+    const dutyLink = descriptor.country === 'IT'
+      ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-hub', country: 'IT', locale }, pageTitle('duty-hub', locale, { kind: 'duty-hub', country: 'IT' }))}</p>`
+      : descriptor.kind === 'city' && descriptor.country === 'CH'
+        ? `<p style="${BODY_STYLE}">${href({ kind: 'duty-city', locale, citySlug: descriptor.citySlug }, copy.viewDuties)}</p>`
+        : '';
+    sections = `<section><h2 style="${H2_STYLE}">${esc(copy.directoryHeading)}</h2>${directory}${dutyLink}</section>`;
   }
   const faq = descriptor.kind === 'city' && descriptor.country === 'CH'
     ? renderCityFaq(locale, descriptor.cityName || '', pharmaciesForCity(descriptor.cityName || '').length)
     : '';
   const cityVerificationNote = descriptor.kind === 'city' ? `<p style="${BODY_STYLE}">${esc(CITY_VERIFICATION_NOTE[locale])}</p>` : '';
-  return `<header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(pageLede(descriptor.kind, locale))}</p></header>${sections}${cityVerificationNote}${faq}<section><h2 style="${H2_STYLE}">${esc(copy.disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.disclaimer)}</p></section>`;
+  return `<header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(pageLede(descriptor.kind, locale, descriptor.country))}</p></header>${sections}${cityVerificationNote}${faq}<section><h2 style="${H2_STYLE}">${esc(copy.disclaimerHeading)}</h2><p style="${BODY_STYLE}">${esc(copy.disclaimer)}</p></section>`;
 }
 
 function breadcrumbJsonLd(descriptor: PageDescriptor, locale: Locale): string {
@@ -812,16 +823,21 @@ function breadcrumbJsonLd(descriptor: PageDescriptor, locale: Locale): string {
     }
     items.push({ name: pharmacy.name, path: descriptorPath(descriptor, locale) });
   } else {
-    if (descriptor.kind === 'canton' || descriptor.country === 'CH') items.push({ name: COPY[locale].ticinoTitle, path: { kind: 'canton', locale } });
-    if (descriptor.kind === 'country' || descriptor.country === 'IT') items.push({ name: COPY[locale].italyTitle, path: { kind: 'country', country: 'IT', locale } });
-    if (descriptor.kind === 'area') items.push({ name: descriptor.areaName || descriptor.areaSlug || '', path: descriptorPath(descriptor, locale) });
-    if (descriptor.kind === 'city' && descriptor.country === 'IT') {
-      const area = ITALY_BORDER_PROVINCES.find((candidate) => candidate.slug === descriptor.areaSlug);
-      if (area) items.push({ name: area.name, path: { kind: 'area', country: 'IT', areaSlug: area.slug, locale } });
+    const italyDutyPage = (descriptor.kind === 'duty-hub' || descriptor.kind === 'duty-week' || descriptor.kind === 'italy-duty-hub' || descriptor.kind === 'italy-duty-week') && descriptor.country === 'IT';
+    if (italyDutyPage) {
+      items.push({ name: descriptor.kind === 'duty-week' || descriptor.kind === 'italy-duty-week' ? pageTitle(descriptor.kind, locale, descriptor) : pageTitle('duty-hub', locale, { kind: 'duty-hub', country: 'IT' }), path: descriptorPath(descriptor, locale) });
+    } else {
+      if (descriptor.kind === 'canton' || descriptor.country === 'CH') items.push({ name: COPY[locale].ticinoTitle, path: { kind: 'canton', locale } });
+      if (descriptor.kind === 'country' || descriptor.country === 'IT') items.push({ name: COPY[locale].italyTitle, path: { kind: 'country', country: 'IT', locale } });
+      if (descriptor.kind === 'area') items.push({ name: descriptor.areaName || descriptor.areaSlug || '', path: descriptorPath(descriptor, locale) });
+      if (descriptor.kind === 'city' && descriptor.country === 'IT') {
+        const area = ITALY_BORDER_PROVINCES.find((candidate) => candidate.slug === descriptor.areaSlug);
+        if (area) items.push({ name: area.name, path: { kind: 'area', country: 'IT', areaSlug: area.slug, locale } });
+      }
+      if (descriptor.kind === 'city' || descriptor.kind === 'duty-city') items.push({ name: descriptor.cityName || '', path: descriptorPath(descriptor, locale) });
+      if (descriptor.kind === 'duty-hub') items.push({ name: COPY[locale].duties, path: descriptorPath(descriptor, locale) });
+      if (descriptor.kind === 'duty-week') items.push({ name: pageTitle(descriptor.kind, locale, descriptor), path: descriptorPath(descriptor, locale) });
     }
-    if (descriptor.kind === 'city' || descriptor.kind === 'duty-city') items.push({ name: descriptor.cityName || '', path: descriptorPath(descriptor, locale) });
-    if (descriptor.kind === 'duty-hub') items.push({ name: COPY[locale].duties, path: descriptorPath(descriptor, locale) });
-    if (descriptor.kind === 'duty-week') items.push({ name: pageTitle(descriptor.kind, locale, descriptor), path: descriptorPath(descriptor, locale) });
   }
   return JSON.stringify({ '@context': 'https://schema.org', '@type': 'BreadcrumbList', itemListElement: items.map((item, index) => ({ '@type': 'ListItem', position: index + 1, name: item.name, item: `${BASE_URL}${buildPharmacyPath(item.path, locale)}` })) });
 }
@@ -873,10 +889,22 @@ function jsonLd(
   const title = pageTitle(descriptor.kind, locale, descriptor);
   if (descriptor.kind === 'pharmacy') return [detailJsonLd(descriptor.pharmacy!, locale), breadcrumbJsonLd(descriptor, locale)];
   if (descriptor.kind === 'duty-city') return [breadcrumbJsonLd(descriptor, locale)];
+  if (descriptor.kind === 'duty-week' && descriptor.country === 'IT') {
+    const model = italyDutyWeekModel(descriptor.weekStart, now);
+    return indexable && model.indexable
+      ? [italyDutyWeekStructuredData(pathValue, title, model), breadcrumbJsonLd(descriptor, locale)]
+      : [];
+  }
   if (descriptor.kind === 'duty-week') {
     const model = dutyWeekModel(descriptor, dataset, now);
     return model.indexable
       ? [dutyWeekCollectionJsonLd(pathValue, title, model), breadcrumbJsonLd(descriptor, locale)]
+      : [];
+  }
+  if (descriptor.kind === 'duty-hub' && descriptor.country === 'IT') {
+    const model = italyDutyWeekModel(undefined, now);
+    return indexable && model.indexable
+      ? [italyDutyWeekStructuredData(pathValue, title, model), breadcrumbJsonLd(descriptor, locale)]
       : [];
   }
   if (descriptor.kind === 'italy-duty-hub' || descriptor.kind === 'italy-duty-week') {
@@ -940,16 +968,24 @@ function buildPage(
   // City duty URLs are useful navigation aliases, but their body repeats the
   // regional OFCT schedule. Keep them crawlable for users without creating
   // duplicate indexable pages or an ItemList with a different visible scope.
-  const dutyWeek = descriptor.kind === 'duty-week' ? dutyWeekModel(descriptor, dataset, now) : null;
-  const italyDutyWeek = descriptor.kind === 'italy-duty-hub' || descriptor.kind === 'italy-duty-week'
+  const dutyWeek = descriptor.kind === 'duty-week' && descriptor.country !== 'IT' ? dutyWeekModel(descriptor, dataset, now) : null;
+  const italyDutyWeek = descriptor.kind === 'duty-hub' && descriptor.country === 'IT'
+    ? italyDutyWeekModel(undefined, now)
+    : descriptor.kind === 'duty-week' && descriptor.country === 'IT'
+      ? italyDutyWeekModel(descriptor.weekStart, now)
+      : descriptor.kind === 'italy-duty-hub' || descriptor.kind === 'italy-duty-week'
     ? italyDutyWeekModel(descriptor.weekStart, now)
     : null;
-  const dutyCoverage = descriptor.kind === 'duty-hub'
+  const dutyCoverage = descriptor.kind === 'duty-hub' && descriptor.country !== 'IT'
     ? buildDutyCoverageMatrix({ locale, duties: dataset, catalogue: completeTicinoSnapshot, now })
     : null;
-  const indexable = descriptor.kind === 'duty-week'
+  const italyDutyDescriptor = (descriptor.kind === 'duty-hub' && descriptor.country === 'IT')
+    || (descriptor.kind === 'duty-week' && descriptor.country === 'IT')
+    || descriptor.kind === 'italy-duty-hub'
+    || descriptor.kind === 'italy-duty-week';
+  const indexable = descriptor.kind === 'duty-week' && descriptor.country !== 'IT'
     ? Boolean(dutyWeek?.indexable && wordCount >= MIN_INDEXABLE_WORDS)
-    : descriptor.kind === 'italy-duty-hub' || descriptor.kind === 'italy-duty-week'
+    : italyDutyDescriptor
       ? Boolean(italyDutyWeek?.indexable && wordCount >= MIN_INDEXABLE_WORDS)
       : descriptor.kind === 'duty-hub'
         ? Boolean(dutyCoverage?.releaseReady && wordCount >= MIN_INDEXABLE_WORDS)
