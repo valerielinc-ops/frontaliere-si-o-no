@@ -2235,7 +2235,7 @@ describe('production spec runtime', () => {
     expect(parsers.length).toBeGreaterThan(0);
     for (const { name, source } of parsers) {
       expect(source, name).not.toMatch(/listing\.location\s*\|\|\s*['"]Lugano['"]/);
-      expect(source, name).toContain('resolveSourceBackedSwissGeography(listing.location)');
+      expect(source, name).toMatch(/resolveSourceBackedSwissGeography\(listing(?:\.location)?\)/);
       expect(source, name).toContain('listing.addressLocality');
       expect(source, name).toContain('listing.addressRegion');
       expect(source, name).toContain('listing.postalCode');

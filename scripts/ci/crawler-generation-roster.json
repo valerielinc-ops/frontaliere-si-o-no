@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 23,
-  "crawlerCount": 616,
+  "crawlerCount": 619,
   "groups": {
     "10": [
       "atec-personal",
@@ -391,7 +391,8 @@
       "spital-davos",
       "spital-thusis",
       "stadt-zuerich",
-      "tl-lausanne"
+      "tl-lausanne",
+      "yellowshark"
     ],
     "23": [
       "abbott",
@@ -410,6 +411,7 @@
       "lonza",
       "matterhorn-gotthard-bahn",
       "mcdonald-s-switzerland",
+      "my",
       "oscam",
       "rituals-cosmetics",
       "ruag-ag",
@@ -437,6 +439,7 @@
       "fart",
       "galenica",
       "globus",
+      "grischapersonal",
       "helvetia",
       "ikea",
       "kanton-gr",
@@ -897,6 +900,7 @@
     "grand-hotel-des-bains-kempinski": "data/jobs/by-crawler/grand-hotel-des-bains-kempinski.json",
     "grand-hotel-kronenhof": "data/jobs/by-crawler/grand-hotel-kronenhof.json",
     "grand-resort-bad-ragaz": "data/jobs/by-crawler/grand-resort-bad-ragaz.json",
+    "grischapersonal": "data/jobs/by-crawler/grischapersonal.json",
     "groupe-e": "data/jobs/by-crawler/groupe-e.json",
     "groupe-mutuel": "data/jobs/by-crawler/groupe-mutuel.json",
     "guess-europe": "data/jobs/by-crawler/guess-europe.json",
@@ -1054,6 +1058,7 @@
     "msc-cargo": "data/jobs/by-crawler/msc-cargo.json",
     "mtic-group": "data/jobs/by-crawler/mtic-group.json",
     "mueller-steinmaur": "data/jobs/by-crawler/mueller-steinmaur.json",
+    "my": "data/jobs/by-crawler/my.json",
     "nant": "data/jobs/by-crawler/nant.json",
     "neoproconseils": "data/jobs/by-crawler/neoproconseils.json",
     "nestle": "data/jobs/by-crawler/nestle.json",
@@ -1276,6 +1281,7 @@
     "weisse-arena": "data/jobs/by-crawler/weisse-arena.json",
     "wuerth-international": "data/jobs/by-crawler/wuerth-international.json",
     "yapeal": "data/jobs/by-crawler/yapeal.json",
+    "yellowshark": "data/jobs/by-crawler/yellowshark.json",
     "zambon": "data/jobs/by-crawler/zambon.json",
     "zermatt-bergbahnen": "data/jobs/by-crawler/zermatt-bergbahnen.json",
     "zfv-unternehmungen": "data/jobs/by-crawler/zfv-unternehmungen.json",
@@ -1284,5 +1290,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:c339d443860b13d0d8734627bd2afa86740cc1e8f74f19586280491b86d3609f"
+  "digest": "sha256:89b0ccc7261799da19a2d4d3ead44fa2d6360b3f06e62943ceeb186eba6ebccf"
 }

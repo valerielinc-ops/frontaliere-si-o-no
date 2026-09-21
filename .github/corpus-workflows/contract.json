@@ -4,20 +4,20 @@
   "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "4b2c7f0d241f2c6b43df56c3cc0473df02f2eb4f",
+  "sourceCommit": "f49996fcded8b0b03464d1490dddf8f31e5dde37",
   "artifactObservation": {
     "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
     "sourceRef": "main",
-    "sourceCommit": "4b2c7f0d241f2c6b43df56c3cc0473df02f2eb4f"
+    "sourceCommit": "f49996fcded8b0b03464d1490dddf8f31e5dde37"
   },
   "groupCount": 23,
   "artifactCount": 24,
   "observerCount": 7,
-  "crawlerCount": 616,
+  "crawlerCount": 619,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:c339d443860b13d0d8734627bd2afa86740cc1e8f74f19586280491b86d3609f",
+    "rosterDigest": "sha256:89b0ccc7261799da19a2d4d3ead44fa2d6360b3f06e62943ceeb186eba6ebccf",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -232,6 +232,7 @@
     "scripts/update-gmo-jobs.mjs",
     "scripts/update-google-switzerland-jobs.mjs",
     "scripts/update-grand-resort-bad-ragaz-jobs.mjs",
+    "scripts/update-grischapersonal-jobs.mjs",
     "scripts/update-groupe-e-jobs.mjs",
     "scripts/update-groupe-mutuel-jobs.mjs",
     "scripts/update-guggerbach-jobs.mjs",
@@ -361,6 +362,7 @@
     "scripts/update-moncucco-jobs.mjs",
     "scripts/update-msc-cargo-jobs.mjs",
     "scripts/update-mueller-steinmaur-jobs.mjs",
+    "scripts/update-my-jobs.mjs",
     "scripts/update-nant-jobs.mjs",
     "scripts/update-neoproconseils-jobs.mjs",
     "scripts/update-nestle-jobs.mjs",
@@ -554,6 +556,7 @@
     "scripts/update-weisse-arena-jobs.mjs",
     "scripts/update-wuerth-international-jobs.mjs",
     "scripts/update-yapeal-jobs.mjs",
+    "scripts/update-yellowshark-jobs.mjs",
     "scripts/update-zermatt-bergbahnen-jobs.mjs",
     "scripts/update-zfv-unternehmungen-jobs.mjs",
     "scripts/update-zkb-jobs.mjs",
@@ -633,8 +636,8 @@
     {
       "file": "crawler-group-02.yml",
       "sourceLogic": "crawler-group-02-logic.yml",
-      "sourceSha256": "329a0eb62735039c93f51335a0febcb7b9213472f7d9fe0ff84b70afe39478d7",
-      "artifactSha256": "57f945e6d2b8028ccc0b583bf6d981bc6cdb610016abdff17112b828b9b1a7b7",
+      "sourceSha256": "b7933169524726f2f7a223a22c165309d71d7a800c4a98557a4be313d8539416",
+      "artifactSha256": "b9ec3ae2846b84010b4b50d9460d0694429fd020212db40b0fae66bc45067a94",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "roche",
@@ -663,7 +666,8 @@
         "chicco-doro",
         "belimo",
         "fart",
-        "mcm-group"
+        "mcm-group",
+        "grischapersonal"
       ]
     },
     {
@@ -1372,8 +1376,8 @@
     {
       "file": "crawler-group-22.yml",
       "sourceLogic": "crawler-group-22-logic.yml",
-      "sourceSha256": "b8a93908a00b4a36d977923c07d051579aabb9470d946112c2a0e18244a95756",
-      "artifactSha256": "c2aae36e4411429f971496f2f289fa25b2532f85a3eb30531de6f28dfe10e9c9",
+      "sourceSha256": "1015008846abaf4543172489c5425fcd96d43ac9835a56afddf3039ca343b433",
+      "artifactSha256": "c0ddb4b97deb7e77e44aa46b486cfdb76e634f8fb9c32e7a80723f2931896d08",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "rittmeyer",
@@ -1403,14 +1407,15 @@
         "clinica-holistica-engiadina",
         "ariston",
         "bachtelen",
-        "alcon"
+        "alcon",
+        "yellowshark"
       ]
     },
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "e4747b34d5843c5e79b8cea179e841643b723795c630d4f61c3f5afc139e8e3f",
-      "artifactSha256": "7988233fbf595a84dfbc08cc147d42fd4936f4ecb596e70d86bc4f0b5b21a31e",
+      "sourceSha256": "dc471d828392d4dbd17a84fada694760d2177ea60b84f854f6810e1467c5e167",
+      "artifactSha256": "75a705e553993e737ea360e8a79aae60f3b2a5e0f0053fbf9c33fa934d217539",
       "generatorSha256": "4cd338d9390629f287333d43ca9da2c9489b063437d68dc448e13a1c3d251635",
       "members": [
         "rituals-cosmetics",
@@ -1440,7 +1445,8 @@
         "bls",
         "axa",
         "abraxas",
-        "abbott"
+        "abbott",
+        "my"
       ]
     },
     {
