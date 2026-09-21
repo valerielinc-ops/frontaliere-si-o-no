@@ -1,0 +1,61 @@
+{
+  "key": "1a-hunkeler",
+  "label": "1a-hunkeler",
+  "generatedAt": "2026-09-21T16:03:19.015Z",
+  "total": 1,
+  "discovered": null,
+  "parsed": 1,
+  "lastFetchOutcome": null,
+  "written": 1,
+  "authoritativeEmptySnapshot": false,
+  "newCount": 1,
+  "updatedCount": 0,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 4321,
+  "avgDurationMs": 4321,
+  "durationHistory": [
+    4321
+  ],
+  "newJobs": [
+    {
+      "id": "1a-hunkeler-7dfb52e69867",
+      "slug": "fenster-monteur-in-ebikon-1a-hunkeler-ch",
+      "company": "1a-hunkeler",
+      "companyKey": "1a-hunkeler",
+      "companyDomain": "1a-hunkeler.ch",
+      "title": "Fenster Monteur:in",
+      "location": "Ebikon",
+      "canton": "LU",
+      "url": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
+      "source": "1a-hunkeler Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-21T16:03:10.340Z",
+      "addressLocality": "Ebikon",
+      "addressRegion": "LU",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "6030",
+      "streetAddress": "Bahnhofstrasse 20",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://www.1a-hunkeler.ch/menschen/offene-stellen/detail/fenster-monteur",
+      "_qualityScore": 67,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": []
+}
