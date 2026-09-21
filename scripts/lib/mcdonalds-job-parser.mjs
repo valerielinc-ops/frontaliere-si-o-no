@@ -30,7 +30,7 @@ import { TLS_ERROR_CODES } from './transient-fetch.mjs';
  */
 
 import { inferAnyCanton, isTargetSwissLocation, normalizeCantonCode } from './target-swiss-locations.mjs';
-import { isChCountry } from './ch-country-guard.mjs';
+import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
 
 export const MCDO_KEY = 'mcdonald-s-switzerland';
@@ -287,6 +287,39 @@ function listingSourceIdentity(entry) {
   return '';
 }
 
+const FOREIGN_LOCATION_MARKER_RX = /\b(?:FL|LI)\b|\bliechtenstein\b/i;
+
+function foreignListingLocationReason(location) {
+  if (!location || typeof location !== 'object') return '';
+
+  for (const [fieldName, rawValue] of [
+    ['countryAbbr', location.countryAbbr],
+    ['country', location.country],
+  ]) {
+    const sourceCountry = coerceCountryField(rawValue);
+    if (sourceCountry && !isChCountry(sourceCountry)) {
+      return `source country ${fieldName} ${sourceCountry}`;
+    }
+  }
+
+  // McHire currently labels a Vaduz listing as CH in the country fields, while
+  // its source location still carries the explicit Liechtenstein marker
+  // "VADUZ FL (221)". Keep the Swiss-only contract fail-closed without
+  // allowing that contradictory row to abort the complete listing crawl.
+  const sourceMetadata = [
+    location.locationName,
+    location.cityState,
+    location.cityStateAbbr,
+    location.locationText,
+    location.locationParsedText,
+  ]
+    .map((value) => String(value || '').trim())
+    .filter(Boolean)
+    .join(' ');
+  const marker = sourceMetadata.match(FOREIGN_LOCATION_MARKER_RX);
+  return marker ? `source location marker "${marker[0]}"` : '';
+}
+
 function classifyListingEntry(entry) {
   if (!entry || typeof entry !== 'object') {
     return { kind: 'unresolved', reason: 'row is not an object' };
@@ -298,11 +331,12 @@ function classifyListingEntry(entry) {
   }
 
   const location = Array.isArray(entry.locations) ? entry.locations[0] : null;
+  const foreignReason = foreignListingLocationReason(location);
+  if (foreignReason) {
+    return { kind: 'foreign', reason: foreignReason };
+  }
   const city = String(location?.city || '').trim();
   const sourceCountry = String(location?.countryAbbr || location?.country || '').trim();
-  if (sourceCountry && !isChCountry(sourceCountry)) {
-    return { kind: 'foreign', reason: 'source country ' + sourceCountry };
-  }
   if (!city) {
     return { kind: 'unresolved', reason: 'source city is missing' };
   }
