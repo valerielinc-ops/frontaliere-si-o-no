@@ -1548,6 +1548,11 @@ async function processRetryQueue(db) {
 
   for (const doc of snap.docs) {
     const data = doc.data();
+    const email = String(data.email || '').trim().toLowerCase();
+    // A TARGET_EMAIL run is an operator verification. Leave every other
+    // recipient's retry item untouched — including malformed/maxed-out items —
+    // so a QA send cannot delete, deliver, or advance another user's state.
+    if (ALLOWED_EMAILS && !ALLOWED_EMAILS.has(email)) continue;
     const retryCount = data.retryCount || 0;
 
     if (retryCount >= MAX_RETRY_COUNT) {
@@ -1557,7 +1562,6 @@ async function processRetryQueue(db) {
       continue;
     }
 
-    const email = String(data.email || '').trim().toLowerCase();
     const alertId = String(data.alertId || '').trim();
     if (!email.includes('@') || !alertId || alertId.includes('/')) {
       // A malformed/stale queue item has no safe Firestore target to
@@ -1713,7 +1717,12 @@ async function processRetryQueue(db) {
 
   for (const retryDoc of retryDocs) {
     const { ref, data } = retryDoc;
-    if (sentEmails.has(String(data.email || '').toLowerCase())) {
+    const email = String(data.email || '').trim().toLowerCase();
+    // Defense in depth: retryDocs are filtered above, but the finalisation
+    // guard keeps a targeted run from ever moving another recipient's cursor
+    // or ledger if queue assembly changes later.
+    if (ALLOWED_EMAILS && !ALLOWED_EMAILS.has(email)) continue;
+    if (sentEmails.has(email)) {
       // Successfully retried — finalise the durable sent view before removing
       // the queue item. If this write fails, leave the item in the queue so the
       // accepted-but-unrecorded outcome remains visible for reconciliation.
