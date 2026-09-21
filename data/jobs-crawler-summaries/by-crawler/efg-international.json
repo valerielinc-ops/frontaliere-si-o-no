@@ -1,77 +1,19 @@
 {
   "key": "efg-international",
   "label": "EFG",
-  "generatedAt": "2026-09-19T22:47:24.618Z",
+  "generatedAt": "2026-09-21T15:55:24.791Z",
   "total": 29,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 29,
   "removedCount": 0,
-  "unchangedCount": 28,
-  "durationMs": 15015,
-  "avgDurationMs": 15015,
+  "unchangedCount": 0,
+  "durationMs": 11501,
+  "avgDurationMs": 11501,
   "durationHistory": [
-    15015
+    11501
   ],
   "newJobs": [],
   "updatedJobs": [
-    {
-      "id": "efg-5984",
-      "slug": "operatore-di-commutazione-efg-international-ag-lugano",
-      "company": "EFG International AG",
-      "title": "Switchboard operator",
-      "location": "Lugano",
-      "canton": "TI",
-      "category": "finance",
-      "contract": "permanent",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-10",
-      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
-      "source": "Oracle HCM API",
-      "sourceLang": "en",
-      "companyKey": "efg-international",
-      "companyDomain": "efginternational.com",
-      "canonicalContent": {
-        "byLocale": {
-          "en": {
-            "summary": [
-              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
-            ],
-            "responsibilities": [],
-            "requirements": [],
-            "benefits": [],
-            "process": [],
-            "highlights": [],
-            "keywords": [],
-            "sections": [],
-            "readingMinutes": 2
-          }
-        }
-      },
-      "crawledAt": "2026-08-25T09:44:22.596Z",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "datePosted": "2026-07-10",
-      "salaryMin": 85500,
-      "salaryMax": 150000,
-      "streetAddress": "Via Pretorio 22",
-      "postalCode": "6900",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "country": "CH",
-      "firstSeenAt": "2026-07-10T10:26:15.024Z",
-      "salarySource": "estimated",
-      "_qualityScore": 97,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
     {
       "id": "efg-6456",
       "slug": "responsabile-del-rischio-efg-international-ag-geneve",
@@ -155,7 +97,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-19T22:47:17.857Z",
+      "crawledAt": "2026-09-21T15:55:17.459Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-14",
@@ -165,6 +107,7 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-08-14T21:27:59.827Z",
       "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -207,7 +150,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-19T22:47:17.856Z",
+      "crawledAt": "2026-09-21T15:55:17.458Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-08-13",
@@ -217,6 +160,7 @@
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-08-13T21:53:02.806Z",
       "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -370,7 +314,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-19T22:47:17.855Z",
+      "crawledAt": "2026-09-21T15:55:17.456Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-06-25",
@@ -382,6 +326,7 @@
       "country": "CH",
       "firstSeenAt": "2026-06-25T22:13:58.906Z",
       "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -478,7 +423,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-19T22:47:17.853Z",
+      "crawledAt": "2026-09-21T15:55:17.453Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-07-23",
@@ -489,6 +434,7 @@
       "country": "CH",
       "firstSeenAt": "2026-07-23T11:24:34.310Z",
       "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -606,7 +552,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-19T22:47:17.852Z",
+      "crawledAt": "2026-09-21T15:55:17.451Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-04-01",
@@ -619,6 +565,7 @@
       "firstSeenAt": "2026-05-10T21:30:00.902Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -661,7 +608,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-19T22:47:17.850Z",
+      "crawledAt": "2026-09-21T15:55:17.449Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-05-28",
@@ -674,6 +621,7 @@
       "firstSeenAt": "2026-05-28T12:24:37.370Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -786,7 +734,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-19T22:47:17.849Z",
+      "crawledAt": "2026-09-21T15:55:17.448Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-01-19",
@@ -799,6 +747,7 @@
       "firstSeenAt": "2026-05-10T21:30:00.895Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -841,7 +790,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-19T22:47:17.847Z",
+      "crawledAt": "2026-09-21T15:55:17.445Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-04-08",
@@ -854,6 +803,7 @@
       "firstSeenAt": "2026-04-13T10:28:21.934Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -969,7 +919,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-19T22:47:17.829Z",
+      "crawledAt": "2026-09-21T15:55:17.422Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "sourceLang": "en",
@@ -983,6 +933,7 @@
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1025,7 +976,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-19T22:47:17.827Z",
+      "crawledAt": "2026-09-21T15:55:17.418Z",
       "addressLocality": "Geneve",
       "addressCountry": "CH",
       "datePosted": "2026-09-03",
@@ -1035,6 +986,7 @@
       "addressRegion": "GE",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-09-03T23:15:04.646Z",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1159,7 +1111,7 @@
           }
         }
       },
-      "crawledAt": "2026-09-19T22:47:17.823Z",
+      "crawledAt": "2026-09-21T15:55:17.412Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "datePosted": "2026-09-16",
@@ -1171,6 +1123,7 @@
       "addressRegion": "TI",
       "employmentType": "FULL_TIME",
       "firstSeenAt": "2026-09-16T23:39:01.514Z",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1290,6 +1243,7 @@
       "country": "CH",
       "firstSeenAt": "2026-07-20T22:01:00.554Z",
       "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1411,6 +1365,7 @@
       "country": "CH",
       "firstSeenAt": "2026-07-21T11:19:19.247Z",
       "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1465,6 +1420,7 @@
       "country": "CH",
       "firstSeenAt": "2026-06-03T13:26:59.347Z",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1520,6 +1476,7 @@
       "firstSeenAt": "2026-05-20T22:46:49.521Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1622,6 +1579,7 @@
       "firstSeenAt": "2026-04-13T10:28:21.959Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1676,6 +1634,7 @@
       "country": "CH",
       "firstSeenAt": "2026-06-24T11:14:17.928Z",
       "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1789,6 +1748,7 @@
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1959,
       "needsRetranslation": true,
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1938,12 +1898,69 @@
       "firstSeenAt": "2026-05-10T21:30:00.881Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 25,
         "translation": 25,
         "completeness": 22
+      }
+    },
+    {
+      "id": "efg-5984",
+      "slug": "operatore-di-commutazione-efg-international-ag-lugano",
+      "company": "EFG International AG",
+      "title": "Switchboard operator",
+      "location": "Lugano",
+      "canton": "TI",
+      "category": "finance",
+      "contract": "permanent",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "url": "https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmUI/CandidateExperience/en/sites/CX_1001/job/5984",
+      "source": "Oracle HCM API",
+      "sourceLang": "en",
+      "companyKey": "efg-international",
+      "companyDomain": "efginternational.com",
+      "canonicalContent": {
+        "byLocale": {
+          "en": {
+            "summary": [
+              "<p><span><strong>Our Company</strong></span></p><p><span>EFG International is a global private banking group, offering private banking and asset management services. We serve clients in over 40 locations worldwide. EFG International offers a stimulating and dynamic work environment and strives to be an employer of choice. </span></p><p><span>EFG is committed to providing an equitable and inclusive working environment that is founded on the principle of mutual respect. Joining our team means experiencing a supportive environment, where your contributions are valued and recognised. We strongly believe that the diversity of our teams gives us a competitive advantage by fostering better decision-making and greater innovation.</span></p><p><span><strong>Our Purpose and Mission</strong></span></p><p><span>Empowering entrepreneurial minds to create value – today and for the future.</span></p><p><span>We are a private bank, offering personalised solutions on a global scale to private and institutional clients. Our sustainable success is based on our talents and on how we partner with our clients and communities to create lasting value.</span><br><br><strong>Job Description</strong></p><p>The position of Switchboard Operator is based in Lugano. The role includes answering and managing incoming calls, providing information in line with internal and external guidelines, and transferring calls to the appropriate contacts and/or taking accurate messages when required. The candidate must be fluent in English, Italian, French and German.</p><p><span><strong>Main responsibilities</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Answer incoming calls, greeting callers, providing information, transferring calls, or taking messages as necessary</span></li><li><span>Perform various data entry or word processing tasks, such as updating phone directories</span></li><li><span>Performing general administrative duties</span></li><li><span>Handle sensitive information in a confidential manner</span></li></ul><p> </p><p><span><strong>Skills and experience</strong></span></p><ul style=\"list-style-type: disc;\"><li><span>Successfully completed commercial education</span></li><li><span>Fluency in English and national languages</span></li><li><span>Around 2-4 years of working experience as Switchboard operator</span></li><li><span>Excellent time management skills, ability to multitask and prioritize request from various sources, work under pressure</span></li><li><span>Active Listening: Giving full attention to what other people are saying, taking time to understand the points being made, asking questions as appropriate, and not interrupting at inappropriate times</span></li><li><span>Knowledge of the Microsoft Office package </span></li><li><span>Communicative, trustworthy presence, politeness</span></li><li><span>Ability to work in a team and listening skills</span></li><li><span>Actively looking for ways to help people</span></li></ul><p> </p><p><span><strong>Our Values</strong></span></p><p><span><strong>Accountability</strong>: Taking ownership for tasks and challenges, as well as seeking continuous improvement</span></p><p><span><strong>Hands-on</strong>: Being proactive to rapidly deliver high-quality results</span></p><p><span><strong>Passionate</strong>: Being committed and striving for excellence</span></p><p><span><strong>Solution-driven</strong>: Focusing on client outcomes and treating clients fairly with a risk-aware mindset</span></p><p><span><strong>Partnership-oriented</strong>: Promoting collaboration and teamwork. Working together with an entrepreneurial spirit.</span></p>"
+            ],
+            "responsibilities": [],
+            "requirements": [],
+            "benefits": [],
+            "process": [],
+            "highlights": [],
+            "keywords": [],
+            "sections": [],
+            "readingMinutes": 2
+          }
+        }
+      },
+      "crawledAt": "2026-08-25T09:44:22.596Z",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "datePosted": "2026-07-10",
+      "salaryMin": 85500,
+      "salaryMax": 150000,
+      "streetAddress": "Via Pretorio 22",
+      "postalCode": "6900",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME",
+      "country": "CH",
+      "firstSeenAt": "2026-07-10T10:26:15.024Z",
+      "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
+      "_qualityScore": 97,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 25,
+        "completeness": 25
       }
     },
     {
@@ -1993,6 +2010,7 @@
       "firstSeenAt": "2026-05-10T21:30:00.892Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2113,6 +2131,7 @@
       "country": "CH",
       "firstSeenAt": "2026-07-02T11:04:59.203Z",
       "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2232,6 +2251,7 @@
       "firstSeenAt": "2026-04-13T10:28:21.957Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2350,6 +2370,7 @@
       "country": "CH",
       "firstSeenAt": "2026-07-10T10:26:15.028Z",
       "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2405,6 +2426,7 @@
       "firstSeenAt": "2026-05-10T21:30:00.894Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2517,6 +2539,7 @@
       "firstSeenAt": "2026-04-13T21:36:50.620Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 100,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2572,6 +2595,7 @@
       "firstSeenAt": "2026-05-10T21:30:00.890Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2688,6 +2712,7 @@
       "country": "CH",
       "firstSeenAt": "2026-06-23T22:12:49.483Z",
       "salarySource": "estimated",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 97,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2775,6 +2800,7 @@
       "firstSeenAt": "2026-05-18T12:15:53.907Z",
       "country": "CH",
       "salarySource": "reported",
+      "applyUrl": "https://www.efginternational.com/us/about/careers",
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -2783,5 +2809,7 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
