@@ -4643,6 +4643,15 @@
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
+  "BASILEA::de::apotheker-in-a-80-100-medbase-ch": {
+    "winnerJobIdentifier": "medbase-d336521f66e5",
+    "winnerCanonical": "apotheker-in-a-80-100-medbase-allschwil",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.75,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
   "BASILEA::de::arztsekretar-in-medizinische-r-praxisassistent-in-onkologie-unispital-basel-ch": {
     "winnerJobIdentifier": "unispital-basel-3255f1882fcd",
     "winnerCanonical": "medizinische-r-praxisassistent-in-mpa-unispital-basel-ch",
@@ -5148,11 +5157,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::de::metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach-fosjkp": {
-    "winnerJobIdentifier": "company-7b8rjw",
-    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach-basel-landschaft-7b8rjw",
-    "decidedAt": "2026-08-22T00:00:00.000Z",
-    "lastSeenAt": "2026-08-23T00:00:00.000Z",
-    "score": 0.6364,
+    "winnerJobIdentifier": "company-exb1mk",
+    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-sissach",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.875,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -7241,6 +7250,15 @@
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.4167,
+    "candidatesCount": 2,
+    "canton": "BASILEA"
+  },
+  "BASILEA::it::apotheker-in-a-80-100-medbase-ch": {
+    "winnerJobIdentifier": "medbase-d336521f66e5",
+    "winnerCanonical": "farmacista-a-80-100-medbase-allschwil",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.4444,
     "candidatesCount": 2,
     "canton": "BASILEA"
   },
@@ -9810,11 +9828,11 @@
     "canton": "BASILEA"
   },
   "BASILEA::it::segretario-del-dottore-in-universitatsspital-basel-basel": {
-    "winnerJobIdentifier": "unispital-basel-03c635e3212e",
-    "winnerCanonical": "dottore-di-cadre-pneumologia-universitatsspital-basel-basel",
-    "decidedAt": "2026-09-17T00:00:00.000Z",
+    "winnerJobIdentifier": "unispital-basel-58fe6a9f6301",
+    "winnerCanonical": "gestione-del-tempo-universitatsspital-basel-basel",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.375,
     "candidatesCount": 1,
     "canton": "BASILEA"
   },
@@ -11772,12 +11790,12 @@
     "canton": "BE"
   },
   "BE::en::fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl": {
-    "winnerJobIdentifier": "solina-1e786331790f",
-    "winnerCanonical": "professional-health-stiftung-solina-steffisburg-kirchbuhl",
-    "decidedAt": "2026-08-13T00:00:00.000Z",
-    "lastSeenAt": "2026-09-16T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "solina-c5492bb4182a",
+    "winnerCanonical": "professional-health-stiftung-solina-steffisburg",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::en::food-sales-assistant-coop-genossenschaft-saanen-bern-fpab4a": {
@@ -12158,6 +12176,15 @@
     "candidatesCount": 2,
     "canton": "BE"
   },
+  "BE::en::professional-software-ingenieur-in-80-100-fincons-group-full-time": {
+    "winnerJobIdentifier": "fincons-group-53881968adc9",
+    "winnerCanonical": "professional-software-engineer-80-100-fincons-group-bern",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::en::sales-associate-denner-ag-allschwil": {
     "winnerJobIdentifier": "company-1remei",
     "winnerCanonical": "seller-denner-ag-rubigen",
@@ -12357,21 +12384,30 @@
     "canton": "BE"
   },
   "BE::en::seller-in-food-coop-genossenschaft-bern-ace4ef": {
-    "winnerJobIdentifier": "company-yrx2a1",
-    "winnerCanonical": "seller-food-coop-genossenschaft-bern-e108b9",
-    "decidedAt": "2026-09-15T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.625,
+    "winnerJobIdentifier": "company-826093",
+    "winnerCanonical": "seller-food-coop-genossenschaft-bern",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.7143,
     "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::en::seller-in-food-coop-genossenschaft-bern-e21b21": {
-    "winnerJobIdentifier": "company-yrx2a1",
-    "winnerCanonical": "seller-food-coop-genossenschaft-bern-e108b9",
-    "decidedAt": "2026-09-15T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.625,
+    "winnerJobIdentifier": "company-826093",
+    "winnerCanonical": "seller-food-coop-genossenschaft-bern",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.7143,
     "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::en::senior-applikations-entwickler-in-80-100-fincons-group-full-time": {
+    "winnerJobIdentifier": "fincons-group-5a6d8522cddb",
+    "winnerCanonical": "senior-application-developer-in-80-100-fincons-group-bern",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.4615,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::en::senior-physician-mobile-acute-treatment-70-100-sro-ag-spital-region-oberaargau-langenthal": {
@@ -13122,12 +13158,12 @@
     "canton": "BE"
   },
   "BE::fr::fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl": {
-    "winnerJobIdentifier": "solina-1e786331790f",
-    "winnerCanonical": "sante-professionnelle-stiftung-solina-steffisburg-kirchbuhl",
-    "decidedAt": "2026-08-13T00:00:00.000Z",
-    "lastSeenAt": "2026-09-16T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "solina-c5492bb4182a",
+    "winnerCanonical": "sante-professionnelle-stiftung-solina-steffisburg",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::fr::hochschulpraktikant-in-confederazione-svizzera-bern": {
@@ -13463,6 +13499,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::fr::professional-software-ingenieur-in-80-100-fincons-group-full-time": {
+    "winnerJobIdentifier": "fincons-group-53881968adc9",
+    "winnerCanonical": "ingenieur-logiciel-professionnel-80-100-fincons-group-bern",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::fr::professionnel-de-la-sante-40-100-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal": {
     "winnerJobIdentifier": "sro-1c24b3f1fa4b",
     "winnerCanonical": "infirmiere-diplomee-hf-fh-40-100-br-medecine-soins-palliatifs-sro-ag-spital-region-oberaargau-langenthal",
@@ -13649,6 +13694,15 @@
     "decidedAt": "2026-07-10T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.2857,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::fr::senior-applikations-entwickler-in-80-100-fincons-group-full-time": {
+    "winnerJobIdentifier": "fincons-group-28a96ac10896",
+    "winnerCanonical": "developpeur-d-application-senior-80-100-fincons-group-bern",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.3571,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -15588,12 +15642,12 @@
     "canton": "BE"
   },
   "BE::it::fachfrau-fachmann-gesundheit-solina-steffisburg-kirchbuhl": {
-    "winnerJobIdentifier": "solina-1e786331790f",
-    "winnerCanonical": "salute-professionale-stiftung-solina-steffisburg-kirchbuhl",
-    "decidedAt": "2026-08-13T00:00:00.000Z",
-    "lastSeenAt": "2026-09-16T00:00:00.000Z",
-    "score": 0.3333,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "solina-c5492bb4182a",
+    "winnerCanonical": "salute-professionale-stiftung-solina-steffisburg",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.2222,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::fachfrau-fachmann-gesundheit-solina-steffisburg-ziegelei": {
@@ -16964,6 +17018,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::it::metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern": {
+    "winnerJobIdentifier": "company-j3v1xg",
+    "winnerCanonical": "macellaio-specialista-di-carne-specialista-di-carne-coop-genossenschaft-bern",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.2727,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern-d1wggm": {
     "winnerJobIdentifier": "company-j3v1xg",
     "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern",
@@ -17504,6 +17567,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::it::professional-software-ingenieur-in-80-100-fincons-group-full-time": {
+    "winnerJobIdentifier": "fincons-group-53881968adc9",
+    "winnerCanonical": "ingegnere-software-professionale-80-100-fincons-group-bern",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.3846,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::it::professionista-stadt-bern-bern": {
     "winnerJobIdentifier": "stadt-bern-f7d66e2875f8",
     "winnerCanonical": "cura-professionale-stadt-bern-bern-c29b39",
@@ -17906,6 +17978,15 @@
     "decidedAt": "2026-09-12T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.5455,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
+  "BE::it::senior-applikations-entwickler-in-80-100-fincons-group-full-time": {
+    "winnerJobIdentifier": "fincons-group-5a6d8522cddb",
+    "winnerCanonical": "sviluppatore-di-applicazioni-senior-in-80-100-fincons-group-bern",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.4286,
     "candidatesCount": 2,
     "canton": "BE"
   },
@@ -18972,11 +19053,11 @@
     "canton": "BE"
   },
   "BE::it::verkaufer-in-food-coop-genossenschaft-bern": {
-    "winnerJobIdentifier": "company-ati0lu",
-    "winnerCanonical": "commesso-a-generi-alimentari-coop-genossenschaft-bern",
-    "decidedAt": "2026-09-05T00:00:00.000Z",
-    "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.3,
+    "winnerJobIdentifier": "company-826093",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-bern",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -18996,6 +19077,15 @@
     "lastSeenAt": "2026-09-04T00:00:00.000Z",
     "score": 0.8571,
     "candidatesCount": 1,
+    "canton": "BE"
+  },
+  "BE::it::verkaufer-in-food-coop-genossenschaft-lauterbrunnen": {
+    "winnerJobIdentifier": "company-235agv",
+    "winnerCanonical": "venditore-in-food-winter-season-coop-genossenschaft-lauterbrunnen-e6cd71",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
     "canton": "BE"
   },
   "BE::it::verkaufer-in-food-coop-grindelwald-bern": {
@@ -23984,6 +24074,15 @@
     "candidatesCount": 1,
     "canton": "GR"
   },
+  "GR::it::assistenzarztin-assistenzarzt-radiologie-kantonsspital-graubunden-chur": {
+    "winnerJobIdentifier": "10193447",
+    "winnerCanonical": "assistente-medico-assistente-medico-radiologia-kantonsspital-graubunden-chur",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "GR"
+  },
   "GR::it::assistenzarztinnen-assistenzarzte-70-100-cseb-ch": {
     "winnerJobIdentifier": "cseb-c39c5502febb",
     "winnerCanonical": "assistenti-medici-70-100-center-da-sanadad-engiadina-bassa-scuol",
@@ -28115,6 +28214,15 @@
     "candidatesCount": 1,
     "canton": "LU"
   },
+  "LU::it::betriebsmitarbeiter-in-logistik-konfektionierung-emmi-ch": {
+    "winnerJobIdentifier": "emmi-83c2ca76ffd4",
+    "winnerCanonical": "personale-operativo-configurazione-logistica-emmi-emmen",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.0909,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::it::biomedizinische-analytikerin-biomedizinischer-analytiker-hf-80-100-luks-luzern": {
     "winnerJobIdentifier": "luks-28cce903b13a",
     "winnerCanonical": "analista-biomedico-analista-biomedicale-hf-80-100-luzerner-kantonsspital-luks-luzern",
@@ -28184,6 +28292,15 @@
     "decidedAt": "2026-09-04T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.5455,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::collaboratore-trice-hauswirtschaft-viva-luzern": {
+    "winnerJobIdentifier": "viva-luzern-5fdf2e703779",
+    "winnerCanonical": "collaboratore-trice-restauration-80-100-viva-luzern",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -28391,6 +28508,15 @@
     "decidedAt": "2026-06-09T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.5333,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz": {
+    "winnerJobIdentifier": "spitex-ch-bf1b3e2b11c7",
+    "winnerCanonical": "dipl-infermiera-hf-psichiatria-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.4615,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -29861,6 +29987,15 @@
     "candidatesCount": 2,
     "canton": "LU"
   },
+  "LU::it::studierende-r-expert-in-in-anasthesiepflege-nds-hf-schweizer-paraplegiker-gruppe-nottwil": {
+    "winnerJobIdentifier": "paraplegie-7325cf1efc7a",
+    "winnerCanonical": "dipl-expert-expert-anesthesia-care-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.5,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::it::stv-filialleiter-in-denner": {
     "winnerJobIdentifier": "company-228b88",
     "winnerCanonical": "stv-branch-manager-in-denner-ag-rothenburg",
@@ -29979,11 +30114,11 @@
     "canton": "LU"
   },
   "LU::it::verkaufer-in-food-coop-genossenschaft-luzern": {
-    "winnerJobIdentifier": "company-23dx33",
-    "winnerCanonical": "verkaufer-in-food-coop-luzern-23dx33",
-    "decidedAt": "2026-08-22T00:00:00.000Z",
-    "lastSeenAt": "2026-08-24T00:00:00.000Z",
-    "score": 0.7143,
+    "winnerJobIdentifier": "company-rah65t",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-luzern",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.3333,
     "candidatesCount": 1,
     "canton": "LU"
   },
@@ -33174,11 +33309,11 @@
     "canton": "SG"
   },
   "SG::en::senior-physician-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-5880e44dac9f",
-    "winnerCanonical": "ergotherapeutin-ergotherapeut-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-05T00:00:00.000Z",
-    "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.5556,
+    "winnerJobIdentifier": "psgn-6539b45acf6f",
+    "winnerCanonical": "senior-physician-mbf-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.875,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -34146,10 +34281,10 @@
     "canton": "SG"
   },
   "SG::fr::medecin-principal-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-a93e6cdb966b",
-    "winnerCanonical": "medecin-assistant-psychiatrie-st-gallen-wil-sg",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
-    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "winnerJobIdentifier": "psgn-71b165c51e1d",
+    "winnerCanonical": "medecin-superieur-medecin-superieur-psychiatrie-st-gallen-wil-sg",
+    "decidedAt": "2026-09-04T00:00:00.000Z",
+    "lastSeenAt": "2026-09-04T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
     "canton": "SG"
@@ -36774,11 +36909,11 @@
     "canton": "SG"
   },
   "SG::it::medico-senior-psychiatrie-st-gallen-wil-sg": {
-    "winnerJobIdentifier": "psgn-a93e6cdb966b",
-    "winnerCanonical": "assistente-medico-psychiatrie-st-gallen-wil-sg",
+    "winnerJobIdentifier": "psgn-6539b45acf6f",
+    "winnerCanonical": "medico-senior-mbf-psychiatrie-st-gallen-wil-sg",
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
-    "score": 0.75,
+    "score": 0.875,
     "candidatesCount": 1,
     "canton": "SG"
   },
@@ -38685,7 +38820,7 @@
     "winnerJobIdentifier": "company-puhkyi",
     "winnerCanonical": "venditore-in-food-coop-genossenschaft-st-gallen-sankt-gallen-f02fda",
     "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-13T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.5385,
     "candidatesCount": 1,
     "canton": "SG"
@@ -51218,6 +51353,15 @@
     "candidatesCount": 5,
     "canton": "VD"
   },
+  "VD::en::assistant-adjoint-assistante-adjointe-denner": {
+    "winnerJobIdentifier": "denner-36aaf9bb0297",
+    "winnerCanonical": "assistant-assistant-assistant-denner-nyon",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.3333,
+    "candidatesCount": 2,
+    "canton": "VD"
+  },
   "VD::en::assistant-e-social-e-80-cdi-evam-vaud-ch": {
     "winnerJobIdentifier": "evam-vaud-8014800",
     "winnerCanonical": "social-assistant-80-cdi-evam-gryon",
@@ -51363,11 +51507,11 @@
     "canton": "VD"
   },
   "VD::en::health-auxiliaries-m-f-fondation-soins-lausanne-lausanne": {
-    "winnerJobIdentifier": "fondation-soins-lausanne-f453ef3b7811",
-    "winnerCanonical": "health-auxiliary-m-f-fondation-soins-lausanne-lausanne",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "winnerJobIdentifier": "fondation-soins-lausanne-679f0c97690a",
+    "winnerCanonical": "mental-health-nurse-m-f-fondation-soins-lausanne-lausanne",
+    "decidedAt": "2026-09-11T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
-    "score": 0.75,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "VD"
   },
@@ -51867,12 +52011,12 @@
     "canton": "VD"
   },
   "VD::it::auxiliaires-de-sante-h-f-fondation-soins-lausanne-lausanne": {
-    "winnerJobIdentifier": "fondation-soins-lausanne-043e22611f0d",
-    "winnerCanonical": "ergoterapist-m-f-fondation-soins-lausanne-lausanne",
-    "decidedAt": "2026-09-05T00:00:00.000Z",
-    "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.4,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "fondation-soins-lausanne-792c9925e1fa",
+    "winnerCanonical": "ausiliari-sanitari-m-f-fondation-soins-lausanne-lausanne",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.3636,
+    "candidatesCount": 1,
     "canton": "VD"
   },
   "VD::it::carrossier-peintre-emil-frey-crissier": {
@@ -55431,11 +55575,11 @@
     "canton": "ZH"
   },
   "ZH::de::metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur-veind0": {
-    "winnerJobIdentifier": "company-dvmec4",
-    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-dvmec4",
-    "decidedAt": "2026-08-22T00:00:00.000Z",
-    "lastSeenAt": "2026-08-23T00:00:00.000Z",
-    "score": 0.6,
+    "winnerJobIdentifier": "company-vijp9i",
+    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.875,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -55449,20 +55593,20 @@
     "canton": "ZH"
   },
   "ZH::de::metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-5d3n3s": {
-    "winnerJobIdentifier": "company-vzogqb",
-    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-vzogqb",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.7778,
+    "winnerJobIdentifier": "company-vijp9i",
+    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-veind0": {
-    "winnerJobIdentifier": "company-vzogqb",
-    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-winterthur-zurich-vzogqb",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.7778,
+    "winnerJobIdentifier": "company-vijp9i",
+    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-winterthur",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -56988,11 +57132,11 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-kassen-services-coop-genossenschaft-zurich-t19yhg": {
-    "winnerJobIdentifier": "company-3s1k39",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-zurich-3s1k39",
-    "decidedAt": "2026-09-15T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.6667,
+    "winnerJobIdentifier": "company-6l6a8j",
+    "winnerCanonical": "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.7778,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -57042,19 +57186,19 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-kassen-services-coop-zurich-7cgsxx": {
-    "winnerJobIdentifier": "company-3s1k39",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-zurich-3s1k39",
-    "decidedAt": "2026-09-15T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-rovgtx",
+    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.75,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-3cw21w": {
-    "winnerJobIdentifier": "company-5u3z9n",
-    "winnerCanonical": "verkaufer-in-kassen-services-studentenaushilfe-coop-zurich-5u3z9n",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-6l6a8j",
+    "winnerCanonical": "verkaufer-in-kassen-services-studentenaushilfe-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.7778,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -57655,10 +57799,10 @@
   },
   "ZH::en::bakers-in-coop-genossenschaft-zurich": {
     "winnerJobIdentifier": "company-cmge36",
-    "winnerCanonical": "weihnachtsaushilfe-coop-genossenschaft-zurich",
+    "winnerCanonical": "christmas-assistance-coop-genossenschaft-zurich",
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
-    "score": 0.5,
+    "score": 0.4286,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -58797,10 +58941,10 @@
     "canton": "ZH"
   },
   "ZH::en::metzger-in-meat-specialist-meat-specialist-coop-genossenschaft-zurich-6def42": {
-    "winnerJobIdentifier": "company-e92i8u",
+    "winnerJobIdentifier": "company-z30for",
     "winnerCanonical": "butcher-meat-specialist-meat-specialist-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-15T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.5556,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -59634,11 +59778,11 @@
     "canton": "ZH"
   },
   "ZH::en::seller-in-cash-registers-services-student-assistance-coop-genossenschaft-zurich-24e43e": {
-    "winnerJobIdentifier": "company-687s0h",
-    "winnerCanonical": "seller-cash-registers-services-saturday-assistance-coop-genossenschaft-wald",
+    "winnerJobIdentifier": "company-6l6a8j",
+    "winnerCanonical": "seller-cash-registers-services-student-assistance-coop-genossenschaft-zurich",
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
-    "score": 0.5385,
+    "score": 0.8182,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -60426,10 +60570,10 @@
     "canton": "ZH"
   },
   "ZH::en::verkaufer-in-kassen-services-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-ajw5nx",
+    "winnerJobIdentifier": "company-rovgtx",
     "winnerCanonical": "seller-cash-register-services-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-14T00:00:00.000Z",
-    "lastSeenAt": "2026-09-14T00:00:00.000Z",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.4,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -61011,11 +61155,11 @@
     "canton": "ZH"
   },
   "ZH::fr::boucher-specialiste-de-la-viande-coop-genossenschaft-winterthur-7q5u4d": {
-    "winnerJobIdentifier": "company-dvmec4",
-    "winnerCanonical": "metzger-in-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-winterthur-0e2626",
-    "decidedAt": "2026-08-22T00:00:00.000Z",
-    "lastSeenAt": "2026-08-23T00:00:00.000Z",
-    "score": 0.5833,
+    "winnerJobIdentifier": "company-vijp9i",
+    "winnerCanonical": "boucher-specialiste-de-la-viande-specialiste-de-la-viande-coop-genossenschaft-winterthur",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.8889,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -63567,10 +63711,10 @@
     "canton": "ZH"
   },
   "ZH::fr::verkaufer-in-kassen-services-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-ajw5nx",
+    "winnerJobIdentifier": "company-rovgtx",
     "winnerCanonical": "caisse-enregistreuse-services-du-vendeur-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-14T00:00:00.000Z",
-    "lastSeenAt": "2026-09-14T00:00:00.000Z",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.3636,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -64675,10 +64819,10 @@
   },
   "ZH::it::backer-in-coop-zurich": {
     "winnerJobIdentifier": "company-cmge36",
-    "winnerCanonical": "weihnachtsaushilfe-coop-genossenschaft-zurich",
+    "winnerCanonical": "assistenza-natalizia-coop-genossenschaft-zurich",
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
-    "score": 0.3333,
+    "score": 0.2857,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -64818,12 +64962,12 @@
     "canton": "ZH"
   },
   "ZH::it::bakers-in-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-yftf0d",
-    "winnerCanonical": "baker-in-confectioner-in-coop-genossenschaft-zurich",
-    "decidedAt": "2026-08-05T00:00:00.000Z",
-    "lastSeenAt": "2026-09-02T00:00:00.000Z",
-    "score": 0.5714,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-cmge36",
+    "winnerCanonical": "assistenza-natalizia-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.4286,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::bauingenieur-in-geotechnik-80-100-implenia-ch": {
@@ -65112,6 +65256,15 @@
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.7143,
     "candidatesCount": 1,
+    "canton": "ZH"
+  },
+  "ZH::it::collaboratore-trice-hauswirtschaft-zfv-unternehmungen-zurich": {
+    "winnerJobIdentifier": "zfv-unternehmungen-e0ba977ecac4",
+    "winnerCanonical": "service-collaboratore-trice-zfv-unternehmungen-zurich",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.7143,
+    "candidatesCount": 2,
     "canton": "ZH"
   },
   "ZH::it::collaboratore-trice-in-kasse-befristet-bis-12-marz-2027-stadt-zurich": {
@@ -67424,6 +67577,15 @@
     "decidedAt": "2026-09-11T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::fachfrau-fachmann-apotheke-eft-a-40-100-medbase-ch": {
+    "winnerJobIdentifier": "medbase-6b7af3ed0dd0",
+    "winnerCanonical": "eft-professionale-di-farmacia-a-40-100-medbase-winterthur",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.3846,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -71811,11 +71973,11 @@
     "canton": "ZH"
   },
   "ZH::it::rayon-conduttore-in-take-it-coop-genossenschaft-zurich-7f4847": {
-    "winnerJobIdentifier": "company-kyfprh",
-    "winnerCanonical": "rayon-conduttore-cibo-di-base-coop-genossenschaft-kusnacht",
-    "decidedAt": "2026-09-19T00:00:00.000Z",
+    "winnerJobIdentifier": "company-f0b4jg",
+    "winnerCanonical": "rayon-conduttore-vino-bevande-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
-    "score": 0.3077,
+    "score": 0.4545,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -72806,6 +72968,15 @@
     "decidedAt": "2026-08-11T00:00:00.000Z",
     "lastSeenAt": "2026-08-24T00:00:00.000Z",
     "score": 0.7826,
+    "candidatesCount": 2,
+    "canton": "ZH"
+  },
+  "ZH::it::senior-firmenkundenberater-w-m-d-raiffeisen-zurich": {
+    "winnerJobIdentifier": "raiffeisen-5fb337e8e512",
+    "winnerCanonical": "senior-corporate-client-advisor-m-f-d-raiffeisen-zurich",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.4545,
     "candidatesCount": 2,
     "canton": "ZH"
   },
@@ -74727,11 +74898,11 @@
     "canton": "ZH"
   },
   "ZH::it::venditore-in-cassa-servizi-coop-genossenschaft-volketswil": {
-    "winnerJobIdentifier": "company-3vqxr9",
-    "winnerCanonical": "venditore-in-cassa-servizi-coop-genossenschaft-winterthur",
-    "decidedAt": "2026-09-18T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.75,
+    "winnerJobIdentifier": "company-sungc",
+    "winnerCanonical": "venditore-nonfood-coop-genossenschaft-volketswil",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -74754,20 +74925,20 @@
     "canton": "ZH"
   },
   "ZH::it::venditore-in-cassa-servizi-coop-genossenschaft-zurich-02b9ee": {
-    "winnerJobIdentifier": "company-3s1k39",
-    "winnerCanonical": "vendita-cassa-servizi-coop-genossenschaft-zurich-d7426e",
-    "decidedAt": "2026-09-15T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "company-rovgtx",
+    "winnerCanonical": "vendita-cassa-servizi-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::venditore-in-cassa-servizi-coop-genossenschaft-zurich-cd36fa": {
-    "winnerJobIdentifier": "company-3s1k39",
-    "winnerCanonical": "vendita-cassa-servizi-coop-genossenschaft-zurich-d7426e",
-    "decidedAt": "2026-09-15T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.5,
+    "winnerJobIdentifier": "company-rovgtx",
+    "winnerCanonical": "vendita-cassa-servizi-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.5556,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -74817,11 +74988,11 @@
     "canton": "ZH"
   },
   "ZH::it::venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich-24e43e": {
-    "winnerJobIdentifier": "company-5u3z9n",
-    "winnerCanonical": "venditore-in-registratori-di-cassa-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-06T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
-    "score": 0.9231,
+    "winnerJobIdentifier": "company-6l6a8j",
+    "winnerCanonical": "vendita-cassetti-servizi-assistenza-agli-studenti-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.4667,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -75331,10 +75502,10 @@
   },
   "ZH::it::verkaufer-in-food-coop-zurich": {
     "winnerJobIdentifier": "company-4v2s39",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-zurich",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-zurich",
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
-    "score": 0.8333,
+    "score": 0.2222,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -75402,11 +75573,11 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-getranke-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-24vt7o",
-    "winnerCanonical": "vendita-cibo-mere-coop-genossenschaft-zurich",
-    "decidedAt": "2026-08-15T00:00:00.000Z",
-    "lastSeenAt": "2026-08-31T00:00:00.000Z",
-    "score": 0.3,
+    "winnerJobIdentifier": "company-q3tpsh",
+    "winnerCanonical": "seller-food-bevande-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.4444,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -75456,10 +75627,10 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-studentenaushilfe-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-hmng9c",
+    "winnerJobIdentifier": "company-besfx8",
     "winnerCanonical": "aiuto-per-gli-studenti-del-venditore-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-19T00:00:00.000Z",
-    "lastSeenAt": "2026-09-19T00:00:00.000Z",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -75537,7 +75708,7 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-frischprodukte-coop-kloten-zurich": {
-    "winnerJobIdentifier": "company-wjsast",
+    "winnerJobIdentifier": "company-6vytch",
     "winnerCanonical": "verkaufer-in-frischprodukte-coop-genossenschaft-kloten",
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
@@ -75636,7 +75807,7 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-frischprodukte-milchprodukte-coop-genossenschaft-kloten-kn7pu0": {
-    "winnerJobIdentifier": "company-wjsast",
+    "winnerJobIdentifier": "company-6vytch",
     "winnerCanonical": "verkaufer-in-frischprodukte-coop-genossenschaft-kloten",
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
@@ -75780,10 +75951,10 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-ajw5nx",
+    "winnerJobIdentifier": "company-rovgtx",
     "winnerCanonical": "vendita-cassa-servizi-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-14T00:00:00.000Z",
-    "lastSeenAt": "2026-09-14T00:00:00.000Z",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
     "score": 0.3,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -75844,15 +76015,15 @@
   },
   "ZH::it::verkaufer-in-kassen-services-coop-zurich": {
     "winnerJobIdentifier": "company-rovgtx",
-    "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
+    "winnerCanonical": "vendita-cassa-servizi-coop-genossenschaft-zurich",
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
-    "score": 0.8571,
+    "score": 0.2,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-kassen-services-coop-zurich-3kcj0z": {
-    "winnerJobIdentifier": "company-rovgtx",
+    "winnerJobIdentifier": "company-dbv1k1",
     "winnerCanonical": "verkaufer-in-kassen-services-coop-genossenschaft-zurich",
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
@@ -76131,11 +76302,11 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-voc0xk",
-    "winnerCanonical": "verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich-voc0xk",
-    "decidedAt": "2026-08-21T00:00:00.000Z",
-    "lastSeenAt": "2026-09-18T00:00:00.000Z",
-    "score": 0.8889,
+    "winnerJobIdentifier": "company-i9nkn8",
+    "winnerCanonical": "consulente-commerciale-domestico-ed-elettrico-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "score": 0.2308,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -76150,10 +76321,10 @@
   },
   "ZH::it::verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich": {
     "winnerJobIdentifier": "company-i9nkn8",
-    "winnerCanonical": "verkaufsberater-in-haushalt-e-elektro-coop-genossenschaft-zurich",
+    "winnerCanonical": "consulente-commerciale-domestico-ed-elettrico-coop-genossenschaft-zurich",
     "decidedAt": "2026-09-20T00:00:00.000Z",
     "lastSeenAt": "2026-09-20T00:00:00.000Z",
-    "score": 0.7778,
+    "score": 0.2308,
     "candidatesCount": 1,
     "canton": "ZH"
   },
