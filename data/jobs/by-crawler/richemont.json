@@ -3470,12 +3470,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates"
+        "procurement-category-manager-richemont-plan-les-ouates",
+        "procurement-category-manager-piaget-plan-les-ouates"
       ],
       "previousSlugsByLocale": {
         "it": [
           "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates"
+          "procurement-category-manager-richemont-plan-les-ouates",
+          "procurement-category-manager-piaget-plan-les-ouates"
         ],
         "de": [
           "procurement-category-manager-richemont-plan-les-ouates-2"
@@ -8880,11 +8882,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "sales-associate-richemont-zurich",
-        "sales-associate-richemont-zurich-t0sdvd"
+        "sales-associate-richemont-zurich-t0sdvd",
+        "sales-associate-van-cleef-arpels-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "sales-associate-richemont-zurich"
+          "sales-associate-richemont-zurich",
+          "sales-associate-van-cleef-arpels-zurich"
         ],
         "de": [
           "sales-associate-richemont-zurich"
@@ -9338,7 +9342,6 @@
           "projektleiter-valfleurier-buttes"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:28:12.097Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -9883,7 +9886,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "specialiste-analyses-materiaux-richemont-glovelier"
+        ]
+      },
+      "previousSlugs": [
+        "specialiste-analyses-materiaux-richemont-glovelier"
+      ]
     },
     {
       "id": "richemont-beb532d93689",
