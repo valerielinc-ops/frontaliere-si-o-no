@@ -6620,6 +6620,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.lidl-abolisce-arrotondamento-cassa.title': 'Lidl abolishes cash rounding for cards and online',
     'blog.article.lidl-abolisce-arrotondamento-cassa.excerpt': 'German discount Lidl has eliminated downward rounding for card and online payments, saving over a million francs.',
     'blog.article.lidl-abolisce-arrotondamento-cassa.imageAlt': 'Supermarket checkout in Switzerland with card payment terminal',
+    'blog.article.rapporto-schengen-dublino-2026.title': 'Schengen Dublin Report: Impacts on GDP and Border',
+    'blog.article.rapporto-schengen-dublino-2026.excerpt': 'The Federal Council adopted the report on Schengen and Dublin: abandonment could reduce Swiss GDP by up to 3.9% in 2035.',
+    'blog.article.rapporto-schengen-dublino-2026.imageAlt': 'Swiss border crossing and customs infrastructure analyzed in the September 2026 report',
 };
 
 export default blogMetaChEn;
