@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mcdonald-s-switzerland",
-  "assembledAt": "2026-09-18T21:18:38.426Z",
+  "assembledAt": "2026-09-21T15:41:56.277Z",
   "jobs": [
     {
       "title": "Hôte / Hôtesse",
@@ -2717,88 +2717,6 @@
       },
       "addressLocality": "LUGANO PAZZALLO",
       "addressRegion": "TI"
-    },
-    {
-      "title": "Crew",
-      "company": "McDonald's Switzerland",
-      "companyKey": "mcdonald-s-switzerland",
-      "companyDomain": "mcdonalds.ch",
-      "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-319396-6",
-      "slug": "crew-mcdonalds-switzerland-zurich-p8-319396-6",
-      "location": "ZURICH",
-      "canton": "ZH",
-      "country": "CH",
-      "postalCode": "8005",
-      "streetAddress": "LANGSTRASSE 201",
-      "description": "Posizione aperta presso un ristorante McDonald's a ZURICH (ZH), Svizzera. Candidati tramite il portale ufficiale McDonald's Switzerland.",
-      "postedDate": "2026-07-14",
-      "validThrough": "",
-      "employmentType": "PART_TIME",
-      "jobReqId": "P8-319396-6",
-      "sector": "Ristorazione / Fast Food",
-      "source": "McDonald's Dedicated Parser (vacancies listing + JSON-LD)",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-13T14:16:08.051Z",
-      "titleByLocale": {
-        "de": "Besatzung",
-        "it": "Crew",
-        "en": "Crew member",
-        "fr": "Équipage"
-      },
-      "slugByLocale": {
-        "de": "besatzung-mcdonald-s-switzerland-zurich",
-        "it": "crew-mcdonalds-switzerland-zurich-p8-319396-6",
-        "en": "crew-member-mcdonald-s-switzerland-zurich",
-        "fr": "crew-mcdonald-s-switzerland-zurich"
-      },
-      "descriptionByLocale": {
-        "de": "Offener Standort in einem McDonald's Restaurant in ZURICH (ZH), Schweiz. Bewerben Sie sich über das offizielle McDonald's Switzerland Portal.",
-        "it": "Posizione aperta presso un ristorante McDonald's a ZURICH (ZH), Svizzera. Candidati tramite il portale ufficiale McDonald's Switzerland.",
-        "en": "Open location at McDonald's restaurant in ZURICH (ZH), Switzerland. Candidate through the official McDonald's Switzerland portal.",
-        "fr": "Ouvert dans un restaurant McDonald's à ZURICH (ZH), Suisse. Faites votre demande sur le portail officiel de McDonald's Suisse."
-      },
-      "previousSlugs": [
-        "crew-mcdonalds-switzerland-zurich-p8-318021-1",
-        "crew-mcdonalds-switzerland-zurich-p8-318022-1",
-        "vereinte-nationen-mcdonald-s-switzerland-zurich",
-        "crew-mcdonalds-switzerland-zurich-p8-319398-8",
-        "crew-mcdonald-s-switzerland-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "crew-mcdonalds-switzerland-zurich-p8-318021-1",
-          "crew-mcdonalds-switzerland-zurich-p8-318022-1",
-          "crew-mcdonalds-switzerland-zurich-p8-319398-8"
-        ],
-        "en": [
-          "crew-mcdonalds-switzerland-zurich-p8-318021-1",
-          "crew-mcdonalds-switzerland-zurich-p8-318022-1"
-        ],
-        "de": [
-          "crew-mcdonalds-switzerland-zurich-p8-318021-1",
-          "crew-mcdonalds-switzerland-zurich-p8-318022-1",
-          "vereinte-nationen-mcdonald-s-switzerland-zurich",
-          "crew-mcdonald-s-switzerland-zurich"
-        ]
-      },
-      "id": "mcdonald-s-switzerland-aa884415d60a",
-      "salaryMin": 73500,
-      "salaryMax": 111500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 73500,
-          "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "addressLocality": "ZURICH",
-      "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-13T14:16:08.051Z"
     },
     {
       "title": "Guest Experience Leader",
