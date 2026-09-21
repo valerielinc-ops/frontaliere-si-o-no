@@ -43,11 +43,12 @@ verificabile. Applica la label transitoria `agent:vision-approved` e cita questo
 contratto nel commento: è la prova che la riapertura segue VISION.md, non un
 bypass manuale della policy.
 
-Quando quella prova è presente, il fixer può trattare i domini F1/F7 e il
-control-plane come evidenza da verificare nel diff, non come veto preventivo.
-Restano obbligatori i controlli indipendenti: metadata e file-list completi,
-capability guard per workflow/secret, causa determinata, diff gate, test,
-review e gate `## LGTM`. Un blocco reale osservato durante il run torna a
+Quando quella prova è presente, il fixer può rientrare nel ciclo, ma i domini
+F1/F7 e il control-plane restano veto deny-by-default sulla superficie issue:
+`agent:vision-approved` è provenienza del rientro e non sostituisce il risk
+gate. Restano obbligatori i controlli indipendenti: metadata e file-list
+completi, capability guard per workflow/secret, causa determinata, diff gate,
+test, review e gate `## LGTM`. Un blocco reale osservato durante il run torna a
 `needs-human` e la label transitoria viene rimossa; il pre-pass lo rivaluta al
 giro successivo secondo questa stessa regola.
 
