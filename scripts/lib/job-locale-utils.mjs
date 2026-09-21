@@ -3,6 +3,21 @@ import { escapeRegExpLiteral } from './escape-regexp.mjs';
 
 export const DEFAULT_JOB_LOCALES = ['it', 'en', 'de', 'fr'];
 
+/**
+ * Normalize a stored locale without inventing a supported one.
+ *
+ * Crawlers occasionally persist regional spellings (`de-CH`, `it_CH`) while
+ * the locale maps use the base ISO-639 code. Callers that need to accept only
+ * supported locales still validate the returned value against
+ * DEFAULT_JOB_LOCALES; this helper only performs the mechanical normalization.
+ *
+ * @param {unknown} value
+ * @returns {string}
+ */
+export function normalizeJobLocale(value = '') {
+  return String(value ?? '').trim().toLowerCase().split(/[-_]/)[0];
+}
+
 const TITLE_HINTS = {
   en: [
     /\b(engineer|specialist|manager|coordinator|developer|scientist|designer|analyst|quality|project|customer|backend|frontend|software|full[\s-]?stack|intern|internship|associate|banking|all[\s-]?rounder|technician|process|operations?|sales|marketing|support|advisor|consultant|lead|head|product|application|supply chain|research|fellowship|student|position|coach|allocator|librarian|paid media|seo|life science)\b/gi,
@@ -137,7 +152,7 @@ export const SOURCE_LANG_HOLD_CONFIDENCE = 0.65;
 export function holdSourceLang(job, text, fallbackLang = 'it') {
   if (!String(text || '').trim()) return fallbackLang;
   const detected = detectTextLocale(text, fallbackLang);
-  const stored = String((job && job.sourceLang) || '').trim().toLowerCase().split(/[-_]/)[0];
+  const stored = normalizeJobLocale(job && job.sourceLang);
   if (
     stored &&
     DEFAULT_JOB_LOCALES.includes(stored) &&

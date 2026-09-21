@@ -704,6 +704,20 @@ describe('gender-form repair cohort — la misura del dopo (#7991)', () => {
     expect(genderFormTargetResidual({ ...after, sourceLang: 'it' })).toBe(false);
   });
 
+  it('normalizza il sourceLang regionale e rifiuta un prefisso non locale', () => {
+    const regional = summarizeJobs([genderFormJob('regional-gender', { sourceLang: 'de-CH' })], {
+      collectGenderFormCohort: true,
+    });
+    expect(regional.genderFormCandidates).toBe(1);
+    expect(regional.genderFormCohortCandidates[0].beforeSourceLang).toBe('de');
+
+    const invalid = summarizeJobs([genderFormJob('invalid-gender', { sourceLang: 'debug' })], {
+      collectGenderFormCohort: true,
+    });
+    expect(invalid.genderFormCandidates).toBe(0);
+    expect(invalid.genderFormCohortCandidates).toHaveLength(0);
+  });
+
   it('non chiama misurato un campione parzialmente drenato', () => {
     expect(buildGenderFormRepairReport({
       phase: 'after',

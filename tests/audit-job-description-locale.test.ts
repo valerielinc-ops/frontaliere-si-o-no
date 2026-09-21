@@ -73,6 +73,12 @@ describe('audit-job-description-locale — pure core', () => {
     expect(r.offenders[0]).toMatchObject({ locale: 'it', detected: 'de', company: 'Confederazione Svizzera' });
   });
 
+  it('normalizes a regional sourceLang before reporting the source direction', () => {
+    const r = auditDescriptionLocales([{ ...sourceCopyJob, sourceLang: 'de-CH' }]);
+    expect(r.offenders[0]).toMatchObject({ sourceLang: 'de', sourceCopy: true });
+    expect(r.topPairs[0]).toEqual({ key: 'de->it', count: 1 });
+  });
+
   it('counts every eligible slot as denominator, not just the bad ones', () => {
     const r = auditDescriptionLocales([sourceCopyJob]);
     expect(r.slots).toBe(4);

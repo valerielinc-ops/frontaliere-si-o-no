@@ -75,6 +75,7 @@ import {
 } from './mark-mistranslated-jobs.mjs';
 import { QUEUE_AGE_BUCKET_KEYS, summarizeQueueAge } from './lib/job-traffic-priority.mjs';
 import { listSliceFileNames } from './lib/crawler-slice-files.mjs';
+import { normalizeJobLocale } from './lib/job-locale-utils.mjs';
 
 /**
  * Root of the tree being measured. The normal invocation leaves this empty
@@ -142,9 +143,7 @@ export function selectGenderFormSample(
     const beforeSourceTitleHash = typeof record?.beforeSourceTitleHash === 'string'
       ? record.beforeSourceTitleHash
       : '';
-    const beforeSourceLang = typeof record?.beforeSourceLang === 'string'
-      ? record.beforeSourceLang.trim().toLowerCase()
-      : '';
+    const beforeSourceLang = normalizeJobLocale(record?.beforeSourceLang);
     if (!id || !beforeSourceTitleHash || unique.has(id)) continue;
     unique.set(id, { id, beforeSourceTitleHash, beforeSourceLang });
   }
@@ -450,7 +449,7 @@ export function summarizeJobs(
             c.genderFormCohortCandidates.push({
               id,
               beforeSourceTitleHash: sourceTitleHash(job),
-              beforeSourceLang: String(job.sourceLang || '').trim().toLowerCase(),
+              beforeSourceLang: normalizeJobLocale(job.sourceLang),
             });
           }
         }
@@ -463,9 +462,9 @@ export function summarizeJobs(
     if (previouslyGenderFormSample && id) {
       const sampleRecord = previouslyGenderFormSample.get(id);
       const sameSourceTitle = sampleRecord?.beforeSourceTitleHash === sourceTitleHash(job);
-      const sourceLang = String(job.sourceLang || '').trim().toLowerCase();
-      const sameGermanSource = sampleRecord?.beforeSourceLang === sourceLang &&
-        sourceLang.startsWith('de');
+      const sourceLang = normalizeJobLocale(job.sourceLang);
+      const sameGermanSource = normalizeJobLocale(sampleRecord?.beforeSourceLang) === sourceLang &&
+        sourceLang === 'de';
       if (sampleRecord && sameSourceTitle && sameGermanSource && !incomplete && !flagged) {
         c.genderFormSampleProcessed++;
         if (genderFormTargetResidual(job)) c.genderFormSampleResidual++;
@@ -768,7 +767,7 @@ function readCohortState() {
   const records = sample.records.filter((record) =>
     typeof record?.id === 'string' && record.id.trim() &&
     typeof record?.beforeSourceTitleHash === 'string' && record.beforeSourceTitleHash &&
-    typeof record?.beforeSourceLang === 'string' && record.beforeSourceLang.trim().toLowerCase().startsWith('de'),
+    typeof record?.beforeSourceLang === 'string' && normalizeJobLocale(record.beforeSourceLang) === 'de',
   );
   return {
     incompleteIds: raw.incompleteIds,
