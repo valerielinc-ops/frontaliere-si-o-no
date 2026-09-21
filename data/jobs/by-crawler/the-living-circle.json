@@ -1,6 +1,6 @@
 {
   "crawlerKey": "the-living-circle",
-  "assembledAt": "2026-09-19T22:51:44.814Z",
+  "assembledAt": "2026-09-21T15:57:12.816Z",
   "jobs": [
     {
       "title": "Aushilfe Servicemitarbeiter (all genders)",
@@ -44,7 +44,21 @@
         "fr": "personnel-d-appui-tous-les-sexes-the-living-circle-thalwil"
       },
       "id": "the-living-circle-53c648f64b3f",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "aushilfe-servicemitarbeiter-all-genders-the-living-circle-thalwil"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "aushilfe-servicemitarbeiter-all-genders-the-living-circle-thalwil"
+        ],
+        "en": [
+          "aushilfe-servicemitarbeiter-all-genders-the-living-circle-thalwil"
+        ],
+        "fr": [
+          "aushilfe-servicemitarbeiter-all-genders-the-living-circle-thalwil"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -58,22 +72,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "aushilfe-servicemitarbeiter-all-genders-the-living-circle-thalwil"
-        ],
-        "en": [
-          "aushilfe-servicemitarbeiter-all-genders-the-living-circle-thalwil"
-        ],
-        "fr": [
-          "aushilfe-servicemitarbeiter-all-genders-the-living-circle-thalwil"
-        ]
-      },
-      "previousSlugs": [
-        "aushilfe-servicemitarbeiter-all-genders-the-living-circle-thalwil"
-      ]
+      }
     },
     {
       "title": "Housekeeping Porter Aushilfe 20-40% (all genders)",
@@ -117,7 +116,18 @@
         "fr": "porteur-de-menage-aide-20-40-tous-les-sexes-the-living-circle-zurich"
       },
       "id": "the-living-circle-2fa004ae1da7",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "housekeeping-porter-aushilfe-20-40-all-genders-the-living-circle-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "housekeeping-porter-aushilfe-20-40-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "housekeeping-porter-aushilfe-20-40-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 29200,
       "salaryMax": 36600,
       "currency": "CHF",
@@ -131,19 +141,7 @@
           "maxValue": 36600,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "housekeeping-porter-aushilfe-20-40-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "housekeeping-porter-aushilfe-20-40-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "housekeeping-porter-aushilfe-20-40-all-genders-the-living-circle-zurich"
-      ]
+      }
     },
     {
       "title": "Room Attendant Aushilfe 20-40% (all genders)",
@@ -187,7 +185,18 @@
         "fr": "aide-aux-preposes-a-la-salle-20-40-tous-les-sexes-the-living-circle-zurich"
       },
       "id": "the-living-circle-759ec77ade98",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "room-attendant-aushilfe-20-40-all-genders-the-living-circle-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "room-attendant-aushilfe-20-40-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "room-attendant-aushilfe-20-40-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 29200,
       "salaryMax": 36600,
       "currency": "CHF",
@@ -201,19 +210,7 @@
           "maxValue": 36600,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "room-attendant-aushilfe-20-40-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "room-attendant-aushilfe-20-40-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "room-attendant-aushilfe-20-40-all-genders-the-living-circle-zurich"
-      ]
+      }
     },
     {
       "title": "Lehrstelle als Fachfrau/-mann Hotellerie-Hauswirtschaft EFZ",
@@ -251,99 +248,27 @@
         "fr": "The Living Circle recrute à Zürich. Découvrez les détails du poste et postulez en ligne.\n\n## Aperçu\n- Wo gibt es das schon: Ein Fünf-Sterne-Hotel direkt am Zürichsee, ein Design-Hotel hinter 700 Jahren alten Mauern und ein stadtbekanntes Hotel gleich an der Limmat in Zürich. Zudem gehören drei Landwirtschaftsbetriebe zu uns. Diese liefern unseren Hotels gartenfrisch ihre Produkte: Reis, Mais, Fleisch und Eier. Mit unseren eigenen Zutaten machen wir feinste Glaces, probieren lohnt sich!\n- Wir sind The Living Circle, die abwechslungsreichste Hotelgruppe der Schweiz. Unsere Hotels bieten jeden Tag und Nacht Top-Service für Gäste aus der ganzen Welt. Während deiner Lehre in unseren Hotels in Zürich (Storchen Zürich und Widder Hotel) lernst du die Welt der Fünf-Sterne-Gastfreundschaft kennen. Bist du bereit? Hast du ein Talent als Gastgeberin oder Gastgeber? Dann freuen wir uns auf dich!\n\n## Ton profil\n-\n• Du bist ein Organisationstalent & magst es, wenn es ordentlich ist?\n-\n• Du sprichst Deutsch und auch auf Englisch bist du nicht verlegen?\n-\n• Du arbeitest gerne im Team?\n-\n• Du möchtest unseren Gästen ein unvergessliches Erlebnis bereiten?\n- BIST DU UNSER ZUKÜNFTIGES TALENT?\n- Dann freuen wir uns über deine Bewerbung, welche folgendes beinhält.\n-\n• Lebenslauf mit Foto\n-\n• Motivationsschreiben\n-\n• Schulzeugnisse der Sekundarschule\n-\n• Falls vorhanden: Stellwerktest oder Multicheck\n-\n• Falls vorhanden: Schnupperbericht\n\n## Avantages\n-\n• 100%ige Übernahme vom ZVV Bonus Pass – Mit uns kommst du weiter als nur von A nach B.\n-\n• Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar.\n-\n• 50% Rabatt in unseren Restaurants & Bars - für dich und deine Begleitpersonen.\n-\n• Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten.\n-\n• Du-Kultur: Bei uns darfst du sogar den CEO mit dem Vornamen ansprechen.\n-\n• Übernahme von Schulkosten und Vorbereitungskursen - so bleibt mehr für dich übrig. ;)\n-\n• und noch viele mehr...\n- Wir nehmen nicht nur unsere Gäste auf eine spannende Reise, sondern auch unseren Nachwuchs. Wohin die Reise geht, bestimmst du mit. Bist du bereit für ein neues Abenteuer? Dann freuen wir uns auf deine online Bewerbung."
       },
       "slugByLocale": {
-        "it": "apprendistato-come-fachfrau-mann-hotellerie-hauswirtschaft-cfc-the-living-circle-zurich",
+        "it": "apprendistato-come-specialista-dell-industria-alberghiera-efz-the-living-circle-zurich",
         "en": "apprenticeship-as-a-specialist-hotel-industry-housekeeping-efz-the-living-circle-zurich",
         "de": "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich",
         "fr": "apprentissage-en-tant-que-specialiste-de-l-hotellerie-menagement-efz-the-living-circle-zurich"
       },
       "id": "the-living-circle-ae6046e52677",
-      "previousSlugsByLocale": {
-        "it": [
-          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich"
-        ],
-        "en": [
-          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich"
-        ],
-        "fr": [
-          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich"
-        ]
-      },
       "previousSlugs": [
         "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich"
       ],
-      "salaryMin": 58000,
-      "salaryMax": 73000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 73000,
-          "unitText": "YEAR"
-        }
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T22:51:40.722Z"
-    },
-    {
-      "title": "Lehrstelle als Restaurantfachfrau/-mann EFZ",
-      "slug": "apprendistato-come-restaurantfachfrau-mann-cfc-the-living-circle-zurich",
-      "url": "https://jobs.thelivingcircle.ch/jobs/66046008/Lehrstelle-als-Restaurantfachfrau--mann-EFZ/",
-      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/66046008/Lehrstelle-als-Restaurantfachfrau--mann-EFZ/",
-      "company": "The Living Circle",
-      "companyKey": "the-living-circle",
-      "companyDomain": "thelivingcircle.ch",
-      "location": "Zürich",
-      "addressLocality": "Zürich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "canton": "ZH",
-      "country": "CH",
-      "category": "hospitality",
-      "sector": "Hotellerie & Ospitalità",
-      "source": "living-circle-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-07-13",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "validThrough": "",
-      "description": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- Wo gibt es das schon: Ein Fünf-Sterne-Hotel direkt am Zürichsee, ein Design-Hotel hinter 700 Jahren alten Mauern und ein stadtbekanntes Hotel gleich an der Limmat in Zürich. Zudem gehören drei Landwirtschaftsbetriebe zu uns. Diese liefern unseren Hotels gartenfrisch ihre Produkte: Reis, Mais, Fleisch und Eier. Mit unseren eigenen Zutaten machen wir feinste Glaces, probieren lohnt sich!\n- Wir sind The Living Circle, die abwechslungsreichste Hotelgruppe der Schweiz. Unsere Hotels bieten jeden Tag und Nacht Top-Service für Gäste aus der ganzen Welt. Während deiner Lehre in unseren Hotels in Zürich (Storchen Zürich und Widder Hotel) lernst du die Welt der Fünf-Sterne-Gastfreundschaft kennen. Bist du bereit? Hast du ein Talent als Gastgeberin oder Gastgeber? Dann freuen wir uns auf dich!\n\n## Il tuo profilo\n-\n• Gastgeber zu sein macht dir Spass?\n-\n• Du hast viel Einfühlvermögen und bist zuvorkommend?\n-\n• Du sprichst Deutsch und auch auf Englisch bist du nicht verlegen?\n-\n• Du möchtest unseren Gästen ein unvergessliches Erlebnis bereiten?\n- BIST DU UNSER ZUKÜNFTIGES TALENT?\n- Dann freuen wir uns über deine Bewerbung, welche folgendes beinhält.\n-\n• Lebenslauf mit Foto\n-\n• Motivationsschreiben\n-\n• Schulzeugnisse der Sekundarschule\n-\n• Falls vorhanden: Stellwerktest oder Multicheck\n-\n• Falls vorhanden: Schnupperbericht\n\n## Benefit\n-\n• 100%ige Übernahme vom ZVV Bonus Pass – Mit uns kommst du weiter als nur von A nach B.\n-\n• Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar.\n-\n• 50% Rabatt in unseren Restaurants & Bars - für dich und deine Begleitpersonen.\n-\n• Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten.\n-\n• Du-Kultur: Bei uns darfst du sogar den CEO mit dem Vornamen ansprechen.\n-\n• Übernahme von Schulkosten und Vorbereitungskursen - so bleibt mehr für dich übrig. ;)\n-\n• und noch viele mehr...\n- Wir nehmen nicht nur unsere Gäste auf eine spannende Reise, sondern auch unseren Nachwuchs. Wohin die Reise geht, bestimmst du mit. Bist du bereit für ein neues Abenteuer? Dann freuen wir uns auf deine online Bewerbung.",
-      "titleByLocale": {
-        "it": "Apprendistato come specialista del ristorante EFZ",
-        "en": "Apprenticeship as restaurant specialist EFZ",
-        "de": "Lehrstelle als Restaurantfachfrau/-mann EFZ",
-        "fr": "Apprentissage en tant que spécialiste des restaurants EFZ"
-      },
-      "descriptionByLocale": {
-        "it": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- Dove trovarlo: un hotel a cinque stelle proprio sul Lago di Zurigo, un hotel di design dietro le mura di 700 anni e un hotel famoso in città proprio sul Limmat di Zurigo. Abbiamo anche tre fattorie. Essi forniscono ai nostri hotel prodotti freschi: riso, mais, carne e uova. Con i nostri ingredienti facciamo i migliori glace, vale la pena provare!\n- Siamo The Living Circle, il gruppo alberghiero più vario in Svizzera. I nostri hotel offrono il miglior servizio ogni giorno e notte per gli ospiti di tutto il mondo. Durante il vostro apprendistato nei nostri hotel a Zurigo (Storchen Zürich e Widder Hotel) potrete conoscere il mondo dell'ospitalità a cinque stelle. Sei pronto? Hai un talento come hostess o hostess? Allora non vediamo l'ora di te!\n\n## Il tuo profilo\n-\n• Ti piace essere un ospite?\n-\n• Hai molta empatia e sei cortese?\n-\n• Parli tedesco e non sei imbarazzato in inglese?\n-\n• Vuoi dare ai nostri ospiti un'esperienza indimenticabile?\n- Sei il nostro futuro talento?\n- Allora non vediamo l'ora della vostra applicazione, che include il seguente.\n-\n• CV con foto\n-\n• Lettera di motivazione\n-\n• Certificati di scuola secondaria\n-\n• Se disponibile: test di segnalazione o multicheck\n-\n• Se disponibile, rapporto campione\n\n## Vantaggi\n-\n• 100% di acquisizione del ZVV Bonus Pass – Con noi si può andare oltre che solo da A a B.\n-\n• Un giorno libero intorno al vostro compleanno – risolubilmente riscattabile entro due settimane.\n-\n• 50% di sconto nei nostri ristoranti e bar - per voi e le vostre escort.\n-\n• Tariffa Amici e Famiglia – Condividi la nostra ospitalità con i tuoi cari.\n-\n• Du-culture: Con noi si può anche rivolgersi al CEO con il nome.\n-\n• Assunzione dei costi scolastici e dei corsi di preparazione - così vi è più sinistra per voi.\n-\n• E molti altri...\n- Non solo portiamo i nostri ospiti in un viaggio emozionante, ma anche i nostri giovani. Dove va il viaggio, decidi tu. Sei pronto per una nuova avventura? Attendiamo con ansia la vostra applicazione online.",
-        "en": "The Living Circle is hiring in Zürich. Discover the details of this position and apply online.\n\n## Overview\n- Wo gibt es das schon: Ein Fünf-Sterne-Hotel direkt am Zürichsee, ein Design-Hotel hinter 700 Jahren alten Mauern und ein stadtbekanntes Hotel gleich an der Limmat in Zürich. Zudem gehören drei Landwirtschaftsbetriebe zu uns. Diese liefern unseren Hotels gartenfrisch ihre Produkte: Reis, Mais, Fleisch und Eier. Mit unseren eigenen Zutaten machen wir feinste Glaces, probieren lohnt sich!\n- Wir sind The Living Circle, die abwechslungsreichste Hotelgruppe der Schweiz. Unsere Hotels bieten jeden Tag und Nacht Top-Service für Gäste aus der ganzen Welt. Während deiner Lehre in unseren Hotels in Zürich (Storchen Zürich und Widder Hotel) lernst du die Welt der Fünf-Sterne-Gastfreundschaft kennen. Bist du bereit? Hast du ein Talent als Gastgeberin oder Gastgeber? Dann freuen wir uns auf dich!\n\n## About you\n-\n• Gastgeber zu sein macht dir Spass?\n-\n• Du hast viel Einfühlvermögen und bist zuvorkommend?\n-\n• Du sprichst Deutsch und auch auf Englisch bist du nicht verlegen?\n-\n• Du möchtest unseren Gästen ein unvergessliches Erlebnis bereiten?\n- BIST DU UNSER ZUKÜNFTIGES TALENT?\n- Dann freuen wir uns über deine Bewerbung, welche folgendes beinhält.\n-\n• Lebenslauf mit Foto\n-\n• Motivationsschreiben\n-\n• Schulzeugnisse der Sekundarschule\n-\n• Falls vorhanden: Stellwerktest oder Multicheck\n-\n• Falls vorhanden: Schnupperbericht\n\n## Benefits\n-\n• 100%ige Übernahme vom ZVV Bonus Pass – Mit uns kommst du weiter als nur von A nach B.\n-\n• Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar.\n-\n• 50% Rabatt in unseren Restaurants & Bars - für dich und deine Begleitpersonen.\n-\n• Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten.\n-\n• Du-Kultur: Bei uns darfst du sogar den CEO mit dem Vornamen ansprechen.\n-\n• Übernahme von Schulkosten und Vorbereitungskursen - so bleibt mehr für dich übrig. ;)\n-\n• und noch viele mehr...\n- Wir nehmen nicht nur unsere Gäste auf eine spannende Reise, sondern auch unseren Nachwuchs. Wohin die Reise geht, bestimmst du mit. Bist du bereit für ein neues Abenteuer? Dann freuen wir uns auf deine online Bewerbung.",
-        "de": "The Living Circle sucht am Standort Zürich eine neue Fachkraft. Entdecken Sie die Details der Stelle und bewerben Sie sich online.\n\n## Überblick\n- Wo gibt es das schon: Ein Fünf-Sterne-Hotel direkt am Zürichsee, ein Design-Hotel hinter 700 Jahren alten Mauern und ein stadtbekanntes Hotel gleich an der Limmat in Zürich. Zudem gehören drei Landwirtschaftsbetriebe zu uns. Diese liefern unseren Hotels gartenfrisch ihre Produkte: Reis, Mais, Fleisch und Eier. Mit unseren eigenen Zutaten machen wir feinste Glaces, probieren lohnt sich!\n- Wir sind The Living Circle, die abwechslungsreichste Hotelgruppe der Schweiz. Unsere Hotels bieten jeden Tag und Nacht Top-Service für Gäste aus der ganzen Welt. Während deiner Lehre in unseren Hotels in Zürich (Storchen Zürich und Widder Hotel) lernst du die Welt der Fünf-Sterne-Gastfreundschaft kennen. Bist du bereit? Hast du ein Talent als Gastgeberin oder Gastgeber? Dann freuen wir uns auf dich!\n\n## Über dich\n-\n• Gastgeber zu sein macht dir Spass?\n-\n• Du hast viel Einfühlvermögen und bist zuvorkommend?\n-\n• Du sprichst Deutsch und auch auf Englisch bist du nicht verlegen?\n-\n• Du möchtest unseren Gästen ein unvergessliches Erlebnis bereiten?\n- BIST DU UNSER ZUKÜNFTIGES TALENT?\n- Dann freuen wir uns über deine Bewerbung, welche folgendes beinhält.\n-\n• Lebenslauf mit Foto\n-\n• Motivationsschreiben\n-\n• Schulzeugnisse der Sekundarschule\n-\n• Falls vorhanden: Stellwerktest oder Multicheck\n-\n• Falls vorhanden: Schnupperbericht\n\n## Benefits\n-\n• 100%ige Übernahme vom ZVV Bonus Pass – Mit uns kommst du weiter als nur von A nach B.\n-\n• Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar.\n-\n• 50% Rabatt in unseren Restaurants & Bars - für dich und deine Begleitpersonen.\n-\n• Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten.\n-\n• Du-Kultur: Bei uns darfst du sogar den CEO mit dem Vornamen ansprechen.\n-\n• Übernahme von Schulkosten und Vorbereitungskursen - so bleibt mehr für dich übrig. ;)\n-\n• und noch viele mehr...\n- Wir nehmen nicht nur unsere Gäste auf eine spannende Reise, sondern auch unseren Nachwuchs. Wohin die Reise geht, bestimmst du mit. Bist du bereit für ein neues Abenteuer? Dann freuen wir uns auf deine online Bewerbung.",
-        "fr": "The Living Circle recrute à Zürich. Découvrez les détails du poste et postulez en ligne.\n\n## Aperçu\n- Wo gibt es das schon: Ein Fünf-Sterne-Hotel direkt am Zürichsee, ein Design-Hotel hinter 700 Jahren alten Mauern und ein stadtbekanntes Hotel gleich an der Limmat in Zürich. Zudem gehören drei Landwirtschaftsbetriebe zu uns. Diese liefern unseren Hotels gartenfrisch ihre Produkte: Reis, Mais, Fleisch und Eier. Mit unseren eigenen Zutaten machen wir feinste Glaces, probieren lohnt sich!\n- Wir sind The Living Circle, die abwechslungsreichste Hotelgruppe der Schweiz. Unsere Hotels bieten jeden Tag und Nacht Top-Service für Gäste aus der ganzen Welt. Während deiner Lehre in unseren Hotels in Zürich (Storchen Zürich und Widder Hotel) lernst du die Welt der Fünf-Sterne-Gastfreundschaft kennen. Bist du bereit? Hast du ein Talent als Gastgeberin oder Gastgeber? Dann freuen wir uns auf dich!\n\n## Ton profil\n-\n• Gastgeber zu sein macht dir Spass?\n-\n• Du hast viel Einfühlvermögen und bist zuvorkommend?\n-\n• Du sprichst Deutsch und auch auf Englisch bist du nicht verlegen?\n-\n• Du möchtest unseren Gästen ein unvergessliches Erlebnis bereiten?\n- BIST DU UNSER ZUKÜNFTIGES TALENT?\n- Dann freuen wir uns über deine Bewerbung, welche folgendes beinhält.\n-\n• Lebenslauf mit Foto\n-\n• Motivationsschreiben\n-\n• Schulzeugnisse der Sekundarschule\n-\n• Falls vorhanden: Stellwerktest oder Multicheck\n-\n• Falls vorhanden: Schnupperbericht\n\n## Avantages\n-\n• 100%ige Übernahme vom ZVV Bonus Pass – Mit uns kommst du weiter als nur von A nach B.\n-\n• Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar.\n-\n• 50% Rabatt in unseren Restaurants & Bars - für dich und deine Begleitpersonen.\n-\n• Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten.\n-\n• Du-Kultur: Bei uns darfst du sogar den CEO mit dem Vornamen ansprechen.\n-\n• Übernahme von Schulkosten und Vorbereitungskursen - so bleibt mehr für dich übrig. ;)\n-\n• und noch viele mehr...\n- Wir nehmen nicht nur unsere Gäste auf eine spannende Reise, sondern auch unseren Nachwuchs. Wohin die Reise geht, bestimmst du mit. Bist du bereit für ein neues Abenteuer? Dann freuen wir uns auf deine online Bewerbung."
-      },
-      "slugByLocale": {
-        "it": "apprendistato-come-restaurantfachfrau-mann-cfc-the-living-circle-zurich",
-        "en": "apprenticeship-as-restaurant-specialist-efz-the-living-circle-zurich",
-        "de": "lehrstelle-als-restaurantfachfrau-mann-efz-the-living-circle-zurich",
-        "fr": "apprentissage-en-tant-que-specialiste-des-restaurants-efz-the-living-circle-zurich"
-      },
-      "id": "the-living-circle-88eef4b2716e",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-restaurantfachfrau-mann-efz-the-living-circle-zurich"
+          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich"
         ],
         "en": [
-          "lehrstelle-als-restaurantfachfrau-mann-efz-the-living-circle-zurich"
+          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich"
         ],
         "fr": [
-          "lehrstelle-als-restaurantfachfrau-mann-efz-the-living-circle-zurich"
+          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-als-restaurantfachfrau-mann-efz-the-living-circle-zurich"
-      ],
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -357,9 +282,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T22:51:40.722Z"
+      }
     },
     {
       "title": "Lehrstelle als Koch/Köchin EFZ",
@@ -403,6 +326,9 @@
         "fr": "apprentissage-en-tant-que-cuisinier-chef-efz-the-living-circle-zurich"
       },
       "id": "the-living-circle-4880e9c3da41",
+      "previousSlugs": [
+        "lehrstelle-als-koch-kochin-efz-the-living-circle-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-koch-kochin-efz-the-living-circle-zurich"
@@ -414,9 +340,7 @@
           "lehrstelle-als-koch-kochin-efz-the-living-circle-zurich"
         ]
       },
-      "previousSlugs": [
-        "lehrstelle-als-koch-kochin-efz-the-living-circle-zurich"
-      ],
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -430,9 +354,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T22:51:40.722Z"
+      }
     },
     {
       "title": "Connectivity Specialist 80-100% (all genders) befristet",
@@ -459,7 +381,7 @@
       "description": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefit\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Cosa ti aspetta\n- Zur Verstärkung unseres Revenue Teams suchen wir eine technisch versierte Persönlichkeit als Connectivity Specialist (100%). In dieser Rolle stellst du sicher, dass unsere Hotels und Vertriebssysteme zuverlässig miteinander verbunden sind und sämtliche Datenflüsse reibungslos funktionieren. (Befristet für 6 bis 12 Monate)\n- Zu deinem umfassenden Aufgaben Bereich gehört unter anderem:\n-\n• Du konfigurierst und betreust unsere CRS-, PMS-, Channel-Manager- und Distributionsplattformen\n-\n• Du unterstützt Hotels beim System-Setup sowie bei Onboardings, Upgrades und Migrationen\n-\n• Du richtest Schnittstellen zu Distributionspartnern ein, testest diese und begleitest Go-Lives\n-\n• Du analysierst und behebst technische Probleme im Bereich Mapping, Reservierungsübertragung und Ratensteuerung und koordinierst Eskalationen mit Systemanbietern\n-\n• Du betreust Distributions- und Technologiepartner und verwaltest Zugänge sowie Zertifizierungen\n-\n• Du überwachst die Systemperformance und Datenqualität und dokumentierst Prozesse sowie Troubleshooting-Guides\n\n## Il tuo profilo\n-\n• Mehrjährige Erfahrung in der Hoteltechnologie, Systembetreuung oder im Connectivity Management.\n-\n• Fundierte Kenntnisse von SynXis CRS sowie Opera oder Protel PMS und gängigen Channel-Manager-Lösungen.\n-\n• Verständnis der Prozesse rund um CRS, PMS, OTA, GDS und Channel Management.\n-\n• Analytisches Denkvermögen sowie eine strukturierte und lösungsorientierte Arbeitsweise.\n-\n• Freude an der Zusammenarbeit mit verschiedenen Stakeholdern und externen Partnern.\n-\n• Sehr gute Deutsch- und Englischkenntnisse.",
       "titleByLocale": {
         "it": "Connectivity Specialista 80-100% (all genders) befristet",
-        "en": "Connectivity Specialist 80-100% (all genders)",
+        "en": "Connectivity Specialist 80-100% (all genders) befristet",
         "de": "Connectivity Spezialist 80-100% (all genders) befristet",
         "fr": "Connectivity Spécialiste 80-100% (all genders) befristet"
       },
@@ -476,14 +398,15 @@
         "fr": "connectivity-specialist-80-100-all-genders-befristet-the-living-circle-zurich"
       },
       "id": "the-living-circle-b1939de8420f",
+      "previousSlugs": [
+        "connectivity-specialist-80-100-all-genders-befristet-the-living-circle-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "connectivity-specialist-80-100-all-genders-befristet-the-living-circle-zurich"
         ]
       },
-      "previousSlugs": [
-        "connectivity-specialist-80-100-all-genders-befristet-the-living-circle-zurich"
-      ],
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -497,9 +420,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "needsRetranslation": true
+      }
     },
     {
       "title": "Servicepraktikant Widder Wonder Garden 100% (all genders)",
@@ -538,14 +459,28 @@
       },
       "slugByLocale": {
         "it": "interno-di-servizio-aries-wonder-garden-100-tutti-i-generi-the-living-circle-zurich",
-        "en": "servicepraktikant-widder-wonder-garden-100-all-genders-the-living-circle-zurich",
+        "en": "service-intern-aries-wonder-garden-100-all-genders-the-living-circle-zurich",
         "de": "servicepraktikant-widder-wonder-garden-100-all-genders-the-living-circle-zurich",
         "fr": "service-interne-aries-wonder-garden-100-tous-les-genres-the-living-circle-zurich"
       },
       "id": "the-living-circle-fadc765d6234",
-      "needsRetranslation": true,
-      "salaryMin": 73000,
-      "salaryMax": 91500,
+      "previousSlugs": [
+        "servicepraktikant-widder-wonder-garden-100-all-genders-the-living-circle-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "servicepraktikant-widder-wonder-garden-100-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "servicepraktikant-widder-wonder-garden-100-all-genders-the-living-circle-zurich"
+        ],
+        "en": [
+          "servicepraktikant-widder-wonder-garden-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
+      "salaryMin": 58000,
+      "salaryMax": 73000,
       "currency": "CHF",
       "salarySource": "estimated",
       "baseSalary": {
@@ -553,23 +488,11 @@
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 73000,
-          "maxValue": 91500,
+          "minValue": 58000,
+          "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "servicepraktikant-widder-wonder-garden-100-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "servicepraktikant-widder-wonder-garden-100-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "servicepraktikant-widder-wonder-garden-100-all-genders-the-living-circle-zurich"
-      ]
+      }
     },
     {
       "title": "Praktikant Service Widder Bar 100% (all genders)",
@@ -608,12 +531,26 @@
       },
       "slugByLocale": {
         "it": "intern-service-aries-bar-100-tutti-i-generi-the-living-circle-zurich",
-        "en": "praktikant-service-widder-bar-100-all-genders-the-living-circle-zurich",
+        "en": "intern-service-aries-bar-100-all-genders-the-living-circle-zurich",
         "de": "praktikant-service-widder-bar-100-all-genders-the-living-circle-zurich",
         "fr": "barre-de-service-interne-des-beliers-100-tous-les-sexes-the-living-circle-zurich"
       },
       "id": "the-living-circle-278535e0b99b",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "praktikant-service-widder-bar-100-all-genders-the-living-circle-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-service-widder-bar-100-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "praktikant-service-widder-bar-100-all-genders-the-living-circle-zurich"
+        ],
+        "en": [
+          "praktikant-service-widder-bar-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -627,23 +564,11 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-service-widder-bar-100-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "praktikant-service-widder-bar-100-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "praktikant-service-widder-bar-100-all-genders-the-living-circle-zurich"
-      ]
+      }
     },
     {
       "title": "Demi Chef de Partie Restaurant Buech 80-100% (all genders)",
-      "slug": "demi-chef-de-partie-restaurant-buech-80-100-all-genders-the-living-circle-zurich",
+      "slug": "demi-chef-de-partie-restaurant-buech-80-100-tutti-i-generi-the-living-circle-zurich",
       "url": "https://jobs.thelivingcircle.ch/jobs/66625183/Demi-Chef-de-Partie-Restaurant-Buech-80-100%25-all-genders-/",
       "applyUrl": "https://jobs.thelivingcircle.ch/jobs/66625183/Demi-Chef-de-Partie-Restaurant-Buech-80-100%25-all-genders-/",
       "company": "The Living Circle",
@@ -668,7 +593,7 @@
         "it": "Demi Chef de Partie Restaurant Buech 80-100% (tutti i generi)",
         "en": "Demi Chef de Partie Restaurant Buech 80-100% (all genders)",
         "de": "Demi Chef de Partie Restaurant Buech 80-100% (all genders)",
-        "fr": "Demi Chef de Partie Restaurant Buech 80-100% (tous les sexes)"
+        "fr": "Demi Chef de Partie Restaurant Buech 80-100% (all genders)"
       },
       "descriptionByLocale": {
         "it": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- Il Living Circle è il gruppo di ospitalità più innovativo e probabilmente più vario in Svizzera, che ridefinisce il lusso: vicino alla natura, regionale, storico e autentico. Il gruppo famigliare svizzero comprende quattro hotel: il Castello del Sole Beach Resort & Spa di Ascona, il Widder Hotel e l'Hotel Storchen a Zurigo, nonché Alex Lake Zurich a Thalwil e il privato Hideaway Château de Raymontpierre con la sua fattoria nella Jura. Il nostro portfolio è completato dal ristorante Buech di Herrliberg e dai tre agriturismi Schlattgut di Herrliberg, dalla cantina alla Maggia e dalle Terreni alla Maggia di Ascona.\n\n## Vantaggi\n- 🚉ZVV bonus pass per la tua mobilità quotidiana\n- 🛍Shopping al prezzo di acquisto e interessanti sconti nei nostri outlet\n- Regali personali in occasioni speciali\n- 🤎Friends & Family Rate – Condividi la nostra ospitalità con i tuoi cari\n- Un giorno libero intorno al vostro compleanno – risolubile in modo flessibile entro due settimane\n\n## Cosa ti aspetta\n- D'ora in poi o dopo accordo, stiamo cercando uno Chef de Partie che condivide la nostra passione per la qualità, la freschezza e la creatività.\n-\n• Assistenza nella preparazione e preparazione di piatti di alta qualità\n-\n• Lavorazione di prodotti freschi e stagionali di origine regionale\n-\n• Garantire un funzionamento regolare in cucina\n-\n• Rispetto degli standard qualitativi, igienico-sanitari e di sicurezza\n-\n• Partecipazione a una cucina creativa e moderna\n-\n• Collaborazione attiva con tutto il team di cucina\n\n## Il tuo profilo\n-\n• Diversi anni di esperienza nel settore della gastronomia o alberghiera\n-\n• Passione per prodotti freschi e di alta qualità e cucina creativa\n-\n• L'esperienza nella pasticceria è un vantaggio\n-\n• Funzionamento strutturato, pulito ed efficiente\n-\n• Resiliente, affidabile e flessibile – anche nei momenti frenetici\n-\n• Giocatore di squadra con un senso di responsabilità e impegno\n-\n• Gioia di qualità, artigianalità e un pizzico di umorismo in cucina",
@@ -677,13 +602,21 @@
         "fr": "The Living Circle recrute à Zürich. Découvrez les détails du poste et postulez en ligne.\n\n## Aperçu\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Avantages\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Ce qui t'attend\n- Ab sofort oder nach Vereinbarung suchen wir einen Chef de Partie, der unsere Leidenschaft für Qualität, Frische und Kreativität teilt.\n-\n• Unterstützung bei der Vorbereitung und Zubereitung hochwertiger Gerichte\n-\n• Verarbeitung frischer, saisonaler Produkte aus regionaler Herkunft\n-\n• Sicherstellung eines reibungslosen Ablaufs in der Küche\n-\n• Einhaltung der Qualitäts-, Hygiene- und Sicherheitsstandards\n-\n• Mitwirkung an einer kreativen und modernen Küche\n-\n• Aktive Zusammenarbeit mit dem gesamten Küchenteam\n\n## Ton profil\n-\n• Mehrjährige Erfahrung in der gehobenen Gastronomie oder Hotellerie\n-\n• Leidenschaft für frische, hochwertige Produkte und kreative Küche\n-\n• Erfahrung in der Patisserie von Vorteil\n-\n• Strukturierte, saubere und effiziente Arbeitsweise\n-\n• Belastbar, zuverlässig und flexibel – auch in hektischen Momenten\n-\n• Teamplayer mit Verantwortungsbewusstsein und Engagement\n-\n• Freude an Qualität, Handwerk und einer Prise Humor in der Küche"
       },
       "slugByLocale": {
-        "it": "demi-chef-de-partie-restaurant-buech-80-100-all-genders-the-living-circle-zurich",
+        "it": "demi-chef-de-partie-restaurant-buech-80-100-tutti-i-generi-the-living-circle-zurich",
         "en": "demi-chef-de-partie-restaurant-buech-80-100-all-genders-the-living-circle-zurich",
         "de": "demi-chef-de-partie-restaurant-buech-80-100-all-genders-the-living-circle-zurich",
         "fr": "demi-chef-de-partie-restaurant-buech-80-100-all-genders-the-living-circle-zurich"
       },
       "id": "the-living-circle-2dbc96755e9e",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "demi-chef-de-partie-restaurant-buech-80-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "demi-chef-de-partie-restaurant-buech-80-100-all-genders-the-living-circle-zurich"
+      ],
       "salaryMin": 73000,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -698,7 +631,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z"
+      "needsRetranslation": true
     },
     {
       "title": "Front Office Agent 80-100% (all genders)",
@@ -742,7 +675,18 @@
         "fr": "agent-de-reception-80-100-tous-les-sexes-the-living-circle-zurich"
       },
       "id": "the-living-circle-cf57b329c84a",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "front-office-agent-80-100-all-genders-the-living-circle-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "front-office-agent-80-100-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "front-office-agent-80-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -757,18 +701,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "front-office-agent-80-100-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "front-office-agent-80-100-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "front-office-agent-80-100-all-genders-the-living-circle-zurich"
-      ]
+      "needsRetranslation": true
     },
     {
       "title": "Concierge 80-100% (all genders)",
@@ -812,6 +745,18 @@
         "fr": "concierge-80-100-tous-les-sexes-the-living-circle-zurich"
       },
       "id": "the-living-circle-039cb4f3c4f2",
+      "previousSlugs": [
+        "concierge-80-100-all-genders-the-living-circle-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "concierge-80-100-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "concierge-80-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -825,19 +770,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "concierge-80-100-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "concierge-80-100-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "concierge-80-100-all-genders-the-living-circle-zurich"
-      ]
+      }
     },
     {
       "title": "Supervisor Corporate Events 80% (all genders)",
@@ -864,7 +797,7 @@
       "description": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefit\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Cosa ti aspetta\n- Wir suchen per 1. Dezember oder nach Vereinbarung eine engagierte Persönlichkeit mit Leidenschaft für Corporate Events, einem ausgeprägten Gastgeberverständnis und einem digitalen Mindset. In dieser vielseitigen Funktion koordinierst du Veranstaltungen über mehrere Häuser hinweg, entwickelst bestehende Abläufe weiter und unterstützt uns dabei, Prozesse mithilfe moderner Technologien und AI-Tools effizienter zu gestalten\n-\n• Planung und Koordination von MICE- und Corporate Events über mehrere Häuser hinweg – von der ersten Anfrage bis zum Follow-up\n-\n• Betreuung grösserer und komplexer Veranstaltungen in unseren Zürcher Hotels sowie im Château de Raymontpierre\n-\n• Sicherstellung einer professionellen Kundenbetreuung und einer reibungslosen Übergabe an die operativen Teams\n-\n• Aktive Förderung der Digitalisierung und Automatisierung unserer Arbeitsabläufe unter Einbezug moderner Technologien und AI-Tools\n-\n• Fachliche Führung und Weiterentwicklung des Corporate Events Teams\n-\n• Enge Zusammenarbeit mit Sales, Rooms, Revenue und den operativen Teams\n-\n• Weiterentwicklung von Prozessen, Standards und Tools im MICE-Bereich\n-\n• Verantwortung für die Nachbearbeitung inklusive Rechnungsstellung und Kundenfeedback\n\n## Il tuo profilo\n-\n• Abgeschlossene Hotelfachschule oder Weiterbildung im Bereich Event Sales\n-\n• Mehrjährige Erfahrung im Event-, MICE-, Sales- oder Hospitality-Bereich\n-\n• Erfahrung in der Planung komplexer Corporate Events sowie in der fachlichen Führung\n-\n• Hohe Affinität für Digitalisierung, Automatisierung und künstliche Intelligenz\n-\n• Freude daran, neue Tools und Lösungen im Arbeitsalltag einzusetzen\n-\n• Digitales Mindset und Motivation, bestehende Prozesse aktiv zu hinterfragen und weiterzuentwickeln\n-\n• Ausgeprägtes Organisationstalent sowie eine selbstständige, strukturierte und vorausschauende Arbeitsweise\n-\n• Unternehmerisches, lösungsorientiertes und kundenorientiertes Denken\n-\n• Professionelles Auftreten sowie sehr gute Deutsch- und Englischkenntnisse",
       "titleByLocale": {
         "it": "Supervisore Corporate Events 80% (all genders)",
-        "en": "Daylight Corporate Events 80% (all genders)",
+        "en": "Supervisor Corporate Events 80% (all genders)",
         "de": "Vorgesetzter Corporate Events 80% (all genders)",
         "fr": "Superviseur Corporate Events 80% (all genders)"
       },
@@ -881,6 +814,7 @@
         "fr": "supervisor-corporate-events-80-all-genders-the-living-circle-zurich"
       },
       "id": "the-living-circle-7b5a07cc5ac3",
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58400,
       "salaryMax": 73200,
       "currency": "CHF",
@@ -894,9 +828,7 @@
           "maxValue": 73200,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "needsRetranslation": true
+      }
     },
     {
       "title": "Kaderpraktikum Human Resources 100% (all genders)",
@@ -940,6 +872,18 @@
         "fr": "ressources-humaines-100-tous-les-sexes-the-living-circle-zurich"
       },
       "id": "the-living-circle-9c5896ad75e0",
+      "previousSlugs": [
+        "kaderpraktikum-human-resources-100-all-genders-the-living-circle-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "kaderpraktikum-human-resources-100-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "kaderpraktikum-human-resources-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -953,24 +897,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "kaderpraktikum-human-resources-100-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "kaderpraktikum-human-resources-100-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "kaderpraktikum-human-resources-100-all-genders-the-living-circle-zurich"
-      ]
+      }
     },
     {
       "title": "Head Chef La Rôtisserie 100% (all genders)",
-      "slug": "head-chef-la-rotisserie-100-all-genders-the-living-circle-zurich",
+      "slug": "head-chef-la-rotisserie-100-tutti-i-generi-the-living-circle-zurich",
       "url": "https://jobs.thelivingcircle.ch/jobs/67178225/Head-Chef-La-R%C3%B4tisserie-100%25-all-genders-/",
       "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67178225/Head-Chef-La-R%C3%B4tisserie-100%25-all-genders-/",
       "company": "The Living Circle",
@@ -1004,13 +935,21 @@
         "fr": "The Living Circle recrute à Zürich. Découvrez les détails du poste et postulez en ligne.\n\n## Ce qui t'attend\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n- DEINE VERANTWORTLICHKEITEN\n- Mach die La Rôtisserie zu deiner Geschichte!\n- Du hast die Möglichkeit, eines der kulinarischen Highlights des Jahres mitzugestalten und eine neue Marke zu erschaffen – mit eigener Handschrift, eigener Haltung und eigenem Stil.\n- Wir suchen eine Persönlichkeit mit Ecken und Kanten, mit Mut und einer verrückten Idee mehr als alle anderen. Jemanden, der Konventionen hinterfragt und gleichzeitig weiss, wie man an einem Abend rund 100 Gäste mit konstanter Top-Qualität begeistert.\n- Kulinarisch kehrt die La Rôtisserie zu ihren Ursprüngen zurück: Grill und offenes Feuer, hervorragendes Fleisch, Fisch und Meeresfrüchte, Arbeiten direkt am Gast und der Einsatz unseres Kamins. Die Richtung steht – das vollständige Konzept entwickeln wir gemeinsam mit dir.\n- Das Hotel Storchen investiert mit voller Überzeugung in diese Zukunft und stellt die Ressourcen bereit, um daraus etwas Grosses zu machen. Was du daraus machst, liegt an dir.\n- Bock, aus einem Konzept eine Geschichte zu machen, die man sich in Zürich erzählt? Dann lass uns reden.\n-\n• Aktive Mitgestaltung, Entwicklung und gemeinsame Umsetzung des neuen Konzepts der La Rôtisserie\n-\n• Kulinarische Verantwortung für das Restaurant, das Frühstück, den Room Service und die Events\n-\n• Gestaltung des Speisenangebots sowie Entwicklung neuer Gerichte, Menüs und Rezepturen\n-\n• Aktive Mitarbeit während der Servicezeiten sowie Sicherstellung einer konstant hohen Qualität, auch bei hohem Gästeaufkommen\n-\n• Führung, Motivation und Entwicklung des Küchenteams gemeinsam mit dem Executive Chef\n-\n• Klare Delegation von Aufgaben und Verantwortlichkeiten sowie Förderung einer respektvollen und professionellen Teamkultur\n-\n• Koordination der Dienst- und Einsatzplanung sowie Durchführung von Mitarbeitergesprächen in Zusammenarbeit mit dem Executive Chef\n-\n• Auswahl von Produkten und Lieferanten unter Berücksichtigung unserer Qualitäts- und Einkaufspolitik gemeinsam mit dem Head Chef Storchen\n-\n• Sicherstellung der Einhaltung sämtlicher Qualitäts-, Hygiene- und HACCP-Standards\n-\n• Umsetzung der Neupositionierung der La Rôtisserie sowie Repräsentation des Restaurants mit deiner Persönlichkeit und kulinarischen Handschrift\n\n## Ton profil\n-\n• Eine abgeschlossene Ausbildung als Koch oder Köchin\n-\n• Mehrjährige Berufserfahrung in der gehobenen Gastronomie oder Hotellerie\n-\n• Erfahrung als Sous Chef, Chef de Cuisine oder in einer vergleichbaren Führungsposition\n-\n• Nachweisbare Erfahrung in der Führung und Entwicklung eines Küchenteams\n-\n• Freude daran, ein neues Konzept von Grund auf mitzugestalten und ihm eine eigene Handschrift zu verleihen\n-\n• Fundierte Kenntnisse in den Bereichen Warenwirtschaft, Kalkulation, Hygiene und HACCP\n-\n• Erfahrung in der Menüplanung und Rezepturentwicklung\n-\n• Eine kreative, mutige und unternehmerisch denkende Persönlichkeit\n-\n• Eine hohe Qualitäts- und Gästeorientierung sowie die Bereitschaft, selbst aktiv am Herd zu stehen\n-\n• Sehr gute Deutsch- und Englischkenntnisse\n\n## Avantages\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar"
       },
       "slugByLocale": {
-        "it": "head-chef-la-rotisserie-100-all-genders-the-living-circle-zurich",
+        "it": "head-chef-la-rotisserie-100-tutti-i-generi-the-living-circle-zurich",
         "en": "head-chef-la-rotisserie-100-all-genders-the-living-circle-zurich",
         "de": "head-chef-la-rotisserie-100-all-genders-the-living-circle-zurich",
         "fr": "chef-la-rotisserie-100-tous-les-sexes-the-living-circle-zurich"
       },
       "id": "the-living-circle-c1a0b8c11999",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "head-chef-la-rotisserie-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "head-chef-la-rotisserie-100-all-genders-the-living-circle-zurich"
+      ],
       "salaryMin": 97500,
       "salaryMax": 122500,
       "currency": "CHF",
@@ -1025,7 +964,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z"
+      "needsRetranslation": true
     },
     {
       "title": "Allrounder Housekeeping 80-100% (all genders)",
@@ -1069,7 +1008,18 @@
         "fr": "entretien-menager-complet-80-100-tous-les-sexes-the-living-circle-zurich"
       },
       "id": "the-living-circle-567a38ef1d28",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "allrounder-housekeeping-80-100-all-genders-the-living-circle-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "allrounder-housekeeping-80-100-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "allrounder-housekeeping-80-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 73000,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -1084,18 +1034,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "allrounder-housekeeping-80-100-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "allrounder-housekeeping-80-100-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "allrounder-housekeeping-80-100-all-genders-the-living-circle-zurich"
-      ]
+      "needsRetranslation": true
     },
     {
       "title": "Praktikant Küche 100% (all genders) ",
@@ -1139,7 +1078,21 @@
         "fr": "cuisine-de-stage-100-tous-les-sexes-the-living-circle-zurich"
       },
       "id": "the-living-circle-c625cae72052",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "praktikant-kuche-100-all-genders-the-living-circle-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-kuche-100-all-genders-the-living-circle-zurich"
+        ],
+        "en": [
+          "praktikant-kuche-100-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "praktikant-kuche-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -1153,22 +1106,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-kuche-100-all-genders-the-living-circle-zurich"
-        ],
-        "en": [
-          "praktikant-kuche-100-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "praktikant-kuche-100-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "praktikant-kuche-100-all-genders-the-living-circle-zurich"
-      ]
+      }
     },
     {
       "title": "Praktikant Service La Rôtisserie 100% (all genders)",
@@ -1212,7 +1150,18 @@
         "fr": "service-de-stages-la-rotisserie-100-tous-les-sexes-the-living-circle-zurich"
       },
       "id": "the-living-circle-e29ca5f2ec01",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "praktikant-service-la-rotisserie-100-all-genders-the-living-circle-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-service-la-rotisserie-100-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "praktikant-service-la-rotisserie-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -1226,19 +1175,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-service-la-rotisserie-100-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "praktikant-service-la-rotisserie-100-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "praktikant-service-la-rotisserie-100-all-genders-the-living-circle-zurich"
-      ]
+      }
     },
     {
       "title": "Praktikant Front Office 100% (all genders)",
@@ -1282,7 +1219,18 @@
         "fr": "front-office-100-tous-les-sexes-the-living-circle-zurich"
       },
       "id": "the-living-circle-87e2cc45e1aa",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "praktikant-front-office-100-all-genders-the-living-circle-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-front-office-100-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "praktikant-front-office-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -1296,19 +1244,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-front-office-100-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "praktikant-front-office-100-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "praktikant-front-office-100-all-genders-the-living-circle-zurich"
-      ]
+      }
     },
     {
       "title": "Praktikant Service Barchetta Bar & Lounge 100% (all genders)",
@@ -1352,7 +1288,18 @@
         "fr": "service-de-stagiaire-bar-et-salon-barchitta-100-tous-les-genres-the-living-circle-zurich"
       },
       "id": "the-living-circle-35a4cebf2e44",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "praktikant-service-barchetta-bar-lounge-100-all-genders-the-living-circle-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-service-barchetta-bar-lounge-100-all-genders-the-living-circle-zurich"
+        ],
+        "fr": [
+          "praktikant-service-barchetta-bar-lounge-100-all-genders-the-living-circle-zurich"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 58000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -1367,18 +1314,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "praktikant-service-barchetta-bar-lounge-100-all-genders-the-living-circle-zurich"
-        ],
-        "fr": [
-          "praktikant-service-barchetta-bar-lounge-100-all-genders-the-living-circle-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "praktikant-service-barchetta-bar-lounge-100-all-genders-the-living-circle-zurich"
-      ]
+      "needsRetranslation": true
     },
     {
       "title": "F&B und Event Manager 100% (all genders)",
@@ -1405,7 +1341,7 @@
       "description": "The Living Circle cerca per la sede di Ascona una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- ÜBER UNS\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Cosa ti aspetta\n- Das Castello del Sole in Ascona verbindet grosszügige Weite, Tessiner Lebensgefühl und eine Gastronomie mit eigener Identität. Unsere Restaurants, Bars und Veranstaltungen leben von Menschen, die Gastfreundschaft nicht nur organisieren, sondern spürbar machen.\n- Als F&B Manager führst und entwickelst du den gesamten operativen F&B- und Eventbereich. Du bist im täglichen Geschehen präsent, gibst deinem Team Orientierung und sorgst dafür, dass unsere Gäste in den Restaurants, an den Bars und bei Veranstaltungen dieselbe hohe Qualität erleben. Events begleitest du von der ersten Anfrage über die Planung und Koordination bis zur Umsetzung vor Ort. Gleichzeitig behältst du Abläufe, Ressourcen und wirtschaftliche Ziele zuverlässig im Blick.\n-\n• Führung, Motivation und Weiterentwicklung der Mitarbeitenden im F&B- und Eventbereich\n-\n• Verantwortung für den operativen Ablauf unserer Restaurants, Bars und Veranstaltungen\n-\n• Präsenz als Gastgeberpersönlichkeit in den Outlets und bei Events\n-\n• Planung und Koordination von Veranstaltungen – von der Anfrage und Angebotserstellung bis zur erfolgreichen Durchführung\n-\n• Sicherstellung einer engen Zusammenarbeit zwischen allen beteiligten Bereichen\n-\n• Verantwortung für Budget, Warenkosten und Renditen sowie Ableitung geeigneter Massnahmen\n-\n• Sicherstellung und kontinuierliche Weiterentwicklung unserer Qualitäts-, Service-, Hygiene- und HACCP-Standards\n-\n• Koordination von Saisonstart und Saisonabschluss inklusive Inventarisierung\n-\n• Verantwortung für Warenwirtschaft sowie die relevanten Kassen-, Reservierungs- und Eventsysteme\n\n## Il tuo profilo\n-\n• Mehrjährige Berufs- und Führungserfahrung im F&B-Bereich, idealerweise ergänzt durch fundierte Erfahrung in der Planung und Durchführung von Veranstaltungen\n-\n• Eine präsente Gastgeberpersönlichkeit, die sich sowohl im lebhaften Restaurantbetrieb als auch bei anspruchsvollen Events wohlfühlt\n-\n• Ein klarer, wertschätzender und verbindlicher Führungsstil\n-\n• Eine strukturierte, vorausschauende und lösungsorientierte Arbeitsweise – auch wenn mehrere operative Anforderungen gleichzeitig zusammenkommen\n-\n• Unternehmerisches Denken, ein gutes Zahlenverständnis und Freude an der Weiterentwicklung von Angeboten und Prozessen\n-\n• Sehr gute Deutsch- und Italienischkenntnisse sowie gute Englischkenntnisse\n\n## Benefit\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar",
       "titleByLocale": {
         "it": "F&B e Event Manager 100% (all genders)",
-        "en": "F&B and Event Manager 100% (all genders)",
+        "en": "F&B und Event Manager 100% (all genders)",
         "de": "F&B und Event Manager 100% (all genders)",
         "fr": "F&B et gestionnaire d'événement 100% (tous les sexes)"
       },
@@ -1475,7 +1411,7 @@
       "description": "The Living Circle cerca per la sede di Grindelwald una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- ÜBER UNS\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n- Die Bergwelt Grindelwald ist ein besonderer Rückzugsort im Herzen von Grindelwald. Hier treffen herzliche Gastfreundschaft, stilvolles Ambiente und echte Genussmomente aufeinander. Als Teil von The Living Circle schaffen wir besondere Erlebnisse für unsere Gäste. Dafür suchen wir Persönlichkeiten, die mit Leidenschaft Gastgeber sind.\n\n## Benefit\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Cosa ti aspetta\n-\n• Persönliche Betreuung und individuelle Beratung unserer Gäste\n-\n• Aktiver Zusatzverkauf\n-\n• Professionelle Zubereitung von Getränken für die Bar und das Restaurant\n-\n• Übernahme von Mittags-, Nachmittags-, Terrassen- und Abendschichten\n-\n• Allgemeine Reinigungsarbeiten sowie Einhaltung unseres Hygienekonzeptes\n-\n• Auffüllen und sachgerechte Lagerung des Barbestands\n\n## Il tuo profilo\n-\n• Du verfügst über Berufserfahrung im Bar- oder Gastronomiebereich\n-\n• Du kommunizierst sicher auf Deutsch und Englisch\n-\n• Du überzeugst mit sehr guten Umgangsformen sowie einem positiven, freundlichen und gepflegten Auftreten\n-\n• Du arbeitest selbstständig, zuverlässig und verantwortungsbewusst\n-\n• Du bist ein Teamplayer und behältst auch in lebhaften Situationen den Überblick\n-\n• Du hast Freude daran, unsere Gäste mit deinem Können und deiner Persönlichkeit zu begeistern",
       "titleByLocale": {
         "it": "Barista 80-100% (tutti i generi)",
-        "en": "Bartender 80-100% (all genders)",
+        "en": "Barkeeper 80-100% (all genders)",
         "de": "Barkeeper 80-100% (all genders)",
         "fr": "Barman 80-100% (tous les sexes)"
       },
@@ -1492,7 +1428,18 @@
         "fr": "barman-80-100-tous-les-sexes-the-living-circle-grindelwald"
       },
       "id": "the-living-circle-7d1b72f630a5",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "barkeeper-80-100-all-genders-the-living-circle-grindelwald"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "barkeeper-80-100-all-genders-the-living-circle-grindelwald"
+        ],
+        "fr": [
+          "barkeeper-80-100-all-genders-the-living-circle-grindelwald"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 67500,
       "salaryMax": 84500,
       "currency": "CHF",
@@ -1507,18 +1454,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "barkeeper-80-100-all-genders-the-living-circle-grindelwald"
-        ],
-        "fr": [
-          "barkeeper-80-100-all-genders-the-living-circle-grindelwald"
-        ]
-      },
-      "previousSlugs": [
-        "barkeeper-80-100-all-genders-the-living-circle-grindelwald"
-      ]
+      "needsRetranslation": true
     },
     {
       "title": "Aushilfe SPA-Therapeut und/oder SPA-Rezeptionist (all genders)",
@@ -1562,6 +1498,9 @@
         "fr": "assistant-therapeute-et-ou-receptionniste-spa-tous-genres-the-living-circle-grindelwald"
       },
       "id": "the-living-circle-7ad763e56a6d",
+      "previousSlugs": [
+        "aushilfe-spa-therapeut-und-oder-spa-rezeptionist-all-genders-the-living-circle-grindelwald"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "aushilfe-spa-therapeut-und-oder-spa-rezeptionist-all-genders-the-living-circle-grindelwald"
@@ -1573,9 +1512,7 @@
           "aushilfe-spa-therapeut-und-oder-spa-rezeptionist-all-genders-the-living-circle-grindelwald"
         ]
       },
-      "previousSlugs": [
-        "aushilfe-spa-therapeut-und-oder-spa-rezeptionist-all-genders-the-living-circle-grindelwald"
-      ],
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
       "salaryMin": 67500,
       "salaryMax": 84500,
       "currency": "CHF",
@@ -1589,13 +1526,11 @@
           "maxValue": 84500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T22:51:40.722Z"
+      }
     },
     {
       "title": "Chef de Rang Restaurant Pinte 80-100 % (all genders)",
-      "slug": "chef-de-rang-restaurant-pinte-80-100-all-genders-the-living-circle-grindelwald",
+      "slug": "chef-de-rang-restaurant-pinte-80-100-tutti-i-generi-the-living-circle-grindelwald",
       "url": "https://jobs.thelivingcircle.ch/jobs/67470922/Chef-de-Rang-Restaurant-Pinte-80-100-%25-all-genders-/",
       "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67470922/Chef-de-Rang-Restaurant-Pinte-80-100-%25-all-genders-/",
       "company": "The Living Circle",
@@ -1629,13 +1564,24 @@
         "fr": "The Living Circle recrute à Grindelwald. Découvrez les détails du poste et postulez en ligne.\n\n## Aperçu\n- ÜBER UNS\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n- Das Gasthaus Pinte gehört zur Bergwelt Grindelwald und verbindet gelebte Tradition mit herzlicher Gastfreundschaft und genussvollen Momenten. Als Teil von The Living Circle schaffen wir besondere Erlebnisse für unsere Gäste. Dafür suchen wir Persönlichkeiten, die mit Leidenschaft Gastgeber sind.\n\n## Avantages\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Ce qui t'attend\n-\n• Persönliche Betreuung und aufmerksame Bedienung unserer Gäste\n-\n• Kompetente Beratung bei der Auswahl von Speisen und Getränken\n-\n• Aktiver Zusatzverkauf\n-\n• Selbstständiges Führen einer eigenen Servicestation\n-\n• Sicherstellung eines professionellen und reibungslosen Serviceablaufs\n-\n• Übernahme von Mittags-, Nachmittags- und Abendschichten\n-\n• Allgemeine Reinigungsarbeiten sowie Einhaltung unseres Hygienekonzeptes\n\n## Ton profil\n-\n• Du verfügst über mehrere Jahre Berufserfahrung im Service\n-\n• Du trittst positiv, freundlich und gepflegt auf\n-\n• Du kommunizierst sicher auf Deutsch und Englisch; weitere Sprachen sind von Vorteil\n-\n• Du arbeitest selbstständig, zuverlässig und verantwortungsbewusst\n-\n• Du bist ein Teamplayer und behältst auch in lebhaften Situationen den Überblick\n-\n• Du hast Freude daran, unsere Gäste mit deiner Persönlichkeit und deinem Service zu begeistern"
       },
       "slugByLocale": {
-        "it": "chef-de-rang-restaurant-pinte-80-100-all-genders-the-living-circle-grindelwald",
+        "it": "chef-de-rang-restaurant-pinte-80-100-tutti-i-generi-the-living-circle-grindelwald",
         "en": "chef-de-rang-restaurant-pinte-80-100-all-genders-the-living-circle-grindelwald",
         "de": "chef-de-rang-restaurant-pinte-80-100-all-genders-the-living-circle-grindelwald",
-        "fr": "chef-de-rang-restaurant-pinte-80-100-all-genders-the-living-circle-grindelwald"
+        "fr": "chef-de-rang-restaurant-pinte-80-100-tous-les-sexes-the-living-circle-grindelwald"
       },
       "id": "the-living-circle-c3e956f2c0c5",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-rang-restaurant-pinte-80-100-all-genders-the-living-circle-grindelwald"
+        ],
+        "fr": [
+          "chef-de-rang-restaurant-pinte-80-100-all-genders-the-living-circle-grindelwald"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-rang-restaurant-pinte-80-100-all-genders-the-living-circle-grindelwald"
+      ],
       "salaryMin": 67500,
       "salaryMax": 84500,
       "currency": "CHF",
@@ -1650,11 +1596,11 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z"
+      "needsRetranslation": true
     },
     {
       "title": "General Manager Bergwelt Grindelwald 100% (all genders)",
-      "slug": "general-manager-bergwelt-grindelwald-100-all-genders-the-living-circle-grindelwald",
+      "slug": "general-manager-bergwelt-grindelwald-100-tutti-i-generi-the-living-circle-grindelwald",
       "url": "https://jobs.thelivingcircle.ch/jobs/67524797/General-Manager-Bergwelt-Grindelwald-100%25-all-genders-/",
       "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67524797/General-Manager-Bergwelt-Grindelwald-100%25-all-genders-/",
       "company": "The Living Circle",
@@ -1688,13 +1634,21 @@
         "fr": "The Living Circle recrute à Grindelwald. Découvrez les détails du poste et postulez en ligne.\n\n## Aperçu\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n- Per 1. Oktober 2026 übernimmt The Living Circle den operativen Betrieb der Bergwelt Grindelwald inklusive des traditionsreichen Gasthauses Pinte. Das mehrfach ausgezeichnete Alpine Design Resort liegt im Herzen von Grindelwald und verbindet moderne alpine Ästhetik, herzliche Gastfreundschaft und die eindrucksvolle Bergwelt des Berner Oberlands.\n- Die Bergwelt verfügt über 90 Zimmer, Suiten, Apartments und Residences. Zum vielseitigen Angebot gehören unter anderem das BG’s Grill Restaurant, verschiedene Bars sowie der grosszügige Fire & Ice Spa. Das historische Gasthaus Pinte ergänzt das Angebot mit authentischer, bodenständiger Gastfreundschaft und ist seit Generationen ein beliebter Treffpunkt für Einheimische und Gäste. Als Mitglied der Small Luxury Hotels of the World steht die Bergwelt für ein hochwertiges, persönliches und zugleich entspanntes Gästeerlebnis.\n\n## Ce qui t'attend\n- Für die operative Übernahme und erfolgreiche Weiterentwicklung der Bergwelt Grindelwald inklusive des Gasthauses Pinte suchen wir nach Vereinbarung eine erfahrene und unternehmerisch denkende Führungspersönlichkeit als General Manager.\n- In dieser Schlüsselposition trägst du die Gesamtverantwortung für die strategische, operative und wirtschaftliche Führung beider Betriebe.\n-\n• Strategische, operative und wirtschaftliche Gesamtverantwortung für die Bergwelt Grindelwald und das Gasthaus Pinte\n-\n• Aktive Begleitung der Übergabe und Integration in The Living Circle\n-\n• Führung, Motivation und Weiterentwicklung des Managementteams sowie aller Mitarbeitenden\n-\n• Sicherstellung eines erstklassigen, persönlichen und authentischen Gästeerlebnisses\n-\n• Weiterentwicklung der Positionierung, Angebotsstruktur und Servicequalität beider Betriebe\n-\n• Verantwortung für Budget, Forecast, Profitabilität und die nachhaltige Erreichung der Unternehmensziele\n-\n• Steuerung der verschiedenen Bereiche wie Rooms, Food & Beverage, Spa und Residences\n-\n• Konsequente Weiterentwicklung von Prozessen, Standards und Strukturen\n-\n• Aufbau und Pflege langfristiger Beziehungen zu Gästen, Partnern, Behörden und der lokalen Bevölkerung\n\n## Ton profil\n-\n• Abgeschlossene Hotelfachschule (zwingend erforderlich)\n-\n• Mehrjährige Führungserfahrung in der Hotellerie (idealerweise im 4-Sterne-Segment)\n-\n• Erfahrung in modernen, lifestyle getriebenen Hotels mit digitalisierten Schnittstellen von Vorteil\n-\n• Fundierter F&B-Hintergrund kombiniert mit operativer Stärke\n-\n• Unternehmerisches Denken und eine strukturierte, lösungsorientierte Arbeitsweise\n-\n• Hands-on-Mentalität: Du packst selbst mit an und gehst voran\n-\n• Ausgeprägtes Qualitätsbewusstsein und ein feines Gespür für Gästebedürfnisse\n-\n• Regionale Verankerung und Arbeitserfahrung von Vorteil\n-\n• Sehr gute Deutsch- und Englischkenntnisse\n\n## Avantages\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar"
       },
       "slugByLocale": {
-        "it": "general-manager-bergwelt-grindelwald-100-all-genders-the-living-circle-grindelwald",
+        "it": "general-manager-bergwelt-grindelwald-100-tutti-i-generi-the-living-circle-grindelwald",
         "en": "general-manager-bergwelt-grindelwald-100-all-genders-the-living-circle-grindelwald",
         "de": "general-manager-bergwelt-grindelwald-100-all-genders-the-living-circle-grindelwald",
         "fr": "directeur-general-bergwelt-grindelwald-100-tous-les-sexes-the-living-circle-grindelwald"
       },
       "id": "the-living-circle-4ce07dcd2a72",
-      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T22:51:40.722Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "general-manager-bergwelt-grindelwald-100-all-genders-the-living-circle-grindelwald"
+        ]
+      },
+      "previousSlugs": [
+        "general-manager-bergwelt-grindelwald-100-all-genders-the-living-circle-grindelwald"
+      ],
       "salaryMin": 90500,
       "salaryMax": 113500,
       "currency": "CHF",
@@ -1709,7 +1663,243 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z"
+      "needsRetranslation": true
+    },
+    {
+      "title": "Room Attendant 60% (all genders)",
+      "slug": "room-attendant-60-all-genders-the-living-circle-zurich",
+      "url": "https://jobs.thelivingcircle.ch/jobs/67535647/Room-Attendant-60%25-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67535647/Room-Attendant-60%25-all-genders-/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-21",
+      "employmentType": "other",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefit\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Cosa ti aspetta\n- Für unsere Housekeeping Abteilung suchen wir ab sofort oder nach Vereinbarung Unterstützung. Du nimmst dich mit Freude der Reinigung und Pflege des Hotels an und das erfüllen von Gästewünschen zaubert dir ein lächeln ins Gesicht? Dann melde dich bei uns!\n\n## Il tuo profilo\n-\n• Ein ausgeprägtes Auge fürs Detail\n-\n• Körperliche Fitness und Belastbarkeit\n-\n• Gute Deutsch- und/oder Englischkenntnisse\n-\n• Freude an der Arbeit im Team\n-\n• Ein gepflegtes und freundliches Auftreten\n-\n• Erste Erfahrung in der Zimmerreinigung von Vorteil",
+      "titleByLocale": {
+        "it": "Room Attendant 60% (all genders)",
+        "en": "Room Attendant 60% (all genders)",
+        "de": "Room Attendant 60% (all genders)",
+        "fr": "Room Attendant 60% (all genders)"
+      },
+      "descriptionByLocale": {
+        "it": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefit\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Cosa ti aspetta\n- Für unsere Housekeeping Abteilung suchen wir ab sofort oder nach Vereinbarung Unterstützung. Du nimmst dich mit Freude der Reinigung und Pflege des Hotels an und das erfüllen von Gästewünschen zaubert dir ein lächeln ins Gesicht? Dann melde dich bei uns!\n\n## Il tuo profilo\n-\n• Ein ausgeprägtes Auge fürs Detail\n-\n• Körperliche Fitness und Belastbarkeit\n-\n• Gute Deutsch- und/oder Englischkenntnisse\n-\n• Freude an der Arbeit im Team\n-\n• Ein gepflegtes und freundliches Auftreten\n-\n• Erste Erfahrung in der Zimmerreinigung von Vorteil",
+        "en": "The Living Circle is hiring in Zürich. Discover the details of this position and apply online.\n\n## Overview\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefits\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## What to expect\n- Für unsere Housekeeping Abteilung suchen wir ab sofort oder nach Vereinbarung Unterstützung. Du nimmst dich mit Freude der Reinigung und Pflege des Hotels an und das erfüllen von Gästewünschen zaubert dir ein lächeln ins Gesicht? Dann melde dich bei uns!\n\n## About you\n-\n• Ein ausgeprägtes Auge fürs Detail\n-\n• Körperliche Fitness und Belastbarkeit\n-\n• Gute Deutsch- und/oder Englischkenntnisse\n-\n• Freude an der Arbeit im Team\n-\n• Ein gepflegtes und freundliches Auftreten\n-\n• Erste Erfahrung in der Zimmerreinigung von Vorteil",
+        "de": "The Living Circle sucht am Standort Zürich eine neue Fachkraft. Entdecken Sie die Details der Stelle und bewerben Sie sich online.\n\n## Überblick\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefits\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Was dich erwartet\n- Für unsere Housekeeping Abteilung suchen wir ab sofort oder nach Vereinbarung Unterstützung. Du nimmst dich mit Freude der Reinigung und Pflege des Hotels an und das erfüllen von Gästewünschen zaubert dir ein lächeln ins Gesicht? Dann melde dich bei uns!\n\n## Über dich\n-\n• Ein ausgeprägtes Auge fürs Detail\n-\n• Körperliche Fitness und Belastbarkeit\n-\n• Gute Deutsch- und/oder Englischkenntnisse\n-\n• Freude an der Arbeit im Team\n-\n• Ein gepflegtes und freundliches Auftreten\n-\n• Erste Erfahrung in der Zimmerreinigung von Vorteil",
+        "fr": "The Living Circle recrute à Zürich. Découvrez les détails du poste et postulez en ligne.\n\n## Aperçu\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Avantages\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Ce qui t'attend\n- Für unsere Housekeeping Abteilung suchen wir ab sofort oder nach Vereinbarung Unterstützung. Du nimmst dich mit Freude der Reinigung und Pflege des Hotels an und das erfüllen von Gästewünschen zaubert dir ein lächeln ins Gesicht? Dann melde dich bei uns!\n\n## Ton profil\n-\n• Ein ausgeprägtes Auge fürs Detail\n-\n• Körperliche Fitness und Belastbarkeit\n-\n• Gute Deutsch- und/oder Englischkenntnisse\n-\n• Freude an der Arbeit im Team\n-\n• Ein gepflegtes und freundliches Auftreten\n-\n• Erste Erfahrung in der Zimmerreinigung von Vorteil"
+      },
+      "slugByLocale": {
+        "it": "room-attendant-60-all-genders-the-living-circle-zurich",
+        "en": "room-attendant-60-all-genders-the-living-circle-zurich",
+        "de": "room-attendant-60-all-genders-the-living-circle-zurich",
+        "fr": "room-attendant-60-all-genders-the-living-circle-zurich"
+      },
+      "id": "the-living-circle-ebab1e1df58a",
+      "needsRetranslation": true,
+      "salaryMin": 43800,
+      "salaryMax": 54900,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 43800,
+          "maxValue": 54900,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:57:04.765Z"
+    },
+    {
+      "title": "Chef de Partie Bankett Küche 80-100% (all genders)",
+      "slug": "chef-de-partie-bankett-kuche-80-100-all-genders-the-living-circle-zurich",
+      "url": "https://jobs.thelivingcircle.ch/jobs/67535772/Chef-de-Partie-Bankett-K%C3%BCche-80-100%25-all-genders-/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67535772/Chef-de-Partie-Bankett-K%C3%BCche-80-100%25-all-genders-/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-21",
+      "employmentType": "other",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefit\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Cosa ti aspetta\n- Zur Unterstützung unserer Küchen Crew suchen wir nach Vereinbarung einen motivierten und aufgestellten Teamplayer.\n-\n• Führung und Organisation deines eigenen Postens\n-\n• Zubereitung und Anrichten der Speisen in hoher Qualität\n-\n• Sicherstellung der Einhaltung unserer Hygiene- und Qualitätsstandards\n-\n• Unterstützung des Küchenteams im täglichen Service\n\n## Il tuo profilo\n-\n• Abgeschlossene Ausbildung als Koch/Köchin oder vergleichbare Erfahrung\n-\n• Leidenschaft für hochwertige Produkte und eine moderne Küche\n-\n• Strukturierte und selbstständige Arbeitsweise\n-\n• Teamgeist, Belastbarkeit und Freude an einem lebhaften Küchenalltag",
+      "titleByLocale": {
+        "it": "Chef de Partie Bankett Küche 80-100% (all genders)",
+        "en": "Chef de Partie Bankett Küche 80-100% (all genders)",
+        "de": "Chef de Partie Bankett Küche 80-100% (all genders)",
+        "fr": "Chef de Partie Bankett Küche 80-100% (all genders)"
+      },
+      "descriptionByLocale": {
+        "it": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefit\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Cosa ti aspetta\n- Zur Unterstützung unserer Küchen Crew suchen wir nach Vereinbarung einen motivierten und aufgestellten Teamplayer.\n-\n• Führung und Organisation deines eigenen Postens\n-\n• Zubereitung und Anrichten der Speisen in hoher Qualität\n-\n• Sicherstellung der Einhaltung unserer Hygiene- und Qualitätsstandards\n-\n• Unterstützung des Küchenteams im täglichen Service\n\n## Il tuo profilo\n-\n• Abgeschlossene Ausbildung als Koch/Köchin oder vergleichbare Erfahrung\n-\n• Leidenschaft für hochwertige Produkte und eine moderne Küche\n-\n• Strukturierte und selbstständige Arbeitsweise\n-\n• Teamgeist, Belastbarkeit und Freude an einem lebhaften Küchenalltag",
+        "en": "The Living Circle is hiring in Zürich. Discover the details of this position and apply online.\n\n## Overview\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefits\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## What to expect\n- Zur Unterstützung unserer Küchen Crew suchen wir nach Vereinbarung einen motivierten und aufgestellten Teamplayer.\n-\n• Führung und Organisation deines eigenen Postens\n-\n• Zubereitung und Anrichten der Speisen in hoher Qualität\n-\n• Sicherstellung der Einhaltung unserer Hygiene- und Qualitätsstandards\n-\n• Unterstützung des Küchenteams im täglichen Service\n\n## About you\n-\n• Abgeschlossene Ausbildung als Koch/Köchin oder vergleichbare Erfahrung\n-\n• Leidenschaft für hochwertige Produkte und eine moderne Küche\n-\n• Strukturierte und selbstständige Arbeitsweise\n-\n• Teamgeist, Belastbarkeit und Freude an einem lebhaften Küchenalltag",
+        "de": "The Living Circle sucht am Standort Zürich eine neue Fachkraft. Entdecken Sie die Details der Stelle und bewerben Sie sich online.\n\n## Überblick\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefits\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Was dich erwartet\n- Zur Unterstützung unserer Küchen Crew suchen wir nach Vereinbarung einen motivierten und aufgestellten Teamplayer.\n-\n• Führung und Organisation deines eigenen Postens\n-\n• Zubereitung und Anrichten der Speisen in hoher Qualität\n-\n• Sicherstellung der Einhaltung unserer Hygiene- und Qualitätsstandards\n-\n• Unterstützung des Küchenteams im täglichen Service\n\n## Über dich\n-\n• Abgeschlossene Ausbildung als Koch/Köchin oder vergleichbare Erfahrung\n-\n• Leidenschaft für hochwertige Produkte und eine moderne Küche\n-\n• Strukturierte und selbstständige Arbeitsweise\n-\n• Teamgeist, Belastbarkeit und Freude an einem lebhaften Küchenalltag",
+        "fr": "The Living Circle recrute à Zürich. Découvrez les détails du poste et postulez en ligne.\n\n## Aperçu\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Avantages\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Ce qui t'attend\n- Zur Unterstützung unserer Küchen Crew suchen wir nach Vereinbarung einen motivierten und aufgestellten Teamplayer.\n-\n• Führung und Organisation deines eigenen Postens\n-\n• Zubereitung und Anrichten der Speisen in hoher Qualität\n-\n• Sicherstellung der Einhaltung unserer Hygiene- und Qualitätsstandards\n-\n• Unterstützung des Küchenteams im täglichen Service\n\n## Ton profil\n-\n• Abgeschlossene Ausbildung als Koch/Köchin oder vergleichbare Erfahrung\n-\n• Leidenschaft für hochwertige Produkte und eine moderne Küche\n-\n• Strukturierte und selbstständige Arbeitsweise\n-\n• Teamgeist, Belastbarkeit und Freude an einem lebhaften Küchenalltag"
+      },
+      "slugByLocale": {
+        "it": "chef-de-partie-bankett-kuche-80-100-all-genders-the-living-circle-zurich",
+        "en": "chef-de-partie-bankett-kuche-80-100-all-genders-the-living-circle-zurich",
+        "de": "chef-de-partie-bankett-kuche-80-100-all-genders-the-living-circle-zurich",
+        "fr": "chef-de-partie-bankett-kuche-80-100-all-genders-the-living-circle-zurich"
+      },
+      "id": "the-living-circle-97e7eaf4a9bd",
+      "needsRetranslation": true,
+      "salaryMin": 73000,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:57:04.765Z"
+    },
+    {
+      "title": "Chef de Rang Widder Restaurant 80-100% (all genders) 4 Tage-Woche",
+      "slug": "chef-de-rang-widder-restaurant-80-100-all-genders-4-tage-woche-the-living-circle-zurich",
+      "url": "https://jobs.thelivingcircle.ch/jobs/67535782/Chef-de-Rang-Widder-Restaurant-80-100%25-all-genders-4-Tage-Woche/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67535782/Chef-de-Rang-Widder-Restaurant-80-100%25-all-genders-4-Tage-Woche/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-21",
+      "employmentType": "other",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefit\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Cosa ti aspetta\n- Dich erwartet ein motiviertes Team aus Profis, die alles geben um ihre Gäste in unserem zwei Michelin Sterne \"Widder Restaurant\" zu verwöhnen. Du bist eine Teamplayer Persönlichkeit für die Qualität und Aufmerksamkeit an erster Stelle stehen? Du bringst Charm und das gewisse Etwas mit, um unsere Gäste zu verzaubern? Dann suchen wir dich ab sofort oder nach Vereinbarung!\n\n## Il tuo profilo\n-\n• Abgeschlossene Berufsausbildung in der Gastronomie oder Hotellerie\n-\n• Leidenschaft für die Gastgeberrolle und Freude am direkten Gästekontakt\n-\n• Ausgeprägtes Auge fürs Detail, auch bei hohem Gästeaufkommen\n-\n• Sehr gute Ausdrucksweise in Deutsch und Englisch",
+      "titleByLocale": {
+        "it": "Chef de Rang Widder Restaurant 80-100% (all genders) 4 Tage-Woche",
+        "en": "Chef de Rang Widder Restaurant 80-100% (all genders) 4 Tage-Woche",
+        "de": "Chef de Rang Widder Restaurant 80-100% (all genders) 4 Tage-Woche",
+        "fr": "Chef de Rang Widder Restaurant 80-100% (all genders) 4 Tage-Woche"
+      },
+      "descriptionByLocale": {
+        "it": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefit\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Cosa ti aspetta\n- Dich erwartet ein motiviertes Team aus Profis, die alles geben um ihre Gäste in unserem zwei Michelin Sterne \"Widder Restaurant\" zu verwöhnen. Du bist eine Teamplayer Persönlichkeit für die Qualität und Aufmerksamkeit an erster Stelle stehen? Du bringst Charm und das gewisse Etwas mit, um unsere Gäste zu verzaubern? Dann suchen wir dich ab sofort oder nach Vereinbarung!\n\n## Il tuo profilo\n-\n• Abgeschlossene Berufsausbildung in der Gastronomie oder Hotellerie\n-\n• Leidenschaft für die Gastgeberrolle und Freude am direkten Gästekontakt\n-\n• Ausgeprägtes Auge fürs Detail, auch bei hohem Gästeaufkommen\n-\n• Sehr gute Ausdrucksweise in Deutsch und Englisch",
+        "en": "The Living Circle is hiring in Zürich. Discover the details of this position and apply online.\n\n## Overview\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefits\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## What to expect\n- Dich erwartet ein motiviertes Team aus Profis, die alles geben um ihre Gäste in unserem zwei Michelin Sterne \"Widder Restaurant\" zu verwöhnen. Du bist eine Teamplayer Persönlichkeit für die Qualität und Aufmerksamkeit an erster Stelle stehen? Du bringst Charm und das gewisse Etwas mit, um unsere Gäste zu verzaubern? Dann suchen wir dich ab sofort oder nach Vereinbarung!\n\n## About you\n-\n• Abgeschlossene Berufsausbildung in der Gastronomie oder Hotellerie\n-\n• Leidenschaft für die Gastgeberrolle und Freude am direkten Gästekontakt\n-\n• Ausgeprägtes Auge fürs Detail, auch bei hohem Gästeaufkommen\n-\n• Sehr gute Ausdrucksweise in Deutsch und Englisch",
+        "de": "The Living Circle sucht am Standort Zürich eine neue Fachkraft. Entdecken Sie die Details der Stelle und bewerben Sie sich online.\n\n## Überblick\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefits\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Was dich erwartet\n- Dich erwartet ein motiviertes Team aus Profis, die alles geben um ihre Gäste in unserem zwei Michelin Sterne \"Widder Restaurant\" zu verwöhnen. Du bist eine Teamplayer Persönlichkeit für die Qualität und Aufmerksamkeit an erster Stelle stehen? Du bringst Charm und das gewisse Etwas mit, um unsere Gäste zu verzaubern? Dann suchen wir dich ab sofort oder nach Vereinbarung!\n\n## Über dich\n-\n• Abgeschlossene Berufsausbildung in der Gastronomie oder Hotellerie\n-\n• Leidenschaft für die Gastgeberrolle und Freude am direkten Gästekontakt\n-\n• Ausgeprägtes Auge fürs Detail, auch bei hohem Gästeaufkommen\n-\n• Sehr gute Ausdrucksweise in Deutsch und Englisch",
+        "fr": "The Living Circle recrute à Zürich. Découvrez les détails du poste et postulez en ligne.\n\n## Aperçu\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Avantages\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Ce qui t'attend\n- Dich erwartet ein motiviertes Team aus Profis, die alles geben um ihre Gäste in unserem zwei Michelin Sterne \"Widder Restaurant\" zu verwöhnen. Du bist eine Teamplayer Persönlichkeit für die Qualität und Aufmerksamkeit an erster Stelle stehen? Du bringst Charm und das gewisse Etwas mit, um unsere Gäste zu verzaubern? Dann suchen wir dich ab sofort oder nach Vereinbarung!\n\n## Ton profil\n-\n• Abgeschlossene Berufsausbildung in der Gastronomie oder Hotellerie\n-\n• Leidenschaft für die Gastgeberrolle und Freude am direkten Gästekontakt\n-\n• Ausgeprägtes Auge fürs Detail, auch bei hohem Gästeaufkommen\n-\n• Sehr gute Ausdrucksweise in Deutsch und Englisch"
+      },
+      "slugByLocale": {
+        "it": "chef-de-rang-widder-restaurant-80-100-all-genders-4-tage-woche-the-living-circle-zurich",
+        "en": "chef-de-rang-widder-restaurant-80-100-all-genders-4-tage-woche-the-living-circle-zurich",
+        "de": "chef-de-rang-widder-restaurant-80-100-all-genders-4-tage-woche-the-living-circle-zurich",
+        "fr": "chef-de-rang-widder-restaurant-80-100-all-genders-4-tage-woche-the-living-circle-zurich"
+      },
+      "id": "the-living-circle-7013cceb8188",
+      "needsRetranslation": true,
+      "salaryMin": 73000,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:57:04.765Z"
+    },
+    {
+      "title": "Commis de Rang Widder Restaurant 80-100% (all genders) 4 Tage-Woche",
+      "slug": "commis-de-rang-widder-restaurant-80-100-all-genders-4-tage-woche-the-living-circle-zurich",
+      "url": "https://jobs.thelivingcircle.ch/jobs/67535892/Commis-de-Rang-Widder-Restaurant-80-100%25-all-genders-4-Tage-Woche/",
+      "applyUrl": "https://jobs.thelivingcircle.ch/jobs/67535892/Commis-de-Rang-Widder-Restaurant-80-100%25-all-genders-4-Tage-Woche/",
+      "company": "The Living Circle",
+      "companyKey": "the-living-circle",
+      "companyDomain": "thelivingcircle.ch",
+      "location": "Zürich",
+      "addressLocality": "Zürich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "canton": "ZH",
+      "country": "CH",
+      "category": "hospitality",
+      "sector": "Hotellerie & Ospitalità",
+      "source": "living-circle-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-21",
+      "employmentType": "other",
+      "contractType": "full-time",
+      "validThrough": "",
+      "description": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefit\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Cosa ti aspetta\n- Dich erwartet ein motiviertes Team aus Profis, das täglich alles dafür gibt, unsere Gäste im mit zwei Michelin-Sternen ausgezeichneten Widder Restaurant auf höchstem Niveau zu begeistern. Als Commis de Rang sorgst du mit deiner herzlichen und aufmerksamen Art für unvergessliche Gästeerlebnisse und unterstützt unser Serviceteam mit Engagement und Leidenschaft. Wir freuen uns darauf, dich ab sofort oder nach Vereinbarung in unserem Team willkommen zu heissen.\n\n## Il tuo profilo\n-\n• Du bist ein leidenschaftlicher Gastgeber und hast Freude am direkten Gästekontakt.\n-\n• Du konntest idealerweise bereits erste Erfahrung im Service sammeln.\n-\n• Du kommunizierst sicher auf Deutsch und verfügst über gute Englischkenntnisse.\n-\n• Hochwertige Produkte und exzellenter Service begeistern dich.\n-\n• Qualitätsbewusstsein und ein hoher Anspruch an deine Arbeit zeichnen dich aus.\n-\n• Teamarbeit ist für dich selbstverständlich und du packst gerne mit an.\n-\n• Du bist motiviert, dazuzulernen und dich kontinuierlich weiterzuentwickeln.",
+      "titleByLocale": {
+        "it": "Commis de Rang Widder Restaurant 80-100% (all genders) 4 Tage-Woche",
+        "en": "Commis de Rang Widder Restaurant 80-100% (all genders) 4 Tage-Woche",
+        "de": "Commis de Rang Widder Restaurant 80-100% (all genders) 4 Tage-Woche",
+        "fr": "Commis de Rang Widder Restaurant 80-100% (all genders) 4 Tage-Woche"
+      },
+      "descriptionByLocale": {
+        "it": "The Living Circle cerca per la sede di Zürich una nuova risorsa. Scopri i dettagli della posizione e candidati online.\n\n## Panoramica\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefit\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Cosa ti aspetta\n- Dich erwartet ein motiviertes Team aus Profis, das täglich alles dafür gibt, unsere Gäste im mit zwei Michelin-Sternen ausgezeichneten Widder Restaurant auf höchstem Niveau zu begeistern. Als Commis de Rang sorgst du mit deiner herzlichen und aufmerksamen Art für unvergessliche Gästeerlebnisse und unterstützt unser Serviceteam mit Engagement und Leidenschaft. Wir freuen uns darauf, dich ab sofort oder nach Vereinbarung in unserem Team willkommen zu heissen.\n\n## Il tuo profilo\n-\n• Du bist ein leidenschaftlicher Gastgeber und hast Freude am direkten Gästekontakt.\n-\n• Du konntest idealerweise bereits erste Erfahrung im Service sammeln.\n-\n• Du kommunizierst sicher auf Deutsch und verfügst über gute Englischkenntnisse.\n-\n• Hochwertige Produkte und exzellenter Service begeistern dich.\n-\n• Qualitätsbewusstsein und ein hoher Anspruch an deine Arbeit zeichnen dich aus.\n-\n• Teamarbeit ist für dich selbstverständlich und du packst gerne mit an.\n-\n• Du bist motiviert, dazuzulernen und dich kontinuierlich weiterzuentwickeln.",
+        "en": "The Living Circle is hiring in Zürich. Discover the details of this position and apply online.\n\n## Overview\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefits\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## What to expect\n- Dich erwartet ein motiviertes Team aus Profis, das täglich alles dafür gibt, unsere Gäste im mit zwei Michelin-Sternen ausgezeichneten Widder Restaurant auf höchstem Niveau zu begeistern. Als Commis de Rang sorgst du mit deiner herzlichen und aufmerksamen Art für unvergessliche Gästeerlebnisse und unterstützt unser Serviceteam mit Engagement und Leidenschaft. Wir freuen uns darauf, dich ab sofort oder nach Vereinbarung in unserem Team willkommen zu heissen.\n\n## About you\n-\n• Du bist ein leidenschaftlicher Gastgeber und hast Freude am direkten Gästekontakt.\n-\n• Du konntest idealerweise bereits erste Erfahrung im Service sammeln.\n-\n• Du kommunizierst sicher auf Deutsch und verfügst über gute Englischkenntnisse.\n-\n• Hochwertige Produkte und exzellenter Service begeistern dich.\n-\n• Qualitätsbewusstsein und ein hoher Anspruch an deine Arbeit zeichnen dich aus.\n-\n• Teamarbeit ist für dich selbstverständlich und du packst gerne mit an.\n-\n• Du bist motiviert, dazuzulernen und dich kontinuierlich weiterzuentwickeln.",
+        "de": "The Living Circle sucht am Standort Zürich eine neue Fachkraft. Entdecken Sie die Details der Stelle und bewerben Sie sich online.\n\n## Überblick\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Benefits\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Was dich erwartet\n- Dich erwartet ein motiviertes Team aus Profis, das täglich alles dafür gibt, unsere Gäste im mit zwei Michelin-Sternen ausgezeichneten Widder Restaurant auf höchstem Niveau zu begeistern. Als Commis de Rang sorgst du mit deiner herzlichen und aufmerksamen Art für unvergessliche Gästeerlebnisse und unterstützt unser Serviceteam mit Engagement und Leidenschaft. Wir freuen uns darauf, dich ab sofort oder nach Vereinbarung in unserem Team willkommen zu heissen.\n\n## Über dich\n-\n• Du bist ein leidenschaftlicher Gastgeber und hast Freude am direkten Gästekontakt.\n-\n• Du konntest idealerweise bereits erste Erfahrung im Service sammeln.\n-\n• Du kommunizierst sicher auf Deutsch und verfügst über gute Englischkenntnisse.\n-\n• Hochwertige Produkte und exzellenter Service begeistern dich.\n-\n• Qualitätsbewusstsein und ein hoher Anspruch an deine Arbeit zeichnen dich aus.\n-\n• Teamarbeit ist für dich selbstverständlich und du packst gerne mit an.\n-\n• Du bist motiviert, dazuzulernen und dich kontinuierlich weiterzuentwickeln.",
+        "fr": "The Living Circle recrute à Zürich. Découvrez les détails du poste et postulez en ligne.\n\n## Aperçu\n- The Living Circle ist die führende, innovativste und wohl vielfältigste Hospitality-Gruppe der Schweiz, die Luxus neu definiert: Naturnah, regional, geschichtsträchtig und authentisch. Zur Gruppe, die sich in Schweizer Familienbesitz befindet, gehören vier Hotels: das Castello del Sole Beach Resort & Spa in Ascona, das Widder Hotel und das Hotel Storchen in Zürich sowie das Alex Lake Zürich in Thalwil und das private Hideaway Château de Raymontpierre mit eigenem Bauernhof im Jura. Ergänzt wird unser Portfolio durch das Restaurant Buech in Herrliberg und die drei Landwirtschaftsbetriebe Schlattgut in Herrliberg, das Weingut Cantina alla Maggia und die Terreni alla Maggia in Ascona.\n\n## Avantages\n- 🚉ZVV-Bonuspass für deine tägliche Mobilität\n- 🛍Einkaufen zum Einkaufspreis und attraktive Rabatte in unseren Outlets\n- 🎁Persönliche Geschenke zu besonderen Anlässen\n- 🤎Friends & Family Rate – Teile unsere Gastfreundschaft mit deinen Liebsten\n- 🎂Einen freien Tag rund um deinen Geburtstag – flexibel innerhalb von zwei Wochen einlösbar\n\n## Ce qui t'attend\n- Dich erwartet ein motiviertes Team aus Profis, das täglich alles dafür gibt, unsere Gäste im mit zwei Michelin-Sternen ausgezeichneten Widder Restaurant auf höchstem Niveau zu begeistern. Als Commis de Rang sorgst du mit deiner herzlichen und aufmerksamen Art für unvergessliche Gästeerlebnisse und unterstützt unser Serviceteam mit Engagement und Leidenschaft. Wir freuen uns darauf, dich ab sofort oder nach Vereinbarung in unserem Team willkommen zu heissen.\n\n## Ton profil\n-\n• Du bist ein leidenschaftlicher Gastgeber und hast Freude am direkten Gästekontakt.\n-\n• Du konntest idealerweise bereits erste Erfahrung im Service sammeln.\n-\n• Du kommunizierst sicher auf Deutsch und verfügst über gute Englischkenntnisse.\n-\n• Hochwertige Produkte und exzellenter Service begeistern dich.\n-\n• Qualitätsbewusstsein und ein hoher Anspruch an deine Arbeit zeichnen dich aus.\n-\n• Teamarbeit ist für dich selbstverständlich und du packst gerne mit an.\n-\n• Du bist motiviert, dazuzulernen und dich kontinuierlich weiterzuentwickeln."
+      },
+      "slugByLocale": {
+        "it": "commis-de-rang-widder-restaurant-80-100-all-genders-4-tage-woche-the-living-circle-zurich",
+        "en": "commis-de-rang-widder-restaurant-80-100-all-genders-4-tage-woche-the-living-circle-zurich",
+        "de": "commis-de-rang-widder-restaurant-80-100-all-genders-4-tage-woche-the-living-circle-zurich",
+        "fr": "commis-de-rang-widder-restaurant-80-100-all-genders-4-tage-woche-the-living-circle-zurich"
+      },
+      "id": "the-living-circle-12a2de6c720d",
+      "needsRetranslation": true,
+      "salaryMin": 73000,
+      "salaryMax": 91500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 73000,
+          "maxValue": 91500,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-21T15:57:04.765Z"
     }
   ]
 }
