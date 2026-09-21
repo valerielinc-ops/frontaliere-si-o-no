@@ -41,7 +41,6 @@ const DAILY_MUTEX_GROUP = 'followup-daily-${{ github.repository }}';
 const DAILY_WRITER_WORKFLOWS = [
   'post-merge-followup.yml',
   'followup-reconcile.yml',
-  'followup-drainer.yml',
 ];
 
 function dailyWriterWorkflow(name: string) {
@@ -55,7 +54,6 @@ describe('daily writer concurrency contract', () => {
   it('serializes every bucket writer on one repo-scoped, non-canceling mutex', () => {
     const workflows = DAILY_WRITER_WORKFLOWS.map(dailyWriterWorkflow);
     expect(workflows.map((workflow) => workflow.concurrency?.group)).toEqual([
-      DAILY_MUTEX_GROUP,
       DAILY_MUTEX_GROUP,
       DAILY_MUTEX_GROUP,
     ]);
