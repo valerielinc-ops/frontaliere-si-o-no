@@ -10,7 +10,8 @@ name: Worktree/branch janitor (remote anomalies)
 # `scripts/prune-merged-worktrees.mjs` nel pre-task-close (vedi AGENTS.md).
 #
 # DETERMINISTICO (zero Claude → zero quota Max, coerente con issue-triage e
-# stale-pr-rescuer). Default DELETE per i casi inequivocabili (PR MERGED, oppure
+# stale-pr-rescuer). Default DELETE per i casi inequivocabili (PR MERGED verso
+# il default branch con tip remoto provato nella storia dell'HEAD PR, oppure
 # 0-ahead su main = niente di unico); PR/issue CLOSED con commit ahead resta
 # REPORT-only (::warning), perché la chiusura non prova che il codice sia confluito.
 # protected/default branch e gh-pages: mai toccati.
@@ -69,7 +70,7 @@ jobs:
           # "no-PR" e venga cancellato). Le due liste si fondono; la jq OPEN>… sotto
           # tiene lo stato più vivo.
           prs_open=$(gh pr list --repo "$REPO" --state open --limit 300 \
-            --json state,headRefName 2>/dev/null || echo '[]')
+            --json state,headRefName,baseRefName,headRefOid,number,mergedAt 2>/dev/null || echo '[]')
           # Head ref di PR marcate `autorebase-reopen-failed`: la coppia
           # close+reopen si e' rotta a meta' e la PR e' rimasta chiusa per un
           # guasto, non per una decisione. Il branch e' l'unica copia rimasta
@@ -80,7 +81,7 @@ jobs:
             --label autorebase-reopen-failed --json headRefName \
             --jq '[.[].headRefName]' 2>/dev/null || echo '[]')
           prs_all=$(gh pr list --repo "$REPO" --state all --limit 400 \
-            --json state,headRefName 2>/dev/null || echo '[]')
+            --json state,headRefName,baseRefName,headRefOid,number,mergedAt 2>/dev/null || echo '[]')
           prs=$(jq -s 'add' <(echo "$prs_open") <(echo "$prs_all") 2>/dev/null || echo '[]')
 
           # Branch remoti via API (paginata).
@@ -113,8 +114,9 @@ jobs:
             # La query mirata --head non ha finestra e si paga solo sui residui.
             VIA_HEAD=false
             if [ "$STATE" = "NONE" ]; then
-              STATE=$(gh pr list --repo "$REPO" --head "$NAME" --state all --limit 10 \
-                --json state --jq '[.[].state]
+              HEAD_PRS=$(gh pr list --repo "$REPO" --head "$NAME" --state all --limit 10 \
+                --json state,headRefName,baseRefName,headRefOid,number,mergedAt 2>/dev/null || echo '[]')
+              STATE=$(echo "$HEAD_PRS" | jq -r '[.[].state]
                   | (if index("OPEN") then "OPEN"
                      elif index("MERGED") then "MERGED"
                      elif index("CLOSED") then "CLOSED"
@@ -122,6 +124,7 @@ jobs:
               [ -z "$STATE" ] && STATE=NONE
               if [ "$STATE" != "NONE" ]; then
                 VIA_HEAD=true
+                prs=$(jq -s 'add' <(echo "$prs") <(echo "$HEAD_PRS") 2>/dev/null || echo "$prs")
                 echo "  $NAME: PR $STATE trovata fuori finestra (query --head)"
               fi
             fi
@@ -136,11 +139,41 @@ jobs:
 
             if [ "$STATE" = "OPEN" ]; then echo "keep $NAME (PR OPEN)"; continue; fi
 
+            # Un MERGED e' una prova sufficiente solo se e' verso il default
+            # branch e il tip remoto e' contenuto nella storia dell'HEAD PR.
+            # Il secondo controllo protegge dal caso branch avanzato dopo il
+            # merge e dai falsi positivi di una PR mergiata verso staging.
+            if [ "$STATE" = "MERGED" ]; then
+              TIP=$(gh api "repos/$REPO/branches/$NAME" --jq '.commit.sha' 2>/dev/null || true)
+              MERGED_PROVEN=false
+              MERGED_PR_NUMBER=""
+              MERGED_PR_HEAD=""
+              while IFS=$'\t' read -r PR_NUMBER PR_HEAD; do
+                [ -n "$PR_NUMBER" ] && [ -n "$PR_HEAD" ] || continue
+                [ -n "$TIP" ] || continue
+                BEHIND=$(gh api "repos/$REPO/compare/$TIP...$PR_HEAD" --jq '.behind_by' 2>/dev/null || true)
+                if [ "$BEHIND" = "0" ]; then
+                  MERGED_PROVEN=true
+                  MERGED_PR_NUMBER=$PR_NUMBER
+                  MERGED_PR_HEAD=$PR_HEAD
+                  break
+                fi
+              done < <(echo "$prs" | jq -r --arg n "$NAME" --arg d "$DEFAULT_BRANCH" '
+                .[]
+                | select(.headRefName==$n and .state=="MERGED" and .baseRefName==$d and .headRefOid != null)
+                | [.number, .headRefOid] | @tsv')
+              if [ "$MERGED_PROVEN" != "true" ]; then
+                echo "::warning::origin/$NAME — PR MERGED ma base/ancestry non verificabili (tip=$TIP): REPORT-only (non cancello)"
+                flagged=$((flagged+1)); continue
+              fi
+              REASON="PR #$MERGED_PR_NUMBER MERGED su $DEFAULT_BRANCH, tip $TIP antenato dell'HEAD PR ${MERGED_PR_HEAD:0:12} (behind=0)"
+            fi
+
             # Un PR CLOSED non e' un PR MERGED. Anche se la query --head l'ha
             # trovata fuori finestra, la sua chiusura non dimostra che il codice
             # sia confluito: se il branch ha commit ahead resta report-only.
             if [ "$STATE" = "MERGED" ]; then
-              REASON="PR MERGED (delete_branch_on_merge avrebbe dovuto rimuoverlo)"
+              : # REASON assegnato dalla prova base/ancestry sopra
             elif [ "$STATE" = "CLOSED" ]; then
               AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$NAME" --jq '.ahead_by' 2>/dev/null || true)
               if ! [[ "$AHEAD" =~ ^[0-9]+$ ]]; then
