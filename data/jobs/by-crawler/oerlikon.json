@@ -715,9 +715,9 @@
     },
     {
       "id": "oerlikon-36b0a730fba6",
-      "slug": "project-contract-manager-gn-oerlikon-ch",
+      "slug": "responsabile-del-contratto-di-progetto-gn-oerlikon-wohlen",
       "slugByLocale": {
-        "it": "project-contract-manager-gn-oerlikon-ch",
+        "it": "responsabile-del-contratto-di-progetto-gn-oerlikon-wohlen",
         "en": "project-contract-manager-gn-oerlikon-ch",
         "de": "project-contract-manager-gn-oerlikon-ch",
         "fr": "gestionnaire-de-contrat-de-projet-gn-oerlikon-wohlen"
@@ -776,7 +776,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "project-contract-manager-gn-oerlikon-ch"
+        ]
+      },
+      "previousSlugs": [
+        "project-contract-manager-gn-oerlikon-ch"
+      ]
     },
     {
       "id": "oerlikon-356e3fe4d231",
