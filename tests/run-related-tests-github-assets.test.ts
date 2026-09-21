@@ -61,7 +61,7 @@ function selectionOutputFor(
 
 function selectionFor(changedPaths: string[], reuseDir = sharedGraphDir) {
   const stdout = selectionOutputFor(changedPaths, reuseDir);
-  return stdout.split('\n').map((line) => line.trim()).filter((line) => line.endsWith('.test.ts'));
+  return stdout.split('\n').map((line) => line.trim()).filter((line) => /\.test\.[cm]?[jt]sx?$/i.test(line));
 }
 
 function runRunnerWithEnv(
@@ -311,7 +311,18 @@ describe('run-related-tests — un diff sotto .github/ seleziona i suoi guardian
     for (const [index, asset] of unrelatedAssets.entries()) {
       const dir = fs.mkdtempSync(path.join(os.tmpdir(), `related-unrelated-crawler-${index}-`));
       try {
-        expect(selectionFor([asset], dir)).not.toContain('tests/generate-crawler-group-workflows.test.ts');
+        const selected = selectionFor([asset], dir);
+        expect(selected).not.toContain('tests/generate-crawler-group-workflows.test.ts');
+        for (const crawlerTest of [
+          'tests/crawler-generation-dispatch.test.ts',
+          'tests/crawler-generation-observer-workflow.test.ts',
+          'tests/crawler-group-generation-finalizer.test.ts',
+          'tests/workflows/crawler-workflows-corpus-sync.test.ts',
+        ]) {
+          expect(selected).not.toContain(crawlerTest);
+        }
+        expect(selected).not.toContain('tests/app-smoke.test.tsx');
+        expect(selected).not.toContain('tests/regression/footer-on-seo-pages.test.tsx');
       } finally {
         fs.rmSync(dir, { recursive: true, force: true });
       }

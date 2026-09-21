@@ -53,13 +53,32 @@ const runnerRegressionTests = new Set([
 // drag an expensive crawler-generator suite into every PR. The root asset is
 // carried through the reverse graph below; a source module may still be
 // traversed, but the final test admission is checked against this scope.
-const relatedAssetTestScopes = new Map([
-  ['tests/generate-crawler-group-workflows.test.ts', [
-    /^\.github\/workflows\/(?:crawler-group-\d+(?:-logic)?|crawler-generation-[^/]+|orchestrate-crawlers|translate-pending(?:-logic)?|generate-article)\.ya?ml$/i,
-    /^\.github\/corpus-workflows\/(?:crawler-group-\d+|translate-pending)\.ya?ml$/i,
-    /^\.github\/corpus-workflows\/contract\.json$/i,
-    /^\.github\/corpus-workflows\/observers\/workflows\/crawler-generation-[^/]+\.ya?ml$/i,
-  ]],
+const crawlerAssetScope = [
+  /^\.github\/workflows\/(?:crawler-group-\d+(?:-logic)?|crawler-generation-[^/]+|orchestrate-crawlers|translate-pending(?:-logic)?|generate-article)\.ya?ml$/i,
+  /^\.github\/corpus-workflows\/(?:crawler-group-\d+|translate-pending)\.ya?ml$/i,
+  /^\.github\/corpus-workflows\/contract\.json$/i,
+  /^\.github\/corpus-workflows\/observers\/workflows\/crawler-generation-[^/]+\.ya?ml$/i,
+];
+const crawlerAssetRelatedTests = [
+  'tests/crawler-generation-barrier-shadow.test.ts',
+  'tests/crawler-generation-barrier-workflows.test.ts',
+  'tests/crawler-generation-contract.test.ts',
+  'tests/crawler-generation-dispatch-workflow.test.ts',
+  'tests/crawler-generation-dispatch.test.ts',
+  'tests/crawler-generation-observer-contract.test.ts',
+  'tests/crawler-generation-observer-runtime.test.ts',
+  'tests/crawler-generation-observer-selector.test.ts',
+  'tests/crawler-generation-observer-workflow.test.ts',
+  'tests/crawler-group-generation-finalizer.test.ts',
+  'tests/workflows/crawler-workflows-corpus-sync.test.ts',
+];
+const relatedAssetFileScopes = new Map([
+  ['build-plugins/crawlerRegistryPlugin.ts', crawlerAssetScope],
+  // This module validates a remote Actions API binding. Its `.github/workflows/`
+  // string is an API identity, not a local file read.
+  ['scripts/lib/githubWorkflowDispatch.mjs', []],
+  ['tests/generate-crawler-group-workflows.test.ts', crawlerAssetScope],
+  ...crawlerAssetRelatedTests.map((file) => [file, crawlerAssetScope]),
 ]);
 // faq-readability-gate misura il ratchet sulle FAQ dell'INTERO corpus articoli
 // e si difende dal falso verde con `expect(total).toBeGreaterThan(1000)`. Il job
@@ -292,7 +311,10 @@ function importsOf(file, fileSet, assets) {
       if (asset === literal || asset.startsWith(`${literal}/`)) deps.add(asset);
     }
   }
-  return [...deps].sort();
+  const scope = relatedAssetFileScopes.get(file);
+  return [...deps]
+    .filter((asset) => !scope || scope.some((pattern) => pattern.test(asset)))
+    .sort();
 }
 
 function loadGraph(files, assets) {
@@ -444,7 +466,7 @@ if (runnerChanged && !fullSuiteRequired) {
 let usedFullFallback = fullSuiteRequired;
 const assetCandidate = (file) => githubAssetRe.test(file) || testFixtureRe.test(file);
 const assetScopeAllows = (test, asset) => {
-  const scope = relatedAssetTestScopes.get(test);
+  const scope = relatedAssetFileScopes.get(test);
   return !scope || scope.some((pattern) => pattern.test(asset));
 };
 const queue = candidates.map((file) => ({
