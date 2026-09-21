@@ -1,6 +1,6 @@
 {
   "crawlerKey": "elettra-1938",
-  "assembledAt": "2026-09-19T23:03:48.418Z",
+  "assembledAt": "2026-09-21T16:09:13.017Z",
   "jobs": [
     {
       "id": "elettra-1938-ef6f82493666",
@@ -25,7 +25,7 @@
       "descriptionByLocale": {
         "it": "Per la nostra sede di Stabio siamo alla ricerca di un operatore di produzione che si occuperà delle seguenti mansioni: handling delle batterie; attività di test e riparazione; assemblaggio di schede elettroniche; attività su linea di...",
         "en": "For our headquarters in Stabio we are looking for a production operator who will take care of the following tasks: battery handling; test and repair activities; electronic card assembly; line-up activities...",
-        "de": "Für unseren Hauptsitz in Stabio suchen wir einen Produktionsbetreiber, der sich um folgende \n• Aufgaben kümmert: Batteriehandling; Test- und Reparaturtätigkeiten; elektronische Kartenmontage; Line-up-Aktivitäten...",
+        "de": "Für unseren Hauptsitz in Stabio suchen wir einen Produktionsbetreiber, der sich um folgende\n• Aufgaben kümmert: Batteriehandling; Test- und Reparaturtätigkeiten; elektronische Kartenmontage; Line-up-Aktivitäten...",
         "fr": "Pour notre siège social à Stabio, nous recherchons un opérateur de production qui s'occupera des tâches suivantes : la manipulation des batteries ; les activités de test et de réparation ; l'assemblage de cartes électroniques ; les activités de line-up..."
       },
       "location": "Sede Stabio Svizzera",
@@ -33,7 +33,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-19T23:03:43.016Z",
+      "crawledAt": "2026-09-21T16:09:09.079Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -64,78 +64,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "elettra-1938-73b81e3ccbae",
-      "slug": "customer-quality-engineer-elettra-1938-ch",
-      "slugByLocale": {
-        "it": "customer-quality-engineer-elettra-1938-ch",
-        "en": "customer-quality-engineer-elettra-1938-ch",
-        "de": "customer-qualitat-ingenieur-elettra-1938-sede-stabio-svizzera",
-        "fr": "customer-qualite-ingenieur-elettra-1938-sede-stabio-svizzera"
-      },
-      "company": "Elettra 1938",
-      "companyKey": "elettra-1938",
-      "companyDomain": "elettra1938.ch",
-      "title": "CUSTOMER QUALITY ENGINEER",
-      "titleByLocale": {
-        "it": "CUSTOMER QUALITY Ingegnere",
-        "en": "CUSTOMER QUALITY ENGINEER",
-        "de": "CUSTOMER Qualität Ingenieur",
-        "fr": "CUSTOMER Qualité Ingénieur"
-      },
-      "description": "Se con il tuo lavoro vuoi contribuire a rendere il mondo più sostenibile grazie ai prodotti che realizziamo, questa è l'azienda che fa per te! Per la nostra sede di Stabio siamo alla ricerca di un CUSTOMER QUALITY ENGINEER che si occuperà delle...",
-      "descriptionByLocale": {
-        "it": "Se con il tuo lavoro vuoi contribuire a rendere il mondo più sostenibile grazie ai prodotti che realizziamo, questa è l'azienda che fa per te! Per la nostra sede di Stabio siamo alla ricerca di un CUSTOMER QUALITY ENGINEER che si occuperà delle...",
-        "en": "If you want to help make the world more sustainable thanks to the products we make, this is the company for you! For our headquarters in Stabio we are looking for a CUSTOMER QUALITY ENGINEER that will take care of the...",
-        "de": "Wenn Sie dank der von uns hergestellten Produkte dazu beitragen möchten, die Welt nachhaltiger zu gestalten, ist dies das richtige Unternehmen für Sie! Für unseren Hauptsitz in Stabio suchen wir einen KUNDENQUALITÄTSMOTOR, der sich um die...",
-        "fr": "Si vous voulez aider à rendre le monde plus durable grâce aux produits que nous fabriquons, c'est l'entreprise pour vous! Pour notre siège social à Stabio, nous recherchons un ENGINEER DE QUALITÉ CLIENTE qui s'occupera..."
-      },
-      "location": "Sede Stabio Svizzera",
-      "canton": "TI",
-      "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-724414/it/",
-      "source": "Elettra 1938 Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-13T14:03:45.049Z",
-      "addressLocality": "Sede Stabio Svizzera",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "6855",
-      "category": "Ingegneria",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Impiantistica elettrica / Automazione",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-27",
-      "applyUrl": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/customer-quality-engineer-724414/it/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "customer-quality-ingegnere-elettra-1938-stabio"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "customer-quality-ingegnere-elettra-1938-stabio"
-        ]
-      },
-      "firstSeenAt": "2026-08-27T00:49:57.238Z",
-      "salaryMin": 58000,
-      "salaryMax": 88000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 58000,
-          "maxValue": 88000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }
