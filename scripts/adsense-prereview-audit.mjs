@@ -93,6 +93,7 @@ import path from 'node:path';
 import { isJobBoardSectionPath } from './lib/jobBoardSections.mjs';
 import { httpFetchWithRetry } from './lib/transient-fetch.mjs';
 import { flatString } from './lib/flat-string.mjs';
+import { ADSENSE_THIN_WORDS } from './adsense-prereview-thresholds.mjs';
 
 const ROOT = process.cwd();
 const DIST = path.resolve(ROOT, 'dist');
@@ -159,7 +160,7 @@ const RE = {
 };
 
 const THIN_TEXT_CHARS = 900;
-const THIN_WORDS = 140;
+const THIN_WORDS = ADSENSE_THIN_WORDS;
 const LOW_RICHNESS_BLOCKS = 3;
 const MIN_CHARS_PER_AD_SLOT = 500;
 /**

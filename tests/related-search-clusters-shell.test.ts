@@ -5,6 +5,7 @@ import { afterEach, describe, expect, it } from 'vitest';
 import { renderClusterPage, isClusterBelowFloor } from '../build-plugins/relatedSearchClustersPlugin';
 import { buildFlatBridgeFromSibling } from '../build-plugins/flatHtmlRedirectPlugin';
 import { SPA_ENTRY_JS_FILENAME, SPA_ENTRY_CSS_FILENAME } from '../build-plugins/shared/spaEntryFilenames';
+import { AD_SLOTS } from '../services/adsenseSlots';
 
 const tmpDirs: string[] = [];
 
@@ -268,6 +269,50 @@ describe('related search cluster SEO shell', () => {
     expect(page.html).toContain('og:image');
     expect(page.html).toContain('Rel 4');
     expect(page.html).toContain('Rel 5');
+  });
+
+  it('does not put the manual multiplex slot on an AdSense-thin enriched cluster (#9244)', () => {
+    const render = (intro: string) => renderClusterPage({
+      distDir: makeDist(),
+      dateStamp: '2026-09-21',
+      ctx: {
+        candidate: {
+          slug: 'ricerca-thin-ad-test',
+          locale: 'de',
+          jobCount: 0,
+          sampleTerms: ['thin ad test'],
+          editorialCollision: null,
+        },
+        keyword: 'thin ad test',
+        city: null,
+        matchingJobs: [],
+        topCompanies: [],
+      } as any,
+      enriched: {
+        slug: 'ricerca-thin-ad-test',
+        locale: 'de',
+        keyword: 'thin ad test',
+        city: null,
+        intro,
+        faqs: [],
+      },
+      hreflang: [],
+      related: [],
+    });
+    const staticSlot = new RegExp(`data-ad-slot=["']?${AD_SLOTS.SSG_END_MULTIPLEX.slot}["']?`);
+
+    expect(render('Kurzer einzigartiger Hinweis für neue Stellenangebote.').html).not.toMatch(staticSlot);
+    expect(render(Array.from({ length: 160 }, (_, i) => `Inhalt${i}`).join(' ')).html).toMatch(staticSlot);
+  });
+
+  it('gates the related-search hub multiplex slot on the same AdSense threshold (#9244)', () => {
+    const src = readFileSync(
+      join(process.cwd(), 'build-plugins/relatedSearchClustersPlugin.ts'),
+      'utf8',
+    );
+
+    expect(src).toContain('countHtmlBodyWords(hubBodyContentHtml) >= ADSENSE_THIN_WORDS');
+    expect(src).not.toContain('endOfContentMultiplexHtml({ indexable: true })');
   });
 });
 
