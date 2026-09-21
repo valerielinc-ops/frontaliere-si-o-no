@@ -8364,7 +8364,6 @@
           "ubs-card-center-senior-sales-client-advisor-cards-100-w-m-d-ubs-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-16T23:40:26.105Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -8380,7 +8379,9 @@
         }
       },
       "addressRegion": "ZH",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1151
     },
     {
       "id": "ubs-e5826eeadaf5",
