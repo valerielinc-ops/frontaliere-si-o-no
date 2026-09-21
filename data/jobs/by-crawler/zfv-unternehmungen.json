@@ -65,7 +65,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:02:39.587Z"
+      "firstSeenAt": "2026-09-19T23:02:39.587Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "abendportier-zfv-unternehmungen-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "abendportier-zfv-unternehmungen-zurich"
+      ]
     },
     {
       "id": "zfv-unternehmungen-f78d59bd4f35",
@@ -470,7 +478,7 @@
         "it": "Operatore turistico operativo: e (50%)",
         "en": "Operating Tour Operator: e (50%)",
         "de": "Betriebstournant:e (50%)",
-        "fr": "Betriebstournant:e (50%)"
+        "fr": "Tour opérateur: e (50%)"
       },
       "description": "Das Personalrestaurant der CSL Vifor in St. Gallen bietet Platz für 120 Gäste im Innen- und 70 im Aussenbereich. Täglich verwöhnt unser engagiertes Team durchschnittlich 130 Mitarbeitende mit einem vielfältigen kulinarischen Angebot. Zur Auswahl stehen täglich wechselnde Menüs, frische Salate sowie eine vegetarische Option – stets mit dem Anspruch auf eine ausgewogene Ernährung. Getreu der ZFV-Philosophie wird frisch vor Ort mit regionalen, sowie nachhaltig produzierten und fair gehandelten Lebensmitteln gekocht. Bist du unser neues Teammitglied, welches uns als Betriebstournant:e (50%) per 01. Oktober 2026 oder nach Vereinbarung unterstützt? Du arbeitest zwischen Montag und Freitag in einem 50% Pensum jeweils von 09:00 Uhr bis 14:00 Uhr. Für Events und Ferienvertretungen bringst du die nötige zeitliche Flexibilität mit und bist bereit, deine Arbeitszeiten bei Bedarf zwischen 07:00 und 22:00 Uhr anzupassen. Dein Aufgabenmenü:\n• Begrüssung, Bedienung und Beratung der Gäste\n• Sicherstellung einer hohen Gästezufriedenheit\n• Anrichten der Menüs während dem Mittagsservice\n• Bedienung der Kasse\n• Erstellung der Mise en Place und Zubereitung des Snackangebots\n• Sicherstellung einer ansprechenden Warenpräsentation\n• Mitarbeit im Officebereich, bei Caterings und Events\n• Sicherstellung der Sauberkeit und Ordnung im Arbeitsumfeld\n• Erledigung von allgemeinen Aufräum- und Reinigungsarbeiten Dein Erfolgsrezept:\n• Erste Praxiserfahrung in der Gastronomie (vorzusweise am Buffet)\n• Gute Deutschkenntnisse\n• Herzliche, gewinnende und empathische Art\n• Freude am Gästekontakt und am Genuss\n• Hands-on Mentalität\n• Freude an der Arbeit im Team\n• Flexibilität während Ferienvertretungen und Events (Einsätze zwischen 07.00 Uhr bis 22.00 Uhr möglich) Das bieten wir dir: Wir schaffen Teams, die sich gegenseitig unterstützen und in denen du gefördert wirst. Wir wirken gemeinsam und setzen auf alles, was gut tut. Unter anderem legen wir dabei grossen Wert auf Lohntransparenz und Lohngleichheit. Für diese Position bieten wir bei einem 100%-Pensum, abhängig von deiner Erfahrung und Qualifikation, einen Jahreslohn zwischen CHF 52'000 und CHF 54'000 (inkl. 13. Monatslohn). Wenn du mit uns deine Leidenschaft für die Gastronomie teilen möchtest, freuen wir uns auf deine komplette Online-Bewerbung.",
       "descriptionByLocale": {
@@ -485,7 +493,6 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-19T23:02:36.427Z",
-      "needsRetranslation": true,
       "addressLocality": "St. Gallen",
       "postalCode": "9001",
       "streetAddress": "Rechenstrasse 37",
@@ -1220,7 +1227,7 @@
       "source": "ZFV-Unternehmungen Dedicated Parser (rexx systems)",
       "sourceLang": "de",
       "crawledAt": "2026-09-19T23:02:31.942Z",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "addressLocality": "Zürich",
       "postalCode": "8001",
       "streetAddress": "Bahnhofstrasse 45",

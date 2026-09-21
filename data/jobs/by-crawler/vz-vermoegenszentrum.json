@@ -750,13 +750,15 @@
       "previousSlugs": [
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch-2",
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-        "private-clients-consultant-vz-vermoegenszentrum-ch"
+        "private-clients-consultant-vz-vermoegenszentrum-ch",
+        "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
         "it": [
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch-2",
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-          "private-clients-consultant-vz-vermoegenszentrum-ch"
+          "private-clients-consultant-vz-vermoegenszentrum-ch",
+          "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona"
         ]
       },
       "firstSeenAt": "2026-07-10T22:31:21.324Z",
@@ -1285,13 +1287,15 @@
         "senior-software-engineer-net-fullstack-vz-vermoegenszentrum-ch",
         "senior-software-ingenieur-net-fullstack-vz-vermogenszentrum-zug",
         "senior-software-ingegnere-net-fullstack-vz-vermogenszentrum-zug",
-        "ingenieur-software-senior-net-fullstack-vz-vermogenszentrum-zug"
+        "ingenieur-software-senior-net-fullstack-vz-vermogenszentrum-zug",
+        "ingegnere-software-senior-net-fullstack-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-software-engineer-net-fullstack-80-100-vz-vermoegenszentrum-ch",
           "senior-software-engineer-net-fullstack-vz-vermoegenszentrum-ch",
-          "senior-software-ingegnere-net-fullstack-vz-vermogenszentrum-zug"
+          "senior-software-ingegnere-net-fullstack-vz-vermogenszentrum-zug",
+          "ingegnere-software-senior-net-fullstack-vz-vermogenszentrum-zug"
         ],
         "fr": [
           "senior-software-ingenieur-net-fullstack-vz-vermogenszentrum-zug",
@@ -1300,9 +1304,8 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2490,
-      "retranslationAttempts": 10,
+      "retranslationAttempts": 11,
       "firstSeenAt": "2026-07-17T11:36:57.056Z",
-      "needsRetranslation": true,
       "salaryMin": 114500,
       "salaryMax": 195000,
       "salarySource": "estimated",
@@ -1393,7 +1396,8 @@
           "senior-consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
           "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
           "senior-consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
-          "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern"
+          "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
+          "successione-commerciale-m-a-vz-vermogenszentrum-bern"
         ],
         "fr": [
           "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
@@ -1405,7 +1409,8 @@
         "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
         "senior-consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
         "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
-        "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
+        "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern",
+        "successione-commerciale-m-a-vz-vermogenszentrum-bern"
       ],
       "firstSeenAt": "2026-07-30T22:18:33.770Z",
       "salaryMin": 68500,
@@ -1676,13 +1681,15 @@
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
         "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
         "private-clients-consultant-vz-vermoegenszentrum-ch",
-        "consultant-client-prive-80-100-vz-vermogenszentrum-zurich"
+        "consultant-client-prive-80-100-vz-vermogenszentrum-zurich",
+        "private-clients-consulente-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
           "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
-          "private-clients-consultant-vz-vermoegenszentrum-ch"
+          "private-clients-consultant-vz-vermoegenszentrum-ch",
+          "private-clients-consulente-vz-vermogenszentrum-zurich"
         ],
         "fr": [
           "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
@@ -3501,7 +3508,7 @@
       "title": "Professional Software Engineer .NET (Fullstack)",
       "titleByLocale": {
         "it": "Ingegnere Software Professional .NET (Fullstack)",
-        "en": "Professional Software Engineer .NET (Fullstack)",
+        "en": "Professional Software Engineer.NET (Full Stack)",
         "de": "Professional Software Ingenieur .NET (Fullstack)",
         "fr": "Ingénieur Software Professional .NET (Fullstack)"
       },
@@ -4397,8 +4404,8 @@
       "titleByLocale": {
         "de": "Business Analyst/-in",
         "en": "Business Analyst/-in",
-        "it": "Business Analista/-in",
-        "fr": "Business Analyste/-in"
+        "it": "Analista di affari",
+        "fr": "Analyste des affaires"
       },
       "description": "Das VZ VermögensZentrum ist der führende unabhängige Finanzdienstleister der Schweiz. Wir beraten Privatpersonen und Firmen zu allen Themen rund ums Geld, verwalten Vermögen und bieten attraktive Finanzdienstleistungen an. Damit sind wir sehr erfolgreich und wachsen kräftig. Jetzt suchen wir per sofort eine engagierte Persönlichkeit für unser Team in der VZ Operations AG in Zürich.\n\n• Du begleitest die Umsetzung digitaler Prozesse und/oder neuen Funktionen von der Spezifikation bis zur Konfiguration und bringst diese zu einem erfolgreichen Abschluss.\n\n• Du bist nahe an den Fachbereichen, klärst komplexe, technische wie auch fachliche, Fragestellungen und bringst Struktur in anspruchsvolle Anforderungen.\n\n• Du spezifizierst User Stories und stellst die Umsetzung sicher (inkl. Abnahme und Testing).\n\n• Du kommunizierst mit Fachbereichen und technischen Ansprechpartnern souverän und auf Augenhöhe, verstehst ihre unterschiedlichen Anforderungen und schaffst durch deine Vermittlungsfähigkeit tragfähige Lösungen für alle Beteiligten.\n\n• Du arbeitest eng mit unseren externen und internen Partnern zusammen.\n\n• Je nach Thema übernimmst du zusätzliche Verantwortung in der Rolle als Projektleiter/-in.\n\n• Abgeschlossenes Studium in Naturwissenschaften, Informatik, Wirtschaftsinformatik oder BWL oder eine ähnliche Ausbildung.\n\n• Erste Berufserfahrung im Bereich Digitalisierung oder als Business Analyst.\n\n• Stakeholdermanagement sowohl intern als auch mit externen Partnern\n\n• Flair/Interesse für technologische Trends und Erfahrung im agilen Projekt-Management und in der Business Analyse\n\n• Ein hohes Qualitätsbewusstsein, eine strukturierte Arbeitsweise mit klaren Prioritäten und Lust auf ein dienstleistungsorientiertes, dynamisches Umfeld\n\n• Die Möglichkeit in einem jungen, wachsenden Unternehmen Ideen einzubringen und Innovationen voranzutreiben.\n\n• Die individuelle Förderung im Rahmen des Jobprofils und die Unterstützung bei externen Weiterbildungen.\n\n• Umfragen zeigen regelmässig, dass die Mitarbeitenden das VZ als überdurchschnittlich positives Umfeld einstufen, in dem sie sich voll entfalten können. Werde Teil davon!",
       "descriptionByLocale": {
@@ -4527,11 +4534,13 @@
       },
       "previousSlugs": [
         "real-estate-consultant-vz-vermoegenszentrum-ch",
-        "consultant-immobilier-vz-vermogenszentrum-basel"
+        "consultant-immobilier-vz-vermogenszentrum-basel",
+        "real-estate-consulente-vz-vermogenszentrum-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "real-estate-consultant-vz-vermoegenszentrum-ch"
+          "real-estate-consultant-vz-vermoegenszentrum-ch",
+          "real-estate-consulente-vz-vermogenszentrum-basel"
         ],
         "fr": [
           "consultant-immobilier-vz-vermogenszentrum-basel"

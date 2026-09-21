@@ -1099,7 +1099,7 @@
       "slugByLocale": {
         "it": "med-assistente-pratico-assistente-pratico-mpa-centro-di-emergenza-universitatsspital-basel-basel",
         "en": "med-practical-assistant-practical-assistant-mpa-emergency-center-universitatsspital-basel-basel",
-        "de": "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel-i2436r",
+        "de": "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
         "fr": "med-assistant-pratique-assistant-pratique-mpa-centre-d-urgence-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
@@ -1144,7 +1144,8 @@
       "previousSlugsByLocale": {
         "de": [
           "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-unispital-basel-ch",
-          "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel"
+          "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
+          "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel-i2436r"
         ],
         "it": [
           "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
@@ -1159,7 +1160,8 @@
       },
       "previousSlugs": [
         "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
-        "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-unispital-basel-ch"
+        "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-unispital-basel-ch",
+        "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel-i2436r"
       ],
       "firstSeenAt": "2026-05-22T13:24:58.839Z",
       "salaryMin": 62000,
@@ -3094,11 +3096,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-        "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
+        "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel",
+        "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch"
+          "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
+          "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel"
         ],
         "fr": [
           "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
@@ -4308,11 +4312,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-        "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
+        "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel",
+        "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch"
+          "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
+          "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel"
         ],
         "fr": [
           "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
@@ -4320,9 +4326,8 @@
       },
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1466,
-      "retranslationAttempts": 19,
+      "retranslationAttempts": 20,
       "firstSeenAt": "2026-08-20T21:47:46.721Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -8151,7 +8156,7 @@
       "title": "Nachdiplomstudium (NDS) Anästhesiepflege",
       "titleByLocale": {
         "it": "Studi post-laurea (NDS) Anesthesia Care",
-        "en": "Nachdiplomstudium (NDS) Anästhesiepflege",
+        "en": "Postgraduate Studies (NDS) Anesthesia Care",
         "de": "Nachdiplomstudium (NDS) Anästhesiepflege",
         "fr": "Soins d'anesthésie des études supérieures (END)"
       },
@@ -8224,7 +8229,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:40:34.608Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -8946,7 +8950,7 @@
         "it": "Dipl. Infermieristica HF/FH (Neurological Bed Station & Stroke Unit)",
         "en": "Dipl. Nursing specialist HF/FH (Neurological Bed Station & Stroke Unit)",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (neurologische Bettenstation & Stroke Unit)",
-        "fr": "Dipl. Pflegefachfrau / Pflegefachmann HF/FH (neurologische Bettenstation & Stroke Unit)"
+        "fr": "Dipl. Spécialiste des soins infirmiers HF/FH (unité de la station de lit neurologique et des accidents cérébrovasculaires)"
       },
       "description": "Aufgaben:\n• Personenzentrierte Pflege, Begleitung und Unterstützung unserer Patientinnen und Patienten sowie deren Angehörigen\n\n• Beteiligung an einer optimalen, interdisziplinären Versorgung und Sicherstellung der bestmöglichen Pflegequalität\n\n• Ziel- und lösungsorientierte Zusammenarbeit im interdisziplinären und interprofessionellen Behandlungsteam\n\n• Einsatz im Dreischichtbetrieb\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Pflegefachfrau/Pflegefachmann (HF/FH/DN II)\n\n• Einfühlsamer und wertschätzender Umgang mit Patientinnen und Patienten sowie Angehörigen\n\n• Freude an der Arbeit im interprofessionellen Team\n\n• Ausgeglichene und lösungsorientierte Persönlichkeit\n\nWir bieten:\n• Attraktive Lohnpolitik und hervorragende Sozialleistungen\n\n• Vergünstigungen in den Bereichen Shopping, Sport und Freizeit\n\n• Unterstützung bei Umzug und Wohnungssuche\n\n• 25 Ferientage plus 5 ebenfalls freie Flexitage\n\n• Unterstützung bei Fort- und Weiterbildungen und Karriereplanung\n\n• Campus im Herzen Basels und im Dreiländereck\n\n• Umfassende Kinderbetreuungsmöglichkeiten\n\n• Kostenloses Sport- und Bewegungsprogramm",
       "descriptionByLocale": {
@@ -9003,7 +9007,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T06:56:59.080Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -9118,7 +9121,7 @@
       "title": "Dipl. Experte / Expertin NDS Anästhesiepflege",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert NDS Anesthesia Care",
-        "en": "Dipl. Experte / Expertin NDS Anästhesiepflege",
+        "en": "Dipl. Expert / Expert NDS Anesthesia Care",
         "de": "Dipl. Experte / Expertin NDS Anästhesiepflege",
         "fr": "Dipl. Expert / Expert Soins d'anesthésie NDS"
       },
@@ -9169,7 +9172,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T06:56:59.077Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -9498,7 +9500,7 @@
       "title": "Duales Studium DHBW (Wirtschaftsinformatik - Application Management)",
       "titleByLocale": {
         "it": "Dual studies DHBW (Business Informatics - Application Management)",
-        "en": "Duales Studium DHBW (Wirtschaftsinformatik - Application Management)",
+        "en": "Dual studies DHBW (Business Informatics - Application Management)",
         "de": "Duales Studium DHBW (Wirtschaftsinformatik - Application Management)",
         "fr": "Doubles études DHBW (Informatique des affaires - Gestion des applications)"
       },
@@ -9545,7 +9547,6 @@
         ]
       },
       "firstSeenAt": "2026-09-17T06:56:59.072Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",

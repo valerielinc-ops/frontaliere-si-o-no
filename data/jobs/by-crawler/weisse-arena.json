@@ -1494,7 +1494,7 @@
       "titleByLocale": {
         "de": "Shiftleader:in",
         "it": "Silenziatore",
-        "en": "Shiftleader:in",
+        "en": "Shift-League",
         "fr": "Chef de quart"
       },
       "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. | Im Ristorante Camino kommen die Pizzen frisch zubereitet vor dem Gast aus dem Holzofen, eine saisonale Karte mit klassischen italienischen Gerichten sowie eine Auswahl an klassischen Cocktails und fantastischen italienischen Weinen werden geboten. Im stilvoll eingerichteten Restaurant und dem gemütlichen Kaminzimmer geniessen Gäste eine einladende Atmosphäre. Hotelgäste geniessen hier ihr Frühstück und Abendessen. Das Lokal bietet Platz für rund 110 Gäste im Restaurantbereich und für rund 60 Gäste in der Camino Bar/Lounge. Zudem werden vom Ristorante Camino aus diverse Caterings und Bankette angeboten. | Als Shiftleader:in Service übernimmst du während deiner Schicht die operative Verantwortung für den gesamten Servicebereich. Mit deinem Gespür für Genuss, herzliche Gastfreundschaft und exzellenten Service führst und unterstützt du das Team und sorgst dafür, dass unsere Gäste unvergessliche Momente erleben und sich rundum wohlfühlen. | Was du bewegst:\n• Du bist die zentrale Ansprechperson während deiner Schicht und sorgst gemeinsam mit dem Team für einen professionellen Service und zufriedene Gäste.\n• Du koordinierst in deiner Schicht den Service, teilst Aufgaben ein und informierst das Team vorab über alle wichtigen Tagesinformationen.\n• Du gewährleistest eine herzliche Gästebetreuung, löst Reklamationen professionell und sicherst Qualitäts-, Hygiene- und Servicestandards.\n• Du führst das Team als Vorbild, unterstützt aktiv im Service und förderst Entwicklung, Zusammenarbeit und Eigenverantwortung.\n• Du förderst den aktiven Verkauf und achtest auf korrekte Kassenabläufe sowie einen sorgfältigen Umgang mit Waren und Ressourcen.\n• Du stellst eine gute Servicevorbereitung, einen vollständigen Schichtabschluss und die zuverlässige Weitergabe wichtiger Informationen sicher. | Was dich ausmacht:\n• Du hast Erfahrung im Restaurantservice und ein gutes Verständnis der operativen Abläufe\n• Du hast erste Erfahrungen in der Führung eines Teams und eine ausgeprägte Motivation, deine Führungskompetenzen weiterzuentwickeln\n• Du hast gute Kommunikationsfähigkeiten und ausgeprägten Teamgeist\n• Du hast eine ausgeprägte Gastgeberpersönlichkeit sowie einen hohen Anspruch an Service und Qualität\n• Du bist verantwortungsbewusst, zuverlässig und gut organisiert\n• Du behältst in hektischen Situationen die Übersicht und Professionalität\n• Du hast Kenntnisse im Umgang mit Kassensystemen und Abschlussprozessen\n• Du kennst die Hygiene-, Sicherheits- und Allergenstandards | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung von LAAX mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG signinahotel/Ristorante Camino Karolina Jedrzejewska www.signinahotel.com I www.weissearena.com I www.laax.com",
@@ -1551,7 +1551,6 @@
           "chef-de-quart-en-weisse-arena-gruppe-laax-7441c6"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -2395,15 +2394,22 @@
       "contractLabel": "Saisonanstellung",
       "previousSlugsByLocale": {
         "it": [
-          "allrounder-in-restauration-weisse-arena-ch"
+          "allrounder-in-restauration-weisse-arena-ch",
+          "allrounder-in-restauro-weisse-arena-gruppe-laax-ee134e"
         ],
         "en": [
-          "allrounder-in-restauration-weisse-arena-gruppe-laax"
+          "allrounder-in-restauration-weisse-arena-gruppe-laax",
+          "allrounder-in-restoration-weisse-arena-gruppe-laax-ee134e"
+        ],
+        "fr": [
+          "allrounder-in-restauro-weisse-arena-gruppe-laax-ee134e"
         ]
       },
       "previousSlugs": [
         "allrounder-in-restauration-weisse-arena-ch",
-        "allrounder-in-restauration-weisse-arena-gruppe-laax"
+        "allrounder-in-restauration-weisse-arena-gruppe-laax",
+        "allrounder-in-restauro-weisse-arena-gruppe-laax-ee134e",
+        "allrounder-in-restoration-weisse-arena-gruppe-laax-ee134e"
       ],
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -3963,9 +3969,9 @@
       "title": "Koch/Köchin Plaun",
       "titleByLocale": {
         "de": "Koch/Köchin Plaun",
-        "en": "Koch/Köchin Plaun",
-        "it": "Koch/Köchin Plaun",
-        "fr": "Koch/Köchin Plaun"
+        "en": "Cook/cooker Plaun",
+        "it": "Cook/cooker plaun",
+        "fr": "Cuisinière/cuisinière Plaun"
       },
       "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. | In der Station Plaun , der ehemaligen Liftstation, mit rund 50 Sitzplätzen lässt es sich vor dem offenen Kamin ausruhen. Oder doch lieber einen Platz an der Aussenbar mit grosser Sonnenterrasse ergattern? Frisch zubereitete Ciabattavariationen und ein wechselndes Suppenangebot ergänzen die umfassende Getränkeauswahl. Im Steakhouse La Vacca , dem beheizten Tipizelt, werden unsere Gäste mit zarten Fleischstücken vom Grill und auserlesenen Weinen verwöhnt. Gut 45 Personen können sich um das offene Feuer gesellen. | Als Koch/Köchin bereitest du mit viel Freude und Leidenschaft verschiedene Gerichte zu. | Was du bewegst:\n• Du übernimmst die Vor- und Zubereitung der Speisen\n• Du kümmerst dich um das Mise en Place für das Tagesgeschäft\n• Du bist für die Warenbestellung, Warenannahme und Warenkontrolle verantwortlich\n• Du gestaltest abwechslungsreiche Tagesmenus\n• Du stellst die Einhaltung der Hygienevorschriften sicher\n• Du führst allgemeine Reinigungsarbeiten in der Küche durch | Was dich ausmacht:\n• Du hast eine abgeschlossene Kochausbildung und 2–3 Jahre Berufserfahrung.\n• Du verfügst über Deutschkenntnisse auf Niveau B1, Englischkenntnisse sind von Vorteil.\n• Du hast Spass daran, in einem lebhaften Betrieb mit kleinem Team zu arbeiten.\n• Du arbeitest selbständig, speditiv, zuverlässig und flexibel. | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung von LAAX mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG Restaurant Station Plaun / La Vacca Marius Landsmann www.weissearena.com I www.laax.com",
       "descriptionByLocale": {
@@ -4001,7 +4007,6 @@
       "jobNumber": "WAG02509",
       "pensum": "60 - 100%",
       "contractLabel": "Saisonanstellung",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -4942,7 +4947,7 @@
       "title": "Allrounder:in Restauration",
       "titleByLocale": {
         "it": "Restauro integrale",
-        "en": "Allrounder:in Restauration",
+        "en": "All-rounder restoration",
         "de": "Allrounder:in Restauration",
         "fr": "Restauration complète"
       },
@@ -5013,8 +5018,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "weisse-arena-9a147e6d131e",
