@@ -11,6 +11,7 @@ import {
   slugify,
   stripHtml,
 } from '@/scripts/lib/rapelli-job-parser.mjs';
+import { buildRapelliJobRecord } from '@/scripts/update-rapelli-jobs.mjs';
 
 // ── Fixtures ────────────────────────────────────────────────────
 
@@ -141,5 +142,23 @@ describe('Rapelli crawler — stripHtml', () => {
 
   it('returns empty string for empty input', () => {
     expect(stripHtml('')).toBe('');
+  });
+});
+
+describe('buildRapelliJobRecord', () => {
+  it('preserves the detail URL as the navigable apply handoff', () => {
+    const url = 'https://careers.orior.ch/job/Stabio-HR-Payroll-Assistant/1431685933/';
+    const job = buildRapelliJobRecord({
+      raw: { url, title: 'HR Payroll Assistant (m/f/d)', location: 'Stabio' },
+      detail: { description: 'A'.repeat(120) },
+      now: new Date('2026-09-22T00:00:00.000Z'),
+    });
+
+    expect(job).toMatchObject({
+      url,
+      applyUrl: url,
+      postedDate: '2026-09-22',
+      crawledAt: '2026-09-22T00:00:00.000Z',
+    });
   });
 });
