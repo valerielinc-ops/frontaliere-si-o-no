@@ -1,6 +1,6 @@
 {
   "crawlerKey": "unispital-basel",
-  "assembledAt": "2026-09-21T16:09:35.166Z",
+  "assembledAt": "2026-09-21T16:08:00.683Z",
   "jobs": [
     {
       "id": "unispital-basel-a292aece20e2",
@@ -269,7 +269,11 @@
         "dipl-care-specialist-hf-fh-neurological-bedding-station-stroke-unit-universitatsspital-basel-basel",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-amp-stroke-unit-unisp",
         "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurologische-bettenstation-stroke-unit-universitatsspital-basel-basel",
-        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-40x4vu",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-6pj87o",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-9pzjt8",
+        "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -289,7 +293,11 @@
           "dipl-specialista-di-cura-hf-fh-stazione-di-biancheria-da-letto-neurologica-stroke-unit-universitatsspital-basel-basel",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-akutmedizin-universitatsspital-basel-basel",
-          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel"
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-40x4vu",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-6pj87o",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-universitatsspital-basel-basel-9pzjt8",
+          "dipl-pflegefachfrau-pflegefachmann-hf-fh-neurochirurgie-spinale-chirurgie-universitatsspital-basel-basel"
         ],
         "en": [
           "dipl-pflegefachfrau-pflegefachmann-hf-fh-unispital-basel-ch",
@@ -325,7 +333,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T12:50:42.330Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -338,7 +345,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-285cd727d60a",

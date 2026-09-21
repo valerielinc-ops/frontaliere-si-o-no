@@ -1,6 +1,6 @@
 {
   "crawlerKey": "ffs-officine-ferrovie-federali",
-  "assembledAt": "2026-09-21T16:50:01.441Z",
+  "assembledAt": "2026-09-21T15:18:10.508Z",
   "jobs": [
     {
       "id": "sbb-7caf0c34e110",
@@ -5036,12 +5036,64 @@
       "crawledAt": "2026-09-19T23:05:31.273Z",
       "previousSlugs": [
         "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-renens-vd",
-        "capoprogetto-ingegneria-civile-ffs-officine-ferrovie-federali-renens-vd"
+        "capoprogetto-ingegneria-civile-ffs-officine-ferrovie-federali-renens-vd",
+        "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd",
+        "responsabile-dei-contratti-specialista-contrattuale-m-f-d-ffs-officine-ferrovie-federali-renens-vd",
+        "contract-manager-contract-specialist-m-f-d-ffs-officine-ferrovie-federali-renens-vd",
+        "vertragsmanager-vertragsspezialist-m-w-d-ffs-officine-ferrovie-federali-renens-vd",
+        "gestionnaire-de-contrats-specialiste-contrats-h-f-d-ffs-officine-ferrovie-federali-renens-vd",
+        "responsabile-dei-contratti-specialista-dei-contratti-ffs-officine-ferrovie-federali-renens-vd",
+        "contract-manager-contract-specialist-ffs-officine-ferrovie-federali-renens-vd",
+        "vertragsmanager-in-fachspezialist-in-vertrage-ffs-officine-ferrovie-federali-renens-vd",
+        "gestionnaire-de-contrats-specialiste-des-contrats-ffs-officine-ferrovie-federali-renens-vd",
+        "responsabile-di-progetto-in-ingegneria-civile-ffs-officine-ferrovie-federali-olten",
+        "civil-engineering-project-manager-ffs-officine-ferrovie-federali-olten",
+        "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-olten",
+        "chef-de-projet-genie-civil-ffs-officine-ferrovie-federali-olten",
+        "responsabile-dell-impianto-ingegneria-civile-ffs-officine-ferrovie-federali-olten",
+        "plantmanager-engineering-ffs-officine-ferrovie-federali-olten",
+        "anlagenverantwortliche-r-ingenieurbau-ffs-officine-ferrovie-federali-olten",
+        "directeur-d-usine-en-genie-civil-ffs-officine-ferrovie-federali-olten",
+        "responsabile-dei-lavori-ffs-officine-ferrovie-federali-renens-vd",
+        "works-manager-ffs-officine-ferrovie-federali-renens-vd",
+        "werksleiter-ffs-officine-ferrovie-federali-renens-vd"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-fe-de-projet-genie-civil-ffs-officine-ferrovie-federali-renens-vd",
-          "capoprogetto-ingegneria-civile-ffs-officine-ferrovie-federali-renens-vd"
+          "capoprogetto-ingegneria-civile-ffs-officine-ferrovie-federali-renens-vd",
+          "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd",
+          "responsabile-dei-contratti-specialista-contrattuale-m-f-d-ffs-officine-ferrovie-federali-renens-vd",
+          "contract-manager-contract-specialist-m-f-d-ffs-officine-ferrovie-federali-renens-vd",
+          "vertragsmanager-vertragsspezialist-m-w-d-ffs-officine-ferrovie-federali-renens-vd",
+          "gestionnaire-de-contrats-specialiste-contrats-h-f-d-ffs-officine-ferrovie-federali-renens-vd",
+          "responsabile-dei-contratti-specialista-dei-contratti-ffs-officine-ferrovie-federali-renens-vd",
+          "contract-manager-contract-specialist-ffs-officine-ferrovie-federali-renens-vd",
+          "vertragsmanager-in-fachspezialist-in-vertrage-ffs-officine-ferrovie-federali-renens-vd",
+          "gestionnaire-de-contrats-specialiste-des-contrats-ffs-officine-ferrovie-federali-renens-vd",
+          "responsabile-di-progetto-in-ingegneria-civile-ffs-officine-ferrovie-federali-olten",
+          "civil-engineering-project-manager-ffs-officine-ferrovie-federali-olten",
+          "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-olten",
+          "chef-de-projet-genie-civil-ffs-officine-ferrovie-federali-olten",
+          "responsabile-dell-impianto-ingegneria-civile-ffs-officine-ferrovie-federali-olten",
+          "plantmanager-engineering-ffs-officine-ferrovie-federali-olten",
+          "anlagenverantwortliche-r-ingenieurbau-ffs-officine-ferrovie-federali-olten",
+          "directeur-d-usine-en-genie-civil-ffs-officine-ferrovie-federali-olten",
+          "responsabile-dei-lavori-ffs-officine-ferrovie-federali-renens-vd"
+        ],
+        "en": [
+          "works-manager-ffs-officine-ferrovie-federali-renens-vd",
+          "civil-engineering-project-manager-ffs-officine-ferrovie-federali-olten"
+        ],
+        "de": [
+          "werksleiter-ffs-officine-ferrovie-federali-renens-vd",
+          "vertragsmanager-in-fachspezialist-in-vertrage-ffs-officine-ferrovie-federali-renens-vd",
+          "projektleiter-in-bauingenieurwesen-ffs-officine-ferrovie-federali-olten"
+        ],
+        "fr": [
+          "responsable-de-travaux-ffs-officine-ferrovie-federali-renens-vd",
+          "chef-de-projet-genie-civil-ffs-officine-ferrovie-federali-olten",
+          "directeur-d-usine-en-genie-civil-ffs-officine-ferrovie-federali-olten"
         ]
       },
       "firstSeenAt": "2026-09-02T13:47:59.393Z",

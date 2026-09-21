@@ -4675,14 +4675,14 @@
       "companyDomain": "liebherr.com",
       "title": "Initialbewerbung Liebherr-Baumaschinen AG",
       "titleByLocale": {
-        "it": "Domanda di lavoro iniziale Liebherr-Baumaschinen AG",
-        "en": "Initial Application Liebherr-Construction Equipment AG",
+        "it": "We need to translate the job title to Italian. Title: \"Initialbewerbung Liebherr-Baumaschinen AG\". Words: \"Initialbewerbung\" (German) meaning \"initial application\" maybe \"prima candidatura\" or \"prima domanda\". \"Liebherr-Baumaschinen AG\" is a company name (brand). Keep unchanged. So translate \"Initialbewerbung",
+        "en": "We need to translate job title to English. Title: \"Initialbewerbung Liebherr-Baumaschinen AG\". Words: \"Initialbewerbung\" (German) meaning \"initial application\" or \"preliminary application\"? Likely \"Initial application\". \"Liebherr-Baumaschinen AG\" is a company name (Liebherr-Baumaschinen AG)",
         "de": "Initialbewerbung Liebherr-Baumaschinen AG",
-        "fr": "Candidature initiale Liebherr-Baumaschinen AG"
+        "fr": "We need to translate the job title \"Initialbewerbung Liebherr-Baumaschinen AG\" to French. Rules: translate all words to target language, keep brand names, company names, acronyms unchanged. The title includes German words: \"Initialbewerbung\" (initial application?), \"Liebherr-Baumaschinen AG\" is a company name (Liebherr"
       },
       "description": "Haben wir Ihr Interesse geweckt? Dann freuen wir uns über Ihre Online-Bewerbung. Bei Fragen kontaktieren Sie bitte Susanne Sulzer. One Passion. Many Opportunities. Das Unternehmen ​Die Liebherr-Baumaschinen AG mit Sitz in Reiden (Schweiz) ist verantwortlich für den Vertrieb und Service von Erdbewegungs- und Materialumschlagmaschinen, Turmdrehkranen, Betontechnik, Spezialtiefbaumaschinen sowie Mobil- und Raupenkranen in der Schweiz. Standort Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Schweiz (CH) Kontakt Susanne Sulzer 062 785 82 00",
       "descriptionByLocale": {
-        "it": "Per qualsiasi domanda, contattare Susanne S. One Passion. Più di 30 anni fa. Liebherr-Bausmaschinen AG, con sede a Reiden, Svizzera, è responsabile della vendita e del servizio di macchine per movimento terra e movimentazione materiali, gru a torre, tecnologie per il calcestruzzo, macchine per la costruzione di fondazioni speciali e gru mobili e bruchi in Svizzera. Liebherr-Bausmaschinen AG Industriestrasse 18 6260 Reiden Svizzera (CH) Contact Susanne S.U. 062 785 82 00",
+        "it": "Abbiamo suscitato il vostro interesse? Saremo lieti di ricevere la tua candidatura online. In caso di domande, si prega di contattare Susanne Sulzer. One Passion. Many Opportunities. L'azienda Liebherr-Baumaschinen AG, con sede a Reiden (Svizzera), è responsabile della vendita e dell'assistenza di macchine per movimento terra e movimentazione materiali, gru a torre, tecnologia del calcestruzzo, macchine speciali per lavori sotterranei e gru mobili e cingolate in Svizzera. Sede Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Svizzera (CH) Contatto Susanne Sulzer 062 785 82 00",
         "en": "If you have any questions, please contact Susanne S. One Passion. More than 30 years ago. Liebherr-Bausmaschinen AG, based in Reiden, Switzerland, is responsible for the sales and service of earthmoving and material handling machines, tower cranes, concrete technology, special foundation construction machines and mobile and caterpillar cranes in Switzerland. Liebherr-Bausmaschinen AG Industriestrasse 18 6260 Reiden Switzerland (CH) Contact Susanne S.U. 062 785 82 00",
         "de": "Haben wir Ihr Interesse geweckt? Dann freuen wir uns über Ihre Online-Bewerbung. Bei Fragen kontaktieren Sie bitte Susanne Sulzer. One Passion. Many Opportunities. Das Unternehmen ​Die Liebherr-Baumaschinen AG mit Sitz in Reiden (Schweiz) ist verantwortlich für den Vertrieb und Service von Erdbewegungs- und Materialumschlagmaschinen, Turmdrehkranen, Betontechnik, Spezialtiefbaumaschinen sowie Mobil- und Raupenkranen in der Schweiz. Standort Liebherr-Baumaschinen AG Industriestrasse 18 6260 Reiden Schweiz (CH) Kontakt Susanne Sulzer 062 785 82 00",
         "fr": "Si vous avez des questions, veuillez contacter Susanne S. One Passion. Il y a plus de 30 ans. Liebherr-Bausmaschinen AG, basée à Reiden, Suisse, est responsable des ventes et du service des machines de terrassement et de manutention des matériaux, grues à tour, technologie du béton, machines spéciales de construction de fondations et grues mobiles et chenilles en Suisse. Liebherr-Bausmaschinen AG Industriestrasse 18 6260 Reiden Suisse (CH) Contact Susanne S.U. 062 785 82 00"
@@ -4728,7 +4728,6 @@
           "demande-initiale-liebherr-baumaschinen-ag-liebherr-reiden"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T09:03:08.411Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -4743,7 +4742,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 551
     },
     {
       "id": "liebherr-a83c82c9f347",

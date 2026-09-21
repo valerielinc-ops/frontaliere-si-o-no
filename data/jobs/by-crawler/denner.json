@@ -12255,14 +12255,16 @@
         "assistent-in-filialleitung-denner-steinhausen",
         "assistent-in-filialleitung-denner-ag-steinhausen",
         "assistent-in-filialleitung-denner-ag-steinhausen-cc1clp",
-        "assistente-nella-gestione-delle-branche-denner-ag-steinhausen-a8ab34"
+        "assistente-nella-gestione-delle-branche-denner-ag-steinhausen-a8ab34",
+        "assistant-in-branch-management-denner-bremgarten-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistent-in-filialleitung-denner",
           "assistent-in-filialleitung-denner-ag-steinhausen",
           "assistent-in-filialleitung-denner-ag-steinhausen-cc1clp",
-          "assistente-nella-gestione-delle-branche-denner-ag-steinhausen-a8ab34"
+          "assistente-nella-gestione-delle-branche-denner-ag-steinhausen-a8ab34",
+          "assistant-in-branch-management-denner-bremgarten-ag"
         ],
         "en": [
           "assistent-in-filialleitung-denner-steinhausen",
@@ -12274,7 +12276,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:55:06.475Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 121500,
       "salarySource": "estimated",
@@ -12287,7 +12288,8 @@
           "maxValue": 121500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-4ed5cf5b32c4",
@@ -19197,7 +19199,35 @@
         "verkaufer-in-denner-ag-interlaken",
         "sales-associate-denner-ag-interlaken",
         "venditore-trice-denner-ag-interlaken",
-        "seller-denner-interlaken"
+        "seller-denner-interlaken",
+        "verkaufer-in-denner-ag-interlaken-hchfj3",
+        "venditore-denner-luzern",
+        "verkaufer-in-denner-ag-luzern-i7i4e9",
+        "verkaufer-in-denner-6",
+        "verkaufer-in-denner-luzern",
+        "verkaufer-in-denner-5",
+        "verkaufer-in-denner-7",
+        "verkaufer-in-denner-ag-luzern",
+        "verkaufer-in-denner-4",
+        "seller-denner-luzern",
+        "vendeur-denner-luzern",
+        "verkaufer-in-denner-pfzdrt",
+        "verkaufer-in-denner-zumikon",
+        "seller-denner-ag-zumikon",
+        "vendeur-denner-ag-zumikon",
+        "verkaufer-in-denner-t9tqag",
+        "verkaufer-in-denner-3",
+        "verkaufer-in-denner-kirchberg",
+        "verkaufer-in-denner-usapjx",
+        "verkaufer-in-denner-baar",
+        "seller-denner-ag-interlaken-a375b5",
+        "vendeur-denner-ag-interlaken",
+        "venditore-denner-ag-interlaken",
+        "verkaufer-in-denner-ag-interlaken-rramd7",
+        "venditore-denner-ag-interlaken-075a65",
+        "seller-denner-ag-interlaken",
+        "vendeur-denner-ag-interlaken-075a65",
+        "venditore-denner-ag-interlaken-hchfj3"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -19210,24 +19240,45 @@
           "venditore-denner-interlaken",
           "verkaufer-in-denner-ag-interlaken-kk53ro",
           "verkaufer-in-denner-ag-interlaken",
-          "venditore-trice-denner-ag-interlaken"
+          "venditore-trice-denner-ag-interlaken",
+          "verkaufer-in-denner-zumikon",
+          "seller-denner-ag-zumikon",
+          "vendeur-denner-ag-zumikon",
+          "verkaufer-in-denner-t9tqag",
+          "verkaufer-in-denner-3",
+          "verkaufer-in-denner-kirchberg",
+          "verkaufer-in-denner-usapjx",
+          "verkaufer-in-denner-baar",
+          "venditore-denner-ag-interlaken",
+          "verkaufer-in-denner-ag-interlaken-rramd7",
+          "venditore-denner-ag-interlaken-075a65",
+          "seller-denner-ag-interlaken",
+          "vendeur-denner-ag-interlaken-075a65",
+          "venditore-denner-ag-interlaken-hchfj3",
+          "verkaufer-in-denner-ag-interlaken-hchfj3",
+          "venditore-denner-luzern",
+          "verkaufer-in-denner-ag-luzern-i7i4e9",
+          "verkaufer-in-denner-6",
+          "verkaufer-in-denner-luzern",
+          "verkaufer-in-denner-5"
         ],
         "en": [
           "verkaufer-in-denner-ag-interlaken-kk53ro",
           "verkaufer-in-denner-ag-interlaken",
           "sales-associate-denner-ag-interlaken",
-          "seller-denner-interlaken"
+          "seller-denner-interlaken",
+          "seller-denner-ag-interlaken-a375b5"
         ],
         "de": [
           "verkaufer-in-denner-ag-interlaken-kk53ro"
         ],
         "fr": [
           "verkaufer-in-denner-ag-interlaken-kk53ro",
-          "verkaufer-in-denner-ag-interlaken"
+          "verkaufer-in-denner-ag-interlaken",
+          "vendeur-denner-ag-interlaken"
         ]
       },
       "firstSeenAt": "2026-08-27T00:39:46.806Z",
-      "needsRetranslation": true,
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -19240,7 +19291,8 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "denner-c7ed142be0ae",

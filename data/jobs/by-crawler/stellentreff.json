@@ -1275,25 +1275,45 @@
       "applyUrl": "https://www.stellentreff.ch/stellen/maler-in-sursee-temporaer-116201/",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
-        "maler-in-per-kundenmalerei-stellentreff-ag-sursee",
-        "pittore-per-la-pittura-cliente-stellentreff-ag-sursee-luzern-37acb0"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
           "maler-in-per-kundenmalerei-stellentreff-ag-sursee",
-          "pittore-per-la-pittura-cliente-stellentreff-ag-sursee-luzern-37acb0"
+          "pittore-per-la-pittura-cliente-stellentreff-ag-sursee-luzern-37acb0",
+          "dipingere-i-professionisti-per-la-pittura-cliente-stellentreff-ag-sursee-luzern",
+          "painting-practitioners-for-client-painting-stellentreff-ag-sursee-luzern",
+          "malerpraktiker-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
+          "pratiques-de-peinture-pour-la-peinture-client-stellentreff-ag-sursee-luzern",
+          "malerpraktiker-in-per-kundenmalerei-stellentreff-ag-sursee",
+          "pittore-per-la-pittura-cliente-stellentreff-ag-sursee-luzern"
         ],
         "en": [
-          "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch"
+          "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
+          "painting-practitioners-for-client-painting-stellentreff-ag-sursee-luzern",
+          "painter-for-client-painting-stellentreff-ag-sursee-luzern"
         ],
         "fr": [
-          "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch"
+          "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
+          "pratiques-de-peinture-pour-la-peinture-client-stellentreff-ag-sursee-luzern",
+          "peintre-pour-peinture-client-stellentreff-ag-sursee-luzern"
+        ],
+        "de": [
+          "malerpraktiker-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch"
         ]
       },
-      "firstSeenAt": "2026-09-19T22:53:44.581Z",
+      "previousSlugs": [
+        "maler-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
+        "maler-in-per-kundenmalerei-stellentreff-ag-sursee",
+        "pittore-per-la-pittura-cliente-stellentreff-ag-sursee-luzern-37acb0",
+        "dipingere-i-professionisti-per-la-pittura-cliente-stellentreff-ag-sursee-luzern",
+        "painting-practitioners-for-client-painting-stellentreff-ag-sursee-luzern",
+        "malerpraktiker-in-fur-kundenmalerei-sursee-luzern-stellentreff-ch",
+        "pratiques-de-peinture-pour-la-peinture-client-stellentreff-ag-sursee-luzern",
+        "malerpraktiker-in-per-kundenmalerei-stellentreff-ag-sursee",
+        "pittore-per-la-pittura-cliente-stellentreff-ag-sursee-luzern",
+        "painter-for-client-painting-stellentreff-ag-sursee-luzern",
+        "peintre-pour-peinture-client-stellentreff-ag-sursee-luzern"
+      ],
       "salaryMin": 69500,
       "salaryMax": 106000,
       "salarySource": "estimated",
@@ -1306,7 +1326,8 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-19T22:53:44.581Z"
     },
     {
       "id": "stellentreff-2594e0585220",

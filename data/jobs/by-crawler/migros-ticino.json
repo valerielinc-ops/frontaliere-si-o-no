@@ -1,6 +1,6 @@
 {
   "crawlerKey": "migros-ticino",
-  "assembledAt": "2026-09-21T16:20:25.187Z",
+  "assembledAt": "2026-09-21T15:43:26.880Z",
   "jobs": [
     {
       "id": "company-7jvik3",
@@ -9461,19 +9461,37 @@
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-in-frische-genossenschaft-migros-aare-urtenen-schonbuhl",
-          "collaboratore-trice-in-frische-genossenschaft-migros-aare-urtenen-schonbuhl-invbt1"
+          "collaboratore-trice-in-frische-genossenschaft-migros-aare-urtenen-schonbuhl-invbt1",
+          "membro-del-personale-genossenschaft-migros-aare-urtenen-schonbuhl",
+          "staff-member-genossenschaft-migros-aare-urtenen-schonbuhl",
+          "mitarbeiter-in-kasse-genossenschaft-migros-aare-urtenen-schonbuhl-ucjil6",
+          "fonctionnaires-genossenschaft-migros-aare-urtenen-schonbuhl",
+          "mitarbeiter-in-kasse-genossenschaft-migros-aare-urtenen-schonbuhl",
+          "collaboratore-trice-in-kasse-genossenschaft-migros-aare-urtenen-schonbuhl-ucjil6"
         ],
         "en": [
-          "mitarbeiter-in-frische-genossenschaft-migros-aare-urtenen-schonbuhl-invbt1"
+          "mitarbeiter-in-frische-genossenschaft-migros-aare-urtenen-schonbuhl-invbt1",
+          "staff-member-genossenschaft-migros-aare-urtenen-schonbuhl"
         ],
         "fr": [
-          "mitarbeiter-in-frische-genossenschaft-migros-aare-urtenen-schonbuhl-invbt1"
+          "mitarbeiter-in-frische-genossenschaft-migros-aare-urtenen-schonbuhl-invbt1",
+          "fonctionnaires-genossenschaft-migros-aare-urtenen-schonbuhl"
+        ],
+        "de": [
+          "mitarbeiter-in-kasse-genossenschaft-migros-aare-urtenen-schonbuhl-ucjil6",
+          "mitarbeiter-in-kasse-genossenschaft-migros-aare-urtenen-schonbuhl"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-frische-genossenschaft-migros-aare-urtenen-schonbuhl",
         "collaboratore-trice-in-frische-genossenschaft-migros-aare-urtenen-schonbuhl-invbt1",
-        "mitarbeiter-in-frische-genossenschaft-migros-aare-urtenen-schonbuhl-invbt1"
+        "mitarbeiter-in-frische-genossenschaft-migros-aare-urtenen-schonbuhl-invbt1",
+        "membro-del-personale-genossenschaft-migros-aare-urtenen-schonbuhl",
+        "staff-member-genossenschaft-migros-aare-urtenen-schonbuhl",
+        "mitarbeiter-in-kasse-genossenschaft-migros-aare-urtenen-schonbuhl-ucjil6",
+        "fonctionnaires-genossenschaft-migros-aare-urtenen-schonbuhl",
+        "mitarbeiter-in-kasse-genossenschaft-migros-aare-urtenen-schonbuhl",
+        "collaboratore-trice-in-kasse-genossenschaft-migros-aare-urtenen-schonbuhl-ucjil6"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -9489,9 +9507,9 @@
       "addressLocality": "Urtenen-Schönbühl",
       "addressRegion": "BE",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 68500,
-      "salaryMax": 104000
+      "salaryMax": 104000,
+      "needsRetranslation": true
     },
     {
       "id": "company-g44u77",
@@ -15233,18 +15251,43 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-molkerei-genossenschaft-migros-zurich",
-          "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt"
+          "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
+          "venditore-in-carichi-genossenschaft-migros-zurich-zurich",
+          "seller-in-charcuterie-genossenschaft-migros-zurich-zurich",
+          "verkaufer-in-charcuterie-genossenschaft-migros-zurich-1fhlwi",
+          "vendeur-en-charcuterie-genossenschaft-migros-zurich-zurich",
+          "verkaufer-in-charcuterie-genossenschaft-migros-zurich",
+          "vendita-in-carni-e-carni-genossenschaft-migros-zurich-uznach",
+          "seller-in-charcuterie-meat-genossenschaft-migros-zurich-uznach",
+          "verkaufer-in-charcuterie-fleisch-genossenschaft-migros-zurich-uznach-yideeb",
+          "vendeur-dans-charcuterie-viande-genossenschaft-migros-zurich-uznach",
+          "verkaufer-in-charcuterie-fleisch-genossenschaft-migros-zurich-uznach"
         ],
         "en": [
-          "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt"
+          "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
+          "seller-in-charcuterie-genossenschaft-migros-zurich-zurich"
         ],
         "fr": [
-          "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt"
+          "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
+          "vendeur-en-charcuterie-genossenschaft-migros-zurich-zurich"
+        ],
+        "de": [
+          "verkaufer-in-charcuterie-genossenschaft-migros-zurich-1fhlwi"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-molkerei-genossenschaft-migros-zurich",
-        "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt"
+        "verkaufer-in-molkerei-genossenschaft-migros-zurich-5zv8qt",
+        "venditore-in-carichi-genossenschaft-migros-zurich-zurich",
+        "seller-in-charcuterie-genossenschaft-migros-zurich-zurich",
+        "verkaufer-in-charcuterie-genossenschaft-migros-zurich-1fhlwi",
+        "vendeur-en-charcuterie-genossenschaft-migros-zurich-zurich",
+        "verkaufer-in-charcuterie-genossenschaft-migros-zurich",
+        "vendita-in-carni-e-carni-genossenschaft-migros-zurich-uznach",
+        "seller-in-charcuterie-meat-genossenschaft-migros-zurich-uznach",
+        "verkaufer-in-charcuterie-fleisch-genossenschaft-migros-zurich-uznach-yideeb",
+        "vendeur-dans-charcuterie-viande-genossenschaft-migros-zurich-uznach",
+        "verkaufer-in-charcuterie-fleisch-genossenschaft-migros-zurich-uznach"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -15260,9 +15303,9 @@
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-1it6mt",
@@ -15920,15 +15963,45 @@
       "previousSlugsByLocale": {
         "it": [
           "sous-chef-in-genossenschaft-migros-zurich",
-          "sous-chef-in-genossenschaft-migros-zurich-rh3t00"
+          "sous-chef-in-genossenschaft-migros-zurich-rh3t00",
+          "capo-della-macellaia-genossenschaft-migros-zurich-zurich",
+          "fachleiter-in-metzgerei-genossenschaft-migros-zurich-5wtrml",
+          "head-of-butchery-genossenschaft-migros-zurich-zurich",
+          "chef-de-la-boucherie-genossenschaft-migros-zurich-zurich",
+          "chef-genossenschaft-migros-zurich-zurich",
+          "kuchenchef-in-genossenschaft-migros-zurich-aganso",
+          "kuchenchef-in-genossenschaft-migros-zurich",
+          "fachleiter-in-metzgerei-genossenschaft-migros-zurich",
+          "specialist-manager-in-butchery-genossenschaft-migros-zurich",
+          "chefmetzger-in-genossenschaft-migros-zurich",
+          "chief-of-the-office-genossenschaft-migros-zurich"
         ],
         "en": [
-          "sous-chef-in-genossenschaft-migros-zurich-rh3t00"
+          "sous-chef-in-genossenschaft-migros-zurich-rh3t00",
+          "head-of-butchery-genossenschaft-migros-zurich-zurich",
+          "specialist-manager-in-butchery-genossenschaft-migros-zurich"
+        ],
+        "de": [
+          "fachleiter-in-metzgerei-genossenschaft-migros-zurich-5wtrml"
+        ],
+        "fr": [
+          "chef-de-la-boucherie-genossenschaft-migros-zurich-zurich"
         ]
       },
       "previousSlugs": [
         "sous-chef-in-genossenschaft-migros-zurich",
-        "sous-chef-in-genossenschaft-migros-zurich-rh3t00"
+        "sous-chef-in-genossenschaft-migros-zurich-rh3t00",
+        "capo-della-macellaia-genossenschaft-migros-zurich-zurich",
+        "fachleiter-in-metzgerei-genossenschaft-migros-zurich-5wtrml",
+        "head-of-butchery-genossenschaft-migros-zurich-zurich",
+        "chef-de-la-boucherie-genossenschaft-migros-zurich-zurich",
+        "chef-genossenschaft-migros-zurich-zurich",
+        "kuchenchef-in-genossenschaft-migros-zurich-aganso",
+        "kuchenchef-in-genossenschaft-migros-zurich",
+        "fachleiter-in-metzgerei-genossenschaft-migros-zurich",
+        "specialist-manager-in-butchery-genossenschaft-migros-zurich",
+        "chefmetzger-in-genossenschaft-migros-zurich",
+        "chief-of-the-office-genossenschaft-migros-zurich"
       ],
       "salarySource": "reported",
       "baseSalary": {
@@ -15945,9 +16018,9 @@
       "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-zurich/sous-chefin/d5a01890-cb96-4708-b94f-5a4802880ba4",
-      "needsRetranslation": true,
       "salaryMin": 73500,
-      "salaryMax": 111500
+      "salaryMax": 111500,
+      "needsRetranslation": true
     },
     {
       "id": "company-z3fwp4",
@@ -47115,15 +47188,32 @@
       "previousSlugsByLocale": {
         "it": [
           "fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach",
-          "fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach-pzaue8"
+          "fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach-pzaue8",
+          "venditore-specializzato-migros-sissach-genossenschaft-migros-basel-sissach",
+          "specialist-seller-fresh-migros-sissach-genossenschaft-migros-basel-sissach",
+          "fachverkaufer-in-frische-migros-sissach-genossenschaft-migros-basel-sissach-orpp7r",
+          "vendeur-specialise-migros-frais-sissach-genossenschaft-migros-basel-sissach",
+          "fachverkaufer-in-frische-migros-sissach-genossenschaft-migros-basel-sissach"
         ],
         "fr": [
-          "fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach-pzaue8"
+          "fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach-pzaue8",
+          "vendeur-specialise-migros-frais-sissach-genossenschaft-migros-basel-sissach"
+        ],
+        "en": [
+          "specialist-seller-fresh-migros-sissach-genossenschaft-migros-basel-sissach"
+        ],
+        "de": [
+          "fachverkaufer-in-frische-migros-sissach-genossenschaft-migros-basel-sissach-orpp7r"
         ]
       },
       "previousSlugs": [
         "fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach",
-        "fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach-pzaue8"
+        "fachverkaufer-in-food-migros-sissach-genossenschaft-migros-basel-sissach-pzaue8",
+        "venditore-specializzato-migros-sissach-genossenschaft-migros-basel-sissach",
+        "specialist-seller-fresh-migros-sissach-genossenschaft-migros-basel-sissach",
+        "fachverkaufer-in-frische-migros-sissach-genossenschaft-migros-basel-sissach-orpp7r",
+        "vendeur-specialise-migros-frais-sissach-genossenschaft-migros-basel-sissach",
+        "fachverkaufer-in-frische-migros-sissach-genossenschaft-migros-basel-sissach"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -47140,9 +47230,9 @@
       "employmentType": "FULL_TIME",
       "salarySource": "estimated",
       "applyUrl": "https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-basel/fachverkauferin-food-migros-sissach/b74bfa98-3678-4650-a530-71904a4b5c5a",
-      "needsRetranslation": true,
       "salaryMin": 62000,
-      "salaryMax": 94000
+      "salaryMax": 94000,
+      "needsRetranslation": true
     },
     {
       "id": "company-bjbqpm",
@@ -60104,21 +60194,29 @@
           "bread-bakery-sales-assistant-genossenschaft-migros-zurich-zurich",
           "verkaufer-in-brot-backwaren-genossenschaft-migros-zurich-24m7c1",
           "assistant-commercial-de-pain-et-boulangerie-genossenschaft-migros-zurich-zurich",
-          "verkaufer-in-brot-backwaren-genossenschaft-migros-zurich"
+          "verkaufer-in-brot-backwaren-genossenschaft-migros-zurich",
+          "vendita-in-pane-pacchi-e-consumo-immediato-genossenschaft-migros-zurich-bulach",
+          "seller-in-bread-baked-goods-immediate-consumption-genossenschaft-migros-zurich-bulach",
+          "verkaufer-in-brot-backwaren-sofortkonsum-genossenschaft-migros-zurich-bulach-m1weon",
+          "vendeur-en-pain-cuisine-consommation-immediate-genossenschaft-migros-zurich-bulach",
+          "verkaufer-in-brot-backwaren-sofortkonsum-genossenschaft-migros-zurich-bulach"
         ],
         "en": [
           "verkaufer-in-brot-backwaren-genossenschaft-migros-ostschweiz-winterthur-5h3rum",
           "seller-of-bread-bakery-products-genossenschaft-migros-ostschweiz-romanshorn",
-          "bread-bakery-sales-assistant-genossenschaft-migros-zurich-zurich"
+          "bread-bakery-sales-assistant-genossenschaft-migros-zurich-zurich",
+          "seller-in-bread-baked-goods-immediate-consumption-genossenschaft-migros-zurich-bulach"
         ],
         "de": [
           "verkaufer-in-brot-backwaren-genossenschaft-migros-ostschweiz-romanshorn-isznzi",
-          "verkaufer-in-brot-backwaren-genossenschaft-migros-zurich-24m7c1"
+          "verkaufer-in-brot-backwaren-genossenschaft-migros-zurich-24m7c1",
+          "verkaufer-in-brot-backwaren-sofortkonsum-genossenschaft-migros-zurich-bulach-m1weon"
         ],
         "fr": [
           "verkaufer-in-brot-backwaren-genossenschaft-migros-ostschweiz-winterthur-5h3rum",
           "vendeur-de-pain-produits-de-boulangerie-genossenschaft-migros-ostschweiz-romanshorn",
-          "assistant-commercial-de-pain-et-boulangerie-genossenschaft-migros-zurich-zurich"
+          "assistant-commercial-de-pain-et-boulangerie-genossenschaft-migros-zurich-zurich",
+          "vendeur-en-pain-cuisine-consommation-immediate-genossenschaft-migros-zurich-bulach"
         ]
       },
       "previousSlugs": [
@@ -60133,7 +60231,12 @@
         "bread-bakery-sales-assistant-genossenschaft-migros-zurich-zurich",
         "verkaufer-in-brot-backwaren-genossenschaft-migros-zurich-24m7c1",
         "assistant-commercial-de-pain-et-boulangerie-genossenschaft-migros-zurich-zurich",
-        "verkaufer-in-brot-backwaren-genossenschaft-migros-zurich"
+        "verkaufer-in-brot-backwaren-genossenschaft-migros-zurich",
+        "vendita-in-pane-pacchi-e-consumo-immediato-genossenschaft-migros-zurich-bulach",
+        "seller-in-bread-baked-goods-immediate-consumption-genossenschaft-migros-zurich-bulach",
+        "verkaufer-in-brot-backwaren-sofortkonsum-genossenschaft-migros-zurich-bulach-m1weon",
+        "vendeur-en-pain-cuisine-consommation-immediate-genossenschaft-migros-zurich-bulach",
+        "verkaufer-in-brot-backwaren-sofortkonsum-genossenschaft-migros-zurich-bulach"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -90155,15 +90258,36 @@
           "anlagefuhrer-in-produktion-werk-2-fresh-food-beverage-group-granichen",
           "anlagefuhrer-in-produktion-werk-2-fresh-food-beverage-group-granichen-wtp8mt",
           "responsabile-di-stabilimento-stabilimento-2-fresh-food-beverage-group-granichen",
-          "fachmitarbeiter-in-produktion-werk-2-fresh-food-beverage-group-granichen"
+          "fachmitarbeiter-in-produktion-werk-2-fresh-food-beverage-group-granichen",
+          "pacchetto-di-produzione-leader-del-team-fresh-food-beverage-group-granichen",
+          "team-leader-production-packaging-fresh-food-beverage-group-granichen",
+          "teamleiter-in-produktion-packerei-fresh-food-beverage-group-granichen-o1vead",
+          "chef-d-equipe-emballage-de-production-fresh-food-beverage-group-granichen",
+          "teamleiter-in-produktion-packerei-fresh-food-beverage-group-granichen",
+          "team-specializzato-di-produzione-e-panetteria-3-fresh-food-beverage-group-granichen",
+          "production-specialist-bakery-team-3-fresh-food-beverage-group-granichen-16ergl",
+          "fachmitarbeiter-in-produktion-backerei-team-3-fresh-food-beverage-group-granichen-16ergl",
+          "specialiste-en-boulangerie-de-production-equipe-3-fresh-food-beverage-group-granichen",
+          "addetto-a-alla-produzione-panetteria-team-3-fresh-food-beverage-group-granichen-16ergl",
+          "collaborateur-trice-de-production-boulangerie-equipe-3-fresh-food-beverage-group-granichen-16ergl",
+          "fachmitarbeiter-in-produktion-backerei-team-3-fresh-food-beverage-group-granichen"
         ],
         "en": [
           "anlagefuhrer-in-produktion-werk-2-fresh-food-beverage-group-granichen-wtp8mt",
-          "plant-manager-production-plant-2-fresh-food-beverage-group-granichen"
+          "plant-manager-production-plant-2-fresh-food-beverage-group-granichen",
+          "team-leader-production-packaging-fresh-food-beverage-group-granichen",
+          "production-specialist-bakery-team-3-fresh-food-beverage-group-granichen-16ergl"
         ],
         "fr": [
           "anlagefuhrer-in-produktion-werk-2-fresh-food-beverage-group-granichen-wtp8mt",
-          "directeur-d-usine-dans-l-usine-de-production-2-fresh-food-beverage-group-granichen"
+          "directeur-d-usine-dans-l-usine-de-production-2-fresh-food-beverage-group-granichen",
+          "chef-d-equipe-emballage-de-production-fresh-food-beverage-group-granichen",
+          "specialiste-en-boulangerie-de-production-equipe-3-fresh-food-beverage-group-granichen",
+          "collaborateur-trice-de-production-boulangerie-equipe-3-fresh-food-beverage-group-granichen-16ergl"
+        ],
+        "de": [
+          "teamleiter-in-produktion-packerei-fresh-food-beverage-group-granichen-o1vead",
+          "fachmitarbeiter-in-produktion-backerei-team-3-fresh-food-beverage-group-granichen-16ergl"
         ]
       },
       "previousSlugs": [
@@ -90177,7 +90301,19 @@
         "anlagefuhrer-in-produktion-fresh-food-beverage-group-granichen-0o98fm",
         "conducteur-d-installations-de-production-fresh-food-beverage-group-granichen-0o98fm",
         "anlagefuhrer-in-produktion-fresh-food-beverage-group-granichen",
-        "fachmitarbeiter-in-produktion-werk-2-fresh-food-beverage-group-granichen"
+        "fachmitarbeiter-in-produktion-werk-2-fresh-food-beverage-group-granichen",
+        "pacchetto-di-produzione-leader-del-team-fresh-food-beverage-group-granichen",
+        "team-leader-production-packaging-fresh-food-beverage-group-granichen",
+        "teamleiter-in-produktion-packerei-fresh-food-beverage-group-granichen-o1vead",
+        "chef-d-equipe-emballage-de-production-fresh-food-beverage-group-granichen",
+        "teamleiter-in-produktion-packerei-fresh-food-beverage-group-granichen",
+        "team-specializzato-di-produzione-e-panetteria-3-fresh-food-beverage-group-granichen",
+        "production-specialist-bakery-team-3-fresh-food-beverage-group-granichen-16ergl",
+        "fachmitarbeiter-in-produktion-backerei-team-3-fresh-food-beverage-group-granichen-16ergl",
+        "specialiste-en-boulangerie-de-production-equipe-3-fresh-food-beverage-group-granichen",
+        "addetto-a-alla-produzione-panetteria-team-3-fresh-food-beverage-group-granichen-16ergl",
+        "collaborateur-trice-de-production-boulangerie-equipe-3-fresh-food-beverage-group-granichen-16ergl",
+        "fachmitarbeiter-in-produktion-backerei-team-3-fresh-food-beverage-group-granichen"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",

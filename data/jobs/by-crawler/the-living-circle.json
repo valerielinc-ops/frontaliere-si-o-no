@@ -254,21 +254,33 @@
         "fr": "apprentissage-en-tant-que-specialiste-de-l-hotellerie-menagement-efz-the-living-circle-zurich"
       },
       "id": "the-living-circle-ae6046e52677",
-      "previousSlugs": [
-        "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich"
-      ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich"
+          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich",
+          "apprendistato-come-restaurantfachfrau-mann-cfc-the-living-circle-zurich",
+          "apprenticeship-as-restaurant-specialist-efz-the-living-circle-zurich",
+          "lehrstelle-als-restaurantfachfrau-mann-efz-the-living-circle-zurich",
+          "apprentissage-en-tant-que-specialiste-des-restaurants-efz-the-living-circle-zurich"
         ],
         "en": [
-          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich"
+          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich",
+          "apprenticeship-as-restaurant-specialist-efz-the-living-circle-zurich"
         ],
         "fr": [
-          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich"
+          "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich",
+          "apprentissage-en-tant-que-specialiste-des-restaurants-efz-the-living-circle-zurich"
+        ],
+        "de": [
+          "lehrstelle-als-restaurantfachfrau-mann-efz-the-living-circle-zurich"
         ]
       },
-      "firstSeenAt": "2026-09-19T22:51:40.722Z",
+      "previousSlugs": [
+        "lehrstelle-als-fachfrau-mann-hotellerie-hauswirtschaft-efz-the-living-circle-zurich",
+        "apprendistato-come-restaurantfachfrau-mann-cfc-the-living-circle-zurich",
+        "apprenticeship-as-restaurant-specialist-efz-the-living-circle-zurich",
+        "lehrstelle-als-restaurantfachfrau-mann-efz-the-living-circle-zurich",
+        "apprentissage-en-tant-que-specialiste-des-restaurants-efz-the-living-circle-zurich"
+      ],
       "salaryMin": 58000,
       "salaryMax": 73000,
       "currency": "CHF",
@@ -282,7 +294,8 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-19T22:51:40.722Z"
     },
     {
       "title": "Lehrstelle als Koch/Köchin EFZ",
