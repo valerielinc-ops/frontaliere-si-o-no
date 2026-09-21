@@ -11878,6 +11878,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.pellicini-fdi-indennita-frontiera.title': 'Pellicini (FDI) : Indemnités de frontière et fonds pour les travailleurs',
     'blog.article.pellicini-fdi-indennita-frontiera.excerpt': 'Un député de Fratelli d\'Italia intervient sur les ressources de la bande frontalière pour valoriser l\'emploi en Italie.',
     'blog.article.pellicini-fdi-indennita-frontiera.imageAlt': 'Débat politique sur l\'indemnité frontalière et les ressources',
+    'blog.article.regole-chiare-assunzioni-ticino.title': 'Recrutement dans le secteur public au Tessin : des règles claires demandées',
+    'blog.article.regole-chiare-assunzioni-ticino.excerpt': 'Roncelli et Mirante di Avanti avec Ticino & Lavoro interpellent le gouvernement sur l\'affaire Zali et sur le courriel de 2020 à l\'Eoc.',
+    'blog.article.regole-chiare-assunzioni-ticino.imageAlt': 'Documents et stylo sur un bureau à Bellinzona',
 };
 
 export default blogMetaFr;

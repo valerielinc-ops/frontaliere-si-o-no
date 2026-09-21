@@ -11877,6 +11877,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pellicini-fdi-indennita-frontiera.title': 'Pellicini (Fdi): Indennità di frontiera e fondi per i lavoratori',
     'blog.article.pellicini-fdi-indennita-frontiera.excerpt': 'Un parlamentare di Fratelli d\'Italia interviene sulle risorse per la fascia di confine per valorizzare l\'occupazione in Italia.',
     'blog.article.pellicini-fdi-indennita-frontiera.imageAlt': 'Dibattito politico sull\'indennità di frontiera e le risorse per i lavoratori',
+    'blog.article.regole-chiare-assunzioni-ticino.title': 'Assunzioni nel settore pubblico in Ticino: chieste regole chiare',
+    'blog.article.regole-chiare-assunzioni-ticino.excerpt': 'Roncelli e Mirante di Avanti con Ticino & Lavoro interpellano il governo sul caso Zali e sulla mail del 2020 all\'Eoc.',
+    'blog.article.regole-chiare-assunzioni-ticino.imageAlt': 'Documenti e penna su una scrivania a Bellinzona',
 };
 
 export default blogMetaIt;
