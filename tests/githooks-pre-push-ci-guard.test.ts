@@ -24,9 +24,10 @@ const HOOK = resolve(ROOT, '.githooks/pre-push');
 function runHook({ githubActions, stdinRefs }: { githubActions?: string; stdinRefs: string }) {
   const stubDir = mkdtempSync(join(tmpdir(), 'pre-push-guard-'));
   const marker = join(stubDir, 'gate-ran');
+  const argsFile = join(stubDir, 'gate-args');
   writeFileSync(
     join(stubDir, 'node'),
-    `#!/usr/bin/env bash\necho ran > "${marker}"\nexit 42\n`,
+    `#!/usr/bin/env bash\necho ran > "${marker}"\nprintf '%s\\n' "$@" > "${argsFile}"\nexit 42\n`,
   );
   chmodSync(join(stubDir, 'node'), 0o755);
   try {
@@ -48,12 +49,18 @@ function runHook({ githubActions, stdinRefs }: { githubActions?: string; stdinRe
       stdout = (e.stdout?.toString() ?? '') + (e.stderr?.toString() ?? '');
     }
     let gateRan = false;
+    let args: string[] = [];
     try {
       gateRan = readFileSync(marker, 'utf8').includes('ran');
     } catch {
       gateRan = false;
     }
-    return { code, stdout, gateRan };
+    try {
+      args = readFileSync(argsFile, 'utf8').split('\n').filter(Boolean);
+    } catch {
+      args = [];
+    }
+    return { code, stdout, gateRan, args };
   } finally {
     rmSync(stubDir, { recursive: true, force: true });
   }
@@ -73,9 +80,11 @@ describe('.githooks/pre-push CI automation guard', () => {
   });
 
   it('still runs the gate for a GitHub Actions push to a claude/* branch (issue-fix agents)', () => {
-    const { code, gateRan } = runHook({ githubActions: 'true', stdinRefs: BRANCH_REF });
+    const { code, gateRan, args } = runHook({ githubActions: 'true', stdinRefs: BRANCH_REF });
     expect(gateRan).toBe(true);
     expect(code).toBe(42);
+    expect(args).toContain('--head');
+    expect(args).toContain('1111111111111111111111111111111111111111');
   });
 
   it('still runs the gate for a mixed push (main + branch) under GitHub Actions', () => {

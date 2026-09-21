@@ -5,9 +5,10 @@
 # bucket: fixers must inspect untouched sibling files BEFORE pushing, not after
 # the reviewer fires 🔴 post-PR-open (which costs an extra review cycle).
 #
-# Runs check-sibling-patterns.mjs: prints every untouched file that shares a
-# distinctive construct with the diff (SCREAMING_SNAKE, camelCase helper, kebab
-# import, literal slug).  Always exits 0 — see the ADVISORY note below.
+# Runs check-sibling-patterns.mjs against the commit being pushed: prints every
+# untouched file that shares a distinctive construct with the diff
+# (SCREAMING_SNAKE, camelCase helper, kebab import, literal slug). Always exits
+# 0 — see the ADVISORY note below.
 #
 # ADVISORY dal 2026-09-04 (istruzione diretta del proprietario): questo hook
 # STAMPA i candidati e lascia passare il push. Non blocca piu'.
@@ -29,6 +30,13 @@
 # e' un promemoria, non piu' una porta chiusa.
 set -euo pipefail
 
+# The remote PR gate receives the branch ref and analyzes that commit with
+# `--head`. Read the same local SHA from pre-push stdin so the advisory output
+# is about the exact tree that will reach GitHub, not unrelated uncommitted
+# files in the checkout. With no refs (manual invocation/tests), keep the
+# historical working-tree fallback.
+push_input=$(cat)
+
 # ── CI automation guard (article-generation outage 2026-07-08→10) ──────────
 # npm ci's `prepare` script sets core.hooksPath=.githooks inside EVERY GitHub
 # Actions job as well, so this gate also fired on data-refresh workflows that
@@ -47,7 +55,7 @@ if [ "${GITHUB_ACTIONS:-}" = "true" ]; then
     [ -z "$remote_ref" ] && continue
     any_ref=1
     if [ "$remote_ref" != "refs/heads/main" ]; then all_main=0; fi
-  done
+  done <<< "$push_input"
   if [ "$any_ref" = "1" ] && [ "$all_main" = "1" ]; then
     echo "sibling-gate: skipped (GitHub Actions automated push to main)"
     exit 0
@@ -55,4 +63,14 @@ if [ "${GITHUB_ACTIONS:-}" = "true" ]; then
 fi
 
 # Niente `--strict`: senza quel flag lo script stampa i candidati ed esce 0.
-node scripts/ci/check-sibling-patterns.mjs
+if [ -n "$push_input" ]; then
+  while read -r _local_ref local_sha _remote_ref _remote_sha; do
+    [ -z "$local_sha" ] && continue
+    case "$local_sha" in
+      0000000000000000000000000000000000000000) continue ;;
+    esac
+    node scripts/ci/check-sibling-patterns.mjs --head "$local_sha"
+  done <<< "$push_input"
+else
+  node scripts/ci/check-sibling-patterns.mjs
+fi
