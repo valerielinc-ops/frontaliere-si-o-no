@@ -4,8 +4,10 @@ import { readFileSync } from 'node:fs';
 import {
   localDateTimeToItalyIso,
   parseItalyDutySource,
+  releaseState,
   resolveItalyDutyProvince,
 } from '../scripts/lib/pharmacy-italy-duty-parser.mjs';
+import { deriveState } from '../services/pharmacies/italyRelease';
 import { SKIP_LIVE_DATA } from './helpers/live-data';
 
 const sources = JSON.parse(readFileSync(new URL('../data/pharmacy-duties-italy-sources.json', import.meta.url), 'utf8'));
@@ -140,6 +142,96 @@ describe('Italian official duty parser', () => {
     );
     expect(result.duties).toEqual([]);
     expect(result.errors.some((error: string) => error.includes('invalid date'))).toBe(true);
+  });
+});
+
+describe('Italian duty release state parity', () => {
+  const freshProvince = (province: string) => ({
+    province,
+    state: 'fresh',
+    freshness: 'fresh',
+    coverage: 'covered',
+  });
+
+  const baseProvinces = () => ({
+    CO: freshProvince('CO'),
+    VA: freshProvince('VA'),
+    VB: freshProvince('VB'),
+  });
+
+  it.each([
+    { name: 'all required sources publish', expected: 'fresh' },
+    {
+      name: 'the importer reports that every source failed',
+      status: { _allSourcesFailed: true },
+      expected: 'not_published',
+    },
+    {
+      name: 'every deciding province is unpublished',
+      mutate: (provinces: ReturnType<typeof baseProvinces>) => {
+        provinces.CO.coverage = 'not_published';
+        provinces.VA.coverage = 'not_published';
+      },
+      classes: new Map([['VB', 'best-effort']]),
+      expected: 'not_published',
+    },
+    { name: 'the duties snapshot has an error', duties: { _errors: ['broken'] }, expected: 'partial' },
+    { name: 'the status snapshot has an error', status: { _errors: ['broken'] }, expected: 'partial' },
+    {
+      name: 'a required province is conflicting',
+      mutate: (provinces: ReturnType<typeof baseProvinces>) => { provinces.CO.state = 'conflicting'; },
+      expected: 'partial',
+    },
+    {
+      name: 'a required province is stale',
+      mutate: (provinces: ReturnType<typeof baseProvinces>) => { provinces.CO.freshness = 'stale'; },
+      expected: 'stale',
+    },
+    {
+      name: 'a required province has partial coverage',
+      mutate: (provinces: ReturnType<typeof baseProvinces>) => { provinces.CO.coverage = 'partial'; },
+      expected: 'not_published',
+    },
+    {
+      name: 'a required province has unknown freshness',
+      mutate: (provinces: ReturnType<typeof baseProvinces>) => { provinces.CO.freshness = 'unknown'; },
+      expected: 'not_published',
+    },
+    {
+      name: 'a best-effort province does not decide the release',
+      mutate: (provinces: ReturnType<typeof baseProvinces>) => {
+        provinces.VB.coverage = 'partial';
+        provinces.VB.freshness = 'stale';
+      },
+      classes: new Map([['VB', 'best-effort']]),
+      expected: 'fresh',
+    },
+    {
+      name: 'an all-best-effort registry falls back to every province',
+      mutate: (provinces: ReturnType<typeof baseProvinces>) => { provinces.VB.freshness = 'stale'; },
+      classes: new Map([
+        ['CO', 'best-effort'],
+        ['VA', 'best-effort'],
+        ['VB', 'best-effort'],
+      ]),
+      expected: 'stale',
+    },
+    {
+      name: 'a missing registry class remains required',
+      mutate: (provinces: ReturnType<typeof baseProvinces>) => { provinces.CO.freshness = 'stale'; },
+      classes: new Map([['VB', 'best-effort']]),
+      expected: 'stale',
+    },
+  ])('$name', ({ duties = {}, status = {}, mutate, classes = new Map(), expected }) => {
+    const provinces = baseProvinces();
+    mutate?.(provinces);
+
+    const writerState = releaseState(duties, status, provinces, classes);
+    const readerState = deriveState(duties, status, provinces, classes);
+
+    expect(writerState).toBe(expected);
+    expect(readerState).toBe(expected);
+    expect(readerState).toBe(writerState);
   });
 });
 

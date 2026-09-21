@@ -777,7 +777,7 @@ function releaseProvinceStatuses(status) {
   }]));
 }
 
-function releaseState(duties, status, provinces, publicationClasses = new Map()) {
+export function releaseState(duties, status, provinces, publicationClasses = new Map()) {
   // `_errors` contiene SOLO gli errori delle fonti `required`. Gli errori delle
   // fonti `best-effort` vivono in `_bestEffortErrors`: restano nello snapshot e
   // visibili al monitor, ma non decidono lo stato della release. Senza questa
