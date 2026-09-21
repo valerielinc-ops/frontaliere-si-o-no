@@ -6623,6 +6623,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rapporto-schengen-dublino-2026.title': 'Schengen-Bericht Dublin: Auswirkungen auf BIP und Grenzgänger',
     'blog.article.rapporto-schengen-dublino-2026.excerpt': 'Der Bundesrat hat den Schengen- und Dublin-Bericht verabschiedet: Durch die Aufgabe könnte das Schweizer BIP bis 2035 um bis zu 3,9% sinken.',
     'blog.article.rapporto-schengen-dublino-2026.imageAlt': 'Schweizer Grenzübergang und Zollinfrastruktur im Bericht vom September 2026',
+    'blog.article.consiglio-federale-modifica-isos.title': 'Der Bundesrat verbessert die Umsetzung der ISOS',
+    'blog.article.consiglio-federale-modifica-isos.excerpt': 'Genehmigung der Änderungen an OISOS und OPT durch den Bundesrat zur Vereinfachung und Beschleunigung von Bauprojekten in der Schweiz per 1. November 2026.',
+    'blog.article.consiglio-federale-modifica-isos.imageAlt': 'V vom Bundesrat genehmigte OISOS- und RPV-Änderungen',
 };
 
 export default blogMetaChDe;

@@ -6623,6 +6623,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rapporto-schengen-dublino-2026.title': 'Schengen Dublin Report: Impacts on GDP and Border',
     'blog.article.rapporto-schengen-dublino-2026.excerpt': 'The Federal Council adopted the report on Schengen and Dublin: abandonment could reduce Swiss GDP by up to 3.9% in 2035.',
     'blog.article.rapporto-schengen-dublino-2026.imageAlt': 'Swiss border crossing and customs infrastructure analyzed in the September 2026 report',
+    'blog.article.consiglio-federale-modifica-isos.title': 'The Federal Council improves the application of ISOs',
+    'blog.article.consiglio-federale-modifica-isos.excerpt': 'Approve the changes to OISOS and OPT by the Federal Council to simplify and speed up building projects in Switzerland from 1 November 2026.',
+    'blog.article.consiglio-federale-modifica-isos.imageAlt': 'OISOS and OPT amendments approved by the Swiss Federal Council',
 };
 
 export default blogMetaChEn;
