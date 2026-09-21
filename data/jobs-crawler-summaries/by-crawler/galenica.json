@@ -1,44 +1,49 @@
 {
   "key": "galenica",
   "label": "Galenica",
-  "generatedAt": "2026-09-19T22:48:34.282Z",
-  "total": 379,
+  "generatedAt": "2026-09-21T15:55:22.560Z",
+  "total": 375,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 76061,
-  "avgDurationMs": 76061,
+  "unchangedCount": 1,
+  "durationMs": 106727,
+  "avgDurationMs": 106727,
   "durationHistory": [
-    76061
+    106727
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "title": "Assistente di farmacia AFC",
       "company": "Coop Vitality  (Galenica)",
       "companyKey": "galenica",
-      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692394",
-      "location": "Langenthal",
-      "canton": "BE",
+      "url": "https://jobs.galenica.com/it/jobs/#job.id=12692370",
+      "location": "Thalwil",
+      "canton": "ZH",
       "country": "CH",
       "category": "healthcare",
-      "descriptionIt": "Assistente di farmacia AFC presso Coop Vitality  (Gruppo Galenica), con sede a Langenthal, Bäregg Center, Bäreggstr. 10, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
-      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692394-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-langenthal-be-coop-vitality?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
+      "descriptionIt": "Assistente di farmacia AFC presso Coop Vitality  (Gruppo Galenica), con sede a Thalwil, Florastrasse 1, Svizzera. Galenica è il principale gruppo svizzero nel settore sanitario e gestisce la più grande rete di farmacie del Paese, con i marchi Amavita, Sun Store e Coop Vitality. Questa posizione offre l'opportunità di lavorare in un ambiente dinamico e orientato al paziente con eccellenti prospettive di sviluppo professionale.",
+      "applyUrl": "https://www.yousty.ch/de-CH/lehrstellen/profile/12692370-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-thalwil-zh-coop-vitality?widget=60fe46a6-e22b-4512-ae18-ab0157fbb01d",
       "postedDate": "",
       "source": "company-website",
       "sourceLang": "it",
-      "slug": "galenica-coop-vitality-assistente-di-farmacia-afc-langenthal",
-      "id": "galenica-12642dd0cd7a",
-      "salaryMin": 85000,
-      "salaryMax": 119000,
+      "slug": "galenica-coop-vitality-assistente-di-farmacia-afc-thalwil",
+      "id": "galenica-c0745bf16178",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 410,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-04-13T21:44:00.314Z",
+      "salaryMin": 91500,
+      "salaryMax": 128000,
       "currency": "CHF",
       "salarySource": "estimated",
-      "addressLocality": "Langenthal",
-      "addressRegion": "BE",
+      "addressLocality": "Thalwil",
+      "addressRegion": "ZH",
       "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 78,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -47,7 +52,5 @@
         "completeness": 14
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }

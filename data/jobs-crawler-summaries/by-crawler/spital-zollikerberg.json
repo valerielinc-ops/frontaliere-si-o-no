@@ -1,21 +1,21 @@
 {
   "key": "spital-zollikerberg",
   "label": "Spital Zollikerberg",
-  "generatedAt": "2026-09-19T22:46:27.012Z",
-  "total": 12,
+  "generatedAt": "2026-09-21T15:53:53.626Z",
+  "total": 13,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
-  "written": 12,
+  "written": 13,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 0,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 32739,
-  "avgDurationMs": 32739,
+  "durationMs": 37165,
+  "avgDurationMs": 37165,
   "durationHistory": [
-    32739
+    37165
   ],
   "newJobs": [],
   "updatedJobs": [],
@@ -53,7 +53,7 @@
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
