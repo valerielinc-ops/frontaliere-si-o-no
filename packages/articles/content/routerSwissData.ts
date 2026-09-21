@@ -2232,6 +2232,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rapporto-schengen-dublino-2026': { it: 'rapporto-schengen-dublino-2026', en: 'schengen-dublin-report-2026', de: 'schengen-dublin-bericht-2026', fr: 'rapport-schengen-dublin-2026' },
  'consiglio-federale-modifica-isos': { it: 'consiglio-federale-modifica-isos', en: 'federal-council-isos-amendments', de: 'bundesrat-isos-aenderungen', fr: 'conseil-federal-modifications-isos' },
  'estate-2026-perdita-produttivita': { it: 'estate-2026-perdita-produttivita', en: 'summer-2026-over-2-billion-francs-of-lost-productivity', de: 'sommer-2026-uber-2-milliarden-franken-produktivitatsverlust', fr: 'ete-2026-plus-de-2-milliards-de-francs-de-productivite-perdus' },
+ 'guida-lavoro-argovia-2026': { it: 'guida-lavoro-argovia-2026', en: 'job-search-guide-argovia-2026', de: 'arbeitsuche-leitfaden-argovia-2026', fr: 'guide-recherche-emploi-argovie-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
