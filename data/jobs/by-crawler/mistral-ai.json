@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mistral-ai",
-  "assembledAt": "2026-09-19T23:09:35.132Z",
+  "assembledAt": "2026-09-21T16:14:37.642Z",
   "jobs": [
     {
       "id": "mistral-ai-01b2b0d2cc89",
@@ -33,7 +33,7 @@
       "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
       "source": "Mistral AI Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:09:30.359Z",
+      "crawledAt": "2026-09-21T16:14:31.233Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -163,7 +163,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "mistral-ai-213c6a7ec392",
@@ -243,7 +243,7 @@
         }
       },
       "addressRegion": "VD",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "mistral-ai-f6ecdeb0c60d",
@@ -330,7 +330,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "mistral-ai-b513ad3d7ad7",
@@ -408,7 +408,8 @@
         }
       },
       "addressRegion": "VD",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-c0e139b92e5c",
@@ -487,7 +488,8 @@
         }
       },
       "addressRegion": "VD",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-e3c420a3b774",
@@ -566,7 +568,8 @@
         }
       },
       "addressRegion": "VD",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "mistral-ai-4e88609166a7",
@@ -645,7 +648,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "mistral-ai-6111928c148b",
@@ -725,7 +728,7 @@
         }
       },
       "addressRegion": "VD",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "mistral-ai-d809e115916d",
@@ -804,7 +807,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
