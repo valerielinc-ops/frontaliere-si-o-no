@@ -114,18 +114,23 @@ describe('sibling AST layer', () => {
   it('recognizes exported variable declarations and surfaces their consumers', () => {
     const changed = collectAstFacts(
       'services/guard.ts',
-      'export const guardSession = () => true;',
+      [
+        'export const guardSession = () => true;',
+        'export let alternateGuard = guardSession;',
+        'export var legacyGuard = guardSession;',
+      ].join('\n'),
       { files: new Set(['services/guard.ts', 'components/Panel.tsx']) },
     );
-    const declaration = changed.find((fact) =>
-      fact.kind === 'identifier' && fact.role === 'declaration' && fact.key === 'guardSession');
+    const declarations = ['guardSession', 'alternateGuard', 'legacyGuard'].map((name) =>
+      changed.find((fact) =>
+        fact.kind === 'identifier' && fact.role === 'declaration' && fact.key === name));
     const candidate = collectAstFacts(
       'components/Panel.tsx',
       'const allowed = guardSession();',
       { files: new Set(['services/guard.ts', 'components/Panel.tsx']) },
     );
 
-    expect(declaration?.exported).toBe(true);
+    expect(declarations.every((declaration) => declaration?.exported === true)).toBe(true);
     expect(matchAstFacts(factsContainingToken(changed, 'guardSession'), candidate).length)
       .toBeGreaterThan(0);
   });
