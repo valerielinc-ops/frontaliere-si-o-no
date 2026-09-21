@@ -1,7 +1,7 @@
 {
   "key": "kiabi",
   "label": "Kiabi Suisse",
-  "generatedAt": "2026-09-19T22:51:57.871Z",
+  "generatedAt": "2026-09-21T15:59:53.774Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -10,12 +10,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 8420,
-  "avgDurationMs": 8420,
+  "durationMs": 8677,
+  "avgDurationMs": 8677,
   "durationHistory": [
-    8420
+    8677
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.smartrecruiters.com/KIABI/744000134785679-conseiller-de-vente-en-renfort-d-equipe-contrat-sur-appel-cdi-etudiant-e-temps-partiel-h-f-nb-kiabi-fribourg?oga=true",
       "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:51:49.528Z",
+      "crawledAt": "2026-09-21T15:59:45.701Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "streetAddress": "",
@@ -58,49 +58,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "kiabi-3cfb6d601da6",
-      "slug": "consigliere-vendite-kiabi-aigle-h-f-nb-kiabi-suisse-aigle",
-      "company": "Kiabi Suisse",
-      "companyKey": "kiabi",
-      "companyDomain": "kiabi.com",
-      "title": "Conseiller de Vente Kiabi Aigle (H/F/NB)",
-      "location": "Aigle",
-      "canton": "VD",
-      "url": "https://jobs.smartrecruiters.com/KIABI/744000148425508-conseiller-de-vente-kiabi-aigle-h-f-nb-?oga=true",
-      "source": "Kiabi Suisse Dedicated Parser (SmartRecruiters)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:55:57.146Z",
-      "addressLocality": "Aigle",
-      "addressRegion": "VD",
-      "streetAddress": "",
-      "postalCode": "",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "other",
-      "contract": "internship",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Retail / Abbigliamento",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-09",
-      "applyUrl": "https://jobs.smartrecruiters.com/KIABI/744000148425508-conseiller-de-vente-kiabi-aigle-h-f-nb-?oga=true",
-      "jobReqId": "744000148425508",
-      "firstSeenAt": "2026-09-09T13:49:18.048Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 87,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
