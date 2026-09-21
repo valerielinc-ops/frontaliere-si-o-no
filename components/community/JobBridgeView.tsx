@@ -263,6 +263,7 @@ export default function JobBridgeView({ targetSlug, jobData, relatedJobs = [], o
  sourcePage: window.location.pathname,
  sourceCta: 'job_bridge_email_unlock',
  sourceComponent: 'JobBridgeView',
+ explicitConsentAction: true,
  sourceRouteFamily: 'job-board',
  jobContext: newsletterJobContext,
  registrationMethod: 'email',

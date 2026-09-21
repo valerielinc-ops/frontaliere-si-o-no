@@ -564,7 +564,7 @@ describe('the preferences API is gated on the preferences scope', () => {
     expect(Object.keys(db.docs).filter((key) => key.includes('/alerts/'))).toHaveLength(1);
   });
 
-  it('does not let an explicit alert choice override a global stop', async () => {
+  it('lets an explicit alert choice reactivate a human global stop', async () => {
     const db = createFakeDb({
       'newsletter_subscribers/recipient@example.com': {
         status: 'unsubscribed',
@@ -592,14 +592,46 @@ describe('the preferences API is gated on the preferences scope', () => {
       db: db as never,
     });
 
+    expect(result.status).toBe(200);
+    expect(result.json).toMatchObject({ success: true });
+    expect(db.docs['newsletter_subscribers/recipient@example.com']).toMatchObject({
+      status: 'subscribed',
+      isActive: true,
+      active: true,
+      all_email_opted_out: false,
+      all_emails_opted_out: false,
+      global_email_opt_out: false,
+      global_email_opted_out: false,
+    });
+    expect(Object.keys(db.docs).filter((key) => key.includes('/alerts/'))).toHaveLength(1);
+  });
+
+  it('keeps a provider/address suppression blocked even after an explicit alert click', async () => {
+    const db = createFakeDb({
+      'newsletter_subscribers/recipient@example.com': {
+        status: 'suppressed',
+        isActive: false,
+        all_email_opted_out: true,
+        global_email_opt_out: true,
+      },
+    });
+    const result = await handleSubscriptionManagement({
+      action: 'create_alert',
+      email: EMAIL,
+      token: mint(TOKEN_SCOPES.PREFERENCES)!,
+      secret: SECRET,
+      locale: 'it',
+      method: 'POST',
+      tokenPolicy: V1,
+      keywords: 'frontaliere',
+      emailConsentGiven: true,
+      db: db as never,
+    });
+
     expect(result.status).toBe(409);
     expect(db.docs['newsletter_subscribers/recipient@example.com']).toMatchObject({
-      status: 'unsubscribed',
+      status: 'suppressed',
       isActive: false,
-      all_email_opted_out: true,
-      all_emails_opted_out: true,
-      global_email_opt_out: true,
-      global_email_opted_out: true,
     });
     expect(Object.keys(db.docs).filter((key) => key.includes('/alerts/'))).toHaveLength(0);
   });

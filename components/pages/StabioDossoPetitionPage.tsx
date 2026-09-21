@@ -181,6 +181,7 @@ export function StabioDossoPetitionPage() {
         // A typed address still needs the DOI click. The confirmation link
         // also creates the authenticated session used to return and sign.
         registrationMethod: 'email',
+        explicitConsentAction: true,
         signupLocale: locale,
         preferredLocale: locale,
         preferences: { traffic: true, general: true },
@@ -234,6 +235,7 @@ export function StabioDossoPetitionPage() {
         signupLocale: locale,
         preferredLocale: locale,
         preferences: { traffic: true, general: true },
+        explicitConsentAction: true,
       });
       if (capture.optedOut && capture.status !== 'pending') throw new Error('newsletter-opted-out');
       if (capture.status !== 'confirmed' && capture.status !== 'subscribed') {
