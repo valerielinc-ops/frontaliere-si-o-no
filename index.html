@@ -619,12 +619,16 @@
           return (hash >>> 0) % 100;
         }
         var PUBLIC_CONFIG_ENDPOINT = 'https://europe-west6-frontaliere-ticino.cloudfunctions.net/getPublicConfig';
+        var REMOTE_CONFIG_TIMEOUT_MS = 800;
         var isJobBoard = /^\/cerca-lavoro-ticino(?:\/|$)/.test(window.location.pathname);
         var remoteVariantPromise = null;
         function remoteVariant(){
           if (!isJobBoard) return Promise.resolve(null);
           if (!remoteVariantPromise) {
-            remoteVariantPromise = fetch(PUBLIC_CONFIG_ENDPOINT, { credentials: 'omit' })
+            // Funding Choices waits for controlledMessagingFunction to settle;
+            // cap the public-config wait so the deterministic fallback can run
+            // promptly if the endpoint is slow or unreachable.
+            var request = fetch(PUBLIC_CONFIG_ENDPOINT, { credentials: 'omit' })
               .then(function(response){ return response.ok ? response.json() : null; })
               .then(function(config){
                 var value = config && config.ASSISTED_APPLICATION_EXPERIMENT_VARIANT;
@@ -633,6 +637,14 @@
                   : null;
               })
               .catch(function(){ return null; });
+            var timeoutId;
+            var timeout = new Promise(function(resolve){
+              timeoutId = setTimeout(function(){ resolve(null); }, REMOTE_CONFIG_TIMEOUT_MS);
+            });
+            remoteVariantPromise = Promise.race([request, timeout]).then(
+              function(value){ clearTimeout(timeoutId); return value; },
+              function(){ clearTimeout(timeoutId); return null; }
+            );
           }
           return remoteVariantPromise;
         }
