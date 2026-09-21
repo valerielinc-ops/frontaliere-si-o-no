@@ -52,19 +52,16 @@ function hashDistinctId(value: string): number {
 }
 
 /**
- * Resolve the fallback assignment. The paid treatment owns 40% of buckets,
- * the rewarded treatment owns 40%, and the control owns the remaining 20%.
- * Remote Config can override the arm globally for rollout/QA. The `auto`
- * value (or an unavailable/unknown value) keeps the deterministic split so
- * the experiment remains usable when the public-config endpoint is down.
+ * Resolve the fallback assignment for non-job-board surfaces. Those pages run
+ * only the requested subscription-vs-original A/B test; the rewarded arm is
+ * reserved for the dedicated Italian job-board route and is forced there by
+ * JobBoard instead of being assigned here.
  */
 export function resolveAssistedApplicationVariant(distinctId: string): AssistedApplicationVariant {
   const normalized = String(distinctId || '').trim();
   if (!normalized) return 'control';
   const bucket = hashDistinctId(normalized) % 100;
-  if (bucket < 20) return 'control';
-  if (bucket < 60) return 'assisted_application';
-  return 'rewarded_ad';
+  return bucket < 50 ? 'control' : 'assisted_application';
 }
 
 export function normalizeAssistedApplicationVariant(value: unknown): AssistedApplicationVariant | null {
@@ -107,11 +104,17 @@ export interface AssistedApplicationVariantResult {
  * Resolve the sticky assignment once Remote Config is available. Initial
  * render stays control, preserving the no-flash contract.
  */
-export function useAssistedApplicationVariant(): AssistedApplicationVariantResult {
-  const [variant, setVariant] = useState<AssistedApplicationVariant>('control');
-  const [ready, setReady] = useState(false);
+export function useAssistedApplicationVariant(enabled = true): AssistedApplicationVariantResult {
+  const [variant, setVariant] = useState<AssistedApplicationVariant>(enabled ? 'control' : 'rewarded_ad');
+  const [ready, setReady] = useState(!enabled);
 
   useEffect(() => {
+    if (!enabled) {
+      setVariant('rewarded_ad');
+      setReady(true);
+      return undefined;
+    }
+
     let lastAssignment = '';
     let cancelled = false;
 
@@ -120,7 +123,12 @@ export function useAssistedApplicationVariant(): AssistedApplicationVariantResul
       const configured = await getConfigValue(ASSISTED_APPLICATION_EXPERIMENT_RC_KEY).catch(() => '');
       if (cancelled) return;
       const flagged = normalizeAssistedApplicationVariant(configured.trim().toLowerCase());
-      const resolved = flagged ?? resolveAssistedApplicationVariant(distinctId || '');
+      // `rewarded_ad` remains a route-level variant for the Italian job board;
+      // a stale global value must fall back to the other-surface A/B split,
+      // never turn every non-job-board visitor into the original arm.
+      const resolved = flagged === 'rewarded_ad'
+        ? resolveAssistedApplicationVariant(distinctId || '')
+        : flagged ?? resolveAssistedApplicationVariant(distinctId || '');
       const assignmentKey = `${distinctId || 'unknown'}:${resolved}`;
       setVariant(resolved);
       setReady(true);
@@ -135,7 +143,7 @@ export function useAssistedApplicationVariant(): AssistedApplicationVariantResul
     return () => {
       cancelled = true;
     };
-  }, []);
+  }, [enabled]);
 
   return { experimentId: ASSISTED_APPLICATION_EXPERIMENT_ID, variant, ready };
 }

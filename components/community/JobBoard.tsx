@@ -195,6 +195,10 @@ import {
  getRewardedApplicationAccessExpiresAt,
 } from '@/services/rewardedApplicationAccess';
 import {
+ buildRewardedApplicationPageUrl,
+ createRewardedApplicationHandoff,
+} from '@/services/rewardedApplicationHandoff';
+import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
 } from '@/services/assistedApplicationCheckout';
@@ -2237,6 +2241,12 @@ function readCurrentPageViewPath(): string {
  return `${window.location.pathname}${window.location.search}${window.location.hash}`;
 }
 
+/** The Italian Ticino job-board surface runs the rewarded treatment without an experiment. */
+function isAlwaysRewardedApplicationSurface(): boolean {
+ if (typeof window === 'undefined') return false;
+ return /^\/cerca-lavoro-ticino(?:\/|$)/.test(window.location.pathname);
+}
+
 function readAssistedApplicationOrderId(): string | null {
  if (typeof window === 'undefined') return null;
  const value = new URLSearchParams(window.location.search).get('assisted_application_order_id');
@@ -2275,10 +2285,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const { t } = useTranslation();
  const [locale] = useLocale();
  const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+ const alwaysRewardedApplicationSurface = isAlwaysRewardedApplicationSurface();
  const {
-  variant: assistedApplicationVariant,
-  ready: assistedApplicationVariantReady,
- } = useAssistedApplicationVariant();
+  variant: configuredAssistedApplicationVariant,
+  ready: configuredAssistedApplicationVariantReady,
+ } = useAssistedApplicationVariant(!alwaysRewardedApplicationSurface);
+ const assistedApplicationVariant = alwaysRewardedApplicationSurface
+  ? 'rewarded_ad'
+  : configuredAssistedApplicationVariant;
+ const assistedApplicationVariantReady = alwaysRewardedApplicationSurface
+  || configuredAssistedApplicationVariantReady;
  // Hold the detail skeleton (not the auth gate) while a newsletter autologin is
  // exchanging — the visitor is about to be signed in; flashing the gate is noise.
  const newsletterAutologinInFlight = useNewsletterAutologinInFlight();
@@ -6803,16 +6819,32 @@ const JobBoard: React.FC<JobBoardProps> = ({
    );
    return;
   }
-  // The native Google Offerwall owns the page-level gate and the 12-hour
-  // entitlement. Once the user has completed it, the next click is a normal
-  // direct hand-off. There is no documented native callback that can safely
-  // perform a late external redirect after the ad, so we keep this hand-off
-  // synchronous and let Funding Choices own the reward UI.
+  // The dedicated external Rewarded Web page owns the click → video → callback
+  // lifecycle. Open it synchronously from the user's click so popup blockers
+  // do not turn the rewarded step into a dead CTA.
   trackAssistedApplicationEvent(
    'rewarded_application_offer_requested',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, provider: 'google_offerwall' },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, provider: 'google_gpt_rewarded_web' },
   );
-  redirectExternalApplication(job, 'rewarded_application_native_offerwall', false);
+  const destination = buildReferralUrl(job);
+  const token = createRewardedApplicationHandoff({
+   destination,
+   jobId: String(job.id),
+   companyId: String(job.companyKey || job.company || 'unknown'),
+   companyName: job.company,
+   jobTitle: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
+  });
+  if (!token) {
+   redirectExternalApplication(job, 'rewarded_application_handoff_fallback', false);
+   return;
+  }
+  const rewardPageUrl = buildRewardedApplicationPageUrl(token);
+  const rewardWindow = window.open(rewardPageUrl, '_blank');
+  if (!rewardWindow) {
+   window.location.assign(rewardPageUrl);
+  } else {
+   try { rewardWindow.opener = null; } catch { /* cross-browser best effort */ }
+  }
   return;
  }
  if (assistedApplicationVariant === 'assisted_application') {

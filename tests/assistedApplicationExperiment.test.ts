@@ -30,17 +30,17 @@ beforeEach(() => {
 });
 
 describe('assisted application experiment assignment', () => {
-  it('keeps the same distinct id in the same three-arm assignment', () => {
+  it('keeps the same distinct id in the same two-arm assignment', () => {
     const ids = ['visitor-1', 'visitor-2', 'anon-sticky-id', 'visitor-3'];
 
     for (const id of ids) {
       expect(resolveAssistedApplicationVariant(id)).toBe(resolveAssistedApplicationVariant(id));
     }
-    expect(resolveAssistedApplicationVariant('visitor-1')).toBe('rewarded_ad');
+    expect(resolveAssistedApplicationVariant('visitor-1')).toBe('assisted_application');
     expect(resolveAssistedApplicationVariant('visitor-2')).toBe('control');
   });
 
-  it('assigns approximately 20/40/40% to control, paid, and rewarded arms', () => {
+  it('assigns approximately 50/50% to original and subscription arms', () => {
     const ids = Array.from({ length: 10_000 }, (_, index) => `experiment-user-${index}`);
     const counts = ids.reduce<Record<string, number>>((acc, id) => {
       const variant = resolveAssistedApplicationVariant(id);
@@ -48,12 +48,11 @@ describe('assisted application experiment assignment', () => {
       return acc;
     }, {});
 
-    expect(counts.control).toBeGreaterThanOrEqual(1_500);
-    expect(counts.control).toBeLessThanOrEqual(2_500);
-    expect(counts.assisted_application).toBeGreaterThanOrEqual(3_500);
-    expect(counts.assisted_application).toBeLessThanOrEqual(4_500);
-    expect(counts.rewarded_ad).toBeGreaterThanOrEqual(3_500);
-    expect(counts.rewarded_ad).toBeLessThanOrEqual(4_500);
+    expect(counts.control).toBeGreaterThanOrEqual(4_500);
+    expect(counts.control).toBeLessThanOrEqual(5_500);
+    expect(counts.assisted_application).toBeGreaterThanOrEqual(4_500);
+    expect(counts.assisted_application).toBeLessThanOrEqual(5_500);
+    expect(counts.rewarded_ad).toBeUndefined();
   });
 
   it('fails closed to control for missing or unknown assignments', () => {
@@ -67,15 +66,20 @@ describe('assisted application experiment assignment', () => {
 });
 
 describe('assisted application Remote Config assignment', () => {
-  it('uses the globally configured arm when Remote Config supplies one', async () => {
+  it('skips assignment entirely for the route-only rewarded treatment', () => {
+    const { result } = renderHook(() => useAssistedApplicationVariant(false));
+
+    expect(result.current).toMatchObject({ variant: 'rewarded_ad', ready: true });
+    expect(getConfigValueMock).not.toHaveBeenCalled();
+  });
+
+  it('does not leak the route-only rewarded arm into other surfaces', async () => {
     getConfigValueMock.mockResolvedValue('rewarded_ad');
 
     const { result } = renderHook(() => useAssistedApplicationVariant());
 
-    await waitFor(() => expect(result.current).toMatchObject({
-      variant: 'rewarded_ad',
-      ready: true,
-    }));
+    await waitFor(() => expect(result.current.ready).toBe(true));
+    expect(['control', 'assisted_application']).toContain(result.current.variant);
     expect(getConfigValueMock).toHaveBeenCalledWith(ASSISTED_APPLICATION_EXPERIMENT_RC_KEY);
   });
 });

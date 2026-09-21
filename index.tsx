@@ -128,8 +128,10 @@ const mountApp = async () => {
  const homeCritical = isHomeCriticalPath(window.location.pathname);
  let staticPage = hasStaticContent();
 
- const [{ default: App }, { ChunkLoadErrorBoundary }, i18n] = await Promise.all([
- import('./App'),
+ const [{ default: RootPage }, { ChunkLoadErrorBoundary }, i18n] = await Promise.all([
+ window.location.pathname === '/rewarded-application/'
+  ? import('./components/community/RewardedApplicationPage')
+  : import('./App'),
  import('./components/ChunkLoadErrorBoundary'),
  homeCritical ? import('./services/i18n') : Promise.resolve(null),
  // Preload the calculator chunk on home-critical paths so App's lazy
@@ -159,7 +161,8 @@ const mountApp = async () => {
  // chunk — it is already loaded with App above, so this resolves from cache.
  // Gated on staticOverlay so true static landings keep their overlay; crawlers
  // (no JS) still get the fallback verbatim.
- try {
+  if (window.location.pathname !== '/rewarded-application/') {
+   try {
    const { parsePath } = await import('./services/router');
    if (!parsePath(window.location.pathname).route.staticOverlay
      && !hasPlateAuctionStaticFallback()) {
@@ -185,9 +188,10 @@ const mountApp = async () => {
        staticPage = hasStaticContent();
      }
    }
- } catch {
-   /* router/DOM edge case — fall through to existing handling */
- }
+   } catch {
+    /* router/DOM edge case — fall through to existing handling */
+   }
+  }
 
  if (staticPage) {
  // FOUC prevention for static pages:
@@ -228,7 +232,7 @@ const mountApp = async () => {
  root.render(
  <React.StrictMode>
  <ChunkLoadErrorBoundary>
- <App />
+ <RootPage />
  </ChunkLoadErrorBoundary>
  </React.StrictMode>
  );
