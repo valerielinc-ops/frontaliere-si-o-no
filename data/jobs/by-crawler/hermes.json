@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hermes",
-  "assembledAt": "2026-09-19T22:50:08.956Z",
+  "assembledAt": "2026-09-21T15:55:51.385Z",
   "jobs": [
     {
       "id": "hermes-72295ebf73a5",
@@ -33,7 +33,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:50:01.952Z",
+      "crawledAt": "2026-09-21T15:55:46.028Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -84,6 +84,7 @@
         ]
       },
       "firstSeenAt": "2026-06-10T09:03:23.277Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -129,7 +130,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:50:01.153Z",
+      "crawledAt": "2026-09-21T15:55:45.366Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -208,7 +209,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:50:00.167Z",
+      "crawledAt": "2026-09-21T15:55:44.649Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -241,6 +242,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:27:54.190Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -327,7 +329,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
