@@ -19,10 +19,17 @@ import {
   latestVerdict,
   MONITOR_TITLE_PATTERNS,
   STALE_BLOCK_VERDICTS,
+  readVisionAutonomyContract,
+  VISION_AUTONOMY_LABEL,
 } from '../scripts/ci/needs-human-prepass.mjs';
 import { classifyAutomationRisk } from '../scripts/ci/lib/automation-risk-policy.mjs';
 
 describe('needs-human — tracking, non veto della PR', () => {
+  it('usa il contratto VISION locale per il rientro automatico', () => {
+    expect(readVisionAutonomyContract()).toBe(true);
+    expect(VISION_AUTONOMY_LABEL).toBe('agent:vision-approved');
+  });
+
   it('una issue monitor con la label resta instradabile dal pre-pass', () => {
     expect(prepassDecision({ title: 'CI Failure: tests', labels: ['needs-human'] }).action)
       .toBe('requeue');

@@ -8,16 +8,19 @@ const STALE_RESCUER = readFileSync(resolve(ROOT, '.github/workflows/stale-pr-res
 const RECYCLE = readFileSync(resolve(ROOT, '.github/workflows/recycle-stale-prs.yml'), 'utf8');
 
 describe('followup-drainer trigger durability', () => {
-  it('usa il cron durevole e non fan-out workflow_run concorrenti', () => {
+  it('usa cron durevole e wake-up reattivi bounded', () => {
     expect(WORKFLOW).toMatch(/schedule:\s*\n\s*- cron: ['"]\*\/20 \* \* \* \*['"]/);
-    expect(WORKFLOW).not.toContain('\n  workflow_run:');
     expect(WORKFLOW).toContain('workflow_dispatch:');
+    expect(WORKFLOW).toMatch(/issues:\s*\n\s*types:\s*\[labeled\]/);
+    expect(WORKFLOW).toMatch(/workflow_run:\s*\n\s*workflows:\s*\[['"]Issue fix \(Codex Luna Max → PR\)['"]\]\s*\n\s*types:\s*\[completed\]/);
+    expect(WORKFLOW).toContain("github.event.label.name == 'agent:fix-queued'");
+    expect(WORKFLOW).toContain("github.event.label.name == 'agent:decompose-queued'");
     expect(WORKFLOW).toContain('cancel-in-progress: false');
   });
 
-  it('mantiene la misura storica #7581 nel contratto del mutex repo-scoped', () => {
-    expect(WORKFLOW).toMatch(/group:\s*followup-daily-\$\{\{\s*github\.repository\s*\}\}/);
-    expect(WORKFLOW).not.toMatch(/group:\s*followup-drainer(?:\s|$)/m);
+  it('mantiene la misura storica #7581 ma con mutex dedicato', () => {
+    expect(WORKFLOW).toMatch(/group:\s*followup-drainer-\$\{\{\s*github\.repository\s*\}\}/);
+    expect(WORKFLOW).not.toMatch(/group:\s*followup-daily-\$\{\{\s*github\.repository\s*\}\}/);
     expect(WORKFLOW).toContain('1,426/1,710 historical runs (83.4%)');
   });
 
