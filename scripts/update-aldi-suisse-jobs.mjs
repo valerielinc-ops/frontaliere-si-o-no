@@ -56,6 +56,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { positiveIntFromEnv } from './lib/int-from-env.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 /* -- Constants --------------------------------------------------------- */
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -159,6 +160,62 @@ async function fetchAldiListings() {
   }
 }
 
+export function buildAldiJobRecord({ listing = {}, parsed = {}, now = new Date() } = {}) {
+  const rawTitle = listing.title || parsed.title || '';
+  if (!rawTitle || rawTitle.length < 3) return null;
+
+  // REST row holds the canonical structured fields; the detail page only
+  // supplies the prose body + bullet requirements.
+  let description = parsed.body || '';
+  if (description.length > 8000) description = description.slice(0, 8000);
+  const requirements = Array.isArray(parsed.requirements) ? parsed.requirements : [];
+  const location = listing.city || parsed.location || '';
+  const workPct = String(listing.workload || parsed.percentage || '').replace(/\s+/g, '');
+
+  const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
+  const jobSlug = slugify(`${rawTitle}-aldi-suisse`);
+  const canton = inferAnyCanton(location);
+  if (!canton) return null;
+  const postalCode = listing.zip || '';
+  const timestamp = now.toISOString();
+
+  return {
+    id: `aldi-suisse-${urlHash}`,
+    slug: jobSlug,
+    slugByLocale: { it: jobSlug },
+    company: ALDI_COMPANY_NAME,
+    companyKey: ALDI_KEY,
+    companyDomain: 'aldi.ch',
+    title: rawTitle,
+    titleByLocale: { it: rawTitle },
+    description: description || `Posizione aperta presso ${ALDI_COMPANY_NAME}. ${rawTitle}.`,
+    descriptionByLocale: { it: description || `Posizione aperta presso ${ALDI_COMPANY_NAME}. ${rawTitle}.` },
+    requirements: requirements.slice(0, 20),
+    requirementsByLocale: { it: requirements.slice(0, 20) },
+    location,
+    postalCode,
+    canton,
+    addressLocality: location,
+    addressRegion: canton,
+    addressCountry: 'CH',
+    streetAddress: listing.address || '',
+    employmentType: inferEmploymentType(rawTitle, description, workPct || ''),
+    category: 'retail',
+    contract: 'full-time',
+    workPercentage: workPct,
+    currency: 'CHF',
+    featured: false,
+    postedDate: timestamp.slice(0, 10),
+    url: listing.url,
+    // The TYPO3 detail page is the canonical navigable application handoff;
+    // L3 still keeps this distinct from a submitted application event.
+    applyUrl: listing.url,
+    source: 'ALDI Suisse Dedicated Parser',
+    sourceLang: detectLang(description || rawTitle, 'de'),
+    crawledAt: timestamp,
+  };
+}
+
 /* -- Detail page fetching & parsing ------------------------------------ */
 async function fetchAndParseDetailPages(listings) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
@@ -197,58 +254,15 @@ async function fetchAndParseDetailPages(listings) {
       const rawTitle = listing.title || parsed.title || '';
       if (!rawTitle || rawTitle.length < 3) continue;
 
-      // REST row holds the canonical structured fields; the detail page only
-      // supplies the prose body + bullet requirements.
-      let description = parsed.body || '';
-      if (description.length > 8000) description = description.slice(0, 8000);
-      const requirements = Array.isArray(parsed.requirements) ? parsed.requirements : [];
-      const location = listing.city || parsed.location || '';
-      const workPct = String(listing.workload || parsed.percentage || '').replace(/\s+/g, '');
-
-      const urlHash = createHash('sha1').update(listing.url).digest('hex').slice(0, 12);
-      const jobSlug = slugify(`${rawTitle}-aldi-suisse`);
       // CH-only canton gate: ALDI Suisse hires across all 26 cantons, so an
       // unresolved location must not default to a single-canton HQ. A row
       // with an empty city (the REST `address` carries only the street, not
       // the locality) and a postal code from another canton would otherwise
       // be mislabeled and land on the wrong canton SEO page with inconsistent
       // structured data. Drop it instead, keeping the national gate strict.
-      const canton = inferAnyCanton(location);
-      if (!canton) { droppedNoCanton += 1; continue; }
-      const postalCode = listing.zip || '';
-
-      jobs.push({
-        id: `aldi-suisse-${urlHash}`,
-        slug: jobSlug,
-        slugByLocale: { it: jobSlug },
-        company: ALDI_COMPANY_NAME,
-        companyKey: ALDI_KEY,
-        companyDomain: 'aldi.ch',
-        title: rawTitle,
-        titleByLocale: { it: rawTitle },
-        description: description || `Posizione aperta presso ${ALDI_COMPANY_NAME}. ${rawTitle}.`,
-        descriptionByLocale: { it: description || `Posizione aperta presso ${ALDI_COMPANY_NAME}. ${rawTitle}.` },
-        requirements: requirements.slice(0, 20),
-        requirementsByLocale: { it: requirements.slice(0, 20) },
-        location,
-        postalCode,
-        canton,
-        addressLocality: location,
-        addressRegion: canton,
-        addressCountry: 'CH',
-        streetAddress: listing.address || '',
-        employmentType: inferEmploymentType(rawTitle, description, workPct || ''),
-        category: 'retail',
-        contract: 'full-time',
-        workPercentage: workPct,
-        currency: 'CHF',
-        featured: false,
-        postedDate: new Date().toISOString().slice(0, 10),
-        url: listing.url,
-        source: 'ALDI Suisse Dedicated Parser',
-        sourceLang: detectLang(description || rawTitle, 'de'),
-        crawledAt: new Date().toISOString(),
-      });
+      const job = buildAldiJobRecord({ listing, parsed });
+      if (!job) { droppedNoCanton += 1; continue; }
+      jobs.push(job);
     }
   }
 
@@ -340,4 +354,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Aldi Suisse'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Aldi Suisse'));
+}

@@ -6,7 +6,11 @@ vi.mock('../scripts/lib/ensure-chromium.mjs', () => ({
   launchChromium: launchChromiumMock,
 }));
 
-import { fetchDennerJobUrls, main as runDennerCrawler } from '../scripts/update-denner-jobs.mjs';
+import {
+  buildDennerJobRecord,
+  fetchDennerJobUrls,
+  main as runDennerCrawler,
+} from '../scripts/update-denner-jobs.mjs';
 import { fetchMigrolinoListingHrefs } from '../scripts/lib/migrolino-job-parser.mjs';
 import { fetchMigrosJobDetailUrls, finalizeMigrosDiscovery } from '../scripts/update-migros-jobs.mjs';
 import { crawlerScratchPathFor } from '../scripts/lib/crawler-scratch-path.mjs';
@@ -83,6 +87,26 @@ function mockStalledMigrosBrowser(detailHref: string, clickError?: Error) {
 }
 
 describe('Denner Playwright pagination', () => {
+  it('preserves the detail URL as the navigable apply handoff', () => {
+    const url = 'https://jobs.migros.ch/it/le-nostre-imprese/job/denner-sa/vendita/example-id';
+    const job = buildDennerJobRecord({
+      url,
+      rawTitle: 'Verkäufer/in 80-100%',
+      description: 'Gestisci il punto vendita e assisti la clientela.',
+      migrosData: { requirements: ['Esperienza'], employmentType: 'full-time', workPercentage: '80-100%' },
+      location: 'Bellinzona',
+      postalCode: '6500',
+      now: new Date('2026-09-22T00:00:00.000Z'),
+    });
+
+    expect(job).toMatchObject({
+      url,
+      applyUrl: url,
+      postedDate: '2026-09-22',
+      crawledAt: '2026-09-22T00:00:00.000Z',
+    });
+  });
+
   it('rejects a non-authoritative snapshot when pagination stalls', async () => {
     process.env.JOBS_DENNER_PAGINATION_TIMEOUT_MS = '1';
     process.env.JOBS_DENNER_PAGINATION_STALL_POLLS = '1';

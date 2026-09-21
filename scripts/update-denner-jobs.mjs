@@ -242,6 +242,62 @@ export async function fetchDennerJobUrls() {
 }
 
 /* -- Detail page fetching & parsing ------------------------------------ */
+export function buildDennerJobRecord({
+  url = '',
+  rawTitle = '',
+  description = '',
+  migrosData = {},
+  location = '',
+  postalCode = '',
+  jsonLd = null,
+  now = new Date(),
+} = {}) {
+  const title = String(rawTitle || '').replace(/\s+/g, ' ').trim();
+  if (!title || !url) return null;
+
+  const normalizedLocation = String(location || '');
+  const canton = inferAnyCanton(normalizedLocation) || '';
+  const timestamp = now.toISOString();
+  const fallbackDescription = `Posizione aperta presso ${DENNER_COMPANY_NAME}. ${title}.`;
+  const normalizedDescription = description || fallbackDescription;
+
+  return {
+    id: `denner-${createHash('sha1').update(url).digest('hex').slice(0, 12)}`,
+    slug: slugify(`${title}-denner`),
+    slugByLocale: { it: slugify(`${title}-denner`) },
+    company: DENNER_COMPANY_NAME,
+    companyKey: DENNER_KEY,
+    companyDomain: 'denner.ch',
+    title,
+    titleByLocale: { it: title },
+    description: normalizedDescription,
+    descriptionByLocale: { it: normalizedDescription },
+    requirements: migrosData?.requirements || [],
+    requirementsByLocale: { it: migrosData?.requirements || [] },
+    location: normalizedLocation,
+    postalCode: postalCode || KNOWN_CITY_POSTAL_CODES[normalizedLocation.toLowerCase()] || '',
+    canton,
+    addressLocality: normalizedLocation,
+    addressRegion: canton,
+    addressCountry: 'CH',
+    streetAddress: normalizedLocation ? `Denner ${normalizedLocation}` : 'Denner',
+    employmentType: inferEmploymentType(title, description, String(migrosData?.workPercentage || '')),
+    category: 'retail',
+    contract: migrosData?.employmentType || 'full-time',
+    workPercentage: String(migrosData?.workPercentage || ''),
+    currency: 'CHF',
+    featured: false,
+    postedDate: jsonLd?.datePosted || timestamp.slice(0, 10),
+    url,
+    // The Migros detail page is the canonical navigable application handoff.
+    // L3 still keeps it distinct from a submitted application event.
+    applyUrl: url,
+    source: 'Denner/Migros Dedicated Parser',
+    sourceLang: detectLang(description || title, 'it'),
+    crawledAt: timestamp,
+  };
+}
+
 async function fetchAndParseDetailPages(urls) {
   const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000;
   const concurrency = positiveIntFromEnv('JOBS_CRAWLER_CONCURRENCY', 3);
@@ -298,41 +354,16 @@ async function fetchAndParseDetailPages(urls) {
       const pctMatch = rawTitle.match(/(\d+\s*-\s*\d+\s*%)/);
       const workPct = pctMatch ? pctMatch[1] : (migrosData?.workPercentage || '');
 
-      const urlHash = createHash('sha1').update(url).digest('hex').slice(0, 12);
-      const jobSlug = slugify(`${rawTitle}-denner`);
-
-      jobs.push({
-        id: `denner-${urlHash}`,
-        slug: jobSlug,
-        slugByLocale: { it: jobSlug },
-        company: DENNER_COMPANY_NAME,
-        companyKey: DENNER_KEY,
-        companyDomain: 'denner.ch',
-        title: rawTitle.replace(/\s+/g, ' ').trim(),
-        titleByLocale: { it: rawTitle.replace(/\s+/g, ' ').trim() },
-        description: description || `Posizione aperta presso ${DENNER_COMPANY_NAME}. ${rawTitle}.`,
-        descriptionByLocale: { it: description || `Posizione aperta presso ${DENNER_COMPANY_NAME}. ${rawTitle}.` },
-        requirements: migrosData?.requirements || [],
-        requirementsByLocale: { it: migrosData?.requirements || [] },
-        location,
-        postalCode: postalCode || KNOWN_CITY_POSTAL_CODES[location.toLowerCase()] || '',
-        canton: inferAnyCanton(location) || '',
-        addressLocality: location || '',
-        addressRegion: inferAnyCanton(location) || '',
-        addressCountry: 'CH',
-        streetAddress: location ? `Denner ${location}` : 'Denner',
-        employmentType: inferEmploymentType(rawTitle, description, workPct || ''),
-        category: 'retail',
-        contract: migrosData?.employmentType || 'full-time',
-        workPercentage: workPct,
-        currency: 'CHF',
-        featured: false,
-        postedDate: jsonLd?.datePosted || new Date().toISOString().slice(0, 10),
+      const job = buildDennerJobRecord({
         url,
-        source: 'Denner/Migros Dedicated Parser',
-        sourceLang: detectLang(description || rawTitle, 'it'),
-        crawledAt: new Date().toISOString(),
+        rawTitle,
+        description,
+        migrosData: { ...migrosData, workPercentage: workPct },
+        location,
+        postalCode,
+        jsonLd,
       });
+      if (job) jobs.push(job);
     }
   }
 

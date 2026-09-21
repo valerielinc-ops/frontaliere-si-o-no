@@ -46,6 +46,7 @@ import { getCompanyDefaults } from './lib/crawler-location-config.mjs';
 import { safeLocationToken } from './lib/safe-location-token.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -90,6 +91,47 @@ function mergeCompanyJobs(parsedJobs) {
   return clean;
 }
 
+export function buildRapelliJobRecord({ raw = {}, detail = {}, now = new Date() } = {}) {
+  const description = detail.description || '';
+  if (!raw.url || !raw.title || description.length < 120) return null;
+
+  const location = raw.location || 'Stabio';
+  const jobSlug = slugify(`${raw.title}-rapelli-${safeLocationToken(raw.location)}`);
+  const timestamp = now.toISOString();
+
+  return {
+    id: `rapelli-${createHash('sha1').update(raw.url).digest('hex').slice(0, 12)}`,
+    slug: jobSlug,
+    slugByLocale: { it: jobSlug },
+    company: COMPANY_NAME,
+    companyKey: COMPANY_KEY,
+    companyDomain: 'rapelli.ch',
+    title: raw.title,
+    titleByLocale: { it: raw.title },
+    description,
+    descriptionByLocale: { it: description },
+    requirements: [],
+    requirementsByLocale: { it: [] },
+    location,
+    canton: getCompanyDefaults('rapelli').canton,
+    addressLocality: location,
+    addressCountry: 'CH',
+    category: 'manufacturing',
+    contract: 'full-time',
+    employmentType: inferEmploymentType(raw.title, description),
+    currency: 'CHF',
+    featured: false,
+    postedDate: timestamp.slice(0, 10),
+    url: raw.url,
+    // The ORIOR detail page is the canonical navigable application handoff.
+    // L3 still keeps it distinct from a submitted application event.
+    applyUrl: raw.url,
+    source: 'Rapelli Dedicated Parser (ORIOR Careers)',
+    sourceLang: detectLang(description || raw.title, 'it'),
+    crawledAt: timestamp,
+  };
+}
+
 async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(COMPANY_KEY, 'Rapelli');
@@ -111,41 +153,9 @@ async function main() {
       console.log(`  ⚠️  ${raw.title}: description too short (${detail?.description?.length || 0} chars) — skipping`);
       continue;
     }
-    const description = detail.description;
-    const urlHash = createHash('sha1').update(raw.url).digest('hex').slice(0, 12);
-    const jobSlug = slugify(`${raw.title}-rapelli-${safeLocationToken(raw.location)}`);
-    // Only set source locale (IT) — other locales will be filled by:
-    // 1. mergePreserveLocaleData (preserves existing translations from previous runs)
-    // 2. translate-pending pipeline (AI translation for missing locales)
-    // Setting all locales to the raw title causes mergeLocaleTextMap to
-    // incorrectly overwrite real translations via the length-comparison fallback.
-    parsedJobs.push({
-      id: `rapelli-${urlHash}`,
-      slug: jobSlug,
-      slugByLocale: { it: jobSlug },
-      company: COMPANY_NAME,
-      companyKey: COMPANY_KEY,
-      companyDomain: 'rapelli.ch',
-      title: raw.title,
-      titleByLocale: { it: raw.title },
-      description,
-      descriptionByLocale: { it: description },
-      requirements: [],
-      requirementsByLocale: { it: [] },
-      location: raw.location || 'Stabio',
-      canton: getCompanyDefaults('rapelli').canton,
-      addressLocality: raw.location || 'Stabio',
-      addressCountry: 'CH',
-      category: 'manufacturing',
-      contract: 'full-time', employmentType: inferEmploymentType(raw.title, description),
-      currency: 'CHF',
-      featured: false,
-      postedDate: new Date().toISOString().slice(0, 10),
-      url: raw.url,
-      source: 'Rapelli Dedicated Parser (ORIOR Careers)',
-      sourceLang: detectLang(description || raw.title, 'it'),
-      crawledAt: new Date().toISOString(),
-    });
+    const job = buildRapelliJobRecord({ raw, detail });
+    if (!job) continue;
+    parsedJobs.push(job);
     console.log(`  \u2705 ${raw.title} \u2014 ${raw.location}`);
   }
 
@@ -187,4 +197,6 @@ async function main() {
   await assembleJobsDataset();
 }
 
-main().catch((err) => exitCrawlerOnError(err, 'Rapelli'));
+if (isInvokedDirectly(import.meta.url)) {
+  main().catch((err) => exitCrawlerOnError(err, 'Rapelli'));
+}

@@ -14,6 +14,7 @@ import {
   ALDI_SEARCH_API,
   ALDI_SUCCESSFACTORS_BASE,
 } from '@/scripts/lib/aldi-suisse-job-parser.mjs';
+import { buildAldiJobRecord } from '@/scripts/update-aldi-suisse-jobs.mjs';
 
 // --- Fixture: live TYPO3 REST job-search response ---
 const SEARCH_JSON = {
@@ -377,5 +378,30 @@ describe('ALDI_SUCCESSFACTORS_BASE', () => {
 describe('ALDI_SEARCH_API', () => {
   it('points to the jobs.aldi.ch REST job-search endpoint', () => {
     expect(ALDI_SEARCH_API).toBe('https://www.jobs.aldi.ch/rest/jobs/search');
+  });
+});
+
+describe('buildAldiJobRecord', () => {
+  it('preserves the canonical detail URL as the navigable apply handoff', () => {
+    const url = 'https://www.jobs.aldi.ch/job/1409127233';
+    const job = buildAldiJobRecord({
+      listing: {
+        url,
+        title: 'Filialleiter/in (m/w/d)',
+        city: 'Bellinzona',
+        zip: '6500',
+        address: 'Via Stazione 1',
+        workload: '100%',
+      },
+      parsed: { body: 'Responsabilità e requisiti.', requirements: ['Esperienza'] },
+      now: new Date('2026-09-22T00:00:00.000Z'),
+    });
+
+    expect(job).toMatchObject({
+      url,
+      applyUrl: url,
+      postedDate: '2026-09-22',
+      crawledAt: '2026-09-22T00:00:00.000Z',
+    });
   });
 });
