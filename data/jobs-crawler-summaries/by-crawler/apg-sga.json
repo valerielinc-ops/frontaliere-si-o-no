@@ -1,21 +1,21 @@
 {
   "key": "apg-sga",
   "label": "APG|SGA",
-  "generatedAt": "2026-09-19T23:01:21.936Z",
-  "total": 2,
+  "generatedAt": "2026-09-21T16:06:39.082Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
-  "written": 2,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 6434,
-  "avgDurationMs": 6434,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4376,
+  "avgDurationMs": 4376,
   "durationHistory": [
-    6434
+    4376
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.apgsga.ch/publication/software-engineer-zuerich/fq77rwsz40tq2rk03aosn5kdlrimsc8r82avvqk4zlmb67ptcjlynfhsx0aw2lzt",
       "source": "APG|SGA Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:01:15.173Z",
+      "crawledAt": "2026-09-21T16:06:30.603Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -56,8 +56,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "apg-sga-2238f6b4223f",
       "slug": "apprendista-r-kaufmann-frau-cfc-zurich-apg-sga-zurich",
@@ -99,5 +98,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
