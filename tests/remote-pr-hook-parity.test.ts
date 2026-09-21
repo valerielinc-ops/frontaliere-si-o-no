@@ -13,9 +13,16 @@ import { runRemoteSiblingPrePush } from '../.github/actions/claude-codex-fallbac
 
 const ROOT = resolve(import.meta.dirname, '..');
 const read = (relative: string) => readFileSync(resolve(ROOT, relative), 'utf8');
+const readCommitted = (relative: string) => execFileSync(
+  'git',
+  ['show', `HEAD:${relative}`],
+  { cwd: ROOT, encoding: 'utf8' },
+);
 
 describe('remote PR agents use the same committed hook contract as local agents', () => {
-  const settings = read('.claude/settings.json');
+  // `.claude/` can be omitted by a sparse/hidden-file checkout, while the
+  // contract itself is versioned and must still be checked in CI.
+  const settings = readCommitted('.claude/settings.json');
   const prePush = read('.githooks/pre-push');
   const packageJson = read('package.json');
   const issueFix = read('.github/workflows/issue-fix.yml');
