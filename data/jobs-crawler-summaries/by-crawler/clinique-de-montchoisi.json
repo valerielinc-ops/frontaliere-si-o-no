@@ -1,21 +1,21 @@
 {
   "key": "clinique-de-montchoisi",
   "label": "Clinique de Montchoisi",
-  "generatedAt": "2026-09-19T23:03:28.728Z",
-  "total": 3,
+  "generatedAt": "2026-09-21T16:10:43.108Z",
+  "total": 2,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
-  "written": 3,
+  "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5152,
-  "avgDurationMs": 5152,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5437,
+  "avgDurationMs": 5437,
   "durationHistory": [
-    5152
+    5437
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -33,7 +33,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149582189-cm-responsable-secretariat-radiologie",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:03:19.543Z",
+      "crawledAt": "2026-09-21T16:10:34.549Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -71,7 +71,7 @@
       "applyUrl": "https://jobs.smartrecruiters.com/SwissMedicalNetwork1/744000149376088-assc",
       "source": "Clinique de Montchoisi Dedicated Parser (SMN clinic=CDM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:03:19.544Z",
+      "crawledAt": "2026-09-21T16:10:34.550Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -96,8 +96,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "clinique-de-montchoisi-c20aef2d7c8c",
       "slug": "tecnico-a-in-radiologia-medica-100-clinique-de-montchoisi-lausanne",
@@ -140,5 +139,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

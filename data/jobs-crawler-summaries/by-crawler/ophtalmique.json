@@ -1,21 +1,21 @@
 {
   "key": "ophtalmique",
   "label": "Hôpital ophtalmique Jules-Gonin (Fondation Asile des aveugles)",
-  "generatedAt": "2026-09-19T23:04:13.785Z",
-  "total": 8,
+  "generatedAt": "2026-09-21T16:10:36.862Z",
+  "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
-  "written": 8,
+  "written": 6,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 6,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 7989,
-  "avgDurationMs": 7989,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 5942,
+  "avgDurationMs": 5942,
   "durationHistory": [
-    7989
+    5942
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1911",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:04:06.379Z",
+      "crawledAt": "2026-09-21T16:10:30.494Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -70,7 +70,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1906",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:04:05.969Z",
+      "crawledAt": "2026-09-21T16:10:30.122Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1862",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:04:05.556Z",
+      "crawledAt": "2026-09-21T16:10:29.753Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -146,7 +146,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1888",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:04:05.145Z",
+      "crawledAt": "2026-09-21T16:10:29.381Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1826",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:04:04.184Z",
+      "crawledAt": "2026-09-21T16:10:28.534Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -222,7 +222,7 @@
       "url": "https://emploi.ophtalmique.ch/?page=advertisement_display&id=1870",
       "source": "Ophtalmique Dedicated Parser (eRecruit RSS + advertisement_display detail)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:04:04.735Z",
+      "crawledAt": "2026-09-21T16:10:29.009Z",
       "addressLocality": "Lausanne",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -248,8 +248,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "ophtalmique-07ca3c6378b4",
       "slug": "gestione-amministrativa-hopital-ophtalmique-jules-gonin-fondation-asile-des-aveugles-lausanne",
@@ -334,5 +333,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

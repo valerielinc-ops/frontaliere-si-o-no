@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sygnum",
-  "assembledAt": "2026-09-19T23:03:07.013Z",
+  "assembledAt": "2026-09-21T16:08:59.962Z",
   "jobs": [
     {
       "id": "sygnum-3f4a50850a47",
@@ -33,7 +33,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN280",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:03:01.191Z",
+      "crawledAt": "2026-09-21T16:08:54.084Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -73,6 +73,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:22:38.174Z",
+      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 145000,
       "salarySource": "estimated",
@@ -118,7 +119,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN283",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:03:00.498Z",
+      "crawledAt": "2026-09-21T16:08:53.432Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -212,7 +213,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN276",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:02:59.414Z",
+      "crawledAt": "2026-09-21T16:08:52.751Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -287,7 +288,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN252",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:02:58.647Z",
+      "crawledAt": "2026-09-21T16:08:51.633Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -362,7 +363,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN269",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:02:57.961Z",
+      "crawledAt": "2026-09-21T16:08:50.663Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -443,7 +444,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN287",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:02:57.267Z",
+      "crawledAt": "2026-09-21T16:08:50.043Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -462,10 +463,14 @@
       "jobReqId": "VN287",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-18T23:20:07.341Z",
+      "previousSlugs": [
+        "credit-lending-intern-sygnum-zurich",
+        "credit-lending-tirocinante-sygnum-bank-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
-          "credit-lending-intern-sygnum-zurich"
+          "credit-lending-intern-sygnum-zurich",
+          "credit-lending-tirocinante-sygnum-bank-zurich"
         ],
         "de": [
           "credit-lending-intern-sygnum-zurich"
@@ -474,9 +479,8 @@
           "credit-lending-intern-sygnum-zurich"
         ]
       },
-      "previousSlugs": [
-        "credit-lending-intern-sygnum-zurich"
-      ],
+      "firstSeenAt": "2026-09-18T23:20:07.341Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -522,7 +526,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN240",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:02:55.650Z",
+      "crawledAt": "2026-09-21T16:08:48.312Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -555,6 +559,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T10:30:03.444Z",
+      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -600,7 +605,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN233",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:02:54.904Z",
+      "crawledAt": "2026-09-21T16:08:47.311Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -620,6 +625,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-08-11T10:24:35.636Z",
+      "needsRetranslation": true,
       "salaryMin": 189000,
       "salaryMax": 331500,
       "salarySource": "estimated",
@@ -665,7 +671,7 @@
       "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN192",
       "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:02:54.152Z",
+      "crawledAt": "2026-09-21T16:08:46.117Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "streetAddress": "Uetlibergstrasse 134A",
@@ -714,83 +720,6 @@
           "unitText": "YEAR"
         }
       }
-    },
-    {
-      "id": "sygnum-1f04e644231a",
-      "slug": "guida-tecnica-anteriore-sygnum-bank-zurich",
-      "slugByLocale": {
-        "it": "guida-tecnica-anteriore-sygnum-bank-zurich",
-        "en": "frontend-tech-lead-sygnum-zurich",
-        "de": "technischer-vorsprung-sygnum-bank-zurich",
-        "fr": "frontend-responsable-technique-sygnum-bank-zurich"
-      },
-      "company": "Sygnum Bank",
-      "companyKey": "sygnum",
-      "companyDomain": "sygnum.com",
-      "title": "Frontend Tech Lead",
-      "titleByLocale": {
-        "it": "Guida tecnica anteriore",
-        "en": "Frontend Tech Lead",
-        "de": "Technischer Vorsprung",
-        "fr": "Frontend Responsable technique"
-      },
-      "description": "At the Portal team, we’re the heart of Sygnum’s client-facing experience, and our work directly impacts how users interact with their digital assets. Our mission is to create state-of-the-art UI/UX solutions that not only meet but exceed client expectations, keeping their needs at the center of everything we do. We collaborate closely with Custody, Trading, Tokenization, and Banking Operations teams to ensure our applications are robust, secure, and cutting-edge. But we’re more than just colleagues, we’re a vibrant community that values creativity, innovation, and fun. We believe a supportive and enjoyable work environment fosters collaboration, trust, and proactive problem-solving. Continuous improvement is in our DNA; we rely on data-driven insights to refine our approaches and deliver excellence. Joining us means being part of a team that’s as committed to quality and user experience as it is to create a workplace you’ll love coming to every day. As a tech lead, you are comfortable wearing two hats: tech and management. From a technical perspective, you will:\n• Lead a team of software engineers to develop and own state-of-the-art solutions (front and back end).\n• Constantly enhance quality and security of the applications.\n• Collaborate with Design to improve our client centric products.\n• Contribute to writing and reviewing high quality and secured code covered by tests.\n• Work with SRE engineers and solution architects to improve the availability, resilience, and observability of the applications. From a managerial perspective, you will:\n• Coach and mentor software engineers in the team.\n• Improve the efficiency and effectiveness of the team.\n• Partner with product managers and stakeholders to plan new features and improvements.\n• Drive blameless retros and post-mortems that help the team learn from mistakes.\n• Promote a psychologically safe space where everyone feels they can contribute and improve things.\n• Fluency in JavaScript, TypeScript, React and Nestjs.\n• Designing reusable and extendable components for multiple projects.\n• Experience and references as a Frontend Engineer in complex setups.\n• Understanding UI & UX to seek the best experience for the user\n• Knowledge about data preparation, API first and concept isolation\n• Understanding the development lifecycle and its technologies – Git, CI/CD tools, unit testing, vulnerability.\n• Expertise on agile frameworks (Scrum, kanban...).\n• You are eager to work with FE and BE.\n• You enjoy doing both: technical and people leadership work.\n• You have a collaborative and growth mindset.\n• You care about quality and security and bake those aspects in the software development lifecycle.\n• You are comfortable taking ownership of the whole development lifecycle, from designing solutions to running the application in production.\n• You are proactive and get motivated with new opportunities and challenges. Joining Sygnum means being part of a dynamic, global team that is building a trusted gateway between the traditional and digital asset economies. Working at Sygnum, you will experience our fast-paced, exciting work environment that embraces meritocracy and collaboration and open communication. Alongside our ambitious long-term mission, we also come together for reaching important milestones and annual crypto-industry anniversaries like Bitcoin Pizza Day, and regularly celebrate together at themed company events as part of our journey to shape Future Finance. Sygnum offers a comprehensive package of benefits for all team members. They include:\n• Attractive combination of market salaries and entrepreneurial incentive scheme\n• Flexible/Work at home policies\n• Professional development via Mentoring and Buddy programs\n• One-month fully paid sabbatical after five years of continuous employment If you are passionate about the potential of blockchain to shape Future Finance and your profile is a good fit for this position, please send us your CV today!",
-      "descriptionByLocale": {
-        "it": "Nel team Portal, siamo il cuore dell’esperienza di Sygnum, che si rivolge ai clienti, e il nostro lavoro influisce direttamente sul modo in cui gli utenti interagiscono con i loro beni digitali. La nostra missione è quella di creare soluzioni UI/UX all'avanguardia che non solo soddisfano ma superano le aspettative dei clienti, mantenendo le loro esigenze al centro di tutto ciò che facciamo. Collaboriamo a stretto contatto con i team Custody, Trading, Tokenization e Banking Operations per garantire che le nostre applicazioni siano robuste, sicure e all'avanguardia. Ma siamo più che colleghi, siamo una comunità vibrante che valorizza creatività, innovazione e divertimento. Crediamo che un ambiente di lavoro favorevole e piacevole favorisca la collaborazione, la fiducia e la risoluzione proattiva dei problemi. Il miglioramento continuo è nel nostro DNA; ci affidiamo a informazioni basate sui dati per affinare i nostri approcci e fornire l'eccellenza. Unisciti a noi significa essere parte di un team che è così impegnato per la qualità e l'esperienza utente in quanto è quello di creare un posto di lavoro che ti piace venire ogni giorno. Come guida tecnologica, sei comodo indossare due cappelli: tecnologia e gestione. Da una prospettiva tecnica, si:\n• Guidare un team di ingegneri software per sviluppare e possedere soluzioni all'avanguardia (front e back-end).\n• Migliora costantemente la qualità e la sicurezza delle applicazioni.\n• Collabora con Design per migliorare i nostri prodotti centrici client.\n• Contribuire alla scrittura e alla revisione di alta qualità e codice protetto coperto da test.\n• Lavora con gli ingegneri SRE e gli architetti di soluzioni per migliorare la disponibilità, la resilienza e l'osservanza delle applicazioni. Da una prospettiva manageriale, si:\n• Gli ingegneri del software di coach e mentore nella squadra.\n• Migliorare l'efficienza e l'efficacia del team.\n• Partner con product manager e stakeholder per pianificare nuove funzionalità e miglioramenti.\n• Guida retrò e post-mortem senza colpa che aiutano la squadra a imparare dagli errori.\n• Promuovere uno spazio psicologicamente sicuro dove tutti sentono di poter contribuire e migliorare le cose.\n• Fluency in JavaScript, TypeScript, React e Nestjs.\n• Progettazione di componenti riutilizzabili ed estensibili per più progetti.\n• Esperienza e riferimenti come Ingegnere Frontend in configurazioni complesse.\n• Comprendere UI & UX per cercare la migliore esperienza per l'utente\n• Conoscenza della preparazione dei dati, prima API e isolamento dei concetti\n• Comprendere il ciclo di vita di sviluppo e le sue tecnologie – Git, strumenti CI/CD, test di unità, vulnerabilità.\n• Competenza sulle strutture agili (Scrum, kanban...).\n• Sei impaziente di lavorare con FE e BE.\n• Ti piace fare entrambi: lavoro di leadership tecnico e personale.\n• Hai una mentalità collaborativa e di crescita.\n• Ti importa di qualità e sicurezza e cuocere quegli aspetti nel ciclo di vita dello sviluppo software.\n• Sei a tuo agio a prendere la proprietà di tutto il ciclo di vita di sviluppo, dalla progettazione di soluzioni per l'esecuzione dell'applicazione in produzione.\n• Sei proattivo e motivati con nuove opportunità e sfide. Unirsi a Sygnum significa essere parte di un team dinamico e globale che sta costruendo un gateway affidabile tra le economie di asset tradizionali e digitali. Lavorando a Sygnum, sperimenterete il nostro ambiente di lavoro veloce ed emozionante che abbraccia la meritocrazia e la collaborazione e la comunicazione aperta. Accanto alla nostra ambiziosa missione a lungo termine, ci uniamo anche per raggiungere importanti pietre miliari e anniversari cripto-industriali annuali come Bitcoin Pizza Day, e regolarmente celebrare insieme a eventi aziendali a tema come parte del nostro viaggio per formare Future Finance. Sygnum offre un pacchetto completo di vantaggi per tutti i membri del team. Essi includono:\n• Combinazione attraente di salari di mercato e di incentivazione imprenditoriale\n• Flessibile / Lavoro nelle politiche domestiche\n• Sviluppo professionale tramite programmi Mentoring e Buddy\n• Un mese completamente pagato sabbatico dopo cinque anni di lavoro continuo Se siete appassionati del potenziale di blockchain per modellare Future Finance e il vostro profilo è una buona misura per questa posizione, si prega di inviare il vostro CV oggi!",
-        "en": "At the Portal team, we’re the heart of Sygnum’s client-facing experience, and our work directly impacts how users interact with their digital assets. Our mission is to create state-of-the-art UI/UX solutions that not only meet but exceed client expectations, keeping their needs at the center of everything we do. We collaborate closely with Custody, Trading, Tokenization, and Banking Operations teams to ensure our applications are robust, secure, and cutting-edge. But we’re more than just colleagues, we’re a vibrant community that values creativity, innovation, and fun. We believe a supportive and enjoyable work environment fosters collaboration, trust, and proactive problem-solving. Continuous improvement is in our DNA; we rely on data-driven insights to refine our approaches and deliver excellence. Joining us means being part of a team that’s as committed to quality and user experience as it is to create a workplace you’ll love coming to every day. As a tech lead, you are comfortable wearing two hats: tech and management. From a technical perspective, you will:\n• Lead a team of software engineers to develop and own state-of-the-art solutions (front and back end).\n• Constantly enhance quality and security of the applications.\n• Collaborate with Design to improve our client centric products.\n• Contribute to writing and reviewing high quality and secured code covered by tests.\n• Work with SRE engineers and solution architects to improve the availability, resilience, and observability of the applications. From a managerial perspective, you will:\n• Coach and mentor software engineers in the team.\n• Improve the efficiency and effectiveness of the team.\n• Partner with product managers and stakeholders to plan new features and improvements.\n• Drive blameless retros and post-mortems that help the team learn from mistakes.\n• Promote a psychologically safe space where everyone feels they can contribute and improve things.\n• Fluency in JavaScript, TypeScript, React and Nestjs.\n• Designing reusable and extendable components for multiple projects.\n• Experience and references as a Frontend Engineer in complex setups.\n• Understanding UI & UX to seek the best experience for the user\n• Knowledge about data preparation, API first and concept isolation\n• Understanding the development lifecycle and its technologies – Git, CI/CD tools, unit testing, vulnerability.\n• Expertise on agile frameworks (Scrum, kanban...).\n• You are eager to work with FE and BE.\n• You enjoy doing both: technical and people leadership work.\n• You have a collaborative and growth mindset.\n• You care about quality and security and bake those aspects in the software development lifecycle.\n• You are comfortable taking ownership of the whole development lifecycle, from designing solutions to running the application in production.\n• You are proactive and get motivated with new opportunities and challenges. Joining Sygnum means being part of a dynamic, global team that is building a trusted gateway between the traditional and digital asset economies. Working at Sygnum, you will experience our fast-paced, exciting work environment that embraces meritocracy and collaboration and open communication. Alongside our ambitious long-term mission, we also come together for reaching important milestones and annual crypto-industry anniversaries like Bitcoin Pizza Day, and regularly celebrate together at themed company events as part of our journey to shape Future Finance. Sygnum offers a comprehensive package of benefits for all team members. They include:\n• Attractive combination of market salaries and entrepreneurial incentive scheme\n• Flexible/Work at home policies\n• Professional development via Mentoring and Buddy programs\n• One-month fully paid sabbatical after five years of continuous employment If you are passionate about the potential of blockchain to shape Future Finance and your profile is a good fit for this position, please send us your CV today!",
-        "de": "Im Portal-Team sind wir das Herzstück der Kundenerfahrung von Sygnum, und unsere Arbeit hat direkten Einfluss darauf, wie Benutzer mit ihren digitalen Assets interagieren. Unsere Mission ist es, hochmoderne UI/UX-Lösungen zu entwickeln, die die Erwartungen unserer Kunden nicht nur erfüllen, sondern übertreffen und ihre Bedürfnisse im Mittelpunkt unseres Handelns halten. Wir arbeiten eng mit Custody, Trading, Tokenization und Banking Operations Teams zusammen, um sicherzustellen, dass unsere Anwendungen robust, sicher und modern sind. Aber wir sind mehr als nur Kollegen, wir sind eine lebendige Gemeinschaft, die Kreativität, Innovation und Spaß schätzt. Wir glauben, dass ein unterstützendes und angenehmes Arbeitsumfeld die Zusammenarbeit, das Vertrauen und die proaktive Problemlösung fördert. Kontinuierliche Verbesserung liegt in unserer DNA; wir verlassen uns auf datengesteuerte Erkenntnisse, um unsere Ansätze zu verfeinern und Exzellenz zu liefern. Zu uns zu kommen bedeutet, Teil eines Teams zu sein, das sich ebenso für Qualität und Benutzererfahrung einsetzt wie für die Schaffung eines Arbeitsplatzes, den Sie jeden Tag lieben werden. Als Tech-Lead fühlen Sie sich wohl dabei, zwei Hüte zu tragen: Tech und Management. Aus technischer Sicht werden Sie:\n• Führen Sie ein Team von Software-Ingenieuren, um State-of-the-Art-Lösungen (Front- und Back-End) zu entwickeln und zu besitzen.\n• Steigern Sie ständig die Qualität und Sicherheit der Anwendungen.\n• Arbeiten Sie mit Design zusammen, um unsere kundenorientierten Produkte zu verbessern.\n• Tragen Sie zum Schreiben und Überprüfen von qualitativ hochwertigem und gesichertem Code bei, der von Tests abgedeckt wird.\n• Arbeiten Sie mit SRE-Ingenieuren und Lösungsarchitekten zusammen, um die Verfügbarkeit, Belastbarkeit und Beobachtbarkeit der Anwendungen zu verbessern. Aus einer Management-Perspektive werden Sie:\n• Coach und Mentor Software Engineers im Team.\n• Verbessern Sie die Effizienz und Effektivität des Teams.\n• Partnerschaft mit Produktmanagern und Stakeholdern, um neue Funktionen und Verbesserungen zu planen.\n• Fahren Sie tadellose Retros und Post-Mortems, die dem Team helfen, aus Fehlern zu lernen.\n• Fördern Sie einen psychologisch sicheren Raum, in dem jeder das Gefühl hat, etwas beitragen und verbessern zu können.\n• fließend in JavaScript, TypeScript, React und Nestjs.\n• Entwerfen von wiederverwendbaren und erweiterbaren Komponenten für mehrere Projekte.\n• Erfahrung und Referenzen als Frontend Engineer in komplexen Setups.\n• UI & UX verstehen, um die beste Erfahrung für den Benutzer zu suchen\n• Wissen über Datenaufbereitung, API first und Konzeptisolierung\n• Den Entwicklungslebenszyklus und seine Technologien verstehen – Git, CI/CD-Tools, Unit Testing, Vulnerability.\n• Expertise zu agilen Frameworks (Scrum, Kanban...).\n• Sie sind bestrebt, mit FE und BE zu arbeiten.\n• Sie genießen beides: technische und People Leadership-Arbeit.\n• Sie haben eine kollaborative und wachstumsorientierte Denkweise.\n• Sie kümmern sich um Qualität und Sicherheit und backen diese Aspekte im Lebenszyklus der Softwareentwicklung.\n• Sie können den gesamten Entwicklungslebenszyklus übernehmen, vom Entwerfen von Lösungen bis zum Ausführen der Anwendung in der Produktion.\n• Sie sind proaktiv und werden mit neuen Möglichkeiten und Herausforderungen motiviert. Der Beitritt zu Sygnum bedeutet, Teil eines dynamischen, globalen Teams zu sein, das ein vertrauenswürdiges Tor zwischen den traditionellen und digitalen Asset-Ökonomen aufbaut. Bei Sygnum erleben Sie unser schnelles, aufregendes Arbeitsumfeld, das Meritokratie, Zusammenarbeit und offene Kommunikation umfasst. Neben unserer ehrgeizigen langfristigen Mission kommen wir auch zusammen, um wichtige Meilensteine und jährliche Jubiläen der Krypto-Industrie wie den Bitcoin Pizza Day zu erreichen, und feiern regelmäßig gemeinsam auf Themenveranstaltungen im Rahmen unserer Reise zur Gestaltung von Future Finance. Sygnum bietet ein umfassendes Leistungspaket für alle Teammitglieder. Dazu gehören:\n• Attraktive Kombination von Marktgehältern und unternehmerischem Anreizsystem\n• Flexible / Arbeit zu Hause Politik\n• Professionelle Entwicklung durch Mentoring und Buddy Programme\n• Ein Monat voll bezahltes Sabbatical nach fünf Jahren Dauerbeschäftigung Wenn Sie sich für das Potenzial der Blockchain zur Gestaltung von Future Finance begeistern und Ihr Profil gut zu dieser Position passt, senden Sie uns bitte noch heute Ihren Lebenslauf!",
-        "fr": "Au sein de l'équipe du portail, nous sommes le cœur de l'expérience du client Sygnum, et notre travail influe directement sur la façon dont les utilisateurs interagissent avec leurs actifs numériques. Notre mission est de créer des solutions à la fine pointe de la technologie de l'interface utilisateur/UX qui répondent non seulement aux attentes des clients, mais les dépassent, en maintenant leurs besoins au centre de tout ce que nous faisons. Nous collaborons étroitement avec les équipes Custody, Trading, Tokenization et Banking Operations pour nous assurer que nos applications sont robustes, sécurisées et de pointe. Mais nous sommes plus que de simples collègues, nous sommes une communauté dynamique qui valorise la créativité, l'innovation et le plaisir. Nous croyons qu'un milieu de travail favorable et agréable favorise la collaboration, la confiance et la résolution proactive des problèmes. L'amélioration continue est dans notre ADN; nous nous appuyons sur des idées basées sur les données pour affiner nos approches et fournir l'excellence. Se joindre à nous signifie faire partie d'une équipe qui s'engage à la qualité et l'expérience utilisateur comme il est de créer un lieu de travail que vous allez adorer venir à chaque jour. En tant que leader technologique, vous êtes à l'aise avec deux chapeaux : la technologie et la gestion. D'un point de vue technique, vous pourrez :\n• Dirigez une équipe d'ingénieurs logiciels pour développer et posséder des solutions de pointe (avant et arrière).\n• Améliorer constamment la qualité et la sécurité des applications.\n• Collaborez avec Design pour améliorer nos produits centrés sur nos clients.\n• Contribuer à la rédaction et à l'examen de codes de haute qualité et sécurisés couverts par les tests.\n• Travailler avec les ingénieurs SRE et les architectes de solutions pour améliorer la disponibilité, la résilience et l'observabilité des applications. Du point de vue de la gestion, vous allez :\n• Entraîneur et mentor ingénieurs logiciels dans l'équipe.\n• Améliorer l'efficience et l'efficacité de l'équipe.\n• Établir des partenariats avec les gestionnaires de produits et les intervenants pour planifier de nouvelles fonctionnalités et améliorations.\n• Conduire des rétros et post-mortems irréprochables qui aident l'équipe à apprendre des erreurs.\n• Promouvoir un espace psychologiquement sûr où chacun se sent capable de contribuer et d'améliorer les choses.\n• Fluence dans JavaScript, TypeScript, Réagir et Nestjs.\n• Conception de composants réutilisables et extensibles pour plusieurs projets.\n• Expérience et références en tant qu'ingénieur Frontend dans des configurations complexes.\n• Comprendre UI & UX pour rechercher la meilleure expérience pour l'utilisateur\n• Connaissance de la préparation des données, de l'API d'abord et de l'isolement des concepts\n• Comprendre le cycle de vie du développement et ses technologies – outils Git, CI/CD, test unitaire, vulnérabilité.\n• Expertise sur les cadres agiles (Scrum, kanban...).\n• Vous êtes impatient de travailler avec FE et BE.\n• Vous aimez faire les deux: le travail de leadership technique et les gens.\n• Vous avez un esprit de collaboration et de croissance.\n• Vous vous souciez de la qualité et de la sécurité et faites cuire ces aspects dans le cycle de développement logiciel.\n• Vous êtes à l'aise de prendre en charge l'ensemble du cycle de développement, de la conception de solutions à l'exécution de l'application dans la production.\n• Vous êtes proactif et êtes motivé par de nouvelles opportunités et de nouveaux défis. Rejoindre Sygnum signifie faire partie d'une équipe mondiale dynamique qui construit une passerelle de confiance entre les économies d'actifs traditionnelles et numériques. En travaillant chez Sygnum, vous vivrez notre environnement de travail rapide et passionnant qui embrasse la méritocratie et la collaboration et la communication ouverte. Parallèlement à notre mission ambitieuse à long terme, nous nous réunissons également pour atteindre des jalons importants et des anniversaires annuels de crypto-industrie comme la Journée de la pizza Bitcoin, et célébrons régulièrement ensemble lors des événements thématiques de l'entreprise dans le cadre de notre voyage pour façonner Future Finance. Sygnum offre un ensemble complet d'avantages pour tous les membres de l'équipe. Ils comprennent:\n• Combinaison attrayante des salaires du marché et du régime d ' incitation à l ' entreprise\n• Les politiques de flexibilité/travail à domicile\n• Développement professionnel via les programmes de mentorat et de Buddy\n• Un mois plein salaire sabbatique après cinq années d'emploi continu Si vous êtes passionné par le potentiel de blockchain pour façonner Future Finance et votre profil est un bon ajustement pour ce poste, veuillez nous envoyer votre CV aujourd'hui!"
-      },
-      "location": "Zurich",
-      "canton": "ZH",
-      "url": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN258",
-      "source": "Sygnum Dedicated Parser (Salesforce fRecruit)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-13T14:03:25.281Z",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "streetAddress": "Uetlibergstrasse 134A",
-      "postalCode": "8045",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Finanza / Banche digitali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-08",
-      "applyUrl": "https://sygnumpeopleportal.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN258",
-      "jobReqId": "VN258",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "frontend-tech-lead-sygnum-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "frontend-tech-lead-sygnum-zurich"
-        ],
-        "de": [
-          "frontend-tech-lead-sygnum-zurich"
-        ]
-      },
-      "firstSeenAt": "2026-07-04T12:43:00.177Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 121500,
-          "maxValue": 206500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
     }
   ]
 }

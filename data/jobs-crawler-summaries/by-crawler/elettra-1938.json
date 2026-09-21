@@ -1,21 +1,21 @@
 {
   "key": "elettra-1938",
   "label": "Elettra 1938",
-  "generatedAt": "2026-09-19T23:03:50.942Z",
-  "total": 2,
+  "generatedAt": "2026-09-21T16:09:15.701Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
-  "written": 2,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4960,
-  "avgDurationMs": 4960,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 3827,
+  "avgDurationMs": 3827,
   "durationHistory": [
-    4960
+    3827
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://inrecruiting.intervieweb.it/fiammcomponents/jobs/operaio-desercizio-728378/it/",
       "source": "Elettra 1938 Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-19T23:03:43.016Z",
+      "crawledAt": "2026-09-21T16:09:09.079Z",
       "addressLocality": "Sede Stabio Svizzera",
       "addressRegion": "TI",
       "addressCountry": "CH",
@@ -56,8 +56,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "elettra-1938-73b81e3ccbae",
       "slug": "customer-quality-engineer-elettra-1938-ch",
@@ -98,5 +97,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

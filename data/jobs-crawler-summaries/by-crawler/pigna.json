@@ -1,21 +1,21 @@
 {
   "key": "pigna",
   "label": "Stiftung Pigna",
-  "generatedAt": "2026-09-19T23:04:33.964Z",
-  "total": 10,
+  "generatedAt": "2026-09-21T16:09:44.004Z",
+  "total": 9,
   "discovered": null,
   "parsed": 9,
   "lastFetchOutcome": null,
-  "written": 10,
+  "written": 9,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 9,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 10534,
-  "avgDurationMs": 10534,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 11692,
+  "avgDurationMs": 11692,
   "durationHistory": [
-    10534
+    11692
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://app.reflinejobs.io/1531/0132/pub/510/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:04:20.858Z",
+      "crawledAt": "2026-09-21T16:09:30.158Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -69,7 +69,7 @@
       "url": "https://app.reflinejobs.io/1531/0138/pub/507/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:04:21.547Z",
+      "crawledAt": "2026-09-21T16:09:31.389Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://app.reflinejobs.io/1531/0270/pub/504/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:04:23.429Z",
+      "crawledAt": "2026-09-21T16:09:33.243Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -143,7 +143,7 @@
       "url": "https://app.reflinejobs.io/1531/0288/pub/513/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:04:24.001Z",
+      "crawledAt": "2026-09-21T16:09:33.830Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -180,7 +180,7 @@
       "url": "https://app.reflinejobs.io/1531/0294/pub/495/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:04:25.363Z",
+      "crawledAt": "2026-09-21T16:09:35.086Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -217,7 +217,7 @@
       "url": "https://app.reflinejobs.io/1531/0291/pub/492/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:04:24.755Z",
+      "crawledAt": "2026-09-21T16:09:34.544Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -254,7 +254,7 @@
       "url": "https://app.reflinejobs.io/1531/0297/pub/488/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:04:25.936Z",
+      "crawledAt": "2026-09-21T16:09:35.713Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -291,7 +291,7 @@
       "url": "https://app.reflinejobs.io/1531/0156/pub/485/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:04:22.244Z",
+      "crawledAt": "2026-09-21T16:09:32.061Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -328,7 +328,7 @@
       "url": "https://app.reflinejobs.io/1531/0216/pub/482/index.html",
       "source": "Pigna Dedicated Parser (Refline 1531)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:04:22.845Z",
+      "crawledAt": "2026-09-21T16:09:32.630Z",
       "addressLocality": "Kloten",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -353,8 +353,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "pigna-59a6fd7f2da6",
       "slug": "procurazione-50-w-m-d-stiftung-pigna-kloten",
@@ -396,5 +395,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
