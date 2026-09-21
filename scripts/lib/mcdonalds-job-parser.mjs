@@ -30,7 +30,7 @@ import { TLS_ERROR_CODES } from './transient-fetch.mjs';
  */
 
 import { inferAnyCanton, isTargetSwissLocation, normalizeCantonCode } from './target-swiss-locations.mjs';
-import { isChCountry } from './ch-country-guard.mjs';
+import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
 import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
 
 export const MCDO_KEY = 'mcdonald-s-switzerland';
@@ -292,9 +292,14 @@ const FOREIGN_LOCATION_MARKER_RX = /\b(?:FL|LI)\b|\bliechtenstein\b/i;
 function foreignListingLocationReason(location) {
   if (!location || typeof location !== 'object') return '';
 
-  const sourceCountry = String(location.countryAbbr || location.country || '').trim();
-  if (sourceCountry && !isChCountry(sourceCountry)) {
-    return `source country ${sourceCountry}`;
+  for (const [fieldName, rawValue] of [
+    ['countryAbbr', location.countryAbbr],
+    ['country', location.country],
+  ]) {
+    const sourceCountry = coerceCountryField(rawValue);
+    if (sourceCountry && !isChCountry(sourceCountry)) {
+      return `source country ${fieldName} ${sourceCountry}`;
+    }
   }
 
   // McHire currently labels a Vaduz listing as CH in the country fields, while

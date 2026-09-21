@@ -190,6 +190,19 @@ describe("McDonald's Switzerland crawler parser", () => {
       })).toBeNull();
     });
 
+    it('checks the full country field even when countryAbbr says CH', () => {
+      expect(listingEntryToParsed({
+        title: 'Crew Member',
+        reference: 'P8-LI-country-1',
+        originalURL: 'fr-ch/crew/job/P8-LI-country-1',
+        locations: [{
+          city: 'VADUZ',
+          country: 'Liechtenstein',
+          countryAbbr: 'CH',
+        }],
+      })).toBeNull();
+    });
+
     it('fails closed instead of counting malformed rows as legitimate exclusions', () => {
       expect(() => listingEntryToParsed(null)).toThrow(/no verified Swiss source location/);
       expect(() => listingEntryToParsed({ title: 'x' })).toThrow(/no verified Swiss source location/);
