@@ -805,6 +805,10 @@ describe('native auto-merge gate (#8512)', () => {
     })).toMatchObject({ allow: false });
     expect(bodyRecoveryBarrierDecision({
       comments: [[]], prNumber: 1, headSha: HEAD, bodyRevision: revision,
+    })).toMatchObject({ allow: true });
+    expect(bodyRecoveryBarrierDecision({
+      comments: [[], [marker('completed')]],
+      prNumber: 1, headSha: HEAD, bodyRevision: revision,
     })).toMatchObject({ allow: false });
     expect(bodyRecoveryBarrierDecision({
       comments: {} as any, prNumber: 1, headSha: HEAD, bodyRevision: revision,
