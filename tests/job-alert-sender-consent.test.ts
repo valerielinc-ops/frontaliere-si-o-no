@@ -102,4 +102,13 @@ describe('job-alert sender base-relationship and suppression boundary', () => {
     expect(retryBody).toMatch(/alert\.active !== true/);
     expect(retryBody).toMatch(/await item\.doc\.ref\.delete\(\)/);
   });
+
+  it('keeps non-target retry items untouched during an operator verification run', () => {
+    const source = read('scripts/send-job-alerts.mjs');
+    const start = source.indexOf('async function processRetryQueue(');
+    const end = source.indexOf('\n// ── Main ─────────────────────────────────────────────────────', start);
+    const retryBody = source.slice(start, end);
+    expect(retryBody).toMatch(/ALLOWED_EMAILS\s*&&\s*!ALLOWED_EMAILS\.has\(email\)\)\s*continue/);
+    expect(retryBody).toMatch(/finalisation[\s\S]*ALLOWED_EMAILS\s*&&\s*!ALLOWED_EMAILS\.has\(email\)/);
+  });
 });

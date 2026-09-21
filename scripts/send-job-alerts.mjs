@@ -80,6 +80,11 @@ import { dataControllerFooterLine } from '../functions/src/lib/dataControllerIde
 import { makePreferencesUrl, generateAutologinCode, makeAuthenticatedUrl as makeAuthenticatedUrlShared } from '../services/newsletterUrls.mjs';
 import { makeAlertUnsubscribeUrl, makeAllAlertsUnsubscribeUrl } from './lib/job-alert-unsub-urls.mjs';
 import { isImmediateCompanyAlert } from './lib/company-alert-routing.mjs';
+import {
+  DEFAULT_JOB_ALERT_LOOKBACK_MS,
+  jobInventoryTimestampMs,
+  selectJobAlertCandidates,
+} from './lib/job-alert-newness.mjs';
 // localePathPrefix aliased to the local name this script has always used for
 // its locale-aware URL construction — the implementation is the canonical
 // shared helper (also used by send-newsletter.mjs, send-saved-jobs-digest.mjs).
@@ -106,13 +111,11 @@ const JOB_EMAIL_RANKING_CONFIG = readJobEmailRankingConfig();
 const JOB_EMAIL_RANKING_RUN_ID = process.env.GITHUB_RUN_ID
   || process.env.RUN_ID
   || `${TODAY_ISO}_${process.pid}_${Date.now()}`;
-// Candidate-pool gate: jobs whose crawledAt (or postedDate fallback) falls
-// inside this window. NOTE: crawledAt refreshes on every re-crawl, so this is
-// an "inventory still listed as of the last day" gate, NOT a "new jobs" gate —
-// genuine novelty is keyed on firstSeenAt (postedDate fallback for copy/badge;
-// freshnessBoost itself remains firstSeenAt-only), and per-user novelty is
-// enforced by the sentJobIds dedup (alert-sent-jobs.mjs).
-const MATCH_WINDOW_MS = 24 * 60 * 60 * 1000; // 24 hours
+// First-send fallback. Once the recipient has a successful job-alert send,
+// selectJobAlertCandidates() replaces this fixed bound with that recipient's
+// last_sent_at cursor. crawledAt remains an availability clock; firstSeenAt is
+// still the only novelty clock used by copy/badges and freshnessBoost.
+const MATCH_WINDOW_MS = DEFAULT_JOB_ALERT_LOOKBACK_MS;
 // Max job cards rendered in one alert email. Also the honest basis for the
 // subject/hero counts and for the sentJobIds rotation (only what the user
 // actually SAW is marked as sent).
@@ -671,20 +674,31 @@ export const STATIC_CITY_CANTON_FLOOR = {
   lugano: 'ti', bellinzona: 'ti', mendrisio: 'ti', chiasso: 'ti',
 };
 
-// Returns the rolling live-inventory match pool AND a lightweight slug/id →
-// geography index over the FULL dataset. The pool's crawledAt window is an
-// availability check, not a novelty claim; email copy and badges use
-// jobRealFreshnessMs() instead. The index lets us recover the location of a job
-// a one-tap subscriber engaged with (`sourceJobSlug`) even when it is older
-// than the 24h match window — folded into the matcher as a soft location signal
-// so same-area jobs rank to the top of a location-less alert.
+// Returns the live inventory AND a lightweight slug/id → geography index over
+// the FULL dataset. The old implementation threw away everything outside a
+// fixed 24h crawledAt window before it knew which recipient was being planned;
+// that made a weekly/paused recipient lose the catch-up interval. We retain the
+// inventory rows here and apply each recipient's cursor in main(). The index
+// still covers the full dataset so a one-tap source job can recover its
+// geography even when it is older than the current recipient window.
 function loadJobs() {
-  if (!fs.existsSync(JOBS_PATH)) return { recent: [], locationIndex: new Map(), cityToCanton: new Map() };
+  if (!fs.existsSync(JOBS_PATH)) return {
+    inventory: [],
+    recent: [],
+    locationIndex: new Map(),
+    cityToCanton: new Map(),
+  };
   const jobs = JSON.parse(fs.readFileSync(JOBS_PATH, 'utf-8'));
-  if (!Array.isArray(jobs)) return { recent: [], locationIndex: new Map(), cityToCanton: new Map() };
+  if (!Array.isArray(jobs)) return {
+    inventory: [],
+    recent: [],
+    locationIndex: new Map(),
+    cityToCanton: new Map(),
+  };
 
-  const cutoff = Date.now() - MATCH_WINDOW_MS;
-  const recent = [];
+  const now = Date.now();
+  const cutoff = now - MATCH_WINDOW_MS;
+  const inventory = [];
   const locationIndex = new Map();
   // City → canton index over the FULL dataset, so the graduated geo preference
   // (#2993) can resolve a subscriber's preferred city (e.g. "bellinzona") to its
@@ -716,9 +730,14 @@ function loadJobs() {
     // source language) whenever any other locale's translation was pending.
     // The locale-aware exemption is applied per-alert below, where the
     // recipient's locale is actually known (#4715).
-    if (firstParsableMs(j.crawledAt, j.postedDate) >= cutoff) recent.push(j);
+    const inventoryAt = jobInventoryTimestampMs(j);
+    // A future crawl timestamp is malformed input, not a reason to send a job
+    // before it can exist. Rows without any usable inventory timestamp are
+    // quarantined from matching rather than widening the pool to all history.
+    if (inventoryAt > 0 && inventoryAt <= now) inventory.push(j);
   }
-  return { recent, locationIndex, cityToCanton };
+  const recent = inventory.filter((job) => jobInventoryTimestampMs(job) >= cutoff);
+  return { inventory, recent, locationIndex, cityToCanton };
 }
 
 // Resolve the geography of the job a one-tap alert was created from, via its
@@ -1529,6 +1548,11 @@ async function processRetryQueue(db) {
 
   for (const doc of snap.docs) {
     const data = doc.data();
+    const email = String(data.email || '').trim().toLowerCase();
+    // A TARGET_EMAIL run is an operator verification. Leave every other
+    // recipient's retry item untouched — including malformed/maxed-out items —
+    // so a QA send cannot delete, deliver, or advance another user's state.
+    if (ALLOWED_EMAILS && !ALLOWED_EMAILS.has(email)) continue;
     const retryCount = data.retryCount || 0;
 
     if (retryCount >= MAX_RETRY_COUNT) {
@@ -1538,7 +1562,6 @@ async function processRetryQueue(db) {
       continue;
     }
 
-    const email = String(data.email || '').trim().toLowerCase();
     const alertId = String(data.alertId || '').trim();
     if (!email.includes('@') || !alertId || alertId.includes('/')) {
       // A malformed/stale queue item has no safe Firestore target to
@@ -1613,7 +1636,12 @@ async function processRetryQueue(db) {
             rankingJobs: item.data.rankingJobs || [],
           },
         });
-        retryDocs.push({ ref: item.doc.ref, data: item.data });
+        retryDocs.push({
+          ref: item.doc.ref,
+          data: item.data,
+          alertRef: db.collection('job_alert_subscribers').doc(item.email)
+            .collection('alerts').doc(item.alertId),
+        });
       }
     } catch (err) {
       console.warn(`   ⚠️  Retry consent lookup failed for ${chunk.length} queued email(s): ${err?.message || err}`);
@@ -1676,18 +1704,56 @@ async function processRetryQueue(db) {
     }
   }
 
-  // Build a set of successfully sent recipient emails for lookup
-  const sentEmails = new Set(result.sent.map(s => s.recipient?.email));
+  // Build a set of successfully sent recipient emails for lookup. A retry is a
+  // real delivery, not just a queue deletion: it must advance the same
+  // per-alert ledger and per-recipient cursor as the first-send path.
+  const sentEmails = new Set(
+    result.sent.map((s) => String(s.recipient?.email || '').toLowerCase()).filter(Boolean),
+  );
+  const retrySentAt = Date.now();
 
   let successCount = 0;
   let reEnqueueCount = 0;
 
-  for (const { ref, data } of retryDocs) {
-    if (sentEmails.has(data.email)) {
-      // Successfully retried — remove from queue
-      await ref.delete();
-      successCount++;
-      console.log(`   ✅ Retry succeeded: ${data.email} (alert ${data.alertId})`);
+  for (const retryDoc of retryDocs) {
+    const { ref, data } = retryDoc;
+    const email = String(data.email || '').trim().toLowerCase();
+    // Defense in depth: retryDocs are filtered above, but the finalisation
+    // guard keeps a targeted run from ever moving another recipient's cursor
+    // or ledger if queue assembly changes later.
+    if (ALLOWED_EMAILS && !ALLOWED_EMAILS.has(email)) continue;
+    if (sentEmails.has(email)) {
+      // Successfully retried — finalise the durable sent view before removing
+      // the queue item. If this write fails, leave the item in the queue so the
+      // accepted-but-unrecorded outcome remains visible for reconciliation.
+      try {
+        const jobs = Array.isArray(data.rankingJobs) ? data.rankingJobs : [];
+        if (jobs.length > 0 && retryDoc.alertRef) {
+          await db.runTransaction(async (tx) => {
+            const alertSnap = await tx.get(retryDoc.alertRef);
+            if (!alertSnap.exists) return;
+            const current = alertSnap.data() || {};
+            tx.update(retryDoc.alertRef, {
+              lastMatchedAt: FieldValue.serverTimestamp(),
+              matchCount: FieldValue.increment(jobs.length),
+              sentJobIds: mergeSentJobs(
+                normalizeSentMap(current.sentJobIds),
+                jobs,
+                retrySentAt,
+                DEDUP_WINDOW_MS,
+              ),
+            });
+          });
+        }
+        await db.collection('job_alert_subscribers').doc(String(data.email).toLowerCase()).set({
+          last_sent_at: FieldValue.serverTimestamp(),
+        }, { merge: true });
+        await ref.delete();
+        successCount++;
+        console.log(`   ✅ Retry succeeded: ${data.email} (alert ${data.alertId})`);
+      } catch (error) {
+        console.warn(`   ⚠️ Retry accepted but finalisation failed for ${data.email} (alert ${data.alertId}); queue item retained: ${error?.message || error}`);
+      }
     } else {
       // Still failed — increment retryCount
       const newCount = (data.retryCount || 0) + 1;
@@ -1871,8 +1937,11 @@ async function main() {
     console.warn(`   ⚠️  Global preferred send hour read failed: ${e?.message || e}`);
   }
 
-  // 1. Load the rolling inventory (+ full-dataset geo index for source-job resolution)
-  const { recent: recentJobs, locationIndex, cityToCanton } = loadJobs();
+  // 1. Load the live inventory (+ full-dataset geo index for source-job
+  // resolution). The recipient-specific cursor is applied only after the
+  // alert documents are loaded, because each address can have a different
+  // last successful send.
+  const { inventory: inventoryJobs, recent: recentJobs, locationIndex, cityToCanton } = loadJobs();
   const genuinelyFreshJobs = recentJobs.filter((job) => isActuallyNewJob(job)).length;
   console.log(`   Live inventory verified in the last 24h: ${recentJobs.length}`);
   console.log(`   Genuinely fresh by firstSeenAt/postedDate (last 48h): ${genuinelyFreshJobs}`);
@@ -1882,8 +1951,8 @@ async function main() {
   // slug/slugByLocale/canton/location fields are absent from data/jobs.json and
   // the one-tap precision boost never materializes. Expected: ≫ 0.
   console.log(`   Geo index entries (slug/id → location): ${locationIndex.size}`);
-  if (recentJobs.length === 0) {
-    console.log('   No recent jobs — skipping.');
+  if (inventoryJobs.length === 0) {
+    console.log('   No live inventory jobs — skipping.');
     return;
   }
 
@@ -2257,14 +2326,27 @@ async function main() {
   const featureCache = createJobFeatureCache();
   const livenessPrefetcher = createJobLivenessPrefetcher(jobLiveCheckCache);
   const plans = [];
+  const cursorReasons = {};
+  let cursorCandidateCount = 0;
   for (const alert of alerts) {
+    const recipientProfile = jobAlertProfiles.get(alert.email.toLowerCase()) || {};
+    const candidateWindow = selectJobAlertCandidates(inventoryJobs, {
+      recipientLastSentAt: recipientProfile.last_sent_at,
+      alertCreatedAt: alert.createdAt,
+      nowMs: now,
+      initialLookbackMs: MATCH_WINDOW_MS,
+    });
+    cursorReasons[candidateWindow.reason] = (cursorReasons[candidateWindow.reason] || 0) + 1;
+    cursorCandidateCount += candidateWindow.jobs.length;
     const plan = planAlertMatch(alert, {
       behaviorProfiles,
       lastClickedUrlByEmail,
       locationIndex,
       cityToCanton,
       subscriberProfiles,
-      recentJobs,
+      // `planAlertMatch` keeps its historical property name for the test
+      // oracle, but the value is now the recipient-aware candidate pool.
+      recentJobs: candidateWindow.jobs,
       now,
       featureCache,
     });
@@ -2273,6 +2355,7 @@ async function main() {
     await new Promise((resolve) => setImmediate(resolve));
   }
   await livenessPrefetcher.drain();
+  console.log(`   🧭 Recipient-aware candidate windows: ${JSON.stringify(cursorReasons)} (${cursorCandidateCount} candidate rows before matching)`);
 
   // 3b. Build, in the original alert order, with the same logs and counters.
   for (const { alert, rankedCount, zeroCause, sentMap, matched } of plans) {
@@ -2499,6 +2582,10 @@ async function main() {
         .map((email) => email.to.toLowerCase())
         .filter((email) => !failedEmailSet.has(email)),
     )];
+    // TARGET_EMAIL/ALLOWED_EMAILS is an operator verification run. It may send
+    // a real test message, but it must never move a production recipient's
+    // cursor or consume that alert's sent-job ledger.
+    const statefulSentEmails = ALLOWED_EMAILS ? [] : sentEmails;
 
     // Impression tracking is deliberately written only after the provider
     // confirms the send. TARGET_EMAIL/ALLOWED_EMAILS is an operator QA run and
@@ -2534,7 +2621,7 @@ async function main() {
     // is the cross-channel 36h mutex and is not ours to change.
     const cadenceSentAtIso = new Date().toISOString();
     const cadenceStateByEmail = new Map();
-    for (const email of sentEmails) {
+    for (const email of statefulSentEmails) {
       const sub = jobAlertProfiles.get(email) || {};
       cadenceStateByEmail.set(email, nextJobAlertCadenceState({
         sub,
@@ -2557,7 +2644,14 @@ async function main() {
     // captured during the load step above. Pre-filter then chunk past the
     // Firestore 500-op batch cap (emailsToSend can exceed it at scale; a single
     // commit() would throw and skip every lastMatchedAt/matchCount update).
-    const toUpdate = emailsToSend.filter((email) => email.ref);
+    // Only provider-accepted messages may advance `lastMatchedAt`, counters or
+    // sentJobIds. A failed/ambiguous item remains recoverable through the retry
+    // queue and must not look delivered merely because it was selected.
+    const toUpdate = emailsToSend.filter((email) => (
+      email.ref
+      && !failedEmailSet.has(email.to.toLowerCase())
+      && !ALLOWED_EMAILS
+    ));
     let decayedNow = 0;
     await commitInChunks(db, toUpdate, (batch, email) => {
       const key = email.to.toLowerCase();
@@ -2618,6 +2712,7 @@ async function main() {
     const effectiveTierByEmail = new Map();
     for (const email of emailsToSend) {
       const key = email.to.toLowerCase();
+      if (!statefulSentEmails.includes(key)) continue;
       const existing = effectiveTierByEmail.get(key);
       if (!existing || TIER_PRIORITY[email.effectiveTier] < TIER_PRIORITY[existing]) {
         effectiveTierByEmail.set(key, email.effectiveTier);
@@ -2630,10 +2725,12 @@ async function main() {
     // starved by theirs. The pin is the one act of the person about their own
     // frequency, and it lives on its own clock (#5705 D4).
     const engineManagedSend = new Set(
-      emailsToSend.filter((email) => !email.cadenceManual).map((email) => email.to.toLowerCase()),
+      emailsToSend
+        .filter((email) => !email.cadenceManual && statefulSentEmails.includes(email.to.toLowerCase()))
+        .map((email) => email.to.toLowerCase()),
     );
-    if (sentEmails.length > 0) {
-      await commitInChunks(db, sentEmails, (batch, email) => {
+    if (statefulSentEmails.length > 0) {
+      await commitInChunks(db, statefulSentEmails, (batch, email) => {
         // Per-user send-time observability (#3798 follow-up): mirror what the
         // cascade actually decided for this recipient (scheduleOutcomes, built
         // in sendBatch from the cascade's authoritative per-item result) — null
@@ -2652,7 +2749,7 @@ async function main() {
           ...(engineManagedSend.has(email) ? (cadenceStateByEmail.get(email) || {}) : {}),
         }, { merge: true });
       });
-      console.log(`   📬 last_sent_at recorded for ${sentEmails.length} job-alert recipient(s)`);
+      console.log(`   📬 last_sent_at recorded for ${statefulSentEmails.length} job-alert recipient(s)`);
     }
 
     // 6. Personalization enrichment (no-clobber). Consolidate every signal we
