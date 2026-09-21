@@ -92113,6 +92113,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-plr-strategia-costi-sanitari-ticino': {
+    title: 'Premi cassa malati: il PLR propone una strategia cantonale',
+    description: 'Il PLR presenta una mozione per contenere i costi sanitari in Ticino dopo l\'aumento dei premi LAMal del 7,1% nel 2026. Scopri i dettagli della proposta.',
+    keywords: 'frontalieri, ticino, svizzera, italia, premi, cassa, malati, propone',
+    ogTitle: 'Premi cassa malati: il PLR propone una strategia cantonale',
+    ogDescription: 'Il PLR chiede un monitoraggio trimestrale dei costi sanitari e una pianificazione dell\'offerta dopo l\'aumento dei premi del 7,1% in Ticino nel 2026. Analisi e impatti sulla spesa pubblica.',
+    canonicalPath: '/articoli-frontaliere/plr-strategia-costi-sanitari-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Premi cassa malati: il PLR propone una strategia cantonale",
+      "description": "Il PLR presenta una mozione per contenere i costi sanitari in Ticino dopo l'aumento dei premi LAMal del 7,1% nel 2026. Scopri i dettagli della proposta.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/plr-strategia-costi-sanitari-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica della città di Lugano con il lago, simbolo del contesto ticinese."
+      },
+      "datePublished": "2026-09-21T10:18:58+00:00",
+      "dateModified": "2026-09-21T10:18:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/plr-strategia-costi-sanitari-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

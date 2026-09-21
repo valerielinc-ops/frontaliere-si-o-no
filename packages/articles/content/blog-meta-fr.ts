@@ -11881,6 +11881,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.regole-chiare-assunzioni-ticino.title': 'Recrutement dans le secteur public au Tessin : des règles claires demandées',
     'blog.article.regole-chiare-assunzioni-ticino.excerpt': 'Roncelli et Mirante di Avanti avec Ticino & Lavoro interpellent le gouvernement sur l\'affaire Zali et sur le courriel de 2020 à l\'Eoc.',
     'blog.article.regole-chiare-assunzioni-ticino.imageAlt': 'Documents et stylo sur un bureau à Bellinzona',
+    'blog.article.plr-strategia-costi-sanitari-ticino.title': 'Primes caisse-maladie : le PLR propose une stratégie cantonale',
+    'blog.article.plr-strategia-costi-sanitari-ticino.excerpt': 'Le PLR demande un suivi trimestriel des coûts de santé après l\'augmentation des primes de 7,1 % enregistrée au Tessin en 2026.',
+    'blog.article.plr-strategia-costi-sanitari-ticino.imageAlt': 'Vue panoramique de la ville de Lugano avec le lac, symbole du contexte tessinois.',
 };
 
 export default blogMetaFr;

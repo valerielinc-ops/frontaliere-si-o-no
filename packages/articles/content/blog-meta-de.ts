@@ -11878,6 +11878,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.regole-chiare-assunzioni-ticino.title': 'Einstellungen im öffentlichen Sektor im Tessin: klare Regeln gefordert',
     'blog.article.regole-chiare-assunzioni-ticino.excerpt': 'Roncelli und Mirante di Avanti mit Ticino & Lavoro befragen die Regierung zum Fall Zali und in der E-Mail von 2020 an Eoc.',
     'blog.article.regole-chiare-assunzioni-ticino.imageAlt': 'Dokumente und Stift auf einem Schreibtisch in Bellinzona',
+    'blog.article.plr-strategia-costi-sanitari-ticino.title': 'Krankenkassenprämien: FDP schlägt kantonale Strategie vor',
+    'blog.article.plr-strategia-costi-sanitari-ticino.excerpt': 'Die FDP fordert eine vierteljährliche Überwachung der Gesundheitskosten nach der Prämienerhöhung von 7,1% im Tessin im Jahr 2026.',
+    'blog.article.plr-strategia-costi-sanitari-ticino.imageAlt': 'Panoramablick auf die Stadt Lugano mit dem See, Symbol des Tessiner Kontexts.',
 };
 
 export default blogMetaDe;

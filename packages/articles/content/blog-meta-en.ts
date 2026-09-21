@@ -11879,6 +11879,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.regole-chiare-assunzioni-ticino.title': 'Recruitment in the public sector in Ticino: clear rules requested',
     'blog.article.regole-chiare-assunzioni-ticino.excerpt': 'Roncelli and Mirante di Avanti with Ticino & Lavoro ask the government about the Zali case and the 2020 email to the ECO.',
     'blog.article.regole-chiare-assunzioni-ticino.imageAlt': 'Documents and pen on a desk in Bellinzona',
+    'blog.article.plr-strategia-costi-sanitari-ticino.title': 'Health insurance premiums: the PLR proposes a cantonal strategy',
+    'blog.article.plr-strategia-costi-sanitari-ticino.excerpt': 'The PLR calls for quarterly monitoring of healthcare costs after the 7.1% increase in premiums recorded in Ticino in 2026.',
+    'blog.article.plr-strategia-costi-sanitari-ticino.imageAlt': 'Panoramic view of Lugano city with the lake, symbol of the Ticino context.',
 };
 
 export default blogMetaEn;

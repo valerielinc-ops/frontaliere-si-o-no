@@ -11880,6 +11880,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.regole-chiare-assunzioni-ticino.title': 'Assunzioni nel settore pubblico in Ticino: chieste regole chiare',
     'blog.article.regole-chiare-assunzioni-ticino.excerpt': 'Roncelli e Mirante di Avanti con Ticino & Lavoro interpellano il governo sul caso Zali e sulla mail del 2020 all\'Eoc.',
     'blog.article.regole-chiare-assunzioni-ticino.imageAlt': 'Documenti e penna su una scrivania a Bellinzona',
+    'blog.article.plr-strategia-costi-sanitari-ticino.title': 'Premi cassa malati: il PLR propone una strategia cantonale',
+    'blog.article.plr-strategia-costi-sanitari-ticino.excerpt': 'Il PLR chiede un monitoraggio trimestrale dei costi sanitari dopo l\'aumento dei premi del 7,1% registrato in Ticino nel 2026.',
+    'blog.article.plr-strategia-costi-sanitari-ticino.imageAlt': 'Vista panoramica della città di Lugano con il lago, simbolo del contesto ticinese.',
 };
 
 export default blogMetaIt;
