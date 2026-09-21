@@ -1841,6 +1841,40 @@ describe('cross-repo crawler execution artifacts', () => {
     })).not.toThrow();
   }, 30_000);
 
+  it('accetta il reason storico sul contratto già identical senza allargare il transport', () => {
+    const { outDir, contractPath } = generateArtifacts();
+    fs.copyFileSync(contractPath, path.join(outDir, 'contract.json'));
+    const corpusRoot = path.join(tmp, 'identical-contract-reason-corpus');
+    const manifestPath = path.join(corpusRoot, 'scripts/ci/loop-sync-manifest.json');
+    const baseManifest = {
+      files: [{
+        path: 'generator/data/crawler-cross-repo-contract.json',
+        sitePath: '.github/corpus-workflows/contract.json',
+        mode: 'identical',
+        reason: 'Riallineato dopo una precedente divergenza adattata.',
+        baseline: { site: 'old-site', corpus: 'old-corpus', alignedAt: '2026-09-21' },
+      }],
+    };
+    fs.mkdirSync(path.dirname(manifestPath), { recursive: true });
+    fs.writeFileSync(manifestPath, `${JSON.stringify(baseManifest, null, 2)}\n`);
+
+    expect(() => prepareCrawlerWorkflowCorpusSync({
+      sourceDir: outDir,
+      corpusRoot,
+      alignedAt: '2026-09-21',
+    })).not.toThrow();
+
+    const currentManifest = JSON.parse(fs.readFileSync(manifestPath, 'utf8'));
+    const contractEntry = currentManifest.files.find((entry: any) => (
+      entry.sitePath === '.github/corpus-workflows/contract.json'
+    ));
+    expect(contractEntry).toMatchObject({
+      mode: 'identical',
+      reason: baseManifest.files[0].reason,
+    });
+    expect(() => assertCrawlerManifestDelta({ baseManifest, currentManifest })).not.toThrow();
+  }, 30_000);
+
   it('non consente la convergenza di un adattamento transport non approvato', () => {
     const baseManifest: any = {
       files: [{
