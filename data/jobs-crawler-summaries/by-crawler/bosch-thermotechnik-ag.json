@@ -1,18 +1,79 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-09-19T22:47:54.318Z",
+  "generatedAt": "2026-09-21T15:54:37.089Z",
   "total": 8,
-  "newCount": 0,
-  "updatedCount": 7,
-  "removedCount": 0,
+  "newCount": 2,
+  "updatedCount": 5,
+  "removedCount": 2,
   "unchangedCount": 1,
-  "durationMs": 20051,
-  "avgDurationMs": 20051,
+  "durationMs": 17955,
+  "avgDurationMs": 17955,
   "durationHistory": [
-    20051
+    17955
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "title": "4- oder 5-Tage-Woche – Servicetechniker Öl / Gas Stadt Luzern & Agglomeration (w/m/div.) REF296638W",
+      "slug": "4-oder-5-tage-woche-servicetechniker-ol-gas-stadt-luzern-agglomeration-w-m-div-ref296638w-bosch-steinhausen",
+      "url": "https://jobs.bosch.com/en/job/REF296638W-4-oder-5-tage-woche-servicetechniker-oel-gas-stadt-luzern-agglomeration-w-m-div-ref296638w",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000150598339-4-oder-5-tage-woche-servicetechniker-ol-gas-stadt-luzern-agglomeration-w-m-div-ref296638w?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Steinhausen",
+      "addressLocality": "Steinhausen",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "canton": "ZG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "sales",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-21",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    },
+    {
+      "title": "4- oder 5-Tage-Woche – Servicetechniker Wärmepumpen Region ZH - AG (w/m/div.) REF293856U",
+      "slug": "4-oder-5-tage-woche-servicetechniker-warmepumpen-region-zh-ag-w-m-div-ref293856u-bosch-steinhausen",
+      "url": "https://jobs.bosch.com/en/job/REF293856U-4-oder-5-tage-woche-servicetechniker-waermepumpen-region-zh-ag-w-m-div-ref293856u",
+      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000150597759-4-oder-5-tage-woche-servicetechniker-warmepumpen-region-zh-ag-w-m-div-ref293856u?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
+      "company": "Bosch Thermotechnik AG",
+      "companyKey": "bosch-thermotechnik-ag",
+      "companyDomain": "bosch.ch",
+      "location": "Steinhausen",
+      "addressLocality": "Steinhausen",
+      "addressRegion": "ZG",
+      "addressCountry": "CH",
+      "canton": "ZG",
+      "country": "CH",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "category": "sales",
+      "sector": "Energia",
+      "source": "bosch-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-09-21",
+      "validThrough": "",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 22,
+        "translation": 16,
+        "completeness": 14
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "title": "Lehrstelle Konstrukteur/in (w/m/div) 2027",
@@ -193,10 +254,12 @@
         "translation": 25,
         "completeness": 19
       }
-    },
+    }
+  ],
+  "removedJobs": [
     {
       "title": "Praktikum – Produkt- und Projektmanagement REF295388E",
-      "slug": "praktikum-produkt-und-projektmanagement-ref295388e-bosch-solothurn-zuchwil",
+      "slug": "stage-product-and-project-management-ref295388e-bosch-thermotechnik-ag-solothurn-zuchwil",
       "url": "https://jobs.bosch.com/en/job/REF295388E-praktikum-produkt-und-projektmanagement-ref295388e",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146901714-praktikum-produkt-und-projektmanagement-ref295388e?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -232,7 +295,7 @@
     },
     {
       "title": "Internship – International Production Planning REF295427G",
-      "slug": "internship-international-production-planning-ref295427g-bosch-solothurn-zuchwil",
+      "slug": "stage-pianificazione-internazionale-della-produzione-ref295427g-bosch-thermotechnik-ag-solothurn-zuchwil",
       "url": "https://jobs.bosch.com/en/job/REF295427G-internship-international-production-planning-ref295427g",
       "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146902159-internship-international-production-planning-ref295427g?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
       "company": "Bosch Thermotechnik AG",
@@ -267,7 +330,6 @@
       }
     }
   ],
-  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Internship – Design Sustainable Packaging REF296423S",
