@@ -12084,7 +12084,6 @@
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon"
         ],
         "de": [
-          "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon",
           "verkaufsberater-in-garden-und-pflanzen-jumbo-arbon-rko8si"
         ]
       },
@@ -14123,7 +14122,6 @@
           "verkaufsberater-in-do-it-jumbo-kusnacht"
         ],
         "de": [
-          "verkaufsberater-in-do-it-jumbo-kusnacht",
           "verkaufsberater-in-do-it-jumbo-kusnacht-p73eh7"
         ]
       },
@@ -15566,8 +15564,7 @@
         "mitarbeiter-in-logistik-jumbo-wurenlingen-aargau-iogi71",
         "collaborateur-trice-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau-wee5rk",
         "collaborateur-trice-logistik-jumbo-wurenlingen-aargau-iogi71",
-        "mitarbeiter-in-logistik-jumbo-wurenlingen-ig4wn4",
-        "mitarbeiter-in-logistik-jumbo-wurenlingen"
+        "mitarbeiter-in-logistik-jumbo-wurenlingen-ig4wn4"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -15581,8 +15578,7 @@
           "mitarbeiter-in-logistik-jumbo-wurenlingen-aargau-iogi71",
           "collaborateur-trice-logistik-jumbo-division-der-coop-genossenschaft-wurenlingen-aargau-wee5rk",
           "collaborateur-trice-logistik-jumbo-wurenlingen-aargau-iogi71",
-          "mitarbeiter-in-logistik-jumbo-wurenlingen-ig4wn4",
-          "mitarbeiter-in-logistik-jumbo-wurenlingen"
+          "mitarbeiter-in-logistik-jumbo-wurenlingen-ig4wn4"
         ],
         "en": [
           "mitarbeiter-in-logistik-jumbo-wurenlingen-2"
@@ -16968,12 +16964,12 @@
     },
     {
       "id": "jumbo-ec967900-0cc",
-      "slug": "verkaufsberater-in-bau-schreinerei-jumbo-glarus",
+      "slug": "consulente-commerciale-costruzione-carpenteria-jumbo-glarus",
       "slugByLocale": {
         "de": "verkaufsberater-in-bau-schreinerei-jumbo-glarus",
-        "it": "verkaufsberater-in-bau-schreinerei-jumbo-glarus",
-        "en": "verkaufsberater-in-bau-schreinerei-jumbo-glarus",
-        "fr": "verkaufsberater-in-bau-schreinerei-jumbo-glarus"
+        "it": "consulente-commerciale-costruzione-carpenteria-jumbo-glarus",
+        "en": "sales-consultant-construction-carpentry-jumbo-glarus",
+        "fr": "consultant-en-ventes-construction-menuiserie-jumbo-glarus"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17044,16 +17040,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:45.817Z"
+      "firstSeenAt": "2026-09-19T22:51:45.817Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-bau-schreinerei-jumbo-glarus"
+        ],
+        "en": [
+          "verkaufsberater-in-bau-schreinerei-jumbo-glarus"
+        ],
+        "fr": [
+          "verkaufsberater-in-bau-schreinerei-jumbo-glarus"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-bau-schreinerei-jumbo-glarus"
+      ]
     },
     {
       "id": "jumbo-4f8c14f5-1bd",
-      "slug": "verkaufer-in-kassen-services-jumbo-winterthur",
+      "slug": "vendita-cassa-servizi-jumbo-winterthur",
       "slugByLocale": {
         "de": "verkaufer-in-kassen-services-jumbo-winterthur",
-        "it": "verkaufer-in-kassen-services-jumbo-winterthur",
-        "en": "verkaufer-in-kassen-services-jumbo-winterthur",
-        "fr": "verkaufer-in-kassen-services-jumbo-winterthur"
+        "it": "vendita-cassa-servizi-jumbo-winterthur",
+        "en": "seller-cash-register-services-jumbo-winterthur",
+        "fr": "caisse-enregistreuse-services-du-vendeur-jumbo-winterthur"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17124,16 +17134,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:45.817Z"
+      "firstSeenAt": "2026-09-19T22:51:45.817Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-kassen-services-jumbo-winterthur"
+        ],
+        "en": [
+          "verkaufer-in-kassen-services-jumbo-winterthur"
+        ],
+        "fr": [
+          "verkaufer-in-kassen-services-jumbo-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-kassen-services-jumbo-winterthur"
+      ]
     },
     {
       "id": "jumbo-8b53c4cb-edc",
-      "slug": "verkaufsberater-in-garten-jumbo-affoltern-am-albis",
+      "slug": "vendite-advisor-garden-jumbo-affoltern-am-albis",
       "slugByLocale": {
         "de": "verkaufsberater-in-garten-jumbo-affoltern-am-albis",
-        "it": "verkaufsberater-in-garten-jumbo-affoltern-am-albis",
-        "en": "verkaufsberater-in-garten-jumbo-affoltern-am-albis",
-        "fr": "verkaufsberater-in-garten-jumbo-affoltern-am-albis"
+        "it": "vendite-advisor-garden-jumbo-affoltern-am-albis",
+        "en": "sales-advisor-garden-jumbo-affoltern-am-albis",
+        "fr": "conseiller-aux-ventes-jardin-jumbo-affoltern-am-albis"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17204,16 +17228,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:45.815Z"
+      "firstSeenAt": "2026-09-19T22:51:45.815Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garten-jumbo-affoltern-am-albis"
+        ],
+        "en": [
+          "verkaufsberater-in-garten-jumbo-affoltern-am-albis"
+        ],
+        "fr": [
+          "verkaufsberater-in-garten-jumbo-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garten-jumbo-affoltern-am-albis"
+      ]
     },
     {
       "id": "jumbo-e1c4c303-d0e",
-      "slug": "rayonleiter-in-administration-jumbo-bern",
+      "slug": "amministrazione-di-rayon-jumbo-bern",
       "slugByLocale": {
         "de": "rayonleiter-in-administration-jumbo-bern",
-        "it": "rayonleiter-in-administration-jumbo-bern",
-        "en": "rayonleiter-in-administration-jumbo-bern",
-        "fr": "rayonleiter-in-administration-jumbo-bern"
+        "it": "amministrazione-di-rayon-jumbo-bern",
+        "en": "rayon-manager-administration-jumbo-bern",
+        "fr": "administration-du-gestionnaire-de-rayon-jumbo-bern"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17284,16 +17322,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:45.813Z"
+      "firstSeenAt": "2026-09-19T22:51:45.813Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "rayonleiter-in-administration-jumbo-bern"
+        ],
+        "en": [
+          "rayonleiter-in-administration-jumbo-bern"
+        ],
+        "fr": [
+          "rayonleiter-in-administration-jumbo-bern"
+        ]
+      },
+      "previousSlugs": [
+        "rayonleiter-in-administration-jumbo-bern"
+      ]
     },
     {
       "id": "jumbo-d038ff3f-966",
-      "slug": "verkaufsberater-in-do-it-jumbo-munsingen",
+      "slug": "consulente-commerciale-do-it-jumbo-munsingen",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-munsingen",
-        "it": "verkaufsberater-in-do-it-jumbo-munsingen",
-        "en": "verkaufsberater-in-do-it-jumbo-munsingen",
-        "fr": "verkaufsberater-in-do-it-jumbo-munsingen"
+        "it": "consulente-commerciale-do-it-jumbo-munsingen",
+        "en": "sales-consultant-do-it-jumbo-munsingen",
+        "fr": "consultant-en-ventes-do-it-jumbo-munsingen"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17364,16 +17416,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:45.811Z"
+      "firstSeenAt": "2026-09-19T22:51:45.811Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-munsingen"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-munsingen"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-munsingen"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-munsingen"
+      ]
     },
     {
       "id": "jumbo-8f867673-c01",
-      "slug": "verkaufsberater-in-do-it-jumbo-heimberg",
+      "slug": "consulente-commerciale-do-it-jumbo-heimberg",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-heimberg",
-        "it": "verkaufsberater-in-do-it-jumbo-heimberg",
-        "en": "verkaufsberater-in-do-it-jumbo-heimberg",
-        "fr": "verkaufsberater-in-do-it-jumbo-heimberg"
+        "it": "consulente-commerciale-do-it-jumbo-heimberg",
+        "en": "sales-consultant-do-it-jumbo-heimberg",
+        "fr": "consultant-en-ventes-do-it-jumbo-heimberg"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17444,16 +17510,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:45.810Z"
+      "firstSeenAt": "2026-09-19T22:51:45.810Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-heimberg"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-heimberg"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-heimberg"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-heimberg"
+      ]
     },
     {
       "id": "jumbo-bf085692-41f",
-      "slug": "verkaufsberater-in-garden-jumbo-heimberg",
+      "slug": "vendite-advisor-garden-jumbo-heimberg",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-heimberg",
-        "it": "verkaufsberater-in-garden-jumbo-heimberg",
-        "en": "verkaufsberater-in-garden-jumbo-heimberg",
-        "fr": "verkaufsberater-in-garden-jumbo-heimberg"
+        "it": "vendite-advisor-garden-jumbo-heimberg",
+        "en": "sales-advisor-garden-jumbo-heimberg",
+        "fr": "conseiller-aux-ventes-jardin-jumbo-heimberg"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17524,16 +17604,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:45.808Z"
+      "firstSeenAt": "2026-09-19T22:51:45.808Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-heimberg"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-heimberg"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-heimberg"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-heimberg"
+      ]
     },
     {
       "id": "jumbo-f8ae4b73-377",
-      "slug": "verkausberater-in-garden-jumbo-bern",
+      "slug": "giardino-consulente-jumbo-bern",
       "slugByLocale": {
         "de": "verkausberater-in-garden-jumbo-bern",
-        "it": "verkausberater-in-garden-jumbo-bern",
-        "en": "verkausberater-in-garden-jumbo-bern",
-        "fr": "verkausberater-in-garden-jumbo-bern"
+        "it": "giardino-consulente-jumbo-bern",
+        "en": "consultant-garden-jumbo-bern",
+        "fr": "jardin-consultant-jumbo-bern"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17604,7 +17698,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:45.802Z"
+      "firstSeenAt": "2026-09-19T22:51:45.802Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkausberater-in-garden-jumbo-bern"
+        ],
+        "en": [
+          "verkausberater-in-garden-jumbo-bern"
+        ],
+        "fr": [
+          "verkausberater-in-garden-jumbo-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verkausberater-in-garden-jumbo-bern"
+      ]
     }
   ]
 }

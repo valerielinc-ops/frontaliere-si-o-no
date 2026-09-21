@@ -12,7 +12,11 @@ import {
 import { deriveAnalyticsPageContext } from './analyticsPageContext';
 import { isNewsletterOptOutBinding } from './newsletterOptOut.mjs';
 import { hasConfirmationProof } from './subscriberConsent.mjs';
-import { GLOBAL_EMAIL_OPT_OUT_FIELDS, isGlobalEmailOptOut } from './emailSuppression.mjs';
+import {
+ GLOBAL_EMAIL_OPT_OUT_FIELDS,
+ isAddressSuppressed,
+ isGlobalEmailOptOut,
+} from './emailSuppression.mjs';
 import {
  registrationTermsProof,
  REGISTRATION_TERMS_CONSENT_BASIS,
@@ -120,6 +124,7 @@ export type NewsletterGeoContext = {
 export type NewsletterEventType =
  | 'subscribe_started'
  | 'subscribe_completed'
+ | 'subscription_resubscribed'
  | 'confirm'
  | 'send'
  | 'delivered'
@@ -203,7 +208,13 @@ export type NewsletterUpsertInput = {
   * `inferNewsletterSubscriptionState`). Never set it from an authentication
   * event: signing in is not consent to receive mail you already refused.
   */
- reconsent?: boolean;
+  reconsent?: boolean;
+ /**
+  * The person completed a visible, terms-bearing subscription action. An
+  * authenticated owner may reactivate immediately; an email-only action
+  * starts a fresh DOI cycle instead of silently overriding the opt-out.
+  */
+ explicitConsentAction?: boolean;
  /** Clear a stop-all marker only with the same explicit email choice. */
  clearGlobalEmailStop?: boolean;
  /**
@@ -235,6 +246,8 @@ export type UnifiedEmailConsentInput = {
   jobContext?: NewsletterJobContext | null;
   /** Typed email starts pending; an authenticated provider can confirm now. */
   registrationMethod?: 'email' | 'authenticated';
+  /** This wrapper is used by visible feature/subscription actions. */
+  explicitConsentAction?: boolean;
 };
 
 export type NewsletterEventInput = {
@@ -298,6 +311,10 @@ export function unifiedEmailConsentInput(input: UnifiedEmailConsentInput): Newsl
   const locale = input.locale || 'it';
   const registrationMethod = input.registrationMethod || (input.userId ? 'authenticated' : 'email');
   const authenticated = registrationMethod === 'authenticated';
+  // Every caller of this wrapper is an explicit feature/subscription action.
+  // Keep an opt-out safe by default for any future background caller: it must
+  // opt out of this behavior deliberately rather than inheriting it silently.
+  const explicitConsentAction = input.explicitConsentAction !== false;
   return {
     email: input.email,
     userId: input.userId || null,
@@ -322,6 +339,7 @@ export function unifiedEmailConsentInput(input: UnifiedEmailConsentInput): Newsl
     consentGiven: true,
     consentBasis: REGISTRATION_TERMS_CONSENT_BASIS,
     consentPurpose: UNIFIED_EMAIL_CONSENT_PURPOSE,
+    explicitConsentAction,
     ...registrationTermsProof(locale, true),
   };
 }
@@ -495,6 +513,19 @@ function carriesDisplayedNewsletterConsent(input: NewsletterUpsertInput): boolea
   && Boolean(sanitizeString(input.consentMethod));
 }
 
+function hasStoredVisibleNewsletterConsent(input: Record<string, any> | undefined): boolean {
+ if (!input) return false;
+ return input.registration_terms_accepted === true
+  && input.consent_basis === REGISTRATION_TERMS_CONSENT_BASIS
+  && typeof input.consent_text === 'string'
+  && input.consent_text.trim() !== ''
+  && input.consent_text_displayed === true
+  && typeof input.consent_act === 'string'
+  && input.consent_act.trim() !== ''
+  && typeof input.consent_method === 'string'
+  && input.consent_method.trim() !== '';
+}
+
 function parseUtmFromWindow(): NewsletterUtm | null {
  if (typeof window === 'undefined') return null;
  try {
@@ -608,16 +639,19 @@ export { isNewsletterOptOutBinding };
  * The ONLY signals that may lift an ordinary recorded opt-out.
  *
  * `resubscribe_link` is the win-back / "riattiva" click — the recipient
- * deliberately asked to come back. `reconsent` is the explicit escape hatch
- * for any future caller that can prove the same thing. Everything else,
- * INCLUDING every `CONFIRMED_NEWSLETTER_SOURCES` entry, is an authentication
- * or a link click: neither is consent to resume mail the recipient refused.
+ * deliberately asked to come back. `reconsent` is the explicit DOI escape
+ * hatch for an email-only caller. An `explicitConsentAction` from a verified
+ * authenticated owner is the in-app equivalent: the owner pressed a visible
+ * terms-bearing subscription control. Everything else, INCLUDING every
+ * `CONFIRMED_NEWSLETTER_SOURCES` entry, is an authentication or access link:
+ * neither is consent to resume mail the recipient refused.
  * An `account_deleted_at` marker is different: it records account cleanup, not
  * a newsletter opt-out, and a new signup is allowed to start a new account
  * cycle through any supported channel.
  */
 function isExplicitNewsletterReOptIn(input: NewsletterUpsertInput): boolean {
  if (input.reconsent === true) return true;
+ if (input.explicitConsentAction === true && isAuthenticatedRegistration(input)) return true;
  return normalizeSourceChannel(input) === 'resubscribe_link';
 }
 
@@ -740,9 +774,10 @@ export function inferNewsletterSubscriptionState(
  // 186 documents ALL carry a `confirmed_at` newer than their opt-out, because
  // the resurrection wrote one (`status === 'confirmed' && !wasConfirmed`
  // below). Such a rule would exempt exactly the cohort this guard exists for.
- // Only `resubscribe_link` / `reconsent` lift an ordinary opt-out. An
- // account-deletion tombstone is a separate lifecycle marker and is lifted by
- // the new registration itself, regardless of its channel.
+ // Only `resubscribe_link`, `reconsent`, or a verified owner's explicit
+ // subscription action lift an ordinary opt-out. An account-deletion tombstone
+ // is a separate lifecycle marker and is lifted by the new registration
+ // itself, regardless of its channel.
  //
  // Fail-closed on an unrecognised status: only a KNOWN suppression status is
  // waved through, so a caller passing something outside the union is treated
@@ -756,6 +791,25 @@ export function inferNewsletterSubscriptionState(
  if (inferredKind === 'suppression') return inferred;
  const optOutBinding = isNewsletterOptOutBinding(existing);
  if (!optOutBinding) return inferred;
+
+ // A visible action by the verified owner is the one new opt-in signal that
+ // may lift a recorded unsubscribe. The status becomes `subscribed` so the
+ // Firestore rule can distinguish this transition from the old silent-auth
+ // `confirmed` resurrection ring. Hard provider/address suppressions remain
+ // untouched because this branch is reached only for a human opt-out.
+ if (
+  input.explicitConsentAction === true
+  && isAuthenticatedRegistration(input)
+  && !isAddressSuppressed(existing?.status)
+ ) {
+  return { status: 'subscribed', isActive: true };
+ }
+
+ // An email-only click is explicit intent, but it does not prove possession
+ // of the address. It is promoted to a fresh DOI cycle by the capture writer.
+ if (input.explicitConsentAction === true && input.reconsent !== true) {
+  return { status: 'pending', isActive: false };
+ }
 
  // A public form may express a new wish to come back, but it cannot prove
  // possession of the address. Keep the record pending and make the server send
@@ -1126,16 +1180,20 @@ export type NewsletterCaptureResult = {
  /** A recorded opt-out was binding on this document and this write did not lift it. */
  optedOut: boolean;
  /**
-  * The document ALREADY carried valid confirmation proof before this write.
-  *
-  * Reported because the caller cannot ask again without a second read, and
-  * because `status` does not answer it: 848 of the 1.498 `pending` documents
-  * measured on 2026-08-13 carry the stamp (the deliverability re-probe written
-  * by scripts/mailtrap-suppression-retry.mjs, where `pending` means "re-probe
-  * me"). Only proof accepted by services/subscriberConsent.mjs suppresses a
-  * new DOI request; a silent-auth stamp is deliberately not enough.
-  */
+ * The resulting pending cycle has usable confirmation proof before this
+ * write. A fresh re-consent DOI deliberately invalidates an old proof for the
+ * new cycle, even though the historical stamp remains on the document.
+ *
+ * Reported because the caller cannot ask again without a second read, and
+ * because `status` does not answer it: 848 of the 1.498 `pending` documents
+ * measured on 2026-08-13 carry the stamp (the deliverability re-probe written
+ * by scripts/mailtrap-suppression-retry.mjs, where `pending` means "re-probe
+ * me"). Only proof accepted by services/subscriberConsent.mjs suppresses a
+ * new DOI request; a silent-auth stamp is deliberately not enough.
+ */
  hadConfirmationProof: boolean;
+ /** An anonymous explicit action was converted into a fresh resubscribe DOI. */
+ reconsentRequired?: boolean;
 };
 
 export async function captureNewsletterSubscriber(
@@ -1150,6 +1208,26 @@ export async function captureNewsletterSubscriber(
  const ref = doc(collection(db, 'newsletter_subscribers'), email);
  const existing = await getDoc(ref);
  const existingData = existing.exists() ? existing.data() : undefined;
+ const addressSuppressedBeforeWrite = isAddressSuppressed(existingData?.status);
+
+ const authenticatedRegistration = isAuthenticatedRegistration(input);
+ const optOutBindingBeforeWrite = isNewsletterOptOutBinding(existingData);
+ const explicitStopBeforeWrite = optOutBindingBeforeWrite || isGlobalEmailOptOut(existingData);
+ const authenticatedExplicitAction = input.explicitConsentAction === true
+  && authenticatedRegistration
+  && explicitStopBeforeWrite
+  && !isAddressSuppressed(existingData?.status);
+ const anonymousExplicitReconsent = input.explicitConsentAction === true
+  && !authenticatedRegistration
+  && explicitStopBeforeWrite
+  && !addressSuppressedBeforeWrite;
+ const reconsentPending = anonymousExplicitReconsent
+  || (input.reconsent === true && explicitStopBeforeWrite && !addressSuppressedBeforeWrite);
+ if (reconsentPending) {
+  // The click is explicit intent, but the address still needs a fresh DOI
+  // before the old opt-out can be superseded.
+  input = { ...input, reconsent: true };
+ }
 
   // Every ordinary registration carries the same product-wide relationship:
   // newsletter + job alerts + third-party advertising. The terms are the
@@ -1157,9 +1235,9 @@ export async function captureNewsletterSubscriber(
   // Keep `reconsent` reserved for the dedicated reactivation path, which still
   // needs its own confirmation step.
  const isDedicatedReconsent = input.reconsent === true
-  || normalizeSourceChannel(input) === 'resubscribe_link';
+  || normalizeSourceChannel(input) === 'resubscribe_link'
+  || authenticatedExplicitAction;
  const isServerResubscribeLink = normalizeSourceChannel(input) === 'resubscribe_link';
- const authenticatedRegistration = isAuthenticatedRegistration(input);
  if (!isServerResubscribeLink) {
   // Every registration is made under the versioned terms/communications
   // disclosure. The source channel changes the initial alert criteria, not the
@@ -1175,14 +1253,18 @@ export async function captureNewsletterSubscriber(
    ? existingData?.status
    : undefined;
   const registrationStatus = preservedSuppressionStatus
-   || (input.reconsent === true
-    ? 'pending'
-    : (authenticatedRegistration ? 'confirmed' : 'pending'));
+   || (authenticatedExplicitAction
+    ? 'subscribed'
+    : (input.reconsent === true
+     ? 'pending'
+     : (authenticatedRegistration ? 'confirmed' : 'pending')));
   input = {
    ...input,
    ...termsProof,
    status: registrationStatus,
-   isActive: preservedSuppressionStatus ? false : authenticatedRegistration && input.reconsent !== true,
+   isActive: preservedSuppressionStatus
+    ? false
+    : (authenticatedExplicitAction || authenticatedRegistration && input.reconsent !== true),
    consentGiven: true,
    consentBasis: REGISTRATION_TERMS_CONSENT_BASIS,
    registrationTermsAccepted: true,
@@ -1206,7 +1288,8 @@ export async function captureNewsletterSubscriber(
  // stamp-lift below and the confirmation/welcome emails in
  // `upsertNewsletterSubscriber` are all decisions about a recorded opt-out,
  // and until #5733 each of them re-derived it from a different proxy.
- const reOptInGranted = isExplicitNewsletterReOptIn(input)
+ const reOptInGranted = (!isAddressSuppressed(existingData?.status)
+  && isExplicitNewsletterReOptIn(input))
  || isAccountDeletionReRegistration(input, existingData);
  const optOutBinding = isNewsletterOptOutBinding(existingData);
  const optedOut = optOutBinding && !reOptInGranted;
@@ -1278,7 +1361,8 @@ export async function captureNewsletterSubscriber(
  }
 
  const isExplicitConsentRequest = input.reconsent === true
- || normalizeSourceChannel(input) === 'resubscribe_link';
+ || normalizeSourceChannel(input) === 'resubscribe_link'
+ || authenticatedExplicitAction;
  const isAccountDeletionReRegistrationRequest = isAccountDeletionReRegistration(input, existingData);
  const hasExistingConfirmationStamp = Boolean(existingData?.confirmed_at || existingData?.confirmedAt);
  const needsTermsRemediation = input.registrationTermsAccepted === true
@@ -1311,6 +1395,8 @@ export async function captureNewsletterSubscriber(
  && !isNewsletterOptOutBinding(existingData)
  && !needsTermsRemediation
  && (hasConfirmationProof(existingData) || !isExplicitConsentRequest);
+ const preserveExistingConsent = preserveExistingConfirmedConsent
+  || (authenticatedExplicitAction && hasStoredVisibleNewsletterConsent(existingData));
 
  const now = nowIso();
  const existingConsentSourceUrl = sanitizeString(existingData?.consent_source_url);
@@ -1319,9 +1405,11 @@ export async function captureNewsletterSubscriber(
  const advertisingEnabled = existingData?.advertising_opt_out === true
   ? false
   : input.registrationTermsAccepted === true || existingData?.consent_advertising === true;
- const hasAdvertisingState = input.registrationTermsAccepted === true
+ const hasAdvertisingState = !preserveExistingConsent && (
+  input.registrationTermsAccepted === true
   || existingData?.consent_advertising !== undefined
-  || existingData?.advertising_opt_out === true;
+  || existingData?.advertising_opt_out === true
+ );
  const consentPurpose = isLegacyCompanyFollowSource
   ? (companyFollowOnly
    ? 'companyFollow'
@@ -1378,15 +1466,15 @@ export async function captureNewsletterSubscriber(
  : subscriptionState.status,
  variant: sanitizeString(input.variant) || sanitizeString(existingData?.variant),
  metadata: input.metadata || existingData?.metadata || null,
- consent_given: input.registrationTermsAccepted === true
-  ? true
-  : preserveExistingConfirmedConsent
+ consent_given: preserveExistingConsent
   ? (existingData?.consent_given ?? false)
+  : input.registrationTermsAccepted === true
+  ? true
   : (input.consentGiven ?? existingData?.consent_given ?? false),
- consent_given_at: input.registrationTermsAccepted === true
-  ? (existingData?.consent_given_at || now)
-  : preserveExistingConfirmedConsent
+ consent_given_at: preserveExistingConsent
   ? (existingData?.consent_given_at ?? null)
+  : input.registrationTermsAccepted === true
+  ? (existingData?.consent_given_at || now)
   : (input.consentGiven
    ? (existingData?.consent_given_at || now)
    : (existingData?.consent_given_at || null)),
@@ -1402,52 +1490,60 @@ export async function captureNewsletterSubscriber(
    ? now
    : (existingData?.consent_advertising_updated_at || null),
  } : {}),
- consent_text: preserveExistingConfirmedConsent
+ consent_text: preserveExistingConsent
  ? (existingData?.consent_text ?? null)
  : resolvedConsentText,
- consent_text_version: preserveExistingConfirmedConsent
+ consent_text_version: preserveExistingConsent
  ? (existingData?.consent_text_version ?? null)
  : sanitizeString(input.consentTextVersion) || sanitizeString(existingData?.consent_text_version),
  // Tri-state on purpose: `null` means "never recorded" (every document written
  // before #5678) and must stay distinguishable from an explicit `false`.
- consent_text_displayed: preserveExistingConfirmedConsent
+ consent_text_displayed: preserveExistingConsent
  ? (typeof existingData?.consent_text_displayed === 'boolean' ? existingData.consent_text_displayed : null)
  : (typeof input.consentTextDisplayed === 'boolean'
   ? input.consentTextDisplayed
   : (typeof existingData?.consent_text_displayed === 'boolean' ? existingData.consent_text_displayed : null)),
- consent_act: preserveExistingConfirmedConsent
+ consent_act: preserveExistingConsent
  ? (existingData?.consent_act ?? null)
  : sanitizeString(input.consentAct) || sanitizeString(existingData?.consent_act),
- consent_purpose: preserveExistingConfirmedConsent
+ consent_purpose: preserveExistingConsent
  ? (existingData?.consent_purpose ?? null)
  : consentPurpose,
- consent_basis: preserveExistingConfirmedConsent
+ consent_basis: preserveExistingConsent
   ? (existingData?.consent_basis ?? null)
   : sanitizeString(input.consentBasis)
    || (input.registrationTermsAccepted === true ? REGISTRATION_TERMS_CONSENT_BASIS : null)
    || sanitizeString(existingData?.consent_basis),
- registration_terms_accepted: input.registrationTermsAccepted === true
+ registration_terms_accepted: preserveExistingConsent
+  ? (existingData?.registration_terms_accepted === true)
+  : input.registrationTermsAccepted === true
   || existingData?.registration_terms_accepted === true,
- registration_terms_version: input.registrationTermsAccepted === true
+ registration_terms_version: preserveExistingConsent
+  ? (existingData?.registration_terms_version ?? null)
+  : input.registrationTermsAccepted === true
   ? (sanitizeString(input.consentTextVersion) || sanitizeString(existingData?.registration_terms_version))
   : (existingData?.registration_terms_version ?? null),
- registration_terms_text: input.registrationTermsAccepted === true
+ registration_terms_text: preserveExistingConsent
+  ? (existingData?.registration_terms_text ?? null)
+  : input.registrationTermsAccepted === true
   ? (sanitizeString(input.consentText) || sanitizeString(existingData?.registration_terms_text))
   : (existingData?.registration_terms_text ?? null),
- registration_terms_accepted_at: input.registrationTermsAccepted === true
+ registration_terms_accepted_at: preserveExistingConsent
+  ? (existingData?.registration_terms_accepted_at ?? null)
+  : input.registrationTermsAccepted === true
   ? (existingData?.registration_terms_accepted_at || now)
   : (existingData?.registration_terms_accepted_at ?? null),
- consent_method: preserveExistingConfirmedConsent
+ consent_method: preserveExistingConsent
  ? (existingData?.consent_method ?? null)
  : sanitizeString(input.consentMethod) || sanitizeString(existingData?.consent_method) || sourceChannel,
  // Company-follow proof is purpose-scoped: keep an older newsletter proof if
  // one exists, but do not attach this follow's URL/UA/IP to the record.
- consent_source_url: preserveExistingConfirmedConsent
+ consent_source_url: preserveExistingConsent
   ? (existingData?.consent_source_url ?? null)
   : isLegacyCompanyFollowSource
   ? existingConsentSourceUrl
   : sanitizeString(input.sourcePage) || (typeof window !== 'undefined' ? window.location.href : null) || existingConsentSourceUrl,
- consent_user_agent: preserveExistingConfirmedConsent
+ consent_user_agent: preserveExistingConsent
   ? (existingData?.consent_user_agent ?? null)
   : isLegacyCompanyFollowSource
   ? existingConsentUserAgent
@@ -1457,12 +1553,12 @@ export async function captureNewsletterSubscriber(
  // the network of whatever write happened last. A sign-in six months later
  // from an office IP would otherwise overwrite the address that actually
  // proves the subscription, which is the one an art. 25 request asks for.
- consent_ip: preserveExistingConfirmedConsent
+ consent_ip: preserveExistingConsent
   ? (existingData?.consent_ip ?? null)
   : isLegacyCompanyFollowSource
   ? existingConsentIp
   : existingConsentIp || sanitizeString(input.consentIp),
-  consent_ip_recorded_at: preserveExistingConfirmedConsent
+  consent_ip_recorded_at: preserveExistingConsent
   ? (existingData?.consent_ip_recorded_at ?? null)
   : isLegacyCompanyFollowSource
   ? (existingConsentIp ? (sanitizeString(existingData?.consent_ip_recorded_at) || null) : null)
@@ -1475,12 +1571,20 @@ export async function captureNewsletterSubscriber(
  ...(isCompanyFollowSource || existingData?.company_follow_followup_pending !== undefined
   ? { company_follow_followup_pending: isCompanyFollowSource || existingData?.company_follow_followup_pending === true }
   : {}),
-  // A global stop is never lifted by an ordinary registration. Only the
-  // dedicated reactivation flow may do that, and it remains confirmation-based.
- ...(input.clearGlobalEmailStop === true
-  && isGlobalEmailOptOut(existingData)
-  && subscriptionState.status === 'pending'
+  // A global stop is never lifted by an ordinary registration. A visible
+  // authenticated subscription action is the same explicit choice as the
+  // profile "riattiva" control, so it may clear the stop-all markers too.
+ ...(
+  authenticatedExplicitAction
+  || (input.clearGlobalEmailStop === true
+   && isGlobalEmailOptOut(existingData)
+   && subscriptionState.status === 'pending')
   ? Object.fromEntries(GLOBAL_EMAIL_OPT_OUT_FIELDS.map((field) => [field, false]))
+  : {}),
+ ...(reconsentPending
+  ? { resubscribe_pending: true }
+  : authenticatedExplicitAction && existingData?.resubscribe_pending === true
+  ? { resubscribe_pending: deleteField() }
   : {}),
  // These are subscription-state fields in firestore.rules. Do not mint a
  // missing historical twin during an anonymous update: that would turn a
@@ -1507,6 +1611,7 @@ export async function captureNewsletterSubscriber(
  mergedData.account_deleted_at = deleteField();
  mergedData.resubscribed_at = serverTimestamp();
  mergedData.resubscribedAt = serverTimestamp();
+ mergedData.resubscribe_pending = deleteField();
  if (subscriptionState.status === 'pending') {
  mergedData.confirmed_at = deleteField();
  mergedData.confirmedAt = deleteField();
@@ -1566,7 +1671,11 @@ export async function captureNewsletterSubscriber(
  // `resubscribed_at`, and from that write on `isNewsletterOptOutBinding` was
  // false forever — no stamp deleted, and the opt-out gone all the same. The
  // condition now names the thing that authorises the lift.
- if (reOptInGranted && optOutBinding && sourceChannel === 'resubscribe_link') {
+ if (
+  reOptInGranted
+  && (optOutBinding || isGlobalEmailOptOut(existingData))
+  && (sourceChannel === 'resubscribe_link' || authenticatedExplicitAction)
+ ) {
  mergedData.resubscribed_at = serverTimestamp();
  mergedData.resubscribedAt = serverTimestamp();
  }
@@ -1604,7 +1713,10 @@ export async function captureNewsletterSubscriber(
  }
 
  const eventType: NewsletterEventType =
- subscriptionState.status === 'confirmed' && !wasConfirmed
+ (authenticatedExplicitAction && explicitStopBeforeWrite)
+ || (sourceChannel === 'resubscribe_link' && (optOutBinding || isGlobalEmailOptOut(existingData)))
+ ? 'subscription_resubscribed'
+ : subscriptionState.status === 'confirmed' && !wasConfirmed
  ? 'confirm'
  : 'subscribe_completed';
 
@@ -1635,17 +1747,20 @@ export async function captureNewsletterSubscriber(
  // tests/newsletter-confirmation-followup.test.ts rather than by importing a
  // Cloud Functions module into the client bundle — the same shape the
  // NEWSLETTER_EXCLUDED_STATUSES correspondence already uses above.
- const hadConfirmationProof = isAccountDeletionReRegistration(input, existingData)
- && subscriptionState.status === 'pending'
- ? false
- : hasConfirmationProof(existingData);
+ const hadConfirmationProof = (
+  isAccountDeletionReRegistration(input, existingData)
+  || reconsentPending
+ )
+  ? false
+  : hasConfirmationProof(existingData);
 
  return {
- existed: alreadyActive,
- id: email,
- status: subscriptionState.status,
- optedOut,
- hadConfirmationProof,
+  existed: alreadyActive,
+  id: email,
+  status: subscriptionState.status,
+  optedOut,
+  hadConfirmationProof,
+  ...(anonymousExplicitReconsent ? { reconsentRequired: true } : {}),
  };
 }
 
@@ -1782,6 +1897,8 @@ export async function upsertNewsletterSubscriber(
   recordSubscriptionAttempt();
  }
  const result = await captureNewsletterSubscriber(db, input);
+ const requestsReconsent = !isAddressSuppressed(result.status)
+  && (input.reconsent === true || result.reconsentRequired === true);
 
  // NOT ONE ORDINARY/AUTHENTICATION EMAIL to an address with a recorded opt-out,
  // whatever status the guard computed (#5734). A deliberate `reconsent: true`
@@ -1798,11 +1915,12 @@ export async function upsertNewsletterSubscriber(
  // cancelled. A defence that holds only as long as another function keeps its
  // shape is a defence the next refactor switches off, so the fact is checked
  // here directly.
- // An ordinary/authentication write must stop here. A deliberate public form
- // marked `reconsent` is the one exception: it remains pending, and the send
- // below uses the separate `resubscribe` DOI purpose so the old opt-out is
- // lifted only after the recipient clicks the fresh link.
- if (result.optedOut && input.reconsent !== true) return result;
+ // An ordinary/authentication write must stop here. A visible email-only
+ // action is the exception: it remains pending, and the send below uses the
+ // separate `resubscribe` DOI purpose so the old opt-out is lifted only after
+ // the recipient clicks the fresh link. Authenticated explicit actions have
+ // already stamped the reactivation and arrive here with `optedOut: false`.
+ if (result.optedOut && !requestsReconsent) return result;
 
  // FRO-24: Send confirmation email for pending subscribers.
  //
@@ -1825,10 +1943,10 @@ export async function upsertNewsletterSubscriber(
  // narrowing it again: the 1-hour cooldown and the three-request cap both live
  // at the send point (functions/src/newsletterConfirmationEmail.js), where
  // every caller passes.
- const requestsReconsent = input.reconsent === true && result.status === 'pending';
+ const requestsReconsentEmail = requestsReconsent && result.status === 'pending';
  if (!input.skipConfirmationEmail
-  && (requestsReconsent || (result.status === 'pending' && !result.hadConfirmationProof))) {
- const confirmation = await requestConfirmationEmail(input.email, requestsReconsent ? 'resubscribe' : undefined);
+  && (requestsReconsentEmail || (result.status === 'pending' && !result.hadConfirmationProof))) {
+ const confirmation = await requestConfirmationEmail(input.email, requestsReconsentEmail ? 'resubscribe' : undefined);
  if (!confirmation.success) {
   // Do not mark the UI as "email sent" when the endpoint returned a refusal.
   // The caller can retry explicitly; no local pending state is a false promise.

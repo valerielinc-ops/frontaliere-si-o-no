@@ -1865,12 +1865,12 @@
     },
     {
       "id": "claraspital-4dc3d610801d",
-      "slug": "ambulante-n-case-manager-in-endokrinologie-e-ernahrungszentrum-st-claraspital-basel",
+      "slug": "case-manager-endocrinologia-e-centro-di-nutrizione-st-claraspital-basel",
       "slugByLocale": {
         "de": "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel",
-        "it": "ambulante-n-case-manager-in-endokrinologie-e-ernahrungszentrum-st-claraspital-basel",
-        "en": "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel",
-        "fr": "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel"
+        "it": "case-manager-endocrinologia-e-centro-di-nutrizione-st-claraspital-basel",
+        "en": "outpatient-case-manager-endocrinology-and-nutrition-centre-st-claraspital-basel",
+        "fr": "centre-d-endocrinologie-et-de-nutrition-pour-les-patients-externes-st-claraspital-basel"
       },
       "company": "St. Claraspital",
       "companyKey": "claraspital",
@@ -1916,11 +1916,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel",
+          "ambulante-n-case-manager-in-endokrinologie-e-ernahrungszentrum-st-claraspital-basel"
+        ],
+        "en": [
+          "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel"
+        ],
+        "fr": [
           "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel"
         ]
       },
       "previousSlugs": [
-        "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel"
+        "ambulante-n-case-manager-in-endokrinologie-und-ernahrungszentrum-claraspital-basel",
+        "ambulante-n-case-manager-in-endokrinologie-e-ernahrungszentrum-st-claraspital-basel"
       ],
       "salaryMin": 85500,
       "salaryMax": 129500,

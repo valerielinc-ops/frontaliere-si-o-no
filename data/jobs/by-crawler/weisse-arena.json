@@ -3956,12 +3956,12 @@
     },
     {
       "id": "weisse-arena-b543d2b4516d",
-      "slug": "koch-kochin-plaun-weisse-arena-ch",
+      "slug": "cook-cooker-plaun-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "koch-kochin-plaun-weisse-arena-ch",
-        "it": "koch-kochin-plaun-weisse-arena-ch",
+        "it": "cook-cooker-plaun-weisse-arena-gruppe-laax",
         "en": "koch-kochin-plaun-weisse-arena-ch",
-        "fr": "koch-kochin-plaun-weisse-arena-ch"
+        "fr": "cuisiniere-cuisiniere-plaun-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -4021,7 +4021,18 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-09-19T22:51:52.361Z"
+      "firstSeenAt": "2026-09-19T22:51:52.361Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-plaun-weisse-arena-ch"
+        ],
+        "fr": [
+          "koch-kochin-plaun-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-plaun-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-7b0ef7bede29",
@@ -4250,11 +4261,9 @@
           "collaborateur-trice-vente-weisse-arena-gruppe-laax"
         ],
         "en": [
-          "associate-sales-weisse-arena-gruppe-laax",
           "mitarbeiter-in-verkauf-weisse-arena-ch"
         ],
         "fr": [
-          "collaborateur-trice-vente-weisse-arena-gruppe-laax",
           "mitarbeiter-in-verkauf-weisse-arena-ch"
         ]
       },
@@ -4445,12 +4454,12 @@
     },
     {
       "id": "weisse-arena-82b40ba6959e",
-      "slug": "verantwortliche-r-rezeption-hostel-weisse-arena-ch",
+      "slug": "responsabile-reception-hostel-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "verantwortliche-r-rezeption-hostel-weisse-arena-ch",
-        "it": "verantwortliche-r-rezeption-hostel-weisse-arena-ch",
-        "en": "verantwortliche-r-rezeption-hostel-weisse-arena-ch",
-        "fr": "verantwortliche-r-rezeption-hostel-weisse-arena-ch"
+        "it": "responsabile-reception-hostel-weisse-arena-gruppe-laax",
+        "en": "responsible-reception-hostel-weisse-arena-gruppe-laax",
+        "fr": "responsable-reception-auberge-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -4510,7 +4519,21 @@
         }
       },
       "addressRegion": "GR",
-      "firstSeenAt": "2026-09-19T22:51:52.358Z"
+      "firstSeenAt": "2026-09-19T22:51:52.358Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortliche-r-rezeption-hostel-weisse-arena-ch"
+        ],
+        "en": [
+          "verantwortliche-r-rezeption-hostel-weisse-arena-ch"
+        ],
+        "fr": [
+          "verantwortliche-r-rezeption-hostel-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortliche-r-rezeption-hostel-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-c801e73870c9",

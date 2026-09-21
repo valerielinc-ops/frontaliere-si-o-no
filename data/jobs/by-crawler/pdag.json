@@ -483,12 +483,12 @@
     },
     {
       "id": "pdag-948272212c6b",
-      "slug": "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau",
+      "slug": "assistente-medico-assistente-medico-consulenza-autismo-psychiatrische-dienste-aargau-pdag-aarau",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau",
-        "it": "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau",
-        "en": "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau",
-        "fr": "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau"
+        "it": "assistente-medico-assistente-medico-consulenza-autismo-psychiatrische-dienste-aargau-pdag-aarau",
+        "en": "assistant-doctor-assistant-doctor-autism-counselling-psychiatrische-dienste-aargau-pdag-aarau",
+        "fr": "assistant-medecin-assistant-medecin-autisme-counseling-psychiatrische-dienste-aargau-pdag-aarau"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -545,7 +545,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:21:01.836Z"
+      "firstSeenAt": "2026-09-19T23:21:01.836Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau"
+        ],
+        "fr": [
+          "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "assistenzarztin-assistenzarzt-autismusberatung-pdag-aarau"
+      ]
     },
     {
       "id": "pdag-0d432acb4097",
@@ -2396,12 +2410,12 @@
     },
     {
       "id": "pdag-e3c843b8ac98",
-      "slug": "pflegefachfrau-pflegefachmann-hf-fh-per-eine-psychotherapiestation-psychiatrische-dienste-aargau-pdag-windisch",
+      "slug": "specialista-infermieristico-hf-fh-per-un-unita-di-psicoterapia-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "pflegefachfrau-pflegefachmann-hf-fh-fur-eine-psychotherapiestation-pdag-windisch",
-        "it": "pflegefachfrau-pflegefachmann-hf-fh-per-eine-psychotherapiestation-psychiatrische-dienste-aargau-pdag-windisch",
-        "en": "pflegefachfrau-pflegefachmann-hf-fh-fur-eine-psychotherapiestation-pdag-windisch",
-        "fr": "pflegefachfrau-pflegefachmann-hf-fh-fur-eine-psychotherapiestation-pdag-windisch"
+        "it": "specialista-infermieristico-hf-fh-per-un-unita-di-psicoterapia-psychiatrische-dienste-aargau-pdag-windisch",
+        "en": "nursing-specialist-hf-fh-for-a-psychotherapy-unit-psychiatrische-dienste-aargau-pdag-windisch",
+        "fr": "specialiste-des-soins-infirmiers-hf-fh-pour-une-unite-de-psychotherapie-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -2448,12 +2462,20 @@
       "previousSlugsByLocale": {
         "it": [
           "pflegefachfrau-pflegefachmann-hf-fh-fur-eine-psychotherapiestation-pdag-windisch",
-          "pflegefachfrau-pflegefachmann-hf-fh-demenz-delir-psychiatrische-dienste-aargau-pdag-windisch"
+          "pflegefachfrau-pflegefachmann-hf-fh-demenz-delir-psychiatrische-dienste-aargau-pdag-windisch",
+          "pflegefachfrau-pflegefachmann-hf-fh-per-eine-psychotherapiestation-psychiatrische-dienste-aargau-pdag-windisch"
+        ],
+        "en": [
+          "pflegefachfrau-pflegefachmann-hf-fh-fur-eine-psychotherapiestation-pdag-windisch"
+        ],
+        "fr": [
+          "pflegefachfrau-pflegefachmann-hf-fh-fur-eine-psychotherapiestation-pdag-windisch"
         ]
       },
       "previousSlugs": [
         "pflegefachfrau-pflegefachmann-hf-fh-fur-eine-psychotherapiestation-pdag-windisch",
-        "pflegefachfrau-pflegefachmann-hf-fh-demenz-delir-psychiatrische-dienste-aargau-pdag-windisch"
+        "pflegefachfrau-pflegefachmann-hf-fh-demenz-delir-psychiatrische-dienste-aargau-pdag-windisch",
+        "pflegefachfrau-pflegefachmann-hf-fh-per-eine-psychotherapiestation-psychiatrische-dienste-aargau-pdag-windisch"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -4250,12 +4272,12 @@
     },
     {
       "id": "pdag-e3f33772def2",
-      "slug": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch",
+      "slug": "dipl-social-pedagogue-social-pedagogue-hf-fh-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch",
-        "it": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch",
+        "it": "dipl-social-pedagogue-social-pedagogue-hf-fh-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch",
-        "fr": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch"
+        "fr": "dipl-pedagogue-social-pedagogue-social-hf-fh-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -4312,7 +4334,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:21:01.738Z"
+      "firstSeenAt": "2026-09-19T23:21:01.738Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch"
+        ],
+        "fr": [
+          "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-sozialpadagogin-sozialpadagoge-hf-fh-pdag-windisch"
+      ]
     },
     {
       "id": "pdag-e9feed1b45f4",
@@ -5798,12 +5831,12 @@
     },
     {
       "id": "pdag-cfa34e77ab5a",
-      "slug": "information-security-officer-iso-pdag-windisch",
+      "slug": "responsabile-della-sicurezza-delle-informazioni-iso-psychiatrische-dienste-aargau-pdag-windisch",
       "slugByLocale": {
         "de": "information-security-officer-iso-pdag-windisch",
-        "it": "information-security-officer-iso-pdag-windisch",
+        "it": "responsabile-della-sicurezza-delle-informazioni-iso-psychiatrische-dienste-aargau-pdag-windisch",
         "en": "information-security-officer-iso-pdag-windisch",
-        "fr": "information-security-officer-iso-pdag-windisch"
+        "fr": "agent-de-la-securite-de-l-information-iso-psychiatrische-dienste-aargau-pdag-windisch"
       },
       "company": "Psychiatrische Dienste Aargau (PDAG)",
       "companyKey": "pdag",
@@ -5861,7 +5894,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:21:01.649Z"
+      "firstSeenAt": "2026-09-19T23:21:01.649Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "information-security-officer-iso-pdag-windisch"
+        ],
+        "fr": [
+          "information-security-officer-iso-pdag-windisch"
+        ]
+      },
+      "previousSlugs": [
+        "information-security-officer-iso-pdag-windisch"
+      ]
     }
   ]
 }

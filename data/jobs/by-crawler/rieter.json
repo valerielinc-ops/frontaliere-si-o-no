@@ -589,10 +589,10 @@
     },
     {
       "id": "rieter-cc5f3e91984c",
-      "slug": "business-controller-emea-and-americas-rieter-winterthur",
+      "slug": "emea-e-americhe-rieter-winterthur",
       "slugByLocale": {
         "en": "business-controller-emea-and-americas-rieter-winterthur",
-        "it": "business-controller-emea-and-americas-rieter-winterthur",
+        "it": "emea-e-americhe-rieter-winterthur",
         "de": "business-controller-emea-and-americas-rieter-winterthur",
         "fr": "emea-et-ameriques-rieter-winterthur"
       },
@@ -652,7 +652,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:51:03.636Z"
+      "firstSeenAt": "2026-09-19T22:51:03.636Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-controller-emea-and-americas-rieter-winterthur"
+        ]
+      },
+      "previousSlugs": [
+        "business-controller-emea-and-americas-rieter-winterthur"
+      ]
     },
     {
       "id": "rieter-b2c063694e2b",

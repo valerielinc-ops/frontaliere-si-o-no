@@ -4,11 +4,11 @@
   "jobs": [
     {
       "id": "molecular-partners-99c11a77cd35",
-      "slug": "senior-accounting-manager-molecular-partners-schlieren",
+      "slug": "responsabile-contabilita-senior-molecular-partners-switzerland-zurich-schlieren",
       "slugByLocale": {
-        "it": "senior-accounting-manager-molecular-partners-schlieren",
+        "it": "responsabile-contabilita-senior-molecular-partners-switzerland-zurich-schlieren",
         "en": "senior-accounting-manager-molecular-partners-schlieren",
-        "de": "senior-accounting-manager-molecular-partners-schlieren",
+        "de": "leitender-buchhaltungsleiter-molecular-partners-switzerland-zurich-schlieren",
         "fr": "directeur-principal-de-la-comptabilite-molecular-partners-switzerland-zurich-schlieren"
       },
       "company": "Molecular Partners",
@@ -63,7 +63,18 @@
           "maxValue": 331500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-accounting-manager-molecular-partners-schlieren"
+        ],
+        "de": [
+          "senior-accounting-manager-molecular-partners-schlieren"
+        ]
+      },
+      "previousSlugs": [
+        "senior-accounting-manager-molecular-partners-schlieren"
+      ]
     }
   ]
 }

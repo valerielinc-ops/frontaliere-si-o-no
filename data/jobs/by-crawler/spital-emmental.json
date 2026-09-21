@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "spital-emmental-88cf95be97f5",
-      "slug": "stv-oberarztin-stv-oberarzt-a-spital-emmental-burgdorf",
+      "slug": "medico-anziano-a-spital-emmental-burgdorf",
       "slugByLocale": {
         "de": "stv-oberarztin-stv-oberarzt-a-spital-emmental-burgdorf",
-        "it": "stv-oberarztin-stv-oberarzt-a-spital-emmental-burgdorf",
-        "en": "stv-oberarztin-stv-oberarzt-a-spital-emmental-burgdorf",
-        "fr": "stv-oberarztin-stv-oberarzt-a-spital-emmental-burgdorf"
+        "it": "medico-anziano-a-spital-emmental-burgdorf",
+        "en": "senior-physician-a-spital-emmental-burgdorf",
+        "fr": "medecin-chef-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -74,23 +74,27 @@
       "firstSeenAt": "2026-09-19T22:52:01.817Z",
       "previousSlugsByLocale": {
         "it": [
-          "oberarztin-oberarzt-o-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental-burgdorf"
+          "oberarztin-oberarzt-o-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental-burgdorf",
+          "stv-oberarztin-stv-oberarzt-a-spital-emmental-burgdorf"
         ],
         "en": [
-          "senior-physician-senior-physician-or-stv-senior-physician-stv-senior-physician-a-medical-clinic-spital-emmental-burgdorf"
+          "senior-physician-senior-physician-or-stv-senior-physician-stv-senior-physician-a-medical-clinic-spital-emmental-burgdorf",
+          "stv-oberarztin-stv-oberarzt-a-spital-emmental-burgdorf"
         ],
         "de": [
           "oberarztin-oberarzt-oder-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental"
         ],
         "fr": [
-          "medecin-principal-medecin-principal-ou-stv-medecin-principal-stv-medecin-principal-a-clinique-medicale-spital-emmental"
+          "medecin-principal-medecin-principal-ou-stv-medecin-principal-stv-medecin-principal-a-clinique-medicale-spital-emmental",
+          "stv-oberarztin-stv-oberarzt-a-spital-emmental-burgdorf"
         ]
       },
       "previousSlugs": [
         "oberarztin-oberarzt-o-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental-burgdorf",
         "senior-physician-senior-physician-or-stv-senior-physician-stv-senior-physician-a-medical-clinic-spital-emmental-burgdorf",
         "oberarztin-oberarzt-oder-stv-oberarztin-stv-oberarzt-a-medizinische-klinik-spital-emmental",
-        "medecin-principal-medecin-principal-ou-stv-medecin-principal-stv-medecin-principal-a-clinique-medicale-spital-emmental"
+        "medecin-principal-medecin-principal-ou-stv-medecin-principal-stv-medecin-principal-a-clinique-medicale-spital-emmental",
+        "stv-oberarztin-stv-oberarzt-a-spital-emmental-burgdorf"
       ]
     },
     {
@@ -340,7 +344,6 @@
           "dipl-nurse-a-spital-emmental-burgdorf"
         ],
         "de": [
-          "dipl-pflegefachperson-a-spital-emmental-burgdorf-b4utni",
           "dipl-pflegefachperson-a-spital-emmental-burgdorf"
         ],
         "fr": [
@@ -3894,8 +3897,8 @@
       "slugByLocale": {
         "de": "weiterbildungsstelle-zur-zum-dipl-expertin-experten-anasthesiepflege-nds-hf-a-spital",
         "it": "ulteriori-centri-di-istruzione-per-al-dipl-expert-expert-anesthesia-care-nds-hf-a-spital-emmental-burgdorf",
-        "en": "weiterbildungsstelle-zur-zum-dipl-expertin-experten-anasthesiepflege-nds-hf-a-spital",
-        "fr": "weiterbildungsstelle-zur-zum-dipl-expertin-experten-anasthesiepflege-nds-hf-a-spital"
+        "en": "further-education-center-for-to-the-dipl-expert-expert-anesthesia-care-nds-hf-a-spital-emmental-burgdorf",
+        "fr": "centre-d-enseignement-superieur-pour-au-dipl-expert-expert-anesthesie-soins-nds-hf-a-spital-emmental-burgdorf"
       },
       "company": "Spital Emmental",
       "companyKey": "spital-emmental",
@@ -3960,6 +3963,12 @@
       "firstSeenAt": "2026-09-19T22:51:37.691Z",
       "previousSlugsByLocale": {
         "it": [
+          "weiterbildungsstelle-zur-zum-dipl-expertin-experten-anasthesiepflege-nds-hf-a-spital"
+        ],
+        "en": [
+          "weiterbildungsstelle-zur-zum-dipl-expertin-experten-anasthesiepflege-nds-hf-a-spital"
+        ],
+        "fr": [
           "weiterbildungsstelle-zur-zum-dipl-expertin-experten-anasthesiepflege-nds-hf-a-spital"
         ]
       },

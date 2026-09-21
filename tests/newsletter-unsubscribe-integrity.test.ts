@@ -364,6 +364,116 @@ describe('captureNewsletterSubscriber — the write that follows the guard', () 
     expect(payload).not.toHaveProperty('unsubscribedAt');
   });
 
+  it('treats an authenticated terms-bearing action as explicit reactivation', async () => {
+    getDocMock.mockResolvedValue({ exists: () => true, data: () => UNSUBSCRIBED_DOC });
+
+    const result = await captureNewsletterSubscriber({} as any, {
+      email: EMAIL,
+      userId: 'verified-owner',
+      source: 'company_follow',
+      sourceChannel: 'company_follow_unified',
+      registrationMethod: 'authenticated',
+      explicitConsentAction: true,
+    });
+
+    expect(result).toMatchObject({
+      status: 'subscribed',
+      optedOut: false,
+    });
+    const payload = (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
+    expect(payload.status).toBe('subscribed');
+    expect(payload.isActive).toBe(true);
+    expect(payload.active).toBe(true);
+    expect(payload.resubscribed_at).toBe('__server_timestamp__');
+    expect(payload.resubscribedAt).toBe('__server_timestamp__');
+    expect(payload.all_email_opted_out).toBe(false);
+    expect(payload.global_email_opted_out).toBe(false);
+    expect(payload).not.toHaveProperty('unsubscribed_at');
+    expect(payload).not.toHaveProperty('unsubscribedAt');
+    expect(addDocMock).toHaveBeenCalledWith(
+      expect.anything(),
+      expect.objectContaining({
+        event_type: 'subscription_resubscribed',
+        source_channel: 'company_follow_unified',
+      }),
+    );
+  });
+
+  it('turns an anonymous explicit action into a fresh DOI instead of blocking it', async () => {
+    getDocMock.mockResolvedValue({ exists: () => true, data: () => UNSUBSCRIBED_DOC });
+
+    const result = await captureNewsletterSubscriber({} as any, {
+      email: EMAIL,
+      source: 'popup',
+      sourceChannel: 'popup',
+      registrationMethod: 'email',
+      explicitConsentAction: true,
+    });
+
+    expect(result).toMatchObject({
+      status: 'pending',
+      optedOut: false,
+      reconsentRequired: true,
+    });
+    const payload = (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
+    expect(payload.status).toBe('pending');
+    expect(payload.isActive).toBe(false);
+    expect(payload.resubscribe_pending).toBe(true);
+    expect(payload).not.toHaveProperty('resubscribed_at');
+    expect(payload).not.toHaveProperty('resubscribedAt');
+    expect(isNewsletterOptOutBinding({ ...UNSUBSCRIBED_DOC, ...payload })).toBe(true);
+  });
+
+  it('does not request a DOI when an explicit action hits a hard provider suppression', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        ...UNSUBSCRIBED_DOC,
+        status: 'suppressed',
+        isActive: false,
+        active: false,
+        all_email_opted_out: true,
+        global_email_opt_out: true,
+      }),
+    });
+
+    const result = await upsertNewsletterSubscriber({} as any, {
+      email: EMAIL,
+      source: 'popup',
+      sourceChannel: 'popup',
+      registrationMethod: 'email',
+      explicitConsentAction: true,
+    });
+
+    expect(result).toMatchObject({ status: 'suppressed', optedOut: true });
+    expect(setDocMock).not.toHaveBeenCalled();
+  });
+
+  it('does not reuse historical DOI proof during an anonymous reactivation cycle', async () => {
+    getDocMock.mockResolvedValue({
+      exists: () => true,
+      data: () => ({
+        ...UNSUBSCRIBED_DOC,
+        confirmed_at: '2026-07-01T09:00:00.000Z',
+        confirmedAt: '2026-07-01T09:00:00.000Z',
+      }),
+    });
+
+    const result = await captureNewsletterSubscriber({} as any, {
+      email: EMAIL,
+      source: 'popup',
+      sourceChannel: 'popup',
+      registrationMethod: 'email',
+      explicitConsentAction: true,
+    });
+
+    expect(result).toMatchObject({
+      status: 'pending',
+      hadConfirmationProof: false,
+      reconsentRequired: true,
+    });
+  });
+
   it('starts a fresh terms-based registration after account deletion', async () => {
     getDocMock.mockResolvedValue({ exists: () => true, data: () => ACCOUNT_DELETED_DOC });
 
@@ -691,6 +801,8 @@ describe('no email of any kind to an address with a recorded opt-out (#5734)', (
 
     expect(result.status).toBe('pending');
     expect(result.optedOut).toBe(false);
+    const payload = (setDocMock.mock.calls[0] as unknown[])[1] as Record<string, unknown>;
+    expect(payload.resubscribe_pending).toBe(true);
     await vi.waitFor(() => expect(fetchMock).toHaveBeenCalledTimes(1), { timeout: 10000, interval: 50 });
     const [, init] = fetchMock.mock.calls[0] as [string, RequestInit];
     expect(JSON.parse(init.body as string)).toMatchObject({ purpose: 'resubscribe' });

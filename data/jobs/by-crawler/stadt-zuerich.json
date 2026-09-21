@@ -4042,12 +4042,12 @@
     },
     {
       "id": "stadt-zuerich-df46af0d8b43",
-      "slug": "fachperson-gesundheit-standort-mattenhof-stadt-zuerich-zurigo-51451",
+      "slug": "specialista-sanitario-sito-mattenhof-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-gesundheit-standort-mattenhof-stadt-zuerich-zurigo-51451",
-        "it": "fachperson-gesundheit-standort-mattenhof-stadt-zuerich-zurigo-51451",
-        "en": "fachperson-gesundheit-standort-mattenhof-stadt-zuerich-zurigo-51451",
-        "fr": "fachperson-gesundheit-standort-mattenhof-stadt-zuerich-zurigo-51451"
+        "it": "specialista-sanitario-sito-mattenhof-stadt-zurich-zurich",
+        "en": "health-specialist-mattenhof-site-stadt-zurich-zurich",
+        "fr": "specialiste-de-la-sante-site-de-mattenhof-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -4107,7 +4107,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.912Z"
+      "firstSeenAt": "2026-09-19T23:10:09.912Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-standort-mattenhof-stadt-zuerich-zurigo-51451"
+        ],
+        "en": [
+          "fachperson-gesundheit-standort-mattenhof-stadt-zuerich-zurigo-51451"
+        ],
+        "fr": [
+          "fachperson-gesundheit-standort-mattenhof-stadt-zuerich-zurigo-51451"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-standort-mattenhof-stadt-zuerich-zurigo-51451"
+      ]
     },
     {
       "id": "stadt-zuerich-f52574310b2d",
@@ -5847,12 +5861,12 @@
     },
     {
       "id": "stadt-zuerich-bfee0e133b9c",
-      "slug": "hochschulpraktikant-in-kinder-e-jugendhilfe-stadt-zurich",
+      "slug": "universita-tirocinante-e-benessere-giovanile-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "hochschulpraktikant-in-kinder-und-jugendhilfe-stadt-zuerich-zurigo-51475",
-        "it": "hochschulpraktikant-in-kinder-e-jugendhilfe-stadt-zurich",
-        "en": "hochschulpraktikant-in-kinder-und-jugendhilfe-stadt-zurich-zurich",
-        "fr": "hochschulpraktikant-in-kinder-und-jugendhilfe-stadt-zurich-zurich"
+        "it": "universita-tirocinante-e-benessere-giovanile-stadt-zurich-zurich",
+        "en": "university-intern-child-and-youth-welfare-stadt-zurich-zurich",
+        "fr": "protection-de-l-enfance-et-de-la-jeunesse-a-l-universite-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -5901,11 +5915,20 @@
       "referenceNumber": "51475",
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikant-in-kinder-und-jugendhilfe-stadt-zuerich-zurigo-51475"
+          "hochschulpraktikant-in-kinder-und-jugendhilfe-stadt-zuerich-zurigo-51475",
+          "hochschulpraktikant-in-kinder-e-jugendhilfe-stadt-zurich"
+        ],
+        "en": [
+          "hochschulpraktikant-in-kinder-und-jugendhilfe-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-kinder-und-jugendhilfe-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikant-in-kinder-und-jugendhilfe-stadt-zuerich-zurigo-51475"
+        "hochschulpraktikant-in-kinder-und-jugendhilfe-stadt-zuerich-zurigo-51475",
+        "hochschulpraktikant-in-kinder-e-jugendhilfe-stadt-zurich",
+        "hochschulpraktikant-in-kinder-und-jugendhilfe-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -19397,12 +19420,12 @@
     },
     {
       "id": "stadt-zuerich-a947fdb4e9c2",
-      "slug": "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zurich-zurich",
+      "slug": "personale-di-pulizia-presso-l-edificio-scolastico-altstetterstrasse-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zuerich-zurigo-51570",
-        "it": "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zurich-zurich",
-        "en": "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zurich-zurich",
-        "fr": "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zurich-zurich"
+        "it": "personale-di-pulizia-presso-l-edificio-scolastico-altstetterstrasse-stadt-zurich-zurich",
+        "en": "cleaning-staff-at-the-school-building-altstetterstrasse-stadt-zurich-zurich",
+        "fr": "personnel-de-nettoyage-au-batiment-de-l-ecole-altstetterstrasse-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -19451,11 +19474,19 @@
       "referenceNumber": "51570",
       "previousSlugsByLocale": {
         "it": [
-          "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zuerich-zurigo-51570"
+          "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zuerich-zurigo-51570",
+          "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zurich-zurich"
+        ],
+        "en": [
+          "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zuerich-zurigo-51570"
+        "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zuerich-zurigo-51570",
+        "reinigungsmitarbeiter-in-im-schulhaus-altstetterstrasse-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -23433,12 +23464,12 @@
     },
     {
       "id": "stadt-zuerich-b3eb91dbe2fa",
-      "slug": "co-teamleiter-in-treffpunkt-city-frauentreff-stadt-zuerich-zurigo-51609",
+      "slug": "co-team-leader-meeting-point-citta-frauentreff-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "co-teamleiter-in-treffpunkt-city-frauentreff-stadt-zuerich-zurigo-51609",
-        "it": "co-teamleiter-in-treffpunkt-city-frauentreff-stadt-zuerich-zurigo-51609",
-        "en": "co-teamleiter-in-treffpunkt-city-frauentreff-stadt-zuerich-zurigo-51609",
-        "fr": "co-teamleiter-in-treffpunkt-city-frauentreff-stadt-zuerich-zurigo-51609"
+        "it": "co-team-leader-meeting-point-citta-frauentreff-stadt-zurich-zurich",
+        "en": "co-team-leader-meeting-point-city-frauentreff-stadt-zurich-zurich",
+        "fr": "co-chef-d-equipe-point-de-rencontre-ville-frauentreff-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -23498,16 +23529,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.902Z"
+      "firstSeenAt": "2026-09-19T23:10:09.902Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleiter-in-treffpunkt-city-frauentreff-stadt-zuerich-zurigo-51609"
+        ],
+        "en": [
+          "co-teamleiter-in-treffpunkt-city-frauentreff-stadt-zuerich-zurigo-51609"
+        ],
+        "fr": [
+          "co-teamleiter-in-treffpunkt-city-frauentreff-stadt-zuerich-zurigo-51609"
+        ]
+      },
+      "previousSlugs": [
+        "co-teamleiter-in-treffpunkt-city-frauentreff-stadt-zuerich-zurigo-51609"
+      ]
     },
     {
       "id": "stadt-zuerich-3209043fc8be",
-      "slug": "abloser-im-hausdienst-ca-21-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-51610",
+      "slug": "solder-nel-servizio-domestico-circa-il-21-nella-casa-di-scuola-dachslern-feldblumen-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "abloser-im-hausdienst-ca-21-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-51610",
-        "it": "abloser-im-hausdienst-ca-21-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-51610",
-        "en": "abloser-im-hausdienst-ca-21-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-51610",
-        "fr": "abloser-im-hausdienst-ca-21-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-51610"
+        "it": "solder-nel-servizio-domestico-circa-il-21-nella-casa-di-scuola-dachslern-feldblumen-stadt-zurich-zurich",
+        "en": "solder-in-the-domestic-service-about-21-in-the-school-house-dachslern-feldblumen-stadt-zurich-zurich",
+        "fr": "soldat-dans-le-service-domestique-environ-21-dans-la-maison-scolaire-dachslern-feldblumen-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -23568,7 +23613,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.902Z"
+      "firstSeenAt": "2026-09-19T23:10:09.902Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "abloser-im-hausdienst-ca-21-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-51610"
+        ],
+        "en": [
+          "abloser-im-hausdienst-ca-21-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-51610"
+        ],
+        "fr": [
+          "abloser-im-hausdienst-ca-21-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-51610"
+        ]
+      },
+      "previousSlugs": [
+        "abloser-im-hausdienst-ca-21-im-schulhaus-dachslern-feldblumen-stadt-zuerich-zurigo-51610"
+      ]
     },
     {
       "id": "stadt-zuerich-d0cc6b3cf010",
@@ -26628,12 +26687,12 @@
     },
     {
       "id": "stadt-zuerich-f09ae802fa37",
-      "slug": "hochschulpraktikum-wohnpolitik-stadt-zurich-zurich",
+      "slug": "university-internship-politica-di-alloggio-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "hochschulpraktikum-wohnpolitik-stadt-zuerich-zurigo-51623",
-        "it": "hochschulpraktikum-wohnpolitik-stadt-zurich-zurich",
-        "en": "hochschulpraktikum-wohnpolitik-stadt-zurich-zurich",
-        "fr": "hochschulpraktikum-wohnpolitik-stadt-zurich-zurich"
+        "it": "university-internship-politica-di-alloggio-stadt-zurich-zurich",
+        "en": "university-internship-housing-policy-stadt-zurich-zurich",
+        "fr": "politique-sur-le-logement-des-stagiaires-universitaires-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -26682,11 +26741,19 @@
       "referenceNumber": "51623",
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikum-wohnpolitik-stadt-zuerich-zurigo-51623"
+          "hochschulpraktikum-wohnpolitik-stadt-zuerich-zurigo-51623",
+          "hochschulpraktikum-wohnpolitik-stadt-zurich-zurich"
+        ],
+        "en": [
+          "hochschulpraktikum-wohnpolitik-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "hochschulpraktikum-wohnpolitik-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikum-wohnpolitik-stadt-zuerich-zurigo-51623"
+        "hochschulpraktikum-wohnpolitik-stadt-zuerich-zurigo-51623",
+        "hochschulpraktikum-wohnpolitik-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -26705,12 +26772,12 @@
     },
     {
       "id": "stadt-zuerich-fe16e50558a7",
-      "slug": "projektleiter-in-beleuchtung-stadt-zurich",
+      "slug": "illuminazione-di-project-manager-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "projektleiter-in-beleuchtung-stadt-zuerich-zurigo-51637",
-        "it": "projektleiter-in-beleuchtung-stadt-zurich",
-        "en": "projektleiter-in-beleuchtung-stadt-zuerich-zurigo-51637",
-        "fr": "projektleiter-in-beleuchtung-stadt-zuerich-zurigo-51637"
+        "it": "illuminazione-di-project-manager-stadt-zurich-zurich",
+        "en": "project-manager-lighting-stadt-zurich-zurich",
+        "fr": "gestionnaire-de-projet-eclairage-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -26759,11 +26826,19 @@
       "referenceNumber": "51637",
       "previousSlugsByLocale": {
         "it": [
+          "projektleiter-in-beleuchtung-stadt-zuerich-zurigo-51637",
+          "projektleiter-in-beleuchtung-stadt-zurich"
+        ],
+        "en": [
+          "projektleiter-in-beleuchtung-stadt-zuerich-zurigo-51637"
+        ],
+        "fr": [
           "projektleiter-in-beleuchtung-stadt-zuerich-zurigo-51637"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-beleuchtung-stadt-zuerich-zurigo-51637"
+        "projektleiter-in-beleuchtung-stadt-zuerich-zurigo-51637",
+        "projektleiter-in-beleuchtung-stadt-zurich"
       ],
       "salaryMin": 99000,
       "salaryMax": 151500,
@@ -26782,12 +26857,12 @@
     },
     {
       "id": "stadt-zuerich-2a6d77410995",
-      "slug": "leitung-case-management-stadt-zuerich-zurigo-51640",
+      "slug": "responsabile-della-gestione-dei-casi-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "leitung-case-management-stadt-zuerich-zurigo-51640",
-        "it": "leitung-case-management-stadt-zuerich-zurigo-51640",
-        "en": "leitung-case-management-stadt-zuerich-zurigo-51640",
-        "fr": "leitung-case-management-stadt-zuerich-zurigo-51640"
+        "it": "responsabile-della-gestione-dei-casi-stadt-zurich-zurich",
+        "en": "head-of-case-management-stadt-zurich-zurich",
+        "fr": "chef-de-la-gestion-des-cas-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -26847,16 +26922,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.901Z"
+      "firstSeenAt": "2026-09-19T23:10:09.901Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leitung-case-management-stadt-zuerich-zurigo-51640"
+        ],
+        "en": [
+          "leitung-case-management-stadt-zuerich-zurigo-51640"
+        ],
+        "fr": [
+          "leitung-case-management-stadt-zuerich-zurigo-51640"
+        ]
+      },
+      "previousSlugs": [
+        "leitung-case-management-stadt-zuerich-zurigo-51640"
+      ]
     },
     {
       "id": "stadt-zuerich-739b1bc874b0",
-      "slug": "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zurich-zurich",
+      "slug": "collettore-di-dati-di-consumo-con-attivita-di-ufficio-di-prospettiva-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zuerich-zurigo-51641",
-        "it": "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zurich-zurich",
-        "en": "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zurich-zurich",
-        "fr": "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zurich-zurich"
+        "it": "collettore-di-dati-di-consumo-con-attivita-di-ufficio-di-prospettiva-stadt-zurich-zurich",
+        "en": "consumption-data-collector-with-perspective-office-activity-stadt-zurich-zurich",
+        "fr": "collecteur-de-donnees-de-consommation-avec-perspective-activite-bureau-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -26905,11 +26994,19 @@
       "referenceNumber": "51641",
       "previousSlugsByLocale": {
         "it": [
-          "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zuerich-zurigo-51641"
+          "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zuerich-zurigo-51641",
+          "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zurich-zurich"
+        ],
+        "en": [
+          "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zuerich-zurigo-51641"
+        "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zuerich-zurigo-51641",
+        "verbrauchsdatenerfasser-in-mit-perspektive-burotatigkeit-stadt-zurich-zurich"
       ],
       "salaryMin": 99000,
       "salaryMax": 151500,
@@ -26928,12 +27025,12 @@
     },
     {
       "id": "stadt-zuerich-da7628e37d72",
-      "slug": "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zurich-zurich",
+      "slug": "allenamento-per-il-dipl-paramedici-di-salvataggio-hf-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zuerich-zurigo-51646",
-        "it": "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zurich-zurich",
-        "en": "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zurich-zurich",
-        "fr": "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zurich-zurich"
+        "it": "allenamento-per-il-dipl-paramedici-di-salvataggio-hf-stadt-zurich-zurich",
+        "en": "training-for-the-dipl-rescue-paramedics-hf-stadt-zurich-zurich",
+        "fr": "formation-pour-le-dipl-paramedics-de-sauvetage-hf-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -26982,11 +27079,19 @@
       "referenceNumber": "51646",
       "previousSlugsByLocale": {
         "it": [
-          "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zuerich-zurigo-51646"
+          "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zuerich-zurigo-51646",
+          "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zurich-zurich"
+        ],
+        "en": [
+          "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zuerich-zurigo-51646"
+        "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zuerich-zurigo-51646",
+        "ausbildung-zum-zur-dipl-rettungssanitater-in-hf-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -27005,12 +27110,12 @@
     },
     {
       "id": "stadt-zuerich-77be16f94ca5",
-      "slug": "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zurich",
+      "slug": "progettazione-idraulica-del-project-manager-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zuerich-zurigo-51643",
-        "it": "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zurich",
-        "en": "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zurich-zurich",
-        "fr": "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zurich-zurich"
+        "it": "progettazione-idraulica-del-project-manager-stadt-zurich-zurich",
+        "en": "project-manager-drainage-planning-hydraulics-stadt-zurich-zurich",
+        "fr": "directeur-de-projet-planification-du-drainage-hydraulique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -27059,11 +27164,20 @@
       "referenceNumber": "51643",
       "previousSlugsByLocale": {
         "it": [
-          "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zuerich-zurigo-51643"
+          "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zuerich-zurigo-51643",
+          "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zurich"
+        ],
+        "en": [
+          "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zuerich-zurigo-51643"
+        "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zuerich-zurigo-51643",
+        "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zurich",
+        "projektleiter-in-entwasserungsplanung-hydraulik-stadt-zurich-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -27082,12 +27196,12 @@
     },
     {
       "id": "stadt-zuerich-c5a242c5c2d4",
-      "slug": "techniker-in-automatiker-in-stadt-zuerich-zurigo-51647",
+      "slug": "tecnico-automatico-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "techniker-in-automatiker-in-stadt-zuerich-zurigo-51647",
-        "it": "techniker-in-automatiker-in-stadt-zuerich-zurigo-51647",
-        "en": "techniker-in-automatiker-in-stadt-zuerich-zurigo-51647",
-        "fr": "techniker-in-automatiker-in-stadt-zuerich-zurigo-51647"
+        "it": "tecnico-automatico-stadt-zurich-zurich",
+        "en": "technician-automatician-stadt-zurich-zurich",
+        "fr": "technicien-automatique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -27147,16 +27261,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.901Z"
+      "firstSeenAt": "2026-09-19T23:10:09.901Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "techniker-in-automatiker-in-stadt-zuerich-zurigo-51647"
+        ],
+        "en": [
+          "techniker-in-automatiker-in-stadt-zuerich-zurigo-51647"
+        ],
+        "fr": [
+          "techniker-in-automatiker-in-stadt-zuerich-zurigo-51647"
+        ]
+      },
+      "previousSlugs": [
+        "techniker-in-automatiker-in-stadt-zuerich-zurigo-51647"
+      ]
     },
     {
       "id": "stadt-zuerich-c9e64b10d741",
-      "slug": "fachmann-frau-betriebs-e-werkunterhalt-stadt-zurich",
+      "slug": "operazione-professionale-donna-e-manutenzione-impianti-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachmann-frau-betriebs-und-werkunterhalt-stadt-zuerich-zurigo-51648",
-        "it": "fachmann-frau-betriebs-e-werkunterhalt-stadt-zurich",
-        "en": "fachmann-frau-betriebs-und-werkunterhalt-stadt-zuerich-zurigo-51648",
-        "fr": "fachmann-frau-betriebs-und-werkunterhalt-stadt-zuerich-zurigo-51648"
+        "it": "operazione-professionale-donna-e-manutenzione-impianti-stadt-zurich-zurich",
+        "en": "professional-woman-operating-and-plant-maintenance-stadt-zurich-zurich",
+        "fr": "professionnelle-d-exploitation-et-d-entretien-des-installations-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -27205,11 +27333,19 @@
       "referenceNumber": "51648",
       "previousSlugsByLocale": {
         "it": [
+          "fachmann-frau-betriebs-und-werkunterhalt-stadt-zuerich-zurigo-51648",
+          "fachmann-frau-betriebs-e-werkunterhalt-stadt-zurich"
+        ],
+        "en": [
+          "fachmann-frau-betriebs-und-werkunterhalt-stadt-zuerich-zurigo-51648"
+        ],
+        "fr": [
           "fachmann-frau-betriebs-und-werkunterhalt-stadt-zuerich-zurigo-51648"
         ]
       },
       "previousSlugs": [
-        "fachmann-frau-betriebs-und-werkunterhalt-stadt-zuerich-zurigo-51648"
+        "fachmann-frau-betriebs-und-werkunterhalt-stadt-zuerich-zurigo-51648",
+        "fachmann-frau-betriebs-e-werkunterhalt-stadt-zurich"
       ],
       "salaryMin": 99000,
       "salaryMax": 151500,
@@ -27228,12 +27364,12 @@
     },
     {
       "id": "stadt-zuerich-f557a1701597",
-      "slug": "dipl-pflegefachperson-fh-hf-in-tracheostoma-langzeitbeatmungs-abteilung-standort",
+      "slug": "dipl-infermiera-fh-hf-in-tracheostoma-dipartimento-di-ventilazione-a-lungo-termine-sito-gehrenholz-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-fh-hf-in-tracheostoma-langzeitbeatmungs-abteilung-standort",
-        "it": "dipl-pflegefachperson-fh-hf-in-tracheostoma-langzeitbeatmungs-abteilung-standort",
-        "en": "dipl-pflegefachperson-fh-hf-in-tracheostoma-langzeitbeatmungs-abteilung-standort",
-        "fr": "dipl-pflegefachperson-fh-hf-in-tracheostoma-langzeitbeatmungs-abteilung-standort"
+        "it": "dipl-infermiera-fh-hf-in-tracheostoma-dipartimento-di-ventilazione-a-lungo-termine-sito-gehrenholz-stadt-zurich-zurich",
+        "en": "dipl-nurse-fh-hf-in-tracheostoma-long-term-ventilation-department-gehrenholz-site-stadt-zurich-zurich",
+        "fr": "dipl-infirmiere-fh-hf-a-tracheostoma-service-de-ventilation-a-long-terme-site-de-gehrenholz-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -27293,7 +27429,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.901Z"
+      "firstSeenAt": "2026-09-19T23:10:09.901Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-fh-hf-in-tracheostoma-langzeitbeatmungs-abteilung-standort"
+        ],
+        "en": [
+          "dipl-pflegefachperson-fh-hf-in-tracheostoma-langzeitbeatmungs-abteilung-standort"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-fh-hf-in-tracheostoma-langzeitbeatmungs-abteilung-standort"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-fh-hf-in-tracheostoma-langzeitbeatmungs-abteilung-standort"
+      ]
     },
     {
       "id": "stadt-zuerich-cce9acdc05a7",
@@ -28166,12 +28316,12 @@
     },
     {
       "id": "stadt-zuerich-694154bc3ea3",
-      "slug": "fachperson-gesundheit-efz-in-tracheostoma-langzeitbeatmungs-abteilung-standort-gehrenholz",
+      "slug": "specialista-di-salute-efz-in-tracheostoma-dipartimento-di-ventilazione-a-lungo-termine-sito-gehrenholz-stadt-zurich",
       "slugByLocale": {
         "de": "fachperson-gesundheit-efz-in-tracheostoma-langzeitbeatmungs-abteilung-standort-gehrenholz",
-        "it": "fachperson-gesundheit-efz-in-tracheostoma-langzeitbeatmungs-abteilung-standort-gehrenholz",
-        "en": "fachperson-gesundheit-efz-in-tracheostoma-langzeitbeatmungs-abteilung-standort-gehrenholz",
-        "fr": "fachperson-gesundheit-efz-in-tracheostoma-langzeitbeatmungs-abteilung-standort-gehrenholz"
+        "it": "specialista-di-salute-efz-in-tracheostoma-dipartimento-di-ventilazione-a-lungo-termine-sito-gehrenholz-stadt-zurich",
+        "en": "health-specialist-efz-in-tracheostoma-long-term-ventilation-department-gehrenholz-site-stadt-zurich-zurich",
+        "fr": "specialiste-de-la-sante-efz-a-tracheostoma-service-de-ventilation-a-long-terme-site-gehrenholz-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28231,16 +28381,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.899Z"
+      "firstSeenAt": "2026-09-19T23:10:09.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-efz-in-tracheostoma-langzeitbeatmungs-abteilung-standort-gehrenholz"
+        ],
+        "en": [
+          "fachperson-gesundheit-efz-in-tracheostoma-langzeitbeatmungs-abteilung-standort-gehrenholz"
+        ],
+        "fr": [
+          "fachperson-gesundheit-efz-in-tracheostoma-langzeitbeatmungs-abteilung-standort-gehrenholz"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-efz-in-tracheostoma-langzeitbeatmungs-abteilung-standort-gehrenholz"
+      ]
     },
     {
       "id": "stadt-zuerich-de8a48dfd507",
-      "slug": "schulsozialarbeiter-in-stadt-zurich-zurich",
+      "slug": "lavoratori-sociali-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "schulsozialarbeiter-in-stadt-zuerich-zurigo-51659",
-        "it": "schulsozialarbeiter-in-stadt-zurich-zurich",
-        "en": "schulsozialarbeiter-in-stadt-zurich-zurich",
-        "fr": "schulsozialarbeiter-in-stadt-zurich-zurich"
+        "it": "lavoratori-sociali-stadt-zurich-zurich",
+        "en": "school-social-workers-stadt-zurich-zurich",
+        "fr": "travailleurs-sociaux-scolaires-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28289,11 +28453,19 @@
       "referenceNumber": "51659",
       "previousSlugsByLocale": {
         "it": [
-          "schulsozialarbeiter-in-stadt-zuerich-zurigo-51659"
+          "schulsozialarbeiter-in-stadt-zuerich-zurigo-51659",
+          "schulsozialarbeiter-in-stadt-zurich-zurich"
+        ],
+        "en": [
+          "schulsozialarbeiter-in-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "schulsozialarbeiter-in-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "schulsozialarbeiter-in-stadt-zuerich-zurigo-51659"
+        "schulsozialarbeiter-in-stadt-zuerich-zurigo-51659",
+        "schulsozialarbeiter-in-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -28312,12 +28484,12 @@
     },
     {
       "id": "stadt-zuerich-96617d8fe18f",
-      "slug": "business-ingegnere-projektleiter-in-digitalisierung-stadt-zurich",
+      "slug": "business-engineer-project-manager-digitalizzazione-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "business-engineer-projektleiter-in-digitalisierung-stadt-zuerich-zurigo-51660",
-        "it": "business-ingegnere-projektleiter-in-digitalisierung-stadt-zurich",
-        "en": "business-engineer-projektleiter-in-digitalisierung-stadt-zurich-zurich",
-        "fr": "business-engineer-projektleiter-in-digitalisierung-stadt-zurich-zurich"
+        "it": "business-engineer-project-manager-digitalizzazione-stadt-zurich-zurich",
+        "en": "business-engineer-project-manager-digitalization-stadt-zurich-zurich",
+        "fr": "ingenieur-d-affaires-chef-de-projet-digitalisation-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28366,11 +28538,20 @@
       "referenceNumber": "51660",
       "previousSlugsByLocale": {
         "it": [
-          "business-engineer-projektleiter-in-digitalisierung-stadt-zuerich-zurigo-51660"
+          "business-engineer-projektleiter-in-digitalisierung-stadt-zuerich-zurigo-51660",
+          "business-ingegnere-projektleiter-in-digitalisierung-stadt-zurich"
+        ],
+        "en": [
+          "business-engineer-projektleiter-in-digitalisierung-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "business-engineer-projektleiter-in-digitalisierung-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "business-engineer-projektleiter-in-digitalisierung-stadt-zuerich-zurigo-51660"
+        "business-engineer-projektleiter-in-digitalisierung-stadt-zuerich-zurigo-51660",
+        "business-ingegnere-projektleiter-in-digitalisierung-stadt-zurich",
+        "business-engineer-projektleiter-in-digitalisierung-stadt-zurich-zurich"
       ],
       "salaryMin": 99000,
       "salaryMax": 151500,
@@ -28389,12 +28570,12 @@
     },
     {
       "id": "stadt-zuerich-7327511a0d15",
-      "slug": "applikationsmanager-in-stadt-zurich-zurich",
+      "slug": "gestione-delle-applicazioni-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "applikationsmanager-in-stadt-zuerich-zurigo-51418",
-        "it": "applikationsmanager-in-stadt-zurich-zurich",
-        "en": "applikationsmanager-in-stadt-zurich-zurich",
-        "fr": "applikationsmanager-in-stadt-zurich-zurich"
+        "it": "gestione-delle-applicazioni-stadt-zurich-zurich",
+        "en": "application-manager-stadt-zurich-zurich",
+        "fr": "gestionnaire-d-applications-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28443,11 +28624,19 @@
       "referenceNumber": "51418",
       "previousSlugsByLocale": {
         "it": [
-          "applikationsmanager-in-stadt-zuerich-zurigo-51418"
+          "applikationsmanager-in-stadt-zuerich-zurigo-51418",
+          "applikationsmanager-in-stadt-zurich-zurich"
+        ],
+        "en": [
+          "applikationsmanager-in-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "applikationsmanager-in-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "applikationsmanager-in-stadt-zuerich-zurigo-51418"
+        "applikationsmanager-in-stadt-zuerich-zurigo-51418",
+        "applikationsmanager-in-stadt-zurich-zurich"
       ],
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -28466,12 +28655,12 @@
     },
     {
       "id": "stadt-zuerich-e1f9175c00ec",
-      "slug": "fachperson-betreuung-40-stadt-zuerich-zurigo-51649",
+      "slug": "assistenza-specialistica-40-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-betreuung-40-stadt-zuerich-zurigo-51649",
-        "it": "fachperson-betreuung-40-stadt-zuerich-zurigo-51649",
-        "en": "fachperson-betreuung-40-stadt-zuerich-zurigo-51649",
-        "fr": "fachperson-betreuung-40-stadt-zuerich-zurigo-51649"
+        "it": "assistenza-specialistica-40-stadt-zurich-zurich",
+        "en": "specialist-care-40-stadt-zurich-zurich",
+        "fr": "soins-specialises-40-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28531,16 +28720,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.899Z"
+      "firstSeenAt": "2026-09-19T23:10:09.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-betreuung-40-stadt-zuerich-zurigo-51649"
+        ],
+        "en": [
+          "fachperson-betreuung-40-stadt-zuerich-zurigo-51649"
+        ],
+        "fr": [
+          "fachperson-betreuung-40-stadt-zuerich-zurigo-51649"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-betreuung-40-stadt-zuerich-zurigo-51649"
+      ]
     },
     {
       "id": "stadt-zuerich-41be817e4db0",
-      "slug": "collaboratore-trice-in-stadtreinigung-region-sud-f-stadt-zurich",
+      "slug": "dipendenti-urban-cleaning-region-south-f-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-stadtreinigung-region-sud-f-stadt-zuerich-zurigo-51651",
-        "it": "collaboratore-trice-in-stadtreinigung-region-sud-f-stadt-zurich",
-        "en": "mitarbeiter-in-stadtreinigung-region-sud-f-stadt-zurich-zurich",
-        "fr": "mitarbeiter-in-stadtreinigung-region-sud-f-stadt-zurich-zurich"
+        "it": "dipendenti-urban-cleaning-region-south-f-stadt-zurich-zurich",
+        "en": "employees-urban-cleaning-region-south-f-stadt-zurich-zurich",
+        "fr": "employes-nettoyage-urbain-region-sud-f-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28589,11 +28792,20 @@
       "referenceNumber": "51651",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-stadtreinigung-region-sud-f-stadt-zuerich-zurigo-51651"
+          "mitarbeiter-in-stadtreinigung-region-sud-f-stadt-zuerich-zurigo-51651",
+          "collaboratore-trice-in-stadtreinigung-region-sud-f-stadt-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-stadtreinigung-region-sud-f-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-stadtreinigung-region-sud-f-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-stadtreinigung-region-sud-f-stadt-zuerich-zurigo-51651"
+        "mitarbeiter-in-stadtreinigung-region-sud-f-stadt-zuerich-zurigo-51651",
+        "collaboratore-trice-in-stadtreinigung-region-sud-f-stadt-zurich",
+        "mitarbeiter-in-stadtreinigung-region-sud-f-stadt-zurich-zurich"
       ],
       "salaryMin": 83000,
       "salaryMax": 126000,
@@ -28612,12 +28824,12 @@
     },
     {
       "id": "stadt-zuerich-059638d2fe58",
-      "slug": "teamleiter-in-bauberatung-baumerhalt-stadt-zuerich-zurigo-51650",
+      "slug": "team-leader-consulenza-nelle-costruzioni-baumerhalt-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "teamleiter-in-bauberatung-baumerhalt-stadt-zuerich-zurigo-51650",
-        "it": "teamleiter-in-bauberatung-baumerhalt-stadt-zuerich-zurigo-51650",
-        "en": "teamleiter-in-bauberatung-baumerhalt-stadt-zuerich-zurigo-51650",
-        "fr": "teamleiter-in-bauberatung-baumerhalt-stadt-zuerich-zurigo-51650"
+        "it": "team-leader-consulenza-nelle-costruzioni-baumerhalt-stadt-zurich-zurich",
+        "en": "team-leader-construction-consultancy-baumerhalt-stadt-zurich-zurich",
+        "fr": "chef-d-equipe-conseil-en-construction-baumerhalt-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28677,7 +28889,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.899Z"
+      "firstSeenAt": "2026-09-19T23:10:09.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-bauberatung-baumerhalt-stadt-zuerich-zurigo-51650"
+        ],
+        "en": [
+          "teamleiter-in-bauberatung-baumerhalt-stadt-zuerich-zurigo-51650"
+        ],
+        "fr": [
+          "teamleiter-in-bauberatung-baumerhalt-stadt-zuerich-zurigo-51650"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-bauberatung-baumerhalt-stadt-zuerich-zurigo-51650"
+      ]
     },
     {
       "id": "stadt-zuerich-5233d430dc9a",
@@ -28759,12 +28985,12 @@
     },
     {
       "id": "stadt-zuerich-02a492d6f1b3",
-      "slug": "sozialarbeiter-in-kindesschutz-stadt-zuerich-zurigo-51654",
+      "slug": "protezione-dei-bambini-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "sozialarbeiter-in-kindesschutz-stadt-zuerich-zurigo-51654",
-        "it": "sozialarbeiter-in-kindesschutz-stadt-zuerich-zurigo-51654",
-        "en": "sozialarbeiter-in-kindesschutz-stadt-zuerich-zurigo-51654",
-        "fr": "sozialarbeiter-in-kindesschutz-stadt-zuerich-zurigo-51654"
+        "it": "protezione-dei-bambini-stadt-zurich-zurich",
+        "en": "social-worker-child-protection-stadt-zurich-zurich",
+        "fr": "protection-sociale-des-enfants-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28824,16 +29050,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.899Z"
+      "firstSeenAt": "2026-09-19T23:10:09.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialarbeiter-in-kindesschutz-stadt-zuerich-zurigo-51654"
+        ],
+        "en": [
+          "sozialarbeiter-in-kindesschutz-stadt-zuerich-zurigo-51654"
+        ],
+        "fr": [
+          "sozialarbeiter-in-kindesschutz-stadt-zuerich-zurigo-51654"
+        ]
+      },
+      "previousSlugs": [
+        "sozialarbeiter-in-kindesschutz-stadt-zuerich-zurigo-51654"
+      ]
     },
     {
       "id": "stadt-zuerich-367432d8c0bd",
-      "slug": "oberbauleiter-in-elektrische-anlagen-stadt-zuerich-zurigo-51658",
+      "slug": "impianti-elettrici-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "oberbauleiter-in-elektrische-anlagen-stadt-zuerich-zurigo-51658",
-        "it": "oberbauleiter-in-elektrische-anlagen-stadt-zuerich-zurigo-51658",
-        "en": "oberbauleiter-in-elektrische-anlagen-stadt-zuerich-zurigo-51658",
-        "fr": "oberbauleiter-in-elektrische-anlagen-stadt-zuerich-zurigo-51658"
+        "it": "impianti-elettrici-stadt-zurich-zurich",
+        "en": "superstructure-electrical-installations-stadt-zurich-zurich",
+        "fr": "installations-electriques-de-superstructure-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28893,16 +29133,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.899Z"
+      "firstSeenAt": "2026-09-19T23:10:09.899Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "oberbauleiter-in-elektrische-anlagen-stadt-zuerich-zurigo-51658"
+        ],
+        "en": [
+          "oberbauleiter-in-elektrische-anlagen-stadt-zuerich-zurigo-51658"
+        ],
+        "fr": [
+          "oberbauleiter-in-elektrische-anlagen-stadt-zuerich-zurigo-51658"
+        ]
+      },
+      "previousSlugs": [
+        "oberbauleiter-in-elektrische-anlagen-stadt-zuerich-zurigo-51658"
+      ]
     },
     {
       "id": "stadt-zuerich-61e56f6e7eb3",
-      "slug": "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-per-6-monate-stadt-zurich",
+      "slug": "impianti-sportivi-di-manutenzione-operativa-professionale-temporanea-per-6-mesi-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-fur-6-monate-stadt-zuerich-zurigo",
-        "it": "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-per-6-monate-stadt-zurich",
-        "en": "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-fur-6-monate-stadt-zurich-zurich",
-        "fr": "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-fur-6-monate-stadt-zurich-zurich"
+        "it": "impianti-sportivi-di-manutenzione-operativa-professionale-temporanea-per-6-mesi-stadt-zurich-zurich",
+        "en": "professional-operating-maintenance-sports-facilities-temporary-for-6-months-stadt-zurich-zurich",
+        "fr": "installations-sportives-d-entretien-professionnel-temporaire-pendant-6-mois-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -28951,11 +29205,20 @@
       "referenceNumber": "51629",
       "previousSlugsByLocale": {
         "it": [
-          "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-fur-6-monate-stadt-zuerich-zurigo"
+          "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-fur-6-monate-stadt-zuerich-zurigo",
+          "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-per-6-monate-stadt-zurich"
+        ],
+        "en": [
+          "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-fur-6-monate-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-fur-6-monate-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-fur-6-monate-stadt-zuerich-zurigo"
+        "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-fur-6-monate-stadt-zuerich-zurigo",
+        "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-per-6-monate-stadt-zurich",
+        "fachmann-frau-betriebsunterhalt-sportanlagen-befristet-fur-6-monate-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -29369,12 +29632,12 @@
     },
     {
       "id": "stadt-zuerich-a32ad0282ee4",
-      "slug": "schulzahnpflegeinstruktor-in-40-stadt-zurich-zurich",
+      "slug": "istruttore-di-medicina-dentale-scuola-40-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "schulzahnpflegeinstruktor-in-40-stadt-zuerich-zurigo-51670",
-        "it": "schulzahnpflegeinstruktor-in-40-stadt-zurich-zurich",
-        "en": "schulzahnpflegeinstruktor-in-40-stadt-zurich-zurich",
-        "fr": "schulzahnpflegeinstruktor-in-40-stadt-zurich-zurich"
+        "it": "istruttore-di-medicina-dentale-scuola-40-stadt-zurich-zurich",
+        "en": "school-dental-care-instructor-40-stadt-zurich-zurich",
+        "fr": "professeur-de-soins-dentaires-a-l-ecole-40-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -29423,11 +29686,19 @@
       "referenceNumber": "51670",
       "previousSlugsByLocale": {
         "it": [
-          "schulzahnpflegeinstruktor-in-40-stadt-zuerich-zurigo-51670"
+          "schulzahnpflegeinstruktor-in-40-stadt-zuerich-zurigo-51670",
+          "schulzahnpflegeinstruktor-in-40-stadt-zurich-zurich"
+        ],
+        "en": [
+          "schulzahnpflegeinstruktor-in-40-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "schulzahnpflegeinstruktor-in-40-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "schulzahnpflegeinstruktor-in-40-stadt-zuerich-zurigo-51670"
+        "schulzahnpflegeinstruktor-in-40-stadt-zuerich-zurigo-51670",
+        "schulzahnpflegeinstruktor-in-40-stadt-zurich-zurich"
       ],
       "salaryMin": 25200,
       "salaryMax": 46600,
@@ -29446,11 +29717,11 @@
     },
     {
       "id": "stadt-zuerich-cff3bb2c8853",
-      "slug": "risorse-umane-praktikant-in-stadt-zurich-zurich",
+      "slug": "personale-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "hr-praktikant-in-stadt-zuerich-zurigo-51666",
-        "it": "risorse-umane-praktikant-in-stadt-zurich-zurich",
-        "en": "hr-praktikant-in-stadt-zuerich-zurigo-51666",
+        "it": "personale-stadt-zurich-zurich",
+        "en": "hr-practitioner-stadt-zurich-zurich",
         "fr": "ressources-humaines-praktikant-in-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
@@ -29514,24 +29785,29 @@
       "firstSeenAt": "2026-09-19T23:10:09.898Z",
       "previousSlugsByLocale": {
         "it": [
-          "hr-praktikant-in-stadt-zuerich-zurigo-51666"
+          "hr-praktikant-in-stadt-zuerich-zurigo-51666",
+          "risorse-umane-praktikant-in-stadt-zurich-zurich"
         ],
         "fr": [
+          "hr-praktikant-in-stadt-zuerich-zurigo-51666"
+        ],
+        "en": [
           "hr-praktikant-in-stadt-zuerich-zurigo-51666"
         ]
       },
       "previousSlugs": [
-        "hr-praktikant-in-stadt-zuerich-zurigo-51666"
+        "hr-praktikant-in-stadt-zuerich-zurigo-51666",
+        "risorse-umane-praktikant-in-stadt-zurich-zurich"
       ]
     },
     {
       "id": "stadt-zuerich-e2fa7b196c16",
-      "slug": "fachspezialist-in-qualitatsmanagement-stadt-zurich-zurich",
+      "slug": "gestione-specialistica-della-qualita-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachspezialist-in-qualitatsmanagement-stadt-zuerich-zurigo-51638",
-        "it": "fachspezialist-in-qualitatsmanagement-stadt-zurich-zurich",
-        "en": "fachspezialist-in-qualitatsmanagement-stadt-zurich-zurich",
-        "fr": "fachspezialist-in-qualitatsmanagement-stadt-zurich-zurich"
+        "it": "gestione-specialistica-della-qualita-stadt-zurich-zurich",
+        "en": "specialist-quality-management-stadt-zurich-zurich",
+        "fr": "specialiste-en-gestion-de-la-qualite-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -29580,11 +29856,19 @@
       "referenceNumber": "51638",
       "previousSlugsByLocale": {
         "it": [
-          "fachspezialist-in-qualitatsmanagement-stadt-zuerich-zurigo-51638"
+          "fachspezialist-in-qualitatsmanagement-stadt-zuerich-zurigo-51638",
+          "fachspezialist-in-qualitatsmanagement-stadt-zurich-zurich"
+        ],
+        "en": [
+          "fachspezialist-in-qualitatsmanagement-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachspezialist-in-qualitatsmanagement-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachspezialist-in-qualitatsmanagement-stadt-zuerich-zurigo-51638"
+        "fachspezialist-in-qualitatsmanagement-stadt-zuerich-zurigo-51638",
+        "fachspezialist-in-qualitatsmanagement-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -29603,12 +29887,12 @@
     },
     {
       "id": "stadt-zuerich-d39e9a04b110",
-      "slug": "reifenfachmann-frau-stadt-zurich",
+      "slug": "tiro-professionale-donna-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "reifenfachmann-frau-stadt-zuerich-zurigo-51668",
-        "it": "reifenfachmann-frau-stadt-zurich",
-        "en": "reifenfachmann-frau-stadt-zuerich-zurigo-51668",
-        "fr": "reifenfachmann-frau-stadt-zuerich-zurigo-51668"
+        "it": "tiro-professionale-donna-stadt-zurich-zurich",
+        "en": "tyre-professional-woman-stadt-zurich-zurich",
+        "fr": "femmes-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -29657,11 +29941,19 @@
       "referenceNumber": "51668",
       "previousSlugsByLocale": {
         "it": [
+          "reifenfachmann-frau-stadt-zuerich-zurigo-51668",
+          "reifenfachmann-frau-stadt-zurich"
+        ],
+        "en": [
+          "reifenfachmann-frau-stadt-zuerich-zurigo-51668"
+        ],
+        "fr": [
           "reifenfachmann-frau-stadt-zuerich-zurigo-51668"
         ]
       },
       "previousSlugs": [
-        "reifenfachmann-frau-stadt-zuerich-zurigo-51668"
+        "reifenfachmann-frau-stadt-zuerich-zurigo-51668",
+        "reifenfachmann-frau-stadt-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -29680,12 +29972,12 @@
     },
     {
       "id": "stadt-zuerich-e50b5fe59fa3",
-      "slug": "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zurich-zurich",
+      "slug": "social-worker-practice-manager-integrazione-residenziale-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zuerich-zurigo-51672",
-        "it": "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zurich-zurich",
-        "en": "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zurich-zurich",
-        "fr": "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zurich-zurich"
+        "it": "social-worker-practice-manager-integrazione-residenziale-stadt-zurich-zurich",
+        "en": "social-worker-practice-manager-residential-integration-stadt-zurich-zurich",
+        "fr": "social-worker-practice-manager-integration-residentielle-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -29734,11 +30026,19 @@
       "referenceNumber": "51672",
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zuerich-zurigo-51672"
+          "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zuerich-zurigo-51672",
+          "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zurich-zurich"
+        ],
+        "en": [
+          "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zuerich-zurigo-51672"
+        "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zuerich-zurigo-51672",
+        "sozialarbeiter-in-praxisanleiter-in-wohnintegration-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -29757,12 +30057,12 @@
     },
     {
       "id": "stadt-zuerich-46d4c81fc82a",
-      "slug": "fachkraft-soziales-o-pflege-wohnintegration-stadt-zurich",
+      "slug": "integrazione-sociale-o-residenziale-professionale-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachkraft-soziales-oder-pflege-wohnintegration-stadt-zuerich-zurigo-51671",
-        "it": "fachkraft-soziales-o-pflege-wohnintegration-stadt-zurich",
-        "en": "fachkraft-soziales-oder-pflege-wohnintegration-stadt-zurich-zurich",
-        "fr": "fachkraft-soziales-oder-pflege-wohnintegration-stadt-zurich-zurich"
+        "it": "integrazione-sociale-o-residenziale-professionale-stadt-zurich-zurich",
+        "en": "professional-social-or-care-residential-integration-stadt-zurich-zurich",
+        "fr": "integration-professionnelle-en-milieu-residentiel-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -29811,11 +30111,20 @@
       "referenceNumber": "51671",
       "previousSlugsByLocale": {
         "it": [
-          "fachkraft-soziales-oder-pflege-wohnintegration-stadt-zuerich-zurigo-51671"
+          "fachkraft-soziales-oder-pflege-wohnintegration-stadt-zuerich-zurigo-51671",
+          "fachkraft-soziales-o-pflege-wohnintegration-stadt-zurich"
+        ],
+        "en": [
+          "fachkraft-soziales-oder-pflege-wohnintegration-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachkraft-soziales-oder-pflege-wohnintegration-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachkraft-soziales-oder-pflege-wohnintegration-stadt-zuerich-zurigo-51671"
+        "fachkraft-soziales-oder-pflege-wohnintegration-stadt-zuerich-zurigo-51671",
+        "fachkraft-soziales-o-pflege-wohnintegration-stadt-zurich",
+        "fachkraft-soziales-oder-pflege-wohnintegration-stadt-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -29834,12 +30143,12 @@
     },
     {
       "id": "stadt-zuerich-d6b6430d76b6",
-      "slug": "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zurich",
+      "slug": "cura-della-casa-assistenza-1-anno-limitato-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zuerich-zurigo-51657",
-        "it": "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zurich",
-        "en": "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zurich-zurich",
-        "fr": "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zurich-zurich"
+        "it": "cura-della-casa-assistenza-1-anno-limitato-stadt-zurich-zurich",
+        "en": "housekeeping-assistant-care-1-year-limited-stadt-zurich-zurich",
+        "fr": "soins-menagers-assistants-1-an-limite-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -29888,11 +30197,20 @@
       "referenceNumber": "51657",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zuerich-zurigo-51657"
+          "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zuerich-zurigo-51657",
+          "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zurich"
+        ],
+        "en": [
+          "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zuerich-zurigo-51657"
+        "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zuerich-zurigo-51657",
+        "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zurich",
+        "fachperson-hauswirtschaft-betreuungsassistenz-1-jahr-befristet-stadt-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -29911,12 +30229,12 @@
     },
     {
       "id": "stadt-zuerich-0f8dd9c140f6",
-      "slug": "hortleiter-in-stadt-zuerich-zurigo-51661",
+      "slug": "sede-centrale-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "hortleiter-in-stadt-zuerich-zurigo-51661",
-        "it": "hortleiter-in-stadt-zuerich-zurigo-51661",
-        "en": "hortleiter-in-stadt-zuerich-zurigo-51661",
-        "fr": "hortleiter-in-stadt-zuerich-zurigo-51661"
+        "it": "sede-centrale-stadt-zurich-zurich",
+        "en": "headquarters-stadt-zurich-zurich",
+        "fr": "siege-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -29976,16 +30294,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.898Z"
+      "firstSeenAt": "2026-09-19T23:10:09.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "hortleiter-in-stadt-zuerich-zurigo-51661"
+        ],
+        "en": [
+          "hortleiter-in-stadt-zuerich-zurigo-51661"
+        ],
+        "fr": [
+          "hortleiter-in-stadt-zuerich-zurigo-51661"
+        ]
+      },
+      "previousSlugs": [
+        "hortleiter-in-stadt-zuerich-zurigo-51661"
+      ]
     },
     {
       "id": "stadt-zuerich-094e8574b727",
-      "slug": "schulassistenz-isr-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51663",
+      "slug": "assistente-scolastico-isr-nella-casa-scolastica-chriesiweg-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "schulassistenz-isr-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51663",
-        "it": "schulassistenz-isr-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51663",
-        "en": "schulassistenz-isr-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51663",
-        "fr": "schulassistenz-isr-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51663"
+        "it": "assistente-scolastico-isr-nella-casa-scolastica-chriesiweg-stadt-zurich-zurich",
+        "en": "school-assistant-isr-in-the-school-house-chriesiweg-stadt-zurich-zurich",
+        "fr": "assistant-de-l-ecole-isr-dans-la-maison-de-l-ecole-chriesiweg-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -30045,16 +30377,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.898Z"
+      "firstSeenAt": "2026-09-19T23:10:09.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schulassistenz-isr-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51663"
+        ],
+        "en": [
+          "schulassistenz-isr-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51663"
+        ],
+        "fr": [
+          "schulassistenz-isr-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51663"
+        ]
+      },
+      "previousSlugs": [
+        "schulassistenz-isr-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51663"
+      ]
     },
     {
       "id": "stadt-zuerich-2cda0c17501e",
-      "slug": "schulassistenz-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51665",
+      "slug": "assistente-scolastico-nella-scuola-chriesiweg-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "schulassistenz-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51665",
-        "it": "schulassistenz-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51665",
-        "en": "schulassistenz-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51665",
-        "fr": "schulassistenz-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51665"
+        "it": "assistente-scolastico-nella-scuola-chriesiweg-stadt-zurich-zurich",
+        "en": "school-assistant-in-the-schoolhouse-chriesiweg-stadt-zurich-zurich",
+        "fr": "assistant-a-l-ecole-chriesiweg-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -30114,16 +30460,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.898Z"
+      "firstSeenAt": "2026-09-19T23:10:09.898Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "schulassistenz-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51665"
+        ],
+        "en": [
+          "schulassistenz-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51665"
+        ],
+        "fr": [
+          "schulassistenz-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51665"
+        ]
+      },
+      "previousSlugs": [
+        "schulassistenz-im-schulhaus-chriesiweg-stadt-zuerich-zurigo-51665"
+      ]
     },
     {
       "id": "stadt-zuerich-3efbbb06e694",
-      "slug": "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zurich-zurich",
+      "slug": "vicariato-di-maternita-1-primario-12-26-07-2027-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zuerich-zurigo-51667",
-        "it": "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zurich-zurich",
-        "en": "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zurich-zurich",
-        "fr": "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zurich-zurich"
+        "it": "vicariato-di-maternita-1-primario-12-26-07-2027-stadt-zurich-zurich",
+        "en": "maternity-vicariate-1st-primary-12-26-07-2027-stadt-zurich-zurich",
+        "fr": "vicariat-de-maternite-1er-primaire-12-26-07-2027-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -30172,11 +30532,19 @@
       "referenceNumber": "51667",
       "previousSlugsByLocale": {
         "it": [
-          "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zuerich-zurigo-51667"
+          "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zuerich-zurigo-51667",
+          "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zurich-zurich"
+        ],
+        "en": [
+          "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zuerich-zurigo-51667"
+        "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zuerich-zurigo-51667",
+        "mutterschaftsvikariat-1-primar-12-26-07-2027-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -30195,12 +30563,12 @@
     },
     {
       "id": "stadt-zuerich-abc68f6b0538",
-      "slug": "risorse-umane-fachspezialist-in-60-70-stadt-zurich-zurich",
+      "slug": "specialista-hr-60-70-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "hr-fachspezialist-in-60-70-stadt-zuerich-zurigo-51669",
-        "it": "risorse-umane-fachspezialist-in-60-70-stadt-zurich-zurich",
-        "en": "hr-fachspezialist-in-60-70-stadt-zuerich-zurigo-51669",
-        "fr": "ressources-humaines-fachspezialist-in-60-70-stadt-zurich-zurich"
+        "it": "specialista-hr-60-70-stadt-zurich-zurich",
+        "en": "hr-specialist-60-70-stadt-zurich-zurich",
+        "fr": "specialiste-des-rh-60-70-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -30263,24 +30631,31 @@
       "firstSeenAt": "2026-09-19T23:10:09.898Z",
       "previousSlugsByLocale": {
         "it": [
-          "hr-fachspezialist-in-60-70-stadt-zuerich-zurigo-51669"
+          "hr-fachspezialist-in-60-70-stadt-zuerich-zurigo-51669",
+          "risorse-umane-fachspezialist-in-60-70-stadt-zurich-zurich"
         ],
         "fr": [
+          "hr-fachspezialist-in-60-70-stadt-zuerich-zurigo-51669",
+          "ressources-humaines-fachspezialist-in-60-70-stadt-zurich-zurich"
+        ],
+        "en": [
           "hr-fachspezialist-in-60-70-stadt-zuerich-zurigo-51669"
         ]
       },
       "previousSlugs": [
-        "hr-fachspezialist-in-60-70-stadt-zuerich-zurigo-51669"
+        "hr-fachspezialist-in-60-70-stadt-zuerich-zurigo-51669",
+        "risorse-umane-fachspezialist-in-60-70-stadt-zurich-zurich",
+        "ressources-humaines-fachspezialist-in-60-70-stadt-zurich-zurich"
       ]
     },
     {
       "id": "stadt-zuerich-5d43c52af9dd",
-      "slug": "collaboratore-trice-in-fachstab-soziale-integration-fokus-wohnen-stadt-zurich",
+      "slug": "personale-dell-integrazione-sociale-attenzione-sull-alloggio-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-fachstab-soziale-integration-fokus-wohnen-stadt-zuerich-zurigo-51625",
-        "it": "collaboratore-trice-in-fachstab-soziale-integration-fokus-wohnen-stadt-zurich",
-        "en": "mitarbeiter-in-fachstab-soziale-integration-fokus-wohnen-stadt-zurich-zurich",
-        "fr": "mitarbeiter-in-fachstab-soziale-integration-fokus-wohnen-stadt-zurich-zurich"
+        "it": "personale-dell-integrazione-sociale-attenzione-sull-alloggio-stadt-zurich-zurich",
+        "en": "staff-of-social-integration-focus-on-housing-stadt-zurich-zurich",
+        "fr": "personnel-d-integration-sociale-centre-sur-le-logement-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -30329,11 +30704,20 @@
       "referenceNumber": "51625",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-fachstab-soziale-integration-fokus-wohnen-stadt-zuerich-zurigo-51625"
+          "mitarbeiter-in-fachstab-soziale-integration-fokus-wohnen-stadt-zuerich-zurigo-51625",
+          "collaboratore-trice-in-fachstab-soziale-integration-fokus-wohnen-stadt-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-fachstab-soziale-integration-fokus-wohnen-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-fachstab-soziale-integration-fokus-wohnen-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-fachstab-soziale-integration-fokus-wohnen-stadt-zuerich-zurigo-51625"
+        "mitarbeiter-in-fachstab-soziale-integration-fokus-wohnen-stadt-zuerich-zurigo-51625",
+        "collaboratore-trice-in-fachstab-soziale-integration-fokus-wohnen-stadt-zurich",
+        "mitarbeiter-in-fachstab-soziale-integration-fokus-wohnen-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -31138,12 +31522,12 @@
     },
     {
       "id": "stadt-zuerich-701dd4324da4",
-      "slug": "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zurich-zurich",
+      "slug": "professionale-specialista-manutenzione-aziendale-efz-nella-scuola-loogarten-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zuerich-zurigo-51674",
-        "it": "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zurich-zurich",
-        "en": "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zurich-zurich",
-        "fr": "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zurich-zurich"
+        "it": "professionale-specialista-manutenzione-aziendale-efz-nella-scuola-loogarten-stadt-zurich-zurich",
+        "en": "professional-specialist-business-maintenance-efz-in-the-schoolhouse-loogarten-stadt-zurich-zurich",
+        "fr": "professionnel-specialiste-entretien-des-affaires-efz-dans-la-maison-scolaire-loogarten-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31192,11 +31576,19 @@
       "referenceNumber": "51674",
       "previousSlugsByLocale": {
         "it": [
-          "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zuerich-zurigo-51674"
+          "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zuerich-zurigo-51674",
+          "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zurich-zurich"
+        ],
+        "en": [
+          "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zuerich-zurigo-51674"
+        "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zuerich-zurigo-51674",
+        "fachfrau-fachmann-betriebsunterhalt-efz-im-schulhaus-loogarten-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -31215,12 +31607,12 @@
     },
     {
       "id": "stadt-zuerich-a67f854ddee6",
-      "slug": "vereins-abwart-in-stadt-zuerich-zurigo-51676",
+      "slug": "abbandonazione-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "vereins-abwart-in-stadt-zuerich-zurigo-51676",
-        "it": "vereins-abwart-in-stadt-zuerich-zurigo-51676",
-        "en": "vereins-abwart-in-stadt-zuerich-zurigo-51676",
-        "fr": "vereins-abwart-in-stadt-zuerich-zurigo-51676"
+        "it": "abbandonazione-stadt-zurich-zurich",
+        "en": "abandonment-stadt-zurich-zurich",
+        "fr": "abandon-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31280,16 +31672,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.897Z"
+      "firstSeenAt": "2026-09-19T23:10:09.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "vereins-abwart-in-stadt-zuerich-zurigo-51676"
+        ],
+        "en": [
+          "vereins-abwart-in-stadt-zuerich-zurigo-51676"
+        ],
+        "fr": [
+          "vereins-abwart-in-stadt-zuerich-zurigo-51676"
+        ]
+      },
+      "previousSlugs": [
+        "vereins-abwart-in-stadt-zuerich-zurigo-51676"
+      ]
     },
     {
       "id": "stadt-zuerich-c5f30f9bd8f3",
-      "slug": "vorpraktikant-in-gastronomie-kuche-o-service-stadt-zurich",
+      "slug": "cucina-pre-pratica-o-servizio-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "vorpraktikant-in-gastronomie-kuche-oder-service-stadt-zuerich-zurigo-51677",
-        "it": "vorpraktikant-in-gastronomie-kuche-o-service-stadt-zurich",
-        "en": "vorpraktikant-in-gastronomie-kuche-oder-service-stadt-zuerich-zurigo-51677",
-        "fr": "vorpraktikant-in-gastronomie-kuche-oder-service-stadt-zuerich-zurigo-51677"
+        "it": "cucina-pre-pratica-o-servizio-stadt-zurich-zurich",
+        "en": "pre-practical-gastronomy-cuisine-or-service-stadt-zurich-zurich",
+        "fr": "gastronomie-pre-pratique-cuisine-ou-service-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31338,11 +31744,19 @@
       "referenceNumber": "51677",
       "previousSlugsByLocale": {
         "it": [
+          "vorpraktikant-in-gastronomie-kuche-oder-service-stadt-zuerich-zurigo-51677",
+          "vorpraktikant-in-gastronomie-kuche-o-service-stadt-zurich"
+        ],
+        "en": [
+          "vorpraktikant-in-gastronomie-kuche-oder-service-stadt-zuerich-zurigo-51677"
+        ],
+        "fr": [
           "vorpraktikant-in-gastronomie-kuche-oder-service-stadt-zuerich-zurigo-51677"
         ]
       },
       "previousSlugs": [
-        "vorpraktikant-in-gastronomie-kuche-oder-service-stadt-zuerich-zurigo-51677"
+        "vorpraktikant-in-gastronomie-kuche-oder-service-stadt-zuerich-zurigo-51677",
+        "vorpraktikant-in-gastronomie-kuche-o-service-stadt-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -31361,12 +31775,12 @@
     },
     {
       "id": "stadt-zuerich-241e6d626d7b",
-      "slug": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich",
+      "slug": "sostegno-sociale-e-tutela-degli-adulti-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-51691",
-        "it": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich",
-        "en": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich",
-        "fr": "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
+        "it": "sostegno-sociale-e-tutela-degli-adulti-stadt-zurich-zurich",
+        "en": "social-workers-social-welfare-and-adult-protection-stadt-zurich-zurich",
+        "fr": "travailleurs-sociaux-protection-sociale-et-protection-des-adultes-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31415,11 +31829,19 @@
       "referenceNumber": "51691",
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-51691"
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-51691",
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
+        ],
+        "en": [
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-51691"
+        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zuerich-zurigo-51691",
+        "sozialarbeiter-in-sozialhilfe-erwachsenenschutz-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -31515,12 +31937,12 @@
     },
     {
       "id": "stadt-zuerich-1d27669ce088",
-      "slug": "fachleiter-in-energiedatenmanagement-stadt-zurich-zurich",
+      "slug": "responsabile-della-gestione-dei-dati-energetici-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachleiter-in-energiedatenmanagement-stadt-zuerich-zurigo-51682",
-        "it": "fachleiter-in-energiedatenmanagement-stadt-zurich-zurich",
-        "en": "fachleiter-in-energiedatenmanagement-stadt-zurich-zurich",
-        "fr": "fachleiter-in-energiedatenmanagement-stadt-zurich-zurich"
+        "it": "responsabile-della-gestione-dei-dati-energetici-stadt-zurich-zurich",
+        "en": "head-of-energy-data-management-stadt-zurich-zurich",
+        "fr": "responsable-de-la-gestion-des-donnees-energetiques-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31569,11 +31991,19 @@
       "referenceNumber": "51682",
       "previousSlugsByLocale": {
         "it": [
-          "fachleiter-in-energiedatenmanagement-stadt-zuerich-zurigo-51682"
+          "fachleiter-in-energiedatenmanagement-stadt-zuerich-zurigo-51682",
+          "fachleiter-in-energiedatenmanagement-stadt-zurich-zurich"
+        ],
+        "en": [
+          "fachleiter-in-energiedatenmanagement-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachleiter-in-energiedatenmanagement-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachleiter-in-energiedatenmanagement-stadt-zuerich-zurigo-51682"
+        "fachleiter-in-energiedatenmanagement-stadt-zuerich-zurigo-51682",
+        "fachleiter-in-energiedatenmanagement-stadt-zurich-zurich"
       ],
       "salaryMin": 99000,
       "salaryMax": 151500,
@@ -31592,12 +32022,12 @@
     },
     {
       "id": "stadt-zuerich-a5e5e3227401",
-      "slug": "fachperson-administration-digitalisierung-e-prozesse-stadt-zurich",
+      "slug": "amministrazione-professionale-digitalizzazione-e-processi-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-administration-digitalisierung-und-prozesse-stadt-zuerich-zurigo-51655",
-        "it": "fachperson-administration-digitalisierung-e-prozesse-stadt-zurich",
-        "en": "fachperson-administration-digitalisierung-und-prozesse-stadt-zurich-zurich",
-        "fr": "fachperson-administration-digitalisierung-und-prozesse-stadt-zurich-zurich"
+        "it": "amministrazione-professionale-digitalizzazione-e-processi-stadt-zurich-zurich",
+        "en": "professional-administration-digitalization-and-processes-stadt-zurich-zurich",
+        "fr": "administration-professionnelle-numerisation-et-processus-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31646,11 +32076,20 @@
       "referenceNumber": "51655",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-administration-digitalisierung-und-prozesse-stadt-zuerich-zurigo-51655"
+          "fachperson-administration-digitalisierung-und-prozesse-stadt-zuerich-zurigo-51655",
+          "fachperson-administration-digitalisierung-e-prozesse-stadt-zurich"
+        ],
+        "en": [
+          "fachperson-administration-digitalisierung-und-prozesse-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachperson-administration-digitalisierung-und-prozesse-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachperson-administration-digitalisierung-und-prozesse-stadt-zuerich-zurigo-51655"
+        "fachperson-administration-digitalisierung-und-prozesse-stadt-zuerich-zurigo-51655",
+        "fachperson-administration-digitalisierung-e-prozesse-stadt-zurich",
+        "fachperson-administration-digitalisierung-und-prozesse-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -31669,12 +32108,12 @@
     },
     {
       "id": "stadt-zuerich-227752acc348",
-      "slug": "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zurich-zurich",
+      "slug": "assistenza-sociale-economica-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zuerich-zurigo-51684",
-        "it": "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zurich-zurich",
-        "en": "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zurich-zurich",
-        "fr": "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zurich-zurich"
+        "it": "assistenza-sociale-economica-stadt-zurich-zurich",
+        "en": "university-internship-staff-economic-social-assistance-stadt-zurich-zurich",
+        "fr": "personnel-de-stage-universitaire-aide-sociale-economique-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31723,11 +32162,19 @@
       "referenceNumber": "51684",
       "previousSlugsByLocale": {
         "it": [
-          "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zuerich-zurigo-51684"
+          "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zuerich-zurigo-51684",
+          "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zurich-zurich"
+        ],
+        "en": [
+          "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zuerich-zurigo-51684"
+        "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zuerich-zurigo-51684",
+        "hochschulpraktikant-in-fachstab-wirtschaftliche-sozialhilfe-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -31746,12 +32193,12 @@
     },
     {
       "id": "stadt-zuerich-88f891d623ad",
-      "slug": "fachperson-fachstelle-per-interdisziplinare-fallarbeit-fif-stadt-zurich",
+      "slug": "professionista-centro-di-lavoro-interdisciplinare-fif-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-fachstelle-fur-interdisziplinare-fallarbeit-fif-stadt-zuerich-zurigo-51694",
-        "it": "fachperson-fachstelle-per-interdisziplinare-fallarbeit-fif-stadt-zurich",
-        "en": "fachperson-fachstelle-fur-interdisziplinare-fallarbeit-fif-stadt-zurich-zurich",
-        "fr": "fachperson-fachstelle-fur-interdisziplinare-fallarbeit-fif-stadt-zurich-zurich"
+        "it": "professionista-centro-di-lavoro-interdisciplinare-fif-stadt-zurich-zurich",
+        "en": "professional-centre-for-interdisciplinary-case-work-fif-stadt-zurich-zurich",
+        "fr": "professionnel-centre-pour-le-travail-de-cas-interdisciplinaire-fif-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31800,11 +32247,20 @@
       "referenceNumber": "51694",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-fachstelle-fur-interdisziplinare-fallarbeit-fif-stadt-zuerich-zurigo-51694"
+          "fachperson-fachstelle-fur-interdisziplinare-fallarbeit-fif-stadt-zuerich-zurigo-51694",
+          "fachperson-fachstelle-per-interdisziplinare-fallarbeit-fif-stadt-zurich"
+        ],
+        "en": [
+          "fachperson-fachstelle-fur-interdisziplinare-fallarbeit-fif-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachperson-fachstelle-fur-interdisziplinare-fallarbeit-fif-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachperson-fachstelle-fur-interdisziplinare-fallarbeit-fif-stadt-zuerich-zurigo-51694"
+        "fachperson-fachstelle-fur-interdisziplinare-fallarbeit-fif-stadt-zuerich-zurigo-51694",
+        "fachperson-fachstelle-per-interdisziplinare-fallarbeit-fif-stadt-zurich",
+        "fachperson-fachstelle-fur-interdisziplinare-fallarbeit-fif-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -31823,12 +32279,12 @@
     },
     {
       "id": "stadt-zuerich-c7e81a799a63",
-      "slug": "praktikant-in-risorse-umane-marketing-e-gewinnung-stadt-zurich",
+      "slug": "intern-hr-marketing-e-acquisizione-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "praktikant-in-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51664",
-        "it": "praktikant-in-risorse-umane-marketing-e-gewinnung-stadt-zurich",
-        "en": "praktikant-in-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51664",
-        "fr": "praktikant-in-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51664"
+        "it": "intern-hr-marketing-e-acquisizione-stadt-zurich-zurich",
+        "en": "intern-hr-marketing-and-acquisition-stadt-zurich-zurich",
+        "fr": "commercialisation-et-acquisition-des-ressources-humaines-des-stagiaires-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31877,11 +32333,19 @@
       "referenceNumber": "51664",
       "previousSlugsByLocale": {
         "it": [
+          "praktikant-in-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51664",
+          "praktikant-in-risorse-umane-marketing-e-gewinnung-stadt-zurich"
+        ],
+        "en": [
+          "praktikant-in-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51664"
+        ],
+        "fr": [
           "praktikant-in-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51664"
         ]
       },
       "previousSlugs": [
-        "praktikant-in-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51664"
+        "praktikant-in-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51664",
+        "praktikant-in-risorse-umane-marketing-e-gewinnung-stadt-zurich"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -31900,12 +32364,12 @@
     },
     {
       "id": "stadt-zuerich-0432120b00c1",
-      "slug": "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zurich-zurich",
+      "slug": "assistenza-sociale-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zuerich-zurigo-51673",
-        "it": "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zurich-zurich",
-        "en": "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zurich-zurich",
-        "fr": "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zurich-zurich"
+        "it": "assistenza-sociale-stadt-zurich-zurich",
+        "en": "social-worker-economic-social-assistance-stadt-zurich-zurich",
+        "fr": "aide-economique-aux-travailleurs-sociaux-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -31954,11 +32418,19 @@
       "referenceNumber": "51673",
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zuerich-zurigo-51673"
+          "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zuerich-zurigo-51673",
+          "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zurich-zurich"
+        ],
+        "en": [
+          "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zuerich-zurigo-51673"
+        "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zuerich-zurigo-51673",
+        "sozialarbeiter-in-wirtschaftliche-sozialhilfe-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -31977,12 +32449,12 @@
     },
     {
       "id": "stadt-zuerich-6b2c09b53894",
-      "slug": "koch-in-standort-wildbach-stadt-zuerich-zurigo-51675",
+      "slug": "koch-in-posizione-wildbach-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "koch-in-standort-wildbach-stadt-zuerich-zurigo-51675",
-        "it": "koch-in-standort-wildbach-stadt-zuerich-zurigo-51675",
+        "it": "koch-in-posizione-wildbach-stadt-zurich-zurich",
         "en": "koch-in-standort-wildbach-stadt-zurich-zurich",
-        "fr": "koch-in-standort-wildbach-stadt-zuerich-zurigo-51675"
+        "fr": "koch-in-emplacement-wildbach-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32043,16 +32515,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.897Z"
+      "firstSeenAt": "2026-09-19T23:10:09.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-in-standort-wildbach-stadt-zuerich-zurigo-51675"
+        ],
+        "fr": [
+          "koch-in-standort-wildbach-stadt-zuerich-zurigo-51675"
+        ]
+      },
+      "previousSlugs": [
+        "koch-in-standort-wildbach-stadt-zuerich-zurigo-51675"
+      ]
     },
     {
       "id": "stadt-zuerich-6bcae3b85234",
-      "slug": "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zurich-zurich",
+      "slug": "universita-di-scienze-applicate-stage-adulti-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zuerich-zurigo-51678",
-        "it": "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zurich-zurich",
-        "en": "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zurich-zurich",
-        "fr": "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zurich-zurich"
+        "it": "universita-di-scienze-applicate-stage-adulti-stadt-zurich-zurich",
+        "en": "university-of-applied-sciences-internships-adults-stadt-zurich-zurich",
+        "fr": "universite-des-sciences-appliquees-stages-adultes-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32101,11 +32584,19 @@
       "referenceNumber": "51678",
       "previousSlugsByLocale": {
         "it": [
-          "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zuerich-zurigo-51678"
+          "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zuerich-zurigo-51678",
+          "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zurich-zurich"
+        ],
+        "en": [
+          "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zuerich-zurigo-51678"
+        "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zuerich-zurigo-51678",
+        "fachhochschulpraktikant-in-einsatze-erwachsene-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -32124,12 +32615,12 @@
     },
     {
       "id": "stadt-zuerich-1e4fca9dd935",
-      "slug": "fachperson-risorse-umane-marketing-e-gewinnung-stadt-zurich",
+      "slug": "marketing-hr-professionale-e-acquisizione-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51679",
-        "it": "fachperson-risorse-umane-marketing-e-gewinnung-stadt-zurich",
-        "en": "fachperson-hr-marketing-und-gewinnung-stadt-zurich-zurich",
-        "fr": "fachperson-ressources-humaines-marketing-und-gewinnung-stadt-zurich-zurich"
+        "it": "marketing-hr-professionale-e-acquisizione-stadt-zurich-zurich",
+        "en": "professional-hr-marketing-and-acquisition-stadt-zurich-zurich",
+        "fr": "commercialisation-et-acquisition-professionnelles-des-rh-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32178,14 +32669,22 @@
       "referenceNumber": "51679",
       "previousSlugsByLocale": {
         "it": [
-          "fachperson-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51679"
+          "fachperson-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51679",
+          "fachperson-risorse-umane-marketing-e-gewinnung-stadt-zurich"
         ],
         "fr": [
-          "fachperson-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51679"
+          "fachperson-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51679",
+          "fachperson-ressources-humaines-marketing-und-gewinnung-stadt-zurich-zurich"
+        ],
+        "en": [
+          "fachperson-hr-marketing-und-gewinnung-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "fachperson-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51679"
+        "fachperson-hr-marketing-und-gewinnung-stadt-zuerich-zurigo-51679",
+        "fachperson-risorse-umane-marketing-e-gewinnung-stadt-zurich",
+        "fachperson-hr-marketing-und-gewinnung-stadt-zurich-zurich",
+        "fachperson-ressources-humaines-marketing-und-gewinnung-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -32204,12 +32703,12 @@
     },
     {
       "id": "stadt-zuerich-f66ded29d983",
-      "slug": "praktikant-in-jurist-in-stadt-zuerich-zurigo-51683",
+      "slug": "avvocato-tirocinante-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "praktikant-in-jurist-in-stadt-zuerich-zurigo-51683",
-        "it": "praktikant-in-jurist-in-stadt-zuerich-zurigo-51683",
-        "en": "praktikant-in-jurist-in-stadt-zuerich-zurigo-51683",
-        "fr": "praktikant-in-jurist-in-stadt-zuerich-zurigo-51683"
+        "it": "avvocato-tirocinante-stadt-zurich-zurich",
+        "en": "trainee-lawyer-stadt-zurich-zurich",
+        "fr": "avocat-stagiaire-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32269,16 +32768,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.897Z"
+      "firstSeenAt": "2026-09-19T23:10:09.897Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-jurist-in-stadt-zuerich-zurigo-51683"
+        ],
+        "en": [
+          "praktikant-in-jurist-in-stadt-zuerich-zurigo-51683"
+        ],
+        "fr": [
+          "praktikant-in-jurist-in-stadt-zuerich-zurigo-51683"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-jurist-in-stadt-zuerich-zurigo-51683"
+      ]
     },
     {
       "id": "stadt-zuerich-4a116f53943e",
-      "slug": "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zurich-zurich",
+      "slug": "occupazione-e-affari-sociali-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zuerich-zurigo-51686",
-        "it": "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zurich-zurich",
-        "en": "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zurich-zurich",
-        "fr": "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zurich-zurich"
+        "it": "occupazione-e-affari-sociali-stadt-zurich-zurich",
+        "en": "social-workers-economic-welfare-and-child-protection-stadt-zurich-zurich",
+        "fr": "travailleurs-sociaux-protection-economique-et-protection-de-l-enfance-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32327,11 +32840,19 @@
       "referenceNumber": "51686",
       "previousSlugsByLocale": {
         "it": [
-          "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zuerich-zurigo-51686"
+          "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zuerich-zurigo-51686",
+          "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zurich-zurich"
+        ],
+        "en": [
+          "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zuerich-zurigo-51686"
+        "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zuerich-zurigo-51686",
+        "sozialarbeiter-in-wirtschaftliche-sozialhilfe-kindesschutz-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -32350,12 +32871,12 @@
     },
     {
       "id": "stadt-zuerich-fabee4929b77",
-      "slug": "diplomierte-pflegefachperson-hf-con-fokus-nachtdienst-pflegewohngruppen-triemlipark-1-e-2-stadt-zurich",
+      "slug": "infermiera-laureata-hf-con-focus-sul-servizio-notturno-gruppi-di-alloggi-per-la-cura-triemlipark-1-e-2-stadt-zurich",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-mit-fokus-nachtdienst-pflegewohngruppen-triemlipark-1-und",
-        "it": "diplomierte-pflegefachperson-hf-con-fokus-nachtdienst-pflegewohngruppen-triemlipark-1-e-2-stadt-zurich",
-        "en": "diplomierte-pflegefachperson-hf-mit-fokus-nachtdienst-pflegewohngruppen-triemlipark-1-und",
-        "fr": "diplomierte-pflegefachperson-hf-mit-fokus-nachtdienst-pflegewohngruppen-triemlipark-1-und"
+        "it": "infermiera-laureata-hf-con-focus-sul-servizio-notturno-gruppi-di-alloggi-per-la-cura-triemlipark-1-e-2-stadt-zurich",
+        "en": "graduated-nurse-hf-with-focus-on-night-service-nursing-housing-groups-triemlipark-1-and-2-stadt-zurich-zurich",
+        "fr": "infirmiere-diplomee-hf-avec-l-accent-sur-le-service-de-nuit-les-groupes-de-logements-infirmiers-triemlipark-1-et-2-stadt"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32404,11 +32925,19 @@
       "referenceNumber": "51687",
       "previousSlugsByLocale": {
         "it": [
+          "diplomierte-pflegefachperson-hf-mit-fokus-nachtdienst-pflegewohngruppen-triemlipark-1-und",
+          "diplomierte-pflegefachperson-hf-con-fokus-nachtdienst-pflegewohngruppen-triemlipark-1-e-2-stadt-zurich"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-mit-fokus-nachtdienst-pflegewohngruppen-triemlipark-1-und"
+        ],
+        "fr": [
           "diplomierte-pflegefachperson-hf-mit-fokus-nachtdienst-pflegewohngruppen-triemlipark-1-und"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-hf-mit-fokus-nachtdienst-pflegewohngruppen-triemlipark-1-und"
+        "diplomierte-pflegefachperson-hf-mit-fokus-nachtdienst-pflegewohngruppen-triemlipark-1-und",
+        "diplomierte-pflegefachperson-hf-con-fokus-nachtdienst-pflegewohngruppen-triemlipark-1-e-2-stadt-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -32427,12 +32956,12 @@
     },
     {
       "id": "stadt-zuerich-10f3340c15de",
-      "slug": "collaboratore-trice-in-fachstelle-per-gewaltpravention-stadt-zurich",
+      "slug": "specialista-nella-prevenzione-della-violenza-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "mitarbeiter-in-fachstelle-fur-gewaltpravention-stadt-zuerich-zurigo-51690",
-        "it": "collaboratore-trice-in-fachstelle-per-gewaltpravention-stadt-zurich",
-        "en": "mitarbeiter-in-fachstelle-fur-gewaltpravention-stadt-zurich-zurich",
-        "fr": "mitarbeiter-in-fachstelle-fur-gewaltpravention-stadt-zurich-zurich"
+        "it": "specialista-nella-prevenzione-della-violenza-stadt-zurich-zurich",
+        "en": "specialist-for-violence-prevention-stadt-zurich-zurich",
+        "fr": "specialiste-de-la-prevention-de-la-violence-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32481,11 +33010,20 @@
       "referenceNumber": "51690",
       "previousSlugsByLocale": {
         "it": [
-          "mitarbeiter-in-fachstelle-fur-gewaltpravention-stadt-zuerich-zurigo-51690"
+          "mitarbeiter-in-fachstelle-fur-gewaltpravention-stadt-zuerich-zurigo-51690",
+          "collaboratore-trice-in-fachstelle-per-gewaltpravention-stadt-zurich"
+        ],
+        "en": [
+          "mitarbeiter-in-fachstelle-fur-gewaltpravention-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "mitarbeiter-in-fachstelle-fur-gewaltpravention-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-fachstelle-fur-gewaltpravention-stadt-zuerich-zurigo-51690"
+        "mitarbeiter-in-fachstelle-fur-gewaltpravention-stadt-zuerich-zurigo-51690",
+        "collaboratore-trice-in-fachstelle-per-gewaltpravention-stadt-zurich",
+        "mitarbeiter-in-fachstelle-fur-gewaltpravention-stadt-zurich-zurich"
       ],
       "salaryMin": 63000,
       "salaryMax": 116500,
@@ -32504,12 +33042,12 @@
     },
     {
       "id": "stadt-zuerich-e6f7e8b652c9",
-      "slug": "leiter-in-kompetenzzentrum-zivilstandesamt-leiter-in-kompetenzzentrum-personenmeldeamt-stadt-zurich",
+      "slug": "capo-del-centro-di-competenza-ufficio-di-stato-civile-capo-del-centro-di-competenza-ufficio-di-registrazione-della",
       "slugByLocale": {
         "de": "leiter-in-kompetenzzentrum-zivilstandesamt-leiter-in-kompetenzzentrum-personenmeldeamt",
-        "it": "leiter-in-kompetenzzentrum-zivilstandesamt-leiter-in-kompetenzzentrum-personenmeldeamt-stadt-zurich",
-        "en": "leiter-in-kompetenzzentrum-zivilstandesamt-leiter-in-kompetenzzentrum-personenmeldeamt",
-        "fr": "leiter-in-kompetenzzentrum-zivilstandesamt-leiter-in-kompetenzzentrum-personenmeldeamt"
+        "it": "capo-del-centro-di-competenza-ufficio-di-stato-civile-capo-del-centro-di-competenza-ufficio-di-registrazione-della",
+        "en": "head-of-competence-center-civil-status-office-head-of-competence-center-person-registration-office-stadt-zurich-zurich",
+        "fr": "chef-du-centre-de-competences-bureau-de-l-etat-civil-chef-du-centre-de-competences-bureau-d-enregistrement-des-personnes"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32558,11 +33096,19 @@
       "referenceNumber": "51585",
       "previousSlugsByLocale": {
         "it": [
+          "leiter-in-kompetenzzentrum-zivilstandesamt-leiter-in-kompetenzzentrum-personenmeldeamt",
+          "leiter-in-kompetenzzentrum-zivilstandesamt-leiter-in-kompetenzzentrum-personenmeldeamt-stadt-zurich"
+        ],
+        "en": [
+          "leiter-in-kompetenzzentrum-zivilstandesamt-leiter-in-kompetenzzentrum-personenmeldeamt"
+        ],
+        "fr": [
           "leiter-in-kompetenzzentrum-zivilstandesamt-leiter-in-kompetenzzentrum-personenmeldeamt"
         ]
       },
       "previousSlugs": [
-        "leiter-in-kompetenzzentrum-zivilstandesamt-leiter-in-kompetenzzentrum-personenmeldeamt"
+        "leiter-in-kompetenzzentrum-zivilstandesamt-leiter-in-kompetenzzentrum-personenmeldeamt",
+        "leiter-in-kompetenzzentrum-zivilstandesamt-leiter-in-kompetenzzentrum-personenmeldeamt-stadt-zurich"
       ],
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -32581,12 +33127,12 @@
     },
     {
       "id": "stadt-zuerich-dfe068b130bb",
-      "slug": "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zurich-zurich",
+      "slug": "infermiere-di-laurea-hf-sito-grunau-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zuerich-zurigo-48350",
-        "it": "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zurich-zurich",
-        "en": "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zurich-zurich",
-        "fr": "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zurich-zurich"
+        "it": "infermiere-di-laurea-hf-sito-grunau-stadt-zurich-zurich",
+        "en": "graduate-nurse-hf-grunau-site-stadt-zurich-zurich",
+        "fr": "infirmiere-diplomee-hf-site-grunau-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -32636,11 +33182,19 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zuerich-zurigo-48350"
+          "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zuerich-zurigo-48350",
+          "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zurich-zurich"
+        ],
+        "en": [
+          "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zuerich-zurigo-48350"
+        "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zuerich-zurigo-48350",
+        "diplomierte-pflegefachperson-hf-standort-grunau-stadt-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -33534,12 +34088,12 @@
     },
     {
       "id": "stadt-zuerich-e374bc315f85",
-      "slug": "asset-manager-wind-nordeuropa-stadt-zuerich-zurigo-50697",
+      "slug": "asset-manager-wind-europa-settentrionale-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "asset-manager-wind-nordeuropa-stadt-zuerich-zurigo-50697",
-        "it": "asset-manager-wind-nordeuropa-stadt-zuerich-zurigo-50697",
+        "it": "asset-manager-wind-europa-settentrionale-stadt-zurich-zurich",
         "en": "asset-manager-wind-nordeuropa-stadt-zurich-zurich",
-        "fr": "asset-manager-wind-nordeuropa-stadt-zuerich-zurigo-50697"
+        "fr": "gestionnaire-d-actifs-wind-northern-europe-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33599,16 +34153,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.896Z"
+      "firstSeenAt": "2026-09-19T23:10:09.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "asset-manager-wind-nordeuropa-stadt-zuerich-zurigo-50697"
+        ],
+        "fr": [
+          "asset-manager-wind-nordeuropa-stadt-zuerich-zurigo-50697"
+        ]
+      },
+      "previousSlugs": [
+        "asset-manager-wind-nordeuropa-stadt-zuerich-zurigo-50697"
+      ]
     },
     {
       "id": "stadt-zuerich-650567514d47",
-      "slug": "fachperson-gesundheit-standort-grunau-stadt-zuerich-zurigo-50096",
+      "slug": "specialista-della-salute-sito-grunau-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "fachperson-gesundheit-standort-grunau-stadt-zuerich-zurigo-50096",
-        "it": "fachperson-gesundheit-standort-grunau-stadt-zuerich-zurigo-50096",
-        "en": "fachperson-gesundheit-standort-grunau-stadt-zuerich-zurigo-50096",
-        "fr": "fachperson-gesundheit-standort-grunau-stadt-zuerich-zurigo-50096"
+        "it": "specialista-della-salute-sito-grunau-stadt-zurich-zurich",
+        "en": "health-specialist-grunau-site-stadt-zurich-zurich",
+        "fr": "specialiste-de-la-sante-site-de-grunau-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33669,7 +34234,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.896Z"
+      "firstSeenAt": "2026-09-19T23:10:09.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachperson-gesundheit-standort-grunau-stadt-zuerich-zurigo-50096"
+        ],
+        "en": [
+          "fachperson-gesundheit-standort-grunau-stadt-zuerich-zurigo-50096"
+        ],
+        "fr": [
+          "fachperson-gesundheit-standort-grunau-stadt-zuerich-zurigo-50096"
+        ]
+      },
+      "previousSlugs": [
+        "fachperson-gesundheit-standort-grunau-stadt-zuerich-zurigo-50096"
+      ]
     },
     {
       "id": "stadt-zuerich-0fa2d40d7fe5",
@@ -33750,12 +34329,12 @@
     },
     {
       "id": "stadt-zuerich-95ba97e349b0",
-      "slug": "sozialpadagog-in-stadt-zuerich-zurigo-49739",
+      "slug": "istruzione-sociale-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "sozialpadagog-in-stadt-zuerich-zurigo-49739",
-        "it": "sozialpadagog-in-stadt-zuerich-zurigo-49739",
-        "en": "sozialpadagog-in-stadt-zuerich-zurigo-49739",
-        "fr": "sozialpadagog-in-stadt-zuerich-zurigo-49739"
+        "it": "istruzione-sociale-stadt-zurich-zurich",
+        "en": "social-education-stadt-zurich-zurich",
+        "fr": "education-sociale-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33815,16 +34394,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:10:09.896Z"
+      "firstSeenAt": "2026-09-19T23:10:09.896Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagog-in-stadt-zuerich-zurigo-49739"
+        ],
+        "en": [
+          "sozialpadagog-in-stadt-zuerich-zurigo-49739"
+        ],
+        "fr": [
+          "sozialpadagog-in-stadt-zuerich-zurigo-49739"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagog-in-stadt-zuerich-zurigo-49739"
+      ]
     },
     {
       "id": "stadt-zuerich-84d9757c5b4b",
-      "slug": "sachbearbeiter-in-stadt-zurich-zurich",
+      "slug": "manigliere-di-caso-stadt-zurich-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-stadt-zuerich-zurigo-51106",
-        "it": "sachbearbeiter-in-stadt-zurich-zurich",
-        "en": "sachbearbeiter-in-stadt-zurich-zurich",
-        "fr": "sachbearbeiter-in-stadt-zurich-zurich"
+        "it": "manigliere-di-caso-stadt-zurich-zurich",
+        "en": "case-handlers-stadt-zurich-zurich",
+        "fr": "gestionnaires-de-cas-stadt-zurich-zurich"
       },
       "company": "Stadt Zürich",
       "companyKey": "stadt-zuerich",
@@ -33873,11 +34466,19 @@
       "referenceNumber": "51106",
       "previousSlugsByLocale": {
         "it": [
-          "sachbearbeiter-in-stadt-zuerich-zurigo-51106"
+          "sachbearbeiter-in-stadt-zuerich-zurigo-51106",
+          "sachbearbeiter-in-stadt-zurich-zurich"
+        ],
+        "en": [
+          "sachbearbeiter-in-stadt-zurich-zurich"
+        ],
+        "fr": [
+          "sachbearbeiter-in-stadt-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "sachbearbeiter-in-stadt-zuerich-zurigo-51106"
+        "sachbearbeiter-in-stadt-zuerich-zurigo-51106",
+        "sachbearbeiter-in-stadt-zurich-zurich"
       ],
       "salaryMin": 73500,
       "salaryMax": 111500,

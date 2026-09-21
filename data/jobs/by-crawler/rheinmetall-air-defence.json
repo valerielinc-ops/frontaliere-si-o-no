@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "rheinmetall-air-defence-aaa83d2688ef",
-      "slug": "teamleiter-arbeitsvorbereitung-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "team-leader-preparazione-del-lavoro-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "teamleiter-arbeitsvorbereitung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "teamleiter-arbeitsvorbereitung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "teamleiter-arbeitsvorbereitung-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "teamleiter-arbeitsvorbereitung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "it": "team-leader-preparazione-del-lavoro-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "en": "team-leader-work-preparation-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "fr": "chef-d-equipe-preparation-au-travail-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -67,7 +67,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:17.015Z"
+      "firstSeenAt": "2026-09-19T23:05:17.015Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-arbeitsvorbereitung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "en": [
+          "teamleiter-arbeitsvorbereitung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "teamleiter-arbeitsvorbereitung-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-arbeitsvorbereitung-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-4cd20d8c50b2",
@@ -138,12 +152,12 @@
     },
     {
       "id": "rheinmetall-air-defence-75344e42c114",
-      "slug": "project-controller-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "responsabile-del-progetto-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "project-controller-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "project-controller-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "responsabile-del-progetto-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "project-controller-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "project-controller-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "controleur-de-projet-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -201,7 +215,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:15.965Z"
+      "firstSeenAt": "2026-09-19T23:05:15.965Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "project-controller-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "project-controller-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "project-controller-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-782e54a147ed",
@@ -210,7 +235,7 @@
         "de": "senior-project-manager-air-defence-m-w-d-rheinmetall-air-defence-ag-zurich",
         "it": "senior-project-manager-air-defence-m-w-d-rheinmetall-air-defence-ag-zurich",
         "en": "senior-project-manager-air-defence-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "senior-project-manager-air-defence-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "directeur-principal-de-projet-defense-aerienne-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -700,7 +725,7 @@
       "title": "Supplier Quality Manager Sensorik (m/w/d)",
       "titleByLocale": {
         "it": "Supplier Quality Manager Sensori (m/f/d)",
-        "en": "Supplier Quality Manager Sensorik (m/w/d)",
+        "en": "Supplier Quality Manager Sensor Technology (m/f/d)",
         "de": "Supplier Qualität Manager Sensorik (m/w/d)",
         "fr": "Supplier Quality Manager Capteurs (m/f/d)"
       },
@@ -2542,10 +2567,10 @@
     },
     {
       "id": "rheinmetall-air-defence-460ae0940d1a",
-      "slug": "smd-operator-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "operatore-smd-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "de": "smd-operator-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "it": "smd-operator-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "operatore-smd-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "smd-operator-m-w-d-rheinmetall-air-defence-ag-zurich",
         "fr": "smd-operateur-m-w-d-rheinmetall-air-defence-ag-zurich"
       },
@@ -2605,7 +2630,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:09.616Z"
+      "firstSeenAt": "2026-09-19T23:05:09.616Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "smd-operator-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "smd-operator-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-13cb360367bd",
@@ -3062,7 +3095,7 @@
         "it": "Senior Financial Contabile (m/w/d)",
         "en": "Senior Financial Accountant (m/f/d)",
         "de": "Senior Financial Buchhalter (m/w/d)",
-        "fr": "Senior Financial Accountant (m/w/d)"
+        "fr": "Comptable financier principal (h/f/d)"
       },
       "description": "WOFÜR WIR SIE SUCHEN\n• Erstellung und Analyse von Monats-, Quartals- und Jahresabschlüssen nach IFRS (Leading Ledger) sowie lokalem Recht (OR )\n• Sicherstellung der korrekten Abbildung von Geschäftsvorfällen in SAP (FI/CO) sowie Übernahme der Verantwortung für die Abstimmung und Qualität von Bilanz-, Durchlauf- und Intercompany-Konten\n• Analyse bestehender Accounting-Prozesse, Erkennen von Optimierungspotenzialen und Umsetzung von Verbesserungen gemeinsam mit den relevanten Schnittstellen\n• Erstellung und Pflege einer klaren und nachvollziehbaren Dokumentation von Prozessen, Kontrollen und Accounting-Sachverhalten\n• Mitwirkung bei der Weiterentwicklung des Internen Kontrollsystems (IKS) im Bereich Record-to-Report (RTR)\n• Begleitung interner und externer Revisionen als kompetente Ansprechperson\n• Aktives Einbringen in Finance-Projekte, Automatisierungs- und Systemoptimierungsthemen sowie Unterstützung der weiteren Standardisierung der Finance-Prozesse WAS SIE MITBRINGEN SOLLTEN\n• Erfolgreich abgeschlossene Weiterbildung im Finanz- und Rechnungswesen (z. B. Fachausweis, FH-Abschluss oder eine äquivalente Qualifikation)\n• Mehrjährige fundierte Praxis in der Buchführung nach IFRS (OR-Erfahrung wünschenswert)\n• Hohe Bilanz - und Abschlusssicherheit\n• Gute SAP R/3-Kenntnisse (FI/CO)\n• Souveräne Beherrschung des MS-Office-Pakets (insbesondere Excel) sowie gute Deutsch- und Englischkenntnisse in Wort und Schrift\n• Strukturierte, eigenverantwortliche und lösungsorientierte Arbeitsweise sowie die Fähigkeit, auch in abschlussintensiven Phasen Prioritäten zu setzen und den Überblick zu behalten\n• Idealerweise bringen Sie bereits Erfahrung aus einem industriellen Umfeld mit WAS WIR IHNEN BIETEN\n• Ein dynamisches Arbeitsumfeld mit spannenden Projekten\n• Flexible Arbeitszeiten (Gleit- und Vertrauensarbeitszeit)\n• Sehr gute Sozialleistungen und eine überobligatorische Pensionskasse\n• Mitarbeitervorteile eines Grosskonzerns, Mitarbeiteraktienkaufprogramm\n• Förderung von bedarfsgerechter Weiterbildung\n• Personalrestaurant sowie externe Verpflegungs- und Einkaufsmöglichkeiten in der Nähe\n• Individuelle interne sowie externe Personalentwicklungsmassnahmen in Zusammenarbeit mit unserer Rheinmetall-Academy\n• Arbeitsplatz wenige Gehminuten vom Bahnhof Zürich-Oerlikon entfernt KONTAKTDETAILS Zuständiger Ansprechpartner: Christoph Badertscher Für Fragen zu Ihrer Bewerbung, nutzen Sie bitte das Kontaktformular . Wir weisen darauf hin, dass Dossiers von Personalvermittlern nicht berücksichtigt werden",
       "descriptionByLocale": {

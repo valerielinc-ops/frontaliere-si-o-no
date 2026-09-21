@@ -33,6 +33,13 @@ const firebaseConfig = {
 // Global non-secret defaults used when Remote Config is unavailable.
 // Secrets intentionally default to empty strings.
 const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
+ // Experiment controls. These are public, non-secret values delivered by the
+ // allowlisted getPublicConfig endpoint. `auto` preserves the deterministic
+ // assisted-application split when no global arm is forced.
+ ASSISTED_APPLICATION_EXPERIMENT_VARIANT: 'auto',
+ AUTHGATE_HEADLINE_VARIANT: 'control',
+ ADBLOCK_GATE_EXPERIMENT_ENABLED: 'true',
+ ADBLOCK_GATE_TEST_SHARE: '0.30',
  GOOGLE_MAPS_API_KEY: '',
  GA_MEASUREMENT_ID: '',
  RECAPTCHA_SITE_KEY: '',

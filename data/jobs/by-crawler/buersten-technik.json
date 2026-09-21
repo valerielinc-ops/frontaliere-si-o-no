@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "buersten-technik-3feb89202caa",
-      "slug": "apprendistato-come-produktionsmechaniker-in-cfc-buersten-technik-wattwil",
+      "slug": "apprendistato-come-meccanico-di-produzione-efz-buersten-technik-wattwil-sg",
       "slugByLocale": {
         "de": "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch",
-        "it": "apprendistato-come-produktionsmechaniker-in-cfc-buersten-technik-wattwil",
-        "en": "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch",
-        "fr": "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch"
+        "it": "apprendistato-come-meccanico-di-produzione-efz-buersten-technik-wattwil-sg",
+        "en": "apprenticeship-as-production-mechanic-efz-buersten-technik-wattwil-sg",
+        "fr": "apprentissage-en-tant-que-mecanicien-de-production-efz-buersten-technik-wattwil-sg"
       },
       "company": "buersten-technik",
       "companyKey": "buersten-technik",
@@ -68,11 +68,19 @@
       "salarySource": "estimated",
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch",
+          "apprendistato-come-produktionsmechaniker-in-cfc-buersten-technik-wattwil"
+        ],
+        "en": [
+          "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch"
+        ],
+        "fr": [
           "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch"
+        "lehrstelle-als-produktionsmechaniker-in-efz-wattwil-sg-buersten-technik-ch",
+        "apprendistato-come-produktionsmechaniker-in-cfc-buersten-technik-wattwil"
       ],
       "firstSeenAt": "2026-09-19T23:08:27.837Z"
     }

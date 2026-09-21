@@ -83,7 +83,7 @@
       "titleByLocale": {
         "it": "Designer della piattaforma senior",
         "en": "Senior Platform Designer",
-        "de": "Senior Platform Designer",
+        "de": "Leitender Plattformdesigner",
         "fr": "Créateur de plateforme senior"
       },
       "description": "Are you a senior designer who wants to shape how a complex clinical platform evolves across genomics, oncology, imaging, and real-world data? Join our Platform Design & Innovation team to own cross-cutting design problems across SOPHiA DDM™: a multimodal platform serving geneticists, pathologists, oncologists, bioinformaticians, and pharma researchers in one of the most consequential domains in healthcare.\n You'll design for expert users operating under clinical pressure, not for consumer simplicity, and your work will directly influence what gets built across variant interpretation, oncology decision support, radiomics, and research data access. This is a role where design changes outcomes, and where the complexity is the point.\n If you are a designer who earns trust with engineers and PMs from your credible technical background, moves fast from research to prototype to validation, and wants a clear path toward leading a design function — join the SOPHiA GENETICS Platform Design & Innovation team as our new Senior Platform Designer, and help us make a positive impact on the outcomes for cancer and rare disease patients worldwide. This is a senior individual contributor role with a clear path to team leadership.\n\nEnjoy the flexibility of a hybrid work schedule allowing 2 days PW home working, collaborating closely with colleagues in our Rolle, CH or Bidart, FR corporate office.\n Our Mission\n We believe there is a smarter, more data-driven way to make decisions in healthcare and our cloud-native AI powered SOPHiA DDM Platform makes that vision a reality on a daily basis. You will have direct input to our mission to democratize data-driven medicine for the ultimate benefit of cancer and rare disease patients across the globe.\n Your Mission\n As our Senior Platform Product Designer, you will combine genuine product design depth with rapid prototyping capability and the product judgment to drive design decisions from user research through to shipped features.\n The Platform Design & Innovation (PDI) is the team responsible for how DDM evolves as a platform: cross-cutting design patterns, the design system, high-value product initiatives, and the translation of complex clinical requirements into coherent product experiences across all application teams.\n This is not a role for someone whose strength is visual polish. It is a role for a designer who thinks in workflows and mental models, who holds product judgment conversations with engineering and PM, and who produces work that changes what gets built.\n The value you bring:\n Work at expert-user depth - across diverse user groups\n\n• Conduct research with users across the platform’s range: genomics experts operating at high information density (geneticists, pathologists, bioinformaticians), oncologists and clinicians using Carepath for treatment decision support, and pharma researchers accessing real-world data through DataHub. These are not the same user; designing well for each without fragmenting the platform is the hard problem.\n\n• Design for appropriate complexity, not for consumer simplicity. Expert users read variant tables and imaging reports under clinical pressure; pharma researchers need research-grade data access with audit controls; oncologists need actionable summaries without losing access to underlying evidence. Your designs must match the cognitive model of whoever is in front of the screen.\n\n• Balance clinical workflow fidelity with IVD regulatory constraints: traceability, audit trail, accessibility, and the interaction patterns that survive regulatory review.\n Own cross-platform design problems\n\n• Lead the design of major DDM platform workflows across the full product surface: variant triage and interpretation in the genomics platform, oncology decision-support workflows in Carepath, multimodal data views that combine genomic and imaging signals, and DataHub experiences for clinical and pharma research users.\n\n• Define and evolve the cross-surface interaction patterns that give the platform coherence: how data from different modalities is presented together, how classification decisions are recorded and traced, how clinical and research users with different expertise levels navigate the same underlying data.\n\n• Govern and evolve the DDM design system in collaboration with engineering: component usage, token standards, interaction primitives, and the documentation that makes the system usable across teams.\n Prototype and validate\n\n• Build interactive prototypes to compress the time between concept and clinical feedback. Use whatever tooling compresses that cycle, (AI-assisted code, low-code scaffolding, or hand-crafted HTML) with the goal of getting something real in front of users quickly.\n\n• Run validation sessions with clinical users, oncologists, and pharma partners early and continuously. Treat user research as a design input, not a sign-off step.\n Partner with engineering, product, and cross-team stakeholders\n\n• Work alongside platform engineering as a peer. Translate between the language of design (workflows, mental models, jobs-to-be-done) and the language of engineering (APIs, data models, performance, security). The role succeeds when both teams move faster because of how well you operate at that boundary.\n\n• Collaborate with Product Owners and Product Managers across application teams — HemOnc, Solid Tumor & LBx, RID, Carepath, DataHub. PDI’s mandate is transversal: you do not sit within one team’s scope, you influence platform-level decisions across all of them. That requires earning trust with POs and PMs who have their own roadmaps and priorities, and shaping shared vision without direct authority.\n Grow towards team leadership\n\n• Build influence across engineering, product, data science, clinical stakeholders, and executive leadership. Raise the quality bar for design artifacts across teams. Develop readiness for team leadership: mentoring junior designers, shaping team process, and taking ownership of a design function.",
@@ -135,9 +135,9 @@
     },
     {
       "id": "sophia-genetics-010b991190d9",
-      "slug": "senior-clinical-affairs-manager-sophia-genetics-rolle",
+      "slug": "responsabile-senior-degli-affari-clinici-sophia-genetics-rolle",
       "slugByLocale": {
-        "it": "senior-clinical-affairs-manager-sophia-genetics-rolle",
+        "it": "responsabile-senior-degli-affari-clinici-sophia-genetics-rolle",
         "en": "senior-clinical-affairs-manager-sophia-genetics-rolle",
         "de": "leiter-der-abteilung-fur-klinische-angelegenheiten-sophia-genetics-rolle",
         "fr": "gestionnaire-principal-des-affaires-cliniques-sophia-genetics-rolle"
@@ -196,7 +196,15 @@
           "maxValue": 126500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-clinical-affairs-manager-sophia-genetics-rolle"
+        ]
+      },
+      "previousSlugs": [
+        "senior-clinical-affairs-manager-sophia-genetics-rolle"
+      ]
     },
     {
       "id": "sophia-genetics-f7fc98d12035",
@@ -250,14 +258,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle",
-        "senior-ai-software-engineer-sophia-genetics-rolle",
-        "senior-ai-software-ingegnere-sophia-genetics-rolle"
+        "senior-ai-software-engineer-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle",
-          "senior-ai-software-engineer-sophia-genetics-rolle",
-          "senior-ai-software-ingegnere-sophia-genetics-rolle"
+          "senior-ai-software-engineer-sophia-genetics-rolle"
         ],
         "de": [
           "senior-full-stack-software-machine-learning-engineer-sophia-genetics-rolle"
@@ -329,13 +335,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "quality-associate-contract-sophia-genetics-rolle",
-        "qualita-associate-contratto-sophia-genetics-rolle"
+        "quality-associate-contract-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "quality-associate-contract-sophia-genetics-rolle",
-          "qualita-associate-contratto-sophia-genetics-rolle"
+          "quality-associate-contract-sophia-genetics-rolle"
         ]
       },
       "firstSeenAt": "2026-08-13T10:28:16.120Z",
@@ -404,13 +408,11 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "production-associate-sophia-genetics-rolle",
-        "produzione-sophia-genetics-rolle"
+        "production-associate-sophia-genetics-rolle"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "production-associate-sophia-genetics-rolle",
-          "produzione-sophia-genetics-rolle"
+          "production-associate-sophia-genetics-rolle"
         ],
         "de": [
           "production-associate-sophia-genetics-rolle"

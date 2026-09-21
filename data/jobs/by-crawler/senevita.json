@@ -2939,12 +2939,12 @@
     },
     {
       "id": "senevita-bd3b41d47f29",
-      "slug": "dipl-pflegefachperson-hf-o-fh-alle-schichten-80-senevita-zh-zurich",
+      "slug": "dipl-cura-professionale-hf-o-fh-tutti-i-turni-80-senevita-zh-zurich",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-hf-oder-fh-alle-schichten-80-senevita-zh-zurich",
-        "it": "dipl-pflegefachperson-hf-o-fh-alle-schichten-80-senevita-zh-zurich",
-        "en": "dipl-pflegefachperson-hf-oder-fh-alle-schichten-80-senevita-zh-zurich",
-        "fr": "dipl-pflegefachperson-hf-oder-fh-alle-schichten-80-senevita-zh-zurich"
+        "it": "dipl-cura-professionale-hf-o-fh-tutti-i-turni-80-senevita-zh-zurich",
+        "en": "dipl-care-professional-hf-or-fh-all-shifts-80-senevita-zh-zurich",
+        "fr": "dipl-soins-professionnels-hf-ou-fh-tous-les-quarts-80-senevita-zh-zurich"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -2990,11 +2990,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachperson-hf-oder-fh-alle-schichten-80-senevita-zh-zurich",
+          "dipl-pflegefachperson-hf-o-fh-alle-schichten-80-senevita-zh-zurich"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-oder-fh-alle-schichten-80-senevita-zh-zurich"
+        ],
+        "fr": [
           "dipl-pflegefachperson-hf-oder-fh-alle-schichten-80-senevita-zh-zurich"
         ]
       },
       "previousSlugs": [
-        "dipl-pflegefachperson-hf-oder-fh-alle-schichten-80-senevita-zh-zurich"
+        "dipl-pflegefachperson-hf-oder-fh-alle-schichten-80-senevita-zh-zurich",
+        "dipl-pflegefachperson-hf-o-fh-alle-schichten-80-senevita-zh-zurich"
       ],
       "salaryMin": 73200,
       "salaryMax": 102400,
@@ -3866,12 +3874,12 @@
     },
     {
       "id": "senevita-689565da9368",
-      "slug": "dipl-pflegefachperson-nachtdienst-60-senevita-tg-arbon",
+      "slug": "dipl-servizio-notturno-infermiera-60-senevita-tg-arbon",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-nachtdienst-60-senevita-tg-arbon",
-        "it": "dipl-pflegefachperson-nachtdienst-60-senevita-tg-arbon",
-        "en": "dipl-pflegefachperson-nachtdienst-60-senevita-tg-arbon",
-        "fr": "dipl-pflegefachperson-nachtdienst-60-senevita-tg-arbon"
+        "it": "dipl-servizio-notturno-infermiera-60-senevita-tg-arbon",
+        "en": "dipl-nurse-night-service-60-senevita-tg-arbon",
+        "fr": "dipl-infirmiere-service-de-nuit-60-senevita-tg-arbon"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -3928,16 +3936,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:06:36.544Z"
+      "firstSeenAt": "2026-09-19T23:06:36.544Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-nachtdienst-60-senevita-tg-arbon"
+        ],
+        "en": [
+          "dipl-pflegefachperson-nachtdienst-60-senevita-tg-arbon"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-nachtdienst-60-senevita-tg-arbon"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-nachtdienst-60-senevita-tg-arbon"
+      ]
     },
     {
       "id": "senevita-529402d7e2f8",
-      "slug": "dipl-pflegefachperson-nachtwache-10-40-senevita-zh-herrliberg",
+      "slug": "dipl-infermieristica-professionale-night-watch-10-40-senevita-zh-herrliberg",
       "slugByLocale": {
         "de": "dipl-pflegefachperson-nachtwache-10-40-senevita-zh-herrliberg",
-        "it": "dipl-pflegefachperson-nachtwache-10-40-senevita-zh-herrliberg",
-        "en": "dipl-pflegefachperson-nachtwache-10-40-senevita-zh-herrliberg",
-        "fr": "dipl-pflegefachperson-nachtwache-10-40-senevita-zh-herrliberg"
+        "it": "dipl-infermieristica-professionale-night-watch-10-40-senevita-zh-herrliberg",
+        "en": "dipl-nursing-professional-night-watch-10-40-senevita-zh-herrliberg",
+        "fr": "dipl-garde-de-nuit-professionnel-des-soins-infirmiers-10-40-senevita-zh-herrliberg"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -3994,7 +4016,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:06:36.052Z"
+      "firstSeenAt": "2026-09-19T23:06:36.052Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-nachtwache-10-40-senevita-zh-herrliberg"
+        ],
+        "en": [
+          "dipl-pflegefachperson-nachtwache-10-40-senevita-zh-herrliberg"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-nachtwache-10-40-senevita-zh-herrliberg"
+        ]
+      },
+      "previousSlugs": [
+        "dipl-pflegefachperson-nachtwache-10-40-senevita-zh-herrliberg"
+      ]
     },
     {
       "id": "senevita-a150c2c68a3a",
@@ -5076,12 +5112,12 @@
     },
     {
       "id": "senevita-25089bb7ca67",
-      "slug": "fachfrau-mann-gesundheit-cfc-50-senevita-be-bern",
+      "slug": "specialista-sanitario-efz-50-senevita-be-bern",
       "slugByLocale": {
         "de": "fachfrau-mann-gesundheit-efz-50-senevita-be-bern",
-        "it": "fachfrau-mann-gesundheit-cfc-50-senevita-be-bern",
-        "en": "fachfrau-mann-gesundheit-efz-50-senevita-be-bern",
-        "fr": "fachfrau-mann-gesundheit-efz-50-senevita-be-bern"
+        "it": "specialista-sanitario-efz-50-senevita-be-bern",
+        "en": "health-specialist-efz-50-senevita-be-bern",
+        "fr": "specialiste-de-la-sante-efz-50-senevita-be-bern"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -5136,16 +5172,19 @@
           "dipl-nursing-professional-specialist-health-efz-on-night-duty-60-80-senevita-bern-be",
           "dipl-pflegefachfrau-mann-fachfrau-mann-gesundheit-efz-im-nachtdienst-60-80-senevita-bern",
           "dipl-professionnels-des-soins-infirmiers-sante-specialisee-efz-en-service-de-nuit-60-80-senevita-bern-be",
-          "fachfrau-mann-gesundheit-efz-40-70-senevita-be-bern"
+          "fachfrau-mann-gesundheit-efz-40-70-senevita-be-bern",
+          "fachfrau-mann-gesundheit-cfc-50-senevita-be-bern"
         ],
         "en": [
-          "professional-health-efz-40-70-senevita-bern-be"
+          "professional-health-efz-40-70-senevita-bern-be",
+          "fachfrau-mann-gesundheit-efz-50-senevita-be-bern"
         ],
         "de": [
           "fachfrau-mann-gesundheit-efz-40-70-senevita-bern-be"
         ],
         "fr": [
-          "sante-professionnelle-efz-40-70-senevita-bern-be"
+          "sante-professionnelle-efz-40-70-senevita-bern-be",
+          "fachfrau-mann-gesundheit-efz-50-senevita-be-bern"
         ]
       },
       "previousSlugs": [
@@ -5158,7 +5197,8 @@
         "dipl-nursing-professional-specialist-health-efz-on-night-duty-60-80-senevita-bern-be",
         "dipl-pflegefachfrau-mann-fachfrau-mann-gesundheit-efz-im-nachtdienst-60-80-senevita-bern",
         "dipl-professionnels-des-soins-infirmiers-sante-specialisee-efz-en-service-de-nuit-60-80-senevita-bern-be",
-        "fachfrau-mann-gesundheit-efz-40-70-senevita-be-bern"
+        "fachfrau-mann-gesundheit-efz-40-70-senevita-be-bern",
+        "fachfrau-mann-gesundheit-cfc-50-senevita-be-bern"
       ],
       "salaryMin": 36500,
       "salaryMax": 62300,
@@ -7875,9 +7915,9 @@
     },
     {
       "id": "senevita-af19e8016c46",
-      "slug": "fachverantwortliche-r-aktivierung-m-w-i-80-senevita-lu-ebikon",
+      "slug": "attivazione-responsabile-professionale-m-f-i-80-senevita-lu-ebikon",
       "slugByLocale": {
-        "it": "fachverantwortliche-r-aktivierung-m-w-i-80-senevita-lu-ebikon",
+        "it": "attivazione-responsabile-professionale-m-f-i-80-senevita-lu-ebikon",
         "en": "professional-responsible-activation-m-f-i-60-senevita-lu-ebikon",
         "de": "fachverantwortliche-r-aktivierung-m-w-i-60-senevita-lu-ebikon",
         "fr": "activation-professionnelle-responsable-m-f-i-60-senevita-lu-ebikon"
@@ -7926,12 +7966,14 @@
       "previousSlugsByLocale": {
         "it": [
           "fachverantwortliche-r-aktivierung-m-w-i-60-senevita-lu-ebikon",
-          "attivazione-responsabile-professionale-m-f-i-60-senevita-lu-ebikon"
+          "attivazione-responsabile-professionale-m-f-i-60-senevita-lu-ebikon",
+          "fachverantwortliche-r-aktivierung-m-w-i-80-senevita-lu-ebikon"
         ]
       },
       "previousSlugs": [
         "fachverantwortliche-r-aktivierung-m-w-i-60-senevita-lu-ebikon",
-        "attivazione-responsabile-professionale-m-f-i-60-senevita-lu-ebikon"
+        "attivazione-responsabile-professionale-m-f-i-60-senevita-lu-ebikon",
+        "fachverantwortliche-r-aktivierung-m-w-i-80-senevita-lu-ebikon"
       ],
       "salaryMin": 69200,
       "salaryMax": 96400,
@@ -8163,12 +8205,12 @@
     },
     {
       "id": "senevita-d5cd384b827e",
-      "slug": "koch-kochin-efz-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis",
+      "slug": "cuocere-cucinare-efz-assistente-nel-salario-orario-senevita-zh-affoltern-am-albis",
       "slugByLocale": {
         "de": "koch-kochin-efz-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis",
-        "it": "koch-kochin-efz-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis",
-        "en": "koch-kochin-efz-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis",
-        "fr": "koch-kochin-efz-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis"
+        "it": "cuocere-cucinare-efz-assistente-nel-salario-orario-senevita-zh-affoltern-am-albis",
+        "en": "cook-cook-efz-assistant-in-the-hourly-wage-senevita-zh-affoltern-am-albis",
+        "fr": "cuisinier-cuisinier-efz-assistant-dans-le-salaire-horaire-senevita-zh-affoltern-am-albis"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -8225,7 +8267,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:06:07.329Z"
+      "firstSeenAt": "2026-09-19T23:06:07.329Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "koch-kochin-efz-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis"
+        ],
+        "en": [
+          "koch-kochin-efz-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis"
+        ],
+        "fr": [
+          "koch-kochin-efz-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis"
+        ]
+      },
+      "previousSlugs": [
+        "koch-kochin-efz-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis"
+      ]
     },
     {
       "id": "senevita-58cf4401b221",
@@ -10447,12 +10503,12 @@
     },
     {
       "id": "senevita-8d4eee551bf5",
-      "slug": "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich",
+      "slug": "apprendistato-in-salute-efz-senevita-zh-zurich",
       "slugByLocale": {
         "de": "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich",
-        "it": "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich",
-        "en": "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich",
-        "fr": "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich"
+        "it": "apprendistato-in-salute-efz-senevita-zh-zurich",
+        "en": "apprenticeship-in-health-efz-senevita-zh-zurich",
+        "fr": "apprentissage-en-sante-efz-senevita-zh-zurich"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -10498,11 +10554,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich",
+          "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich"
+        ],
+        "en": [
+          "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich"
+        ],
+        "fr": [
           "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich"
+        "lehrstelle-fachfrau-mann-gesundheit-efz-senevita-zh-zurich",
+        "apprendistato-fachfrau-mann-gesundheit-cfc-senevita-zh-zurich"
       ],
       "salaryMin": 71000,
       "salaryMax": 120500,
@@ -12241,12 +12305,12 @@
     },
     {
       "id": "senevita-425463fea151",
-      "slug": "apprendistato-kuchenangestellte-r-afp-senevita-so-olten",
+      "slug": "apprendistato-di-cucina-dipendente-eba-senevita-so-olten",
       "slugByLocale": {
         "de": "lehrstelle-kuchenangestellte-r-eba-senevita-so-olten",
-        "it": "apprendistato-kuchenangestellte-r-afp-senevita-so-olten",
-        "en": "lehrstelle-kuchenangestellte-r-eba-senevita-so-olten",
-        "fr": "lehrstelle-kuchenangestellte-r-eba-senevita-so-olten"
+        "it": "apprendistato-di-cucina-dipendente-eba-senevita-so-olten",
+        "en": "apprenticeship-of-kitchen-employee-eba-senevita-so-olten",
+        "fr": "apprentissage-des-employes-de-cuisine-eba-senevita-so-olten"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -12292,11 +12356,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-kuchenangestellte-r-eba-senevita-so-olten",
+          "apprendistato-kuchenangestellte-r-afp-senevita-so-olten"
+        ],
+        "en": [
+          "lehrstelle-kuchenangestellte-r-eba-senevita-so-olten"
+        ],
+        "fr": [
           "lehrstelle-kuchenangestellte-r-eba-senevita-so-olten"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-kuchenangestellte-r-eba-senevita-so-olten"
+        "lehrstelle-kuchenangestellte-r-eba-senevita-so-olten",
+        "apprendistato-kuchenangestellte-r-afp-senevita-so-olten"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -12471,12 +12543,12 @@
     },
     {
       "id": "senevita-b6916a4a31e6",
-      "slug": "lehrstellen-ab-1-8-2027-senevita-be-batterkinden",
+      "slug": "apprendisti-da-1-8-2027-senevita-be-batterkinden",
       "slugByLocale": {
         "de": "lehrstellen-ab-1-8-2027-senevita-be-batterkinden",
-        "it": "lehrstellen-ab-1-8-2027-senevita-be-batterkinden",
-        "en": "lehrstellen-ab-1-8-2027-senevita-be-batterkinden",
-        "fr": "lehrstellen-ab-1-8-2027-senevita-be-batterkinden"
+        "it": "apprendisti-da-1-8-2027-senevita-be-batterkinden",
+        "en": "apprenticeships-from-1-8-2027-senevita-be-batterkinden",
+        "fr": "apprentissages-a-partir-du-1-8-2027-senevita-be-batterkinden"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -12533,7 +12605,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:33.334Z"
+      "firstSeenAt": "2026-09-19T23:05:33.334Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "lehrstellen-ab-1-8-2027-senevita-be-batterkinden"
+        ],
+        "en": [
+          "lehrstellen-ab-1-8-2027-senevita-be-batterkinden"
+        ],
+        "fr": [
+          "lehrstellen-ab-1-8-2027-senevita-be-batterkinden"
+        ]
+      },
+      "previousSlugs": [
+        "lehrstellen-ab-1-8-2027-senevita-be-batterkinden"
+      ]
     },
     {
       "id": "senevita-c4736ffc9857",
@@ -13419,12 +13505,12 @@
     },
     {
       "id": "senevita-29b5914f54b2",
-      "slug": "collaboratore-trice-in-hauswirtschaft-80-100-senevita-tg-arbon",
+      "slug": "manutenzione-dei-dipendenti-80-100-senevita-tg-arbon",
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-80-100-senevita-tg-arbon",
-        "it": "collaboratore-trice-in-hauswirtschaft-80-100-senevita-tg-arbon",
-        "en": "mitarbeiter-in-hauswirtschaft-80-100-senevita-tg-arbon",
-        "fr": "mitarbeiter-in-hauswirtschaft-80-100-senevita-tg-arbon"
+        "it": "manutenzione-dei-dipendenti-80-100-senevita-tg-arbon",
+        "en": "employee-housekeeping-80-100-senevita-tg-arbon",
+        "fr": "employes-de-menage-80-100-senevita-tg-arbon"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -13470,11 +13556,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-80-100-senevita-tg-arbon",
+          "collaboratore-trice-in-hauswirtschaft-80-100-senevita-tg-arbon"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-80-100-senevita-tg-arbon"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-80-100-senevita-tg-arbon"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-80-100-senevita-tg-arbon"
+        "mitarbeiter-in-hauswirtschaft-80-100-senevita-tg-arbon",
+        "collaboratore-trice-in-hauswirtschaft-80-100-senevita-tg-arbon"
       ],
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -13493,12 +13587,12 @@
     },
     {
       "id": "senevita-c81bbbe5df8f",
-      "slug": "collaboratore-trice-in-hauswirtschaft-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis",
+      "slug": "assistenza-per-le-famiglie-senevita-zh-affoltern-am-albis",
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis",
-        "it": "collaboratore-trice-in-hauswirtschaft-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis",
-        "en": "mitarbeiter-in-hauswirtschaft-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis",
-        "fr": "mitarbeiter-in-hauswirtschaft-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis"
+        "it": "assistenza-per-le-famiglie-senevita-zh-affoltern-am-albis",
+        "en": "employee-housekeeping-assistance-senevita-zh-affoltern-am-albis",
+        "fr": "aide-au-menage-des-employes-senevita-zh-affoltern-am-albis"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -13544,11 +13638,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-hauswirtschaft-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis",
+          "collaboratore-trice-in-hauswirtschaft-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis"
+        ],
+        "en": [
+          "mitarbeiter-in-hauswirtschaft-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis"
+        ],
+        "fr": [
           "mitarbeiter-in-hauswirtschaft-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis"
         ]
       },
       "previousSlugs": [
-        "mitarbeiter-in-hauswirtschaft-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis"
+        "mitarbeiter-in-hauswirtschaft-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis",
+        "collaboratore-trice-in-hauswirtschaft-aushilfe-im-stundenlohn-senevita-zh-affoltern-am-albis"
       ],
       "salaryMin": 73000,
       "salaryMax": 91500,
@@ -14486,12 +14588,12 @@
     },
     {
       "id": "senevita-1d335b105124",
-      "slug": "pflegedienstleitung-spitex-80-100-senevita-zh-buchs",
+      "slug": "servizio-di-assistenza-spitex-80-100-senevita-zh-buchs",
       "slugByLocale": {
         "de": "pflegedienstleitung-spitex-80-100-senevita-zh-buchs",
-        "it": "pflegedienstleitung-spitex-80-100-senevita-zh-buchs",
-        "en": "pflegedienstleitung-spitex-80-100-senevita-zh-buchs",
-        "fr": "pflegedienstleitung-spitex-80-100-senevita-zh-buchs"
+        "it": "servizio-di-assistenza-spitex-80-100-senevita-zh-buchs",
+        "en": "care-service-spitex-80-100-senevita-zh-buchs",
+        "fr": "service-de-soins-spitex-80-100-senevita-zh-buchs"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -14548,16 +14650,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:18.420Z"
+      "firstSeenAt": "2026-09-19T23:05:18.420Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegedienstleitung-spitex-80-100-senevita-zh-buchs"
+        ],
+        "en": [
+          "pflegedienstleitung-spitex-80-100-senevita-zh-buchs"
+        ],
+        "fr": [
+          "pflegedienstleitung-spitex-80-100-senevita-zh-buchs"
+        ]
+      },
+      "previousSlugs": [
+        "pflegedienstleitung-spitex-80-100-senevita-zh-buchs"
+      ]
     },
     {
       "id": "senevita-0ca72cce5107",
-      "slug": "pflegedienstleitung-80-100-spitex-senevita-ag-wohlen",
+      "slug": "servizio-di-cura-80-100-spitex-senevita-ag-wohlen",
       "slugByLocale": {
         "de": "pflegedienstleitung-80-100-spitex-senevita-ag-wohlen",
-        "it": "pflegedienstleitung-80-100-spitex-senevita-ag-wohlen",
-        "en": "pflegedienstleitung-80-100-spitex-senevita-ag-wohlen",
-        "fr": "pflegedienstleitung-80-100-spitex-senevita-ag-wohlen"
+        "it": "servizio-di-cura-80-100-spitex-senevita-ag-wohlen",
+        "en": "care-service-80-100-spitex-senevita-ag-wohlen",
+        "fr": "service-de-soins-80-100-spitex-senevita-ag-wohlen"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -14614,7 +14730,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:17.905Z"
+      "firstSeenAt": "2026-09-19T23:05:17.905Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegedienstleitung-80-100-spitex-senevita-ag-wohlen"
+        ],
+        "en": [
+          "pflegedienstleitung-80-100-spitex-senevita-ag-wohlen"
+        ],
+        "fr": [
+          "pflegedienstleitung-80-100-spitex-senevita-ag-wohlen"
+        ]
+      },
+      "previousSlugs": [
+        "pflegedienstleitung-80-100-spitex-senevita-ag-wohlen"
+      ]
     },
     {
       "id": "senevita-ee44e8026f8c",
@@ -15641,7 +15771,6 @@
         "nursing-assistant-in-srk-hourly-wage-senevita-zh-winterthur",
         "pflegehelfer-in-srk-im-stundenlohn-senevita-zh-winterthur",
         "assistant-infirmier-in-srk-salaire-horaire-senevita-zh-winterthur",
-        "assistente-infermieristico-in-srk-su-base-oraria-senevita-ag-wohlen",
         "pflegehelfer-in-srk-o-pflegeassistent-in-60-senevita-ag-wohlen",
         "nursing-assistant-in-srk-or-nursing-assistant-in-60-senevita-ag-wohlen",
         "pflegehelfer-in-srk-oder-pflegeassistent-in-60-senevita-ag-wohlen",
@@ -15654,7 +15783,6 @@
           "nursing-assistant-in-srk-hourly-wage-senevita-zh-winterthur",
           "pflegehelfer-in-srk-im-stundenlohn-senevita-zh-winterthur",
           "assistant-infirmier-in-srk-salaire-horaire-senevita-zh-winterthur",
-          "assistente-infermieristico-in-srk-su-base-oraria-senevita-ag-wohlen",
           "pflegehelfer-in-srk-o-pflegeassistent-in-60-senevita-ag-wohlen",
           "nursing-assistant-in-srk-or-nursing-assistant-in-60-senevita-ag-wohlen",
           "pflegehelfer-in-srk-oder-pflegeassistent-in-60-senevita-ag-wohlen",
@@ -16485,12 +16613,12 @@
     },
     {
       "id": "senevita-5b0b2cefcdcb",
-      "slug": "praktikant-in-pflege-80-100-senevita-be-muri-b-bern",
+      "slug": "internship-care-80-100-senevita-be-muri-b",
       "slugByLocale": {
         "de": "praktikant-in-pflege-80-100-senevita-be-muri-b-bern",
-        "it": "praktikant-in-pflege-80-100-senevita-be-muri-b-bern",
+        "it": "internship-care-80-100-senevita-be-muri-b",
         "en": "praktikant-in-pflege-80-100-senevita-be-muri-b-bern",
-        "fr": "praktikant-in-pflege-80-100-senevita-be-muri-b-bern"
+        "fr": "soins-aux-stagiaires-80-100-senevita-be-muri-b"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -16547,7 +16675,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:04.205Z"
+      "firstSeenAt": "2026-09-19T23:05:04.205Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "praktikant-in-pflege-80-100-senevita-be-muri-b-bern"
+        ],
+        "fr": [
+          "praktikant-in-pflege-80-100-senevita-be-muri-b-bern"
+        ]
+      },
+      "previousSlugs": [
+        "praktikant-in-pflege-80-100-senevita-be-muri-b-bern"
+      ]
     },
     {
       "id": "senevita-5a2a72a36009",
@@ -16933,12 +17072,12 @@
     },
     {
       "id": "senevita-d5c1c23f1278",
-      "slug": "sicherheitsbeauftragte-r-sibe-betriebsunterhalt-80-100-senevita-tg-arbon",
+      "slug": "sicurezza-r-sibe-manutenzione-80-100-senevita-tg-arbon",
       "slugByLocale": {
         "de": "sicherheitsbeauftragte-r-sibe-betriebsunterhalt-80-100-senevita-tg-arbon",
-        "it": "sicherheitsbeauftragte-r-sibe-betriebsunterhalt-80-100-senevita-tg-arbon",
-        "en": "sicherheitsbeauftragte-r-sibe-betriebsunterhalt-80-100-senevita-tg-arbon",
-        "fr": "sicherheitsbeauftragte-r-sibe-betriebsunterhalt-80-100-senevita-tg-arbon"
+        "it": "sicurezza-r-sibe-manutenzione-80-100-senevita-tg-arbon",
+        "en": "safety-officer-r-sibe-maintenance-80-100-senevita-tg-arbon",
+        "fr": "agent-de-securite-r-sibe-entretien-80-100-senevita-tg-arbon"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -16995,7 +17134,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:00.551Z"
+      "firstSeenAt": "2026-09-19T23:05:00.551Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sicherheitsbeauftragte-r-sibe-betriebsunterhalt-80-100-senevita-tg-arbon"
+        ],
+        "en": [
+          "sicherheitsbeauftragte-r-sibe-betriebsunterhalt-80-100-senevita-tg-arbon"
+        ],
+        "fr": [
+          "sicherheitsbeauftragte-r-sibe-betriebsunterhalt-80-100-senevita-tg-arbon"
+        ]
+      },
+      "previousSlugs": [
+        "sicherheitsbeauftragte-r-sibe-betriebsunterhalt-80-100-senevita-tg-arbon"
+      ]
     },
     {
       "id": "senevita-f85febd5af72",
@@ -17155,12 +17308,12 @@
     },
     {
       "id": "senevita-06c82bffd0fd",
-      "slug": "verantwortliche-n-betriebsunterhalt-80-100-befristet-senevita-be-bern",
+      "slug": "manutenzione-aziendale-responsabile-80-100-temporanea-senevita-be-bern",
       "slugByLocale": {
         "de": "verantwortliche-n-betriebsunterhalt-80-100-befristet-senevita-be-bern",
-        "it": "verantwortliche-n-betriebsunterhalt-80-100-befristet-senevita-be-bern",
-        "en": "verantwortliche-n-betriebsunterhalt-80-100-befristet-senevita-be-bern",
-        "fr": "verantwortliche-n-betriebsunterhalt-80-100-befristet-senevita-be-bern"
+        "it": "manutenzione-aziendale-responsabile-80-100-temporanea-senevita-be-bern",
+        "en": "responsible-company-maintenance-80-100-temporary-senevita-be-bern",
+        "fr": "maintenance-responsable-de-l-entreprise-80-100-temporaire-senevita-be-bern"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -17217,7 +17370,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:04:58.715Z"
+      "firstSeenAt": "2026-09-19T23:04:58.715Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortliche-n-betriebsunterhalt-80-100-befristet-senevita-be-bern"
+        ],
+        "en": [
+          "verantwortliche-n-betriebsunterhalt-80-100-befristet-senevita-be-bern"
+        ],
+        "fr": [
+          "verantwortliche-n-betriebsunterhalt-80-100-befristet-senevita-be-bern"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortliche-n-betriebsunterhalt-80-100-befristet-senevita-be-bern"
+      ]
     },
     {
       "id": "senevita-3cd193fa3483",
@@ -17575,12 +17742,12 @@
     },
     {
       "id": "senevita-35424268426b",
-      "slug": "wohnbereichsleitung-80-100-senevita-bl-reinach",
+      "slug": "linea-di-soggiorno-80-100-senevita-bl-reinach",
       "slugByLocale": {
         "de": "wohnbereichsleitung-80-100-senevita-bl-reinach",
-        "it": "wohnbereichsleitung-80-100-senevita-bl-reinach",
-        "en": "wohnbereichsleitung-80-100-senevita-bl-reinach",
-        "fr": "wohnbereichsleitung-80-100-senevita-bl-reinach"
+        "it": "linea-di-soggiorno-80-100-senevita-bl-reinach",
+        "en": "living-area-line-80-100-senevita-bl-reinach",
+        "fr": "ligne-de-surface-habitable-80-100-senevita-bl-reinach"
       },
       "company": "Senevita",
       "companyKey": "senevita",
@@ -17637,7 +17804,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:04:44.900Z"
+      "firstSeenAt": "2026-09-19T23:04:44.900Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wohnbereichsleitung-80-100-senevita-bl-reinach"
+        ],
+        "en": [
+          "wohnbereichsleitung-80-100-senevita-bl-reinach"
+        ],
+        "fr": [
+          "wohnbereichsleitung-80-100-senevita-bl-reinach"
+        ]
+      },
+      "previousSlugs": [
+        "wohnbereichsleitung-80-100-senevita-bl-reinach"
+      ]
     },
     {
       "id": "senevita-63b77157bda0",

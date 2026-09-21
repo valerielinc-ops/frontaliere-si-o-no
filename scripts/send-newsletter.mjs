@@ -55,7 +55,6 @@ import {
   loadNewsletterRankingStats,
   recordJobEmailImpressions,
 } from '../functions/src/lib/jobEmailRankingStore.js';
-import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from '../functions/src/lib/emailExperimentPostHog.js';
 import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js';
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES, isCrossChannelStop } from '../services/emailSuppression.mjs';
@@ -1779,23 +1778,6 @@ async function persistDelivery(recipient, messageId, meta) {
     if (FieldValue) {
       await refreshEngagementScore(subRef, FieldValue);
     }
-    // A/B exposure event (no-op unless POSTHOG_EMAIL_EXPERIMENT enabled). Ties to
-    // the email_opened conversion in PostHog by distinct_id (email); carries the
-    // variant + provider for the funnel breakdown. Skipped for operator QA
-    // sends (#3798 sibling-pattern sweep) — same reason is_operator_verification
-    // is excluded from the Firestore campaign_deliveries aggregates: a manual
-    // test send/open isn't real subscriber behavior and would enter the
-    // email_sent→email_opened funnel as a false exposure.
-    if (!meta.isOperatorVerification) {
-      await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.SENT, {
-        email,
-        variant: meta.variant,
-        provider: meta.provider,
-        campaignId: meta.campaignId,
-        locale,
-        segment: meta.segment,
-      });
-    }
   } catch (e) {
     console.warn('\u26a0\ufe0f Delivery persist failed:', e?.message);
   }
@@ -1820,7 +1802,7 @@ const NEWSLETTER_SEND_CONCURRENCY = 4;
 async function sendEmailBatch(emails, finalizeForProvider, onDelivered) {
   // After a per-provider subject swap, the final variant/subject live on the
   // payload (the source of truth for what was actually sent) — read them there
-  // so the delivery record + PostHog event reflect the provider's variant.
+  // so the delivery record reflects the provider's variant.
   const persistSent = async (item, res) => {
     const variant = item.payload?.tags?.find((t) => t.name === 'variant')?.value || item.meta?.variant;
     const subject = item.payload?.subject || item.meta?.subject;

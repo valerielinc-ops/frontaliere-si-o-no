@@ -672,12 +672,12 @@
     },
     {
       "id": "spitex-zuerich-45bfb7867815",
-      "slug": "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zurich",
+      "slug": "stazione-di-allenamento-dipl-nursing-professional-hf-2026-2027-a-spitex-zurich-zurich",
       "slugByLocale": {
         "de": "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zuerich-zurich",
-        "it": "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zurich",
-        "en": "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zuerich-zurich",
-        "fr": "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zuerich-zurich"
+        "it": "stazione-di-allenamento-dipl-nursing-professional-hf-2026-2027-a-spitex-zurich-zurich",
+        "en": "training-station-dipl-nursing-professional-hf-2026-2027-a-spitex-zurich-zurich",
+        "fr": "poste-de-formation-dipl-nursing-professional-hf-2026-2027-a-spitex-zurich-zurich"
       },
       "company": "Spitex Zürich",
       "companyKey": "spitex-zuerich",
@@ -722,11 +722,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zuerich-zurich",
+          "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zurich"
+        ],
+        "en": [
+          "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zuerich-zurich"
+        ],
+        "fr": [
           "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zuerich-zurich"
         ]
       },
       "previousSlugs": [
-        "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zuerich-zurich"
+        "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zuerich-zurich",
+        "ausbildungsplatz-dipl-pflegefachfrau-mann-hf-2026-2027-a-spitex-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,

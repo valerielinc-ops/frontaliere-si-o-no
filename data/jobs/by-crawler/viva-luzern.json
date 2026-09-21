@@ -158,7 +158,6 @@
         "pflegefachfrau-mann-hf-nacht-viva-luzern",
         "pflegefachfrau-mann-hf-viva-luzern-gxjazn",
         "pflegefachfrau-mann-hf-viva-luzern-luzern-2",
-        "certified-nursing-professional-viva-luzern-luzern",
         "registered-nurse-hf-viva-luzern",
         "pflegefachfrau-mann-hf-viva-luzern-feex39",
         "infermieristica-professionale-hf-temporanea-viva-luzern-luzern",
@@ -1304,12 +1303,12 @@
     },
     {
       "id": "viva-luzern-b37fe7aa0aed",
-      "slug": "collaboratore-trice-hauswirtschaft-viva-luzern",
+      "slug": "dipendenti-domestici-viva-luzern-luzern",
       "slugByLocale": {
         "de": "mitarbeiter-in-hauswirtschaft-viva-luzern-luzern",
-        "it": "collaboratore-trice-hauswirtschaft-viva-luzern",
-        "en": "mitarbeiter-in-hauswirtschaft-viva-luzern-luzern",
-        "fr": "mitarbeiter-in-hauswirtschaft-viva-luzern-luzern"
+        "it": "dipendenti-domestici-viva-luzern-luzern",
+        "en": "employees-domestic-viva-luzern-luzern",
+        "fr": "salaries-domestiques-viva-luzern-luzern"
       },
       "company": "Viva Luzern",
       "companyKey": "viva-luzern",
@@ -1358,20 +1357,24 @@
           "mitarbeiter-in-hauswirtschaft-viva-luzern-luzern",
           "collaboratore-trice-hauswirtschaft-viva-luzern-s96a2n",
           "employees-housekeeping-viva-luzern-luzern",
-          "employes-menages-viva-luzern-luzern"
+          "employes-menages-viva-luzern-luzern",
+          "collaboratore-trice-hauswirtschaft-viva-luzern"
         ],
         "en": [
-          "employees-housekeeping-viva-luzern-luzern"
+          "employees-housekeeping-viva-luzern-luzern",
+          "mitarbeiter-in-hauswirtschaft-viva-luzern-luzern"
         ],
         "fr": [
-          "employes-menages-viva-luzern-luzern"
+          "employes-menages-viva-luzern-luzern",
+          "mitarbeiter-in-hauswirtschaft-viva-luzern-luzern"
         ]
       },
       "previousSlugs": [
         "mitarbeiter-in-hauswirtschaft-viva-luzern-luzern",
         "collaboratore-trice-hauswirtschaft-viva-luzern-s96a2n",
         "employees-housekeeping-viva-luzern-luzern",
-        "employes-menages-viva-luzern-luzern"
+        "employes-menages-viva-luzern-luzern",
+        "collaboratore-trice-hauswirtschaft-viva-luzern"
       ],
       "salaryMin": 69000,
       "salaryMax": 86500,

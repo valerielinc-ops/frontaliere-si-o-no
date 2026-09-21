@@ -164,6 +164,7 @@ export default function CompanyFollowButton({
         sourceRouteFamily: 'company-follow',
         locale,
         jobContext: { company },
+        explicitConsentAction: true,
       });
       setAlertId(created.id);
       setStatus('following');

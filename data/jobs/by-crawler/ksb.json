@@ -7136,7 +7136,7 @@
         "de": "verantwortliche-r-business-continuity-management-100-ksb-ch",
         "it": "verantwortliche-r-business-continuity-management-100-ksb-ch",
         "en": "verantwortliche-r-business-continuity-management-100-ksb-ch",
-        "fr": "verantwortliche-r-business-continuity-management-100-ksb-ch"
+        "fr": "gestion-responsable-de-la-continuite-des-activites-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7274,12 +7274,12 @@
     },
     {
       "id": "ksb-7c6ab263a4df",
-      "slug": "fachspezialist-in-corporate-affairs-quality-100-ksb-ch",
+      "slug": "specialista-affari-aziendali-qualita-100-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "fachspezialist-in-corporate-affairs-quality-100-ksb-ch",
-        "it": "fachspezialist-in-corporate-affairs-quality-100-ksb-ch",
+        "it": "specialista-affari-aziendali-qualita-100-kantonsspital-baden-ksb-baden",
         "en": "fachspezialist-in-corporate-affairs-quality-100-ksb-ch",
-        "fr": "fachspezialist-in-corporate-affairs-quality-100-ksb-ch"
+        "fr": "specialiste-affaires-generales-et-qualite-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7335,7 +7335,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:08:01.314Z"
+      "firstSeenAt": "2026-09-19T23:08:01.314Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-corporate-affairs-quality-100-ksb-ch"
+        ],
+        "fr": [
+          "fachspezialist-in-corporate-affairs-quality-100-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fachspezialist-in-corporate-affairs-quality-100-ksb-ch"
+      ]
     },
     {
       "id": "ksb-3998705855f0",
@@ -7343,8 +7354,8 @@
       "slugByLocale": {
         "de": "stationsassistent-in-notfall-fur-kinder-und-jugendliche-und-neonatologie-40-ksb-ch",
         "it": "stationsassistent-in-notfall-per-kinder-e-jugendliche-e-neonatologie-40-kantonsspital-baden-ksb-baden",
-        "en": "stationsassistent-in-notfall-fur-kinder-und-jugendliche-und-neonatologie-40-ksb-ch",
-        "fr": "stationsassistent-in-notfall-fur-kinder-und-jugendliche-und-neonatologie-40-ksb-ch"
+        "en": "station-assistant-emergency-for-children-and-adolescents-and-neonatology-40-kantonsspital-baden-ksb-baden",
+        "fr": "assistant-de-poste-urgence-pour-enfants-et-adolescents-et-neonatologie-40-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7390,6 +7401,12 @@
       "previousSlugsByLocale": {
         "it": [
           "stationsassistent-in-notfall-fur-kinder-und-jugendliche-und-neonatologie-40-ksb-ch"
+        ],
+        "en": [
+          "stationsassistent-in-notfall-fur-kinder-und-jugendliche-und-neonatologie-40-ksb-ch"
+        ],
+        "fr": [
+          "stationsassistent-in-notfall-fur-kinder-und-jugendliche-und-neonatologie-40-ksb-ch"
         ]
       },
       "previousSlugs": [
@@ -7412,12 +7429,12 @@
     },
     {
       "id": "ksb-fcf554be7610",
-      "slug": "ernahrungsberater-in-innere-medizin-40-80-ksb-ch",
+      "slug": "medicina-interna-nutrizionale-40-80-kantonsspital-baden-ksb-baden",
       "slugByLocale": {
         "de": "ernahrungsberater-in-innere-medizin-40-80-ksb-ch",
-        "it": "ernahrungsberater-in-innere-medizin-40-80-ksb-ch",
-        "en": "ernahrungsberater-in-innere-medizin-40-80-ksb-ch",
-        "fr": "ernahrungsberater-in-innere-medizin-40-80-ksb-ch"
+        "it": "medicina-interna-nutrizionale-40-80-kantonsspital-baden-ksb-baden",
+        "en": "nutritionist-internal-medicine-40-80-kantonsspital-baden-ksb-baden",
+        "fr": "nutritionniste-medecine-interne-40-80-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7473,7 +7490,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:07:59.250Z"
+      "firstSeenAt": "2026-09-19T23:07:59.250Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "ernahrungsberater-in-innere-medizin-40-80-ksb-ch"
+        ],
+        "en": [
+          "ernahrungsberater-in-innere-medizin-40-80-ksb-ch"
+        ],
+        "fr": [
+          "ernahrungsberater-in-innere-medizin-40-80-ksb-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ernahrungsberater-in-innere-medizin-40-80-ksb-ch"
+      ]
     },
     {
       "id": "ksb-5610d2cb45bf",
@@ -7554,8 +7585,8 @@
       "slugByLocale": {
         "de": "mitarbeiter-in-gipszimmer-50-100-ksb-ch",
         "it": "mitarbeiter-in-gipszimmer-50-100-kantonsspital-baden-ksb-baden",
-        "en": "mitarbeiter-in-gipszimmer-50-100-ksb-ch",
-        "fr": "mitarbeiter-in-gipszimmer-50-100-ksb-ch"
+        "en": "employee-plasterroom-50-100-kantonsspital-baden-ksb-baden",
+        "fr": "salle-de-platre-des-employes-50-100-kantonsspital-baden-ksb-baden"
       },
       "company": "Kantonsspital Baden (KSB)",
       "companyKey": "ksb",
@@ -7600,6 +7631,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-in-gipszimmer-50-100-ksb-ch"
+        ],
+        "en": [
+          "mitarbeiter-in-gipszimmer-50-100-ksb-ch"
+        ],
+        "fr": [
           "mitarbeiter-in-gipszimmer-50-100-ksb-ch"
         ]
       },

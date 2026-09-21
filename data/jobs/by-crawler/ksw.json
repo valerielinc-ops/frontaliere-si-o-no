@@ -190,7 +190,7 @@
       "slugByLocale": {
         "de": "stv-abteilungsleiterin-abteilungsleiter-geburtshilfliche-abteilung-ksw-ch",
         "it": "capo-reparto-reparto-testa-ostetrica-kantonsspital-winterthur-ksw-winterthur",
-        "en": "stv-department-head-department-head-obstetric-department-kantonsspital-winterthur-ksw-winterthur",
+        "en": "head-of-division-head-of-department-of-obstetrics-kantonsspital-winterthur-ksw-winterthur",
         "fr": "stv-chef-de-departement-chef-de-departement-obstetrique-kantonsspital-winterthur-ksw-winterthur"
       },
       "company": "Kantonsspital Winterthur (KSW)",
@@ -254,14 +254,16 @@
           "stv-abteilungsleiterin-abteilungsleiter-geburtshilfliche-abteilung-ksw-ch"
         ],
         "en": [
-          "stv-abteilungsleiterin-abteilungsleiter-geburtshilfliche-abteilung-ksw-ch"
+          "stv-abteilungsleiterin-abteilungsleiter-geburtshilfliche-abteilung-ksw-ch",
+          "stv-department-head-department-head-obstetric-department-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
           "stv-abteilungsleiterin-abteilungsleiter-geburtshilfliche-abteilung-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "stv-abteilungsleiterin-abteilungsleiter-geburtshilfliche-abteilung-ksw-ch"
+        "stv-abteilungsleiterin-abteilungsleiter-geburtshilfliche-abteilung-ksw-ch",
+        "stv-department-head-department-head-obstetric-department-kantonsspital-winterthur-ksw-winterthur"
       ]
     },
     {
@@ -332,13 +334,9 @@
       "previousSlugsByLocale": {
         "it": [
           "esperto-a-in-formazione-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur",
-          "professional-training-expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
           "specialiste-en-formation-d-urgence-nds-hf-kantonsspital-winterthur-ksw-winterthur",
           "esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur",
           "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch"
-        ],
-        "en": [
-          "professional-training-expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur"
         ],
         "fr": [
           "specialiste-en-formation-d-urgence-nds-hf-kantonsspital-winterthur-ksw-winterthur",
@@ -347,7 +345,6 @@
       },
       "previousSlugs": [
         "esperto-a-in-formazione-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur",
-        "professional-training-expert-expert-emergency-care-nds-hf-kantonsspital-winterthur-ksw-winterthur",
         "specialiste-en-formation-d-urgence-nds-hf-kantonsspital-winterthur-ksw-winterthur",
         "esperto-in-cure-di-emergenza-nds-hf-kantonsspital-winterthur-ksw-winterthur",
         "weiterbildung-expertin-experte-notfallpflege-nds-hf-ksw-ch"
@@ -2526,28 +2523,22 @@
       "firstSeenAt": "2026-09-19T22:46:39.420Z",
       "previousSlugsByLocale": {
         "it": [
-          "specialista-specialista-stoccaggio-operativo-kantonsspital-winterthur-ksw-winterthur",
           "surgical-positioning-specialist-kantonsspital-winterthur-ksw-winterthur",
           "specialista-in-posizionamento-operativo-kantonsspital-winterthur-ksw-winterthur",
           "specialiste-en-positionnement-operationnel-kantonsspital-winterthur-ksw-winterthur",
           "fachfrau-fachmann-operationslagerung-ksw-ch"
         ],
         "en": [
-          "specialist-specialist-operational-storage-kantonsspital-winterthur-ksw-winterthur",
           "fachfrau-fachmann-operationslagerung-ksw-ch"
         ],
         "fr": [
-          "specialiste-specialiste-stockage-operationnel-kantonsspital-winterthur-ksw-winterthur",
           "fachfrau-fachmann-operationslagerung-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "specialista-specialista-stoccaggio-operativo-kantonsspital-winterthur-ksw-winterthur",
         "surgical-positioning-specialist-kantonsspital-winterthur-ksw-winterthur",
         "specialista-in-posizionamento-operativo-kantonsspital-winterthur-ksw-winterthur",
         "specialiste-en-positionnement-operationnel-kantonsspital-winterthur-ksw-winterthur",
-        "specialist-specialist-operational-storage-kantonsspital-winterthur-ksw-winterthur",
-        "specialiste-specialiste-stockage-operationnel-kantonsspital-winterthur-ksw-winterthur",
         "fachfrau-fachmann-operationslagerung-ksw-ch"
       ]
     },
@@ -2690,18 +2681,14 @@
           "medizinisch-technische-radiologiefachperson-hf-mtr-hf-per-den-bereich-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur"
         ],
         "en": [
-          "medical-technical-radiology-specialist-hf-mtr-hf-for-the-field-of-interventional-radiology-kantonsspital-winterthur-ksw",
           "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle"
         ],
         "fr": [
-          "specialiste-de-radiologie-medicale-technique-hf-mtr-hf-dans-le-domaine-de-la-radiologie-interventionnelle-kantonsspital",
           "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle"
         ]
       },
       "previousSlugs": [
         "medizinisch-technische-radiologiefachperson-hf-mtr-hf-fur-den-bereich-interventionelle",
-        "medical-technical-radiology-specialist-hf-mtr-hf-for-the-field-of-interventional-radiology-kantonsspital-winterthur-ksw",
-        "specialiste-de-radiologie-medicale-technique-hf-mtr-hf-dans-le-domaine-de-la-radiologie-interventionnelle-kantonsspital",
         "medizinisch-technische-radiologiefachperson-hf-mtr-hf-per-den-bereich-interventionelle-radiologie-kantonsspital-winterthur-ksw-winterthur"
       ],
       "salaryMin": 91500,
@@ -4736,7 +4723,6 @@
       "firstSeenAt": "2026-09-19T22:46:39.418Z",
       "previousSlugsByLocale": {
         "it": [
-          "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur",
           "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
           "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
           "formazione-infermiere-a-specializzata-a-hf-kantonsspital-winterthur-ksw-winterthur",
@@ -4746,16 +4732,13 @@
           "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
         ],
         "en": [
-          "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
           "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
         ],
         "fr": [
-          "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
           "ausbildung-pflegefachfrau-pflegefachmann-hf-ksw-ch"
         ]
       },
       "previousSlugs": [
-        "infermiere-di-formazione-infermiere-specialista-hf-kantonsspital-winterthur-ksw-winterthur",
         "training-nurse-nurse-specialist-hf-kantonsspital-winterthur-ksw-winterthur",
         "infirmiere-infirmiere-specialiste-hf-kantonsspital-winterthur-ksw-winterthur",
         "formazione-infermiere-a-specializzata-a-hf-kantonsspital-winterthur-ksw-winterthur",

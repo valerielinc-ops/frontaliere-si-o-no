@@ -108,6 +108,7 @@ const WeeklyDigest: React.FC = () => {
  source: 'weekly_digest',
  type: 'weekly_digest',
  registrationMethod: 'email',
+ explicitConsentAction: true,
  });
  const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
  if (needsConfirmation) {
@@ -145,6 +146,7 @@ const WeeklyDigest: React.FC = () => {
          sourceRouteFamily: 'newsletter',
          locale,
          registrationMethod: 'authenticated',
+         explicitConsentAction: true,
        });
        if (!cancelled) {
          setPendingSocialMethod(null);

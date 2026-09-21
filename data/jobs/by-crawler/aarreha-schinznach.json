@@ -1107,12 +1107,12 @@
     },
     {
       "id": "aarreha-schinznach-6cde6237ba30",
-      "slug": "apprendistato-2027-come-restaurantfachfrau-restaurantfachmann-cfc-aarreha-schinznach-bad",
+      "slug": "apprendistato-2027-come-specialista-ristorante-specialista-ristorante-efz-aarreha-schinznach-schinznach-bad",
       "slugByLocale": {
         "de": "lehrstelle-2027-als-restaurantfachfrau-restaurantfachmann-efz-aarreha-schinznach",
-        "it": "apprendistato-2027-come-restaurantfachfrau-restaurantfachmann-cfc-aarreha-schinznach-bad",
-        "en": "lehrstelle-2027-als-restaurantfachfrau-restaurantfachmann-efz-aarreha-schinznach",
-        "fr": "lehrstelle-2027-als-restaurantfachfrau-restaurantfachmann-efz-aarreha-schinznach"
+        "it": "apprendistato-2027-come-specialista-ristorante-specialista-ristorante-efz-aarreha-schinznach-schinznach-bad",
+        "en": "apprenticeship-2027-as-restaurant-specialist-restaurant-specialist-efz-aarreha-schinznach-schinznach-bad",
+        "fr": "apprentissage-2027-comme-specialiste-des-restaurants-specialiste-des-restaurants-efz-aarreha-schinznach-schinznach-bad"
       },
       "company": "aarReha Schinznach",
       "companyKey": "aarreha-schinznach",
@@ -1157,11 +1157,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-2027-als-restaurantfachfrau-restaurantfachmann-efz-aarreha-schinznach",
+          "apprendistato-2027-come-restaurantfachfrau-restaurantfachmann-cfc-aarreha-schinznach-bad"
+        ],
+        "en": [
+          "lehrstelle-2027-als-restaurantfachfrau-restaurantfachmann-efz-aarreha-schinznach"
+        ],
+        "fr": [
           "lehrstelle-2027-als-restaurantfachfrau-restaurantfachmann-efz-aarreha-schinznach"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-2027-als-restaurantfachfrau-restaurantfachmann-efz-aarreha-schinznach"
+        "lehrstelle-2027-als-restaurantfachfrau-restaurantfachmann-efz-aarreha-schinznach",
+        "apprendistato-2027-come-restaurantfachfrau-restaurantfachmann-cfc-aarreha-schinznach-bad"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,
@@ -1180,12 +1188,12 @@
     },
     {
       "id": "aarreha-schinznach-d3e884ff5e9e",
-      "slug": "apprendistato-2027-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-aarreha-schinznach-bad",
+      "slug": "apprenticeship-2027-come-specialista-specialista-dell-industria-alberghiera-efz-aarreha-schinznach-schinznach-bad",
       "slugByLocale": {
         "de": "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-aarreha-schinznach",
-        "it": "apprendistato-2027-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-aarreha-schinznach-bad",
-        "en": "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-aarreha-schinznach",
-        "fr": "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-aarreha-schinznach"
+        "it": "apprenticeship-2027-come-specialista-specialista-dell-industria-alberghiera-efz-aarreha-schinznach-schinznach-bad",
+        "en": "apprenticeship-2027-as-a-specialist-specialist-hotel-industry-housekeeping-efz-aarreha-schinznach-schinznach-bad",
+        "fr": "apprentissage-2027-en-tant-que-specialiste-specialiste-de-l-hotellerie-menagement-efz-aarreha-schinznach-schinznach-bad"
       },
       "company": "aarReha Schinznach",
       "companyKey": "aarreha-schinznach",
@@ -1230,11 +1238,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-aarreha-schinznach",
+          "apprendistato-2027-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-aarreha-schinznach-bad"
+        ],
+        "en": [
+          "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-aarreha-schinznach"
+        ],
+        "fr": [
           "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-aarreha-schinznach"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-aarreha-schinznach"
+        "lehrstelle-2027-als-fachfrau-fachmann-hotellerie-hauswirtschaft-efz-aarreha-schinznach",
+        "apprendistato-2027-come-fachfrau-fachmann-hotellerie-hauswirtschaft-cfc-aarreha-schinznach-bad"
       ],
       "salaryMin": 52000,
       "salaryMax": 78500,

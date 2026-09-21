@@ -76,12 +76,12 @@
     },
     {
       "id": "sika-6d949ed88b42",
-      "slug": "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung",
+      "slug": "acquisto-responsabile-formazione-professionale-di-base-80-100-m-f-d-sika-zurich-zurich",
       "slugByLocale": {
         "de": "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung",
-        "it": "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung",
-        "en": "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung",
-        "fr": "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung"
+        "it": "acquisto-responsabile-formazione-professionale-di-base-80-100-m-f-d-sika-zurich-zurich",
+        "en": "responsible-purchase-vocational-basic-education-and-training-80-100-m-f-d-sika-zurich-zurich",
+        "fr": "achat-responsable-enseignement-et-formation-professionnels-de-base-80-100-h-f-d-sika-zurich-zurich"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -138,7 +138,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:05:15.864Z"
+      "firstSeenAt": "2026-09-19T23:05:15.864Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung"
+        ],
+        "en": [
+          "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung"
+        ],
+        "fr": [
+          "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung"
+      ]
     },
     {
       "id": "sika-feac34a42cc0",
@@ -1894,8 +1908,8 @@
       "slugByLocale": {
         "de": "fachspezialist-gebaudetechnik-und-infrastruktur-sika-ch",
         "it": "fachspezialist-gebaudetechnik-e-infrastruktur-sika-romanshorn",
-        "en": "fachspezialist-gebaudetechnik-und-infrastruktur-sika-ch",
-        "fr": "fachspezialist-gebaudetechnik-und-infrastruktur-sika-ch"
+        "en": "specialist-building-technology-and-infrastructure-sika-romanshorn-thurgau",
+        "fr": "specialiste-du-batiment-technologie-et-infrastructure-sika-romanshorn-thurgau"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -1942,6 +1956,12 @@
       "previousSlugsByLocale": {
         "it": [
           "fachspezialist-gebaudetechnik-und-infrastruktur-sika-ch"
+        ],
+        "en": [
+          "fachspezialist-gebaudetechnik-und-infrastruktur-sika-ch"
+        ],
+        "fr": [
+          "fachspezialist-gebaudetechnik-und-infrastruktur-sika-ch"
         ]
       },
       "previousSlugs": [
@@ -1964,12 +1984,12 @@
     },
     {
       "id": "sika-aae43f7d10cd",
-      "slug": "laborant-sika-ch",
+      "slug": "laboratorio-sika-zurich-zurich",
       "slugByLocale": {
         "de": "laborant-sika-ch",
-        "it": "laborant-sika-ch",
-        "en": "laborant-sika-ch",
-        "fr": "laborant-sika-ch"
+        "it": "laboratorio-sika-zurich-zurich",
+        "en": "laboratory-sika-zurich-zurich",
+        "fr": "laboratoire-sika-zurich-zurich"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2026,7 +2046,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:04:47.537Z"
+      "firstSeenAt": "2026-09-19T23:04:47.537Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "laborant-sika-ch"
+        ],
+        "en": [
+          "laborant-sika-ch"
+        ],
+        "fr": [
+          "laborant-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "laborant-sika-ch"
+      ]
     },
     {
       "id": "sika-2c2ce333f52e",
@@ -2035,7 +2069,7 @@
         "de": "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch",
         "it": "collaboratore-trice-facility-management-post-e-service-desk-80-100-m-w-d-sika-sarnen",
         "en": "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch",
-        "fr": "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch"
+        "fr": "gestion-des-installations-des-employes-bureau-de-poste-et-bureau-de-service-80-100-h-f-d-sika-sarnen-obwalden"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2081,6 +2115,9 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch"
+        ],
+        "fr": [
           "mitarbeiter-facility-management-post-und-service-desk-80-100-m-w-d-sika-ch"
         ]
       },
@@ -2184,10 +2221,10 @@
     },
     {
       "id": "sika-2dccb7f67b20",
-      "slug": "accountant-administrator-80-100-m-w-d-sika-ch",
+      "slug": "amministratore-contabile-80-100-m-f-d-sika-sarnen-obwalden",
       "slugByLocale": {
         "de": "accountant-administrator-80-100-m-w-d-sika-ch",
-        "it": "accountant-administrator-80-100-m-w-d-sika-ch",
+        "it": "amministratore-contabile-80-100-m-f-d-sika-sarnen-obwalden",
         "en": "accountant-administrator-80-100-m-w-d-sika-ch",
         "fr": "accountant-administrator-80-100-m-w-d-sika-ch"
       },
@@ -2246,16 +2283,24 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:04:44.056Z"
+      "firstSeenAt": "2026-09-19T23:04:44.056Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "accountant-administrator-80-100-m-w-d-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "accountant-administrator-80-100-m-w-d-sika-ch"
+      ]
     },
     {
       "id": "sika-d98934919978",
-      "slug": "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch",
+      "slug": "amministratore-di-sistema-con-responsabilita-gestione-accesso-immobiliare-m-f-d-sika-zurich-zurich",
       "slugByLocale": {
         "de": "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch",
-        "it": "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch",
-        "en": "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch",
-        "fr": "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch"
+        "it": "amministratore-di-sistema-con-responsabilita-gestione-accesso-immobiliare-m-f-d-sika-zurich-zurich",
+        "en": "system-administrator-with-responsibility-access-management-real-estate-m-f-d-sika-zurich-zurich",
+        "fr": "administrateur-systeme-responsable-gestion-de-l-acces-immobilier-h-f-d-sika-zurich-zurich"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2312,7 +2357,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:04:42.838Z"
+      "firstSeenAt": "2026-09-19T23:04:42.838Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch"
+        ],
+        "en": [
+          "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch"
+        ],
+        "fr": [
+          "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "systemadministrator-mit-verantwortung-zutrittsmanagement-real-estate-w-m-d-sika-ch"
+      ]
     },
     {
       "id": "sika-9dc36e096aa5",
@@ -2651,12 +2710,12 @@
     },
     {
       "id": "sika-52e97de70284",
-      "slug": "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch",
+      "slug": "business-development-manager-tecnologie-adesive-trasporti-commerciali-sika-widen-aargau",
       "slugByLocale": {
         "en": "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch",
-        "it": "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch",
+        "it": "business-development-manager-tecnologie-adesive-trasporti-commerciali-sika-widen-aargau",
         "de": "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch",
-        "fr": "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch"
+        "fr": "directeur-du-developpement-des-affaires-technologies-adhesives-transport-commercial-sika-widen-aargau"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -2714,7 +2773,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:04:36.555Z"
+      "firstSeenAt": "2026-09-19T23:04:36.555Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch"
+        ],
+        "fr": [
+          "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "business-development-manager-adhesive-technologies-commercial-transportation-sika-ch"
+      ]
     },
     {
       "id": "sika-5912000fd803",
@@ -2948,12 +3018,12 @@
     },
     {
       "id": "sika-bc2af3250c8e",
-      "slug": "produktionsplaner-production-planner-sika-ch",
+      "slug": "pianificatore-di-produzione-pianificatore-di-produzione-sika-sarnen-obwalden",
       "slugByLocale": {
         "de": "produktionsplaner-production-planner-sika-ch",
-        "it": "produktionsplaner-production-planner-sika-ch",
+        "it": "pianificatore-di-produzione-pianificatore-di-produzione-sika-sarnen-obwalden",
         "en": "produktionsplaner-production-planner-sika-ch",
-        "fr": "produktionsplaner-production-planner-sika-ch"
+        "fr": "planificateur-de-production-planificateur-de-production-sika-sarnen-obwalden"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -3010,16 +3080,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:04:31.822Z"
+      "firstSeenAt": "2026-09-19T23:04:31.822Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "produktionsplaner-production-planner-sika-ch"
+        ],
+        "fr": [
+          "produktionsplaner-production-planner-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "produktionsplaner-production-planner-sika-ch"
+      ]
     },
     {
       "id": "sika-a6287c3ecf45",
-      "slug": "compliance-manager-sika-ch",
+      "slug": "responsabile-della-conformita-sika-baar-canton-of-zug",
       "slugByLocale": {
         "en": "compliance-manager-sika-ch",
-        "it": "compliance-manager-sika-ch",
+        "it": "responsabile-della-conformita-sika-baar-canton-of-zug",
         "de": "compliance-manager-sika-ch",
-        "fr": "compliance-manager-sika-ch"
+        "fr": "gestionnaire-de-la-conformite-sika-baar-canton-of-zug"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -3077,7 +3158,18 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:04:30.626Z"
+      "firstSeenAt": "2026-09-19T23:04:30.626Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "compliance-manager-sika-ch"
+        ],
+        "fr": [
+          "compliance-manager-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "compliance-manager-sika-ch"
+      ]
     },
     {
       "id": "sika-7b0a56925627",
@@ -3152,7 +3244,7 @@
         "en": "corporate-communications-trainee-100-m-f-d-12-months-sika-ch",
         "it": "corporate-communications-trainee-100-m-f-d-12-months-sika-ch",
         "de": "corporate-communications-trainee-100-m-f-d-12-months-sika-ch",
-        "fr": "corporate-communications-trainee-100-m-f-d-12-months-sika-ch"
+        "fr": "stage-en-communications-d-entreprise-100-h-f-d-12-mois-sika-baar-canton-of-zug"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -3217,8 +3309,8 @@
       "slugByLocale": {
         "de": "chemielaborant-in-befristet-auf-12-monate-sika-ch",
         "it": "chemielaborant-in-befristet-auf-12-monate-sika-zurich",
-        "en": "chemielaborant-in-befristet-auf-12-monate-sika-ch",
-        "fr": "chemielaborant-in-befristet-auf-12-monate-sika-ch"
+        "en": "chemical-laboratory-temporary-to-12-months-sika-zurich-zurich",
+        "fr": "laboratoire-chimique-temporaire-a-12-mois-sika-zurich-zurich"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -3264,6 +3356,12 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "chemielaborant-in-befristet-auf-12-monate-sika-ch"
+        ],
+        "en": [
+          "chemielaborant-in-befristet-auf-12-monate-sika-ch"
+        ],
+        "fr": [
           "chemielaborant-in-befristet-auf-12-monate-sika-ch"
         ]
       },
@@ -3369,12 +3467,12 @@
     },
     {
       "id": "sika-ad0ceaffc814",
-      "slug": "sachbearbeiter-in-verkaufssupport-100-sika-ch",
+      "slug": "supporto-vendite-agente-100-sika-zurich-zurich",
       "slugByLocale": {
         "de": "sachbearbeiter-in-verkaufssupport-100-sika-ch",
-        "it": "sachbearbeiter-in-verkaufssupport-100-sika-ch",
-        "en": "sachbearbeiter-in-verkaufssupport-100-sika-ch",
-        "fr": "sachbearbeiter-in-verkaufssupport-100-sika-ch"
+        "it": "supporto-vendite-agente-100-sika-zurich-zurich",
+        "en": "agent-sales-support-100-sika-zurich-zurich",
+        "fr": "soutien-aux-ventes-d-agents-100-sika-zurich-zurich"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -3431,16 +3529,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:04:25.268Z"
+      "firstSeenAt": "2026-09-19T23:04:25.268Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sachbearbeiter-in-verkaufssupport-100-sika-ch"
+        ],
+        "en": [
+          "sachbearbeiter-in-verkaufssupport-100-sika-ch"
+        ],
+        "fr": [
+          "sachbearbeiter-in-verkaufssupport-100-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sachbearbeiter-in-verkaufssupport-100-sika-ch"
+      ]
     },
     {
       "id": "sika-d613c2147364",
-      "slug": "chemielaborant-in-sika-ch",
+      "slug": "laboratorio-chimico-sika-zurich-zurich",
       "slugByLocale": {
         "de": "chemielaborant-in-sika-ch",
-        "it": "chemielaborant-in-sika-ch",
-        "en": "chemielaborant-in-sika-ch",
-        "fr": "chemielaborant-in-sika-ch"
+        "it": "laboratorio-chimico-sika-zurich-zurich",
+        "en": "chemical-laboratory-sika-zurich-zurich",
+        "fr": "laboratoire-chimique-sika-zurich-zurich"
       },
       "company": "Sika",
       "companyKey": "sika",
@@ -3497,7 +3609,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:04:24.346Z"
+      "firstSeenAt": "2026-09-19T23:04:24.346Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chemielaborant-in-sika-ch"
+        ],
+        "en": [
+          "chemielaborant-in-sika-ch"
+        ],
+        "fr": [
+          "chemielaborant-in-sika-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chemielaborant-in-sika-ch"
+      ]
     },
     {
       "id": "sika-34e5f88f35ec",

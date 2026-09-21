@@ -23,12 +23,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-09-19T23:04:40.184Z",
-      "slug": "mitarbeiter-in-technischer-dienst-kantonsspital-graubunden-chur",
+      "slug": "servizio-tecnico-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "mitarbeiter-in-technischer-dienst-kantonsspital-graubunden-chur",
-        "it": "mitarbeiter-in-technischer-dienst-kantonsspital-graubunden-chur",
-        "en": "mitarbeiter-in-technischer-dienst-kantonsspital-graubunden-chur",
-        "fr": "mitarbeiter-in-technischer-dienst-kantonsspital-graubunden-chur"
+        "it": "servizio-tecnico-kantonsspital-graubunden-chur",
+        "en": "technical-service-staff-kantonsspital-graubunden-chur",
+        "fr": "personnel-technique-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Mitarbeiter:in Technischer Dienst",
@@ -58,7 +58,21 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-09-19T23:04:40.184Z"
+      "firstSeenAt": "2026-09-19T23:04:40.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-technischer-dienst-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "mitarbeiter-in-technischer-dienst-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "mitarbeiter-in-technischer-dienst-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-technischer-dienst-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10187263",
@@ -81,12 +95,12 @@
       "employmentType": "50 - 80%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-09-19T23:04:40.184Z",
-      "slug": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
+      "slug": "servizio-in-camera-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
-        "it": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
+        "it": "servizio-in-camera-kantonsspital-graubunden-chur",
         "en": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur",
-        "fr": "mitarbeiter-in-room-service-kantonsspital-graubunden-chur"
+        "fr": "service-des-chambres-du-personnel-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Mitarbeiter:in Room-Service",
@@ -116,7 +130,18 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-09-19T23:04:40.184Z"
+      "firstSeenAt": "2026-09-19T23:04:40.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "mitarbeiter-in-room-service-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "mitarbeiter-in-room-service-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "mitarbeiter-in-room-service-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10193447",
@@ -139,12 +164,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-09-19T23:04:40.184Z",
-      "slug": "assistenzarztin-assistenzarzt-radiologie-kantonsspital-graubunden-chur",
+      "slug": "assistente-medico-assistente-medico-radiologia-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "assistenzarztin-assistenzarzt-radiologie-kantonsspital-graubunden-chur",
-        "it": "assistenzarztin-assistenzarzt-radiologie-kantonsspital-graubunden-chur",
-        "en": "assistenzarztin-assistenzarzt-radiologie-kantonsspital-graubunden-chur",
-        "fr": "assistenzarztin-assistenzarzt-radiologie-kantonsspital-graubunden-chur"
+        "it": "assistente-medico-assistente-medico-radiologia-kantonsspital-graubunden-chur",
+        "en": "assistant-doctor-assistant-doctor-radiology-kantonsspital-graubunden-chur",
+        "fr": "assistant-medecin-assistant-medecin-radiologie-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Assistenzärztin / Assistenzarzt Radiologie",
@@ -179,19 +204,23 @@
         "it": [
           "medico-in-formazione-specialistica-in-radiologia-kantonsspital-graubunden-chur",
           "radiology-resident-physician-kantonsspital-graubunden-chur",
-          "medecin-assistant-en-radiologie-kantonsspital-graubunden-chur"
+          "medecin-assistant-en-radiologie-kantonsspital-graubunden-chur",
+          "assistenzarztin-assistenzarzt-radiologie-kantonsspital-graubunden-chur"
         ],
         "en": [
-          "radiology-resident-physician-kantonsspital-graubunden-chur"
+          "radiology-resident-physician-kantonsspital-graubunden-chur",
+          "assistenzarztin-assistenzarzt-radiologie-kantonsspital-graubunden-chur"
         ],
         "fr": [
-          "medecin-assistant-en-radiologie-kantonsspital-graubunden-chur"
+          "medecin-assistant-en-radiologie-kantonsspital-graubunden-chur",
+          "assistenzarztin-assistenzarzt-radiologie-kantonsspital-graubunden-chur"
         ]
       },
       "previousSlugs": [
         "medico-in-formazione-specialistica-in-radiologia-kantonsspital-graubunden-chur",
         "radiology-resident-physician-kantonsspital-graubunden-chur",
-        "medecin-assistant-en-radiologie-kantonsspital-graubunden-chur"
+        "medecin-assistant-en-radiologie-kantonsspital-graubunden-chur",
+        "assistenzarztin-assistenzarzt-radiologie-kantonsspital-graubunden-chur"
       ]
     },
     {
@@ -215,12 +244,12 @@
       "employmentType": "80 - 100%",
       "category": "Gesundheitswesen",
       "crawledAt": "2026-09-19T23:04:40.184Z",
-      "slug": "fachfrau-fachmann-gesundheit-aufwachraum-und-tagesklinik-kantonsspital-graubunden-chur",
+      "slug": "specialista-specialista-sala-di-recupero-della-salute-e-clinica-del-giorno-kantonsspital-graubunden-chur",
       "slugByLocale": {
         "de": "fachfrau-fachmann-gesundheit-aufwachraum-und-tagesklinik-kantonsspital-graubunden-chur",
-        "it": "fachfrau-fachmann-gesundheit-aufwachraum-und-tagesklinik-kantonsspital-graubunden-chur",
-        "en": "fachfrau-fachmann-gesundheit-aufwachraum-und-tagesklinik-kantonsspital-graubunden-chur",
-        "fr": "fachfrau-fachmann-gesundheit-aufwachraum-und-tagesklinik-kantonsspital-graubunden-chur"
+        "it": "specialista-specialista-sala-di-recupero-della-salute-e-clinica-del-giorno-kantonsspital-graubunden-chur",
+        "en": "specialist-specialist-health-recovery-room-and-day-clinic-kantonsspital-graubunden-chur",
+        "fr": "specialiste-specialiste-salle-de-recuperation-de-la-sante-et-clinique-de-jour-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Fachfrau / Fachmann Gesundheit Aufwachraum und Tagesklinik",
@@ -250,7 +279,21 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-09-19T23:04:40.184Z"
+      "firstSeenAt": "2026-09-19T23:04:40.184Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "fachfrau-fachmann-gesundheit-aufwachraum-und-tagesklinik-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "fachfrau-fachmann-gesundheit-aufwachraum-und-tagesklinik-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "fachfrau-fachmann-gesundheit-aufwachraum-und-tagesklinik-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "fachfrau-fachmann-gesundheit-aufwachraum-und-tagesklinik-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10186454",
@@ -3918,8 +3961,7 @@
           "apprentissage-en-tant-que-specialiste-dans-l-industrie-hoteliere-et-le-menage-kantonsspital-graubunden-chur"
         ],
         "de": [
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522",
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
+          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur-12y522"
         ]
       },
       "needsRetranslation": false,
@@ -3987,15 +4029,7 @@
       "salaryMax": 75000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-05-17T10:33:43.517Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
-        ]
-      },
-      "previousSlugs": [
-        "berufslehre-fachfrau-fachmann-hotellerie-hauswirtschaft-kantonsspital-graubunden-chur"
-      ]
+      "firstSeenAt": "2026-05-17T10:33:43.517Z"
     },
     {
       "id": "10020180",

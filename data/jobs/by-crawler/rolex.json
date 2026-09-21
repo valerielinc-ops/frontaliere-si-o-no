@@ -68,8 +68,6 @@
         "tech-lead-mobile-h-f-rolex-ch",
         "mobile-di-piombo-tecnologico-h-f-rolex-geneve",
         "tech-lead-m-w-d-rolex-geneve",
-        "produktionstechniker-m-w-rolex-geneve",
-        "tecnico-di-produzione-h-f-rolex-geneve",
         "betriebstechniker-m-w-d-rolex-geneve",
         "technicien-metrologue-h-f-rolex-ch",
         "tecnica-operativa-m-f-rolex-geneve",
@@ -97,7 +95,6 @@
           "tech-lead-mobile-h-f-rolex-ch",
           "mobile-di-piombo-tecnologico-h-f-rolex-geneve",
           "tech-lead-m-w-d-rolex-geneve",
-          "tecnico-di-produzione-h-f-rolex-geneve",
           "technicien-metrologue-h-f-rolex-ch",
           "tecnica-operativa-m-f-rolex-geneve",
           "tecnico-di-metrologia-h-f-rolex-geneve"
@@ -113,7 +110,6 @@
           "technicien-d-exploitation-m-w-d-rolex-geneve",
           "produktionskoordinator-h-f-rolex-geneve",
           "technischer-leiter-m-w-rolex-geneve",
-          "produktionstechniker-m-w-rolex-geneve",
           "betriebstechniker-m-w-d-rolex-geneve",
           "betriebstechniker-m-w-rolex-geneve",
           "messtechniker-m-w-rolex-geneve"
@@ -1183,7 +1179,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "charge-de-projet-data-logistique-h-f-rolex-ch",
-        "project-manager-data-logistics-h-f-rolex-geneve",
         "gestione-logistica-h-f-rolex-geneve",
         "logistics-manager-h-f-rolex-geneve",
         "logistikmanager-h-f-rolex-geneve",
@@ -1199,7 +1194,6 @@
       "previousSlugsByLocale": {
         "it": [
           "charge-de-projet-data-logistique-h-f-rolex-ch",
-          "project-manager-data-logistics-h-f-rolex-geneve",
           "gestione-logistica-h-f-rolex-geneve",
           "logistics-manager-h-f-rolex-geneve",
           "logistikmanager-h-f-rolex-geneve",
@@ -6305,14 +6299,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "chef-de-projets-nouveaux-produits-h-f-rolex-ch",
-        "chef-de-projets-nouveaux-produits-h-f-rolex-geneve",
-        "chef-de-projets-nouveaux-produits-m-w-d-rolex-geneve"
+        "chef-de-projets-nouveaux-produits-h-f-rolex-geneve"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-projets-nouveaux-produits-h-f-rolex-ch",
-          "chef-de-projets-nouveaux-produits-h-f-rolex-geneve",
-          "chef-de-projets-nouveaux-produits-m-w-d-rolex-geneve"
+          "chef-de-projets-nouveaux-produits-h-f-rolex-geneve"
         ]
       },
       "firstSeenAt": "2026-06-24T22:41:45.930Z",
@@ -6891,7 +6883,7 @@
       "slugByLocale": {
         "it": "agente-di-sicurezza-h-f-rolex-bienne-ae6fdc",
         "en": "security-officer-h-f-rolex-bienne-ae6fdc",
-        "de": "charge-de-securite-m-w-d-rolex-bienne",
+        "de": "sicherheitsbeauftragter-m-w-rolex-bienne",
         "fr": "charge-de-securite-h-f-rolex-ch"
       },
       "company": "Rolex",
@@ -6935,7 +6927,7 @@
         "charge-de-securite-h-f-rolex-ch",
         "charge-de-securite-h-f-rolex-bienne",
         "sicherheitsbeauftragter-h-f-rolex-bienne-ae6fdc",
-        "sicherheitsbeauftragter-m-w-rolex-bienne"
+        "charge-de-securite-m-w-d-rolex-bienne"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -6947,7 +6939,7 @@
         "de": [
           "charge-de-securite-h-f-rolex-bienne",
           "sicherheitsbeauftragter-h-f-rolex-bienne-ae6fdc",
-          "sicherheitsbeauftragter-m-w-rolex-bienne"
+          "charge-de-securite-m-w-d-rolex-bienne"
         ]
       },
       "firstSeenAt": "2026-08-06T11:31:57.946Z",
@@ -13285,7 +13277,7 @@
       "title": "Business analyst Kinaxis H/F)",
       "titleByLocale": {
         "it": "Business Analista Kinaxis H/F)",
-        "en": "Business analyst Kinaxis H/F)",
+        "en": "Business analyst Kinaxis M/F)",
         "de": "Business Analytics Kinaxis M/W",
         "fr": "Business Analyste Kinaxis H/F)"
       },
@@ -13319,7 +13311,6 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "business-analyst-kinaxis-h-f-rolex-ch",
-        "business-analista-kinaxis-h-f-rolex-geneve",
         "analista-aziendale-achats-h-f-rolex-geneve",
         "business-analyst-achats-h-f-rolex-ch",
         "business-analyst-beschaffung-h-f-rolex-geneve"
@@ -13327,7 +13318,6 @@
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-kinaxis-h-f-rolex-ch",
-          "business-analista-kinaxis-h-f-rolex-geneve",
           "analista-aziendale-achats-h-f-rolex-geneve",
           "business-analyst-achats-h-f-rolex-ch",
           "business-analyst-beschaffung-h-f-rolex-geneve"

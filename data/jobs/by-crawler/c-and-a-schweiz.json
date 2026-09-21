@@ -466,7 +466,7 @@
         "de": "store-leader-assistant-m-w-d-100-fur-emmen-c-and-a-schweiz-ch",
         "it": "store-leader-assistant-m-w-d-100-per-emmen-c-a-schweiz-emmenbrucke",
         "en": "store-leader-assistant-m-w-d-100-fur-emmen-c-and-a-schweiz-ch",
-        "fr": "store-leader-assistant-m-w-d-100-fur-emmen-c-and-a-schweiz-ch"
+        "fr": "assistant-de-chef-de-magasin-h-f-d-100-pour-emmen-c-a-schweiz-emmenbrucke-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -511,6 +511,9 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
+          "store-leader-assistant-m-w-d-100-fur-emmen-c-and-a-schweiz-ch"
+        ],
+        "fr": [
           "store-leader-assistant-m-w-d-100-fur-emmen-c-and-a-schweiz-ch"
         ]
       },
@@ -2333,12 +2336,12 @@
     },
     {
       "id": "c-and-a-schweiz-ce8675773a29",
-      "slug": "ch-mitarbeiterin-vendita-50-con-schlusselfunktion-schwerpunkt-service-c-a-schweiz-emmenbrucke",
+      "slug": "ch-dipendenti-vendite-50-con-funzione-chiave-servizio-di-messa-a-fuoco-c-a-schweiz-emmenbrucke-ch",
       "slugByLocale": {
         "de": "ch-mitarbeiterin-verkauf-50-mit-schlusselfunktion-schwerpunkt-service-c-and-a-schweiz-ch",
-        "it": "ch-mitarbeiterin-vendita-50-con-schlusselfunktion-schwerpunkt-service-c-a-schweiz-emmenbrucke",
-        "en": "ch-mitarbeiterin-verkauf-50-mit-schlusselfunktion-schwerpunkt-service-c-and-a-schweiz-ch",
-        "fr": "ch-mitarbeiterin-verkauf-50-mit-schlusselfunktion-schwerpunkt-service-c-and-a-schweiz-ch"
+        "it": "ch-dipendenti-vendite-50-con-funzione-chiave-servizio-di-messa-a-fuoco-c-a-schweiz-emmenbrucke-ch",
+        "en": "ch-employee-sales-50-with-key-function-focus-service-c-a-schweiz-emmenbrucke-ch",
+        "fr": "ch-employe-ventes-50-avec-fonction-cle-service-de-focalisation-c-a-schweiz-emmenbrucke-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -2382,11 +2385,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
+          "ch-mitarbeiterin-verkauf-50-mit-schlusselfunktion-schwerpunkt-service-c-and-a-schweiz-ch",
+          "ch-mitarbeiterin-vendita-50-con-schlusselfunktion-schwerpunkt-service-c-a-schweiz-emmenbrucke"
+        ],
+        "en": [
+          "ch-mitarbeiterin-verkauf-50-mit-schlusselfunktion-schwerpunkt-service-c-and-a-schweiz-ch"
+        ],
+        "fr": [
           "ch-mitarbeiterin-verkauf-50-mit-schlusselfunktion-schwerpunkt-service-c-and-a-schweiz-ch"
         ]
       },
       "previousSlugs": [
-        "ch-mitarbeiterin-verkauf-50-mit-schlusselfunktion-schwerpunkt-service-c-and-a-schweiz-ch"
+        "ch-mitarbeiterin-verkauf-50-mit-schlusselfunktion-schwerpunkt-service-c-and-a-schweiz-ch",
+        "ch-mitarbeiterin-vendita-50-con-schlusselfunktion-schwerpunkt-service-c-a-schweiz-emmenbrucke"
       ],
       "salaryMin": 29500,
       "salaryMax": 45300,
@@ -3763,12 +3774,12 @@
     },
     {
       "id": "c-and-a-schweiz-9ef29efa681c",
-      "slug": "collaboratrice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch",
+      "slug": "collaboratore-di-vendita-50-csd-3-mesi-c-a-schweiz-bulle-ch",
       "slugByLocale": {
         "fr": "collaboratrice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch",
-        "it": "collaboratrice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch",
-        "en": "collaboratrice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch",
-        "de": "collaboratrice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch"
+        "it": "collaboratore-di-vendita-50-csd-3-mesi-c-a-schweiz-bulle-ch",
+        "en": "sales-collaborator-50-csd-3-months-c-a-schweiz-bulle-ch",
+        "de": "vertriebsmitarbeiter-50-csd-3-monate-c-a-schweiz-bulle-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -3824,16 +3835,30 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-19T23:11:34.134Z"
+      "firstSeenAt": "2026-09-19T23:11:34.134Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "collaboratrice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "collaboratrice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-de734516dae4",
-      "slug": "collaborateur-rice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch",
+      "slug": "vendite-associate-50-csd-3-mesi-c-a-schweiz-bulle-ch",
       "slugByLocale": {
         "fr": "collaborateur-rice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch",
-        "it": "collaborateur-rice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch",
-        "en": "collaborateur-rice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch",
-        "de": "collaborateur-rice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch"
+        "it": "vendite-associate-50-csd-3-mesi-c-a-schweiz-bulle-ch",
+        "en": "sales-associate-50-csd-3-months-c-a-schweiz-bulle-ch",
+        "de": "sales-associate-50-csd-3-monate-c-a-schweiz-bulle-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -3889,7 +3914,21 @@
         }
       },
       "addressRegion": "FR",
-      "firstSeenAt": "2026-09-19T23:11:33.799Z"
+      "firstSeenAt": "2026-09-19T23:11:33.799Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-rice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "collaborateur-rice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "collaborateur-rice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-rice-de-vente-50-cdd-3-mois-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-a5a3503dc07f",
@@ -3898,7 +3937,7 @@
         "de": "store-visual-merchandiser-m-w-d-80-100-fur-emmen-c-and-a-schweiz-ch",
         "it": "store-visual-merchandiser-m-w-d-80-100-per-emmen-c-a-schweiz-emmenbrucke",
         "en": "store-visual-merchandiser-m-w-d-80-100-fur-emmen-c-and-a-schweiz-ch",
-        "fr": "store-visual-merchandiser-m-w-d-80-100-fur-emmen-c-and-a-schweiz-ch"
+        "fr": "magasiner-un-marchand-visuel-h-f-d-80-100-pour-emmen-c-a-schweiz-emmenbrucke-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -3944,6 +3983,9 @@
       "previousSlugsByLocale": {
         "it": [
           "store-visual-merchandiser-m-w-d-80-100-fur-emmen-c-and-a-schweiz-ch"
+        ],
+        "fr": [
+          "store-visual-merchandiser-m-w-d-80-100-fur-emmen-c-and-a-schweiz-ch"
         ]
       },
       "previousSlugs": [
@@ -3966,12 +4008,12 @@
     },
     {
       "id": "c-and-a-schweiz-e23c6d50c3c9",
-      "slug": "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch",
+      "slug": "concentrazione-di-gestione-del-prodotto-m-f-d-30-cdi-c-a-schweiz-marin-ch",
       "slugByLocale": {
         "fr": "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch",
-        "it": "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch",
-        "en": "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch",
-        "de": "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch"
+        "it": "concentrazione-di-gestione-del-prodotto-m-f-d-30-cdi-c-a-schweiz-marin-ch",
+        "en": "sales-collaborator-m-f-d-product-management-focus-30-cdi-c-a-schweiz-marin-ch",
+        "de": "sales-collaborator-m-w-d-produktmanagement-fokus-30-cdi-c-a-schweiz-marin-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -4026,16 +4068,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:33.098Z"
+      "firstSeenAt": "2026-09-19T23:11:33.098Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaboratrice-de-vente-f-m-d-focus-gestion-de-marchandise-30-cdi-marin-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-310ee2d8e590",
-      "slug": "collaborateur-trice-vente-etudiant-e-20-c-and-a-schweiz-ch",
+      "slug": "collaboratore-vendite-student-20-c-a-schweiz-sierre-ch",
       "slugByLocale": {
         "fr": "collaborateur-trice-vente-etudiant-e-20-c-and-a-schweiz-ch",
-        "it": "collaborateur-trice-vente-etudiant-e-20-c-and-a-schweiz-ch",
-        "en": "collaborateur-trice-vente-etudiant-e-20-c-and-a-schweiz-ch",
-        "de": "collaborateur-trice-vente-etudiant-e-20-c-and-a-schweiz-ch"
+        "it": "collaboratore-vendite-student-20-c-a-schweiz-sierre-ch",
+        "en": "collaborator-sales-student-20-c-a-schweiz-sierre-ch",
+        "de": "mitarbeiter-verkauf-student-20-c-a-schweiz-sierre-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -4091,7 +4147,21 @@
         }
       },
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-19T23:11:32.695Z"
+      "firstSeenAt": "2026-09-19T23:11:32.695Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-vente-etudiant-e-20-c-and-a-schweiz-ch"
+        ],
+        "en": [
+          "collaborateur-trice-vente-etudiant-e-20-c-and-a-schweiz-ch"
+        ],
+        "de": [
+          "collaborateur-trice-vente-etudiant-e-20-c-and-a-schweiz-ch"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-vente-etudiant-e-20-c-and-a-schweiz-ch"
+      ]
     },
     {
       "id": "c-and-a-schweiz-8527ef46d27d",
@@ -4099,8 +4169,8 @@
       "slugByLocale": {
         "en": "40-verkaufsperson-c-and-a-schweiz-ch",
         "it": "40-verkaufsperson-c-and-a-schweiz-ch",
-        "de": "40-verkaufsperson-c-and-a-schweiz-ch",
-        "fr": "40-verkaufsperson-c-and-a-schweiz-ch"
+        "de": "40-verkaufer-c-a-schweiz-zurich-ch",
+        "fr": "40-de-la-personne-c-a-schweiz-zurich-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -4161,12 +4231,12 @@
     },
     {
       "id": "c-and-a-schweiz-310ad33b4f60",
-      "slug": "collaboratore-trice-im-vendita-m-w-d-80-con-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+      "slug": "i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich-ch",
       "slugByLocale": {
         "de": "mitarbeiter-im-verkauf-m-w-d-80-mit-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
-        "it": "collaboratore-trice-im-vendita-m-w-d-80-con-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
-        "en": "mitarbeiter-im-verkauf-m-w-d-80-mit-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
-        "fr": "mitarbeiter-im-verkauf-m-w-d-80-mit-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch"
+        "it": "i-dipendenti-di-vendita-m-f-d-80-con-focus-sul-servizio-a-zurigo-city-c-a-schweiz-zurich-ch",
+        "en": "sales-employees-m-f-d-80-with-focus-on-service-in-zurich-city-c-a-schweiz-zurich-ch",
+        "fr": "salaries-de-vente-h-f-d-80-avec-un-accent-sur-le-service-a-zurich-city-c-a-schweiz-zurich-ch"
       },
       "company": "C&A Schweiz",
       "companyKey": "c-and-a-schweiz",
@@ -4218,17 +4288,20 @@
           "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
           "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch",
           "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
-          "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
+          "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+          "collaboratore-trice-im-vendita-m-w-d-80-con-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
         ],
         "en": [
-          "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch"
+          "sales-associate-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch",
+          "mitarbeiter-im-verkauf-m-w-d-80-mit-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch"
         ],
         "de": [
           "mitarbeiter-verkauf-m-w-d-60-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
           "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch"
         ],
         "fr": [
-          "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
+          "vendeur-se-m-w-d-60-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+          "mitarbeiter-im-verkauf-m-w-d-80-mit-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch"
         ]
       },
       "previousSlugs": [
@@ -4240,7 +4313,8 @@
         "addetto-a-alle-vendite-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
         "sales-associate-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich-ch",
         "mitarbeiter-verkauf-m-w-d-70-schwerpunkt-service-in-zurich-city-c-and-a-schweiz-ch",
-        "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
+        "vendeur-se-m-w-d-70-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich",
+        "collaboratore-trice-im-vendita-m-w-d-80-con-schwerpunkt-service-in-zurich-city-c-a-schweiz-zurich"
       ],
       "salaryMin": 66400,
       "salaryMax": 102000,
@@ -4273,7 +4347,7 @@
       "title": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 50% - Neuchâtel",
       "titleByLocale": {
         "en": "Sales co-workers with key-carrying function - 50% (m/f/d) service focus - Neuchâtel",
-        "fr": "Collaboratrice de vente avec fonction porteuse de clés - focus services (f/m/d) à 50% - Neuchâtel",
+        "fr": "Collaboratrice de vente avec fonction porteuse de clés - focus services (h/f/d) à 50 % - Neuchâtel",
         "it": "Collaboratori di vendita con funzione portachiavi - 50% (m/f/d) focus sul servizio - Neuchâtel",
         "de": "Vertriebsmitarbeiter mit Schlüssel-Carrying-Funktion - 50% Servicefokus (m/w/d) - Neuenburg"
       },

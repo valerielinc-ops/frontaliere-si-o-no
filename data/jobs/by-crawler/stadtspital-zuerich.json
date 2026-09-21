@@ -9403,12 +9403,12 @@
     },
     {
       "id": "stadtspital-zuerich-e5395de0cde0",
-      "slug": "arztsekretar-in-o-med-praxisassistent-in-stadtspital-zurich",
+      "slug": "sottosegretario-medico-o-medico-assistente-di-pratica-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "arztsekretar-in-oder-med-praxisassistent-in-stadtspital-zuerich-51644",
-        "it": "arztsekretar-in-o-med-praxisassistent-in-stadtspital-zurich",
-        "en": "arztsekretar-in-oder-med-praxisassistent-in-stadtspital-zurich-zurich",
-        "fr": "arztsekretar-in-oder-med-praxisassistent-in-stadtspital-zurich-zurich"
+        "it": "sottosegretario-medico-o-medico-assistente-di-pratica-stadtspital-zurich-zurich",
+        "en": "medical-secretary-or-med-practice-assistant-stadtspital-zurich-zurich",
+        "fr": "secretaire-medical-ou-adjoint-a-la-medecine-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -9457,11 +9457,20 @@
       "referenceNumber": "51644",
       "previousSlugsByLocale": {
         "it": [
-          "arztsekretar-in-oder-med-praxisassistent-in-stadtspital-zuerich-51644"
+          "arztsekretar-in-oder-med-praxisassistent-in-stadtspital-zuerich-51644",
+          "arztsekretar-in-o-med-praxisassistent-in-stadtspital-zurich"
+        ],
+        "en": [
+          "arztsekretar-in-oder-med-praxisassistent-in-stadtspital-zurich-zurich"
+        ],
+        "fr": [
+          "arztsekretar-in-oder-med-praxisassistent-in-stadtspital-zurich-zurich"
         ]
       },
       "previousSlugs": [
-        "arztsekretar-in-oder-med-praxisassistent-in-stadtspital-zuerich-51644"
+        "arztsekretar-in-oder-med-praxisassistent-in-stadtspital-zuerich-51644",
+        "arztsekretar-in-o-med-praxisassistent-in-stadtspital-zurich",
+        "arztsekretar-in-oder-med-praxisassistent-in-stadtspital-zurich-zurich"
       ],
       "salaryMin": 91500,
       "salaryMax": 128000,
@@ -10765,12 +10774,12 @@
     },
     {
       "id": "stadtspital-zuerich-0cbaeeaca2d9",
-      "slug": "prozessmanager-in-stadtspital-zuerich-51681",
+      "slug": "gestione-dei-processi-stadtspital-zurich-zurich",
       "slugByLocale": {
         "de": "prozessmanager-in-stadtspital-zuerich-51681",
-        "it": "prozessmanager-in-stadtspital-zuerich-51681",
-        "en": "prozessmanager-in-stadtspital-zuerich-51681",
-        "fr": "prozessmanager-in-stadtspital-zuerich-51681"
+        "it": "gestione-dei-processi-stadtspital-zurich-zurich",
+        "en": "process-manager-stadtspital-zurich-zurich",
+        "fr": "gestionnaire-de-processus-stadtspital-zurich-zurich"
       },
       "company": "Stadtspital Zürich",
       "companyKey": "stadtspital-zuerich",
@@ -10830,7 +10839,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T23:11:25.497Z"
+      "firstSeenAt": "2026-09-19T23:11:25.497Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prozessmanager-in-stadtspital-zuerich-51681"
+        ],
+        "en": [
+          "prozessmanager-in-stadtspital-zuerich-51681"
+        ],
+        "fr": [
+          "prozessmanager-in-stadtspital-zuerich-51681"
+        ]
+      },
+      "previousSlugs": [
+        "prozessmanager-in-stadtspital-zuerich-51681"
+      ]
     },
     {
       "id": "stadtspital-zuerich-f411770ca1c7",

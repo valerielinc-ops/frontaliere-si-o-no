@@ -5647,7 +5647,7 @@
         "it": "studente-di-lavoro-m-f-d-progettazione-elettrica-ingegneria-elettrica-buhler-group-alzenau",
         "en": "working-student-m-f-d-electrical-design-electrical-engineering-buhler-group-alzenau",
         "de": "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buehler-alzenau",
-        "fr": "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buhler-group-alzenau"
+        "fr": "etudiant-en-travail-h-f-d-conception-electrique-genie-electrique-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -5691,8 +5691,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buehler-alzenau",
-        "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buhler-group-alzenau",
-        "etudiant-en-travail-h-f-d-conception-electrique-genie-electrique-buhler-group-alzenau"
+        "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -5703,7 +5702,7 @@
           "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buhler-group-alzenau"
         ],
         "fr": [
-          "etudiant-en-travail-h-f-d-conception-electrique-genie-electrique-buhler-group-alzenau"
+          "werkstudent-m-w-d-elektrokonstruktion-elektrotechnik-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-08-11T10:27:18.797Z",
@@ -6953,7 +6952,7 @@
       "slug": "capo-del-qehs-quality-management-officer-m-f-d-buhler-group-beilngries",
       "slugByLocale": {
         "it": "capo-del-qehs-quality-management-officer-m-f-d-buhler-group-beilngries",
-        "en": "head-of-qehs-qualitatsmanagementbeauftragter-m-w-d-buhler-group-beilngries",
+        "en": "head-of-qehs-quality-management-officer-m-f-d-buhler-group-beilngries",
         "de": "head-of-qehs-amp-qualitatsmanagementbeauftragter-m-w-d-buehler-beilngries",
         "fr": "chef-du-qehs-et-agent-de-gestion-de-la-qualite-h-f-d-buhler-group-beilngries"
       },
@@ -6999,8 +6998,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "head-of-qehs-amp-qualitatsmanagementbeauftragter-m-w-d-buehler-beilngries",
-        "head-of-qehs-qualitatsmanagementbeauftragter-m-w-d-buhler-group-beilngries",
-        "head-of-qehs-quality-management-officer-m-f-d-buhler-group-beilngries"
+        "head-of-qehs-qualitatsmanagementbeauftragter-m-w-d-buhler-group-beilngries"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -7008,7 +7006,7 @@
           "head-of-qehs-qualitatsmanagementbeauftragter-m-w-d-buhler-group-beilngries"
         ],
         "en": [
-          "head-of-qehs-quality-management-officer-m-f-d-buhler-group-beilngries"
+          "head-of-qehs-qualitatsmanagementbeauftragter-m-w-d-buhler-group-beilngries"
         ],
         "fr": [
           "head-of-qehs-qualitatsmanagementbeauftragter-m-w-d-buhler-group-beilngries"
@@ -7527,9 +7525,9 @@
     },
     {
       "id": "buehler-2c0ab954d523",
-      "slug": "lagerist-m-w-d-buhler-group-hasselroth",
+      "slug": "operatore-di-magazzino-m-f-d-buhler-group-hasselroth",
       "slugByLocale": {
-        "it": "lagerist-m-w-d-buhler-group-hasselroth",
+        "it": "operatore-di-magazzino-m-f-d-buhler-group-hasselroth",
         "en": "warehouse-operator-m-f-d-buhler-group-hasselroth",
         "de": "lagerist-m-w-d-buehler-hasselroth",
         "fr": "operateur-d-entrepot-h-f-d-buhler-group-hasselroth"
@@ -7577,13 +7575,13 @@
       "previousSlugs": [
         "lagerist-m-w-d-buehler-hasselroth",
         "il-magazzino-e-m-f-d-buhler-group-hasselroth",
-        "operatore-di-magazzino-m-f-d-buhler-group-hasselroth"
+        "lagerist-m-w-d-buhler-group-hasselroth"
       ],
       "previousSlugsByLocale": {
         "it": [
           "lagerist-m-w-d-buehler-hasselroth",
           "il-magazzino-e-m-f-d-buhler-group-hasselroth",
-          "operatore-di-magazzino-m-f-d-buhler-group-hasselroth"
+          "lagerist-m-w-d-buhler-group-hasselroth"
         ],
         "en": [
           "lagerist-m-w-d-buehler-hasselroth"
@@ -9452,7 +9450,7 @@
         "it": "servizio-tecnico-buhler-group-holland",
         "en": "technical-help-desk-buehler-holland",
         "de": "technischer-helpdesk-buhler-group-holland",
-        "fr": "technical-help-desk-buhler-group-holland"
+        "fr": "bureau-d-assistance-technique-buhler-group-holland"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -9496,7 +9494,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "technical-help-desk-buehler-holland",
-        "bureau-d-assistance-technique-buhler-group-holland"
+        "technical-help-desk-buhler-group-holland"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -9506,7 +9504,7 @@
           "technical-help-desk-buehler-holland"
         ],
         "fr": [
-          "bureau-d-assistance-technique-buhler-group-holland"
+          "technical-help-desk-buhler-group-holland"
         ]
       },
       "firstSeenAt": "2026-09-03T23:15:40.830Z",
@@ -10517,7 +10515,7 @@
         "it": "doppio-grado-in-tecnologia-elettrica-e-dell-informazione-m-f-d-buhler-group-alzenau",
         "en": "dual-degree-in-electrical-and-information-technology-m-f-d-buhler-group-alzenau",
         "de": "duales-studium-elektro-und-informationstechnik-m-w-d-buehler-alzenau",
-        "fr": "duales-studium-elektro-und-informationstechnik-m-w-d-buhler-group-alzenau"
+        "fr": "double-diplome-en-technologie-electrique-et-informatique-h-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -10562,8 +10560,7 @@
       "previousSlugs": [
         "duales-studium-elektro-und-informationstechnik-m-w-d-buehler-alzenau",
         "duales-studium-elektro-e-informationstechnik-m-w-d-buhler-group-alzenau",
-        "duales-studium-elektro-und-informationstechnik-m-w-d-buhler-group-alzenau",
-        "double-diplome-en-technologie-electrique-et-informatique-h-f-d-buhler-group-alzenau"
+        "duales-studium-elektro-und-informationstechnik-m-w-d-buhler-group-alzenau"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -10574,7 +10571,7 @@
           "duales-studium-elektro-und-informationstechnik-m-w-d-buhler-group-alzenau"
         ],
         "fr": [
-          "double-diplome-en-technologie-electrique-et-informatique-h-f-d-buhler-group-alzenau"
+          "duales-studium-elektro-und-informationstechnik-m-w-d-buhler-group-alzenau"
         ]
       },
       "firstSeenAt": "2026-09-08T13:39:51.761Z",
@@ -11814,7 +11811,7 @@
         "en": "unity3d-xff08-xff09-buehler-wuxi",
         "it": "unity3d-xff08-xff09-buehler-wuxi",
         "de": "unity3d-xff08-xff09-buehler-wuxi",
-        "fr": "unity3d-xff08-xff09-buehler-wuxi"
+        "fr": "unite3d-buhler-group-wuxi"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -12186,12 +12183,12 @@
     },
     {
       "id": "buehler-736ca708f591",
-      "slug": "technischer-sales-support-m-w-d-vertriebsinnendienst-buhler-group-alzenau",
+      "slug": "assistenza-tecnica-m-f-d-servizio-vendite-interne-buhler-group-alzenau",
       "slugByLocale": {
         "de": "technischer-sales-support-m-w-d-vertriebsinnendienst-buehler-alzenau",
-        "it": "technischer-sales-support-m-w-d-vertriebsinnendienst-buhler-group-alzenau",
-        "en": "technischer-sales-support-m-w-d-vertriebsinnendienst-buhler-group-alzenau",
-        "fr": "technischer-sales-support-m-w-d-vertriebsinnendienst-buhler-group-alzenau"
+        "it": "assistenza-tecnica-m-f-d-servizio-vendite-interne-buhler-group-alzenau",
+        "en": "technical-sales-support-m-f-d-internal-sales-service-buhler-group-alzenau",
+        "fr": "support-technique-des-ventes-service-de-vente-interne-h-f-d-buhler-group-alzenau"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -12237,11 +12234,19 @@
       },
       "previousSlugsByLocale": {
         "it": [
-          "technischer-sales-support-m-w-d-vertriebsinnendienst-buehler-alzenau"
+          "technischer-sales-support-m-w-d-vertriebsinnendienst-buehler-alzenau",
+          "technischer-sales-support-m-w-d-vertriebsinnendienst-buhler-group-alzenau"
+        ],
+        "en": [
+          "technischer-sales-support-m-w-d-vertriebsinnendienst-buhler-group-alzenau"
+        ],
+        "fr": [
+          "technischer-sales-support-m-w-d-vertriebsinnendienst-buhler-group-alzenau"
         ]
       },
       "previousSlugs": [
-        "technischer-sales-support-m-w-d-vertriebsinnendienst-buehler-alzenau"
+        "technischer-sales-support-m-w-d-vertriebsinnendienst-buehler-alzenau",
+        "technischer-sales-support-m-w-d-vertriebsinnendienst-buhler-group-alzenau"
       ],
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -12507,12 +12512,12 @@
     },
     {
       "id": "buehler-0bc3eecfa35a",
-      "slug": "global-services-process-excellence-manager-fixed-term-contract-12-months-buehler-uzwil",
+      "slug": "gestore-di-eccellenza-di-processi-di-servizi-globali-contratto-a-termine-fisso-12-mesi-buhler-group-uzwil",
       "slugByLocale": {
         "en": "global-services-process-excellence-manager-fixed-term-contract-12-months-buehler-uzwil",
-        "it": "global-services-process-excellence-manager-fixed-term-contract-12-months-buehler-uzwil",
-        "de": "global-services-process-excellence-manager-fixed-term-contract-12-months-buehler-uzwil",
-        "fr": "global-services-process-excellence-manager-fixed-term-contract-12-months-buehler-uzwil"
+        "it": "gestore-di-eccellenza-di-processi-di-servizi-globali-contratto-a-termine-fisso-12-mesi-buhler-group-uzwil",
+        "de": "global-services-process-excellence-manager-festvertrag-12-monate-buhler-group-uzwil",
+        "fr": "gestionnaire-d-excellence-des-processus-de-services-mondiaux-contrat-a-duree-determinee-12-mois-buhler-group-uzwil"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -12569,7 +12574,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:58:07.190Z"
+      "firstSeenAt": "2026-09-19T22:58:07.190Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "global-services-process-excellence-manager-fixed-term-contract-12-months-buehler-uzwil"
+        ],
+        "de": [
+          "global-services-process-excellence-manager-fixed-term-contract-12-months-buehler-uzwil"
+        ],
+        "fr": [
+          "global-services-process-excellence-manager-fixed-term-contract-12-months-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "global-services-process-excellence-manager-fixed-term-contract-12-months-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-c2a7d39a8a6c",
@@ -12650,12 +12669,12 @@
     },
     {
       "id": "buehler-e3718ecf0d76",
-      "slug": "pe-project-management-236-buehler-holland",
+      "slug": "gestione-del-progetto-pe-236-buhler-group-holland",
       "slugByLocale": {
         "en": "pe-project-management-236-buehler-holland",
-        "it": "pe-project-management-236-buehler-holland",
-        "de": "pe-project-management-236-buehler-holland",
-        "fr": "pe-project-management-236-buehler-holland"
+        "it": "gestione-del-progetto-pe-236-buhler-group-holland",
+        "de": "pe-projektmanagement-236-buhler-group-holland",
+        "fr": "gestion-de-projet-pe-236-buhler-group-holland"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -12712,14 +12731,28 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:58:07.183Z"
+      "firstSeenAt": "2026-09-19T22:58:07.183Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pe-project-management-236-buehler-holland"
+        ],
+        "de": [
+          "pe-project-management-236-buehler-holland"
+        ],
+        "fr": [
+          "pe-project-management-236-buehler-holland"
+        ]
+      },
+      "previousSlugs": [
+        "pe-project-management-236-buehler-holland"
+      ]
     },
     {
       "id": "buehler-f7247b130b37",
-      "slug": "product-manager-chocolate-portfolio-buehler-uzwil",
+      "slug": "gestione-prodotti-portafoglio-cioccolato-buhler-group-uzwil",
       "slugByLocale": {
         "en": "product-manager-chocolate-portfolio-buehler-uzwil",
-        "it": "product-manager-chocolate-portfolio-buehler-uzwil",
+        "it": "gestione-prodotti-portafoglio-cioccolato-buhler-group-uzwil",
         "de": "produktmanager-schokoladenportfolio-buhler-group-uzwil",
         "fr": "gestionnaire-de-produits-portefeuille-de-chocolat-buhler-group-uzwil"
       },
@@ -12778,7 +12811,15 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:58:07.157Z"
+      "firstSeenAt": "2026-09-19T22:58:07.157Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-chocolate-portfolio-buehler-uzwil"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-chocolate-portfolio-buehler-uzwil"
+      ]
     },
     {
       "id": "buehler-4819a4ea6433",
@@ -12786,8 +12827,8 @@
       "slugByLocale": {
         "en": "field-service-team-leader-buehler",
         "it": "field-service-capo-squadra-buhler-group",
-        "de": "field-service-team-leader-buhler-group",
-        "fr": "field-service-team-leader-buehler"
+        "de": "leiter-des-au-endienstteams-buhler-group",
+        "fr": "chef-d-equipe-du-service-mobile-buhler-group"
       },
       "company": "Bühler Group",
       "companyKey": "buehler",
@@ -12848,10 +12889,17 @@
       "previousSlugsByLocale": {
         "it": [
           "field-service-team-leader-buehler"
+        ],
+        "de": [
+          "field-service-team-leader-buhler-group"
+        ],
+        "fr": [
+          "field-service-team-leader-buehler"
         ]
       },
       "previousSlugs": [
-        "field-service-team-leader-buehler"
+        "field-service-team-leader-buehler",
+        "field-service-team-leader-buhler-group"
       ]
     },
     {

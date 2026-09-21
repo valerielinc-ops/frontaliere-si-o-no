@@ -12,15 +12,15 @@
 //   c) Sessione morta/timeout: l'agent non raggiunge mai il pre-task-close.
 //
 // Decisioni (conservative — il dubbio = keep, mai distruggere lavoro non in PR):
-//   • worktree con PR head MERGED|CLOSED  → remove worktree + delete branch
-//   • worktree detached / branch fantasma → remove worktree (no branch da toccare)
+//   • worktree con PR MERGED su main e HEAD esatto della PR
+//                                      → remove worktree + delete branch
+//   • PR CLOSED, PR MERGED verso altro base o HEAD divergente → REPORT-ONLY
+//   • worktree detached / branch fantasma già su main → remove worktree
 //   • branch `worktree-agent-*` 0-ahead   → delete (orfano EnterWorktree)
-//   • branch locale (no worktree) con PR MERGED|CLOSED → delete
-//   • branch/worktree `fix/issue-N` SENZA PR ma issue #N CLOSED → delete/remove
-//     (leftover issue-fix: pushato senza PR, spesso orfano shallow → ahead unknown;
-//      lo stato ISSUE lo sblocca dove il PR-state non esiste — cfr. AGENTS.md)
+//   • branch locale (no worktree) con PR MERGED su main e HEAD esatto → delete
 //   • worktree/branch clean, ahead>0, NESSUNA PR → REPORT-ONLY (può essere pre-PR vivo;
 //      upstream-GONE segnalato nel report → tipico worktree Codex fuori dagli hook)
+//   • worktree LOCKED, checkout corrente o hooks-main → KEEP, mai toccato
 //   • branch con PR OPEN o worktree del repo principale (main) → KEEP, mai toccato
 //
 // Uso:
@@ -31,9 +31,14 @@
 // solo-`worktree-agent-*`-0-ahead + report, senza toccare i branch PR-derivati.
 
 import { execFileSync, execSync } from 'node:child_process';
-import { join } from 'node:path';
+import { realpathSync } from 'node:fs';
+import { basename, join, resolve } from 'node:path';
 
-import { makePrStateResolver, rankPrState } from './lib/pr-state-window.mjs';
+import {
+  isMergedIntoBaseAtHead,
+  makePrStateResolver,
+  rankPrState,
+} from './lib/pr-state-window.mjs';
 import { classifyDirty } from './lib/worktree-dirty.mjs';
 
 import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
@@ -163,14 +168,15 @@ if (!fetchRun.acquired) {
 // stesso, non del repo principale → non si può identificare main per uguaglianza.
 const ISOLATION_RE = /[/\\]\.(?:claude[/\\]worktrees|worktrees)[/\\]/;
 
-// Mappa branch → stato PR (MERGED|CLOSED|OPEN). NON gateare su `gh auth status`:
+// Mappa branch → stato e metadati PR (MERGED|CLOSED|OPEN). NON gateare su
+// `gh auth status`:
 // scrive lo status su stderr (che sh() scarta) → '' su successo → falso-negativo
 // che disabiliterebbe l'intera pulizia PR-based. Ricava ghOk dal risultato di
 // `gh pr list` (con --json una lista vuota è "[]", '' = throw = errore reale).
 // Protezione OPEN da query DEDICATA `--state open` (set piccolo, mai troncato
 // dalla finestra): un branch con PR aperta deve restare protetto anche se la sua
-// PR è oltre le N più recenti combinate. Cancellazioni (MERGED|CLOSED) da una
-// finestra closed più larga.
+// PR è oltre le N più recenti combinate. Le sole cancellazioni PR-based sono
+// MERGED + base main + HEAD esatto; CLOSED resta sempre report-only.
 //
 // La finestra da sola NON basta e non è "safe" cadere in no-PR quando sfora.
 // Misurato il 2026-09-04: 400 PR su questo repo coprono NOVE GIORNI (la più
@@ -186,45 +192,48 @@ const ISOLATION_RE = /[/\\]\.(?:claude[/\\]worktrees|worktrees)[/\\]/;
 // finestra. Costo proporzionale ai residui, non al volume di PR del repo.
 let ghOk = sh('gh --version', { allowFail: true }) !== '';
 const prState = new Map();
+const prRecords = new Map();
+const PR_JSON_FIELDS = 'state,baseRefName,headRefName,headRefOid';
 function ingestPrs(json) {
-  for (const pr of JSON.parse(json)) {
+  let prs;
+  try { prs = JSON.parse(json); } catch { return; }
+  for (const pr of prs) {
+    if (!pr?.headRefName) continue;
+    const records = prRecords.get(pr.headRefName) || [];
+    records.push(pr);
+    prRecords.set(pr.headRefName, records);
     const prev = prState.get(pr.headRefName);
     if (!prev || rankPrState(pr.state) > rankPrState(prev)) prState.set(pr.headRefName, pr.state);
   }
 }
 if (ghOk) {
   // OPEN: set di protezione, query dedicata, mai troncato silenziosamente.
-  const openRaw = sh(`gh pr list --state open --limit 300 --json state,headRefName`, { allowFail: true });
-  // closed+merged: candidati alla cancellazione (finestra ampia, recency-sorted).
-  const closedRaw = sh(`gh pr list --state all --limit 400 --json state,headRefName`, { allowFail: true });
-  if (openRaw === '' && closedRaw === '') {
+  const openRaw = sh(`gh pr list --state open --limit 300 --json ${PR_JSON_FIELDS}`, { allowFail: true });
+  // all: finestra ampia, recency-sorted; i residui fuori finestra usano --head.
+  const allRaw = sh(`gh pr list --state all --limit 400 --json ${PR_JSON_FIELDS}`, { allowFail: true });
+  if (openRaw === '' && allRaw === '') {
     ghOk = false; // entrambe throw → gh non utilizzabile
   } else {
-    if (closedRaw) ingestPrs(closedRaw);
+    if (allRaw) ingestPrs(allRaw);
     if (openRaw) ingestPrs(openRaw); // OPEN ingerito per ultimo: vince sempre via rank
   }
 }
 
-const resolvedViaHead = new Set();
 const resolvePrState = makePrStateResolver({
   cache: prState,
-  runQuery: (cmd) => sh(cmd, { allowFail: true }),
+  runQuery: (cmd) => {
+    const raw = sh(cmd, { allowFail: true });
+    if (raw) ingestPrs(raw);
+    return raw;
+  },
   enabled: ghOk,
-  viaHead: resolvedViaHead,
 });
 
-// Un `CLOSED` che la finestra non conosceva puo' venire da qualunque punto
-// della storia del repo, e `CLOSED` non e' `MERGED`: quel contenuto NON e' su
-// main. Prima di questa query un branch cosi' cadeva nel ramo no-PR e restava
-// report-only; allargare il delete a tutta la storia senza guardare `ahead`
-// distruggerebbe l'unica copia di lavoro chiuso per un guasto invece che per
-// una decisione (il gemello remoto lo protegge con la label
-// `autorebase-reopen-failed` dopo l'incidente #5269/#5275; qui quella rete non
-// c'e'). `MERGED` resta cancellabile a prescindere: e' il caso che questo
-// script esiste per riparare, e lo squash rende `ahead>0` permanente.
-function safeToDeleteClosed(branch) {
-  if (!resolvedViaHead.has(branch)) return true; // dalla finestra: comportamento invariato
-  return aheadOfMain(branch) === 0; // niente di unico da perdere
+function mergedPrAtHead(branch, head) {
+  return (prRecords.get(branch) || []).some((pr) => isMergedIntoBaseAtHead(pr, {
+    baseBranch: mainBranch,
+    headOid: head,
+  }));
 }
 
 // Ritorna il numero di commit unici di `ref` su origin/main, o `null` se git
@@ -237,25 +246,6 @@ function aheadOfMain(ref) {
   return Number.isNaN(v) ? null : v;
 }
 
-// Per i branch `fix/issue-N`: l'issue #N è CLOSED? La issue-fix automation crea
-// `fix/issue-<N>` ma a volte pusha senza mai aprire PR (run fallito/crash) e da
-// un checkout shallow → branch ORFANO (no common-ancestor → aheadOfMain=null).
-// Quei branch non hanno PR-state (NONE) e ahead unknown → finirebbero report-only
-// PER SEMPRE. Lo stato ISSUE (non PR) li sblocca: issue CLOSED = lavoro risolto
-// → leftover safe da cancellare (il branch è su origin/reflog se mai servisse).
-// Cache per non interrogare gh due volte (loop worktree + loop branch).
-const issueStateCache = new Map();
-function issueClosed(branch) {
-  if (!ghOk) return false;
-  const m = /^fix\/issue-(\d+)$/.exec(branch || '');
-  if (!m) return false;
-  const n = m[1];
-  if (!issueStateCache.has(n)) {
-    issueStateCache.set(n, sh(`gh issue view ${n} --json state --jq .state`, { allowFail: true }));
-  }
-  return issueStateCache.get(n) === 'CLOSED';
-}
-
 // Upstream configurato ma remote-tracking sparito → `[gone]` in %(upstream:track).
 // Segnala (REPORT-only, non cancella) i branch il cui remoto è stato cancellato:
 // tipico dei worktree Codex (fuori dagli hook Claude) il cui contenuto è stato
@@ -265,17 +255,77 @@ function upstreamGone(branch) {
 }
 
 // --- 1. WORKTREES -----------------------------------------------------------
+const repoRoot = sh('git rev-parse --show-toplevel', { allowFail: true });
+function canonicalPath(pathname) {
+  const absolute = resolve(pathname);
+  try { return realpathSync(absolute); } catch { return absolute; }
+}
+
+const currentWorktree = canonicalPath(repoRoot || process.cwd());
+const infrastructureWorktrees = new Set([
+  canonicalPath(process.env.FRONTALIERE_SITE_HOOKS_DIR || join(repoRoot, '.claude/worktrees/hooks-main')),
+  canonicalPath(join(repoRoot, '.worktrees/hooks-main')),
+]);
+function isInfrastructureWorktree(pathname) {
+  const canonical = canonicalPath(pathname);
+  return infrastructureWorktrees.has(canonical)
+    || (basename(canonical) === 'hooks-main' && ISOLATION_RE.test(canonical));
+}
+
+function isCurrentWorktree(pathname) {
+  return canonicalPath(pathname) === currentWorktree;
+}
+
+function headOfLocalBranch(branch) {
+  try {
+    return execFileSync('git', ['rev-parse', '--verify', `refs/heads/${branch}`], {
+      encoding: 'utf8', stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+  } catch {
+    return '';
+  }
+}
+
+function isAncestorOfMain(ref) {
+  if (!ref) return false;
+  try {
+    execFileSync('git', ['merge-base', '--is-ancestor', ref, `origin/${mainBranch}`], {
+      stdio: 'ignore',
+    });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
 const wtPorcelain = sh('git worktree list --porcelain');
 const worktrees = [];
 let cur = null;
 for (const line of wtPorcelain.split('\n')) {
   if (line.startsWith('worktree ')) {
-    cur = { path: line.slice('worktree '.length), branch: null, detached: false };
+    cur = {
+      path: line.slice('worktree '.length),
+      branch: null,
+      head: null,
+      detached: false,
+      locked: false,
+      lockReason: '',
+      prunable: false,
+    };
     worktrees.push(cur);
   } else if (line.startsWith('branch ')) {
     cur.branch = line.slice('branch refs/heads/'.length);
+  } else if (line.startsWith('HEAD ')) {
+    cur.head = line.slice('HEAD '.length);
   } else if (line === 'detached') {
     cur.detached = true;
+  } else if (line === 'locked') {
+    cur.locked = true;
+  } else if (line.startsWith('locked ')) {
+    cur.locked = true;
+    cur.lockReason = line.slice('locked '.length);
+  } else if (line.startsWith('prunable')) {
+    cur.prunable = true;
   }
 }
 
@@ -283,19 +333,35 @@ const removeWt = []; // {path, branch}
 const reportWt = []; // {path, branch, reason}
 for (const wt of worktrees) {
   if (!ISOLATION_RE.test(wt.path)) continue; // fuori da .claude/worktrees|.worktrees → mai toccare (incl. main checkout)
+  if (isCurrentWorktree(wt.path)) {
+    reportWt.push({ ...wt, reason: 'checkout corrente — KEEP, mai rimuovere automaticamente' });
+    continue;
+  }
+  if (isInfrastructureWorktree(wt.path)) {
+    reportWt.push({ ...wt, reason: 'worktree infrastrutturale hooks-main — KEEP, viene riallineato da bin/site-hooks-refresh' });
+    continue;
+  }
+  if (wt.locked) {
+    reportWt.push({
+      ...wt,
+      reason: `worktree LOCKED${wt.lockReason ? ` (${wt.lockReason})` : ''} — KEEP, sblocco esplicito richiesto`,
+    });
+    continue;
+  }
   if (wt.branch === mainBranch) continue;    // doppia guardia: mai il branch default
   const { significant, ignored } = classifyDirty(wt.path);
   const dirty = significant.length > 0;
   const state = wt.branch ? resolvePrState(wt.branch) : undefined;
+  const head = wt.head || (wt.branch ? headOfLocalBranch(wt.branch) : '');
   if (state === 'OPEN') continue; // PR aperta → lavoro vivo
-  if (state === 'CLOSED' && wt.branch && !safeToDeleteClosed(wt.branch)) {
+  if (state === 'MERGED' && wt.branch && !mergedPrAtHead(wt.branch, head)) {
     reportWt.push({
       ...wt,
-      reason: `PR CLOSED (non mergiata) trovata fuori finestra e ahead=${aheadOfMain(wt.branch) ?? 'unknown'} — i commit unici sono l'unica copia, REPORT-ONLY`,
+      reason: `PR MERGED ma base/SHA non coincidono con main/HEAD (${head || 'unknown'}) — REPORT-ONLY`,
     });
     continue;
   }
-  if (state === 'MERGED' || state === 'CLOSED') {
+  if (state === 'MERGED') {
     if (dirty) {
       reportWt.push({
         ...wt,
@@ -303,14 +369,13 @@ for (const wt of worktrees) {
       });
       continue;
     }
-    if (ignored.length) console.log(`ℹ️  ${wt.path}: ${ignored.length} file sporchi ignorati (output di cron), PR ${state}.`);
+    if (ignored.length) console.log(`ℹ️  ${wt.path}: ${ignored.length} file sporchi ignorati (output di cron / blocco gitnexus), PR ${state}.`);
     removeWt.push(wt);
+  } else if (state === 'CLOSED') {
+    reportWt.push({ ...wt, reason: 'PR CLOSED ma non mergiata — REPORT-ONLY' });
   } else if (wt.detached) {
-    reportWt.push({ ...wt, reason: 'detached HEAD, nessuna PR — probabile abbandono (rimuovi a mano se confermi)' });
-  } else if (issueClosed(wt.branch)) {
-    // fix/issue-N senza PR ma issue #N CLOSED → lavoro risolto, worktree leftover.
-    if (dirty) reportWt.push({ ...wt, reason: `issue #${/\d+/.exec(wt.branch)[0]} CLOSED ma worktree DIRTY su ${significant.length} file — ispeziona a mano` });
-    else removeWt.push(wt);
+    if (!dirty && isAncestorOfMain(head)) removeWt.push(wt);
+    else reportWt.push({ ...wt, reason: `detached HEAD ${head || 'unknown'}, non verificabile come già su main${dirty ? `, DIRTY su ${significant.length} file` : ''} — REPORT-ONLY` });
   } else {
     // Worktree senza PR: NON auto-rimuovere mai. Un worktree clean+0-ahead è
     // indistinguibile da un agent che ha appena fatto EnterWorktree e non ha
@@ -335,15 +400,20 @@ for (const b of allLocal) {
   const state = resolvePrState(b);
   if (state === 'OPEN') continue;
   if (/^worktree-agent-/.test(b) && aheadOfMain(b) === 0) { delBranch.push(b); continue; }
-  if (state === 'CLOSED' && !safeToDeleteClosed(b)) {
-    reportBranch.push({
-      name: b,
-      reason: `PR CLOSED (non mergiata) trovata fuori finestra e ahead=${aheadOfMain(b) ?? 'unknown'} — i commit unici sono l'unica copia, REPORT-ONLY`,
-    });
+  if (!ghOk) {
+    reportBranch.push({ name: b, reason: 'stato PR non verificabile: gh indisponibile — REPORT-ONLY' });
     continue;
   }
-  if (state === 'MERGED' || state === 'CLOSED') { delBranch.push(b); continue; }
-  if (issueClosed(b)) { delBranch.push(b); continue; } // fix/issue-N, issue CLOSED, no PR → leftover
+  const head = headOfLocalBranch(b);
+  if (state === 'MERGED') {
+    if (mergedPrAtHead(b, head)) delBranch.push(b);
+    else reportBranch.push({ name: b, reason: `PR MERGED ma base/SHA non coincidono con main/HEAD (${head || 'unknown'}) — REPORT-ONLY` });
+    continue;
+  }
+  if (state === 'CLOSED') {
+    reportBranch.push({ name: b, reason: 'PR CLOSED ma non mergiata — REPORT-ONLY' });
+    continue;
+  }
   const ahead = aheadOfMain(b);
   if (ahead === 0) delBranch.push(b); // contenuto già su main
   else reportBranch.push({ name: b, reason: `ahead=${ahead ?? 'unknown'} no-PR${upstreamGone(b) ? ' upstream-GONE' : ''} — possibile lavoro non in PR, REPORT-ONLY` });

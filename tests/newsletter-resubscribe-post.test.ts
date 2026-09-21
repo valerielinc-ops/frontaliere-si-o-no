@@ -156,8 +156,23 @@ describe('a legitimate re-subscription never erases the opt-out record', () => {
     expect(payload.confirmedAt).toBeTruthy();
   });
 
+  it('keeps a provider/address suppression blocked on an explicit resubscribe', async () => {
+    const db = fakeDb({ status: 'suppressed', isActive: false });
+    const result = await handleSubscriptionManagement({ ...base, action: 'resubscribe', method: 'POST', db: db as any });
+
+    expect(result.status).toBe(409);
+    expect(result.resubscribeApplied).toBe(false);
+    expect(result.resubscribeRefusedReason).toBe('email_suppressed');
+    expect(db.sets).toEqual([]);
+    expect(db.events).toEqual([]);
+  });
+
   it('the confirm branch lifts an earlier opt-out the same way', async () => {
-    const db = fakeDb({ status: 'pending', unsubscribed_at: '2026-08-01T09:00:00.000Z' });
+    const db = fakeDb({
+      status: 'pending',
+      unsubscribed_at: '2026-08-01T09:00:00.000Z',
+      resubscribe_pending: true,
+    });
     await handleSubscriptionManagement({ ...base, action: 'confirm', method: 'GET', db: db as any });
     const payload = db.sets[0].data;
     expect(payload.status).toBe('confirmed');
