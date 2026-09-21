@@ -121,7 +121,7 @@ export function crawlerDirectFixBudget({ inFlightFixRuns, openFixLabeled, cap = 
   return Number.isFinite(cap) && cap > 0 ? cap : 0;
 }
 
-const names = (iss) => (iss.labels || [])
+const names = (iss) => (iss?.labels || [])
   .map((label) => (typeof label === 'string' ? label : label?.name))
   .filter(Boolean);
 const has = (iss, n) => names(iss).includes(n);

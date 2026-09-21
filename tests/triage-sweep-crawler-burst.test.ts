@@ -75,6 +75,8 @@ describe('crawlerDirectFixBudget', () => {
   });
 
   it('testo non classificabile → il secondo passaggio resta deny-by-default', () => {
+    expect(isTriagedButNotRouted(undefined)).toBe(false);
+    expect(isTriagedButNotRouted(null)).toBe(false);
     expect(isTriagedButNotRouted({ labels: [{ name: 'agent:triaged' }] })).toBe(false);
   });
 
