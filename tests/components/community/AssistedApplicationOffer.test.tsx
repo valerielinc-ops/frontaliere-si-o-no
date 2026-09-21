@@ -22,13 +22,6 @@ vi.mock('@/services/i18n', () => ({
       'jobBoard.assisted.paidLoading': 'Apro il pagamento…',
       'jobBoard.assisted.priceNote': 'Pagamento unico · nessun abbonamento',
       'jobBoard.assisted.disclaimer': 'Privacy prima dell’upload.',
-      'jobBoard.assisted.rewardedTitle': 'Candidati direttamente dopo un breve video',
-      'jobBoard.assisted.rewardedBody': 'Guarda un breve annuncio.',
-      'jobBoard.assisted.rewardedCta': 'Guarda il video e continua',
-      'jobBoard.assisted.rewardedLoading': 'Preparo il video…',
-      'jobBoard.assisted.rewardedUnavailable': 'Video non disponibile.',
-      'jobBoard.assisted.rewardedExpiry': 'Accesso diretto per 12 ore.',
-      'jobBoard.assisted.rewardedExternalCta': 'Vai comunque all’annuncio',
     }[key] || key),
   }),
 }));

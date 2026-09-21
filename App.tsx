@@ -22,7 +22,6 @@ const GamificationWidget = lazyRetry(() => import('@/components/community/Gamifi
 // imported module: .../NewsletterPopup.js", ref cwji52). Same rationale as
 // WhatsNewModal below.
 const NewsletterPopup = React.lazy(() => import('@/components/community/NewsletterPopup'));
-const OfferwallNewsletterGate = React.lazy(() => import('@/components/community/OfferwallNewsletterGate'));
 // Gates [data-pdf-gate] anchor downloads (self-certification forms) behind email/social signup.
 const PdfDownloadGate = React.lazy(() => import('@/components/shared/PdfDownloadGate'));
 // AdBlock detection gate + A/B bucket (#3654). Client-only overlay, never SSR.
@@ -2835,9 +2834,10 @@ const App: React.FC = () => {
  )}
  </>)}
 
- {/* Google Ad Manager Offerwall needs GPT on every job-board route,
-    * including static-overlay pages where the interactive JobBoard is skipped.
-    * This bootstrap is null-rendering and does not create a visible ad slot. */}
+ {/* GPT ad surfaces need the framework on every job-board route, including
+    * static-overlay pages where the interactive JobBoard is skipped. This
+    * bootstrap is null-rendering and does not create a visible ad slot; the
+    * external Rewarded Web page initializes its own lifecycle on opt-in. */}
  {activeTab === 'job-board' && (
    <SafeLazy boundary="jobboard-gpt-bootstrap">
      <GptJobBoardBootstrap />
@@ -4067,7 +4067,6 @@ const App: React.FC = () => {
  </nav>
 
  <SafeLazy boundary="newsletter-popup"><NewsletterPopup /></SafeLazy>
- <SafeLazy boundary="offerwall-gate"><OfferwallNewsletterGate /></SafeLazy>
  <SafeLazy boundary="pdf-download-gate"><PdfDownloadGate /></SafeLazy>
  <SafeLazy boundary="adblock-gate"><AdBlockGate /></SafeLazy>
  <SafeLazy boundary="newsletter-mount"><NewsletterMount /></SafeLazy>
