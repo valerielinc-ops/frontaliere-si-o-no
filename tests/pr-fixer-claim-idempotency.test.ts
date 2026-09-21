@@ -400,6 +400,11 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
       expect(guard, `${name}: marker mismatch must refund the identified comment`).toContain('--method DELETE');
       expect(guard, `${name}: marker read-back must be bounded`).toContain('for marker_attempt in 1 2 3');
       expect(source, `${name}: final snapshot digest must preserve body newlines`).toContain("jq -j '.body // \"\"'");
+      const snapshotStart = source.indexOf('Revalidate ');
+      const snapshotStep = source.slice(snapshotStart, source.indexOf('Run Codex Luna Max', snapshotStart));
+      expect(snapshotStep, `${name}: final snapshot read must retry transient API races`).toContain('for snapshot_attempt in 1 2 3');
+      expect(snapshotStep, `${name}: snapshot retries must be bounded`).toContain('snapshot_attempt/3');
+      expect(snapshotStep, `${name}: snapshot retries must yield between attempts`).toContain('sleep 2');
       expect(guard, `${name}: round must be range-checked before arithmetic`).toContain('fuori intervallo 0..$MAX_ROUNDS');
       expect(guard, `${name}: parser errors must not default to round zero`).not.toMatch(/ROUND=.*\|\| true/u);
     }
@@ -423,9 +428,15 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
 
   it('releases a run superseded by an external branch push before failure classification', () => {
     for (const [name, source] of [['redflag', redflag], ['redcheck', redcheck] as const]) {
+      const alignStart = source.indexOf('Align review workflows (merge origin/main, anti-401 drift)');
+      const align = source.slice(alignStart, source.indexOf('Setup Node.js', alignStart));
+      expect(align, `${name}: align step must expose its original branch baseline`).toContain('id: align');
+      expect(align, `${name}: align step must capture HEAD before the local merge`).toContain('echo "start_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"');
       const classify = source.slice(source.indexOf('Classify outcome (work-done, not CLI exit)'));
       expect(classify, `${name}: classify step`).toContain('CLAIM_STATUS=released');
-      expect(classify, `${name}: remote must differ from the baseline`).toContain('[ "$REMOTE_SHA" != "$BASE_SHA" ]');
+      expect(classify, `${name}: classify must compare remote against the pre-merge baseline`).toContain('START_SHA: ${{ steps.align.outputs.start_sha }}');
+      expect(classify, `${name}: remote must differ from the pre-merge baseline`).toContain('[ "$REMOTE_SHA" != "$START_SHA" ]');
+      expect(classify, `${name}: local merge must not look like an external writer`).not.toContain('[ "$REMOTE_SHA" != "$BASE_SHA" ]');
       expect(classify, `${name}: remote must not be this runner's local head`).toContain('[ "$REMOTE_SHA" != "$HEAD_NOW" ]');
       const supersededAt = classify.indexOf('run SUPERSEDED');
       const failureAt = classify.indexOf('ACTION_OUTCOME" = "failure');

@@ -492,12 +492,17 @@ jobs:
       # viaggia poi sul push del fix dell'agent. Su conflitto → abort + warning
       # (nessuna regressione: il branch resta com'era, comportamento pre-fix).
       - name: Align review workflows (merge origin/main, anti-401 drift)
+        id: align
         if: steps.claim.outputs.claim_allowed == 'true'
         run: |
           set -uo pipefail
           git config user.name "Valerie Linc"
           git config user.email "valerielinc@gmail.com"
           git fetch origin "+refs/heads/main:refs/remotes/origin/main" -q || true
+          # Il merge locale sottostante è intenzionale per allineare i workflow,
+          # ma non è un push del fixer. Conserva la baseline del branch remoto
+          # prima del merge per non classificarla poi come writer esterno.
+          echo "start_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
           if git merge --no-edit -m "$(printf 'Merge origin/main into the PR branch (redcheck-fixer align)\n\nFixer: redcheck-align')" origin/main; then
             echo "✓ branch allineato a origin/main (workflow-validation drift evitato)."
           else
@@ -980,24 +985,38 @@ jobs:
           set -uo pipefail
           snapshot=''
           reason=''
-          if ! snapshot=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" 2>/dev/null); then
-            reason='PR snapshot API illeggibile'
-          elif ! printf '%s' "$snapshot" | jq -e 'type == "object" and (.state | type) == "string" and (.draft | type) == "boolean" and (.head.sha | type) == "string" and ((.body == null) or ((.body | type) == "string"))' >/dev/null 2>&1; then
-            reason='PR snapshot malformato'
-          else
-            snapshot_state=$(printf '%s' "$snapshot" | jq -r '.state')
-            snapshot_draft=$(printf '%s' "$snapshot" | jq -r '.draft')
-            snapshot_head=$(printf '%s' "$snapshot" | jq -r '.head.sha')
-            # Hasha il body in streaming: jq -r + command substitution
-            # eliminerebbero i newline finali e farebbero divergere la
-            # revisione dalla preflight per un body valido.
-            snapshot_revision=$(printf '%s' "$snapshot" | jq -j '.body // ""' | shasum -a 256 | awk '{print "body:" $1}')
-            if [ "$snapshot_state" != 'open' ] || [ "$snapshot_draft" != 'false' ] \
-              || [ "$snapshot_head" != "$EXPECTED_HEAD_SHA" ] \
-              || [ "$snapshot_revision" != "$EXPECTED_REVIEW_REVISION" ]; then
-              reason="PR snapshot cambiato (state=$snapshot_state draft=$snapshot_draft head=$snapshot_head revision=$snapshot_revision)"
+          # GitHub può restituire per pochi secondi una rappresentazione stale
+          # del body subito dopo un evento review/edit. Ritenta l'intero snapshot
+          # prima di rilasciare il claim; un cambiamento persistente resta fail-closed.
+          for snapshot_attempt in 1 2 3; do
+            snapshot=''
+            reason=''
+            if ! snapshot=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" 2>/dev/null); then
+              reason='PR snapshot API illeggibile'
+            elif ! printf '%s' "$snapshot" | jq -e 'type == "object" and (.state | type) == "string" and (.draft | type) == "boolean" and (.head.sha | type) == "string" and ((.body == null) or ((.body | type) == "string"))' >/dev/null 2>&1; then
+              reason='PR snapshot malformato'
+            else
+              snapshot_state=$(printf '%s' "$snapshot" | jq -r '.state')
+              snapshot_draft=$(printf '%s' "$snapshot" | jq -r '.draft')
+              snapshot_head=$(printf '%s' "$snapshot" | jq -r '.head.sha')
+              # Hasha il body in streaming: jq -r + command substitution
+              # eliminerebbero i newline finali e farebbero divergere la
+              # revisione dalla preflight per un body valido.
+              snapshot_revision=$(printf '%s' "$snapshot" | jq -j '.body // ""' | shasum -a 256 | awk '{print "body:" $1}')
+              if [ "$snapshot_state" != 'open' ] || [ "$snapshot_draft" != 'false' ] \
+                || [ "$snapshot_head" != "$EXPECTED_HEAD_SHA" ] \
+                || [ "$snapshot_revision" != "$EXPECTED_REVIEW_REVISION" ]; then
+                reason="PR snapshot cambiato (state=$snapshot_state draft=$snapshot_draft head=$snapshot_head revision=$snapshot_revision)"
+              fi
             fi
-          fi
+            if [ -z "$reason" ]; then
+              break
+            fi
+            if [ "$snapshot_attempt" -lt 3 ]; then
+              echo "::warning::Lettura snapshot PR non coerente al tentativo $snapshot_attempt/3; retry bounded prima di rilasciare claim."
+              sleep 2
+            fi
+          done
           if [ -n "$reason" ]; then
             echo "::error::$reason dopo il preflight e prima di Codex: nessun fixer Claude."
             echo 'CLAIM_STATUS=released' >> "$GITHUB_ENV"
@@ -1140,6 +1159,7 @@ jobs:
           REPO: ${{ github.repository }}
           PR_NUMBER: ${{ needs.preflight.outputs.pr_number }}
           HEAD_REF: ${{ needs.preflight.outputs.head_ref }}
+          START_SHA: ${{ steps.align.outputs.start_sha }}
           BASE_SHA: ${{ steps.base.outputs.sha }}
           BASE_COMMENTS: ${{ steps.base.outputs.comments }}
           ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
@@ -1148,7 +1168,7 @@ jobs:
           HEAD_NOW=$(git rev-parse HEAD 2>/dev/null || echo "")
           git fetch origin "$HEAD_REF" -q 2>/dev/null || true
           REMOTE_SHA=$(git rev-parse "origin/$HEAD_REF" 2>/dev/null || echo "")
-          echo "base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA action=$ACTION_OUTCOME"
+          echo "start=$START_SHA base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA action=$ACTION_OUTCOME"
           if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ "$HEAD_NOW" != "$BASE_SHA" ] && [ "$REMOTE_SHA" = "$HEAD_NOW" ]; then
             # Osservatore del trailer: gli hook sono disattivati per costruzione
             # nel sandbox Codex (`sanitize-git-config.mjs` toglie core.hooksPath),
@@ -1161,11 +1181,12 @@ jobs:
             exit 0
           fi
           if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ -n "$REMOTE_SHA" ] \
-             && [ "$REMOTE_SHA" != "$BASE_SHA" ] && [ "$REMOTE_SHA" != "$HEAD_NOW" ]; then
+             && [ -n "${START_SHA:-}" ] && [ "$REMOTE_SHA" != "$START_SHA" ] \
+             && [ "$REMOTE_SHA" != "$HEAD_NOW" ]; then
             if [ -n "${GITHUB_ENV:-}" ]; then
               echo 'CLAIM_STATUS=released' >> "$GITHUB_ENV"
             fi
-            echo "⚠️ Branch avanzato da un altro writer dopo l'avvio del round (base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA) → run SUPERSEDED; claim rilasciato, nessun round consumato."
+            echo "⚠️ Branch avanzato da un altro writer dopo l'avvio del round (start=$START_SHA base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA) → run SUPERSEDED; claim rilasciato, nessun round consumato."
             exit 0
           fi
           if [ "$ACTION_OUTCOME" = "failure" ]; then
