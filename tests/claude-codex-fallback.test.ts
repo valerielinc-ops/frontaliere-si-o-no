@@ -976,6 +976,13 @@ describe('copertura workflow diretti', () => {
     expect(action).not.toContain('[permissions.codex-fallback.network.unix_sockets]');
     expect(action).toContain('CODEX_ACTION_PATH: ${{ github.action_path }}');
     expect(action).toContain('codex_corpus_github_token:');
+    expect(action).toContain('codex_auth_failure:');
+    expect(action).toContain('codex_auth_digest:');
+    expect(action).toContain('Failed to refresh token');
+    expect(action).toContain('refresh token was already used');
+    expect(action).toContain('Record Codex authentication checkpoint');
+    expect(action).toContain('CODEX_AUTH_BLOCKED:');
+    expect(action).toContain('automatic retry is held until CODEX_AUTH_JSON changes');
     expect(action).toContain('copy_bridge_file gh-bridge.sh gh');
     expect(action).toContain('copy_bridge_file git-bridge.sh git');
     expect(action).toContain('copy_bridge_file child-lifecycle.mjs child-lifecycle.mjs');
@@ -1054,6 +1061,9 @@ describe('copertura workflow diretti', () => {
     expect(codexBlock).toContain('--signal=TERM');
     expect(codexBlock).toContain('--kill-after="${codex_exec_kill_grace_seconds}s"');
     expect(codexBlock).toContain('codex_timed_out=%s');
+    expect(codexBlock).toContain('codex_status=${PIPESTATUS[1]}');
+    expect(codexBlock).toContain('codex_log="$scratch_dir/codex-run.log"');
+    expect(codexBlock).toContain('codex_auth_failure=true');
     expect(action).toContain('CODEX_TIMED_OUT: ${{ steps.codex.outputs.codex_timed_out }}');
     expect(codexBlock).toContain('"$CODEX_NODE_REAL" "$CODEX_REALPATH" --version');
     expect(action).toContain('CODEX_SANITIZER_GIT="$git_host_realpath"');
@@ -1344,6 +1354,7 @@ describe('copertura workflow diretti', () => {
         finalize: 'success',
         action_success: 'true',
         codex_outcome: 'success',
+        codex_auth_failure: 'false',
         claude_outcome: 'skipped',
         ...overrides,
       };
@@ -1351,6 +1362,7 @@ describe('copertura workflow diretti', () => {
         '${{ steps.finalize.outcome }}': values.finalize,
         '${{ steps.finalize.outputs.action_success }}': values.action_success,
         '${{ steps.finalize.outputs.codex_outcome }}': values.codex_outcome,
+        '${{ steps.finalize.outputs.codex_auth_failure }}': values.codex_auth_failure,
         '${{ steps.finalize.outputs.claude_outcome }}': values.claude_outcome,
       };
       let script = preserveScript;
