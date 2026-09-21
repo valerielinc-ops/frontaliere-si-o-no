@@ -30,7 +30,7 @@ concurrency:
   # workflow_run alimentava un gruppo condiviso con i writer daily. Separare il
   # mutex elimina lo sfratto strutturale; cron e idempotenza recuperano eventuali
   # pending perse.
-  group: followup-drainer-${{ github.repository }}
+  group: followup-drainer-${{ github.repository }}-${{ github.event.issue.number || 'global' }}
   cancel-in-progress: false
 
 permissions:
