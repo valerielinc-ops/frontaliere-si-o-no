@@ -139,7 +139,7 @@ export async function fetchAllMyJobs() {
     const title = normalizeSpace(listing.title || '');
     if (!title || title.length < 3) continue;
 
-    const geography = resolveSourceBackedSwissGeography(listing.location);
+    const geography = resolveSourceBackedSwissGeography(listing);
     // Required structured-data geography must come from the vacancy source.
     // Missing, foreign or non-specific values are not replaced with an HQ.
     if (!geography) continue;
@@ -186,13 +186,17 @@ export async function fetchAllMyJobs() {
       ...(listing.postalCode ? { postalCode: normalizeSpace(listing.postalCode) } : {}),
       ...(listing.streetAddress ? { streetAddress: normalizeSpace(listing.streetAddress) } : {}),
       category: detectCategory(title),
-      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      contract: employmentType === 'PART_TIME'
+        ? 'part-time'
+        : employmentType === 'FULL_TIME' ? 'full-time' : 'other',
       employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Altro', // TODO: Set appropriate sector
       currency: 'CHF',
       featured: false,
-      postedDate: listing.postedDate || new Date().toISOString().split('T')[0],
+      // Preserve the source date; the shared merge assigns a stable first-seen
+      // date when the source does not publish one.
+      postedDate: listing.postedAt || null,
       applyUrl: publicUrl,
       requirements: [],
       requirementsByLocale: { [sourceLang]: [] },
