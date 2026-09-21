@@ -96,6 +96,7 @@ jobs:
       issues: write
     outputs:
       blocked: ${{ steps.risk.outputs.blocked }}
+      vision_approved: ${{ steps.risk.outputs.vision_approved }}
       snapshot_fingerprint: ${{ steps.risk.outputs.snapshot_fingerprint }}
     steps:
       - name: Checkout F1/F7 policy only
@@ -204,6 +205,7 @@ jobs:
               and (.riskDecision | type) == "string"
               and ((.riskDecision == "allow") or (.riskDecision == "deny"))
               and (.unknownPaths | type) == "array"
+              and (.visionApproved | type) == "boolean"
               and ((.riskDenyCode == null) or ((.riskDenyCode | type) == "string"))
               and ((.riskReason == null) or ((.riskReason | type) == "string"))
               and ((.pathsComplete == null) or ((.pathsComplete | type) == "boolean"))
@@ -219,17 +221,28 @@ jobs:
           risk_reason=$(jq -r '.riskReason // .reason // "none"' <<< "$decision" \
             | sed -E 's/:.*$//' | tr '\r\n' '  ' | cut -c1-120)
           paths_complete=$(jq -r 'if .pathsComplete == null then "null" else (.pathsComplete | tostring) end' <<< "$decision")
-          echo "policy=$version blocked=$blocked denyCode=$deny_code pathsComplete=$paths_complete reason=$risk_reason domains=${domains:-none} snapshot=$snapshot_fingerprint"
-          echo "blocked=$blocked" >> "$GITHUB_OUTPUT"
-          echo "snapshot_fingerprint=$snapshot_fingerprint" >> "$GITHUB_OUTPUT"
+          vision_approved=$(jq -er '.visionApproved | tostring' <<< "$decision")
+          echo "policy=$version blocked=$blocked visionApproved=$vision_approved denyCode=$deny_code pathsComplete=$paths_complete reason=$risk_reason domains=${domains:-none} snapshot=$snapshot_fingerprint"
+          {
+            echo "blocked=$blocked"
+            echo "vision_approved=$vision_approved"
+            echo "snapshot_fingerprint=$snapshot_fingerprint"
+          } >> "$GITHUB_OUTPUT"
 
           if [ "$blocked" != 'true' ]; then
+            if [ "$vision_approved" = 'true' ]; then
+              # A stale approval must never survive a failed write. `set -e`
+              # makes this risk-policy step fail closed if removal is refused.
+              gh issue edit "$ISSUE_NUMBER" --repo "$REPO" \
+                --remove-label "agent:vision-approved"
+            fi
             exit 0
           fi
 
           echo "::warning::F1/F7 policy $version: domini=${domains:-non verificabili} → issue-fix fermo prima dell'agent."
           if ! gh issue edit "$ISSUE_NUMBER" --repo "$REPO" \
             --remove-label "agent:fix" --remove-label "agent:fix-queued" \
+            --remove-label "agent:vision-approved" \
             --add-label "needs-human"; then
             echo "::error::F1/F7 escalation label non applicata; il job fixer dipendente resta bloccato."
             exit 1
@@ -1276,7 +1289,7 @@ jobs:
             **Bootstrap (in quest'ordine):**
             1. Leggi `ISSUES.md` → "Fix flow" — contratto operativo del fixer.
             2. Il contratto vincolante di `AGENTS.md` è già iniettato sopra. Leggi da `AGENTS.md` solo le sezioni operative necessarie, inclusa l'architettura, dopo aver caricato il contratto.
-            2b. Leggi `VISION.md` per i driver di decisione: quando un driver copre una scelta (D1-D8), DECIDI e procedi citandolo nel body della PR. Eccezione strutturale F1/F7: il job `risk_policy` ha già escluso i domini `deploy-workflow-functions`, `secrets-roles-permissions`, `billing-revenue-partner`, `published-content-seo-auto-ads` e `outreach-communications`; se la policy è non verificabile, questo job non avvia il fixer. Non rimuovere `needs-human`, non riapplicare `agent:fix` e non cercare un bypass: una gestione umana separata deve verificare l'oggetto fuori dal percorso autonomo.
+            2b. Leggi `VISION.md` per i driver di decisione: quando un driver copre una scelta (D1-D8), DECIDI e procedi citandolo nel body della PR. Il job `risk_policy` ha già verificato metadata, file-list e il contratto `agent:vision-approved` quando un dominio F1/F7/control-plane è rientrato dal pre-pass; non è un bypass: il capability guard e il diff gate restano obbligatori. Se la policy è non verificabile, questo job non avvia il fixer. Non riapplicare `agent:fix` e non cercare un bypass: un blocco osservato durante il run va documentato con il relativo `FIX_OUTCOME`.
             Il registro delle decisioni è stato precaricato deterministicamente dal workflow (zero-Claude) e va trattato come fonte vincolante; non cercare il file e non ri-chiedere ciò che è già deciso:
 
             ### Registro delle decisioni del proprietario (iniettato dal workflow)
@@ -1338,6 +1351,7 @@ jobs:
         if: steps.preflight.outputs.already_resolved != 'true' && steps.scope_guard.outputs.workflows_blocked != 'true' && steps.claim.outputs.in_flight != 'true'
         env:
           REPO: ${{ github.repository }}
+          VISION_APPROVED: ${{ needs.risk_policy.outputs.vision_approved }}
         run: |
           set -euo pipefail
           git fetch --no-tags origin main
@@ -1355,7 +1369,11 @@ jobs:
           import { classifyAutomationRisk } from './scripts/ci/lib/automation-risk-policy.mjs';
 
           const paths = fs.readFileSync(process.argv[2], 'utf8').split(/\r?\n/u).filter(Boolean);
-          const decision = classifyAutomationRisk({ paths, pathsComplete: true });
+          const decision = classifyAutomationRisk({
+            paths,
+            pathsComplete: true,
+            visionApproved: process.env.VISION_APPROVED === 'true',
+          });
           if (!decision.verifiable || decision.blocked || decision.decision !== 'allow') {
             console.error(`F1/F7 diff gate deny: ${decision.reason}`);
             process.exit(1);

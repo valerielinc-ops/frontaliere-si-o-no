@@ -348,6 +348,7 @@ async function fetchPostAutoListings(timeoutMs) {
         getIdentity: (record) => record?.id,
         source: `PostAuto ${apiLocale}`,
         page: pageNumber,
+        allowPreviouslySeen: true,
       });
       for (const [index, record] of jobs.entries()) {
         const id = pageIds[index];

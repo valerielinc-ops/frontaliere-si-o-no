@@ -3,7 +3,8 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import { installDomReconciliationGuard } from './services/domReconciliationGuard';
 import { maybeHandleCvDownload } from './services/cvDownloadIntercept';
-import { bustAssetHttpCache } from './services/resilientImport';
+import { clearAssetCaches } from './services/resilientImport';
+import { isRewardedApplicationPagePath } from './services/rewardedApplicationHandoff';
 
 // Harden the DOM against third-party mutation (Google Translate, extensions)
 // crashing React's reconciler with NotFoundError on insertBefore/removeChild.
@@ -18,9 +19,9 @@ window.addEventListener('vite:preloadError', (_event) => {
  // Allow one reload per 5-minute window to prevent infinite loops
  if (!last || Date.now() - Number(last) > 5 * 60 * 1000) {
  sessionStorage.setItem(key, String(Date.now()));
- // Bust the HTTP cache (not just CacheStorage) before reloading — a stale-but-200
- // preloaded chunk would otherwise be re-served from the disk cache (#3097).
- void bustAssetHttpCache().finally(() => window.location.reload());
+ // Clear both asset cache layers before reloading — a stale-but-200 preloaded
+ // chunk would otherwise be re-served from the disk cache (#3097).
+ void clearAssetCaches().finally(() => window.location.reload());
  }
 });
 
@@ -128,8 +129,10 @@ const mountApp = async () => {
  const homeCritical = isHomeCriticalPath(window.location.pathname);
  let staticPage = hasStaticContent();
 
- const [{ default: App }, { ChunkLoadErrorBoundary }, i18n] = await Promise.all([
- import('./App'),
+ const [{ default: RootPage }, { ChunkLoadErrorBoundary }, i18n] = await Promise.all([
+  isRewardedApplicationPagePath(window.location.pathname)
+  ? import('./components/community/RewardedApplicationPage')
+  : import('./App'),
  import('./components/ChunkLoadErrorBoundary'),
  homeCritical ? import('./services/i18n') : Promise.resolve(null),
  // Preload the calculator chunk on home-critical paths so App's lazy
@@ -159,7 +162,8 @@ const mountApp = async () => {
  // chunk — it is already loaded with App above, so this resolves from cache.
  // Gated on staticOverlay so true static landings keep their overlay; crawlers
  // (no JS) still get the fallback verbatim.
- try {
+  if (!isRewardedApplicationPagePath(window.location.pathname)) {
+   try {
    const { parsePath } = await import('./services/router');
    if (!parsePath(window.location.pathname).route.staticOverlay
      && !hasPlateAuctionStaticFallback()) {
@@ -185,9 +189,10 @@ const mountApp = async () => {
        staticPage = hasStaticContent();
      }
    }
- } catch {
-   /* router/DOM edge case — fall through to existing handling */
- }
+   } catch {
+    /* router/DOM edge case — fall through to existing handling */
+   }
+  }
 
  if (staticPage) {
  // FOUC prevention for static pages:
@@ -228,7 +233,7 @@ const mountApp = async () => {
  root.render(
  <React.StrictMode>
  <ChunkLoadErrorBoundary>
- <App />
+ <RootPage />
  </ChunkLoadErrorBoundary>
  </React.StrictMode>
  );

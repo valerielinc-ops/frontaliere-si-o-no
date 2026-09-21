@@ -10,27 +10,45 @@ name: Follow-up drainer (queue → agent:fix, no-Claude)
 on:
   schedule:
     - cron: '*/20 * * * *' # drena la coda ~ogni 20min
-  # Non usare workflow_run come fan-out: ogni fine di issue-fix può produrre un
-  # burst di run concorrenti, e GitHub conserva una sola pending per il gruppo
-  # concurrency (cancellando le altre). Il cron è il trigger durevole; il tick
-  # successivo rilegge tutto lo stato e non perde mai una promozione.
   workflow_dispatch:
+  # Wake-up immediato quando una coda viene riempita da triage/pre-pass con
+  # un'identità che può emettere eventi. Il cron resta il recupero durevole
+  # per le scritture con GITHUB_TOKEN, che GitHub non ri-propaga.
+  issues:
+    types: [labeled]
+  # Wake-up opportunistico dopo un issue-fix: se il fixer libera uno slot o
+  # riaccoda l'issue, la coda non aspetta il prossimo cron.
+  workflow_run:
+    workflows: ['Issue fix (Codex Luna Max → PR)']
+    types: [completed]
 
-# Una sola run drainer alla volta, nello stesso mutex repo-scoped dei writer daily:
-# evita che queue promotion legga/segnali un bucket mentre gate o reconciler lo mutano.
+# Il gruppo della run è repo-scoped: ogni wake-up legge la stessa coda condivisa
+# e non deve eseguire scansioni concorrenti su issue diverse. Il job mantiene un
+# semaforo globale dedicato come seconda barriera; il cron resta il recupero se
+# una pending viene sostituita durante un burst.
 concurrency:
   # Regression #7581: 1,426/1,710 historical runs (83.4%) were cancelled when
-  # workflow_run fed a constant group. Keep the durable cron and repo-scoped
-  # mutex so concurrent repositories cannot evict this queue's pending run.
-  group: followup-daily-${{ github.repository }}
+  # workflow_run alimentava un gruppo condiviso con i writer daily. Separare il
+  # mutex elimina lo sfratto strutturale; cron e idempotenza recuperano eventuali
+  # pending perse.
+  group: followup-drainer-${{ github.repository }}
   cancel-in-progress: false
 
 permissions:
   contents: read
+  actions: read
   issues: write
 
 jobs:
   drain:
+    # Serializza la scansione condivisa senza riusare il mutex dei writer daily.
+    concurrency:
+      group: followup-drainer-scan-${{ github.repository }}
+      cancel-in-progress: false
+    if: >-
+      github.event_name != 'issues' ||
+      github.event.label.name == 'agent:fix-queued' ||
+      github.event.label.name == 'agent:decompose-queued'
     runs-on: ubuntu-latest
     # NON alzare questo cap. Il drain gira in ~5s: i due timeout visti finora
     # erano il setup, non il lavoro — il #5162 era il Checkout, il #7309 era

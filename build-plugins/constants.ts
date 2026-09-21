@@ -64,7 +64,6 @@ import { adSlotHtml } from './lib/adSlotHtml';
 import { REDIRECT_STUB_MARKER } from './shared/redirectStubMarker';
 import { clampMetaDescription } from './shared/titleSuffix';
 import { ROBOTS_INDEX_ENHANCED_CONTENT } from './shared/robotsDirective';
-import { FIREBASE_AUTH_SESSION_MARKER_KEY } from '../services/firebaseAuthPersistence';
 
 /**
  * Regex-source strings interpolated into SELF_HEAL_SCRIPT_CONTENT below,
@@ -103,13 +102,6 @@ const POSTHOG_THIRD_PARTY_STACK_SOURCE = THIRD_PARTY_STACK_ORIGINS.map((re) => r
  * SPA TypeScript filter cannot drift on the frame pattern.
  */
 const POSTHOG_ORIGIN_REDACTED_FRAME_SOURCE = WEBKIT_ORIGIN_REDACTED_FRAME.source;
-
-// Static HTML cannot carry the Firebase Web API key: it is public runtime
-// configuration and arrives through the allowlisted Cloud Function. Auth
-// writes this explicit marker after Firebase confirms the session; probing it
-// keeps the parse-time Offerwall gate synchronous without accepting another
-// Firebase project's persistence namespace.
-const OFFERWALL_AUTH_CHECK = `if(window.localStorage.getItem('${FIREBASE_AUTH_SESSION_MARKER_KEY}')==='true')return true;`;
 
 const DEPLOY_BUILD_ID_OVERRIDE = (process.env.DEPLOY_BUILD_ID || '').replace(/\D/g, '');
 export const BUILD_ID = DEPLOY_BUILD_ID_OVERRIDE || String(Date.now());
@@ -711,8 +703,7 @@ export const FC_PUBLISHER_ID = ADSENSE_CLIENT_ID.replace(/^ca-/, ''); // pub-862
  * `/i/pub-XXX` serves no ACAO header; `crossOrigin='anonymous'` kills the CMP
  * and with it the whole TCF string — the 2026-05-04 regression) — must not be
  * re-typed per carrier. ADSENSE_LOADER_CONTENT interpolates this; index.html
- * and OFFERWALL_FC_SNIPPET carry historical copies (the former is manually
- * aligned, the latter is FROZEN as a SiteShellContract scalar), and
+ * and OFFERWALL_FC_SNIPPET carry the small static copies, and
  * tests/index-html-fc-loader.test.ts + the storage-contract suite pin all of
  * them against the same invariants.
  */
@@ -811,28 +802,32 @@ export const ADSENSE_LOADER_FILENAME = 'adsense-loader.js';
 export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_FILENAME}"></script>`;
 
 /**
- * Offerwall custom-choice registry + Funding Choices MESSAGING loader, injected
- * PARSE-TIME into the <head> of in-scope STATIC article pages.
+ * Funding Choices MESSAGING loader, injected PARSE-TIME into the <head> of
+ * in-scope STATIC pages. The custom newsletter choice is disabled globally;
+ * on the Italian Ticino job board the native Offerwall is filtered so the
+ * direct GPT Rewarded Web flow owns the application handoff, while article
+ * and other non-job-board pages keep their configured native Offerwall.
  *
- * WHY THIS EXISTS (2026-06-16): the GAM Offerwall is scoped to the article
- * sections, which are emitted as static SSG HTML (staticPagesPlugin) whose head
- * does NOT carry index.html's inline Offerwall block. On those pages the only
- * Funding Choices loader that ever runs is the network-code one pulled in by
- * adsbygoogle.js AFTER hydration — it fetches the Offerwall /f/ message (200,
- * incl. our custom choice) but never instantiates the overlay. The publisher-id
+ * WHY THIS EXISTS (2026-06-16): static SSG HTML (article pages and the Italian
+ * job-board pages) does not carry index.html's inline Funding Choices block.
+ * On those pages the only Funding Choices loader that ever runs is the
+ * network-code one pulled in by
+ * adsbygoogle.js AFTER hydration — it fetches the Offerwall /f/ message (200)
+ * but never instantiates the overlay. The publisher-id
  * MESSAGING loader (`/i/pub-XXX`) — the one index.html uses on SPA roots and the
- * one that actually renders FC messages — is absent. Injecting the registry +
- * pub-id loader at PARSE TIME (before hydration and before adsbygoogle's
+ * one that actually renders FC messages — is absent. Injecting the pub-id
+ * loader at PARSE TIME (before hydration and before adsbygoogle's
  * network-code loader claims the singleton FC instance) brings article pages to
  * parity with index.html's proven render path. (#2312 injected the same loader
  * POST-hydration via the React gate and it never rendered, because FC was
  * already singleton-initialised by the network-code loader — parse-time is the
  * differentiator.)
  *
- * MUST stay byte-aligned with index.html's loadFc()/registry on the essentials
+ * MUST stay aligned with index.html's loadFc() on the essentials
  * (same pub-id loader URL, `data-fc-loader` dedup marker, NO crossOrigin — see
  * tests/index-html-fc-loader.test.ts for the CORS rationale — googlefcPresent
- * signal, requestIdleCallback/DOMContentLoaded deferral for LCP). NOTE (CMP-
+ * signal, requestIdleCallback/DOMContentLoaded deferral for LCP). No
+ * application custom-choice registry is emitted here. NOTE (CMP-
  * single-surface rework): the FC loader is deliberately consent-UNGATED here,
  * in index.html and in FC_ENSURE_JS alike — FC is the CMP, i.e. the surface
  * that COLLECTS the advertising consent. The #5894 experiment of putting a
@@ -840,21 +835,15 @@ export const ADSENSE_LAZY_LOADER = `<script defer src="/assets/${ADSENSE_LOADER_
  * visitors (a CMP gated behind its own output can never collect anything) and
  * stacked a duplicate prompt for everyone else. Do NOT re-add a consent read
  * in front of any FC loader copy. The drift guard lives in
- * tests/offerwall-static-fc-snippet.test.ts. The registry's behaviour mirrors
- * components/community/OfferwallNewsletterGate.tsx (ensureOfferwallRegistry),
- * which is idempotent (`if (cc.registry) return`) and so no-ops when this
- * parse-time copy already set it — the gate still installs the
- * window.__ftOfferwallSubscribe hook this registry delegates to. The registry
- * itself stays consent-UNGATED (it defines a callback object, makes no network
- * call, and must exist before FC — whenever it eventually loads — can call
- * into it).
+ * tests/offerwall-static-fc-snippet.test.ts. The loader stays consent-UNGATED
+ * (it is the CMP surface that collects consent) and makes no application
+ * custom-choice callback.
  *
  * The anti-adblock fallback IIFE that index.html also runs from loadFc() is
  * deliberately NOT included here — it is a separate feature, out of scope for
  * the Offerwall render fix.
  */
-export const OFFERWALL_FC_SNIPPET = `<script>(function(){var g=window.googlefc=window.googlefc||{};var ow=g.offerwall=g.offerwall||{};var cc=ow.customchoice=ow.customchoice||{};if(cc.registry)return;function hasAccess(){try{if(window.localStorage.getItem('newsletter_subscribed')==='true')return true;${OFFERWALL_AUTH_CHECK}}catch(e){}return false;}cc.registry={initialize:function(params){var E=cc.InitializeResponseEnum||{};if(hasAccess()){return Promise.resolve(E.ACCESS_GRANTED||'ACCESS_GRANTED');}window.__ftOfferwallLang=(params&&params.offerwallLanguageCode)||null;return Promise.resolve(E.ACCESS_NOT_GRANTED||'ACCESS_NOT_GRANTED');},show:function(){var fn=window.__ftOfferwallSubscribe;function run(f){try{return Promise.resolve(f(window.__ftOfferwallLang)).then(function(ok){return !!ok;});}catch(e){return Promise.resolve(false);}}if(typeof fn!=='function'){return new Promise(function(resolve){var settled=false;function settle(ok){if(settled)return;settled=true;resolve(!!ok);}var q=window.__ftOfferwallShowQueue=window.__ftOfferwallShowQueue||[];var timer=setTimeout(function(){settle(false);},10000);q.push(function(hook){if(settled)return;clearTimeout(timer);run(hook).then(settle,function(){settle(false);});});});}return run(fn);}};})();</script>
- <script>(function(){function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();</script>`;
+export const OFFERWALL_FC_SNIPPET = `<script>(function(){var g=window.googlefc=window.googlefc||{};if(!g.controlledMessagingFunction){g.controlledMessagingFunction=function(message){var E=g.MessageTypeEnum||{};var p=window.location&&window.location.pathname||'';var isItalianJobBoard=/^\\/cerca-lavoro-ticino(?:\\/|$)/.test(p);if(!isItalianJobBoard||E.OFFERWALL===undefined){message.proceed(true);return;}message.proceed(false,[E.OFFERWALL]);};}function loadFc(){if(!document.querySelector('script[data-fc-loader]')){var s=document.createElement('script');s.async=true;s.src='https://fundingchoicesmessages.google.com/i/${FC_PUBLISHER_ID}?ers=1';s.setAttribute('data-fc-loader','1');document.head.appendChild(s);}(function sig(){if(!window.frames['googlefcPresent']){if(document.body){var f=document.createElement('iframe');f.style='width:0;height:0;border:none;z-index:-1000;left:-1000px;top:-1000px;';f.style.display='none';f.name='googlefcPresent';document.body.appendChild(f);}else{setTimeout(sig,0);}}})();}function ricFb(cb){if(document.readyState==='complete'){setTimeout(cb,200);}else{window.addEventListener('load',function(){setTimeout(cb,200);},{once:true});}}function schedule(){(window.requestIdleCallback||ricFb)(loadFc,{timeout:4000});}if(document.readyState==='loading'){window.addEventListener('DOMContentLoaded',schedule,{once:true});}else{schedule();}})();</script>`;
 
 /**
  * Above-the-fold manual slot for drive-by SEO landings (health premiums,
