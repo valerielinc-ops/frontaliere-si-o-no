@@ -19868,6 +19868,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'rialzo-tassi-ipotecari-svizzera',
+    category: 'pratico',
+    date: '2026-09-21T11:01:35.052Z',
+    image: '/images/blog/rialzo-tassi-ipotecari-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

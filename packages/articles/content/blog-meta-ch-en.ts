@@ -6632,6 +6632,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.guida-lavoro-argovia-2026.title': 'Practical guide to looking for a job in Aargau 2026',
     'blog.article.guida-lavoro-argovia-2026.excerpt': 'The 2026 Swiss market offers places in engineering, technology, healthcare and logistics; in Aargau taxation is on three levels and AVS/AI/IPG contributions amount to 5.3% for employees.',
     'blog.article.guida-lavoro-argovia-2026.imageAlt': 'Modern office building in Aarau, Argovia, with professionals walking past and Swiss flag in the background.',
+    'blog.article.rialzo-tassi-ipotecari-svizzera.title': 'Mortgage rates in Switzerland: 10 years exceeds 2%',
+    'blog.article.rialzo-tassi-ipotecari-svizzera.excerpt': 'In September, 10-year mortgage rates rose to 2.06% and 5-year rates to 1.83%. End of the era of very low rates for the real estate market.',
+    'blog.article.rialzo-tassi-ipotecari-svizzera.imageAlt': 'Swiss residential landscape with modern houses and mountains',
 };
 
 export default blogMetaChEn;

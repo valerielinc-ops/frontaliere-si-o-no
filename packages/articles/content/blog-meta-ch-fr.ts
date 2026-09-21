@@ -6632,6 +6632,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.guida-lavoro-argovia-2026.title': 'Guide pratique pour chercher un emploi en Argovie 2026',
     'blog.article.guida-lavoro-argovia-2026.excerpt': 'Le marché suisse 2026 offre des postes dans l\'ingénierie, la technologie, la santé et la logistique ; en Argovie, la fiscalité est à trois niveaux et les cotisations AVS/AI/APG s\'élèvent à 5,3% pour les employés.',
     'blog.article.guida-lavoro-argovia-2026.imageAlt': 'Bureau moderne à Aarau, Argovie, avec des professionnels qui passent et le drapeau suisse en arrière-plan.',
+    'blog.article.rialzo-tassi-ipotecari-svizzera.title': 'Taux hypothécaires en Suisse : 10 ans plus de 2%',
+    'blog.article.rialzo-tassi-ipotecari-svizzera.excerpt': 'En septembre, les taux hypothécaires à 10 ans grimpent à 2,06% et ceux à 5 ans à 1,83%. La fin de l\'ère des taux très bas pour le marché immobilier.',
+    'blog.article.rialzo-tassi-ipotecari-svizzera.imageAlt': 'Paysage résidentiel suisse avec maisons modernes et montagnes',
 };
 
 export default blogMetaChFr;
