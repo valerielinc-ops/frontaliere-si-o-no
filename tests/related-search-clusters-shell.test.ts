@@ -304,6 +304,16 @@ describe('related search cluster SEO shell', () => {
     expect(render('Kurzer einzigartiger Hinweis für neue Stellenangebote.').html).not.toMatch(staticSlot);
     expect(render(Array.from({ length: 160 }, (_, i) => `Inhalt${i}`).join(' ')).html).toMatch(staticSlot);
   });
+
+  it('gates the related-search hub multiplex slot on the same AdSense threshold (#9244)', () => {
+    const src = readFileSync(
+      join(process.cwd(), 'build-plugins/relatedSearchClustersPlugin.ts'),
+      'utf8',
+    );
+
+    expect(src).toContain('countHtmlBodyWords(hubBodyContentHtml) >= ADSENSE_THIN_WORDS');
+    expect(src).not.toContain('endOfContentMultiplexHtml({ indexable: true })');
+  });
 });
 
 describe('below-floor bridge floor decision (issue #4303 item 4 / run 29636707053)', () => {

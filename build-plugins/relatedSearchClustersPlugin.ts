@@ -3195,7 +3195,7 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
     ],
   });
 
-  const bodyHtml = `<article class="s-haN35X">
+  const hubBodyContentHtml = `<article class="s-haN35X">
     <nav class="s-bcr">
       <a href="/" class="s-bcl">${esc(copy.homeBreadcrumb)}</a>
       <span> / </span>
@@ -3228,7 +3228,11 @@ function renderHubPage(input: HubPageInput): { urlPath: string; html: string; lo
         </div>
       </details>`;
     })()}
-    ${endOfContentMultiplexHtml({ indexable: true })}
+    `;
+  const bodyHtml = `${hubBodyContentHtml}
+    ${endOfContentMultiplexHtml({
+      indexable: countHtmlBodyWords(hubBodyContentHtml) >= ADSENSE_THIN_WORDS,
+    })}
   </article>`;
 
   const title = buildTitleWithBrand(`${copy.hubTitle}${page > 1 ? ` — ${copy.pageNavigatorLabel} ${page}` : ''}`);
