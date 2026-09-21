@@ -14,7 +14,10 @@
 // Decisioni (conservative — il dubbio = keep, mai distruggere lavoro non in PR):
 //   • worktree con PR MERGED su main e HEAD esatto della PR
 //                                      → remove worktree + delete branch
-//   • PR CLOSED, PR MERGED verso altro base o HEAD divergente → REPORT-ONLY
+//   • snapshot locale con un commit appartenente a una PR MERGED su main
+//                                      → remove/delete (anche con squash-merge)
+//   • PR CLOSED con commit unici, PR MERGED verso altro base o HEAD divergente
+//                                      → REPORT-ONLY
 //   • worktree detached / branch fantasma già su main → remove worktree
 //   • branch `worktree-agent-*` 0-ahead   → delete (orfano EnterWorktree)
 //   • branch locale (no worktree) con PR MERGED su main e HEAD esatto → delete
@@ -37,9 +40,11 @@ import { basename, join, resolve } from 'node:path';
 import {
   isMergedIntoBaseAtHead,
   makePrStateResolver,
+  pickBestAssociatedPr,
   rankPrState,
 } from './lib/pr-state-window.mjs';
 import { classifyDirty } from './lib/worktree-dirty.mjs';
+import { canDeleteClosedCandidate, needsSnapshot } from './lib/branch-purge-policy.mjs';
 
 import { withSingleFlightLock } from './lib/single-flight-lock.mjs';
 import { sweepStaleFetchPacks } from './lib/stale-fetch-pack-sweep.mjs';
@@ -66,6 +71,27 @@ function sh(cmd, { allowFail = false } = {}) {
 function shOk(cmd) {
   try {
     execSync(cmd, { stdio: 'ignore' });
+    return true;
+  } catch {
+    return false;
+  }
+}
+
+function gitOut(args, { allowFail = false } = {}) {
+  try {
+    return execFileSync('git', args, {
+      encoding: 'utf8',
+      stdio: ['ignore', 'pipe', 'ignore'],
+    }).trim();
+  } catch (e) {
+    if (allowFail) return '';
+    throw e;
+  }
+}
+
+function gitOk(args) {
+  try {
+    execFileSync('git', args, { stdio: 'ignore' });
     return true;
   } catch {
     return false;
@@ -229,6 +255,84 @@ const resolvePrState = makePrStateResolver({
   enabled: ghOk,
 });
 
+// Un branch locale puo' essere uno snapshot con un nome diverso da quello
+// della PR (oppure un checkout fermato a un commit intermedio della PR). In
+// quel caso `gh pr list --head` non lo trova, ma GitHub mantiene l'associazione
+// commit → PR. La consultiamo solo per branch non gia' risolti come OPEN o come
+// HEAD esatto di una PR MERGED, cosi' il purge programmato non paga una query
+// per i branch ordinari 0-ahead.
+const repoSlug = ghOk
+  ? sh('gh repo view --json nameWithOwner --jq .nameWithOwner', { allowFail: true })
+  : '';
+const associatedPrCache = new Map(); // commit SHA → record PR migliore o null
+const branchPrResolution = new Map(); // branch → { state, source, pr, sha }
+
+function associatedPrForCommit(sha) {
+  if (!ghOk || !repoSlug || !sha) return undefined;
+  if (associatedPrCache.has(sha)) return associatedPrCache.get(sha) || undefined;
+  const raw = sh(
+    `gh api --paginate --slurp "repos/${repoSlug}/commits/${sha}/pulls" --jq '[.[][]]'`,
+    { allowFail: true },
+  );
+  let best;
+  if (raw) {
+    try {
+      best = pickBestAssociatedPr(JSON.parse(raw), { baseBranch: mainBranch });
+    } catch {
+      best = undefined;
+    }
+  }
+  associatedPrCache.set(sha, best || null);
+  return best;
+}
+
+function resolveBranchPrState(branch) {
+  if (!branch) return undefined;
+  const namedState = resolvePrState(branch);
+  const head = headOfLocalBranch(branch);
+
+  // OPEN resta sempre protetta. Un MERGED con HEAD esatto ha gia' la prova piu'
+  // forte disponibile e non deve generare una chiamata REST aggiuntiva.
+  if (namedState === 'OPEN') {
+    branchPrResolution.set(branch, { state: namedState, source: 'branch-name', sha: head });
+    return namedState;
+  }
+  if (namedState === 'MERGED' && mergedPrAtHead(branch, head)) {
+    branchPrResolution.set(branch, { state: namedState, source: 'head', sha: head });
+    return namedState;
+  }
+
+  // `ahead===0` e' gia' una prova sufficiente per il cleanup conservativo:
+  // non c'e' un commit locale unico da perdere. Evita la query commit→PR sui
+  // branch appena creati e sugli orfani già confluiti.
+  if (aheadOfMain(branch) === 0) {
+    branchPrResolution.set(branch, { state: namedState, source: namedState ? 'branch-name' : 'none', sha: head });
+    return namedState;
+  }
+
+  const associated = associatedPrForCommit(head);
+  if (associated && (
+    !namedState
+    || rankPrState(associated.state) > rankPrState(namedState)
+    || (namedState === 'MERGED' && associated.state === 'MERGED')
+  )) {
+    branchPrResolution.set(branch, {
+      state: associated.state,
+      source: 'commit',
+      pr: associated,
+      sha: head,
+    });
+    return associated.state;
+  }
+
+  branchPrResolution.set(branch, {
+    state: namedState,
+    source: namedState ? 'branch-name' : 'none',
+    sha: head,
+  });
+  return namedState;
+}
+
 function mergedPrAtHead(branch, head) {
   return (prRecords.get(branch) || []).some((pr) => isMergedIntoBaseAtHead(pr, {
     baseBranch: mainBranch,
@@ -239,11 +343,18 @@ function mergedPrAtHead(branch, head) {
 // Ritorna il numero di commit unici di `ref` su origin/main, o `null` se git
 // fallisce (ref mancante, origin/main non risolto). null = SCONOSCIUTO, MAI
 // trattato come 0: i caller cancellano solo su `=== 0` esatto → null preserva.
+const aheadCache = new Map();
 function aheadOfMain(ref) {
+  if (aheadCache.has(ref)) return aheadCache.get(ref);
   const n = sh(`git rev-list --count origin/${mainBranch}..${ref}`, { allowFail: true });
-  if (n === '') return null;
+  if (n === '') {
+    aheadCache.set(ref, null);
+    return null;
+  }
   const v = Number.parseInt(n, 10);
-  return Number.isNaN(v) ? null : v;
+  const ahead = Number.isNaN(v) ? null : v;
+  aheadCache.set(ref, ahead);
+  return ahead;
 }
 
 // Upstream configurato ma remote-tracking sparito → `[gone]` in %(upstream:track).
@@ -296,6 +407,38 @@ function isAncestorOfMain(ref) {
   } catch {
     return false;
   }
+}
+
+function hasSnapshotTag(branch) {
+  return gitOut(['tag', '--points-at', `refs/heads/${branch}`], { allowFail: true })
+    .split('\n')
+    .some((tag) => tag.startsWith('snapshot/'));
+}
+
+function snapshotTagName(branch) {
+  const stamp = new Date().toISOString().slice(0, 10).replaceAll('-', '');
+  const safe = branch.replace(/[^A-Za-z0-9._-]+/g, '--').replace(/-+/g, '-').slice(0, 160);
+  const base = `snapshot/purge/${safe}-${stamp}`;
+  let candidate = base;
+  let n = 2;
+  while (gitOk(['show-ref', '--verify', '--quiet', `refs/tags/${candidate}`])) {
+    candidate = `${base}-${n++}`;
+  }
+  return candidate;
+}
+
+function snapshotNeeded(branch, state, ahead) {
+  return needsSnapshot({ prState: state, ahead, hasSnapshot: hasSnapshotTag(branch) });
+}
+
+function snapshotBeforeDelete(branch, required) {
+  if (!required) return true;
+  const sha = headOfLocalBranch(branch);
+  if (!sha) return false;
+  const tag = snapshotTagName(branch);
+  if (!gitOk(['tag', tag, sha])) return false;
+  console.log(`snapshot ${tag} -> ${sha.slice(0, 12)}`);
+  return true;
 }
 
 const wtPorcelain = sh('git worktree list --porcelain');
@@ -351,10 +494,13 @@ for (const wt of worktrees) {
   if (wt.branch === mainBranch) continue;    // doppia guardia: mai il branch default
   const { significant, ignored } = classifyDirty(wt.path);
   const dirty = significant.length > 0;
-  const state = wt.branch ? resolvePrState(wt.branch) : undefined;
   const head = wt.head || (wt.branch ? headOfLocalBranch(wt.branch) : '');
+  const state = wt.branch ? resolveBranchPrState(wt.branch) : undefined;
+  const resolution = wt.branch ? branchPrResolution.get(wt.branch) : undefined;
   if (state === 'OPEN') continue; // PR aperta → lavoro vivo
-  if (state === 'MERGED' && wt.branch && !mergedPrAtHead(wt.branch, head)) {
+  const mergedAtHead = wt.branch && mergedPrAtHead(wt.branch, head);
+  const mergedByCommit = resolution?.source === 'commit' && resolution.state === 'MERGED';
+  if (state === 'MERGED' && wt.branch && !mergedAtHead && !mergedByCommit) {
     reportWt.push({
       ...wt,
       reason: `PR MERGED ma base/SHA non coincidono con main/HEAD (${head || 'unknown'}) — REPORT-ONLY`,
@@ -370,9 +516,21 @@ for (const wt of worktrees) {
       continue;
     }
     if (ignored.length) console.log(`ℹ️  ${wt.path}: ${ignored.length} file sporchi ignorati (output di cron / blocco gitnexus), PR ${state}.`);
-    removeWt.push(wt);
+    const ahead = wt.branch ? aheadOfMain(wt.branch) : null;
+    removeWt.push({
+      ...wt,
+      snapshot: wt.branch ? snapshotNeeded(wt.branch, state, ahead) : false,
+      reason: mergedByCommit
+        ? `PR #${resolution.pr?.number ?? '?'} MERGED provata dal commit ${resolution.sha?.slice(0, 12)}`
+        : 'PR MERGED con HEAD esatto su main',
+    });
   } else if (state === 'CLOSED') {
-    reportWt.push({ ...wt, reason: 'PR CLOSED ma non mergiata — REPORT-ONLY' });
+    const ahead = wt.branch ? aheadOfMain(wt.branch) : null;
+    if (!dirty && canDeleteClosedCandidate({ ahead })) {
+      removeWt.push({ ...wt, reason: 'PR CLOSED ma 0-ahead: nessun commit locale unico' });
+    } else {
+      reportWt.push({ ...wt, reason: `PR CLOSED ma non mergiata, ahead=${ahead ?? 'unknown'} — REPORT-ONLY` });
+    }
   } else if (wt.detached) {
     if (!dirty && isAncestorOfMain(head)) removeWt.push(wt);
     else reportWt.push({ ...wt, reason: `detached HEAD ${head || 'unknown'}, non verificabile come già su main${dirty ? `, DIRTY su ${significant.length} file` : ''} — REPORT-ONLY` });
@@ -397,25 +555,43 @@ const reportBranch = []; // {name, reason}
 for (const b of allLocal) {
   if (b === mainBranch) continue;
   if (wtBranches.has(b)) continue; // gestito sopra come worktree
-  const state = resolvePrState(b);
+  const state = resolveBranchPrState(b);
   if (state === 'OPEN') continue;
-  if (/^worktree-agent-/.test(b) && aheadOfMain(b) === 0) { delBranch.push(b); continue; }
+  if (/^worktree-agent-/.test(b) && aheadOfMain(b) === 0) {
+    delBranch.push({ name: b, snapshot: false, reason: 'orfano worktree-agent-* 0-ahead' });
+    continue;
+  }
   if (!ghOk) {
     reportBranch.push({ name: b, reason: 'stato PR non verificabile: gh indisponibile — REPORT-ONLY' });
     continue;
   }
   const head = headOfLocalBranch(b);
   if (state === 'MERGED') {
-    if (mergedPrAtHead(b, head)) delBranch.push(b);
-    else reportBranch.push({ name: b, reason: `PR MERGED ma base/SHA non coincidono con main/HEAD (${head || 'unknown'}) — REPORT-ONLY` });
+    const resolution = branchPrResolution.get(b);
+    const mergedAtHead = mergedPrAtHead(b, head);
+    const mergedByCommit = resolution?.source === 'commit' && resolution.state === 'MERGED';
+    if (mergedAtHead || mergedByCommit) {
+      delBranch.push({
+        name: b,
+        snapshot: snapshotNeeded(b, state, aheadOfMain(b)),
+        reason: mergedByCommit
+          ? `PR #${resolution.pr?.number ?? '?'} MERGED provata dal commit ${resolution.sha?.slice(0, 12)}`
+          : 'PR MERGED con HEAD esatto su main',
+      });
+    } else reportBranch.push({ name: b, reason: `PR MERGED ma base/SHA non coincidono con main/HEAD (${head || 'unknown'}) — REPORT-ONLY` });
     continue;
   }
   if (state === 'CLOSED') {
-    reportBranch.push({ name: b, reason: 'PR CLOSED ma non mergiata — REPORT-ONLY' });
+    const ahead = aheadOfMain(b);
+    if (canDeleteClosedCandidate({ ahead })) {
+      delBranch.push({ name: b, snapshot: false, reason: 'PR CLOSED ma 0-ahead: nessun commit locale unico' });
+    } else {
+      reportBranch.push({ name: b, reason: `PR CLOSED ma non mergiata, ahead=${ahead ?? 'unknown'} — REPORT-ONLY` });
+    }
     continue;
   }
   const ahead = aheadOfMain(b);
-  if (ahead === 0) delBranch.push(b); // contenuto già su main
+  if (ahead === 0) delBranch.push({ name: b, snapshot: false, reason: '0-ahead su main, nessun commit locale unico' });
   else reportBranch.push({ name: b, reason: `ahead=${ahead ?? 'unknown'} no-PR${upstreamGone(b) ? ' upstream-GONE' : ''} — possibile lavoro non in PR, REPORT-ONLY` });
 }
 
@@ -424,9 +600,13 @@ console.log(`base = origin/${mainBranch} | gh=${ghOk ? 'ok' : 'UNAVAILABLE (solo
 console.log('');
 
 console.log(`worktree da rimuovere (${removeWt.length}):`);
-removeWt.forEach((w) => console.log(`  - ${w.path}${w.branch ? ` [${w.branch}]` : ' (detached)'}`));
+removeWt.forEach((w) => console.log(
+  `  - ${w.path}${w.branch ? ` [${w.branch}]` : ' (detached)'}${w.reason ? ` — ${w.reason}` : ''}${w.snapshot ? ' — crea snapshot prima della rimozione' : ''}`,
+));
 console.log(`branch locali da cancellare (${delBranch.length}):`);
-delBranch.forEach((b) => console.log(`  - ${b}`));
+delBranch.forEach((b) => console.log(
+  `  - ${b.name}${b.reason ? ` — ${b.reason}` : ''}${b.snapshot ? ' — crea snapshot prima della rimozione' : ''}`,
+));
 
 if (reportWt.length || reportBranch.length) {
   console.log('');
@@ -444,6 +624,11 @@ if (!APPLY) {
 let done = 0;
 let failed = 0;
 for (const w of removeWt) {
+  if (w.branch && !snapshotBeforeDelete(w.branch, w.snapshot)) {
+    failed++;
+    console.log(`⚠️  FALLITO snapshot ${w.branch} — worktree lasciato intatto`);
+    continue;
+  }
   // Conta/logga solo a esito 0: una rimozione fallita (worktree lockato, branch
   // in checkout) NON deve gonfiare il totale.
   if (!shOk(`git worktree remove --force "${w.path}"`)) {
@@ -456,12 +641,17 @@ for (const w of removeWt) {
   console.log(`removed worktree ${w.path}`);
 }
 for (const b of delBranch) {
-  if (shOk(`git branch -D "${b}"`)) {
+  if (!snapshotBeforeDelete(b.name, b.snapshot)) {
+    failed++;
+    console.log(`⚠️  FALLITO snapshot ${b.name} — branch lasciato intatto`);
+    continue;
+  }
+  if (shOk(`git branch -D "${b.name}"`)) {
     done++;
-    console.log(`deleted branch ${b}`);
+    console.log(`deleted branch ${b.name}`);
   } else {
     failed++;
-    console.log(`⚠️  FALLITO branch -D ${b} (in checkout? non-merged senza -D?) — saltato`);
+    console.log(`⚠️  FALLITO branch -D ${b.name} (in checkout? non-merged senza -D?) — saltato`);
   }
 }
 sh('git worktree prune', { allowFail: true });
