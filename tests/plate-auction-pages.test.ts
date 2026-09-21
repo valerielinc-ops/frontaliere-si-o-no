@@ -6,6 +6,7 @@ import { loadPlateAuctionContext, plateAuctionsPagesPlugin, renderPlateAuctionPa
 import { buildPlateAuctionPath } from '../services/plateAuctions/paths';
 import { AD_SLOTS } from '../services/adsenseSlots';
 import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
+import { extractVisibleText } from '../scripts/audit-text-html-ratio.mjs';
 
 const tempDirs: string[] = [];
 const FULL_FIXTURE_GROUPS = [
@@ -173,18 +174,30 @@ describe('plate-auction static pages', () => {
     const rendered = renderPlateAuctionPage({ locale: 'de', view: 'canton', canton: 'GR', rootDir });
 
     expect(Buffer.byteLength(rendered.html)).toBeLessThan(260 * 1024);
+    expect(Buffer.byteLength(extractVisibleText(rendered.html)) / Buffer.byteLength(rendered.html) * 100).toBeGreaterThan(10);
     expect((rendered.html.match(/<tr>/g) || []).length).toBeLessThanOrEqual(106);
     expect(rendered.html).toContain('/de/schweizer-nummernschildauktionen/graubuenden-gr/katalog/');
   });
 
-  it('links the capped canton page to an uncapped directory of all detail pages', () => {
+  it('bounds the directory and links the remaining catalogue through pagination', () => {
     const rootDir = fixtureRoot({ auctionCount: 2000 });
     const rendered = renderPlateAuctionPage({ locale: 'it', view: 'directory', canton: 'GR', rootDir });
 
     expect(rendered.urlPath).toBe('aste-targhe-svizzera/grigioni-gr/catalogo');
     expect(rendered.html).toContain('/aste-targhe-svizzera/grigioni-gr/gr8/');
-    expect(rendered.html).toContain('/aste-targhe-svizzera/grigioni-gr/gr2006/');
-    expect((rendered.html.match(/<li>/g) || []).length).toBe(2000);
+    expect(rendered.html).not.toContain('/aste-targhe-svizzera/grigioni-gr/gr2006/');
+    expect(rendered.html).toContain('/aste-targhe-svizzera/grigioni-gr/pagina-2/');
+    expect((rendered.html.match(/href="[^\"]*\/gr\d+\//g) || []).length).toBeLessThanOrEqual(48);
+    expect(Buffer.byteLength(rendered.html, 'utf8')).toBeLessThan(260 * 1024);
+    expect(Buffer.byteLength(extractVisibleText(rendered.html)) / Buffer.byteLength(rendered.html) * 100).toBeGreaterThan(10);
+
+    const itemListPayload = [...rendered.html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)]
+      .map((match) => match[1])
+      .find((json) => json.includes('"@type":"ItemList"'));
+    expect(itemListPayload).toBeDefined();
+    const itemList = JSON.parse(itemListPayload!) as { mainEntity: { numberOfItems: number; itemListElement: Array<unknown> } };
+    expect(itemList.mainEntity.numberOfItems).toBe(2000);
+    expect(itemList.mainEntity.itemListElement).toHaveLength(48);
   });
 
   it('caps extra detail links when a small current catalogue has old rows', () => {

@@ -32,6 +32,11 @@ const LOCALES: readonly PlateLocale[] = ['it', 'en', 'de', 'fr'];
 // whole data set into one HTML document; every detail page remains emitted and
 // listed in the plate-auction sitemap below.
 const CANTON_INDEX_MAX_ROWS = 24;
+// A directory is only an entry point to the paginated canton catalogue. Keep
+// its visible links and ItemList projection bounded: the sitemap and the
+// canton pages still expose every published detail URL without turning one
+// HTML document into a multi-megabyte link dump.
+const DIRECTORY_PAGE_LINK_LIMIT = PLATE_AUCTION_INDEX_PAGE_SIZE;
 const OG_LOCALE: Record<PlateLocale, string> = { it: 'it_CH', en: 'en_US', de: 'de_CH', fr: 'fr_CH' };
 const CANTON_NAMES: Record<string, Record<PlateLocale, string>> = {
   AG: { it: 'Argovia', en: 'Aargau', de: 'Aargau', fr: 'Argovie' }, AI: { it: 'Appenzello Interno', en: 'Appenzell Innerrhoden', de: 'Appenzell Innerrhoden', fr: 'Appenzell Rhodes-Intérieures' }, AR: { it: 'Appenzello Esterno', en: 'Appenzell Ausserrhoden', de: 'Appenzell Ausserrhoden', fr: 'Appenzell Rhodes-Extérieures' }, BE: { it: 'Berna', en: 'Bern', de: 'Bern', fr: 'Berne' }, BL: { it: 'Basilea Campagna', en: 'Basel-Landschaft', de: 'Basel-Landschaft', fr: 'Bâle-Campagne' }, BS: { it: 'Basilea Città', en: 'Basel-Stadt', de: 'Basel-Stadt', fr: 'Bâle-Ville' }, FR: { it: 'Friburgo', en: 'Fribourg', de: 'Freiburg', fr: 'Fribourg' }, GE: { it: 'Ginevra', en: 'Geneva', de: 'Genf', fr: 'Genève' }, GL: { it: 'Glarona', en: 'Glarus', de: 'Glarus', fr: 'Glaris' }, GR: { it: 'Grigioni', en: 'Graubünden', de: 'Graubünden', fr: 'Grisons' }, JU: { it: 'Giura', en: 'Jura', de: 'Jura', fr: 'Jura' }, LU: { it: 'Lucerna', en: 'Lucerne', de: 'Luzern', fr: 'Lucerne' }, NE: { it: 'Neuchâtel', en: 'Neuchâtel', de: 'Neuenburg', fr: 'Neuchâtel' }, NW: { it: 'Nidvaldo', en: 'Nidwalden', de: 'Nidwalden', fr: 'Nidwald' }, OW: { it: 'Obvaldo', en: 'Obwalden', de: 'Obwalden', fr: 'Obwald' }, SG: { it: 'San Gallo', en: 'St. Gallen', de: 'St. Gallen', fr: 'Saint-Gall' }, SH: { it: 'Sciaffusa', en: 'Schaffhausen', de: 'Schaffhausen', fr: 'Schaffhouse' }, SO: { it: 'Soletta', en: 'Solothurn', de: 'Solothurn', fr: 'Soleure' }, SZ: { it: 'Svitto', en: 'Schwyz', de: 'Schwyz', fr: 'Schwytz' }, TG: { it: 'Turgovia', en: 'Thurgau', de: 'Thurgau', fr: 'Thurgovie' }, TI: { it: 'Ticino', en: 'Ticino', de: 'Tessin', fr: 'Tessin' }, UR: { it: 'Uri', en: 'Uri', de: 'Uri', fr: 'Uri' }, VD: { it: 'Vaud', en: 'Vaud', de: 'Waadt', fr: 'Vaud' }, VS: { it: 'Vallese', en: 'Valais', de: 'Wallis', fr: 'Valais' }, ZG: { it: 'Zugo', en: 'Zug', de: 'Zug', fr: 'Zoug' }, ZH: { it: 'Zurigo', en: 'Zurich', de: 'Zürich', fr: 'Zurich' },
@@ -41,6 +46,16 @@ const COPY: Record<PlateLocale, { title: string; intro: string; context: string;
   en: { title: 'Swiss plate auctions', intro: 'Public Swiss plate auctions: current prices, closing times and verified final results.', context: 'This page collects cantonal catalogues that are publicly exposed. A current price is the latest visible bid, not a completed sale. Final results enter the history only when an official source makes them verifiable. Bidder names are not collected or published.', sources: 'Cantonal sources', current: 'Live auctions', rankings: 'Rankings', allListings: 'More published auctions', page: 'Page', noData: 'No public row is available right now.', notDiscovered: 'The public auction source for this canton has not been verified yet. We keep the coverage page visible without inventing values.', method: 'Data method and limits', detail: 'Details', coverage: 'Coverage by canton', coverageInProgress: 'Coverage in progress', coverageIntro: 'The registry shows which official source is verified for each canton and the current connector status. Auction rows are shown only for sources marked active.', coverageInProgressIntro: 'No canton has an active source yet. We therefore show only verification status and official links, without publishing unverified prices, bids or new auctions.', status: 'Status', lastUpdated: 'Last updated', official: 'Official website', registryUpdated: 'Registry updated', coverageUnavailable: 'The cantonal source registry is unavailable: coverage remains explicitly unverified and auction data is hidden.', },
   de: { title: 'Schweizer Kontrollschildauktionen', intro: 'Öffentliche Schweizer Kontrollschildauktionen: aktuelle Preise und verifizierte Ergebnisse.', context: 'Diese Seite sammelt öffentlich zugängliche kantonale Kataloge. Ein aktueller Preis ist das letzte sichtbare Gebot und kein abgeschlossener Verkauf. Ergebnisse werden erst in die Historie übernommen, wenn eine offizielle Quelle sie überprüfbar macht. Bieternamen werden weder gesammelt noch veröffentlicht.', sources: 'Kantonale Quellen', current: 'Laufende Auktionen', rankings: 'Ranglisten', allListings: 'Weitere veröffentlichte Auktionen', page: 'Seite', noData: 'Zurzeit ist keine öffentliche Zeile verfügbar.', notDiscovered: 'Die öffentliche Auktionsquelle dieses Kantons ist noch nicht verifiziert. Die Abdeckungsseite bleibt sichtbar, ohne Werte zu erfinden.', method: 'Methode und Grenzen', detail: 'Details', coverage: 'Abdeckung nach Kanton', coverageInProgress: 'Abdeckung im Aufbau', coverageIntro: 'Das Register zeigt für jeden Kanton die geprüfte offizielle Quelle und den Status des Konnektors. Auktionen werden nur für Quellen mit aktivem Status angezeigt.', coverageInProgressIntro: 'Noch kein Kanton hat eine aktive Quelle. Deshalb zeigen wir nur Prüfstatus und offizielle Links und veröffentlichen keine ungeprüften Preise, Gebote oder neuen Auktionen.', status: 'Status', lastUpdated: 'Letzte Aktualisierung', official: 'Offizielle Website', registryUpdated: 'Register aktualisiert', coverageUnavailable: 'Das Register der kantonalen Quellen ist nicht verfügbar: Die Abdeckung bleibt ausdrücklich ungeprüft und Auktionsdaten werden ausgeblendet.', },
   fr: { title: 'Ventes aux enchères de plaques suisses', intro: 'Enchères publiques de plaques suisses: prix actuels et résultats finaux vérifiés.', context: 'Cette page rassemble les catalogues cantonaux publics. Un prix actuel est la dernière offre visible, pas une vente conclue. Les résultats finaux ne sont ajoutés à l’historique que lorsqu’une source officielle les rend vérifiables. Les noms des enchérisseurs ne sont ni collectés ni publiés.', sources: 'Sources cantonales', current: 'Enchères en cours', rankings: 'Classements', allListings: 'Autres enchères publiées', page: 'Page', noData: 'Aucune ligne publique n’est disponible pour le moment.', notDiscovered: 'La source publique d’enchères de ce canton n’est pas encore vérifiée. La page de couverture reste visible sans inventer de valeurs.', method: 'Méthode et limites', detail: 'Détails', coverage: 'Couverture par canton', coverageInProgress: 'Couverture en cours', coverageIntro: 'Le registre indique, pour chaque canton, la source officielle vérifiée et le statut du connecteur. Les enchères ne sont affichées que pour les sources actives.', coverageInProgressIntro: 'Aucun canton ne dispose encore d’une source active. Nous affichons donc uniquement le statut de vérification et les liens officiels, sans publier de prix, d’offres ou de nouvelles enchères non vérifiés.', status: 'Statut', lastUpdated: 'Dernière mise à jour', official: 'Site officiel', registryUpdated: 'Registre mis à jour', coverageUnavailable: 'Le registre des sources cantonales est indisponible : la couverture reste explicitement non vérifiée et les données d’enchères sont masquées.', },
+};
+
+// Index pages need enough factual context to remain useful when the data
+// table is bounded. This copy explains the snapshot, pagination and source
+// policy; it is not a threshold-specific filler string.
+const CATALOGUE_GUIDE: Record<PlateLocale, string> = {
+  it: 'Il catalogo riunisce le targhe pubblicate nello snapshot verificato del cantone. Le pagine numerate dividono l’elenco in gruppi leggibili: apri una scheda per vedere stato, prezzo e scadenza disponibili, poi controlla sempre il collegamento ufficiale prima di fare affidamento su un dato. Le righe storiche restano pubblicate solo quando la fonte le rende verificabili e gli elementi in conflitto vengono esclusi. Il numero totale indica le righe pubblicate nello snapshot, non una previsione di nuove aste; il catalogo non raccoglie dati personali e non sostituisce la fonte cantonale.',
+  en: 'This catalogue groups the plate records published in the canton’s verified snapshot. Numbered pages keep the list readable: open a listing to see the available status, price and deadline, then check the official source before relying on a value. Historical rows remain visible only when an official publication makes them verifiable, and conflicting records are left out rather than presented as facts. The total count describes published records in this snapshot, not a promise of future auctions; the catalogue does not collect personal data and never replaces the canton’s official publication. Prices and deadlines can change after the snapshot, so the source link is the authority for the latest status.',
+  de: 'Dieser Katalog bündelt die Kontrollschilder aus dem geprüften Snapshot des Kantons. Nummerierte Seiten halten die Liste lesbar: Öffnen Sie einen Eintrag, um verfügbaren Status, Preis und Frist zu sehen, und prüfen Sie die offizielle Quelle, bevor Sie einen Wert verwenden. Historische Zeilen bleiben nur sichtbar, wenn eine offizielle Veröffentlichung sie überprüfbar macht; widersprüchliche Datensätze werden nicht als Tatsachen ausgegeben. Die Gesamtzahl beschreibt veröffentlichte Datensätze dieses Snapshots und keine Zusage für künftige Auktionen; der Katalog sammelt keine Personendaten und ersetzt die offizielle kantonale Veröffentlichung nicht. Preise und Fristen können sich nach dem Snapshot ändern.',
+  fr: 'Ce catalogue rassemble les plaques publiées dans le relevé cantonal vérifié. Les pages numérotées gardent la liste lisible : ouvrez une fiche pour voir le statut, le prix et l’échéance disponibles, puis vérifiez toujours la source officielle avant de vous fier à une valeur. Les lignes historiques restent visibles uniquement lorsqu’une publication officielle les rend vérifiables, et les données contradictoires sont écartées. Le nombre total décrit les fiches publiées dans ce relevé, pas une promesse de nouvelles enchères ; le catalogue ne recueille aucune donnée personnelle et ne remplace pas la publication officielle du canton. Les prix et les échéances peuvent changer après le relevé.',
 };
 
 const STATUS_LABELS: Record<PlateLocale, Record<PlateAuctionSourceStatus, string>> = {
@@ -181,8 +196,8 @@ function publishedDetailRows(rows: SnapshotRow[], locale: PlateLocale): Snapshot
     return true;
   });
 }
-function detailLinksForRows(rows: SnapshotRow[], locale: PlateLocale): string {
-  return publishedDetailRows(rows, locale).map((row) => {
+function detailLinksForRows(rows: SnapshotRow[], locale: PlateLocale, limit = DIRECTORY_PAGE_LINK_LIMIT): string {
+  return publishedDetailRows(rows, locale).slice(0, limit).map((row) => {
     const href = detailPathForRow(row, locale);
     return `<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></li>`;
   }).join('');
@@ -190,13 +205,23 @@ function detailLinksForRows(rows: SnapshotRow[], locale: PlateLocale): string {
 
 function cantonPaginationLinks(locale: PlateLocale, canton: string, currentPage: number | undefined, pageCount: number, copy: typeof COPY.it): string {
   if (pageCount <= 1) return '';
-  const links = Array.from({ length: pageCount - 1 }, (_, index) => {
-    const page = index + 2;
+  const selectedPages = new Set<number>([2, Math.min(pageCount, 3), Math.max(2, pageCount - 1), pageCount]);
+  if (currentPage !== undefined) {
+    selectedPages.add(Math.max(2, currentPage - 1));
+    selectedPages.add(currentPage);
+    selectedPages.add(Math.min(pageCount, currentPage + 1));
+  }
+  const pages = [...selectedPages].filter((page) => page >= 2 && page <= pageCount).sort((a, b) => a - b);
+  const links: string[] = [];
+  let previousPage: number | undefined;
+  for (const page of pages) {
+    if (previousPage !== undefined && page > previousPage + 1) links.push('<li aria-hidden="true">…</li>');
     const href = pathFor(locale, 'canton', canton, undefined, undefined, page);
     const active = currentPage === page ? ' aria-current="page"' : '';
-    return `<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}"${active}>${esc(copy.page)} ${page}</a></li>`;
-  }).join('');
-  return `<nav aria-label="${esc(copy.allListings)}"><h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${links}</ul></nav>`;
+    links.push(`<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}"${active}>${esc(copy.page)} ${page}</a></li>`);
+    previousPage = page;
+  }
+  return `<nav aria-label="${esc(copy.allListings)}"><h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${links.join('')}</ul></nav>`;
 }
 
 export type PlateAuctionContext = {
@@ -312,6 +337,7 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
           : candidateRows.slice(0, 24);
   const name = canton ? (CANTON_NAMES[canton]?.[locale] || canton) : undefined;
   const directoryRows = view === 'directory' ? publishedDetailRows(cantonDetailRows, locale) : [];
+  const directoryPageRows = directoryRows.slice(0, DIRECTORY_PAGE_LINK_LIMIT);
   const pageSuffix = pageNumber ? ` — ${copy.page} ${pageNumber}` : '';
   const title = view === 'detail' ? `${detailRow?.normalizedPlate || plate || copy.detail} — ${name || detailRow?.canton || copy.title}` : view === 'rankings' ? `${copy.title} — ${copy.rankings}` : view === 'directory' ? `${copy.title}: ${name || canton || copy.title} — ${copy.allListings}` : name ? `${copy.title}: ${name}${pageSuffix}` : copy.title;
   const description = view === 'detail' ? `${copy.intro} ${detailRow?.normalizedPlate || plate || copy.detail}, ${name || detailRow?.canton || copy.title}.` : name ? `${copy.intro} ${name}${pageSuffix}.` : copy.intro;
@@ -325,6 +351,10 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
     ? cantonPaginationLinks(locale, canton, pageNumber, Math.ceil(cantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy)
     : '';
   const directoryLinks = view === 'directory' ? detailLinksForRows(directoryRows, locale) : '';
+  const directoryPaginationLinks = view === 'directory' && canton
+    ? cantonPaginationLinks(locale, canton, undefined, Math.ceil(cantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy)
+    : '';
+  const catalogueGuide = view === 'canton' || view === 'directory' ? `<p>${esc(CATALOGUE_GUIDE[locale])}</p>` : '';
   const directoryIndexLink = view === 'canton' && canton && cantonDetailRows.length > 0
     ? `<p><a href="${esc(pathFor(locale, 'directory', canton))}" style="${LINK_ACCENT_STYLE}">${esc(copy.allListings)}</a></p>`
     : '';
@@ -343,8 +373,8 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   const listingSection = view === 'hub' && !hasActiveSource
     ? ''
     : view === 'directory'
-      ? `<section><h2 style="${H2_STYLE}">${esc(copy.allListings)}</h2><p>${esc(copy.context)}</p><ul>${directoryLinks || `<li>${esc(copy.noData)}</li>`}</ul></section>`
-      : `<section><h2 style="${H2_STYLE}">${esc(listingHeading)}</h2>${tableRows(rows, locale, copy)}${directoryIndexLink}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}${paginationLinks}</section>`;
+      ? `<section><h2 style="${H2_STYLE}">${esc(copy.allListings)}</h2><p>${esc(copy.context)}</p>${catalogueGuide}<ul>${directoryLinks || `<li>${esc(copy.noData)}</li>`}</ul>${directoryPaginationLinks}</section>`
+      : `<section><h2 style="${H2_STYLE}">${esc(listingHeading)}</h2>${catalogueGuide}${tableRows(rows, locale, copy)}${directoryIndexLink}${detailLinks ? `<h3 style="${H2_STYLE}">${esc(copy.allListings)}</h3><ul>${detailLinks}</ul>` : ''}${paginationLinks}</section>`;
   const coverageSource = coverage.entries.find((source) => source.plateCode.toUpperCase() === String(canton || '').toUpperCase());
   const sourceSection = `<section><h2 style="${H2_STYLE}">${esc(canton ? copy.method : copy.sources)}</h2><p>${esc(canton && coverageSource?.status !== 'active' ? copy.notDiscovered : copy.context)}</p>${canton || view === 'detail' ? '' : `<ul>${links}</ul>`}</section>`;
   // Detail pages only: index pages already carry a table of many rows plus the
@@ -358,8 +388,10 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   // this page-specific string as inner content so React mounts only its lite
   // chrome in #root and cannot replace the crawler-facing table.
   const staticBody = body.replace(/^<main>/, '').replace(/<\/main>$/, '');
-  const itemList = (view === 'directory' ? directoryRows : rows).map((row, index) => ({ '@type': 'ListItem', position: index + 1, name: row.normalizedPlate, url: `${BASE_URL}${detailPathForRow(row, locale)}` }));
-  const jsonLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': view === 'detail' ? 'WebPage' : 'CollectionPage', name: title, url: canonicalUrl, description, inLanguage: locale, ...(snapshot.generatedAt ? { dateModified: snapshot.generatedAt } : {}), ...(view === 'detail' ? { about: { '@type': 'Thing', name: detailRow?.normalizedPlate || plate } } : { mainEntity: { '@type': 'ItemList', itemListElement: itemList } }) });
+  const itemListRows = view === 'directory' ? directoryPageRows : rows;
+  const itemList = itemListRows.map((row, index) => ({ '@type': 'ListItem', position: index + 1, name: row.normalizedPlate, url: `${BASE_URL}${detailPathForRow(row, locale)}` }));
+  const itemListTotal = view === 'directory' ? directoryRows.length : rows.length;
+  const jsonLd = inlineScriptJson({ '@context': 'https://schema.org', '@type': view === 'detail' ? 'WebPage' : 'CollectionPage', name: title, url: canonicalUrl, description, inLanguage: locale, ...(snapshot.generatedAt ? { dateModified: snapshot.generatedAt } : {}), ...(view === 'detail' ? { about: { '@type': 'Thing', name: detailRow?.normalizedPlate || plate } } : { mainEntity: { '@type': 'ItemList', numberOfItems: itemListTotal, itemListElement: itemList } }) });
   const breadcrumbItems: Array<Record<string, unknown>> = [{ '@type': 'ListItem', position: 1, name: 'Home', item: `${BASE_URL}/` }];
   if (view !== 'hub') {
     breadcrumbItems.push({ '@type': 'ListItem', position: 2, name: copy.title, item: `${BASE_URL}${pathFor(locale, 'hub')}` });
