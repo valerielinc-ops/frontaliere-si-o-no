@@ -21,6 +21,7 @@ import {
 import {
   canDeleteClosedCandidate,
   canDeleteIssueFix,
+  hasAncestryProof,
   needsSnapshot,
 } from '../scripts/lib/branch-purge-policy.mjs';
 
@@ -250,6 +251,14 @@ describe('guardie del purge', () => {
     expect(needsSnapshot({ prState: 'MERGED', ahead: 4, hasSnapshot: true })).toBe(false);
     expect(needsSnapshot({ prState: 'MERGED', ahead: 0, hasSnapshot: false })).toBe(false);
     expect(needsSnapshot({ prState: 'CLOSED', ahead: 4, hasSnapshot: false })).toBe(false);
+  });
+
+  it('accetta solo il confronto che dimostra che il tip locale è antenato della PR', () => {
+    expect(hasAncestryProof({ status: 'ahead', ahead_by: 8, behind_by: 0 })).toBe(true);
+    expect(hasAncestryProof({ status: 'behind', ahead_by: 0, behind_by: 2 })).toBe(false);
+    expect(hasAncestryProof({ status: 'diverged', ahead_by: 1, behind_by: 1 })).toBe(false);
+    expect(hasAncestryProof({ status: 'ahead', ahead_by: 8, behind_by: '0' })).toBe(false);
+    expect(hasAncestryProof(null)).toBe(false);
   });
 });
 
