@@ -200,6 +200,33 @@ describe('plate-auction static pages', () => {
     expect(itemList.mainEntity.itemListElement).toHaveLength(48);
   });
 
+  it('paginates from publishable rows when the boundary row is conflicting', () => {
+    const rootDir = fixtureRoot({ auctionCount: 48 });
+    const context = loadPlateAuctionContext(rootDir);
+    const sourceRows = context.detailRowsByCanton.get('GR')!;
+    const pollutedRows = [
+      ...sourceRows.slice(0, 48),
+      { ...sourceRows[0], normalizedPlate: 'GR-CONFLICTING', dataConfidence: 'conflicting' },
+    ];
+    const detailRowsByCanton = new Map(context.detailRowsByCanton);
+    detailRowsByCanton.set('GR', pollutedRows);
+    const rendered = renderPlateAuctionPage({
+      locale: 'it',
+      view: 'directory',
+      canton: 'GR',
+      rootDir,
+      context: { ...context, detailRowsByCanton },
+    });
+
+    expect(rendered.html).not.toContain('/aste-targhe-svizzera/grigioni-gr/pagina-2/');
+    const itemListPayload = [...rendered.html.matchAll(/<script[^>]*type=["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi)]
+      .map((match) => match[1])
+      .find((json) => json.includes('"@type":"ItemList"'));
+    const itemList = JSON.parse(itemListPayload!) as { mainEntity: { numberOfItems: number; itemListElement: Array<unknown> } };
+    expect(itemList.mainEntity.numberOfItems).toBe(48);
+    expect(itemList.mainEntity.itemListElement).toHaveLength(48);
+  });
+
   it('caps extra detail links when a small current catalogue has old rows', () => {
     const rootDir = fixtureRoot();
     const snapshotPath = join(rootDir, 'public', 'data', 'plate-auctions.json');

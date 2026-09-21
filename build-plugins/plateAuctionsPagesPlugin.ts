@@ -313,6 +313,7 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   const { snapshot, coverage, auctionRows, detailRows, detailRowsByPlate, detailRowsByCanton, rankingRows } = context ?? loadPlateAuctionContext(rootDir);
   const pageNumber = Number.isSafeInteger(page) && page >= 2 ? page : undefined;
   const cantonDetailRows = canton ? (detailRowsByCanton.get(canton.toUpperCase()) || []) : [];
+  const publishedCantonDetailRows = canton ? publishedDetailRows(cantonDetailRows, locale) : [];
   const detailRow = view === 'detail'
     ? (detailRowsByPlate.get(String(plate || '').toLowerCase()) || []).find((row) => (!canton || row.sourceKey === canton || row.platePrefix === canton) && (vehicleType ? (row.vehicleType || 'car') === vehicleType : (row.vehicleType || 'car') === 'car'))
     : undefined;
@@ -325,7 +326,7 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
       && row.dataConfidence !== 'conflicting'
       && (!canton || row.sourceKey === canton || row.platePrefix === canton))
     .sort((a, b) => (view === 'rankings' ? (b.finalPriceChf || 0) - (a.finalPriceChf || 0) : (b.currentBidChf ?? b.startingPriceChf ?? 0) - (a.currentBidChf ?? a.startingPriceChf ?? 0)));
-  const pagedRows = pageNumber ? cantonDetailRows.slice((pageNumber - 1) * PLATE_AUCTION_INDEX_PAGE_SIZE, pageNumber * PLATE_AUCTION_INDEX_PAGE_SIZE) : [];
+  const pagedRows = pageNumber ? publishedCantonDetailRows.slice((pageNumber - 1) * PLATE_AUCTION_INDEX_PAGE_SIZE, pageNumber * PLATE_AUCTION_INDEX_PAGE_SIZE) : [];
   const rows = detailRow
     ? [detailRow]
     : view === 'detail' || view === 'directory'
@@ -336,7 +337,7 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
           ? candidateRows.slice(0, CANTON_INDEX_MAX_ROWS)
           : candidateRows.slice(0, 24);
   const name = canton ? (CANTON_NAMES[canton]?.[locale] || canton) : undefined;
-  const directoryRows = view === 'directory' ? publishedDetailRows(cantonDetailRows, locale) : [];
+  const directoryRows = view === 'directory' ? publishedCantonDetailRows : [];
   const directoryPageRows = directoryRows.slice(0, DIRECTORY_PAGE_LINK_LIMIT);
   const pageSuffix = pageNumber ? ` — ${copy.page} ${pageNumber}` : '';
   const title = view === 'detail' ? `${detailRow?.normalizedPlate || plate || copy.detail} — ${name || detailRow?.canton || copy.title}` : view === 'rankings' ? `${copy.title} — ${copy.rankings}` : view === 'directory' ? `${copy.title}: ${name || canton || copy.title} — ${copy.allListings}` : name ? `${copy.title}: ${name}${pageSuffix}` : copy.title;
@@ -345,17 +346,17 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const links = allPlateAuctionCantonCodes().map((code) => `<li><a href="${esc(pathFor(locale, 'canton', code))}" style="${LINK_ACCENT_STYLE}">${esc(code)} — ${esc(CANTON_NAMES[code]?.[locale] || code)}</a></li>`).join('');
   const detailLinks = view === 'canton' && !pageNumber
-    ? unlistedDetailLinks(cantonDetailRows, locale, rows, PLATE_AUCTION_INDEX_PAGE_SIZE)
+    ? unlistedDetailLinks(publishedCantonDetailRows, locale, rows, PLATE_AUCTION_INDEX_PAGE_SIZE)
     : '';
   const paginationLinks = view === 'canton' && canton
-    ? cantonPaginationLinks(locale, canton, pageNumber, Math.ceil(cantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy)
+    ? cantonPaginationLinks(locale, canton, pageNumber, Math.ceil(publishedCantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy)
     : '';
   const directoryLinks = view === 'directory' ? detailLinksForRows(directoryRows, locale) : '';
   const directoryPaginationLinks = view === 'directory' && canton
-    ? cantonPaginationLinks(locale, canton, undefined, Math.ceil(cantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy)
+    ? cantonPaginationLinks(locale, canton, undefined, Math.ceil(publishedCantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy)
     : '';
   const catalogueGuide = view === 'canton' || view === 'directory' ? `<p>${esc(CATALOGUE_GUIDE[locale])}</p>` : '';
-  const directoryIndexLink = view === 'canton' && canton && cantonDetailRows.length > 0
+  const directoryIndexLink = view === 'canton' && canton && publishedCantonDetailRows.length > 0
     ? `<p><a href="${esc(pathFor(locale, 'directory', canton))}" style="${LINK_ACCENT_STYLE}">${esc(copy.allListings)}</a></p>`
     : '';
   const parentPath = canton ? pathFor(locale, 'canton', canton) : view === 'rankings' ? pathFor(locale, 'rankings') : pathFor(locale, 'hub');
@@ -417,6 +418,8 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     const context = loadPlateAuctionContext(rootDir);
     const { detailRows, detailRowsByCanton } = context;
     const directoryCantons = new Set(detailRows.map((row) => String(row.sourceKey || row.platePrefix).toUpperCase()));
+    const publishedRowsFor = (canton: string, locale: PlateLocale) =>
+      publishedDetailRows(detailRowsByCanton.get(canton) || [], locale);
     let written = 0;
     for (const locale of LOCALES) {
       for (const view of ['hub', 'rankings'] as const) {
@@ -430,7 +433,7 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
           const directory = renderPlateAuctionPage({ locale, view: 'directory', canton, rootDir, distDir, context });
           const directoryOut = np.join(distDir, directory.urlPath, 'index.html'); fs.mkdirSync(np.dirname(directoryOut), { recursive: true }); fs.writeFileSync(directoryOut, directory.html, 'utf8'); written++;
         }
-        const pageCount = Math.ceil((detailRowsByCanton.get(canton) || []).length / PLATE_AUCTION_INDEX_PAGE_SIZE);
+        const pageCount = Math.ceil(publishedRowsFor(canton, locale).length / PLATE_AUCTION_INDEX_PAGE_SIZE);
         for (let page = 2; page <= pageCount; page++) {
           const paged = renderPlateAuctionPage({ locale, view: 'canton', canton, page, rootDir, distDir, context });
           const pagedOut = np.join(distDir, paged.urlPath, 'index.html'); fs.mkdirSync(np.dirname(pagedOut), { recursive: true }); fs.writeFileSync(pagedOut, paged.html, 'utf8'); written++;
@@ -443,7 +446,7 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     }
     const sitemapUrls = LOCALES.flatMap((locale) => {
       const cantonPaths = allPlateAuctionCantonCodes().flatMap((code) => {
-        const pageCount = Math.ceil((detailRowsByCanton.get(code) || []).length / PLATE_AUCTION_INDEX_PAGE_SIZE);
+        const pageCount = Math.ceil(publishedRowsFor(code, locale).length / PLATE_AUCTION_INDEX_PAGE_SIZE);
         return [pathFor(locale, 'canton', code), ...(directoryCantons.has(code) ? [pathFor(locale, 'directory', code)] : []), ...Array.from({ length: Math.max(0, pageCount - 1) }, (_, index) => pathFor(locale, 'canton', code, undefined, undefined, index + 2))];
       });
       return [pathFor(locale, 'hub'), pathFor(locale, 'rankings'), ...cantonPaths, ...detailRows.map((row) => detailPathForRow(row, locale))];
