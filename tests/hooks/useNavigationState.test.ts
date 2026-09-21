@@ -44,6 +44,7 @@ vi.mock('@/hooks/seoHelpers', () => ({
   enableRuntimeSeo: vi.fn(),
   updateMetaTags: vi.fn(),
   trackSectionView: vi.fn(),
+  loadSeoService: vi.fn(() => Promise.resolve({ applyNotFoundSeo: vi.fn() })),
 }));
 
 // seoService is mocked globally in tests/setup.tsx (includes applyNotFoundSeo).
