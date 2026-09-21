@@ -72,6 +72,14 @@
  *      principale e da un worktree e confronta «File di codice cambiati»; senza
  *      `--head` i due numeri divergono, con `--head <branch>` no.
  *
+ *   9. Matching AST e binding locali (2026-09-21): quando un token del diff ha
+ *      una forma TypeScript riconoscibile (call, member, declaration, import o
+ *      literal), il candidato deve contenere la stessa forma AST. Per gli
+ *      import locali viene risolto anche il modulo e il nome esportato, così
+ *      due helper omonimi di moduli diversi non vengono trattati come lo stesso
+ *      simbolo. È un grafo temporaneo per la singola scansione, non un index
+ *      persistente; i token senza forma AST restano sul pass lessicale storico.
+ *
  * Uso:
  *   node scripts/ci/check-sibling-patterns.mjs            # advisory, exit 0
  *   node scripts/ci/check-sibling-patterns.mjs --base <ref>
@@ -79,13 +87,21 @@
  *   node scripts/ci/check-sibling-patterns.mjs --strict   # exit 1 se candidati
  *   node scripts/ci/check-sibling-patterns.mjs --json
  *
- * Zero dipendenze, solo git in PATH. Cerca solo file tracked (git grep).
+ * Nessuna dipendenza aggiuntiva: usa il TypeScript già presente nel progetto e
+ * git in PATH. Cerca solo file tracked (git grep).
  */
 import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { resolve } from 'node:path';
 import { readFileSync } from 'node:fs';
 import { resolveMergeBase, formatUnresolvableMergeBaseVerdict } from './lib/resolve-merge-base.mjs';
+import {
+  astMatchLabels,
+  collectAstFacts,
+  diffLineRanges,
+  factsContainingToken,
+  matchAstFacts,
+} from './lib/sibling-ast-graph.mjs';
 
 const argv = process.argv.slice(2);
 const STRICT = argv.includes('--strict');
@@ -215,6 +231,18 @@ function readTracked(file) {
   return git(['show', `${HEAD_REF}:${file}`], { allowFail: true }) || null;
 }
 
+/** List the code files that exist in the revision being inspected. */
+function trackedCodeFiles() {
+  const args = HEAD_REF
+    ? ['ls-tree', '-r', '--name-only', HEAD_REF, '--', ...CODE_DIRS]
+    : ['ls-files', '--', ...CODE_DIRS];
+  return git(args, { allowFail: true })
+    .split('\n')
+    .map((file) => file.trim())
+    .filter(Boolean)
+    .filter(isCodeFile);
+}
+
 /**
  * Quanto è FORTE l'aggancio che ha portato dentro un candidato (2026-09-05).
  *
@@ -239,7 +267,12 @@ export function candidateStrength(tokens) {
   const list = Array.isArray(tokens) ? tokens : [];
   const structural = list.some((t) => t.startsWith('class:"') || t.startsWith('removed:"'));
   if (structural) return 'forte';
-  return list.length >= 2 ? 'forte' : 'debole';
+  // AST labels explain the same lexical construct; they must not turn one
+  // identifier into two independent signals. A resolved graph binding is
+  // independent evidence and is therefore strong on its own.
+  if (list.some((t) => t.startsWith('graph:'))) return 'forte';
+  const lexical = list.filter((t) => !t.startsWith('ast:') && !t.startsWith('graph:'));
+  return lexical.length >= 2 ? 'forte' : 'debole';
 }
 
 function resolveBase() {
@@ -628,11 +661,17 @@ function main() {
   }
 
   // Raccoglie i token distintivi dalle righe cambiate e le espressioni rimosse.
+  // L'AST layer filtra i token che hanno una forma strutturale: un nome in un
+  // commento o in una stringa non basta più a far entrare un candidato, mentre
+  // i token senza una forma AST (slug/config literal) conservano il pass
+  // lessicale storico.
   const tokenToChangedFiles = new Map(); // token -> Set(file che l'ha cambiato)
+  const astFactsByToken = new Map(); // token -> facts AST presenti nelle righe aggiunte
   const removedExprs = new Set(); // espressioni verbatim da righe `-` (pass #6)
+  const astFiles = new Set([...trackedCodeFiles(), ...changedCode]);
   for (const file of changedCode) {
     const diff = git(
-      ['diff', mergeBase, ...(HEAD_REF ? [HEAD_REF] : []), '--', file],
+      ['diff', '--unified=0', mergeBase, ...(HEAD_REF ? [HEAD_REF] : []), '--', file],
       { allowFail: true },
     );
     const touched = diff
@@ -640,9 +679,25 @@ function main() {
       .filter((l) => (l.startsWith('+') || l.startsWith('-')) && !/^(\+\+\+|---)/.test(l))
       .map((l) => l.slice(1))
       .join('\n');
-    for (const tok of extractTokens(touched)) {
+    const changedTokens = extractTokens(touched);
+    for (const tok of changedTokens) {
       if (!tokenToChangedFiles.has(tok)) tokenToChangedFiles.set(tok, new Set());
       tokenToChangedFiles.get(tok).add(file);
+    }
+
+    const source = readTracked(file);
+    const changedRanges = diffLineRanges(diff, 'new');
+    if (source && changedRanges.length > 0) {
+      const changedFacts = collectAstFacts(file, source, {
+        lineRanges: changedRanges,
+        files: astFiles,
+      });
+      for (const tok of changedTokens) {
+        const facts = factsContainingToken(changedFacts, tok);
+        if (facts.length === 0) continue;
+        if (!astFactsByToken.has(tok)) astFactsByToken.set(tok, []);
+        astFactsByToken.get(tok).push(...facts);
+      }
     }
     // Pass verbatim: raccogli espressioni significative dalle sole righe rimosse
     for (const expr of extractRemovedExpressions(diff)) {
@@ -669,17 +724,36 @@ function main() {
   // Per ogni token: git grep dei file tracked nei CODE_DIRS; tieni i candidati
   // non toccati dal branch. Scarta i token troppo generici (> MAX_FILES match).
   const candidateTokens = new Map(); // file -> Set(token condiviso)
+  const astFactsCache = new Map();
+  const factsForCandidate = (file) => {
+    if (astFactsCache.has(file)) return astFactsCache.get(file);
+    const source = readTracked(file);
+    const facts = source
+      ? collectAstFacts(file, source, { files: astFiles })
+      : [];
+    astFactsCache.set(file, facts);
+    return facts;
+  };
   const pathspecs = [...CODE_DIRS, ...EXCLUDE_PATHSPECS];
   for (const [tok, srcFiles] of tokenToChangedFiles) {
     const hits = grepFiles(['-l', '--fixed-strings', '-e', tok], pathspecs);
     if (hits.length > MAX_FILES) continue; // troppo comune → rumore
+    const changedFacts = astFactsByToken.get(tok) ?? null;
     for (const f of hits) {
       if (changedSet.has(f)) continue; // già nel branch
       if (!isCodeFile(f)) continue;
       // ignora self-match dei file sorgente del token (sono già changed)
       if (srcFiles.has(f)) continue;
+      const astMatches = changedFacts
+        ? matchAstFacts(changedFacts, factsForCandidate(f))
+        : [];
+      // Se il token ha una forma AST nel diff, richiedi la stessa forma nel
+      // candidato. I token puramente lessicali seguono invece il comportamento
+      // storico e non vengono filtrati.
+      if (changedFacts && astMatches.length === 0) continue;
       if (!candidateTokens.has(f)) candidateTokens.set(f, new Set());
       candidateTokens.get(f).add(tok);
+      for (const label of astMatchLabels(astMatches)) candidateTokens.get(f).add(label);
     }
   }
 
