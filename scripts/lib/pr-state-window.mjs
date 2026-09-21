@@ -36,6 +36,41 @@ export function pickBestPrState(prs) {
   return best;
 }
 
+// `gh pr list` espone gia' MERGED, mentre l'endpoint REST
+// `commits/<sha>/pulls` espone una PR mergiata come state=CLOSED con
+// merged_at valorizzato. Normalizziamo qui i due contratti, prima di
+// scegliere lo stato piu' vivo.
+export function normalizeAssociatedPr(pr) {
+  if (!pr || typeof pr !== 'object') return undefined;
+  const state = pr.merged_at || pr.mergedAt
+    ? 'MERGED'
+    : String(pr.state || '').toUpperCase();
+  if (!RANK[state]) return undefined;
+  return { ...pr, state };
+}
+
+// Ritorna il record completo, non solo lo stato: il chiamante puo' spiegare
+// quale PR ha sbloccato un branch storico e lasciare una traccia nel dry-run.
+export function pickBestAssociatedPr(prs, { baseBranch } = {}) {
+  let best;
+  for (const raw of prs || []) {
+    const pr = normalizeAssociatedPr(raw);
+    if (baseBranch && pr && (pr.baseRefName || pr.base?.ref) !== baseBranch) continue;
+    if (!pr || !best || rankPrState(pr.state) > rankPrState(best.state)) best = pr;
+  }
+  return best;
+}
+
+// L'endpoint per commit non garantisce che la PR punti al default branch del
+// repository che stiamo ripulendo. Il base ref e' quindi parte della prova:
+// una PR mergiata verso un branch di staging non autorizza a cancellare lo
+// snapshot locale del sito.
+export function isMergedPullRequestToBase(pr, { baseBranch }) {
+  const normalized = normalizeAssociatedPr(pr);
+  return normalized?.state === 'MERGED'
+    && (normalized.baseRefName || normalized.base?.ref) === baseBranch;
+}
+
 export function headQueryCommand(branch) {
   return `gh pr list --head '${branch}' --state all --limit 10 --json state,baseRefName,headRefName,headRefOid`;
 }

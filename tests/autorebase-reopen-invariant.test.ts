@@ -126,4 +126,27 @@ describe('branch janitor: davanti a quell\'etichetta non cancella', () => {
     expect(janitor).toContain('sleep 8');
     expect(janitor).toContain('"$STATE" = "OPEN"');
   });
+
+  it('non cancella un fix/issue chiuso finché non prova AHEAD=0', () => {
+    const start = janitor.indexOf('  sweep:');
+    const body = janitor.slice(start, janitor.indexOf('  delete-closed-unmerged:'));
+    const ahead = body.indexOf('AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$NAME"');
+    const issueDelete = body.indexOf('issue #$ISSUE_N CLOSED');
+    const issueKeep = body.indexOf('issue #$ISSUE_N CLOSED (${IREASON:-completed}) ma ahead=$AHEAD: REPORT-only');
+    expect(ahead).toBeGreaterThan(-1);
+    expect(issueDelete).toBeGreaterThan(ahead);
+    expect(issueKeep).toBeGreaterThan(ahead);
+    expect(body).toContain('PR CLOSED non mergiata, ahead=$AHEAD: REPORT-only');
+  });
+
+  it('il close-event cancella solo uno head verificato 0-ahead', () => {
+    const start = janitor.indexOf('  delete-closed-unmerged:');
+    const body = janitor.slice(start);
+    const compare = body.indexOf('AHEAD=$(gh api "repos/$REPO/compare/$DEFAULT_BRANCH...$HEAD_REF"');
+    const deleteIdx = body.indexOf('-X DELETE');
+    expect(compare).toBeGreaterThan(-1);
+    expect(deleteIdx).toBeGreaterThan(compare);
+    expect(body).toContain('if [ "$AHEAD" != "0" ]; then');
+    expect(body).toContain('if [ "$STATE" != "CLOSED" ]; then');
+  });
 });
