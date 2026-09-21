@@ -6632,6 +6632,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.guida-lavoro-argovia-2026.title': 'Guida pratica per cercare lavoro in Argovia 2026',
     'blog.article.guida-lavoro-argovia-2026.excerpt': 'Il mercato svizzero 2026 offre posti in ingegneria, tecnologia, sanità e logistica; in Argovia la tassazione è a tre livelli e i contributi AVS/AI/IPG ammontano al 5,3% per i dipendenti.',
     'blog.article.guida-lavoro-argovia-2026.imageAlt': 'Ufficio moderno ad Aarau, Argovia, con professionisti in movimento e bandiera svizzera sullo sfondo.',
+    'blog.article.rialzo-tassi-ipotecari-svizzera.title': 'Tassi ipotecari in Svizzera: il 10 anni supera il 2%',
+    'blog.article.rialzo-tassi-ipotecari-svizzera.excerpt': 'A settembre i tassi ipotecari a 10 anni salgono al 2,06% e quelli a 5 anni all\'1,83%. Fine dell\'era dei tassi bassissimi per il mercato immobiliare.',
+    'blog.article.rialzo-tassi-ipotecari-svizzera.imageAlt': 'Panorama residenziale svizzero con case moderne e montagne',
 };
 
 export default blogMetaChIt;
