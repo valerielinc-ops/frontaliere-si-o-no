@@ -6617,6 +6617,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.migros-fusione-cooperative-2035.title': 'Migros evaluates merger of the 10 cooperatives',
     'blog.article.migros-fusione-cooperative-2035.excerpt': 'CEO Irminger evaluates a single national cooperative. 2.3 million members potentially involved, decision in progress.',
     'blog.article.migros-fusione-cooperative-2035.imageAlt': 'View of the Federal Palace in Bern, headquarters of Swiss institutions, at dusk.',
+    'blog.article.lidl-abolisce-arrotondamento-cassa.title': 'Lidl abolishes cash rounding for cards and online',
+    'blog.article.lidl-abolisce-arrotondamento-cassa.excerpt': 'German discount Lidl has eliminated downward rounding for card and online payments, saving over a million francs.',
+    'blog.article.lidl-abolisce-arrotondamento-cassa.imageAlt': 'Supermarket checkout in Switzerland with card payment terminal',
 };
 
 export default blogMetaChEn;

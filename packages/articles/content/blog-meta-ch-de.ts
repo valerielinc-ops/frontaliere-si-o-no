@@ -6617,6 +6617,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.migros-fusione-cooperative-2035.title': 'Migros Währung Fusion der 10 Genossenschaften',
     'blog.article.migros-fusione-cooperative-2035.excerpt': 'CEO Irminger bewertet eine einzige nationale Genossenschaft. 2,3 Millionen potenziell beteiligte Mitglieder, Entscheidung im Gange.',
     'blog.article.migros-fusione-cooperative-2035.imageAlt': 'Ansicht des Bundeshauses in Bern, Sitz der Schweizer Institutionen, bei Dämmerung.',
+    'blog.article.lidl-abolisce-arrotondamento-cassa.title': 'Lidl schafft die Kassenrundung für Karten und online ab',
+    'blog.article.lidl-abolisce-arrotondamento-cassa.excerpt': 'Der deutsche Discounter Lidl hat die Abrundung bei Karten- und Online-Zahlungen abgeschafft und über eine Million Franken gespart.',
+    'blog.article.lidl-abolisce-arrotondamento-cassa.imageAlt': 'Supermarktkasse in der Schweiz mit Kartenzahlungsterminal',
 };
 
 export default blogMetaChDe;

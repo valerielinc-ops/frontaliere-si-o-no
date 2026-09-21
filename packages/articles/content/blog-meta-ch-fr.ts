@@ -6617,6 +6617,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.migros-fusione-cooperative-2035.title': 'Migros évalue la fusion des 10 coopératives',
     'blog.article.migros-fusione-cooperative-2035.excerpt': 'PDG Irminger évalue une seule coopérative nationale. 2,3 millions d\'associés potentiellement impliqués, décision en cours.',
     'blog.article.migros-fusione-cooperative-2035.imageAlt': 'Vue du Palais fédéral à Berne, siège des institutions suisses, au crépuscule.',
+    'blog.article.lidl-abolisce-arrotondamento-cassa.title': 'Lidl abolit l\'arrondissement en caisse pour les cartes et en ligne',
+    'blog.article.lidl-abolisce-arrotondamento-cassa.excerpt': 'Le discount allemand Lidl a éliminé l\'arrondi vers le bas pour les paiements par carte et en ligne, économisant plus d\'un million de francs.',
+    'blog.article.lidl-abolisce-arrotondamento-cassa.imageAlt': 'Caisse de supermarché en Suisse avec terminal de paiement',
 };
 
 export default blogMetaChFr;

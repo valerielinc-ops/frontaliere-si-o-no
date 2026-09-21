@@ -85781,6 +85781,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-lidl-abolisce-arrotondamento-cassa': {
+    title: 'Lidl abolisce l\'arrotondamento in cassa per carte e online',
+    description: 'Scopri la novità di Lidl in Svizzera: l\'arrotondamento verso il basso in cassa è stato abolito per carte e pagamenti online, con un risparmio milionario.',
+    keywords: 'frontalieri, ticino, svizzera, italia, lidl, abolisce, arrotondamento, cassa',
+    ogTitle: 'Lidl abolisce l\'arrotondamento in cassa per carte e acquisti online',
+    ogDescription: 'Il discount Lidl ha eliminato l\'arrotondamento verso il basso per i pagamenti con carta e online in Svizzera. Scopri i dettagli della nuova prassi e il risparmio stimato.',
+    canonicalPath: '/articoli-svizzera/lidl-abolisce-arrotondamento-cassa/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Lidl abolisce l'arrotondamento in cassa per carte e online",
+      "description": "Scopri la novità di Lidl in Svizzera: l'arrotondamento verso il basso in cassa è stato abolito per carte e pagamenti online, con un risparmio milionario.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/lidl-abolisce-arrotondamento-cassa.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Cassa di un supermercato in Svizzera con terminale per pagamenti"
+      },
+      "datePublished": "2026-09-21T00:16:39+00:00",
+      "dateModified": "2026-09-21T00:16:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/lidl-abolisce-arrotondamento-cassa/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
