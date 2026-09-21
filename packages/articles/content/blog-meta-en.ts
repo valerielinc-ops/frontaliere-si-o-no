@@ -11890,6 +11890,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-cantu-lavorare-ticino.title': 'Living in Cantù and working in Ticino as a border worker',
     'blog.article.vivere-cantu-lavorare-ticino.excerpt': 'Practical guide for those who choose Cantù as their residence: taxation, new border agreement, AVS, LAMal and management of daily commuting to Ticino.',
     'blog.article.vivere-cantu-lavorare-ticino.imageAlt': 'Panoramic view of Lugano, a central location for cross-border commuters working in Ticino',
+    'blog.article.vivere-fenegro-lavorare-ticino.title': 'Living in Fenegrò and working in Ticino as a border worker',
+    'blog.article.vivere-fenegro-lavorare-ticino.excerpt': 'Practical guide on taxation, connections and costs for those who choose Fenegrò as a residence working in the Canton of Ticino.',
+    'blog.article.vivere-fenegro-lavorare-ticino.imageAlt': 'View of a residential village near the border between Italy and Switzerland',
 };
 
 export default blogMetaEn;

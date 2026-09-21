@@ -161,6 +161,18 @@ function italyWeekRange(model: ItalyDutyWeekModel, locale: Locale): string {
   return `${model.weekStart} – ${formatted}`;
 }
 
+function italySourceOnlyDetails(province: ItalyDutyWeekModel['provinces'][number], locale: Locale): string {
+  if (province.publishable) return '';
+  const labels = locale === 'it'
+    ? { status: 'Stato release', freshness: 'Aggiornamento fonte', coverage: 'Copertura calendario', fetched: 'Ultimo recupero' }
+    : locale === 'en'
+      ? { status: 'Release status', freshness: 'Source freshness', coverage: 'Calendar coverage', fetched: 'Last retrieved' }
+      : locale === 'de'
+        ? { status: 'Release-Status', freshness: 'Aktualität der Quelle', coverage: 'Kalenderabdeckung', fetched: 'Letzter Abruf' }
+        : { status: 'Statut du release', freshness: 'Fraîcheur de la source', coverage: 'Couverture du calendrier', fetched: 'Dernière collecte' };
+  return `<dl data-source-only-status="true" style="${BODY_STYLE}"><dt><strong>${esc(labels.status)}</strong></dt><dd>${esc(province.state)}</dd><dt><strong>${esc(labels.freshness)}</strong></dt><dd>${esc(province.freshness)}</dd><dt><strong>${esc(labels.coverage)}</strong></dt><dd>${esc(province.coverage)}</dd><dt><strong>${esc(labels.fetched)}</strong></dt><dd>${esc(province.fetchedAt || '—')}</dd></dl>`;
+}
+
 export function renderItalyDutyWeek({
   pathValue,
   h1,
@@ -200,9 +212,11 @@ export function renderItalyDutyWeek({
       ? `<p style="${BODY_STYLE}"><strong>${esc(copy.fetched)}:</strong> <time datetime="${esc(province.fetchedAt)}">${esc(formatItalyDutyDateTime(province.fetchedAt))}</time></p>`
       : '';
     const statusLabel = province.publishable ? copy.published : copy.notPublished;
-    return `<section class="${CARD_CLASS}" data-italy-duty-province="${esc(province.code)}"${province.publishable ? ' data-italy-duty-published="true"' : ''}><h2 style="${H2_STYLE}">${esc(province.name)}</h2><p style="${BODY_STYLE}"><strong>${esc(statusLabel)}</strong>${source}</p>${fetched}${rows ? `<table style="${BODY_STYLE}"><thead><tr><th>${esc(copy.date)}</th><th>${esc(copy.hours)}</th><th>${esc(copy.pharmacy)}</th><th>${esc(copy.source)}</th></tr></thead><tbody>${rows}</tbody></table>` : `<p style="${BODY_STYLE}">${esc(province.publishable ? copy.noIntervals : copy.noOperationalData)}</p>`}</section>`;
+    return `<section class="${CARD_CLASS}" data-coverage-kind="italy-province" data-italy-duty-province="${esc(province.code)}"${province.publishable ? ' data-italy-duty-published="true"' : ' data-source-only-province="true"'}><h2 style="${H2_STYLE}">${esc(province.name)}</h2><p style="${BODY_STYLE}"><strong>${esc(statusLabel)}</strong>${source}</p>${italySourceOnlyDetails(province, locale)}${fetched}${rows ? `<table style="${BODY_STYLE}"><thead><tr><th>${esc(copy.date)}</th><th>${esc(copy.hours)}</th><th>${esc(copy.pharmacy)}</th><th>${esc(copy.source)}</th></tr></thead><tbody>${rows}</tbody></table>` : `<p style="${BODY_STYLE}">${esc(province.publishable ? copy.noIntervals : copy.noOperationalData)}</p>`}</section>`;
   }).join('');
-  return `<header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(copy.lede)}</p><p style="${BODY_STYLE}"><strong>${esc(copy.week)}:</strong> ${esc(italyWeekRange(model, locale))}</p>${statusHtml}</header><div class="s-XENO3U">${provinces}</div><section><h2 style="${H2_STYLE}">${esc(copy.source)}</h2><p style="${BODY_STYLE}">${esc(copy.verify)}</p></section>`;
+  const isWeekPath = pathValue.kind === 'italy-duty-week' || (pathValue.kind === 'duty-week' && pathValue.country === 'IT');
+  const marker = isWeekPath ? 'data-italy-duty-week' : 'data-italy-duty-coverage';
+  return `<div ${marker}="true" data-release-ready="${String(model.publishable)}" data-week-ready="${String(model.indexable)}" data-italy-release-state="${esc(model.state)}"><header><h1 style="${H1_STYLE}">${esc(h1)}</h1><p style="${LEDE_STYLE}">${esc(copy.lede)}</p><p style="${BODY_STYLE}"><strong>${esc(copy.week)}:</strong> ${esc(italyWeekRange(model, locale))}</p>${statusHtml}</header><div class="s-XENO3U">${provinces}</div><section><h2 style="${H2_STYLE}">${esc(copy.source)}</h2><p style="${BODY_STYLE}">${esc(copy.verify)}</p></section></div>`;
 }
 
 export function italyDutyWeekStructuredData(pathValue: PharmacyPath, title: string, model: ItalyDutyWeekModel): string {

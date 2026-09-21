@@ -3,7 +3,7 @@ import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 
 import sources from '../data/pharmacy-duties-italy-sources.json';
-import { assertOfficialItalyUrl } from '../scripts/import-pharmacy-duties-italy.mjs';
+import { assertOfficialItalyUrl, importItalyPharmacyDuties } from '../scripts/import-pharmacy-duties-italy.mjs';
 
 const REPO_ROOT = fileURLToPath(new URL('../', import.meta.url));
 const SCRIPT_PATH = fileURLToPath(new URL('../scripts/import-pharmacy-duties-italy.mjs', import.meta.url));
@@ -50,5 +50,17 @@ describe('Italian pharmacy duty importer', () => {
     expect(() => assertOfficialItalyUrl('http://www.comune.merone.co.it/calendar.pdf', source, 'redirect final URL'))
       .toThrow('redirect final URL must remain official HTTPS');
     expect(() => assertOfficialItalyUrl(source.rawUrl, source)).not.toThrow();
+  });
+
+  it('is deterministic for the same fixture snapshot and timestamp', async () => {
+    const options = { fixtureDir: FIXTURE_DIR, attemptedAt: FETCHED_AT, write: false };
+    const first = await importItalyPharmacyDuties(options);
+    const second = await importItalyPharmacyDuties(options);
+
+    expect(second.duties).toEqual(first.duties);
+    expect(second.status).toEqual(first.status);
+    expect(second.release).toEqual(first.release);
+    expect(second.errors).toEqual(first.errors);
+    expect(second.bestEffortErrors).toEqual(first.bestEffortErrors);
   });
 });

@@ -74,11 +74,12 @@ function italyDutyHubPath(locale: Locale): string {
 export function buildPharmacyPath(path: PharmacyPath, locale: Locale = path.locale): string {
   const bases = LOCALE_BASES[locale];
   if (path.kind === 'hub') return bases.hub;
-  if (path.kind === 'duty-hub') return bases.dutyHub;
+  if (path.kind === 'duty-hub') return path.country === 'IT' ? italyDutyHubPath(locale) : bases.dutyHub;
   if (path.kind === 'duty-week') {
+    const hubPath = path.country === 'IT' ? italyDutyHubPath(locale) : bases.dutyHub;
     return path.weekStart && isIsoMonday(path.weekStart)
-      ? `${bases.dutyHub}${bases.dutyWeekSegment}/${path.weekStart}/`
-      : bases.dutyHub;
+      ? `${hubPath}${bases.dutyWeekSegment}/${path.weekStart}/`
+      : hubPath;
   }
   if (path.kind === 'italy-duty-hub') return italyDutyHubPath(locale);
   if (path.kind === 'italy-duty-week') {
