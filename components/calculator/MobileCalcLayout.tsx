@@ -161,6 +161,7 @@ const MobileCalcLayout: React.FC<Props> = ({
       email,
       source: 'analysis_gate',
       registrationMethod: 'email',
+      explicitConsentAction: true,
  });
  // `upsertNewsletterSubscriber` owns the single DOI request. Do not send a
  // second one here: the old duplicate raced the first fire-and-forget request

@@ -113,6 +113,7 @@ const SubscriptionCTA: React.FC = () => {
  source: 'post_calc_cta',
  sourceChannel: 'post_calc_cta',
  sourcePage: window.location.pathname,
+ explicitConsentAction: true,
  sourceCta: 'post_calc_newsletter_cta',
  sourceComponent: 'SubscriptionCTA',
  sourceRouteFamily: 'calculator',
