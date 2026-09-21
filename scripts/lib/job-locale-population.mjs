@@ -38,6 +38,7 @@
  * Everything here is pure and detector-injected, so `tests/job-locale-population-guard.test.ts`
  * can drive both failure modes from synthetic fixtures with no dataset.
  */
+import { normalizeJobLocale } from './job-locale-utils.mjs';
 
 /**
  * @typedef {object} PopulationSpec
@@ -230,7 +231,8 @@ export function measureTitleLocales(jobs, looksUntranslated, locales, maxOffende
   let flagged = 0;
   const offenders = [];
   for (const job of jobs) {
-    const sourceLang = String(job?.sourceLang || 'it').toLowerCase();
+    const normalizedSourceLang = normalizeJobLocale(job?.sourceLang || 'it');
+    const sourceLang = locales.includes(normalizedSourceLang) ? normalizedSourceLang : 'it';
     const titles = job?.titleByLocale || {};
     const sourceTitle = String(titles[sourceLang] || job?.title || '');
     for (const locale of locales) {

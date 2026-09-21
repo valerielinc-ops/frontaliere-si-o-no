@@ -92,6 +92,7 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
+import { normalizeJobLocale } from './lib/job-locale-utils.mjs';
 import {
   measureDescriptionLocales,
   DESCRIPTION_POPULATION,
@@ -189,8 +190,8 @@ export function measureTranslationQueue(
     // this skip costs nothing today and cannot start lying tomorrow. The rest
     // of this file defaults to 'it' and this section deliberately does not
     // adopt that — a display fallback and a measurement are different things.
-    const sourceLang = String(job?.sourceLang || '').toLowerCase();
-    if (!sourceLang) continue;
+    const sourceLang = normalizeJobLocale(job?.sourceLang);
+    if (!LOCALES.includes(sourceLang)) continue;
     const source = String(job?.descriptionByLocale?.[sourceLang] || '').trim();
     if (source.length < MIN_DESCRIPTION_CHARS) continue;
     // Normalised once, not once per locale: these are multi-KB strings and the
@@ -322,7 +323,8 @@ export function auditDescriptionLocales(jobs, { now = Date.now(), isSwissLocatio
 
       const company = String(job?.company || '?');
       const slug = String(job?.slug || '?');
-      const sourceLang = String(job?.sourceLang || 'it').toLowerCase();
+      const normalizedSourceLang = normalizeJobLocale(job?.sourceLang || 'it');
+      const sourceLang = LOCALES.includes(normalizedSourceLang) ? normalizedSourceLang : 'it';
       const sourceDesc = String(job?.descriptionByLocale?.[sourceLang] || job?.description || '').trim();
       const sourceCopy = sourceDesc.length > 0 && description.toLowerCase() === sourceDesc.toLowerCase();
 

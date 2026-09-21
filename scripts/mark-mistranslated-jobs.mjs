@@ -89,7 +89,11 @@ import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { detectLanguageWithConfidence } from './lib/detect-language.mjs';
-import { titleLooksUntranslated, DEFAULT_JOB_LOCALES } from './lib/job-locale-utils.mjs';
+import {
+  titleLooksUntranslated,
+  DEFAULT_JOB_LOCALES,
+  normalizeJobLocale,
+} from './lib/job-locale-utils.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { applyMarks, persistMarksToSlices } from './lib/job-mark-persistence.mjs';
 import { masculineGermanTitle } from './local-mt-mopup.mjs';
@@ -187,9 +191,9 @@ export function hasGermanGenderForm(text) {
  * scheduled path from re-flagging the same jobs on every run.
  */
 export function genderFormOffence(job) {
-  const sourceLang = String(job.sourceLang || '').toLowerCase();
+  const sourceLang = normalizeJobLocale(job?.sourceLang);
   const sourceTitle = String(job.title || '');
-  if (!sourceLang.startsWith('de') || !hasGermanGenderForm(sourceTitle)) return null;
+  if (sourceLang !== 'de' || !hasGermanGenderForm(sourceTitle)) return null;
   return { locale: sourceLang, detail: `title ${sourceLang} => masculineGermanTitle` };
 }
 
@@ -202,14 +206,13 @@ export function genderFormOffence(job) {
  * @returns {boolean}
  */
 export function genderFormTargetResidual(job) {
-  const sourceLang = String(job?.sourceLang || '').toLowerCase();
-  if (!sourceLang.startsWith('de')) return false;
-  const sourceLocale = sourceLang.split('-')[0];
+  const sourceLocale = normalizeJobLocale(job?.sourceLang);
+  if (sourceLocale !== 'de') return false;
   const titles = job?.titleByLocale && typeof job.titleByLocale === 'object'
     ? job.titleByLocale
     : {};
   return LOCALES.some((locale) => {
-    if (locale === sourceLang || locale === sourceLocale) return false;
+    if (locale === sourceLocale) return false;
     const title = String(titles[locale] || '').trim();
     return title.length > 0 && hasGermanGenderForm(title);
   });

@@ -192,6 +192,23 @@ describe('job-locale population identity', () => {
       expect(measureTitleLocales(jobs, looksUntranslated, LOCALES).slots).toBe(29);
     });
 
+    it('normalizes regional sourceLang before selecting the source title slot', () => {
+      const [job] = makeJobs(1);
+      job.sourceLang = 'de-CH';
+      job.titleByLocale = { de: 'Impiegato', it: 'Betriebsleiter', en: 'Clerk', fr: 'Employé' };
+      const out = measureTitleLocales([job], looksUntranslated, LOCALES);
+      expect(out.slots).toBe(3);
+      expect(out.flagged).toBe(0);
+    });
+
+    it('falls back closed to the default locale for an unsupported sourceLang', () => {
+      const [job] = makeJobs(1);
+      job.sourceLang = 'debug';
+      const out = measureTitleLocales([job], looksUntranslated, LOCALES);
+      expect(out.slots).toBe(3);
+      expect(out.flagged).toBe(0);
+    });
+
     it('is unaffected by the queue on both sides of the ratio', () => {
       const plain = measureTitleLocales(makeJobs(10), looksUntranslated, LOCALES);
       const queued = measureTitleLocales(makeJobs(10, { queued: 10 }), looksUntranslated, LOCALES);

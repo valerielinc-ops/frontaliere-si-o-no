@@ -18,7 +18,7 @@ import path from 'node:path';
 import { afterEach, describe, expect, it } from 'vitest';
 
 import { hardenJobLocaleFields } from '../scripts/lib/dedicated-crawler-common.mjs';
-import { holdSourceLang } from '../scripts/lib/job-locale-utils.mjs';
+import { holdSourceLang, normalizeJobLocale } from '../scripts/lib/job-locale-utils.mjs';
 
 const tmpFiles: string[] = [];
 
@@ -100,6 +100,12 @@ describe('sourceLang hold guard', () => {
     expect((out.titleByLocale as Record<string, string>).it).toBe(
       'Posizioni di dottorandi',
     );
+  });
+
+  it('normalizes regional source locale spellings without accepting a prefix', () => {
+    expect(normalizeJobLocale(' DE-CH ')).toBe('de');
+    expect(normalizeJobLocale('it_CH')).toBe('it');
+    expect(normalizeJobLocale('debug')).toBe('debug');
   });
 
   it('uses the caller fallback when the text is empty', () => {

@@ -2,6 +2,7 @@ import { describe, expect, it } from 'vitest';
 import fs from 'node:fs';
 import path from 'node:path';
 import { buildSlug, slugNeedsBrandRefresh } from '../scripts/lib/regenerate-slugs-helpers.mjs';
+import { normalizeJobLocale } from '../scripts/lib/job-locale-utils.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'] as const;
 const SLICE_DIR = path.resolve(__dirname, '..', 'data', 'jobs', 'by-crawler');
@@ -24,6 +25,10 @@ function readSlice(key: string): Job[] {
   if (!fs.existsSync(file)) return [];
   const parsed = JSON.parse(fs.readFileSync(file, 'utf8'));
   return Array.isArray(parsed?.jobs) ? parsed.jobs : [];
+}
+
+function sourceLocale(job: Job): string {
+  return normalizeJobLocale(job.sourceLang || 'it');
 }
 
 /** Brand della chiave crawler precedente, non della company rietichettata. */
@@ -65,7 +70,8 @@ describe('#7722 source-locale brand refresh', () => {
   it('rende canonico lo slug del source-locale includendo la company dichiarata', () => {
     for (const key of Object.keys(STALE_BRAND_BY_KEY)) {
       for (const job of readSlice(key)) {
-        const locale = job.sourceLang || 'it';
+        const locale = sourceLocale(job);
+        expect(LOCALES).toContain(locale);
         const expected = buildSlug(
           job.titleByLocale?.[locale],
           job.company,
@@ -91,9 +97,14 @@ describe('#7722 source-locale brand refresh', () => {
   it('conserva nel bridge ogni source slug sostituito', () => {
     for (const key of Object.keys(STALE_BRAND_BY_KEY)) {
       for (const job of readSlice(key)) {
-        const locale = job.sourceLang || 'it';
+        const locale = sourceLocale(job);
         const active = job.slugByLocale?.[locale] || '';
         const previous = job.previousSlugsByLocale?.[locale] || [];
+        // New rows can legitimately have no source-locale history. When a
+        // source-locale history bucket exists, it must contain a prior route;
+        // requiring one for every row made the live guard fail on newly
+        // discovered jobs that never had the old brand URL.
+        if (previous.length === 0) continue;
         expect(previous.filter((slug) => slug !== active), `${key}/${job.id}`).not.toEqual([]);
       }
     }

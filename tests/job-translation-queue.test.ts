@@ -153,6 +153,21 @@ describe('measureTranslationQueue', () => {
     expect(q.samples[0].copiedLocales.sort()).toEqual(['en', 'fr', 'it']);
   });
 
+  it('normalizes a regional sourceLang before reading the source slot', () => {
+    const q = measure([job({ sourceLang: 'de-CH' })]);
+    expect(q.sourceCopyJobs).toBe(1);
+    expect(q.samples[0]).toMatchObject({ sourceLang: 'de' });
+  });
+
+  it('fails closed for an unsupported sourceLang', () => {
+    const q = measure([job({
+      sourceLang: 'debug',
+      descriptionByLocale: { debug: GERMAN, de: GERMAN, it: GERMAN, en: GERMAN, fr: GERMAN },
+    })]);
+    expect(q.queuedJobs).toBe(1);
+    expect(q.sourceCopyJobs).toBe(0);
+  });
+
   it('does not count a job that was actually translated', () => {
     const q = measure([job({ descriptionByLocale: { de: GERMAN, it: ITALIAN, en: ITALIAN, fr: ITALIAN } })]);
     expect(q.queuedJobs).toBe(1);
