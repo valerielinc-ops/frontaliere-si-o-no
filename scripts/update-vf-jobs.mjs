@@ -108,14 +108,16 @@ function normalizeVfLocations() {
       job.addressLocality !== resolved.locality ||
       job.canton !== resolved.canton ||
       job.addressRegion !== resolved.canton ||
-      job.country !== 'CH' ||
-      job.addressCountry !== 'CH';
+      job.country !== 'CH';
     job.location = resolved.locality;
     job.addressLocality = resolved.locality;
     job.canton = resolved.canton;
     job.addressRegion = resolved.canton;
     job.country = 'CH';
-    job.addressCountry = 'CH';
+    // Deliberately do not stamp addressCountry at persist time (#5403/#5384).
+    // The resolved Swiss locality justifies `country`, but an undeclared
+    // addressCountry and a source-declared `CH` remain different evidence.
+    // Runtime consumers already fall back to `CH` when addressCountry is absent.
     // Keep the field present even when Workday provides no postal code. The
     // assembler/build schema then derives a locality-coherent safe default;
     // never copy a fixed Stabio/Ticino value here.
