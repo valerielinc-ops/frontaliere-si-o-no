@@ -53,7 +53,6 @@ import { useTranslation } from '@/services/i18n';
 import { useNavigation } from '@/services/NavigationContext';
 import { useAuth, signInWithCustomAuthToken } from '@/services/authService';
 import { Analytics } from '@/services/analytics';
-import { getDistinctId } from '@/services/posthog';
 import { reportCaughtError } from '@/services/errorReporter';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import EmailInput from '@/components/shared/EmailInput';
@@ -388,7 +387,6 @@ const SubscribePage: React.FC = () => {
         body: JSON.stringify({
           successUrl: `${window.location.origin}${window.location.pathname}`,
           cancelUrl: window.location.href,
-          posthogDistinctId: getDistinctId(),
         }),
       });
       const data = (await res.json().catch(() => ({}))) as {

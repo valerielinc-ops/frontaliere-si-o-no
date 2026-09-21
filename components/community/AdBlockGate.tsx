@@ -24,8 +24,8 @@
  *   Checked via raw localStorage flags (services/newsletterCtaState.ts,
  *   services/jobAlertCtaState.ts) immediately before any bot check, before
  *   any A/B assignment.
- * - PostHog measurement: bucket-assignment event (fires for every non-bot
- *   visitor, both arms — needed to validate the split ratio) + gate-shown
+ * - Firebase Analytics measurement: bucket-assignment event (fires for every
+ *   non-bot visitor, both arms — needed to validate the split ratio) + gate-shown
  *   event + outcome event (disabled / subscribe CTA clicked / abandoned /
  *   reload_still_blocked). 'disabled' is reported from two places: the
  *   in-place recheck, and — via a sessionStorage marker that survives the
@@ -52,9 +52,13 @@ import { createPortal } from 'react-dom';
 import { ShieldAlert, Loader2, Sparkles, CheckCircle2 } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
-import { registerSuperProperty } from '@/services/posthog';
+import { getConfigValue } from '@/services/firebase';
 import { isLikelyBot } from '@/services/botPatterns';
-import { resolveAdBlockAbBucket, type AdBlockAbBucket } from '@/services/adBlockAbTest';
+import {
+  parseAdBlockTestBucketShare,
+  resolveAdBlockAbBucket,
+  type AdBlockAbBucket,
+} from '@/services/adBlockAbTest';
 import { detectAdBlockDetailed } from '@/services/adBlockDetection';
 import { useNavigationOptional } from '@/services/NavigationContext';
 import { NEWSLETTER_SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
@@ -192,7 +196,7 @@ function consumeReloadMarker(): boolean {
 
 function trackPopupEvent(eventName: string, buttonName: string): void {
   try {
-    Analytics.trackEvent(eventName, {
+    Analytics.trackExperimentEvent(eventName, {
       event_category: 'popup',
       event_label: buttonName,
       page_location: window.location.href,
@@ -233,7 +237,7 @@ const AdBlockGate: React.FC = () => {
   const logOutcome = useCallback((outcome: GateOutcome) => {
     if (outcomeLoggedRef.current) return;
     outcomeLoggedRef.current = true;
-    try { Analytics.trackUIInteraction('adblock_gate', 'modal', 'outcome', outcome); } catch { /* no-op */ }
+    try { Analytics.trackExperimentUIInteraction('adblock_gate', 'modal', 'outcome', outcome); } catch { /* no-op */ }
   }, []);
 
   const closeGate = useCallback((outcome: 'disabled' | 'subscribe_clicked') => {
@@ -242,7 +246,7 @@ const AdBlockGate: React.FC = () => {
   }, [logOutcome]);
 
   // Bucket assignment — resolved once per mount, reported for every non-bot
-  // visitor (both arms) so the 30/70 split can be validated in PostHog.
+  // visitor (both arms) so the split can be validated in Firebase Analytics.
   // Detection itself only runs for the "test" arm.
   useEffect(() => {
     if (isLikelyBot()) return;
@@ -250,18 +254,25 @@ const AdBlockGate: React.FC = () => {
     // see this gate, regardless of bucket — same hard exclusion as bots,
     // checked BEFORE any bucket assignment (owner refinement, #3655).
     if (isEngagedVisitor()) return;
-    const bucket = resolveAdBlockAbBucket();
-    bucketRef.current = bucket;
-    registerSuperProperty('adblock_ab_bucket', bucket);
-    try { Analytics.trackUIInteraction('adblock_gate', 'ab_test', 'bucket_assigned', bucket); } catch { /* no-op */ }
-    if (bucket !== 'test') return; // control arm: no detection, no gate, ever.
 
     let cancelled = false;
-    // Read before the probe: this document exists because the previous one
-    // reloaded itself from the gate, and this is where that path's outcome
-    // becomes observable at all.
-    const cameBackFromGateReload = consumeReloadMarker();
-    detectAdBlockDetailed().then(({ blocked, adsAllowed }) => {
+    const runAssignment = async () => {
+      const [enabledRaw, shareRaw] = await Promise.all([
+        getConfigValue('ADBLOCK_GATE_EXPERIMENT_ENABLED').catch(() => ''),
+        getConfigValue('ADBLOCK_GATE_TEST_SHARE').catch(() => ''),
+      ]);
+      if (cancelled || enabledRaw.trim().toLowerCase() === 'false') return;
+
+      const bucket = resolveAdBlockAbBucket(parseAdBlockTestBucketShare(shareRaw));
+      bucketRef.current = bucket;
+      try { Analytics.trackExperimentUIInteraction('adblock_gate', 'ab_test', 'bucket_assigned', bucket); } catch { /* no-op */ }
+      if (bucket !== 'test') return; // control arm: no detection, no gate, ever.
+
+      // Read before the probe: this document exists because the previous one
+      // reloaded itself from the gate, and this is where that path's outcome
+      // becomes observable at all.
+      const cameBackFromGateReload = consumeReloadMarker();
+      const { blocked, adsAllowed } = await detectAdBlockDetailed();
       if (cancelled) return;
       // Funding Choices says this visitor already allowlisted the site. They
       // did exactly what the gate asks for, possibly through Google's own
@@ -270,7 +281,7 @@ const AdBlockGate: React.FC = () => {
       // the page, so `blocked` alone is not enough to tell the two apart.
       if (adsAllowed) {
         if (cameBackFromGateReload) {
-          try { Analytics.trackUIInteraction('adblock_gate', 'modal', 'outcome', 'disabled', 'allowlisted'); } catch { /* no-op */ }
+          try { Analytics.trackExperimentUIInteraction('adblock_gate', 'modal', 'outcome', 'disabled', 'allowlisted'); } catch { /* no-op */ }
         }
         return;
       }
@@ -280,7 +291,7 @@ const AdBlockGate: React.FC = () => {
         // survive the pause, which is why the in-place recheck so rarely
         // succeeds (see the comment on handleRecheck).
         try {
-          Analytics.trackUIInteraction(
+          Analytics.trackExperimentUIInteraction(
             'adblock_gate',
             'modal',
             'outcome',
@@ -296,8 +307,9 @@ const AdBlockGate: React.FC = () => {
       tabHiddenLoggedRef.current = false;
       setRecheckFailed(false);
       setOpen(true);
-      try { Analytics.trackUIInteraction('adblock_gate', 'modal', 'show', 'detected'); } catch { /* no-op */ }
-    });
+      try { Analytics.trackExperimentUIInteraction('adblock_gate', 'modal', 'show', 'detected'); } catch { /* no-op */ }
+    };
+    void runAssignment().catch(() => { /* fail closed: no gate when config/probe fails */ });
     return () => { cancelled = true; };
   }, []);
 
@@ -323,7 +335,7 @@ const AdBlockGate: React.FC = () => {
       tabHiddenLoggedRef.current = false;
       setRecheckFailed(false);
       setOpen(true);
-      try { Analytics.trackUIInteraction('adblock_gate', 'modal', 'show', 'detected_revisit'); } catch { /* no-op */ }
+      try { Analytics.trackExperimentUIInteraction('adblock_gate', 'modal', 'show', 'detected_revisit'); } catch { /* no-op */ }
     });
     return () => { cancelled = true; };
   }, [nav?.activeTab, open]);
@@ -365,7 +377,7 @@ const AdBlockGate: React.FC = () => {
       if (document.visibilityState !== 'hidden') return;
       if (tabHiddenLoggedRef.current) return;
       tabHiddenLoggedRef.current = true;
-      try { Analytics.trackUIInteraction('adblock_gate', 'modal', 'tab_hidden', 'while_open'); } catch { /* no-op */ }
+      try { Analytics.trackExperimentUIInteraction('adblock_gate', 'modal', 'tab_hidden', 'while_open'); } catch { /* no-op */ }
     };
     const handleUnload = () => {
       if (reloadInitiatedRef.current) return; // our own reload, not a departure

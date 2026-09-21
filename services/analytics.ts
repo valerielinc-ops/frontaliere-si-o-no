@@ -360,6 +360,22 @@ function _doSetProps(properties: Record<string, string>) {
  }
 }
 
+const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
+ if (_firebaseReady) {
+  _doLog(eventName, params);
+ } else {
+  _eventQueue.push({ type: 'log', args: [eventName, params] });
+  ensureFirebase().then(() => {
+   if (_analytics && _logEvent) {
+    _firebaseReady = true;
+    flushQueue();
+   } else {
+    _eventQueue.length = 0;
+   }
+  });
+ }
+};
+
 const log = (eventName: string, params?: Record<string, any>) => {
  // Mirror to PostHog (fire-and-forget, independent of Firebase)
  if (eventName === 'page_view') {
@@ -373,22 +389,7 @@ const log = (eventName: string, params?: Record<string, any>) => {
  posthogCapture(eventName, params);
  }
 
- if (_firebaseReady) {
- _doLog(eventName, params);
- } else {
- _eventQueue.push({ type: 'log', args: [eventName, params] });
- // Trigger lazy load — only mark ready when Firebase actually loaded
- ensureFirebase().then(() => {
- if (_analytics && _logEvent) {
- _firebaseReady = true;
- flushQueue();
- } else {
- // Firebase failed to load (ad blocker) — discard queued events
- // to prevent them from accumulating indefinitely.
- _eventQueue.length = 0;
- }
- });
- }
+ logFirebaseOnly(eventName, params);
 };
 
 const setProps = (properties: Record<string, string>) => {
@@ -1733,6 +1734,30 @@ export const Analytics = {
  cta_id: ctaId || `${page}.${section}.${component}.${action}`,
  details: details?.substring(0, 100),
  });
+ },
+
+ /** Experiment telemetry routed only to Firebase Analytics/GA4. */
+ trackExperimentEvent: (eventName: string, params?: Record<string, any>) => {
+  logFirebaseOnly(eventName, params);
+ },
+
+ /** Structured experiment interaction routed only to Firebase Analytics/GA4. */
+ trackExperimentUIInteraction: (
+  page: string,
+  section: string,
+  component: string,
+  action: string,
+  details?: string,
+  ctaId?: string,
+ ) => {
+  logFirebaseOnly('ui_interaction', {
+   page,
+   section,
+   component,
+   action,
+   cta_id: ctaId || `${page}.${section}.${component}.${action}`,
+   details: details?.substring(0, 100),
+  });
  },
 
  /**

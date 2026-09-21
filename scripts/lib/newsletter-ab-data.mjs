@@ -18,7 +18,6 @@
  */
 
 import { assignSubjectVariant } from '../../services/newsletter-subject-assign.mjs';
-import { EXPERIMENT_EXCLUDED_PROVIDERS } from '../../functions/src/lib/emailExperimentPostHog.js';
 import { buildDeliveryDocId } from '../../functions/src/lib/deliveryDocId.js';
 import { toMillis } from './firestoreTimestamp.mjs';
 // One definition, in the module that already owned it — the same drift this
@@ -26,7 +25,11 @@ import { toMillis } from './firestoreTimestamp.mjs';
 import { CREDENTIAL_LINK_CHANNEL } from './unsubscribeCredentialMetrics.mjs';
 import { MissingIndexError } from './missing-index-error.mjs';
 
-// Re-exported so existing importers keep a single entry point for this module.
+// Mailtrap is a sandbox and does not provide real open-rate data. Keep it out
+// of the Firestore report denominator; no third-party analytics service is
+// involved in the subject experiment.
+const EXPERIMENT_EXCLUDED_PROVIDERS = new Set(['mailtrap']);
+
 export { MissingIndexError };
 
 /**

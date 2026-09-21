@@ -509,8 +509,7 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
   // vitest non vedeva mai quell'ambiente; nel job fuso lo vedeva, e 14 test su
   // 11 file sono andati rossi (run 32937626053): tutti quelli che asseriscono
   // un comportamento a ambiente pulito — «rejects when no email provider
-  // configured», «is a no-op when POSTHOG_EMAIL_EXPERIMENT is unset» (nel log
-  // la RC caricava `POSTHOG_EMAIL_EXPERIMENT: 1`), «an empty environment mints
+  // configured», «an empty environment mints
   // the pre-#5685 code». Il rimedio è l'ORDINE, quindi va difeso l'ordine.
   // Invariante RAFFORZATA il 2026-08-26. Prima si difendeva un ORDINE («la
   // famiglia collision per ultima»), cioe' una convenzione che il prossimo

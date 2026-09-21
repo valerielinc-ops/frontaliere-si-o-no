@@ -1,5 +1,9 @@
 import { describe, expect, it, vi, beforeEach } from 'vitest';
-import { resolveAdBlockAbBucket } from '@/services/adBlockAbTest';
+import {
+  DEFAULT_TEST_BUCKET_SHARE,
+  parseAdBlockTestBucketShare,
+  resolveAdBlockAbBucket,
+} from '@/services/adBlockAbTest';
 import { isLikelyBot } from '@/services/botPatterns';
 
 vi.mock('@/services/botPatterns', () => ({
@@ -52,5 +56,17 @@ describe('resolveAdBlockAbBucket', () => {
     // Wide tolerance for statistical stability around the true 30% target.
     expect(ratio).toBeGreaterThan(0.15);
     expect(ratio).toBeLessThan(0.45);
+  });
+
+  it('accepts and clamps the Remote Config test share', () => {
+    expect(parseAdBlockTestBucketShare('')).toBe(DEFAULT_TEST_BUCKET_SHARE);
+    expect(parseAdBlockTestBucketShare('not-a-number')).toBe(DEFAULT_TEST_BUCKET_SHARE);
+    expect(parseAdBlockTestBucketShare(0)).toBe(0);
+    expect(parseAdBlockTestBucketShare(1.5)).toBe(1);
+  });
+
+  it('uses the configured share when resolving the bucket', () => {
+    expect(resolveAdBlockAbBucket(0)).toBe('control');
+    expect(resolveAdBlockAbBucket(1)).toBe('test');
   });
 });

@@ -94,4 +94,10 @@ describe('Offerwall custom-choice registry — index.html', () => {
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('message.proceed(false, [E.OFFERWALL])');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('bucket(distinctId()) >= 60');
   });
+
+  it('bounds the Remote Config wait before Funding Choices proceeds', () => {
+    expect(CONTROLLED_MESSAGING_BLOCK).toMatch(/REMOTE_CONFIG_TIMEOUT_MS\s*=\s*800/);
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('Promise.race([request, timeout])');
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('clearTimeout(timeoutId)');
+  });
 });

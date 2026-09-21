@@ -18,7 +18,7 @@ import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 
 import AdBlockGate from '@/components/community/AdBlockGate';
 import { Analytics } from '@/services/analytics';
-import { registerSuperProperty } from '@/services/posthog';
+import { getConfigValue } from '@/services/firebase';
 import { isLikelyBot } from '@/services/botPatterns';
 import { resolveAdBlockAbBucket } from '@/services/adBlockAbTest';
 import { detectAdBlockDetailed } from '@/services/adBlockDetection';
@@ -29,12 +29,9 @@ vi.mock('@/services/i18n', () => ({
 
 vi.mock('@/services/analytics', () => ({
   Analytics: {
-    trackUIInteraction: vi.fn(),
+    trackExperimentEvent: vi.fn(),
+    trackExperimentUIInteraction: vi.fn(),
   },
-}));
-
-vi.mock('@/services/posthog', () => ({
-  registerSuperProperty: vi.fn(),
 }));
 
 vi.mock('@/services/botPatterns', () => ({
@@ -42,6 +39,12 @@ vi.mock('@/services/botPatterns', () => ({
 }));
 
 vi.mock('@/services/adBlockAbTest', () => ({
+  parseAdBlockTestBucketShare: vi.fn((value: unknown) => {
+    const raw = String(value ?? '').trim();
+    if (!raw) return 0.30;
+    const parsed = Number(raw);
+    return Number.isFinite(parsed) ? Math.min(1, Math.max(0, parsed)) : 0.30;
+  }),
   resolveAdBlockAbBucket: vi.fn(() => 'test'),
 }));
 
@@ -69,8 +72,8 @@ vi.mock('@/services/NavigationContext', () => ({
 const isLikelyBotMock = vi.mocked(isLikelyBot);
 const resolveBucketMock = vi.mocked(resolveAdBlockAbBucket);
 const detectAdBlockMock = vi.mocked(detectAdBlockDetailed);
-const trackUIInteractionMock = vi.mocked(Analytics.trackUIInteraction);
-const registerSuperPropertyMock = vi.mocked(registerSuperProperty);
+const getConfigValueMock = vi.mocked(getConfigValue);
+const trackUIInteractionMock = vi.mocked(Analytics.trackExperimentUIInteraction);
 
 // JSDOM marks `window.location` read-only; replace it with a writable stub
 // so we can spy on .reload(), same pattern as ChunkLoadErrorBoundary.test.tsx.
@@ -82,6 +85,7 @@ describe('AdBlockGate', () => {
     isLikelyBotMock.mockReturnValue(false);
     resolveBucketMock.mockReturnValue('test');
     detectAdBlockMock.mockResolvedValue(CLEAN);
+    getConfigValueMock.mockResolvedValue('');
     mockActiveTab = 'calculator';
     navigateToMock.mockClear();
     localStorage.clear();
@@ -118,7 +122,6 @@ describe('AdBlockGate', () => {
     resolveBucketMock.mockReturnValue('control');
     render(<AdBlockGate />);
     await act(async () => {});
-    expect(registerSuperPropertyMock).toHaveBeenCalledWith('adblock_ab_bucket', 'control');
     expect(trackUIInteractionMock).toHaveBeenCalledWith('adblock_gate', 'ab_test', 'bucket_assigned', 'control');
     expect(detectAdBlockMock).not.toHaveBeenCalled();
     expect(screen.queryByRole('dialog')).toBeNull();

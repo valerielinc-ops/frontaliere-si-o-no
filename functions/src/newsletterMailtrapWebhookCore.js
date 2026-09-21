@@ -1,7 +1,6 @@
 import admin from 'firebase-admin';
 import { refreshEngagementScore } from './lib/engagementScore.js';
 import { refreshPreferredSendHour } from './lib/preferredSendHour.js';
-import { captureEmailEvent, EMAIL_EXPERIMENT_EVENTS } from './lib/emailExperimentPostHog.js';
 import { classifyBounceSeverity, bounceUpdateFields, softBounceRecoveryFields, maybeEscalateSoftBounce } from './lib/bounceClassification.js';
 import {
  positiveEventRecoveryFields,
@@ -242,9 +241,6 @@ export async function persistMailtrapEvent(db, eventData) {
  await refreshPreferredSendHour(subscriberRef, FieldValue);
  }
 
- if (type === 'open') {
- await captureEmailEvent(EMAIL_EXPERIMENT_EVENTS.OPENED, { email, provider: 'mailtrap', campaignId });
- }
  return { processed: true, type, email, campaignId };
 }
 

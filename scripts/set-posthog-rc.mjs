@@ -24,14 +24,10 @@
 import { getRemoteConfig, fetchRcTemplate, stageRcParam, publishRcTemplate } from './lib/remote-config-admin.mjs';
 
 // value + description per param. None are secrets: project ids and the EU host
-// are discoverable from the dashboard URL, and the phc_ project key is a public
-// write key already shipped in the browser bundle (services/posthog.ts).
+// are discoverable from the dashboard URL.
 const RC_PARAMS = {
   SERVER_POSTHOG_PROJECT_ID: { value: '157802', description: 'PostHog project ID for HogQL queries (set 2026-05-07)' },
   SERVER_POSTHOG_HOST: { value: 'https://eu.posthog.com', description: 'PostHog API host (eu | us). Default eu (set 2026-05-07)' },
-  // Subject A/B email experiment — server-side capture (functions + send CI).
-  SERVER_POSTHOG_PROJECT_KEY: { value: 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT', description: 'PostHog public project (capture) key for server-side email_sent/email_opened events (set 2026-06-15)' },
-  SERVER_POSTHOG_EMAIL_EXPERIMENT: { value: '1', description: 'Master switch for the subject A/B PostHog capture; "1" = on (set 2026-06-15)' },
 };
 
 function bail(msg) {

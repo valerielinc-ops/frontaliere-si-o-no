@@ -82,13 +82,6 @@ const READER_CHECKOUT_CLAIMS_COLLECTION = 'reader_checkout_claims';
 
 class SessionAlreadyClaimedError extends Error {}
 
-// Deploy-boundary duplicate of services/posthog.ts's POSTHOG_KEY/POSTHOG_HOST —
-// the functions bundle has no bundler and cannot import the SPA TS module
-// (same convention as READER_NOADS_PLAN above). Both values are public/non-secret
-// (a write-only project key and a first-party proxy host, not credentials).
-const POSTHOG_KEY = 'phc_u8jsgXxFQNB6WcQt9JBcdj9tJrR4NsMws3nQoKdigjbT';
-const POSTHOG_HOST = 'https://t.frontaliereticino.ch';
-
 // Resolve a Firebase user by email, creating one if none exists yet. Shared
 // by the guest-checkout webhook branch and claimReaderCheckout below — same
 // "getUserByEmail → catch → createUser({email})" shape already used by
@@ -133,16 +126,6 @@ export async function handleCreateReaderCheckout(req) {
   if (!/^https?:\/\//.test(successUrl) || !/^https?:\/\//.test(cancelUrl)) {
     return { status: 400, body: { ok: false, error: 'invalid_redirect_urls' } };
   }
-  // Carried through to session metadata so the checkout.session.completed
-  // webhook can fire the conversion capture against the same PostHog Person
-  // as the client-side ab_test/bucket_assigned + subscribe click events.
-  // Bounded well under Stripe's 500-char metadata value cap — a malformed
-  // or oversized client value must never fail checkout session creation.
-  const posthogDistinctId =
-    typeof body.posthogDistinctId === 'string' && body.posthogDistinctId && body.posthogDistinctId.length <= 200
-      ? body.posthogDistinctId
-      : null;
-
   const priceId = await getRemoteConfigValue('STRIPE_PRICE_READER_NOADS');
   if (!priceId) return { status: 500, body: { ok: false, error: 'reader_price_not_configured' } };
 
@@ -164,7 +147,6 @@ export async function handleCreateReaderCheckout(req) {
       cancel_url: cancelUrl,
       metadata: {
         plan: READER_NOADS_PLAN,
-        ...(posthogDistinctId ? { posthogDistinctId } : {}),
       },
       subscription_data: { metadata: { plan: READER_NOADS_PLAN } },
     });
@@ -207,7 +189,6 @@ export async function handleCreateReaderCheckout(req) {
     metadata: {
       plan: READER_NOADS_PLAN,
       readerUid: uid,
-      ...(posthogDistinctId ? { posthogDistinctId } : {}),
     },
     subscription_data: { metadata: { plan: READER_NOADS_PLAN, readerUid: uid } },
   });
@@ -394,38 +375,6 @@ async function readerByStripeRef(dbFn, { customerId, subscriptionId }) {
 // to keep in sync manually, guarded by tests/stripe-reader-core.test.ts).
 const DEAD_SUB_STATUSES = new Set(['canceled', 'unpaid', 'incomplete_expired']);
 
-// Fire-and-forget server-side conversion capture. Mirrors the client-side
-// `ui_interaction` event shape from services/analytics.ts so this lands in the
-// same PostHog funnel as the AdBlockGate's ab_test/bucket_assigned and
-// subscribe_page/checkout events. Uses the checkout session's posthogDistinctId
-// (threaded through from handleCreateReaderCheckout) so the conversion joins
-// the same Person as those earlier client-side events; falls back to the
-// Firebase uid when the client didn't have PostHog loaded — still counted,
-// just uncorrelated to the A/B bucket. A capture failure must never affect
-// webhook processing or the entitlement grant, hence the swallowed catch.
-async function captureReaderConversion(uid, posthogDistinctId) {
-  try {
-    await fetch(`${POSTHOG_HOST}/capture/`, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify({
-        api_key: POSTHOG_KEY,
-        event: 'ui_interaction',
-        distinct_id: posthogDistinctId || uid,
-        properties: {
-          page: 'reader_subscription',
-          section: 'subscribe_page',
-          component: 'checkout',
-          action: 'converted',
-          plan: READER_NOADS_PLAN,
-        },
-      }),
-    });
-  } catch {
-    // PostHog unreachable or blocked — never let analytics break the webhook.
-  }
-}
-
 export async function handleReaderWebhookEvent(event, { db: dbFn, ts }) {
   const obj = event.data?.object || {};
 
@@ -496,7 +445,6 @@ export async function handleReaderWebhookEvent(event, { db: dbFn, ts }) {
         },
         { merge: true },
       );
-      await captureReaderConversion(uid, obj.metadata.posthogDistinctId);
       return true;
     }
     case 'invoice.paid': {

@@ -1,44 +1,43 @@
+// @vitest-environment jsdom
+
+import { renderHook, waitFor } from '@testing-library/react';
 import { describe, expect, it, beforeEach, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => ({
-  trackEvent: vi.fn(),
-  getDistinctId: vi.fn(() => null),
-  getFeatureFlag: vi.fn(() => null),
-  onFeatureFlags: vi.fn(() => () => {}),
-  registerSuperProperty: vi.fn(),
+  trackExperimentEvent: vi.fn(),
 }));
 
 vi.mock('../services/analytics', () => ({
-  Analytics: { trackEvent: mocks.trackEvent },
+  Analytics: { trackExperimentEvent: mocks.trackExperimentEvent },
 }));
 
-vi.mock('../services/posthog', () => ({
-  getDistinctId: mocks.getDistinctId,
-  getFeatureFlag: mocks.getFeatureFlag,
-  onFeatureFlags: mocks.onFeatureFlags,
-  registerSuperProperty: mocks.registerSuperProperty,
-}));
+import { getConfigValue } from '@/services/firebase';
 
 import {
   ASSISTED_APPLICATION_EXPERIMENT_ID,
+  ASSISTED_APPLICATION_EXPERIMENT_RC_KEY,
   normalizeAssistedApplicationVariant,
   resolveAssistedApplicationVariant,
   trackAssistedApplicationEvent,
+  useAssistedApplicationVariant,
 } from '../services/assistedApplicationExperiment';
+
+const getConfigValueMock = vi.mocked(getConfigValue);
 
 beforeEach(() => {
   vi.clearAllMocks();
+  getConfigValueMock.mockResolvedValue('auto');
 });
 
 describe('assisted application experiment assignment', () => {
   it('keeps the same distinct id in the same three-arm assignment', () => {
-    const ids = ['posthog-user-1', 'posthog-user-2', 'anon-sticky-id', 'posthog-user-3'];
+    const ids = ['visitor-1', 'visitor-2', 'anon-sticky-id', 'visitor-3'];
 
     for (const id of ids) {
       expect(resolveAssistedApplicationVariant(id)).toBe(resolveAssistedApplicationVariant(id));
     }
-    expect(resolveAssistedApplicationVariant('posthog-user-1')).toBe('rewarded_ad');
-    expect(resolveAssistedApplicationVariant('posthog-user-3')).toBe('control');
+    expect(resolveAssistedApplicationVariant('visitor-1')).toBe('rewarded_ad');
+    expect(resolveAssistedApplicationVariant('visitor-2')).toBe('control');
   });
 
   it('assigns approximately 20/40/40% to control, paid, and rewarded arms', () => {
@@ -67,6 +66,20 @@ describe('assisted application experiment assignment', () => {
   });
 });
 
+describe('assisted application Remote Config assignment', () => {
+  it('uses the globally configured arm when Remote Config supplies one', async () => {
+    getConfigValueMock.mockResolvedValue('rewarded_ad');
+
+    const { result } = renderHook(() => useAssistedApplicationVariant());
+
+    await waitFor(() => expect(result.current).toMatchObject({
+      variant: 'rewarded_ad',
+      ready: true,
+    }));
+    expect(getConfigValueMock).toHaveBeenCalledWith(ASSISTED_APPLICATION_EXPERIMENT_RC_KEY);
+  });
+});
+
 describe('assisted application funnel events', () => {
   it('adds the shared experiment and job identity to every event', () => {
     trackAssistedApplicationEvent('checkout_started', {
@@ -76,7 +89,7 @@ describe('assisted application funnel events', () => {
       price_eur_cents: 99,
     });
 
-    expect(mocks.trackEvent).toHaveBeenCalledWith('checkout_started', expect.objectContaining({
+    expect(mocks.trackExperimentEvent).toHaveBeenCalledWith('checkout_started', expect.objectContaining({
       experiment_id: ASSISTED_APPLICATION_EXPERIMENT_ID,
       variant: 'assisted_application',
       job_id: 'job-42',

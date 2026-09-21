@@ -3,7 +3,7 @@
  *
  * Single source of truth for the SEND-path delivery doc id
  * (`newsletter_subscribers/{email}/campaign_deliveries/{id}`). The send pipeline
- * and the Resend webhook write here; the A/B report + lookupSentVariant read it.
+ * and the Resend webhook write here; the Firestore A/B report reads it.
  * Centralized so the format can't drift across the 3+ places that built it by
  * hand (a drift would make lookups silently return null).
  *

@@ -1,11 +1,9 @@
 /**
  * Auth-gate headline A/B test wiring.
  *
- * Backed by the PostHog feature flag `authgate-headline-v2`. Variant assignment
- * is per-distinctId and sticky; PostHog handles bucketing + the experiment
- * statistics. This module just resolves the variant, returns the matching
- * headline string for the active locale, and tags every subsequent PostHog
- * event with `headline_variant` so the funnel queries can split by arm.
+ * Backed by the Firebase Remote Config parameter
+ * `AUTHGATE_HEADLINE_VARIANT`. The parameter controls the active arm globally;
+ * an unknown/missing value fails closed to the promoted control copy.
  *
  * ── Round history ──────────────────────────────────────────────────────────
  * Round 1 (`authgate-headline-v1`, CLOSED): control vs `frictionless`.
@@ -18,20 +16,19 @@
  * winner) vs free_unlock vs apply_now. apply_now led on per-person CR
  * (23.26% vs 21.80% control, +1.46pp) while free_unlock was flat (-0.13pp);
  * owner promoted apply_now to 100%. The `jobBoard.gate.title` i18n key now
- * holds the apply_now copy and the PostHog flag is deactivated, so every
- * viewer sees the promoted headline via the `control` fall-back. The
+ * holds the apply_now copy and the old experiment is closed, so every viewer
+ * sees the promoted headline via the `control` fall-back. The
  * `CHALLENGER_HEADLINES` map below is retained as the last round's config for
  * a future round-3 (redefine the arms + reactivate the flag to reuse it).
  *
- * Initial render is always control until PostHog loads (~200-400 ms cold).
- * The experiment's exposure metric should be `gate_view WHERE headline_variant
- * IS NOT NULL` so the brief unattributed window does not bias the outcome.
+ * Initial render is always control until Remote Config loads. The active arm
+ * can be changed without a new deployment from Firebase Remote Config.
  */
 
 import { useEffect, useState } from 'react';
-import { getFeatureFlag, onFeatureFlags, registerSuperProperty } from './posthog';
+import { getConfigValue } from './firebase';
 
-const FLAG_KEY = 'authgate-headline-v2';
+export const AUTHGATE_HEADLINE_RC_KEY = 'AUTHGATE_HEADLINE_VARIANT';
 
 export type AuthGateVariant = 'control' | 'free_unlock' | 'apply_now';
 
@@ -68,7 +65,7 @@ interface UseAuthGateHeadlineVariantResult {
 }
 
 /**
- * Returns the headline + variant for the current PostHog assignment. Pass the
+ * Returns the headline + variant for the current Remote Config assignment. Pass the
  * control headline (typically `t('jobBoard.gate.title')`) so this hook can
  * fall back without duplicating the i18n key.
  */
@@ -79,13 +76,19 @@ export function useAuthGateHeadlineVariant(
   const [variant, setVariant] = useState<AuthGateVariant>('control');
 
   useEffect(() => {
-    const unsubscribe = onFeatureFlags(() => {
-      const resolved = normalizeVariant(getFeatureFlag(FLAG_KEY));
-      setVariant(resolved ?? 'control');
-      if (!resolved) return;
-      registerSuperProperty('headline_variant', resolved);
-    });
-    return unsubscribe;
+    let cancelled = false;
+    getConfigValue(AUTHGATE_HEADLINE_RC_KEY)
+      .then((raw) => {
+        if (cancelled) return;
+        const resolved = normalizeVariant(raw.trim().toLowerCase());
+        setVariant(resolved ?? 'control');
+      })
+      .catch(() => {
+        if (!cancelled) setVariant('control');
+      });
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
   const headline = variant === 'control' ? controlHeadline : resolveChallenger(variant, locale);

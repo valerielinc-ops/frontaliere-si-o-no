@@ -1,19 +1,19 @@
 /**
  * AdBlock gate A/B bucketing (#3654, part 1/2 of #2961).
  *
- * Stable per-visitor 30/70 split, independent of PostHog: the target
+ * Stable per-visitor split, independent of any analytics provider: the target
  * population for this experiment is ad-blocking users, so bucket assignment
- * must not depend on a third-party script (PostHog itself can be blocked)
- * succeeding. A persisted anonymous id + deterministic hash gives a bucket
+ * must not depend on a third-party script succeeding. A persisted anonymous id
+ * + deterministic hash gives a bucket
  * that:
  *   - never changes across pageviews/sessions for the same browser
  *     (persisted in localStorage, not recomputed each pageview),
  *   - needs no network round-trip to resolve,
  *   - is reproducible for QA (same id → same bucket, always).
  *
- * The resolved bucket is still reported to PostHog (via registerSuperProperty
- * + an explicit assignment event) so the experiment can be analyzed there —
- * PostHog is the analysis destination, not the source of truth for the split.
+ * The test share is supplied by Remote Config by the gate component. The
+ * local default preserves the historical 30/70 allocation when Remote Config
+ * is unavailable.
  */
 
 import { isLikelyBot } from './botPatterns';
@@ -22,7 +22,15 @@ import { isStorageAvailable } from '@/services/storageAvailability';
 export type AdBlockAbBucket = 'test' | 'control';
 
 const STORAGE_KEY = 'ft_adblock_anon_id';
-const TEST_BUCKET_SHARE = 0.30;
+export const DEFAULT_TEST_BUCKET_SHARE = 0.30;
+
+export function parseAdBlockTestBucketShare(value: unknown): number {
+ const raw = String(value ?? '').trim();
+ if (!raw) return DEFAULT_TEST_BUCKET_SHARE;
+ const parsed = Number(raw);
+ if (!Number.isFinite(parsed)) return DEFAULT_TEST_BUCKET_SHARE;
+ return Math.min(1, Math.max(0, parsed));
+}
 
 function randomId(): string {
  try {
@@ -67,11 +75,11 @@ function getOrCreateAnonId(): string | null {
  * sessions because a bucket that can't persist would get reassigned every
  * pageview, defeating the "stable per user" requirement.
  */
-export function resolveAdBlockAbBucket(): AdBlockAbBucket {
+export function resolveAdBlockAbBucket(testBucketShare = DEFAULT_TEST_BUCKET_SHARE): AdBlockAbBucket {
  if (typeof window === 'undefined') return 'control';
  if (isLikelyBot()) return 'control';
  const anonId = getOrCreateAnonId();
  if (!anonId) return 'control';
  const bucketValue = djb2Hash(anonId) % 100;
- return bucketValue < TEST_BUCKET_SHARE * 100 ? 'test' : 'control';
+ return bucketValue < testBucketShare * 100 ? 'test' : 'control';
 }
