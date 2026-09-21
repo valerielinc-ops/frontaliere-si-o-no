@@ -139,6 +139,20 @@ describe('branch janitor: davanti a quell\'etichetta non cancella', () => {
     expect(body).toContain('PR CLOSED non mergiata, ahead=$AHEAD: REPORT-only');
   });
 
+  it('il sweep non tratta MERGED come prova senza base e ancestry del tip', () => {
+    const start = janitor.indexOf('  sweep:');
+    const body = janitor.slice(start, janitor.indexOf('  delete-closed-unmerged:'));
+    const mergedGuard = body.indexOf('MERGED_PROVEN=false');
+    const compare = body.indexOf('gh api "repos/$REPO/compare/$TIP...$PR_HEAD"');
+    const keep = body.indexOf('PR MERGED ma base/ancestry non verificabili');
+    const deleteIdx = body.indexOf('-X DELETE');
+    expect(body).toContain('baseRefName,headRefOid');
+    expect(mergedGuard).toBeGreaterThan(-1);
+    expect(compare).toBeGreaterThan(mergedGuard);
+    expect(keep).toBeGreaterThan(compare);
+    expect(deleteIdx).toBeGreaterThan(keep);
+  });
+
   it('il close-event cancella solo uno head verificato 0-ahead', () => {
     const start = janitor.indexOf('  delete-closed-unmerged:');
     const body = janitor.slice(start);
