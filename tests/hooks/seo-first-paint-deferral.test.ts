@@ -22,12 +22,13 @@
  * change the indexed head on the site's main organic surface. The "still runs"
  * assertions are the half that guarantees no tag is lost.
  *
- * One call into `seoService` per test on purpose: two `import()` of the same
- * mocked module in the same tick race inside the vitest module runner and one
- * of them resolves the real module. That is a harness artifact, not product
- * behaviour — production has no mock to race with.
+ * The production loader is single-flight: concurrent meta/tracking effects
+ * share one resilient import of `seoService`, so the test can exercise both
+ * callers without creating parallel recovery attempts.
  */
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { resolve } from 'node:path';
 import * as helpers from '@/hooks/seoHelpers';
 
 const seoUpdateMetaTags = vi.fn();
@@ -54,6 +55,8 @@ vi.mock('@/services/i18n', () => ({
 vi.mock('@/services/errorReporter', () => ({ reportCaughtError: vi.fn() }));
 
 const ARTICLE_SECTION = 'blog-stipendio-netto-frontaliere-2026';
+const SEO_HELPERS_SOURCE = readFileSync(resolve(__dirname, '..', '..', 'hooks/seoHelpers.ts'), 'utf8');
+const NAVIGATION_SOURCE = readFileSync(resolve(__dirname, '..', '..', 'hooks/useNavigationState.ts'), 'utf8');
 
 let idleCallbacks: Array<() => void> = [];
 
@@ -80,6 +83,22 @@ beforeEach(() => {
 afterEach(() => {
   vi.useRealTimers();
   delete (window as unknown as { requestIdleCallback?: unknown }).requestIdleCallback;
+});
+
+describe('seoService dynamic import stability (#9465)', () => {
+  it('uses one resilient, export-validated loader for the stable SEO chunk', () => {
+    expect(SEO_HELPERS_SOURCE).toMatch(
+      /import\s*\{\s*resilientImport\s*\}\s*from\s*['"]@\/services\/resilientImport['"]/
+    );
+    expect(SEO_HELPERS_SOURCE).toMatch(/seoServicePromise/);
+    expect(SEO_HELPERS_SOURCE).toMatch(
+      /resilientImport\(\s*\(\)\s*=>\s*import\(['"]@\/services\/seoService['"]\)/
+    );
+    expect(SEO_HELPERS_SOURCE).toMatch(/typeof module\.updateMetaTags === 'function'/);
+    expect(SEO_HELPERS_SOURCE).toMatch(/typeof module\.applyNotFoundSeo === 'function'/);
+    expect(NAVIGATION_SOURCE).toMatch(/loadSeoService\(\)/);
+    expect(NAVIGATION_SOURCE).not.toMatch(/import\(['"]@\/services\/seoService['"]\)/);
+  });
 });
 
 describe('runtime SEO stays out of the initial load window', () => {

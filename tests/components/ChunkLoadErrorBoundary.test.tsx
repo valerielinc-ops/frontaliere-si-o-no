@@ -65,7 +65,8 @@ function ChunkThrower({ message }: { message: string }) {
 }
 
 // The boundary now reloads ASYNCHRONOUSLY (#3097): getDerivedStateFromError kicks
-// off bustAssetHttpCache() — which refetches stale /assets chunks with
+// off clearAssetCaches() — which clears CacheStorage and refetches stale
+// /assets chunks with
 // cache:'reload' so a plain reload doesn't re-serve them — and reloads in the
 // .finally(). With no /assets resources in the test DOM the bust resolves on a
 // microtask, so flush microtasks before asserting reload() ran. Works under fake

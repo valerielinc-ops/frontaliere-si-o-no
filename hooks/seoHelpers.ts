@@ -39,6 +39,7 @@
 import { parsePath } from '@/services/router';
 import { setLocale } from '@/services/i18n';
 import { reportCaughtError } from '@/services/errorReporter';
+import { resilientImport } from '@/services/resilientImport';
 
 let runtimeSeoEnabled = false;
 
@@ -47,6 +48,29 @@ export const enableRuntimeSeo = () => { runtimeSeoEnabled = true; };
 
 /** Check if runtime SEO is enabled. */
 export const isRuntimeSeoEnabled = () => runtimeSeoEnabled;
+
+type SeoServiceModule = typeof import('@/services/seoService');
+let seoServicePromise: Promise<SeoServiceModule> | null = null;
+
+/**
+ * Load the stable-named SEO chunk through the shared stale-deploy recovery.
+ * Keeping one promise also prevents concurrent meta/tracking effects from
+ * starting independent recovery cycles for the same module.
+ */
+export const loadSeoService = (): Promise<SeoServiceModule> => {
+ if (!seoServicePromise) {
+  seoServicePromise = resilientImport(
+   () => import('@/services/seoService'),
+   (module) => (
+    typeof module.updateMetaTags === 'function' &&
+    typeof module.trackSectionView === 'function' &&
+    typeof module.applyNotFoundSeo === 'function'
+   ),
+  );
+  seoServicePromise.catch(() => { seoServicePromise = null; });
+ }
+ return seoServicePromise;
+};
 
 // ── First-paint deferral ────────────────────────────────────────────────────
 
@@ -80,7 +104,7 @@ let deadlineTimer: ReturnType<typeof setTimeout> | null = null;
 let disarmFirstPaintWindowClose: (() => void) | null = null;
 
 const applyMetaTags = (section: string) => {
- const runUpdate = () => import('@/services/seoService').then(m => m.updateMetaTags(section)).catch(err => reportCaughtError(err, 'seo.updateMetaTags'));
+ const runUpdate = () => loadSeoService().then(m => m.updateMetaTags(section)).catch(err => reportCaughtError(err, 'seo.updateMetaTags'));
  if (section === 'blog' || section.startsWith('blog-')) {
   const metaReady = import('@/services/i18n')
    .then(m => m.loadBlogMeta())
@@ -98,7 +122,7 @@ const applyMetaTags = (section: string) => {
 };
 
 const applyTrackSectionView = (section: string) => {
- import('@/services/seoService').then(m => m.trackSectionView(section)).catch(err => reportCaughtError(err, 'seo.trackSectionView'));
+ loadSeoService().then(m => m.trackSectionView(section)).catch(err => reportCaughtError(err, 'seo.trackSectionView'));
 };
 
 /** Close the window and run whatever was queued. Idempotent. */

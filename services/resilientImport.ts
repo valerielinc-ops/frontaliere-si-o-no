@@ -444,7 +444,27 @@ export async function bustAssetHttpCache(): Promise<void> {
 }
 
 /**
- * Clear all CacheStorage entries and reload the page so the browser refetches a
+ * Clear both cache layers that can retain a stale stable-named module.
+ * CacheStorage is usually empty for `/assets`, while the browser HTTP cache
+ * is not; every dynamic-import recovery path must clear both before retrying.
+ */
+export async function clearAssetCaches(): Promise<void> {
+  if (typeof window === 'undefined') return;
+
+  if ('caches' in window) {
+    try {
+      const names = await caches.keys();
+      await Promise.all(names.map((name) => caches.delete(name)));
+    } catch {
+      /* CacheStorage eviction is best-effort. */
+    }
+  }
+
+  await bustAssetHttpCache();
+}
+
+/**
+ * Clear all asset cache layers and reload the page so the browser refetches a
  * CONSISTENT set of stable-named chunks (post-propagation, the skew is gone).
  * Called by the ErrorBoundary version-skew recovery; shares the `_swReloadCount`
  * per-signature budget (see consumeReloadBudget) with the index.html bootstrap
@@ -474,17 +494,7 @@ export async function recoverFromStaleChunk(reason: string): Promise<boolean> {
   } catch {
     /* storage unavailable */
   }
-  if ('caches' in window) {
-    try {
-      const names = await caches.keys();
-      await Promise.all(names.map((n) => caches.delete(n)));
-    } catch {
-      /* cache eviction is best-effort */
-    }
-  }
-  // The skew lives in the HTTP cache, which `caches.delete()` does not touch —
-  // bust it so the reload loads current bytes rather than the same stale set.
-  await bustAssetHttpCache();
+  await clearAssetCaches();
   window.location.reload();
   return true;
 }
@@ -543,15 +553,10 @@ export async function resilientImport<T>(
     // ever runs, so the mode-2 nullish/shape guard in `attempt()` above never
     // sees it. Same recovery as a fetch-failure — cache-bust then retry.
     if (!isChunkLoadError(err) && !isModuleParseError(err)) throw err;
-    // Clear all caches so the browser refetches fresh chunks.
-    if (typeof window !== 'undefined' && 'caches' in window) {
-      try {
-        const names = await caches.keys();
-        await Promise.all(names.map((n) => caches.delete(n)));
-      } catch {
-        /* cache eviction is best-effort */
-      }
-    }
+    // Clear both cache layers before retrying. Stable asset URLs can otherwise
+    // serve the same stale bytes from the browser HTTP cache even when
+    // CacheStorage is empty.
+    await clearAssetCaches();
     // Retry once after cache clear.
     try {
       return await attempt();
@@ -561,10 +566,11 @@ export async function resilientImport<T>(
         const signature = (err2 as Error)?.message || 'chunk_load';
         const shouldReload = consumeReloadBudget(signature);
         if (shouldReload) {
-          // Bust the HTTP cache before reloading: a stale-but-200 chunk (HTML
-          // served for a purged name, or a skewed dependency) would otherwise be
-          // re-served from the disk cache and the reload wasted.
-          await bustAssetHttpCache();
+          // Clear both asset cache layers before reloading: a stale-but-200
+          // chunk (HTML served for a purged name, or a skewed dependency)
+          // would otherwise be re-served from the disk cache and the reload
+          // wasted.
+          await clearAssetCaches();
           window.location.reload();
         }
       }

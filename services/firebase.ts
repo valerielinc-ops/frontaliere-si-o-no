@@ -13,6 +13,7 @@ import type { Analytics as FirebaseAnalytics } from "firebase/analytics";
 import type { FirebasePerformance, PerformanceTrace } from "firebase/performance";
 import type { AppCheck } from "firebase/app-check";
 import { reportCaughtError } from '@/services/errorReporter';
+import { isIndexedDbError } from '@/services/benignErrorPatterns';
 import { isRecaptchaClientReady, type RecaptchaLikeWindow } from '@/services/recaptchaReady';
 import { setFirebaseApiKey } from '@/services/firebaseAuthPersistence';
 import { openIndexedDbWithSchema } from './indexedDbSchema';
@@ -238,7 +239,6 @@ async function getAnalyticsInstance(): Promise<FirebaseAnalytics | null> {
  if (_analyticsLoading) return _analyticsLoading;
  _analyticsLoading = (async () => {
  try {
- const { initializeAnalytics } = await import("firebase/analytics");
  const installationsStoreReady = await prepareFirebaseInstallationsStore();
  if (!installationsStoreReady) {
   // Analytics is non-critical; leave the app usable when a different tab
@@ -246,6 +246,7 @@ async function getAnalyticsInstance(): Promise<FirebaseAnalytics | null> {
   _analyticsBlocked = true;
   _analytics = null;
  } else {
+ const { initializeAnalytics } = await import("firebase/analytics");
  // Use initializeAnalytics instead of getAnalytics to pass config:
  // - send_page_view: false — App.tsx tracks SPA page views manually
  // to avoid duplicate page_view events that inflate pagesPerSession.
@@ -253,11 +254,13 @@ async function getAnalyticsInstance(): Promise<FirebaseAnalytics | null> {
  config: { send_page_view: false },
  });
  }
- } catch {
- // Ad blocker or privacy extension blocked the analytics chunk or
- // gtag.js — analytics will be silently disabled for this session.
- // Set _analyticsBlocked to prevent endless retries from the Proxy.
- _analyticsBlocked = true;
+ } catch (error) {
+ // An IndexedDB lifecycle failure is recoverable: leave the retry gate open
+ // so the next Analytics event can run the schema preflight again. Permanent
+ // failures (ad blocker, privacy extension, or an unavailable SDK chunk) stay
+ // blocked for the session and do not create an init loop.
+ _analyticsBlocked = !isIndexedDbError(error);
+ _analytics = null;
  }
  _analyticsLoading = null;
  return _analytics;
@@ -287,14 +290,20 @@ export async function resetAnalytics(): Promise<FirebaseAnalytics | null> {
  if (_recoveryInFlight) return _recoveryInFlight;
  _recoveryInFlight = (async () => {
  try {
+ const installationsStoreReady = await prepareFirebaseInstallationsStore();
+ if (!installationsStoreReady) {
+  _analyticsBlocked = true;
+  _analytics = null;
+  return null;
+ }
  const { getAnalytics: ga } = await import("firebase/analytics");
  // Discard the stale instance so Firebase creates a fresh one.
  _analytics = null;
  _analytics = ga(await getAppInstance());
  firebaseWarn('[Firebase] Analytics recovered after IndexedDB loss');
- } catch {
- firebaseWarn('[Firebase] Analytics recovery failed — disabling for this session');
- _analyticsBlocked = true;
+ } catch (error) {
+ firebaseWarn('[Firebase] Analytics recovery failed');
+ if (!isIndexedDbError(error)) _analyticsBlocked = true;
  _analytics = null;
  }
  _recoveryInFlight = null;

@@ -130,6 +130,22 @@ describe('openIndexedDbWithSchema()', () => {
     result.db?.close();
   });
 
+  it('serializes concurrent callers so a repair is performed only once', async () => {
+    const factory = new FakeIndexedDbFactory();
+    factory.seed(SCHEMA.name, SCHEMA.version, []);
+
+    const [first, second] = await Promise.all([
+      openIndexedDbWithSchema(SCHEMA, factory as unknown as IDBFactory),
+      openIndexedDbWithSchema(SCHEMA, factory as unknown as IDBFactory),
+    ]);
+
+    expect(first.status).toBe('repaired');
+    expect(second.status).toBe('ready');
+    expect(factory.deleteCalls).toBe(1);
+    first.db?.close();
+    second.db?.close();
+  });
+
   it('creates the required store during a normal version upgrade', async () => {
     const factory = new FakeIndexedDbFactory();
     factory.seed(SCHEMA.name, 0, []);

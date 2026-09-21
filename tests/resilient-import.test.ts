@@ -67,6 +67,36 @@ describe('resilientImport', () => {
     expect((globalThis as any).caches.delete).toHaveBeenCalledTimes(2); // c1 + c2
   });
 
+  it('busts the browser HTTP cache before retrying a stale module', async () => {
+    const originalFetch = (globalThis as any).fetch;
+    const fetchMock = vi.fn().mockResolvedValue({ ok: true });
+    const timingSpy = vi
+      .spyOn(performance, 'getEntriesByType')
+      .mockReturnValue([
+        { name: 'https://cdn.frontaliereticino.ch/assets/seoService.js' },
+      ] as unknown as PerformanceEntryList);
+    (globalThis as any).fetch = fetchMock;
+
+    try {
+      const stale = Object.assign(new Error('Failed to fetch dynamically imported module'), {
+        name: 'ChunkLoadError',
+      });
+      const factory = vi
+        .fn()
+        .mockRejectedValueOnce(stale)
+        .mockResolvedValueOnce({ updateMetaTags: vi.fn() });
+
+      await expect(resilientImport(factory)).resolves.toEqual({ updateMetaTags: expect.any(Function) });
+      expect(fetchMock).toHaveBeenCalledWith(
+        'https://cdn.frontaliereticino.ch/assets/seoService.js',
+        expect.objectContaining({ cache: 'reload' }),
+      );
+    } finally {
+      timingSpy.mockRestore();
+      (globalThis as any).fetch = originalFetch;
+    }
+  });
+
   it('reloads up to MAX_RELOADS times per session when the chunk is truly gone', async () => {
     const reload = vi.fn();
     Object.defineProperty(window, 'location', {
