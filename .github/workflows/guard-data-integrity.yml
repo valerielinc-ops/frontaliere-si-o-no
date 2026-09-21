@@ -39,7 +39,8 @@ jobs:
       # `$BEFORE` è sempre presente, anche a molti commit di distanza) MA NON i
       # blob dei file upfront. I blob vengono recuperati on-demand solo quando il
       # guard legge i pochi file toccati a BEFORE/AFTER — la truncation-detection
-      # e `git checkout "$BEFORE" -- "$f"` restano corretti. Il vecchio
+      # e `git checkout --ignore-skip-worktree-bits "$BEFORE" -- "$f"` restano
+      # corretti anche per i file esclusi dalla sparse checkout. Il vecchio
       # `fetch-depth: 0` full-clone scaricava TUTTI i blob dell'intera storia
       # data-heavy (~GB) e sforava il timeout di 8 min in fase di checkout, prima
       # ancora che il detector girasse (issue #4120: lo step "Detect" veniva
@@ -127,6 +128,9 @@ jobs:
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
           # Ripristina ogni file troncato al contenuto PRE-push (ultimo buono).
+          # I file-dati sono esclusi dallo sparse checkout per contenere il
+          # clone: abilita esplicitamente il path solo per questa operazione,
+          # altrimenti git checkout rifiuta un file con skip-worktree impostato.
           files=$(node -e "JSON.parse(process.argv[1]).forEach(v=>console.log(v.file))" "$VIOLATIONS")
           # La lista sta su fd 9: con `done <<< "$files"` la here-string e' lo
           # stdin del ciclo e ogni `git` del corpo lo eredita — un byte letto
@@ -135,8 +139,8 @@ jobs:
           while IFS= read -r -u 9 f; do
             [ -z "$f" ] && continue
             echo "revert $f -> $BEFORE"
-            git checkout "$BEFORE" -- "$f"
-            git add "$f"
+            git checkout --ignore-skip-worktree-bits "$BEFORE" -- "$f"
+            git add --sparse -- "$f"
           done 9<<< "$files"
 
           if git diff --cached --quiet; then
