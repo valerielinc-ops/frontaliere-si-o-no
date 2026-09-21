@@ -6623,6 +6623,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rapporto-schengen-dublino-2026.title': 'Rapporto Schengen Dublino: impatti su PIL e frontalieri',
     'blog.article.rapporto-schengen-dublino-2026.excerpt': 'Il Consiglio federale ha adottato il rapporto su Schengen e Dublino: l\'abbandono potrebbe ridurre il PIL svizzero fino al 3,9% nel 2035.',
     'blog.article.rapporto-schengen-dublino-2026.imageAlt': 'Valico di confine svizzero e infrastrutture doganali analizzate nel rapporto di settembre 2026',
+    'blog.article.consiglio-federale-modifica-isos.title': 'Il Consiglio federale migliora l’applicazione dell’ISOS',
+    'blog.article.consiglio-federale-modifica-isos.excerpt': 'Approvate le modifiche a OISOS e OPT dal Consiglio federale per semplificare e velocizzare i progetti edilizi in Svizzera a partire dal 1 novembre 2026.',
+    'blog.article.consiglio-federale-modifica-isos.imageAlt': 'Modifica OISOS e OPT approvata dal Consiglio federale svizzero',
 };
 
 export default blogMetaChIt;

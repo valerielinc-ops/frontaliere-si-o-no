@@ -2230,6 +2230,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'migros-fusione-cooperative-2035': { it: 'migros-fusione-cooperative-2035', en: 'migros-merger-cooperatives-2035', de: 'migros-fusion-konsumvereine-2035', fr: 'migros-fusion-cooperatives-2035' },
  'lidl-abolisce-arrotondamento-cassa': { it: 'lidl-abolisce-arrotondamento-cassa', en: 'lidl-abolishes-cash-rounding', de: 'lidl-schafft-bargeld-rundung-ab', fr: 'lidl-abolit-l-arrondi-de-cassa' },
  'rapporto-schengen-dublino-2026': { it: 'rapporto-schengen-dublino-2026', en: 'schengen-dublin-report-2026', de: 'schengen-dublin-bericht-2026', fr: 'rapport-schengen-dublin-2026' },
+ 'consiglio-federale-modifica-isos': { it: 'consiglio-federale-modifica-isos', en: 'federal-council-isos-amendments', de: 'bundesrat-isos-aenderungen', fr: 'conseil-federal-modifications-isos' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

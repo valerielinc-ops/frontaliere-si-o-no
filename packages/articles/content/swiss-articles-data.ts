@@ -19841,6 +19841,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'consiglio-federale-modifica-isos',
+    category: 'novita',
+    date: '2026-09-21T00:34:15.966Z',
+    image: '/images/blog/consiglio-federale-modifica-isos.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
