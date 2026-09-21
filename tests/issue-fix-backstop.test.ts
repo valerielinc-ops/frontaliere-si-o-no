@@ -98,6 +98,7 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(gate).toContain('classifyAutomationRisk');
     expect(gate).toContain('policyInput.pathsComplete = references.pathsComplete');
     expect(gate).toContain('automationBlocked: risk.blocked');
+    expect(gate).toContain('vision_approved: ${{ steps.risk.outputs.vision_approved }}');
     expect(gate).toContain('snapshot_fingerprint');
     expect(end).toBeLessThan(appToken);
     expect(end).toBeLessThan(bridge);
@@ -406,6 +407,8 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(workflow.indexOf('risk_policy:')).toBeLessThan(appToken);
     expect(workflow).toContain('classifyAutomationRisk');
     expect(workflow).toContain('pathsComplete: true');
+    expect(workflow).toContain('VISION_APPROVED: ${{ needs.risk_policy.outputs.vision_approved }}');
+    expect(workflow).toContain("visionApproved: process.env.VISION_APPROVED === 'true'");
     expect(workflow).toContain('git diff --name-only origin/main');
     expect(workflow).toContain("steps.diff_gate.outcome == 'success'");
   });

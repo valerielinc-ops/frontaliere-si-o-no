@@ -212,4 +212,9 @@ describe('needs-human-sweep.yml — il DATO che il pre-pass legge, non solo i su
       'senza /DECISIONS.md il riconoscimento del registro e\' spento e il job resta verde',
     ).toContain('/DECISIONS.md');
   });
+
+  it('il job `prepass` checkouta `/VISION.md` per verificare il contratto di autonomia', () => {
+    const wf = fs.readFileSync(path.join(ROOT, WORKFLOW), 'utf-8');
+    expect(sparsePatternsFor(wf, 'prepass')).toContain('/VISION.md');
+  });
 });
