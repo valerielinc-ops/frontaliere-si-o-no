@@ -89,7 +89,17 @@ function sourceStatus(source, result) {
     errorCode: 'source_disappeared',
     lastSuccessAt: result.previousSuccessAt,
   };
-  if (result.zeroRows && source.status === 'active') return { ...base, status: 'degraded', errorCode: 'zero_rows' };
+  if (result.zeroRows && source.status === 'active') return {
+    ...base,
+    status: 'degraded',
+    // An empty fetch carries the previous rows forward. The health gate
+    // compares rowCount with the rows actually present in the snapshot, and
+    // lastSuccessAt must identify the previous successful fetch rather than
+    // pretending this empty response was a successful catalogue.
+    rowCount: result.rows.length,
+    errorCode: 'zero_rows',
+    lastSuccessAt: result.previousSuccessAt,
+  };
   // `rowCount` must describe the rows this snapshot actually carries for the
   // source, because check-health.mjs compares it against them and fails the
   // run on a mismatch. `fetchedRowCount` is the count the FETCH returned,

@@ -25,7 +25,12 @@ describe('plate-auction ingest resilience', () => {
     const row = snapshot.auctions.find((auction) => auction.id === 'gr-1');
     expect(row).toMatchObject({ auctionStatus: 'closed', dataConfidence: 'partial', closedAt: previousRow.endsAt });
     expect(row).not.toHaveProperty('finalPriceChf');
-    expect(snapshot.sources.gr).toMatchObject({ status: 'degraded', rowCount: 0, errorCode: 'zero_rows' });
+    expect(snapshot.sources.gr).toMatchObject({
+      status: 'degraded',
+      rowCount: 1,
+      errorCode: 'zero_rows',
+      lastSuccessAt: '2026-09-12T12:00:00.000Z',
+    });
   });
 
   it('records a vanished fixed-price plate as a sale that can never rank as a final', async () => {
