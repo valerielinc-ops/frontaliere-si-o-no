@@ -420,6 +420,7 @@ async function fetchPostJobs() {
         getIdentity: (job) => job?.id,
         source: `Post.ch ${apiLocale}`,
         page: pageNumber,
+        allowPreviouslySeen: true,
       });
       for (const [index, j] of jobs.entries()) {
         const id = pageIds[index];

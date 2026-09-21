@@ -139,10 +139,9 @@ describe('PostAuto crawler parser', () => {
       }
     });
 
-    it('fails closed when a later page repeats a source identity', async () => {
-      const pageRecords = [
-        { response: { id: 'postauto-duplicate', cust_brandCompanyJobSearch: ['PostAuto'] } },
-      ];
+    it('recovers a page-boundary overlap while requiring unique progress', async () => {
+      const firstRecord = { id: 'postauto-overlap', cust_brandCompanyJobSearch: ['PostAuto'] };
+      const secondRecord = { id: 'postauto-new', cust_brandCompanyJobSearch: ['PostAuto'] };
       const fetchMock = vi.fn(async (_url: string, init?: RequestInit) => {
         const body = JSON.parse(String(init?.body || '{}')) as { pageNumber?: number };
         return {
@@ -150,15 +149,17 @@ describe('PostAuto crawler parser', () => {
           status: 200,
           json: async () => ({
             totalJobs: 2,
-            jobSearchResult: pageRecords,
+            jobSearchResult: body.pageNumber === 0
+              ? [{ response: firstRecord }]
+              : [{ response: firstRecord }, { response: secondRecord }],
           }),
         };
       });
       vi.stubGlobal('fetch', fetchMock);
 
       try {
-        await expect(postAutoTestables.fetchPostAutoListings(1000))
-          .rejects.toThrow('duplicate source identity "postauto-duplicate"');
+        const listings = await postAutoTestables.fetchPostAutoListings(1000);
+        expect(listings.map((listing) => listing.id)).toEqual(['postauto-overlap', 'postauto-new']);
       } finally {
         vi.unstubAllGlobals();
       }

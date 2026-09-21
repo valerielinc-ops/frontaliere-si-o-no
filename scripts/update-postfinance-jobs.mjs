@@ -229,7 +229,7 @@ async function fetchRecruitingApiPage(pageNumber, { locale = 'de_DE', timeoutMs 
  * so the full result set is fetched and filtered client-side — see #4759.
  */
 async function fetchPostFinanceListingsViaRecruitingApi() {
-  const results = [];
+  const resultsById = new Map();
   let total = null;
   let pageNumber = 0;
   const sourceIdentities = new Set();
@@ -254,12 +254,16 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
       throw new Error(`PostFinance API pagination failed at page ${pageNumber}: rows without a response identity.`);
     }
     if (pageRecords.length > 0) {
-      recordUniquePageProgress(sourceIdentities, pageRecords, {
+      const pageIds = recordUniquePageProgress(sourceIdentities, pageRecords, {
         getIdentity: (record) => record?.id,
         source: 'PostFinance API',
         page: pageNumber,
+        allowPreviouslySeen: true,
       });
-      results.push(...pageRecords);
+      for (const [index, record] of pageRecords.entries()) {
+        const id = pageIds[index];
+        if (!resultsById.has(id)) resultsById.set(id, record);
+      }
     }
 
     pageNumber += 1;
@@ -286,8 +290,9 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
     );
   }
 
+  const results = [...resultsById.values()];
   const pfJobs = results.filter((r) => r?.brandUrl === 'PostFinance');
-  console.log(`  🔎 Recruiting API: ${results.length} Swiss Post Group postings scanned, ${pfJobs.length} PostFinance-branded.`);
+  console.log(`  🔎 Recruiting API: ${results.length} unique Swiss Post Group postings scanned, ${pfJobs.length} PostFinance-branded.`);
   return pfJobs;
 }
 
