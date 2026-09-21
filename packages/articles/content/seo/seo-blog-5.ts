@@ -92035,6 +92035,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pellicini-fdi-indennita-frontiera': {
+    title: 'Pellicini (Fdi): Indennità di frontiera e fondi per i lavoratori',
+    description: 'Scopri i dettagli sull\'indennità di frontiera e sul fondo per i lavoratori della fascia di confine illustrati da un parlamentare di Fratelli d\'Italia.',
+    keywords: 'frontalieri, ticino, svizzera, italia, pellicini, indennità, frontiera, fondi',
+    ogTitle: 'Pellicini Fdi: Indennità di frontiera e risorse per i lavoratori',
+    ogDescription: 'Analisi dell\'intervento del parlamentare di Fratelli d\'Italia sul fondo destinato ai lavoratori della fascia di confine per migliorare le retribuzioni in Italia.',
+    canonicalPath: '/articoli-frontaliere/pellicini-fdi-indennita-frontiera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pellicini (Fdi): Indennità di frontiera e fondi per i lavoratori",
+      "description": "Scopri i dettagli sull'indennità di frontiera e sul fondo per i lavoratori della fascia di confine illustrati da un parlamentare di Fratelli d'Italia.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pellicini-fdi-indennita-frontiera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Dibattito politico sull'indennità di frontiera e le risorse per i lavoratori"
+      },
+      "datePublished": "2026-09-21T00:21:17+00:00",
+      "dateModified": "2026-09-21T00:21:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pellicini-fdi-indennita-frontiera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

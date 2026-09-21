@@ -11875,6 +11875,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.inflazione-portafoglio-svizzera.title': 'Inflation en Suisse : combien pèse-t-elle sur les bilans ?',
     'blog.article.inflazione-portafoglio-svizzera.excerpt': 'Analyse de l\'inflation et du pouvoir d\'achat en Suisse : découvrez l\'écart entre l\'indice officiel et le coût de la vie vécu au quotidien.',
     'blog.article.inflazione-portafoglio-svizzera.imageAlt': 'Panorama de Lugano au Tessin surplombant le lac',
+    'blog.article.pellicini-fdi-indennita-frontiera.title': 'Pellicini (FDI) : Indemnités de frontière et fonds pour les travailleurs',
+    'blog.article.pellicini-fdi-indennita-frontiera.excerpt': 'Un député de Fratelli d\'Italia intervient sur les ressources de la bande frontalière pour valoriser l\'emploi en Italie.',
+    'blog.article.pellicini-fdi-indennita-frontiera.imageAlt': 'Débat politique sur l\'indemnité frontalière et les ressources',
 };
 
 export default blogMetaFr;

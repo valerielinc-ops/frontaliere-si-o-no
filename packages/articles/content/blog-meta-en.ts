@@ -11873,6 +11873,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.inflazione-portafoglio-svizzera.title': 'Inflation in Switzerland: how much does it weigh on budgets?',
     'blog.article.inflazione-portafoglio-svizzera.excerpt': 'Analysis of inflation and purchasing power in Switzerland: find out the distance between the official index and the cost of living lived every day.',
     'blog.article.inflazione-portafoglio-svizzera.imageAlt': 'Lugano panorama in Ticino overlooking the lake',
+    'blog.article.pellicini-fdi-indennita-frontiera.title': 'Furs (FDI): Frontier allowances and workers\' funds',
+    'blog.article.pellicini-fdi-indennita-frontiera.excerpt': 'A member of the Fratelli d \'Italia parliament intervenes on the resources for the border strip to enhance employment in Italy.',
+    'blog.article.pellicini-fdi-indennita-frontiera.imageAlt': 'Political debate on border allowance and resources for workers',
 };
 
 export default blogMetaEn;
