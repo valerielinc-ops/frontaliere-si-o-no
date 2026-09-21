@@ -308,6 +308,31 @@ describe('ledger: confirmed-fixed solo da conferma esplicita (review #9318, find
     state: 'COMMENTED', commit_id: commit, body, submitted_at: at,
   });
 
+  it('separa un Nit senza due punti dal precedente Important', () => {
+    const openedBody = [
+      '## Findings (Important: 1, Nit: 1)',
+      '',
+      '.github/workflows/tests.yml:L460: 🔴 Important: il workflow usa una variabile non dichiarata.',
+      '',
+      'scripts/update-lastminute-jobs.mjs:L816: 🟡 Nit The body non descrive il cambiamento secondario.',
+    ].join('\n');
+    const confirmedBody = [
+      '## Findings (Important: 0, Nit: 0)',
+      '',
+      'Fix di `.github/workflows/tests.yml:L460`: ok.',
+      '',
+      '## LGTM',
+    ].join('\n');
+    const opened = bot(1, openedBody, HEAD_A, '2026-09-19T10:00:00Z');
+    const confirmed = bot(2, confirmedBody, HEAD_B, '2026-09-19T11:00:00Z');
+
+    expect(importantFindings(openedBody)).toHaveLength(1);
+    expect(importantFindings(openedBody)[0].citations).toEqual([
+      { path: '.github/workflows/tests.yml', line: 460 },
+    ]);
+    expect(historicalImportantFindings([opened, confirmed], { includeLatest: true })).toHaveLength(0);
+  });
+
   it('classifica confermato solo ciò che una review successiva chiude con `Fix di`', () => {
     const reviews = [[
       bot(1, '## Findings (Important: 2, Nit: 0)\n\n`scripts/ci/uno.mjs:L3`: 🔴 Important: `alfa()` rotto.\n\n`scripts/ci/due.mjs:L7`: 🔴 Important: `beta()` rotto.\n', HEAD_B, '2026-09-19T10:00:00Z'),
