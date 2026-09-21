@@ -80,6 +80,7 @@ jobs:
           script: |
             const repo = context.repo;
             const PENDING_MARKER = '<!-- BODY_REVIEW_RECOVERY_PENDING:';
+            const CODEX_AUTH_BLOCKED_PREFIX = '<!-- CODEX_AUTH_BLOCKED:';
             const NATIVE_LEASE_MARKER = '<!-- NATIVE_AUTO_MERGE_LEASE:';
             const TRUSTED_AUTOMATION_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/iu;
             // The scheduled/manual native gate can authenticate with the
@@ -106,11 +107,15 @@ jobs:
             };
             const markerBody = (state) => `${PENDING_MARKER} ${JSON.stringify(state)} -->\n`
               + `_body-review recovery ${state.status} · head ${state.headSha.slice(0, 12)} · body ${state.bodyRevision}._`;
-            const markerJson = (body) => {
-              const match = String(body || '').match(/<!-- BODY_REVIEW_RECOVERY_PENDING:\s*(\{[\s\S]*?\})\s*-->/u);
-              if (!match) return null;
+            const markerJson = (body, prefix = PENDING_MARKER) => {
+              const text = String(body || '');
+              const start = text.indexOf(prefix);
+              if (start < 0) return null;
+              const jsonStart = text.indexOf('{', start + prefix.length);
+              const end = text.indexOf('-->', jsonStart + 1);
+              if (jsonStart < 0 || end < 0) return null;
               try {
-                const value = JSON.parse(match[1]);
+                const value = JSON.parse(text.slice(jsonStart, end).trim());
                 return value && typeof value === 'object' && !Array.isArray(value) ? value : null;
               } catch {
                 return null;
@@ -141,6 +146,28 @@ jobs:
                 .map(comment => ({ comment, state: markerJson(comment.body) }))
                 .filter(item => item.state && trustedAutomationAuthor(item.comment.user));
               return matches.at(-1) || null;
+            }
+            async function hasCodexAuthBlockedCheckpoint(number, pr, run) {
+              const comments = await github.paginate(github.rest.issues.listComments, {
+                ...repo, issue_number: number, per_page: 100,
+              });
+              const attempt = validRunAttempt(run?.run_attempt);
+              const runId = Number(run?.id);
+              return comments.some(comment => {
+                if (comment?.user?.type !== 'Bot'
+                    || !TRUSTED_AUTOMATION_BOT_RE.test(String(comment.user.login || ''))) return false;
+                const marker = markerJson(comment.body, CODEX_AUTH_BLOCKED_PREFIX);
+                const digest = String(marker?.authDigest || '').toLowerCase();
+                return marker?.version === 1
+                  && marker.status === 'blocked'
+                  && Number(marker.prNumber) === Number(number)
+                  && marker.headSha === pr.head.sha
+                  && Number.isSafeInteger(runId) && runId > 0
+                  && Number(marker.runId) === runId
+                  && attempt !== null
+                  && Number(marker.runAttempt) === attempt
+                  && (digest === 'missing' || /^[0-9a-f]{64}$/u.test(digest));
+              });
             }
             class MarkerWriteConflict extends Error {
               constructor(message) {
@@ -304,6 +331,54 @@ jobs:
               const attempt = Number(value);
               return Number.isSafeInteger(attempt) && attempt > 0 ? attempt : null;
             }
+            async function retryReasonForCompletedRun(number, pr, latest) {
+              // A body edit cannot repair a code/test or provider failure. A
+              // completed green run still needs one revalidation because the
+              // body is part of the trusted review input; red runs are
+              // retried only when the failed steps prove a body/review cause.
+              if (latest.conclusion === 'success') {
+                return 'the PR body changed; revalidate the review input revision';
+              }
+              if (latest.conclusion !== 'failure') return '';
+              if (await hasCodexAuthBlockedCheckpoint(number, pr, latest)) {
+                core.info(`Run ${latest.id} attempt ${latest.run_attempt} has a matching CODEX_AUTH_BLOCKED checkpoint: no body-recovery rerun.`);
+                return '';
+              }
+              const jobs = await github.paginate(github.rest.actions.listJobsForWorkflowRun, {
+                ...repo, run_id: latest.id, filter: 'latest', per_page: 100,
+              });
+              const failedBody = jobs.some(job => job.steps?.some(step => typeof step?.name === 'string'
+                && step.name.startsWith('PR-body completeness + multi-issue Closes')
+                && step.conclusion === 'failure'));
+              if (failedBody) return 'body preflight failed';
+              const reviewFailureSteps = new Set([
+                'Require approving Codex review', 'Classify review gate failure',
+                'Fail when required review gate is skipped',
+              ]);
+              const failedJobs = jobs.filter(job => job.conclusion === 'failure');
+              const reviewOnlyFailure = failedJobs.length > 0 && failedJobs.every(job => {
+                const failedSteps = (job.steps ?? []).filter(step => step.conclusion === 'failure').map(step => step.name);
+                return failedSteps.length > 0 && failedSteps.every(name => reviewFailureSteps.has(name));
+              });
+              return reviewOnlyFailure ? 'review gate failed after body edit' : '';
+            }
+            async function completeWithoutRetry(number, pr, latest, existing, reason) {
+              if (!existing?.state) return;
+              const attempt = validRunAttempt(latest.run_attempt);
+              if (attempt === null) {
+                throw new Error(`run ${latest.id} attempt non verificabile: marker resta pending`);
+              }
+              await persistMarker(number, {
+                ...existing.state,
+                status: 'completed',
+                runId: latest.id,
+                runAttempt: attempt,
+                headSha: pr.head.sha,
+                bodyRevision: BODY_REVISION(pr.body),
+                sourceEvent: reason,
+              }, existing);
+              core.info(`Run ${latest.id} attempt ${attempt} consumata senza retry: ${reason}.`);
+            }
             async function retryCompletedRun(number, pr, latest, existing, reason) {
               const { data: currentPr } = await github.rest.pulls.get({ ...repo, pull_number: number });
               if (currentPr.state !== 'open' || currentPr.base?.ref !== 'main' || currentPr.head.sha !== pr.head.sha) return;
@@ -441,25 +516,16 @@ jobs:
                 core.warning(`Nessuna run tests pull_request per PR #${number}, HEAD ${pr.head.sha}: recovery manuale richiesta; nessun dispatch trusted.`);
                 return;
               }
-              const jobs = latest.status === 'completed'
-                ? await github.paginate(github.rest.actions.listJobsForWorkflowRun, {
-                  ...repo, run_id: latest.id, filter: 'latest', per_page: 100,
-                })
-                : [];
-              const failedBody = jobs.some(job => job.steps?.some(step => step.name.startsWith('PR-body completeness + multi-issue Closes')
-                && step.conclusion === 'failure'));
-              const reviewFailureSteps = new Set([
-                'Require approving Codex review', 'Classify review gate failure',
-                'Fail when required review gate is skipped',
-              ]);
-              const failedJobs = jobs.filter(job => job.conclusion === 'failure');
-              const reviewOnlyFailure = failedJobs.length > 0 && failedJobs.every(job => {
-                const failedSteps = (job.steps ?? []).filter(step => step.conclusion === 'failure').map(step => step.name);
-                return failedSteps.length > 0 && failedSteps.every(name => reviewFailureSteps.has(name));
-              });
-              const reason = failedBody ? 'body preflight failed'
-                : reviewOnlyFailure ? 'review gate failed'
-                  : 'the PR body changed; revalidate the review input revision';
+              if (latest.status !== 'completed') {
+                await retryCompletedRun(number, pr, latest, existing, 'the tests run was still active when the body changed');
+                return;
+              }
+              const reason = await retryReasonForCompletedRun(number, pr, latest);
+              if (!reason) {
+                await completeWithoutRetry(number, pr, latest, existing,
+                  'the completed run was not caused by the body edit');
+                return;
+              }
               await retryCompletedRun(number, pr, latest, existing, reason);
             }
             function markerMatchesRun(state, run) {
@@ -543,7 +609,13 @@ jobs:
                 if (existing.state.status !== 'pending' || !exactRun) continue;
                 const latest = await runForHead(run.head_sha, number);
                 const candidate = latest && markerMatchesRun(existing.state, latest) ? latest : run;
-                await retryCompletedRun(number, pr, candidate, existing, 'previous tests run completed after body edit');
+                const reason = await retryReasonForCompletedRun(number, pr, candidate);
+                if (!reason) {
+                  await completeWithoutRetry(number, pr, candidate, existing,
+                    'the completed run was not caused by the body edit');
+                  continue;
+                }
+                await retryCompletedRun(number, pr, candidate, existing, reason);
               }
             }
             async function handleScheduledRecovery() {
