@@ -275,6 +275,43 @@ export function parseReflineJobPostingJsonLd(html = '') {
   return null;
 }
 
+/**
+ * Extract a Swiss job location from a Refline detail page's JobPosting JSON-LD.
+ *
+ * Refline anchor listings do not always expose a workplace. When that happens,
+ * the detail page can still carry the authoritative per-job `jobLocation`,
+ * including the municipality, canton and postal code. Return only locations
+ * whose municipality/region resolves to a Swiss canton; otherwise callers must
+ * keep their configured safe default.
+ */
+export function extractReflineJobPostingLocation(html = '') {
+  const posting = parseReflineJobPostingJsonLd(html);
+  if (!posting) return null;
+
+  const places = Array.isArray(posting.jobLocation)
+    ? posting.jobLocation
+    : [posting.jobLocation];
+
+  for (const place of places) {
+    const addresses = Array.isArray(place?.address) ? place.address : [place?.address];
+    for (const address of addresses) {
+      if (!address || typeof address !== 'object') continue;
+      const city = normalizeSpace(address.addressLocality || '');
+      if (!city) continue;
+      const region = normalizeSpace(address.addressRegion || '');
+      const canton = inferSwissTargetCanton(`${city} ${region}`);
+      if (!canton) continue;
+      return {
+        city,
+        canton,
+        postal: normalizeSpace(address.postalCode || ''),
+      };
+    }
+  }
+
+  return null;
+}
+
 function extractPensum(text = '') {
   const range = text.match(/(\d{2,3})\s*[-–]\s*(\d{2,3})\s*%/);
   if (range) return { min: parseInt(range[1], 10), max: parseInt(range[2], 10) };
@@ -427,15 +464,18 @@ export function createReflineParser(config) {
 
     for (const listing of listings) {
       let detail = { title: '', description: '' };
+      const listingWorkplace = String(listing.workplace || '').trim();
+      let structuredLocation = null;
       try {
         const detailHtml = await fetchHtml(listing.url, { timeoutMs });
         detail = parseReflineDetail(detailHtml);
+        if (!listingWorkplace) structuredLocation = extractReflineJobPostingLocation(detailHtml);
       } catch (err) {
         console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
       }
 
       const title = detail.title || listing.title;
-      const hints = pickHints(listing.workplace || '');
+      const hints = structuredLocation || pickHints(listingWorkplace);
       const location = hints.city;
       const canton = hints.canton;
       const postalCode = hints.postal || defaultPostalCode;
