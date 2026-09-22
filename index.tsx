@@ -4,7 +4,6 @@ import './index.css';
 import { installDomReconciliationGuard } from './services/domReconciliationGuard';
 import { maybeHandleCvDownload } from './services/cvDownloadIntercept';
 import { clearAssetCaches } from './services/resilientImport';
-import { isRewardedApplicationPagePath } from './services/rewardedApplicationHandoff';
 
 // Harden the DOM against third-party mutation (Google Translate, extensions)
 // crashing React's reconciler with NotFoundError on insertBefore/removeChild.
@@ -130,9 +129,7 @@ const mountApp = async () => {
  let staticPage = hasStaticContent();
 
  const [{ default: RootPage }, { ChunkLoadErrorBoundary }, i18n] = await Promise.all([
-  isRewardedApplicationPagePath(window.location.pathname)
-  ? import('./components/community/RewardedApplicationPage')
-  : import('./App'),
+ import('./App'),
  import('./components/ChunkLoadErrorBoundary'),
  homeCritical ? import('./services/i18n') : Promise.resolve(null),
  // Preload the calculator chunk on home-critical paths so App's lazy
@@ -162,8 +159,7 @@ const mountApp = async () => {
  // chunk — it is already loaded with App above, so this resolves from cache.
  // Gated on staticOverlay so true static landings keep their overlay; crawlers
  // (no JS) still get the fallback verbatim.
-  if (!isRewardedApplicationPagePath(window.location.pathname)) {
-   try {
+ try {
    const { parsePath } = await import('./services/router');
    if (!parsePath(window.location.pathname).route.staticOverlay
      && !hasPlateAuctionStaticFallback()) {
@@ -189,10 +185,9 @@ const mountApp = async () => {
        staticPage = hasStaticContent();
      }
    }
-   } catch {
-    /* router/DOM edge case — fall through to existing handling */
-   }
-  }
+ } catch {
+  /* router/DOM edge case — fall through to existing handling */
+ }
 
  if (staticPage) {
  // FOUC prevention for static pages:

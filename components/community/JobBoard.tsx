@@ -27,6 +27,7 @@ import CompanyFollowPlaceholder from '@/components/community/CompanyFollowPlaceh
 const JobMatchAlertCta = lazyRetry(() => import('@/components/community/JobMatchAlertCta'));
 const JobBoardFilterAlertCta = lazyRetry(() => import('@/components/community/JobBoardFilterAlertCta'));
 const AssistedApplicationOffer = lazyRetry(() => import('@/components/community/AssistedApplicationOffer'));
+const RewardedApplicationOffer = lazyRetry(() => import('@/components/community/RewardedApplicationOffer'));
 const AssistedApplicationUpload = lazyRetry(() => import('@/components/community/AssistedApplicationUpload'));
 const SavedJobsAlertNudge = lazyRetry(() => import('@/components/community/SavedJobsAlertNudge'));
 const SaveSignInPromptModal = lazyRetry(() => import('@/components/community/SaveSignInPromptModal'));
@@ -194,10 +195,6 @@ import {
 import {
  getRewardedApplicationAccessExpiresAt,
 } from '@/services/rewardedApplicationAccess';
-import {
- buildRewardedApplicationPageUrl,
- createRewardedApplicationHandoff,
-} from '@/services/rewardedApplicationHandoff';
 import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
@@ -2461,6 +2458,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // responded.
  const [appliedJobId, setAppliedJobId] = useState<string | null>(null);
  const [assistedApplicationJob, setAssistedApplicationJob] = useState<JobListing | null>(null);
+ const [rewardedApplicationJob, setRewardedApplicationJob] = useState<JobListing | null>(null);
  const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
  const [assistedCheckoutError, setAssistedCheckoutError] = useState<string | null>(null);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
@@ -2939,6 +2937,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setSaveAuthPromptOpen(true);
  Analytics.trackEvent('save_signin_prompt_shown', { job_id: intent.entry.id, surface: 'detail_gate_unlocked' });
  }, [hasAccess, authUser?.uid]);
+
  // Bridge detection: the plugin writes window.__BRIDGE_TARGET_SLUG__ in the static HTML for old URLs.
  // Hoisted above the slug-filter memos below: its presence is the authoritative
  // "this URL is a JOB page, not a filter landing" signal, and they need it.
@@ -6719,6 +6718,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
  };
 
+ const handleRewardedApplicationCompleted = () => {
+  const job = rewardedApplicationJob;
+  if (!job) return;
+  setRewardedApplicationJob(null);
+  // This callback happens after GPT's reward/video lifecycle, so use the
+  // current tab: a late window.open is commonly blocked by the browser.
+  redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true);
+ };
+
+ const handleRewardedApplicationUnavailable = () => {
+  const job = rewardedApplicationJob;
+  if (!job) return;
+  setRewardedApplicationJob(null);
+  // A no-fill is not an error for the user. The transparent fallback is the
+  // original employer destination, with the same-tab navigation guaranteed.
+  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true);
+ };
+
  const handleAssistedPaid = async () => {
   const job = assistedApplicationJob;
   if (!job || assistedApplicationVariant !== 'assisted_application' || assistedCheckoutBusy) return;
@@ -6771,8 +6788,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
   openDetail(assistedApplicationJob);
  }, [assistedApplicationJob, authResolved, isJobDetailView]);
 
+ // Rewarded treatment clicks from a list card need the same detail host as
+ // clicks from the detail CTA. Keeping the selected job on the original route
+ // means the video never creates a second crawlable URL or a separate page.
+ useEffect(() => {
+  if (!rewardedApplicationJob || isJobDetailView || !authResolved) return;
+  openDetail(rewardedApplicationJob);
+ }, [rewardedApplicationJob, authResolved, isJobDetailView]);
+
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
   const isExternal = isExternalApplicationJob(job);
+  if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid) {
+   // The rewarded treatment is an account feature: do not create an ad
+   // request, publisher apply event, or destination handoff until the user is
+   // authenticated. The job content itself remains public for SEO.
+   onRequireAuth?.();
+   return;
+  }
   const rewardedAccessExpiresAt = isExternal && assistedApplicationVariant === 'rewarded_ad'
    ? getRewardedApplicationAccessExpiresAt()
    : null;
@@ -6819,32 +6851,15 @@ const JobBoard: React.FC<JobBoardProps> = ({
    );
    return;
   }
-  // The dedicated external Rewarded Web page owns the click → video → callback
-  // lifecycle. Open it synchronously from the user's click so popup blockers
-  // do not turn the rewarded step into a dead CTA.
+  // Keep the rewarded lifecycle inside the current job detail. This leaves the
+  // canonical URL, JobPosting markup, and visible job copy untouched; only the
+  // post-click application action is gated by the rewarded video.
   trackAssistedApplicationEvent(
    'rewarded_application_offer_requested',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, provider: 'google_gpt_rewarded_web' },
   );
-  const destination = buildReferralUrl(job);
-  const token = createRewardedApplicationHandoff({
-   destination,
-   jobId: String(job.id),
-   companyId: String(job.companyKey || job.company || 'unknown'),
-   companyName: job.company,
-   jobTitle: sanitizeJobTitle(job.titleByLocale?.[locale] ?? job.title),
-  });
-  if (!token) {
-   redirectExternalApplication(job, 'rewarded_application_handoff_fallback', false);
-   return;
-  }
-  const rewardPageUrl = buildRewardedApplicationPageUrl(token);
-  const rewardWindow = window.open(rewardPageUrl, '_blank');
-  if (!rewardWindow) {
-   window.location.assign(rewardPageUrl);
-  } else {
-   try { rewardWindow.opener = null; } catch { /* cross-browser best effort */ }
-  }
+  setRewardedApplicationJob(job);
+  if (!isJobDetailView) openDetail(job);
   return;
  }
  if (assistedApplicationVariant === 'assisted_application') {
@@ -7199,6 +7214,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
     }}
     paidLoading={assistedCheckoutBusy}
     error={assistedCheckoutError}
+   />
+ </Suspense>
+ ) : null;
+
+ const rewardedApplicationOfferJsx = rewardedApplicationJob && assistedApplicationVariant === 'rewarded_ad' ? (
+  <Suspense fallback={null}>
+   <RewardedApplicationOffer
+    jobId={String(rewardedApplicationJob.id)}
+    companyId={String(rewardedApplicationJob.companyKey || rewardedApplicationJob.company || 'unknown')}
+    companyName={rewardedApplicationJob.company}
+    jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
+    onCompleted={handleRewardedApplicationCompleted}
+    onUnavailable={handleRewardedApplicationUnavailable}
    />
   </Suspense>
  ) : null;
@@ -9263,6 +9291,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {authPendingNoticeJsx}
 
  {assistedApplicationOfferJsx}
+ {rewardedApplicationOfferJsx}
 
  <article className="hybrid-ab-root">
  <header className="hybrid-ab-hero">
@@ -9414,6 +9443,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {authPendingNoticeJsx}
 
  {assistedApplicationOfferJsx}
+ {rewardedApplicationOfferJsx}
 
  {/* 3-column rail grid: left rail | content | right rail. 180px rails at xl
      (1280–1399), widening to 300px at xlw (≥1400) to host the ArticleRailAd
