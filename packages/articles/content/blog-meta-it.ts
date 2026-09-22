@@ -11900,6 +11900,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.title': 'Vivere a Bregnano e lavorare in Ticino: guida pratica per frontalieri',
     'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.excerpt': 'Tempi di percorrenza, costi, tasse e procedure: tutto ciò che i frontalieri da Bregnano devono sapere prima di accettare un lavoro in Ticino.',
     'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.imageAlt': 'Traffico pendolari al valico di Brogeda al mattino presto',
+    'blog.article.bollettino-frontaliere-2026-09-22.title': 'Bollettino del frontaliere – 22 settembre 2026: 639 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-09-22.excerpt': 'I numeri di oggi, 22 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-22.imageAlt': 'I numeri del giorno per i frontalieri – 22 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-22.seoDescription': 'Bollettino frontalieri del 22 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-22.ogDescription': 'I numeri del 22 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;

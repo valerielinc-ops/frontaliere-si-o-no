@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>Nachrichten und Leitfaden für Grenzgänger im Tessin</description>
     <language>de</language>
-    <lastBuildDate>Tue, 22 Sep 2026 05:34:32 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 22 Sep 2026 09:43:04 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Deutsch</title>
@@ -17,6 +17,40 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-de.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>Grenzgänger-Tagesbulletin – 22. September 2026: 639 neue Stellenangebote gestern</title>
+      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/grenzgaenger-tagesbulletin-2026-09-22/</link>
+      <description><![CDATA[Die Zahlen von heute, 22. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.]]></description>
+      <content:encoded><![CDATA[Guten Morgen — heute ist Dienstag, der 22. September 2026. Das ist das tägliche Bulletin für alle, die auf der einen Seite der Grenze wohnen und auf der anderen arbeiten: vier heute gemessene Zahlen — Staus an den Übergängen, Benzin, Wechselkurs und Arbeitsmarkt — jeweils mit Link zur Live-Seite.
+
+## Wartezeiten an der Grenze heute Morgen
+
+Heute Morgen läuft es: Von 141 überwachten Übergängen melden 141 keine Warteschlange, die längste Wartezeit beträgt nur **0 Minuten** (Anières).
+
+Der Verkehr ändert sich stündlich — der Live-Status jedes Übergangs steht auf der [Seite zur Wartezeit an der Grenze](/de/wartezeit-grenze/).
+## Benzin: Wo es heute am wenigsten kostet
+
+⚠️ Die Kraftstoffpreise wurden seit 48 Stunden nicht aktualisiert; der Abschnitt kehrt zurück, sobald die Quelle wieder liefert. Inzwischen: [Benzinpreise an der Grenze](/de/benzinpreis-schweiz/heute/).
+## Wechselkurs Franken–Euro
+
+Ein Franken ist **1.0569 €** wert (Schluss 2026-09-21). Gegenüber dem Vortag gewinnt er +0.0012 €; über sieben Tage beträgt die Veränderung -0.0012 €.
+
+💡 Wer in Franken verdient und in Euro ausgibt, für den IST der Kurs ein Teil des Lohns: Bei 4.000 CHF ist ein Rappen Bewegung 40 € im Monat wert. Der [Nettolohn-Rechner](/de/gehalt-berechnen/) und der [Vergleich der Wechseldienste](/de/service-vergleich/chf-eur-wechselkurs/) rechnen Ihren Fall durch.
+## Arbeitsmarkt: die Zahlen von gestern
+
+Gestern kamen **639 neue Stellenangebote** in der Schweiz auf unser Job-Board; in den letzten sieben Tagen 4'240. Insgesamt sind **24'046** Anzeigen aktiv, von 862 Unternehmen.
+
+Nach Kanton, Branche und Stadt filtern: [Jobs im Tessin und in der Schweiz](/de/jobs-im-tessin/).
+
+## Wie dieses Bulletin entsteht
+
+Keine der Zahlen oben stammt aus einem Agentur-Feed — es ist unsere eigene Messung: mehrmals pro Stunde erfasste Warteschlangen an jedem Schweizer Grenzübergang, Kraftstoffpreise in den italienischen Grenzgemeinden und an nahen Schweizer Tankstellen, die offizielle tägliche CHF/EUR-Reihe und die Crawler unseres Job-Boards. Das Bulletin erscheint früh am Morgen, vor dem Pendlerverkehr; die Zahlen sind eine Momentaufnahme zum Zeitpunkt der Veröffentlichung, die verlinkten Seiten bleiben den ganzen Tag live.]]></content:encoded>
+      <pubDate>Tue, 22 Sep 2026 09:43:04 GMT</pubDate>
+      <dc:creator><![CDATA[Marco Ferrari]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/bollettino-frontaliere-2026-09-22</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bollettino-frontaliere-2026-09-22.webp" medium="image"/>
+    </item>
     <item>
       <title>Leben in Bregnano und Arbeiten im Tessin: Praktischer Leitfaden für Grenzgänger</title>
       <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/leben-in-bregnano-arbeiten-in-ticino-grenzgaenger/</link>
@@ -2320,65 +2354,6 @@ Bevor Sie den Umzug nach Veniano und die Arbeitsaufnahme im Tessiner Gebiet fina
       <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/vivere-veniano-lavorare-ticino</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-veniano-lavorare-ticino.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Wohnen in Veleso und Arbeiten im Tessin als Grenzgänger</title>
-      <link>https://frontaliereticino.ch/de/grenzgaenger-artikel/leben-veleso-arbeiten-tessin/</link>
-      <description><![CDATA[Praktischer Leitfaden für diejenigen, die in Veleso wohnen und im Tessin pendeln möchten: Steuern, Genehmigungen und Verwaltung der Lebenshaltungskosten.]]></description>
-      <content:encoded><![CDATA[## In Kürze
-- Quellensteuer nur in der Schweiz einbehalten
-- Neue Frontalieri-Vereinbarung in Kraft seit dem 1. Januar 2024
-- Selbstbehalt von 10.000 Euro für neue Grenzgänger
-- Befreiung von 7.500 Euro für alte Grenzgänger
-
-## Eckdaten
-Frontalieri-Vereinbarung: unterzeichnet am 23.12.2020, in Kraft 01.01.2024
-Ratifizierung Italiens: Gesetz 83 vom 13.06.2023
-Doppelbesteuerungsabkommen: 09.12.1976
-Freibetrag für neue Grenzgänger: 10.000 Euro
-Steuerbefreiung für alte Grenzgänger: 7.500 Euro
-
-Der Umzug nach Veleso für diejenigen, die im Kanton Tessin arbeiten, erfordert die Analyse präziser Steuer- und Verwaltungsvorschriften. Der derzeitige Rechtsrahmen wird durch die Neue Frontalieri-Vereinbarung definiert, die am 23. Dezember 2020 unterzeichnet wurde und am 1. Januar 2024 nach der italienischen Ratifizierung durch das Gesetz 83 vom 13. Juni 2023 in Kraft trat. Diese Vereinbarung definiert die Parameter der Besteuerung für diejenigen neu, die in Italien wohnen und in der Schweiz arbeiten.
-
-### Die Steuerstruktur für den in Veleso ansässigen
-Für einen in Veleso wohnhaften Arbeitnehmer wird die Quellensteuer auf das Arbeitseinkommen ausschliesslich in der Schweiz einbehalten. Italien vermeidet die Doppelbesteuerung durch die Anwendung einer Steuergutschrift, die im EG-Rahmen der Steuererklärung 730 verwaltet wird. Dieser Mechanismus steht im Einklang mit dem am 9. Dezember 1976 zwischen Italien und der Schweiz unterzeichneten Abkommen zur Beseitigung der Doppelbesteuerung.
-
-Mit der Verwaltung dieser Steuern ist die Eidgenössische Steuerverwaltung (ESTV) betraut:
-## Analisi pratica e scenari
-
-La scelta di vivere a Veleso comporta l'applicazione di regimi fiscali differenti a seconda della data di inizio dell'attività di frontaliere. I cosiddetti 'vecchi frontalieri', ovvero coloro che possedevano già tale status prima del 17 luglio 2023, beneficiano di un regime transitorio che copre il periodo 2024–2033, con un'esenzione di 7.500 euro. Al contrario, i 'nuovi frontalieri' possono usufruire di una franchigia di 10.000 euro.
-
-### Impatto sulle trattenute e previdenza
-Il salario percepito in Ticino è soggetto a diverse trattenute previdenziali obbligatorie. I contributi AVS/AI/IPG ammontano al 5.3% a carico del dipendente, mentre l'assicurazione disoccupazione (AD/AC) incide per l'1.1%, con un tetto massimo di 148.200 CHF. La previdenza professionale (LPP) varia tra il 7% e il 18% a seconda della fascia d'età, partendo dai 25 anni, mentre la LAINF oscilla tra lo 0.7% e l'1.5%.
-
-Per quanto riguarda la salute, i frontalieri con permesso G hanno diritto d'opzione per l'assicurazione malattia LAMal. Le franchigie per gli adulti variano da 300 a 2.500 CHF. Questo sistema permette di gestire la copertura sanitaria in modo flessibile, a seconda delle necessità individuali e della preferenza tra il sistema svizzero o quello italiano.
-
-### Confronto con la fiscalità italiana
-Il reddito prodotto in Svizzera, una volta detratte le imposte alla fonte, deve essere confrontato con le aliquote IRPEF italiane per l'eventuale integrazione o per il calcolo del credito d'imposta. Le aliquote attuali prevedono il 23% fino a 28.000 euro, il 35% tra 28.001 e 50.000 euro, e il 43% per le quote eccedenti i 50.000 euro. Un frontaliere che risiede a Veleso deve quindi monitorare costantemente il proprio reddito complessivo per evitare sorprese in fase di dichiarazione dei redditi, utilizzando strumenti di [calcolo fiscale](nav:calculator) per simulare il netto reale.
-
-## Nützliche Tools für Ihren Fall
-Um Ihr Steuer-Szenario innerhalb/außerhalb von 20 km zu prüfen, nutzen Sie den [Nettolohnrechner](nav:calculator) und den [Leitfaden zur Steuererklärung](nav:tax-return).
-## Guida all'azione per il trasferimento
-
-Chi decide di trasferirsi a Veleso per lavorare in Ticino deve seguire una procedura precisa per regolarizzare la propria posizione amministrativa e fiscale. Il primo passo è l'ottenimento del permesso G, che attesta lo status di frontaliere e permette l'accesso ai diritti d'opzione per la LAMal e l'applicazione del regime fiscale di frontiera.
-
-### Step operativi per il frontaliere
-1. Richiesta del Permesso G: l'istanza va presentata alle autorità competenti del Canton Ticino per formalizzare il rapporto di lavoro transfrontaliero.
-2. Scelta dell'assicurazione sanitaria: decidere se aderire alla LAMal svizzera (scegliendo la franchigia tra 300 e 2.500 CHF) o mantenere la copertura italiana. Per approfondire i costi, è possibile consultare la guida su [LAMal e CMI](nav:health).
-3. Configurazione previdenziale: verificare che i contributi AVS e LPP siano correttamente versati in busta paga secondo le fasce d'età previste.
-4. Gestione fiscale: in occasione della dichiarazione dei redditi in Italia, inserire i dati del reddito svizzero nel quadro CE del modello 730 per richiedere il credito d'imposta e neutralizzare la doppia imposizione.
-
-### Considerazioni logistiche e costi
-Il pendolarismo da Veleso verso i centri produttivi ticinesi richiede una pianificazione dei tempi di percorrenza e dei costi di trasporto. È consigliabile valutare l'impatto delle spese di viaggio sul salario netto, considerando l'uso dell'auto e l'eventuale acquisto della vignetta autostradale. Per un confronto dettagliato tra le spese di residenza in Italia e i costi della vita in Svizzera, si suggerisce di utilizzare il comparatore sul [costo della vita](nav:cost-of-living).
-
-Per calcolare con precisione l'impatto delle trattenute AVS, LPP e dell'imposta alla fonte sul proprio stipendio lordo, il consiglio è di utilizzare il nostro [calcolatore stipendio](nav:calculator).
-
-Jobangebot im Tessin? Simulieren Sie Ihre [Netto-Gehaltsabrechnung](nav:payslip): Bruttolohn, Familienstand und Wohngemeinde eingeben.]]></content:encoded>
-      <pubDate>Sun, 13 Sep 2026 23:27:03 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/de/grenzgaenger-artikel/vivere-veleso-lavorare-ticino</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/vivere-veleso-lavorare-ticino.webp" medium="image"/>
     </item>
   </channel>
 </rss>
