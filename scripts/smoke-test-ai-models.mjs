@@ -10,6 +10,10 @@
  * Requires the same env that ai-models.mjs needs (load-rc-env.mjs first).
  */
 import { callLLM, DEFAULT_CHAIN, AI_MODELS, discoverFreeModels, setScoreStoreReadOnly } from './lib/ai-models.mjs';
+import {
+  classifyAiModelSmokeFailure,
+  summarizeGitHubModelsVerification,
+} from './lib/ai-model-smoke-status.mjs';
 
 // stdout of this script is a machine-read JSON contract (the workflow pipes it
 // into .tmp/smoke.json and `require()`s it). ai-models.mjs emits diagnostic
@@ -63,23 +67,7 @@ for (const model of MODELS) {
   } catch (e) {
     const msg = String(e?.message || e);
     detail = msg.slice(0, 220);
-    const m = msg.match(/\bHTTP\s+(\d{3})\b/);
-    // Classify pre-flight skips FIRST: callLLM now records WHY a model was
-    // skipped ("skipped — exhausted", "skipped — no API key …", etc.). Before
-    // this, a fully-skipped single-model chain surfaced as a blank-cause
-    // "All AI models failed. … Errors: " and was bucketed into generic `error`,
-    // making the run undiagnosable. Surface the skip class so the summary tells
-    // us the regression is daily-quota exhaustion, not a broken adapter.
-    if (/skipped — no API key/i.test(msg)) status = 'no_key';
-    else if (/skipped — exhausted/i.test(msg)) status = 'skipped_exhausted';
-    else if (/skipped — provider .* cooling down/i.test(msg)) status = 'cooldown';
-    else if (/skipped — /i.test(msg)) status = 'skipped';
-    else if (m) status = `http_${m[1]}`;
-    else if (/timeout|ETIMEDOUT|abort/i.test(msg)) status = 'timeout';
-    else if (/ENOTFOUND|ECONNRESET|ECONN/i.test(msg)) status = 'net';
-    else if (/No API key|missing.+key/i.test(msg)) status = 'no_key';
-    else if (/all_models_failed|All models failed/i.test(msg)) status = 'all_failed';
-    else status = 'error';
+    status = classifyAiModelSmokeFailure(msg);
   }
   const ms = Date.now() - t0;
   results.push({ model, status, ms, detail });
@@ -91,8 +79,17 @@ const summary = results.reduce((acc, r) => {
   acc[r.status] = (acc[r.status] || 0) + 1;
   return acc;
 }, {});
+// GitHub Models is the default provider for bare, non-Gemini ids. Keep the
+// roster ids bare here: publisher qualification belongs to the call site and
+// changing the roster would reroute cohere/* and mistral/* to other providers.
+const githubBareRoster = Object.values(AI_MODELS).filter(
+  (model) => typeof model === 'string' && !model.includes('/') && !/^(gemini|gemma)-/u.test(model),
+);
+const githubModelsVerification = summarizeGitHubModelsVerification(results, githubBareRoster);
 console.error('\n--- SUMMARY ---');
 console.error(JSON.stringify(summary, null, 2));
+console.error('\n--- GITHUB MODELS PUBLISHER VERIFICATION ---');
+console.error(JSON.stringify(githubModelsVerification, null, 2));
 
 const dead = results.filter(r => /^http_404$/.test(r.status));
 if (dead.length) {
@@ -207,4 +204,4 @@ if (hasMistralKey && mistralLatest.length > 0 && mistralLatestAttempted.length =
 // Emit the JSON payload straight to the real stdout (console.log is patched to
 // stderr above, so this is the ONLY thing the workflow's `> .tmp/smoke.json`
 // redirect captures).
-process.stdout.write(JSON.stringify({ summary, results }, null, 2) + '\n');
+process.stdout.write(JSON.stringify({ summary, githubModelsVerification, results }, null, 2) + '\n');
