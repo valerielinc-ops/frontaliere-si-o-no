@@ -40,7 +40,7 @@ describe('orchestrator heartbeat', () => {
 
   it('does not page inside the measured cron grace window', () => {
     const report = classifyHeartbeat({
-      now: new Date('2026-09-14T10:30:00Z'),
+      now: new Date('2026-09-14T15:30:00Z'),
       runs: [],
     });
     expect(report.state).toBe('within_grace');
@@ -48,9 +48,18 @@ describe('orchestrator heartbeat', () => {
     expect(report.graceMinutes).toBe(DEFAULT_GRACE_MINUTES);
   });
 
+  it('absorbs the delayed 09:00 dispatch that raised issue 9541', () => {
+    const report = classifyHeartbeat({
+      now: new Date('2026-09-22T13:39:59Z'),
+      runs: [],
+    });
+    expect(report.state).toBe('within_grace');
+    expect(report.alert).toBe(false);
+  });
+
   it('pages only after a due slot has no scheduled run', () => {
     const report = classifyHeartbeat({
-      now: new Date('2026-09-14T12:01:00Z'),
+      now: new Date('2026-09-14T19:01:00Z'),
       runs: [],
     });
     expect(report.state).toBe('missing');
@@ -60,7 +69,7 @@ describe('orchestrator heartbeat', () => {
   });
 
   it('accepts a running or completed run but never a wrong workflow/event', () => {
-    const now = new Date('2026-09-14T12:01:00Z');
+    const now = new Date('2026-09-14T19:01:00Z');
     expect(classifyHeartbeat({ now, runs: [run('2026-09-14T10:15:00Z', { status: 'in_progress' })] }).state)
       .toBe('running');
     expect(classifyHeartbeat({ now, runs: [run('2026-09-14T10:15:00Z')] }).state).toBe('observed');

@@ -15,7 +15,7 @@
  */
 import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
-import { extractStackFrameOrigins, isIssueDenied, syncErrorIssues } from './lib/error-issue-sync.mjs';
+import { extractStackFrameOrigins, hasActionableErrorMessage, isIssueDenied, syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { checkPostHogLiveness, declareNotMeasurable } from './lib/source-liveness.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
@@ -180,6 +180,7 @@ export async function main({ ga4FallbackImpl = fetchGa4ErrorFallback } = {}) {
   const entries = rows
     .map((entry) => ({ ...entry, sourceLabel }))
     .filter((e) => e.count >= MIN_COUNT)
+    .filter((e) => hasActionableErrorMessage(e.message))
     .filter((e) => !isIssueDenied(e.message));
 
   if (!entries.length) {

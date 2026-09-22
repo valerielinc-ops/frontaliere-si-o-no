@@ -50,9 +50,14 @@ vi.mock('../scripts/lib/posthog-client.mjs', () => ({
 // then fails to typecheck.
 const syncErrorIssues = vi.fn();
 const isIssueDenied = vi.fn();
+const hasActionableErrorMessage = vi.fn((message: unknown) => {
+  const normalized = String(message ?? '').trim().toLowerCase();
+  return normalized.length > 0 && normalized !== '(not set)';
+});
 vi.mock('../scripts/lib/error-issue-sync.mjs', () => ({
   syncErrorIssues: (...args: unknown[]) => syncErrorIssues(...args),
   isIssueDenied: (...args: unknown[]) => isIssueDenied(...args),
+  hasActionableErrorMessage: (...args: unknown[]) => hasActionableErrorMessage(...args),
   ISSUE_DENY_PATTERNS: [],
   page404Path: () => null,
   isSelfHealedPage404: async () => false,

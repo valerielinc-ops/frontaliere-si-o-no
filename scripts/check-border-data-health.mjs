@@ -114,8 +114,8 @@ export function evaluateStaleness(doc, nowMs, staleHours = DEFAULT_STALE_HOURS) 
 //     would see the prior evening's ~19:00 snapshot (>6h old) and falsely page.
 //
 //   REASON 2 — morning scheduling-gap false-positive guard (issue #4229):
-//     The traffic-scheduler's morning peak cron ends at 07:30 UTC (`*/30 4-7`);
-//     the next scheduled run is the midday check at 11:00 UTC (`0 11 * * 1-5`).
+//     dispatchTrafficCollection's morning peak ends at 07:30 UTC; the next
+//     scheduled dispatch is the midday check at 11:00 UTC.
 //     This 3.5-hour gap exceeds the 90-min freshness threshold, so data is
 //     EXPECTED to be stale during 08:00–10:59 UTC on weekdays. A stale reading
 //     at (e.g.) 10:47 UTC is not a real freeze — it is predictable schedule lag.
@@ -150,8 +150,8 @@ export function isStalenessCheckActive(nowMs) {
 
 // The fast freshness loop's threshold (traffic-data-freshness.yml) was sized for
 // the weekday peak cadence (`*/30 4-7`/`*/30 14-17`, i.e. a run every 30 min).
-// On weekends traffic-scheduler.yml collapses to `0 6,10,14,18 * * 0,6` — one
-// run every 4h (240 min) to conserve HERE quota. A flat 90-min threshold on
+// On weekends dispatchTrafficCollection keeps the 06/10/14/18 UTC calendar —
+// one run every 4h (240 min) to conserve HERE quota. A flat 90-min threshold on
 // that cadence guarantees a false "stale" reading ~90 min after every single
 // weekend run, all day — the same false-positive shape as the already-fixed
 // weekday morning gap (see STALE_ACTIVE_START_UTC_HOUR above, #4229), just
@@ -167,7 +167,7 @@ const WEEKEND_STALE_THRESHOLD_MIN = 300;
 
 /**
  * Freshness threshold (minutes) for the fast loop, matched to the actual
- * traffic-scheduler.yml cadence for the day of week.
+ * Cloud Scheduler dispatch cadence for the day of week.
  * @param {number} nowMs current time in ms (injected for testability)
  * @returns {number}
  */
