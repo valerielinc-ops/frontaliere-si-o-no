@@ -9,10 +9,12 @@
  * run che possa fallire, quindi senza questo heartbeat resta invisibile.
  *
  * L'API viene letta con una pagina limitata e la risposta viene validata prima
- * di essere considerata vuota. Il grace period di default e' 180 minuti,
- * calibrato sulla coda cron osservata nel repository; un ritardo normale non
- * diventa un falso allarme, mentre una slot completamente assente viene pagata
- * con un issue stabile e deduplicato.
+ * di essere considerata vuota. Il grace period di default e' 600 minuti: il
+ * campione live delle ultime 94 run scheduled ha un p95 di 471 minuti e il
+ * margine residuo di due ore prima della slot successiva conserva una finestra
+ * utile per l'allarme. Un ritardo normale non diventa un falso allarme, mentre
+ * una slot completamente assente viene pagata con un issue stabile e
+ * deduplicato.
  *
  * Read-only verso l'API Actions. L'unica scrittura ammessa e' l'issue stabile
  * di allarme/resolution, gestita dal workflow chiamante.
@@ -26,7 +28,7 @@ import { createGithubIssue, resolveGithubIssue } from '../lib/github-issue-creat
 export const ORCHESTRATOR_WORKFLOW_FILE = 'orchestrate-crawlers.yml';
 export const ORCHESTRATOR_WORKFLOW_PATH = `.github/workflows/${ORCHESTRATOR_WORKFLOW_FILE}`;
 export const DEFAULT_SCHEDULE_SLOTS = Object.freeze(['09:00', '21:00']);
-export const DEFAULT_GRACE_MINUTES = 180;
+export const DEFAULT_GRACE_MINUTES = 600;
 export const MAX_RESPONSE_BYTES = 2 * 1024 * 1024;
 
 export const MISSING_ISSUE_TITLE = 'Orchestrator heartbeat: scheduled run missing';
