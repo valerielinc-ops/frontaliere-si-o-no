@@ -34,7 +34,9 @@ describe('scaffold-crawler — generated contract follows employmentType', () =>
       source.indexOf('jobs.push(job);', source.indexOf('const employmentType = detectEmploymentType(listing.timeType || title);')),
     );
 
-    expect(generatedJob).toContain("contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time'");
+    expect(generatedJob).toMatch(
+      /contract:\s*employmentType === 'PART_TIME'\s*\?\s*'part-time'\s*:\s*employmentType === 'FULL_TIME'\s*\?\s*'full-time'\s*:\s*'other',/,
+    );
     expect(generatedJob).toContain('employmentType,');
     expect(generatedJob).not.toContain("contract: 'full-time'");
   });
