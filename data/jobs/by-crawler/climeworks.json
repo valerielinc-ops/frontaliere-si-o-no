@@ -1,6 +1,6 @@
 {
   "crawlerKey": "climeworks",
-  "assembledAt": "2026-09-21T15:56:05.882Z",
+  "assembledAt": "2026-09-21T23:55:59.668Z",
   "jobs": [
     {
       "id": "climeworks-bcdf637f980a",
@@ -33,7 +33,7 @@
       "url": "https://climeworks.recruitee.com/o/principal-design-engineer-mechanical-equipment-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T15:56:01.477Z",
+      "crawledAt": "2026-09-21T23:55:54.960Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -81,6 +81,11 @@
         ]
       },
       "remote": true,
+      "previousSlugs": [
+        "principal-design-ingenieur-mechanical-equipment-80-100-climeworks-opfikon",
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich",
+        "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "principal-design-ingenieur-mechanical-equipment-80-100-climeworks-opfikon",
@@ -92,13 +97,8 @@
           "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich"
         ]
       },
-      "previousSlugs": [
-        "principal-design-ingenieur-mechanical-equipment-80-100-climeworks-opfikon",
-        "principal-design-engineer-mechanical-equipment-80-100-climeworks-zurich",
-        "principal-design-engineer-mechanical-equipment-80-100-climeworks-opfikon-zurich"
-      ],
-      "firstSeenAt": "2026-07-03T21:37:32.367Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:37:32.367Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -116,12 +116,12 @@
     },
     {
       "id": "climeworks-1c2b00477ffb",
-      "slug": "lead-eic-engineer-100-climeworks-opfikon-zurich",
+      "slug": "lead-eic-ingegnere-100-climeworks-zurich",
       "slugByLocale": {
-        "it": "lead-eic-engineer-100-climeworks-opfikon-zurich",
+        "it": "lead-eic-ingegnere-100-climeworks-zurich",
         "en": "lead-eic-engineer-100-climeworks-opfikon-zurich",
-        "de": "lead-eic-engineer-100-climeworks-opfikon-zurich",
-        "fr": "lead-eic-engineer-100-climeworks-opfikon-zurich"
+        "de": "lead-eic-ingenieur-100-climeworks-zurich",
+        "fr": "lead-eic-ingenieur-100-climeworks-zurich"
       },
       "company": "Climeworks",
       "companyKey": "climeworks",
@@ -145,7 +145,7 @@
       "url": "https://climeworks.recruitee.com/o/lead-eic-engineer-100-101",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T15:56:01.474Z",
+      "crawledAt": "2026-09-21T23:55:54.958Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -191,8 +191,10 @@
         ]
       },
       "remote": true,
-      "firstSeenAt": "2026-07-03T21:37:32.360Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "lead-eic-engineer-100-climeworks-zurich",
+        "lead-eic-engineer-100-climeworks-opfikon-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "lead-eic-engineer-100-climeworks-zurich",
@@ -201,12 +203,16 @@
         "en": [
           "lead-eic-engineer-100-climeworks-zurich",
           "lead-eic-engineer-100-climeworks-opfikon-zurich"
+        ],
+        "de": [
+          "lead-eic-engineer-100-climeworks-opfikon-zurich"
+        ],
+        "fr": [
+          "lead-eic-engineer-100-climeworks-opfikon-zurich"
         ]
       },
-      "previousSlugs": [
-        "lead-eic-engineer-100-climeworks-zurich",
-        "lead-eic-engineer-100-climeworks-opfikon-zurich"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:37:32.360Z",
       "salaryMin": 113500,
       "salaryMax": 172000,
       "salarySource": "estimated",
@@ -253,7 +259,7 @@
       "url": "https://climeworks.recruitee.com/o/hse-facility-senior-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T15:56:01.471Z",
+      "crawledAt": "2026-09-21T23:55:54.955Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -300,8 +306,10 @@
         ]
       },
       "remote": false,
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-07-03T21:37:32.354Z",
+      "previousSlugs": [
+        "hse-facility-senior-manager-100-climeworks-zurich",
+        "hse-facility-senior-manager-100-climeworks-opfikon-zurich"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "hse-facility-senior-manager-100-climeworks-zurich",
@@ -312,10 +320,8 @@
           "hse-facility-senior-manager-100-climeworks-opfikon-zurich"
         ]
       },
-      "previousSlugs": [
-        "hse-facility-senior-manager-100-climeworks-zurich",
-        "hse-facility-senior-manager-100-climeworks-opfikon-zurich"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-07-03T21:37:32.354Z",
       "salaryMin": 134000,
       "salaryMax": 180500,
       "salarySource": "estimated",
@@ -362,7 +368,7 @@
       "url": "https://climeworks.recruitee.com/o/sorbent-module-product-owner-80-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T15:56:01.467Z",
+      "crawledAt": "2026-09-21T23:55:54.952Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -409,27 +415,27 @@
         ]
       },
       "remote": true,
-      "previousSlugsByLocale": {
-        "en": [
-          "sorbent-module-product-owner-80-100-climeworks-zurich",
-          "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich"
-        ],
-        "it": [
-          "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich",
-          "sorbent-module-product-owner-80-100-climeworks-zurich",
-          "proprietario-del-prodotto-del-modulo-sorbente-80-100-climeworks-opfikon-zurich"
-        ],
-        "de": [
-          "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich"
-        ]
-      },
       "previousSlugs": [
         "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich",
         "sorbent-module-product-owner-80-100-climeworks-zurich",
         "proprietario-del-prodotto-del-modulo-sorbente-80-100-climeworks-opfikon-zurich"
       ],
-      "firstSeenAt": "2026-07-08T22:24:43.541Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich",
+          "sorbent-module-product-owner-80-100-climeworks-zurich",
+          "proprietario-del-prodotto-del-modulo-sorbente-80-100-climeworks-opfikon-zurich"
+        ],
+        "en": [
+          "sorbent-module-product-owner-80-100-climeworks-zurich",
+          "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich"
+        ],
+        "de": [
+          "sorbent-module-product-owner-80-100-climeworks-opfikon-zurich"
+        ]
+      },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:24:43.541Z",
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -476,7 +482,7 @@
       "url": "https://climeworks.recruitee.com/o/commercial-operations-manager-100",
       "source": "Climeworks Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T15:56:01.463Z",
+      "crawledAt": "2026-09-21T23:55:54.949Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -523,15 +529,20 @@
         ]
       },
       "remote": true,
+      "previousSlugs": [
+        "commercial-operations-manager-100-climeworks-opfikon-zurich",
+        "commercial-operations-manager-100-climeworks-zurich",
+        "gestione-delle-operazioni-commerciali-100-climeworks-opfikon-zurich"
+      ],
       "previousSlugsByLocale": {
-        "en": [
-          "commercial-operations-manager-100-climeworks-zurich",
-          "commercial-operations-manager-100-climeworks-opfikon-zurich"
-        ],
         "it": [
           "commercial-operations-manager-100-climeworks-opfikon-zurich",
           "commercial-operations-manager-100-climeworks-zurich",
           "gestione-delle-operazioni-commerciali-100-climeworks-opfikon-zurich"
+        ],
+        "en": [
+          "commercial-operations-manager-100-climeworks-zurich",
+          "commercial-operations-manager-100-climeworks-opfikon-zurich"
         ],
         "de": [
           "commercial-operations-manager-100-climeworks-opfikon-zurich"
@@ -540,13 +551,8 @@
           "commercial-operations-manager-100-climeworks-opfikon-zurich"
         ]
       },
-      "previousSlugs": [
-        "commercial-operations-manager-100-climeworks-opfikon-zurich",
-        "commercial-operations-manager-100-climeworks-zurich",
-        "gestione-delle-operazioni-commerciali-100-climeworks-opfikon-zurich"
-      ],
-      "firstSeenAt": "2026-09-18T13:44:03.542Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-18T13:44:03.542Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
