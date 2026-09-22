@@ -231,6 +231,25 @@ describe('parseMergedPRs (author filter)', () => {
   it('returns [] when the list is not an array', () => {
     expect(parseMergedPRs(JSON.stringify({ nope: true }))).toEqual([]);
   });
+
+  it('honors FOLLOWUP_ELIGIBLE_AUTHORS when set before module load', async () => {
+    const previous = process.env.FOLLOWUP_ELIGIBLE_AUTHORS;
+    process.env.FOLLOWUP_ELIGIBLE_AUTHORS = 'custom-owner,app/internal-bot';
+    try {
+      const { parseMergedPRs: parseWithOverride } = await import(
+        '../scripts/ci/collect-followup-batch.mjs?followup-authors-override'
+      );
+      const prs = JSON.stringify([
+        { number: 7, author: { login: 'custom-owner' } },
+        { number: 8, author: { login: 'app/internal-bot' } },
+        { number: 9, author: { login: 'valerielinc-ops' } },
+      ]);
+      expect(parseWithOverride(prs).map((pr) => pr.number)).toEqual([7, 8]);
+    } finally {
+      if (previous === undefined) delete process.env.FOLLOWUP_ELIGIBLE_AUTHORS;
+      else process.env.FOLLOWUP_ELIGIBLE_AUTHORS = previous;
+    }
+  });
 });
 
 describe('hasTriageComment (idempotency)', () => {
