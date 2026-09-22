@@ -1,7 +1,7 @@
 {
   "key": "barry-callebaut",
   "label": "Barry Callebaut",
-  "generatedAt": "2026-09-21T16:09:26.570Z",
+  "generatedAt": "2026-09-22T00:13:20.109Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,10 +12,10 @@
   "updatedCount": 2,
   "removedCount": 1,
   "unchangedCount": 0,
-  "durationMs": 3102,
-  "avgDurationMs": 3102,
+  "durationMs": 3093,
+  "avgDurationMs": 3093,
   "durationHistory": [
-    3102
+    3093
   ],
   "newJobs": [
     {
@@ -30,7 +30,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director%2C-Group-Accounting-&amp;-Reporting-Accounting-Policies-8005/1430935500/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T16:09:18.133Z",
+      "crawledAt": "2026-09-22T00:13:11.257Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -43,6 +43,7 @@
       "featured": false,
       "postedDate": "2026-09-18",
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Director%2C-Group-Accounting-&amp;-Reporting-Accounting-Policies-8005/1430935500/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-18T23:21:12.084Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -66,7 +67,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Derivatives-Trader-8005/1428373800/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T16:09:18.130Z",
+      "crawledAt": "2026-09-22T00:13:11.266Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -79,6 +80,7 @@
       "featured": false,
       "postedDate": "2026-09-10",
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Cocoa-Derivatives-Trader-8005/1428373800/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-10T21:57:23.365Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -100,7 +102,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Finance-Business-Partner-CSD-Global-Cocoa-8005/1426760600/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T16:09:18.126Z",
+      "crawledAt": "2026-09-22T00:13:11.263Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -113,6 +115,7 @@
       "featured": false,
       "postedDate": "2026-09-04",
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Finance-Business-Partner-CSD-Global-Cocoa-8005/1426760600/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:42:20.856Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -136,7 +139,7 @@
       "url": "https://jobs.barry-callebaut.com/job/Zurich-Director%2C-Group-Accounting-&-Reporting-Accounting-Policies-8005/1430935500/",
       "source": "Barry Callebaut Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:03:53.539Z",
+      "crawledAt": "2026-09-21T16:09:18.133Z",
       "addressLocality": "Zurich",
       "addressCountry": "CH",
       "country": "CH",
@@ -150,6 +153,7 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://jobs.barry-callebaut.com/job/Zurich-Director%2C-Group-Accounting-&-Reporting-Accounting-Policies-8005/1430935500/",
       "firstSeenAt": "2026-09-18T23:21:12.084Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
