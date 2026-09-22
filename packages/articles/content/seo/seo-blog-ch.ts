@@ -86015,6 +86015,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-patente-guida-zugo-conversione-esami': {
+    title: 'Patente di guida nel Canton Zugo: conversione licenza estera, esami e procedure',
+    description: 'Guida completa alla conversione della patente di guida nel Canton Zugo: documenti richiesti, esami teorico-pratici, corsi obbligatori, scadenze e costi',
+    keywords: 'frontalieri, ticino, svizzera, italia, patente, canton, zugo, conversione',
+    ogTitle: 'Patente di guida a Zugo: conversione, esami e procedure 2025',
+    ogDescription: 'Tutto sulla conversione della patente estera nel Canton Zugo: requisiti, esami, corsi obbligatori e scadenze. Evita sanzioni e guida legalmente in Svizzera.',
+    canonicalPath: '/articoli-svizzera/patente-guida-zugo-conversione-esami/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Patente di guida nel Canton Zugo: conversione licenza estera, esami e procedure",
+      "description": "Guida completa alla conversione della patente di guida nel Canton Zugo: documenti richiesti, esami teorico-pratici, corsi obbligatori, scadenze e costi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/patente-guida-zugo-conversione-esami.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Ufficio della circolazione di Zugo con modulo per conversione patente"
+      },
+      "datePublished": "2026-09-22T00:32:07+00:00",
+      "dateModified": "2026-09-22T00:32:07+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/patente-guida-zugo-conversione-esami/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
