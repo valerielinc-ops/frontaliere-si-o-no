@@ -592,11 +592,17 @@ describe('latestCompletedRunByName / latestCompletedConclusionByName (#242)', ()
     expect(latestCompletedRunByName([], 'test')).toBeNull();
   });
 
-  it('esclude `skipped` per ogni nome: non è un verdetto', () => {
+  it('mantiene `skipped` per il nome arbitrario, ma lo esclude nei wrapper vitest', () => {
     const skipped = [named('test', 'skipped', '2026-08-10T08:30:00Z')];
-    expect(latestCompletedConclusionByName(skipped, 'test')).toBe('');
-    expect(latestCompletedRunByName(skipped, 'test')).toBeNull();
+    expect(latestCompletedConclusionByName(skipped, 'test')).toBe('skipped');
+    expect(latestCompletedRunByName(skipped, 'test')).toBe(skipped[0]);
     expect(latestCompletedVitestConclusion([vitest('skipped', '2026-08-10T08:30:00Z')])).toBe('');
+    expect(latestCompletedVitestExecutionRun([
+      {
+        ...named(VITEST_EXECUTION_JOB_NAME, 'skipped', '2026-08-10T08:30:00Z'),
+        details_url: 'https://github.com/owner/repo/actions/runs/123/job/456',
+      },
+    ])).toBeNull();
   });
 
   it('input non-array → null/`\'\'`, mai un throw dentro il gate di merge', () => {

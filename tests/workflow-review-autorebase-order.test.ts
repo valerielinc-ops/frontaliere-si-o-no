@@ -61,7 +61,7 @@ describe('review → autorebase ordering', () => {
     // STESSE condizioni di prima; il job `post-review` la esegue dopo.
     const decisionStart = workflow.indexOf('id: post_review');
     const decisionBlock = workflow.slice(decisionStart, workflow.indexOf('\n      - name:', decisionStart + 1));
-    const expectedIf = "(job.status == 'success' && steps.review_gate.outputs.approved == 'true') || (steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome == 'success' && steps.review_gate.outcome == 'failure')";
+    const expectedIf = "(job.status == 'success' && steps.review_gate.outputs.approved == 'true') || (steps.resolve.outputs.stale_review == 'true' && steps.resolve.outcome == 'success' && steps.guard.outcome == 'success' && steps.tier.outcome == 'success' && steps.prefetch.outcome == 'success' && steps.codex_review.outcome == 'success' && steps.review_abort.outcome != 'failure' && steps.review_gate.outcome == 'failure')";
     expect(decisionStart).toBeGreaterThan(reviewGate);
     expect(decisionBlock).toContain(`AUTOREBASE: \${{ ${expectedIf} }}`);
     expect(decisionBlock).toMatch(/if: .*always\(\) && !cancelled\(\)/);
