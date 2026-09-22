@@ -413,7 +413,23 @@ describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
     expect(payload.sectors).toEqual(['health']);
   });
 
-  it('removes generated taxonomy keywords from an existing backfill without losing user criteria', () => {
+  it('removes generated taxonomy keywords from an untouched legacy backfill', () => {
+    const payload = buildAlertPayload(
+      'a@b.ch',
+      {
+        job_search_query: 'fisioterapista',
+        job_category: 'health',
+        sector_interest: 'health',
+        source_channel: 'job_gate',
+      },
+      { keywords: ['fisioterapista', 'health'], sectors: ['health'] },
+    );
+
+    expect(payload.keywords).toEqual(['fisioterapista']);
+    expect(payload.sectors).toEqual(['health']);
+  });
+
+  it('preserves the full keyword array when a user changed the legacy backfill', () => {
     const payload = buildAlertPayload(
       'a@b.ch',
       {
@@ -425,8 +441,7 @@ describe('backfill-jobalerts-from-newsletter — buildAlertPayload', () => {
       { keywords: ['fisioterapista', 'Health', 'riabilitazione'], sectors: ['health'] },
     );
 
-    expect(payload.keywords).toEqual(['fisioterapista', 'riabilitazione']);
-    expect(payload.sectors).toEqual(['health']);
+    expect(payload.keywords).toEqual(['fisioterapista', 'Health', 'riabilitazione']);
   });
 
   it('preserves a taxonomy word when it is also the explicit search query', () => {

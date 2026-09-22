@@ -461,12 +461,18 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
   const isJobBoardRegistration = String(channel).toLowerCase() === 'job_gate'
     || String(channel).toLowerCase().includes('job_board')
     || hasJobContext;
-  const contextKeywords = isJobBoardRegistration
+  const legacyContextKeywords = isJobBoardRegistration
     ? [...new Set([
       data?.job_search_query,
+      data?.job_category,
       data?.job_title,
     ].map((value) => String(value || '').trim()).filter(Boolean))]
     : [];
+  const contextKeywords = legacyContextKeywords.filter(
+    (value) => String(value).trim().toLowerCase() !== String(data?.job_category || '').trim().toLowerCase()
+      || String(value).trim().toLowerCase() === String(data?.job_search_query || '').trim().toLowerCase()
+      || String(value).trim().toLowerCase() === String(data?.job_title || '').trim().toLowerCase(),
+  );
   const contextLocations = isJobBoardRegistration && data?.job_location
     ? [String(data.job_location).trim()]
     : [];
@@ -479,17 +485,14 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
   const existingKeywords = Array.isArray(existingBackfill?.keywords) ? existingBackfill.keywords : [];
   const existingLocations = Array.isArray(existingBackfill?.locations) ? existingBackfill.locations : [];
   const existingSectors = Array.isArray(existingBackfill?.sectors) ? existingBackfill.sectors : [];
-  const normalizeCriterion = (value) => String(value || '').trim().toLowerCase();
-  const explicitKeywordKeys = new Set(contextKeywords.map(normalizeCriterion));
-  const generatedTaxonomyKeys = new Set(contextSectors.map(normalizeCriterion));
-  // Older backfills copied job_category into keywords, making a broad taxonomy
-  // value a HARD lexical OR. Remove only those generated values; preserve every
-  // other existing criterion, plus a taxonomy word the user also typed as the
-  // actual search query/title.
-  const preservedExistingKeywords = existingKeywords.filter((value) => {
-    const key = normalizeCriterion(value);
-    return key && (!generatedTaxonomyKeys.has(key) || explicitKeywordKeys.has(key));
-  });
+  const normalizeCriteria = (values) => values.map((value) => String(value || '').trim().toLowerCase());
+  // Only rewrite an untouched legacy payload whose full keyword array still
+  // equals the exact values this writer used to generate. Any extra, removed or
+  // reordered criterion proves user editing and is preserved byte-for-byte.
+  const existingWasGenerated = existingKeywords.length > 0
+    && JSON.stringify(normalizeCriteria(existingKeywords))
+      === JSON.stringify(normalizeCriteria(legacyContextKeywords));
+  const preservedExistingKeywords = existingWasGenerated ? contextKeywords : existingKeywords;
   const tierSuffix =
     tier === 'location-fallback' || tier === 'personalization-fallback' || tier === 'url-fallback'
       ? `:${tier}`
