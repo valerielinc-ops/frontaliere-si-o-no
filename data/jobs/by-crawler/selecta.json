@@ -244,9 +244,9 @@
     },
     {
       "id": "selecta-228d206a8287",
-      "slug": "deine-ausbildung-bei-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be",
+      "slug": "il-tuo-allenamento-a-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be",
       "slugByLocale": {
-        "it": "deine-ausbildung-bei-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be",
+        "it": "il-tuo-allenamento-a-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be",
         "en": "your-training-at-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be",
         "de": "deine-ausbildung-bei-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be",
         "fr": "votre-formation-chez-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be"
@@ -312,7 +312,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "deine-ausbildung-bei-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be"
+        ]
+      },
+      "previousSlugs": [
+        "deine-ausbildung-bei-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be"
+      ]
     },
     {
       "id": "selecta-425837a6dddd",
