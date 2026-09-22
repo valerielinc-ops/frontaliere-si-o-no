@@ -23,8 +23,11 @@
  * `completed_at` serve solo a verificare che un run completato sia utilizzabile.
  * Se la generazione più nuova è ancora in volo, oppure l'identità non è
  * verificabile, il contratto è rispettivamente `pending` o `ambiguous` e
- * nessun verdetto viene scelto. Un job `skipped` è completato ma non è un
- * verdetto e viene escluso.
+ * nessun verdetto viene scelto. I consumer che usano il wrapper vitest
+ * escludono un job `skipped`: è completato ma non è un verdetto. La funzione
+ * generica conserva invece la conclusione `skipped`, perché un check esterno
+ * (per esempio il generator del corpus) può dover distinguere quel risultato
+ * terminale da un valore vuoto che significa "nessun run osservabile".
  *
  * I wrapper storici trasformano entrambi gli stati non selezionabili in
  * `null`/`''`, quindi un consumer che non conosce il contratto tri-state resta
@@ -275,7 +278,7 @@ export function latestCompletedVitestConclusion(checkRuns) {
  * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string}|null}
  */
 export function latestCompletedVitestRun(checkRuns) {
-  return latestCompletedRunByName(checkRuns, VITEST_CHECK_NAME);
+  return latestCompletedRunByName(checkRuns, VITEST_CHECK_NAME, { excludeSkipped: true });
 }
 
 /**
@@ -287,7 +290,7 @@ export function latestCompletedVitestRun(checkRuns) {
  * @returns {{name?: string, status?: string, conclusion?: string, completed_at?: string, details_url?: string}|null}
  */
 export function latestCompletedVitestExecutionRun(checkRuns) {
-  return latestCompletedRunByName(checkRuns, VITEST_EXECUTION_JOB_NAME);
+  return latestCompletedRunByName(checkRuns, VITEST_EXECUTION_JOB_NAME, { excludeSkipped: true });
 }
 
 /**
@@ -299,10 +302,11 @@ export function latestCompletedVitestExecutionRun(checkRuns) {
  *
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
  * @param {string} name
+ * @param {{excludeSkipped?: boolean}} [options]
  * @returns {{state: 'selected'|'pending'|'ambiguous', reason: string,
  *   run: object|null}}
  */
-export function latestCompletedRunSelectionByName(checkRuns, name) {
+export function latestCompletedRunSelectionByName(checkRuns, name, options = {}) {
   if (!Array.isArray(checkRuns) || typeof name !== 'string' || name.length === 0) {
     return runSelection(RUN_SELECTION_STATES.AMBIGUOUS, 'invalid-input');
   }
@@ -333,8 +337,11 @@ export function latestCompletedRunSelectionByName(checkRuns, name) {
     byId.set(metadata[index].id, named[index]);
   }
 
+  const excludeSkipped = options && options.excludeSkipped === true;
   const uniqueRuns = [...byId.values()]
-    .filter((run) => !(run.status === COMPLETED_RUN_STATUS && run.conclusion === 'skipped'));
+    .filter((run) => !(excludeSkipped
+      && run.status === COMPLETED_RUN_STATUS
+      && run.conclusion === 'skipped'));
   if (uniqueRuns.length === 0) return runSelection(RUN_SELECTION_STATES.PENDING, 'no-verdict');
 
   const uniqueMetadata = uniqueRuns.map((run) => generationMetadata(run));
@@ -352,8 +359,8 @@ export function latestCompletedRunSelectionByName(checkRuns, name) {
 }
 
 /** Compatibilità: solo `selected` produce un run; gli stati ambigui restano null. */
-export function latestCompletedRunByName(checkRuns, name) {
-  const selection = latestCompletedRunSelectionByName(checkRuns, name);
+export function latestCompletedRunByName(checkRuns, name, options = {}) {
+  const selection = latestCompletedRunSelectionByName(checkRuns, name, options);
   return selection.state === RUN_SELECTION_STATES.SELECTED ? selection.run : null;
 }
 
@@ -364,10 +371,11 @@ export function latestCompletedRunByName(checkRuns, name) {
  *
  * @param {Array<{name?: string, status?: string, conclusion?: string, completed_at?: string}>} checkRuns
  * @param {string} name
+ * @param {{excludeSkipped?: boolean}} [options]
  * @returns {string}
  */
-export function latestCompletedConclusionByName(checkRuns, name) {
-  const last = latestCompletedRunByName(checkRuns, name);
+export function latestCompletedConclusionByName(checkRuns, name, options = {}) {
+  const last = latestCompletedRunByName(checkRuns, name, options);
   return last ? last.conclusion || '' : '';
 }
 
