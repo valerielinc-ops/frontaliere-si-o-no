@@ -1,21 +1,21 @@
 {
   "key": "nant",
   "label": "Fondation de Nant",
-  "generatedAt": "2026-09-21T15:55:33.645Z",
-  "total": 8,
+  "generatedAt": "2026-09-21T23:57:58.961Z",
+  "total": 7,
   "discovered": null,
   "parsed": 7,
   "lastFetchOutcome": null,
-  "written": 8,
+  "written": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 7,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 3531,
-  "avgDurationMs": 3531,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 2973,
+  "avgDurationMs": 2973,
   "durationHistory": [
-    3531
+    2973
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://app.beehire.com/invite/ERrUfAGgv",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:55:21.848Z",
+      "crawledAt": "2026-09-21T23:57:50.304Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -64,13 +64,13 @@
       "companyKey": "nant",
       "companyDomain": "nant.ch",
       "title": "Infirmier-ère CDM 70% Molaine",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Corsier-sur-Vevey",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/SBKxBZBpb",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:55:21.864Z",
+      "crawledAt": "2026-09-21T23:57:50.314Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -108,7 +108,7 @@
       "url": "https://app.beehire.com/invite/yKOL6UF3X",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:55:21.850Z",
+      "crawledAt": "2026-09-21T23:57:50.306Z",
       "addressLocality": "Vaud, Suisse",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -146,7 +146,7 @@
       "url": "https://app.beehire.com/invite/7MtT679t5",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:55:21.855Z",
+      "crawledAt": "2026-09-21T23:57:50.308Z",
       "addressLocality": "Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -184,7 +184,7 @@
       "url": "https://app.beehire.com/invite/bIZr6lj9a",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:55:21.856Z",
+      "crawledAt": "2026-09-21T23:57:50.311Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -222,7 +222,7 @@
       "url": "https://app.beehire.com/invite/4RPhgQTMf",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:55:21.857Z",
+      "crawledAt": "2026-09-21T23:57:50.312Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -254,13 +254,13 @@
       "companyKey": "nant",
       "companyDomain": "nant.ch",
       "title": "Infirmier·ère en CDI à 100% DMPC",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Corsier-sur-Vevey",
       "canton": "VD",
       "url": "https://app.beehire.com/invite/Uhll2GDVq",
       "source": "Fondation de Nant Dedicated Parser (Beehire JSON)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:55:21.863Z",
+      "crawledAt": "2026-09-21T23:57:50.313Z",
       "addressLocality": "Corsier-sur-Vevey",
       "addressRegion": "VD",
       "addressCountry": "CH",
@@ -286,8 +286,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "nant-572396317fb8",
       "slug": "80-100-allenatore-fondation-de-nant-corsier-sur-vevey",
@@ -330,5 +329,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
