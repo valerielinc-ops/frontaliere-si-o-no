@@ -19,6 +19,7 @@ const {
   TREATMENT_CHANNEL,
   EXPERIMENTS,
   DEFAULT_EXPERIMENT,
+  ACTIVE_EXPERIMENTS,
   CWV_METRICS,
   POSTHOG_CWV_WINDOW_DAYS,
   SMALL_SAMPLE_PAGEVIEWS,
@@ -47,6 +48,7 @@ const {
   TREATMENT_CHANNEL: string;
   EXPERIMENTS: readonly any[];
   DEFAULT_EXPERIMENT: any;
+  ACTIVE_EXPERIMENTS: readonly any[];
   CWV_METRICS: readonly string[];
   POSTHOG_CWV_WINDOW_DAYS: number;
   SMALL_SAMPLE_PAGEVIEWS: number;
@@ -93,14 +95,15 @@ describe('adsense-format-ab-report / identifiers', () => {
     expect(ADSENSE_ACCOUNT).toBe('accounts/pub-8628054934855353');
   });
 
-  it('keeps the active high-volume pair as the default experiment', () => {
+  it('keeps the closed high-volume pair available for historical helpers', () => {
+    expect(ACTIVE_EXPERIMENTS).toEqual([]);
     expect(CONTROL_CHANNEL).toBe('https://frontaliereticino.ch/cerca-lavoro-svizzera/');
     expect(TREATMENT_CHANNEL).toBe('https://frontaliereticino.ch/cerca-lavoro-ticino/');
     expect(CANTON_PAGE_PATHS).toEqual({ control: '/cerca-lavoro-svizzera/', treatment: '/cerca-lavoro-ticino/' });
     expect(DEFAULT_EXPERIMENT.id).toBe('svizzera-ticino');
   });
 
-  it('defines the exact-PAGE_URL experiment and its cumulative publication target', () => {
+  it('retains the exact-PAGE_URL history schema without treating it as active', () => {
     expect(EXPERIMENTS.map((experiment) => experiment.id)).toEqual(['svizzera-ticino']);
     const experiment = findExperiment('svizzera-ticino');
     expect(experiment).toMatchObject({

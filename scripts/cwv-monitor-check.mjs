@@ -13,8 +13,10 @@
  * BOTH of the last two recorded weeks (a single bad week is noise; two in a
  * row is a real regression worth a human look).
  *
- * Zero-Claude, report-only: a PostHog/query failure for one page logs and
- * skips that page — it never fails the workflow or blocks the others.
+ * Zero-Claude, report-only: a missing source observation is persisted as an
+ * explicit null row and fails the workflow. A partial run must never look
+ * green, because a missing page is not evidence that the page had no
+ * regression.
  *
  * Env (loaded via load-rc-env.mjs, same as monitor-cls-posthog.mjs):
  *   POSTHOG_PERSONAL_API_KEY / POSTHOG_PROJECT_ID — primary source (optional
@@ -139,6 +141,25 @@ export function recordSourceUnavailableSnapshots(history, date, reason) {
 }
 
 /**
+ * Persist and return a loud source-unavailable result. The history row is
+ * intentionally written before returning so the scheduled workflow can commit
+ * the abstention even though its final status is non-zero.
+ */
+function sourceUnavailableResult({ history, file, date, reason, dryRun, liveness }) {
+  recordSourceUnavailableSnapshots(history, date, reason);
+  if (!dryRun) saveHistory(file, history);
+  declareNotMeasurable('cwv-monitor-check', { ...(liveness || {}), reason });
+  console.error(`[cwv-monitor-check] source unavailable: recorded ${TARGET_PAGES.length} null snapshot(s) for ${date}`);
+  return {
+    status: 'source-unavailable',
+    date,
+    source: 'none',
+    reason: String(reason),
+    pages: TARGET_PAGES.length,
+  };
+}
+
+/**
  * Regression = the metric's field p75 was ABOVE `threshold` on the last two
  * recorded weeks (not necessarily consecutive calendar weeks — a run that
  * failed to query is simply never recorded, so "last two" is "last two
@@ -233,7 +254,11 @@ export async function fetchGa4CwvFallback({
   return hasSignificantOtherBucket(rows) ? null : rows;
 }
 
-export async function main({ ga4FallbackImpl = fetchGa4CwvFallback } = {}) {
+export async function main({
+  ga4FallbackImpl = fetchGa4CwvFallback,
+  checkLivenessImpl = checkPostHogLiveness,
+  runHogQLImpl = runHogQL,
+} = {}) {
   const HOST = process.env.POSTHOG_HOST || 'https://eu.posthog.com';
   const PID = process.env.POSTHOG_PROJECT_ID;
   const KEY = process.env.POSTHOG_PERSONAL_API_KEY;
@@ -258,7 +283,7 @@ const MIN_SAMPLES_PER_METRIC = 30;
   // of green runs recording n=0. A dead source is not "no regression", it is
   // no measurement. GA4 receives the same `web_vitals` event through
   // Analytics.log(), so it is a faithful alternate source for this monitor.
-  const liveness = await checkPostHogLiveness({ windowDays: Number(WINDOW_DAYS) });
+  const liveness = await checkLivenessImpl({ windowDays: Number(WINDOW_DAYS) });
   let source = 'posthog';
   let ga4Rows = null;
   if (!liveness.alive) {
@@ -269,26 +294,23 @@ const MIN_SAMPLES_PER_METRIC = 30;
       );
       if (!hasTargetObservation) {
         const reason = `${liveness.reason}; GA4 fallback returned no target CLS/INP observations`;
-        recordSourceUnavailableSnapshots(history, today, reason);
-        if (!dryRun) saveHistory(HISTORY_FILE, history);
-        declareNotMeasurable('cwv-monitor-check', { ...liveness, reason });
-        console.warn(`[cwv-monitor-check] source unavailable: recorded ${TARGET_PAGES.length} null snapshot(s) for ${today}`);
-        return;
+        return sourceUnavailableResult({
+          history, file: HISTORY_FILE, date: today, reason, dryRun, liveness,
+        });
       }
       source = 'ga4';
       console.warn('[cwv-monitor-check] PostHog non misurabile: uso GA4 `web_vitals` come fallback');
     } catch (error) {
       const reason = `${liveness.reason}; GA4 fallback failed: ${error.message}`;
-      recordSourceUnavailableSnapshots(history, today, reason);
-      if (!dryRun) saveHistory(HISTORY_FILE, history);
-      declareNotMeasurable('cwv-monitor-check', { ...liveness, reason });
-      console.warn(`[cwv-monitor-check] source unavailable: recorded ${TARGET_PAGES.length} null snapshot(s) for ${today}`);
-      return;
+      return sourceUnavailableResult({
+        history, file: HISTORY_FILE, date: today, reason, dryRun, liveness,
+      });
     }
   }
 
   const regressions = [];
   let queryFailures = 0;
+  const unavailablePages = [];
 
   for (const page of TARGET_PAGES) {
     let snapshot;
@@ -296,13 +318,41 @@ const MIN_SAMPLES_PER_METRIC = 30;
       if (source === 'ga4') {
         snapshot = ga4CwvSnapshot(ga4Rows, page.path);
       } else {
-        const result = await runHogQL(buildQuery(page.path, WINDOW_DAYS), { apiKey: KEY, projectId: PID, host: HOST });
+        const result = await runHogQLImpl(buildQuery(page.path, WINDOW_DAYS), { apiKey: KEY, projectId: PID, host: HOST });
         const row = result.results?.[0] || [null, 0, null, 0];
         snapshot = { cls_p75: row[0], cls_n: row[1], inp_p75: row[2], inp_n: row[3] };
       }
     } catch (e) {
       console.error(`[cwv-monitor-check] ${page.key} (${page.path}) query failed: ${e.message}`);
       queryFailures += 1;
+      recordSnapshot(history, page.key, page.path, today, {
+        cls_p75: null,
+        cls_n: 0,
+        inp_p75: null,
+        inp_n: 0,
+        // Do not put the raw error in tracked history: it can contain request
+        // details. The workflow log already carries the full diagnostic.
+        sourceUnavailable: `query failed (${e?.name || 'Error'})`,
+      });
+      unavailablePages.push(page.key);
+      continue;
+    }
+
+    const hasMetricObservation = (value, count) =>
+      value != null && Number.isFinite(Number(value)) && Number(count ?? 0) > 0;
+    const hasTargetObservation =
+      (page.cls != null && hasMetricObservation(snapshot.cls_p75, snapshot.cls_n))
+      || (page.inp != null && hasMetricObservation(snapshot.inp_p75, snapshot.inp_n));
+    if (!hasTargetObservation) {
+      recordSnapshot(history, page.key, page.path, today, {
+        cls_p75: null,
+        cls_n: 0,
+        inp_p75: null,
+        inp_n: 0,
+        sourceUnavailable: `no target observations in ${WINDOW_DAYS}d window`,
+      });
+      unavailablePages.push(page.key);
+      console.error(`[cwv-monitor-check] ${page.key} (${page.path}) returned no target observations — no verdict for this page`);
       continue;
     }
 
@@ -330,11 +380,27 @@ const MIN_SAMPLES_PER_METRIC = 30;
     }
   }
 
-  if (queryFailures === TARGET_PAGES.length) {
-    // Systemic failure (rotated key, wrong project, host outage): exiting 0
-    // here would leave the watchdog silently dead forever (review PR #4324).
-    console.error('[cwv-monitor-check] ALL page queries failed — PostHog auth/host is broken, failing the run');
-    process.exit(1);
+  if (queryFailures > 0 || unavailablePages.length > 0) {
+    // A partial measurement is not a healthy run. Keep the successful rows,
+    // mark every missing page explicitly, and fail closed so CI cannot report
+    // a green watchdog while a target is blind.
+    if (!dryRun) saveHistory(HISTORY_FILE, history);
+    console.error(
+      `[cwv-monitor-check] incomplete measurement — ${queryFailures} query failure(s), `
+      + `${unavailablePages.length} unavailable page(s); failing closed`,
+    );
+    declareNotMeasurable('cwv-monitor-check', {
+      ...liveness,
+      reason: `${queryFailures} query failure(s), ${unavailablePages.length} target page(s) without a usable observation`,
+    });
+    return {
+      status: 'source-unavailable',
+      date: today,
+      source,
+      queryFailures,
+      unavailablePages,
+      regressions,
+    };
   }
 
   // `--dry-run` verifica il criterio di chiusura di una issue gia' aperta: non
@@ -342,9 +408,9 @@ const MIN_SAMPLES_PER_METRIC = 30;
   if (!dryRun) saveHistory(HISTORY_FILE, history);
   console.log(`[cwv-monitor-check] snapshot recorded for ${today} — ${regressions.length} regression(s) detected`);
 
-  if (!regressions.length) return;
+  if (!regressions.length) return { status: 'ok', date: today, source, regressions };
 
-  return syncErrorIssues({
+  const synced = await syncErrorIssues({
     entries: regressions,
     dryRun,
     maxIssues: regressions.length,
@@ -357,14 +423,17 @@ const MIN_SAMPLES_PER_METRIC = 30;
     titleFor: (e) => `CWV Regression (${e.metric}): ${e.path}`,
     bodyFor: (entry) => buildIssueBody({ ...entry, sourceLabel: source === 'ga4' ? 'GA4 `web_vitals` real-user events (fallback — PostHog non misurabile)' : undefined }),
   });
+  return { status: 'ok', date: today, source, regressions, synced };
 }
 
 // Run only when invoked directly (not when imported by the test suite), so
 // importing main()/TARGET_PAGES/etc. here never fires a real PostHog/gh
 // call — same guard as scripts/posthog-error-issue-sync.mjs / dmarc-monitor.mjs.
 if (import.meta.url === pathToFileURL(process.argv[1]).href) {
-  const results = await main();
-  if (results) {
-    console.log(`[cwv-monitor-check] synced ${results.filter(Boolean).length}/${results.length} issue(s)`);
+  const result = await main();
+  if (result?.synced) {
+    console.log(`[cwv-monitor-check] synced ${result.synced.filter(Boolean).length}/${result.synced.length} issue(s)`);
   }
+  if (result?.status === 'source-unavailable') process.exitCode = 2;
+  else if (result?.status === 'error') process.exitCode = 1;
 }

@@ -1,13 +1,9 @@
 name: AdSense format A/B report (weekly)
 
-# Weekly companion to the active canton in-feed-ad A/B test
-# (services/adsenseSlots.ts INFEED_AD_AB_TEST_SUPPRESSED_CANTONS): the national
-# Svizzera listing is control and Ticino is treatment (manual in-feed removed).
-# The control keeps the existing cadence. The report uses exact AdSense PAGE_URL
-# rows, never an URL-channel prefix that could include sub-URLs. GA4 engagement
-# and Core Web Vitals remain guardrails. See
-# scripts/adsense-format-ab-report.mjs module docblock for the full design
-# (three CWV sources tried in order, sample-size disclaimers, etc).
+# Historical companion to the canton in-feed-ad A/B test. The TI treatment was
+# rolled back on 2026-09-22 after the `/cerca-lavoro-ticino/` CLS regression;
+# no new comparison is queried until a new active surface is declared in
+# services/adExperiment.ts. Auto Ads remain enabled.
 #
 # Same structure as revenue-monitor.yml (secrets loading, history commit,
 # failure reporting) — see that workflow for the exact reference pattern.
@@ -56,9 +52,9 @@ jobs:
         continue-on-error: true
         run: node scripts/load-rc-env.mjs
 
-      - name: Run AdSense format A/B report (save)
+      - name: Record retired AdSense format A/B experiment
         run: |
-          node scripts/adsense-format-ab-report.mjs --experiment svizzera-ticino --save --markdown > /tmp/adsense-format-ab-report.md
+          echo "AdSense in-feed A/B report paused: the TI treatment was rolled back on 2026-09-22; all job-board surfaces use the manual in-feed reserve and Auto Ads remain enabled." > /tmp/adsense-format-ab-report.md
 
       - name: Print summary to job log
         run: |
