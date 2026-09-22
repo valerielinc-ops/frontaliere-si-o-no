@@ -43,3 +43,39 @@ export function recordUniquePageProgress(seen, items, {
   for (const identity of pageIdentities) seen.add(identity);
   return pageIdentities;
 }
+
+/**
+ * Track a mutable feed whose declared total counts rows while stable source
+ * identities are used only for deduplication and forward-progress checks.
+ */
+export function createMutableFeedPaginationTracker({
+  getIdentity,
+  source = 'pagination',
+} = {}) {
+  if (typeof getIdentity !== 'function') throw new TypeError('pagination identity resolver is required');
+
+  const identities = new Set();
+  let scannedRows = 0;
+
+  return {
+    record(items, page = '') {
+      const pageIdentities = recordUniquePageProgress(identities, items, {
+        getIdentity,
+        source,
+        page,
+        allowPreviouslySeen: true,
+      });
+      scannedRows += items.length;
+      return pageIdentities;
+    },
+    hasReached(declaredTotal) {
+      return Number.isFinite(declaredTotal) && declaredTotal > 0 && scannedRows >= declaredTotal;
+    },
+    get scannedRows() {
+      return scannedRows;
+    },
+    get uniqueCount() {
+      return identities.size;
+    },
+  };
+}

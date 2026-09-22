@@ -64,7 +64,7 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isTargetSwissLocation } from './target-swiss-locations.mjs';
 import { parsePostJobDetail, extractPostJobIdFromUrl } from './postch-job-parser.mjs';
 import { dedicatedPostOwner } from './crawler-company-ownership.mjs';
-import { recordUniquePageProgress } from './pagination-identity.mjs';
+import { createMutableFeedPaginationTracker } from './pagination-identity.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -309,13 +309,15 @@ async function fetchPostAutoListings(timeoutMs) {
   for (const apiLocale of JOBS_API_LISTING_LOCALES) {
     let pageNumber = 0;
     let totalJobs = null;
-    const localeIds = new Set();
-    let scannedRows = 0;
+    const progress = createMutableFeedPaginationTracker({
+      getIdentity: (record) => record?.id,
+      source: `PostAuto ${apiLocale}`,
+    });
     let complete = false;
     while (pageNumber < JOBS_API_MAX_PAGES) {
       const page = await fetchJobsApiPage(apiLocale, pageNumber, timeoutMs);
       if (page.fetchOutcome !== 'ok') {
-        localeStats.push({ locale: apiLocale, seen: localeIds.size, totalJobs, fetchOutcome: page.fetchOutcome });
+        localeStats.push({ locale: apiLocale, seen: progress.uniqueCount, totalJobs, fetchOutcome: page.fetchOutcome });
         const failed = [];
         Object.defineProperties(failed, {
           discoveredCount: { value: byId.size, enumerable: false },
@@ -331,9 +333,9 @@ async function fetchPostAutoListings(timeoutMs) {
       // paginated; replacing a known total would accept a truncated snapshot.
       if (totalJobs === null && Number.isFinite(total) && total > 0) totalJobs = total;
       if (jobs.length === 0) {
-        if (Number.isFinite(totalJobs) && scannedRows < totalJobs) {
-          console.warn(`⚠️ PostAuto ${apiLocale}: empty page before declared total (${scannedRows}/${totalJobs} rows; ${localeIds.size} unique).`);
-          localeStats.push({ locale: apiLocale, seen: localeIds.size, totalJobs, fetchOutcome: 'feed_endpoint_unavailable' });
+        if (Number.isFinite(totalJobs) && progress.scannedRows < totalJobs) {
+          console.warn(`⚠️ PostAuto ${apiLocale}: empty page before declared total (${progress.scannedRows}/${totalJobs} rows; ${progress.uniqueCount} unique).`);
+          localeStats.push({ locale: apiLocale, seen: progress.uniqueCount, totalJobs, fetchOutcome: 'feed_endpoint_unavailable' });
           const incomplete = [];
           Object.defineProperties(incomplete, {
             discoveredCount: { value: byId.size, enumerable: false },
@@ -345,25 +347,18 @@ async function fetchPostAutoListings(timeoutMs) {
         complete = true;
         break;
       }
-      const pageIds = recordUniquePageProgress(localeIds, jobs, {
-        getIdentity: (record) => record?.id,
-        source: `PostAuto ${apiLocale}`,
-        page: pageNumber,
-        allowPreviouslySeen: true,
-      });
+      const pageIds = progress.record(jobs, pageNumber);
       for (const [index, record] of jobs.entries()) {
         const id = pageIds[index];
         if (isPostAutoRecord(record)) byId.set(id, record);
       }
-      // totalJobs counts rows in the mutable feed, not the deduplicated IDs.
-      // Page-boundary overlaps are allowed above, so unique IDs can stay below
-      // the declared row count even when the feed has been fully consumed.
-      scannedRows += jobs.length;
+      // The shared tracker counts source rows separately from unique IDs, so
+      // page-boundary overlaps cannot force an out-of-range request.
       pageNumber += 1;
       // Some SuccessFactors responses report totalJobs=0 even while returning
       // a full page. Treat that as "unknown", not as proof that the first
       // page is complete; the following empty page is the terminator.
-      if (Number.isFinite(totalJobs) && totalJobs > 0 && scannedRows >= totalJobs) {
+      if (progress.hasReached(totalJobs)) {
         complete = true;
         break;
       }
@@ -371,7 +366,7 @@ async function fetchPostAutoListings(timeoutMs) {
     }
 
     if (!complete) {
-      console.warn(`⚠️ PostAuto ${apiLocale}: pagination safety cap reached after ${scannedRows} row(s) / ${localeIds.size} unique record(s).`);
+      console.warn(`⚠️ PostAuto ${apiLocale}: pagination safety cap reached after ${progress.scannedRows} row(s) / ${progress.uniqueCount} unique record(s).`);
       const incomplete = [];
       Object.defineProperties(incomplete, {
         discoveredCount: { value: byId.size, enumerable: false },
@@ -380,8 +375,8 @@ async function fetchPostAutoListings(timeoutMs) {
       });
       return incomplete;
     }
-    localeStats.push({ locale: apiLocale, seen: localeIds.size, totalJobs, fetchOutcome: 'ok' });
-    console.log(`     ${apiLocale}: scanned ${scannedRows} row(s), ${localeIds.size} unique record(s) (claimed total: ${Number.isFinite(totalJobs) ? totalJobs : 'unknown'})`);
+    localeStats.push({ locale: apiLocale, seen: progress.uniqueCount, totalJobs, fetchOutcome: 'ok' });
+    console.log(`     ${apiLocale}: scanned ${progress.scannedRows} row(s), ${progress.uniqueCount} unique record(s) (claimed total: ${Number.isFinite(totalJobs) ? totalJobs : 'unknown'})`);
   }
 
   const listings = [...byId.values()];
