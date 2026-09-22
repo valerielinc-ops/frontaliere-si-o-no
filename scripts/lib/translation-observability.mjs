@@ -5,12 +5,13 @@ import { isIncomplete, summarizeJobs, finalizeEntry } from '../log-translation-s
 import { detectLanguageWithConfidence } from './detect-language.mjs';
 import { titleLooksUntranslated } from './job-locale-utils.mjs';
 import { measureDescriptionLocales, measureTitleLocales } from './job-locale-population.mjs';
+import { TRANSLATION_RAW_OBSERVABILITY_LIMITS } from './translation-observability-limits.mjs';
 
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MAX_COMPANIES = 20;
 const MAX_FINGERPRINTS = 100;
-const MAX_JOB_TIMINGS = 4096;
-const MAX_RUNG_ATTRIBUTIONS = 64;
+const MAX_JOB_TIMINGS = TRANSLATION_RAW_OBSERVABILITY_LIMITS.jobTimings;
+const MAX_RUNG_ATTRIBUTIONS = TRANSLATION_RAW_OBSERVABILITY_LIMITS.rungs;
 const HASH_BYTES = 32;
 const ACTIVE_ROW_BYTES = 65;
 const RETIRED_ROW_BYTES = 69;

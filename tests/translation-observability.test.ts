@@ -14,6 +14,7 @@ import {
   unpackTranslationObservabilityRows,
   unpackTranslationObservabilityState,
 } from '../scripts/lib/translation-observability.mjs';
+import { TRANSLATION_RAW_OBSERVABILITY_LIMITS } from '../scripts/lib/translation-observability-limits.mjs';
 import { rollupTranslationObservability } from '../scripts/rollup-translation-observability.mjs';
 import { buildAssembledJobIdentity, buildStableJobIdentity } from '../scripts/lib/job-identity.mjs';
 
@@ -67,6 +68,35 @@ function redigest<T extends Record<string, any>>(value: T): T {
 }
 
 describe('translation observability', () => {
+  it('keeps one immutable raw bound for producers and consumers', () => {
+    expect(TRANSLATION_RAW_OBSERVABILITY_LIMITS).toEqual({
+      jobTimings: 4096,
+      companies: 2048,
+      rungs: 64,
+    });
+    expect(Object.isFrozen(TRANSLATION_RAW_OBSERVABILITY_LIMITS)).toBe(true);
+  });
+
+  it('ratchets the report reducer to the shared raw timing and rung bounds', () => {
+    const summary = summarizeCascadeObservability([{
+      name: 'cascade',
+      jobDurationsMs: Array.from(
+        { length: TRANSLATION_RAW_OBSERVABILITY_LIMITS.jobTimings + 1 },
+        (_, index) => index,
+      ),
+      rungAttribution: Array.from(
+        { length: TRANSLATION_RAW_OBSERVABILITY_LIMITS.rungs + 1 },
+        (_, index) => ({ rung: `rung-${String(index).padStart(2, '0')}`, count: 1, durationMs: index }),
+      ),
+    }]);
+
+    expect(summary.jobTiming).toMatchObject({
+      count: TRANSLATION_RAW_OBSERVABILITY_LIMITS.jobTimings,
+      maxMs: TRANSLATION_RAW_OBSERVABILITY_LIMITS.jobTimings - 1,
+    });
+    expect(summary.rungAttribution).toHaveLength(TRANSLATION_RAW_OBSERVABILITY_LIMITS.rungs);
+  });
+
   it('keeps hash-fragment siblings distinct and proves delete-to-readd only for the removed sibling', () => {
     const firstJob = job({ url: 'https://tenant.myworkdayjobs.com/en-US/foo/job/private-title_R123#before' });
     const siblingJob = job({ url: 'https://tenant.myworkdayjobs.com/en-US/foo/job/private-title_R123#after' });
