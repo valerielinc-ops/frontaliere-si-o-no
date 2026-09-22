@@ -18,7 +18,8 @@
  * old removed regex (the #1996 fix left several `// …the old /(?<=\s)/ split…`
  * notes). The scanner carries lexical state across lines, so `//` in a URL,
  * string, template, or regex literal is not mistaken for a comment and a code
- * line beginning with `*` is not discarded.
+ * line beginning with `*` is not discarded. Template interpolations are scanned
+ * recursively as code, including nested templates.
  *
  * Exit codes: 0 = clean, 1 = violation(s). `--json` prints a machine report.
  *
@@ -72,125 +73,148 @@ function canStartRegex(previousToken) {
  * Blank JS/TS comments while preserving strings, templates, and regex literals
  * byte-for-byte. This is intentionally a small lexer rather than a regex: a
  * comment marker inside `https://…` must not hide code later on the same line,
- * and block-comment state must survive a newline.
+ * block comments must survive a newline, and `${…}` must be treated as code
+ * inside a template literal.
  */
 export function stripComments(source) {
   const src = String(source ?? '');
   const out = [...src];
-  let state = 'code';
-  let quote = null;
-  let previousToken = null;
-  let regexInClass = false;
-
   const blank = (index) => { out[index] = blankCommentCharacter(src[index]); };
 
-  for (let i = 0; i < src.length; i += 1) {
-    const character = src[i];
-    const next = src[i + 1];
-
-    if (state === 'line-comment') {
-      if (character === '\n' || character === '\r') state = 'code';
-      else blank(i);
-      continue;
+  function skipQuoted(start, quote) {
+    for (let i = start; i < src.length; i += 1) {
+      if (src[i] === '\\') {
+        i += 1;
+      } else if (src[i] === quote) {
+        return i + 1;
+      }
     }
+    return src.length;
+  }
 
-    if (state === 'block-comment') {
-      if (character === '*' && next === '/') {
+  function skipRegex(start) {
+    let inClass = false;
+    for (let i = start + 1; i < src.length; i += 1) {
+      if (src[i] === '\\') {
+        i += 1;
+      } else if (src[i] === '[') {
+        inClass = true;
+      } else if (src[i] === ']' && inClass) {
+        inClass = false;
+      } else if (src[i] === '/' && !inClass) {
+        return i + 1;
+      }
+    }
+    return src.length;
+  }
+
+  function scanTemplate(start) {
+    for (let i = start; i < src.length; i += 1) {
+      if (src[i] === '\\') {
+        i += 1;
+      } else if (src[i] === '`') {
+        return i + 1;
+      } else if (src[i] === '$' && src[i + 1] === '{') {
+        i = scanCode(i + 2, true) - 1;
+      }
+    }
+    return src.length;
+  }
+
+  function scanCode(start, stopAtBrace = false) {
+    let previousToken = null;
+    let braceDepth = 0;
+
+    for (let i = start; i < src.length; i += 1) {
+      const character = src[i];
+      const next = src[i + 1];
+
+      if (character === '/' && next === '/') {
         blank(i);
         blank(i + 1);
-        i += 1;
-        state = 'code';
-      } else {
+        let end = i + 2;
+        while (end < src.length && src[end] !== '\n' && src[end] !== '\r') {
+          blank(end);
+          end += 1;
+        }
+        i = end - 1;
+        continue;
+      }
+      if (character === '/' && next === '*') {
         blank(i);
-      }
-      continue;
-    }
-
-    if (state === 'string' || state === 'template') {
-      if (character === '\\') {
-        i += 1;
+        blank(i + 1);
+        let end = i + 2;
+        while (end < src.length) {
+          if (src[end] === '*' && src[end + 1] === '/') {
+            blank(end);
+            blank(end + 1);
+            i = end + 1;
+            break;
+          }
+          blank(end);
+          end += 1;
+        }
+        if (end >= src.length) return src.length;
         continue;
       }
-      if (character === quote) {
-        state = 'code';
-        quote = null;
+      if (character === '\'' || character === '"') {
+        i = skipQuoted(i + 1, character) - 1;
         previousToken = 'value';
-      }
-      continue;
-    }
-
-    if (state === 'regex') {
-      if (character === '\\') {
-        i += 1;
         continue;
       }
-      if (character === '[') {
-        regexInClass = true;
-        continue;
-      }
-      if (character === ']' && regexInClass) {
-        regexInClass = false;
-        continue;
-      }
-      if (character === '/' && !regexInClass) {
-        state = 'code';
+      if (character === '`') {
+        i = scanTemplate(i + 1) - 1;
         previousToken = 'value';
+        continue;
       }
-      continue;
-    }
+      if (character === '/' && canStartRegex(previousToken)) {
+        i = skipRegex(i) - 1;
+        previousToken = 'value';
+        continue;
+      }
+      if (stopAtBrace && character === '}' && braceDepth === 0) return i + 1;
+      if (character === '{') {
+        braceDepth += 1;
+        previousToken = 'prefix';
+        continue;
+      }
+      if (character === '}') {
+        if (braceDepth > 0) braceDepth -= 1;
+        previousToken = 'value';
+        continue;
+      }
 
-    if (character === '/' && next === '/') {
-      blank(i);
-      blank(i + 1);
-      i += 1;
-      state = 'line-comment';
-      continue;
-    }
-    if (character === '/' && next === '*') {
-      blank(i);
-      blank(i + 1);
-      i += 1;
-      state = 'block-comment';
-      continue;
-    }
-    if (character === '\'' || character === '"' || character === '`') {
-      state = character === '`' ? 'template' : 'string';
-      quote = character;
-      continue;
-    }
-    if (character === '/' && canStartRegex(previousToken)) {
-      state = 'regex';
-      regexInClass = false;
-      continue;
-    }
-
-    if (/\s/.test(character)) continue;
-    if (/[A-Za-z_$]/.test(character)) {
-      let end = i + 1;
-      while (end < src.length && /[A-Za-z0-9_$]/.test(src[end])) end += 1;
-      const word = src.slice(i, end);
-      previousToken = REGEX_AFTER_KEYWORDS.has(word) ? 'prefix' : 'value';
-      i = end - 1;
-      continue;
-    }
-    if (/[0-9]/.test(character)) {
+      if (/\s/.test(character)) continue;
+      if (/[A-Za-z_$]/.test(character)) {
+        let end = i + 1;
+        while (end < src.length && /[A-Za-z0-9_$]/.test(src[end])) end += 1;
+        const word = src.slice(i, end);
+        previousToken = REGEX_AFTER_KEYWORDS.has(word) ? 'prefix' : 'value';
+        i = end - 1;
+        continue;
+      }
+      if (/[0-9]/.test(character)) {
+        previousToken = 'value';
+        continue;
+      }
+      if (')]}'.includes(character)) {
+        previousToken = 'value';
+        continue;
+      }
+      if ('([{,;:=!?&|+\-*%^~<>'.includes(character)) {
+        previousToken = 'prefix';
+        continue;
+      }
+      if (character === '.') {
+        previousToken = 'value';
+        continue;
+      }
       previousToken = 'value';
-      continue;
     }
-    if (')]}'.includes(character)) {
-      previousToken = 'value';
-      continue;
-    }
-    if ('([{,;:=!?&|+\-*%^~<>'.includes(character)) {
-      previousToken = 'prefix';
-      continue;
-    }
-    if (character === '.') {
-      previousToken = 'value';
-      continue;
-    }
-    previousToken = 'value';
+    return src.length;
   }
+
+  scanCode(0);
 
   return out.join('');
 }

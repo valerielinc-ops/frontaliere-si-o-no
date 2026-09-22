@@ -51,6 +51,20 @@ describe('check-client-lookbehind — predicate', () => {
     expect(stripComments(source)).not.toContain('hidden');
     expect(stripComments(source).split('\n')[2]).toContain('(?<=x)');
   });
+
+  it('scans template interpolations, including nested templates, as code', () => {
+    const source = 'const value = `${ok ? /(?<=x)/.test(input) : `nested ${/(?<!y)/}`}`;';
+    const masked = stripComments(source);
+    expect(masked).toContain('(?<=x)');
+    expect(masked).toContain('(?<!y)');
+  });
+
+  it('does not report lookbehind text inside interpolation comments', () => {
+    const source = 'const value = `${input /* hidden (?<=comment) */} ${/(?<=x)/}`;';
+    const masked = stripComments(source);
+    expect(masked).not.toContain('(?<=comment)');
+    expect(masked).toContain('(?<=x)');
+  });
 });
 
 describe('check-client-lookbehind — tree invariant', () => {
