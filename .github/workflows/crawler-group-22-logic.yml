@@ -222,6 +222,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::rittmeyer: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ rittmeyer: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::rittmeyer: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -395,6 +396,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::saint-gobain-weber-isover: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ saint-gobain-weber-isover: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::saint-gobain-weber-isover: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -568,6 +570,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::spital-davos: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ spital-davos: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::spital-davos: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -741,6 +744,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::lindenhofgruppe: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ lindenhofgruppe: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::lindenhofgruppe: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -914,6 +918,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::scandit: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ scandit: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::scandit: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -1087,6 +1092,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::spital-thusis: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ spital-thusis: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::spital-thusis: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -1260,6 +1266,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::reha-bellikon: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ reha-bellikon: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::reha-bellikon: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -1433,6 +1440,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::heineken-ch: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ heineken-ch: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::heineken-ch: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -1606,6 +1614,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::mkspamp: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ mkspamp: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::mkspamp: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -1779,6 +1788,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::ferring: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ ferring: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::ferring: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -1952,6 +1962,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::mistral-ai: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ mistral-ai: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::mistral-ai: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -2125,6 +2136,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::stadt-zuerich: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ stadt-zuerich: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::stadt-zuerich: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -2299,6 +2311,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::klinik-seeschau: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ klinik-seeschau: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::klinik-seeschau: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -2472,6 +2485,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::huntsman: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ huntsman: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::huntsman: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -2645,6 +2659,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::med-ipersonal: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ med-ipersonal: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::med-ipersonal: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -2818,6 +2833,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::kudelski-nagra: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ kudelski-nagra: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::kudelski-nagra: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -2991,6 +3007,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::tl-lausanne: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ tl-lausanne: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::tl-lausanne: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -3164,6 +3181,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::otis: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ otis: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::otis: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -3337,6 +3355,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::oerlikon: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ oerlikon: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::oerlikon: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -3510,6 +3529,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::corner: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ corner: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::corner: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -3683,6 +3703,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::eth-zurich: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ eth-zurich: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::eth-zurich: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -3856,6 +3877,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::giardino: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ giardino: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::giardino: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -4029,6 +4051,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::bossard: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ bossard: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::bossard: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -4202,6 +4225,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::clinica-holistica-engiadina: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ clinica-holistica-engiadina: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::clinica-holistica-engiadina: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -4375,6 +4399,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::ariston: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ ariston: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::ariston: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -4548,6 +4573,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::bachtelen: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ bachtelen: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::bachtelen: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -4721,6 +4747,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::alcon: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ alcon: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::alcon: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -4894,6 +4921,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::yellowshark: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ yellowshark: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::yellowshark: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."

@@ -502,7 +502,7 @@ describe('buildCrawlerShellBody — commit/push failure visibility (post-#3701 f
     expect(stdout, 'un guasto condiviso non deve aprire una issue per-crawler').not.toContain(
       'TITLE=Crawler Failure: Run test-crawler',
     );
-    expect(exitCode, 'lo step deve restare rosso: la run rossa e il solo segnale di gruppo').not.toBe(0);
+    expect(exitCode, 'il wrapper deve propagare l exit 43 per mantenere il segnale sistemico nel terminal status').toBe(43);
     // L'annotation e' l'unica traccia leggibile: la riga di step-summary va in
     // `${GITHUB_STEP_SUMMARY:-/dev/null}` e fuori da Actions non si vede.
     expect(stdout).toContain("shared deferred-commit precondition failed (exit 43)");
