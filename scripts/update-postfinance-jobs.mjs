@@ -233,6 +233,7 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
   let total = null;
   let pageNumber = 0;
   const sourceIdentities = new Set();
+  let scannedRows = 0;
   let paginationComplete = false;
 
   while (pageNumber < RECRUITING_API_MAX_PAGES) {
@@ -266,17 +267,21 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
       }
     }
 
+    // totalJobs counts feed rows, not deduplicated identities. The mutable
+    // Post Group feed can overlap adjacent pages, so sourceIdentities is not
+    // a safe completion counter.
+    scannedRows += entries.length;
     pageNumber += 1;
     if (entries.length === 0) {
-      if (total !== null && sourceIdentities.size < total) {
+      if (total !== null && scannedRows < total) {
         throw new Error(
-          `PostFinance API pagination incomplete: received ${sourceIdentities.size} of ${total} declared jobs.`,
+          `PostFinance API pagination incomplete: received ${scannedRows} of ${total} declared rows (${sourceIdentities.size} unique).`,
         );
       }
       paginationComplete = true;
       break;
     }
-    if (total !== null && sourceIdentities.size >= total) {
+    if (total !== null && scannedRows >= total) {
       paginationComplete = true;
       break;
     }
@@ -286,7 +291,7 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
   if (!paginationComplete && pageNumber >= RECRUITING_API_MAX_PAGES) {
     throw new Error(
       `PostFinance API pagination incomplete after ${pageNumber} pages: ` +
-        `${sourceIdentities.size} records received${total !== null ? ` of ${total} declared` : ''}.`,
+        `${scannedRows} rows received (${sourceIdentities.size} unique)${total !== null ? ` of ${total} declared` : ''}.`,
     );
   }
 

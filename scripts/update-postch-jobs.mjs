@@ -393,6 +393,7 @@ async function fetchPostJobs() {
     let pageNumber = 0;
     let totalJobs = null;
     const localeIds = new Set();
+    let scannedRows = 0;
     while (pageNumber < JOBS_API_MAX_PAGES) {
       const { totalJobs: total, jobs, error } = await fetchJobsApiPage(apiLocale, pageNumber);
       if (error) {
@@ -409,9 +410,9 @@ async function fetchPostJobs() {
       }
 
       if (jobs.length === 0) {
-        if (totalJobs !== null && localeIds.size < totalJobs) {
+        if (totalJobs !== null && scannedRows < totalJobs) {
           throw new Error(
-            `Post.ch ${apiLocale} pagination incomplete: received ${localeIds.size} of ${totalJobs} declared jobs.`,
+            `Post.ch ${apiLocale} pagination incomplete: received ${scannedRows} of ${totalJobs} declared rows (${localeIds.size} unique).`,
           );
         }
         break;
@@ -426,17 +427,20 @@ async function fetchPostJobs() {
         const id = pageIds[index];
         if (!byId.has(id)) byId.set(id, j);
       }
+      // totalJobs counts feed rows. Keep it separate from localeIds because
+      // this mutable Post Group feed may repeat a record at a page boundary.
+      scannedRows += jobs.length;
       pageNumber += 1;
-      if (totalJobs !== null && localeIds.size >= totalJobs) break;
+      if (totalJobs !== null && scannedRows >= totalJobs) break;
       await delay(250);
     }
-    if (pageNumber >= JOBS_API_MAX_PAGES && (totalJobs === null || localeIds.size < totalJobs)) {
+    if (pageNumber >= JOBS_API_MAX_PAGES && (totalJobs === null || scannedRows < totalJobs)) {
       throw new Error(
         `Post.ch ${apiLocale} pagination incomplete after ${pageNumber} pages: ` +
-          `${localeIds.size} records received${totalJobs !== null ? ` of ${totalJobs} declared` : ''}.`,
+          `${scannedRows} rows received (${localeIds.size} unique)${totalJobs !== null ? ` of ${totalJobs} declared` : ''}.`,
       );
     }
-    console.log(`     ${apiLocale}: ${localeIds.size} record(s) (claimed total: ${totalJobs ?? 'unknown'})`);
+    console.log(`     ${apiLocale}: ${scannedRows} row(s), ${localeIds.size} unique record(s) (claimed total: ${totalJobs ?? 'unknown'})`);
   }
   const apiRecords = [...byId.values()];
   console.log(`  📋 Merged unique records across locales: ${apiRecords.length}`);
