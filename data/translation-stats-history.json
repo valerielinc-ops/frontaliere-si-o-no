@@ -1,106 +1,5 @@
 [
   {
-    "timestamp": "2026-09-05T06:48:00.904Z",
-    "label": "after",
-    "total": 28948,
-    "needsRetranslation": 9526,
-    "suppressed": 106,
-    "incomplete": 10275,
-    "complete": 18673,
-    "slotsPresent": 18673,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 18673,
-    "sourceCopyExcused": 631,
-    "slotsPresentByLength": 28525,
-    "languageVerified": 19596,
-    "missingByLocale": {
-      "it": 1754,
-      "en": 1447,
-      "de": 718,
-      "fr": 1447
-    },
-    "queueAge": {
-      "count": 9526,
-      "withTimestamp": 9526,
-      "oldestAgeDays": 144.9,
-      "p50AgeDays": 9.9,
-      "p90AgeDays": 62.8,
-      "buckets": {
-        "0-1d": 257,
-        "1-2d": 518,
-        "2-7d": 2795,
-        "0-7d": 3570,
-        "7-30d": 2998,
-        "30-90d": 2481,
-        "90-180d": 477,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 1,
-      "withTimestamp": 1,
-      "oldestAgeDays": 60.6,
-      "p50AgeDays": 60.6,
-      "p90AgeDays": 60.6,
-      "buckets": {
-        "0-1d": 0,
-        "1-2d": 0,
-        "2-7d": 0,
-        "0-7d": 0,
-        "7-30d": 0,
-        "30-90d": 1,
-        "90-180d": 0,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1362
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 1177
-      },
-      {
-        "company": "Roche",
-        "pending": 586
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 331
-      },
-      {
-        "company": "BKW",
-        "pending": 237
-      },
-      {
-        "company": "PEMSA",
-        "pending": 195
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 192
-      },
-      {
-        "company": "Genossenschaft Migros Ostschweiz",
-        "pending": 186
-      },
-      {
-        "company": "Sulzer",
-        "pending": 183
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 168
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-05T09:44:22.547Z",
     "label": "before",
     "total": 28936,
@@ -19060,6 +18959,118 @@
       "processed": 0,
       "residual": 0,
       "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "Roche",
+        "pending": 189
+      },
+      {
+        "company": "PEMSA",
+        "pending": 175
+      },
+      {
+        "company": "Sulzer",
+        "pending": 126
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 73
+      },
+      {
+        "company": "Manor AG",
+        "pending": 69
+      },
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 56
+      },
+      {
+        "company": "Swiss Life",
+        "pending": 55
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 50
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 49
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 37
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-22T22:01:36.630Z",
+    "label": "after",
+    "total": 27417,
+    "needsRetranslation": 1821,
+    "suppressed": 199,
+    "incomplete": 2124,
+    "complete": 25293,
+    "slotsPresent": 25293,
+    "flaggedAmongSlotsPresent": 1,
+    "verifiedTranslated": 25292,
+    "sourceCopyExcused": 655,
+    "slotsPresentByLength": 27298,
+    "languageVerified": 25826,
+    "missingByLocale": {
+      "it": 45,
+      "en": 38,
+      "de": 65,
+      "fr": 67
+    },
+    "queueAge": {
+      "count": 1821,
+      "withTimestamp": 1821,
+      "oldestAgeDays": 162.5,
+      "p50AgeDays": 21.9,
+      "p90AgeDays": 110.9,
+      "buckets": {
+        "0-1d": 18,
+        "1-2d": 129,
+        "2-7d": 290,
+        "0-7d": 437,
+        "7-30d": 713,
+        "30-90d": 387,
+        "90-180d": 284,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 7,
+      "withTimestamp": 7,
+      "oldestAgeDays": 43,
+      "p50AgeDays": 19.3,
+      "p90AgeDays": 43,
+      "buckets": {
+        "0-1d": 0,
+        "1-2d": 1,
+        "2-7d": 0,
+        "0-7d": 1,
+        "7-30d": 5,
+        "30-90d": 1,
+        "90-180d": 0,
+        "180d+": 0
+      },
+      "alert": false,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 273,
+      "sampled": 120,
+      "processed": 3,
+      "residual": 0,
+      "residualRate": 0
     },
     "topPending": [
       {
