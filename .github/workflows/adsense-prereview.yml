@@ -145,12 +145,11 @@ jobs:
           retention-days: 90
           if-no-files-found: warn
 
-      # Symmetric to the failure reporter below: when the checklist runs clean
-      # again, close the canonical "Workflow Failure" issue instead of leaving it
-      # open forever. This workflow accumulated exactly that stale state — the
-      # recurring issue stayed open across 29 days of red — and the shared
-      # creator already implements the resolve half for this purpose. Uses the
-      # SAME stable title so it targets the issue the failure path would open.
+      # Symmetric to both failure reporters below: when the checklist runs clean
+      # again, close the canonical issue instead of leaving it open forever.
+      # `CI Failure: <workflow>` is the title used by the central scanner and
+      # the policy reporter; the legacy `Workflow Failure` title is resolved as
+      # well so old threads do not survive a recovery.
       - name: Resolve the failure issue on a clean run
         if: success()
         continue-on-error: true
@@ -158,26 +157,55 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure: ${{ github.workflow }}" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
+            --resolve
+          node scripts/lib/github-issue-creator.mjs \
             --title "Workflow Failure: ${{ github.workflow }}" \
             --workflow "${{ github.workflow }}" \
             --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}" \
             --resolve
 
-      # Only an audit that COULD NOT RUN is a workflow failure. Blocking policy
-      # findings (exit 2) are a real, expected output of a working checklist and
-      # are tracked as content issues, not as recurring workflow-failure bugs.
-      - name: Report failure to GitHub Issues
+      # An audit that COULD NOT RUN is a workflow failure. It uses the same
+      # canonical title as the central scanner so a race cannot create a
+      # second thread.
+      - name: Report audit execution failure to GitHub Issues
         if: failure() && steps.audit.outputs.code != '2'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           node scripts/lib/github-issue-creator.mjs \
-            --title "Workflow Failure: ${{ github.workflow }}" \
+            --title "CI Failure: ${{ github.workflow }}" \
             --description "## Workflow fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Trigger:** ${{ github.event_name }}
           **Ref:** ${{ github.ref_name }}" \
             --priority 2 \
             --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      # Exit code 2 is deliberately still a red gate: the checklist completed
+      # and found a blocking AdSense policy defect. Report that expected red to
+      # the SAME canonical issue, with the distinction explicit in the body,
+      # instead of letting the scanner rediscover it as an unreported workflow
+      # failure. This does not suppress Auto Ads or downgrade any finding.
+      - name: Report blocking AdSense policy finding to GitHub Issues
+        if: failure() && steps.audit.outputs.code == '2'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure: ${{ github.workflow }}" \
+            --description "## AdSense policy finding
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}
+
+          The audit completed successfully as a checklist and returned exit code 2 because it found blocking policy findings. This is an expected red gate for site content/configuration, not an audit execution failure. The uploaded JSON/Markdown report is authoritative; the AdSense and SEO gates remain enforced." \
+            --priority 2 \
+            --label automation \
+            --label ci-failure \
             --workflow "${{ github.workflow }}"

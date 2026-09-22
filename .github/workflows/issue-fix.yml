@@ -229,21 +229,62 @@ jobs:
             echo "snapshot_fingerprint=$snapshot_fingerprint"
           } >> "$GITHUB_OUTPUT"
 
+          # Label cleanup is a concurrent state transition: the pre-pass may
+          # have observed the approval while another queue/approval action has
+          # already removed it. Treating "already absent" as a successful
+          # cleanup is safe (the stale approval is not present), but every
+          # inability to verify the post-condition remains fail-closed.
+          remove_label_idempotently() {
+            local label="$1"
+            local labels_file="${RUNNER_TEMP}/issue-labels-${label//[^A-Za-z0-9_-]/_}.json"
+            local state
+            if ! gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json labels > "$labels_file"; then
+              echo "::error::label $label non verificabile prima della rimozione"
+              return 1
+            fi
+            if ! state=$(jq -er --arg label "$label" \
+              'if ((.labels | type) != "array") or any(.labels[]; (type != "object") or ((.name | type) != "string")) then error("labels-shape") else ([.labels[].name] | index($label)) as $found | if $found == null then "absent" else "present" end end' "$labels_file"); then
+              echo "::error::shape delle label non verificabile prima della rimozione ($label)"
+              return 1
+            fi
+            if [ "$state" = 'absent' ]; then
+              echo "label $label già assente — cleanup idempotente"
+              return 0
+            fi
+            if gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --remove-label "$label"; then
+              return 0
+            fi
+            # A concurrent actor can win between the read and the edit. Read
+            # the post-condition again; only proven absence is accepted.
+            if ! gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json labels > "$labels_file"; then
+              echo "::error::label $label non verificabile dopo una rimozione fallita"
+              return 1
+            fi
+            if ! state=$(jq -er --arg label "$label" \
+              'if ((.labels | type) != "array") or any(.labels[]; (type != "object") or ((.name | type) != "string")) then error("labels-shape") else ([.labels[].name] | index($label)) as $found | if $found == null then "absent" else "present" end end' "$labels_file"); then
+              echo "::error::shape delle label non verificabile dopo una rimozione fallita ($label)"
+              return 1
+            fi
+            if [ "$state" = 'absent' ]; then
+              echo "::warning::label $label rimossa da un'operazione concorrente; preflight resta verificato"
+              return 0
+            fi
+            echo "::error::label $label ancora presente dopo la rimozione rifiutata"
+            return 1
+          }
+
           if [ "$blocked" != 'true' ]; then
             if [ "$vision_approved" = 'true' ]; then
-              # A stale approval must never survive a failed write. `set -e`
-              # makes this risk-policy step fail closed if removal is refused.
-              gh issue edit "$ISSUE_NUMBER" --repo "$REPO" \
-                --remove-label "agent:vision-approved"
+              remove_label_idempotently "agent:vision-approved"
             fi
             exit 0
           fi
 
           echo "::warning::F1/F7 policy $version: domini=${domains:-non verificabili} → issue-fix fermo prima dell'agent."
-          if ! gh issue edit "$ISSUE_NUMBER" --repo "$REPO" \
-            --remove-label "agent:fix" --remove-label "agent:fix-queued" \
-            --remove-label "agent:vision-approved" \
-            --add-label "needs-human"; then
+          if ! remove_label_idempotently "agent:fix" \
+            || ! remove_label_idempotently "agent:fix-queued" \
+            || ! remove_label_idempotently "agent:vision-approved" \
+            || ! gh issue edit "$ISSUE_NUMBER" --repo "$REPO" --add-label "needs-human"; then
             echo "::error::F1/F7 escalation label non applicata; il job fixer dipendente resta bloccato."
             exit 1
           fi
@@ -1704,3 +1745,64 @@ jobs:
           QUOTA_FLOOR_SUBJECT: issue-${{ github.event.issue.number }}
           QUOTA_FLOOR_OWNER: ${{ steps.quota.outputs.quota_floor_lease_owner }}
         run: node scripts/ci/check-quota-backoff.mjs
+
+  # The risk preflight can fail before `fix` starts, and a failure in `fix`
+  # itself is otherwise invisible when its dependent cleanup is skipped. Keep
+  # this post-job reporter separate so the completed failed job's log is
+  # available through the Actions API.
+  report-failure:
+    needs: [risk_policy, fix]
+    if: >-
+      ${{ always() &&
+          (needs.risk_policy.result == 'failure' ||
+           needs.fix.result == 'failure') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+      actions: read
+    steps:
+      - name: Checkout failure reporter sources
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            package.json
+            scripts/ci/
+            scripts/lib/
+            .github/actions/report-failure/
+            .github/workflows/issue-fix.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Report risk-policy failure
+        if: needs.risk_policy.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automation,ci-failure
+          priority: '2'
+          log-from-job: risk_policy
+          workflow-file: .github/workflows/issue-fix.yml
+          context: |
+            - Il preflight F1/F7 è fallito prima di concedere capability al fixer.
+            - Il job `fix` dipendente viene lasciato skipped quando il preflight non è verificato.
+
+      - name: Report fixer failure
+        if: needs.fix.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automation,ci-failure
+          priority: '2'
+          log-from-job: fix
+          workflow-file: .github/workflows/issue-fix.yml
