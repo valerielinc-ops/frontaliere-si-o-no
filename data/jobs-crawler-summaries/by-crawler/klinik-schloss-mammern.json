@@ -1,21 +1,21 @@
 {
   "key": "klinik-schloss-mammern",
   "label": "Klinik Schloss Mammern",
-  "generatedAt": "2026-09-21T16:13:17.464Z",
-  "total": 12,
+  "generatedAt": "2026-09-22T00:10:27.302Z",
+  "total": 11,
   "discovered": null,
   "parsed": 11,
   "lastFetchOutcome": null,
-  "written": 12,
+  "written": 11,
   "authoritativeEmptySnapshot": false,
-  "newCount": 2,
-  "updatedCount": 9,
+  "newCount": 1,
+  "updatedCount": 10,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 19677,
-  "avgDurationMs": 19677,
+  "unchangedCount": 0,
+  "durationMs": 19917,
+  "avgDurationMs": 19917,
   "durationHistory": [
-    19677
+    19917
   ],
   "newJobs": [
     {
@@ -31,7 +31,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplaetze-zur-dipl.-pflegefachperson-hf-und-dipl.-pflegefachperson-hf-verkuerzt/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T16:12:57.126Z",
+      "crawledAt": "2026-09-22T00:10:06.494Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -44,7 +44,7 @@
       "sector": "Sanità / Ospedali",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-21",
+      "postedDate": "2026-09-22",
       "applyUrl": "https://ksm-jobs.ch/job/ausbildungsplaetze-zur-dipl.-pflegefachperson-hf-und-dipl.-pflegefachperson-hf-verkuerzt/",
       "_qualityScore": 56,
       "_qualityBreakdown": {
@@ -53,7 +53,9 @@
         "translation": 4,
         "completeness": 17
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "klinik-schloss-mammern-dd56b797e595",
       "slug": "ausbildungsplatz-kochin-koch-efz-klinik-schloss-mammern-mammern",
@@ -67,7 +69,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplatz-koechin-koch-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:13:10.556Z",
+      "crawledAt": "2026-09-22T00:10:19.576Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -82,16 +84,15 @@
       "featured": false,
       "postedDate": "2026-09-21",
       "applyUrl": "https://ksm-jobs.ch/job/ausbildungsplatz-koechin-koch-efz/",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-21T16:13:10.556Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 17
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "klinik-schloss-mammern-d7c3efcefe44",
       "slug": "schnupperpraktikum-klinik-schloss-mammern-mammern",
@@ -105,7 +106,7 @@
       "url": "https://ksm-jobs.ch/job/schnupperpraktikum/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:12:58.526Z",
+      "crawledAt": "2026-09-22T00:10:07.838Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -142,7 +143,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplatz-als-fachfrau-betreuung-fachrichtung-kinderbetreuung-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:13:09.213Z",
+      "crawledAt": "2026-09-22T00:10:18.306Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -179,7 +180,7 @@
       "url": "https://ksm-jobs.ch/job/leitende-Ärztin-leitender-arzt-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:12:59.849Z",
+      "crawledAt": "2026-09-22T00:10:09.136Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -216,7 +217,7 @@
       "url": "https://ksm-jobs.ch/job/mitarbeiter-in-waescherei-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:13:07.890Z",
+      "crawledAt": "2026-09-22T00:10:16.939Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -253,7 +254,7 @@
       "url": "https://ksm-jobs.ch/job/medizinische-r-masseur-in-–-einsaetze-an-wochenenden-und-feiertagen/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:13:03.895Z",
+      "crawledAt": "2026-09-22T00:10:13.006Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -290,7 +291,7 @@
       "url": "https://ksm-jobs.ch/job/lohnsachbearbeiter-100-befristet-fuer-6-9-monate-try-and-hire/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:13:06.545Z",
+      "crawledAt": "2026-09-22T00:10:15.588Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -327,7 +328,7 @@
       "url": "https://ksm-jobs.ch/job/fachfrau-fachmann-gesundheit-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:13:01.173Z",
+      "crawledAt": "2026-09-22T00:10:10.411Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -364,7 +365,7 @@
       "url": "https://ksm-jobs.ch/job/ausbildungsplaetze-als-fachfrau-fachmann-gesundheit-efz/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:13:02.575Z",
+      "crawledAt": "2026-09-22T00:10:11.707Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -401,7 +402,7 @@
       "url": "https://ksm-jobs.ch/job/leitende-Ärztin-leitender-arzt-pneumologie-80-100/",
       "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:13:05.223Z",
+      "crawledAt": "2026-09-22T00:10:14.303Z",
       "addressLocality": "Mammern",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -427,47 +428,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "klinik-schloss-mammern-c5ed2de83afd",
-      "slug": "team-management-floristry-100-klinik-schloss-mammern-mammern",
-      "company": "Klinik Schloss Mammern",
-      "companyKey": "klinik-schloss-mammern",
-      "companyDomain": "klinik-schloss-mammern.ch",
-      "title": "Teamleitung Floristik 100%",
-      "needsRetranslation": false,
-      "location": "Mammern",
-      "canton": "TG",
-      "url": "https://ksm-jobs.ch/job/teamleitung-floristik-100/",
-      "source": "Klinik Schloss Mammern Dedicated Parser (WordPress sitemap + Elementor detail)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:07:56.384Z",
-      "addressLocality": "Mammern",
-      "addressRegion": "TG",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "8265",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-24",
-      "applyUrl": "https://ksm-jobs.ch/job/teamleitung-floristik-100/",
-      "firstSeenAt": "2026-06-24T22:19:43.827Z",
-      "salaryMin": 81500,
-      "salaryMax": 114000,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
