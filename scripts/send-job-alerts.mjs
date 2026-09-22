@@ -37,6 +37,7 @@ import {
 import {
   classifyZeroMatchCause,
   getZeroMatchMonitorAction,
+  summarizeZeroMatchPlans,
 } from './lib/job-alert-zero-match-diagnosis.mjs';
 import { createCantonResolvers, AGGREGATE_KEY } from '../build-plugins/shared/cantonResolvers.mjs';
 import { isOwnerEmail, isCanaryJob } from './lib/canaryAd.mjs';
@@ -1888,9 +1889,17 @@ function planAlertMatch(alert, {
   // to out-of-area matches when too few local ones exist (never starves a
   // sparse alert). No-op when the alert already scopes geography itself.
   const ranked = partitionByGeoPreference(rankedAll, profile);
+  const candidateCount = eligibleJobs.length;
 
   if (ranked.length === 0) {
-    return { alert, rankedCount: 0, zeroCause: classifyZeroMatchCause(profile), sentMap: null, matched: [] };
+    return {
+      alert,
+      candidateCount,
+      rankedCount: 0,
+      zeroCause: classifyZeroMatchCause(profile, { eligibleCandidateCount: candidateCount }),
+      sentMap: null,
+      matched: [],
+    };
   }
 
   // De-dup: drop jobs already emailed to THIS alert within the dedup window.
@@ -1900,7 +1909,7 @@ function planAlertMatch(alert, {
   // entirely rather than re-mail stale offers.
   const sentMap = normalizeSentMap(alert.sentJobIds);
   const matched = filterUnsentJobs(ranked, sentMap, now, DEDUP_WINDOW_MS);
-  return { alert, rankedCount: ranked.length, zeroCause: null, sentMap, matched };
+  return { alert, candidateCount, rankedCount: ranked.length, zeroCause: null, sentMap, matched };
 }
 
 async function main() {
@@ -2313,8 +2322,6 @@ async function main() {
   // 3. Match alerts to jobs
   const emailsToSend = [];
   let totalMatches = 0;
-  let zeroMatchCount = 0;
-  const zeroMatchByCause = {};
   // Shared across every alert/locale below so the same job's page is never
   // HEAD-checked twice in one run (#3172).
   const jobLiveCheckCache = new Map();
@@ -2356,12 +2363,11 @@ async function main() {
   }
   await livenessPrefetcher.drain();
   console.log(`   🧭 Recipient-aware candidate windows: ${JSON.stringify(cursorReasons)} (${cursorCandidateCount} candidate rows before matching)`);
+  const zeroMatchSummary = summarizeZeroMatchPlans(plans);
 
   // 3b. Build, in the original alert order, with the same logs and counters.
   for (const { alert, rankedCount, zeroCause, sentMap, matched } of plans) {
     if (rankedCount === 0) {
-      zeroMatchCount++;
-      zeroMatchByCause[zeroCause] = (zeroMatchByCause[zeroCause] || 0) + 1;
       console.log(`   ⏭️ Alert ${alert.id}: 0 matches (${zeroCause}) → skip`);
       continue;
     }
@@ -2482,11 +2488,19 @@ async function main() {
   console.log(`\n   Total: ${emailsToSend.length} emails, ${totalMatches} job matches`);
 
   if (alerts.length > 0) {
-    const zeroMatchRate = zeroMatchCount / alerts.length;
-    console.log(`   📉 Zero-match: ${zeroMatchCount}/${alerts.length} alerts (${(zeroMatchRate * 100).toFixed(1)}%) — by cause: ${JSON.stringify(zeroMatchByCause)}`);
+    const {
+      evaluatedAlertCount,
+      noEligibleCandidateCount,
+      zeroMatchCount,
+      zeroMatchRate,
+      zeroMatchByCause,
+    } = zeroMatchSummary;
+    const rateLabel = zeroMatchRate === null ? 'n/a' : `${(zeroMatchRate * 100).toFixed(1)}%`;
+    console.log(`   📉 Zero-match: ${zeroMatchCount}/${evaluatedAlertCount} alerts with eligible candidates (${rateLabel}) — by cause: ${JSON.stringify(zeroMatchByCause)}`);
+    console.log(`   🪟 No eligible candidates after recipient cursor: ${noEligibleCandidateCount}/${alerts.length} alerts (excluded from matcher-health rate)`);
     const monitorAction = getZeroMatchMonitorAction({
       zeroMatchCount,
-      alertCount: alerts.length,
+      alertCount: evaluatedAlertCount,
       threshold: ZERO_MATCH_ISSUE_THRESHOLD_RATIO,
       dryRun: DRY_RUN,
       targeted: Boolean(ALLOWED_EMAILS),
@@ -2506,8 +2520,9 @@ async function main() {
         await createGithubIssue({
           title: '[Monitor] Job-alert zero-match rate above threshold',
           description: [
-            `${zeroMatchCount}/${alerts.length} job alerts (${(zeroMatchRate * 100).toFixed(1)}%) matched **zero** jobs this run `
+            `${zeroMatchCount}/${evaluatedAlertCount} job alerts with eligible candidates (${rateLabel}) matched **zero** jobs this run `
               + `(threshold: ${(ZERO_MATCH_ISSUE_THRESHOLD_RATIO * 100).toFixed(0)}%).`,
+            `${noEligibleCandidateCount}/${alerts.length} alert(s) had no eligible candidates after the recipient cursor and were excluded from the matcher-health denominator.`,
             '',
             'Breakdown by cause (see scripts/lib/job-alert-zero-match-diagnosis.mjs):',
             causeLines,
@@ -2515,7 +2530,8 @@ async function main() {
             '- `keyword-narrow` / `keyword-and-geo-narrow`: the alert\'s explicit keywords matched nothing — check for a synonym/taxonomy gap in the matcher.',
             '- `geo-narrow`: the alert\'s location/canton filter matched nothing — may be a genuine inventory gap in that area, or the filter is too narrow.',
             '- `pinned-job-or-company-gone`: the alert is pinned to a specific job/company that\'s no longer active.',
-            '- `no-hard-filters`: no hard filter set at all, yet still zero matches — investigate first, since a fully open alert should almost always find something (possible eligible-jobs-pool or soft-token-extraction bug).',
+            '- `soft-profile-narrow`: no hard filter is set, but the profile\'s soft intent signals matched nothing in the eligible pool.',
+            '- `empty-profile`: the alert has no hard or soft matching signal; the matcher intentionally keeps it fail-closed instead of broadcasting unrelated jobs.',
             '',
             'No subscriber PII in this report (aggregate counts/causes only).',
           ].join('\n'),
