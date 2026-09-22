@@ -50,23 +50,30 @@ describe('assisted application JobBoard handoff', () => {
       /function isAlwaysRewardedApplicationSurface\(\): boolean[\s\S]*\/\^\\\/cerca-lavoro-ticino\(\?:\\\/\|\$\)\//,
     );
     expect(jobBoardSource).toMatch(
-      /const assistedApplicationVariant = isCrawlerVisitor[\s\S]*\? 'control'[\s\S]*: alwaysRewardedApplicationSurface[\s\S]*'rewarded_ad'/,
+      /const assistedApplicationVariant = shouldBypassAssistedApplicationExperiment[\s\S]*\? 'control'[\s\S]*: alwaysRewardedApplicationSurface[\s\S]*'rewarded_ad'/,
     );
     expect(jobBoardSource).toContain('killSwitches.rewardedApplicationAd');
   });
 
-  it('bypasses the paid and rewarded experiment for crawler visitors', () => {
+  it('bypasses the paid and rewarded experiment for crawlers and automated browsers', () => {
     expect(jobBoardSource).toContain(
       "const isCrawlerVisitor = useMemo(() => isCrawlerVisitorAgent(navigator.userAgent || ''), []);",
     );
+    expect(jobBoardSource).toContain("import { isLikelyBot } from '@/services/botPatterns';");
     expect(jobBoardSource).toContain(
-      'useAssistedApplicationVariant(!alwaysRewardedApplicationSurface && !isCrawlerVisitor)',
+      'const shouldBypassAssistedApplicationExperiment = isCrawlerVisitor || isLikelyBotVisitor;',
+    );
+    expect(jobBoardSource).toContain(
+      'const isLikelyBotVisitor = useMemo(() => isLikelyBot(), []);',
     );
     expect(jobBoardSource).toMatch(
-      /const assistedApplicationVariant = isCrawlerVisitor[\s\S]*\? 'control'/,
+      /useAssistedApplicationVariant\([\s\S]*!shouldBypassAssistedApplicationExperiment[\s\S]*\)/,
     );
     expect(jobBoardSource).toMatch(
-      /if \(isCrawlerVisitor \|\| !assistedApplicationVariantReady[\s\S]*trackAssistedApplicationEvent\(/,
+      /const assistedApplicationVariant = shouldBypassAssistedApplicationExperiment[\s\S]*\? 'control'/,
+    );
+    expect(jobBoardSource).toMatch(
+      /if \(shouldBypassAssistedApplicationExperiment \|\| !assistedApplicationVariantReady[\s\S]*trackAssistedApplicationEvent\(/,
     );
   });
 });

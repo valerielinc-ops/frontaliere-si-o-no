@@ -240,6 +240,7 @@ import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput'
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import { requestSlot, releaseSlot, POPUP_PRIORITY } from '@/services/popupQueue';
 import { isCrawlerVisitorAgent } from '@/functions/src/lib/returnVisit.js';
+import { isLikelyBot } from '@/services/botPatterns';
 import type { Article } from '@/data/blog-articles-data';
 // Layer 2D — Internal linking: cross-feature SEO page builders (sidebar "Strumenti correlati").
 import { buildCurrentWeekPath } from '@/build-plugins/weeklyEmployersData';
@@ -2283,21 +2284,27 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [locale] = useLocale();
  const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const killSwitches = useKillSwitches();
- // Keep crawlers on the canonical/original apply path: do not fetch Remote
- // Config, assign a paid/rewarded arm, or emit experiment exposure for them.
- // The same predicate also grants the public detail access below.
+ // Keep crawlers and automated browsers on the canonical/original apply path:
+ // do not fetch Remote Config, assign a paid/rewarded arm, or emit experiment
+ // exposure for them. The explicit crawler predicate also grants public detail
+ // access below; the broader bot predicate is intentionally limited to the
+ // application experiment.
  const isCrawlerVisitor = useMemo(() => isCrawlerVisitorAgent(navigator.userAgent || ''), []);
+ const isLikelyBotVisitor = useMemo(() => isLikelyBot(), []);
+ const shouldBypassAssistedApplicationExperiment = isCrawlerVisitor || isLikelyBotVisitor;
  const alwaysRewardedApplicationSurface = isAlwaysRewardedApplicationSurface();
  const {
   variant: configuredAssistedApplicationVariant,
   ready: configuredAssistedApplicationVariantReady,
- } = useAssistedApplicationVariant(!alwaysRewardedApplicationSurface && !isCrawlerVisitor);
- const assistedApplicationVariant = isCrawlerVisitor
+ } = useAssistedApplicationVariant(
+  !alwaysRewardedApplicationSurface && !shouldBypassAssistedApplicationExperiment,
+ );
+ const assistedApplicationVariant = shouldBypassAssistedApplicationExperiment
   ? 'control'
   : alwaysRewardedApplicationSurface
   ? (killSwitches.rewardedApplicationAd ? 'control' : 'rewarded_ad')
   : configuredAssistedApplicationVariant;
- const assistedApplicationVariantReady = isCrawlerVisitor
+ const assistedApplicationVariantReady = shouldBypassAssistedApplicationExperiment
   || alwaysRewardedApplicationSurface
   || configuredAssistedApplicationVariantReady;
  // Hold the detail skeleton (not the auth gate) while a newsletter autologin is
@@ -3520,7 +3527,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const assistedApplicationOrderId = readAssistedApplicationOrderId();
  const assistedExposureKeysRef = useRef(new Set<string>());
  useEffect(() => {
-  if (isCrawlerVisitor || !assistedApplicationVariantReady || !selectedJob || !isExternalApplicationJob(selectedJob)) return;
+  if (shouldBypassAssistedApplicationExperiment || !assistedApplicationVariantReady || !selectedJob || !isExternalApplicationJob(selectedJob)) return;
   const exposureKey = `${selectedJob.id}:${assistedApplicationVariant}`;
   if (assistedExposureKeysRef.current.has(exposureKey)) return;
   assistedExposureKeysRef.current.add(exposureKey);
@@ -3528,7 +3535,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    'experiment_assigned',
    assistedApplicationJobContext(selectedJob, assistedApplicationVariant),
   );
- }, [assistedApplicationVariant, assistedApplicationVariantReady, isCrawlerVisitor, selectedJob]);
+ }, [assistedApplicationVariant, assistedApplicationVariantReady, selectedJob, shouldBypassAssistedApplicationExperiment]);
  const appliedAlertSurfaceVisible = Boolean(
   appliedJobId && selectedJob && appliedJobId === selectedJob.id,
  );
