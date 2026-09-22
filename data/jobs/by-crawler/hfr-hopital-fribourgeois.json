@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hfr-hopital-fribourgeois",
-  "assembledAt": "2026-09-21T16:12:08.905Z",
+  "assembledAt": "2026-09-22T00:14:48.969Z",
   "jobs": [
     {
       "id": "hfr-hopital-fribourgeois-4e29df0e2249",
@@ -34,7 +34,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/bf49eb32b4a5-responsable-codage-80-100-verantwortliche-n-codierung-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:12:03.894Z",
+      "crawledAt": "2026-09-22T00:14:44.347Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -121,7 +121,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/cf8c523ac675-physiotherapeute-cdd-80-90-physiotherapeutin-physiotherapeuten-80-90-befristet-fur-8-monate",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T16:12:03.289Z",
+      "crawledAt": "2026-09-22T00:14:43.743Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -139,10 +139,12 @@
       "requirements": [],
       "requirementsByLocale": {},
       "externalId": "cf8c523ac675",
+      "previousSlugs": [
+        "physiotherapeute-cdd-80-90-hfr-hopital-fribourgeois-hfr-riaz",
+        "physiotherapeute-cdd-80-90-physiotherapeutin-physiotherapeuten-80-90-befristet-fur-8",
+        "fisioterapia-cdd-80-90-hopital-fribourgeois-hfr-hfr-riaz"
+      ],
       "previousSlugsByLocale": {
-        "fr": [
-          "physiotherapeute-cdd-80-90-hfr-hopital-fribourgeois-hfr-riaz"
-        ],
         "it": [
           "physiotherapeute-cdd-80-90-hfr-hopital-fribourgeois-hfr-riaz",
           "physiotherapeute-cdd-80-90-physiotherapeutin-physiotherapeuten-80-90-befristet-fur-8",
@@ -153,13 +155,11 @@
         ],
         "de": [
           "physiotherapeute-cdd-80-90-hfr-hopital-fribourgeois-hfr-riaz"
+        ],
+        "fr": [
+          "physiotherapeute-cdd-80-90-hfr-hopital-fribourgeois-hfr-riaz"
         ]
       },
-      "previousSlugs": [
-        "physiotherapeute-cdd-80-90-hfr-hopital-fribourgeois-hfr-riaz",
-        "physiotherapeute-cdd-80-90-physiotherapeutin-physiotherapeuten-80-90-befristet-fur-8",
-        "fisioterapia-cdd-80-90-hopital-fribourgeois-hfr-hfr-riaz"
-      ],
       "firstSeenAt": "2026-09-18T14:22:22.768Z",
       "salaryMin": 76500,
       "salaryMax": 107100,
@@ -207,7 +207,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/42355f3111eb-oracle-hcm-cloud-specialist-50",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T16:12:02.700Z",
+      "crawledAt": "2026-09-22T00:14:42.979Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -283,7 +283,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/e609ca49ff11-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-fur-innere-medizin-in-tafers-60-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:12:02.111Z",
+      "crawledAt": "2026-09-22T00:14:42.296Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -371,7 +371,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c2eb0e06320a-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-60-100-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-60-100-innere-medizin-service-de-la-medecine-interne",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:12:01.529Z",
+      "crawledAt": "2026-09-22T00:14:41.477Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -452,7 +452,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/242853171754-oberarzt-in-oder-stv-oberarzt-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:12:00.919Z",
+      "crawledAt": "2026-09-22T00:14:40.811Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -527,7 +527,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/929d3767a1d6-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T16:12:00.310Z",
+      "crawledAt": "2026-09-22T00:14:40.135Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -574,27 +574,27 @@
       "id": "hfr-hopital-fribourgeois-ce162dc73d8b",
       "slug": "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hopital-fribourgeois-hfr-riaz",
       "slugByLocale": {
-        "fr": "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hfr-hopital",
         "it": "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hopital-fribourgeois-hfr-riaz",
         "en": "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hfr-hopital",
-        "de": "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hfr-hopital"
+        "de": "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hfr-hopital",
+        "fr": "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hfr-hopital"
       },
       "company": "Hôpital fribourgeois (HFR)",
       "companyKey": "hfr-hopital-fribourgeois",
       "companyDomain": "h-fr.ch",
       "title": "Médecin adjoint-e responsable de la réadaptation respiratoire 70-80 %",
       "titleByLocale": {
-        "fr": "Médecin adjoint-e responsable de la réadaptation respiratoire 70-80 %",
         "it": "Médecin adjoint-e responsable de la réadaptation respiratoire 70-80 %",
         "en": "Médecin adjoint-e responsable de la réadaptation respiratoire 70-80 %",
-        "de": "Médecin adjoint-e responsable de la réadaptation respiratoire 70-80 %"
+        "de": "Médecin adjoint-e responsable de la réadaptation respiratoire 70-80 %",
+        "fr": "Médecin adjoint-e responsable de la réadaptation respiratoire 70-80 %"
       },
       "description": "Afin de compléter son équipe, la Direction médicale recherche pour l’Unité de pneumologie un-e\n\nMédecin adjoint-e responsable de la réadaptation respiratoire\n 70-80 %\n\nVotre mission :\n\n• être responsable, au sein de l’Unité de pneumologie, de la réadaptation respiratoire (basée à l’HFR Riaz)\n\n• participer à la prise en charge ambulatoire et stationnaire des patient-e-s atteints de pathologies pulmonaires, y compris sur le site de l’HFR Fribourg selon les besoins de l’unité\n\n• effectuer des bronchoscopies sur le site de l’HFR Fribourg\n\n• participer aux piquets de l’Unité de pneumologie\n\n• superviser les médecins-assistant-e-s et les chef-fe-s de clinique en rotation et participer à leur formation\n\n• participer à l’enseignement des étudiant-e-s de l’Université de Fribourg\n\n• titres de spécialiste (ISFM) en pneumologie et en médecine interne générale\n\n• solide expérience clinique en pneumologie hospitalière et ambulatoire, y compris comme chef.fe de clinique ou médecin cadre\n\n• une expérience en réadaptation pulmonaire est un avantage certain\n\n• une expérience comme chef.fe de clinique en médecine interne hospitalière est un plus\n\n• maîtrise du diagnostic et traitement des troubles respiratoires du sommeil, y compris de la ventilation non-invasive\n\n• personnalité dynamique, ouverte et collégiale\n\nVotre profil :\n\n• intérêt pour l’organisation de la formation pré- et postgraduée et continue des médecins et du personnel soignant\n\n• maîtrise de la langue française ou allemande avec bonnes connaissances de l'autre langue (capacité à mener un entretien médical)\n\nEntrée en fonction : 1 er mars 2027 ou à convenir\n\nRenseignements : Prof. Julien Vaucher, médecin-chef de service,\nT +41 26 306 23 59\n\nDélai de postulation : 31 octobre 2026\n\nRéf : HFR-M-263901",
       "descriptionByLocale": {
-        "fr": "Afin de compléter son équipe, la Direction médicale recherche pour l’Unité de pneumologie un-e\n\nMédecin adjoint-e responsable de la réadaptation respiratoire\n 70-80 %\n\nVotre mission :\n\n• être responsable, au sein de l’Unité de pneumologie, de la réadaptation respiratoire (basée à l’HFR Riaz)\n\n• participer à la prise en charge ambulatoire et stationnaire des patient-e-s atteints de pathologies pulmonaires, y compris sur le site de l’HFR Fribourg selon les besoins de l’unité\n\n• effectuer des bronchoscopies sur le site de l’HFR Fribourg\n\n• participer aux piquets de l’Unité de pneumologie\n\n• superviser les médecins-assistant-e-s et les chef-fe-s de clinique en rotation et participer à leur formation\n\n• participer à l’enseignement des étudiant-e-s de l’Université de Fribourg\n\n• titres de spécialiste (ISFM) en pneumologie et en médecine interne générale\n\n• solide expérience clinique en pneumologie hospitalière et ambulatoire, y compris comme chef.fe de clinique ou médecin cadre\n\n• une expérience en réadaptation pulmonaire est un avantage certain\n\n• une expérience comme chef.fe de clinique en médecine interne hospitalière est un plus\n\n• maîtrise du diagnostic et traitement des troubles respiratoires du sommeil, y compris de la ventilation non-invasive\n\n• personnalité dynamique, ouverte et collégiale\n\nVotre profil :\n\n• intérêt pour l’organisation de la formation pré- et postgraduée et continue des médecins et du personnel soignant\n\n• maîtrise de la langue française ou allemande avec bonnes connaissances de l'autre langue (capacité à mener un entretien médical)\n\nEntrée en fonction : 1 er mars 2027 ou à convenir\n\nRenseignements : Prof. Julien Vaucher, médecin-chef de service,\nT +41 26 306 23 59\n\nDélai de postulation : 31 octobre 2026\n\nRéf : HFR-M-263901",
-        "it": "Afin de compléter son équipe, la Direction médicale recherche pour l’Unité de pneumologie un-e\n\nMédecin adjoint-e responsable de la réadaptation respiratoire\n 70-80 %\n\nVotre mission :\n\n• être responsable, au sein de l’Unité de pneumologie, de la réadaptation respiratoire (basée à l’HFR Riaz)\n\n• participer à la prise en charge ambulatoire et stationnaire des patient-e-s atteints de pathologies pulmonaires, y compris sur le site de l’HFR Fribourg selon les besoins de l’unité\n\n• effectuer des bronchoscopies sur le site de l’HFR Fribourg\n\n• participer aux piquets de l’Unité de pneumologie\n\n• superviser les médecins-assistant-e-s et les chef-fe-s de clinique en rotation et participer à leur formation\n\n• participer à l’enseignement des étudiant-e-s de l’Université de Fribourg\n\n• titres de spécialiste (ISFM) en pneumologie et en médecine interne générale\n\n• solide expérience clinique en pneumologie hospitalière et ambulatoire, y compris comme chef.fe de clinique ou médecin cadre\n\n• une expérience en réadaptation pulmonaire est un avantage certain\n\n• une expérience comme chef.fe de clinique en médecine interne hospitalière est un plus\n\n• maîtrise du diagnostic et traitement des troubles respiratoires du sommeil, y compris de la ventilation non-invasive\n\n• personnalité dynamique, ouverte et collégiale\n\nVotre profil :\n\n• intérêt pour l’organisation de la formation pré- et postgraduée et continue des médecins et du personnel soignant\n\n• maîtrise de la langue française ou allemande avec bonnes connaissances de l'autre langue (capacité à mener un entretien médical)\n\nEntrée en fonction : 1 er mars 2027 ou à convenir\n\nRenseignements : Prof. Julien Vaucher, médecin-chef de service,\nT +41 26 306 23 59\n\nDélai de postulation : 31 octobre 2026\n\nRéf : HFR-M-263901",
-        "en": "Afin de compléter son équipe, la Direction médicale recherche pour l’Unité de pneumologie un-e\n\nMédecin adjoint-e responsable de la réadaptation respiratoire\n 70-80 %\n\nVotre mission :\n\n• être responsable, au sein de l’Unité de pneumologie, de la réadaptation respiratoire (basée à l’HFR Riaz)\n\n• participer à la prise en charge ambulatoire et stationnaire des patient-e-s atteints de pathologies pulmonaires, y compris sur le site de l’HFR Fribourg selon les besoins de l’unité\n\n• effectuer des bronchoscopies sur le site de l’HFR Fribourg\n\n• participer aux piquets de l’Unité de pneumologie\n\n• superviser les médecins-assistant-e-s et les chef-fe-s de clinique en rotation et participer à leur formation\n\n• participer à l’enseignement des étudiant-e-s de l’Université de Fribourg\n\n• titres de spécialiste (ISFM) en pneumologie et en médecine interne générale\n\n• solide expérience clinique en pneumologie hospitalière et ambulatoire, y compris comme chef.fe de clinique ou médecin cadre\n\n• une expérience en réadaptation pulmonaire est un avantage certain\n\n• une expérience comme chef.fe de clinique en médecine interne hospitalière est un plus\n\n• maîtrise du diagnostic et traitement des troubles respiratoires du sommeil, y compris de la ventilation non-invasive\n\n• personnalité dynamique, ouverte et collégiale\n\nVotre profil :\n\n• intérêt pour l’organisation de la formation pré- et postgraduée et continue des médecins et du personnel soignant\n\n• maîtrise de la langue française ou allemande avec bonnes connaissances de l'autre langue (capacité à mener un entretien médical)\n\nEntrée en fonction : 1 er mars 2027 ou à convenir\n\nRenseignements : Prof. Julien Vaucher, médecin-chef de service,\nT +41 26 306 23 59\n\nDélai de postulation : 31 octobre 2026\n\nRéf : HFR-M-263901",
-        "de": "Afin de compléter son équipe, la Direction médicale recherche pour l’Unité de pneumologie un-e\n\nMédecin adjoint-e responsable de la réadaptation respiratoire\n 70-80 %\n\nVotre mission :\n\n• être responsable, au sein de l’Unité de pneumologie, de la réadaptation respiratoire (basée à l’HFR Riaz)\n\n• participer à la prise en charge ambulatoire et stationnaire des patient-e-s atteints de pathologies pulmonaires, y compris sur le site de l’HFR Fribourg selon les besoins de l’unité\n\n• effectuer des bronchoscopies sur le site de l’HFR Fribourg\n\n• participer aux piquets de l’Unité de pneumologie\n\n• superviser les médecins-assistant-e-s et les chef-fe-s de clinique en rotation et participer à leur formation\n\n• participer à l’enseignement des étudiant-e-s de l’Université de Fribourg\n\n• titres de spécialiste (ISFM) en pneumologie et en médecine interne générale\n\n• solide expérience clinique en pneumologie hospitalière et ambulatoire, y compris comme chef.fe de clinique ou médecin cadre\n\n• une expérience en réadaptation pulmonaire est un avantage certain\n\n• une expérience comme chef.fe de clinique en médecine interne hospitalière est un plus\n\n• maîtrise du diagnostic et traitement des troubles respiratoires du sommeil, y compris de la ventilation non-invasive\n\n• personnalité dynamique, ouverte et collégiale\n\nVotre profil :\n\n• intérêt pour l’organisation de la formation pré- et postgraduée et continue des médecins et du personnel soignant\n\n• maîtrise de la langue française ou allemande avec bonnes connaissances de l'autre langue (capacité à mener un entretien médical)\n\nEntrée en fonction : 1 er mars 2027 ou à convenir\n\nRenseignements : Prof. Julien Vaucher, médecin-chef de service,\nT +41 26 306 23 59\n\nDélai de postulation : 31 octobre 2026\n\nRéf : HFR-M-263901"
+        "it": "Afin de compléter son équipe, la Direction médicale recherche pour l’Unité de pneumologie un-e\n\nMédecin adjoint-e responsable de la réadaptation respiratoire\n70-80 %\n\nVotre mission :\n\n• être responsable, au sein de l’Unité de pneumologie, de la réadaptation respiratoire (basée à l’HFR Riaz)\n\n• participer à la prise en charge ambulatoire et stationnaire des patient-e-s atteints de pathologies pulmonaires, y compris sur le site de l’HFR Fribourg selon les besoins de l’unité\n\n• effectuer des bronchoscopies sur le site de l’HFR Fribourg\n\n• participer aux piquets de l’Unité de pneumologie\n\n• superviser les médecins-assistant-e-s et les chef-fe-s de clinique en rotation et participer à leur formation\n\n• participer à l’enseignement des étudiant-e-s de l’Université de Fribourg\n\n• titres de spécialiste (ISFM) en pneumologie et en médecine interne générale\n\n• solide expérience clinique en pneumologie hospitalière et ambulatoire, y compris comme chef.fe de clinique ou médecin cadre\n\n• une expérience en réadaptation pulmonaire est un avantage certain\n\n• une expérience comme chef.fe de clinique en médecine interne hospitalière est un plus\n\n• maîtrise du diagnostic et traitement des troubles respiratoires du sommeil, y compris de la ventilation non-invasive\n\n• personnalité dynamique, ouverte et collégiale\n\nVotre profil :\n\n• intérêt pour l’organisation de la formation pré- et postgraduée et continue des médecins et du personnel soignant\n\n• maîtrise de la langue française ou allemande avec bonnes connaissances de l'autre langue (capacité à mener un entretien médical)\n\nEntrée en fonction : 1 er mars 2027 ou à convenir\n\nRenseignements : Prof. Julien Vaucher, médecin-chef de service,\nT +41 26 306 23 59\n\nDélai de postulation : 31 octobre 2026\n\nRéf : HFR-M-263901",
+        "en": "Afin de compléter son équipe, la Direction médicale recherche pour l’Unité de pneumologie un-e\n\nMédecin adjoint-e responsable de la réadaptation respiratoire\n70-80 %\n\nVotre mission :\n\n• être responsable, au sein de l’Unité de pneumologie, de la réadaptation respiratoire (basée à l’HFR Riaz)\n\n• participer à la prise en charge ambulatoire et stationnaire des patient-e-s atteints de pathologies pulmonaires, y compris sur le site de l’HFR Fribourg selon les besoins de l’unité\n\n• effectuer des bronchoscopies sur le site de l’HFR Fribourg\n\n• participer aux piquets de l’Unité de pneumologie\n\n• superviser les médecins-assistant-e-s et les chef-fe-s de clinique en rotation et participer à leur formation\n\n• participer à l’enseignement des étudiant-e-s de l’Université de Fribourg\n\n• titres de spécialiste (ISFM) en pneumologie et en médecine interne générale\n\n• solide expérience clinique en pneumologie hospitalière et ambulatoire, y compris comme chef.fe de clinique ou médecin cadre\n\n• une expérience en réadaptation pulmonaire est un avantage certain\n\n• une expérience comme chef.fe de clinique en médecine interne hospitalière est un plus\n\n• maîtrise du diagnostic et traitement des troubles respiratoires du sommeil, y compris de la ventilation non-invasive\n\n• personnalité dynamique, ouverte et collégiale\n\nVotre profil :\n\n• intérêt pour l’organisation de la formation pré- et postgraduée et continue des médecins et du personnel soignant\n\n• maîtrise de la langue française ou allemande avec bonnes connaissances de l'autre langue (capacité à mener un entretien médical)\n\nEntrée en fonction : 1 er mars 2027 ou à convenir\n\nRenseignements : Prof. Julien Vaucher, médecin-chef de service,\nT +41 26 306 23 59\n\nDélai de postulation : 31 octobre 2026\n\nRéf : HFR-M-263901",
+        "de": "Afin de compléter son équipe, la Direction médicale recherche pour l’Unité de pneumologie un-e\n\nMédecin adjoint-e responsable de la réadaptation respiratoire\n70-80 %\n\nVotre mission :\n\n• être responsable, au sein de l’Unité de pneumologie, de la réadaptation respiratoire (basée à l’HFR Riaz)\n\n• participer à la prise en charge ambulatoire et stationnaire des patient-e-s atteints de pathologies pulmonaires, y compris sur le site de l’HFR Fribourg selon les besoins de l’unité\n\n• effectuer des bronchoscopies sur le site de l’HFR Fribourg\n\n• participer aux piquets de l’Unité de pneumologie\n\n• superviser les médecins-assistant-e-s et les chef-fe-s de clinique en rotation et participer à leur formation\n\n• participer à l’enseignement des étudiant-e-s de l’Université de Fribourg\n\n• titres de spécialiste (ISFM) en pneumologie et en médecine interne générale\n\n• solide expérience clinique en pneumologie hospitalière et ambulatoire, y compris comme chef.fe de clinique ou médecin cadre\n\n• une expérience en réadaptation pulmonaire est un avantage certain\n\n• une expérience comme chef.fe de clinique en médecine interne hospitalière est un plus\n\n• maîtrise du diagnostic et traitement des troubles respiratoires du sommeil, y compris de la ventilation non-invasive\n\n• personnalité dynamique, ouverte et collégiale\n\nVotre profil :\n\n• intérêt pour l’organisation de la formation pré- et postgraduée et continue des médecins et du personnel soignant\n\n• maîtrise de la langue française ou allemande avec bonnes connaissances de l'autre langue (capacité à mener un entretien médical)\n\nEntrée en fonction : 1 er mars 2027 ou à convenir\n\nRenseignements : Prof. Julien Vaucher, médecin-chef de service,\nT +41 26 306 23 59\n\nDélai de postulation : 31 octobre 2026\n\nRéf : HFR-M-263901",
+        "fr": "Afin de compléter son équipe, la Direction médicale recherche pour l’Unité de pneumologie un-e\n\nMédecin adjoint-e responsable de la réadaptation respiratoire\n70-80 %\n\nVotre mission :\n\n• être responsable, au sein de l’Unité de pneumologie, de la réadaptation respiratoire (basée à l’HFR Riaz)\n\n• participer à la prise en charge ambulatoire et stationnaire des patient-e-s atteints de pathologies pulmonaires, y compris sur le site de l’HFR Fribourg selon les besoins de l’unité\n\n• effectuer des bronchoscopies sur le site de l’HFR Fribourg\n\n• participer aux piquets de l’Unité de pneumologie\n\n• superviser les médecins-assistant-e-s et les chef-fe-s de clinique en rotation et participer à leur formation\n\n• participer à l’enseignement des étudiant-e-s de l’Université de Fribourg\n\n• titres de spécialiste (ISFM) en pneumologie et en médecine interne générale\n\n• solide expérience clinique en pneumologie hospitalière et ambulatoire, y compris comme chef.fe de clinique ou médecin cadre\n\n• une expérience en réadaptation pulmonaire est un avantage certain\n\n• une expérience comme chef.fe de clinique en médecine interne hospitalière est un plus\n\n• maîtrise du diagnostic et traitement des troubles respiratoires du sommeil, y compris de la ventilation non-invasive\n\n• personnalité dynamique, ouverte et collégiale\n\nVotre profil :\n\n• intérêt pour l’organisation de la formation pré- et postgraduée et continue des médecins et du personnel soignant\n\n• maîtrise de la langue française ou allemande avec bonnes connaissances de l'autre langue (capacité à mener un entretien médical)\n\nEntrée en fonction : 1 er mars 2027 ou à convenir\n\nRenseignements : Prof. Julien Vaucher, médecin-chef de service,\nT +41 26 306 23 59\n\nDélai de postulation : 31 octobre 2026\n\nRéf : HFR-M-263901"
       },
       "needsRetranslation": true,
       "location": "HFR Riaz",
@@ -602,7 +602,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/02b03762cca8-medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T16:11:59.546Z",
+      "crawledAt": "2026-09-22T00:14:39.526Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -618,18 +618,17 @@
       "postedDate": "2026-09-21",
       "applyUrl": "https://hopital-fribourgeois.breezy.hr/p/02b03762cca8-medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
       "externalId": "02b03762cca8",
+      "previousSlugs": [
+        "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hfr-hopital"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hfr-hopital"
         ]
       },
-      "previousSlugs": [
-        "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hfr-hopital"
-      ],
+      "firstSeenAt": "2026-09-21T16:11:59.546Z",
       "salaryMin": 68000,
       "salaryMax": 95200,
       "salarySource": "estimated",
@@ -642,8 +641,7 @@
           "maxValue": 95200,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-21T16:11:59.546Z"
+      }
     },
     {
       "id": "hfr-hopital-fribourgeois-79c8ac4cc609",
@@ -677,7 +675,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/442cd30627ad-infirmier-eres-de-remplacement-40-100-pflegefachpersonen-fur-absenzenvertretungen-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:11:58.812Z",
+      "crawledAt": "2026-09-22T00:14:38.706Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -752,7 +750,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/6e1db079dce0-infirmier-ere-instrumentiste-iso-ou-technicien-ne-en-salle-d-operation-tso-80-100-pflegefachperson-operationsbereich-oder-fachperson-operationstechnik-toa-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T16:11:58.138Z",
+      "crawledAt": "2026-09-22T00:14:38.114Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -852,7 +850,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/cfccd896adef-infirmier-ere-diplome-e-70-pflegefachmann-pflegefachfrau-70",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T16:11:57.349Z",
+      "crawledAt": "2026-09-22T00:14:37.392Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -930,7 +928,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/17b62ceb3764-infirmier-ere-80-100-pflegefachmann-pflegefachfrau-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T16:11:56.563Z",
+      "crawledAt": "2026-09-22T00:14:36.584Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1036,7 +1034,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/ddb97171bcd7-fachfrau-mann-gesundheit-fage-40-100-unbefristeter-vertrag-assistant-e-en-soins-et-sante-communautaire-assc-contrat-a-duree-indeterminee-a-40-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:11:55.770Z",
+      "crawledAt": "2026-09-22T00:14:35.999Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1148,7 +1146,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/0afb1090e546-ergotherapeutin-ergotherapeuten-40",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:11:55.155Z",
+      "crawledAt": "2026-09-22T00:14:35.218Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1250,7 +1248,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/2c19e7fb73f5-dipl-pflegefachfrau--mann-40-100-unbefristeter-vertrag-infirmier-ere-diplome-e-40-100-contrat-a-duree-indeterminee",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T16:11:54.478Z",
+      "crawledAt": "2026-09-22T00:14:34.623Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1354,7 +1352,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/04225fce3214-collaborateur-trice-intendance-50-60-horaire-du-soir",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T16:11:53.885Z",
+      "crawledAt": "2026-09-22T00:14:33.887Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1435,7 +1433,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/f3c19e2c6baf-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-en-neurologie-60-70-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt-neurologie-60-70",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:11:53.272Z",
+      "crawledAt": "2026-09-22T00:14:33.084Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1524,7 +1522,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c7c6506715de-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-oberarztin-oberarzt-oder-stellvertretende-n-oberarztin-oberarzt",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T16:11:52.654Z",
+      "crawledAt": "2026-09-22T00:14:32.302Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1604,7 +1602,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/919980102cd5-chef-fe-de-clinique-ou-chef-fe-de-clinique-adjoint-e-a-la-permanence-de-riaz-60-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T16:11:51.865Z",
+      "crawledAt": "2026-09-22T00:14:31.495Z",
       "addressLocality": "HFR Riaz",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1696,7 +1694,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/986b30dc5421-chef-fe-de-clinique-en-pediatrie-70-100-oberarztin-oberarzt-padiatrie-70-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:11:50.943Z",
+      "crawledAt": "2026-09-22T00:14:30.903Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1788,7 +1786,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/0cb89529dd2e-chef-fe-de-clinique-en-infectiologie-pediatrique-50-100-oberarztin-oberarzt-padiatrische-infektiologie-50-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:11:50.269Z",
+      "crawledAt": "2026-09-22T00:14:30.119Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1863,7 +1861,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/cb4af686b01c-chef-fe-de-clinique-adjoint-e-en-infectiologie-cdd-de-12-a-18-mois-100-stellvertretende-oberarztin-stellvertretenden-oberarzt-infektiologie-befristet-fur-12-bis-18-monate-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:11:49.671Z",
+      "crawledAt": "2026-09-22T00:14:29.435Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -1955,7 +1953,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/1e8ca30504f2-biomedizinische-r-analytiker-in-hf-50-60-technicien-ne-en-analyses-biomedicales-50-60",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:11:49.039Z",
+      "crawledAt": "2026-09-22T00:14:28.632Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2040,7 +2038,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/9f2b7f59d46b-assistenzarztin-oder-assistenzarzt-100-teilzeit-oder-jobsharing-moglich-medecin-assistant-e-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:11:48.384Z",
+      "crawledAt": "2026-09-22T00:14:27.893Z",
       "addressLocality": "HFR Tafers",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2133,7 +2131,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/7195b7311b2a-assistant-e-en-soins-et-sante-communautaire-remplacant-e-assc-fachfrau-mann-gesundheit-fage-im-ersatz-fur-absenzen",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:11:47.583Z",
+      "crawledAt": "2026-09-22T00:14:27.128Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2242,7 +2240,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/c235a4f18fc5-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-90-100-technische-operationsassistentin-technischen-operationsassistenten-90-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:11:46.666Z",
+      "crawledAt": "2026-09-22T00:14:26.394Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2344,7 +2342,7 @@
       "url": "https://hopital-fribourgeois.breezy.hr/p/be2877a99f7b-adjoint-e-du-responsable-du-service-tarifs-conventions-et-facturation-80-100",
       "source": "HFR Hôpital fribourgeois Dedicated Parser (Breezy HR)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:11:45.871Z",
+      "crawledAt": "2026-09-22T00:14:25.656Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -2467,7 +2465,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "hfr-hopital-fribourgeois-a3bca9bf0b43",
@@ -2570,7 +2568,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -2654,7 +2652,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -2740,7 +2738,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     },
     {
@@ -2821,7 +2819,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
