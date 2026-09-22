@@ -55,6 +55,11 @@ afterEach(() => {
 });
 
 describe('housekeeping lane routing', () => {
+  it('reads the whole slice so a late matcher error cannot be hidden by an early match', () => {
+    expect(housekeepingScript).toContain('grep -Ei -- "$lane_pattern" "$slice" >/dev/null');
+    expect(housekeepingScript).not.toContain('grep -Eqi');
+  });
+
   it.each([
     ['prospective', 'data/jobs/by-crawler/prospective.json'],
     ['rest', 'data/jobs/by-crawler/rest.json'],

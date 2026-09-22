@@ -95,7 +95,7 @@ jobs:
           shopt -s nullglob
           processed=0
           for slice in data/jobs/by-crawler/*.json; do
-            if grep -Eqi -- "$lane_pattern" "$slice"; then
+            if grep -Ei -- "$lane_pattern" "$slice" >/dev/null; then
               is_prospective=1
             else
               matcher_status=$?
