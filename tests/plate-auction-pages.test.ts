@@ -152,7 +152,7 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain('<main><nav');
   });
 
-  it('emits vehicle type and the shared top/in-feed ad slots in static pages', () => {
+  it('emits the shared top ad slot without reusing the job-list in-feed cadence', () => {
     const rootDir = fixtureRoot({ auctionCount: 5 });
     const snapshotPath = join(rootDir, 'public', 'data', 'plate-auctions.json');
     const snapshot = JSON.parse(readFileSync(snapshotPath, 'utf8')) as { auctions: Array<Record<string, unknown>> };
@@ -163,8 +163,8 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).toContain('Moto');
     expect(rendered.html).toContain('ft-plate-auction-top-ad');
     expect(rendered.html).toContain(`data-ad-slot=${AD_SLOTS.JOBDETAIL_TOP_BANNER.slot}`);
-    expect(rendered.html).toContain('ft-infeed-ad');
-    expect(rendered.html).toContain(`data-ad-slot=${AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}`);
+    expect(rendered.html).not.toContain('ft-infeed-ad');
+    expect(rendered.html).not.toContain(`data-ad-slot=${AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}`);
     expect(rendered.html).toContain('id=rail-left-root');
     expect(rendered.html).toContain('id=rail-right-root');
   });
@@ -331,6 +331,16 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).toContain(`href="${pageTwoPath}"`);
     expect(pageTwo.urlPath).toBe(pageTwoPath.slice(1, -1));
     expect(pageTwo.html).toContain('GR56');
+
+    const audited = auditPage(
+      `https://frontaliereticino.ch${pageTwoPath}`,
+      pageTwoPath,
+      pageTwo.html,
+      'plate-auctions',
+    );
+    expect(audited.issues).toEqual([]);
+    expect(audited.metrics.adInsSlots).toBe(1);
+    expect(audited.metrics.charsPerSlot).toBeGreaterThanOrEqual(500);
   });
 
   it('materializes every published detail URL and includes it in the sitemap', async () => {
