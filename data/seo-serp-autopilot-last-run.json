@@ -1,5 +1,5 @@
 {
-  "generatedAt": "2026-09-01T11:49:43.825Z",
+  "generatedAt": "2026-09-22T11:31:07.278Z",
   "config": {
     "days": 28,
     "rotateDays": 7,
@@ -17,37 +17,37 @@
   },
   "desired": {
     "enabled": true,
-    "variant": "intent_simulation",
+    "variant": "year_intent",
     "targets": "*",
     "year": "2026"
   },
   "decision": {
-    "nextVariant": "intent_simulation",
-    "reason": "winner_already_active",
-    "mode": "exploit",
+    "nextVariant": "year_intent",
+    "reason": "rotation_every_7d",
+    "mode": "explore",
     "scores": {
       "year_intent": {
-        "samples": 2,
-        "impressions": 182881,
-        "clicks": 12379,
-        "ctr": 6.769
+        "samples": 1,
+        "impressions": 115914,
+        "clicks": 8531,
+        "ctr": 7.36
       },
       "intent_simulation": {
-        "samples": 16,
-        "impressions": 1572193,
-        "clicks": 118692,
-        "ctr": 7.549
+        "samples": 15,
+        "impressions": 1537803,
+        "clicks": 114341,
+        "ctr": 7.435
       }
     }
   },
   "kpi": {
     "consideredPages": 20,
-    "totalImpressions": 92498,
-    "totalClicks": 6732,
-    "weightedCtr": 7.278,
-    "opportunities": 1,
-    "exposures": 1990
+    "totalImpressions": 127413,
+    "totalClicks": 6826,
+    "weightedCtr": 5.357,
+    "opportunities": 2,
+    "exposures": 349
   },
-  "changed": false,
-  "published": false
+  "changed": true,
+  "published": true
 }
