@@ -1,21 +1,21 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-09-21T15:55:54.861Z",
-  "total": 4,
+  "generatedAt": "2026-09-22T00:00:38.954Z",
+  "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
-  "written": 4,
+  "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 12955,
-  "avgDurationMs": 12955,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 15024,
+  "avgDurationMs": 15024,
   "durationHistory": [
-    12955
+    15024
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:55:44.649Z",
+      "crawledAt": "2026-09-22T00:00:30.021Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -45,6 +45,7 @@
       "featured": false,
       "postedDate": "2026-09-04",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:27:54.190Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -66,7 +67,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:55:45.366Z",
+      "crawledAt": "2026-09-22T00:00:30.689Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -102,7 +103,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:55:46.028Z",
+      "crawledAt": "2026-09-22T00:00:31.362Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -116,6 +117,7 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T09:03:23.277Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -126,8 +128,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "hermes-15455aba22d4",
       "slug": "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland",
@@ -168,5 +169,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
