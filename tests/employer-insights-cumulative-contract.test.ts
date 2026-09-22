@@ -289,6 +289,56 @@ describe('D18 cumulativo — identità, ledger e contratto', () => {
     expect(JSON.stringify(sanitized)).not.toContain('?t=');
   });
 
+  it('D18-T27 separa replay verificabile, prima evidenza live e blocker emission_id', async () => {
+    const ga4Rows = [row({ observed: 3, emissionId: 'emission-1' })];
+    const ga4Source = sourceMeta({
+      sourceCoverage: {
+        sourceObserved: 3,
+        rowsReturned: 1,
+        truncated: false,
+        emissionIdDimensionRequested: true,
+        emissionIdObserved: 3,
+        emissionIdMissingObserved: 0,
+      },
+    });
+    const posthogSource = sourceMeta({
+      denominator: { value: null, status: 'non provato' },
+    });
+    const replay = await contractCall('buildD18RunEvidence', {
+      requestedWindow: WINDOW,
+      runMode: 'replay',
+      primarySource: 'ga4',
+      ga4Source,
+      ga4Rows,
+      posthogSource,
+      posthogRows: [row({ observed: 2, emissionId: 'posthog-emission' })],
+    });
+    const live = await contractCall('buildD18RunEvidence', {
+      requestedWindow: WINDOW,
+      runMode: 'live',
+      primarySource: 'ga4',
+      ga4Source,
+      ga4Rows,
+      posthogSource,
+    });
+    const missingEmissionId = await contractCall('buildD18RunEvidence', {
+      requestedWindow: WINDOW,
+      runMode: 'live',
+      primarySource: 'ga4',
+      ga4Source: sourceMeta({ sourceCoverage: { sourceObserved: 3, rowsReturned: 1 } }),
+      ga4Rows: [row({ observed: 3, emissionId: '' })],
+    });
+
+    expect(replay).toMatchObject({ status: 'replay-valid', runMode: 'replay' });
+    expect(live).toMatchObject({ status: 'live-first-run-ready', runMode: 'live' });
+    expect(live.ga4.emissionId).toMatchObject({ status: 'complete', withValue: 3, withoutValue: 0 });
+    expect(missingEmissionId.status).toBe('blocked');
+    expect(missingEmissionId.blockers.join('\n')).toMatch(/emission_id/);
+    expect((await contractCall('validateD18FirstRunEvidence', { requestedWindow: WINDOW, evidence: replay })).ok).toBe(false);
+    expect((await contractCall('validateD18FirstRunEvidence', { requestedWindow: WINDOW, evidence: live })).ok).toBe(true);
+    expect(live.historicalLimit.reason).toMatch(/PostHog|OFFSET/);
+  });
+
   it('D18-T26 il validatore attraversa breakdown e rifiuta contatori nudi o missing serializzato 0', async () => {
     const result = await buildD18({ ga4Rows: [row()] });
     const valid = await contractCall('validateD18Payload', result);

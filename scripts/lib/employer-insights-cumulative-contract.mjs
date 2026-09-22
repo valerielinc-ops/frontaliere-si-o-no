@@ -1,11 +1,13 @@
 import crypto from 'node:crypto';
 
-export const D18_SCHEMA_VERSION = 1;
+export const D18_SCHEMA_VERSION = 2;
 export const D18_METRIC_VERSION = 'D18-v1';
 export const D18_TIMEZONE = 'Europe/Zurich';
 export const D18_J0 = '2026-09-09T00:00:00+02:00';
 export const D18_LIMIT_STATE = 'parziale, mai complete';
 export const D18_POSTHOG_CAVEAT = 'Il denominatore storico PostHog non è provato: OFFSET è stato rifiutato con HTTP 400 e la paginazione keyset è incompleta. I valori PostHog sono backup osservati/parziali, non una popolazione completa; non esiste un fattore di espansione autorizzato e non vanno proiettati né sommati a GA4.';
+export const D18_RUN_MODES = Object.freeze(['live', 'replay']);
+export const D18_EVIDENCE_STATUSES = Object.freeze(['blocked', 'replay-valid', 'live-first-run-ready']);
 
 export const D18_METRICS = Object.freeze([
   'adViews',
@@ -37,6 +39,11 @@ function finiteNumber(value) {
   if (value === null || value === undefined || value === '') return null;
   const number = Number(value);
   return Number.isFinite(number) ? number : null;
+}
+
+function nonNegativeNumber(value, fallback = 0) {
+  const number = finiteNumber(value);
+  return number == null ? fallback : Math.max(0, number);
 }
 
 function positiveIntegerOrNull(value) {
@@ -564,6 +571,209 @@ export function buildD18SourceRegimes({
   };
 }
 
+function observedFromRows(rows) {
+  return (Array.isArray(rows) ? rows : []).reduce((sum, row) => sum + nonNegativeNumber(row?.observed, 0), 0);
+}
+
+function sourceEvidence(source, meta, rows) {
+  const coverage = meta?.sourceCoverage || meta?.coverage || meta || {};
+  const queried = coverage.queried !== false
+    && meta?.status !== 'sorgente non disponibile'
+    && coverage.status !== 'sorgente non disponibile';
+  const observed = nonNegativeNumber(
+    coverage.sourceObserved ?? coverage.returned ?? coverage.totalBeforeCut,
+    observedFromRows(rows),
+  );
+  const identityObserved = nonNegativeNumber(
+    coverage.identityObserved,
+    (Array.isArray(rows) ? rows : [])
+      .filter((row) => String(row?.employerKey || '').trim())
+      .reduce((sum, row) => sum + nonNegativeNumber(row?.observed, 0), 0),
+  );
+  const snapshotId = meta?.sourceSnapshot || meta?.snapshotId || coverage.snapshotId || null;
+  const queryHash = meta?.queryHash || coverage.queryHash || null;
+  const evidence = {
+    source,
+    queried,
+    status: meta?.status || coverage.status || (queried ? 'observed' : 'sorgente non disponibile'),
+    snapshotId,
+    queryHash,
+    observed,
+    rowsReturned: nonNegativeNumber(coverage.rowsReturned ?? coverage.returnedRows, Array.isArray(rows) ? rows.length : 0),
+    truncated: coverage.truncated === true,
+    identityObserved,
+  };
+  if (source !== 'ga4') return evidence;
+
+  const rowsWithEmissionId = (Array.isArray(rows) ? rows : [])
+    .filter((row) => String(row?.emissionId || '').trim());
+  const emissionIdDimensionRequested = coverage.emissionIdDimensionRequested === true
+    || rowsWithEmissionId.length > 0;
+  const emissionIdObserved = nonNegativeNumber(
+    coverage.emissionIdObserved,
+    rowsWithEmissionId.reduce((sum, row) => sum + nonNegativeNumber(row?.observed, 0), 0),
+  );
+  const emissionIdMissingObserved = nonNegativeNumber(
+    coverage.emissionIdMissingObserved,
+    Math.max(0, observed - emissionIdObserved),
+  );
+  const emissionIdStatus = !queried || !emissionIdDimensionRequested || observed <= 0
+    ? 'non disponibile'
+    : emissionIdMissingObserved === 0
+      ? 'complete'
+      : 'parziale';
+  evidence.emissionId = {
+    dimension: 'emission_id',
+    requested: emissionIdDimensionRequested,
+    status: emissionIdStatus,
+    observed,
+    withValue: emissionIdObserved,
+    withoutValue: emissionIdMissingObserved,
+  };
+  return evidence;
+}
+
+/**
+ * Summarize the evidence needed to accept the first real D18 run.
+ *
+ * A replay can be structurally valid without being production evidence. The
+ * distinction is explicit so a fixture can never accidentally satisfy the
+ * live-run gate, and a missing GA4 custom dimension remains observable rather
+ * than being represented as a zero or as PostHog data.
+ */
+export function buildD18RunEvidence({
+  requestedWindow,
+  measurementWindow = requestedWindow,
+  runMode = 'replay',
+  primarySource = 'ga4',
+  ga4Source = {},
+  ga4Rows = [],
+  posthogSource = {},
+  posthogRows = [],
+} = {}) {
+  if (!D18_RUN_MODES.includes(runMode)) throw new Error(`D18 runMode is invalid: ${runMode}`);
+  const window = normalizeD18Window(requestedWindow);
+  const measured = normalizeD18Window(measurementWindow);
+  if (Date.parse(measured.from) < Date.parse(window.from) || Date.parse(measured.to) > Date.parse(window.to)) {
+    throw new Error('D18 measurementWindow must be contained in requestedWindow');
+  }
+  const ga4 = sourceEvidence('ga4', ga4Source, ga4Rows);
+  const posthog = sourceEvidence('posthog', posthogSource, posthogRows);
+  const blockers = [];
+
+  if (primarySource !== 'ga4') blockers.push('blocked: la sorgente primaria D18 deve essere GA4');
+  if (!ga4.queried) blockers.push('blocked: GA4 non è stata interrogata o non è disponibile');
+  if (ga4.truncated) blockers.push('blocked: la copertura GA4 è parziale');
+  if (ga4.identityObserved <= 0) blockers.push('blocked: il feed GA4 non contiene identità employer osservabili');
+  if (ga4.emissionId?.status !== 'complete') {
+    blockers.push('blocked: la dimensione GA4 emission_id non è completa; registrazione e dati forward-only richiesti');
+  }
+
+  const status = blockers.length
+    ? 'blocked'
+    : runMode === 'live' ? 'live-first-run-ready' : 'replay-valid';
+  return {
+    schemaVersion: 1,
+    runMode,
+    primarySource,
+    status,
+    blockers,
+    window,
+    measurementWindow: measured,
+    ga4: {
+      ...ga4,
+      role: 'primary',
+    },
+    posthog: {
+      ...posthog,
+      role: 'historical-backup',
+    },
+    historicalLimit: {
+      source: 'posthog',
+      status: 'declared',
+      reason: D18_POSTHOG_CAVEAT,
+    },
+  };
+}
+
+function validateEvidenceNumber(value, path, errors) {
+  if (finiteNumber(value) === null || Number(value) < 0) errors.push(`${path} must be a non-negative number`);
+}
+
+export function validateD18Evidence(evidence, requestedWindow) {
+  const errors = [];
+  if (!isObject(evidence)) return { ok: false, errors: ['evidence is required'] };
+  if (evidence.schemaVersion !== 1) errors.push('evidence.schemaVersion is missing or invalid');
+  if (!D18_RUN_MODES.includes(evidence.runMode)) errors.push('evidence.runMode is invalid');
+  if (evidence.primarySource !== 'ga4') errors.push('evidence.primarySource must be ga4');
+  if (!D18_EVIDENCE_STATUSES.includes(evidence.status)) errors.push('evidence.status is invalid');
+  try {
+    const expected = normalizeD18Window(requestedWindow);
+    const actual = normalizeD18Window(evidence.window);
+    if (stableJson(expected) !== stableJson(actual)) errors.push('evidence.window does not match requestedWindow');
+    const measured = normalizeD18Window(evidence.measurementWindow);
+    if (Date.parse(measured.from) < Date.parse(expected.from) || Date.parse(measured.to) > Date.parse(expected.to)) {
+      errors.push('evidence.measurementWindow must be contained in requestedWindow');
+    }
+  } catch (error) {
+    errors.push(error.message);
+  }
+  if (!Array.isArray(evidence.blockers) || evidence.blockers.some((entry) => typeof entry !== 'string' || !entry.trim())) {
+    errors.push('evidence.blockers must be an array of non-empty strings');
+  }
+  const blockers = Array.isArray(evidence.blockers) ? evidence.blockers : [];
+  if (evidence.status === 'blocked' && blockers.length === 0) errors.push('blocked evidence must declare a blocker');
+  if (evidence.status !== 'blocked' && blockers.length > 0) errors.push('ready evidence cannot declare blockers');
+  if (evidence.status === 'live-first-run-ready' && evidence.runMode !== 'live') errors.push('live-first-run-ready evidence must have runMode live');
+  if (evidence.status === 'replay-valid' && evidence.runMode !== 'replay') errors.push('replay-valid evidence must have runMode replay');
+
+  const ga4 = evidence.ga4;
+  if (!isObject(ga4) || ga4.role !== 'primary') errors.push('evidence.ga4 primary role is required');
+  else {
+    if (typeof ga4.queried !== 'boolean') errors.push('evidence.ga4.queried is required');
+    if (typeof ga4.truncated !== 'boolean') errors.push('evidence.ga4.truncated is required');
+    for (const field of ['observed', 'rowsReturned', 'identityObserved']) validateEvidenceNumber(ga4[field], `evidence.ga4.${field}`, errors);
+    if (!isObject(ga4.emissionId)) errors.push('evidence.ga4.emissionId is required');
+    else {
+      if (ga4.emissionId.dimension !== 'emission_id') errors.push('evidence.ga4.emissionId.dimension must be emission_id');
+      if (typeof ga4.emissionId.requested !== 'boolean') errors.push('evidence.ga4.emissionId.requested is required');
+      if (!['complete', 'parziale', 'non disponibile'].includes(ga4.emissionId.status)) errors.push('evidence.ga4.emissionId.status is invalid');
+      for (const field of ['observed', 'withValue', 'withoutValue']) validateEvidenceNumber(ga4.emissionId[field], `evidence.ga4.emissionId.${field}`, errors);
+      if (ga4.emissionId.observed !== ga4.emissionId.withValue + ga4.emissionId.withoutValue) {
+        errors.push('evidence.ga4.emissionId observed must equal withValue + withoutValue');
+      }
+      if (ga4.emissionId.status === 'complete' && (ga4.emissionId.requested !== true || ga4.emissionId.observed <= 0 || ga4.emissionId.withoutValue !== 0)) {
+        errors.push('complete emission_id evidence must cover every observed GA4 event');
+      }
+    }
+  }
+  if (!isObject(evidence.posthog) || evidence.posthog.role !== 'historical-backup') errors.push('evidence.posthog historical-backup role is required');
+  const historicalLimit = evidence.historicalLimit;
+  if (!isObject(historicalLimit) || historicalLimit.source !== 'posthog' || historicalLimit.status !== 'declared' || typeof historicalLimit.reason !== 'string' || !historicalLimit.reason.trim()) {
+    errors.push('evidence.historicalLimit must declare the PostHog historical limitation');
+  }
+  const readyEvidence = evidence.status === 'live-first-run-ready' || evidence.status === 'replay-valid';
+  if (readyEvidence) {
+    if (evidence.ga4?.queried !== true) errors.push('ready evidence requires a queried GA4 source');
+    if (evidence.ga4?.truncated !== false) errors.push('ready evidence requires complete GA4 coverage');
+    if (!(evidence.ga4?.identityObserved > 0)) errors.push('ready evidence requires observed GA4 employer identity');
+    if (evidence.ga4?.emissionId?.status !== 'complete') errors.push('ready evidence requires complete GA4 emission_id coverage');
+  }
+  return { ok: errors.length === 0, errors };
+}
+
+export function validateD18FirstRunEvidence(payload) {
+  const errors = [...validateD18Evidence(payload?.evidence, payload?.requestedWindow).errors];
+  const evidence = payload?.evidence;
+  if (evidence?.runMode !== 'live') errors.push('blocked: first-run evidence must come from a live run');
+  if (evidence?.primarySource !== 'ga4') errors.push('blocked: first-run evidence must use GA4 as primary source');
+  if (evidence?.status !== 'live-first-run-ready') {
+    const blockers = Array.isArray(evidence?.blockers) ? evidence.blockers : ['blocked: live GA4 evidence is not ready'];
+    errors.push(...blockers);
+  }
+  return { ok: errors.length === 0, errors };
+}
+
 function looksLikeMetric(value) {
   return isObject(value)
     && Object.prototype.hasOwnProperty.call(value, 'value')
@@ -677,6 +887,7 @@ export function validateD18Payload(payload) {
   if (typeof payload.generatedAt !== 'string' || !Number.isFinite(Date.parse(payload.generatedAt))) errors.push('generatedAt is required');
   try { normalizeD18Window(payload.requestedWindow); } catch (error) { errors.push(error.message); }
   if (payload.cutoff !== payload.requestedWindow?.to) errors.push('cutoff must equal requestedWindow.to');
+  errors.push(...validateD18Evidence(payload.evidence, payload.requestedWindow).errors);
   if (!isObject(payload.sourceRegimes?.ga4) || !isObject(payload.sourceRegimes?.posthog)) errors.push('sourceRegimes.ga4/posthog are required');
   for (const source of ['ga4', 'posthog', 'applications', 'delivery']) {
     const coverage = payload.sourceRegimes?.[source]?.sourceCoverage;
