@@ -1232,7 +1232,7 @@
       "slugByLocale": {
         "it": "med-assistente-pratico-assistente-pratico-mpa-centro-di-emergenza-universitatsspital-basel-basel",
         "en": "med-practical-assistant-practical-assistant-mpa-emergency-center-universitatsspital-basel-basel",
-        "de": "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel-i2436r",
+        "de": "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
         "fr": "med-assistant-pratique-assistant-pratique-mpa-centre-d-urgence-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
@@ -2690,10 +2690,10 @@
       "id": "unispital-basel-c8ddda1db683",
       "slug": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel",
+        "it": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
         "en": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
         "de": "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-        "fr": "technologue-des-instruments-medicaux-technologue-des-instruments-medicaux-universitatsspital-basel-basel"
+        "fr": "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -2743,7 +2743,6 @@
       "previousSlugsByLocale": {
         "it": [
           "medizinproduktetechnologin-medizinproduktetechnologe-unispital-basel-ch",
-          "medizinproduktetechnologin-medizinproduktetechnologe-universitatsspital-basel-basel",
           "tecnologo-del-dispositivo-medico-tecnologo-del-dispositivo-medico-universitatsspital-basel-basel"
         ],
         "fr": [
@@ -3589,9 +3588,9 @@
       "slug": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zellersatzambulatorium-universitatsspital-basel-basel",
       "slugByLocale": {
         "it": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zellersatzambulatorium-universitatsspital-basel-basel",
-        "en": "dipl-nursing-specialist-hf-fh-cell-replacement-ambulatorium-universitatsspital-basel-basel",
+        "en": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zellersatzambulatorium-universitatsspital-basel-basel",
         "de": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zellersatzambulatorium-unispital-basel-ch",
-        "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-ambulatorium-de-remplacement-cellulaire-universitatsspital-basel-basel"
+        "fr": "dipl-pflegefachfrau-pflegefachmann-hf-fh-zellersatzambulatorium-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -4183,10 +4182,10 @@
       "id": "unispital-basel-c6b7a7b547f5",
       "slug": "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel",
       "slugByLocale": {
-        "it": "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel",
+        "it": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
         "en": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
         "de": "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-        "fr": "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
+        "fr": "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
       "companyKey": "unispital-basel",
@@ -4229,25 +4228,21 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-        "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
-        "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel",
-        "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
+        "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel",
+        "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
           "stv-stationsleitung-endoskopie-standort-claraspital-usb-unispital-basel-ch",
-          "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
           "stv-endoscopia-di-gestione-della-stazione-place-claraspital-usb-universitatsspital-basel-basel"
         ],
         "fr": [
-          "stv-stationsleitung-endoskopie-standort-claraspital-usb-universitatsspital-basel-basel",
           "endoscopie-de-gestion-de-station-stv-place-claraspital-usb-universitatsspital-basel-basel"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 1466,
-      "retranslationAttempts": 20,
+      "retranslationAttempts": 21,
       "firstSeenAt": "2026-08-20T21:47:46.721Z",
       "salaryMin": 62000,
       "salaryMax": 94000,

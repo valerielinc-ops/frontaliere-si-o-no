@@ -804,7 +804,7 @@
       "id": "vz-vermoegenszentrum-dd25003702e5",
       "slug": "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona",
       "slugByLocale": {
-        "it": "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona",
+        "it": "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
         "en": "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
         "de": "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
         "fr": "consultant-en-clientele-privee-80-100-vz-vermogenszentrum-rapperswil-jona-sankt-gallen"
@@ -866,7 +866,6 @@
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch-2",
         "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
         "private-clients-consultant-vz-vermoegenszentrum-ch",
-        "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
         "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona"
       ],
       "previousSlugsByLocale": {
@@ -874,7 +873,6 @@
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch-2",
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
           "private-clients-consultant-vz-vermoegenszentrum-ch",
-          "private-clients-consultant-80-100-vz-vermogenszentrum-rapperswil-jona",
           "private-clients-consulente-vz-vermogenszentrum-rapperswil-jona"
         ]
       },
@@ -1080,7 +1078,7 @@
       "id": "vz-vermoegenszentrum-717bd0ebdfbe",
       "slug": "product-manager-prodotti-e-customer-experience-vz-vermogenszentrum-zug",
       "slugByLocale": {
-        "it": "product-manager-prodotti-e-customer-experience-vz-vermogenszentrum-zug",
+        "it": "product-manager-products-customer-experience-60-100-vz-vermogenszentrum-zug",
         "en": "product-manager-products-customer-experience-60-100-vz-vermogenszentrum-zug",
         "de": "product-manager-products-customer-experience-60-100-vz-vermoegenszentrum-ch",
         "fr": "product-manager-produits-et-experience-client-60-100-vz-vermogenszentrum-zug"
@@ -1143,14 +1141,12 @@
       "previousSlugs": [
         "product-manager-products-customer-experience-60-100-vz-vermoegenszentrum-ch",
         "product-manager-products-customer-experience-vz-vermoegenszentrum-ch",
-        "product-manager-products-customer-experience-60-100-vz-vermogenszentrum-zug",
         "product-manager-prodotti-e-customer-experience-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "product-manager-products-customer-experience-60-100-vz-vermoegenszentrum-ch",
           "product-manager-products-customer-experience-vz-vermoegenszentrum-ch",
-          "product-manager-products-customer-experience-60-100-vz-vermogenszentrum-zug",
           "product-manager-prodotti-e-customer-experience-vz-vermogenszentrum-zug"
         ]
       },
@@ -1168,7 +1164,8 @@
           "maxValue": 195000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "vz-vermoegenszentrum-eee453871973",
@@ -1259,10 +1256,10 @@
       "id": "vz-vermoegenszentrum-61cd5fa24e20",
       "slug": "successione-commerciale-m-a-vz-vermogenszentrum-bern",
       "slugByLocale": {
-        "it": "successione-commerciale-m-a-vz-vermogenszentrum-bern",
+        "it": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
         "en": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
         "de": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermoegenszentrum-ch",
-        "fr": "aine-consultant-succession-d-entreprise-m-a-80-100-vz-vermogenszentrum-bern"
+        "fr": "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -1324,8 +1321,7 @@
       },
       "previousSlugsByLocale": {
         "de": [
-          "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
-          "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermoegenszentrum-ch"
+          "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch"
         ],
         "it": [
           "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermoegenszentrum-ch",
@@ -1333,7 +1329,6 @@
           "consultant-unternehmensnachfolge-m-a-vz-vermoegenszentrum-ch",
           "senior-consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
           "consulente-unternehmensnachfolge-m-a-vz-vermogenszentrum-bern",
-          "senior-consultant-unternehmensnachfolge-m-a-80-100-vz-vermogenszentrum-bern",
           "successione-commerciale-m-a-vz-vermogenszentrum-bern"
         ],
         "fr": [
@@ -1370,10 +1365,10 @@
       "id": "vz-vermoegenszentrum-fe83f2ef1c8a",
       "slug": "ingegnere-software-senior-net-fullstack-vz-vermogenszentrum-zug",
       "slugByLocale": {
-        "it": "ingegnere-software-senior-net-fullstack-vz-vermogenszentrum-zug",
+        "it": "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
         "en": "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
         "de": "senior-software-engineer-net-fullstack-80-100-vz-vermoegenszentrum-ch",
-        "fr": "ingenieur-software-senior-net-fullstack-vz-vermogenszentrum-zug"
+        "fr": "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -1429,28 +1424,24 @@
         "senior-software-engineer-net-fullstack-vz-vermoegenszentrum-ch",
         "senior-software-ingenieur-net-fullstack-vz-vermogenszentrum-zug",
         "senior-software-ingegnere-net-fullstack-vz-vermogenszentrum-zug",
-        "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
-        "ingegnere-software-senior-net-fullstack-vz-vermogenszentrum-zug",
-        "ingenieur-software-senior-net-fullstack-vz-vermogenszentrum-zug"
+        "ingenieur-software-senior-net-fullstack-vz-vermogenszentrum-zug",
+        "ingegnere-software-senior-net-fullstack-vz-vermogenszentrum-zug"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-software-engineer-net-fullstack-80-100-vz-vermoegenszentrum-ch",
           "senior-software-engineer-net-fullstack-vz-vermoegenszentrum-ch",
           "senior-software-ingegnere-net-fullstack-vz-vermogenszentrum-zug",
-          "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
           "ingegnere-software-senior-net-fullstack-vz-vermogenszentrum-zug"
         ],
         "fr": [
           "senior-software-ingenieur-net-fullstack-vz-vermogenszentrum-zug",
-          "senior-software-engineer-net-fullstack-80-100-vz-vermogenszentrum-zug",
           "ingenieur-software-senior-net-fullstack-vz-vermogenszentrum-zug"
         ]
       },
-      "needsRetranslation": true,
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 2490,
-      "retranslationAttempts": 11,
+      "retranslationAttempts": 12,
       "firstSeenAt": "2026-07-17T11:36:57.056Z",
       "salaryMin": 114500,
       "salaryMax": 195000,
@@ -1567,10 +1558,10 @@
       "id": "vz-vermoegenszentrum-42a287e1cf5d",
       "slug": "private-clients-consulente-vz-vermogenszentrum-zurich",
       "slugByLocale": {
-        "it": "private-clients-consulente-vz-vermogenszentrum-zurich",
+        "it": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
         "en": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
         "de": "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
-        "fr": "consultant-client-prive-80-100-vz-vermogenszentrum-zurich"
+        "fr": "private-clients-consultant-80-100-vz-vermogenszentrum-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -1640,7 +1631,6 @@
           "private-clients-consultant-80-100-vz-vermoegenszentrum-ch",
           "consultant-client-prive-80-100-vz-vermogenszentrum-zurich-zurich",
           "private-clients-consultant-vz-vermoegenszentrum-ch",
-          "private-clients-consultant-80-100-vz-vermogenszentrum-zurich",
           "private-clients-consulente-vz-vermogenszentrum-zurich"
         ],
         "fr": [
@@ -1858,7 +1848,7 @@
       "slug": "insegnamento-come-sviluppo-della-piattaforma-informatica-vz-vermogenszentrum-zurich-zurich",
       "slugByLocale": {
         "it": "insegnamento-come-sviluppo-della-piattaforma-informatica-vz-vermogenszentrum-zurich-zurich",
-        "en": "lehre-als-informatiker-in-plattformentwicklung-vz-vermogenszentrum-zurich",
+        "en": "teaching-as-a-computer-scientist-in-platform-development-vz-vermogenszentrum-zurich-zurich",
         "de": "lehre-als-informatiker-in-plattformentwicklung-vz-vermoegenszentrum-ch",
         "fr": "l-enseignement-en-tant-qu-informaticien-en-developpement-de-plateforme-vz-vermogenszentrum-zurich-zurich"
       },
@@ -4254,10 +4244,10 @@
       "id": "vz-vermoegenszentrum-4f325500fb6b",
       "slug": "analista-di-affari-vz-vermogenszentrum-zurich",
       "slugByLocale": {
-        "it": "analista-di-affari-vz-vermogenszentrum-zurich",
+        "it": "business-analyst-in-vz-vermogenszentrum-zurich",
         "en": "business-analyst-in-vz-vermogenszentrum-zurich",
         "de": "business-analyst-in-vz-vermoegenszentrum-ch",
-        "fr": "analyste-des-affaires-vz-vermogenszentrum-zurich"
+        "fr": "business-analyst-in-vz-vermogenszentrum-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4312,17 +4302,16 @@
       },
       "previousSlugs": [
         "business-analyst-in-vz-vermoegenszentrum-ch",
-        "business-analyst-in-vz-vermogenszentrum-zurich",
+        "analyste-des-affaires-vz-vermogenszentrum-zurich",
         "analista-di-affari-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-in-vz-vermoegenszentrum-ch",
-          "business-analyst-in-vz-vermogenszentrum-zurich",
           "analista-di-affari-vz-vermogenszentrum-zurich"
         ],
         "fr": [
-          "business-analyst-in-vz-vermogenszentrum-zurich"
+          "analyste-des-affaires-vz-vermogenszentrum-zurich"
         ]
       },
       "needsRetranslation": true,
@@ -4339,16 +4328,17 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 1
     },
     {
       "id": "vz-vermoegenszentrum-39e495757e4a",
       "slug": "real-estate-consulente-vz-vermogenszentrum-basel",
       "slugByLocale": {
-        "it": "real-estate-consulente-vz-vermogenszentrum-basel",
+        "it": "real-estate-consultant-vz-vermogenszentrum-basel",
         "en": "real-estate-consultant-vz-vermogenszentrum-basel",
         "de": "real-estate-consultant-vz-vermoegenszentrum-ch",
-        "fr": "consultant-immobilier-vz-vermogenszentrum-basel"
+        "fr": "real-estate-consultant-vz-vermogenszentrum-basel"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4410,7 +4400,6 @@
       "previousSlugsByLocale": {
         "it": [
           "real-estate-consultant-vz-vermoegenszentrum-ch",
-          "real-estate-consultant-vz-vermogenszentrum-basel",
           "real-estate-consulente-vz-vermogenszentrum-basel"
         ],
         "fr": [
@@ -4723,7 +4712,7 @@
         "it": "junior-product-manager-vz-vermogenszentrum-zurich",
         "en": "junior-product-manager-vz-vermogenszentrum-zurich",
         "de": "junior-product-manager-vz-vermoegenszentrum-ch",
-        "fr": "gestionnaire-de-produits-junior-vz-vermogenszentrum-zurich"
+        "fr": "junior-product-manager-vz-vermogenszentrum-zurich"
       },
       "company": "VZ VermögensZentrum",
       "companyKey": "vz-vermoegenszentrum",
@@ -4778,12 +4767,14 @@
       },
       "previousSlugs": [
         "junior-product-manager-vz-vermoegenszentrum-ch",
-        "junior-product-manager-vz-vermogenszentrum-zurich"
+        "gestionnaire-de-produits-junior-vz-vermogenszentrum-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "junior-product-manager-vz-vermoegenszentrum-ch",
-          "junior-product-manager-vz-vermogenszentrum-zurich"
+          "junior-product-manager-vz-vermoegenszentrum-ch"
+        ],
+        "fr": [
+          "gestionnaire-de-produits-junior-vz-vermogenszentrum-zurich"
         ]
       },
       "needsRetranslation": true,
