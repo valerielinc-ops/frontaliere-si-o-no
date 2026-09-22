@@ -136,6 +136,11 @@ function detectEmploymentType(text = '') {
   return 'OTHER';
 }
 
+function isSwissAddressCountry(value = '') {
+  const country = normalizeSpace(value).toLowerCase();
+  return /^(?:ch|che|756|switzerland|schweiz|suisse|svizzera)(?:$|[\s(-])/i.test(country);
+}
+
 /**
  * Resolve the best city / postal code / street / region / canton from the
  * Personio `office` free-text field and, when present, its structured detail
@@ -145,7 +150,13 @@ function detectEmploymentType(text = '') {
  */
 function resolveLocation(officeText = '', locationDetail = null) {
   const office = normalizeSpace(officeText);
-  const detailLocality = normalizeSpace(locationDetail?.locality || '');
+  // A structured locality is evidence only when JSON-LD also confirms CH.
+  // Without this gate a foreign detail address can be paired with the Swiss
+  // HQ canton and published as internally inconsistent JobPosting data.
+  const confirmedDetail = isSwissAddressCountry(locationDetail?.addressCountry)
+    ? locationDetail
+    : null;
+  const detailLocality = normalizeSpace(confirmedDetail?.locality || '');
   const city = swissCityFromLocationField(detailLocality) || swissCityFromLocationField(office);
   const resolvedLocation = city || detailLocality || office;
   const canton = inferSwissTargetCanton(detailLocality || resolvedLocation) || HQ.canton;
@@ -156,8 +167,8 @@ function resolveLocation(officeText = '', locationDetail = null) {
     location: resolvedLocation || HQ.city,
     city: resolvedLocation || HQ.city,
     canton,
-    postalCode: locationDetail?.postalCode || (isHqCity ? HQ.postalCode : ''),
-    streetAddress: locationDetail?.streetAddress || (isHqCity ? HQ.streetAddress : ''),
+    postalCode: confirmedDetail?.postalCode || (isHqCity ? HQ.postalCode : ''),
+    streetAddress: confirmedDetail?.streetAddress || (isHqCity ? HQ.streetAddress : ''),
     region: hasStructuredAddress ? canton : (isHqCity ? HQ.region : canton),
   };
 }

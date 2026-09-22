@@ -38,6 +38,7 @@ import {
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
   normalizeWorkdayLocationCandidate,
+  workdayPrimaryLocationState,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
 
@@ -89,7 +90,8 @@ function cleanAbbottLocation(raw = '') {
 
 export function resolveAbbottLocation(listingLocation = '', requisitionLocation = '') {
   const requisitionText = normalizeWorkdayLocationCandidate(requisitionLocation);
-  return swissCityFromLocationField(requisitionText) || cleanAbbottLocation(listingLocation);
+  if (requisitionText) return swissCityFromLocationField(requisitionText) || '';
+  return cleanAbbottLocation(listingLocation);
 }
 
 /* ── Company matchers ──────────────────────────────────────── */
@@ -221,7 +223,14 @@ export async function fetchAllAbbottJobs() {
     }
     const detail = await fetchWorkdayJobDetail(WORKDAY_API_BASE, listing.externalPath);
     const detailInfo = detail?.jobPostingInfo || {};
+    const requisitionState = workdayPrimaryLocationState({
+      location: detailInfo.jobRequisitionLocation,
+    });
     const cleaned = resolveAbbottLocation(rawLocation, detailInfo.jobRequisitionLocation);
+    if (requisitionState.present && !cleaned) {
+      console.log(`  ⏭️  Skipped unresolved requisition location: ${requisitionState.text || '(unreadable)'} — ${title}`);
+      continue;
+    }
     const location = cleaned || 'Basel';
     const canton = inferSwissTargetCanton(location) || 'BS';
     const publicUrl = listing.url || CAREER_URL;

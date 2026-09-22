@@ -322,7 +322,14 @@ export function createWorkdaySwissParser(config) {
         detail = null;
       }
       const detailInfo = detail?.jobPostingInfo || {};
-      const primaryLocationField = preferJobRequisitionLocation
+      const requisitionState = workdayPrimaryLocationState({
+        location: detailInfo.jobRequisitionLocation,
+      });
+      // Some tenants expose the requisition field only for a subset of
+      // postings. Prefer it when present, but retain the structured detail
+      // location when it is absent; an explicit unresolved requisition still
+      // remains primary and is rejected by the fail-closed state below.
+      const primaryLocationField = preferJobRequisitionLocation && requisitionState.present
         ? detailInfo.jobRequisitionLocation
         : detailInfo.location;
       const detailLocations = [

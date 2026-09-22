@@ -21,6 +21,17 @@ describe('Abbott crawler location resolution', () => {
     expect(resolveAbbottLocation('Switzerland - Zurich')).toBe('Zurich');
   });
 
+  it('does not relabel an unresolved or foreign requisition with the listing city', () => {
+    expect(resolveAbbottLocation(
+      'Switzerland - Basel',
+      { descriptor: 'Germany > Frankfurt' },
+    )).toBe('');
+    expect(resolveAbbottLocation(
+      'Switzerland - Basel',
+      { descriptor: 'Remote / Unmapped' },
+    )).toBe('');
+  });
+
   it('keeps the parser identity stable', () => {
     expect(ABBOTT_KEY).toBe('abbott');
     expect(ABBOTT_COMPANY_NAME).toBe('Abbott');

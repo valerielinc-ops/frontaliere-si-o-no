@@ -47,12 +47,13 @@
  * falls back to its `"{title} bei {company} in {location}."` placeholder —
  * which then becomes the PERMANENT stored description (caught by
  * `audit-parser-quality.mjs` as a "too-short" thin description). `fetchPersonioJobs`
- * now backfills `descriptionHtml` from the detail page for exactly the
- * positions the feed left empty, via `fetchPersonioJobDetailData`
+ * now fetches structured detail data for every position with a public URL and
+ * backfills `descriptionHtml` from that response when the feed left it empty,
+ * via `fetchPersonioJobDetailData`
  * (built on the shared `extractJobPostingDescription` JSON-LD extractor —
  * same helper Decathlon/Straumann use for the identical "listing carries
  * only metadata" pattern, AGENTS.md rule #6). Tenants whose feed already
- * carries full descriptions pay zero extra requests.
+ * carries full descriptions still need the detail request for address data.
  */
 
 import { XMLParser } from 'fast-xml-parser';
@@ -165,6 +166,7 @@ export function normalizePersonioJob(rawPosition, options = {}) {
     seniority: normalizeSpace(rawPosition?.seniority || ''),
     schedule: normalizeSpace(rawPosition?.schedule || ''),
     rawPosition,
+    locationDetail: null,
   };
 }
 
@@ -240,14 +242,16 @@ export async function fetchPersonioJobs(subdomain, options = {}) {
   const positions = toArray(parsed?.['workzag-jobs']?.position);
   const jobs = positions.map((p) => normalizePersonioJob(p, { subdomain }));
 
-  // Backfill from the detail page for exactly the positions the XML feed
-  // left empty (see module doc, #3497). Sequential — tenant volumes here are
-  // small (single digits to low tens of open positions) and this mirrors the
-  // existing Decathlon detail-page-fallback pattern (no artificial delay).
+  // Fetch detail data for every position so structured workplace data cannot
+  // be skipped merely because the XML feed already carried a description.
+  // Use the same response as the description backfill (see module doc,
+  // #3497). Sequential — tenant volumes here are small (single digits to low
+  // tens of open positions) and this mirrors the existing detail-page-
+  // fallback pattern (no artificial delay).
   for (const job of jobs) {
-    if (job.descriptionHtml || !job.applyUrl) continue;
+    if (!job.applyUrl) continue;
     const detail = await fetchPersonioJobDetailData(job.applyUrl, { timeoutMs, userAgent });
-    job.descriptionHtml = detail.descriptionHtml;
+    if (!job.descriptionHtml) job.descriptionHtml = detail.descriptionHtml;
     job.locationDetail = detail.locationDetail;
   }
 
