@@ -141,6 +141,24 @@ describe('Capri Workday location resolution', () => {
     })).toThrow(/changed its total/);
   });
 
+  it('uses page zero total when a later Capri page reports zero with rows', () => {
+    expect(assertWorkdayPage({
+      total: 0,
+      jobPostings: [{ externalPath: '/job/Mendrisio/role-21' }],
+    }, {
+      brand: 'Michael Kors', searchText: '', offset: 20, expectedTotal: 501,
+    })).toEqual({
+      declaredTotal: 501,
+      jobPostings: [{ externalPath: '/job/Mendrisio/role-21' }],
+    });
+  });
+
+  it('still rejects a later zero total when the page is empty', () => {
+    expect(() => assertWorkdayPage({ total: 0, jobPostings: [] }, {
+      brand: 'Michael Kors', searchText: '', offset: 20, expectedTotal: 501,
+    })).toThrow(/changed its total/);
+  });
+
   it('fails closed when a query repeats a posting identity across pages', () => {
     const seen = new Set();
     assertUniqueWorkdayPostings([{ externalPath: '/job/Zurich/role-1' }], {
@@ -200,7 +218,7 @@ describe('Capri Workday location resolution', () => {
     expect(fetchMock).toHaveBeenCalledTimes(4);
   });
 
-  it('retries a transient total drift without dropping the page', async () => {
+  it('keeps a non-empty later page when Workday repeats its offset-zero bug', async () => {
     const firstPage = {
       total: 40,
       jobPostings: Array.from({ length: 20 }, (_, index) => ({
@@ -237,7 +255,7 @@ describe('Capri Workday location resolution', () => {
     const jobs = await listSwissJobs('Michael_Kors', 'Michael Kors');
 
     expect(jobs).toHaveLength(40);
-    expect(offset20Attempts).toBe(2);
+    expect(offset20Attempts).toBe(1);
   });
 });
 
