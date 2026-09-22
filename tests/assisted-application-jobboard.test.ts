@@ -50,8 +50,23 @@ describe('assisted application JobBoard handoff', () => {
       /function isAlwaysRewardedApplicationSurface\(\): boolean[\s\S]*\/\^\\\/cerca-lavoro-ticino\(\?:\\\/\|\$\)\//,
     );
     expect(jobBoardSource).toMatch(
-      /const assistedApplicationVariant = alwaysRewardedApplicationSurface[\s\S]*'rewarded_ad'/,
+      /const assistedApplicationVariant = isCrawlerVisitor[\s\S]*\? 'control'[\s\S]*: alwaysRewardedApplicationSurface[\s\S]*'rewarded_ad'/,
     );
     expect(jobBoardSource).toContain('killSwitches.rewardedApplicationAd');
+  });
+
+  it('bypasses the paid and rewarded experiment for crawler visitors', () => {
+    expect(jobBoardSource).toContain(
+      "const isCrawlerVisitor = useMemo(() => isCrawlerVisitorAgent(navigator.userAgent || ''), []);",
+    );
+    expect(jobBoardSource).toContain(
+      'useAssistedApplicationVariant(!alwaysRewardedApplicationSurface && !isCrawlerVisitor)',
+    );
+    expect(jobBoardSource).toMatch(
+      /const assistedApplicationVariant = isCrawlerVisitor[\s\S]*\? 'control'/,
+    );
+    expect(jobBoardSource).toMatch(
+      /if \(isCrawlerVisitor \|\| !assistedApplicationVariantReady[\s\S]*trackAssistedApplicationEvent\(/,
+    );
   });
 });
