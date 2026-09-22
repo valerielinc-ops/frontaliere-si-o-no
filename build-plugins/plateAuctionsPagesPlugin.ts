@@ -14,7 +14,6 @@ import { buildSeoPageHtml } from './shared/seoPageShell';
 import { differentiateH1FromTitle, esc, H1_STYLE, H2_STYLE, LEDE_STYLE, LINK_ACCENT_STYLE } from './shared/seoContentTokens';
 import { inlineScriptJson } from './shared/inlineJsonScript';
 import { adSlotHtml } from './lib/adSlotHtml';
-import { shouldPlaceInfeedAd } from '../services/adsenseSlots';
 import { buildSitemapIndexXml, discoverSitemapFiles } from './sitemapAliasPlugin';
 import { SITEMAP_SHARD_CAP, padShardIndex } from '../scripts/lib/sitemap-limits.mjs';
 import { buildPlateAuctionPath, allPlateAuctionCantonCodes, PLATE_AUCTION_INDEX_PAGE_SIZE } from '../services/plateAuctions/paths';
@@ -154,6 +153,10 @@ function detailRowsForSnapshot(snapshot: Snapshot, currentRows: SnapshotRow[]): 
   }
   return [...rowsByPath.values()];
 }
+// Plate-auction catalogues are factual tables, not job-list card feeds. Reusing
+// the JOBLIST in-feed cadence put up to 12 manual slots beside a short table;
+// keep the single top banner below and let Auto Ads handle the remaining
+// placements without changing the site-wide Auto Ads loader.
 function tableRows(rows: SnapshotRow[], locale: PlateLocale, copy: typeof COPY.it): string {
   if (rows.length === 0) return `<p>${esc(copy.noData)}</p>`;
   const headers = {
@@ -164,12 +167,9 @@ function tableRows(rows: SnapshotRow[], locale: PlateLocale, copy: typeof COPY.i
     bids: locale === 'it' ? 'Offerte' : locale === 'de' ? 'Gebote' : locale === 'fr' ? 'Offres' : 'Bids',
     ends: locale === 'it' ? 'Scadenza' : locale === 'de' ? 'Ende' : locale === 'fr' ? 'Fin' : 'Ends',
   };
-  const body = rows.map((row, index) => {
+  const body = rows.map((row) => {
     const href = detailPathForRow(row, locale);
-    const adRow = index + 1 < rows.length && shouldPlaceInfeedAd(index + 1)
-      ? `<tr class="ft-infeed-ad" role="presentation"><td colspan="6">${adSlotHtml('JOBLIST_INFEED_DESKTOP')}</td></tr>`
-      : '';
-    return `<tr><td><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></td><td>${esc(vehicleTypeLabel(row.vehicleType, locale))}</td><td>${esc(listingTypeLabel(row.listingType, locale))}</td><td>${esc(formatMoney(row.finalPriceChf ?? row.currentBidChf ?? row.startingPriceChf, locale))}</td><td>${row.bidCount ?? '—'}</td><td>${esc(formatDate(row.endsAt || row.closedAt, locale))}</td></tr>${adRow}`;
+    return `<tr><td><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></td><td>${esc(vehicleTypeLabel(row.vehicleType, locale))}</td><td>${esc(listingTypeLabel(row.listingType, locale))}</td><td>${esc(formatMoney(row.finalPriceChf ?? row.currentBidChf ?? row.startingPriceChf, locale))}</td><td>${row.bidCount ?? '—'}</td><td>${esc(formatDate(row.endsAt || row.closedAt, locale))}</td></tr>`;
   }).join('');
   return `<table><thead><tr><th>${esc(headers.plate)}</th><th>${esc(headers.vehicle)}</th><th>${esc(headers.type)}</th><th>${esc(headers.price)}</th><th>${esc(headers.bids)}</th><th>${esc(headers.ends)}</th></tr></thead><tbody>${body}</tbody></table>`;
 }
