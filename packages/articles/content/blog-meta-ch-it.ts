@@ -6635,6 +6635,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.rialzo-tassi-ipotecari-svizzera.title': 'Tassi ipotecari in Svizzera: il 10 anni supera il 2%',
     'blog.article.rialzo-tassi-ipotecari-svizzera.excerpt': 'A settembre i tassi ipotecari a 10 anni salgono al 2,06% e quelli a 5 anni all\'1,83%. Fine dell\'era dei tassi bassissimi per il mercato immobiliare.',
     'blog.article.rialzo-tassi-ipotecari-svizzera.imageAlt': 'Panorama residenziale svizzero con case moderne e montagne',
+    'blog.article.patente-guida-zugo-conversione-esami.title': 'Patente di guida nel Canton Zugo: conversione licenza estera, esami e procedure',
+    'blog.article.patente-guida-zugo-conversione-esami.excerpt': 'Guida completa alla conversione della patente di guida estera nel Canton Zugo: documenti richiesti, esami teorico e pratico, corsi obbligatori e scadenze.',
+    'blog.article.patente-guida-zugo-conversione-esami.imageAlt': 'Ufficio della circolazione di Zugo con modulo per conversione patente',
 };
 
 export default blogMetaChIt;
