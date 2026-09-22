@@ -28,6 +28,19 @@ const TERMINAL_STATES = new Set(['APPROVED', 'COMMENTED', 'CHANGES_REQUESTED']);
 const NON_TERMINAL_STATES = new Set(['PENDING', 'DISMISSED']);
 const KNOWN_REVIEW_STATES = new Set([...TERMINAL_STATES, ...NON_TERMINAL_STATES]);
 
+/**
+ * Some review clients serialize Markdown line breaks as literal `\\n`
+ * separators when posting through a shell bridge. Normalize that shape only
+ * for bodies that visibly carry the review contract; arbitrary prose that
+ * happens to contain `\\n` must remain unchanged.
+ */
+export function normalizeReviewBody(body) {
+  const text = String(body || '');
+  if (!text.includes('\\n')) return text;
+  if (!text.includes('## Findings') && !text.includes('## LGTM')) return text;
+  return text.replace(/\\r\\n/gu, '\n').replace(/\\n/gu, '\n');
+}
+
 export function isKnownReviewState(value) {
   return typeof value === 'string' && KNOWN_REVIEW_STATES.has(value.trim().toUpperCase());
 }
@@ -38,7 +51,7 @@ export function flattenReviewPages(value) {
 }
 
 function reviewBody(review) {
-  return String(review?.body || '');
+  return normalizeReviewBody(review?.body);
 }
 
 export function isManagedReviewer(review) {
@@ -226,9 +239,10 @@ function findingsSectionLines(body) {
  */
 export function reviewHasZeroFindings(body) {
   if (typeof body !== 'string') return false;
+  const normalizedBody = normalizeReviewBody(body);
   REDFLAG_IMPORTANT_RE.lastIndex = 0;
-  if (REDFLAG_IMPORTANT_RE.test(body)) return false;
-  const section = findingsSectionLines(body);
+  if (REDFLAG_IMPORTANT_RE.test(normalizedBody)) return false;
+  const section = findingsSectionLines(normalizedBody);
   if (!section) return true;
   IMPORTANT_COUNT_RE.lastIndex = 0;
   const counts = [...section.join('\n').matchAll(IMPORTANT_COUNT_RE)]
@@ -238,7 +252,7 @@ export function reviewHasZeroFindings(body) {
 }
 
 export function reviewHasLgtm(body) {
-  return typeof body === 'string' && LGTM_HEADING_RE.test(body);
+  return typeof body === 'string' && LGTM_HEADING_RE.test(normalizeReviewBody(body));
 }
 
 export function reviewBodyIsApproving(body) {

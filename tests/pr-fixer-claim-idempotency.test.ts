@@ -102,6 +102,12 @@ describe('persisted PR fixer claims (#8362, #8363)', () => {
     expect(jsonChecks).toBe('failed-checks:["lint","type"]');
   });
 
+  it('keeps the redflag fingerprint stable when review newlines were serialized literally', () => {
+    const body = '## Findings (Important: 1, Nit: 0)\n\n🔴 Important: stale parser.';
+    expect(redflagFindingsFingerprint(body.replace(/\n/gu, '\\n')))
+      .toBe(redflagFindingsFingerprint(body));
+  });
+
   it('rejects a forged or malformed persisted marker', () => {
     expect(parsePrFixClaim('<!-- PR_FIX_CLAIM: {"version":1} -->')).toBeNull();
     expect(parsePrFixClaim('ordinary PR comment')).toBeNull();
