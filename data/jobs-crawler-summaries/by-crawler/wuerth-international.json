@@ -1,7 +1,7 @@
 {
   "key": "wuerth-international",
   "label": "Würth International",
-  "generatedAt": "2026-09-21T16:08:52.313Z",
+  "generatedAt": "2026-09-22T00:09:37.452Z",
   "total": 2,
   "discovered": null,
   "parsed": 2,
@@ -12,10 +12,10 @@
   "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3600,
-  "avgDurationMs": 3600,
+  "durationMs": 3163,
+  "avgDurationMs": 3163,
   "durationHistory": [
-    3600
+    3163
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -45,7 +45,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_Hauswart.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:08:44.476Z",
+      "crawledAt": "2026-09-22T00:09:30.437Z",
       "firstSeenAt": "2026-09-19T22:58:28.029Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -81,7 +81,7 @@
       "applyUrl": "https://www.wurth-international.com/CH-WINT/Karriere/Job-Portal/Bewerbungsformular_PraktikumCorp.Houskeeping.php",
       "source": "Wuerth International Dedicated Parser (HTML)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:08:44.885Z",
+      "crawledAt": "2026-09-22T00:09:30.867Z",
       "firstSeenAt": "2026-09-07T15:13:21.865Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {

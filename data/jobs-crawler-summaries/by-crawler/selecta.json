@@ -1,21 +1,21 @@
 {
   "key": "selecta",
   "label": "Selecta",
-  "generatedAt": "2026-09-21T16:05:59.295Z",
-  "total": 32,
+  "generatedAt": "2026-09-22T00:08:54.233Z",
+  "total": 31,
   "discovered": null,
   "parsed": 31,
   "lastFetchOutcome": null,
-  "written": 32,
+  "written": 31,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 31,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 9256,
-  "avgDurationMs": 9256,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 25098,
+  "avgDurationMs": 25098,
   "durationHistory": [
-    9256
+    25098
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://careers.selecta.ch/Job/4634",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:43.475Z",
+      "crawledAt": "2026-09-22T00:08:27.186Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -53,6 +53,7 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-19T22:57:42.726Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -74,7 +75,7 @@
       "url": "https://careers.selecta.ch/Job/4633",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:44.108Z",
+      "crawledAt": "2026-09-22T00:08:28.123Z",
       "addressLocality": "Reinach BL / Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -96,6 +97,7 @@
         "canton": "BE",
         "location": "Reinach BL / Kirchberg BE"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-19T22:57:42.872Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -117,7 +119,7 @@
       "url": "https://careers.selecta.ch/Job/4628",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:44.709Z",
+      "crawledAt": "2026-09-22T00:08:30.426Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -139,6 +141,7 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-08-24T21:43:13.112Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -160,7 +163,7 @@
       "url": "https://careers.selecta.ch/Job/4626",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:45.711Z",
+      "crawledAt": "2026-09-22T00:08:33.694Z",
       "addressLocality": "Tessin",
       "addressRegion": "TI",
       "streetAddress": "",
@@ -182,6 +185,7 @@
         "canton": "TI",
         "location": "Tessin"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:09:39.190Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -203,7 +207,7 @@
       "url": "https://careers.selecta.ch/Job/4625",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:46.489Z",
+      "crawledAt": "2026-09-22T00:08:35.671Z",
       "addressLocality": "Buchs ZH -",
       "addressRegion": "SG",
       "streetAddress": "",
@@ -246,7 +250,7 @@
       "url": "https://careers.selecta.ch/Job/4525",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:46.605Z",
+      "crawledAt": "2026-09-22T00:08:36.606Z",
       "addressLocality": "Basel / Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -268,6 +272,7 @@
         "canton": "SO",
         "location": "Basel / Solothurn"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-06T11:58:32.609Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -289,7 +294,7 @@
       "url": "https://careers.selecta.ch/Job/4623",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:46.988Z",
+      "crawledAt": "2026-09-22T00:08:38.617Z",
       "addressLocality": "Wolhusen / Luzern",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -332,7 +337,7 @@
       "url": "https://careers.selecta.ch/Job/4616",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:47.125Z",
+      "crawledAt": "2026-09-22T00:08:38.749Z",
       "addressLocality": "primär Spiez",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -375,7 +380,7 @@
       "url": "https://careers.selecta.ch/Job/4621",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:47.423Z",
+      "crawledAt": "2026-09-22T00:08:40.197Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Hinterbergstrasse 16",
@@ -397,6 +402,7 @@
         "canton": "ZG",
         "location": "Steinhausen"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-17T11:06:37.875Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -418,7 +424,7 @@
       "url": "https://careers.selecta.ch/Job/4622",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:47.552Z",
+      "crawledAt": "2026-09-22T00:08:40.910Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Hinterbergstrasse 16",
@@ -440,6 +446,7 @@
         "canton": "ZG",
         "location": "Steinhausen"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-17T11:06:38.054Z",
       "_qualityScore": 86,
       "_qualityBreakdown": {
@@ -461,7 +468,7 @@
       "url": "https://careers.selecta.ch/Job/4620",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:47.665Z",
+      "crawledAt": "2026-09-22T00:08:41.594Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -504,7 +511,7 @@
       "url": "https://careers.selecta.ch/Job/4617",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:44.827Z",
+      "crawledAt": "2026-09-22T00:08:30.560Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -548,7 +555,7 @@
       "url": "https://careers.selecta.ch/Job/4618",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:44.945Z",
+      "crawledAt": "2026-09-22T00:08:31.587Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -591,7 +598,7 @@
       "url": "https://careers.selecta.ch/Job/4615",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:47.787Z",
+      "crawledAt": "2026-09-22T00:08:42.417Z",
       "addressLocality": "Sargans / Landquart",
       "addressRegion": "GR",
       "streetAddress": "",
@@ -634,7 +641,7 @@
       "url": "https://careers.selecta.ch/Job/4612",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:47.293Z",
+      "crawledAt": "2026-09-22T00:08:39.510Z",
       "addressLocality": "Berner Oberland",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -677,7 +684,7 @@
       "url": "https://careers.selecta.ch/Job/4614",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:48.139Z",
+      "crawledAt": "2026-09-22T00:08:44.529Z",
       "addressLocality": "Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -720,7 +727,7 @@
       "url": "https://careers.selecta.ch/Job/4592",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:47.902Z",
+      "crawledAt": "2026-09-22T00:08:43.109Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -763,7 +770,7 @@
       "url": "https://careers.selecta.ch/Job/4610",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:48.257Z",
+      "crawledAt": "2026-09-22T00:08:45.204Z",
       "addressLocality": "Sursee",
       "addressRegion": "LU",
       "streetAddress": "",
@@ -806,7 +813,7 @@
       "url": "https://careers.selecta.ch/Job/4557",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:48.371Z",
+      "crawledAt": "2026-09-22T00:08:45.907Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -850,7 +857,7 @@
       "url": "https://careers.selecta.ch/Job/4558",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:48.489Z",
+      "crawledAt": "2026-09-22T00:08:46.588Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -872,6 +879,7 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:48.319Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -893,7 +901,7 @@
       "url": "https://careers.selecta.ch/Job/4608",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:48.605Z",
+      "crawledAt": "2026-09-22T00:08:46.714Z",
       "addressLocality": "Dübendorf / Volketswil / Pfäffikon",
       "addressRegion": "ZH",
       "streetAddress": "",
@@ -936,7 +944,7 @@
       "url": "https://careers.selecta.ch/Job/4609",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:48.724Z",
+      "crawledAt": "2026-09-22T00:08:47.485Z",
       "addressLocality": "Wädenswil bis Glarus",
       "addressRegion": "GL",
       "streetAddress": "",
@@ -979,7 +987,7 @@
       "url": "https://careers.selecta.ch/Job/4607",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:48.024Z",
+      "crawledAt": "2026-09-22T00:08:43.842Z",
       "addressLocality": "Steinhausen",
       "addressRegion": "ZG",
       "streetAddress": "Hinterbergstrasse 16",
@@ -1001,6 +1009,7 @@
         "canton": "ZG",
         "location": "Steinhausen"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:56:49.954Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -1022,7 +1031,7 @@
       "url": "https://careers.selecta.ch/Job/4604",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:44.239Z",
+      "crawledAt": "2026-09-22T00:08:28.270Z",
       "addressLocality": "Suhr / Reiden",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1065,7 +1074,7 @@
       "url": "https://careers.selecta.ch/Job/4606",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:44.356Z",
+      "crawledAt": "2026-09-22T00:08:29.186Z",
       "addressLocality": "Wallis",
       "addressRegion": "VS",
       "streetAddress": "",
@@ -1087,6 +1096,7 @@
         "canton": "VS",
         "location": "Wallis"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:56:51.014Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -1108,7 +1118,7 @@
       "url": "https://careers.selecta.ch/Job/4589",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:44.475Z",
+      "crawledAt": "2026-09-22T00:08:30.153Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1130,6 +1140,7 @@
         "canton": "BE",
         "location": "Kirchberg BE"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-07-04T11:56:51.883Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -1151,7 +1162,7 @@
       "url": "https://careers.selecta.ch/Job/4605",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:44.589Z",
+      "crawledAt": "2026-09-22T00:08:30.289Z",
       "addressLocality": "Kirchberg BE",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1194,7 +1205,7 @@
       "url": "https://careers.selecta.ch/Job/4591",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:45.064Z",
+      "crawledAt": "2026-09-22T00:08:32.560Z",
       "addressLocality": "Zürich / Aargau",
       "addressRegion": "AG",
       "streetAddress": "",
@@ -1216,6 +1227,7 @@
         "canton": "AG",
         "location": "Zürich / Aargau"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:53.326Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -1237,7 +1249,7 @@
       "url": "https://careers.selecta.ch/Job/4603",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:46.368Z",
+      "crawledAt": "2026-09-22T00:08:34.635Z",
       "addressLocality": "Zürich / Aargau / Solothurn",
       "addressRegion": "SO",
       "streetAddress": "",
@@ -1259,6 +1271,7 @@
         "canton": "SO",
         "location": "Zürich / Aargau / Solothurn"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:54.039Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -1280,7 +1293,7 @@
       "url": "https://careers.selecta.ch/Job/4600",
       "source": "Selecta Dedicated Parser (eRecruiter)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:05:46.737Z",
+      "crawledAt": "2026-09-22T00:08:37.548Z",
       "addressLocality": "Kirchberg BE -",
       "addressRegion": "BE",
       "streetAddress": "",
@@ -1312,8 +1325,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "selecta-b3c27cd05937",
       "slug": "dipendenti-del-magazzino-m-f-d-selecta-kirchberg-be-arbeitszeiten-06-30-15-45",
@@ -1361,5 +1373,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
