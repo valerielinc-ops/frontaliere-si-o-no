@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-05T06:33:23.690Z",
-    "label": "before",
-    "total": 28948,
-    "needsRetranslation": 9530,
-    "suppressed": 106,
-    "incomplete": 10276,
-    "complete": 18672,
-    "slotsPresent": 18672,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 18672,
-    "sourceCopyExcused": 631,
-    "slotsPresentByLength": 28525,
-    "languageVerified": 19592,
-    "missingByLocale": {
-      "it": 1754,
-      "en": 1447,
-      "de": 718,
-      "fr": 1447
-    },
-    "queueAge": {
-      "count": 9530,
-      "withTimestamp": 9530,
-      "oldestAgeDays": 144.9,
-      "p50AgeDays": 9.8,
-      "p90AgeDays": 62.8,
-      "buckets": {
-        "0-1d": 257,
-        "1-2d": 518,
-        "2-7d": 2795,
-        "0-7d": 3570,
-        "7-30d": 2999,
-        "30-90d": 2484,
-        "90-180d": 477,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1362
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 1177
-      },
-      {
-        "company": "Roche",
-        "pending": 586
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 331
-      },
-      {
-        "company": "BKW",
-        "pending": 237
-      },
-      {
-        "company": "PEMSA",
-        "pending": 195
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 192
-      },
-      {
-        "company": "Genossenschaft Migros Ostschweiz",
-        "pending": 186
-      },
-      {
-        "company": "Sulzer",
-        "pending": 183
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 168
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-05T06:48:00.904Z",
     "label": "after",
     "total": 28948,
@@ -19049,6 +18966,100 @@
       "processed": 16,
       "residual": 0,
       "residualRate": 0
+    },
+    "topPending": [
+      {
+        "company": "Roche",
+        "pending": 189
+      },
+      {
+        "company": "PEMSA",
+        "pending": 175
+      },
+      {
+        "company": "Sulzer",
+        "pending": 126
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 73
+      },
+      {
+        "company": "Manor AG",
+        "pending": 69
+      },
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 56
+      },
+      {
+        "company": "Swiss Life",
+        "pending": 55
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 50
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 49
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 37
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-22T20:24:39.421Z",
+    "label": "before",
+    "total": 27417,
+    "needsRetranslation": 1842,
+    "suppressed": 196,
+    "incomplete": 2131,
+    "complete": 25286,
+    "slotsPresent": 25286,
+    "flaggedAmongSlotsPresent": 12,
+    "verifiedTranslated": 25274,
+    "sourceCopyExcused": 655,
+    "slotsPresentByLength": 27298,
+    "languageVerified": 25823,
+    "missingByLocale": {
+      "it": 45,
+      "en": 38,
+      "de": 65,
+      "fr": 67
+    },
+    "queueAge": {
+      "count": 1842,
+      "withTimestamp": 1842,
+      "oldestAgeDays": 162.4,
+      "p50AgeDays": 21.8,
+      "p90AgeDays": 110.8,
+      "buckets": {
+        "0-1d": 18,
+        "1-2d": 130,
+        "2-7d": 290,
+        "0-7d": 438,
+        "7-30d": 721,
+        "30-90d": 394,
+        "90-180d": 289,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 273,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
     },
     "topPending": [
       {

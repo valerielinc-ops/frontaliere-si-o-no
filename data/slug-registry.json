@@ -51239,7 +51239,7 @@
     "createdAt": "2026-06-03",
     "slugByLocale": {
       "en": "project-chef-cvc-80-100-f-h-d-csd-engineers-lausanne",
-      "de": "chef-de-projet-cvc-80-100-f-h-d-csd-engineers-ch",
+      "de": "projektmanager-cvc-80-100-m-w-d-csd-engineers-lausanne",
       "it": "responsabile-del-progetto-cvc-80-100-m-f-d-csd-engineers-lausanne",
       "fr": "chef-de-projet-cvc-80-100-f-h-d-csd-engineers-ch"
     }
@@ -635483,7 +635483,8 @@
     "canonicalSlug": "sommelier-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz",
     "slugByLocale": {
       "de": "sommelier-igniv-m-w-d-grand-resort-bad-ragaz-bad-ragaz",
-      "fr": "donc-igniv-h-f-d-grand-resort-bad-ragaz-bad-ragaz"
+      "fr": "donc-igniv-h-f-d-grand-resort-bad-ragaz-bad-ragaz",
+      "it": "quindi-igniv-m-f-d-grand-resort-bad-ragaz-bad-ragaz"
     },
     "createdAt": "2026-08-27",
     "canton": "SG"
@@ -675778,7 +675779,8 @@
     "slugByLocale": {
       "it": "zurigo-banking-2027-union-bancaire-privee-zurich-switzerland",
       "en": "zurich-banking-2027-union-bancaire-privee-zurich-switzerland",
-      "de": "banklehre-zurich-2027-ubp-ch"
+      "de": "banklehre-zurich-2027-ubp-ch",
+      "fr": "enseignement-bancaire-zurich-2027-union-bancaire-privee-zurich-switzerland"
     },
     "createdAt": "2026-09-08",
     "canton": "ZH"
@@ -705086,7 +705088,8 @@
     "slugByLocale": {
       "en": "senior-expert-engineering-novartis-ch",
       "it": "ingegneria-degli-esperti-senior-novartis-basel-city",
-      "fr": "ingenieur-expert-principal-novartis-basel-city"
+      "fr": "ingenieur-expert-principal-novartis-basel-city",
+      "de": "senior-experte-ingenieurwesen-novartis-basel-city"
     },
     "createdAt": "2026-09-11",
     "canton": "BS"
@@ -762845,7 +762848,8 @@
   "id|nvidia.wd5.myworkdayjobs.com|jr2018869": {
     "canonicalSlug": "senior-solutions-architect-customer-success-and-partnership-nvidia-zurich-ch",
     "slugByLocale": {
-      "en": "senior-solutions-architect-customer-success-and-partnership-nvidia-zurich-ch"
+      "en": "senior-solutions-architect-customer-success-and-partnership-nvidia-zurich-ch",
+      "de": "senior-solutions-architekt-kundenerfolg-und-partnerschaft-nvidia-ufficio-zurich-zurich"
     },
     "createdAt": "2026-09-20",
     "canton": "ZH"
@@ -790349,6 +790353,129 @@
       "en": "junior-operations-specialist-fxmm-pm-treasury-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2027-with-possible-extension-julius-baer",
       "de": "junior-operations-specialist-fxmm-pm-treasury-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-mit",
       "fr": "junior-specialiste-des-operations-fxmm-pm-treasury-100-h-f-d-contractez-par-l-intermediaire-de-notre-partenaire-externe"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11373/pub/1": {
+    "canonicalSlug": "apprendista-t-shaped-it-software-engineering-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "it": "apprendista-t-shaped-it-software-engineering-zurcher-kantonalbank-zurich",
+      "en": "trainee-t-shaped-it-software-engineering-zurcher-kantonalbank-zurich",
+      "de": "trainee-t-shaped-it-software-engineering-zkb-zurich",
+      "fr": "apprenti-t-shaped-it-software-engineering-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11255/pub/5": {
+    "canonicalSlug": "technical-lead-saas-manager-digital-asset-hub-m-w-d-zkb-zurich",
+    "slugByLocale": {
+      "de": "technical-lead-saas-manager-digital-asset-hub-m-w-d-zkb-zurich",
+      "fr": "responsable-technique-saas-manager-digital-asset-hub-m-w-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11374/pub/1": {
+    "canonicalSlug": "senior-fullstack-software-ingegnere-kotlin-java-m-w-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "it": "senior-fullstack-software-ingegnere-kotlin-java-m-w-d-zurcher-kantonalbank-zurich",
+      "de": "senior-fullstack-software-engineer-kotlin-java-m-w-d-zkb-zurich",
+      "fr": "senior-fullstack-software-ingenieur-kotlin-java-m-w-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11311/pub/3": {
+    "canonicalSlug": "business-engineer-digitalization-investment-business-m-f-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "it": "business-engineer-digitalization-investment-business-m-f-d-zurcher-kantonalbank-zurich",
+      "en": "business-engineer-digitalisierung-anlagegeschaft-m-w-d-zurcher-kantonalbank-zurich",
+      "de": "business-engineer-digitalisierung-anlagegeschaft-m-w-d-zkb-zurich",
+      "fr": "ingenieur-d-affaires-digitalisation-investissement-entreprise-h-f-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11367/pub/1": {
+    "canonicalSlug": "partner-di-reclutamento-m-f-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "it": "partner-di-reclutamento-m-f-d-zurcher-kantonalbank-zurich",
+      "de": "recruiting-partner-m-w-d-zkb-zurich",
+      "fr": "partenaire-recruteur-h-f-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://apply.refline.ch/792841/11001/pub/3": {
+    "canonicalSlug": "devops-ingegnere-sap-papm-m-w-d-zurcher-kantonalbank-zurich",
+    "slugByLocale": {
+      "it": "devops-ingegnere-sap-papm-m-w-d-zurcher-kantonalbank-zurich",
+      "en": "devops-engineer-sap-papm-m-w-d-zurcher-kantonalbank-zurich",
+      "de": "devops-engineer-sap-papm-m-w-d-zkb-zurich",
+      "fr": "devops-ingenieur-sap-papm-m-w-d-zurcher-kantonalbank-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://jobs.smartrecruiters.com/oetiker/744000149925798-leiter-einkauf-avor-pps-all-?oga=true": {
+    "canonicalSlug": "responsabile-acquisti-e-avor-pps-tutti-oetiker-horgen-switzerland",
+    "slugByLocale": {
+      "it": "responsabile-acquisti-e-avor-pps-tutti-oetiker-horgen-switzerland",
+      "en": "head-of-purchasing-avor-pps-all-oetiker-horgen-switzerland",
+      "de": "leiter-einkauf-avor-pps-all-oetiker-horgen-switzerland",
+      "fr": "responsable-des-achats-avor-pps-tous-oetiker-horgen-switzerland"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://jobs.smartrecruiters.com/oetiker/744000147421499-junior-firmware-engineer-embedded-systems-c-c-all-?oga=true": {
+    "canonicalSlug": "junior-firmware-ingegnere-embedded-systems-c-c-all-oetiker-horgen",
+    "slugByLocale": {
+      "it": "junior-firmware-ingegnere-embedded-systems-c-c-all-oetiker-horgen",
+      "de": "junior-firmware-engineer-embedded-systems-c-c-all-oetiker-horgen-zh-switzerland",
+      "fr": "junior-firmware-ingenieur-embedded-systems-c-c-all-oetiker-horgen"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://jobs.smartrecruiters.com/oetiker/744000147495900-head-r-d-project-automatic-assembly-tools-oetiker-group-all-?oga=true": {
+    "canonicalSlug": "responsabile-del-progetto-di-r-s-strumenti-di-assemblaggio-automatico-gruppo-oeticiano-tutti-oetiker-horgen-zh",
+    "slugByLocale": {
+      "it": "responsabile-del-progetto-di-r-s-strumenti-di-assemblaggio-automatico-gruppo-oeticiano-tutti-oetiker-horgen-zh",
+      "de": "head-r-d-project-automatic-assembly-tools-oetiker-group-all-oetiker-horgen-zh-switzerland",
+      "fr": "chef-projet-r-d-outils-d-assemblage-automatique-groupe-oetiker-tous-oetiker-horgen-zh-switzerland"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://jobs.smartrecruiters.com/oetiker/744000150080009-lehrstelle-als-polymechaniker-in-efz-all-?oga=true": {
+    "canonicalSlug": "apprendistato-come-efz-polimeccanico-tutti-oetiker-horgen-zh-switzerland",
+    "slugByLocale": {
+      "it": "apprendistato-come-efz-polimeccanico-tutti-oetiker-horgen-zh-switzerland",
+      "en": "apprenticeship-as-polymechanic-efz-all-oetiker-horgen-zh-switzerland",
+      "de": "lehrstelle-als-polymechaniker-in-efz-all-oetiker-horgen-zh-switzerland",
+      "fr": "apprentissage-en-tant-qu-efz-polymecanique-tous-oetiker-horgen-zh-switzerland"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://jobs.smartrecruiters.com/oetiker/744000150313719-head-quality-hse-all-?oga=true": {
+    "canonicalSlug": "qualita-della-testa-hse-tutti-oetiker-horgen-zh-switzerland",
+    "slugByLocale": {
+      "de": "head-quality-hse-all-oetiker-horgen-zh-switzerland",
+      "it": "qualita-della-testa-hse-tutti-oetiker-horgen-zh-switzerland"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://jobs.smartrecruiters.com/oetiker/744000148269569-executive-assistant-ceo-80-100-all-?oga=true": {
+    "canonicalSlug": "amministratore-delegato-80-100-tutti-oetiker-horgen-zh-switzerland",
+    "slugByLocale": {
+      "it": "amministratore-delegato-80-100-tutti-oetiker-horgen-zh-switzerland",
+      "de": "executive-assistant-ceo-80-100-all-oetiker-horgen-zh-switzerland",
+      "fr": "executive-assistant-ceo-80-100-all-oetiker-horgen"
     },
     "createdAt": "2026-09-22",
     "canton": "ZH"
