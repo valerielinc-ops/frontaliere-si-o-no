@@ -1,0 +1,24 @@
+{
+  "companyKey": "tempobrain",
+  "companyName": "Tempobrain AG",
+  "companyHost": "tempobrain.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://tempobrain.ch/offene-stellen/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 63,
+  "sampleTitles": [
+    "<div class=\"elementor-element elementor-element-fc7a9f8 elementor-align-start elementor-mobile-align-start animated-fast elementor-icon-list--layout-inline tb-r",
+    "<div class=\"elementor-element elementor-element-fc7a9f8 elementor-align-start elementor-mobile-align-start animated-fast elementor-icon-list--layout-inline tb-r",
+    "<div class=\"elementor-element elementor-element-fc7a9f8 elementor-align-start elementor-mobile-align-start animated-fast elementor-icon-list--layout-inline tb-r",
+    "<div class=\"elementor-element elementor-element-fc7a9f8 elementor-align-start elementor-mobile-align-start animated-fast elementor-icon-list--layout-inline tb-r",
+    "<div class=\"elementor-element elementor-element-fc7a9f8 elementor-align-start elementor-mobile-align-start animated-fast elementor-icon-list--layout-inline tb-r"
+  ],
+  "canton": "SG",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-22T10:48:51.540Z"
+}
