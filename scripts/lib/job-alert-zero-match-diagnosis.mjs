@@ -8,11 +8,13 @@
  * run for every zero-match alert in a run.
  */
 export const ZERO_MATCH_CAUSES = {
+  NO_ELIGIBLE_CANDIDATES: 'no-eligible-candidates',
   PINNED_JOB_GONE: 'pinned-job-or-company-gone',
   KEYWORD_NARROW: 'keyword-narrow',
   GEO_NARROW: 'geo-narrow',
   KEYWORD_AND_GEO_NARROW: 'keyword-and-geo-narrow',
-  NO_HARD_FILTERS: 'no-hard-filters',
+  SOFT_PROFILE_NARROW: 'soft-profile-narrow',
+  EMPTY_PROFILE: 'empty-profile',
 };
 
 /**
@@ -41,7 +43,10 @@ export function getZeroMatchMonitorAction({
   return zeroMatchCount / alertCount > threshold ? 'report' : 'resolve';
 }
 
-export function classifyZeroMatchCause(profile) {
+export function classifyZeroMatchCause(profile, { eligibleCandidateCount } = {}) {
+  if (eligibleCandidateCount === 0) {
+    return ZERO_MATCH_CAUSES.NO_ELIGIBLE_CANDIDATES;
+  }
   const p = profile || {};
   if ((p.specificJobIds?.length ?? 0) > 0 || p.specificCompanyKey) {
     return ZERO_MATCH_CAUSES.PINNED_JOB_GONE;
@@ -51,5 +56,45 @@ export function classifyZeroMatchCause(profile) {
   if (hasKeywords && hasGeo) return ZERO_MATCH_CAUSES.KEYWORD_AND_GEO_NARROW;
   if (hasKeywords) return ZERO_MATCH_CAUSES.KEYWORD_NARROW;
   if (hasGeo) return ZERO_MATCH_CAUSES.GEO_NARROW;
-  return ZERO_MATCH_CAUSES.NO_HARD_FILTERS;
+  const hasSoftProfile = (p.softTokens?.size ?? 0) > 0
+    || Boolean(p.company)
+    || (p.locations?.length ?? 0) > 0
+    || (p.sectors?.length ?? 0) > 0
+    || (p.contractTypes?.length ?? 0) > 0;
+  return hasSoftProfile
+    ? ZERO_MATCH_CAUSES.SOFT_PROFILE_NARROW
+    : ZERO_MATCH_CAUSES.EMPTY_PROFILE;
+}
+
+/**
+ * Aggregate matcher health without treating an empty recipient-aware candidate
+ * window as a filtering failure. Those alerts remain visible as a separate
+ * count, but only alerts that reached scoring belong in the rate denominator.
+ */
+export function summarizeZeroMatchPlans(plans = []) {
+  const zeroMatchByCause = {};
+  let evaluatedAlertCount = 0;
+  let noEligibleCandidateCount = 0;
+  let zeroMatchCount = 0;
+
+  for (const plan of plans) {
+    if ((plan?.candidateCount ?? 0) === 0) {
+      noEligibleCandidateCount += 1;
+      continue;
+    }
+    evaluatedAlertCount += 1;
+    if ((plan?.rankedCount ?? 0) > 0) continue;
+    zeroMatchCount += 1;
+    const cause = plan?.zeroCause || ZERO_MATCH_CAUSES.EMPTY_PROFILE;
+    zeroMatchByCause[cause] = (zeroMatchByCause[cause] || 0) + 1;
+  }
+
+  return {
+    alertCount: plans.length,
+    evaluatedAlertCount,
+    noEligibleCandidateCount,
+    zeroMatchCount,
+    zeroMatchRate: evaluatedAlertCount > 0 ? zeroMatchCount / evaluatedAlertCount : null,
+    zeroMatchByCause,
+  };
 }
