@@ -1693,12 +1693,13 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
   steps.push({
     name: 'Commit crawler group data atomically',
     // The reusable workflow keeps a coordinate-derived token only as a
-    // diagnostic fallback for legacy callers. The aggregate is the
-    // pre-publish, fail-closed terminal barrier: every crawler result remains
-    // continue-on-error so siblings can finish, while the explicit
-    // `wait_outcome` prevents a partial batch from reaching main. The finalizer
-    // below is deliberately post-push and verifies receipt persistence.
-    if: "always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success' && steps.crawler_aggregate.outputs.wait_outcome == 'success'",
+    // diagnostic fallback for legacy callers. The aggregate records every
+    // member's terminal outcome, but a failed/missing member has no descriptor
+    // to publish: `--group-batch` therefore publishes only data explicitly
+    // produced by successful siblings. The finalizer below receives the
+    // aggregate `wait_outcome` and remains fail-closed for the group manifest;
+    // the gate after it keeps the workflow red until incomplete members recover.
+    if: "always() && inputs.generation_token != '' && job.status == 'success' && steps.crawler_group_setup.outcome == 'success' && steps.crawler_aggregate.outcome == 'success'",
     // PUSH-CONTENTION CLASS (exit 42 from git-commit-data.sh, see
     // commit_isolated_from_worktree): with `--group-batch`, GROUP_BATCH=true
     // takes it out of the sequential soft-success path (JOBS_SLICE_FILE
