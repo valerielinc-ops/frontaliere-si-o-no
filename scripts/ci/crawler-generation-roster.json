@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 23,
-  "crawlerCount": 619,
+  "crawlerCount": 620,
   "groups": {
     "10": [
       "atec-personal",
@@ -402,6 +402,7 @@
     "23": [
       "albergo-gardenia",
       "artificialy",
+      "brefispersonal",
       "capri-holdings",
       "confederazione-ticino",
       "csd-engineers",
@@ -748,6 +749,7 @@
     "bps-suisse": "data/jobs/by-crawler/bps-suisse.json",
     "bracco": "data/jobs/by-crawler/bracco.json",
     "brack-alltron": "data/jobs/by-crawler/brack-alltron.json",
+    "brefispersonal": "data/jobs/by-crawler/brefispersonal.json",
     "breitling": "data/jobs/by-crawler/breitling.json",
     "bucher-suter": "data/jobs/by-crawler/bucher-suter.json",
     "bucherer": "data/jobs/by-crawler/bucherer.json",
@@ -1290,5 +1292,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:8f7e8bb82ebe25a6cd77d399280afed46f0a7701d4db85b2021865a80b9f979d"
+  "digest": "sha256:9ae4b471f53fccec6a2dd40615d1647042a49098fba20733d1323f37b29ad5d2"
 }
