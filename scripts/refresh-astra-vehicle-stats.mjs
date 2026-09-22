@@ -23,6 +23,7 @@ const FIRESTORE_COLLECTION = "config";
 const FIRESTORE_DOC = "astra_vehicle_stats";
 const FETCH_TIMEOUT_MS = 45 * 60 * 1000;
 const HISTORY_LIMITS = Object.freeze({ weekly: 26, monthly: 24 });
+const ARTICLE_OUTBOX_LIMIT = 100;
 
 function logInfo(message) {
   console.error(`ℹ️  ${message}`);
@@ -313,6 +314,83 @@ function previousPeriod(previous, section) {
   return previous?.[section]?.latest?.period || null;
 }
 
+function articleOutboxKey(cadence, period, section) {
+  return `${cadence}/${period}/${section}`;
+}
+
+function articleOutboxUrl(cadence, period, section) {
+  return `stats-astra://${cadence}/${encodeURIComponent(period)}/${section}`;
+}
+
+/**
+ * Keep article dispatch separate from the current data snapshot. The refresh
+ * must be allowed to fail after Firestore has been updated without losing the
+ * one-shot signal for the next run.
+ */
+function buildArticleOutbox(previous, weeklyLatest, monthlyLatest, generatedAt) {
+  const entries = new Map();
+  for (const entry of Array.isArray(previous?.articleOutbox)
+    ? previous.articleOutbox
+    : []) {
+    if (!entry?.key || !entry?.url) continue;
+    if (entry.status !== "pending" && entry.status !== "dispatched") continue;
+    entries.set(String(entry.key), { ...entry });
+  }
+
+  const enqueue = (cadence, period, section, previousValue) => {
+    if (!previousValue || !period || previousValue === period) return;
+    const key = articleOutboxKey(cadence, period, section);
+    if (entries.has(key)) return;
+    entries.set(key, {
+      key,
+      cadence,
+      period,
+      section,
+      url: articleOutboxUrl(cadence, period, section),
+      status: "pending",
+      createdAt: generatedAt,
+    });
+  };
+
+  enqueue(
+    "weekly",
+    weeklyLatest.period,
+    "frontaliere",
+    previousPeriod(previous, "weekly"),
+  );
+  const previousMonth = previousPeriod(previous, "monthly");
+  enqueue("monthly", monthlyLatest.period, "svizzera", previousMonth);
+  enqueue("monthly", monthlyLatest.period, "frontaliere", previousMonth);
+
+  const sorted = [...entries.values()]
+    .sort((a, b) => {
+      const byDate = String(a.createdAt || "").localeCompare(String(b.createdAt || ""));
+      return byDate || String(a.key).localeCompare(String(b.key));
+    });
+  const pending = sorted.filter((entry) => entry.status === "pending");
+  const delivered = sorted.filter((entry) => entry.status === "dispatched");
+  const deliveredSlots = Math.max(0, ARTICLE_OUTBOX_LIMIT - pending.length);
+  return [
+    ...(deliveredSlots > 0 ? delivered.slice(-deliveredSlots) : []),
+    ...pending,
+  ].sort((a, b) => {
+    const byDate = String(a.createdAt || "").localeCompare(String(b.createdAt || ""));
+    return byDate || String(a.key).localeCompare(String(b.key));
+  });
+}
+
+function pendingArticleUrls(outbox, cadence, section) {
+  return outbox
+    .filter(
+      (entry) =>
+        entry.status === "pending" &&
+        entry.cadence === cadence &&
+        entry.section === section,
+    )
+    .map((entry) => entry.url)
+    .join(" ");
+}
+
 async function main() {
   if (!admin.apps.length) {
     admin.initializeApp({
@@ -357,6 +435,12 @@ async function main() {
       gebr: loaded.gebr.source,
     },
   );
+  const articleOutbox = buildArticleOutbox(
+    previous,
+    weeklyLatest,
+    monthlyLatest,
+    now,
+  );
   const daily = {
     dataAsOf:
       loaded.stnr.data.dataAsOf || loaded.stnr.source.lastModified || null,
@@ -386,6 +470,7 @@ async function main() {
         HISTORY_LIMITS.monthly,
       ),
     },
+    articleOutbox,
     sources: Object.fromEntries(
       definitions.map(([key]) => [key, loaded[key].source]),
     ),
@@ -457,6 +542,18 @@ async function main() {
   emitOutput("latest_month", monthlyLatest.period);
   emitOutput("new_week", newWeek);
   emitOutput("new_month", newMonth);
+  emitOutput(
+    "pending_week",
+    pendingArticleUrls(articleOutbox, "weekly", "frontaliere"),
+  );
+  emitOutput(
+    "pending_month_ch",
+    pendingArticleUrls(articleOutbox, "monthly", "svizzera"),
+  );
+  emitOutput(
+    "pending_month_ti",
+    pendingArticleUrls(articleOutbox, "monthly", "frontaliere"),
+  );
   emitOutput("daily_changed", daily.signal ? "true" : "false");
   emitOutput("daily_total", String(daily.national.total));
   emitOutput("daily_electric", String(daily.national.electric));

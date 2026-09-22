@@ -73,6 +73,9 @@ jobs:
           LATEST_MONTH: ${{ steps.refresh.outputs.latest_month }}
           NEW_WEEK: ${{ steps.refresh.outputs.new_week }}
           NEW_MONTH: ${{ steps.refresh.outputs.new_month }}
+          PENDING_WEEK: ${{ steps.refresh.outputs.pending_week }}
+          PENDING_MONTH_CH: ${{ steps.refresh.outputs.pending_month_ch }}
+          PENDING_MONTH_TI: ${{ steps.refresh.outputs.pending_month_ti }}
           TICINO_STOCK: ${{ steps.refresh.outputs.ticino_stock }}
           TICINO_WEEKLY: ${{ steps.refresh.outputs.ticino_weekly }}
           DAILY_CHANGED: ${{ steps.refresh.outputs.daily_changed }}
@@ -97,55 +100,88 @@ jobs:
             echo "| Daily STNR average CO₂ | ${DAILY_AVERAGE_CO2:-n/a} |"
             echo "| New week signal | \`${NEW_WEEK:-none}\` |"
             echo "| New month signal | \`${NEW_MONTH:-none}\` |"
+            echo "| Pending weekly articles | \`${PENDING_WEEK:-none}\` |"
+            echo "| Pending monthly CH articles | \`${PENDING_MONTH_CH:-none}\` |"
+            echo "| Pending monthly TI articles | \`${PENDING_MONTH_TI:-none}\` |"
           } >> "$GITHUB_STEP_SUMMARY"
 
       - name: Dispatch weekly Ticino article
         id: dispatch_week
-        if: steps.refresh.outputs.new_week != ''
+        if: steps.refresh.outputs.pending_week != ''
         continue-on-error: true
         env:
-          NEW_WEEK: ${{ steps.refresh.outputs.new_week }}
+          PENDING_WEEK: ${{ steps.refresh.outputs.pending_week }}
         run: |
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
             exit 1
           fi
-          GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-            --repo nanakokyobashi-rgb/frontaliere-articles \
-            -f url="stats-astra://weekly/${NEW_WEEK}/frontaliere" \
-            -f section=frontaliere
+          failed=0
+          for url in $PENDING_WEEK; do
+            if GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+              --repo nanakokyobashi-rgb/frontaliere-articles \
+              -f url="$url" \
+              -f section=frontaliere; then
+              if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
+                failed=1
+              fi
+            else
+              failed=1
+            fi
+          done
+          exit "$failed"
 
       - name: Dispatch monthly Switzerland article
         id: dispatch_month_ch
-        if: steps.refresh.outputs.new_month != ''
+        if: steps.refresh.outputs.pending_month_ch != ''
         continue-on-error: true
         env:
-          NEW_MONTH: ${{ steps.refresh.outputs.new_month }}
+          PENDING_MONTH_CH: ${{ steps.refresh.outputs.pending_month_ch }}
         run: |
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
             exit 1
           fi
-          GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-            --repo nanakokyobashi-rgb/frontaliere-articles \
-            -f url="stats-astra://monthly/${NEW_MONTH}/svizzera" \
-            -f section=svizzera
+          failed=0
+          for url in $PENDING_MONTH_CH; do
+            if GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+              --repo nanakokyobashi-rgb/frontaliere-articles \
+              -f url="$url" \
+              -f section=svizzera; then
+              if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
+                failed=1
+              fi
+            else
+              failed=1
+            fi
+          done
+          exit "$failed"
 
       - name: Dispatch monthly Ticino article
         id: dispatch_month_ti
-        if: steps.refresh.outputs.new_month != ''
+        if: steps.refresh.outputs.pending_month_ti != ''
         continue-on-error: true
         env:
-          NEW_MONTH: ${{ steps.refresh.outputs.new_month }}
+          PENDING_MONTH_TI: ${{ steps.refresh.outputs.pending_month_ti }}
         run: |
           if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
             echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
             exit 1
           fi
-          GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
-            --repo nanakokyobashi-rgb/frontaliere-articles \
-            -f url="stats-astra://monthly/${NEW_MONTH}/frontaliere" \
-            -f section=frontaliere
+          failed=0
+          for url in $PENDING_MONTH_TI; do
+            if GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+              --repo nanakokyobashi-rgb/frontaliere-articles \
+              -f url="$url" \
+              -f section=frontaliere; then
+              if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
+                failed=1
+              fi
+            else
+              failed=1
+            fi
+          done
+          exit "$failed"
 
       - name: Fail loudly if an article dispatch failed
         if: >-
