@@ -673,7 +673,6 @@
           "psychologue-specialise-ou-specialisee-en-psychotherapie-crans-montana-80-hug-crans-montana"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-24T11:11:50.827Z",
       "salaryMin": 69200,
       "salaryMax": 96400,
@@ -755,7 +754,6 @@
           "medecin-adjointe-ou-adjoint-a-l-unite-de-medecine-de-la-reproduction-et-d-endocrinologie"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-18T09:49:51.686Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -1332,7 +1330,6 @@
           "medecin-adjoint-ou-adjointe-ou-chef-ou-cheffe-de-clinique-avec-titre-a-l-adjoint-agrege-responsable-d-unite-de-medecine-subaquatique-et-hyperbare-60-a-100-hug-geneve"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:40:16.322Z",
       "salaryMin": 69900,
       "salaryMax": 97500,
@@ -1728,7 +1725,6 @@
           "dieteticien-ou-dieteticienne-100-hug-chene-bourg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T23:12:49.371Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -2137,7 +2133,6 @@
           "stage-pre-hes-informatique-et-systeme-de-communication-100-hug-carouge"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:54:47.890Z",
       "salaryMin": 57000,
       "salaryMax": 97000,
@@ -2325,7 +2320,7 @@
       "companyDomain": "hug.ch",
       "title": "Collaborateur ou Collaboratrice scientifique - 100%",
       "titleByLocale": {
-        "it": "Collaborateur ou Collaboratrice scientifique - 100%",
+        "it": "Collaboratore o Collaboratore Scientifico - 100%",
         "en": "Collaborator or Scientific Collaborator - 100%",
         "de": "Mitarbeiter oder wissenschaftlicher Mitarbeiter - 100%",
         "fr": "Collaborateur ou Collaboratrice scientifique - 100%"
@@ -2375,7 +2370,6 @@
           "collaborateur-ou-collaboratrice-scientifique-100-hug-geneve"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:54:47.884Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -2534,7 +2528,6 @@
           "psychologue-50-hug-geneve"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:54:47.877Z",
       "salaryMin": 43300,
       "salaryMax": 60300,
@@ -2679,18 +2672,27 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistante-ou-assistant-de-direction-100-hug-geneve",
-        "assistente-o-assistente-esecutivo-100-hug-geneve-990b04"
+        "assistente-o-assistente-esecutivo-100-hug-geneve-990b04",
+        "assistente-o-assistente-esecutivo-100-hug-geneve",
+        "assistant-or-executive-assistant-100-hug-geneve",
+        "assistante-ou-assistant-de-direction-100-hug-geneve-o5ppxb"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistante-ou-assistant-de-direction-100-hug-geneve",
-          "assistente-o-assistente-esecutivo-100-hug-geneve-990b04"
+          "assistente-o-assistente-esecutivo-100-hug-geneve-990b04",
+          "assistente-o-assistente-esecutivo-100-hug-geneve",
+          "assistant-or-executive-assistant-100-hug-geneve",
+          "assistante-ou-assistant-de-direction-100-hug-geneve-o5ppxb"
         ],
         "en": [
-          "assistante-ou-assistant-de-direction-100-hug-geneve"
+          "assistante-ou-assistant-de-direction-100-hug-geneve",
+          "assistant-or-executive-assistant-100-hug-geneve"
+        ],
+        "de": [
+          "assistante-ou-assistant-de-direction-100-hug-geneve-o5ppxb"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:54:47.875Z",
       "salaryMin": 86500,
       "salaryMax": 120500,
@@ -3308,8 +3310,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "hug-80644fb85d69",
@@ -3387,8 +3388,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "hug-39bf8163296b",
@@ -3475,7 +3475,7 @@
         "it": "ingegnere-di-qualita-del-gas-medico-trattamento-dell-acqua-e-servizi-igienici-100-hug-geneve",
         "en": "medical-gas-quality-engineer-water-treatment-and-sanitation-100-hug-geneve",
         "de": "medizinischer-gasqualitatsingenieur-wasseraufbereitung-und-abwasserentsorgung-100-hug-geneve",
-        "fr": "ingenieure-ou-ingenieur-qualite-gaz-medicaux-traitement-d-eau-et-sanitaire-100-hug-geneve"
+        "fr": "ingenieure-ou-ingenieur-qualite-gaz-medicaux-traitement-d-eau-et-sanitaire-100-hug-geneve-ovhk9w"
       },
       "company": "HUG",
       "companyKey": "hug",
@@ -3527,6 +3527,9 @@
           "ingenieure-ou-ingenieur-qualite-gaz-medicaux-traitement-d-eau-et-sanitaire-100-hug-geneve"
         ],
         "de": [
+          "ingenieure-ou-ingenieur-qualite-gaz-medicaux-traitement-d-eau-et-sanitaire-100-hug-geneve"
+        ],
+        "fr": [
           "ingenieure-ou-ingenieur-qualite-gaz-medicaux-traitement-d-eau-et-sanitaire-100-hug-geneve"
         ]
       },

@@ -1,106 +1,5 @@
 [
   {
-    "timestamp": "2026-09-04T17:01:06.843Z",
-    "label": "after",
-    "total": 28978,
-    "needsRetranslation": 12340,
-    "suppressed": 103,
-    "incomplete": 13115,
-    "complete": 15863,
-    "slotsPresent": 15863,
-    "flaggedAmongSlotsPresent": 0,
-    "verifiedTranslated": 15863,
-    "sourceCopyExcused": 777,
-    "slotsPresentByLength": 28498,
-    "languageVerified": 16754,
-    "missingByLocale": {
-      "it": 3045,
-      "en": 2467,
-      "de": 951,
-      "fr": 2500
-    },
-    "queueAge": {
-      "count": 12340,
-      "withTimestamp": 12340,
-      "oldestAgeDays": 144.3,
-      "p50AgeDays": 12.2,
-      "p90AgeDays": 72.8,
-      "buckets": {
-        "0-1d": 375,
-        "1-2d": 505,
-        "2-7d": 2797,
-        "0-7d": 3677,
-        "7-30d": 4420,
-        "30-90d": 3429,
-        "90-180d": 814,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": {
-      "count": 0,
-      "withTimestamp": 0,
-      "oldestAgeDays": null,
-      "p50AgeDays": null,
-      "p90AgeDays": null,
-      "buckets": {
-        "0-1d": 0,
-        "1-2d": 0,
-        "2-7d": 0,
-        "0-7d": 0,
-        "7-30d": 0,
-        "30-90d": 0,
-        "90-180d": 0,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "topPending": [
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 1770
-      },
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1394
-      },
-      {
-        "company": "Roche",
-        "pending": 689
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 343
-      },
-      {
-        "company": "Migros Restaurant",
-        "pending": 278
-      },
-      {
-        "company": "BKW",
-        "pending": 244
-      },
-      {
-        "company": "Sulzer",
-        "pending": 213
-      },
-      {
-        "company": "PEMSA",
-        "pending": 203
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 196
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 195
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-04T19:33:33.780Z",
     "label": "before",
     "total": 28971,
@@ -19031,6 +18930,100 @@
       {
         "company": "Stadt Zürich",
         "pending": 108
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-22T01:20:15.054Z",
+    "label": "before",
+    "total": 27420,
+    "needsRetranslation": 10861,
+    "suppressed": 215,
+    "incomplete": 4896,
+    "complete": 22524,
+    "slotsPresent": 22524,
+    "flaggedAmongSlotsPresent": 6381,
+    "verifiedTranslated": 16143,
+    "sourceCopyExcused": 707,
+    "slotsPresentByLength": 27196,
+    "languageVerified": 23388,
+    "missingByLocale": {
+      "it": 863,
+      "en": 706,
+      "de": 452,
+      "fr": 771
+    },
+    "queueAge": {
+      "count": 10861,
+      "withTimestamp": 10861,
+      "oldestAgeDays": 161.6,
+      "p50AgeDays": 27.6,
+      "p90AgeDays": 111,
+      "buckets": {
+        "0-1d": 705,
+        "1-2d": 0,
+        "2-7d": 1308,
+        "0-7d": 2013,
+        "7-30d": 3591,
+        "30-90d": 3430,
+        "90-180d": 1827,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 2757,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
+    },
+    "topPending": [
+      {
+        "company": "Roche",
+        "pending": 387
+      },
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 200
+      },
+      {
+        "company": "Sulzer",
+        "pending": 190
+      },
+      {
+        "company": "PEMSA",
+        "pending": 175
+      },
+      {
+        "company": "ACTIV FITNESS",
+        "pending": 167
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 159
+      },
+      {
+        "company": "Anker Swiss Ticino AG",
+        "pending": 144
+      },
+      {
+        "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+        "pending": 124
+      },
+      {
+        "company": "Hirslanden Klinik",
+        "pending": 111
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 100
       }
     ]
   }
