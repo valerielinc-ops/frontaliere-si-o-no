@@ -69,9 +69,66 @@ describe('detectChurnAnomalies', () => {
 
     const anomalies = detectChurnAnomalies(history);
     expect(anomalies).toHaveLength(1);
-    expect(anomalies[0]).toMatchObject({ date: '2026-08-24', metric: 'added', observed: 3779 });
+    expect(anomalies[0]).toMatchObject({
+      date: '2026-08-24',
+      metric: 'added',
+      observed: 3779,
+      churnShape: 'single-source-added',
+    });
     expect(anomalies[0].issueTitle).toMatch(/^\[job-dataset-churn\] added spike [a-f0-9]{10}: www\.fachkraft\.ch$/);
     expect(anomalies[0].topHosts[0]).toEqual({ host: 'www.fachkraft.ch', count: 3015 });
+    expect(anomalies[0].hostChurn[0]).toMatchObject({
+      host: 'www.fachkraft.ch',
+      added: 3015,
+      removed: 0,
+      total: 3015,
+    });
+  });
+
+  it('classifies a distributed addition separately from same-source replacement (#9397)', () => {
+    const baseline = Array.from({ length: 10 }, (_, i) => quietEntry(daysAgo(10 - i), 500, 500));
+    const today = {
+      date: daysAgo(0),
+      totalJobs: 26979,
+      added: 2463,
+      removed: 3591,
+      addedKeys: [
+        ...addedKeysFor('jobs.coopjobs.ch', 600),
+        ...addedKeysFor('jobs.admin.ch', 600),
+        ...addedKeysFor('jobs.example-workday.ch', 600),
+        ...addedKeysFor('jobs.solique.ch', 600),
+        ...addedKeysFor('jobs.stadt-zuerich.ch', 63),
+      ],
+      removedKeys: addedKeysFor('www.fachkraft.ch', 2731),
+    };
+
+    const addedAnomaly = detectChurnAnomalies({ entries: [...baseline, today] })
+      .find((anomaly) => anomaly.metric === 'added');
+
+    expect(addedAnomaly).toMatchObject({
+      observed: 2463,
+      churnShape: 'distributed-added',
+    });
+    expect(addedAnomaly.hostChurn.some((item) => item.host === 'www.fachkraft.ch' && item.removed > 0)).toBe(true);
+  });
+
+  it('marks a shared host on both sides as same-source replacement', () => {
+    const baseline = Array.from({ length: 10 }, (_, i) => quietEntry(daysAgo(10 - i), 500, 500));
+    const today = {
+      ...quietEntry(daysAgo(0), 3000, 3200),
+      addedKeys: addedKeysFor('jobs.example.com', 3000),
+      removedKeys: addedKeysFor('jobs.example.com', 3200),
+    };
+
+    const addedAnomaly = detectChurnAnomalies({ entries: [...baseline, today] })
+      .find((anomaly) => anomaly.metric === 'added');
+
+    expect(addedAnomaly?.churnShape).toBe('same-source-replacement');
+    expect(addedAnomaly?.hostChurn[0]).toMatchObject({
+      host: 'jobs.example.com',
+      added: 3000,
+      removed: 3200,
+    });
   });
 
   it('keeps one cross-day issue key for the same metric and host, but separates new hosts (#6720)', () => {
@@ -111,6 +168,7 @@ describe('detectChurnAnomalies', () => {
     expect(workflow).toContain(
       'title=$(jq -r ".[${i}].issueTitle" data/job-dataset-churn-issues.json)',
     );
+    expect(workflow).toContain('Churn shape: ${shape}; host action profile: ${profile:-n/a}');
     expect(workflow).not.toContain('title="[job-dataset-churn] ${date}: ${metric} spike"');
   });
 
