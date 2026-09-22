@@ -251,7 +251,7 @@ jobs:
 
       - name: Upload D18 bounded artifact
         if: always()
-        uses: actions/upload-artifact@v4
+        uses: actions/upload-artifact@v7
         with:
           name: employer-insights-d18-${{ github.run_id }}
           path: /tmp/employer-insights-d18.json
