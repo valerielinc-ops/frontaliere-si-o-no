@@ -153,7 +153,6 @@ function isManagedReview(review) {
   if (!review || typeof review !== 'object') return false;
   const state = String(review.state || '').toUpperCase();
   if (state === 'PENDING' || state === 'DISMISSED') return false;
-  if (review.user?.type !== 'Bot') return false;
   // Stessa allowlist dei gate (constants.mjs di ciascun repo); il marker Codex
   // resta locale perche' solo il corpus lo esporta.
   if (isReviewerBot(review.user)) return true;
