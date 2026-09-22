@@ -1,21 +1,21 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-09-21T16:08:24.793Z",
-  "total": 4,
+  "generatedAt": "2026-09-22T00:09:15.351Z",
+  "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
-  "written": 4,
+  "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5670,
-  "avgDurationMs": 5670,
+  "unchangedCount": 0,
+  "durationMs": 6168,
+  "avgDurationMs": 6168,
   "durationHistory": [
-    5670
+    6168
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:08:15.513Z",
+      "crawledAt": "2026-09-22T00:09:05.853Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -52,6 +52,7 @@
         "identifier": "",
         "hiringOrganization": "Somedia Promotion AG"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:15:11.091Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -73,7 +74,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:08:16.524Z",
+      "crawledAt": "2026-09-22T00:09:06.922Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,7 +95,7 @@
         "identifier": "",
         "hiringOrganization": "Südostschweiz TV AG"
       },
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:17:28.751Z",
       "_qualityScore": 89,
       "_qualityBreakdown": {
@@ -116,7 +117,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:08:17.336Z",
+      "crawledAt": "2026-09-22T00:09:07.771Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -137,6 +138,7 @@
         "identifier": "",
         "hiringOrganization": "communicaziun.ch ag"
       },
+      "needsRetranslation": false,
       "firstSeenAt": "2026-05-17T11:04:21.105Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -148,53 +150,5 @@
     }
   ],
   "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "somedia-345d69d9296c",
-      "slug": "apprendistato-come-kaufmann-frau-cfc-marketing-kommunikation-2027-somedia-ag-ilanz",
-      "company": "Somedia AG",
-      "companyKey": "somedia",
-      "companyDomain": "somedia.ch",
-      "title": "Lehrstelle als Kaufmann/-frau EFZ Marketing & Kommunikation 2027",
-      "location": "Ilanz",
-      "canton": "GR",
-      "url": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-j398.html",
-      "source": "Somedia AG Dedicated Parser (Rexx Systems)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:58:59.962Z",
-      "addressLocality": "Ilanz",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "7130",
-      "streetAddress": "Glennerstrasse 17",
-      "category": "Tecnica",
-      "sector": "Media / Editoria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-09",
-      "validThrough": "2027-03-01",
-      "applyUrl": "https://jobs.somedia.ch/Lehrstelle-als-Kaufmann-frau-EFZ-Marketing-Kommunikation-2-de-f398.html",
-      "_somediaMeta": {
-        "rexxId": "398",
-        "identifier": "",
-        "hiringOrganization": "communicaziun.ch ag"
-      },
-      "firstSeenAt": "2026-06-09T23:08:48.087Z",
-      "salaryMin": 46500,
-      "salaryMax": 70500,
-      "salarySource": "estimated",
-      "addressRegion": "GR",
-      "crawlerMissStreak": 1,
-      "_qualityScore": 96,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 21,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ]
+  "unchangedJobs": []
 }
