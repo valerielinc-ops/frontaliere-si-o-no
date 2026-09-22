@@ -157,6 +157,7 @@ describe('handleAssistedApplicationAdmin', () => {
         jobId: 'job-1', jobUrl: 'https://jobs.example.test/job-1', companyName: 'ACME SA',
         jobTitle: 'Developer', paymentStatus: 'paid', amountTotal: 99, currency: 'eur',
         submissionStatus: 'ready_for_manual_submission', cvStorageKey: 'assisted-application-uploads/ready/cv.pdf',
+        cvScanStatus: 'clean',
         consentVersion: 'assisted-application-v1', consentedAt: '2026-09-15T10:00:00.000Z',
         createdAt: '2026-09-15T10:00:00.000Z',
       },
@@ -176,6 +177,35 @@ describe('handleAssistedApplicationAdmin', () => {
     });
     expect(result.body.orders[0].cvStorageKey).toBeUndefined();
     expect(mocks.resolveCvLink).toHaveBeenCalledWith('assisted-application-uploads/ready/cv.pdf');
+  });
+
+  it('keeps unscanned, pending and infected CVs out of the admin queue', async () => {
+    const database = makeDb({
+      clean: {
+        paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
+        cvStorageKey: 'assisted-application-uploads/clean/cv.pdf', cvScanStatus: 'clean',
+      },
+      missing: {
+        paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
+        cvStorageKey: 'assisted-application-uploads/missing/cv.pdf',
+      },
+      pending: {
+        paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
+        cvStorageKey: 'assisted-application-uploads/pending/cv.pdf', cvScanStatus: 'pending',
+      },
+      infected: {
+        paymentStatus: 'paid', submissionStatus: 'ready_for_manual_submission',
+        cvStorageKey: 'assisted-application-uploads/infected/cv.pdf', cvScanStatus: 'infected',
+      },
+    });
+    mocks.getAdminDb.mockReturnValue(database.db);
+
+    const result = await handleAssistedApplicationAdmin(request());
+
+    expect(result.status).toBe(200);
+    expect(result.body.orders.map((order: any) => order.orderId)).toEqual(['clean']);
+    expect(mocks.resolveCvLink).toHaveBeenCalledTimes(1);
+    expect(mocks.resolveCvLink).toHaveBeenCalledWith('assisted-application-uploads/clean/cv.pdf');
   });
 
   it('records a completed transition and rejects submitted → awaiting_upload', async () => {
