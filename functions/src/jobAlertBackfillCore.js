@@ -464,19 +464,32 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
   const contextKeywords = isJobBoardRegistration
     ? [...new Set([
       data?.job_search_query,
-      data?.job_category,
       data?.job_title,
     ].map((value) => String(value || '').trim()).filter(Boolean))]
     : [];
   const contextLocations = isJobBoardRegistration && data?.job_location
     ? [String(data.job_location).trim()]
     : [];
-  const contextSectors = isJobBoardRegistration && data?.sector_interest
-    ? [String(data.sector_interest).trim()]
+  const contextSectors = isJobBoardRegistration
+    ? [...new Set([
+      data?.job_category,
+      data?.sector_interest,
+    ].map((value) => String(value || '').trim()).filter(Boolean))]
     : [];
   const existingKeywords = Array.isArray(existingBackfill?.keywords) ? existingBackfill.keywords : [];
   const existingLocations = Array.isArray(existingBackfill?.locations) ? existingBackfill.locations : [];
   const existingSectors = Array.isArray(existingBackfill?.sectors) ? existingBackfill.sectors : [];
+  const normalizeCriterion = (value) => String(value || '').trim().toLowerCase();
+  const explicitKeywordKeys = new Set(contextKeywords.map(normalizeCriterion));
+  const generatedTaxonomyKeys = new Set(contextSectors.map(normalizeCriterion));
+  // Older backfills copied job_category into keywords, making a broad taxonomy
+  // value a HARD lexical OR. Remove only those generated values; preserve every
+  // other existing criterion, plus a taxonomy word the user also typed as the
+  // actual search query/title.
+  const preservedExistingKeywords = existingKeywords.filter((value) => {
+    const key = normalizeCriterion(value);
+    return key && (!generatedTaxonomyKeys.has(key) || explicitKeywordKeys.has(key));
+  });
   const tierSuffix =
     tier === 'location-fallback' || tier === 'personalization-fallback' || tier === 'url-fallback'
       ? `:${tier}`
@@ -487,7 +500,7 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
     // A job-board registration starts from the exact job/search context that
     // opened the gate. Newsletter registrations intentionally stay broad and
     // use the evolving profile/personalization signals instead.
-    keywords: existingKeywords.length > 0 ? existingKeywords : contextKeywords,
+    keywords: preservedExistingKeywords.length > 0 ? preservedExistingKeywords : contextKeywords,
     locations: existingLocations.length > 0 ? existingLocations : contextLocations,
     contractTypes: [],
     sectors: existingSectors.length > 0 ? existingSectors : contextSectors,
