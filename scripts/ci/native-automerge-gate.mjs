@@ -3,10 +3,10 @@
  *
  * GitHub's native auto-merge remains the merger. This helper is only the
  * fail-closed opt-in gate: it must see the first terminal approving
- * Claude/frontaliere reviewer-bot verdict on the current HEAD (or an
- * explicitly marked Codex fallback with structured review-gate evidence) and
- * a completed required Vitest check on that HEAD before calling
- * `gh pr merge --auto`. A later same-HEAD review cannot revoke a clean LGTM.
+ * review verdict on the current HEAD and a completed required Vitest check on
+ * that HEAD before calling `gh pr merge --auto`. Reviewer author identity is
+ * deliberately not part of this admission predicate. A later same-HEAD
+ * review cannot revoke a clean LGTM.
  * The required check is the complete `tests` job. An older SHA is never
  * carried forward.
  */
@@ -32,7 +32,6 @@ import {
   latestCompletedRunSelectionByName,
 } from './lib/vitestCheck.mjs';
 import {
-  CODEX_FALLBACK_REVIEW_MARKER,
   firstTerminalBotReviewOnHead,
   isTerminalManagedReview,
   parseReviewPages,
@@ -54,8 +53,6 @@ export {
 
 const TESTS_WORKFLOW_PATH = '.github/workflows/tests.yml';
 const TESTS_WORKFLOW_EVENT = 'pull_request';
-const TEST_ONLY_REVIEW_BOT_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/i;
-const CODEX_FALLBACK_REVIEWER_RE = /^github-actions\[bot\]$/i;
 // Explicit, verifiable entry point for the in-job opt-in: the caller declares
 // WHICH run it is, never THAT the tests passed. See `inJobRequiredVitestDecision`.
 const IN_JOB_RUN_ID_ENV = 'NATIVE_AUTOMERGE_IN_JOB_RUN_ID';
@@ -101,6 +98,11 @@ function reviewTimestamp(review) {
   return timestamps.length > 0 ? Math.max(...timestamps) : null;
 }
 
+function reviewSubmittedAt(review) {
+  const parsed = Date.parse(review?.submitted_at || review?.submittedAt || '');
+  return Number.isFinite(parsed) ? parsed : Number.MAX_SAFE_INTEGER;
+}
+
 function latestReviewMatching(reviews, predicate) {
   if (!Array.isArray(reviews) || typeof predicate !== 'function') return null;
   const candidates = flattenPages(reviews)
@@ -120,22 +122,24 @@ function latestBotReviewMatching(reviews, predicate) {
     && predicate(review));
 }
 
-/**
- * The Codex fallback is not a raw reviewer. It may enter only the structured
- * review-gate evidence path, with the exact marker emitted by `tests.yml` and
- * an exact current HEAD. Keep this identity narrower than the normal
- * Claude/frontaliere reviewer allowlist.
- */
-function isCodexFallbackReviewOnHead(review, head, reviewRevision) {
-  return typeof head === 'string'
-    && /^[0-9a-f]{40}$/iu.test(head)
-    && (typeof reviewRevision === 'string' || Array.isArray(reviewRevision))
-    && review?.user?.type === 'Bot'
-    && CODEX_FALLBACK_REVIEWER_RE.test(review.user.login || '')
-    && isTerminalManagedReview(review)
-    && review.commit_id === head
-    && reviewHasInputRevision(review.body, reviewRevision)
-    && String(review.body || '').includes(CODEX_FALLBACK_REVIEW_MARKER);
+function isTerminalReview(review) {
+  if (!review || typeof review !== 'object') return false;
+  return ['APPROVED', 'COMMENTED', 'CHANGES_REQUESTED']
+    .includes(String(review.state || '').toUpperCase());
+}
+
+/** Oldest terminal review on `head`, without an author-identity predicate. */
+function firstTerminalReviewOnHead(reviews, head, reviewRevision) {
+  if (typeof head !== 'string' || !head) return null;
+  const matches = flattenPages(reviews)
+    .map((review, index) => ({ review, index, timestamp: reviewSubmittedAt(review) }))
+    .filter(({ review }) => isTerminalReview(review)
+      && review?.commit_id === head
+      && reviewHasInputRevision(review.body, reviewRevision))
+    .sort((left, right) => left.timestamp - right.timestamp
+      || (Number(left.review.id || left.index) || left.index)
+        - (Number(right.review.id || right.index) || right.index));
+  return matches[0]?.review || null;
 }
 
 /**
@@ -144,13 +148,11 @@ function isCodexFallbackReviewOnHead(review, head, reviewRevision) {
  * so structured/stale-fallback evidence still sees the current body.
  */
 function firstReviewGateCandidate(reviews, head, reviewRevision) {
-  const first = firstTerminalBotReviewOnHead(reviews, head, { reviewRevision });
+  const first = firstTerminalReviewOnHead(reviews, head, reviewRevision);
   if (first && reviewBodyIsApproving(first.body)) return first;
   return latestReviewMatching(reviews, (review) => reviewHasInputRevision(review?.body, reviewRevision)
-    && (isCodexFallbackReviewOnHead(review, head, reviewRevision)
-      || (isReviewerBot(review?.user)
-        && isTerminalManagedReview(review)
-        && review?.commit_id === head)));
+    && isTerminalReview(review)
+    && review?.commit_id === head);
 }
 
 /** Return the latest reviewer-bot review, regardless of the commit it names. */
@@ -174,7 +176,6 @@ export function latestBotReviewOnHead(reviews, head) {
  */
 export function reviewIsApproved(review) {
   if (!review || !/^[0-9a-f]{40}$/i.test(String(review.commit_id || ''))) return false;
-  if (!isReviewerBot(review.user)) return false;
   if (!['APPROVED', 'COMMENTED'].includes(String(review.state || '').toUpperCase())) return false;
   return reviewHasZeroFindings(review.body) && reviewHasLgtm(review.body);
 }
@@ -194,9 +195,6 @@ export function reviewIsApprovedOnHead(review, head) {
  */
 function testOnlyReviewIsApproved(review, head, reviewRevision) {
   if (!review || review.commit_id !== head) return false;
-  if (review.user?.type !== 'Bot' || !TEST_ONLY_REVIEW_BOT_RE.test(review.user.login || '')) {
-    return false;
-  }
   if (!String(review.body || '').includes(TEST_REVIEW_MARKER)) return false;
   if (!reviewHasInputRevision(review.body, reviewRevision)) return false;
   if (!['COMMENTED', 'APPROVED'].includes(String(review.state || '').toUpperCase())) return false;
@@ -375,8 +373,9 @@ function parseActionsCheckRunUrl(value, repo) {
 /**
  * Verify the structured proof used only for the outside-diff exception.
  * Every layer is required: a green check or a green step alone is not proof.
- * The review identity is also checked here so an ordinary Actions review
- * cannot reach this exception without the exact Codex fallback marker.
+ * The evidence is bound to the exact review id, HEAD, workflow/job and
+ * completed check; reviewer author identity is deliberately not an admission
+ * criterion for native auto-merge.
  */
 export function reviewGateEvidenceDecision({
   evidence,
@@ -394,9 +393,6 @@ export function reviewGateEvidenceDecision({
   }
   if (!reviewHasInputRevision(review?.body, reviewRevision)) {
     return deny('review input revision assente o diversa dalla body corrente');
-  }
-  if (!isReviewerBot(review?.user) && !isCodexFallbackReviewOnHead(review, head, reviewRevision)) {
-    return deny('identità review non autorizzata per la prova review-gate');
   }
   const reviewId = reviewIdKey(review?.id);
   if (!reviewId || evidence.reviewId !== reviewId) {
@@ -584,7 +580,7 @@ export function evaluateNativeAutoMerge({
   const testOnlyApproval = !review
     && testOnlyReviewIsApproved(verifiedTestOnlyReview, pr.headRefOid, reviewRevision);
   if (!review && !testOnlyApproval) {
-    return { allow: false, reason: 'nessuna review bot verificabile' };
+    return { allow: false, reason: 'nessuna review verificabile' };
   }
   const reviewGateException = review && !reviewIsApproved(review)
     ? reviewGateEvidenceDecision({
@@ -596,7 +592,7 @@ export function evaluateNativeAutoMerge({
     })
     : { allow: false, reason: 'review raw già approvante' };
   if (review && !reviewIsApproved(review) && !reviewGateException.allow) {
-    return { allow: false, reason: 'review bot sulla HEAD non è LGTM senza 🔴 Important' };
+    return { allow: false, reason: 'review sulla HEAD non è LGTM senza 🔴 Important' };
   }
 
   // Two independent sources have to agree before the opt-in: the workflow step

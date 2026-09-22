@@ -64,6 +64,18 @@ describe('orphan-pr-custodian — rerun di un check richiesto CANCELLED con LGTM
     expect(decision.runIds).toEqual(['70']);
   });
 
+  it('riconosce una review pulita con newline serializzati letteralmente', () => {
+    const cleanBody = '## Findings (Important: 0, Nit: 0)\n\n## LGTM';
+    const decision = classifyOrphan({
+      pr: pr(),
+      checkRuns: [checkRun(1, 7, 'cancelled')],
+      reviews: [review(cleanBody.replace(/\n/gu, '\\n'))],
+      comments: [],
+      nowS: NOW_S,
+    });
+    expect(decision.action).toBe('rerun');
+  });
+
   it('usa solo l\'ultima generazione di ogni suite: un rerun verde chiude la suite', () => {
     const { cancelled } = cancelledRequiredSuites(
       [checkRun(1, 7, 'cancelled'), checkRun(3, 7, 'success')], HEAD, VITEST_CHECK_NAME);

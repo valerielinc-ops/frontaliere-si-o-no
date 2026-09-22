@@ -145,7 +145,7 @@ describe('schema dei marker di review — periodo di grazia', () => {
       reviews: [legacyReview],
       checkRuns: [vitestCheck],
     });
-    expect(result.reason).not.toMatch(/nessuna review bot verificabile/iu);
+    expect(result.reason).not.toMatch(/nessuna review verificabile/iu);
     expect(result.allow).toBe(true);
   });
 
@@ -156,7 +156,7 @@ describe('schema dei marker di review — periodo di grazia', () => {
       pr: pr(),
       reviews: [staleReview],
       checkRuns: [vitestCheck],
-    })).toMatchObject({ allow: false, reason: /nessuna review bot verificabile/iu });
+    })).toMatchObject({ allow: false, reason: /nessuna review verificabile/iu });
   });
 
   it('il custode delle PR orfane usa lo stesso elenco, non la sola revisione corrente', () => {
