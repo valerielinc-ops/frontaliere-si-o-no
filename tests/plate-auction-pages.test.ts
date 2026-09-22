@@ -1,6 +1,7 @@
 import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { join } from 'node:path';
+import { dirname, join } from 'node:path';
 import { tmpdir } from 'node:os';
+import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
 import { loadPlateAuctionContext, plateAuctionsPagesPlugin, renderPlateAuctionPage } from '../build-plugins/plateAuctionsPagesPlugin';
 import { buildPlateAuctionPath } from '../services/plateAuctions/paths';
@@ -9,6 +10,7 @@ import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
 import { extractVisibleText } from '../scripts/audit-text-html-ratio.mjs';
 
 const tempDirs: string[] = [];
+const REPO_ROOT = join(dirname(fileURLToPath(import.meta.url)), '..');
 const FULL_FIXTURE_GROUPS = [
   { sourceKey: 'GR', canton: 'Grigioni', platePrefix: 'GR', count: 5 },
   { sourceKey: 'VS', canton: 'Vallese', platePrefix: 'VS', count: 5 },
@@ -167,6 +169,12 @@ describe('plate-auction static pages', () => {
     expect(rendered.html).not.toContain(`data-ad-slot=${AD_SLOTS.JOBLIST_INFEED_DESKTOP.slot}`);
     expect(rendered.html).toContain('id=rail-left-root');
     expect(rendered.html).toContain('id=rail-right-root');
+  });
+
+  it('keeps the hydrated plate-auction results free of job-list in-feed slots', () => {
+    const source = readFileSync(join(REPO_ROOT, 'components/pages/PlateAuctionsPage.tsx'), 'utf8');
+    expect(source).not.toContain('shouldPlaceInfeedAd');
+    expect(source).not.toContain('plate-auction-infeed-ad');
   });
 
   it('caps large canton catalogues before first paint', () => {
