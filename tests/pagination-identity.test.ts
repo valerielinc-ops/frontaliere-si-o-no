@@ -1,6 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { readFileSync } from 'node:fs';
-import { recordUniquePageProgress } from '../scripts/lib/pagination-identity.mjs';
+import {
+  createMutableFeedPaginationTracker,
+  recordUniquePageProgress,
+} from '../scripts/lib/pagination-identity.mjs';
 
 describe('pagination source identity contract', () => {
   it('records unique progress for a page', () => {
@@ -62,22 +65,34 @@ describe('pagination source identity contract', () => {
     })).toThrow('duplicate source identity "b"');
   });
 
+  it('counts mutable-feed rows separately from unique identities', () => {
+    const tracker = createMutableFeedPaginationTracker({
+      getIdentity: (item: { id: string }) => item.id,
+      source: 'Post Group',
+    });
+
+    expect(tracker.record([{ id: 'a' }, { id: 'b' }], 0)).toEqual(['a', 'b']);
+    expect(tracker.record([{ id: 'b' }, { id: 'c' }], 1)).toEqual(['b', 'c']);
+    expect(tracker.scannedRows).toBe(4);
+    expect(tracker.uniqueCount).toBe(3);
+    expect(tracker.hasReached(4)).toBe(true);
+    expect(tracker.hasReached(5)).toBe(false);
+  });
+
   it('is wired into every Post Group pagination loop', () => {
     const postch = readFileSync(new URL('../scripts/update-postch-jobs.mjs', import.meta.url), 'utf8');
     const postauto = readFileSync(new URL('../scripts/lib/postauto-job-parser.mjs', import.meta.url), 'utf8');
     const confederazione = readFileSync(new URL('../scripts/update-confederazione-jobs.mjs', import.meta.url), 'utf8');
 
-    expect(postch).toContain('recordUniquePageProgress(localeIds, jobs');
-    expect(postch).toContain('allowPreviouslySeen: true');
-    expect(postauto).toContain('recordUniquePageProgress(localeIds, jobs');
-    expect(postauto).toContain('allowPreviouslySeen: true');
-    expect(postch).toContain('scannedRows >= totalJobs');
+    expect(postch).toContain('createMutableFeedPaginationTracker({');
+    expect(postch).toContain('progress.hasReached(totalJobs)');
+    expect(postauto).toContain('createMutableFeedPaginationTracker({');
+    expect(postauto).toContain('progress.hasReached(totalJobs)');
     expect(confederazione).toContain('recordUniquePageProgress(sourceIdentities, items');
     expect(confederazione).toContain('sourceIdentities.size >= declaredTotal');
     const postfinance = readFileSync(new URL('../scripts/update-postfinance-jobs.mjs', import.meta.url), 'utf8');
-    expect(postfinance).toContain('recordUniquePageProgress(sourceIdentities, pageRecords');
-    expect(postfinance).toContain('allowPreviouslySeen: true');
-    expect(postfinance).toContain('scannedRows >= total');
+    expect(postfinance).toContain('createMutableFeedPaginationTracker({');
+    expect(postfinance).toContain('progress.hasReached(total)');
     expect(postfinance).toContain('const pageRecords = entries.map((entry) => entry?.response);');
     expect(postfinance).toContain('pageRecords.some((record) => !record)');
     expect(postfinance).toContain('if (!paginationComplete && pageNumber >= RECRUITING_API_MAX_PAGES)');
