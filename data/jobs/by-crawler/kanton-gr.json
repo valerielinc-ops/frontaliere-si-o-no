@@ -1957,7 +1957,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Strassenwart/-in",
+        "it": "Streetkeeper",
         "en": "Streetkeeper",
         "de": "Strassenwart/-in",
         "fr": "Gardien de rue"
@@ -2017,7 +2017,6 @@
           "strassenwart-in-kanton-gr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:05:21.387Z",
       "salaryMin": 67000,
       "salaryMax": 102000,
@@ -2667,7 +2666,7 @@
       "companyDomain": "gr.ch",
       "title": "Dipl. Pflegefachfrau / Pflegefachmann HF",
       "titleByLocale": {
-        "it": "Dipl. Pflegefachfrau / Pflegefachmann HF",
+        "it": "Dipl. Infermiera / Infermiera specialista HF",
         "en": "Dipl. Nurse / Nurse specialist HF",
         "de": "Dipl. Pflegefachfrau / Pflegefachmann HF",
         "fr": "Dipl. Infirmière / Infirmière spécialiste HF"
@@ -2723,7 +2722,6 @@
           "dipl-pflegefachfrau-pflegefachmann-hf-kanton-gr-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:05:15.564Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -4188,7 +4186,7 @@
       "companyDomain": "gr.ch",
       "title": "Strassenwart/-in",
       "titleByLocale": {
-        "it": "Strassenwart/-in",
+        "it": "Streetkeeper",
         "en": "Streetkeeper",
         "de": "Strassenwart/-in",
         "fr": "Gardien de rue/in"
@@ -4350,8 +4348,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "kanton-gr-fb5c11306d2b",
