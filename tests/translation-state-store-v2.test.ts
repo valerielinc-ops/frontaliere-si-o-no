@@ -737,6 +737,43 @@ describe('translation state store v2', () => {
       .toEqual([firstPatch.patchHash, secondPatch.patchHash].sort());
   });
 
+  it('retries a state push that times out before the remote tip moves', async () => {
+    const { one, remote } = createRepositories();
+    let timedOut = false;
+    const flakyGit = async (args: string[], options: any = {}) => {
+      if (args[0] === 'push' && !timedOut) {
+        timedOut = true;
+        return {
+          code: 124,
+          stdout: '',
+          stderr: 'git push timed out',
+          timedOut: true,
+        };
+      }
+      try {
+        const stdout = execFileSync('git', args, {
+          cwd: one,
+          encoding: 'utf8',
+          env: options.env ? { ...process.env, ...options.env } : process.env,
+        });
+        return { code: 0, stdout, stderr: '' };
+      } catch (error: any) {
+        return {
+          code: typeof error?.status === 'number' ? error.status : 1,
+          stdout: error?.stdout ?? '',
+          stderr: error?.stderr ?? String(error),
+        };
+      }
+    };
+
+    const initialized = await createTranslationStateStoreV2({ repository: one, git: flakyGit })
+      .initialize();
+
+    expect(timedOut).toBe(true);
+    expect(git(one, 'ls-remote', '--refs', remote, 'refs/heads/translation-state-v2'))
+      .toContain(initialized.commit);
+  });
+
   it('reserves one immutable plan, requires initialization and recovers it in a fresh process', async () => {
     const { one } = createRepositories();
     const store = createTranslationStateStoreV2({ repository: one });
