@@ -49,6 +49,7 @@ export const CORPUS_OBSERVER_FILES = [
 ];
 
 const CANONICAL_TRANSPORT_MANIFEST_KEYS = 'baseline,mode,path,sitePath';
+const IDENTICAL_CONTRACT_WITH_REASON_KEYS = 'baseline,mode,path,reason,sitePath';
 const COUPLING_SNAPSHOT_SITE_PATH =
   '.github/corpus-workflows/observers/generator/tests/crawler-cross-repo-artifacts.test.mjs';
 
@@ -68,6 +69,14 @@ function hasValidCouplingSnapshot(value) {
 function hasValidTransportManifestKeys(entry) {
   const keys = Object.keys(entry).sort().join(',');
   if (keys === CANONICAL_TRANSPORT_MANIFEST_KEYS) return true;
+  // The corpus can retain the explanatory reason written while this contract
+  // was `adapted`, even after the entry converges to `identical`. Keep this
+  // compatibility narrow: only the owned contract mapping may carry that
+  // historical field; every other identical transport entry remains strict.
+  if (entry.sitePath === '.github/corpus-workflows/contract.json'
+      && entry.mode === 'identical'
+      && keys === IDENTICAL_CONTRACT_WITH_REASON_KEYS
+      && typeof entry.reason === 'string') return true;
   return entry.sitePath === COUPLING_SNAPSHOT_SITE_PATH
     && keys === 'baseline,couplingSnapshot,mode,path,sitePath'
     && hasValidCouplingSnapshot(entry.couplingSnapshot);
