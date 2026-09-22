@@ -1781,7 +1781,7 @@ jobs:
           node-version: '22'
 
       - name: Report risk-policy failure
-        if: needs.risk_policy.result == 'failure'
+        if: always() && needs.risk_policy.result == 'failure'
         uses: ./.github/actions/report-failure
         with:
           title: 'CI Failure: ${{ github.workflow }}'
@@ -1796,7 +1796,7 @@ jobs:
             - Il job `fix` dipendente viene lasciato skipped quando il preflight non è verificato.
 
       - name: Report fixer failure
-        if: needs.fix.result == 'failure'
+        if: always() && needs.fix.result == 'failure'
         uses: ./.github/actions/report-failure
         with:
           title: 'CI Failure: ${{ github.workflow }}'

@@ -592,7 +592,7 @@ jobs:
           node-version: '22'
 
       - name: Report deploy failure
-        if: needs.deploy.result == 'failure'
+        if: always() && needs.deploy.result == 'failure'
         uses: ./.github/actions/report-failure
         with:
           title: 'CI Failure: ${{ github.workflow }}'
@@ -607,7 +607,7 @@ jobs:
             - Il run build osservato è disponibile nel payload `workflow_run`.
 
       - name: Report dist-validation failure
-        if: needs.validate-dist.result == 'failure'
+        if: always() && needs.validate-dist.result == 'failure'
         uses: ./.github/actions/report-failure
         with:
           title: 'CI Failure: ${{ github.workflow }}'
@@ -622,7 +622,7 @@ jobs:
             - Questo report copre il verdetto rosso del workflow chiamante `Publish to GitHub Pages (deploy + validate)`.
 
       - name: Report live-validation failure
-        if: needs.validate-live.result == 'failure'
+        if: always() && needs.validate-live.result == 'failure'
         uses: ./.github/actions/report-failure
         with:
           title: 'CI Failure: ${{ github.workflow }}'
@@ -637,7 +637,7 @@ jobs:
             - Il publish di side effect resta correttamente bloccato dal gate live.
 
       - name: Report post-deploy publish failure
-        if: needs.publish.result == 'failure'
+        if: always() && needs.publish.result == 'failure'
         uses: ./.github/actions/report-failure
         with:
           title: 'CI Failure: ${{ github.workflow }}'
@@ -652,7 +652,7 @@ jobs:
             - Nessuna notifica o side effect viene riabilitato da questo reporter.
 
       - name: Report runtime-watchdog failure
-        if: needs.runtime-watchdog.result == 'failure'
+        if: always() && needs.runtime-watchdog.result == 'failure'
         uses: ./.github/actions/report-failure
         with:
           title: 'CI Failure: ${{ github.workflow }}'
