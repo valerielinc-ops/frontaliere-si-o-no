@@ -55,7 +55,8 @@
  *
  * Uso:  node scripts/ci/collect-followup-batch.mjs
  * Env:  GH_REPO|GITHUB_REPOSITORY, GITHUB_OUTPUT/GITHUB_STEP_SUMMARY (opz),
- *       FALLBACK_HOURS (opz, default 6), MAX_WINDOW_HOURS (opz, default 48).
+ *       FOLLOWUP_ELIGIBLE_AUTHORS (opz, CSV), FALLBACK_HOURS (opz, default 6),
+ *       MAX_WINDOW_HOURS (opz, default 48).
  *       Richiede `gh` in PATH.
  */
 import { execFileSync } from 'node:child_process';
@@ -149,7 +150,16 @@ export function manualDispatchPR(raw) {
  * canonicalise both forms to a bare login so the allowlist matches regardless of
  * source — same author SCOPE as the original trigger, no expansion.
  */
-const ELIGIBLE_AUTHORS = new Set(['valerielinc-ops', 'frontaliere-automation']);
+/**
+ * Keep the site accounts as the default, while allowing the adapted workflow
+ * and isolated tests to provide the eligible accounts explicitly.
+ */
+const ELIGIBLE_AUTHORS = new Set(
+  (process.env.FOLLOWUP_ELIGIBLE_AUTHORS || 'valerielinc-ops,frontaliere-automation')
+    .split(',')
+    .map((login) => canonicalLogin(login))
+    .filter(Boolean),
+);
 
 /** Strip the `app/` prefix (gh GraphQL bot form) and `[bot]` suffix (REST form). */
 export function canonicalLogin(login) {
