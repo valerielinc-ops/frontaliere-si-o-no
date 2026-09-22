@@ -2,13 +2,12 @@
 /**
  * AdSense in-feed format A/B reports
  *
- * Weekly companion to the canton in-feed-ad A/B test wired in
- * services/adsenseSlots.ts (INFEED_AD_AB_TEST_SUPPRESSED_CANTONS): on the
- * job-search listings, the treatment pages have the manual In-page in-feed
- * slot (JOBLIST_INFEED_DESKTOP/MOBILE) removed while Auto Ads remain active.
- * The active comparison is Svizzera control vs Ticino treatment (owner-
- * requested 2026-09-01). The low-volume Basilea/Lucerna series remains in
- * the append-only history as a closed experiment, but is no longer queried.
+ * Historical companion to the canton in-feed-ad A/B test wired in
+ * services/adExperiment.ts: on the job-search listings, the former treatment
+ * pages had the manual in-feed slot removed while Auto Ads remained active.
+ * The Svizzera/Ticino comparison is now closed after the 2026-09-16 CLS
+ * regression. The scheduled workflow does not query a closed pair; the
+ * append-only history remains available to the pure reporting helpers.
  * See docs/ADSENSE-INFEED-AB-TEST.md for scope, URL-level attribution and
  * interpretation rules.
  *
@@ -19,7 +18,7 @@
  * spots read while wiring the A/B test itself):
  *
  * 1. AdSense (the test's primary metric — RPM/coverage/earnings-per-pageview,
- *    via exact PAGE_URL rows for the active Svizzera/Ticino pair, so sub-URLs
+ *    via exact PAGE_URL rows for the selected historical pair, so sub-URLs
  *    are not aggregated).
  * 2. GA4 engagement guardrail (`averageSessionDuration`, `engagementRate`,
  *    `bounceRate`, `screenPageViewsPerSession`, property 524485296) — the
@@ -84,6 +83,7 @@ import { dirname, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 import { AD_CLIENT } from '../services/adsenseSlots.ts';
+import { isInfeedAdExperimentSurface } from '../services/adExperiment.ts';
 import { getAdSenseToken, last7Days } from './revenue-monitor.mjs';
 import { getServiceAccountToken, fetchRetry, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
 import { engagementConsistency, fetchDailyEngagementVerdict } from './lib/ga4-engagement-reliability.mjs';
@@ -123,7 +123,7 @@ export const URL_SURFACE_DESIGN = Object.freeze({
 });
 
 /**
- * The active comparison deliberately uses PAGE_URL with canonical full URLs:
+ * The historical comparison deliberately used PAGE_URL with canonical full URLs:
  * URL-channel patterns would also match sub-URLs and therefore cannot measure
  * the two hub pages alone. Closed legacy history is still readable by its
  * explicit experimentId, but has no active configuration.
@@ -159,6 +159,16 @@ export const CANTON_PAGE_PATHS = Object.freeze({
   control: DEFAULT_EXPERIMENT.control.path,
   treatment: DEFAULT_EXPERIMENT.treatment.path,
 });
+
+/**
+ * Runtime source of truth for whether the historical pair is still active.
+ * Keeping this derived from `services/adExperiment.ts` makes a rollback stop
+ * both rendering and scheduled measurement; an empty set is a deliberate
+ * paused state, not a fabricated zero-data report.
+ */
+export const ACTIVE_EXPERIMENTS = Object.freeze(
+  isInfeedAdExperimentSurface('TI') ? [DEFAULT_EXPERIMENT] : [],
+);
 
 export function findExperiment(id) {
   return EXPERIMENTS.find((experiment) => experiment.id === id) || null;
@@ -217,7 +227,7 @@ export function parseCoveragePct(v) {
 
 /**
  * Fetch the selected AdSense dimension for the last 7 full days and pick the
- * control + treatment rows client-side. The active PAGE_URL experiment matches
+ * control + treatment rows client-side. The historical PAGE_URL experiment matches
  * full canonical hub URLs, so sub-URLs are excluded from both sides.
  */
 export async function fetchChannelReport(token, experiment = DEFAULT_EXPERIMENT) {
@@ -889,13 +899,26 @@ export function experimentFromArgs(args) {
 
 async function main() {
   const args = process.argv.slice(2);
-  const experiment = experimentFromArgs(args);
   const flags = {
     json: args.includes('--json'),
     markdown: args.includes('--markdown'),
     save: args.includes('--save'),
     debug: args.includes('--debug'),
   };
+
+  if (ACTIVE_EXPERIMENTS.length === 0) {
+    const reason = 'nessun esperimento in-feed attivo: il trattamento TI è stato ritirato dopo la regressione CLS del 2026-09-16';
+    if (flags.json) {
+      console.log(JSON.stringify({ measurementStatus: 'paused', reason }, null, 2));
+    } else if (flags.markdown) {
+      console.log(`### Report AdSense in-feed — **PAUSED**\n\n${reason}. Auto Ads restano attivi; nessun dato sintetico viene scritto.`);
+    } else {
+      console.log(`AdSense format A/B — PAUSED: ${reason}.`);
+    }
+    return;
+  }
+
+  const experiment = experimentFromArgs(args);
 
   const warnings = [];
   let control = null;

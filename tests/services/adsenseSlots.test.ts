@@ -96,20 +96,15 @@ describe('adsenseSlots — shouldPlaceInfeedAd cadence + density cap', () => {
   });
 
   /**
-   * Canton in-feed A/B test: Ticino ('TI') is the treatment against the
-   * national Switzerland listing. The treatment canton listing suppresses the
-   * manual in-feed slot (JOBLIST_INFEED_DESKTOP/MOBILE); the national listing
-   * and retired Basilea/Lucerna surfaces stay on the unmodified cadence. The
-   * call sites that opt into this (components/community/JobBoard.tsx
-   * `displayJobs.map` main list, build-plugins/jobsSeoPagesPlugin.ts
-   * canton-index `cantonJobs.map`) both pass `{ canton }` straight through
-   * to this shared predicate — it is the single point that decides
-   * suppression, so pinning its contract here covers both render paths.
+   * The former TI treatment is rolled back after the CLS regression. All
+   * current listing surfaces, including `/cerca-lavoro-ticino/` and the
+   * national control, keep the manual in-feed slot and its fixed registry
+   * reserve. Auto Ads are not gated by this predicate.
    */
   describe('canton in-feed A/B test (opt-in `opts.canton`)', () => {
-    it('suppresses every in-feed placement for the active treatment canton, regardless of cadence', () => {
+    it('keeps every cadence placement on the fixed manual reserve after rollback', () => {
       for (const pos of [3, 6, 9, 12, 36]) {
-        expect(shouldPlaceInfeedAd(pos, { canton: 'TI' })).toBe(false);
+        expect(shouldPlaceInfeedAd(pos, { canton: 'TI' })).toBe(true);
       }
     });
 
@@ -121,8 +116,8 @@ describe('adsenseSlots — shouldPlaceInfeedAd cadence + density cap', () => {
     });
 
     it('is case-insensitive on the canton code', () => {
-      expect(shouldPlaceInfeedAd(3, { canton: 'ti' })).toBe(false);
-      expect(shouldPlaceInfeedAd(3, { canton: 'Ti' })).toBe(false);
+      expect(shouldPlaceInfeedAd(3, { canton: 'ti' })).toBe(true);
+      expect(shouldPlaceInfeedAd(3, { canton: 'Ti' })).toBe(true);
       expect(shouldPlaceInfeedAd(3, { canton: 'lu' })).toBe(true);
       expect(shouldPlaceInfeedAd(3, { canton: 'Lu' })).toBe(true);
     });
@@ -168,9 +163,10 @@ describe('adsenseSlots — shouldPlaceInfeedAd cadence + density cap', () => {
       expect(hits).toEqual([3, 6, 9]);
     });
 
-    it('INFEED_AD_AB_TEST_SUPPRESSED_CANTONS contains exactly the documented treatment set', () => {
-      expect([...INFEED_AD_AB_TEST_SUPPRESSED_CANTONS]).toEqual(['TI']);
+    it('INFEED_AD_AB_TEST_SUPPRESSED_CANTONS is empty while the experiment is rolled back', () => {
+      expect([...INFEED_AD_AB_TEST_SUPPRESSED_CANTONS]).toEqual([]);
       expect(INFEED_AD_AB_TEST_SUPPRESSED_CANTONS.has('BASILEA')).toBe(false);
+      expect(INFEED_AD_AB_TEST_SUPPRESSED_CANTONS.has('TI')).toBe(false);
     });
   });
 });

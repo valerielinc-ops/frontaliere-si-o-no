@@ -167,8 +167,10 @@ const KEY_OF = { lcp: 'largest_contentful_paint', inp: 'interaction_to_next_pain
 async function crux(endpoint, body) {
   const key = process.env.PAGESPEED_API_KEY;
   if (!key) {
-    console.error('PAGESPEED_API_KEY is not set. Run `source bin/rc-env.sh` locally, or `node scripts/load-rc-env.mjs` in CI.');
-    process.exit(2);
+    const error = new Error('PAGESPEED_API_KEY is not set. Load it with `source bin/rc-env.sh` locally or scripts/load-rc-env.mjs in CI.');
+    error.code = 'MISSING_PAGESPEED_API_KEY';
+    error.endpoint = endpoint;
+    throw error;
   }
   const res = await fetch(`${API}/${endpoint}?key=${key}`, {
     method: 'POST',
@@ -240,6 +242,58 @@ export function selectPreviousWindow(points, period) {
   return null;
 }
 
+/**
+ * A machine-readable report for the no-verdict path. `verdict: null` is
+ * deliberate: unavailable data must not be turned into either MET or NOT MET.
+ * Keep the error diagnostic free of credentials because the workflow persists
+ * this object in an issue body.
+ */
+export function buildUnavailableReport({
+  endpoint = 'records:queryRecord',
+  status = null,
+  code = 'CRUX_UNAVAILABLE',
+  message = 'CrUX did not return a usable record.',
+} = {}) {
+  return {
+    generatedAt: new Date().toISOString(),
+    source: 'CrUX API records:queryRecord + records:queryHistoryRecord, formFactor PHONE',
+    origin: ORIGIN,
+    measurementStatus: 'unavailable',
+    bindingPass: null,
+    verdict: null,
+    error: {
+      code,
+      endpoint,
+      httpStatus: status,
+      message: String(message).replace(/AIza[0-9A-Za-z_-]+/g, '[redacted]'),
+    },
+  };
+}
+
+function printUnavailableReport(report, { asJson, asMarkdown, jsonOut }) {
+  if (jsonOut) {
+    // A failed measurement must still produce the artifact consumed by the
+    // workflow reporter. A write failure remains fatal-by-exception.
+    writeFileSync(jsonOut, JSON.stringify(report, null, 2));
+  }
+  if (asJson) console.log(JSON.stringify(report, null, 2));
+  if (asMarkdown) {
+    console.log([
+      '### Criterio di campo #5001 — **NON MISURABILE**',
+      '',
+      'Nessun verdetto: la fonte CrUX non ha fornito un record utilizzabile.',
+      `Endpoint: \`${report.error.endpoint}\``,
+      `HTTP: ${report.error.httpStatus ?? 'n/a'}`,
+      `Codice: \`${report.error.code}\``,
+      `Diagnostica: ${report.error.message}`,
+    ].join('\n'));
+  }
+  console.error(`CrUX measurement unavailable (${report.error.code}) at ${report.error.endpoint}${report.error.httpStatus == null ? '' : `: HTTP ${report.error.httpStatus}`}`);
+  console.error(`Refusing to report a verdict without data. Exit 2. ${report.error.message}`);
+  process.exitCode = 2;
+  return report;
+}
+
 async function main() {
   const args = process.argv.slice(2);
   const asJson = args.includes('--json');
@@ -254,16 +308,41 @@ async function main() {
   const jsonOut = jsonOutIdx !== -1 ? args[jsonOutIdx + 1] : null;
 
   // ---- origin: the binding measurement -----------------------------------
-  const cur = await crux('records:queryRecord', { origin: ORIGIN });
+  let cur;
+  try {
+    cur = await crux('records:queryRecord', { origin: ORIGIN });
+  } catch (error) {
+    return printUnavailableReport(
+      buildUnavailableReport({
+        endpoint: error?.endpoint || 'records:queryRecord',
+        code: error?.code || 'CRUX_REQUEST_FAILED',
+        message: error?.message || String(error),
+      }),
+      { asJson, asMarkdown, jsonOut },
+    );
+  }
   if (cur.status !== 200) {
-    console.error(`CrUX queryRecord failed for the origin: HTTP ${cur.status}${cur.message ? ` — ${cur.message}` : ''}`);
-    console.error('Refusing to report a verdict without data. Exit 2.');
-    process.exit(2);
+    return printUnavailableReport(
+      buildUnavailableReport({
+        endpoint: 'records:queryRecord',
+        status: cur.status,
+        code: `CRUX_HTTP_${cur.status}`,
+        message: cur.message || 'CrUX returned a non-success HTTP status.',
+      }),
+      { asJson, asMarkdown, jsonOut },
+    );
   }
   const current = readRecord(cur.json);
   if (!current) {
-    console.error('CrUX returned a 200 with no metrics for the origin. Refusing to report a verdict. Exit 2.');
-    process.exit(2);
+    return printUnavailableReport(
+      buildUnavailableReport({
+        endpoint: 'records:queryRecord',
+        status: 200,
+        code: 'CRUX_200_WITHOUT_METRICS',
+        message: 'CrUX returned HTTP 200 without record.metrics.',
+      }),
+      { asJson, asMarkdown, jsonOut },
+    );
   }
 
   // History is only needed for the "sustained" half of the rule. If it cannot be
@@ -375,7 +454,8 @@ async function main() {
 
   if (asJson) {
     console.log(JSON.stringify(report, null, 2));
-    process.exit(bindingPass ? 0 : 1);
+    process.exitCode = bindingPass ? 0 : 1;
+    return report;
   }
 
   // CLS is unitless and needs decimals; the timings are integers in ms.
@@ -409,7 +489,8 @@ async function main() {
     p(`Watchlist per-URL (informativa): ${watch.filter((w) => w.available).length}/${watch.length} con dati CrUX, ${flagged.length} in deriva oltre +${Math.round((WATCHLIST_DRIFT - 1) * 100)}% dalla baseline 2026-08-07.`);
     for (const w of flagged) p(`- \`${w.url.replace(ORIGIN, '')}\` — ${w.drift.join('; ')}`);
     console.log(lines.join('\n'));
-    process.exit(bindingPass ? 0 : 1);
+    process.exitCode = bindingPass ? 0 : 1;
+    return report;
   }
 
   p('');
@@ -433,7 +514,8 @@ async function main() {
   }
   p('');
   console.log(lines.join('\n'));
-  process.exit(bindingPass ? 0 : 1);
+  process.exitCode = bindingPass ? 0 : 1;
+  return report;
 }
 
 // Only run when invoked as a CLI. Importing this module (tests, other scripts)

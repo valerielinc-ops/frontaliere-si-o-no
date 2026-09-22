@@ -95,13 +95,21 @@ jobs:
         run: node scripts/load-rc-env.mjs
 
       - name: Check CWV regressions + record weekly snapshot
+        id: measure
+        continue-on-error: true
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CWV_MONITOR_WINDOW_DAYS: ${{ inputs.windowDays || '7' }}
-        run: node scripts/cwv-monitor-check.mjs
+        run: |
+          set +e
+          node scripts/cwv-monitor-check.mjs
+          code=$?
+          echo "exit_code=$code" >> "$GITHUB_OUTPUT"
+          exit 0
 
       - name: Commit weekly snapshot if changed
+        if: always() && steps.measure.outcome != 'cancelled'
         run: |
           set -euo pipefail
           git config user.name "github-actions[bot]"
@@ -123,6 +131,17 @@ jobs:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           CWV_MONITOR_WINDOW_DAYS: ${{ inputs.windowDays || '7' }}
+
+      - name: Fail closed when the weekly measurement is incomplete
+        if: always() && steps.measure.outputs.exit_code != '0'
+        run: |
+          code='${{ steps.measure.outputs.exit_code }}'
+          echo "cwv-monitor-check exited $code — no complete CWV verdict was available"
+          case "$code" in
+            1) exit 1 ;;
+            2) exit 2 ;;
+            *) echo "unexpected monitor exit code: $code" >&2; exit 1 ;;
+          esac
 
       - name: Report failure to GitHub Issues
         if: failure()

@@ -183,7 +183,8 @@ describe('main()', () => {
     delete process.env.POSTHOG_PERSONAL_API_KEY;
     delete process.env.POSTHOG_PROJECT_ID;
     global.fetch = vi.fn();
-    await main({ ga4FallbackImpl: async () => [] });
+    const result = await main({ ga4FallbackImpl: async () => [] });
+    expect(result.status).toBe('source-unavailable');
     expect(global.fetch).not.toHaveBeenCalled();
   });
 
@@ -201,7 +202,8 @@ describe('main()', () => {
       ok: true,
       json: async () => ({ results: [] }),
     });
-    await main({ ga4FallbackImpl: async () => [] });
+    const result = await main({ ga4FallbackImpl: async () => [] });
+    expect(result.status).toBe('source-unavailable');
 
     const history = loadHistory('/tmp/cwv-monitor-check-test-history.json');
     expect(Object.keys(history.pages)).toHaveLength(TARGET_PAGES.length);
@@ -213,6 +215,38 @@ describe('main()', () => {
       expect(row.inp_n).toBe(0);
       expect(row.sourceUnavailable).toMatch(/GA4 fallback returned no target/);
     }
+    expect(execFileSync).not.toHaveBeenCalled();
+  });
+
+  it('fails closed when one live target page has no target observations', async () => {
+    const runHogQLImpl = vi.fn(async (query: string) => {
+      if (query.includes("properties.$pathname = '/cerca-lavoro-ticino/'")) {
+        return { results: [[null, 1, null, 0]] };
+      }
+      return { results: [[0.05, 100, 200, 100]] };
+    });
+    const result = await main({
+      checkLivenessImpl: async () => ({
+        alive: true,
+        reason: 'test source alive',
+        source: 'posthog',
+        windowDays: 7,
+        floor: 500,
+      }),
+      runHogQLImpl,
+      ga4FallbackImpl: async () => [],
+    });
+
+    expect(result.status).toBe('source-unavailable');
+    expect(result.unavailablePages).toContain('cerca_lavoro_ticino');
+    const history = loadHistory('/tmp/cwv-monitor-check-test-history.json');
+    expect(history.pages.cerca_lavoro_ticino.weeks.at(-1)).toMatchObject({
+      cls_p75: null,
+      cls_n: 0,
+      inp_p75: null,
+      inp_n: 0,
+      sourceUnavailable: 'no target observations in 7d window',
+    });
     expect(execFileSync).not.toHaveBeenCalled();
   });
 });

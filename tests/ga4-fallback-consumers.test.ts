@@ -54,7 +54,7 @@ describe('fallback GA4 dei monitor PostHog (#6948)', () => {
     ];
     for (const file of conditionalFallback) {
       const source = readFileSync(resolve(root, file), 'utf8');
-      expect(source, file).toMatch(/checkPostHogLiveness\(/);
+      expect(source, file).toMatch(/checkPostHogLiveness\(|checkLivenessImpl\s*=\s*checkPostHogLiveness/);
       expect(source, file).toMatch(/getServiceAccountToken\(/);
     }
     for (const file of independentGa4Mirror) {

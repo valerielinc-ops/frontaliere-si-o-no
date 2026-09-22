@@ -105,9 +105,9 @@ const NARROWING_ALLOWLIST: Record<string, string> = {
     'riporta l esito della pubblicazione dello stesso deploy: oltre il ciclo corrente la condizione non è più la stessa.',
   '.github/workflows/lighthouse-ci.yml:377:6':
     'gira per PR: due run della stessa PR sono lo stesso incidente, due PR diverse no.',
-  '.github/workflows/cwv-field-criterion.yml:163:24':
+  '.github/workflows/cwv-field-criterion.yml:175:24':
     'cadenza giornaliera del criterio di campo: la finestra segue il cron.',
-  '.github/workflows/cwv-field-criterion.yml:185:168':
+  '.github/workflows/cwv-field-criterion.yml:202:168':
     'la seconda soglia dello stesso workflow lavora su finestra settimanale: 168h = il suo periodo.',
   '.github/workflows/cf-otto-route-monitor.yml:133:24':
     'monitor giornaliero delle route: finestra allineata al cron.',
