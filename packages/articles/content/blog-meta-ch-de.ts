@@ -6638,6 +6638,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.patente-guida-zugo-conversione-esami.title': 'Führerschein Kt. Zug: Ausländ. Umwandlung, Prüfungen & Verfahren',
     'blog.article.patente-guida-zugo-conversione-esami.excerpt': 'Vollständiger Leitfaden zur Umwandlung eines ausländischen Führerscheins im Kanton Zug: erforderliche Dokumente, theoretische und praktische Prüfungen, Pflichtkurse und Fristen.',
     'blog.article.patente-guida-zugo-conversione-esami.imageAlt': 'Strassenverkehrsamt Zug mit Antragsformular für Führerscheinumtausch',
+    'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B in Freiburg: Voraussetzungen & Verfahren',
+    'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.excerpt': 'Praktischer Leitfaden zu den Voraussetzungen für die Erlangung und Erneuerung der B-Bewilligung im Kanton Freiburg, mit notwendigen Unterlagen und Verfahrensablauf.',
+    'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.imageAlt': 'Kathedrale St. Nikolaus in Freiburg, Symbol des Kantons',
 };
 
 export default blogMetaChDe;

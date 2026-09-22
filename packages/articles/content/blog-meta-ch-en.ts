@@ -6638,6 +6638,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.patente-guida-zugo-conversione-esami.title': 'Driving licence Zug: foreign conversion, exams & procedures',
     'blog.article.patente-guida-zugo-conversione-esami.excerpt': 'Complete guide to converting a foreign driver\'s license in the canton of Zug: required documents, theoretical and practical exams, mandatory courses and deadlines.',
     'blog.article.patente-guida-zugo-conversione-esami.imageAlt': 'Zug canton traffic office with driver\'s license conversion form',
+    'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.title': 'Residence permit B in Fribourg: requirements, renewal & procedures',
+    'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.excerpt': 'Practical guide to the requirements for obtaining and renewing the B permit in the Canton of Fribourg, with the necessary documents and procedure.',
+    'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.imageAlt': 'St. Nicholas Cathedral in Fribourg, symbol of the Canton',
 };
 
 export default blogMetaChEn;
