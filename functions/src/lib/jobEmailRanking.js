@@ -258,6 +258,45 @@ function rankTieBreak(a, b) {
   return freshnessB - freshnessA;
 }
 
+function companyDiversityKey(job) {
+  const company = String(job?.company || '').trim().toLowerCase();
+  return company || '\u2205';
+}
+
+/**
+ * Interleave candidates only inside equal-score groups. A candidate with a
+ * higher score always stays ahead; within a tie, the first appearance of each
+ * company gets a turn before that company receives another one.
+ */
+function diversifyEqualRankGroups(candidates, scoreFor) {
+  const source = Array.isArray(candidates) ? candidates : [];
+  if (source.length < 2) return source;
+
+  const result = [];
+  let start = 0;
+  while (start < source.length) {
+    const tieScore = scoreFor(source[start]);
+    let end = start + 1;
+    while (end < source.length && scoreFor(source[end]) === tieScore) end++;
+
+    const buckets = new Map();
+    for (let index = start; index < end; index++) {
+      const key = companyDiversityKey(source[index]);
+      const bucket = buckets.get(key) || [];
+      bucket.push(source[index]);
+      buckets.set(key, bucket);
+    }
+    const maxBucketSize = Math.max(...[...buckets.values()].map((bucket) => bucket.length));
+    for (let depth = 0; depth < maxBucketSize; depth++) {
+      for (const bucket of buckets.values()) {
+        if (bucket[depth]) result.push(bucket[depth]);
+      }
+    }
+    start = end;
+  }
+  return result;
+}
+
 function insertExplorationSlots(exploit, explore, limit, fallback = []) {
   const safeLimit = Math.max(0, Math.trunc(limit));
   if (safeLimit === 0) return [];
@@ -296,10 +335,11 @@ function insertExplorationSlots(exploit, explore, limit, fallback = []) {
 }
 
 /**
- * Rank an already matched list.  Control preserves the caller's order.  The
- * treatment uses smoothed CTR, relevance, deterministic exploration and a
- * small cold-start boost; exploration slots are explicitly injected so a low-
- * impression job is not permanently hidden by the exploit sort.
+ * Rank an already matched list. Control preserves the caller's order, with
+ * company diversity as a tie-breaker. The treatment uses smoothed CTR,
+ * relevance, deterministic exploration and a small cold-start boost;
+ * exploration slots are explicitly injected so a low-impression job is not
+ * permanently hidden by the exploit sort.
  */
 export function rankEmailJobs(jobs, {
   statsByJob = new Map(),
@@ -357,13 +397,17 @@ export function rankEmailJobs(jobs, {
   });
 
   if (!isTreatment) {
-    return candidates.slice(0, safeLimit).map(({ ranking: meta, ...job }) => ({
+    const ordered = diversifyEqualRankGroups(candidates, (candidate) => candidate.ranking.relevanceScore);
+    return ordered.slice(0, safeLimit).map(({ ranking: meta, ...job }) => ({
       ...job,
       ranking: { ...meta, rankingScore: meta.relevanceScore, randomBoost: 0 },
     }));
   }
 
-  const sorted = [...candidates].sort(rankTieBreak);
+  const sorted = diversifyEqualRankGroups(
+    [...candidates].sort(rankTieBreak),
+    (candidate) => candidate.ranking.rankingScore,
+  );
   const explorationCount = Math.min(
     Math.max(0, sorted.length - 1),
     Math.max(0, Math.round(safeLimit * config.epsilon)),
@@ -389,7 +433,10 @@ export function rankEmailJobs(jobs, {
     ? capped
     : sorted;
   const exploit = exploitSource.filter((candidate) => !exploreIds.has(candidate.jobId));
-  const selected = insertExplorationSlots(exploit, explore, safeLimit, sorted);
+  const selected = diversifyEqualRankGroups(
+    insertExplorationSlots(exploit, explore, safeLimit, sorted),
+    (candidate) => candidate.ranking.rankingScore,
+  );
   return selected.map(({ ranking: meta, ...job }, index) => ({
     ...job,
     ranking: { ...meta, position: index + 1 },
