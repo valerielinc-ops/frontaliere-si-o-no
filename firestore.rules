@@ -830,9 +830,11 @@ service cloud.firestore {
       allow read: if true;
     }
 
-    // Config — public read + write for exchange rate cache (best-effort client-side caching)
+    // Config — public read; client writes are retained for the exchange-rate
+    // cache, while server-refreshed datasets remain write-protected.
     match /config/{docId} {
-      allow read, write: if true;
+      allow read: if true;
+      allow write: if docId != 'astra_vehicle_stats';
     }
 
     // Exchange rate history — public read only (writes via daily cron job with Admin SDK)

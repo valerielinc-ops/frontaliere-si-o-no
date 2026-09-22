@@ -1,4 +1,7 @@
 const frCore: Record<string, string> = {
+ 'whatsNew.v3967.title': 'Un observatoire national des véhicules',
+ 'whatsNew.v3967.vehicleObservatory.title': 'ASTRA : cantons, Tessin et nouvelles immatriculations',
+ 'whatsNew.v3967.vehicleObservatory.desc': 'Comparez le parc des 26 cantons, suivez le rythme hebdomadaire du Tessin et distinguez stock, nouvelles immatriculations, importations d’occasion et carburants.',
  'whatsNew.v3966.title': 'Une recherche d’emploi plus utile',
  'whatsNew.v3966.jobSearchLoop.title': 'Nouvelles offres, catégories et alertes',
  'whatsNew.v3966.jobSearchLoop.desc': 'Reprenez votre recherche là où vous l’aviez laissée, suivez une catégorie et passez entre catégories liées, employeurs et nouvelles pages pour l’allemand ou les débutants.',

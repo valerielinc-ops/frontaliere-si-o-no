@@ -1,4 +1,7 @@
 const enCore: Record<string, string> = {
+ 'whatsNew.v3967.title': 'A national vehicle observatory',
+ 'whatsNew.v3967.vehicleObservatory.title': 'ASTRA: cantons, Ticino and new registrations',
+ 'whatsNew.v3967.vehicleObservatory.desc': 'Compare the vehicle fleet across all 26 cantons, follow Ticino’s weekly pace, and separate stock, new registrations, used imports and fuel types.',
  'whatsNew.v3966.title': 'A more useful job search',
  'whatsNew.v3966.jobSearchLoop.title': 'New jobs, categories and alerts',
  'whatsNew.v3966.jobSearchLoop.desc': 'Pick up where you left off, follow a category, and move between related categories, employers and new German-speaking or entry-level job pages.',
