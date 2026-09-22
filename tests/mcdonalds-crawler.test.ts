@@ -315,6 +315,37 @@ describe("McDonald's Switzerland crawler parser", () => {
         vi.unstubAllGlobals();
       }
     });
+
+    it('retains a verified Swiss listing when its detail omits jobLocation', async () => {
+      const listingEntry = {
+        title: 'Crew Member',
+        reference: 'P8-missing-detail-location',
+        originalURL: 'fr-ch/crew-member/job/P8-missing-detail-location',
+        locations: [{
+          city: 'Lugano', stateAbbr: 'TI', countryAbbr: 'CH',
+          zipCode: '6900', streetAddress: 'Via Test 1',
+        }],
+      };
+      const locationlessDetail = `<script type="application/ld+json">${JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'Crew Member',
+        description: '<p>Official Swiss restaurant role with customer service responsibilities.</p>',
+      })}</script>`;
+      const fetchMock = vi.fn(async (url) => new Response(
+        String(url).includes('/emplois-restauration')
+          ? listingPageHtml([listingEntry], 1)
+          : locationlessDetail,
+        { status: 200 },
+      ));
+      vi.stubGlobal('fetch', fetchMock);
+      try {
+        const jobs = await fetchMcdoJobs({ detailConcurrency: 1, timeoutMs: 1000 });
+        expect(jobs).toHaveLength(1);
+        expect(jobs[0]).toMatchObject({ location: 'Lugano', canton: 'TI' });
+      } finally {
+        vi.unstubAllGlobals();
+      }
+    });
   });
 
   describe('buildMcdoJob', () => {

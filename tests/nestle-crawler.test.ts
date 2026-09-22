@@ -1,12 +1,17 @@
-import { describe, it, expect } from 'vitest';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   NESTLE_KEY,
   NESTLE_COMPANY_NAME,
   isNestleJob,
   isTrustedDomain,
+  fetchJobDescriptionText,
 } from '../scripts/lib/nestle-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { detectSuccessFactorsKind } from '../scripts/lib/ats-clients/successfactors-client.mjs';
+
+afterEach(() => {
+  vi.unstubAllGlobals();
+});
 
 describe('Nestlé crawler parser', () => {
   // ── Constants ──
@@ -76,6 +81,20 @@ describe('Nestlé crawler parser', () => {
     it('classifies Nestlé jobdetails detail pages as SuccessFactors pages', () => {
       expect(detectSuccessFactorsKind('https://jobdetails.nestle.com/job/Orbe-R%26D-Specialist/1377556533/')).toBe('html-jobreq');
     });
+  });
+
+  it('bounds a stalled detail request instead of consuming the crawler worker budget', async () => {
+    const fetchMock = vi.fn((_url, options) => new Promise((_resolve, reject) => {
+      options.signal.addEventListener('abort', () => reject(options.signal.reason), { once: true });
+    }));
+    vi.stubGlobal('fetch', fetchMock);
+
+    await expect(fetchJobDescriptionText(
+      'https://jobdetails.nestle.com/job/test/1/',
+      { timeoutMs: 5 },
+    )).resolves.toBe('');
+    expect(fetchMock).toHaveBeenCalledOnce();
+    expect(fetchMock.mock.calls[0][1].signal).toBeInstanceOf(AbortSignal);
   });
 
   // ── slugify (imported from crawler-template) ──

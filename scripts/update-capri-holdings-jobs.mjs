@@ -435,12 +435,25 @@ export function assertWorkdayPage(data, {
   const rawTotalText = typeof rawTotal === 'string' ? rawTotal.trim() : '';
   const hasNumericTotal = (typeof rawTotal === 'number' && Number.isFinite(rawTotal))
     || (typeof rawTotal === 'string' && /^\d+$/.test(rawTotalText));
-  const declaredTotal = hasNumericTotal ? Number(rawTotal) : NaN;
+  let declaredTotal = hasNumericTotal ? Number(rawTotal) : NaN;
   if (!hasNumericTotal || !Number.isInteger(declaredTotal) || declaredTotal < 0) {
     throw new Error(
       `Workday ${brand} ${searchText || 'empty'} search returned an invalid total `
       + `${rawTotal ?? '?'} at offset ${offset}`,
     );
+  }
+  // Capri's Workday endpoint currently returns `total: 0` on every non-zero
+  // offset while still returning a full page of distinct postings. Page 0's
+  // total remains stable and is the authoritative query bound. Treat only
+  // that internally contradictory later-page zero as an omitted total; all
+  // other drift still fails closed.
+  if (
+    expectedTotal > 0
+    && offset > 0
+    && declaredTotal === 0
+    && data.jobPostings.length > 0
+  ) {
+    declaredTotal = expectedTotal;
   }
   if (expectedTotal !== undefined && declaredTotal !== expectedTotal) {
     const error = new Error(
