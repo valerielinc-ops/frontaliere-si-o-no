@@ -106,6 +106,10 @@ describe('pharmacy directory page matrix', () => {
     expect(page.html).not.toMatch(/<main\b[^>]*class=(?:"|')?seo-static-content[\s\S]*<main\b/);
     expect(page.html).toContain('"@type":"Pharmacy"');
     expect(page.html).toContain('"@type":"BreadcrumbList"');
+    const schemas = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
+    const pharmacySchema = schemas.find((schema) => schema['@type'] === 'Pharmacy');
+    const expectedRegion = descriptor!.pharmacy!.canton || descriptor!.pharmacy!.province || descriptor!.pharmacy!.region;
+    expect(pharmacySchema.address.addressRegion).toBe(expectedRegion);
     expect(page.html).toMatch(/<meta name=robots content="index, ?follow/);
     expect(page.path).toContain('/');
   });

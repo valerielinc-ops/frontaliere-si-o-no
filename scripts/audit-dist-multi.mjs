@@ -925,24 +925,26 @@ function sdValidateEvent(schema, filePath) {
       errors.push({ file: filePath, type: 'Event', field: 'location.address.addressLocality', message: 'Event missing "location.address.addressLocality"' });
     }
   }
-  const hasImage = Array.isArray(schema.image)
-    ? schema.image.some((img) => sdIsNonEmpty(typeof img === 'string' ? img : img?.url))
-    : sdIsNonEmpty(typeof schema.image === 'string' ? schema.image : schema.image?.url);
-  if (!hasImage) {
-    errors.push({ file: filePath, type: 'Event', field: 'image', message: 'Event missing "image"' });
+  // image, organizer and performer are optional Schema.org properties. Check
+  // their shape only when a source provides them; the event catalog does not
+  // invent a generic image, source-as-organizer or venue-as-performer.
+  if (schema.image !== undefined && schema.image !== null) {
+    const hasImage = Array.isArray(schema.image)
+      ? schema.image.some((img) => sdIsNonEmpty(typeof img === 'string' ? img : img?.url))
+      : sdIsNonEmpty(typeof schema.image === 'string' ? schema.image : schema.image?.url);
+    if (!hasImage) errors.push({ file: filePath, type: 'Event', field: 'image', message: 'Event "image" is empty' });
   }
-  if (!schema.organizer || !sdIsNonEmpty(schema.organizer.name)) {
-    errors.push({ file: filePath, type: 'Event', field: 'organizer', message: 'Event missing "organizer" or organizer.name' });
-  } else if (!sdIsNonEmpty(schema.organizer.url)) {
-    errors.push({ file: filePath, type: 'Event', field: 'organizer.url', message: 'Event missing "organizer.url"' });
-  }
-  if (!schema.performer || !sdIsNonEmpty(schema.performer.name)) {
-    errors.push({ file: filePath, type: 'Event', field: 'performer', message: 'Event missing "performer" or performer.name' });
+  for (const [field, value] of [['organizer', schema.organizer], ['performer', schema.performer]]) {
+    if (value === undefined || value === null) continue;
+    const entities = Array.isArray(value) ? value : [value];
+    if (entities.length === 0 || entities.some((entity) => entity === null || typeof entity !== 'object' || !sdIsNonEmpty(entity.name))) {
+      errors.push({ file: filePath, type: 'Event', field, message: `Event "${field}" must include a named Person or Organization when present` });
+    }
   }
   // offers — OPTIONAL (recommended, not required by Google). Validate it only
   // WHEN PRESENT so price-less Event listings (e.g. the Ticino agenda, where
   // asserting price:"0" would misrepresent paid events) omit it cleanly while
-  // accurate offers stay complete. Kept in lockstep with the same rule in
+  // accurate offers retain their verified core fields. Kept in lockstep with the same rule in
   // scripts/validate-structured-data-completeness.mjs (shared Event contract).
   if (schema.offers !== undefined && schema.offers !== null) {
     if (typeof schema.offers !== 'object') {
@@ -954,14 +956,14 @@ function sdValidateEvent(schema, filePath) {
       if (!sdIsNonEmpty(schema.offers.priceCurrency)) {
         errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
       }
-      if (!sdIsNonEmpty(schema.offers.availability)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers missing "availability"' });
+      if ('availability' in schema.offers && !sdIsNonEmpty(schema.offers.availability)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers has an empty "availability"' });
       }
-      if (!sdIsNonEmpty(schema.offers.validFrom)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers missing "validFrom"' });
+      if ('validFrom' in schema.offers && !sdIsNonEmpty(schema.offers.validFrom)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers has an empty "validFrom"' });
       }
-      if (!sdIsNonEmpty(schema.offers.url)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers missing "url"' });
+      if ('url' in schema.offers && !sdIsNonEmpty(schema.offers.url)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers has an empty "url"' });
       }
     }
   }

@@ -182,18 +182,12 @@ describe('eventLd canonical', () => {
   });
 });
 
-describe('eventLd nationwide fields (#3125)', () => {
-  it('uses the per-EVENT_SOURCES organizer, not a single hardcoded source', () => {
+describe('eventLd source attribution (#3125)', () => {
+  it('does not promote the source or venue to organizer/performer without source data', () => {
     const guidleEvent = { ...EVENT, id: 'guidle:abc', sourceKey: 'guidle', sourceName: 'Guidle' };
     const ld = eventLd(guidleEvent as never, 'it') as Record<string, any>;
-    expect(ld.organizer.url).toBe('https://www.guidle.com');
-    expect(ld.organizer.name).toBe('Guidle');
-  });
-
-  it('falls back to the tio-agenda source when sourceKey is unknown (defensive)', () => {
-    const unknownSource = { ...EVENT, sourceKey: 'does-not-exist' };
-    const ld = eventLd(unknownSource as never, 'it') as Record<string, any>;
-    expect(ld.organizer.url).toBe('https://www.tio.ch/agenda');
+    expect(ld.organizer).toBeUndefined();
+    expect(ld.performer).toBeUndefined();
   });
 
   it('prefers a real crawled description over the synthesized one when long enough', () => {
@@ -223,20 +217,19 @@ describe('eventLd nationwide fields (#3125)', () => {
     expect(ld.offers).toBeUndefined();
   });
 
-  it('emits a complete offers object for a free event', () => {
+  it('emits verified price fields for a free event', () => {
     const freeEvent = { ...EVENT, price: { amount: null, currency: 'CHF', isFree: true } };
     const ld = eventLd(freeEvent as never, 'it') as Record<string, any>;
     expect(ld.offers).toMatchObject({
       '@type': 'Offer',
       price: '0',
       priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: EVENT.startDate,
     });
-    expect(ld.offers.url).toBeTruthy();
+    expect(ld.offers.validFrom).toBeUndefined();
+    expect(ld.offers.url).toBeUndefined();
   });
 
-  it('emits a complete offers object for a paid event', () => {
+  it('emits verified price fields for a paid event', () => {
     const paidEvent = { ...EVENT, price: { amount: 25, currency: 'CHF', isFree: false } };
     const ld = eventLd(paidEvent as never, 'it') as Record<string, any>;
     expect(ld.offers.price).toBe('25');
@@ -264,31 +257,20 @@ describe('eventLd nationwide fields (#3125)', () => {
     expect(ld.image.copyrightNotice).toBeTruthy();
   });
 
-  it('falls back to the per-category catalog image (F4) when the event has no image', () => {
-    // F4 (#3646): no direct photo → real, site-owned, category-scoped
-    // catalog image (width/height/alt-ready ImageObject), not the generic
-    // site OG placeholder.
+  it('omits Event.image when the event has no event-specific image', () => {
     const withoutImage = eventLd(EVENT as never, 'it') as Record<string, any>;
-    expect(withoutImage.image).toMatchObject({
-      '@type': 'ImageObject',
-      contentUrl: 'https://frontaliereticino.ch/images/events/catalog/musica.svg',
-      url: 'https://frontaliereticino.ch/images/events/catalog/musica.svg',
-      width: 1200,
-      height: 675,
-    });
+    expect(withoutImage.image).toBeUndefined();
   });
 
-  it('never hotlinks a raw non-mirrored third-party image URL — degrades to the catalog image instead', () => {
+  it('never hotlinks a raw non-mirrored third-party image URL', () => {
     // Defense-in-depth: every crawler is contracted to only ever store a
     // mirrored `/images/events/...` path (or leave imageUrl unset), but a
     // stale pre-mirroring dataset snapshot could still carry a raw URL. That
-    // must NEVER be embedded (hotlinked) into production JSON-LD.
+    // must NEVER be embedded (hotlinked) into production JSON-LD; the
+    // presentation layer may still use its category illustration.
     const hotlinked = { ...EVENT, imageUrl: 'https://biglietteria.ch/files/flyer.jpg' };
     const ld = eventLd(hotlinked as never, 'it') as Record<string, any>;
-    expect(ld.image).toMatchObject({
-      '@type': 'ImageObject',
-      contentUrl: 'https://frontaliereticino.ch/images/events/catalog/musica.svg',
-    });
+    expect(ld.image).toBeUndefined();
   });
 });
 
@@ -1055,6 +1037,33 @@ describe('events schema data quality (#3508)', () => {
     expect(names).not.toContain('Chilbi Vecchia');
     // Markup-only filter: the stale event must still be visible in the HTML list.
     expect(page.html).toContain('Chilbi Vecchia');
+  });
+
+  it('prioritizes eligible events into the visible slice when stale rows lead the source list', () => {
+    const dateStamp = '2026-06-30';
+    const stale = Array.from({ length: 100 }, (_, index) => ({
+      ...EVENT,
+      id: `myswitzerland:stale-${index}`,
+      title: `Serie già iniziata ${index}`,
+      startDate: '2025-01-01',
+      endDate: '2026-12-31',
+    }));
+    const fresh = { ...EVENT, id: 'tio-agenda:fresh-tail', title: 'Evento futuro in coda', startDate: '2026-07-02', endDate: '2026-07-02' };
+    const events = [...stale, fresh];
+    const page = renderHubPage({
+      locale: 'it',
+      canton: 'TI',
+      events: events as never,
+      byComune: new Map([['Lugano', events]]) as never,
+      dateStamp,
+      weekendDays: new Set<string>(),
+      distDir,
+    });
+    const itemLists = [...page.html.matchAll(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema\.org","@type":"ItemList".*?\})<\/script>/g)];
+    const parsed = JSON.parse(itemLists[0][1]) as { numberOfItems: number; itemListElement: Array<{ item: { name: string } }> };
+    expect(parsed.numberOfItems).toBe(events.length);
+    expect(parsed.itemListElement.map((li) => li.item.name)).toContain('Evento futuro in coda');
+    expect(page.html).toContain('Evento futuro in coda');
   });
 
   // Regression guard: validate-dist run 29794187475 found the Bern canton hub

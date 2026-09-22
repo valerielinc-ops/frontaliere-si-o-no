@@ -222,6 +222,7 @@ describe('pharmacy SEO after SPA navigation', () => {
     expect(pharmacySchemas).toHaveLength(1);
     expect(pharmacySchemas[0].name).toBe(pharmacy.name);
     expect(pharmacySchemas[0].url).toBe(`https://frontaliereticino.ch${path}`);
+    expect(pharmacySchemas[0].address.addressRegion).toBe(pharmacy.canton || pharmacy.province || pharmacy.region);
     expect(breadcrumb?.itemListElement.at(-1)?.item).toBe(`https://frontaliereticino.ch${path}`);
     expect(JSON.stringify(schemas)).not.toContain('Stale pharmacy');
   });
