@@ -248,6 +248,24 @@ describe('vacancy extraction', () => {
     expect(detail.description).toContain('Work with the warehouse team');
   });
 
+  it('prefers the structured vacancy title and semantic detail sections', () => {
+    const html = '<h1>ParMag AG</h1>'
+      + '<script type="application/ld+json">' + JSON.stringify({
+        '@type': 'JobPosting',
+        title: 'ICT Systemengineer Linux (m/w/d), Ref. 1236',
+        description: 'Kurzer Beschreibungstext der ausgeschriebenen Stelle.',
+      }) + '</script>'
+      + '<div class="jobdescription"><p>Kurzer Teaser.</p></div>'
+      + '<div class="jobtasks"><h3>Ihre Aufgaben</h3><p>Sie betreiben Linux-Systeme.</p></div>'
+      + '<div class="jobprofile"><h3>Ihr Profil</h3><p>Sie bringen Erfahrung mit.</p></div>'
+      + '<div class="jobperspective"><h3>Unser Angebot</h3><p>Wir bieten Entwicklungsmöglichkeiten.</p></div>';
+    const detail = extractDetailFields(html, 'https://parmag.ch/stellen/311?view=joblisting');
+    expect(detail.title).toBe('ICT Systemengineer Linux (m/w/d), Ref. 1236');
+    expect(detail.description).toContain('Sie betreiben Linux-Systeme.');
+    expect(detail.description).toContain('Sie bringen Erfahrung mit.');
+    expect(detail.description).toContain('Wir bieten Entwicklungsmöglichkeiten.');
+  });
+
   // jobs.admin.ch/agroscope (#7711). Il luogo di lavoro vero sta solo in un
   // campo etichettato renderizzato, che nessun record strutturato porta: senza
   // estrarne il VALORE la pagina non corrobora nulla e l'audit legge un
