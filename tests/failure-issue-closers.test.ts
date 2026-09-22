@@ -348,8 +348,17 @@ describe('apertura e chiusura delle issue di fallimento sono accoppiate (#5437)'
       // primo verde arrivi da solo entro 24h.
       'live-data-gates.yml': 'close-recovered-failure-issues',
     };
-    expect(adopted.map((r) => r.file).sort()).toEqual(Object.keys(EXPECTED).sort());
-    for (const r of adopted) expect(r.closedBy).toBe(EXPECTED[r.file]);
+    // A workflow can keep an existing custom reporter and add the canonical
+    // post-job reporter as a second adoption. Compare file + closer pairs so
+    // the rollout baseline also guards the number of adopted paths.
+    const expectedRows = Object.entries(EXPECTED)
+      .map(([file, closedBy]) => `${file}\t${closedBy}`);
+    expectedRows.push(
+      ...Array.from({ length: 5 }, () => 'deploy-publish.yml\tclose-recovered-failure-issues'),
+      'issue-fix.yml\tclose-recovered-failure-issues',
+      'issue-fix.yml\tclose-recovered-failure-issues',
+    );
+    expect(adopted.map((r) => `${r.file}\t${r.closedBy}`).sort()).toEqual(expectedRows.sort());
   });
 
   it('un workflow riusabile che adotta il reporter passa `workflow-file` e `workflow-name`', () => {

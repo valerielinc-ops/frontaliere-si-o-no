@@ -71,8 +71,8 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(gate).toContain('Checkout F1/F7 policy only');
     expect(gate).toContain('classifyIssue(issue.title, issue.labels, issue.body ?? \'\')');
     expect(gate).toContain('needs-human');
-    expect(gate).toContain('--remove-label "agent:fix"');
-    expect(gate).toContain('--remove-label "agent:fix-queued"');
+    expect(gate).toContain('remove_label_idempotently "agent:fix"');
+    expect(gate).toContain('remove_label_idempotently "agent:fix-queued"');
     expect(gate).toContain('--add-label "needs-human"');
     expect(gate).not.toContain('Mint GitHub App token');
     expect(workflow).toContain('needs: risk_policy');
@@ -413,13 +413,16 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(workflow).toContain("steps.diff_gate.outcome == 'success'");
   });
 
-  it('fallisce chiuso se la rimozione della label VISION non riesce', () => {
+  it('tratta la rimozione VISION come transizione concorrente, ma resta fail-closed', () => {
     const risk = workflow.slice(
       workflow.indexOf('Preflight F1/F7 path-risk policy before capabilities'),
       workflow.indexOf('\n  fix:'),
     );
-    expect(risk).toContain('--remove-label "agent:vision-approved"');
-    expect(risk).not.toContain('label transitoria agent:vision-approved non rimossa');
+    expect(risk).toContain('remove_label_idempotently "agent:vision-approved"');
+    expect(risk).toContain('label $label già assente — cleanup idempotente');
+    expect(risk).toContain('label $label rimossa da un\'operazione concorrente');
+    expect(risk).toContain('shape delle label non verificabile');
+    expect(risk).toContain('F1/F7 escalation label non applicata');
   });
 });
 
