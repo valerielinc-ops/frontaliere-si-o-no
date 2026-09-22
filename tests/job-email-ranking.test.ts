@@ -64,6 +64,39 @@ describe('job email ranking', () => {
     expect(treatment.every((job) => job.ranking.variant === 'treatment')).toBe(true);
   });
 
+  it('mixes companies inside equal control ranks without overtaking a higher rank', () => {
+    const ranked = rankEmailJobs([
+      { slug: 'best-vf', company: 'VF', relevanceScore: 11 },
+      { slug: 'vf-tied-1', company: 'VF', relevanceScore: 10 },
+      { slug: 'guess-tied', company: 'Guess', relevanceScore: 10 },
+      { slug: 'reboot-tied', company: 'Reboot', relevanceScore: 10 },
+      { slug: 'vf-tied-2', company: 'VF', relevanceScore: 10 },
+    ], { variant: 'control', limit: 5, config: CONFIG });
+
+    expect(ranked.map((job) => job.slug)).toEqual([
+      'best-vf',
+      'vf-tied-1',
+      'guess-tied',
+      'reboot-tied',
+      'vf-tied-2',
+    ]);
+  });
+
+  it('mixes companies inside equal treatment ranks before applying the limit', () => {
+    const ranked = rankEmailJobs([
+      { slug: 'vf-tied-1', company: 'VF', relevanceScore: 10 },
+      { slug: 'vf-tied-2', company: 'VF', relevanceScore: 10 },
+      { slug: 'guess-tied', company: 'Guess', relevanceScore: 10 },
+      { slug: 'reboot-tied', company: 'Reboot', relevanceScore: 10 },
+    ], {
+      variant: 'treatment',
+      limit: 3,
+      config: { ...CONFIG, alpha: 1, epsilon: 0, minImpressions: 0 },
+    });
+
+    expect(ranked.map((job) => job.company)).toEqual(['VF', 'Guess', 'Reboot']);
+  });
+
   it('assigns a stable treatment/control cohort and supports an instant kill switch', () => {
     const treatment = assignJobRankingVariant({
       subjectId: 'person@example.com',
