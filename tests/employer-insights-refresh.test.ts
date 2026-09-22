@@ -1,6 +1,8 @@
 import { readFileSync } from 'node:fs';
 import { describe, expect, it } from 'vitest';
 
+import * as employerInsightsBuilder from '../scripts/build-employer-insights.mjs';
+import { validateD18Artifact } from '../scripts/ci/validate-employer-insights-d18-payload.mjs';
 import { commitInChunks } from '../scripts/lib/firestore-batch.mjs';
 
 const REFRESH_WORKFLOW_SOURCE = readFileSync(
@@ -9,6 +11,89 @@ const REFRESH_WORKFLOW_SOURCE = readFileSync(
 );
 
 describe('employer insights refresh rollback', () => {
+  it('runs and validates the bounded D18 two-regime artifact beside the legacy writer', () => {
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('--d18-json-out /tmp/employer-insights-d18.json');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('--d18-include-applications');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('validate-employer-insights-d18-payload.mjs');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('Upload D18 bounded artifact');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('/tmp/employer-insights-d18.json');
+  });
+
+  it('accepts a D18 fixture with both regimes and keeps the period total non-summable', () => {
+    const window = {
+      from: '2026-09-01T00:00:00+02:00',
+      to: '2026-09-12T00:00:00+02:00',
+      timezone: 'Europe/Zurich',
+      inclusive: '[from,to)',
+    };
+    const catalog = employerInsightsBuilder.buildIdentityCatalog([{
+      id: 'job-1',
+      companyKey: 'acme',
+      company: 'Acme SA',
+      title: 'Role',
+      slug: 'role-it',
+      slugByLocale: { it: 'role-it' },
+      status: 'active',
+    }]);
+    const queryResult = (source: string, observed: number, snapshotId: string) => ({
+      rows: [{
+        event: 'page_view',
+        timestamp: source === 'ga4' ? '2026-09-10T00:00:00.000Z' : '2026-09-08T10:00:00.000Z',
+        employerKey: 'acme',
+        jobSlug: 'role-it',
+        pageTemplate: 'job_detail',
+        locale: 'it',
+        observed,
+        visitorId: `${source}-visitor`,
+        emissionId: `${source}-emission`,
+      }],
+      coverage: {
+        rowsReturned: 1,
+        totalRows: 1,
+        returnedRows: 1,
+        returned: observed,
+        sourceObserved: observed,
+        pages: 1,
+        truncated: false,
+        identityObserved: source === 'ga4' ? observed : undefined,
+        snapshotId,
+        queryHash: `${source}-query`,
+      },
+    });
+    const payload = employerInsightsBuilder.buildD18PayloadFromQuerySnapshots({
+      window,
+      generatedAt: '2026-09-12T06:00:00.000Z',
+      catalog,
+      ga4Result: queryResult('ga4', 2, 'ga4-fixture'),
+      posthogResult: queryResult('posthog', 3, 'posthog-fixture'),
+      applicationRecords: [],
+    });
+
+    const validation = validateD18Artifact(payload);
+    expect(validation.ok).toBe(true);
+    expect(payload.sourceRegimes.ga4.status).toBe('observed');
+    expect(payload.sourceRegimes.posthog.status).toBe('parziale');
+    expect(payload.periodTotal).toMatchObject({
+      value: null,
+      unit: 'composite_two_regimes',
+      status: 'non sommabile fra regimi',
+    });
+    expect(payload.periodTotal.value).not.toBe(5);
+    expect(payload.coverageMatrix.requestedDays.length).toBe(11);
+    expect(payload.provenance.limitState).toBe('parziale, mai complete');
+
+    const pending = employerInsightsBuilder.buildD18PayloadFromQuerySnapshots({
+      window,
+      generatedAt: '2026-09-12T06:00:00.000Z',
+      catalog,
+      ga4Result: queryResult('ga4', 2, 'ga4-fixture'),
+      posthogUnavailableReason: 'blocked: backup credentials unavailable',
+    });
+    expect(validateD18Artifact(pending).ok).toBe(true);
+    expect(pending.sourceRegimes.posthog.status).toBe('sorgente non disponibile');
+    expect(pending.coverageMatrix.status).toBe('non disponibile');
+  });
+
   it('runs the now-supported GA4 identity feed on the periodic trigger', () => {
     expect(REFRESH_WORKFLOW_SOURCE).toMatch(/on:\s*[\s\S]*schedule:\s*[\s\S]*cron:\s*'15 5 \* \* \*'/);
     expect(REFRESH_WORKFLOW_SOURCE).toMatch(/ga4\) ;;/);

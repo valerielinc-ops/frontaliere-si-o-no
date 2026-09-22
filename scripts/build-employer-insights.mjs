@@ -13,6 +13,7 @@
  *   node scripts/build-employer-insights.mjs --source ga4
  *   node scripts/build-employer-insights.mjs --source posthog --company <companyKey>
  *   node scripts/build-employer-insights.mjs --source posthog --apply
+ *   node scripts/build-employer-insights.mjs --source ga4 --d18-json-out /tmp/d18.json
  */
 
 import crypto from 'node:crypto';
@@ -47,11 +48,13 @@ import {
   D18_METRIC_VERSION,
   D18_POSTHOG_CAVEAT,
   D18_SCHEMA_VERSION,
+  D18_TIMEZONE,
   buildCompositeMetric,
   buildCoverageMatrix,
   buildD18SourceRegimes,
   deriveD18Windows,
   isWithinD18Window,
+  listD18Days,
   metricFromObservation,
   metricValue,
   normalizeD18Window,
@@ -205,7 +208,7 @@ function unwrapList(raw) {
   return [];
 }
 
-function loadJsonJobs() {
+export function loadJsonJobs() {
   const monolith = ['data/jobs.json', 'public/data/jobs.json']
     .map((relative) => path.join(ROOT, relative))
     .find((candidate) => fs.existsSync(candidate));
@@ -226,7 +229,7 @@ function loadJsonJobs() {
   return jobs;
 }
 
-function loadCompanyRegistry() {
+export function loadCompanyRegistry() {
   const file = path.join(ROOT, 'data', 'crawler-companies-auto.json');
   try {
     const raw = JSON.parse(fs.readFileSync(file, 'utf8'));
@@ -2806,6 +2809,211 @@ export async function queryGa4EventRows(
   };
 }
 
+function d18ReportWindow(window) {
+  return normalizeD18Window({
+    from: window.from,
+    to: window.to,
+    timezone: D18_TIMEZONE,
+    inclusive: '[from,to)',
+  }, { kind: 'cumulative' });
+}
+
+function d18UnavailableSource(source, window, reason) {
+  const fingerprint = d18Sha256(d18StableJson({ source, window, reason }));
+  return {
+    source,
+    status: 'sorgente non disponibile',
+    sourceSnapshot: `unavailable:${source}:${fingerprint}`,
+    queryHash: `unavailable:${fingerprint}`,
+    unavailableReason: reason,
+    sourceCoverage: {
+      source,
+      coverageStart: window.from,
+      coverageEnd: window.to,
+      completeThrough: null,
+      gaps: [],
+      truncated: null,
+      rowsReturned: 0,
+      totalRows: null,
+      pages: 0,
+      pageSize: null,
+      queried: false,
+      status: 'sorgente non disponibile',
+      unavailableReason: reason,
+    },
+    identityCoverage: {
+      coverageStart: null,
+      coverageEnd: null,
+      completeThrough: null,
+      eligibleFrom: null,
+      firstCompleteIdentityAt: null,
+      queried: false,
+      status: 'sorgente non disponibile',
+    },
+    denominator: {
+      value: null,
+      unit: 'events',
+      source,
+      status: 'non disponibile',
+      reason,
+    },
+  };
+}
+
+export function d18SourceMetadataFromQuery(source, window, result) {
+  if (!result) throw new Error(`D18 ${source} query result is required`);
+  const coverage = result.coverage || {};
+  const truncated = coverage.truncated === true;
+  const snapshotId = String(coverage.snapshotId || d18Sha256(d18StableJson({ source, window, coverage })));
+  const queryHash = String(coverage.queryHash || d18Sha256(d18StableJson({ source, window, query: coverage })));
+  const status = truncated ? 'parziale' : 'observed';
+  const identityObserved = Number(coverage.identityObserved);
+  const identityAvailable = source !== 'ga4' || Number.isFinite(identityObserved) && identityObserved > 0;
+  return {
+    source,
+    status,
+    sourceSnapshot: snapshotId,
+    queryHash,
+    sourceCoverage: {
+      ...coverage,
+      source,
+      coverageStart: window.from,
+      coverageEnd: window.to,
+      completeThrough: truncated ? null : window.to,
+      rowsReturned: coverage.rowsReturned ?? coverage.returnedRows ?? null,
+      totalRows: coverage.totalRows ?? coverage.groupRowsBeforeCut ?? null,
+      queried: true,
+      status,
+      unavailableReason: null,
+    },
+    identityCoverage: source === 'ga4'
+      ? {
+        eligibleFrom: D18_J0,
+        firstCompleteIdentityAt: identityAvailable ? D18_J0 : null,
+        coverageStart: D18_J0,
+        coverageEnd: window.to,
+        completeThrough: identityAvailable && !truncated ? window.to : null,
+        queried: true,
+        status: identityAvailable && !truncated ? 'complete' : 'parziale',
+      }
+      : {
+        eligibleFrom: window.from,
+        firstCompleteIdentityAt: window.from,
+        coverageStart: window.from,
+        coverageEnd: window.to,
+        completeThrough: truncated ? null : window.to,
+        queried: true,
+        status,
+      },
+    denominator: {
+      value: source === 'posthog' || truncated ? null : coverage.returned ?? coverage.sourceObserved ?? null,
+      unit: 'events',
+      source,
+      status: source === 'posthog' ? 'non provato' : truncated ? 'non provato' : 'provato',
+      ...(source === 'posthog' ? { reason: D18_POSTHOG_CAVEAT } : {}),
+    },
+  };
+}
+
+export function buildD18DailyCoverage(window, sources = {}) {
+  const sourceState = (meta) => {
+    const coverage = meta?.sourceCoverage;
+    if (!coverage || coverage.queried === false || meta?.status === 'sorgente non disponibile') {
+      return { queried: false, available: false, partial: false };
+    }
+    const partial = coverage.truncated === true
+      || coverage.status === 'parziale'
+      || meta.status === 'parziale'
+      || !coverage.completeThrough;
+    return { queried: true, available: true, partial };
+  };
+  const ga4 = sourceState(sources.ga4);
+  const posthog = sourceState(sources.posthog);
+  return listD18Days(window).map((day) => ({ day, ga4, posthog }));
+}
+
+export function buildD18PayloadFromQuerySnapshots({
+  window,
+  generatedAt,
+  catalog,
+  ga4Result = null,
+  posthogResult = null,
+  ga4UnavailableReason = 'GA4 query non eseguita',
+  posthogUnavailableReason = 'PostHog backup non interrogato',
+  applicationRecords = undefined,
+  deliveryRecords = [],
+} = {}) {
+  const requestedWindow = d18ReportWindow(window);
+  const ga4Source = ga4Result
+    ? d18SourceMetadataFromQuery('ga4', requestedWindow, ga4Result)
+    : d18UnavailableSource('ga4', requestedWindow, ga4UnavailableReason);
+  const posthogSource = posthogResult
+    ? d18SourceMetadataFromQuery('posthog', requestedWindow, posthogResult)
+    : d18UnavailableSource('posthog', requestedWindow, posthogUnavailableReason);
+  const applicationsSource = Array.isArray(applicationRecords)
+    ? d18SourceMetadataFromQuery('firestore:applications', requestedWindow, {
+      rows: applicationRecords,
+      coverage: {
+        rowsReturned: applicationRecords.length,
+        totalRows: applicationRecords.length,
+        returnedRows: applicationRecords.length,
+        returned: applicationRecords.length,
+        pages: 1,
+        truncated: false,
+        snapshotId: d18Sha256(d18StableJson({ source: 'firestore:applications', count: applicationRecords.length, window: requestedWindow })),
+        queryHash: d18Sha256(d18StableJson({ source: 'firestore:applications', window: requestedWindow })),
+      },
+    })
+    : d18UnavailableSource('firestore:applications', requestedWindow, 'application snapshot non richiesto dal refresh');
+  const deliverySource = Array.isArray(deliveryRecords) && deliveryRecords.length
+    ? d18SourceMetadataFromQuery('provider:delivery', requestedWindow, {
+      rows: deliveryRecords,
+      coverage: {
+        rowsReturned: deliveryRecords.length,
+        totalRows: deliveryRecords.length,
+        returnedRows: deliveryRecords.length,
+        returned: deliveryRecords.length,
+        pages: 1,
+        truncated: false,
+        snapshotId: d18Sha256(d18StableJson({ source: 'provider:delivery', count: deliveryRecords.length, window: requestedWindow })),
+        queryHash: d18Sha256(d18StableJson({ source: 'provider:delivery', window: requestedWindow })),
+      },
+    })
+    : d18UnavailableSource('provider:delivery', requestedWindow, 'provider delivery receipt non disponibile nel refresh');
+  const payload = buildCumulativeInsightsPayload({
+    requestedWindow,
+    generatedAt,
+    catalog,
+    ga4Rows: ga4Result?.rows || [],
+    posthogRows: posthogResult?.rows || [],
+    ga4Source,
+    posthogSource,
+    applicationsSource,
+    deliverySource,
+    applicationRecords,
+    deliveryRecords,
+    dailyCoverage: buildD18DailyCoverage(requestedWindow, { ga4: ga4Source, posthog: posthogSource }),
+    sourceSnapshot: {
+      ga4: ga4Source.sourceSnapshot,
+      posthog: posthogSource.sourceSnapshot,
+      applications: applicationsSource.sourceSnapshot,
+      delivery: deliverySource.sourceSnapshot,
+    },
+  });
+  return payload;
+}
+
+function writeJsonAtomically(filePath, value) {
+  const temporaryPath = `${filePath}.${process.pid}.tmp`;
+  try {
+    fs.writeFileSync(temporaryPath, `${JSON.stringify(value, null, 2)}\n`, 'utf8');
+    fs.renameSync(temporaryPath, filePath);
+  } catch (error) {
+    try { fs.unlinkSync(temporaryPath); } catch { /* preserve the original error */ }
+    throw error;
+  }
+}
+
 async function findSourceBounds() {
   const rows = await hogql('SELECT min(timestamp) AS source_from, max(timestamp) AS source_to FROM events');
   const row = rows?.[0] || [];
@@ -2850,6 +3058,8 @@ async function main() {
   const source = arg('--source', null);
   if (!source) throw new Error('--source is required (posthog or ga4)');
   assertEmployerInsightsSource(source);
+  const d18JsonOutputPath = arg('--d18-json-out', null);
+  const d18IncludeApplications = hasFlag('--d18-include-applications');
   const now = new Date().toISOString();
   const requestedTo = arg('--to', null);
   const requestedFrom = arg('--from', null);
@@ -2885,6 +3095,18 @@ async function main() {
     : null;
   if (source === 'ga4' && !ga4Options.token) {
     throw new Error('GA4 source requires a readable service-account token');
+  }
+
+  let d18Ga4Options = ga4Options;
+  if (d18JsonOutputPath && source !== 'ga4') {
+    try {
+      d18Ga4Options = {
+        token: await getServiceAccountToken([GA4_READONLY_SCOPE]),
+        propertyId: process.env.GA4_PROPERTY_ID,
+      };
+    } catch {
+      d18Ga4Options = null;
+    }
   }
 
   const additional = new Map();
@@ -2946,6 +3168,54 @@ async function main() {
     if (views && Object.keys(views).length) document.additionalWindows = views;
   }
 
+  if (d18JsonOutputPath) {
+    const d18Window = d18ReportWindow(primary.window);
+    let d18Ga4Result = source === 'ga4' ? primary.queried : null;
+    let d18PosthogResult = source === 'posthog' ? primary.queried : null;
+    let ga4UnavailableReason = 'GA4 query non eseguita';
+    let posthogUnavailableReason = 'PostHog backup non interrogato';
+
+    if (source === 'ga4') {
+      if (process.env.POSTHOG_PERSONAL_API_KEY && process.env.POSTHOG_PROJECT_ID) {
+        try {
+          d18PosthogResult = await queryEventRows(d18Window);
+        } catch {
+          d18PosthogResult = null;
+          posthogUnavailableReason = 'PostHog backup query fallita; regime dichiarato non disponibile';
+        }
+      } else {
+        posthogUnavailableReason = 'credenziali PostHog non configurate nel refresh';
+      }
+    } else if (!d18Ga4Options?.token || !d18Ga4Options.propertyId) {
+      d18Ga4Result = null;
+      ga4UnavailableReason = 'credenziali o proprietà GA4 non disponibili nel refresh';
+    } else {
+      try {
+        d18Ga4Result = await queryGa4EventRows(d18Window, d18Ga4Options);
+      } catch {
+        d18Ga4Result = null;
+        ga4UnavailableReason = 'GA4 backup query fallita; regime dichiarato non disponibile';
+      }
+    }
+
+    const d18ApplicationRecords = d18IncludeApplications && !Array.isArray(applicationRecords)
+      ? await loadApplicationRecords()
+      : applicationRecords;
+    const d18Payload = buildD18PayloadFromQuerySnapshots({
+      window: d18Window,
+      generatedAt: now,
+      catalog,
+      ga4Result: d18Ga4Result,
+      posthogResult: d18PosthogResult,
+      ga4UnavailableReason,
+      posthogUnavailableReason,
+      applicationRecords: d18ApplicationRecords,
+    });
+    writeJsonAtomically(d18JsonOutputPath, d18Payload);
+    console.log(`D18 JSON written to ${d18JsonOutputPath}.`);
+    console.log(`D18 regimes: GA4 ${d18Payload.sourceRegimes.ga4.status}; PostHog ${d18Payload.sourceRegimes.posthog.status}.`);
+  }
+
   const jsonOutputPath = arg('--json-out', null);
   if (jsonOutputPath) {
     const payload = buildDryRunPayload({
@@ -2955,14 +3225,7 @@ async function main() {
       window: primary.window,
       queryCoverage: primary.queried.coverage,
     });
-    const temporaryPath = `${jsonOutputPath}.${process.pid}.tmp`;
-    try {
-      fs.writeFileSync(temporaryPath, `${JSON.stringify(payload, null, 2)}\n`, 'utf8');
-      fs.renameSync(temporaryPath, jsonOutputPath);
-    } catch (error) {
-      try { fs.unlinkSync(temporaryPath); } catch { /* preserve the original error */ }
-      throw error;
-    }
+    writeJsonAtomically(jsonOutputPath, payload);
     console.log(`Dry-run JSON written to ${jsonOutputPath}.`);
   }
 

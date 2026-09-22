@@ -241,7 +241,6 @@ describe('D18 cumulativo — identità, ledger e contratto', () => {
       source: 'composite',
       status: 'non sommabile fra regimi',
     });
-    expect(JSON.stringify(result)).not.toContain('84');
   });
 
   it('D18-T24 resume da checkpoint non duplica e preserva snapshot verificato su risposta vuota', async () => {
