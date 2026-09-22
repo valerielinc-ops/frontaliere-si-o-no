@@ -164,6 +164,43 @@ describe('PostAuto crawler parser', () => {
         vi.unstubAllGlobals();
       }
     });
+
+    it('stops at the declared row count instead of requesting the out-of-range page', async () => {
+      const firstRecord = { id: 'postauto-row-one', cust_brandCompanyJobSearch: ['PostAuto'] };
+      const secondRecord = { id: 'postauto-row-two', cust_brandCompanyJobSearch: ['PostAuto'] };
+      const thirdRecord = { id: 'postauto-row-three', cust_brandCompanyJobSearch: ['PostAuto'] };
+      const requestedPages: number[] = [];
+      const fetchMock = vi.fn(async (_url: string, init?: RequestInit) => {
+        const body = JSON.parse(String(init?.body || '{}')) as { pageNumber?: number };
+        requestedPages.push(body.pageNumber ?? -1);
+        return {
+          ok: true,
+          status: 200,
+          json: async () => ({
+            totalJobs: 4,
+            jobSearchResult: body.pageNumber === 0
+              ? [{ response: firstRecord }, { response: secondRecord }]
+              : body.pageNumber === 1
+                ? [{ response: secondRecord }, { response: thirdRecord }]
+                : undefined,
+          }),
+        };
+      });
+      vi.stubGlobal('fetch', fetchMock);
+
+      try {
+        const listings = await postAutoTestables.fetchPostAutoListings(1000);
+        expect(listings.fetchOutcome).toBe('ok');
+        expect(listings.map((listing) => listing.id)).toEqual([
+          'postauto-row-one',
+          'postauto-row-two',
+          'postauto-row-three',
+        ]);
+        expect(requestedPages).not.toContain(2);
+      } finally {
+        vi.unstubAllGlobals();
+      }
+    });
   });
 
   // ── slugify (imported from crawler-template) ──

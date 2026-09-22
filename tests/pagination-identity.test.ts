@@ -71,13 +71,13 @@ describe('pagination source identity contract', () => {
     expect(postch).toContain('allowPreviouslySeen: true');
     expect(postauto).toContain('recordUniquePageProgress(localeIds, jobs');
     expect(postauto).toContain('allowPreviouslySeen: true');
-    expect(postch).toContain('localeIds.size >= totalJobs');
+    expect(postch).toContain('scannedRows >= totalJobs');
     expect(confederazione).toContain('recordUniquePageProgress(sourceIdentities, items');
     expect(confederazione).toContain('sourceIdentities.size >= declaredTotal');
     const postfinance = readFileSync(new URL('../scripts/update-postfinance-jobs.mjs', import.meta.url), 'utf8');
     expect(postfinance).toContain('recordUniquePageProgress(sourceIdentities, pageRecords');
     expect(postfinance).toContain('allowPreviouslySeen: true');
-    expect(postfinance).toContain('sourceIdentities.size >= total');
+    expect(postfinance).toContain('scannedRows >= total');
     expect(postfinance).toContain('const pageRecords = entries.map((entry) => entry?.response);');
     expect(postfinance).toContain('pageRecords.some((record) => !record)');
     expect(postfinance).toContain('if (!paginationComplete && pageNumber >= RECRUITING_API_MAX_PAGES)');

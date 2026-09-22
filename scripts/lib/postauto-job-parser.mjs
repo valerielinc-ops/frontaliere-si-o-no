@@ -310,6 +310,7 @@ async function fetchPostAutoListings(timeoutMs) {
     let pageNumber = 0;
     let totalJobs = null;
     const localeIds = new Set();
+    let scannedRows = 0;
     let complete = false;
     while (pageNumber < JOBS_API_MAX_PAGES) {
       const page = await fetchJobsApiPage(apiLocale, pageNumber, timeoutMs);
@@ -330,8 +331,8 @@ async function fetchPostAutoListings(timeoutMs) {
       // paginated; replacing a known total would accept a truncated snapshot.
       if (totalJobs === null && Number.isFinite(total) && total > 0) totalJobs = total;
       if (jobs.length === 0) {
-        if (Number.isFinite(totalJobs) && localeIds.size < totalJobs) {
-          console.warn(`⚠️ PostAuto ${apiLocale}: empty page before declared total (${localeIds.size}/${totalJobs}).`);
+        if (Number.isFinite(totalJobs) && scannedRows < totalJobs) {
+          console.warn(`⚠️ PostAuto ${apiLocale}: empty page before declared total (${scannedRows}/${totalJobs} rows; ${localeIds.size} unique).`);
           localeStats.push({ locale: apiLocale, seen: localeIds.size, totalJobs, fetchOutcome: 'feed_endpoint_unavailable' });
           const incomplete = [];
           Object.defineProperties(incomplete, {
@@ -354,11 +355,15 @@ async function fetchPostAutoListings(timeoutMs) {
         const id = pageIds[index];
         if (isPostAutoRecord(record)) byId.set(id, record);
       }
+      // totalJobs counts rows in the mutable feed, not the deduplicated IDs.
+      // Page-boundary overlaps are allowed above, so unique IDs can stay below
+      // the declared row count even when the feed has been fully consumed.
+      scannedRows += jobs.length;
       pageNumber += 1;
       // Some SuccessFactors responses report totalJobs=0 even while returning
       // a full page. Treat that as "unknown", not as proof that the first
       // page is complete; the following empty page is the terminator.
-      if (Number.isFinite(totalJobs) && totalJobs > 0 && localeIds.size >= totalJobs) {
+      if (Number.isFinite(totalJobs) && totalJobs > 0 && scannedRows >= totalJobs) {
         complete = true;
         break;
       }
@@ -366,7 +371,7 @@ async function fetchPostAutoListings(timeoutMs) {
     }
 
     if (!complete) {
-      console.warn(`⚠️ PostAuto ${apiLocale}: pagination safety cap reached after ${localeIds.size} record(s).`);
+      console.warn(`⚠️ PostAuto ${apiLocale}: pagination safety cap reached after ${scannedRows} row(s) / ${localeIds.size} unique record(s).`);
       const incomplete = [];
       Object.defineProperties(incomplete, {
         discoveredCount: { value: byId.size, enumerable: false },
@@ -376,7 +381,7 @@ async function fetchPostAutoListings(timeoutMs) {
       return incomplete;
     }
     localeStats.push({ locale: apiLocale, seen: localeIds.size, totalJobs, fetchOutcome: 'ok' });
-    console.log(`     ${apiLocale}: scanned ${localeIds.size} record(s) (claimed total: ${Number.isFinite(totalJobs) ? totalJobs : 'unknown'})`);
+    console.log(`     ${apiLocale}: scanned ${scannedRows} row(s), ${localeIds.size} unique record(s) (claimed total: ${Number.isFinite(totalJobs) ? totalJobs : 'unknown'})`);
   }
 
   const listings = [...byId.values()];
