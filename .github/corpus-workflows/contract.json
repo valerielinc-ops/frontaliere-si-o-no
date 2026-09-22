@@ -4,20 +4,20 @@
   "generatorSha256": "00798df981cd90ce97563911361b7232e8e08db156698dc7d3f5d7a6697c2c70",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "779a0e506995879dd7eba2715f5893cd50e724b2",
+  "sourceCommit": "78e99130f8d8339eba3b39743cf46239e8b112b1",
   "artifactObservation": {
     "generatorSha256": "00798df981cd90ce97563911361b7232e8e08db156698dc7d3f5d7a6697c2c70",
     "sourceRef": "main",
-    "sourceCommit": "779a0e506995879dd7eba2715f5893cd50e724b2"
+    "sourceCommit": "78e99130f8d8339eba3b39743cf46239e8b112b1"
   },
   "groupCount": 23,
   "artifactCount": 24,
   "observerCount": 7,
-  "crawlerCount": 619,
+  "crawlerCount": 620,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:8f7e8bb82ebe25a6cd77d399280afed46f0a7701d4db85b2021865a80b9f979d",
+    "rosterDigest": "sha256:9ae4b471f53fccec6a2dd40615d1647042a49098fba20733d1323f37b29ad5d2",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -121,6 +121,7 @@
     "scripts/update-bobst-jobs.mjs",
     "scripts/update-bossard-jobs.mjs",
     "scripts/update-brack-alltron-jobs.mjs",
+    "scripts/update-brefispersonal-jobs.mjs",
     "scripts/update-breitling-jobs.mjs",
     "scripts/update-bucher-suter-jobs.mjs",
     "scripts/update-bucherer-jobs.mjs",
@@ -1427,8 +1428,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "02f0262132283e6a374f776f52dc2b6477a2a8bf9900e9880d05860b6ea37dc6",
-      "artifactSha256": "753d91956b1afa86734aa64cfa1b24310f510cb62cf9e3679346f1e9ffb641a3",
+      "sourceSha256": "240364be7c85611ac32be9504d0f26d2e6a2b5d74e15976395fb7d4c62c9c5a9",
+      "artifactSha256": "b67d559d6c8fe939522c3abfafea022a708ceb906ae164cbc22907e6d48e9e56",
       "generatorSha256": "00798df981cd90ce97563911361b7232e8e08db156698dc7d3f5d7a6697c2c70",
       "members": [
         "albergo-gardenia",
@@ -1446,7 +1447,8 @@
         "postauto",
         "postch",
         "postfinance",
-        "tsmg"
+        "tsmg",
+        "brefispersonal"
       ]
     },
     {
