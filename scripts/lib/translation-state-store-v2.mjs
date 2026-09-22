@@ -44,6 +44,7 @@ export const MAX_TRANSLATION_STATE_ARTIFACT_BYTES_V2 = 1024 * 1024;
 export const MAX_TRANSLATION_STATE_EVENTS_PER_ATTEMPT_V2 = 64;
 export const MAX_TRANSLATION_STATE_INTENTS_PER_PATCH_V2 = 1024;
 export const TRANSLATION_STATE_GIT_TIMEOUT_MS_V2 = 30_000;
+export const TRANSLATION_STATE_GIT_TIMEOUT_EXIT_CODE_V2 = 124;
 export const TRANSLATION_STATE_QUEUE_CONFLICT_CODE_V2 = 'TRANSLATION_STATE_QUEUE_CONFLICT_V2';
 export const TRANSLATION_STATE_SCHEDULER_CONFLICT_CODE_V2 = 'TRANSLATION_STATE_SCHEDULER_CONFLICT_V2';
 
@@ -516,6 +517,19 @@ function createGitRunner(repository) {
       });
       return { code: 0, stdout: result.stdout, stderr: result.stderr };
     } catch (error) {
+      // `execFile` reports its timeout as the string code `ETIMEDOUT`, not a
+      // numeric exit status. Preserve it as a retryable result so the CAS loop
+      // can check whether the remote accepted the push before the client was
+      // killed. Previously this escaped the runner and aborted the shadow lane
+      // before its existing CAS recovery could run.
+      if (error?.code === 'ETIMEDOUT' || (error?.killed === true && error?.signal === 'SIGTERM')) {
+        return {
+          code: TRANSLATION_STATE_GIT_TIMEOUT_EXIT_CODE_V2,
+          stdout: error.stdout ?? '',
+          stderr: error.stderr ?? error.message ?? 'git command timed out',
+          timedOut: true,
+        };
+      }
       if (typeof error?.code === 'number') {
         return { code: error.code, stdout: error.stdout ?? '', stderr: error.stderr ?? '' };
       }
@@ -963,7 +977,16 @@ export function createTranslationStateStoreV2(options) {
         return { commit, retries: attempt - 1, changed: true };
       }
       const moved = await remoteTip(git, remote, ref);
-      if (moved === tip) throw new Error(`translation state push failed: ${pushed.stderr.trim()}`);
+      if (moved === tip) {
+        if (pushed.timedOut === true) {
+          if (attempt === maxCasAttempts) {
+            const detail = pushed.stderr.trim() || 'git push timed out';
+            throw new Error(`translation state push timeout retry budget exhausted: ${detail}`);
+          }
+          continue;
+        }
+        throw new Error(`translation state push failed: ${pushed.stderr.trim()}`);
+      }
     }
     throw new Error('translation state CAS retry budget exhausted');
   }
