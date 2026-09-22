@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "sta-0190d076c06b",
-      "slug": "malerpraktiker-in-per-fassadenarbeiten-sta-personal-ag-kulm",
+      "slug": "professionisti-di-pittura-per-lavori-di-facciata-sta-personal-ag-kulm-aargau",
       "slugByLocale": {
-        "it": "malerpraktiker-in-per-fassadenarbeiten-sta-personal-ag-kulm",
-        "en": "malerpraktiker-in-fur-fassadenarbeiten-sta-personal-ag-kulm",
+        "it": "professionisti-di-pittura-per-lavori-di-facciata-sta-personal-ag-kulm-aargau",
+        "en": "painting-practitioners-for-facade-work-sta-personal-ag-kulm-aargau",
         "de": "malerpraktiker-in-fur-fassadenarbeiten-kulm-aargau-sta-ch",
-        "fr": "malerpraktiker-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
+        "fr": "pratiques-de-peinture-pour-travaux-de-facade-sta-personal-ag-kulm-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -51,12 +51,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "malerpraktiker-in-fur-fassadenarbeiten-kulm-aargau-sta-ch",
-        "malerpraktiker-in-per-fassadenarbeiten-sta-personal-ag-kulm"
+        "malerpraktiker-in-per-fassadenarbeiten-sta-personal-ag-kulm",
+        "malerpraktiker-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
       ],
       "previousSlugsByLocale": {
         "it": [
           "malerpraktiker-in-fur-fassadenarbeiten-kulm-aargau-sta-ch",
           "malerpraktiker-in-per-fassadenarbeiten-sta-personal-ag-kulm"
+        ],
+        "en": [
+          "malerpraktiker-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
+        ],
+        "fr": [
+          "malerpraktiker-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
         ]
       },
       "needsRetranslation": true,
@@ -77,12 +84,12 @@
     },
     {
       "id": "sta-af64d555855e",
-      "slug": "malerpraktiker-in-per-neu-e-umbauten-sta-personal-ag-sursee",
+      "slug": "i-professionisti-della-pittura-per-nuove-e-ristrutturazioni-sta-personal-ag-sursee-luzern",
       "slugByLocale": {
-        "it": "malerpraktiker-in-per-neu-e-umbauten-sta-personal-ag-sursee",
-        "en": "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
+        "it": "i-professionisti-della-pittura-per-nuove-e-ristrutturazioni-sta-personal-ag-sursee-luzern",
+        "en": "painting-practitioners-for-new-and-renovations-sta-personal-ag-sursee-luzern",
         "de": "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
-        "fr": "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch"
+        "fr": "pratiques-de-peinture-pour-les-nouveautes-et-les-renovations-sta-personal-ag-sursee-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -130,6 +137,12 @@
         "it": [
           "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
           "malerpraktiker-in-per-neu-e-umbauten-sta-personal-ag-sursee"
+        ],
+        "en": [
+          "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch"
+        ],
+        "fr": [
+          "malerpraktiker-in-fur-neu-und-umbauten-sursee-luzern-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -150,12 +163,12 @@
     },
     {
       "id": "sta-b7807241004d",
-      "slug": "maler-in-con-lackierwerkstatt-e-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi",
+      "slug": "pittore-con-negozio-di-vernici-e-progetti-di-ristrutturazione-sta-personal-ag-kussnacht-am-rigi-schwyz",
       "slugByLocale": {
-        "it": "maler-in-con-lackierwerkstatt-e-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi",
-        "en": "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi",
+        "it": "pittore-con-negozio-di-vernici-e-progetti-di-ristrutturazione-sta-personal-ag-kussnacht-am-rigi-schwyz",
+        "en": "painter-with-paint-shop-and-renovation-projects-sta-personal-ag-kussnacht-am-rigi-schwyz",
         "de": "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-kussnacht-am-rigi-schwyz-sta-ch",
-        "fr": "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi"
+        "fr": "peintre-avec-atelier-de-peinture-et-projets-de-renovation-sta-personal-ag-kussnacht-am-rigi-schwyz"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -197,12 +210,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-kussnacht-am-rigi-schwyz-sta-ch",
-        "maler-in-con-lackierwerkstatt-e-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi"
+        "maler-in-con-lackierwerkstatt-e-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi",
+        "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-kussnacht-am-rigi-schwyz-sta-ch",
           "maler-in-con-lackierwerkstatt-e-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi"
+        ],
+        "en": [
+          "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi"
+        ],
+        "fr": [
+          "maler-in-mit-lackierwerkstatt-und-sanierungsprojekten-sta-personal-ag-kussnacht-am-rigi"
         ]
       },
       "needsRetranslation": true,
@@ -223,12 +243,12 @@
     },
     {
       "id": "sta-58dadb3e555a",
-      "slug": "maler-in-mit-hoher-eigenverantwortung-sta-personal-ag-willisau",
+      "slug": "pittore-con-alta-responsabilita-personale-sta-personal-ag-willisau-luzern",
       "slugByLocale": {
-        "it": "maler-in-mit-hoher-eigenverantwortung-sta-personal-ag-willisau",
-        "en": "maler-in-mit-hoher-eigenverantwortung-sta-personal-ag-willisau",
+        "it": "pittore-con-alta-responsabilita-personale-sta-personal-ag-willisau-luzern",
+        "en": "painter-with-high-personal-responsibility-sta-personal-ag-willisau-luzern",
         "de": "maler-in-mit-hoher-eigenverantwortung-willisau-luzern-sta-ch",
-        "fr": "maler-in-mit-hoher-eigenverantwortung-sta-personal-ag-willisau"
+        "fr": "peintre-a-haute-responsabilite-personnelle-sta-personal-ag-willisau-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -276,6 +296,12 @@
         "it": [
           "maler-in-mit-hoher-eigenverantwortung-willisau-luzern-sta-ch",
           "maler-in-mit-hoher-eigenverantwortung-sta-personal-ag-willisau"
+        ],
+        "en": [
+          "maler-in-mit-hoher-eigenverantwortung-sta-personal-ag-willisau"
+        ],
+        "fr": [
+          "maler-in-mit-hoher-eigenverantwortung-sta-personal-ag-willisau"
         ]
       },
       "needsRetranslation": true,
@@ -296,12 +322,12 @@
     },
     {
       "id": "sta-1af015907e27",
-      "slug": "maler-in-per-vielseitige-applikationsmethoden-sta-personal-ag-olten",
+      "slug": "pittore-per-metodi-applicativi-versatili-sta-personal-ag-olten-solothurn",
       "slugByLocale": {
-        "it": "maler-in-per-vielseitige-applikationsmethoden-sta-personal-ag-olten",
-        "en": "maler-in-fur-vielseitige-applikationsmethoden-sta-personal-ag-olten",
+        "it": "pittore-per-metodi-applicativi-versatili-sta-personal-ag-olten-solothurn",
+        "en": "painter-for-versatile-application-methods-sta-personal-ag-olten-solothurn",
         "de": "maler-in-fur-vielseitige-applikationsmethoden-olten-solothurn-sta-ch",
-        "fr": "maler-in-fur-vielseitige-applikationsmethoden-sta-personal-ag-olten"
+        "fr": "peintre-pour-des-methodes-d-application-polyvalentes-sta-personal-ag-olten-solothurn"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -343,12 +369,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-vielseitige-applikationsmethoden-olten-solothurn-sta-ch",
-        "maler-in-per-vielseitige-applikationsmethoden-sta-personal-ag-olten"
+        "maler-in-per-vielseitige-applikationsmethoden-sta-personal-ag-olten",
+        "maler-in-fur-vielseitige-applikationsmethoden-sta-personal-ag-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-vielseitige-applikationsmethoden-olten-solothurn-sta-ch",
           "maler-in-per-vielseitige-applikationsmethoden-sta-personal-ag-olten"
+        ],
+        "en": [
+          "maler-in-fur-vielseitige-applikationsmethoden-sta-personal-ag-olten"
+        ],
+        "fr": [
+          "maler-in-fur-vielseitige-applikationsmethoden-sta-personal-ag-olten"
         ]
       },
       "needsRetranslation": true,
@@ -369,12 +402,12 @@
     },
     {
       "id": "sta-ae1d20f7fdc5",
-      "slug": "maler-in-per-renovations-e-neubauprojekte-sta-personal-ag-langenthal",
+      "slug": "pittore-per-la-ristrutturazione-e-nuovi-progetti-di-costruzione-sta-personal-ag-langenthal-bern",
       "slugByLocale": {
-        "it": "maler-in-per-renovations-e-neubauprojekte-sta-personal-ag-langenthal",
-        "en": "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch",
+        "it": "pittore-per-la-ristrutturazione-e-nuovi-progetti-di-costruzione-sta-personal-ag-langenthal-bern",
+        "en": "painter-for-renovation-and-new-construction-projects-sta-personal-ag-langenthal-bern",
         "de": "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch",
-        "fr": "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch"
+        "fr": "peintre-pour-renovation-et-nouveaux-projets-de-construction-sta-personal-ag-langenthal-bern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -422,6 +455,12 @@
         "it": [
           "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch",
           "maler-in-per-renovations-e-neubauprojekte-sta-personal-ag-langenthal"
+        ],
+        "en": [
+          "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch"
+        ],
+        "fr": [
+          "maler-in-fur-renovations-und-neubauprojekte-langenthal-bern-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -442,12 +481,12 @@
     },
     {
       "id": "sta-f952cbef99d3",
-      "slug": "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten",
+      "slug": "pittore-per-nuovi-edifici-e-progetti-di-ristrutturazione-sta-personal-ag-olten-solothurn",
       "slugByLocale": {
-        "it": "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten",
-        "en": "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten",
+        "it": "pittore-per-nuovi-edifici-e-progetti-di-ristrutturazione-sta-personal-ag-olten-solothurn",
+        "en": "painter-for-new-buildings-and-renovation-projects-sta-personal-ag-olten-solothurn",
         "de": "maler-in-fur-neubauten-und-renovationsprojekte-olten-solothurn-sta-ch",
-        "fr": "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten"
+        "fr": "peintre-pour-nouveaux-batiments-et-projets-de-renovation-sta-personal-ag-olten-solothurn"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -489,12 +528,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-neubauten-und-renovationsprojekte-olten-solothurn-sta-ch",
-        "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten"
+        "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten",
+        "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-neubauten-und-renovationsprojekte-olten-solothurn-sta-ch",
           "maler-in-per-neubauten-e-renovationsprojekte-sta-personal-ag-olten"
+        ],
+        "en": [
+          "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten"
+        ],
+        "fr": [
+          "maler-in-fur-neubauten-und-renovationsprojekte-sta-personal-ag-olten"
         ]
       },
       "needsRetranslation": true,
@@ -515,12 +561,12 @@
     },
     {
       "id": "sta-03dc1fbd18ea",
-      "slug": "maler-in-per-neubau-e-renovationen-sta-personal-ag-muri-ag",
+      "slug": "pittore-per-nuove-costruzioni-e-ristrutturazioni-sta-personal-ag-muri-ag-aargau",
       "slugByLocale": {
-        "it": "maler-in-per-neubau-e-renovationen-sta-personal-ag-muri-ag",
-        "en": "maler-in-fur-neubau-und-renovationen-muri-ag-aargau-sta-ch",
+        "it": "pittore-per-nuove-costruzioni-e-ristrutturazioni-sta-personal-ag-muri-ag-aargau",
+        "en": "painter-for-new-construction-and-renovations-sta-personal-ag-muri-ag-aargau",
         "de": "maler-in-fur-neubau-und-renovationen-muri-ag-aargau-sta-ch",
-        "fr": "maler-in-fur-neubau-und-renovationen-muri-ag-aargau-sta-ch"
+        "fr": "peintre-pour-nouvelles-constructions-et-renovations-sta-personal-ag-muri-ag-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -568,6 +614,12 @@
         "it": [
           "maler-in-fur-neubau-und-renovationen-muri-ag-aargau-sta-ch",
           "maler-in-per-neubau-e-renovationen-sta-personal-ag-muri-ag"
+        ],
+        "en": [
+          "maler-in-fur-neubau-und-renovationen-muri-ag-aargau-sta-ch"
+        ],
+        "fr": [
+          "maler-in-fur-neubau-und-renovationen-muri-ag-aargau-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -588,12 +640,12 @@
     },
     {
       "id": "sta-ef55ecd2fdf6",
-      "slug": "maler-in-per-neubau-e-renovationsprojekte-sta-personal-ag-aarau",
+      "slug": "pittore-per-nuovi-progetti-di-costruzione-e-ristrutturazione-sta-personal-ag-aarau-aargau",
       "slugByLocale": {
-        "it": "maler-in-per-neubau-e-renovationsprojekte-sta-personal-ag-aarau",
-        "en": "maler-in-fur-neubau-und-renovationsprojekte-sta-personal-ag-aarau",
+        "it": "pittore-per-nuovi-progetti-di-costruzione-e-ristrutturazione-sta-personal-ag-aarau-aargau",
+        "en": "painter-for-new-construction-and-renovation-projects-sta-personal-ag-aarau-aargau",
         "de": "maler-in-fur-neubau-und-renovationsprojekte-aarau-aargau-sta-ch",
-        "fr": "maler-in-fur-neubau-und-renovationsprojekte-sta-personal-ag-aarau"
+        "fr": "peintre-pour-nouveaux-projets-de-construction-et-de-renovation-sta-personal-ag-aarau-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -635,12 +687,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-neubau-und-renovationsprojekte-aarau-aargau-sta-ch",
-        "maler-in-per-neubau-e-renovationsprojekte-sta-personal-ag-aarau"
+        "maler-in-per-neubau-e-renovationsprojekte-sta-personal-ag-aarau",
+        "maler-in-fur-neubau-und-renovationsprojekte-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-neubau-und-renovationsprojekte-aarau-aargau-sta-ch",
           "maler-in-per-neubau-e-renovationsprojekte-sta-personal-ag-aarau"
+        ],
+        "en": [
+          "maler-in-fur-neubau-und-renovationsprojekte-sta-personal-ag-aarau"
+        ],
+        "fr": [
+          "maler-in-fur-neubau-und-renovationsprojekte-sta-personal-ag-aarau"
         ]
       },
       "needsRetranslation": true,
@@ -661,12 +720,12 @@
     },
     {
       "id": "sta-65b6c497899b",
-      "slug": "maler-in-per-neu-e-umbauten-sta-personal-ag-sursee",
+      "slug": "pittori-per-nuove-e-ristrutturazioni-sta-personal-ag-sursee-luzern",
       "slugByLocale": {
-        "it": "maler-in-per-neu-e-umbauten-sta-personal-ag-sursee",
-        "en": "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
+        "it": "pittori-per-nuove-e-ristrutturazioni-sta-personal-ag-sursee-luzern",
+        "en": "painters-for-new-and-renovations-sta-personal-ag-sursee-luzern",
         "de": "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
-        "fr": "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch"
+        "fr": "peintres-pour-nouveautes-et-renovations-sta-personal-ag-sursee-luzern"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -714,6 +773,12 @@
         "it": [
           "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch",
           "maler-in-per-neu-e-umbauten-sta-personal-ag-sursee"
+        ],
+        "en": [
+          "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch"
+        ],
+        "fr": [
+          "maler-in-fur-neu-und-umbauten-sursee-luzern-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -734,12 +799,12 @@
     },
     {
       "id": "sta-64e33db0150f",
-      "slug": "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten",
+      "slug": "pittore-per-uso-temporaneo-a-lungo-termine-sta-personal-ag-olten-solothurn",
       "slugByLocale": {
-        "it": "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten",
-        "en": "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch",
+        "it": "pittore-per-uso-temporaneo-a-lungo-termine-sta-personal-ag-olten-solothurn",
+        "en": "painter-for-long-term-temporary-use-sta-personal-ag-olten-solothurn",
         "de": "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch",
-        "fr": "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch"
+        "fr": "peintre-a-usage-temporaire-a-long-terme-sta-personal-ag-olten-solothurn"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -787,6 +852,12 @@
         "it": [
           "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch",
           "maler-in-per-langfristigen-temporaren-einsatz-sta-personal-ag-olten"
+        ],
+        "en": [
+          "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch"
+        ],
+        "fr": [
+          "maler-in-fur-langfristigen-temporaren-einsatz-olten-solothurn-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -807,12 +878,12 @@
     },
     {
       "id": "sta-e053edd9d86c",
-      "slug": "maler-in-per-innenraume-e-fassaden-sta-personal-ag-zurich",
+      "slug": "interni-e-facciate-pittori-sta-personal-ag-zurich-zurich",
       "slugByLocale": {
-        "it": "maler-in-per-innenraume-e-fassaden-sta-personal-ag-zurich",
-        "en": "maler-in-fur-innenraume-und-fassaden-zurich-zurich-sta-ch",
+        "it": "interni-e-facciate-pittori-sta-personal-ag-zurich-zurich",
+        "en": "interior-and-facade-painters-sta-personal-ag-zurich-zurich",
         "de": "maler-in-fur-innenraume-und-fassaden-zurich-zurich-sta-ch",
-        "fr": "maler-in-fur-innenraume-und-fassaden-zurich-zurich-sta-ch"
+        "fr": "peintures-d-interieur-et-de-facade-sta-personal-ag-zurich-zurich"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -853,10 +924,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "maler-in-fur-innenraume-und-fassaden-zurich-zurich-sta-ch"
+        "maler-in-fur-innenraume-und-fassaden-zurich-zurich-sta-ch",
+        "maler-in-per-innenraume-e-fassaden-sta-personal-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "maler-in-fur-innenraume-und-fassaden-zurich-zurich-sta-ch",
+          "maler-in-per-innenraume-e-fassaden-sta-personal-ag-zurich"
+        ],
+        "en": [
+          "maler-in-fur-innenraume-und-fassaden-zurich-zurich-sta-ch"
+        ],
+        "fr": [
           "maler-in-fur-innenraume-und-fassaden-zurich-zurich-sta-ch"
         ]
       },
@@ -878,12 +957,12 @@
     },
     {
       "id": "sta-70ff96e6848d",
-      "slug": "maler-in-per-fassadenanstriche-sta-personal-ag-aarau",
+      "slug": "pittori-pittorici-sta-personal-ag-aarau-aargau",
       "slugByLocale": {
-        "it": "maler-in-per-fassadenanstriche-sta-personal-ag-aarau",
-        "en": "maler-in-fur-fassadenanstriche-sta-personal-ag-aarau",
+        "it": "pittori-pittorici-sta-personal-ag-aarau-aargau",
+        "en": "paint-painters-sta-personal-ag-aarau-aargau",
         "de": "maler-in-fur-fassadenanstriche-aarau-aargau-sta-ch",
-        "fr": "maler-in-fur-fassadenanstriche-sta-personal-ag-aarau"
+        "fr": "peintures-sta-personal-ag-aarau-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -925,12 +1004,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-fassadenanstriche-aarau-aargau-sta-ch",
-        "maler-in-per-fassadenanstriche-sta-personal-ag-aarau"
+        "maler-in-per-fassadenanstriche-sta-personal-ag-aarau",
+        "maler-in-fur-fassadenanstriche-sta-personal-ag-aarau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-fassadenanstriche-aarau-aargau-sta-ch",
           "maler-in-per-fassadenanstriche-sta-personal-ag-aarau"
+        ],
+        "en": [
+          "maler-in-fur-fassadenanstriche-sta-personal-ag-aarau"
+        ],
+        "fr": [
+          "maler-in-fur-fassadenanstriche-sta-personal-ag-aarau"
         ]
       },
       "needsRetranslation": true,
@@ -951,12 +1037,12 @@
     },
     {
       "id": "sta-f86d04ed276b",
-      "slug": "maler-in-per-fassadenarbeiten-sta-personal-ag-kulm",
+      "slug": "pittori-facade-sta-personal-ag-kulm-aargau",
       "slugByLocale": {
-        "it": "maler-in-per-fassadenarbeiten-sta-personal-ag-kulm",
-        "en": "maler-in-fur-fassadenarbeiten-sta-personal-ag-kulm",
+        "it": "pittori-facade-sta-personal-ag-kulm-aargau",
+        "en": "facade-painters-sta-personal-ag-kulm-aargau",
         "de": "maler-in-fur-fassadenarbeiten-kulm-aargau-sta-ch",
-        "fr": "maler-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
+        "fr": "peintres-facades-sta-personal-ag-kulm-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -998,12 +1084,19 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-fassadenarbeiten-kulm-aargau-sta-ch",
-        "maler-in-per-fassadenarbeiten-sta-personal-ag-kulm"
+        "maler-in-per-fassadenarbeiten-sta-personal-ag-kulm",
+        "maler-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-fassadenarbeiten-kulm-aargau-sta-ch",
           "maler-in-per-fassadenarbeiten-sta-personal-ag-kulm"
+        ],
+        "en": [
+          "maler-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
+        ],
+        "fr": [
+          "maler-in-fur-fassadenarbeiten-sta-personal-ag-kulm"
         ]
       },
       "needsRetranslation": true,
@@ -1024,12 +1117,12 @@
     },
     {
       "id": "sta-79b0542986f0",
-      "slug": "gipser-in-cfc-per-innen-e-aussenbereich-sta-personal-ag-zofingen",
+      "slug": "plaster-efz-per-uso-interno-ed-esterno-sta-personal-ag-zofingen-aargau",
       "slugByLocale": {
-        "it": "gipser-in-cfc-per-innen-e-aussenbereich-sta-personal-ag-zofingen",
-        "en": "gipser-in-efz-fur-innen-und-aussenbereich-zofingen-aargau-sta-ch",
+        "it": "plaster-efz-per-uso-interno-ed-esterno-sta-personal-ag-zofingen-aargau",
+        "en": "plaster-efz-for-indoor-and-outdoor-use-sta-personal-ag-zofingen-aargau",
         "de": "gipser-in-efz-fur-innen-und-aussenbereich-zofingen-aargau-sta-ch",
-        "fr": "gipser-in-efz-fur-innen-und-aussenbereich-zofingen-aargau-sta-ch"
+        "fr": "plaster-efz-pour-usage-interieur-et-exterieur-sta-personal-ag-zofingen-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -1077,6 +1170,12 @@
         "it": [
           "gipser-in-efz-fur-innen-und-aussenbereich-zofingen-aargau-sta-ch",
           "gipser-in-cfc-per-innen-e-aussenbereich-sta-personal-ag-zofingen"
+        ],
+        "en": [
+          "gipser-in-efz-fur-innen-und-aussenbereich-zofingen-aargau-sta-ch"
+        ],
+        "fr": [
+          "gipser-in-efz-fur-innen-und-aussenbereich-zofingen-aargau-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1097,12 +1196,12 @@
     },
     {
       "id": "sta-3a42e595e9e1",
-      "slug": "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau",
+      "slug": "giardino-e-giardinieri-paesaggistici-sta-personal-ag-aarau-aargau",
       "slugByLocale": {
-        "it": "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau",
-        "en": "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch",
+        "it": "giardino-e-giardinieri-paesaggistici-sta-personal-ag-aarau-aargau",
+        "en": "garden-and-landscaping-gardeners-sta-personal-ag-aarau-aargau",
         "de": "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch",
-        "fr": "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch"
+        "fr": "jardiniers-et-paysagistes-sta-personal-ag-aarau-aargau"
       },
       "company": "STA Personal AG",
       "companyKey": "sta",
@@ -1150,6 +1249,12 @@
         "it": [
           "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch",
           "gartner-in-hilfsarbeiter-in-per-garten-e-landschaftsbau-sta-personal-ag-aarau"
+        ],
+        "en": [
+          "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch"
+        ],
+        "fr": [
+          "gartner-in-hilfsarbeiter-in-fur-garten-und-landschaftsbau-aarau-aargau-sta-ch"
         ]
       },
       "needsRetranslation": true,
@@ -1217,14 +1322,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-innen-und-aussenbereich-langenthal-bern-sta-ch",
-        "maler-in-per-innen-e-aussenbereich-sta-personal-ag-langenthal",
-        "pittori-interni-ed-esterni-sta-personal-ag-langenthal-bern"
+        "maler-in-per-innen-e-aussenbereich-sta-personal-ag-langenthal"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-innen-und-aussenbereich-langenthal-bern-sta-ch",
-          "maler-in-per-innen-e-aussenbereich-sta-personal-ag-langenthal",
-          "pittori-interni-ed-esterni-sta-personal-ag-langenthal-bern"
+          "maler-in-per-innen-e-aussenbereich-sta-personal-ag-langenthal"
         ],
         "en": [
           "maler-in-fur-innen-und-aussenbereich-langenthal-bern-sta-ch"
@@ -1297,14 +1400,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch",
-        "maler-in-per-aussenfassaden-e-kantenschutz-sta-personal-ag-affoltern-am-albis",
-        "pittore-per-facciate-esterne-e-protezione-dei-bordi-sta-personal-ag-affoltern-am-albis-zurich"
+        "maler-in-per-aussenfassaden-e-kantenschutz-sta-personal-ag-affoltern-am-albis"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch",
-          "maler-in-per-aussenfassaden-e-kantenschutz-sta-personal-ag-affoltern-am-albis",
-          "pittore-per-facciate-esterne-e-protezione-dei-bordi-sta-personal-ag-affoltern-am-albis-zurich"
+          "maler-in-per-aussenfassaden-e-kantenschutz-sta-personal-ag-affoltern-am-albis"
         ],
         "en": [
           "maler-in-fur-aussenfassaden-und-kantenschutz-affoltern-am-albis-zurich-sta-ch"
@@ -1377,14 +1478,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "allrounder-in-ausbaugewerbe-fur-werbetechnik-zofingen-aargau-sta-ch",
-        "allrounder-in-ausbaugewerbe-per-werbetechnik-sta-personal-ag-zofingen",
-        "sviluppo-globale-per-la-tecnologia-pubblicitaria-sta-personal-ag-zofingen-aargau"
+        "allrounder-in-ausbaugewerbe-per-werbetechnik-sta-personal-ag-zofingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "allrounder-in-ausbaugewerbe-fur-werbetechnik-zofingen-aargau-sta-ch",
-          "allrounder-in-ausbaugewerbe-per-werbetechnik-sta-personal-ag-zofingen",
-          "sviluppo-globale-per-la-tecnologia-pubblicitaria-sta-personal-ag-zofingen-aargau"
+          "allrounder-in-ausbaugewerbe-per-werbetechnik-sta-personal-ag-zofingen"
         ],
         "en": [
           "allrounder-in-ausbaugewerbe-fur-werbetechnik-zofingen-aargau-sta-ch"
@@ -1457,14 +1556,12 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "maler-in-fur-vielseitigen-einsatz-gesucht-willisau-luzern-sta-ch",
-        "maler-in-per-vielseitigen-einsatz-gesucht-sta-personal-ag-willisau",
-        "desiderati-pittori-per-un-uso-versatile-sta-personal-ag-willisau-luzern"
+        "maler-in-per-vielseitigen-einsatz-gesucht-sta-personal-ag-willisau"
       ],
       "previousSlugsByLocale": {
         "it": [
           "maler-in-fur-vielseitigen-einsatz-gesucht-willisau-luzern-sta-ch",
-          "maler-in-per-vielseitigen-einsatz-gesucht-sta-personal-ag-willisau",
-          "desiderati-pittori-per-un-uso-versatile-sta-personal-ag-willisau-luzern"
+          "maler-in-per-vielseitigen-einsatz-gesucht-sta-personal-ag-willisau"
         ],
         "en": [
           "maler-in-fur-vielseitigen-einsatz-gesucht-willisau-luzern-sta-ch"

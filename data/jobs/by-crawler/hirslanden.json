@@ -19309,9 +19309,9 @@
       "slug": "medizinische-praxisassistentin-medizinischer-praxisassistent-a-gynakologie-60-70",
       "slugByLocale": {
         "de": "medizinische-praxisassistentin-medizinischer-praxisassistent-a-gynakologie-60-70",
-        "en": "medizinische-praxisassistentin-medizinischer-praxisassistent-a-gynakologie-60-70-hirslanden-klinik-aarau",
-        "fr": "medizinische-praxisassistentin-medizinischer-praxisassistent-a-gynakologie-60-70-hirslanden-klinik-aarau",
-        "it": "medizinische-praxisassistentin-medizinischer-praxisassistent-a-gynakologie-60-70-hirslanden-klinik-aarau"
+        "en": "medical-practice-assistant-a-gynecology-50-80-hirslanden-klinik-aarau",
+        "fr": "assistant-en-pratique-medicale-a-gynecologie-50-80-hirslanden-klinik-aarau",
+        "it": "assistente-medico-a-ginecologia-50-80-hirslanden-klinik-aarau"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -19367,7 +19367,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T16:02:54.443Z"
+      "firstSeenAt": "2026-09-21T16:02:54.443Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-a-gynakologie-60-70-hirslanden-klinik-aarau"
+        ],
+        "en": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-a-gynakologie-60-70-hirslanden-klinik-aarau"
+        ],
+        "fr": [
+          "medizinische-praxisassistentin-medizinischer-praxisassistent-a-gynakologie-60-70-hirslanden-klinik-aarau"
+        ]
+      },
+      "previousSlugs": [
+        "medizinische-praxisassistentin-medizinischer-praxisassistent-a-gynakologie-60-70-hirslanden-klinik-aarau"
+      ]
     },
     {
       "id": "hirslanden-8f3bb6812488",
@@ -24806,7 +24820,7 @@
         "de": "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline",
         "it": "per-quanto-riguarda-i-dipartimenti-francesi-d-oltremare-la-commissione-ha-deciso-di-concedere-l-aiuto-ai-dipartimenti",
         "en": "in-the-case-of-the-french-overseas-departments-the-commission-has-decided-to-grant-the-aid-to-the-french-overseas",
-        "fr": "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline"
+        "fr": "infirm-ere-en-soins-continentaux-a-80-hirslanden-klinik-hirslanden-clinique-la-colline"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -24855,6 +24869,9 @@
           "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline"
         ],
         "en": [
+          "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline"
+        ],
+        "fr": [
           "infirmier-ere-en-soins-continus-a-80-hirslanden-hirslanden-clinique-la-colline"
         ]
       },
@@ -28938,12 +28955,12 @@
     },
     {
       "id": "hirslanden-a2d55996727c",
-      "slug": "leiterin-leiter-rekrutierung-a-80-100-hirslanden-hirslanden-salem-spital",
+      "slug": "testa-di-reclutamento-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
       "slugByLocale": {
         "de": "leiterin-leiter-rekrutierung-a-80-100-hirslanden-hirslanden-salem-spital",
-        "it": "leiterin-leiter-rekrutierung-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
-        "en": "leiterin-leiter-rekrutierung-a-80-100-hirslanden-hirslanden-salem-spital",
-        "fr": "leiterin-leiter-rekrutierung-a-80-100-hirslanden-hirslanden-salem-spital"
+        "it": "testa-di-reclutamento-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
+        "en": "head-of-recruitment-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
+        "fr": "chef-du-recrutement-a-80-100-hirslanden-klinik-hirslanden-salem-spital"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -28999,16 +29016,32 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T15:59:08.757Z"
+      "firstSeenAt": "2026-09-21T15:59:08.757Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leiterin-leiter-rekrutierung-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
+          "leiterin-leiter-rekrutierung-a-80-100-hirslanden-hirslanden-salem-spital"
+        ],
+        "en": [
+          "leiterin-leiter-rekrutierung-a-80-100-hirslanden-hirslanden-salem-spital"
+        ],
+        "fr": [
+          "leiterin-leiter-rekrutierung-a-80-100-hirslanden-hirslanden-salem-spital"
+        ]
+      },
+      "previousSlugs": [
+        "leiterin-leiter-rekrutierung-a-80-100-hirslanden-klinik-hirslanden-salem-spital",
+        "leiterin-leiter-rekrutierung-a-80-100-hirslanden-hirslanden-salem-spital"
+      ]
     },
     {
       "id": "hirslanden-d467675ce777",
-      "slug": "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-hirslanden-klinik-stephanshorn",
+      "slug": "assistente-infermieristico-a-80-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
       "slugByLocale": {
         "de": "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-hirslanden-klinik-stephanshorn",
-        "it": "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-hirslanden-klinik-stephanshorn",
-        "en": "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-hirslanden-klinik-stephanshorn",
-        "fr": "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-hirslanden-klinik-stephanshorn"
+        "it": "assistente-infermieristico-a-80-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "en": "nursing-assistant-a-80-100-hirslanden-klinik-hirslanden-klinik-stephanshorn",
+        "fr": "assistant-infirmier-a-80-100-hirslanden-klinik-hirslanden-klinik-stephanshorn"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29064,16 +29097,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T15:59:07.723Z"
+      "firstSeenAt": "2026-09-21T15:59:07.723Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "en": [
+          "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-hirslanden-klinik-stephanshorn"
+        ],
+        "fr": [
+          "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-hirslanden-klinik-stephanshorn"
+        ]
+      },
+      "previousSlugs": [
+        "pflegeassistentin-pflegeassistent-a-80-100-hirslanden-hirslanden-klinik-stephanshorn"
+      ]
     },
     {
       "id": "hirslanden-5a6a78f3aa95",
-      "slug": "spezialistin-spezialist-steuern-tax-manager-a-60-80-hirslanden-hirslanden-corporate-office",
+      "slug": "imposte-specializzate-tax-manager-a-60-80-hirslanden-klinik-hirslanden-corporate-office",
       "slugByLocale": {
         "de": "spezialistin-spezialist-steuern-tax-manager-a-60-80-hirslanden-hirslanden-corporate-office",
-        "it": "spezialistin-spezialist-steuern-tax-manager-a-60-80-hirslanden-hirslanden-corporate-office",
-        "en": "spezialistin-spezialist-steuern-tax-manager-a-60-80-hirslanden-hirslanden-corporate-office",
-        "fr": "spezialistin-spezialist-steuern-tax-manager-a-60-80-hirslanden-hirslanden-corporate-office"
+        "it": "imposte-specializzate-tax-manager-a-60-80-hirslanden-klinik-hirslanden-corporate-office",
+        "en": "specialist-tax-tax-manager-a-60-80-hirslanden-klinik-hirslanden-corporate-office",
+        "fr": "fiscalite-specialisee-gestionnaire-fiscal-a-60-80-hirslanden-klinik-hirslanden-corporate-office"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29129,16 +29176,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T15:59:06.574Z"
+      "firstSeenAt": "2026-09-21T15:59:06.574Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialistin-spezialist-steuern-tax-manager-a-60-80-hirslanden-hirslanden-corporate-office"
+        ],
+        "en": [
+          "spezialistin-spezialist-steuern-tax-manager-a-60-80-hirslanden-hirslanden-corporate-office"
+        ],
+        "fr": [
+          "spezialistin-spezialist-steuern-tax-manager-a-60-80-hirslanden-hirslanden-corporate-office"
+        ]
+      },
+      "previousSlugs": [
+        "spezialistin-spezialist-steuern-tax-manager-a-60-80-hirslanden-hirslanden-corporate-office"
+      ]
     },
     {
       "id": "hirslanden-6676df2618a4",
-      "slug": "spezialistin-spezialist-honorare-partnerarztmanagement-a-100-hirslanden-hirslanden",
+      "slug": "specialista-specialist-honorare-partner-medical-management-a-100-hirslanden-klinik-hirslanden-corporate-office",
       "slugByLocale": {
         "de": "spezialistin-spezialist-honorare-partnerarztmanagement-a-100-hirslanden-hirslanden",
-        "it": "spezialistin-spezialist-honorare-partnerarztmanagement-a-100-hirslanden-hirslanden",
-        "en": "spezialistin-spezialist-honorare-partnerarztmanagement-a-100-hirslanden-hirslanden",
-        "fr": "spezialistin-spezialist-honorare-partnerarztmanagement-a-100-hirslanden-hirslanden"
+        "it": "specialista-specialist-honorare-partner-medical-management-a-100-hirslanden-klinik-hirslanden-corporate-office",
+        "en": "specialist-specialist-honorare-partner-medical-management-a-100-hirslanden-klinik-hirslanden-corporate-office",
+        "fr": "specialiste-specialiste-honoraires-et-partenaires-de-la-gestion-medicale-a-100-hirslanden-klinik-hirslanden-corporate"
       },
       "company": "Hirslanden Klinik",
       "companyKey": "hirslanden",
@@ -29194,7 +29255,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T15:59:05.522Z"
+      "firstSeenAt": "2026-09-21T15:59:05.522Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "spezialistin-spezialist-honorare-partnerarztmanagement-a-100-hirslanden-hirslanden"
+        ],
+        "en": [
+          "spezialistin-spezialist-honorare-partnerarztmanagement-a-100-hirslanden-hirslanden"
+        ],
+        "fr": [
+          "spezialistin-spezialist-honorare-partnerarztmanagement-a-100-hirslanden-hirslanden"
+        ]
+      },
+      "previousSlugs": [
+        "spezialistin-spezialist-honorare-partnerarztmanagement-a-100-hirslanden-hirslanden"
+      ]
     },
     {
       "id": "hirslanden-8953a841d53a",

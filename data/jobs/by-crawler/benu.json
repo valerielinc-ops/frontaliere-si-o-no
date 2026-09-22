@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "benu-546b3c2e5a16",
-      "slug": "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch",
+      "slug": "pharmacist-m-f-80-100-benu-lucerna-station-benu-luzern-lucerne",
       "slugByLocale": {
         "de": "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch",
-        "it": "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch",
-        "en": "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch",
-        "fr": "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+        "it": "pharmacist-m-f-80-100-benu-lucerna-station-benu-luzern-lucerne",
+        "en": "pharmacist-m-f-80-100-benu-lucerne-station-benu-luzern-lucerne",
+        "fr": "pharmacienne-h-f-80-100-benu-lucerne-station-benu-luzern-lucerne"
       },
       "company": "benu",
       "companyKey": "benu",
@@ -66,16 +66,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T16:00:38.955Z"
+      "firstSeenAt": "2026-09-21T16:00:38.955Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+        ],
+        "en": [
+          "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+        ],
+        "fr": [
+          "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+        ]
+      },
+      "previousSlugs": [
+        "apotheker-w-m-80-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+      ]
     },
     {
       "id": "benu-3bbaab4e3b94",
-      "slug": "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch",
+      "slug": "assistente-farmaceutico-m-f-fino-al-40-nel-salario-orario-benu-rheineck-benu-rheineck",
       "slugByLocale": {
         "de": "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch",
-        "it": "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch",
-        "en": "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch",
-        "fr": "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch"
+        "it": "assistente-farmaceutico-m-f-fino-al-40-nel-salario-orario-benu-rheineck-benu-rheineck",
+        "en": "pharmaceutical-assistant-m-f-up-to-40-in-hourly-wage-benu-rheineck-benu-rheineck",
+        "fr": "assistant-pharmaceutique-h-f-jusqu-a-40-en-salaire-horaire-benu-rheineck-benu-rheineck"
       },
       "company": "benu",
       "companyKey": "benu",
@@ -132,16 +146,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T16:00:38.953Z"
+      "firstSeenAt": "2026-09-21T16:00:38.953Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch"
+        ],
+        "en": [
+          "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch"
+        ],
+        "fr": [
+          "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pharma-assistent-in-w-m-bis-zu-40-im-stundenlohn-benu-rheineck-rheineck-benu-ch"
+      ]
     },
     {
       "id": "benu-3d9a49208e5e",
-      "slug": "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch",
+      "slug": "farmacista-responsabile-m-f-80-100-benu-schwerzenbach-benu-schwerzenbach-zurich",
       "slugByLocale": {
         "de": "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch",
-        "it": "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch",
-        "en": "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch",
-        "fr": "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
+        "it": "farmacista-responsabile-m-f-80-100-benu-schwerzenbach-benu-schwerzenbach-zurich",
+        "en": "responsible-pharmacist-m-f-80-100-benu-schwerzenbach-benu-schwerzenbach-zurich",
+        "fr": "pharmacien-responsable-h-f-80-100-benu-schwerzenbach-benu-schwerzenbach-zurich"
       },
       "company": "benu",
       "companyKey": "benu",
@@ -198,16 +226,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T16:00:38.949Z"
+      "firstSeenAt": "2026-09-21T16:00:38.949Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
+        ],
+        "en": [
+          "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
+        ],
+        "fr": [
+          "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
+        ]
+      },
+      "previousSlugs": [
+        "verantwortlicher-apotheker-w-m-80-100-benu-schwerzenbach-schwerzenbach-zurich-benu-ch"
+      ]
     },
     {
       "id": "benu-39541b7789ac",
-      "slug": "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch",
+      "slug": "assistente-farmaceutico-m-f-40-80-benu-baden-schlossberg-benu-baden-argovie",
       "slugByLocale": {
         "de": "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch",
-        "it": "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch",
-        "en": "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch",
-        "fr": "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch"
+        "it": "assistente-farmaceutico-m-f-40-80-benu-baden-schlossberg-benu-baden-argovie",
+        "en": "pharmaceutical-assistant-m-f-40-80-benu-baden-schlossberg-benu-baden-argovie",
+        "fr": "assistant-pharmaceutique-h-f-40-80-benu-baden-schlossberg-benu-baden-argovie"
       },
       "company": "benu",
       "companyKey": "benu",
@@ -265,7 +307,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T16:00:38.947Z"
+      "firstSeenAt": "2026-09-21T16:00:38.947Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch"
+        ],
+        "en": [
+          "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch"
+        ],
+        "fr": [
+          "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pharma-assistent-w-m-40-80-benu-baden-schlossberg-baden-argovie-benu-ch"
+      ]
     },
     {
       "id": "benu-4e3422604298",
@@ -335,12 +391,12 @@
     },
     {
       "id": "benu-2db7ab5da2ea",
-      "slug": "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch",
+      "slug": "cosmetico-efz-m-f-60-100-stazione-ferroviaria-benu-lucerne-benu-luzern-lucerne",
       "slugByLocale": {
         "de": "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch",
-        "it": "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch",
-        "en": "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch",
-        "fr": "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+        "it": "cosmetico-efz-m-f-60-100-stazione-ferroviaria-benu-lucerne-benu-luzern-lucerne",
+        "en": "cosmetician-efz-m-f-60-100-benu-lucerne-railway-station-benu-luzern-lucerne",
+        "fr": "cosmetiques-efz-h-f-60-100-benu-lucerne-gare-benu-luzern-lucerne"
       },
       "company": "benu",
       "companyKey": "benu",
@@ -397,7 +453,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T16:00:38.938Z"
+      "firstSeenAt": "2026-09-21T16:00:38.938Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+        ],
+        "en": [
+          "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+        ],
+        "fr": [
+          "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+        ]
+      },
+      "previousSlugs": [
+        "kosmetiker-in-efz-w-m-60-100-benu-luzern-bahnhof-luzern-lucerne-benu-ch"
+      ]
     }
   ]
 }

@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "laderach-ae153d82ad12",
-      "slug": "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel",
+      "slug": "50-chocolaterie-basel-free-road-m-f-d-laderach-schweiz-ag-basel",
       "slugByLocale": {
-        "it": "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel",
+        "it": "50-chocolaterie-basel-free-road-m-f-d-laderach-schweiz-ag-basel",
         "en": "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel",
         "de": "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel",
-        "fr": "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel"
+        "fr": "50-chocolaterie-basel-free-road-h-f-d-laderach-schweiz-ag-basel"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -58,16 +58,27 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel"
+        ],
+        "fr": [
+          "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-50-chocolaterie-basel-freie-strasse-w-m-d-laderach-basel"
+      ]
     },
     {
       "id": "laderach-8def5856f8d6",
       "slug": "verkaufer-60-80-chocolaterie-bern-bahnhof-christoffel-befristet-bis-marz-2027-m-w-d-laderach-schweiz-ag-bern",
       "slugByLocale": {
         "it": "verkaufer-60-80-chocolaterie-bern-bahnhof-christoffel-befristet-bis-marz-2027-m-w-d-laderach-schweiz-ag-bern",
-        "en": "verkaufer-60-80-chocolaterie-bern-bahnhof-christoffel-befristet-bis-marz-2027-w-m-d-laderach-bern",
+        "en": "seller-60-80-chocolaterie-bern-bahnhof-christoffel-limited-to-march-2027-m-f-d-laderach-schweiz-ag-bern",
         "de": "verkaufer-60-80-chocolaterie-bern-bahnhof-christoffel-befristet-bis-marz-2027-w-m-d-laderach-bern",
-        "fr": "verkaufer-60-80-chocolaterie-bern-bahnhof-christoffel-befristet-bis-marz-2027-w-m-d-laderach-bern"
+        "fr": "vendeur-60-80-chocolaterie-bern-bahnhof-christoffel-limitee-a-mars-2027-h-f-d-laderach-schweiz-ag-bern"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -108,6 +119,12 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-60-80-chocolaterie-bern-bahnhof-christoffel-befristet-bis-marz-2027-w-m-d-laderach-bern"
+        ],
+        "en": [
+          "verkaufer-60-80-chocolaterie-bern-bahnhof-christoffel-befristet-bis-marz-2027-w-m-d-laderach-bern"
+        ],
+        "fr": [
+          "verkaufer-60-80-chocolaterie-bern-bahnhof-christoffel-befristet-bis-marz-2027-w-m-d-laderach-bern"
         ]
       },
       "firstSeenAt": "2026-09-21T16:03:54.788Z",
@@ -131,9 +148,9 @@
       "slug": "weihnachtsaushilfe-40-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-laderach-schweiz-ag-bern",
       "slugByLocale": {
         "it": "weihnachtsaushilfe-40-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-laderach-schweiz-ag-bern",
-        "en": "weihnachtsaushilfe-40-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-laderach-bern",
+        "en": "christmas-relief-40-chocolaterie-bern-bahnhof-christoffel-temporary-until-december-2026-laderach-schweiz-ag-bern",
         "de": "weihnachtsaushilfe-40-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-laderach-bern",
-        "fr": "weihnachtsaushilfe-40-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-laderach-bern"
+        "fr": "relief-de-noel-40-chocolaterie-bern-bahnhof-christoffel-temporaire-jusqu-en-decembre-2026-laderach-schweiz-ag-bern"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -174,6 +191,12 @@
       "previousSlugsByLocale": {
         "it": [
           "weihnachtsaushilfe-40-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-laderach-bern"
+        ],
+        "en": [
+          "weihnachtsaushilfe-40-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-laderach-bern"
+        ],
+        "fr": [
+          "weihnachtsaushilfe-40-chocolaterie-bern-bahnhof-christoffel-befristet-bis-dezember-2026-laderach-bern"
         ]
       },
       "firstSeenAt": "2026-09-21T16:03:54.481Z",
@@ -197,9 +220,9 @@
       "slug": "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-schweiz-ag-thun",
       "slugByLocale": {
         "it": "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-schweiz-ag-thun",
-        "en": "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-thun",
+        "en": "christmas-relief-20-40-chocolaterie-thun-temporary-until-december-2026-laderach-schweiz-ag-thun",
         "de": "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-thun",
-        "fr": "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-thun"
+        "fr": "relief-de-noel-20-40-chocolaterie-thun-temporaire-jusqu-en-decembre-2026-laderach-schweiz-ag-thun"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -240,6 +263,12 @@
       "previousSlugsByLocale": {
         "it": [
           "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-thun"
+        ],
+        "en": [
+          "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-thun"
+        ],
+        "fr": [
+          "weihnachtsaushilfe-20-40-chocolaterie-thun-befristet-bis-dezember-2026-laderach-thun"
         ]
       },
       "firstSeenAt": "2026-09-21T16:03:54.182Z",
@@ -263,9 +292,9 @@
       "slug": "logistiker-warenbewirtschaftung-80-100-m-w-d-laderach-schweiz-ag-bilten",
       "slugByLocale": {
         "it": "logistiker-warenbewirtschaftung-80-100-m-w-d-laderach-schweiz-ag-bilten",
-        "en": "logistiker-warenbewirtschaftung-80-100-w-m-d-laderach-bilten",
+        "en": "logistics-goods-management-80-100-m-f-d-laderach-schweiz-ag-bilten",
         "de": "logistiker-warenbewirtschaftung-80-100-w-m-d-laderach-bilten",
-        "fr": "logistiker-warenbewirtschaftung-80-100-w-m-d-laderach-bilten"
+        "fr": "gestion-logistique-des-biens-80-100-h-f-d-laderach-schweiz-ag-bilten"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -305,6 +334,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "logistiker-warenbewirtschaftung-80-100-w-m-d-laderach-bilten"
+        ],
+        "en": [
+          "logistiker-warenbewirtschaftung-80-100-w-m-d-laderach-bilten"
+        ],
+        "fr": [
           "logistiker-warenbewirtschaftung-80-100-w-m-d-laderach-bilten"
         ]
       },
@@ -569,13 +604,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:58.974Z",
       "previousSlugs": [
-        "verkaufer-60-chocolaterie-bern-spitalgasse-w-m-d-laderach-bern",
-        "60-chocolaterie-bern-spitalgasse-m-f-d-laderach-schweiz-ag-bern"
+        "verkaufer-60-chocolaterie-bern-spitalgasse-w-m-d-laderach-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-60-chocolaterie-bern-spitalgasse-w-m-d-laderach-bern",
-          "60-chocolaterie-bern-spitalgasse-m-f-d-laderach-schweiz-ag-bern"
+          "verkaufer-60-chocolaterie-bern-spitalgasse-w-m-d-laderach-bern"
         ],
         "en": [
           "verkaufer-60-chocolaterie-bern-spitalgasse-w-m-d-laderach-bern"
@@ -715,13 +748,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:58.695Z",
       "previousSlugs": [
-        "it-retail-support-specialist-w-m-d-laderach-bilten",
-        "it-retail-support-specialista-w-m-d-laderach-schweiz-ag-bilten"
+        "it-retail-support-specialist-w-m-d-laderach-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "it-retail-support-specialist-w-m-d-laderach-bilten",
-          "it-retail-support-specialista-w-m-d-laderach-schweiz-ag-bilten"
+          "it-retail-support-specialist-w-m-d-laderach-bilten"
         ]
       },
       "firstSeenAt": "2026-09-19T22:54:46.319Z",
@@ -849,13 +880,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:58.137Z",
       "previousSlugs": [
-        "weihnachtsaushilfe-im-lager-60-80-chocolaterie-glattzentrum-wallisellen-befristet-von-oktober-bis-dezember-2026-laderach-wallisellen",
-        "weihnachtsaushilfe-im-magazzino-60-80-chocolaterie-glattzentrum-wallisellen-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-wallisellen"
+        "weihnachtsaushilfe-im-lager-60-80-chocolaterie-glattzentrum-wallisellen-befristet-von-oktober-bis-dezember-2026-laderach-wallisellen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "weihnachtsaushilfe-im-lager-60-80-chocolaterie-glattzentrum-wallisellen-befristet-von-oktober-bis-dezember-2026-laderach-wallisellen",
-          "weihnachtsaushilfe-im-magazzino-60-80-chocolaterie-glattzentrum-wallisellen-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-wallisellen"
+          "weihnachtsaushilfe-im-lager-60-80-chocolaterie-glattzentrum-wallisellen-befristet-von-oktober-bis-dezember-2026-laderach-wallisellen"
         ],
         "en": [
           "weihnachtsaushilfe-im-lager-60-80-chocolaterie-glattzentrum-wallisellen-befristet-von-oktober-bis-dezember-2026-laderach-wallisellen"
@@ -1140,13 +1169,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:57.588Z",
       "previousSlugs": [
-        "retail-marketing-manager-w-m-d-laderach-bilten",
-        "responsabile-marketing-al-dettaglio-m-f-d-laderach-schweiz-ag-bilten"
+        "retail-marketing-manager-w-m-d-laderach-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "retail-marketing-manager-w-m-d-laderach-bilten",
-          "responsabile-marketing-al-dettaglio-m-f-d-laderach-schweiz-ag-bilten"
+          "retail-marketing-manager-w-m-d-laderach-bilten"
         ],
         "fr": [
           "retail-marketing-manager-w-m-d-laderach-bilten"
@@ -1212,13 +1239,11 @@
       "crawledAt": "2026-09-22T00:02:57.432Z",
       "previousSlugs": [
         "talent-acquisition-partner-retail-w-m-d-laderach-bilten",
-        "talent-acquisition-partner-w-m-d-laderach-bilten",
-        "partner-per-l-acquisizione-talenti-f-m-d-laderach-schweiz-ag-bilten"
+        "talent-acquisition-partner-w-m-d-laderach-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "talent-acquisition-partner-retail-w-m-d-laderach-bilten",
-          "partner-per-l-acquisizione-talenti-f-m-d-laderach-schweiz-ag-bilten"
+          "talent-acquisition-partner-retail-w-m-d-laderach-bilten"
         ],
         "en": [
           "talent-acquisition-partner-w-m-d-laderach-bilten"
@@ -1287,13 +1312,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:57.287Z",
       "previousSlugs": [
-        "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich",
-        "vicedirettore-trice-cioccolateria-oerlikon-laderach-schweiz-ag-zurich"
+        "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich",
-          "vicedirettore-trice-cioccolateria-oerlikon-laderach-schweiz-ag-zurich"
+          "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich"
         ],
         "en": [
           "stv-filialleiter-chocolaterie-oerlikon-w-m-d-laderach-zurich"
@@ -1362,13 +1385,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:57.105Z",
       "previousSlugs": [
-        "weihnachtsaushilfe-im-lager-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-zurich",
-        "weihnachtsaushilfe-im-magazzino-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-zurich"
+        "weihnachtsaushilfe-im-lager-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "weihnachtsaushilfe-im-lager-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-zurich",
-          "weihnachtsaushilfe-im-magazzino-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-zurich"
+          "weihnachtsaushilfe-im-lager-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-zurich"
         ],
         "en": [
           "weihnachtsaushilfe-im-lager-40-60-chocolaterie-lowenpassage-zurich-befristet-von-november-bis-dezember-2026-laderach-zurich"
@@ -1581,14 +1602,12 @@
       "crawledAt": "2026-09-22T00:02:55.017Z",
       "previousSlugs": [
         "weihnachtsaushilfe-40-80-chocolaterie-winterthur-befristet-von-november-bis-dezember-2026-laderach-winterthur",
-        "weihnachtsaushilfe-40-80-chocolaterie-winterthur-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-winterthur",
-        "rilievo-di-natale-40-80-chocolaterie-winterthur-temporaneo-da-novembre-a-dicembre-2026-laderach-schweiz-ag-winterthur"
+        "weihnachtsaushilfe-40-80-chocolaterie-winterthur-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-winterthur"
       ],
       "previousSlugsByLocale": {
         "it": [
           "weihnachtsaushilfe-40-80-chocolaterie-winterthur-befristet-von-november-bis-dezember-2026-laderach-winterthur",
-          "weihnachtsaushilfe-40-80-chocolaterie-winterthur-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-winterthur",
-          "rilievo-di-natale-40-80-chocolaterie-winterthur-temporaneo-da-novembre-a-dicembre-2026-laderach-schweiz-ag-winterthur"
+          "weihnachtsaushilfe-40-80-chocolaterie-winterthur-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-winterthur"
         ],
         "en": [
           "weihnachtsaushilfe-40-80-chocolaterie-winterthur-befristet-von-november-bis-dezember-2026-laderach-winterthur"
@@ -1660,7 +1679,6 @@
         "lehrstelle-im-retail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
         "lehrstelle-im-commerce-de-detail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
         "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2",
-        "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn6pl",
         "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn89f"
       ],
@@ -1670,7 +1688,6 @@
           "lehrstelle-im-retail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
           "lehrstelle-im-commerce-de-detail-efz-2027-w-m-d-laderach-schweiz-ag-zurich",
           "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-2",
-          "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich",
           "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn6pl",
           "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-3yn89f"
         ],
@@ -1742,13 +1759,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:54.601Z",
       "previousSlugs": [
-        "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt",
-        "aiuto-stagionale-20-100-flessibile-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-schweiz-ag-zermatt"
+        "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt",
-          "aiuto-stagionale-20-100-flessibile-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-schweiz-ag-zermatt"
+          "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt"
         ],
         "en": [
           "saisonaushilfe-20-100-flexibel-chocolaterie-zermatt-01-12-2026-31-03-2027-laderach-zermatt"
@@ -1817,14 +1832,12 @@
       "crawledAt": "2026-09-22T00:02:54.328Z",
       "previousSlugsByLocale": {
         "de": [
-          "product-developer-80-100-w-m-d-laderach-ennenda",
-          "mitarbeiter-produktentwicklung-80-100-w-m-d-laderach-ennenda"
+          "product-developer-80-100-w-m-d-laderach-ennenda"
         ],
         "it": [
           "mitarbeiter-produktentwicklung-80-100-w-m-d-laderach-ennenda",
           "collaboratore-trice-produktentwicklung-80-100-m-w-d-laderach-schweiz-ag-ennenda",
-          "product-developer-80-100-w-m-d-laderach-ennenda",
-          "sviluppo-del-prodotto-del-dipendente-80-100-m-f-d-laderach-schweiz-ag-ennenda"
+          "product-developer-80-100-w-m-d-laderach-ennenda"
         ],
         "en": [
           "mitarbeiter-produktentwicklung-80-100-w-m-d-laderach-ennenda"
@@ -1836,8 +1849,7 @@
       "previousSlugs": [
         "mitarbeiter-produktentwicklung-80-100-w-m-d-laderach-ennenda",
         "collaboratore-trice-produktentwicklung-80-100-m-w-d-laderach-schweiz-ag-ennenda",
-        "product-developer-80-100-w-m-d-laderach-ennenda",
-        "sviluppo-del-prodotto-del-dipendente-80-100-m-f-d-laderach-schweiz-ag-ennenda"
+        "product-developer-80-100-w-m-d-laderach-ennenda"
       ],
       "firstSeenAt": "2026-08-31T17:07:33.677Z",
       "salaryMin": 67000,
@@ -1899,13 +1911,11 @@
       "crawledAt": "2026-09-22T00:02:54.189Z",
       "previousSlugsByLocale": {
         "de": [
-          "process-technology-specialist-80-100-w-m-d-laderach-ennenda",
-          "mitarbeiter-technologie-80-100-w-m-d-laderach-ennenda"
+          "process-technology-specialist-80-100-w-m-d-laderach-ennenda"
         ],
         "it": [
           "mitarbeiter-technologie-80-100-w-m-d-laderach-ennenda",
-          "process-technology-specialist-80-100-w-m-d-laderach-ennenda",
-          "collaboratore-trice-technologie-80-100-m-w-d-laderach-schweiz-ag-ennenda"
+          "process-technology-specialist-80-100-w-m-d-laderach-ennenda"
         ],
         "en": [
           "mitarbeiter-technologie-80-100-w-m-d-laderach-ennenda"
@@ -1916,8 +1926,7 @@
       },
       "previousSlugs": [
         "mitarbeiter-technologie-80-100-w-m-d-laderach-ennenda",
-        "process-technology-specialist-80-100-w-m-d-laderach-ennenda",
-        "collaboratore-trice-technologie-80-100-m-w-d-laderach-schweiz-ag-ennenda"
+        "process-technology-specialist-80-100-w-m-d-laderach-ennenda"
       ],
       "firstSeenAt": "2026-08-31T17:07:33.517Z",
       "salaryMin": 67000,
@@ -1980,14 +1989,12 @@
       "previousSlugs": [
         "weihnachtsaushilfe-50-60-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-laderach-spreitenbach",
         "weihnachtsaushilfe-50-60-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-spreitenbach",
-        "weihnachtsaushilfe-50-60-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag",
-        "rilievo-di-natale-50-60-chocolaterie-shopping-tivoli-temporaneo-da-novembre-a-dicembre-2026-laderach-schweiz-ag"
+        "weihnachtsaushilfe-50-60-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag"
       ],
       "previousSlugsByLocale": {
         "it": [
           "weihnachtsaushilfe-50-60-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-laderach-spreitenbach",
-          "weihnachtsaushilfe-50-60-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-spreitenbach",
-          "rilievo-di-natale-50-60-chocolaterie-shopping-tivoli-temporaneo-da-novembre-a-dicembre-2026-laderach-schweiz-ag"
+          "weihnachtsaushilfe-50-60-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag-spreitenbach"
         ],
         "en": [
           "weihnachtsaushilfe-50-60-chocolaterie-shopping-tivoli-befristet-von-november-bis-dezember-2026-laderach-schweiz-ag"
@@ -2063,8 +2070,7 @@
         "christmas-relief-in-the-camp-60-80-chocolaterie-basel-bahnhof-temporary-from-october-to-december-2026-laderach-schweiz",
         "weihnachtsaushilfe-im-lager-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel",
         "relief-de-noel-dans-le-camp-60-80-chocolaterie-basel-bahnhof-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag",
-        "weihnachtsaushilfe-im-magazzino-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-basel",
-        "aiuto-di-natale-in-vendita-80-100-chocolaterie-basel-bahnhof-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag"
+        "weihnachtsaushilfe-im-magazzino-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2074,8 +2080,7 @@
           "christmas-relief-in-the-camp-60-80-chocolaterie-basel-bahnhof-temporary-from-october-to-december-2026-laderach-schweiz",
           "weihnachtsaushilfe-im-lager-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel",
           "relief-de-noel-dans-le-camp-60-80-chocolaterie-basel-bahnhof-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag",
-          "weihnachtsaushilfe-im-magazzino-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-basel",
-          "aiuto-di-natale-in-vendita-80-100-chocolaterie-basel-bahnhof-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag"
+          "weihnachtsaushilfe-im-magazzino-60-80-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-basel"
         ],
         "en": [
           "weihnachtsaushilfe-im-verkauf-80-100-chocolaterie-basel-bahnhof-befristet-von-oktober-bis-dezember-2026-laderach-basel",
@@ -2161,8 +2166,7 @@
         "christmas-relief-20-60-chocolaterie-landquart-outlet-temporary-from-october-to-december-2026-laderach-schweiz-ag",
         "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-landquart",
         "relief-de-noel-20-60-chocolaterie-landquart-outlet-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-landquart",
-        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-landquart",
-        "rilievo-di-natale-40-60-chocolaterie-uster-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-uster"
+        "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-landquart"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2177,8 +2181,7 @@
           "christmas-relief-20-60-chocolaterie-landquart-outlet-temporary-from-october-to-december-2026-laderach-schweiz-ag",
           "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-landquart",
           "relief-de-noel-20-60-chocolaterie-landquart-outlet-temporaire-d-octobre-a-decembre-2026-laderach-schweiz-ag-landquart",
-          "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-landquart",
-          "rilievo-di-natale-40-60-chocolaterie-uster-temporaneo-da-ottobre-a-dicembre-2026-laderach-schweiz-ag-uster"
+          "weihnachtsaushilfe-20-60-chocolaterie-landquart-outlet-befristet-von-oktober-bis-dezember-2026-laderach-schweiz-ag-landquart"
         ],
         "en": [
           "weihnachtsaushilfe-40-60-chocolaterie-uster-befristet-von-oktober-bis-dezember-2026-laderach-uster",
@@ -2287,7 +2290,7 @@
       "id": "laderach-11122088698e",
       "slug": "master-data-manager-laderach-schweiz-ag-bilten",
       "slugByLocale": {
-        "it": "master-data-manager-laderach-schweiz-ag-bilten",
+        "it": "responsabile-dei-dati-anagrafici-laderach-schweiz-ag-bilten",
         "en": "master-data-manager-laderach-bilten",
         "de": "master-data-manager-laderach-bilten",
         "fr": "gestionnaire-de-donnees-principal-laderach-schweiz-ag-bilten"
@@ -2326,13 +2329,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:53.501Z",
       "previousSlugs": [
-        "master-data-manager-laderach-bilten",
-        "responsabile-dei-dati-anagrafici-laderach-schweiz-ag-bilten"
+        "master-data-manager-laderach-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "master-data-manager-laderach-bilten",
-          "responsabile-dei-dati-anagrafici-laderach-schweiz-ag-bilten"
+          "master-data-manager-laderach-bilten"
         ]
       },
       "needsRetranslation": true,
@@ -2470,20 +2471,15 @@
         "betriebselektriker-w-m-d-laderach-glarus",
         "elettricista-commerciale-m-f-d-laderach-schweiz-ag-glarus",
         "electricien-d-affaires-h-f-d-laderach-schweiz-ag-glarus",
-        "betriebselektriker-w-m-d-laderach-schweiz-ag-glarus",
-        "elettricista-industriale-m-f-d-laderach-schweiz-ag-glarus",
         "electricien-industriel-h-f-d-laderach-schweiz-ag-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "betriebselektriker-w-m-d-laderach-glarus",
-          "elettricista-commerciale-m-f-d-laderach-schweiz-ag-glarus",
-          "betriebselektriker-w-m-d-laderach-schweiz-ag-glarus",
-          "elettricista-industriale-m-f-d-laderach-schweiz-ag-glarus"
+          "elettricista-commerciale-m-f-d-laderach-schweiz-ag-glarus"
         ],
         "fr": [
           "electricien-d-affaires-h-f-d-laderach-schweiz-ag-glarus",
-          "betriebselektriker-w-m-d-laderach-schweiz-ag-glarus",
           "electricien-industriel-h-f-d-laderach-schweiz-ag-glarus"
         ]
       },
@@ -2507,10 +2503,10 @@
       "id": "laderach-31d13d956225",
       "slug": "gestione-della-funzionalita-m-w-d-laderach-schweiz-ag-glarus-nord",
       "slugByLocale": {
-        "it": "gestione-della-funzionalita-m-w-d-laderach-schweiz-ag-glarus-nord",
-        "en": "facility-manager-m-w-d-laderach-schweiz-ag-glarus-nord",
+        "it": "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord",
+        "en": "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord",
         "de": "hauswart-w-m-d-laderach-glarus-nord",
-        "fr": "gestionnaire-d-installations-m-w-d-laderach-schweiz-ag-glarus-nord"
+        "fr": "menageuse-h-f-d-laderach-schweiz-ag-glarus-nord"
       },
       "company": "Läderach (Schweiz) AG",
       "companyKey": "laderach-schweiz-ag",
@@ -2547,24 +2543,19 @@
       "crawledAt": "2026-09-22T00:02:53.081Z",
       "previousSlugsByLocale": {
         "de": [
-          "facility-manager-w-m-d-laderach-glarus-nord",
-          "hauswart-w-m-d-laderach-glarus-nord"
+          "facility-manager-w-m-d-laderach-glarus-nord"
         ],
         "it": [
           "hauswart-w-m-d-laderach-glarus-nord",
           "facility-manager-w-m-d-laderach-glarus-nord",
-          "facility-manager-m-w-d-laderach-schweiz-ag-glarus-nord",
-          "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord",
-          "gestione-della-funzionalita-m-w-d-laderach-schweiz-ag-glarus-nord"
+          "facility-manager-m-w-d-laderach-schweiz-ag-glarus-nord"
         ],
         "en": [
           "hauswart-w-m-d-laderach-glarus-nord",
-          "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord",
           "facility-manager-m-w-d-laderach-schweiz-ag-glarus-nord"
         ],
         "fr": [
           "hauswart-w-m-d-laderach-glarus-nord",
-          "menageuse-h-f-d-laderach-schweiz-ag-glarus-nord",
           "gestionnaire-d-installations-m-w-d-laderach-schweiz-ag-glarus-nord"
         ]
       },
@@ -2572,9 +2563,6 @@
         "hauswart-w-m-d-laderach-glarus-nord",
         "facility-manager-w-m-d-laderach-glarus-nord",
         "facility-manager-m-w-d-laderach-schweiz-ag-glarus-nord",
-        "housekeeper-m-f-d-laderach-schweiz-ag-glarus-nord",
-        "menageuse-h-f-d-laderach-schweiz-ag-glarus-nord",
-        "gestione-della-funzionalita-m-w-d-laderach-schweiz-ag-glarus-nord",
         "gestionnaire-d-installations-m-w-d-laderach-schweiz-ag-glarus-nord"
       ],
       "firstSeenAt": "2026-08-21T09:46:39.028Z",
@@ -2721,13 +2709,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:52.523Z",
       "previousSlugs": [
-        "manager-house-of-laderach-w-m-d-laderach-glarus",
-        "casa-manager-di-laderach-m-f-d-laderach-schweiz-ag-glarus"
+        "manager-house-of-laderach-w-m-d-laderach-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "manager-house-of-laderach-w-m-d-laderach-glarus",
-          "casa-manager-di-laderach-m-f-d-laderach-schweiz-ag-glarus"
+          "manager-house-of-laderach-w-m-d-laderach-glarus"
         ],
         "fr": [
           "manager-house-of-laderach-w-m-d-laderach-glarus"
@@ -2876,14 +2862,12 @@
       "crawledAt": "2026-09-22T00:02:51.825Z",
       "previousSlugsByLocale": {
         "de": [
-          "weihnachtsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-bahnhofstrasse-zurich-w-m-d-laderach-zurich",
-          "verkaufsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-zurich-w-m-d-laderach-zurich"
+          "weihnachtsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-bahnhofstrasse-zurich-w-m-d-laderach-zurich"
         ],
         "it": [
           "verkaufsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-zurich-w-m-d-laderach-zurich",
           "verkaufsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-zurich-m-w-d-laderach-schweiz-ag-zurich",
-          "weihnachtsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-bahnhofstrasse-zurich-w-m-d-laderach-zurich",
-          "40-60-temporaneo-fino-al-31-12-2026-chocolaterie-zurich-m-f-d-laderach-schweiz-ag-zurich"
+          "weihnachtsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-bahnhofstrasse-zurich-w-m-d-laderach-zurich"
         ],
         "en": [
           "verkaufsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-zurich-w-m-d-laderach-zurich"
@@ -2895,8 +2879,7 @@
       "previousSlugs": [
         "verkaufsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-zurich-w-m-d-laderach-zurich",
         "verkaufsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-zurich-m-w-d-laderach-schweiz-ag-zurich",
-        "weihnachtsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-bahnhofstrasse-zurich-w-m-d-laderach-zurich",
-        "40-60-temporaneo-fino-al-31-12-2026-chocolaterie-zurich-m-f-d-laderach-schweiz-ag-zurich"
+        "weihnachtsaushilfe-40-60-befristet-bis-31-12-2026-chocolaterie-bahnhofstrasse-zurich-w-m-d-laderach-zurich"
       ],
       "firstSeenAt": "2026-08-12T10:18:55.848Z",
       "salaryMin": 45600,
@@ -2958,14 +2941,12 @@
       "crawledAt": "2026-09-22T00:02:51.687Z",
       "previousSlugs": [
         "kv-praktikum-2027-w-m-d-laderach-bilten",
-        "wms-praktikum-2027-28-kaufmannisches-praxisjahr-laderach-bilten",
-        "interno-kv-2027-m-f-d-laderach-schweiz-ag-bilten"
+        "wms-praktikum-2027-28-kaufmannisches-praxisjahr-laderach-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
           "kv-praktikum-2027-w-m-d-laderach-bilten",
-          "wms-praktikum-2027-28-kaufmannisches-praxisjahr-laderach-bilten",
-          "interno-kv-2027-m-f-d-laderach-schweiz-ag-bilten"
+          "wms-praktikum-2027-28-kaufmannisches-praxisjahr-laderach-bilten"
         ],
         "en": [
           "kv-praktikum-2027-w-m-d-laderach-bilten"
@@ -3033,13 +3014,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:51.412Z",
       "previousSlugs": [
-        "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen",
-        "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-flughafen"
+        "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen",
-          "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-zurich-flughafen"
+          "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen"
         ],
         "en": [
           "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-zurich-flughafen"
@@ -3107,13 +3086,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:51.136Z",
       "previousSlugs": [
-        "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel",
-        "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-basel"
+        "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel",
-          "apprendistato-im-commercio-al-dettaglio-cfc-2027-m-w-d-laderach-schweiz-ag-basel"
+          "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel"
         ],
         "en": [
           "lehrstelle-im-detailhandel-efz-2027-w-m-d-laderach-basel"
@@ -3181,13 +3158,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:50.998Z",
       "previousSlugs": [
-        "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten",
-        "apprendistato-entwickler-in-digitales-business-cfc-laderach-schweiz-ag-bilten"
+        "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten",
-          "apprendistato-entwickler-in-digitales-business-cfc-laderach-schweiz-ag-bilten"
+          "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten"
         ],
         "en": [
           "lehrstelle-entwickler-in-digitales-business-efz-laderach-bilten"
@@ -3255,13 +3230,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:50.856Z",
       "previousSlugs": [
-        "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda",
-        "zusatzausbildung-specializzazione-confiserie-2027-m-w-d-laderach-schweiz-ag-ennenda"
+        "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda",
-          "zusatzausbildung-specializzazione-confiserie-2027-m-w-d-laderach-schweiz-ag-ennenda"
+          "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda"
         ],
         "en": [
           "zusatzausbildung-fachrichtung-confiserie-2027-w-m-d-laderach-ennenda"
@@ -3329,13 +3302,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:50.718Z",
       "previousSlugs": [
-        "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda",
-        "apprendistato-lebensmitteltechnologe-in-cfc-2027-laderach-schweiz-ag-ennenda"
+        "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda",
-          "apprendistato-lebensmitteltechnologe-in-cfc-2027-laderach-schweiz-ag-ennenda"
+          "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda"
         ],
         "en": [
           "lehrstelle-lebensmitteltechnologe-in-efz-2027-laderach-ennenda"
@@ -3403,13 +3374,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:50.581Z",
       "previousSlugs": [
-        "lehrstelle-logistiker-in-efz-2027-laderach-ennenda",
-        "apprendistato-logistiker-in-cfc-2027-laderach-schweiz-ag-ennenda"
+        "lehrstelle-logistiker-in-efz-2027-laderach-ennenda"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-logistiker-in-efz-2027-laderach-ennenda",
-          "apprendistato-logistiker-in-cfc-2027-laderach-schweiz-ag-ennenda"
+          "lehrstelle-logistiker-in-efz-2027-laderach-ennenda"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-2027-laderach-ennenda"
@@ -3481,8 +3450,7 @@
         "kv-apprendistato-cfc-2027-m-w-d-laderach-schweiz-ag-bilten",
         "cv-teaching-centre-efz-2027-w-m-d-laderach-schweiz-ag-bilten",
         "kv-lehrstelle-efz-2027-w-m-d-laderach-bilten",
-        "centre-d-enseignement-du-cv-efz-2027-w-m-d-laderach-schweiz-ag-bilten",
-        "apprendistato-logistiker-in-cfc-2027-laderach-schweiz-ag-bilten"
+        "centre-d-enseignement-du-cv-efz-2027-w-m-d-laderach-schweiz-ag-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3490,8 +3458,7 @@
           "kv-apprendistato-cfc-2027-m-w-d-laderach-schweiz-ag-bilten",
           "cv-teaching-centre-efz-2027-w-m-d-laderach-schweiz-ag-bilten",
           "kv-lehrstelle-efz-2027-w-m-d-laderach-bilten",
-          "centre-d-enseignement-du-cv-efz-2027-w-m-d-laderach-schweiz-ag-bilten",
-          "apprendistato-logistiker-in-cfc-2027-laderach-schweiz-ag-bilten"
+          "centre-d-enseignement-du-cv-efz-2027-w-m-d-laderach-schweiz-ag-bilten"
         ],
         "en": [
           "lehrstelle-logistiker-in-efz-2027-laderach-bilten",
@@ -3564,13 +3531,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:49.880Z",
       "previousSlugs": [
-        "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten",
-        "proprietario-del-prodotto-tecnico-proprietario-del-servizio-potenza-bi-data-warehouse-m-f-d-laderach-schweiz-ag-bilten"
+        "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten",
-          "proprietario-del-prodotto-tecnico-proprietario-del-servizio-potenza-bi-data-warehouse-m-f-d-laderach-schweiz-ag-bilten"
+          "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten"
         ],
         "fr": [
           "technical-product-owner-service-owner-power-bi-data-warehouse-m-w-d-laderach-bilten"
@@ -3639,16 +3604,14 @@
         "head-of-engineering-w-m-d-laderach-ennenda",
         "head-of-engineering-operational-excellence-w-m-d-laderach-ennenda",
         "head-of-engineering-operational-excellence-w-m-d-laderach-glarus",
-        "responsabile-engineering-w-m-d-laderach-schweiz-ag-glarus",
-        "responsabile-engineering-w-m-d-laderach-schweiz-ag-ennenda"
+        "responsabile-engineering-w-m-d-laderach-schweiz-ag-glarus"
       ],
       "previousSlugsByLocale": {
         "it": [
           "head-of-engineering-w-m-d-laderach-ennenda",
           "head-of-engineering-operational-excellence-w-m-d-laderach-ennenda",
           "head-of-engineering-operational-excellence-w-m-d-laderach-glarus",
-          "responsabile-engineering-w-m-d-laderach-schweiz-ag-glarus",
-          "responsabile-engineering-w-m-d-laderach-schweiz-ag-ennenda"
+          "responsabile-engineering-w-m-d-laderach-schweiz-ag-glarus"
         ],
         "de": [
           "head-of-engineering-w-m-d-laderach-ennenda"
@@ -3788,13 +3751,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:49.024Z",
       "previousSlugs": [
-        "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon",
-        "60-chocolaterie-mall-della-svizzera-ebikon-f-m-d-laderach-schweiz-ag-ebikon"
+        "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon",
-          "60-chocolaterie-mall-della-svizzera-ebikon-f-m-d-laderach-schweiz-ag-ebikon"
+          "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon"
         ],
         "en": [
           "stv-filialleiter-60-chocolaterie-mall-of-switzerland-ebikon-w-m-d-laderach-ebikon"
@@ -3866,8 +3827,7 @@
         "venditore-su-richiesta-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich",
         "sales-assistant-on-call-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich",
         "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich",
-        "vendeur-sur-demande-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich",
-        "venditore-40-60-chocolaterie-aeroporto-zurigo-w-m-d-laderach-schweiz-ag-zurich"
+        "vendeur-sur-demande-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3875,8 +3835,7 @@
           "venditore-su-richiesta-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich",
           "sales-assistant-on-call-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich",
           "verkaufer-auf-abruf-40-60-chocolaterie-zurich-augustiner-w-m-d-laderach-zurich",
-          "vendeur-sur-demande-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich",
-          "venditore-40-60-chocolaterie-aeroporto-zurigo-w-m-d-laderach-schweiz-ag-zurich"
+          "vendeur-sur-demande-40-60-chocolaterie-zurich-augustiner-f-m-d-laderach-schweiz-ag-zurich"
         ],
         "en": [
           "verkaufer-40-60-chocolaterie-flughafen-zurich-w-m-d-laderach-zurich",
@@ -3949,13 +3908,11 @@
       "source": "Läderach Dedicated Parser",
       "crawledAt": "2026-09-22T00:02:48.447Z",
       "previousSlugs": [
-        "project-manager-r-d-couverture-laderach-bilten",
-        "project-manager-r-d-copertura-laderach-schweiz-ag-bilten"
+        "project-manager-r-d-couverture-laderach-bilten"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "project-manager-r-d-couverture-laderach-bilten",
-          "project-manager-r-d-copertura-laderach-schweiz-ag-bilten"
+          "project-manager-r-d-couverture-laderach-bilten"
         ]
       },
       "needsRetranslation": true,
@@ -4020,13 +3977,11 @@
       "previousSlugsByLocale": {
         "de": [
           "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-schweiz-ag-bilten",
-          "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten",
-          "entertainer-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten"
+          "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten"
         ],
         "it": [
           "confiseur-per-la-produzione-live-presso-il-house-of-laderach-60-100-m-f-d-laderach-schweiz-ag-bilten",
-          "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten",
-          "entertainer-per-live-produktion-im-house-of-laderach-60-100-m-w-d-laderach-schweiz-ag-bilten"
+          "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten"
         ],
         "fr": [
           "entertainer-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten"
@@ -4036,8 +3991,7 @@
         "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten",
         "confiseur-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-schweiz-ag-bilten",
         "entertainer-fur-live-produktion-im-house-of-laderach-60-100-w-m-d-laderach-bilten",
-        "confiseur-per-la-produzione-live-presso-il-house-of-laderach-60-100-m-f-d-laderach-schweiz-ag-bilten",
-        "entertainer-per-live-produktion-im-house-of-laderach-60-100-m-w-d-laderach-schweiz-ag-bilten"
+        "confiseur-per-la-produzione-live-presso-il-house-of-laderach-60-100-m-f-d-laderach-schweiz-ag-bilten"
       ],
       "firstSeenAt": "2026-05-11T12:02:24.820Z",
       "salaryMin": 67000,

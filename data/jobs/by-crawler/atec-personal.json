@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "atec-personal-d669949cd6dc",
-      "slug": "prozessverantwortlicher-pruf-e-messmittel-80-100-a-atec-personal-ag-dudingen",
+      "slug": "apparecchiature-di-prova-e-misura-responsabili-del-processo-80-100-a-atec-personal-ag-dudingen-fr",
       "slugByLocale": {
-        "it": "prozessverantwortlicher-pruf-e-messmittel-80-100-a-atec-personal-ag-dudingen",
-        "en": "prozessverantwortlicher-pruf-und-messmittel-80-100-a-dudingen-fr-atec-personal-ch",
+        "it": "apparecchiature-di-prova-e-misura-responsabili-del-processo-80-100-a-atec-personal-ag-dudingen-fr",
+        "en": "process-responsible-test-and-measurement-equipment-80-100-a-atec-personal-ag-dudingen-fr",
         "de": "prozessverantwortlicher-pruf-und-messmittel-80-100-a-dudingen-fr-atec-personal-ch",
-        "fr": "prozessverantwortlicher-pruf-und-messmittel-80-100-a-dudingen-fr-atec-personal-ch"
+        "fr": "equipement-d-essai-et-de-mesure-responsable-du-processus-80-100-a-atec-personal-ag-dudingen-fr"
       },
       "company": "ATEC Personal AG",
       "companyKey": "atec-personal",
@@ -52,10 +52,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "prozessverantwortlicher-pruf-und-messmittel-80-100-a-dudingen-fr-atec-personal-ch"
+        "prozessverantwortlicher-pruf-und-messmittel-80-100-a-dudingen-fr-atec-personal-ch",
+        "prozessverantwortlicher-pruf-e-messmittel-80-100-a-atec-personal-ag-dudingen"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "prozessverantwortlicher-pruf-und-messmittel-80-100-a-dudingen-fr-atec-personal-ch",
+          "prozessverantwortlicher-pruf-e-messmittel-80-100-a-atec-personal-ag-dudingen"
+        ],
+        "en": [
+          "prozessverantwortlicher-pruf-und-messmittel-80-100-a-dudingen-fr-atec-personal-ch"
+        ],
+        "fr": [
           "prozessverantwortlicher-pruf-und-messmittel-80-100-a-dudingen-fr-atec-personal-ch"
         ]
       },
