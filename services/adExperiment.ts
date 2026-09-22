@@ -15,11 +15,17 @@ export const INFEED_AD_VARIANTS = Object.freeze({
   treatment: 'auto_ads_only',
 } as const);
 
-/** The only treatment surface in the current URL-level comparison. */
-export const INFEED_AD_TREATMENT_CANTONS: ReadonlySet<string> = new Set(['TI']);
+/**
+ * No active treatment surfaces. The TI treatment was rolled back after the
+ * 2026-09-16 field CLS regression: removing the manual in-feed unit also
+ * removed its declared 336px reserve, leaving the page to rely on a dynamic
+ * Auto Ads insertion. Auto Ads remain enabled; every job-board surface is back
+ * on the manual slot with its fixed placeholder.
+ */
+export const INFEED_AD_TREATMENT_CANTONS: ReadonlySet<string> = new Set();
 
-/** Canton URL groups in the active comparison; its national control has no canton key. */
-export const INFEED_AD_EXPERIMENT_SURFACE_CANTONS: ReadonlySet<string> = new Set(['TI']);
+/** No active URL-level comparison after the TI treatment rollback. */
+export const INFEED_AD_EXPERIMENT_SURFACE_CANTONS: ReadonlySet<string> = new Set();
 
 export type InfeedAdVariant = (typeof INFEED_AD_VARIANTS)[keyof typeof INFEED_AD_VARIANTS];
 

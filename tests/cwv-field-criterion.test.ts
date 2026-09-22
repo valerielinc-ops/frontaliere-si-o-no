@@ -28,6 +28,7 @@ const {
   SUSTAINED_WINDOWS,
   BASELINE_DATE,
   BASELINE_STALE_AFTER_DAYS,
+  buildUnavailableReport,
   selectPreviousWindow,
 } = await import('../scripts/check-cwv-field-criterion.mjs');
 
@@ -142,6 +143,35 @@ describe('selectPreviousWindow — the "sustained" comparison window', () => {
   it('ignores malformed dates instead of throwing', () => {
     const dirty = [{ end: 'not-a-date' }, { end: '2026-07-25', inp: 402 }, { end: '' }];
     expect(selectPreviousWindow(dirty, period)).toEqual({ end: '2026-07-25', inp: 402 });
+  });
+});
+
+describe('unavailable CrUX readings stay observable and verdict-free', () => {
+  it('emits a structured fail-closed report without fabricating MET/NOT MET', () => {
+    const report = buildUnavailableReport({
+      endpoint: 'records:queryRecord',
+      status: 403,
+      code: 'CRUX_HTTP_403',
+      message: 'Method blocked by the API policy',
+    });
+
+    expect(report.measurementStatus).toBe('unavailable');
+    expect(report.bindingPass).toBeNull();
+    expect(report.verdict).toBeNull();
+    expect(report.error).toEqual({
+      code: 'CRUX_HTTP_403',
+      endpoint: 'records:queryRecord',
+      httpStatus: 403,
+      message: 'Method blocked by the API policy',
+    });
+  });
+
+  it('redacts a key-shaped token from the persisted diagnostic', () => {
+    const report = buildUnavailableReport({
+      message: 'request rejected for AIza1234567890_secret',
+    });
+    expect(report.error.message).toContain('[redacted]');
+    expect(report.error.message).not.toContain('AIza1234567890_secret');
   });
 });
 

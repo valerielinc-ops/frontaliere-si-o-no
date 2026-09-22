@@ -160,6 +160,18 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
         run: |
+          if ! REPORT=$(node --input-type=module -e '
+              import { readFileSync } from "node:fs";
+              const path = "/tmp/criterion.json";
+              if (!readFileSync(path, "utf8")) throw new Error("empty criterion report");
+              const report = JSON.parse(readFileSync(path, "utf8"));
+              process.stdout.write(JSON.stringify({
+                measurementStatus: report.measurementStatus ?? "missing",
+                error: report.error ?? null,
+              }, null, 2));
+            ' 2>/tmp/criterion-report.err); then
+            REPORT='{"measurementStatus":"report-missing"}'
+          fi
           node scripts/lib/github-issue-creator.mjs \
             --title "CWV field criterion unreadable (#5001 gate blind)" \
             --priority 2 \
@@ -172,7 +184,12 @@ jobs:
 
           **Run:** ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
 
-          **Likely causes:** \`PAGESPEED_API_KEY\` missing/expired in Remote Config, CrUX API quota, or the origin dropping below the CrUX reporting threshold. Check the run log for the HTTP status."
+          **Structured diagnostic:**
+          \`\`\`json
+          $REPORT
+          \`\`\`
+
+          **Likely causes:** \`PAGESPEED_API_KEY\` missing/expired in Remote Config, CrUX API quota, or the origin dropping below the CrUX reporting threshold. The report above carries the endpoint, HTTP status and source error without inventing a verdict."
 
       # A tracked page rotting past its own baseline is new information.
       - name: Open issue on watchlist drift

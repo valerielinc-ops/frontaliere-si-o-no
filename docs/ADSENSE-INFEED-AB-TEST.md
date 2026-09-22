@@ -10,18 +10,20 @@ AdSense Auto Ads (anchor, vignette e in-page automatici) resta sempre attivo.
 
 | ID | Controllo | Trattamento | Attivazione |
 |---|---|---|---|
-| `svizzera-ticino` | `/cerca-lavoro-svizzera/` | `/cerca-lavoro-ticino/` | deployment della modifica richiesta il 2026-09-01; primo giorno completo conservativo 2026-09-03 |
+| — | — | — | nessun trattamento attivo dal rollback TI del 2026-09-22 |
 
-Il solo trattamento attivo è Ticino (`TI`). La decisione vive soltanto in
-`INFEED_AD_AB_TEST_SUPPRESSED_CANTONS` dentro `services/adsenseSlots.ts`; il
-controllo nazionale e tutte le altre liste mantengono la cadenza manuale
-esistente. La coppia Basilea/Lucerna è una serie chiusa: non viene cancellata
-né interrogata dal report attivo.
+Il trattamento Ticino (`TI`) è stato ritirato dopo la regressione CLS osservata
+sul suo hub il 2026-09-16. Il rollback ripristina la cadenza manuale e la
+riserva dichiarata del relativo slot; Auto Ads resta attivo. La decisione vive
+soltanto in `INFEED_AD_TREATMENT_CANTONS` dentro
+`services/adExperiment.ts`, ora vuoto. Le serie storiche Basilea/Lucerna e
+Svizzera-Ticino restano append-only e non vengono cancellate né interrogate
+come esperimenti attivi.
 
 ## Confine hub/sotto-URL
 
-Il report attivo usa una sola coppia e nessun valore storico della serie chiusa
-viene sommato al suo cumulativo.
+Non c'è un report attivo finché non viene dichiarata una nuova coppia; nessun
+valore storico delle serie chiuse viene sommato a un nuovo cumulativo.
 
 - `svizzera-ticino` usa la dimensione AdSense `PAGE_URL` e confronta i due URL
   canonici completi. Le pagine come `/cerca-lavoro-ticino/infermieri/`, le
@@ -31,10 +33,11 @@ viene sommato al suo cumulativo.
 ## Monitoraggio
 
 Il workflow `.github/workflows/adsense-format-ab-report.yml` gira ogni lunedì e
-lancia `scripts/adsense-format-ab-report.mjs` per la coppia attiva:
+lancia `scripts/adsense-format-ab-report.mjs` soltanto per un esperimento
+esplicitamente attivo:
 
 ```bash
-node scripts/adsense-format-ab-report.mjs --experiment svizzera-ticino --save --markdown
+# nessuna invocazione durante il rollback; la storia resta consultabile
 ```
 
 Le righe del formato corrente in `data/adsense-format-ab-history.jsonl` portano
@@ -68,6 +71,7 @@ lato e non un confronto diretto dopo una singola settimana.
 
 ## Arresto del trattamento
 
-Per interrompere il trattamento si rimuove soltanto il relativo codice (`TI`)
-da `INFEED_AD_AB_TEST_SUPPRESSED_CANTONS`. Non si disabilitano Auto Ads e non
-si modificano la cadenza o i limiti delle altre liste.
+Per interrompere un trattamento si rimuove soltanto il relativo codice da
+`INFEED_AD_TREATMENT_CANTONS`. Non si disabilitano Auto Ads e non si modificano
+la cadenza o i limiti delle altre liste. Per riattivare un confronto serve una
+nuova dichiarazione di superficie, soglia e data di attivazione.

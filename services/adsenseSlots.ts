@@ -291,21 +291,12 @@ export const JOBLIST_AD_MAX_PER_LIST = 12;
 
 /** Canton keys (the `entry.key` / `initialFilterCanton` value — 2-letter code,
  *  or a URL-group key like `BASILEA` for merged half-cantons, see
- *  `data/canton-url-slugs.json`) where the in-feed manual slot is suppressed
- *  entirely on the canton job-search listing page, letting Auto Ads
- *  (Anchor/Vignette/in-page automatic — never gated, AGENTS.md Non-Negotiable
- *  #7) fill that placement instead.
- *
- *  Active comparison (owner request, first full treatment day 2026-09-03):
- *  `TI` (Ticino) is the TREATMENT and the national
- *  `/cerca-lavoro-svizzera/` listing is the CONTROL. The national page has no
- *  canton key, so it stays on the unchanged cadence while TI is suppressed.
- *  The retired Basilea/Lucerna pair remains in append-only history only.
- *  Monitoring and the exact URL-vs-channel distinction are documented in
- *  `docs/ADSENSE-INFEED-AB-TEST.md`.
- *
- *  Treatment membership is centralized in `services/adExperiment.ts`; extend
- *  it there if the test result motivates expanding treatment to more cantons.
+ *  `data/canton-url-slugs.json`) where a manual in-feed slot would be
+ *  suppressed while an active URL-surface experiment is running. The current
+ *  set is intentionally empty: the TI treatment was rolled back after the
+ *  2026-09-16 CLS regression, so every job-list surface keeps its fixed
+ *  placeholder and AdSense Auto Ads remain enabled. Treatment membership is
+ *  centralized in `services/adExperiment.ts`.
  */
 /** True when an in-feed ad should be placed immediately after the card at this
  *  1-based position. Ad after card 3, 6, 9, … (every `JOBLIST_AD_EVERY_N`), up
@@ -318,9 +309,13 @@ export const JOBLIST_AD_MAX_PER_LIST = 12;
  *  listing) preserves the original cadence-only behaviour unchanged. */
 export function shouldPlaceInfeedAd(
  position1Based: number,
- opts?: { canton?: string | null; adExperimentActive?: boolean },
+ opts?: { canton?: string | null; adExperimentActive?: boolean } | number,
 ): boolean {
- if (shouldSuppressManualInfeedAd(opts?.canton, { active: opts?.adExperimentActive })) {
+ // Array.prototype.filter passes its numeric index as the second argument.
+ // Keep that established call shape type-safe while still accepting the
+ // options object used by canton listing renderers.
+ const adOptions = typeof opts === 'object' && opts !== null ? opts : undefined;
+ if (shouldSuppressManualInfeedAd(adOptions?.canton, { active: adOptions?.adExperimentActive })) {
  return false;
  }
  return (
