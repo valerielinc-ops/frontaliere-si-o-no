@@ -29,14 +29,16 @@
  */
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { normalizeDescriptionBullets, slugify, stripHtml } from './crawler-template.mjs';
+import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
-  fetchWorkdayJobDescriptionText,
+  fetchWorkdayJobDetail,
   parseWorkdayPostedDate,
   extractWorkdayJobIdentity,
+  normalizeWorkdayLocationCandidate,
+  workdayPrimaryLocationState,
   WorkdayAuthError,
 } from './ats-clients/workday-client.mjs';
 
@@ -84,6 +86,12 @@ function cleanAbbottLocation(raw = '') {
   const parts = stripped.split(/\s*-\s*/).map((p) => p.trim()).filter(Boolean);
   // Last segment is usually the city (when present), else the canton/region.
   return parts[parts.length - 1] || '';
+}
+
+export function resolveAbbottLocation(listingLocation = '', requisitionLocation = '') {
+  const requisitionText = normalizeWorkdayLocationCandidate(requisitionLocation);
+  if (requisitionText) return swissCityFromLocationField(requisitionText) || '';
+  return cleanAbbottLocation(listingLocation);
 }
 
 /* ── Company matchers ──────────────────────────────────────── */
@@ -213,18 +221,31 @@ export async function fetchAllAbbottJobs() {
       console.log(`  ⏭️  Skipped foreign location: ${rawLocation} — ${title}`);
       continue;
     }
-    const cleaned = cleanAbbottLocation(rawLocation);
+    const detail = await fetchWorkdayJobDetail(WORKDAY_API_BASE, listing.externalPath);
+    const detailInfo = detail?.jobPostingInfo || {};
+    const requisitionState = workdayPrimaryLocationState({
+      location: detailInfo.jobRequisitionLocation,
+    });
+    const cleaned = resolveAbbottLocation(rawLocation, detailInfo.jobRequisitionLocation);
+    if (requisitionState.present && !cleaned) {
+      console.log(`  ⏭️  Skipped unresolved requisition location: ${requisitionState.text || '(unreadable)'} — ${title}`);
+      continue;
+    }
     const location = cleaned || 'Basel';
     const canton = inferSwissTargetCanton(location) || 'BS';
     const publicUrl = listing.url || CAREER_URL;
     const employmentType = detectEmploymentType(listing.timeType || '', title);
 
     // Workday listing endpoint never returns the body — fetch detail.
-    const detailDescription = await fetchWorkdayJobDescriptionText(
-      WORKDAY_API_BASE,
-      listing.externalPath,
-      stripHtml,
-    );
+    const detailDescription = detailInfo.jobDescription
+      ? normalizeDescriptionBullets(
+          stripHtml(String(detailInfo.jobDescription))
+            .replace(/[ \t]+/g, ' ')
+            .replace(/[ \t]*\n[ \t]*/g, '\n')
+            .replace(/\n{3,}/g, '\n\n')
+            .trim(),
+        ).slice(0, 4000)
+      : '';
     await new Promise((r) => setTimeout(r, 400));
 
     const fallbackDescription = [

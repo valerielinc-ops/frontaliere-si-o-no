@@ -37,7 +37,7 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml, normalizeDescriptionBullets } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, swissCityFromLocationField } from './target-swiss-locations.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -95,6 +95,9 @@ function normalizeSpace(value = '') {
 function cityFromLocationText(raw = '') {
   const cleaned = normalizeSpace(raw);
   if (!cleaned || /^\d+\s+location/i.test(cleaned)) return '';
+  const knownCity = swissCityFromLocationField(cleaned);
+  if (knownCity) return knownCity;
+  if (/\bheadquarters\s+reinach\b/i.test(cleaned)) return HQ.city;
   return cleaned.split(',')[0].trim();
 }
 
@@ -116,7 +119,9 @@ export function resolveBernerLocation(info = {}, listingLocation = '') {
  * for the publish decision: a req worked in Berlin that also lists Reinach
  * resolves to `Reinach, Switzerland` and goes out stamped `Reinach / BL / CH`.
  *
- * Only the req's own primary workplace (`info.location`) licenses that stamp.
+ * Only the req's own structured workplace (`jobRequisitionLocation`, when the
+ * tenant provides it) licenses that stamp; the legacy `location` field is the
+ * fallback for tenants without that field.
  * Measured 2026-09-19 on the published slice `data/jobs/by-crawler/berner-montage.json`:
  * 0 of 10 records are currently misattributed — all 10 match their own
  * `/job/<Segment>/` primary-location path segment — so the defect is LATENT
@@ -126,9 +131,13 @@ export function resolveBernerLocation(info = {}, listingLocation = '') {
  * union without breaking the test that names this rule.
  */
 export function resolveBernerPrimaryLocation(info = {}) {
-  const [primary] = getWorkdayLocationCandidates({ location: info?.location }, '');
+  const primaryField = info && Object.prototype.hasOwnProperty.call(info, 'jobRequisitionLocation')
+    ? info.jobRequisitionLocation
+    : info?.location;
+  const [primary] = getWorkdayLocationCandidates({ location: primaryField }, '');
   if (!primary || isLocationExplicitlyForeign(primary)) return '';
-  return cityFromLocationText(primary) ? primary : '';
+  const city = cityFromLocationText(primary);
+  return city && inferSwissTargetCanton(city) ? city : '';
 }
 
 /* ── Company Matchers ──────────────────────────────────────── */

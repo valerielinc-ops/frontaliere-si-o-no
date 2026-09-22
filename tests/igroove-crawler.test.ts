@@ -200,6 +200,86 @@ describe('iGroove crawler parser', () => {
       vi.resetModules();
     });
 
+    it('uses the structured detail locality instead of the Personio office label', async () => {
+      vi.resetModules();
+      vi.doMock('../scripts/lib/ats-clients/personio-client.mjs', () => ({
+        fetchPersonioJobs: vi.fn(async () => [
+          {
+            jobReqId: '2588083',
+            title: 'Senior Data Pipeline Engineer',
+            location: 'Zürich Hybrid',
+            locationDetail: {
+              locality: 'Pfäffikon SZ',
+              postalCode: '8808',
+              streetAddress: 'Churerstrasse 135',
+              addressCountry: 'CH',
+            },
+            postedAt: '2026-03-31T07:10:55.000Z',
+            applyUrl: 'https://igroove.jobs.personio.de/job/2588083',
+            descriptionHtml: '<p>Build our data pipeline.</p>',
+            employmentType: 'permanent',
+            seniority: 'experienced',
+            schedule: 'full-time',
+            rawPosition: {},
+          },
+        ]),
+      }));
+
+      const { fetchAllIgrooveJobs } = await import('../scripts/lib/igroove-job-parser.mjs');
+      const jobs = await fetchAllIgrooveJobs();
+
+      expect(jobs[0]).toMatchObject({
+        location: 'Pfäffikon',
+        addressLocality: 'Pfäffikon',
+        canton: 'SZ',
+        postalCode: '8808',
+        streetAddress: 'Churerstrasse 135',
+      });
+
+      vi.doUnmock('../scripts/lib/ats-clients/personio-client.mjs');
+      vi.resetModules();
+    });
+
+    it('ignores a structured detail locality whose country is not Switzerland', async () => {
+      vi.resetModules();
+      vi.doMock('../scripts/lib/ats-clients/personio-client.mjs', () => ({
+        fetchPersonioJobs: vi.fn(async () => [
+          {
+            jobReqId: '2588084',
+            title: 'International Data Engineer',
+            location: 'Zürich Hybrid',
+            locationDetail: {
+              locality: 'Frankfurt am Main',
+              postalCode: '60311',
+              streetAddress: 'Foreign Street 1',
+              addressCountry: 'DE',
+            },
+            postedAt: '2026-03-31T07:10:55.000Z',
+            applyUrl: 'https://igroove.jobs.personio.de/job/2588084',
+            descriptionHtml: '<p>Build our data pipeline.</p>',
+            employmentType: 'permanent',
+            seniority: 'experienced',
+            schedule: 'full-time',
+            rawPosition: {},
+          },
+        ]),
+      }));
+
+      const { fetchAllIgrooveJobs } = await import('../scripts/lib/igroove-job-parser.mjs');
+      const jobs = await fetchAllIgrooveJobs();
+
+      expect(jobs[0]).toMatchObject({
+        location: 'Zürich',
+        addressLocality: 'Zürich',
+        canton: 'ZH',
+        postalCode: '8001',
+      });
+      expect(jobs[0].streetAddress).not.toBe('Foreign Street 1');
+
+      vi.doUnmock('../scripts/lib/ats-clients/personio-client.mjs');
+      vi.resetModules();
+    });
+
     it('returns an empty array when the feed has no positions', async () => {
       vi.resetModules();
       vi.doMock('../scripts/lib/ats-clients/personio-client.mjs', () => ({

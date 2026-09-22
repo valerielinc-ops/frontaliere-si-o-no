@@ -18,14 +18,14 @@ describe('ruag-job-parser', () => {
     ]);
   });
 
-  it('parses a RUAG detail page and fixes location from inline script', () => {
+  it('parses a RUAG detail page and prefers the structured workplace', () => {
     const html = `
       <html>
         <head>
           <title>Apprendista Polimeccanico/a AFC 2026 100% (f/m/d)</title>
           <link rel="canonical" href="https://jobs.ruag.ch/posizioni-aperte/apprendista-polimeccanico-a-afc-2026/8719" />
           <script type="application/ld+json">
-            {"@context":"http://schema.org","@type":"JobPosting","title":"Apprendista Polimeccanico/a AFC 2026","datePosted":"2025-10-31","validThrough":"2053-03-16","employmentType":"FULL_TIME","hiringOrganization":{"name":"RUAG MRO Holding AG"},"jobLocation":{"@type":"Place","address":{"addressLocality":"Emmen","addressRegion":"Emmen"}},"responsibilities":"<ul><li>Lavorazione di metalli</li></ul>","qualifications":"<ul><li>Buone prestazioni in matematica</li></ul>"}
+            {"@context":"http://schema.org","@type":"JobPosting","title":"BetriebselektrikerIn (Facility Manager Technics)","datePosted":"2025-10-31","validThrough":"2053-03-16","employmentType":"FULL_TIME","hiringOrganization":{"name":"RUAG MRO Holding AG"},"jobLocation":{"@type":"Place","address":{"addressLocality":"Schattdorf","addressRegion":"Uri","postalCode":"6467"}},"responsibilities":"<ul><li>Lavorazione di metalli</li></ul>","qualifications":"<ul><li>Buone prestazioni in matematica</li></ul>"}
           </script>
         </head>
         <body>
@@ -43,8 +43,8 @@ describe('ruag-job-parser', () => {
     `;
     const parsed = parseRuagJobDetail(html, 'https://jobs.ruag.ch/posizioni-aperte/apprendista-polimeccanico-a-afc-2026/8719');
     expect(parsed.title).toContain('Apprendista Polimeccanico');
-    expect(parsed.location).toBe('Lodrino');
-    expect(parsed.canton).toBe('TI');
+    expect(parsed.location).toBe('Schattdorf');
+    expect(parsed.canton).toBe('UR');
     expect(parsed.applyUrl).toBe('https://jobs.ruag.ch/apply/ats/8719');
     expect(parsed.similarLinks).toHaveLength(1);
     expect(parsed.description).toContain('Ambito di lavoro');

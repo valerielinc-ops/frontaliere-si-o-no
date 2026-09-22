@@ -80,7 +80,6 @@ describe('Montagetechnik BERNER AG crawler parser', () => {
       expect(resolveBernerPrimaryLocation({
         location: 'Berlin, Germany',
         additionalLocations: [{ descriptor: 'Reinach, Switzerland' }],
-        jobRequisitionLocation: 'Reinach, Switzerland',
       })).toBe('');
     });
 
@@ -95,7 +94,14 @@ describe('Montagetechnik BERNER AG crawler parser', () => {
       expect(resolveBernerPrimaryLocation({
         location: 'Reinach, Switzerland',
         additionalLocations: [{ descriptor: 'Berlin, Germany' }],
-      })).toBe('Reinach, Switzerland');
+      })).toBe('Reinach');
+    });
+
+    it('uses the structured requisition workplace when the listing is a region label', () => {
+      expect(resolveBernerPrimaryLocation({
+        location: 'Basel, Switzerland',
+        jobRequisitionLocation: { descriptor: 'Berner Switzerland - Headquarters Reinach' },
+      })).toBe('Reinach');
     });
   });
 
