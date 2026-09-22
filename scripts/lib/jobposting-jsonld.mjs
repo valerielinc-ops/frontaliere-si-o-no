@@ -15,22 +15,16 @@
  *     itemprop="description" microdata container (SuccessFactors jobs2web /
  *     RMK detail pages — Implenia, Liebherr).
  *
- * Both return '' on any miss so the caller can fall back to the listing teaser.
+ * The text extractors return '' on any miss so the caller can fall back to the
+ * listing teaser; the structured-address extractor returns null.
  */
 
-/**
- * Extract the `description` of the first schema.org JobPosting found in any
- * `<script type="application/ld+json">` block. The description may itself be
- * HTML (Decathlon) — callers run it through stripHtml().
- *
- * @param {string} html
- * @returns {string} raw description (possibly HTML), or '' if none.
- */
-export function extractJobPostingDescription(html = '') {
-  if (!html || typeof html !== 'string') return '';
+function extractJobPostingNodes(html = '') {
+  if (!html || typeof html !== 'string') return [];
   const blocks = [...html.matchAll(
     /<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi,
   )].map((m) => m[1]);
+  const jobPostings = [];
   for (const block of blocks) {
     let data;
     try {
@@ -52,10 +46,55 @@ export function extractJobPostingDescription(html = '') {
       const isJobPosting = Array.isArray(type)
         ? type.some((t) => String(t).includes('JobPosting'))
         : String(type || '').includes('JobPosting');
-      if (isJobPosting && node.description) return String(node.description);
+      if (isJobPosting) jobPostings.push(node);
     }
   }
+  return jobPostings;
+}
+
+/**
+ * Extract the `description` of the first schema.org JobPosting found in any
+ * `<script type="application/ld+json">` block. The description may itself be
+ * HTML (Decathlon) — callers run it through stripHtml().
+ *
+ * @param {string} html
+ * @returns {string} raw description (possibly HTML), or '' if none.
+ */
+export function extractJobPostingDescription(html = '') {
+  for (const node of extractJobPostingNodes(html)) {
+    if (node.description) return String(node.description);
+  }
   return '';
+}
+
+/**
+ * Extract the primary structured address from a schema.org JobPosting.
+ *
+ * Personio can expose a human-facing office label (for example "Zürich
+ * Hybrid") while the same posting's JSON-LD carries the postal locality used
+ * by the address. Keep both available to the caller instead of forcing every
+ * company parser to re-fetch and re-parse the detail page.
+ *
+ * @param {string} html
+ * @returns {{locality: string, postalCode: string, streetAddress: string, addressCountry: string}|null}
+ */
+export function extractJobPostingAddress(html = '') {
+  for (const node of extractJobPostingNodes(html)) {
+    const locations = Array.isArray(node.jobLocation)
+      ? node.jobLocation
+      : [node.jobLocation].filter(Boolean);
+    for (const location of locations) {
+      const address = location?.address || {};
+      const locality = String(address.addressLocality || '').trim();
+      const postalCode = String(address.postalCode || '').trim();
+      const streetAddress = String(address.streetAddress || '').trim();
+      const addressCountry = String(address.addressCountry || '').trim();
+      if (locality || postalCode || streetAddress || addressCountry) {
+        return { locality, postalCode, streetAddress, addressCountry };
+      }
+    }
+  }
+  return null;
 }
 
 /**

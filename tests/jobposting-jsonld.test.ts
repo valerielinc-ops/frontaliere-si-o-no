@@ -1,5 +1,6 @@
 import { describe, it, expect } from 'vitest';
 import {
+  extractJobPostingAddress,
   extractJobPostingDescription,
   extractMicrodataDescription,
 } from '../scripts/lib/jobposting-jsonld.mjs';
@@ -63,5 +64,23 @@ describe('extractMicrodataDescription (itemprop)', () => {
     expect(extractMicrodataDescription('<div>JS shell only</div>')).toBe('');
     expect(extractMicrodataDescription('')).toBe('');
     expect(extractMicrodataDescription(undefined)).toBe('');
+  });
+});
+
+describe('extractJobPostingAddress (JSON-LD)', () => {
+  it('returns the structured locality alongside the description', () => {
+    const html = `<script type="application/ld+json">
+      {"@type":"JobPosting","jobLocation":{"@type":"Place","address":{"@type":"PostalAddress","streetAddress":"Churerstrasse 135","addressLocality":"Pfäffikon SZ","postalCode":"8808","addressCountry":"CH"}}}
+    </script>`;
+    expect(extractJobPostingAddress(html)).toEqual({
+      locality: 'Pfäffikon SZ',
+      postalCode: '8808',
+      streetAddress: 'Churerstrasse 135',
+      addressCountry: 'CH',
+    });
+  });
+
+  it('returns null when a JobPosting has no structured address', () => {
+    expect(extractJobPostingAddress('<script type="application/ld+json">{"@type":"JobPosting"}</script>')).toBeNull();
   });
 });

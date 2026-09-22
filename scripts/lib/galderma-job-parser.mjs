@@ -28,6 +28,7 @@ const parser = createWorkdaySwissParser({
   defaultPostalCode: '6300',
   sector: 'Pharma / Dermatologia',
   defaultSourceLang: 'en',
+  preferJobRequisitionLocation: true,
 });
 
 export const fetchAllGaldermaJobs = parser.fetchAllJobs;

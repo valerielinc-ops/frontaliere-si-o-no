@@ -113,9 +113,13 @@ export function parseRuagJobDetail(html = '', url = '') {
     normalizeSpace(document.querySelector('meta[property="og:title"]')?.getAttribute('content') || '') ||
     normalizeSpace(document.querySelector('title')?.textContent || '') ||
     normalizeSpace(jobPosting?.title || '');
+  // The inline `#location` value is a listing/search label and can be a
+  // nearby hub (the live Schattdorf vacancy exposes `Altdorf` there). The
+  // JobPosting address is the vacancy's own structured workplace, so use it
+  // first and retain the inline value only as a fallback for older pages.
   const location =
-    normalizeRuagLocation(extractLocationFromInlineScript(html)) ||
     normalizeRuagLocation(jobPosting?.jobLocation?.address?.addressLocality || '') ||
+    normalizeRuagLocation(extractLocationFromInlineScript(html)) ||
     normalizeRuagLocation(document.querySelector('#location .placeList')?.textContent || '');
   const canonicalUrl = String(document.querySelector('link[rel="canonical"]')?.getAttribute('href') || url).trim();
   const applyUrl = String(document.querySelector('a[href*="/apply/ats/"]')?.getAttribute('href') || '').trim();
