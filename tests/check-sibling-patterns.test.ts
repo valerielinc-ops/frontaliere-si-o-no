@@ -29,6 +29,7 @@ import { describe, it, expect } from 'vitest';
 import {
   extractTokens,
   extractRemovedExpressions,
+  isGenericRemovedExpression,
   detectCapBeforeMutation,
   detectCloseBundleOrdering,
   detectPersistTimeCountryStamp,
@@ -109,6 +110,22 @@ describe('extractRemovedExpressions — verbatim removed-line detection (issue #
     ].join('\n');
     const exprs = extractRemovedExpressions(diff);
     expect([...exprs].some((e) => e.includes('esc(job.company)'))).toBe(true);
+  });
+
+  it('filters generic response-status guards that are unrelated to the domain fix', () => {
+    const diff = "-  if (!res.ok) return '';";
+    expect(extractRemovedExpressions(diff).size).toBe(0);
+    expect(isGenericRemovedExpression("if (!res.ok) return ''")).toBe(true);
+  });
+
+  it('filters generic HTML type guards while keeping semantic removed expressions', () => {
+    const diff = [
+      "-  if (!html || typeof html !== 'string') return '';",
+      '-  const detailDescription = await fetchWorkdayJobDescriptionText(base, path);',
+    ].join('\n');
+    const exprs = extractRemovedExpressions(diff);
+    expect(exprs).not.toContain("if (!html || typeof html !== 'string') return ''");
+    expect([...exprs].some((e) => e.includes('fetchWorkdayJobDescriptionText'))).toBe(true);
   });
 
   it('strips trailing comma before storing', () => {
@@ -481,8 +498,15 @@ describe('candidateStrength', () => {
     expect(candidateStrength(['rawDescription', 'graph:services/shared.ts#rawDescription'])).toBe('forte');
   });
 
-  it('una espressione verbatim rimossa → forte anche da sola', () => {
-    expect(candidateStrength(['removed:"if (isSufficientVacancyDescription(x))"'])).toBe('forte');
+  it('una espressione verbatim rimossa da sola resta visibile ma debole', () => {
+    expect(candidateStrength(['removed:"if (isSufficientVacancyDescription(x))"'])).toBe('debole');
+  });
+
+  it('una espressione rimossa con un binding risolto resta forte', () => {
+    expect(candidateStrength([
+      'removed:"if (isSufficientVacancyDescription(x))"',
+      'graph:scripts/lib/shared.ts#isSufficientVacancyDescription',
+    ])).toBe('forte');
   });
 
   it('input degeneri non lanciano', () => {
