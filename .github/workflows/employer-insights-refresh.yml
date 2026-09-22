@@ -135,9 +135,18 @@ jobs:
           set -euo pipefail
           node scripts/build-employer-insights.mjs \
             --source "$INSIGHTS_SOURCE" \
+            --d18-json-out /tmp/employer-insights-d18.json \
+            --d18-include-applications \
             --json-out /tmp/employer-insights-dry-run.json \
             | tee /tmp/employer-insights-builder.log
           test -s /tmp/employer-insights-dry-run.json
+          test -s /tmp/employer-insights-d18.json
+
+      - name: Validate D18 cumulative artifact
+        run: |
+          set -euo pipefail
+          node scripts/ci/validate-employer-insights-d18-payload.mjs \
+            --payload /tmp/employer-insights-d18.json
 
       - name: Validate payload fail-closed
         run: |
@@ -240,6 +249,15 @@ jobs:
           }
           NODE
 
+      - name: Upload D18 bounded artifact
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: employer-insights-d18-${{ github.run_id }}
+          path: /tmp/employer-insights-d18.json
+          if-no-files-found: ignore
+          retention-days: 7
+
       - name: Cleanup temporary credentials and payloads
         if: always()
-        run: rm -f /tmp/firebase-sa.json /tmp/employer-insights-current.json /tmp/employer-insights-dry-run.json /tmp/employer-insights-builder.log /tmp/employer-insights-gate.json
+        run: rm -f /tmp/firebase-sa.json /tmp/employer-insights-current.json /tmp/employer-insights-dry-run.json /tmp/employer-insights-d18.json /tmp/employer-insights-builder.log /tmp/employer-insights-gate.json
