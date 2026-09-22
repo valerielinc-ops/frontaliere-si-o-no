@@ -35,11 +35,9 @@ export const ARTICLE_HUB_SEGMENTS = Object.freeze(['articoli-frontaliere', 'arti
 /** Locale prefixes the site emits; Italian is unprefixed. */
 export const LOCALE_PREFIXES = Object.freeze(['en', 'de', 'fr']);
 
-/**
- * The GA4 property's reporting timezone. Measured via the Admin API on
- * 2026-08-24: property 524485296 reports in `Europe/Zurich`, NOT UTC.
- */
-export const GA4_REPORT_TIMEZONE = 'Europe/Zurich';
+import { GA4_REPORT_TIMEZONE } from './ga4-report-timezone.mjs';
+
+export { GA4_REPORT_TIMEZONE };
 
 /**
  * The calendar day before `now` **in the GA4 property's timezone**, `YYYY-MM-DD`.

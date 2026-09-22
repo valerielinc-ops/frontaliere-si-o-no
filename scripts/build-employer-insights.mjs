@@ -34,6 +34,7 @@ import {
   ANALYTICS_PROCESSING_LAG_DAYS,
   settledEndDate,
 } from './lib/analytics-settled-window.mjs';
+import { GA4_REPORT_TIMEZONE } from './lib/ga4-report-timezone.mjs';
 import { createCantonResolvers } from '../build-plugins/shared/cantonResolvers.mjs';
 import { JOB_BOARD_SECTION_PREFIX_SOURCE } from './lib/jobBoardSections.mjs';
 import {
@@ -2638,16 +2639,28 @@ export function assertCompleteEventCoverage(coverage) {
 
 const GA4_INSIGHTS_EVENTS = ['page_view', 'job_apply'];
 
+// GA4 date dimensions use the property's local calendar, not UTC. A D18
+// window can therefore cross a UTC date boundary without changing its GA4 day.
 function ga4DateForValue(value, label) {
+  if (value === null || value === undefined) throw new Error(`GA4 ${label} is not a valid date`);
   const parsed = new Date(value);
   if (Number.isNaN(parsed.getTime())) throw new Error(`GA4 ${label} is not a valid date`);
-  return parsed.toISOString().slice(0, 10);
+  const parts = new Intl.DateTimeFormat('en-CA', {
+    timeZone: GA4_REPORT_TIMEZONE,
+    year: 'numeric',
+    month: '2-digit',
+    day: '2-digit',
+  }).formatToParts(parsed);
+  const fields = Object.fromEntries(parts.filter((part) => part.type !== 'literal').map((part) => [part.type, part.value]));
+  if (!fields.year || !fields.month || !fields.day) throw new Error(`GA4 ${label} is not a valid date`);
+  return `${fields.year}-${fields.month}-${fields.day}`;
 }
 
 function ga4DateForWindowEnd(window) {
-  const end = Date.parse(window.to) - DAY_MS;
+  const end = Date.parse(window?.to ?? '');
   if (!Number.isFinite(end)) throw new Error('GA4 window.to is not a valid date');
-  return ga4DateForValue(new Date(end), 'window.to');
+  const [year, month, day] = ga4DateForValue(new Date(end), 'window.to').split('-').map(Number);
+  return new Date(Date.UTC(year, month - 1, day) - DAY_MS).toISOString().slice(0, 10);
 }
 
 function ga4DimensionValue(row, index) {
