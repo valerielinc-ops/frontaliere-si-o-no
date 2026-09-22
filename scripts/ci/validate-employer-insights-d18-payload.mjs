@@ -2,7 +2,10 @@
 
 import fs from 'node:fs';
 import { fileURLToPath } from 'node:url';
-import { validateD18Payload } from '../lib/employer-insights-cumulative-contract.mjs';
+import {
+  validateD18FirstRunEvidence,
+  validateD18Payload,
+} from '../lib/employer-insights-cumulative-contract.mjs';
 
 function arg(flag) {
   const index = process.argv.indexOf(flag);
@@ -13,10 +16,13 @@ function readJson(filePath) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
-export function validateD18Artifact(payload) {
+export function validateD18Artifact(payload, { requireLiveGa4 = false } = {}) {
   const result = validateD18Payload(payload);
+  const firstRun = requireLiveGa4 ? validateD18FirstRunEvidence(payload) : { ok: true, errors: [] };
+  const errors = [...result.errors, ...firstRun.errors];
   return {
-    ...result,
+    ok: errors.length === 0,
+    errors,
     summary: {
       schemaVersion: payload?.schemaVersion ?? null,
       metricVersion: payload?.metricVersion ?? null,
@@ -24,6 +30,10 @@ export function validateD18Artifact(payload) {
       regimes: Object.fromEntries(['ga4', 'posthog'].map((source) => [source, payload?.sourceRegimes?.[source]?.status || 'non disponibile'])),
       coverageMatrix: payload?.coverageMatrix?.status || 'non disponibile',
       companies: Array.isArray(payload?.companies) ? payload.companies.length : 0,
+      evidenceStatus: payload?.evidence?.status || 'non disponibile',
+      runMode: payload?.evidence?.runMode || 'non disponibile',
+      emissionIdStatus: payload?.evidence?.ga4?.emissionId?.status || 'non disponibile',
+      blockers: Array.isArray(payload?.evidence?.blockers) ? payload.evidence.blockers : [],
     },
   };
 }
@@ -32,7 +42,8 @@ function main() {
   const payloadPath = arg('--payload');
   if (!payloadPath) throw new Error('usage: validate-employer-insights-d18-payload.mjs --payload <file>');
   const payload = readJson(payloadPath);
-  const result = validateD18Artifact(payload);
+  const requireLiveGa4 = process.argv.includes('--require-live-ga4');
+  const result = validateD18Artifact(payload, { requireLiveGa4 });
   if (!result.ok) {
     for (const error of result.errors) console.error(`::error::${error}`);
     throw new Error(`D18 payload validation failed: ${result.errors.length} condition(s)`);
@@ -46,6 +57,9 @@ function main() {
     `- PostHog regime: ${result.summary.regimes.posthog}`,
     `- coverage matrix: ${result.summary.coverageMatrix}`,
     `- companies: ${result.summary.companies}`,
+    `- run evidence: ${result.summary.evidenceStatus} (${result.summary.runMode})`,
+    `- GA4 emission_id: ${result.summary.emissionIdStatus}`,
+    ...(result.summary.blockers.length ? [`- blockers: ${result.summary.blockers.join(' | ')}`] : []),
     '- contract, provenance and reconciliation checks: pass',
   ].join('\n');
   if (process.env.GITHUB_STEP_SUMMARY) fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, `${summary}\n`);

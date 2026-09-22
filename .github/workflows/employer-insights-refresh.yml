@@ -7,12 +7,11 @@ on:
   workflow_dispatch:
     inputs:
       source:
-        description: Analytics source to query; every payload declares it.
+        description: Analytics source of truth for the first live D18 evidence run.
         required: true
         default: ga4
         type: choice
         options:
-          - posthog
           - ga4
 
 permissions:
@@ -58,10 +57,9 @@ jobs:
         run: |
           set -euo pipefail
           case "$INSIGHTS_SOURCE" in
-            posthog) ;;
             ga4) ;;
             *)
-              echo "::error::source must be posthog or ga4"
+              echo "::error::source must be ga4"
               exit 1
               ;;
           esac
@@ -95,12 +93,6 @@ jobs:
         run: |
           set -euo pipefail
           case "$INSIGHTS_SOURCE" in
-            posthog)
-              if [ -z "${POSTHOG_PERSONAL_API_KEY:-}" ] || [ -z "${POSTHOG_PROJECT_ID:-}" ]; then
-                echo "::error::PostHog credentials are missing after Remote Config load"
-                exit 1
-              fi
-              ;;
             ga4)
               if [ -z "${GA4_PROPERTY_ID:-}" ]; then
                 echo "::error::GA4_PROPERTY_ID is missing after Remote Config load"
@@ -147,6 +139,13 @@ jobs:
           set -euo pipefail
           node scripts/ci/validate-employer-insights-d18-payload.mjs \
             --payload /tmp/employer-insights-d18.json
+
+      - name: Require first live GA4 evidence
+        run: |
+          set -euo pipefail
+          node scripts/ci/validate-employer-insights-d18-payload.mjs \
+            --payload /tmp/employer-insights-d18.json \
+            --require-live-ga4
 
       - name: Validate payload fail-closed
         run: |
@@ -254,7 +253,11 @@ jobs:
         uses: actions/upload-artifact@v7
         with:
           name: employer-insights-d18-${{ github.run_id }}
-          path: /tmp/employer-insights-d18.json
+          path: |
+            /tmp/employer-insights-d18.json
+            /tmp/employer-insights-dry-run.json
+            /tmp/employer-insights-builder.log
+            /tmp/employer-insights-gate.json
           if-no-files-found: ignore
           retention-days: 7
 
