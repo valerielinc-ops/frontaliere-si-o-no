@@ -149,6 +149,18 @@ async function cvUrlForOrder(orderId, data) {
   return resolveCvLink(key);
 }
 
+/**
+ * The admin endpoint is the only path that turns a private Storage key into a
+ * client-visible signed URL. Fail closed until an authorised scanner writes
+ * the exact clean verdict; missing, pending and infected files stay invisible.
+ * The scanner will use the Admin SDK, so this gate does not invent a provider
+ * or let the browser self-attest a result.
+ */
+function cvMayBeShownToAdmin(data) {
+  if (!data?.cvStorageKey) return true;
+  return boundedString(data.cvScanStatus, 40).toLowerCase() === 'clean';
+}
+
 function requestedStatus(req) {
   const raw = req.query?.status;
   const status = Array.isArray(raw) ? raw[0] : raw;
@@ -169,7 +181,8 @@ export async function handleListAssistedApplications(db, status = null) {
     const isPaidOrder = data.paymentStatus === 'paid';
     const isRefundedOrder = submissionStatus === 'refunded' && data.paymentStatus === 'refunded';
     return (status ? submissionStatus === status : ASSISTED_APPLICATION_ADMIN_STATUSES.includes(submissionStatus))
-      && (isPaidOrder || isRefundedOrder);
+      && (isPaidOrder || isRefundedOrder)
+      && cvMayBeShownToAdmin(data);
   });
 
   const orders = await Promise.all(docs.map(async (doc) => {
