@@ -37,11 +37,43 @@ describe('crawler workflow corpus transport', () => {
     expect(workflowSource).not.toMatch(/GITHUB_PAT|APP_TOKEN/);
   });
 
+  it('materializza la closure degli import del gate body prima di aprire la PR corpus', () => {
+    const checkout = workflow.jobs.sync.steps.find((step: any) => step.uses === 'actions/checkout@v5');
+    const sparsePaths = new Set(String(checkout.with['sparse-checkout'])
+      .split(/\r?\n/)
+      .map((entry) => entry.trim().replace(/^\//, ''))
+      .filter(Boolean));
+    const pending = [path.join(ROOT, 'scripts/ci/pr-body-check-gate.mjs')];
+    const visited = new Set<string>();
+
+    while (pending.length > 0) {
+      const current = pending.pop()!;
+      if (visited.has(current)) continue;
+      visited.add(current);
+      const source = fs.readFileSync(current, 'utf8');
+      for (const match of source.matchAll(/(?:\bfrom\s+|\bimport\s*)['"](\.[^'"]+)['"]/g)) {
+        pending.push(path.resolve(path.dirname(current), match[1]));
+      }
+    }
+
+    const missing = [...visited]
+      .map((file) => path.relative(ROOT, file).split(path.sep).join('/'))
+      .filter((file) => !sparsePaths.has(file))
+      .sort();
+    expect(missing).toEqual([]);
+  });
+
   it('ritenta con backoff e fallisce loud dopo tre tentativi', () => {
     expect(workflowSource).toMatch(/for attempt in 1 2 3/);
     expect(workflowSource).toMatch(/delay=\$\(\(attempt \* 30\)\)/);
     expect(workflowSource).toMatch(/transport exhausted 3 attempts/);
     expect(workflow.concurrency['cancel-in-progress']).toBe(false);
+  });
+
+  it('non dichiara successo se il gate body non e eseguibile', () => {
+    expect(script).toContain('::error::crawler transport body PR non verificabile');
+    expect(script).toContain('exit "$gate_status"');
+    expect(script).not.toContain('::warning::crawler transport body PR non verificabile');
   });
 
   it('pusha normalmente solo una branch PR e deduplica aggiornando quella aperta', () => {
