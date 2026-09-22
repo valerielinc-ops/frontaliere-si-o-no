@@ -101,6 +101,9 @@ jobs:
             node -e "const r=require('./.tmp/smoke.json');console.log(JSON.stringify(r.summary,null,2))"
             echo '```'
             echo ""
+            echo "## GitHub Models publisher-prefix verification"
+            node -e "const r=require('./.tmp/smoke.json').githubModelsVerification; console.log('- state: \`'+r.state+'\`'); console.log('- bare roster observed: '+r.observedCount+'/'+r.rosterBareCount); console.log('- affected models: '+r.affectedModels.length);"
+            echo ""
             echo "## Dead models (HTTP 404)"
           } >> "$GITHUB_STEP_SUMMARY"
           node -e "
