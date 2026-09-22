@@ -1,21 +1,21 @@
 {
   "key": "alcon",
   "label": "Alcon",
-  "generatedAt": "2026-09-21T16:15:03.666Z",
-  "total": 4,
+  "generatedAt": "2026-09-22T00:19:39.549Z",
+  "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
-  "written": 4,
+  "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5564,
-  "avgDurationMs": 5564,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4975,
+  "avgDurationMs": 4975,
   "durationHistory": [
-    5564
+    4975
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/Manager--Accounting---Reporting_R-2026-49365-2",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T16:14:53.177Z",
+      "crawledAt": "2026-09-22T00:19:31.617Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -63,13 +63,13 @@
       "companyKey": "alcon",
       "companyDomain": "alcon.com",
       "title": "Professional Education & Development Manager (m/w/d) - Vision Care DACH",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Fribourg",
       "canton": "FR",
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg---ASSA/Professional-Education---Development-Manager--m-w-d----Vision-Care-DACH_R-2026-48937-1",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:14:53.902Z",
+      "crawledAt": "2026-09-22T00:19:32.467Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -106,7 +106,7 @@
       "url": "https://alcon.wd5.myworkdayjobs.com/en-US/careers_alcon/job/Fribourg-Switzerland/International-Accounting-and-Reporting-Director_R-2026-46854",
       "source": "Alcon Dedicated Parser (Workday)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T16:14:52.479Z",
+      "crawledAt": "2026-09-22T00:19:30.734Z",
       "addressLocality": "Fribourg",
       "addressRegion": "FR",
       "addressCountry": "CH",
@@ -131,8 +131,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "alcon-b66acee3cbdc",
       "slug": "flusso-associato-ordini-e-fatture-interaziendali-alcon-fribourg",
@@ -165,6 +164,7 @@
       "salaryMax": 119000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
+      "needsRetranslation": true,
       "_qualityScore": 89,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -173,5 +173,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

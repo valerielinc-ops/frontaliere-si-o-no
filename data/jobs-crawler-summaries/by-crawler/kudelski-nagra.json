@@ -1,21 +1,21 @@
 {
   "key": "kudelski-nagra",
   "label": "Kudelski NAGRA",
-  "generatedAt": "2026-09-21T16:15:48.586Z",
-  "total": 2,
+  "generatedAt": "2026-09-22T00:18:09.640Z",
+  "total": 1,
   "discovered": 14,
   "parsed": 1,
   "lastFetchOutcome": null,
-  "written": 2,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5153,
-  "avgDurationMs": 5153,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 4474,
+  "avgDurationMs": 4474,
   "durationHistory": [
-    5153
+    4474
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:15:39.246Z",
+      "crawledAt": "2026-09-22T00:18:01.958Z",
       "addressLocality": "Zurich, Switzerland (Hybrid, onsite with client)",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -47,6 +47,7 @@
       "featured": false,
       "postedDate": "2026-08-20",
       "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15828",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:09:21.794Z",
       "_qualityScore": 73,
       "_qualityBreakdown": {
@@ -57,8 +58,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "kudelski-nagra-213b373baaf3",
       "slug": "apprenti-e-employ-eacute-e-de-commerce-voie-2-kudelski-nagra-ch",
@@ -91,6 +91,7 @@
       "salaryMax": 75000,
       "crawlerMissStreak": 2,
       "salarySource": "reported",
+      "needsRetranslation": true,
       "_qualityScore": 75,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -99,5 +100,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

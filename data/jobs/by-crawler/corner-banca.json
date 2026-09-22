@@ -1,6 +1,6 @@
 {
   "crawlerKey": "corner-banca",
-  "assembledAt": "2026-09-21T16:14:42.911Z",
+  "assembledAt": "2026-09-22T00:19:20.013Z",
   "jobs": [
     {
       "id": "corner-banca-f803e5cc9fe2",
@@ -55,7 +55,7 @@
       "url": "https://jobs.corner.ch/o/unsolicited-application-apprenticeship",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.326Z",
+      "crawledAt": "2026-09-22T00:19:15.144Z",
       "previousSlugs": [
         "initiativbewerbung-lehre-corner-banca-switzerland",
         "initiativbewerbung-fur-lehrstelle-corner-banca-switzerland",
@@ -74,8 +74,8 @@
           "apprentissage-spontane-corner-banca-switzerland"
         ]
       },
-      "firstSeenAt": "2026-07-08T22:13:15.988Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-07-08T22:13:15.988Z",
       "salaryMin": 59500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -164,7 +164,7 @@
       "url": "https://jobs.corner.ch/o/employee-collection-team-zurich-ref-1068",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.325Z",
+      "crawledAt": "2026-09-22T00:19:15.143Z",
       "previousSlugsByLocale": {
         "it": [
           "employee-collection-team-zurich-ref-1068-corner-banca-wallisellen",
@@ -185,8 +185,8 @@
         "employee-collection-team-zurigo-ref-1068-corner-banca-wallisellen",
         "team-raccolta-dipendenti-zurigo-ref-1068-corner-banca-wallisellen"
       ],
-      "firstSeenAt": "2026-08-14T10:12:28.238Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.238Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -269,7 +269,7 @@
       "url": "https://jobs.corner.ch/o/legal-collection-case-manager-ref-1095",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.325Z",
+      "crawledAt": "2026-09-22T00:19:15.142Z",
       "previousSlugs": [
         "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen",
         "fallmanager-fur-rechtssammlung-corner-banca-wallisellen",
@@ -299,8 +299,8 @@
           "gestionnaire-de-dossier-de-recouvrement-juridique-corner-banca-wallisellen"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:28.233Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.233Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -384,7 +384,21 @@
       "url": "https://jobs.corner.ch/o/senior-security-grc-governance-risk-compliance-banking-ref-1109",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T16:14:35.323Z",
+      "crawledAt": "2026-09-22T00:19:15.141Z",
+      "previousSlugs": [
+        "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano",
+        "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
+        "bancario-di-sicurezza-senior-grc-governance-risk-compliance-rif-1109-corner-banca-lugano"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano",
+          "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano",
+          "bancario-di-sicurezza-senior-grc-governance-risk-compliance-rif-1109-corner-banca-lugano"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:09:44.974Z",
+      "needsRetranslation": true,
       "salaryMin": 142000,
       "salaryMax": 249500,
       "salarySource": "estimated",
@@ -401,18 +415,7 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "firstSeenAt": "2026-09-19T23:09:44.974Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano",
-          "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "grc-gouvernance-risque-et-conformite-services-bancaires-corner-banca-lugano",
-        "senior-security-grc-governance-risk-e-compliance-banking-ref-1109-corner-banca-lugano"
-      ]
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "corner-banca-5c5ec31e11d9",
@@ -428,17 +431,17 @@
       "companyDomain": "corner.ch",
       "title": "FI Administration & Business Support  - ref. 1116",
       "titleByLocale": {
-        "it": "Amministrazione FI e supporto alle imprese - rif. 1116",
-        "en": "FI Administration & Business Support - ref. 1116",
-        "de": "FI-Verwaltung & Geschäftsunterstützung – Ref. 1116",
-        "fr": "FI Administration & Soutien aux Affaires - réf. 1116"
+        "it": "FI Administration & Business Support - ref. 1116",
+        "en": "FI Administration & Business Support  - ref. 1116",
+        "de": "FI Administration & Business Support - ref. 1116",
+        "fr": "FI Administration & Business Support - ref. 1116"
       },
       "description": "Siamo alla ricerca di una persona altamente motivata e qualificata da inserire nel nostro team FI Administration & Business Support. La persona selezionata sarà responsabile di garantire il supporto operativo e amministrativo alle attività a sostegno della rete di intermediari finanziari, gestendo tempestivamente le richieste, fornendo assistenza amministrativa e assicurando una gestione accurata delle pratiche, nel rispetto delle procedure definite e delle tempistiche di servizio.\n\nPrincipali responsabilità\n• Fornire supporto amministrativo alle attività della funzione.\n\n• Gestire e monitorare i casi particolari, assicurandone la corretta presa in carico e risoluzione in linea con le priorità concordate.\n\n• Elaborare i nuovi casi (Svizzera/Europa) entro 24 ore, garantendo accuratezza, completezza e conformità agli standard di servizio.\n\n• Gestire la casella di posta condivisa e le richieste quotidiane, assicurando risposte tempestive e una gestione efficiente delle attività operative giornaliere.\n\n• Gestire le richieste relative alle carte di credito, in collaborazione con i team interni competenti.\n\n• Preparare report periodici e ad hoc, inclusa l'estrazione e l'analisi di dati/statistiche per il monitoraggio operativo.\n\nCosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro, con l'obiettivo di garantire un sano equilibrio tra vita professionale e privata.\n\n• Numerosi benefit e incentivi.\n\n• Attività dedicate al benessere, alla motivazione e al team building.\n\n• Ottima conoscenza di Microsoft Office, in particolare Excel e Word.\n\n• Capacità di redigere documentazione amministrativa in almeno due lingue nazionali.\n\n• Ottime capacità comunicative e relazionali con interlocutori interni ed esterni, sia telefonicamente sia via e-mail.\n\n• Rapidità nell'apprendimento, flessibilità operativa e orientamento alla ricerca di soluzioni.\n\n• Predisposizione al lavoro di squadra e capacità di collaborare con diverse funzioni aziendali.\n\n• Ottima conoscenza delle lingue nazionali e dell'inglese, sia scritto sia parlato.\n\n• Precedente esperienza in ruoli analoghi nel settore bancario/finanziario o in funzioni di supporto amministrativo (preferibile).\n\n• Residenza in Ticino oppure disponibilità a trasferirsi.",
       "descriptionByLocale": {
         "it": "Siamo alla ricerca di una persona altamente motivata e qualificata da inserire nel nostro team FI Administration & Business Support. La persona selezionata sarà responsabile di garantire il supporto operativo e amministrativo alle attività a sostegno della rete di intermediari finanziari, gestendo tempestivamente le richieste, fornendo assistenza amministrativa e assicurando una gestione accurata delle pratiche, nel rispetto delle procedure definite e delle tempistiche di servizio.\n\nPrincipali responsabilità\n• Fornire supporto amministrativo alle attività della funzione.\n\n• Gestire e monitorare i casi particolari, assicurandone la corretta presa in carico e risoluzione in linea con le priorità concordate.\n\n• Elaborare i nuovi casi (Svizzera/Europa) entro 24 ore, garantendo accuratezza, completezza e conformità agli standard di servizio.\n\n• Gestire la casella di posta condivisa e le richieste quotidiane, assicurando risposte tempestive e una gestione efficiente delle attività operative giornaliere.\n\n• Gestire le richieste relative alle carte di credito, in collaborazione con i team interni competenti.\n\n• Preparare report periodici e ad hoc, inclusa l'estrazione e l'analisi di dati/statistiche per il monitoraggio operativo.\n\nCosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione dell'orario di lavoro, con l'obiettivo di garantire un sano equilibrio tra vita professionale e privata.\n\n• Numerosi benefit e incentivi.\n\n• Attività dedicate al benessere, alla motivazione e al team building.\n\n• Ottima conoscenza di Microsoft Office, in particolare Excel e Word.\n\n• Capacità di redigere documentazione amministrativa in almeno due lingue nazionali.\n\n• Ottime capacità comunicative e relazionali con interlocutori interni ed esterni, sia telefonicamente sia via e-mail.\n\n• Rapidità nell'apprendimento, flessibilità operativa e orientamento alla ricerca di soluzioni.\n\n• Predisposizione al lavoro di squadra e capacità di collaborare con diverse funzioni aziendali.\n\n• Ottima conoscenza delle lingue nazionali e dell'inglese, sia scritto sia parlato.\n\n• Precedente esperienza in ruoli analoghi nel settore bancario/finanziario o in funzioni di supporto amministrativo (preferibile).\n\n• Residenza in Ticino oppure disponibilità a trasferirsi.",
-        "en": "We are looking for a highly motivated and qualified person to be included in our FI Administration & Business Support team. The selected person will be responsible for ensuring operational and administrative support to activities supporting the network of financial intermediaries, managing requests in a timely manner, providing administrative assistance and ensuring accurate management of practices, in compliance with defined procedures and service times.\n\nMain responsibilities • Provide administrative support to the activities of the function.\n\n• Manage and monitor special cases, ensuring that they are properly taken over and resolved in line with agreed priorities.\n\n• And to process new cases (Switzerland/Europe) within 24 hours, ensuring accuracy, completeness and compliance with service standards.\n\n• Manage the shared mailbox and daily requests, ensuring timely responses and efficient management of daily operations.\n\n• Manage credit card requests, in collaboration with the competent internal teams.\n\n• Prepare periodic and ad hoc reports, including extraction and analysis of data/statistics for operational monitoring.\n\nWhat do we offer? • Flexibility in work at home and in the management of working hours, with the aim of ensuring a healthy balance between work and private life.\n\n• Numerous social benefits and incentives.\n\n• Activities dedicated to well-being, motivation and the team building.\n\n• Microsoft Office, in particular Excel and Word.\n\n• Ability to draw up administrative documents in at least two national languages.\n\n• Excellent communication and relational skills with internal and external interlocutors, both by telephone and by e-mail.\n\n• Rapid learning, operational flexibility and solutions-oriented.\n\n• Provision for teamwork and ability to collaborate with different corporate functions.\n\n• The language of the language is spoken and written.\n\n• Previous experience in similar roles in banking/financial sector or administrative support (preferable).\n\n• Residence in Ticino or availability to move.",
-        "de": "Wir suchen eine hoch motivierte und qualifizierte Person, die in unser FI Administration & Business Support Team aufgenommen wird. Die ausgewählte Person ist für die operative und administrative Unterstützung von Aktivitäten, die das Netzwerk von Finanzintermediären unterstützen, die Verwaltung von Anfragen rechtzeitig, die administrative Unterstützung und die genaue Verwaltung von Praktiken, in Übereinstimmung mit festgelegten Verfahren und Servicezeiten, verantwortlich.\n\nHauptverantwortungen • Bereitstellung administrativer Unterstützung für die Tätigkeiten der Funktion.\n\n• Verwaltung und Überwachung von Sonderfällen, um sicherzustellen, dass sie entsprechend den vereinbarten Prioritäten ordnungsgemäß übernommen und gelöst werden.\n\n• und die Bearbeitung neuer Fälle (Schweiz/Europa) innerhalb von 24 Stunden, um die Genauigkeit, Vollständigkeit und Einhaltung der Servicestandards zu gewährleisten.\n\n• Verwalten Sie die geteilten Mailbox und tägliche Anfragen, die rechtzeitige Antworten und effiziente Verwaltung des täglichen Betriebs zu gewährleisten.\n\n• Verwalten Sie Kreditkartenanfragen in Zusammenarbeit mit den kompetenten internen Teams.\n\n• Erstellung periodischer und Ad-hoc-Berichte, einschließlich der Extraktion und Analyse von Daten/Statistiken für die operative Überwachung.\n\nWas bieten wir? • Flexibilität in der Arbeit zu Hause und in der Arbeitszeitgestaltung mit dem Ziel, ein gesundes Gleichgewicht zwischen Arbeit und Privatleben zu gewährleisten.\n\n• Zahlreiche Sozialleistungen und Anreize.\n\n• Aktivitäten, die sich dem Wohlbefinden, der Motivation und dem Teamaufbau widmen.\n\n• Microsoft Office, insbesondere Excel und Word.\n\n• Möglichkeit, Verwaltungsdokumente in mindestens zwei Landessprachen zu erstellen.\n\n• Ausgezeichnete Kommunikation und relationale Fähigkeiten mit internen und externen Gesprächspartnern, sowohl per Telefon als auch per E-Mail.\n\n• Schnelles Lernen, betriebliche Flexibilität und Lösungsorientierung.\n\n• Bereitstellung von Teamarbeit und Zusammenarbeit mit verschiedenen Unternehmensfunktionen.\n\n• Die Sprache der Sprache wird gesprochen und geschrieben.\n\n• Vorhergehende Erfahrungen in ähnlichen Rollen im Banken-/Finanzsektor oder in der administrativen Unterstützung (vorzugsweise).\n\n• Residenz im Tessin oder die Verfügbarkeit zum Umziehen.",
-        "fr": "Nous cherchons une personne hautement motivée et qualifiée pour être incluse dans notre équipe d'administration et de soutien aux entreprises de l'IF. La personne sélectionnée sera chargée d'assurer le soutien opérationnel et administratif aux activités appuyant le réseau d'intermédiaires financiers, de gérer les demandes en temps opportun, de fournir une assistance administrative et d'assurer une gestion précise des pratiques, conformément aux procédures et aux délais de service définis.\n\nPrincipales responsabilités • Fournir un soutien administratif aux activités de la fonction.\n\n• Gérer et contrôler les cas particuliers, en veillant à ce qu'ils soient pris en charge et résolus conformément aux priorités convenues.\n\n• Et traiter les nouveaux cas (Suisse/Europe) dans les 24 heures, en garantissant l'exactitude, l'exhaustivité et la conformité aux normes de service.\n\n• Gérer la boîte aux lettres et les demandes quotidiennes, en veillant à ce que les réponses soient fournies en temps voulu et à ce que les opérations quotidiennes soient gérées de manière efficace.\n\n• Gérer les demandes de carte de crédit, en collaboration avec les équipes internes compétentes.\n\n• Établir des rapports périodiques et spéciaux, y compris l'extraction et l'analyse des données/statistiques pour le suivi opérationnel.\n\n• Flexibilité dans le travail à domicile et dans la gestion des heures de travail, dans le but d'assurer un équilibre sain entre le travail et la vie privée.\n\n• De nombreux avantages sociaux et incitations.\n\n• Activités dédiées au bien-être, à la motivation et au renforcement de l'équipe.\n\n• Microsoft Office, en particulier Excel et Word.\n\n• Capacité d'établir des documents administratifs dans au moins deux langues nationales.\n\n• Excellente communication et relations avec les interlocuteurs internes et externes, par téléphone et par courrier électronique.\n\n• Apprentissage rapide, flexibilité opérationnelle et solutions orientées vers l'avenir.\n\n• Mise en place d'un travail d'équipe et d'une capacité de collaboration avec différentes fonctions de l'organisation.\n\n• La langue de la langue est parlée et écrite.\n\n• Expérience antérieure dans des rôles similaires dans le secteur bancaire/financier ou dans le soutien administratif (de préférence).\n\n• Résidence à Ticino ou disponibilité pour déménager."
+        "en": "We are looking for a highly motivated and qualified person to be included in our FI Administration & Business Support team. The selected person will be responsible for ensuring operational and administrative support to activities supporting the network of financial intermediaries, managing requests in a timely manner, providing administrative assistance and ensuring accurate management of practices, in compliance with defined procedures and service times.\n\nMain responsibilities\n• Provide administrative support to the activities of the function.\n\n• Manage and monitor special cases, ensuring that they are properly taken over and resolved in line with agreed priorities.\n\n• And to process new cases (Switzerland/Europe) within 24 hours, ensuring accuracy, completeness and compliance with service standards.\n\n• Manage the shared mailbox and daily requests, ensuring timely responses and efficient management of daily operations.\n\n• Manage credit card requests, in collaboration with the competent internal teams.\n\n• Prepare periodic and ad hoc reports, including extraction and analysis of data/statistics for operational monitoring.\n\nWhat do we offer?\n• Flexibility in work at home and in the management of working hours, with the aim of ensuring a healthy balance between work and private life.\n\n• Numerous social benefits and incentives.\n\n• Activities dedicated to well-being, motivation and the team building.\n\n• Microsoft Office, in particular Excel and Word.\n\n• Ability to draw up administrative documents in at least two national languages.\n\n• Excellent communication and relational skills with internal and external interlocutors, both by telephone and by e-mail.\n\n• Rapid learning, operational flexibility and solutions-oriented.\n\n• Provision for teamwork and ability to collaborate with different corporate functions.\n\n• The language of the language is spoken and written.\n\n• Previous experience in similar roles in banking/financial sector or administrative support (preferable).\n\n• Residence in Ticino or availability to move.",
+        "de": "Wir suchen eine hoch motivierte und qualifizierte Person, die in unser FI Administration & Business Support Team aufgenommen wird. Die ausgewählte Person ist für die operative und administrative Unterstützung von Aktivitäten, die das Netzwerk von Finanzintermediären unterstützen, die Verwaltung von Anfragen rechtzeitig, die administrative Unterstützung und die genaue Verwaltung von Praktiken, in Übereinstimmung mit festgelegten Verfahren und Servicezeiten, verantwortlich.\n\nHauptverantwortungen\n• Bereitstellung administrativer Unterstützung für die Tätigkeiten der Funktion.\n\n• Verwaltung und Überwachung von Sonderfällen, um sicherzustellen, dass sie entsprechend den vereinbarten Prioritäten ordnungsgemäß übernommen und gelöst werden.\n\n• und die Bearbeitung neuer Fälle (Schweiz/Europa) innerhalb von 24 Stunden, um die Genauigkeit, Vollständigkeit und Einhaltung der Servicestandards zu gewährleisten.\n\n• Verwalten Sie die geteilten Mailbox und tägliche Anfragen, die rechtzeitige Antworten und effiziente Verwaltung des täglichen Betriebs zu gewährleisten.\n\n• Verwalten Sie Kreditkartenanfragen in Zusammenarbeit mit den kompetenten internen Teams.\n\n• Erstellung periodischer und Ad-hoc-Berichte, einschließlich der Extraktion und Analyse von Daten/Statistiken für die operative Überwachung.\n\nWas bieten wir?\n• Flexibilität in der Arbeit zu Hause und in der Arbeitszeitgestaltung mit dem Ziel, ein gesundes Gleichgewicht zwischen Arbeit und Privatleben zu gewährleisten.\n\n• Zahlreiche Sozialleistungen und Anreize.\n\n• Aktivitäten, die sich dem Wohlbefinden, der Motivation und dem Teamaufbau widmen.\n\n• Microsoft Office, insbesondere Excel und Word.\n\n• Möglichkeit, Verwaltungsdokumente in mindestens zwei Landessprachen zu erstellen.\n\n• Ausgezeichnete Kommunikation und relationale Fähigkeiten mit internen und externen Gesprächspartnern, sowohl per Telefon als auch per E-Mail.\n\n• Schnelles Lernen, betriebliche Flexibilität und Lösungsorientierung.\n\n• Bereitstellung von Teamarbeit und Zusammenarbeit mit verschiedenen Unternehmensfunktionen.\n\n• Die Sprache der Sprache wird gesprochen und geschrieben.\n\n• Vorhergehende Erfahrungen in ähnlichen Rollen im Banken-/Finanzsektor oder in der administrativen Unterstützung (vorzugsweise).\n\n• Residenz im Tessin oder die Verfügbarkeit zum Umziehen.",
+        "fr": "Nous cherchons une personne hautement motivée et qualifiée pour être incluse dans notre équipe d'administration et de soutien aux entreprises de l'IF. La personne sélectionnée sera chargée d'assurer le soutien opérationnel et administratif aux activités appuyant le réseau d'intermédiaires financiers, de gérer les demandes en temps opportun, de fournir une assistance administrative et d'assurer une gestion précise des pratiques, conformément aux procédures et aux délais de service définis.\n\nPrincipales responsabilités\n• Fournir un soutien administratif aux activités de la fonction.\n\n• Gérer et contrôler les cas particuliers, en veillant à ce qu'ils soient pris en charge et résolus conformément aux priorités convenues.\n\n• Et traiter les nouveaux cas (Suisse/Europe) dans les 24 heures, en garantissant l'exactitude, l'exhaustivité et la conformité aux normes de service.\n\n• Gérer la boîte aux lettres et les demandes quotidiennes, en veillant à ce que les réponses soient fournies en temps voulu et à ce que les opérations quotidiennes soient gérées de manière efficace.\n\n• Gérer les demandes de carte de crédit, en collaboration avec les équipes internes compétentes.\n\n• Établir des rapports périodiques et spéciaux, y compris l'extraction et l'analyse des données/statistiques pour le suivi opérationnel.\n\n• Flexibilité dans le travail à domicile et dans la gestion des heures de travail, dans le but d'assurer un équilibre sain entre le travail et la vie privée.\n\n• De nombreux avantages sociaux et incitations.\n\n• Activités dédiées au bien-être, à la motivation et au renforcement de l'équipe.\n\n• Microsoft Office, en particulier Excel et Word.\n\n• Capacité d'établir des documents administratifs dans au moins deux langues nationales.\n\n• Excellente communication et relations avec les interlocuteurs internes et externes, par téléphone et par courrier électronique.\n\n• Apprentissage rapide, flexibilité opérationnelle et solutions orientées vers l'avenir.\n\n• Mise en place d'un travail d'équipe et d'une capacité de collaboration avec différentes fonctions de l'organisation.\n\n• La langue de la langue est parlée et écrite.\n\n• Expérience antérieure dans des rôles similaires dans le secteur bancaire/financier ou dans le soutien administratif (de préférence).\n\n• Résidence à Ticino ou disponibilité pour déménager."
       },
       "requirements": [
         "Ottima conoscenza di Microsoft Office, in particolare Excel e Word.",
@@ -483,7 +486,8 @@
       "url": "https://jobs.corner.ch/o/fi-administration-business-support-ref-1116",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.323Z",
+      "crawledAt": "2026-09-22T00:19:15.140Z",
+      "needsRetranslation": true,
       "previousSlugs": [
         "fi-administration-e-business-support-2-corner-banca-lugano",
         "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
@@ -494,7 +498,6 @@
           "fi-administration-et-soutien-aux-entreprises-2-corner-banca-lugano"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T21:34:20.594Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
@@ -512,8 +515,7 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "corner-banca-c2be30cf246d",
@@ -579,7 +581,7 @@
       "url": "https://jobs.corner.ch/o/employee-consumer-dispute-management-ref-1103",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.322Z",
+      "crawledAt": "2026-09-22T00:19:15.139Z",
       "previousSlugs": [
         "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
       ],
@@ -588,8 +590,8 @@
           "employee-consumer-dispute-management-ref-1103-corner-banca-wallisellen"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:28.211Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.211Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
       "salarySource": "estimated",
@@ -671,7 +673,7 @@
       "url": "https://jobs.corner.ch/o/employee-backoffice-ref-1110",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.321Z",
+      "crawledAt": "2026-09-22T00:19:15.138Z",
       "previousSlugs": [
         "employee-backoffice-ref-1110-corner-banca-lugano"
       ],
@@ -680,8 +682,8 @@
           "employee-backoffice-ref-1110-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-08-14T10:12:28.210Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T10:12:28.210Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -778,9 +780,9 @@
       "url": "https://jobs.corner.ch/o/senior-devops-engineer-ref-1114",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T16:14:35.319Z",
-      "firstSeenAt": "2026-08-19T21:44:21.463Z",
+      "crawledAt": "2026-09-22T00:19:15.135Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-19T21:44:21.463Z",
       "salaryMin": 79500,
       "salaryMax": 135000,
       "salarySource": "estimated",
@@ -791,109 +793,6 @@
           "@type": "QuantitativeValue",
           "minValue": 79500,
           "maxValue": 135000,
-          "unitText": "YEAR"
-        }
-      },
-      "streetAddress": "Via Canova 16",
-      "postalCode": "6901",
-      "addressRegion": "TI",
-      "employmentType": "FULL_TIME"
-    },
-    {
-      "id": "corner-banca-9edf9a711b5c",
-      "slug": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
-      "slugByLocale": {
-        "it": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
-        "en": "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "de": "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "fr": "agent-de-conformite-principal-ref-1111-corner-banca-lugano"
-      },
-      "company": "Cornèr Banca",
-      "companyKey": "corner-banca",
-      "companyDomain": "corner.ch",
-      "title": "Senior Compliance Officer  - ref. 1111",
-      "titleByLocale": {
-        "it": "Senior Compliance Officer - ref. 1111",
-        "en": "The Commission has also examined the compatibility of the measures with the common market.",
-        "de": "Leitender Compliance-Beauftragter – ref. 1111",
-        "fr": "Senior Compliance Officer  - ref. 1111"
-      },
-      "description": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
-      "descriptionByLocale": {
-        "it": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
-        "en": "Description We are looking for an expert in the field of banking, which is the Senior Expert in the region of 140,000. The ideal candidate has extensive experience in banking and a comprehensive understanding of compliance processes in addition to Anti-Corruption (AML), including cross-border processes, sanctions, regulatory reporting, risk assessment of compliance and supervision of compliance-related projects.\n\n- To work effectively with colleagues from different departments, including IT; - To adopt a proactive and critical approach in identifying and implementing new solutions; - To work independently and manage priorities independently; - To manage efficiently and accurately a high volume of complex cases.\n\nRequirements - Minimum 3-5 years of experience in the banking sector in a role similar to that of,7723. - Recovered experience not only in AML compliance, but also in: - Cross-border processes, sanctions and consolidated supervision of affiliates; - Reporting compliance, training and regulatory monitoring; - Assessment of compliance risk; - Coordination and supervision of compliance related projects. - Degree in Law, Economics or Related Discipline.\n\n- CAS in Conformity (Certificate of Advanced Studies) or an equivalent professional qualification. - Advanced competence in Microsoft Office, especially Microsoft Excel. - Mentality strongly oriented to teamwork and excellent problem solving skills. -Long live in Ticino or available to move.",
-        "de": "Beschreibung Wir suchen einen Experten im Bereich des Bankwesens, der Senior Expert in der Region 140.000 ist. Der ideale Kandidat verfügt über umfangreiche Erfahrung im Bankwesen und ein umfassendes Verständnis von Compliance-Prozessen neben Anti-Korruption (AML), einschließlich grenzübergreifender Prozesse, Sanktionen, regulatorische Berichterstattung, Risikobewertung der Compliance und Überwachung von Compliance-bezogenen Projekten.\n\n- Mit Kollegen aus verschiedenen Abteilungen, einschließlich IT, effektiv zusammenzuarbeiten; - einen proaktiven und kritischen Ansatz bei der Identifizierung und Umsetzung neuer Lösungen zu verfolgen; - unabhängig zu arbeiten und Prioritäten unabhängig zu verwalten; - effizient und präzise ein hohes Volumen komplexer Fälle zu verwalten.\n\nAnforderungen - Mindestens 3-5 Jahre Erfahrung im Bankensektor in einer ähnlichen Rolle wie die,7723. - Recovered Erfahrung nicht nur in der AML-Compliance, sondern auch in: - Grenzüberschreitende Prozesse, Sanktionen und konsolidierte Aufsicht von Tochtergesellschaften; - Berichterstattung Compliance, Ausbildung und regulatorische Überwachung; - Bewertung der Compliance-Risiko; - Koordinierung und Überwachung der Compliance-bezogenen Projekte. - Abschluss in Recht, Wirtschaft oder verwandten Discipline.\n\n- CAS in Conformity (Zertifikat für fortgeschrittene Studien) oder eine gleichwertige berufliche Qualifikation. - Erweiterte Kompetenz in Microsoft Office, insbesondere Microsoft Excel. - Mentalität stark auf Teamarbeit und ausgezeichnete Problemlösung Fähigkeiten ausgerichtet. - Lang leben im Tessin oder zur Verfügung zu bewegen.",
-        "fr": "Description Nous recherchons un expert dans le domaine bancaire, qui est l'expert principal dans la région de 140 000. Le candidat idéal a une vaste expérience dans le secteur bancaire et une compréhension complète des processus de conformité en plus de Anti-Corruption (AML), y compris les processus transfrontaliers, les sanctions, les rapports réglementaires, l'évaluation des risques de conformité et la supervision des projets liés à la conformité.\n\n- Travailler efficacement avec des collègues de différents départements, y compris les services informatiques; - adopter une approche proactive et critique pour identifier et mettre en oeuvre de nouvelles solutions; - travailler de façon indépendante et gérer les priorités de façon indépendante; - gérer de façon efficace et précise un grand nombre de cas complexes.\n\nExigences - Au moins 3 à 5 ans d'expérience dans le secteur bancaire dans un rôle semblable à celui de 7723. - Expérience acquise non seulement en ce qui concerne la conformité aux LAM, mais aussi dans : - les processus transfrontaliers, les sanctions et la supervision consolidée des filiales; - la déclaration de conformité, la formation et la surveillance réglementaire; - l'évaluation du risque de conformité; - la coordination et la supervision des projets liés à la conformité. - Degré en droit, en économie ou en discipline connexe.\n\n- Certificat d'études supérieures (C.A.S.) ou une qualification professionnelle équivalente. - Compétences avancées dans Microsoft Office, en particulier Microsoft Excel. - Mentality fortement orienté vers le travail d'équipe et d'excellentes compétences de résolution de problèmes. -Long vivre à Ticino ou disponible pour se déplacer."
-      },
-      "requirements": [
-        "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
-        "Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.",
-        "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.",
-        "CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.",
-        "Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.",
-        "Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.",
-        "Residente in Ticino o disponibile a trasferirsi"
-      ],
-      "requirementsByLocale": {
-        "it": [
-          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
-          "University degree in Law, Economics, or a related discipline.",
-          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
-          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
-          "Strong team-oriented mindset and excellent problem-solving skills.",
-          "Resident in Ticino or willing to relocate",
-          "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
-          "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata."
-        ],
-        "en": [
-          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
-          "University degree in Law, Economics, or a related discipline.",
-          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
-          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
-          "Strong team-oriented mindset and excellent problem-solving skills.",
-          "Resident in Ticino or willing to relocate"
-        ]
-      },
-      "location": "Lugano",
-      "canton": "TI",
-      "addressLocality": "Lugano",
-      "addressCountry": "CH",
-      "category": "finance",
-      "contract": "full-time",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-28",
-      "url": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111",
-      "source": "Corner Dedicated Parser (Recruitee API)",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.318Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-compliance-officer-ref-1111-corner-banca-lugano",
-          "leitender-compliance-beauftragter-corner-banca-lugano",
-          "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
-        ],
-        "de": [
-          "leitender-compliance-beauftragter-corner-banca-lugano"
-        ]
-      },
-      "previousSlugs": [
-        "senior-compliance-officer-ref-1111-corner-banca-lugano",
-        "leitender-compliance-beauftragter-corner-banca-lugano",
-        "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
-      ],
-      "firstSeenAt": "2026-08-10T21:46:42.895Z",
-      "needsRetranslation": true,
-      "salaryMin": 142000,
-      "salaryMax": 249500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 142000,
-          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -969,7 +868,7 @@
       "url": "https://jobs.corner.ch/o/tax-consultant-private-banking-ref-1117",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.311Z",
+      "crawledAt": "2026-09-22T00:19:15.134Z",
       "previousSlugs": [
         "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
       ],
@@ -978,8 +877,8 @@
           "tax-consultant-private-banking-ref-1117-corner-banca-lugano"
         ]
       },
-      "firstSeenAt": "2026-08-04T11:44:57.049Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-04T11:44:57.049Z",
       "salaryMin": 49500,
       "salaryMax": 75000,
       "salarySource": "estimated",
@@ -990,6 +889,109 @@
           "@type": "QuantitativeValue",
           "minValue": 49500,
           "maxValue": 75000,
+          "unitText": "YEAR"
+        }
+      },
+      "streetAddress": "Via Canova 16",
+      "postalCode": "6901",
+      "addressRegion": "TI",
+      "employmentType": "FULL_TIME"
+    },
+    {
+      "id": "corner-banca-9edf9a711b5c",
+      "slug": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
+      "slugByLocale": {
+        "it": "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano",
+        "en": "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "de": "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "fr": "agent-de-conformite-principal-ref-1111-corner-banca-lugano"
+      },
+      "company": "Cornèr Banca",
+      "companyKey": "corner-banca",
+      "companyDomain": "corner.ch",
+      "title": "Senior Compliance Officer  - ref. 1111",
+      "titleByLocale": {
+        "it": "Senior Compliance Officer - ref. 1111",
+        "en": "The Commission has also examined the compatibility of the measures with the common market.",
+        "de": "Leitender Compliance-Beauftragter – ref. 1111",
+        "fr": "Senior Compliance Officer  - ref. 1111"
+      },
+      "description": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
+      "descriptionByLocale": {
+        "it": "Stiamo cercando un esperto Senior Compliance Officer per unirsi al nostro team di Compliance. Il candidato ideale ha un'ampia esperienza nel settore bancario e una comprensione completa dei processi di conformità oltre all'Anticorruzione (AML), inclusi i processi transfrontalieri, le sanzioni, la segnalazione regolamentare, la valutazione del rischio di conformità e la supervisione dei progetti correlati alla conformità.\n\nResponsabilità Chiave\n\n• Collaborare efficacemente con colleghi di diversi dipartimenti, inclusa l'IT;\n\n• Adottare un approccio proattivo e critico nell'identificare e implementare nuove soluzioni;\n\n• Lavorare in modo indipendente e gestire autonomamente le priorità;\n\n• Gestire in modo efficiente e accurato un elevato volume di casi complessi.\n\n• Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.\n\n• Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.\n\n• Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.\n\n• CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.\n\n• Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.\n\n• Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.\n\n• Residente in Ticino o disponibile a trasferirsi",
+        "en": "Description We are looking for an expert in the field of banking, which is the Senior Expert in the region of 140,000. The ideal candidate has extensive experience in banking and a comprehensive understanding of compliance processes in addition to Anti-Corruption (AML), including cross-border processes, sanctions, regulatory reporting, risk assessment of compliance and supervision of compliance-related projects.\n\n- To work effectively with colleagues from different departments, including IT; - To adopt a proactive and critical approach in identifying and implementing new solutions; - To work independently and manage priorities independently; - To manage efficiently and accurately a high volume of complex cases.\n\nRequirements - Minimum 3-5 years of experience in the banking sector in a role similar to that of,7723. - Recovered experience not only in AML compliance, but also in: - Cross-border processes, sanctions and consolidated supervision of affiliates; - Reporting compliance, training and regulatory monitoring; - Assessment of compliance risk; - Coordination and supervision of compliance related projects. - Degree in Law, Economics or Related Discipline.\n\n- CAS in Conformity (Certificate of Advanced Studies) or an equivalent professional qualification. - Advanced competence in Microsoft Office, especially Microsoft Excel. - Mentality strongly oriented to teamwork and excellent problem solving skills. -Long live in Ticino or available to move.",
+        "de": "Beschreibung Wir suchen einen Experten im Bereich des Bankwesens, der Senior Expert in der Region 140.000 ist. Der ideale Kandidat verfügt über umfangreiche Erfahrung im Bankwesen und ein umfassendes Verständnis von Compliance-Prozessen neben Anti-Korruption (AML), einschließlich grenzübergreifender Prozesse, Sanktionen, regulatorische Berichterstattung, Risikobewertung der Compliance und Überwachung von Compliance-bezogenen Projekten.\n\n- Mit Kollegen aus verschiedenen Abteilungen, einschließlich IT, effektiv zusammenzuarbeiten; - einen proaktiven und kritischen Ansatz bei der Identifizierung und Umsetzung neuer Lösungen zu verfolgen; - unabhängig zu arbeiten und Prioritäten unabhängig zu verwalten; - effizient und präzise ein hohes Volumen komplexer Fälle zu verwalten.\n\nAnforderungen - Mindestens 3-5 Jahre Erfahrung im Bankensektor in einer ähnlichen Rolle wie die,7723. - Recovered Erfahrung nicht nur in der AML-Compliance, sondern auch in: - Grenzüberschreitende Prozesse, Sanktionen und konsolidierte Aufsicht von Tochtergesellschaften; - Berichterstattung Compliance, Ausbildung und regulatorische Überwachung; - Bewertung der Compliance-Risiko; - Koordinierung und Überwachung der Compliance-bezogenen Projekte. - Abschluss in Recht, Wirtschaft oder verwandten Discipline.\n\n- CAS in Conformity (Zertifikat für fortgeschrittene Studien) oder eine gleichwertige berufliche Qualifikation. - Erweiterte Kompetenz in Microsoft Office, insbesondere Microsoft Excel. - Mentalität stark auf Teamarbeit und ausgezeichnete Problemlösung Fähigkeiten ausgerichtet. - Lang leben im Tessin oder zur Verfügung zu bewegen.",
+        "fr": "Description Nous recherchons un expert dans le domaine bancaire, qui est l'expert principal dans la région de 140 000. Le candidat idéal a une vaste expérience dans le secteur bancaire et une compréhension complète des processus de conformité en plus de Anti-Corruption (AML), y compris les processus transfrontaliers, les sanctions, les rapports réglementaires, l'évaluation des risques de conformité et la supervision des projets liés à la conformité.\n\n- Travailler efficacement avec des collègues de différents départements, y compris les services informatiques; - adopter une approche proactive et critique pour identifier et mettre en oeuvre de nouvelles solutions; - travailler de façon indépendante et gérer les priorités de façon indépendante; - gérer de façon efficace et précise un grand nombre de cas complexes.\n\nExigences - Au moins 3 à 5 ans d'expérience dans le secteur bancaire dans un rôle semblable à celui de 7723. - Expérience acquise non seulement en ce qui concerne la conformité aux LAM, mais aussi dans : - les processus transfrontaliers, les sanctions et la supervision consolidée des filiales; - la déclaration de conformité, la formation et la surveillance réglementaire; - l'évaluation du risque de conformité; - la coordination et la supervision des projets liés à la conformité. - Degré en droit, en économie ou en discipline connexe.\n\n- Certificat d'études supérieures (C.A.S.) ou une qualification professionnelle équivalente. - Compétences avancées dans Microsoft Office, en particulier Microsoft Excel. - Mentality fortement orienté vers le travail d'équipe et d'excellentes compétences de résolution de problèmes. -Long vivre à Ticino ou disponible pour se déplacer."
+      },
+      "requirements": [
+        "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
+        "Comprovata esperienza non solo nella Conformità AML, ma anche in:\n\no Processi transfrontalieri, sanzioni e supervisione consolidata delle affiliate;\n\no Segnalazione di conformità, formazione e monitoraggio regolamentare;\n\no Valutazione del rischio di conformità;\n\no Coordinamento e supervisione dei progetti correlati alla conformità.",
+        "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata.",
+        "CAS in Conformità (Certificato di Studi Avanzati) o una qualifica professionale equivalente.",
+        "Competenza avanzata in Microsoft Office, in particolare Microsoft Excel.",
+        "Mentalità fortemente orientata al lavoro di squadra e ottime capacità di risoluzione dei problemi.",
+        "Residente in Ticino o disponibile a trasferirsi"
+      ],
+      "requirementsByLocale": {
+        "it": [
+          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
+          "University degree in Law, Economics, or a related discipline.",
+          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
+          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
+          "Strong team-oriented mindset and excellent problem-solving skills.",
+          "Resident in Ticino or willing to relocate",
+          "Minimo 3-5 anni di esperienza nel settore bancario in un ruolo simile a quello di Compliance Officer.",
+          "Laurea universitaria in Giurisprudenza, Economia o disciplina correlata."
+        ],
+        "en": [
+          "Minimum 3-5 years of experience in the banking industry in a similar role as a Compliance Officer.",
+          "University degree in Law, Economics, or a related discipline.",
+          "CAS in Compliance (Certificate of Advanced Studies) or an equivalent professional qualification.",
+          "Advanced proficiency in Microsoft Office, particularly Microsoft Excel.",
+          "Strong team-oriented mindset and excellent problem-solving skills.",
+          "Resident in Ticino or willing to relocate"
+        ]
+      },
+      "location": "Lugano",
+      "canton": "TI",
+      "addressLocality": "Lugano",
+      "addressCountry": "CH",
+      "category": "finance",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-28",
+      "url": "https://jobs.corner.ch/o/senior-compliance-officer-ref-1111",
+      "source": "Corner Dedicated Parser (Recruitee API)",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-22T00:19:15.134Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-compliance-officer-ref-1111-corner-banca-lugano",
+          "leitender-compliance-beauftragter-corner-banca-lugano",
+          "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
+        ],
+        "de": [
+          "leitender-compliance-beauftragter-corner-banca-lugano"
+        ]
+      },
+      "previousSlugs": [
+        "senior-compliance-officer-ref-1111-corner-banca-lugano",
+        "leitender-compliance-beauftragter-corner-banca-lugano",
+        "responsabile-senior-della-conformita-rif-1111-corner-banca-lugano"
+      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-08-10T21:46:42.895Z",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 142000,
+          "maxValue": 249500,
           "unitText": "YEAR"
         }
       },
@@ -1051,9 +1053,9 @@
       "url": "https://jobs.corner.ch/o/customer-retention-growth-ref-1118",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.310Z",
-      "firstSeenAt": "2026-08-27T20:12:11.446Z",
+      "crawledAt": "2026-09-22T00:19:15.132Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-27T20:12:11.446Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1144,9 +1146,9 @@
       "url": "https://jobs.corner.ch/o/credit-client-advisor-mf-ref-1128",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.302Z",
-      "firstSeenAt": "2026-09-03T13:49:26.507Z",
+      "crawledAt": "2026-09-22T00:19:15.129Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:49:26.507Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1179,7 +1181,7 @@
       "companyDomain": "corner.ch",
       "title": "Online Campaign Manager - ref. 1102",
       "titleByLocale": {
-        "it": "Responsabile Campagna online - rif. 1102",
+        "it": "Online Campaign Manager - ref. 1102",
         "en": "Online Campaign Manager - ref. 1102",
         "de": "Online-Kampagnenmanager – Ref. 1102",
         "fr": "Gestionnaire de campagne en ligne - réf. 1102"
@@ -1187,8 +1189,8 @@
       "description": "Cerchiamo un/una Online Campaign Manager con esperienza per pianificare, gestire e ottimizzare campagne di marketing digitale su diversi canali. Si tratta di una posizione di livello intermedio, ideale per una persona che abbia già esperienza pratica nella gestione di campagne e che sia pronta ad assumersi la responsabilità delle performance, della strategia e del coordinamento tra diversi mercati.\n\n• Pianificare, lanciare e gestire campagne di marketing online su diversi canali (ad es. paid search, paid social media, display, ecc.)\n\n• Ottimizzare costantemente le campagne sulla base dei dati di performance (CTR, CPA, ROI, conversioni)\n\n• Coordinare l'esecuzione delle campagne in Svizzera in quattro lingue (IT, DE, EN, FR)\n\n• Collaborare con i team interni (creativo, contenuti, analytics) e con partner/agenzie esterne\n\n• Analizzare i risultati delle campagne e fornire insight e raccomandazioni concrete\n\n• Gestire budget, tempistiche e deliverable delle campagne\n\n• Condurre test A/B e implementare miglioramenti basati sui dati\n\n• Assicurarsi che le campagne siano in linea con le linee guida del brand e con la strategia di marketing complessiva\n\nCosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo, per garantire un sano equilibrio tra vita professionale e personale\n\n• Numerosi benefit e incentivi\n\n• Attività dedicate al benessere, alla motivazione e al team building\n\n• 3–5 anni di esperienza nel digital marketing o nella gestione di campagne\n\n• Esperienza comprovata nella gestione e ottimizzazione di campagne online su diversi canali\n\n• Forte approccio analitico, con esperienza nell'utilizzo di strumenti come Google Analytics, piattaforme pubblicitarie e dashboard di reporting\n\n• Esperienza maturata lavorando su più mercati o in più lingue costituisce un requisito preferenziale\n\n• Eccellenti capacità di project management e organizzazione\n\n• Capacità di lavorare in autonomia e di gestire contemporaneamente più campagne\n\n• Residente in Ticino o disponibilità a trasferirsi in Ticino",
       "descriptionByLocale": {
         "it": "Cerchiamo un/una Online Campaign Manager con esperienza per pianificare, gestire e ottimizzare campagne di marketing digitale su diversi canali. Si tratta di una posizione di livello intermedio, ideale per una persona che abbia già esperienza pratica nella gestione di campagne e che sia pronta ad assumersi la responsabilità delle performance, della strategia e del coordinamento tra diversi mercati.\n\n• Pianificare, lanciare e gestire campagne di marketing online su diversi canali (ad es. paid search, paid social media, display, ecc.)\n\n• Ottimizzare costantemente le campagne sulla base dei dati di performance (CTR, CPA, ROI, conversioni)\n\n• Coordinare l'esecuzione delle campagne in Svizzera in quattro lingue (IT, DE, EN, FR)\n\n• Collaborare con i team interni (creativo, contenuti, analytics) e con partner/agenzie esterne\n\n• Analizzare i risultati delle campagne e fornire insight e raccomandazioni concrete\n\n• Gestire budget, tempistiche e deliverable delle campagne\n\n• Condurre test A/B e implementare miglioramenti basati sui dati\n\n• Assicurarsi che le campagne siano in linea con le linee guida del brand e con la strategia di marketing complessiva\n\nCosa offriamo?\n• Flessibilità nel lavoro da casa e nella gestione dell'orario lavorativo, per garantire un sano equilibrio tra vita professionale e personale\n\n• Numerosi benefit e incentivi\n\n• Attività dedicate al benessere, alla motivazione e al team building\n\n• 3–5 anni di esperienza nel digital marketing o nella gestione di campagne\n\n• Esperienza comprovata nella gestione e ottimizzazione di campagne online su diversi canali\n\n• Forte approccio analitico, con esperienza nell'utilizzo di strumenti come Google Analytics, piattaforme pubblicitarie e dashboard di reporting\n\n• Esperienza maturata lavorando su più mercati o in più lingue costituisce un requisito preferenziale\n\n• Eccellenti capacità di project management e organizzazione\n\n• Capacità di lavorare in autonomia e di gestire contemporaneamente più campagne\n\n• Residente in Ticino o disponibilità a trasferirsi in Ticino",
-        "en": "We are looking for an Online Campaign Manager with experience to plan, manage and optimize digital marketing campaigns across different channels. It is an intermediate position, ideal for a person who already has practical experience in campaign management and who is ready to take responsibility for performance, strategy and coordination between different markets.\n\n• Planning, launching and managing online marketing campaigns on different channels (e.g., presa, social media, display, etc.)\n\n• Constantly xtimize campaigns based on performance data (CTR, CPA, ROI, conversions)\n\n• Coordinate the implementation of campaigns in Switzerland in four languages (IT, DE, EN, FR)\n\n• Collaborate with internal teams (creative, content, analytics) and external partners/agenzie\n\n• Analyse the results of the campaigns and provide insight and concrete recommendations\n\n• Manage budget, timing and deliverable campaigns\n\n• Conduct A/B tests and Project data-based improvements\n\n• Make sure that campaigns are in line with the guidelines of the brand and the overall marketing strategy\n\nWhat do we offer? • Flexibility in work at home and in the management of working hours, to ensure a healthy balance between work and personal life\n\n• Numerous social benefits and incentives\n\n• Activities dedicated to well-being, motivation and the team building\n\n• 3.5 years of experience in digital marketing or campaign management\n\n• Experience proven in managing and optimizing online campaigns across different channels\n\n• Strong analytical approach, with experience in using tools such as Google Analytics, advertising platforms and dashboards of reporting\n\n• Experience gained in several markets or languages is a preferential requirement\n\n• Excellent project management and organization skills\n\n• Ability to work independently and manage multiple campaigns at the same time\n\n• 3912 in Ticino or availability to move to Ticino",
-        "de": "Wir suchen einen Online-Kampagnenmanager mit Erfahrung zur Planung, Verwaltung und Optimierung digitaler Marketingkampagnen über verschiedene Kanäle hinweg. Es ist eine Zwischenposition, ideal für einen Menschen, der bereits praktische Erfahrung im Kampagnenmanagement hat und bereit ist, die Verantwortung für Leistung, Strategie und Koordination zwischen verschiedenen Märkten zu übernehmen.\n\n• Planung, Start und Verwaltung von Online-Marketing-Kampagnen auf verschiedenen Kanälen (z.B. Presa, Social Media, Display, etc.)\n\n• Ständige xtimize Kampagnen basierend auf Leistungsdaten (CTR, CPA, ROI, Conversions)\n\n• Koordinierung der Durchführung von Kampagnen in der Schweiz in vier Sprachen (IT, DE, EN, FR)\n\n• Zusammenarbeit mit internen Teams (Kreativ, Inhalt, Analyse) und externen Partnern/agenzie\n\n• Analyse der Ergebnisse der Kampagnen und Bereitstellung von Einblicken und konkreten Empfehlungen\n\n• Budget, Timing und zu liefernde Kampagnen verwalten\n\n• A/B-Tests durchführen und datenbasierte Verbesserungen durchführen\n\n• Stellen Sie sicher, dass Kampagnen mit den Richtlinien der Marke und der gesamten Marketingstrategie im Einklang stehen\n\nWas bieten wir? • Flexibilität in der Arbeit zu Hause und in der Arbeitszeitverwaltung, um ein gesundes Gleichgewicht zwischen Arbeit und Privatleben zu gewährleisten\n\n• Zahlreiche Sozialleistungen und Anreize\n\n• Aktivitäten zum Wohlbefinden, zur Motivation und zum Teamaufbau\n\n• 3.5 Jahre Erfahrung im Digital Marketing oder Kampagnenmanagement\n\n• Erfahrung in der Verwaltung und Optimierung von Online-Kampagnen über verschiedene Kanäle hinweg\n\n• Starker analytischer Ansatz mit Erfahrung in der Verwendung von Tools wie Google Analytics, Werbeplattformen und Dashboards der Berichterstattung\n\n• Die Erfahrung auf mehreren Märkten oder Sprachen ist eine bevorzugte Anforderung\n\n• Ausgezeichnete Projektmanagement- und Organisationskompetenzen\n\n• Fähigkeit, unabhängig zu arbeiten und mehrere Kampagnen gleichzeitig zu verwalten\n\n• 3912 im Tessin oder Verfügbarkeit für den Umzug nach Tessin",
+        "en": "We are looking for an Online Campaign Manager with experience to plan, manage and optimize digital marketing campaigns across different channels. It is an intermediate position, ideal for a person who already has practical experience in campaign management and who is ready to take responsibility for performance, strategy and coordination between different markets.\n\n• Planning, launching and managing online marketing campaigns on different channels (e.g., presa, social media, display, etc.)\n\n• Constantly xtimize campaigns based on performance data (CTR, CPA, ROI, conversions)\n\n• Coordinate the implementation of campaigns in Switzerland in four languages (IT, DE, EN, FR)\n\n• Collaborate with internal teams (creative, content, analytics) and external partners/agenzie\n\n• Analyse the results of the campaigns and provide insight and concrete recommendations\n\n• Manage budget, timing and deliverable campaigns\n\n• Conduct A/B tests and Project data-based improvements\n\n• Make sure that campaigns are in line with the guidelines of the brand and the overall marketing strategy\n\nWhat do we offer?\n• Flexibility in work at home and in the management of working hours, to ensure a healthy balance between work and personal life\n\n• Numerous social benefits and incentives\n\n• Activities dedicated to well-being, motivation and the team building\n\n• 3.5 years of experience in digital marketing or campaign management\n\n• Experience proven in managing and optimizing online campaigns across different channels\n\n• Strong analytical approach, with experience in using tools such as Google Analytics, advertising platforms and dashboards of reporting\n\n• Experience gained in several markets or languages is a preferential requirement\n\n• Excellent project management and organization skills\n\n• Ability to work independently and manage multiple campaigns at the same time\n\n• 3912 in Ticino or availability to move to Ticino",
+        "de": "Wir suchen einen Online-Kampagnenmanager mit Erfahrung zur Planung, Verwaltung und Optimierung digitaler Marketingkampagnen über verschiedene Kanäle hinweg. Es ist eine Zwischenposition, ideal für einen Menschen, der bereits praktische Erfahrung im Kampagnenmanagement hat und bereit ist, die Verantwortung für Leistung, Strategie und Koordination zwischen verschiedenen Märkten zu übernehmen.\n\n• Planung, Start und Verwaltung von Online-Marketing-Kampagnen auf verschiedenen Kanälen (z.B. Presa, Social Media, Display, etc.)\n\n• Ständige xtimize Kampagnen basierend auf Leistungsdaten (CTR, CPA, ROI, Conversions)\n\n• Koordinierung der Durchführung von Kampagnen in der Schweiz in vier Sprachen (IT, DE, EN, FR)\n\n• Zusammenarbeit mit internen Teams (Kreativ, Inhalt, Analyse) und externen Partnern/agenzie\n\n• Analyse der Ergebnisse der Kampagnen und Bereitstellung von Einblicken und konkreten Empfehlungen\n\n• Budget, Timing und zu liefernde Kampagnen verwalten\n\n• A/B-Tests durchführen und datenbasierte Verbesserungen durchführen\n\n• Stellen Sie sicher, dass Kampagnen mit den Richtlinien der Marke und der gesamten Marketingstrategie im Einklang stehen\n\nWas bieten wir?\n• Flexibilität in der Arbeit zu Hause und in der Arbeitszeitverwaltung, um ein gesundes Gleichgewicht zwischen Arbeit und Privatleben zu gewährleisten\n\n• Zahlreiche Sozialleistungen und Anreize\n\n• Aktivitäten zum Wohlbefinden, zur Motivation und zum Teamaufbau\n\n• 3.5 Jahre Erfahrung im Digital Marketing oder Kampagnenmanagement\n\n• Erfahrung in der Verwaltung und Optimierung von Online-Kampagnen über verschiedene Kanäle hinweg\n\n• Starker analytischer Ansatz mit Erfahrung in der Verwendung von Tools wie Google Analytics, Werbeplattformen und Dashboards der Berichterstattung\n\n• Die Erfahrung auf mehreren Märkten oder Sprachen ist eine bevorzugte Anforderung\n\n• Ausgezeichnete Projektmanagement- und Organisationskompetenzen\n\n• Fähigkeit, unabhängig zu arbeiten und mehrere Kampagnen gleichzeitig zu verwalten\n\n• 3912 im Tessin oder Verfügbarkeit für den Umzug nach Tessin",
         "fr": "Nous recherchons un responsable de campagne en ligne avec expérience pour planifier, gérer et optimiser les campagnes de marketing numérique sur différents canaux. C'est une position intermédiaire, idéale pour une personne qui a déjà une expérience pratique dans la gestion de campagne et qui est prête à prendre en charge la performance, la stratégie et la coordination entre les différents marchés.\n\n• Planification, lancement et gestion de campagnes de marketing en ligne sur différents canaux (par exemple, presa, médias sociaux, affichage, etc.)\n\n• Des campagnes de xitimisation constantes basées sur des données de performance (CTR, CPA, ROI, conversions)\n\n• Coordonner la mise en œuvre des campagnes en Suisse en quatre langues (IT, DE, EN, FR)\n\n• Collaborer avec des équipes internes (créatives, contenu, analytique) et des partenaires externes/agenzie\n\n• Analyser les résultats des campagnes et formuler des recommandations concrètes et des réflexions\n\n• Gérer le budget, le calendrier et les campagnes à livrer\n\n• Effectuer des essais A/B et améliorer les données du projet\n\n• Veiller à ce que les campagnes soient conformes aux orientations de la marque et à la stratégie de marketing globale\n\n• Flexibilité dans le travail à domicile et dans la gestion des heures de travail, afin d'assurer un équilibre sain entre le travail et la vie personnelle\n\n• De nombreux avantages sociaux et incitations\n\n• Activités dédiées au bien-être, à la motivation et au renforcement de l'équipe\n\n• 3,5 ans d'expérience en marketing numérique ou en gestion de campagne\n\n• Expérience éprouvée dans la gestion et l'optimisation des campagnes en ligne sur différents canaux\n\n• Une approche analytique solide, avec une expérience dans l'utilisation d'outils tels que Google Analytics, plateformes publicitaires et tableaux de bord de rapports\n\n• L'expérience acquise dans plusieurs marchés ou langues est une exigence préférentielle\n\n• Excellente gestion de projet et excellentes compétences organisationnelles\n\n• Capacité de travailler de manière indépendante et de gérer simultanément plusieurs campagnes\n\n• 3912 en Ticino ou disponibilité pour déménager à Ticino"
       },
       "requirements": [
@@ -1231,7 +1233,7 @@
       "url": "https://jobs.corner.ch/o/online-campaign-manager-ref-1102",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.301Z",
+      "crawledAt": "2026-09-22T00:19:15.128Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T21:51:32.218Z",
       "salaryMin": 68000,
@@ -1250,8 +1252,7 @@
       "streetAddress": "Via Canova 16",
       "postalCode": "6901",
       "addressRegion": "TI",
-      "employmentType": "FULL_TIME",
-      "retranslationAttempts": 1
+      "employmentType": "FULL_TIME"
     },
     {
       "id": "corner-banca-e77e18a8741a",
@@ -1306,9 +1307,9 @@
       "url": "https://jobs.corner.ch/o/consumer-loan-advisor-ref-1129",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.299Z",
-      "firstSeenAt": "2026-09-03T13:49:26.508Z",
+      "crawledAt": "2026-09-22T00:19:15.126Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-03T13:49:26.508Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -1389,9 +1390,9 @@
       "url": "https://jobs.corner.ch/o/customer-advisor-evening-and-weekend-40-ref-1014",
       "source": "Corner Dedicated Parser (Recruitee API)",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T16:14:35.296Z",
-      "firstSeenAt": "2026-09-19T23:09:44.967Z",
+      "crawledAt": "2026-09-22T00:19:15.125Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:09:44.967Z",
       "salaryMin": 33200,
       "salaryMax": 51000,
       "salarySource": "estimated",
