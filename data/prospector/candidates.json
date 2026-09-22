@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-22T10:54:25.735Z",
+  "updatedAt": "2026-09-22T10:55:00.954Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -320428,12 +320428,12 @@
     },
     "grischa-personal@thusis": {
       "key": "grischa-personal@thusis",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:27:46.954Z",
-      "updatedAt": "2026-09-21T10:55:39.009Z",
+      "updatedAt": "2026-09-22T10:55:00.115Z",
       "name": "Grischa Personal AG",
       "city": "Thusis",
       "zip": "7430",
@@ -320505,7 +320505,8 @@
         }
       ],
       "promotionPr": "9452",
-      "promotionBranch": "prospector/promote-2026-09-21"
+      "promotionBranch": "prospector/promote-2026-09-21",
+      "promotedAt": "2026-09-22T10:55:00.114Z"
     },
     "grischa-plast-kunststofftechnik@maienfeld": {
       "key": "grischa-plast-kunststofftechnik@maienfeld",
@@ -824807,12 +824808,12 @@
     },
     "yellowshark@zurich": {
       "key": "yellowshark@zurich",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:27:46.957Z",
-      "updatedAt": "2026-09-21T10:55:39.009Z",
+      "updatedAt": "2026-09-22T10:55:00.511Z",
       "name": "yellowshark AG",
       "city": "Zürich",
       "zip": "8048",
@@ -824883,7 +824884,8 @@
         }
       ],
       "promotionPr": "9452",
-      "promotionBranch": "prospector/promote-2026-09-21"
+      "promotionBranch": "prospector/promote-2026-09-21",
+      "promotedAt": "2026-09-22T10:55:00.511Z"
     },
     "yenikasap.com": {
       "key": "yenikasap.com",
@@ -892497,12 +892499,12 @@
     },
     "bellevue-parkhotel.ch": {
       "key": "bellevue-parkhotel.ch",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-09-18T08:22:19.726Z",
-      "updatedAt": "2026-09-21T10:55:39.009Z",
+      "updatedAt": "2026-09-22T10:55:00.928Z",
       "name": "Bellevue Parkhotel & Spa",
       "city": "Adelboden",
       "zip": "3715",
@@ -892573,7 +892575,8 @@
         }
       ],
       "promotionPr": "9452",
-      "promotionBranch": "prospector/promote-2026-09-21"
+      "promotionBranch": "prospector/promote-2026-09-21",
+      "promotedAt": "2026-09-22T10:55:00.928Z"
     },
     "diamond-nails-beauty@langenthal": {
       "key": "diamond-nails-beauty@langenthal",
