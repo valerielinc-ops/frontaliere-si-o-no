@@ -9,7 +9,7 @@
  * #1996 fix left describing the old removed regex.
  */
 import { describe, it, expect } from 'vitest';
-import { lineHasClientLookbehind, findViolations } from '../scripts/ci/check-client-lookbehind.mjs';
+import { clientImportClosure, lineHasClientLookbehind, findViolations } from '../scripts/ci/check-client-lookbehind.mjs';
 
 describe('check-client-lookbehind — predicate', () => {
   it('flags a real client regex lookbehind in code', () => {
@@ -32,6 +32,13 @@ describe('check-client-lookbehind — predicate', () => {
 });
 
 describe('check-client-lookbehind — tree invariant', () => {
+  it('follows browser imports into shared build modules', () => {
+    const closure = clientImportClosure();
+    expect(closure).toContain('build-plugins/shared/jobPostingSchema.ts');
+    expect(closure).toContain('build-plugins/shared/safeTruncate.ts');
+    expect(closure).not.toContain('scripts/lib/job-title-normalization.mjs');
+  });
+
   it('the current client-bundled tree has no regex lookbehind', () => {
     expect(findViolations()).toEqual([]);
   });
