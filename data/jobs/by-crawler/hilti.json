@@ -1,6 +1,6 @@
 {
   "crawlerKey": "hilti",
-  "assembledAt": "2026-09-20T00:52:45.653Z",
+  "assembledAt": "2026-09-22T00:01:16.405Z",
   "jobs": [
     {
       "id": "hilti-16292-de",
@@ -23,9 +23,9 @@
       },
       "description": "Quereinsteiger aus der Baubranche/Technischer Berater Grossraum Luzern (m/w/d) (100% oder Jobsharing 50-70% möglich) — Hilti",
       "descriptionByLocale": {
-        "de": "Quereinsteiger aus der Baubranche/Technischer Berater Grossraum Luzern (m/w/d) (100% oder Jobsharing 50-70% möglich) — Hilti",
         "it": "Nuovi concorrenti del settore edile/Consulente tecnico Maggiore Lucerna (m/f/d) (100% o la condivisione di lavoro 50-70% possibile) — Hilti’",
         "en": "New entrants from the construction industry/Technical consultant Greater Lucerne (m/f/d) (100% or job sharing 50-70% possible) — Hilti’",
+        "de": "Quereinsteiger aus der Baubranche/Technischer Berater Grossraum Luzern (m/w/d) (100% oder Jobsharing 50-70% möglich) — Hilti",
         "fr": "Nouveaux venus de l'industrie de la construction / Consultant technique Grand Lucerne (h/f/d) (100% ou partage d'emploi 50-70% possible) — Hilti"
       },
       "location": "Luzern, Zentralschweiz, Schweiz",
@@ -33,7 +33,7 @@
       "url": "https://careers.hilti.group/en/jobs/16292-de/quereinsteiger-aus-der-baubranche-technischer-berater-grossraum-luzern-m-w-d-100-oder-jobsharing-50-70-moglich/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:54:11.633Z",
+      "crawledAt": "2026-09-22T00:01:10.844Z",
       "addressLocality": "Luzern",
       "postalCode": "",
       "addressRegion": "LU",
@@ -52,16 +52,21 @@
       "requirementsByLocale": {},
       "previousSlugsByLocale": {
         "de": [
-          "quereinsteiger-aus-der-baubranche-technischer-berater-grossraum-luzern-m-w-d-100-oder"
+          "quereinsteiger-aus-der-baubranche-technischer-berater-grossraum-luzern-m-w-d-100-oder",
+          "verkaufsberater-im-aussendienst-grossraum-luzern-m-w-d-100-oder-jobsharing-50-70-moglich"
         ],
         "it": [
-          "quereinsteiger-aus-der-baubranche-technischer-berater-grossraum-luzern-m-w-d-100-oder"
+          "quereinsteiger-aus-der-baubranche-technischer-berater-grossraum-luzern-m-w-d-100-oder",
+          "consulente-vendite-all-esterno-area-di-lucerna-m-w-d-100-o-job-sharing-50-70-possibile-hilti-luzern"
         ]
       },
       "previousSlugs": [
-        "quereinsteiger-aus-der-baubranche-technischer-berater-grossraum-luzern-m-w-d-100-oder"
+        "quereinsteiger-aus-der-baubranche-technischer-berater-grossraum-luzern-m-w-d-100-oder",
+        "verkaufsberater-im-aussendienst-grossraum-luzern-m-w-d-100-oder-jobsharing-50-70-moglich",
+        "consulente-vendite-all-esterno-area-di-lucerna-m-w-d-100-o-job-sharing-50-70-possibile-hilti-luzern"
       ],
       "firstSeenAt": "2026-07-01T11:51:33.895Z",
+      "needsRetranslation": true,
       "salaryMin": 78500,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -107,7 +112,7 @@
       "url": "https://careers.hilti.group/en/jobs/19455-de/verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:54:11.614Z",
+      "crawledAt": "2026-09-22T00:01:10.840Z",
       "addressLocality": "Chur",
       "postalCode": "",
       "addressRegion": "GR",
@@ -125,11 +130,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-hilti-ch"
+        "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-hilti-ch",
+        "consulente-commerciale-nel-settore-costruzioni-in-legno-grigioni-m-f-d-hilti-chur-graubunden-schweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-hilti-ch"
+          "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-hilti-ch",
+          "consulente-commerciale-nel-settore-costruzioni-in-legno-grigioni-m-f-d-hilti-chur-graubunden-schweiz"
         ],
         "en": [
           "verkaufsberater-im-aussendienst-holzbau-graubunden-m-w-d-hilti-ch"
@@ -184,7 +191,7 @@
       "url": "https://careers.hilti.group/en/jobs/19353-fr/conseiller-de-vente-en-externe-neuchatel-yverdon-h-f-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:11.610Z",
+      "crawledAt": "2026-09-22T00:01:10.839Z",
       "addressLocality": "Neuchatel",
       "postalCode": "",
       "addressRegion": "NE",
@@ -202,11 +209,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "conseiller-de-vente-en-externe-neuchatel-yverdon-h-f-d-hilti-ch"
+        "conseiller-de-vente-en-externe-neuchatel-yverdon-h-f-d-hilti-ch",
+        "consulente-di-vendita-esterno-neuchatel-yverdon-m-f-d-hilti-neuchatel-yverdon-suisse-romande"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-de-vente-en-externe-neuchatel-yverdon-h-f-d-hilti-ch"
+          "conseiller-de-vente-en-externe-neuchatel-yverdon-h-f-d-hilti-ch",
+          "consulente-di-vendita-esterno-neuchatel-yverdon-m-f-d-hilti-neuchatel-yverdon-suisse-romande"
         ]
       },
       "firstSeenAt": "2026-07-17T11:36:36.925Z",
@@ -231,7 +240,7 @@
         "it": "programma-di-sviluppo-della-gestione-globale-outperformer-business-track-hilti-landesweit-adliswil-zurich-schweiz",
         "en": "global-management-development-program-outperformer-business-track-hilti-ch",
         "de": "global-management-development-program-outperformer-business-track-hilti-ch",
-        "fr": "programme-de-perfectionnement-en-gestion-mondiale-surpasser-la-piste-d-affaires-hilti-landesweit-adliswil-zurich"
+        "fr": "global-management-development-program-outperformer-business-track-hilti-landesweit"
       },
       "company": "Hilti",
       "companyKey": "hilti",
@@ -241,13 +250,13 @@
         "it": "Programma di sviluppo della gestione globale - Outperformer Business Track",
         "en": "Global Management Development Program - Outperformer Business Track",
         "de": "Global Management Development Program - Outperformer Business Track",
-        "fr": "Programme de perfectionnement en gestion mondiale - Surpasser la piste d'affaires"
+        "fr": "Global Management Development Program - Outperformer Business Track"
       },
-      "description": "BUILT FOR IMPACT. DESIGNED FOR GLOBAL LEADERS.\n\nDieses Programm ist darauf ausgelegt, Dich auf eine erfolgreiche internationale Führungskarriere vorzubereiten. In diesem dynamischen zweijährigen Programm bist Du mitten in unserem kundenorientierten Geschäftsmodell eingesetzt und übernimmst vom ersten Tag an volle Verantwortung.\n\nWährend des Programms arbeitest Du mit globalen Kolleginnen und Kollegen zusammen, kommst mit dem Senior Management in Kontakt und wirst von einem festen Mentor begleitet. Du nimmst an globalen Summits teil, durchläufst zentrale Stationen und übernimmst anspruchsvolle Projekte mit hoher Sichtbarkeit. Dieses Programm ist mehr als nur Arbeit: Es ist eine transformative Reise voller Lernen, Wachstum und wertvoller Erfahrungen, die Deine Perspektive als Young-Professional prägen wird.\n\nDein Profil\n\n• Master- oder MBA-Abschluss in Betriebswirtschaft, Finance oder einem vergleichbaren Bereich; das Programm richtet sich an Absolventinnen und Absolventen der Jahrgänge 2024 bis 2026\n\n• Fließende Englisch- und Deutschkenntnisse; weitere Sprachen sind von Vorteil\n\n• Mindestens 6 Monate internationale Erfahrung durch Studium, Praktika oder erste Berufserfahrung\n\n• Zwischen 6 und 30 Monaten erste Berufserfahrung, zum Beispiel durch Praktika, Stipendien oder eine erste Festanstellung\n\n• Eine globale Denkweise und internationale Mobilität – Du freust Dich auf vielfältige kulturelle Erfahrungen und bist bereit, im Laufe Deiner Karriere im Ausland zu arbeiten und zu leben. Die erste feste Stelle nach dem Programm ist planmäßig außerhalb Zentraleuropas.\n\n• Freude daran, zu lernen, zu wachsen und neue Herausforderungen in einem dynamischen Umfeld anzunehmen\n\n• Ausgeprägte zwischenmenschliche und kommunikative Fähigkeiten sowie die Fähigkeit, teamübergreifend zusammenzuarbeiten\n\n• Eigeninitiative, Anpassungsfähigkeit und ein kreativer, ergebnisorientierter Ansatz, um Probleme zu lösen und Verbesserungen voranzutreiben\n\n• PKW-Führerschein\n\nImpressum\n\nDer formale Prozess umfasst ein aufgezeichnetes Video-Interview, gefolgt von einem Online-Interview mit unserem Talent Acquisition Business Partner. Der letzte Schritt vor dem Assessment Center am 28. und 29. Oktober in Kaufering, Deutschland, ist ein Business Case mit Interview durch eine erfahrene Führungskraft aus dem Business.\nBitte füge Deiner Bewerbung ein Motivationsschreiben sowie Deinen aktuellen Notenspiegel bei.\n\nBewerbungsschluss: 25. September\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+      "description": "BUILT FOR IMPACT. DESIGNED FOR GLOBAL LEADERS.\n\nDieses Programm ist darauf ausgelegt, Dich auf eine erfolgreiche internationale Führungskarriere vorzubereiten. In diesem dynamischen zweijährigen Programm bist Du mitten in unserem kundenorientierten Geschäftsmodell eingesetzt und übernimmst vom ersten Tag an volle Verantwortung.\n\nWährend des Programms arbeitest Du mit globalen Kolleginnen und Kollegen zusammen, kommst mit dem Senior Management in Kontakt und wirst von einem festen Mentor begleitet. Du nimmst an globalen Summits teil, durchläufst zentrale Stationen und übernimmst anspruchsvolle Projekte mit hoher Sichtbarkeit. Dieses Programm ist mehr als nur Arbeit: Es ist eine transformative Reise voller Lernen, Wachstum und wertvoller Erfahrungen, die Deine Perspektive als Young-Professional prägen wird.\n\nDein Profil\n\n• Master- oder MBA-Abschluss in Betriebswirtschaft, Finance oder einem vergleichbaren Bereich; das Programm richtet sich an Absolventinnen und Absolventen der Jahrgänge 2024 bis 2026\n\n• Fließende Englisch- und Deutschkenntnisse; weitere Sprachen sind von Vorteil\n\n• Mindestens 6 Monate internationale Erfahrung durch Studium, Praktika oder erste Berufserfahrung\n\n• Zwischen 6 und 30 Monaten erste Berufserfahrung, zum Beispiel durch Praktika, Stipendien oder eine erste Festanstellung\n\n• Eine globale Denkweise und internationale Mobilität – Du freust Dich auf vielfältige kulturelle Erfahrungen und bist bereit, im Laufe Deiner Karriere im Ausland zu arbeiten und zu leben. Die erste feste Stelle nach dem Programm ist planmäßig außerhalb Zentraleuropas.\n\n• Freude daran, zu lernen, zu wachsen und neue Herausforderungen in einem dynamischen Umfeld anzunehmen\n\n• Ausgeprägte zwischenmenschliche und kommunikative Fähigkeiten sowie die Fähigkeit, teamübergreifend zusammenzuarbeiten\n\n• Eigeninitiative, Anpassungsfähigkeit und ein kreativer, ergebnisorientierter Ansatz, um Probleme zu lösen und Verbesserungen voranzutreiben\n\n• PKW-Führerschein\n\nImpressum\n\nDer formale Prozess umfasst ein aufgezeichnetes Video-Interview, gefolgt von einem Online-Interview mit unserem Talent Acquisition Business Partner. Der letzte Schritt vor dem Assessment Center am 28. und 29. Oktober in Kaufering, Deutschland, ist ein Business Case mit Interview durch eine erfahrene Führungskraft aus dem Business.\nBitte füge Deiner Bewerbung ein Motivationsschreiben sowie Deinen aktuellen Notenspiegel bei.\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
       "descriptionByLocale": {
         "it": "BUILT PER IMPACT. Progettato per i leader globali.\n\nQuesto programma è progettato per prepararti per una carriera di leadership internazionale di successo. In questo dinamico programma di due anni, si è utilizzato nel mezzo del nostro modello di business orientato al cliente e prendersi la piena responsabilità dal primo giorno.\n\nDurante il programma, lavorerai con colleghi globali, ti metterai in contatto con la gestione senior e sarai accompagnato da un mentore permanente. Si partecipa a vertici globali, passare attraverso le stazioni centrali e prendere su progetti impegnativi con alta visibilità. Questo programma è più che lavoro: è un viaggio trasformativo pieno di apprendimento, crescita e preziose esperienze che plasmano la tua prospettiva come un giovane professionista.\n\nIl tuo profilo\n\n• Master o MBA in amministrazione aziendale, finanza o un campo equivalente; il programma è rivolto ai laureati degli anni 2024-2026\n\n• fluenza in inglese e tedesco; altre lingue sono benefiche\n\n• Almeno 6 mesi di esperienza internazionale attraverso studi, stage o esperienza professionale iniziale\n\n• Tra 6 e 30 mesi di esperienza professionale iniziale, ad esempio attraverso stage, borse di studio o un primo lavoro permanente\n\n• Una mentalità globale e la mobilità internazionale – Non aspettatevi esperienze culturali diverse e siete pronti a lavorare e a vivere all'estero durante la vostra carriera\n\n• Godetevi l'apprendimento, la crescita e l'assunzione di nuove sfide in un ambiente dinamico\n\n• Forte capacità interpersonali e di comunicazione, nonché la capacità di lavorare insieme in team\n\n• Iniziativa, adattabilità e approccio creativo e orientato ai risultati per risolvere i problemi e migliorare l'azionamento\n\n• Auto patente di guida\n\nImprint\n\nIl processo formale include un'intervista video registrata seguita da un'intervista online con il nostro Talent Acquisition Business Partner. L'ultimo passo prima del Centro di Valutazione il 28 e 29 ottobre a Kaufering, in Germania, è un caso di business con un'intervista di un esperto dirigente aziendale.\nSi prega di allegare una lettera di motivazione alla vostra applicazione e il vostro attuale specchio di grado.\n\nTermine per la richiesta: 25 settembre\n\nImpegno all'inclusione\n\nA Hilti, l'inclusione è un aspetto centrale del nostro modo di lavorare, del nostro stile di leadership e della nostra crescita condivisa. Siamo attivamente impegnati nella diversità del pensiero e di un ambiente che è inclusivo per tutti e ovunque. Continuiamo a sforzarci di sentire ogni voce e per ogni membro del team di sentirsi in grado di contribuire. Costruire questa fondazione, rafforziamo i nostri team, la nostra innovazione e il nostro impatto per migliorare collettivamente la costruzione.\n\nPerché Hilti\n\nHilti è leader globale nell'innovazione costruttiva con oltre 34.000 membri del team in 120 paesi. Il nostro obiettivo è migliorare la costruzione. Ecco perché ci interessa imparare, crescere e trovare nuovi modi per avere un impatto duraturo. Qui puoi contribuire ai tuoi punti di forza, lavorare con un team globale e inclusivo e affrontare sfide significative. A Hilti, puoi trasformare le tue idee in realizzazioni e crescita reali attraverso azioni mirate, passione e lavoro di squadra.",
         "en": "BUILT FOR IMPACT. Designed for Global Leaders.\n\nThis program is designed to prepare you for a successful international leadership career. In this dynamic two-year program, you are used in the middle of our customer-oriented business model and take full responsibility from day one.\n\nDuring the program, you will work with global colleagues, get in touch with senior management and be accompanied by a permanent mentor. You participate in global summits, go through central stations and take on challenging projects with high visibility. This program is more than just work: it is a transformative journey full of learning, growth and valuable experiences that will shape your perspective as a young professional.\n\nYour profile\n\n• Master’s or MBA degree in business administration, finance or an equivalent field; the programme is aimed at graduates of the years 2024 to 2026\n\n• fluency in English and German; Other languages are beneficial\n\n• At least 6 months of international experience through studies, internships or initial professional experience\n\n• Between 6 and 30 months of initial professional experience, for example through internships, scholarships or a first permanent job\n\n• A global mindset and international mobility – You look forward to diverse cultural experiences and are ready to work and live abroad during your career\n\n• Enjoy learning, growing and taking on new challenges in a dynamic environment\n\n• Strong interpersonal and communication skills as well as the ability to work together across teams\n\n• Initiative, adaptability and a creative, results-oriented approach to solve problems and drive improvement\n\n• Car driving licence\n\nImprint\n\nThe formal process includes a recorded video interview followed by an online interview with our Talent Acquisition Business Partner. The last step before the Assessment Center on October 28 and 29 in Kaufering, Germany, is a business case with an interview by an experienced business executive.\nPlease attach a letter of motivation to your application and your current grade mirror.\n\nApplication deadline: 25 September\n\nCommitment to inclusion\n\nAt Hilti, inclusion is a central aspect of our way of working, our leadership style and our shared growth. We are actively committed to diversity of thought and an environment that is inclusive for everyone and everywhere. We continue to strive for every voice to be heard and for every team member to feel empowered to contribute. By building this foundation, we strengthen our teams, our innovation and our impact to collectively improve construction.\n\nWhy Hilti\n\nHilti is a global leader in construction innovation with more than 34,000 team members in 120 countries. Our goal is to improve construction. That’s why we care about learning, growing and finding new ways to make a lasting impact. Here you can contribute your strengths, work with a global and inclusive team and face meaningful challenges. At Hilti, you can turn your ideas into real achievements and growth through purposeful action, passion and teamwork.",
-        "de": "BUILT FOR IMPACT. DESIGNED FOR GLOBAL LEADERS.\n\nDieses Programm ist darauf ausgelegt, Dich auf eine erfolgreiche internationale Führungskarriere vorzubereiten. In diesem dynamischen zweijährigen Programm bist Du mitten in unserem kundenorientierten Geschäftsmodell eingesetzt und übernimmst vom ersten Tag an volle Verantwortung.\n\nWährend des Programms arbeitest Du mit globalen Kolleginnen und Kollegen zusammen, kommst mit dem Senior Management in Kontakt und wirst von einem festen Mentor begleitet. Du nimmst an globalen Summits teil, durchläufst zentrale Stationen und übernimmst anspruchsvolle Projekte mit hoher Sichtbarkeit. Dieses Programm ist mehr als nur Arbeit: Es ist eine transformative Reise voller Lernen, Wachstum und wertvoller Erfahrungen, die Deine Perspektive als Young-Professional prägen wird.\n\nDein Profil\n\n• Master- oder MBA-Abschluss in Betriebswirtschaft, Finance oder einem vergleichbaren Bereich; das Programm richtet sich an Absolventinnen und Absolventen der Jahrgänge 2024 bis 2026\n\n• Fließende Englisch- und Deutschkenntnisse; weitere Sprachen sind von Vorteil\n\n• Mindestens 6 Monate internationale Erfahrung durch Studium, Praktika oder erste Berufserfahrung\n\n• Zwischen 6 und 30 Monaten erste Berufserfahrung, zum Beispiel durch Praktika, Stipendien oder eine erste Festanstellung\n\n• Eine globale Denkweise und internationale Mobilität – Du freust Dich auf vielfältige kulturelle Erfahrungen und bist bereit, im Laufe Deiner Karriere im Ausland zu arbeiten und zu leben. Die erste feste Stelle nach dem Programm ist planmäßig außerhalb Zentraleuropas.\n\n• Freude daran, zu lernen, zu wachsen und neue Herausforderungen in einem dynamischen Umfeld anzunehmen\n\n• Ausgeprägte zwischenmenschliche und kommunikative Fähigkeiten sowie die Fähigkeit, teamübergreifend zusammenzuarbeiten\n\n• Eigeninitiative, Anpassungsfähigkeit und ein kreativer, ergebnisorientierter Ansatz, um Probleme zu lösen und Verbesserungen voranzutreiben\n\n• PKW-Führerschein\n\nImpressum\n\nDer formale Prozess umfasst ein aufgezeichnetes Video-Interview, gefolgt von einem Online-Interview mit unserem Talent Acquisition Business Partner. Der letzte Schritt vor dem Assessment Center am 28. und 29. Oktober in Kaufering, Deutschland, ist ein Business Case mit Interview durch eine erfahrene Führungskraft aus dem Business.\nBitte füge Deiner Bewerbung ein Motivationsschreiben sowie Deinen aktuellen Notenspiegel bei.\n\nBewerbungsschluss: 25. September\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
+        "de": "BUILT FOR IMPACT. DESIGNED FOR GLOBAL LEADERS.\n\nDieses Programm ist darauf ausgelegt, Dich auf eine erfolgreiche internationale Führungskarriere vorzubereiten. In diesem dynamischen zweijährigen Programm bist Du mitten in unserem kundenorientierten Geschäftsmodell eingesetzt und übernimmst vom ersten Tag an volle Verantwortung.\n\nWährend des Programms arbeitest Du mit globalen Kolleginnen und Kollegen zusammen, kommst mit dem Senior Management in Kontakt und wirst von einem festen Mentor begleitet. Du nimmst an globalen Summits teil, durchläufst zentrale Stationen und übernimmst anspruchsvolle Projekte mit hoher Sichtbarkeit. Dieses Programm ist mehr als nur Arbeit: Es ist eine transformative Reise voller Lernen, Wachstum und wertvoller Erfahrungen, die Deine Perspektive als Young-Professional prägen wird.\n\nDein Profil\n\n• Master- oder MBA-Abschluss in Betriebswirtschaft, Finance oder einem vergleichbaren Bereich; das Programm richtet sich an Absolventinnen und Absolventen der Jahrgänge 2024 bis 2026\n\n• Fließende Englisch- und Deutschkenntnisse; weitere Sprachen sind von Vorteil\n\n• Mindestens 6 Monate internationale Erfahrung durch Studium, Praktika oder erste Berufserfahrung\n\n• Zwischen 6 und 30 Monaten erste Berufserfahrung, zum Beispiel durch Praktika, Stipendien oder eine erste Festanstellung\n\n• Eine globale Denkweise und internationale Mobilität – Du freust Dich auf vielfältige kulturelle Erfahrungen und bist bereit, im Laufe Deiner Karriere im Ausland zu arbeiten und zu leben. Die erste feste Stelle nach dem Programm ist planmäßig außerhalb Zentraleuropas.\n\n• Freude daran, zu lernen, zu wachsen und neue Herausforderungen in einem dynamischen Umfeld anzunehmen\n\n• Ausgeprägte zwischenmenschliche und kommunikative Fähigkeiten sowie die Fähigkeit, teamübergreifend zusammenzuarbeiten\n\n• Eigeninitiative, Anpassungsfähigkeit und ein kreativer, ergebnisorientierter Ansatz, um Probleme zu lösen und Verbesserungen voranzutreiben\n\n• PKW-Führerschein\n\nImpressum\n\nDer formale Prozess umfasst ein aufgezeichnetes Video-Interview, gefolgt von einem Online-Interview mit unserem Talent Acquisition Business Partner. Der letzte Schritt vor dem Assessment Center am 28. und 29. Oktober in Kaufering, Deutschland, ist ein Business Case mit Interview durch eine erfahrene Führungskraft aus dem Business.\nBitte füge Deiner Bewerbung ein Motivationsschreiben sowie Deinen aktuellen Notenspiegel bei.\n\nVerpflichtung zur Inklusion\n\nInklusion ist bei Hilti ein zentraler Aspekt unserer Arbeitsweise, unseres Führungsstils und unseres gemeinsamen Wachstums. Wir engagieren uns aktiv für Gedankenvielfalt und ein Umfeld, das für alle und überall inklusiv ist. Wir streben fortlaufend danach, dass jede Stimme gehört wird und sich jedes Teammitglied befähigt fühlt, sich einzubringen. Indem wir dieses Fundament schaffen, stärken wir unsere Teams, unsere Innovation und unsere Wirkung, um gemeinsam das Bauwesen zu verbessern.\n\nWarum Hilti\n\nHilti ist ein global führendes Unternehmen in der Bauinnovation mit mehr als 34.000 Teammitgliedern in 120 Ländern. Unser Ziel ist es, das Bauwesen zu verbessern. Deshalb liegt es uns am Herzen, zu lernen, zu wachsen und neue Wege zu finden, eine bleibende Wirkung zu erzielen. Hier kannst Du Deine Stärken einbringen, mit einem globalen und inklusiven Team zusammenarbeiten und Dich sinnvollen Herausforderungen stellen. Bei Hilti kannst Du Deine Ideen durch zielgerichtetes Handeln, Leidenschaft und Teamwork in reale Errungenschaften und Wachstum verwandeln.",
         "fr": "BÂTIMENT POUR IMPACT. Conçu pour les leaders mondiaux.\n\nCe programme est conçu pour vous préparer à une carrière de leadership internationale réussie. Dans ce programme dynamique de deux ans, vous êtes utilisé au milieu de notre modèle d'affaires axé sur le client et prenez l'entière responsabilité dès le premier jour.\n\nPendant le programme, vous travaillerez avec des collègues du monde entier, entrerez en contact avec la haute direction et serez accompagné d'un mentor permanent. Vous participez à des sommets mondiaux, passez par les gares centrales et prenez des projets difficiles avec une grande visibilité. Ce programme est plus qu'un simple travail : c'est un parcours transformatif plein d'apprentissage, de croissance et d'expériences précieuses qui façonnera votre perspective en tant que jeune professionnel.\n\nVotre profil\n\n• Maîtrise ou maîtrise en administration des affaires, finance ou domaine équivalent; le programme est destiné aux diplômés des années 2024 à 2026\n\n• la maîtrise de l'anglais et de l'allemand;\n\n• Au moins 6 mois d'expérience internationale grâce à des études, des stages ou une expérience professionnelle initiale\n\n• Entre 6 et 30 mois d'expérience professionnelle initiale, par exemple par des stages, des bourses ou un premier emploi permanent\n\n• Un état d'esprit global et une mobilité internationale – Vous attendez avec impatience diverses expériences culturelles et êtes prêt à travailler et vivre à l'étranger pendant votre carrière\n\n• Apprentissage, croissance et prise de nouveaux défis dans un environnement dynamique\n\n• Fortes aptitudes interpersonnelles et en communication ainsi que la capacité de travailler ensemble entre les équipes\n\n• Initiative, adaptabilité et approche créative axée sur les résultats pour résoudre les problèmes et favoriser l'amélioration\n\n• Permis de conduire automobile\n\nEmpreinte\n\nLe processus officiel comprend une entrevue vidéo enregistrée suivie d'une entrevue en ligne avec notre partenaire d'acquisition de talents. La dernière étape avant le Centre d'évaluation, les 28 et 29 octobre à Kaufering, en Allemagne, est une analyse de rentabilisation avec une interview d'un cadre professionnel expérimenté.\nVeuillez joindre une lettre de motivation à votre demande et à votre miroir de qualité actuel.\n\nDate limite de présentation des candidatures: 25 septembre\n\nEngagement en faveur de l'inclusion\n\nÀ Hilti, l'inclusion est un aspect central de notre façon de travailler, de notre style de leadership et de notre croissance partagée. Nous sommes activement attachés à la diversité des pensées et à un environnement inclusif pour tous et partout. Nous continuons de nous efforcer de faire entendre chaque voix et de faire en sorte que chaque membre de l'équipe se sente habilité à contribuer. En construisant cette fondation, nous renforçons nos équipes, notre innovation et notre impact pour améliorer collectivement la construction.\n\nPourquoi Hilti\n\nHilti est un leader mondial de l'innovation dans le secteur de la construction avec plus de 34 000 membres d'équipe dans 120 pays. Notre objectif est d'améliorer la construction. C'est pourquoi nous nous soucions d'apprendre, de grandir et de trouver de nouvelles façons d'avoir un impact durable. Ici, vous pouvez apporter vos forces, travailler avec une équipe globale et inclusive et faire face à des défis significatifs. Chez Hilti, vous pouvez transformer vos idées en réalisations réelles et en croissance grâce à une action délibérée, à la passion et au travail d'équipe."
       },
       "location": "Landesweit, Adliswil / Zürich",
@@ -255,7 +264,7 @@
       "url": "https://careers.hilti.group/en/jobs/19580-de/global-management-development-program-outperformer-business-track/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:54:11.607Z",
+      "crawledAt": "2026-09-22T00:01:10.838Z",
       "addressLocality": "Landesweit",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -275,15 +284,19 @@
       "previousSlugs": [
         "global-management-development-program-outperformer-business-track-hilti-ch",
         "programme-de-perfectionnement-en-gestion-mondiale-surpasser-la-piste-d-affaires-hilti-landesweit-adliswil-zurich-schweiz",
+        "programme-de-perfectionnement-en-gestion-mondiale-surpasser-la-piste-d-affaires-hilti-landesweit-adliswil-zurich",
+        "programma-di-sviluppo-della-gestione-globale-outperformer-business-track-hilti-landesweit-adliswil-zurich-schweiz",
         "global-management-development-program-outperformer-business-track-hilti-landesweit"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "global-management-development-program-outperformer-business-track-hilti-ch"
+          "global-management-development-program-outperformer-business-track-hilti-ch",
+          "programma-di-sviluppo-della-gestione-globale-outperformer-business-track-hilti-landesweit-adliswil-zurich-schweiz"
         ],
         "fr": [
           "global-management-development-program-outperformer-business-track-hilti-ch",
           "programme-de-perfectionnement-en-gestion-mondiale-surpasser-la-piste-d-affaires-hilti-landesweit-adliswil-zurich-schweiz",
+          "programme-de-perfectionnement-en-gestion-mondiale-surpasser-la-piste-d-affaires-hilti-landesweit-adliswil-zurich",
           "global-management-development-program-outperformer-business-track-hilti-landesweit"
         ]
       },
@@ -334,7 +347,7 @@
       "url": "https://careers.hilti.group/en/jobs/19799-en/intern-cybersecurity-m-f-x/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T22:54:11.605Z",
+      "crawledAt": "2026-09-22T00:01:10.836Z",
       "addressLocality": "Buchs",
       "postalCode": "",
       "addressRegion": "SG",
@@ -353,11 +366,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "intern-cybersecurity-m-f-x-hilti-ch",
-        "intern-cybersecurity-m-f-x-hilti-buchs"
+        "intern-cybersecurity-m-f-x-hilti-buchs",
+        "tirocinante-cybersecurity-m-f-x-hilti-buchs-st-gallen-switzerland"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "intern-cybersecurity-m-f-x-hilti-ch"
+          "intern-cybersecurity-m-f-x-hilti-ch",
+          "tirocinante-cybersecurity-m-f-x-hilti-buchs-st-gallen-switzerland"
         ],
         "en": [
           "intern-cybersecurity-m-f-x-hilti-buchs"
@@ -390,7 +405,7 @@
       "slugByLocale": {
         "fr": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
         "it": "collaboratore-trice-kundendatenverwaltung-m-w-d-hilti-zurich",
-        "en": "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
+        "en": "collaborator-customer-data-management-m-w-d-hilti-zurich",
         "de": "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-ch"
       },
       "company": "Hilti",
@@ -415,7 +430,7 @@
       "url": "https://careers.hilti.group/en/jobs/20062-fr/collaborateur-gestion-des-donnees-clients-h-f-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:11.603Z",
+      "crawledAt": "2026-09-22T00:01:10.835Z",
       "addressLocality": "Zürich",
       "postalCode": "",
       "addressRegion": "ZH",
@@ -436,10 +451,12 @@
         "it": [
           "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-ch",
           "mitarbeiter-kundenstamm-m-w-d-hilti-ch",
-          "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
+          "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
+          "collaboratore-trice-kundendatenverwaltung-m-w-d-hilti-zurich"
         ],
         "en": [
           "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
+          "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
           "collaborator-customer-data-management-m-w-d-hilti-zurich"
         ],
         "de": [
@@ -447,7 +464,8 @@
           "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
         ],
         "fr": [
-          "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch"
+          "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
+          "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich"
         ]
       },
       "previousSlugs": [
@@ -455,6 +473,7 @@
         "mitarbeiter-kundendatenverwaltung-m-w-d-hilti-zurich",
         "mitarbeiter-kundenstamm-m-w-d-hilti-ch",
         "collaborateur-gestion-des-donnees-clients-h-f-d-hilti-ch",
+        "collaboratore-trice-kundendatenverwaltung-m-w-d-hilti-zurich",
         "collaborator-customer-data-management-m-w-d-hilti-zurich"
       ],
       "firstSeenAt": "2026-08-20T10:09:01.466Z",
@@ -503,7 +522,7 @@
       "url": "https://careers.hilti.group/en/jobs/20155-de/key-account-verkaufsberater-graubunden-m-w-d/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:54:11.584Z",
+      "crawledAt": "2026-09-22T00:01:10.827Z",
       "addressLocality": "Chur",
       "postalCode": "",
       "addressRegion": "GR",
@@ -521,11 +540,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch"
+        "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch",
+        "account-chiave-vendite-advisor-grigio-m-f-d-hilti-chur-graubunden-schweiz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch"
+          "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch",
+          "account-chiave-vendite-advisor-grigio-m-f-d-hilti-chur-graubunden-schweiz"
         ],
         "en": [
           "key-account-verkaufsberater-graubunden-m-w-d-hilti-ch"
@@ -535,6 +556,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:09:01.457Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -553,34 +575,34 @@
       "id": "hilti-20552-fr",
       "slug": "conseiller-de-vente-externe-h-f-d-100-hilti-ch",
       "slugByLocale": {
-        "fr": "conseiller-de-vente-externe-h-f-d-100-hilti-ch",
         "it": "conseiller-de-vente-externe-h-f-d-100-hilti-ch",
         "en": "external-sales-advisor-m-f-d-100-hilti-fribourg-fribourg",
-        "de": "externer-verkaufsberater-m-w-d-100-hilti-fribourg-fribourg"
+        "de": "externer-verkaufsberater-m-w-d-100-hilti-fribourg-fribourg",
+        "fr": "conseiller-de-vente-externe-h-f-d-100-hilti-ch"
       },
       "company": "Hilti",
       "companyKey": "hilti",
       "companyDomain": "hilti.group",
       "title": "Conseiller de vente externe (h/f/d) (100%)",
       "titleByLocale": {
-        "fr": "Conseiller de vente externe (h/f/d) (100%)",
         "it": "Conseiller de vente externe (f/m/d) (100%)",
         "en": "External sales advisor (m/f/d) (100%)",
-        "de": "Externer Verkaufsberater (m/w/d) (100%)"
+        "de": "Externer Verkaufsberater (m/w/d) (100%)",
+        "fr": "Conseiller de vente externe (h/f/d) (100%)"
       },
       "description": "Rejoignez notre équipe commerciale et faites la différence !\n\nVous aimez relever des défis, créer des relations de confiance sur le long terme et évoluer dans un environnement dynamique où l'esprit d'équipe, l'autonomie et la persévérance sont essentiels à la réussite ?\n\nQue vous soyez issu·e de la vente B2B, de la gestion de projets ou du secteur de la construction, cette opportunité vous permettra de développer votre carrière dans une entreprise reconnue pour sa culture de la performance, son esprit de collaboration et son engagement envers le développement de ses collaborateurs.\n\nVos atouts pour ce poste\n\n• Un poste passionnant avec un haut niveau d'autonomie et de responsabilités\n\n• Une culture d'entreprise reconnue parmi les meilleures de Suisse\n\n• Un environnement de travail stimulant, collaboratif et inclusif\n\n• Un programme d'intégration structuré et un accompagnement de qualité dès votre arrivée\n\n• Une rémunération attractive composée d'un salaire fixe et d'un bonus lié à la performance\n\n• Une voiture de fonction également utilisable à titre privé\n\n• Des outils modernes vous permettant de réussir et de développer votre activité\n\n• La possibilité de rejoindre une entreprise qui investit durablement dans ses collaborateurs\n\nMentions légales\n\nAvons-nous su éveiller votre intérêt? Désirez-vous travailler pour le meilleur employeur de Suisse? N'hésitez pas à nous envoyer votre dossier complet (lettre de motivation, CV, certificats, diplômes) sur notre outil de carrière en ligne.\n\nCe à quoi vous pouvez vous attendre lorsque vous postulez à un emploi chez Hilti :\n\n• Nous nous engageons à ce que toutes les candidatures soient examinées par un être humain et, bien que personne ne soit infaillible, nous restons fidèles à notre approche centrée sur les personnes dans tout ce que nous faisons.\n\n• Une fois que vous avez soumis votre candidature, vous pouvez vous attendre à recevoir des notifications automatisées de notre système (déclenchées par notre équipe de recrutement).\n\n• Les candidatures qui ne parviennent pas à l'étape de l'entretien (avec un responsable du recrutement) ne feront pas l'objet d'un retour d'information personnalisé.\n\n• Vous pouvez vous attendre à recevoir une réponse de notre part dans un délai de 2 à 3 semaines (en moyenne), quel que soit le résultat. Le processus de recrutement complet peut durer entre 5 et 6 semaines.\n\n• Nous vous souhaitons bonne chance dans votre processus de candidature. Consultez notre foire aux questions sur les carrières pour obtenir des conseils sur les candidatures et les entretiens.\n\nVeuillez contacter mycareer-techsupport@hilti.com en cas de problème technique lors de votre candidature.\n\nEngagement en faveur de l'inclusion\n\nChez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble.\n\nPourquoi choisir Hilti\n\nHilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement.",
       "descriptionByLocale": {
-        "fr": "Rejoignez notre équipe commerciale et faites la différence !\n\nVous aimez relever des défis, créer des relations de confiance sur le long terme et évoluer dans un environnement dynamique où l'esprit d'équipe, l'autonomie et la persévérance sont essentiels à la réussite ?\n\nQue vous soyez issu·e de la vente B2B, de la gestion de projets ou du secteur de la construction, cette opportunité vous permettra de développer votre carrière dans une entreprise reconnue pour sa culture de la performance, son esprit de collaboration et son engagement envers le développement de ses collaborateurs.\n\nVos atouts pour ce poste\n\n• Un poste passionnant avec un haut niveau d'autonomie et de responsabilités\n\n• Une culture d'entreprise reconnue parmi les meilleures de Suisse\n\n• Un environnement de travail stimulant, collaboratif et inclusif\n\n• Un programme d'intégration structuré et un accompagnement de qualité dès votre arrivée\n\n• Une rémunération attractive composée d'un salaire fixe et d'un bonus lié à la performance\n\n• Une voiture de fonction également utilisable à titre privé\n\n• Des outils modernes vous permettant de réussir et de développer votre activité\n\n• La possibilité de rejoindre une entreprise qui investit durablement dans ses collaborateurs\n\nMentions légales\n\nAvons-nous su éveiller votre intérêt? Désirez-vous travailler pour le meilleur employeur de Suisse? N'hésitez pas à nous envoyer votre dossier complet (lettre de motivation, CV, certificats, diplômes) sur notre outil de carrière en ligne.\n\nCe à quoi vous pouvez vous attendre lorsque vous postulez à un emploi chez Hilti :\n\n• Nous nous engageons à ce que toutes les candidatures soient examinées par un être humain et, bien que personne ne soit infaillible, nous restons fidèles à notre approche centrée sur les personnes dans tout ce que nous faisons.\n\n• Une fois que vous avez soumis votre candidature, vous pouvez vous attendre à recevoir des notifications automatisées de notre système (déclenchées par notre équipe de recrutement).\n\n• Les candidatures qui ne parviennent pas à l'étape de l'entretien (avec un responsable du recrutement) ne feront pas l'objet d'un retour d'information personnalisé.\n\n• Vous pouvez vous attendre à recevoir une réponse de notre part dans un délai de 2 à 3 semaines (en moyenne), quel que soit le résultat. Le processus de recrutement complet peut durer entre 5 et 6 semaines.\n\n• Nous vous souhaitons bonne chance dans votre processus de candidature. Consultez notre foire aux questions sur les carrières pour obtenir des conseils sur les candidatures et les entretiens.\n\nVeuillez contacter mycareer-techsupport@hilti.com en cas de problème technique lors de votre candidature.\n\nEngagement en faveur de l'inclusion\n\nChez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble.\n\nPourquoi choisir Hilti\n\nHilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement.",
         "it": "Unisciti al nostro team di vendita e fai la differenza!\n\nTi piace affrontare le sfide, costruire fiducia a lungo termine e sviluppare in un ambiente dinamico in cui il lavoro di squadra, l'autonomia e la perseveranza sono essenziali per il successo?\n\nChe si tratti di vendite B2B, project management o settore edile, questa opportunità vi permetterà di sviluppare la vostra carriera in un'azienda riconosciuta per la sua cultura delle prestazioni, il suo spirito di collaborazione e il suo impegno per lo sviluppo dei suoi dipendenti.\n\nI vostri beni per questa posizione\n\n• Una posizione emozionante con un alto livello di autonomia e responsabilità\n\n• Una cultura aziendale riconosciuta tra i migliori in Svizzera\n\n• Un ambiente di lavoro stimolante, collaborativo e inclusivo\n\n• Programma di integrazione strutturato e supporto di qualità all'arrivo\n\n• Retribuzione attraente costituita da un salario fisso e da un bonus di prestazione\n\n• Una macchina di funzione adatta anche per uso privato\n\n• Strumenti moderni per avere successo e sviluppare il tuo business\n\n• La possibilità di aderire a una società che investe in modo sostenibile nei suoi dipendenti\n\nInformazioni legali\n\nSiamo riusciti a suscitare il vostro interesse? Vuoi lavorare per il miglior datore di lavoro in Svizzera? Sentitevi liberi di inviarci il dossier completo (lettera di motivazione, CV, certificati, diplomi) sul nostro strumento di carriera online.\n\nCosa ci si può aspettare quando si richiede un lavoro a Hilti:\n\n• Ci impegniamo a garantire che tutte le applicazioni siano esaminate da un essere umano e, mentre nessuno è infallibile, rimaniamo fedeli al nostro approccio centrato sul popolo in tutto ciò che facciamo.\n\n• Una volta presentata la tua domanda, puoi aspettarti di ricevere notifiche automatizzate del nostro sistema (attente dal nostro team di reclutamento).\n\n• Le domande che non raggiungono la fase di intervista (con un ufficiale di reclutamento) non saranno soggette a un feedback personalizzato.\n\n• Ci si può aspettare di ricevere una risposta da noi entro 2-3 settimane (in media), indipendentemente dal risultato. Il processo di reclutamento completo può richiedere tra 5 e 6 settimane.\n\n• Vi auguriamo buona fortuna nel vostro processo di applicazione. Consultare le nostre domande frequenti sulle carriere per consigli su applicazioni e interviste.\n\nSi prega di contattare mycareer-techsupport@hilti.com in caso di problemi tecnici durante l'applicazione.\n\nImpegno all'inclusione\n\nA Hilti, l'inclusione guida il nostro modo di lavorare, guidare e avanzare insieme. Ci impegniamo a valutare la diversità delle opinioni e a creare un ambiente inclusivo per tutti. Ci assicuriamo che ogni voce sia ascoltata e che ogni membro del team possa contribuire. Basandosi su questa fondazione, rafforziamo i nostri team, la nostra capacità di innovazione e il nostro impatto, per migliorare insieme il settore delle costruzioni.\n\nPerché scegliere Hilti\n\nHilti è leader mondiale nell'innovazione costruttiva, con oltre 34.000 dipendenti in 120 paesi. Guidati dalla nostra raison d'être – \"Making Construction Better\" – siamo guidati dal desiderio di imparare, crescere e trovare nuovi modi per avere un impatto duraturo. Unendo Hilti, sarai incoraggiato a mostrare i tuoi punti di forza, a lavorare con un team globale e inclusivo, e affrontare sfide impegnative. Qui, le vostre idee sono importanti: avrete l'opportunità di realizzare i vostri progetti, i vostri successi e il vostro sviluppo attraverso passione, collaborazione e impegno.",
         "en": "Join our sales team and make a difference!\n\nDo you like to meet challenges, build long-term trust and develop in a dynamic environment where teamwork, autonomy and perseverance are essential to success?\n\nWhether you're from sales B2B, project management or the construction sector, this opportunity will allow you to develop your career in a company recognized for its performance culture, its spirit of collaboration and its commitment to the development of its employees.\n\nYour assets for this position\n\n• An exciting position with a high level of autonomy and responsibility\n\n• A corporate culture recognized among the best in Switzerland\n\n• A stimulating, collaborative and inclusive working environment\n\n• A structured integration program and quality support upon arrival\n\n• Attractive remuneration consisting of a fixed salary and performance bonus\n\n• A function car also suitable for private use\n\n• Modern tools for you to succeed and develop your business\n\n• The possibility to join a company that invests sustainably in its employees\n\nLegal information\n\nHave we been able to arouse your interest? Do you want to work for the best employer in Switzerland? Feel free to send us your complete dossier (motivation letter, CV, certificates, diplomas) on our online career tool.\n\nWhat you can expect when applying for a job at Hilti:\n\n• We are committed to ensuring that all applications are reviewed by a human being and, while nobody is infallible, we remain faithful to our people-centred approach in everything we do.\n\n• Once you have submitted your application, you can expect to receive automated notifications of our system (attended by our recruitment team).\n\n• Applications that do not reach the interview stage (with a recruitment officer) will not be subject to a personalized feedback.\n\n• You can expect to receive a response from us within 2-3 weeks (on average), regardless of the result. The full recruitment process can take between 5 and 6 weeks.\n\n• We wish you good luck in your application process. Consult our Frequently Asked Questions on Careers for advice on applications and interviews.\n\nPlease contact mycareer-techsupport@hilti.com in case of technical problems when applying.\n\nCommitment to inclusion\n\nAt Hilti, inclusion guides our way of working, leading and advancing together. We are committed to valuing the diversity of views and creating an inclusive environment for everyone. We ensure that each voice is heard and that each member of the team can contribute. Building on this foundation, we strengthen our teams, our innovation capacity and our impact, to improve the construction sector together.\n\nWhy choose Hilti\n\nHilti is a world leader in construction innovation, with over 34,000 employees in 120 countries. Guided by our raison d'être – \"Making Construction Better\" – we are driven by the desire to learn, grow and find new ways to have a lasting impact. By joining Hilti, you will be encouraged to showcase your strengths, work with a global and inclusive team, and face challenging challenges. Here, your ideas matter: you will have the opportunity to realize your projects, your successes and your development through passion, collaboration and commitment.",
-        "de": "Treten Sie unserem Verkaufsteam bei und machen Sie einen Unterschied!\n\nMöchten Sie sich Herausforderungen stellen, langfristiges Vertrauen aufbauen und sich in einem dynamischen Umfeld entwickeln, in dem Teamarbeit, Autonomie und Ausdauer für den Erfolg unerlässlich sind?\n\nOb Sie aus dem Vertrieb B2B, Projektmanagement oder dem Bausektor stammen, diese Gelegenheit ermöglicht es Ihnen, Ihre Karriere in einem Unternehmen zu entwickeln, das für seine Leistungskultur, seinen Geist der Zusammenarbeit und sein Engagement für die Entwicklung seiner Mitarbeiter bekannt ist.\n\nIhr Vermögen für diese Position\n\n• Eine spannende Position mit einem hohen Maß an Autonomie und Verantwortung\n\n• Eine Unternehmenskultur, die zu den Besten der Schweiz zählt\n\n• Ein stimulierendes, kollaboratives und integratives Arbeitsumfeld\n\n• Ein strukturiertes Integrationsprogramm und Qualitätsunterstützung bei der Ankunft\n\n• Attraktive Vergütung bestehend aus Festgehalt und Leistungsbonus\n\n• Ein Funktionsfahrzeug auch für den privaten Gebrauch geeignet\n\n• Moderne Tools für Sie zum Erfolg und zur Entwicklung Ihres Unternehmens\n\n• Die Möglichkeit, einem Unternehmen beizutreten, das nachhaltig in seine Mitarbeiter investiert\n\nRechtliche Informationen\n\nKonnten wir Ihr Interesse wecken? Möchten Sie für den besten Arbeitgeber der Schweiz arbeiten? Senden Sie uns Ihr vollständiges Dossier (Motivationsschreiben, Lebenslauf, Zertifikate, Diplome) zu unserem Online-Karriere-Tool.\n\nWas Sie bei einer Bewerbung bei Hilti erwarten können:\n\n• Wir setzen uns dafür ein, dass alle Anwendungen von einem Menschen überprüft werden, und obwohl niemand unfehlbar ist, bleiben wir bei allem, was wir tun, unserem menschenzentrierten Ansatz treu.\n\n• Sobald sie ihre bewerbung eingereicht haben, können sie automatisierte benachrichtigungen unseres systems (von unserem rekrutierungsteam besucht) erhalten.\n\n• Bewerbungen, die die Interviewphase (mit einem Rekrutierungsbeauftragten) nicht erreichen, unterliegen keinem personalisierten Feedback.\n\n• Sie können erwarten, eine Antwort von uns innerhalb von 2-3 Wochen (im Durchschnitt) zu erhalten, unabhängig vom Ergebnis. Der vollständige Rekrutierungsprozess kann zwischen 5 und 6 Wochen dauern.\n\n• Wir wünschen Ihnen viel Glück in Ihrem Bewerbungsprozess. Konsultieren Sie unsere Häufig gestellten Fragen zu Karrieren für Beratung zu Bewerbungen und Interviews.\n\nBitte kontaktieren Sie mycareer-techsupport@hilti.com bei technischen Problemen bei der Bewerbung.\n\nVerpflichtung zur Einbeziehung\n\nBei Hilti leitet Inklusion unsere Art zu arbeiten, zu führen und gemeinsam voranzukommen. Wir sind bestrebt, die Vielfalt der Ansichten zu schätzen und ein integratives Umfeld für alle zu schaffen. Wir stellen sicher, dass jede Stimme gehört wird und dass jedes Mitglied des Teams dazu beitragen kann. Auf dieser Grundlage stärken wir unsere Teams, unsere Innovationsfähigkeit und unsere Wirkung, um gemeinsam den Bausektor zu verbessern.\n\nWarum wählen Sie Hilti\n\nHilti ist ein weltweit führender Anbieter von Bauinnovationen mit über 34.000 Mitarbeitern in 120 Ländern. Geleitet von unserer Daseinsberechtigung - \"Bauen besser machen\" - werden wir von dem Wunsch getrieben, zu lernen, zu wachsen und neue Wege zu finden, um nachhaltig etwas zu bewirken. Wenn Sie zu Hilti kommen, werden Sie ermutigt, Ihre Stärken zu präsentieren, mit einem globalen und integrativen Team zusammenzuarbeiten und sich herausfordernden Herausforderungen zu stellen. Hier sind Ihre Ideen wichtig: Sie haben die Möglichkeit, Ihre Projekte, Ihre Erfolge und Ihre Entwicklung durch Leidenschaft, Zusammenarbeit und Engagement zu verwirklichen."
+        "de": "Treten Sie unserem Verkaufsteam bei und machen Sie einen Unterschied!\n\nMöchten Sie sich Herausforderungen stellen, langfristiges Vertrauen aufbauen und sich in einem dynamischen Umfeld entwickeln, in dem Teamarbeit, Autonomie und Ausdauer für den Erfolg unerlässlich sind?\n\nOb Sie aus dem Vertrieb B2B, Projektmanagement oder dem Bausektor stammen, diese Gelegenheit ermöglicht es Ihnen, Ihre Karriere in einem Unternehmen zu entwickeln, das für seine Leistungskultur, seinen Geist der Zusammenarbeit und sein Engagement für die Entwicklung seiner Mitarbeiter bekannt ist.\n\nIhr Vermögen für diese Position\n\n• Eine spannende Position mit einem hohen Maß an Autonomie und Verantwortung\n\n• Eine Unternehmenskultur, die zu den Besten der Schweiz zählt\n\n• Ein stimulierendes, kollaboratives und integratives Arbeitsumfeld\n\n• Ein strukturiertes Integrationsprogramm und Qualitätsunterstützung bei der Ankunft\n\n• Attraktive Vergütung bestehend aus Festgehalt und Leistungsbonus\n\n• Ein Funktionsfahrzeug auch für den privaten Gebrauch geeignet\n\n• Moderne Tools für Sie zum Erfolg und zur Entwicklung Ihres Unternehmens\n\n• Die Möglichkeit, einem Unternehmen beizutreten, das nachhaltig in seine Mitarbeiter investiert\n\nRechtliche Informationen\n\nKonnten wir Ihr Interesse wecken? Möchten Sie für den besten Arbeitgeber der Schweiz arbeiten? Senden Sie uns Ihr vollständiges Dossier (Motivationsschreiben, Lebenslauf, Zertifikate, Diplome) zu unserem Online-Karriere-Tool.\n\nWas Sie bei einer Bewerbung bei Hilti erwarten können:\n\n• Wir setzen uns dafür ein, dass alle Anwendungen von einem Menschen überprüft werden, und obwohl niemand unfehlbar ist, bleiben wir bei allem, was wir tun, unserem menschenzentrierten Ansatz treu.\n\n• Sobald sie ihre bewerbung eingereicht haben, können sie automatisierte benachrichtigungen unseres systems (von unserem rekrutierungsteam besucht) erhalten.\n\n• Bewerbungen, die die Interviewphase (mit einem Rekrutierungsbeauftragten) nicht erreichen, unterliegen keinem personalisierten Feedback.\n\n• Sie können erwarten, eine Antwort von uns innerhalb von 2-3 Wochen (im Durchschnitt) zu erhalten, unabhängig vom Ergebnis. Der vollständige Rekrutierungsprozess kann zwischen 5 und 6 Wochen dauern.\n\n• Wir wünschen Ihnen viel Glück in Ihrem Bewerbungsprozess. Konsultieren Sie unsere Häufig gestellten Fragen zu Karrieren für Beratung zu Bewerbungen und Interviews.\n\nBitte kontaktieren Sie mycareer-techsupport@hilti.com bei technischen Problemen bei der Bewerbung.\n\nVerpflichtung zur Einbeziehung\n\nBei Hilti leitet Inklusion unsere Art zu arbeiten, zu führen und gemeinsam voranzukommen. Wir sind bestrebt, die Vielfalt der Ansichten zu schätzen und ein integratives Umfeld für alle zu schaffen. Wir stellen sicher, dass jede Stimme gehört wird und dass jedes Mitglied des Teams dazu beitragen kann. Auf dieser Grundlage stärken wir unsere Teams, unsere Innovationsfähigkeit und unsere Wirkung, um gemeinsam den Bausektor zu verbessern.\n\nWarum wählen Sie Hilti\n\nHilti ist ein weltweit führender Anbieter von Bauinnovationen mit über 34.000 Mitarbeitern in 120 Ländern. Geleitet von unserer Daseinsberechtigung - \"Bauen besser machen\" - werden wir von dem Wunsch getrieben, zu lernen, zu wachsen und neue Wege zu finden, um nachhaltig etwas zu bewirken. Wenn Sie zu Hilti kommen, werden Sie ermutigt, Ihre Stärken zu präsentieren, mit einem globalen und integrativen Team zusammenzuarbeiten und sich herausfordernden Herausforderungen zu stellen. Hier sind Ihre Ideen wichtig: Sie haben die Möglichkeit, Ihre Projekte, Ihre Erfolge und Ihre Entwicklung durch Leidenschaft, Zusammenarbeit und Engagement zu verwirklichen.",
+        "fr": "Rejoignez notre équipe commerciale et faites la différence !\n\nVous aimez relever des défis, créer des relations de confiance sur le long terme et évoluer dans un environnement dynamique où l'esprit d'équipe, l'autonomie et la persévérance sont essentiels à la réussite ?\n\nQue vous soyez issu·e de la vente B2B, de la gestion de projets ou du secteur de la construction, cette opportunité vous permettra de développer votre carrière dans une entreprise reconnue pour sa culture de la performance, son esprit de collaboration et son engagement envers le développement de ses collaborateurs.\n\nVos atouts pour ce poste\n\n• Un poste passionnant avec un haut niveau d'autonomie et de responsabilités\n\n• Une culture d'entreprise reconnue parmi les meilleures de Suisse\n\n• Un environnement de travail stimulant, collaboratif et inclusif\n\n• Un programme d'intégration structuré et un accompagnement de qualité dès votre arrivée\n\n• Une rémunération attractive composée d'un salaire fixe et d'un bonus lié à la performance\n\n• Une voiture de fonction également utilisable à titre privé\n\n• Des outils modernes vous permettant de réussir et de développer votre activité\n\n• La possibilité de rejoindre une entreprise qui investit durablement dans ses collaborateurs\n\nMentions légales\n\nAvons-nous su éveiller votre intérêt? Désirez-vous travailler pour le meilleur employeur de Suisse? N'hésitez pas à nous envoyer votre dossier complet (lettre de motivation, CV, certificats, diplômes) sur notre outil de carrière en ligne.\n\nCe à quoi vous pouvez vous attendre lorsque vous postulez à un emploi chez Hilti :\n\n• Nous nous engageons à ce que toutes les candidatures soient examinées par un être humain et, bien que personne ne soit infaillible, nous restons fidèles à notre approche centrée sur les personnes dans tout ce que nous faisons.\n\n• Une fois que vous avez soumis votre candidature, vous pouvez vous attendre à recevoir des notifications automatisées de notre système (déclenchées par notre équipe de recrutement).\n\n• Les candidatures qui ne parviennent pas à l'étape de l'entretien (avec un responsable du recrutement) ne feront pas l'objet d'un retour d'information personnalisé.\n\n• Vous pouvez vous attendre à recevoir une réponse de notre part dans un délai de 2 à 3 semaines (en moyenne), quel que soit le résultat. Le processus de recrutement complet peut durer entre 5 et 6 semaines.\n\n• Nous vous souhaitons bonne chance dans votre processus de candidature. Consultez notre foire aux questions sur les carrières pour obtenir des conseils sur les candidatures et les entretiens.\n\nVeuillez contacter mycareer-techsupport@hilti.com en cas de problème technique lors de votre candidature.\n\nEngagement en faveur de l'inclusion\n\nChez Hilti, l'inclusion guide notre manière de travailler, de diriger et de progresser ensemble. Nous nous engageons à valoriser la diversité des points de vue et à créer un environnement inclusif partout et pour chacun. Nous veillons à ce que chaque voix soit entendue et que chaque membre de l'équipe puisse contribuer. En nous appuyant sur cette base, nous renforçons nos équipes, notre capacité d'innovation et notre impact, pour améliorer le secteur de la construction ensemble.\n\nPourquoi choisir Hilti\n\nHilti est un leader mondial de l’innovation dans la construction, avec plus de 34 000 collaborateurs répartis dans 120 pays. Guidés par notre raison d’être – \"Making Construction Better\" (Améliorer le secteur de la Construction) – nous sommes animés par l’envie d’apprendre, de grandir et de trouver de nouvelles façons d’avoir un impact durable. En rejoignant Hilti, vous serez encouragé.e à mettre en valeur vos forces, à travailler avec une équipe mondiale et inclusive, et à relever des défis stimulants. Ici, vos idées comptent: vous aurez la possibilité de concrétiser vos projets, vos réussites et votre développement grâce à la passion, la collaboration et l'engagement."
       },
       "location": "Fribourg, Fribourg",
       "canton": "FR",
       "url": "https://careers.hilti.group/en/jobs/20552-fr/conseiller-de-vente-externe-h-f-d-100/",
       "source": "Hilti Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:54:11.578Z",
+      "crawledAt": "2026-09-22T00:01:10.825Z",
       "addressLocality": "Fribourg",
       "postalCode": "",
       "addressRegion": "FR",
@@ -596,9 +618,8 @@
       "postedDate": "2026-09-18",
       "applyUrl": "https://careers.hilti.group/en/jobs/20552-fr/conseiller-de-vente-externe-h-f-d-100/",
       "requirements": [],
-      "requirementsByLocale": {
-        "fr": []
-      },
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-19T22:54:11.578Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "salarySource": "estimated",
@@ -611,8 +632,7 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T22:54:11.578Z"
+      }
     },
     {
       "id": "hilti-14822-en",
@@ -684,7 +704,8 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2,
+      "needsRetranslation": true
     },
     {
       "id": "hilti-19175-en",
@@ -768,7 +789,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     },
     {
       "id": "hilti-19408-en",
@@ -843,7 +864,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1
+      "crawlerMissStreak": 2
     }
   ]
 }
