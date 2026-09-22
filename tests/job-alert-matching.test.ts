@@ -6,6 +6,7 @@ import {
   freshnessBoost,
   GEO_PREFERENCE_MIN_LOCAL,
 } from '../services/jobAlertMatching.mjs';
+import { buildAlertPayload } from '../functions/src/jobAlertBackfillCore.js';
 
 /** Minimal job fixture matching the data/jobs.json shape the matcher reads. */
 function job(overrides: Record<string, unknown> = {}) {
@@ -50,6 +51,34 @@ describe('jobAlertMatching — explicit keyword contract (legacy preserved)', ()
     const kwOnly = score(job(), { keywords: ['engineer'] });
     const kwLoc = score(job(), { keywords: ['engineer'], locations: ['Lugano'] });
     expect(kwLoc).toBeGreaterThan(kwOnly);
+  });
+
+  it('does not let a backfilled category satisfy the hard keyword filter', () => {
+    const subscriber = {
+      job_search_query: 'fisioterapista',
+      job_category: 'health',
+      sector_interest: 'health',
+      source_channel: 'job_gate',
+    };
+    const alert = buildAlertPayload('a@b.ch', subscriber, null);
+    const unrelated = job({
+      title: 'Digital Product Manager',
+      description: 'Join the VF digital health initiative.',
+      company: 'VF',
+      companyKey: 'vf',
+      sector: 'Fashion',
+      category: 'Retail',
+    });
+    const relevant = job({
+      title: 'Fisioterapista',
+      description: 'Ruolo sanitario in riabilitazione.',
+      sector: 'Sanità',
+      category: 'Fisioterapia',
+    });
+
+    const profile = buildAlertProfile(alert, subscriber);
+    expect(scoreJobForAlert(unrelated, profile, 'it')).toBe(0);
+    expect(scoreJobForAlert(relevant, profile, 'it')).toBeGreaterThan(0);
   });
 });
 
