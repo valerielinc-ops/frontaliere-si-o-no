@@ -87,13 +87,28 @@ jobs:
               ;;
           esac
 
+          if ! command -v grep >/dev/null 2>&1; then
+            echo "::error::grep is required to route housekeeping slices."
+            exit 127
+          fi
+
           shopt -s nullglob
           processed=0
           for slice in data/jobs/by-crawler/*.json; do
-            if [ "$HOUSEKEEPING_LANE" = prospective ]; then
-              rg -qi -- "$lane_pattern" "$slice" || continue
+            if grep -Eqi -- "$lane_pattern" "$slice"; then
+              is_prospective=1
             else
-              rg -qi -- "$lane_pattern" "$slice" && continue
+              matcher_status=$?
+              if [ "$matcher_status" -ne 1 ]; then
+                echo "::error::Failed to classify $slice (grep exit $matcher_status)."
+                exit "$matcher_status"
+              fi
+              is_prospective=0
+            fi
+
+            if [ "$HOUSEKEEPING_LANE:$is_prospective" = prospective:0 ] || \
+               [ "$HOUSEKEEPING_LANE:$is_prospective" = rest:1 ]; then
+              continue
             fi
 
             echo "🧹 [$HOUSEKEEPING_LANE] $slice"
