@@ -21,7 +21,7 @@ import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import { RAIL_ASIDE_CLASS_X, RAIL_GRID_CLASS_X, useRailGridCollapse } from '@/components/shared/useRailGridCollapse';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
 import { useTranslation, type Locale } from '@/services/i18n';
-import { AD_SLOTS, shouldPlaceInfeedAd } from '@/services/adsenseSlots';
+import { AD_SLOTS } from '@/services/adsenseSlots';
 import { buildPlateAuctionPath, parsePlateAuctionPath } from '@/services/plateAuctions/paths';
 import {
   fetchPlateAuctionEditorialSnapshot,
@@ -148,25 +148,13 @@ export function PlateAuctionsPage(): React.ReactElement {
   const downloadCsv = useCallback(() => { if (ranking.length === 0) return; const header = [copy.plate, copy.vehicleType, copy.price, copy.bids, copy.end, copy.canton]; const body = ranking.map(({ auction, amountChf }) => [auction.normalizedPlate, vehicleTypeLabel(auction.vehicleType, copy), formatChf(amountChf, locale), auction.bidCount ?? '', formatDate(auction.endsAt || auction.closedAt, locale), cantonLabel(auction.sourceKey || auction.platePrefix, locale)].map(csvCell).join(',')); const blob = new Blob([[header.map(csvCell).join(','), ...body].join('\n')], { type: 'text/csv;charset=utf-8' }); const url = URL.createObjectURL(blob); const link = document.createElement('a'); link.href = url; link.download = 'aste-targhe-' + mode + '.csv'; link.click(); URL.revokeObjectURL(url); Analytics.trackUIInteraction('plate_auctions', 'results', 'csv', 'download', mode); }, [copy, locale, mode, ranking]);
   const pageTitle = detail ? detail.normalizedPlate : route?.view === 'rankings' ? `${copy.title} — ${copy.final}` : directoryRequested ? `${copy.title}: ${cantonLabel(routeCanton, locale)} — ${copy.directory}` : routeCanton ? `${copy.title}: ${cantonLabel(routeCanton, locale)}` : copy.title; const detailRequested = route?.view === 'detail'; const liveReady = Boolean(snapshot);
 
+  const mobileRows = useMemo(() => ranking.map((row) => (
+    <MobileAuctionCard key={row.auction.id} row={row} locale={locale} copy={copy} onNavigate={navigate} saved={watchlist.includes(row.auction.normalizedPlate)} onToggleSaved={toggleWatch} />
+  )), [copy, locale, navigate, ranking, toggleWatch, watchlist]);
 
-  const renderInfeedAd = useCallback((key: string, surface: 'mobile' | 'desktop'): React.ReactElement => {
-    const config = surface === 'mobile' ? AD_SLOTS.JOBLIST_INFEED_MOBILE : AD_SLOTS.JOBLIST_INFEED_DESKTOP;
-    const ad = <AdSenseBanner adSlot={config.slot} adFormat={config.format} fullWidthResponsive={config.fullWidthResponsive} className="my-3" />;
-    if (surface === 'mobile') return <div key={key} className="px-4 py-1" style={{ minHeight: config.placeholderMinHeight }} data-testid="plate-auction-infeed-ad">{ad}</div>;
-    return <tr key={key} className="ft-infeed-ad" data-testid="plate-auction-infeed-ad"><td colSpan={8} className="px-4 py-2">{ad}</td></tr>;
-  }, []);
-
-  const mobileRows = useMemo(() => ranking.flatMap((row, index) => {
-    const items: React.ReactNode[] = [<MobileAuctionCard key={row.auction.id} row={row} locale={locale} copy={copy} onNavigate={navigate} saved={watchlist.includes(row.auction.normalizedPlate)} onToggleSaved={toggleWatch} />];
-    if (index + 1 < ranking.length && shouldPlaceInfeedAd(index + 1)) items.push(renderInfeedAd('mobile-ad-' + row.auction.id, 'mobile'));
-    return items;
-  }), [copy, locale, navigate, ranking, renderInfeedAd, toggleWatch, watchlist]);
-
-  const desktopRows = useMemo(() => ranking.flatMap((row, index) => {
-    const items: React.ReactNode[] = [<DesktopAuctionRow key={row.auction.id} row={row} locale={locale} copy={copy} onNavigate={navigate} saved={watchlist.includes(row.auction.normalizedPlate)} onToggleSaved={toggleWatch} />];
-    if (index + 1 < ranking.length && shouldPlaceInfeedAd(index + 1)) items.push(renderInfeedAd('desktop-ad-' + row.auction.id, 'desktop'));
-    return items;
-  }), [copy, locale, navigate, ranking, renderInfeedAd, toggleWatch, watchlist]);
+  const desktopRows = useMemo(() => ranking.map((row) => (
+    <DesktopAuctionRow key={row.auction.id} row={row} locale={locale} copy={copy} onNavigate={navigate} saved={watchlist.includes(row.auction.normalizedPlate)} onToggleSaved={toggleWatch} />
+  )), [copy, locale, navigate, ranking, toggleWatch, watchlist]);
   if (loading && hasStaticFallback) return <div className="sr-only" role="status">{copy.updated}</div>;
   if (loading) return <div className="rounded-[2rem] border border-edge bg-surface p-10 text-center" role="status"><Loader2 className="mx-auto h-6 w-6 animate-spin text-accent" aria-hidden="true" /><span className="sr-only">Loading</span></div>;
   if (!snapshot) return <div className="rounded-[2rem] border border-warning-border bg-warning-subtle p-6 text-sm text-body" role="alert"><div className="flex items-start gap-3"><CircleAlert className="mt-0.5 h-5 w-5 shrink-0 text-warning" aria-hidden="true" /><div><p className="font-semibold text-heading">{copy.unavailable}</p><button type="button" onClick={() => void load(true)} className="mt-4 inline-flex items-center gap-2 rounded-xl border border-edge bg-surface px-4 py-2 font-semibold text-link hover:border-accent"><RefreshCw className="h-4 w-4" aria-hidden="true" />{copy.refresh}</button></div></div></div>;
