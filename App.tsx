@@ -2837,7 +2837,7 @@ const App: React.FC = () => {
  {/* GPT ad surfaces need the framework on every job-board route, including
     * static-overlay pages where the interactive JobBoard is skipped. This
     * bootstrap is null-rendering and does not create a visible ad slot; the
-    * external Rewarded Web page initializes its own lifecycle on opt-in. */}
+    * JobBoard initializes the rewarded lifecycle after an authenticated apply click. */}
  {activeTab === 'job-board' && (
    <SafeLazy boundary="jobboard-gpt-bootstrap">
      <GptJobBoardBootstrap />
