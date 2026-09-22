@@ -6641,6 +6641,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.title': 'Aufenthaltsbewilligung B in Freiburg: Voraussetzungen & Verfahren',
     'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.excerpt': 'Praktischer Leitfaden zu den Voraussetzungen für die Erlangung und Erneuerung der B-Bewilligung im Kanton Freiburg, mit notwendigen Unterlagen und Verfahrensablauf.',
     'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.imageAlt': 'Kathedrale St. Nikolaus in Freiburg, Symbol des Kantons',
+    'blog.article.permesso-c-friburgo-guida-requisiti.title': 'Kantonsgenehmigung Freiburg: Voraussetzungen und Antrag',
+    'blog.article.permesso-c-friburgo-guida-requisiti.excerpt': 'Regeln, Aufenthaltszeiten, Integrationskriterien und Verfahren zur Erlangung der Niederlassungsbewilligung C im Kanton Freiburg.',
+    'blog.article.permesso-c-friburgo-guida-requisiti.imageAlt': 'Verwaltungsgebäude und Strassenansicht im Kanton Freiburg',
 };
 
 export default blogMetaChDe;

@@ -6641,6 +6641,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.title': 'Residence permit B in Fribourg: requirements, renewal & procedures',
     'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.excerpt': 'Practical guide to the requirements for obtaining and renewing the B permit in the Canton of Fribourg, with the necessary documents and procedure.',
     'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.imageAlt': 'St. Nicholas Cathedral in Fribourg, symbol of the Canton',
+    'blog.article.permesso-c-friburgo-guida-requisiti.title': 'Permit c canton Freiburg: requirements and application',
+    'blog.article.permesso-c-friburgo-guida-requisiti.excerpt': 'Rules, residence times, integration criteria and procedure for obtaining residence permit C in the Canton of Freiburg.',
+    'blog.article.permesso-c-friburgo-guida-requisiti.imageAlt': 'Administrative buildings and street view in the Canton of Fribourg',
 };
 
 export default blogMetaChEn;

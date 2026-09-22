@@ -19895,6 +19895,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'permesso-c-friburgo-guida-requisiti',
+    category: 'pratico',
+    date: '2026-09-22T05:55:12.294Z',
+    image: '/images/blog/permesso-c-friburgo-guida-requisiti.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the
