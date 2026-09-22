@@ -1,7 +1,7 @@
 {
   "key": "careers",
   "label": "lepatron",
-  "generatedAt": "2026-09-21T16:03:32.365Z",
+  "generatedAt": "2026-09-22T00:05:27.577Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -12,10 +12,10 @@
   "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4210,
-  "avgDurationMs": 4210,
+  "durationMs": 3309,
+  "avgDurationMs": 3309,
   "durationHistory": [
-    4210
+    3309
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:03:22.151Z",
+      "crawledAt": "2026-09-22T00:05:21.849Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -45,6 +45,7 @@
       "featured": false,
       "postedDate": "2026-09-08",
       "applyUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Teamleiterin-Anlagenf%C3%BChrerin%2C-100-BL/1434644333/",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-08T13:39:36.514Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -66,7 +67,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:03:22.156Z",
+      "crawledAt": "2026-09-22T00:05:21.851Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",
@@ -80,7 +81,7 @@
       "featured": false,
       "postedDate": "2026-08-31",
       "applyUrl": "https://careers.orior.ch/job/B%C3%B6ckten-Praktikantin-Product-Manager-Convenience%2C-80-100-BL/1431816433/",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:12:06.514Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -102,7 +103,7 @@
       "url": "https://careers.orior.ch/job/B%C3%B6ckten-Betriebsmechaniker-in-Instandhaltung%2C-80-100-BL/1402889733/",
       "source": "lepatron Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:03:22.154Z",
+      "crawledAt": "2026-09-22T00:05:21.850Z",
       "addressLocality": "Böckten",
       "addressRegion": "BL",
       "addressCountry": "CH",

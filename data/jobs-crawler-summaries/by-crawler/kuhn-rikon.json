@@ -1,23 +1,24 @@
 {
   "key": "kuhn-rikon",
   "label": "Kuhn Rikon",
-  "generatedAt": "2026-09-21T16:06:14.483Z",
+  "generatedAt": "2026-09-22T00:06:57.212Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
   "lastFetchOutcome": null,
   "written": 3,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 2,
+  "newCount": 0,
+  "updatedCount": 3,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 4495,
-  "avgDurationMs": 4495,
+  "durationMs": 4861,
+  "avgDurationMs": 4861,
   "durationHistory": [
-    4495
+    4861
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "kuhn-rikon-c3c4f662e0c6",
       "slug": "lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt-100",
@@ -31,7 +32,7 @@
       "url": "https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:06:05.694Z",
+      "crawledAt": "2026-09-22T00:06:49.976Z",
       "addressLocality": "Rikon im Tösstal",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
@@ -49,16 +50,15 @@
       "applyUrl": "https://my.jobalino.ch/job/093cd182d6b09fd293edc53c732daa2d/lehrstelle-detailhandelsfachmann-frau-efz-gestalten-von-einkaufserlebnissen-haushalt",
       "externalId": "093cd182d6b09fd293edc53c732daa2d",
       "hiringOrganizationName": "Kuhn Rikon",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-09-21T16:06:05.694Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "kuhn-rikon-4edc9ba1b5a5",
       "slug": "verkaufsberater-in-outlet-landquart-w-m-50-80-kuhn-rikon-landquart",
@@ -72,7 +72,7 @@
       "url": "https://my.jobalino.ch/job/7ae949ca06781987fbd101ae9e246d6a/verkaufsberater-in-outlet-landquart-w-m",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:06:06.639Z",
+      "crawledAt": "2026-09-22T00:06:50.894Z",
       "addressLocality": "Landquart",
       "streetAddress": "Industriestrasse 1",
       "postalCode": "7302",
@@ -113,7 +113,7 @@
       "url": "https://my.jobalino.ch/job/32d44bf225d93aeca1f2eea1de8acc55/produktionsmitarbeiter-in_1275",
       "source": "Kuhn Rikon Dedicated Parser (Jobalino)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:06:06.177Z",
+      "crawledAt": "2026-09-22T00:06:50.436Z",
       "addressLocality": "Rikon",
       "streetAddress": "Neschwilerstrasse 4",
       "postalCode": "8486",
