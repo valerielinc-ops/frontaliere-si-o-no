@@ -1,18 +1,19 @@
 {
   "key": "bosch-thermotechnik-ag",
   "label": "Bosch Thermotechnik AG",
-  "generatedAt": "2026-09-21T15:54:37.089Z",
+  "generatedAt": "2026-09-21T23:59:41.705Z",
   "total": 8,
-  "newCount": 2,
-  "updatedCount": 5,
-  "removedCount": 2,
+  "newCount": 0,
+  "updatedCount": 7,
+  "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 17955,
-  "avgDurationMs": 17955,
+  "durationMs": 20476,
+  "avgDurationMs": 20476,
   "durationHistory": [
-    17955
+    20476
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "title": "4- oder 5-Tage-Woche – Servicetechniker Öl / Gas Stadt Luzern & Agglomeration (w/m/div.) REF296638W",
       "slug": "4-oder-5-tage-woche-servicetechniker-ol-gas-stadt-luzern-agglomeration-w-m-div-ref296638w-bosch-steinhausen",
@@ -35,12 +36,19 @@
       "sourceLang": "de",
       "postedDate": "2026-09-21",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-f1861c66f6a3",
+      "salaryMin": 79000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-21T15:54:30.864Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 19,
+        "completeness": 19
       }
     },
     {
@@ -65,16 +73,21 @@
       "sourceLang": "de",
       "postedDate": "2026-09-21",
       "validThrough": "",
-      "_qualityScore": 77,
+      "id": "bosch-thermotechnik-ag-65d6e6f36605",
+      "salaryMin": 79000,
+      "salaryMax": 121500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-21T15:54:30.864Z",
+      "_qualityScore": 85,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 22,
-        "translation": 16,
-        "completeness": 14
+        "translation": 19,
+        "completeness": 19
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "title": "Lehrstelle Konstrukteur/in (w/m/div) 2027",
       "slug": "lehrstelle-konstrukteur-in-w-m-div-2027-bosch-buttikon",
@@ -103,6 +116,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-16T23:43:27.195Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -139,6 +153,7 @@
       "currency": "CHF",
       "salarySource": "reported",
       "firstSeenAt": "2026-09-16T23:43:27.195Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -175,6 +190,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-10T23:04:38.705Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -256,80 +272,7 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "title": "Praktikum – Produkt- und Projektmanagement REF295388E",
-      "slug": "stage-product-and-project-management-ref295388e-bosch-thermotechnik-ag-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF295388E-praktikum-produkt-und-projektmanagement-ref295388e",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146901714-praktikum-produkt-und-projektmanagement-ref295388e?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-09-02",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-09d66903753a",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "firstSeenAt": "2026-09-02T13:33:43.548Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    },
-    {
-      "title": "Internship – International Production Planning REF295427G",
-      "slug": "stage-pianificazione-internazionale-della-produzione-ref295427g-bosch-thermotechnik-ag-solothurn-zuchwil",
-      "url": "https://jobs.bosch.com/en/job/REF295427G-internship-international-production-planning-ref295427g",
-      "applyUrl": "https://jobs.smartrecruiters.com/BoschGroup/744000146902159-internship-international-production-planning-ref295427g?oga=true&trid=2897ada5-c831-4fce-a5b7-4e5f01ecb702",
-      "company": "Bosch Thermotechnik AG",
-      "companyKey": "bosch-thermotechnik-ag",
-      "companyDomain": "bosch.ch",
-      "location": "Solothurn/Zuchwil",
-      "addressLocality": "Solothurn/Zuchwil",
-      "addressRegion": "SO",
-      "addressCountry": "CH",
-      "canton": "SO",
-      "country": "CH",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "category": "other",
-      "sector": "Energia",
-      "source": "bosch-dedicated-crawler",
-      "sourceLang": "en",
-      "postedDate": "2026-09-02",
-      "validThrough": "",
-      "id": "bosch-thermotechnik-ag-033c6cade7e7",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "currency": "CHF",
-      "salarySource": "reported",
-      "firstSeenAt": "2026-09-02T13:33:43.548Z",
-      "_qualityScore": 91,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 19
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "title": "Internship – Design Sustainable Packaging REF296423S",
@@ -359,6 +302,7 @@
       "currency": "CHF",
       "salarySource": "reported",
       "firstSeenAt": "2026-09-16T23:43:27.195Z",
+      "needsRetranslation": true,
       "_qualityScore": 91,
       "_qualityBreakdown": {
         "cleanliness": 25,
