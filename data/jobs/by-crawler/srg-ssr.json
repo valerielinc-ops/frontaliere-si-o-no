@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-09-21T16:01:34.793Z",
+  "assembledAt": "2026-09-22T00:01:01.651Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:57:17.444Z",
+      "crawledAt": "2026-09-22T00:00:56.447Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -101,7 +101,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T15:57:16.926Z",
+      "crawledAt": "2026-09-22T00:00:55.449Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -141,16 +141,16 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-06-29T11:35:50.122Z",
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "previousSlugsByLocale": {
         "fr": [
           "pratique-pratique-srg-ssr-cuira"
         ]
       },
-      "previousSlugs": [
-        "pratique-pratique-srg-ssr-cuira"
-      ],
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-06-29T11:35:50.122Z",
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
@@ -196,7 +196,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:57:16.451Z",
+      "crawledAt": "2026-09-22T00:00:54.923Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -243,8 +243,8 @@
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-17T21:37:03.185Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-17T21:37:03.185Z",
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -291,7 +291,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:57:15.941Z",
+      "crawledAt": "2026-09-22T00:00:54.385Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -342,8 +342,8 @@
           "projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-08-13T21:48:15.082Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T21:48:15.082Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -390,7 +390,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:57:15.448Z",
+      "crawledAt": "2026-09-22T00:00:53.832Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -442,8 +442,8 @@
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-08-13T21:48:14.284Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-13T21:48:14.284Z",
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -490,7 +490,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:57:14.846Z",
+      "crawledAt": "2026-09-22T00:00:53.298Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -544,8 +544,8 @@
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ]
       },
-      "firstSeenAt": "2026-08-14T21:28:35.078Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:28:35.078Z",
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -592,7 +592,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:57:14.215Z",
+      "crawledAt": "2026-09-22T00:00:52.741Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -646,8 +646,8 @@
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ]
       },
-      "firstSeenAt": "2026-08-14T21:28:34.182Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-14T21:28:34.182Z",
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -694,7 +694,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:57:13.654Z",
+      "crawledAt": "2026-09-22T00:00:52.197Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -746,8 +746,8 @@
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-08-21T09:46:05.638Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-21T09:46:05.638Z",
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -794,7 +794,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rsi-info-digitale/17338cec-b414-4787-bc8a-0718d1522e66",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T15:57:13.102Z",
+      "crawledAt": "2026-09-22T00:00:51.663Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -838,8 +838,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-09-02T13:33:58.696Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-02T13:33:58.696Z",
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -886,7 +886,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/unternehmensentwickler-in/3622b4b4-a2dc-463a-80e1-17e8580a49d9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:57:12.514Z",
+      "crawledAt": "2026-09-22T00:00:51.104Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -965,8 +965,8 @@
           "stagiaire-recherchiste-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-09-08T13:36:17.762Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:36:17.762Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -1013,7 +1013,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialiste-developpement-de-l-entreprise-f-h/68d88043-3525-4e16-9feb-b00befaafcd0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:57:11.980Z",
+      "crawledAt": "2026-09-22T00:00:50.448Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1067,8 +1067,8 @@
           "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-09-08T13:36:17.077Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:36:17.077Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1115,7 +1115,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialista-sviluppo-aziendale/e5a4e260-bf26-4091-80eb-d00ff6e77726",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T15:57:11.444Z",
+      "crawledAt": "2026-09-22T00:00:49.788Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1153,8 +1153,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-09-08T13:36:16.364Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-08T13:36:16.364Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1201,7 +1201,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/chargees-de-projet-technique/3631e123-3639-47c1-aa9b-19dd52c04de5",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:57:10.798Z",
+      "crawledAt": "2026-09-22T00:00:49.134Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -1260,8 +1260,8 @@
           "charge-e-s-de-projet-technique-srg-ssr-lausanne"
         ]
       },
-      "firstSeenAt": "2026-09-09T23:04:42.334Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T23:04:42.334Z",
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -1308,7 +1308,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/journaliste-data-actualite/c57274dd-5b5b-40c1-b089-be5ddd120c45",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:57:10.219Z",
+      "crawledAt": "2026-09-22T00:00:48.439Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1373,8 +1373,8 @@
           "journaliste-data-actualite-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-09-09T13:45:01.576Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-09T13:45:01.576Z",
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1421,7 +1421,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/responsabile-rete-tre/af6a6cbb-11f2-434e-906f-26f2a33ff12a",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T15:57:09.655Z",
+      "crawledAt": "2026-09-22T00:00:47.919Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1459,8 +1459,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-09-10T23:07:06.414Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-10T23:07:06.414Z",
       "salaryMin": 75500,
       "salaryMax": 133000,
       "salarySource": "estimated",
@@ -1507,7 +1507,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-radiofonica-di-rete-uno/f0713e91-8f0d-45e7-97e7-594e453d4471",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T15:57:09.099Z",
+      "crawledAt": "2026-09-22T00:00:47.335Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1553,8 +1553,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-09-11T13:35:22.240Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:35:22.240Z",
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -1601,7 +1601,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rete-uno-e-rete-tre/c9783f6a-a253-43f3-9ef7-6a679c49914d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T15:57:08.519Z",
+      "crawledAt": "2026-09-22T00:00:46.668Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1648,8 +1648,8 @@
         "pensumMin": 80,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-09-11T13:35:21.643Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-11T13:35:21.643Z",
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -1696,7 +1696,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-reseaux-sociaux-et-communication-digitale-tataki/3598fb13-04cb-4afb-9a92-c589d50027d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:57:07.838Z",
+      "crawledAt": "2026-09-22T00:00:45.976Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1754,8 +1754,8 @@
           "stagiaire-reseaux-sociaux-et-communication-digitale-tataki-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-09-17T03:44:42.352Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-17T03:44:42.352Z",
       "salaryMin": 66000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -1802,7 +1802,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-redactrice-ou-redacteur-junior-tataki/fdff2769-ae0e-412b-811c-4ee1d51f261c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:57:07.216Z",
+      "crawledAt": "2026-09-22T00:00:45.297Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1863,8 +1863,8 @@
           "stagiaire-redactrice-ou-redacteur-junior-tataki-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-09-17T03:44:41.782Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-17T03:44:41.782Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1911,7 +1911,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-graphiste-et-direction-artistique-digitale-tataki/5fc7f2e5-fce0-46ca-8bed-8eff9b779fd7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:57:06.623Z",
+      "crawledAt": "2026-09-22T00:00:44.583Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1971,8 +1971,8 @@
           "stagiaire-graphiste-et-direction-artistique-digitale-tataki-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-09-17T03:44:41.139Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-17T03:44:41.139Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -2019,7 +2019,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-interactive-media-designer-imd-tataki/3a99a71e-fd4b-4cc7-8fa5-b0746753a905",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:57:06.138Z",
+      "crawledAt": "2026-09-22T00:00:44.040Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2065,8 +2065,8 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-09-17T03:44:40.556Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-17T03:44:40.556Z",
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2113,7 +2113,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-marketingkreation/416f8645-28b9-4b0f-9ad5-b5ee37d08a43",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:57:05.563Z",
+      "crawledAt": "2026-09-22T00:00:43.467Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2164,8 +2164,8 @@
           "praktikant-in-marketingkreation-srg-ssr-zurich"
         ]
       },
-      "firstSeenAt": "2026-09-17T03:44:39.982Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-17T03:44:39.982Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2212,7 +2212,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/leiter-in-immobilien-srg-co-leitung-moeglich/246cbef0-8690-40df-9455-e2d6560d25f6",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:57:05.022Z",
+      "crawledAt": "2026-09-22T00:00:42.939Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2269,8 +2269,8 @@
           "leiter-in-immobilien-srg-co-leitung-moglich-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-09-17T03:44:39.392Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-17T03:44:39.392Z",
       "salaryMin": 106500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -2317,7 +2317,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-immobili-ssr-co-conduzione-possibile/481ef3ff-0df3-4c4a-b1f9-f0bfad4ca28e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T15:57:04.411Z",
+      "crawledAt": "2026-09-22T00:00:42.259Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2356,8 +2356,8 @@
         "pensumMin": 100,
         "pensumMax": 100
       },
-      "firstSeenAt": "2026-09-17T03:44:38.850Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-17T03:44:38.850Z",
       "salaryMin": 106500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -2404,7 +2404,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-immobilier-ssr-codirection-possible/097acdb0-f182-452a-a7ee-ebf96ae0bc74",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:57:03.850Z",
+      "crawledAt": "2026-09-22T00:00:41.559Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2459,8 +2459,8 @@
           "responsable-immobilier-ssr-codirection-possible-srg-ssr-bern"
         ]
       },
-      "firstSeenAt": "2026-09-17T03:44:37.959Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-17T03:44:37.959Z",
       "salaryMin": 106500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -2507,7 +2507,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-radio-srf-3-radio-und-online/1219f941-86c2-446d-9552-97eee916efe7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:57:03.271Z",
+      "crawledAt": "2026-09-22T00:00:40.874Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2552,8 +2552,8 @@
           "praktikant-in-radio-srf-3-radio-und-online-srg-ssr-zurich"
         ]
       },
-      "firstSeenAt": "2026-09-17T03:44:37.401Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-17T03:44:37.401Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2600,7 +2600,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/3-responsables-atelier-graphique-information-rts/663c14ac-3ae5-40d0-8ab7-a9675717894d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T15:57:02.715Z",
+      "crawledAt": "2026-09-22T00:00:40.222Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2662,8 +2662,8 @@
           "3-responsables-atelier-graphique-information-rts-70-srg-ssr-lausanne"
         ]
       },
-      "firstSeenAt": "2026-09-18T23:09:55.783Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-18T23:09:55.783Z",
       "salaryMin": 43100,
       "salaryMax": 76300,
       "salarySource": "estimated",
@@ -2710,7 +2710,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/videoproduzent-in-srf-studio-404/3396a90e-76cf-47b6-b543-dea96c38f0fe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:57:02.150Z",
+      "crawledAt": "2026-09-22T00:00:39.545Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2755,8 +2755,8 @@
           "videoproduzent-in-srf-studio-404-srg-ssr-zurich"
         ]
       },
-      "firstSeenAt": "2026-09-18T23:09:55.092Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-18T23:09:55.092Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2803,7 +2803,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-52-settimane-impiegata-impiegato-di-commercio-o-per-crediti-supsi/2bc061f3-bb09-4558-9388-63711380a1aa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-21T15:57:01.576Z",
+      "crawledAt": "2026-09-22T00:00:38.887Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2828,7 +2828,6 @@
       ],
       "requirementsByLocale": {
         "it": [
-          "Stia concludendo la Scuola media di commercio o il liceo con buoni risultati e desideri svolgere un'esperienza pratica di 52 settimane per conseguire l'Attestato federale di capacità (AFC) con la maturità professionale commerciale oppure acquisire i crediti per l'accesso alla SUPSI.",
           "Abbia una buona padronanza dell'italiano scritto e parlato e interesse per le lingue.",
           "Abbia dimestichezza con i numeri e buone capacità di ragionamento numerico.",
           "Sia curiosa, motivata, proattiva e desiderosa di imparare.",
@@ -2844,6 +2843,7 @@
         "pensumMax": 100
       },
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-21T15:57:01.576Z",
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -2857,8 +2857,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "firstSeenAt": "2026-09-21T15:57:01.576Z"
+      "addressRegion": "TI"
     }
   ]
 }
