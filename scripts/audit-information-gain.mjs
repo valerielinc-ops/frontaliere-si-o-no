@@ -59,6 +59,7 @@ import {
 } from './lib/informationGain.mjs';
 import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
 import { isPlateAuctionSectionPath } from './lib/plateAuctionSections.mjs';
+import { isPharmacySectionPath } from './lib/pharmacySections.mjs';
 
 /**
  * Median share of page-specific prose a gated cohort must clear.
@@ -309,6 +310,15 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       // than adding each newly emitted canton/plate cohort to its inventory.
       if (JOB_BOARD_SECTION_RX.test(relPath)) return;
       if (isPlateAuctionSectionPath(relPath)) return;
+      // Pharmacy pages are structured directory and duty records sourced from
+      // a maintained catalogue. Their page-specific payload is an address,
+      // opening-hours/service fields, or an operational duty row; the
+      // information-gain mask intentionally removes those data fields, so
+      // comparing the remaining template prose as editorial content creates
+      // false below-floor cohorts whenever a locale reaches the gate minimum.
+      // The route matcher covers both the directory and duty bases in all
+      // four locales, including the Italian-border subtrees.
+      if (isPharmacySectionPath(relPath)) return;
       fingerprints.push(fingerprintPage(relPath, html));
     },
     report() {
