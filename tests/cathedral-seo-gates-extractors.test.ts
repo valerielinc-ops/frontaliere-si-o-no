@@ -262,6 +262,20 @@ describe('#5169 — the gate replays the deployed dist instead of rebuilding it'
     expect(active).toMatch(/rehydrate-section-shards\.sh/);
   });
 
+  it('post-build runs pin both the artifact run and its build SHA', () => {
+    expect(active).toMatch(
+      /workflow_run:\s*\n\s*workflows:\s*\["Deploy to GitHub Pages"\]\s*\n\s*types:\s*\[completed\]\s*\n\s*branches:\s*\[main\]/,
+    );
+    expect(active).toContain("github.event.workflow_run.conclusion == 'success'");
+    expect(active).toContain('ref: ${{ github.event_name == \'workflow_run\' && github.event.workflow_run.head_sha || github.ref_name }}');
+    expect(active).toContain(
+      'run-id: ${{ github.event_name == \'workflow_run\' && github.event.workflow_run.id || inputs.deploy_run_id }}',
+    );
+    expect(active).toContain(
+      "expected-sha: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || '' }}",
+    );
+  });
+
   it('asserts dist/ is complete BEFORE the gates run, so a degraded rehydrate cannot file a bogus regression', () => {
     const assertAt = active.indexOf('node scripts/ci/assert-dist-complete.mjs');
     // The RUN of the checker, not the `paths:` trigger that names the same file.

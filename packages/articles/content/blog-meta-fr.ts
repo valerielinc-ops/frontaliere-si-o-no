@@ -11895,6 +11895,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-fenegro-lavorare-ticino.title': 'Vivre à Fenegrò et travailler au Tessin en tant que frontalier',
     'blog.article.vivere-fenegro-lavorare-ticino.excerpt': 'Guide pratique sur la fiscalité, les connexions et les coûts pour ceux qui choisissent Fenegrò comme résidence en travaillant dans le canton du Tessin.',
     'blog.article.vivere-fenegro-lavorare-ticino.imageAlt': 'Vue d\'un village résidentiel à la frontière entre l\'Italie et la Suisse',
+    'blog.article.vivere-castiglione-olona-lavorare-ticino-frontaliere.title': 'Guide frontaliers : Castiglione Olona - Tessin',
+    'blog.article.vivere-castiglione-olona-lavorare-ticino-frontaliere.excerpt': 'Temps de trajet, fiscalité, coût de la vie et conseils pour le transfert : tout ce que les frontaliers doivent savoir avant de choisir Castiglione Olona comme base italienne.',
+    'blog.article.vivere-castiglione-olona-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes au coucher du soleil',
 };
 
 export default blogMetaFr;
