@@ -11893,6 +11893,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-fenegro-lavorare-ticino.title': 'Living in Fenegrò and working in Ticino as a border worker',
     'blog.article.vivere-fenegro-lavorare-ticino.excerpt': 'Practical guide on taxation, connections and costs for those who choose Fenegrò as a residence working in the Canton of Ticino.',
     'blog.article.vivere-fenegro-lavorare-ticino.imageAlt': 'View of a residential village near the border between Italy and Switzerland',
+    'blog.article.vivere-castiglione-olona-lavorare-ticino-frontaliere.title': 'Castiglione Olona & Ticino: Guide for Border Workers',
+    'blog.article.vivere-castiglione-olona-lavorare-ticino-frontaliere.excerpt': 'Travel times, taxation, cost of living and transfer advice: everything border crossers need to know before choosing Castiglione Olona as an Italian base.',
+    'blog.article.vivere-castiglione-olona-lavorare-ticino-frontaliere.imageAlt': 'Panoramic view of Lugano with lake and mountains at sunset',
+    'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.title': 'Living in Bregnano and working in Ticino: a practical guide for border workers',
+    'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.excerpt': 'Travel times, costs, taxes and procedures: everything border workers from Bregnano need to know before accepting a job in Ticino.',
+    'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.imageAlt': 'Commuters traffic at Brogeda border crossing early morning',
 };
 
 export default blogMetaEn;

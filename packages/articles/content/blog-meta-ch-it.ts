@@ -6638,6 +6638,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.patente-guida-zugo-conversione-esami.title': 'Patente di guida nel Canton Zugo: conversione licenza estera, esami e procedure',
     'blog.article.patente-guida-zugo-conversione-esami.excerpt': 'Guida completa alla conversione della patente di guida estera nel Canton Zugo: documenti richiesti, esami teorico e pratico, corsi obbligatori e scadenze.',
     'blog.article.patente-guida-zugo-conversione-esami.imageAlt': 'Ufficio della circolazione di Zugo con modulo per conversione patente',
+    'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.title': 'Permesso di dimora B nel Canton Friburgo: requisiti, rinnovo e procedure',
+    'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.excerpt': 'Guida pratica ai requisiti per ottenere e rinnovare il permesso B nel Canton Friburgo, con documenti necessari e iter procedurale.',
+    'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.imageAlt': 'Cattedrale di San Nicola a Friburgo, simbolo del Cantone',
 };
 
 export default blogMetaChIt;

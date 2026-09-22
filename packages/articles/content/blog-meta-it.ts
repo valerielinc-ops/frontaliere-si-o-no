@@ -11894,6 +11894,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-fenegro-lavorare-ticino.title': 'Vivere a Fenegrò e lavorare in Ticino da frontaliere',
     'blog.article.vivere-fenegro-lavorare-ticino.excerpt': 'Guida pratica su fiscalità, collegamenti e costi per chi sceglie Fenegrò come residenza lavorando nel Canton Ticino.',
     'blog.article.vivere-fenegro-lavorare-ticino.imageAlt': 'Vista di un borgo residenziale vicino al confine tra Italia e Svizzera',
+    'blog.article.vivere-castiglione-olona-lavorare-ticino-frontaliere.title': 'Vivere a Castiglione Olona e lavorare in Ticino: guida pratica per frontalieri',
+    'blog.article.vivere-castiglione-olona-lavorare-ticino-frontaliere.excerpt': 'Tempi di percorrenza, fiscalità, costo della vita e consigli per il trasferimento: tutto ciò che i frontalieri devono sapere prima di scegliere Castiglione Olona come base italiana.',
+    'blog.article.vivere-castiglione-olona-lavorare-ticino-frontaliere.imageAlt': 'Panorama di Lugano con lago e montagne al tramonto',
+    'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.title': 'Vivere a Bregnano e lavorare in Ticino: guida pratica per frontalieri',
+    'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.excerpt': 'Tempi di percorrenza, costi, tasse e procedure: tutto ciò che i frontalieri da Bregnano devono sapere prima di accettare un lavoro in Ticino.',
+    'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.imageAlt': 'Traffico pendolari al valico di Brogeda al mattino presto',
 };
 
 export default blogMetaIt;
