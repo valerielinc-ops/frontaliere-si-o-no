@@ -461,22 +461,38 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
   const isJobBoardRegistration = String(channel).toLowerCase() === 'job_gate'
     || String(channel).toLowerCase().includes('job_board')
     || hasJobContext;
-  const contextKeywords = isJobBoardRegistration
+  const legacyContextKeywords = isJobBoardRegistration
     ? [...new Set([
       data?.job_search_query,
       data?.job_category,
       data?.job_title,
     ].map((value) => String(value || '').trim()).filter(Boolean))]
     : [];
+  const contextKeywords = legacyContextKeywords.filter(
+    (value) => String(value).trim().toLowerCase() !== String(data?.job_category || '').trim().toLowerCase()
+      || String(value).trim().toLowerCase() === String(data?.job_search_query || '').trim().toLowerCase()
+      || String(value).trim().toLowerCase() === String(data?.job_title || '').trim().toLowerCase(),
+  );
   const contextLocations = isJobBoardRegistration && data?.job_location
     ? [String(data.job_location).trim()]
     : [];
-  const contextSectors = isJobBoardRegistration && data?.sector_interest
-    ? [String(data.sector_interest).trim()]
+  const contextSectors = isJobBoardRegistration
+    ? [...new Set([
+      data?.job_category,
+      data?.sector_interest,
+    ].map((value) => String(value || '').trim()).filter(Boolean))]
     : [];
   const existingKeywords = Array.isArray(existingBackfill?.keywords) ? existingBackfill.keywords : [];
   const existingLocations = Array.isArray(existingBackfill?.locations) ? existingBackfill.locations : [];
   const existingSectors = Array.isArray(existingBackfill?.sectors) ? existingBackfill.sectors : [];
+  const normalizeCriteria = (values) => values.map((value) => String(value || '').trim().toLowerCase());
+  // Only rewrite an untouched legacy payload whose full keyword array still
+  // equals the exact values this writer used to generate. Any extra, removed or
+  // reordered criterion proves user editing and is preserved byte-for-byte.
+  const existingWasGenerated = existingKeywords.length > 0
+    && JSON.stringify(normalizeCriteria(existingKeywords))
+      === JSON.stringify(normalizeCriteria(legacyContextKeywords));
+  const preservedExistingKeywords = existingWasGenerated ? contextKeywords : existingKeywords;
   const tierSuffix =
     tier === 'location-fallback' || tier === 'personalization-fallback' || tier === 'url-fallback'
       ? `:${tier}`
@@ -487,7 +503,7 @@ export function buildAlertPayload(email, data, existingBackfill, personalization
     // A job-board registration starts from the exact job/search context that
     // opened the gate. Newsletter registrations intentionally stay broad and
     // use the evolving profile/personalization signals instead.
-    keywords: existingKeywords.length > 0 ? existingKeywords : contextKeywords,
+    keywords: preservedExistingKeywords.length > 0 ? preservedExistingKeywords : contextKeywords,
     locations: existingLocations.length > 0 ? existingLocations : contextLocations,
     contractTypes: [],
     sectors: existingSectors.length > 0 ? existingSectors : contextSectors,

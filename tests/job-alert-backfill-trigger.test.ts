@@ -186,7 +186,7 @@ describe('handleNewsletterSubscriberCreated — cap enforcement', () => {
 });
 
 describe('handleNewsletterSubscriberCreated — creation', () => {
-  it('creates an alert for a job-board registration and carries its category as the initial keyword', async () => {
+  it('creates an alert for a job-board registration without promoting its category to a hard keyword', async () => {
     const db = fakeDb();
     const result = await handleNewsletterSubscriberCreated(
       'a@b.ch',
@@ -198,7 +198,8 @@ describe('handleNewsletterSubscriberCreated — creation', () => {
     const alertWrite = db.writes.find((w) => w.path.includes('/alerts/backfill-newsletter'));
     expect(alertWrite).toBeDefined();
     expect(alertWrite?.payload.active).toBe(true);
-    expect(alertWrite?.payload.keywords).toEqual(['tech']);
+    expect(alertWrite?.payload.keywords).toEqual([]);
+    expect(alertWrite?.payload.sectors).toEqual(['tech']);
   });
 
   it('creates a location-fallback alert when there is no job signal but a location one', async () => {
