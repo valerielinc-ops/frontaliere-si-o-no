@@ -1,23 +1,24 @@
 {
   "key": "staubli",
   "label": "Stäubli",
-  "generatedAt": "2026-09-21T16:02:13.319Z",
-  "total": 8,
+  "generatedAt": "2026-09-22T00:07:21.990Z",
+  "total": 6,
   "discovered": null,
   "parsed": 6,
   "lastFetchOutcome": null,
-  "written": 8,
+  "written": 6,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 6601,
-  "avgDurationMs": 6601,
+  "newCount": 0,
+  "updatedCount": 6,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 5730,
+  "avgDurationMs": 5730,
   "durationHistory": [
-    6601
+    5730
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "staubli-e096b31b0712",
       "slug": "sap-mm-inhouse-consultant-staubli-allschwil-switzerland",
@@ -31,7 +32,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000150739371-sap-mm-inhouse-consultant?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:02:04.071Z",
+      "crawledAt": "2026-09-22T00:07:17.400Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -48,16 +49,15 @@
       "postedDate": "2026-09-21",
       "applyUrl": "https://jobs.smartrecruiters.com/StaubliGroup/744000150739371-sap-mm-inhouse-consultant?oga=true",
       "jobReqId": "744000150739371",
-      "_qualityScore": 64,
+      "firstSeenAt": "2026-09-21T16:02:04.071Z",
+      "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "staubli-15fd060faf64",
       "slug": "lehre-als-kauffrau-oder-kaufmann-efz-staubli-allschwil-switzerland",
@@ -71,7 +71,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000150040359-lehre-als-kauffrau-oder-kaufmann-efz?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:02:04.067Z",
+      "crawledAt": "2026-09-22T00:07:17.416Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -104,13 +104,13 @@
       "companyKey": "staubli",
       "companyDomain": "staubli.com",
       "title": "Aussenhandelsspezialist/in 80-100% (m/w/d)",
-      "needsRetranslation": false,
+      "needsRetranslation": true,
       "location": "Sargans, , Switzerland",
       "canton": "SG",
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000148155361-aussenhandelsspezialist-in-80-100-m-w-d-?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:02:04.065Z",
+      "crawledAt": "2026-09-22T00:07:17.411Z",
       "addressLocality": "Sargans",
       "addressRegion": "SG",
       "streetAddress": "Grossfeldstrasse 71",
@@ -149,7 +149,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000145658619-field-service-engineer-robotics?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-21T16:02:04.069Z",
+      "crawledAt": "2026-09-22T00:07:17.414Z",
       "addressLocality": "Neuchâtel",
       "addressRegion": "NE",
       "streetAddress": "Rue du Tombet",
@@ -188,7 +188,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000144288079-management-assistant-80-?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:02:04.042Z",
+      "crawledAt": "2026-09-22T00:07:17.413Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -206,11 +206,11 @@
       "applyUrl": "https://jobs.smartrecruiters.com/StaubliGroup/744000144288079-management-assistant-80-?oga=true",
       "jobReqId": "744000144288079",
       "firstSeenAt": "2026-08-19T21:43:48.169Z",
-      "_qualityScore": 83,
+      "_qualityScore": 81,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 25,
+        "translation": 23,
         "completeness": 20
       }
     },
@@ -227,7 +227,7 @@
       "url": "https://jobs.smartrecruiters.com/StaubliGroup/744000135670729-division-procurement-controller?oga=true",
       "source": "Stäubli Dedicated Parser (SmartRecruiters)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:02:04.072Z",
+      "crawledAt": "2026-09-22T00:07:17.417Z",
       "addressLocality": "Allschwil",
       "addressRegion": "BL",
       "streetAddress": "Stockbrunnenrain 8",
@@ -254,8 +254,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "staubli-6861f7a350ea",
       "slug": "insegnamento-come-mercante-o-mercante-efz-staubli-allschwil-switzerland",
@@ -341,5 +340,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
