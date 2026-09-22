@@ -1409,10 +1409,10 @@ export function buildL9OutcomeLedger({ profiles, publisherRows = [], orderRows =
     if (root) publishers.set(documentId(root), documentData(root));
   }
   const eligibleAccounts = new Set([...publishers.entries()]
-    .filter(([, data]) => text(data.company?.companyKey || data.companyKey) || text(data.company?.name || data.name))
+    .filter(([, data]) => profileKeys.has(companyKeyFor({ data }, publishers)))
     .map(([id]) => id));
   const orders = orderRows.filter((row) => rootCollectionRow(row, 'orders'));
-  const allCheckoutAccounts = new Set(orders.map(publisherId).filter(Boolean));
+  const allCheckoutAccounts = new Set(orders.map(publisherId).filter((id) => eligibleAccounts.has(id)));
   const paidAccounts = new Set();
   const activeAccounts = new Set();
   let mrrRecognizedChf = 0;
@@ -1420,9 +1420,10 @@ export function buildL9OutcomeLedger({ profiles, publisherRows = [], orderRows =
     const data = documentData(row);
     const id = publisherId(row);
     if (String(data.status || '').toLowerCase() === 'active') {
-      if (id) activeAccounts.add(id);
+      if (!eligibleAccounts.has(id)) continue;
+      activeAccounts.add(id);
       if (String(data.currency || 'CHF').toUpperCase() === 'CHF' && number(data.amountChf)) mrrRecognizedChf += data.amountChf;
-      if (id) paidAccounts.add(id);
+      paidAccounts.add(id);
     }
   }
 
@@ -1432,17 +1433,16 @@ export function buildL9OutcomeLedger({ profiles, publisherRows = [], orderRows =
   for (const row of jobRows) {
     if (!rootCollectionRow(row, 'publisher_jobs')) continue;
     const data = documentData(row);
-    const id = publisherId(row);
     const status = String(data.status || '').toLowerCase();
     const tier = String(data.tier || '').toLowerCase();
+    const key = companyKeyFor(row, publishers);
+    if (!profileKeys.has(key)) continue;
     if (status === 'paid') {
       // A paid inventory job proves attachment only. Billing activation must
       // come from the authoritative order/subscription ledger above; joining
       // this set here would turn inventory into a false paid outcome.
       livePaidJobs.add(row.name || documentId(row));
     }
-    const key = companyKeyFor(row, publishers);
-    if (!profileKeys.has(key)) continue;
     if (tier === 'free' && !paidProfileKeys.has(key)) freeProfileKeys.add(key);
     if (tier === 'sponsored' || tier === 'azienda') {
       paidProfileKeys.add(key);
