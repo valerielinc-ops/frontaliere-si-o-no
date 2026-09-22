@@ -6641,6 +6641,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.title': 'Permis B Fribourg : exigences, renouvellement et démarches',
     'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.excerpt': 'Guide pratique des exigences pour obtenir et renouveler le permis B dans le canton de Fribourg, avec les documents nécessaires et les procédures.',
     'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.imageAlt': 'Cathédrale Saint-Nicolas de Fribourg, symbole du canton',
+    'blog.article.permesso-c-friburgo-guida-requisiti.title': 'Permis c canton de Fribourg : exigences et demande',
+    'blog.article.permesso-c-friburgo-guida-requisiti.excerpt': 'Règles, temps de résidence, critères d\'intégration et procédure d\'obtention du permis de séjour C dans le canton de Fribourg.',
+    'blog.article.permesso-c-friburgo-guida-requisiti.imageAlt': 'Bâtiments administratifs et vue urbaine dans le canton de Fribourg',
 };
 
 export default blogMetaChFr;

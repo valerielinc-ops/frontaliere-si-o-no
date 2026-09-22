@@ -192,6 +192,28 @@ describe('buildKnownJobUrlsSet — skip-optimization must not trust jobs with a 
     expect(knownJobUrls.size).toBe(2);
   });
 
+  it('excludes a job whose heartbeat is past the shared retirement window (#9470)', () => {
+    const nowMs = Date.now();
+    const staleCrawledAt = new Date(nowMs - (61 * 24 * 60 * 60 * 1000)).toISOString();
+    const freshCrawledAt = new Date(nowMs - (1 * 24 * 60 * 60 * 1000)).toISOString();
+    const preloadedJobs = [
+      {
+        url: 'https://www.rado.com/careers/stale-watchmaker',
+        crawledAt: staleCrawledAt,
+      },
+      {
+        url: 'https://www.rado.com/careers/fresh-designer',
+        crawledAt: freshCrawledAt,
+      },
+    ];
+
+    const knownJobUrls = buildKnownJobUrlsSet(preloadedJobs, nowMs);
+
+    expect(knownJobUrls.has('https://www.rado.com/careers/stale-watchmaker')).toBe(false);
+    expect(knownJobUrls.has('https://www.rado.com/careers/fresh-designer')).toBe(true);
+    expect(knownJobUrls.size).toBe(1);
+  });
+
   it('handles a mixed batch: only the streak-free job survives into the skip set', () => {
     const preloadedJobs = [
       { url: 'https://www.rado.com/careers/watchmaker', crawlerMissStreak: 1 },

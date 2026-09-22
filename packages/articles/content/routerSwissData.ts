@@ -2236,6 +2236,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'rialzo-tassi-ipotecari-svizzera': { it: 'rialzo-tassi-ipotecari-svizzera', en: 'swiss-mortgage-rates-increase', de: 'schweizer-hypothekarzinsen-anstieg', fr: 'hausse-taux-hypothecaires-suisse' },
  'patente-guida-zugo-conversione-esami': { it: 'patente-guida-zugo-conversione-esami', en: 'zug-driving-license-conversion-exams', de: 'zug-fuhrerschein-umtausch-prufungen', fr: 'zug-permis-conduite-conversion-examens' },
  'permesso-dimora-b-canton-friburgo-requisiti-rinnovo': { it: 'permesso-dimora-b-canton-friburgo-requisiti-rinnovo', en: 'residence-permit-b-canton-fribourg-requirements-renewal', de: 'aufenthaltsbewilligung-b-kanton-freiburg-voraussetzungen-verlaengerung', fr: 'permis-sejour-b-canton-fribourg-exigences-renouvellement' },
+ 'permesso-c-friburgo-guida-requisiti': { it: 'permesso-c-friburgo-guida-requisiti', en: 'settlement-permit-c-fribourg-requirements-application', de: 'niederlassungsbewilligung-c-freiburg-voraussetzungen-gesuch', fr: 'permis-c-fribourg-conditions-demande' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

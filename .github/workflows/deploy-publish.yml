@@ -547,3 +547,118 @@ jobs:
           gh workflow run runtime-reliability-watch.yml \
             --repo "$GITHUB_REPOSITORY" \
             --ref main
+
+  # The caller run can be red because a reusable validator failed. Reporters
+  # inside those callees correctly open their gate-specific issues, but the
+  # caller itself was still invisible to scan-unreported-failures: its failed
+  # job is named `validate-dist / validate-dist-postbuild`, not a step in this
+  # workflow. This post-job observer owns the caller-level canonical issue and
+  # fetches the completed nested job log for diagnosis.
+  report-failure:
+    needs: [deploy, validate-dist, validate-live, publish, runtime-watchdog]
+    if: >-
+      ${{ always() &&
+          (needs.deploy.result == 'failure' ||
+           needs.validate-dist.result == 'failure' ||
+           needs.validate-live.result == 'failure' ||
+           needs.publish.result == 'failure' ||
+           needs.runtime-watchdog.result == 'failure') }}
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: write
+      actions: read
+    steps:
+      - name: Checkout failure reporter sources
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          ref: ${{ github.sha }}
+          sparse-checkout: |
+            package.json
+            scripts/ci/
+            scripts/lib/
+            .github/actions/report-failure/
+            .github/workflows/deploy-publish.yml
+            .github/workflows/post-deploy-validate-dist.yml
+            .github/workflows/post-deploy-validate-live.yml
+            .github/workflows/post-deploy-publish.yml
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Report deploy failure
+        if: always() && needs.deploy.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automation,ci-failure
+          priority: '2'
+          log-from-job: deploy
+          workflow-file: .github/workflows/deploy-publish.yml
+          context: |
+            - Il job `deploy` del workflow chiamante è fallito durante il publish Pages.
+            - Il run build osservato è disponibile nel payload `workflow_run`.
+
+      - name: Report dist-validation failure
+        if: always() && needs.validate-dist.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automation,ci-failure
+          priority: '2'
+          log-from-job: validate-dist / validate-dist-postbuild
+          workflow-file: .github/workflows/post-deploy-validate-dist.yml
+          context: |
+            - Il job riusabile `validate-dist` è fallito; il suo reporter mantiene anche il dettaglio per-gate `Validation Failure (dist): ...`.
+            - Questo report copre il verdetto rosso del workflow chiamante `Publish to GitHub Pages (deploy + validate)`.
+
+      - name: Report live-validation failure
+        if: always() && needs.validate-live.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automation,ci-failure
+          priority: '2'
+          log-from-job: validate-live / validate-live
+          workflow-file: .github/workflows/post-deploy-validate-live.yml
+          context: |
+            - Il job riusabile `validate-live` è fallito dopo il deploy Pages.
+            - Il publish di side effect resta correttamente bloccato dal gate live.
+
+      - name: Report post-deploy publish failure
+        if: always() && needs.publish.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automation,ci-failure
+          priority: '2'
+          log-from-job: publish / publish
+          workflow-file: .github/workflows/post-deploy-publish.yml
+          context: |
+            - Il job riusabile `publish` è fallito dopo che i gate di deploy/live hanno deciso il percorso.
+            - Nessuna notifica o side effect viene riabilitato da questo reporter.
+
+      - name: Report runtime-watchdog failure
+        if: always() && needs.runtime-watchdog.result == 'failure'
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'CI Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          labels: automation,ci-failure
+          priority: '2'
+          log-from-job: runtime-watchdog
+          workflow-file: .github/workflows/deploy-publish.yml
