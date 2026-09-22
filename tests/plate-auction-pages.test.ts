@@ -4,7 +4,7 @@ import { tmpdir } from 'node:os';
 import { fileURLToPath } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
 import { loadPlateAuctionContext, plateAuctionsPagesPlugin, renderPlateAuctionPage } from '../build-plugins/plateAuctionsPagesPlugin';
-import { buildPlateAuctionPath } from '../services/plateAuctions/paths';
+import { buildPlateAuctionPath, PLATE_AUCTION_INDEX_PAGE_SIZE } from '../services/plateAuctions/paths';
 import { AD_SLOTS } from '../services/adsenseSlots';
 import { auditPage } from '../scripts/adsense-prereview-audit.mjs';
 import { extractVisibleText } from '../scripts/audit-text-html-ratio.mjs';
@@ -206,6 +206,28 @@ describe('plate-auction static pages', () => {
     const itemList = JSON.parse(itemListPayload!) as { mainEntity: { numberOfItems: number; itemListElement: Array<unknown> } };
     expect(itemList.mainEntity.numberOfItems).toBe(2000);
     expect(itemList.mainEntity.itemListElement).toHaveLength(48);
+  });
+
+  it('keeps every paginated detail block on a shallow crawl path', () => {
+    const rootDir = fixtureRoot({ auctionCount: 2000 });
+    const context = loadPlateAuctionContext(rootDir);
+    const publishedRows = context.detailRowsByCanton.get('GR') || [];
+    const pageCount = Math.ceil(publishedRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE);
+    const hub = renderPlateAuctionPage({ locale: 'it', view: 'hub', rootDir });
+    const directoryPath = buildPlateAuctionPath({ locale: 'it', view: 'directory', canton: 'GR' });
+    const directory = renderPlateAuctionPage({ locale: 'it', view: 'directory', canton: 'GR', rootDir });
+
+    expect(pageCount).toBeGreaterThan(3);
+    expect(hub.html).toContain(`href="${directoryPath}"`);
+    for (let page = 2; page <= pageCount; page += 1) {
+      const pagePath = buildPlateAuctionPath({ locale: 'it', view: 'canton', canton: 'GR', page });
+      expect(directory.html).toContain(`href="${pagePath}"`);
+    }
+    const lastRow = publishedRows[publishedRows.length - 1];
+    if (!lastRow) throw new Error('fixture did not publish a final detail row');
+    const lastPage = renderPlateAuctionPage({ locale: 'it', view: 'canton', canton: 'GR', page: pageCount, rootDir });
+    const lastDetailPath = buildPlateAuctionPath({ locale: 'it', view: 'detail', canton: 'GR', plate: lastRow.normalizedPlate, vehicleType: lastRow.vehicleType });
+    expect(lastPage.html).toContain(`href="${lastDetailPath}"`);
   });
 
   it('paginates from publishable rows when the boundary row is conflicting', () => {
