@@ -3759,9 +3759,9 @@
     },
     {
       "id": "roche-5d7ee7c775e3",
-      "slug": "senior-group-director-affari-tecnici-di-regolamentazione-roche-basel",
+      "slug": "direttore-senior-di-gruppo-affari-tecnici-regolatori-roche-basel",
       "slugByLocale": {
-        "it": "senior-group-director-affari-tecnici-di-regolamentazione-roche-basel",
+        "it": "direttore-senior-di-gruppo-affari-tecnici-regolatori-roche-basel",
         "en": "senior-group-director-technical-regulatory-affairs-roche-ch",
         "de": "senior-group-director-technische-regulierung-roche-basel",
         "fr": "directeur-du-groupe-principal-affaires-reglementaires-techniques-roche-basel"
@@ -3806,11 +3806,13 @@
       "previousSlugs": [
         "senior-group-direktor-technical-regulatory-affairs-roche-basel",
         "senior-group-directeur-technical-regulatory-affairs-roche-basel",
-        "senior-group-director-technical-regulatory-affairs-roche-ch"
+        "senior-group-director-technical-regulatory-affairs-roche-ch",
+        "senior-group-director-affari-tecnici-di-regolamentazione-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-group-director-technical-regulatory-affairs-roche-ch"
+          "senior-group-director-technical-regulatory-affairs-roche-ch",
+          "senior-group-director-affari-tecnici-di-regolamentazione-roche-basel"
         ],
         "de": [
           "senior-group-direktor-technical-regulatory-affairs-roche-basel"
@@ -64855,9 +64857,9 @@
     },
     {
       "id": "roche-87f84087017f",
-      "slug": "trainee-she-allega-il-programma-e-il-treno-roche-central-singapore",
+      "slug": "tirocinante-she-programma-attach-train-roche-central-singapore",
       "slugByLocale": {
-        "it": "trainee-she-allega-il-programma-e-il-treno-roche-central-singapore",
+        "it": "tirocinante-she-programma-attach-train-roche-central-singapore",
         "en": "she-trainee-attach-train-program-roche-ch",
         "de": "she-auszubildender-attach-train-program-roche-central-singapore",
         "fr": "she-apprenti-attach-train-program-roche-central-singapore"
@@ -64901,12 +64903,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "she-trainee-attach-train-program-roche-ch",
-        "she-trainee-attach-train-program-roche-central-singapore"
+        "she-trainee-attach-train-program-roche-central-singapore",
+        "trainee-she-allega-il-programma-e-il-treno-roche-central-singapore"
       ],
       "previousSlugsByLocale": {
         "it": [
           "she-trainee-attach-train-program-roche-ch",
-          "she-trainee-attach-train-program-roche-central-singapore"
+          "she-trainee-attach-train-program-roche-central-singapore",
+          "trainee-she-allega-il-programma-e-il-treno-roche-central-singapore"
         ]
       },
       "needsRetranslation": true,
