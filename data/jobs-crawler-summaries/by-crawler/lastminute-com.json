@@ -1,16 +1,16 @@
 {
   "key": "lastminute-com",
   "label": "lastminute.com",
-  "generatedAt": "2026-09-19T07:39:28.705Z",
+  "generatedAt": "2026-09-22T00:11:39.933Z",
   "total": 3,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 3,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2554,
-  "avgDurationMs": 2554,
+  "unchangedCount": 0,
+  "durationMs": 7883,
+  "avgDurationMs": 7883,
   "durationHistory": [
-    2554
+    7883
   ],
   "newJobs": [
     {
@@ -50,50 +50,7 @@
         "translation": 25,
         "completeness": 25
       }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "title": "Global Payroll & HR Systems Manager",
-      "slug": "global-payroll-hr-systems-manager-chiasso",
-      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll",
-      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000113487537-global-payroll-hr-systems-manager-?oga=true",
-      "company": "lastminute.com",
-      "companyKey": "lastminute-com",
-      "companyDomain": "lastminute.com",
-      "location": "Chiasso",
-      "addressLocality": "Chiasso",
-      "canton": "TI",
-      "country": "CH",
-      "source": "Company Careers Crawler",
-      "sourceLang": "en",
-      "category": "tech",
-      "sector": "Tecnologia & IT",
-      "postedDate": "2026-03-09",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6830",
-      "streetAddress": "Corso San Gottardo 84",
-      "contract": "full-time",
-      "id": "lastminute-com-11183fd006a7",
-      "needsRetranslation": true,
-      "salaryMin": 79500,
-      "salaryMax": 135000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "_qualityScore": 99,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 25
-      }
-    }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": [
+    },
     {
       "title": "AI Automation Engineer",
       "slug": "ai-automation-engineer-chiasso",
@@ -131,6 +88,47 @@
         "translation": 25,
         "completeness": 25
       }
+    },
+    {
+      "title": "Global Payroll & HR Systems Manager",
+      "slug": "responsabile-globale-payroll-e-sistemi-hr-chiasso",
+      "url": "https://corporate.lastminute.com/careers/jobs/job?id=744000113487537&jobName=Global+Payroll",
+      "applyUrl": "https://jobs.smartrecruiters.com/lastminutecom/744000113487537-global-payroll-hr-systems-manager-?oga=true",
+      "company": "lastminute.com",
+      "companyKey": "lastminute-com",
+      "companyDomain": "lastminute.com",
+      "location": "Chiasso",
+      "addressLocality": "Chiasso",
+      "canton": "TI",
+      "country": "CH",
+      "source": "Company Careers Crawler",
+      "sourceLang": "en",
+      "category": "tech",
+      "sector": "Tecnologia & IT",
+      "postedDate": "2026-03-09",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6830",
+      "streetAddress": "Corso San Gottardo 84",
+      "contract": "full-time",
+      "id": "lastminute-com-11183fd006a7",
+      "needsRetranslation": true,
+      "salaryMin": 79500,
+      "salaryMax": 135000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "_qualityScore": 99,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 25
+      }
     }
-  ]
+  ],
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": []
 }
