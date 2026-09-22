@@ -1151,6 +1151,35 @@
         "legacySunset": null
       },
       "findings": []
+    },
+    {
+      "date": "2026-09-22",
+      "windowHours": 24,
+      "counts": {
+        "accepted": 114,
+        "lockout": 0,
+        "optout": 0,
+        "clock": 2,
+        "noise": 2,
+        "unknown": 0
+      },
+      "byReason": {
+        "invalid_auth_code": 2,
+        "auth_code_not_yet_valid": 2
+      },
+      "graded": 114,
+      "lockoutRate": 0,
+      "acceptedByScheme": {
+        "v1": 114
+      },
+      "ageDaysP50": 1,
+      "ageDaysP95": 4,
+      "observedPolicy": {
+        "mintScheme": "v1",
+        "ttlDays": 30,
+        "legacySunset": null
+      },
+      "findings": []
     }
   ]
 }
