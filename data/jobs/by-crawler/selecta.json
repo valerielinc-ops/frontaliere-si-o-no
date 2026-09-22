@@ -557,7 +557,6 @@
           "key-account-manager-new-business-hunter-selecta-westschweiz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T11:56:49.954Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -571,8 +570,7 @@
           "maxValue": 169500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "selecta-6c58287f48a8",

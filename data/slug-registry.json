@@ -51239,7 +51239,9 @@
     "createdAt": "2026-06-03",
     "slugByLocale": {
       "en": "project-chef-cvc-80-100-f-h-d-csd-engineers-lausanne",
-      "de": "chef-de-projet-cvc-80-100-f-h-d-csd-engineers-ch"
+      "de": "chef-de-projet-cvc-80-100-f-h-d-csd-engineers-ch",
+      "it": "responsabile-del-progetto-cvc-80-100-m-f-d-csd-engineers-lausanne",
+      "fr": "chef-de-projet-cvc-80-100-f-h-d-csd-engineers-ch"
     }
   },
   "id|csd.ch|6563154": {
@@ -95272,7 +95274,10 @@
     "canton": "ZH",
     "createdAt": "2026-07-03",
     "slugByLocale": {
-      "de": "facharztin-facharzt-dermatologie-a-60-100-medbase-ch"
+      "de": "facharztin-facharzt-dermatologie-a-60-100-medbase-ch",
+      "it": "dermatologia-specialistica-a-60-100-medbase-wetzikon",
+      "en": "specialist-dermatology-a-60-100-medbase-wetzikon",
+      "fr": "dermatologie-specialisee-a-60-100-medbase-wetzikon"
     }
   },
   "id|medbase.wd502.myworkdayjobs.com|jr06376": {
@@ -171686,7 +171691,8 @@
     "slugByLocale": {
       "it": "formazione-per-dipl-infermieristica-professionale-hf-nel-centro-di-cura-e-nell-ospedale-acuto-spital-zofingen-zofingen",
       "en": "training-for-dipl-care-specialist-hf-in-the-nursing-centre-and-in-the-acute-hospital-spital-zofingen-zofingen",
-      "de": "ausbildung-zur-dipl-pflegefachperson-hf-im-pflegezentrum-sowie-im-akutspital-spital"
+      "de": "ausbildung-zur-dipl-pflegefachperson-hf-im-pflegezentrum-sowie-im-akutspital-spital",
+      "fr": "formation-pour-dipl-soins-infirmiers-professionnels-hf-dans-le-centre-de-soins-infirmiers-et-a-l-hopital-aigu-spital"
     }
   },
   "id|spitalzofingen.ch|16b7935a-5e89-4c00-86ab-f42911ff0cc6": {
@@ -172506,7 +172512,12 @@
     "canonicalSlug": "fachperson-gesundheit-80-100-spitex-ch-sarnen",
     "canton": "OW",
     "createdAt": "2026-05-29",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "professionista-della-salute-80-100-spitex-obwalden-sarnen",
+      "en": "health-professional-80-100-spitex-obwalden-sarnen",
+      "de": "fachperson-gesundheit-80-100-spitex-ch-sarnen",
+      "fr": "professionnels-de-la-sante-80-100-spitex-obwalden-sarnen"
+    }
   },
   "id|spitexjobs.ch|j960716": {
     "canonicalSlug": "pflegehelfer-in-40-80-spitex-ch-liestal",
@@ -172859,7 +172870,12 @@
     "canonicalSlug": "pflegefachperson-hf-mit-schwerpunkt-demenz-60-100-spitex-ch-sarnen",
     "canton": "OW",
     "createdAt": "2026-05-29",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "cura-professionale-hf-con-focus-sulla-demenza-60-100-spitex-obwalden-sarnen",
+      "en": "care-professional-hf-with-focus-on-dementia-60-100-spitex-obwalden-sarnen",
+      "de": "pflegefachperson-hf-mit-schwerpunkt-demenz-60-100-spitex-ch-sarnen",
+      "fr": "soins-professionnels-hf-avec-accent-sur-la-demence-60-100-spitex-obwalden-sarnen"
+    }
   },
   "id|spitexjobs.ch|j974529": {
     "canonicalSlug": "infermiere-a-professionale-hf-80-100-lungenliga-thurgau-schaffhausen-schaffhausen",
@@ -173716,8 +173732,8 @@
     "createdAt": "2026-06-17",
     "slugByLocale": {
       "de": "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren",
-      "en": "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren",
-      "fr": "fachfrau-fachmann-gesundheit-pensum-wahlbar-40-100-spitex-ch-schlieren",
+      "en": "professional-health-professional-pensum-selectable-40-100-regiospitex-limmattal-schlieren",
+      "fr": "professionnel-professionnel-de-la-sante-pensum-selectionnable-40-100-regiospitex-limmattal-schlieren",
       "it": "specialista-della-salute-carico-di-lavoro-selezionabile-40-100-regiospitex-limmattal-schlieren"
     }
   },
@@ -173727,7 +173743,7 @@
     "createdAt": "2026-06-17",
     "slugByLocale": {
       "de": "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl",
-      "en": "dipl-pflegefachperson-hf-fh-akp-dnii-spitex-ch-urtenen-schonbuhl",
+      "en": "dipl-nurse-hf-fh-akp-dnii-60-100-spitex-grauholz-urtenen-schonbuhl",
       "it": "infermiera-certificata-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl",
       "fr": "infermiera-certificata-hf-fh-akp-dnii-spitex-grauholz-urtenen-schonbuhl"
     }
@@ -269796,7 +269812,8 @@
     "slugByLocale": {
       "en": "your-training-at-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be",
       "de": "deine-ausbildung-bei-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be",
-      "fr": "votre-formation-chez-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be"
+      "fr": "votre-formation-chez-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be",
+      "it": "il-tuo-allenamento-a-selecta-kauffrau-kaufmann-efz-selecta-kirchberg-be"
     },
     "createdAt": "2026-07-04",
     "canton": "BE"
@@ -274671,7 +274688,8 @@
     "slugByLocale": {
       "it": "responsabile-del-rischio-di-terze-parti-cro-rischio-non-finanziario-100-f-m-d-julius-baer-zurich",
       "fr": "gestionnaire-du-risque-tiers-risque-non-financier-du-brc-100-f-m-d-julius-baer-zurich",
-      "en": "third-party-risk-manager-cro-non-financial-risk-100-f-m-d-julius-baer"
+      "en": "third-party-risk-manager-cro-non-financial-risk-100-f-m-d-julius-baer",
+      "de": "risikomanager-der-dritten-klasse-cro-nichtfinanzielles-risiko-100-m-w-d-julius-baer-zurich"
     },
     "createdAt": "2026-07-06",
     "canton": "ZH"
@@ -335616,7 +335634,9 @@
     "canonicalSlug": "apprendistato-2027-logistiker-in-cfc-trumpf-schweiz-ag-grusch",
     "slugByLocale": {
       "it": "apprendistato-2027-logistiker-in-cfc-trumpf-schweiz-ag-grusch",
-      "de": "lehrstelle-2027-logistiker-in-efz-trumpf-schweiz-ag-grusch"
+      "de": "lehrstelle-2027-logistiker-in-efz-trumpf-schweiz-ag-grusch",
+      "en": "apprenticeship-2027-logistician-efz-trumpf-schweiz-ag-grusch",
+      "fr": "apprentissage-2027-logisticien-efz-trumpf-schweiz-ag-grusch"
     },
     "createdAt": "2026-07-15",
     "canton": "GR"
@@ -380570,7 +380590,9 @@
     "canonicalSlug": "wealth-planner-key-clients-family-office-services-zurich-100-f-m-d-julius-baer",
     "slugByLocale": {
       "en": "wealth-planner-key-clients-family-office-services-zurich-100-f-m-d-julius-baer",
-      "fr": "planificateur-de-patrimoine-clients-cles-et-services-de-bureau-a-la-famille-zurich-100-f-m-d-julius-baer-zurich"
+      "fr": "planificateur-de-patrimoine-clients-cles-et-services-de-bureau-a-la-famille-zurich-100-f-m-d-julius-baer-zurich",
+      "it": "clienti-chiave-e-servizi-per-l-ufficio-familiare-zurigo-100-m-f-d-julius-baer-zurich",
+      "de": "vermogensplaner-schlusselkunden-family-office-services-zurich-100-m-w-d-julius-baer-zurich"
     },
     "createdAt": "2026-07-21",
     "canton": "ZH"
@@ -383308,7 +383330,8 @@
     "slugByLocale": {
       "it": "orthoptist-in-20-vista-augenpraxen-kliniken-frauenfeld",
       "de": "orthoptist-in-20-vista-frauenfeld",
-      "fr": "orthoptiste-en-20-vista-augenpraxen-kliniken-frauenfeld"
+      "fr": "orthoptiste-en-20-vista-augenpraxen-kliniken-frauenfeld",
+      "en": "20-vista-augenpraxen-kliniken-frauenfeld"
     },
     "createdAt": "2026-07-21",
     "canton": "TG"
@@ -398817,7 +398840,8 @@
     "slugByLocale": {
       "it": "soluzioni-legali-di-investimento-e-distribuzione-100-f-m-d-julius-baer-zurich",
       "en": "legal-investment-solutions-distribution-100-f-m-d-julius-baer",
-      "fr": "solutions-d-investissement-et-distribution-juridiques-100-f-m-d-julius-baer-zurich"
+      "fr": "solutions-d-investissement-et-distribution-juridiques-100-f-m-d-julius-baer-zurich",
+      "de": "rechtliche-anlagelosungen-distribution-100-m-w-d-julius-baer-zurich"
     },
     "createdAt": "2026-07-24",
     "canton": "ZH"
@@ -429213,7 +429237,8 @@
     "slugByLocale": {
       "en": "msat-material-management-single-use-systems-expert-m-w-d-80-100-lonza-ch",
       "fr": "expert-en-gestion-des-materiaux-et-systemes-a-usage-unique-msat-m-p-p-80-100-lonza-ch",
-      "de": "msat-material-management-single-use-systems-experte-m-w-d-80-100-lonza-visp"
+      "de": "msat-material-management-single-use-systems-experte-m-w-d-80-100-lonza-visp",
+      "it": "esperto-msat-di-gestione-dei-materiali-e-sistemi-monouso-m-f-d-80-100-lonza-visp"
     },
     "createdAt": "2026-07-30",
     "canton": "VS"
@@ -559407,7 +559432,8 @@
     "canonicalSlug": "expert-senior-f-h-d-100-csd-engineers-ch",
     "slugByLocale": {
       "fr": "expert-senior-f-h-d-100-csd-engineers-ch",
-      "de": "senior-experte-m-w-d-100-csd-engineers-lancy"
+      "de": "senior-experte-m-w-d-100-csd-engineers-lancy",
+      "it": "esperto-senior-m-f-d-100-csd-engineers-lancy"
     },
     "createdAt": "2026-08-25",
     "canton": "GE"
@@ -673265,7 +673291,8 @@
     "slugByLocale": {
       "de": "automation-engineer-kantonsspital-graubunden-chur",
       "it": "ingegnere-di-automazione-kantonsspital-graubunden-chur",
-      "fr": "ingenieur-d-automatisation-kantonsspital-graubunden-chur"
+      "fr": "ingenieur-d-automatisation-kantonsspital-graubunden-chur",
+      "en": "ingegnere-di-automazione-kantonsspital-graubunden-chur"
     },
     "createdAt": "2026-09-08",
     "canton": "GR"
@@ -693979,7 +694006,8 @@
     "canonicalSlug": "mpa-fage-per-das-ambulatorium-am-usz-flughafen-g5-80-100-universitatsspital-zurich-usz-flughafen",
     "slugByLocale": {
       "it": "mpa-fage-per-das-ambulatorium-am-usz-flughafen-g5-80-100-universitatsspital-zurich-usz-flughafen",
-      "de": "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g5-80-100-usz-ch"
+      "de": "mpa-fage-fur-das-ambulatorium-am-usz-flughafen-g5-80-100-usz-ch",
+      "fr": "mpa-fage-pour-l-ambulateurium-a-l-aeroport-usz-g5-80-100-universitatsspital-zurich-usz-zurich"
     },
     "createdAt": "2026-09-09",
     "canton": "ZH"
@@ -754332,7 +754360,8 @@
     "slugByLocale": {
       "it": "logistica-specialista-80-100-m-w-d-lonza-ch",
       "de": "logistics-specialist-80-100-m-w-d-lonza-ch",
-      "fr": "logistique-specialiste-80-100-m-w-d-lonza-ch"
+      "fr": "logistique-specialiste-80-100-m-w-d-lonza-ch",
+      "en": "logistics-specialist-80-100-m-w-d-lonza-ch-j4cdvy"
     },
     "createdAt": "2026-09-19",
     "canton": "VS"
@@ -764165,7 +764194,8 @@
     "slugByLocale": {
       "de": "projektleiter-in-service-gebaudeautomation-equans-zurich",
       "it": "project-manager-service-building-automation-equans-switzerland-zurich",
-      "fr": "gestionnaire-de-projet-automatisation-des-batiments-equans-switzerland-zurich"
+      "fr": "gestionnaire-de-projet-automatisation-des-batiments-equans-switzerland-zurich",
+      "en": "project-manager-service-building-automation-equans-switzerland-zurich"
     },
     "createdAt": "2026-09-20",
     "canton": "ZH"
@@ -764219,7 +764249,8 @@
     "slugByLocale": {
       "de": "mitarbeiter-in-empfang-aarau-equans-aarau",
       "it": "staff-reception-aarau-equans-switzerland-aarau",
-      "fr": "reception-du-personnel-aarau-equans-switzerland-aarau"
+      "fr": "reception-du-personnel-aarau-equans-switzerland-aarau",
+      "en": "staff-reception-aarau-equans-switzerland-aarau"
     },
     "createdAt": "2026-09-20",
     "canton": "AG"
@@ -764293,7 +764324,9 @@
   "id|prospective.ch|b4c38fe5-9b6a-45c1-bf9f-c54808ef8a80": {
     "canonicalSlug": "software-automation-engineer-equans-olten",
     "slugByLocale": {
-      "de": "software-automation-engineer-equans-olten"
+      "de": "software-automation-engineer-equans-olten",
+      "it": "software-automation-ingegnere-equans-switzerland-olten",
+      "fr": "software-automation-ingenieur-equans-switzerland-olten"
     },
     "createdAt": "2026-09-20",
     "canton": "SO"
@@ -764355,7 +764388,10 @@
   "id|prospective.ch|9dff4347-a020-421b-854c-8c636b1e404b": {
     "canonicalSlug": "elettricista-con-afc-al-100-equans-altdorf",
     "slugByLocale": {
-      "it": "elettricista-con-afc-al-100-equans-altdorf"
+      "it": "elettricista-con-afc-al-100-equans-altdorf",
+      "en": "electricist-with-afc-at-100-equans-switzerland-altdorf",
+      "de": "elektriker-mit-afc-bei-100-equans-switzerland-altdorf",
+      "fr": "electriciste-avec-afc-a-100-equans-switzerland-altdorf"
     },
     "createdAt": "2026-09-20",
     "canton": "UR"
@@ -766198,7 +766234,10 @@
   "id|hitachienergy.com|jid3-216521": {
     "canonicalSlug": "internship-in-thyristor-design-hitachi-energy-lenzburg-switzerland",
     "slugByLocale": {
-      "en": "internship-in-thyristor-design-hitachi-energy-lenzburg-switzerland"
+      "en": "internship-in-thyristor-design-hitachi-energy-lenzburg-switzerland",
+      "it": "stage-in-thyristor-design-hitachi-energy-lenzburg",
+      "de": "praktikum-im-thyristor-design-hitachi-energy-lenzburg",
+      "fr": "stage-dans-thyristor-design-hitachi-energy-lenzburg"
     },
     "createdAt": "2026-09-20",
     "canton": "AG"
@@ -766227,7 +766266,8 @@
     "slugByLocale": {
       "en": "project-manager-gis-high-voltage-80-100-f-m-d-hitachi-energy-zurich-switzerland",
       "de": "projektmanager-gis-hochspannung-80-100-m-w-d-hitachi-energy-zurich-switzerland",
-      "fr": "gestionnaire-de-projet-sig-haute-tension-80-100-h-f-d-hitachi-energy-zurich-switzerland"
+      "fr": "gestionnaire-de-projet-sig-haute-tension-80-100-h-f-d-hitachi-energy-zurich-switzerland",
+      "it": "project-manager-gis-ad-alta-tensione-80-100-m-f-d-hitachi-energy-zurich"
     },
     "createdAt": "2026-09-20",
     "canton": "ZH"
@@ -766307,7 +766347,9 @@
     "canonicalSlug": "scientist-in-ai-driven-power-electronics-f-m-d-hitachi-energy-baden-daettwil-switzerland",
     "slugByLocale": {
       "en": "scientist-in-ai-driven-power-electronics-f-m-d-hitachi-energy-baden-daettwil-switzerland",
-      "fr": "scientifique-dans-l-electronique-assistee-par-l-ia-h-f-d-hitachi-energy-baden-daettwil-switzerland"
+      "fr": "scientifique-dans-l-electronique-assistee-par-l-ia-h-f-d-hitachi-energy-baden-daettwil-switzerland",
+      "it": "scienziato-in-ai-driven-power-electronics-m-f-d-hitachi-energy-baden-daettwil",
+      "de": "wissenschaftler-in-ai-driven-power-electronics-m-w-d-hitachi-energy-baden-daettwil"
     },
     "createdAt": "2026-09-20",
     "canton": "AG"
@@ -788490,5 +788532,1825 @@
     },
     "createdAt": "2026-09-22",
     "canton": "BE"
+  },
+  "id|spitalzofingen.ch|6d36b974-f173-4da3-b86b-519bee902ccf": {
+    "canonicalSlug": "cura-specialistica-per-bambini-kita-spital-zofingen-zofingen",
+    "slugByLocale": {
+      "it": "cura-specialistica-per-bambini-kita-spital-zofingen-zofingen",
+      "en": "specialist-care-for-children-kita-spital-zofingen-zofingen",
+      "de": "fachperson-betreuung-kinder-kita-spital-zofingen-zofingen",
+      "fr": "soins-specialises-pour-les-enfants-kita-spital-zofingen-zofingen"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|spitalzofingen.ch|b51afa9b-d124-465a-9c08-4c7869950e17": {
+    "canonicalSlug": "specialista-infermieristico-per-il-programma-post-laurea-hf-nds-emergency-care-spital-zofingen-zofingen",
+    "slugByLocale": {
+      "it": "specialista-infermieristico-per-il-programma-post-laurea-hf-nds-emergency-care-spital-zofingen-zofingen",
+      "en": "nursing-specialist-for-the-postgraduate-programme-hf-nds-emergency-care-spital-zofingen-zofingen",
+      "de": "pflegefachperson-fur-das-nachdiplomstudium-hf-nds-notfallpflege-spital-zofingen-zofingen",
+      "fr": "specialiste-des-soins-infirmiers-pour-le-programme-postuniversitaire-hf-nds-emergency-care-spital-zofingen-zofingen"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|spitalzofingen.ch|09d8d642-54d4-40cc-beee-e90e8b3d30e9": {
+    "canonicalSlug": "medico-senior-fisico-fisico-superior-medico-gastroenterologia-spital-zofingen-zofingen",
+    "slugByLocale": {
+      "it": "medico-senior-fisico-fisico-superior-medico-gastroenterologia-spital-zofingen-zofingen",
+      "en": "senior-physician-physician-physician-superior-physician-gastroenterology-spital-zofingen-zofingen",
+      "de": "leitende-r-arztin-arzt-oder-oberarztin-oberarzt-gastroenterologie-spital-zofingen-zofingen",
+      "fr": "medecin-medecin-principal-medecin-medecin-superieur-gastroenterologie-spital-zofingen-zofingen"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|spitalzofingen.ch|9b77dd13-d4b0-4eaa-8c95-2bebbb05d6b9": {
+    "canonicalSlug": "capo-dipartimento-per-la-cura-dell-anestesia-spital-zofingen-zofingen",
+    "slugByLocale": {
+      "it": "capo-dipartimento-per-la-cura-dell-anestesia-spital-zofingen-zofingen",
+      "en": "head-of-department-for-anesthesia-care-spital-zofingen-zofingen",
+      "de": "abteilungsleitung-anasthesiepflege-spital-zofingen-zofingen",
+      "fr": "chef-du-departement-des-soins-anesthesiques-spital-zofingen-zofingen"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|spitalzofingen.ch|8f7ff08a-3da5-49b1-a441-8505626758a3": {
+    "canonicalSlug": "dipl-cura-professionale-hf-imc-o-dipl-expert-intensive-care-nds-spital-zofingen-zofingen",
+    "slugByLocale": {
+      "it": "dipl-cura-professionale-hf-imc-o-dipl-expert-intensive-care-nds-spital-zofingen-zofingen",
+      "en": "dipl-care-professional-hf-imc-or-dipl-expert-intensive-care-nds-spital-zofingen-zofingen",
+      "de": "dipl-pflegefachperson-hf-imc-oder-dipl-experte-in-intensivpflege-nds-spital-zofingen",
+      "fr": "dipl-soins-professionnels-hf-imc-ou-dipl-expert-soins-intensifs-nds-spital-zofingen-zofingen"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|spitalzofingen.ch|3f14319b-f727-4239-be00-edf2e84c51a2": {
+    "canonicalSlug": "assistente-tecnico-sterilistico-spital-zofingen-zofingen",
+    "slugByLocale": {
+      "it": "assistente-tecnico-sterilistico-spital-zofingen-zofingen",
+      "en": "technical-sterilization-assistant-spital-zofingen-zofingen",
+      "de": "technische-r-sterilisationsassistent-in-spital-zofingen-zofingen",
+      "fr": "assistant-technique-sterilisation-spital-zofingen-zofingen"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|spitalzofingen.ch|5d3b4763-5038-4d94-89ca-cc9f1f19a878": {
+    "canonicalSlug": "apprendistato-come-cuoco-cuoco-efz-spital-zofingen-zofingen",
+    "slugByLocale": {
+      "it": "apprendistato-come-cuoco-cuoco-efz-spital-zofingen-zofingen",
+      "en": "apprenticeship-as-cook-cook-efz-spital-zofingen-zofingen",
+      "de": "lehrstelle-als-kochin-koch-efz-spital-zofingen-zofingen",
+      "fr": "apprentissage-comme-cuisinier-cuisinier-efz-spital-zofingen-zofingen"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|spitalzofingen.ch|53adac35-bb94-419c-a141-cecece889681": {
+    "canonicalSlug": "medico-di-discorso-ba-docente-ba-spital-zofingen-zofingen",
+    "slugByLocale": {
+      "it": "medico-di-discorso-ba-docente-ba-spital-zofingen-zofingen",
+      "en": "speech-doctor-ba-speech-doctor-ba-spital-zofingen-zofingen",
+      "de": "logopadin-ba-logopade-ba-spital-zofingen-zofingen",
+      "fr": "orthophoniste-ba-orthophoniste-ba-spital-zofingen-zofingen"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|trumpf.wd3.myworkdayjobs.com|r00041804-1": {
+    "canonicalSlug": "manutenzione-linea-pe-ib-m-f-d-trumpf-schweiz-ag-grusch",
+    "slugByLocale": {
+      "it": "manutenzione-linea-pe-ib-m-f-d-trumpf-schweiz-ag-grusch",
+      "en": "line-maintenance-pe-ib-m-f-d-trumpf-schweiz-ag-grusch",
+      "de": "linienbetreuer-pe-ib-m-w-d-trumpf-schweiz-ag-grusch",
+      "fr": "entretien-des-lignes-pe-ib-h-f-d-trumpf-schweiz-ag-grusch"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "GR"
+  },
+  "id|trumpf.wd3.myworkdayjobs.com|r00042856": {
+    "canonicalSlug": "responsabile-logistica-m-f-d-trumpf-schweiz-ag-grusch",
+    "slugByLocale": {
+      "it": "responsabile-logistica-m-f-d-trumpf-schweiz-ag-grusch",
+      "en": "head-of-logistics-m-f-d-trumpf-schweiz-ag-grusch",
+      "de": "leiter-logistik-m-w-d-trumpf-schweiz-ag-grusch",
+      "fr": "chef-de-la-logistique-h-f-d-trumpf-schweiz-ag-grusch"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "GR"
+  },
+  "id|trumpf.wd3.myworkdayjobs.com|r00042498-1": {
+    "canonicalSlug": "logisticista-m-f-d-trumpf-schweiz-ag-grusch",
+    "slugByLocale": {
+      "it": "logisticista-m-f-d-trumpf-schweiz-ag-grusch",
+      "en": "logistician-m-f-d-trumpf-schweiz-ag-grusch",
+      "de": "logistiker-m-w-d-trumpf-schweiz-ag-grusch",
+      "fr": "logisticien-h-f-d-trumpf-schweiz-ag-grusch"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "GR"
+  },
+  "id|prospective.ch|efb9eb7b-bd7d-4871-83a6-88aecbdf3f86": {
+    "canonicalSlug": "responsabile-della-costruzione-r-monteur-elektro-equans-switzerland-olten",
+    "slugByLocale": {
+      "it": "responsabile-della-costruzione-r-monteur-elektro-equans-switzerland-olten",
+      "en": "construction-manager-r-monteur-elektro-equans-switzerland-olten",
+      "de": "bauleitende-r-monteur-in-elektro-equans-olten",
+      "fr": "directeur-de-la-construction-r-monteur-elektro-equans-switzerland-olten"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "SO"
+  },
+  "id|prospective.ch|0d7e9240-5a95-4a1b-9ec0-abe4dd5a8801": {
+    "canonicalSlug": "responsabile-della-costruzione-r-riscaldamento-freddo-dell-installatore-equans-switzerland-chur",
+    "slugByLocale": {
+      "it": "responsabile-della-costruzione-r-riscaldamento-freddo-dell-installatore-equans-switzerland-chur",
+      "en": "construction-manager-r-installer-heating-cold-equans-switzerland-chur",
+      "de": "bauleitende-r-monteur-in-heizung-kalte-equans-chur",
+      "fr": "directeur-de-la-construction-chauffage-froid-de-l-installateur-equans-switzerland-chur"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "GR"
+  },
+  "id|prospective.ch|936ecca4-b926-4970-b96a-c50910d6877b": {
+    "canonicalSlug": "dual-r-student-ingegneria-meccanica-bachelor-of-engineering-equans-switzerland-basel",
+    "slugByLocale": {
+      "it": "dual-r-student-ingegneria-meccanica-bachelor-of-engineering-equans-switzerland-basel",
+      "en": "dual-r-student-mechanical-engineering-bachelor-of-engineering-equans-switzerland-basel",
+      "de": "duale-r-student-in-maschinenbau-bachelor-of-engineering-equans-basel",
+      "fr": "double-r-etudiant-ingenierie-mecanique-baccalaureat-en-genie-equans-switzerland-basel"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "BS"
+  },
+  "id|prospective.ch|2a9545c0-b58b-4ce8-8429-44c1fec17313": {
+    "canonicalSlug": "project-manager-e-construction-manager-interior-design-equans-switzerland-schlieren",
+    "slugByLocale": {
+      "de": "projektleiter-in-und-bauleiter-in-innenausbau-equans-schlieren",
+      "it": "project-manager-e-construction-manager-interior-design-equans-switzerland-schlieren",
+      "en": "project-manager-and-construction-manager-interior-design-equans-switzerland-schlieren",
+      "fr": "gestionnaire-de-projet-et-responsable-de-la-construction-design-interieur-equans-switzerland-schlieren"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-2912.umantis.com|475": {
+    "canonicalSlug": "specialista-psicologo-a-lenzburg-f-m-d-60-100-klinik-im-hasel-gontenschwil",
+    "slugByLocale": {
+      "it": "specialista-psicologo-a-lenzburg-f-m-d-60-100-klinik-im-hasel-gontenschwil",
+      "en": "specialist-psychologist-in-lenzburg-f-m-d-60-100-klinik-im-hasel-gontenschwil",
+      "de": "fachpsycholog-in-in-lenzburg-w-m-d-60-100-klinik-im-hasel-gontenschwil",
+      "fr": "psychologue-specialise-a-lenzburg-f-m-j-60-100-klinik-im-hasel-gontenschwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|recruitingapp-2912.umantis.com|473": {
+    "canonicalSlug": "dipl-terapista-occupazionale-in-f-m-d-20-klinik-im-hasel-gontenschwil",
+    "slugByLocale": {
+      "it": "dipl-terapista-occupazionale-in-f-m-d-20-klinik-im-hasel-gontenschwil",
+      "en": "dipl-occupational-therapist-in-f-m-d-20-klinik-im-hasel-gontenschwil",
+      "de": "dipl-ergotherapeut-in-w-m-d-20-klinik-im-hasel-gontenschwil",
+      "fr": "ergotherapeute-dipl-in-f-m-j-20-klinik-im-hasel-gontenschwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|recruitingapp-2912.umantis.com|470": {
+    "canonicalSlug": "dipl-infermieristica-professionale-hf-fh-o-mpa-con-ulteriore-istruzione-m-f-d-60-klinik-im-hasel-gontenschwil",
+    "slugByLocale": {
+      "it": "dipl-infermieristica-professionale-hf-fh-o-mpa-con-ulteriore-istruzione-m-f-d-60-klinik-im-hasel-gontenschwil",
+      "en": "dipl-nursing-professional-hf-fh-or-mpa-with-further-education-f-m-d-60-klinik-im-hasel-gontenschwil",
+      "de": "dipl-pflegefachperson-hf-fh-oder-mpa-mit-weiterbildung-w-m-d-60-klinik-im-hasel",
+      "fr": "dipl-professionnels-des-soins-infirmiers-hf-fh-ou-mpa-avec-formation-continue-f-m-j-60-klinik-im-hasel-gontenschwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|recruitingapp-2912.umantis.com|476": {
+    "canonicalSlug": "infermiera-hf-fh-m-f-d-100-klinik-im-hasel-gontenschwil",
+    "slugByLocale": {
+      "it": "infermiera-hf-fh-m-f-d-100-klinik-im-hasel-gontenschwil",
+      "de": "dipl-pflegefachperson-hf-fh-w-m-d-100-klinik-im-hasel-gontenschwil",
+      "fr": "infirmiere-diplomee-hf-fh-h-f-d-100-klinik-im-hasel-gontenschwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|recruitingapp-2912.umantis.com|477": {
+    "canonicalSlug": "medico-senior-in-baden-m-f-d-60-100-klinik-im-hasel-gontenschwil",
+    "slugByLocale": {
+      "it": "medico-senior-in-baden-m-f-d-60-100-klinik-im-hasel-gontenschwil",
+      "en": "senior-doctor-in-baden-m-f-d-60-100-klinik-im-hasel-gontenschwil",
+      "de": "oberarzt-in-in-baden-w-m-d-60-100-klinik-im-hasel-gontenschwil",
+      "fr": "medecin-senior-a-baden-h-f-d-60-100-klinik-im-hasel-gontenschwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|recruitingapp-2912.umantis.com|478": {
+    "canonicalSlug": "assistente-medico-in-baden-m-f-d-80-100-klinik-im-hasel-gontenschwil",
+    "slugByLocale": {
+      "it": "assistente-medico-in-baden-m-f-d-80-100-klinik-im-hasel-gontenschwil",
+      "en": "assistant-doctor-in-baden-m-f-d-80-100-klinik-im-hasel-gontenschwil",
+      "de": "assistenzarzt-in-in-baden-w-m-d-80-100-klinik-im-hasel-gontenschwil",
+      "fr": "assistant-medecin-a-baden-h-f-d-80-100-klinik-im-hasel-gontenschwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|recruitingapp-2912.umantis.com|479": {
+    "canonicalSlug": "interno-nel-lavoro-sociale-f-m-d-80-klinik-im-hasel-gontenschwil",
+    "slugByLocale": {
+      "it": "interno-nel-lavoro-sociale-f-m-d-80-klinik-im-hasel-gontenschwil",
+      "en": "intern-in-social-work-f-m-d-80-klinik-im-hasel-gontenschwil",
+      "de": "praktikant-in-soziale-arbeit-w-m-d-80-klinik-im-hasel-gontenschwil",
+      "fr": "stagiaire-travail-social-f-m-d-80-klinik-im-hasel-gontenschwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|recruitingapp-2912.umantis.com|481": {
+    "canonicalSlug": "assistente-psicologo-a-gontenschwil-m-f-d-80-klinik-im-hasel-gontenschwil",
+    "slugByLocale": {
+      "it": "assistente-psicologo-a-gontenschwil-m-f-d-80-klinik-im-hasel-gontenschwil",
+      "en": "assistant-psychologist-in-gontenschwil-m-f-d-80-klinik-im-hasel-gontenschwil",
+      "de": "assistenzpsycholog-in-in-gontenschwil-w-m-d-80-klinik-im-hasel-gontenschwil",
+      "fr": "assistant-psychologue-en-gontenschwil-h-f-d-80-klinik-im-hasel-gontenschwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|recruitingapp-2912.umantis.com|482": {
+    "canonicalSlug": "lavoratore-sociale-m-f-d-80-klinik-im-hasel-gontenschwil",
+    "slugByLocale": {
+      "it": "lavoratore-sociale-m-f-d-80-klinik-im-hasel-gontenschwil",
+      "en": "social-worker-m-f-d-80-klinik-im-hasel-gontenschwil",
+      "de": "sozialarbeiter-in-w-m-d-80-klinik-im-hasel-gontenschwil",
+      "fr": "travailleur-social-h-f-d-80-klinik-im-hasel-gontenschwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|paraplegie.ch|39220b6f-e2e2-4e70-b6f3-922b77f2f606": {
+    "canonicalSlug": "gestore-della-stazione-in-cura-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "gestore-della-stazione-in-cura-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "station-manager-in-care-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "stationsleiter-in-pflege-paraplegie-nottwil",
+      "fr": "chef-de-gare-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|f5217c87-f26e-4e52-8ce0-0c1c23be2a2e": {
+    "canonicalSlug": "dipl-lavoratore-sociale-in-fh-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "dipl-lavoratore-sociale-in-fh-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "dipl-social-worker-in-fh-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "dipl-sozialarbeiter-in-fh-paraplegie-nottwil",
+      "fr": "dipl-travailleurs-sociaux-en-fh-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|22e35391-e1ca-4323-897c-239a0dc99235": {
+    "canonicalSlug": "assistente-medico-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "assistente-medico-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "pharmaceutical-assistant-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "pharma-assistent-in-paraplegie-nottwil",
+      "fr": "assistant-pharmaceutique-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|70a50490-c8bd-41ad-8a96-4e1497094831": {
+    "canonicalSlug": "dipl-cura-intensiva-degli-esperti-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "dipl-cura-intensiva-degli-esperti-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "dipl-expert-in-intensive-care-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "dipl-expert-in-intensivpflege-nds-hf-paraplegie-nottwil",
+      "fr": "dipl-expert-en-soins-intensifs-nds-hf-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|37628e9b-e099-4ea4-ac8b-b1aab46750f6": {
+    "canonicalSlug": "dipl-expert-expert-anesthesia-care-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "dipl-expert-expert-anesthesia-care-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "dipl-expertin-experte-anasthesiepflege-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "dipl-expertin-experte-anasthesiepflege-nds-hf-paraplegie-nottwil",
+      "fr": "dipl-expert-expert-anesthesie-soins-nds-hf-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|c0847eda-6830-45be-ba18-ee11a99e7a6f": {
+    "canonicalSlug": "apn-clinical-nurse-specialist-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "apn-clinical-nurse-specialist-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "pflegeexpert-in-apn-clinical-nurse-specialist-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "pflegeexpert-in-apn-clinical-nurse-specialist-paraplegie-nottwil",
+      "fr": "infirmiere-clinique-specialiste-de-l-apn-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|d5130da1-9733-4aac-9ed5-cf4f20e5c96b": {
+    "canonicalSlug": "dipendenti-nella-gastronomia-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "dipendenti-nella-gastronomia-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "employees-gastronomy-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "mitarbeiter-in-gastronomie-paraplegie-nottwil",
+      "fr": "employe-dans-la-gastronomie-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|c81cb37e-ba69-45cd-b610-2d6d0a081845": {
+    "canonicalSlug": "apprendistato-gardener-eba-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "apprendistato-gardener-eba-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "apprenticeship-gardener-eba-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "lehrstelle-gartner-in-eba-paraplegie-nottwil",
+      "fr": "apprentissage-jardinier-eba-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|6536d60e-4f46-4ed9-8d73-190081b65caf": {
+    "canonicalSlug": "apprendistato-specializzato-settore-alberghiero-efz-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "apprendistato-specializzato-settore-alberghiero-efz-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "apprenticeship-specialist-hotel-industry-efz-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "lehrstelle-fachfrau-mann-hotellerie-hauswirtschaft-efz-paraplegie-nottwil",
+      "fr": "apprentissage-specialise-dans-l-hotellerie-efz-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|a17eff83-06c0-4aca-9855-ee5cfe92b877": {
+    "canonicalSlug": "apprendistato-kauffrau-mann-cfc-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen",
+    "slugByLocale": {
+      "it": "apprendistato-kauffrau-mann-cfc-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen",
+      "en": "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen",
+      "de": "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-paraplegie-steinhausen",
+      "fr": "lehrstelle-kauffrau-mann-efz-arbeitsort-steinhausen-schweizer-paraplegiker-gruppe-steinhausen"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZG"
+  },
+  "id|paraplegie.ch|98cf897f-ea60-47ed-b377-6a4ca155692a": {
+    "canonicalSlug": "cura-del-direttore-della-stazione-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "cura-del-direttore-della-stazione-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "station-manager-care-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "stationsleiter-in-pflege-paraplegie-nottwil",
+      "fr": "soins-de-gestionnaire-de-station-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|c3a39d8c-d69a-449e-a77f-4ac3cddec3de": {
+    "canonicalSlug": "apprendistato-in-medical-device-technology-efz-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "apprendistato-in-medical-device-technology-efz-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "apprenticeship-in-medical-device-technology-efz-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "lehrstelle-medizinproduktetechnolog-in-efz-paraplegie-nottwil",
+      "fr": "apprentissage-en-technologie-des-dispositifs-medicaux-efz-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|4ef46703-d65b-466d-818b-47a9333ec9cf": {
+    "canonicalSlug": "personale-della-cucina-fredda-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "personale-della-cucina-fredda-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "cold-kitchen-staff-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "mitarbeiter-in-kalte-kuche-paraplegie-nottwil",
+      "fr": "personnel-de-cuisine-froide-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|ac833b38-1564-4ef3-b1c0-047925e914f2": {
+    "canonicalSlug": "elettronica-ingegnere-it-specialista-in-una-capacita-di-consulenza-per-gli-aiuti-elettronici-schweizer-paraplegiker",
+    "slugByLocale": {
+      "it": "elettronica-ingegnere-it-specialista-in-una-capacita-di-consulenza-per-gli-aiuti-elettronici-schweizer-paraplegiker",
+      "en": "electronics-engineer-it-specialist-in-an-advisory-capacity-for-electronic-aids-schweizer-paraplegiker-gruppe-luzern",
+      "de": "elektroniker-in-it-spezialist-in-in-beratender-funktion-fur-elektronische-hilfsmittel",
+      "fr": "ingenieur-en-electronique-specialiste-en-technologie-de-l-information-a-titre-consultatif-pour-les-aides-electroniques"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|b3525365-616f-4a57-a980-a4fa870a072a": {
+    "canonicalSlug": "esperto-studente-in-anestesia-care-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "esperto-studente-in-anestesia-care-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "student-expert-in-anesthesia-care-nds-hf-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "studierende-r-expert-in-in-anasthesiepflege-nds-hf-paraplegie-nottwil",
+      "fr": "expert-etudiant-en-soins-anesthesiques-nds-hf-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|08f3feef-82d9-42b1-8e27-c6ef697e90ce": {
+    "canonicalSlug": "staff-hotel-service-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "it": "staff-hotel-service-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "mitarbeiter-in-hotelservice-schweizer-paraplegiker-gruppe-nottwil",
+      "de": "mitarbeiter-in-hotelservice-paraplegie-nottwil",
+      "fr": "service-hotelier-du-personnel-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|paraplegie.ch|f84e5638-0e8a-40ec-ba26-3eaed9652aee": {
+    "canonicalSlug": "assistente-medico-neurochirurgia-ortopedia-schweizer-paraplegiker-gruppe-nottwil",
+    "slugByLocale": {
+      "de": "assistenzarzt-arztin-neurochirurgie-orthopadie-paraplegie-nottwil",
+      "it": "assistente-medico-neurochirurgia-ortopedia-schweizer-paraplegiker-gruppe-nottwil",
+      "en": "assistant-physician-neurosurgery-orthopaedics-schweizer-paraplegiker-gruppe-nottwil",
+      "fr": "medecin-adjoint-neurochirurgie-orthopedie-schweizer-paraplegiker-gruppe-nottwil"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|hitachienergy.com|jid3-217204": {
+    "canonicalSlug": "territory-sales-manager-80-100-hitachi-energy-zurich-switzerland",
+    "slugByLocale": {
+      "en": "territory-sales-manager-80-100-hitachi-energy-zurich-switzerland"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|hitachienergy.com|jid3-217300": {
+    "canonicalSlug": "internship-in-emobility-testing-80-100-f-m-d-hitachi-energy-satigny-switzerland",
+    "slugByLocale": {
+      "en": "internship-in-emobility-testing-80-100-f-m-d-hitachi-energy-satigny-switzerland"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "GE"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78749": {
+    "canonicalSlug": "qc-analyst-data-reviewer-lonza-ch",
+    "slugByLocale": {
+      "en": "qc-analyst-data-reviewer-lonza-ch",
+      "de": "qc-ansager-datenprufer-lonza-visp"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79115": {
+    "canonicalSlug": "collaboratore-trice-werkhof-80-100-m-w-d-lonza-visp",
+    "slugByLocale": {
+      "de": "mitarbeiter-werkhof-80-100-m-w-d-lonza-ch",
+      "it": "collaboratore-trice-werkhof-80-100-m-w-d-lonza-visp",
+      "en": "employee-workshop-80-100-m-f-d-lonza-visp",
+      "fr": "atelier-des-employes-80-100-h-f-d-lonza-visp"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79374-1": {
+    "canonicalSlug": "tecnico-di-investimento-hvac-80-100-m-f-d-lonza-visp",
+    "slugByLocale": {
+      "de": "anlagetechniker-hvac-80-100-m-w-d-lonza-ch",
+      "it": "tecnico-di-investimento-hvac-80-100-m-f-d-lonza-visp",
+      "en": "investment-technician-hvac-80-100-m-f-d-lonza-visp",
+      "fr": "technicien-en-investissement-cvc-80-100-h-f-d-lonza-visp"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78692": {
+    "canonicalSlug": "laboratory-analyst-m-w-d-qc-hplc-lonza-ch",
+    "slugByLocale": {
+      "en": "laboratory-analyst-m-w-d-qc-hplc-lonza-ch",
+      "de": "laboranalyst-m-w-d-qc-hplc-lonza-visp"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79521": {
+    "canonicalSlug": "senior-director-strategy-lonza-ch",
+    "slugByLocale": {
+      "en": "senior-director-strategy-lonza-ch",
+      "fr": "directeur-principal-strategie-lonza-basel"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "BS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79282-1": {
+    "canonicalSlug": "responsabile-del-progetto-80-100-lonza-visp",
+    "slugByLocale": {
+      "en": "project-manager-80-100-lonza-ch",
+      "it": "responsabile-del-progetto-80-100-lonza-visp",
+      "de": "projektmanager-80-100-lonza-visp",
+      "fr": "gestionnaire-de-projet-80-100-lonza-visp"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79271": {
+    "canonicalSlug": "ehs-specialista-logistica-80-100-m-w-d-lonza-visp",
+    "slugByLocale": {
+      "de": "ehs-specialist-logistics-80-100-m-w-d-lonza-ch",
+      "it": "ehs-specialista-logistica-80-100-m-w-d-lonza-visp",
+      "fr": "ehs-specialiste-logistique-80-100-m-w-d-lonza-visp"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79368": {
+    "canonicalSlug": "associate-principali-scienziati-bioanalitici-80-100-lonza-basel",
+    "slugByLocale": {
+      "en": "associate-principal-scientist-bioanalytics-80-100-lonza-ch",
+      "it": "associate-principali-scienziati-bioanalitici-80-100-lonza-basel",
+      "de": "assoziierter-hauptwissenschaftler-bioanalytik-80-100-lonza-basel",
+      "fr": "associe-chercheur-principal-bioanalyse-80-100-lonza-basel"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "BS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79332-1": {
+    "canonicalSlug": "process-excellence-specialist-80-100-lonza-ch",
+    "slugByLocale": {
+      "en": "process-excellence-specialist-80-100-lonza-ch"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79586": {
+    "canonicalSlug": "operatore-biotecnologo-m-f-d-lonza-visp",
+    "slugByLocale": {
+      "en": "operator-biotechnologist-f-m-d-lonza-ch",
+      "it": "operatore-biotecnologo-m-f-d-lonza-visp",
+      "de": "betreiber-biotechnologe-m-w-d-lonza-visp",
+      "fr": "operateur-biotechnologist-f-m-d-lonza-visp"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78850": {
+    "canonicalSlug": "senior-director-commercial-development-advanced-synthesis-lonza-ch",
+    "slugByLocale": {
+      "en": "senior-director-commercial-development-advanced-synthesis-lonza-ch",
+      "fr": "directeur-principal-developpement-commercial-synthese-avancee-lonza-basel"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "BS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79531": {
+    "canonicalSlug": "logistica-specialista-80-100-m-w-d-lonza-visp",
+    "slugByLocale": {
+      "de": "logistics-specialist-80-100-m-w-d-lonza-ch",
+      "it": "logistica-specialista-80-100-m-w-d-lonza-visp",
+      "fr": "logistique-specialiste-80-100-m-w-d-lonza-visp"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|usz.ch|21455d82-0b85-4590-8c27-055cc6c394d2": {
+    "canonicalSlug": "clinica-di-gastroenterologia-ed-epatologia-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "praktikant-in-klinik-fur-gastroenterologie-und-hepatologie-80-100-usz-ch",
+      "it": "clinica-di-gastroenterologia-ed-epatologia-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "clinic-of-gastroenterology-and-hepatology-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|51586d65-2164-4240-93e3-2647aba2d0fc": {
+    "canonicalSlug": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "vorpraktikum-in-der-physiotherapie-ergotherapie-usz-usz-ch",
+      "it": "pre-stage-in-fisioterapia-terapia-professionale-usz-universitatsspital-zurich-usz-zurich",
+      "en": "pre-internship-in-physiotherapy-occupational-therapy-usz-universitatsspital-zurich-usz-zurich",
+      "fr": "pre-internat-en-physiotherapie-ergotherapie-usz-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|1d50fec0-8d9d-4db5-a040-0bf3a71920ea": {
+    "canonicalSlug": "assistente-medico-m-f-d-clinica-per-immunologia-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "assistenzarztin-assistenzarzt-w-m-d-klinik-fur-immunologie-80-100-usz-ch",
+      "it": "assistente-medico-m-f-d-clinica-per-immunologia-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "assistant-physician-m-f-d-clinic-for-immunology-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "medecin-adjoint-h-f-d-clinique-d-immunologie-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|bc5be2c1-b6c6-4e6b-bedf-6b904228e201": {
+    "canonicalSlug": "radiologia-specializzata-radiologia-interventistica-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "radiologiefachperson-interventionelle-radiologie-80-100-usz-ch",
+      "it": "radiologia-specializzata-radiologia-interventistica-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "radiology-specialist-interventional-radiology-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "radiologie-interventionnelle-specialisee-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|0b795661-28b6-4f2a-bb76-c33635845db3": {
+    "canonicalSlug": "formazione-professionale-ortopedista-hf-60-80-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "berufsbildner-in-orthoptist-in-hf-60-80-usz-ch",
+      "it": "formazione-professionale-ortopedista-hf-60-80-universitatsspital-zurich-usz-zurich",
+      "en": "professional-trainer-orthoptist-hf-60-80-universitatsspital-zurich-usz-zurich",
+      "fr": "entraineur-professionnel-orthoptiste-hf-60-80-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|38119180-2edb-43ba-aaa4-691dce0d8050": {
+    "canonicalSlug": "senior-system-ingegnere-architetto-fokus-oneidentity-e-iam-gesamtarchitektur-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "senior-system-engineer-architect-fokus-oneidentity-und-iam-gesamtarchitektur-80-100-usz-ch",
+      "it": "senior-system-ingegnere-architetto-fokus-oneidentity-e-iam-gesamtarchitektur-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "ingenieur-de-systeme-architecte-principal-centre-oneidentity-et-architecture-globale-iam-80-100-universitatsspital"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|d5365a9e-490c-4a09-bdce-725ae62ff60a": {
+    "canonicalSlug": "cura-speciale-esperto-esperto-m-f-d-anestesia-cura-mkg-orl-aug-plastica-neurochirurgia-50-100-universitatsspital-zurich",
+    "slugByLocale": {
+      "de": "spezialpflege-expertin-experte-w-m-d-anasthesiepflege-mkg-orl-aug-plastische",
+      "it": "cura-speciale-esperto-esperto-m-f-d-anestesia-cura-mkg-orl-aug-plastica-neurochirurgia-50-100-universitatsspital-zurich",
+      "en": "special-care-expert-expert-m-f-d-anesthesia-care-mkg-orl-aug-plastic-neurosurgery-50-100-universitatsspital-zurich-usz",
+      "fr": "soins-speciaux-expert-expert-h-f-d-soins-anesthesie-mkg-orl-aug-plastique-neurochirurgie-50-100-universitatsspital"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|f7e47fc6-03c9-47f0-982a-f0144b46412c": {
+    "canonicalSlug": "infermiere-cardiochirurgia-40-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "pflegefachperson-fur-die-kardiologie-und-herzchirurgie-40-100-usz-ch",
+      "it": "infermiere-cardiochirurgia-40-100-universitatsspital-zurich-usz-zurich",
+      "en": "cardiology-and-cardiac-surgery-nurse-40-100-universitatsspital-zurich-usz-zurich",
+      "fr": "infirmiere-en-cardiologie-et-chirurgie-cardiaque-40-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|c6da9a60-5cae-4d2c-acaf-90f49d0d0738": {
+    "canonicalSlug": "shift-responsabile-r-aemp-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "schichtverantwortliche-r-aemp-80-100-usz-ch",
+      "it": "shift-responsabile-r-aemp-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "shift-responsible-r-aemp-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "poste-responsable-r-aemp-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|db7703d1-2fc8-4a67-9883-d8223f3e28bd": {
+    "canonicalSlug": "servizi-coordinatori-finanza-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "koordinator-in-leistungen-amp-finanzen-80-100-usz-ch",
+      "it": "servizi-coordinatori-finanza-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "coordinator-services-finance-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "coordonnatrice-services-finances-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|2a4f5966-3427-4f87-b22f-b4a4edb85bdf": {
+    "canonicalSlug": "data-engineer-medical-data-products-80-100-usz-ch",
+    "slugByLocale": {
+      "de": "data-engineer-medical-data-products-80-100-usz-ch"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|e3581a5f-dd76-4aa4-9f9b-a9341df76aef": {
+    "canonicalSlug": "data-platform-engineer-80-100-usz-ch",
+    "slugByLocale": {
+      "de": "data-platform-engineer-80-100-usz-ch"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|1d457958-9677-4fb1-a620-24bb21ad37c0": {
+    "canonicalSlug": "assistente-medico-assistente-medico-m-f-d-medicina-intensiva-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "assistenzarztin-assistenzarzt-w-m-d-intensivmedizin-80-100-usz-ch",
+      "it": "assistente-medico-assistente-medico-m-f-d-medicina-intensiva-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "assistant-doctor-assistant-doctor-m-f-d-intensive-care-medicine-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "assistant-medecin-assistant-medecin-h-f-d-medecine-des-soins-intensifs-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|60e067b2-f35c-4342-85cd-d57daad10c7e": {
+    "canonicalSlug": "assistente-amministrativo-per-la-clinica-di-oncologia-medica-ed-ematologia-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "verwaltungsassistent-in-fur-die-klinik-fur-medizinische-onkologie-und-hamatologie-80-100",
+      "it": "assistente-amministrativo-per-la-clinica-di-oncologia-medica-ed-ematologia-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "administrative-assistant-for-the-clinic-of-medical-oncology-and-hematology-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "assistant-administratif-de-la-clinique-d-oncologie-medicale-et-d-hematologie-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|196d59b3-e37e-428a-ba49-8b721414b5b0": {
+    "canonicalSlug": "infermiera-practitioner-tumor-pathway-dermatooncology-m-f-d-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "pflegeexpert-in-nurse-practitioner-tumorpfad-dermatoonkologie-w-m-d-80-100-usz-ch",
+      "it": "infermiera-practitioner-tumor-pathway-dermatooncology-m-f-d-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "care-expert-nurse-practitioner-tumor-pathway-dermatooncology-m-f-d-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "infirmiere-praticienne-dermatooncologie-voie-tumorale-h-f-d-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|ec45a98c-d920-4835-a238-36c9e1cb7bd0": {
+    "canonicalSlug": "manutenzione-elettrica-specialistica-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "fachspezialist-elektro-instandhaltung-80-100-usz-ch",
+      "it": "manutenzione-elettrica-specialistica-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "specialist-electric-maintenance-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "specialiste-de-l-entretien-electrique-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|4f6afa61-deab-42e0-9f41-d673b1dac940": {
+    "canonicalSlug": "automazione-degli-edifici-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "gebaudeautomatiker-in-80-100-usz-ch",
+      "it": "automazione-degli-edifici-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "building-automation-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "automatisation-des-batiments-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|a9ae7132-5dbf-4d48-83ef-2ca0d66c4627": {
+    "canonicalSlug": "ernahrungsberater-n-therapeut-in-bsc-in-ernahrung-e-diatetik-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "ernahrungsberater-n-therapeut-in-bsc-in-ernahrung-und-diatetik-80-100-usz-ch",
+      "it": "ernahrungsberater-n-therapeut-in-bsc-in-ernahrung-e-diatetik-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "nutritionist-n-therapist-in-bsc-in-nutrition-and-dietetics-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "nutritionniste-n-therapeute-en-bsc-en-nutrition-et-dietetique-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|f7121d38-9d8c-452c-a6ac-a05b8360bbad": {
+    "canonicalSlug": "specialista-infermieristico-per-l-unita-privata-interdisciplinare-medicina-interna-oncologia-ematologia-70-100",
+    "slugByLocale": {
+      "de": "pflegefachperson-fur-die-interdisziplinare-privatstation-innere-medizin-onkologie",
+      "it": "specialista-infermieristico-per-l-unita-privata-interdisciplinare-medicina-interna-oncologia-ematologia-70-100",
+      "en": "nursing-specialist-for-the-interdisciplinary-private-unit-internal-medicine-oncology-hematology-70-100",
+      "fr": "specialiste-des-soins-infirmiers-pour-l-unite-privee-interdisciplinaire-medecine-interne-oncologie-hematologie-70-100"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|9c1d2c5e-3498-4060-86c4-e5c5a7b05f3b": {
+    "canonicalSlug": "specialista-sanitario-efz-per-il-dipartimento-di-terapia-cellulare-stem-e-immune-80-100-universitatsspital-zurich-usz",
+    "slugByLocale": {
+      "de": "fachperson-gesundheit-efz-fur-die-abteilung-stamm-und-immunzelltherapie-80-100-usz-ch",
+      "it": "specialista-sanitario-efz-per-il-dipartimento-di-terapia-cellulare-stem-e-immune-80-100-universitatsspital-zurich-usz",
+      "en": "health-specialist-efz-for-the-department-of-stem-and-immune-cell-therapy-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "specialiste-de-la-sante-efz-pour-le-departement-de-therapie-par-cellules-souches-et-immunitaires-80-100"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|54f41b83-27f6-4cdf-9e98-7f98480b82f2": {
+    "canonicalSlug": "stage-universitario-dati-sanitari-analista-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "hochschulpraktikant-in-health-data-analyst-80-100-usz-ch",
+      "it": "stage-universitario-dati-sanitari-analista-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "stagiaire-universitaire-analyste-des-donnees-sur-la-sante-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|326dce1e-873b-40fe-9d39-5967bc30c796": {
+    "canonicalSlug": "professore-aggiunto-supporto-per-junior-group-leader-position-in-virologia-e-o-interazioni-host-pathogen-80-100",
+    "slugByLocale": {
+      "en": "assistant-professorship-support-for-junior-group-leader-position-in-virology-and-or-host",
+      "it": "professore-aggiunto-supporto-per-junior-group-leader-position-in-virologia-e-o-interazioni-host-pathogen-80-100",
+      "de": "assistenzprofessur-unterstutzung-fur-junior-group-leader-position-in-virologie-und-oder-host-pathogen-interaktionen-80",
+      "fr": "professeur-adjoint-soutien-au-poste-de-chef-de-groupe-junior-en-virologie-et-ou-en-interaction-hote-pathogene-80-100"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|e0eb524a-b235-4e12-a025-baf12964dd0e": {
+    "canonicalSlug": "servizi-di-pazienti-e-corrieri-leader-del-team-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "teamleiter-in-patienten-und-kurierservices-80-100-usz-ch",
+      "it": "servizi-di-pazienti-e-corrieri-leader-del-team-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "team-leader-patient-and-courier-services-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "chef-d-equipe-services-de-patient-et-de-messagerie-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|af93e7dd-1cf7-4bb8-9393-1686316353d0": {
+    "canonicalSlug": "assistenza-speciale-gestione-del-gruppo-per-l-icm-interdisciplinare-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "spezialpflege-gruppenleitung-fur-die-internistisch-gefuhrte-interdisziplinare-imc-80-100",
+      "it": "assistenza-speciale-gestione-del-gruppo-per-l-icm-interdisciplinare-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "special-care-group-management-for-the-interdisciplinary-imc-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "soins-speciaux-gestion-de-groupe-pour-imc-interdisciplinaire-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|2ad613e1-4c7b-428d-a34a-c545f337dfc5": {
+    "canonicalSlug": "sap-bi-consultant-frontend-w-m-d-80-100-usz-ch",
+    "slugByLocale": {
+      "de": "sap-bi-consultant-frontend-w-m-d-80-100-usz-ch"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|db220f10-7d8c-43f7-b7da-4c7dcda5ea2a": {
+    "canonicalSlug": "infermiera-per-la-clinica-di-cardiologia-50-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "pflegefachperson-fur-die-klinik-fur-kardiologie-50-100-usz-ch",
+      "it": "infermiera-per-la-clinica-di-cardiologia-50-100-universitatsspital-zurich-usz-zurich",
+      "en": "nurse-for-the-clinic-of-cardiology-50-100-universitatsspital-zurich-usz-zurich",
+      "fr": "infirmiere-de-la-clinique-de-cardiologie-50-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|25505634-e8b7-4d68-b565-ee4c745c413d": {
+    "canonicalSlug": "infermiera-per-il-reparto-privato-di-traumatologia-varie-missioni-possibili-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "pflegefachperson-fur-die-privatstation-der-traumatologie-verschiedene-einsatze-moglich-80",
+      "it": "infermiera-per-il-reparto-privato-di-traumatologia-varie-missioni-possibili-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "nurse-for-the-private-ward-of-traumatology-various-missions-possible-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "infirmiere-du-service-prive-de-traumatologie-diverses-missions-possibles-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|5fe2937b-e63a-4513-92e7-37bcf30b733b": {
+    "canonicalSlug": "cura-per-la-stazione-di-letto-dermatology-80-100-servizi-fissi-e-giorni-possibili-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "berufsbildner-in-pflege-fur-die-bettenstation-dermatologie-80-100-fixe-dienste-und-tage",
+      "it": "cura-per-la-stazione-di-letto-dermatology-80-100-servizi-fissi-e-giorni-possibili-universitatsspital-zurich-usz-zurich",
+      "en": "care-for-the-bed-station-dermatology-80-100-fixed-services-and-days-possible-universitatsspital-zurich-usz-zurich",
+      "fr": "soins-pour-la-station-lit-dermatologie-80-100-services-fixes-et-jours-possibles-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|11c9f95e-51cc-44db-adb0-12d54df0c339": {
+    "canonicalSlug": "assistente-medico-m-f-d-per-la-clinica-di-radio-oncologia-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "assistenzarztin-assistenzarzt-w-m-d-fur-die-klinik-fur-radio-onkologie-80-100-usz-ch",
+      "it": "assistente-medico-m-f-d-per-la-clinica-di-radio-oncologia-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "assistant-physician-m-f-d-for-the-clinic-of-radio-oncology-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "medecin-adjoint-h-f-d-pour-la-clinique-de-radio-oncologie-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|9a722be0-753d-41e7-820d-59a0b02bf2a5": {
+    "canonicalSlug": "medico-senior-medico-senior-m-f-d-istituto-di-medicina-di-emergenza-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "oberarztin-oberarzt-w-m-d-institut-fur-notfallmedizin-80-100-usz-ch",
+      "it": "medico-senior-medico-senior-m-f-d-istituto-di-medicina-di-emergenza-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "senior-physician-senior-physician-m-f-d-institute-of-emergency-medicine-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "medecin-principal-medecin-principal-h-f-d-institut-de-medecine-d-urgence-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|4cc5eef3-b495-48f2-99a2-cc96401f1d2a": {
+    "canonicalSlug": "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "pflegefachperson-hamato-onkologie-60-100-usz-ch",
+      "it": "infermieristica-professionale-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
+      "en": "nursing-professional-hemato-oncology-60-100-universitatsspital-zurich-usz-zurich",
+      "fr": "specialiste-des-soins-infirmiers-hemato-oncologie-60-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|eab07896-6236-4932-a7de-e028bc49f7b9": {
+    "canonicalSlug": "infermiera-per-la-stazione-staminale-e-terapia-cellulare-immunitaria-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "pflegefachperson-fur-die-station-stamm-und-immunzelltherapie-80-100-usz-ch",
+      "it": "infermiera-per-la-stazione-staminale-e-terapia-cellulare-immunitaria-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "nurse-for-the-station-stem-and-immune-cell-therapy-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "infirmiere-de-la-station-de-traitement-des-cellules-souches-et-immunitaires-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|77dd6cc1-20de-4861-bc05-a72a3c5a6361": {
+    "canonicalSlug": "sicurezza-dei-dipendenti-nella-protezione-personale-oggetto-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-security-im-personen-objektschutz-80-100-usz-ch",
+      "it": "sicurezza-dei-dipendenti-nella-protezione-personale-oggetto-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "employee-security-in-personal-object-protection-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "securite-des-employes-en-matiere-de-protection-des-personnes-des-objets-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|usz.ch|173223b9-8718-4728-82ae-f9c43b94b082": {
+    "canonicalSlug": "direzione-assistente-clinica-di-cardiologia-80-100-universitatsspital-zurich-usz-zurich",
+    "slugByLocale": {
+      "de": "direktionsassistent-in-klinik-fur-kardiologie-80-100-usz-ch",
+      "it": "direzione-assistente-clinica-di-cardiologia-80-100-universitatsspital-zurich-usz-zurich",
+      "en": "directorate-assistant-clinic-of-cardiology-80-100-universitatsspital-zurich-usz-zurich",
+      "fr": "direction-clinique-assistante-de-cardiologie-80-100-universitatsspital-zurich-usz-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78845": {
+    "canonicalSlug": "scienziato-senior-qc-m-f-d-lonza-visp",
+    "slugByLocale": {
+      "en": "senior-scientist-qc-f-m-d-lonza-ch",
+      "it": "scienziato-senior-qc-m-f-d-lonza-visp",
+      "de": "leitender-wissenschaftler-qc-m-w-d-lonza-visp",
+      "fr": "chercheur-principal-qc-h-f-d-lonza-visp"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78940": {
+    "canonicalSlug": "laborant-in-analytik-80-100-f-m-d-lonza-ch",
+    "slugByLocale": {
+      "en": "laborant-in-analytik-80-100-f-m-d-lonza-ch"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79439": {
+    "canonicalSlug": "team-lead-cqv-80-100-m-w-d-lonza-ch",
+    "slugByLocale": {
+      "de": "team-lead-cqv-80-100-m-w-d-lonza-ch",
+      "fr": "chef-d-equipe-cqv-80-100-m-w-d-lonza-visp"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79365": {
+    "canonicalSlug": "labor-support-collaboratore-trice-in-qc-80-100-lonza-visp",
+    "slugByLocale": {
+      "de": "labor-support-mitarbeiter-in-qc-80-100-lonza-ch",
+      "it": "labor-support-collaboratore-trice-in-qc-80-100-lonza-visp",
+      "fr": "employe-de-soutien-au-travail-qc-80-100-lonza-visp"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "VS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78102-1": {
+    "canonicalSlug": "responsabile-procurement-direct-biologics-integrato-sintesi-avanzata-e-modalities-specializzati-lonza-basel",
+    "slugByLocale": {
+      "en": "head-of-direct-procurement-integrated-biologics-advanced-synthesis-and-specialized-modalities-lonza-ch",
+      "it": "responsabile-procurement-direct-biologics-integrato-sintesi-avanzata-e-modalities-specializzati-lonza-basel",
+      "de": "leiter-direktbeschaffung-integrierte-biologik-advanced-synthesis-und-spezialisierte-modalitaten-lonza-basel",
+      "fr": "chef-de-l-approvisionnement-direct-des-produits-biologiques-integres-de-la-synthese-avancee-et-des-modalites"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "BS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r78655-1": {
+    "canonicalSlug": "controllo-di-qualita-fisico-chimico-80-100-lonza-basel",
+    "slugByLocale": {
+      "en": "senior-scientist-physico-chemical-quality-control-80-100-lonza-ch",
+      "it": "controllo-di-qualita-fisico-chimico-80-100-lonza-basel"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "BS"
+  },
+  "id|lonza.wd3.myworkdayjobs.com|r79406": {
+    "canonicalSlug": "revenue-analyst-12-months-fix-term-contract-80-100-lonza-ch",
+    "slugByLocale": {
+      "en": "revenue-analyst-12-months-fix-term-contract-80-100-lonza-ch",
+      "de": "revenue-analyst-12-monate-befristeter-vertrag-80-100-lonza-basel"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "BS"
+  },
+  "url|https://www.clienia.ch/de/jobs-karriere/jobs/oberaerztin-oberarzt-31244574042700": {
+    "canonicalSlug": "medico-senior-80-100-clienia-ag-pfaffikon-zh-d164f0",
+    "slugByLocale": {
+      "it": "medico-senior-80-100-clienia-ag-pfaffikon-zh-d164f0",
+      "en": "senior-physician-80-100-clienia-ag-pfaffikon-zh-d164f0",
+      "de": "oberarztin-oberarzt-80-100-clienia-ag-zurich",
+      "fr": "medecin-principal-80-100-clienia-ag-pfaffikon-zh-d164f0"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://www.clienia.ch/de/jobs-karriere/jobs/peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-31373954068765": {
+    "canonicalSlug": "dipendente-pari-ex-in-o-pms-20-clienia-ag-pfaffikon-zh",
+    "slugByLocale": {
+      "it": "dipendente-pari-ex-in-o-pms-20-clienia-ag-pfaffikon-zh",
+      "en": "peer-employee-ex-in-or-pms-20-clienia-ag-pfaffikon-zh",
+      "de": "peer-mitarbeiterin-peer-mitarbeiter-ex-in-oder-pms-20-clienia-ag-zurich",
+      "fr": "employe-par-les-pairs-ex-in-ou-pms-20-clienia-ag-pfaffikon-zh"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-31373394068650": {
+    "canonicalSlug": "infermiere-qualificato-50-90-clienia-ag-pfaffikon-zh",
+    "slugByLocale": {
+      "it": "infermiere-qualificato-50-90-clienia-ag-pfaffikon-zh",
+      "en": "qualified-nurse-50-90-clienia-ag-pfaffikon-zh",
+      "de": "diplomierte-pflegefachperson-50-90-clienia-ag-zurich",
+      "fr": "infirmiere-qualifiee-50-90-clienia-ag-pfaffikon-zh"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://www.clienia.ch/de/jobs-karriere/jobs/fachangestellte-n-gesundheit-im-tagdienst-m-w-d-31379724070020": {
+    "canonicalSlug": "operatori-sanitari-specializzati-nel-servizio-giornaliero-m-f-d-50-80-clienia-ag-pfaffikon-zh",
+    "slugByLocale": {
+      "it": "operatori-sanitari-specializzati-nel-servizio-giornaliero-m-f-d-50-80-clienia-ag-pfaffikon-zh",
+      "en": "specialist-health-workers-in-day-service-m-f-d-50-80-clienia-ag-pfaffikon-zh",
+      "de": "fachangestellte-n-gesundheit-im-tagdienst-m-w-d-50-80-clienia-ag-zurich",
+      "fr": "specialistes-de-la-sante-en-service-de-jour-h-f-d-50-80-clienia-ag-pfaffikon-zh"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://www.clienia.ch/de/jobs-karriere/jobs/stellvertretende-r-teamleiter-in-pflege-tagesklinik-31384514070910": {
+    "canonicalSlug": "vice-team-leader-care-day-clinic-80-100-clienia-ag-pfaffikon-zh",
+    "slugByLocale": {
+      "de": "stellvertretende-r-teamleiter-in-pflege-tagesklinik-80-100-clienia-ag-zurich",
+      "it": "vice-team-leader-care-day-clinic-80-100-clienia-ag-pfaffikon-zh",
+      "en": "deputy-team-leader-care-day-clinic-80-100-clienia-ag-pfaffikon-zh",
+      "fr": "clinique-de-jour-des-chefs-d-equipe-adjoints-80-100-clienia-ag-pfaffikon-zh"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://www.clienia.ch/de/jobs-karriere/jobs/diplomierte-pflegefachperson-oder-sozialpaedagogin-sozialpaedagoge-31384504070907": {
+    "canonicalSlug": "infermiere-o-educatore-sociale-80-clienia-ag-pfaffikon-zh",
+    "slugByLocale": {
+      "de": "diplomierte-pflegefachperson-oder-sozialpadagogin-sozialpadagoge-80-clienia-ag-zurich",
+      "it": "infermiere-o-educatore-sociale-80-clienia-ag-pfaffikon-zh",
+      "en": "certified-nurse-or-social-educator-social-educator-80-clienia-ag-pfaffikon-zh",
+      "fr": "infirmiere-agreee-ou-educatrice-sociale-educatrice-sociale-80-clienia-ag-pfaffikon-zh"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "url|https://www.clienia.ch/de/jobs-karriere/jobs/mitarbeiter-in-restauration-m-w-d-31383574070967": {
+    "canonicalSlug": "restauro-dei-dipendenti-m-f-d-50-clienia-ag-pfaffikon-zh",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-restauration-m-w-d-50-clienia-ag-zurich",
+      "it": "restauro-dei-dipendenti-m-f-d-50-clienia-ag-pfaffikon-zh",
+      "en": "employee-restoration-m-f-d-50-clienia-ag-pfaffikon-zh",
+      "fr": "retablissement-des-employes-h-f-d-50-clienia-ag-pfaffikon-zh"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|spitexjobs.ch|j992687": {
+    "canonicalSlug": "team-management-80-100-dipl-specialista-in-allattamento-hf-fh-spitex-region-frauenfeld-frauenfeld",
+    "slugByLocale": {
+      "it": "team-management-80-100-dipl-specialista-in-allattamento-hf-fh-spitex-region-frauenfeld-frauenfeld",
+      "en": "team-management-80-100-dipl-nursing-specialist-hf-fh-spitex-region-frauenfeld-frauenfeld",
+      "de": "teamleitung-80-100-dipl-pflegefachfrau-mann-hf-fh-spitex-ch-frauenfeld",
+      "fr": "gestion-d-equipe-80-100-dipl-infirmiere-specialiste-hf-fh-spitex-region-frauenfeld-frauenfeld"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "TG"
+  },
+  "id|spitexjobs.ch|j992933": {
+    "canonicalSlug": "gestione-del-team-hf-fh-80-100-spitex-rechtes-limmattal-weiningen-zh",
+    "slugByLocale": {
+      "it": "gestione-del-team-hf-fh-80-100-spitex-rechtes-limmattal-weiningen-zh",
+      "en": "team-management-care-hf-fh-80-100-spitex-rechtes-limmattal-weiningen-zh",
+      "de": "teamleitung-pflege-hf-fh-80-100-spitex-ch-weiningen-zh",
+      "fr": "soins-de-gestion-d-equipe-hf-fh-80-100-spitex-rechtes-limmattal-weiningen-zh"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|spitexjobs.ch|j992217": {
+    "canonicalSlug": "infermiera-hf-40-100-spitex-region-aarau-aarau",
+    "slugByLocale": {
+      "it": "infermiera-hf-40-100-spitex-region-aarau-aarau",
+      "en": "dipl-nurse-hf-40-100-spitex-region-aarau-aarau",
+      "de": "dipl-pflegefachperson-hf-40-100-spitex-ch-aarau",
+      "fr": "infirmiere-diplomee-hf-40-100-spitex-region-aarau-aarau"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|spitexjobs.ch|j993588": {
+    "canonicalSlug": "specialista-sanitario-60-spitex-spitex-stadt-winterthur-winterthur",
+    "slugByLocale": {
+      "de": "fachfrau-mann-gesundheit-60-spitex-spitex-ch-winterthur",
+      "it": "specialista-sanitario-60-spitex-spitex-stadt-winterthur-winterthur",
+      "en": "health-specialist-60-spitex-spitex-stadt-winterthur-winterthur",
+      "fr": "specialiste-de-la-sante-60-spitex-spitex-stadt-winterthur-winterthur"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|spitexjobs.ch|j986435": {
+    "canonicalSlug": "dipl-infermiera-hf-psichiatria-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-hf-psychiatrie-50-80-spitex-ch-buttisholz",
+      "it": "dipl-infermiera-hf-psichiatria-50-80-spitex-verein-buttisholz-nottwil-buttisholz",
+      "en": "dipl-nurse-hf-psychiatry-50-80-spitex-verein-buttisholz-nottwil-buttisholz"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|spitexjobs.ch|j990668": {
+    "canonicalSlug": "professionista-hf-80-spitex-verein-buttisholz-nottwil-buttisholz",
+    "slugByLocale": {
+      "de": "pflegefachperson-hf-80-spitex-ch-buttisholz",
+      "it": "professionista-hf-80-spitex-verein-buttisholz-nottwil-buttisholz",
+      "en": "care-professional-hf-80-spitex-verein-buttisholz-nottwil-buttisholz",
+      "fr": "professionnel-de-soins-hf-80-spitex-verein-buttisholz-nottwil-buttisholz"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|spitexjobs.ch|j990528": {
+    "canonicalSlug": "infermiere-certificato-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf",
+    "slugByLocale": {
+      "de": "diplomierte-pflegefachperson-hf-fh-m-w-d-60-90-spitex-ch-burgdorf",
+      "it": "infermiere-certificato-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf",
+      "en": "certified-nurse-hf-fh-m-f-d-60-90-spitex-burgdorf-oberburg-burgdorf",
+      "fr": "infirmiere-agreee-hf-fh-h-f-d-60-90-spitex-burgdorf-oberburg-burgdorf"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "BE"
+  },
+  "id|spitexjobs.ch|j990941": {
+    "canonicalSlug": "specialista-sanitario-fage-m-f-d-40-100-zurigo-swisscare-zuri-zurich",
+    "slugByLocale": {
+      "it": "specialista-sanitario-fage-m-f-d-40-100-zurigo-swisscare-zuri-zurich",
+      "en": "health-specialist-fage-m-f-d-40-100-zurich-swisscare-zuri-zurich",
+      "de": "fachfrau-fachmann-gesundheit-fage-m-w-d-40-100-zurich-spitex-ch-zurich",
+      "fr": "specialiste-de-la-sante-fage-h-f-d-40-100-zurich-swisscare-zuri-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|spitexjobs.ch|j991394": {
+    "canonicalSlug": "apprendistato-come-specialista-salute-fage-efz-spitex-region-lenzburg-lenzburg",
+    "slugByLocale": {
+      "it": "apprendistato-come-specialista-salute-fage-efz-spitex-region-lenzburg-lenzburg",
+      "en": "apprenticeship-as-a-specialist-health-fage-efz-spitex-region-lenzburg-lenzburg",
+      "de": "lehrstelle-als-fachfrau-oder-fachmann-gesundheit-fage-efz-spitex-ch-lenzburg",
+      "fr": "apprentissage-en-tant-que-specialiste-de-la-sante-fage-efz-spitex-region-lenzburg-lenzburg"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|spitexjobs.ch|j993321": {
+    "canonicalSlug": "ricevimento-dei-dipendenti-40-80-spitex-obwalden-sarnen",
+    "slugByLocale": {
+      "de": "mitarbeiter-in-empfang-40-80-spitex-ch-sarnen",
+      "it": "ricevimento-dei-dipendenti-40-80-spitex-obwalden-sarnen",
+      "en": "employee-reception-40-80-spitex-obwalden-sarnen",
+      "fr": "reception-des-employes-40-80-spitex-obwalden-sarnen"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "OW"
+  },
+  "id|spitexjobs.ch|j993355": {
+    "canonicalSlug": "specialist-health-efz-spitex-spitex-der-seegemeinden-weggis",
+    "slugByLocale": {
+      "de": "fachfrau-fachmann-gesundheit-efz-spitex-spitex-ch-weggis",
+      "it": "specialist-health-efz-spitex-spitex-der-seegemeinden-weggis",
+      "fr": "specialiste-de-la-sante-efz-spitex-spitex-der-seegemeinden-weggis"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|spitexjobs.ch|j992716": {
+    "canonicalSlug": "piani-di-distribuzione-60-100-regiospitex-limmattal-schlieren",
+    "slugByLocale": {
+      "de": "einsatzplaner-in-60-100-spitex-ch-schlieren",
+      "it": "piani-di-distribuzione-60-100-regiospitex-limmattal-schlieren",
+      "en": "deployment-planners-60-100-regiospitex-limmattal-schlieren",
+      "fr": "planificateurs-de-deploiement-60-100-regiospitex-limmattal-schlieren"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|spitexjobs.ch|j993425": {
+    "canonicalSlug": "dipl-infermiera-hf-o-fh-spitex-rafz-rafz",
+    "slugByLocale": {
+      "de": "dipl-pflegefachfrau-hf-oder-fh-spitex-ch-rafz",
+      "it": "dipl-infermiera-hf-o-fh-spitex-rafz-rafz",
+      "en": "dipl-nurse-hf-or-fh-spitex-rafz-rafz",
+      "fr": "dipl-infirmiere-hf-ou-fh-spitex-rafz-rafz"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|spitexjobs.ch|j991907": {
+    "canonicalSlug": "infermiera-fh-hf-dnii-akp-spitex-dienste-rutu-oberhofen-am-thunersee",
+    "slugByLocale": {
+      "it": "infermiera-fh-hf-dnii-akp-spitex-dienste-rutu-oberhofen-am-thunersee",
+      "en": "dipl-nurse-fh-hf-dnii-akp-spitex-dienste-rutu-oberhofen-am-thunersee",
+      "de": "dipl-pflegefachperson-fh-hf-dnii-akp-spitex-ch-oberhofen-am-thunersee",
+      "fr": "infirmiere-diplomee-fh-hf-dnii-akp-spitex-dienste-rutu-oberhofen-am-thunersee"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "BE"
+  },
+  "id|spitexjobs.ch|j991902": {
+    "canonicalSlug": "professionista-della-salute-fage-spitex-dienste-rutu-oberhofen-am-thunersee",
+    "slugByLocale": {
+      "it": "professionista-della-salute-fage-spitex-dienste-rutu-oberhofen-am-thunersee",
+      "en": "health-professional-fage-spitex-dienste-rutu-oberhofen-am-thunersee",
+      "de": "fachperson-gesundheit-fage-spitex-ch-oberhofen-am-thunersee",
+      "fr": "professionnels-de-la-sante-fage-spitex-dienste-rutu-oberhofen-am-thunersee"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "BE"
+  },
+  "id|spitexjobs.ch|j990906": {
+    "canonicalSlug": "dipl-psichiatria-professionale-hf-70-100-spitex-birseck-munchenstein",
+    "slugByLocale": {
+      "it": "dipl-psichiatria-professionale-hf-70-100-spitex-birseck-munchenstein",
+      "en": "dipl-nursing-professional-hf-psychiatry-70-100-spitex-birseck-munchenstein",
+      "de": "dipl-pflegefachfrau-mann-hf-psychiatrie-70-100-spitex-ch-munchenstein",
+      "fr": "dipl-soins-infirmiers-professionnels-hf-psychiatrie-70-100-spitex-birseck-munchenstein"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "BL"
+  },
+  "id|spitexjobs.ch|j993008": {
+    "canonicalSlug": "collaboratore-trice-mitarbeiterin-per-das-team-hauswirtschaft-40-80-spitex-birseck-munchenstein",
+    "slugByLocale": {
+      "it": "collaboratore-trice-mitarbeiterin-per-das-team-hauswirtschaft-40-80-spitex-birseck-munchenstein",
+      "de": "mitarbeiter-mitarbeiterin-fur-das-team-hauswirtschaft-40-80-spitex-ch-munchenstein"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "BL"
+  },
+  "id|spitexjobs.ch|j991544": {
+    "canonicalSlug": "professionista-della-salute-efz-spitex-regio-frick-frick",
+    "slugByLocale": {
+      "de": "fachperson-gesundheit-efz-spitex-ch-frick",
+      "it": "professionista-della-salute-efz-spitex-regio-frick-frick",
+      "en": "health-professional-efz-spitex-regio-frick-frick",
+      "fr": "professionnels-de-la-sante-efz-spitex-regio-frick-frick"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "AG"
+  },
+  "id|spitexjobs.ch|j992195": {
+    "canonicalSlug": "dipl-infermiera-hf-psichiatria-40-90-spitex-rothenburg-rothenburg",
+    "slugByLocale": {
+      "de": "dipl-pflegefachperson-hf-psychiatrie-40-90-spitex-ch-rothenburg",
+      "it": "dipl-infermiera-hf-psichiatria-40-90-spitex-rothenburg-rothenburg",
+      "en": "dipl-nurse-hf-psychiatry-40-90-spitex-rothenburg-rothenburg",
+      "fr": "dipl-infirmiere-hf-psychiatrie-40-90-spitex-rothenburg-rothenburg"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "LU"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19663-1": {
+    "canonicalSlug": "junior-portfolio-manager-100-geneva-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "junior-portfolio-manager-100-geneva-f-m-d-julius-baer"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "GE"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19521-1": {
+    "canonicalSlug": "account-manager-employee-banking-100-fixed-term-contract-start-date-01-february-2027-8-months-maternity-leave-coverage-julius-baer",
+    "slugByLocale": {
+      "it": "account-manager-dipendenti-banking-100-contratto-a-tempo-fisso-data-di-inizio-01-febbraio-2027-8-mesi-copertura-di",
+      "en": "account-manager-employee-banking-100-fixed-term-contract-start-date-01-february-2027-8-months-maternity-leave-coverage-julius-baer",
+      "de": "account-manager-employee-banking-100-befristungsvertrag-startdatum-01-februar-2027-8-monate-mutterschaftsurlaub",
+      "fr": "gestionnaire-de-compte-services-bancaires-aux-employes-100-contrat-a-duree-determinee-date-de-mise-en-oeuvre-01-fevrier"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19609-1": {
+    "canonicalSlug": "account-manager-intermediaries-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "account-manager-intermediaries-100-f-m-d-julius-baer",
+      "fr": "gestionnaire-de-comptes-intermediaires-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19657-1": {
+    "canonicalSlug": "ai-office-ai-transformation-manager-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "ai-office-ai-transformation-manager-100-f-m-d-julius-baer",
+      "fr": "bureau-d-ia-gestionnaire-de-transformation-d-ia-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19625-1": {
+    "canonicalSlug": "ai-workshop-facilitator-for-baer-ai-lab-max-10-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-two-years-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "ai-workshop-facilitatore-per-baer-ai-laboratorio-max-10-m-f-d-contrasporta-attraverso-il-nostro-partner-di-payroll",
+      "en": "ai-workshop-facilitator-for-baer-ai-lab-10-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-two-years-possible-extension-julius-baer",
+      "de": "ai-workshop-facilitator-fur-baer-ai-lab-max-10-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-sofortiger",
+      "fr": "animateur-de-l-atelier-ai-pour-baer-ai-lab-max-10-h-f-d-contract-par-l-intermediaire-de-notre-partenaire-de-paye-externe"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19491-1": {
+    "canonicalSlug": "asset-liability-manager-finance-treasury-and-credit-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "asset-liability-manager-finanza-tesoro-e-credito-100-m-f-d-julius-baer-zurich",
+      "en": "asset-liability-manager-finance-treasury-and-credit-100-f-m-d-julius-baer",
+      "de": "asset-liability-manager-finanzministerium-und-kredit-100-m-w-d-julius-baer-zurich",
+      "fr": "gestionnaire-d-actifs-et-de-passifs-finances-tresorerie-et-credit-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-18715": {
+    "canonicalSlug": "cds-business-support-development-manager-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "cds-business-support-development-manager-100-f-m-d-julius-baer",
+      "de": "cds-unterstutzung-entwicklung-manager-100-m-w-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19481": {
+    "canonicalSlug": "client-documentation-generalist-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "documentazione-cliente-generalista-100-m-f-d-julius-baer-zurich",
+      "en": "client-documentation-generalist-100-f-m-d-julius-baer"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19594": {
+    "canonicalSlug": "client-regulatory-reporting-specialist-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "specialista-di-reporting-regolatore-cliente-100-m-f-d-julius-baer-zurich",
+      "en": "client-regulatory-reporting-specialist-100-f-m-d-julius-baer",
+      "fr": "specialiste-des-rapports-reglementaires-a-la-clientele-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19465": {
+    "canonicalSlug": "compliance-officer-governance-policies-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "funzionario-responsabile-della-conformita-governance-e-politiche-100-m-f-d-julius-baer-zurich",
+      "en": "compliance-officer-governance-policies-100-f-m-d-julius-baer",
+      "fr": "agent-de-conformite-gouvernance-et-politiques-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19435-1": {
+    "canonicalSlug": "corporate-actions-income-specialist-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "azioni-aziendali-specialista-di-reddito-100-m-f-d-julius-baer-zurich",
+      "en": "corporate-actions-income-specialist-100-f-m-d-julius-baer",
+      "fr": "actions-d-entreprise-specialiste-du-revenu-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19224-2": {
+    "canonicalSlug": "credit-recovery-manager-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "credit-recovery-manager-100-f-m-d-julius-baer",
+      "fr": "gestionnaire-de-recouvrement-de-credit-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19754-1": {
+    "canonicalSlug": "data-management-specialist-100-maternity-coverage-until-30-september-2027-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "specialista-di-gestione-dei-dati-100-copertina-di-maternita-fino-al-30-settembre-2027-m-f-d-julius-baer-zurich",
+      "en": "data-management-specialist-100-maternity-coverage-until-30-september-2027-f-m-d-julius-baer",
+      "de": "datenmanagement-spezialist-100-mutterschaftsabdeckung-bis-30-september-2027-m-w-d-julius-baer-zurich",
+      "fr": "specialiste-de-la-gestion-des-donnees-100-couverture-de-la-maternite-jusqu-au-30-septembre-2027-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19596": {
+    "canonicalSlug": "data-scientist-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "ricerca-dati-100-m-f-d-julius-baer-zurich",
+      "en": "data-scientist-100-f-m-d-julius-baer",
+      "fr": "scientifique-des-donnees-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19844-2": {
+    "canonicalSlug": "front-arena-developer-platform-specialist-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-30-09-2027-with-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "front-arena-sviluppatore-platform-specialist-100-m-f-d-contrasportare-attraverso-il-nostro-partner-payroll-esterno-con",
+      "en": "front-arena-developer-platform-specialist-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-30-09-2027-with-possible-extension-julius-baer",
+      "de": "front-arena-developer-platform-specialist-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-mit-sofortigem",
+      "fr": "front-arena-developer-platform-specialist-100-h-f-d-contracter-par-l-intermediaire-de-notre-partenaire-externe-de-paye"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19634-1": {
+    "canonicalSlug": "contabilita-finanziaria-globale-analista-aziendale-100-m-f-d-julius-baer-zurich",
+    "slugByLocale": {
+      "en": "global-financial-accounting-business-analyst-100-f-m-d-julius-baer",
+      "it": "contabilita-finanziaria-globale-analista-aziendale-100-m-f-d-julius-baer-zurich",
+      "fr": "comptabilite-financiere-globale-analyste-d-affaires-100-h-f-d-julius-baer-zurich",
+      "de": "contabilita-finanziaria-globale-analista-aziendale-100-m-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19646-1": {
+    "canonicalSlug": "hr-support-specialist-100-w-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "hr-specialista-di-supporto-100-w-m-d-julius-baer-zurich",
+      "en": "hr-support-specialist-100-w-m-d-julius-baer",
+      "fr": "specialiste-du-soutien-des-rh-100-w-m-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19312-2": {
+    "canonicalSlug": "it-infrastructure-solution-architect-infra-tech-lead-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "soluzioni-per-infrastrutture-it-architetto-infra-tech-lead-100-m-f-d-julius-baer-zurich",
+      "en": "it-infrastructure-solution-architect-infra-tech-lead-100-f-m-d-julius-baer",
+      "de": "it-infrastruktur-losung-architekt-infra-tech-lead-100-m-w-d-julius-baer-zurich",
+      "fr": "architecte-de-solutions-d-infrastructure-informatique-infra-tech-lead-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19540-1": {
+    "canonicalSlug": "junior-test-data-engineer-clm-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-03-2027-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "junior-test-data-engineer-clm-100-m-f-d-contrasportare-attraverso-il-nostro-partner-payroll-esterno-con-partenza",
+      "en": "junior-test-data-engineer-clm-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-03-2027-possible-extension-julius-baer",
+      "de": "junior-test-data-engineer-clm-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-mit-sofortigem-start-bis",
+      "fr": "ingenieur-de-donnees-de-test-junior-clm-100-h-f-d-contracter-par-l-entremise-de-notre-partenaire-externe-de-paye-avec"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-18968-1": {
+    "canonicalSlug": "lead-architect-order-management-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "lead-architect-order-management-100-f-m-d-julius-baer",
+      "fr": "gestion-de-commandes-d-architectes-principaux-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19703-1": {
+    "canonicalSlug": "marketing-analytics-specialist-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "specialista-di-analisi-di-marketing-100-m-f-d-julius-baer-zurich",
+      "en": "marketing-analytics-specialist-100-f-m-d-julius-baer",
+      "fr": "specialiste-de-l-analyse-marketing-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19461-1": {
+    "canonicalSlug": "model-risk-quantitative-analyst-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "model-risk-quantitative-analyst-100-f-m-d-julius-baer",
+      "de": "modellrisiko-quantitativer-analyst-100-m-w-d-julius-baer-zurich",
+      "fr": "analyste-quantitatif-des-risques-du-modele-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19379-1": {
+    "canonicalSlug": "operational-excellence-officer-for-mortgages-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "ufficiale-di-eccellenza-operativa-per-mortgages-100-f-m-d-julius-baer-zurich",
+      "en": "operational-excellence-officer-for-mortgages-100-f-m-d-julius-baer",
+      "fr": "agent-d-excellence-operationnelle-pour-les-hypotheques-100-f-m-j-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19275": {
+    "canonicalSlug": "product-owner-portfolio-analysis-position-management-80-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "proprietario-del-prodotto-analisi-del-portafoglio-e-gestione-della-posizione-80-100-m-f-d-julius-baer-zurich",
+      "en": "product-owner-portfolio-analysis-position-management-80-100-f-m-d-julius-baer",
+      "de": "product-owner-portfolioanalyse-positionsmanagement-80-100-m-w-d-julius-baer-zurich",
+      "fr": "proprietaire-du-produit-analyse-de-portefeuille-et-gestion-de-position-80-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19875-2": {
+    "canonicalSlug": "senior-analysis-delivery-lead-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2027-with-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "analisi-senior-delivery-lead-100-m-f-d-contrasportare-attraverso-il-nostro-partner-payroll-esterno-con-partenza",
+      "en": "senior-analysis-delivery-lead-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2027-with-possible-extension-julius-baer",
+      "de": "senior-analysis-delivery-lead-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-mit-sofortigem-start-bis",
+      "fr": "responsable-principal-de-l-analyse-et-de-la-livraison-100-h-f-d-contracter-par-l-intermediaire-de-notre-partenaire"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19612-1": {
+    "canonicalSlug": "senior-backend-developer-c-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-until-31-03-2027-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "senior-backend-sviluppatore-c-100-m-f-d-contrasportare-attraverso-il-nostro-partner-payroll-esterno-partenza-immediata",
+      "en": "senior-backend-developer-c-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-until-31-03-2027-possible-extension-julius-baer",
+      "de": "senior-backend-developer-c-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-sofortiger-beginn-bis-zum-31",
+      "fr": "developpeur-principal-c-100-h-f-d-contracter-par-l-intermediaire-de-notre-partenaire-externe-de-paye-debut-immediat"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19623-1": {
+    "canonicalSlug": "senior-business-analyst-client-relationship-management-80-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "senior-business-analyst-customer-relationship-management-80-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno",
+      "en": "senior-business-analyst-client-relationship-management-80-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
+      "de": "senior-business-analyst-client-relationship-management-80-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner",
+      "fr": "analyste-principal-des-affaires-gestion-des-relations-avec-la-clientele-80-100-h-f-d-contracter-par-l-entremise-de-notre"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19553-1": {
+    "canonicalSlug": "senior-data-engineer-data-analytics-platform-80-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "senior-data-engineer-piattaforma-di-analisi-dati-80-100-m-f-d-contrassegna-tramite-il-nostro-partner-di-payroll-esterno",
+      "en": "senior-data-engineer-data-analytics-platform-80-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-julius-baer",
+      "de": "senior-data-engineer-data-analytics-platform-80-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-mit",
+      "fr": "ingenieur-principal-de-donnees-data-analytics-platform-80-100-h-f-d-contract-par-l-intermediaire-de-notre-partenaire"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19852-2": {
+    "canonicalSlug": "senior-frontend-react-developer-financial-platforms-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "senior-frontend-react-sviluppatore-piattaforme-finanziarie-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno",
+      "en": "senior-frontend-react-developer-financial-platforms-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-for-12-months-with-possible-extension-julius-baer",
+      "de": "senior-frontend-react-developer-finanzplattformen-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-mit",
+      "fr": "senior-frontend-reaction-developpeur-plateformes-financieres-100-h-f-d-contracter-par-l-intermediaire-de-notre"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19853-3": {
+    "canonicalSlug": "senior-java-developer-distributed-financial-systems-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-30-09-2027-with-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "sviluppatore-java-senior-sistemi-finanziari-distribuiti-100-m-f-d-contrasportare-attraverso-il-nostro-partner-payroll",
+      "en": "senior-java-developer-distributed-financial-systems-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-30-09-2027-with-possible-extension-julius-baer",
+      "de": "senior-java-developer-verteilte-finanzsysteme-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-mit",
+      "fr": "developpeur-java-senior-systemes-financiers-distribues-100-h-f-d-contracter-par-l-intermediaire-de-notre-partenaire"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19845-2": {
+    "canonicalSlug": "senior-java-engineer-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-30-09-2027-with-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "ingegnere-java-senior-100-m-f-d-contrasportare-attraverso-il-nostro-partner-payroll-esterno-con-partenza-immediata-fino",
+      "en": "senior-java-engineer-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-30-09-2027-with-possible-extension-julius-baer",
+      "de": "senior-java-engineer-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-mit-sofortigem-start-bis-zum-30-09",
+      "fr": "ingenieur-java-senior-100-h-f-d-contracter-par-l-intermediaire-de-notre-partenaire-externe-de-paye-avec-debut-immediat"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19498-1": {
+    "canonicalSlug": "senior-technical-workday-expert-80-100-f-m-d-maternity-cover-until-31-07-2027-julius-baer",
+    "slugByLocale": {
+      "en": "senior-technical-workday-expert-80-100-f-m-d-maternity-cover-until-31-07-2027-julius-baer",
+      "fr": "senior-technical-workday-expert-80-100-h-f-d-maternite-couverture-jusqu-au-31-07-2027-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19526-7": {
+    "canonicalSlug": "senior-system-architect-for-gps-art-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "system-architect-per-gps-art-100-m-f-d-contrassegna-tramite-il-nostro-partner-di-payroll-esterno-partenza-immediata-per",
+      "en": "system-architect-for-gps-art-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
+      "de": "system-architect-fur-gps-art-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-sofortiger-start-fur-12",
+      "fr": "system-architecte-pour-gps-art-100-h-f-d-contracter-par-l-intermediaire-de-notre-partenaire-externe-de-paye-demarrage"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19578-1": {
+    "canonicalSlug": "vulnerability-manager-security-specialist-it-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "gestione-della-vulnerabilita-specialista-di-sicurezza-it-100-m-f-d-julius-baer-zurich",
+      "en": "vulnerability-manager-security-specialist-it-100-f-m-d-julius-baer",
+      "de": "sicherheitsspezialist-it-100-m-w-d-julius-baer-zurich",
+      "fr": "gestionnaire-de-vulnerabilite-specialiste-de-la-securite-it-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19532-1": {
+    "canonicalSlug": "team-leader-of-enterprise-collaboration-voice-solutions-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "leader-di-team-di-soluzioni-per-la-tecnologia-di-derivazione-e-innovazione-aziendale-100-m-f-d-julius-baer-zurich",
+      "en": "team-leader-of-enterprise-collaboration-voice-solutions-100-f-m-d-julius-baer",
+      "fr": "chef-d-equipe-collaboration-d-entreprise-et-solutions-vocales-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19694-2": {
+    "canonicalSlug": "university-graduate-account-manager-uhnwi-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "university-graduate-account-manager-uhnwi-100-f-m-d-julius-baer",
+      "fr": "diplome-de-l-universite-responsable-de-compte-uhnwi-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19782-2": {
+    "canonicalSlug": "university-graduate-ai-transformation-specialist-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "university-graduate-ai-transformation-specialist-100-f-m-d-julius-baer",
+      "de": "universitatsabsolvent-ai-transformation-spezialist-100-m-w-d-julius-baer-zurich",
+      "fr": "diplome-universitaire-specialiste-de-la-transformation-de-l-ia-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19702-1": {
+    "canonicalSlug": "university-graduate-business-management-region-western-markets-switzerland-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "laureato-in-economia-aziendale-nella-regione-dei-mercati-occidentali-e-svizzera-100-m-f-d-julius-baer-zurich",
+      "en": "university-graduate-business-management-region-western-markets-switzerland-100-f-m-d-julius-baer",
+      "fr": "diplome-universitaire-gestion-d-entreprise-region-marches-occidentaux-suisse-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19737": {
+    "canonicalSlug": "university-graduate-corporate-fx-and-hedging-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "university-graduate-corporate-fx-and-hedging-100-f-m-d-julius-baer",
+      "de": "hochschulabsolvent-corporate-fx-und-hedging-100-m-w-d-julius-baer-zurich",
+      "fr": "diplome-d-universite-corporate-fx-et-hedging-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19756": {
+    "canonicalSlug": "university-graduate-global-network-management-specialist-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "university-graduate-global-network-management-specialist-100-f-m-d-julius-baer",
+      "de": "universitatsabsolvent-global-network-management-spezialist-100-m-w-d-julius-baer-zurich",
+      "fr": "diplome-de-l-universite-specialiste-de-la-gestion-de-reseau-mondial-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19750-1": {
+    "canonicalSlug": "university-graduate-group-communications-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "laureato-in-universita-comunicazioni-di-gruppo-100-m-f-d-julius-baer-zurich",
+      "en": "university-graduate-group-communications-100-f-m-d-julius-baer",
+      "de": "hochschulabsolvent-gruppenkommunikation-100-m-w-d-julius-baer-zurich",
+      "fr": "diplome-universitaire-communications-de-groupe-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19680-1": {
+    "canonicalSlug": "university-graduate-investment-controlling-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "university-graduate-controllo-degli-investimenti-100-m-f-d-julius-baer-zurich",
+      "en": "university-graduate-investment-controlling-100-f-m-d-julius-baer",
+      "de": "hochschulabsolvent-investment-controlling-100-m-w-d-julius-baer-zurich",
+      "fr": "diplome-universitaire-controle-des-investissements-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19676-1": {
+    "canonicalSlug": "university-graduate-machine-learning-engineer-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "university-graduate-machine-learning-engineer-100-f-m-d-julius-baer",
+      "fr": "diplome-de-l-universite-ingenieur-d-apprentissage-automatique-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19719-2": {
+    "canonicalSlug": "university-graduate-portfolio-specialist-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "university-graduate-portfolio-specialist-100-f-m-d-julius-baer",
+      "de": "hochschulabsolvent-portfoliospezialist-100-m-w-d-julius-baer-zurich",
+      "fr": "diplome-universitaire-specialiste-de-portefeuille-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19723-1": {
+    "canonicalSlug": "university-graduate-program-associate-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "university-graduate-programma-associato-100-m-f-d-julius-baer-zurich",
+      "en": "university-graduate-program-associate-100-f-m-d-julius-baer",
+      "de": "hochschulabsolvent-programm-associate-100-m-w-d-julius-baer-zurich",
+      "fr": "diplome-d-universite-associe-de-programme-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19681-2": {
+    "canonicalSlug": "university-graduate-stir-fx-derivative-trading-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "en": "university-graduate-stir-fx-derivative-trading-100-f-m-d-julius-baer",
+      "de": "universitatsabsolvent-stir-fx-derivathandel-100-m-w-d-julius-baer-zurich",
+      "fr": "diplome-de-l-universite-stir-fx-derivative-trading-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19700": {
+    "canonicalSlug": "university-graduate-transformation-strategist-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "university-graduate-strategista-di-trasformazione-100-m-f-d-julius-baer-zurich",
+      "en": "university-graduate-transformation-strategist-100-f-m-d-julius-baer",
+      "de": "universitatsabsolvent-transformation-strategist-100-m-w-d-julius-baer-zurich",
+      "fr": "diplome-universitaire-strategiste-de-transformation-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19691-1": {
+    "canonicalSlug": "university-graduate-wealth-planning-100-f-m-d-julius-baer",
+    "slugByLocale": {
+      "it": "university-graduate-pianificazione-della-ricchezza-100-m-f-d-julius-baer-zurich",
+      "en": "university-graduate-wealth-planning-100-f-m-d-julius-baer",
+      "de": "hochschulabsolvent-vermogensplanung-100-m-w-d-julius-baer-zurich",
+      "fr": "diplome-universitaire-planification-de-patrimoine-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19791-3": {
+    "canonicalSlug": "working-student-legal-financial-products-institutionals-40-60-f-m-d-fixed-term-until-31-december-2026-julius-baer",
+    "slugByLocale": {
+      "it": "studente-di-lavoro-prodotti-finanziari-legali-istituzionali-40-60-m-f-d-termine-fisso-fino-al-31-dicembre-2026-julius",
+      "en": "working-student-legal-financial-products-institutionals-40-60-f-m-d-fixed-term-until-31-december-2026-julius-baer",
+      "de": "working-student-legal-financial-products-institutionals-40-60-m-w-d-befristete-laufzeit-bis-31-dezember-2026-julius-baer",
+      "fr": "etudiants-en-activite-produits-financiers-et-institutionnels-juridiques-40-60-h-f-d-duree-determinee-jusqu-au-31"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19892": {
+    "canonicalSlug": "sicurezza-del-posto-di-lavoro-e-responsabile-della-sicurezza-fisica-zurich-100-m-f-d-julius-baer-zurich",
+    "slugByLocale": {
+      "it": "sicurezza-del-posto-di-lavoro-e-responsabile-della-sicurezza-fisica-zurich-100-m-f-d-julius-baer-zurich",
+      "en": "workplace-safety-physical-security-officer-zurich-100-f-m-d-julius-baer",
+      "fr": "agent-de-securite-physique-et-de-securite-au-travail-zurich-100-h-f-d-julius-baer-zurich"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
+  },
+  "id|juliusbaer.wd3.myworkdayjobs.com|r-19821-3": {
+    "canonicalSlug": "junior-operations-specialist-fxmm-pm-treasury-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2027-with-possible-extension-julius-baer",
+    "slugByLocale": {
+      "it": "junior-operazioni-specialist-fxmm-pm-treasury-100-m-f-d-contrasporta-il-nostro-partner-di-payroll-esterno-con-partenza",
+      "en": "junior-operations-specialist-fxmm-pm-treasury-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2027-with-possible-extension-julius-baer",
+      "de": "junior-operations-specialist-fxmm-pm-treasury-100-m-w-d-vertrag-uber-unseren-externen-lohnabrechnungspartner-mit",
+      "fr": "junior-specialiste-des-operations-fxmm-pm-treasury-100-h-f-d-contractez-par-l-intermediaire-de-notre-partenaire-externe"
+    },
+    "createdAt": "2026-09-22",
+    "canton": "ZH"
   }
 }

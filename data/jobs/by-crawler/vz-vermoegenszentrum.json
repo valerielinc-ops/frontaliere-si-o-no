@@ -1150,7 +1150,6 @@
           "product-manager-prodotti-e-customer-experience-vz-vermogenszentrum-zug"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T12:27:55.950Z",
       "salaryMin": 114500,
       "salaryMax": 195000,
@@ -1165,7 +1164,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2115
     },
     {
       "id": "vz-vermoegenszentrum-eee453871973",
@@ -4314,7 +4315,6 @@
           "analyste-des-affaires-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-14T16:01:50.648Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
@@ -4329,7 +4329,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2144
     },
     {
       "id": "vz-vermoegenszentrum-39e495757e4a",
