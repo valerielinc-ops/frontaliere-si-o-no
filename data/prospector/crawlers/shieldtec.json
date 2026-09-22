@@ -1,0 +1,24 @@
+{
+  "companyKey": "shieldtec",
+  "companyName": "SHIELDTEC AG",
+  "companyHost": "shieldtec.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://shieldtec.com/karriere/"
+  ],
+  "detailTemplate": "/karriere-archive/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "<path d=\"M4 10.5H2.5V13.5H4V12V10.5ZM8 13.5C8.82843 13.5 9.5 12.8284 9.5 12C9.5 11.1716 8.",
+    "<path d=\"M4 10.5H2.5V13.5H4V12V10.5ZM8 13.5C8.82843 13.5 9.5 12.8284 9.5 12C9.5 11.1716 8.",
+    "<path d=\"M4 10.5H2.5V13.5H4V12V10.5ZM8 13.5C8.82843 13.5 9.5 12.8284 9.5 12C9.5 11.1716 8.",
+    "<path d=\"M4 10.5H2.5V13.5H4V12V10.5ZM8 13.5C8.82843 13.5 9.5 12.8284 9.5 12C9.5 11.1716 8.",
+    "<path d=\"M4 10.5H2.5V13.5H4V12V10.5ZM8 13.5C8.82843 13.5 9.5 12.8284 9.5 12C9.5 11.1716 8."
+  ],
+  "canton": "SG",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-22T10:48:40.801Z"
+}
