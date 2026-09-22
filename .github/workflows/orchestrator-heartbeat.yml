@@ -36,7 +36,9 @@ jobs:
         env:
           GH_REPO: ${{ github.repository }}
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          ORCHESTRATOR_HEARTBEAT_GRACE_MINUTES: '180'
+          # The 09:00 slot currently has a 471-minute p95 scheduled-dispatch
+          # delay. Keep two hours before the next 12-hour slot for a real alert.
+          ORCHESTRATOR_HEARTBEAT_GRACE_MINUTES: '600'
         run: |
           mkdir -p "$RUNNER_TEMP/orchestrator-heartbeat"
           node scripts/ci/orchestrator-heartbeat.mjs \
