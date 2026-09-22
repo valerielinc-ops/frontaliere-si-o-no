@@ -196,8 +196,8 @@ function publishedDetailRows(rows: SnapshotRow[], locale: PlateLocale): Snapshot
     return true;
   });
 }
-function detailLinksForRows(rows: SnapshotRow[], locale: PlateLocale, limit = DIRECTORY_PAGE_LINK_LIMIT): string {
-  return publishedDetailRows(rows, locale).slice(0, limit).map((row) => {
+function detailLinksForPublishedRows(rows: SnapshotRow[], locale: PlateLocale, limit = DIRECTORY_PAGE_LINK_LIMIT): string {
+  return rows.slice(0, limit).map((row) => {
     const href = detailPathForRow(row, locale);
     return `<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></li>`;
   }).join('');
@@ -238,6 +238,7 @@ export type PlateAuctionContext = {
   detailRows: SnapshotRow[];
   detailRowsByPlate: Map<string, SnapshotRow[]>;
   detailRowsByCanton: Map<string, SnapshotRow[]>;
+  publishedDetailRowsByLocaleAndCanton: Map<PlateLocale, Map<string, SnapshotRow[]>>;
   rankingRows: SnapshotRow[];
 };
 
@@ -266,8 +267,16 @@ export function loadPlateAuctionContext(rootDir: string): PlateAuctionContext {
     const cantonBucket = detailRowsByCanton.get(cantonKey);
     if (cantonBucket) cantonBucket.push(row); else detailRowsByCanton.set(cantonKey, [row]);
   }
+  const publishedDetailRowsByLocaleAndCanton = new Map<PlateLocale, Map<string, SnapshotRow[]>>();
+  for (const locale of LOCALES) {
+    const rowsByCanton = new Map<string, SnapshotRow[]>();
+    for (const [canton, rows] of detailRowsByCanton) {
+      rowsByCanton.set(canton, publishedDetailRows(rows, locale));
+    }
+    publishedDetailRowsByLocaleAndCanton.set(locale, rowsByCanton);
+  }
   const rankingRows = latestVerifiedFinalRows(activeHistoryRows.length ? activeHistoryRows : auctionRows);
-  return { snapshot, coverage, auctionRows, activeHistoryRows, detailRows, detailRowsByPlate, detailRowsByCanton, rankingRows };
+  return { snapshot, coverage, auctionRows, activeHistoryRows, detailRows, detailRowsByPlate, detailRowsByCanton, publishedDetailRowsByLocaleAndCanton, rankingRows };
 }
 
 /**
@@ -316,10 +325,10 @@ const DETAIL_GUIDE: Record<PlateLocale, { heading: string; fields: string; verif
 
 export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehicleType, rootDir, distDir, context }: { locale: PlateLocale; view: 'hub' | 'rankings' | 'canton' | 'directory' | 'detail'; canton?: string; page?: number; plate?: string; vehicleType?: PlateVehicleType; rootDir: string; distDir?: string; context?: PlateAuctionContext }): { urlPath: string; html: string } {
   const copy = COPY[locale];
-  const { snapshot, coverage, auctionRows, detailRows, detailRowsByPlate, detailRowsByCanton, rankingRows } = context ?? loadPlateAuctionContext(rootDir);
+  const { snapshot, coverage, auctionRows, detailRows, detailRowsByPlate, publishedDetailRowsByLocaleAndCanton, rankingRows } = context ?? loadPlateAuctionContext(rootDir);
   const pageNumber = Number.isSafeInteger(page) && page >= 2 ? page : undefined;
-  const cantonDetailRows = canton ? (detailRowsByCanton.get(canton.toUpperCase()) || []) : [];
-  const publishedCantonDetailRows = canton ? publishedDetailRows(cantonDetailRows, locale) : [];
+  const publishedRowsByCanton = publishedDetailRowsByLocaleAndCanton.get(locale) || new Map<string, SnapshotRow[]>();
+  const publishedCantonDetailRows = canton ? (publishedRowsByCanton.get(canton.toUpperCase()) || []) : [];
   const detailRow = view === 'detail'
     ? (detailRowsByPlate.get(String(plate || '').toLowerCase()) || []).find((row) => (!canton || row.sourceKey === canton || row.platePrefix === canton) && (vehicleType ? (row.vehicleType || 'car') === vehicleType : (row.vehicleType || 'car') === 'car'))
     : undefined;
@@ -352,7 +361,7 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   const canonicalUrl = `${BASE_URL}${urlPath}`;
   const links = allPlateAuctionCantonCodes().map((code) => {
     const cantonPath = pathFor(locale, 'canton', code);
-    const hasDirectory = publishedDetailRows(detailRowsByCanton.get(code) || [], locale).length > 0;
+    const hasDirectory = (publishedRowsByCanton.get(code)?.length || 0) > 0;
     const directoryLink = hasDirectory
       ? ` · <a href="${esc(pathFor(locale, 'directory', code))}" style="${LINK_ACCENT_STYLE}">${esc(copy.allListings)}</a>`
       : '';
@@ -364,7 +373,7 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   const paginationLinks = view === 'canton' && canton
     ? cantonPaginationLinks(locale, canton, pageNumber, Math.ceil(publishedCantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy)
     : '';
-  const directoryLinks = view === 'directory' ? detailLinksForRows(directoryRows, locale) : '';
+  const directoryLinks = view === 'directory' ? detailLinksForPublishedRows(directoryRows, locale) : '';
   const directoryPaginationLinks = view === 'directory' && canton
     ? cantonPaginationLinks(locale, canton, undefined, Math.ceil(publishedCantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy, true)
     : '';
@@ -429,10 +438,10 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     const distDir = np.join(rootDir, 'dist');
     if (!fs.existsSync(distDir)) return;
     const context = loadPlateAuctionContext(rootDir);
-    const { detailRows, detailRowsByCanton } = context;
+    const { detailRows, publishedDetailRowsByLocaleAndCanton } = context;
     const directoryCantons = new Set(detailRows.map((row) => String(row.sourceKey || row.platePrefix).toUpperCase()));
     const publishedRowsFor = (canton: string, locale: PlateLocale) =>
-      publishedDetailRows(detailRowsByCanton.get(canton) || [], locale);
+      publishedDetailRowsByLocaleAndCanton.get(locale)?.get(canton) || [];
     let written = 0;
     for (const locale of LOCALES) {
       for (const view of ['hub', 'rankings'] as const) {
