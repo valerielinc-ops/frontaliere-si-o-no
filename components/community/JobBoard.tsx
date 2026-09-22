@@ -2283,15 +2283,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [locale] = useLocale();
  const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const killSwitches = useKillSwitches();
+ // Keep crawlers on the canonical/original apply path: do not fetch Remote
+ // Config, assign a paid/rewarded arm, or emit experiment exposure for them.
+ // The same predicate also grants the public detail access below.
+ const isCrawlerVisitor = useMemo(() => isCrawlerVisitorAgent(navigator.userAgent || ''), []);
  const alwaysRewardedApplicationSurface = isAlwaysRewardedApplicationSurface();
  const {
   variant: configuredAssistedApplicationVariant,
   ready: configuredAssistedApplicationVariantReady,
- } = useAssistedApplicationVariant(!alwaysRewardedApplicationSurface);
- const assistedApplicationVariant = alwaysRewardedApplicationSurface
+ } = useAssistedApplicationVariant(!alwaysRewardedApplicationSurface && !isCrawlerVisitor);
+ const assistedApplicationVariant = isCrawlerVisitor
+  ? 'control'
+  : alwaysRewardedApplicationSurface
   ? (killSwitches.rewardedApplicationAd ? 'control' : 'rewarded_ad')
   : configuredAssistedApplicationVariant;
- const assistedApplicationVariantReady = alwaysRewardedApplicationSurface
+ const assistedApplicationVariantReady = isCrawlerVisitor
+  || alwaysRewardedApplicationSurface
   || configuredAssistedApplicationVariantReady;
  // Hold the detail skeleton (not the auth gate) while a newsletter autologin is
  // exchanging — the visitor is about to be signed in; flashing the gate is noise.
@@ -2910,11 +2917,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [emailAccessGranted, setEmailAccessGranted] = useState(
  () => !!localStorage.getItem(JOB_EMAIL_ACCESS_KEY)
  );
- // One home for the crawler pattern (#5705): functions/src/lib/returnVisit.js.
- // The identical regex used to sit here and in NewsletterPopup.tsx, and the
- // return-visit rule that decides whether a decayed job alert comes back must
- // give the same verdict as the gate that lets a crawler read the board.
- const isCrawlerVisitor = useMemo(() => isCrawlerVisitorAgent(navigator.userAgent || ''), []);
  const authResolved = !authLoading;
  const hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor;
 
@@ -3518,7 +3520,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const assistedApplicationOrderId = readAssistedApplicationOrderId();
  const assistedExposureKeysRef = useRef(new Set<string>());
  useEffect(() => {
-  if (!assistedApplicationVariantReady || !selectedJob || !isExternalApplicationJob(selectedJob)) return;
+  if (isCrawlerVisitor || !assistedApplicationVariantReady || !selectedJob || !isExternalApplicationJob(selectedJob)) return;
   const exposureKey = `${selectedJob.id}:${assistedApplicationVariant}`;
   if (assistedExposureKeysRef.current.has(exposureKey)) return;
   assistedExposureKeysRef.current.add(exposureKey);
@@ -3526,7 +3528,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    'experiment_assigned',
    assistedApplicationJobContext(selectedJob, assistedApplicationVariant),
   );
- }, [assistedApplicationVariant, assistedApplicationVariantReady, selectedJob]);
+ }, [assistedApplicationVariant, assistedApplicationVariantReady, isCrawlerVisitor, selectedJob]);
  const appliedAlertSurfaceVisible = Boolean(
   appliedJobId && selectedJob && appliedJobId === selectedJob.id,
  );
