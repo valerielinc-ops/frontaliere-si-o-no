@@ -1,6 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { CheckCircle2, RefreshCw, ShieldCheck } from 'lucide-react';
 import GptRewardedAd from '@/components/shared/GptRewardedAd';
+import RewardedHouseVideo from '@/components/shared/RewardedHouseVideo';
 import {
   grantRewardedApplicationAccess,
 } from '@/services/rewardedApplicationAccess';
@@ -36,6 +37,7 @@ export default function RewardedApplicationOffer({
 }: RewardedApplicationOfferProps) {
   const [rewarded, setRewarded] = useState(false);
   const [retryRequired, setRetryRequired] = useState(false);
+  const [houseFallback, setHouseFallback] = useState(false);
   const grantedRef = useRef(false);
   const videoCompletedRef = useRef(false);
   const completedRef = useRef(false);
@@ -110,7 +112,39 @@ export default function RewardedApplicationOffer({
       surface: SURFACE,
       reason: 'no_fill_or_gpt_unavailable',
     });
-    onUnavailable();
+    setHouseFallback(true);
+  };
+
+  const handleHouseCompleted = () => {
+    if (completedRef.current) return;
+    completedRef.current = true;
+    const accessExpiresAt = grantRewardedApplicationAccess();
+    setRewarded(true);
+    trackAssistedApplicationEvent('rewarded_house_video_completed', {
+      variant: 'rewarded_ad',
+      jobId,
+      companyId,
+      surface: SURFACE,
+    });
+    trackAssistedApplicationEvent('rewarded_application_access_granted', {
+      variant: 'rewarded_ad',
+      jobId,
+      companyId,
+      surface: SURFACE,
+      provider: 'house_video',
+      access_expires_at: accessExpiresAt,
+      access_ttl_hours: 12,
+    });
+    onCompleted();
+  };
+
+  const handleHouseStarted = () => {
+    trackAssistedApplicationEvent('rewarded_house_video_started', {
+      variant: 'rewarded_ad',
+      jobId,
+      companyId,
+      surface: SURFACE,
+    });
   };
 
   const retry = () => {
@@ -119,6 +153,7 @@ export default function RewardedApplicationOffer({
     completedRef.current = false;
     setRewarded(false);
     setRetryRequired(false);
+    setHouseFallback(false);
   };
 
   return (
@@ -162,7 +197,7 @@ export default function RewardedApplicationOffer({
             </li>
             <li className="flex items-start gap-2.5">
               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
-              <span>Mostriamo un breve video, se disponibile.</span>
+              <span>Mostriamo un breve video per sostenere il servizio.</span>
             </li>
             <li className="flex items-start gap-2.5">
               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
@@ -177,7 +212,15 @@ export default function RewardedApplicationOffer({
             </p>
           )}
 
-          {!retryRequired && !rewarded && (
+          {!retryRequired && !rewarded && houseFallback && (
+            <RewardedHouseVideo
+              onStarted={handleHouseStarted}
+              onCompleted={handleHouseCompleted}
+              onUnavailable={onUnavailable}
+            />
+          )}
+
+          {!retryRequired && !rewarded && !houseFallback && (
             <GptRewardedAd
               label="Guarda il video e continua"
               loadingLabel="Stiamo preparando il video…"
