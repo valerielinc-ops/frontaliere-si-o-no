@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 
 import { BASE_URL } from '../build-plugins/constants';
 import { jsToJson } from '../build-plugins/shared/jsToJson';
+import SEO_PAGES_METADATA from '../services/seo/seo-pages';
 
 /**
  * Regression gate for the seoMap key-form bug (June 2026).
@@ -204,6 +205,21 @@ describe('seo source files parse contract (real files)', () => {
       expect(entry!.desc, `curated description for ${cp} must not be the generic fallback`)
         .not.toMatch(/^Informazioni utili per frontalieri/);
       expect(entry!.desc.length, `curated description for ${cp} should be substantive`).toBeGreaterThan(60);
+    }
+  });
+
+  it('keeps public-holiday Event markup free of unsupported commercial and attribution fields', () => {
+    for (const key of ['holidays', 'holidaysDe']) {
+      const metadata = SEO_PAGES_METADATA[key] as { structuredData?: Record<string, any>[] };
+      const itemList = metadata.structuredData?.find((schema) => schema['@type'] === 'ItemList');
+      const events = itemList?.itemListElement?.map((entry) => entry.item) ?? [];
+      expect(events, `missing holiday Event list for ${key}`).toHaveLength(15);
+      for (const event of events) {
+        expect(event.image).toBeUndefined();
+        expect(event.organizer).toBeUndefined();
+        expect(event.performer).toBeUndefined();
+        expect(event.offers).toBeUndefined();
+      }
     }
   });
 

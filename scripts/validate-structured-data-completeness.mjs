@@ -244,33 +244,29 @@ function validateEvent(schema, filePath) {
     }
   }
 
-  // image — GSC flags missing Event.image as a non-critical quality issue,
-  // but we treat it as blocking to keep rich-result eligibility stable.
-  const hasImage = Array.isArray(schema.image)
-    ? schema.image.some((img) => isNonEmpty(typeof img === 'string' ? img : img?.url))
-    : isNonEmpty(typeof schema.image === 'string' ? schema.image : schema.image?.url);
-  if (!hasImage) {
-    errors.push({ file: filePath, type: 'Event', field: 'image', message: 'Event missing "image"' });
+  // image, organizer and performer are optional Schema.org properties. Check
+  // their shape only when a source provides them; the event catalog does not
+  // invent a generic image, source-as-organizer or venue-as-performer.
+  if (schema.image !== undefined && schema.image !== null) {
+    const hasImage = Array.isArray(schema.image)
+      ? schema.image.some((img) => isNonEmpty(typeof img === 'string' ? img : img?.url))
+      : isNonEmpty(typeof schema.image === 'string' ? schema.image : schema.image?.url);
+    if (!hasImage) errors.push({ file: filePath, type: 'Event', field: 'image', message: 'Event "image" is empty' });
   }
-
-  // organizer (must include name AND url — GSC quality issue otherwise)
-  if (!schema.organizer || !isNonEmpty(schema.organizer.name)) {
-    errors.push({ file: filePath, type: 'Event', field: 'organizer', message: 'Event missing "organizer" or organizer.name' });
-  } else if (!isNonEmpty(schema.organizer.url)) {
-    errors.push({ file: filePath, type: 'Event', field: 'organizer.url', message: 'Event missing "organizer.url"' });
-  }
-
-  // performer
-  if (!schema.performer || !isNonEmpty(schema.performer.name)) {
-    errors.push({ file: filePath, type: 'Event', field: 'performer', message: 'Event missing "performer" or performer.name' });
+  for (const [field, value] of [['organizer', schema.organizer], ['performer', schema.performer]]) {
+    if (value === undefined || value === null) continue;
+    const entities = Array.isArray(value) ? value : [value];
+    if (entities.length === 0 || entities.some((entity) => entity === null || typeof entity !== 'object' || !isNonEmpty(entity.name))) {
+      errors.push({ file: filePath, type: 'Event', field, message: `Event "${field}" must include a named Person or Organization when present` });
+    }
   }
 
   // offers — OPTIONAL (Google lists it as recommended, not required). Many
   // Event sources (e.g. the Ticino agenda) never expose a price, and asserting
   // price:"0" (free) on a paid concert/theatre would misrepresent an indexed
-  // page (structured-data policy risk). So we require offers to be COMPLETE
+  // page (structured-data policy risk). So we require the verified core fields
   // only WHEN PRESENT — accurate offers (e.g. free public holidays) still get
-  // fully validated; price-less Event listings omit it cleanly.
+  // validated; price-less Event listings omit them cleanly.
   if (schema.offers !== undefined && schema.offers !== null) {
     if (typeof schema.offers !== 'object') {
       errors.push({ file: filePath, type: 'Event', field: 'offers', message: 'Event "offers" must be an object' });
@@ -281,14 +277,14 @@ function validateEvent(schema, filePath) {
       if (!isNonEmpty(schema.offers.priceCurrency)) {
         errors.push({ file: filePath, type: 'Event', field: 'offers.priceCurrency', message: 'Event offers missing "priceCurrency"' });
       }
-      if (!isNonEmpty(schema.offers.availability)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers missing "availability"' });
+      if ('availability' in schema.offers && !isNonEmpty(schema.offers.availability)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.availability', message: 'Event offers has an empty "availability"' });
       }
-      if (!isNonEmpty(schema.offers.validFrom)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers missing "validFrom"' });
+      if ('validFrom' in schema.offers && !isNonEmpty(schema.offers.validFrom)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.validFrom', message: 'Event offers has an empty "validFrom"' });
       }
-      if (!isNonEmpty(schema.offers.url)) {
-        errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers missing "url"' });
+      if ('url' in schema.offers && !isNonEmpty(schema.offers.url)) {
+        errors.push({ file: filePath, type: 'Event', field: 'offers.url', message: 'Event offers has an empty "url"' });
       }
     }
   }
@@ -691,8 +687,8 @@ async function main() {
     if (existsSync(full)) sampled.add(full);
   }
 
-  // Always include Event-bearing pages (ItemList of Event schemas — must stay
-  // valid because GSC flags organizer.url / image / offers.url as quality issues)
+  // Always include Event-bearing pages (ItemList of Event schemas — optional
+  // image, participants and offer fields are validated whenever present)
   const eventPages = [
     'tasse-e-pensione/festivita-ticino/index.html',
     'en/taxes-and-pension/ticino-public-holidays/index.html',

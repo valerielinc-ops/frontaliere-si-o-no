@@ -303,17 +303,19 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     expect(ld.eventAttendanceMode).toBe('https://schema.org/OfflineEventAttendanceMode');
     expect(ld.location?.address?.addressLocality).toBeTruthy();
     expect(String(ld.description).length).toBeGreaterThanOrEqual(30);
-    expect(ld.image).toBeTruthy();
-    expect(ld.organizer?.name).toBeTruthy();
-    expect(ld.organizer?.url).toBeTruthy();
-    expect(ld.performer?.name).toBeTruthy();
+    // Event.image, organizer and performer are optional: this normalized
+    // fixture has no event-specific image or participant data, so the builder
+    // must omit them rather than inventing values.
+    expect(ld.image).toBeUndefined();
+    expect(ld.organizer).toBeUndefined();
+    expect(ld.performer).toBeUndefined();
     // offers is intentionally OMITTED (price unknown → no false "free" claim).
     expect(ld.offers).toBeUndefined();
     // endDate must never precede startDate (Google Rich Results validity).
     expect(String(ld.endDate) >= String(ld.startDate)).toBe(true);
   };
 
-  it('emits every Google-required Event field for a full event', () => {
+  it('emits every required Event field for a full event', () => {
     REQUIRED(
       eventLd(
         {
@@ -446,9 +448,6 @@ describe('eventLd — schema.org/Event completeness gate', () => {
       '@type': 'Offer',
       price: '19',
       priceCurrency: 'CHF',
-      availability: 'https://schema.org/InStock',
-      validFrom: '2026-07-04',
-      url: 'https://frontaliereticino.ch/eventi/ticino/melide/',
     });
   });
 
