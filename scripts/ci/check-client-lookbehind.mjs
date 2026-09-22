@@ -16,9 +16,9 @@
  *
  * Comment-aware: only flags lookbehind in CODE, not in comments describing the
  * old removed regex (the #1996 fix left several `// …the old /(?<=\s)/ split…`
- * notes). Per line it strips the `//` line-comment tail and skips block-comment
- * body lines (trimmed start `*`). A `(?<` surviving in the code portion is a real
- * client lookbehind.
+ * notes). The scanner carries lexical state across lines, so `//` in a URL,
+ * string, template, or regex literal is not mistaken for a comment and a code
+ * line beginning with `*` is not discarded.
  *
  * Exit codes: 0 = clean, 1 = violation(s). `--json` prints a machine report.
  *
@@ -55,17 +55,155 @@ const CLIENT_GLOBS = [
 const LOOKBEHIND_RE = /\(\?<[=!]/;
 const SOURCE_EXTENSIONS = ['', '.ts', '.tsx', '.mjs', '.js'];
 
+const REGEX_AFTER_KEYWORDS = new Set([
+  'case', 'delete', 'do', 'else', 'in', 'instanceof', 'of', 'return', 'throw',
+  'typeof', 'void', 'yield', 'await',
+]);
+
+function blankCommentCharacter(character) {
+  return character === '\n' || character === '\r' ? character : ' ';
+}
+
+function canStartRegex(previousToken) {
+  return previousToken === null || previousToken === 'prefix';
+}
+
+/**
+ * Blank JS/TS comments while preserving strings, templates, and regex literals
+ * byte-for-byte. This is intentionally a small lexer rather than a regex: a
+ * comment marker inside `https://…` must not hide code later on the same line,
+ * and block-comment state must survive a newline.
+ */
+export function stripComments(source) {
+  const src = String(source ?? '');
+  const out = [...src];
+  let state = 'code';
+  let quote = null;
+  let previousToken = null;
+  let regexInClass = false;
+
+  const blank = (index) => { out[index] = blankCommentCharacter(src[index]); };
+
+  for (let i = 0; i < src.length; i += 1) {
+    const character = src[i];
+    const next = src[i + 1];
+
+    if (state === 'line-comment') {
+      if (character === '\n' || character === '\r') state = 'code';
+      else blank(i);
+      continue;
+    }
+
+    if (state === 'block-comment') {
+      if (character === '*' && next === '/') {
+        blank(i);
+        blank(i + 1);
+        i += 1;
+        state = 'code';
+      } else {
+        blank(i);
+      }
+      continue;
+    }
+
+    if (state === 'string' || state === 'template') {
+      if (character === '\\') {
+        i += 1;
+        continue;
+      }
+      if (character === quote) {
+        state = 'code';
+        quote = null;
+        previousToken = 'value';
+      }
+      continue;
+    }
+
+    if (state === 'regex') {
+      if (character === '\\') {
+        i += 1;
+        continue;
+      }
+      if (character === '[') {
+        regexInClass = true;
+        continue;
+      }
+      if (character === ']' && regexInClass) {
+        regexInClass = false;
+        continue;
+      }
+      if (character === '/' && !regexInClass) {
+        state = 'code';
+        previousToken = 'value';
+      }
+      continue;
+    }
+
+    if (character === '/' && next === '/') {
+      blank(i);
+      blank(i + 1);
+      i += 1;
+      state = 'line-comment';
+      continue;
+    }
+    if (character === '/' && next === '*') {
+      blank(i);
+      blank(i + 1);
+      i += 1;
+      state = 'block-comment';
+      continue;
+    }
+    if (character === '\'' || character === '"' || character === '`') {
+      state = character === '`' ? 'template' : 'string';
+      quote = character;
+      continue;
+    }
+    if (character === '/' && canStartRegex(previousToken)) {
+      state = 'regex';
+      regexInClass = false;
+      continue;
+    }
+
+    if (/\s/.test(character)) continue;
+    if (/[A-Za-z_$]/.test(character)) {
+      let end = i + 1;
+      while (end < src.length && /[A-Za-z0-9_$]/.test(src[end])) end += 1;
+      const word = src.slice(i, end);
+      previousToken = REGEX_AFTER_KEYWORDS.has(word) ? 'prefix' : 'value';
+      i = end - 1;
+      continue;
+    }
+    if (/[0-9]/.test(character)) {
+      previousToken = 'value';
+      continue;
+    }
+    if (')]}'.includes(character)) {
+      previousToken = 'value';
+      continue;
+    }
+    if ('([{,;:=!?&|+\-*%^~<>'.includes(character)) {
+      previousToken = 'prefix';
+      continue;
+    }
+    if (character === '.') {
+      previousToken = 'value';
+      continue;
+    }
+    previousToken = 'value';
+  }
+
+  return out.join('');
+}
+
 /**
  * True if a source line contains a regex lookbehind in CODE (not a comment).
- * Strips the `//` line-comment tail and ignores block-comment body lines.
+ * For complete files `findViolations()` uses `stripComments()` once so comment
+ * and string state is shared across line boundaries; this helper remains pure
+ * and convenient for focused tests and callers with a single source line.
  * Pure → testable.
  */
 export function lineHasClientLookbehind(line) {
-  const s = String(line ?? '');
-  const trimmed = s.trimStart();
-  if (trimmed.startsWith('*') || trimmed.startsWith('//')) return false; // comment line
-  const code = s.split('//')[0]; // drop trailing line comment
-  return LOOKBEHIND_RE.test(code);
+  return LOOKBEHIND_RE.test(stripComments(line));
 }
 
 function resolveLocalImport(fromFile, specifier) {
@@ -120,9 +258,13 @@ export function clientImportClosure() {
 export function findViolations() {
   const violations = [];
   for (const file of clientImportClosure()) {
-    const lines = fs.readFileSync(file, 'utf-8').split('\n');
-    lines.forEach((content, index) => {
-      if (lineHasClientLookbehind(content)) violations.push({ file, line: index + 1, content: content.trim() });
+    const source = fs.readFileSync(file, 'utf-8');
+    const codeLines = stripComments(source).split('\n');
+    const sourceLines = source.split('\n');
+    codeLines.forEach((content, index) => {
+      if (LOOKBEHIND_RE.test(content)) {
+        violations.push({ file, line: index + 1, content: sourceLines[index].trim() });
+      }
     });
   }
   return violations.sort((a, b) => (a.file === b.file ? a.line - b.line : a.file < b.file ? -1 : 1));

@@ -9,7 +9,7 @@
  * #1996 fix left describing the old removed regex.
  */
 import { describe, it, expect } from 'vitest';
-import { clientImportClosure, lineHasClientLookbehind, findViolations } from '../scripts/ci/check-client-lookbehind.mjs';
+import { clientImportClosure, lineHasClientLookbehind, findViolations, stripComments } from '../scripts/ci/check-client-lookbehind.mjs';
 
 describe('check-client-lookbehind — predicate', () => {
   it('flags a real client regex lookbehind in code', () => {
@@ -21,13 +21,35 @@ describe('check-client-lookbehind — predicate', () => {
   it('does NOT flag comments describing the old removed lookbehind (#1996)', () => {
     expect(lineHasClientLookbehind('  // each token exactly like the old /(?<=\\s)/ split did.')).toBe(false);
     expect(lineHasClientLookbehind('  // ...crash on (?<=…) and the')).toBe(false);
-    expect(lineHasClientLookbehind('   * equivalent to the old /(?<=[.!?])\\s+/ split.')).toBe(false);
+    expect(stripComments('/*\n   * equivalent to the old /(?<=[.!?])\\s+/ split.\n*/')).not.toContain('(?<=');
   });
 
   it('does NOT flag ordinary code or non-capturing groups', () => {
     expect(lineHasClientLookbehind('const re = /(?:abc)+/;')).toBe(false);
     expect(lineHasClientLookbehind('const x = a < b ? 1 : 2;')).toBe(false);
     expect(lineHasClientLookbehind('')).toBe(false);
+  });
+
+  it('keeps code after URL and string literals visible', () => {
+    expect(lineHasClientLookbehind('const url = "https://example.test"; const re = /(?<=x)/;')).toBe(true);
+    expect(lineHasClientLookbehind("const text = '// not a comment'; const re = /(?<!x)/;")).toBe(true);
+  });
+
+  it('does not treat a code line beginning with * as a comment', () => {
+    expect(lineHasClientLookbehind('*value = /(?<=x)/;')).toBe(true);
+  });
+
+  it('keeps regex literals opaque to comment detection', () => {
+    const masked = stripComments('const url = /https?:\\/\\/example.test/; // (?<=x)');
+    expect(masked).toContain('https?:\\/\\/example.test');
+    expect(masked).not.toContain('(?<=x)');
+    expect(lineHasClientLookbehind('const url = /https?:\\/\\/example.test/; // (?<=x)')).toBe(false);
+  });
+
+  it('carries block-comment state across lines', () => {
+    const source = '/* hidden (?<=x)\n * still hidden (?<!x)\n */ const re = /(?<=x)/;';
+    expect(stripComments(source)).not.toContain('hidden');
+    expect(stripComments(source).split('\n')[2]).toContain('(?<=x)');
   });
 });
 
