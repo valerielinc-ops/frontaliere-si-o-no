@@ -6635,6 +6635,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.rialzo-tassi-ipotecari-svizzera.title': 'Hypothekarzinsen in der Schweiz: 10 Jahre über 2%',
     'blog.article.rialzo-tassi-ipotecari-svizzera.excerpt': 'Im September steigen die 10-Jahres-Hypothekarzinsen auf 2,06% und die 5-Jahres-Hypothekarzinsen auf 1,83%. Ende der Ära der Tiefzinsen für den Immobilienmarkt.',
     'blog.article.rialzo-tassi-ipotecari-svizzera.imageAlt': 'Schweizer Wohnlandschaft mit modernen Häusern und Bergen',
+    'blog.article.patente-guida-zugo-conversione-esami.title': 'Führerschein Kt. Zug: Ausländ. Umwandlung, Prüfungen & Verfahren',
+    'blog.article.patente-guida-zugo-conversione-esami.excerpt': 'Vollständiger Leitfaden zur Umwandlung eines ausländischen Führerscheins im Kanton Zug: erforderliche Dokumente, theoretische und praktische Prüfungen, Pflichtkurse und Fristen.',
+    'blog.article.patente-guida-zugo-conversione-esami.imageAlt': 'Strassenverkehrsamt Zug mit Antragsformular für Führerscheinumtausch',
 };
 
 export default blogMetaChDe;

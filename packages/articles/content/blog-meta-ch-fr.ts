@@ -6635,6 +6635,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.rialzo-tassi-ipotecari-svizzera.title': 'Taux hypothécaires en Suisse : 10 ans plus de 2%',
     'blog.article.rialzo-tassi-ipotecari-svizzera.excerpt': 'En septembre, les taux hypothécaires à 10 ans grimpent à 2,06% et ceux à 5 ans à 1,83%. La fin de l\'ère des taux très bas pour le marché immobilier.',
     'blog.article.rialzo-tassi-ipotecari-svizzera.imageAlt': 'Paysage résidentiel suisse avec maisons modernes et montagnes',
+    'blog.article.patente-guida-zugo-conversione-esami.title': 'Permis de conduire Zoug : conversion, examens, démarches',
+    'blog.article.patente-guida-zugo-conversione-esami.excerpt': 'Guide complet pour convertir un permis de conduire étranger dans le canton de Zoug : documents obligatoires, examens théoriques et pratiques, cours obligatoires et délais.',
+    'blog.article.patente-guida-zugo-conversione-esami.imageAlt': 'Bureau des automobiles de Zoug avec formulaire de conversion de permis',
 };
 
 export default blogMetaChFr;

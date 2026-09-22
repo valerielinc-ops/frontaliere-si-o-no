@@ -6635,6 +6635,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.rialzo-tassi-ipotecari-svizzera.title': 'Mortgage rates in Switzerland: 10 years exceeds 2%',
     'blog.article.rialzo-tassi-ipotecari-svizzera.excerpt': 'In September, 10-year mortgage rates rose to 2.06% and 5-year rates to 1.83%. End of the era of very low rates for the real estate market.',
     'blog.article.rialzo-tassi-ipotecari-svizzera.imageAlt': 'Swiss residential landscape with modern houses and mountains',
+    'blog.article.patente-guida-zugo-conversione-esami.title': 'Driving licence Zug: foreign conversion, exams & procedures',
+    'blog.article.patente-guida-zugo-conversione-esami.excerpt': 'Complete guide to converting a foreign driver\'s license in the canton of Zug: required documents, theoretical and practical exams, mandatory courses and deadlines.',
+    'blog.article.patente-guida-zugo-conversione-esami.imageAlt': 'Zug canton traffic office with driver\'s license conversion form',
 };
 
 export default blogMetaChEn;
