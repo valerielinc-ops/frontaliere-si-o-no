@@ -2,65 +2,48 @@
 
 ## Esclusione dei test (policy del proprietario)
 
-I file sotto `tests/` o `__tests__/`, anche annidati, e i file `*.test.*`/`*.spec.*` JavaScript/TypeScript sono esclusi da review, ricerche cross-file e finding. I test restano eseguiti in CI. Una PR solo-test riceve `## LGTM` deterministico dopo i controlli, senza chiamare un modello; una PR mista è reviewata soltanto per i file non-test.
+Escludi da review, ricerche cross-file e finding `tests/`, `__tests__/` e i file JavaScript/TypeScript `*.test.*`/`*.spec.*`; i test restano in CI. Una PR solo-test riceve `## LGTM` deterministico senza modello; in una PR mista reviewa solo i file non-test.
 
 ## Scopo progetto = filtro "important"
 
-`frontaliereticino.ch` = SEO ad funnel. NOT daily app.
+`frontaliereticino.ch` = SEO ad funnel, non daily app.
 
 Finding important SE impatta:
 1. **Monetizzazione** — AdSense Auto Ads (anchor/in-page/vignette), CLS che degrada RPM, ad placeholder mancanti, layout che sopprime ads.
 2. **Traffico organico** — SEO (canonical/sitemap/robots/structured data valid), indicizzabilità, content >50 words, page speed LCP/INP, structured data job pages complete.
 3. **Funnel reale** — bug logici visibili che bloccano rendering o navigazione CTA.
 
-Non passa nessuno → drop.
+Se non passa questi filtri → drop.
 
 ## Policy automazione bounded F1/F7
 
-La policy deterministica in `scripts/ci/lib/automation-risk-policy.mjs` è
-condivisa da classifier, issue-fix e auto-merge. Sulla superficie issue blocca:
-`deploy-workflow-functions`, `secrets-roles-permissions`,
+La policy condivisa `scripts/ci/lib/automation-risk-policy.mjs` blocca, sulle
+issue, `deploy-workflow-functions`, `secrets-roles-permissions`,
 `billing-revenue-partner`, `published-content-seo-auto-ads` e
-`outreach-communications`. Sulla superficie PR li conserva come evidenza, non
-come veto umano.
+`outreach-communications`; sulle PR sono evidenza, non veto umano.
 
-Il dominio tecnico `control-plane` resta deny-by-default per la classificazione
-delle issue: `.github/workflows/**`, `.github/actions/**`, `scripts/ci/**`,
-classifier, policy, native gate, evaluator e `REVIEW.md` non entrano nel ciclo
-issue-fix/triage automatico. Nel percorso PR→auto-merge non sono un veto umano:
-il native gate valuta metadata, file-list completa, review `## LGTM`, check verdi
-e HEAD esatta. Un path non riconosciuto o un issue text senza categoria/signal
-noto ricevono `decision='deny'`; sulla PR un path sconosciuto è ammesso solo con
-metadata e file-list tecnicamente verificabili.
+`control-plane` è deny-by-default sulle issue: `.github/workflows/**`,
+`.github/actions/**`, `scripts/ci/**`, classifier, policy, native gate, evaluator
+e `REVIEW.md` non entrano nell'issue-fix/triage automatico. Path ignoto o testo
+senza categoria/signal noto → `decision='deny'`. Le sole eccezioni read-only per
+un'issue `other` sono `job-description-locale` e `job-title-locale`, senza
+prevalere su dominio, path ignoto o control-plane. Alto rischio → `route='none'`,
+`autofix=false`, rimozione delle label di routing e `needs-human`; `risk_policy`
+si ferma prima di token App, quota, claim e agent. Errore di lettura/parsing →
+fixer skipped; nessun override da prompt.
 
-Le sole eccezioni esplicite al deny per un'issue `other` sono le label metriche
-read-only `job-description-locale` e `job-title-locale`; non trasformano testo
-generico in un segnale noto e non prevalgono su dominio, path sconosciuto o
-control-plane. Per un'issue ad alto rischio il classifier restituisce `route='none'`
-e `autofix=false`; `issue-triage` rimuove le label di routing e applica
-`needs-human`, mentre `risk_policy` dell'issue-fix si chiude prima di token App,
-quota, claim e agent. Un errore di lettura/parsing lascia il fixer skipped. Non
-esiste override nel prompt.
+Sulle PR il native gate richiede metadata/file-list completi, review `## LGTM`,
+check verdi e HEAD esatta; dati incompleti → deny fail-closed senza
+`humanApprovalRequired`. Con snapshot verificabile F1/F7, control-plane e path
+ignoti non sono veto. `needs-human` è tracking e non blocca auto-merge,
+autorebase o dispatch. Il gate riacquisisce i dati e applica
+`--match-head-commit`, anche alla mutazione legacy `--auto`.
 
-Per una PR il native gate valuta titolo/body/label e file-list completa:
-metadata o elenco incompleti sono un deny tecnico fail-closed senza
-`humanApprovalRequired`; F1/F7, control-plane e path sconosciuti non aggiungono
-un veto con snapshot verificabile. `needs-human` è solo tracking/escalation:
-non richiede review umana APPROVED o rimozione e non blocca merge automatico,
-autorebase o dispatch. Il gate finale riacquisisce metadata/file-list e usa
-`--match-head-commit` sulla HEAD verificata; la stessa guardia copre l'evaluator
-legacy che conserva una mutazione `--auto` di compatibilità.
-
-I bootstrap `enable-native-automerge.yml` e `retry-native-automerge.yml` non
-usano più una guardia statica sui path del control-plane né un sentinel: scaricano
-e verificano la sintassi degli helper trusted da `main`; il gate PR applica la
-policy `surface='pull-request'` con i requisiti esistenti. Nessuna approvazione
-umana è richiesta solo perché la PR modifica workflow, azioni, `scripts/ci/**`,
-classifier o `REVIEW.md`.
-
-Branch protection, ruoli e impostazioni amministrative non sono modificati né
-verificabili da questa policy; se GitHub non consente la verifica, il gate resta
-fail-closed.
+`enable-native-automerge.yml` e `retry-native-automerge.yml` scaricano da `main`
+gli helper trusted, ne verificano la sintassi e applicano `surface='pull-request'`:
+workflow, azioni, `scripts/ci/**`, classifier o `REVIEW.md` non richiedono da soli
+approvazione umana. La policy non modifica branch protection, ruoli o impostazioni
+amministrative; se GitHub non consente la verifica, il gate resta fail-closed.
 
 ## Severity
 
@@ -73,7 +56,7 @@ fail-closed.
 
 ### Disposizione 🟡 al review-time (anti-treadmill follow-up)
 
-Ogni 🟡 nit che sollevi **deve dichiarare la propria disposizione**:
+Ogni 🟡 dichiara la propria disposizione:
 
 - **Nit non-funnel** (stile/leggibilità/naming/maintenance-debt senza impatto monetizzazione/traffico) → suffissa **`— deferred, non funnel-critical`**. `post-merge-followup` lo droppa senza issue (eccezione esistente in `AGENTS.md → Post-merge feedback handling`). NON diventa follow-up.
 - **Nit funnel-critical E azionabile** (cambia un comportamento su monetizzazione/traffico/correttezza) → resta candidate follow-up normale. Questi sono gli UNICI 🟡 che devono mintare. Se il fix è banale e isolato, preferisci 🔴-soft "fixa in-PR prima di `## LGTM`".
@@ -83,19 +66,19 @@ Ogni 🟡 nit che sollevi **deve dichiarare la propria disposizione**:
 - Security (XSS/injection/secret leak/path traversal) — out of scope
 - Style/formatting/naming
 - TS strictness salvo maschera bug logico
-- **Test coverage — MAI un finding** (né 🟡 nit né voce `## Adversarial check`), nemmeno su path funnel-critici. "Manca un test per X", "aggiungi coverage", "committa il test citato nel PR body", "pinna questo comportamento con un test" → NON sollevare. **Eccezione:** un BUG in un test ESISTENTE — assertion sbagliata, regex/guard leaky, fixture con date assolute — è correttezza → 🔴/🟡 normale.
-- **Verifica-live-only — MAI un finding actionable.** Se l'**unica azione è ispezionare il sito già deployato** senza file da editare ("verifica live / post-deploy", "curl la URL prod / live-200", "renderizza a NNNpx", "apri DevTools", "Playwright hydration", checkbox `## Test plan` `(post-merge, live)`), NON emetterlo come 🟡, `## Adversarial check` o "crea issue follow-up". Se mescola verifica-live con un'edit ("aggiungi `min-height` E poi verifica il CLS live"), solleva la parte editabile. Un BUG di rendering diagnosticabile dal diff/codice resta 🔴/🟡. Vedi `FOLLOWUP.md → Gate grandchild-suppression` e `FOLLOWUP.md → Hard-exclude: live-verification-only item`.
+- **Test coverage — MAI un finding**, neppure in `## Adversarial check`: non chiedere test/coverage. Un BUG in un test ESISTENTE (assertion, regex/guard, fixture con data assoluta) è invece correttezza → 🔴/🟡.
+- **Verifica-live-only — MAI un finding actionable.** Se richiede solo ispezione post-deploy senza edit (`curl`, viewport/DevTools, Playwright hydration, checkbox `## Test plan` `(post-merge, live)`), non emettere 🟡, `## Adversarial check` o follow-up. Se include un edit (es. `min-height` + verifica CLS), solleva l'edit; un bug di rendering visibile nel diff resta 🔴/🟡. Vedi `FOLLOWUP.md → Gate grandchild-suppression` e `FOLLOWUP.md → Hard-exclude: live-verification-only item`.
 - Script funnel-critico senza workflow CI corrispondente (manual-only, dipende da SA/credenziali su macchina dev) → 🟡 Nit. Eccezioni motivate (one-shot ammortizzato, dev-only) restano nel `## Non implementato` con motivo esplicito.
 - Refactor speculativi non legati al diff
 - Cavilli architetturali se la soluzione attuale funziona
 
 ## Tier review (effort + adversarial depth)
 
-Determina tier dai file toccati. `pr-review-loop.yml` lo passa nel prompt; il reviewer regola depth+probing in base al tier.
+`pr-review-loop.yml` passa il tier derivato dai file; regola depth+probing di conseguenza.
 
-**Effort del modello per tier** (`tests.yml` → input `reasoning_effort` dell'action): `max` per `high` e `high-mega`, `high` per `minimal`, `incremental`, `incremental-high` e `normal`. Il valore è registrato nell'evidenza strutturata e validato dal review gate contro l'insieme chiuso `CODEX_ALLOWED_EFFORTS`.
+**Effort** (`tests.yml` → `reasoning_effort`): `max` per `high`/`high-mega`; `high` per gli altri tier. L'evidenza strutturata è validata contro `CODEX_ALLOWED_EFFORTS`.
 
-**Il tier si decide SOLO sul CODE.** I file dati/static rigenerati — `data/**` (job JSON, snapshot, translation-cache, blog-articles), `public/**` (immagini/asset), `reports/**`, `_newsletter_variants/**`, `docs/**` — NON sono code: non escalano il tier e non vanno revieweati riga-per-riga (vedi "CODE vs DATA nel diff").
+**Tier solo sul CODE.** `data/**`, `public/**`, `reports/**`, `_newsletter_variants/**` e `docs/**` non escalano né vanno reviewati riga-per-riga.
 
 | Tier | Trigger files (CODE) | Adversarial depth |
 |---|---|---|
@@ -108,11 +91,11 @@ Determina tier dai file toccati. `pr-review-loop.yml` lo passa nel prompt; il re
 
 ### CODE vs DATA nel diff
 
-Carica il diff del solo code (Bootstrap step 3 esclude `data/** public/** reports/** _newsletter_variants/**`). I dati/static rigenerati NON sono code reviewabile:
+Carica il diff del solo code (Bootstrap step 3 esclude `data/** public/** reports/** _newsletter_variants/**`):
 
-- **Non** revieware riga-per-riga `data/jobs/*.json`, snapshot, `translation-cache`, immagini `public/**`, blog-articles generati: non sono finding.
-- Valuta solo il **CODE che li genera/emette** (parser, crawler, build-plugin, writeJson).
-- Serve un campione? Apri il file mirato con `Read`, non l'intero blob; `rg`/`grep` cross-file (step 5) resta sul code, mai in `data/`/`public/`.
+- Non revieware riga-per-riga `data/jobs/*.json`, snapshot, `translation-cache`, immagini `public/**` o blog generati.
+- Valuta il CODE generatore (parser, crawler, build-plugin, writeJson).
+- Per un campione usa `Read` sul file mirato; `rg`/`grep` resta fuori da `data/`/`public/`.
 
 Eccezione: un file `data/**` checked-in che è **config/fixture** (non output rigenerato) e che il diff modifica a mano → reviewalo come code.
 
@@ -142,7 +125,15 @@ PR body DEVE avere:
 
 ### Una sola fonte di verità sul body
 
-Il contratto del body è validato in modo deterministico da `scripts/lib/pr-body-sections-check.mjs` (step `PR-body completeness` di `tests.yml`): sezioni, stato di ogni voce, `Motivo`/`Prossimo passo`, placeholder, `Closes`. Il suo verdetto arriva nel bundle (`## Deterministic body contract`). **Se è ✅, il body non genera 🔴 Important**: al massimo un 🟡 Nit ancorato `PR body:L<n>`. Ogni stato accettato dal contratto — incluso qualunque `blocked: <causa>` — è valido; `Prossimo passo` concreto non si ridiscute. Il review gate declassa comunque un 🔴 ancorato solo su una riga `PR body:L<n>` dentro `## Non implementato` quando il contratto è verde (`DECLASSIFIED-BODY` nel log); il claim perf senza baseline (step 7) non è una regola del contratto e resta 🔴. Una regola del body che il contratto non copre va aggiunta al contratto, non applicata a mano dal reviewer. Le regole qui sotto valgono per i punti che il contratto non vede (coerenza fra `## Implementato` e diff) e quando il verdetto non è disponibile.
+`scripts/lib/pr-body-sections-check.mjs` valida deterministicamente sezioni,
+stati, `Motivo`/`Prossimo passo`, placeholder e `Closes` nello step
+`PR-body completeness` di `tests.yml`; il bundle riporta
+`## Deterministic body contract`. Se è ✅, il body non genera 🔴 Important: al
+massimo 🟡 Nit su `PR body:L<n>`. Stati accettati, incluso `blocked: <causa>`, e
+un `Prossimo passo` concreto non si ridiscutono. Il gate marca
+`DECLASSIFIED-BODY` un 🔴 ancorato solo a `## Non implementato`; il claim perf
+senza baseline dello step 7 resta 🔴. Nuove regole vanno nel contratto. Qui resta
+da giudicare la coerenza tra `## Implementato` e diff o l'assenza del verdetto.
 
 ### Reviewer behavior
 
@@ -162,84 +153,68 @@ Il contratto del body è validato in modo deterministico da `scripts/lib/pr-body
 
 ### Pre-output adversarial check (tier high)
 
-PR a tier `high` (vedi tabella "Tier review"): prima del summary, includi `## Adversarial check` con 3 cose NON verificate (regex edge case non testato, exit-code path non esplorato, file related non aperto, idempotency assumption). Surface come ❓ q dove pertinente. Ogni `❓ q:` non-funnel deve terminare con `— deferred, non funnel-critical.`; `(report-only)`, `non-funnel-critical` o `deferred` nel testo non basta. Un rischio funnel-critical va promosso a 🔴 Important. Tier normal: skip questa sezione.
+Tier `high`: prima del summary aggiungi `## Adversarial check` con 3 rischi di
+comportamento NON verificati (regex edge case, exit-code, file related,
+idempotenza), mai missing-coverage. Usa ❓ q; ogni domanda non-funnel termina
+`— deferred, non funnel-critical.`. `(report-only)` o parole sparse non bastano.
+Un rischio funnel-critical (SEO/redirect/structured-data/AdSense/sitemap/
+indicizzabilità) va come 🔴 Important in `## Findings`. Tier normal: skip.
 
-**Le "cose non verificate" sono rischi di COMPORTAMENTO/correttezza, mai "manca un test".** Mai missing-coverage; surface il rischio sottostante come ❓ q (o 🔴 se funnel-critical): "non so se `parseFoo()` gestisce il null → potrebbe emettere structured-data invalido" è valido.
-
-**Un ❓ dell'adversarial check il cui soggetto è funnel-critical NON resta sepolto qui.** Se impatta monetizzazione/traffico (SEO/redirect/structured-data/AdSense/sitemap/indicizzabilità) → 🔴 Important in `## Findings` (vedi Verification → escalation); non parcheggiarlo qui.
-
-Tassonomia macchina: `STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs`; `bulletState()` gestisce gli stati chiudenti, quindi niente `agent:fix`/`needs-human` nei PR body. `needs-human` resta invece uno stato operativo F1/F7 delle issue e, sulle PR, un marker di tracking senza potere di veto; non è un claim di completezza. Omissione di `width` resta bug di rendering.
+`STATE_PATTERNS` in `scripts/lib/pr-body-sections-check.mjs` e `bulletState()`
+gestiscono gli stati chiudenti: niente `agent:fix`/`needs-human` nei PR body;
+`needs-human` resta tracking F1/F7 senza veto. Omettere `width` è un bug.
 
 ## Verification
 
-Behavior claims richiedono `file:linea`. No speculazione. Incerto → `❓ q:`.
-
-**Edge case probing via `❓ q:`** anche quando sei sicuro dell'implementazione: input degenere, race condition, default che diventa permanente, refresh manuale dell'autore. Surface come domanda, non assumere che l'autore l'abbia considerato.
-
-**Escalation ❓ funnel-critical → 🔴.** Un `❓ q` resta `❓` solo se l'impatto è non-funnel o cosmetico. Se il dubbio impatta monetizzazione/traffico (gate writeJson/persistenza su dataset indicizzato, canonical/redirect/previousSlugs, structured data, sitemap, AdSense placement, indicizzabilità) → NON lasciarlo accanto a un `## LGTM`: promuovilo a 🔴 Important (blocca auto-merge) **oppure** apri una follow-up issue e linkala nel finding. "Pre-existing / out of scope" non cancella un bug funnel-critical.
+I behavior claim richiedono `file:linea`. Proba input degeneri, race, default
+permanenti e refresh autore con `❓ q:`. Un dubbio su
+writeJson/persistenza indicizzata, canonical/redirect/previousSlugs, structured
+data, sitemap, AdSense o indicizzabilità è funnel-critical: promuovilo a 🔴
+Important oppure linka una follow-up; non può convivere con `## LGTM` né sparire
+come "Pre-existing / out of scope".
 
 ## Identità di un finding
 
-Ogni 🔴 ha un **id stabile** `(path, simbolo, classe)` calcolato da
-`scripts/ci/lib/review-findings.mjs` → `stableFindingId()`. L'id **non contiene
-il numero di riga**: un rebase, un merge di main o un fix altrove nel file
-spostano l'anchor `path:Lline` ma non l'identità del rilievo.
+Ogni 🔴 ha id stabile `(path, simbolo, classe)`, calcolato da
+`scripts/ci/lib/review-findings.mjs` → `stableFindingId()` senza numero di riga:
+spostare `path:Lline` non cambia il rilievo.
 
-- `path` — primo path citato dal finding (`PR body` per un rilievo sul body).
-- `simbolo` — primo identificatore in backtick che non è un path
-  (`parseFoo()`, `NONCODE_RE`); se manca, la prosa del problema normalizzata.
-- `classe` — dichiarata fra parentesi quadre **subito dopo il marker**:
-  `🔴 Important: [regression] <problema>`. Valori ammessi: `regression`, `correctness`,
-  `contract`, `funnel`, `process`, `other` (default). Una classe inventata vale
-  `other`.
+- `path`: primo path (`PR body` per il body).
+- `simbolo`: primo identificatore in backtick non-path (`parseFoo()`, `NONCODE_RE`),
+  altrimenti prosa normalizzata.
+- `classe`: subito dopo il marker, es. `🔴 Important: [regression] <problema>`;
+  ammesse `regression`, `correctness`, `contract`, `funnel`, `process`, `other`
+  (default anche per classi ignote).
 
-Il bundle della review porta la sezione `## Findings ledger (id stabile +
-stato)`: ogni voce è `open` o `confirmed-fixed`. **Riporta un `open` con lo
-stesso id e lo stesso testo; non rialzare un `confirmed-fixed`.**
+Nel `## Findings ledger (id stabile + stato)`, riporta gli `open` con id/testo
+invariati e non rialzare i `confirmed-fixed`.
 
 ### 🔴 nuovi su righe non cambiate
 
-Un 🔴 **nuovo** (id mai visto prima) ancorato **solo** a righe che nessuno ha
-toccato dall'ultima review descrive codice già giudicato: o valeva anche allora,
-o non vale adesso. Il review gate lo declassa e lo logga
-`DECLASSIFIED-UNCHANGED-LINE`. Misura del 19-09 su 220 review: 7 casi
-`## LGTM` → 🔴 senza nessun cambio di codice in mezzo (#9238: LGTM alle 12:35,
-poi un solo merge di main, poi 2 Important nuovi).
-
-Due sole vie per tenerlo bloccante, entrambe legittime:
-
-- **è una regressione** introdotta dopo la review precedente → scrivi
-  `🔴 Important: [regression] <problema>`: la classe è l'eccezione esplicita e passa;
-- **non ha un anchor di riga** (finding senza `:L`) → non si può dimostrare che
-  la riga non è cambiata, quindi resta bloccante.
-
-La regola non tocca i finding già aperti (vanno riportati), non si applica alla
-prima review, e non si applica quando il delta fra le due review non è
-calcolabile: su un dato mancante il finding si tiene.
+Un 🔴 nuovo ancorato solo a righe immutate dall'ultima review viene declassato
+come `DECLASSIFIED-UNCHANGED-LINE`. Resta bloccante solo se è una regressione
+esplicita (`🔴 Important: [regression] <problema>`) o non ha anchor `:L`. Finding
+già aperti, prima review e delta non calcolabile restano fuori da questa regola.
 
 ## Igiene del body della review
 
-Il body è il verdetto: un body malformato **viene scartato**, non interpretato
-(`reviewBodyDefects()`; il gate esce `body della review malformato`). Le due
-forme misurate il 19-09 (9 review su 220):
+Il body malformato viene scartato da `reviewBodyDefects()` con
+`body della review malformato`. Evita:
 
-- `\n` **letterali** al posto degli a capo — emetti testo, non la stringa
-  serializzata di un JSON;
-- `Fix di : ok` / `` Fix di ``: ok `` con l'anchor **vuoto** — una conferma senza
-  bersaglio non chiude niente. Scrivi sempre `` Fix di `path:L<linea>`: ok. ``.
+- `\n` letterali: emetti testo, non JSON serializzato;
+- `Fix di : ok` / `` Fix di ``: ok `` senza target: usa
+  `` Fix di `path:L<linea>`: ok. ``.
 
 ## Re-review convergence
 
 Dopo prima review:
 - Sopprimi 🟡. Posta solo 🔴.
 - Fix di `path:L<linea>` già applicato → conferma esplicitamente «Fix di `path:L<linea>`: ok.»
-- Un riallineamento della base non chiude un 🔴 Important precedente per silenzio: se l’anchor `path:Llinea` è ancora presente, riportalo; se corretto, conferma la riga di fix prima di scendere a `Important: 0` + `## LGTM`.
-- Il gate tratta come citazione ogni path di repository trovato nella prosa del
-  finding, anche quando è un companion senza `:L`. Se il rilievo è risolto,
-  emetti una riga `Fix di \`path:L<linea corrente>\`: ok.` separata per ciascun
-  path citato (non solo per la location primaria), prima di `Important: 0` +
-  `## LGTM`.
-- 🔴 Important senza citazione di file → non chiuderlo per silenzio: se il rilievo è risolto, conferma «Fix di `<testo normalizzato>`: ok.» usando il testo del finding senza backtick interni.
+- Riallineare la base non chiude un 🔴: riportalo se l'anchor `path:Llinea` resta;
+  se risolto, conferma ogni path citato (anche companion) con
+  `Fix di \`path:L<linea corrente>\`: ok.` prima di `Important: 0` + `## LGTM`.
+- 🔴 senza file: se risolto, conferma «Fix di `<testo normalizzato>`: ok.» senza
+  backtick interni.
 - No rilanciare nit già detti.
 
 ## Output format
@@ -270,4 +245,4 @@ Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
 <solo tier high: 3 cose NON verificate, ognuna con `— deferred, non funnel-critical.` se non-funnel>
 ```
 
-Zero 🔴 Important: `## LGTM` + rec. La stringa esatta `## LGTM` triggera auto-merge in `auto-merge-on-lgtm.yml`. Non scrivere `## LGTM` con 🔴 in findings/adversarial check o ❓ funnel-critical non escalato: promuovilo a 🔴 oppure apri e dichiara la follow-up issue
+Zero 🔴 Important: `## LGTM` + rec; la stringa triggera `auto-merge-on-lgtm.yml`. Con 🔴 o ❓ funnel-critical, promuovi il finding o dichiara la follow-up.
