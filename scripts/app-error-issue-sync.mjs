@@ -19,7 +19,7 @@
 import { readFileSync } from 'node:fs';
 import { pathToFileURL } from 'node:url';
 import { sanitizeTrackedDiagnosticValue } from './lib/sanitizeTrackedDiagnostics.mjs';
-import { isIssueDenied, isSelfHealedPage404, syncErrorIssues } from './lib/error-issue-sync.mjs';
+import { hasActionableErrorMessage, isIssueDenied, isSelfHealedPage404, syncErrorIssues } from './lib/error-issue-sync.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
 import { buildScheda } from './lib/monitor-scheda.mjs';
 
@@ -105,12 +105,9 @@ export async function main() {
     // ticket with no message, no reason and no stack (#4148). This is a
     // GA4-feeder data-quality artifact, NOT a client error signature — hence
     // guarded here at the feeder rather than in the client-mirrored,
-    // parity-pinned ISSUE_DENY_PATTERNS (which the PostHog feeder shares; PostHog
-    // always carries a real message, never "(not set)").
-    .filter((e) => {
-      const msg = String(e.errorMessage ?? '').trim();
-      return msg.length > 0 && msg.toLowerCase() !== '(not set)';
-    })
+    // parity-pinned ISSUE_DENY_PATTERNS. The same guard is shared with the
+    // PostHog monitor because its GA4 fallback receives this exact row shape.
+    .filter((e) => hasActionableErrorMessage(e.errorMessage))
     // Shared issue-creation deny-list (self-healed version-skew transients,
     // #3758/#3759/#3761 class): the same error reaches GA4 app_error and
     // PostHog $exception through parallel pipelines, so the "tracked in

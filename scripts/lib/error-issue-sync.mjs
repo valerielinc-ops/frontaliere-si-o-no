@@ -146,6 +146,12 @@ export function isIssueDenied(message) {
   return ISSUE_DENY_PATTERNS.some((p) => p.test(message || ''));
 }
 
+/** True when telemetry contains enough message context to create an issue. */
+export function hasActionableErrorMessage(message) {
+  const normalized = String(message ?? '').trim().toLowerCase();
+  return normalized.length > 0 && normalized !== '(not set)';
+}
+
 /**
  * Extract every resolved stack-frame filename/URL out of a PostHog
  * `$exception_list` value (the parsed shape of `properties.$exception_list`).

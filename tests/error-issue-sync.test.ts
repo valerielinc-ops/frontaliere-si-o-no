@@ -25,7 +25,7 @@ vi.mock('node:fs', async (importOriginal) => {
   return { ...actual, readFileSync: (...args: unknown[]) => readFileSync(...args) };
 });
 
-const { syncErrorIssues, ISSUE_DENY_PATTERNS, isIssueDenied, isSelfHealedPage404, page404Path, extractStackFrameOrigins } = await import('../scripts/lib/error-issue-sync.mjs');
+const { syncErrorIssues, ISSUE_DENY_PATTERNS, hasActionableErrorMessage, isIssueDenied, isSelfHealedPage404, page404Path, extractStackFrameOrigins } = await import('../scripts/lib/error-issue-sync.mjs');
 const { MODULE_LINK_SKEW_PATTERNS } = await import('../services/resilientImport');
 const { UNIVERSAL_BENIGN_PATTERNS } = await import('../services/benignErrorPatterns');
 const appErrorSync = await import('../scripts/app-error-issue-sync.mjs');
@@ -119,6 +119,14 @@ describe('syncErrorIssues (shared loop)', () => {
     const call = createCalls()[0];
     for (let i = 0; i < call.length; i++) if (call[i] === '--label') labels.push(call[i + 1]);
     expect(labels).toContain('priority:high');
+  });
+});
+
+describe('hasActionableErrorMessage', () => {
+  it('rejects empty and GA4 placeholder messages without hiding real signatures', () => {
+    expect(hasActionableErrorMessage('')).toBe(false);
+    expect(hasActionableErrorMessage('  (Not Set)  ')).toBe(false);
+    expect(hasActionableErrorMessage('Stale chunk: Failed to fetch dynamically imported module')).toBe(true);
   });
 });
 
@@ -321,6 +329,25 @@ describe('posthog-error-issue-sync.mjs', () => {
     await posthogSync.main();
 
     expect(createCalls()).toHaveLength(1);
+    delete process.env.POSTHOG_PERSONAL_API_KEY;
+    delete process.env.POSTHOG_PROJECT_ID;
+  });
+
+  it('drops message-less telemetry before issue sync, including GA4 fallback values (#9537)', async () => {
+    process.env.POSTHOG_PERSONAL_API_KEY = 'k';
+    process.env.POSTHOG_PROJECT_ID = 'p';
+    issueListEmptyThenCreate(205);
+    stubPostHogFetch([
+      ['(not set)', 'sw_cache_stale', 16, 15, 'https://frontaliereticino.ch/'],
+      ['', 'sw_cache_stale', 9, 8, 'https://frontaliereticino.ch/'],
+      ['Cannot read properties of null', 'TypeError', 9, 7, 'https://frontaliereticino.ch/it/lavoro/'],
+    ]);
+
+    await posthogSync.main();
+
+    const calls = createCalls();
+    expect(calls).toHaveLength(1);
+    expect(calls[0][calls[0].indexOf('--title') + 1]).toContain('Cannot read properties');
     delete process.env.POSTHOG_PERSONAL_API_KEY;
     delete process.env.POSTHOG_PROJECT_ID;
   });
