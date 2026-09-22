@@ -3,6 +3,7 @@ import { GPT_ENABLED, getGptTag, initGptFramework } from '@/components/shared/Gp
 import { isLikelyBot } from '@/services/botPatterns';
 import { Analytics } from '@/services/analytics';
 import { isAdsConsentGranted } from '@/services/adsConsent';
+import { preloadRewardedHouseVideo } from '@/services/rewardedHouseVideo';
 
 /**
  * The rewarded unit selected by the published Offerwall message.
@@ -163,6 +164,11 @@ export function preloadRewardedWebAd(
     if (activeResource?.adUnitPath === adUnitPath) disposeRewardedWebAd(adUnitPath);
     return 0;
   }
+
+  // Keep the deterministic first-party fallback warm while Google decides
+  // whether this request has rewarded demand. This is scoped to the same
+  // consented, authenticated detail surface as the GPT preloader.
+  preloadRewardedHouseVideo();
 
   const existing = activeResource;
   if (existing?.adUnitPath === adUnitPath) {
