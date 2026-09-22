@@ -368,7 +368,13 @@ function cantonLocationEvidence(location) {
       // must not be allowed to overwrite a crawler canton. Explicit markers
       // such as `(AG)` remain trustworthy for display and reconciliation.
       const isBareAg = (kindHint ?? classified.kind) === 'bare-code' && classified.code === 'AG';
-      const isVerifiedBareAg = isBareAg && VERIFIED_BARE_AG_LOCALITIES.has(fold(head));
+      // Coop's regional labels use the same official locality followed by the
+      // canton code, e.g. "Region Muri AG". The prefix is source metadata,
+      // not part of the locality, so keep the narrow AG allowlist while
+      // accepting that one measured wrapper instead of treating the code as
+      // the company suffix "Aktiengesellschaft".
+      const bareAgLocality = head.replace(/^region\s+/i, '').trim();
+      const isVerifiedBareAg = isBareAg && VERIFIED_BARE_AG_LOCALITIES.has(fold(bareAgLocality));
       if (isBareAg && !isVerifiedBareAg) {
         ambiguousBareAg = true;
       } else {

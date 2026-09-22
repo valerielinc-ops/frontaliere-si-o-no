@@ -239,4 +239,9 @@ describe('preferLocationEncodedCanton', () => {
     expect(cantonNamedByLocation('Stein AG')).toBe('AG');
     expect(preferLocationEncodedCanton('Stein AG', 'BL')).toBe('AG');
   });
+
+  it('accepts the measured Coop regional wrapper before an Aargau code', () => {
+    expect(cantonNamedByLocation('Region Muri AG')).toBe('AG');
+    expect(preferLocationEncodedCanton('Region Muri AG', 'BS')).toBe('AG');
+  });
 });
