@@ -1253,10 +1253,17 @@ export async function runStandardCrawlerPipeline(config) {
     isTargetJob: isCompanyJob,
     preserveExistingSlugs,
     // The source-specific validator has already proven that every attempted
-    // detail became one rich, unique published row. URL probes are weaker for
-    // WordPress archives that keep retired detail pages reachable with HTTP
-    // 200, so this verified snapshot is the evidence for the one write.
-    skipShrinkGuard: authoritativeSnapshotVerified,
+    // detail became one rich, unique published row. If the central guard trips,
+    // URL probes remain weaker for WordPress archives that keep retired detail
+    // pages reachable with HTTP 200, but the validator is still useful evidence
+    // for the guarded decision below.
+    //
+    // A non-empty source proof describes the current listing, but does not prove
+    // that a sudden loss of previously published records is real. Keep the
+    // central anti-shrink guard active for non-empty snapshots; only an explicit
+    // authoritative zero may bypass it. This catches source/parser regressions
+    // such as a complete board collapsing to a handful of rows (#9398).
+    skipShrinkGuard: authoritativeEmptySnapshot && authoritativeSnapshotVerified,
   });
   writeSummaryCrawlerSlice({
     key: companyKey,

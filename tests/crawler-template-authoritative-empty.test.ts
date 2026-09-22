@@ -392,6 +392,36 @@ describe('standard crawler authoritative-empty policy', () => {
     );
   });
 
+  it('keeps the anti-shrink guard for non-empty authoritative snapshots (#9398)', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'authoritative-non-empty-root-'));
+    try {
+      await runStandardCrawlerPipeline({
+        companyKey: COMPANY_KEY,
+        companyLabel: 'Authoritative Non-Empty Test',
+        root,
+        fetchJobs: async () => [{
+          id: 'test-new-1',
+          slug: 'new-job',
+          url: 'https://example.com/new-job',
+        }],
+        isCompanyJob: () => true,
+        validateAuthoritativeSnapshot: () => true,
+        allowAuthoritativeEmptySnapshot: true,
+      });
+    } finally {
+      fs.rmSync(root, { recursive: true, force: true });
+    }
+
+    expect(mocks.writeJobsCrawlerSliceVerified).toHaveBeenCalledWith(
+      COMPANY_KEY,
+      expect.any(Array),
+      expect.objectContaining({ skipShrinkGuard: false }),
+    );
+    expect(mocks.writeSummaryCrawlerSlice).toHaveBeenCalledWith(
+      expect.objectContaining({ authoritativeEmptySnapshot: false }),
+    );
+  });
+
   it('does not publish an unproven empty snapshot', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'unproven-empty-root-'));
     try {
