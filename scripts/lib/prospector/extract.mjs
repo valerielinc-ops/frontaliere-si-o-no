@@ -390,7 +390,10 @@ export function extractDetailFields(html = '', pageUrl = '') {
   const structuredRecords = selectDetailStructuredRecords(allStructuredRecords, pageUrl, renderedTitle);
   const ambiguousStructuredSiblings = allStructuredRecords.length > 1 && !structuredRecords.length;
   const structured = structuredRecords[0] || {};
-  const title = renderedTitle || structured.title || '';
+  // The first H1 can be the employer or brand while the selected JobPosting
+  // carries the vacancy title. Prefer the page-scoped structured record and
+  // use the rendered heading only when no structured title is available.
+  const title = structured.title || renderedTitle || '';
   const renderedLocation = ambiguousStructuredSiblings ? '' : textOf(
     /<(?:div|span|p|li)[^>]*(?:class|itemprop)\s*=\s*["'][^"']*(?:job[-_ ]?region|job[-_ ]?location|location|addressLocality)[^"']*["'][^>]*>([\s\S]{0,500}?)<\//i.exec(html)?.[1] || '',
   );
@@ -446,7 +449,7 @@ export function extractDetailFields(html = '', pageUrl = '') {
   // Extract balanced containers so nested lists/divs do not truncate the
   // vacancy at the first inner closing tag. The vocabulary is vendor-neutral;
   // Fachkraft's ff-detail-* classes are just one supported spelling.
-  const openingRx = /<(div|section|article)\b([^>]*\bclass\s*=\s*["'][^"']*(?:job[-_ ]?(?:description|details?|content)|vacancy[-_ ]?(?:description|details?)|position[-_ ]?description|detail[-_ ]{1,2}text|detail[-_ ]?intro|description)[^"']*["'][^>]*)>/gi;
+  const openingRx = /<(div|section|article)\b([^>]*\bclass\s*=\s*["'][^"']*(?:job[-_ ]?(?:description|details?|content|tasks?|profile|perspective)|vacancy[-_ ]?(?:description|details?)|position[-_ ]?description|detail[-_ ]{1,2}text|detail[-_ ]?intro|description)[^"']*["'][^>]*)>/gi;
   let match;
   while ((match = openingRx.exec(html))) {
     const detailClassAttr = match[2];
