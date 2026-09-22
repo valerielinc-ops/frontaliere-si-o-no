@@ -3949,7 +3949,6 @@
         "location": "Untervaz"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post-2",
@@ -5303,11 +5302,7 @@
         "information-security-officer-post",
         "information-security-officer-die-schweizerische-post-bellinzona"
       ],
-      "salarySource": "reported",
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 153,
-      "needsRetranslation": true
+      "salarySource": "reported"
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74590-de_DE",
@@ -14437,7 +14432,6 @@
         "location": "Colombier NE"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-38b87e7858e9",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -14586,7 +14580,6 @@
         "location": "Bienne"
       },
       "crawledAt": "",
-      "needsRetranslation": true,
       "id": "posta-svizzera-centro-regionale-e382cd332f1d",
       "salaryMin": 68500,
       "salaryMax": 104000,

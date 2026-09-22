@@ -294,7 +294,8 @@
       "firstSeenAt": "2026-08-31T22:18:25.008Z",
       "previousSlugsByLocale": {
         "it": [
-          "monteur-reinraumproduktion-m-w-d-trumpf-r00041886"
+          "monteur-reinraumproduktion-m-w-d-trumpf-r00041886",
+          "direttore-reinraumproduktion-m-f-d-trumpf-schweiz-ag-grusch"
         ],
         "en": [
           "reinraumproduktion-m-f-d-mount-trumpf-schweiz-ag-grusch"
@@ -302,7 +303,8 @@
       },
       "previousSlugs": [
         "monteur-reinraumproduktion-m-w-d-trumpf-r00041886",
-        "reinraumproduktion-m-f-d-mount-trumpf-schweiz-ag-grusch"
+        "reinraumproduktion-m-f-d-mount-trumpf-schweiz-ag-grusch",
+        "direttore-reinraumproduktion-m-f-d-trumpf-schweiz-ag-grusch"
       ]
     },
     {
@@ -365,7 +367,8 @@
       "firstSeenAt": "2026-08-31T22:18:25.461Z",
       "previousSlugsByLocale": {
         "it": [
-          "systemtestingenieur-software-m-w-d-trumpf-r00042022"
+          "systemtestingenieur-software-m-w-d-trumpf-r00042022",
+          "software-di-test-del-sistema-m-f-d-trumpf-schweiz-ag-grusch"
         ],
         "fr": [
           "ingenieur-de-tests-systeme-h-f-d-trumpf-schweiz-ag-grusch"
@@ -373,7 +376,8 @@
       },
       "previousSlugs": [
         "systemtestingenieur-software-m-w-d-trumpf-r00042022",
-        "ingenieur-de-tests-systeme-h-f-d-trumpf-schweiz-ag-grusch"
+        "ingenieur-de-tests-systeme-h-f-d-trumpf-schweiz-ag-grusch",
+        "software-di-test-del-sistema-m-f-d-trumpf-schweiz-ag-grusch"
       ]
     },
     {
@@ -593,7 +597,9 @@
       "previousSlugs": [
         "leiter-logistik-m-w-d-trumpf-schweiz-ag-grusch",
         "leiter-logistik-m-w-d-trumpf-r00042856"
-      ]
+      ],
+      "needsRetranslation": true,
+      "retranslationAttempts": 0
     },
     {
       "title": "Linienbetreuer PE-IB (m/w/d)",
