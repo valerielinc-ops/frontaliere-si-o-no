@@ -1005,6 +1005,57 @@ describe('employer insights technical deduplication', () => {
     });
   });
 
+  it('adds emission_id only to the explicit GA4 evidence probe', async () => {
+    const ga4Window = {
+      from: '2026-09-01T00:00:00.000Z',
+      to: '2026-09-03T00:00:00.000Z',
+      kind: 'ga4-evidence-test',
+      timezone: 'UTC',
+    };
+    const calls: Array<{ body: Record<string, unknown> }> = [];
+    const report = async ({ body }: { body: Record<string, unknown> }) => {
+      calls.push({ body });
+      return {
+        rowCount: 1,
+        rows: [{
+          dimensionValues: ['20260901', 'page_view', 'acme', 'role-it', '/role-it/', 'emission-1'],
+          metricValues: [{ value: '4' }, { value: '2' }, { value: '3' }],
+        }],
+      };
+    };
+
+    const result = await queryGa4EventRows(ga4Window, {
+      token: 'test-token',
+      propertyId: 'properties/test',
+      report,
+      includeEmissionId: true,
+    });
+
+    expect(calls[0].body.dimensions).toEqual([
+      { name: 'date' },
+      { name: 'eventName' },
+      { name: 'customEvent:employer_key' },
+      { name: 'customEvent:job_slug' },
+      { name: 'pagePath' },
+      { name: 'customEvent:emission_id' },
+    ]);
+    expect(calls[0].body.orderBys).toEqual([
+      { dimension: { dimensionName: 'date' } },
+      { dimension: { dimensionName: 'eventName' } },
+      { dimension: { dimensionName: 'customEvent:employer_key' } },
+      { dimension: { dimensionName: 'customEvent:job_slug' } },
+      { dimension: { dimensionName: 'pagePath' } },
+      { dimension: { dimensionName: 'customEvent:emission_id' } },
+    ]);
+    expect(result.rows[0]).toMatchObject({ emissionId: 'emission-1', observed: 4 });
+    expect(result.coverage).toMatchObject({
+      emissionIdDimensionRequested: true,
+      emissionIdRows: 1,
+      emissionIdObserved: 4,
+      emissionIdMissingObserved: 0,
+    });
+  });
+
   it('does not attribute a sector-hub pageview to a job with the same short alias', () => {
     const catalog = buildIdentityCatalog([job({ slug: 'infermieri' })]);
     const result = aggregateEmployerEvents([{

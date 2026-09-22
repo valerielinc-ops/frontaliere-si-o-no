@@ -15,8 +15,11 @@ describe('employer insights refresh rollback', () => {
     expect(REFRESH_WORKFLOW_SOURCE).toContain('--d18-json-out /tmp/employer-insights-d18.json');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('--d18-include-applications');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('validate-employer-insights-d18-payload.mjs');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('--require-live-ga4');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('Upload D18 bounded artifact');
     expect(REFRESH_WORKFLOW_SOURCE).toContain('/tmp/employer-insights-d18.json');
+    expect(REFRESH_WORKFLOW_SOURCE).toContain('/tmp/employer-insights-builder.log');
+    expect(REFRESH_WORKFLOW_SOURCE).not.toMatch(/^\s+- posthog$/m);
   });
 
   it('accepts a D18 fixture with both regimes and keeps the period total non-summable', () => {
@@ -71,6 +74,9 @@ describe('employer insights refresh rollback', () => {
 
     const validation = validateD18Artifact(payload);
     expect(validation.ok).toBe(true);
+    const firstRunValidation = validateD18Artifact(payload, { requireLiveGa4: true });
+    expect(firstRunValidation.ok).toBe(false);
+    expect(firstRunValidation.errors.join('\n')).toMatch(/blocked|live|replay/);
     expect(payload.sourceRegimes.ga4.status).toBe('observed');
     expect(payload.sourceRegimes.posthog.status).toBe('parziale');
     expect(payload.periodTotal).toMatchObject({
@@ -92,6 +98,113 @@ describe('employer insights refresh rollback', () => {
     expect(validateD18Artifact(pending).ok).toBe(true);
     expect(pending.sourceRegimes.posthog.status).toBe('sorgente non disponibile');
     expect(pending.coverageMatrix.status).toBe('non disponibile');
+  });
+
+  it('replays a frozen GA4/PostHog snapshot deterministically without provider access', () => {
+    const window = {
+      from: '2026-09-01T00:00:00+02:00',
+      to: '2026-09-12T00:00:00+02:00',
+      timezone: 'Europe/Zurich',
+      inclusive: '[from,to)',
+    };
+    const catalog = employerInsightsBuilder.buildIdentityCatalog([{
+      id: 'job-1',
+      companyKey: 'acme',
+      company: 'Acme SA',
+      title: 'Role',
+      slug: 'role-it',
+      slugByLocale: { it: 'role-it' },
+      status: 'active',
+    }]);
+    const replayInput = {
+      schemaVersion: 1,
+      mode: 'replay',
+      generatedAt: '2026-09-12T06:00:00.000Z',
+      window,
+      measurementWindow: {
+        from: '2026-09-09T00:00:00+02:00',
+        to: window.to,
+        timezone: 'Europe/Zurich',
+        inclusive: '[from,to)',
+      },
+      sources: {
+        ga4: {
+          rows: [{
+            event: 'page_view',
+            timestamp: '2026-09-10T00:00:00.000Z',
+            employerKey: 'acme',
+            jobSlug: 'role-it',
+            observed: 2,
+            emissionId: 'ga4-emission-1',
+          }],
+          coverage: {
+            rowsReturned: 1,
+            totalRows: 1,
+            returnedRows: 1,
+            returned: 2,
+            sourceObserved: 2,
+            identityObserved: 2,
+            emissionIdDimensionRequested: true,
+            emissionIdObserved: 2,
+            emissionIdMissingObserved: 0,
+            pages: 1,
+            truncated: false,
+            snapshotId: 'ga4-replay-snapshot',
+            queryHash: 'ga4-replay-query',
+          },
+        },
+        posthog: {
+          rows: [{
+            event: 'page_view',
+            timestamp: '2026-09-08T10:00:00.000Z',
+            employerKey: 'acme',
+            jobSlug: 'role-it',
+            observed: 3,
+            emissionId: 'posthog-emission-1',
+          }],
+          coverage: {
+            rowsReturned: 1,
+            totalRows: 1,
+            returnedRows: 1,
+            returned: 3,
+            sourceObserved: 3,
+            pages: 1,
+            truncated: false,
+            snapshotId: 'posthog-replay-snapshot',
+            queryHash: 'posthog-replay-query',
+          },
+        },
+      },
+      applicationRecords: [],
+      deliveryRecords: [],
+    };
+    const replay = employerInsightsBuilder.parseEmployerInsightsReplay(replayInput, 'ga4');
+    const build = () => employerInsightsBuilder.buildD18PayloadFromQuerySnapshots({
+      window: replay.window,
+      generatedAt: replay.generatedAt,
+      catalog,
+      ga4Result: replay.sources.ga4,
+      posthogResult: replay.sources.posthog,
+      applicationRecords: replay.applicationRecords,
+      deliveryRecords: replay.deliveryRecords,
+      runMode: 'replay',
+      primarySource: 'ga4',
+      ga4EvidenceWindow: replay.measurementWindow,
+    });
+
+    const first = build();
+    const second = build();
+    expect(JSON.stringify(first)).toBe(JSON.stringify(second));
+    expect(first.evidence).toMatchObject({ status: 'replay-valid', runMode: 'replay' });
+    expect(first.evidence.measurementWindow).toMatchObject({
+      from: replay.measurementWindow.from,
+      to: replay.measurementWindow.to,
+      timezone: replay.measurementWindow.timezone,
+      inclusive: replay.measurementWindow.inclusive,
+    });
+    expect(validateD18Artifact(first).ok).toBe(true);
+    expect(() => employerInsightsBuilder.parseEmployerInsightsReplay({ ...replayInput, sources: { posthog: replayInput.sources.posthog } }, 'ga4'))
+      .toThrow(/missing the ga4 source result/);
   });
 
   it('runs the now-supported GA4 identity feed on the periodic trigger', () => {
