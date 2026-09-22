@@ -11898,6 +11898,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.title': 'Leben in Bregnano und Arbeiten im Tessin: Praktischer Leitfaden für Grenzgänger',
     'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.excerpt': 'Reisezeiten, Kosten, Steuern und Verfahren: Alles, was Grenzgänger ab Bregnano wissen müssen, bevor sie einen Job im Tessin annehmen.',
     'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.imageAlt': 'Pendlerverkehr am Grenzübergang Brogeda am frühen Morgen',
+    'blog.article.bollettino-frontaliere-2026-09-22.title': 'Grenzgänger-Tagesbulletin – 22. September 2026: 639 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-09-22.excerpt': 'Die Zahlen von heute, 22. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-22.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 22. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-22.seoDescription': 'Grenzgänger-Bulletin vom 22. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-22.ogDescription': 'Die Zahlen vom 22. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
