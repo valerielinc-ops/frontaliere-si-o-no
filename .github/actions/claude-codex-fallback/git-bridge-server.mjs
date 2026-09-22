@@ -74,15 +74,34 @@ function isCurrentBranchRef(value, currentBranchRef) {
   return value === currentBranchRef;
 }
 
+// Git also accepts a short branch name in a refspec. Expand it only when it
+// names the already checked-out work branch; other namespaces stay rejected.
+function normalizeCurrentBranchRefspec(refspec, currentBranchRef) {
+  const branchRef = currentWorkBranchRef(currentBranchRef);
+  if (!branchRef || typeof refspec !== 'string') return refspec;
+  const branchName = branchRef.slice(WORK_BRANCH_REF_PREFIX.length);
+  const separator = refspec.indexOf(':');
+  const source = separator === -1 ? refspec : refspec.slice(0, separator);
+  const destination = separator === -1 ? '' : refspec.slice(separator + 1);
+  const normalize = (value) => value === branchName ? branchRef : value;
+  const normalizedSource = normalize(source);
+  const normalizedDestination = separator === -1 ? '' : normalize(destination);
+  if (normalizedSource === source && normalizedDestination === destination) return refspec;
+  return separator === -1
+    ? normalizedSource
+    : `${normalizedSource}:${normalizedDestination}`;
+}
+
 function validatePushRefspecs(refspecs, allowedWorkBranch) {
   const currentBranchRef = currentWorkBranchRef(allowedWorkBranch);
   if (!currentBranchRef) {
     return 'Git push requires a checked-out current work branch under refs/heads; detached HEAD, main, and other namespaces are not permitted';
   }
-  if (refspecs.length !== 1) {
+  const normalizedRefspecs = refspecs.map((refspec) => normalizeCurrentBranchRefspec(refspec, currentBranchRef));
+  if (normalizedRefspecs.length !== 1) {
     return 'Git push requires exactly one explicit work-branch refspec';
   }
-  const refspec = refspecs[0];
+  const refspec = normalizedRefspecs[0];
   if (!refspec || refspec.startsWith('+') || refspec.includes('*')) {
     return `Git push refspec is not permitted by the Codex fallback bridge: ${refspec || '<missing>'}`;
   }
@@ -194,10 +213,14 @@ export function buildGitNetworkArgs(args, expectedRemote, { allowedWorkBranch = 
   }
   const result = [...args];
   const remoteIndex = firstPositionalIndex(result);
-  if (result[0] === 'push' && remoteIndex >= 0 && result.length === remoteIndex + 2 && result[remoteIndex + 1] === 'HEAD') {
+  if (result[0] === 'push' && remoteIndex >= 0 && result.length === remoteIndex + 2) {
     const branchRef = currentWorkBranchRef(allowedWorkBranch);
-    if (!branchRef) throw new Error('Git push requires a checked-out current work branch under refs/heads; detached HEAD, main, and other namespaces are not permitted');
-    result[remoteIndex + 1] = `HEAD:${branchRef}`;
+    const normalizedRefspec = normalizeCurrentBranchRefspec(result[remoteIndex + 1], branchRef);
+    if (normalizedRefspec !== result[remoteIndex + 1]) result[remoteIndex + 1] = normalizedRefspec;
+    if (result[remoteIndex + 1] === 'HEAD') {
+      if (!branchRef) throw new Error('Git push requires a checked-out current work branch under refs/heads; detached HEAD, main, and other namespaces are not permitted');
+      result[remoteIndex + 1] = `HEAD:${branchRef}`;
+    }
   }
   if (remoteIndex >= 0) result[remoteIndex] = remote;
   else result.push(remote);

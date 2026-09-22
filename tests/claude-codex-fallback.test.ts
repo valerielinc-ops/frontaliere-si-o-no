@@ -632,8 +632,6 @@ describe('validator dei bridge host-side', () => {
       `${workBranchRef}:refs/heads/other`,
       `other:${workBranchRef}`,
       `refs/heads/other:${workBranchRef}`,
-      workBranch,
-      `${workBranch}:${workBranchRef}`,
       'a'.repeat(40),
       `${'a'.repeat(40)}:${workBranchRef}`,
       'v1.2.3',
@@ -657,6 +655,9 @@ describe('validator dei bridge host-side', () => {
     for (const refspec of [
       'HEAD',
       `HEAD:${workBranchRef}`,
+      `HEAD:${workBranch}`,
+      workBranch,
+      `${workBranch}:${workBranch}`,
       workBranchRef,
       `${workBranchRef}:${workBranchRef}`,
     ]) {
@@ -674,6 +675,15 @@ describe('validator dei bridge host-side', () => {
     ]);
     expect(buildGitNetworkArgs(['push', 'origin', 'HEAD'], expectedRemote, { allowedWorkBranch: workBranchRef })).toEqual([
       'push', expectedRemote, `HEAD:${workBranchRef}`,
+    ]);
+    expect(buildGitNetworkArgs(['push', 'origin', workBranch], expectedRemote, { allowedWorkBranch: workBranchRef })).toEqual([
+      'push', expectedRemote, workBranchRef,
+    ]);
+    expect(buildGitNetworkArgs(['push', 'origin', `HEAD:${workBranch}`], expectedRemote, { allowedWorkBranch: workBranchRef })).toEqual([
+      'push', expectedRemote, `HEAD:${workBranchRef}`,
+    ]);
+    expect(buildGitNetworkArgs(['push', 'origin', `${workBranch}:${workBranch}`], expectedRemote, { allowedWorkBranch: workBranchRef })).toEqual([
+      'push', expectedRemote, `${workBranchRef}:${workBranchRef}`,
     ]);
     expect(buildGitNetworkArgs(['fetch', '--prune'], expectedRemote)).toEqual([
       'fetch', '--prune', expectedRemote,
