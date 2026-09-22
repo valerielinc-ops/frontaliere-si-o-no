@@ -70,6 +70,10 @@ import { execFileSync } from 'node:child_process';
 import { resolve } from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { isReviewerBot, REDFLAG_IMPORTANT_RE, VITEST_CHECK_NAME } from './lib/constants.mjs';
+import {
+  normalizeReviewBody,
+  reviewBodyIsApproving,
+} from './lib/pr-review-admission.mjs';
 // Parser CANONICO dei marker di revisione: normalizza i newline serializzati
 // (`\n` come due caratteri) e pretende la riga di contratto completa, esattamente
 // come `review-gate`. Una seconda copia della regex qui sarebbe la deriva che
@@ -157,7 +161,10 @@ function isManagedReview(review) {
 }
 
 export function hasImportantFinding(body) {
-  return String(body || '').split('\n').some((line) => REDFLAG_IMPORTANT_RE.test(line));
+  return normalizeReviewBody(body).split(/\r?\n/u).some((line) => {
+    REDFLAG_IMPORTANT_RE.lastIndex = 0;
+    return REDFLAG_IMPORTANT_RE.test(line);
+  });
 }
 
 /**
@@ -258,7 +265,9 @@ export function classifyOrphan({
   const review = headReview(reviews, pr.headSha, { revision: reviewRevision });
   const reviewBody = String(review?.body || '');
   const important = review ? hasImportantFinding(reviewBody) : false;
-  const lgtm = review ? /^## LGTM\b/m.test(reviewBody) && !important : false;
+  // Keep the orphan detector on the exact same approving predicate as the
+  // native gate. This also repairs literal `\\n` separators in review bodies.
+  const lgtm = review ? reviewBodyIsApproving(reviewBody) : false;
 
   if (lgtm) {
     const { cancelled, inFlight, succeeded } = cancelledRequiredSuites(checkRuns, pr.headSha, checkName);

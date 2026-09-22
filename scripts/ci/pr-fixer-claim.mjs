@@ -21,7 +21,7 @@ import {
   acceptedReviewInputRevisionsFromPullRequest,
   reviewInputRevisionFromPullRequest,
 } from './lib/review-input-revision.mjs';
-import { parseReviewsJson } from './lib/pr-review-admission.mjs';
+import { normalizeReviewBody, parseReviewsJson } from './lib/pr-review-admission.mjs';
 import { positiveIntFromEnv } from '../lib/int-from-env.mjs';
 
 export const PR_FIX_CLAIM_MARKER = '<!-- PR_FIX_CLAIM:';
@@ -114,7 +114,7 @@ export function prFixClaimDedupeKey({ workflow, prNumber, headSha, eventKey, ver
 
 /** Stable fingerprint of the real Important findings in a review body. */
 export function redflagFindingsFingerprint(body) {
-  const findings = String(body || '')
+  const findings = normalizeReviewBody(body)
     .split(/\r?\n/u)
     .filter((line) => {
       REDFLAG_IMPORTANT_RE.lastIndex = 0;

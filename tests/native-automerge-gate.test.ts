@@ -179,6 +179,21 @@ describe('native auto-merge gate (#8512)', () => {
     expect(result.reason).toContain('success');
   });
 
+  it('accepts a clean review whose Markdown newlines were serialized literally', () => {
+    const serializedBody = CLEAN_BODY.replace(/\n/gu, '\\n');
+    const result = evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [review(serializedBody, HEAD, '2026-09-13T12:00:00Z', {
+        user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+      })],
+      checkRuns: [vitest()],
+    });
+
+    expect(reviewHasLgtm(serializedBody)).toBe(true);
+    expect(reviewHasZeroFindings(serializedBody)).toBe(true);
+    expect(result).toMatchObject({ allow: true });
+  });
+
   it('denies a clean current-HEAD review whose marker belongs to an older PR body', () => {
     const oldMarker = `<!-- REVIEW_INPUT_REVISION: body:${'d'.repeat(64)} -->`;
     const staleBodyReview = review(
@@ -332,7 +347,9 @@ describe('native auto-merge gate (#8512)', () => {
   });
 
   it('allows outside-diff findings only with the structured successful review-gate proof', () => {
-    const rawReview = review(OUTSIDE_FINDINGS_BODY);
+    const rawReview = review(OUTSIDE_FINDINGS_BODY, HEAD, '2026-09-13T12:00:00Z', {
+      user: { type: 'User', login: 'external-reviewer' },
+    });
     const result = evaluateNativeAutoMerge({
       pr: pr(),
       reviews: [rawReview],
@@ -532,13 +549,16 @@ describe('native auto-merge gate (#8512)', () => {
     expect(result.reason).toMatch(/tests-only review verificata/i);
   });
 
-  it('does not turn a github-actions review into a general approval', () => {
-    expect(reviewIsApproved(testsOnlyReview(TEST_REVIEW_MARKER + '\n## LGTM'))).toBe(false);
+  it('does not require a reviewer identity for a general approval', () => {
+    const humanReview = review(CLEAN_BODY, HEAD, '2026-09-13T12:00:00Z', {
+      user: { type: 'User', login: 'external-reviewer' },
+    });
+    expect(reviewIsApproved(humanReview)).toBe(true);
     expect(evaluateNativeAutoMerge({
       pr: pr(),
-      reviews: [testsOnlyReview(TEST_REVIEW_MARKER + '\n## LGTM')],
+      reviews: [humanReview],
       checkRuns: [vitest()],
-    }).allow).toBe(false);
+    }).allow).toBe(true);
   });
 
   it('rejects a clean older LGTM even when the complete current-head check is green', () => {
@@ -549,7 +569,7 @@ describe('native auto-merge gate (#8512)', () => {
     });
 
     expect(result).toMatchObject({ allow: false });
-    expect(result.reason).toMatch(/nessuna review bot verificabile/i);
+    expect(result.reason).toMatch(/nessuna review verificabile/i);
   });
 
   it('ignores a later review that is stale for the current HEAD', () => {
@@ -653,7 +673,7 @@ describe('native auto-merge gate (#8512)', () => {
     });
 
     expect(result).toMatchObject({ allow: false, action: 'revoke' });
-    expect(result.reason).toMatch(/nessuna review bot verificabile/i);
+    expect(result.reason).toMatch(/nessuna review verificabile/i);
   });
 
   it('retains a persisted native opt-in only after revalidating the current HEAD', () => {
@@ -674,7 +694,7 @@ describe('native auto-merge gate (#8512)', () => {
     });
 
     expect(result).toMatchObject({ allow: false, action: 'revoke' });
-    expect(result.reason).toMatch(/nessuna review bot verificabile/i);
+    expect(result.reason).toMatch(/nessuna review verificabile/i);
   });
 
   it('revokes an inherited native opt-in through the GitHub API instead of trusting persistence', () => {
