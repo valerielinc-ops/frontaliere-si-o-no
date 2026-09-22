@@ -204,6 +204,16 @@ describe('Coop authoritative detail routing', () => {
     });
   });
 
+  it('reconciles a Coop regional label ending in an Aargau code', () => {
+    const reconciled = reconcileCoopLocationCanton({ location: 'Region Muri AG', canton: 'BS' });
+    expect(reconciled).toMatchObject({
+      location: 'Region Muri AG',
+      canton: 'AG',
+      addressRegion: 'AG',
+    });
+    expect(jobLocationRedundancy(reconciled.location, reconciled.canton)?.conflict).toBeFalsy();
+  });
+
   it('accepts the live Prospective location-city field variant', async () => {
     const url = 'https://jobs.coopjobs.ch/posti-vacanti/addetto-vendita/22222222-2222-4222-8222-222222222222';
     const jobs = [{
