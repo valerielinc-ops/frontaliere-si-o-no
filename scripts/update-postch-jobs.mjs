@@ -44,7 +44,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { isDedicatedPostBrand } from './lib/crawler-company-ownership.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { recordUniquePageProgress } from './lib/pagination-identity.mjs';
+import { createMutableFeedPaginationTracker } from './lib/pagination-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -392,8 +392,10 @@ async function fetchPostJobs() {
   for (const apiLocale of JOBS_API_LISTING_LOCALES) {
     let pageNumber = 0;
     let totalJobs = null;
-    const localeIds = new Set();
-    let scannedRows = 0;
+    const progress = createMutableFeedPaginationTracker({
+      getIdentity: (job) => job?.id,
+      source: `Post.ch ${apiLocale}`,
+    });
     while (pageNumber < JOBS_API_MAX_PAGES) {
       const { totalJobs: total, jobs, error } = await fetchJobsApiPage(apiLocale, pageNumber);
       if (error) {
@@ -410,37 +412,31 @@ async function fetchPostJobs() {
       }
 
       if (jobs.length === 0) {
-        if (totalJobs !== null && scannedRows < totalJobs) {
+        if (totalJobs !== null && progress.scannedRows < totalJobs) {
           throw new Error(
-            `Post.ch ${apiLocale} pagination incomplete: received ${scannedRows} of ${totalJobs} declared rows (${localeIds.size} unique).`,
+            `Post.ch ${apiLocale} pagination incomplete: received ${progress.scannedRows} of ${totalJobs} declared rows (${progress.uniqueCount} unique).`,
           );
         }
         break;
       }
-      const pageIds = recordUniquePageProgress(localeIds, jobs, {
-        getIdentity: (job) => job?.id,
-        source: `Post.ch ${apiLocale}`,
-        page: pageNumber,
-        allowPreviouslySeen: true,
-      });
+      const pageIds = progress.record(jobs, pageNumber);
       for (const [index, j] of jobs.entries()) {
         const id = pageIds[index];
         if (!byId.has(id)) byId.set(id, j);
       }
-      // totalJobs counts feed rows. Keep it separate from localeIds because
-      // this mutable Post Group feed may repeat a record at a page boundary.
-      scannedRows += jobs.length;
+      // The shared tracker counts source rows separately from unique IDs, so
+      // page-boundary overlaps cannot force an out-of-range request.
       pageNumber += 1;
-      if (totalJobs !== null && scannedRows >= totalJobs) break;
+      if (progress.hasReached(totalJobs)) break;
       await delay(250);
     }
-    if (pageNumber >= JOBS_API_MAX_PAGES && (totalJobs === null || scannedRows < totalJobs)) {
+    if (pageNumber >= JOBS_API_MAX_PAGES && (totalJobs === null || progress.scannedRows < totalJobs)) {
       throw new Error(
         `Post.ch ${apiLocale} pagination incomplete after ${pageNumber} pages: ` +
-          `${scannedRows} rows received (${localeIds.size} unique)${totalJobs !== null ? ` of ${totalJobs} declared` : ''}.`,
+          `${progress.scannedRows} rows received (${progress.uniqueCount} unique)${totalJobs !== null ? ` of ${totalJobs} declared` : ''}.`,
       );
     }
-    console.log(`     ${apiLocale}: ${scannedRows} row(s), ${localeIds.size} unique record(s) (claimed total: ${totalJobs ?? 'unknown'})`);
+    console.log(`     ${apiLocale}: ${progress.scannedRows} row(s), ${progress.uniqueCount} unique record(s) (claimed total: ${totalJobs ?? 'unknown'})`);
   }
   const apiRecords = [...byId.values()];
   console.log(`  📋 Merged unique records across locales: ${apiRecords.length}`);

@@ -76,7 +76,7 @@ import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { readAttr, readMetaContent } from './lib/html-attr.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
-import { recordUniquePageProgress } from './lib/pagination-identity.mjs';
+import { createMutableFeedPaginationTracker } from './lib/pagination-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..');
@@ -232,8 +232,10 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
   const resultsById = new Map();
   let total = null;
   let pageNumber = 0;
-  const sourceIdentities = new Set();
-  let scannedRows = 0;
+  const progress = createMutableFeedPaginationTracker({
+    getIdentity: (record) => record?.id,
+    source: 'PostFinance API',
+  });
   let paginationComplete = false;
 
   while (pageNumber < RECRUITING_API_MAX_PAGES) {
@@ -255,33 +257,26 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
       throw new Error(`PostFinance API pagination failed at page ${pageNumber}: rows without a response identity.`);
     }
     if (pageRecords.length > 0) {
-      const pageIds = recordUniquePageProgress(sourceIdentities, pageRecords, {
-        getIdentity: (record) => record?.id,
-        source: 'PostFinance API',
-        page: pageNumber,
-        allowPreviouslySeen: true,
-      });
+      const pageIds = progress.record(pageRecords, pageNumber);
       for (const [index, record] of pageRecords.entries()) {
         const id = pageIds[index];
         if (!resultsById.has(id)) resultsById.set(id, record);
       }
     }
 
-    // totalJobs counts feed rows, not deduplicated identities. The mutable
-    // Post Group feed can overlap adjacent pages, so sourceIdentities is not
-    // a safe completion counter.
-    scannedRows += entries.length;
+    // The shared tracker counts source rows separately from unique IDs, so
+    // page-boundary overlaps cannot force an out-of-range request.
     pageNumber += 1;
     if (entries.length === 0) {
-      if (total !== null && scannedRows < total) {
+      if (total !== null && progress.scannedRows < total) {
         throw new Error(
-          `PostFinance API pagination incomplete: received ${scannedRows} of ${total} declared rows (${sourceIdentities.size} unique).`,
+          `PostFinance API pagination incomplete: received ${progress.scannedRows} of ${total} declared rows (${progress.uniqueCount} unique).`,
         );
       }
       paginationComplete = true;
       break;
     }
-    if (total !== null && scannedRows >= total) {
+    if (progress.hasReached(total)) {
       paginationComplete = true;
       break;
     }
@@ -291,7 +286,7 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
   if (!paginationComplete && pageNumber >= RECRUITING_API_MAX_PAGES) {
     throw new Error(
       `PostFinance API pagination incomplete after ${pageNumber} pages: ` +
-        `${scannedRows} rows received (${sourceIdentities.size} unique)${total !== null ? ` of ${total} declared` : ''}.`,
+        `${progress.scannedRows} rows received (${progress.uniqueCount} unique)${total !== null ? ` of ${total} declared` : ''}.`,
     );
   }
 
