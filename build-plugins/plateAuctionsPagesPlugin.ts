@@ -203,19 +203,25 @@ function detailLinksForRows(rows: SnapshotRow[], locale: PlateLocale, limit = DI
   }).join('');
 }
 
-function cantonPaginationLinks(locale: PlateLocale, canton: string, currentPage: number | undefined, pageCount: number, copy: typeof COPY.it): string {
+function cantonPaginationLinks(locale: PlateLocale, canton: string, currentPage: number | undefined, pageCount: number, copy: typeof COPY.it, includeAllPages = false): string {
   if (pageCount <= 1) return '';
-  const selectedPages = new Set<number>([2, Math.min(pageCount, 3), Math.max(2, pageCount - 1), pageCount]);
-  if (currentPage !== undefined) {
-    selectedPages.add(Math.max(2, currentPage - 1));
-    selectedPages.add(currentPage);
-    selectedPages.add(Math.min(pageCount, currentPage + 1));
-  }
-  const pages = [...selectedPages].filter((page) => page >= 2 && page <= pageCount).sort((a, b) => a - b);
+  // The directory is the shallow crawl spine: hundreds of page anchors are
+  // still bounded, while every numbered page can expose its own 48 details.
+  const pages = includeAllPages
+    ? Array.from({ length: pageCount - 1 }, (_, index) => index + 2)
+    : (() => {
+      const selectedPages = new Set<number>([2, Math.min(pageCount, 3), Math.max(2, pageCount - 1), pageCount]);
+      if (currentPage !== undefined) {
+        selectedPages.add(Math.max(2, currentPage - 1));
+        selectedPages.add(currentPage);
+        selectedPages.add(Math.min(pageCount, currentPage + 1));
+      }
+      return [...selectedPages].filter((page) => page >= 2 && page <= pageCount).sort((a, b) => a - b);
+    })();
   const links: string[] = [];
   let previousPage: number | undefined;
   for (const page of pages) {
-    if (previousPage !== undefined && page > previousPage + 1) links.push('<li aria-hidden="true">…</li>');
+    if (!includeAllPages && previousPage !== undefined && page > previousPage + 1) links.push('<li aria-hidden="true">…</li>');
     const href = pathFor(locale, 'canton', canton, undefined, undefined, page);
     const active = currentPage === page ? ' aria-current="page"' : '';
     links.push(`<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}"${active}>${esc(copy.page)} ${page}</a></li>`);
@@ -344,7 +350,14 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   const description = view === 'detail' ? `${copy.intro} ${detailRow?.normalizedPlate || plate || copy.detail}, ${name || detailRow?.canton || copy.title}.` : name ? `${copy.intro} ${name}${pageSuffix}.` : copy.intro;
   const urlPath = pathFor(locale, view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType, pageNumber);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
-  const links = allPlateAuctionCantonCodes().map((code) => `<li><a href="${esc(pathFor(locale, 'canton', code))}" style="${LINK_ACCENT_STYLE}">${esc(code)} — ${esc(CANTON_NAMES[code]?.[locale] || code)}</a></li>`).join('');
+  const links = allPlateAuctionCantonCodes().map((code) => {
+    const cantonPath = pathFor(locale, 'canton', code);
+    const hasDirectory = publishedDetailRows(detailRowsByCanton.get(code) || [], locale).length > 0;
+    const directoryLink = hasDirectory
+      ? ` · <a href="${esc(pathFor(locale, 'directory', code))}" style="${LINK_ACCENT_STYLE}">${esc(copy.allListings)}</a>`
+      : '';
+    return `<li><a href="${esc(cantonPath)}" style="${LINK_ACCENT_STYLE}">${esc(code)} — ${esc(CANTON_NAMES[code]?.[locale] || code)}</a>${directoryLink}</li>`;
+  }).join('');
   const detailLinks = view === 'canton' && !pageNumber
     ? unlistedDetailLinks(publishedCantonDetailRows, locale, rows, PLATE_AUCTION_INDEX_PAGE_SIZE)
     : '';
@@ -353,7 +366,7 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
     : '';
   const directoryLinks = view === 'directory' ? detailLinksForRows(directoryRows, locale) : '';
   const directoryPaginationLinks = view === 'directory' && canton
-    ? cantonPaginationLinks(locale, canton, undefined, Math.ceil(publishedCantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy)
+    ? cantonPaginationLinks(locale, canton, undefined, Math.ceil(publishedCantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy, true)
     : '';
   const catalogueGuide = view === 'canton' || view === 'directory' ? `<p>${esc(CATALOGUE_GUIDE[locale])}</p>` : '';
   const directoryIndexLink = view === 'canton' && canton && publishedCantonDetailRows.length > 0
