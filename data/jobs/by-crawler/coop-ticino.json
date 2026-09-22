@@ -1840,7 +1840,7 @@
       },
       "slugByLocale": {
         "it": "chauffeur-cat-ce-coop-genossenschaft-chur-a436d3",
-        "en": "chauffeur-cat-ce-coop-genossenschaft-chur",
+        "en": "chauffeur-cat-ce-coop-genossenschaft-chur-3w82bs",
         "de": "chauffeur-in-kat-ce-coop-chur-3w82bs",
         "fr": "chauffeur-in-kat-ce-coop-chur-3w82bs"
       },
@@ -1874,12 +1874,14 @@
           "chauffeur-in-kat-ce-coop-chur"
         ],
         "en": [
-          "chauffeur-in-kat-ce-coop-chur-3w82bs"
+          "chauffeur-in-kat-ce-coop-chur-3w82bs",
+          "chauffeur-cat-ce-coop-genossenschaft-chur"
         ]
       },
       "previousSlugs": [
         "chauffeur-in-kat-ce-coop-chur-3w82bs",
-        "chauffeur-in-kat-ce-coop-chur"
+        "chauffeur-in-kat-ce-coop-chur",
+        "chauffeur-cat-ce-coop-genossenschaft-chur"
       ]
     },
     {
@@ -2304,17 +2306,26 @@
       },
       "previousSlugs": [
         "vendeuse-vendeur-produits-frais-m-w-d-coop-val-de-bagnes",
-        "vendeuse-vendeur-produits-frais-m-w-d-coop-val-de-bagnes-4k1pvc"
+        "vendeuse-vendeur-produits-frais-m-w-d-coop-val-de-bagnes-4k1pvc",
+        "venditrice-venditore-produits-frais-m-w-d-coop-val-de-bagnes-02ow5j",
+        "vendeuse-vendeur-produits-frais-f-h-d-coop-genossenschaft-val-de-bagnes",
+        "vendeuse-vendeur-produits-frais-m-w-d-coop-val-de-bagnes-02ow5j"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "vendeuse-vendeur-produits-frais-m-w-d-coop-val-de-bagnes"
+          "vendeuse-vendeur-produits-frais-m-w-d-coop-val-de-bagnes",
+          "venditrice-venditore-produits-frais-m-w-d-coop-val-de-bagnes-02ow5j",
+          "vendeuse-vendeur-produits-frais-f-h-d-coop-genossenschaft-val-de-bagnes",
+          "vendeuse-vendeur-produits-frais-m-w-d-coop-val-de-bagnes-02ow5j"
         ],
         "en": [
           "vendeuse-vendeur-produits-frais-m-w-d-coop-val-de-bagnes-4k1pvc"
         ],
         "de": [
           "vendeuse-vendeur-produits-frais-m-w-d-coop-val-de-bagnes-4k1pvc"
+        ],
+        "fr": [
+          "vendeuse-vendeur-produits-frais-f-h-d-coop-genossenschaft-val-de-bagnes"
         ]
       },
       "salaryMin": 60500,
@@ -2877,7 +2888,7 @@
       "needsRetranslation": true,
       "slugByLocale": {
         "it": "chef-chef-m-f-d-coop-genossenschaft-bern-f15ffc",
-        "en": "chef-chef-m-f-d-coop-genossenschaft-bern",
+        "en": "chef-chef-m-f-d-coop-genossenschaft-bern-d2pftm",
         "de": "kochin-koch-m-w-d-coop-ristorante-bern-d2pftm",
         "fr": "chef-chef-h-f-d-coop-genossenschaft-bern-f15ffc"
       },
@@ -2911,7 +2922,8 @@
           "kochin-koch-m-w-d-coop-ristorante-bern"
         ],
         "en": [
-          "kochin-koch-m-w-d-coop-ristorante-bern-d2pftm"
+          "kochin-koch-m-w-d-coop-ristorante-bern-d2pftm",
+          "chef-chef-m-f-d-coop-genossenschaft-bern"
         ],
         "fr": [
           "kochin-koch-m-w-d-coop-ristorante-bern-d2pftm"
@@ -2919,7 +2931,8 @@
       },
       "previousSlugs": [
         "kochin-koch-m-w-d-coop-ristorante-bern-d2pftm",
-        "kochin-koch-m-w-d-coop-ristorante-bern"
+        "kochin-koch-m-w-d-coop-ristorante-bern",
+        "chef-chef-m-f-d-coop-genossenschaft-bern"
       ]
     },
     {
@@ -3247,19 +3260,60 @@
       "salaryMax": 111500,
       "previousSlugsByLocale": {
         "it": [
-          "verkaufer-in-food-coop-uster-5zqswt",
-          "verkaufer-in-food-coop-uster"
+          "verkaufer-in-food-coop-uster",
+          "verkaufer-in-food-coop-uster-zurich",
+          "venditore-in-food-coop-genossenschaft-uster",
+          "verkaufer-in-food-coop-uster-zurich-4ir022",
+          "seller-in-food-coop-genossenschaft-uster",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-uster",
+          "venditore-in-food-coop-genossenschaft-uster-dd41b5",
+          "seller-in-food-coop-genossenschaft-uster-dd41b5",
+          "verkaufer-in-food-coop-uster-zurich-k6v8va",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-uster-dd41b5",
+          "verkaufer-in-food-coop-uster-zurich-2",
+          "venditore-in-food-coop-genossenschaft-uster-44786d",
+          "commesso-a-alimentari-coop-genossenschaft-uster",
+          "verkaufer-in-food-coop-genossenschaft-uster-zurich-024n45",
+          "food-sales-assistant-coop-genossenschaft-uster-024n45",
+          "vendeur-euse-en-alimentation-coop-genossenschaft-uster-024n45",
+          "verkaufer-in-food-coop-uster-zurich-eg82mb",
+          "seller-in-food-coop-genossenschaft-uster-44786d",
+          "verkaufer-in-food-coop-uster-zurich-ue52e6",
+          "vendeur-dans-la-nourriture-coop-genossenschaft-uster-44786d"
         ],
         "en": [
           "verkaufer-in-food-coop-uster-5zqswt"
         ],
         "fr": [
           "verkaufer-in-food-coop-uster-5zqswt"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-uster-zurich-37h1rz"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-uster-5zqswt",
-        "verkaufer-in-food-coop-uster"
+        "verkaufer-in-food-coop-uster",
+        "verkaufer-in-food-coop-uster-zurich",
+        "venditore-in-food-coop-genossenschaft-uster",
+        "verkaufer-in-food-coop-uster-zurich-4ir022",
+        "seller-in-food-coop-genossenschaft-uster",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-uster",
+        "venditore-in-food-coop-genossenschaft-uster-dd41b5",
+        "seller-in-food-coop-genossenschaft-uster-dd41b5",
+        "verkaufer-in-food-coop-uster-zurich-k6v8va",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-uster-dd41b5",
+        "verkaufer-in-food-coop-uster-zurich-2",
+        "venditore-in-food-coop-genossenschaft-uster-44786d",
+        "commesso-a-alimentari-coop-genossenschaft-uster",
+        "verkaufer-in-food-coop-genossenschaft-uster-zurich-024n45",
+        "food-sales-assistant-coop-genossenschaft-uster-024n45",
+        "vendeur-euse-en-alimentation-coop-genossenschaft-uster-024n45",
+        "verkaufer-in-food-coop-uster-zurich-eg82mb",
+        "seller-in-food-coop-genossenschaft-uster-44786d",
+        "verkaufer-in-food-coop-uster-zurich-ue52e6",
+        "vendeur-dans-la-nourriture-coop-genossenschaft-uster-44786d",
+        "verkaufer-in-food-coop-uster-zurich-37h1rz"
       ]
     },
     {
@@ -5543,18 +5597,33 @@
       "previousSlugsByLocale": {
         "it": [
           "verkaufer-in-food-coop-wohlen-bei-bern-m233d2",
-          "verkaufer-in-food-coop-wohlen-bei-bern"
+          "verkaufer-in-food-coop-wohlen-bei-bern",
+          "verkaufer-in-food-coop-wohlen-bei-bern-pcqn9b",
+          "assistente-alle-vendite-alimentari-coop-genossenschaft-wohlen-bei-bern",
+          "verkaufer-in-food-coop-wohlen-bei-bern-2gl3bk",
+          "food-sales-assistant-coop-genossenschaft-wohlen-bei-bern-2gl3bk",
+          "assistant-commercial-alimentaire-coop-genossenschaft-wohlen-bei-bern-2gl3bk",
+          "verkaufer-in-food-coop-genossenschaft-wohlen-bei-bern"
         ],
         "en": [
           "verkaufer-in-food-coop-wohlen-bei-bern-m233d2"
         ],
         "fr": [
           "verkaufer-in-food-coop-wohlen-bei-bern-m233d2"
+        ],
+        "de": [
+          "verkaufer-in-food-coop-wohlen-bei-bern-pcqn9b"
         ]
       },
       "previousSlugs": [
         "verkaufer-in-food-coop-wohlen-bei-bern-m233d2",
-        "verkaufer-in-food-coop-wohlen-bei-bern"
+        "verkaufer-in-food-coop-wohlen-bei-bern",
+        "verkaufer-in-food-coop-wohlen-bei-bern-pcqn9b",
+        "assistente-alle-vendite-alimentari-coop-genossenschaft-wohlen-bei-bern",
+        "verkaufer-in-food-coop-wohlen-bei-bern-2gl3bk",
+        "food-sales-assistant-coop-genossenschaft-wohlen-bei-bern-2gl3bk",
+        "assistant-commercial-alimentaire-coop-genossenschaft-wohlen-bei-bern-2gl3bk",
+        "verkaufer-in-food-coop-genossenschaft-wohlen-bei-bern"
       ]
     },
     {
@@ -137424,7 +137493,7 @@
         "it": "detailhandelfachfrau-mann-assist-in-coop-basel-28bb1a",
         "en": "detailhandelfachfrau-mann-assist-in-coop-basel-28bb1a",
         "de": "detailhandelsfachfrau-mann-assistent-in-coop-basel-4j3x38",
-        "fr": "detailhandelfachfrau-mann-assist-in-coop-basel"
+        "fr": "detailhandelfachfrau-mann-assist-in-coop-basel-4j3x38"
       },
       "addressLocality": "Basel",
       "sourceLang": "de",
@@ -137452,14 +137521,16 @@
         ],
         "fr": [
           "detailhandelsfachfrau-mann-assistent-in-coop-basel-4j3x38",
-          "detailhandelfachfrau-mann-assist-in-coop-basel-4j3x38"
+          "detailhandelfachfrau-mann-assist-in-coop-basel-4j3x38",
+          "detailhandelfachfrau-mann-assist-in-coop-basel"
         ]
       },
       "previousSlugs": [
         "detailhandelsfachfrau-mann-assistent-in-coop-basel-4j3x38",
         "detailhandelsfachfrau-mann-assistent-in-coop-basel-3",
         "detailhandelfachfrau-mann-assist-in-coop-basel-4j3x38",
-        "retail-specialist-assistant-coop-murten-lowenberg-4j3x38"
+        "retail-specialist-assistant-coop-murten-lowenberg-4j3x38",
+        "detailhandelfachfrau-mann-assist-in-coop-basel"
       ],
       "salarySource": "reported",
       "applyUrl": "https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-assistent-in/af716f4a-5e8c-4e1f-8e41-2b71c921a705",
@@ -173667,7 +173738,7 @@
       "requirementsByLocale": {},
       "slugByLocale": {
         "it": "baker-pastry-converter-boulanger-pastry-confisor-cfc-coop-muttenz-1eb2c9",
-        "en": "baker-pastry-converter-boulanger-pastry-confisor-cfc-coop-muttenz",
+        "en": "baker-pastry-converter-boulanger-pastry-confisor-cfc-coop-muttenz-z2niet",
         "de": "konverter-boulanger-weidekonfisor-cfc-coop-muttenz-1eb2c9",
         "fr": "boulanger-patissier-confiseur-boulangere-patissiere-confiseuse-cfc-coop-muttenz-z2niet"
       },
@@ -173688,7 +173759,8 @@
       "previousSlugs": [
         "boulanger-patissier-confiseur-boulangere-patissiere-confiseuse-cfc-coop-muttenz-2",
         "boulanger-patissier-confiseur-boulangere-patissiere-confiseuse-cfc-coop-muttenz-z2niet",
-        "baker-pastry-converter-boulanger-pastry-confisor-cfc-coop-muttenz-z2niet"
+        "baker-pastry-converter-boulanger-pastry-confisor-cfc-coop-muttenz-z2niet",
+        "baker-pastry-converter-boulanger-pastry-confisor-cfc-coop-muttenz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -173697,7 +173769,8 @@
         ],
         "en": [
           "boulanger-patissier-confiseur-boulangere-patissiere-confiseuse-cfc-coop-muttenz-z2niet",
-          "baker-pastry-converter-boulanger-pastry-confisor-cfc-coop-muttenz-z2niet"
+          "baker-pastry-converter-boulanger-pastry-confisor-cfc-coop-muttenz-z2niet",
+          "baker-pastry-converter-boulanger-pastry-confisor-cfc-coop-muttenz"
         ],
         "de": [
           "boulanger-patissier-confiseur-boulangere-patissiere-confiseuse-cfc-coop-muttenz-z2niet"
