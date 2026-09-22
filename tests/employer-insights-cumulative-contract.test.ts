@@ -339,6 +339,33 @@ describe('D18 cumulativo — identità, ledger e contratto', () => {
     expect(live.historicalLimit.reason).toMatch(/PostHog|OFFSET/);
   });
 
+  it('D18-T28 tratta i sentinel GA4 come emission_id mancanti anche nel replay', async () => {
+    const evidence = await contractCall('buildD18RunEvidence', {
+      requestedWindow: WINDOW,
+      runMode: 'replay',
+      primarySource: 'ga4',
+      ga4Source: sourceMeta({
+        sourceCoverage: {
+          sourceObserved: 3,
+          rowsReturned: 1,
+          emissionIdDimensionRequested: true,
+          emissionIdObserved: 3,
+          emissionIdMissingObserved: 0,
+        },
+      }),
+      ga4Rows: [row({ observed: 3, emissionId: '(not set)' })],
+      posthogSource: sourceMeta({ denominator: { value: null, status: 'non provato' } }),
+    });
+
+    expect(evidence.status).toBe('blocked');
+    expect(evidence.ga4.emissionId).toMatchObject({
+      status: 'parziale',
+      withValue: 0,
+      withoutValue: 3,
+    });
+    expect(evidence.blockers.join('\n')).toMatch(/emission_id/);
+  });
+
   it('D18-T26 il validatore attraversa breakdown e rifiuta contatori nudi o missing serializzato 0', async () => {
     const result = await buildD18({ ga4Rows: [row()] });
     const valid = await contractCall('validateD18Payload', result);

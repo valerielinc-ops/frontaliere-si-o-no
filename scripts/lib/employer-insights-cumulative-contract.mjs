@@ -575,6 +575,12 @@ function observedFromRows(rows) {
   return (Array.isArray(rows) ? rows : []).reduce((sum, row) => sum + nonNegativeNumber(row?.observed, 0), 0);
 }
 
+function normalizedEmissionId(value) {
+  const normalized = typeof value === 'string' ? value.trim() : '';
+  if (!normalized || ['(not set)', '(other)'].includes(normalized.toLowerCase())) return '';
+  return normalized;
+}
+
 function sourceEvidence(source, meta, rows) {
   const coverage = meta?.sourceCoverage || meta?.coverage || meta || {};
   const queried = coverage.queried !== false
@@ -606,17 +612,23 @@ function sourceEvidence(source, meta, rows) {
   if (source !== 'ga4') return evidence;
 
   const rowsWithEmissionId = (Array.isArray(rows) ? rows : [])
-    .filter((row) => String(row?.emissionId || '').trim());
+    .filter((row) => normalizedEmissionId(row?.emissionId));
   const emissionIdDimensionRequested = coverage.emissionIdDimensionRequested === true
     || rowsWithEmissionId.length > 0;
-  const emissionIdObserved = nonNegativeNumber(
-    coverage.emissionIdObserved,
-    rowsWithEmissionId.reduce((sum, row) => sum + nonNegativeNumber(row?.observed, 0), 0),
-  );
-  const emissionIdMissingObserved = nonNegativeNumber(
-    coverage.emissionIdMissingObserved,
-    Math.max(0, observed - emissionIdObserved),
-  );
+  const emissionIdObservedFromRows = rowsWithEmissionId
+    .reduce((sum, row) => sum + nonNegativeNumber(row?.observed, 0), 0);
+  const declaredEmissionIdObserved = finiteNumber(coverage.emissionIdObserved);
+  // Never let a replay manifest or provider metadata claim more real IDs than
+  // the rows contain. This also turns GA4 sentinels such as `(not set)` into
+  // missing coverage instead of accepting them as evidence.
+  const emissionIdObserved = declaredEmissionIdObserved === null
+    ? emissionIdObservedFromRows
+    : Math.min(Math.max(0, declaredEmissionIdObserved), emissionIdObservedFromRows);
+  const emissionIdMissingFromRows = Math.max(0, observed - emissionIdObserved);
+  const declaredEmissionIdMissing = finiteNumber(coverage.emissionIdMissingObserved);
+  const emissionIdMissingObserved = declaredEmissionIdMissing === null
+    ? emissionIdMissingFromRows
+    : Math.max(0, declaredEmissionIdMissing, emissionIdMissingFromRows);
   const emissionIdStatus = !queried || !emissionIdDimensionRequested || observed <= 0
     ? 'non disponibile'
     : emissionIdMissingObserved === 0
