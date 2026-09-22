@@ -11898,6 +11898,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-castiglione-olona-lavorare-ticino-frontaliere.title': 'Guide frontaliers : Castiglione Olona - Tessin',
     'blog.article.vivere-castiglione-olona-lavorare-ticino-frontaliere.excerpt': 'Temps de trajet, fiscalité, coût de la vie et conseils pour le transfert : tout ce que les frontaliers doivent savoir avant de choisir Castiglione Olona comme base italienne.',
     'blog.article.vivere-castiglione-olona-lavorare-ticino-frontaliere.imageAlt': 'Vue panoramique de Lugano avec lac et montagnes au coucher du soleil',
+    'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.title': 'Vivre à Bregnano, travailler au Tessin : guide frontaliers',
+    'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.excerpt': 'Temps de trajet, coûts, taxes et procédures : tout ce que les frontaliers de Bregnano doivent savoir avant d\'accepter un emploi au Tessin.',
+    'blog.article.vivere-bregnano-lavorare-ticino-frontaliere.imageAlt': 'Trafic de navetteurs au poste-frontière de Brogeda tôt le matin',
 };
 
 export default blogMetaFr;
