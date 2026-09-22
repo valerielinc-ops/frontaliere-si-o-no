@@ -1,4 +1,7 @@
 const deCore: Record<string, string> = {
+ 'whatsNew.v3967.title': 'Ein nationales Fahrzeugobservatorium',
+ 'whatsNew.v3967.vehicleObservatory.title': 'ASTRA: Kantone, Tessin und Neuzulassungen',
+ 'whatsNew.v3967.vehicleObservatory.desc': 'Vergleiche den Fahrzeugbestand aller 26 Kantone, verfolge das wöchentliche Tempo im Tessin und trenne Bestand, Neuzulassungen, Gebrauchtimporte und Treibstoffe.',
  'whatsNew.v3966.title': 'Eine nützlichere Jobsuche',
  'whatsNew.v3966.jobSearchLoop.title': 'Neue Stellen, Kategorien und Alerts',
  'whatsNew.v3966.jobSearchLoop.desc': 'Setzen Sie Ihre Suche bei den letzten Besuchen fort, folgen Sie einer Kategorie und wechseln Sie zwischen verwandten Kategorien, Arbeitgebern sowie neuen Seiten für Deutschkenntnisse oder Berufseinstieg.',

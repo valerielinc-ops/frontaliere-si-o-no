@@ -1,5 +1,8 @@
 // Italian translations — core page chunk
 const translations: Record<string, string> = {
+ 'whatsNew.v3967.title': 'Un osservatorio nazionale dei veicoli',
+ 'whatsNew.v3967.vehicleObservatory.title': 'ASTRA: cantoni, Ticino e nuove immatricolazioni',
+ 'whatsNew.v3967.vehicleObservatory.desc': 'Confronta il parco veicoli di tutti i 26 cantoni, segui il ritmo settimanale del Ticino e distingui stock, nuove immatricolazioni, import usati e alimentazioni.',
  'whatsNew.v3966.title': 'Una ricerca di lavoro più utile',
  'whatsNew.v3966.jobSearchLoop.title': 'Nuove offerte, categorie e alert',
  'whatsNew.v3966.jobSearchLoop.desc': 'Riprendi la ricerca dalle ultime visite, segui una categoria e passa tra categorie collegate, aziende e nuove pagine per il tedesco o la prima esperienza.',

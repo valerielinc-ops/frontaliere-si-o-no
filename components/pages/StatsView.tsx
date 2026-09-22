@@ -9,6 +9,7 @@ import { useChartColors, CHART_DATA_COLORS } from '@/hooks/useChartColors';
 import { fetchStats, SOURCE_LINK, type TrendPoint, type AgePoint, type GenderTrendPoint, type GenderSnapshot } from '@/services/statsService';
 import { Analytics } from '@/services/analytics';
 import JobBoardStatsOverview from './JobBoardStatsOverview';
+import VehicleObservatory from './VehicleObservatory';
 
 // StatsSubTab is defined in services/router.ts — use that as the canonical source
 
@@ -230,6 +231,8 @@ const StatsViewInner: React.FC = () => {
  </div>
 
  <JobBoardStatsOverview locale={locale} />
+
+ <VehicleObservatory />
 
  </div>
 

@@ -1,0 +1,193 @@
+name: Refresh ASTRA Vehicle Observatory
+
+# ASTRA publishes several IVZ products at different cadences. This job runs
+# daily so STNR and the weekly report can be fresh; the HEAD fingerprints in
+# refresh-astra-vehicle-stats.mjs avoid redownloading the monthly files unless
+# ASTRA actually replaced them.
+
+on:
+  schedule:
+    - cron: "30 7 * * *"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: refresh-astra-vehicle-stats
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/data/health-premiums/
+            !/data/jobs-ai-cache.json
+            !/data/evidence-index.json
+            !/data/jobs-snapshots-history/
+            !/docs/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "FIREBASE_SERVICE_ACCOUNT_JSON missing — cannot write Firestore."
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Refresh ASTRA datasets
+        id: refresh
+        env:
+          NODE_OPTIONS: --max-old-space-size=2048
+        run: node scripts/refresh-astra-vehicle-stats.mjs
+
+      - name: Job summary
+        if: always()
+        env:
+          LATEST_WEEK: ${{ steps.refresh.outputs.latest_week }}
+          LATEST_MONTH: ${{ steps.refresh.outputs.latest_month }}
+          NEW_WEEK: ${{ steps.refresh.outputs.new_week }}
+          NEW_MONTH: ${{ steps.refresh.outputs.new_month }}
+          PENDING_WEEK: ${{ steps.refresh.outputs.pending_week }}
+          PENDING_MONTH_CH: ${{ steps.refresh.outputs.pending_month_ch }}
+          PENDING_MONTH_TI: ${{ steps.refresh.outputs.pending_month_ti }}
+          TICINO_STOCK: ${{ steps.refresh.outputs.ticino_stock }}
+          TICINO_WEEKLY: ${{ steps.refresh.outputs.ticino_weekly }}
+          DAILY_CHANGED: ${{ steps.refresh.outputs.daily_changed }}
+          DAILY_TOTAL: ${{ steps.refresh.outputs.daily_total }}
+          DAILY_ELECTRIC: ${{ steps.refresh.outputs.daily_electric }}
+          DAILY_DIESEL: ${{ steps.refresh.outputs.daily_diesel }}
+          DAILY_AVERAGE_CO2: ${{ steps.refresh.outputs.daily_average_co2 }}
+        run: |
+          {
+            echo "## ASTRA vehicle observatory"
+            echo ""
+            echo "| Field | Value |"
+            echo "|---|---|"
+            echo "| Latest week | \`$LATEST_WEEK\` |"
+            echo "| Latest month | \`$LATEST_MONTH\` |"
+            echo "| Ticino stock | $TICINO_STOCK |"
+            echo "| Ticino weekly registrations | $TICINO_WEEKLY |"
+            echo "| Daily STNR changed | \`$DAILY_CHANGED\` |"
+            echo "| Daily STNR registrations | $DAILY_TOTAL |"
+            echo "| Daily STNR electric | $DAILY_ELECTRIC |"
+            echo "| Daily STNR diesel | $DAILY_DIESEL |"
+            echo "| Daily STNR average CO₂ | ${DAILY_AVERAGE_CO2:-n/a} |"
+            echo "| New week signal | \`${NEW_WEEK:-none}\` |"
+            echo "| New month signal | \`${NEW_MONTH:-none}\` |"
+            echo "| Pending weekly articles | \`${PENDING_WEEK:-none}\` |"
+            echo "| Pending monthly CH articles | \`${PENDING_MONTH_CH:-none}\` |"
+            echo "| Pending monthly TI articles | \`${PENDING_MONTH_TI:-none}\` |"
+          } >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Dispatch weekly Ticino article
+        id: dispatch_week
+        if: steps.refresh.outputs.pending_week != ''
+        continue-on-error: true
+        env:
+          PENDING_WEEK: ${{ steps.refresh.outputs.pending_week }}
+        run: |
+          if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
+            echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
+            exit 1
+          fi
+          failed=0
+          for url in $PENDING_WEEK; do
+            if GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+              --repo nanakokyobashi-rgb/frontaliere-articles \
+              -f url="$url" \
+              -f section=frontaliere; then
+              if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
+                failed=1
+              fi
+            else
+              failed=1
+            fi
+          done
+          exit "$failed"
+
+      - name: Dispatch monthly Switzerland article
+        id: dispatch_month_ch
+        if: steps.refresh.outputs.pending_month_ch != ''
+        continue-on-error: true
+        env:
+          PENDING_MONTH_CH: ${{ steps.refresh.outputs.pending_month_ch }}
+        run: |
+          if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
+            echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
+            exit 1
+          fi
+          failed=0
+          for url in $PENDING_MONTH_CH; do
+            if GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+              --repo nanakokyobashi-rgb/frontaliere-articles \
+              -f url="$url" \
+              -f section=svizzera; then
+              if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
+                failed=1
+              fi
+            else
+              failed=1
+            fi
+          done
+          exit "$failed"
+
+      - name: Dispatch monthly Ticino article
+        id: dispatch_month_ti
+        if: steps.refresh.outputs.pending_month_ti != ''
+        continue-on-error: true
+        env:
+          PENDING_MONTH_TI: ${{ steps.refresh.outputs.pending_month_ti }}
+        run: |
+          if [ -z "${GITHUB_PAT_NANAKO:-}" ]; then
+            echo "GITHUB_PAT_NANAKO non presente nell'ambiente Remote Config."
+            exit 1
+          fi
+          failed=0
+          for url in $PENDING_MONTH_TI; do
+            if GH_TOKEN="$GITHUB_PAT_NANAKO" gh workflow run generate-article.yml \
+              --repo nanakokyobashi-rgb/frontaliere-articles \
+              -f url="$url" \
+              -f section=frontaliere; then
+              if ! node scripts/ack-astra-article-dispatch.mjs "$url"; then
+                failed=1
+              fi
+            else
+              failed=1
+            fi
+          done
+          exit "$failed"
+
+      - name: Fail loudly if an article dispatch failed
+        if: >-
+          steps.dispatch_week.outcome == 'failure' ||
+          steps.dispatch_month_ch.outcome == 'failure' ||
+          steps.dispatch_month_ti.outcome == 'failure'
+        run: |
+          echo "At least one ASTRA article dispatch failed after the Firestore refresh."
+          exit 1
