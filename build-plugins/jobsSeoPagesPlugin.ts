@@ -3137,7 +3137,7 @@ export function jobsSeoPagesPlugin(rootDir: string): Plugin {
  }
  const canonicalPath = withSlash(relPath);
  const canonicalUrl = `${BASE_URL}${canonicalPath}`;
- const jobBoardOfferwallTag = locale === 'it' && sectionForJob === 'cerca-lavoro-ticino'
+ const jobBoardOfferwallTag = locale === 'it' && sectionForJob === 'cerca-lavoro-ticino' // cathedral-allow: the legacy IT job-board route owns this rewarded offerwall entrypoint
   ? `\n ${OFFERWALL_FC_SNIPPET}`
   : '';
  // Cannibalization fix: <link rel="canonical"> and og:url may point to a

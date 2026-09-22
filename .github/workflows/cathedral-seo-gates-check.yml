@@ -1,6 +1,7 @@
 name: cathedral-seo-gates-check
 
-# Weekly read-only sweep of the 6 SEO content gates. Detects:
+# Weekly read-only sweep of the 6 SEO content gates, plus an exact post-build
+# replay when Deploy to GitHub Pages completes successfully. Detects:
 #   - REGRESSIONS  → fail workflow + open issue (current > baseline)
 #   - IMPROVEMENTS → job summary; issue ONLY for gates D9 does not cover
 #   - PASSES       → single-line job summary, no action
@@ -51,7 +52,10 @@ name: cathedral-seo-gates-check
 #
 # Schedule: Mon 04:47 UTC — runs BEFORE cathedral-noindex-flip (05:13 UTC)
 # so any regression caught here gates the flip workflow on the same Monday
-# pipeline. Workflow_dispatch supported for ad-hoc operator runs.
+# pipeline. The workflow_run path is the post-deploy verification path: it pins
+# the exact build artifact and SHA, instead of silently replaying an older
+# successful deploy when the latest producer fix has not deployed yet.
+# Workflow_dispatch remains supported for ad-hoc operator runs.
 
 on:
   schedule:
@@ -65,9 +69,14 @@ on:
           artifacts (they expire after 8 days).
         required: false
         type: string
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types: [completed]
+    branches: [main]
   push:
     # Re-run when the gates checker itself changes — does NOT run on data /
-    # plugin / dist edits (those are validated by deploy.yml).
+    # plugin / dist edits (the successful-build workflow_run below validates
+    # those against the exact artifact after Deploy to GitHub Pages completes).
     branches: [main]
     paths:
       - '.github/workflows/cathedral-seo-gates-check.yml'
@@ -129,8 +138,10 @@ jobs:
     # to pull_request events; this `if` is belt-and-braces for any future
     # operator who adds one without rereading the safety contract.
     if: >-
-      github.event_name != 'pull_request' ||
-      (github.event.pull_request.state == 'open' && github.event.pull_request.draft == false)
+      (github.event_name != 'pull_request' ||
+      (github.event.pull_request.state == 'open' && github.event.pull_request.draft == false)) &&
+      (github.event_name != 'workflow_run' ||
+      github.event.workflow_run.conclusion == 'success')
     # Issue #5553: `regressed=0, errors=2` — `orphan-sitemap-pages` and
     # `max-bfs-depth` both died with a V8 heap OOM (`node::OOMErrorHandler` /
     # `Heap::CollectGarbage` in the child's stderr), NOT with a crash before
@@ -230,7 +241,9 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v5
         with:
-          ref: ${{ github.ref_name }}
+          # workflow_run checks the validator source that built the artifact;
+          # schedule/push/dispatch keep the existing main checkout behavior.
+          ref: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || github.ref_name }}
           # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
           sparse-checkout: |
             /*
@@ -318,7 +331,8 @@ jobs:
           # and measure-deploy-delta.yml call. The inline copy is what drifted
           # (#7392, #7393, #7394, #7395, #7396, #7397): six defects that only
           # ever existed because the same fifty lines lived in eight places.
-          run-id: ${{ inputs.deploy_run_id }}
+          run-id: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.id || inputs.deploy_run_id }}
+          expected-sha: ${{ github.event_name == 'workflow_run' && github.event.workflow_run.head_sha || '' }}
           output-dir: /tmp/pages
           github-token: ${{ github.token }}
 

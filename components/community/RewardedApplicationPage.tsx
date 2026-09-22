@@ -75,7 +75,7 @@ export default function RewardedApplicationPage() {
         <section className="mx-auto max-w-md rounded-stripe border border-edge bg-surface p-6 shadow-stripe-lg">
           <h1 className="text-xl font-semibold font-display text-heading">Sessione scaduta</h1>
           <p className="mt-3 text-sm leading-relaxed text-subtle">Non troviamo più questa candidatura. Torna agli annunci e riprova.</p>
-          <a href="/cerca-lavoro-ticino/" className="mt-5 inline-flex min-h-[44px] items-center gap-2 rounded-stripe bg-accent px-4 py-2 text-sm font-semibold text-on-accent">
+          <a href="/cerca-lavoro-ticino/" className="mt-5 inline-flex min-h-[44px] items-center gap-2 rounded-stripe bg-accent px-4 py-2 text-sm font-semibold text-on-accent">{/* cathedral-allow: expired rewarded applications return to the legacy IT job-board entrypoint */}
             Torna agli annunci <ArrowUpRight className="h-4 w-4" aria-hidden="true" />
           </a>
         </section>

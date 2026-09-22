@@ -3106,7 +3106,7 @@ export function staticPagesPlugin(rootDir: string): Plugin {
  // proper schema-level link Google uses.
  const fullUrl = `${BASE_URL}${canonicalPath}`;
  const jobBoardGptTag = isJobBoardPageUrl(fullUrl) ? `\n ${GPT_BOOTSTRAP_TAG}` : '';
- const jobBoardOfferwallTag = canonicalPath === '/cerca-lavoro-ticino/'
+ const jobBoardOfferwallTag = canonicalPath === '/cerca-lavoro-ticino/' // cathedral-allow: the static fallback owns the legacy IT job-board offerwall entrypoint
   ? `\n ${OFFERWALL_FC_SNIPPET}`
   : '';
  const pp = canonicalPath.slice(1).replace(/&/g, '~and~');
