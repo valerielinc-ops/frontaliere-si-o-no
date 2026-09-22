@@ -11,6 +11,21 @@ const reconcileWorkflow = readFileSync(
 );
 
 describe('scheduled data workflow contracts (#8500, #8485)', () => {
+  it('#9142 checkpoints the legacy Coop purge before the bounded cleanup can time out', () => {
+    const purge = cleanupWorkflow.indexOf('- name: Remove legacy crawler scratch archives');
+    const checkpoint = cleanupWorkflow.indexOf('- name: Commit legacy crawler residue cleanup');
+    const sliceCleanup = cleanupWorkflow.indexOf('- name: Cleanup each per-crawler slice');
+    expect(purge).toBeGreaterThanOrEqual(0);
+    expect(checkpoint).toBeGreaterThan(purge);
+    expect(sliceCleanup).toBeGreaterThan(checkpoint);
+    expect(cleanupWorkflow.slice(checkpoint, sliceCleanup)).toContain(
+      'git-commit-data.sh --extra-only',
+    );
+    expect(cleanupWorkflow.slice(checkpoint, sliceCleanup)).toContain(
+      'data/jobs/expired/by-crawler/coop-ticino-locale-cache.json',
+    );
+  });
+
   it('#8500 delegates URL validation and fails closed per slice', () => {
     const cleanupStep = cleanupWorkflow.slice(
       cleanupWorkflow.indexOf('- name: Cleanup each per-crawler slice'),

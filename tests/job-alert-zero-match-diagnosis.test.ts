@@ -10,6 +10,7 @@ import { buildAlertProfile } from '../services/jobAlertMatching.mjs';
 import {
   classifyZeroMatchCause,
   getZeroMatchMonitorAction,
+  summarizeZeroMatchPlans,
   ZERO_MATCH_CAUSES,
 } from '../scripts/lib/job-alert-zero-match-diagnosis.mjs';
 
@@ -48,21 +49,67 @@ describe('classifyZeroMatchCause', () => {
     expect(classifyZeroMatchCause(profile)).toBe(ZERO_MATCH_CAUSES.GEO_NARROW);
   });
 
-  it('flags no-hard-filters when the alert has no hard keyword/geo/pin scope at all', () => {
+  it('flags an empty profile when the alert has no matching signal at all', () => {
     const profile = buildAlertProfile({});
-    expect(classifyZeroMatchCause(profile)).toBe(ZERO_MATCH_CAUSES.NO_HARD_FILTERS);
+    expect(classifyZeroMatchCause(profile)).toBe(ZERO_MATCH_CAUSES.EMPTY_PROFILE);
   });
 
-  it('ignores soft-only signals (sectors, contractTypes, profile-derived preferences) — still no-hard-filters', () => {
+  it('separates soft-only profiles from truly empty profiles', () => {
     const profile = buildAlertProfile(
       { sectors: ['healthcare'], contractTypes: ['full-time'] },
       { location_interest: 'Chiasso', sector_interest: 'healthcare' },
     );
-    expect(classifyZeroMatchCause(profile)).toBe(ZERO_MATCH_CAUSES.NO_HARD_FILTERS);
+    expect(classifyZeroMatchCause(profile)).toBe(ZERO_MATCH_CAUSES.SOFT_PROFILE_NARROW);
+  });
+
+  it('attributes an empty eligible pool to the recipient cursor before inspecting filters', () => {
+    const profile = buildAlertProfile({ keywords: ['engineer'], locations: ['lugano'] });
+    expect(classifyZeroMatchCause(profile, { eligibleCandidateCount: 0 }))
+      .toBe(ZERO_MATCH_CAUSES.NO_ELIGIBLE_CANDIDATES);
   });
 
   it('handles a missing/undefined profile without throwing', () => {
-    expect(classifyZeroMatchCause(undefined)).toBe(ZERO_MATCH_CAUSES.NO_HARD_FILTERS);
+    expect(classifyZeroMatchCause(undefined)).toBe(ZERO_MATCH_CAUSES.EMPTY_PROFILE);
+  });
+});
+
+describe('summarizeZeroMatchPlans', () => {
+  it('keeps cursor-empty alerts observable but out of the matcher-health denominator', () => {
+    expect(summarizeZeroMatchPlans([
+      {
+        candidateCount: 0,
+        rankedCount: 0,
+        zeroCause: ZERO_MATCH_CAUSES.NO_ELIGIBLE_CANDIDATES,
+      },
+      {
+        candidateCount: 4,
+        rankedCount: 0,
+        zeroCause: ZERO_MATCH_CAUSES.SOFT_PROFILE_NARROW,
+      },
+      { candidateCount: 7, rankedCount: 2, zeroCause: null },
+    ])).toEqual({
+      alertCount: 3,
+      evaluatedAlertCount: 2,
+      noEligibleCandidateCount: 1,
+      zeroMatchCount: 1,
+      zeroMatchRate: 0.5,
+      zeroMatchByCause: { [ZERO_MATCH_CAUSES.SOFT_PROFILE_NARROW]: 1 },
+    });
+  });
+
+  it('returns an empty denominator when no alert reached the matcher', () => {
+    expect(summarizeZeroMatchPlans([
+      {
+        candidateCount: 0,
+        rankedCount: 0,
+        zeroCause: ZERO_MATCH_CAUSES.NO_ELIGIBLE_CANDIDATES,
+      },
+    ])).toMatchObject({
+      evaluatedAlertCount: 0,
+      noEligibleCandidateCount: 1,
+      zeroMatchCount: 0,
+      zeroMatchRate: null,
+    });
   });
 });
 

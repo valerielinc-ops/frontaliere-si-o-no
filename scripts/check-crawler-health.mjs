@@ -871,6 +871,10 @@ async function listCrawlerSlugs() {
   return [...new Set([...byCrawler, ...summaries])].sort();
 }
 
+function shouldCarryForwardCrawlerSlug(slug) {
+  return isSliceFile(`${slug}.json`);
+}
+
 /**
  * Inspect one crawler and return derived facts.
  *
@@ -1764,9 +1768,11 @@ async function main() {
   }
 
   // Carry forward any previously-tracked crawlers that disappeared from disk
-  // (e.g. crawler renamed) so we don't lose their history silently.
+  // (e.g. crawler renamed) so we don't lose their history silently. Historical
+  // scratch companions are not crawler identities and must not survive forever
+  // merely because an older monitor discovered them before isSliceFile existed.
   for (const [slug, prev] of Object.entries(prevCrawlers)) {
-    if (!(slug in nextCrawlers)) {
+    if (!(slug in nextCrawlers) && shouldCarryForwardCrawlerSlug(slug)) {
       nextCrawlers[slug] = { ...prev, status: 'unknown', _missingAt: nowIso };
     }
   }
@@ -1807,6 +1813,7 @@ export {
   listCrawlerSlugs,
   nextCrawlerState,
   selectNewestCrawlerObservation,
+  shouldCarryForwardCrawlerSlug,
 };
 
 /**

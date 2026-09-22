@@ -34,7 +34,7 @@ vi.mock('node:fs', async (importOriginal) => {
   };
 });
 
-const { listCrawlerSlugs, inspectCrawler } = await import(
+const { listCrawlerSlugs, inspectCrawler, shouldCarryForwardCrawlerSlug } = await import(
   '../../scripts/check-crawler-health.mjs'
 );
 
@@ -77,6 +77,14 @@ describe('listCrawlerSlugs', () => {
 
     const slugs = await listCrawlerSlugs();
     expect(slugs).toEqual(['omega']);
+  });
+});
+
+describe('missing crawler carry-forward', () => {
+  it('keeps renamed crawler history but drops historical scratch companions', () => {
+    expect(shouldCarryForwardCrawlerSlug('renamed-real-crawler')).toBe(true);
+    expect(shouldCarryForwardCrawlerSlug('coop-ticino-locale-cache')).toBe(false);
+    expect(shouldCarryForwardCrawlerSlug('coop-ticino.json.cleanup-tmp')).toBe(false);
   });
 });
 

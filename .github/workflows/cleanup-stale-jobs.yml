@@ -67,6 +67,13 @@ jobs:
       - name: Remove legacy crawler scratch archives
         run: node scripts/cleanup-legacy-crawler-residues.mjs --apply
 
+      # The full slice pass has repeatedly reached the job timeout after this
+      # deletion but before Phase 1. Push the allowlisted one-shot cleanup now,
+      # so a later timeout cannot resurrect the retired archive on main.
+      - name: Commit legacy crawler residue cleanup
+        id: legacy_residue_commit
+        run: bash scripts/lib/git-commit-data.sh --extra-only "🧹 Housekeeping — purge retired Coop scratch archive" data/jobs/expired/by-crawler/coop-ticino-locale-cache.json
+
       - name: Cleanup each per-crawler slice
         env:
           JOBS_STALE_DAYS: ${{ github.event.inputs.stale_days || '' }}
