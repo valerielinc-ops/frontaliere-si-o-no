@@ -86093,6 +86093,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-permesso-c-friburgo-guida-requisiti': {
+    title: 'Permesso c canton Friburgo: requisiti e domanda',
+    description: 'Requisiti, anni di residenza, certificati di lingua e procedura per richiedere il permesso di domicilio C nel Cantone di Friburgo. Guida completa.',
+    keywords: 'frontalieri, ticino, svizzera, italia, permesso, canton, friburgo, requisiti',
+    ogTitle: 'Permesso C Canton Friburgo: Requisiti e Domanda',
+    ogDescription: 'Come ottenere il permesso di domicilio C nel Cantone di Friburgo: anni di residenza, competenze linguistiche e passi della procedura.',
+    canonicalPath: '/articoli-svizzera/permesso-c-friburgo-guida-requisiti/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Permesso c canton Friburgo: requisiti e domanda",
+      "description": "Requisiti, anni di residenza, certificati di lingua e procedura per richiedere il permesso di domicilio C nel Cantone di Friburgo. Guida completa.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/permesso-c-friburgo-guida-requisiti.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Uffici amministrativi e panorama urbano nel Cantone di Friburgo"
+      },
+      "datePublished": "2026-09-22T05:55:12+00:00",
+      "dateModified": "2026-09-22T05:55:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/permesso-c-friburgo-guida-requisiti/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

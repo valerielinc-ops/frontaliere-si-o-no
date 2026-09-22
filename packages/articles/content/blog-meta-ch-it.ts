@@ -6641,6 +6641,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.title': 'Permesso di dimora B nel Canton Friburgo: requisiti, rinnovo e procedure',
     'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.excerpt': 'Guida pratica ai requisiti per ottenere e rinnovare il permesso B nel Canton Friburgo, con documenti necessari e iter procedurale.',
     'blog.article.permesso-dimora-b-canton-friburgo-requisiti-rinnovo.imageAlt': 'Cattedrale di San Nicola a Friburgo, simbolo del Cantone',
+    'blog.article.permesso-c-friburgo-guida-requisiti.title': 'Permesso c canton Friburgo: requisiti e domanda',
+    'blog.article.permesso-c-friburgo-guida-requisiti.excerpt': 'Regole, tempistiche di residenza, criteri di integrazione e procedura per ottenere il permesso di domicilio C nel Cantone di Friburgo.',
+    'blog.article.permesso-c-friburgo-guida-requisiti.imageAlt': 'Uffici amministrativi e panorama urbano nel Cantone di Friburgo',
 };
 
 export default blogMetaChIt;
