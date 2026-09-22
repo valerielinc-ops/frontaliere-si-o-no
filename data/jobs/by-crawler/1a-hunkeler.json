@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "1a-hunkeler-7dfb52e69867",
-      "slug": "fenster-monteur-in-ebikon-1a-hunkeler-ch",
+      "slug": "assemblatori-per-finestre-1a-hunkeler-ebikon",
       "slugByLocale": {
-        "it": "fenster-monteur-in-ebikon-1a-hunkeler-ch",
-        "en": "fenster-monteur-in-ebikon-1a-hunkeler-ch",
+        "it": "assemblatori-per-finestre-1a-hunkeler-ebikon",
+        "en": "window-assemblers-1a-hunkeler-ebikon",
         "de": "fenster-monteur-in-ebikon-1a-hunkeler-ch",
-        "fr": "fenster-monteur-in-ebikon-1a-hunkeler-ch"
+        "fr": "monteurs-de-fenetres-1a-hunkeler-ebikon"
       },
       "company": "1a-hunkeler",
       "companyKey": "1a-hunkeler",
@@ -64,7 +64,21 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "fenster-monteur-in-ebikon-1a-hunkeler-ch"
+        ],
+        "en": [
+          "fenster-monteur-in-ebikon-1a-hunkeler-ch"
+        ],
+        "fr": [
+          "fenster-monteur-in-ebikon-1a-hunkeler-ch"
+        ]
+      },
+      "previousSlugs": [
+        "fenster-monteur-in-ebikon-1a-hunkeler-ch"
+      ]
     }
   ]
 }

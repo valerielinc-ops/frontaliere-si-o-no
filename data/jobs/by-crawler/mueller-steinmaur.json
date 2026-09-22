@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "mueller-steinmaur-510b014742eb",
-      "slug": "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur",
+      "slug": "meccanico-operativo-meccanica-agricola-50-100-mueller-steinmaur-steinmaur-zurich",
       "slugByLocale": {
-        "it": "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur",
-        "en": "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur",
+        "it": "meccanico-operativo-meccanica-agricola-50-100-mueller-steinmaur-steinmaur-zurich",
+        "en": "operational-mechanic-agricultural-machinery-mechanic-50-100-mueller-steinmaur-steinmaur-zurich",
         "de": "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur",
-        "fr": "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
+        "fr": "mecanicien-operationnel-mecanicien-de-machines-agricoles-50-100-mueller-steinmaur-steinmaur-zurich"
       },
       "company": "mueller-steinmaur",
       "companyKey": "mueller-steinmaur",
@@ -65,7 +65,21 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
+        ],
+        "en": [
+          "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
+        ],
+        "fr": [
+          "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
+        ]
+      },
+      "previousSlugs": [
+        "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
+      ]
     }
   ]
 }

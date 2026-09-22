@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "curatore-trice-a-tempo-parziale-80-90-presso-l-ufficio-dell-aiuto-e-della-protezione-lugano-amministrazione-cantonale-ti-bellinzona-213hk6",
-        "en": "curatore-trice-a-tempo-parziale-80-90-presso-l-ufficio-dell-aiuto-e-della-protezione-lugano-amministrazione-cantonale-ti-bellinzona-213hk6",
-        "de": "curatore-trice-a-tempo-parziale-80-90-presso-l-ufficio-dell-aiuto-e-della-protezione-lugano-amministrazione-cantonale-ti-bellinzona-213hk6",
-        "fr": "curatore-trice-a-tempo-parziale-80-90-presso-l-ufficio-dell-aiuto-e-della-protezione-lugano-amministrazione-cantonale-ti-bellinzona-213hk6"
+        "en": "partial-time-curator-80-90-at-the-office-for-aid-and-protection-lugano-amministrazione-cantonale-ticino-bellinzona",
+        "de": "teilzeit-kuratorin-80-90-im-amt-fur-hilfe-und-schutz-lugano-amministrazione-cantonale-ticino-bellinzona",
+        "fr": "commissaire-a-temps-partiel-80-90-a-l-office-de-l-aide-et-de-la-protection-lugano-amministrazione-cantonale-ticino"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
@@ -107,19 +107,30 @@
       },
       "slugByLocale": {
         "it": "consulente-informatico-a-iii-a-tempo-pieno-100-presso-la-polizia-cantonale-sostituto-comandante-progetti-processi-e-tecnica-servizio-tecnico-213hk4",
-        "en": "consulente-informatico-a-iii-a-tempo-pieno-100-presso-la-polizia-cantonale-sostituto-comandante-progetti-processi-e-tecnica-servizio-technic-213hk4",
-        "de": "consulente-informatico-a-iii-a-tempo-pieno-100-presso-la-polizia-cantonale-sostituto-comandante-progetti-processi-e-tecnica-servizio-technik-213hk4",
-        "fr": "consulente-informatico-a-iii-a-tempo-pieno-100-presso-la-polizia-cantonale-sostituto-comandante-progetti-processi-e-tecnica-servizio-technic-213hk4"
+        "en": "full-time-it-consultant-100-at-the-cantonal-police-substitute-commander-projects-processes-and-technology-technical",
+        "de": "vollzeit-it-berater-100-bei-der-kantonalen-polizei-ersatzkommandeur-projekte-prozesse-und-technologie-technischer-dienst",
+        "fr": "consultant-en-ti-a-temps-plein-100-a-la-police-cantonale-commandant-de-remplacement-projets-processus-et-technologie"
       },
       "requirementsByLocale": {},
       "sourceLang": "it",
       "previousSlugsByLocale": {
         "it": [
           "consulente-informatico-a-iii-a-tempo-pieno-100-presso-la-polizia-cantonale-sostituto-comandante-progetti-processi-e-tecnica-servizio-tecnico"
+        ],
+        "en": [
+          "consulente-informatico-a-iii-a-tempo-pieno-100-presso-la-polizia-cantonale-sostituto-comandante-progetti-processi-e-tecnica-servizio-technic-213hk4"
+        ],
+        "de": [
+          "consulente-informatico-a-iii-a-tempo-pieno-100-presso-la-polizia-cantonale-sostituto-comandante-progetti-processi-e-tecnica-servizio-technik-213hk4"
+        ],
+        "fr": [
+          "consulente-informatico-a-iii-a-tempo-pieno-100-presso-la-polizia-cantonale-sostituto-comandante-progetti-processi-e-tecnica-servizio-technic-213hk4"
         ]
       },
       "previousSlugs": [
-        "consulente-informatico-a-iii-a-tempo-pieno-100-presso-la-polizia-cantonale-sostituto-comandante-progetti-processi-e-tecnica-servizio-tecnico"
+        "consulente-informatico-a-iii-a-tempo-pieno-100-presso-la-polizia-cantonale-sostituto-comandante-progetti-processi-e-tecnica-servizio-tecnico",
+        "consulente-informatico-a-iii-a-tempo-pieno-100-presso-la-polizia-cantonale-sostituto-comandante-progetti-processi-e-tecnica-servizio-technic-213hk4",
+        "consulente-informatico-a-iii-a-tempo-pieno-100-presso-la-polizia-cantonale-sostituto-comandante-progetti-processi-e-tecnica-servizio-technik-213hk4"
       ],
       "salarySource": "reported",
       "baseSalary": {

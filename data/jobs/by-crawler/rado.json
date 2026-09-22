@@ -39,9 +39,9 @@
       },
       "slugByLocale": {
         "it": "kv-apprendistato-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc05k",
-        "en": "kv-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc05k",
+        "en": "kv-apprenticeship-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz",
         "de": "kv-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc05k",
-        "fr": "kv-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc05k"
+        "fr": "kv-apprentissage-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz"
       },
       "requirementsByLocale": {
         "it": [],
@@ -55,10 +55,17 @@
       "previousSlugsByLocale": {
         "it": [
           "kv-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz"
+        ],
+        "en": [
+          "kv-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc05k"
+        ],
+        "fr": [
+          "kv-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc05k"
         ]
       },
       "previousSlugs": [
-        "kv-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz"
+        "kv-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz",
+        "kv-lehrstelle-2027-rado-watch-co-ltd-bielstrasse-45-2543-lengnau-bern-schweiz-7uc05k"
       ],
       "salaryMin": 57500,
       "salaryMax": 87000,

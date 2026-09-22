@@ -17331,12 +17331,12 @@
     },
     {
       "id": "jumbo-e46b38ff-7a5",
-      "slug": "verkaufsberater-in-garden-jumbo-rapperswil-jona",
+      "slug": "vendite-advisor-garden-jumbo-rapperswil-jona",
       "slugByLocale": {
         "de": "verkaufsberater-in-garden-jumbo-rapperswil-jona",
-        "it": "verkaufsberater-in-garden-jumbo-rapperswil-jona",
-        "en": "verkaufsberater-in-garden-jumbo-rapperswil-jona",
-        "fr": "verkaufsberater-in-garden-jumbo-rapperswil-jona"
+        "it": "vendite-advisor-garden-jumbo-rapperswil-jona",
+        "en": "sales-advisor-garden-jumbo-rapperswil-jona",
+        "fr": "conseiller-en-ventes-jardin-jumbo-rapperswil-jona"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17406,16 +17406,30 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-garden-jumbo-rapperswil-jona"
+        ],
+        "en": [
+          "verkaufsberater-in-garden-jumbo-rapperswil-jona"
+        ],
+        "fr": [
+          "verkaufsberater-in-garden-jumbo-rapperswil-jona"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-garden-jumbo-rapperswil-jona"
+      ]
     },
     {
       "id": "jumbo-fdc84144-38b",
-      "slug": "verkaufsberater-in-do-it-jumbo-mels",
+      "slug": "consulente-commerciale-do-it-jumbo-mels",
       "slugByLocale": {
         "de": "verkaufsberater-in-do-it-jumbo-mels",
-        "it": "verkaufsberater-in-do-it-jumbo-mels",
-        "en": "verkaufsberater-in-do-it-jumbo-mels",
-        "fr": "verkaufsberater-in-do-it-jumbo-mels"
+        "it": "consulente-commerciale-do-it-jumbo-mels",
+        "en": "sales-consultant-do-it-jumbo-mels",
+        "fr": "consultant-en-ventes-do-it-jumbo-mels"
       },
       "company": "JUMBO",
       "companyKey": "jumbo",
@@ -17485,7 +17499,21 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufsberater-in-do-it-jumbo-mels"
+        ],
+        "en": [
+          "verkaufsberater-in-do-it-jumbo-mels"
+        ],
+        "fr": [
+          "verkaufsberater-in-do-it-jumbo-mels"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufsberater-in-do-it-jumbo-mels"
+      ]
     }
   ]
 }

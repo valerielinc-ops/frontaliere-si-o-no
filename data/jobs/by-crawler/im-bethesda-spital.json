@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "im-bethesda-spital-75f4f0aaf36d",
-      "slug": "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel",
+      "slug": "assistente-medico-clinica-rheumatology-e-medicina-del-dolore-100-im-bethesda-spital-basel-basel-stadt",
       "slugByLocale": {
-        "it": "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel",
-        "en": "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel",
+        "it": "assistente-medico-clinica-rheumatology-e-medicina-del-dolore-100-im-bethesda-spital-basel-basel-stadt",
+        "en": "assistant-physician-clinic-rheumatology-and-pain-medicine-100-im-bethesda-spital-basel-basel-stadt",
         "de": "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel",
-        "fr": "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel"
+        "fr": "medecin-adjoint-clinique-rheumatologie-et-medecine-de-la-douleur-100-im-bethesda-spital-basel-basel-stadt"
       },
       "company": "& im Bethesda Spital",
       "companyKey": "im-bethesda-spital",
@@ -52,10 +52,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel"
+        "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel",
+        "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel",
+          "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel"
+        ],
+        "en": [
+          "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel"
+        ],
+        "fr": [
           "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel"
         ]
       },

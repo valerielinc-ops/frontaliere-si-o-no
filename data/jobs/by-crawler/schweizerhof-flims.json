@@ -4,12 +4,12 @@
   "jobs": [
     {
       "id": "schweizerhof-flims-f2d187c55172",
-      "slug": "zimmer-reinigungskraft-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch",
+      "slug": "la-pulizia-della-stanza-m-f-piace-anche-l-occupazione-a-lungo-termine-schweizerhof-flims",
       "slugByLocale": {
         "de": "zimmer-reinigungskraft-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch",
-        "it": "zimmer-reinigungskraft-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch",
-        "en": "zimmer-reinigungskraft-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch",
-        "fr": "zimmer-reinigungskraft-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch"
+        "it": "la-pulizia-della-stanza-m-f-piace-anche-l-occupazione-a-lungo-termine-schweizerhof-flims",
+        "en": "room-cleaner-m-f-also-likes-long-term-employment-schweizerhof-flims",
+        "fr": "nettoyeur-de-chambre-h-f-aime-aussi-les-emplois-a-long-terme-schweizerhof-flims"
       },
       "company": "Schweizerhof",
       "companyKey": "schweizerhof-flims",
@@ -64,16 +64,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T23:59:42.292Z"
+      "firstSeenAt": "2026-09-21T23:59:42.292Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zimmer-reinigungskraft-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch"
+        ],
+        "en": [
+          "zimmer-reinigungskraft-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch"
+        ],
+        "fr": [
+          "zimmer-reinigungskraft-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch"
+        ]
+      },
+      "previousSlugs": [
+        "zimmer-reinigungskraft-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch"
+      ]
     },
     {
       "id": "schweizerhof-flims-3a23f2b8d3ef",
-      "slug": "receptionist-m-w-80-100-in-unbefristeter-jahrestellung-flims-schweizerhof-flims-ch",
+      "slug": "ricevitore-m-f-80-100-in-posizione-annuale-permanente-schweizerhof-flims",
       "slugByLocale": {
         "de": "receptionist-m-w-80-100-in-unbefristeter-jahrestellung-flims-schweizerhof-flims-ch",
-        "it": "receptionist-m-w-80-100-in-unbefristeter-jahrestellung-flims-schweizerhof-flims-ch",
-        "en": "receptionist-m-w-80-100-in-unbefristeter-jahrestellung-flims-schweizerhof-flims-ch",
-        "fr": "receptionist-m-w-80-100-in-unbefristeter-jahrestellung-flims-schweizerhof-flims-ch"
+        "it": "ricevitore-m-f-80-100-in-posizione-annuale-permanente-schweizerhof-flims",
+        "en": "receptionist-m-f-80-100-in-permanent-annual-position-schweizerhof-flims",
+        "fr": "receptionniste-h-f-80-100-en-position-permanente-annuelle-schweizerhof-flims"
       },
       "company": "Schweizerhof",
       "companyKey": "schweizerhof-flims",
@@ -128,16 +142,30 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T23:59:42.290Z"
+      "firstSeenAt": "2026-09-21T23:59:42.290Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "receptionist-m-w-80-100-in-unbefristeter-jahrestellung-flims-schweizerhof-flims-ch"
+        ],
+        "en": [
+          "receptionist-m-w-80-100-in-unbefristeter-jahrestellung-flims-schweizerhof-flims-ch"
+        ],
+        "fr": [
+          "receptionist-m-w-80-100-in-unbefristeter-jahrestellung-flims-schweizerhof-flims-ch"
+        ]
+      },
+      "previousSlugs": [
+        "receptionist-m-w-80-100-in-unbefristeter-jahrestellung-flims-schweizerhof-flims-ch"
+      ]
     },
     {
       "id": "schweizerhof-flims-ea47fc0997f2",
-      "slug": "portier-housekeeping-m-w-flims-schweizerhof-flims-ch",
+      "slug": "porter-housekeeping-m-f-schweizerhof-flims",
       "slugByLocale": {
         "de": "portier-housekeeping-m-w-flims-schweizerhof-flims-ch",
-        "it": "portier-housekeeping-m-w-flims-schweizerhof-flims-ch",
+        "it": "porter-housekeeping-m-f-schweizerhof-flims",
         "en": "portier-housekeeping-m-w-flims-schweizerhof-flims-ch",
-        "fr": "portier-housekeeping-m-w-flims-schweizerhof-flims-ch"
+        "fr": "porter-menage-h-f-schweizerhof-flims"
       },
       "company": "Schweizerhof",
       "companyKey": "schweizerhof-flims",
@@ -192,16 +220,27 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T23:59:42.288Z"
+      "firstSeenAt": "2026-09-21T23:59:42.288Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "portier-housekeeping-m-w-flims-schweizerhof-flims-ch"
+        ],
+        "fr": [
+          "portier-housekeeping-m-w-flims-schweizerhof-flims-ch"
+        ]
+      },
+      "previousSlugs": [
+        "portier-housekeeping-m-w-flims-schweizerhof-flims-ch"
+      ]
     },
     {
       "id": "schweizerhof-flims-0e1bb8190cfa",
-      "slug": "chef-de-rang-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch",
+      "slug": "chef-de-rang-m-f-piace-anche-l-occupazione-a-lungo-termine-schweizerhof-flims",
       "slugByLocale": {
         "de": "chef-de-rang-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch",
-        "it": "chef-de-rang-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch",
-        "en": "chef-de-rang-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch",
-        "fr": "chef-de-rang-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch"
+        "it": "chef-de-rang-m-f-piace-anche-l-occupazione-a-lungo-termine-schweizerhof-flims",
+        "en": "chef-de-rang-m-f-also-likes-long-term-employment-schweizerhof-flims",
+        "fr": "chef-de-rang-h-f-aime-aussi-les-emplois-a-long-terme-schweizerhof-flims"
       },
       "company": "Schweizerhof",
       "companyKey": "schweizerhof-flims",
@@ -256,7 +295,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-21T23:59:42.286Z"
+      "firstSeenAt": "2026-09-21T23:59:42.286Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-rang-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch"
+        ],
+        "en": [
+          "chef-de-rang-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch"
+        ],
+        "fr": [
+          "chef-de-rang-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-rang-m-w-gerne-auch-langfristige-anstellung-flims-schweizerhof-flims-ch"
+      ]
     }
   ]
 }
