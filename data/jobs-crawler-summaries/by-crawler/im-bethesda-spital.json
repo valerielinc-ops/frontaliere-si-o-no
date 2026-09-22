@@ -1,26 +1,27 @@
 {
   "key": "im-bethesda-spital",
   "label": "& im Bethesda Spital",
-  "generatedAt": "2026-09-21T16:01:37.443Z",
+  "generatedAt": "2026-09-22T00:02:53.242Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
   "written": 1,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 0,
+  "newCount": 0,
+  "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3126,
-  "avgDurationMs": 3126,
+  "durationMs": 3308,
+  "avgDurationMs": 3308,
   "durationHistory": [
-    3126
+    3308
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "im-bethesda-spital-75f4f0aaf36d",
-      "slug": "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel",
+      "slug": "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel",
       "company": "& im Bethesda Spital",
       "companyKey": "im-bethesda-spital",
       "companyDomain": "bethesda-spital.ch",
@@ -30,7 +31,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T16:01:29.727Z",
+      "crawledAt": "2026-09-22T00:02:45.787Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -46,16 +47,17 @@
       "featured": false,
       "postedDate": "2026-09-21",
       "applyUrl": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html",
-      "_qualityScore": 67,
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-21T16:01:29.727Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 19,
         "completeness": 20
       }
     }
   ],
-  "updatedJobs": [],
   "removedJobs": [],
   "unchangedJobs": []
 }

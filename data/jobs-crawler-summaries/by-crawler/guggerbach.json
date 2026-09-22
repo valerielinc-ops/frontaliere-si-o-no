@@ -1,7 +1,7 @@
 {
   "key": "guggerbach",
   "label": "Bistro Guggerzyt",
-  "generatedAt": "2026-09-21T15:59:01.070Z",
+  "generatedAt": "2026-09-22T00:02:27.180Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
@@ -12,10 +12,10 @@
   "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 10377,
-  "avgDurationMs": 10377,
+  "durationMs": 10179,
+  "avgDurationMs": 10179,
   "durationHistory": [
-    10377
+    10179
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-servicemitarbeiterin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:58:52.140Z",
+      "crawledAt": "2026-09-22T00:02:19.018Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -47,6 +47,7 @@
       "featured": false,
       "postedDate": "2026-09-19",
       "applyUrl": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-servicemitarbeiterin",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-19T22:53:22.476Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -68,7 +69,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/selbstaendige-coiffeuse-coiffeur",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:58:52.135Z",
+      "crawledAt": "2026-09-22T00:02:19.012Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -84,6 +85,7 @@
       "featured": false,
       "postedDate": "2026-09-09",
       "applyUrl": "https://www.guggerbach.ch/guggerbach/jobs-karriere/selbstaendige-coiffeuse-coiffeur",
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:45:47.908Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -105,7 +107,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:58:52.138Z",
+      "crawledAt": "2026-09-22T00:02:19.016Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -121,6 +123,7 @@
       "featured": false,
       "postedDate": "2026-09-09",
       "applyUrl": "https://www.guggerbach.ch/guggerbach/jobs-karriere/offene-stelle-pflegehelferin",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-09T13:45:47.911Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -142,7 +145,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:58:52.141Z",
+      "crawledAt": "2026-09-22T00:02:19.020Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -158,6 +161,7 @@
       "featured": false,
       "postedDate": "2026-09-09",
       "applyUrl": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-assistentin-gesundheit-und-soziales-eba",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-09T13:45:47.912Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -179,7 +183,7 @@
       "url": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz",
       "source": "Bistro Guggerzyt Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T15:58:52.143Z",
+      "crawledAt": "2026-09-22T00:02:19.022Z",
       "addressLocality": "Davos Platz",
       "addressRegion": "Graubünden",
       "addressCountry": "CH",
@@ -195,6 +199,7 @@
       "featured": false,
       "postedDate": "2026-09-09",
       "applyUrl": "https://www.guggerbach.ch/guggerbach/jobs-karriere/lehrstelle-fachperson-gesundheit-efz",
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-09T13:45:47.914Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
