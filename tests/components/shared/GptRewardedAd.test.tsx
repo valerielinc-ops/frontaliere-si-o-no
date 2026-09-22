@@ -61,6 +61,7 @@ describe('GptRewardedAd', () => {
     const onGranted = vi.fn();
     const onClosed = vi.fn();
     const onOptIn = vi.fn();
+    const onVideoCompleted = vi.fn();
     const readyEvent = { slot: mocks.slot, makeRewardedVisible: mocks.makeRewardedVisible };
 
     render(
@@ -69,6 +70,7 @@ describe('GptRewardedAd', () => {
         loadingLabel="Caricamento…"
         unavailableLabel="Non disponibile"
         onOptIn={onOptIn}
+        onVideoCompleted={onVideoCompleted}
         onGranted={onGranted}
         onClosed={onClosed}
       />,
@@ -84,10 +86,12 @@ describe('GptRewardedAd', () => {
     expect(onGranted).not.toHaveBeenCalled();
 
     act(() => {
+      mocks.listeners.get('rewardedSlotVideoCompleted')?.({ slot: mocks.slot });
       mocks.listeners.get('rewardedSlotGranted')?.({ slot: mocks.slot });
       mocks.listeners.get('rewardedSlotClosed')?.({ slot: mocks.slot });
     });
 
+    expect(onVideoCompleted).toHaveBeenCalledTimes(1);
     expect(onGranted).toHaveBeenCalledTimes(1);
     expect(onClosed).toHaveBeenCalledWith(true);
     expect(mocks.trackExperimentEvent).toHaveBeenCalledWith('rewarded_web_granted', expect.any(Object));

@@ -23,10 +23,12 @@ describe('assisted application JobBoard handoff', () => {
     );
     expect(rewardedArm).toContain("'rewarded_application_offer_requested'");
     expect(rewardedArm).toContain("provider: 'google_gpt_rewarded_web'");
-    expect(rewardedArm).toContain('createRewardedApplicationHandoff');
-    expect(rewardedArm).toContain('window.open(rewardPageUrl, \'_blank\'');
-    expect(rewardedArm).toContain('window.location.assign(rewardPageUrl)');
+    expect(rewardedArm).toContain('setRewardedApplicationJob(job)');
+    expect(rewardedArm).toContain('if (!isJobDetailView) openDetail(job)');
+    expect(jobBoardSource).toContain('RewardedApplicationOffer');
     expect(jobBoardSource).not.toContain('rewarded_application_native_offerwall');
+    expect(jobBoardSource).not.toContain('RewardedApplicationPage');
+    expect(jobBoardSource).not.toContain('rewardedApplicationHandoff');
     expect(jobBoardSource).toMatch(
       /if \(!assistedApplicationJob \|\| isJobDetailView \|\| !authResolved\) return;[\s\S]*openDetail\(assistedApplicationJob\);/,
     );
@@ -34,12 +36,13 @@ describe('assisted application JobBoard handoff', () => {
 
   it('keeps the offer mounted in both supported detail render branches', () => {
     expect(jobBoardSource.match(/\{assistedApplicationOfferJsx\}/g)?.length).toBeGreaterThanOrEqual(2);
+    expect(jobBoardSource.match(/\{rewardedApplicationOfferJsx\}/g)?.length).toBeGreaterThanOrEqual(2);
   });
 
-  it('hands the direct GPT reward to a dedicated external page', () => {
-    expect(jobBoardSource).toContain('createRewardedApplicationHandoff');
-    expect(jobBoardSource).toContain('buildRewardedApplicationPageUrl');
-    expect(jobBoardSource).not.toContain('grantRewardedApplicationAccess');
+  it('keeps the rewarded action account-gated and restores the detail gate', () => {
+    expect(jobBoardSource).toContain("assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid");
+    expect(jobBoardSource).toContain('const hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor;');
+    expect(jobBoardSource).toContain('isCrawlerVisitorAgent');
   });
 
   it('forces the rewarded treatment on the Italian Ticino job-board surface', () => {

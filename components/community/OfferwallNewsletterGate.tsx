@@ -1,7 +1,7 @@
 /**
  * Legacy newsletter gate retained for the newsletter consent surface. It is
  * no longer mounted by App.tsx: the custom Offerwall choice is disabled
- * globally and job-board access now uses a dedicated GPT Rewarded Web page.
+ * globally and job-board access now uses an inline GPT rewarded flow.
  *
  * Older deployments used this component as the Offerwall custom-choice hook.
  * It remains source-compatible for the newsletter tests, but it must not
