@@ -199,9 +199,9 @@ export function createAgendaCrawler(config) {
               existing.endDate = ev.startDate;
             }
           } else {
-            // Per-event stamp, not just slice-level metadata below — eventLd()'s
-            // `organizer.name` reads `event.sourceName` directly (GSC "missing
-            // name in organizer" for every ge-agenda event before this fix).
+            // Per-event source stamp, not just slice-level metadata below —
+            // downstream attribution and source-specific rendering read these
+            // values from each normalized event.
             byId.set(ev.id, { ...ev, sourceKey: source.key, sourceName: source.label, crawledAt });
           }
         }

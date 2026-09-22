@@ -17,10 +17,11 @@
  *
  * SEO contract (mirrors borderMunicipalityPagesPlugin + docs/SEO-GATES.md):
  *   - buildSeoPageHtml shell, hubKey 'vita' chrome, seoContentOutsideRoot
- *   - complete schema.org/Event JSON-LD per event (name/startDate/eventStatus/
- *     eventAttendanceMode/location.address.addressLocality/description≥30/
- *     image/organizer{name,url}/performer{name}/offers{…}) — deploy-blocking
- *     validate-structured-data-completeness.mjs requires every field
+ *   - schema.org/Event JSON-LD per event (name/startDate/eventStatus/
+ *     eventAttendanceMode/location.address.addressLocality/description≥30) —
+ *     deploy-blocking; optional image, organizer, performer and offers fields
+ *     are emitted only when the source data supports them and are validated
+ *     when present
  *   - BreadcrumbList + FAQPage JSON-LD, full hreflang (it/en/de/fr + x-default)
  *   - own sitemap-eventi.xml (picked up automatically by sitemapAliasPlugin) —
  *     single un-sharded file; see the size-evaluation comment on buildSitemap
@@ -947,15 +948,10 @@ const TONE_GRADIENT_CLASSES: Record<CategoryTone, string> = {
 // ── Per-category "catalog" fallback image ───────────────────────
 // Real event photos only exist once mirrorEventImage() succeeds (source
 // had a usable image AND the download/CDN-mirror step worked). Many
-// sources 403 hotlinks or carry no image at all — until now those events
-// rendered a *decorative* gradient <div> (emoji, no real <img>), so the
-// visible card/hero and the Event JSON-LD `image` field had no bytes to
-// point to (JSON-LD fell back to the sitewide og-image, card had nothing
-// with width/height/alt). Below: a tiny set of static, site-owned SVG
-// "catalog" images — one per CATEGORY_VISUAL entry, reusing the exact
-// same emoji/tone tokens already defined above (no new design language) —
-// so every event, image or not, resolves to a real fetchable, same-origin
-// <img> with width/height/alt (never a third-party hotlink).
+// sources 403 hotlinks or carry no image at all — those events use a
+// deterministic, site-owned SVG in the visible card/hero. The catalog
+// illustration is presentation-only: it does not depict a specific event,
+// so it is deliberately never emitted as Event.image JSON-LD.
 const CATALOG_TONE_HEX: Record<CategoryTone, string> = {
   accent: '#f5f3ff', // --_accent-subtle
   info: '#f0fdfa', // --_info-subtle
@@ -1004,19 +1000,6 @@ function writeCatalogImages(writeFile: (relPath: string, contents: string) => vo
   for (const category of Object.keys(CATEGORY_VISUAL)) {
     writeFile(`images/events/catalog/${category}.svg`, catalogImageSvgMarkup(category));
   }
-}
-
-/** ImageObject JSON-LD for the catalog fallback. Unlike mirrored source
- * photos (which credit the source via `creditText`), this is a site-owned
- * asset, so the `imageObjectLd()` defaults (site Organization as creator,
- * site license page) are already correct — no overrides needed. */
-function catalogImageObjectLd(category: string | undefined, locale: Locale): ImageObjectLd {
-  return imageObjectLd({
-    contentUrl: `${BASE_URL}${catalogImagePath(category)}`,
-    caption: categoryLabel(category, locale),
-    width: CATALOG_IMAGE_WIDTH,
-    height: CATALOG_IMAGE_HEIGHT,
-  });
 }
 
 /**
@@ -1195,8 +1178,11 @@ export function zurichOffset(isoDate: string): string {
  * that couldn't be parsed to a number) still gets no `offers` block at all.
  * Google treats `offers` as recommended-not-required, and
  * validate-structured-data-completeness.mjs validates it only when present.
- * Every other Google-required/recommended Event field is emitted with a
- * safe fallback.
+ * The source catalog does not expose the real event organizer, performer,
+ * ticket-sale date or ticket-buy URL, so those optional properties are
+ * omitted instead of being inferred from the aggregator, venue or event date.
+ * A category illustration is likewise kept out of Event.image: only a
+ * mirrored event-specific image describes the marked-up event.
  */
 export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
   // Real location only (#3508): nationwide sources (guidle, myswitzerland)
@@ -1224,9 +1210,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
   const rawDescription = localizedDescription(event, locale);
   const description =
     rawDescription && rawDescription.trim().length >= 30 ? rawDescription.trim() : synthDescription;
-  // organizer is per-EVENT_SOURCES entry, not the single tio-agenda constant
-  // (§6 — one registry, no per-file duplicate of source metadata).
-  const organizerSource = EVENT_SOURCES[event.sourceKey] || SOURCE;
+  const eventImage = mirroredEventImageObject(event);
   return {
     '@type': 'Event',
     name: title,
@@ -1250,28 +1234,26 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
         : {}),
     },
     description: description.length >= 30 ? description : `${description} Evento in ${cantonName || 'Svizzera'}.`,
-    image: mirroredEventImageObject(event) ?? catalogImageObjectLd(event.category, locale),
+    ...(eventImage ? { image: eventImage } : {}),
     // On a detail page `url` is OUR canonical page (the page about the event);
     // the original source is then surfaced as `sameAs`. On aggregate pages
     // (no canonicalUrl) we keep the source URL.
     url: canonicalUrl || event.url,
     ...(canonicalUrl && event.url ? { sameAs: [event.url] } : {}),
-    organizer: { '@type': 'Organization', name: event.sourceName, url: organizerSource.homepage },
-    performer: { '@type': 'Organization', name: venueName },
+    // The source name is attribution for the catalog, not evidence that the
+    // source organized this particular event; the venue is a Place, not a
+    // performer. Neither is asserted as a different Event relationship.
     // offers is optional per validate-structured-data-completeness.mjs (many
-    // sources never expose price) — emit ONLY when we have a confident
-    // price/free signal, and always the FULL required shape together
-    // (price+priceCurrency+availability+validFrom+url) so a partial offers
-    // object never trips the "offers.field missing" gate.
+    // sources never expose price). Ticket-sale date, ticket-buy URL and
+    // availability are also not present in the normalized event contract, so
+    // they stay omitted rather than being inferred from the event date, source
+    // page or the existence of a price.
     ...(hasConfidentPrice(event.price)
       ? {
           offers: {
             '@type': 'Offer',
             price: event.price!.isFree ? '0' : String(event.price!.amount),
             priceCurrency: event.price!.currency || 'CHF',
-            availability: 'https://schema.org/InStock',
-            validFrom: event.startDate,
-            url: canonicalUrl || event.url,
           },
         }
       : {}),
@@ -1284,12 +1266,11 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
  * drift into a second copy), but strips the heaviest OPTIONAL-per-
  * `validate-structured-data-completeness.mjs` weight before embedding into a
  * canton/digest-hub `ItemList`: full `ImageObject` (with the GSC
- * licensable-image quintet) collapses to its bare `url` string — the
- * completeness gate's `hasImage` check accepts a plain string, only `image`
- * itself is mandatory, not the license metadata — `geo`/`streetAddress`/
- * `postalCode` drop off `location.address` (only `addressLocality` is
- * required), and `offers`/`sameAs` are omitted entirely (both optional,
- * `offers` is only validated *when present*). The authoritative FULL
+ * licensable-image quintet) collapses to its bare `url` string when present;
+ * `geo`/`streetAddress`/`postalCode` drop off `location.address` (only
+ * `addressLocality` is required), and `offers`/`sameAs` are omitted entirely
+ * (both optional, `offers` is only validated *when present*). The
+ * authoritative FULL
  * `eventLd()` still ships on every event's own detail page (`isPast` guard,
  * line ~2579) — only the supplementary aggregate-list copy is lightened.
  * Cuts ~1-1.3 KB/event; at the 100-event hub/digest cap that's the
@@ -1299,8 +1280,8 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
  * (audit:page-weight regression #4593 — verified: BE's 12 oversized pages
  * were all canton-hub/digest, never a per-event detail page).
  */
-function lightEventLd(event: SiteEvent, locale: Locale): Record<string, unknown> {
-  const full = eventLd(event, locale);
+function lightEventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
+  const full = eventLd(event, locale, canonicalUrl);
   const { offers: _offers, sameAs: _sameAs, image: fullImage, location, ...rest } = full as Record<string, unknown> & {
     location: { '@type': string; name: string; address: Record<string, unknown>; geo?: unknown };
   };
@@ -1309,7 +1290,7 @@ function lightEventLd(event: SiteEvent, locale: Locale): Record<string, unknown>
   return {
     ...rest,
     location: { ...location, address: addressRest, geo: undefined },
-    image: imageUrl,
+    ...(imageUrl ? { image: imageUrl } : {}),
   };
 }
 
@@ -1324,9 +1305,9 @@ function lightEventLd(event: SiteEvent, locale: Locale): Record<string, unknown>
  * the raw third-party flyer URL. This guard is defense-in-depth against stale
  * pre-mirroring data (e.g. a `data/events.json` snapshot committed before a
  * given source crawler mirrored its images): an `imageUrl` that is NOT
- * site-relative is treated exactly like "no image at all" (falls back to
- * the per-category catalogImageObjectLd() at the call site) rather than
- * ever being embedded as a hotlink in production JSON-LD.
+ * site-relative is treated exactly like "no image at all" rather than ever
+ * being embedded as a hotlink in production JSON-LD. The UI may still use
+ * the category catalog illustration as a visual fallback.
  *
  * License honesty: no per-image license is ever scraped from any event
  * source (tio.ch/biglietteria.ch flyers, Guidle, MySwitzerland all lack
@@ -1848,17 +1829,34 @@ const EVENT_JSONLD_ITEM_CAP = 50;
  * (#3508): Google's event structured-data guidelines say not to mark up
  * already-started/expired events as EventScheduled, but some crawler
  * sources ship stale startDates (e.g. a recurring series stored as one
- * year-long start→end span). Markup-only filter — the visible HTML list
- * is NOT affected (no page/content cut): keep events whose startDate is
- * today or later, with a 1-day grace window for timezone skew.
+ * year-long start→end span). The visible card slice prioritizes events whose
+ * startDate is today or later, with a 1-day grace window for timezone skew;
+ * stale rows remain available after the eligible rows.
  * ISO yyyy-mm-dd strings compare lexicographically. Also caps the result at
  * {@link EVENT_JSONLD_ITEM_CAP} — see that constant for why.
  */
 function markupEligibleEvents(events: SiteEvent[], dateStamp: string): SiteEvent[] {
+  const cutoffIso = markupEligibilityCutoff(dateStamp);
+  return events.filter((e) => e.startDate >= cutoffIso).slice(0, EVENT_JSONLD_ITEM_CAP);
+}
+
+function markupEligibilityCutoff(dateStamp: string): string {
   const cutoff = new Date(`${dateStamp}T00:00:00Z`);
   cutoff.setUTCDate(cutoff.getUTCDate() - 1);
-  const cutoffIso = cutoff.toISOString().slice(0, 10);
-  return events.filter((e) => e.startDate >= cutoffIso).slice(0, EVENT_JSONLD_ITEM_CAP);
+  return cutoff.toISOString().slice(0, 10);
+}
+
+/**
+ * Keep current events in the visible slice before stale long-running rows.
+ * Structured data must describe content that is actually present on the page;
+ * this ordering prevents a stale source row in the first 100 records from
+ * hiding every eligible event from both the cards and the ItemList.
+ */
+function visibleEventsWithMarkupPriority(events: SiteEvent[], dateStamp: string, cap: number): SiteEvent[] {
+  const cutoffIso = markupEligibilityCutoff(dateStamp);
+  const eligible = events.filter((event) => event.startDate >= cutoffIso);
+  if (eligible.length === 0) return events.slice(0, cap);
+  return [...eligible, ...events.filter((event) => event.startDate < cutoffIso)].slice(0, cap);
 }
 
 /**
@@ -1935,7 +1933,7 @@ export function renderHubPage(params: {
   // (audit:max-bfs-depth). Raised so canton/digest hubs surface more of the
   // family within depth budget; see build-plugins/eventsSeoPagesPlugin.ts
   // header for the depth ≤2 hub design this caps still nest under.
-  const upcoming = events.slice(0, 100);
+  const upcoming = visibleEventsWithMarkupPriority(events, dateStamp, 100);
 
   const comuneEntries = [...byComune.entries()].sort((a, b) => b[1].length - a[1].length || a[0].localeCompare(b[0]));
   const comuneGrid =
@@ -2042,10 +2040,11 @@ export function renderHubPage(params: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: copy.hubTitle,
+    numberOfItems: events.length,
     itemListElement: markupEligibleEvents(upcoming, dateStamp).map((event, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: lightEventLd(event, locale),
+      item: lightEventLd(event, locale, detailHref?.(event) || undefined),
     })),
   });
   const breadcrumbLd = inlineScriptJson({
@@ -2113,7 +2112,7 @@ export function renderEventsIndexPage(params: {
   // (audit:max-bfs-depth). Raised so canton/digest hubs surface more of the
   // family within depth budget; see build-plugins/eventsSeoPagesPlugin.ts
   // header for the depth ≤2 hub design this caps still nest under.
-  const upcoming = events.slice(0, 100);
+  const upcoming = visibleEventsWithMarkupPriority(events, dateStamp, 100);
 
   const cantonGrid = cantonStats
     .map(
@@ -2180,10 +2179,11 @@ export function renderEventsIndexPage(params: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: copy.metaTitle,
+    numberOfItems: events.length,
     itemListElement: markupEligibleEvents(upcoming, dateStamp).map((event, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: lightEventLd(event, locale),
+      item: lightEventLd(event, locale, detailHref?.(event) || undefined),
     })),
   });
   const breadcrumbLd = inlineScriptJson({
@@ -2235,7 +2235,7 @@ export function renderComunePage(params: {
   // Was 40 — see the `upcoming` cap above for why this was raised (same
   // audit:max-bfs-depth orphan-tail fix). The tail past the cap is NOT dropped
   // any more: `renderOverflowIndex()` below links it as text rows (#5434).
-  const list = events.slice(0, EVENT_CARD_CAP);
+  const list = visibleEventsWithMarkupPriority(events, dateStamp, EVENT_CARD_CAP);
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
   // #4414: real weekly count + soonest upcoming event for this comune —
   // scoped to the FULL comune `events` list (not the 40-item display slice)
@@ -2298,10 +2298,11 @@ export function renderComunePage(params: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: copy.comuneTitle(comune),
+    numberOfItems: events.length,
     itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: lightEventLd(event, locale),
+      item: lightEventLd(event, locale, detailHref?.(event) || undefined),
     })),
   });
   const breadcrumbLd = inlineScriptJson({
@@ -2502,7 +2503,7 @@ export function renderOtherEventsPage(params: {
   // sentinel bucket is the LARGEST one in the dataset (683 upcoming events
   // measured 2026-08-09), so it is also the page that block weighs most on —
   // hence its own, lower `OTHER_EVENTS_CARD_CAP` rather than the hub number.
-  const list = events.slice(0, OTHER_EVENTS_CARD_CAP);
+  const list = visibleEventsWithMarkupPriority(events, dateStamp, OTHER_EVENTS_CARD_CAP);
   const weekendCount = events.filter((e) => isWeekend(e.startDate, weekendDays)).length;
 
   const body = `${EVENTS_STYLE_BLOCK}<div class="mx-auto max-w-5xl px-4 py-6 sm:px-6 lg:px-8">
@@ -2560,10 +2561,11 @@ export function renderOtherEventsPage(params: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: oeCopy.h1,
+    numberOfItems: events.length,
     itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({
       '@type': 'ListItem',
       position: i + 1,
-      item: lightEventLd(event, locale),
+      item: lightEventLd(event, locale, detailHref?.(event) || undefined),
     })),
   });
   const breadcrumbLd = inlineScriptJson({
@@ -3427,7 +3429,7 @@ export function renderDigestPage(params: {
   const canonicalUrl = `${BASE_URL}${canonicalPath}`;
   // Was 60 — see the `upcoming` cap above for why this was raised (same
   // audit:max-bfs-depth orphan-tail fix).
-  const list = events.slice(0, 100);
+  const list = visibleEventsWithMarkupPriority(events, dateStamp, 100);
   const byComune = groupByComune(events) as Map<string, SiteEvent[]>;
 
   const comuneGrid = [...byComune.entries()]
@@ -3490,7 +3492,8 @@ export function renderDigestPage(params: {
     '@context': 'https://schema.org',
     '@type': 'ItemList',
     name: dc.title,
-    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({ '@type': 'ListItem', position: i + 1, item: lightEventLd(event, locale) })),
+    numberOfItems: events.length,
+    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({ '@type': 'ListItem', position: i + 1, item: lightEventLd(event, locale, detailHref?.(event) || undefined) })),
   });
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',

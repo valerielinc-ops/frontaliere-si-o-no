@@ -544,19 +544,21 @@ function dutyCoverageCollectionJsonLd(pathValue: PharmacyPath, title: string, ma
 function detailJsonLd(pharmacy: Pharmacy, locale: Locale): string {
   const pathValue = pharmacyPath(pharmacy, locale);
   const website = safePharmacyUrl(pharmacy.website);
+  const addressRegion = pharmacy.canton || pharmacy.province || pharmacy.region;
+  const openingHoursSpecification = pharmacy.openingHours
+    ?.filter((hour) => !hour.isClosed)
+    .map((hour) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: `https://schema.org/${hour.dayOfWeek.charAt(0).toUpperCase()}${hour.dayOfWeek.slice(1)}`, opens: hour.opens, closes: hour.closes }));
   const payload: Record<string, unknown> = {
     '@context': 'https://schema.org',
     '@type': 'Pharmacy',
     name: pharmacy.name,
     url: `${BASE_URL}${buildPharmacyPath(pathValue, locale)}`,
-    address: { '@type': 'PostalAddress', streetAddress: pharmacy.address, postalCode: pharmacy.postalCode, addressLocality: pharmacy.city, addressCountry: pharmacy.country },
+    address: { '@type': 'PostalAddress', streetAddress: pharmacy.address, postalCode: pharmacy.postalCode, addressLocality: pharmacy.city, ...(addressRegion ? { addressRegion } : {}), addressCountry: pharmacy.country },
     ...(pharmacy.phone ? { telephone: pharmacy.phone } : {}),
     ...(website ? { sameAs: website } : {}),
     ...(pharmacy.latitude !== undefined && pharmacy.longitude !== undefined ? { geo: { '@type': 'GeoCoordinates', latitude: pharmacy.latitude, longitude: pharmacy.longitude } } : {}),
   };
-  if (pharmacy.openingHours?.length) {
-    payload.openingHoursSpecification = pharmacy.openingHours.map((hour) => ({ '@type': 'OpeningHoursSpecification', dayOfWeek: `https://schema.org/${hour.dayOfWeek.charAt(0).toUpperCase()}${hour.dayOfWeek.slice(1)}`, opens: hour.opens, closes: hour.closes }));
-  }
+  if (openingHoursSpecification?.length) payload.openingHoursSpecification = openingHoursSpecification;
   return JSON.stringify(payload);
 }
 

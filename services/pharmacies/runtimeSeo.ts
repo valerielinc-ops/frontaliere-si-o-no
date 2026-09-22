@@ -244,6 +244,15 @@ const MAX_COLLECTION_SCHEMA_ITEMS = 10;
 function pharmacyDetailStructuredData(pharmacy: Pharmacy, locale: Locale): Record<string, any> {
   const path = pharmacyPathForRecord(pharmacy, locale);
   const website = safePharmacyUrl(pharmacy.website);
+  const addressRegion = pharmacy.canton || pharmacy.province || pharmacy.region;
+  const openingHoursSpecification = pharmacy.openingHours
+    ?.filter((hour) => !hour.isClosed)
+    .map((hour) => ({
+      '@type': 'OpeningHoursSpecification',
+      dayOfWeek: `https://schema.org/${hour.dayOfWeek.charAt(0).toUpperCase()}${hour.dayOfWeek.slice(1)}`,
+      opens: hour.opens,
+      closes: hour.closes,
+    }));
   return {
     '@context': 'https://schema.org',
     '@type': 'Pharmacy',
@@ -254,6 +263,7 @@ function pharmacyDetailStructuredData(pharmacy: Pharmacy, locale: Locale): Recor
       streetAddress: pharmacy.address,
       postalCode: pharmacy.postalCode,
       addressLocality: pharmacy.city,
+      ...(addressRegion ? { addressRegion } : {}),
       addressCountry: pharmacy.country,
     },
     ...(pharmacy.phone ? { telephone: pharmacy.phone } : {}),
@@ -261,16 +271,7 @@ function pharmacyDetailStructuredData(pharmacy: Pharmacy, locale: Locale): Recor
     ...(pharmacy.latitude !== undefined && pharmacy.longitude !== undefined
       ? { geo: { '@type': 'GeoCoordinates', latitude: pharmacy.latitude, longitude: pharmacy.longitude } }
       : {}),
-    ...(pharmacy.openingHours?.length
-      ? {
-        openingHoursSpecification: pharmacy.openingHours.map((hour) => ({
-          '@type': 'OpeningHoursSpecification',
-          dayOfWeek: `https://schema.org/${hour.dayOfWeek.charAt(0).toUpperCase()}${hour.dayOfWeek.slice(1)}`,
-          opens: hour.opens,
-          closes: hour.closes,
-        })),
-      }
-      : {}),
+    ...(openingHoursSpecification?.length ? { openingHoursSpecification } : {}),
   };
 }
 
