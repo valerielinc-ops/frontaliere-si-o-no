@@ -233,7 +233,7 @@ describe('isStalenessCheckActive (active-window gate)', () => {
     expect(isStalenessCheckActive(atUtcHour(5))).toBe(false);
     expect(isStalenessCheckActive(atUtcHour(6))).toBe(false);
     expect(isStalenessCheckActive(atUtcHour(7))).toBe(false);
-    // 08:00–10:59: traffic-scheduler morning peak ends at 07:30 UTC; next run is
+    // 08:00–10:59: Cloud dispatch morning peak ends at 07:30 UTC; next run is
     // midday at 11:00. Data is EXPECTED to be stale here (3.5h gap > 90-min
     // threshold). Self-heal dispatches but must not page (issue #4229 false page).
     expect(isStalenessCheckActive(atUtcHour(8))).toBe(false);
@@ -268,8 +268,8 @@ describe('staleThresholdMinutesFor (weekend cadence gap, #5960)', () => {
     const saturday = staleThresholdMinutesFor(onDay(5));
     const sunday = staleThresholdMinutesFor(onDay(6));
     expect(saturday).toBe(sunday);
-    // Must comfortably clear the actual 240-min weekend gap (traffic-scheduler.yml
-    // `0 6,10,14,18 * * 0,6`) plus documented GitHub cron delivery lag, or every
+    // Must comfortably clear the actual 240-min weekend gap (Cloud dispatch at
+    // 06/10/14/18 UTC) plus normal collection runtime, or every
     // weekend slot would still false-page.
     expect(saturday).toBeGreaterThan(240);
     // Must stay under the 6h (360-min) coarse backstop so a genuinely frozen
@@ -303,7 +303,7 @@ describe('staleness page-gate (issue #2587 regression)', () => {
   });
 
   it('does NOT page during the morning scheduling gap (08:00–10:59 UTC) even when data is stale — regression for issue #4229', () => {
-    // traffic-scheduler morning peak ends at 07:30 UTC; next run is 11:00 UTC.
+    // Cloud dispatch morning peak ends at 07:30 UTC; next run is 11:00 UTC.
     // Data from 08:43 is 124 min old at 10:47 — stale for the 90-min check but
     // EXPECTED (not a real freeze). Self-heal dispatches; no issue should open/promote.
     const now = Date.UTC(2026, 6, 15, 10, 47, 0); // Tue 10:47 UTC (issue #4229)

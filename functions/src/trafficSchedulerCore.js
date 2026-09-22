@@ -1,7 +1,8 @@
 /**
  * Traffic Scheduler Core
  *
- * Called by the scheduled GitHub Actions workflow (traffic-scheduler.yml).
+ * Called by the traffic-scheduler.yml GitHub Actions workflow, whose scheduled
+ * dispatch is owned by Cloud Scheduler.
  *
  * For each active border crossing the job:
  * 1. Queries a live routing provider for:

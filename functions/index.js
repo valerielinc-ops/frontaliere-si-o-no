@@ -95,6 +95,7 @@ import {
 import { resolveSubscriberLocale } from './src/lib/subscriberLocale.js';
 import { handlePetitionSign } from './src/petitionSign.js';
 import { getPublicPlateAuctionSnapshot, refreshPlateAuctions as runPlateAuctionRefresh } from './src/plateAuctions.js';
+import { dispatchTrafficScheduler } from './src/trafficSchedulerDispatch.js';
 
 ensureAdminApp();
 
@@ -2183,5 +2184,16 @@ export const refreshPlateAuctions = onSchedule(
  } catch (error) {
  console.error('[refreshPlateAuctions]', error instanceof Error ? error.message : String(error));
  }
+ },
+);
+
+// GitHub's scheduled-dispatch queue has delayed the traffic collector by
+// several hours. Cloud Scheduler owns the clock; the existing Actions workflow
+// remains the single collector and keeps its manual/self-heal dispatch path.
+export const dispatchTrafficCollection = onSchedule(
+ { region: 'europe-west6', schedule: '0,30 * * * *', timeZone: 'UTC' },
+ async (event) => {
+  const result = await dispatchTrafficScheduler({ scheduledAt: event.scheduleTime });
+  console.log('[dispatchTrafficCollection]', JSON.stringify(result));
  },
 );

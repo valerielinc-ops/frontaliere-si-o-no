@@ -2,8 +2,8 @@
 /**
  * Collect border-crossing traffic data and persist to Firestore.
  *
- * Designed to run inside the scheduled GitHub Actions workflow
- * (traffic-scheduler.yml).  Uses GOOGLE_APPLICATION_CREDENTIALS
+ * Designed to run inside the traffic-scheduler.yml GitHub Actions workflow,
+ * dispatched on schedule by Cloud Scheduler. Uses GOOGLE_APPLICATION_CREDENTIALS
  * for Firebase auth and prefers TOMTOM_API_KEY for the live routing provider.
  * GOOGLE_MAPS_API_KEY remains supported as a temporary fallback during migration.
  *

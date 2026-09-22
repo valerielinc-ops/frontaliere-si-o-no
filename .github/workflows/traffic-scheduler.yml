@@ -1,24 +1,10 @@
 name: Collect Border-Crossing Traffic
 
 on:
-  # ─── Scheduled runs (UTC) ──────────────────────────────────────────
-  # Cron times are in UTC.  Europe/Rome is UTC+1 (CET) or UTC+2 (CEST).
-  # The ranges below cover both winter and summer offsets.
-  #
-  # Each routing provider has its own conservative Firestore-reserved cap. The
-  # scheduler concentrates runs at the two commute peaks and the provider mesh
-  # rotates on quota/auth failures; HERE still has a separate monthly guard so
-  # its free-tier ceiling cannot be crossed by scheduling variance.
-  schedule:
-    # ── Weekdays (Mon–Fri) ──
-    # Morning commute peak ≈ CET 05:00–09:00 → every 30 min
-    - cron: '*/30 4-7 * * 1-5'
-    # Midday off-peak sanity check ≈ CET 12:00
-    - cron: '0 11 * * 1-5'
-    # Evening return peak ≈ CET 15:00–19:00 → every 30 min
-    - cron: '*/30 14-17 * * 1-5'
-    # ── Weekends (Sat–Sun) → every 4h to conserve HERE quota ──
-    - cron: '0 6,10,14,18 * * 0,6'
+  # Cloud Scheduler calls this workflow through dispatchTrafficCollection in
+  # functions/index.js. GitHub's native schedule was removed after multi-hour
+  # dispatch delays made live traffic stale; manual and freshness self-heals
+  # keep using the same workflow_dispatch entrypoint.
   workflow_dispatch: {}
 
 concurrency:
