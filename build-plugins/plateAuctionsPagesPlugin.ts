@@ -196,26 +196,32 @@ function publishedDetailRows(rows: SnapshotRow[], locale: PlateLocale): Snapshot
     return true;
   });
 }
-function detailLinksForRows(rows: SnapshotRow[], locale: PlateLocale, limit = DIRECTORY_PAGE_LINK_LIMIT): string {
-  return publishedDetailRows(rows, locale).slice(0, limit).map((row) => {
+function detailLinksForPublishedRows(rows: SnapshotRow[], locale: PlateLocale, limit = DIRECTORY_PAGE_LINK_LIMIT): string {
+  return rows.slice(0, limit).map((row) => {
     const href = detailPathForRow(row, locale);
     return `<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}">${esc(row.normalizedPlate)}</a></li>`;
   }).join('');
 }
 
-function cantonPaginationLinks(locale: PlateLocale, canton: string, currentPage: number | undefined, pageCount: number, copy: typeof COPY.it): string {
+function cantonPaginationLinks(locale: PlateLocale, canton: string, currentPage: number | undefined, pageCount: number, copy: typeof COPY.it, includeAllPages = false): string {
   if (pageCount <= 1) return '';
-  const selectedPages = new Set<number>([2, Math.min(pageCount, 3), Math.max(2, pageCount - 1), pageCount]);
-  if (currentPage !== undefined) {
-    selectedPages.add(Math.max(2, currentPage - 1));
-    selectedPages.add(currentPage);
-    selectedPages.add(Math.min(pageCount, currentPage + 1));
-  }
-  const pages = [...selectedPages].filter((page) => page >= 2 && page <= pageCount).sort((a, b) => a - b);
+  // The directory is the shallow crawl spine: hundreds of page anchors are
+  // still bounded, while every numbered page can expose its own 48 details.
+  const pages = includeAllPages
+    ? Array.from({ length: pageCount - 1 }, (_, index) => index + 2)
+    : (() => {
+      const selectedPages = new Set<number>([2, Math.min(pageCount, 3), Math.max(2, pageCount - 1), pageCount]);
+      if (currentPage !== undefined) {
+        selectedPages.add(Math.max(2, currentPage - 1));
+        selectedPages.add(currentPage);
+        selectedPages.add(Math.min(pageCount, currentPage + 1));
+      }
+      return [...selectedPages].filter((page) => page >= 2 && page <= pageCount).sort((a, b) => a - b);
+    })();
   const links: string[] = [];
   let previousPage: number | undefined;
   for (const page of pages) {
-    if (previousPage !== undefined && page > previousPage + 1) links.push('<li aria-hidden="true">…</li>');
+    if (!includeAllPages && previousPage !== undefined && page > previousPage + 1) links.push('<li aria-hidden="true">…</li>');
     const href = pathFor(locale, 'canton', canton, undefined, undefined, page);
     const active = currentPage === page ? ' aria-current="page"' : '';
     links.push(`<li><a href="${esc(href)}" style="${LINK_ACCENT_STYLE}"${active}>${esc(copy.page)} ${page}</a></li>`);
@@ -232,6 +238,7 @@ export type PlateAuctionContext = {
   detailRows: SnapshotRow[];
   detailRowsByPlate: Map<string, SnapshotRow[]>;
   detailRowsByCanton: Map<string, SnapshotRow[]>;
+  publishedDetailRowsByLocaleAndCanton: Map<PlateLocale, Map<string, SnapshotRow[]>>;
   rankingRows: SnapshotRow[];
 };
 
@@ -260,8 +267,16 @@ export function loadPlateAuctionContext(rootDir: string): PlateAuctionContext {
     const cantonBucket = detailRowsByCanton.get(cantonKey);
     if (cantonBucket) cantonBucket.push(row); else detailRowsByCanton.set(cantonKey, [row]);
   }
+  const publishedDetailRowsByLocaleAndCanton = new Map<PlateLocale, Map<string, SnapshotRow[]>>();
+  for (const locale of LOCALES) {
+    const rowsByCanton = new Map<string, SnapshotRow[]>();
+    for (const [canton, rows] of detailRowsByCanton) {
+      rowsByCanton.set(canton, publishedDetailRows(rows, locale));
+    }
+    publishedDetailRowsByLocaleAndCanton.set(locale, rowsByCanton);
+  }
   const rankingRows = latestVerifiedFinalRows(activeHistoryRows.length ? activeHistoryRows : auctionRows);
-  return { snapshot, coverage, auctionRows, activeHistoryRows, detailRows, detailRowsByPlate, detailRowsByCanton, rankingRows };
+  return { snapshot, coverage, auctionRows, activeHistoryRows, detailRows, detailRowsByPlate, detailRowsByCanton, publishedDetailRowsByLocaleAndCanton, rankingRows };
 }
 
 /**
@@ -310,10 +325,10 @@ const DETAIL_GUIDE: Record<PlateLocale, { heading: string; fields: string; verif
 
 export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehicleType, rootDir, distDir, context }: { locale: PlateLocale; view: 'hub' | 'rankings' | 'canton' | 'directory' | 'detail'; canton?: string; page?: number; plate?: string; vehicleType?: PlateVehicleType; rootDir: string; distDir?: string; context?: PlateAuctionContext }): { urlPath: string; html: string } {
   const copy = COPY[locale];
-  const { snapshot, coverage, auctionRows, detailRows, detailRowsByPlate, detailRowsByCanton, rankingRows } = context ?? loadPlateAuctionContext(rootDir);
+  const { snapshot, coverage, auctionRows, detailRows, detailRowsByPlate, publishedDetailRowsByLocaleAndCanton, rankingRows } = context ?? loadPlateAuctionContext(rootDir);
   const pageNumber = Number.isSafeInteger(page) && page >= 2 ? page : undefined;
-  const cantonDetailRows = canton ? (detailRowsByCanton.get(canton.toUpperCase()) || []) : [];
-  const publishedCantonDetailRows = canton ? publishedDetailRows(cantonDetailRows, locale) : [];
+  const publishedRowsByCanton = publishedDetailRowsByLocaleAndCanton.get(locale) || new Map<string, SnapshotRow[]>();
+  const publishedCantonDetailRows = canton ? (publishedRowsByCanton.get(canton.toUpperCase()) || []) : [];
   const detailRow = view === 'detail'
     ? (detailRowsByPlate.get(String(plate || '').toLowerCase()) || []).find((row) => (!canton || row.sourceKey === canton || row.platePrefix === canton) && (vehicleType ? (row.vehicleType || 'car') === vehicleType : (row.vehicleType || 'car') === 'car'))
     : undefined;
@@ -344,16 +359,23 @@ export function renderPlateAuctionPage({ locale, view, canton, page, plate, vehi
   const description = view === 'detail' ? `${copy.intro} ${detailRow?.normalizedPlate || plate || copy.detail}, ${name || detailRow?.canton || copy.title}.` : name ? `${copy.intro} ${name}${pageSuffix}.` : copy.intro;
   const urlPath = pathFor(locale, view, canton, detailRow?.normalizedPlate || plate, detailRow?.vehicleType || vehicleType, pageNumber);
   const canonicalUrl = `${BASE_URL}${urlPath}`;
-  const links = allPlateAuctionCantonCodes().map((code) => `<li><a href="${esc(pathFor(locale, 'canton', code))}" style="${LINK_ACCENT_STYLE}">${esc(code)} — ${esc(CANTON_NAMES[code]?.[locale] || code)}</a></li>`).join('');
+  const links = allPlateAuctionCantonCodes().map((code) => {
+    const cantonPath = pathFor(locale, 'canton', code);
+    const hasDirectory = (publishedRowsByCanton.get(code)?.length || 0) > 0;
+    const directoryLink = hasDirectory
+      ? ` · <a href="${esc(pathFor(locale, 'directory', code))}" style="${LINK_ACCENT_STYLE}">${esc(copy.allListings)}</a>`
+      : '';
+    return `<li><a href="${esc(cantonPath)}" style="${LINK_ACCENT_STYLE}">${esc(code)} — ${esc(CANTON_NAMES[code]?.[locale] || code)}</a>${directoryLink}</li>`;
+  }).join('');
   const detailLinks = view === 'canton' && !pageNumber
     ? unlistedDetailLinks(publishedCantonDetailRows, locale, rows, PLATE_AUCTION_INDEX_PAGE_SIZE)
     : '';
   const paginationLinks = view === 'canton' && canton
     ? cantonPaginationLinks(locale, canton, pageNumber, Math.ceil(publishedCantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy)
     : '';
-  const directoryLinks = view === 'directory' ? detailLinksForRows(directoryRows, locale) : '';
+  const directoryLinks = view === 'directory' ? detailLinksForPublishedRows(directoryRows, locale) : '';
   const directoryPaginationLinks = view === 'directory' && canton
-    ? cantonPaginationLinks(locale, canton, undefined, Math.ceil(publishedCantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy)
+    ? cantonPaginationLinks(locale, canton, undefined, Math.ceil(publishedCantonDetailRows.length / PLATE_AUCTION_INDEX_PAGE_SIZE), copy, true)
     : '';
   const catalogueGuide = view === 'canton' || view === 'directory' ? `<p>${esc(CATALOGUE_GUIDE[locale])}</p>` : '';
   const directoryIndexLink = view === 'canton' && canton && publishedCantonDetailRows.length > 0
@@ -416,10 +438,10 @@ export function plateAuctionsPagesPlugin(rootDir: string): Plugin {
     const distDir = np.join(rootDir, 'dist');
     if (!fs.existsSync(distDir)) return;
     const context = loadPlateAuctionContext(rootDir);
-    const { detailRows, detailRowsByCanton } = context;
+    const { detailRows, publishedDetailRowsByLocaleAndCanton } = context;
     const directoryCantons = new Set(detailRows.map((row) => String(row.sourceKey || row.platePrefix).toUpperCase()));
     const publishedRowsFor = (canton: string, locale: PlateLocale) =>
-      publishedDetailRows(detailRowsByCanton.get(canton) || [], locale);
+      publishedDetailRowsByLocaleAndCanton.get(locale)?.get(canton) || [];
     let written = 0;
     for (const locale of LOCALES) {
       for (const view of ['hub', 'rankings'] as const) {
