@@ -975,6 +975,28 @@ describe('employer insights technical deduplication', () => {
     });
   });
 
+  it('formats GA4 date ranges in the property timezone, including the DST boundary', () => {
+    const summerWindow = {
+      from: '2026-09-09T00:00:00+02:00',
+      to: '2026-09-12T00:00:00+02:00',
+      kind: 'ga4-d18-evidence-test',
+      timezone: 'Europe/Zurich',
+    };
+    expect(buildGa4EventQueryBody(summerWindow, { includeEmissionId: true }).dateRanges).toEqual([
+      { startDate: '2026-09-09', endDate: '2026-09-11' },
+    ]);
+
+    const dstWindow = {
+      from: '2026-10-24T00:00:00+02:00',
+      to: '2026-10-26T00:00:00+01:00',
+      kind: 'ga4-d18-dst-test',
+      timezone: 'Europe/Zurich',
+    };
+    expect(buildGa4EventQueryBody(dstWindow).dateRanges).toEqual([
+      { startDate: '2026-10-24', endDate: '2026-10-25' },
+    ]);
+  });
+
   it('marks a short or data-loss GA4 page as truncated instead of declaring full coverage', async () => {
     const ga4Window = {
       from: '2026-09-01T00:00:00.000Z',
