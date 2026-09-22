@@ -1,4 +1,9 @@
 import { test, expect } from 'playwright/test';
+import {
+  countRenderedTables,
+  hasRawTableSeparator,
+  visibleTextFromHtml,
+} from '../helpers/dailyBriefTableParity';
 
 /**
  * Live parity guard for the daily brief's pipe tables (issue #5415 §6, criterio 1).
@@ -23,10 +28,13 @@ import { test, expect } from 'playwright/test';
  *     variant, and this file exists because surfaces disagree);
  *   - the DOM after hydration, i.e. what the reader actually looks at.
  *
- * ON RAW SEPARATORS RATHER THAN ON `<table>` ALONE. A `|---|` left in the
- * VISIBLE TEXT is the reader-facing symptom; counting tables alone would go
- * green on a page that renders one table and spills the other as pipes.
- * Visible text, not HTML: a `|` inside an attribute harms nobody.
+ * ON RAW SEPARATORS AND STATIC/HYDRATED PARITY, NOT ON `<table>` ALONE. A
+ * `|---|` left in the VISIBLE TEXT is the reader-facing symptom; counting
+ * tables alone both misses a page that renders one table and spills another as
+ * pipes, and falsely rejects a valid edition whose live-data fallback contains
+ * no table source at all. Visible text, not HTML: a `|` inside an attribute
+ * harms nobody. When tables are present, both surfaces must preserve the same
+ * count.
  *
  * ON TODAY'S EDITION, NOT A PINNED DATE. A spec pinned to one date guards the
  * day it was written and nothing after. The edition id is
@@ -56,19 +64,9 @@ const LOCALES = [
 /** The edition is dated in UTC, the same clock `TODAY_ISO` uses in the generator. */
 const editionDate = () => new Date().toISOString().slice(0, 10);
 
-const RAW_SEPARATOR = /\|\s*:?-{2,}:?\s*\|/;
-
-/** Visible text of a raw HTML document: script/style out, then tags to newlines. */
-function visibleText(html: string): string {
-  return html
-    .replace(/<script[\s\S]*?<\/script>/g, ' ')
-    .replace(/<style[\s\S]*?<\/style>/g, ' ')
-    .replace(/<[^>]+>/g, '\n');
-}
-
 test.describe('daily brief — pipe tables survive both renders', () => {
   for (const { locale, hub, slug } of LOCALES) {
-    test(`${locale}: table rendered statically and after hydration`, async ({ page }) => {
+    test(`${locale}: static and hydrated table markup stay lossless`, async ({ page }) => {
       const url = `${BASE}${hub}${slug}-${editionDate()}/`;
 
       // The navigation response body IS the static HTML the browser got. Read it
@@ -90,9 +88,9 @@ test.describe('daily brief — pipe tables survive both renders', () => {
       if (!staticHtml) staticHtml = await response!.text();
 
       // ── static surface ──
-      expect(staticHtml, 'static HTML must render the tables as <table>').toContain('<table');
+      const staticTables = countRenderedTables(staticHtml);
       expect(
-        RAW_SEPARATOR.test(visibleText(staticHtml)),
+        hasRawTableSeparator(visibleTextFromHtml(staticHtml)),
         'static HTML leaks a raw |---| separator into the visible text',
       ).toBe(false);
 
@@ -112,9 +110,12 @@ test.describe('daily brief — pipe tables survive both renders', () => {
         return { tables: root.querySelectorAll('table').length, text: root.innerText || '' };
       });
 
-      expect(hydrated.tables, 'hydrated DOM must still hold the tables').toBeGreaterThan(0);
       expect(
-        RAW_SEPARATOR.test(hydrated.text),
+        hydrated.tables,
+        'hydrated DOM must preserve the static table count (including a valid tableless fallback)',
+      ).toBe(staticTables);
+      expect(
+        hasRawTableSeparator(hydrated.text),
         'hydrated DOM shows a raw |---| separator — the reconstruction lost the table',
       ).toBe(false);
     });
