@@ -287,13 +287,19 @@ function trackedCodeFiles() {
  */
 export function candidateStrength(tokens) {
   const list = Array.isArray(tokens) ? tokens : [];
-  const structural = list.some((t) => t.startsWith('class:"') || t.startsWith('removed:"'));
+  const structural = list.some((t) => t.startsWith('class:"'));
   if (structural) return 'forte';
   // AST labels explain the same lexical construct; they must not turn one
   // identifier into two independent signals. A resolved graph binding is
   // independent evidence and is therefore strong on its own.
   if (list.some((t) => t.startsWith('graph:'))) return 'forte';
-  const lexical = list.filter((t) => !t.startsWith('ast:') && !t.startsWith('graph:'));
+  // A removed expression is useful historical evidence, but unlike a
+  // resolved binding it is not independent proof: a generic line can be
+  // reimplemented in many unrelated files. Keep it visible while preventing
+  // a removed-only hit from being presented as a strong sibling.
+  const lexical = list.filter(
+    (t) => !t.startsWith('ast:') && !t.startsWith('graph:') && !t.startsWith('removed:"'),
+  );
   return lexical.length >= 2 ? 'forte' : 'debole';
 }
 
@@ -326,6 +332,16 @@ function resolveBase() {
  *   - Contiene almeno un pattern codice: chiamata `ident(` o assign `ident:`
  *   - Trailing `,;` rimosso prima del confronto
  */
+const GENERIC_REMOVED_GUARD_PATTERNS = Object.freeze([
+  /^\s*if\s*\(\s*!?(?:res|response)\.ok\b[^)]*\)\s*return\b/i,
+  /^\s*if\s*\([^)]*\btypeof\s+(?:html|body|rawHtml)\s*!==?\s*['"]string['"][^)]*\)\s*return\b/i,
+]);
+
+export function isGenericRemovedExpression(expression) {
+  const value = String(expression || '');
+  return GENERIC_REMOVED_GUARD_PATTERNS.some((pattern) => pattern.test(value));
+}
+
 export function extractRemovedExpressions(diffText) {
   const exprs = new Set();
   for (const line of diffText.split('\n')) {
@@ -341,6 +357,12 @@ export function extractRemovedExpressions(diffText) {
     // Strip trailing punctuation
     const cleaned = content.replace(/[,;]\s*$/, '').trim();
     if (cleaned.length >= 20 && cleaned.length <= 120) {
+      // These guards are ubiquitous transport/input boilerplate. They were
+      // promoted as "strong" siblings by the verbatim pass even when the
+      // diff changed an unrelated domain rule (observed on PR #9501). Keep
+      // the pass for semantic expressions, but do not turn generic plumbing
+      // into a repository-wide sibling sweep.
+      if (isGenericRemovedExpression(cleaned)) continue;
       exprs.add(cleaned);
     }
   }
