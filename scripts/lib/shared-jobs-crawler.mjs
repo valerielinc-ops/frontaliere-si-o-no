@@ -96,6 +96,7 @@ import {
   sanitizeAiOutput as _sanitizeAiOutput,
   addPreviousSlugForLocale,
   captureLostSlugs,
+  isActiveJobPastRetirement as _isActiveJobPastRetirement,
 } from './dedicated-crawler-common.mjs';
 import {
   canonicalizeCompanyDefinition,
@@ -4954,10 +4955,17 @@ function pruneStaleCrawlerJobs(existingJobs, incomingJobs, results, options = {}
 // never reappears in incomingJobs, the miss streak climbs every run
 // regardless of whether the job is still live, and pruneStaleCrawlerJobs
 // eventually evicts a job that may still genuinely be online (issue 4826).
-function buildKnownJobUrlsSet(preloadedJobs) {
+//
+// The same skip optimization must not hide an expired heartbeat. If a URL is
+// older than the shared 60-day retirement window, treating it as known means
+// its detail page is never fetched and `crawledAt` can remain stale forever
+// (issue #9470). Excluding it here forces the next successful crawl to either
+// refresh the record or let the normal retirement/merge path remove it.
+function buildKnownJobUrlsSet(preloadedJobs, nowMs = Date.now()) {
   return new Set(
     (Array.isArray(preloadedJobs) ? preloadedJobs : [])
       .filter((j) => !(Number(j?.crawlerMissStreak) > 0))
+      .filter((j) => !_isActiveJobPastRetirement(j, nowMs))
       .map((j) => canonicalizeJobUrl(j.url))
       .filter(Boolean)
   );

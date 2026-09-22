@@ -78,12 +78,15 @@ jobs:
             # multi-day event becomes recurrence comments on one open issue.
             # The guard keeps date-based titles for unattributed anomalies.
             title=$(jq -r ".[${i}].issueTitle" data/job-dataset-churn-issues.json)
+            shape=$(jq -r ".[${i}].churnShape // \"unknown\"" data/job-dataset-churn-issues.json)
+            profile=$(jq -r "(.[$i].hostChurn // []) | map(\"\\(.host) (+\\(.added)/-\\(.removed))\") | join(\", \")" data/job-dataset-churn-issues.json)
             body=$(cat <<EOF
           Automated churn guard flagged **${metric}** on **${date}**: **${observed}**
           vs a trailing ${baselineDays}-day baseline of mean=${baselineMean},
           stddev=${baselineStddev} (threshold ${threshold}).
 
           Top host contributors: ${hosts:-n/a}
+          Churn shape: ${shape}; host action profile: ${profile:-n/a}
 
           Source: the logical \`data/jobs-stats-history/\` store (legacy fallback: \`data/jobs-stats-history.json\`)
           Detection script: \`scripts/check-job-dataset-churn.mjs\`
@@ -91,8 +94,9 @@ jobs:
 
           Triage:
           1. Confirm the dominant host above is a real crawler run, not a misclassification.
-          2. If a single source is dumping/retracting pages in bulk, check its parser for a selector or dedup regression.
-          3. If legitimate (e.g. a source republished its whole board), close as expected.
+          2. For \`same-source-replacement\`, inspect identity/dedup and parser regressions first.
+          3. For \`distributed-added\`/\`distributed-removed\`, check coordinated upstream publication or retirement waves across hosts.
+          4. If legitimate (e.g. a source republished its whole board), close as expected.
           EOF
           )
 

@@ -71,6 +71,56 @@ function topHostContributors(keys, limit = 5) {
     .slice(0, limit);
 }
 
+function hostActionProfile(addedKeys, removedKeys, limit = 5) {
+  const counts = new Map();
+  const add = (keys, field) => {
+    for (const key of safeArray(keys)) {
+      const host = extractHost(key);
+      if (!host) continue;
+      const current = counts.get(host) || { host, added: 0, removed: 0 };
+      current[field] += 1;
+      counts.set(host, current);
+    }
+  };
+  add(addedKeys, 'added');
+  add(removedKeys, 'removed');
+
+  return [...counts.values()]
+    .map((item) => ({ ...item, total: item.added + item.removed }))
+    .sort((a, b) => (
+      b.total - a.total
+      || b.added - a.added
+      || b.removed - a.removed
+      || a.host.localeCompare(b.host)
+    ))
+    .slice(0, limit);
+}
+
+/**
+ * Give a spike a deterministic shape so triage can separate a source
+ * replacement/identity churn from a coordinated multi-source publication
+ * wave. This remains an alert (never a suppression): the shape only tells the
+ * issue reporter which class to inspect first.
+ */
+function classifyChurnShape(metric, observed, hostProfile) {
+  if (hostProfile.length === 0) return `unattributed-${metric}`;
+
+  const replacement = hostProfile.find((item) => {
+    if (item.added === 0 || item.removed === 0) return false;
+    const smaller = Math.min(item.added, item.removed);
+    const larger = Math.max(item.added, item.removed);
+    return smaller >= larger * 0.5;
+  });
+  if (replacement) return 'same-source-replacement';
+
+  const contributors = hostProfile.filter((item) => item[metric] > 0);
+  const dominant = contributors.reduce((max, item) => Math.max(max, item[metric]), 0);
+  if (contributors.length >= 3 && dominant < observed * 0.5) {
+    return `distributed-${metric}`;
+  }
+  return `single-source-${metric}`;
+}
+
 /**
  * A day is a "stale snapshot" when it repeats the previous day's
  * `totalJobs`+`added`+`updated`+`removed` exactly — a crawler orchestration
@@ -142,6 +192,7 @@ export function detectChurnAnomalies(history = {}, options = {}) {
       : null;
     const issueScope = dominantHostKey || `unattributed-${today.date}`;
     const issueSubject = dominantHost || 'unknown-host';
+    const hostChurn = hostActionProfile(today.addedKeys, today.removedKeys);
     anomalies.push({
       date: today.date,
       metric,
@@ -157,6 +208,8 @@ export function detectChurnAnomalies(history = {}, options = {}) {
       threshold: round(threshold),
       baselineDays: baseline.length,
       topHosts,
+      hostChurn,
+      churnShape: classifyChurnShape(metric, observed, hostChurn),
     });
   }
 
