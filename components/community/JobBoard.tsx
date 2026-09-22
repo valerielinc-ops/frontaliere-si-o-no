@@ -195,6 +195,7 @@ import {
 import {
  getRewardedApplicationAccessExpiresAt,
 } from '@/services/rewardedApplicationAccess';
+import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
 import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
@@ -3525,6 +3526,51 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
  const assistedApplicationOrderId = readAssistedApplicationOrderId();
+ const shouldPreloadRewardedApplicationAd = Boolean(
+  isJobDetailView
+  && authResolved
+  && userId
+  && assistedApplicationVariant === 'rewarded_ad'
+  && !killSwitches.rewardedApplicationAd
+  && selectedJob
+  && isExternalApplicationJob(selectedJob)
+  && getRewardedApplicationAccessExpiresAt() === null,
+ );
+ useEffect(() => {
+  if (!shouldPreloadRewardedApplicationAd) return;
+ let cancelled = false;
+ let idleId: number | null = null;
+ let timeoutId: number | null = null;
+ let preloadPromise: Promise<unknown> | null = null;
+ const idleWindow = window as Window & {
+   requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
+   cancelIdleCallback?: (id: number) => void;
+ };
+ const start = () => {
+   if (cancelled || !isAdsConsentGranted() || preloadPromise) return;
+   // Keep the rewarded/GPT implementation out of the initial JobBoard chunk.
+   // The page only downloads it for an eligible, consented detail view.
+   preloadPromise = import('@/services/rewardedWebAd')
+    .then(({ preloadRewardedWebAd }) => {
+     if (!cancelled) preloadRewardedWebAd();
+    })
+    .catch(() => {});
+ };
+  if (typeof idleWindow.requestIdleCallback === 'function') {
+   idleId = idleWindow.requestIdleCallback(start, { timeout: 1000 });
+  } else {
+   timeoutId = window.setTimeout(start, 250);
+  }
+  const unsubscribe = onAdsConsentChange((value) => {
+   if (value === 'granted') start();
+  });
+  return () => {
+   cancelled = true;
+   unsubscribe();
+   if (idleId !== null) idleWindow.cancelIdleCallback?.(idleId);
+   if (timeoutId !== null) window.clearTimeout(timeoutId);
+  };
+ }, [shouldPreloadRewardedApplicationAd]);
  const assistedExposureKeysRef = useRef(new Set<string>());
  useEffect(() => {
   if (shouldBypassAssistedApplicationExperiment || !assistedApplicationVariantReady || !selectedJob || !isExternalApplicationJob(selectedJob)) return;

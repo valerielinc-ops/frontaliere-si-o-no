@@ -47,14 +47,28 @@ vi.mock('@/services/adsConsent', () => ({
   onAdsConsentChange: () => () => {},
 }));
 
-import GptRewardedAd from '@/components/shared/GptRewardedAd';
+import GptRewardedAd, {
+  ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
+  REWARDED_READY_TIMEOUT_MS,
+} from '@/components/shared/GptRewardedAd';
+import { disposeRewardedWebAd, preloadRewardedWebAd } from '@/services/rewardedWebAd';
 
-afterEach(() => cleanup());
+afterEach(() => {
+  cleanup();
+  disposeRewardedWebAd();
+  vi.useRealTimers();
+});
 
 describe('GptRewardedAd', () => {
   beforeEach(() => {
     mocks.listeners.clear();
     vi.clearAllMocks();
+  });
+
+  it('uses the rewarded unit selected by the published Offerwall', () => {
+    expect(ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH).toBe(
+      '/23355151813/Offerwall-Ad-Unit-5b9baedaa76b805f',
+    );
   });
 
   it('shows the ad after opt-in and reports grant only through GPT lifecycle events', () => {
@@ -95,5 +109,48 @@ describe('GptRewardedAd', () => {
     expect(onGranted).toHaveBeenCalledTimes(1);
     expect(onClosed).toHaveBeenCalledWith(true);
     expect(mocks.trackExperimentEvent).toHaveBeenCalledWith('rewarded_web_granted', expect.any(Object));
+  });
+
+  it('reuses a slot that was preloaded before the offer dialog mounted', () => {
+    preloadRewardedWebAd();
+    const readyEvent = { slot: mocks.slot, makeRewardedVisible: mocks.makeRewardedVisible };
+
+    act(() => {
+      mocks.listeners.get('rewardedSlotReady')?.(readyEvent);
+    });
+
+    render(
+      <GptRewardedAd
+        label="Guarda il video"
+        loadingLabel="Caricamento…"
+        unavailableLabel="Non disponibile"
+        onGranted={vi.fn()}
+      />,
+    );
+
+    expect(screen.getByTestId('assisted-application-offer-rewarded')).toBeInTheDocument();
+    expect(mocks.tag.defineOutOfPageSlot).toHaveBeenCalledTimes(1);
+    expect(mocks.tag.display).toHaveBeenCalledTimes(1);
+  });
+
+  it('does not leave the caller loading forever when GPT never makes the slot ready', () => {
+    vi.useFakeTimers();
+    const onUnavailable = vi.fn();
+
+    render(
+      <GptRewardedAd
+        label="Guarda il video"
+        loadingLabel="Caricamento…"
+        unavailableLabel="Non disponibile"
+        onGranted={vi.fn()}
+        onUnavailable={onUnavailable}
+      />,
+    );
+
+    act(() => {
+      vi.advanceTimersByTime(REWARDED_READY_TIMEOUT_MS);
+    });
+
+    expect(onUnavailable).toHaveBeenCalledTimes(1);
   });
 });

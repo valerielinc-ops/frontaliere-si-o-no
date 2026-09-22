@@ -26,6 +26,8 @@ describe('assisted application JobBoard handoff', () => {
     expect(rewardedArm).toContain('setRewardedApplicationJob(job)');
     expect(rewardedArm).toContain('if (!isJobDetailView) openDetail(job)');
     expect(jobBoardSource).toContain('RewardedApplicationOffer');
+    expect(jobBoardSource).toContain('preloadRewardedWebAd');
+    expect(jobBoardSource).toContain('shouldPreloadRewardedApplicationAd');
     expect(jobBoardSource).not.toContain('rewarded_application_native_offerwall');
     expect(jobBoardSource).not.toContain('RewardedApplicationPage');
     expect(jobBoardSource).not.toContain('rewardedApplicationHandoff');
