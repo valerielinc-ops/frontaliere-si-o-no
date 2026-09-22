@@ -378,7 +378,6 @@
           "supply-chain-planner-100-rapelli-orior-food-ag-stabio"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-14T12:02:51.962Z",
       "salaryMin": 55500,
       "salaryMax": 75000,
@@ -393,8 +392,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "TI",
-      "retranslationAttempts": 1
+      "addressRegion": "TI"
     },
     {
       "id": "rapelli-9f442deed99b",
