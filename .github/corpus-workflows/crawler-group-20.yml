@@ -282,6 +282,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::ottos: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ ottos: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::ottos: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -455,6 +456,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::kliniken-valens: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ kliniken-valens: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::kliniken-valens: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -628,6 +630,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::klinik-lengg: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ klinik-lengg: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::klinik-lengg: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -801,6 +804,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::strabag: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ strabag: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::strabag: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -974,6 +978,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::rfsm-fribourg: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ rfsm-fribourg: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::rfsm-fribourg: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -1147,6 +1152,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::vontobel: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ vontobel: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::vontobel: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -1320,6 +1326,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::medics-labor: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ medics-labor: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::medics-labor: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -1493,6 +1500,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::igroove: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ igroove: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::igroove: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -1666,6 +1674,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::zambon: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ zambon: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::zambon: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -1839,6 +1848,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::supsi: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ supsi: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::supsi: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -2012,6 +2022,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::pizzarotti: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ pizzarotti: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::pizzarotti: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -2185,6 +2196,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::privatklinik-meiringen: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ privatklinik-meiringen: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::privatklinik-meiringen: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -2358,6 +2370,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::stryker: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ stryker: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::stryker: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -2531,6 +2544,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::accor: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ accor: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::accor: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -2704,6 +2718,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::ocst: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ ocst: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::ocst: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -2877,6 +2892,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::visionapartments: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ visionapartments: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::visionapartments: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -3050,6 +3066,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::ksb: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ ksb: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::ksb: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -3223,6 +3240,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::clinique-de-la-plaine: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ clinique-de-la-plaine: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::clinique-de-la-plaine: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -3396,6 +3414,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::givaudan: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ givaudan: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::givaudan: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -3569,6 +3588,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::georg-fischer: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ georg-fischer: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::georg-fischer: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -3743,6 +3763,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::klinik-wyssholzli: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ klinik-wyssholzli: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::klinik-wyssholzli: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -3916,6 +3937,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::institution-lavigny: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ institution-lavigny: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::institution-lavigny: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -4090,6 +4112,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::buergenstock-hotels: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ buergenstock-hotels: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::buergenstock-hotels: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -4120,179 +4143,6 @@ jobs:
           status_file="$RUNNER_TEMP/crawler-generation/group-20/buergenstock-hotels.status"
           status_tmp="$RUNNER_TEMP/crawler-generation/group-20/buergenstock-hotels.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-20/buergenstock-hotels.started"
-          worker_watchdog_max=330
-          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
-          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
-            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
-            worker_watchdog_minutes=30
-          fi
-          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
-          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
-            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
-            printf '\''1\n'\'' > "$status_tmp"
-            mv "$status_tmp" "$status_file"
-            exit 1
-          fi
-          if ! command -v timeout >/dev/null 2>&1; then
-            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
-            printf '\''127\n'\'' > "$status_tmp"
-            mv "$status_tmp" "$status_file"
-            exit 127
-          fi
-          if ! command -v flock >/dev/null 2>&1; then
-            echo "flock is unavailable; running this crawler without the group semaphore"
-            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
-            flock_exit=$?
-            if [ -s "$status_file" ]; then
-              status="$(cat "$status_file" 2>/dev/null || true)"
-              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
-            fi
-            terminal_exit="$flock_exit"
-            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
-            printf "%s\n" "$terminal_exit" > "$status_tmp"
-            mv "$status_tmp" "$status_file"
-            exit "$terminal_exit"
-          fi
-          while :; do
-            for slot_index in $(seq 1 "$max_parallel"); do
-              slot_path="$state_dir/slots/slot-${slot_index}.lock"
-              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
-              flock_exit=$?
-              if [ "$flock_exit" -eq 0 ]; then
-                exit 0
-              fi
-              if [ -s "$status_file" ]; then
-                status="$(cat "$status_file" 2>/dev/null || true)"
-                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
-                printf '\''1\n'\'' > "$status_tmp"
-                mv "$status_tmp" "$status_file"
-                exit 1
-              fi
-              if [ -e "$started_file" ]; then
-                # A worker that acquired a slot but disappeared before its atomic
-                # status write must not be retried or waited on for the full budget.
-                # Preserve the child status when available; 143 is the conventional
-                # fallback for a SIGTERM from the runner/host.
-                terminal_exit="$flock_exit"
-                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
-                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
-                mv "$status_tmp" "$status_file"
-                exit "$terminal_exit"
-              fi
-              if [ "$flock_exit" -ne 1 ]; then
-                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
-                mv "$status_tmp" "$status_file"
-                exit "$flock_exit"
-              fi
-            done
-            sleep 1
-          done' > "$launcher_path"
-          if command -v setsid >/dev/null 2>&1; then
-            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
-          else
-            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
-          fi
-          launcher_pid=$!
-          printf '%s\n' "$launcher_pid" > "$pid_path"
-      - name: Launch capri-holdings
-        id: crawler-launch-capri-holdings
-        if: always() && steps.crawler_group_setup.outcome == 'success'
-        continue-on-error: true
-        env:
-          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-capri-holdings.txt
-          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
-          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
-          JOBS_CAPRI_HOLDINGS_STRICT: ${{ inputs.strict_localization || '1' }}
-          CRAWLER_SLICE_ONLY: "1"
-          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
-          JOBS_HOUSEKEEPING_SCOPE: capri-holdings
-          JOBS_SLICE_FILE: data/jobs/by-crawler/capri-holdings.json
-          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
-        run: |-
-          set -euo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-20"
-          mkdir -p "$state_dir/slots"
-          script_path="$state_dir/capri-holdings.sh"
-          launcher_path="$state_dir/capri-holdings.launcher.sh"
-          worker_path="$state_dir/capri-holdings.worker.sh"
-          log_path="$state_dir/capri-holdings.log"
-          pid_path="$state_dir/capri-holdings.pid"
-          status_path="$state_dir/capri-holdings.status"
-          started_path="$state_dir/capri-holdings.started"
-          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
-          # shellcheck disable=SC2016,SC1003
-          printf '%s\n' 'set -uo pipefail
-          set +e
-
-          # ---- capri-holdings: run crawler (verbatim from original workflow) ----
-          npm run jobs:update:capri-holdings
-          crawler_exit=$?
-          git_commit_exit=0
-
-          # ---- capri-holdings: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
-          if [ "$crawler_exit" -eq 0 ]; then
-            (node scripts/cleanup-jobs.mjs) || true
-          fi
-
-          # ---- capri-holdings: Commit and push (verbatim, only if crawler succeeded) ----
-          if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "👜 Auto-update Capri Holdings jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
-            git_commit_exit=$?
-          fi
-
-          # ---- capri-holdings: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run capri-holdings" \
-              --description "## Crawler fallito
-            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            **Branch:** ${{ github.ref_name }}
-            **Trigger:** ${{ github.event_name }}" \
-              --priority 2 \
-              --label Bug \
-              --workflow "Run capri-holdings"
-          fi
-          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
-            echo "::warning::capri-holdings: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
-            echo "⚠️ capri-holdings: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
-          fi
-          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
-            echo "::warning::capri-holdings: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
-            echo "⚠️ capri-holdings: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
-          fi
-          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::capri-holdings: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
-            echo "❌ capri-holdings: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
-          fi
-          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
-            echo "::warning::capri-holdings: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
-            echo "⚠️ capri-holdings: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
-            exit 143
-          fi
-
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            exit 1
-          fi
-          exit 0' > "$script_path"
-          # shellcheck disable=SC2016,SC1003
-          printf '%s\n' 'set +e
-          script_path="$RUNNER_TEMP/crawler-generation/group-20/capri-holdings.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-20/capri-holdings.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-20/capri-holdings.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-20/capri-holdings.started"
-          : > "$started_file"
-          bash "$script_path"
-          crawler_exit=$?
-          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
-          mv "$status_tmp" "$status_file"
-          exit "$crawler_exit"' > "$worker_path"
-          # shellcheck disable=SC2016,SC1003
-          printf '%s\n' 'set +e
-          state_dir="$RUNNER_TEMP/crawler-generation/group-20"
-          worker_path="$RUNNER_TEMP/crawler-generation/group-20/capri-holdings.worker.sh"
-          status_file="$RUNNER_TEMP/crawler-generation/group-20/capri-holdings.status"
-          status_tmp="$RUNNER_TEMP/crawler-generation/group-20/capri-holdings.status.tmp.$$"
-          started_file="$RUNNER_TEMP/crawler-generation/group-20/capri-holdings.started"
           worker_watchdog_max=330
           worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-30}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
@@ -4436,6 +4286,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::bcvs: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ bcvs: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::bcvs: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -4609,6 +4460,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::hrc: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ hrc: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::hrc: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -4782,6 +4634,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::arxada: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ arxada: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::arxada: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -4956,6 +4809,7 @@ jobs:
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
             echo "::error::adus-klinik: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ adus-klinik: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
           fi
           if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
             echo "::warning::adus-klinik: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
@@ -4991,6 +4845,180 @@ jobs:
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
             echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 30)"
             worker_watchdog_minutes=30
+          fi
+          max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
+          if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
+            echo "Invalid CRAWLER_GROUP_MAX_PARALLEL: $max_parallel"
+            printf '\''1\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 1
+          fi
+          if ! command -v timeout >/dev/null 2>&1; then
+            echo "::error::timeout command unavailable; refusing to run an unbounded crawler worker"
+            printf '\''127\n'\'' > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit 127
+          fi
+          if ! command -v flock >/dev/null 2>&1; then
+            echo "flock is unavailable; running this crawler without the group semaphore"
+            timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+            flock_exit=$?
+            if [ -s "$status_file" ]; then
+              status="$(cat "$status_file" 2>/dev/null || true)"
+              if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+            fi
+            terminal_exit="$flock_exit"
+            if ! [[ "$terminal_exit" =~ ^[0-9]+$ ]]; then terminal_exit=143; fi
+            printf "%s\n" "$terminal_exit" > "$status_tmp"
+            mv "$status_tmp" "$status_file"
+            exit "$terminal_exit"
+          fi
+          while :; do
+            for slot_index in $(seq 1 "$max_parallel"); do
+              slot_path="$state_dir/slots/slot-${slot_index}.lock"
+              flock -n "$slot_path" timeout --signal=TERM --kill-after=30s "${worker_watchdog_minutes}m" bash "$worker_path"
+              flock_exit=$?
+              if [ "$flock_exit" -eq 0 ]; then
+                exit 0
+              fi
+              if [ -s "$status_file" ]; then
+                status="$(cat "$status_file" 2>/dev/null || true)"
+                if [[ "$status" =~ ^[0-9]+$ ]]; then exit "$status"; fi
+                printf '\''1\n'\'' > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit 1
+              fi
+              if [ -e "$started_file" ]; then
+                # A worker that acquired a slot but disappeared before its atomic
+                # status write must not be retried or waited on for the full budget.
+                # Preserve the child status when available; 143 is the conventional
+                # fallback for a SIGTERM from the runner/host.
+                terminal_exit="$flock_exit"
+                if ! [[ "$terminal_exit" =~ ^[1-9][0-9]*$ ]]; then terminal_exit=143; fi
+                printf '\''%s\n'\'' "$terminal_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$terminal_exit"
+              fi
+              if [ "$flock_exit" -ne 1 ]; then
+                printf '\''%s\n'\'' "$flock_exit" > "$status_tmp"
+                mv "$status_tmp" "$status_file"
+                exit "$flock_exit"
+              fi
+            done
+            sleep 1
+          done' > "$launcher_path"
+          if command -v setsid >/dev/null 2>&1; then
+            env -u RUNNER_TRACKING_ID nohup setsid bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          else
+            env -u RUNNER_TRACKING_ID nohup bash "$launcher_path" > "$log_path" 2>&1 < /dev/null &
+          fi
+          launcher_pid=$!
+          printf '%s\n' "$launcher_pid" > "$pid_path"
+      - name: Launch ist
+        id: crawler-launch-ist
+        if: always() && steps.crawler_group_setup.outcome == 'success'
+        continue-on-error: true
+        env:
+          SLUG_HISTORY_SUMMARY_FILE: /tmp/slug-history-summary-ist.txt
+          JOBS_CRAWLER_TIMEOUT_MS: ${{ inputs.timeout_ms || '' }}
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
+          JOBS_IST_STRICT: ${{ inputs.strict_localization || '1' }}
+          CRAWLER_SLICE_ONLY: "1"
+          SKIP_AI_TRANSLATION: ${{ inputs.skip_ai_translation || '0' }}
+          JOBS_HOUSEKEEPING_SCOPE: international-school-of-ticino
+          JOBS_SLICE_FILE: data/jobs/by-crawler/international-school-of-ticino.json
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          set -euo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-20"
+          mkdir -p "$state_dir/slots"
+          script_path="$state_dir/ist.sh"
+          launcher_path="$state_dir/ist.launcher.sh"
+          worker_path="$state_dir/ist.worker.sh"
+          log_path="$state_dir/ist.log"
+          pid_path="$state_dir/ist.pid"
+          status_path="$state_dir/ist.status"
+          started_path="$state_dir/ist.started"
+          rm -f "$script_path" "$launcher_path" "$worker_path" "$log_path" "$pid_path" "$status_path" "$started_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set -uo pipefail
+          set +e
+
+          # ---- ist: run crawler (verbatim from original workflow) ----
+          npm run jobs:update:ist
+          crawler_exit=$?
+          git_commit_exit=0
+
+          # ---- ist: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ]; then
+            (node scripts/cleanup-jobs.mjs) || true
+          fi
+
+          # ---- ist: Commit and push (verbatim, only if crawler succeeded) ----
+          if [ "$crawler_exit" -eq 0 ]; then
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update IST jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            git_commit_exit=$?
+          fi
+
+          # ---- ist: Report failure to GitHub Issues (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+            node scripts/lib/github-issue-creator.mjs \
+              --title "Crawler Failure: Run ist" \
+              --description "## Crawler fallito
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            **Branch:** ${{ github.ref_name }}
+            **Trigger:** ${{ github.event_name }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "Run ist"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
+            echo "::warning::ist: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
+            echo "⚠️ ist: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
+            echo "::warning::ist: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
+            echo "⚠️ ist: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+          fi
+          if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
+            echo "::error::ist: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "❌ ist: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 43
+          fi
+          if [ "$crawler_exit" -eq 143 ] || [ "$git_commit_exit" -eq 143 ]; then
+            echo "::warning::ist: runner shutdown interrupted the crawler (exit 143); no per-crawler issue filed (systemic class)."
+            echo "⚠️ ist: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 143
+          fi
+
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+            exit 1
+          fi
+          exit 0' > "$script_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          script_path="$RUNNER_TEMP/crawler-generation/group-20/ist.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-20/ist.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-20/ist.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-20/ist.started"
+          : > "$started_file"
+          bash "$script_path"
+          crawler_exit=$?
+          printf '\''%s\n'\'' "$crawler_exit" > "$status_tmp"
+          mv "$status_tmp" "$status_file"
+          exit "$crawler_exit"' > "$worker_path"
+          # shellcheck disable=SC2016,SC1003
+          printf '%s\n' 'set +e
+          state_dir="$RUNNER_TEMP/crawler-generation/group-20"
+          worker_path="$RUNNER_TEMP/crawler-generation/group-20/ist.worker.sh"
+          status_file="$RUNNER_TEMP/crawler-generation/group-20/ist.status"
+          status_tmp="$RUNNER_TEMP/crawler-generation/group-20/ist.status.tmp.$$"
+          started_file="$RUNNER_TEMP/crawler-generation/group-20/ist.started"
+          worker_watchdog_max=330
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-80}"
+          if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 80)"
+            worker_watchdog_minutes=80
           fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
@@ -6325,61 +6353,6 @@ jobs:
             exit 1
           fi
           exit "$status"
-      - name: Run capri-holdings
-        id: crawler-capri-holdings
-        if: always()
-        continue-on-error: true
-        env:
-          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-capri-holdings'].outcome }}
-        run: |-
-          set -uo pipefail
-          state_dir="$RUNNER_TEMP/crawler-generation/group-20"
-          status_file="$state_dir/capri-holdings.status"
-          pid_file="$state_dir/capri-holdings.pid"
-          log_file="$state_dir/capri-holdings.log"
-          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
-          if [ "$launch_outcome" != "success" ]; then
-            echo "::error::capri-holdings: launch step outcome is $launch_outcome; detached crawler was not started"
-            exit 1
-          fi
-          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
-            echo "::error::capri-holdings: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
-            exit 1
-          fi
-          deadline=$((SECONDS + 340 * 60))
-          while [ ! -s "$status_file" ]; do
-            if [ "$SECONDS" -ge "$deadline" ]; then
-              echo "::error::capri-holdings: detached crawler did not publish a status before the 340 minute group budget"
-              exit 1
-            fi
-            if [ -s "$pid_file" ]; then
-              pid="$(cat "$pid_file" 2>/dev/null || true)"
-              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
-                echo "::error::capri-holdings: invalid detached crawler PID: $pid"
-                exit 1
-              fi
-              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
-                sleep 1
-                if [ ! -s "$status_file" ]; then
-                  echo "::error::capri-holdings: detached crawler exited without publishing its status"
-                  exit 1
-                fi
-              fi
-            fi
-            sleep 2
-          done
-          if [ -f "$log_file" ]; then
-            cat "$log_file"
-          else
-            echo "::error::capri-holdings: crawler log is missing"
-            exit 1
-          fi
-          status="$(cat "$status_file" 2>/dev/null || true)"
-          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-            echo "::error::capri-holdings: invalid crawler status: $status"
-            exit 1
-          fi
-          exit "$status"
       - name: Run bcvs
         id: crawler-bcvs
         if: always()
@@ -6597,6 +6570,61 @@ jobs:
           status="$(cat "$status_file" 2>/dev/null || true)"
           if ! [[ "$status" =~ ^[0-9]+$ ]]; then
             echo "::error::adus-klinik: invalid crawler status: $status"
+            exit 1
+          fi
+          exit "$status"
+      - name: Run ist
+        id: crawler-ist
+        if: always()
+        continue-on-error: true
+        env:
+          CRAWLER_LAUNCH_OUTCOME: ${{ steps['crawler-launch-ist'].outcome }}
+        run: |-
+          set -uo pipefail
+          state_dir="$RUNNER_TEMP/crawler-generation/group-20"
+          status_file="$state_dir/ist.status"
+          pid_file="$state_dir/ist.pid"
+          log_file="$state_dir/ist.log"
+          launch_outcome="${CRAWLER_LAUNCH_OUTCOME:-unknown}"
+          if [ "$launch_outcome" != "success" ]; then
+            echo "::error::ist: launch step outcome is $launch_outcome; detached crawler was not started"
+            exit 1
+          fi
+          if [ ! -s "$status_file" ] && [ ! -s "$pid_file" ]; then
+            echo "::error::ist: launch step succeeded but published neither status nor PID; refusing to wait for the group budget"
+            exit 1
+          fi
+          deadline=$((SECONDS + 340 * 60))
+          while [ ! -s "$status_file" ]; do
+            if [ "$SECONDS" -ge "$deadline" ]; then
+              echo "::error::ist: detached crawler did not publish a status before the 340 minute group budget"
+              exit 1
+            fi
+            if [ -s "$pid_file" ]; then
+              pid="$(cat "$pid_file" 2>/dev/null || true)"
+              if ! [[ "$pid" =~ ^[1-9][0-9]*$ ]]; then
+                echo "::error::ist: invalid detached crawler PID: $pid"
+                exit 1
+              fi
+              if [ -n "$pid" ] && ! kill -0 "$pid" 2>/dev/null; then
+                sleep 1
+                if [ ! -s "$status_file" ]; then
+                  echo "::error::ist: detached crawler exited without publishing its status"
+                  exit 1
+                fi
+              fi
+            fi
+            sleep 2
+          done
+          if [ -f "$log_file" ]; then
+            cat "$log_file"
+          else
+            echo "::error::ist: crawler log is missing"
+            exit 1
+          fi
+          status="$(cat "$status_file" 2>/dev/null || true)"
+          if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+            echo "::error::ist: invalid crawler status: $status"
             exit 1
           fi
           exit "$status"
@@ -7167,30 +7195,6 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
-          status_file="$state_dir/capri-holdings.status"
-          if [ ! -s "$status_file" ]; then
-            echo "::warning::capri-holdings: no terminal status was published"
-            printf '%s\n' '| capri-holdings | missing status |' >> "$summary_file"
-            missing_count=$((missing_count + 1))
-          else
-            status="$(cat "$status_file" 2>/dev/null || true)"
-            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
-              echo "::error::capri-holdings: invalid terminal status: $status"
-              printf '%s\n' '| capri-holdings | invalid status |' >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            elif [ "$status" -eq 143 ]; then
-              echo "::warning::capri-holdings: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
-              printf '%s\n' '| capri-holdings | systemic runner shutdown (143) |' >> "$summary_file"
-              systemic_count=$((systemic_count + 1))
-            elif [ "$status" -eq 0 ]; then
-              printf '%s\n' '| capri-holdings | success |' >> "$summary_file"
-              success_count=$((success_count + 1))
-            else
-              echo "::error::capri-holdings: crawler exited with status $status"
-              printf '| capri-holdings | failed (%s) |\n' "$status" >> "$summary_file"
-              failure_count=$((failure_count + 1))
-            fi
-          fi
           status_file="$state_dir/bcvs.status"
           if [ ! -s "$status_file" ]; then
             echo "::warning::bcvs: no terminal status was published"
@@ -7287,6 +7291,30 @@ jobs:
               failure_count=$((failure_count + 1))
             fi
           fi
+          status_file="$state_dir/ist.status"
+          if [ ! -s "$status_file" ]; then
+            echo "::warning::ist: no terminal status was published"
+            printf '%s\n' '| ist | missing status |' >> "$summary_file"
+            missing_count=$((missing_count + 1))
+          else
+            status="$(cat "$status_file" 2>/dev/null || true)"
+            if ! [[ "$status" =~ ^[0-9]+$ ]]; then
+              echo "::error::ist: invalid terminal status: $status"
+              printf '%s\n' '| ist | invalid status |' >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            elif [ "$status" -eq 143 ]; then
+              echo "::warning::ist: runner shutdown recorded as systemic outcome (exit 143); no per-crawler issue filed"
+              printf '%s\n' '| ist | systemic runner shutdown (143) |' >> "$summary_file"
+              systemic_count=$((systemic_count + 1))
+            elif [ "$status" -eq 0 ]; then
+              printf '%s\n' '| ist | success |' >> "$summary_file"
+              success_count=$((success_count + 1))
+            else
+              echo "::error::ist: crawler exited with status $status"
+              printf '| ist | failed (%s) |\n' "$status" >> "$summary_file"
+              failure_count=$((failure_count + 1))
+            fi
+          fi
           printf '%s\n' "**Summary:** $success_count succeeded, $failure_count failed, $missing_count missing, $systemic_count systemic." >> "$summary_file"
           if [ "$failure_count" -gt 0 ] || [ "$missing_count" -gt 0 ] || [ "$systemic_count" -gt 0 ]; then
             wait_outcome=failure
@@ -7345,7 +7373,7 @@ jobs:
           CRAWLER_GENERATION_CALLER_RUN_ID: ${{ github.run_id }}
           CRAWLER_GENERATION_CALLER_RUN_ATTEMPT: ${{ github.run_attempt }}
           CRAWLER_GENERATION_WAIT_OUTCOME: ${{ steps.crawler_aggregate.outputs.wait_outcome || 'failure' }}
-          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"accor","primarySlice":"data/jobs/by-crawler/accor.json"},{"crawlerId":"adus-klinik","primarySlice":"data/jobs/by-crawler/adus-klinik.json"},{"crawlerId":"arxada","primarySlice":"data/jobs/by-crawler/arxada.json"},{"crawlerId":"bcvs","primarySlice":"data/jobs/by-crawler/bcvs.json"},{"crawlerId":"buergenstock-hotels","primarySlice":"data/jobs/by-crawler/buergenstock-hotels.json"},{"crawlerId":"capri-holdings","primarySlice":"data/jobs/by-crawler/capri-holdings.json"},{"crawlerId":"clinique-de-la-plaine","primarySlice":"data/jobs/by-crawler/clinique-de-la-plaine.json"},{"crawlerId":"georg-fischer","primarySlice":"data/jobs/by-crawler/georg-fischer.json"},{"crawlerId":"givaudan","primarySlice":"data/jobs/by-crawler/givaudan.json"},{"crawlerId":"hrc","primarySlice":"data/jobs/by-crawler/hrc.json"},{"crawlerId":"igroove","primarySlice":"data/jobs/by-crawler/igroove.json"},{"crawlerId":"impresa-pizzarotti","primarySlice":"data/jobs/by-crawler/impresa-pizzarotti.json"},{"crawlerId":"institution-lavigny","primarySlice":"data/jobs/by-crawler/institution-lavigny.json"},{"crawlerId":"klinik-lengg","primarySlice":"data/jobs/by-crawler/klinik-lengg.json"},{"crawlerId":"klinik-wyssholzli","primarySlice":"data/jobs/by-crawler/klinik-wyssholzli.json"},{"crawlerId":"kliniken-valens","primarySlice":"data/jobs/by-crawler/kliniken-valens.json"},{"crawlerId":"ksb","primarySlice":"data/jobs/by-crawler/ksb.json"},{"crawlerId":"medics-labor","primarySlice":"data/jobs/by-crawler/medics-labor.json"},{"crawlerId":"ocst","primarySlice":"data/jobs/by-crawler/ocst.json"},{"crawlerId":"ottos","primarySlice":"data/jobs/by-crawler/ottos.json"},{"crawlerId":"privatklinik-meiringen","primarySlice":"data/jobs/by-crawler/privatklinik-meiringen.json"},{"crawlerId":"rfsm-fribourg","primarySlice":"data/jobs/by-crawler/rfsm-fribourg.json"},{"crawlerId":"strabag","primarySlice":"data/jobs/by-crawler/strabag.json"},{"crawlerId":"stryker","primarySlice":"data/jobs/by-crawler/stryker.json"},{"crawlerId":"supsi-dti","primarySlice":"data/jobs/by-crawler/supsi-dti.json"},{"crawlerId":"visionapartments","primarySlice":"data/jobs/by-crawler/visionapartments.json"},{"crawlerId":"vontobel","primarySlice":"data/jobs/by-crawler/vontobel.json"},{"crawlerId":"zambon","primarySlice":"data/jobs/by-crawler/zambon.json"}]'
+          CRAWLER_GENERATION_EXPECTED_CRAWLERS: '[{"crawlerId":"accor","primarySlice":"data/jobs/by-crawler/accor.json"},{"crawlerId":"adus-klinik","primarySlice":"data/jobs/by-crawler/adus-klinik.json"},{"crawlerId":"arxada","primarySlice":"data/jobs/by-crawler/arxada.json"},{"crawlerId":"bcvs","primarySlice":"data/jobs/by-crawler/bcvs.json"},{"crawlerId":"buergenstock-hotels","primarySlice":"data/jobs/by-crawler/buergenstock-hotels.json"},{"crawlerId":"clinique-de-la-plaine","primarySlice":"data/jobs/by-crawler/clinique-de-la-plaine.json"},{"crawlerId":"georg-fischer","primarySlice":"data/jobs/by-crawler/georg-fischer.json"},{"crawlerId":"givaudan","primarySlice":"data/jobs/by-crawler/givaudan.json"},{"crawlerId":"hrc","primarySlice":"data/jobs/by-crawler/hrc.json"},{"crawlerId":"igroove","primarySlice":"data/jobs/by-crawler/igroove.json"},{"crawlerId":"impresa-pizzarotti","primarySlice":"data/jobs/by-crawler/impresa-pizzarotti.json"},{"crawlerId":"institution-lavigny","primarySlice":"data/jobs/by-crawler/institution-lavigny.json"},{"crawlerId":"international-school-of-ticino","primarySlice":"data/jobs/by-crawler/international-school-of-ticino.json"},{"crawlerId":"klinik-lengg","primarySlice":"data/jobs/by-crawler/klinik-lengg.json"},{"crawlerId":"klinik-wyssholzli","primarySlice":"data/jobs/by-crawler/klinik-wyssholzli.json"},{"crawlerId":"kliniken-valens","primarySlice":"data/jobs/by-crawler/kliniken-valens.json"},{"crawlerId":"ksb","primarySlice":"data/jobs/by-crawler/ksb.json"},{"crawlerId":"medics-labor","primarySlice":"data/jobs/by-crawler/medics-labor.json"},{"crawlerId":"ocst","primarySlice":"data/jobs/by-crawler/ocst.json"},{"crawlerId":"ottos","primarySlice":"data/jobs/by-crawler/ottos.json"},{"crawlerId":"privatklinik-meiringen","primarySlice":"data/jobs/by-crawler/privatklinik-meiringen.json"},{"crawlerId":"rfsm-fribourg","primarySlice":"data/jobs/by-crawler/rfsm-fribourg.json"},{"crawlerId":"strabag","primarySlice":"data/jobs/by-crawler/strabag.json"},{"crawlerId":"stryker","primarySlice":"data/jobs/by-crawler/stryker.json"},{"crawlerId":"supsi-dti","primarySlice":"data/jobs/by-crawler/supsi-dti.json"},{"crawlerId":"visionapartments","primarySlice":"data/jobs/by-crawler/visionapartments.json"},{"crawlerId":"vontobel","primarySlice":"data/jobs/by-crawler/vontobel.json"},{"crawlerId":"zambon","primarySlice":"data/jobs/by-crawler/zambon.json"}]'
           CRAWLER_GENERATION_OUTPUT: ${{ runner.temp }}/crawler-generation/crawler-group-20-terminal.json
           CRAWLER_GENERATION_LEDGER_PATH: data/crawler-generation-ledger.jsonl
         run: node scripts/crawler-group-generation-finalizer.mjs

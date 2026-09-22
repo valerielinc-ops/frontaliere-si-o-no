@@ -690,8 +690,9 @@ function globalLeaseBusyNotice(slug, { propagate = false } = {}) {
  * Error annotation + step-summary breadcrumb emitted in place of the
  * suppressed per-crawler issue. `propagate` re-exits with the same code so the
  * TIMED variant's outer phase (which only sees `target_exit`) can tell this
- * class apart from a generic failure; the untimed variant reads
- * `git_commit_exit` directly and does not need it.
+ * class apart from a generic failure; the untimed variant also propagates the
+ * code so its detached terminal status preserves the systemic class instead
+ * of collapsing it to a generic success/failure code.
  */
 function sharedPreconditionNotice(slug, { propagate = false } = {}) {
   return [
@@ -939,7 +940,7 @@ export function buildCrawlerShellBody(crawler) {
       lines.push(`  echo "⚠️ ${crawler.slug}: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"`);
       lines.push('fi');
       lines.push(...globalLeaseBusyNotice(crawler.slug));
-      lines.push(...sharedPreconditionNotice(crawler.slug));
+      lines.push(...sharedPreconditionNotice(crawler.slug, { propagate: true }));
       lines.push(...runnerShutdownNotice(crawler.slug, { propagate: true }));
       lines.push('');
       continue;
