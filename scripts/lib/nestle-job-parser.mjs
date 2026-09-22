@@ -159,7 +159,10 @@ async function fetchJobListings() {
   return out.filter((job) => isSwissLocation(job.location));
 }
 
-async function fetchJobDescriptionText(listingUrl) {
+export async function fetchJobDescriptionText(
+  listingUrl,
+  { timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 15000 } = {},
+) {
   if (!listingUrl) return '';
   try {
     const res = await fetch(listingUrl, {
@@ -168,6 +171,7 @@ async function fetchJobDescriptionText(listingUrl) {
         'User-Agent': 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/)',
       },
       redirect: 'follow',
+      signal: AbortSignal.timeout(timeoutMs),
     });
     if (!res.ok) return '';
     // 200-but-challenge (IP-reputation WAF, cambiavalute class #1363) → Jina.

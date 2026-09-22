@@ -666,10 +666,18 @@ export async function fetchMcdoJobs({
         return null;
       }
       if (detail.locationStatus !== 'verified') {
-        throw new Error(
-          '[mcdonalds] detail ' + parsed.url
-          + ' has no verified Swiss source location; refusing listing fallback.',
-        );
+        // The listing row already passed the strict Swiss-location contract.
+        // Some McHire detail pages temporarily omit jobLocation entirely; in
+        // that case retain the verified listing address instead of aborting the
+        // complete authoritative snapshot. Explicitly foreign details remain
+        // excluded by the branch above.
+        detailFallbacks += 1;
+        return {
+          ...parsed,
+          description: detail.description || parsed.description,
+          datePosted: detail.datePosted || parsed.datePosted,
+          validThrough: detail.validThrough || parsed.validThrough,
+        };
       }
      return {
        ...parsed,
@@ -695,7 +703,7 @@ export async function fetchMcdoJobs({
     if (job) jobs.push(job);
   }
  if (detailFallbacks > 0) {
-   console.warn(`  ⚠️  Detail pages unavailable or without JobPosting JSON-LD: ${detailFallbacks}; listing location data retained.`);
+   console.warn(`  ⚠️  Detail pages unavailable or without a verified Swiss location: ${detailFallbacks}; listing location data retained.`);
  }
   if (detailForeignDrops > 0) {
     console.warn(`  ⚠️  Explicitly foreign detail locations excluded: ${detailForeignDrops}.`);
