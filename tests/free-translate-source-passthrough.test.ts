@@ -663,4 +663,10 @@ describe('isSourcePassthrough', () => {
     expect(isSourcePassthrough(source, 'Tecnico ZQXOXQZ')).toBe(true);
     expect(isSourcePassthrough('ZQ 100%', 'ZQ 100%')).toBe(true);
   });
+
+  it('non confonde un output con NUL con il marker di confronto del sentinel', () => {
+    const source = 'Tecnico ZQX0XQZ';
+    const providerOutput = 'Tecnico \u0000protected-token\u0000';
+    expect(isSourcePassthrough(source, providerOutput)).toBe(false);
+  });
 });

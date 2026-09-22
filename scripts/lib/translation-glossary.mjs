@@ -446,6 +446,7 @@ const mangledProtectedTokenScrubRe = () =>
   new RegExp(`z${TOKEN_SEP}q${TOKEN_SEP}(?:[①-⑳][\\s\\S]{0,8}?%|x${TOKEN_SEP}[0-9oOxX][\\s\\S]{0,8}?%)`, 'giu');
 
 const PROTECTED_TOKEN_COMPARISON_PLACEHOLDER = '\u0000protected-token\u0000';
+const PROTECTED_TOKEN_COMPARISON_NUL_ESCAPE = '\u0000\u0000';
 
 /**
  * Normalize every known protected-token shape to one comparison marker.
@@ -461,6 +462,10 @@ export function normalizeProtectedTokenSentinels(text = '') {
   const input = String(text ?? '');
   if (!input) return input;
   return input
+    // The comparison marker contains NUL bytes. Escape raw NULs first so a
+    // provider output cannot collide with a marker inserted for a protected
+    // token during passthrough comparison.
+    .replace(/\u0000/g, PROTECTED_TOKEN_COMPARISON_NUL_ESCAPE)
     .replace(protectedTokenRe(), PROTECTED_TOKEN_COMPARISON_PLACEHOLDER)
     .replace(protectedTokenScrubRe(), PROTECTED_TOKEN_COMPARISON_PLACEHOLDER)
     .replace(mangledProtectedTokenScrubRe(), PROTECTED_TOKEN_COMPARISON_PLACEHOLDER);
