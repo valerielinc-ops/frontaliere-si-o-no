@@ -68,7 +68,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:15:19.162Z",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -260,7 +259,7 @@
       "title": "Head R&D Project Automatic Assembly Tools Oetiker Group (all)",
       "titleByLocale": {
         "it": "Responsabile del progetto di R&S Strumenti di assemblaggio automatico Gruppo Oeticiano (tutti)",
-        "en": "Head R&D Project Automatic Assembly Tools Oetiker Group (all)",
+        "en": "Head R&D Project Automatic Assembly Tools Oetician Group (all)",
         "de": "Head R&D Project Automatic Assembly Tools Oetiker Group (all)",
         "fr": "Chef Projet R & D Outils d'assemblage automatique Groupe Oetiker (tous)"
       },
@@ -392,7 +391,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:53:36.248Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -560,8 +558,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

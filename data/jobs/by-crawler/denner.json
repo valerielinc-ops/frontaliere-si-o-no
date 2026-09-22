@@ -94,7 +94,6 @@
           "stv-filialleiter-in-migros-ticino-aeschi-bei-spiez-o4qo0h"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
@@ -202,7 +201,6 @@
           "verkaufer-in-migros-ticino-aeschi-bei-spiez-lvj7xa"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -339,7 +337,6 @@
           "vendeur-dans-le-salaire-horaire-migros-ticino-steckborn"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -546,7 +543,6 @@
       "source": "Denner/Migros Dedicated Parser",
       "sourceLang": "de",
       "crawledAt": "2026-09-22T00:03:33.733Z",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-08T13:38:27.803Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -560,7 +556,17 @@
           "maxValue": 118500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "verkaufer-in-denner-o0pnha",
+          "verkaufer-in-denner-2"
+        ]
+      },
+      "previousSlugs": [
+        "verkaufer-in-denner-o0pnha",
+        "verkaufer-in-denner-2"
+      ]
     },
     {
       "id": "company-h20zj5",
@@ -658,7 +664,6 @@
           "filialleiter-in-ausbildung-denner-ag-kirchberg-h20zj5"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:41:04.249Z",
       "salaryMin": 82500,
       "salaryMax": 127000,
@@ -996,7 +1001,6 @@
           "gestionnaire-de-magasin-denner-ag-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -1104,7 +1108,6 @@
           "filialleiter-in-ausbildung-denner-ag-muttenz-qr8sbm"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -1214,7 +1217,6 @@
           "stv-filialleiter-in-denner-ag-wadenswil-wvfsx2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -1324,7 +1326,6 @@
           "assistent-in-filialleitung-denner-ag-langnau-am-albis-0ojthu"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -1439,7 +1440,6 @@
           "verkaufer-in-denner-ag-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-30T12:43:38.551Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -1547,7 +1547,6 @@
           "stv-filialleiter-in-denner-ag-basel-v42vb5"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -1688,7 +1687,6 @@
           "responsable-de-magasin-en-formation-denner-kirchberg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 58500,
       "salaryMax": 89500,
@@ -1819,7 +1817,6 @@
           "verkaufer-in-denner-ag-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-18T13:17:21.364Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -1938,7 +1935,6 @@
           "verkaufer-in-denner-ag-hasle-b-burgdorf-3fw79h"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:41:04.249Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2061,7 +2057,6 @@
           "verkaufer-in-denner-ag-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:22.075Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -2170,7 +2165,6 @@
           "assistant-dans-la-gestion-des-succursales-denner-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:21.065Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -2277,7 +2271,6 @@
           "verkaufer-in-denner-ag-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:21.057Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -2383,7 +2376,6 @@
           "verkaufer-in-im-stundenlohn-denner-ag-interlaken-4dg1bh"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:20.314Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2507,7 +2499,6 @@
           "verkaufer-in-im-stundenlohn-denner-konolfingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:19.752Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -2620,7 +2611,6 @@
           "verkaufer-in-denner-ag-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:19.200Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -2727,7 +2717,6 @@
           "assistent-in-filialleitung-denner-ag-zurich-5db9aa"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:19.193Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -2970,13 +2959,19 @@
         "stv-branch-manager-in-training-denner-oensingen",
         "stv-branch-manager-in-migros-ticino-unterkulm",
         "stv-filialleiter-in-migros-ticino-unterkulm",
-        "stv-branch-manager-in-denner-ag-zurich-3e601b"
+        "stv-branch-manager-in-denner-ag-zurich-3e601b",
+        "stv-branch-manager-in-denner-ag-frauenfeld",
+        "stv-filialleiter-in-denner-schaffhausen",
+        "stv-filialleiter-in-in-ausbildung-denner",
+        "stv-filialleiter-in-denner-tp6czy",
+        "stv-filialleiter-in-denner-ag-bern-tp6czy",
+        "stv-filialleiter-in-denner-x64rgr",
+        "stv-filialleiter-in-denner-x9sj2w",
+        "vice-direttore-di-filiale-denner-ag-horw",
+        "stv-filialleiter-in-denner-ag-horw"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stv-branch-manager-in-denner-ag-oensingen",
-          "stv-filialleiter-in-migros-ticino-unterkulm-o686v6",
-          "deputy-store-manager-migros-ticino-unterkulm",
           "stv-filialleiter-in-denner-malters",
           "stv-filialleiter-in-denner-ag-oensingen-2p1sep",
           "directeur-de-succursale-stv-denner-ag-oensingen",
@@ -2987,7 +2982,16 @@
           "stv-filialleiter-in-migros-ticino-unterkulm",
           "stv-filialleiter-in-denner",
           "stv-filialleiter-in-denner-14",
-          "stv-branch-manager-in-denner-ag-zurich-3e601b"
+          "stv-branch-manager-in-denner-ag-zurich-3e601b",
+          "stv-branch-manager-in-denner-ag-frauenfeld",
+          "stv-filialleiter-in-denner-schaffhausen",
+          "stv-filialleiter-in-in-ausbildung-denner",
+          "stv-filialleiter-in-denner-tp6czy",
+          "stv-filialleiter-in-denner-ag-bern-tp6czy",
+          "stv-filialleiter-in-denner-x64rgr",
+          "stv-filialleiter-in-denner-x9sj2w",
+          "vice-direttore-di-filiale-denner-ag-horw",
+          "stv-filialleiter-in-denner-ag-horw"
         ],
         "en": [
           "stv-filialleiter-in-denner-ag-zurich",
@@ -3000,7 +3004,6 @@
           "directeur-de-succursale-stv-in-denner-ag-zurich-d310b2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:18.647Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -3109,7 +3112,6 @@
           "venditore-denner-ag-zurich-1ed56c"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:18.047Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -3228,7 +3230,6 @@
           "vendeur-denner-ag-reinach-bl"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:18.044Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -3346,7 +3347,6 @@
           "verkaufer-in-im-stundenlohn-denner-ag-windisch-7fph1q"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -3480,7 +3480,6 @@
           "verkaufer-in-denner-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T13:36:21.421Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -3594,7 +3593,6 @@
           "adjoint-e-de-magasin-denner-ag-schaffhausen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T12:10:52.243Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -3716,7 +3714,6 @@
           "directeur-adjoint-de-succursale-denner-ag-appenzell"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T10:32:43.492Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -3917,7 +3914,6 @@
           "vendeur-denner-ag-wetzikon-e6382f"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-10T23:02:40.827Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -4025,7 +4021,6 @@
           "stv-filialleiter-in-denner-ag-abtwil-sg-j51i63"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-13T22:36:24.077Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -4150,7 +4145,6 @@
           "assistant-dans-la-gestion-des-succursales-denner-ag-frauenfeld-555cb2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T11:41:02.895Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -4263,7 +4257,6 @@
           "verkaufer-in-denner-ag-widnau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T22:53:23.022Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -4389,7 +4382,6 @@
           "verkaufer-in-denner-ag-widnau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T11:41:02.895Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -4515,7 +4507,6 @@
           "verkaufer-in-denner-ag-pfungen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-17T11:18:40.683Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -4628,7 +4619,6 @@
           "verkaufer-in-denner-ag-kreuzlingen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:37:29.966Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -4741,7 +4731,6 @@
           "verkaufer-in-denner-ag-amriswil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:37:29.966Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -4851,7 +4840,6 @@
           "stv-filialleiter-in-denner-ag-winterthur-70fga1"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T10:37:29.966Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -4970,7 +4958,6 @@
           "assistant-dans-la-gestion-des-succursales-denner-ag-embrach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-11T10:25:11.367Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -5070,7 +5057,6 @@
           "venditore-con-salario-orario-denner-ag-schaffhausen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T10:47:28.948Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -5185,7 +5171,6 @@
           "adjoint-e-de-responsable-de-magasin-denner-neuhausen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -5289,7 +5274,6 @@
           "verkaufer-in-im-stundenlohn-denner-ag-olten-ntl1uj"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:09.777Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -5322,7 +5306,7 @@
         "it": "Partner Franchise* Partner Denner",
         "en": "Franchise Partner* Denner Partner",
         "de": "Franchisepartner*in Denner Partner",
-        "fr": "Franchisepartner*in Denner Partner"
+        "fr": "Partenaire Franchise Denner Partenaire"
       },
       "description": "Du möchtest selbstständig werden und in deiner Region einen Denner mit einer ganz persönlichen Note führen? Lass uns gemeinsam aus deinem unternehmerischen Flair, deinem feinen Gespür für den lokalen Markt und unserem Know-how als führender Discounter etwas Grossartiges machen: Dein Laden.\n\n## Mansioni\n- Als Franchisepartner deinen Laden als Denner Partner oder Denner Express selbständig führen\n- Der Fünfer und s’Weggli: Vom Know-how des erfolgreichsten Lebensmittel-Discounters profitieren und gleichzeitig selbstständig sein\n- Auf das breite und günstige Denner-Sortiment sowie auf attraktive Wochen-Aktionen zurückgreifen\n- Das Denner-Angebot gezielt mit regionalen Produkten ergänzen\n- Kantönli- oder gar Dörfligeist? Finden wir gut! Dein Laden bringt Leben ins Quartier oder aufs Land\n\n## Requisiti\n- Branchen- und Führungserfahrung: im Detailhandel (Lebensmittel) wären ideal\n- Abgeschlossene Grund- oder Weiterbildung: im Detailhandel, am liebsten natürlich im Bereich Lebensmittel\n- Unternehmerisches und betriebswirtschaftliches Denken\n- Grosses Engagement und Biss, mit deinem Laden erfolgreich zu sein\n- Gespür für die Bedürfnisse der Kundinnen und Kunden bei dir vor Ort\n- Ein einwandfreier Leumund und ein Startkapital ab CHF 100'000\n- Deutsch (sehr gute Kenntnisse)\n\n## Cosa offriamo\n- Individuelle Weiterbildung: Gezielte Förderung durch interne Hubs der Denner AG.\n- Eigenverantwortung & Freiraum: Viel Raum für Ihre Ideen und um gemeinsam mit uns etwas zu bewegen.\n- Gestaltungs- und Entscheidungsspielraum: Möglichkeit, die Erfolgsgeschichte von Denner mitzugestalten und eigene Ideen umzusetzen.\n- Erfolgreiches Franchising-System: Einfaches und erfolgversprechendes Franchising-System mit einem interessanten Finanzierungsmodell.\n- Eingespielte Service- und Dienstleistungen: Wir entlasten dich von vielen Aufgaben, damit du dich um deine Kundschaft, deine Mitarbeitenden und deinen Laden kümmern kannst.\n- Führung mehrerer Standorte: Besonders erfolgreiche Partner können auch mehrere Standorte führen (Mehrfachbetriebe).\n- Verlässliche Partnerschaft: Kompetente und partnerschaftliche Beratung basierend auf über 50 Jahren Erfahrung beim Aufbau erfolgreicher Partnerschaften.\n- Vermindertes Risiko: Das bewährte Franchisingsystem bietet ein überschaubares Risiko für Ihre Selbständigkeit.\n- Einführung: Professionelle Einarbeitung bei einem erfahrenen Denner Partner, der diesen Weg vor dir schon erfolgreich beschritten hat.\n\n## Contatto\n## Bewerbung & Kontakt Selina Haak Leiterin Talent Acquisition - LinkedIn ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch In einem Fachgespräch werden spezifische für die Ausführung des Jobs relevante Kenntnisse durch die Führungsperson und/oder einer anderen Fachperson und allenfalls dem Team abgefragt. Wenn möglich gibt es danach Zeit den Arbeitsplatz und Team im freien Gespräch besser kennen zu lernen. Dauer bis Rückmeldung: Bis zu drei Wochen Kennenlernen Team Ob jemand ins Team passt, ist für Arbeitnehmer*innen und Arbeitgeber*innen ein wichtiger Faktor bei der Entscheidung für oder gegen eine Anstellung. In einem ungezwungenen Rahmen geben wir deshalb die Möglichkeit, dass sich alle gegenseitig kennenlernen. Kennenlernen Team Ob jemand ins Team passt, ist für Arbeitnehmer*innen und Arbeitgeber*innen ein wichtiger Faktor bei der Entscheidung für oder gegen eine Anstellung. In einem ungezwungenen Rahmen geben wir deshalb die Möglichkeit, dass sich alle gegenseitig kennenlernen. Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen",
       "descriptionByLocale": {
@@ -5392,7 +5376,6 @@
           "franchisepartner-in-denner-partner-denner-erstfeld"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T10:26:45.416Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -5580,7 +5563,6 @@
           "verkaufer-in-denner-burgdorf"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:10:59.852Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -5675,7 +5657,6 @@
           "stv-filialleiter-in-denner-ag-zurich-r5knfa"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:18.645Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -5793,7 +5774,6 @@
           "verkaufer-verkaufer-denner-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T22:59:13.261Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -5889,7 +5869,6 @@
           "vendeur-vendeuse-denner-preverenges"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-04T22:59:13.257Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -5999,7 +5978,6 @@
           "assistent-in-filialleitung-denner-ag-spreitenbach-wal3gt"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -6109,7 +6087,6 @@
           "assistent-in-filialleitung-denner-ag-zurich-mlzv0z"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-18T23:24:06.541Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -6250,7 +6227,6 @@
           "directeur-adjoint-de-la-succursale-denner-ag-walenstadt"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T11:03:52.766Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -6371,7 +6347,6 @@
           "verkaufer-in-denner-ag-jona"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T11:41:02.895Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -6578,7 +6553,6 @@
           "vendeur-denner-ag-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T22:07:36.586Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -6691,7 +6665,6 @@
           "verkaufer-in-denner-ag-uznach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -6788,7 +6761,6 @@
           "filialleiter-in-denner-ilanz"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-06T22:49:39.136Z",
       "salaryMin": 82500,
       "salaryMax": 127000,
@@ -6889,7 +6861,6 @@
           "vendeur-vendeuse-denner"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:04:55.350Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -6999,7 +6970,6 @@
           "assistent-in-filialleitung-denner-ag-richterswil-ym8fyb"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T14:19:58.281Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -7109,7 +7079,6 @@
           "spezialist-in-arbeitssicherheit-und-gesundheitsschutz-denner-ag-egerkingen-wnjhay"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-17T11:18:40.683Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -7300,7 +7269,6 @@
           "filialleiter-in-in-ausbildung-denner-luzern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-09T13:46:51.164Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -7397,7 +7365,6 @@
           "vendeur-vendeuse-denner"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:08:47.336Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -7427,7 +7394,7 @@
       "companyDomain": "denner.ch",
       "title": "Projektkoordinator*in",
       "titleByLocale": {
-        "it": "Projektkoordinator*in",
+        "it": "Coordinatore del progetto",
         "en": "EY(1)",
         "de": "Project Management Officer",
         "fr": "Spécialiste de la gestion des projets"
@@ -7498,7 +7465,6 @@
           "project-management-officer-denner"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:08:48.327Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -7611,7 +7577,6 @@
           "verkaufer-in-denner-ag-frauenfeld"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -7728,7 +7693,6 @@
           "verkaufer-in-denner-ag-winterthur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T21:38:11.196Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -7912,7 +7876,6 @@
           "vendeur-denner-ag-frauenfeld"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T00:36:46.157Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -8169,7 +8132,6 @@
           "venditore-denner-ag-sulgen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:39:45.217Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -8277,7 +8239,6 @@
           "verkaufer-in-denner-ag-flims-dorf-w0gyz7"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -8395,7 +8356,6 @@
           "verkaufer-in-im-stundenlohn-denner-ag-wilen-b-will-b1a2po"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -8521,7 +8481,6 @@
           "directeur-de-succursale-stv-denner-ag-davos"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -8636,7 +8595,6 @@
           "verkaufer-in-denner-ag-embrach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:47:21.627Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -8774,7 +8732,6 @@
           "assistant-dans-la-gestion-des-succursales-denner-ag-ruschlikon"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:47:21.627Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -8983,7 +8940,6 @@
           "directeur-adjoint-de-la-succursale-denner-ag-steinhausen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T21:38:33.125Z",
       "salaryMin": 103500,
       "salaryMax": 158500,
@@ -9077,7 +9033,6 @@
           "venditore-denner-ag-gossau-sg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:39:43.741Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -9209,7 +9164,6 @@
           "vendeur-denner-ag-schluein-2408df"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:39:43.033Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -9304,7 +9258,6 @@
           "stv-filialleiter-in-denner-ag-davos-qgw97z"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:39:43.021Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -9420,7 +9373,6 @@
           "assistent-in-filialleitung-denner-ag-kreuzlingen-j6zb0l"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -9540,7 +9492,6 @@
           "stv-filialleiter-in-denner-ag-kreuzlingen-ixnppb"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -9663,7 +9614,6 @@
           "verkaufer-in-denner-ag-st-gallen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -9783,7 +9733,6 @@
           "stv-filialleiter-in-denner-ag-wetzikon-58496d"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -9886,7 +9835,6 @@
           "directeur-de-branche-stv-en-formation-denner-ag-chur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:37:03.124Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -9983,7 +9931,6 @@
           "directeur-adjoint-de-succursale-denner-ag-meilen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:37:03.119Z",
       "salaryMin": 96000,
       "salaryMax": 147500,
@@ -10075,7 +10022,6 @@
           "venditore-denner-ag-winterthur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:37:02.357Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -10177,7 +10123,6 @@
           "venditore-denner-ag-wattwil-246b9c"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:37:02.353Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -10275,7 +10220,6 @@
           "venditore-denner-ag-wattwil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-13T13:55:23.251Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -10370,7 +10314,6 @@
           "vendeur-vendeuse-denner"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-17T03:47:30.862Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -10483,7 +10426,6 @@
           "filialleiter-in-ausbildung-denner-ag-horw-o7jlw1"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -10599,7 +10541,6 @@
           "assistant-dans-la-gestion-des-succursales-denner-ebikon"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -10898,7 +10839,6 @@
           "gestionnaire-de-magasin-en-formation-denner-ag-sissach-1193f4"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -11014,7 +10954,6 @@
           "verkaufer-in-denner-ag-mohlin"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-30T12:43:38.551Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -11222,7 +11161,6 @@
           "vendeur-denner-ag-langenthal-d47c8f"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-18T13:17:21.364Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -11353,7 +11291,6 @@
           "vendeur-denner-ag-huttwil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -11463,7 +11400,6 @@
           "assistent-in-filialleitung-denner-ag-biel-bienne-n6myx0"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
@@ -11573,7 +11509,6 @@
           "assistent-in-filialleitung-denner-ag-bremgarten-ag-3tveeh"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -11700,7 +11635,6 @@
           "directeur-adjoint-de-la-succursale-denner-ag-steinhausen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-18T23:24:06.541Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -11808,7 +11742,6 @@
           "verkaufer-in-im-stundenlohn-denner-ag-gstaad-lt4qle"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:20.311Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -11928,7 +11861,6 @@
           "assistent-in-filialleitung-denner-ag-luzern-0g3128"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-26T22:46:36.093Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -12043,7 +11975,6 @@
           "verkaufer-in-denner-ag-luzern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-26T22:46:36.093Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -12150,7 +12081,6 @@
           "logistiker-in-filiale-denner-ag-buchs-ag-ylkh6t"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:07.195Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -12271,7 +12201,6 @@
           "assistant-dans-la-gestion-des-succursales-denner-ag-buchs-sg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:07.193Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -12377,7 +12306,6 @@
           "assistent-in-filialleitung-denner-ag-steinhausen-cc1clp"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:06.475Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -12481,7 +12409,6 @@
           "stv-filialleiter-in-denner-ag-zug-15ags6"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:06.460Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -12589,7 +12516,6 @@
           "stv-filialleiter-in-denner-ag-rothenburg-228b88"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-13T22:36:24.077Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -12699,7 +12625,6 @@
           "assistent-in-filialleitung-denner-ag-rothenburg-14od2o"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-13T22:36:24.077Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -12819,7 +12744,6 @@
           "verkaufer-in-im-stundenlohn-denner-ag-brunnen-ma53kn"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:30:55.668Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -12939,7 +12863,6 @@
           "verkaufer-in-im-stundenlohn-denner-ag-rotkreuz-fqg3k9"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:30:55.668Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -13062,7 +12985,6 @@
           "vendeur-dans-le-salaire-horaire-denner-ag-steffisburg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-07T01:30:55.668Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -13174,7 +13096,6 @@
           "verkaufer-in-im-stundenlohn-denner-ag-oberwil-bl-dlp26n"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -13287,7 +13208,6 @@
           "verkaufer-in-denner-ag-sissach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -13410,7 +13330,6 @@
           "vendeur-denner-ag-herzogenbuchsee"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-17T10:11:32.549Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -13516,7 +13435,6 @@
           "verkaufer-in-im-stundenlohn-denner-ag-reinach-ag-02xhun"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:09.779Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -13620,7 +13538,6 @@
           "verkaufer-in-im-stundenlohn-denner-ag-lenzburg-76qyvf"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:39:47.574Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -13731,7 +13648,6 @@
           "assistant-a-la-gestion-des-succursales-denner-biel-bienne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:06:17.472Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -13848,7 +13764,6 @@
           "gestionnaire-de-magasin-denner-ag-sursee"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:05.476Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -13952,7 +13867,6 @@
           "stv-filialleiter-in-denner-ag-luzern-81vwm4"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:05.472Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -14064,7 +13978,6 @@
           "stv-filialleiter-in-denner-ag-einsiedeln-jkrp0n"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:19:34.832Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -14178,7 +14091,6 @@
           "assistent-in-filialleitung-denner-ag-lenzburg-9l6igk"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -14294,7 +14206,6 @@
           "stv-filialleiter-in-denner-ag-lenzburg-a3nkwl"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:40:35.590Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -14386,7 +14297,6 @@
           "stv-branch-manager-in-denner-ag-fislisbach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T07:23:26.690Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -14480,7 +14390,6 @@
           "venditore-denner-ag-oftringen-79429a"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T08:51:26.164Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -14579,7 +14488,6 @@
           "verkaufer-in-denner-huttwil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T08:51:26.160Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -14678,7 +14586,6 @@
           "verkaufer-in-denner-herzogenbuchsee"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T08:51:26.149Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -14780,7 +14687,6 @@
           "adjoint-e-gerant-e-denner"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-17T03:47:23.858Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -14877,7 +14783,6 @@
           "verkaufer-in-denner-ibach"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-17T03:47:23.849Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -14910,7 +14815,7 @@
         "it": "Controller",
         "en": "Controller",
         "de": "Controller*in",
-        "fr": "Controller*in"
+        "fr": "Contrôleur"
       },
       "description": "Zahlen analysieren, Zusammenhänge verstehen und daraus die richtigen Schlüsse ziehen? Als Controller*in für unsere Geschäftsbereiche IT und Immobilien verbindest du Finanzexpertise mit unternehmerischem Denken und schaffst fundierte Entscheidungsgrundlagen für die erfolgreiche Steuerung von Denner.\n\n## Mansioni\n- Du berätst die Geschäftsbereiche als Sparringpartner*in auf Augenhöhe und unterstützt sie bei fundierten betriebswirtschaftlichen Entscheidungen\n- Du stellst eine wirksame Financial Governance sicher und entwickelst Steuerungsinstrumente, Kennzahlen sowie Methoden kontinuierlich weiter\n- Du schaffst Transparenz durch aussagekräftige Reports, Analysen und Entscheidungsvorlagen\n- Du erstellst Forecasts, Budgets und Szenarien und unterstützt die Fachbereiche bei der Umsetzung wirksamer Massnahmen\n- Du analysierst Zielabweichungen, erkennst Chancen und Risiken frühzeitig und leitest konkrete Handlungsempfehlungen ab\n\n## Requisiti\n- Mindestens 5 Jahre Berufserfahrung: als Controller*in\n- Abgeschlossenes Studium (Uni/ETH, FH, HF): Schwerpunkt Controlling, Betriebswirtschaft oder Finanzen\n- Die Fähigkeit, komplexe Finanzthemen verständlich zu vermitteln, Vertrauen aufzubauen und Entscheidungsträger*innen als Sparringspartner*in zu begleiten\n- Analytisches und vernetztes Denken sowie die Fähigkeit, aus Daten konkrete Handlungsempfehlungen abzuleiten\n- Sehr gute Kenntnisse in SAP und den MS-Office-Tools sowie Erfahrung mit BI-Lösungen und modernen Reporting-Instrumenten\n- Tiefes Verständnis für Geschäftsmodelle, Wertschöpfungsketten und betriebswirtschaftliche Zusammenhänge\n- Deutsch (verhandlungssicher)\n- Englisch (gute Kenntnisse)\n- Französisch (von Vorteil)\n\n## Cosa offriamo\n- Zentraler Arbeitsort: Im lässigen Binz-Quartier im Zürcher Kreis 3 (2 Fussminuten vom Bahnhof Zürich Binz).\n- Handy-Abo: Die Qual der Wahl: Mit Galaxus Mobile, Wingo oder Sunrise bereits ab CHF 10.- so oder so richtig verbunden.\n- Ferien: 6 Wochen Ferien für alle und bei Dienstjubiläen sogar noch weitere Tage dazu.\n- Migros Bank: Besser fahren bei Zinsen und Gebühren Ihrer Privat-, Anlage- oder Hypothekarkonti.\n- Teil der Migros-Gruppe: Starke, im Detailhandel verankerte Marke unter dem Dach der Migros-Gruppe\n\n## Contatto\n## Bewerbung & Kontakt Sarah Schwery HR Business Partner ## Rekrutierungsprozess Vorselektion der Bewerbungen Eingegangene Bewerbungen prüfen wir laufend, erstellen eine Vorselektion und geben diese der Führungsperson zur Ansicht frei. Der Entscheid über das Weiterkommen oder Ausscheiden aus dem Rekrutierungsprozess wird per Telefon oder E-Mail kommuniziert. Dauer bis Rückmeldung: Bis zu drei Wochen Gespräch mit HR & Fachabteilung Das Gespräch wird mit der zuständigen Person aus dem HR und/oder der Fachabteilung virtuell oder vor Ort durchgeführt. Dabei geht es in erster Linie darum, mehr über die Personal- und Fachkompetenzen zu erfahren und gibt beiden Seiten die Möglichkeit, den kulturellen Fit ins Unternehmen und Team zu beurteilen. Dauer bis Rückmeldung: Bis zu drei Wochen Fachgespräch mit Case-Präsentation Es werden spezifische Fachkenntnisse anhand eines Cases oder anderen Assessment-Instrumenten geprüft. Nach der Bearbeitung wird das Resultat der Führungsperson präsentiert und anschliessend gemeinsam diskutiert. Üblicherweise ist auch das Team bei der Präsentation vertreten. In der Regel werden die Gespräche durch die vorgesetzte Person geführt, ohne Vertreter*in aus dem HR. Dauer bis Rückmeldung: Bis zu drei Wochen Kennenlernen Team Ob jemand ins Team passt, ist für Arbeitnehmer*innen und Arbeitgeber*innen ein wichtiger Faktor bei der Entscheidung für oder gegen eine Anstellung. In einem ungezwungenen Rahmen geben wir deshalb die Möglichkeit, dass sich alle gegenseitig kennenlernen. Angebot & Vertragsausstellung Nach unserem mündlichen Stellenangebot werden die wichtigsten Vertragspunkte nochmals verifiziert. Nach Übereinkunft wird die Vertragserstellung in Auftrag gegeben und per Post versendet. Dauer bis Rückmeldung: Bis zu drei Wochen ## Hinweis für Personaldienstleister Für diese Stelle berücksichtigen wir ausschliesslich Direktbewerbungen.\n\n**Grado di occupazione:** 761%",
       "descriptionByLocale": {
@@ -14980,7 +14885,6 @@
           "controller-in-denner-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-17T03:47:22.380Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -15093,7 +14997,6 @@
           "verkaufer-in-denner-ag-riehen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:47:21.627Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -15206,7 +15109,6 @@
           "verkaufer-in-denner-ag-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-20T21:47:21.627Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -15302,7 +15204,6 @@
           "vendeur-vendeuse-denner-etoy"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-17T03:47:20.914Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -15406,7 +15307,6 @@
           "teamleiter-in-betriebstechnik-frauenfeld-denner"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "salaryMin": 68500,
       "salaryMax": 105000,
@@ -15532,7 +15432,6 @@
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-6527ca"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T22:53:23.022Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -15630,7 +15529,6 @@
           "supervisore-regione-berna-biel-denner-ag-biel-bienne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-17T03:47:19.992Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -15727,7 +15625,6 @@
           "filialleiter-in-in-ausbildung-denner-winterthur"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-17T03:47:19.557Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -15827,7 +15724,6 @@
           "assistant-adjoint-assistante-adjointe-denner-fhyqxc"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-18T23:12:45.499Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -15920,7 +15816,6 @@
           "assistant-adjoint-assistante-adjointe-denner"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:55:14.114Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -16030,7 +15925,6 @@
           "assistent-in-filialleitung-denner-ag-wadenswil-ocrq9v"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -16174,7 +16068,6 @@
           "responsable-de-succursale-denner-ag-emmenbrucke"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -16282,7 +16175,6 @@
           "stv-filialleiter-in-denner-ag-wollerau-wwdtv1"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 110500,
       "salaryMax": 169500,
@@ -16386,7 +16278,6 @@
           "filialleiter-in-in-ausbildung-region-basel-denner"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-03T06:44:54.971Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -16499,7 +16390,6 @@
           "filialleiter-in-denner-ag-brugg-be"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-06T22:41:04.249Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
@@ -16617,7 +16507,6 @@
           "directeur-adjoint-de-la-succursale-denner-ag-zurich-3e601b"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-25T22:06:10.337Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -16730,7 +16619,6 @@
           "verkaufer-in-denner-ag-stans"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-26T22:46:36.093Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -16838,7 +16726,6 @@
           "stv-filialleiter-in-denner-ag-richterswil-xb78n5"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-29T14:19:58.281Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -16953,7 +16840,6 @@
           "verkaufer-in-denner-ag-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-01T22:52:24.488Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -17061,7 +16947,6 @@
           "verkaufer-in-denner-ag-bern-bumpliz-tkyapg"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-01T22:52:24.488Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -17264,7 +17149,6 @@
           "verkaufer-in-denner-ag-rubigen"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-01T22:52:24.488Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -17378,7 +17262,6 @@
           "teamleiter-in-interner-transport-magenwil-denner-ag-magenwil-4le3f7"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T23:14:35.303Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -17495,7 +17378,6 @@
           "verkaufer-in-denner-ag-liebefeld"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-15T11:41:02.895Z",
       "salaryMin": 59000,
       "salaryMax": 90500,
@@ -17605,7 +17487,6 @@
           "assistent-in-filialleitung-denner-ag-wadenswil-dmwt2p"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-17T13:34:18.916Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -17754,7 +17635,6 @@
           "vendeur-dans-le-salaire-horaire-denner-ag-allschwil"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T11:21:46.566Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -17881,7 +17761,6 @@
           "verkaufer-in-denner-ag-ruti-zh"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-21T23:00:56.788Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -17994,7 +17873,6 @@
           "verkaufer-in-denner-ag-gstaad"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-10T11:03:52.766Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -18112,7 +17990,6 @@
           "stv-filialleiter-in-denner-ag-egg-b-zurich-crop66"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-13T10:50:29.341Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
@@ -18227,7 +18104,6 @@
           "verkaufer-in-denner-ag-bern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -18342,7 +18218,6 @@
           "verkaufer-in-denner-ag-thun"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -18455,7 +18330,6 @@
           "verkaufer-in-denner-ag-baden"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -18572,7 +18446,6 @@
           "verkaufer-in-denner-ag-brugg-ag"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -18697,7 +18570,6 @@
           "verkaufer-in-im-stundenlohn-denner-ag-zurich-se0fxo"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -18807,7 +18679,6 @@
           "assistent-in-filialleitung-denner-ag-zurich-kicwog"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T10:49:42.713Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -18911,7 +18782,6 @@
           "verkaufer-in-im-stundenlohn-denner-ag-wollerau-xz6mtm"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:09.264Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -19055,7 +18925,6 @@
           "vendeur-denner-ag-basel-3f3d5d"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:55:08.620Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -19168,7 +19037,6 @@
           "verkaufer-in-denner-ag-gebenstorf"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:39:47.577Z",
       "salaryMin": 74000,
       "salaryMax": 113500,
@@ -19271,7 +19139,6 @@
           "assistent-in-filialleitung-denner-ag-grenchen-e1987t"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:39:47.575Z",
       "salaryMin": 109000,
       "salaryMax": 167000,
@@ -19427,7 +19294,6 @@
           "vendeur-denner-ag-interlaken"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:39:46.806Z",
       "salaryMin": 77500,
       "salaryMax": 118500,
@@ -19530,7 +19396,6 @@
           "verkaufer-in-denner-ag-zug-g83nvt"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T10:26:44.363Z",
       "salaryMin": 79000,
       "salaryMax": 121500,

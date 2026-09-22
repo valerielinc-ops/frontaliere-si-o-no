@@ -260,3 +260,19 @@ describe('crawler-health-monitor — scheda fail-closed', () => {
     expect(workflow).not.toContain('.scheda // \\"\\"');
   });
 });
+
+describe('crawler-health — cluster issue closure metrics', () => {
+  it.each(['nestle', 'fust', 'capri-holdings'])('points %s at its exact healthy/advisory metric', (slug) => {
+    const body = buildHealthScheda({
+      slug,
+      status: 'stale',
+      reason: 'crawler not run recently',
+      consecutiveEmptyRuns: 0,
+    });
+
+    expect(body).toContain(
+      `git show origin/main:data/crawler-health.json | jq -r '.crawlers["${slug}"] | .status + " advisory=" + (.advisory // false | tostring)'`,
+    );
+    expect(body).toContain('healthy advisory=false');
+  });
+});
