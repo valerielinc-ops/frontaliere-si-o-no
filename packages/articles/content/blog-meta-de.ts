@@ -11923,6 +11923,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-23.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 23. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-23.seoDescription': 'Grenzgänger-Bulletin vom 23. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-23.ogDescription': 'Die Zahlen vom 23. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.rimborso-imposta-lpp-2024.title': 'BVG-Steuerrückerstattung für Grenzgänger gesperrt',
+    'blog.article.rimborso-imposta-lpp-2024.excerpt': 'Seit 2024 erstattet der Kanton Tessin die Quellensteuer von 7% auf das BVG-Kapital nicht mehr UND zwingt die Grenzgänger, auch die italienische Ersatzsteuer von 5% zu zahlen.',
+    'blog.article.rimborso-imposta-lpp-2024.imageAlt': 'Modernes Gebäude in Bellinzona mit Schweizer und Italienischen Flaggen im Abendlicht',
 };
 
 export default blogMetaDe;

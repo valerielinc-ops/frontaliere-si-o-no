@@ -35528,6 +35528,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'rimborso-imposta-lpp-2024',
+ category: 'fiscale',
+ date: '2026-09-23T10:40:11.448Z',
+ image: '/images/blog/rimborso-imposta-lpp-2024.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

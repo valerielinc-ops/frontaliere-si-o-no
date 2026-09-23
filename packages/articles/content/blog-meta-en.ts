@@ -11924,6 +11924,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-23.imageAlt': 'The day\'s numbers for cross-border commuters – September 23, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-23.seoDescription': 'Cross-border brief, September 23, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-23.ogDescription': 'The numbers for September 23, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.rimborso-imposta-lpp-2024.title': 'LPP tax refund blocked for border workers',
+    'blog.article.rimborso-imposta-lpp-2024.excerpt': 'From 2024, the Canton of Ticino no longer reimburses the 7% tax at source on LPP capital, forcing border workers to also pay the 5% Italian substitute tax.',
+    'blog.article.rimborso-imposta-lpp-2024.imageAlt': 'Modern building in Bellinzona with Swiss and Italian flags at sunset',
 };
 
 export default blogMetaEn;
