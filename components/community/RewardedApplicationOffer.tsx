@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CheckCircle2, RefreshCw, ShieldCheck, X } from 'lucide-react';
 import GptRewardedAd from '@/components/shared/GptRewardedAd';
-import RewardedHouseVideo from '@/components/shared/RewardedHouseVideo';
 import {
   grantRewardedApplicationAccess,
 } from '@/services/rewardedApplicationAccess';
@@ -40,7 +39,6 @@ export default function RewardedApplicationOffer({
 }: RewardedApplicationOfferProps) {
   const [rewarded, setRewarded] = useState(false);
   const [retryRequired, setRetryRequired] = useState(false);
-  const [houseFallback, setHouseFallback] = useState(false);
   const grantedRef = useRef(false);
   const videoCompletedRef = useRef(false);
   const completedRef = useRef(false);
@@ -128,39 +126,9 @@ export default function RewardedApplicationOffer({
       surface: SURFACE,
       reason: 'no_fill_or_gpt_unavailable',
     });
-    setHouseFallback(true);
-  };
-
-  const handleHouseCompleted = () => {
-    if (completedRef.current) return;
-    completedRef.current = true;
-    const accessExpiresAt = grantRewardedApplicationAccess();
-    setRewarded(true);
-    trackAssistedApplicationEvent('rewarded_house_video_completed', {
-      variant: 'rewarded_ad',
-      jobId,
-      companyId,
-      surface: SURFACE,
-    });
-    trackAssistedApplicationEvent('rewarded_application_access_granted', {
-      variant: 'rewarded_ad',
-      jobId,
-      companyId,
-      surface: SURFACE,
-      provider: 'house_video',
-      access_expires_at: accessExpiresAt,
-      access_ttl_hours: 12,
-    });
-    onCompleted();
-  };
-
-  const handleHouseStarted = () => {
-    trackAssistedApplicationEvent('rewarded_house_video_started', {
-      variant: 'rewarded_ad',
-      jobId,
-      companyId,
-      surface: SURFACE,
-    });
+    // No Google inventory means there is no reward to grant. Continue with
+    // the original employer destination instead of presenting a second video.
+    onUnavailable();
   };
 
   const retry = () => {
@@ -169,7 +137,6 @@ export default function RewardedApplicationOffer({
     completedRef.current = false;
     setRewarded(false);
     setRetryRequired(false);
-    setHouseFallback(false);
   };
 
   const modal = (
@@ -241,15 +208,7 @@ export default function RewardedApplicationOffer({
             </p>
           )}
 
-          {!retryRequired && !rewarded && houseFallback && (
-            <RewardedHouseVideo
-              onStarted={handleHouseStarted}
-              onCompleted={handleHouseCompleted}
-              onUnavailable={onUnavailable}
-            />
-          )}
-
-          {!retryRequired && !rewarded && !houseFallback && (
+          {!retryRequired && !rewarded && (
             <GptRewardedAd
               label="Guarda il video e continua"
               loadingLabel="Stiamo preparando il video…"

@@ -47,6 +47,18 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource).toContain('isCrawlerVisitorAgent');
   });
 
+  it('uses the original employer destination for no-fill and completed rewarded flows', () => {
+    expect(jobBoardSource).toMatch(
+      /const handleRewardedApplicationCompleted = \(\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_completed', true, true\);/,
+    );
+    expect(jobBoardSource).toMatch(
+      /const handleRewardedApplicationUnavailable = \(\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_unavailable', true, true\);/,
+    );
+    expect(jobBoardSource).toMatch(
+      /if \(sameTab\) \{[\s\S]*?window\.location\.assign\(applyDestination\);/,
+    );
+  });
+
   it('forces the rewarded treatment on the Italian Ticino job-board surface', () => {
     expect(jobBoardSource).toMatch(
       /function isAlwaysRewardedApplicationSurface\(\): boolean[\s\S]*\/\^\\\/cerca-lavoro-ticino\(\?:\\\/\|\$\)\//,

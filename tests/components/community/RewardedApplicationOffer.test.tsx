@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
 const rewardedMock = vi.hoisted(() => ({
@@ -12,9 +12,6 @@ vi.mock('@/components/shared/GptRewardedAd', () => ({
     rewardedMock.props = props;
     return <button type="button">Guarda il video</button>;
   },
-}));
-vi.mock('@/components/shared/RewardedHouseVideo', () => ({
-  default: () => null,
 }));
 vi.mock('@/services/rewardedApplicationAccess', () => ({
   grantRewardedApplicationAccess: () => Date.now() + 43_200_000,
@@ -63,5 +60,29 @@ describe('RewardedApplicationOffer', () => {
     render(<RewardedApplicationOffer {...defaultProps} />);
 
     expect(rewardedMock.props?.autoStart).toBe(true);
+  });
+
+  it('redirects immediately when Google has no rewarded video available', () => {
+    render(<RewardedApplicationOffer {...defaultProps} />);
+
+    act(() => {
+      (rewardedMock.props?.onUnavailable as (() => void) | undefined)?.();
+    });
+
+    expect(defaultProps.onUnavailable).toHaveBeenCalledTimes(1);
+  });
+
+  it('completes only after both the reward and the video completion are received', () => {
+    render(<RewardedApplicationOffer {...defaultProps} />);
+
+    act(() => {
+      (rewardedMock.props?.onGranted as (() => void) | undefined)?.();
+    });
+    expect(defaultProps.onCompleted).not.toHaveBeenCalled();
+
+    act(() => {
+      (rewardedMock.props?.onVideoCompleted as (() => void) | undefined)?.();
+    });
+    expect(defaultProps.onCompleted).toHaveBeenCalledTimes(1);
   });
 });
