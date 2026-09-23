@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
+import { act, cleanup, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => {
@@ -71,7 +71,7 @@ describe('GptRewardedAd', () => {
     );
   });
 
-  it('shows the ad after opt-in and reports grant only through GPT lifecycle events', () => {
+  it('opens the ad as soon as the preloaded slot is ready and reports the GPT lifecycle', () => {
     const onGranted = vi.fn();
     const onClosed = vi.fn();
     const onOptIn = vi.fn();
@@ -83,6 +83,7 @@ describe('GptRewardedAd', () => {
         label="Guarda il video"
         loadingLabel="Caricamento…"
         unavailableLabel="Non disponibile"
+        autoStart
         onOptIn={onOptIn}
         onVideoCompleted={onVideoCompleted}
         onGranted={onGranted}
@@ -93,7 +94,6 @@ describe('GptRewardedAd', () => {
     act(() => {
       mocks.listeners.get('rewardedSlotReady')?.(readyEvent);
     });
-    fireEvent.click(screen.getByTestId('assisted-application-offer-rewarded'));
 
     expect(onOptIn).toHaveBeenCalledTimes(1);
     expect(mocks.makeRewardedVisible).toHaveBeenCalledTimes(1);

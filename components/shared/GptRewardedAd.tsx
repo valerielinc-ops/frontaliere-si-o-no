@@ -1,4 +1,4 @@
-import { useEffect, useRef, useState, useSyncExternalStore } from 'react';
+import { useCallback, useEffect, useRef, useState, useSyncExternalStore } from 'react';
 import { Loader2, PlayCircle } from 'lucide-react';
 import { onAdsConsentChange } from '@/services/adsConsent';
 import {
@@ -26,6 +26,11 @@ export interface GptRewardedAdProps {
    * this after the user has already opted into the rewarded flow.
    */
   autoStart?: boolean;
+  /**
+   * Retry only after the visitor explicitly asks to retry a dismissed ad.
+   * A known no-fill keeps its original request so it redirects immediately.
+   */
+  retryToken?: number;
   onOptIn?: () => void;
   onReady?: () => void;
   onVideoCompleted?: () => void;
@@ -50,6 +55,7 @@ export default function GptRewardedAd({
   showUnavailableMessage = true,
   enabled = true,
   autoStart = false,
+  retryToken = 0,
   onOptIn,
   onReady,
   onVideoCompleted,
@@ -61,6 +67,8 @@ export default function GptRewardedAd({
   const requestIdRef = useRef(0);
   const lastEventSequenceRef = useRef(0);
   const autoStartRequestIdRef = useRef(0);
+  const autoShownRequestIdRef = useRef(0);
+  const unavailableNotifiedRequestIdRef = useRef<number | null>(null);
   const onOptInRef = useRef(onOptIn);
   const onReadyRef = useRef(onReady);
   const onVideoCompletedRef = useRef(onVideoCompleted);
@@ -73,6 +81,13 @@ export default function GptRewardedAd({
   onGrantedRef.current = onGranted;
   onClosedRef.current = onClosed;
   onUnavailableRef.current = onUnavailable;
+
+  const notifyUnavailable = useCallback(() => {
+    const requestId = requestIdRef.current;
+    if (unavailableNotifiedRequestIdRef.current === requestId) return;
+    unavailableNotifiedRequestIdRef.current = requestId;
+    onUnavailableRef.current?.();
+  }, []);
 
   useEffect(() => onAdsConsentChange(() => setAdsConsentTick((tick) => tick + 1)), []);
 
@@ -87,13 +102,15 @@ export default function GptRewardedAd({
   useEffect(() => {
     if (!active) {
       disposeRewardedWebAd(adUnitPath);
-      onUnavailableRef.current?.();
       requestIdRef.current = 0;
       autoStartRequestIdRef.current = 0;
+      autoShownRequestIdRef.current = 0;
+      notifyUnavailable();
       return;
     }
-    requestIdRef.current = preloadRewardedWebAd(adUnitPath, { retryUnavailable: true });
-  }, [active, adUnitPath, adsConsentTick]);
+    requestIdRef.current = preloadRewardedWebAd(adUnitPath, { retryUnavailable: retryToken > 0 });
+    if (!requestIdRef.current) notifyUnavailable();
+  }, [active, adUnitPath, adsConsentTick, notifyUnavailable, retryToken]);
 
   useEffect(() => {
     const pendingEvents = snapshot.events.filter(
@@ -105,31 +122,32 @@ export default function GptRewardedAd({
       if (event.type === 'granted') onGrantedRef.current();
       if (event.type === 'completed') onVideoCompletedRef.current?.();
       if (event.type === 'closed') onClosedRef.current?.(!!event.granted);
-      if (event.type === 'unavailable') onUnavailableRef.current?.();
+      if (event.type === 'unavailable') notifyUnavailable();
     });
-  }, [snapshot.events]);
+  }, [snapshot.events, notifyUnavailable]);
 
   useEffect(() => {
     if (!autoStart || state !== 'ready') return;
     const requestId = requestIdRef.current;
-    if (!requestId || autoStartRequestIdRef.current === requestId) return;
+    if (!requestId || autoStartRequestIdRef.current === requestId || autoShownRequestIdRef.current === requestId) return;
 
     autoStartRequestIdRef.current = requestId;
+    autoShownRequestIdRef.current = requestId;
     onOptInRef.current?.();
     try {
-      showRewardedWebAd(adUnitPath);
+      if (!showRewardedWebAd(adUnitPath)) notifyUnavailable();
     } catch {
-      onUnavailableRef.current?.();
+      notifyUnavailable();
     }
-  }, [adUnitPath, autoStart, state, snapshot.requestId]);
+  }, [adUnitPath, autoStart, notifyUnavailable, state, snapshot.requestId]);
 
   const handleOptIn = () => {
     if (state !== 'ready') return;
     onOptInRef.current?.();
     try {
-      showRewardedWebAd(adUnitPath);
+      if (!showRewardedWebAd(adUnitPath)) notifyUnavailable();
     } catch {
-      onUnavailableRef.current?.();
+      notifyUnavailable();
     }
   };
 

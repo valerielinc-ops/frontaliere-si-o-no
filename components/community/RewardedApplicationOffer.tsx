@@ -39,6 +39,7 @@ export default function RewardedApplicationOffer({
 }: RewardedApplicationOfferProps) {
   const [rewarded, setRewarded] = useState(false);
   const [retryRequired, setRetryRequired] = useState(false);
+  const [retryToken, setRetryToken] = useState(0);
   const grantedRef = useRef(false);
   const videoCompletedRef = useRef(false);
   const completedRef = useRef(false);
@@ -100,6 +101,12 @@ export default function RewardedApplicationOffer({
   };
 
   const handleClosed = (grantedByEvent: boolean) => {
+    if (grantedByEvent && !grantedRef.current) {
+      // Some GPT builds emit the granted bit on close without delivering the
+      // separate rewardedSlotGranted event. Keep the entitlement and redirect
+      // path deterministic in that case.
+      handleGranted();
+    }
     if (grantedByEvent || grantedRef.current) {
       // GPT's granted close event is emitted only after the rewarded
       // experience has satisfied its completion condition. Treat it as the
@@ -137,6 +144,7 @@ export default function RewardedApplicationOffer({
     completedRef.current = false;
     setRewarded(false);
     setRetryRequired(false);
+    setRetryToken((token) => token + 1);
   };
 
   const modal = (
@@ -174,14 +182,14 @@ export default function RewardedApplicationOffer({
           </div>
 
           <p id="rewarded-application-offer-description" className="text-sm leading-relaxed text-body">
-            Hai scelto di candidarti. Se il video è già pronto, si aprirà automaticamente; al termine ti porteremo direttamente sul sito dell’azienda.
+            Stiamo preparando il collegamento diretto al sito dell’azienda e verifichiamo la disponibilità di una pubblicità Google.
           </p>
 
           <div className="rounded-stripe border border-info-border bg-info-subtle/60 p-3">
             <div className="flex items-start gap-2.5">
               <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-info" aria-hidden="true" />
               <p className="text-xs leading-relaxed text-body">
-                Il video sostiene il servizio. Quando sarà terminato, apriremo direttamente la candidatura senza modificare questa pagina.
+                Se Google assegna una pubblicità, la mostriamo automaticamente. Al termine apriremo direttamente la candidatura; se non c’è domanda, ti reindirizziamo subito.
               </p>
             </div>
           </div>
@@ -193,7 +201,7 @@ export default function RewardedApplicationOffer({
             </li>
             <li className="flex items-start gap-2.5">
               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
-              <span>Mostriamo un breve video per sostenere il servizio.</span>
+              <span>Mostriamo un contenuto Google solo se c’è domanda disponibile.</span>
             </li>
             <li className="flex items-start gap-2.5">
               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
@@ -216,6 +224,7 @@ export default function RewardedApplicationOffer({
               unavailableLabel="Il video non è disponibile in questo momento."
               showUnavailableMessage={false}
               autoStart
+              retryToken={retryToken}
               onOptIn={() => trackAssistedApplicationEvent('rewarded_ad_opt_in', {
                 variant: 'rewarded_ad',
                 jobId,
