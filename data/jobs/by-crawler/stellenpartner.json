@@ -1,6 +1,6 @@
 {
   "crawlerKey": "stellenpartner",
-  "assembledAt": "2026-09-23T12:11:03.285Z",
+  "assembledAt": "2026-09-23T18:38:05.363Z",
   "jobs": [
     {
       "id": "stellenpartner-11402bb04104",
@@ -10994,85 +10994,6 @@
       "crawlerMissStreak": 2
     },
     {
-      "id": "stellenpartner-5e74c779606f",
-      "slug": "carpentiere-per-pezzi-esigenti-stellenpartner-ag-luzern-luzern",
-      "slugByLocale": {
-        "it": "carpentiere-per-pezzi-esigenti-stellenpartner-ag-luzern-luzern",
-        "en": "carpenters-for-demanding-workpieces-stellenpartner-ag-luzern-luzern",
-        "de": "schreiner-in-fur-anspruchsvolle-werkstucke-luzern-luzern-stellenpartner-ch",
-        "fr": "charpentiers-pour-pieces-exigeantes-stellenpartner-ag-luzern-luzern"
-      },
-      "company": "Stellenpartner AG",
-      "companyKey": "stellenpartner",
-      "companyDomain": "stellenpartner.ch",
-      "title": "Schreiner/in für anspruchsvolle Werkstücke",
-      "titleByLocale": {
-        "it": "Carpentiere per pezzi esigenti",
-        "en": "Carpenters for demanding workpieces",
-        "de": "Schreiner/in für anspruchsvolle Werkstücke",
-        "fr": "Charpentiers pour pièces exigeantes"
-      },
-      "description": "Tätigkeiten Selbständige (Bank- und Maschinenarbeiten) Fertigung von anspruchsvollen Werkteilen Allgemeine Werkstattarbeiten\n• Anforderungen Berufslehre als Schreiner absolviert Vielseitige Fachkenntnisse Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Angebot Ein kooperatives, zukunftsorientiertes und junges Schreiner-Team erwartet Sie. Motivierend sind die Liebe zum Handwerk, das familiäre Betriebsklima.",
-      "descriptionByLocale": {
-        "it": "Attività Lavoro autonomo (bancario e lavoro in macchina) Produzione di pezzi impegnati Lavori di officina\n• L'apprendistato vocazionale come falegname completa le conoscenze specialistiche versatili L'impegno elevato, la personalità comunicativa offre un team di carpentieri cooperativo, orientato al futuro e giovane. Motivare sono l'amore per l'artigianato, l'atmosfera di lavoro familiare.",
-        "en": "Activities Self-employed (banking and machine work) Production of demanding parts General workshop work\n• Requirements Vocational apprenticeship as a carpenter completes versatile specialist knowledge High commitment Set up, communicative personality offer A cooperative, future-oriented and young carpenter team awaits you. Motivating are the love for craftsmanship, the family working atmosphere.",
-        "de": "Tätigkeiten Selbständige (Bank- und Maschinenarbeiten) Fertigung von anspruchsvollen Werkteilen Allgemeine Werkstattarbeiten\n• Anforderungen Berufslehre als Schreiner absolviert Vielseitige Fachkenntnisse Hohe Leistungsbereitschaft Aufgestellte, kommunikative Persönlichkeit Angebot Ein kooperatives, zukunftsorientiertes und junges Schreiner-Team erwartet Sie. Motivierend sind die Liebe zum Handwerk, das familiäre Betriebsklima.",
-        "fr": "Activités Travailleurs indépendants (bancaires et machines) Production de pièces exigeantes Travail d'atelier général\n• Exigences L'apprentissage professionnel en tant que charpentier complète des connaissances spécialisées polyvalentes Engagement élevé Mise en place, communication de la personnalité offre Une équipe coopérative, tournée vers l'avenir et jeune charpentier vous attend. Motivant sont l'amour de l'artisanat, l'ambiance de travail familiale."
-      },
-      "location": "Luzern, Luzern",
-      "canton": "LU",
-      "url": "https://www.stellenpartner.ch/stellen/schreiner-in-luzern-temporaer-106159/",
-      "source": "Stellenpartner AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:15:04.718Z",
-      "addressLocality": "Luzern",
-      "addressRegion": "Luzern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-08",
-      "applyUrl": "https://www.stellenpartner.ch/stellen/schreiner-in-luzern-temporaer-106159/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "schreiner-in-fur-anspruchsvolle-werkstucke-luzern-luzern-stellenpartner-ch",
-        "schreiner-in-per-anspruchsvolle-werkstucke-stellenpartner-ag-luzern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "schreiner-in-fur-anspruchsvolle-werkstucke-luzern-luzern-stellenpartner-ch",
-          "schreiner-in-per-anspruchsvolle-werkstucke-stellenpartner-ag-luzern"
-        ],
-        "en": [
-          "schreiner-in-fur-anspruchsvolle-werkstucke-luzern-luzern-stellenpartner-ch"
-        ],
-        "fr": [
-          "schreiner-in-fur-anspruchsvolle-werkstucke-luzern-luzern-stellenpartner-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:58:12.472Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
       "id": "stellenpartner-b1325172756b",
       "slug": "carpenter-per-lavorazione-cnc-stellenpartner-ag-wil-sg-st-gallen",
       "slugByLocale": {
@@ -17156,86 +17077,6 @@
           "@type": "QuantitativeValue",
           "minValue": 74500,
           "maxValue": 127000,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "stellenpartner-b2c576fbdb3d",
-      "slug": "polymechanic-tecnico-di-servizio-con-una-vasta-gamma-di-compiti-tecnici-stellenpartner-ag-wil-sg-st-gallen",
-      "slugByLocale": {
-        "it": "polymechanic-tecnico-di-servizio-con-una-vasta-gamma-di-compiti-tecnici-stellenpartner-ag-wil-sg-st-gallen",
-        "en": "polymechanic-service-technician-with-a-wide-range-of-technical-tasks-stellenpartner-ag-wil-sg-st-gallen",
-        "de": "polymechaniker-in-8211-servicetechniker-in-mit-vielseitigen-technischen-aufgaben-wil-sg-st",
-        "fr": "polymecanique-technicien-de-service-avec-un-large-eventail-de-taches-techniques-stellenpartner-ag-wil-sg-st-gallen"
-      },
-      "company": "Stellenpartner AG",
-      "companyKey": "stellenpartner",
-      "companyDomain": "stellenpartner.ch",
-      "title": "Polymechaniker/in – Servicetechniker/in mit vielseitigen technischen Aufgaben",
-      "titleByLocale": {
-        "it": "Polymechanic – tecnico di servizio con una vasta gamma di compiti tecnici",
-        "en": "Polymechanic – service technician with a wide range of technical tasks",
-        "de": "Polymechaniker/in – Servicetechniker/in mit vielseitigen technischen Aufgaben",
-        "fr": "Polymécanique – technicien de service avec un large éventail de tâches techniques"
-      },
-      "description": "Tätigkeiten Selbstständige Umsetzung von Arbeiten anhand von Zeichnungen und Skizzen Montage sowie Inbetriebnahme von Präzisionskreissägeanlagen in den Bereichen Mechanik, Pneumatik, Hydraulik und Elektrik Durchführung von Service- und Reparaturarbeiten bei Kunden im In- und Ausland Vormontage verschiedener Maschinenkomponenten Ausführung mechanischer Arbeiten mit konventionellen Maschinen\n• Anforderungen Abgeschlossene Ausbildung als Polymechaniker Breites technisches Fachwissen in den relevanten Bereichen Ausgeprägte Leistungsbereitschaft und Eigenmotivation Freundliche und kommunikative Persönlichkeit Führerausweis der Kategorie B von Vorteil Angebot Festanstellung bei einem etablierten und angesehenen Arbeitgeber Attraktives, marktgerechtes Gehalt Moderne Sozialleistungen und gute Entwicklungsmöglichkeiten",
-      "descriptionByLocale": {
-        "it": "AttivitÃ implementazione indipendente dei lavori sulla base di disegni e schizzi Assemblaggio e messa in servizio di sistemi di seghe circolari di precisione nelle aree di meccanica, pneumatica, idraulica ed elettrica Eseguire lavori di manutenzione e riparazione presso i clienti in Germania e all'estero Pre-assemblaggio di vari componenti macchina Lavoro meccanico con macchine convenzionali\n• Requisiti Formazione completa come polimeccanica Competenza tecnica ampia nelle aree pertinenti Pronunciata disponibilità e auto-motivazione Licenza di guida della personalità amichevole e comunicativa della categoria B offerta vantaggiosa Occupazione permanente con un datore di lavoro stabilito e rispettato Attraente, salario orientato al mercato Vantaggi sociali moderni e buone opportunità di sviluppo",
-        "en": "Activities Independent implementation of work on the basis of drawings and sketches Assembly as well as commissioning of precision circular saw systems in the areas of mechanics, pneumatics, hydraulics and electrics Carry out service and repair work at customers in Germany and abroad Pre-assembly of various machine components Mechanical work with conventional machines\n• Requirements Completed training as a polymechanic Broad technical expertise in the relevant areas Pronounced willingness and self-motivation Friendly and communicative personality driving licence of category B advantageous offer Permanent employment with an established and respected employer Attractive, market-oriented salary Modern social benefits and good development opportunities",
-        "de": "Tätigkeiten Selbstständige Umsetzung von Arbeiten anhand von Zeichnungen und Skizzen Montage sowie Inbetriebnahme von Präzisionskreissägeanlagen in den Bereichen Mechanik, Pneumatik, Hydraulik und Elektrik Durchführung von Service- und Reparaturarbeiten bei Kunden im In- und Ausland Vormontage verschiedener Maschinenkomponenten Ausführung mechanischer Arbeiten mit konventionellen Maschinen\n• Anforderungen Abgeschlossene Ausbildung als Polymechaniker Breites technisches Fachwissen in den relevanten Bereichen Ausgeprägte Leistungsbereitschaft und Eigenmotivation Freundliche und kommunikative Persönlichkeit Führerausweis der Kategorie B von Vorteil Angebot Festanstellung bei einem etablierten und angesehenen Arbeitgeber Attraktives, marktgerechtes Gehalt Moderne Sozialleistungen und gute Entwicklungsmöglichkeiten",
-        "fr": "Activités Réalisation indépendante des travaux sur la base de dessins et croquis Montage et mise en service de systèmes de scies circulaires de précision dans les domaines de la mécanique, des pneumatiques, de l'hydraulique et de l'électricité Effectuer des travaux de service et de réparation auprès des clients en Allemagne et à l'étranger Pré-assemblage de divers composants de machines Travaux mécaniques avec machines conventionnelles\n• Exigences Formation complétée en tant que polymécanique Grande expertise technique dans les domaines pertinents Volonté manifestée et automotivation Permis de conduire de la catégorie B de la personnalité amicale et communicative Offre avantageuse Emploi permanent avec un employeur établi et respecté Salaire attrayant et axé sur le marché Avantages sociaux modernes et bonnes possibilités de développement"
-      },
-      "location": "Wil SG, St. Gallen",
-      "canton": "SG",
-      "url": "https://www.stellenpartner.ch/stellen/polymechaniker-in-servicetechniker-in-wil-sg-dauerstelle-103058/",
-      "source": "Stellenpartner AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:15:04.659Z",
-      "addressLocality": "Wil SG",
-      "addressRegion": "St. Gallen",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Tecnica",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-08",
-      "applyUrl": "https://www.stellenpartner.ch/stellen/polymechaniker-in-servicetechniker-in-wil-sg-dauerstelle-103058/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "polymechaniker-in-8211-servicetechniker-in-mit-vielseitigen-technischen-aufgaben-wil-sg-st",
-        "polymechaniker-in-tecnico-a-di-servizio-con-vielseitigen-technischen-aufgaben-stellenpartner-ag-wil-sg",
-        "polymechaniker-in-servicetechniker-in-mit-vielseitigen-technischen-aufgaben-stellenpartner-ag-wil-sg"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "polymechaniker-in-8211-servicetechniker-in-mit-vielseitigen-technischen-aufgaben-wil-sg-st",
-          "polymechaniker-in-tecnico-a-di-servizio-con-vielseitigen-technischen-aufgaben-stellenpartner-ag-wil-sg"
-        ],
-        "en": [
-          "polymechaniker-in-servicetechniker-in-mit-vielseitigen-technischen-aufgaben-stellenpartner-ag-wil-sg"
-        ],
-        "fr": [
-          "polymechaniker-in-servicetechniker-in-mit-vielseitigen-technischen-aufgaben-stellenpartner-ag-wil-sg"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:58:12.429Z",
-      "salaryMin": 67000,
-      "salaryMax": 102000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 67000,
-          "maxValue": 102000,
           "unitText": "YEAR"
         }
       },
@@ -34989,98 +34830,6 @@
           "@type": "QuantitativeValue",
           "minValue": 73500,
           "maxValue": 111500,
-          "unitText": "YEAR"
-        }
-      },
-      "crawlerMissStreak": 2
-    },
-    {
-      "id": "stellenpartner-aeaceae1f82e",
-      "slug": "pittori-per-la-pittura-cliente-stellenpartner-ag-muri-ag-aargau",
-      "slugByLocale": {
-        "it": "pittori-per-la-pittura-cliente-stellenpartner-ag-muri-ag-aargau",
-        "en": "painters-for-client-painting-stellenpartner-ag-muri-ag-aargau",
-        "de": "maler-in-fur-kundenmalerarbeiten-muri-ag-aargau-stellenpartner-ch",
-        "fr": "peintres-pour-la-peinture-client-stellenpartner-ag-muri-ag-aargau"
-      },
-      "company": "Stellenpartner AG",
-      "companyKey": "stellenpartner",
-      "companyDomain": "stellenpartner.ch",
-      "title": "Maler/in für Kundenmalerarbeiten",
-      "titleByLocale": {
-        "it": "Pittori per la pittura cliente",
-        "en": "Painters for client painting",
-        "de": "Maler/in für Kundenmalerarbeiten",
-        "fr": "Peintres pour la peinture client"
-      },
-      "description": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Neubau- und Renovationsobjekte Lackier- und Spritzarbeiten Dekorative Arbeiten\n• Anforderungen Lehre als Maler EFZ abgeschlossen Fundierte Branchenerfahrung Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Freude und Interesse am Beruf Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
-      "descriptionByLocale": {
-        "it": "Lavori di verniciatura dei clienti per clienti privati Oggetti di ristrutturazione Dipinti e lavori di spruzzo\n• Requisiti Insegnamento come pittore EFZ completato Esperienza di settore approfondita Metodo di lavoro Esatto e in avanti L'aspetto amichevole del cliente Piacere e l'interesse per la professione offerta Si aspetta che tu sia un team esperto con molti anni di know-how, un lavoro emozionante con progetti impegnativi e un attraente salario orario.",
-        "en": "Customer painting work for private clients New and renovation objects Painting and spray work Decorative work\n• Requirements Teaching as a painter EFZ completed In-depth industry experience Exact and forward working method Customer-friendly appearance Pleasure and interest in the profession Offer It expected You are an experienced team with many years of know-how, an exciting job with challenging projects and an attractive hourly wage.",
-        "de": "Tätigkeiten Kundenmalerarbeiten bei Privatkundschaft Neubau- und Renovationsobjekte Lackier- und Spritzarbeiten Dekorative Arbeiten\n• Anforderungen Lehre als Maler EFZ abgeschlossen Fundierte Branchenerfahrung Exakte und speditive Arbeitsweise Kundenfreundliches Auftreten Freude und Interesse am Beruf Angebot Es erwartet Sie ein eingespieltes Team mit langjährigem Know-how, eine spannende Tätigkeit mit anspruchsvollen Projekten und ein attraktiver Stundenlohn.",
-        "fr": "Travaux de peinture pour clients privés Objets neufs et de rénovation Travaux de peinture et de pulvérisation Travaux décoratifs\n• Exigences Enseignement en tant que peintre EFZ terminé Expérience industrielle approfondie Méthode de travail précise et avancée Apparition conviviale Plaisir et intérêt pour la profession Offre Il est attendu Vous êtes une équipe expérimentée avec de nombreuses années de savoir-faire, un travail passionnant avec des projets difficiles et un salaire horaire attrayant."
-      },
-      "location": "Muri AG, Aargau",
-      "canton": "AG",
-      "url": "https://www.stellenpartner.ch/stellen/maler-in-muri-ag-temporaer-105879/",
-      "source": "Stellenpartner AG Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-13T14:15:04.514Z",
-      "addressLocality": "Muri AG",
-      "addressRegion": "Aargau",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Altro",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-08",
-      "applyUrl": "https://www.stellenpartner.ch/stellen/maler-in-muri-ag-temporaer-105879/",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "maler-in-fur-kundenmalerarbeiten-muri-ag-aargau-stellenpartner-ch",
-        "maler-in-per-kundenmalerarbeiten-stellenpartner-ag-muri-ag",
-        "pittori-con-una-vasta-gamma-di-compiti-stellenpartner-ag-muri-ag-aargau",
-        "painters-with-a-wide-range-of-tasks-stellenpartner-ag-muri-ag-aargau",
-        "maler-in-mit-vielseitigem-aufgabenspektrum-muri-ag-aargau-stellenpartner-ch",
-        "peintres-avec-un-large-eventail-de-taches-stellenpartner-ag-muri-ag-aargau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "maler-in-fur-kundenmalerarbeiten-muri-ag-aargau-stellenpartner-ch",
-          "maler-in-per-kundenmalerarbeiten-stellenpartner-ag-muri-ag",
-          "pittori-con-una-vasta-gamma-di-compiti-stellenpartner-ag-muri-ag-aargau",
-          "painters-with-a-wide-range-of-tasks-stellenpartner-ag-muri-ag-aargau",
-          "maler-in-mit-vielseitigem-aufgabenspektrum-muri-ag-aargau-stellenpartner-ch",
-          "peintres-avec-un-large-eventail-de-taches-stellenpartner-ag-muri-ag-aargau"
-        ],
-        "en": [
-          "maler-in-fur-kundenmalerarbeiten-muri-ag-aargau-stellenpartner-ch",
-          "painters-with-a-wide-range-of-tasks-stellenpartner-ag-muri-ag-aargau"
-        ],
-        "de": [
-          "maler-in-mit-vielseitigem-aufgabenspektrum-muri-ag-aargau-stellenpartner-ch"
-        ],
-        "fr": [
-          "maler-in-fur-kundenmalerarbeiten-muri-ag-aargau-stellenpartner-ch",
-          "peintres-avec-un-large-eventail-de-taches-stellenpartner-ag-muri-ag-aargau"
-        ]
-      },
-      "firstSeenAt": "2026-09-08T13:58:12.349Z",
-      "salaryMin": 62000,
-      "salaryMax": 94000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 94000,
           "unitText": "YEAR"
         }
       },

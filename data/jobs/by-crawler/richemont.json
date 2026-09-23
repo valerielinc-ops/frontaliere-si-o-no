@@ -1,6 +1,6 @@
 {
   "crawlerKey": "richemont",
-  "assembledAt": "2026-09-23T12:08:22.287Z",
+  "assembledAt": "2026-09-23T18:36:51.192Z",
   "jobs": [
     {
       "id": "richemont-7d49e9e9e2fc",
@@ -3164,83 +3164,6 @@
       }
     },
     {
-      "id": "richemont-c2963aee6e4f",
-      "slug": "procurement-category-manager-piaget-plan-les-ouates",
-      "slugByLocale": {
-        "it": "responsabile-categoria-acquisti-piaget-plan-les-ouates",
-        "en": "procurement-category-manager-piaget-plan-les-ouates",
-        "de": "einkaufs-kategorie-manager-piaget-plan-les-ouates",
-        "fr": "procurement-category-manager-richemont-plan-les-ouates"
-      },
-      "company": "Piaget",
-      "companyKey": "richemont",
-      "companyDomain": "richemont.com",
-      "title": "Procurement Category Manager",
-      "titleByLocale": {
-        "fr": "Procurement Category Manager",
-        "en": "Procurement Category Manager",
-        "it": "Procurement Categoria Manager",
-        "de": "Leiter der Beschaffungskategorie"
-      },
-      "description": "Procurement Category Manager Maison: Piaget. Department: Supply Chain and Logistics. Location: Plan-Les-Ouates, CH. Open position at Compagnie Financière Richemont (Swiss luxury group: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, and more).",
-      "descriptionByLocale": {
-        "fr": "Procurement Category Manager Maison: Piaget. Department: Supply Chain and Logistics. Location: Plan-Les-Ouates, CH. Open position at Compagnie Financière Richemont (Swiss luxury group: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, and more).",
-        "it": "Home: Piaget. Dipartimento: Supply Chain e Logistica. Posizione: Plan-Les-Ouates, CH. Posizione aperta alla Compagnie Financière Richemont (gruppo di lusso svizzero: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, e altro ancora).",
-        "en": "Procurement Category Manager Home: Piaget. Department: Supply Chain and Logistics. Location: Plan-Les-Ouates, CH. Open position at Compagnie Financière Richemont (Swiss luxury group: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, and more).",
-        "de": "Einkaufskategorie Manager Home: Piaget. Abteilung: Supply Chain und Logistik. Standort: Plan-Les-Ouates, CH. Offene Position bei Compagnie Financière Richemont (Schweizer Luxusgruppe: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin und mehr)."
-      },
-      "location": "Plan-Les-Ouates",
-      "canton": "GE",
-      "url": "https://careers.richemont.com/en/jobs/jr130115/procurement-category-manager/",
-      "source": "Richemont Dedicated Parser (Playwright)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-21T16:11:46.047Z",
-      "addressLocality": "Plan-Les-Ouates",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Logistica",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Lusso / Orologeria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-18",
-      "applyUrl": "https://careers.richemont.com/en/jobs/jr130115/procurement-category-manager/",
-      "jobReqId": "jr130115",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "previousSlugs": [
-        "procurement-category-manager-richemont-plan-les-ouates-2",
-        "procurement-category-manager-richemont-plan-les-ouates"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "procurement-category-manager-richemont-plan-les-ouates-2",
-          "procurement-category-manager-richemont-plan-les-ouates"
-        ],
-        "de": [
-          "procurement-category-manager-richemont-plan-les-ouates-2"
-        ]
-      },
-      "firstSeenAt": "2026-06-18T13:11:22.906Z",
-      "salaryMin": 83500,
-      "salaryMax": 126500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 83500,
-          "maxValue": 126500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
       "id": "richemont-5d531f1522de",
       "slug": "project-manager-f-m-dei-centri-relazioni-clienti-van-cleef-arpels-geneva",
       "slugByLocale": {
@@ -6353,97 +6276,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:17:40.511Z",
-      "salaryMin": 60500,
-      "salaryMax": 91500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 60500,
-          "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "richemont-88744095bff3",
-      "slug": "charge-de-projets-industrializzazione-valfleurier-buttes",
-      "slugByLocale": {
-        "it": "charge-de-projets-industrializzazione-valfleurier-buttes",
-        "en": "charge-de-projets-industrialisation-richemont-buttes",
-        "de": "charge-de-projets-industrialisierung-valfleurier-buttes",
-        "fr": "charge-de-projets-industrialisation-valfleurier-buttes"
-      },
-      "company": "ValFleurier",
-      "companyKey": "richemont",
-      "companyDomain": "richemont.com",
-      "title": "Chargé de Projets Industrialisation",
-      "titleByLocale": {
-        "it": "Chargé de Projets Industrializzazione",
-        "en": "Chargé de Projets Industrialisation",
-        "de": "Chargé de Projets Industrialisierung",
-        "fr": "Chargé de Projets Industrie"
-      },
-      "description": "Chargé de Projets Industrialisation Maison: ValFleurier. Department: Research Innovation Product Development. Location: Buttes, CH. Open position at Compagnie Financière Richemont (Swiss luxury group: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, and more).",
-      "descriptionByLocale": {
-        "en": "Chargé de Projets Industrialisation Maison: ValFleurier. Department: Research Innovation Product Development. Location: Buttes, CH. Open position at Compagnie Financière Richemont (Swiss luxury group: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, and more).",
-        "it": "Chargé de Projets Industrialization Maison: ValFleurier. Dipartimento: Ricerca Innovazione Sviluppo del prodotto. Posizione: Buttes, CH. Posizione aperta alla Compagnie Financière Richemont (gruppo di lusso svizzero: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, e altro ancora).",
-        "de": "Chargé de Projets Industrialisation Maison: ValFleurier. Abteilung: Forschung Innovation Produktentwicklung. Standort: Buttes, CH. Offene Position bei Compagnie Financière Richemont (Schweizer Luxusgruppe: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin und mehr).",
-        "fr": "Chargé de Projets Industrialisation Maison: ValFleurier. Département: Recherche Innovation Développement de produits. Lieu: Buttes, CH. Position ouverte à la Compagnie Financière Richemont (groupe de luxe suisse : Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, etc.)."
-      },
-      "location": "Buttes",
-      "canton": "GE",
-      "url": "https://careers.richemont.com/en/jobs/jr131563/charge-de-projets-industrialisation/",
-      "source": "Richemont Dedicated Parser (Playwright)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-21T16:11:45.955Z",
-      "addressLocality": "Buttes",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Lusso / Orologeria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Lusso / Orologeria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-16",
-      "applyUrl": "https://careers.richemont.com/en/jobs/jr131563/charge-de-projets-industrialisation/",
-      "jobReqId": "jr131563",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "charge-de-projets-industrialisation-richemont-buttes",
-        "project-manager-industrialization-valfleurier-buttes",
-        "industrializzazione-di-project-manager-valfleurier-buttes",
-        "projektmanager-industrialisierung-valfleurier-buttes",
-        "industrialization-project-manager-valfleurier-buttes",
-        "responsabile-del-progetto-di-industrializzazione-valfleurier-buttes",
-        "industrialisierung-projektmanager-valfleurier-buttes",
-        "charge-de-projets-industrialisation-valfleurier-buttes"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "charge-de-projets-industrialisation-richemont-buttes",
-          "industrializzazione-di-project-manager-valfleurier-buttes",
-          "responsabile-del-progetto-di-industrializzazione-valfleurier-buttes",
-          "charge-de-projets-industrialisation-valfleurier-buttes"
-        ],
-        "en": [
-          "project-manager-industrialization-valfleurier-buttes",
-          "industrialization-project-manager-valfleurier-buttes"
-        ],
-        "de": [
-          "charge-de-projets-industrialisation-richemont-buttes",
-          "projektmanager-industrialisierung-valfleurier-buttes",
-          "industrialisierung-projektmanager-valfleurier-buttes",
-          "charge-de-projets-industrialisation-valfleurier-buttes"
-        ]
-      },
-      "firstSeenAt": "2026-07-16T22:17:40.509Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -12237,70 +12069,6 @@
           "@type": "QuantitativeValue",
           "minValue": 60500,
           "maxValue": 91500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "richemont-cc2aa1b83f09",
-      "slug": "stagiaire-ingenieur-prod-sav-richemont-le-sentier",
-      "slugByLocale": {
-        "it": "stagiaire-ingenieur-prod-sav-richemont-le-sentier",
-        "en": "stagiaire-ingenieur-prod-sav-richemont-le-sentier",
-        "de": "stagiaire-ingenieur-prod-sav-richemont-le-sentier",
-        "fr": "stagiaire-ingenieur-prod-sav-jaeger-lecoultre-le-sentier"
-      },
-      "company": "Jaeger-LeCoultre",
-      "companyKey": "richemont",
-      "companyDomain": "richemont.com",
-      "title": "Stagiaire ingénieur Prod & SAV",
-      "titleByLocale": {
-        "it": "Stagiaire ingénieur Prod & SAV",
-        "en": "Stagiaire ingénieur Prod & SAV",
-        "de": "Stagiaire ingénieur Prod & SAV",
-        "fr": "Stagiaire Ü Prod & SAV"
-      },
-      "description": "Stagiaire ingénieur Prod & SAV Maison: Jaeger-LeCoultre. Department: Manufacturing. Location: Le Sentier, CH. Open position at Compagnie Financière Richemont (Swiss luxury group: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, and more).",
-      "descriptionByLocale": {
-        "en": "Stagiaire ingénieur Prod & SAV Maison: Jaeger-LeCoultre. Department: Manufacturing. Location: Le Sentier, CH. Open position at Compagnie Financière Richemont (Swiss luxury group: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, and more).",
-        "it": "Stagiaire ingénieur Prod & SAV Maison: Jaeger-LeCoultre. Dipartimento: Produzione. Posizione: Le Sentier, CH. Posizione aperta alla Compagnie Financière Richemont (gruppo di lusso svizzero: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, e altro ancora).",
-        "de": "Stagiaire ingénieur Prod & SAV Maison: Jaeger-LeCoultre. Abteilung: Fertigung. Standort: Le Sentier, CH. Offene Position bei Compagnie Financière Richemont (Schweizer Luxusgruppe: Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin und mehr).",
-        "fr": "Stagiaire ingénieur Prod & SAV Maison: Jaeger-LeCoultre. Département: Fabrication. Lieu: Le Sentier, CH. Position ouverte à la Compagnie Financière Richemont (groupe de luxe suisse : Cartier, Van Cleef & Arpels, IWC, Jaeger-LeCoultre, Panerai, Piaget, Vacheron Constantin, etc.)."
-      },
-      "location": "Le Sentier",
-      "canton": "GE",
-      "url": "https://careers.richemont.com/en/jobs/jr133479/stagiaire-ingenieur-prod-sav/",
-      "source": "Richemont Dedicated Parser (Playwright)",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-21T16:11:45.816Z",
-      "addressLocality": "Le Sentier",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Lusso / Orologeria",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Lusso / Orologeria",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-09",
-      "applyUrl": "https://careers.richemont.com/en/jobs/jr133479/stagiaire-ingenieur-prod-sav/",
-      "jobReqId": "jr133479",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-09T13:59:03.051Z",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 51100,
-          "maxValue": 77500,
           "unitText": "YEAR"
         }
       }
