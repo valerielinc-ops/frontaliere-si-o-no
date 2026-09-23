@@ -25,8 +25,10 @@
 #
 # Required env vars:
 #   GITHUB_PAT or GH_TOKEN  — Personal Access Token with workflow scope
-#   GITHUB_REPOSITORY       — owner/repo (set automatically in Actions)
+#   GITHUB_REPOSITORY       — owner/repo of the running workflow (set automatically in Actions)
 # Optional env vars:
+#   TRIGGER_REPOSITORY        — explicit owner/repo to target (highest precedence)
+#   GH_REPO                   — owner/repo override for cross-repo callers
 #   TRIGGER_REF                — branch/tag to dispatch (default: main)
 #   TRIGGER_EXPECTED_SHA        — wait until this SHA is at/behind TRIGGER_REF
 #   TRIGGER_REF_WAIT_ATTEMPTS   — max polling attempts (default: 20)
@@ -91,7 +93,7 @@ if [ -z "$TOKEN" ]; then
   exit 0
 fi
 
-REPO="${GITHUB_REPOSITORY:-valerielinc-ops/frontaliere-si-o-no}"
+REPO="${TRIGGER_REPOSITORY:-${GH_REPO:-${GITHUB_REPOSITORY:-valerielinc-ops/frontaliere-si-o-no}}}"
 REF="${TRIGGER_REF:-main}"
 EXPECTED_SHA="${TRIGGER_EXPECTED_SHA:-}"
 WAIT_ATTEMPTS="${TRIGGER_REF_WAIT_ATTEMPTS:-20}"
@@ -117,6 +119,7 @@ if [[ ! "$REPO" =~ ^[A-Za-z0-9_.-]+/[A-Za-z0-9_.-]+$ ]] || [ -z "$REF" ]; then
   write_output "dispatch_sent" "false"
   exit 1
 fi
+echo "🎯 Workflow dispatch target: ${REPO}@${REF}"
 if [ -n "$EXPECTED_SHA" ] && [[ ! "$EXPECTED_SHA" =~ ^[a-f0-9]{40,64}$ ]]; then
   echo "::error::trigger-workflow.sh received an invalid expected SHA" >&2
   write_output "dispatch_sent" "false"

@@ -264,6 +264,35 @@ describe('scripts/lib/trigger-workflow.sh', () => {
     expect(result.dispatchSent).toContain('dispatch_sent=true');
   });
 
+  it('uses GH_REPO instead of the workflow repository for cross-repo dispatches', () => {
+    const result = dispatch({
+      env: {
+        GITHUB_REPOSITORY: 'nanakokyobashi-rgb/frontaliere-articles',
+        GH_REPO: REPOSITORY,
+      },
+    });
+    expect(result.status).toBe(0);
+    expect(result.postUrl).toBe(
+      `https://api.github.com/repos/${REPOSITORY}/actions/workflows/${WORKFLOW}/dispatches`,
+    );
+    expect(result.getUrl).toBe(`https://api.github.com/repos/${REPOSITORY}/actions/runs/${RUN_ID}`);
+    expect(result.dispatchSent).toContain('dispatch_sent=true');
+  });
+
+  it('gives TRIGGER_REPOSITORY precedence over GH_REPO', () => {
+    const result = dispatch({
+      env: {
+        GITHUB_REPOSITORY: 'nanakokyobashi-rgb/frontaliere-articles',
+        GH_REPO: 'another-owner/another-repository',
+        TRIGGER_REPOSITORY: REPOSITORY,
+      },
+    });
+    expect(result.status).toBe(0);
+    expect(result.postUrl).toContain(`/repos/${REPOSITORY}/actions/workflows/`);
+    expect(result.getUrl).toContain(`/repos/${REPOSITORY}/actions/runs/`);
+    expect(result.dispatchSent).toContain('dispatch_sent=true');
+  });
+
   it('forwards caller inputs verbatim and omits inputs when absent', () => {
     const withInputs = dispatch({
       inputsJson: JSON.stringify({ article_id: 'x-y-z', section: 'svizzera', sha: 'deadbeef' }),
