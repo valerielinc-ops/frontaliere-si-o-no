@@ -247,7 +247,7 @@ function resolveLocalImport(fromFile, specifier) {
   return null;
 }
 
-function importedSpecifiers(source) {
+export function importedSpecifiers(source) {
   const specifiers = [];
   const patterns = [
     /(?:import|export)\s+(?:type\s+)?(?:[^'\"]*?\s+from\s+)?['\"]([^'\"]+)['\"]/g,
@@ -255,6 +255,12 @@ function importedSpecifiers(source) {
   ];
   for (const pattern of patterns) {
     for (const match of source.matchAll(pattern)) specifiers.push(match[1]);
+  }
+  // A template literal with interpolation is not statically resolvable; do not
+  // guess its target and accidentally add an incomplete import closure.
+  const staticTemplateImport = /import\s*\(\s*`([^`]*)`\s*\)/g;
+  for (const match of source.matchAll(staticTemplateImport)) {
+    if (!match[1].includes('${')) specifiers.push(match[1]);
   }
   return specifiers;
 }
