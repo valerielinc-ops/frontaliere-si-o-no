@@ -476,8 +476,12 @@ export async function fetchFachkraftSnapshot(options = {}) {
       maxPages: FACHKRAFT_MAX_LISTING_PAGES,
     });
     const { rows } = listing;
+    const declaredLabel = listing.listingCountDrift
+      ? listing.declaredCounts.join('/')
+      : (listing.declaredCount ?? 'unknown');
     console.log(
-      `[fachkraft] listing-pages=${listing.pages} declared=${listing.declaredCount ?? 'unknown'} cards=${rows.length}`,
+      `[fachkraft] listing-pages=${listing.pages} declared=${declaredLabel} `
+      + `coverage=${listing.coverage} cards=${rows.length}`,
     );
     const existingByUrl = new Map(readExistingFachkraftJobs(options).map((job) => [job?.url, job]));
     const enriched = new Array(rows.length);
