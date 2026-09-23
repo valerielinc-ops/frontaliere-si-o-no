@@ -308,6 +308,13 @@ describe('stale-pr-rescuer — cablaggio', () => {
     expect(WORKFLOW).toMatch(/sparse-checkout: \|\n(?:\s+\S+\n)*\s+scripts\/ci\/lib\/review-input-revision\.mjs\n/);
   });
 
+  it('materializza anche il parser canonico dell\'ammissione review', () => {
+    // Il custode importa questo modulo dalla variante site-owned del suo
+    // entrypoint. Senza la riga nello sparse checkout il job fallisce prima
+    // della logica di recupero con ERR_MODULE_NOT_FOUND (site #9528).
+    expect(WORKFLOW).toMatch(/sparse-checkout: \|\n(?:\s+\S+\n)*\s+scripts\/ci\/lib\/pr-review-admission\.mjs\n/);
+  });
+
   // Stato (c): verde + LGTM + auto-merge non attivo. Stessa forma di stallo
   // del check cancellato, altra causa. Misurato sul sito il 2026-09-20 sulla
   // PR #9344, dove il custode rispondeva `LGTM senza check cancellati` e non
