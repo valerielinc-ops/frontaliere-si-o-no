@@ -67,7 +67,9 @@ jobs:
           node scripts/audit-company-website-reachability.mjs \
             --json=/tmp/company-website-reachability/report.json \
             --concurrency=6 \
-            --timeout-ms=15000
+            --timeout-ms=15000 \
+            --retries=2 \
+            --retry-base-ms=750
 
       - name: Upload reachability report
         if: always()
