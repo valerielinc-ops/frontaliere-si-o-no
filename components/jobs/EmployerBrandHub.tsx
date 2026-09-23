@@ -17,7 +17,7 @@
 import { useMemo } from 'react';
 import type { Locale } from '@/services/i18n';
 import type { EmployerBrand } from '@/services/employerBrands';
-import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/jobCardHtml';
+import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/salaryEstimateSuffix';
 
 interface EmployerBrandJob {
   readonly id: string;

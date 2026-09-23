@@ -26,8 +26,9 @@ import { resolveJobLogoSrc as resolveJobCardLogo } from './companyLogoResolver';
 import { LOGO_FALLBACK_SCRIPT } from './logoFallbackScript';
 import { infeedAdListItemHtml } from '../lib/adSlotHtml';
 import { shouldPlaceInfeedAd } from '../../services/adsenseSlots';
+import { SALARY_ESTIMATE_SUFFIX } from './salaryEstimateSuffix';
 
-export { resolveJobCardLogo, escHtml };
+export { resolveJobCardLogo, escHtml, SALARY_ESTIMATE_SUFFIX };
 
 export type JobCardLocale = 'it' | 'en' | 'de' | 'fr';
 
@@ -215,13 +216,6 @@ const ICON_SPARKLES = '<svg width="10" height="10" fill="none" stroke="currentCo
  * Per-locale suffix appended to the salary range when `salarySource` is
  * `'estimated'` — declares the band as a sector estimate, not a real offer.
  */
-export const SALARY_ESTIMATE_SUFFIX: Record<JobCardLocale, string> = {
-  it: '(stima)',
-  en: '(est.)',
-  de: '(Schätzung)',
-  fr: '(est.)',
-};
-
 function formatSalary(
   rawMin: number | string | null | undefined,
   rawMax: number | string | null | undefined,

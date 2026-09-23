@@ -33,10 +33,21 @@ export function truncateCodeUnits(input: string, max: number): string {
 
 /** Remove any unpaired surrogate code unit (high without low, or low without high). */
 export function stripLoneSurrogates(input: string): string {
-  return input.replace(
-    /[\uD800-\uDBFF](?![\uDC00-\uDFFF])|(?<![\uD800-\uDBFF])[\uDC00-\uDFFF]/g,
-    '',
-  );
+  let output = '';
+  for (let index = 0; index < input.length; index += 1) {
+    const code = input.charCodeAt(index);
+    if (code >= 0xd800 && code <= 0xdbff) {
+      const next = input.charCodeAt(index + 1);
+      if (next >= 0xdc00 && next <= 0xdfff) {
+        output += input[index] + input[index + 1];
+        index += 1;
+      }
+      continue;
+    }
+    if (code >= 0xdc00 && code <= 0xdfff) continue;
+    output += input[index];
+  }
+  return output;
 }
 
 /** Google's practical limit for JSON-LD `description` values. */
