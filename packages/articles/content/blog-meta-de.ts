@@ -11915,6 +11915,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.semafori-cadenazzo-traffico.title': 'Ampeln in Cadenazzo und Verkehr: erwartete Auswirkungen im Jahr 2027',
     'blog.article.semafori-cadenazzo-traffico.excerpt': 'Der Bundesrat antwortet an den Ampeln in Cadenazzo: Ende 2027 erwartete Verkehrseffizienz zwischen Bellinzona und Locarno.',
     'blog.article.semafori-cadenazzo-traffico.imageAlt': 'Ampelanlagen und Verkehrsfluss auf der Strecke zwischen Bellinzona und Locarno',
+    'blog.article.vivere-brenna-lavorare-ticino.title': 'Wohnen in Brenna und Arbeiten im Tessin als Grenzgänger',
+    'blog.article.vivere-brenna-lavorare-ticino.excerpt': 'Umfassende Analyse von Verbindungen, Steuern und Kosten für diejenigen, die in Brenna wohnen und in der Schweiz arbeiten möchten.',
+    'blog.article.vivere-brenna-lavorare-ticino.imageAlt': 'Panoramablick auf Brenna und den Grenzübergang zwischen Italien und der Schweiz',
 };
 
 export default blogMetaDe;
