@@ -174,8 +174,8 @@ if [ "$gate_status" -eq 2 ]; then
   echo '::error::crawler transport body PR non conforme; scrittura bloccata'
   exit 2
 elif [ "$gate_status" -ne 0 ]; then
-  echo "::warning::crawler transport body PR non verificabile (gate exit $gate_status); branch gia' pushato, nessuna PR scritta"
-  exit 0
+  echo "::error::crawler transport body PR non verificabile (gate exit $gate_status); branch gia' pushato, nessuna PR scritta"
+  exit "$gate_status"
 fi
 
 head_ref=$(git rev-parse --abbrev-ref HEAD)
@@ -186,7 +186,7 @@ if [ -n "$open_number" ]; then
 else
   if ! gh pr create --repo "$target_repo" --base main --head "$head_ref" \
     --title 'Lockstep crawler workflows with the site' --body-file "$body"; then
-    echo "::warning::gh pr create non ha risposto; il branch crawler e' gia' pushato, nessun body PR scritto"
-    exit 0
+    echo "::error::gh pr create non ha risposto; il branch crawler e' gia' pushato, nessun body PR scritto"
+    exit 1
   fi
 fi
