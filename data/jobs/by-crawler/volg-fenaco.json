@@ -1009,7 +1009,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T19:52:42.783Z"
+      "firstSeenAt": "2026-09-23T19:52:42.783Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "leadership-traino-m-f-d-fenaco-sursee",
+          "leadership-trainee-m-f-d-fenaco-sursee",
+          "stagiaire-en-leadership-h-f-d-fenaco-sursee"
+        ],
+        "en": [
+          "leadership-trainee-m-f-d-fenaco-sursee"
+        ],
+        "fr": [
+          "stagiaire-en-leadership-h-f-d-fenaco-sursee"
+        ]
+      },
+      "previousSlugs": [
+        "leadership-traino-m-f-d-fenaco-sursee",
+        "leadership-trainee-m-f-d-fenaco-sursee",
+        "stagiaire-en-leadership-h-f-d-fenaco-sursee"
+      ]
     },
     {
       "title": "Ladenleitung (m/w/d)",
@@ -1180,11 +1198,21 @@
       "id": "volg-fenaco-c3a43bdf8c5b",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-wolflinswil"
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-wolflinswil",
+          "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-wolflinswil",
+          "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-wolflinswil"
+        ],
+        "en": [
+          "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-wolflinswil"
+        ],
+        "fr": [
+          "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-wolflinswil"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-wolflinswil"
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-wolflinswil",
+        "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-wolflinswil",
+        "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-wolflinswil"
       ],
       "salaryMin": 58500,
       "salaryMax": 89500,
@@ -1261,7 +1289,25 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T19:52:42.784Z"
+      "firstSeenAt": "2026-09-23T19:52:42.784Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "venditore-venditore-topshop-m-f-d-landi-pilatus-ag-malters",
+          "seller-seller-topshop-m-f-d-landi-pilatus-ag-malters",
+          "vendeur-vendeur-topshop-h-f-d-landi-pilatus-ag-malters"
+        ],
+        "en": [
+          "seller-seller-topshop-m-f-d-landi-pilatus-ag-malters"
+        ],
+        "fr": [
+          "vendeur-vendeur-topshop-h-f-d-landi-pilatus-ag-malters"
+        ]
+      },
+      "previousSlugs": [
+        "venditore-venditore-topshop-m-f-d-landi-pilatus-ag-malters",
+        "seller-seller-topshop-m-f-d-landi-pilatus-ag-malters",
+        "vendeur-vendeur-topshop-h-f-d-landi-pilatus-ag-malters"
+      ]
     },
     {
       "title": "Verkäuferin / Verkäufer TopShop w/m/d",
@@ -1610,7 +1656,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:50:09.540Z"
+      "firstSeenAt": "2026-09-19T22:50:09.540Z",
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin/ Verkäufer TopShop w/m/d mit Entwicklungsperspektive zur Teamleitung",
@@ -2653,7 +2700,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-8ddc78",
         "en": "seller-seller-m-f-d-volg-bern-8ddc78",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-jffcdj",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-8ddc78"
       },
       "crawledAt": "2026-09-23T19:52:42.786Z",
@@ -2667,6 +2714,9 @@
           "verkauferin-verkaufer-m-w-d-volg-bern"
         ],
         "fr": [
+          "verkauferin-verkaufer-m-w-d-volg-bern"
+        ],
+        "de": [
           "verkauferin-verkaufer-m-w-d-volg-bern"
         ]
       },
@@ -2928,8 +2978,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:50:09.541Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-19T22:50:09.541Z"
     },
     {
       "title": "Logistikerin / Logistiker EFZ (w/m/d)",
@@ -3370,7 +3419,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:50:09.543Z"
+      "firstSeenAt": "2026-09-19T22:50:09.543Z",
+      "needsRetranslation": true
     },
     {
       "title": "Sachbearbeiterin / Sachbearbeiter Administration und Energie w/m/d",
@@ -4622,7 +4672,8 @@
       },
       "previousSlugs": [
         "verkauferin-verkaufer-volg-bozen-ag-w-m-d-volg-boztal"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer Volg Oberwil-Lieli AG w/m/d",
@@ -4772,7 +4823,8 @@
       },
       "previousSlugs": [
         "praktikantin-praktikant-bozen-ag-w-m-d-volg-boztal"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Praktikantin / Praktikant Volg Kaisten AG w/m/d",
@@ -6203,7 +6255,8 @@
       },
       "previousSlugs": [
         "anlagenfuhrer-in-muller-in-w-m-d-ufa-ag-herzogenbuchsee"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Mitarbeitende Personal und Administration (w/m/d)",
@@ -10953,7 +11006,8 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-10T23:06:20.402Z"
+      "firstSeenAt": "2026-09-10T23:06:20.402Z",
+      "needsRetranslation": true
     },
     {
       "title": "Leiterin / Leiter Getreidesammelstelle (w/m/d)",
@@ -11494,7 +11548,8 @@
       },
       "previousSlugs": [
         "verkauferin-volg-oberhasli-40-60-volg-niederhasli"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "VerkäuferIn Volg Wettingen 20-40%",
@@ -11765,7 +11820,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-76eeab",
         "en": "seller-seller-m-f-d-volg-bern-76eeab",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-pthavz",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-76eeab"
       },
       "crawledAt": "2026-09-23T19:52:42.796Z",
@@ -11847,7 +11902,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-1d4233",
         "en": "seller-seller-m-f-d-volg-bern-1d4233",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-igly0n",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-1d4233"
       },
       "crawledAt": "2026-09-23T19:52:42.796Z",
@@ -13073,7 +13128,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-159590",
         "en": "seller-seller-m-f-d-volg-bern-159590",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-8skag2",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-159590"
       },
       "crawledAt": "2026-09-23T19:52:42.797Z",
@@ -13843,7 +13898,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern",
         "en": "seller-seller-m-f-d-volg-bern",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-opxpwh",
         "fr": "vendeur-vendeur-h-f-d-volg-bern"
       },
       "crawledAt": "2026-09-23T19:52:42.798Z",
@@ -17047,7 +17102,8 @@
       },
       "previousSlugs": [
         "ladenleiter-stellvertreterin-ladenleiter-stellvertreter-w-m-d-volg-wallbach"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsfachangestellte/n 60-100%",
@@ -18169,8 +18225,8 @@
       },
       "slugByLocale": {
         "it": "supporto-ict-in-erp-integrazione-m-f-d-fenaco-getreide-olsaaten-futtermittel-bern",
-        "en": "ict-supporter-in-erp-integration-w-m-d-fenaco-getreide-olsaaten-futtermittel-bern",
-        "de": "ict-supporter-in-erp-integration-w-m-d-fenaco-getreide-olsaaten-futtermittel-bern",
+        "en": "ict-supporter-in-erp-integration-w-m-d-fenaco-getreide-olsaaten-futtermittel-bern-shd1ro",
+        "de": "ict-supporter-in-erp-integration-w-m-d-fenaco-getreide-olsaaten-futtermittel-bern-shd1ro",
         "fr": "support-tic-en-erp-integration-h-f-d-fenaco-getreide-olsaaten-futtermittel-bern"
       },
       "crawledAt": "2026-09-23T19:52:42.801Z",
@@ -18195,6 +18251,12 @@
           "ict-supporter-in-erp-integration-w-m-d-fenaco-getreide-olsaaten-futtermittel-bern"
         ],
         "fr": [
+          "ict-supporter-in-erp-integration-w-m-d-fenaco-getreide-olsaaten-futtermittel-bern"
+        ],
+        "en": [
+          "ict-supporter-in-erp-integration-w-m-d-fenaco-getreide-olsaaten-futtermittel-bern"
+        ],
+        "de": [
           "ict-supporter-in-erp-integration-w-m-d-fenaco-getreide-olsaaten-futtermittel-bern"
         ]
       },
@@ -18658,7 +18720,8 @@
       },
       "previousSlugs": [
         "verkauferin-volg-bozen-ag-60-80-w-m-d-volg-boztal"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -18883,7 +18946,8 @@
       },
       "previousSlugs": [
         "praktikantin-praktikant-volg-nanikon-zh-w-m-d-volg-uster"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -19333,7 +19397,8 @@
       },
       "previousSlugs": [
         "verkauferin-verkaufer-m-w-d-volg-oberiberg"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -19408,7 +19473,8 @@
       },
       "previousSlugs": [
         "verkauferin-verkaufer-m-w-d-volg-stansstad"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle als Detailhandelsfachfrau / Detailhandelsfachmann EFZ ab August 2027 w/m/d",
@@ -20071,11 +20137,25 @@
       "id": "volg-fenaco-549d8b2c1aab",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-leibstadt"
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-leibstadt",
+          "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-leibstadt",
+          "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-leibstadt",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-2gb43a",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-leibst-2gb43a"
+        ],
+        "en": [
+          "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-leibstadt"
+        ],
+        "fr": [
+          "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-leibstadt"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-leibstadt"
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-leibstadt",
+        "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-leibstadt",
+        "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-leibstadt",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-2gb43a",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-leibst-2gb43a"
       ],
       "salaryMin": 58500,
       "salaryMax": 89500,
@@ -20140,11 +20220,25 @@
       "id": "volg-fenaco-63a18456eb99",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-leibstadt"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-leibstadt",
+          "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-leibstadt",
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-leibstadt",
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-leibstadt",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-leibstadt-gxbiar"
+        ],
+        "en": [
+          "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-leibstadt"
+        ],
+        "fr": [
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-leibstadt"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-leibstadt"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-leibstadt",
+        "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-leibstadt",
+        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-leibstadt",
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-leibstadt",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-leibstadt-gxbiar"
       ],
       "salaryMin": 58500,
       "salaryMax": 89500,
@@ -20209,11 +20303,25 @@
       "id": "volg-fenaco-54b2f136728c",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-schinznach"
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-schinznach",
+          "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-schinznach",
+          "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-schinznach",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-qzhjc4",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-schinz-qzhjc4"
+        ],
+        "en": [
+          "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-schinznach"
+        ],
+        "fr": [
+          "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-schinznach"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-schinznach"
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-schinznach",
+        "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-schinznach",
+        "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-schinznach",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-qzhjc4",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-schinz-qzhjc4"
       ],
       "salaryMin": 58500,
       "salaryMax": 89500,
@@ -20278,11 +20386,25 @@
       "id": "volg-fenaco-61ba7573703f",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-schinznach"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-schinznach",
+          "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-schinznach",
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-schinznach",
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-schinznach",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-schinznach-ehljwy"
+        ],
+        "en": [
+          "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-schinznach"
+        ],
+        "fr": [
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-schinznach"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-schinznach"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-schinznach",
+        "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-schinznach",
+        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-schinznach",
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-schinznach",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-schinznach-ehljwy"
       ],
       "salaryMin": 58500,
       "salaryMax": 89500,
@@ -20347,11 +20469,25 @@
       "id": "volg-fenaco-945876731210",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-leuggern"
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-leuggern",
+          "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-leuggern",
+          "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-leuggern",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-tu5kb6",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-leugge-tu5kb6"
+        ],
+        "en": [
+          "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-leuggern"
+        ],
+        "fr": [
+          "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-leuggern"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-leuggern"
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-leuggern",
+        "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-leuggern",
+        "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-leuggern",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-tu5kb6",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-leugge-tu5kb6"
       ],
       "salaryMin": 58500,
       "salaryMax": 89500,
@@ -20736,7 +20872,9 @@
       "firstSeenAt": "2026-06-10T23:47:14.712Z",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-kaisten"
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-kaisten",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-htf9wq",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-kaiste-htf9wq"
         ],
         "en": [
           "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-kaisten"
@@ -20746,7 +20884,9 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-kaisten"
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-kaisten",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-htf9wq",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-kaiste-htf9wq"
       ],
       "salarySource": "reported"
     },
@@ -20812,7 +20952,9 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-kaisten",
-          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-kaisten"
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-kaisten",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-kaisten-kpnh27",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-kaisten"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-kaisten"
@@ -20823,7 +20965,9 @@
       },
       "previousSlugs": [
         "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-kaisten",
-        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-kaisten"
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-kaisten",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-kaisten-kpnh27",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-kaisten"
       ],
       "salarySource": "reported"
     },
@@ -21723,7 +21867,9 @@
       "firstSeenAt": "2026-06-10T23:47:14.717Z",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-bergdietikon"
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-bergdietikon",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-b12bz4",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-bergdi-b12bz4"
         ],
         "en": [
           "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-bergdietikon"
@@ -21733,7 +21879,9 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-bergdietikon"
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-bergdietikon",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-b12bz4",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-bergdi-b12bz4"
       ],
       "salarySource": "reported"
     },
@@ -21799,7 +21947,9 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-bergdietikon",
-          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-bergdietikon"
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-bergdietikon",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-bergdietikon-1drl63",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-bergdietikon"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-bergdietikon"
@@ -21810,7 +21960,9 @@
       },
       "previousSlugs": [
         "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-bergdietikon",
-        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-bergdietikon"
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-bergdietikon",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-bergdietikon-1drl63",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-bergdietikon"
       ],
       "salarySource": "reported"
     },
@@ -21861,11 +22013,25 @@
       "id": "volg-fenaco-f3f7e399bc97",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-steckborn"
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-steckborn",
+          "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-steckborn",
+          "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-steckborn",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-7cburf",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-steckb-7cburf"
+        ],
+        "en": [
+          "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-steckborn"
+        ],
+        "fr": [
+          "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-steckborn"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-steckborn"
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-steckborn",
+        "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-steckborn",
+        "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-steckborn",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-7cburf",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-steckb-7cburf"
       ],
       "salaryMin": 54000,
       "salaryMax": 82500,
@@ -21930,11 +22096,25 @@
       "id": "volg-fenaco-29a36da0671b",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-steckborn"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-steckborn",
+          "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-steckborn",
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-steckborn",
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-steckborn",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-steckborn-ppr88b"
+        ],
+        "en": [
+          "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-steckborn"
+        ],
+        "fr": [
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-steckborn"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-steckborn"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-steckborn",
+        "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-steckborn",
+        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-steckborn",
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-steckborn",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-steckborn-ppr88b"
       ],
       "salaryMin": 54000,
       "salaryMax": 82500,
@@ -22151,11 +22331,21 @@
       "id": "volg-fenaco-3e8745b77a5a",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-weinfelden"
+          "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-weinfelden",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-weinfelden-nvcn1v",
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-weinfelden",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-weinfelden-gfh2mm",
+          "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-weinfelden",
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-weinfelden"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-weinfelden"
+        "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-weinfelden",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-weinfelden-nvcn1v",
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-weinfelden",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-weinfelden-gfh2mm",
+        "apprenticeship-as-a-retail-specialist-efz-lebensmittel-volg-weinfelden",
+        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-efz-lebensmittel-volg-weinfelden"
       ],
       "salaryMin": 54000,
       "salaryMax": 82500,
@@ -22220,11 +22410,25 @@
       "id": "volg-fenaco-9415d43033cb",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-weinfelden"
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-weinfelden",
+          "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-weinfelden",
+          "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-weinfelden",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-fwh4kw",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-weinfe-fwh4kw"
+        ],
+        "en": [
+          "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-weinfelden"
+        ],
+        "fr": [
+          "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-weinfelden"
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-weinfelden"
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-weinfelden",
+        "apprenticeship-as-a-retail-assistant-in-eba-lebensmittel-volg-weinfelden",
+        "apprentissage-en-tant-qu-assistant-de-detail-dans-eba-lebensmittel-volg-weinfelden",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-fwh4kw",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-weinfe-fwh4kw"
       ],
       "salaryMin": 54000,
       "salaryMax": 82500,
@@ -23223,7 +23427,8 @@
       "firstSeenAt": "2026-06-10T23:47:14.715Z",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-uster"
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-uster",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-uster-islqfl"
         ],
         "en": [
           "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-uster"
@@ -23233,7 +23438,8 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-uster"
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-uster",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-uster-islqfl"
       ],
       "salarySource": "reported"
     },
@@ -23299,7 +23505,9 @@
       "previousSlugsByLocale": {
         "it": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-uster",
-          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-uster"
+          "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-uster",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-uster-xtj1ge",
+          "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-uster"
         ],
         "en": [
           "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-uster"
@@ -23310,7 +23518,9 @@
       },
       "previousSlugs": [
         "lehrstelle-als-detailhandelsfachfrau-mann-efz-lebensmittel-volg-uster",
-        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-uster"
+        "apprendistato-come-specialista-al-dettaglio-efz-lebensmittel-volg-uster",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-uster-xtj1ge",
+        "apprendistato-come-detailhandelsfachfrau-mann-cfc-alimentari-volg-uster"
       ],
       "salarySource": "reported"
     },
@@ -23527,7 +23737,8 @@
       "firstSeenAt": "2026-06-10T23:47:14.717Z",
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-wangen-bruttisellen"
+          "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-wangen-bruttisellen",
+          "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-wangen-r0uh3u"
         ],
         "en": [
           "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-wangen-bruttisellen"
@@ -23537,7 +23748,8 @@
         ]
       },
       "previousSlugs": [
-        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-wangen-bruttisellen"
+        "lehrstelle-als-detailhandelsassistent-in-eba-lebensmittel-volg-wangen-bruttisellen",
+        "apprendistato-come-assistente-del-commercio-al-dettaglio-afp-alimentari-volg-wangen-r0uh3u"
       ],
       "salarySource": "reported"
     },
@@ -24935,7 +25147,8 @@
       },
       "previousSlugs": [
         "muller-anlagenfuhrer-w-m-d-landi-sempach-emmen-genossenschaft-sempach"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsassistent/in EBA Landi",
@@ -30496,7 +30709,8 @@
         "fr": [
           "lehrstelle-als-muller-in-w-m-d-ufa-ag-herzogenbuchsee"
         ]
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -38792,13 +39006,45 @@
         "it": [
           "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen",
           "apprendistato-come-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-srqb3u",
-          "apprendistato-come-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konol-srqb3u"
+          "apprendistato-come-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konol-srqb3u",
+          "apprendistato-come-specialista-al-dettaglio-man-m-f-d-landi-aare-genossenschaft-konolfingen",
+          "apprenticeship-as-a-retail-specialist-man-w-m-d-landi-aare-genossenschaft-konolfingen",
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-landi-aare-genossenschaft-konolfingen",
+          "apprenticeship-as-a-retail-specialist-m-f-landi-aare-genossenschaft-konolfingen",
+          "apprenticeship-as-a-retail-specialist-man-f-m-d-landi-aare-genossenschaft-konolfingen",
+          "apprenticeship-as-a-retail-specialist-man-w-m-d-landi-aare-genossenschaft-konolfingen-9668f8",
+          "apprenticeship-as-retail-specialist-f-m-d-landi-aare-genossenschaft-konolfingen",
+          "apprentissage-en-tant-que-specialiste-de-la-vente-au-detail-homme-f-m-d-landi-aare-genossenschaft-konolfingen",
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-f-h-d-landi-aare-genossenschaft-konolfingen",
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-landi-aare-genossenschaft-konolfingen-9668f8",
+          "apprendistato-come-specialista-al-dettaglio-uomo-f-m-d-landi-aare-genossenschaft-konolfingen",
+          "apprendistato-come-specialista-al-dettaglio-uomo-w-m-d-landi-aare-genossenschaft-konolfingen",
+          "apprendistato-come-specialista-del-commercio-al-dettaglio-f-m-d-landi-aare-genossenschaft-konolfingen"
+        ],
+        "en": [
+          "apprenticeship-as-a-retail-specialist-man-w-m-d-landi-aare-genossenschaft-konolfingen"
+        ],
+        "fr": [
+          "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-landi-aare-genossenschaft-konolfingen"
         ]
       },
       "previousSlugs": [
         "lehrstelle-als-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konolfingen",
         "apprendistato-come-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-srqb3u",
-        "apprendistato-come-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konol-srqb3u"
+        "apprendistato-come-detailhandelsfachfrau-mann-w-m-d-landi-aare-genossenschaft-konol-srqb3u",
+        "apprendistato-come-specialista-al-dettaglio-man-m-f-d-landi-aare-genossenschaft-konolfingen",
+        "apprenticeship-as-a-retail-specialist-man-w-m-d-landi-aare-genossenschaft-konolfingen",
+        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-landi-aare-genossenschaft-konolfingen",
+        "apprenticeship-as-a-retail-specialist-m-f-landi-aare-genossenschaft-konolfingen",
+        "apprenticeship-as-a-retail-specialist-man-f-m-d-landi-aare-genossenschaft-konolfingen",
+        "apprenticeship-as-a-retail-specialist-man-w-m-d-landi-aare-genossenschaft-konolfingen-9668f8",
+        "apprenticeship-as-retail-specialist-f-m-d-landi-aare-genossenschaft-konolfingen",
+        "apprentissage-en-tant-que-specialiste-de-la-vente-au-detail-homme-f-m-d-landi-aare-genossenschaft-konolfingen",
+        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-f-h-d-landi-aare-genossenschaft-konolfingen",
+        "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-landi-aare-genossenschaft-konolfingen-9668f8",
+        "apprendistato-come-specialista-al-dettaglio-uomo-f-m-d-landi-aare-genossenschaft-konolfingen",
+        "apprendistato-come-specialista-al-dettaglio-uomo-w-m-d-landi-aare-genossenschaft-konolfingen",
+        "apprendistato-come-specialista-del-commercio-al-dettaglio-f-m-d-landi-aare-genossenschaft-konolfingen"
       ],
       "salaryMin": 61000,
       "salaryMax": 93500,

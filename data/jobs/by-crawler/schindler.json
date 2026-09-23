@@ -437,7 +437,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:30:10.559Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -450,8 +449,7 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "schindler-38747dab18f0",
@@ -1217,7 +1215,8 @@
           "maxValue": 102000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-a9153825dfa8",
@@ -3748,7 +3747,6 @@
       "jobReqId": "1436203733",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
           "working-student-hr-talent-development-m-w-d-60-80-schindler-ebikon"
@@ -3781,8 +3779,7 @@
           "maxValue": 101600,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "schindler-104c227cd583",
