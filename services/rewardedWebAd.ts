@@ -285,7 +285,11 @@ export function showRewardedWebAd(adUnitPath = ASSISTED_APPLICATION_REWARDED_AD_
   track('rewarded_web_started', adUnitPath);
   publish(resource, 'showing', { type: 'started' });
   try {
-    resource.readyEvent.makeRewardedVisible();
+    const shown = resource.readyEvent.makeRewardedVisible();
+    if (shown === false) {
+      markUnavailable(resource, 'show_not_visible');
+      return false;
+    }
     return true;
   } catch {
     markUnavailable(resource, 'show_error');
