@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mueller-steinmaur",
-  "assembledAt": "2026-09-22T00:06:23.574Z",
+  "assembledAt": "2026-09-23T23:36:19.793Z",
   "jobs": [
     {
       "id": "mueller-steinmaur-510b014742eb",
@@ -33,7 +33,7 @@
       "url": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
       "source": "mueller-steinmaur Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:06:18.474Z",
+      "crawledAt": "2026-09-23T23:36:15.706Z",
       "addressLocality": "Steinmaur",
       "addressRegion": "Zürich",
       "addressCountry": "Schweiz",
@@ -51,6 +51,22 @@
       "applyUrl": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur",
+        "meccanico-operativo-meccanica-agricola-50-100-mueller-steinmaur-steinmaur-zurich"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur",
+          "meccanico-operativo-meccanica-agricola-50-100-mueller-steinmaur-steinmaur-zurich"
+        ],
+        "en": [
+          "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
+        ],
+        "fr": [
+          "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
+        ]
+      },
       "firstSeenAt": "2026-09-21T15:58:11.754Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -64,21 +80,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
-        ],
-        "en": [
-          "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
-        ],
-        "fr": [
-          "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
-        ]
-      },
-      "previousSlugs": [
-        "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur"
-      ]
+      }
     }
   ]
 }

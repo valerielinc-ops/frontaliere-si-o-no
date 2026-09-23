@@ -1,6 +1,6 @@
 {
   "crawlerKey": "rado",
-  "assembledAt": "2026-09-22T00:10:05.277Z",
+  "assembledAt": "2026-09-23T23:45:34.994Z",
   "jobs": [
     {
       "id": "company-7uc05k",
@@ -18,12 +18,12 @@
       ],
       "featured": false,
       "postedDate": "2026-09-21",
-      "url": "https://swatchgroup.com/de/job/33186",
-      "applyUrl": "https://swatchgroup.com/de/job/33186",
+      "url": "https://www.swatchgroup.com/de/job/33186",
+      "applyUrl": "https://www.swatchgroup.com/de/job/33186",
       "source": "Company Careers Crawler",
       "companyKey": "rado",
       "companyDomain": "swatchgroup.com",
-      "crawledAt": "2026-09-22T00:09:46.689Z",
+      "crawledAt": "2026-09-23T23:45:18.912Z",
       "firstSeenAt": "2026-09-21T16:06:23.802Z",
       "titleByLocale": {
         "de": "KV Lehrstelle 2027",
@@ -82,7 +82,10 @@
       },
       "employmentType": "FULL_TIME",
       "addressLocality": "Bielstrasse 45 2543 Lengnau (Bern) Schweiz",
-      "addressRegion": "BE"
+      "addressRegion": "BE",
+      "needsRetranslation": true,
+      "streetAddress": "Bielstrasse 45",
+      "postalCode": "2543"
     }
   ]
 }

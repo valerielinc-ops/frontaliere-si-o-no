@@ -1,6 +1,6 @@
 {
   "crawlerKey": "srg-ssr",
-  "assembledAt": "2026-09-22T00:01:01.651Z",
+  "assembledAt": "2026-09-23T23:36:03.936Z",
   "jobs": [
     {
       "id": "srg-ssr-25dd75af254b",
@@ -33,7 +33,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/fufragnadi-emprendissadi-da-prova/b6e22b31-e8e4-4366-98a3-ce69ea13d0d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:56.447Z",
+      "crawledAt": "2026-09-23T23:35:40.271Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -77,7 +77,7 @@
         "it": "praticanta-praticant-srg-ssr-cuira",
         "en": "intern-srg-ssr-cuira",
         "de": "praktikant-srg-ssr-cuira",
-        "fr": "pratique-pratique-srg-ssr-cuira"
+        "fr": "praticanta-praticant-srg-ssr-cuira"
       },
       "company": "SRG SSR",
       "companyKey": "srg-ssr",
@@ -87,7 +87,7 @@
         "it": "Praticanta / praticant",
         "en": "Intern",
         "de": "Praktikant",
-        "fr": "Pratique / Pratique"
+        "fr": "Praticanta / praticant"
       },
       "description": "Vulessas ti daventar schurnalista u schurnalist? Ubain far ina lavur da tecnicist u tecnicista? Has ti mirveglias ed es ti gugent là nua che las chaussas capitan - t'interessas per la Rumantschia, il Grischun, il mund - lavuras ti gugent cun la lingua, purtrets e tun ubain la tecnica? Nus sustegnain e scolain tai! Ti pos frequentar tar nus in praticum da 3 fin 6 mais. En quest temp emprendas ti d'enconuscher la branscha da medias e nossa chasa cun sias vastas purschidas. Gia davent da l'entschatta fas ti part dal team e pos ta sviluppar en la pratica cun sustegn e scolaziuns internas. Tge spetgain nus? Vegliadetgna: da circa 18 onns fin 30 onns Scolaziun: emprendissadi, matura gimnasiala u professiunala, studi u scolaziun equivalenta Durada: ideal 6 mais; las plazzas èn limitadas, per regla 1 practicantA per mez onn. E suenter il praticum? davart il process d'annunzia Flurina Foppa Manadra resursas umanas +41 58 136 31 08",
       "descriptionByLocale": {
@@ -101,7 +101,7 @@
       "url": "https://jobs.srgssr.ch/rtr/offene-stellen/praticanta-praticant/4a660497-3bdc-452a-ab3f-d9b8493cc46f",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:00:55.449Z",
+      "crawledAt": "2026-09-23T23:35:39.433Z",
       "addressLocality": "Cuira",
       "addressCountry": "CH",
       "country": "CH",
@@ -142,6 +142,15 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-06-29T11:35:50.122Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "fr": [
+          "pratique-pratique-srg-ssr-cuira"
+        ]
+      },
+      "previousSlugs": [
+        "pratique-pratique-srg-ssr-cuira"
+      ],
       "salaryMin": 42640,
       "salaryMax": 61000,
       "salarySource": "estimated",
@@ -187,7 +196,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz/91370784-d240-4500-8efe-5f54893b9dfa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:00:54.923Z",
+      "crawledAt": "2026-09-23T23:35:38.922Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -222,17 +231,20 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+        "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+        "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
+          "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich",
+          "grundbildung-come-fachfrau-fachmann-information-e-dokumentation-cfc-srg-ssr-zurich"
         ],
         "de": [
           "grundausbildung-als-fachfrau-fachmann-information-und-dokumentation-efz-srg-ssr-zurich"
         ]
       },
       "firstSeenAt": "2026-08-17T21:37:03.185Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 136000,
       "salarySource": "estimated",
@@ -279,7 +291,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/projekt-und-investitionscontroller-in-mit-fokus-strategische-projekte/c19f548f-3961-4b5a-9ad8-a4d3d9ad42a4",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:00:54.385Z",
+      "crawledAt": "2026-09-23T23:35:38.399Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -331,6 +343,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:15.082Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -377,7 +390,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/controleur-se-strategique-de-projets-et-d-investissements/e949b34a-1f5a-49f0-8b9a-3bee723d0545",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:53.832Z",
+      "crawledAt": "2026-09-23T23:35:37.874Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -414,11 +427,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+        "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+        "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
+          "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern",
+          "controllore-strategico-del-progetto-e-degli-investimenti-srg-ssr-bern"
         ],
         "en": [
           "controleur-se-strategique-de-projets-et-d-39-investissements-srg-ssr-bern"
@@ -428,6 +443,7 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:48:14.284Z",
+      "needsRetranslation": true,
       "salaryMin": 105500,
       "salaryMax": 185000,
       "salarySource": "estimated",
@@ -474,7 +490,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel/3e3fcff3-e194-4a1b-831f-f105b491094e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:00:53.298Z",
+      "crawledAt": "2026-09-23T23:35:37.239Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -513,11 +529,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-applikationsentwicklung-2027-biel-srg-ssr-bern-16"
@@ -527,6 +545,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:35.078Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -573,7 +592,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern/0d740af4-8667-4a66-a530-ccc338291c67",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:00:52.741Z",
+      "crawledAt": "2026-09-23T23:35:36.715Z",
       "addressLocality": "Bern 16",
       "addressCountry": "CH",
       "country": "CH",
@@ -612,11 +631,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+        "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+        "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
+          "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16",
+          "apprendistato-come-informatiker-in-cfc-plattformentwicklung-2027-bern-srg-ssr-bern-16"
         ],
         "en": [
           "lehrstelle-als-informatiker-in-efz-plattformentwicklung-2027-bern-srg-ssr-bern-16"
@@ -626,6 +647,7 @@
         ]
       },
       "firstSeenAt": "2026-08-14T21:28:34.182Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -672,7 +694,7 @@
       "url": "https://jobs.srgssr.ch/swi/offene-stellen/fachverantwortliche-r-produktentwicklung-swissinfo/62bdb575-3d14-49e3-a8ab-e8c69e6e5425",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:00:52.197Z",
+      "crawledAt": "2026-09-23T23:35:36.148Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -709,11 +731,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+        "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+        "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
+          "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern",
+          "responsabile-per-lo-sviluppo-del-prodotto-swissinfo-srg-ssr-bern"
         ],
         "en": [
           "fachverantwortliche-r-produktentwicklung-swissinfo-srg-ssr-bern"
@@ -723,6 +747,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T09:46:05.638Z",
+      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 143000,
       "salarySource": "estimated",
@@ -769,7 +794,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rsi-info-digitale/17338cec-b414-4787-bc8a-0718d1522e66",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:00:51.663Z",
+      "crawledAt": "2026-09-23T23:35:35.609Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -814,6 +839,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-02T13:33:58.696Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -860,7 +886,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/unternehmensentwickler-in/3622b4b4-a2dc-463a-80e1-17e8580a49d9",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:00:51.104Z",
+      "crawledAt": "2026-09-23T23:35:34.964Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -908,7 +934,8 @@
         "formazione-di-ricerca-srg-ssr-bern",
         "research-trainee-srg-ssr-bern",
         "forschungspraktikant-srg-ssr-bern",
-        "stagiaire-recherchiste-srg-ssr-bern"
+        "stagiaire-recherchiste-srg-ssr-bern",
+        "sviluppatori-di-imprese-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -920,7 +947,8 @@
           "formazione-di-ricerca-srg-ssr-bern",
           "research-trainee-srg-ssr-bern",
           "forschungspraktikant-srg-ssr-bern",
-          "stagiaire-recherchiste-srg-ssr-bern"
+          "stagiaire-recherchiste-srg-ssr-bern",
+          "sviluppatori-di-imprese-srg-ssr-bern"
         ],
         "en": [
           "unternehmensentwickler-in-srg-ssr-bern",
@@ -938,6 +966,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:36:17.762Z",
+      "needsRetranslation": true,
       "salaryMin": 77000,
       "salaryMax": 116500,
       "salarySource": "estimated",
@@ -984,7 +1013,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialiste-developpement-de-l-entreprise-f-h/68d88043-3525-4e16-9feb-b00befaafcd0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:50.448Z",
+      "crawledAt": "2026-09-23T23:35:34.339Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1023,11 +1052,13 @@
         "pensumMax": 80
       },
       "previousSlugs": [
-        "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
+        "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern",
+        "specialista-di-sviluppo-aziendale-m-f-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
+          "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern",
+          "specialista-di-sviluppo-aziendale-m-f-srg-ssr-bern"
         ],
         "en": [
           "specialiste-developpement-de-l-39-entreprise-f-h-srg-ssr-bern"
@@ -1037,6 +1068,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:36:17.077Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1083,7 +1115,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/specialista-sviluppo-aziendale/e5a4e260-bf26-4091-80eb-d00ff6e77726",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:00:49.788Z",
+      "crawledAt": "2026-09-23T23:35:33.703Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1122,220 +1154,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-08T13:36:16.364Z",
-      "salaryMin": 68500,
-      "salaryMax": 104000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 68500,
-          "maxValue": 104000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "BE"
-    },
-    {
-      "id": "srg-ssr-1db88825ec61",
-      "slug": "responsabile-del-progetto-tecnico-srg-ssr-lausanne",
-      "slugByLocale": {
-        "it": "responsabile-del-progetto-tecnico-srg-ssr-lausanne",
-        "en": "technical-project-manager-srg-ssr-lausanne",
-        "de": "technischer-projektleiter-srg-ssr-lausanne",
-        "fr": "charge-e-s-de-projet-technique-srg-ssr-lausanne"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Chargé∙e·s de projet technique",
-      "titleByLocale": {
-        "it": "Responsabile del progetto tecnico",
-        "en": "Technical Project Manager",
-        "de": "Technischer Projektleiter",
-        "fr": "Chargé∙e·s de projet technique"
-      },
-      "description": "Votre mission\n• Concevoir les solutions techniques des projets d'infrastructure broadcast et IT (studios, régies de production et de diffusion, locaux techniques, unités mobiles), en binôme avec le chef de projet qui porte le pilotage, le budget et le planning.\n• Élaborer les dossiers de conception : synoptiques fonctionnels, schémas de principe, plans de câblage courant faible et courant fort, plans d'implantation des locaux et vues de face de baies.\n• Établir les bilans de charges électriques et thermiques, dimensionner les alimentations, les protections, la redondance et les besoins de refroidissement des locaux techniques.\n• Définir et suivre la mise en rack : implantation des équipements, cheminements, repérage, brassage, gestion des masses et des accès.\n• Coordonner les spécialistes techniques (IT, réseau, broadcast audio et vidéo, sécurité) afin de garantir la cohérence d'ensemble de la solution, et faire l'interface avec les entreprises tierces (électricité, CVC, second œuvre) ainsi qu'avec les mandataires du projet.\n• Assurer le suivi de réalisation sur site : contrôle de conformité, réception des travaux, mise en service, levée des réserves.\n• Produire et maintenir la documentation technique tout au long du cycle de vie : dossiers d'exécution, mise à jour des plans, dossier des ouvrages exécutés, inventaires d'équipements.\n• Participer à la veille technologique. Connaissances requises:\n• Maîtrise des outils de conception et de documentation technique (AutoCAD, Visio ou équivalent).\n• Connaissances des infrastructures broadcast, réseaux IP et environnements audiovisuels professionnels.\n• Expérience du câblage structuré cuivre et fibre optique ainsi que de l'intégration en baies techniques.\n• Connaissances en électricité appliquée aux infrastructures techniques (alimentation, redondance, refroidissement).\n• Bonne compréhension des protocoles audio et vidéo professionnels (SDI, ST 2110, MADI, AES67, PTP).\n• Notions de gestion de projet et expérience de la coordination de prestataires.\n• Connaissance des méthodes Agile et ITIL. Votre profil\n• Formation technique de type ES (technicien diplômé) ou Bachelor HES en électricité, systèmes industriels, télécommunications ou audiovisuel. Un CFC dans un domaine technique complété par une expérience significative en conception ou en conduite de travaux est également considéré.\n• Expérience professionnelle de 4 ans minimum en conception ou en réalisation d'infrastructures techniques, idéalement en environnement broadcast, datacenter ou salle de contrôle.\n• Capacité à travailler en binôme avec un chef de projet et à tenir le rôle de référent technique face aux spécialistes métiers.\n• Rigueur documentaire et sens du détail\n• Initiative, autonomie et gestion des priorités, disponibilité et force de proposition.\n• Aptitude à la coordination sur chantier et au dialogue avec des corps de métier Broadcast et non broadcast.\n• Disponibilité pour des déplacements sur les sites de la RTS.\n• Intérêt personnel pour les nouvelles technologies, l'innovation et le travail en équipe.\n• Anglais indispensable. Ce que nous vous offrons Les relations humaines Le domaine Opérations assume le pilotage stratégique central de l'orientation technologique et de la production de la SSR. Le département Gestion du personnel Opérations garantit, grâce à des rôles clairs, une planification basée sur les compétences et un suivi régional par langue, que les collaborateur.trices se développent de manière ciblée et soient assigné.es de manière appropriée. Elle crée aussi de la transparence dans l'utilisation des ressources ainsi que des structures stables pour une exploitation efficiente. Afin de renforcer ses équipes, la RTS recherche deux chargé·e·s de projet technique pour une durée déterminée de 2 ans. Vous contribuez à la conception et à la mise en œuvre des infrastructures techniques nécessaires à la réalisation des projets.",
-      "descriptionByLocale": {
-        "it": "La tua missione\n• Progettare le soluzioni tecniche dei progetti di infrastruttura broadcast e IT (studios, autorità di produzione e distribuzione, locali tecnici, unità mobili), in coppia con il project manager che trasporta lo sterzo, il budget e la pianificazione.\n• Sviluppare i file di progettazione: sinottici funzionali, diagrammi di principio, piani di cablaggio corrente bassa e forte, piani di layout dello spazio e vista sul viso della baia.\n• Stabilire bilance di carico elettriche e termiche, alimentatori di dimensioni, protezioni, requisiti di ridondanza e raffreddamento dei locali tecnici.\n• Definire e tracciare il racking: installazione di attrezzature, percorsi, tracciamento, miscelazione, gestione di massa e accesso.\n• Coordinare specialisti tecnici (IT, rete, trasmissione audio e video, sicurezza) per garantire la coerenza generale della soluzione, e interfacciarsi con aziende di terze parti (elettricità, CVC, secondo lavoro) e con agenti di progetto.\n• Seguire l'implementazione in loco: controllo di conformità, ricevimento del lavoro, messa in servizio, ritiro delle riserve.\n• Produci e mantieni la documentazione tecnica in tutto il ciclo di vita: documenti di implementazione, aggiornamenti piani, registri di lavori completati, inventari di attrezzature.\n• Partecipare all'orologio tecnologico. Requisiti di conoscenza:\n• Masterizzazione di strumenti di progettazione e documentazione tecnica (AutoCAD, Visio o equivalente).\n• Conoscenza delle infrastrutture di trasmissione, reti IP e ambienti audiovisivi professionali.\n• Esperienza nel cablaggio strutturato in rame e fibra ottica e integrazione in baie tecniche.\n• Conoscenza dell'elettricità applicata alle infrastrutture tecniche (alimentazione elettrica, ridondanza, raffreddamento).\n• Buona comprensione dei protocolli audio e video professionali (SDI, ST 2110, MADI, AES67, PTP).\n• Concetti di gestione del progetto e esperienza nel coordinamento dei fornitori.\n• Conoscenza dei metodi Agile e ITIL. Il tuo profilo\n• Formazione tecnica di tipo ES (tecnica di laurea) o Bachelor HES in elettricità, sistemi industriali, telecomunicazioni o audiovisivi. Viene anche considerato un CFC in un campo tecnico integrato da una significativa esperienza nel design o nella costruzione.\n• Esperienza professionale di almeno 4 anni nella progettazione o costruzione di infrastrutture tecniche, idealmente nell'ambiente di trasmissione, datacenter o sala di controllo.\n• Capacità di lavorare in coppia con un project manager e di svolgere il ruolo di referente tecnico agli specialisti del commercio.\n• Rigor documentario e senso del dettaglio\n• Iniziativa, autonomia e gestione delle priorità, disponibilità e forza delle proposte.\n• Capacità di coordinare gli scambi in loco e di dialogare con gli scambi Broadcast e non-broadcast.\n• Disponibilità per il viaggio a siti RTS.\n• Interesse personale nelle nuove tecnologie, innovazione e lavoro di squadra.\n• Inglese essenziale. Cosa offriamo Relazioni umane L'area Operazioni assume la direzione strategica centrale dell'orientamento tecnologico e della produzione della SSR. Le Operazioni del Dipartimento di Gestione del Personale assicurano, attraverso ruoli chiari, la pianificazione basata sulle competenze e il monitoraggio regionale per lingua, che i dipendenti si sviluppino in modo mirato e siano opportunamente assegnati. Essa crea inoltre trasparenza nell'uso delle risorse e delle strutture stabili per uno sfruttamento efficiente. Al fine di rafforzare i propri team, la RTS sta cercando due progetti tecnici per un periodo fisso di due anni. Contribuisci alla progettazione e realizzazione dell'infrastruttura tecnica necessaria per realizzare i progetti.",
-        "en": "Your Mission\n• Design the technical solutions of the broadcast and IT infrastructure projects (studios, production and distribution authorities, technical premises, mobile units), in pairs with the project manager who carries the steering, budget and planning.\n• Develop design files: functional synoptics, principle diagrams, low current and strong current wiring plans, space layout plans and bay face views.\n• Establish electrical and thermal load balances, size power supplies, protections, redundancy and cooling requirements of technical premises.\n• Define and track the racking: installation of equipment, paths, tracking, mixing, mass management and access.\n• Coordinate technical specialists (IT, network, audio and video broadcast, security) to ensure overall consistency of the solution, and interface with third-party companies (electricity, CVC, second work) as well as with project agents.\n• Follow-up on-site implementation: compliance check, receipt of work, commissioning, withdrawal of reserves.\n• Produce and maintain technical documentation throughout the life cycle: implementation records, plan updates, records of completed works, equipment inventories.\n• Participate in technology watch. Knowledge requirements:\n• Mastery of design and technical documentation tools (AutoCAD, Visio or equivalent).\n• Knowledge of broadcast infrastructures, IP networks and professional audiovisual environments.\n• Experience in structured copper and fibre optic wiring and integration into technical bays.\n• Electricity knowledge applied to technical infrastructure (power supply, redundancy, cooling).\n• Good understanding of professional audio and video protocols (SDI, ST 2110, MADI, AES67, PTP).\n• Project management concepts and experience in provider coordination.\n• Knowledge of Agile and ITIL methods. Your profile\n• Technical training of type ES (graduate technician) or Bachelor HES in electricity, industrial systems, telecommunications or audiovisual. An CFC in a technical field supplemented by significant experience in design or construction is also considered.\n• Professional experience of at least 4 years in the design or construction of technical infrastructures, ideally in the broadcast environment, datacenter or control room.\n• Ability to work in pairs with a project manager and to play the role of technical referent to trade specialists.\n• Documentary rigor and sense of detail\n• Initiative, autonomy and management of priorities, availability and strength of proposals.\n• Ability to co-ordinate on-site and dialogue with Broadcast and non-broadcast trades.\n• Availability for travel to RTS sites.\n• Personal interest in new technologies, innovation and teamwork.\n• English essential. What we offer you Human relations The Operations area takes over the central strategic direction of the SSR's technological orientation and production. The Personnel Management Department Operations ensures, through clear roles, competency-based planning and regional monitoring by language, that employees develop in a targeted manner and are appropriately assigned. It also creates transparency in the use of resources and stable structures for efficient exploitation. In order to strengthen its teams, the RTS is looking for two technical projects for a fixed period of two years. You contribute to the design and implementation of the technical infrastructure necessary to carry out the projects.",
-        "de": "Deine Mission\n• Entwerfen Sie die technischen Lösungen der Broadcast- und IT-Infrastrukturprojekte (Studios, Produktions- und Vertriebsbehörden, technische Räumlichkeiten, mobile Einheiten) in Paaren mit dem Projektleiter, der die Steuerung, das Budget und die Planung trägt.\n• Entwickeln Sie Entwurfsdateien: funktionale Synoptiken, Prinzipdiagramme, Niederstrom- und Starkstromverdrahtungspläne, Raumlayout-Pläne und Buchtansichten.\n• Festlegung der elektrischen und thermischen Lastbilanzen, der Größe der Stromversorgung, des Schutzes, der Redundanz und der Kühlanforderungen an technische Räumlichkeiten.\n• Definieren und verfolgen Sie das Racking: Installation von Geräten, Pfaden, Tracking, Mixing, Massenmanagement und Zugriff.\n• Koordinieren Sie technische Spezialisten (IT, Netzwerk, Audio- und Videoübertragung, Sicherheit), um die Gesamtkonsistenz der Lösung zu gewährleisten, und arbeiten Sie mit Drittunternehmen (Strom, CVC, Zweitarbeit) sowie mit Projektagenten zusammen.\n• Follow-up vor Ort Umsetzung: Compliance-Check, Eingang der Arbeit, Inbetriebnahme, Rücknahme von Reserven.\n• Erstellung und Pflege der technischen Dokumentation während des gesamten Lebenszyklus: Durchführungsaufzeichnungen, Planaktualisierungen, Aufzeichnungen der abgeschlossenen Arbeiten, Bestandsaufnahmen der Ausrüstung.\n• Beteiligen Sie sich an Technology Watch. Wissensanforderungen:\n• Beherrschung von Design- und technischen Dokumentationstools (AutoCAD, Visio oder gleichwertig).\n• Kenntnisse über Rundfunkinfrastrukturen, IP-Netzwerke und professionelle audiovisuelle Umgebungen.\n• Erfahrung in der strukturierten Kupfer- und Glasfaserverkabelung und Integration in technische Bereiche.\n• Elektrizitätswissen für die technische Infrastruktur (Stromversorgung, Redundanz, Kühlung).\n• Gutes Verständnis von professionellen Audio- und Videoprotokollen (SDI, ST 2110, MADI, AES67, PTP).\n• Projektmanagementkonzepte und Erfahrung in der Anbieterkoordination.\n• Kenntnisse über agile und ITIL-Methoden. Dein Profil\n• Technische Ausbildung vom Typ ES (Diplom-Techniker) oder Bachelor HES in Elektrizität, Industrieanlagen, Telekommunikation oder audiovisuellen Medien. Ein FCKW in einem technischen Bereich, ergänzt durch bedeutende Erfahrung in Design oder Konstruktion, wird ebenfalls in Betracht gezogen.\n• Berufserfahrung von mindestens 4 Jahren im Entwurf oder Bau von technischen Infrastrukturen, idealerweise in der Broadcast-Umgebung, im Rechenzentrum oder im Kontrollraum.\n• Fähigkeit, in Paaren mit einem Projektmanager zu arbeiten und die Rolle des technischen Referenten zu Handelsspezialisten zu spielen.\n• Dokumentarische Strenge und Sinn für Details\n• Initiative, Autonomie und Verwaltung der Prioritäten, Verfügbarkeit und Stärke der Vorschläge.\n• Fähigkeit zur Koordination vor Ort und zum Dialog mit Broadcast- und Nicht-Broadcast-Geschäften.\n• Verfügbarkeit für Reisen zu RTS-Sites.\n• Persönliches Interesse an neuen Technologien, Innovation und Teamwork.\n• Englisch Essential. Was wir Ihnen bieten Human Relations Der Operationsbereich übernimmt die zentrale strategische Ausrichtung der technologischen Ausrichtung und Produktion der SSR. Die Abteilung Personalmanagement Operations stellt durch klare Rollen, kompetenzbasierte Planung und regionales Monitoring nach Sprache sicher, dass sich die Mitarbeiter gezielt entwickeln und entsprechend zugeordnet werden. Es schafft auch Transparenz bei der Nutzung von Ressourcen und stabile Strukturen für eine effiziente Nutzung. Um seine Teams zu stärken, sucht die RTS zwei technische Projekte für einen festen Zeitraum von zwei Jahren. Sie tragen zur Gestaltung und Umsetzung der für die Durchführung der Projekte erforderlichen technischen Infrastruktur bei.",
-        "fr": "Votre mission\n• Concevoir les solutions techniques des projets d'infrastructure broadcast et IT (studios, régies de production et de diffusion, locaux techniques, unités mobiles), en binôme avec le chef de projet qui porte le pilotage, le budget et le planning.\n• Élaborer les dossiers de conception : synoptiques fonctionnels, schémas de principe, plans de câblage courant faible et courant fort, plans d'implantation des locaux et vues de face de baies.\n• Établir les bilans de charges électriques et thermiques, dimensionner les alimentations, les protections, la redondance et les besoins de refroidissement des locaux techniques.\n• Définir et suivre la mise en rack : implantation des équipements, cheminements, repérage, brassage, gestion des masses et des accès.\n• Coordonner les spécialistes techniques (IT, réseau, broadcast audio et vidéo, sécurité) afin de garantir la cohérence d'ensemble de la solution, et faire l'interface avec les entreprises tierces (électricité, CVC, second œuvre) ainsi qu'avec les mandataires du projet.\n• Assurer le suivi de réalisation sur site : contrôle de conformité, réception des travaux, mise en service, levée des réserves.\n• Produire et maintenir la documentation technique tout au long du cycle de vie : dossiers d'exécution, mise à jour des plans, dossier des ouvrages exécutés, inventaires d'équipements.\n• Participer à la veille technologique. Connaissances requises:\n• Maîtrise des outils de conception et de documentation technique (AutoCAD, Visio ou équivalent).\n• Connaissances des infrastructures broadcast, réseaux IP et environnements audiovisuels professionnels.\n• Expérience du câblage structuré cuivre et fibre optique ainsi que de l'intégration en baies techniques.\n• Connaissances en électricité appliquée aux infrastructures techniques (alimentation, redondance, refroidissement).\n• Bonne compréhension des protocoles audio et vidéo professionnels (SDI, ST 2110, MADI, AES67, PTP).\n• Notions de gestion de projet et expérience de la coordination de prestataires.\n• Connaissance des méthodes Agile et ITIL. Votre profil\n• Formation technique de type ES (technicien diplômé) ou Bachelor HES en électricité, systèmes industriels, télécommunications ou audiovisuel. Un CFC dans un domaine technique complété par une expérience significative en conception ou en conduite de travaux est également considéré.\n• Expérience professionnelle de 4 ans minimum en conception ou en réalisation d'infrastructures techniques, idéalement en environnement broadcast, datacenter ou salle de contrôle.\n• Capacité à travailler en binôme avec un chef de projet et à tenir le rôle de référent technique face aux spécialistes métiers.\n• Rigueur documentaire et sens du détail\n• Initiative, autonomie et gestion des priorités, disponibilité et force de proposition.\n• Aptitude à la coordination sur chantier et au dialogue avec des corps de métier Broadcast et non broadcast.\n• Disponibilité pour des déplacements sur les sites de la RTS.\n• Intérêt personnel pour les nouvelles technologies, l'innovation et le travail en équipe.\n• Anglais indispensable. Ce que nous vous offrons Les relations humaines Le domaine Opérations assume le pilotage stratégique central de l'orientation technologique et de la production de la SSR. Le département Gestion du personnel Opérations garantit, grâce à des rôles clairs, une planification basée sur les compétences et un suivi régional par langue, que les collaborateur.trices se développent de manière ciblée et soient assigné.es de manière appropriée. Elle crée aussi de la transparence dans l'utilisation des ressources ainsi que des structures stables pour une exploitation efficiente. Afin de renforcer ses équipes, la RTS recherche deux chargé·e·s de projet technique pour une durée déterminée de 2 ans. Vous contribuez à la conception et à la mise en œuvre des infrastructures techniques nécessaires à la réalisation des projets."
-      },
-      "location": "Lausanne",
-      "canton": "VD",
-      "url": "https://jobs.srgssr.ch/rts/offene-stellen/chargees-de-projet-technique/3631e123-3639-47c1-aa9b-19dd52c04de5",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:49.134Z",
-      "addressLocality": "Lausanne",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1010",
-      "streetAddress": "Avenue du Temple 40",
-      "category": "Produzione Media",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-09",
-      "applyUrl": "https://jobs.srgssr.ch/rts/offene-stellen/chargees-de-projet-technique/3631e123-3639-47c1-aa9b-19dd52c04de5",
-      "requirements": [
-        "Formation technique de type ES (technicien diplômé) ou Bachelor HES en électricité, systèmes industriels, télécommunications ou audiovisuel. Un CFC dans un domaine technique complété par une expérience significative en conception ou en conduite de travaux est également considéré.",
-        "Expérience professionnelle de 4 ans minimum en conception ou en réalisation d'infrastructures techniques, idéalement en environnement broadcast, datacenter ou salle de contrôle.",
-        "Capacité à travailler en binôme avec un chef de projet et à tenir le rôle de référent technique face aux spécialistes métiers.",
-        "Rigueur documentaire et sens du détail",
-        "Initiative, autonomie et gestion des priorités, disponibilité et force de proposition.",
-        "Aptitude à la coordination sur chantier et au dialogue avec des corps de métier Broadcast et non broadcast.",
-        "Disponibilité pour des déplacements sur les sites de la RTS.",
-        "Intérêt personnel pour les nouvelles technologies, l'innovation et le travail en équipe.",
-        "Anglais indispensable."
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "Rigueur documentaire et sens du détail",
-          "Initiative, autonomie et gestion des priorités, disponibilité et force de proposition.",
-          "Aptitude à la coordination sur chantier et au dialogue avec des corps de métier Broadcast et non broadcast.",
-          "Disponibilité pour des déplacements sur les sites de la RTS.",
-          "Intérêt personnel pour les nouvelles technologies, l'innovation et le travail en équipe.",
-          "Anglais indispensable."
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "3631e123-3639-47c1-aa9b-19dd52c04de5",
-        "org": "rts",
-        "orgLabel": "RTS",
-        "pensumMin": 80,
-        "pensumMax": 100
-      },
-      "previousSlugs": [
-        "charge-e-s-de-projet-technique-srg-ssr-lausanne"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "charge-e-s-de-projet-technique-srg-ssr-lausanne"
-        ],
-        "en": [
-          "charge-e-s-de-projet-technique-srg-ssr-lausanne"
-        ],
-        "de": [
-          "charge-e-s-de-projet-technique-srg-ssr-lausanne"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T23:04:42.334Z",
-      "salaryMin": 92000,
-      "salaryMax": 163000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 92000,
-          "maxValue": 163000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "VD"
-    },
-    {
-      "id": "srg-ssr-71d7942b5776",
-      "slug": "giornalista-news-srg-ssr-bern",
-      "slugByLocale": {
-        "it": "giornalista-news-srg-ssr-bern",
-        "en": "data-journalist-news-srg-ssr-bern",
-        "de": "datenjournalist-news-srg-ssr-bern",
-        "fr": "journaliste-data-actualite-srg-ssr-bern"
-      },
-      "company": "SRG SSR",
-      "companyKey": "srg-ssr",
-      "companyDomain": "srgssr.ch",
-      "title": "Journaliste data / Actualité",
-      "titleByLocale": {
-        "it": "Giornalista / News",
-        "en": "Data journalist / News",
-        "de": "Datenjournalist / News",
-        "fr": "Journaliste data / Actualité"
-      },
-      "description": "Votre mission Au sein de l'équipe data à Ecublens, vous serez amené-e à conduire des recherches et à publier des enquêtes nourries par les outils du datajournalisme. Rattaché-e au Pôle enquête, vous proposerez des contributions éditoriales originales, en collaboration avec les journalistes des divers pôles de compétence. Vous serez également appelé à mettre votre expertise au service des divers vecteurs de la RTS (audio, vidéo, numérique), au quotidien et sur des projets au plus long cours. Vous serez chargé-e de la diffusion de votre travail sur les canaux de la RTS. Votre profil\n• Formation CFJM ou jugée équivalente ;\n• Excellentes connaissances des pratiques et outils du datajournalisme (en particulier tableurs, outils de visualisation) ;\n• Maîtrise des outils d'intelligence artificielle (IA) ;\n• Aisance avec l'analyse et l'exploitation rédactionnelle de données ;\n• Connaissances en langage(s) de programmation souhaitées (Python, SQL,...) ;\n• Maîtrise des concepts mathématiques et statistiques de base ;\n• Attrait pour l'actualité en général, le datajournalisme et l'enquête en particulier ;\n• Bonnes connaissances de l'actualité ;\n• Capacité à rédiger des textes journalistes synthétiques et à les mettre en forme pour l'audiovisuel;\n• Sens développé de l'initiative, précision et rigueur ;\n• Esprit d'équipe ;\n• Sens aigu du service public ;\n• Langue maternelle française, avec de bonnes connaissances d'allemand et d'anglais (niveau B1). Ce que nous vous offrons\n• Un rôle essentiel au sein de la rédaction unifiée de la RTS\n• La possibilité de réaliser des enquêtes data sur différents vecteurs et de toucher à des sujets variés\n• Une participation active à la transformation d'un média de service public Nous recherchons un-e journaliste data à 80% pour compléter la cellule data de la rédaction transmédia de la RTS, au sein du département de l'information à Ecublens.",
-      "descriptionByLocale": {
-        "it": "La vostra missione All'interno del team di dati di Ecublens, sarete tenuti a condurre ricerche e pubblicare sondaggi alimentati dagli strumenti del datajournalism. Collegato al Survey Pole, proporrai contributi editoriali originali, in collaborazione con giornalisti dei vari poli di competenza. Ti verrà anche chiesto di mettere le tue competenze al servizio dei vari vettori di RTS (audio, video, digitale), ogni giorno e sui progetti nella durata più lunga. Sarete responsabili della diffusione del vostro lavoro sui canali RTS. Il tuo profilo\n• Formazione CFJM o equivalente considerato;\n• Ottima conoscenza delle pratiche e degli strumenti di datajournalism (specialmente fogli di calcolo, strumenti di visualizzazione);\n• Mastering strumenti di intelligenza artificiale (AI);\n• Ai sensi dell'analisi dei dati e dello sfruttamento editoriale;\n• Conoscenza del linguaggio di programmazione desiderato (Python, SQL,...);\n• Masterizzazione dei concetti matematici e statistici di base;\n• Attratto per notizie in generale, datajournalism e indagine in particolare;\n• Buona conoscenza corrente;\n• Capacità di scrivere testi giornalistici sintetici e formattarli per scopi audiovisivi;\n• senso di iniziativa, precisione e rigore;\n• Spirito di squadra;\n• Senso di servizio pubblico;\n• Lingua madre francese, con buona conoscenza di tedesco e inglese (livello B1). Cosa ti offriamo\n• Un ruolo chiave nella stesura unificata della RTS\n• La possibilità di condurre indagini di dati su diversi vettori e di toccare vari soggetti\n• Partecipazione attiva alla trasformazione di un servizio pubblico Stiamo cercando un giornalista di dati dell'80% per completare la cella di dati dell'editor di transmedia della RTS, all'interno del reparto informazioni di Ecublens.",
-        "en": "Your Mission Within the data team at Ecublens, you will be required to conduct research and publish surveys fed by the tools of datajournalism. Linked to the Survey Pole, you will propose original editorial contributions, in collaboration with journalists from the various poles of expertise. You will also be asked to put your expertise at the service of the various vectors of RTS (audio, video, digital), daily and on projects in the longest duration. You will be responsible for disseminating your work on RTS channels. Your profile\n• CFJM training or deemed equivalent;\n• Excellent knowledge of datajournalism practices and tools (especially spreadsheets, visualization tools);\n• Mastering artificial intelligence (AI) tools;\n• Aisance with data analysis and editorial exploitation;\n• Knowledge of desired programming language(s) (Python, SQL,...);\n• Mastery of basic mathematical and statistical concepts;\n• Attracted for news in general, datajournalism and investigation in particular;\n• Good current knowledge;\n• Ability to write synthetic journalistic texts and format them for audiovisual purposes;\n• Enhanced sense of initiative, precision and rigour;\n• Team spirit;\n• Acute sense of public service;\n• French mother tongue, with good knowledge of German and English (level B1). What we offer you\n• A key role in the unified drafting of the RTS\n• The possibility of conducting data surveys on different vectors and of touching on various subjects\n• Active participation in the transformation of a public service media We are looking for an 80% data journalist to complete the data cell of the transmedia editor of the RTS, within the information department in Ecublens.",
-        "de": "Ihre Mission Im Datenteam von Ecublens müssen Sie Recherchen durchführen und Umfragen veröffentlichen, die von den Tools des Datenjournalismus gespeist werden. In Verbindung mit dem Survey Pole schlagen Sie originelle redaktionelle Beiträge in Zusammenarbeit mit Journalisten aus den verschiedenen Fachgebieten vor. Sie werden auch gebeten, Ihre Expertise in den Dienst der verschiedenen Vektoren von RTS (Audio, Video, digital), täglich und in Projekten mit der längsten Laufzeit zu stellen. Sie sind für die Verbreitung Ihrer Arbeit auf RTS-Kanälen verantwortlich. Dein Profil\n• CFJM-Ausbildung oder als gleichwertig angesehen;\n• Ausgezeichnetes Wissen über datenjournalistische Praktiken und Tools (insbesondere Tabellenkalkulationen, Visualisierungstools);\n• Beherrschung von Werkzeugen der künstlichen Intelligenz (KI);\n• Aisance mit Datenanalyse und redaktionelle Nutzung;\n• Kenntnisse der gewünschten Programmiersprache(n) (Python, SQL,...);\n• Beherrschung grundlegender mathematischer und statistischer Konzepte;\n• Angezogen für Nachrichten im Allgemeinen, Datenjournalismus und Untersuchung im Besonderen;\n• Gute aktuelle Kenntnisse;\n• Fähigkeit, synthetische journalistische Texte zu schreiben und sie für audiovisuelle Zwecke zu formatieren;\n• Gesteigerter Sinn für Initiative, Präzision und Strenge;\n• Teamgeist;\n• Akuter Sinn für den öffentlichen Dienst;\n• Französische Muttersprache mit guten Deutsch- und Englischkenntnissen (Niveau B1). Was wir Ihnen bieten\n• Eine Schlüsselrolle bei der einheitlichen Ausarbeitung des RTS\n• Die Möglichkeit, Datenerhebungen zu verschiedenen Vektoren durchzuführen und verschiedene Themen zu berühren\n• Aktive Beteiligung an der Transformation eines öffentlich-rechtlichen Mediums Wir suchen einen 80%igen Datenjournalisten, der die Datenzelle des Transmedia-Editors des RTS in der Informationsabteilung in Ecublens vervollständigt.",
-        "fr": "Votre mission Au sein de l'équipe data à Ecublens, vous serez amené-e à conduire des recherches et à publier des enquêtes nourries par les outils du datajournalisme. Rattaché-e au Pôle enquête, vous proposerez des contributions éditoriales originales, en collaboration avec les journalistes des divers pôles de compétence. Vous serez également appelé à mettre votre expertise au service des divers vecteurs de la RTS (audio, vidéo, numérique), au quotidien et sur des projets au plus long cours. Vous serez chargé-e de la diffusion de votre travail sur les canaux de la RTS. Votre profil\n• Formation CFJM ou jugée équivalente ;\n• Excellentes connaissances des pratiques et outils du datajournalisme (en particulier tableurs, outils de visualisation) ;\n• Maîtrise des outils d'intelligence artificielle (IA) ;\n• Aisance avec l'analyse et l'exploitation rédactionnelle de données ;\n• Connaissances en langage(s) de programmation souhaitées (Python, SQL,...) ;\n• Maîtrise des concepts mathématiques et statistiques de base ;\n• Attrait pour l'actualité en général, le datajournalisme et l'enquête en particulier ;\n• Bonnes connaissances de l'actualité ;\n• Capacité à rédiger des textes journalistes synthétiques et à les mettre en forme pour l'audiovisuel;\n• Sens développé de l'initiative, précision et rigueur ;\n• Esprit d'équipe ;\n• Sens aigu du service public ;\n• Langue maternelle française, avec de bonnes connaissances d'allemand et d'anglais (niveau B1). Ce que nous vous offrons\n• Un rôle essentiel au sein de la rédaction unifiée de la RTS\n• La possibilité de réaliser des enquêtes data sur différents vecteurs et de toucher à des sujets variés\n• Une participation active à la transformation d'un média de service public Nous recherchons un-e journaliste data à 80% pour compléter la cellule data de la rédaction transmédia de la RTS, au sein du département de l'information à Ecublens."
-      },
-      "location": "Bern",
-      "canton": "BE",
-      "url": "https://jobs.srgssr.ch/rts/offene-stellen/journaliste-data-actualite/c57274dd-5b5b-40c1-b089-be5ddd120c45",
-      "source": "SRG SSR Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:48.439Z",
-      "addressLocality": "Bern",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "3006",
-      "streetAddress": "Giacomettistrasse 1",
-      "category": "Media / Giornalismo",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Media / Broadcasting",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-09",
-      "applyUrl": "https://jobs.srgssr.ch/rts/offene-stellen/journaliste-data-actualite/c57274dd-5b5b-40c1-b089-be5ddd120c45",
-      "requirements": [
-        "Formation CFJM ou jugée équivalente ;",
-        "Excellentes connaissances des pratiques et outils du datajournalisme (en particulier tableurs, outils de visualisation) ;",
-        "Maîtrise des outils d'intelligence artificielle (IA) ;",
-        "Aisance avec l'analyse et l'exploitation rédactionnelle de données ;",
-        "Connaissances en langage(s) de programmation souhaitées (Python, SQL,...) ;",
-        "Maîtrise des concepts mathématiques et statistiques de base ;",
-        "Attrait pour l'actualité en général, le datajournalisme et l'enquête en particulier ;",
-        "Bonnes connaissances de l'actualité ;",
-        "Capacité à rédiger des textes journalistes synthétiques et à les mettre en forme pour l'audiovisuel;",
-        "Sens développé de l'initiative, précision et rigueur ;",
-        "Esprit d'équipe ;",
-        "Sens aigu du service public ;",
-        "Langue maternelle française, avec de bonnes connaissances d'allemand et d'anglais (niveau B1)."
-      ],
-      "requirementsByLocale": {
-        "fr": [
-          "Formation CFJM ou jugée équivalente ;",
-          "Maîtrise des outils d'intelligence artificielle (IA) ;",
-          "Aisance avec l'analyse et l'exploitation rédactionnelle de données ;",
-          "Connaissances en langage(s) de programmation souhaitées (Python, SQL,...) ;",
-          "Maîtrise des concepts mathématiques et statistiques de base ;",
-          "Attrait pour l'actualité en général, le datajournalisme et l'enquête en particulier ;",
-          "Bonnes connaissances de l'actualité ;",
-          "Capacité à rédiger des textes journalistes synthétiques et à les mettre en forme pour l'audiovisuel;"
-        ]
-      },
-      "_srgMeta": {
-        "uuid": "c57274dd-5b5b-40c1-b089-be5ddd120c45",
-        "org": "rts",
-        "orgLabel": "RTS",
-        "pensumMin": 80,
-        "pensumMax": 80
-      },
-      "previousSlugs": [
-        "journaliste-data-actualite-srg-ssr-bern"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "journaliste-data-actualite-srg-ssr-bern"
-        ],
-        "en": [
-          "journaliste-data-actualite-srg-ssr-bern"
-        ],
-        "de": [
-          "journaliste-data-actualite-srg-ssr-bern"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T13:45:01.576Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1382,7 +1201,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/responsabile-rete-tre/af6a6cbb-11f2-434e-906f-26f2a33ff12a",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:00:47.919Z",
+      "crawledAt": "2026-09-23T23:35:33.073Z",
       "addressLocality": "Lugano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1421,6 +1240,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-10T23:07:06.414Z",
+      "needsRetranslation": true,
       "salaryMin": 75500,
       "salaryMax": 133000,
       "salarySource": "estimated",
@@ -1467,7 +1287,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-nella-redazione-radiofonica-di-rete-uno/f0713e91-8f0d-45e7-97e7-594e453d4471",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:00:47.335Z",
+      "crawledAt": "2026-09-23T23:35:32.545Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1514,6 +1334,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-11T13:35:22.240Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -1560,7 +1381,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-social-media-content-creator-rete-uno-e-rete-tre/c9783f6a-a253-43f3-9ef7-6a679c49914d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:00:46.668Z",
+      "crawledAt": "2026-09-23T23:35:31.862Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -1608,6 +1429,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-11T13:35:21.643Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -1654,7 +1476,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-reseaux-sociaux-et-communication-digitale-tataki/3598fb13-04cb-4afb-9a92-c589d50027d0",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:45.976Z",
+      "crawledAt": "2026-09-23T23:35:31.223Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1700,17 +1522,20 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-reseaux-sociaux-et-communication-digitale-tataki-srg-ssr-bern"
+        "stagiaire-reseaux-sociaux-et-communication-digitale-tataki-srg-ssr-bern",
+        "trainee-social-networks-and-digital-communication-tataki-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-reseaux-sociaux-et-communication-digitale-tataki-srg-ssr-bern"
+          "stagiaire-reseaux-sociaux-et-communication-digitale-tataki-srg-ssr-bern",
+          "trainee-social-networks-and-digital-communication-tataki-srg-ssr-bern"
         ],
         "de": [
           "stagiaire-reseaux-sociaux-et-communication-digitale-tataki-srg-ssr-bern"
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:42.352Z",
+      "needsRetranslation": true,
       "salaryMin": 66000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -1757,7 +1582,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-redactrice-ou-redacteur-junior-tataki/fdff2769-ae0e-412b-811c-4ee1d51f261c",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:45.297Z",
+      "crawledAt": "2026-09-23T23:35:30.663Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1803,11 +1628,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-redactrice-ou-redacteur-junior-tataki-srg-ssr-bern"
+        "stagiaire-redactrice-ou-redacteur-junior-tataki-srg-ssr-bern",
+        "intern-editor-o-junior-editor-tataki-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-redactrice-ou-redacteur-junior-tataki-srg-ssr-bern"
+          "stagiaire-redactrice-ou-redacteur-junior-tataki-srg-ssr-bern",
+          "intern-editor-o-junior-editor-tataki-srg-ssr-bern"
         ],
         "en": [
           "stagiaire-redactrice-ou-redacteur-junior-tataki-srg-ssr-bern"
@@ -1817,6 +1644,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:41.782Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1863,7 +1691,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-graphiste-et-direction-artistique-digitale-tataki/5fc7f2e5-fce0-46ca-8bed-8eff9b779fd7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:44.583Z",
+      "crawledAt": "2026-09-23T23:35:30.062Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -1908,11 +1736,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "stagiaire-graphiste-et-direction-artistique-digitale-tataki-srg-ssr-bern"
+        "stagiaire-graphiste-et-direction-artistique-digitale-tataki-srg-ssr-bern",
+        "graphic-designer-e-direttore-d-arte-digitale-tataki-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "stagiaire-graphiste-et-direction-artistique-digitale-tataki-srg-ssr-bern"
+          "stagiaire-graphiste-et-direction-artistique-digitale-tataki-srg-ssr-bern",
+          "graphic-designer-e-direttore-d-arte-digitale-tataki-srg-ssr-bern"
         ],
         "en": [
           "stagiaire-graphiste-et-direction-artistique-digitale-tataki-srg-ssr-bern"
@@ -1922,6 +1752,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:41.139Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1952,7 +1783,7 @@
       "title": "Stagiaire Interactive media designer (IMD) - Tataki",
       "titleByLocale": {
         "it": "Intern Interactive media designer (IMD) - Tataki",
-        "en": "Intern Interactive media designer (IMD) - Tataki",
+        "en": "Stagiaire Interactive media designer (IMD) - Tataki",
         "de": "Intern Interactive Media Designer (IMD) - Tataki",
         "fr": "Stagiaire Interactive media designer (IMD) - Tataki"
       },
@@ -1968,7 +1799,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/stagiaire-interactive-media-designer-imd-tataki/3a99a71e-fd4b-4cc7-8fa5-b0746753a905",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:44.040Z",
+      "crawledAt": "2026-09-23T23:35:29.516Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2015,6 +1846,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-17T03:44:40.556Z",
+      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -2061,7 +1893,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-marketingkreation/416f8645-28b9-4b0f-9ad5-b5ee37d08a43",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:00:43.467Z",
+      "crawledAt": "2026-09-23T23:35:28.980Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2097,11 +1929,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "praktikant-in-marketingkreation-srg-ssr-zurich"
+        "praktikant-in-marketingkreation-srg-ssr-zurich",
+        "creazione-di-marketing-interno-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "praktikant-in-marketingkreation-srg-ssr-zurich"
+          "praktikant-in-marketingkreation-srg-ssr-zurich",
+          "creazione-di-marketing-interno-srg-ssr-zurich"
         ],
         "en": [
           "praktikant-in-marketingkreation-srg-ssr-zurich"
@@ -2111,6 +1945,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:39.982Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2157,7 +1992,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/leiter-in-immobilien-srg-co-leitung-moeglich/246cbef0-8690-40df-9455-e2d6560d25f6",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:00:42.939Z",
+      "crawledAt": "2026-09-23T23:35:28.474Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2198,12 +2033,14 @@
       },
       "previousSlugs": [
         "leiter-in-immobilien-srg-co-leitung-moglich-srg-ssr-bern",
-        "responsabile-immobilien-srg-co-leitung-moglich-srg-ssr-bern"
+        "responsabile-immobilien-srg-co-leitung-moglich-srg-ssr-bern",
+        "responsabile-immobiliare-srg-possibile-gestione-co-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "leiter-in-immobilien-srg-co-leitung-moglich-srg-ssr-bern",
-          "responsabile-immobilien-srg-co-leitung-moglich-srg-ssr-bern"
+          "responsabile-immobilien-srg-co-leitung-moglich-srg-ssr-bern",
+          "responsabile-immobiliare-srg-possibile-gestione-co-srg-ssr-bern"
         ],
         "en": [
           "leiter-in-immobilien-srg-co-leitung-moglich-srg-ssr-bern"
@@ -2213,6 +2050,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:39.392Z",
+      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -2259,7 +2097,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsabile-immobili-ssr-co-conduzione-possibile/481ef3ff-0df3-4c4a-b1f9-f0bfad4ca28e",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:00:42.259Z",
+      "crawledAt": "2026-09-23T23:35:27.822Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2299,6 +2137,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-17T03:44:38.850Z",
+      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -2345,7 +2184,7 @@
       "url": "https://jobs.srgssr.ch/srg/offene-stellen/responsable-immobilier-ssr-codirection-possible/097acdb0-f182-452a-a7ee-ebf96ae0bc74",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:41.559Z",
+      "crawledAt": "2026-09-23T23:35:27.168Z",
       "addressLocality": "Bern",
       "addressCountry": "CH",
       "country": "CH",
@@ -2385,11 +2224,13 @@
         "pensumMax": 100
       },
       "previousSlugs": [
-        "responsable-immobilier-ssr-codirection-possible-srg-ssr-bern"
+        "responsable-immobilier-ssr-codirection-possible-srg-ssr-bern",
+        "responsabile-immobiliare-ssr-co-direzione-possibile-srg-ssr-bern"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-immobilier-ssr-codirection-possible-srg-ssr-bern"
+          "responsable-immobilier-ssr-codirection-possible-srg-ssr-bern",
+          "responsabile-immobiliare-ssr-co-direzione-possibile-srg-ssr-bern"
         ],
         "en": [
           "responsable-immobilier-ssr-codirection-possible-srg-ssr-bern"
@@ -2399,6 +2240,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:37.959Z",
+      "needsRetranslation": true,
       "salaryMin": 106500,
       "salaryMax": 188500,
       "salarySource": "estimated",
@@ -2445,7 +2287,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/praktikant-in-radio-srf-3-radio-und-online/1219f941-86c2-446d-9552-97eee916efe7",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:00:40.874Z",
+      "crawledAt": "2026-09-23T23:35:26.529Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2491,6 +2333,7 @@
         ]
       },
       "firstSeenAt": "2026-09-17T03:44:37.401Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2537,7 +2380,7 @@
       "url": "https://jobs.srgssr.ch/rts/offene-stellen/3-responsables-atelier-graphique-information-rts/663c14ac-3ae5-40d0-8ab7-a9675717894d",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:40.222Z",
+      "crawledAt": "2026-09-23T23:35:26.016Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -2584,11 +2427,13 @@
         "pensumMax": 70
       },
       "previousSlugs": [
-        "3-responsables-atelier-graphique-information-rts-70-srg-ssr-lausanne"
+        "3-responsables-atelier-graphique-information-rts-70-srg-ssr-lausanne",
+        "3-direttori-di-workshop-grafici-informazioni-rts-70-srg-ssr-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "3-responsables-atelier-graphique-information-rts-70-srg-ssr-lausanne"
+          "3-responsables-atelier-graphique-information-rts-70-srg-ssr-lausanne",
+          "3-direttori-di-workshop-grafici-informazioni-rts-70-srg-ssr-lausanne"
         ],
         "en": [
           "3-responsables-atelier-graphique-information-rts-70-srg-ssr-lausanne"
@@ -2598,6 +2443,7 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:09:55.783Z",
+      "needsRetranslation": true,
       "salaryMin": 43100,
       "salaryMax": 76300,
       "salarySource": "estimated",
@@ -2644,7 +2490,7 @@
       "url": "https://jobs.srgssr.ch/srf/offene-stellen/videoproduzent-in-srf-studio-404/3396a90e-76cf-47b6-b543-dea96c38f0fe",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:00:39.545Z",
+      "crawledAt": "2026-09-23T23:35:25.338Z",
       "addressLocality": "Zürich",
       "addressCountry": "CH",
       "country": "CH",
@@ -2674,11 +2520,13 @@
         "pensumMax": 40
       },
       "previousSlugs": [
-        "videoproduzent-in-srf-studio-404-srg-ssr-zurich"
+        "videoproduzent-in-srf-studio-404-srg-ssr-zurich",
+        "video-produttore-srf-studio-404-srg-ssr-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "videoproduzent-in-srf-studio-404-srg-ssr-zurich"
+          "videoproduzent-in-srf-studio-404-srg-ssr-zurich",
+          "video-produttore-srf-studio-404-srg-ssr-zurich"
         ],
         "en": [
           "videoproduzent-in-srf-studio-404-srg-ssr-zurich"
@@ -2688,6 +2536,7 @@
         ]
       },
       "firstSeenAt": "2026-09-18T23:09:55.092Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2734,7 +2583,7 @@
       "url": "https://jobs.srgssr.ch/rsi/offene-stellen/stage-52-settimane-impiegata-impiegato-di-commercio-o-per-crediti-supsi/2bc061f3-bb09-4558-9388-63711380a1aa",
       "source": "SRG SSR Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:00:38.887Z",
+      "crawledAt": "2026-09-23T23:35:24.822Z",
       "addressLocality": "Comano",
       "addressCountry": "CH",
       "country": "CH",
@@ -2774,6 +2623,7 @@
         "pensumMax": 100
       },
       "firstSeenAt": "2026-09-21T15:57:01.576Z",
+      "needsRetranslation": true,
       "salaryMin": 41600,
       "salaryMax": 74000,
       "salarySource": "estimated",
@@ -2788,6 +2638,394 @@
         }
       },
       "addressRegion": "TI"
+    },
+    {
+      "id": "srg-ssr-80dd3ee11db5",
+      "slug": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
+      "slugByLocale": {
+        "de": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
+        "it": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
+        "en": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich",
+        "fr": "hms-praktikum-kauffrau-kaufmann-srg-ssr-zurich"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "HMS-Praktikum Kauffrau/Kaufmann",
+      "titleByLocale": {
+        "de": "HMS-Praktikum Kauffrau/Kaufmann",
+        "it": "HMS-Praktikum Kauffrau/Kaufmann",
+        "en": "HMS-Praktikum Kauffrau/Kaufmann",
+        "fr": "HMS-Praktikum Kauffrau/Kaufmann"
+      },
+      "description": "Was sind deine Aufgaben? Du sammelst praktische Erfahrungen und engagierst dich für folgende Aufgaben:\n• Einblick in die vielfältige Welt des Human Resources\n• Du unterstützt das Team Leadership & Weiterbildung und übernimmst Aufgaben und Projekte bei Nachwuchs & Laufbahn.\n• Du organisierst einige Anlässe für die Lernenden und Berufsbildner:innen\n• Du arbeitest in verschiedenen Personalsystemen und lernst diese anzuwenden Was bringst du mit?\n• Organisations-, Team- und Kommunikationsfähigkeit\n• Verantwortungsbewusstes und selbstständiges Arbeiten\n• Motivation und Zuverlässigkeit\n• Interesse an einer vielfältigen Medienwelt Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in spannende Arbeitsbereiche\n• Lockere Berufsbildner, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, regelmässige Teamevents\n• 6 Wochen Ferien Noch Fragen? zur Stelle Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Dieses Praktikum ist Bestandteil der Grundausbildung zum Kaufmann/Kauffrau (schulisch organisiert). Als Absolventin/Absolvent der Handelsmittelschule kannst du ein einjähriges Praktikum bei uns absolvieren und mit dem EFZ als Kauffrau/Kaufmann mit Berufsmaturität abschliessen.",
+      "descriptionByLocale": {
+        "de": "Was sind deine Aufgaben? Du sammelst praktische Erfahrungen und engagierst dich für folgende Aufgaben:\n• Einblick in die vielfältige Welt des Human Resources\n• Du unterstützt das Team Leadership & Weiterbildung und übernimmst Aufgaben und Projekte bei Nachwuchs & Laufbahn.\n• Du organisierst einige Anlässe für die Lernenden und Berufsbildner:innen\n• Du arbeitest in verschiedenen Personalsystemen und lernst diese anzuwenden Was bringst du mit?\n• Organisations-, Team- und Kommunikationsfähigkeit\n• Verantwortungsbewusstes und selbstständiges Arbeiten\n• Motivation und Zuverlässigkeit\n• Interesse an einer vielfältigen Medienwelt Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in spannende Arbeitsbereiche\n• Lockere Berufsbildner, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, regelmässige Teamevents\n• 6 Wochen Ferien Noch Fragen? zur Stelle Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Dieses Praktikum ist Bestandteil der Grundausbildung zum Kaufmann/Kauffrau (schulisch organisiert). Als Absolventin/Absolvent der Handelsmittelschule kannst du ein einjähriges Praktikum bei uns absolvieren und mit dem EFZ als Kauffrau/Kaufmann mit Berufsmaturität abschliessen.",
+        "it": "Was sind deine Aufgaben? Du sammelst praktische Erfahrungen und engagierst dich für folgende Aufgaben:\n• Einblick in die vielfältige Welt des Human Resources\n• Du unterstützt das Team Leadership & Weiterbildung und übernimmst Aufgaben und Projekte bei Nachwuchs & Laufbahn.\n• Du organisierst einige Anlässe für die Lernenden und Berufsbildner:innen\n• Du arbeitest in verschiedenen Personalsystemen und lernst diese anzuwenden Was bringst du mit?\n• Organisations-, Team- und Kommunikationsfähigkeit\n• Verantwortungsbewusstes und selbstständiges Arbeiten\n• Motivation und Zuverlässigkeit\n• Interesse an einer vielfältigen Medienwelt Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in spannende Arbeitsbereiche\n• Lockere Berufsbildner, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, regelmässige Teamevents\n• 6 Wochen Ferien Noch Fragen? zur Stelle Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Dieses Praktikum ist Bestandteil der Grundausbildung zum Kaufmann/Kauffrau (schulisch organisiert). Als Absolventin/Absolvent der Handelsmittelschule kannst du ein einjähriges Praktikum bei uns absolvieren und mit dem EFZ als Kauffrau/Kaufmann mit Berufsmaturität abschliessen.",
+        "en": "Was sind deine Aufgaben? Du sammelst praktische Erfahrungen und engagierst dich für folgende Aufgaben:\n• Einblick in die vielfältige Welt des Human Resources\n• Du unterstützt das Team Leadership & Weiterbildung und übernimmst Aufgaben und Projekte bei Nachwuchs & Laufbahn.\n• Du organisierst einige Anlässe für die Lernenden und Berufsbildner:innen\n• Du arbeitest in verschiedenen Personalsystemen und lernst diese anzuwenden Was bringst du mit?\n• Organisations-, Team- und Kommunikationsfähigkeit\n• Verantwortungsbewusstes und selbstständiges Arbeiten\n• Motivation und Zuverlässigkeit\n• Interesse an einer vielfältigen Medienwelt Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in spannende Arbeitsbereiche\n• Lockere Berufsbildner, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, regelmässige Teamevents\n• 6 Wochen Ferien Noch Fragen? zur Stelle Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Dieses Praktikum ist Bestandteil der Grundausbildung zum Kaufmann/Kauffrau (schulisch organisiert). Als Absolventin/Absolvent der Handelsmittelschule kannst du ein einjähriges Praktikum bei uns absolvieren und mit dem EFZ als Kauffrau/Kaufmann mit Berufsmaturität abschliessen.",
+        "fr": "Was sind deine Aufgaben? Du sammelst praktische Erfahrungen und engagierst dich für folgende Aufgaben:\n• Einblick in die vielfältige Welt des Human Resources\n• Du unterstützt das Team Leadership & Weiterbildung und übernimmst Aufgaben und Projekte bei Nachwuchs & Laufbahn.\n• Du organisierst einige Anlässe für die Lernenden und Berufsbildner:innen\n• Du arbeitest in verschiedenen Personalsystemen und lernst diese anzuwenden Was bringst du mit?\n• Organisations-, Team- und Kommunikationsfähigkeit\n• Verantwortungsbewusstes und selbstständiges Arbeiten\n• Motivation und Zuverlässigkeit\n• Interesse an einer vielfältigen Medienwelt Worauf kannst du dich freuen?\n• Einblicke und Mitarbeit in spannende Arbeitsbereiche\n• Lockere Berufsbildner, die dich bei allen Anliegen unterstützen\n• Aufgestellte Lernende, regelmässige Teamevents\n• 6 Wochen Ferien Noch Fragen? zur Stelle Claudia Hirt Fachspezialistin Berufsbildung +41 58 135 15 07 Die Ausbildung erfolgt innerhalb der SRG SSR und findet in der Regionaleinheit SRF in Zürich statt. Die SRG SSR ist das grösste Medienunternehmen der Schweiz. Mit ihren Unternehmenseinheiten SRF, RTS, RSI und RTR produziert und verbreitet sie Inhalte in den Bereichen Information, Bildung, Kultur, Unterhaltung und Sport. Als Lernende:r wirst du Teil eines vielfältigen und zukunftsorientierten Unternehmens, das Menschen in der ganzen Schweiz verbindet und täglich Millionen von Nutzer:innen auf unterschiedlichen Plattformen erreicht. Dieses Praktikum ist Bestandteil der Grundausbildung zum Kaufmann/Kauffrau (schulisch organisiert). Als Absolventin/Absolvent der Handelsmittelschule kannst du ein einjähriges Praktikum bei uns absolvieren und mit dem EFZ als Kauffrau/Kaufmann mit Berufsmaturität abschliessen."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/003650d2-1ad9-4ad4-85aa-e9c6dd4dfa99",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:35:24.095Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8052",
+      "streetAddress": "Fernsehstrasse 1-4",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "intern",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-22",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/hms-praktikum-kauffrau-kaufmann/003650d2-1ad9-4ad4-85aa-e9c6dd4dfa99",
+      "requirements": [
+        "Organisations-, Team- und Kommunikationsfähigkeit",
+        "Verantwortungsbewusstes und selbstständiges Arbeiten",
+        "Motivation und Zuverlässigkeit",
+        "Interesse an einer vielfältigen Medienwelt"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Organisations-, Team- und Kommunikationsfähigkeit",
+          "Verantwortungsbewusstes und selbstständiges Arbeiten",
+          "Motivation und Zuverlässigkeit",
+          "Interesse an einer vielfältigen Medienwelt"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "003650d2-1ad9-4ad4-85aa-e9c6dd4dfa99",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 100,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 77000,
+      "salaryMax": 136000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 136000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-09-23T23:35:24.095Z"
+    },
+    {
+      "id": "srg-ssr-3e8de13ec500",
+      "slug": "entwicklungsleiter-in-srg-ssr-zurich",
+      "slugByLocale": {
+        "de": "entwicklungsleiter-in-srg-ssr-zurich",
+        "it": "entwicklungsleiter-in-srg-ssr-zurich",
+        "en": "entwicklungsleiter-in-srg-ssr-zurich",
+        "fr": "entwicklungsleiter-in-srg-ssr-zurich"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Entwicklungsleiter:in",
+      "titleByLocale": {
+        "de": "Entwicklungsleiter:in",
+        "it": "Entwicklungsleiter:in",
+        "en": "Entwicklungsleiter:in",
+        "fr": "Entwicklungsleiter:in"
+      },
+      "description": "Das ist Ihr Beitrag\n• Leitung und Steuerung interdisziplinärer Formatentwicklungsprojekte und ihrer Teams, von der Auftragserteilung über Ideenphase, Prototyping und User-Testing bis zur Formatfreigabe und Übergabe in die operative Umsetzung\n• Sicherstellung, dass (weiter-)entwickelte Formatkonzepte auf die definierten strategischen Ziele einzahlen und die passenden Entwicklungsprozesse angestossen werden (Qualitätssicherung)\n• Laterale Führung und Koordination von Teams mit unterschiedlichen fachlichen Expertisen\n• Zentrale Ansprechperson für definierte Genres, Bereiche oder Kanäle\n• Koordination von Schnittstellen und Integrationsprozessen, auch über sprachregionale Grenzen hinweg, sowie Zusammenarbeit mit Auswahlgremien\n• Beobachtung internationaler Markt- und Formattrends sowie aktive Unterstützung bei der Erschliessung neuer Geschäftsfelder Damit begeistern Sie uns\n• Mehrjährige, ausgewiesene Erfahrung in der Formatentwicklung, der kreativen Medien-Konzeption oder der Produktion im digitalen, crossmedialen oder klassischen Medienbereich\n• Hervorragende Facilitation- und Moderationskompetenz sowie nachweisbare Erfahrung im Designen und Durchführen von Workshops und Sprints mit nutzerzentrierten Ansätzen (z. B. Design Methoden, Prototyping, User-Testing)\n• Ausgeprägte Storytelling- und Marktkenntnisse für audiovisuelle Kurz- und Langformate\n• Ausgeprägte kommunikative Fähigkeiten und Beratungskompetenz zur souveränen Moderation komplexer Schnittstellen\n• Systemisches und strategisches Denken sowie die Fähigkeit, strategische Vorgaben in konkrete operative Massnahmen zu übersetzen\n• Sehr gute Deutschkenntnisse (C2) sowie Französischkenntnisse mindestens auf Niveau B1 Damit begeistern wir Sie\n• Grosser kreativer Gestaltungs- und Experimentierspielraum bei der Entwicklung zukunftsweisender, innovativer Medienformate für das Schweizer Publikum\n• Verantwortungsvolle Schlüsselrolle bei der operativen Umsetzung des nationalen Konzeptionsprozesses\n• Interdisziplinäres agiles Umfeld, das in den verschiedenen Sprachregionen verankert ist\n• Mitgestaltung der Zukunft der SRG in einem dynamischen Umfeld\n• Ein offenes, innovationsfreudiges Team in der neu geschaffenen Abteilung \"Audience & Angebotsportfolio\" mit viel Raum für neue Ideen\n• Hybrides Arbeitsmodell mit flexiblen Homeoffice-Möglichkeiten sowie fortschrittlichen Anstellungsbedingungen der SRG Noch Fragen? zum Bewerbungsprozess Kristin Stengel Recruiter kristin.stengel@srf.ch Der Bereich Audience & Angebotsportfolio bündelt unterschiedliche Funktionen, die für eine moderne, publikumsorientierte und zukunftsfähige SRG von zentraler Bedeutung sind. Die Abteilung verantwortet die Erarbeitung und Aufbereitung strategischer Publikums- und Marktkenntnisse über Forschung und Analyse in allen Regionen sowie die national geführten Steuerungs-, Entwicklungs- und Qualitätssicherungsprozesse für ein strategie- und konzessionskonformes SRG-Angebot auf allen Vektoren.",
+      "descriptionByLocale": {
+        "de": "Das ist Ihr Beitrag\n• Leitung und Steuerung interdisziplinärer Formatentwicklungsprojekte und ihrer Teams, von der Auftragserteilung über Ideenphase, Prototyping und User-Testing bis zur Formatfreigabe und Übergabe in die operative Umsetzung\n• Sicherstellung, dass (weiter-)entwickelte Formatkonzepte auf die definierten strategischen Ziele einzahlen und die passenden Entwicklungsprozesse angestossen werden (Qualitätssicherung)\n• Laterale Führung und Koordination von Teams mit unterschiedlichen fachlichen Expertisen\n• Zentrale Ansprechperson für definierte Genres, Bereiche oder Kanäle\n• Koordination von Schnittstellen und Integrationsprozessen, auch über sprachregionale Grenzen hinweg, sowie Zusammenarbeit mit Auswahlgremien\n• Beobachtung internationaler Markt- und Formattrends sowie aktive Unterstützung bei der Erschliessung neuer Geschäftsfelder Damit begeistern Sie uns\n• Mehrjährige, ausgewiesene Erfahrung in der Formatentwicklung, der kreativen Medien-Konzeption oder der Produktion im digitalen, crossmedialen oder klassischen Medienbereich\n• Hervorragende Facilitation- und Moderationskompetenz sowie nachweisbare Erfahrung im Designen und Durchführen von Workshops und Sprints mit nutzerzentrierten Ansätzen (z. B. Design Methoden, Prototyping, User-Testing)\n• Ausgeprägte Storytelling- und Marktkenntnisse für audiovisuelle Kurz- und Langformate\n• Ausgeprägte kommunikative Fähigkeiten und Beratungskompetenz zur souveränen Moderation komplexer Schnittstellen\n• Systemisches und strategisches Denken sowie die Fähigkeit, strategische Vorgaben in konkrete operative Massnahmen zu übersetzen\n• Sehr gute Deutschkenntnisse (C2) sowie Französischkenntnisse mindestens auf Niveau B1 Damit begeistern wir Sie\n• Grosser kreativer Gestaltungs- und Experimentierspielraum bei der Entwicklung zukunftsweisender, innovativer Medienformate für das Schweizer Publikum\n• Verantwortungsvolle Schlüsselrolle bei der operativen Umsetzung des nationalen Konzeptionsprozesses\n• Interdisziplinäres agiles Umfeld, das in den verschiedenen Sprachregionen verankert ist\n• Mitgestaltung der Zukunft der SRG in einem dynamischen Umfeld\n• Ein offenes, innovationsfreudiges Team in der neu geschaffenen Abteilung \"Audience & Angebotsportfolio\" mit viel Raum für neue Ideen\n• Hybrides Arbeitsmodell mit flexiblen Homeoffice-Möglichkeiten sowie fortschrittlichen Anstellungsbedingungen der SRG Noch Fragen? zum Bewerbungsprozess Kristin Stengel Recruiter kristin.stengel@srf.ch Der Bereich Audience & Angebotsportfolio bündelt unterschiedliche Funktionen, die für eine moderne, publikumsorientierte und zukunftsfähige SRG von zentraler Bedeutung sind. Die Abteilung verantwortet die Erarbeitung und Aufbereitung strategischer Publikums- und Marktkenntnisse über Forschung und Analyse in allen Regionen sowie die national geführten Steuerungs-, Entwicklungs- und Qualitätssicherungsprozesse für ein strategie- und konzessionskonformes SRG-Angebot auf allen Vektoren.",
+        "it": "Das ist Ihr Beitrag\n• Leitung und Steuerung interdisziplinärer Formatentwicklungsprojekte und ihrer Teams, von der Auftragserteilung über Ideenphase, Prototyping und User-Testing bis zur Formatfreigabe und Übergabe in die operative Umsetzung\n• Sicherstellung, dass (weiter-)entwickelte Formatkonzepte auf die definierten strategischen Ziele einzahlen und die passenden Entwicklungsprozesse angestossen werden (Qualitätssicherung)\n• Laterale Führung und Koordination von Teams mit unterschiedlichen fachlichen Expertisen\n• Zentrale Ansprechperson für definierte Genres, Bereiche oder Kanäle\n• Koordination von Schnittstellen und Integrationsprozessen, auch über sprachregionale Grenzen hinweg, sowie Zusammenarbeit mit Auswahlgremien\n• Beobachtung internationaler Markt- und Formattrends sowie aktive Unterstützung bei der Erschliessung neuer Geschäftsfelder Damit begeistern Sie uns\n• Mehrjährige, ausgewiesene Erfahrung in der Formatentwicklung, der kreativen Medien-Konzeption oder der Produktion im digitalen, crossmedialen oder klassischen Medienbereich\n• Hervorragende Facilitation- und Moderationskompetenz sowie nachweisbare Erfahrung im Designen und Durchführen von Workshops und Sprints mit nutzerzentrierten Ansätzen (z. B. Design Methoden, Prototyping, User-Testing)\n• Ausgeprägte Storytelling- und Marktkenntnisse für audiovisuelle Kurz- und Langformate\n• Ausgeprägte kommunikative Fähigkeiten und Beratungskompetenz zur souveränen Moderation komplexer Schnittstellen\n• Systemisches und strategisches Denken sowie die Fähigkeit, strategische Vorgaben in konkrete operative Massnahmen zu übersetzen\n• Sehr gute Deutschkenntnisse (C2) sowie Französischkenntnisse mindestens auf Niveau B1 Damit begeistern wir Sie\n• Grosser kreativer Gestaltungs- und Experimentierspielraum bei der Entwicklung zukunftsweisender, innovativer Medienformate für das Schweizer Publikum\n• Verantwortungsvolle Schlüsselrolle bei der operativen Umsetzung des nationalen Konzeptionsprozesses\n• Interdisziplinäres agiles Umfeld, das in den verschiedenen Sprachregionen verankert ist\n• Mitgestaltung der Zukunft der SRG in einem dynamischen Umfeld\n• Ein offenes, innovationsfreudiges Team in der neu geschaffenen Abteilung \"Audience & Angebotsportfolio\" mit viel Raum für neue Ideen\n• Hybrides Arbeitsmodell mit flexiblen Homeoffice-Möglichkeiten sowie fortschrittlichen Anstellungsbedingungen der SRG Noch Fragen? zum Bewerbungsprozess Kristin Stengel Recruiter kristin.stengel@srf.ch Der Bereich Audience & Angebotsportfolio bündelt unterschiedliche Funktionen, die für eine moderne, publikumsorientierte und zukunftsfähige SRG von zentraler Bedeutung sind. Die Abteilung verantwortet die Erarbeitung und Aufbereitung strategischer Publikums- und Marktkenntnisse über Forschung und Analyse in allen Regionen sowie die national geführten Steuerungs-, Entwicklungs- und Qualitätssicherungsprozesse für ein strategie- und konzessionskonformes SRG-Angebot auf allen Vektoren.",
+        "en": "Das ist Ihr Beitrag\n• Leitung und Steuerung interdisziplinärer Formatentwicklungsprojekte und ihrer Teams, von der Auftragserteilung über Ideenphase, Prototyping und User-Testing bis zur Formatfreigabe und Übergabe in die operative Umsetzung\n• Sicherstellung, dass (weiter-)entwickelte Formatkonzepte auf die definierten strategischen Ziele einzahlen und die passenden Entwicklungsprozesse angestossen werden (Qualitätssicherung)\n• Laterale Führung und Koordination von Teams mit unterschiedlichen fachlichen Expertisen\n• Zentrale Ansprechperson für definierte Genres, Bereiche oder Kanäle\n• Koordination von Schnittstellen und Integrationsprozessen, auch über sprachregionale Grenzen hinweg, sowie Zusammenarbeit mit Auswahlgremien\n• Beobachtung internationaler Markt- und Formattrends sowie aktive Unterstützung bei der Erschliessung neuer Geschäftsfelder Damit begeistern Sie uns\n• Mehrjährige, ausgewiesene Erfahrung in der Formatentwicklung, der kreativen Medien-Konzeption oder der Produktion im digitalen, crossmedialen oder klassischen Medienbereich\n• Hervorragende Facilitation- und Moderationskompetenz sowie nachweisbare Erfahrung im Designen und Durchführen von Workshops und Sprints mit nutzerzentrierten Ansätzen (z. B. Design Methoden, Prototyping, User-Testing)\n• Ausgeprägte Storytelling- und Marktkenntnisse für audiovisuelle Kurz- und Langformate\n• Ausgeprägte kommunikative Fähigkeiten und Beratungskompetenz zur souveränen Moderation komplexer Schnittstellen\n• Systemisches und strategisches Denken sowie die Fähigkeit, strategische Vorgaben in konkrete operative Massnahmen zu übersetzen\n• Sehr gute Deutschkenntnisse (C2) sowie Französischkenntnisse mindestens auf Niveau B1 Damit begeistern wir Sie\n• Grosser kreativer Gestaltungs- und Experimentierspielraum bei der Entwicklung zukunftsweisender, innovativer Medienformate für das Schweizer Publikum\n• Verantwortungsvolle Schlüsselrolle bei der operativen Umsetzung des nationalen Konzeptionsprozesses\n• Interdisziplinäres agiles Umfeld, das in den verschiedenen Sprachregionen verankert ist\n• Mitgestaltung der Zukunft der SRG in einem dynamischen Umfeld\n• Ein offenes, innovationsfreudiges Team in der neu geschaffenen Abteilung \"Audience & Angebotsportfolio\" mit viel Raum für neue Ideen\n• Hybrides Arbeitsmodell mit flexiblen Homeoffice-Möglichkeiten sowie fortschrittlichen Anstellungsbedingungen der SRG Noch Fragen? zum Bewerbungsprozess Kristin Stengel Recruiter kristin.stengel@srf.ch Der Bereich Audience & Angebotsportfolio bündelt unterschiedliche Funktionen, die für eine moderne, publikumsorientierte und zukunftsfähige SRG von zentraler Bedeutung sind. Die Abteilung verantwortet die Erarbeitung und Aufbereitung strategischer Publikums- und Marktkenntnisse über Forschung und Analyse in allen Regionen sowie die national geführten Steuerungs-, Entwicklungs- und Qualitätssicherungsprozesse für ein strategie- und konzessionskonformes SRG-Angebot auf allen Vektoren.",
+        "fr": "Das ist Ihr Beitrag\n• Leitung und Steuerung interdisziplinärer Formatentwicklungsprojekte und ihrer Teams, von der Auftragserteilung über Ideenphase, Prototyping und User-Testing bis zur Formatfreigabe und Übergabe in die operative Umsetzung\n• Sicherstellung, dass (weiter-)entwickelte Formatkonzepte auf die definierten strategischen Ziele einzahlen und die passenden Entwicklungsprozesse angestossen werden (Qualitätssicherung)\n• Laterale Führung und Koordination von Teams mit unterschiedlichen fachlichen Expertisen\n• Zentrale Ansprechperson für definierte Genres, Bereiche oder Kanäle\n• Koordination von Schnittstellen und Integrationsprozessen, auch über sprachregionale Grenzen hinweg, sowie Zusammenarbeit mit Auswahlgremien\n• Beobachtung internationaler Markt- und Formattrends sowie aktive Unterstützung bei der Erschliessung neuer Geschäftsfelder Damit begeistern Sie uns\n• Mehrjährige, ausgewiesene Erfahrung in der Formatentwicklung, der kreativen Medien-Konzeption oder der Produktion im digitalen, crossmedialen oder klassischen Medienbereich\n• Hervorragende Facilitation- und Moderationskompetenz sowie nachweisbare Erfahrung im Designen und Durchführen von Workshops und Sprints mit nutzerzentrierten Ansätzen (z. B. Design Methoden, Prototyping, User-Testing)\n• Ausgeprägte Storytelling- und Marktkenntnisse für audiovisuelle Kurz- und Langformate\n• Ausgeprägte kommunikative Fähigkeiten und Beratungskompetenz zur souveränen Moderation komplexer Schnittstellen\n• Systemisches und strategisches Denken sowie die Fähigkeit, strategische Vorgaben in konkrete operative Massnahmen zu übersetzen\n• Sehr gute Deutschkenntnisse (C2) sowie Französischkenntnisse mindestens auf Niveau B1 Damit begeistern wir Sie\n• Grosser kreativer Gestaltungs- und Experimentierspielraum bei der Entwicklung zukunftsweisender, innovativer Medienformate für das Schweizer Publikum\n• Verantwortungsvolle Schlüsselrolle bei der operativen Umsetzung des nationalen Konzeptionsprozesses\n• Interdisziplinäres agiles Umfeld, das in den verschiedenen Sprachregionen verankert ist\n• Mitgestaltung der Zukunft der SRG in einem dynamischen Umfeld\n• Ein offenes, innovationsfreudiges Team in der neu geschaffenen Abteilung \"Audience & Angebotsportfolio\" mit viel Raum für neue Ideen\n• Hybrides Arbeitsmodell mit flexiblen Homeoffice-Möglichkeiten sowie fortschrittlichen Anstellungsbedingungen der SRG Noch Fragen? zum Bewerbungsprozess Kristin Stengel Recruiter kristin.stengel@srf.ch Der Bereich Audience & Angebotsportfolio bündelt unterschiedliche Funktionen, die für eine moderne, publikumsorientierte und zukunftsfähige SRG von zentraler Bedeutung sind. Die Abteilung verantwortet die Erarbeitung und Aufbereitung strategischer Publikums- und Marktkenntnisse über Forschung und Analyse in allen Regionen sowie die national geführten Steuerungs-, Entwicklungs- und Qualitätssicherungsprozesse für ein strategie- und konzessionskonformes SRG-Angebot auf allen Vektoren."
+      },
+      "location": "Zürich",
+      "canton": "ZH",
+      "url": "https://jobs.srgssr.ch/srg/offene-stellen/entwicklungsleiter-in/554d8629-5817-49cc-a1da-4e0e1c327f83",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:35:23.454Z",
+      "addressLocality": "Zürich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8052",
+      "streetAddress": "Fernsehstrasse 1 - 4",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-22",
+      "applyUrl": "https://jobs.srgssr.ch/srg/offene-stellen/entwicklungsleiter-in/554d8629-5817-49cc-a1da-4e0e1c327f83",
+      "requirements": [
+        "Mehrjährige, ausgewiesene Erfahrung in der Formatentwicklung, der kreativen Medien-Konzeption oder der Produktion im digitalen, crossmedialen oder klassischen Medienbereich",
+        "Hervorragende Facilitation- und Moderationskompetenz sowie nachweisbare Erfahrung im Designen und Durchführen von Workshops und Sprints mit nutzerzentrierten Ansätzen (z. B. Design Methoden, Prototyping, User-Testing)",
+        "Ausgeprägte Storytelling- und Marktkenntnisse für audiovisuelle Kurz- und Langformate",
+        "Ausgeprägte kommunikative Fähigkeiten und Beratungskompetenz zur souveränen Moderation komplexer Schnittstellen",
+        "Systemisches und strategisches Denken sowie die Fähigkeit, strategische Vorgaben in konkrete operative Massnahmen zu übersetzen",
+        "Sehr gute Deutschkenntnisse (C2) sowie Französischkenntnisse mindestens auf Niveau B1"
+      ],
+      "requirementsByLocale": {
+        "de": [
+          "Mehrjährige, ausgewiesene Erfahrung in der Formatentwicklung, der kreativen Medien-Konzeption oder der Produktion im digitalen, crossmedialen oder klassischen Medienbereich",
+          "Hervorragende Facilitation- und Moderationskompetenz sowie nachweisbare Erfahrung im Designen und Durchführen von Workshops und Sprints mit nutzerzentrierten Ansätzen (z. B. Design Methoden, Prototyping, User-Testing)",
+          "Ausgeprägte Storytelling- und Marktkenntnisse für audiovisuelle Kurz- und Langformate",
+          "Ausgeprägte kommunikative Fähigkeiten und Beratungskompetenz zur souveränen Moderation komplexer Schnittstellen",
+          "Systemisches und strategisches Denken sowie die Fähigkeit, strategische Vorgaben in konkrete operative Massnahmen zu übersetzen",
+          "Sehr gute Deutschkenntnisse (C2) sowie Französischkenntnisse mindestens auf Niveau B1"
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "554d8629-5817-49cc-a1da-4e0e1c327f83",
+        "org": "srg",
+        "orgLabel": "SRG SSR",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 77000,
+      "salaryMax": 136000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 77000,
+          "maxValue": 136000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-09-23T23:35:23.454Z"
+    },
+    {
+      "id": "srg-ssr-ebc63f83bc71",
+      "slug": "ingenieur-e-broadcast-control-amp-orchestration-specialiste-evs-cerebrum-srg-ssr-lausanne",
+      "slugByLocale": {
+        "fr": "ingenieur-e-broadcast-control-amp-orchestration-specialiste-evs-cerebrum-srg-ssr-lausanne",
+        "it": "ingenieur-e-broadcast-control-amp-orchestration-specialiste-evs-cerebrum-srg-ssr-lausanne",
+        "en": "ingenieur-e-broadcast-control-amp-orchestration-specialiste-evs-cerebrum-srg-ssr-lausanne",
+        "de": "ingenieur-e-broadcast-control-amp-orchestration-specialiste-evs-cerebrum-srg-ssr-lausanne"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Ingénieur·e Broadcast Control & Orchestration Spécialiste EVS Cerebrum",
+      "titleByLocale": {
+        "fr": "Ingénieur·e Broadcast Control & Orchestration Spécialiste EVS Cerebrum",
+        "it": "Ingénieur·e Broadcast Control & Orchestration Spécialiste EVS Cerebrum",
+        "en": "Ingénieur·e Broadcast Control & Orchestration Spécialiste EVS Cerebrum",
+        "de": "Ingénieur·e Broadcast Control & Orchestration Spécialiste EVS Cerebrum"
+      },
+      "description": "Votre mission Au sein de l'équipe Real-Time Network (RTN), vous concevez, configurez, exploitez et faites évoluer les systèmes de Broadcast Control et d'orchestration utilisés pour la production de nos contenus radio et télévisuels. Vous intervenez principalement sur la plateforme EVS Cerebrum, qui assure le pilotage et l'automation des équipements de production, ainsi que sur Nevion VideoIPath pour l'orchestration des flux médias transportés par nos infrastructures SMPTE ST 2110. En collaboration avec les équipes de production, les spécialistes audio, vidéo, réseau et systèmes, vous traduisez les besoins opérationnels en interfaces, logiques de contrôle et workflows fiables et intuitifs. Vous participez aux projets de création et de rénovation des studios, puis accompagnez les solutions mises en place tout au long de leur cycle de vie. Vos responsabilités:\n• Configurer, administrer et faire évoluer la plateforme de Broadcast Control EVS Cerebrum.\n• Concevoir et maintenir les interfaces opérateur, panels, logiques de contrôle, macros et automatismes utilisés dans les régies et les studios.\n• Intégrer dans Cerebrum les équipements audio, vidéo, réseau et broadcast au moyen de drivers, protocoles et API.\n• Administrer Nevion VideoIPath et participer au provisionnement des équipements et des services média.\n• Concevoir et faire évoluer les workflows de contrôle et d'orchestration des flux audio et vidéo.\n• Recueillir et analyser les besoins des équipes de production, puis les traduire en solutions techniques adaptées.\n• Participer aux phases de conception, prototypage, intégration, test, validation et mise en production.\n• Assurer le support de niveaux 2 et 3 ainsi que le diagnostic des incidents affectant les systèmes de Broadcast Control et d'orchestration.\n• Préparer les mises en production et accompagner les utilisateurs lors du déploiement de nouvelles fonctionnalités.\n• Contribuer à la formation et à la montée en compétence des équipes techniques.\n• Documenter les architectures, configurations, interfaces, workflows et procédures d'exploitation.\n• Assurer la traçabilité des incidents, demandes et évolutions.\n• Contribuer à l'amélioration continue et à la veille technologique dans les domaines du Broadcast Control, de l'orchestration et des médias sur IP. Particularité du poste Après une période de formation et d'intégration, une participation à un service de piquet couvrant certaines périodes hors des heures ouvrées pourra être demandée. Votre profil\n• Formation supérieure en audiovisuel, informatique, électronique ou télécommunications, ou parcours jugé équivalent.\n• Expérience confirmée dans un environnement de production ou de postproduction radio ou télévision.\n• Expérience pratique d'EVS Cerebrum et intérêt marqué pour les systèmes de contrôle et l'automatisation des workflows.\n• Bonne compréhension des environnements audio, vidéo et réseau IP.\n• Capacité à analyser les besoins des utilisateurs et à les traduire en solutions techniques adaptées.\n• Esprit d'analyse, autonomie, rigueur et sens des priorités.\n• Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.\n• Bonnes capacités de communication, de documentation et de transmission des connaissances.\n• Maîtrise de l'anglais ; connaissance de l'allemand souhaitée. Atouts\n• Expérience de Nevion VideoIPath ou d'une plateforme similaire.\n• Connaissance des standards SMPTE ST 2110, AES67, ST 2022-7 et NMOS.\n• Connaissance de PTP (ST 2059).\n• Compétences en scripting et utilisation d'API REST.\n• Connaissance des méthodes Agile et des pratiques ITIL. Ce que nous vous offrons A propos du processus de recrutement Les relations humaines Le domaine Opérations assume le pilotage stratégique central de l'orientation technologique et de la production de la SSR. Le département Gestion du personnel Opérations garantit, grâce à des rôles clairs, une planification basée sur les compétences et un suivi régional par langue, que les collaborateur·rices se développent de manière ciblée et soient assigné·es de manière appropriée. Il crée également de la transparence dans l'utilisation des ressources ainsi que des structures stables pour une exploitation efficiente. Afin de renforcer son équipe Real-Time Network (RTN), la RTS recherche deux Ingénieur·es Broadcast Control & Orchestration, spécialistes EVS Cerebrum, pour contribuer à la conception, l'intégration et l'évolution de ses infrastructures de production. Deux postes sont ouverts : un à 80 % et un à 100 %.",
+      "descriptionByLocale": {
+        "fr": "Votre mission Au sein de l'équipe Real-Time Network (RTN), vous concevez, configurez, exploitez et faites évoluer les systèmes de Broadcast Control et d'orchestration utilisés pour la production de nos contenus radio et télévisuels. Vous intervenez principalement sur la plateforme EVS Cerebrum, qui assure le pilotage et l'automation des équipements de production, ainsi que sur Nevion VideoIPath pour l'orchestration des flux médias transportés par nos infrastructures SMPTE ST 2110. En collaboration avec les équipes de production, les spécialistes audio, vidéo, réseau et systèmes, vous traduisez les besoins opérationnels en interfaces, logiques de contrôle et workflows fiables et intuitifs. Vous participez aux projets de création et de rénovation des studios, puis accompagnez les solutions mises en place tout au long de leur cycle de vie. Vos responsabilités:\n• Configurer, administrer et faire évoluer la plateforme de Broadcast Control EVS Cerebrum.\n• Concevoir et maintenir les interfaces opérateur, panels, logiques de contrôle, macros et automatismes utilisés dans les régies et les studios.\n• Intégrer dans Cerebrum les équipements audio, vidéo, réseau et broadcast au moyen de drivers, protocoles et API.\n• Administrer Nevion VideoIPath et participer au provisionnement des équipements et des services média.\n• Concevoir et faire évoluer les workflows de contrôle et d'orchestration des flux audio et vidéo.\n• Recueillir et analyser les besoins des équipes de production, puis les traduire en solutions techniques adaptées.\n• Participer aux phases de conception, prototypage, intégration, test, validation et mise en production.\n• Assurer le support de niveaux 2 et 3 ainsi que le diagnostic des incidents affectant les systèmes de Broadcast Control et d'orchestration.\n• Préparer les mises en production et accompagner les utilisateurs lors du déploiement de nouvelles fonctionnalités.\n• Contribuer à la formation et à la montée en compétence des équipes techniques.\n• Documenter les architectures, configurations, interfaces, workflows et procédures d'exploitation.\n• Assurer la traçabilité des incidents, demandes et évolutions.\n• Contribuer à l'amélioration continue et à la veille technologique dans les domaines du Broadcast Control, de l'orchestration et des médias sur IP. Particularité du poste Après une période de formation et d'intégration, une participation à un service de piquet couvrant certaines périodes hors des heures ouvrées pourra être demandée. Votre profil\n• Formation supérieure en audiovisuel, informatique, électronique ou télécommunications, ou parcours jugé équivalent.\n• Expérience confirmée dans un environnement de production ou de postproduction radio ou télévision.\n• Expérience pratique d'EVS Cerebrum et intérêt marqué pour les systèmes de contrôle et l'automatisation des workflows.\n• Bonne compréhension des environnements audio, vidéo et réseau IP.\n• Capacité à analyser les besoins des utilisateurs et à les traduire en solutions techniques adaptées.\n• Esprit d'analyse, autonomie, rigueur et sens des priorités.\n• Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.\n• Bonnes capacités de communication, de documentation et de transmission des connaissances.\n• Maîtrise de l'anglais ; connaissance de l'allemand souhaitée. Atouts\n• Expérience de Nevion VideoIPath ou d'une plateforme similaire.\n• Connaissance des standards SMPTE ST 2110, AES67, ST 2022-7 et NMOS.\n• Connaissance de PTP (ST 2059).\n• Compétences en scripting et utilisation d'API REST.\n• Connaissance des méthodes Agile et des pratiques ITIL. Ce que nous vous offrons A propos du processus de recrutement Les relations humaines Le domaine Opérations assume le pilotage stratégique central de l'orientation technologique et de la production de la SSR. Le département Gestion du personnel Opérations garantit, grâce à des rôles clairs, une planification basée sur les compétences et un suivi régional par langue, que les collaborateur·rices se développent de manière ciblée et soient assigné·es de manière appropriée. Il crée également de la transparence dans l'utilisation des ressources ainsi que des structures stables pour une exploitation efficiente. Afin de renforcer son équipe Real-Time Network (RTN), la RTS recherche deux Ingénieur·es Broadcast Control & Orchestration, spécialistes EVS Cerebrum, pour contribuer à la conception, l'intégration et l'évolution de ses infrastructures de production. Deux postes sont ouverts : un à 80 % et un à 100 %.",
+        "it": "Votre mission Au sein de l'équipe Real-Time Network (RTN), vous concevez, configurez, exploitez et faites évoluer les systèmes de Broadcast Control et d'orchestration utilisés pour la production de nos contenus radio et télévisuels. Vous intervenez principalement sur la plateforme EVS Cerebrum, qui assure le pilotage et l'automation des équipements de production, ainsi que sur Nevion VideoIPath pour l'orchestration des flux médias transportés par nos infrastructures SMPTE ST 2110. En collaboration avec les équipes de production, les spécialistes audio, vidéo, réseau et systèmes, vous traduisez les besoins opérationnels en interfaces, logiques de contrôle et workflows fiables et intuitifs. Vous participez aux projets de création et de rénovation des studios, puis accompagnez les solutions mises en place tout au long de leur cycle de vie. Vos responsabilités:\n• Configurer, administrer et faire évoluer la plateforme de Broadcast Control EVS Cerebrum.\n• Concevoir et maintenir les interfaces opérateur, panels, logiques de contrôle, macros et automatismes utilisés dans les régies et les studios.\n• Intégrer dans Cerebrum les équipements audio, vidéo, réseau et broadcast au moyen de drivers, protocoles et API.\n• Administrer Nevion VideoIPath et participer au provisionnement des équipements et des services média.\n• Concevoir et faire évoluer les workflows de contrôle et d'orchestration des flux audio et vidéo.\n• Recueillir et analyser les besoins des équipes de production, puis les traduire en solutions techniques adaptées.\n• Participer aux phases de conception, prototypage, intégration, test, validation et mise en production.\n• Assurer le support de niveaux 2 et 3 ainsi que le diagnostic des incidents affectant les systèmes de Broadcast Control et d'orchestration.\n• Préparer les mises en production et accompagner les utilisateurs lors du déploiement de nouvelles fonctionnalités.\n• Contribuer à la formation et à la montée en compétence des équipes techniques.\n• Documenter les architectures, configurations, interfaces, workflows et procédures d'exploitation.\n• Assurer la traçabilité des incidents, demandes et évolutions.\n• Contribuer à l'amélioration continue et à la veille technologique dans les domaines du Broadcast Control, de l'orchestration et des médias sur IP. Particularité du poste Après une période de formation et d'intégration, une participation à un service de piquet couvrant certaines périodes hors des heures ouvrées pourra être demandée. Votre profil\n• Formation supérieure en audiovisuel, informatique, électronique ou télécommunications, ou parcours jugé équivalent.\n• Expérience confirmée dans un environnement de production ou de postproduction radio ou télévision.\n• Expérience pratique d'EVS Cerebrum et intérêt marqué pour les systèmes de contrôle et l'automatisation des workflows.\n• Bonne compréhension des environnements audio, vidéo et réseau IP.\n• Capacité à analyser les besoins des utilisateurs et à les traduire en solutions techniques adaptées.\n• Esprit d'analyse, autonomie, rigueur et sens des priorités.\n• Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.\n• Bonnes capacités de communication, de documentation et de transmission des connaissances.\n• Maîtrise de l'anglais ; connaissance de l'allemand souhaitée. Atouts\n• Expérience de Nevion VideoIPath ou d'une plateforme similaire.\n• Connaissance des standards SMPTE ST 2110, AES67, ST 2022-7 et NMOS.\n• Connaissance de PTP (ST 2059).\n• Compétences en scripting et utilisation d'API REST.\n• Connaissance des méthodes Agile et des pratiques ITIL. Ce que nous vous offrons A propos du processus de recrutement Les relations humaines Le domaine Opérations assume le pilotage stratégique central de l'orientation technologique et de la production de la SSR. Le département Gestion du personnel Opérations garantit, grâce à des rôles clairs, une planification basée sur les compétences et un suivi régional par langue, que les collaborateur·rices se développent de manière ciblée et soient assigné·es de manière appropriée. Il crée également de la transparence dans l'utilisation des ressources ainsi que des structures stables pour une exploitation efficiente. Afin de renforcer son équipe Real-Time Network (RTN), la RTS recherche deux Ingénieur·es Broadcast Control & Orchestration, spécialistes EVS Cerebrum, pour contribuer à la conception, l'intégration et l'évolution de ses infrastructures de production. Deux postes sont ouverts : un à 80 % et un à 100 %.",
+        "en": "Votre mission Au sein de l'équipe Real-Time Network (RTN), vous concevez, configurez, exploitez et faites évoluer les systèmes de Broadcast Control et d'orchestration utilisés pour la production de nos contenus radio et télévisuels. Vous intervenez principalement sur la plateforme EVS Cerebrum, qui assure le pilotage et l'automation des équipements de production, ainsi que sur Nevion VideoIPath pour l'orchestration des flux médias transportés par nos infrastructures SMPTE ST 2110. En collaboration avec les équipes de production, les spécialistes audio, vidéo, réseau et systèmes, vous traduisez les besoins opérationnels en interfaces, logiques de contrôle et workflows fiables et intuitifs. Vous participez aux projets de création et de rénovation des studios, puis accompagnez les solutions mises en place tout au long de leur cycle de vie. Vos responsabilités:\n• Configurer, administrer et faire évoluer la plateforme de Broadcast Control EVS Cerebrum.\n• Concevoir et maintenir les interfaces opérateur, panels, logiques de contrôle, macros et automatismes utilisés dans les régies et les studios.\n• Intégrer dans Cerebrum les équipements audio, vidéo, réseau et broadcast au moyen de drivers, protocoles et API.\n• Administrer Nevion VideoIPath et participer au provisionnement des équipements et des services média.\n• Concevoir et faire évoluer les workflows de contrôle et d'orchestration des flux audio et vidéo.\n• Recueillir et analyser les besoins des équipes de production, puis les traduire en solutions techniques adaptées.\n• Participer aux phases de conception, prototypage, intégration, test, validation et mise en production.\n• Assurer le support de niveaux 2 et 3 ainsi que le diagnostic des incidents affectant les systèmes de Broadcast Control et d'orchestration.\n• Préparer les mises en production et accompagner les utilisateurs lors du déploiement de nouvelles fonctionnalités.\n• Contribuer à la formation et à la montée en compétence des équipes techniques.\n• Documenter les architectures, configurations, interfaces, workflows et procédures d'exploitation.\n• Assurer la traçabilité des incidents, demandes et évolutions.\n• Contribuer à l'amélioration continue et à la veille technologique dans les domaines du Broadcast Control, de l'orchestration et des médias sur IP. Particularité du poste Après une période de formation et d'intégration, une participation à un service de piquet couvrant certaines périodes hors des heures ouvrées pourra être demandée. Votre profil\n• Formation supérieure en audiovisuel, informatique, électronique ou télécommunications, ou parcours jugé équivalent.\n• Expérience confirmée dans un environnement de production ou de postproduction radio ou télévision.\n• Expérience pratique d'EVS Cerebrum et intérêt marqué pour les systèmes de contrôle et l'automatisation des workflows.\n• Bonne compréhension des environnements audio, vidéo et réseau IP.\n• Capacité à analyser les besoins des utilisateurs et à les traduire en solutions techniques adaptées.\n• Esprit d'analyse, autonomie, rigueur et sens des priorités.\n• Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.\n• Bonnes capacités de communication, de documentation et de transmission des connaissances.\n• Maîtrise de l'anglais ; connaissance de l'allemand souhaitée. Atouts\n• Expérience de Nevion VideoIPath ou d'une plateforme similaire.\n• Connaissance des standards SMPTE ST 2110, AES67, ST 2022-7 et NMOS.\n• Connaissance de PTP (ST 2059).\n• Compétences en scripting et utilisation d'API REST.\n• Connaissance des méthodes Agile et des pratiques ITIL. Ce que nous vous offrons A propos du processus de recrutement Les relations humaines Le domaine Opérations assume le pilotage stratégique central de l'orientation technologique et de la production de la SSR. Le département Gestion du personnel Opérations garantit, grâce à des rôles clairs, une planification basée sur les compétences et un suivi régional par langue, que les collaborateur·rices se développent de manière ciblée et soient assigné·es de manière appropriée. Il crée également de la transparence dans l'utilisation des ressources ainsi que des structures stables pour une exploitation efficiente. Afin de renforcer son équipe Real-Time Network (RTN), la RTS recherche deux Ingénieur·es Broadcast Control & Orchestration, spécialistes EVS Cerebrum, pour contribuer à la conception, l'intégration et l'évolution de ses infrastructures de production. Deux postes sont ouverts : un à 80 % et un à 100 %.",
+        "de": "Votre mission Au sein de l'équipe Real-Time Network (RTN), vous concevez, configurez, exploitez et faites évoluer les systèmes de Broadcast Control et d'orchestration utilisés pour la production de nos contenus radio et télévisuels. Vous intervenez principalement sur la plateforme EVS Cerebrum, qui assure le pilotage et l'automation des équipements de production, ainsi que sur Nevion VideoIPath pour l'orchestration des flux médias transportés par nos infrastructures SMPTE ST 2110. En collaboration avec les équipes de production, les spécialistes audio, vidéo, réseau et systèmes, vous traduisez les besoins opérationnels en interfaces, logiques de contrôle et workflows fiables et intuitifs. Vous participez aux projets de création et de rénovation des studios, puis accompagnez les solutions mises en place tout au long de leur cycle de vie. Vos responsabilités:\n• Configurer, administrer et faire évoluer la plateforme de Broadcast Control EVS Cerebrum.\n• Concevoir et maintenir les interfaces opérateur, panels, logiques de contrôle, macros et automatismes utilisés dans les régies et les studios.\n• Intégrer dans Cerebrum les équipements audio, vidéo, réseau et broadcast au moyen de drivers, protocoles et API.\n• Administrer Nevion VideoIPath et participer au provisionnement des équipements et des services média.\n• Concevoir et faire évoluer les workflows de contrôle et d'orchestration des flux audio et vidéo.\n• Recueillir et analyser les besoins des équipes de production, puis les traduire en solutions techniques adaptées.\n• Participer aux phases de conception, prototypage, intégration, test, validation et mise en production.\n• Assurer le support de niveaux 2 et 3 ainsi que le diagnostic des incidents affectant les systèmes de Broadcast Control et d'orchestration.\n• Préparer les mises en production et accompagner les utilisateurs lors du déploiement de nouvelles fonctionnalités.\n• Contribuer à la formation et à la montée en compétence des équipes techniques.\n• Documenter les architectures, configurations, interfaces, workflows et procédures d'exploitation.\n• Assurer la traçabilité des incidents, demandes et évolutions.\n• Contribuer à l'amélioration continue et à la veille technologique dans les domaines du Broadcast Control, de l'orchestration et des médias sur IP. Particularité du poste Après une période de formation et d'intégration, une participation à un service de piquet couvrant certaines périodes hors des heures ouvrées pourra être demandée. Votre profil\n• Formation supérieure en audiovisuel, informatique, électronique ou télécommunications, ou parcours jugé équivalent.\n• Expérience confirmée dans un environnement de production ou de postproduction radio ou télévision.\n• Expérience pratique d'EVS Cerebrum et intérêt marqué pour les systèmes de contrôle et l'automatisation des workflows.\n• Bonne compréhension des environnements audio, vidéo et réseau IP.\n• Capacité à analyser les besoins des utilisateurs et à les traduire en solutions techniques adaptées.\n• Esprit d'analyse, autonomie, rigueur et sens des priorités.\n• Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.\n• Bonnes capacités de communication, de documentation et de transmission des connaissances.\n• Maîtrise de l'anglais ; connaissance de l'allemand souhaitée. Atouts\n• Expérience de Nevion VideoIPath ou d'une plateforme similaire.\n• Connaissance des standards SMPTE ST 2110, AES67, ST 2022-7 et NMOS.\n• Connaissance de PTP (ST 2059).\n• Compétences en scripting et utilisation d'API REST.\n• Connaissance des méthodes Agile et des pratiques ITIL. Ce que nous vous offrons A propos du processus de recrutement Les relations humaines Le domaine Opérations assume le pilotage stratégique central de l'orientation technologique et de la production de la SSR. Le département Gestion du personnel Opérations garantit, grâce à des rôles clairs, une planification basée sur les compétences et un suivi régional par langue, que les collaborateur·rices se développent de manière ciblée et soient assigné·es de manière appropriée. Il crée également de la transparence dans l'utilisation des ressources ainsi que des structures stables pour une exploitation efficiente. Afin de renforcer son équipe Real-Time Network (RTN), la RTS recherche deux Ingénieur·es Broadcast Control & Orchestration, spécialistes EVS Cerebrum, pour contribuer à la conception, l'intégration et l'évolution de ses infrastructures de production. Deux postes sont ouverts : un à 80 % et un à 100 %."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.srgssr.ch/rts/offene-stellen/ingenieure-broadcast-control-orchestration-specialiste-evs-cerebrum/2cbe24ea-3523-43a2-92f1-a3b7315b8ea1",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-23T23:35:22.788Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1010",
+      "streetAddress": "Avenue du Temple 40",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://jobs.srgssr.ch/rts/offene-stellen/ingenieure-broadcast-control-orchestration-specialiste-evs-cerebrum/2cbe24ea-3523-43a2-92f1-a3b7315b8ea1",
+      "requirements": [
+        "Formation supérieure en audiovisuel, informatique, électronique ou télécommunications, ou parcours jugé équivalent.",
+        "Expérience confirmée dans un environnement de production ou de postproduction radio ou télévision.",
+        "Expérience pratique d'EVS Cerebrum et intérêt marqué pour les systèmes de contrôle et l'automatisation des workflows.",
+        "Bonne compréhension des environnements audio, vidéo et réseau IP.",
+        "Capacité à analyser les besoins des utilisateurs et à les traduire en solutions techniques adaptées.",
+        "Esprit d'analyse, autonomie, rigueur et sens des priorités.",
+        "Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.",
+        "Bonnes capacités de communication, de documentation et de transmission des connaissances.",
+        "Maîtrise de l'anglais ; connaissance de l'allemand souhaitée.",
+        "Expérience de Nevion VideoIPath ou d'une plateforme similaire.",
+        "Connaissance des standards SMPTE ST 2110, AES67, ST 2022-7 et NMOS.",
+        "Connaissance de PTP (ST 2059).",
+        "Compétences en scripting et utilisation d'API REST.",
+        "Connaissance des méthodes Agile et des pratiques ITIL."
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Formation supérieure en audiovisuel, informatique, électronique ou télécommunications, ou parcours jugé équivalent.",
+          "Expérience confirmée dans un environnement de production ou de postproduction radio ou télévision.",
+          "Expérience pratique d'EVS Cerebrum et intérêt marqué pour les systèmes de contrôle et l'automatisation des workflows.",
+          "Bonne compréhension des environnements audio, vidéo et réseau IP.",
+          "Capacité à analyser les besoins des utilisateurs et à les traduire en solutions techniques adaptées.",
+          "Esprit d'analyse, autonomie, rigueur et sens des priorités.",
+          "Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.",
+          "Bonnes capacités de communication, de documentation et de transmission des connaissances.",
+          "Maîtrise de l'anglais ; connaissance de l'allemand souhaitée.",
+          "Expérience de Nevion VideoIPath ou d'une plateforme similaire.",
+          "Connaissance des standards SMPTE ST 2110, AES67, ST 2022-7 et NMOS.",
+          "Connaissance de PTP (ST 2059).",
+          "Compétences en scripting et utilisation d'API REST.",
+          "Connaissance des méthodes Agile et des pratiques ITIL."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "2cbe24ea-3523-43a2-92f1-a3b7315b8ea1",
+        "org": "rts",
+        "orgLabel": "RTS",
+        "pensumMin": 80,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 61500,
+      "salaryMax": 109000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 61500,
+          "maxValue": 109000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-23T23:35:22.788Z"
+    },
+    {
+      "id": "srg-ssr-bccf879cd7fb",
+      "slug": "ingenieur-e-reseau-ip-infrastructures-media-temps-reel-srg-ssr-lausanne",
+      "slugByLocale": {
+        "fr": "ingenieur-e-reseau-ip-infrastructures-media-temps-reel-srg-ssr-lausanne",
+        "it": "ingenieur-e-reseau-ip-infrastructures-media-temps-reel-srg-ssr-lausanne",
+        "en": "ingenieur-e-reseau-ip-infrastructures-media-temps-reel-srg-ssr-lausanne",
+        "de": "ingenieur-e-reseau-ip-infrastructures-media-temps-reel-srg-ssr-lausanne"
+      },
+      "company": "SRG SSR",
+      "companyKey": "srg-ssr",
+      "companyDomain": "srgssr.ch",
+      "title": "Ingénieur·e Réseau IP Infrastructures média temps réel",
+      "titleByLocale": {
+        "fr": "Ingénieur·e Réseau IP Infrastructures média temps réel",
+        "it": "Ingénieur·e Réseau IP Infrastructures média temps réel",
+        "en": "Ingénieur·e Réseau IP Infrastructures média temps réel",
+        "de": "Ingénieur·e Réseau IP Infrastructures média temps réel"
+      },
+      "description": "Votre mission Au sein de l'équipe Real-Time Network (RTN), vous concevez, déployez, exploitez et faites évoluer les infrastructures réseau IP qui transportent les flux audio et vidéo de nos environnements de production : radio, radio filmée et télévision. Vous intervenez sur des architectures réseau performantes et hautement disponibles, reposant principalement sur des équipements Arista et sur les standards SMPTE ST 2110. Ces infrastructures supportent des services de production critiques et des flux médias en temps réel. Vous administrez également la plateforme d'orchestration Nevion VideoIPath, qui constitue le control-plane du réseau média. À ce titre, vous intégrez et provisionnez les systèmes broadcast, configurez les services réseau nécessaires à leurs échanges et contribuez à l'évolution de l'architecture d'orchestration. Dans un premier temps, votre activité sera principalement consacrée aux projets, à l'évolution des infrastructures et à leur mise en production. Elle intégrera progressivement une part croissante d'exploitation, de support et d'amélioration continue. Vos responsabilités\n• Concevoir, déployer et faire évoluer les architectures réseau IP dédiées au transport de flux médias en temps réel.\n• Configurer et administrer les équipements réseau, principalement basés sur les techonlogies Arista.\n• Administrer et faire évoluer la plateforme d'orchestration Nevion VideoIPath.\n• Intégrer et provisionner les équipements et systèmes broadcast dans VideoIPath.\n• Mettre en œuvre les services de connectivité, de multicast, de synchronisation et de redondance nécessaires aux environnements SMPTE ST 2110.\n• Participer aux projets de création, de rénovation et de migration des infrastructures de production.\n• Préparer les mises en production et accompagner la transition des nouvelles solutions vers l'exploitation.\n• Assurer le support de niveaux 2 et 3 ainsi que le diagnostic des incidents affectant les infrastructures RTN.\n• Superviser la disponibilité, les performances et la capacité des réseaux médias.\n• Contribuer au développement de la télémétrie, de l'automatisation et des outils de diagnostic.\n• Analyser les besoins des équipes techniques et de production et proposer des solutions adaptées à leurs usages.\n• Documenter les architectures, les configurations et les procédures d'exploitation.\n• Assurer la traçabilité des incidents, demandes et évolutions.\n• Contribuer à la veille technologique et à l'amélioration continue des infrastructures et des pratiques de l'équipe. Votre profil\n• Formation supérieure en informatique, télécommunications ou réseaux, ou parcours jugé équivalent.\n• Expérience confirmée dans l'ingénierie ou l'exploitation de réseaux IP, idéalement dans un environnement critique ou à haute disponibilité.\n• Bonne maîtrise des technologies réseau IP (routage, commutation, multicast et haute disponibilité).\n• Bonne compréhension des environnements Linux et des outils d'administration réseau.\n• Capacité à analyser les besoins des utilisateurs et à proposer des solutions adaptées.\n• Intérêt pour les infrastructures média, les systèmes temps réel et les nouvelles technologies.\n• Esprit d'analyse, autonomie, rigueur et sens des priorités.\n• Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.\n• Bonnes capacités de communication et de rédaction de documentation technique.\n• Maîtrise de l'anglais, l'allemand est également souhaité. Constituent des atouts\n• Expérience des environnements Arista EOS et CloudVision.\n• Pratique de BGP, EVPN, VXLAN, MLAG ou technologies comparables.\n• Connaissance des infrastructures SMPTE ST 2110.\n• Connaissance de PTP (ST 2059) et ST 2022-7.\n• Expérience de Nevion VideoIPath ou d'une plateforme d'orchestration similaire.\n• Connaissance des standards NMOS.\n• Expérience d'un environnement de production radio ou télévision.\n• Compétences en automatisation, scripting ou API (Python, Bash, REST). Ce que nous vous offrons A propos du processus de recrutement Les relations humaines Le domaine Opérations assume le pilotage stratégique central de l'orientation technologique et de la production de la SSR. Le département Gestion du personnel Opérations garantit, grâce à des rôles clairs, une planification basée sur les compétences et un suivi régional par langue, que les collaborateur·rices se développent de manière ciblée et soient assigné·es de manière appropriée. Il crée également de la transparence dans l'utilisation des ressources ainsi que des structures stables pour une exploitation efficiente. Afin de renforcer son équipe Real-Time Network (RTN), la RTS recherche un·e Ingénieur·e Réseau IP, Infrastructures média temps réel.",
+      "descriptionByLocale": {
+        "fr": "Votre mission Au sein de l'équipe Real-Time Network (RTN), vous concevez, déployez, exploitez et faites évoluer les infrastructures réseau IP qui transportent les flux audio et vidéo de nos environnements de production : radio, radio filmée et télévision. Vous intervenez sur des architectures réseau performantes et hautement disponibles, reposant principalement sur des équipements Arista et sur les standards SMPTE ST 2110. Ces infrastructures supportent des services de production critiques et des flux médias en temps réel. Vous administrez également la plateforme d'orchestration Nevion VideoIPath, qui constitue le control-plane du réseau média. À ce titre, vous intégrez et provisionnez les systèmes broadcast, configurez les services réseau nécessaires à leurs échanges et contribuez à l'évolution de l'architecture d'orchestration. Dans un premier temps, votre activité sera principalement consacrée aux projets, à l'évolution des infrastructures et à leur mise en production. Elle intégrera progressivement une part croissante d'exploitation, de support et d'amélioration continue. Vos responsabilités\n• Concevoir, déployer et faire évoluer les architectures réseau IP dédiées au transport de flux médias en temps réel.\n• Configurer et administrer les équipements réseau, principalement basés sur les techonlogies Arista.\n• Administrer et faire évoluer la plateforme d'orchestration Nevion VideoIPath.\n• Intégrer et provisionner les équipements et systèmes broadcast dans VideoIPath.\n• Mettre en œuvre les services de connectivité, de multicast, de synchronisation et de redondance nécessaires aux environnements SMPTE ST 2110.\n• Participer aux projets de création, de rénovation et de migration des infrastructures de production.\n• Préparer les mises en production et accompagner la transition des nouvelles solutions vers l'exploitation.\n• Assurer le support de niveaux 2 et 3 ainsi que le diagnostic des incidents affectant les infrastructures RTN.\n• Superviser la disponibilité, les performances et la capacité des réseaux médias.\n• Contribuer au développement de la télémétrie, de l'automatisation et des outils de diagnostic.\n• Analyser les besoins des équipes techniques et de production et proposer des solutions adaptées à leurs usages.\n• Documenter les architectures, les configurations et les procédures d'exploitation.\n• Assurer la traçabilité des incidents, demandes et évolutions.\n• Contribuer à la veille technologique et à l'amélioration continue des infrastructures et des pratiques de l'équipe. Votre profil\n• Formation supérieure en informatique, télécommunications ou réseaux, ou parcours jugé équivalent.\n• Expérience confirmée dans l'ingénierie ou l'exploitation de réseaux IP, idéalement dans un environnement critique ou à haute disponibilité.\n• Bonne maîtrise des technologies réseau IP (routage, commutation, multicast et haute disponibilité).\n• Bonne compréhension des environnements Linux et des outils d'administration réseau.\n• Capacité à analyser les besoins des utilisateurs et à proposer des solutions adaptées.\n• Intérêt pour les infrastructures média, les systèmes temps réel et les nouvelles technologies.\n• Esprit d'analyse, autonomie, rigueur et sens des priorités.\n• Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.\n• Bonnes capacités de communication et de rédaction de documentation technique.\n• Maîtrise de l'anglais, l'allemand est également souhaité. Constituent des atouts\n• Expérience des environnements Arista EOS et CloudVision.\n• Pratique de BGP, EVPN, VXLAN, MLAG ou technologies comparables.\n• Connaissance des infrastructures SMPTE ST 2110.\n• Connaissance de PTP (ST 2059) et ST 2022-7.\n• Expérience de Nevion VideoIPath ou d'une plateforme d'orchestration similaire.\n• Connaissance des standards NMOS.\n• Expérience d'un environnement de production radio ou télévision.\n• Compétences en automatisation, scripting ou API (Python, Bash, REST). Ce que nous vous offrons A propos du processus de recrutement Les relations humaines Le domaine Opérations assume le pilotage stratégique central de l'orientation technologique et de la production de la SSR. Le département Gestion du personnel Opérations garantit, grâce à des rôles clairs, une planification basée sur les compétences et un suivi régional par langue, que les collaborateur·rices se développent de manière ciblée et soient assigné·es de manière appropriée. Il crée également de la transparence dans l'utilisation des ressources ainsi que des structures stables pour une exploitation efficiente. Afin de renforcer son équipe Real-Time Network (RTN), la RTS recherche un·e Ingénieur·e Réseau IP, Infrastructures média temps réel.",
+        "it": "Votre mission Au sein de l'équipe Real-Time Network (RTN), vous concevez, déployez, exploitez et faites évoluer les infrastructures réseau IP qui transportent les flux audio et vidéo de nos environnements de production : radio, radio filmée et télévision. Vous intervenez sur des architectures réseau performantes et hautement disponibles, reposant principalement sur des équipements Arista et sur les standards SMPTE ST 2110. Ces infrastructures supportent des services de production critiques et des flux médias en temps réel. Vous administrez également la plateforme d'orchestration Nevion VideoIPath, qui constitue le control-plane du réseau média. À ce titre, vous intégrez et provisionnez les systèmes broadcast, configurez les services réseau nécessaires à leurs échanges et contribuez à l'évolution de l'architecture d'orchestration. Dans un premier temps, votre activité sera principalement consacrée aux projets, à l'évolution des infrastructures et à leur mise en production. Elle intégrera progressivement une part croissante d'exploitation, de support et d'amélioration continue. Vos responsabilités\n• Concevoir, déployer et faire évoluer les architectures réseau IP dédiées au transport de flux médias en temps réel.\n• Configurer et administrer les équipements réseau, principalement basés sur les techonlogies Arista.\n• Administrer et faire évoluer la plateforme d'orchestration Nevion VideoIPath.\n• Intégrer et provisionner les équipements et systèmes broadcast dans VideoIPath.\n• Mettre en œuvre les services de connectivité, de multicast, de synchronisation et de redondance nécessaires aux environnements SMPTE ST 2110.\n• Participer aux projets de création, de rénovation et de migration des infrastructures de production.\n• Préparer les mises en production et accompagner la transition des nouvelles solutions vers l'exploitation.\n• Assurer le support de niveaux 2 et 3 ainsi que le diagnostic des incidents affectant les infrastructures RTN.\n• Superviser la disponibilité, les performances et la capacité des réseaux médias.\n• Contribuer au développement de la télémétrie, de l'automatisation et des outils de diagnostic.\n• Analyser les besoins des équipes techniques et de production et proposer des solutions adaptées à leurs usages.\n• Documenter les architectures, les configurations et les procédures d'exploitation.\n• Assurer la traçabilité des incidents, demandes et évolutions.\n• Contribuer à la veille technologique et à l'amélioration continue des infrastructures et des pratiques de l'équipe. Votre profil\n• Formation supérieure en informatique, télécommunications ou réseaux, ou parcours jugé équivalent.\n• Expérience confirmée dans l'ingénierie ou l'exploitation de réseaux IP, idéalement dans un environnement critique ou à haute disponibilité.\n• Bonne maîtrise des technologies réseau IP (routage, commutation, multicast et haute disponibilité).\n• Bonne compréhension des environnements Linux et des outils d'administration réseau.\n• Capacité à analyser les besoins des utilisateurs et à proposer des solutions adaptées.\n• Intérêt pour les infrastructures média, les systèmes temps réel et les nouvelles technologies.\n• Esprit d'analyse, autonomie, rigueur et sens des priorités.\n• Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.\n• Bonnes capacités de communication et de rédaction de documentation technique.\n• Maîtrise de l'anglais, l'allemand est également souhaité. Constituent des atouts\n• Expérience des environnements Arista EOS et CloudVision.\n• Pratique de BGP, EVPN, VXLAN, MLAG ou technologies comparables.\n• Connaissance des infrastructures SMPTE ST 2110.\n• Connaissance de PTP (ST 2059) et ST 2022-7.\n• Expérience de Nevion VideoIPath ou d'une plateforme d'orchestration similaire.\n• Connaissance des standards NMOS.\n• Expérience d'un environnement de production radio ou télévision.\n• Compétences en automatisation, scripting ou API (Python, Bash, REST). Ce que nous vous offrons A propos du processus de recrutement Les relations humaines Le domaine Opérations assume le pilotage stratégique central de l'orientation technologique et de la production de la SSR. Le département Gestion du personnel Opérations garantit, grâce à des rôles clairs, une planification basée sur les compétences et un suivi régional par langue, que les collaborateur·rices se développent de manière ciblée et soient assigné·es de manière appropriée. Il crée également de la transparence dans l'utilisation des ressources ainsi que des structures stables pour une exploitation efficiente. Afin de renforcer son équipe Real-Time Network (RTN), la RTS recherche un·e Ingénieur·e Réseau IP, Infrastructures média temps réel.",
+        "en": "Votre mission Au sein de l'équipe Real-Time Network (RTN), vous concevez, déployez, exploitez et faites évoluer les infrastructures réseau IP qui transportent les flux audio et vidéo de nos environnements de production : radio, radio filmée et télévision. Vous intervenez sur des architectures réseau performantes et hautement disponibles, reposant principalement sur des équipements Arista et sur les standards SMPTE ST 2110. Ces infrastructures supportent des services de production critiques et des flux médias en temps réel. Vous administrez également la plateforme d'orchestration Nevion VideoIPath, qui constitue le control-plane du réseau média. À ce titre, vous intégrez et provisionnez les systèmes broadcast, configurez les services réseau nécessaires à leurs échanges et contribuez à l'évolution de l'architecture d'orchestration. Dans un premier temps, votre activité sera principalement consacrée aux projets, à l'évolution des infrastructures et à leur mise en production. Elle intégrera progressivement une part croissante d'exploitation, de support et d'amélioration continue. Vos responsabilités\n• Concevoir, déployer et faire évoluer les architectures réseau IP dédiées au transport de flux médias en temps réel.\n• Configurer et administrer les équipements réseau, principalement basés sur les techonlogies Arista.\n• Administrer et faire évoluer la plateforme d'orchestration Nevion VideoIPath.\n• Intégrer et provisionner les équipements et systèmes broadcast dans VideoIPath.\n• Mettre en œuvre les services de connectivité, de multicast, de synchronisation et de redondance nécessaires aux environnements SMPTE ST 2110.\n• Participer aux projets de création, de rénovation et de migration des infrastructures de production.\n• Préparer les mises en production et accompagner la transition des nouvelles solutions vers l'exploitation.\n• Assurer le support de niveaux 2 et 3 ainsi que le diagnostic des incidents affectant les infrastructures RTN.\n• Superviser la disponibilité, les performances et la capacité des réseaux médias.\n• Contribuer au développement de la télémétrie, de l'automatisation et des outils de diagnostic.\n• Analyser les besoins des équipes techniques et de production et proposer des solutions adaptées à leurs usages.\n• Documenter les architectures, les configurations et les procédures d'exploitation.\n• Assurer la traçabilité des incidents, demandes et évolutions.\n• Contribuer à la veille technologique et à l'amélioration continue des infrastructures et des pratiques de l'équipe. Votre profil\n• Formation supérieure en informatique, télécommunications ou réseaux, ou parcours jugé équivalent.\n• Expérience confirmée dans l'ingénierie ou l'exploitation de réseaux IP, idéalement dans un environnement critique ou à haute disponibilité.\n• Bonne maîtrise des technologies réseau IP (routage, commutation, multicast et haute disponibilité).\n• Bonne compréhension des environnements Linux et des outils d'administration réseau.\n• Capacité à analyser les besoins des utilisateurs et à proposer des solutions adaptées.\n• Intérêt pour les infrastructures média, les systèmes temps réel et les nouvelles technologies.\n• Esprit d'analyse, autonomie, rigueur et sens des priorités.\n• Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.\n• Bonnes capacités de communication et de rédaction de documentation technique.\n• Maîtrise de l'anglais, l'allemand est également souhaité. Constituent des atouts\n• Expérience des environnements Arista EOS et CloudVision.\n• Pratique de BGP, EVPN, VXLAN, MLAG ou technologies comparables.\n• Connaissance des infrastructures SMPTE ST 2110.\n• Connaissance de PTP (ST 2059) et ST 2022-7.\n• Expérience de Nevion VideoIPath ou d'une plateforme d'orchestration similaire.\n• Connaissance des standards NMOS.\n• Expérience d'un environnement de production radio ou télévision.\n• Compétences en automatisation, scripting ou API (Python, Bash, REST). Ce que nous vous offrons A propos du processus de recrutement Les relations humaines Le domaine Opérations assume le pilotage stratégique central de l'orientation technologique et de la production de la SSR. Le département Gestion du personnel Opérations garantit, grâce à des rôles clairs, une planification basée sur les compétences et un suivi régional par langue, que les collaborateur·rices se développent de manière ciblée et soient assigné·es de manière appropriée. Il crée également de la transparence dans l'utilisation des ressources ainsi que des structures stables pour une exploitation efficiente. Afin de renforcer son équipe Real-Time Network (RTN), la RTS recherche un·e Ingénieur·e Réseau IP, Infrastructures média temps réel.",
+        "de": "Votre mission Au sein de l'équipe Real-Time Network (RTN), vous concevez, déployez, exploitez et faites évoluer les infrastructures réseau IP qui transportent les flux audio et vidéo de nos environnements de production : radio, radio filmée et télévision. Vous intervenez sur des architectures réseau performantes et hautement disponibles, reposant principalement sur des équipements Arista et sur les standards SMPTE ST 2110. Ces infrastructures supportent des services de production critiques et des flux médias en temps réel. Vous administrez également la plateforme d'orchestration Nevion VideoIPath, qui constitue le control-plane du réseau média. À ce titre, vous intégrez et provisionnez les systèmes broadcast, configurez les services réseau nécessaires à leurs échanges et contribuez à l'évolution de l'architecture d'orchestration. Dans un premier temps, votre activité sera principalement consacrée aux projets, à l'évolution des infrastructures et à leur mise en production. Elle intégrera progressivement une part croissante d'exploitation, de support et d'amélioration continue. Vos responsabilités\n• Concevoir, déployer et faire évoluer les architectures réseau IP dédiées au transport de flux médias en temps réel.\n• Configurer et administrer les équipements réseau, principalement basés sur les techonlogies Arista.\n• Administrer et faire évoluer la plateforme d'orchestration Nevion VideoIPath.\n• Intégrer et provisionner les équipements et systèmes broadcast dans VideoIPath.\n• Mettre en œuvre les services de connectivité, de multicast, de synchronisation et de redondance nécessaires aux environnements SMPTE ST 2110.\n• Participer aux projets de création, de rénovation et de migration des infrastructures de production.\n• Préparer les mises en production et accompagner la transition des nouvelles solutions vers l'exploitation.\n• Assurer le support de niveaux 2 et 3 ainsi que le diagnostic des incidents affectant les infrastructures RTN.\n• Superviser la disponibilité, les performances et la capacité des réseaux médias.\n• Contribuer au développement de la télémétrie, de l'automatisation et des outils de diagnostic.\n• Analyser les besoins des équipes techniques et de production et proposer des solutions adaptées à leurs usages.\n• Documenter les architectures, les configurations et les procédures d'exploitation.\n• Assurer la traçabilité des incidents, demandes et évolutions.\n• Contribuer à la veille technologique et à l'amélioration continue des infrastructures et des pratiques de l'équipe. Votre profil\n• Formation supérieure en informatique, télécommunications ou réseaux, ou parcours jugé équivalent.\n• Expérience confirmée dans l'ingénierie ou l'exploitation de réseaux IP, idéalement dans un environnement critique ou à haute disponibilité.\n• Bonne maîtrise des technologies réseau IP (routage, commutation, multicast et haute disponibilité).\n• Bonne compréhension des environnements Linux et des outils d'administration réseau.\n• Capacité à analyser les besoins des utilisateurs et à proposer des solutions adaptées.\n• Intérêt pour les infrastructures média, les systèmes temps réel et les nouvelles technologies.\n• Esprit d'analyse, autonomie, rigueur et sens des priorités.\n• Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.\n• Bonnes capacités de communication et de rédaction de documentation technique.\n• Maîtrise de l'anglais, l'allemand est également souhaité. Constituent des atouts\n• Expérience des environnements Arista EOS et CloudVision.\n• Pratique de BGP, EVPN, VXLAN, MLAG ou technologies comparables.\n• Connaissance des infrastructures SMPTE ST 2110.\n• Connaissance de PTP (ST 2059) et ST 2022-7.\n• Expérience de Nevion VideoIPath ou d'une plateforme d'orchestration similaire.\n• Connaissance des standards NMOS.\n• Expérience d'un environnement de production radio ou télévision.\n• Compétences en automatisation, scripting ou API (Python, Bash, REST). Ce que nous vous offrons A propos du processus de recrutement Les relations humaines Le domaine Opérations assume le pilotage stratégique central de l'orientation technologique et de la production de la SSR. Le département Gestion du personnel Opérations garantit, grâce à des rôles clairs, une planification basée sur les compétences et un suivi régional par langue, que les collaborateur·rices se développent de manière ciblée et soient assigné·es de manière appropriée. Il crée également de la transparence dans l'utilisation des ressources ainsi que des structures stables pour une exploitation efficiente. Afin de renforcer son équipe Real-Time Network (RTN), la RTS recherche un·e Ingénieur·e Réseau IP, Infrastructures média temps réel."
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://jobs.srgssr.ch/rts/offene-stellen/ingenieure-reseau-ip-infrastructures-media-temps-reel/fc5de56b-9152-4519-84ee-dbc172b578c0",
+      "source": "SRG SSR Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-23T23:35:22.129Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1010",
+      "streetAddress": "Avenue du Temple 40",
+      "category": "Produzione Media",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Media / Broadcasting",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://jobs.srgssr.ch/rts/offene-stellen/ingenieure-reseau-ip-infrastructures-media-temps-reel/fc5de56b-9152-4519-84ee-dbc172b578c0",
+      "requirements": [
+        "Formation supérieure en informatique, télécommunications ou réseaux, ou parcours jugé équivalent.",
+        "Expérience confirmée dans l'ingénierie ou l'exploitation de réseaux IP, idéalement dans un environnement critique ou à haute disponibilité.",
+        "Bonne maîtrise des technologies réseau IP (routage, commutation, multicast et haute disponibilité).",
+        "Bonne compréhension des environnements Linux et des outils d'administration réseau.",
+        "Capacité à analyser les besoins des utilisateurs et à proposer des solutions adaptées.",
+        "Intérêt pour les infrastructures média, les systèmes temps réel et les nouvelles technologies.",
+        "Esprit d'analyse, autonomie, rigueur et sens des priorités.",
+        "Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.",
+        "Bonnes capacités de communication et de rédaction de documentation technique.",
+        "Maîtrise de l'anglais, l'allemand est également souhaité.",
+        "Expérience des environnements Arista EOS et CloudVision.",
+        "Pratique de BGP, EVPN, VXLAN, MLAG ou technologies comparables.",
+        "Connaissance des infrastructures SMPTE ST 2110.",
+        "Connaissance de PTP (ST 2059) et ST 2022-7.",
+        "Expérience de Nevion VideoIPath ou d'une plateforme d'orchestration similaire.",
+        "Connaissance des standards NMOS.",
+        "Expérience d'un environnement de production radio ou télévision.",
+        "Compétences en automatisation, scripting ou API (Python, Bash, REST)."
+      ],
+      "requirementsByLocale": {
+        "fr": [
+          "Formation supérieure en informatique, télécommunications ou réseaux, ou parcours jugé équivalent.",
+          "Expérience confirmée dans l'ingénierie ou l'exploitation de réseaux IP, idéalement dans un environnement critique ou à haute disponibilité.",
+          "Bonne maîtrise des technologies réseau IP (routage, commutation, multicast et haute disponibilité).",
+          "Bonne compréhension des environnements Linux et des outils d'administration réseau.",
+          "Capacité à analyser les besoins des utilisateurs et à proposer des solutions adaptées.",
+          "Intérêt pour les infrastructures média, les systèmes temps réel et les nouvelles technologies.",
+          "Esprit d'analyse, autonomie, rigueur et sens des priorités.",
+          "Aisance dans le travail en équipe et la collaboration avec des spécialistes de différents domaines.",
+          "Bonnes capacités de communication et de rédaction de documentation technique.",
+          "Maîtrise de l'anglais, l'allemand est également souhaité.",
+          "Expérience des environnements Arista EOS et CloudVision.",
+          "Pratique de BGP, EVPN, VXLAN, MLAG ou technologies comparables.",
+          "Connaissance des infrastructures SMPTE ST 2110.",
+          "Connaissance de PTP (ST 2059) et ST 2022-7.",
+          "Expérience de Nevion VideoIPath ou d'une plateforme d'orchestration similaire.",
+          "Connaissance des standards NMOS.",
+          "Expérience d'un environnement de production radio ou télévision.",
+          "Compétences en automatisation, scripting ou API (Python, Bash, REST)."
+        ]
+      },
+      "_srgMeta": {
+        "uuid": "fc5de56b-9152-4519-84ee-dbc172b578c0",
+        "org": "rts",
+        "orgLabel": "RTS",
+        "pensumMin": 100,
+        "pensumMax": 100
+      },
+      "needsRetranslation": true,
+      "salaryMin": 61500,
+      "salaryMax": 109000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 61500,
+          "maxValue": 109000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-23T23:35:22.129Z"
     }
   ]
 }
