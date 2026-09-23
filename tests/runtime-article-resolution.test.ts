@@ -396,18 +396,15 @@ describe('articleBodyPartsFromStaticArticle', () => {
     expect(part).toContain('| **Cambio** | [1.07](/cambio-chf-eur/) |');
   });
 
-  it('drops the "…" the static renderer leaves where it truncated', () => {
-    // The static renderer's budget is 1,800 rendered characters per section,
-    // cut at a whole-block boundary and marked with a "…" paragraph.
+  it('keeps the complete body when a section exceeds the old truncation budget', () => {
     const para = 'Frase di riempimento abbastanza lunga da consumare il budget. '.repeat(12);
     const long = `## Sezione\n${para}\n\n${para}\n\n${para}`;
     document.body.innerHTML = renderStaticArticle([long]);
-    // Sanity: the production renderer really did truncate this one.
-    expect(document.body.innerHTML).toContain('<p>…</p>');
+    expect(document.body.innerHTML).not.toContain('<p>…</p>');
 
-    const parts = articleBodyPartsFromStaticArticle(staticArticle());
-    expect(parts[0].split('\n\n')).not.toContain('…');
-    expect(parts[0]).not.toMatch(/\n\n…\s*$/);
+    const [part] = articleBodyPartsFromStaticArticle(staticArticle());
+    expect(part.match(/Frase di riempimento/g)).toHaveLength(36);
+    expect(part).not.toContain('…');
   });
 
   it('ignores the related-articles and FAQ blocks the plugin emits alongside', () => {
