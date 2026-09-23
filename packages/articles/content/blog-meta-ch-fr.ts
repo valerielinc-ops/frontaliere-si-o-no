@@ -6644,6 +6644,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-c-friburgo-guida-requisiti.title': 'Permis c canton de Fribourg : exigences et demande',
     'blog.article.permesso-c-friburgo-guida-requisiti.excerpt': 'Règles, temps de résidence, critères d\'intégration et procédure d\'obtention du permis de séjour C dans le canton de Fribourg.',
     'blog.article.permesso-c-friburgo-guida-requisiti.imageAlt': 'Bâtiments administratifs et vue urbaine dans le canton de Fribourg',
+    'blog.article.avs-ai-accesso-digitale-dati.title': 'AVS et AI : les dossiers numériques arrivent pour les assurés',
+    'blog.article.avs-ai-accesso-digitale-dati.excerpt': 'Approuvé la nouvelle loi sur les systèmes d\'information des assurances sociales. L\'accès numérique aux données AVS et AI arrive avec des économies annuelles estimées à 35 millions.',
+    'blog.article.avs-ai-accesso-digitale-dati.imageAlt': 'Accès numérique aux données AVS et AI pour les assurés',
 };
 
 export default blogMetaChFr;
