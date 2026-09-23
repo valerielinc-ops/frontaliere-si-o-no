@@ -6647,6 +6647,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.avs-ai-accesso-digitale-dati.title': 'AVS e AI: arrivano i fascicoli digitali per gli assicurati',
     'blog.article.avs-ai-accesso-digitale-dati.excerpt': 'Approvata la nuova legge sui sistemi di informazione delle assicurazioni sociali. Arriva l\'accesso digitale ai dati AVS e AI con risparmi annui stimati a 35 milioni.',
     'blog.article.avs-ai-accesso-digitale-dati.imageAlt': 'Accesso digitale ai dati AVS e AI per gli assicurati',
+    'blog.article.revisione-legge-epidemie-svizzera.title': 'Revisione legge epidemie: nuove regole e indennizzi',
+    'blog.article.revisione-legge-epidemie-svizzera.excerpt': 'Il Parlamento adotta la revisione parziale della legge sulle epidemie introducendo criteri chiari per il sostegno finanziario e la protezione sanitaria.',
+    'blog.article.revisione-legge-epidemie-svizzera.imageAlt': 'Il Palazzo federale a Berna sede del Parlamento svizzero',
 };
 
 export default blogMetaChIt;
