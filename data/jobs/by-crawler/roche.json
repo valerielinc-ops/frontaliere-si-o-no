@@ -15038,9 +15038,9 @@
     },
     {
       "id": "roche-775bd6ff68bd",
-      "slug": "cmc-expert-analytical-development-focus-parenterals-devices-roche-ch",
+      "slug": "cmc-focus-sullo-sviluppo-analitico-esperto-parenterali-e-dispositivi-roche-basel",
       "slugByLocale": {
-        "it": "cmc-expert-analytical-development-focus-parenterals-devices-roche-ch",
+        "it": "cmc-focus-sullo-sviluppo-analitico-esperto-parenterali-e-dispositivi-roche-basel",
         "en": "cmc-expert-analytical-development-focus-parenterals-devices-roche-ch",
         "de": "cmc-expert-analytical-development-fokus-eltern-gerate-roche-basel",
         "fr": "cmc-experte-sur-le-developpement-analytique-roche-basel"
@@ -15096,7 +15096,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "cmc-expert-analytical-development-focus-parenterals-devices-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "cmc-expert-analytical-development-focus-parenterals-devices-roche-ch"
+      ]
     },
     {
       "id": "roche-89ae5b633a48",
@@ -28107,7 +28115,7 @@
       "slug": "she-specialista-fokus-gefahrstoff-compliance-roche-penzberg",
       "slugByLocale": {
         "it": "she-specialista-fokus-gefahrstoff-compliance-roche-penzberg",
-        "en": "she-specialist-fokus-gefahrstoff-compliance-roche-penzberg",
+        "en": "she-specialist-focus-on-hazardous-substance-compliance-roche-penzberg",
         "de": "she-specialist-fokus-gefahrstoff-compliance-roche-ch",
         "fr": "she-specialiste-fokus-gefahrstoff-compliance-roche-penzberg"
       },
@@ -28150,7 +28158,7 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "she-specialist-fokus-gefahrstoff-compliance-roche-ch",
-        "she-specialist-focus-on-hazardous-substance-compliance-roche-penzberg"
+        "she-specialist-fokus-gefahrstoff-compliance-roche-penzberg"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -28158,7 +28166,7 @@
         ],
         "en": [
           "she-specialist-fokus-gefahrstoff-compliance-roche-ch",
-          "she-specialist-focus-on-hazardous-substance-compliance-roche-penzberg"
+          "she-specialist-fokus-gefahrstoff-compliance-roche-penzberg"
         ],
         "fr": [
           "she-specialist-fokus-gefahrstoff-compliance-roche-ch"
@@ -37389,7 +37397,7 @@
       "slug": "field-service-engineer-navarra-temporal-turno-de-tarde-roche-ch",
       "slugByLocale": {
         "it": "field-service-engineer-navarra-temporal-turno-de-tarde-roche-ch",
-        "en": "field-service-engineer-navarra-temporal-roche-ch",
+        "en": "field-service-engineer-navarre-temporary-afternoon-shift-roche-navarra",
         "de": "field-service-ingenieur-navarra-temporal-roche-navarra",
         "fr": "field-service-ingenieur-navarra-temporal-roche-navarra"
       },
@@ -37438,6 +37446,9 @@
         "it": [
           "field-service-engineer-navarra-temporal-roche-ch",
           "field-service-ingegnere-navarra-temporal-turno-de-tarde-roche-navarra"
+        ],
+        "en": [
+          "field-service-engineer-navarra-temporal-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-01T08:40:08.611Z",
@@ -52214,9 +52225,9 @@
     },
     {
       "id": "roche-69fe08128e3b",
-      "slug": "sr-procurement-partnering-manager-cross-r-d-roche-ch",
+      "slug": "responsabile-senior-dei-partner-per-gli-acquisti-cross-r-d-roche-basel",
       "slugByLocale": {
-        "it": "sr-procurement-partnering-manager-cross-r-d-roche-ch",
+        "it": "responsabile-senior-dei-partner-per-gli-acquisti-cross-r-d-roche-basel",
         "en": "sr-procurement-partnering-manager-cross-r-d-roche-ch",
         "de": "sr-procurement-partnering-manager-cross-r-d-roche-ch",
         "fr": "gestionnaire-principal-des-partenariats-d-approvisionnement-r-d-croisee-roche-basel"
@@ -52273,7 +52284,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-procurement-partnering-manager-cross-r-d-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sr-procurement-partnering-manager-cross-r-d-roche-ch"
+      ]
     },
     {
       "id": "roche-fce4ff2cf156",
@@ -77475,7 +77494,7 @@
       "slugByLocale": {
         "it": "gestione-del-programma-regolatore-ptr-roche-montevideo",
         "en": "ptr-regulatory-program-manager-roche-ch",
-        "de": "ptr-regulatory-program-manager-roche-ch",
+        "de": "ptr-regulierungsprogramm-manager-roche-montevideo",
         "fr": "gestionnaire-du-programme-de-reglementation-des-ptr-roche-montevideo"
       },
       "company": "Roche",
@@ -77523,6 +77542,9 @@
           "ptr-regulatory-program-manager-roche-ch"
         ],
         "fr": [
+          "ptr-regulatory-program-manager-roche-ch"
+        ],
+        "de": [
           "ptr-regulatory-program-manager-roche-ch"
         ]
       },
@@ -81156,7 +81178,7 @@
       "slugByLocale": {
         "it": "accesso-e-policy-partner-roche-thailand",
         "en": "access-policy-partner-roche-ch",
-        "de": "access-policy-partner-roche-ch",
+        "de": "zugangs-und-richtlinienpartner-roche-thailand",
         "fr": "partenaire-acces-politique-roche-thailand"
       },
       "company": "Roche",
@@ -81208,6 +81230,9 @@
         "fr": [
           "partenaire-acces-et-politique-roche-thailand",
           "access-policy-partner-roche-thailand"
+        ],
+        "de": [
+          "access-policy-partner-roche-ch"
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:54.711Z",
@@ -83100,7 +83125,7 @@
       "slugByLocale": {
         "it": "she-site-security-officer-roche-ch",
         "en": "she-site-security-officer-roche-ch",
-        "de": "she-site-security-officer-roche-ch",
+        "de": "she-sicherheitsbeauftragte-vor-ort-roche-istanbul",
         "fr": "she-agent-de-securite-du-site-roche-istanbul"
       },
       "company": "Roche",

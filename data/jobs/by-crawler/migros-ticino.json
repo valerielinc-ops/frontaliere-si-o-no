@@ -37218,7 +37218,7 @@
       },
       "slugByLocale": {
         "it": "aiutante-cuoco-aiutante-cuoca-migros-restaurant-thun",
-        "en": "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy",
+        "en": "auxiliary-cook-auxiliary-cook-migros-restaurant-thun",
         "de": "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy",
         "fr": "aide-cuisinier-aide-cuisiniere-migros-restaurant-thun"
       },
@@ -37243,6 +37243,9 @@
           "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy"
         ],
         "fr": [
+          "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy"
+        ],
+        "en": [
           "hilfskoch-hilfskochin-migros-restaurant-thun-6ap7jy"
         ]
       },
@@ -39987,7 +39990,7 @@
         "it": "tirocinio-hms-wms-servizio-amministrazione-lucerna-migros-bank-luzern",
         "en": "hms-wms-service-administration-internship-lucerne-migros-bank-luzern",
         "de": "praktikum-hms-wms-dienstleistung-administration-luzern-migros-bank-luzern-tovfpu",
-        "fr": "praktikum-hms-wms-dienstleistung-administration-luzern-migros-bank-luzern-tovfpu"
+        "fr": "stage-hms-wms-service-administration-lucerne-migros-bank-luzern"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -39996,6 +39999,9 @@
           "praktikum-hms-wms-dienstleistung-administration-luzern-migros-bank-luzern-tovfpu"
         ],
         "en": [
+          "praktikum-hms-wms-dienstleistung-administration-luzern-migros-bank-luzern-tovfpu"
+        ],
+        "fr": [
           "praktikum-hms-wms-dienstleistung-administration-luzern-migros-bank-luzern-tovfpu"
         ]
       },
@@ -41389,7 +41395,7 @@
       },
       "slugByLocale": {
         "it": "panettiere-pasticciere-genossenschaft-migros-ostschweiz-winterthur",
-        "en": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur-9ku1xw",
+        "en": "baker-pastry-chef-genossenschaft-migros-ostschweiz-winterthur",
         "de": "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur-9ku1xw",
         "fr": "boulanger-patissier-genossenschaft-migros-ostschweiz-winterthur"
       },
@@ -41414,6 +41420,9 @@
         "fr": [
           "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur-9ku1xw",
           "la-profession-de-baker-genossenschaft-migros-ostschweiz-winterthur"
+        ],
+        "en": [
+          "backer-in-konditor-in-genossenschaft-migros-ostschweiz-winterthur-9ku1xw"
         ]
       },
       "previousSlugs": [
@@ -41953,7 +41962,7 @@
         "it": "tirocinio-hms-wms-servizi-amministrazione-buchs-migros-bank-buchs-sg",
         "en": "internship-hms-wms-services-administration-buchs-migros-bank-buchs-sg",
         "de": "praktikum-hms-wms-dienstleistung-administration-buchs-migros-bank-buchs-sg-1e9ybm",
-        "fr": "praktikum-hms-wms-dienstleistung-administration-buchs-migros-bank-buchs-sg-1e9ybm"
+        "fr": "stage-hms-wms-service-administration-buchs-migros-bank-buchs-sg"
       },
       "sourceLang": "de",
       "previousSlugsByLocale": {
@@ -41962,6 +41971,9 @@
           "praktikum-hms-wms-dienstleistung-administration-buchs-migros-bank-buchs-sg-1e9ybm"
         ],
         "en": [
+          "praktikum-hms-wms-dienstleistung-administration-buchs-migros-bank-buchs-sg-1e9ybm"
+        ],
+        "fr": [
           "praktikum-hms-wms-dienstleistung-administration-buchs-migros-bank-buchs-sg-1e9ybm"
         ]
       },
@@ -46414,7 +46426,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-in-vendita-im-stundenlohn-genossenschaft-migros-luzern-egolzwil-m3cy03",
-        "en": "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-egolzwil-m3cy03",
+        "en": "all-rounder-hourly-sales-genossenschaft-migros-luzern-egolzwil",
         "de": "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-egolzwil-m3cy03",
         "fr": "allrounder-in-vente-im-stundenlohn-genossenschaft-migros-luzern-egolzwil-m3cy03"
       },
@@ -46436,10 +46448,14 @@
       "previousSlugsByLocale": {
         "it": [
           "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-egolzwil"
+        ],
+        "en": [
+          "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-egolzwil-m3cy03"
         ]
       },
       "previousSlugs": [
-        "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-egolzwil"
+        "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-egolzwil",
+        "allrounder-in-verkauf-im-stundenlohn-genossenschaft-migros-luzern-egolzwil-m3cy03"
       ],
       "salarySource": "estimated",
       "baseSalary": {
@@ -49476,7 +49492,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-nel-ristorante-genossenschaft-migros-ostschweiz-goldach",
-        "en": "allrounder-in-restaurant-genossenschaft-migros-ostschweiz-goldach-4ih5yu",
+        "en": "all-rounder-restaurant-genossenschaft-migros-ostschweiz-goldach",
         "de": "allrounder-in-restaurant-genossenschaft-migros-ostschweiz-goldach-4ih5yu",
         "fr": "restaurant-polyvalent-genossenschaft-migros-ostschweiz-goldach"
       },
@@ -49501,6 +49517,9 @@
           "allrounder-in-restaurant-genossenschaft-migros-ostschweiz-goldach-4ih5yu"
         ],
         "fr": [
+          "allrounder-in-restaurant-genossenschaft-migros-ostschweiz-goldach-4ih5yu"
+        ],
+        "en": [
           "allrounder-in-restaurant-genossenschaft-migros-ostschweiz-goldach-4ih5yu"
         ]
       },
@@ -50899,7 +50918,7 @@
         "it": "panettiere-pasticcere-confettiere-genossenschaft-migros-ostschweiz-st-margrethen",
         "en": "baker-confectioner-pastry-chef-genossenschaft-migros-ostschweiz-st-margrethen",
         "de": "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
-        "fr": "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr"
+        "fr": "boulanger-patissier-confiseur-genossenschaft-migros-ostschweiz-st-margrethen"
       },
       "requirementsByLocale": {
         "it": [],
@@ -50921,6 +50940,9 @@
         "en": [
           "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr",
           "sorry-i-can-t-help-with-that-genossenschaft-migros-ostschweiz-st-margrethen"
+        ],
+        "fr": [
+          "backer-in-konditor-in-confiseur-in-genossenschaft-migros-ostschweiz-st-margrethen-woynzr"
         ]
       },
       "previousSlugs": [
@@ -53214,7 +53236,7 @@
       },
       "slugByLocale": {
         "it": "tuttofare-per-ristorante-aziendale-migros-logistics-neuendorf",
-        "en": "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
+        "en": "all-rounderstaff-restaurant-migros-logistics-neuendorf",
         "de": "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf",
         "fr": "polyvalent-e-restaurant-du-personnel-migros-logistics-neuendorf"
       },
@@ -53238,6 +53260,9 @@
           "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf"
         ],
         "fr": [
+          "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf"
+        ],
+        "en": [
           "allrounder-in-personalrestaurant-migros-logistics-neuendorf-sclpbf"
         ]
       },
@@ -60975,7 +61000,7 @@
       },
       "slugByLocale": {
         "it": "gastro-allrounder-prendere-away-migros-paradis-migros-take-away-allschwil",
-        "en": "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil",
+        "en": "gastro-all-rounder-take-away-migros-paradis-migros-take-away-allschwil",
         "de": "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil-trg7op",
         "fr": "gastro-allrounder-prendre-l-autoroute-migros-paradis-migros-take-away-allschwil-trg7op"
       },
@@ -60987,13 +61012,12 @@
         ],
         "en": [
           "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil-trg7op",
-          "gastro-all-rounder-take-away-migros-paradis-migros-take-away-allschwil"
+          "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil"
         ]
       },
       "previousSlugs": [
         "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil",
-        "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil-trg7op",
-        "gastro-all-rounder-take-away-migros-paradis-migros-take-away-allschwil"
+        "gastro-allrounder-take-away-migros-paradis-migros-take-away-allschwil-trg7op"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -61284,7 +61308,7 @@
         "de": "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel-bd41bv",
         "fr": "gastro-allrounder-prendre-l-autoroute-migros-mparc-migros-take-away-basel-bd41bv",
         "it": "gastro-allrounder-prendere-away-migros-mparc-migros-take-away-basel",
-        "en": "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel"
+        "en": "gastro-all-rounder-take-away-migros-mparc-migros-take-away-basel"
       },
       "titleByLocale": {
         "en": "Gastro all-rounder take away Migros MParc",
@@ -61329,12 +61353,12 @@
       "previousSlugsByLocale": {
         "en": [
           "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel-bd41bv",
-          "gastro-all-rounder-take-away-migros-mparc-migros-take-away-basel"
+          "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel"
         ]
       },
       "previousSlugs": [
         "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel-bd41bv",
-        "gastro-all-rounder-take-away-migros-mparc-migros-take-away-basel"
+        "gastro-allrounder-take-away-migros-mparc-migros-take-away-basel"
       ],
       "salaryMin": 62000,
       "salaryMax": 94000

@@ -277,7 +277,7 @@
       "slugByLocale": {
         "it": "risorse-umane-business-partner-banque-cantonale-du-valais-sion",
         "en": "hr-business-partner-bcvs-sion",
-        "de": "hr-business-partner-bcvs-sion",
+        "de": "hr-geschaftspartner-banque-cantonale-du-valais-sion",
         "fr": "hr-business-partner-bcvs-sion"
       },
       "company": "Banque Cantonale du Valais",
@@ -346,6 +346,9 @@
         ],
         "fr": [
           "hr-business-partner-banque-cantonale-du-valais-sion"
+        ],
+        "de": [
+          "hr-business-partner-bcvs-sion"
         ]
       },
       "needsRetranslation": true,

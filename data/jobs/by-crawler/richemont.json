@@ -10108,9 +10108,9 @@
     },
     {
       "id": "richemont-65520cb3e9c0",
-      "slug": "formateur-metiers-cartier-manufacture-le-cret-du-locle",
+      "slug": "mestieri-formatoristici-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "it": "formateur-metiers-cartier-manufacture-le-cret-du-locle",
+        "it": "mestieri-formatoristici-cartier-manufacture-le-cret-du-locle",
         "en": "formateur-metiers-richemont-le-cret-du-locle",
         "de": "formblatt-fur-die-anmeldung-cartier-manufacture-le-cret-du-locle",
         "fr": "formulaire-cartier-manufacture-le-cret-du-locle"
@@ -10160,13 +10160,15 @@
         "formazione-professionale-cartier-manufacture-le-cret-du-locle",
         "berufsausbildung-cartier-manufacture-le-cret-du-locle",
         "business-trainer-cartier-manufacture-le-cret-du-locle",
-        "istruttore-di-affari-cartier-manufacture-le-cret-du-locle"
+        "istruttore-di-affari-cartier-manufacture-le-cret-du-locle",
+        "formateur-metiers-cartier-manufacture-le-cret-du-locle"
       ],
       "previousSlugsByLocale": {
         "it": [
           "formateur-metiers-richemont-le-cret-du-locle",
           "formazione-professionale-cartier-manufacture-le-cret-du-locle",
-          "istruttore-di-affari-cartier-manufacture-le-cret-du-locle"
+          "istruttore-di-affari-cartier-manufacture-le-cret-du-locle",
+          "formateur-metiers-cartier-manufacture-le-cret-du-locle"
         ],
         "en": [
           "vocational-trainer-cartier-manufacture-le-cret-du-locle",
@@ -11769,10 +11771,10 @@
     },
     {
       "id": "richemont-d45d1c05408f",
-      "slug": "assistant-boutique-manager-richemont-geneva",
+      "slug": "assistente-boutique-manager-a-lange-und-sohne-geneva",
       "slugByLocale": {
-        "it": "assistant-boutique-manager-richemont-geneva",
-        "en": "assistant-boutique-manager-richemont-geneva",
+        "it": "assistente-boutique-manager-a-lange-und-sohne-geneva",
+        "en": "assistant-store-manager-a-lange-und-sohne-geneva",
         "de": "assistent-boutique-manager-a-lange-und-sohne-geneva",
         "fr": "assistant-boutique-manager-richemont-geneva"
       },
@@ -11816,11 +11818,18 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "assistant-directeur-de-la-boutique-a-lange-und-sohne-geneva"
+        "assistant-directeur-de-la-boutique-a-lange-und-sohne-geneva",
+        "assistant-boutique-manager-richemont-geneva"
       ],
       "previousSlugsByLocale": {
         "fr": [
           "assistant-directeur-de-la-boutique-a-lange-und-sohne-geneva"
+        ],
+        "it": [
+          "assistant-boutique-manager-richemont-geneva"
+        ],
+        "en": [
+          "assistant-boutique-manager-richemont-geneva"
         ]
       },
       "firstSeenAt": "2026-09-04T13:42:09.684Z",

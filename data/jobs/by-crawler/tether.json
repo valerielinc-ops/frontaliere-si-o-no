@@ -3171,7 +3171,7 @@
       "slugByLocale": {
         "it": "direttore-dell-espansione-nigeria-tether-operations-lagos-lagos",
         "en": "expansion-manager-nigeria-tether-ch",
-        "de": "expansion-manager-nigeria-tether-ch",
+        "de": "erweiterungsmanager-nigeria-tether-operations-lagos-lagos",
         "fr": "gestionnaire-d-extension-nigeria-tether-operations-lagos-lagos"
       },
       "company": "Tether Operations",
@@ -3221,6 +3221,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "expansion-manager-nigeria-tether-ch"
+        ],
+        "de": [
           "expansion-manager-nigeria-tether-ch"
         ]
       },

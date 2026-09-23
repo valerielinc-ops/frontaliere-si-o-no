@@ -152,8 +152,8 @@
       },
       "slugByLocale": {
         "it": "host-hostess-mcdonald-s-switzerland-murten",
-        "en": "host-hostess-mcdonald-s-switzerland-murten",
-        "de": "host-hostess-mcdonald-s-switzerland-murten",
+        "en": "hote-hotesse-mcdonalds-switzerland-murten-p8-317658-1",
+        "de": "hote-hotesse-mcdonalds-switzerland-murten-p8-317658-1",
         "fr": "hote-hotesse-mcdonald-s-switzerland-murten"
       },
       "descriptionByLocale": {
@@ -164,18 +164,10 @@
       },
       "id": "mcdonald-s-switzerland-192d2a742b9d",
       "previousSlugs": [
-        "hote-hotesse-mcdonalds-switzerland-murten-p8-317658-1",
-        "host-hostess-mcdonald-s-switzerland-murten"
+        "hote-hotesse-mcdonalds-switzerland-murten-p8-317658-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hote-hotesse-mcdonalds-switzerland-murten-p8-317658-1",
-          "host-hostess-mcdonald-s-switzerland-murten"
-        ],
-        "en": [
-          "hote-hotesse-mcdonalds-switzerland-murten-p8-317658-1"
-        ],
-        "de": [
           "hote-hotesse-mcdonalds-switzerland-murten-p8-317658-1"
         ]
       },
@@ -346,8 +338,8 @@
       },
       "slugByLocale": {
         "it": "host-hostess-mcdonald-s-switzerland-bern",
-        "en": "host-hostess-mcdonald-s-switzerland-bern",
-        "de": "host-hostess-mcdonald-s-switzerland-bern",
+        "en": "hote-hotesse-mcdonalds-switzerland-bern-p8-317654-1",
+        "de": "hote-hotesse-mcdonalds-switzerland-bern-p8-317654-1",
         "fr": "hote-hotesse-mcdonald-s-switzerland-bern"
       },
       "descriptionByLocale": {
@@ -358,18 +350,10 @@
       },
       "id": "mcdonald-s-switzerland-d5ff7722deb0",
       "previousSlugs": [
-        "hote-hotesse-mcdonalds-switzerland-bern-p8-317654-1",
-        "host-hostess-mcdonald-s-switzerland-bern"
+        "hote-hotesse-mcdonalds-switzerland-bern-p8-317654-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hote-hotesse-mcdonalds-switzerland-bern-p8-317654-1",
-          "host-hostess-mcdonald-s-switzerland-bern"
-        ],
-        "en": [
-          "hote-hotesse-mcdonalds-switzerland-bern-p8-317654-1"
-        ],
-        "de": [
           "hote-hotesse-mcdonalds-switzerland-bern-p8-317654-1"
         ]
       },
@@ -397,9 +381,6 @@
       "url": "https://jobs.mcdonalds.ch/fr-ch/hôte-hôtesse/job/P8-318661-1",
       "slug": "host-hostess-mcdonald-s-switzerland-baden",
       "location": "BADEN",
-      "addressLocality": "BADEN",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
       "canton": "AG",
       "country": "CH",
       "postalCode": "5400",
@@ -421,8 +402,8 @@
       },
       "slugByLocale": {
         "it": "host-hostess-mcdonald-s-switzerland-baden",
-        "en": "host-hostess-mcdonald-s-switzerland-baden",
-        "de": "host-hostess-mcdonald-s-switzerland-baden",
+        "en": "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1",
+        "de": "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1",
         "fr": "hote-hotesse-mcdonald-s-switzerland-baden"
       },
       "descriptionByLocale": {
@@ -439,8 +420,7 @@
         "hote-hotesse-mcdonald-s-switzerland-zurich",
         "hote-hotesse-mcdonalds-switzerland-schaffhausen-p8-318744-1",
         "hote-hotesse-mcdonald-s-switzerland-schaffhausen",
-        "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1",
-        "host-hostess-mcdonald-s-switzerland-baden"
+        "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -448,17 +428,12 @@
           "hote-hotesse-mcdonald-s-switzerland-heimberg",
           "hote-hotesse-mcdonalds-switzerland-zurich-p8-318026-1",
           "hote-hotesse-mcdonald-s-switzerland-zurich",
-          "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1",
-          "host-hostess-mcdonald-s-switzerland-baden"
-        ],
-        "en": [
           "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1"
         ],
         "de": [
           "hote-hotesse-mcdonalds-switzerland-heimberg-p8-318304-1",
           "hote-hotesse-mcdonalds-switzerland-zurich-p8-318026-1",
-          "hote-hotesse-mcdonalds-switzerland-schaffhausen-p8-318744-1",
-          "hote-hotesse-mcdonalds-switzerland-baden-p8-318661-1"
+          "hote-hotesse-mcdonalds-switzerland-schaffhausen-p8-318744-1"
         ],
         "fr": [
           "hote-hotesse-mcdonald-s-switzerland-heimberg",
@@ -466,8 +441,8 @@
           "hote-hotesse-mcdonald-s-switzerland-schaffhausen"
         ]
       },
-      "firstSeenAt": "2026-09-06T23:07:03.369Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-06T23:07:03.369Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
       "currency": "CHF",
@@ -481,7 +456,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressLocality": "BADEN",
+      "addressRegion": "AG",
+      "addressCountry": "CH"
     },
     {
       "title": "Hôte / Hôtesse",
@@ -515,8 +493,8 @@
       },
       "slugByLocale": {
         "it": "host-hostess-mcdonald-s-switzerland-brugg-ag",
-        "en": "host-hostess-mcdonald-s-switzerland-brugg-ag",
-        "de": "host-hostess-mcdonald-s-switzerland-brugg-ag",
+        "en": "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1",
+        "de": "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1",
         "fr": "hote-hotesse-mcdonald-s-switzerland-brugg-ag"
       },
       "descriptionByLocale": {
@@ -527,18 +505,10 @@
       },
       "id": "mcdonald-s-switzerland-a1142f7b3873",
       "previousSlugs": [
-        "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1",
-        "host-hostess-mcdonald-s-switzerland-brugg-ag"
+        "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1",
-          "host-hostess-mcdonald-s-switzerland-brugg-ag"
-        ],
-        "en": [
-          "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1"
-        ],
-        "de": [
           "hote-hotesse-mcdonalds-switzerland-brugg-ag-p8-318662-1"
         ]
       },
@@ -662,13 +632,11 @@
       },
       "id": "mcdonald-s-switzerland-4ff3ee5bb2a9",
       "previousSlugs": [
-        "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1",
-        "host-host-mcdonald-s-switzerland-affoltern"
+        "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1",
-          "host-host-mcdonald-s-switzerland-affoltern"
+          "host-hostess-mcdonalds-switzerland-affoltern-p8-395562-1"
         ]
       },
       "firstSeenAt": "2026-09-03T13:52:04.897Z",
@@ -732,13 +700,11 @@
       "id": "mcdonald-s-switzerland-e0273abb08ef",
       "needsRetranslation": true,
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-bienne-p8-317818-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-bienne"
+        "guest-experience-leader-mcdonalds-switzerland-bienne-p8-317818-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-bienne-p8-317818-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-bienne"
+          "guest-experience-leader-mcdonalds-switzerland-bienne-p8-317818-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-bienne-p8-317818-1"
@@ -821,15 +787,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "de": [
-          "guest-experience-leader-mcdonald-s-switzerland-cheseaux-sur-lausanne"
-        ]
-      },
-      "previousSlugs": [
-        "guest-experience-leader-mcdonald-s-switzerland-cheseaux-sur-lausanne"
-      ]
+      }
     },
     {
       "title": "Guest Experience Leader",
@@ -876,13 +834,11 @@
       "id": "mcdonald-s-switzerland-103d9ceb6a5d",
       "needsRetranslation": true,
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-burgdorf-p8-318305-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-burgdorf"
+        "guest-experience-leader-mcdonalds-switzerland-burgdorf-p8-318305-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-burgdorf-p8-318305-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-burgdorf"
+          "guest-experience-leader-mcdonalds-switzerland-burgdorf-p8-318305-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-burgdorf-p8-318305-1"
@@ -958,8 +914,7 @@
           "guest-experience-leader-mcdonald-s-switzerland-marin-epagnier"
         ],
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-marin-epagnier-p8-317664-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-marin-epagnier"
+          "guest-experience-leader-mcdonalds-switzerland-marin-epagnier-p8-317664-1"
         ],
         "fr": [
           "guest-experience-leader-mcdonalds-switzerland-marin-epagnier-p8-317664-1"
@@ -1038,8 +993,7 @@
           "guest-experience-leader-mcdonald-s-switzerland-murten"
         ],
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-murten-p8-317665-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-murten"
+          "guest-experience-leader-mcdonalds-switzerland-murten-p8-317665-1"
         ],
         "fr": [
           "guest-experience-leader-mcdonalds-switzerland-murten-p8-317665-1"
@@ -1115,15 +1069,13 @@
         "guest-experience-leader-mcdonalds-switzerland-affoltern-a-a-p8-318971-1",
         "guest-experience-leader-mcdonalds-switzerland-affoltern-p8-318970-2",
         "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-affoltern",
-        "chef-d-experience-invite-mcdonald-s-switzerland-affoltern",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-affoltern-a"
+        "chef-d-experience-invite-mcdonald-s-switzerland-affoltern"
       ],
       "previousSlugsByLocale": {
         "it": [
           "guest-experience-leader-mcdonalds-switzerland-affoltern-a-a-p8-318971-1",
           "guest-experience-leader-mcdonalds-switzerland-affoltern-p8-318970-2",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-affoltern",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-affoltern-a"
+          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-affoltern"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-affoltern-p8-318970-2",
@@ -1199,13 +1151,11 @@
       "id": "mcdonald-s-switzerland-c92d9b099537",
       "needsRetranslation": true,
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-baar-p8-318972-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-baar"
+        "guest-experience-leader-mcdonalds-switzerland-baar-p8-318972-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-baar-p8-318972-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-baar"
+          "guest-experience-leader-mcdonalds-switzerland-baar-p8-318972-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-baar-p8-318972-1"
@@ -1282,8 +1232,7 @@
         ],
         "it": [
           "guest-experience-leader-mcdonalds-switzerland-heimberg-p8-396693-1",
-          "guest-experience-leader-mcdonalds-switzerland-heimberg-p8-318306-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-heimberg"
+          "guest-experience-leader-mcdonalds-switzerland-heimberg-p8-318306-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-heimberg-p8-318306-1"
@@ -1360,13 +1309,11 @@
       "id": "mcdonald-s-switzerland-b048dc3c3690",
       "needsRetranslation": true,
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-interlaken-p8-318602-3",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-interlaken"
+        "guest-experience-leader-mcdonalds-switzerland-interlaken-p8-318602-3"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-interlaken-p8-318602-3",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-interlaken"
+          "guest-experience-leader-mcdonalds-switzerland-interlaken-p8-318602-3"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-interlaken-p8-318602-3"
@@ -1436,13 +1383,11 @@
       "id": "mcdonald-s-switzerland-689bbf24e589",
       "needsRetranslation": true,
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-spiez-p8-318603-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-spiez"
+        "guest-experience-leader-mcdonalds-switzerland-spiez-p8-318603-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-spiez-p8-318603-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-spiez"
+          "guest-experience-leader-mcdonalds-switzerland-spiez-p8-318603-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-spiez-p8-318603-1"
@@ -1512,13 +1457,11 @@
       "id": "mcdonald-s-switzerland-68c1a681a6ef",
       "needsRetranslation": true,
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-thun-p8-318604-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-thun"
+        "guest-experience-leader-mcdonalds-switzerland-thun-p8-318604-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-thun-p8-318604-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-thun"
+          "guest-experience-leader-mcdonalds-switzerland-thun-p8-318604-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-thun-p8-318604-1"
@@ -1594,8 +1537,7 @@
           "guest-experience-leader-mcdonald-s-switzerland-baden"
         ],
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-baden-p8-318665-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-baden"
+          "guest-experience-leader-mcdonalds-switzerland-baden-p8-318665-1"
         ],
         "fr": [
           "guest-experience-leader-mcdonalds-switzerland-baden-p8-318665-1"
@@ -1674,8 +1616,7 @@
           "guest-experience-leader-mcdonald-s-switzerland-brugg-ag"
         ],
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-brugg-ag-p8-318666-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-brugg-ag"
+          "guest-experience-leader-mcdonalds-switzerland-brugg-ag-p8-318666-1"
         ],
         "fr": [
           "guest-experience-leader-mcdonalds-switzerland-brugg-ag-p8-318666-1"
@@ -1732,7 +1673,7 @@
       },
       "slugByLocale": {
         "it": "membro-dell-equipaggio-mcdonald-s-switzerland-affoltern",
-        "en": "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1",
+        "en": "cre-m-mcdonald-s-switzerland-affoltern",
         "de": "crew-member-mcdonald-s-switzerland-affoltern",
         "fr": "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1"
       },
@@ -1745,16 +1686,17 @@
       "id": "mcdonald-s-switzerland-c69512a0a431",
       "previousSlugs": [
         "besatzungsmitglied-mcdonald-s-switzerland-affoltern",
-        "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1",
-        "membro-dell-equipaggio-mcdonald-s-switzerland-affoltern"
+        "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1",
-          "membro-dell-equipaggio-mcdonald-s-switzerland-affoltern"
+          "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1"
         ],
         "de": [
           "besatzungsmitglied-mcdonald-s-switzerland-affoltern"
+        ],
+        "en": [
+          "crew-member-mcdonalds-switzerland-affoltern-p8-395560-1"
         ]
       },
       "firstSeenAt": "2026-09-03T13:52:04.893Z",
@@ -1821,13 +1763,11 @@
       "id": "mcdonald-s-switzerland-472196c1e86c",
       "needsRetranslation": true,
       "previousSlugs": [
-        "guest-experience-leader-mcdonalds-switzerland-frauenfeld-p8-317479-1",
-        "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-frauenfeld"
+        "guest-experience-leader-mcdonalds-switzerland-frauenfeld-p8-317479-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "guest-experience-leader-mcdonalds-switzerland-frauenfeld-p8-317479-1",
-          "leader-dell-esperienza-degli-ospiti-mcdonald-s-switzerland-frauenfeld"
+          "guest-experience-leader-mcdonalds-switzerland-frauenfeld-p8-317479-1"
         ],
         "en": [
           "guest-experience-leader-mcdonalds-switzerland-frauenfeld-p8-317479-1"
@@ -1858,7 +1798,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-309879-8",
-      "slug": "crew-mcdonalds-switzerland-spreitenbach-p8-309879-8",
+      "slug": "nazioni-unite-mcdonald-s-switzerland-spreitenbach",
       "location": "SPREITENBACH",
       "addressLocality": "SPREITENBACH",
       "addressRegion": "AG",
@@ -1883,9 +1823,9 @@
         "en": "United Nations"
       },
       "slugByLocale": {
-        "it": "crew-mcdonalds-switzerland-spreitenbach-p8-309879-8",
-        "en": "crew-mcdonalds-switzerland-spreitenbach-p8-309879-8",
-        "de": "crew-mcdonalds-switzerland-spreitenbach-p8-309879-8",
+        "de": "besatzung-mcdonald-s-switzerland-spreitenbach",
+        "it": "nazioni-unite-mcdonald-s-switzerland-spreitenbach",
+        "en": "united-nations-mcdonald-s-switzerland-spreitenbach",
         "fr": "crew-mcdonald-s-switzerland-spreitenbach"
       },
       "descriptionByLocale": {
@@ -1909,7 +1849,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T11:56:18.236Z"
+      "firstSeenAt": "2026-09-23T11:56:18.236Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crew-mcdonalds-switzerland-spreitenbach-p8-309879-8"
+        ],
+        "en": [
+          "crew-mcdonalds-switzerland-spreitenbach-p8-309879-8"
+        ],
+        "de": [
+          "crew-mcdonalds-switzerland-spreitenbach-p8-309879-8"
+        ]
+      },
+      "previousSlugs": [
+        "crew-mcdonalds-switzerland-spreitenbach-p8-309879-8"
+      ]
     },
     {
       "title": "Crew",
@@ -3397,13 +3351,11 @@
       },
       "id": "mcdonald-s-switzerland-55dec05b8c61",
       "previousSlugs": [
-        "equipage-mcdonald-s-switzerland-solothurn",
-        "crew-mcdonald-s-switzerland-solothurn"
+        "equipage-mcdonald-s-switzerland-solothurn"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "equipage-mcdonald-s-switzerland-solothurn",
-          "crew-mcdonald-s-switzerland-solothurn"
+          "equipage-mcdonald-s-switzerland-solothurn"
         ]
       },
       "firstSeenAt": "2026-09-07T15:26:20.601Z",
@@ -3656,7 +3608,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-318644-1",
-      "slug": "crew-mcdonalds-switzerland-aarberg-p8-318644-1",
+      "slug": "nazioni-unite-mcdonald-s-switzerland-aarberg",
       "location": "AARBERG",
       "addressLocality": "AARBERG",
       "addressRegion": "BE",
@@ -3681,9 +3633,9 @@
         "en": "United Nations"
       },
       "slugByLocale": {
-        "it": "crew-mcdonalds-switzerland-aarberg-p8-318644-1",
-        "en": "crew-mcdonalds-switzerland-aarberg-p8-318644-1",
-        "de": "crew-mcdonalds-switzerland-aarberg-p8-318644-1",
+        "de": "besatzung-mcdonald-s-switzerland-aarberg",
+        "it": "nazioni-unite-mcdonald-s-switzerland-aarberg",
+        "en": "united-nations-mcdonald-s-switzerland-aarberg",
         "fr": "crew-mcdonald-s-switzerland-aarberg"
       },
       "descriptionByLocale": {
@@ -3707,7 +3659,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T11:56:18.229Z"
+      "firstSeenAt": "2026-09-23T11:56:18.229Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crew-mcdonalds-switzerland-aarberg-p8-318644-1"
+        ],
+        "en": [
+          "crew-mcdonalds-switzerland-aarberg-p8-318644-1"
+        ],
+        "de": [
+          "crew-mcdonalds-switzerland-aarberg-p8-318644-1"
+        ]
+      },
+      "previousSlugs": [
+        "crew-mcdonalds-switzerland-aarberg-p8-318644-1"
+      ]
     },
     {
       "title": "Crew",
@@ -3895,16 +3861,14 @@
       "id": "mcdonald-s-switzerland-65a8aca02c34",
       "previousSlugs": [
         "crew-mcdonalds-switzerland-heimberg-p8-318302-1",
-        "equipage-mcdonald-s-switzerland-heimberg",
-        "crew-mcdonald-s-switzerland-heimberg"
+        "equipage-mcdonald-s-switzerland-heimberg"
       ],
       "previousSlugsByLocale": {
         "it": [
           "crew-mcdonalds-switzerland-heimberg-p8-318302-1"
         ],
         "fr": [
-          "equipage-mcdonald-s-switzerland-heimberg",
-          "crew-mcdonald-s-switzerland-heimberg"
+          "equipage-mcdonald-s-switzerland-heimberg"
         ]
       },
       "firstSeenAt": "2026-09-06T23:07:03.353Z",
@@ -4249,9 +4213,9 @@
         "en": "United Nations"
       },
       "slugByLocale": {
+        "de": "besatzung-mcdonald-s-switzerland-nyon",
         "it": "crew-mcdonalds-switzerland-nyon-p8-317977-2",
         "en": "crew-member-mcdonald-s-switzerland-nyon",
-        "de": "crew-mcdonald-s-switzerland-nyon",
         "fr": "crew-mcdonald-s-switzerland-nyon"
       },
       "descriptionByLocale": {
@@ -4262,7 +4226,7 @@
       },
       "previousSlugs": [
         "crew-mcdonalds-switzerland-nyon-p8-317978-1",
-        "besatzung-mcdonald-s-switzerland-nyon"
+        "crew-mcdonald-s-switzerland-nyon"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4270,7 +4234,8 @@
         ],
         "de": [
           "besatzung-mcdonald-s-switzerland-nyon",
-          "crew-mcdonalds-switzerland-nyon-p8-317978-1"
+          "crew-mcdonalds-switzerland-nyon-p8-317978-1",
+          "crew-mcdonald-s-switzerland-nyon"
         ]
       },
       "id": "mcdonald-s-switzerland-647d5f09b932",
@@ -4323,7 +4288,7 @@
       "slugByLocale": {
         "it": "crew-mcdonalds-switzerland-lugano-p8-319608-3",
         "en": "crew-mcdonalds-switzerland-lugano-p8-319608-3",
-        "de": "vereinte-nationen-mcdonald-s-switzerland-lugano",
+        "de": "besatzung-mcdonald-s-switzerland-lugano",
         "fr": "crew-mcdonald-s-switzerland-lugano"
       },
       "descriptionByLocale": {
@@ -4338,7 +4303,6 @@
         "crew-mcdonald-s-switzerland-lugano-pazzallo",
         "crew-mcdonalds-switzerland-lugano-pazzallo-p8-310073-1",
         "united-nations-mcdonald-s-switzerland-lugano",
-        "besatzung-mcdonald-s-switzerland-lugano",
         "vereinte-nationen-mcdonald-s-switzerland-lugano"
       ],
       "previousSlugsByLocale": {
@@ -4353,7 +4317,6 @@
         ],
         "de": [
           "crew-mcdonalds-switzerland-lugano-pazzallo-p8-310073-1",
-          "besatzung-mcdonald-s-switzerland-lugano",
           "vereinte-nationen-mcdonald-s-switzerland-lugano"
         ],
         "fr": [
@@ -4691,16 +4654,14 @@
         "united-nations-mcdonald-s-switzerland-chur-sud",
         "vereinte-nationen-mcdonald-s-switzerland-chur-sud",
         "crew-mcdonald-s-switzerland-chur-sud",
-        "equipage-mcdonald-s-switzerland-chur-city",
-        "crew-mcdonald-s-switzerland-chur-city"
+        "equipage-mcdonald-s-switzerland-chur-city"
       ],
       "previousSlugsByLocale": {
         "it": [
           "crew-mcdonalds-switzerland-chur-city-p8-318098-2",
           "mcdonald-s-chur-city-mcdonald-s-switzerland-chur",
           "mcdonald-s-chur-sud-mcdonald-s-switzerland-chur",
-          "crew-mcdonalds-switzerland-chur-sud-p8-318099-3",
-          "crew-mcdonald-s-switzerland-chur-city"
+          "crew-mcdonalds-switzerland-chur-sud-p8-318099-3"
         ],
         "en": [
           "united-nations-mcdonald-s-switzerland-chur-sud"
@@ -4931,7 +4892,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-319433-4",
-      "slug": "crew-mcdonalds-switzerland-riddes-p8-319433-4",
+      "slug": "nazioni-unite-mcdonald-s-switzerland-riddes",
       "location": "RIDDES",
       "addressLocality": "RIDDES",
       "addressRegion": "VS",
@@ -4956,9 +4917,9 @@
         "en": "United Nations"
       },
       "slugByLocale": {
-        "it": "crew-mcdonalds-switzerland-riddes-p8-319433-4",
-        "en": "crew-mcdonalds-switzerland-riddes-p8-319433-4",
-        "de": "crew-mcdonalds-switzerland-riddes-p8-319433-4",
+        "de": "besatzung-mcdonald-s-switzerland-riddes",
+        "it": "nazioni-unite-mcdonald-s-switzerland-riddes",
+        "en": "united-nations-mcdonald-s-switzerland-riddes",
         "fr": "crew-mcdonald-s-switzerland-riddes"
       },
       "descriptionByLocale": {
@@ -4982,7 +4943,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T11:56:18.224Z"
+      "firstSeenAt": "2026-09-23T11:56:18.224Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crew-mcdonalds-switzerland-riddes-p8-319433-4"
+        ],
+        "en": [
+          "crew-mcdonalds-switzerland-riddes-p8-319433-4"
+        ],
+        "de": [
+          "crew-mcdonalds-switzerland-riddes-p8-319433-4"
+        ]
+      },
+      "previousSlugs": [
+        "crew-mcdonalds-switzerland-riddes-p8-319433-4"
+      ]
     },
     {
       "title": "Crew",
@@ -4990,7 +4965,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-319434-4",
-      "slug": "crew-mcdonalds-switzerland-vevey-p8-319434-4",
+      "slug": "nazioni-unite-mcdonald-s-switzerland-vevey",
       "location": "VEVEY",
       "addressLocality": "VEVEY",
       "addressRegion": "VD",
@@ -5015,9 +4990,9 @@
         "en": "United Nations"
       },
       "slugByLocale": {
-        "it": "crew-mcdonalds-switzerland-vevey-p8-319434-4",
-        "en": "crew-mcdonalds-switzerland-vevey-p8-319434-4",
-        "de": "crew-mcdonalds-switzerland-vevey-p8-319434-4",
+        "de": "besatzung-mcdonald-s-switzerland-vevey",
+        "it": "nazioni-unite-mcdonald-s-switzerland-vevey",
+        "en": "united-nations-mcdonald-s-switzerland-vevey",
         "fr": "crew-mcdonald-s-switzerland-vevey"
       },
       "descriptionByLocale": {
@@ -5041,7 +5016,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T11:56:18.224Z"
+      "firstSeenAt": "2026-09-23T11:56:18.224Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crew-mcdonalds-switzerland-vevey-p8-319434-4"
+        ],
+        "en": [
+          "crew-mcdonalds-switzerland-vevey-p8-319434-4"
+        ],
+        "de": [
+          "crew-mcdonalds-switzerland-vevey-p8-319434-4"
+        ]
+      },
+      "previousSlugs": [
+        "crew-mcdonalds-switzerland-vevey-p8-319434-4"
+      ]
     },
     {
       "title": "Crew",
@@ -5123,7 +5112,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-319431-4",
-      "slug": "crew-mcdonalds-switzerland-collombey-p8-319431-4",
+      "slug": "nazioni-unite-mcdonald-s-switzerland-collombey",
       "location": "COLLOMBEY",
       "addressLocality": "COLLOMBEY",
       "addressRegion": "VS",
@@ -5148,9 +5137,9 @@
         "en": "United Nations"
       },
       "slugByLocale": {
-        "it": "crew-mcdonalds-switzerland-collombey-p8-319431-4",
-        "en": "crew-mcdonalds-switzerland-collombey-p8-319431-4",
-        "de": "crew-mcdonalds-switzerland-collombey-p8-319431-4",
+        "de": "besatzung-mcdonald-s-switzerland-collombey",
+        "it": "nazioni-unite-mcdonald-s-switzerland-collombey",
+        "en": "united-nations-mcdonald-s-switzerland-collombey",
         "fr": "crew-mcdonald-s-switzerland-collombey"
       },
       "descriptionByLocale": {
@@ -5174,7 +5163,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T11:56:18.223Z"
+      "firstSeenAt": "2026-09-23T11:56:18.223Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crew-mcdonalds-switzerland-collombey-p8-319431-4"
+        ],
+        "en": [
+          "crew-mcdonalds-switzerland-collombey-p8-319431-4"
+        ],
+        "de": [
+          "crew-mcdonalds-switzerland-collombey-p8-319431-4"
+        ]
+      },
+      "previousSlugs": [
+        "crew-mcdonalds-switzerland-collombey-p8-319431-4"
+      ]
     },
     {
       "title": "Crew",
@@ -5182,7 +5185,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-319432-5",
-      "slug": "crew-mcdonalds-switzerland-montreux-p8-319432-5",
+      "slug": "nazioni-unite-mcdonald-s-switzerland-montreux",
       "location": "MONTREUX",
       "addressLocality": "MONTREUX",
       "addressRegion": "VD",
@@ -5207,9 +5210,9 @@
         "en": "United Nations"
       },
       "slugByLocale": {
-        "it": "crew-mcdonalds-switzerland-montreux-p8-319432-5",
-        "en": "crew-mcdonalds-switzerland-montreux-p8-319432-5",
-        "de": "crew-mcdonalds-switzerland-montreux-p8-319432-5",
+        "de": "besatzung-mcdonald-s-switzerland-montreux",
+        "it": "nazioni-unite-mcdonald-s-switzerland-montreux",
+        "en": "united-nations-mcdonald-s-switzerland-montreux",
         "fr": "crew-mcdonald-s-switzerland-montreux"
       },
       "descriptionByLocale": {
@@ -5233,7 +5236,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T11:56:18.224Z"
+      "firstSeenAt": "2026-09-23T11:56:18.224Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crew-mcdonalds-switzerland-montreux-p8-319432-5"
+        ],
+        "en": [
+          "crew-mcdonalds-switzerland-montreux-p8-319432-5"
+        ],
+        "de": [
+          "crew-mcdonalds-switzerland-montreux-p8-319432-5"
+        ]
+      },
+      "previousSlugs": [
+        "crew-mcdonalds-switzerland-montreux-p8-319432-5"
+      ]
     },
     {
       "title": "Crew",
@@ -5241,7 +5258,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-309825-4",
-      "slug": "crew-mcdonalds-switzerland-rennaz-p8-309825-4",
+      "slug": "nazioni-unite-mcdonald-s-switzerland-rennaz",
       "location": "RENNAZ",
       "addressLocality": "RENNAZ",
       "addressRegion": "VD",
@@ -5266,9 +5283,9 @@
         "en": "United Nations"
       },
       "slugByLocale": {
-        "it": "crew-mcdonalds-switzerland-rennaz-p8-309825-4",
-        "en": "crew-mcdonalds-switzerland-rennaz-p8-309825-4",
-        "de": "crew-mcdonalds-switzerland-rennaz-p8-309825-4",
+        "de": "besatzung-mcdonald-s-switzerland-rennaz",
+        "it": "nazioni-unite-mcdonald-s-switzerland-rennaz",
+        "en": "united-nations-mcdonald-s-switzerland-rennaz",
         "fr": "crew-mcdonald-s-switzerland-rennaz"
       },
       "descriptionByLocale": {
@@ -5292,7 +5309,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T11:56:18.223Z"
+      "firstSeenAt": "2026-09-23T11:56:18.223Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crew-mcdonalds-switzerland-rennaz-p8-309825-4"
+        ],
+        "en": [
+          "crew-mcdonalds-switzerland-rennaz-p8-309825-4"
+        ],
+        "de": [
+          "crew-mcdonalds-switzerland-rennaz-p8-309825-4"
+        ]
+      },
+      "previousSlugs": [
+        "crew-mcdonalds-switzerland-rennaz-p8-309825-4"
+      ]
     },
     {
       "title": "Crew",
@@ -5798,7 +5829,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-318369-1",
-      "slug": "crew-mcdonalds-switzerland-sant-antonino-p8-318369-1",
+      "slug": "nazioni-unite-mcdonald-s-switzerland-sant-antonino",
       "location": "SANT'ANTONINO",
       "addressLocality": "SANT'ANTONINO",
       "addressRegion": "TI",
@@ -5823,9 +5854,9 @@
         "en": "United Nations"
       },
       "slugByLocale": {
-        "it": "crew-mcdonalds-switzerland-sant-antonino-p8-318369-1",
-        "en": "crew-mcdonalds-switzerland-sant-antonino-p8-318369-1",
-        "de": "crew-mcdonalds-switzerland-sant-antonino-p8-318369-1",
+        "de": "besatzung-mcdonald-s-switzerland-sant-antonino",
+        "it": "nazioni-unite-mcdonald-s-switzerland-sant-antonino",
+        "en": "united-nations-mcdonald-s-switzerland-sant-antonino",
         "fr": "crew-mcdonald-s-switzerland-sant-antonino"
       },
       "descriptionByLocale": {
@@ -5849,7 +5880,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T11:56:18.219Z"
+      "firstSeenAt": "2026-09-23T11:56:18.219Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crew-mcdonalds-switzerland-sant-antonino-p8-318369-1"
+        ],
+        "en": [
+          "crew-mcdonalds-switzerland-sant-antonino-p8-318369-1"
+        ],
+        "de": [
+          "crew-mcdonalds-switzerland-sant-antonino-p8-318369-1"
+        ]
+      },
+      "previousSlugs": [
+        "crew-mcdonalds-switzerland-sant-antonino-p8-318369-1"
+      ]
     },
     {
       "title": "Crew",
@@ -5857,7 +5902,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew/job/P8-317956-4",
-      "slug": "crew-mcdonalds-switzerland-egerkingen-p8-317956-4",
+      "slug": "nazioni-unite-mcdonald-s-switzerland-egerkingen",
       "location": "EGERKINGEN",
       "addressLocality": "EGERKINGEN",
       "addressRegion": "SO",
@@ -5882,9 +5927,9 @@
         "en": "United Nations"
       },
       "slugByLocale": {
-        "it": "crew-mcdonalds-switzerland-egerkingen-p8-317956-4",
-        "en": "crew-mcdonalds-switzerland-egerkingen-p8-317956-4",
-        "de": "crew-mcdonalds-switzerland-egerkingen-p8-317956-4",
+        "de": "besatzung-mcdonald-s-switzerland-egerkingen",
+        "it": "nazioni-unite-mcdonald-s-switzerland-egerkingen",
+        "en": "united-nations-mcdonald-s-switzerland-egerkingen",
         "fr": "crew-mcdonald-s-switzerland-egerkingen"
       },
       "descriptionByLocale": {
@@ -5908,7 +5953,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T11:56:18.218Z"
+      "firstSeenAt": "2026-09-23T11:56:18.218Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "crew-mcdonalds-switzerland-egerkingen-p8-317956-4"
+        ],
+        "en": [
+          "crew-mcdonalds-switzerland-egerkingen-p8-317956-4"
+        ],
+        "de": [
+          "crew-mcdonalds-switzerland-egerkingen-p8-317956-4"
+        ]
+      },
+      "previousSlugs": [
+        "crew-mcdonalds-switzerland-egerkingen-p8-317956-4"
+      ]
     },
     {
       "title": "Crew",
@@ -6072,13 +6131,11 @@
       },
       "id": "mcdonald-s-switzerland-2a2960f572f5",
       "previousSlugs": [
-        "equipage-mcdonald-s-switzerland-regensdorf",
-        "crew-mcdonald-s-switzerland-regensdorf"
+        "equipage-mcdonald-s-switzerland-regensdorf"
       ],
       "previousSlugsByLocale": {
         "fr": [
-          "equipage-mcdonald-s-switzerland-regensdorf",
-          "crew-mcdonald-s-switzerland-regensdorf"
+          "equipage-mcdonald-s-switzerland-regensdorf"
         ]
       },
       "firstSeenAt": "2026-08-15T21:50:53.536Z",
@@ -8004,13 +8061,11 @@
       },
       "id": "mcdonald-s-switzerland-7f18fc818107",
       "previousSlugs": [
-        "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-neuchatel-p8-317694-1",
-        "coordinatore-coordinatore-del-trimestre-mcdonald-s-switzerland-neuchatel"
+        "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-neuchatel-p8-317694-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-neuchatel-p8-317694-1",
-          "coordinatore-coordinatore-del-trimestre-mcdonald-s-switzerland-neuchatel"
+          "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-neuchatel-p8-317694-1"
         ],
         "en": [
           "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-neuchatel-p8-317694-1"
@@ -8340,13 +8395,11 @@
       },
       "id": "mcdonald-s-switzerland-0af2dfa8ab3f",
       "previousSlugs": [
-        "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1",
-        "coordinatore-coordinatore-del-trimestre-mcdonald-s-switzerland-heimberg"
+        "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1",
-          "coordinatore-coordinatore-del-trimestre-mcdonald-s-switzerland-heimberg"
+          "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1"
         ],
         "en": [
           "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-heimberg-p8-396694-1"
@@ -8551,8 +8604,7 @@
         "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-zuerich-p8-319409-4",
         "coordinator-quarter-coordinator-mcdonald-s-switzerland-zuerich",
         "koordinator-viertelkoordinator-mcdonald-s-switzerland-zuerich",
-        "coordinateur-coordinatrice-de-quart-mcdonald-s-switzerland-zuerich",
-        "coordinatore-coordinatore-del-trimestre-mcdonald-s-switzerland-aarau"
+        "coordinateur-coordinatrice-de-quart-mcdonald-s-switzerland-zuerich"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -8574,8 +8626,7 @@
           "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-zuerich-p8-319409-4",
           "coordinator-quarter-coordinator-mcdonald-s-switzerland-zuerich",
           "koordinator-viertelkoordinator-mcdonald-s-switzerland-zuerich",
-          "coordinateur-coordinatrice-de-quart-mcdonald-s-switzerland-zuerich",
-          "coordinatore-coordinatore-del-trimestre-mcdonald-s-switzerland-aarau"
+          "coordinateur-coordinatrice-de-quart-mcdonald-s-switzerland-zuerich"
         ],
         "en": [
           "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-aarau-p8-309865-1",
@@ -8737,7 +8788,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/coordinateur-coordinatrice-de-quart/job/P8-319409-5",
-      "slug": "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-zuerich-p8-319409-5",
+      "slug": "coordinatore-coordinatore-del-trimestre-mcdonald-s-switzerland-zuerich",
       "location": "ZUERICH",
       "addressLocality": "ZUERICH",
       "addressRegion": "ZH",
@@ -8762,9 +8813,9 @@
         "en": "Coordinator/Quarter Coordinator"
       },
       "slugByLocale": {
-        "it": "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-zuerich-p8-319409-5",
-        "en": "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-zuerich-p8-319409-5",
-        "de": "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-zuerich-p8-319409-5",
+        "de": "koordinator-viertelkoordinator-mcdonald-s-switzerland-zuerich",
+        "it": "coordinatore-coordinatore-del-trimestre-mcdonald-s-switzerland-zuerich",
+        "en": "coordinator-quarter-coordinator-mcdonald-s-switzerland-zuerich",
         "fr": "coordinateur-coordinatrice-de-quart-mcdonald-s-switzerland-zuerich"
       },
       "descriptionByLocale": {
@@ -8788,7 +8839,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T11:56:18.204Z"
+      "firstSeenAt": "2026-09-23T11:56:18.204Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-zuerich-p8-319409-5"
+        ],
+        "en": [
+          "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-zuerich-p8-319409-5"
+        ],
+        "de": [
+          "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-zuerich-p8-319409-5"
+        ]
+      },
+      "previousSlugs": [
+        "coordinateur-coordinatrice-de-quart-mcdonalds-switzerland-zuerich-p8-319409-5"
+      ]
     },
     {
       "title": "Coordinateur / Coordinatrice de quart",
@@ -9011,13 +9076,11 @@
       },
       "id": "mcdonald-s-switzerland-cef18bb0c332",
       "previousSlugs": [
-        "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-collombey-p8-319449-1",
-        "apprendistato-nel-restauro-del-sistema-cfc-mcdonald-s-switzerland-collombey"
+        "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-collombey-p8-319449-1"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-collombey-p8-319449-1",
-          "apprendistato-nel-restauro-del-sistema-cfc-mcdonald-s-switzerland-collombey"
+          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-collombey-p8-319449-1"
         ],
         "en": [
           "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-collombey-p8-319449-1"
@@ -9174,7 +9237,7 @@
       "companyKey": "mcdonald-s-switzerland",
       "companyDomain": "mcdonalds.ch",
       "url": "https://jobs.mcdonalds.ch/fr-ch/apprenti-e-en-restauration-de-système-cfc/job/P8-317373-1",
-      "slug": "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-bern-p8-317373-1",
+      "slug": "apprendistato-nel-ripristino-del-sistema-cfc-mcdonald-s-switzerland-bern",
       "location": "BERN",
       "addressLocality": "BERN",
       "addressRegion": "BE",
@@ -9199,9 +9262,9 @@
         "en": "Apprenticeship in CFC System Restoration"
       },
       "slugByLocale": {
-        "it": "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-bern-p8-317373-1",
-        "en": "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-bern-p8-317373-1",
-        "de": "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-bern-p8-317373-1",
+        "de": "ausbildung-in-cfc-system-restoration-mcdonald-s-switzerland-bern",
+        "it": "apprendistato-nel-ripristino-del-sistema-cfc-mcdonald-s-switzerland-bern",
+        "en": "apprenticeship-in-cfc-system-restoration-mcdonald-s-switzerland-bern",
         "fr": "apprenti-e-en-restauration-de-systeme-cfc-mcdonald-s-switzerland-bern"
       },
       "descriptionByLocale": {
@@ -9225,7 +9288,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T11:56:18.200Z"
+      "firstSeenAt": "2026-09-23T11:56:18.200Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-bern-p8-317373-1"
+        ],
+        "en": [
+          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-bern-p8-317373-1"
+        ],
+        "de": [
+          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-bern-p8-317373-1"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-bern-p8-317373-1"
+      ]
     },
     {
       "title": "Apprenti·e en restauration de système CFC",
@@ -9271,13 +9348,11 @@
       },
       "id": "mcdonald-s-switzerland-e77b4bacfb22",
       "previousSlugs": [
-        "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-p8-319448-2",
-        "apprendistato-nel-restauro-del-sistema-cfc-mcdonald-s-switzerland-yvorne"
+        "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-p8-319448-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-p8-319448-2",
-          "apprendistato-nel-restauro-del-sistema-cfc-mcdonald-s-switzerland-yvorne"
+          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-p8-319448-2"
         ],
         "en": [
           "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-yvorne-p8-319448-2"
@@ -9406,14 +9481,12 @@
       "id": "mcdonald-s-switzerland-7060cc0df09e",
       "previousSlugs": [
         "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-regensdorf-p8-318684-1",
-        "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-regensdorf-p8-318684-2",
-        "apprendistato-nel-ripristino-del-sistema-cfc-mcdonald-s-switzerland-regensdorf"
+        "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-regensdorf-p8-318684-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-regensdorf-p8-318684-1",
-          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-regensdorf-p8-318684-2",
-          "apprendistato-nel-ripristino-del-sistema-cfc-mcdonald-s-switzerland-regensdorf"
+          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-regensdorf-p8-318684-2"
         ],
         "en": [
           "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-regensdorf-p8-318684-1"
@@ -9483,14 +9556,12 @@
       "id": "mcdonald-s-switzerland-5f6c0b0d9f15",
       "previousSlugs": [
         "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-dielsdorf-p8-318683-1",
-        "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-dielsdorf-p8-318683-2",
-        "apprendistato-nel-ripristino-del-sistema-cfc-mcdonald-s-switzerland-dielsdorf"
+        "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-dielsdorf-p8-318683-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-dielsdorf-p8-318683-1",
-          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-dielsdorf-p8-318683-2",
-          "apprendistato-nel-ripristino-del-sistema-cfc-mcdonald-s-switzerland-dielsdorf"
+          "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-dielsdorf-p8-318683-2"
         ],
         "en": [
           "apprenti-e-en-restauration-de-systeme-cfc-mcdonalds-switzerland-dielsdorf-p8-318683-1"
@@ -9560,14 +9631,12 @@
       "id": "mcdonald-s-switzerland-a3d6e411aed6",
       "previousSlugs": [
         "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-regensdorf-p8-318672-1",
-        "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-regensdorf-p8-318672-2",
-        "apprendistato-nel-restauro-del-sistema-afp-mcdonald-s-switzerland-regensdorf"
+        "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-regensdorf-p8-318672-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-regensdorf-p8-318672-1",
-          "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-regensdorf-p8-318672-2",
-          "apprendistato-nel-restauro-del-sistema-afp-mcdonald-s-switzerland-regensdorf"
+          "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-regensdorf-p8-318672-2"
         ],
         "en": [
           "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-regensdorf-p8-318672-1"
@@ -9696,14 +9765,12 @@
       "id": "mcdonald-s-switzerland-35412d6f0455",
       "previousSlugs": [
         "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-dielsdorf-p8-318671-1",
-        "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-dielsdorf-p8-318671-2",
-        "apprendistato-nel-restauro-del-sistema-afp-mcdonald-s-switzerland-dielsdorf"
+        "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-dielsdorf-p8-318671-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-dielsdorf-p8-318671-1",
-          "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-dielsdorf-p8-318671-2",
-          "apprendistato-nel-restauro-del-sistema-afp-mcdonald-s-switzerland-dielsdorf"
+          "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-dielsdorf-p8-318671-2"
         ],
         "en": [
           "apprenti-e-en-restauration-de-systeme-afp-mcdonalds-switzerland-dielsdorf-p8-318671-1"
