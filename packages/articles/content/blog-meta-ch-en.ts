@@ -6650,6 +6650,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.revisione-legge-epidemie-svizzera.title': 'Review of the epidemic law: new rules and compensation',
     'blog.article.revisione-legge-epidemie-svizzera.excerpt': 'Parliament adopts the partial revision of the Epidemics Act introducing clear criteria for financial support and health protection.',
     'blog.article.revisione-legge-epidemie-svizzera.imageAlt': 'The Federal Palace in Bern seat of the Swiss Parliament',
+    'blog.article.dff-progressione-freddo-imposte-2027.title': 'Federal Tax 2027: DFF Offsets Cold Progression',
+    'blog.article.dff-progressione-freddo-imposte-2027.excerpt': 'The DFF adjusts rates and deductions for fiscal year 2027 against a cumulative increase of 0.47% recorded as of June 30, 2026.',
+    'blog.article.dff-progressione-freddo-imposte-2027.imageAlt': 'Federal Palace in Bern, seat of the Federal Department of Finance',
 };
 
 export default blogMetaChEn;

@@ -19922,6 +19922,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'dff-progressione-freddo-imposte-2027',
+    category: 'fiscale',
+    date: '2026-09-23T01:17:39.819Z',
+    image: '/images/blog/dff-progressione-freddo-imposte-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

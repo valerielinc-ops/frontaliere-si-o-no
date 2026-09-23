@@ -6650,6 +6650,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.revisione-legge-epidemie-svizzera.title': 'Überarbeitung des Epidemiengesetzes: neue Regeln und Entschädigungen',
     'blog.article.revisione-legge-epidemie-svizzera.excerpt': 'Das Parlament verabschiedet die Teilrevision des Epidemiengesetzes und führt klare Kriterien für die finanzielle Unterstützung und den Gesundheitsschutz ein.',
     'blog.article.revisione-legge-epidemie-svizzera.imageAlt': 'Das Bundeshaus in Bern Sitz des Schweizer Parlaments',
+    'blog.article.dff-progressione-freddo-imposte-2027.title': 'Bundessteuer 2027: EFD kompensiert kalte Progression',
+    'blog.article.dff-progressione-freddo-imposte-2027.excerpt': 'Das EFD passt die Tarife und Abzüge für das Geschäftsjahr 2027 angesichts einer kumulierten Teuerung von 0,47 % zum 30. Juni 2026 an.',
+    'blog.article.dff-progressione-freddo-imposte-2027.imageAlt': 'Bundeshaus in Bern, Sitz des Eidgenössischen Finanzdepartements',
 };
 
 export default blogMetaChDe;
