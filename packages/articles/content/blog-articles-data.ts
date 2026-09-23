@@ -35474,6 +35474,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'como-corso-farmacia-svizzera',
+ category: 'novita',
+ date: '2026-09-23T00:22:32.021Z',
+ image: '/images/blog/como-corso-farmacia-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
