@@ -11919,6 +11919,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-brenna-lavorare-ticino.title': 'Living in Brenna and working in Ticino as a border worker',
     'blog.article.vivere-brenna-lavorare-ticino.excerpt': 'Comprehensive analysis on connections, taxation and costs for those who choose to reside in Brenna and work in Switzerland.',
     'blog.article.vivere-brenna-lavorare-ticino.imageAlt': 'Panoramic view of Brenna and the border crossing between Italy and Switzerland',
+    'blog.article.bollettino-frontaliere-2026-09-23.title': 'Cross-border daily brief – September 23, 2026: 153 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-09-23.excerpt': 'Today\'s numbers, September 23, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-23.imageAlt': 'The day\'s numbers for cross-border commuters – September 23, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-09-23.seoDescription': 'Cross-border brief, September 23, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-09-23.ogDescription': 'The numbers for September 23, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;

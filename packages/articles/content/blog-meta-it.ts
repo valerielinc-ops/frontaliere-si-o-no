@@ -11920,6 +11920,11 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-brenna-lavorare-ticino.title': 'Vivere a Brenna e lavorare in Ticino da frontaliere',
     'blog.article.vivere-brenna-lavorare-ticino.excerpt': 'Analisi completa su collegamenti, fiscalità e costi per chi sceglie di risiedere a Brenna e lavorare in Svizzera.',
     'blog.article.vivere-brenna-lavorare-ticino.imageAlt': 'Vista panoramica di Brenna e del valico di confine confine tra Italia e Svizzera',
+    'blog.article.bollettino-frontaliere-2026-09-23.title': 'Bollettino del frontaliere – 23 settembre 2026: 153 nuovi annunci di lavoro ieri',
+    'blog.article.bollettino-frontaliere-2026-09-23.excerpt': 'I numeri di oggi, 23 settembre 2026, per chi attraversa il confine: le attese ai valichi misurate stamattina, i comuni dove la benzina costa meno, il cambio franco-euro aggiornato e i nuovi annunci di lavoro pubblicati in Svizzera. Dati del nostro monitoraggio, rilevati ogni giorno.',
+    'blog.article.bollettino-frontaliere-2026-09-23.imageAlt': 'I numeri del giorno per i frontalieri – 23 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
+    'blog.article.bollettino-frontaliere-2026-09-23.seoDescription': 'Bollettino frontalieri del 23 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
+    'blog.article.bollettino-frontaliere-2026-09-23.ogDescription': 'I numeri del 23 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
 };
 
 export default blogMetaIt;
