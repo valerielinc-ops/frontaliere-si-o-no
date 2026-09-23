@@ -6644,6 +6644,15 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.permesso-c-friburgo-guida-requisiti.title': 'Kantonsgenehmigung Freiburg: Voraussetzungen und Antrag',
     'blog.article.permesso-c-friburgo-guida-requisiti.excerpt': 'Regeln, Aufenthaltszeiten, Integrationskriterien und Verfahren zur Erlangung der Niederlassungsbewilligung C im Kanton Freiburg.',
     'blog.article.permesso-c-friburgo-guida-requisiti.imageAlt': 'Verwaltungsgebäude und Strassenansicht im Kanton Freiburg',
+    'blog.article.avs-ai-accesso-digitale-dati.title': 'AHV und IV: Digitale Akten für die Versicherten angekommen',
+    'blog.article.avs-ai-accesso-digitale-dati.excerpt': 'Das neue Gesetz über die Informationssysteme der Sozialversicherungen wurde verabschiedet. Der digitale Zugang zu AHV- und IV-Daten kommt mit geschätzten jährlichen Einsparungen von 35 Millionen.',
+    'blog.article.avs-ai-accesso-digitale-dati.imageAlt': 'Digitaler Zugriff auf AHV- und IV-Daten für Versicherte',
+    'blog.article.revisione-legge-epidemie-svizzera.title': 'Überarbeitung des Epidemiengesetzes: neue Regeln und Entschädigungen',
+    'blog.article.revisione-legge-epidemie-svizzera.excerpt': 'Das Parlament verabschiedet die Teilrevision des Epidemiengesetzes und führt klare Kriterien für die finanzielle Unterstützung und den Gesundheitsschutz ein.',
+    'blog.article.revisione-legge-epidemie-svizzera.imageAlt': 'Das Bundeshaus in Bern Sitz des Schweizer Parlaments',
+    'blog.article.dff-progressione-freddo-imposte-2027.title': 'Bundessteuer 2027: EFD kompensiert kalte Progression',
+    'blog.article.dff-progressione-freddo-imposte-2027.excerpt': 'Das EFD passt die Tarife und Abzüge für das Geschäftsjahr 2027 angesichts einer kumulierten Teuerung von 0,47 % zum 30. Juni 2026 an.',
+    'blog.article.dff-progressione-freddo-imposte-2027.imageAlt': 'Bundeshaus in Bern, Sitz des Eidgenössischen Finanzdepartements',
 };
 
 export default blogMetaChDe;

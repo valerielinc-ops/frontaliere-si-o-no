@@ -160,7 +160,7 @@ import { buildJobTitleWithLocation, buildTitleWithBrand } from '@/build-plugins/
 import { buildJobPostingSchema, isEmployerOwnedApplyUrl, type JobInput } from '@/build-plugins/shared/jobPostingSchema';
 import { buildJobPostingFaqPairs, type JobFaqPair } from '@/build-plugins/shared/jobPostingFaq';
 import { getCantonDisplayName } from '@/build-plugins/shared/cantonDisplay';
-import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/jobCardHtml';
+import { SALARY_ESTIMATE_SUFFIX } from '@/build-plugins/shared/salaryEstimateSuffix';
 import { callNativeHistory } from '@/services/nativeHistoryCall';
 import { useNavigation } from '@/services/NavigationContext';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
@@ -7282,6 +7282,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
     onCompleted={handleRewardedApplicationCompleted}
     onUnavailable={handleRewardedApplicationUnavailable}
+    onDismiss={() => setRewardedApplicationJob(null)}
    />
   </Suspense>
  ) : null;

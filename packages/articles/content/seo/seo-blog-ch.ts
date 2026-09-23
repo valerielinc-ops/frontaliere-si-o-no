@@ -86132,6 +86132,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-ai-accesso-digitale-dati': {
+    title: 'AVS e AI: arrivano i fascicoli digitali per gli assicurati',
+    description: 'Approvata la legge sui sistemi di informazione sociali: in arrivo l\'accesso digitale ai dati AVS e AI per gli assicurati con risparmi di 35 milioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, arrivano, fascicoli, digitali, assicurati',
+    ogTitle: 'AVS e AI: accesso digitale ai dati e risparmi di 35 milioni',
+    ogDescription: 'Il Consiglio degli Stati approva la nuova legge sui sistemi di informazione delle assicurazioni sociali. Arriva l\'accesso digitale ai fascicoli AVS e AI per gli assicurati con risparmi annui stimati a 35 milioni di franchi.',
+    canonicalPath: '/articoli-svizzera/avs-ai-accesso-digitale-dati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e AI: arrivano i fascicoli digitali per gli assicurati",
+      "description": "Approvata la legge sui sistemi di informazione sociali: in arrivo l'accesso digitale ai dati AVS e AI per gli assicurati con risparmi di 35 milioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-ai-accesso-digitale-dati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Accesso digitale ai dati AVS e AI per gli assicurati"
+      },
+      "datePublished": "2026-09-23T00:27:39+00:00",
+      "dateModified": "2026-09-23T00:27:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-ai-accesso-digitale-dati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-revisione-legge-epidemie-svizzera': {
+    title: 'Revisione legge epidemie: nuove regole e indennizzi',
+    description: 'Il Parlamento adotta la revisione della legge sulle epidemie: stop a vaccinazioni coatte e nuovi obblighi di indennizzo per imprese e lavoratori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, revisione, legge, epidemie, nuove',
+    ogTitle: 'Revisione legge epidemie in Svizzera: le nuove regole',
+    ogDescription: 'Scopri le novità approvate dal Parlamento svizzero sulla revisione della legge sulle epidemie, inclusi i nuovi indennizzi per imprese e lo stop agli obblighi vaccinali penali.',
+    canonicalPath: '/articoli-svizzera/revisione-legge-epidemie-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Revisione legge epidemie: nuove regole e indennizzi",
+      "description": "Il Parlamento adotta la revisione della legge sulle epidemie: stop a vaccinazioni coatte e nuovi obblighi di indennizzo per imprese e lavoratori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/revisione-legge-epidemie-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale a Berna sede del Parlamento svizzero"
+      },
+      "datePublished": "2026-09-23T00:40:58+00:00",
+      "dateModified": "2026-09-23T00:40:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/revisione-legge-epidemie-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-dff-progressione-freddo-imposte-2027': {
+    title: 'Imposta federale 2027: DFF compensa la progressione a freddo',
+    description: 'Il DFF adegua tariffe e deduzioni per l\'imposta federale diretta 2027 per compensare l\'inflazione dello 0,47%. Scopri le nuove soglie e detrazioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, federale, compensa, progressione',
+    ogTitle: 'Imposta federale 2027: DFF compensa la progressione a freddo',
+    ogDescription: 'Il Dipartimento federale delle finanze adegua tariffe e deduzioni per l\'anno fiscale 2027: aumentano le soglie per coniugi, formazione e cura figli per contrastare l\'inflazione.',
+    canonicalPath: '/articoli-svizzera/dff-progressione-freddo-imposte-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta federale 2027: DFF compensa la progressione a freddo",
+      "description": "Il DFF adegua tariffe e deduzioni per l'imposta federale diretta 2027 per compensare l'inflazione dello 0,47%. Scopri le nuove soglie e detrazioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dff-progressione-freddo-imposte-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del Dipartimento federale delle finanze"
+      },
+      "datePublished": "2026-09-23T01:17:39+00:00",
+      "dateModified": "2026-09-23T01:17:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dff-progressione-freddo-imposte-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

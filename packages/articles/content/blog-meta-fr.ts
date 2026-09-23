@@ -11906,6 +11906,18 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-22.imageAlt': 'Les chiffres du jour pour les frontaliers – 22 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-22.seoDescription': 'Bulletin du frontalier du 22 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-22.ogDescription': 'Les chiffres du 22 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.como-corso-farmacia-svizzera.title': 'Cours en pharmacie à Côme : stages sur le territoire et en Suisse',
+    'blog.article.como-corso-farmacia-svizzera.excerpt': 'Le nouveau programme de maîtrise en pharmacie à l\'Insubria de Como a démarré avec quarante-sept étudiants et stages également en Suisse.',
+    'blog.article.como-corso-farmacia-svizzera.imageAlt': 'Etudiants en pharmacie a l\'universite de Como',
+    'blog.article.carburanti-prezzi-tasse-ticino.title': 'Cher prix des carburants au Tessin : demande de réduction d\'impôt',
+    'blog.article.carburanti-prezzi-tasse-ticino.excerpt': 'Une motion a été déposée à Berne pour alléger la charge fiscale sur l\'essence, le diesel et l\'huile de chauffage face à des hausses historiques.',
+    'blog.article.carburanti-prezzi-tasse-ticino.imageAlt': 'Prix de l\'essence et du diesel en hausse dans une station-service au Tessin',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.title': 'Sunrise se restructure : jusqu\'à 450 places menacées',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.excerpt': 'L\'opérateur Sunrise annonce un nouveau plan de repositionnement et la possible suppression d\'un maximum de 450 emplois sur 2\'900. Procédure en octobre.',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.imageAlt': 'Siege social et bureaux de Sunrise en Suisse',
+    'blog.article.semafori-cadenazzo-traffico.title': 'Feu de signalisation à Cadenazzo et circulation : effets attendus en 2027',
+    'blog.article.semafori-cadenazzo-traffico.excerpt': 'Le Conseil fédéral répond aux feux à Cadenazzo : efficacité du trafic entre Bellinzone et Locarno attendue fin 2027.',
+    'blog.article.semafori-cadenazzo-traffico.imageAlt': 'Feux de circulation et flux de trafic sur le trajet entre Bellinzona et Locarno',
 };
 
 export default blogMetaFr;

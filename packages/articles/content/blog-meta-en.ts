@@ -11904,6 +11904,18 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-22.imageAlt': 'The day\'s numbers for cross-border commuters – September 22, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-22.seoDescription': 'Cross-border brief, September 22, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-22.ogDescription': 'The numbers for September 22, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.como-corso-farmacia-svizzera.title': 'Course in Pharmacy in Como: internships in the territory and Switzerland',
+    'blog.article.como-corso-farmacia-svizzera.excerpt': 'The new master\'s degree course in Pharmacy at Insubria of Como started with forty-seven students and internships also in Switzerland.',
+    'blog.article.como-corso-farmacia-svizzera.imageAlt': 'Pharmacy students at the university course in Como',
+    'blog.article.carburanti-prezzi-tasse-ticino.title': 'Expensive fuel prices in Ticino: tax reduction request',
+    'blog.article.carburanti-prezzi-tasse-ticino.excerpt': 'Motion filed in Bern to lighten the tax burden on gasoline, diesel and heating oil in the face of historic hikes.',
+    'blog.article.carburanti-prezzi-tasse-ticino.imageAlt': 'Petrol and diesel prices rising at a gas station in Ticino',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.title': 'Sunrise is being restructured: up to 450 seats are at risk',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.excerpt': 'The Sunrise operator announces a new repositioning plan and the possible elimination of a maximum of 450 jobs out of 2,900. Procedure in October.',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.imageAlt': 'Sunrise corporate office and headquarters in Switzerland',
+    'blog.article.semafori-cadenazzo-traffico.title': 'Traffic lights in Cadenazzo and traffic: effects expected in 2027',
+    'blog.article.semafori-cadenazzo-traffico.excerpt': 'The Federal Council responds to the traffic lights in Cadenazzo: effective traffic between Bellinzona and Locarno expected at the end of 2027.',
+    'blog.article.semafori-cadenazzo-traffico.imageAlt': 'Traffic lights and traffic flow on the route between Bellinzona and Locarno',
 };
 
 export default blogMetaEn;

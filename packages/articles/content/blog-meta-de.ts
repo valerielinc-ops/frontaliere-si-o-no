@@ -11903,6 +11903,18 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-22.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 22. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-22.seoDescription': 'Grenzgänger-Bulletin vom 22. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-22.ogDescription': 'Die Zahlen vom 22. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.como-corso-farmacia-svizzera.title': 'Kurs in der Apotheke in Como: Praktika in der Region und in der Schweiz',
+    'blog.article.como-corso-farmacia-svizzera.excerpt': 'Begann den neuen Masterstudiengang Pharmazie in Insubrien von Como mit siebenundvierzig Studenten und Praktika auch in der Schweiz.',
+    'blog.article.como-corso-farmacia-svizzera.imageAlt': 'Pharmaziestudenten an der Universitaet in Como',
+    'blog.article.carburanti-prezzi-tasse-ticino.title': 'Teure Kraftstoffpreise im Tessin: Steuerermäßigung beantragt',
+    'blog.article.carburanti-prezzi-tasse-ticino.excerpt': 'In Bern wurde eine Motion eingebracht, um Benzin, Diesel und Heizöl angesichts historischer Preissteigerungen steuerlich zu entlasten.',
+    'blog.article.carburanti-prezzi-tasse-ticino.imageAlt': 'Benzin- und Dieselpreise steigen an einer Tankstelle im Tessin',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.title': 'Sunrise restrukturiert sich: Risiko für bis zu 450 Plätze',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.excerpt': 'Der Betreiber Sunrise kündigt einen neuen Neupositionierungsplan und die mögliche Streichung von maximal 450 von 2\'900 Arbeitsplätzen an. Verfahren im Oktober.',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.imageAlt': 'Sunrise Firmenzentrale und Buerogebaeude in der Schweiz',
+    'blog.article.semafori-cadenazzo-traffico.title': 'Ampeln in Cadenazzo und Verkehr: erwartete Auswirkungen im Jahr 2027',
+    'blog.article.semafori-cadenazzo-traffico.excerpt': 'Der Bundesrat antwortet an den Ampeln in Cadenazzo: Ende 2027 erwartete Verkehrseffizienz zwischen Bellinzona und Locarno.',
+    'blog.article.semafori-cadenazzo-traffico.imageAlt': 'Ampelanlagen und Verkehrsfluss auf der Strecke zwischen Bellinzona und Locarno',
 };
 
 export default blogMetaDe;

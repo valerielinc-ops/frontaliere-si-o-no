@@ -6644,6 +6644,15 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-c-friburgo-guida-requisiti.title': 'Permesso c canton Friburgo: requisiti e domanda',
     'blog.article.permesso-c-friburgo-guida-requisiti.excerpt': 'Regole, tempistiche di residenza, criteri di integrazione e procedura per ottenere il permesso di domicilio C nel Cantone di Friburgo.',
     'blog.article.permesso-c-friburgo-guida-requisiti.imageAlt': 'Uffici amministrativi e panorama urbano nel Cantone di Friburgo',
+    'blog.article.avs-ai-accesso-digitale-dati.title': 'AVS e AI: arrivano i fascicoli digitali per gli assicurati',
+    'blog.article.avs-ai-accesso-digitale-dati.excerpt': 'Approvata la nuova legge sui sistemi di informazione delle assicurazioni sociali. Arriva l\'accesso digitale ai dati AVS e AI con risparmi annui stimati a 35 milioni.',
+    'blog.article.avs-ai-accesso-digitale-dati.imageAlt': 'Accesso digitale ai dati AVS e AI per gli assicurati',
+    'blog.article.revisione-legge-epidemie-svizzera.title': 'Revisione legge epidemie: nuove regole e indennizzi',
+    'blog.article.revisione-legge-epidemie-svizzera.excerpt': 'Il Parlamento adotta la revisione parziale della legge sulle epidemie introducendo criteri chiari per il sostegno finanziario e la protezione sanitaria.',
+    'blog.article.revisione-legge-epidemie-svizzera.imageAlt': 'Il Palazzo federale a Berna sede del Parlamento svizzero',
+    'blog.article.dff-progressione-freddo-imposte-2027.title': 'Imposta federale 2027: DFF compensa la progressione a freddo',
+    'blog.article.dff-progressione-freddo-imposte-2027.excerpt': 'Il DFF adegua tariffe e deduzioni per l\'anno fiscale 2027 a fronte di un rincaro cumulato dello 0,47% registrato al 30 giugno 2026.',
+    'blog.article.dff-progressione-freddo-imposte-2027.imageAlt': 'Palazzo federale a Berna, sede del Dipartimento federale delle finanze',
 };
 
 export default blogMetaChIt;

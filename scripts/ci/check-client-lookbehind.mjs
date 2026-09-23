@@ -10,25 +10,26 @@
  * removed the offending split; without a guard a new client lookbehind can
  * silently re-enter on any future merge and replicate the crash.
  *
- * Scope: client-bundled paths only (components/, services/, hooks/, pages/, lib/,
- * src/). build-plugins/ and scripts/ run under Node (modern V8) at BUILD time and
- * never ship to the browser, so lookbehind there is fine — excluded.
+ * Scope: client entry paths plus their complete local import closure. Most
+ * build-plugins/ and scripts/ run only under Node, but shared modules imported
+ * by the SPA ship to browsers and must be checked too.
  *
  * Comment-aware: only flags lookbehind in CODE, not in comments describing the
  * old removed regex (the #1996 fix left several `// …the old /(?<=\s)/ split…`
- * notes). Per line it strips the `//` line-comment tail and skips block-comment
- * body lines (trimmed start `*`). A `(?<` surviving in the code portion is a real
- * client lookbehind.
+ * notes). The scanner carries lexical state across lines, so `//` in a URL,
+ * string, template, or regex literal is not mistaken for a comment and a code
+ * line beginning with `*` is not discarded. Template interpolations are scanned
+ * recursively as code, including nested templates.
  *
  * Exit codes: 0 = clean, 1 = violation(s). `--json` prints a machine report.
  *
  * Usage: node scripts/ci/check-client-lookbehind.mjs [--json]
- * Zero dependencies (git in PATH only); inspects tracked files via `git grep`.
+ * Zero dependencies (git in PATH only); inspects tracked and untracked sources.
  */
 import { execFileSync } from 'node:child_process';
+import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { isGitGrepNoMatch } from './lib/git-grep.mjs';
 
 const argv = process.argv.slice(2);
 const JSON_OUT = argv.includes('--json');
@@ -37,14 +38,12 @@ const HELP = argv.includes('--help') || argv.includes('-h');
 if (HELP) {
   console.log(
     'check-client-lookbehind.mjs — forbid regex lookbehind ((?<=/(?<!) in\n' +
-      'client-bundled source (Safari/WebKit crash, #1996/#1999). build-plugins/ +\n' +
-      'scripts/ are build-time (Node) and exempt.\n\nFlags: --json · --help   Exit: 0 clean, 1 violation.',
+      'client-bundled source and its local import closure (Safari/WebKit crash,\n' +
+      '#1996/#1999/#9539).\n\nFlags: --json · --help   Exit: 0 clean, 1 violation.',
   );
   process.exit(0);
 }
 
-// Client-bundled code dirs (shipped to the browser). build-plugins/ + scripts/
-// run under Node at build time → exempt.
 const CLIENT_GLOBS = [
   'components/**/*.ts', 'components/**/*.tsx',
   'services/**/*.ts', 'services/**/*.tsx',
@@ -55,54 +54,242 @@ const CLIENT_GLOBS = [
 ];
 
 const LOOKBEHIND_RE = /\(\?<[=!]/;
+const SOURCE_EXTENSIONS = ['', '.ts', '.tsx', '.mjs', '.js'];
+
+const REGEX_AFTER_KEYWORDS = new Set([
+  'case', 'delete', 'do', 'else', 'in', 'instanceof', 'of', 'return', 'throw',
+  'typeof', 'void', 'yield', 'await',
+]);
+
+function blankCommentCharacter(character) {
+  return character === '\n' || character === '\r' ? character : ' ';
+}
+
+function canStartRegex(previousToken) {
+  return previousToken === null || previousToken === 'prefix';
+}
+
+/**
+ * Blank JS/TS comments while preserving strings, templates, and regex literals
+ * byte-for-byte. This is intentionally a small lexer rather than a regex: a
+ * comment marker inside `https://…` must not hide code later on the same line,
+ * block comments must survive a newline, and `${…}` must be treated as code
+ * inside a template literal.
+ */
+export function stripComments(source) {
+  const src = String(source ?? '');
+  const out = [...src];
+  const blank = (index) => { out[index] = blankCommentCharacter(src[index]); };
+
+  function skipQuoted(start, quote) {
+    for (let i = start; i < src.length; i += 1) {
+      if (src[i] === '\\') {
+        i += 1;
+      } else if (src[i] === quote) {
+        return i + 1;
+      }
+    }
+    return src.length;
+  }
+
+  function skipRegex(start) {
+    let inClass = false;
+    for (let i = start + 1; i < src.length; i += 1) {
+      if (src[i] === '\\') {
+        i += 1;
+      } else if (src[i] === '[') {
+        inClass = true;
+      } else if (src[i] === ']' && inClass) {
+        inClass = false;
+      } else if (src[i] === '/' && !inClass) {
+        return i + 1;
+      }
+    }
+    return src.length;
+  }
+
+  function scanTemplate(start) {
+    for (let i = start; i < src.length; i += 1) {
+      if (src[i] === '\\') {
+        i += 1;
+      } else if (src[i] === '`') {
+        return i + 1;
+      } else if (src[i] === '$' && src[i + 1] === '{') {
+        i = scanCode(i + 2, true) - 1;
+      }
+    }
+    return src.length;
+  }
+
+  function scanCode(start, stopAtBrace = false) {
+    let previousToken = null;
+    let braceDepth = 0;
+
+    for (let i = start; i < src.length; i += 1) {
+      const character = src[i];
+      const next = src[i + 1];
+
+      if (character === '/' && next === '/') {
+        blank(i);
+        blank(i + 1);
+        let end = i + 2;
+        while (end < src.length && src[end] !== '\n' && src[end] !== '\r') {
+          blank(end);
+          end += 1;
+        }
+        i = end - 1;
+        continue;
+      }
+      if (character === '/' && next === '*') {
+        blank(i);
+        blank(i + 1);
+        let end = i + 2;
+        while (end < src.length) {
+          if (src[end] === '*' && src[end + 1] === '/') {
+            blank(end);
+            blank(end + 1);
+            i = end + 1;
+            break;
+          }
+          blank(end);
+          end += 1;
+        }
+        if (end >= src.length) return src.length;
+        continue;
+      }
+      if (character === '\'' || character === '"') {
+        i = skipQuoted(i + 1, character) - 1;
+        previousToken = 'value';
+        continue;
+      }
+      if (character === '`') {
+        i = scanTemplate(i + 1) - 1;
+        previousToken = 'value';
+        continue;
+      }
+      if (character === '/' && canStartRegex(previousToken)) {
+        i = skipRegex(i) - 1;
+        previousToken = 'value';
+        continue;
+      }
+      if (stopAtBrace && character === '}' && braceDepth === 0) return i + 1;
+      if (character === '{') {
+        braceDepth += 1;
+        previousToken = 'prefix';
+        continue;
+      }
+      if (character === '}') {
+        if (braceDepth > 0) braceDepth -= 1;
+        previousToken = 'value';
+        continue;
+      }
+
+      if (/\s/.test(character)) continue;
+      if (/[A-Za-z_$]/.test(character)) {
+        let end = i + 1;
+        while (end < src.length && /[A-Za-z0-9_$]/.test(src[end])) end += 1;
+        const word = src.slice(i, end);
+        previousToken = REGEX_AFTER_KEYWORDS.has(word) ? 'prefix' : 'value';
+        i = end - 1;
+        continue;
+      }
+      if (/[0-9]/.test(character)) {
+        previousToken = 'value';
+        continue;
+      }
+      if (')]}'.includes(character)) {
+        previousToken = 'value';
+        continue;
+      }
+      if ('([{,;:=!?&|+\-*%^~<>'.includes(character)) {
+        previousToken = 'prefix';
+        continue;
+      }
+      if (character === '.') {
+        previousToken = 'value';
+        continue;
+      }
+      previousToken = 'value';
+    }
+    return src.length;
+  }
+
+  scanCode(0);
+
+  return out.join('');
+}
 
 /**
  * True if a source line contains a regex lookbehind in CODE (not a comment).
- * Strips the `//` line-comment tail and ignores block-comment body lines.
+ * For complete files `findViolations()` uses `stripComments()` once so comment
+ * and string state is shared across line boundaries; this helper remains pure
+ * and convenient for focused tests and callers with a single source line.
  * Pure → testable.
  */
 export function lineHasClientLookbehind(line) {
-  const s = String(line ?? '');
-  const trimmed = s.trimStart();
-  if (trimmed.startsWith('*') || trimmed.startsWith('//')) return false; // comment line
-  const code = s.split('//')[0]; // drop trailing line comment
-  return LOOKBEHIND_RE.test(code);
+  return LOOKBEHIND_RE.test(stripComments(line));
 }
 
-function gitGrepLines(glob) {
-  try {
-    // -n line numbers; -E for the lookbehind alternation. git grep exits 1 on no
-    // match (clean) — handled below.
-    const out = execFileSync(
-      'git', ['grep', '-nE', '\\(\\?<[=!]', '--', glob],
-      { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 },
-    );
-    return out.split('\n').filter(Boolean);
-  } catch (e) {
-    // Same hardening as check-cls-ad-slots (#2010): exit 1 with no stdout/stderr is
-    // the one legitimate no-match (clean); exit ≥2/128, any stderr, or an anomalous
-    // exit-1-with-stdout re-throws so the gate fails loudly instead of silently
-    // returning [] on a tree it never inspected. Shared classifier in
-    // scripts/ci/lib/git-grep.mjs (single source of truth → no drift). NB: unlike
-    // the cls gate there is no positive-control canary here — a zero-match result
-    // is THIS gate's expected clean state, so no guaranteed-present token exists to
-    // assert against; the strict exit-code/stderr check is the available defense.
-    if (isGitGrepNoMatch(e)) return [];
-    throw e;
+function resolveLocalImport(fromFile, specifier) {
+  let base;
+  if (specifier.startsWith('@/')) base = path.resolve(specifier.slice(2));
+  else if (specifier.startsWith('.')) base = path.resolve(path.dirname(fromFile), specifier);
+  else return null;
+
+  for (const extension of SOURCE_EXTENSIONS) {
+    const candidate = `${base}${extension}`;
+    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) return path.relative(process.cwd(), candidate);
   }
+  for (const extension of SOURCE_EXTENSIONS.slice(1)) {
+    const candidate = path.join(base, `index${extension}`);
+    if (fs.existsSync(candidate) && fs.statSync(candidate).isFile()) return path.relative(process.cwd(), candidate);
+  }
+  return null;
+}
+
+function importedSpecifiers(source) {
+  const specifiers = [];
+  const patterns = [
+    /(?:import|export)\s+(?:type\s+)?(?:[^'\"]*?\s+from\s+)?['\"]([^'\"]+)['\"]/g,
+    /import\s*\(\s*['\"]([^'\"]+)['\"]\s*\)/g,
+  ];
+  for (const pattern of patterns) {
+    for (const match of source.matchAll(pattern)) specifiers.push(match[1]);
+  }
+  return specifiers;
+}
+
+export function clientImportClosure() {
+  const roots = execFileSync(
+    'git', ['ls-files', '--cached', '--others', '--exclude-standard', '--', ...CLIENT_GLOBS],
+    { encoding: 'utf-8', maxBuffer: 32 * 1024 * 1024 },
+  ).split('\n').filter(Boolean);
+  const seen = new Set();
+  const queue = [...roots];
+  while (queue.length) {
+    const file = queue.shift();
+    if (seen.has(file) || !fs.existsSync(file)) continue;
+    seen.add(file);
+    const source = fs.readFileSync(file, 'utf-8');
+    for (const specifier of importedSpecifiers(source)) {
+      const imported = resolveLocalImport(file, specifier);
+      if (imported && !seen.has(imported)) queue.push(imported);
+    }
+  }
+  return [...seen].sort();
 }
 
 export function findViolations() {
   const violations = [];
-  for (const glob of CLIENT_GLOBS) {
-    for (const hit of gitGrepLines(glob)) {
-      // format: path:lineno:content
-      const m = hit.match(/^([^:]+):(\d+):(.*)$/);
-      if (!m) continue;
-      const [, file, lineno, content] = m;
-      if (file.includes('.test.') || file.includes('.spec.')) continue; // tests may document the antipattern
-      if (lineHasClientLookbehind(content)) violations.push({ file, line: Number(lineno), content: content.trim() });
-    }
+  for (const file of clientImportClosure()) {
+    const source = fs.readFileSync(file, 'utf-8');
+    const codeLines = stripComments(source).split('\n');
+    const sourceLines = source.split('\n');
+    codeLines.forEach((content, index) => {
+      if (LOOKBEHIND_RE.test(content)) {
+        violations.push({ file, line: index + 1, content: sourceLines[index].trim() });
+      }
+    });
   }
   return violations.sort((a, b) => (a.file === b.file ? a.line - b.line : a.file < b.file ? -1 : 1));
 }
@@ -121,13 +308,13 @@ function main() {
   if (!JSON_OUT) {
     console.error(
       `✗ check-client-lookbehind: ${violations.length} client-bundled regex lookbehind(s) ` +
-        `((?<=/(?<!) — crashes older Safari/WebKit at parse time (#1996/#1999):\n`,
+        `((?<=/(?<!) — crashes older Safari/WebKit at parse time (#1996/#1999/#9539):\n`,
     );
     for (const v of violations) console.error(`  - ${v.file}:${v.line}  ${v.content.slice(0, 100)}`);
     console.error(
       '\nFix: rewrite the regex without a lookbehind (e.g. capture + reattach the boundary, ' +
         'or a sentinel split — see the #1996 JobBoard/seo-authors splits). Lookbehind is fine ' +
-        'in build-plugins/ and scripts/ (build-time Node), not in browser-shipped code.',
+        'in Node-only modules, not in any module reachable from browser entrypoints.',
     );
   }
   process.exit(1);

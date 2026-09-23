@@ -19904,6 +19904,33 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-ai-accesso-digitale-dati',
+    category: 'pensione',
+    date: '2026-09-23T00:27:39.708Z',
+    image: '/images/blog/avs-ai-accesso-digitale-dati.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
+   {
+    id: 'revisione-legge-epidemie-svizzera',
+    category: 'novita',
+    date: '2026-09-23T00:40:58.450Z',
+    image: '/images/blog/revisione-legge-epidemie-svizzera.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'dff-progressione-freddo-imposte-2027',
+    category: 'fiscale',
+    date: '2026-09-23T01:17:39.819Z',
+    image: '/images/blog/dff-progressione-freddo-imposte-2027.webp',
+    hasCalculator: true,
+    authorSlug: 'marco-ferrari',
+    authorName: 'Marco Ferrari',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

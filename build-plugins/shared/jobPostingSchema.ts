@@ -71,7 +71,7 @@ import {
   type SalaryBand,
 } from './salaryDefaults';
 import { truncateCodeUnits } from './safeTruncate';
-import { sanitizeJobTitleForDisplay } from './stripLiteralMarkdown';
+import { sanitizeBrowserJobTitle } from './literalMarkdown';
 
 // ── Types ───────────────────────────────────────────────────────────────────
 
@@ -454,7 +454,10 @@ function buildDescriptionFallback(
 function resolveTitle(job: JobInput, locale: string): string {
   const short = (locale || 'it').slice(0, 2).toLowerCase();
   const byLocale = job.titleByLocale?.[short] || job.titleByLocale?.[locale];
-  const base = sanitizeJobTitleForDisplay(String(byLocale || job.title || '').trim());
+  // Runtime callers must stay browser-parseable on the supported WebKit floor.
+  // Narrative AI-title recovery remains a build-time concern in
+  // stripLiteralMarkdown.ts; the corpus already publishes normalized titles.
+  const base = sanitizeBrowserJobTitle(String(byLocale || job.title || '').trim());
   if (base.length > 0) return base;
   const company = (job.company || '').trim();
   switch (short) {

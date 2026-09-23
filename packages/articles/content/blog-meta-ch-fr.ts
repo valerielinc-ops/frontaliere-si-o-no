@@ -6644,6 +6644,15 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.permesso-c-friburgo-guida-requisiti.title': 'Permis c canton de Fribourg : exigences et demande',
     'blog.article.permesso-c-friburgo-guida-requisiti.excerpt': 'Règles, temps de résidence, critères d\'intégration et procédure d\'obtention du permis de séjour C dans le canton de Fribourg.',
     'blog.article.permesso-c-friburgo-guida-requisiti.imageAlt': 'Bâtiments administratifs et vue urbaine dans le canton de Fribourg',
+    'blog.article.avs-ai-accesso-digitale-dati.title': 'AVS et AI : les dossiers numériques arrivent pour les assurés',
+    'blog.article.avs-ai-accesso-digitale-dati.excerpt': 'Approuvé la nouvelle loi sur les systèmes d\'information des assurances sociales. L\'accès numérique aux données AVS et AI arrive avec des économies annuelles estimées à 35 millions.',
+    'blog.article.avs-ai-accesso-digitale-dati.imageAlt': 'Accès numérique aux données AVS et AI pour les assurés',
+    'blog.article.revisione-legge-epidemie-svizzera.title': 'Révision de la loi sur les épidémies : nouvelles règles et indemnisations',
+    'blog.article.revisione-legge-epidemie-svizzera.excerpt': 'Le Parlement adopte la révision partielle de la loi sur les épidémies en introduisant des critères clairs pour le soutien financier et la protection de la santé.',
+    'blog.article.revisione-legge-epidemie-svizzera.imageAlt': 'Le Palais federal a Berne siege du Parlement suisse',
+    'blog.article.dff-progressione-freddo-imposte-2027.title': 'Impôt fédéral 2027 : DFF compense la progression à froid',
+    'blog.article.dff-progressione-freddo-imposte-2027.excerpt': 'Le DFF ajuste les tarifs et les déductions pour l\'exercice 2027 face à un renchérissement cumulé de 0,47 % enregistré au 30 juin 2026.',
+    'blog.article.dff-progressione-freddo-imposte-2027.imageAlt': 'Palais fédéral à Berne, siège du Département fédéral des finances',
 };
 
 export default blogMetaChFr;

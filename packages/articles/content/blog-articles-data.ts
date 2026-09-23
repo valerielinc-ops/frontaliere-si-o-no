@@ -35474,6 +35474,42 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'como-corso-farmacia-svizzera',
+ category: 'novita',
+ date: '2026-09-23T00:22:32.021Z',
+ image: '/images/blog/como-corso-farmacia-svizzera.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'carburanti-prezzi-tasse-ticino',
+ category: 'fiscale',
+ date: '2026-09-23T00:36:17.679Z',
+ image: '/images/blog/carburanti-prezzi-tasse-ticino.webp',
+ hasCalculator: true,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
+ },
+ {
+ id: 'sunrise-tagli-posti-lavoro-ristrutturazione',
+ category: 'novita',
+ date: '2026-09-23T00:45:15.008Z',
+ image: '/images/blog/sunrise-tagli-posti-lavoro-ristrutturazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'semafori-cadenazzo-traffico',
+ category: 'pratico',
+ date: '2026-09-23T01:21:51.666Z',
+ image: '/images/blog/semafori-cadenazzo-traffico.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
