@@ -92,8 +92,11 @@ jobs:
             exit 127
           fi
 
+          # Classify every slice before starting a mutating worker. A matcher
+          # failure must never leave a partially cleaned lane that looks ready
+          # to commit.
           shopt -s nullglob
-          processed=0
+          selected_slices=()
           for slice in data/jobs/by-crawler/*.json; do
             if grep -Ei -- "$lane_pattern" "$slice" >/dev/null; then
               is_prospective=1
@@ -110,13 +113,66 @@ jobs:
                [ "$HOUSEKEEPING_LANE:$is_prospective" = rest:1 ]; then
               continue
             fi
+            selected_slices+=("$slice")
+          done
 
+          # Each worker owns one crawler slice and its matching expired archive.
+          # Keep the cross-slice fan-out bounded: cleanup-jobs already validates
+          # URLs concurrently inside a slice, so four workers are enough to
+          # remove the serial process-start/network wait without opening an
+          # unbounded request burst or sharing a write target.
+           # There is no stable pre-merge wall-time baseline for this lane:
+           # slice count and upstream response time vary with every run. The
+           # operational revert trigger is a first live run that approaches
+           # the 45-minute job timeout or shows runner pressure; lower this
+           # value to 2 before the next run if either signal appears.
+           readonly max_parallel=4
+          running_pids=()
+          running_slices=()
+          processed=0
+
+          run_slice() {
+            local slice="$1"
             echo "🧹 [$HOUSEKEEPING_LANE] $slice"
             JOBS_SLICE_FILE="$slice" \
               JOBS_SKIP_LOCALE_HARDENING=1 \
               node scripts/cleanup-jobs.mjs
-            processed=$((processed + 1))
+          }
+
+          wait_for_batch() {
+            local batch_status=0
+            local i status
+            for i in "${!running_pids[@]}"; do
+              if wait "${running_pids[$i]}"; then
+                processed=$((processed + 1))
+              else
+                status=$?
+                batch_status=1
+                echo "::error::Housekeeping failed [$HOUSEKEEPING_LANE] ${running_slices[$i]} (exit $status)."
+              fi
+            done
+            echo "Housekeeping lane $HOUSEKEEPING_LANE progress: $processed/${#selected_slices[@]} slice(s) completed."
+            running_pids=()
+            running_slices=()
+            return "$batch_status"
+          }
+
+          for slice in "${selected_slices[@]}"; do
+            run_slice "$slice" &
+            running_pids+=("$!")
+            running_slices+=("$slice")
+            if [ "${#running_pids[@]}" -eq "$max_parallel" ]; then
+              if ! wait_for_batch; then
+                exit 1
+              fi
+            fi
           done
+
+          if [ "${#running_pids[@]}" -gt 0 ]; then
+            if ! wait_for_batch; then
+              exit 1
+            fi
+          fi
 
           echo "Housekeeping lane $HOUSEKEEPING_LANE processed $processed slice(s)."
 
