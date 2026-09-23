@@ -11905,6 +11905,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-22.imageAlt': 'I numeri del giorno per i frontalieri – 22 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-22.seoDescription': 'Bollettino frontalieri del 22 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-22.ogDescription': 'I numeri del 22 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.como-corso-farmacia-svizzera.title': 'Corso in Farmacia a Como: tirocini in territorio e Svizzera',
+    'blog.article.como-corso-farmacia-svizzera.excerpt': 'Partito il nuovo corso di laurea magistrale in Farmacia all\'Insubria di Como con quarantasette studenti e tirocini anche in Svizzera.',
+    'blog.article.como-corso-farmacia-svizzera.imageAlt': 'Studenti del corso di laurea in Farmacia all\'universita di Como',
 };
 
 export default blogMetaIt;
