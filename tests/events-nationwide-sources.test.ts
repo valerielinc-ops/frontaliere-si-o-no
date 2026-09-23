@@ -446,7 +446,7 @@ describe('mirrorEventImage', () => {
     const source = await sharp(raw, { raw: { width: 2400, height: 800, channels: 3 } })
       .jpeg({ quality: 80 })
       .toBuffer();
-    // Keep the fixture well clear of EVENT_IMAGE_MAX_BYTES (4MB), or a future
+    // Keep the fixture well clear of EVENT_IMAGE_MAX_BYTES, or a future
     // libjpeg would make mirrorEventImage return null and this test would fail
     // for a reason that has nothing to do with what it checks.
     expect(source.byteLength).toBeLessThan(NOISE_FIXTURE_SANITY_BYTES);

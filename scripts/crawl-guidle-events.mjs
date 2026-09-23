@@ -37,7 +37,7 @@
  *     embeds schema.org `Event` JSON-LD (a single object, or an ARRAY of
  *     objects — one per occurrence — for recurring events), the primary data
  *     source here (title, description, startDate/endDate/time, venue,
- *     address, image). `<meta name="geo.position" content="lat;lng">` gives
+ *     address, image, organizer and performer). `<meta name="geo.position" content="lat;lng">` gives
  *     geo coordinates and `<meta name="geo.region" content="CH-ZG">` gives the
  *     canton directly (stripped of the `CH-` prefix) — a strong `cantonHint`
  *     for `resolveComuneNationwide`, which most sources don't have. Category
@@ -114,6 +114,7 @@ import {
   enrichEventsWithGeoComune,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { firstEventImageUrl, normalizeEventPeople } from './lib/event-metadata.mjs';
 
 // Re-exported so existing importers (tests/crawl-guidle-events.test.ts) keep
 // working — the parser itself now lives in events-utils.mjs, shared with
@@ -355,7 +356,9 @@ export function mapDetailPageToLocaleData(html, locale) {
   const venue = cleanText(first.location?.name) || undefined;
   const address = extractAddress(first.location?.address);
   const addressLocality = cleanText(first.location?.address?.addressLocality) || undefined;
-  const imageSourceUrl = typeof first.image === 'string' && first.image.trim() ? first.image.trim() : undefined;
+  const imageSourceUrl = occurrences.map((occurrence) => firstEventImageUrl(occurrence.image, SITE_ORIGIN)).find(Boolean);
+  const organizer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.organizer, SITE_ORIGIN)).find(Boolean);
+  const performer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.performer, SITE_ORIGIN)).find(Boolean);
 
   const doc = new JSDOM(html).window.document;
   const category = extractCategory(doc, locale);
@@ -374,6 +377,8 @@ export function mapDetailPageToLocaleData(html, locale) {
     price,
     geo,
     canton,
+    ...(organizer ? { organizer } : {}),
+    ...(performer ? { performer } : {}),
   };
 }
 
@@ -381,8 +386,10 @@ export function mapDetailPageToLocaleData(html, locale) {
  * Pure merge: per-locale detail-page data (up to 4, one per it/en/de/fr,
  * `null` for a locale that 404s/410s/has no usable Event) → a SiteEvent-shaped
  * record. Structured fields (dates, category, price, geo, canton, venue,
- * address, image) come from the FIRST locale (in it→en→de→fr order) that has
- * data — they don't vary by locale, only the text does.
+ * address) come from the FIRST locale (in it→en→de→fr order) that has data —
+ * they don't vary by locale, only the text does. Optional source metadata
+ * (image, organizer, performer) can fall back to a later locale variant when
+ * the primary variant omitted it.
  * `titleByLocale`/`descriptionByLocale` collect the REAL text of every locale
  * that resolved, which is honestly identical to the source language for
  * events an organizer never translated (not a bug — see file header).
@@ -392,6 +399,9 @@ export function mapGuidleEvent(code, localeResults) {
   const primaryLocale = LOCALES.find((l) => localeResults[l]);
   if (!primaryLocale) return null;
   const primary = localeResults[primaryLocale];
+  const imageSourceUrl = LOCALES.map((locale) => localeResults[locale]?.imageSourceUrl).find(Boolean);
+  const organizer = LOCALES.map((locale) => localeResults[locale]?.organizer).find(Boolean);
+  const performer = LOCALES.map((locale) => localeResults[locale]?.performer).find(Boolean);
 
   const titleByLocale = {};
   const descriptionByLocale = {};
@@ -423,8 +433,10 @@ export function mapGuidleEvent(code, localeResults) {
       address: primary.address,
       geo: primary.geo,
       recurring: primary.recurring,
+      ...(organizer ? { organizer } : {}),
+      ...(performer ? { performer } : {}),
     },
-    imageSourceUrl: primary.imageSourceUrl,
+    imageSourceUrl,
     addressLocality: primary.addressLocality,
     cantonHint: primary.canton,
   };

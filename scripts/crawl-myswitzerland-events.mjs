@@ -17,9 +17,10 @@
  *     enumeration therefore recursively bisects the numeric `updatedTimestamp`
  *     attribute into <=1000-hit buckets (see `enumerateEventsForLocale`).
  *   - the search index gives id/title/description/dates/geo/image/place per
- *     locale, but NOT price/structured address/category — those only exist as
- *     schema.org Event JSON-LD on each event's own detail page, so we fetch
- *     one detail page per unique event (across up to 4 locale URLs) to enrich.
+ *     locale, but NOT price/structured address/category — those exist in the
+ *     schema.org Event JSON-LD and, for price, the localized detail table on
+ *     each event's own page, so we fetch one detail page per unique event
+ *     (across up to 4 locale URLs) to enrich.
  *   - `objectID` is stable across all 4 locale indices for the same event, so
  *     the 4 locale searches are unioned by id to build titleByLocale /
  *     descriptionByLocale (real per-locale translations, not machine ones).
@@ -69,6 +70,7 @@ import {
   resolveItalianFrontierComuni,
   mirrorEventImage,
   cleanEventText,
+  parsePriceText,
   loadEventTitleTranslationCache,
   saveEventTitleTranslationCache,
   enrichEventsWithLocaleFallbackTranslations,
@@ -77,6 +79,7 @@ import {
   enrichEventsWithGeoComune,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
+import { firstEventImageUrl, normalizeEventPeople } from './lib/event-metadata.mjs';
 
 const SOURCE = EVENT_SOURCES.myswitzerland;
 
@@ -330,8 +333,30 @@ export function humanizeCategory(rawType) {
   return base.replace(/([a-z0-9])([A-Z])/g, '$1 $2').trim() || 'Event';
 }
 
-/** Price from JSON-LD `offers` (object or array) or `isAccessibleForFree`. Undefined when unknown. */
-export function extractPrice(ld) {
+/**
+ * Return the text/value of a MySwitzerland key/value table row by label.
+ * The detail pages expose price there even when their JSON-LD omits `offers`.
+ */
+export function extractDetailTableValue(html, labels) {
+  if (typeof html !== 'string' || !html || !Array.isArray(labels) || !labels.length) return undefined;
+  const normalizedLabels = new Set(labels.map((label) => cleanText(label).toLocaleLowerCase()).filter(Boolean));
+  if (!normalizedLabels.size) return undefined;
+  const rowRe = /<tr\b[\s\S]*?<\/tr>/gi;
+  let rowMatch;
+  while ((rowMatch = rowRe.exec(html))) {
+    const row = rowMatch[0];
+    const labelMatch = /<th\b[^>]*>([\s\S]*?)<\/th>/i.exec(row);
+    const valueMatch = /<td\b[^>]*>([\s\S]*?)<\/td>/i.exec(row);
+    if (!labelMatch || !valueMatch) continue;
+    const label = cleanText(labelMatch[1]).toLocaleLowerCase();
+    if (!normalizedLabels.has(label)) continue;
+    return cleanText(valueMatch[1]) || undefined;
+  }
+  return undefined;
+}
+
+/** Price from JSON-LD `offers`, `isAccessibleForFree`, or the detail table. */
+export function extractPrice(ld, detailHtml) {
   const offersRaw = ld?.offers;
   const offers = Array.isArray(offersRaw) ? offersRaw : offersRaw ? [offersRaw] : [];
   const priced = offers
@@ -343,6 +368,8 @@ export function extractPrice(ld) {
     return { amount, currency, isFree: amount === 0 };
   }
   if (ld?.isAccessibleForFree === true) return { amount: 0, currency: 'CHF', isFree: true };
+  const tablePrice = extractDetailTableValue(detailHtml, ['Prezzo', 'Preis', 'Price', 'Prix']);
+  if (tablePrice) return parsePriceText(tablePrice);
   return undefined;
 }
 
@@ -417,10 +444,11 @@ export function extractEventJsonLd(html) {
  * `comune`/`canton` are left blank (`''`/undefined) and `imageUrl` absent —
  * those are filled in by `main()` (comune resolution + image mirroring are
  * async/impure and already covered by their own unit tests in
- * events-nationwide-sources.test.ts).
+ * events-nationwide-sources.test.ts). Detail metadata can come from any
+ * locale hit when the primary locale omits its image.
  */
 export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
-  const { detailLd, detailUrl } = enrichment;
+  const { detailLd, detailUrl, detailHtml } = enrichment;
   const primaryLocale = LOCALES.find((l) => perLocaleHits[l]);
   const primary = primaryLocale ? perLocaleHits[primaryLocale] : undefined;
   if (!primary) return null;
@@ -443,6 +471,11 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
 
   const rawUrl = detailUrl
     || `${SITE_ORIGIN}/${LOCALE_URL_PREFIX[primaryLocale]}${String(primary.url || '').startsWith('/') ? primary.url : `/${primary.url || ''}`}`;
+  const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN);
+  const performer = normalizeEventPeople(detailLd?.performer, detailUrl || SITE_ORIGIN);
+  const imageSourceUrl =
+    LOCALES.map((locale) => firstEventImageUrl(perLocaleHits[locale]?.image, SITE_ORIGIN)).find(Boolean)
+    || firstEventImageUrl(detailLd?.image, detailUrl || SITE_ORIGIN);
 
   return {
     event: {
@@ -461,12 +494,14 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
       url: rawUrl,
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
-      price: extractPrice(detailLd),
+      price: extractPrice(detailLd, detailHtml),
       address: extractAddress(detailLd),
       geo: extractGeo(primary),
       recurring: dateInfo.recurring,
+      ...(organizer ? { organizer } : {}),
+      ...(performer ? { performer } : {}),
     },
-    imageSourceUrl: primary.image || undefined,
+    imageSourceUrl,
     place: primary.place || undefined,
   };
 }
@@ -481,7 +516,7 @@ async function fetchDetailEnrichment(perLocaleHits) {
     const html = await fetchHtml(url);
     if (!html) continue;
     const ld = extractEventJsonLd(html);
-    if (ld) return { detailLd: ld, detailUrl: url };
+    if (ld) return { detailLd: ld, detailUrl: url, detailHtml: html };
   }
   return null;
 }
