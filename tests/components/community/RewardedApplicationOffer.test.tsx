@@ -10,7 +10,27 @@ const rewardedMock = vi.hoisted(() => ({
 vi.mock('@/components/shared/GptRewardedAd', () => ({
   default: (props: Record<string, unknown>) => {
     rewardedMock.props = props;
-    return <button type="button">Guarda il video</button>;
+    return (
+      <div>
+        <button
+          type="button"
+          data-testid="mock-google-no-fill"
+          onClick={() => (props.onUnavailable as (() => void) | undefined)?.()}
+        >
+          No fill
+        </button>
+        <button
+          type="button"
+          data-testid="mock-google-completed"
+          onClick={() => {
+            (props.onGranted as (() => void))();
+            (props.onVideoCompleted as (() => void) | undefined)?.();
+          }}
+        >
+          Google video completed
+        </button>
+      </div>
+    );
   },
 }));
 vi.mock('@/services/rewardedApplicationAccess', () => ({
@@ -55,33 +75,36 @@ describe('RewardedApplicationOffer', () => {
 
     expect(onDismiss).toHaveBeenCalledTimes(2);
   });
+
   it('uses the original candidature intent to start a ready Google rewarded ad', () => {
     render(<RewardedApplicationOffer {...defaultProps} />);
 
     expect(rewardedMock.props?.autoStart).toBe(true);
   });
 
-  it('redirects immediately when Google has no rewarded video available', () => {
-    render(<RewardedApplicationOffer {...defaultProps} />);
+  it('redirects immediately when Google has no paid fill and renders no house video', () => {
+    const onUnavailable = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
 
-    act(() => {
-      (rewardedMock.props?.onUnavailable as (() => void) | undefined)?.();
-    });
+    fireEvent.click(screen.getByTestId('mock-google-no-fill'));
 
-    expect(defaultProps.onUnavailable).toHaveBeenCalledTimes(1);
+    expect(onUnavailable).toHaveBeenCalledTimes(1);
+    expect(screen.queryByTestId('rewarded-house-video-start')).not.toBeInTheDocument();
   });
 
-  it('completes only after both the reward and the video completion are received', () => {
-    render(<RewardedApplicationOffer {...defaultProps} />);
+  it('completes the application flow only after Google grants and completes the video', () => {
+    const onCompleted = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onCompleted={onCompleted} />);
 
     act(() => {
       (rewardedMock.props?.onGranted as (() => void) | undefined)?.();
     });
-    expect(defaultProps.onCompleted).not.toHaveBeenCalled();
+    expect(onCompleted).not.toHaveBeenCalled();
 
     act(() => {
       (rewardedMock.props?.onVideoCompleted as (() => void) | undefined)?.();
     });
-    expect(defaultProps.onCompleted).toHaveBeenCalledTimes(1);
+
+    expect(onCompleted).toHaveBeenCalledTimes(1);
   });
 });
