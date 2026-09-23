@@ -115,6 +115,7 @@ jobs:
             scripts/ci/mint-app-token.mjs
             scripts/ci/orphan-pr-custodian.mjs
             scripts/ci/lib/constants.mjs
+            scripts/ci/lib/pr-review-admission.mjs
             scripts/ci/lib/review-input-revision.mjs
             scripts/lib/githubApiHeaders.mjs
             functions/src/githubApiHeaders.js
