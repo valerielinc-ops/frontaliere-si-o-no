@@ -79530,7 +79530,8 @@
     "slugByLocale": {
       "en": "dipl-senior-caregiver-hf-fh-with-the-additional-function-privatklinik-meiringen-thun",
       "de": "dipl-pflegefachperson-hf-fh-mit-der-zusatzfunktion-fachverantwortliche-r-80-100",
-      "fr": "dipl-senior-caregiiver-hf-fh-avec-la-fonction-supplementaire-privatklinik-meiringen-thun"
+      "fr": "dipl-senior-caregiiver-hf-fh-avec-la-fonction-supplementaire-privatklinik-meiringen-thun",
+      "it": "dipl-infermieristica-professionale-hf-fh-con-funzione-aggiuntiva-professionista-responsabile-r-80-100-privatklinik"
     }
   },
   "id|jobalino.ch|9": {
@@ -292619,7 +292620,12 @@
     "canonicalSlug": "mitarbeiterin-patientenaufnahme-w-m-60-80-kispi-zurich-zurich",
     "canton": "ZH",
     "createdAt": "2026-06-01",
-    "slugByLocale": {}
+    "slugByLocale": {
+      "it": "ricevimento-del-paziente-dipendente-m-f-40-universitats-kinderspital-zurich-kispi-zurich",
+      "en": "employee-patient-reception-m-f-40-universitats-kinderspital-zurich-kispi-zurich",
+      "de": "mitarbeiterin-patientenaufnahme-w-m-40-kispi-zurich-zurich",
+      "fr": "reception-du-patient-salarie-h-f-40-universitats-kinderspital-zurich-kispi-zurich"
+    }
   },
   "id|recruitingapp-12705.umantis.com|3390": {
     "canonicalSlug": "vollzugsangestellter-bezirksgefangnis-80-100-kanton-aargau-ch",
@@ -339690,7 +339696,8 @@
     "slugByLocale": {
       "it": "sales-specialista-operating-room-essentials-surgical-innovations-f-m-d-medtronic-bern",
       "de": "sales-spezialist-operating-room-essentials-surgical-innovations-h-f-d-medtronic-bern",
-      "fr": "sales-specialist-operating-room-essentials-surgical-innovations-h-f-d-medtronic-ch"
+      "fr": "sales-specialist-operating-room-essentials-surgical-innovations-h-f-d-medtronic-ch",
+      "en": "sales-specialist-operating-room-essentials-surgical-innovations-h-f-d-medtronic-tolochenaz"
     },
     "createdAt": "2026-07-16",
     "canton": "VD"
@@ -540715,7 +540722,8 @@
     "slugByLocale": {
       "de": "fachperson-gesundheit-efz-80-100-privatklinik-meiringen-thun",
       "en": "health-professional-efz-80-100-privatklinik-meiringen-thun",
-      "fr": "professionnels-de-la-sante-efz-80-100-privatklinik-meiringen-thun"
+      "fr": "professionnels-de-la-sante-efz-80-100-privatklinik-meiringen-thun",
+      "it": "professionista-della-salute-efz-80-100-privatklinik-meiringen-thun"
     },
     "createdAt": "2026-08-19",
     "canton": "BE"
@@ -691802,7 +691810,10 @@
   "id|stadtluzern.ch|b5b9cc9a-d879-491d-93e4-befbfd9d6abe": {
     "canonicalSlug": "sozialpadagog-in-hf-fh-zirka-25-55-betreuung-sali-steinhof-volksschule-luzern-luzern",
     "slugByLocale": {
-      "de": "sozialpadagog-in-hf-fh-zirka-25-55-betreuung-sali-steinhof-volksschule-luzern-luzern"
+      "de": "sozialpadagog-in-hf-fh-zirka-25-55-betreuung-sali-steinhof-volksschule-luzern-luzern",
+      "it": "istruzione-sociale-in-hf-fh-circa-25-55-sostegno-sali-steinhof-volksschule-stadt-luzern-luzern",
+      "en": "social-education-in-hf-fh-about-25-55-support-sali-steinhof-volksschule-stadt-luzern-luzern",
+      "fr": "l-education-sociale-en-hf-fh-environ-25-55-soutien-sali-steinhof-volksschule-stadt-luzern-luzern"
     },
     "createdAt": "2026-09-09",
     "canton": "LU"
@@ -691811,7 +691822,9 @@
     "canonicalSlug": "aushilfe-come-sozialpadagogische-r-collaboratore-trice-in-uber-mittag-e-tagesbetreuung-betreuung-sali-steinhof-volksschule-stadt-luzern",
     "slugByLocale": {
       "de": "aushilfe-als-sozialpadagogische-r-mitarbeiter-in-uber-mittag-und-tagesbetreuung-betreuung",
-      "it": "aushilfe-come-sozialpadagogische-r-collaboratore-trice-in-uber-mittag-e-tagesbetreuung-betreuung-sali-steinhof-volksschule-stadt-luzern"
+      "it": "aushilfe-come-sozialpadagogische-r-collaboratore-trice-in-uber-mittag-e-tagesbetreuung-betreuung-sali-steinhof-volksschule-stadt-luzern",
+      "en": "help-as-a-social-pedagogy-employee-about-lunch-and-day-care-support-sali-steinhof-volksschule-stadt-luzern-luzern",
+      "fr": "aide-en-tant-qu-employe-de-pedagogie-sociale-pour-le-dejeuner-et-la-garde-de-jour-soutien-sali-steinhof-volksschule"
     },
     "createdAt": "2026-09-09",
     "canton": "LU"
@@ -756746,7 +756759,9 @@
   "id|swica.ch|e0f4de32-2298-4e4b-92ac-665eea2eabb5": {
     "canonicalSlug": "senior-software-packager-alle-swica-winterthur",
     "slugByLocale": {
-      "de": "senior-software-packager-alle-swica-winterthur"
+      "de": "senior-software-packager-alle-swica-winterthur",
+      "it": "pacchetto-software-senior-tutti-swica-gesundheitsorganisation-winterthur",
+      "fr": "packaging-logiciel-senior-tous-swica-gesundheitsorganisation-winterthur"
     },
     "createdAt": "2026-09-20",
     "canton": "ZH"
@@ -756754,7 +756769,10 @@
   "id|swica.ch|f9ff186b-22fa-48a3-888f-4409cd056563": {
     "canonicalSlug": "underwriter-unternehmensgeschaft-alle-swica-winterthur",
     "slugByLocale": {
-      "de": "underwriter-unternehmensgeschaft-alle-swica-winterthur"
+      "de": "underwriter-unternehmensgeschaft-alle-swica-winterthur",
+      "it": "underwriter-corporate-business-tutti-swica-gesundheitsorganisation-winterthur",
+      "en": "underwriter-corporate-business-all-swica-gesundheitsorganisation-winterthur",
+      "fr": "societes-d-assurances-tous-swica-gesundheitsorganisation-winterthur"
     },
     "createdAt": "2026-09-20",
     "canton": "ZH"
@@ -756762,7 +756780,10 @@
   "id|swica.ch|c7048607-e4c2-4735-bdfc-a749e21570e3": {
     "canonicalSlug": "kundenberater-alle-swica-wetzikon",
     "slugByLocale": {
-      "de": "kundenberater-alle-swica-wetzikon"
+      "de": "kundenberater-alle-swica-wetzikon",
+      "it": "consulenti-del-cliente-tutti-swica-gesundheitsorganisation-wetzikon",
+      "en": "customer-advisers-all-swica-gesundheitsorganisation-wetzikon",
+      "fr": "conseillers-a-la-clientele-tous-swica-gesundheitsorganisation-wetzikon"
     },
     "createdAt": "2026-09-20",
     "canton": "ZH"
@@ -756770,7 +756791,10 @@
   "id|swica.ch|271a55ba-828c-4bc8-b56e-346b818ccb40": {
     "canonicalSlug": "kundenberater-alle-swica-rorschach",
     "slugByLocale": {
-      "de": "kundenberater-alle-swica-rorschach"
+      "de": "kundenberater-alle-swica-rorschach",
+      "it": "consulenti-del-cliente-tutti-swica-gesundheitsorganisation-rorschach",
+      "en": "customer-advisers-all-swica-gesundheitsorganisation-rorschach",
+      "fr": "conseillers-a-la-clientele-tous-swica-gesundheitsorganisation-rorschach"
     },
     "createdAt": "2026-09-20",
     "canton": "SG"
@@ -756778,7 +756802,10 @@
   "id|swica.ch|2aa8a610-024b-48e3-b95b-7355e65404c0": {
     "canonicalSlug": "kundenberater-alle-swica-wil",
     "slugByLocale": {
-      "de": "kundenberater-alle-swica-wil"
+      "de": "kundenberater-alle-swica-wil",
+      "it": "consulenti-del-cliente-tutti-swica-gesundheitsorganisation-wil",
+      "en": "customer-advisers-all-swica-gesundheitsorganisation-wil",
+      "fr": "conseillers-a-la-clientele-tous-swica-gesundheitsorganisation-wil"
     },
     "createdAt": "2026-09-20",
     "canton": "SG"
@@ -765260,7 +765287,9 @@
     "canonicalSlug": "verkaufsberater-in-heimtextilien-per-la-marke-schlossberg-80-100-m-w-d-globus-zurich-bahnhofstrasse",
     "slugByLocale": {
       "de": "verkaufsberater-in-heimtextilien-fur-die-marke-schlossberg-80-100-w-m-d-globus-ch",
-      "it": "verkaufsberater-in-heimtextilien-per-la-marke-schlossberg-80-100-m-w-d-globus-zurich-bahnhofstrasse"
+      "it": "verkaufsberater-in-heimtextilien-per-la-marke-schlossberg-80-100-m-w-d-globus-zurich-bahnhofstrasse",
+      "en": "sales-consultant-for-the-schlossberg-brand-80-100-m-f-d-globus-zurich-bahnhofstrasse",
+      "fr": "consultant-commercial-pour-la-marque-schlossberg-80-100-h-f-d-globus-zurich-bahnhofstrasse"
     },
     "createdAt": "2026-09-20",
     "canton": "ZH"
@@ -765389,7 +765418,8 @@
     "slugByLocale": {
       "en": "universal-geneve-senior-editor-f-m-x-breitling-geneva-ge",
       "fr": "universal-geneve-editeur-principal-h-f-x-breitling-geneva-ge",
-      "it": "geneve-universale-senior-editor-m-f-x-breitling-geneva"
+      "it": "geneve-universale-senior-editor-m-f-x-breitling-geneva",
+      "de": "universal-geneve-leitender-redakteur-m-w-x-breitling-geneva-ge"
     },
     "createdAt": "2026-09-20",
     "canton": "GE"
@@ -786414,7 +786444,8 @@
     "canonicalSlug": "sap-solution-architect-ewm-80-100-belimo-hinwil",
     "slugByLocale": {
       "de": "sap-solution-architect-ewm-80-100-belimo-hinwil",
-      "it": "architetto-di-soluzioni-sap-ewm-80-100-belimo-hinwil"
+      "it": "architetto-di-soluzioni-sap-ewm-80-100-belimo-hinwil",
+      "fr": "architecte-de-solutions-sap-ewm-80-100-belimo-hinwil"
     },
     "createdAt": "2026-09-22",
     "canton": "ZH"
@@ -786434,7 +786465,8 @@
     "canonicalSlug": "pim-application-manager-80-100-belimo-hinwil",
     "slugByLocale": {
       "de": "pim-application-manager-80-100-belimo-hinwil",
-      "fr": "gestionnaire-des-demandes-de-gip-80-100-belimo-hinwil"
+      "fr": "gestionnaire-des-demandes-de-gip-80-100-belimo-hinwil",
+      "it": "responsabile-applicazioni-pim-80-100-belimo-hinwil"
     },
     "createdAt": "2026-09-22",
     "canton": "ZH"
@@ -786718,7 +786750,8 @@
     "canonicalSlug": "universal-geneve-senior-social-media-manager-f-m-x-breitling-zurich-zh",
     "slugByLocale": {
       "en": "universal-geneve-senior-social-media-manager-f-m-x-breitling-zurich-zh",
-      "fr": "universal-geneve-directeur-principal-des-medias-sociaux-h-f-x-breitling-zurich-zh"
+      "fr": "universal-geneve-directeur-principal-des-medias-sociaux-h-f-x-breitling-zurich-zh",
+      "de": "universal-geneve-senior-managerin-fur-soziale-medien-m-w-x-breitling-zurich-zh"
     },
     "createdAt": "2026-09-22",
     "canton": "ZH"
@@ -790809,5 +790842,879 @@
     },
     "createdAt": "2026-09-23",
     "canton": "LU"
+  },
+  "id|sbb.ch|b8a845eb-8ad2-4f08-89c3-f0dcfe5e9cfb": {
+    "canonicalSlug": "tecnico-di-messa-in-servizio-e-risoluzione-dei-problemi-di-locomotive-ffs-officine-ferrovie-federali-yverdon-les-bains",
+    "slugByLocale": {
+      "it": "tecnico-di-messa-in-servizio-e-risoluzione-dei-problemi-di-locomotive-ffs-officine-ferrovie-federali-yverdon-les-bains",
+      "en": "locomotive-commissioning-and-troubleshooting-technician-ffs-officine-ferrovie-federali-yverdon-les-bains",
+      "de": "techniker-fur-inbetriebnahme-und-fehlerbehebung-von-lokomotiven-ffs-officine-ferrovie-federali-yverdon-les-bains",
+      "fr": "technicien-ne-de-mise-en-service-et-de-depannage-des-locomotives-ffs-officine-ferrovie-federali-yverdon-les-bains"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VD"
+  },
+  "id|sbb.ch|4d841b33-5466-4d47-a63b-4c14d65e0874": {
+    "canonicalSlug": "ingegnere-frontend-dello-staff-m-f-d-ffs-officine-ferrovie-federali-bern",
+    "slugByLocale": {
+      "it": "ingegnere-frontend-dello-staff-m-f-d-ffs-officine-ferrovie-federali-bern",
+      "en": "frontend-engineer-m-f-d-ffs-officine-ferrovie-federali-bern",
+      "de": "staff-frontend-engineer-m-w-d-ffs-officine-ferrovie-federali-bern",
+      "fr": "ingenieur-frontend-du-personnel-h-f-d-ffs-officine-ferrovie-federali-bern"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|sbb.ch|fb9d136a-73bf-47f9-839b-4f52db13c3de": {
+    "canonicalSlug": "acquirente-strategico-ffs-officine-ferrovie-federali-bern",
+    "slugByLocale": {
+      "it": "acquirente-strategico-ffs-officine-ferrovie-federali-bern",
+      "en": "strategic-buyer-ffs-officine-ferrovie-federali-bern",
+      "de": "strategische-r-einkaufer-in-ffs-officine-ferrovie-federali-bern",
+      "fr": "acheteur-strategique-ffs-officine-ferrovie-federali-bern"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|sbb.ch|5b1f91f9-e3d8-46fd-80d9-8883ffd45794": {
+    "canonicalSlug": "consulente-di-viaggi-80-100-ffs-officine-ferrovie-federali-sarnen",
+    "slugByLocale": {
+      "it": "consulente-di-viaggi-80-100-ffs-officine-ferrovie-federali-sarnen",
+      "en": "travel-consultant-80-100-ffs-officine-ferrovie-federali-sarnen",
+      "de": "reiseberater-in-80-100-in-sarnen-hergiswil-ffs-officine-ferrovie-federali-sarnen-hergiswil",
+      "fr": "consultant-en-voyage-80-100-ffs-officine-ferrovie-federali-sarnen"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "OW"
+  },
+  "id|sbb.ch|b5334e31-a303-4be7-8b6b-d2f10b4a96a4": {
+    "canonicalSlug": "cambio-carriera-conducente-ferroviario-trasporto-passeggeri-berna-03-2027-ffs-officine-ferrovie-federali-bern",
+    "slugByLocale": {
+      "it": "cambio-carriera-conducente-ferroviario-trasporto-passeggeri-berna-03-2027-ffs-officine-ferrovie-federali-bern",
+      "en": "career-changer-train-driver-passenger-transport-bern-03-2027-ffs-officine-ferrovie-federali-bern",
+      "de": "quereinsteiger-in-lokfuhrer-in-personenverkehr-bern-03-2027-ffs-officine-ferrovie-federali-bern",
+      "fr": "changement-de-carriere-conducteur-de-train-transport-voyageurs-berne-03-2027-ffs-officine-ferrovie-federali-bern"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|sbb.ch|fb83114c-9cdf-4d23-bede-6a15df9b4ded": {
+    "canonicalSlug": "ingresso-laterale-companion-cliente-per-la-registrazione-della-frequenza-ffs-officine-ferrovie-federali-winterthur",
+    "slugByLocale": {
+      "it": "ingresso-laterale-companion-cliente-per-la-registrazione-della-frequenza-ffs-officine-ferrovie-federali-winterthur",
+      "en": "lateral-entry-customer-companion-for-frequency-recording-ffs-officine-ferrovie-federali-winterthur",
+      "de": "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-winterthur",
+      "fr": "entree-laterale-client-compagnon-pour-l-enregistrement-de-frequence-ffs-officine-ferrovie-federali-winterthur"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|sbb.ch|badd1a6a-e5b1-4941-b760-43a14bd3251f": {
+    "canonicalSlug": "ingresso-laterale-companion-cliente-per-la-registrazione-della-frequenza-ffs-officine-ferrovie-federali-olten",
+    "slugByLocale": {
+      "it": "ingresso-laterale-companion-cliente-per-la-registrazione-della-frequenza-ffs-officine-ferrovie-federali-olten",
+      "en": "lateral-entry-customer-companion-for-frequency-recording-ffs-officine-ferrovie-federali-olten",
+      "de": "quereinstieg-kundenbegleiter-in-fur-frequenzerfassung-ffs-officine-ferrovie-federali-olten",
+      "fr": "entree-laterale-client-compagnon-pour-l-enregistrement-de-frequence-ffs-officine-ferrovie-federali-olten"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "SO"
+  },
+  "id|sbb.ch|c5a8751f-9b4a-4c58-a564-7000b07625f9": {
+    "canonicalSlug": "project-manager-access-systems-con-guida-esperta-ffs-officine-ferrovie-federali-olten",
+    "slugByLocale": {
+      "it": "project-manager-access-systems-con-guida-esperta-ffs-officine-ferrovie-federali-olten",
+      "en": "project-manager-access-systems-with-expert-guidance-ffs-officine-ferrovie-federali-olten",
+      "de": "projektleiter-in-zutrittssysteme-mit-fachfuhrung-ffs-officine-ferrovie-federali-olten",
+      "fr": "gestionnaire-de-projet-systemes-d-acces-avec-conseils-d-experts-ffs-officine-ferrovie-federali-olten"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "SO"
+  },
+  "id|sbb.ch|d5f65190-6f72-4a18-b93e-5bb00338486b": {
+    "canonicalSlug": "ottimizzazione-dei-processi-e-digitalizzazione-del-project-manager-ffs-officine-ferrovie-federali-bern",
+    "slugByLocale": {
+      "it": "ottimizzazione-dei-processi-e-digitalizzazione-del-project-manager-ffs-officine-ferrovie-federali-bern",
+      "en": "project-manager-process-optimization-e-digitization-ffs-officine-ferrovie-federali-bern",
+      "de": "projektleiter-in-prozessoptimierung-e-digitalisierung-ffs-officine-ferrovie-federali-bern",
+      "fr": "gestion-de-projet-optimisation-des-processus-et-numerisation-ffs-officine-ferrovie-federali-bern"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|sbb.ch|e643e940-0c6b-494c-b037-9ae0498e602a": {
+    "canonicalSlug": "product-manager-mobilita-combinata-ffs-officine-ferrovie-federali-bern",
+    "slugByLocale": {
+      "it": "product-manager-mobilita-combinata-ffs-officine-ferrovie-federali-bern",
+      "en": "product-manager-combined-mobility-ffs-officine-ferrovie-federali-bern",
+      "de": "produktmanager-in-kombinierte-mobilitat-ffs-officine-ferrovie-federali-bern",
+      "fr": "chef-de-produit-mobilite-combinee-ffs-officine-ferrovie-federali-bern"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|sbb.ch|7cde8d77-04bb-4ab3-8322-a544472e01a4": {
+    "canonicalSlug": "tecnico-operativo-manutenzione-locomotive-da-manovra-ffs-officine-ferrovie-federali-dietikon",
+    "slugByLocale": {
+      "it": "tecnico-operativo-manutenzione-locomotive-da-manovra-ffs-officine-ferrovie-federali-dietikon",
+      "en": "operational-technician-maintenance-shunting-locomotives-ffs-officine-ferrovie-federali-dietikon",
+      "de": "operative-r-techniker-in-instandhaltung-rangierlokomotiven-ffs-officine-ferrovie-federali-dietikon",
+      "fr": "technicien-operationnel-maintenance-des-locomotives-de-man-uvre-ffs-officine-ferrovie-federali-dietikon"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|sbb.ch|f299ec37-4b4b-4501-bff7-d8eb9b5205b2": {
+    "canonicalSlug": "operatore-di-macchine-e-impianti-ffs-officine-ferrovie-federali-hagendorf",
+    "slugByLocale": {
+      "it": "operatore-di-macchine-e-impianti-ffs-officine-ferrovie-federali-hagendorf",
+      "en": "machine-and-plant-operator-ffs-officine-ferrovie-federali-hagendorf",
+      "de": "maschinen-und-anlagenbediener-in-ffs-officine-ferrovie-federali-hagendorf",
+      "fr": "operateur-de-machines-et-d-installations-ffs-officine-ferrovie-federali-hagendorf"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "SO"
+  },
+  "id|sbb.ch|f522b594-0f04-45be-88c8-d0ce0428a2a1": {
+    "canonicalSlug": "conducente-cat-a40-ffs-officine-ferrovie-federali-basel",
+    "slugByLocale": {
+      "it": "conducente-cat-a40-ffs-officine-ferrovie-federali-basel",
+      "en": "train-driver-cat-a40-ffs-officine-ferrovie-federali-basel",
+      "de": "lokfuhrer-in-kat-a40-ffs-officine-ferrovie-federali-basel",
+      "fr": "conducteur-de-train-cat-a40-ffs-officine-ferrovie-federali-basel"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BS"
+  },
+  "url|https://hopital-fribourgeois.breezy.hr/p/cf8c523ac675-physiotherapeute-cdd-80-90-physiotherapeutin-physiotherapeuten-80-90-befristet-fur-8-monate": {
+    "canonicalSlug": "fisioterapia-cdd-80-90-hopital-fribourgeois-hfr-hfr-riaz",
+    "slugByLocale": {
+      "it": "fisioterapia-cdd-80-90-hopital-fribourgeois-hfr-hfr-riaz",
+      "en": "physiotherapy-cdd-80-90-hopital-fribourgeois-hfr-hfr-riaz",
+      "de": "physiotherapie-cdd-80-90-hopital-fribourgeois-hfr-hfr-riaz",
+      "fr": "physiotherapeute-cdd-80-90-physiotherapeutin-physiotherapeuten-80-90-befristet-fur-8"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "FR"
+  },
+  "url|https://hopital-fribourgeois.breezy.hr/p/02b03762cca8-medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80": {
+    "canonicalSlug": "assistente-medico-responsabile-della-riabilitazione-respiratoria-70-80-hopital-fribourgeois-hfr-hfr-riaz",
+    "slugByLocale": {
+      "it": "assistente-medico-responsabile-della-riabilitazione-respiratoria-70-80-hopital-fribourgeois-hfr-hfr-riaz",
+      "en": "assistant-physician-responsible-for-respiratory-rehabilitation-70-80-hopital-fribourgeois-hfr-hfr-riaz",
+      "de": "assistenzarzt-verantwortlich-fur-respiratorische-rehabilitation-70-80-hopital-fribourgeois-hfr-hfr-riaz",
+      "fr": "medecin-adjoint-e-responsable-de-la-readaptation-respiratoire-70-80-hfr-hopital"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "FR"
+  },
+  "url|https://hopital-fribourgeois.breezy.hr/p/0afb1090e546-ergotherapeutin-ergotherapeuten-40": {
+    "canonicalSlug": "terapista-occupazionale-40-hopital-fribourgeois-hfr-hfr-tafers",
+    "slugByLocale": {
+      "it": "terapista-occupazionale-40-hopital-fribourgeois-hfr-hfr-tafers",
+      "en": "occupational-therapist-40-hopital-fribourgeois-hfr-hfr-tafers",
+      "de": "ergotherapeutin-ergotherapeuten-40-hfr-hopital-fribourgeois-hfr-tafers",
+      "fr": "ergotherapie-40-hopital-fribourgeois-hfr-hfr-tafers"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "FR"
+  },
+  "url|https://hopital-fribourgeois.breezy.hr/p/be2877a99f7b-adjoint-e-du-responsable-du-service-tarifs-conventions-et-facturation-80-100": {
+    "canonicalSlug": "adjoint-e-du-responsable-du-service-tariffe-convenzioni-e-faceuration-80-100-hopital-fribourgeois-hfr-fribourg",
+    "slugByLocale": {
+      "it": "adjoint-e-du-responsable-du-service-tariffe-convenzioni-e-faceuration-80-100-hopital-fribourgeois-hfr-fribourg",
+      "de": "adjoint-e-du-responsable-du-service-tarifs-conventions-et-facturation-80-100-hfr-hopital"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "FR"
+  },
+  "id|sbb.ch|fc918398-8aba-49e5-8d69-8ecc94e657e2": {
+    "canonicalSlug": "direttore-del-corso-ffs-officine-ferrovie-federali-olten",
+    "slugByLocale": {
+      "it": "direttore-del-corso-ffs-officine-ferrovie-federali-olten",
+      "en": "course-director-ffs-officine-ferrovie-federali-olten",
+      "de": "lehrgangsleiter-in-ffs-officine-ferrovie-federali-olten",
+      "fr": "directeur-de-cours-ffs-officine-ferrovie-federali-olten"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "SO"
+  },
+  "url|https://www.pdgr.ch/jobs/hilfskoechin-hilfskoch": {
+    "canonicalSlug": "cuoco-ausiliario-cuoco-ausiliario-psychiatrische-dienste-graubunden-chur",
+    "slugByLocale": {
+      "it": "cuoco-ausiliario-cuoco-ausiliario-psychiatrische-dienste-graubunden-chur",
+      "en": "auxiliary-cook-auxiliary-cook-psychiatrische-dienste-graubunden-chur",
+      "de": "hilfskochin-hilfskoch-pdgr-ch",
+      "fr": "cuisiniere-auxiliaire-cuisiniere-auxiliaire-psychiatrische-dienste-graubunden-chur"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/betreuer-in-2-9": {
+    "canonicalSlug": "consigliere-psychiatrische-dienste-graubunden-rothenbrunnen",
+    "slugByLocale": {
+      "it": "consigliere-psychiatrische-dienste-graubunden-rothenbrunnen",
+      "en": "supervisor-psychiatrische-dienste-graubunden-rothenbrunnen",
+      "de": "betreuer-in-pdgr-ch",
+      "fr": "superviseur-interne-psychiatrische-dienste-graubunden-rothenbrunnen"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/stv-pflege-standortleiter-in": {
+    "canonicalSlug": "stv-allattamento-site-manager-in-psychiatrische-dienste-graubunden-ilanz",
+    "slugByLocale": {
+      "it": "stv-allattamento-site-manager-in-psychiatrische-dienste-graubunden-ilanz",
+      "en": "stv-nursing-site-manager-in-psychiatrische-dienste-graubunden-ilanz",
+      "de": "stv-pflege-standortleiter-in-pdgr-ch",
+      "fr": "stv-infirmiere-gestionnaire-de-site-in-psychiatrische-dienste-graubunden-ilanz"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-oder-dipl-sozialpaedagogen-in-hf-2": {
+    "canonicalSlug": "dipl-cura-professionale-hf-o-dipl-educatori-sociali-hf-psychiatrische-dienste-graubunden-cazis",
+    "slugByLocale": {
+      "it": "dipl-cura-professionale-hf-o-dipl-educatori-sociali-hf-psychiatrische-dienste-graubunden-cazis",
+      "en": "dipl-care-professional-hf-or-dipl-social-educators-hf-psychiatrische-dienste-graubunden-cazis",
+      "de": "dipl-pflegefachperson-hf-oder-dipl-sozialpadagogen-in-hf-pdgr-ch",
+      "fr": "dipl-soins-professionnels-hf-ou-dipl-enseignants-sociaux-hf-psychiatrische-dienste-graubunden-cazis"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/lehrperson-schulische-heilpaedagogik-shp-2": {
+    "canonicalSlug": "docente-di-formazione-professionale-shp-psychiatrische-dienste-graubunden-chur",
+    "slugByLocale": {
+      "it": "docente-di-formazione-professionale-shp-psychiatrische-dienste-graubunden-chur",
+      "en": "school-curative-education-teacher-shp-psychiatrische-dienste-graubunden-chur",
+      "de": "lehrperson-schulische-heilpadagogik-shp-pdgr-ch",
+      "fr": "enseignant-en-education-curative-scolaire-shp-psychiatrische-dienste-graubunden-chur"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/assistenz-oder-fachpsychologe-in-2-6": {
+    "canonicalSlug": "assistente-o-psicologo-specializzato-psychiatrische-dienste-graubunden-ilanz",
+    "slugByLocale": {
+      "it": "assistente-o-psicologo-specializzato-psychiatrische-dienste-graubunden-ilanz",
+      "en": "assistant-or-specialist-psychologist-psychiatrische-dienste-graubunden-ilanz",
+      "de": "assistenz-oder-fachpsychologe-in-pdgr-ch",
+      "fr": "assistant-ou-psychologue-specialise-psychiatrische-dienste-graubunden-ilanz"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/gaertner-in-3": {
+    "canonicalSlug": "giardinieri-psychiatrische-dienste-graubunden-chur",
+    "slugByLocale": {
+      "it": "giardinieri-psychiatrische-dienste-graubunden-chur",
+      "en": "gardeners-psychiatrische-dienste-graubunden-chur",
+      "de": "gartner-in-pdgr-ch",
+      "fr": "jardiniers-psychiatrische-dienste-graubunden-chur"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/arbeitsagoge-in-2": {
+    "canonicalSlug": "manipolatore-di-lavoro-psychiatrische-dienste-graubunden-chur",
+    "slugByLocale": {
+      "it": "manipolatore-di-lavoro-psychiatrische-dienste-graubunden-chur",
+      "en": "work-handler-in-psychiatrische-dienste-graubunden-chur",
+      "de": "arbeitsagoge-in-pdgr-ch",
+      "fr": "gestionnaire-de-travail-in-psychiatrische-dienste-graubunden-chur"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/leiter-in-organisation-fachentwicklung": {
+    "canonicalSlug": "responsabile-organizzazione-sviluppo-specialista-psychiatrische-dienste-graubunden-rothenbrunnen",
+    "slugByLocale": {
+      "it": "responsabile-organizzazione-sviluppo-specialista-psychiatrische-dienste-graubunden-rothenbrunnen",
+      "en": "head-of-organization-specialist-development-psychiatrische-dienste-graubunden-rothenbrunnen",
+      "de": "leiter-in-organisation-fachentwicklung-pdgr-ch",
+      "fr": "chef-de-l-organisation-et-du-developpement-de-specialistes-psychiatrische-dienste-graubunden-rothenbrunnen"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/kunsttherapeut-in-2": {
+    "canonicalSlug": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
+    "slugByLocale": {
+      "it": "terapisti-d-arte-psychiatrische-dienste-graubunden-ilanz",
+      "en": "art-therapists-psychiatrische-dienste-graubunden-ilanz",
+      "de": "kunsttherapeut-in-pdgr-ch",
+      "fr": "artotherapeutes-psychiatrische-dienste-graubunden-ilanz"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/dipl-pflegefachperson-hf-7-5": {
+    "canonicalSlug": "dipl-professionista-hf-psychiatrische-dienste-graubunden-ilanz",
+    "slugByLocale": {
+      "it": "dipl-professionista-hf-psychiatrische-dienste-graubunden-ilanz",
+      "en": "dipl-care-professional-hf-psychiatrische-dienste-graubunden-ilanz",
+      "de": "dipl-pflegefachperson-hf-pdgr-ch",
+      "fr": "dipl-soins-professionnels-hf-psychiatrische-dienste-graubunden-ilanz"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.pdgr.ch/jobs/mitarbeiter-in-cafeteria-4": {
+    "canonicalSlug": "collaboratore-trice-cafeteria-psychiatrische-dienste-graubunden-cazis",
+    "slugByLocale": {
+      "it": "collaboratore-trice-cafeteria-psychiatrische-dienste-graubunden-cazis",
+      "en": "employees-cafeteria-psychiatrische-dienste-graubunden-cazis",
+      "de": "mitarbeiter-in-cafeteria-pdgr-ch",
+      "fr": "employes-cafeteria-psychiatrische-dienste-graubunden-cazis"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "id|bobst.com|9230": {
+    "canonicalSlug": "stagista-mpc-3-1-hr-centro-di-formazione-bobst-switzerland-mex",
+    "slugByLocale": {
+      "it": "stagista-mpc-3-1-hr-centro-di-formazione-bobst-switzerland-mex",
+      "en": "intern-mpc-3-1-hr-training-centre-bobst-switzerland-mex",
+      "de": "praktikant-mpc-3-1-hr-ausbildungszentrum-bobst-switzerland-mex",
+      "fr": "stagiaire-mpc-3-1-rh-centre-de-formation-bobst-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VD"
+  },
+  "url|https://www.davosklostersmountains.ch/de/mountains/stellenangebote/mitarbeiter-in-front-office-hotel-ochsen_j_3885740": {
+    "canonicalSlug": "collaboratore-trice-front-office-hotel-ochsen-davos-klosters-bergbahnen-ag-davos",
+    "slugByLocale": {
+      "it": "collaboratore-trice-front-office-hotel-ochsen-davos-klosters-bergbahnen-ag-davos",
+      "de": "mitarbeiter-in-front-office-hotel-ochsen-davos-klosters-bergbahnen-davos"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.davosklostersmountains.ch/de/mountains/stellenangebote/mitarbeiter-in-front-office-hotel-national_j_2808514": {
+    "canonicalSlug": "collaboratore-trice-front-office-hotel-national-davos-klosters-bergbahnen-ag-davos",
+    "slugByLocale": {
+      "it": "collaboratore-trice-front-office-hotel-national-davos-klosters-bergbahnen-ag-davos",
+      "de": "mitarbeiter-in-front-office-hotel-national-davos-klosters-bergbahnen-davos"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GR"
+  },
+  "url|https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-557&chash=b7fa47c4f8ea35eb9b2ea9931a0298cf": {
+    "canonicalSlug": "cura-professionale-80-100-stiftung-wagerenhof-uster",
+    "slugByLocale": {
+      "de": "fachexperte-in-pflege-80-100-wagerenhof-uster",
+      "it": "cura-professionale-80-100-stiftung-wagerenhof-uster",
+      "en": "professional-care-80-100-stiftung-wagerenhof-uster",
+      "fr": "soins-professionnels-80-100-stiftung-wagerenhof-uster"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "url|https://www.wagerenhof.ch/wagerenhof/arbeiten-beim-wagerenhof/offene-stellen/vacancy-details?reference=2026-556&chash=bd1130c743274a0bf929a4da7598c12b": {
+    "canonicalSlug": "specialista-infermieristico-hf-dn-ii-akp-con-compiti-di-gestione-80-100-stiftung-wagerenhof-uster",
+    "slugByLocale": {
+      "it": "specialista-infermieristico-hf-dn-ii-akp-con-compiti-di-gestione-80-100-stiftung-wagerenhof-uster",
+      "en": "nursing-specialist-hf-dn-ii-akp-with-management-tasks-80-100-stiftung-wagerenhof-uster",
+      "de": "pflegefachfrau-mann-hf-dn-ii-akp-mit-fuhrungsaufgaben-80-100-wagerenhof-uster",
+      "fr": "specialiste-des-soins-infirmiers-hf-dn-ii-akp-avec-des-taches-de-gestion-80-100-stiftung-wagerenhof-uster"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|sbb.ch|867e2433-c12c-40bb-aa0c-c38707aa39cc": {
+    "canonicalSlug": "committente-committente-gestione-della-rete-nel-settore-carreggiata-ffs-officine-ferrovie-federali-zurich-altstetten",
+    "slugByLocale": {
+      "it": "committente-committente-gestione-della-rete-nel-settore-carreggiata-ffs-officine-ferrovie-federali-zurich-altstetten",
+      "en": "client-client-network-management-in-the-roadway-area-ffs-officine-ferrovie-federali-zurich-altstetten",
+      "de": "auftraggeber-in-bauherr-in-netzmanagement-im-bereich-fahrbahn-ffs-officine-ferrovie-federali-zurich-altstetten",
+      "fr": "client-client-gestion-de-reseau-dans-le-domaine-des-routes-ffs-officine-ferrovie-federali-zurich-altstetten"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|swissepi.ch|ed4c7092-4bb7-4d24-b9c6-4307371472b6": {
+    "canonicalSlug": "student-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-5f9850",
+    "slugByLocale": {
+      "it": "student-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-5f9850",
+      "en": "student-social-education-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-a8ldp8",
+      "de": "studierende-sozialpadagogik-hf-fh-epi-stiftung-zurich-a8ldp8",
+      "fr": "education-sociale-des-etudiants-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-5f9850"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|swissepi.ch|6fad5778-c894-40f6-888a-b7ef92ecde8a": {
+    "canonicalSlug": "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-574a0d",
+    "slugByLocale": {
+      "it": "dipl-pedagoga-sociale-pedagoga-sociale-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-574a0d",
+      "en": "dipl-social-pedagogue-social-pedagogue-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-574a0d",
+      "de": "dipl-sozialpadagogin-sozialpadagoge-hf-fh-epi-stiftung-zurich-f0smtf",
+      "fr": "dipl-pedagogue-social-pedagogue-social-hf-fh-schweizerische-epilepsie-stiftung-epi-zurich-574a0d"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|swissepi.ch|f18c0e20-6333-4570-9b80-e1539a0ff8bb": {
+    "canonicalSlug": "scolastico-lavoratore-sociale-scolastico-schweizerische-epilepsie-stiftung-epi-zurich-5261b2",
+    "slugByLocale": {
+      "it": "scolastico-lavoratore-sociale-scolastico-schweizerische-epilepsie-stiftung-epi-zurich-5261b2",
+      "en": "school-social-worker-school-social-worker-schweizerische-epilepsie-stiftung-epi-zurich-5261b2",
+      "de": "schulsozialarbeiterin-schulsozialarbeiter-epi-stiftung-zurich-pfuh3y",
+      "fr": "travailleur-social-scolaire-travailleur-social-scolaire-schweizerische-epilepsie-stiftung-epi-zurich-5261b2"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|swissepi.ch|0e3f158f-1805-48e0-bf55-f4600a349380": {
+    "canonicalSlug": "capo-squadra-abitazione-del-team-schweizerische-epilepsie-stiftung-epi-zurich",
+    "slugByLocale": {
+      "it": "capo-squadra-abitazione-del-team-schweizerische-epilepsie-stiftung-epi-zurich",
+      "en": "staff-team-leader-team-leader-housing-schweizerische-epilepsie-stiftung-epi-zurich",
+      "de": "stv-teamleiterin-teamleiter-bereich-wohnen-epi-stiftung-zurich",
+      "fr": "chef-d-equipe-chef-d-equipe-schweizerische-epilepsie-stiftung-epi-zurich"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|swissepi.ch|8cb46bdd-ad7a-4bc7-a169-67f3854a2536": {
+    "canonicalSlug": "chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich",
+    "slugByLocale": {
+      "de": "chefin-chef-de-service-epi-park-restaurant-epi-stiftung-zurich"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|solique.ch|4067946": {
+    "canonicalSlug": "medico-senior-per-la-nostra-anestesiologia-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+    "slugByLocale": {
+      "it": "medico-senior-per-la-nostra-anestesiologia-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "en": "senior-physician-for-our-anesthesiology-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "de": "oberarztin-oberarzt-fur-unsere-anasthesiologie-m-w-d-svar-spitalverbund-ar-herisau",
+      "fr": "medecin-principal-pour-notre-anesthesiologie-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "AR"
+  },
+  "id|solique.ch|4066170": {
+    "canonicalSlug": "gestione-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+    "slugByLocale": {
+      "it": "gestione-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "en": "application-manager-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "de": "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+      "fr": "gestionnaire-d-applications-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "AR"
+  },
+  "id|solique.ch|4068568": {
+    "canonicalSlug": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+    "slugByLocale": {
+      "it": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "en": "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "de": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+      "fr": "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "AR"
+  },
+  "id|solique.ch|4068838": {
+    "canonicalSlug": "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+    "slugByLocale": {
+      "it": "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "en": "dipl-caregiver-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "de": "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
+      "fr": "dipl-medecin-hf-gerontopsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "AR"
+  },
+  "id|solique.ch|4068874": {
+    "canonicalSlug": "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+    "slugByLocale": {
+      "it": "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "en": "dipl-care-specialist-hf-acute-care-unit-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "de": "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
+      "fr": "dipl-specialiste-des-soins-hf-unite-de-soins-actifs-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "AR"
+  },
+  "id|solique.ch|4066348": {
+    "canonicalSlug": "controllore-senior-come-partner-commerciale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+    "slugByLocale": {
+      "it": "controllore-senior-come-partner-commerciale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "de": "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau",
+      "fr": "controleur-senior-en-tant-que-partenaire-d-affaires-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "AR"
+  },
+  "id|solique.ch|4069910": {
+    "canonicalSlug": "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+    "slugByLocale": {
+      "it": "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "en": "specialist-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "de": "fachspezialist-in-hr-svar-spitalverbund-ar-herisau",
+      "fr": "fachspezialist-in-ressources-humaines-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "AR"
+  },
+  "id|solique.ch|4070229": {
+    "canonicalSlug": "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+    "slugByLocale": {
+      "it": "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "en": "dipl-nurse-or-specialist-health-haemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "de": "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
+      "fr": "dipl-infirmiere-ou-specialiste-en-hemodialyse-de-la-sante-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "AR"
+  },
+  "id|solique.ch|4070348": {
+    "canonicalSlug": "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+    "slugByLocale": {
+      "it": "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "en": "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "de": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+      "fr": "co-equipe-chef-soins-somatiques-aigus-focus-medecine-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "AR"
+  },
+  "id|solique.ch|4069965": {
+    "canonicalSlug": "hr-business-partnerin-svar-spitalverbund-ar-herisau",
+    "slugByLocale": {
+      "en": "hr-business-partner-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "de": "hr-business-partnerin-svar-spitalverbund-ar-herisau",
+      "fr": "hr-business-partnerin-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "AR"
+  },
+  "id|medtronic.wd1.myworkdayjobs.com|r75087-1": {
+    "canonicalSlug": "technical-consulente-sakrale-neuromodulation-m-w-d-medtronic-bern",
+    "slugByLocale": {
+      "it": "technical-consulente-sakrale-neuromodulation-m-w-d-medtronic-bern",
+      "de": "technical-consultant-sakrale-neuromodulation-m-w-d-medtronic-ch",
+      "fr": "consultant-technique-neuromodulation-sacree-h-f-d-medtronic-bern"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|medtronic.wd1.myworkdayjobs.com|r72643-2": {
+    "canonicalSlug": "global-senior-product-manager-scs-spinal-cord-stimolazione-medtronic-tolochenaz",
+    "slugByLocale": {
+      "it": "global-senior-product-manager-scs-spinal-cord-stimolazione-medtronic-tolochenaz",
+      "en": "global-senior-product-manager-scs-spinal-cord-stimulation-medtronic-ch",
+      "fr": "gestionnaire-de-produits-seniors-scs-stimulation-de-la-moelle-epiniere-medtronic-tolochenaz"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VD"
+  },
+  "id|medtronic.wd1.myworkdayjobs.com|r76394-1": {
+    "canonicalSlug": "mechanical-designer-tool-ingegnere-24-months-contract-medtronic-lausanne",
+    "slugByLocale": {
+      "it": "mechanical-designer-tool-ingegnere-24-months-contract-medtronic-lausanne",
+      "en": "mechanical-designer-tool-engineer-24-months-contract-medtronic-ch",
+      "de": "mechanical-designer-tool-ingenieur-24-months-contract-medtronic-lausanne",
+      "fr": "mechanical-designer-tool-ingenieur-24-months-contract-medtronic-lausanne"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VD"
+  },
+  "id|medtronic.wd1.myworkdayjobs.com|r74606-1": {
+    "canonicalSlug": "spina-di-piombo-dello-sviluppo-commerciale-regionale-medtronic-tolochenaz",
+    "slugByLocale": {
+      "it": "spina-di-piombo-dello-sviluppo-commerciale-regionale-medtronic-tolochenaz",
+      "en": "regional-business-development-lead-spine-medtronic-ch",
+      "de": "regionale-unternehmensentwicklung-medtronic-tolochenaz",
+      "fr": "spine-de-tete-pour-le-developpement-des-entreprises-regionales-medtronic-tolochenaz"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VD"
+  },
+  "id|medtronic.wd1.myworkdayjobs.com|r76932-1": {
+    "canonicalSlug": "equipment-development-ingegnere-24-months-contract-medtronic-lausanne",
+    "slugByLocale": {
+      "it": "equipment-development-ingegnere-24-months-contract-medtronic-lausanne",
+      "en": "equipment-development-engineer-24-months-contract-medtronic-ch",
+      "de": "equipment-development-ingenieur-24-months-contract-medtronic-lausanne",
+      "fr": "equipment-development-ingenieur-24-months-contract-medtronic-lausanne"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VD"
+  },
+  "id|medtronic.wd1.myworkdayjobs.com|r76397-1": {
+    "canonicalSlug": "polymechanic-m-f-medtronic-lausanne",
+    "slugByLocale": {
+      "it": "polymechanic-m-f-medtronic-lausanne",
+      "en": "polymechanic-m-f-medtronic-lausanne",
+      "de": "polymechanische-m-w-medtronic-lausanne",
+      "fr": "polymecanicien-prototypiste-f-h-medtronic-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VD"
+  },
+  "id|medtronic.wd1.myworkdayjobs.com|r72984-1": {
+    "canonicalSlug": "assembler-ii-medtronic-ch",
+    "slugByLocale": {
+      "en": "assembler-ii-medtronic-ch",
+      "de": "baugruppe-ii-medtronic-lausanne",
+      "fr": "assembleur-ii-medtronic-lausanne"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VD"
+  },
+  "id|medtronic.wd1.myworkdayjobs.com|r75815-1": {
+    "canonicalSlug": "regional-business-development-lead-tecnologie-di-abilitazione-robotics-medtronic-tolochenaz",
+    "slugByLocale": {
+      "it": "regional-business-development-lead-tecnologie-di-abilitazione-robotics-medtronic-tolochenaz",
+      "en": "regional-business-development-lead-enabling-technologies-robotics-medtronic-ch",
+      "de": "regionale-unternehmensentwicklung-lead-enabling-technologies-robotics-medtronic-tolochenaz",
+      "fr": "chef-de-file-du-developpement-des-entreprises-regionales-technologies-habilitantes-et-robotique-medtronic-tolochenaz"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VD"
+  },
+  "id|recruitingapp-2316.umantis.com|3749": {
+    "canonicalSlug": "allenamento-dietetic-chef-con-federal-fa-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+    "slugByLocale": {
+      "it": "allenamento-dietetic-chef-con-federal-fa-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+      "en": "training-dietetic-chef-with-federal-fa-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+      "de": "ausbildung-diatkochin-mit-eidg-fa-w-m-80-kispi-zurich-zurich",
+      "fr": "formation-chef-dietetique-avec-fa-federale-h-f-80-universitats-kinderspital-zurich-kispi-zurich"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-2316.umantis.com|3747": {
+    "canonicalSlug": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
+    "slugByLocale": {
+      "it": "formazione-professionale-m-f-universitats-kinderspital-zurich-kispi-zurich",
+      "en": "vocational-trainer-care-m-f-universitats-kinderspital-zurich-kispi-zurich",
+      "de": "berufsbildnerin-pflege-m-w-kispi-zurich-zurich",
+      "fr": "soins-aux-formateurs-professionnels-h-f-universitats-kinderspital-zurich-kispi-zurich"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-2316.umantis.com|3750": {
+    "canonicalSlug": "pedagoga-sociale-pedagoga-sociale-in-educazione-60-80-universitats-kinderspital-zurich-kispi-zurich",
+    "slugByLocale": {
+      "it": "pedagoga-sociale-pedagoga-sociale-in-educazione-60-80-universitats-kinderspital-zurich-kispi-zurich",
+      "en": "social-pedagogue-social-pedagogue-in-education-60-80-universitats-kinderspital-zurich-kispi-zurich",
+      "de": "sozialpadagogin-sozialpadagoge-in-ausbildung-60-80-kispi-zurich-zurich",
+      "fr": "pedagogue-sociale-pedagogue-sociale-dans-l-education-60-80-universitats-kinderspital-zurich-kispi-zurich"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-2316.umantis.com|3742": {
+    "canonicalSlug": "intern-m-f-comunicazione-public-affairs-100-universitats-kinderspital-zurich-kispi-zurich",
+    "slugByLocale": {
+      "it": "intern-m-f-comunicazione-public-affairs-100-universitats-kinderspital-zurich-kispi-zurich",
+      "en": "intern-m-f-communication-public-affairs-100-universitats-kinderspital-zurich-kispi-zurich",
+      "de": "praktikant-m-w-kommunikation-public-affairs-100-kispi-zurich-zurich",
+      "fr": "stage-h-f-communication-affaires-publiques-100-universitats-kinderspital-zurich-kispi-zurich"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-2316.umantis.com|3748": {
+    "canonicalSlug": "ortopedia-e-traumatologia-del-feltro-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich",
+    "slugByLocale": {
+      "it": "ortopedia-e-traumatologia-del-feltro-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich",
+      "en": "fellow-orthopedics-and-traumatology-m-f-80-100-universitats-kinderspital-zurich-kispi-zurich",
+      "de": "fellow-kinderorthopadie-und-traumatologie-w-m-80-100-kispi-zurich-zurich",
+      "fr": "orthopedie-et-traumatologie-h-f-80-100-universitats-kinderspital-zurich-kispi-zurich"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-2316.umantis.com|3751": {
+    "canonicalSlug": "farmacista-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+    "slugByLocale": {
+      "it": "farmacista-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+      "en": "pharmacist-m-f-80-universitats-kinderspital-zurich-kispi-zurich",
+      "de": "apothekerin-w-m-80-kispi-zurich-zurich",
+      "fr": "pharmacie-h-f-80-universitats-kinderspital-zurich-kispi-zurich"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|recruitingapp-2316.umantis.com|3722": {
+    "canonicalSlug": "ristorante-dipendente-m-f-70-universitats-kinderspital-zurich-kispi-zurich",
+    "slugByLocale": {
+      "it": "ristorante-dipendente-m-f-70-universitats-kinderspital-zurich-kispi-zurich",
+      "en": "employee-restaurant-m-f-70-universitats-kinderspital-zurich-kispi-zurich",
+      "de": "mitarbeiterin-restaurant-m-w-70-kispi-zurich-zurich",
+      "fr": "restaurant-pour-employes-h-f-70-universitats-kinderspital-zurich-kispi-zurich"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "url|https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/technischer-dienst-und-park/fachperson-technischer-dienst-m-w-d": {
+    "canonicalSlug": "servizio-tecnico-specializzato-m-f-d-privatklinik-wyss-munchenbuchsee",
+    "slugByLocale": {
+      "it": "servizio-tecnico-specializzato-m-f-d-privatklinik-wyss-munchenbuchsee",
+      "en": "specialist-technical-service-m-f-d-privatklinik-wyss-munchenbuchsee",
+      "de": "fachperson-technischer-dienst-m-w-d-privatklinik-wyss-ch",
+      "fr": "service-technique-specialise-h-f-d-privatklinik-wyss-munchenbuchsee"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "url|https://www.privatklinik-wyss.ch/jobs-und-karriere/stellen/fachbereich-medizin/oberaerztin-oberarzt-ambulante-dienste-bern-m-w-d": {
+    "canonicalSlug": "medico-senior-assistenza-medica-senior-ambulatory-bern-m-f-d-privatklinik-wyss-ambulante-dienste-bern",
+    "slugByLocale": {
+      "it": "medico-senior-assistenza-medica-senior-ambulatory-bern-m-f-d-privatklinik-wyss-ambulante-dienste-bern",
+      "en": "senior-physician-senior-physician-ambulatory-services-bern-m-f-d-privatklinik-wyss-ambulante-dienste-bern",
+      "de": "oberarztin-oberarzt-ambulante-dienste-bern-m-w-d-privatklinik-wyss-ch",
+      "fr": "medecin-principal-medecin-principal-services-ambulatoires-bern-h-f-d-privatklinik-wyss-ambulante-dienste-bern"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|sbb.ch|10db6974-06d6-42d5-a6cb-3cca0f1c4d18": {
+    "canonicalSlug": "capo-gruppo-centro-di-controllo-delle-operazioni-della-polizia-dei-trasporti-ffs-officine-ferrovie-federali-bern",
+    "slugByLocale": {
+      "it": "capo-gruppo-centro-di-controllo-delle-operazioni-della-polizia-dei-trasporti-ffs-officine-ferrovie-federali-bern",
+      "en": "group-leader-transport-police-operations-control-centre-ffs-officine-ferrovie-federali-bern",
+      "de": "gruppenchef-in-einsatzleitzentrale-transportpolizei-ffs-officine-ferrovie-federali-bern",
+      "fr": "centre-de-controle-des-operations-de-la-police-de-transport-chef-de-groupe-ffs-officine-ferrovie-federali-bern"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|sbb.ch|b1972253-b189-4dff-8b82-304d9597ff34": {
+    "canonicalSlug": "specialista-veicoli-e-manutenzione-ffs-officine-ferrovie-federali-olten",
+    "slugByLocale": {
+      "it": "specialista-veicoli-e-manutenzione-ffs-officine-ferrovie-federali-olten",
+      "en": "vehicle-and-maintenance-specialist-ffs-officine-ferrovie-federali-olten",
+      "de": "fahrzeug-und-instandhaltungsspezialist-in-ffs-officine-ferrovie-federali-olten",
+      "fr": "specialiste-des-vehicules-et-de-la-maintenance-ffs-officine-ferrovie-federali-olten"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "SO"
+  },
+  "id|sbb.ch|b70ca395-9d70-4659-8cc6-5e5fc46739e4": {
+    "canonicalSlug": "divisioni-del-gruppo-partner-business-partner-finanzate-m-f-d-ffs-officine-ferrovie-federali-bern",
+    "slugByLocale": {
+      "it": "divisioni-del-gruppo-partner-business-partner-finanzate-m-f-d-ffs-officine-ferrovie-federali-bern",
+      "en": "finance-business-partner-group-divisions-m-f-d-ffs-officine-ferrovie-federali-bern",
+      "de": "finance-business-partner-konzernbereiche-m-w-d-ffs-officine-ferrovie-federali-bern",
+      "fr": "divisions-du-groupe-de-partenaires-commerciaux-financiers-h-f-d-ffs-officine-ferrovie-federali-bern"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|sbb.ch|118d0bc7-120a-495b-a9c3-179f775b782f": {
+    "canonicalSlug": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne",
+    "slugByLocale": {
+      "it": "ingegnere-ingegnere-civile-delle-strutture-geotecniche-ffs-officine-ferrovie-federali-berne",
+      "en": "civil-engineering-engineer-geotechnical-structures-ffs-officine-ferrovie-federali-berne",
+      "de": "bauingenieur-geotechnische-bauwerke-ffs-officine-ferrovie-federali-berne",
+      "fr": "ingenieur-e-genie-civil-ouvrages-geotechnique-ffs-officine-ferrovie-federali-berne"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|sbb.ch|80a1c063-6da1-4974-b98f-e0da4ac9313e": {
+    "canonicalSlug": "costruttore-di-binari-costruttore-di-percorsi-di-traffico-ffs-officine-ferrovie-federali-hagendorf",
+    "slugByLocale": {
+      "it": "costruttore-di-binari-costruttore-di-percorsi-di-traffico-ffs-officine-ferrovie-federali-hagendorf",
+      "en": "track-builder-traffic-route-builder-ffs-officine-ferrovie-federali-hagendorf",
+      "de": "gleisbauer-in-verkehrswegbauer-in-ffs-officine-ferrovie-federali-hagendorf",
+      "fr": "constructeur-de-voies-constructeur-d-itineraires-de-circulation-ffs-officine-ferrovie-federali-hagendorf"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "SO"
+  },
+  "id|sbb.ch|8276654f-da59-4045-baf8-5254b1398480": {
+    "canonicalSlug": "elettricista-tecnico-di-automazione-polimeccanico-per-la-manutenzione-delle-locomotive-da-manovra-ffs-officine-ferrovie-federali-dietikon",
+    "slugByLocale": {
+      "it": "elettricista-tecnico-di-automazione-polimeccanico-per-la-manutenzione-delle-locomotive-da-manovra-ffs-officine-ferrovie-federali-dietikon",
+      "en": "electrician-automation-technician-polymechanic-for-the-maintenance-of-shunting-locomotives-ffs-officine-ferrovie-federali-dietikon",
+      "de": "elektriker-in-automatiker-in-polymechaniker-in-fur-den-bereich-instandhaltung-rangierlokomotiven-ffs-officine-ferrovie-federali-dietikon",
+      "fr": "electricien-technicien-en-automatisation-polymecanicien-pour-l-entretien-des-locomotives-de-man-uvre-ffs-officine-ferrovie-federali-dietikon"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|lever.co|19d88777-744e-4496-a94a-6560770198bd": {
+    "canonicalSlug": "staff-data-ingegnere-sonarsource-sonar-geneva",
+    "slugByLocale": {
+      "it": "staff-data-ingegnere-sonarsource-sonar-geneva",
+      "en": "staff-data-engineer-sonarsource-ch",
+      "de": "staff-data-ingenieur-sonarsource-sonar-geneva",
+      "fr": "staff-data-ingenieur-sonarsource-sonar-geneva"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GE"
+  },
+  "id|lever.co|485d4c76-449a-4ec1-ada2-0ef963a69b9f": {
+    "canonicalSlug": "sr-staff-customer-trust-manager-sonarsource-ch",
+    "slugByLocale": {
+      "en": "sr-staff-customer-trust-manager-sonarsource-ch",
+      "de": "senior-customer-trust-manager-sonarsource-sonar-geneva",
+      "fr": "chef-de-service-client-sonarsource-sonar-geneva"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GE"
+  },
+  "id|lever.co|8490348a-8202-4422-9bd6-c6904982ed50": {
+    "canonicalSlug": "gestore-di-ingegneria-piattaforma-e-operazioni-cloud-sonarsource-sonar-geneva",
+    "slugByLocale": {
+      "it": "gestore-di-ingegneria-piattaforma-e-operazioni-cloud-sonarsource-sonar-geneva",
+      "en": "engineering-manager-cloud-platform-operations-sonarsource-ch",
+      "fr": "gestionnaire-d-ingenierie-plateforme-cloud-operations-sonarsource-sonar-geneva"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GE"
+  },
+  "id|lever.co|5a8f589d-86fb-4330-9e30-9665114d49a8": {
+    "canonicalSlug": "application-security-ingegnere-sonarsource-sonar-geneva",
+    "slugByLocale": {
+      "it": "application-security-ingegnere-sonarsource-sonar-geneva",
+      "en": "application-security-engineer-sonarsource-ch",
+      "de": "application-security-ingenieur-sonarsource-sonar-geneva",
+      "fr": "application-security-ingenieur-sonarsource-sonar-geneva"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "GE"
+  },
+  "id|stadt-zuerich.ch|1372200557": {
+    "canonicalSlug": "sottosegretario-medico-o-medico-assistente-di-pratica-stadtspital-zurich-zurich",
+    "slugByLocale": {
+      "de": "arztsekretar-in-oder-med-praxisassistent-in-stadtspital-zuerich-51644",
+      "it": "sottosegretario-medico-o-medico-assistente-di-pratica-stadtspital-zurich-zurich",
+      "en": "medical-secretary-or-med-practice-assistant-stadtspital-zurich-zurich",
+      "fr": "secretaire-medical-ou-adjoint-a-la-medecine-stadtspital-zurich-zurich"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|stadt-zuerich.ch|1372542257": {
+    "canonicalSlug": "gestione-dei-processi-stadtspital-zurich-zurich",
+    "slugByLocale": {
+      "de": "prozessmanager-in-stadtspital-zuerich-51681",
+      "it": "gestione-dei-processi-stadtspital-zurich-zurich",
+      "en": "process-manager-stadtspital-zurich-zurich",
+      "fr": "gestionnaire-de-processus-stadtspital-zurich-zurich"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "ZH"
+  },
+  "id|jobalino.ch|dipl-pflegefachperson-hf-fh-mit-der-zusatzfunktion-stv-schwerpunktleiter-in": {
+    "canonicalSlug": "dipl-pflegefachperson-hf-fh-mit-der-zusatzfunktion-stv-schwerpunktleiter-in-80-100",
+    "slugByLocale": {
+      "en": "dipl-nursing-specialist-hf-fh-with-the-additional-function-stv-focus-manager-in-80-100-privatklinik-meiringen-meiringen",
+      "de": "dipl-pflegefachperson-hf-fh-mit-der-zusatzfunktion-stv-schwerpunktleiter-in-80-100",
+      "fr": "dipl-specialiste-des-soins-infirmiers-hf-fh-avec-la-fonction-supplementaire-stv-focus-manager-in-80-100-privatklinik"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
   }
 }

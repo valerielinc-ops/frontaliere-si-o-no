@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-05T19:10:05.887Z",
-    "label": "before",
-    "total": 28717,
-    "needsRetranslation": 15347,
-    "suppressed": 104,
-    "incomplete": 10096,
-    "complete": 18621,
-    "slotsPresent": 18621,
-    "flaggedAmongSlotsPresent": 5999,
-    "verifiedTranslated": 12622,
-    "sourceCopyExcused": 584,
-    "slotsPresentByLength": 28318,
-    "languageVerified": 19572,
-    "missingByLocale": {
-      "it": 1157,
-      "en": 900,
-      "de": 563,
-      "fr": 874
-    },
-    "queueAge": {
-      "count": 15347,
-      "withTimestamp": 15347,
-      "oldestAgeDays": 145.4,
-      "p50AgeDays": 22.4,
-      "p90AgeDays": 94.2,
-      "buckets": {
-        "0-1d": 127,
-        "1-2d": 537,
-        "2-7d": 3113,
-        "0-7d": 3777,
-        "7-30d": 4874,
-        "30-90d": 5005,
-        "90-180d": 1691,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1372
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 1114
-      },
-      {
-        "company": "Roche",
-        "pending": 606
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 323
-      },
-      {
-        "company": "BKW",
-        "pending": 237
-      },
-      {
-        "company": "PEMSA",
-        "pending": 201
-      },
-      {
-        "company": "Sulzer",
-        "pending": 195
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 192
-      },
-      {
-        "company": "Genossenschaft Migros Ostschweiz",
-        "pending": 186
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 173
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-05T19:14:40.261Z",
     "label": "after",
     "total": 28717,
@@ -19115,6 +19032,100 @@
       "processed": 4,
       "residual": 0,
       "residualRate": 0
+    },
+    "topPending": [
+      {
+        "company": "PEMSA",
+        "pending": 175
+      },
+      {
+        "company": "Roche",
+        "pending": 127
+      },
+      {
+        "company": "Manor AG",
+        "pending": 69
+      },
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 56
+      },
+      {
+        "company": "Swiss Life",
+        "pending": 55
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 49
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 43
+      },
+      {
+        "company": "Sulzer",
+        "pending": 41
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 37
+      },
+      {
+        "company": "Burkhalter Services AG",
+        "pending": 34
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-23T03:58:41.403Z",
+    "label": "before",
+    "total": 27416,
+    "needsRetranslation": 1754,
+    "suppressed": 226,
+    "incomplete": 1714,
+    "complete": 25702,
+    "slotsPresent": 25702,
+    "flaggedAmongSlotsPresent": 373,
+    "verifiedTranslated": 25329,
+    "sourceCopyExcused": 674,
+    "slotsPresentByLength": 27297,
+    "languageVerified": 25996,
+    "missingByLocale": {
+      "it": 40,
+      "en": 38,
+      "de": 65,
+      "fr": 67
+    },
+    "queueAge": {
+      "count": 1754,
+      "withTimestamp": 1754,
+      "oldestAgeDays": 162.7,
+      "p50AgeDays": 21.8,
+      "p90AgeDays": 111.1,
+      "buckets": {
+        "0-1d": 0,
+        "1-2d": 147,
+        "2-7d": 285,
+        "0-7d": 432,
+        "7-30d": 681,
+        "30-90d": 359,
+        "90-180d": 282,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 254,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
     },
     "topPending": [
       {
