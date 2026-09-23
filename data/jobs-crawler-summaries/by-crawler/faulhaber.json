@@ -1,7 +1,7 @@
 {
   "key": "faulhaber",
   "label": "Faulhaber",
-  "generatedAt": "2026-09-19T22:50:10.530Z",
+  "generatedAt": "2026-09-23T23:37:32.494Z",
   "total": 4,
   "discovered": null,
   "parsed": 4,
@@ -12,10 +12,10 @@
   "updatedCount": 4,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 68081,
-  "avgDurationMs": 68081,
+  "durationMs": 68042,
+  "avgDurationMs": 68042,
   "durationHistory": [
-    68081
+    68042
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,7 +44,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/55489/R-D-Mechanical-Engineer-Gearbox-design",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T22:49:47.424Z",
+      "crawledAt": "2026-09-23T23:37:14.452Z",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:33:48.674Z",
       "_qualityScore": 87,
@@ -80,7 +80,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57372/Tecnico-di-misura",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:49:23.090Z",
+      "crawledAt": "2026-09-23T23:36:49.761Z",
       "firstSeenAt": "2026-09-01T01:16:28.159Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -115,7 +115,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/57267/JUNIOR-LOGISTICS-SPECIALIST",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-19T22:49:35.108Z",
+      "crawledAt": "2026-09-23T23:37:02.072Z",
       "firstSeenAt": "2026-09-01T01:16:38.472Z",
       "_qualityScore": 87,
       "_qualityBreakdown": {
@@ -150,7 +150,7 @@
       "applyUrl": "https://jobs.faulhaber.com/HPv3.Jobs/faulhaber/stellenangebot/23370/Candidatura-spontanea",
       "source": "Faulhaber Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T22:49:59.541Z",
+      "crawledAt": "2026-09-23T23:37:27.530Z",
       "firstSeenAt": "2026-09-01T01:16:48.809Z",
       "_qualityScore": 73,
       "_qualityBreakdown": {
