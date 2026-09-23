@@ -11909,6 +11909,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.como-corso-farmacia-svizzera.title': 'Cours en pharmacie à Côme : stages sur le territoire et en Suisse',
     'blog.article.como-corso-farmacia-svizzera.excerpt': 'Le nouveau programme de maîtrise en pharmacie à l\'Insubria de Como a démarré avec quarante-sept étudiants et stages également en Suisse.',
     'blog.article.como-corso-farmacia-svizzera.imageAlt': 'Etudiants en pharmacie a l\'universite de Como',
+    'blog.article.carburanti-prezzi-tasse-ticino.title': 'Cher prix des carburants au Tessin : demande de réduction d\'impôt',
+    'blog.article.carburanti-prezzi-tasse-ticino.excerpt': 'Une motion a été déposée à Berne pour alléger la charge fiscale sur l\'essence, le diesel et l\'huile de chauffage face à des hausses historiques.',
+    'blog.article.carburanti-prezzi-tasse-ticino.imageAlt': 'Prix de l\'essence et du diesel en hausse dans une station-service au Tessin',
 };
 
 export default blogMetaFr;

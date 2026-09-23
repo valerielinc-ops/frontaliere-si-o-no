@@ -11908,6 +11908,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.como-corso-farmacia-svizzera.title': 'Corso in Farmacia a Como: tirocini in territorio e Svizzera',
     'blog.article.como-corso-farmacia-svizzera.excerpt': 'Partito il nuovo corso di laurea magistrale in Farmacia all\'Insubria di Como con quarantasette studenti e tirocini anche in Svizzera.',
     'blog.article.como-corso-farmacia-svizzera.imageAlt': 'Studenti del corso di laurea in Farmacia all\'universita di Como',
+    'blog.article.carburanti-prezzi-tasse-ticino.title': 'Caro prezzi carburanti in Ticino: chiesta riduzione fiscale',
+    'blog.article.carburanti-prezzi-tasse-ticino.excerpt': 'Presentata una mozione a Berna per alleggerire il carico fiscale su benzina, diesel e olio da riscaldamento di fronte a rincari storici.',
+    'blog.article.carburanti-prezzi-tasse-ticino.imageAlt': 'Prezzi di benzina e diesel in aumento a una stazione di servizio in Ticino',
 };
 
 export default blogMetaIt;
