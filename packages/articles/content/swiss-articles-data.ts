@@ -19904,6 +19904,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'avs-ai-accesso-digitale-dati',
+    category: 'pensione',
+    date: '2026-09-23T00:27:39.708Z',
+    image: '/images/blog/avs-ai-accesso-digitale-dati.webp',
+    hasCalculator: true,
+    authorSlug: 'laura-bianchi',
+    authorName: 'Laura Bianchi',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

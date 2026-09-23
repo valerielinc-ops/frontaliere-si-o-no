@@ -2237,6 +2237,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'patente-guida-zugo-conversione-esami': { it: 'patente-guida-zugo-conversione-esami', en: 'zug-driving-license-conversion-exams', de: 'zug-fuhrerschein-umtausch-prufungen', fr: 'zug-permis-conduite-conversion-examens' },
  'permesso-dimora-b-canton-friburgo-requisiti-rinnovo': { it: 'permesso-dimora-b-canton-friburgo-requisiti-rinnovo', en: 'residence-permit-b-canton-fribourg-requirements-renewal', de: 'aufenthaltsbewilligung-b-kanton-freiburg-voraussetzungen-verlaengerung', fr: 'permis-sejour-b-canton-fribourg-exigences-renouvellement' },
  'permesso-c-friburgo-guida-requisiti': { it: 'permesso-c-friburgo-guida-requisiti', en: 'settlement-permit-c-fribourg-requirements-application', de: 'niederlassungsbewilligung-c-freiburg-voraussetzungen-gesuch', fr: 'permis-c-fribourg-conditions-demande' },
+ 'avs-ai-accesso-digitale-dati': { it: 'avs-ai-accesso-digitale-dati', en: 'oasi-iv-digital-data-access', de: 'ahv-iv-digitaler-datenzugriff', fr: 'acces-numerique-donnees-avs-ai' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

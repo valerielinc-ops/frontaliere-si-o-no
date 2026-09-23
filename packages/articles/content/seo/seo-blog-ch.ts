@@ -86132,6 +86132,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-avs-ai-accesso-digitale-dati': {
+    title: 'AVS e AI: arrivano i fascicoli digitali per gli assicurati',
+    description: 'Approvata la legge sui sistemi di informazione sociali: in arrivo l\'accesso digitale ai dati AVS e AI per gli assicurati con risparmi di 35 milioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, arrivano, fascicoli, digitali, assicurati',
+    ogTitle: 'AVS e AI: accesso digitale ai dati e risparmi di 35 milioni',
+    ogDescription: 'Il Consiglio degli Stati approva la nuova legge sui sistemi di informazione delle assicurazioni sociali. Arriva l\'accesso digitale ai fascicoli AVS e AI per gli assicurati con risparmi annui stimati a 35 milioni di franchi.',
+    canonicalPath: '/articoli-svizzera/avs-ai-accesso-digitale-dati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "AVS e AI: arrivano i fascicoli digitali per gli assicurati",
+      "description": "Approvata la legge sui sistemi di informazione sociali: in arrivo l'accesso digitale ai dati AVS e AI per gli assicurati con risparmi di 35 milioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/avs-ai-accesso-digitale-dati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Accesso digitale ai dati AVS e AI per gli assicurati"
+      },
+      "datePublished": "2026-09-23T00:27:39+00:00",
+      "dateModified": "2026-09-23T00:27:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/avs-ai-accesso-digitale-dati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

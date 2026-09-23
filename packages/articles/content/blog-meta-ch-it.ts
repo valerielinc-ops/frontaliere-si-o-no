@@ -6644,6 +6644,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.permesso-c-friburgo-guida-requisiti.title': 'Permesso c canton Friburgo: requisiti e domanda',
     'blog.article.permesso-c-friburgo-guida-requisiti.excerpt': 'Regole, tempistiche di residenza, criteri di integrazione e procedura per ottenere il permesso di domicilio C nel Cantone di Friburgo.',
     'blog.article.permesso-c-friburgo-guida-requisiti.imageAlt': 'Uffici amministrativi e panorama urbano nel Cantone di Friburgo',
+    'blog.article.avs-ai-accesso-digitale-dati.title': 'AVS e AI: arrivano i fascicoli digitali per gli assicurati',
+    'blog.article.avs-ai-accesso-digitale-dati.excerpt': 'Approvata la nuova legge sui sistemi di informazione delle assicurazioni sociali. Arriva l\'accesso digitale ai dati AVS e AI con risparmi annui stimati a 35 milioni.',
+    'blog.article.avs-ai-accesso-digitale-dati.imageAlt': 'Accesso digitale ai dati AVS e AI per gli assicurati',
 };
 
 export default blogMetaChIt;

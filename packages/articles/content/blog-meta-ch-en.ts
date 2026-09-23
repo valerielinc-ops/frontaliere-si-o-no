@@ -6644,6 +6644,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.permesso-c-friburgo-guida-requisiti.title': 'Permit c canton Freiburg: requirements and application',
     'blog.article.permesso-c-friburgo-guida-requisiti.excerpt': 'Rules, residence times, integration criteria and procedure for obtaining residence permit C in the Canton of Freiburg.',
     'blog.article.permesso-c-friburgo-guida-requisiti.imageAlt': 'Administrative buildings and street view in the Canton of Fribourg',
+    'blog.article.avs-ai-accesso-digitale-dati.title': 'AVS and AI: digital files for policyholders arrive',
+    'blog.article.avs-ai-accesso-digitale-dati.excerpt': 'The new law on social insurance information systems has been approved. Digital access to AVS and AI data arrives with estimated annual savings of 35 million.',
+    'blog.article.avs-ai-accesso-digitale-dati.imageAlt': 'Digital access to OASI and IV data for insured persons',
 };
 
 export default blogMetaChEn;
