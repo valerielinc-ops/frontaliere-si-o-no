@@ -2507,12 +2507,12 @@
     },
     {
       "id": "raiffeisen-9468383b0ee7",
-      "slug": "senior-big-data-platform-engineer-w-m-d-raiffeisen-st-gallen",
+      "slug": "ingegnere-senior-della-piattaforma-big-data-m-f-d-raiffeisen-st-gallen",
       "slugByLocale": {
-        "it": "senior-big-data-platform-engineer-w-m-d-raiffeisen-st-gallen",
+        "it": "ingegnere-senior-della-piattaforma-big-data-m-f-d-raiffeisen-st-gallen",
         "en": "senior-big-data-platform-engineer-w-m-d-raiffeisen-st-gallen",
         "de": "senior-big-data-platform-engineer-w-m-d-raiffeisen-st-gallen",
-        "fr": "senior-big-data-platform-engineer-w-m-d-raiffeisen-st-gallen"
+        "fr": "ingenieur-principal-de-plateforme-big-data-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -2569,7 +2569,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-big-data-platform-engineer-w-m-d-raiffeisen-st-gallen"
+        ],
+        "fr": [
+          "senior-big-data-platform-engineer-w-m-d-raiffeisen-st-gallen"
+        ]
+      },
+      "previousSlugs": [
+        "senior-big-data-platform-engineer-w-m-d-raiffeisen-st-gallen"
+      ]
     },
     {
       "id": "raiffeisen-90ee87bf4a30",
@@ -3303,15 +3314,7 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-trice-infrastructures-raiffeisen-aigle"
-        ]
-      },
-      "previousSlugs": [
-        "collaborateur-trice-infrastructures-raiffeisen-aigle"
-      ]
+      }
     },
     {
       "id": "raiffeisen-1f5a50e27c33",
@@ -8272,7 +8275,7 @@
         "it": "devops-engineer-data-warehouse-w-m-d-raiffeisen-st-gallen",
         "en": "devops-engineer-data-warehouse-w-m-d-raiffeisen-st-gallen",
         "de": "devops-engineer-data-warehouse-w-m-d-raiffeisen-st-gallen",
-        "fr": "devops-engineer-data-warehouse-w-m-d-raiffeisen-st-gallen"
+        "fr": "entrepot-de-donnees-ingenieur-devops-h-f-d-raiffeisen-st-gallen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10403,8 +10406,8 @@
       "slugByLocale": {
         "de": "lehrstelle-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-zeiningen",
         "it": "apprendistato-kauffrau-kaufmann-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-zeiningen",
-        "en": "lehrstelle-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-zeiningen",
-        "fr": "lehrstelle-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-zeiningen"
+        "en": "teaching-position-kauffrau-kaufmann-efz-branch-bank-beginning-of-training-august-2027-raiffeisen-zeiningen",
+        "fr": "poste-d-enseignant-kauffrau-kaufmann-efz-branch-bank-debut-de-la-formation-aout-2027-raiffeisen-zeiningen"
       },
       "company": "Raiffeisen",
       "companyKey": "raiffeisen",
@@ -10460,10 +10463,12 @@
           "apprendistato-kaufmann-kauffrau-cfc-branche-bank-lehrbeginn-august-2027-raiffeisen-cazis"
         ],
         "en": [
-          "apprenticeship-kauffrau-kaufmann-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-zeiningen"
+          "apprenticeship-kauffrau-kaufmann-efz-branche-bank-apprenticeship-start-august-2027-raiffeisen-zeiningen",
+          "lehrstelle-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-zeiningen"
         ],
         "fr": [
-          "apprentissage-kauffrau-kaufmann-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-zeiningen"
+          "apprentissage-kauffrau-kaufmann-efz-branche-bank-debut-de-l-apprentissage-aout-2027-raiffeisen-zeiningen",
+          "lehrstelle-kauffrau-kaufmann-efz-branche-bank-lehrbeginn-august-2027-raiffeisen-zeiningen"
         ]
       },
       "previousSlugs": [
@@ -14017,13 +14022,11 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "individualkundenberater-in-raiffeisen-alle-standorte",
-        "conseillers-individuels-raiffeisen-alle-standorte",
-        "consulenti-individuali-dei-clienti-raiffeisen-alle-standorte"
+        "conseillers-individuels-raiffeisen-alle-standorte"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "individualkundenberater-in-raiffeisen-alle-standorte",
-          "consulenti-individuali-dei-clienti-raiffeisen-alle-standorte"
+          "individualkundenberater-in-raiffeisen-alle-standorte"
         ],
         "en": [
           "individualkundenberater-in-raiffeisen-alle-standorte"
