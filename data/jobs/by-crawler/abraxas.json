@@ -1701,7 +1701,6 @@
       "source": "Abraxas Informatik AG Dedicated Parser (custom HTML)",
       "sourceLang": "de",
       "crawledAt": "2026-09-19T23:13:04.821Z",
-      "needsRetranslation": true,
       "addressLocality": "Zürich-Flughafen",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -1736,8 +1735,7 @@
           "maxValue": 206500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "abraxas-b714d0c47ab1",
