@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "AIML - Apple Foundation Models: Senior ML Research Scientist, RL & 1996, c Ragioning",
         "en": "AIML - Apple Foundation Models: Senior ML Research Scientist, RL & Agentic Reasoning",
-        "de": "AIML - Apple Foundation Modelle: Senior ML Research Scientist, RL & Agentic Reasoning",
+        "de": "AIML – Apple Foundation Models: Senior ML Research Scientist, RL & Agentic Reasoning",
         "fr": "AIML - Modèles de la Fondation Apple : Chercheur principal en ML, RL et raisonnement agentique"
       },
       "description": "Ready to transform how billions of people interact with technology? Apple’s Core Foundation Models team is driving the intelligence that powers experiences across billions of devices worldwide—and we’re looking for exceptional talent to join us! Our Europe-based applied ML team is seeking an experienced ML research scientist to spearhead groundbreaking developments in AI! Collaborate with some of the brightest minds across Apple’s centers in New York, Seattle, and Cupertino as we push beyond conventional limits and redefine the possibilities of artificial intelligence globally. Join us on an inspiring journey where your expertise will be instrumental in shaping the next phase of digital interaction—an extraordinary opportunity awaits.",
@@ -69,7 +69,6 @@
           "aiml-senior-machine-learning-research-scientist-afm-apple-retail-switzerland-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:19:38.775Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
@@ -85,7 +84,9 @@
         }
       },
       "addressRegion": "ZH",
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 744
     },
     {
       "id": "apple-retail-switzerland-ac101ba22f06",
