@@ -11927,6 +11927,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.rimborso-imposta-lpp-2024.title': 'LPP tax refund blocked for border workers',
     'blog.article.rimborso-imposta-lpp-2024.excerpt': 'From 2024, the Canton of Ticino no longer reimburses the 7% tax at source on LPP capital, forcing border workers to also pay the 5% Italian substitute tax.',
     'blog.article.rimborso-imposta-lpp-2024.imageAlt': 'Modern building in Bellinzona with Swiss and Italian flags at sunset',
+    'blog.article.parco-veicoli-ticino-settembre-2026.title': 'Vehicle fleet in Ticino: ASTRA data for September 2026',
+    'blog.article.parco-veicoli-ticino-settembre-2026.excerpt': 'Analysis of the Ticino fleet: 336,430 total vehicles, 13,293 new registrations and 1532 imports of used vehicles according to ASTRA data.',
+    'blog.article.parco-veicoli-ticino-settembre-2026.imageAlt': 'Vehicular traffic on a Ticino road with Alpine landscape',
 };
 
 export default blogMetaEn;

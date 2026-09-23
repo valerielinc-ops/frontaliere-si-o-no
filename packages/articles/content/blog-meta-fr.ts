@@ -11929,6 +11929,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.rimborso-imposta-lpp-2024.title': 'Remboursement de la taxe LPP bloquée pour les frontaliers',
     'blog.article.rimborso-imposta-lpp-2024.excerpt': 'Depuis 2024, le canton du Tessin ne rembourse plus l\'impôt à la source de 7 % sur le capital LPP, obligeant les frontaliers à payer également l\'impôt de remplacement italien de 5 %.',
     'blog.article.rimborso-imposta-lpp-2024.imageAlt': 'Bâtiment moderne à Bellinzona avec les drapeaux suisse et italien au crépuscule',
+    'blog.article.parco-veicoli-ticino-settembre-2026.title': 'Parc de véhicules au Tessin : les données ASTRA de septembre 2026',
+    'blog.article.parco-veicoli-ticino-settembre-2026.excerpt': 'Analyse du parc roulant tessinois : 336 430 véhicules au total, 13 293 nouvelles immatriculations et 1 532 importations d\'occasion selon les données ASTRA.',
+    'blog.article.parco-veicoli-ticino-settembre-2026.imageAlt': 'Trafic routier sur une route tessinoise avec vue sur les Alpes',
 };
 
 export default blogMetaFr;

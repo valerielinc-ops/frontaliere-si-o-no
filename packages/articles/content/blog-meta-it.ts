@@ -11928,6 +11928,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.rimborso-imposta-lpp-2024.title': 'Rimborso imposta LPP bloccato per i frontalieri',
     'blog.article.rimborso-imposta-lpp-2024.excerpt': 'Dal 2024 il Canton Ticino non rimborsa più l\'imposta alla fonte del 7% sul capitale LPP, costringendo i frontalieri a pagare anche l\'imposta sostitutiva italiana del 5%.',
     'blog.article.rimborso-imposta-lpp-2024.imageAlt': 'Edificio moderno a Bellinzona con bandiere svizzere e italiane al tramonto',
+    'blog.article.parco-veicoli-ticino-settembre-2026.title': 'Parco veicoli in Ticino: i dati ASTRA di settembre 2026',
+    'blog.article.parco-veicoli-ticino-settembre-2026.excerpt': 'Analisi del parco circolante ticinese: 336.430 veicoli totali, 13.293 nuove immatricolazioni e 1532 importazioni di usati secondo i dati ASTRA.',
+    'blog.article.parco-veicoli-ticino-settembre-2026.imageAlt': 'Traffico veicolare su una strada ticinese con vista sulle Alpi',
 };
 
 export default blogMetaIt;
