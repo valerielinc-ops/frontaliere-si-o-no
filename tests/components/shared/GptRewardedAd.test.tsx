@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { act, cleanup, render } from '@testing-library/react';
+import { act, cleanup, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => {
@@ -83,6 +83,7 @@ describe('GptRewardedAd', () => {
         label="Guarda il video"
         loadingLabel="Caricamento…"
         unavailableLabel="Non disponibile"
+        autoStart
         onOptIn={onOptIn}
         onVideoCompleted={onVideoCompleted}
         onGranted={onGranted}
@@ -127,7 +128,7 @@ describe('GptRewardedAd', () => {
       />,
     );
 
-    expect(mocks.makeRewardedVisible).toHaveBeenCalledTimes(1);
+    expect(screen.getByTestId('assisted-application-offer-rewarded')).toBeInTheDocument();
     expect(mocks.tag.defineOutOfPageSlot).toHaveBeenCalledTimes(1);
     expect(mocks.tag.display).toHaveBeenCalledTimes(1);
   });
