@@ -47,13 +47,12 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 40
     # Consolidation (2026-07): the crawler set collapsed from 581 individual
-    # `update-jobs-*.yml` workflows to 24 grouped `crawler-group-*.yml`
+    # `update-jobs-*.yml` workflows to generated `crawler-group-*.yml`
     # workflows (each group bundles multiple crawlers as concurrent
     # `background: true` steps inside ONE job — see
-    # scripts/generate-crawler-group-workflows.mjs). Dispatching 24 targets
-    # takes seconds, well within any single job's timeout, so the FRO-432
-    # 2-shard matrix split (needed to fit 581 sequential dispatches inside a
-    # 180-min job) is no longer necessary — a single job dispatches all 24.
+    # scripts/generate-crawler-group-workflows.mjs). The dispatcher discovers
+    # the complete group set from the hash-bound transport contract, so this
+    # job remains correct when the generated group count changes.
 
     steps:
       - name: Checkout (workflow files + failure-report script)
@@ -221,6 +220,7 @@ jobs:
           --delay-seconds "$DELAY_SECONDS"
           --failure-tolerance "2"
           --dry-run "$DRY_RUN"
+          --contract ".github/corpus-workflows/contract.json"
           --repository "$GITHUB_WORKSPACE"
           --runner-temp "$RUNNER_TEMP"
           --checkpoint "$CHECKPOINT"
@@ -242,6 +242,7 @@ jobs:
           fi
           node scripts/crawler-generation-dispatch.mjs dispatch-sentinel \
             --generation-token "$GENERATION_TOKEN" \
+            --contract ".github/corpus-workflows/contract.json" \
             --repository "$GITHUB_WORKSPACE" \
             --runner-temp "$RUNNER_TEMP" \
             --checkpoint "$CHECKPOINT"

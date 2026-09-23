@@ -5,13 +5,13 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
-  GROUP_IDS,
   GROUP_MANIFEST_REASON_CODES,
   SITE_MAIN_REF,
   SITE_REPOSITORY,
   createGroupTerminalManifest,
   digestDocument,
 } from './lib/crawler-generation-contract.mjs';
+import { isCrawlerGroupId } from './lib/crawler-generation-group-ids.mjs';
 import {
   MAX_RECEIPT_BYTES,
   assertSafeRunnerReportOutput,
@@ -95,7 +95,7 @@ export function validateCrawlerGenerationLedgerEntry(entry) {
   if (!exactKeys(entry, keys)) return { valid: false, errors: ['unsupported_schema'] };
   const errors = [];
   if (entry.schemaVersion !== 1) errors.push('unsupported_schema_version');
-  if (!GROUP_IDS.includes(entry.group)) errors.push('invalid_group');
+  if (!isCrawlerGroupId(entry.group)) errors.push('invalid_group');
   if (entry.generationToken !== null && !isCrawlerGenerationToken(entry.generationToken)) errors.push('invalid_generation_token');
   if (!/^[A-Za-z0-9_.-]+\/[A-Za-z0-9_.-]+$/.test(entry.callerRepository ?? '')) errors.push('invalid_caller_repository');
   if (!/^[1-9][0-9]*$/.test(entry.callerRunId ?? '')) errors.push('invalid_caller_run_id');

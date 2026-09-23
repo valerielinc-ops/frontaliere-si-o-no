@@ -20,6 +20,10 @@ const CONTRACT = JSON.parse(readFileSync(CONTRACT_PATH, 'utf8'));
 const LOOP_MANIFEST = JSON.parse(
   readFileSync(path.join(ROOT, 'scripts/ci/loop-sync-manifest.json'), 'utf8'),
 );
+const GROUP_ARTIFACTS = CONTRACT.artifacts
+  .filter((artifact) => /^crawler-group-\d{2}\.yml$/.test(artifact.file))
+  .sort((left, right) => left.file.localeCompare(right.file));
+const DISCOVERED_GROUP_IDS = GROUP_ARTIFACTS.map((artifact) => artifact.file.match(/(\d{2})/)?.[1]);
 
 function sha256(text) {
   return createHash('sha256').update(text).digest('hex');
@@ -139,16 +143,14 @@ test('crawler group 07 usa gli stessi id canonici in step, expected roster e art
   assert.equal(expected.some((entry) => entry.crawlerId === 'vf'), false);
 });
 
-test('il contratto censisce 24 gruppi + translate-pending e tutti i crawler unici', () => {
+test('il contratto censisce tutti i gruppi scoperti + translate-pending e tutti i crawler unici', () => {
   assert.equal(CONTRACT.schemaVersion, 1);
-  assert.equal(CONTRACT.groupCount, 24);
-  assert.equal(CONTRACT.artifactCount, 25);
-  assert.equal(CONTRACT.observerCount, 7);
-  assert.equal(CONTRACT.artifacts.length, 25);
+  assert.equal(CONTRACT.groupCount, DISCOVERED_GROUP_IDS.length);
+  assert.equal(CONTRACT.artifactCount, DISCOVERED_GROUP_IDS.length + 1);
+  assert.equal(CONTRACT.observerCount, CONTRACT.observers.length);
+  assert.equal(CONTRACT.artifacts.length, DISCOVERED_GROUP_IDS.length + 1);
 
-  const groups = CONTRACT.artifacts.filter((artifact) => /^crawler-group-\d{2}\.yml$/.test(artifact.file));
-  assert.equal(groups.length, 24);
-  const members = groups.flatMap((artifact) => artifact.members);
+  const members = GROUP_ARTIFACTS.flatMap((artifact) => artifact.members);
   assert.equal(members.length, CONTRACT.crawlerCount);
   assert.equal(new Set(members).size, CONTRACT.crawlerCount);
   assert.ok(CONTRACT.crawlerCount > 0);
@@ -178,10 +180,8 @@ test('il contratto censisce 24 gruppi + translate-pending e tutti i crawler unic
   assert.deepEqual(
     [...observerWorkflow.matchAll(/^      - (Crawler Group \d{2} \(sparse cross-repo execution\))$/gm)]
       .map((match) => match[1]),
-    Array.from(
-      { length: 24 },
-      (_, index) => `Crawler Group ${String(index + 1).padStart(2, '0')} (sparse cross-repo execution)`,
-    ),
+    DISCOVERED_GROUP_IDS.map((group) =>
+      `Crawler Group ${group} (sparse cross-repo execution)`),
   );
   assert.match(
     observerWorkflow,
@@ -226,7 +226,7 @@ test('le installazioni standalone usano il retry site-owned', () => {
   }
 });
 
-test('loop-drift osserva live i 24 artifact portabili e il contratto del generatore', () => {
+test('loop-drift osserva live tutti gli artifact portabili scoperti e il contratto del generatore', () => {
   const entries = new Map(
     LOOP_MANIFEST.files.map((entry) => [entry.path, entry]),
   );

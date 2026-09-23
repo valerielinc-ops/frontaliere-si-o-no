@@ -1,11 +1,20 @@
 import { canonicalJson, digestDocument } from './canonical-json-digest.mjs';
 import { validateCrawlerGenerationReceipt } from './crawler-generation-receipt.mjs';
 import { isCrawlerGenerationToken } from './crawler-generation-token.mjs';
+import {
+  createCrawlerGroupIds,
+  deriveCrawlerGroupIdsFromGroups,
+  isCrawlerGroupId,
+  normalizeCrawlerGroupIds,
+} from './crawler-generation-group-ids.mjs';
 import { GITHUB_WORKFLOW_DISPATCH_API_VERSION } from '../../functions/src/githubApiHeaders.js';
 
 export { canonicalJson, digestDocument, isCrawlerGenerationToken };
 
-export const GROUP_IDS = Object.freeze(Array.from({ length: 24 }, (_, index) => String(index + 1).padStart(2, '0')));
+// The generator currently emits 24 groups. Runtime validation accepts the
+// exact group set carried by the generated contract/roster, so dispatch does
+// not need a second hard-coded allowlist when that count changes.
+export const GROUP_IDS = createCrawlerGroupIds(24);
 export const GROUP_MANIFEST_REASON_CODES = Object.freeze([
   'wait_failed',
   'remote_fetch_failed',
@@ -67,7 +76,6 @@ export const MAX_GROUP_MANIFEST_BYTES = Math.floor(MAX_CYCLE_MANIFEST_BYTES / GR
 export const MAX_SENTINEL_BYTES = 32 * 1024;
 
 const GROUP_REASON_SET = new Set(GROUP_MANIFEST_REASON_CODES);
-const GROUP_ID_SET = new Set(GROUP_IDS);
 const HASH_RE = /^sha256:[a-f0-9]{64}$/;
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const OBJECT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
@@ -112,7 +120,7 @@ export function crawlerGenerationRunName(group, generationToken) {
 
 export function parseCrawlerGenerationRunName(value) {
   const match = /^crawler-generation-(.+)-group-(\d{2})$/.exec(value ?? '');
-  if (!match || !isCrawlerGenerationToken(match[1]) || !GROUP_ID_SET.has(match[2])) return null;
+  if (!match || !isCrawlerGenerationToken(match[1]) || !isCrawlerGroupId(match[2])) return null;
   return Object.freeze({ generationToken: match[1], group: match[2] });
 }
 
@@ -400,7 +408,7 @@ export function validateGroupTerminalManifest(manifest) {
   if (!exactKeys(manifest, topKeys)) return { valid: false, errors: ['unsupported_schema'] };
   const errors = [];
   if (manifest.schemaVersion !== 1) errors.push('unsupported_schema_version');
-  if (!GROUP_ID_SET.has(manifest.group)) errors.push('invalid_group');
+  if (!isCrawlerGroupId(manifest.group)) errors.push('invalid_group');
   if (!isCrawlerGenerationToken(manifest.generationToken)) errors.push('invalid_generation_token');
   if (!REPOSITORY_RE.test(manifest.callerRepository ?? '')) errors.push('invalid_caller_repository');
   if (!validRunId(manifest.callerRunId)) errors.push('invalid_caller_run_id');
@@ -507,14 +515,17 @@ export function validateGroupTerminalManifest(manifest) {
   return { valid: errors.length === 0, errors: normalizeReasons(errors) };
 }
 
-export function createCrawlerGenerationRoster(groups, primarySlices) {
+export function createCrawlerGenerationRoster(groups, primarySlices, groupIds = null) {
   if (!groups || typeof groups !== 'object' || Array.isArray(groups)) throw new TypeError('Invalid roster groups');
-  if (canonicalJson(Object.keys(groups).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
-    throw new TypeError('Roster must contain exactly 24 groups');
+  const resolvedGroupIds = groupIds === null
+    ? deriveCrawlerGroupIdsFromGroups(groups)
+    : normalizeCrawlerGroupIds(groupIds);
+  if (canonicalJson(Object.keys(groups).sort(compareCodePoint)) !== canonicalJson(resolvedGroupIds)) {
+    throw new TypeError('Roster must contain exactly the discovered crawler groups');
   }
   const seen = new Set();
   const normalizedGroups = {};
-  for (const group of GROUP_IDS) {
+  for (const group of resolvedGroupIds) {
     if (!crawlerIdsAreValid(groups[group])) throw new TypeError(`Invalid roster for group ${group}`);
     normalizedGroups[group] = [...groups[group]].sort(compareCodePoint);
     for (const crawlerId of normalizedGroups[group]) {
@@ -525,19 +536,23 @@ export function createCrawlerGenerationRoster(groups, primarySlices) {
   if (!primarySlicesAreValid(primarySlices, [...seen])) throw new TypeError('Invalid roster primary slices');
   const normalizedPrimarySlices = Object.fromEntries([...seen].sort(compareCodePoint).map((crawlerId) => [crawlerId, primarySlices[crawlerId]]));
   const payload = {
-    schemaVersion: 1, groupCount: GROUP_IDS.length, crawlerCount: seen.size,
+    schemaVersion: 1, groupCount: resolvedGroupIds.length, crawlerCount: seen.size,
     groups: normalizedGroups, primarySlices: normalizedPrimarySlices,
   };
   return { ...payload, digest: digestDocument(payload) };
 }
 
-export function validateCrawlerGenerationRoster(roster) {
+export function validateCrawlerGenerationRoster(roster, groupIds = null) {
   if (!exactKeys(roster, ['schemaVersion', 'groupCount', 'crawlerCount', 'groups', 'primarySlices', 'digest'])) {
     return { valid: false, errors: ['unsupported_schema'] };
   }
   const errors = [];
   try {
-    if (canonicalJson(roster) !== canonicalJson(createCrawlerGenerationRoster(roster.groups, roster.primarySlices))) errors.push('roster_rebuild_mismatch');
+    if (canonicalJson(roster) !== canonicalJson(createCrawlerGenerationRoster(
+      roster.groups,
+      roster.primarySlices,
+      groupIds,
+    ))) errors.push('roster_rebuild_mismatch');
   } catch (error) {
     errors.push(error instanceof Error ? error.message : 'invalid_roster');
   }
@@ -548,18 +563,23 @@ export function validateCrawlerGenerationRoster(roster) {
  * Immutable same-repository sentinel input for one crawler generation.
  *
  * `siteCodeCommit` pins the observer implementation only. The terminal data
- * snapshot does not exist when the 24 runs are dispatched and is therefore
+ * snapshot does not exist when the group runs are dispatched and is therefore
  * deliberately absent; it is derived later from their terminal manifests.
  */
-export function createCrawlerGenerationSentinel(input) {
+export function createCrawlerGenerationSentinel(input, groupIds = null) {
   if (!isCrawlerGenerationToken(input.generationToken)) throw new TypeError('Invalid generation token');
   if (!COMMIT_RE.test(input.siteCodeCommit ?? '')) throw new TypeError('Invalid site code commit');
   if (!COMMIT_RE.test(input.corpusCodeCommit ?? '')) throw new TypeError('Invalid corpus code commit');
   if (!input.groupRunIds || typeof input.groupRunIds !== 'object' || Array.isArray(input.groupRunIds)
-      || canonicalJson(Object.keys(input.groupRunIds).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
-    throw new TypeError('Sentinel must bind exactly 24 groups');
+      || canonicalJson(Object.keys(input.groupRunIds).sort(compareCodePoint)) !== canonicalJson(
+        groupIds === null ? deriveCrawlerGroupIdsFromGroups(input.groupRunIds) : normalizeCrawlerGroupIds(groupIds),
+      )) {
+    throw new TypeError('Sentinel must bind exactly the discovered crawler groups');
   }
-  const runIds = GROUP_IDS.map((group) => input.groupRunIds[group] === null
+  const resolvedGroupIds = groupIds === null
+    ? deriveCrawlerGroupIdsFromGroups(input.groupRunIds)
+    : normalizeCrawlerGroupIds(groupIds);
+  const runIds = resolvedGroupIds.map((group) => input.groupRunIds[group] === null
     ? null
     : String(input.groupRunIds[group] ?? ''));
   const presentRunIds = runIds.filter((runId) => runId !== null);
@@ -567,20 +587,20 @@ export function createCrawlerGenerationSentinel(input) {
       || new Set(presentRunIds).size !== presentRunIds.length) {
     throw new TypeError('Present sentinel run IDs must be unique positive integers');
   }
-  const groups = Object.fromEntries(GROUP_IDS.map((group, index) => [
+  const groups = Object.fromEntries(resolvedGroupIds.map((group, index) => [
     group,
     crawlerGenerationWorkflowIdentity(group, input.generationToken, runIds[index], input.corpusCodeCommit),
   ]));
-  const diagnosticsInput = input.dispatchDiagnostics ?? Object.fromEntries(GROUP_IDS.map((group, index) => [
+  const diagnosticsInput = input.dispatchDiagnostics ?? Object.fromEntries(resolvedGroupIds.map((group, index) => [
     group,
     { status: runIds[index] === null ? 'missing' : 'direct', runId: runIds[index] },
   ]));
   if (!diagnosticsInput || typeof diagnosticsInput !== 'object' || Array.isArray(diagnosticsInput)
-      || canonicalJson(Object.keys(diagnosticsInput).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
-    throw new TypeError('Sentinel dispatch diagnostics must contain exactly 24 groups');
+      || canonicalJson(Object.keys(diagnosticsInput).sort(compareCodePoint)) !== canonicalJson(resolvedGroupIds)) {
+    throw new TypeError('Sentinel dispatch diagnostics must contain exactly the discovered crawler groups');
   }
   const dispatchDiagnostics = {};
-  for (const group of GROUP_IDS) {
+  for (const group of resolvedGroupIds) {
     const diagnostic = diagnosticsInput[group];
     const diagnosticRunId = diagnostic?.runId === null ? null : String(diagnostic?.runId ?? '');
     if (!exactKeys(diagnostic, ['status', 'runId']) || !DISPATCH_STATUS_SET.has(diagnostic.status)
@@ -616,7 +636,7 @@ export function createCrawlerGenerationSentinel(input) {
   return Object.freeze(sentinel);
 }
 
-export function validateCrawlerGenerationSentinel(sentinel) {
+export function validateCrawlerGenerationSentinel(sentinel, groupIds = null) {
   const errors = [];
   if (!exactKeys(sentinel, [
     'schemaVersion', 'generationToken', 'siteCodeCommit', 'corpusCodeCommit', 'callerRepository', 'groups', 'dispatchDiagnostics', 'digest',
@@ -627,12 +647,20 @@ export function validateCrawlerGenerationSentinel(sentinel) {
   if (!COMMIT_RE.test(sentinel.corpusCodeCommit ?? '')) errors.push('invalid_corpus_code_commit');
   if (sentinel.callerRepository !== CALLER_REPOSITORY) errors.push('invalid_caller_repository');
   if (!HASH_RE.test(sentinel.digest ?? '')) errors.push('invalid_digest');
-  if (!sentinel.groups || typeof sentinel.groups !== 'object' || Array.isArray(sentinel.groups)
-      || canonicalJson(Object.keys(sentinel.groups).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
+  let resolvedGroupIds = null;
+  try {
+    resolvedGroupIds = groupIds === null
+      ? deriveCrawlerGroupIdsFromGroups(sentinel.groups)
+      : normalizeCrawlerGroupIds(groupIds);
+  } catch {
+    errors.push('invalid_group_set');
+  }
+  if (!resolvedGroupIds || !sentinel.groups || typeof sentinel.groups !== 'object' || Array.isArray(sentinel.groups)
+      || canonicalJson(Object.keys(sentinel.groups).sort(compareCodePoint)) !== canonicalJson(resolvedGroupIds)) {
     errors.push('invalid_group_set');
   } else {
     const runIds = [];
-    for (const group of GROUP_IDS) {
+    for (const group of resolvedGroupIds) {
       const entry = sentinel.groups[group];
       // Legacy shim (paired with dispatchRefForBinding above): a group entry
       // persisted by a dispatcher run before `generationToken` joined the
@@ -660,16 +688,17 @@ export function validateCrawlerGenerationSentinel(sentinel) {
       }
     }
     const presentRunIds = runIds.filter((runId) => runId !== null);
-    if (runIds.length !== GROUP_IDS.length || new Set(presentRunIds).size !== presentRunIds.length) {
+    if (runIds.length !== resolvedGroupIds.length || new Set(presentRunIds).size !== presentRunIds.length) {
       errors.push('duplicate_run_id');
     }
   }
   if (!sentinel.dispatchDiagnostics || typeof sentinel.dispatchDiagnostics !== 'object'
       || Array.isArray(sentinel.dispatchDiagnostics)
-      || canonicalJson(Object.keys(sentinel.dispatchDiagnostics).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
+      || !resolvedGroupIds
+      || canonicalJson(Object.keys(sentinel.dispatchDiagnostics).sort(compareCodePoint)) !== canonicalJson(resolvedGroupIds)) {
     errors.push('invalid_dispatch_diagnostics_set');
   } else if (sentinel.groups && typeof sentinel.groups === 'object' && !Array.isArray(sentinel.groups)) {
-    for (const group of GROUP_IDS) {
+    for (const group of resolvedGroupIds) {
       const diagnostic = sentinel.dispatchDiagnostics[group];
       const boundRunId = sentinel.groups[group]?.runId;
       if (!exactKeys(diagnostic, ['status', 'runId']) || !DISPATCH_STATUS_SET.has(diagnostic.status)
@@ -717,15 +746,26 @@ export function resolveCrawlerGenerationSentinels(sentinels) {
  * Select the immutable terminal snapshot without reading the current branch
  * tip: it must be the sole manifest commit descending from every other tip.
  */
-export function deriveCrawlerGenerationSourceCommit({ manifests, siteCodeCommit, isAncestor }) {
+export function deriveCrawlerGenerationSourceCommit({ manifests, siteCodeCommit, isAncestor, groupIds = null }) {
   const keys = manifests && typeof manifests === 'object' && !Array.isArray(manifests)
     ? Object.keys(manifests).sort(compareCodePoint)
     : [];
-  if (!COMMIT_RE.test(siteCodeCommit ?? '') || canonicalJson(keys) !== canonicalJson(GROUP_IDS)) {
+  let resolvedGroupIds;
+  try {
+    // A partial terminal manifest cannot discover the expected set: if the
+    // last group is missing, deriving from the remaining keys would make the
+    // truncated snapshot look complete. Callers observing a generated
+    // contract pass its discovered IDs explicitly; the default preserves the
+    // current generator contract for direct/legacy callers.
+    resolvedGroupIds = groupIds === null ? GROUP_IDS : normalizeCrawlerGroupIds(groupIds);
+  } catch {
+    return { status: 'blocked', sourceCommit: null, reason: 'terminal_manifest_set_invalid' };
+  }
+  if (!COMMIT_RE.test(siteCodeCommit ?? '') || canonicalJson(keys) !== canonicalJson(resolvedGroupIds)) {
     return { status: 'blocked', sourceCommit: null, reason: 'terminal_manifest_set_invalid' };
   }
   const commits = [];
-  for (const group of GROUP_IDS) {
+  for (const group of resolvedGroupIds) {
     const manifest = manifests[group];
     if (!manifest || manifest.group !== group || !COMMIT_RE.test(manifest.remote?.commit ?? '')) {
       return { status: 'blocked', sourceCommit: null, reason: 'terminal_manifest_set_invalid' };
@@ -785,19 +825,37 @@ function runObservationIsBound(observation, entry) {
     .includes(observation.conclusion);
 }
 
-export function validateCrawlerGenerationObservationsEnvelope(value) {
+export function validateCrawlerGenerationObservationsEnvelope(value, groupIds = null) {
+  let resolvedGroupIds = null;
+  try {
+    resolvedGroupIds = groupIds === null
+      ? deriveCrawlerGroupIdsFromGroups(value?.groups)
+      : normalizeCrawlerGroupIds(groupIds);
+  } catch {
+    // Keep malformed input fail-closed without throwing from the validator.
+  }
   const valid = exactKeys(value, ['schemaVersion', 'evaluatedAt', 'timedOut', 'groups'])
     && value.schemaVersion === 1
     && validIsoTimestamp(value.evaluatedAt)
     && typeof value.timedOut === 'boolean'
     && value.groups && typeof value.groups === 'object' && !Array.isArray(value.groups)
-    && sameStringArrays(Object.keys(value.groups), GROUP_IDS);
+    && resolvedGroupIds !== null
+    && sameStringArrays(Object.keys(value.groups), resolvedGroupIds);
   return valid ? { valid: true, errors: [] } : { valid: false, errors: ['invalid_observations_envelope'] };
 }
 
 /** Pure central barrier evaluation. The caller supplies immutable Git tree oracles. */
 export function evaluateCrawlerGenerationBarrier(input) {
-  const rosterValidation = validateCrawlerGenerationRoster(input.roster);
+  let resolvedGroupIds = null;
+  try {
+    resolvedGroupIds = input.groupIds
+      ? normalizeCrawlerGroupIds(input.groupIds)
+      : deriveCrawlerGroupIdsFromGroups(input.runRegistry?.groups ?? input.roster?.groups ?? input.manifests);
+  } catch {
+    resolvedGroupIds = [];
+  }
+  const groupIds = resolvedGroupIds;
+  const rosterValidation = validateCrawlerGenerationRoster(input.roster, groupIds);
   const registry = input.runRegistry;
   const registryShapeValid = exactKeys(registry, ['schemaVersion', 'cycleId', 'generationToken', 'groups'])
     && registry.schemaVersion === 1
@@ -807,19 +865,27 @@ export function evaluateCrawlerGenerationBarrier(input) {
     && typeof registry.generationToken === 'string'
     && isCrawlerGenerationToken(registry.generationToken)
     && registry.generationToken === registry.cycleId;
-  const registryGroupKeysValid = registryShapeValid && sameStringArrays(Object.keys(registry.groups), GROUP_IDS);
+  const rosterGroupKeysValid = input.roster?.groups && typeof input.roster.groups === 'object'
+    && !Array.isArray(input.roster.groups)
+    && sameStringArrays(Object.keys(input.roster.groups), groupIds);
+  const manifestGroupKeysValid = input.manifests && typeof input.manifests === 'object'
+    && !Array.isArray(input.manifests)
+    && sameStringArrays(Object.keys(input.manifests), groupIds);
+  const registryGroupKeysValid = groupIds.length > 0
+    && registryShapeValid
+    && sameStringArrays(Object.keys(registry.groups), groupIds);
   const registryRunIds = registryGroupKeysValid
-    ? GROUP_IDS.map((group) => registry.groups[group]?.runId).filter((runId) => validRunId(runId))
+    ? groupIds.map((group) => registry.groups[group]?.runId).filter((runId) => validRunId(runId))
     : [];
-  const registryRunIdsUnique = registryRunIds.length === GROUP_IDS.length && new Set(registryRunIds).size === GROUP_IDS.length;
+  const registryRunIdsUnique = registryRunIds.length === groupIds.length && new Set(registryRunIds).size === registryRunIds.length;
   const sourceCommitValid = COMMIT_RE.test(input.sourceCommit ?? '');
-  const aggregateManifestBytes = GROUP_IDS.reduce((total, group) => {
+  const aggregateManifestBytes = groupIds.reduce((total, group) => {
     try { return total + Buffer.byteLength(JSON.stringify(input.manifests?.[group] ?? null)); } catch { return MAX_CYCLE_MANIFEST_BYTES + 1; }
   }, 0);
   const aggregateManifestsValid = aggregateManifestBytes <= MAX_CYCLE_MANIFEST_BYTES;
   const groupReports = {};
 
-  for (const group of GROUP_IDS) {
+  for (const group of groupIds) {
     const entry = registryShapeValid ? registry.groups[group] : null;
     const observation = input.runObservations?.[group];
     const manifest = input.manifests?.[group];
@@ -828,7 +894,7 @@ export function evaluateCrawlerGenerationBarrier(input) {
     if (!generationTokenValid) {
       state = 'blocked_dispatch_missing'; reasons.push('missing_or_invalid_generation_token');
     } else if (!registryGroupKeysValid || !registryRunIdsUnique) {
-      state = 'blocked_dispatch_missing'; reasons.push('run_registry_not_exactly_23_unique_ids');
+      state = 'blocked_dispatch_missing'; reasons.push('run_registry_not_exactly_expected_unique_ids');
     } else if (!registryEntryIsValid(entry, group, registry.generationToken)) {
       state = 'blocked_dispatch_missing'; reasons.push('missing_or_invalid_run_binding');
     } else if (!runObservationIsBound(observation, entry)) {
@@ -872,8 +938,8 @@ export function evaluateCrawlerGenerationBarrier(input) {
       if (accepted) {
         try {
           // Receipt commits were already checked against this immutable group
-          // tip by the finalizer. The central snapshot only re-checks the 24
-          // group tips against the explicit source commit.
+          // tip by the finalizer. The central snapshot only re-checks the
+          // discovered group tips against the explicit source commit.
           const commits = [manifest.remote.commit];
           if (commits.some((commit) => !input.isAncestor(commit, input.sourceCommit))) {
             accepted = false; reasons.push('remote_commit_not_ancestor');
@@ -904,13 +970,15 @@ export function evaluateCrawlerGenerationBarrier(input) {
   }
 
   const nonReadyStatuses = Object.values(groupReports).map((group) => group.state).filter((item) => item !== 'ready');
-  const status = nonReadyStatuses.length === 0
-    ? 'ready'
-    : nonReadyStatuses.sort((left, right) => BLOCKING_STATUS_PRIORITY[left] - BLOCKING_STATUS_PRIORITY[right])[0];
+  const status = groupIds.length === 0
+    ? 'blocked_dispatch_missing'
+    : nonReadyStatuses.length === 0
+      ? (rosterGroupKeysValid && manifestGroupKeysValid ? 'ready' : 'blocked_manifest_invalid')
+      : nonReadyStatuses.sort((left, right) => BLOCKING_STATUS_PRIORITY[left] - BLOCKING_STATUS_PRIORITY[right])[0];
   const payload = {
     schemaVersion: 1,
     cycleId: input.cycleId,
-    expectedGroups: GROUP_IDS.length,
+    expectedGroups: groupIds.length,
     groups: groupReports,
     barrier: { status, readyAt: status === 'ready' ? input.evaluatedAt : null, sourceCommit: sourceCommitValid ? input.sourceCommit : null },
     translation: { mode: 'shadow', wouldDispatch: status === 'ready', dispatched: false },

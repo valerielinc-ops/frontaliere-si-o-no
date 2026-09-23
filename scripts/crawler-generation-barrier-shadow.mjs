@@ -5,12 +5,12 @@ import { execFileSync } from 'node:child_process';
 import { fileURLToPath } from 'node:url';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import {
-  GROUP_IDS,
   MAX_CYCLE_MANIFEST_BYTES,
   MAX_GROUP_MANIFEST_BYTES,
   evaluateCrawlerGenerationBarrier,
   validateCrawlerGenerationObservationsEnvelope,
 } from './lib/crawler-generation-contract.mjs';
+import { deriveCrawlerGroupIdsFromGroups } from './lib/crawler-generation-group-ids.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const GIT_TIMEOUT_MS = 30_000;
@@ -83,9 +83,9 @@ function readJson(filePath, maxBytes = MAX_CYCLE_MANIFEST_BYTES) {
   return JSON.parse(fs.readFileSync(filePath, 'utf8'));
 }
 
-function readManifests(directory) {
+function readManifests(directory, groupIds) {
   const manifests = {};
-  for (const group of GROUP_IDS) {
+  for (const group of groupIds) {
     const filePath = path.join(directory, group, `crawler-group-${group}-terminal.json`);
     try { manifests[group] = readJson(filePath, MAX_GROUP_MANIFEST_BYTES); } catch (error) {
       if (error?.code !== 'ENOENT') manifests[group] = { malformed: true };
@@ -143,21 +143,23 @@ function loadSourceSnapshot(repository, commit, groupCommits) {
 export function runCrawlerGenerationBarrierShadowCli(argv) {
   const paths = parseArguments(argv);
   const runRegistry = readJson(paths.runRegistry);
-  const observations = readJson(paths.runObservations);
-  const observationsValidation = validateCrawlerGenerationObservationsEnvelope(observations);
-  if (!observationsValidation.valid) throw new TypeError(observationsValidation.errors.join(','));
   const roster = readJson(paths.roster);
-  const manifests = readManifests(paths.manifestsDir);
+  const groupIds = deriveCrawlerGroupIdsFromGroups(runRegistry?.groups ?? roster?.groups);
+  const observations = readJson(paths.runObservations);
+  const observationsValidation = validateCrawlerGenerationObservationsEnvelope(observations, groupIds);
+  if (!observationsValidation.valid) throw new TypeError(observationsValidation.errors.join(','));
+  const manifests = readManifests(paths.manifestsDir, groupIds);
   // The group finalizer already proves every receipt commit is an ancestor of
-  // its immutable group tip. The central observer therefore needs at most 24
-  // ancestry checks: one unique remote group commit per manifest. Never load
+  // its immutable group tip. The central observer therefore needs at most one
+  // ancestry check per discovered group commit. Never load
   // the repository's unbounded full history into memory.
-  const groupCommits = [...new Set(GROUP_IDS.map((group) => manifests[group]?.remote?.commit)
+  const groupCommits = [...new Set(groupIds.map((group) => manifests[group]?.remote?.commit)
     .filter((commit) => COMMIT_RE.test(commit ?? '')))];
   let sourceSnapshot = null;
   try { sourceSnapshot = loadSourceSnapshot(paths.repository, paths.sourceCommit, groupCommits); } catch { /* fail closed in evaluator */ }
   const report = evaluateCrawlerGenerationBarrier({
     cycleId: runRegistry.cycleId,
+    groupIds,
     runRegistry,
     runObservations: observations.groups,
     manifests,

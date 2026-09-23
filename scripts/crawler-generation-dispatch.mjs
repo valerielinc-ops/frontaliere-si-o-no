@@ -23,6 +23,10 @@ import {
   validateCrawlerGenerationSentinel,
   validateCrawlerGenerationWorkflowRun,
 } from './lib/crawler-generation-contract.mjs';
+import {
+  deriveCrawlerGroupIdsFromContract,
+  isCrawlerGroupId,
+} from './lib/crawler-generation-group-ids.mjs';
 
 export const GITHUB_API_VERSION = CRAWLER_GENERATION_GITHUB_API_VERSION;
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
@@ -345,6 +349,7 @@ export async function dispatchWorkflowOnce({
   inputs,
   request,
   allowReconciliation = true,
+  groupIds = GROUP_IDS,
   sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)),
   now = () => Date.now(),
   identityForRunId = (runId) => (
@@ -356,7 +361,7 @@ export async function dispatchWorkflowOnce({
   if (!isCrawlerGenerationToken(generationToken)) throw new TypeError('Invalid generation token');
   const expectedWorkflowFile = group === null
     ? OBSERVER_WORKFLOW_FILE
-    : GROUP_IDS.includes(group) ? `crawler-group-${group}.yml` : null;
+    : groupIds.includes(group) && isCrawlerGroupId(group) ? `crawler-group-${group}.yml` : null;
   if (workflowFile === 'translate-pending.yml' || expectedWorkflowFile === null
       || workflowFile !== expectedWorkflowFile) {
     throw new TypeError('Workflow file is outside the crawler generation dispatch domain');
@@ -658,9 +663,10 @@ function buildCheckpoint({
   corpusCodeCommit,
   groupRunIds,
   dispatchDiagnostics,
+  groupIds,
 }) {
   return createCrawlerGenerationSentinel({
-    generationToken, siteCodeCommit, corpusCodeCommit, groupRunIds, dispatchDiagnostics,
+    generationToken, siteCodeCommit, corpusCodeCommit, groupRunIds, dispatchDiagnostics, groupIds,
   });
 }
 
@@ -672,6 +678,7 @@ export async function runCrawlerGenerationDispatchWave({
   checkpointPath,
   delayMs,
   dispatch,
+  groupIds = GROUP_IDS,
   onCheckpoint = (/** @type {ReturnType<typeof buildCheckpoint>} */ _checkpoint) => {},
   sleep = (milliseconds) => new Promise((resolve) => setTimeout(resolve, milliseconds)),
 }) {
@@ -681,8 +688,8 @@ export async function runCrawlerGenerationDispatchWave({
       || !COMMIT_RE.test(corpusCodeCommit ?? '')) {
     throw new TypeError('Invalid crawler generation wave identity');
   }
-  const groupRunIds = Object.fromEntries(GROUP_IDS.map((group) => [group, null]));
-  const dispatchDiagnostics = Object.fromEntries(GROUP_IDS.map((group) => [
+  const groupRunIds = Object.fromEntries(groupIds.map((group) => [group, null]));
+  const dispatchDiagnostics = Object.fromEntries(groupIds.map((group) => [
     group, { status: 'missing', runId: null },
   ]));
   const persist = () => {
@@ -692,13 +699,14 @@ export async function runCrawlerGenerationDispatchWave({
       corpusCodeCommit,
       groupRunIds,
       dispatchDiagnostics,
+      groupIds,
     });
     writeJsonAtomic(checkpointPath, checkpoint, { compact: true });
     onCheckpoint(checkpoint);
     return checkpoint;
   };
   let checkpoint = persist();
-  for (const [index, group] of GROUP_IDS.entries()) {
+  for (const [index, group] of groupIds.entries()) {
     let outcome;
     try {
       outcome = await dispatch({
@@ -725,17 +733,17 @@ export async function runCrawlerGenerationDispatchWave({
       runId: outcome.runId,
     };
     checkpoint = persist();
-    if (index < GROUP_IDS.length - 1 && delayMs > 0) await sleep(delayMs);
+    if (index < groupIds.length - 1 && delayMs > 0) await sleep(delayMs);
   }
   return checkpoint;
 }
 
-function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifacts) {
+function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifacts, groupIds = GROUP_IDS) {
   const reasons = [];
   const observers = Array.isArray(contract?.observers) ? contract.observers : [];
   const observer = observers.find((entry) => entry?.target === OBSERVER_TARGET);
   const expectedArtifacts = [
-    ...GROUP_IDS.map((group) => `crawler-group-${group}.yml`),
+    ...groupIds.map((group) => `crawler-group-${group}.yml`),
     'translate-pending.yml',
   ].sort(compareCodePoint);
   let contractShapeValid = false;
@@ -744,7 +752,7 @@ function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifac
       ? contract.artifacts.map((entry) => entry?.file).sort(compareCodePoint)
       : [];
     contractShapeValid = contract?.schemaVersion === 1
-      && contract?.groupCount === GROUP_IDS.length
+      && contract?.groupCount === groupIds.length
       && contract?.artifactCount === expectedArtifacts.length
       && canonicalJson(actualArtifacts) === canonicalJson(expectedArtifacts)
       && contract?.observerCount === observers.length
@@ -770,7 +778,7 @@ function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifac
       ? contract.artifacts.map((entry) => [entry?.file, entry])
       : [],
   );
-  for (const group of GROUP_IDS) {
+  for (const group of groupIds) {
     const file = `crawler-group-${group}.yml`;
     const contractArtifact = groupArtifacts.get(file);
     const bytes = remoteArtifacts?.[file];
@@ -790,12 +798,12 @@ function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifac
 // parte dentro quella finestra vede un mirror LEGITTIMAMENTE più avanti del
 // remoto: prima di #6876 questo dava `contract_mismatch` +
 // `group_artifact_hash_mismatch`, exit 1, job rosso e — peggio — lo skip dello
-// step che dispaccia i 24 gruppi, cioè zero crawler per quel ciclo, per una
+// step che dispaccia i gruppi, cioè zero crawler per quel ciclo, per una
 // condizione che si auto-risolve alla run successiva.
 //
 // Il contratto che GOVERNA il dispatch è quello pubblicato sul commit corpus
 // che stiamo per pinnare: è quel tree che eseguirà, quindi è contro di lui che
-// vanno verificati gli hash dei 24 artifact e dell'observer (binding integrity,
+// vanno verificati gli hash di ogni artifact di gruppo e dell'observer (binding integrity,
 // #6806/#6933 — invariata, anzi ora verificata sull'oggetto giusto). Il mirror
 // locale resta l'ancora di LINEAGE: uno skew è tollerato solo se il contratto
 // remoto dichiara lo stesso `sourceRepository` e lo stesso `generatorSha256`
@@ -813,6 +821,16 @@ export function evaluateCrawlerGenerationPreflight({
 }) {
   const reasons = [];
   if (!COMMIT_RE.test(corpusCodeCommit ?? '')) reasons.push('corpus_commit_invalid');
+  const discover = (contract) => {
+    try { return deriveCrawlerGroupIdsFromContract(contract); } catch { return null; }
+  };
+  const localGroupIds = discover(localContract);
+  const remoteGroupIds = discover(remoteContract);
+  if (localGroupIds === null || remoteGroupIds === null) reasons.push('contract_invalid');
+  if (localGroupIds !== null && remoteGroupIds !== null
+      && canonicalJson(localGroupIds) !== canonicalJson(remoteGroupIds)) {
+    reasons.push('group_set_mismatch');
+  }
   let mirrorSkew = true;
   try {
     mirrorSkew = canonicalJson(localContract) !== canonicalJson(remoteContract)
@@ -821,12 +839,17 @@ export function evaluateCrawlerGenerationPreflight({
   } catch {
     reasons.push('contract_invalid');
   }
-  reasons.push(...crawlerGenerationContractReasons(remoteContract, remoteObserver, remoteArtifacts));
+  reasons.push(...crawlerGenerationContractReasons(
+    remoteContract,
+    remoteObserver,
+    remoteArtifacts,
+    remoteGroupIds ?? [],
+  ));
   if (remoteWorkflow?.state !== 'active' || remoteWorkflow?.path !== OBSERVER_TARGET) {
     reasons.push('observer_workflow_inactive');
   }
   if (mirrorSkew) {
-    reasons.push(...crawlerGenerationContractReasons(localContract, localObserver, null));
+    reasons.push(...crawlerGenerationContractReasons(localContract, localObserver, null, localGroupIds ?? []));
     const sameLineage = localContract?.sourceRepository === SITE_REPOSITORY
       && remoteContract?.sourceRepository === SITE_REPOSITORY
       && SHA256_RE.test(remoteContract?.generatorSha256 ?? '')
@@ -923,7 +946,9 @@ async function readPreflightSnapshot({ request, localContract, localObserver, sl
     request, sleep,
     input: { method: 'GET', path: `/repos/${CALLER_REPOSITORY}/contents/${OBSERVER_TARGET}?ref=${contentRef}`, apiVersion: GITHUB_API_VERSION },
   }));
-  const remoteArtifacts = Object.fromEntries(await mapWithConcurrency(GROUP_IDS, PREFLIGHT_READ_CONCURRENCY, async (group) => {
+  let remoteGroupIds = null;
+  try { remoteGroupIds = deriveCrawlerGroupIdsFromContract(remoteContract); } catch { /* preflight reports contract_invalid */ }
+  const remoteArtifacts = remoteGroupIds === null ? null : Object.fromEntries(await mapWithConcurrency(remoteGroupIds, PREFLIGHT_READ_CONCURRENCY, async (group) => {
     const file = `crawler-group-${group}.yml`;
     return [file, decodeContentsResponse(await requestPreflightRead({
       request, sleep,
@@ -1005,9 +1030,9 @@ function parseArguments(argv) {
     preflight: ['--contract', '--observer'],
     'dispatch-groups': [
       '--generation-token', '--site-code-commit', '--corpus-code-commit', '--shadow-ready', '--delay-seconds',
-      '--failure-tolerance', '--dry-run', '--repository', '--runner-temp', '--checkpoint',
+      '--failure-tolerance', '--dry-run', '--contract', '--repository', '--runner-temp', '--checkpoint',
     ],
-    'dispatch-sentinel': ['--generation-token', '--repository', '--runner-temp', '--checkpoint'],
+    'dispatch-sentinel': ['--generation-token', '--contract', '--repository', '--runner-temp', '--checkpoint'],
     'cleanup-ref': ['--generation-token', '--corpus-code-commit'],
   };
   const required = requiredByMode[mode];
@@ -1110,6 +1135,8 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
 
   const checkpointPath = safeCheckpoint(values);
   if (mode === 'dispatch-groups') {
+    const contract = JSON.parse(fs.readFileSync(path.resolve(values['--contract']), 'utf8'));
+    const groupIds = deriveCrawlerGroupIdsFromContract(contract);
     const dryRun = values['--dry-run'] === 'true';
     const shadowReady = values['--shadow-ready'] === 'true';
     if (!['true', 'false'].includes(values['--shadow-ready'])
@@ -1122,7 +1149,7 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
     if (!Number.isInteger(delaySeconds) || delaySeconds < 10 || delaySeconds > 90) {
       throw new TypeError('Dispatch delay must be an integer from 10 to 90 seconds');
     }
-    if (!Number.isInteger(failureTolerance) || failureTolerance < 0 || failureTolerance > GROUP_IDS.length) {
+    if (!Number.isInteger(failureTolerance) || failureTolerance < 0 || failureTolerance > groupIds.length) {
       throw new TypeError('Dispatch failure tolerance is invalid');
     }
     if (!dryRun) {
@@ -1146,6 +1173,7 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
       shadowReady: true,
       checkpointPath,
       delayMs: dryRun ? 0 : delaySeconds * 1000,
+      groupIds,
       dispatch: dryRun
         ? async () => ({ status: 'missing', runId: null })
         : ({ group, workflowFile, inputs }) => dispatchWorkflowOnce({
@@ -1157,12 +1185,13 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
           inputs,
           request,
           allowReconciliation: true,
+          groupIds,
           identityForRunId: (runId) => crawlerGenerationWorkflowIdentity(
             group, generationToken, runId, values['--corpus-code-commit'],
           ),
         }),
     });
-    const failures = GROUP_IDS.filter((group) => !ACCEPTED_STATUSES.has(result.dispatchDiagnostics[group].status)).length;
+    const failures = groupIds.filter((group) => !ACCEPTED_STATUSES.has(result.dispatchDiagnostics[group].status)).length;
     if (env.GITHUB_OUTPUT) {
       fs.appendFileSync(env.GITHUB_OUTPUT, 'shadow_ready=true\n');
     }
@@ -1171,8 +1200,10 @@ export async function runCrawlerGenerationDispatchCli(argv = process.argv.slice(
     return result;
   }
 
+  const contract = JSON.parse(fs.readFileSync(path.resolve(values['--contract']), 'utf8'));
+  const groupIds = deriveCrawlerGroupIdsFromContract(contract);
   const sentinel = JSON.parse(fs.readFileSync(checkpointPath, 'utf8'));
-  if (!validateCrawlerGenerationSentinel(sentinel).valid
+  if (!validateCrawlerGenerationSentinel(sentinel, groupIds).valid
       || sentinel.generationToken !== generationToken
       || Buffer.byteLength(canonicalJson(sentinel)) > MAX_SENTINEL_BYTES) {
     throw new TypeError('Invalid crawler generation sentinel checkpoint');

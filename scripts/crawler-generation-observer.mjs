@@ -16,7 +16,6 @@ import {
 import {
   CALLER_REPOSITORY,
   CRAWLER_GENERATION_GITHUB_API_VERSION,
-  GROUP_IDS,
   MAX_CYCLE_MANIFEST_BYTES,
   MAX_GROUP_MANIFEST_BYTES,
   MAX_SENTINEL_BYTES,
@@ -32,6 +31,7 @@ import {
   validateCrawlerGenerationSentinel,
   validateGroupTerminalManifest,
 } from './lib/crawler-generation-contract.mjs';
+import { deriveCrawlerGroupIdsFromGroups } from './lib/crawler-generation-group-ids.mjs';
 
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
@@ -173,8 +173,8 @@ function sentinelReportBinding(sentinel, replayCount, sentinelSet = null) {
   };
 }
 
-function deterministicEvidenceTimestamp(manifests, fallback) {
-  const timestamps = GROUP_IDS.map((group) => (
+function deterministicEvidenceTimestamp(manifests, fallback, groupIds) {
+  const timestamps = groupIds.map((group) => (
     validateGroupTerminalManifest(manifests[group]).valid
       ? Date.parse(manifests[group].checkedAt)
       : Number.NaN
@@ -184,7 +184,7 @@ function deterministicEvidenceTimestamp(manifests, fallback) {
     : fallback;
 }
 
-function createEvidenceDigest({ sentinel, observations, manifests, sourceCommit, barrier }) {
+function createEvidenceDigest({ sentinel, observations, manifests, sourceCommit, barrier, groupIds }) {
   return digestDocument({
     schemaVersion: 1,
     generationToken: sentinel.generationToken,
@@ -192,18 +192,18 @@ function createEvidenceDigest({ sentinel, observations, manifests, sourceCommit,
     corpusCodeCommit: sentinel.corpusCodeCommit,
     sentinelDigest: sentinel.digest,
     runObservations: observations,
-    manifestDigests: Object.fromEntries(GROUP_IDS.map((group) => [group, manifests[group]?.digest ?? null])),
+    manifestDigests: Object.fromEntries(groupIds.map((group) => [group, manifests[group]?.digest ?? null])),
     sourceCommit,
     barrierDigest: barrier.digest,
   });
 }
 
-function sentinelRunRegistry(sentinel) {
+function sentinelRunRegistry(sentinel, groupIds) {
   return {
     schemaVersion: 1,
     cycleId: sentinel.generationToken,
     generationToken: sentinel.generationToken,
-    groups: Object.fromEntries(GROUP_IDS.map((group) => [group, {
+    groups: Object.fromEntries(groupIds.map((group) => [group, {
       repository: CALLER_REPOSITORY,
       workflow: sentinel.groups[group].workflowFile,
       runId: sentinel.groups[group].runId,
@@ -239,8 +239,20 @@ export async function observeCrawlerGeneration({
     });
   }
   const sentinel = resolution.sentinel;
+  let groupIds;
+  try {
+    groupIds = deriveCrawlerGroupIdsFromGroups(sentinel.groups);
+  } catch {
+    return createObserverReport({
+      evaluatedAt,
+      ...sentinelReportBinding(sentinel, resolution.replayCount, sentinelSet),
+      status: 'blocked',
+      reasons: ['sentinel_invalid'],
+      barrier: null,
+    });
+  }
   const reportBinding = sentinelReportBinding(sentinel, resolution.replayCount, sentinelSet);
-  if (GROUP_IDS.some((group) => sentinel.groups[group].runId === null)) {
+  if (groupIds.some((group) => sentinel.groups[group].runId === null)) {
     return createObserverReport({
       evaluatedAt,
       ...reportBinding,
@@ -249,7 +261,7 @@ export async function observeCrawlerGeneration({
       barrier: null,
     });
   }
-  if (!validateCrawlerGenerationRoster(roster).valid) {
+  if (!validateCrawlerGenerationRoster(roster, groupIds).valid) {
     return createObserverReport({
       evaluatedAt, ...reportBinding,
       status: 'blocked', reasons: ['roster_invalid'], barrier: null,
@@ -258,7 +270,7 @@ export async function observeCrawlerGeneration({
   const observations = {};
   const manifests = {};
   try {
-    for (const group of GROUP_IDS) {
+    for (const group of groupIds) {
       const binding = sentinel.groups[group];
       observations[group] = validateBoundCrawlerRun(await getRun(binding.runId), binding);
     }
@@ -286,8 +298,9 @@ export async function observeCrawlerGeneration({
   try {
     // Two-phase by construction: no artifact is listed or downloaded until
     // every exact run is terminal. Event-driven replays therefore issue at
-    // most one 24-artifact read for the generation instead of O(groups²).
-    for (const group of GROUP_IDS) {
+    // most one group-count artifact read for the generation instead of
+    // O(groups²).
+    for (const group of groupIds) {
       const binding = sentinel.groups[group];
       const artifact = selectBoundArtifact(await listRunArtifacts(binding.runId), binding);
       aggregateArtifactBytes += artifact.size_in_bytes;
@@ -332,10 +345,11 @@ export async function observeCrawlerGeneration({
       barrier: null,
     });
   }
-  const evidenceEvaluatedAt = deterministicEvidenceTimestamp(manifests, evaluatedAt);
+  const evidenceEvaluatedAt = deterministicEvidenceTimestamp(manifests, evaluatedAt, groupIds);
   const barrier = evaluateCrawlerGenerationBarrier({
     cycleId: sentinel.generationToken,
-    runRegistry: sentinelRunRegistry(sentinel),
+    groupIds,
+    runRegistry: sentinelRunRegistry(sentinel, groupIds),
     runObservations: observations,
     manifests,
     roster,
@@ -351,6 +365,7 @@ export async function observeCrawlerGeneration({
     manifests,
     sourceCommit: source.sourceCommit,
     barrier,
+    groupIds,
   });
   return createObserverReport({
     evaluatedAt,
@@ -417,13 +432,15 @@ export function loadCrawlerGenerationSourceTree(repository, commit) {
 }
 
 async function prepareGitSource(repository, manifests, sentinel) {
-  const commits = [...new Set(GROUP_IDS.map((group) => manifests[group]?.remote?.commit)
+  const groupIds = deriveCrawlerGroupIdsFromGroups(manifests);
+  const commits = [...new Set(groupIds.map((group) => manifests[group]?.remote?.commit)
     .filter((commit) => COMMIT_RE.test(commit ?? '')))];
   try {
     for (const commit of commits) fetchCommit(repository, commit);
     const derived = deriveCrawlerGenerationSourceCommit({
       manifests,
       siteCodeCommit: sentinel.siteCodeCommit,
+      groupIds,
       isAncestor: (ancestor, descendant) => commitIsAncestor(repository, ancestor, descendant),
     });
     if (derived.status !== 'ready') return derived;
