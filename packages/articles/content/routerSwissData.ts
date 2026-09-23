@@ -2241,6 +2241,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'revisione-legge-epidemie-svizzera': { it: 'revisione-legge-epidemie-svizzera', en: 'revision-epidemics-act-switzerland', de: 'revision-epidemiegesetz-schweiz', fr: 'revision-loi-epidemies-suisse' },
  'dff-progressione-freddo-imposte-2027': { it: 'dff-progressione-freddo-imposte-2027', en: 'dff-cold-progression-taxes-2027', de: 'dff-kalte-progression-steuern-2027', fr: 'dff-progression-froide-impots-2027' },
  'costi-auto-elettrica-benzina': { it: 'costi-auto-elettrica-benzina', en: 'electric-vs-petrol-car-costs-switzerland', de: 'kosten-elektroauto-benzin-schweiz', fr: 'couts-voiture-electrique-essence-suisse' },
+ 'parco-veicoli-svizzera-2026': { it: 'parco-veicoli-svizzera-2026', en: 'vehicle-fleet-switzerland-2026', de: 'fahrzeugbestand-schweiz-2026', fr: 'parc-vehicules-suisse-2026' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
