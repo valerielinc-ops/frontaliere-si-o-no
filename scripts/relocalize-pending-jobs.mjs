@@ -65,6 +65,7 @@ import { markRunStart, recordRunPhase, resolveRunStartMs } from './lib/translate
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { runTranslationShadowPreflightV2 } from './lib/translation-shadow-preflight-v2.mjs';
 import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
+import { TRANSLATION_RAW_OBSERVABILITY_LIMITS } from './lib/translation-observability-limits.mjs';
 import {
   applyThinkingArm,
   assignThinkingArm,
@@ -96,7 +97,6 @@ const ALLOW_NO_TRAFFIC = String(process.env.RELOCALIZE_ALLOW_NO_TRAFFIC || '0') 
 const TRANSLATION_CACHE_DIR = path.join(ROOT, 'data', 'translation-cache');
 const LOCALES = ['it', 'en', 'de', 'fr'];
 const MIN_DESC_CHARS = 120;
-const CASCADE_OBSERVABILITY_LIMITS = Object.freeze({ jobTimings: 4096, companies: 2048, rungs: 64 });
 const DRY_RUN = String(process.env.RELOCALIZE_DRY_RUN || '0') === '1';
 // After this many runs where a flagged job still fails isIncomplete(), give up:
 // LibreTranslate cannot satisfy the locale detectors (proper-noun-heavy text,
@@ -247,7 +247,7 @@ function mergeCascadeObservability(
 
   if (Array.isArray(observation?.jobDurationsMs)) {
     for (const durationMs of observation.jobDurationsMs) {
-      if (phase.jobDurationsMs.length >= CASCADE_OBSERVABILITY_LIMITS.jobTimings) break;
+      if (phase.jobDurationsMs.length >= TRANSLATION_RAW_OBSERVABILITY_LIMITS.jobTimings) break;
       if (Number.isFinite(durationMs) && durationMs >= 0) phase.jobDurationsMs.push(Math.round(durationMs));
     }
   }
@@ -258,7 +258,7 @@ function mergeCascadeObservability(
     const row = rungs.get(rung) || { rung, count: 0, durationMs: 0 };
     row.count += integerCount(entry?.count);
     row.durationMs += finiteNonNegative(entry?.durationMs);
-    if (rungs.size < CASCADE_OBSERVABILITY_LIMITS.rungs || rungs.has(rung)) rungs.set(rung, row);
+    if (rungs.size < TRANSLATION_RAW_OBSERVABILITY_LIMITS.rungs || rungs.has(rung)) rungs.set(rung, row);
   }
   phase.rungAttribution = [...rungs.values()];
 
@@ -266,7 +266,7 @@ function mergeCascadeObservability(
   const ensureCompany = (companyKey) => {
     const key = normalizeCompanyKey(companyKey) || 'unknown';
     if (companies.has(key)) return companies.get(key);
-    if (companies.size >= CASCADE_OBSERVABILITY_LIMITS.companies) return null;
+    if (companies.size >= TRANSLATION_RAW_OBSERVABILITY_LIMITS.companies) return null;
     const row = { companyKey: key, queued: 0, served: 0, cleared: 0, durationMs: 0 };
     companies.set(key, row);
     return row;
