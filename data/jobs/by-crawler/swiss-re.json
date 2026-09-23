@@ -4060,7 +4060,7 @@
       "slugByLocale": {
         "it": "responsabile-della-distribuzione-senior-swiss-re-tokyo-jp",
         "en": "senior-distribution-manager-swiss-re-ch",
-        "de": "senior-distribution-manager-swiss-re-ch",
+        "de": "leitender-vertriebsleiter-swiss-re-tokyo-jp",
         "fr": "directeur-principal-de-la-distribution-swiss-re-tokyo-jp"
       },
       "company": "Swiss Re",
@@ -4108,6 +4108,9 @@
           "senior-distribution-manager-swiss-re-ch"
         ],
         "fr": [
+          "senior-distribution-manager-swiss-re-ch"
+        ],
+        "de": [
           "senior-distribution-manager-swiss-re-ch"
         ]
       },
@@ -11224,7 +11227,7 @@
       "slugByLocale": {
         "it": "sottoscrittore-senior-swiss-re-hong-kong-hk",
         "en": "senior-underwriter-swiss-re-ch",
-        "de": "senior-underwriter-swiss-re-hong-kong-hk",
+        "de": "leitender-underwriter-swiss-re-hong-kong-hk",
         "fr": "underwriter-senior-swiss-re-hong-kong-hk"
       },
       "company": "Swiss Re",
@@ -11265,11 +11268,15 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-underwriter-swiss-re-ch"
+        "senior-underwriter-swiss-re-ch",
+        "senior-underwriter-swiss-re-hong-kong-hk"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-underwriter-swiss-re-ch"
+        ],
+        "de": [
+          "senior-underwriter-swiss-re-hong-kong-hk"
         ]
       },
       "firstSeenAt": "2026-08-26T10:01:42.452Z",
@@ -12290,7 +12297,7 @@
       "slugByLocale": {
         "it": "sottoscrittore-senior-swiss-re-beijing-cn",
         "en": "senior-underwriter-swiss-re-ch",
-        "de": "senior-underwriter-swiss-re-beijing-cn",
+        "de": "leitender-underwriter-swiss-re-beijing-cn",
         "fr": "senior-underwriter-swiss-re-ch-2"
       },
       "company": "Swiss Re",
@@ -12332,12 +12339,16 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "senior-underwriter-swiss-re-ch",
-        "senior-underwriter-swiss-re-ch-2"
+        "senior-underwriter-swiss-re-ch-2",
+        "senior-underwriter-swiss-re-beijing-cn"
       ],
       "previousSlugsByLocale": {
         "it": [
           "senior-underwriter-swiss-re-ch",
           "senior-underwriter-swiss-re-ch-2"
+        ],
+        "de": [
+          "senior-underwriter-swiss-re-beijing-cn"
         ]
       },
       "firstSeenAt": "2026-08-31T17:08:47.431Z",

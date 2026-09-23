@@ -503,9 +503,9 @@
     },
     {
       "id": "sonarsource-053f57eea778",
-      "slug": "sr-staff-customer-trust-manager-sonarsource-ch",
+      "slug": "responsabile-senior-del-trust-clienti-sonarsource-sonar-geneva",
       "slugByLocale": {
-        "it": "sr-staff-customer-trust-manager-sonarsource-ch",
+        "it": "responsabile-senior-del-trust-clienti-sonarsource-sonar-geneva",
         "en": "sr-staff-customer-trust-manager-sonarsource-ch",
         "de": "senior-customer-trust-manager-sonarsource-sonar-geneva",
         "fr": "chef-de-service-client-sonarsource-sonar-geneva"
@@ -561,7 +561,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE"
+      "addressRegion": "GE",
+      "previousSlugsByLocale": {
+        "it": [
+          "sr-staff-customer-trust-manager-sonarsource-ch"
+        ]
+      },
+      "previousSlugs": [
+        "sr-staff-customer-trust-manager-sonarsource-ch"
+      ]
     },
     {
       "id": "sonarsource-aa543e3002fa",
@@ -1514,7 +1522,7 @@
       "slugByLocale": {
         "it": "gestore-di-ingegneria-piattaforma-e-operazioni-cloud-sonarsource-sonar-geneva",
         "en": "engineering-manager-cloud-platform-operations-sonarsource-ch",
-        "de": "engineering-manager-cloud-platform-operations-sonarsource-ch",
+        "de": "engineering-manager-cloud-plattform-betrieb-sonarsource-sonar-geneva",
         "fr": "gestionnaire-d-ingenierie-plateforme-cloud-operations-sonarsource-sonar-geneva"
       },
       "company": "SonarSource (Sonar)",
@@ -1559,6 +1567,9 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "engineering-manager-cloud-platform-operations-sonarsource-ch"
+        ],
+        "de": [
           "engineering-manager-cloud-platform-operations-sonarsource-ch"
         ]
       },

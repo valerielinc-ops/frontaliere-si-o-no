@@ -3242,9 +3242,9 @@
     },
     {
       "id": "rheinmetall-air-defence-8fe7ce049466",
-      "slug": "test-engineer-c2-and-training-system-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "ingegnere-di-test-c2-e-sistema-di-formazione-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "test-engineer-c2-and-training-system-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "ingegnere-di-test-c2-e-sistema-di-formazione-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "test-engineer-c2-and-training-system-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "test-engineer-c2-and-training-system-m-w-d-rheinmetall-air-defence-ag-zurich",
         "fr": "test-engineer-c2-and-training-system-m-w-d-rheinmetall-air-defence-ag-zurich"
@@ -3307,7 +3307,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "test-engineer-c2-and-training-system-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "test-engineer-c2-and-training-system-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-e771c6f8c5d4",

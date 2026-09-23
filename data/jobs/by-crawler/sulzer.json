@@ -17510,10 +17510,10 @@
     },
     {
       "id": "sulzer-cd565af9b9f2",
-      "slug": "ingeniero-de-ventas-de-aguas-argentina-sulzer-ch",
+      "slug": "ingegnere-dei-condotti-dell-acqua-argentina-sulzer-buenos-aires",
       "slugByLocale": {
-        "it": "ingeniero-de-ventas-de-aguas-argentina-sulzer-ch",
-        "en": "ingeniero-de-ventas-de-aguas-argentina-sulzer-ch",
+        "it": "ingegnere-dei-condotti-dell-acqua-argentina-sulzer-buenos-aires",
+        "en": "water-vent-engineer-argentina-sulzer-buenos-aires",
         "de": "ingeniero-de-ventas-de-aguas-argentinien-sulzer-buenos-aires",
         "fr": "ingeniero-de-ventas-de-aguas-argentina-sulzer-ch"
       },
@@ -17568,13 +17568,24 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "ingeniero-de-ventas-de-aguas-argentina-sulzer-ch"
+        ],
+        "en": [
+          "ingeniero-de-ventas-de-aguas-argentina-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "ingeniero-de-ventas-de-aguas-argentina-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-6476ae3b7ffa",
-      "slug": "area-sales-manager-sulzer-ch-6",
+      "slug": "responsabile-vendite-di-area-sulzer-johannesburg",
       "slugByLocale": {
-        "it": "area-sales-manager-sulzer-ch-6",
+        "it": "responsabile-vendite-di-area-sulzer-johannesburg",
         "en": "area-sales-manager-sulzer-ch",
         "de": "bereich-sales-manager-sulzer-johannesburg",
         "fr": "directeur-regional-des-ventes-sulzer-johannesburg"
@@ -17617,11 +17628,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "area-sales-manager-sulzer-ch"
+        "area-sales-manager-sulzer-ch",
+        "area-sales-manager-sulzer-ch-6"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "area-sales-manager-sulzer-ch"
+          "area-sales-manager-sulzer-ch",
+          "area-sales-manager-sulzer-ch-6"
         ]
       },
       "firstSeenAt": "2026-08-25T21:58:49.283Z",
@@ -18700,7 +18713,7 @@
       "slugByLocale": {
         "it": "azienda-di-vendita-interna-sulzer-phoenix",
         "en": "inside-sales-associate-sulzer-ch",
-        "de": "inside-sales-associate-sulzer-ch",
+        "de": "innendienstmitarbeiter-sulzer-phoenix",
         "fr": "associe-de-vente-interne-sulzer-phoenix"
       },
       "company": "Sulzer",
@@ -18748,6 +18761,9 @@
           "inside-sales-associate-sulzer-ch"
         ],
         "fr": [
+          "inside-sales-associate-sulzer-ch"
+        ],
+        "de": [
           "inside-sales-associate-sulzer-ch"
         ]
       },
@@ -18930,7 +18946,7 @@
       "slugByLocale": {
         "it": "responsabile-dei-contratti-commerciali-senior-sulzer-pune",
         "en": "senior-commercial-contracts-manager-sulzer-ch",
-        "de": "senior-commercial-contracts-manager-sulzer-ch",
+        "de": "senior-manager-fur-kommerzielle-vertrage-sulzer-pune",
         "fr": "directeur-principal-des-marches-commerciaux-sulzer-pune"
       },
       "company": "Sulzer",
@@ -18979,6 +18995,9 @@
           "senior-commercial-contracts-manager-sulzer-ch"
         ],
         "fr": [
+          "senior-commercial-contracts-manager-sulzer-ch"
+        ],
+        "de": [
           "senior-commercial-contracts-manager-sulzer-ch"
         ]
       },
@@ -19648,7 +19667,7 @@
         "it": "engenheiro-a-de-vendas-sulzer-ch",
         "en": "engenheiro-a-de-vendas-sulzer-ch",
         "de": "engenheiro-a-de-vendas-sulzer-sao-paulo",
-        "fr": "engenheiro-a-de-vendas-sulzer-ch"
+        "fr": "ingenieur-e-de-ventes-sulzer-sao-paulo"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -22803,9 +22822,9 @@
     },
     {
       "id": "sulzer-1c79f52d0e75",
-      "slug": "area-sales-manager-sulzer-ch-2",
+      "slug": "responsabile-vendite-di-area-sulzer-birmingham",
       "slugByLocale": {
-        "it": "area-sales-manager-sulzer-ch-2",
+        "it": "responsabile-vendite-di-area-sulzer-birmingham",
         "en": "area-sales-manager-sulzer-ch",
         "de": "bereich-sales-manager-sulzer-birmingham",
         "fr": "directeur-regional-des-ventes-sulzer-birmingham"
@@ -22849,12 +22868,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "area-sales-manager-sulzer-ch",
-        "area-sales-manager-sulzer-ch-2-2"
+        "area-sales-manager-sulzer-ch-2-2",
+        "area-sales-manager-sulzer-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
           "area-sales-manager-sulzer-ch",
-          "area-sales-manager-sulzer-ch-2-2"
+          "area-sales-manager-sulzer-ch-2-2",
+          "area-sales-manager-sulzer-ch-2"
         ]
       },
       "firstSeenAt": "2026-09-01T09:09:28.906Z",

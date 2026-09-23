@@ -9700,7 +9700,7 @@
         "it": "hr-business-partner-w-m-100-fielmann-ch",
         "en": "hr-business-partner-w-m-100-fielmann-ch",
         "de": "hr-business-partner-w-m-100-fielmann-ch",
-        "fr": "generaliste-des-rh-associe-d-affaires-des-rh-h-f-100-fielmann-group-basel"
+        "fr": "generaliste-rh-partenaire-commercial-rh-h-f-100-fielmann-group-basel"
       },
       "company": "Fielmann Group",
       "companyKey": "fielmann",
@@ -9756,7 +9756,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "fr": [
+          "generaliste-des-rh-associe-d-affaires-des-rh-h-f-100-fielmann-group-basel"
+        ]
+      },
+      "previousSlugs": [
+        "generaliste-des-rh-associe-d-affaires-des-rh-h-f-100-fielmann-group-basel"
+      ]
     },
     {
       "id": "fielmann-af72009f2a40",

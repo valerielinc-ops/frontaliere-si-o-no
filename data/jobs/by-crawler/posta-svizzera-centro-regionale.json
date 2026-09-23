@@ -292,7 +292,7 @@
         "it": "sap-hcm-payroll-modulberater-in-post",
         "en": "sap-hcm-payroll-modulberater-in-post",
         "de": "sap-hcm-payroll-modulberater-in-post",
-        "fr": "sap-hcm-payroll-modulberater-in-post"
+        "fr": "sap-hcm-consultants-pour-les-modules-de-paie-die-schweizerische-post-bellinzona"
       },
       "sourceLang": "de",
       "department": "",
@@ -355,9 +355,9 @@
       "slug": "filialleiter-in-team-koniz-post",
       "slugByLocale": {
         "it": "filialleiter-in-team-koniz-post",
-        "en": "filialleiter-in-team-koniz-post",
+        "en": "branch-manager-team-koniz-die-schweizerische-post-koniz",
         "de": "filialleiter-in-team-koniz-post",
-        "fr": "filialleiter-in-team-koniz-post"
+        "fr": "directeur-de-branche-equipe-koniz-die-schweizerische-post-koniz"
       },
       "sourceLang": "de",
       "department": "",
@@ -495,12 +495,12 @@
         "en": "Process Manager Digitalization and Automation",
         "fr": "Process Manager Digitalisation et automatisation"
       },
-      "slug": "prozessmanager-in-digitalisierung-automatisierung-post",
+      "slug": "gestione-dei-processi-digitalizzazione-e-automazione-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "prozessmanager-in-digitalisierung-automatisierung-post",
-        "en": "prozessmanager-in-digitalisierung-automatisierung-post",
+        "it": "gestione-dei-processi-digitalizzazione-e-automazione-die-schweizerische-post-bern",
+        "en": "process-manager-digitalization-and-automation-die-schweizerische-post-bern",
         "de": "prozessmanager-in-digitalisierung-automatisierung-post",
-        "fr": "prozessmanager-in-digitalisierung-automatisierung-post"
+        "fr": "process-manager-digitalisation-et-automatisation-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -534,7 +534,21 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prozessmanager-in-digitalisierung-automatisierung-post"
+        ],
+        "en": [
+          "prozessmanager-in-digitalisierung-automatisierung-post"
+        ],
+        "fr": [
+          "prozessmanager-in-digitalisierung-automatisierung-post"
+        ]
+      },
+      "previousSlugs": [
+        "prozessmanager-in-digitalisierung-automatisierung-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/EngOps-Engineer-Netzwerk/74782-de_DE",
@@ -558,12 +572,12 @@
         "de": "EngOps Ingenieur Netzwerk",
         "fr": "Réseau d'ingénieurs EngOps"
       },
-      "slug": "engops-engineer-netzwerk-post",
+      "slug": "rete-di-ingegneri-engops-die-schweizerische-post-bellinzona",
       "slugByLocale": {
-        "it": "engops-engineer-netzwerk-post",
+        "it": "rete-di-ingegneri-engops-die-schweizerische-post-bellinzona",
         "en": "engops-engineer-netzwerk-post",
         "de": "engops-engineer-netzwerk-post",
-        "fr": "engops-ingenieur-netzwerk-die-schweizerische-post-bellinzona"
+        "fr": "reseau-d-ingenieurs-engops-die-schweizerische-post-bellinzona"
       },
       "sourceLang": "de",
       "department": "",
@@ -599,7 +613,20 @@
       "postalCode": "6500",
       "addressLocality": "Bellinzona",
       "addressRegion": "TI",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "engops-engineer-netzwerk-post"
+        ],
+        "fr": [
+          "engops-engineer-netzwerk-post",
+          "engops-ingenieur-netzwerk-die-schweizerische-post-bellinzona"
+        ]
+      },
+      "previousSlugs": [
+        "engops-engineer-netzwerk-post",
+        "engops-ingenieur-netzwerk-die-schweizerische-post-bellinzona"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Prozessarchitektin/74788-de_DE",
@@ -623,12 +650,12 @@
         "en": "Process architect:in",
         "fr": "Architecte de processus:in"
       },
-      "slug": "prozessarchitekt-in-post",
+      "slug": "architetto-di-processo-in-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "prozessarchitekt-in-post",
-        "en": "prozessarchitekt-in-die-schweizerische-post-bern",
+        "it": "architetto-di-processo-in-die-schweizerische-post-bern",
+        "en": "process-architect-in-die-schweizerische-post-bern",
         "de": "prozessarchitekt-in-die-schweizerische-post-bern",
-        "fr": "prozessarchitekt-in-die-schweizerische-post-bern"
+        "fr": "architecte-de-processus-in-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -663,7 +690,22 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "prozessarchitekt-in-post"
+        ],
+        "en": [
+          "prozessarchitekt-in-die-schweizerische-post-bern"
+        ],
+        "fr": [
+          "prozessarchitekt-in-die-schweizerische-post-bern"
+        ]
+      },
+      "previousSlugs": [
+        "prozessarchitekt-in-post",
+        "prozessarchitekt-in-die-schweizerische-post-bern"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Kundenberaterin/74821-de_DE",
@@ -687,12 +729,12 @@
         "en": "Client advisors",
         "fr": "Conseillers clients"
       },
-      "slug": "kundenberater-in-post",
+      "slug": "consulenti-clienti-die-schweizerische-post-basel",
       "slugByLocale": {
-        "it": "kundenberater-in-post",
-        "en": "kundenberater-in-die-schweizerische-post-basel",
+        "it": "consulenti-clienti-die-schweizerische-post-basel",
+        "en": "client-advisors-die-schweizerische-post-basel",
         "de": "kundenberater-in-die-schweizerische-post-basel",
-        "fr": "kundenberater-in-die-schweizerische-post-basel"
+        "fr": "conseillers-clients-die-schweizerische-post-basel"
       },
       "sourceLang": "de",
       "department": "",
@@ -726,7 +768,22 @@
       },
       "addressLocality": "Basel",
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "kundenberater-in-post"
+        ],
+        "en": [
+          "kundenberater-in-die-schweizerische-post-basel"
+        ],
+        "fr": [
+          "kundenberater-in-die-schweizerische-post-basel"
+        ]
+      },
+      "previousSlugs": [
+        "kundenberater-in-post",
+        "kundenberater-in-die-schweizerische-post-basel"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Junior-Servicetechnikerin/74759-de_DE",
@@ -750,12 +807,12 @@
         "en": "Junior service technician",
         "fr": "Technicien auxiliaire"
       },
-      "slug": "junior-servicetechniker-in-post",
+      "slug": "tecnico-di-servizio-junior-die-schweizerische-post-frauenfeld",
       "slugByLocale": {
-        "it": "junior-servicetechniker-in-post",
-        "en": "junior-servicetechniker-in-die-schweizerische-post-frauenfeld",
+        "it": "tecnico-di-servizio-junior-die-schweizerische-post-frauenfeld",
+        "en": "junior-service-technician-die-schweizerische-post-frauenfeld",
         "de": "junior-servicetechniker-in-die-schweizerische-post-frauenfeld",
-        "fr": "junior-servicetechniker-in-die-schweizerische-post-frauenfeld"
+        "fr": "technicien-auxiliaire-die-schweizerische-post-frauenfeld"
       },
       "sourceLang": "de",
       "department": "",
@@ -789,7 +846,22 @@
       },
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-servicetechniker-in-post"
+        ],
+        "en": [
+          "junior-servicetechniker-in-die-schweizerische-post-frauenfeld"
+        ],
+        "fr": [
+          "junior-servicetechniker-in-die-schweizerische-post-frauenfeld"
+        ]
+      },
+      "previousSlugs": [
+        "junior-servicetechniker-in-post",
+        "junior-servicetechniker-in-die-schweizerische-post-frauenfeld"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74833-de_DE",
@@ -813,12 +885,12 @@
         "en": "Delivery letters and packages",
         "fr": "Lettres de livraison et colis"
       },
-      "slug": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-buchs-ag",
+      "slug": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-buchs-ag",
       "slugByLocale": {
-        "it": "zusteller-in-lettere-e-pacchi-die-schweizerische-post-buchs-ag",
-        "en": "zusteller-in-briefe-und-pakete-post",
+        "it": "lettere-di-consegna-e-pacchetti-die-schweizerische-post-buchs-ag",
+        "en": "delivery-letters-and-packages-die-schweizerische-post-buchs-ag",
         "de": "zusteller-in-briefe-und-pakete-post",
-        "fr": "zusteller-in-briefe-und-pakete-post"
+        "fr": "lettres-de-livraison-et-colis-die-schweizerische-post-buchs-ag"
       },
       "sourceLang": "de",
       "department": "",
@@ -856,12 +928,20 @@
       "previousSlugsByLocale": {
         "it": [
           "zusteller-in-briefe-und-pakete-post-2",
+          "zusteller-in-briefe-und-pakete-post",
+          "zusteller-in-lettere-e-pacchi-die-schweizerische-post-buchs-ag"
+        ],
+        "en": [
+          "zusteller-in-briefe-und-pakete-post"
+        ],
+        "fr": [
           "zusteller-in-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post-2",
-        "zusteller-in-briefe-und-pakete-post"
+        "zusteller-in-briefe-und-pakete-post",
+        "zusteller-in-lettere-e-pacchi-die-schweizerische-post-buchs-ag"
       ]
     },
     {
@@ -886,12 +966,12 @@
         "en": "Professional trainer Application development",
         "fr": "Formateur professionnel Développement des applications"
       },
-      "slug": "berufsbildner-in-applikationsentwicklung-post",
+      "slug": "formazione-professionale-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "berufsbildner-in-applikationsentwicklung-post",
-        "en": "berufsbildner-in-applikationsentwicklung-die-schweizerische-post-bern",
+        "it": "formazione-professionale-die-schweizerische-post-bern",
+        "en": "professional-trainer-application-development-die-schweizerische-post-bern",
         "de": "berufsbildner-in-applikationsentwicklung-die-schweizerische-post-bern",
-        "fr": "berufsbildner-in-applikationsentwicklung-die-schweizerische-post-bern"
+        "fr": "formateur-professionnel-developpement-des-applications-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -925,7 +1005,22 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "berufsbildner-in-applikationsentwicklung-post"
+        ],
+        "en": [
+          "berufsbildner-in-applikationsentwicklung-die-schweizerische-post-bern"
+        ],
+        "fr": [
+          "berufsbildner-in-applikationsentwicklung-die-schweizerische-post-bern"
+        ]
+      },
+      "previousSlugs": [
+        "berufsbildner-in-applikationsentwicklung-post",
+        "berufsbildner-in-applikationsentwicklung-die-schweizerische-post-bern"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Gesch%C3%A4ftsentwicklerin-Logistik/74683-de_DE",
@@ -949,12 +1044,12 @@
         "en": "Business Developer Logistics",
         "fr": "Logistique des développeurs d'entreprises"
       },
-      "slug": "geschaftsentwickler-in-logistik-post",
+      "slug": "business-sviluppatore-logistica-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "geschaftsentwickler-in-logistik-post",
-        "en": "geschaftsentwickler-in-logistik-die-schweizerische-post-bern",
+        "it": "business-sviluppatore-logistica-die-schweizerische-post-bern",
+        "en": "business-developer-logistics-die-schweizerische-post-bern",
         "de": "geschaftsentwickler-in-logistik-die-schweizerische-post-bern",
-        "fr": "geschaftsentwickler-in-logistik-die-schweizerische-post-bern"
+        "fr": "logistique-des-developpeurs-d-entreprises-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -988,7 +1083,22 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "geschaftsentwickler-in-logistik-post"
+        ],
+        "en": [
+          "geschaftsentwickler-in-logistik-die-schweizerische-post-bern"
+        ],
+        "fr": [
+          "geschaftsentwickler-in-logistik-die-schweizerische-post-bern"
+        ]
+      },
+      "previousSlugs": [
+        "geschaftsentwickler-in-logistik-post",
+        "geschaftsentwickler-in-logistik-die-schweizerische-post-bern"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74632-de_DE",
@@ -1172,12 +1282,12 @@
         "en": "Upper Valais delivery packages",
         "fr": "Livraisons en Valais supérieur"
       },
-      "slug": "zusteller-in-pakete-oberwallis-post",
+      "slug": "pacchetti-di-consegna-del-vallese-superiore-die-schweizerische-post-vetroz",
       "slugByLocale": {
-        "it": "zusteller-in-pakete-oberwallis-post",
-        "en": "zusteller-in-pakete-oberwallis-post",
+        "it": "pacchetti-di-consegna-del-vallese-superiore-die-schweizerische-post-vetroz",
+        "en": "upper-valais-delivery-packages-die-schweizerische-post-vetroz",
         "de": "zusteller-in-pakete-oberwallis-post",
-        "fr": "zusteller-in-pakete-oberwallis-post"
+        "fr": "livraisons-en-valais-superieur-die-schweizerische-post-vetroz"
       },
       "sourceLang": "de",
       "department": "",
@@ -1211,7 +1321,21 @@
       },
       "addressLocality": "Vétroz",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "zusteller-in-pakete-oberwallis-post"
+        ],
+        "en": [
+          "zusteller-in-pakete-oberwallis-post"
+        ],
+        "fr": [
+          "zusteller-in-pakete-oberwallis-post"
+        ]
+      },
+      "previousSlugs": [
+        "zusteller-in-pakete-oberwallis-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Kundenberaterin/74382-de_DE",
@@ -1238,9 +1362,9 @@
       "slug": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
       "slugByLocale": {
         "it": "consulente-clienti-in-die-schweizerische-post-emmenbrucke",
-        "en": "client-advisors-die-schweizerische-post-emmenbrucke",
+        "en": "customer-advisor-in-die-schweizerische-post-emmenbrucke",
         "de": "kundenberater-in-die-schweizerische-post-emmenbrucke",
-        "fr": "conseillers-clients-die-schweizerische-post-emmenbrucke"
+        "fr": "conseiller-client-in-die-schweizerische-post-emmenbrucke"
       },
       "sourceLang": "de",
       "department": "",
@@ -1263,20 +1387,16 @@
         ],
         "en": [
           "kundenberater-in-die-schweizerische-post-emmenbrucke",
-          "customer-advisor-in-die-schweizerische-post-emmenbrucke",
           "client-advisors-die-schweizerische-post-emmenbrucke"
         ],
         "fr": [
           "kundenberater-in-die-schweizerische-post-emmenbrucke",
-          "conseiller-client-in-die-schweizerische-post-emmenbrucke",
           "conseillers-clients-die-schweizerische-post-emmenbrucke"
         ]
       },
       "previousSlugs": [
         "kundenberater-in-post",
         "kundenberater-in-die-schweizerische-post-emmenbrucke",
-        "customer-advisor-in-die-schweizerische-post-emmenbrucke",
-        "conseiller-client-in-die-schweizerische-post-emmenbrucke",
         "client-advisors-die-schweizerische-post-emmenbrucke",
         "conseillers-clients-die-schweizerische-post-emmenbrucke"
       ],
@@ -1321,12 +1441,12 @@
         "en": "Head of Team",
         "fr": "Chef d'équipe"
       },
-      "slug": "stv-responsabile-team-die-schweizerische-post-grenchen",
+      "slug": "capo-squadra-die-schweizerische-post-grenchen",
       "slugByLocale": {
-        "it": "stv-responsabile-team-die-schweizerische-post-grenchen",
-        "en": "stv-leiter-in-team-post",
+        "it": "capo-squadra-die-schweizerische-post-grenchen",
+        "en": "head-of-team-die-schweizerische-post-grenchen",
         "de": "stv-leiter-in-team-post",
-        "fr": "stv-leiter-in-team-post"
+        "fr": "chef-d-equipe-die-schweizerische-post-grenchen"
       },
       "sourceLang": "de",
       "department": "",
@@ -1363,11 +1483,19 @@
       "firstSeenAt": "2026-09-23T12:05:10.032Z",
       "previousSlugsByLocale": {
         "it": [
+          "stv-leiter-in-team-post",
+          "stv-responsabile-team-die-schweizerische-post-grenchen"
+        ],
+        "en": [
+          "stv-leiter-in-team-post"
+        ],
+        "fr": [
           "stv-leiter-in-team-post"
         ]
       },
       "previousSlugs": [
-        "stv-leiter-in-team-post"
+        "stv-leiter-in-team-post",
+        "stv-responsabile-team-die-schweizerische-post-grenchen"
       ]
     },
     {
@@ -1792,12 +1920,12 @@
         "en": "Asset Manager Centre",
         "fr": "Centre de gestion des biens"
       },
-      "slug": "asset-manager-in-mitte-post",
+      "slug": "centro-di-gestione-delle-risorse-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "asset-manager-in-mitte-post",
+        "it": "centro-di-gestione-delle-risorse-die-schweizerische-post-bern",
         "en": "asset-manager-in-mitte-post",
         "de": "asset-manager-in-mitte-post",
-        "fr": "asset-manager-in-mitte-post"
+        "fr": "centre-de-gestion-des-biens-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -1831,7 +1959,18 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "asset-manager-in-mitte-post"
+        ],
+        "fr": [
+          "asset-manager-in-mitte-post"
+        ]
+      },
+      "previousSlugs": [
+        "asset-manager-in-mitte-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Stv_-Teamleaderin-Sortierung-Pakete/74766-de_DE",
@@ -1991,12 +2130,12 @@
         "en": "Senior Project Manager Working World / Construction Assistance FM West Switzerland",
         "fr": "Senior Project Manager Working World / Aide à la construction FM Ouest Suisse"
       },
-      "slug": "senior-responsabile-di-progetto-arbeitswelt-baubegleitung-fm-westschweiz-die-schweizerische-post-fribourg",
+      "slug": "senior-project-manager-working-world-construction-assistance-fm-west-svizzera-die-schweizerische-post-fribourg",
       "slugByLocale": {
-        "it": "senior-responsabile-di-progetto-arbeitswelt-baubegleitung-fm-westschweiz-die-schweizerische-post-fribourg",
-        "en": "senior-project-manager-arbeitswelt-baubegleitung-fm-westschweiz-die-schweizerische-post-fribourg",
+        "it": "senior-project-manager-working-world-construction-assistance-fm-west-svizzera-die-schweizerische-post-fribourg",
+        "en": "senior-project-manager-working-world-construction-assistance-fm-west-switzerland-die-schweizerische-post-fribourg",
         "de": "senior-projektleiter-in-arbeitswelt-baubegleitung-fm-westschweiz-post",
-        "fr": "senior-chef-de-projet-arbeitswelt-baubegleitung-fm-westschweiz-die-schweizerische-post-fribourg"
+        "fr": "senior-project-manager-working-world-aide-a-la-construction-fm-ouest-suisse-die-schweizerische-post-fribourg"
       },
       "sourceLang": "de",
       "department": "",
@@ -2033,17 +2172,23 @@
       "firstSeenAt": "2026-09-23T12:05:10.032Z",
       "previousSlugsByLocale": {
         "it": [
-          "senior-projektleiter-in-arbeitswelt-baubegleitung-fm-westschweiz-post"
+          "senior-projektleiter-in-arbeitswelt-baubegleitung-fm-westschweiz-post",
+          "senior-responsabile-di-progetto-arbeitswelt-baubegleitung-fm-westschweiz-die-schweizerische-post-fribourg"
         ],
         "en": [
-          "senior-projektleiter-in-arbeitswelt-baubegleitung-fm-westschweiz-post"
+          "senior-projektleiter-in-arbeitswelt-baubegleitung-fm-westschweiz-post",
+          "senior-project-manager-arbeitswelt-baubegleitung-fm-westschweiz-die-schweizerische-post-fribourg"
         ],
         "fr": [
-          "senior-projektleiter-in-arbeitswelt-baubegleitung-fm-westschweiz-post"
+          "senior-projektleiter-in-arbeitswelt-baubegleitung-fm-westschweiz-post",
+          "senior-chef-de-projet-arbeitswelt-baubegleitung-fm-westschweiz-die-schweizerische-post-fribourg"
         ]
       },
       "previousSlugs": [
-        "senior-projektleiter-in-arbeitswelt-baubegleitung-fm-westschweiz-post"
+        "senior-projektleiter-in-arbeitswelt-baubegleitung-fm-westschweiz-post",
+        "senior-responsabile-di-progetto-arbeitswelt-baubegleitung-fm-westschweiz-die-schweizerische-post-fribourg",
+        "senior-project-manager-arbeitswelt-baubegleitung-fm-westschweiz-die-schweizerische-post-fribourg",
+        "senior-chef-de-projet-arbeitswelt-baubegleitung-fm-westschweiz-die-schweizerische-post-fribourg"
       ]
     },
     {
@@ -2145,12 +2290,12 @@
         "en": "Apprenticeship as a retail specialist*woman EFZ - Rheinfelden",
         "fr": "Apprentissage en tant que spécialiste du commerce de détail* femme EFZ - Rheinfelden"
       },
-      "slug": "apprendistato-come-detailhandelsfachmann-frau-cfc-rheinfelden-die-schweizerische-post-rheinfelden",
+      "slug": "apprendistato-come-specialista-al-dettaglio-donna-efz-rheinfelden-die-schweizerische-post-rheinfelden",
       "slugByLocale": {
-        "it": "apprendistato-come-detailhandelsfachmann-frau-cfc-rheinfelden-die-schweizerische-post-rheinfelden",
-        "en": "lehre-als-detailhandelsfachmann-frau-efz-rheinfelden-post",
+        "it": "apprendistato-come-specialista-al-dettaglio-donna-efz-rheinfelden-die-schweizerische-post-rheinfelden",
+        "en": "apprenticeship-as-a-retail-specialist-woman-efz-rheinfelden-die-schweizerische-post-rheinfelden",
         "de": "lehre-als-detailhandelsfachmann-frau-efz-rheinfelden-post",
-        "fr": "lehre-als-detailhandelsfachmann-frau-efz-rheinfelden-post"
+        "fr": "apprentissage-en-tant-que-specialiste-du-commerce-de-detail-femme-efz-rheinfelden-die-schweizerische-post-rheinfelden"
       },
       "sourceLang": "de",
       "department": "",
@@ -2187,11 +2332,19 @@
       "firstSeenAt": "2026-09-23T12:05:10.032Z",
       "previousSlugsByLocale": {
         "it": [
+          "lehre-als-detailhandelsfachmann-frau-efz-rheinfelden-post",
+          "apprendistato-come-detailhandelsfachmann-frau-cfc-rheinfelden-die-schweizerische-post-rheinfelden"
+        ],
+        "en": [
+          "lehre-als-detailhandelsfachmann-frau-efz-rheinfelden-post"
+        ],
+        "fr": [
           "lehre-als-detailhandelsfachmann-frau-efz-rheinfelden-post"
         ]
       },
       "previousSlugs": [
-        "lehre-als-detailhandelsfachmann-frau-efz-rheinfelden-post"
+        "lehre-als-detailhandelsfachmann-frau-efz-rheinfelden-post",
+        "apprendistato-come-detailhandelsfachmann-frau-cfc-rheinfelden-die-schweizerische-post-rheinfelden"
       ]
     },
     {
@@ -2216,12 +2369,12 @@
         "en": "Layer coordinator detection and coding centre",
         "fr": "Centre de détection et de codage des coordonnateurs de couches"
       },
-      "slug": "schichtkoordinator-in-erfassungs-e-codierzentrum-die-schweizerische-post-chur",
+      "slug": "centro-di-rilevamento-e-codifica-dei-livelli-die-schweizerische-post-chur",
       "slugByLocale": {
-        "it": "schichtkoordinator-in-erfassungs-e-codierzentrum-die-schweizerische-post-chur",
-        "en": "schichtkoordinator-in-erfassungs-und-codierzentrum-post",
+        "it": "centro-di-rilevamento-e-codifica-dei-livelli-die-schweizerische-post-chur",
+        "en": "layer-coordinator-detection-and-coding-centre-die-schweizerische-post-chur",
         "de": "schichtkoordinator-in-erfassungs-und-codierzentrum-post",
-        "fr": "schichtkoordinator-in-erfassungs-und-codierzentrum-post"
+        "fr": "centre-de-detection-et-de-codage-des-coordonnateurs-de-couches-die-schweizerische-post-chur"
       },
       "sourceLang": "de",
       "department": "",
@@ -2258,11 +2411,19 @@
       "firstSeenAt": "2026-09-23T12:05:10.032Z",
       "previousSlugsByLocale": {
         "it": [
+          "schichtkoordinator-in-erfassungs-und-codierzentrum-post",
+          "schichtkoordinator-in-erfassungs-e-codierzentrum-die-schweizerische-post-chur"
+        ],
+        "en": [
+          "schichtkoordinator-in-erfassungs-und-codierzentrum-post"
+        ],
+        "fr": [
           "schichtkoordinator-in-erfassungs-und-codierzentrum-post"
         ]
       },
       "previousSlugs": [
-        "schichtkoordinator-in-erfassungs-und-codierzentrum-post"
+        "schichtkoordinator-in-erfassungs-und-codierzentrum-post",
+        "schichtkoordinator-in-erfassungs-e-codierzentrum-die-schweizerische-post-chur"
       ]
     },
     {
@@ -2287,12 +2448,12 @@
         "en": "Team Leader Contact Center",
         "fr": "Centre de contact du chef d'équipe"
       },
-      "slug": "teamleiter-in-contact-center-post",
+      "slug": "centro-contatti-team-leader-die-schweizerische-post-visp",
       "slugByLocale": {
-        "it": "teamleiter-in-contact-center-post",
-        "en": "teamleiter-in-contact-center-post",
+        "it": "centro-contatti-team-leader-die-schweizerische-post-visp",
+        "en": "team-leader-contact-center-die-schweizerische-post-visp",
         "de": "teamleiter-in-contact-center-post",
-        "fr": "teamleiter-in-contact-center-post"
+        "fr": "centre-de-contact-du-chef-d-equipe-die-schweizerische-post-visp"
       },
       "sourceLang": "de",
       "department": "",
@@ -2326,7 +2487,21 @@
       },
       "addressLocality": "Visp",
       "addressRegion": "VS",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "teamleiter-in-contact-center-post"
+        ],
+        "en": [
+          "teamleiter-in-contact-center-post"
+        ],
+        "fr": [
+          "teamleiter-in-contact-center-post"
+        ]
+      },
+      "previousSlugs": [
+        "teamleiter-in-contact-center-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Leiterin-Product-&-Business-Development-Digital-Advertising/74600-de_DE",
@@ -2355,7 +2530,7 @@
         "it": "responsabile-product-business-development-digital-advertising-die-schweizerische-post-bern",
         "en": "leiter-in-product-business-development-digital-advertising-post",
         "de": "leiter-in-product-business-development-digital-advertising-post",
-        "fr": "leiter-in-product-business-development-digital-advertising-post"
+        "fr": "responsable-du-developpement-des-produits-et-des-affaires-publicite-numerique-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -2421,12 +2596,12 @@
         "en": "Senior specialist personnel planning",
         "fr": "Planification du personnel spécialisé"
       },
-      "slug": "senior-fachspezialist-in-personalplanung-post",
+      "slug": "pianificazione-del-personale-specializzato-die-schweizerische-post-bern",
       "slugByLocale": {
-        "it": "senior-fachspezialist-in-personalplanung-post",
-        "en": "senior-fachspezialist-in-personalplanung-post",
+        "it": "pianificazione-del-personale-specializzato-die-schweizerische-post-bern",
+        "en": "senior-specialist-personnel-planning-die-schweizerische-post-bern",
         "de": "senior-fachspezialist-in-personalplanung-post",
-        "fr": "senior-fachspezialist-in-personalplanung-post"
+        "fr": "planification-du-personnel-specialise-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -2460,7 +2635,21 @@
       },
       "addressLocality": "Bern",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-fachspezialist-in-personalplanung-post"
+        ],
+        "en": [
+          "senior-fachspezialist-in-personalplanung-post"
+        ],
+        "fr": [
+          "senior-fachspezialist-in-personalplanung-post"
+        ]
+      },
+      "previousSlugs": [
+        "senior-fachspezialist-in-personalplanung-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Software-Developer-Yard/74717-de_DE",
@@ -2902,8 +3091,7 @@
       },
       "previousSlugs": [
         "zusteller-in-briefe-und-pakete-post",
-        "zusteller-in-briefe-und-pakete-die-schweizerische-post-sins",
-        "zusteller-in-briefe-und-pakete-post-k5dglc"
+        "zusteller-in-briefe-und-pakete-die-schweizerische-post-sins"
       ],
       "id": "posta-svizzera-centro-regionale-364fe57549c2",
       "salaryMin": 62000,
@@ -3649,9 +3837,9 @@
       "slug": "housekeeper-in-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "housekeeper-in-die-schweizerische-post-bern",
-        "en": "building-custodian-postparc-bern-die-schweizerische-post-bern",
+        "en": "hauswart-in-post",
         "de": "hauswart-in-die-schweizerische-post-bern",
-        "fr": "concierge-gardien-postparc-berne-die-schweizerische-post-bern"
+        "fr": "femme-de-menage-die-schweizerische-post-bern"
       },
       "sourceLang": "de",
       "department": "",
@@ -3675,12 +3863,10 @@
         "fr": [
           "hauswart-in-postparc-bern-die-schweizerische-post-bern",
           "menageur-a-postparc-bern-die-schweizerische-post-bern",
-          "femme-de-menage-die-schweizerische-post-bern",
           "concierge-gardien-postparc-berne-die-schweizerische-post-bern"
         ],
         "en": [
           "housekeeper-in-postparc-bern-die-schweizerische-post-bern",
-          "hauswart-in-post",
           "building-custodian-postparc-bern-die-schweizerische-post-bern"
         ]
       },
@@ -3689,8 +3875,6 @@
         "hauswart-in-postparc-bern-die-schweizerische-post-bern",
         "menageur-a-postparc-bern-die-schweizerische-post-bern",
         "housekeeper-in-postparc-bern-die-schweizerische-post-bern",
-        "hauswart-in-post",
-        "femme-de-menage-die-schweizerische-post-bern",
         "concierge-gardien-postparc-berne-die-schweizerische-post-bern",
         "building-custodian-postparc-bern-die-schweizerische-post-bern"
       ],
@@ -4862,9 +5046,9 @@
         "de": "Stv. Teamleader:in Zustellung Briefe",
         "fr": "C'est pas vrai. Lettres de livraison du chef d'équipe"
       },
-      "slug": "stv-teamleader-nelle-lettere-di-consegna-die-schweizerische-post-zurich-neumunster",
+      "slug": "vice-teamleader-in-recapito-lettere-die-schweizerische-post-zurich-neumunster",
       "slugByLocale": {
-        "it": "stv-teamleader-nelle-lettere-di-consegna-die-schweizerische-post-zurich-neumunster",
+        "it": "vice-teamleader-in-recapito-lettere-die-schweizerische-post-zurich-neumunster",
         "en": "stv-teamleader-in-delivery-letters-die-schweizerische-post-zurich-neumunster",
         "de": "stv-teamleader-in-zustellung-briefe-post",
         "fr": "c-est-pas-vrai-lettres-de-livraison-du-chef-d-equipe-die-schweizerische-post-zurich-neumunster"
@@ -4905,7 +5089,8 @@
       "firstSeenAt": "2026-09-02T13:44:27.422Z",
       "previousSlugsByLocale": {
         "it": [
-          "stv-teamleader-in-zustellung-briefe-post"
+          "stv-teamleader-in-zustellung-briefe-post",
+          "stv-teamleader-nelle-lettere-di-consegna-die-schweizerische-post-zurich-neumunster"
         ],
         "en": [
           "stv-teamleader-in-zustellung-briefe-post"
@@ -4917,7 +5102,8 @@
       },
       "previousSlugs": [
         "stv-teamleader-in-zustellung-briefe-post",
-        "stv-teamleader-dans-les-lettres-de-livraison-die-schweizerische-post-zurich-neumunster"
+        "stv-teamleader-dans-les-lettres-de-livraison-die-schweizerische-post-zurich-neumunster",
+        "stv-teamleader-nelle-lettere-di-consegna-die-schweizerische-post-zurich-neumunster"
       ]
     },
     {
@@ -5103,7 +5289,7 @@
       },
       "slug": "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen",
       "slugByLocale": {
-        "it": "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen",
+        "it": "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen",
         "en": "delivery-in-newspaper-the-message-in-the-hourly-wage-die-schweizerische-post-dottingen",
         "de": "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
         "fr": "livraison-dans-les-journaux-le-message-dans-le-salaire-horaire-die-schweizerische-post-dottingen"
@@ -5143,15 +5329,11 @@
       "firstSeenAt": "2026-09-01T14:21:32.831Z",
       "previousSlugsByLocale": {
         "it": [
-          "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
-          "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen",
-          "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen"
+          "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post"
         ]
       },
       "previousSlugs": [
-        "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post",
-        "quote-di-consegna-il-messaggio-nel-salario-orario-die-schweizerische-post-dottingen",
-        "zusteller-in-zeitung-la-botschaft-im-stundenlohn-die-schweizerische-post-dottingen"
+        "zusteller-in-zeitung-die-botschaft-im-stundenlohn-post"
       ]
     },
     {
@@ -6454,8 +6636,7 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-6cm90n"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ],
       "id": "posta-svizzera-centro-regionale-d967772111f8",
       "salaryMin": 62000,
@@ -8618,8 +8799,7 @@
         ]
       },
       "previousSlugs": [
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-1jzom3"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
       ],
       "id": "posta-svizzera-centro-regionale-e51d500967f4",
       "salaryMin": 62000,
@@ -8665,7 +8845,7 @@
       "slug": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
       "slugByLocale": {
         "it": "corso-di-laurea-integrato-nella-scienza-informatica-die-schweizerische-post-bern",
-        "en": "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
+        "en": "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
         "de": "praxisintegriertes-bachelorstudium-in-informatik-post",
         "fr": "baccalaureat-en-informatique-integre-a-la-pratique-die-schweizerische-post-bern"
       },
@@ -8689,7 +8869,6 @@
           "praxisintegriertes-bachelorstudium-in-informatik-post"
         ],
         "en": [
-          "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern",
           "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
         ],
         "fr": [
@@ -8698,8 +8877,7 @@
       },
       "previousSlugs": [
         "praxisintegriertes-bachelorstudium-in-informatik-post",
-        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern",
-        "practice-integrated-bachelor-s-degree-in-computer-science-die-schweizerische-post-bern"
+        "praxisintegriertes-bachelorstudium-in-informatik-die-schweizerische-post-bern"
       ],
       "id": "posta-svizzera-centro-regionale-0d6477f3c1d1",
       "salaryMin": 68500,
@@ -8813,12 +8991,12 @@
         "en": "EFZ Distribution mixed delivery (letters and packages)",
         "fr": "EFZ Distribution livraison mixte (lettres et colis)"
       },
-      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-nanikon",
+      "slug": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-e02c20",
       "slugByLocale": {
-        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-nanikon",
-        "en": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "it": "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-e02c20",
+        "en": "efz-distribution-mixed-delivery-letters-and-packages-die-schweizerische-post-nanikon",
         "de": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
-        "fr": "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "fr": "efz-distribution-livraison-mixte-lettres-et-colis-die-schweizerische-post-nanikon"
       },
       "sourceLang": "de",
       "department": "",
@@ -8838,12 +9016,20 @@
       "previousSlugsByLocale": {
         "it": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2",
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+          "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-nanikon"
+        ],
+        "en": [
+          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
       "previousSlugs": [
         "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-2",
-        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
+        "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post",
+        "apprendistato-come-impiegata-impiegato-in-logistica-cfc-distribuzione-recapito-misto-lettere-e-pacchi-die-schweizerische-post-nanikon"
       ],
       "id": "posta-svizzera-centro-regionale-fa18a3e098e5",
       "salaryMin": 62000,
@@ -12729,7 +12915,7 @@
         "it": "apprendistato-come-automatikmonteur-in-cfc-die-schweizerische-post-zurich-mulligen",
         "en": "teaching-as-an-automatic-installer-in-efz-die-schweizerische-post-zurich-mulligen",
         "de": "lehre-als-automatikmonteur-in-efz-post",
-        "fr": "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
+        "fr": "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen"
       },
       "sourceLang": "de",
       "department": "",
@@ -12751,13 +12937,11 @@
           "lehre-als-automatikmonteur-in-efz-post"
         ],
         "fr": [
-          "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen",
           "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
         ]
       },
       "previousSlugs": [
         "lehre-als-automatikmonteur-in-efz-post",
-        "enseignement-en-tant-qu-installateur-automatique-en-efz-die-schweizerische-post-zurich-mulligen",
         "apprentissage-comme-automaticien-cfc-die-schweizerische-post-zurich-mulligen"
       ],
       "id": "posta-svizzera-centro-regionale-e28dce826ade",
@@ -13478,11 +13662,11 @@
         "en": "CFC Retail Manager Learning - Bern (French-speaking)",
         "de": "CFC Retail Manager Learning - Bern (französischsprachig)"
       },
-      "slug": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post",
+      "slug": "cfc-retail-manager-learning-bern-lingua-francese-la-poste-suisse-bienne",
       "slugByLocale": {
-        "it": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post",
-        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post",
-        "de": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post",
+        "it": "cfc-retail-manager-learning-bern-lingua-francese-la-poste-suisse-bienne",
+        "en": "cfc-retail-manager-learning-bern-french-speaking-la-poste-suisse-bienne",
+        "de": "cfc-retail-manager-learning-bern-franzosischsprachig-la-poste-suisse-bienne",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-la-poste-suisse-bienne"
       },
       "sourceLang": "fr",
@@ -13517,7 +13701,21 @@
       },
       "addressLocality": "Bienne",
       "addressRegion": "BE",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post"
+        ],
+        "en": [
+          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post"
+        ],
+        "de": [
+          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post"
+        ]
+      },
+      "previousSlugs": [
+        "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-berne-francophone-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Apprentissage-de-logisticiennelogisticien-CFC-Distribution-Centre-de-tri%E2%80%AF-%E2%80%AFVaud/73821-fr_FR",
@@ -14275,7 +14473,7 @@
       "slug": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
       "slugByLocale": {
         "it": "swc-retail-manager-learning-neuchatel-la-poste-suisse-la-chaux-de-fonds",
-        "en": "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel",
+        "en": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
         "de": "swc-retail-manager-learning-neuenburg-la-poste-suisse-la-chaux-de-fonds",
         "fr": "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-la-poste-suisse-la-chaux-de-fonds"
       },
@@ -14299,7 +14497,6 @@
           "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post"
         ],
         "en": [
-          "apprentissage-de-gestionnaire-de-commerce-de-detail-cfc-neuchatel-post",
           "swc-retail-manager-learning-neuchatel-la-poste-suisse-neuchatel"
         ]
       },
