@@ -377,6 +377,7 @@ async function fetchFachkraftListingSnapshot({ transport, urlPolicy, signal, max
   const rows = [];
   const seenPages = new Set();
   const seenRows = new Set();
+  let duplicateListingUrls = 0;
   let declaredCount = null;
   const declaredCounts = [];
   let nextUrl = CAREER_URL;
@@ -416,7 +417,11 @@ async function fetchFachkraftListingSnapshot({ transport, urlPolicy, signal, max
     }
     for (const row of pageRows) {
       if (seenRows.has(row.url)) {
-        throw new Error(`fachkraft listing snapshot has duplicate URL across pages: ${row.url}`);
+        duplicateListingUrls++;
+        console.warn(
+          `⚠️ fachkraft listing snapshot repeated URL across pages; keeping the first occurrence: ${row.url}`,
+        );
+        continue;
       }
       seenRows.add(row.url);
       rows.push(row);
@@ -442,6 +447,7 @@ async function fetchFachkraftListingSnapshot({ transport, urlPolicy, signal, max
     declaredCounts: distinctDeclaredCounts,
     declaredCountMin,
     declaredCountMax,
+    duplicateListingUrls,
     listingCountDrift,
     paginationTerminated: nextUrl === null,
     coverage: listingCountDrift ? 'max-observed' : 'complete',
@@ -548,6 +554,7 @@ export async function fetchFachkraftSnapshot(options = {}) {
       listingDeclaredCounts: listing.declaredCounts,
       listingDeclaredCountMin: listing.declaredCountMin,
       listingDeclaredCountMax: listing.declaredCountMax,
+      duplicateListingUrls: listing.duplicateListingUrls,
       listingCountDrift: listing.listingCountDrift,
       paginationTerminated: listing.paginationTerminated,
       discovered: rows.length,
