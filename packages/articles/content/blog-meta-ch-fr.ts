@@ -6647,6 +6647,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.avs-ai-accesso-digitale-dati.title': 'AVS et AI : les dossiers numériques arrivent pour les assurés',
     'blog.article.avs-ai-accesso-digitale-dati.excerpt': 'Approuvé la nouvelle loi sur les systèmes d\'information des assurances sociales. L\'accès numérique aux données AVS et AI arrive avec des économies annuelles estimées à 35 millions.',
     'blog.article.avs-ai-accesso-digitale-dati.imageAlt': 'Accès numérique aux données AVS et AI pour les assurés',
+    'blog.article.revisione-legge-epidemie-svizzera.title': 'Révision de la loi sur les épidémies : nouvelles règles et indemnisations',
+    'blog.article.revisione-legge-epidemie-svizzera.excerpt': 'Le Parlement adopte la révision partielle de la loi sur les épidémies en introduisant des critères clairs pour le soutien financier et la protection de la santé.',
+    'blog.article.revisione-legge-epidemie-svizzera.imageAlt': 'Le Palais federal a Berne siege du Parlement suisse',
 };
 
 export default blogMetaChFr;

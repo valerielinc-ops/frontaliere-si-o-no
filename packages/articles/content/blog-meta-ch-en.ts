@@ -6647,6 +6647,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.avs-ai-accesso-digitale-dati.title': 'AVS and AI: digital files for policyholders arrive',
     'blog.article.avs-ai-accesso-digitale-dati.excerpt': 'The new law on social insurance information systems has been approved. Digital access to AVS and AI data arrives with estimated annual savings of 35 million.',
     'blog.article.avs-ai-accesso-digitale-dati.imageAlt': 'Digital access to OASI and IV data for insured persons',
+    'blog.article.revisione-legge-epidemie-svizzera.title': 'Review of the epidemic law: new rules and compensation',
+    'blog.article.revisione-legge-epidemie-svizzera.excerpt': 'Parliament adopts the partial revision of the Epidemics Act introducing clear criteria for financial support and health protection.',
+    'blog.article.revisione-legge-epidemie-svizzera.imageAlt': 'The Federal Palace in Bern seat of the Swiss Parliament',
 };
 
 export default blogMetaChEn;

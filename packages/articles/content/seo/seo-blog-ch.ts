@@ -86171,6 +86171,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-revisione-legge-epidemie-svizzera': {
+    title: 'Revisione legge epidemie: nuove regole e indennizzi',
+    description: 'Il Parlamento adotta la revisione della legge sulle epidemie: stop a vaccinazioni coatte e nuovi obblighi di indennizzo per imprese e lavoratori.',
+    keywords: 'frontalieri, ticino, svizzera, italia, revisione, legge, epidemie, nuove',
+    ogTitle: 'Revisione legge epidemie in Svizzera: le nuove regole',
+    ogDescription: 'Scopri le novità approvate dal Parlamento svizzero sulla revisione della legge sulle epidemie, inclusi i nuovi indennizzi per imprese e lo stop agli obblighi vaccinali penali.',
+    canonicalPath: '/articoli-svizzera/revisione-legge-epidemie-svizzera/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Revisione legge epidemie: nuove regole e indennizzi",
+      "description": "Il Parlamento adotta la revisione della legge sulle epidemie: stop a vaccinazioni coatte e nuovi obblighi di indennizzo per imprese e lavoratori.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/revisione-legge-epidemie-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Il Palazzo federale a Berna sede del Parlamento svizzero"
+      },
+      "datePublished": "2026-09-23T00:40:58+00:00",
+      "dateModified": "2026-09-23T00:40:58+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/revisione-legge-epidemie-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

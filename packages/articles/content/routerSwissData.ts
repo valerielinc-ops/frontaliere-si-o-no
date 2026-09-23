@@ -2238,6 +2238,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-dimora-b-canton-friburgo-requisiti-rinnovo': { it: 'permesso-dimora-b-canton-friburgo-requisiti-rinnovo', en: 'residence-permit-b-canton-fribourg-requirements-renewal', de: 'aufenthaltsbewilligung-b-kanton-freiburg-voraussetzungen-verlaengerung', fr: 'permis-sejour-b-canton-fribourg-exigences-renouvellement' },
  'permesso-c-friburgo-guida-requisiti': { it: 'permesso-c-friburgo-guida-requisiti', en: 'settlement-permit-c-fribourg-requirements-application', de: 'niederlassungsbewilligung-c-freiburg-voraussetzungen-gesuch', fr: 'permis-c-fribourg-conditions-demande' },
  'avs-ai-accesso-digitale-dati': { it: 'avs-ai-accesso-digitale-dati', en: 'oasi-iv-digital-data-access', de: 'ahv-iv-digitaler-datenzugriff', fr: 'acces-numerique-donnees-avs-ai' },
+ 'revisione-legge-epidemie-svizzera': { it: 'revisione-legge-epidemie-svizzera', en: 'revision-epidemics-act-switzerland', de: 'revision-epidemiegesetz-schweiz', fr: 'revision-loi-epidemies-suisse' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
