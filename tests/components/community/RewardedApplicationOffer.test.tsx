@@ -3,8 +3,15 @@
 import { cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 
+const rewardedMock = vi.hoisted(() => ({
+  props: null as Record<string, unknown> | null,
+}));
+
 vi.mock('@/components/shared/GptRewardedAd', () => ({
-  default: () => <button type="button">Guarda il video</button>,
+  default: (props: Record<string, unknown>) => {
+    rewardedMock.props = props;
+    return <button type="button">Guarda il video</button>;
+  },
 }));
 vi.mock('@/components/shared/RewardedHouseVideo', () => ({
   default: () => null,
@@ -50,5 +57,11 @@ describe('RewardedApplicationOffer', () => {
     fireEvent.keyDown(document, { key: 'Escape' });
 
     expect(onDismiss).toHaveBeenCalledTimes(2);
+  });
+
+  it('uses the original candidature intent to start a ready Google rewarded ad', () => {
+    render(<RewardedApplicationOffer {...defaultProps} />);
+
+    expect(rewardedMock.props?.autoStart).toBe(true);
   });
 });
