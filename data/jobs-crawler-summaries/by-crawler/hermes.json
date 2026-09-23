@@ -1,7 +1,7 @@
 {
   "key": "hermes",
   "label": "Hermès",
-  "generatedAt": "2026-09-22T00:00:38.954Z",
+  "generatedAt": "2026-09-23T23:38:32.897Z",
   "total": 3,
   "discovered": null,
   "parsed": 3,
@@ -10,12 +10,12 @@
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 3,
-  "removedCount": 1,
+  "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 15024,
-  "avgDurationMs": 15024,
+  "durationMs": 13112,
+  "avgDurationMs": 13112,
   "durationHistory": [
-    15024
+    13112
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:30.021Z",
+      "crawledAt": "2026-09-23T23:38:24.390Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -45,7 +45,6 @@
       "featured": false,
       "postedDate": "2026-09-04",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23719/",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-04T13:27:54.190Z",
       "_qualityScore": 84,
       "_qualityBreakdown": {
@@ -67,7 +66,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:00:30.689Z",
+      "crawledAt": "2026-09-23T23:38:25.010Z",
       "addressLocality": "Le Noirmont",
       "addressRegion": "JU",
       "addressCountry": "CH",
@@ -81,13 +80,12 @@
       "featured": false,
       "postedDate": "2026-09-03",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/23690/",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-09-03T13:32:40.044Z",
-      "_qualityScore": 78,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 21,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -103,7 +101,7 @@
       "url": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
       "source": "Hermès Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:00:31.362Z",
+      "crawledAt": "2026-09-23T23:38:25.640Z",
       "addressLocality": "Zurich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -117,7 +115,6 @@
       "featured": false,
       "postedDate": "2026-05-11",
       "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/21857/",
-      "needsRetranslation": false,
       "firstSeenAt": "2026-06-10T09:03:23.277Z",
       "_qualityScore": 82,
       "_qualityBreakdown": {
@@ -128,47 +125,6 @@
       }
     }
   ],
-  "removedJobs": [
-    {
-      "id": "hermes-15455aba22d4",
-      "slug": "comunicazione-1-anno-f-h-hermes-geneve-geneva-switzerland",
-      "company": "Hermès",
-      "companyKey": "hermes",
-      "companyDomain": "hermes.com",
-      "title": "Stage Communication 1an (F/H)",
-      "location": "Geneve, Geneva, Switzerland",
-      "canton": "GE",
-      "url": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
-      "source": "Hermès Dedicated Parser",
-      "sourceLang": "fr",
-      "crawledAt": "2026-09-13T13:54:46.447Z",
-      "addressLocality": "Geneve",
-      "postalCode": "1204",
-      "addressRegion": "Genève",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "intern",
-      "sector": "Luxury goods / fashion / watchmaking",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-06-10",
-      "applyUrl": "https://talents.hermes.com/en/sites/CX/jobs/22458/",
-      "firstSeenAt": "2026-06-11T07:52:59.019Z",
-      "salaryMin": 51100,
-      "salaryMax": 77500,
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": []
 }
