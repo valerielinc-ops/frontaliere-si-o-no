@@ -46,6 +46,7 @@ function candidate(token: string, options: Record<string, unknown> = {}) {
     allRunsTerminal: true,
     report: null,
     reportOwnerRun: null,
+    groupIds: GROUP_IDS,
     ...options,
   };
 }
@@ -219,6 +220,39 @@ describe('crawler generation scheduled selector', () => {
       report: newer,
       reportOwnerRun: expect.objectContaining({ id: 95_002 }),
     });
+  });
+
+  it('rejects a terminal report whose diagnostics omit a contract group', () => {
+    const value = candidate('9006-1');
+    const truncated = createCrawlerGenerationObserverReport({
+      evaluatedAt: new Date(NOW - 5 * 60 * 1000).toISOString(),
+      generationToken: value.generationToken,
+      siteCodeCommit: value.siteCodeCommit,
+      corpusCodeCommit: value.corpusCodeCommit,
+      sentinelDigest: value.sentinelDigest,
+      sentinelSetDigest: value.sentinelSetDigest,
+      sentinelReplayCount: value.sentinelReplayCount,
+      dispatchDiagnostics: {
+        '01': { status: 'direct', runId: '10000' },
+      },
+      evidenceDigest: `sha256:${'e'.repeat(64)}`,
+      status: 'ready',
+      reasons: [],
+      barrier: { translation: { mode: 'shadow', wouldDispatch: true, dispatched: false } },
+    });
+    expect(selectLatestCrawlerGenerationObserverReport({
+      generationToken: value.generationToken,
+      expected: {
+        generationToken: value.generationToken,
+        siteCodeCommit: value.siteCodeCommit,
+        corpusCodeCommit: value.corpusCodeCommit,
+        sentinelDigest: value.sentinelDigest,
+        sentinelSetDigest: value.sentinelSetDigest,
+        sentinelReplayCount: value.sentinelReplayCount,
+        groupIds: GROUP_IDS,
+      },
+      records: [{ artifactId: 1, ownerRun: reportOwner(95_006), report: truncated }],
+    })).toEqual({ report: null, reportOwnerRun: null });
   });
 
   it('exports closed caps for bounded discovery and output', () => {

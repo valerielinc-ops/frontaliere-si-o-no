@@ -47,6 +47,7 @@ function expectedBinding(value = report()) {
     sentinelDigest: value.sentinelDigest,
     sentinelSetDigest: value.sentinelSetDigest,
     sentinelReplayCount: value.sentinelReplayCount,
+    groupIds: GROUP_IDS,
   };
 }
 
@@ -121,6 +122,34 @@ describe('crawler generation observer report contract', () => {
       now: Date.parse(evaluatedAt) + 1_000,
       sentinelCreatedAt: Date.parse(evaluatedAt),
     })).toMatchObject({ terminal: false, reason: 'report_stale' });
+  });
+
+  it('binds terminal dispatch diagnostics to the contract group set', () => {
+    const value = report();
+    const truncated = createCrawlerGenerationObserverReport({
+      evaluatedAt,
+      generationToken: value.generationToken,
+      siteCodeCommit,
+      corpusCodeCommit,
+      sentinelDigest,
+      sentinelSetDigest: value.sentinelSetDigest,
+      sentinelReplayCount: value.sentinelReplayCount,
+      dispatchDiagnostics: {
+        '01': { status: 'direct', runId: '10000' },
+      },
+      evidenceDigest: `sha256:${'2'.repeat(64)}`,
+      status: 'ready',
+      reasons: [],
+      barrier: { translation: { mode: 'shadow', wouldDispatch: true, dispatched: false } },
+    });
+    expect(validateCrawlerGenerationObserverReport(truncated).valid).toBe(true);
+    expect(validateCrawlerGenerationObserverReport(truncated, expectedBinding(value)).errors)
+      .toEqual(['invalid_dispatch_diagnostics', 'missing_terminal_dispatch_diagnostics']);
+
+    expect(validateCrawlerGenerationObserverReport(value, {
+      ...expectedBinding(value),
+      groupIds: ['01'],
+    }).errors).toEqual(['invalid_dispatch_diagnostics', 'missing_terminal_dispatch_diagnostics']);
   });
 
   it('terminalizes a tokenless report when a generation binding is expected', () => {
