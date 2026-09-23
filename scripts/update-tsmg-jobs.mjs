@@ -37,7 +37,7 @@ import {
   inferTsmgCategory,
   buildTsmgLocalizedContent,
 } from './lib/tsmg-job-parser.mjs';
-import { inferAnyCanton, isSwissLocationText } from './lib/target-swiss-locations.mjs';
+import { inferAnyCanton } from './lib/target-swiss-locations.mjs';
 import { classifyCountryValue } from './lib/prospector/country-inventory.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
@@ -145,12 +145,6 @@ function assertCompleteTsmgSourceSnapshot(payload) {
       throw new Error(
         `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
         + `categories.location "${normalizedLocation}" is not a recognised Swiss location`,
-      );
-    }
-    if (normalizedCountry === 'FOREIGN' && isSwissLocationText(normalizedLocation)) {
-      throw new Error(
-        `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
-        + `country ${normalizedCountry} conflicts with Swiss categories.location "${normalizedLocation}"`,
       );
     }
   }
@@ -336,6 +330,7 @@ async function main() {
   const rawJobs = assertCompleteTsmgSourceSnapshot(await fetchJson(API_URL));
   const authoritativeSnapshotVerified = true;
   const swiss = rawJobs.filter((job) => normalizeTsmgCountry(job.country) === 'CH');
+  const foreignDiscarded = rawJobs.length - swiss.length;
   const target = swiss.filter((job) => isTsmgTargetLocation(job?.categories?.location || ''));
   const authoritativeEmptySnapshot = target.length === 0;
   if (target.length === 0) {
@@ -343,6 +338,7 @@ async function main() {
   }
   console.log(`📋 Total Lever jobs: ${rawJobs.length}`);
   console.log(`📋 Switzerland jobs: ${swiss.length}`);
+  console.log(`🧹 Foreign postings discarded: ${foreignDiscarded}`);
   console.log(`📋 Ticino/Grigioni jobs: ${target.length}`);
   if (authoritativeEmptySnapshot) {
     console.log('✅ Lever complete snapshot contains no target-canton postings — publishing the verified empty result.');
@@ -381,6 +377,9 @@ async function main() {
     total: _sliceJobs.length,
     authoritativeEmptySnapshot,
     authoritativeSnapshotVerified,
+    sourceTotal: rawJobs.length,
+    sourceSwiss: swiss.length,
+    foreignDiscarded,
     newCount: diff.newJobs.length,
     updatedCount: diff.updatedJobs.length,
     removedCount: diff.removedJobs.length,

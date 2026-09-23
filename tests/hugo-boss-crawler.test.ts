@@ -251,14 +251,22 @@ describe('fetchJobs national pagination', () => {
     expect(fetchHtml).toHaveBeenCalledTimes(1);
   });
 
-  it('fails closed when Phenom repeats a page and makes no raw-record progress', async () => {
+  it('publishes the maximum observed snapshot when Phenom repeats a page after bounded retries', async () => {
     const repeatedPage = makeSearchPage(4, [
       makeSwissJob('repeated-1'),
       makeSwissJob('repeated-2'),
     ]);
     const fetchHtml = vi.fn(async () => repeatedPage);
 
-    await expect(fetchJobs({ fetchHtml })).rejects.toThrow(/repeated page or no new raw records/);
+    const jobs = await fetchJobs({ fetchHtml });
+
+    expect(jobs).toHaveLength(2);
+    expect(jobs.hugoBossSnapshot).toMatchObject({
+      complete: false,
+      coverage: 'max-observed',
+      terminationReason: 'duplicate-page',
+      recordsSeen: 2,
+    });
     expect(fetchHtml).toHaveBeenCalledTimes(4);
   });
 
@@ -373,6 +381,20 @@ describe('assertHugoBossNationalReadComplete', () => {
       totalHits: null,
       recordsSeen: 42,
     })).not.toThrow();
+  });
+
+  it('accepts only an explicit duplicate-page maximum when requested', () => {
+    expect(assertHugoBossNationalReadComplete({
+      terminationProven: false,
+      totalHits: 780,
+      recordsSeen: 100,
+      terminationReason: 'duplicate-page',
+      allowMaxObserved: true,
+    })).toEqual({
+      complete: false,
+      coverage: 'max-observed',
+      terminationReason: 'duplicate-page',
+    });
   });
 });
 

@@ -62,4 +62,15 @@ describe('tsmg-job-parser', () => {
       categories: { location: 'Unmapped City' },
     }])).toThrow(/not a recognised country value/);
   });
+
+  it('discards foreign postings even when Lever exposes a Swiss-looking location', () => {
+    const foreignSnapshot = [{
+      id: 'foreign-with-swiss-looking-location',
+      hostedUrl: 'https://jobs.lever.co/tsmg/foreign-with-swiss-looking-location',
+      country: 'France',
+      categories: { location: 'Villeneuve-sur-Lot' },
+    }];
+
+    expect(assertCompleteTsmgSourceSnapshot(foreignSnapshot)).toEqual(foreignSnapshot);
+  });
 });

@@ -302,6 +302,54 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       })).rejects.toThrow(/pagination incomplete/i);
     });
 
+    it('tolerates a changing declared count and publishes the maximum observed listing snapshot', async () => {
+      const firstUrl = 'https://www.fachkraft.ch/stellen/polymechaniker-in-luzern-123/';
+      const secondPageUrl = 'https://www.fachkraft.ch/stellen/page/2/';
+      const secondUrl = 'https://www.fachkraft.ch/stellen/montage-elektriker-in-zug-456/';
+      const fetchImpl = vi.fn(async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (target === 'https://www.fachkraft.ch/stellen/') {
+          return new Response(paginatedListingHtml(
+            3818,
+            '/stellen/page/2/',
+            listingCard({ title: 'Polymechaniker/in', path: 'polymechaniker-in-luzern-123' }),
+          ), { status: 200 });
+        }
+        if (target === secondPageUrl) {
+          return new Response(paginatedListingHtml(
+            3777,
+            null,
+            listingCard({ title: 'Montage-Elektriker/in', path: 'montage-elektriker-in-zug-456', location: 'Zug', canton: 'ZG' }),
+          ), { status: 200 });
+        }
+        const detail = target === firstUrl
+          ? { title: 'Polymechaniker/in', description: words(55, 'first') }
+          : { title: 'Montage-Elektriker/in', description: words(55, 'second'), location: 'Zug', canton: 'ZG' };
+        return new Response(detailHtml(detail), { status: 200 });
+      });
+
+      const snapshot = await fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        existingJobs: [],
+        detailWorkers: 1,
+      });
+
+      expect(snapshot).toHaveLength(2);
+      expect(snapshot.fachkraftSnapshot).toMatchObject({
+        complete: false,
+        coverage: 'max-observed',
+        listingCountDrift: true,
+        listingDeclaredCounts: [3818, 3777],
+        listingDeclaredCountMin: 3777,
+        listingDeclaredCountMax: 3818,
+        paginationTerminated: true,
+        discovered: 2,
+        detailCompleted: 2,
+      });
+      expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+    });
+
     it('fails closed when the initial listing omits the source-declared total', async () => {
       const fetchImpl = async (target: string) => {
         if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });

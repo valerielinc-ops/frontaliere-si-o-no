@@ -139,8 +139,15 @@ export function assertHugoBossNationalReadComplete({
   terminationProven = false,
   totalHits = null,
   recordsSeen = 0,
+  terminationReason = null,
+  allowMaxObserved = false,
 } = {}) {
-  if (terminationProven && (totalHits === null || recordsSeen >= totalHits)) return;
+  if (terminationProven && (totalHits === null || recordsSeen >= totalHits)) {
+    return { complete: true, coverage: 'complete', terminationReason: null };
+  }
+  if (allowMaxObserved && terminationReason === 'duplicate-page' && recordsSeen > 0) {
+    return { complete: false, coverage: 'max-observed', terminationReason };
+  }
   const coverage = totalHits === null
     ? `${recordsSeen} records fetched without a proven terminal page`
     : `${recordsSeen} of ${totalHits} declared records fetched`;
