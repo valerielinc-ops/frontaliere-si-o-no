@@ -10,6 +10,7 @@ import {
   createSentinelSetBinding,
   validateCrawlerGenerationObserverReport,
 } from './lib/crawler-generation-observer-report.mjs';
+import { deriveCrawlerGroupIdsFromGroups } from './lib/crawler-generation-group-ids.mjs';
 import {
   createGitHubActionsReadClient,
   isMissingExactGitHubResource,
@@ -24,10 +25,6 @@ const GENERATION_DISPATCH_REF_PREFIX = 'crawler-generation-shadow-';
 const RUN_ID_RE = /^[1-9][0-9]*$/;
 const HASH_RE = /^sha256:[a-f0-9]{64}$/;
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
-const GROUP_IDS = Object.freeze(Array.from(
-  { length: 24 },
-  (_, index) => String(index + 1).padStart(2, '0'),
-));
 const TERMINAL_CONCLUSIONS = new Set([
   'success', 'failure', 'cancelled', 'timed_out', 'action_required',
   'neutral', 'skipped', 'stale', 'startup_failure',
@@ -234,6 +231,8 @@ export function selectCrawlerGenerationReconciliations({ now, candidates }) {
 }
 
 function validateSentinelDocument(sentinel) {
+  let groupIds;
+  try { groupIds = deriveCrawlerGroupIdsFromGroups(sentinel?.groups); } catch { return false; }
   if (!sentinel || sentinel.schemaVersion !== 1
       || !isCrawlerGenerationToken(sentinel.generationToken)
       || !COMMIT_RE.test(sentinel.siteCodeCommit ?? '')
@@ -243,10 +242,10 @@ function validateSentinelDocument(sentinel) {
       || sentinel.digest !== digestDocument(Object.fromEntries(
         Object.entries(sentinel).filter(([key]) => key !== 'digest'),
       ))
-      || canonicalJson(Object.keys(sentinel.groups ?? {}).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
+      || canonicalJson(Object.keys(sentinel.groups ?? {}).sort(compareCodePoint)) !== canonicalJson(groupIds)) {
     return false;
   }
-  return GROUP_IDS.every((group) => {
+  return groupIds.every((group) => {
     const value = sentinel.groups[group];
     const runId = value?.runId === null ? null : String(value?.runId ?? '');
     return value?.workflowFile === `crawler-group-${group}.yml`
@@ -388,12 +387,13 @@ export async function discoverCrawlerGenerationReconciliations({ client, now, ru
   for (const [generationToken, values] of byToken) {
     values.sort((left, right) => right.createdAt - left.createdAt || Number(right.runId) - Number(left.runId));
     const current = values[0];
+    const groupIds = deriveCrawlerGroupIdsFromGroups(current.sentinel.groups);
     const sentinelSet = createSentinelSetBinding(values.map(({ sentinel }) => sentinel));
-    const dispatchMissing = GROUP_IDS.some((group) => current.sentinel.groups[group].runId === null);
+    const dispatchMissing = groupIds.some((group) => current.sentinel.groups[group].runId === null);
     let allRunsTerminal = !dispatchMissing;
     let groupBindingInvalid = false;
     if (!dispatchMissing) {
-      for (const group of GROUP_IDS) {
+      for (const group of groupIds) {
         let run;
         try {
           run = await client.json(
