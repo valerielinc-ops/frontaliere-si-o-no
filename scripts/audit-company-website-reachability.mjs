@@ -17,6 +17,10 @@ import { mapPool, politeFetch } from './lib/prospector/polite-fetch.mjs';
 export const COMPANY_WEBSITE_REACHABILITY_SCHEMA_VERSION = 1;
 export const DEFAULT_COMPANY_WEBSITE_REACHABILITY_CONCURRENCY = 6;
 export const DEFAULT_COMPANY_WEBSITE_REACHABILITY_TIMEOUT_MS = 15_000;
+// A single network sample is too brittle for DNS/timeout noise at this scale.
+// Keep the retry budget small and let the final observation remain fail-closed.
+export const DEFAULT_COMPANY_WEBSITE_REACHABILITY_RETRIES = 2;
+export const DEFAULT_COMPANY_WEBSITE_REACHABILITY_RETRY_BASE_MS = 750;
 export { HEAD_FALLBACK_STATUSES };
 
 const SCRIPT_DIR = dirname(fileURLToPath(import.meta.url));
@@ -230,7 +234,12 @@ function createWebsiteFetch(targetUrl) {
  */
 export async function probePublishedWebsite(
   targetUrl,
-  { fetchImpl = politeFetch, timeoutMs = DEFAULT_COMPANY_WEBSITE_REACHABILITY_TIMEOUT_MS } = {},
+  {
+    fetchImpl = politeFetch,
+    timeoutMs = DEFAULT_COMPANY_WEBSITE_REACHABILITY_TIMEOUT_MS,
+    retries = DEFAULT_COMPANY_WEBSITE_REACHABILITY_RETRIES,
+    retryBaseMs = DEFAULT_COMPANY_WEBSITE_REACHABILITY_RETRY_BASE_MS,
+  } = {},
 ) {
   const parsed = parseHttpsUrl(targetUrl);
   if (!parsed.url) {
@@ -250,7 +259,8 @@ export async function probePublishedWebsite(
   }
   const options = {
     timeoutMs,
-    retries: 0,
+    retries,
+    retryBaseMs,
     accept: 'text/html,application/xhtml+xml,*/*',
   };
   const probeOrigin = async (href) => {
@@ -319,7 +329,7 @@ export function parseReachabilityBaseline(value) {
 
 /**
  * @param {Array<Record<string, unknown>>} companies
- * @param {{ resolvedDomains?: Record<string, string|null>, baseline?: Record<string, unknown>, probeImpl?: typeof probePublishedWebsite, concurrency?: number, timeoutMs?: number }} [options]
+ * @param {{ resolvedDomains?: Record<string, string|null>, baseline?: Record<string, unknown>, probeImpl?: typeof probePublishedWebsite, concurrency?: number, timeoutMs?: number, retries?: number, retryBaseMs?: number }} [options]
  */
 export async function auditCompanyWebsiteReachability(companies, {
   resolvedDomains = {},
@@ -327,6 +337,8 @@ export async function auditCompanyWebsiteReachability(companies, {
   probeImpl = probePublishedWebsite,
   concurrency = DEFAULT_COMPANY_WEBSITE_REACHABILITY_CONCURRENCY,
   timeoutMs = DEFAULT_COMPANY_WEBSITE_REACHABILITY_TIMEOUT_MS,
+  retries = DEFAULT_COMPANY_WEBSITE_REACHABILITY_RETRIES,
+  retryBaseMs = DEFAULT_COMPANY_WEBSITE_REACHABILITY_RETRY_BASE_MS,
 } = {}) {
   const list = Array.isArray(companies) ? companies : [];
   const targets = buildCompanyWebsiteTargets(list, resolvedDomains);
@@ -343,7 +355,7 @@ export async function auditCompanyWebsiteReachability(companies, {
       };
     }
     try {
-      const observation = await probeImpl(target.targetUrl, { timeoutMs });
+      const observation = await probeImpl(target.targetUrl, { timeoutMs, retries, retryBaseMs });
       if (!observation || typeof observation.reachable !== 'boolean') {
         throw new Error('probe returned no reachability verdict');
       }
@@ -442,6 +454,8 @@ export async function runCompanyWebsiteReachabilityAudit(argv = process.argv.sli
     baseline,
     concurrency: Number(args.get('concurrency') ?? DEFAULT_COMPANY_WEBSITE_REACHABILITY_CONCURRENCY),
     timeoutMs: Number(args.get('timeout-ms') ?? DEFAULT_COMPANY_WEBSITE_REACHABILITY_TIMEOUT_MS),
+    retries: Number(args.get('retries') ?? DEFAULT_COMPANY_WEBSITE_REACHABILITY_RETRIES),
+    retryBaseMs: Number(args.get('retry-base-ms') ?? DEFAULT_COMPANY_WEBSITE_REACHABILITY_RETRY_BASE_MS),
   });
   const outputPath = args.get('json');
   if (outputPath && outputPath !== true) {
