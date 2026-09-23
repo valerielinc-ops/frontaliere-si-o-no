@@ -225,6 +225,31 @@ describe('mapDetailPageToLocaleData', () => {
     });
   });
 
+  it('keeps named organizer/performer entities and image arrays from source JSON-LD', () => {
+    const mapped = mapDetailPageToLocaleData(
+      buildDetailHtml({
+        jsonLd: JSON.stringify({
+          '@type': 'Event',
+          name: 'Evento con metadati',
+          description: 'Un evento di prova con metadati dalla fonte.',
+          startDate: '2026-07-04T19:00',
+          location: { name: 'Zytturm', address: { addressLocality: 'Zug' } },
+          image: [{ url: '/imagekit/evento.jpg' }],
+          organizer: { '@type': 'Organization', name: 'Guidle Veranstalter', url: '/organizer' },
+          performer: [{ '@type': 'Person', name: 'Artista Guidle' }],
+        }),
+      }),
+      'de',
+    );
+    expect(mapped?.imageSourceUrl).toBe('https://www.guidle.com/imagekit/evento.jpg');
+    expect(mapped?.organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Guidle Veranstalter',
+      url: 'https://www.guidle.com/organizer',
+    });
+    expect(mapped?.performer).toEqual([{ '@type': 'Person', name: 'Artista Guidle' }]);
+  });
+
   it('returns null when the page has no usable Event JSON-LD', () => {
     expect(mapDetailPageToLocaleData('<html></html>', 'de')).toBeNull();
     expect(mapDetailPageToLocaleData('', 'de')).toBeNull();
@@ -292,6 +317,29 @@ describe('mapGuidleEvent', () => {
     expect(event.titleByLocale).toEqual({ it: 'Concerto Zytturm', de: 'Zytturm Konzert' });
     expect(event.descriptionByLocale).toEqual({ it: 'Un bel concerto.', de: 'Ein tolles Konzert.' });
     expect(event.url).toBe('https://www.guidle.com/it/eventi/zugo/stadtfuehrung_AZ3RYEB');
+  });
+
+  it('fills optional source metadata from a later locale when the primary omits it', () => {
+    const mapped = mapGuidleEvent(
+      'AZ3RYEB',
+      {
+        it: { ...itData, imageSourceUrl: undefined },
+        en: {
+          ...deData,
+          imageSourceUrl: 'https://www.guidle.com/imagekit/en-abc.jpg',
+          organizer: { '@type': 'Organization', name: 'Guidle Veranstalter' },
+          performer: { '@type': 'Person', name: 'Artista Guidle' },
+        },
+        de: null,
+        fr: null,
+      },
+    );
+    const event = mapped?.event as never as Record<string, unknown>;
+    expect((mapped as never as { imageSourceUrl: string }).imageSourceUrl).toBe(
+      'https://www.guidle.com/imagekit/en-abc.jpg',
+    );
+    expect(event.organizer).toEqual({ '@type': 'Organization', name: 'Guidle Veranstalter' });
+    expect(event.performer).toEqual({ '@type': 'Person', name: 'Artista Guidle' });
   });
 
   it('defaults category to "Event" when no accordion category was found', () => {

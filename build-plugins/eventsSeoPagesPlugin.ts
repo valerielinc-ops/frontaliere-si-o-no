@@ -87,6 +87,7 @@ import { imageObjectLd, type ImageObjectLd } from '../services/seo/imageObjectLd
 import { differentiateH1FromTitle, osmEmbedSrc, CTA_PRIMARY_CLASS } from './shared/seoContentTokens';
 
 type Locale = 'it' | 'en' | 'de' | 'fr';
+type EventEntity = { '@type'?: string; name: string; url?: string };
 
 interface SiteEvent {
   id: string;
@@ -110,6 +111,8 @@ interface SiteEvent {
   // path below degrades to the pre-existing MVP behavior.
   description?: string;
   price?: { amount: number | null; currency: string; isFree: boolean };
+  organizer?: EventEntity | EventEntity[];
+  performer?: EventEntity | EventEntity[];
   address?: { street?: string; postalCode?: string };
   geo?: { lat: number; lng: number };
   recurring?: boolean;
@@ -1179,9 +1182,10 @@ export function zurichOffset(isoDate: string): string {
  * that couldn't be parsed to a number) still gets no `offers` block at all.
  * Google treats `offers` as recommended-not-required, and
  * validate-structured-data-completeness.mjs validates it only when present.
- * The source catalog does not expose the real event organizer, performer,
- * ticket-sale date or ticket-buy URL, so those optional properties are
- * omitted instead of being inferred from the aggregator, venue or event date.
+ * Organizer and performer are copied only when the source detail page supplies
+ * a named entity; the source catalog/venue is never promoted as a fallback.
+ * Ticket-sale date and ticket-buy URL are omitted when the source does not
+ * provide them, rather than being inferred from the event date or page URL.
  * A category illustration is likewise kept out of Event.image: only a
  * mirrored event-specific image describes the marked-up event.
  */
@@ -1236,6 +1240,8 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     },
     description: description.length >= 30 ? description : `${description} Evento in ${cantonName || 'Svizzera'}.`,
     ...(eventImage ? { image: eventImage } : {}),
+    ...(event.organizer ? { organizer: event.organizer } : {}),
+    ...(event.performer ? { performer: event.performer } : {}),
     // On a detail page `url` is OUR canonical page (the page about the event);
     // the original source is then surfaced as `sameAs`. On aggregate pages
     // (no canonicalUrl) we keep the source URL.
