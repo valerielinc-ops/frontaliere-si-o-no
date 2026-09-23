@@ -214,7 +214,7 @@ describe('crawler generation contracts', () => {
     expect(manifest.slices[0]).toMatchObject({ state: 'absent', blobOid: null, remoteBlobOid: null, persisted: true });
   });
 
-  it('requires exactly 23 globally unique crawler identities', () => {
+  it('requires exactly 24 globally unique crawler identities', () => {
     const groups = Object.fromEntries(GROUP_IDS.map((group) => [group, [crawlerId(group)]]));
     const primarySlices = Object.fromEntries(GROUP_IDS.map((group) => [crawlerId(group), slicePath(group)]));
     expect(validateCrawlerGenerationRoster(createCrawlerGenerationRoster(groups, primarySlices))).toEqual({ valid: true, errors: [] });
@@ -222,7 +222,7 @@ describe('crawler generation contracts', () => {
     expect(() => createCrawlerGenerationRoster({ ...groups, '02': [crawlerId('01')] }, primarySlices)).toThrow(/duplicate/i);
   });
 
-  it('becomes ready only for 23 exact bindings, ancestry and immutable source hashes', () => {
+  it('becomes ready only for 24 exact bindings, ancestry and immutable source hashes', () => {
     const report = evaluate(readyFixture());
     expect(report.barrier).toEqual({ status: 'ready', readyAt: checkedAt, sourceCommit: 'f'.repeat(40) });
     expect(report.translation).toEqual({ mode: 'shadow', wouldDispatch: true, dispatched: false });

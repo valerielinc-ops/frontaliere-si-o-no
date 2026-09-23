@@ -81,7 +81,7 @@ describe('issue-fix.yml — App token wiring', () => {
   });
 
   it('publishes the capability as its own signal, separate from the token', () => {
-    // Il token continua a essere scritto anche senza `workflows`: ~23 workflow lo usano
+    // Il token continua a essere scritto anche senza `workflows`: ~24 workflow lo usano
     // come IDENTITÀ di push/dispatch e regredirebbero a `github-actions[bot]`.
     const mint = readFileSync(resolve(__dirname, '../scripts/ci/mint-app-token.mjs'), 'utf8');
     expect(mint).toContain('APP_TOKEN_WORKFLOWS');

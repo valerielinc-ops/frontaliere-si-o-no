@@ -41,7 +41,9 @@ describe('crawler generation sentinel contract', () => {
       generationToken: '9001-2', group: '01',
     });
     expect(parseCrawlerGenerationRunName('crawler-generation--group-01')).toBeNull();
-    expect(parseCrawlerGenerationRunName('crawler-generation-9001-2-group-24')).toBeNull();
+    expect(parseCrawlerGenerationRunName('crawler-generation-9001-2-group-24')).toEqual({
+      generationToken: '9001-2', group: '24',
+    });
     expect(parseCrawlerGenerationRunName('crawler-generation-09001-2-group-01')).toBeNull();
     expect(crawlerGenerationSentinelWorkflowIdentity('9001-2', '777', CORPUS_CODE_COMMIT)).toMatchObject({
       workflowFile: 'crawler-generation-observer-shadow.yml',
@@ -52,7 +54,7 @@ describe('crawler generation sentinel contract', () => {
     });
   });
 
-  it('binds the immutable site code pin to exactly 23 canonical workflow/run/artifact identities', () => {
+  it('binds the immutable site code pin to exactly 24 canonical workflow/run/artifact identities', () => {
     const value = sentinel();
     expect(validateCrawlerGenerationSentinel(value)).toEqual({ valid: true, errors: [] });
     expect(Object.keys(value.groups).sort()).toEqual(GROUP_IDS);
@@ -139,7 +141,7 @@ describe('crawler generation sentinel contract', () => {
     });
   });
 
-  it('keeps all 23 identities when up to two dispatches are missing', () => {
+  it('keeps all 24 identities when up to two dispatches are missing', () => {
     const missing = runIds();
     missing['07'] = null as any;
     missing['19'] = null as any;
@@ -196,7 +198,7 @@ describe('terminal source commit derivation', () => {
     })).toEqual({ status: 'ready', sourceCommit: latest, reason: null });
   });
 
-  it('bounds ancestry checks linearly for 23 distinct terminal tips', () => {
+  it('bounds ancestry checks linearly for 24 distinct terminal tips', () => {
     const ordered = GROUP_IDS.map((_, index) => (index + 1).toString(16).padStart(40, '0'));
     const rank = new Map(ordered.map((commit, index) => [commit, index]));
     let calls = 0;
@@ -216,7 +218,7 @@ describe('terminal source commit derivation', () => {
   it('fails closed on incomparable terminal tips or a history rewrite before the site code pin', () => {
     const left = '4'.repeat(40);
     const right = '5'.repeat(40);
-    const commits = Object.fromEntries(GROUP_IDS.map((group, index) => [group, index === 22 ? right : left]));
+    const commits = Object.fromEntries(GROUP_IDS.map((group, index) => [group, index === GROUP_IDS.length - 1 ? right : left]));
     const sameOnly = (ancestor: string, descendant: string) => ancestor === descendant;
     expect(deriveCrawlerGenerationSourceCommit({
       manifests: manifests(commits), siteCodeCommit: SITE_CODE_COMMIT, isAncestor: sameOnly,
@@ -230,7 +232,7 @@ describe('terminal source commit derivation', () => {
 
   it('distinguishes invalid terminal data from an ancestry oracle infrastructure failure', () => {
     const value = manifests(Object.fromEntries(GROUP_IDS.map((group) => [group, '6'.repeat(40)])));
-    delete value['23'];
+    delete value[GROUP_IDS.at(-1)!];
     expect(deriveCrawlerGenerationSourceCommit({
       manifests: value, siteCodeCommit: SITE_CODE_COMMIT, isAncestor: () => true,
     })).toEqual({ status: 'blocked', sourceCommit: null, reason: 'terminal_manifest_set_invalid' });

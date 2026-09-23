@@ -26,7 +26,7 @@
  * this marker (inside `translate-pending-logic.yml` — the site's own
  * `.github/workflows/translate-pending.yml` is DISABLED since the cross-repo
  * migration; the logic runs from the generated corpus artifact and from the
- * frontaliere-articles caller), the 23 `crawler-group-NN.yml` workflows, and
+ * frontaliere-articles caller), the 24 `crawler-group-NN.yml` workflows, and
  * the housekeeping scripts. `writeJsonAtomic` guarantees that a
  * single file is never observed half-written; it guarantees NOTHING about the
  * ORDER of two writers, and the two failure modes below are what this module

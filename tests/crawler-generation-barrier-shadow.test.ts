@@ -92,7 +92,7 @@ function fixture() {
 }
 
 describe('crawler generation barrier snapshot observer', () => {
-  it('evaluates an explicit immutable 23-run fixture without polling, dispatch or repository mutation', () => {
+  it('evaluates an explicit immutable 24-run fixture without polling, dispatch or repository mutation', () => {
     const value = fixture();
     const before = execFileSync('git', ['status', '--porcelain'], { cwd: value.repository, encoding: 'utf8' });
     const report = runCrawlerGenerationBarrierShadowCli(value.args());

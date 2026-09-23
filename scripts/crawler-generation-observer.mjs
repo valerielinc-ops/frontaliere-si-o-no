@@ -286,7 +286,7 @@ export async function observeCrawlerGeneration({
   try {
     // Two-phase by construction: no artifact is listed or downloaded until
     // every exact run is terminal. Event-driven replays therefore issue at
-    // most one 23-artifact read for the generation instead of O(groups²).
+    // most one 24-artifact read for the generation instead of O(groups²).
     for (const group of GROUP_IDS) {
       const binding = sentinel.groups[group];
       const artifact = selectBoundArtifact(await listRunArtifacts(binding.runId), binding);

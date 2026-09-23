@@ -13,7 +13,7 @@ on:
     #    p90 of 8-9s for every run created between 00:00 and 06:00 UTC (n=414
     #    jobs sampled over 7 days). The ~20-job free-tier ceiling that drove
     #    incident #2882 stopped biting when the 581 per-crawler workflows were
-    #    consolidated into 23 groups (docs/CI-CD-PIPELINE.md). Picking a slot to
+    #    consolidated into 24 groups (docs/CI-CD-PIPELINE.md). Picking a slot to
     #    dodge our own concurrent jobs optimises something that no longer costs
     #    anything.
     #  * What actually costs hours is GitHub's own scheduled-DISPATCH backlog,

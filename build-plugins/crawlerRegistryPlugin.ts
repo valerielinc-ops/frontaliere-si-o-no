@@ -2,7 +2,7 @@
  * crawlerRegistryPlugin — Auto-discover job crawler workflows.
  *
  * Consolidation (2026-07): the 581 individual `update-jobs-*.yml` workflows
- * (one GitHub Actions workflow per crawler) were replaced by 23 grouped
+ * (one GitHub Actions workflow per crawler) were replaced by 24 grouped
  * `crawler-group-*.yml` workflows, each bundling ~25 crawlers as concurrent
  * `background: true` steps inside ONE job (see
  * scripts/generate-crawler-group-workflows.mjs). There is no longer a 1:1

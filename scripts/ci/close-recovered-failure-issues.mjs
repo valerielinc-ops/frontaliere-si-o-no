@@ -109,7 +109,7 @@
  *
  * ALGORITHM for `Crawler Failure:` issues — DIFFERENT since the crawler-workflow
  * consolidation (2026-07, see scripts/generate-crawler-group-workflows.mjs): 581
- * individual per-crawler workflows were replaced by 23 grouped `crawler-group-*.yml`
+ * individual per-crawler workflows were replaced by 24 grouped `crawler-group-*.yml`
  * workflows, each running ~25 crawlers as concurrent `background: true` steps inside
  * ONE job. `Crawler Failure:` titles now embed `Run <slug>` (the crawler's OWN
  * background-step name, baked in as a literal at generation time — see that script's

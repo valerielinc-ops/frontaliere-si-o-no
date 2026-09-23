@@ -25,7 +25,7 @@ const RUN_ID_RE = /^[1-9][0-9]*$/;
 const HASH_RE = /^sha256:[a-f0-9]{64}$/;
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const GROUP_IDS = Object.freeze(Array.from(
-  { length: 23 },
+  { length: 24 },
   (_, index) => String(index + 1).padStart(2, '0'),
 ));
 const TERMINAL_CONCLUSIONS = new Set([

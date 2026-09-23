@@ -2,7 +2,7 @@
 /**
  * scripts/generate-crawler-group-workflows.mjs
  *
- * Generates the 23 grouped crawler GitHub Actions workflows
+ * Generates the 24 grouped crawler GitHub Actions workflows
  * (.github/workflows/crawler-group-NN.yml) from:
  *   - data/crawler-manifest.json              (per-crawler step manifest)
  *   - data/crawler-workflow-duration-baseline.json (historical avg durations)
@@ -63,7 +63,7 @@
  * Since #6482 the crawler -> group assignment is NOT re-derived on every run:
  * it is pinned in data/crawler-group-assignments.json and only reconciled
  * against the manifest, so adding or removing one crawler rewrites ONE file,
- * not all 23. See the STABLE ASSIGNMENT block below. Deliberate redistribution
+ * not all 24. See the STABLE ASSIGNMENT block below. Deliberate redistribution
  * of the whole corpus: `--rebalance`. Rebuild the pins from the committed .yml
  * (after a hand-edit or a rebase that touched a group): `--bootstrap-from-workflows`.
  */
@@ -84,6 +84,7 @@ import { computeProfiledText } from './ci/apply-checkout-profiles.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { writeFileAtomic } from './lib/atomic-shard-write.mjs';
 import {
+  GROUP_IDS,
   canonicalJson,
   createCrawlerGenerationRoster,
   validateCrawlerGenerationRoster,
@@ -304,7 +305,7 @@ const CROSS_REPO_SAFE_EXCLUDED_BUCKETS = new Set([
   'data/health-premiums/',
 ]);
 
-export const GROUP_COUNT = 23;
+export const GROUP_COUNT = GROUP_IDS.length;
 // Coop's ~160min run is a wall-clock outlier ~2.75x the next-longest crawler,
 // far above the corpus. Bundling it into an otherwise-balanced group would
 // make that group's wall-clock dominated entirely by Coop, wasting the slot
@@ -361,9 +362,9 @@ export function resolveCrawlerContractSource({ sourceCommit, sourceRef } = {}) {
  * duration-sorted corpus round-robin across the groups. That makes every
  * crawler's group a function of its POSITION in the sorted corpus, so removing
  * (or adding) a single crawler shifts every crawler after it by one slot and
- * reshuffles all 23 groups at once. Measured on #6482: dropping one entry
+ * reshuffles all 24 groups at once. Measured on #6482: dropping one entry
  * (`eoc-candidati-posizioni`) from data/crawler-manifest.json moved 14 crawlers
- * out of crawler-group-02 and 14 different ones in, and rewrote all 23 files
+ * out of crawler-group-02 and 14 different ones in, and rewrote all 24 files
  * (~5000 lines) — an unreviewable diff that changes WHICH crawler runs in WHICH
  * window in production, which nobody asked for. The practical outcome was the
  * worst of both worlds: the .yml got hand-edited instead (PR #6484), leaving
@@ -383,7 +384,7 @@ export function resolveCrawlerContractSource({ sourceCommit, sourceRef } = {}) {
  *   - the reconciled file is written back, so the pins cannot drift from the
  *     manifest without the drift showing up in the same commit.
  *
- * The diff of a one-crawler change is therefore one group's file, not 23.
+ * The diff of a one-crawler change is therefore one group's file, not all 24.
  *
  * packGroups() is NOT dead: `--rebalance` runs it and overwrites the pins with
  * its result. That is the deliberate, reviewed "redistribute the whole corpus"
@@ -1796,7 +1797,7 @@ function buildGroupWorkflowObject(groupIndex, group, needsPlaywright, needsIgnor
           AI_CACHE_PATH: CRAWLER_AI_CACHE_PATH,
           // Crawler groups publish disjoint slices through the private-index /
           // ref-retry path in git-commit-data.sh. A global Firestore lease here
-          // would serialize all 23 groups behind the slowest crawler, while
+          // would serialize all 24 groups behind the slowest crawler, while
           // the live-run guard above retains its separate per-group lease.
           // Translation already follows the same lease-free write boundary.
         },
@@ -2176,7 +2177,7 @@ function normalizedJobContract(workflow, side, fileName) {
 }
 
 /**
- * I 23 `*-logic.yml` erano copie manuali: la loro parita' col generatore era
+ * I 24 `*-logic.yml` erano copie manuali: la loro parita' col generatore era
  * solo accidentale. Questo confronto fail-closed copre l'intero job (setup,
  * roster, env e shell body) e normalizza esclusivamente le differenze
  * dichiarate del workflow_call cross-repo: checkout esplicito, bootstrap PAT,
@@ -2561,7 +2562,7 @@ function canonicalizePortableCrawlerIdentities(content, logic, sourceMembers) {
   return { content: canonicalContent, members: canonicalMembers };
 }
 
-/** Genera i 23 workflow crawler + translate-pending e il loro contratto hash. */
+/** Genera i 24 workflow crawler + translate-pending e il loro contratto hash. */
 /**
  * @param {{
  *   groupResults?: Array<{groupIndex: number, content: string}>,
@@ -2782,7 +2783,7 @@ export function generate({
   profileRenderer = computeProfiledText,
   write = true,
   // `--rebalance`: throw the pins away and re-derive membership with the global
-  // bin-pack. Rewrites all 23 files by design — a deliberate, reviewed action,
+  // bin-pack. Rewrites all 24 files by design — a deliberate, reviewed action,
   // never a side effect of adding or removing one crawler (#6482).
   rebalance = false,
 } = {}) {
@@ -2823,7 +2824,7 @@ export function generate({
     }
   }
   // Validate every crawler identity and slice before the first generated file
-  // is replaced. A malformed receipt roster must not leave a partial 23-group
+  // is replaced. A malformed receipt roster must not leave a partial 24-group
   // render on disk.
   const generationRoster = crawlerGenerationRosterFromGroups(groups);
 
@@ -2850,7 +2851,7 @@ export function generate({
       const fileContent = `${preamble}${workflowHeaderComment(groupIndex, group)}\n\n${yamlBody}`;
       const stagingPath = path.join(stagingDir, fileName);
       fs.writeFileSync(stagingPath, fileContent, 'utf8');
-      // Calcola il profilo su staging: tutti i 23 file sono renderizzati e
+      // Calcola il profilo su staging: tutti i 24 file sono renderizzati e
       // validati prima che una sola destinazione venga sostituita.
       const finalContent = profileRenderer(stagingPath, npmScriptsForAnalyzer()).text;
       YAML.parse(finalContent);
@@ -2973,7 +2974,7 @@ if (isMain) {
     console.log(`Cross-repo source -> ${cross.contract.sourceRef}@${cross.contract.sourceCommit}`);
   }
   if (rebalance) {
-    console.log('⚠️  --rebalance: membership re-derived from scratch — expect all 23 files to change.');
+    console.log('⚠️  --rebalance: membership re-derived from scratch — expect all 24 files to change.');
   }
   for (const slug of results.assignmentsRemoved) console.log(`  - unassigned (gone from the manifest): ${slug}`);
   for (const slug of results.assignmentsAdded) console.log(`  + newly assigned: ${slug}`);

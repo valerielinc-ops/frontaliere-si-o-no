@@ -149,7 +149,7 @@ export function runCrawlerGenerationBarrierShadowCli(argv) {
   const roster = readJson(paths.roster);
   const manifests = readManifests(paths.manifestsDir);
   // The group finalizer already proves every receipt commit is an ancestor of
-  // its immutable group tip. The central observer therefore needs at most 23
+  // its immutable group tip. The central observer therefore needs at most 24
   // ancestry checks: one unique remote group commit per manifest. Never load
   // the repository's unbounded full history into memory.
   const groupCommits = [...new Set(GROUP_IDS.map((group) => manifests[group]?.remote?.commit)

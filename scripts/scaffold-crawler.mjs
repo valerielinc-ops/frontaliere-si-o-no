@@ -32,7 +32,7 @@
  *
  * Consolidation (2026-07): crawlers no longer each get their own
  * `.github/workflows/update-jobs-{key}.yml` (581 individual workflows were
- * replaced by 23 grouped `crawler-group-*.yml` workflows — see
+ * replaced by 24 grouped `crawler-group-*.yml` workflows — see
  * scripts/generate-crawler-group-workflows.mjs). Instead this script upserts
  * a manifest entry for the new crawler into data/crawler-manifest.json (same
  * shape the group generator consumes: prepSteps/runStep/postSteps extracted

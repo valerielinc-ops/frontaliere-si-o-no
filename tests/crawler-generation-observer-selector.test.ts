@@ -16,6 +16,9 @@ import {
   validateSentinelOwnerRun,
 } from '../scripts/crawler-generation-observer-selector.mjs';
 import {
+  GROUP_IDS,
+} from '../scripts/lib/crawler-generation-contract.mjs';
+import {
   createCrawlerGenerationObserverReport,
   createSentinelSetBinding,
 } from '../scripts/lib/crawler-generation-observer-report.mjs';
@@ -23,8 +26,8 @@ import {
 const NOW = Date.parse('2026-08-31T20:23:00.000Z');
 const siteCodeCommit = 'a'.repeat(40);
 const corpusCodeCommit = 'b'.repeat(40);
-const dispatchDiagnostics = Object.fromEntries(Array.from({ length: 23 }, (_, index) => [
-  String(index + 1).padStart(2, '0'),
+const dispatchDiagnostics = Object.fromEntries(GROUP_IDS.map((group, index) => [
+  group,
   { status: 'direct', runId: String(10_000 + index) },
 ]));
 

@@ -217,7 +217,7 @@ function semanticDiffOk(beforeRaw, afterRaw) {
 /**
  * Calcola e applica i profili a UN workflow gia' su disco.
  *
- * Esportata perche' i 23 `crawler-group-*.yml` sono generati da
+ * Esportata perche' i 24 `crawler-group-*.yml` sono generati da
  * `scripts/generate-crawler-group-workflows.mjs`: senza questa chiamata, il
  * primo rigenerato cancellerebbe i loro blocchi sparse in silenzio. I due
  * gruppi non hanno lo stesso profilo (20 uguali + 3 diversi, perche' i crawler

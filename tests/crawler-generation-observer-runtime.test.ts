@@ -37,8 +37,8 @@ function sentinel() {
     generationToken: '9001-2',
     siteCodeCommit: 'a'.repeat(40),
     corpusCodeCommit: CORPUS_CODE_COMMIT,
-    groupRunIds: Object.fromEntries(Array.from({ length: 23 }, (_, index) => [
-      String(index + 1).padStart(2, '0'), String(10_000 + index),
+    groupRunIds: Object.fromEntries(GROUP_IDS.map((group, index) => [
+      group, String(10_000 + index),
     ])),
   });
 }
@@ -179,10 +179,10 @@ describe('crawler observer GitHub binding', () => {
   });
 
   it('emits blocked_dispatch_missing without querying GitHub when a dispatch binding is null', async () => {
-    const groupRunIds = Object.fromEntries(Array.from({ length: 23 }, (_, index) => [
-      String(index + 1).padStart(2, '0'), String(10_000 + index),
+    const groupRunIds = Object.fromEntries(GROUP_IDS.map((group, index) => [
+      group, String(10_000 + index),
     ]));
-    groupRunIds['23'] = null as any;
+    groupRunIds[GROUP_IDS.at(-1)!] = null as any;
     const value = createCrawlerGenerationSentinel({
       generationToken: '9001-2',
       siteCodeCommit: 'a'.repeat(40),
@@ -201,7 +201,7 @@ describe('crawler observer GitHub binding', () => {
     });
     expect(queried).toBe(false);
     expect(report.observer).toEqual({ status: 'blocked', reasons: ['blocked_dispatch_missing'] });
-    expect(report.dispatchDiagnostics['23']).toEqual({ status: 'missing', runId: null });
+    expect(report.dispatchDiagnostics[GROUP_IDS.at(-1)!]).toEqual({ status: 'missing', runId: null });
   });
 
   it('keeps incomplete bound runs waiting and distinguishes API infrastructure failure', async () => {
@@ -257,7 +257,7 @@ describe('crawler observer GitHub binding', () => {
     });
   });
 
-  it('can reach ready only from 23 exact terminal runs, artifacts and immutable source checks', async () => {
+  it('can reach ready only from 24 exact terminal runs, artifacts and immutable source checks', async () => {
     const value = sentinel();
     const evidenceOracles = {
       getRun: async (runId: string) => {
@@ -330,7 +330,7 @@ describe('crawler observer GitHub binding', () => {
     expect(replay.barrier.digest).toBe(report.barrier.digest);
   });
 
-  it('fails closed when 23 manual fallback tokens cannot form one generation wave', async () => {
+  it('fails closed when 24 manual fallback tokens cannot form one generation wave', async () => {
     const value = sentinel();
     const report = await observeCrawlerGeneration({
       sentinels: [value],

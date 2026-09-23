@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { GROUP_IDS } from '../scripts/lib/crawler-generation-contract.mjs';
 import {
   ARTIFACT_MISSING_GRACE_MS,
   classifyCrawlerGenerationObserverReport,
@@ -11,8 +12,8 @@ const sentinelDigest = `sha256:${'1'.repeat(64)}`;
 const siteCodeCommit = 'a'.repeat(40);
 const corpusCodeCommit = 'b'.repeat(40);
 const evaluatedAt = '2026-08-31T08:00:00.000Z';
-const dispatchDiagnostics = Object.fromEntries(Array.from({ length: 23 }, (_, index) => [
-  String(index + 1).padStart(2, '0'),
+const dispatchDiagnostics = Object.fromEntries(GROUP_IDS.map((group, index) => [
+  group,
   { status: 'direct', runId: String(10_000 + index) },
 ]));
 
