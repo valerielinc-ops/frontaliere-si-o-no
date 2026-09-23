@@ -42,7 +42,7 @@
       },
       "slugByLocale": {
         "it": "allrounder-vendita-m-w-d-20-40-lidl-svizzera-landquart-7aai46",
-        "en": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart-7aai46",
+        "en": "all-rounder-sale-m-f-d-20-40-landquart-lidl-svizzera-landquart",
         "de": "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart-7aai46",
         "fr": "allrounder-vente-m-w-d-20-40-lidl-svizzera-landquart-7aai46"
       },
@@ -52,10 +52,14 @@
       "previousSlugsByLocale": {
         "it": [
           "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart"
+        ],
+        "en": [
+          "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart-7aai46"
         ]
       },
       "previousSlugs": [
-        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart"
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart",
+        "allrounder-verkauf-m-w-d-20-40-lidl-svizzera-landquart-7aai46"
       ],
       "salaryMin": 23000,
       "salaryMax": 34800,
@@ -76,7 +80,7 @@
     },
     {
       "id": "company-z53dl6",
-      "slug": "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier-z53dl6",
+      "slug": "vendite-per-studenti-m-f-d-20-60-lidl-svizzera-moutier",
       "company": "Lidl Svizzera",
       "title": "Étudiant / Étudiante vente (h/f/d) 20-60%",
       "location": "Moutier",
@@ -113,9 +117,9 @@
         "de": "Einleitung\n\nSuchen Sie eine spannende Tätigkeit während Ihres Studiums? Ein Job, bei dem Sie das Beste von sich geben können, um unseren Kunden das beste Einkaufserlebnis zu bieten? Willkommen bei Lidl Schweiz! Entdecken Sie die Vielfalt der Einzelhandelswelt bereits während Ihres Studiums. Wir bieten Ihnen spannende und abwechslungsreiche Karrieremöglichkeiten im dynamischen Einzelhandelsumfeld.\nDeine Mission\n\n- Beitrag zu einem positiven Einkaufserlebnis für unsere Kunden\n\n- Kassentätigkeit\n\n- Platzierung und Verwaltung von Waren im Lager\n\n- Beitrag zu sauberen Verkaufsflächen\nDein Profil\n\n- Berufserfahrung im Verkauf oder ähnlichen Bereichen ist ein Asset\n\n- Mögliche Stunden von Montag bis Samstag zwischen 5:00 Uhr und 22:00 Uhr jeweils um 9 Uhr; Zeit berücksichtigt\n\n- Gute körperliche Verfassung\n\n- Zuverlässigkeit und Rechenschaftspflicht\n\n- Gute Kenntnisse in Französisch\nUnser Angebot\n\nBei Lidl Schweiz gibt es Raum für Ehrgeiz und Innovation. Trägt zur Gestaltung der Zukunft bei. Wachsen Sie jeden Tag professionell und persönlich. Während Ihrer eingehenden Erstausbildung bereiten wir Sie auf Ihre abwechslungsreiche und interessante Mission vor. Nach Ihrer Anfrage und im Hinblick auf Ihre guten persönlichen Fähigkeiten ermöglichen Ihnen unsere Programme für junge Absolventen, Ihre Karriere zu beginnen, sobald Sie ihren Abschluss machen. Darüber hinaus garantieren wir Ihnen einen sicheren Job, ein Traumteam, die Privilegien des CTC Lidl, exzellente professionelle Weitsicht und viele weitere interessante Vorteile. Nutzen Sie Ihre Chance und bewerben Sie sich jetzt online!"
       },
       "slugByLocale": {
-        "it": "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier-z53dl6",
-        "en": "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier-z53dl6",
-        "de": "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier-z53dl6",
+        "it": "vendite-per-studenti-m-f-d-20-60-lidl-svizzera-moutier",
+        "en": "student-sales-m-f-d-20-60-lidl-svizzera-moutier",
+        "de": "studentenverkauf-m-w-d-20-60-lidl-svizzera-moutier",
         "fr": "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier-z53dl6"
       },
       "requirementsByLocale": {},
@@ -123,11 +127,19 @@
       "sourceLang": "fr",
       "previousSlugsByLocale": {
         "it": [
-          "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier"
+          "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier",
+          "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier-z53dl6"
+        ],
+        "en": [
+          "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier-z53dl6"
+        ],
+        "de": [
+          "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier-z53dl6"
         ]
       },
       "previousSlugs": [
-        "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier"
+        "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier",
+        "etudiant-etudiante-vente-m-w-d-20-60-lidl-svizzera-moutier-z53dl6"
       ],
       "salaryMin": 36300,
       "salaryMax": 54900,
@@ -259,11 +271,9 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "employee-cleaning-staff-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-wallisellen-lidl-svizzera-wallisellen"
         ],
         "fr": [
-          "employe-personnel-de-nettoyage-h-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-wallisellen-lidl-svizzera-wallisellen"
         ],
         "it": [
@@ -271,13 +281,10 @@
           "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen-en3p4t"
         ],
         "de": [
-          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen-en3p4t",
-          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen-en3p4t"
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen-en3p4t"
         ]
       },
       "previousSlugs": [
-        "employee-cleaning-staff-m-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
-        "employe-personnel-de-nettoyage-h-f-d-20-40-wallisellen-lidl-svizzera-wallisellen",
         "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen-en3p4t",
         "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-wallisellen-en3p4t",
         "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-wallisellen-lidl-svizzera-wallisellen"
@@ -425,17 +432,13 @@
       "sourceLang": "de",
       "previousSlugsByLocale": {
         "en": [
-          "salesperson-with-shift-responsibility-m-f-d-60-80-1-brugg-lidl-svizzera-brugg",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg"
         ],
         "fr": [
-          "vendeur-vendeuse-avec-responsabilite-de-quart-m-f-x-60-80-1-brugg-lidl-svizzera-brugg",
           "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg"
         ]
       },
       "previousSlugs": [
-        "salesperson-with-shift-responsibility-m-f-d-60-80-1-brugg-lidl-svizzera-brugg",
-        "vendeur-vendeuse-avec-responsabilite-de-quart-m-f-x-60-80-1-brugg-lidl-svizzera-brugg",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-1-lidl-svizzera-brugg"
       ],
       "salaryMin": 49600,
@@ -6948,8 +6951,7 @@
           "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden",
           "assistent-lieferkette-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
           "assistant-chaine-d-approvisionnement-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-          "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-          "assistente-supply-chain-m-f-d-80-100-lidl-svizzera-weinfelden"
+          "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu"
         ],
         "en": [
           "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-gg2tuc"
@@ -6970,8 +6972,7 @@
         "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden",
         "assistent-lieferkette-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
         "assistant-chaine-d-approvisionnement-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-        "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu",
-        "assistente-supply-chain-m-f-d-80-100-lidl-svizzera-weinfelden"
+        "assistant-supply-chain-controlling-m-w-d-80-100-lidl-svizzera-weinfelden-g1pkxu"
       ],
       "baseSalary": {
         "@type": "MonetaryAmount",
@@ -13940,8 +13941,6 @@
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-27rwtw",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-luzern-lidl-svizzera-luzern",
-        "seller-with-shift-responsibility-m-f-d-60-80-lucerne-lidl-svizzera-luzern",
-        "vendeur-avec-responsabilite-de-quart-h-f-d-60-80-lucerne-lidl-svizzera-luzern",
         "verkaufer-verkauferin-con-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-26oa7h",
         "verkaufer-verkauferin-mit-schichtverantwortung-m-w-d-60-80-lidl-svizzera-luzern-26oa7h"
       ],
@@ -16433,7 +16432,7 @@
     },
     {
       "id": "company-q76ons",
-      "slug": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons",
+      "slug": "impiegato-pulizia-dei-dipendenti-m-f-d-20-40-sabato-lidl-svizzera-samstagern",
       "company": "Lidl Svizzera",
       "title": "Mitarbeiter / Mitarbeiterin Reinigung (m/w/d) 20-40% — Samstagern",
       "location": "Samstagern",
@@ -16459,30 +16458,29 @@
       "firstSeenAt": "2026-09-23T13:53:18.342Z",
       "previousSlugs": [
         "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern",
-        "impiegato-pulizia-dei-dipendenti-m-f-d-20-40-sabato-lidl-svizzera-samstagern",
         "dipendenti-pulizia-dei-dipendenti-m-f-d-20-40-sabato-lidl-svizzera-samstagern",
-        "employee-employee-cleaning-m-f-d-20-40-saturdays-lidl-svizzera-samstagern",
-        "nettoyage-des-employes-h-f-d-20-40-samedis-lidl-svizzera-samstagern",
         "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7",
-        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7"
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7",
+        "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons",
+        "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons"
       ],
       "previousSlugsByLocale": {
         "it": [
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern",
-          "impiegato-pulizia-dei-dipendenti-m-f-d-20-40-sabato-lidl-svizzera-samstagern",
           "dipendenti-pulizia-dei-dipendenti-m-f-d-20-40-sabato-lidl-svizzera-samstagern",
-          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7"
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7",
+          "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons"
         ],
         "en": [
-          "employee-employee-cleaning-m-f-d-20-40-saturdays-lidl-svizzera-samstagern",
-          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7"
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons"
         ],
         "de": [
           "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7"
         ],
         "fr": [
-          "nettoyage-des-employes-h-f-d-20-40-samedis-lidl-svizzera-samstagern",
-          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7"
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q764s7",
+          "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons"
         ]
       },
       "titleByLocale": {
@@ -16498,10 +16496,10 @@
         "fr": "Présentation\n\nAvec un réseau de succursales moderne, Lidl Suisse est de plus en plus présent sur le marché suisse. L'expansion en Suisse s'est poursuivie depuis l'entrée sur le marché en 2009.\nVos tâches\n\n- Nettoyage de la zone de vente et des locaux annexes de la succursale\n\n- Respect des normes de qualité et d'hygiène\n\n- Contribution à une expérience d'achat positive de nos clients\nVotre profil\n\n- L'expérience dans le secteur du nettoyage est avantageuse\n\n- Flexibilité des temps d'exploitation (plusieurs fois par semaine entre 05:00 et 09:00)\n\n- Travail fiable et indépendant\n\n- Esprit d'équipe\nNous offrons\n\nNous vous préparons à vos activités avec une formation intensive. En outre, nous vous offrons la sécurité d'un emploi permanent, une grande équipe, les avantages du Lidl GAV, une excellente offre professionnelle et d'autres avantages attrayants. Profitez de l'occasion et appliquez en ligne maintenant!"
       },
       "slugByLocale": {
-        "it": "collaboratore-trice-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons",
-        "en": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons",
+        "it": "impiegato-pulizia-dei-dipendenti-m-f-d-20-40-sabato-lidl-svizzera-samstagern",
+        "en": "employee-employee-cleaning-m-f-d-20-40-saturdays-lidl-svizzera-samstagern",
         "de": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons",
-        "fr": "mitarbeiter-mitarbeiterin-reinigung-m-w-d-20-40-lidl-svizzera-samstagern-q76ons"
+        "fr": "nettoyage-des-employes-h-f-d-20-40-samedis-lidl-svizzera-samstagern"
       },
       "requirementsByLocale": {},
       "country": "CH",

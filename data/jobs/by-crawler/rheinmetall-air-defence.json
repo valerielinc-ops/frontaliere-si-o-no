@@ -2373,13 +2373,11 @@
         ]
       },
       "previousSlugs": [
-        "metallurgista-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "metallurgista-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "metallurgista-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich",
-          "laborant-metallurgie-werkstoffspezialist-m-w-d-rheinmetall-air-defence-ag-zurich"
+          "metallurgista-del-laboratorio-specialista-dei-materiali-m-f-d-rheinmetall-air-defence-ag-zurich"
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:20.497Z",
@@ -3390,12 +3388,12 @@
     },
     {
       "id": "rheinmetall-air-defence-17b45d1878cb",
-      "slug": "system-engineer-mobile-systems-m-w-d-rheinmetall-air-defence-ag-zurich",
+      "slug": "ingegnere-di-sistema-mobile-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
-        "it": "system-engineer-mobile-systems-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "it": "ingegnere-di-sistema-mobile-systems-m-f-d-rheinmetall-air-defence-ag-zurich",
         "en": "system-engineer-mobile-systems-m-w-d-rheinmetall-air-defence-ag-zurich",
         "de": "system-engineer-mobile-systems-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "fr": "system-engineer-mobile-systems-m-w-d-rheinmetall-air-defence-ag-zurich"
+        "fr": "ingenieur-systeme-mobile-systems-h-f-d-rheinmetall-air-defence-ag-zurich"
       },
       "company": "Rheinmetall Air Defence AG",
       "companyKey": "rheinmetall-air-defence",
@@ -3455,7 +3453,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "system-engineer-mobile-systems-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ],
+        "fr": [
+          "system-engineer-mobile-systems-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "system-engineer-mobile-systems-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ]
     },
     {
       "id": "rheinmetall-air-defence-782e54a147ed",
@@ -3736,15 +3745,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "it": [
-          "spezialist-zoll-m-w-d-rheinmetall-air-defence-ag-zurich"
-        ]
-      },
-      "previousSlugs": [
-        "spezialist-zoll-m-w-d-rheinmetall-air-defence-ag-zurich"
-      ]
+      }
     },
     {
       "id": "rheinmetall-air-defence-c18352e39fc6",

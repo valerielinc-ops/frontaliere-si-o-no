@@ -2055,8 +2055,7 @@
         "guest-experience-coordinator-mit-schichtverantwortung-weisse-arena-ch",
         "guest-experience-coordinateur-mit-schichtverantwortung-weisse-arena-gruppe-laax",
         "guest-experience-coordinator-shift-lead-weisse-arena-ch",
-        "guest-experience-manager-weisse-arena-ch",
-        "guest-experience-manager-weisse-arena-gruppe-laax"
+        "guest-experience-manager-weisse-arena-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2065,8 +2064,7 @@
           "guest-experience-coordinator-mit-schichtverantwortung-weisse-arena-ch",
           "guest-experience-coordinateur-mit-schichtverantwortung-weisse-arena-gruppe-laax",
           "guest-experience-coordinator-shift-lead-weisse-arena-ch",
-          "guest-experience-manager-weisse-arena-ch",
-          "guest-experience-manager-weisse-arena-gruppe-laax"
+          "guest-experience-manager-weisse-arena-ch"
         ],
         "en": [
           "guest-experience-coordinator-shift-lead-weisse-arena-gruppe-laax"
@@ -2935,9 +2933,9 @@
       "slug": "pizzaiolo-a-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "it": "pizzaiolo-a-weisse-arena-gruppe-laax",
-        "en": "pizzaiolo-a-weisse-arena-ch",
+        "en": "pizza-maker-weisse-arena-gruppe-laax",
         "de": "pizzaiolo-a-weisse-arena-ch",
-        "fr": "pizzaiolo-a-weisse-arena-ch"
+        "fr": "fabrication-de-pizza-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
       "companyKey": "weisse-arena",
@@ -2986,6 +2984,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "pizzaiolo-a-weisse-arena-ch"
+        ],
+        "en": [
+          "pizzaiolo-a-weisse-arena-ch"
+        ],
+        "fr": [
           "pizzaiolo-a-weisse-arena-ch"
         ]
       },
@@ -3257,7 +3261,6 @@
           "koch-kochin-weisse-arena-ch-2"
         ],
         "de": [
-          "koch-kochin-weisse-arena-ch",
           "koch-kochin-weisse-arena-ch-7ljqqk"
         ]
       },
@@ -4020,10 +4023,10 @@
     },
     {
       "id": "weisse-arena-9696e1a1fe83",
-      "slug": "service-teamlead-weisse-arena-ch",
+      "slug": "capo-squadra-di-servizio-weisse-arena-gruppe-laax",
       "slugByLocale": {
         "de": "service-teamlead-weisse-arena-ch",
-        "it": "service-teamlead-weisse-arena-ch",
+        "it": "capo-squadra-di-servizio-weisse-arena-gruppe-laax",
         "en": "service-teamlead-weisse-arena-ch",
         "fr": "chef-d-equipe-weisse-arena-gruppe-laax"
       },
@@ -4087,7 +4090,15 @@
       },
       "addressRegion": "GR",
       "firstSeenAt": "2026-09-21T15:57:39.649Z",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "service-teamlead-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "service-teamlead-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-82b40ba6959e",
@@ -4172,9 +4183,9 @@
     },
     {
       "id": "weisse-arena-82f61ea395a4",
-      "slug": "chef-de-service-weisse-arena-ch",
+      "slug": "chef-di-servizio-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "chef-de-service-weisse-arena-ch",
+        "it": "chef-di-servizio-weisse-arena-gruppe-laax",
         "en": "chef-de-service-weisse-arena-ch",
         "de": "chef-de-service-weisse-arena-ch",
         "fr": "chef-de-service-weisse-arena-ch"
@@ -4237,7 +4248,15 @@
         }
       },
       "addressRegion": "GR",
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "chef-de-service-weisse-arena-ch"
+        ]
+      },
+      "previousSlugs": [
+        "chef-de-service-weisse-arena-ch"
+      ]
     },
     {
       "id": "weisse-arena-6e8a97beeafa",
@@ -4566,8 +4585,7 @@
       "previousSlugs": [
         "koch-kochin-weisse-arena-ch",
         "cucina-kochin-weisse-arena-gruppe-laax",
-        "koch-kochin-weisse-arena-gruppe-laax",
-        "koch-kochin-weisse-arena-ch-s26q0e"
+        "koch-kochin-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4582,8 +4600,7 @@
           "koch-kochin-weisse-arena-ch"
         ],
         "de": [
-          "koch-kochin-weisse-arena-ch",
-          "koch-kochin-weisse-arena-ch-s26q0e"
+          "koch-kochin-weisse-arena-ch"
         ]
       },
       "firstSeenAt": "2026-08-21T09:47:08.547Z",
