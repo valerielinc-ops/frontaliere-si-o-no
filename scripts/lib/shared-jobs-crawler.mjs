@@ -119,6 +119,7 @@ import {
   localizeJobContentWithPipeline,
   translateTextWithLocalPipeline,
 } from './job-localization-pipeline.mjs';
+import { TRANSLATION_RAW_OBSERVABILITY_LIMITS } from './translation-observability-limits.mjs';
 import { translateWithMyMemory, getMyMemoryStats } from './mymemory-translate.mjs';
 import { freeTranslateWithRetry, logCascadeSummary } from './free-translate.mjs';
 import { parseSupsiJobDetail } from './supsi-job-parser.mjs';
@@ -179,12 +180,6 @@ const registerJobSlug = _registerJobSlug;
 const LOCALES = _LOCALES;
 const normalizeCompanyKey = _normalizeCompanyKey;
 
-const LOCALIZATION_OBSERVABILITY_LIMITS = Object.freeze({
-  jobTimings: 4096,
-  companies: 2048,
-  rungs: 64,
-});
-
 function boundedDurationMs(value) {
   return Number.isFinite(value) && value >= 0 ? Math.round(value) : 0;
 }
@@ -197,14 +192,14 @@ function createLocalizationObservability() {
   return {
     recordJob({ companyKey, durationMs }) {
       const duration = boundedDurationMs(durationMs);
-      if (jobDurationsMs.length < LOCALIZATION_OBSERVABILITY_LIMITS.jobTimings) {
+      if (jobDurationsMs.length < TRANSLATION_RAW_OBSERVABILITY_LIMITS.jobTimings) {
         jobDurationsMs.push(duration);
       }
       const key = normalizeCompanyKey(companyKey) || 'unknown';
       const row = companies.get(key) || { companyKey: key, served: 0, durationMs: 0 };
       row.served += 1;
       row.durationMs += duration;
-      if (companies.size < LOCALIZATION_OBSERVABILITY_LIMITS.companies || companies.has(key)) {
+      if (companies.size < TRANSLATION_RAW_OBSERVABILITY_LIMITS.companies || companies.has(key)) {
         companies.set(key, row);
       }
     },
@@ -213,7 +208,7 @@ function createLocalizationObservability() {
       const row = rungAttribution.get(label) || { rung: label, count: 0, durationMs: 0 };
       row.count += 1;
       row.durationMs += boundedDurationMs(durationMs);
-      if (rungAttribution.size < LOCALIZATION_OBSERVABILITY_LIMITS.rungs || rungAttribution.has(label)) {
+      if (rungAttribution.size < TRANSLATION_RAW_OBSERVABILITY_LIMITS.rungs || rungAttribution.has(label)) {
         rungAttribution.set(label, row);
       }
     },
