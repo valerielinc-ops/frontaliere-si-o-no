@@ -35492,6 +35492,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'sunrise-tagli-posti-lavoro-ristrutturazione',
+ category: 'novita',
+ date: '2026-09-23T00:45:15.008Z',
+ image: '/images/blog/sunrise-tagli-posti-lavoro-ristrutturazione.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

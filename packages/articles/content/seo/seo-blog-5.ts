@@ -92464,6 +92464,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-sunrise-tagli-posti-lavoro-ristrutturazione': {
+    title: 'Sunrise si ristruttura: a rischio fino a 450 posti',
+    description: 'Sunrise annuncia un piano di riposizionamento che prevede fino a 450 tagli di posti su 2\'900. Procedura di consultazione in ottobre e reazioni sindacali.',
+    keywords: 'frontalieri, ticino, svizzera, italia, sunrise, ristruttura, rischio, fino',
+    ogTitle: 'Sunrise: fino a 450 posti di lavoro a rischio e consultazione in ottobre',
+    ogDescription: 'Nuova ondata di tagli per l\'operatore Sunrise, che prevede di sopprimere fino a 450 impieghi a tempo pieno su 2\'900. Procedura di consultazione con i sindacati prevista in ottobre.',
+    canonicalPath: '/articoli-frontaliere/sunrise-tagli-posti-lavoro-ristrutturazione',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Sunrise si ristruttura: a rischio fino a 450 posti",
+      "description": "Sunrise annuncia un piano di riposizionamento che prevede fino a 450 tagli di posti su 2'900. Procedura di consultazione in ottobre e reazioni sindacali.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/sunrise-tagli-posti-lavoro-ristrutturazione.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Sede aziendale e uffici di Sunrise in Svizzera"
+      },
+      "datePublished": "2026-09-23T00:45:15+00:00",
+      "dateModified": "2026-09-23T00:45:15+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/sunrise-tagli-posti-lavoro-ristrutturazione/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
