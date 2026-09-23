@@ -1,7 +1,17 @@
 {
-  "generatedAt": "2026-09-13T08:37:59.405Z",
-  "checked": 1,
-  "ok": 1,
+  "generatedAt": "2026-09-23T21:10:57.118Z",
+  "source": {
+    "path": "data/jobs.json",
+    "jobCount": 23903
+  },
+  "checked": 562,
+  "ok": 562,
   "broken": 0,
+  "brokenJobCount": 0,
+  "missing": 15,
+  "missingJobCount": 54,
+  "partial": 0,
+  "partialJobCount": 0,
+  "unverified": 0,
   "urls": []
 }
