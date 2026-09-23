@@ -92,7 +92,7 @@
         "it": "architetto-di-soluzioni-sap-ewm-80-100-belimo-hinwil",
         "en": "sap-solution-architect-ewm-80-100-belimo-hinwil",
         "de": "sap-solution-architect-ewm-80-100-belimo-hinwil",
-        "fr": "sap-solution-architect-ewm-80-100-belimo-hinwil"
+        "fr": "architecte-de-solutions-sap-ewm-80-100-belimo-hinwil"
       },
       "company": "Belimo",
       "companyKey": "belimo",
@@ -153,6 +153,9 @@
       "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
+          "sap-solution-architect-ewm-80-100-belimo-hinwil"
+        ],
+        "fr": [
           "sap-solution-architect-ewm-80-100-belimo-hinwil"
         ]
       },
@@ -568,9 +571,9 @@
     },
     {
       "id": "belimo-0317dee5673f",
-      "slug": "pim-application-manager-80-100-belimo-hinwil",
+      "slug": "responsabile-applicazioni-pim-80-100-belimo-hinwil",
       "slugByLocale": {
-        "it": "pim-application-manager-80-100-belimo-hinwil",
+        "it": "responsabile-applicazioni-pim-80-100-belimo-hinwil",
         "en": "pim-application-manager-80-100-belimo-hinwil",
         "de": "pim-application-manager-80-100-belimo-hinwil",
         "fr": "gestionnaire-des-demandes-de-gip-80-100-belimo-hinwil"
@@ -631,7 +634,15 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "pim-application-manager-80-100-belimo-hinwil"
+        ]
+      },
+      "previousSlugs": [
+        "pim-application-manager-80-100-belimo-hinwil"
+      ]
     },
     {
       "id": "belimo-58ec97a621f8",

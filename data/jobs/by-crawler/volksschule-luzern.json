@@ -1373,12 +1373,12 @@
     },
     {
       "id": "volksschule-luzern-0f3f3176d8fb",
-      "slug": "sozialpadagog-in-hf-fh-zirka-25-55-betreuung-sali-steinhof-volksschule-luzern-luzern",
+      "slug": "istruzione-sociale-in-hf-fh-circa-25-55-sostegno-sali-steinhof-volksschule-stadt-luzern-luzern",
       "slugByLocale": {
-        "it": "sozialpadagog-in-hf-fh-zirka-25-55-betreuung-sali-steinhof-volksschule-luzern-luzern",
-        "en": "sozialpadagog-in-hf-fh-zirka-25-55-betreuung-sali-steinhof-volksschule-luzern-luzern",
+        "it": "istruzione-sociale-in-hf-fh-circa-25-55-sostegno-sali-steinhof-volksschule-stadt-luzern-luzern",
+        "en": "social-education-in-hf-fh-about-25-55-support-sali-steinhof-volksschule-stadt-luzern-luzern",
         "de": "sozialpadagog-in-hf-fh-zirka-25-55-betreuung-sali-steinhof-volksschule-luzern-luzern",
-        "fr": "sozialpadagog-in-hf-fh-zirka-25-55-betreuung-sali-steinhof-volksschule-luzern-luzern"
+        "fr": "l-education-sociale-en-hf-fh-environ-25-55-soutien-sali-steinhof-volksschule-stadt-luzern-luzern"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -1435,16 +1435,30 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "sozialpadagog-in-hf-fh-zirka-25-55-betreuung-sali-steinhof-volksschule-luzern-luzern"
+        ],
+        "en": [
+          "sozialpadagog-in-hf-fh-zirka-25-55-betreuung-sali-steinhof-volksschule-luzern-luzern"
+        ],
+        "fr": [
+          "sozialpadagog-in-hf-fh-zirka-25-55-betreuung-sali-steinhof-volksschule-luzern-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "sozialpadagog-in-hf-fh-zirka-25-55-betreuung-sali-steinhof-volksschule-luzern-luzern"
+      ]
     },
     {
       "id": "volksschule-luzern-872251c130c6",
       "slug": "aushilfe-come-sozialpadagogische-r-collaboratore-trice-in-uber-mittag-e-tagesbetreuung-betreuung-sali-steinhof-volksschule-stadt-luzern",
       "slugByLocale": {
         "it": "aushilfe-come-sozialpadagogische-r-collaboratore-trice-in-uber-mittag-e-tagesbetreuung-betreuung-sali-steinhof-volksschule-stadt-luzern",
-        "en": "aushilfe-als-sozialpadagogische-r-mitarbeiter-in-uber-mittag-und-tagesbetreuung-betreuung",
+        "en": "help-as-a-social-pedagogy-employee-about-lunch-and-day-care-support-sali-steinhof-volksschule-stadt-luzern-luzern",
         "de": "aushilfe-als-sozialpadagogische-r-mitarbeiter-in-uber-mittag-und-tagesbetreuung-betreuung",
-        "fr": "aushilfe-als-sozialpadagogische-r-mitarbeiter-in-uber-mittag-und-tagesbetreuung-betreuung"
+        "fr": "aide-en-tant-qu-employe-de-pedagogie-sociale-pour-le-dejeuner-et-la-garde-de-jour-soutien-sali-steinhof-volksschule"
       },
       "company": "Volksschule Stadt Luzern",
       "companyKey": "volksschule-luzern",
@@ -1492,6 +1506,12 @@
       ],
       "previousSlugsByLocale": {
         "it": [
+          "aushilfe-als-sozialpadagogische-r-mitarbeiter-in-uber-mittag-und-tagesbetreuung-betreuung"
+        ],
+        "en": [
+          "aushilfe-als-sozialpadagogische-r-mitarbeiter-in-uber-mittag-und-tagesbetreuung-betreuung"
+        ],
+        "fr": [
           "aushilfe-als-sozialpadagogische-r-mitarbeiter-in-uber-mittag-und-tagesbetreuung-betreuung"
         ]
       },
