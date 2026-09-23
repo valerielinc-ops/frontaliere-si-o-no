@@ -2531,7 +2531,6 @@
         "de": "Die Gruppe Analytics & Self-Services entwickelt und betreibt die zentrale Analytics-Plattform auf Basis von Hadoop, Apache Spark und OpenShift bei Raiffeisen. Dies ermöglicht es den Business-Einheiten mit Machine Learning- und AI Anwendungen aussagekräftige Erkenntnisse aus unseren Daten zu gewinnen und damit Mehrwert für die Raiffeisenorganisation und ihre Kunden zu schaffen.\n\nUm diese zukunftsweisende Plattform weiterzuentwickeln und zu betreiben, suchen wir per sofort oder nach Vereinbarung eine datenbegeisterte und lösungsorientierte Persönlichkeit als Senior Big Data Platform Engineer (w/m/d).\n\nAufgaben:\n• Design und Entwicklung skalierbarer Datenlösungen für unsere Analytics Platform\n\n• Aufbau und Optimierung von automatisierten Deployment-, Konfigurations- und Betriebsprozessen\n\n• Enge Zusammenarbeit mit Data Scientists, Analysten und Stakeholdern, um Anforderungen effizient und qualitativ hochwertig umzusetzen\n\n• Evaluierung und Integration neuer Technologien und Tools zur Erweiterung der Plattformfunktionalität für unsere Data Engineers und Data Scientists\n\n• Monitoring & Observability, Performance- und Ressourcenoptimierung, Life-Cycle Management sowie zuverlässiger, reibungsloser Plattformbetrieb\n\nAnforderungen:\n• Praktische Erfahrung im Data Engineering, Platform Engineering oder im Aufbau und Betrieb von Datenplattformen\n\n• Starke Programmierkenntnisse in Python, Apache Spark und gute Linux-Kenntnisse\n\n• Verständnis moderner Datenarchitekturen und Distributed-Systems-Konzepte\n\n• Erfahrung mit Container-Plattformen (Kubernetes, OpenShift, Docker) für Microservice-Entwicklung\n\n• Fundierte Kenntnisse in CI/CD-Prozessen und Infrastructure as Code (GitOps, ArgoCD, Helm)\n\n• Sehr gute Deutsch- und Englischkenntnisse in Wort und Schrift\n\n• Studium, fundierte Aus- oder Weiterbildung im Bereich Informatik\n\nWir bieten:\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.",
         "fr": "Le Groupe Analytics & Self-Services développe et exploite la plateforme d'analyse centrale basée sur Hadoop, Apache Spark et OpenShift à Raiffeisen. Cela permet aux unités commerciales avec des applications d'apprentissage automatique et d'IA de tirer des enseignements significatifs de nos données et de créer ainsi une valeur ajoutée pour l'organisation de Raiffeisen et ses clients.\n\nPour développer et exploiter cette plateforme de tendance, nous recherchons une personnalité informative et orientée vers la solution en tant qu'ingénieur principal de Big Data Platform (h/f/d) par immédiatement ou par arrangement.\n\nTâches: • Conception et développement de solutions de données évolutives pour notre plateforme d'analyse\n\n• Structure et optimisation des processus de déploiement, de configuration et d'exploitation automatisés\n\n• Une coopération étroite avec DataScientific, les analystes et les parties prenantes pour une mise en œuvre efficace et de haute qualité des exigences\n\n• Évaluation et intégration de nouvelles technologies et outils pour étendre la fonctionnalité de la plateforme pour nos ingénieurs de données et nos data scientists\n\n• Surveillance et obrabilité, performance et optimisation des ressources, gestion du cycle de vie et exploitation fiable et fluide de la plate-forme\n\nExigences: • Expérience pratique en ingénierie des données, en ingénierie des plates-formes ou dans le développement et le fonctionnement des plates-formes de données\n\n• Fortes compétences en programmation en Python, Apache Spark et de bonnes compétences Linux\n\n• Comprendre les architectures modernes de données et les concepts de systèmes distribués\n\n• Expérience avec les plateformes de conteneurs (Kubernetes, OpenShift, Dockers) pour le développement de microservices\n\n• Connaissance approfondie des processus de CI/CD et de l'infrastructure en tant que code (GitOps, ArgoCD, Helm)\n\n• Très bonne connaissance de l'allemand et de l'anglais en paroles et en écriture\n\n• Etudes, formations avancées ou perfectionnement dans le domaine de l'informatique\n\nNous offrons: L'équilibre travail-vie personnelle de nos employés est important pour nous. Par conséquent, nous créons les conditions pour des heures de travail flexibles – avec des offres pour le travail mobile, le bureau à domicile et les pensions à temps partiel."
       },
-      "needsRetranslation": true,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://jobs.raiffeisen.ch/offene-stellen/senior-big-data-platform-engineer-w-m-d/7e8fa5a4-e0b6-4565-a9e2-d8e6295d993f",
@@ -2569,7 +2568,6 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1,
       "previousSlugsByLocale": {
         "it": [
           "senior-big-data-platform-engineer-w-m-d-raiffeisen-st-gallen"
@@ -3314,7 +3312,15 @@
           "maxValue": 120500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-infrastructures-raiffeisen-aigle"
+        ]
+      },
+      "previousSlugs": [
+        "collaborateur-trice-infrastructures-raiffeisen-aigle"
+      ]
     },
     {
       "id": "raiffeisen-1f5a50e27c33",
@@ -8294,7 +8300,6 @@
         "de": "Im Team Data-Services IWH gestalten wir die Datenplattformen und Data-Warehouse-Lösungen von der Anbindung neuer Datenquellen bis zur Sicherstellung stabiler Datenlieferungen für unsere internen Kunden aktiv mit. Wir arbeiten eng mit Fachbereichen und IT-Teams zusammen, um datengetriebene Lösungen effizient und nachhaltig umzusetzen.\n\nZur Verstärkung unseres Teams am Standort St. Gallen, suchen wir per sofort oder nach Vereinbarung, eine engagierte und analytisch starke Persönlichkeit als DevOps Engineer DWH (w/m/d).\n\nAufgaben:\n• Übersetzen fachlicher Anforderungen in technische Lösungen und deren anschliessende Umsetzung\n\n• Strategische Weiterentwicklung der Datenlösung in Abstimmung mit Unternehmens‑ und Solution‑Architektur\n\n• Verantwortung für zuverlässige und qualitativ hochwertige Datenlieferungen; inklusive Betrieb neuer und bestehender Schnittstellen\n\n• Eigenständige Analyse und Behebung von Fehlern in den Datenprozessen\n\n• Vielfältiges Aufgabenfeld mit starkem Team‑Rückhalt und enger Zusammenarbeit mit angrenzenden Fachbereichen\n\nAnforderungen:\n• Sehr gute Kenntnisse im Einsatz von Gestaltungsansätzen (SCD, ETL, CIF, ...) und Technologien (PL/SQL, Automic, PowerCenter, APEX, ...) von Datenintegrationslösungen\n\n• Mehrjährige Erfahrung in End‑to‑End Arbeitsweise: von der Spezifikation über die Umsetzung bis zum stabilen Betrieb in komplexen Systemlandschaften\n\n• Unternehmerische Persönlichkeit mit einem kooperativen und kommunikativen Arbeitsstil\n\n• Interesse an der aktiven Gestaltung deines direkten Arbeitsumfeldes\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nWir bieten:\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.",
         "fr": "Dans l'équipe Data-Services IWH, nous élaborons activement des plateformes de données et des solutions d'entrepôt de données, depuis la connexion de nouvelles sources de données jusqu'à la stabilité des livraisons de données pour nos clients internes.\n\nPour renforcer notre équipe sur notre site St. Gallen, nous recherchons une personnalité engagée et hautement analytique comme DevOps Engineer DWH (h/f/d) par immédiatement ou par arrangement.\n\nTâches: • Traduire les exigences techniques en solutions techniques et leur mise en œuvre ultérieure\n\n• Développement stratégique de la solution de données en coordination avec l'architecture d'entreprise et de solution\n\n• Responsabilité de la fourniture de données fiables et de haute qualité, y compris le fonctionnement des interfaces nouvelles et existantes\n\n• Analyse indépendante et correction des erreurs dans les processus de données\n\n• Un large éventail de tâches, avec un solide soutien de l'équipe et une coopération étroite avec les départements concernés\n\nExigences: • Très bonne connaissance des approches de conception (SCD, ETL, CIF,...) et des technologies (PL/SQL, Automic, PowerCenter, APEX,...) des solutions d'intégration de données\n\n• Expérience pluriannuelle en exploitation de bout en bout: de la spécification à la mise en œuvre à l'exploitation stable dans des paysages complexes\n\n• Personnalité entrepreneuriale avec un style de travail coopératif et communicatif\n\n• Intérêt pour la conception active de votre environnement de travail direct\n\n• Très bonne compétence en langue allemande en paroles et en écriture\n\nNous offrons: L'équilibre travail-vie personnelle de nos employés est important pour nous. Par conséquent, nous créons les conditions pour des heures de travail flexibles – avec des offres pour le travail mobile, le bureau à domicile et les pensions à temps partiel."
       },
-      "needsRetranslation": true,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://jobs.raiffeisen.ch/offene-stellen/devops-engineer-data-warehouse-w-m-d/884ac4ea-aa09-4871-a0be-9a599646d70e",
@@ -8331,8 +8336,7 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "raiffeisen-1cf7b7a1a045",
@@ -14022,11 +14026,13 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "individualkundenberater-in-raiffeisen-alle-standorte",
-        "conseillers-individuels-raiffeisen-alle-standorte"
+        "conseillers-individuels-raiffeisen-alle-standorte",
+        "consulenti-individuali-dei-clienti-raiffeisen-alle-standorte"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "individualkundenberater-in-raiffeisen-alle-standorte"
+          "individualkundenberater-in-raiffeisen-alle-standorte",
+          "consulenti-individuali-dei-clienti-raiffeisen-alle-standorte"
         ],
         "en": [
           "individualkundenberater-in-raiffeisen-alle-standorte"
