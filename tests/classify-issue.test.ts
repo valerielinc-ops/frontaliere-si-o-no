@@ -397,6 +397,20 @@ describe('policy automazione F1/F7', () => {
       .toMatchObject({ automationDeferred: true, riskBlocked: false, automationBlocked: true, route: 'none' });
   });
 
+  it('keeps an existing needs-human veto out of both autofix and routing', () => {
+    expect(classifyIssue(
+      'follow-up: safe maintenance',
+      ['follow-up', 'needs-human'],
+      'A deterministic maintenance change with a complete safe path.',
+    )).toMatchObject({
+      autofix: false,
+      route: 'none',
+      riskBlocked: true,
+      automationBlocked: true,
+      needsHumanVeto: true,
+    });
+  });
+
   it('VISION.md è provenienza del rientro, non un bypass del veto F1/F7/control-plane', () => {
     expect(classifyAutomationRisk({
       title: 'CI Failure: Publish to GitHub Pages',

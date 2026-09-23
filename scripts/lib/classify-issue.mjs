@@ -145,7 +145,10 @@ export function classifyIssue(title = '', labels = [], body = '', options = {}) 
   // Per le issue ordinarie il pin conserva la categoria leggibile ma toglie il
   // routing, come prima.
   const exempt = isFixerExempt(labels);
-  const riskBlocked = risk.blocked || !risk.verifiable;
+  // Un veto `needs-human` già registrato è una decisione del proprietario,
+  // non un semplice pin operativo: deve fermare sia la coda sia l'autofix,
+  // anche quando non esiste un secondo rischio tecnico che lo accompagni.
+  const riskBlocked = risk.blocked || risk.needsHumanVeto === true || !risk.verifiable;
   // `automation-deferred` è un pin operativo, non una decisione umana. Il
   // prepass può chiedere esplicitamente di ignorarlo quando verifica se la
   // capacità/policy che l'ha generato è cambiata.
