@@ -121,7 +121,12 @@ jobs:
           # URLs concurrently inside a slice, so four workers are enough to
           # remove the serial process-start/network wait without opening an
           # unbounded request burst or sharing a write target.
-          readonly max_parallel=4
+           # There is no stable pre-merge wall-time baseline for this lane:
+           # slice count and upstream response time vary with every run. The
+           # operational revert trigger is a first live run that approaches
+           # the 45-minute job timeout or shows runner pressure; lower this
+           # value to 2 before the next run if either signal appears.
+           readonly max_parallel=4
           running_pids=()
           running_slices=()
           processed=0
