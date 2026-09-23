@@ -11,7 +11,7 @@ afterEach(() => {
 });
 
 describe('rewarded house video preload', () => {
-  it('adds one same-origin video preload and reuses it', () => {
+  it('adds one CDN video preload and reuses it', () => {
     preloadRewardedHouseVideo();
     preloadRewardedHouseVideo();
 
@@ -21,6 +21,9 @@ describe('rewarded house video preload', () => {
     expect(links).toHaveLength(1);
     expect(links[0].rel).toBe('preload');
     expect(links[0].as).toBe('video');
+    expect(new URL(REWARDED_HOUSE_VIDEO_URL).origin).toBe(
+      'https://cdn.frontaliereticino.ch',
+    );
     expect(links[0].getAttribute('href')).toBe(REWARDED_HOUSE_VIDEO_URL);
   });
 });

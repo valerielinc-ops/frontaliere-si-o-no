@@ -4,8 +4,11 @@
  * The asset is intentionally preloaded alongside the GPT request so a no-fill
  * does not leave the user staring at a spinner while a second media request
  * starts. It is a clearly labelled house video, not a synthetic Google ad.
+ * Production serves static assets from the CDN, so this URL must stay
+ * absolute: the main site origin does not expose `/assets` after publishing.
  */
-export const REWARDED_HOUSE_VIDEO_URL = '/assets/rewarded-frontaliere-house.mp4';
+export const REWARDED_HOUSE_VIDEO_URL =
+  'https://cdn.frontaliereticino.ch/assets/rewarded-frontaliere-house.mp4';
 const REWARDED_HOUSE_VIDEO_PRELOAD_ATTRIBUTE = 'data-rewarded-house-video-preload';
 
 let preloadLink: HTMLLinkElement | null = null;
