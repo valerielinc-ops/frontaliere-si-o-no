@@ -378,6 +378,7 @@ async function fetchFachkraftListingSnapshot({ transport, urlPolicy, signal, max
   const seenPages = new Set();
   const seenRows = new Set();
   let declaredCount = null;
+  const declaredCounts = [];
   let nextUrl = CAREER_URL;
   let pages = 0;
 
@@ -404,9 +405,11 @@ async function fetchFachkraftListingSnapshot({ transport, urlPolicy, signal, max
       throw new Error('fachkraft initial listing missing authoritative data-count');
     }
     if (navigation.declaredCount !== null) {
+      declaredCounts.push(navigation.declaredCount);
       if (declaredCount !== null && declaredCount !== navigation.declaredCount) {
-        throw new Error(
-          `fachkraft listing declared count changed across pages: ${declaredCount}/${navigation.declaredCount}`,
+        console.warn(
+          `⚠️ fachkraft listing declared count changed across pages: `
+          + `${declaredCount}/${navigation.declaredCount}; continuing to collect the maximum observed snapshot`,
         );
       }
       declaredCount = navigation.declaredCount;
@@ -423,12 +426,26 @@ async function fetchFachkraftListingSnapshot({ transport, urlPolicy, signal, max
     nextUrl = navigation.nextUrl;
   }
 
-  if (declaredCount !== null && rows.length !== declaredCount) {
+  const distinctDeclaredCounts = [...new Set(declaredCounts)];
+  const listingCountDrift = distinctDeclaredCounts.length > 1;
+  const declaredCountMin = distinctDeclaredCounts.length > 0 ? Math.min(...distinctDeclaredCounts) : null;
+  const declaredCountMax = distinctDeclaredCounts.length > 0 ? Math.max(...distinctDeclaredCounts) : null;
+  if (!listingCountDrift && declaredCount !== null && rows.length !== declaredCount) {
     throw new Error(
       `fachkraft listing pagination incomplete: collected ${rows.length}/${declaredCount} cards across ${pages} page(s)`,
     );
   }
-  return { rows, pages, declaredCount };
+  return {
+    rows,
+    pages,
+    declaredCount: listingCountDrift ? null : declaredCount,
+    declaredCounts: distinctDeclaredCounts,
+    declaredCountMin,
+    declaredCountMax,
+    listingCountDrift,
+    paginationTerminated: nextUrl === null,
+    coverage: listingCountDrift ? 'max-observed' : 'complete',
+  };
 }
 
 /**
@@ -520,9 +537,15 @@ export async function fetchFachkraftSnapshot(options = {}) {
 
     const listings = enriched.filter(Boolean);
     const audit = Object.freeze({
-      complete: true,
+      complete: !listing.listingCountDrift,
+      coverage: listing.coverage,
       listingPages: listing.pages,
       listingDeclaredCount: listing.declaredCount,
+      listingDeclaredCounts: listing.declaredCounts,
+      listingDeclaredCountMin: listing.declaredCountMin,
+      listingDeclaredCountMax: listing.declaredCountMax,
+      listingCountDrift: listing.listingCountDrift,
+      paginationTerminated: listing.paginationTerminated,
       discovered: rows.length,
       published: listings.length,
       reused,
@@ -551,14 +574,19 @@ export function validateFachkraftAuthoritativeSnapshot(jobs) {
       + 'after upstream geography validation — the accepted-geography guarantee that fetchAllFachkraftJobs relies on is broken',
     );
   }
-  if (!audit?.complete
-    || audit.listingDeclaredCount == null
-    || audit.listingDeclaredCount !== audit.discovered
-    || audit.discovered <= 0
-    || audit.fetchFailures !== 0
-    || audit.detailCompleted !== audit.detailRequested
-    || audit.accounted !== audit.discovered
-    || audit.published !== jobs.length) {
+  const accountingIsComplete = audit?.discovered > 0
+    && audit.fetchFailures === 0
+    && audit.detailCompleted === audit.detailRequested
+    && audit.accounted === audit.discovered
+    && audit.published === jobs.length;
+  const stableCountIsVerified = audit?.complete
+    && audit.listingDeclaredCount != null
+    && audit.listingDeclaredCount === audit.discovered;
+  const driftIsAccepted = audit?.listingCountDrift === true
+    && audit.coverage === 'max-observed'
+    && audit.paginationTerminated === true
+    && audit.listingDeclaredCountMax >= audit.discovered;
+  if (!accountingIsComplete || (!stableCountIsVerified && !driftIsAccepted)) {
     throw new Error(`fachkraft authoritative snapshot proof missing or incomplete: ${JSON.stringify(audit || null)}`);
   }
   return true;

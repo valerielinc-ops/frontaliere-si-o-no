@@ -107,6 +107,8 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
   let totalHits = null;
   let recordsSeen = 0;
   let terminationProven = false;
+  let terminationReason = null;
+  let maxObserved = false;
 
   for (let page = 0; page < MAX_PAGES; page += 1) {
     const pageUrl = new URL(CAREERS_URL);
@@ -155,10 +157,13 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
         || newRecordKeys.length !== uniquePageRecordKeys.length;
       if (!madeNoProgress) break;
       if (duplicateRetry >= DUPLICATE_PAGE_RETRIES) {
-        throw new Error(
-          `Hugo Boss national DDO page ${page + 1} made no progress: repeated page or no new raw records. `
-          + 'Refusing to conclude national coverage from a duplicated response.',
+        terminationReason = 'duplicate-page';
+        maxObserved = true;
+        console.warn(
+          `⚠️ Hugo Boss national DDO page ${page + 1} made no progress after `
+          + `${DUPLICATE_PAGE_RETRIES} retries; publishing the maximum observed deduplicated snapshot.`,
         );
+        break;
       }
       console.warn(
         `⚠️ Hugo Boss national DDO page ${page + 1} repeated previously seen records; `
@@ -180,6 +185,10 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       const key = rawHugoRecordKey(job);
       if (key && !allJobsById.has(key)) allJobsById.set(key, job);
     }
+    if (maxObserved) {
+      recordsSeen += newRecordKeys.length;
+      break;
+    }
     // A short page is NOT proof that the result set ended: the Phenom DDO
     // serves short pages mid-set while still declaring a higher totalHits, and
     // a missing total cannot prove that the page was the final one. Stop only
@@ -199,15 +208,22 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
   const allJobs = [...allJobsById.values()];
   console.log(`  📋 Total jobs in national DDO: ${allJobs.length}`);
 
-  // A partial read cannot prove the absence of Swiss jobs — the missing
-  // records may be exactly the ones we are looking for. Fail loudly rather
-  // than publish "0 Swiss jobs" derived from a truncated result set.
-  assertHugoBossNationalReadComplete({ terminationProven, totalHits, recordsSeen });
+  // A partial read cannot prove the absence of Swiss jobs. The only tolerated
+  // exception is the explicit duplicate-page contract: after bounded retries
+  // we publish the maximum deduplicated snapshot observed so far and expose
+  // the degraded coverage in the attached audit metadata.
+  const readAudit = assertHugoBossNationalReadComplete({
+    terminationProven,
+    totalHits,
+    recordsSeen,
+    terminationReason,
+    allowMaxObserved: maxObserved,
+  });
 
   const swissJobs = allJobs.filter(isHugoBossTargetLocation);
   console.log(`  🎯 Swiss jobs across all cantons: ${swissJobs.length}`);
 
-  return swissJobs.map((raw) => {
+  const mapped = swissJobs.map((raw) => {
     const canton = inferAnyCanton([
       raw.city,
       raw.state,
@@ -261,6 +277,17 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
       sector: 'Moda / Lusso',
     };
   }).filter(Boolean);
+  Object.defineProperty(mapped, 'hugoBossSnapshot', {
+    value: Object.freeze({
+      ...readAudit,
+      totalHits,
+      recordsSeen,
+      discovered: allJobs.length,
+      published: mapped.length,
+    }),
+    enumerable: false,
+  });
+  return mapped;
 }
 
 async function mergeJobs(discoveredJobs) {
@@ -327,7 +354,7 @@ async function main() {
   const _durationMs = getCrawlerElapsedMs();
   const _sliceJobs = (readExistingCrawlerJobs(COMPANY_KEY, DATA_JOBS)).filter(isCompanyJob);
   writeJobsCrawlerSlice(COMPANY_KEY, _sliceJobs);
-  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
+  writeSummaryCrawlerSlice({ key: COMPANY_KEY, label: COMPANY_NAME, generatedAt: new Date().toISOString(), total: _sliceJobs.length, newCount: diff.newJobs.length, updatedCount: diff.updatedJobs.length, removedCount: diff.removedJobs.length, unchangedCount: diff.unchangedCount, durationMs: _durationMs, avgDurationMs: _durationMs, durationHistory: [_durationMs], coverage: discovered.hugoBossSnapshot?.coverage || 'complete', terminationReason: discovered.hugoBossSnapshot?.terminationReason || null, sourceRecordsSeen: discovered.hugoBossSnapshot?.recordsSeen ?? null, sourceTotalHits: discovered.hugoBossSnapshot?.totalHits ?? null, authoritativeSnapshotVerified: discovered.hugoBossSnapshot?.complete === true, newJobs: diff.newJobs.slice(0, 30), updatedJobs: diff.updatedJobs.slice(0, 30), removedJobs: diff.removedJobs.slice(0, 30), unchangedJobs: _sliceJobs.slice(0, 30) });
   await assembleJobsDataset();
   console.log('\n✅ Hugo Boss crawler complete.');
 }
