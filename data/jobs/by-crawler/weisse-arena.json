@@ -533,7 +533,6 @@
           "co-lead-guest-experience-weisse-arena-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T10:17:38.912Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
@@ -548,8 +547,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 1
+      "addressRegion": "GR"
     },
     {
       "id": "weisse-arena-b9c99a08dc28",
@@ -2055,7 +2053,8 @@
         "guest-experience-coordinator-mit-schichtverantwortung-weisse-arena-ch",
         "guest-experience-coordinateur-mit-schichtverantwortung-weisse-arena-gruppe-laax",
         "guest-experience-coordinator-shift-lead-weisse-arena-ch",
-        "guest-experience-manager-weisse-arena-ch"
+        "guest-experience-manager-weisse-arena-ch",
+        "guest-experience-manager-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2064,7 +2063,8 @@
           "guest-experience-coordinator-mit-schichtverantwortung-weisse-arena-ch",
           "guest-experience-coordinateur-mit-schichtverantwortung-weisse-arena-gruppe-laax",
           "guest-experience-coordinator-shift-lead-weisse-arena-ch",
-          "guest-experience-manager-weisse-arena-ch"
+          "guest-experience-manager-weisse-arena-ch",
+          "guest-experience-manager-weisse-arena-gruppe-laax"
         ],
         "en": [
           "guest-experience-coordinator-shift-lead-weisse-arena-gruppe-laax"
@@ -2076,7 +2076,6 @@
           "guest-experience-coordinateur-mit-schichtverantwortung-weisse-arena-gruppe-laax"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:59:47.374Z",
       "salaryMin": 83500,
       "salaryMax": 105000,
@@ -2091,8 +2090,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 2
+      "addressRegion": "GR"
     },
     {
       "id": "weisse-arena-47f247ef882c",
@@ -2993,7 +2991,6 @@
           "pizzaiolo-a-weisse-arena-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:15:40.299Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -3008,8 +3005,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR",
-      "retranslationAttempts": 1
+      "addressRegion": "GR"
     },
     {
       "id": "weisse-arena-0a3c9196fd41",
@@ -4585,7 +4581,8 @@
       "previousSlugs": [
         "koch-kochin-weisse-arena-ch",
         "cucina-kochin-weisse-arena-gruppe-laax",
-        "koch-kochin-weisse-arena-gruppe-laax"
+        "koch-kochin-weisse-arena-gruppe-laax",
+        "koch-kochin-weisse-arena-ch-s26q0e"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4600,7 +4597,8 @@
           "koch-kochin-weisse-arena-ch"
         ],
         "de": [
-          "koch-kochin-weisse-arena-ch"
+          "koch-kochin-weisse-arena-ch",
+          "koch-kochin-weisse-arena-ch-s26q0e"
         ]
       },
       "firstSeenAt": "2026-08-21T09:47:08.547Z",
