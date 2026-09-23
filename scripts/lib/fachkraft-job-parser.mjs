@@ -415,7 +415,14 @@ async function fetchFachkraftListingSnapshot({ transport, urlPolicy, signal, max
       }
       declaredCount = navigation.declaredCount;
     }
+    const pageSeenRows = new Set();
     for (const row of pageRows) {
+      if (pageSeenRows.has(row.url)) {
+        throw new Error(
+          `fachkraft listing page contains duplicate URL: ${row.url}`,
+        );
+      }
+      pageSeenRows.add(row.url);
       if (seenRows.has(row.url)) {
         duplicateListingUrls++;
         console.warn(
