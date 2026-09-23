@@ -1,23 +1,58 @@
 {
   "key": "fusalp",
   "label": "Fusalp",
-  "generatedAt": "2026-09-21T15:58:34.626Z",
+  "generatedAt": "2026-09-23T23:44:44.501Z",
   "total": 6,
   "discovered": null,
-  "parsed": 5,
+  "parsed": 6,
   "lastFetchOutcome": null,
   "written": 6,
   "authoritativeEmptySnapshot": false,
-  "newCount": 0,
+  "newCount": 1,
   "updatedCount": 5,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 20901,
-  "avgDurationMs": 20901,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 19181,
+  "avgDurationMs": 19181,
   "durationHistory": [
-    20901
+    19181
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "id": "fusalp-126b866dec50",
+      "slug": "assistant-store-manager-m-w-french-english-fusalp-val-de-bagnes",
+      "company": "Fusalp",
+      "companyKey": "fusalp",
+      "companyDomain": "fusalp.com",
+      "title": "ASSISTANT STORE MANAGER (M/W) - FRENCH & ENGLISH",
+      "location": "Val De Bagnes",
+      "canton": "VS",
+      "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
+      "source": "Fusalp Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-23T23:44:21.012Z",
+      "addressLocality": "Val De Bagnes",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1936",
+      "category": "Commerciale",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Moda / Abbigliamento sportivo",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-22",
+      "applyUrl": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_val-de-bagnes",
+      "_qualityScore": 64,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 4,
+        "completeness": 17
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "id": "fusalp-3744771338a4",
@@ -31,7 +66,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/store-manager-m-w-permanent-contract-100-1-november-2026_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T15:58:15.503Z",
+      "crawledAt": "2026-09-23T23:44:27.862Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -66,7 +101,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-26-to-april-27-100_annecy",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T15:58:17.347Z",
+      "crawledAt": "2026-09-23T23:44:29.715Z",
       "addressLocality": "St. Moritz",
       "addressCountry": "CH",
       "country": "CH",
@@ -101,7 +136,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/assistant-store-manager-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T15:58:19.354Z",
+      "crawledAt": "2026-09-23T23:44:31.093Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -136,7 +171,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/ales-associate-m-w-dec-26-to-march-27-100_saanen",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T15:58:20.961Z",
+      "crawledAt": "2026-09-23T23:44:32.018Z",
       "addressLocality": "Saanen",
       "addressCountry": "CH",
       "country": "CH",
@@ -171,7 +206,7 @@
       "url": "https://fusalp.welcomekit.co/jobs/sales-associate-m-w-dec-to-april-26-80_zermatt",
       "source": "Fusalp Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T15:58:22.859Z",
+      "crawledAt": "2026-09-23T23:44:33.508Z",
       "addressLocality": "Zermatt",
       "addressCountry": "CH",
       "country": "CH",
@@ -195,8 +230,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "fusalp-98faeb272faa",
       "slug": "sales-associate-m-f-dal-26-al-27-marzo-al-100-fusalp-val-de-bagnes",
@@ -237,5 +271,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

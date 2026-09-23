@@ -1,16 +1,16 @@
 {
   "key": "lwphr",
   "label": "LWP Ledermann Wieting & Partners",
-  "generatedAt": "2026-09-21T15:58:05.701Z",
-  "total": 17,
+  "generatedAt": "2026-09-23T23:43:33.635Z",
+  "total": 16,
   "newCount": 0,
   "updatedCount": 16,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 5025,
-  "avgDurationMs": 5025,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 5104,
+  "avgDurationMs": 5104,
   "durationHistory": [
-    5025
+    5104
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -501,8 +501,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "title": "EVENT COORDINATOR",
       "slug": "event-coordinator-lwp-ledermann-wieting-partners-lugano",
@@ -540,5 +539,6 @@
         "completeness": 19
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }

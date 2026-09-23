@@ -11,7 +11,7 @@
     "https://jobs.thelivingcircle.ch/#jobs"
   ],
   "notes": "Dedicated The Living Circle crawler uses the public Softgarden jobs.feed.json feed and keeps vacancies anywhere in Switzerland.",
-  "updatedAt": "2026-09-21T15:57:04.201Z",
+  "updatedAt": "2026-09-23T23:41:28.072Z",
   "seedMetaByUrl": {
     "https://jobs.thelivingcircle.ch/jobs/65853461/Aushilfe-Servicemitarbeiter-all-genders-/": {
       "location": "Thalwil",
@@ -32,12 +32,6 @@
       "postedDate": "2026-07-10"
     },
     "https://jobs.thelivingcircle.ch/jobs/66045703/Lehrstelle-als-Fachfrau--mann-Hotellerie-Hauswirtschaft-EFZ/": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "The Living Circle",
-      "postedDate": "2026-07-13"
-    },
-    "https://jobs.thelivingcircle.ch/jobs/66046048/Lehrstelle-als-Koch-K%C3%B6chin-EFZ/": {
       "location": "Zürich",
       "canton": "ZH",
       "company": "The Living Circle",
@@ -66,18 +60,6 @@
       "canton": "ZH",
       "company": "The Living Circle",
       "postedDate": "2026-08-07"
-    },
-    "https://jobs.thelivingcircle.ch/jobs/66713473/Front-Office-Agent-80-100%25-all-genders-/": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "The Living Circle",
-      "postedDate": "2026-08-13"
-    },
-    "https://jobs.thelivingcircle.ch/jobs/66768370/Concierge-80-100%25-all-genders-/": {
-      "location": "Zürich",
-      "canton": "ZH",
-      "company": "The Living Circle",
-      "postedDate": "2026-08-17"
     },
     "https://jobs.thelivingcircle.ch/jobs/66828400/Supervisor-Corporate-Events-80%25-all-genders-/": {
       "location": "Zürich",
@@ -180,6 +162,24 @@
       "canton": "ZH",
       "company": "The Living Circle",
       "postedDate": "2026-09-21"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67557492/Servicepraktikant-Widder-Restaurant-100%25-all-genders-4-Tage-Woche/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-21"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67610227/Guest-Experience-Agent-80-100%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-23"
+    },
+    "https://jobs.thelivingcircle.ch/jobs/67614512/Marketing-Specialist-80%25-all-genders-/": {
+      "location": "Zürich",
+      "canton": "ZH",
+      "company": "The Living Circle",
+      "postedDate": "2026-09-23"
     }
   }
 }
