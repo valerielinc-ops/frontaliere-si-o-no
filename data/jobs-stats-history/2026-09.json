@@ -1053806,8 +1053806,8 @@
     },
     {
       "date": "2026-09-23",
-      "totalJobs": 24046,
-      "added": 38,
+      "totalJobs": 24050,
+      "added": 42,
       "updated": 23658,
       "removed": 4,
       "addedKeys": [
@@ -1053817,6 +1053817,10 @@
         "url:https://daler.ch/emplois#offer-4529",
         "url:https://daler.ch/emplois#offer-4530",
         "url:https://daler.ch/emplois#offer-4611",
+        "url:https://jobs.lever.co/sonarsource/19d88777-744e-4496-a94a-6560770198bd",
+        "url:https://jobs.lever.co/sonarsource/485d4c76-449a-4ec1-ada2-0ef963a69b9f",
+        "url:https://jobs.lever.co/sonarsource/5a8f589d-86fb-4330-9e30-9665114d49a8",
+        "url:https://jobs.lever.co/sonarsource/8490348a-8202-4422-9bd6-c6904982ed50",
         "url:https://www.ehnv.ch/emplois#offer-2624",
         "url:https://www.ehnv.ch/emplois#offer-3380",
         "url:https://www.ehnv.ch/emplois#offer-4094",
@@ -1098976,6 +1098980,44 @@
           "removedCount": 0
         },
         {
+          "key": "sonarsource-sonar",
+          "name": "SonarSource (Sonar)",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-ginevra/azienda-sonarsource-sonar",
+          "addedKeys": [
+            "url:https://jobs.lever.co/sonarsource/19d88777-744e-4496-a94a-6560770198bd",
+            "url:https://jobs.lever.co/sonarsource/485d4c76-449a-4ec1-ada2-0ef963a69b9f",
+            "url:https://jobs.lever.co/sonarsource/5a8f589d-86fb-4330-9e30-9665114d49a8",
+            "url:https://jobs.lever.co/sonarsource/8490348a-8202-4422-9bd6-c6904982ed50"
+          ],
+          "updatedKeys": [
+            "url:https://jobs.lever.co/sonarsource/0104318d-b772-4696-aa3f-e41e3a5be35e",
+            "url:https://jobs.lever.co/sonarsource/063c3fa2-788a-4e2b-b35e-80ff7b122739",
+            "url:https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
+            "url:https://jobs.lever.co/sonarsource/15928ee3-c19d-4349-98c0-6128c4abf48a",
+            "url:https://jobs.lever.co/sonarsource/2268f780-bb06-4546-a609-769e30124eae",
+            "url:https://jobs.lever.co/sonarsource/2f72a54b-d9cb-49e9-9a4d-f5e0c3b28e1c",
+            "url:https://jobs.lever.co/sonarsource/3457f5c9-38ae-4f18-bb04-4eeb21ddf93c",
+            "url:https://jobs.lever.co/sonarsource/38187073-6976-4791-9bfd-c946fd67faf0",
+            "url:https://jobs.lever.co/sonarsource/3d1597a7-4535-4f22-8554-9a4a5df242b9",
+            "url:https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
+            "url:https://jobs.lever.co/sonarsource/5f08ef0c-6f0d-46fb-883e-0f9e071064da",
+            "url:https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
+            "url:https://jobs.lever.co/sonarsource/6080813e-6112-4826-8ab8-5405744d6931",
+            "url:https://jobs.lever.co/sonarsource/754f1bef-5335-444c-a0b6-acc37037d34c",
+            "url:https://jobs.lever.co/sonarsource/85850faa-715d-4122-8ed2-82003a109779",
+            "url:https://jobs.lever.co/sonarsource/8fac173a-36f8-48bb-8df2-be227655d495",
+            "url:https://jobs.lever.co/sonarsource/95e9c626-66c6-421c-bba3-f4cf8d5de380",
+            "url:https://jobs.lever.co/sonarsource/a57bf736-bc10-4c3b-9af8-43a5f7591d53",
+            "url:https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
+            "url:https://jobs.lever.co/sonarsource/c9783c31-cfa1-4d95-b31a-278cd0d14162",
+            "url:https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
+            "url:https://jobs.lever.co/sonarsource/f1c90f4d-f722-4573-af6d-9d0839776d63"
+          ],
+          "removedKeys": [],
+          "updatedCount": 22,
+          "removedCount": 0
+        },
+        {
           "key": "spital-davos",
           "name": "Spital Davos",
           "url": "https://frontaliereticino.ch/cerca-lavoro-grigioni/azienda-spital-davos",
@@ -1100079,39 +1100121,6 @@
             "url:https://emp.jobylon.com/jobs/376753-localsearch-verkauferin-im-aussendienst",
             "url:https://emp.jobylon.com/jobs/379081-localsearch-teamleader-customer-success-sales-css-telesales-100",
             "url:https://emp.jobylon.com/jobs/380802-localsearch-senior-manager-sales-performance-incentive-strategy-80-100"
-          ],
-          "removedKeys": [],
-          "updatedCount": 22,
-          "removedCount": 0
-        },
-        {
-          "key": "sonarsource-sonar",
-          "name": "SonarSource (Sonar)",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-ginevra/azienda-sonarsource-sonar",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://jobs.lever.co/sonarsource/0104318d-b772-4696-aa3f-e41e3a5be35e",
-            "url:https://jobs.lever.co/sonarsource/063c3fa2-788a-4e2b-b35e-80ff7b122739",
-            "url:https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
-            "url:https://jobs.lever.co/sonarsource/15928ee3-c19d-4349-98c0-6128c4abf48a",
-            "url:https://jobs.lever.co/sonarsource/2268f780-bb06-4546-a609-769e30124eae",
-            "url:https://jobs.lever.co/sonarsource/2f72a54b-d9cb-49e9-9a4d-f5e0c3b28e1c",
-            "url:https://jobs.lever.co/sonarsource/3457f5c9-38ae-4f18-bb04-4eeb21ddf93c",
-            "url:https://jobs.lever.co/sonarsource/38187073-6976-4791-9bfd-c946fd67faf0",
-            "url:https://jobs.lever.co/sonarsource/3d1597a7-4535-4f22-8554-9a4a5df242b9",
-            "url:https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
-            "url:https://jobs.lever.co/sonarsource/5f08ef0c-6f0d-46fb-883e-0f9e071064da",
-            "url:https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
-            "url:https://jobs.lever.co/sonarsource/6080813e-6112-4826-8ab8-5405744d6931",
-            "url:https://jobs.lever.co/sonarsource/754f1bef-5335-444c-a0b6-acc37037d34c",
-            "url:https://jobs.lever.co/sonarsource/85850faa-715d-4122-8ed2-82003a109779",
-            "url:https://jobs.lever.co/sonarsource/8fac173a-36f8-48bb-8df2-be227655d495",
-            "url:https://jobs.lever.co/sonarsource/95e9c626-66c6-421c-bba3-f4cf8d5de380",
-            "url:https://jobs.lever.co/sonarsource/a57bf736-bc10-4c3b-9af8-43a5f7591d53",
-            "url:https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
-            "url:https://jobs.lever.co/sonarsource/c9783c31-cfa1-4d95-b31a-278cd0d14162",
-            "url:https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
-            "url:https://jobs.lever.co/sonarsource/f1c90f4d-f722-4573-af6d-9d0839776d63"
           ],
           "removedKeys": [],
           "updatedCount": 22,
@@ -1121193,6 +1121202,143 @@
           "removedCount": 0
         },
         {
+          "key": "geneva",
+          "name": "Geneva",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-ginevra/ricerca-geneva",
+          "addedKeys": [
+            "url:https://jobs.lever.co/sonarsource/19d88777-744e-4496-a94a-6560770198bd",
+            "url:https://jobs.lever.co/sonarsource/485d4c76-449a-4ec1-ada2-0ef963a69b9f",
+            "url:https://jobs.lever.co/sonarsource/5a8f589d-86fb-4330-9e30-9665114d49a8",
+            "url:https://jobs.lever.co/sonarsource/8490348a-8202-4422-9bd6-c6904982ed50"
+          ],
+          "updatedKeys": [
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/assistant-2-senior-assurance-controls-assurance/21275",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/assistant-manager-individual-us-tax-tax-legal/23953",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/business-analyst-consultant-artificial-intelligence-data-ai-insights/23940",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/consultant-hr-information-systems-human-capital-consulting/24308",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/identity-access-management-iam-senior-consultant-manager-technology-transformation/24741",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/manager-ai-data-ai-insights/21731",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/manager-artificial-intelligence-data-ai-strategy/21494",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/manager-artificial-intelligence-data-data-management-data-platforms-focus/19196",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/manager-in-swiss-international-tax-advisory-tax-legal/24086",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/manager-senior-manager-financial-services-audit/24446",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-assistant-manager-large-complex-audit-geneva/19243",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-assistant-manager-us-large-complex-audit-zurich/19161",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-artificial-intelligence-data-ai-insights-focus/21723",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-artificial-intelligence-data-ai-strategy/21500",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-artificial-intelligence-data-data-management-data-platforms-focus/21720",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-assistant-manager-swiss-payroll-advisory-tax-legal/24120",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-hr-sap-successfactors-human-capital-consulting/24306",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-manager-it-infrastructure-technology-strategy-transformation/24124",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-risk-audit-and-controls/19106",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-treasury-advisory/19135",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-manager-ai-data-ai-strategy/21733",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-manager-data-architect-artificial-intelligence-data/21721",
+            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-manager-swiss-payroll-advisory-tax-legal/24121",
+            "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=124915&selected_lang=en_gb",
+            "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125010&selected_lang=en_gb",
+            "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125061&selected_lang=en_gb",
+            "url:https://careers.marriott.com/commis-de-salle/job/c3e1734c3c4b5cdb5535daeb7267a2c8",
+            "url:https://careers.marriott.com/cook-apprentice/job/f029723df783f9a0ba97365a6212533d",
+            "url:https://careers.marriott.com/cook-apprentice/job/p1-6643480-0",
+            "url:https://careers.marriott.com/coordinateur-commercial-groupe/job/p1-6303680-0",
+            "url:https://careers.nordanglia.com/job/geneva-activity-leader/1434852533",
+            "url:https://careers.nordanglia.com/job/geneva-boarding-activity-leader-male/1216809201",
+            "url:https://careers.nordanglia.com/job/geneva-boarding-house-tutor/1432993533",
+            "url:https://careers.nordanglia.com/job/geneva-house-parent-part-time-male/1391720033",
+            "url:https://careers.richemont.com/en/jobs/jr128428/stage-assistant-e-supply-chain-amont",
+            "url:https://careers.richemont.com/en/jobs/jr130137/customer-relationship-centers-project-manager-fm",
+            "url:https://careers.richemont.com/en/jobs/jr130818/ingenieur-amelioration-continue",
+            "url:https://careers.richemont.com/en/jobs/jr130985/senior-anaplan-engineer-hf",
+            "url:https://careers.richemont.com/en/jobs/jr131020/retail-performance-insights-manager-fm",
+            "url:https://careers.richemont.com/en/jobs/jr131187/central-demand-planning-director",
+            "url:https://careers.richemont.com/en/jobs/jr132230/client-services-intern",
+            "url:https://careers.richemont.com/en/jobs/jr132535/stock-administrator",
+            "url:https://careers.richemont.com/en/jobs/jr132827/retail-operations-intern",
+            "url:https://careers.richemont.com/en/jobs/jr132937/events-coordinator-intern",
+            "url:https://careers.richemont.com/en/jobs/jr133253/client-advisor",
+            "url:https://careers.richemont.com/en/jobs/jr133371/associate-watch-advisor",
+            "url:https://careers.richemont.com/en/jobs/jr133446/geneva-lounge-manager",
+            "url:https://careers.richemont.com/en/jobs/jr133772/sales-purchasing-advisor",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4392372101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4612377101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4630103101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4652948101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4666726101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4823205101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4848439101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4881699101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4892444101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4897535101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4928995101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4932186101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4936160101",
+            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4941344101",
+            "url:https://jobs.lever.co/sonarsource/0104318d-b772-4696-aa3f-e41e3a5be35e",
+            "url:https://jobs.lever.co/sonarsource/063c3fa2-788a-4e2b-b35e-80ff7b122739",
+            "url:https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
+            "url:https://jobs.lever.co/sonarsource/15928ee3-c19d-4349-98c0-6128c4abf48a",
+            "url:https://jobs.lever.co/sonarsource/2268f780-bb06-4546-a609-769e30124eae",
+            "url:https://jobs.lever.co/sonarsource/2f72a54b-d9cb-49e9-9a4d-f5e0c3b28e1c",
+            "url:https://jobs.lever.co/sonarsource/3457f5c9-38ae-4f18-bb04-4eeb21ddf93c",
+            "url:https://jobs.lever.co/sonarsource/38187073-6976-4791-9bfd-c946fd67faf0",
+            "url:https://jobs.lever.co/sonarsource/3d1597a7-4535-4f22-8554-9a4a5df242b9",
+            "url:https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
+            "url:https://jobs.lever.co/sonarsource/5f08ef0c-6f0d-46fb-883e-0f9e071064da",
+            "url:https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
+            "url:https://jobs.lever.co/sonarsource/6080813e-6112-4826-8ab8-5405744d6931",
+            "url:https://jobs.lever.co/sonarsource/754f1bef-5335-444c-a0b6-acc37037d34c",
+            "url:https://jobs.lever.co/sonarsource/85850faa-715d-4122-8ed2-82003a109779",
+            "url:https://jobs.lever.co/sonarsource/8fac173a-36f8-48bb-8df2-be227655d495",
+            "url:https://jobs.lever.co/sonarsource/95e9c626-66c6-421c-bba3-f4cf8d5de380",
+            "url:https://jobs.lever.co/sonarsource/a57bf736-bc10-4c3b-9af8-43a5f7591d53",
+            "url:https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
+            "url:https://jobs.lever.co/sonarsource/c9783c31-cfa1-4d95-b31a-278cd0d14162",
+            "url:https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
+            "url:https://jobs.lever.co/sonarsource/f1c90f4d-f722-4573-af6d-9d0839776d63",
+            "url:https://jobs.lever.co/tsmg/267ef700-1c72-43a2-8b8a-adae425fa527",
+            "url:https://jobs.lever.co/tsmg/41a1c0eb-9d73-41dd-aefc-f5af31c8c551",
+            "url:https://jobs.lever.co/tsmg/708fba54-4c1e-4e16-b418-61e2b10248e5",
+            "url:https://jobs.lever.co/tsmg/76e71063-9218-42c0-bd49-7b6269f98f81",
+            "url:https://jobs.lever.co/tsmg/7972e86b-9580-4477-bfe9-dd4258049ec7",
+            "url:https://jobs.lever.co/tsmg/ad008286-bd6c-4664-83c4-6d63a80039d9",
+            "url:https://jobs.lever.co/tsmg/ecf0515c-0662-4345-b550-813c119a7c9a",
+            "url:https://jobs.lever.co/tsmg/f120cfcb-1d93-46df-8f03-61b86991531b",
+            "url:https://jobs.pwc.ch/job-vacancies/audit-career-start-financial-services-automne-2027/8689e5f6-de2c-40fa-8765-b6b37e138a2a",
+            "url:https://jobs.pwc.ch/job-vacancies/audit-career-start-trade-industries-and-services-automne-2027/2ec00bc8-3e68-486f-9fcd-7651b11a7336",
+            "url:https://jobs.pwc.ch/job-vacancies/audit-senior-associate-assistant-manager-trade-industries-services-us-gaap/9ca0dcd9-a59a-460c-ab4b-c503f987799a",
+            "url:https://jobs.pwc.ch/job-vacancies/manager-audit-trade-industries-and-services/e3970582-d838-4290-b7fc-08baea00d35d",
+            "url:https://jobs.pwc.ch/job-vacancies/senior-associate-audit-financial-services-asset-management/1779feab-c628-4f05-b8d0-97f71eba98e3",
+            "url:https://jobs.pwc.ch/job-vacancies/senior-associate-tax-consultant/12a27707-d1af-458e-9615-4f58edbb06c6",
+            "url:https://jobs.pwc.ch/job-vacancies/transfer-pricing-intern-january-2027/183d1f4c-2709-489a-85bd-f43e71b8c5bf",
+            "url:https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-geneva-on-site-1",
+            "url:https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-geneva-on-site-2",
+            "url:https://jobs.six-group.com/job/geneva-senior-sales-&-account-managerin-banking-romandie-%2880-100%29/1433979833",
+            "url:https://jobs.skyguide.ch/job/geneva-physical-security-officer-intrusion-and-surveillance-%2880-100%29/1424925333",
+            "url:https://jobs.smartrecruiters.com/imad/744000078405860-assc-en-soins-a-domicile-80-100-en-cdi?oga=true",
+            "url:https://jobs.smartrecruiters.com/imad/744000137680469-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
+            "url:https://jobs.smartrecruiters.com/imad/744000141447514-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients?oga=true",
+            "url:https://jobs.smartrecruiters.com/imad/744000145718479-infirmier-ere-de-liaison-arcade-a-80-en-cdi?oga=true",
+            "url:https://jobs.smartrecruiters.com/imad/744000146659808-auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi?oga=true",
+            "url:https://jobs.smartrecruiters.com/imad/744000146935668-candidature-spontanee-pour-un-stage?oga=true",
+            "url:https://jobs.smartrecruiters.com/imad/744000148455915-responsable-d-equipe-du-service-dietetique-a-80-en-cdm-8-mois-?oga=true",
+            "url:https://jobs.smartrecruiters.com/imad/744000149809619-infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi?oga=true",
+            "url:https://juliusbaer.wd3.myworkdayjobs.com/en-us/external/job/geneva/junior-portfolio-manager--100---geneva--f-m-d-_r-19663-1",
+            "url:https://lombardodier.wd3.myworkdayjobs.com/en/lombard_odier_careers/job/geneva/head-of-spain_r0007129",
+            "url:https://lombardodier.wd3.myworkdayjobs.com/en/lombard_odier_careers/job/geneva/it-production-engineer--80-100--_r0007478",
+            "url:https://lombardodier.wd3.myworkdayjobs.com/en/lombard_odier_careers/job/geneva/private-assets-investment-analyst_r0006952",
+            "url:https://lombardodier.wd3.myworkdayjobs.com/en/lombard_odier_careers/job/geneva/responsable-de-caisse_r0007331",
+            "url:https://lombardodier.wd3.myworkdayjobs.com/en/lombard_odier_careers/job/geneva/risk-manager---investment-risk---suitability_r0007354",
+            "url:https://lombardodier.wd3.myworkdayjobs.com/en/lombard_odier_careers/job/geneva/senior-it-production-engineer---scheduling---file-transfer---monitoring--80-100--_r0007103",
+            "url:https://trafigura.wd3.myworkdayjobs.com/en-us/trafiguracareersite/job/geneva-switzerland/analyst--americas-oil-2_r-017068",
+            "url:https://trafigura.wd3.myworkdayjobs.com/en-us/trafiguracareersite/job/geneva-switzerland/business-developer_r-018703",
+            "url:https://trafigura.wd3.myworkdayjobs.com/en-us/trafiguracareersite/job/geneva-switzerland/market-risk-manager---oil-products_r-017868"
+          ],
+          "removedKeys": [],
+          "updatedCount": 121,
+          "removedCount": 0
+        },
+        {
           "key": "bellinzona",
           "name": "Bellinzona",
           "url": "https://frontaliereticino.ch/cerca-lavoro-ticino/ricerca-bellinzona",
@@ -1121325,138 +1121471,6 @@
           ],
           "removedKeys": [],
           "updatedCount": 124,
-          "removedCount": 0
-        },
-        {
-          "key": "geneva",
-          "name": "Geneva",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-ginevra/ricerca-geneva",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/assistant-2-senior-assurance-controls-assurance/21275",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/assistant-manager-individual-us-tax-tax-legal/23953",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/business-analyst-consultant-artificial-intelligence-data-ai-insights/23940",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/consultant-hr-information-systems-human-capital-consulting/24308",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/identity-access-management-iam-senior-consultant-manager-technology-transformation/24741",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/manager-ai-data-ai-insights/21731",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/manager-artificial-intelligence-data-ai-strategy/21494",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/manager-artificial-intelligence-data-data-management-data-platforms-focus/19196",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/manager-in-swiss-international-tax-advisory-tax-legal/24086",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/manager-senior-manager-financial-services-audit/24446",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-assistant-manager-large-complex-audit-geneva/19243",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-assistant-manager-us-large-complex-audit-zurich/19161",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-artificial-intelligence-data-ai-insights-focus/21723",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-artificial-intelligence-data-ai-strategy/21500",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-artificial-intelligence-data-data-management-data-platforms-focus/21720",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-assistant-manager-swiss-payroll-advisory-tax-legal/24120",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-hr-sap-successfactors-human-capital-consulting/24306",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-manager-it-infrastructure-technology-strategy-transformation/24124",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-risk-audit-and-controls/19106",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-consultant-treasury-advisory/19135",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-manager-ai-data-ai-strategy/21733",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-manager-data-architect-artificial-intelligence-data/21721",
-            "url:https://apply.deloitte.ch/chcareers/jobdetail/senior-manager-swiss-payroll-advisory-tax-legal/24121",
-            "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=124915&selected_lang=en_gb",
-            "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125010&selected_lang=en_gb",
-            "url:https://career012.successfactors.eu/career?career_ns=job_listing&company=banquepict&navbarlevel=job_search&career_job_req_id=125061&selected_lang=en_gb",
-            "url:https://careers.marriott.com/commis-de-salle/job/c3e1734c3c4b5cdb5535daeb7267a2c8",
-            "url:https://careers.marriott.com/cook-apprentice/job/f029723df783f9a0ba97365a6212533d",
-            "url:https://careers.marriott.com/cook-apprentice/job/p1-6643480-0",
-            "url:https://careers.marriott.com/coordinateur-commercial-groupe/job/p1-6303680-0",
-            "url:https://careers.nordanglia.com/job/geneva-activity-leader/1434852533",
-            "url:https://careers.nordanglia.com/job/geneva-boarding-activity-leader-male/1216809201",
-            "url:https://careers.nordanglia.com/job/geneva-boarding-house-tutor/1432993533",
-            "url:https://careers.nordanglia.com/job/geneva-house-parent-part-time-male/1391720033",
-            "url:https://careers.richemont.com/en/jobs/jr128428/stage-assistant-e-supply-chain-amont",
-            "url:https://careers.richemont.com/en/jobs/jr130137/customer-relationship-centers-project-manager-fm",
-            "url:https://careers.richemont.com/en/jobs/jr130818/ingenieur-amelioration-continue",
-            "url:https://careers.richemont.com/en/jobs/jr130985/senior-anaplan-engineer-hf",
-            "url:https://careers.richemont.com/en/jobs/jr131020/retail-performance-insights-manager-fm",
-            "url:https://careers.richemont.com/en/jobs/jr131187/central-demand-planning-director",
-            "url:https://careers.richemont.com/en/jobs/jr132230/client-services-intern",
-            "url:https://careers.richemont.com/en/jobs/jr132535/stock-administrator",
-            "url:https://careers.richemont.com/en/jobs/jr132827/retail-operations-intern",
-            "url:https://careers.richemont.com/en/jobs/jr132937/events-coordinator-intern",
-            "url:https://careers.richemont.com/en/jobs/jr133253/client-advisor",
-            "url:https://careers.richemont.com/en/jobs/jr133371/associate-watch-advisor",
-            "url:https://careers.richemont.com/en/jobs/jr133446/geneva-lounge-manager",
-            "url:https://careers.richemont.com/en/jobs/jr133772/sales-purchasing-advisor",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4392372101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4612377101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4630103101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4652948101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4666726101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4823205101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4848439101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4881699101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4892444101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4897535101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4928995101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4932186101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4936160101",
-            "url:https://job-boards.eu.greenhouse.io/proton/jobs/4941344101",
-            "url:https://jobs.lever.co/sonarsource/0104318d-b772-4696-aa3f-e41e3a5be35e",
-            "url:https://jobs.lever.co/sonarsource/063c3fa2-788a-4e2b-b35e-80ff7b122739",
-            "url:https://jobs.lever.co/sonarsource/13148e9e-7cb4-4c19-ab5d-e1f5dc352ae0",
-            "url:https://jobs.lever.co/sonarsource/15928ee3-c19d-4349-98c0-6128c4abf48a",
-            "url:https://jobs.lever.co/sonarsource/2268f780-bb06-4546-a609-769e30124eae",
-            "url:https://jobs.lever.co/sonarsource/2f72a54b-d9cb-49e9-9a4d-f5e0c3b28e1c",
-            "url:https://jobs.lever.co/sonarsource/3457f5c9-38ae-4f18-bb04-4eeb21ddf93c",
-            "url:https://jobs.lever.co/sonarsource/38187073-6976-4791-9bfd-c946fd67faf0",
-            "url:https://jobs.lever.co/sonarsource/3d1597a7-4535-4f22-8554-9a4a5df242b9",
-            "url:https://jobs.lever.co/sonarsource/58d93e2d-ebfe-48f1-91e9-54fb6128ace3",
-            "url:https://jobs.lever.co/sonarsource/5f08ef0c-6f0d-46fb-883e-0f9e071064da",
-            "url:https://jobs.lever.co/sonarsource/5fb545c6-9c83-4abf-a83b-36c6b4491e18",
-            "url:https://jobs.lever.co/sonarsource/6080813e-6112-4826-8ab8-5405744d6931",
-            "url:https://jobs.lever.co/sonarsource/754f1bef-5335-444c-a0b6-acc37037d34c",
-            "url:https://jobs.lever.co/sonarsource/85850faa-715d-4122-8ed2-82003a109779",
-            "url:https://jobs.lever.co/sonarsource/8fac173a-36f8-48bb-8df2-be227655d495",
-            "url:https://jobs.lever.co/sonarsource/95e9c626-66c6-421c-bba3-f4cf8d5de380",
-            "url:https://jobs.lever.co/sonarsource/a57bf736-bc10-4c3b-9af8-43a5f7591d53",
-            "url:https://jobs.lever.co/sonarsource/c496f66e-364d-4978-9a1d-c4b409e55855",
-            "url:https://jobs.lever.co/sonarsource/c9783c31-cfa1-4d95-b31a-278cd0d14162",
-            "url:https://jobs.lever.co/sonarsource/e08321b5-eb11-48d5-9371-06aca7e6a582",
-            "url:https://jobs.lever.co/sonarsource/f1c90f4d-f722-4573-af6d-9d0839776d63",
-            "url:https://jobs.lever.co/tsmg/267ef700-1c72-43a2-8b8a-adae425fa527",
-            "url:https://jobs.lever.co/tsmg/41a1c0eb-9d73-41dd-aefc-f5af31c8c551",
-            "url:https://jobs.lever.co/tsmg/708fba54-4c1e-4e16-b418-61e2b10248e5",
-            "url:https://jobs.lever.co/tsmg/76e71063-9218-42c0-bd49-7b6269f98f81",
-            "url:https://jobs.lever.co/tsmg/7972e86b-9580-4477-bfe9-dd4258049ec7",
-            "url:https://jobs.lever.co/tsmg/ad008286-bd6c-4664-83c4-6d63a80039d9",
-            "url:https://jobs.lever.co/tsmg/ecf0515c-0662-4345-b550-813c119a7c9a",
-            "url:https://jobs.lever.co/tsmg/f120cfcb-1d93-46df-8f03-61b86991531b",
-            "url:https://jobs.pwc.ch/job-vacancies/audit-career-start-financial-services-automne-2027/8689e5f6-de2c-40fa-8765-b6b37e138a2a",
-            "url:https://jobs.pwc.ch/job-vacancies/audit-career-start-trade-industries-and-services-automne-2027/2ec00bc8-3e68-486f-9fcd-7651b11a7336",
-            "url:https://jobs.pwc.ch/job-vacancies/audit-senior-associate-assistant-manager-trade-industries-services-us-gaap/9ca0dcd9-a59a-460c-ab4b-c503f987799a",
-            "url:https://jobs.pwc.ch/job-vacancies/manager-audit-trade-industries-and-services/e3970582-d838-4290-b7fc-08baea00d35d",
-            "url:https://jobs.pwc.ch/job-vacancies/senior-associate-audit-financial-services-asset-management/1779feab-c628-4f05-b8d0-97f71eba98e3",
-            "url:https://jobs.pwc.ch/job-vacancies/senior-associate-tax-consultant/12a27707-d1af-458e-9615-4f58edbb06c6",
-            "url:https://jobs.pwc.ch/job-vacancies/transfer-pricing-intern-january-2027/183d1f4c-2709-489a-85bd-f43e71b8c5bf",
-            "url:https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-geneva-on-site-1",
-            "url:https://jobs.rebootmonkey.com/o/data-center-technician-switzerland-geneva-on-site-2",
-            "url:https://jobs.six-group.com/job/geneva-senior-sales-&-account-managerin-banking-romandie-%2880-100%29/1433979833",
-            "url:https://jobs.skyguide.ch/job/geneva-physical-security-officer-intrusion-and-surveillance-%2880-100%29/1424925333",
-            "url:https://jobs.smartrecruiters.com/imad/744000078405860-assc-en-soins-a-domicile-80-100-en-cdi?oga=true",
-            "url:https://jobs.smartrecruiters.com/imad/744000137680469-assc-pool-centralise-longue-duree-pcld-a-80-100-en-cdi?oga=true",
-            "url:https://jobs.smartrecruiters.com/imad/744000141447514-infirmier-ere-referent-e-a-domicile-a-80-ou-100-en-cdi-au-sein-de-l-equipe-centralisee-pour-des-missions-de-remplacement-de-longue-duree-de-6-a-15-mois-avec-la-responsabilite-d-un-portefeuille-de-dossiers-patients?oga=true",
-            "url:https://jobs.smartrecruiters.com/imad/744000145718479-infirmier-ere-de-liaison-arcade-a-80-en-cdi?oga=true",
-            "url:https://jobs.smartrecruiters.com/imad/744000146659808-auditeur-trice-interne-service-d-audit-interne-a-100-en-cdi?oga=true",
-            "url:https://jobs.smartrecruiters.com/imad/744000146935668-candidature-spontanee-pour-un-stage?oga=true",
-            "url:https://jobs.smartrecruiters.com/imad/744000148455915-responsable-d-equipe-du-service-dietetique-a-80-en-cdm-8-mois-?oga=true",
-            "url:https://jobs.smartrecruiters.com/imad/744000149809619-infirmier-ere-equipe-mobile-d-urgence-emu-a-80-en-cdi?oga=true",
-            "url:https://juliusbaer.wd3.myworkdayjobs.com/en-us/external/job/geneva/junior-portfolio-manager--100---geneva--f-m-d-_r-19663-1",
-            "url:https://lombardodier.wd3.myworkdayjobs.com/en/lombard_odier_careers/job/geneva/head-of-spain_r0007129",
-            "url:https://lombardodier.wd3.myworkdayjobs.com/en/lombard_odier_careers/job/geneva/it-production-engineer--80-100--_r0007478",
-            "url:https://lombardodier.wd3.myworkdayjobs.com/en/lombard_odier_careers/job/geneva/private-assets-investment-analyst_r0006952",
-            "url:https://lombardodier.wd3.myworkdayjobs.com/en/lombard_odier_careers/job/geneva/responsable-de-caisse_r0007331",
-            "url:https://lombardodier.wd3.myworkdayjobs.com/en/lombard_odier_careers/job/geneva/risk-manager---investment-risk---suitability_r0007354",
-            "url:https://lombardodier.wd3.myworkdayjobs.com/en/lombard_odier_careers/job/geneva/senior-it-production-engineer---scheduling---file-transfer---monitoring--80-100--_r0007103",
-            "url:https://trafigura.wd3.myworkdayjobs.com/en-us/trafiguracareersite/job/geneva-switzerland/analyst--americas-oil-2_r-017068",
-            "url:https://trafigura.wd3.myworkdayjobs.com/en-us/trafiguracareersite/job/geneva-switzerland/business-developer_r-018703",
-            "url:https://trafigura.wd3.myworkdayjobs.com/en-us/trafiguracareersite/job/geneva-switzerland/market-risk-manager---oil-products_r-017868"
-          ],
-          "removedKeys": [],
-          "updatedCount": 121,
           "removedCount": 0
         },
         {
@@ -1152009,6 +1152023,7 @@
             "url:https://rituals.wd3.myworkdayjobs.com/en-us/rituals/job/luzern-weggisgasse/stellvertretender-filialleiter--m-w-d-_r3235",
             "url:https://rituals.wd3.myworkdayjobs.com/en-us/rituals/job/luzern-weggisgasse/stellvertretender-filialleiter--m-w-d-_r3255",
             "url:https://rituals.wd3.myworkdayjobs.com/en-us/rituals/job/morbio-inferiore-serfontana/stellvertretender-filialleiter--m-w-d-_r15150",
+            "url:https://rituals.wd3.myworkdayjobs.com/en-us/rituals/job/morbio-inferiore-serfontana/stellvertretender-filialleiter--m-w-d-_r15166",
             "url:https://rituals.wd3.myworkdayjobs.com/en-us/rituals/job/seedam-center-pfffikon/stellvertretender-filialleiter--m-w-d-_r3220",
             "url:https://rituals.wd3.myworkdayjobs.com/en-us/rituals/job/seedam-center-pfffikon/stellvertretender-filialleiter--m-w-d-_r3240",
             "url:https://rituals.wd3.myworkdayjobs.com/en-us/rituals/job/seedam-center-pfffikon/stellvertretender-filialleiter--m-w-d-_r3260",
@@ -1152045,8 +1152060,7 @@
             "url:https://rituals.wd3.myworkdayjobs.com/en-us/rituals/job/zug-metalli/stellvertretender-filialleiter--m-w-d-_r3214",
             "url:https://rituals.wd3.myworkdayjobs.com/en-us/rituals/job/zug-metalli/stellvertretender-filialleiter--m-w-d-_r3234",
             "url:https://rituals.wd3.myworkdayjobs.com/en-us/rituals/job/zug-metalli/stellvertretender-filialleiter--m-w-d-_r3254",
-            "url:https://www.jobs.aldi.ch/job/1389180133",
-            "url:https://rituals.wd3.myworkdayjobs.com/en-us/rituals/job/morbio-inferiore-serfontana/stellvertretender-filialleiter--m-w-d-_r15166"
+            "url:https://www.jobs.aldi.ch/job/1389180133"
           ],
           "removedKeys": []
         },
@@ -1153992,6 +1154006,27 @@
           "removedKeys": []
         },
         {
+          "key": "costruzionisti-edilizia-industria-principale-100-anker-swiss-ag",
+          "name": "Costruzionisti, edilizia industria principale 100% - Anker Swiss AG",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-costruzionisti-edilizia-industria-principale-100-anker-swiss-ag",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1154917",
+            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1219291",
+            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1226614",
+            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1267953",
+            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1267954",
+            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1267955",
+            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1267972",
+            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1267974",
+            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1267976",
+            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1286658",
+            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1307771",
+            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1349636"
+          ],
+          "removedKeys": []
+        },
+        {
           "key": "infermiera-a",
           "name": "infermiera (a)",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-infermiera-a",
@@ -1154076,6 +1154111,27 @@
           "removedKeys": []
         },
         {
+          "key": "zimmermann-100-anker-svizzera-ag",
+          "name": "Zimmermann 100% - Anker Svizzera AG",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-zimmermann-100-anker-svizzera-ag",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://anker-swiss.ch/stellen/zimmermann-1252940",
+            "url:https://anker-swiss.ch/stellen/zimmermann-1263155",
+            "url:https://anker-swiss.ch/stellen/zimmermann-1268952",
+            "url:https://anker-swiss.ch/stellen/zimmermann-1291816",
+            "url:https://anker-swiss.ch/stellen/zimmermann-1297246",
+            "url:https://anker-swiss.ch/stellen/zimmermann-1342775",
+            "url:https://anker-swiss.ch/stellen/zimmermann-1348261",
+            "url:https://anker-swiss.ch/stellen/zimmermann-1348466",
+            "url:https://anker-swiss.ch/stellen/zimmermann-1351049",
+            "url:https://anker-swiss.ch/stellen/zimmermann-1351332",
+            "url:https://anker-swiss.ch/stellen/zimmermann-1354070",
+            "url:https://anker-swiss.ch/stellen/zimmermann-1376099"
+          ],
+          "removedKeys": []
+        },
+        {
           "key": "100-anker-swiss-ag",
           "name": "100% - Anker Swiss AG",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-100-anker-swiss-ag",
@@ -1154096,27 +1154152,6 @@
           "removedKeys": []
         },
         {
-          "key": "costruzionisti-edilizia-industria-principale-100-anker-swiss-ag",
-          "name": "Costruzionisti, edilizia industria principale 100% - Anker Swiss AG",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-costruzionisti-edilizia-industria-principale-100-anker-swiss-ag",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1154917",
-            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1219291",
-            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1226614",
-            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1267953",
-            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1267954",
-            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1267955",
-            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1267972",
-            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1267974",
-            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1267976",
-            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1286658",
-            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1307771",
-            "url:https://anker-swiss.ch/stellen/bauarbeiter-bauhauptgewerbe-1349636"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "dipl-infermieristica-professionale-80-100",
           "name": "Dipl. Infermieristica professionale 80-100 %",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-dipl-infermieristica-professionale-80-100",
@@ -1154133,6 +1154168,26 @@
             "url:https://jobs.h-och.ch/job/st_-gallen-dipl_-pflegefachfrau-mann-80-100/1426167333",
             "url:https://jobs.h-och.ch/job/st_-gallen-dipl_-pflegefachfrau-mann-80-100/1428301633",
             "url:https://jobs.h-och.ch/job/wil-dipl_-pflegefachfrau-mann-80-100/1424313033"
+          ],
+          "removedKeys": []
+        },
+        {
+          "key": "falegname-100-anker-swiss-ag",
+          "name": "Falegname 100% - Anker Swiss AG",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-falegname-100-anker-swiss-ag",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://anker-swiss.ch/stellen/schreiner-1263793",
+            "url:https://anker-swiss.ch/stellen/schreiner-1267999",
+            "url:https://anker-swiss.ch/stellen/schreiner-1314259",
+            "url:https://anker-swiss.ch/stellen/schreiner-1315473",
+            "url:https://anker-swiss.ch/stellen/schreiner-1335772",
+            "url:https://anker-swiss.ch/stellen/schreiner-1340130",
+            "url:https://anker-swiss.ch/stellen/schreiner-1340360",
+            "url:https://anker-swiss.ch/stellen/schreiner-1341224",
+            "url:https://anker-swiss.ch/stellen/schreiner-1348632",
+            "url:https://anker-swiss.ch/stellen/schreiner-1350823",
+            "url:https://anker-swiss.ch/stellen/schreiner-1351431"
           ],
           "removedKeys": []
         },
@@ -1154332,26 +1154387,6 @@
           "removedKeys": []
         },
         {
-          "key": "falegname-100-anker-swiss-ag",
-          "name": "Falegname 100% - Anker Swiss AG",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-falegname-100-anker-swiss-ag",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://anker-swiss.ch/stellen/schreiner-1263793",
-            "url:https://anker-swiss.ch/stellen/schreiner-1267999",
-            "url:https://anker-swiss.ch/stellen/schreiner-1314259",
-            "url:https://anker-swiss.ch/stellen/schreiner-1315473",
-            "url:https://anker-swiss.ch/stellen/schreiner-1335772",
-            "url:https://anker-swiss.ch/stellen/schreiner-1340130",
-            "url:https://anker-swiss.ch/stellen/schreiner-1340360",
-            "url:https://anker-swiss.ch/stellen/schreiner-1341224",
-            "url:https://anker-swiss.ch/stellen/schreiner-1348632",
-            "url:https://anker-swiss.ch/stellen/schreiner-1350823",
-            "url:https://anker-swiss.ch/stellen/schreiner-1351431"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "heizungsinstallateur-in-100",
           "name": "Heizungsinstallateur/in (100%)",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-heizungsinstallateur-in-100",
@@ -1154523,27 +1154558,6 @@
           "removedKeys": []
         },
         {
-          "key": "zimmermann-100-anker-svizzera-ag",
-          "name": "Zimmermann 100% - Anker Svizzera AG",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-zimmermann-100-anker-svizzera-ag",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://anker-swiss.ch/stellen/zimmermann-1252940",
-            "url:https://anker-swiss.ch/stellen/zimmermann-1263155",
-            "url:https://anker-swiss.ch/stellen/zimmermann-1268952",
-            "url:https://anker-swiss.ch/stellen/zimmermann-1291816",
-            "url:https://anker-swiss.ch/stellen/zimmermann-1297246",
-            "url:https://anker-swiss.ch/stellen/zimmermann-1342775",
-            "url:https://anker-swiss.ch/stellen/zimmermann-1348261",
-            "url:https://anker-swiss.ch/stellen/zimmermann-1348466",
-            "url:https://anker-swiss.ch/stellen/zimmermann-1351049",
-            "url:https://anker-swiss.ch/stellen/zimmermann-1351332",
-            "url:https://anker-swiss.ch/stellen/zimmermann-1354070",
-            "url:https://anker-swiss.ch/stellen/zimmermann-1376099"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "apprendistato-al-dettaglio-cfc-o-afp",
           "name": "Apprendistato al dettaglio (CFC o AFP)",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-apprendistato-al-dettaglio-cfc-o-afp",
@@ -1154666,6 +1154680,24 @@
             "url:https://jobs.fenaco.com/offene-stellen/stellvertretende-ladenleitung-m-w-d/8b26a008-6ee0-4ab1-b57d-66adb747f0a2",
             "url:https://jobs.fenaco.com/offene-stellen/stellvertretende-ladenleitung-m-w-d/90131ae5-fcae-4029-9512-f85492c84266",
             "url:https://jobs.fenaco.com/offene-stellen/stellvertretende-ladenleitung-m-w-d/93d0af1d-4222-47d9-a631-82f600a2da18"
+          ],
+          "removedKeys": []
+        },
+        {
+          "key": "maurer-100-anker-svizzera-ag",
+          "name": "Maurer 100% - Anker Svizzera AG",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-maurer-100-anker-svizzera-ag",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://anker-swiss.ch/stellen/maurer-1265995",
+            "url:https://anker-swiss.ch/stellen/maurer-1266343",
+            "url:https://anker-swiss.ch/stellen/maurer-1266415",
+            "url:https://anker-swiss.ch/stellen/maurer-1266422",
+            "url:https://anker-swiss.ch/stellen/maurer-1266426",
+            "url:https://anker-swiss.ch/stellen/maurer-1266430",
+            "url:https://anker-swiss.ch/stellen/maurer-1297044",
+            "url:https://anker-swiss.ch/stellen/maurer-1298442",
+            "url:https://anker-swiss.ch/stellen/maurer-1369488"
           ],
           "removedKeys": []
         },
@@ -1154930,24 +1154962,6 @@
           "removedKeys": []
         },
         {
-          "key": "maurer-100-anker-svizzera-ag",
-          "name": "Maurer 100% - Anker Svizzera AG",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-maurer-100-anker-svizzera-ag",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://anker-swiss.ch/stellen/maurer-1265995",
-            "url:https://anker-swiss.ch/stellen/maurer-1266343",
-            "url:https://anker-swiss.ch/stellen/maurer-1266415",
-            "url:https://anker-swiss.ch/stellen/maurer-1266422",
-            "url:https://anker-swiss.ch/stellen/maurer-1266426",
-            "url:https://anker-swiss.ch/stellen/maurer-1266430",
-            "url:https://anker-swiss.ch/stellen/maurer-1297044",
-            "url:https://anker-swiss.ch/stellen/maurer-1298442",
-            "url:https://anker-swiss.ch/stellen/maurer-1369488"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "operatore-automatico-m-f-d",
           "name": "Operatore automatico (m/f/d)",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-operatore-automatico-m-f-d",
@@ -1155012,6 +1155026,23 @@
             "url:https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/8e161329-5a95-4dff-ab55-2822c56e1f68",
             "url:https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/9d08c037-79c8-4d3e-8582-58413d63f634",
             "url:https://jobs.coopjobs.ch/offene-stellen/detailhandelsfachfrau-mann-efz-gestalten-von-einkaufserlebnissen/f538daf9-bf25-429a-92e1-95145099edaa"
+          ],
+          "removedKeys": []
+        },
+        {
+          "key": "spengler-100-anker-svizzera-ag",
+          "name": "Spengler 100% - Anker Svizzera AG",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-spengler-100-anker-svizzera-ag",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://anker-swiss.ch/stellen/spengler-1252807",
+            "url:https://anker-swiss.ch/stellen/spengler-1257479",
+            "url:https://anker-swiss.ch/stellen/spengler-1296422",
+            "url:https://anker-swiss.ch/stellen/spengler-1299194",
+            "url:https://anker-swiss.ch/stellen/spengler-1300694",
+            "url:https://anker-swiss.ch/stellen/spengler-1367086",
+            "url:https://anker-swiss.ch/stellen/spengler-1367134",
+            "url:https://anker-swiss.ch/stellen/spengler-1371099"
           ],
           "removedKeys": []
         },
@@ -1155810,6 +1155841,21 @@
             "url:https://www.pemsa.ch/it/job/idraulico-2694104",
             "url:https://www.pemsa.ch/it/job/idraulico-2694802",
             "url:https://www.pemsa.ch/it/job/idraulico-2695488"
+          ],
+          "removedKeys": []
+        },
+        {
+          "key": "installatore-di-tende-al-100-anker-swiss-ag",
+          "name": "Installatore di tende al 100% - Anker Swiss AG",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-installatore-di-tende-al-100-anker-swiss-ag",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://anker-swiss.ch/stellen/storenmonteur-1275917",
+            "url:https://anker-swiss.ch/stellen/storenmonteur-1275924",
+            "url:https://anker-swiss.ch/stellen/storenmonteur-1275927",
+            "url:https://anker-swiss.ch/stellen/storenmonteur-1275930",
+            "url:https://anker-swiss.ch/stellen/storenmonteur-1313747",
+            "url:https://anker-swiss.ch/stellen/storenmonteur-1362682"
           ],
           "removedKeys": []
         },
@@ -1156716,21 +1156762,6 @@
           "removedKeys": []
         },
         {
-          "key": "installatore-di-tende-al-100-anker-swiss-ag",
-          "name": "Installatore di tende al 100% - Anker Swiss AG",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-installatore-di-tende-al-100-anker-swiss-ag",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://anker-swiss.ch/stellen/storenmonteur-1275917",
-            "url:https://anker-swiss.ch/stellen/storenmonteur-1275924",
-            "url:https://anker-swiss.ch/stellen/storenmonteur-1275927",
-            "url:https://anker-swiss.ch/stellen/storenmonteur-1275930",
-            "url:https://anker-swiss.ch/stellen/storenmonteur-1313747",
-            "url:https://anker-swiss.ch/stellen/storenmonteur-1362682"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "installatore-elettricista-afc",
           "name": "Installatore elettricista AFC",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-installatore-elettricista-afc",
@@ -1156900,19 +1156931,16 @@
           "removedKeys": []
         },
         {
-          "key": "spengler-100-anker-svizzera-ag",
-          "name": "Spengler 100% - Anker Svizzera AG",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-spengler-100-anker-svizzera-ag",
+          "key": "ricevitore",
+          "name": "Ricevitore",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-ricevitore",
           "addedKeys": [],
           "updatedKeys": [
-            "url:https://anker-swiss.ch/stellen/spengler-1252807",
-            "url:https://anker-swiss.ch/stellen/spengler-1257479",
-            "url:https://anker-swiss.ch/stellen/spengler-1296422",
-            "url:https://anker-swiss.ch/stellen/spengler-1299194",
-            "url:https://anker-swiss.ch/stellen/spengler-1300694",
-            "url:https://anker-swiss.ch/stellen/spengler-1367086",
-            "url:https://anker-swiss.ch/stellen/spengler-1367134",
-            "url:https://anker-swiss.ch/stellen/spengler-1371099"
+            "url:https://careers.oerlikon.com/job/mendrisio-receptionist-ti-6850/1435381533?feedid=null&utm_source=j2wrss&utm_medium=rss&utm_campaign=j2w_rss",
+            "url:https://careers.oerlikon.com/job/receptionist/104921-en_us",
+            "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6327",
+            "url:https://jobs.zfv.ch/rceptionistin-de-j4714.html",
+            "url:https://www.weissearena.com/jobs/details.html?jobid=4764&jobtitle=r%c3%a9ceptionist%3ain"
           ],
           "removedKeys": []
         },
@@ -1158626,6 +1158654,18 @@
           "removedKeys": []
         },
         {
+          "key": "allocazione-60",
+          "name": "Allocazione 60%",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-allocazione-60",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://positions.manor.ch/job/basel-allocator-60/1367177455",
+            "url:https://positions.manor.ch/job/basel-allocator-60/1367253955",
+            "url:https://positions.manor.ch/job/basel-allocator-60/1367254655"
+          ],
+          "removedKeys": []
+        },
+        {
           "key": "annuncio-di-lavoro-candidato-medico",
           "name": "Annuncio di lavoro Candidato medico",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-annuncio-di-lavoro-candidato-medico",
@@ -1159826,6 +1159866,18 @@
           "removedKeys": []
         },
         {
+          "key": "gestione-account",
+          "name": "Gestione account",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-gestione-account",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://felfel.jobs.personio.de/job/2633164",
+            "url:https://jobs.six-group.com/job/zurich-account-manager/1412679833",
+            "url:https://www.abraxas.ch/de/karriere/offene-stellen/account-manager-100-1448"
+          ],
+          "removedKeys": []
+        },
+        {
           "key": "gestione-applicazioni-80-100",
           "name": "Gestione applicazioni 80 - 100%",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-gestione-applicazioni-80-100",
@@ -1160498,6 +1160550,18 @@
           "removedKeys": []
         },
         {
+          "key": "responsabile-del-prodotto",
+          "name": "Responsabile del prodotto",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-responsabile-del-prodotto",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://careers.stadlerrail.com/job/bussnang-productmanager-tg-t-9565/1351599855",
+            "url:https://jobs.buhlergroup.com/job-vacancies/product-manager/59da47cd-479c-4480-8b24-587afaa9526d",
+            "url:https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/ho-chi-minh/product-manager_202609-123542"
+          ],
+          "removedKeys": []
+        },
+        {
           "key": "responsabile-della-produzione",
           "name": "Responsabile della produzione",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-responsabile-della-produzione",
@@ -1160506,6 +1160570,18 @@
             "url:https://e-lavoro.ch/node/264",
             "url:https://jobs.zfv.ch/stv-produktionsleiterin-de-j4682.html",
             "url:https://sulzer.wd502.myworkdayjobs.com/en/sulzerjobs/job/humble/production-operations-manager_jr103931"
+          ],
+          "removedKeys": []
+        },
+        {
+          "key": "responsabile-della-sicurezza",
+          "name": "Responsabile della sicurezza",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-responsabile-della-sicurezza",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://job.post.ch/default/job/information-security-officer/74556-de_de",
+            "url:https://jobs.admin.ch/posti-vacanti/information-security-officer/e90c05c5-04bd-4fa4-8168-fdfa5d41a8a1",
+            "url:https://jobs.admin.ch/posti-vacanti/safety-officer/979371cc-2587-4ac6-bccd-82f52d9b335a"
           ],
           "removedKeys": []
         },
@@ -1160570,6 +1160646,18 @@
           "removedKeys": []
         },
         {
+          "key": "ricercatore-post-dottorato",
+          "name": "Ricercatore post-dottorato",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-ricercatore-post-dottorato",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://careers.epfl.ch/job/lausanne-postdoctoral-researcher/1163582855",
+            "url:https://careers.idorsia.com/job/basel-postdoctoral-researcher/1420386033",
+            "url:https://careers.idorsia.com/job/basel-postdoctoral-researcher/1425564433"
+          ],
+          "removedKeys": []
+        },
+        {
           "key": "ricevimento-dei-dipendenti",
           "name": "Ricevimento dei dipendenti",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-ricevimento-dei-dipendenti",
@@ -1160578,20 +1160666,6 @@
             "url:https://jobs.migros.ch/de/unsere-unternehmen/job/fitnesspark/mitarbeiterin-empfang/cf9286ae-8f1f-4193-8815-66ccdcabc904",
             "url:https://recruitingapp-2939.umantis.com/vacancies/1292/description/1",
             "url:https://rekrutierung.stgag.ch/vacancies/3711/description/1?lang=ger"
-          ],
-          "removedKeys": []
-        },
-        {
-          "key": "ricevitore",
-          "name": "Ricevitore",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-ricevitore",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://fa-eqai-saasfaprod1.fa.ocs.oraclecloud.com/hcmui/candidateexperience/en/sites/cx_1001/job/6327",
-            "url:https://jobs.zfv.ch/rceptionistin-de-j4714.html",
-            "url:https://www.weissearena.com/jobs/details.html?jobid=4764&jobtitle=r%c3%a9ceptionist%3ain",
-            "url:https://careers.oerlikon.com/job/mendrisio-receptionist-ti-6850/1435381533?feedid=null&utm_source=j2wrss&utm_medium=rss&utm_campaign=j2w_rss",
-            "url:https://careers.oerlikon.com/job/receptionist/104921-en_us"
           ],
           "removedKeys": []
         },
@@ -1160788,6 +1160862,18 @@
           "removedKeys": []
         },
         {
+          "key": "sottocuoco",
+          "name": "Sottocuoco",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-sottocuoco",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://jobdetails.nestle.com/job/lausanne-sous-chef/1409872133",
+            "url:https://jobs.tertianum.ch/job/zollikerberg-sous-chefin-z%c3%bcri-8125/1432028233",
+            "url:https://www.weissearena.com/jobs/details.html?jobid=4559&jobtitle=sous+chef%3ain"
+          ],
+          "removedKeys": []
+        },
+        {
           "key": "specialista-del-commercio-al-dettaglio",
           "name": "Specialista del Commercio al Dettaglio",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-specialista-del-commercio-al-dettaglio",
@@ -1160880,6 +1160966,18 @@
             "url:https://apply.refline.ch/792841/11370/pub/1",
             "url:https://jobs.admin.ch/posti-vacanti/hr-spezialist-in/d66e666b-3082-4d2b-953c-71798a583ec8",
             "url:https://live.solique.ch/svar/job/details/4069910"
+          ],
+          "removedKeys": []
+        },
+        {
+          "key": "specialista-hr-partenaire-aziendale",
+          "name": "Specialista HR - Partenaire Aziendale",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-specialista-hr-partenaire-aziendale",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://careers.stadlerrail.com/job/wallisellen-hr-business-partnerin-zh-z-8304/1366061055",
+            "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/757027fd-941c-4d67-8359-020ba9d22261",
+            "url:https://live.solique.ch/ktzh/job/details/4071414"
           ],
           "removedKeys": []
         },
@@ -1161479,18 +1161577,6 @@
           "updatedKeys": [
             "url:https://recruitingapp-2316.umantis.com/vacancies/3749/description/1",
             "url:https://stellen.kispi-jobs.ch/offene-stellen/ausbildung-diaetkoechin-mit-eidg-fa-w-m/e5849540-9b67-4111-967b-284e75b1463d"
-          ],
-          "removedKeys": []
-        },
-        {
-          "key": "allocazione-60",
-          "name": "Allocazione 60%",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-allocazione-60",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://positions.manor.ch/job/basel-allocator-60/1367177455",
-            "url:https://positions.manor.ch/job/basel-allocator-60/1367253955",
-            "url:https://positions.manor.ch/job/basel-allocator-60/1367254655"
           ],
           "removedKeys": []
         },
@@ -1162431,6 +1162517,17 @@
           "removedKeys": []
         },
         {
+          "key": "assistente-direttore-esecutivo-divisione-camere-lunedi-mercoledi-d",
+          "name": "Assistente Direttore Esecutivo - Divisione Camere (lunedì/mercoledì/d)",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-assistente-direttore-esecutivo-divisione-camere-lunedi-mercoledi-d",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://careers.kronenhof.com/en/vacancies/636",
+            "url:https://careers.kulm.com/en/vacancies/636"
+          ],
+          "removedKeys": []
+        },
+        {
           "key": "assistente-hr",
           "name": "Assistente HR",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-assistente-hr",
@@ -1163234,6 +1163331,17 @@
           "removedKeys": []
         },
         {
+          "key": "chef-di-servizio",
+          "name": "Chef di servizio",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-chef-di-servizio",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/chef-de-service/8b0cd986-bcf1-4951-a14a-6e99eb9deafe",
+            "url:https://www.weissearena.com/jobs/details.html?jobid=4799&jobtitle=chef+de+service"
+          ],
+          "removedKeys": []
+        },
+        {
           "key": "chirurgia-subassista-100",
           "name": "Chirurgia subassista (100%)",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-chirurgia-subassista-100",
@@ -1163322,6 +1163430,28 @@
           "removedKeys": []
         },
         {
+          "key": "collaboratore-del-supermercato-fruit-verduras-50",
+          "name": "Collaboratore del supermercato (Fruit & Verduras) 50%",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-collaboratore-del-supermercato-fruit-verduras-50",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://positions.manor.ch/job/chavannes-de-bogis-collaborateurtrice-supermarch%c3%a9-%28fruits-&-l%c3%a9gumes%29-50/1367261355",
+            "url:https://positions.manor.ch/job/lausanne-collaborateurtrice-supermarch%c3%a9-%28fruits-&-l%c3%a9gumes%29-50/1367260655"
+          ],
+          "removedKeys": []
+        },
+        {
+          "key": "collaboratore-di-vendita-parfumerie-50",
+          "name": "Collaboratore di vendita (Parfumerie) 50%",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-collaboratore-di-vendita-parfumerie-50",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://positions.manor.ch/job/fribourg-collaborateurtrice-vente-%28parfumerie%29-50/1365777755",
+            "url:https://positions.manor.ch/job/gen%c3%a8ve-1-collaborateurtrice-vente-%28parfumerie%29-50/1368730355"
+          ],
+          "removedKeys": []
+        },
+        {
           "key": "collaboratore-privato-del-cliente",
           "name": "Collaboratore privato del cliente",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-collaboratore-privato-del-cliente",
@@ -1163362,6 +1163492,17 @@
           "updatedKeys": [
             "url:https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-saison/306342b6-8891-4594-aca3-2eca09acb63f",
             "url:https://jobs.coopjobs.ch/offene-stellen/mitarbeiter-in-saison/568272fd-384d-411f-ba35-6f77d1c3761f"
+          ],
+          "removedKeys": []
+        },
+        {
+          "key": "collaboratore-trice-vente-accessori-dames-60",
+          "name": "Collaboratore/trice vente (Accessori Dames) 60%",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-collaboratore-trice-vente-accessori-dames-60",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://positions.manor.ch/job/monthey-collaborateurtrice-vente-%28accessoires-dames%29-60/1348799355",
+            "url:https://positions.manor.ch/job/vevey-collaborateurtrice-vente-%28accessoires-dames%29-60/1367763255"
           ],
           "removedKeys": []
         },
@@ -1163549,6 +1163690,17 @@
           "updatedKeys": [
             "url:https://careers.marriott.com/commis-de-cuisine-a-la-carte-echo/job/70bb3b1ccef6f0d2b1b75a13e21db302",
             "url:https://careers.marriott.com/commis-de-cuisine-a-la-carte-echo/job/p1-6548290-0"
+          ],
+          "removedKeys": []
+        },
+        {
+          "key": "compratore-moda-uomo-100",
+          "name": "Compratore Moda Uomo 100%",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-compratore-moda-uomo-100",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://positions.manor.ch/job/basel-buyer-herren-fashion-100/1356447655",
+            "url:https://positions.manor.ch/job/basel-buyer-herren-fashion-100/1356447755"
           ],
           "removedKeys": []
         },
@@ -1164940,18 +1165092,6 @@
           "removedKeys": []
         },
         {
-          "key": "gestione-account",
-          "name": "Gestione account",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-gestione-account",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://felfel.jobs.personio.de/job/2633164",
-            "url:https://jobs.six-group.com/job/zurich-account-manager/1412679833",
-            "url:https://www.abraxas.ch/de/karriere/offene-stellen/account-manager-100-1448"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "gestione-applicazioni-m-f-d",
           "name": "Gestione applicazioni (m/f/d)",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-gestione-applicazioni-m-f-d",
@@ -1165146,18 +1165286,6 @@
           "updatedKeys": [
             "url:https://ohws.prospective.ch/public/v1/jobs/762854b2-f571-44aa-ab51-8a1131c63474",
             "url:https://ohws.prospective.ch/public/v1/jobs/fef4611d-ad04-4049-93ae-3872b33380ff"
-          ],
-          "removedKeys": []
-        },
-        {
-          "key": "specialista-hr-partenaire-aziendale",
-          "name": "Specialista HR - Partenaire Aziendale",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-specialista-hr-partenaire-aziendale",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://careers.stadlerrail.com/job/wallisellen-hr-business-partnerin-zh-z-8304/1366061055",
-            "url:https://live.solique.ch/ktzh/job/details/4071414",
-            "url:https://jobs.emmi.com/offene-stellen/hr-business-partner/757027fd-941c-4d67-8359-020ba9d22261"
           ],
           "removedKeys": []
         },
@@ -1165818,6 +1165946,17 @@
           "updatedKeys": [
             "url:https://jobs.baselland.ch/offene-stellen/klassenlehrperson/8b29dc1a-d952-4fb5-bd9e-b749206db52e",
             "url:https://www.ksml.apps.be.ch/ksml?q=stellen/ad/39933"
+          ],
+          "removedKeys": []
+        },
+        {
+          "key": "istruzione-sociale-in-hf-fh-circa-25-55-sostegno-sali-steinhof",
+          "name": "Istruzione sociale in HF/FH (circa 25-55%) - sostegno Säli Steinhof",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-istruzione-sociale-in-hf-fh-circa-25-55-sostegno-sali-steinhof",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://job.stadtluzern.ch/stellen/musik-volksschule/offene-stellen/sozialpaedagog-in-hf-fh-zirka-betreuung-saeli-steinhof/b5b9cc9a-d879-491d-93e4-befbfd9d6abe",
+            "url:https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-zirka-betreuung-saeli-steinhof/716916c5-24fc-4d9a-8d37-6ff7d852c4bc"
           ],
           "removedKeys": []
         },
@@ -1166746,6 +1166885,17 @@
           "removedKeys": []
         },
         {
+          "key": "pane-orecchie-100",
+          "name": "Pane/orecchie 100%",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-pane-orecchie-100",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://positions.manor.ch/job/gen%c3%a8ve-1-boulanger%c3%a8re-100/1363554155",
+            "url:https://positions.manor.ch/job/sion-boulanger%c3%a8re-100/1367980355"
+          ],
+          "removedKeys": []
+        },
+        {
           "key": "panettiere-pasticcere",
           "name": "Panettiere-pasticcere",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-panettiere-pasticcere",
@@ -1167604,18 +1167754,6 @@
           "removedKeys": []
         },
         {
-          "key": "responsabile-del-prodotto",
-          "name": "Responsabile del prodotto",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-responsabile-del-prodotto",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://jobs.buhlergroup.com/job-vacancies/product-manager/59da47cd-479c-4480-8b24-587afaa9526d",
-            "url:https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/ho-chi-minh/product-manager_202609-123542",
-            "url:https://careers.stadlerrail.com/job/bussnang-productmanager-tg-t-9565/1351599855"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "responsabile-del-progetto-m-f-d",
           "name": "Responsabile del progetto (m/f/d)",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-responsabile-del-progetto-m-f-d",
@@ -1167749,18 +1167887,6 @@
           "removedKeys": []
         },
         {
-          "key": "responsabile-della-sicurezza",
-          "name": "Responsabile della sicurezza",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-responsabile-della-sicurezza",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://jobs.admin.ch/posti-vacanti/information-security-officer/e90c05c5-04bd-4fa4-8168-fdfa5d41a8a1",
-            "url:https://jobs.admin.ch/posti-vacanti/safety-officer/979371cc-2587-4ac6-bccd-82f52d9b335a",
-            "url:https://job.post.ch/default/job/information-security-officer/74556-de_de"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "responsabile-di-progetto-ingegneria-civile",
           "name": "Responsabile di progetto ingegneria civile",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-responsabile-di-progetto-ingegneria-civile",
@@ -1167882,18 +1168008,6 @@
           "removedKeys": []
         },
         {
-          "key": "ricercatore-post-dottorato",
-          "name": "Ricercatore post-dottorato",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-ricercatore-post-dottorato",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://careers.idorsia.com/job/basel-postdoctoral-researcher/1420386033",
-            "url:https://careers.idorsia.com/job/basel-postdoctoral-researcher/1425564433",
-            "url:https://careers.epfl.ch/job/lausanne-postdoctoral-researcher/1163582855"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "ricercatore-postdottorale-presso-il-laboratorio-di-musicologia-digitale-e-cognitiva-epfl-losanna",
           "name": "Ricercatore postdottorale presso il Laboratorio di Musicologia Digitale e Cognitiva, EPFL Losanna",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-ricercatore-postdottorale-presso-il-laboratorio-di-musicologia-digitale-e-cognitiva-epfl-losanna",
@@ -1167912,6 +1168026,17 @@
           "updatedKeys": [
             "url:https://careers.stadlerrail.com/job/bussnang-initiativbewerbung-f%c3%bcr-studierende-tg-t-9565/1347754655",
             "url:https://careers.stadlerrail.com/job/wallisellen-initiativbewerbung-f%c3%bcr-studierende-zh-z-8304/1367666355"
+          ],
+          "removedKeys": []
+        },
+        {
+          "key": "ristorante-aggiunto-100",
+          "name": "Ristorante aggiunto 100%",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-ristorante-aggiunto-100",
+          "addedKeys": [],
+          "updatedKeys": [
+            "url:https://positions.manor.ch/job/baden-assistentin-restaurant-100/1361733555",
+            "url:https://positions.manor.ch/job/emmen-assistentin-restaurant-100/1365253455"
           ],
           "removedKeys": []
         },
@@ -1168297,18 +1168422,6 @@
           "updatedKeys": [
             "url:https://careers.kronenhof.com/en/vacancies/723",
             "url:https://careers.kulm.com/en/vacancies/723"
-          ],
-          "removedKeys": []
-        },
-        {
-          "key": "sottocuoco",
-          "name": "Sottocuoco",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-sottocuoco",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://jobs.tertianum.ch/job/zollikerberg-sous-chefin-z%c3%bcri-8125/1432028233",
-            "url:https://www.weissearena.com/jobs/details.html?jobid=4559&jobtitle=sous+chef%3ain",
-            "url:https://jobdetails.nestle.com/job/lausanne-sous-chef/1409872133"
           ],
           "removedKeys": []
         },
@@ -1178000,6 +1178113,16 @@
           "removedKeys": []
         },
         {
+          "key": "application-security-ingegnere",
+          "name": "Application Security Ingegnere",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-application-security-ingegnere",
+          "addedKeys": [
+            "url:https://jobs.lever.co/sonarsource/5a8f589d-86fb-4330-9e30-9665114d49a8"
+          ],
+          "updatedKeys": [],
+          "removedKeys": []
+        },
+        {
           "key": "application-specialista-erp-m-w-d",
           "name": "Application Specialista ERP m/w/d",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-application-specialista-erp-m-w-d",
@@ -1186370,17 +1186493,6 @@
           "removedKeys": []
         },
         {
-          "key": "ristorante-aggiunto-100",
-          "name": "Ristorante aggiunto 100%",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-ristorante-aggiunto-100",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://positions.manor.ch/job/emmen-assistentin-restaurant-100/1365253455",
-            "url:https://positions.manor.ch/job/baden-assistentin-restaurant-100/1361733555"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "assistente",
           "name": "Assistente",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-assistente",
@@ -1188177,17 +1188289,6 @@
           "addedKeys": [],
           "updatedKeys": [
             "url:https://jobs.migros.ch/de/unsere-unternehmen/job/denner-ag/stv-filialleiterin/ace1ff1e-c797-4d3b-86e2-a2d9c3269b95"
-          ],
-          "removedKeys": []
-        },
-        {
-          "key": "assistente-direttore-esecutivo-divisione-camere-lunedi-mercoledi-d",
-          "name": "Assistente Direttore Esecutivo - Divisione Camere (lunedì/mercoledì/d)",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-assistente-direttore-esecutivo-divisione-camere-lunedi-mercoledi-d",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://careers.kronenhof.com/en/vacancies/636",
-            "url:https://careers.kulm.com/en/vacancies/636"
           ],
           "removedKeys": []
         },
@@ -1196182,17 +1196283,6 @@
           "removedKeys": []
         },
         {
-          "key": "pane-orecchie-100",
-          "name": "Pane/orecchie 100%",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-pane-orecchie-100",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://positions.manor.ch/job/sion-boulanger%c3%a8re-100/1367980355",
-            "url:https://positions.manor.ch/job/gen%c3%a8ve-1-boulanger%c3%a8re-100/1363554155"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "bp-da-chef-dietetico-in-addestramento-f-m-d",
           "name": "BP da chef dietetico in addestramento (f/m/d)",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-bp-da-chef-dietetico-in-addestramento-f-m-d",
@@ -1197059,17 +1197149,6 @@
           "addedKeys": [],
           "updatedKeys": [
             "url:https://joblink.allibo.com/ats3/job-offer.aspx?dm=1818&id=107718&ln=it&ft=463&sg=2"
-          ],
-          "removedKeys": []
-        },
-        {
-          "key": "compratore-moda-uomo-100",
-          "name": "Compratore Moda Uomo 100%",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-compratore-moda-uomo-100",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://positions.manor.ch/job/basel-buyer-herren-fashion-100/1356447755",
-            "url:https://positions.manor.ch/job/basel-buyer-herren-fashion-100/1356447655"
           ],
           "removedKeys": []
         },
@@ -1203454,17 +1203533,6 @@
           "removedKeys": []
         },
         {
-          "key": "chef-di-servizio",
-          "name": "Chef di servizio",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-chef-di-servizio",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://www.weissearena.com/jobs/details.html?jobid=4799&jobtitle=chef+de+service",
-            "url:https://jobs.migros.ch/de/unsere-unternehmen/job/genossenschaft-migros-ostschweiz/chef-de-service/8b0cd986-bcf1-4951-a14a-6e99eb9deafe"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "chef-del-gioco-jack-s-brasserie-100-m-f-d",
           "name": "Chef del gioco - Jack's Brasserie 100% (m/f/d)",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-chef-del-gioco-jack-s-brasserie-100-m-f-d",
@@ -1205235,17 +1205303,6 @@
           "removedKeys": []
         },
         {
-          "key": "collaboratore-del-supermercato-fruit-verduras-50",
-          "name": "Collaboratore del supermercato (Fruit & Verduras) 50%",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-collaboratore-del-supermercato-fruit-verduras-50",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://positions.manor.ch/job/lausanne-collaborateurtrice-supermarch%c3%a9-%28fruits-&-l%c3%a9gumes%29-50/1367260655",
-            "url:https://positions.manor.ch/job/chavannes-de-bogis-collaborateurtrice-supermarch%c3%a9-%28fruits-&-l%c3%a9gumes%29-50/1367261355"
-          ],
-          "removedKeys": []
-        },
-        {
           "key": "collaborateur-trice-supermarche-poissonnerie-50",
           "name": "Collaborateur/trice supermarché (Poissonnerie) 50%",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-collaborateur-trice-supermarche-poissonnerie-50",
@@ -1205262,17 +1205319,6 @@
           "addedKeys": [],
           "updatedKeys": [
             "url:https://positions.manor.ch/job/gen%c3%a8ve-1-collaborateurtrice-supermarch%c3%a9-%28vins-et-spiritueux%29-100/1368890455"
-          ],
-          "removedKeys": []
-        },
-        {
-          "key": "collaboratore-trice-vente-accessori-dames-60",
-          "name": "Collaboratore/trice vente (Accessori Dames) 60%",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-collaboratore-trice-vente-accessori-dames-60",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://positions.manor.ch/job/monthey-collaborateurtrice-vente-%28accessoires-dames%29-60/1348799355",
-            "url:https://positions.manor.ch/job/vevey-collaborateurtrice-vente-%28accessoires-dames%29-60/1367763255"
           ],
           "removedKeys": []
         },
@@ -1205373,17 +1205419,6 @@
           "addedKeys": [],
           "updatedKeys": [
             "url:https://positions.manor.ch/job/fribourg-collaborateurtrice-vente-%28papeterie%29-50/1366041355"
-          ],
-          "removedKeys": []
-        },
-        {
-          "key": "collaboratore-di-vendita-parfumerie-50",
-          "name": "Collaboratore di vendita (Parfumerie) 50%",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-collaboratore-di-vendita-parfumerie-50",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://positions.manor.ch/job/gen%c3%a8ve-1-collaborateurtrice-vente-%28parfumerie%29-50/1368730355",
-            "url:https://positions.manor.ch/job/fribourg-collaborateurtrice-vente-%28parfumerie%29-50/1365777755"
           ],
           "removedKeys": []
         },
@@ -1242968,6 +1243003,16 @@
           "removedKeys": []
         },
         {
+          "key": "gestore-di-ingegneria-piattaforma-e-operazioni-cloud",
+          "name": "Gestore di ingegneria - Piattaforma e operazioni cloud",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-gestore-di-ingegneria-piattaforma-e-operazioni-cloud",
+          "addedKeys": [
+            "url:https://jobs.lever.co/sonarsource/8490348a-8202-4422-9bd6-c6904982ed50"
+          ],
+          "updatedKeys": [],
+          "removedKeys": []
+        },
+        {
           "key": "gestore-di-manutenzione",
           "name": "Gestore di manutenzione",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-gestore-di-manutenzione",
@@ -1260194,17 +1260239,6 @@
           "addedKeys": [],
           "updatedKeys": [
             "url:https://jobs.stadt-zuerich.ch/job/sozialp%c3%a4dagogin-%28mittelstufe%29/1371476957"
-          ],
-          "removedKeys": []
-        },
-        {
-          "key": "istruzione-sociale-in-hf-fh-circa-25-55-sostegno-sali-steinhof",
-          "name": "Istruzione sociale in HF/FH (circa 25-55%) - sostegno Säli Steinhof",
-          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-istruzione-sociale-in-hf-fh-circa-25-55-sostegno-sali-steinhof",
-          "addedKeys": [],
-          "updatedKeys": [
-            "url:https://job.stadtluzern.ch/stellen/musik-volksschule/offene-stellen/sozialpaedagog-in-hf-fh-zirka-betreuung-saeli-steinhof/b5b9cc9a-d879-491d-93e4-befbfd9d6abe",
-            "url:https://job.stadtluzern.ch/stellen/stadtluzern/offene-stellen/sozialpaedagog-in-hf-fh-zirka-betreuung-saeli-steinhof/716916c5-24fc-4d9a-8d37-6ff7d852c4bc"
           ],
           "removedKeys": []
         },
@@ -1325109,6 +1325143,16 @@
           "removedKeys": []
         },
         {
+          "key": "sr-staff-customer-trust-manager",
+          "name": "Sr. Staff Customer Trust Manager",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-sr-staff-customer-trust-manager",
+          "addedKeys": [
+            "url:https://jobs.lever.co/sonarsource/485d4c76-449a-4ec1-ada2-0ef963a69b9f"
+          ],
+          "updatedKeys": [],
+          "removedKeys": []
+        },
+        {
           "key": "stack-completo-del-web-del-667ore-backend-e-frontend",
           "name": "Stack completo del Web del 667ore (Backend e Frontend)",
           "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-stack-completo-del-web-del-667ore-backend-e-frontend",
@@ -1325126,6 +1325170,16 @@
           "updatedKeys": [
             "url:https://jobs.uzh.ch/offene-stellen/stabsassistenz-direktion-finanzen/52e05e9e-6ba0-4fd2-9139-9cecc2314f2a"
           ],
+          "removedKeys": []
+        },
+        {
+          "key": "staff-data-ingegnere",
+          "name": "Staff Data Ingegnere",
+          "url": "https://frontaliereticino.ch/cerca-lavoro-svizzera/ricerca-staff-data-ingegnere",
+          "addedKeys": [
+            "url:https://jobs.lever.co/sonarsource/19d88777-744e-4496-a94a-6560770198bd"
+          ],
+          "updatedKeys": [],
           "removedKeys": []
         },
         {
