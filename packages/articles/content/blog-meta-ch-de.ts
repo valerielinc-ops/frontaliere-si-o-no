@@ -6656,6 +6656,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.costi-auto-elettrica-benzina.title': 'Kosten Elektroauto vs. Benzin: die TCS-Analyse',
     'blog.article.costi-auto-elettrica-benzina.excerpt': 'Bei Benzin mit 2,14 Fr./Liter und Diesel mit 2,46 Fr./Liter lohnt sich der Elektroantrieb nur, wenn man ihn zu Hause auflädt. Analyse basierend auf Daten des Touring Club Schweiz.',
     'blog.article.costi-auto-elettrica-benzina.imageAlt': 'Elektroauto-Ladestation und Benzinpumpe in der Schweiz',
+    'blog.article.parco-veicoli-svizzera-2026.title': 'Fuhrpark Schweiz: Stand September 2026',
+    'blog.article.parco-veicoli-svizzera-2026.excerpt': 'Analyse des Schweizer Fuhrparks: über 7,1 Millionen Fahrzeuge im Verkehr. Astra-Daten zu Neuzulassungen und Importen von Gebrauchtfahrzeugen in den 26 Kantonen.',
+    'blog.article.parco-veicoli-svizzera-2026.imageAlt': 'Stadtverkehr in einer Schweizer Stadt mit verschiedenen Fahrzeugtypen',
 };
 
 export default blogMetaChDe;

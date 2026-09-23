@@ -6656,6 +6656,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.costi-auto-elettrica-benzina.title': 'Coûts voiture électrique vs essence : l\'analyse du TCS',
     'blog.article.costi-auto-elettrica-benzina.excerpt': 'Avec l\'essence à 2,14 fr./litre et le diesel à 2,46 fr./litre, l\'électrique ne convient que si vous le rechargez à la maison. Analyse basée sur les données du Touring Club Suisse.',
     'blog.article.costi-auto-elettrica-benzina.imageAlt': 'Station de recharge pour voiture électrique et pompe à essence en Suisse',
+    'blog.article.parco-veicoli-svizzera-2026.title': 'Parc Véhicules Suisse : les données mises à jour en septembre 2026',
+    'blog.article.parco-veicoli-svizzera-2026.excerpt': 'Analyse du parc automobile suisse : plus de 7,1 millions de véhicules en circulation. Données ASTRA sur les nouvelles immatriculations et importations d\'occasion dans les 26 cantons.',
+    'blog.article.parco-veicoli-svizzera-2026.imageAlt': 'Trafic urbain dans une ville suisse avec différents types de véhicules',
 };
 
 export default blogMetaChFr;
