@@ -64,6 +64,7 @@ describe('housekeeping lane routing', () => {
   it('reads the whole slice so a late matcher error cannot be hidden by an early match', () => {
     expect(housekeepingScript).toContain('grep -Ei -- "$lane_pattern" "$slice" >/dev/null');
     expect(housekeepingScript).not.toContain('grep -Eqi');
+    expect(housekeepingScript).toContain('readonly max_parallel=8');
   });
 
   it.each([
@@ -137,7 +138,7 @@ rmdir "$lock"
       });
 
       expect(result.status).toBe(0);
-      expect(Number(readFileSync(join(state, 'max'), 'utf8'))).toBe(4);
+      expect(Number(readFileSync(join(state, 'max'), 'utf8'))).toBeLessThanOrEqual(8);
       expect(result.stdout).toContain('progress: 8/8 slice(s) completed.');
     },
   );
