@@ -89,7 +89,7 @@ function fuzzyDedupKey(ev) {
 // to score which duplicate to keep. Deliberately excludes fields that are
 // near-universal/cheap to fill (category, region) in favor of the fields
 // that actually distinguish a "thin" crawl from a "rich" one.
-const RICHNESS_FIELDS = ['description', 'imageUrl', 'price', 'address', 'geo', 'venue', 'endDate'];
+const RICHNESS_FIELDS = ['description', 'imageUrl', 'price', 'address', 'geo', 'venue', 'endDate', 'organizer', 'performer'];
 
 function isPopulated(value) {
   if (value === undefined || value === null) return false;

@@ -10,6 +10,7 @@ import {
   extractDateInfo,
   humanizeCategory,
   extractPrice,
+  extractDetailTableValue,
   extractAddress,
   extractEventJsonLd,
   mapEventRecord,
@@ -119,6 +120,12 @@ describe('extractPrice', () => {
 
   it('flags isAccessibleForFree as a free event', () => {
     expect(extractPrice({ isAccessibleForFree: true })).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+  });
+
+  it('falls back to the localized detail table when JSON-LD omits offers', () => {
+    const html = '<table><tr><th scope="row">Prezzo</th><td><div class="richtext">Gratuito</div></td></tr></table>';
+    expect(extractDetailTableValue(html, ['Prezzo', 'Preis'])).toBe('Gratuito');
+    expect(extractPrice({}, html)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
   });
 });
 
@@ -233,6 +240,35 @@ describe('mapEventRecord', () => {
     expect(event.address).toEqual({ street: 'Piazza Bernardino Luini 6', postalCode: '6900' });
     expect(event.price).toEqual({ amount: 25, currency: 'CHF', isFree: false });
     expect(event.url).toBe('https://www.myswitzerland.com/it-ch/eventi/festival-della-musica');
+  });
+
+  it('keeps source organizer/performer and falls back to detail-page image/price metadata', () => {
+    const mapped = mapEventRecord(
+      'metadata123',
+      { it: { ...hitIt, image: undefined } },
+      {
+        detailUrl: 'https://www.myswitzerland.com/it-ch/eventi/metadata',
+        detailLd: {
+          '@type': 'MusicEvent',
+          image: [{ url: '/-/media/events/metadata.jpg' }],
+          organizer: { '@type': 'Organization', name: 'Organizzatore ufficiale', url: '/organizer' },
+          performer: [{ '@type': 'Person', name: 'Artista principale' }],
+          location: { name: 'Teatro', address: { addressLocality: 'Lugano' } },
+        },
+        detailHtml: '<table><tr><th>Prezzo</th><td>Gratuito</td></tr></table>',
+      },
+    );
+    const event = mapped?.event as never as Record<string, unknown>;
+    expect(event.organizer).toEqual({
+      '@type': 'Organization',
+      name: 'Organizzatore ufficiale',
+      url: 'https://www.myswitzerland.com/organizer',
+    });
+    expect(event.performer).toEqual([{ '@type': 'Person', name: 'Artista principale' }]);
+    expect(event.price).toEqual({ amount: 0, currency: 'CHF', isFree: true });
+    expect((mapped as never as { imageSourceUrl: string }).imageSourceUrl).toBe(
+      'https://www.myswitzerland.com/-/media/events/metadata.jpg',
+    );
   });
 
   it('rejects venue name that matches performer.name and falls back to addressLocality', () => {

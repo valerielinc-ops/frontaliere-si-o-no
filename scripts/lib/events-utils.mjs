@@ -779,7 +779,11 @@ export function resetEventImageManifestCache() {
   eventImageManifest = null;
   eventImageManifestFile = null;
 }
-export const EVENT_IMAGE_MAX_BYTES = 4 * 1024 * 1024; // 4MB guard against a mis-served asset
+// Accept print-resolution source files before the bounded 1600x1600 re-encode
+// below. The previous 4 MiB guard dropped valid MySwitzerland originals (the
+// affected catalog examples are 5.2 MiB and 17.5 MiB); 20 MiB still rejects
+// clearly mis-served assets without allowing unbounded downloads.
+export const EVENT_IMAGE_MAX_BYTES = 20 * 1024 * 1024;
 const EVENT_IMAGE_USER_AGENT = 'Mozilla/5.0 (compatible; FrontaliereTicinoBot/1.0; +https://frontaliereticino.ch)';
 
 // Re-encode before storing: the source sites serve print-resolution originals

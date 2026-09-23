@@ -190,6 +190,17 @@ describe('eventLd source attribution (#3125)', () => {
     expect(ld.performer).toBeUndefined();
   });
 
+  it('emits named organizer/performer metadata when the crawler supplies it', () => {
+    const withPeople = {
+      ...EVENT,
+      organizer: { '@type': 'Organization', name: 'Organizzatore ufficiale', url: 'https://example.com/organizer' },
+      performer: [{ '@type': 'Person', name: 'Artista principale' }],
+    };
+    const ld = eventLd(withPeople as never, 'it') as Record<string, any>;
+    expect(ld.organizer).toEqual(withPeople.organizer);
+    expect(ld.performer).toEqual(withPeople.performer);
+  });
+
   it('prefers a real crawled description over the synthesized one when long enough', () => {
     const withDescription = {
       ...EVENT,
