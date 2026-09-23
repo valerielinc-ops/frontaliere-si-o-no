@@ -55,7 +55,6 @@ describe('RewardedApplicationOffer', () => {
 
     expect(onDismiss).toHaveBeenCalledTimes(2);
   });
-
   it('uses the original candidature intent to start a ready Google rewarded ad', () => {
     render(<RewardedApplicationOffer {...defaultProps} />);
 
