@@ -49,7 +49,7 @@ export function normalizeEventPeople(value, baseUrl) {
     const name = typeof rawName === 'string' ? rawName.replace(/\s+/g, ' ').trim() : '';
     if (!name) continue;
     const url = absoluteHttpUrl(typeof entry === 'object' ? entry?.url : undefined, baseUrl);
-    const key = `${name.toLocaleLowerCase()}|${url || ''}`;
+    const key = `${name.toLowerCase()}|${url || ''}`;
     if (seen.has(key)) continue;
     seen.add(key);
     const type = typeof entry === 'object' ? sourceType(entry?.['@type']) : undefined;
