@@ -11912,6 +11912,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.carburanti-prezzi-tasse-ticino.title': 'Cher prix des carburants au Tessin : demande de réduction d\'impôt',
     'blog.article.carburanti-prezzi-tasse-ticino.excerpt': 'Une motion a été déposée à Berne pour alléger la charge fiscale sur l\'essence, le diesel et l\'huile de chauffage face à des hausses historiques.',
     'blog.article.carburanti-prezzi-tasse-ticino.imageAlt': 'Prix de l\'essence et du diesel en hausse dans une station-service au Tessin',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.title': 'Sunrise se restructure : jusqu\'à 450 places menacées',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.excerpt': 'L\'opérateur Sunrise annonce un nouveau plan de repositionnement et la possible suppression d\'un maximum de 450 emplois sur 2\'900. Procédure en octobre.',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.imageAlt': 'Siege social et bureaux de Sunrise en Suisse',
 };
 
 export default blogMetaFr;

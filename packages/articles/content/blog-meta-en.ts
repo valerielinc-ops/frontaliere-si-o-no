@@ -11910,6 +11910,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.carburanti-prezzi-tasse-ticino.title': 'Expensive fuel prices in Ticino: tax reduction request',
     'blog.article.carburanti-prezzi-tasse-ticino.excerpt': 'Motion filed in Bern to lighten the tax burden on gasoline, diesel and heating oil in the face of historic hikes.',
     'blog.article.carburanti-prezzi-tasse-ticino.imageAlt': 'Petrol and diesel prices rising at a gas station in Ticino',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.title': 'Sunrise is being restructured: up to 450 seats are at risk',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.excerpt': 'The Sunrise operator announces a new repositioning plan and the possible elimination of a maximum of 450 jobs out of 2,900. Procedure in October.',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.imageAlt': 'Sunrise corporate office and headquarters in Switzerland',
 };
 
 export default blogMetaEn;

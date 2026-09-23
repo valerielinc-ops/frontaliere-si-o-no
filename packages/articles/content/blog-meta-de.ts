@@ -11909,6 +11909,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.carburanti-prezzi-tasse-ticino.title': 'Teure Kraftstoffpreise im Tessin: Steuerermäßigung beantragt',
     'blog.article.carburanti-prezzi-tasse-ticino.excerpt': 'In Bern wurde eine Motion eingebracht, um Benzin, Diesel und Heizöl angesichts historischer Preissteigerungen steuerlich zu entlasten.',
     'blog.article.carburanti-prezzi-tasse-ticino.imageAlt': 'Benzin- und Dieselpreise steigen an einer Tankstelle im Tessin',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.title': 'Sunrise restrukturiert sich: Risiko für bis zu 450 Plätze',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.excerpt': 'Der Betreiber Sunrise kündigt einen neuen Neupositionierungsplan und die mögliche Streichung von maximal 450 von 2\'900 Arbeitsplätzen an. Verfahren im Oktober.',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.imageAlt': 'Sunrise Firmenzentrale und Buerogebaeude in der Schweiz',
 };
 
 export default blogMetaDe;

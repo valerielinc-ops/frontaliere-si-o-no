@@ -11911,6 +11911,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.carburanti-prezzi-tasse-ticino.title': 'Caro prezzi carburanti in Ticino: chiesta riduzione fiscale',
     'blog.article.carburanti-prezzi-tasse-ticino.excerpt': 'Presentata una mozione a Berna per alleggerire il carico fiscale su benzina, diesel e olio da riscaldamento di fronte a rincari storici.',
     'blog.article.carburanti-prezzi-tasse-ticino.imageAlt': 'Prezzi di benzina e diesel in aumento a una stazione di servizio in Ticino',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.title': 'Sunrise si ristruttura: a rischio fino a 450 posti',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.excerpt': 'L\'operatore Sunrise annuncia un nuovo piano di riposizionamento e la possibile soppressione di un massimo di 450 impieghi su 2\'900. Procedura in ottobre.',
+    'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.imageAlt': 'Sede aziendale e uffici di Sunrise in Svizzera',
 };
 
 export default blogMetaIt;
