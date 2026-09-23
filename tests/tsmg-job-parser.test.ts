@@ -5,7 +5,11 @@ import {
   inferTsmgCategory,
   buildTsmgLocalizedContent,
 } from '../scripts/lib/tsmg-job-parser.mjs';
-import { assertCompleteTsmgSourceSnapshot, normalizeTsmgCountry } from '../scripts/update-tsmg-jobs.mjs';
+import {
+  assertCompleteTsmgSourceSnapshot,
+  isTsmgSwissPosting,
+  normalizeTsmgCountry,
+} from '../scripts/update-tsmg-jobs.mjs';
 
 describe('tsmg-job-parser', () => {
   it('keeps only Ticino and Grigioni locations', () => {
@@ -72,5 +76,17 @@ describe('tsmg-job-parser', () => {
     }];
 
     expect(assertCompleteTsmgSourceSnapshot(foreignSnapshot)).toEqual(foreignSnapshot);
+  });
+
+  it('discards a foreign location misclassified as CH without failing the full snapshot', () => {
+    const mismatchedSnapshot = [{
+      id: 'foreign-location-marked-ch',
+      hostedUrl: 'https://jobs.lever.co/tsmg/foreign-location-marked-ch',
+      country: 'CH',
+      categories: { location: 'France' },
+    }];
+
+    expect(assertCompleteTsmgSourceSnapshot(mismatchedSnapshot)).toEqual(mismatchedSnapshot);
+    expect(isTsmgSwissPosting(mismatchedSnapshot[0])).toBe(false);
   });
 });
