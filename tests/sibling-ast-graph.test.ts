@@ -111,6 +111,37 @@ describe('sibling AST layer', () => {
       .toBeGreaterThan(0);
   });
 
+  it('candidate-only parsing keeps only facts needed by the changed symbols', () => {
+    const changed = collectAstFacts(
+      'services/guard.ts',
+      'export function guardSession() { return true; }',
+      { files: new Set(['services/guard.ts', 'components/Panel.tsx']) },
+    );
+    const changedFacts = factsContainingToken(changed, 'guardSession');
+    const factKeys = new Set([
+      'identifier|guardSession|declaration',
+      'identifier|guardSession|call',
+      'identifier|guardSession|reference',
+    ]);
+    const candidate = collectAstFacts(
+      'components/Panel.tsx',
+      [
+        'const unrelated = noisyHelper(value);',
+        'const allowed = guardSession();',
+        'function noisyHelper(value) { return value; }',
+      ].join('\n'),
+      {
+        files: new Set(['services/guard.ts', 'components/Panel.tsx']),
+        candidateOnly: true,
+        factKeys,
+      },
+    );
+
+    expect(candidate.some((fact) => fact.key === 'guardSession')).toBe(true);
+    expect(candidate.some((fact) => fact.key === 'noisyHelper')).toBe(false);
+    expect(matchAstFacts(changedFacts, candidate).length).toBeGreaterThan(0);
+  });
+
   it('recognizes exported variable declarations and surfaces their consumers', () => {
     const changed = collectAstFacts(
       'services/guard.ts',
