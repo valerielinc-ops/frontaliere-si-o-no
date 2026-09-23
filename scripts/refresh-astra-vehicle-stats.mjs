@@ -22,6 +22,7 @@ import {
 const FIRESTORE_COLLECTION = "config";
 const FIRESTORE_DOC = "astra_vehicle_stats";
 const FETCH_TIMEOUT_MS = 45 * 60 * 1000;
+const BEST_FETCH_TIMEOUT_MS = 120 * 60 * 1000;
 const HISTORY_LIMITS = Object.freeze({ weekly: 26, monthly: 24 });
 const ARTICLE_OUTBOX_LIMIT = 100;
 
@@ -97,7 +98,9 @@ function assertContentLength(bytesRead, metadata, url) {
 async function fetchTsvAggregate(url, metadata, dataset) {
   const response = await fetch(url, {
     headers: REQUEST_HEADERS,
-    signal: AbortSignal.timeout(FETCH_TIMEOUT_MS),
+    signal: AbortSignal.timeout(
+      dataset === "best" ? BEST_FETCH_TIMEOUT_MS : FETCH_TIMEOUT_MS,
+    ),
   });
   if (!response.ok) throw new Error(`ASTRA GET ${response.status} for ${url}`);
   if (!response.body) throw new Error(`ASTRA response senza body per ${url}`);
