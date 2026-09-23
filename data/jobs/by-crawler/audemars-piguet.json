@@ -93,7 +93,7 @@
       "titleByLocale": {
         "it": "Configurazione esperta e gestione degli asset",
         "en": "Expert Configuration & Asset Management",
-        "de": "Expertenkonfiguration und Asset Management",
+        "de": "Experte für Konfiguration & Asset Management",
         "fr": "Expert Configuration & Asset Management"
       },
       "description": "Dans le cadre du renforcement de l'équipe IT Service Management, nous recherchons un Expert Configuration & Asset Management afin d'améliorer durablement la maintenance de la CMDB et des actifs IT et activités de contrôle relatif à ce processus.\n\nVous évoluerez dans un environnement international avec des interactions régulières avec des équipes globales et prestataires.\n\nRattaché au Domain Lead IT Service Management, vous travaillerez en étroite collaboration avec les équipes Service Management, Infrastructure, Architecture, Applicative, Data et autres équipes IT.\n Vos missions principales seront:\n\n• Administrer et garantir la qualité, la cohérence et l’exhaustivité de la CMDB (Configuration Management Database), notamment via l’exploitation et l’optimisation des données issues de ServiceNow Discovery\n\n• Piloter le cycle de vie des actifs IT (acquisition, suivi, conformité, retrait)\n\n• Superviser et optimiser les processus de Discovery et la fiabilité des données collectées\n\n• Définir et maintenir les standards, modèles de données et procédures liés au Configuration Management\n\n• Analyser les inconsistances CMDB et piloter les plans de remédiation avec les parties prenantes\n\n• Mettre en place et suivre les KPIs et dashboards (CMDB Health) pour piloter la performance\n\n• Produire et analyser des indicateurs de performance pour évaluer l'efficacité des processus IT et identifier les opportunités d'amélioration\n\n• Accompagner, former et aligner les équipes IT sur les bonnes pratiques ITIL et les processus établis\n\n• Contribuer aux audits IT et garantir la conformité des actifs et des données\n\n• Être force de proposition dans la définition et la mise en place de plans d’amélioration\n\n• Certification ITIL avancée (Intermediate / Expert) ou équivalente, et vous possédez une excellente maîtrise du framework ITIL ainsi qu’une vision transverse des processus ITSM et des enjeux globaux de l’IT\n\n• Expérience d’au moins cinq ans dans un poste similaire, vous avez acquis une maîtrise opérationnelle du pilotage des processus Configuration & Hardware Asset Management dans des environnements complexes\n\n• Expérience confirmée sur ServiceNow (CMDB & Discovery), aisance pour exploiter pleinement ses fonctionnalités pour optimiser les processus de Configuration et Hardware Asset Management\n\n• Expérience en tant que Process Owner en Configuration Management / Asset Management\n\n• Expérience dans la gestion d’environnements IT complexes et multi-acteurs\n\n• Excellentes capacités de communication, avec une approche claire, synthétique et orientée impact\n\n• Anglais courant indispensable (environnement international, équipes en Asie)\n\n• Esprit analytique, rigueur, capacité à structurer et à conduire le changement\n\n• Êtes reconnu·e pour votre leadership naturel et votre capacité à former les nouveaux·elles arrivant·e·s, en transmettant vos connaissances avec pédagogie et charisme\n\nCe que nous offrons :\n\n• La prise en charge des assurances maladie (base et complémentaire)\n\n• 5 semaines annuelles de vacances et 2 semaines supplémentaires entre Noël et Nouvel An grâce au cumul quotidien de minutes additionnelles\n\n• Une contribution à vos activités sportives ou culturelles\n\n• La possibilité selon la fonction de travailler à distance\n\n• Un restaurant d’entreprise\n\n• Une LPP avantageuse\n Vous souhaitez exprimer votre expertise au sein d’Audemars Piguet ? N’hésitez pas et postulez en ligne ! Nous nous réjouissons de discuter des opportunités qui pourraient correspondre à votre prochaine aventure professionnelle.\n Le masculin vaut pour le féminin.",
@@ -165,7 +165,6 @@
           "expert-configuration-asset-management-audemars-piguet-le-brassus-vd-switzerland"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-06-10T07:54:34.941Z",
       "salaryMin": 60500,
       "salaryMax": 91500,
@@ -180,7 +179,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3577
     },
     {
       "id": "audemars-piguet-e4a4ec2ef159",
