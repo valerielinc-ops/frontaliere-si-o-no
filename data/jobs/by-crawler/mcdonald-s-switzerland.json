@@ -342,9 +342,6 @@
       "url": "https://jobs.mcdonalds.ch/fr-ch/hôte-hôtesse/job/P8-317657-1",
       "slug": "hote-hotesse-mcdonalds-switzerland-marin-epagnier-p8-317657-1",
       "location": "MARIN-EPAGNIER",
-      "addressLocality": "MARIN-EPAGNIER",
-      "addressRegion": "NE",
-      "addressCountry": "CH",
       "canton": "NE",
       "country": "CH",
       "postalCode": "2074",
@@ -362,7 +359,7 @@
         "it": "Hostess/Host",
         "en": "Host/Hostess",
         "de": "Host/Hostess",
-        "fr": "Hôte / Hôtesse"
+        "fr": "ET"
       },
       "slugByLocale": {
         "it": "hote-hotesse-mcdonalds-switzerland-marin-epagnier-p8-317657-1",
@@ -378,7 +375,6 @@
       },
       "id": "mcdonald-s-switzerland-233075a89c81",
       "firstSeenAt": "2026-08-31T17:28:49.974Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -392,7 +388,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressLocality": "MARIN-EPAGNIER",
+      "addressRegion": "NE",
+      "addressCountry": "CH",
+      "needsRetranslation": true
     },
     {
       "title": "Hôte / Hôtesse",
@@ -402,9 +402,6 @@
       "url": "https://jobs.mcdonalds.ch/fr-ch/hôte-hôtesse/job/P8-319315-1",
       "slug": "hote-hotesse-mcdonalds-switzerland-cheseaux-sur-lausanne-p8-319315-1",
       "location": "CHESEAUX-SUR-LAUSANNE",
-      "addressLocality": "CHESEAUX-SUR-LAUSANNE",
-      "addressRegion": "VD",
-      "addressCountry": "CH",
       "canton": "VD",
       "country": "CH",
       "postalCode": "1033",
@@ -422,7 +419,7 @@
         "it": "Hostess/Host",
         "en": "Host/Hostess",
         "de": "Host/Hostess",
-        "fr": "Hôte / Hôtesse"
+        "fr": "ET"
       },
       "slugByLocale": {
         "it": "hote-hotesse-mcdonalds-switzerland-cheseaux-sur-lausanne-p8-319315-1",
@@ -438,7 +435,6 @@
       },
       "id": "mcdonald-s-switzerland-27070e650dc7",
       "firstSeenAt": "2026-08-26T10:23:34.779Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "currency": "CHF",
@@ -452,7 +448,11 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressLocality": "CHESEAUX-SUR-LAUSANNE",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "needsRetranslation": true
     },
     {
       "title": "Hôte / Hôtesse",
@@ -462,9 +462,6 @@
       "url": "https://jobs.mcdonalds.ch/fr-ch/hôte-hôtesse/job/P8-318661-1",
       "slug": "host-hostess-mcdonald-s-switzerland-baden",
       "location": "BADEN",
-      "addressLocality": "BADEN",
-      "addressRegion": "AG",
-      "addressCountry": "CH",
       "canton": "AG",
       "country": "CH",
       "postalCode": "5400",
@@ -482,7 +479,7 @@
         "it": "Host / Hostess",
         "en": "Host / Hostess",
         "de": "Host/Hostess",
-        "fr": "Hôte / Hôtesse"
+        "fr": "ET"
       },
       "slugByLocale": {
         "it": "host-hostess-mcdonald-s-switzerland-baden",
@@ -546,7 +543,10 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressLocality": "BADEN",
+      "addressRegion": "AG",
+      "addressCountry": "CH"
     },
     {
       "title": "Hôte / Hôtesse",
@@ -1861,9 +1861,6 @@
       "url": "https://jobs.mcdonalds.ch/fr-ch/crew-member/job/P8-395560-1",
       "slug": "membro-dell-equipaggio-mcdonald-s-switzerland-affoltern",
       "location": "AFFOLTERN",
-      "addressLocality": "AFFOLTERN",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
       "canton": "ZH",
       "country": "CH",
       "postalCode": "8910",
@@ -1879,7 +1876,7 @@
       "crawledAt": "2026-09-23T11:56:18.237Z",
       "titleByLocale": {
         "it": "Membro dell'equipaggio",
-        "en": "Crew Member",
+        "en": "Cre M",
         "de": "Crew Member",
         "fr": "Membre d'équipage"
       },
@@ -1911,7 +1908,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:52:04.893Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "currency": "CHF",
@@ -1925,7 +1921,11 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "addressLocality": "AFFOLTERN",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "needsRetranslation": true
     },
     {
       "title": "Crew",
