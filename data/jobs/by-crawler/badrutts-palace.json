@@ -1,6 +1,6 @@
 {
   "crawlerKey": "badrutts-palace",
-  "assembledAt": "2026-09-23T11:58:06.481Z",
+  "assembledAt": "2026-09-23T23:50:57.229Z",
   "jobs": [
     {
       "id": "badrutts-palace-85d89be74139",
@@ -8,7 +8,7 @@
       "slugByLocale": {
         "it": "legname-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "en": "plumber-m-w-d-badrutts-palace-ch",
-        "de": "klempner-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "de": "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "fr": "plombier-m-m-j-badrutt-s-palace-hotel-st-moritz"
       },
       "company": "Badrutt's Palace Hotel",
@@ -18,7 +18,7 @@
       "titleByLocale": {
         "it": "Idraulico (m/f/d)",
         "en": "Plumber (m/f/d)",
-        "de": "Klempner (m/w/d)",
+        "de": "Plumber (m/f/d)",
         "fr": "Plombier (m/f/d)"
       },
       "description": "<p><strong>Your key responsibilities</strong></p><ul><li><p>As a plumbing installer, you will be responsible for repairs and minor installations in the hotel as well as in the staff housing, ensuring smooth operations.</p></li><li><p>The inspection and maintenance of heating, ventilation, and plumbing systems falls within your area of responsibility, ensuring efficient and energy-conscious operations.</p></li><li><p>You will carry out regular inspections of guest bathrooms to ensure they consistently meet the highest standards and offer our guests a pleasant stay.</p></li><li><p>During events, you will support the technical setup and ensure that all plumbing requirements are professionally implemented.</p></li><li><p>In addition, you will participate in snow clearance and contribute to the operational fire safety team, ensuring the safety of our guests and staff.</p></li><li><p>You will take on occasional on-call duty shifts to respond quickly and reliably to emergencies as they arise.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><p>For this highly varied position, you ideally bring the following:</p><ul><li><p>Completed vocational training as a heating engineer, plumbing installer, or equivalent further qualification.</p></li><li><p>Professional experience in a larger hotel operation is an advantage.</p></li><li><p>Good command of German as well as spoken Italian; English skills are an advantage.</p></li><li><p>A sense of responsibility and an independent, precise working style.</p></li><li><p>High resilience, strong team orientation, and a solution-driven mindset.</p></li></ul><p></p><p><strong>Our offer</strong></p><ul><li><p>Permanent, year-round position.</p></li><li><p>5-day work week on average, with 43.5 hours.</p></li><li><p>5 weeks of vacation and 6 public holidays per year.</p></li><li><p>13th-month salary from the start of employment (pro rata temporis).</p></li><li><p>Staff accommodation available upon request in one of our attractive staff houses.</p></li><li><p>Meals available in our new, modern staff restaurant.</p></li><li><p>Work in an appealing environment.</p></li></ul><p></p><p>If you are looking for an interesting, challenging, and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.<br><br><br><span><strong><em>Recruitment Fraud Warning</em></strong></span></p><p><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
@@ -33,7 +33,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/4759144-plumber-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:14:03.075Z",
+      "crawledAt": "2026-09-23T23:50:52.532Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -62,6 +62,8 @@
         "legname-badrutt-s-palace-hotel-st-moritz",
         "plombier-m-p-p-badrutt-s-palace-hotel-st-moritz",
         "plumber-badrutts-palace-ch",
+        "klempner-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "legname-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
@@ -76,7 +78,8 @@
           "klempner-badrutt-s-palace-hotel-st-moritz",
           "legname-badrutt-s-palace-hotel-st-moritz",
           "plombier-m-p-p-badrutt-s-palace-hotel-st-moritz",
-          "plumber-badrutts-palace-ch"
+          "plumber-badrutts-palace-ch",
+          "legname-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "fitness-trainer-m-w-d-badrutt-s-palace-hotel-st-moritz"
@@ -84,6 +87,7 @@
         "de": [
           "fitnesstrainer-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "plumber-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "klempner-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "plumber-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "fr": [
@@ -92,6 +96,7 @@
         ]
       },
       "firstSeenAt": "2026-07-01T21:48:55.223Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -138,7 +143,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/5478672-elektriker-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:14:03.072Z",
+      "crawledAt": "2026-09-23T23:50:52.528Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -155,11 +160,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "elektriker-m-w-d-badrutts-palace-ch"
+        "elektriker-m-w-d-badrutts-palace-ch",
+        "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "elektriker-m-w-d-badrutts-palace-ch"
+          "elektriker-m-w-d-badrutts-palace-ch",
+          "elettricita-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "elektriker-m-w-d-badrutts-palace-ch"
@@ -169,6 +176,7 @@
         ]
       },
       "firstSeenAt": "2026-08-18T21:52:03.897Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -198,7 +206,7 @@
       "companyDomain": "badruttscareers.com",
       "title": "Hairstylist (m/f/d) - peak season",
       "titleByLocale": {
-        "it": "Hairstylist (m/f/d) - stagione di punta",
+        "it": "Hairstylist (m/f/d) - peak season",
         "en": "Hairstylist (m/f/d) - peak season",
         "de": "Hairstylist (m/w/d) - Hochsaison",
         "fr": "Coiffeur (h/f/d) - haute saison"
@@ -215,7 +223,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6185658-hairstylist-m-f-d-peak-season",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:14:03.069Z",
+      "crawledAt": "2026-09-23T23:50:52.525Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -233,12 +241,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "hairstylist-m-f-d-peak-season-badrutts-palace-ch",
-        "hairstylist-m-f-d-peak-season-badrutt-s-palace-hotel-st-moritz"
+        "hairstylist-m-f-d-peak-season-badrutt-s-palace-hotel-st-moritz",
+        "hairstylist-m-f-d-stagione-di-punta-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "hairstylist-m-f-d-peak-season-badrutts-palace-ch",
-          "hairstylist-m-f-d-peak-season-badrutt-s-palace-hotel-st-moritz"
+          "hairstylist-m-f-d-peak-season-badrutt-s-palace-hotel-st-moritz",
+          "hairstylist-m-f-d-stagione-di-punta-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "hairstylist-m-f-d-peak-season-badrutts-palace-ch"
@@ -248,6 +258,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T00:46:37.073Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -278,7 +289,7 @@
       "title": "Assistant Reservations Manager (m/w/d)",
       "titleByLocale": {
         "it": "Assistant Reservations Manager (m/f/d)",
-        "en": "Assistant Reservations Manager (m/f/d)",
+        "en": "Assistant Reservations Manager (m/w/d)",
         "de": "Assistent Reservations Manager (m/w/d)",
         "fr": "Assistant Gestionnaire des réservations (h/f/d)"
       },
@@ -294,7 +305,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/6987633-assistant-reservations-manager-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:14:03.058Z",
+      "crawledAt": "2026-09-23T23:50:52.523Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -313,12 +324,14 @@
       "previousSlugs": [
         "assistant-reservations-manager-m-w-d-badrutts-palace-ch",
         "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "assistant-reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "assistant-reservations-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-reservations-manager-m-w-d-badrutts-palace-ch",
-          "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "account-manager-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "reservations-manager-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "assistant-reservations-manager-m-w-d-badrutts-palace-ch"
@@ -328,6 +341,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T10:10:28.367Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -374,7 +388,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8106841-director-of-food-beverage-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:14:03.054Z",
+      "crawledAt": "2026-09-23T23:50:52.520Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -391,11 +405,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch"
+        "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch",
+        "direttore-of-food-beverage-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch"
+          "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch",
+          "direttore-of-food-beverage-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "director-of-food-amp-beverage-m-w-d-badrutts-palace-ch"
@@ -451,7 +467,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8107575-director-of-brand-marketing-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:14:03.050Z",
+      "crawledAt": "2026-09-23T23:50:52.517Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -473,7 +489,8 @@
         "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch",
         "pr-marketing-koordinator-m-f-d-badrutt-s-palace-hotel-st-moritz",
         "pr-marketing-coordinateur-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "direttore-of-brand-marketing-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -482,7 +499,8 @@
           "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch",
           "pr-marketing-koordinator-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "pr-marketing-coordinateur-m-f-d-badrutt-s-palace-hotel-st-moritz",
-          "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "leiter-brand-marketing-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "direttore-of-brand-marketing-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "pr-amp-marketing-coordinator-m-f-d-badrutts-palace-ch"
@@ -498,6 +516,7 @@
         ]
       },
       "firstSeenAt": "2026-07-22T12:22:28.662Z",
+      "needsRetranslation": true,
       "salaryMin": 96000,
       "salaryMax": 147500,
       "salarySource": "estimated",
@@ -544,7 +563,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8158231-assistant-head-of-technical-services-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:14:03.045Z",
+      "crawledAt": "2026-09-23T23:50:52.514Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -567,7 +586,8 @@
         "assistant-responsable-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "head-of-technical-services-m-w-d-badrutts-palace-ch",
         "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "assistente-responsabile-dei-servizi-tecnici-m-p-g-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -576,7 +596,8 @@
           "assistant-responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "head-of-technical-services-m-w-d-badrutts-palace-ch",
           "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
-          "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
+          "responsabile-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz",
+          "assistente-responsabile-dei-servizi-tecnici-m-p-g-badrutt-s-palace-hotel-st-moritz"
         ],
         "de": [
           "leiter-technical-services-m-w-d-badrutt-s-palace-hotel-st-moritz"
@@ -633,7 +654,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8183138-food-beverage-coordinator-m-w-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:14:03.037Z",
+      "crawledAt": "2026-09-23T23:50:52.511Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -655,7 +676,8 @@
         "food-receiver-storekeeper-m-f-d-badrutts-palace-ch",
         "food-receiver-storekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "lebensmittelempfanger-lagerhalter-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "recepteur-d-aliments-entreposeur-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        "recepteur-d-aliments-entreposeur-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "food-beverage-coordinatore-m-w-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -664,7 +686,8 @@
           "food-receiver-storekeeper-m-f-d-badrutts-palace-ch",
           "food-receiver-storekeeper-m-w-d-badrutt-s-palace-hotel-st-moritz",
           "lebensmittelempfanger-lagerhalter-m-w-d-badrutt-s-palace-hotel-st-moritz",
-          "recepteur-d-aliments-entreposeur-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "recepteur-d-aliments-entreposeur-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "food-beverage-coordinatore-m-w-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "food-receiver-storekeeper-m-f-d-badrutts-palace-ch"
@@ -675,6 +698,7 @@
         ]
       },
       "firstSeenAt": "2026-08-07T01:24:25.118Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -704,7 +728,7 @@
       "companyDomain": "badruttscareers.com",
       "title": "Painter (m/f/d)",
       "titleByLocale": {
-        "it": "Pittura (m/f/d)",
+        "it": "Painter (m/f/d)",
         "en": "Painter (m/f/d)",
         "de": "Maler (m/w/d)",
         "fr": "Peintre (h/f/d)"
@@ -721,7 +745,7 @@
       "url": "https://jobs.badruttscareers.com/en-GB/jobs/8199029-painter-m-f-d",
       "source": "Badrutt's Palace Hotel Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:14:03.026Z",
+      "crawledAt": "2026-09-23T23:50:52.508Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressCountry": "CH",
@@ -777,7 +801,8 @@
         "indischer-spezialitatenkoch-m-w-d-badrutts-palace-ch",
         "kuchenchef-m-w-d-badrutt-s-palace-hotel-st-moritz",
         "chef-specialise-indien-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz"
+        "chef-de-partie-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -799,7 +824,8 @@
           "chef-de-cuisine-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "cucina-indiana-m-f-d-badrutt-s-palace-hotel-st-moritz",
           "indischer-spezialitatenkoch-m-w-d-badrutt-s-palace-hotel-st-moritz",
-          "capopartita-m-f-d-badrutt-s-palace-hotel-st-moritz"
+          "capopartita-m-f-d-badrutt-s-palace-hotel-st-moritz",
+          "pittura-m-f-d-badrutt-s-palace-hotel-st-moritz"
         ],
         "en": [
           "spontaneous-application-badrutt-s-palace-hotel-st-moritz",
@@ -825,6 +851,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:33:44.652Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -835,6 +862,236 @@
           "@type": "QuantitativeValue",
           "minValue": 62000,
           "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "badrutts-palace-2085d5520254",
+      "slug": "assistant-restaurant-manager-per-paradiso-mountain-club-m-f-d-badrutt-s-palace-hotel-st-moritz",
+      "slugByLocale": {
+        "it": "assistant-restaurant-manager-per-paradiso-mountain-club-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d-badrutts-palace-ch",
+        "de": "assistent-restaurant-manager-for-paradiso-mountain-club-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "fr": "assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      },
+      "company": "Badrutt's Palace Hotel",
+      "companyKey": "badrutts-palace",
+      "companyDomain": "badruttscareers.com",
+      "title": "Assistant Restaurant Manager for \"Paradiso Mountain Club\" (m/f/d)",
+      "titleByLocale": {
+        "it": "Assistente alla gestione dei ristoratori per il \"Paradiso Mountain Club\" (m/f/d)",
+        "en": "Assistant Restaurant Manager for \"Paradiso Mountain Club\" (m/f/d)",
+        "de": "Assistent Restaurant Manager for \"Paradiso Mountain Club\" (m/f/d)",
+        "fr": "Assistant Restaurant Manager for \"Paradiso Mountain Club\" (m/f/d)"
+      },
+      "description": "<p><strong>Your key responsibilities</strong></p><ul><li><p>Supporting the Restaurant Manager in leading the service team at Paradiso Mountain Club, you will help oversee the daily operations of one of St. Moritz’s most distinctive mountain dining destinations.</p></li><li><p>You will coordinate daily restaurant operations both in the lounge and in the club, ensuring outstanding service and smooth operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality, personalised service and attention to detail will be at the heart of your role.</p></li><li><p>Working closely with the Restaurant Manager, kitchen and service teams, you will help maintain the highest standards of food and beverage presentation and service delivery.</p></li><li><p>You will support the recruitment, training and development of the service team, fostering engagement, strong performance and consistent service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the successful delivery of private functions, special occasions and events at Paradiso Mountain Club.</p></li><li><p>Supporting the Restaurant Manager with operational reporting, cost control, budgeting and forecasting will contribute to the continued success of the outlet.</p></li></ul><p><br><strong>\n• What you bring to the job</strong></p><ul><li><p>Proven management experience ideally gained in a fast-paced environment with the highest service standards.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and creating personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, commercial awareness and the ability to remain calm and solution-oriented in a dynamic, fast-paced mountain environment.</p></li><li><p>A hands-on approach, flexibility and the ability to work closely with the Restaurant Manager and the wider operational team.</p></li><li><p>Fluency in English is essential. Either German or Italian is also required.</p></li></ul><p><br><strong>Our offer</strong></p><ul><li><p>Permanent position in the unique setting of Paradiso Mountain Club.</p></li><li><p>Five-day working week, averaging 43.5 hours, with five weeks of annual leave and six public holidays per year.</p></li><li><p>13th-month salary from the start of employment, paid pro rata.</p></li><li><p>Accommodation in one of our modern staff residences at the beginning of your employment.</p></li><li><p>Staff meals provided during working hours.</p></li><li><p>An inspiring working environment with opportunities for professional development and career progression.</p></li></ul><p>If you are passionate about delivering exceptional guest experiences and enjoy supporting and leading a team in a dynamic luxury mountain setting, we look forward to receiving your complete online application.</p>",
+      "descriptionByLocale": {
+        "it": "<p> > Le tue responsabilità chiave Sostenere il Restaurant Manager nella guida del team di assistenza al Paradiso Mountain Club, vi aiuterà a supervisionare le operazioni quotidiane di una delle destinazioni di montagna più distintive di St. Moritz. Coordinate le operazioni di ristorazione giornaliere sia nel salone che nel club, garantendo un servizio eccezionale e prestazioni operative lisce. Creare esperienze ospiti memorabili attraverso la calda ospitalità, il servizio personalizzato e l'attenzione ai dettagli saranno al centro del vostro ruolo. Lavorando a stretto contatto con il Restaurant Manager, la cucina e i team di assistenza, vi aiuterà a mantenere i più elevati standard di presentazione e consegna di prodotti alimentari e bevande. Sosterrete il reclutamento, la formazione e lo sviluppo del team di assistenza, promuovendo l'impegno, le prestazioni forti e l'eccellenza del servizio coerente. La stretta collaborazione con il team Eventi e con altri dipartimenti alberghieri garantirà il successo delle funzioni private, delle occasioni speciali e degli eventi al Paradiso Mountain Club.\n• Che cosa si porta al lavoro L'esperienza di gestione acquisita idealmente in un ambiente veloce con i più elevati standard di servizio. È richiesto anche il tedesco o l'italiano. Una settimana lavorativa di cinque giorni, con una media di 43,5 ore, con cinque settimane di congedo annuo e sei giorni festivi all'anno. Se siete appassionati di offrire esperienze eccezionali agli ospiti e di godere di supporto e guida di un team in un ambiente di montagna di lusso dinamico, non vediamo l'ora di ricevere la vostra applicazione online completa.",
+        "en": "<p><strong>Your key responsibilities</strong></p><ul><li><p>Supporting the Restaurant Manager in leading the service team at Paradiso Mountain Club, you will help oversee the daily operations of one of St. Moritz’s most distinctive mountain dining destinations.</p></li><li><p>You will coordinate daily restaurant operations both in the lounge and in the club, ensuring outstanding service and smooth operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality, personalised service and attention to detail will be at the heart of your role.</p></li><li><p>Working closely with the Restaurant Manager, kitchen and service teams, you will help maintain the highest standards of food and beverage presentation and service delivery.</p></li><li><p>You will support the recruitment, training and development of the service team, fostering engagement, strong performance and consistent service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the successful delivery of private functions, special occasions and events at Paradiso Mountain Club.</p></li><li><p>Supporting the Restaurant Manager with operational reporting, cost control, budgeting and forecasting will contribute to the continued success of the outlet.</p></li></ul><p><br><strong>\n• What you bring to the job</strong></p><ul><li><p>Proven management experience ideally gained in a fast-paced environment with the highest service standards.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and creating personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, commercial awareness and the ability to remain calm and solution-oriented in a dynamic, fast-paced mountain environment.</p></li><li><p>A hands-on approach, flexibility and the ability to work closely with the Restaurant Manager and the wider operational team.</p></li><li><p>Fluency in English is essential. Either German or Italian is also required.</p></li></ul><p><br><strong>Our offer</strong></p><ul><li><p>Permanent position in the unique setting of Paradiso Mountain Club.</p></li><li><p>Five-day working week, averaging 43.5 hours, with five weeks of annual leave and six public holidays per year.</p></li><li><p>13th-month salary from the start of employment, paid pro rata.</p></li><li><p>Accommodation in one of our modern staff residences at the beginning of your employment.</p></li><li><p>Staff meals provided during working hours.</p></li><li><p>An inspiring working environment with opportunities for professional development and career progression.</p></li></ul><p>If you are passionate about delivering exceptional guest experiences and enjoy supporting and leading a team in a dynamic luxury mountain setting, we look forward to receiving your complete online application.</p>",
+        "de": "<p><strong>Ihre wichtigsten Verantwortlichkeiten</strong></p><ul><li><p> Unterstützen Sie den Restaurant Manager bei der Leitung des Serviceteams im Paradiso Mountain Club und begleiten Sie den täglichen Betrieb einer der markantesten Bergküchendestinationen in St. Moritz.</p></li><li><p> Sie koordinieren den täglichen Restaurantbetrieb sowohl in der Lounge als auch im Club und sorgen für einen hervorragenden Service und eine reibungslose Betriebsleistung.</p></li><li><p> Die Schaffung unvergesslicher Gästeerlebnisse durch herzliche Gastfreundschaft, persönlichen Service und Liebe zum Detail steht im Mittelpunkt Ihrer Rolle.</p></li><li><p> In enger Zusammenarbeit mit dem Restaurantmanager, den Küchen- und Serviceteams tragen Sie dazu bei, die höchsten Standards für die Präsentation von Speisen und Getränken und die Servicelieferung aufrechtzuerhalten.</p></li><li><p> Sie unterstützen die Rekrutierung, Schulung und Entwicklung des Serviceteams, fördern Engagement, starke Leistung und konsequente Service-Exzellenz.</p></li><li><p> Die enge Zusammenarbeit mit dem Event-Team und anderen Hotelabteilungen wird die erfolgreiche Durchführung von privaten Veranstaltungen, besonderen Anlässen und Veranstaltungen im Paradiso Mountain Club sicherstellen.</p></li><li><p>Die Unterstützung des Restaurantmanagers bei der Betriebsberichterstattung, Kostenkontrolle, Budgetierung und Prognose wird zum anhaltenden Erfolg des Outlets beitragen.</p></li></ul><p><br><strong>\n• Was Sie in den Job bringen</strong></p><ul><li><p> Bewährte Managementerfahrung, die idealerweise in einer schnelllebigen Umgebung mit den höchsten Servicestandards erworben wird.</p></li><li><p>Eine selbstbewusste, polierte und serviceorientierte Persönlichkeit, kombiniert mit hervorragenden Kommunikations- und zwischenmenschlichen Fähigkeiten.</p></li><li><p>Eine echte Leidenschaft für luxuriöse Gastfreundschaft und die Schaffung personalisierter Gästeerlebnisse auf höchstem Niveau.</p></li><li><p>Starke organisatorische Fähigkeiten, kommerzielles Bewusstsein und die Fähigkeit, in einer dynamischen, schnelllebigen Bergumgebung ruhig und lösungsorientiert zu bleiben.</p></li><li><li><p>Ein praktischer Ansatz, Flexibilität und die Fähigkeit, eng mit dem Restaurantmanager und dem breiteren operativen Team zusammenzuarbeiten.</p></li><li><p>Fluency in Englisch ist unerlässlich. Auch Deutsch oder Italienisch ist erforderlich.</p></li></ul><p><br><strong>Unser Angebot</strong></p><ul><li><p>Ständige Position im einzigartigen Rahmen des Paradiso Mountain Club.</p></li><li><p> Fünftägige Arbeitswoche, durchschnittlich 43,5 Stunden, mit fünf Wochen Jahresurlaub und sechs Feiertagen pro Jahr.</p></li><li><p>13. Monatsgehalt ab Beginn der Beschäftigung, anteilig bezahlt.</p></li><li><p>Unterkunft in einem unserer modernen Mitarbeiterwohnheime zu Beginn Ihrer Beschäftigung.</p></li><li><p>Verpflegung während der Arbeitszeit.</p></li><li><li><li><p>Ein inspirierendes Arbeitsumfeld mit Möglichkeiten für berufliche Entwicklung und Karriereentwicklung.</p></li></ul><p> Wenn Sie sich für außergewöhnliche Gästeerlebnisse begeistern und ein Team in einer dynamischen Luxus-Berglandschaft unterstützen und führen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p>",
+        "fr": "<p><strong>Vos principales responsabilités</strong></p><ul><li><p> En appuyant le gestionnaire du restaurant dans la direction de l'équipe de service au Paradiso Mountain Club, vous aiderez à superviser les opérations quotidiennes de l'une des destinations de restaurants de montagne les plus distinctives de St. Moritz.</p></li><li><p> Vous coordonnerez les activités quotidiennes du restaurant dans le salon et dans le club, assurant ainsi un service exceptionnel et une performance opérationnelle harmonieuse.</p></li><li><p> Créer des expériences mémorables pour les invités grâce à une chaleureuse hospitalité, un service personnalisé et une attention aux détails seront au cœur de votre rôle.</p></li><li><p> En travaillant en étroite collaboration avec le gestionnaire du restaurant, les équipes de cuisine et de services, vous aiderez à maintenir les normes les plus élevées de présentation des aliments et des boissons et de prestation de services.</p></li><li><p> Vous appuierez le recrutement, la formation et le perfectionnement de l'équipe de service, en favorisant l'engagement, le rendement solide et l'excellence constante des services.</p></li><li><p> Une collaboration étroite avec l'équipe des événements et d'autres services hôteliers permettra d'assurer la prestation réussie de fonctions privées, d'occasions spéciales et d'événements au Paradiso Mountain Club.</p></li><li><p>En aidant le gestionnaire du restaurant à produire des rapports opérationnels, à contrôler les coûts, à établir un budget et à prévoir les coûts, le tout contribuera au succès continu de la prise de décision.</p></li></ul><p><br><strong><\n• Ce que vous apportez au travail</strong></p><ul><li><p> Une expérience de gestion éprouvée, idéalement acquise dans un environnement à rythme rapide avec les normes de service les plus élevées.</p><li><li><p>Une personnalité confiante, polie et axée sur le service, combinée à d'excellentes compétences en communication et en relations interpersonnelles.</p><li><li><p>Une véritable passion pour l'hospitalité de luxe et la création d'expériences personnalisées pour les clients de la plus haute qualité.</p><li><p>Fortifier les compétences organisationnelles, la sensibilisation commerciale et la capacité de demeurer calme et axé sur la solution dans un environnement de montagne dynamique et à rythme rapide.</p><li><li><p>Une approche pratique, la souplesse et la capacité de travailler en étroite collaboration avec le gestionnaire du restaurant et l'équipe opérationnelle élargie.</p><li><p>La souplesse en anglais est essentielle. L'allemand ou l'italien est aussi requis.</p></li></ul><p><br><strong>Notre offre</strong></p><ul><li><p>Position permanente dans le cadre unique du Paradiso Mountain Club.</p></li><li><p> La semaine de travail de cinq jours, en moyenne 43,5 heures, avec cinq semaines de congé annuel et six jours fériés par année.</p></li><li><p>13e mois de salaire à compter du début de l'emploi, rémunéré au prorata.</p></li><li><p>Location dans l'une de nos résidences modernes au début de votre emploi.</p></li><li><p>Ménages fournis pendant les heures de travail.</p><li><li><p>Un milieu de travail inspirant offrant des possibilités de perfectionnement professionnel et d'avancement professionnel.</p></li></ul><p><p><p> Si vous êtes passionné par des expériences d'invités exceptionnelles et que vous aimez soutenir et diriger une équipe dans un cadre de montagne de luxe dynamique, nous sommes impatients de recevoir votre application complète en ligne.</p>"
+      },
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8271523-assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d",
+      "source": "Badrutt's Palace Hotel Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-23T23:50:52.505Z",
+      "addressLocality": "St. Moritz",
+      "postalCode": "7500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Management",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-26",
+      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8271523-assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d-badrutts-palace-ch",
+        "assistant-restaurant-manager-per-paradiso-mountain-club-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d-badrutts-palace-ch",
+          "assistant-restaurant-manager-per-paradiso-mountain-club-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        ]
+      },
+      "firstSeenAt": "2026-09-01T00:46:37.048Z",
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "badrutts-palace-7dbae39b8b97",
+      "slug": "supervisore-ai-piani-alloggi-del-personale-m-f-d-badrutt-s-palace-hotel-st-moritz",
+      "slugByLocale": {
+        "it": "supervisore-ai-piani-alloggi-del-personale-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch",
+        "de": "etagen-supervisor-personalunterkunfte-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "fr": "superviseur-d-etage-logements-du-personnel-h-f-d-badrutt-s-palace-hotel-st-moritz"
+      },
+      "company": "Badrutt's Palace Hotel",
+      "companyKey": "badrutts-palace",
+      "companyDomain": "badruttscareers.com",
+      "title": "Floor Supervisor Staff Housing (m/f/d)",
+      "titleByLocale": {
+        "it": "Supervisore di Piano Alloggi per il Personale (m/f/d)",
+        "en": "Floor Supervisor Staff Housing (m/f/d)",
+        "de": "Etagenleiter Personalunterkunft (m/w/d)",
+        "fr": "Superviseur d'Étage Hébergement du Personnel (h/f/d)"
+      },
+      "description": "<p><strong>Your key responsibilities</strong></p><ul><li><p>You lead and motivate a team of up to 5 employees with confidence and flair.</p></li><li><p>Ensuring impeccable cleaning and maintenance standards across up to 300 staff rooms or 150 holiday apartments is a key part of your role.</p></li><li><p>Within the assigned staff areas of the hotel, you ensure outstanding levels of cleanliness and order at all times.</p></li><li><p>As a skilled organiser, you oversee linen management and small inventory, ensuring smooth and efficient operations.</p></li><li><p>Close collaboration with the Technical Services and Human Resources departments enables you to maintain the highest standards of service quality.</p></li><li><p>By actively participating in team training sessions, you contribute to the continuous development of our cleaning standards.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><p>For this varied and exciting position, you ideally bring the following qualifications and qualities:</p><ul><li><p>A completed professional qualification in hospitality, combined with relevant work experience, provides the ideal foundation for this role.</p></li><li><p>Previous leadership experience has given you the confidence to support the management of a team.</p></li><li><p>Good spoken English and Italian skills are required, while knowledge of German is considered an advantage.</p></li><li><p>Confident computer skills enable you to handle your daily tasks efficiently.</p></li><li><p>A high level of initiative, commitment, and reliability characterises your way of working.</p></li><li><p>Your strong sense of quality is complemented by excellent attention to detail.</p></li><li><p>With a confident and professional appearance, you demonstrate excellent manners and interpersonal skills.</p></li></ul><p><strong>Our offer</strong></p><ul><li><p>Permanent full-time position in St. Moritz.</p></li><li><p>Average 5-day working week with 43.5 working hours.</p></li><li><p>5 weeks of vacation and 6 public holidays per year.</p></li><li><p>13th salary from the start date (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses at the beginning upon request.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are looking for an interesting, challenging, and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.<br><br><br><span><strong><em>Recruitment Fraud Warning</em></strong></span></p><p><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
+      "descriptionByLocale": {
+        "it": "Le vostre responsabilità chiave\n\n- Lei guida e con un massimo di duecentoquarantasette dipendenti.\n\n- Garantire standard di pulizia e manutenzione impeccabili in un massimo di 300 camere per il personale o 150 appartamenti per le vacanze è una parte fondamentale del vostro ruolo.\n\n- All'interno delle aree di personale dell'hotel, assicurate sempre livelli eccezionali di pulizia e ordine.\n\n- Come organizzatore qualificato, si supervisiona la gestione della biancheria e il piccolo inventario, garantendo operazioni fluide ed efficienti.\n\n- Una stretta collaborazione con i servizi dei Servizi Tecnici e delle Risorse Umane consente di mantenere i più elevati standard di qualità dei servizi.\n\n- Partecipando attivamente alle sessioni di formazione del team, contribuisci allo sviluppo continuo dei nostri standard di pulizia.\n\n• Cosa si porta al lavoro\n\nPer questa posizione varia ed emozionante, si idealmente portare le seguenti qualifiche e qualità:\n\n- Una qualificazione professionale completa in ospitalità, unita ad una rilevante esperienza lavorativa, costituisce la base ideale per questo ruolo.\n\n- La precedente esperienza di leadership ti ha dato la fiducia di supportare la gestione di un team.\n\n- Sono necessarie buone competenze parlate in inglese e italiano, mentre la conoscenza del tedesco è considerata un vantaggio.\n\n- competenze informatiche confidenti consentono di gestire le vostre attività quotidiane in modo efficiente.\n\n- Un alto livello di iniziativa, impegno e affidabilità caratterizza il vostro modo di lavorare.\n\n- Il vostro forte senso di qualità è completato da un'ottima attenzione ai dettagli.\n\n- Con un aspetto sicuro e professionale, si dimostra eccellente maniere e capacità interpersonali.\n\nLa nostra offerta\n\n- Posizione permanente a tempo pieno a St. Moritz.\n\n- media settimana lavorativa di 5 giorni con 43,5 ore lavorative.\n\n- 5 settimane di riposo e 6 giorni festivi all'anno.\n\n- 13° stipendio dalla data di inizio (pro rata temporis).\n\n- Alloggio in una delle nostre nuove case del personale all'inizio su richiesta.\n\n- Pasti disponibili nel nostro nuovo e moderno ristorante personale.\n\n- Possibilità di lavorare in un ambiente attraente con opportunità di sviluppo e di crescita professionale.\n\nSe siete alla ricerca di un ruolo interessante, impegnativo e vario in un ambiente dinamico e vorreste unirvi a un team ben consolidato, non vediamo l'ora di ricevere la vostra applicazione online completa.\n\nAvviso sulle frodi in materia di assunzione\n\nIl Badrutt's Palace Hotel non richiederà mai il pagamento o informazioni finanziarie durante il processo di reclutamento. Tutte le comunicazioni ufficiali vengono inviate esclusivamente da indirizzi e-mail che terminano in @ badruttsgalace.com. Se ricevi qualsiasi richiesta di pagamento o comunicazione sospetta, ti preghiamo di ignorarlo e contattarci direttamente attraverso il nostro sito ufficiale.",
+        "en": "<p><strong>Your key responsibilities</strong></p><ul><li><p>You lead and motivate a team of up to 5 employees with confidence and flair.</p></li><li><p>Ensuring impeccable cleaning and maintenance standards across up to 300 staff rooms or 150 holiday apartments is a key part of your role.</p></li><li><p>Within the assigned staff areas of the hotel, you ensure outstanding levels of cleanliness and order at all times.</p></li><li><p>As a skilled organiser, you oversee linen management and small inventory, ensuring smooth and efficient operations.</p></li><li><p>Close collaboration with the Technical Services and Human Resources departments enables you to maintain the highest standards of service quality.</p></li><li><p>By actively participating in team training sessions, you contribute to the continuous development of our cleaning standards.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><p>For this varied and exciting position, you ideally bring the following qualifications and qualities:</p><ul><li><p>A completed professional qualification in hospitality, combined with relevant work experience, provides the ideal foundation for this role.</p></li><li><p>Previous leadership experience has given you the confidence to support the management of a team.</p></li><li><p>Good spoken English and Italian skills are required, while knowledge of German is considered an advantage.</p></li><li><p>Confident computer skills enable you to handle your daily tasks efficiently.</p></li><li><p>A high level of initiative, commitment, and reliability characterises your way of working.</p></li><li><p>Your strong sense of quality is complemented by excellent attention to detail.</p></li><li><p>With a confident and professional appearance, you demonstrate excellent manners and interpersonal skills.</p></li></ul><p><strong>Our offer</strong></p><ul><li><p>Permanent full-time position in St. Moritz.</p></li><li><p>Average 5-day working week with 43.5 working hours.</p></li><li><p>5 weeks of vacation and 6 public holidays per year.</p></li><li><p>13th salary from the start date (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses at the beginning upon request.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are looking for an interesting, challenging, and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.<br><br><br><span><strong><em>Recruitment Fraud Warning</em></strong></span></p><p><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
+        "de": "Ihre wichtigsten Aufgaben\n\n- Sie führen und motivieren ein Team von bis zu 5 Mitarbeitern mit Vertrauen und Flair.\n\n- Die Gewährleistung einwandfreier Reinigung und Wartungsstandards in bis zu 300 Personalräumen oder 150 Ferienwohnungen ist ein wichtiger Bestandteil Ihrer Rolle.\n\n- Innerhalb der zugewiesenen Mitarbeiterbereiche des Hotels sorgen Sie für hervorragende Sauberkeit und Ordnung zu jeder Zeit.\n\n- Als erfahrener Organisator überwachen Sie das Leinenmanagement und die Kleininventarhaltung, wodurch ein reibungsloser und effizienter Betrieb gewährleistet wird.\n\n- Die enge Zusammenarbeit mit den Abteilungen Technische Dienstleistungen und Personal ermöglicht es Ihnen, höchste Standards der Servicequalität zu halten.\n\n- Mit der aktiven Teilnahme an Teamtrainings tragen Sie zur kontinuierlichen Weiterentwicklung unserer Reinigungsstandards bei.\n\n• Was Sie in den Job bringen\n\nFür diese abwechslungsreiche und spannende Position bringen Sie idealerweise folgende Qualifikationen und Qualitäten mit:\n\n- Eine abgeschlossene berufliche Qualifikation in der Gastlichkeit, kombiniert mit relevanten Berufserfahrung, bietet die ideale Grundlage für diese Rolle.\n\n- Frühere Führungserfahrung hat Ihnen das Vertrauen gegeben, die Führung eines Teams zu unterstützen.\n\n- Gut gesprochene Englisch- und Italienischkenntnisse sind erforderlich, während Deutschkenntnisse als Vorteil angesehen werden.\n\n- Vertrauliche Computerkenntnisse ermöglichen es Ihnen, Ihre täglichen Aufgaben effizient zu bewältigen.\n\n- Ein hohes Maß an Initiative, Engagement und Zuverlässigkeit kennzeichnet Ihre Arbeitsweise.\n\n- Ihr ausgeprägtes Qualitätsgefühl wird durch eine ausgezeichnete Liebe zum Detail ergänzt.\n\n- Mit einem selbstbewussten und professionellen Auftritt, zeigen Sie hervorragende Manieren und zwischenmenschliche Fähigkeiten.\n\nUnser Angebot\n\n- Dauerhafter Vollzeit-Stelle in St. Moritz.\n\n- Durchschnittliche 5-Tages-Woche mit 43,5 Arbeitsstunden.\n\n- 5 Wochen Urlaub und 6 Feiertage pro Jahr.\n\n- 13. Gehalt ab dem Beginn (pro rata temporis).\n\n- Unterkunft in einem unserer neuen Mitarbeiterhäuser am Anfang auf Anfrage.\n\n- Mahlzeiten in unserem neuen und modernen Personal Restaurant.\n\n- Gelegenheit, in einem attraktiven Umfeld mit Entwicklungs- und Karrierechancen zu arbeiten.\n\nWenn Sie eine interessante, herausfordernde und abwechslungsreiche Rolle in einem dynamischen Umfeld suchen und sich einem gut etablierten Team anschließen möchten, freuen wir uns auf Ihre komplette Online-Bewerbung.\n\nWarnung vor rekrutierender Betrug\n\nBadrutts Palace Hotel wird während des Rekrutierungsprozesses niemals um Zahlung oder finanzielle Informationen gebeten. Alle offizielle Kommunikation wird ausschließlich von E-Mail-Adressen gesendet, die in @ badruttspalace.com enden. Wenn Sie eine Zahlungsanfrage oder verdächtige Kommunikation erhalten, missachten Sie sie und kontaktieren Sie uns direkt über unsere offizielle Website.",
+        "fr": "Vos responsabilités clés\n\n- Vous dirigez et motivez une équipe de 5 employés avec confiance et flair.\n\n- Assurer les normes de nettoyage et d'entretien de l'année en cours dans 300 chambres ou 150 appartements de vacances est un élément clé de votre rôle.\n\n- Dans les zones de personnel de l'hôtel, vous assurez des niveaux exceptionnels de propreté et de commande en tout temps.\n\n- En tant que collectif qualifié, vous supervisez la gestion du linge et les petits stocks, assurant des opérations fluides et efficaces.\n\n- Une collaboration étroite avec les services techniques et les services des ressources humaines vous permet de maintenir les normes de qualité de service les plus élevées.\n\n- En participant activement aux sessions de formation d'équipe, vous contribuez au développement continu de nos normes de nettoyage.\n\n• Ce que vous apportez au travail\n\nPour ce poste varié et passionnant, vous apportez idéalement les qualifications et qualités suivantes:\n\n- Une qualification professionnelle complète en hospitalité, combinée à une expérience de travail pertinente, constitue le fondement idéal de ce rôle.\n\n- L'expérience de leadership vous a donné la confiance nécessaire pour soutenir la gestion d'une équipe.\n\n- De bonnes compétences en anglais et en italien sont requises, tandis que la connaissance de l'allemand est considérée comme un avantage.\n\n- Compétences informatiques fiables vous permettent de gérer vos tâches quotidiennes efficacement.\n\n- Un haut niveau d'initiative, d'engagement et de fiabilité caractérise votre façon de travailler.\n\n- Votre sens fort de la qualité est complété par une excellente attention aux détails.\n\n- Avec une apparence confiante et professionnelle, vous démontrez d'excellentes manières et des compétences interpersonnelles.\n\nNotre offre\n\n- Poste permanent à temps plein à St. Moritz.\n\n- Moyenne de 5 jours par semaine avec 43,5 heures de travail.\n\n- 5 semaines de vacances et 6 jours fériés par an.\n\n- 13e salaire à compter de la date de début (pro rata temporis).\n\n- Hébergement dans une de nos nouvelles maisons de staff au début sur demande.\n\n- Repas disponibles dans notre nouveau restaurant moderne.\n\n- Possibilité de travailler dans un environnement attrayant avec des possibilités de développement et de croissance de carrière.\n\nSi vous cherchez un rôle intéressant, stimulant et varié dans un environnement dynamique et souhaitez rejoindre une équipe bien établie, nous sommes impatients de recevoir votre candidature complète en ligne.\n\nAvertissement de fraude en matière de recrutement\n\nL'hôtel Palace de Badrutt ne demandera jamais de paiement ou d'informations financières pendant le processus de recrutement. Toute communication officielle est envoyée exclusivement à partir des adresses e-mail se terminant par @ badruttspalace.com. Si vous recevez une demande de paiement ou de communication suspecte, veuillez ne pas le faire et contactez-nous directement via notre site officiel."
+      },
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8395281-floor-supervisor-staff-housing-m-f-d",
+      "source": "Badrutt's Palace Hotel Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-23T23:50:52.500Z",
+      "addressLocality": "St. Moritz",
+      "postalCode": "7500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ospitalità",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-17",
+      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8395281-floor-supervisor-staff-housing-m-f-d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch",
+        "supervisore-ai-piani-alloggi-del-personale-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch",
+          "supervisore-ai-piani-alloggi-del-personale-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        ],
+        "de": [
+          "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch"
+        ],
+        "fr": [
+          "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-18T23:21:57.375Z",
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "GR"
+    },
+    {
+      "id": "badrutts-palace-f6389a361791",
+      "slug": "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz",
+      "slugByLocale": {
+        "it": "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz",
+        "en": "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
+        "de": "restaurantmanager-fur-le-grand-hall-m-w-d-badrutt-s-palace-hotel-st-moritz",
+        "fr": "gestionnaire-de-restaurant-pour-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      },
+      "company": "Badrutt's Palace Hotel",
+      "companyKey": "badrutts-palace",
+      "companyDomain": "badruttscareers.com",
+      "title": "Restaurant Manager for \"Le Grand Hall\" (m/f/d)",
+      "titleByLocale": {
+        "it": "Responsabile ristorante \"Le Grand Hall\" (m/f/d)",
+        "en": "Restaurant Manager for \"Le Grand Hall\" (m/f/d)",
+        "de": "Restaurantmanager für \"Le Grand Hall\" (m/w/d)",
+        "fr": "Gestionnaire de restaurant pour \"Le Grand Hall\" (m/f/d)"
+      },
+      "description": "<p><span><strong>Your key responsibilities</strong></span></p><ul><li><p>Leading the service team in <strong>Le Grand Hall, </strong>our iconic all-day dining venue and lounge, you will have operational responsibility for one of our hotel's signature dining venues, serving among other things authentic Indian cuisine and specialities from our pastry kitchen. </p></li><li><p>Daily restaurant operations, including table allocation and guest flow, will fall under your responsibility, ensuring both outstanding service and optimal operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality and personalised service will be at the heart of your role.</p></li><li><p>Working closely with the Executive Chef, Bar team and other departments, you will maintain the highest standards in food and beverage presentation and service delivery.</p></li><li><p>You will take ownership of recruiting, developing and managing the service team, ensuring the highest levels of engagement, performance and service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the smooth execution of private functions and special occasions hosted in Le Grand Hall.</p></li><li><p>Supporting management with operational reporting, cost analysis, budgeting and forecasting will contribute to the ongoing success of the outlet.</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><ul><li><p>Several years of management experience within a luxury restaurant or five-star hotel, ideally in a Restaurant Manager or comparable leadership role.</p></li><li><p>A natural leader with the ability to motivate, inspire and develop teams while creating a positive and professional working environment.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and delivering personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, sound commercial awareness and the ability to remain calm and solution-oriented in a fast-paced environment.</p></li><li><p>Fluency in English is essential. Either German or Italian is required.</p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p>10-month contract, start to be discussed, with the possibility to renew from November 2027.</p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are passionate about creating exceptional guest experiences and enjoy leading a team in one of Switzerland's most iconic luxury hotels, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
+      "descriptionByLocale": {
+        "it": "<p> < > < > > > Le tue responsabilità chiave Conducendo il team di assistenza in <strong>Le Grand Hall, </strong> il nostro iconico luogo di pranzo e salotto di tutti i giorni, avrete la responsabilità operativa di uno dei luoghi di pranzo firmati del nostro hotel, servendo tra l'altro autentica cucina indiana e specialità dalla nostra cucina pasticceria. < > > > > > > > Le operazioni di ristorazione giornaliere, tra cui l'allocazione della tabella e il flusso degli ospiti, cadranno sotto la vostra responsabilità, assicurando sia il servizio eccezionale che le prestazioni operative ottimali. Lavorando a stretto contatto con il team Executive Chef, Bar e altri dipartimenti, manterrete i più elevati standard di presentazione e consegna di prodotti alimentari e bevande. Prenderai la proprietà di reclutare, sviluppare e gestire il team di assistenza, garantendo i più alti livelli di impegno, prestazioni e eccellenza dei servizi. La stretta collaborazione con il team Eventi e altri dipartimenti alberghieri garantirà l'esecuzione regolare delle funzioni private e delle occasioni speciali ospitate in Le Grand Hall.\n• Che cosa si porta alla soluzione di assunzione/strong> </span> < < > < < < < < > > < > > > > > > > ι > > > > > > ι > > > > > > > > > > > ι > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > Se siete appassionati di creare esperienze ospiti eccezionali e di godere di un team leader in uno degli hotel di lusso più iconici della Svizzera, non vediamo l'ora di ricevere la vostra applicazione online completa. Badrutt's Palace Hotel non richiederà mai il pagamento o informazioni finanziarie durante il processo di reclutamento. Tutte le comunicazioni ufficiali sono inviate esclusivamente da indirizzi e-mail che terminano in @ </em> </span> <a target=\" blank\" href=\"http://badruttspalace.com\"> Se ricevi una richiesta di pagamento o di comunicazione sospetta, ti preghiamo di ignorarla e contattarci direttamente tramite il nostro sito ufficiale.",
+        "en": "<p><span><strong>Your key responsibilities</strong></span></p><ul><li><p>Leading the service team in <strong>Le Grand Hall, </strong>our iconic all-day dining venue and lounge, you will have operational responsibility for one of our hotel's signature dining venues, serving among other things authentic Indian cuisine and specialities from our pastry kitchen. </p></li><li><p>Daily restaurant operations, including table allocation and guest flow, will fall under your responsibility, ensuring both outstanding service and optimal operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality and personalised service will be at the heart of your role.</p></li><li><p>Working closely with the Executive Chef, Bar team and other departments, you will maintain the highest standards in food and beverage presentation and service delivery.</p></li><li><p>You will take ownership of recruiting, developing and managing the service team, ensuring the highest levels of engagement, performance and service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the smooth execution of private functions and special occasions hosted in Le Grand Hall.</p></li><li><p>Supporting management with operational reporting, cost analysis, budgeting and forecasting will contribute to the ongoing success of the outlet.</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><ul><li><p>Several years of management experience within a luxury restaurant or five-star hotel, ideally in a Restaurant Manager or comparable leadership role.</p></li><li><p>A natural leader with the ability to motivate, inspire and develop teams while creating a positive and professional working environment.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and delivering personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, sound commercial awareness and the ability to remain calm and solution-oriented in a fast-paced environment.</p></li><li><p>Fluency in English is essential. Either German or Italian is required.</p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p>10-month contract, start to be discussed, with the possibility to renew from November 2027.</p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are passionate about creating exceptional guest experiences and enjoy leading a team in one of Switzerland's most iconic luxury hotels, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
+        "de": "<p><span><strong>Ihre wichtigsten Verantwortlichkeiten</strong></span></p><ul><li><p> Als Leiter des Serviceteams in <strong>Le Grand Hall, </strong>unserem ikonischen ganztägigen Speisesaal und Lounge tragen Sie die operative Verantwortung für einen der wichtigsten Speiseorte unseres Hotels, der unter anderem authentische indische Küche und Spezialitäten aus unserer Gebäckküche serviert. </p></li><li><p> Der tägliche Restaurantbetrieb, einschließlich der Tischzuordnung und des Gästeflusses, fällt in Ihre Verantwortung und gewährleistet sowohl einen hervorragenden Service als auch eine optimale operative Leistung.</p></li><li><p>Die Schaffung unvergesslicher Gästeerlebnisse durch herzliche Gastfreundschaft und personalisierten Service stehen im Mittelpunkt Ihrer Rolle.</p></li><li><p> In enger Zusammenarbeit mit dem Chefkoch, dem Bar-Team und anderen Abteilungen werden Sie die höchsten Standards bei der Präsentation von Speisen und Getränken und der Bereitstellung von Dienstleistungen einhalten.</p></li><li><p> Sie übernehmen die Verantwortung für die Rekrutierung, Entwicklung und Verwaltung des Serviceteams und gewährleisten ein Höchstmaß an Engagement, Leistung und Service-Exzellenz.</p></li><li><p> Die enge Zusammenarbeit mit dem Event-Team und anderen Hotelabteilungen wird die reibungslose Durchführung von privaten Veranstaltungen und besonderen Anlässen in Le Grand Hall sicherstellen.</p></li><li><p>Die Unterstützung des Managements durch Betriebsberichterstattung, Kostenanalyse, Budgetierung und Prognose wird zum anhaltenden Erfolg des Outlets beitragen.</p></li></ul><p></p></p><span><strong>\n• Was Sie für den Job mitbringen</strong></span></p><ul><li><p>Mehrjährige Führungserfahrung in einem Luxusrestaurant oder Fünf-Sterne-Hotel, idealerweise in einer Restaurantmanagerin oder vergleichbaren Führungsrolle.</p></li><li><p>Ein natürlicher Leader mit der Fähigkeit, Teams zu motivieren, zu inspirieren und zu entwickeln und gleichzeitig ein positives und professionelles Arbeitsumfeld zu schaffen.</p></li><li><p>Eine selbstbewusste, polierte und serviceorientierte Persönlichkeit, kombiniert mit exzellenter Kommunikation und zwischenmenschlichen Fähigkeiten.</p></li><li><li><p>Eine echte Leidenschaft für luxuriöse Gastfreundschaft und die Bereitstellung personalisierter Gästeerlebnisse auf höchstem Niveau.</p></li><li><p>Starke organisatorische Fähigkeiten, solides kommerzielles Bewusstsein und die Fähigkeit, in einem schnelllebigen Umfeld ruhig und lösungsorientiert zu bleiben.</p></li><li><p>Fluency in Englisch ist unerlässlich. Erforderlich ist Deutsch oder Italienisch.</p></li></ul></p><p><span><strong>Unser Angebot</strong></span></p><ul><li><p>10-Monats-Vertrag wird diskutiert, mit der Möglichkeit, ab November 2027 zu verlängern.</p></li><li><p>5-Tage-Woche mit durchschnittlich 43,5 Stunden, mit 5 Wochen Urlaub und 6 gesetzlichen Feiertagen pro Jahr.</p></li><li><p>13. Monatsgehalt ab Arbeitsbeginn (pro rata temporis).</p></li><li><p>Unterkünfte in einem unserer neuen Mitarbeiterhäuser.</p></li><li><p>Mahlzeiten in unserem neuen und modernen Mitarbeiterrestaurant.</p></li><li><p>Mahlzeiten in unserem neuen und modernen Mitarbeiterrestaurant.</p></li><li><p>Chance, in einem attraktiven Umfeld mit Entwicklungs- Wenn Sie sich für außergewöhnliche Gästeerlebnisse begeistern und ein Team in einem der kultigsten Luxushotels der Schweiz leiten möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em> Badrutt's palace hotel wird während des rekrutierungsprozesses niemals zahlungs- oder finanzinformationen anfordern. Die gesamte offizielle Kommunikation wird ausschließlich von E-Mail-Adressen gesendet, die mit @</em></span><a target=\" blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em> enden. Wenn Sie eine Zahlungsanfrage oder verdächtige Kommunikation erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></span></p>",
+        "fr": "<p><span><strong>Vos principales responsabilités</strong></span></p><ul><li><p> Diriger l'équipe de service dans <strong>Le Grand Hall, </strong>notre salle à manger et salon iconique toute la journée, vous aurez la responsabilité opérationnelle de l'un des restaurants phares de notre hôtel, servant entre autres une cuisine indienne authentique et des spécialités de notre cuisine pâtissière. </p></li><li><p> Les activités quotidiennes des restaurants, y compris l'attribution de la table et le flux des invités, seront sous votre responsabilité, assurant à la fois un service exceptionnel et une performance opérationnelle optimale.</p></li><li><p>Créer des expériences mémorables des invités grâce à une chaleureuse hospitalité et à un service personnalisé sera au cœur de votre rôle.</p></li><li><p> En étroite collaboration avec le chef exécutif, l'équipe du Barreau et d'autres ministères, vous respecterez les normes les plus élevées en matière de présentation des aliments et des boissons et de prestation des services.</p></li><li><p> Vous assumerez la responsabilité du recrutement, du développement et de la gestion de l'équipe de services, assurant ainsi les plus hauts niveaux d'engagement, de rendement et d'excellence en matière de services.</p></li><li><p> Une collaboration étroite avec l'équipe des événements et d'autres services hôteliers permettra d'assurer la bonne exécution des fonctions privées et des occasions spéciales organisées au Grand Hall.\n• Ce que vous apportez au travail</fort></span></p><ul><li><p>Plusieurs années d'expérience en gestion au sein d'un restaurant de luxe ou d'un hôtel cinq étoiles, idéalement dans un restaurant-gestionnaire ou un rôle de leadership comparable.</p><li><li><p>Un leader naturel capable de motiver, d'inspirer et de développer des équipes tout en créant un environnement de travail positif et professionnel.</p><li><p>Une personnalité confiante, polie et orientée vers le service, combinée à d'excellentes compétences en communication et en relations interpersonnelles.</p><li><p>Une véritable passion pour l'hospitalité de luxe et la prestation d'expériences personnalisées aux clients de la plus haute qualité.</p><li><p>Des compétences organisationnelles solides, une bonne sensibilisation commerciale et la capacité de rester calme et axé sur la solution dans un environnement à rythme rapide.</p><li><p>La souplesse en anglais est essentielle. L'allemand ou l'italien est requis.</p></li></ul><p></p><p><span><strong>Notre offre</strong></span></p><ul><li><p>10 mois de contrat, commence à être discutée, avec la possibilité de renouveler à partir de novembre 2027.</p><li><p>5 jours de travail en moyenne 43,5 heures, avec 5 semaines de vacances et 6 jours fériés par année.</p><li><p>13e mois de salaire depuis le début de l'emploi (pro rata temporis).</p><li><p><p>Opportunité de travailler dans un environnement attrayant avec des possibilités de développement et de carrière.</p></p></p></p><li></p></p></p></p></p></p></p></p></p><></p></p></p></p><> Si vous êtes passionné par la création d'expériences exceptionnelles et que vous aimez diriger une équipe dans l'un des hôtels de luxe les plus emblématiques de Suisse, nous sommes impatients de recevoir votre demande en ligne complète.</p><p><p><span><strong><em>Recrutement Fraud Warning</em></strong></span><br><span><em> L'hôtel Palace de Badrutt ne demandera jamais de paiement ou d'informations financières pendant le processus de recrutement. Toute communication officielle est envoyée exclusivement à partir d'adresses électroniques se terminant par @</em></span><a cible=\" blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. Si vous recevez une demande de paiement ou de communication suspecte, veuillez la ignorer et nous contacter directement via notre site Web officiel.</em></span></p>"
+      },
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
+      "source": "Badrutt's Palace Hotel Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-23T23:50:52.486Z",
+      "addressLocality": "St. Moritz",
+      "postalCode": "7500",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Management",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-13",
+      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
+        "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
+          "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz"
+        ],
+        "fr": [
+          "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
+        ]
+      },
+      "firstSeenAt": "2026-07-13T13:19:32.662Z",
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
           "unitText": "YEAR"
         }
       },
@@ -854,7 +1111,7 @@
       "companyDomain": "badruttscareers.com",
       "title": "Night Concierge (m/w/d)",
       "titleByLocale": {
-        "it": "Concierge notturno (m/f/d)",
+        "it": "Night Concierge (m/w/d)",
         "en": "Night Concierge (m/f/d)",
         "de": "Night Concierge (m/w/d)",
         "fr": "Concierge de nuit (h/f/d)"
@@ -912,229 +1169,9 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "badrutts-palace-2085d5520254",
-      "slug": "assistant-restaurant-manager-per-paradiso-mountain-club-m-f-d-badrutt-s-palace-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "assistant-restaurant-manager-per-paradiso-mountain-club-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d-badrutts-palace-ch",
-        "de": "assistent-restaurant-manager-for-paradiso-mountain-club-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d-badrutt-s-palace-hotel-st-moritz"
-      },
-      "company": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "companyDomain": "badruttscareers.com",
-      "title": "Assistant Restaurant Manager for \"Paradiso Mountain Club\" (m/f/d)",
-      "titleByLocale": {
-        "it": "Assistente alla gestione dei ristoratori per il \"Paradiso Mountain Club\" (m/f/d)",
-        "en": "Assistant Restaurant Manager for \"Paradiso Mountain Club\" (m/f/d)",
-        "de": "Assistent Restaurant Manager for \"Paradiso Mountain Club\" (m/f/d)",
-        "fr": "Chef de restaurant adjoint pour \"Paradiso Mountain Club\" (h/f/d)"
-      },
-      "description": "<p><strong>Your key responsibilities</strong></p><ul><li><p>Supporting the Restaurant Manager in leading the service team at Paradiso Mountain Club, you will help oversee the daily operations of one of St. Moritz’s most distinctive mountain dining destinations.</p></li><li><p>You will coordinate daily restaurant operations both in the lounge and in the club, ensuring outstanding service and smooth operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality, personalised service and attention to detail will be at the heart of your role.</p></li><li><p>Working closely with the Restaurant Manager, kitchen and service teams, you will help maintain the highest standards of food and beverage presentation and service delivery.</p></li><li><p>You will support the recruitment, training and development of the service team, fostering engagement, strong performance and consistent service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the successful delivery of private functions, special occasions and events at Paradiso Mountain Club.</p></li><li><p>Supporting the Restaurant Manager with operational reporting, cost control, budgeting and forecasting will contribute to the continued success of the outlet.</p></li></ul><p><br><strong>\n• What you bring to the job</strong></p><ul><li><p>Proven management experience ideally gained in a fast-paced environment with the highest service standards.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and creating personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, commercial awareness and the ability to remain calm and solution-oriented in a dynamic, fast-paced mountain environment.</p></li><li><p>A hands-on approach, flexibility and the ability to work closely with the Restaurant Manager and the wider operational team.</p></li><li><p>Fluency in English is essential. Either German or Italian is also required.</p></li></ul><p><br><strong>Our offer</strong></p><ul><li><p>Permanent position in the unique setting of Paradiso Mountain Club.</p></li><li><p>Five-day working week, averaging 43.5 hours, with five weeks of annual leave and six public holidays per year.</p></li><li><p>13th-month salary from the start of employment, paid pro rata.</p></li><li><p>Accommodation in one of our modern staff residences at the beginning of your employment.</p></li><li><p>Staff meals provided during working hours.</p></li><li><p>An inspiring working environment with opportunities for professional development and career progression.</p></li></ul><p>If you are passionate about delivering exceptional guest experiences and enjoy supporting and leading a team in a dynamic luxury mountain setting, we look forward to receiving your complete online application.</p>",
-      "descriptionByLocale": {
-        "it": "<p> > Le tue responsabilità chiave Sostenere il Restaurant Manager nella guida del team di assistenza al Paradiso Mountain Club, vi aiuterà a supervisionare le operazioni quotidiane di una delle destinazioni di montagna più distintive di St. Moritz. Coordinate le operazioni di ristorazione giornaliere sia nel salone che nel club, garantendo un servizio eccezionale e prestazioni operative lisce. Creare esperienze ospiti memorabili attraverso la calda ospitalità, il servizio personalizzato e l'attenzione ai dettagli saranno al centro del vostro ruolo. Lavorando a stretto contatto con il Restaurant Manager, la cucina e i team di assistenza, vi aiuterà a mantenere i più elevati standard di presentazione e consegna di prodotti alimentari e bevande. Sosterrete il reclutamento, la formazione e lo sviluppo del team di assistenza, promuovendo l'impegno, le prestazioni forti e l'eccellenza del servizio coerente. La stretta collaborazione con il team Eventi e con altri dipartimenti alberghieri garantirà il successo delle funzioni private, delle occasioni speciali e degli eventi al Paradiso Mountain Club.\n• Che cosa si porta al lavoro L'esperienza di gestione acquisita idealmente in un ambiente veloce con i più elevati standard di servizio. È richiesto anche il tedesco o l'italiano. Una settimana lavorativa di cinque giorni, con una media di 43,5 ore, con cinque settimane di congedo annuo e sei giorni festivi all'anno. Se siete appassionati di offrire esperienze eccezionali agli ospiti e di godere di supporto e guida di un team in un ambiente di montagna di lusso dinamico, non vediamo l'ora di ricevere la vostra applicazione online completa.",
-        "en": "<p><strong>Your key responsibilities</strong></p><ul><li><p>Supporting the Restaurant Manager in leading the service team at Paradiso Mountain Club, you will help oversee the daily operations of one of St. Moritz’s most distinctive mountain dining destinations.</p></li><li><p>You will coordinate daily restaurant operations both in the lounge and in the club, ensuring outstanding service and smooth operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality, personalised service and attention to detail will be at the heart of your role.</p></li><li><p>Working closely with the Restaurant Manager, kitchen and service teams, you will help maintain the highest standards of food and beverage presentation and service delivery.</p></li><li><p>You will support the recruitment, training and development of the service team, fostering engagement, strong performance and consistent service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the successful delivery of private functions, special occasions and events at Paradiso Mountain Club.</p></li><li><p>Supporting the Restaurant Manager with operational reporting, cost control, budgeting and forecasting will contribute to the continued success of the outlet.</p></li></ul><p><br><strong>\n• What you bring to the job</strong></p><ul><li><p>Proven management experience ideally gained in a fast-paced environment with the highest service standards.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and creating personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, commercial awareness and the ability to remain calm and solution-oriented in a dynamic, fast-paced mountain environment.</p></li><li><p>A hands-on approach, flexibility and the ability to work closely with the Restaurant Manager and the wider operational team.</p></li><li><p>Fluency in English is essential. Either German or Italian is also required.</p></li></ul><p><br><strong>Our offer</strong></p><ul><li><p>Permanent position in the unique setting of Paradiso Mountain Club.</p></li><li><p>Five-day working week, averaging 43.5 hours, with five weeks of annual leave and six public holidays per year.</p></li><li><p>13th-month salary from the start of employment, paid pro rata.</p></li><li><p>Accommodation in one of our modern staff residences at the beginning of your employment.</p></li><li><p>Staff meals provided during working hours.</p></li><li><p>An inspiring working environment with opportunities for professional development and career progression.</p></li></ul><p>If you are passionate about delivering exceptional guest experiences and enjoy supporting and leading a team in a dynamic luxury mountain setting, we look forward to receiving your complete online application.</p>",
-        "de": "<p><strong>Ihre wichtigsten Verantwortlichkeiten</strong></p><ul><li><p> Unterstützen Sie den Restaurant Manager bei der Leitung des Serviceteams im Paradiso Mountain Club und begleiten Sie den täglichen Betrieb einer der markantesten Bergküchendestinationen in St. Moritz.</p></li><li><p> Sie koordinieren den täglichen Restaurantbetrieb sowohl in der Lounge als auch im Club und sorgen für einen hervorragenden Service und eine reibungslose Betriebsleistung.</p></li><li><p> Die Schaffung unvergesslicher Gästeerlebnisse durch herzliche Gastfreundschaft, persönlichen Service und Liebe zum Detail steht im Mittelpunkt Ihrer Rolle.</p></li><li><p> In enger Zusammenarbeit mit dem Restaurantmanager, den Küchen- und Serviceteams tragen Sie dazu bei, die höchsten Standards für die Präsentation von Speisen und Getränken und die Servicelieferung aufrechtzuerhalten.</p></li><li><p> Sie unterstützen die Rekrutierung, Schulung und Entwicklung des Serviceteams, fördern Engagement, starke Leistung und konsequente Service-Exzellenz.</p></li><li><p> Die enge Zusammenarbeit mit dem Event-Team und anderen Hotelabteilungen wird die erfolgreiche Durchführung von privaten Veranstaltungen, besonderen Anlässen und Veranstaltungen im Paradiso Mountain Club sicherstellen.</p></li><li><p>Die Unterstützung des Restaurantmanagers bei der Betriebsberichterstattung, Kostenkontrolle, Budgetierung und Prognose wird zum anhaltenden Erfolg des Outlets beitragen.</p></li></ul><p><br><strong>\n• Was Sie in den Job bringen</strong></p><ul><li><p> Bewährte Managementerfahrung, die idealerweise in einer schnelllebigen Umgebung mit den höchsten Servicestandards erworben wird.</p></li><li><p>Eine selbstbewusste, polierte und serviceorientierte Persönlichkeit, kombiniert mit hervorragenden Kommunikations- und zwischenmenschlichen Fähigkeiten.</p></li><li><p>Eine echte Leidenschaft für luxuriöse Gastfreundschaft und die Schaffung personalisierter Gästeerlebnisse auf höchstem Niveau.</p></li><li><p>Starke organisatorische Fähigkeiten, kommerzielles Bewusstsein und die Fähigkeit, in einer dynamischen, schnelllebigen Bergumgebung ruhig und lösungsorientiert zu bleiben.</p></li><li><li><p>Ein praktischer Ansatz, Flexibilität und die Fähigkeit, eng mit dem Restaurantmanager und dem breiteren operativen Team zusammenzuarbeiten.</p></li><li><p>Fluency in Englisch ist unerlässlich. Auch Deutsch oder Italienisch ist erforderlich.</p></li></ul><p><br><strong>Unser Angebot</strong></p><ul><li><p>Ständige Position im einzigartigen Rahmen des Paradiso Mountain Club.</p></li><li><p> Fünftägige Arbeitswoche, durchschnittlich 43,5 Stunden, mit fünf Wochen Jahresurlaub und sechs Feiertagen pro Jahr.</p></li><li><p>13. Monatsgehalt ab Beginn der Beschäftigung, anteilig bezahlt.</p></li><li><p>Unterkunft in einem unserer modernen Mitarbeiterwohnheime zu Beginn Ihrer Beschäftigung.</p></li><li><p>Verpflegung während der Arbeitszeit.</p></li><li><li><li><p>Ein inspirierendes Arbeitsumfeld mit Möglichkeiten für berufliche Entwicklung und Karriereentwicklung.</p></li></ul><p> Wenn Sie sich für außergewöhnliche Gästeerlebnisse begeistern und ein Team in einer dynamischen Luxus-Berglandschaft unterstützen und führen möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p>",
-        "fr": "<p><strong>Vos principales responsabilités</strong></p><ul><li><p> En appuyant le gestionnaire du restaurant dans la direction de l'équipe de service au Paradiso Mountain Club, vous aiderez à superviser les opérations quotidiennes de l'une des destinations de restaurants de montagne les plus distinctives de St. Moritz.</p></li><li><p> Vous coordonnerez les activités quotidiennes du restaurant dans le salon et dans le club, assurant ainsi un service exceptionnel et une performance opérationnelle harmonieuse.</p></li><li><p> Créer des expériences mémorables pour les invités grâce à une chaleureuse hospitalité, un service personnalisé et une attention aux détails seront au cœur de votre rôle.</p></li><li><p> En travaillant en étroite collaboration avec le gestionnaire du restaurant, les équipes de cuisine et de services, vous aiderez à maintenir les normes les plus élevées de présentation des aliments et des boissons et de prestation de services.</p></li><li><p> Vous appuierez le recrutement, la formation et le perfectionnement de l'équipe de service, en favorisant l'engagement, le rendement solide et l'excellence constante des services.</p></li><li><p> Une collaboration étroite avec l'équipe des événements et d'autres services hôteliers permettra d'assurer la prestation réussie de fonctions privées, d'occasions spéciales et d'événements au Paradiso Mountain Club.</p></li><li><p>En aidant le gestionnaire du restaurant à produire des rapports opérationnels, à contrôler les coûts, à établir un budget et à prévoir les coûts, le tout contribuera au succès continu de la prise de décision.</p></li></ul><p><br><strong><\n• Ce que vous apportez au travail</strong></p><ul><li><p> Une expérience de gestion éprouvée, idéalement acquise dans un environnement à rythme rapide avec les normes de service les plus élevées.</p><li><li><p>Une personnalité confiante, polie et axée sur le service, combinée à d'excellentes compétences en communication et en relations interpersonnelles.</p><li><li><p>Une véritable passion pour l'hospitalité de luxe et la création d'expériences personnalisées pour les clients de la plus haute qualité.</p><li><p>Fortifier les compétences organisationnelles, la sensibilisation commerciale et la capacité de demeurer calme et axé sur la solution dans un environnement de montagne dynamique et à rythme rapide.</p><li><li><p>Une approche pratique, la souplesse et la capacité de travailler en étroite collaboration avec le gestionnaire du restaurant et l'équipe opérationnelle élargie.</p><li><p>La souplesse en anglais est essentielle. L'allemand ou l'italien est aussi requis.</p></li></ul><p><br><strong>Notre offre</strong></p><ul><li><p>Position permanente dans le cadre unique du Paradiso Mountain Club.</p></li><li><p> La semaine de travail de cinq jours, en moyenne 43,5 heures, avec cinq semaines de congé annuel et six jours fériés par année.</p></li><li><p>13e mois de salaire à compter du début de l'emploi, rémunéré au prorata.</p></li><li><p>Location dans l'une de nos résidences modernes au début de votre emploi.</p></li><li><p>Ménages fournis pendant les heures de travail.</p><li><li><p>Un milieu de travail inspirant offrant des possibilités de perfectionnement professionnel et d'avancement professionnel.</p></li></ul><p><p><p> Si vous êtes passionné par des expériences d'invités exceptionnelles et que vous aimez soutenir et diriger une équipe dans un cadre de montagne de luxe dynamique, nous sommes impatients de recevoir votre application complète en ligne.</p>"
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8271523-assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d",
-      "source": "Badrutt's Palace Hotel Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:14:03.009Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-08-26",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8271523-assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d-badrutts-palace-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "assistant-restaurant-manager-for-paradiso-mountain-club-m-f-d-badrutts-palace-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-01T00:46:37.048Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "badrutts-palace-7dbae39b8b97",
-      "slug": "supervisore-ai-piani-alloggi-del-personale-m-f-d-badrutt-s-palace-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "supervisore-ai-piani-alloggi-del-personale-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch",
-        "de": "etagen-supervisor-personalunterkunfte-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "superviseur-d-etage-logements-du-personnel-h-f-d-badrutt-s-palace-hotel-st-moritz"
-      },
-      "company": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "companyDomain": "badruttscareers.com",
-      "title": "Floor Supervisor Staff Housing (m/f/d)",
-      "titleByLocale": {
-        "it": "Supervisore di Piano Alloggi per il Personale (m/f/d)",
-        "en": "Floor Supervisor Staff Housing (m/f/d)",
-        "de": "Etagenleiter Personalunterkunft (m/w/d)",
-        "fr": "Superviseur d'Étage Hébergement du Personnel (h/f/d)"
-      },
-      "description": "<p><strong>Your key responsibilities</strong></p><ul><li><p>You lead and motivate a team of up to 5 employees with confidence and flair.</p></li><li><p>Ensuring impeccable cleaning and maintenance standards across up to 300 staff rooms or 150 holiday apartments is a key part of your role.</p></li><li><p>Within the assigned staff areas of the hotel, you ensure outstanding levels of cleanliness and order at all times.</p></li><li><p>As a skilled organiser, you oversee linen management and small inventory, ensuring smooth and efficient operations.</p></li><li><p>Close collaboration with the Technical Services and Human Resources departments enables you to maintain the highest standards of service quality.</p></li><li><p>By actively participating in team training sessions, you contribute to the continuous development of our cleaning standards.</p></li></ul><p></p><p><strong>\n• What you bring to the job</strong></p><p>For this varied and exciting position, you ideally bring the following qualifications and qualities:</p><ul><li><p>A completed professional qualification in hospitality, combined with relevant work experience, provides the ideal foundation for this role.</p></li><li><p>Previous leadership experience has given you the confidence to support the management of a team.</p></li><li><p>Good spoken English and Italian skills are required, while knowledge of German is considered an advantage.</p></li><li><p>Confident computer skills enable you to handle your daily tasks efficiently.</p></li><li><p>A high level of initiative, commitment, and reliability characterises your way of working.</p></li><li><p>Your strong sense of quality is complemented by excellent attention to detail.</p></li><li><p>With a confident and professional appearance, you demonstrate excellent manners and interpersonal skills.</p></li></ul><p><strong>Our offer</strong></p><ul><li><p>Permanent full-time position in St. Moritz.</p></li><li><p>Average 5-day working week with 43.5 working hours.</p></li><li><p>5 weeks of vacation and 6 public holidays per year.</p></li><li><p>13th salary from the start date (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses at the beginning upon request.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are looking for an interesting, challenging, and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.<br><br><br><span><strong><em>Recruitment Fraud Warning</em></strong></span></p><p><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
-      "descriptionByLocale": {
-        "it": "Le vostre responsabilità chiave\n\n- Lei guida e con un massimo di duecentoquarantasette dipendenti.\n\n- Garantire standard di pulizia e manutenzione impeccabili in un massimo di 300 camere per il personale o 150 appartamenti per le vacanze è una parte fondamentale del vostro ruolo.\n\n- All'interno delle aree di personale dell'hotel, assicurate sempre livelli eccezionali di pulizia e ordine.\n\n- Come organizzatore qualificato, si supervisiona la gestione della biancheria e il piccolo inventario, garantendo operazioni fluide ed efficienti.\n\n- Una stretta collaborazione con i servizi dei Servizi Tecnici e delle Risorse Umane consente di mantenere i più elevati standard di qualità dei servizi.\n\n- Partecipando attivamente alle sessioni di formazione del team, contribuisci allo sviluppo continuo dei nostri standard di pulizia.\n\n• Cosa si porta al lavoro\n\nPer questa posizione varia ed emozionante, si idealmente portare le seguenti qualifiche e qualità:\n\n- Una qualificazione professionale completa in ospitalità, unita ad una rilevante esperienza lavorativa, costituisce la base ideale per questo ruolo.\n\n- La precedente esperienza di leadership ti ha dato la fiducia di supportare la gestione di un team.\n\n- Sono necessarie buone competenze parlate in inglese e italiano, mentre la conoscenza del tedesco è considerata un vantaggio.\n\n- competenze informatiche confidenti consentono di gestire le vostre attività quotidiane in modo efficiente.\n\n- Un alto livello di iniziativa, impegno e affidabilità caratterizza il vostro modo di lavorare.\n\n- Il vostro forte senso di qualità è completato da un'ottima attenzione ai dettagli.\n\n- Con un aspetto sicuro e professionale, si dimostra eccellente maniere e capacità interpersonali.\n\nLa nostra offerta\n\n- Posizione permanente a tempo pieno a St. Moritz.\n\n- media settimana lavorativa di 5 giorni con 43,5 ore lavorative.\n\n- 5 settimane di riposo e 6 giorni festivi all'anno.\n\n- 13° stipendio dalla data di inizio (pro rata temporis).\n\n- Alloggio in una delle nostre nuove case del personale all'inizio su richiesta.\n\n- Pasti disponibili nel nostro nuovo e moderno ristorante personale.\n\n- Possibilità di lavorare in un ambiente attraente con opportunità di sviluppo e di crescita professionale.\n\nSe siete alla ricerca di un ruolo interessante, impegnativo e vario in un ambiente dinamico e vorreste unirvi a un team ben consolidato, non vediamo l'ora di ricevere la vostra applicazione online completa.\n\nAvviso sulle frodi in materia di assunzione\n\nIl Badrutt's Palace Hotel non richiederà mai il pagamento o informazioni finanziarie durante il processo di reclutamento. Tutte le comunicazioni ufficiali vengono inviate esclusivamente da indirizzi e-mail che terminano in @ badruttsgalace.com. Se ricevi qualsiasi richiesta di pagamento o comunicazione sospetta, ti preghiamo di ignorarlo e contattarci direttamente attraverso il nostro sito ufficiale.",
-        "en": "Your key responsibilities\n\n-\nYou lead and motivate a team of up to 5 employees with confidence and flair.\n\n-\nEnsuring impeccable cleaning and maintenance standards across up to 300 staff rooms or 150 holiday apartments is a key part of your role.\n\n-\nWithin the assigned staff areas of the hotel, you ensure outstanding levels of cleanliness and order at all times.\n\n-\nAs a skilled organiser, you oversee linen management and small inventory, ensuring smooth and efficient operations.\n\n-\nClose collaboration with the Technical Services and Human Resources departments enables you to maintain the highest standards of service quality.\n\n-\nBy actively participating in team training sessions, you contribute to the continuous development of our cleaning standards.\n\n• What you bring to the job\n\nFor this varied and exciting position, you ideally bring the following qualifications and qualities:\n\n-\nA completed professional qualification in hospitality, combined with relevant work experience, provides the ideal foundation for this role.\n\n-\nPrevious leadership experience has given you the confidence to support the management of a team.\n\n-\nGood spoken English and Italian skills are required, while knowledge of German is considered an advantage.\n\n-\nConfident computer skills enable you to handle your daily tasks efficiently.\n\n-\nA high level of initiative, commitment, and reliability characterises your way of working.\n\n-\nYour strong sense of quality is complemented by excellent attention to detail.\n\n-\nWith a confident and professional appearance, you demonstrate excellent manners and interpersonal skills.\n\nOur offer\n\n-\nPermanent full-time position in St. Moritz.\n\n-\nAverage 5-day working week with 43.5 working hours.\n\n-\n5 weeks of vacation and 6 public holidays per year.\n\n-\n13th salary from the start date (pro rata temporis).\n\n-\nAccommodation in one of our new staff houses at the beginning upon request.\n\n-\nMeals available in our new and modern staff restaurant.\n\n-\nOpportunity to work in an attractive environment with development and career growth opportunities.\n\nIf you are looking for an interesting, challenging, and varied role in a dynamic environment and would like to join a well-established team, we look forward to receiving your complete online application.\n\nRecruitment Fraud Warning\n\nBadrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @ badruttspalace.com . If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.",
-        "de": "Ihre wichtigsten Aufgaben\n\n- Sie führen und motivieren ein Team von bis zu 5 Mitarbeitern mit Vertrauen und Flair.\n\n- Die Gewährleistung einwandfreier Reinigung und Wartungsstandards in bis zu 300 Personalräumen oder 150 Ferienwohnungen ist ein wichtiger Bestandteil Ihrer Rolle.\n\n- Innerhalb der zugewiesenen Mitarbeiterbereiche des Hotels sorgen Sie für hervorragende Sauberkeit und Ordnung zu jeder Zeit.\n\n- Als erfahrener Organisator überwachen Sie das Leinenmanagement und die Kleininventarhaltung, wodurch ein reibungsloser und effizienter Betrieb gewährleistet wird.\n\n- Die enge Zusammenarbeit mit den Abteilungen Technische Dienstleistungen und Personal ermöglicht es Ihnen, höchste Standards der Servicequalität zu halten.\n\n- Mit der aktiven Teilnahme an Teamtrainings tragen Sie zur kontinuierlichen Weiterentwicklung unserer Reinigungsstandards bei.\n\n• Was Sie in den Job bringen\n\nFür diese abwechslungsreiche und spannende Position bringen Sie idealerweise folgende Qualifikationen und Qualitäten mit:\n\n- Eine abgeschlossene berufliche Qualifikation in der Gastlichkeit, kombiniert mit relevanten Berufserfahrung, bietet die ideale Grundlage für diese Rolle.\n\n- Frühere Führungserfahrung hat Ihnen das Vertrauen gegeben, die Führung eines Teams zu unterstützen.\n\n- Gut gesprochene Englisch- und Italienischkenntnisse sind erforderlich, während Deutschkenntnisse als Vorteil angesehen werden.\n\n- Vertrauliche Computerkenntnisse ermöglichen es Ihnen, Ihre täglichen Aufgaben effizient zu bewältigen.\n\n- Ein hohes Maß an Initiative, Engagement und Zuverlässigkeit kennzeichnet Ihre Arbeitsweise.\n\n- Ihr ausgeprägtes Qualitätsgefühl wird durch eine ausgezeichnete Liebe zum Detail ergänzt.\n\n- Mit einem selbstbewussten und professionellen Auftritt, zeigen Sie hervorragende Manieren und zwischenmenschliche Fähigkeiten.\n\nUnser Angebot\n\n- Dauerhafter Vollzeit-Stelle in St. Moritz.\n\n- Durchschnittliche 5-Tages-Woche mit 43,5 Arbeitsstunden.\n\n- 5 Wochen Urlaub und 6 Feiertage pro Jahr.\n\n- 13. Gehalt ab dem Beginn (pro rata temporis).\n\n- Unterkunft in einem unserer neuen Mitarbeiterhäuser am Anfang auf Anfrage.\n\n- Mahlzeiten in unserem neuen und modernen Personal Restaurant.\n\n- Gelegenheit, in einem attraktiven Umfeld mit Entwicklungs- und Karrierechancen zu arbeiten.\n\nWenn Sie eine interessante, herausfordernde und abwechslungsreiche Rolle in einem dynamischen Umfeld suchen und sich einem gut etablierten Team anschließen möchten, freuen wir uns auf Ihre komplette Online-Bewerbung.\n\nWarnung vor rekrutierender Betrug\n\nBadrutts Palace Hotel wird während des Rekrutierungsprozesses niemals um Zahlung oder finanzielle Informationen gebeten. Alle offizielle Kommunikation wird ausschließlich von E-Mail-Adressen gesendet, die in @ badruttspalace.com enden. Wenn Sie eine Zahlungsanfrage oder verdächtige Kommunikation erhalten, missachten Sie sie und kontaktieren Sie uns direkt über unsere offizielle Website.",
-        "fr": "Vos responsabilités clés\n\n- Vous dirigez et motivez une équipe de 5 employés avec confiance et flair.\n\n- Assurer les normes de nettoyage et d'entretien de l'année en cours dans 300 chambres ou 150 appartements de vacances est un élément clé de votre rôle.\n\n- Dans les zones de personnel de l'hôtel, vous assurez des niveaux exceptionnels de propreté et de commande en tout temps.\n\n- En tant que collectif qualifié, vous supervisez la gestion du linge et les petits stocks, assurant des opérations fluides et efficaces.\n\n- Une collaboration étroite avec les services techniques et les services des ressources humaines vous permet de maintenir les normes de qualité de service les plus élevées.\n\n- En participant activement aux sessions de formation d'équipe, vous contribuez au développement continu de nos normes de nettoyage.\n\n• Ce que vous apportez au travail\n\nPour ce poste varié et passionnant, vous apportez idéalement les qualifications et qualités suivantes:\n\n- Une qualification professionnelle complète en hospitalité, combinée à une expérience de travail pertinente, constitue le fondement idéal de ce rôle.\n\n- L'expérience de leadership vous a donné la confiance nécessaire pour soutenir la gestion d'une équipe.\n\n- De bonnes compétences en anglais et en italien sont requises, tandis que la connaissance de l'allemand est considérée comme un avantage.\n\n- Compétences informatiques fiables vous permettent de gérer vos tâches quotidiennes efficacement.\n\n- Un haut niveau d'initiative, d'engagement et de fiabilité caractérise votre façon de travailler.\n\n- Votre sens fort de la qualité est complété par une excellente attention aux détails.\n\n- Avec une apparence confiante et professionnelle, vous démontrez d'excellentes manières et des compétences interpersonnelles.\n\nNotre offre\n\n- Poste permanent à temps plein à St. Moritz.\n\n- Moyenne de 5 jours par semaine avec 43,5 heures de travail.\n\n- 5 semaines de vacances et 6 jours fériés par an.\n\n- 13e salaire à compter de la date de début (pro rata temporis).\n\n- Hébergement dans une de nos nouvelles maisons de staff au début sur demande.\n\n- Repas disponibles dans notre nouveau restaurant moderne.\n\n- Possibilité de travailler dans un environnement attrayant avec des possibilités de développement et de croissance de carrière.\n\nSi vous cherchez un rôle intéressant, stimulant et varié dans un environnement dynamique et souhaitez rejoindre une équipe bien établie, nous sommes impatients de recevoir votre candidature complète en ligne.\n\nAvertissement de fraude en matière de recrutement\n\nL'hôtel Palace de Badrutt ne demandera jamais de paiement ou d'informations financières pendant le processus de recrutement. Toute communication officielle est envoyée exclusivement à partir des adresses e-mail se terminant par @ badruttspalace.com. Si vous recevez une demande de paiement ou de communication suspecte, veuillez ne pas le faire et contactez-nous directement via notre site officiel."
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8395281-floor-supervisor-staff-housing-m-f-d",
-      "source": "Badrutt's Palace Hotel Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:14:02.990Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Ospitalità",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-17",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8395281-floor-supervisor-staff-housing-m-f-d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch"
-        ],
-        "de": [
-          "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch"
-        ],
-        "fr": [
-          "floor-supervisor-staff-housing-m-f-d-badrutts-palace-ch"
-        ]
-      },
-      "firstSeenAt": "2026-09-18T23:21:57.375Z",
-      "salaryMin": 62000,
-      "salaryMax": 78000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 62000,
-          "maxValue": 78000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
-    },
-    {
-      "id": "badrutts-palace-f6389a361791",
-      "slug": "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz",
-      "slugByLocale": {
-        "it": "restaurant-manager-per-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz",
-        "en": "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch",
-        "de": "restaurantmanager-fur-le-grand-hall-m-w-d-badrutt-s-palace-hotel-st-moritz",
-        "fr": "gestionnaire-de-restaurant-pour-le-grand-hall-m-f-d-badrutt-s-palace-hotel-st-moritz"
-      },
-      "company": "Badrutt's Palace Hotel",
-      "companyKey": "badrutts-palace",
-      "companyDomain": "badruttscareers.com",
-      "title": "Restaurant Manager for \"Le Grand Hall\" (m/f/d)",
-      "titleByLocale": {
-        "it": "Responsabile ristorante \"Le Grand Hall\" (m/f/d)",
-        "en": "Restaurant Manager for \"Le Grand Hall\" (m/f/d)",
-        "de": "Restaurantmanager für \"Le Grand Hall\" (m/w/d)",
-        "fr": "Gestionnaire de restaurant pour \"Le Grand Hall\" (m/f/d)"
-      },
-      "description": "<p><span><strong>Your key responsibilities</strong></span></p><ul><li><p>Leading the service team in <strong>Le Grand Hall, </strong>our iconic all-day dining venue and lounge, you will have operational responsibility for one of our hotel's signature dining venues, serving among other things authentic Indian cuisine and specialities from our pastry kitchen. </p></li><li><p>Daily restaurant operations, including table allocation and guest flow, will fall under your responsibility, ensuring both outstanding service and optimal operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality and personalised service will be at the heart of your role.</p></li><li><p>Working closely with the Executive Chef, Bar team and other departments, you will maintain the highest standards in food and beverage presentation and service delivery.</p></li><li><p>You will take ownership of recruiting, developing and managing the service team, ensuring the highest levels of engagement, performance and service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the smooth execution of private functions and special occasions hosted in Le Grand Hall.</p></li><li><p>Supporting management with operational reporting, cost analysis, budgeting and forecasting will contribute to the ongoing success of the outlet.</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><ul><li><p>Several years of management experience within a luxury restaurant or five-star hotel, ideally in a Restaurant Manager or comparable leadership role.</p></li><li><p>A natural leader with the ability to motivate, inspire and develop teams while creating a positive and professional working environment.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and delivering personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, sound commercial awareness and the ability to remain calm and solution-oriented in a fast-paced environment.</p></li><li><p>Fluency in English is essential. Either German or Italian is required.</p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p>10-month contract, start to be discussed, with the possibility to renew from November 2027.</p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are passionate about creating exceptional guest experiences and enjoy leading a team in one of Switzerland's most iconic luxury hotels, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
-      "descriptionByLocale": {
-        "it": "<p> < > < > > > Le tue responsabilità chiave Conducendo il team di assistenza in <strong>Le Grand Hall, </strong> il nostro iconico luogo di pranzo e salotto di tutti i giorni, avrete la responsabilità operativa di uno dei luoghi di pranzo firmati del nostro hotel, servendo tra l'altro autentica cucina indiana e specialità dalla nostra cucina pasticceria. < > > > > > > > Le operazioni di ristorazione giornaliere, tra cui l'allocazione della tabella e il flusso degli ospiti, cadranno sotto la vostra responsabilità, assicurando sia il servizio eccezionale che le prestazioni operative ottimali. Lavorando a stretto contatto con il team Executive Chef, Bar e altri dipartimenti, manterrete i più elevati standard di presentazione e consegna di prodotti alimentari e bevande. Prenderai la proprietà di reclutare, sviluppare e gestire il team di assistenza, garantendo i più alti livelli di impegno, prestazioni e eccellenza dei servizi. La stretta collaborazione con il team Eventi e altri dipartimenti alberghieri garantirà l'esecuzione regolare delle funzioni private e delle occasioni speciali ospitate in Le Grand Hall.\n• Che cosa si porta alla soluzione di assunzione/strong> </span> < < > < < < < < > > < > > > > > > > ι > > > > > > ι > > > > > > > > > > > ι > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > ι > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > < > > > > > > > > > > > > > > > > > > > > > > > Se siete appassionati di creare esperienze ospiti eccezionali e di godere di un team leader in uno degli hotel di lusso più iconici della Svizzera, non vediamo l'ora di ricevere la vostra applicazione online completa. Badrutt's Palace Hotel non richiederà mai il pagamento o informazioni finanziarie durante il processo di reclutamento. Tutte le comunicazioni ufficiali sono inviate esclusivamente da indirizzi e-mail che terminano in @ </em> </span> <a target=\" blank\" href=\"http://badruttspalace.com\"> Se ricevi una richiesta di pagamento o di comunicazione sospetta, ti preghiamo di ignorarla e contattarci direttamente tramite il nostro sito ufficiale.",
-        "en": "<p><span><strong>Your key responsibilities</strong></span></p><ul><li><p>Leading the service team in <strong>Le Grand Hall, </strong>our iconic all-day dining venue and lounge, you will have operational responsibility for one of our hotel's signature dining venues, serving among other things authentic Indian cuisine and specialities from our pastry kitchen. </p></li><li><p>Daily restaurant operations, including table allocation and guest flow, will fall under your responsibility, ensuring both outstanding service and optimal operational performance.</p></li><li><p>Creating memorable guest experiences through warm hospitality and personalised service will be at the heart of your role.</p></li><li><p>Working closely with the Executive Chef, Bar team and other departments, you will maintain the highest standards in food and beverage presentation and service delivery.</p></li><li><p>You will take ownership of recruiting, developing and managing the service team, ensuring the highest levels of engagement, performance and service excellence.</p></li><li><p>Close collaboration with the Events team and other hotel departments will ensure the smooth execution of private functions and special occasions hosted in Le Grand Hall.</p></li><li><p>Supporting management with operational reporting, cost analysis, budgeting and forecasting will contribute to the ongoing success of the outlet.</p></li></ul><p></p><p><span><strong>\n• What you bring to the job</strong></span></p><ul><li><p>Several years of management experience within a luxury restaurant or five-star hotel, ideally in a Restaurant Manager or comparable leadership role.</p></li><li><p>A natural leader with the ability to motivate, inspire and develop teams while creating a positive and professional working environment.</p></li><li><p>A confident, polished and service-oriented personality, combined with excellent communication and interpersonal skills.</p></li><li><p>A genuine passion for luxury hospitality and delivering personalised guest experiences of the highest standard.</p></li><li><p>Strong organisational skills, sound commercial awareness and the ability to remain calm and solution-oriented in a fast-paced environment.</p></li><li><p>Fluency in English is essential. Either German or Italian is required.</p></li></ul><p></p><p><span><strong>Our offer</strong></span></p><ul><li><p>10-month contract, start to be discussed, with the possibility to renew from November 2027.</p></li><li><p>5-day working week averaging 43.5 hours, with 5 weeks' holiday and 6 public holidays per year.</p></li><li><p>13th month's salary from the start of employment (pro rata temporis).</p></li><li><p>Accommodation in one of our new staff houses.</p></li><li><p>Meals available in our new and modern staff restaurant.</p></li><li><p>Opportunity to work in an attractive environment with development and career growth opportunities.</p></li></ul><p>If you are passionate about creating exceptional guest experiences and enjoy leading a team in one of Switzerland's most iconic luxury hotels, we look forward to receiving your complete online application.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em>Badrutt's Palace Hotel will never request payment or financial information during the recruitment process. All official communication is sent exclusively from email addresses ending in @</em></span><a target=\"_blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. If you receive any request for payment or suspicious communication, please disregard it and contact us directly through our official website.</em></span></p>",
-        "de": "<p><span><strong>Ihre wichtigsten Verantwortlichkeiten</strong></span></p><ul><li><p> Als Leiter des Serviceteams in <strong>Le Grand Hall, </strong>unserem ikonischen ganztägigen Speisesaal und Lounge tragen Sie die operative Verantwortung für einen der wichtigsten Speiseorte unseres Hotels, der unter anderem authentische indische Küche und Spezialitäten aus unserer Gebäckküche serviert. </p></li><li><p> Der tägliche Restaurantbetrieb, einschließlich der Tischzuordnung und des Gästeflusses, fällt in Ihre Verantwortung und gewährleistet sowohl einen hervorragenden Service als auch eine optimale operative Leistung.</p></li><li><p>Die Schaffung unvergesslicher Gästeerlebnisse durch herzliche Gastfreundschaft und personalisierten Service stehen im Mittelpunkt Ihrer Rolle.</p></li><li><p> In enger Zusammenarbeit mit dem Chefkoch, dem Bar-Team und anderen Abteilungen werden Sie die höchsten Standards bei der Präsentation von Speisen und Getränken und der Bereitstellung von Dienstleistungen einhalten.</p></li><li><p> Sie übernehmen die Verantwortung für die Rekrutierung, Entwicklung und Verwaltung des Serviceteams und gewährleisten ein Höchstmaß an Engagement, Leistung und Service-Exzellenz.</p></li><li><p> Die enge Zusammenarbeit mit dem Event-Team und anderen Hotelabteilungen wird die reibungslose Durchführung von privaten Veranstaltungen und besonderen Anlässen in Le Grand Hall sicherstellen.</p></li><li><p>Die Unterstützung des Managements durch Betriebsberichterstattung, Kostenanalyse, Budgetierung und Prognose wird zum anhaltenden Erfolg des Outlets beitragen.</p></li></ul><p></p></p><span><strong>\n• Was Sie für den Job mitbringen</strong></span></p><ul><li><p>Mehrjährige Führungserfahrung in einem Luxusrestaurant oder Fünf-Sterne-Hotel, idealerweise in einer Restaurantmanagerin oder vergleichbaren Führungsrolle.</p></li><li><p>Ein natürlicher Leader mit der Fähigkeit, Teams zu motivieren, zu inspirieren und zu entwickeln und gleichzeitig ein positives und professionelles Arbeitsumfeld zu schaffen.</p></li><li><p>Eine selbstbewusste, polierte und serviceorientierte Persönlichkeit, kombiniert mit exzellenter Kommunikation und zwischenmenschlichen Fähigkeiten.</p></li><li><li><p>Eine echte Leidenschaft für luxuriöse Gastfreundschaft und die Bereitstellung personalisierter Gästeerlebnisse auf höchstem Niveau.</p></li><li><p>Starke organisatorische Fähigkeiten, solides kommerzielles Bewusstsein und die Fähigkeit, in einem schnelllebigen Umfeld ruhig und lösungsorientiert zu bleiben.</p></li><li><p>Fluency in Englisch ist unerlässlich. Erforderlich ist Deutsch oder Italienisch.</p></li></ul></p><p><span><strong>Unser Angebot</strong></span></p><ul><li><p>10-Monats-Vertrag wird diskutiert, mit der Möglichkeit, ab November 2027 zu verlängern.</p></li><li><p>5-Tage-Woche mit durchschnittlich 43,5 Stunden, mit 5 Wochen Urlaub und 6 gesetzlichen Feiertagen pro Jahr.</p></li><li><p>13. Monatsgehalt ab Arbeitsbeginn (pro rata temporis).</p></li><li><p>Unterkünfte in einem unserer neuen Mitarbeiterhäuser.</p></li><li><p>Mahlzeiten in unserem neuen und modernen Mitarbeiterrestaurant.</p></li><li><p>Mahlzeiten in unserem neuen und modernen Mitarbeiterrestaurant.</p></li><li><p>Chance, in einem attraktiven Umfeld mit Entwicklungs- Wenn Sie sich für außergewöhnliche Gästeerlebnisse begeistern und ein Team in einem der kultigsten Luxushotels der Schweiz leiten möchten, freuen wir uns auf Ihre vollständige Online-Bewerbung.</p><p></p><p><span><strong><em>Recruitment Fraud Warning</em></strong></span><br><span><em> Badrutt's palace hotel wird während des rekrutierungsprozesses niemals zahlungs- oder finanzinformationen anfordern. Die gesamte offizielle Kommunikation wird ausschließlich von E-Mail-Adressen gesendet, die mit @</em></span><a target=\" blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em> enden. Wenn Sie eine Zahlungsanfrage oder verdächtige Kommunikation erhalten, ignorieren Sie diese bitte und kontaktieren Sie uns direkt über unsere offizielle Website.</em></span></p>",
-        "fr": "<p><span><strong>Vos principales responsabilités</strong></span></p><ul><li><p> Diriger l'équipe de service dans <strong>Le Grand Hall, </strong>notre salle à manger et salon iconique toute la journée, vous aurez la responsabilité opérationnelle de l'un des restaurants phares de notre hôtel, servant entre autres une cuisine indienne authentique et des spécialités de notre cuisine pâtissière. </p></li><li><p> Les activités quotidiennes des restaurants, y compris l'attribution de la table et le flux des invités, seront sous votre responsabilité, assurant à la fois un service exceptionnel et une performance opérationnelle optimale.</p></li><li><p>Créer des expériences mémorables des invités grâce à une chaleureuse hospitalité et à un service personnalisé sera au cœur de votre rôle.</p></li><li><p> En étroite collaboration avec le chef exécutif, l'équipe du Barreau et d'autres ministères, vous respecterez les normes les plus élevées en matière de présentation des aliments et des boissons et de prestation des services.</p></li><li><p> Vous assumerez la responsabilité du recrutement, du développement et de la gestion de l'équipe de services, assurant ainsi les plus hauts niveaux d'engagement, de rendement et d'excellence en matière de services.</p></li><li><p> Une collaboration étroite avec l'équipe des événements et d'autres services hôteliers permettra d'assurer la bonne exécution des fonctions privées et des occasions spéciales organisées au Grand Hall.\n• Ce que vous apportez au travail</fort></span></p><ul><li><p>Plusieurs années d'expérience en gestion au sein d'un restaurant de luxe ou d'un hôtel cinq étoiles, idéalement dans un restaurant-gestionnaire ou un rôle de leadership comparable.</p><li><li><p>Un leader naturel capable de motiver, d'inspirer et de développer des équipes tout en créant un environnement de travail positif et professionnel.</p><li><p>Une personnalité confiante, polie et orientée vers le service, combinée à d'excellentes compétences en communication et en relations interpersonnelles.</p><li><p>Une véritable passion pour l'hospitalité de luxe et la prestation d'expériences personnalisées aux clients de la plus haute qualité.</p><li><p>Des compétences organisationnelles solides, une bonne sensibilisation commerciale et la capacité de rester calme et axé sur la solution dans un environnement à rythme rapide.</p><li><p>La souplesse en anglais est essentielle. L'allemand ou l'italien est requis.</p></li></ul><p></p><p><span><strong>Notre offre</strong></span></p><ul><li><p>10 mois de contrat, commence à être discutée, avec la possibilité de renouveler à partir de novembre 2027.</p><li><p>5 jours de travail en moyenne 43,5 heures, avec 5 semaines de vacances et 6 jours fériés par année.</p><li><p>13e mois de salaire depuis le début de l'emploi (pro rata temporis).</p><li><p><p>Opportunité de travailler dans un environnement attrayant avec des possibilités de développement et de carrière.</p></p></p></p><li></p></p></p></p></p></p></p></p></p><></p></p></p></p><> Si vous êtes passionné par la création d'expériences exceptionnelles et que vous aimez diriger une équipe dans l'un des hôtels de luxe les plus emblématiques de Suisse, nous sommes impatients de recevoir votre demande en ligne complète.</p><p><p><span><strong><em>Recrutement Fraud Warning</em></strong></span><br><span><em> L'hôtel Palace de Badrutt ne demandera jamais de paiement ou d'informations financières pendant le processus de recrutement. Toute communication officielle est envoyée exclusivement à partir d'adresses électroniques se terminant par @</em></span><a cible=\" blank\" href=\"http://badruttspalace.com\"><span><em>badruttspalace.com</em></span></a><span><em>. Si vous recevez une demande de paiement ou de communication suspecte, veuillez la ignorer et nous contacter directement via notre site Web officiel.</em></span></p>"
-      },
-      "location": "St. Moritz",
-      "canton": "GR",
-      "url": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
-      "source": "Badrutt's Palace Hotel Dedicated Parser",
-      "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:14:02.945Z",
-      "addressLocality": "St. Moritz",
-      "postalCode": "7500",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Management",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "senior",
-      "sector": "Ospitalità / Hotellerie",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-13",
-      "applyUrl": "https://jobs.badruttscareers.com/en-GB/jobs/8057933-restaurant-manager-for-le-grand-hall-m-f-d",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
-        ],
-        "fr": [
-          "restaurant-manager-for-le-grand-hall-m-f-d-badrutts-palace-ch"
-        ]
-      },
-      "firstSeenAt": "2026-07-13T13:19:32.662Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
-          "unitText": "YEAR"
-        }
-      },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     }
   ]
 }
