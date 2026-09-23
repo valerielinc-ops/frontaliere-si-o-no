@@ -186,7 +186,7 @@ if [ -n "$open_number" ]; then
 else
   if ! gh pr create --repo "$target_repo" --base main --head "$head_ref" \
     --title 'Lockstep crawler workflows with the site' --body-file "$body"; then
-    echo "::warning::gh pr create non ha risposto; il branch crawler e' gia' pushato, nessun body PR scritto"
-    exit 0
+    echo "::error::gh pr create non ha risposto; il branch crawler e' gia' pushato, nessun body PR scritto"
+    exit 1
   fi
 fi
