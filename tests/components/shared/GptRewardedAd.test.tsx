@@ -26,7 +26,7 @@ const mocks = vi.hoisted(() => {
     slot,
     tag,
     trackExperimentEvent: vi.fn(),
-    makeRewardedVisible: vi.fn(),
+    makeRewardedVisible: vi.fn(() => true),
   };
 });
 
@@ -131,6 +131,58 @@ describe('GptRewardedAd', () => {
     expect(screen.getByTestId('assisted-application-offer-rewarded')).toBeInTheDocument();
     expect(mocks.tag.defineOutOfPageSlot).toHaveBeenCalledTimes(1);
     expect(mocks.tag.display).toHaveBeenCalledTimes(1);
+  });
+
+  it('opens a ready preloaded slot without a second CTA click when auto-start is enabled', () => {
+    preloadRewardedWebAd();
+    const onOptIn = vi.fn();
+    const readyEvent = { slot: mocks.slot, makeRewardedVisible: mocks.makeRewardedVisible };
+
+    act(() => {
+      mocks.listeners.get('rewardedSlotReady')?.(readyEvent);
+    });
+
+    render(
+      <GptRewardedAd
+        label="Guarda il video"
+        loadingLabel="Caricamento…"
+        showingLabel="Video in riproduzione…"
+        unavailableLabel="Non disponibile"
+        autoStart
+        onOptIn={onOptIn}
+        onGranted={vi.fn()}
+      />,
+    );
+
+    expect(onOptIn).toHaveBeenCalledTimes(1);
+    expect(mocks.makeRewardedVisible).toHaveBeenCalledTimes(1);
+    expect(screen.queryByTestId('assisted-application-offer-rewarded')).not.toBeInTheDocument();
+  });
+
+  it('reports a GPT show refusal as unavailable instead of leaving the request showing', () => {
+    preloadRewardedWebAd();
+    const onUnavailable = vi.fn();
+    const readyEvent = { slot: mocks.slot, makeRewardedVisible: mocks.makeRewardedVisible };
+
+    act(() => {
+      mocks.listeners.get('rewardedSlotReady')?.(readyEvent);
+      mocks.makeRewardedVisible.mockReturnValueOnce(false);
+    });
+
+    render(
+      <GptRewardedAd
+        label="Guarda il video"
+        loadingLabel="Caricamento…"
+        unavailableLabel="Non disponibile"
+        autoStart
+        onGranted={vi.fn()}
+        onUnavailable={onUnavailable}
+      />,
+    );
+
+    expect(onUnavailable).toHaveBeenCalledTimes(1);
+    expect(screen.queryByText('Caricamento…')).not.toBeInTheDocument();
+    expect(screen.getByText('Non disponibile')).toBeInTheDocument();
   });
 
   it('does not leave the caller loading forever when GPT never makes the slot ready', () => {

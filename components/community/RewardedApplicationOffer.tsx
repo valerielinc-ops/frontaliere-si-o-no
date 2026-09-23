@@ -207,7 +207,7 @@ export default function RewardedApplicationOffer({
           </div>
 
           <p id="rewarded-application-offer-description" className="text-sm leading-relaxed text-body">
-            Stiamo preparando il collegamento diretto al sito dell’azienda. Attendi qualche secondo mentre verifichiamo la disponibilità del video breve.
+            Hai scelto di candidarti. Se il video è già pronto, si aprirà automaticamente; al termine ti porteremo direttamente sul sito dell’azienda.
           </p>
 
           <div className="rounded-stripe border border-info-border bg-info-subtle/60 p-3">
@@ -256,6 +256,7 @@ export default function RewardedApplicationOffer({
               showingLabel="Video in riproduzione…"
               unavailableLabel="Il video non è disponibile in questo momento."
               showUnavailableMessage={false}
+              autoStart
               onOptIn={() => trackAssistedApplicationEvent('rewarded_ad_opt_in', {
                 variant: 'rewarded_ad',
                 jobId,
