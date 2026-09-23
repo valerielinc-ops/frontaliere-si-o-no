@@ -11929,6 +11929,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.parco-veicoli-ticino-settembre-2026.title': 'Fuhrpark im Tessin: Die Astra-Daten vom September 2026',
     'blog.article.parco-veicoli-ticino-settembre-2026.excerpt': 'Analyse des Tessiner Fuhrparks: 336.430 Fahrzeuge insgesamt, 13.293 Neuzulassungen und 1532 Gebrauchtfahrzeugimporte nach ASTRA-DATEN.',
     'blog.article.parco-veicoli-ticino-settembre-2026.imageAlt': 'Fahrzeugverkehr auf einer Tessiner Strasse mit Alpenblick',
+    'blog.article.immatricolazioni-veicoli-ticino-w38-2026.title': 'Neuzulassungen im Tessin: die Daten ASTRA W38',
+    'blog.article.immatricolazioni-veicoli-ticino-w38-2026.excerpt': 'Analyse der Daten zu den Neuzulassungen im Tessin für die Woche 2026-W38 gemäss Bundesamt für Strassen ASTRA/OFROU.',
+    'blog.article.immatricolazioni-veicoli-ticino-w38-2026.imageAlt': 'Fahrzeuge im Verkehr auf einer Tessiner Straße.',
 };
 
 export default blogMetaDe;

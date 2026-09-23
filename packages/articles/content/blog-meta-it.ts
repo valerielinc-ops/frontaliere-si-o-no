@@ -11931,6 +11931,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.parco-veicoli-ticino-settembre-2026.title': 'Parco veicoli in Ticino: i dati ASTRA di settembre 2026',
     'blog.article.parco-veicoli-ticino-settembre-2026.excerpt': 'Analisi del parco circolante ticinese: 336.430 veicoli totali, 13.293 nuove immatricolazioni e 1532 importazioni di usati secondo i dati ASTRA.',
     'blog.article.parco-veicoli-ticino-settembre-2026.imageAlt': 'Traffico veicolare su una strada ticinese con vista sulle Alpi',
+    'blog.article.immatricolazioni-veicoli-ticino-w38-2026.title': 'Nuove immatricolazioni auto in Ticino: i dati ASTRA W38',
+    'blog.article.immatricolazioni-veicoli-ticino-w38-2026.excerpt': 'Analisi dei dati sulle nuove immatricolazioni in Ticino per la settimana 2026-W38 secondo l\'Ufficio federale delle strade ASTRA/OFROU.',
+    'blog.article.immatricolazioni-veicoli-ticino-w38-2026.imageAlt': 'Veicoli in transito in una strada ticinese.',
 };
 
 export default blogMetaIt;
