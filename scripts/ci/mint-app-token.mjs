@@ -41,7 +41,7 @@
  *
  * So this script now READS `tok.body.permissions` and publishes the answer as a separate
  * env var, `APP_TOKEN_WORKFLOWS=true|false`. APP_TOKEN itself is still written whenever a
- * token was minted — deliberately: ~23 workflows use it purely as a push/dispatch IDENTITY
+ * token was minted — deliberately: ~24 workflows use it purely as a push/dispatch IDENTITY
  * (the App acts as `<app-slug>[bot]`, so its events re-trigger downstream workflows) and
  * would regress to `github-actions[bot]` if a missing `workflows` grant suppressed the
  * token wholesale. Only the `workflows`-specific claim is downgraded, and only for the

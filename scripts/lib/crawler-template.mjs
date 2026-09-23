@@ -56,7 +56,7 @@
  *    entry describing the dispatch, node setup, crawler run, housekeeping,
  *    commit+push steps into the shared manifest; run
  *    `node scripts/generate-crawler-group-workflows.mjs` afterwards to fold
- *    the new crawler into one of the 23 `.github/workflows/crawler-group-*.yml`
+ *    the new crawler into one of the 24 `.github/workflows/crawler-group-*.yml`
  *    workflows (each bundles ~25 crawlers as concurrent background steps in
  *    ONE job — see that script's header for why).
  *

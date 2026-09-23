@@ -1,6 +1,6 @@
 {
   "schemaVersion": 1,
-  "groupCount": 23,
+  "groupCount": 24,
   "crawlerCount": 620,
   "groups": {
     "10": [
@@ -410,13 +410,15 @@
       "fust",
       "hugo-boss",
       "lidl-svizzera",
-      "mcdonald-s-switzerland",
       "migros-hq",
       "nestle",
       "posta-svizzera-centro-regionale",
       "postauto",
       "postfinance",
       "tsmg"
+    ],
+    "24": [
+      "mcdonald-s-switzerland"
     ],
     "01": [
       "coop-ticino"
@@ -1292,5 +1294,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:9ae4b471f53fccec6a2dd40615d1647042a49098fba20733d1323f37b29ad5d2"
+  "digest": "sha256:d2939008c94b9558d04d16239d0ae7c8f7029bcbb5076c87684d50b390835930"
 }

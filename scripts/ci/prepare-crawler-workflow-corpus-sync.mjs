@@ -11,7 +11,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 
 export const CRAWLER_WORKFLOW_FILES = [
-  ...Array.from({ length: 23 }, (_, index) => `crawler-group-${String(index + 1).padStart(2, '0')}.yml`),
+  ...Array.from({ length: 24 }, (_, index) => `crawler-group-${String(index + 1).padStart(2, '0')}.yml`),
   'translate-pending.yml',
 ];
 
@@ -197,7 +197,7 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
   const contractFiles = (contract.artifacts ?? []).map((artifact) => artifact.file).sort();
   const expectedFiles = [...CRAWLER_WORKFLOW_FILES].sort();
   if (JSON.stringify(contractFiles) !== JSON.stringify(expectedFiles)) {
-    throw new Error('crawler transport contract must name exactly the 24 executable artifacts');
+    throw new Error('crawler transport contract must name exactly the 25 executable artifacts');
   }
   if (JSON.stringify(contract.observers ?? []) !== JSON.stringify(
     CORPUS_OBSERVER_FILES.map(({ source, target }) => ({ source, target, sha256: contract.observers?.find((observer) => observer.source === source)?.sha256 })),

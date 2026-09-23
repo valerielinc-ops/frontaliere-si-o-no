@@ -89,7 +89,7 @@ describe('crawler workflow corpus transport', () => {
   });
 
   it('allowlista esattamente 24 workflow esecutivi, observer shadow, contratto e manifest e rifiuta delete', () => {
-    expect(script).toContain('crawler-group-(0[1-9]|1[0-9]|2[0-3])');
+    expect(script).toContain('crawler-group-(0[1-9]|1[0-9]|2[0-4])');
     expect(script).toContain('crawler-generation-observer-shadow\\.yml');
     expect(script).toContain('generator/data/crawler-cross-repo-contract\\.json');
     expect(script).toContain('generator/tests/crawler-cross-repo-artifacts\\.test\\.mjs');

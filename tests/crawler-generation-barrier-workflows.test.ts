@@ -94,7 +94,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
     }
   });
 
-  it('renders all 23 groups before atomically replacing any destination', () => {
+  it('renders all 24 groups before atomically replacing any destination', () => {
     const tmp = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-late-render-'));
     try {
       const outDir = path.join(tmp, 'workflows');
@@ -111,12 +111,12 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
         crawlerGenerationRosterPath: path.join(tmp, 'roster.json'),
         profileRenderer: (filePath: string) => {
           rendered += 1;
-          if (rendered === 23) throw new Error('late profile render failure');
+          if (rendered === GROUP_IDS.length) throw new Error('late profile render failure');
           return { text: fs.readFileSync(filePath, 'utf8') };
         },
         write: true,
       })).toThrow(/late profile render failure/);
-      expect(rendered).toBe(23);
+      expect(rendered).toBe(GROUP_IDS.length);
       expect(fs.readFileSync(first, 'utf8')).toBe('must remain byte-identical\n');
       expect(fs.readFileSync(assignmentsPath)).toEqual(assignmentsBefore);
       expect(fs.existsSync(path.join(tmp, 'roster.json'))).toBe(false);
@@ -141,11 +141,11 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
     expect(() => checkGeneratedArtifacts({
       profileRenderer: (filePath: string) => {
         rendered += 1;
-        if (rendered === 23) throw new Error('injected --check render failure');
+        if (rendered === GROUP_IDS.length) throw new Error('injected --check render failure');
         return { text: fs.readFileSync(filePath, 'utf8') };
       },
     })).toThrow(/injected --check render failure/);
-    expect(rendered).toBe(23);
+    expect(rendered).toBe(GROUP_IDS.length);
     for (const [filePath, bytes] of before) expect(fs.readFileSync(filePath)).toEqual(bytes);
   });
 
@@ -161,7 +161,7 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
     expect(fs.readFileSync(ASSIGNMENTS)).toEqual(before);
   });
 
-  it('derives every registered identity and emits inherited receipt env plus terminal shadow steps for all 23 groups', () => {
+  it('derives every registered identity and emits inherited receipt env plus terminal shadow steps for all 24 groups', () => {
     const results: any = generate({ outDir: WORKFLOWS, assignmentsPath: ASSIGNMENTS, write: false });
     const committedRoster = JSON.parse(fs.readFileSync(ROSTER, 'utf8'));
     const assignedCrawlerIds = Object.values(committedRoster.groups).flat() as string[];
@@ -348,7 +348,8 @@ describe('crawler generation barrier wiring from the crawler SSOT', () => {
     expect(Buffer.byteLength(JSON.stringify(roster))).toBeLessThan(64 * 1024);
     expect(aggregateReceiptBytes).toBeLessThan(MAX_CYCLE_MANIFEST_BYTES);
     expect(largestBytes).toBeLessThan(MAX_GROUP_MANIFEST_BYTES);
-    expect((MAX_GROUP_MANIFEST_BYTES + 1) * GROUP_IDS.length).toBeLessThan(MAX_CYCLE_MANIFEST_BYTES);
+    expect(MAX_GROUP_MANIFEST_BYTES * GROUP_IDS.length).toBeLessThanOrEqual(MAX_CYCLE_MANIFEST_BYTES);
+    expect((MAX_GROUP_MANIFEST_BYTES + 1) * GROUP_IDS.length).toBeGreaterThan(MAX_CYCLE_MANIFEST_BYTES);
     expect(aggregateBytes).toBeLessThan(MAX_CYCLE_MANIFEST_BYTES);
   });
 

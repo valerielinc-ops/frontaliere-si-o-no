@@ -5,7 +5,7 @@
  * Before the crawler-workflow consolidation, every `Crawler Failure: <name>`
  * issue title embedded a real, dispatchable workflow name (one workflow per
  * crawler), resolvable via `gh run list -w <name>`. After consolidation, 581
- * individual crawler workflows were replaced by 23 grouped
+ * individual crawler workflows were replaced by 24 grouped
  * `crawler-group-*.yml` workflows, each launching ~25 crawlers in detached
  * `run:` steps and collecting their results in matching `Run <slug>` steps.
  * `${{ github.workflow }}` inside each crawler's inlined failure-report step

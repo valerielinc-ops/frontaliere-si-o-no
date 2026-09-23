@@ -790,12 +790,12 @@ function crawlerGenerationContractReasons(contract, observerBytes, remoteArtifac
 // parte dentro quella finestra vede un mirror LEGITTIMAMENTE più avanti del
 // remoto: prima di #6876 questo dava `contract_mismatch` +
 // `group_artifact_hash_mismatch`, exit 1, job rosso e — peggio — lo skip dello
-// step che dispaccia i 23 gruppi, cioè zero crawler per quel ciclo, per una
+// step che dispaccia i 24 gruppi, cioè zero crawler per quel ciclo, per una
 // condizione che si auto-risolve alla run successiva.
 //
 // Il contratto che GOVERNA il dispatch è quello pubblicato sul commit corpus
 // che stiamo per pinnare: è quel tree che eseguirà, quindi è contro di lui che
-// vanno verificati gli hash dei 23 artifact e dell'observer (binding integrity,
+// vanno verificati gli hash dei 24 artifact e dell'observer (binding integrity,
 // #6806/#6933 — invariata, anzi ora verificata sull'oggetto giusto). Il mirror
 // locale resta l'ancora di LINEAGE: uno skew è tollerato solo se il contratto
 // remoto dichiara lo stesso `sourceRepository` e lo stesso `generatorSha256`

@@ -12,7 +12,7 @@ const WORKFLOW_PATH = path.join(
 );
 
 describe('portable crawler generation observer workflow', () => {
-  it('uses exactly 23 workflow_run triggers and rejects legacy empty-token runs before runner allocation', () => {
+  it('uses exactly 24 workflow_run triggers and rejects legacy empty-token runs before runner allocation', () => {
     const doc = YAML.parse(fs.readFileSync(WORKFLOW_PATH, 'utf8'));
     expect(Object.keys(doc.on)).toEqual(['workflow_dispatch', 'workflow_run', 'schedule']);
     expect(doc.on.schedule).toEqual([{ cron: '23 2,8,14,20 * * *' }]);

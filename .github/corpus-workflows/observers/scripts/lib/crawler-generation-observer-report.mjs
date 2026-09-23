@@ -7,7 +7,7 @@ const HASH_RE = /^sha256:[a-f0-9]{64}$/;
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const STATUS_SET = new Set(['ready', 'blocked', 'waiting', 'infrastructure_error']);
 const GROUP_IDS = Object.freeze(Array.from(
-  { length: 23 },
+  { length: 24 },
   (_, index) => String(index + 1).padStart(2, '0'),
 ));
 const DISPATCH_STATUS_SET = new Set([
