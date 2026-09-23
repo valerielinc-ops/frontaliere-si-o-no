@@ -17,11 +17,12 @@
  *
  * SEO contract (mirrors borderMunicipalityPagesPlugin + docs/SEO-GATES.md):
  *   - buildSeoPageHtml shell, hubKey 'vita' chrome, seoContentOutsideRoot
- *   - schema.org/Event JSON-LD per event (name/startDate/eventStatus/
- *     eventAttendanceMode/location.address.addressLocality/description≥30) —
- *     deploy-blocking; optional image, organizer, performer and offers fields
- *     are emitted only when the source data supports them and are validated
- *     when present
+ *   - schema.org/Event JSON-LD on indexable event-detail pages
+ *     (name/startDate/eventStatus/eventAttendanceMode/location.address.addressLocality/
+ *     description≥30) — deploy-blocking; optional image, organizer, performer
+ *     and offers fields are emitted only when the source data supports them and
+ *     are validated when present. Aggregate pages expose an ItemList of event
+ *     URLs, not partial nested Event objects.
  *   - BreadcrumbList + FAQPage JSON-LD, full hreflang (it/en/de/fr + x-default)
  *   - own sitemap-eventi.xml (picked up automatically by sitemapAliasPlugin) —
  *     single un-sharded file; see the size-evaluation comment on buildSitemap
@@ -1261,40 +1262,6 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
 }
 
 /**
- * Light aggregate-list variant of {@link eventLd} — same field VALUES (built
- * via the full builder, so the description/date/locality edge cases never
- * drift into a second copy), but strips the heaviest OPTIONAL-per-
- * `validate-structured-data-completeness.mjs` weight before embedding into a
- * canton/digest-hub `ItemList`: full `ImageObject` (with the GSC
- * licensable-image quintet) collapses to its bare `url` string when present;
- * `geo`/`streetAddress`/`postalCode` drop off `location.address` (only
- * `addressLocality` is required), and `offers`/`sameAs` are omitted entirely
- * (both optional, `offers` is only validated *when present*). The
- * authoritative FULL
- * `eventLd()` still ships on every event's own detail page (`isPast` guard,
- * line ~2579) — only the supplementary aggregate-list copy is lightened.
- * Cuts ~1-1.3 KB/event; at the 100-event hub/digest cap that's the
- * difference between a large canton (e.g. Bern, whose nationwide-source
- * events already carry more real fields than Ticino's thin tio-agenda MVP
- * feed) clearing or blowing the 260 KB page-weight budget
- * (audit:page-weight regression #4593 — verified: BE's 12 oversized pages
- * were all canton-hub/digest, never a per-event detail page).
- */
-function lightEventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string): Record<string, unknown> {
-  const full = eventLd(event, locale, canonicalUrl);
-  const { offers: _offers, sameAs: _sameAs, image: fullImage, location, ...rest } = full as Record<string, unknown> & {
-    location: { '@type': string; name: string; address: Record<string, unknown>; geo?: unknown };
-  };
-  const { streetAddress: _street, postalCode: _postal, ...addressRest } = location.address;
-  const imageUrl = typeof fullImage === 'string' ? fullImage : (fullImage as { url?: string } | undefined)?.url;
-  return {
-    ...rest,
-    location: { ...location, address: addressRest, geo: undefined },
-    ...(imageUrl ? { image: imageUrl } : {}),
-  };
-}
-
-/**
  * Event flyer image → schema.org ImageObject with the GSC licensable-image
  * quintet (services/seo/imageObjectLd.ts — acquireLicensePage, copyrightNotice,
  * license, creator, creditText), or `null` when there is no image to show.
@@ -1474,6 +1441,22 @@ function renderEventCard(event: SiteEvent, locale: Locale, detailHref?: string |
 
 /** `detailHref` maps an event to its internal detail-page URL (or null → external). */
 type DetailHref = (event: SiteEvent) => string | null;
+
+/**
+ * Aggregate pages link each `ListItem` to the event URL without embedding a
+ * second, partial `Event` entity. Google recommends Event markup on pages
+ * focused on one event; the detail page owns the full Event JSON-LD.
+ */
+function eventListItemLd(event: SiteEvent, locale: Locale, position: number, detailHref?: DetailHref): Record<string, unknown> {
+  const href = detailHref?.(event) || event.url;
+  const itemUrl = /^https?:\/\//i.test(href) ? href : `${BASE_URL}${href.startsWith('/') ? href : `/${href}`}`;
+  return {
+    '@type': 'ListItem',
+    position,
+    name: localizedTitle(event, locale),
+    item: itemUrl,
+  };
+}
 
 function renderEventList(events: SiteEvent[], locale: Locale, detailHref?: DetailHref): string {
   if (events.length === 0) {
@@ -1809,25 +1792,20 @@ function dynamicFaqPair(
   return { q, a: aHasEvents(weekCount, localizedTitle(next, locale), humanDate(next.startDate, locale)) };
 }
 
-// Cap on ItemList JSON-LD entries per aggregate page (canton/national/comune/
-// digest hubs) — deliberately SMALLER than the visible card-list caps (80/100
-// items, see the `upcoming`/`list` comments above each render* function).
-// Those caps were raised 40/60→80/100 to fix audit:max-bfs-depth (every event
-// needs a real <a href> within crawl depth ≤2); this cap is unrelated to that
-// and stays independent. `lightEventLd()` already strips optional fields, but
-// even the "light" per-event JSON-LD entry for the busiest canton hub (Bern —
-// the most-crawled canton) pushed 2 pages ~1 KB over the 260 KB audit:page-
-// weight budget (validate-dist run 29794187475). Google's rich-result
-// eligibility already only surfaces a handful of ItemList entries regardless
-// of how many are marked up, so trimming the JSON-LD tail (while every event
-// keeps its real visible <a href> card, so BFS reachability is untouched) is
-// a real byte reduction rather than a page-weight-only patch.
+// Cap on ItemList entries per aggregate page (canton/national/comune/digest
+// hubs) — deliberately SMALLER than the visible card-list caps (80/100 items,
+// see the `upcoming`/`list` comments above each render* function). Those caps
+// were raised 40/60→80/100 to fix audit:max-bfs-depth (every event needs a real
+// <a href> within crawl depth ≤2); this cap is unrelated to that and stays
+// independent. ItemList entries are URL-only so aggregate pages do not assert
+// incomplete Event entities; the cap keeps the JSON-LD payload bounded while
+// every event still keeps its real visible <a href> card.
 const EVENT_JSONLD_ITEM_CAP = 50;
 
 /**
- * Events eligible for Event JSON-LD markup on aggregate ItemList pages
- * (#3508): Google's event structured-data guidelines say not to mark up
- * already-started/expired events as EventScheduled, but some crawler
+ * Events eligible for aggregate ItemList links (#3508): keeping the same
+ * eligibility filter as the former nested Event markup avoids surfacing
+ * already-started/expired event URLs in the structured-data list, while some crawler
  * sources ship stale startDates (e.g. a recurring series stored as one
  * year-long start→end span). The visible card slice prioritizes events whose
  * startDate is today or later, with a 1-day grace window for timezone skew;
@@ -2041,11 +2019,7 @@ export function renderHubPage(params: {
     '@type': 'ItemList',
     name: copy.hubTitle,
     numberOfItems: events.length,
-    itemListElement: markupEligibleEvents(upcoming, dateStamp).map((event, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      item: lightEventLd(event, locale, detailHref?.(event) || undefined),
-    })),
+    itemListElement: markupEligibleEvents(upcoming, dateStamp).map((event, i) => eventListItemLd(event, locale, i + 1, detailHref)),
   });
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -2180,11 +2154,7 @@ export function renderEventsIndexPage(params: {
     '@type': 'ItemList',
     name: copy.metaTitle,
     numberOfItems: events.length,
-    itemListElement: markupEligibleEvents(upcoming, dateStamp).map((event, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      item: lightEventLd(event, locale, detailHref?.(event) || undefined),
-    })),
+    itemListElement: markupEligibleEvents(upcoming, dateStamp).map((event, i) => eventListItemLd(event, locale, i + 1, detailHref)),
   });
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -2299,11 +2269,7 @@ export function renderComunePage(params: {
     '@type': 'ItemList',
     name: copy.comuneTitle(comune),
     numberOfItems: events.length,
-    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      item: lightEventLd(event, locale, detailHref?.(event) || undefined),
-    })),
+    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => eventListItemLd(event, locale, i + 1, detailHref)),
   });
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -2562,11 +2528,7 @@ export function renderOtherEventsPage(params: {
     '@type': 'ItemList',
     name: oeCopy.h1,
     numberOfItems: events.length,
-    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({
-      '@type': 'ListItem',
-      position: i + 1,
-      item: lightEventLd(event, locale, detailHref?.(event) || undefined),
-    })),
+    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => eventListItemLd(event, locale, i + 1, detailHref)),
   });
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',
@@ -3493,7 +3455,7 @@ export function renderDigestPage(params: {
     '@type': 'ItemList',
     name: dc.title,
     numberOfItems: events.length,
-    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => ({ '@type': 'ListItem', position: i + 1, item: lightEventLd(event, locale, detailHref?.(event) || undefined) })),
+    itemListElement: markupEligibleEvents(list, dateStamp).map((event, i) => eventListItemLd(event, locale, i + 1, detailHref)),
   });
   const breadcrumbLd = inlineScriptJson({
     '@context': 'https://schema.org',

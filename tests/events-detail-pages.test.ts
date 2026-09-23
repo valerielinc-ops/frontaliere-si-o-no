@@ -1031,10 +1031,12 @@ describe('events schema data quality (#3508)', () => {
     });
     const itemLists = [...page.html.matchAll(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema\.org","@type":"ItemList".*?\})<\/script>/g)];
     expect(itemLists.length).toBeGreaterThan(0);
-    const parsed = JSON.parse(itemLists[0][1]) as { itemListElement: Array<{ item: { name: string } }> };
-    const names = parsed.itemListElement.map((li) => li.item.name);
+    const parsed = JSON.parse(itemLists[0][1]) as { itemListElement: Array<{ item: string; name: string }> };
+    const names = parsed.itemListElement.map((li) => li.name);
     expect(names).toContain('Concerto Futuro');
     expect(names).not.toContain('Chilbi Vecchia');
+    expect(parsed.itemListElement.every((li) => typeof li.item === 'string')).toBe(true);
+    expect(page.html).not.toContain('"@type":"Event"');
     // Markup-only filter: the stale event must still be visible in the HTML list.
     expect(page.html).toContain('Chilbi Vecchia');
   });
@@ -1060,16 +1062,17 @@ describe('events schema data quality (#3508)', () => {
       distDir,
     });
     const itemLists = [...page.html.matchAll(/<script type="application\/ld\+json">(\{"@context":"https:\/\/schema\.org","@type":"ItemList".*?\})<\/script>/g)];
-    const parsed = JSON.parse(itemLists[0][1]) as { numberOfItems: number; itemListElement: Array<{ item: { name: string } }> };
+    const parsed = JSON.parse(itemLists[0][1]) as { numberOfItems: number; itemListElement: Array<{ item: string; name: string }> };
     expect(parsed.numberOfItems).toBe(events.length);
-    expect(parsed.itemListElement.map((li) => li.item.name)).toContain('Evento futuro in coda');
+    expect(parsed.itemListElement.map((li) => li.name)).toContain('Evento futuro in coda');
+    expect(parsed.itemListElement.every((li) => typeof li.item === 'string')).toBe(true);
     expect(page.html).toContain('Evento futuro in coda');
   });
 
   // Regression guard: validate-dist run 29794187475 found the Bern canton hub
   // (the most-crawled canton, closest to the 100-event visible-card cap) ~1 KB
   // over the 260 KB audit:page-weight budget — the ItemList JSON-LD mirrored
-  // all 100 visible cards' worth of `lightEventLd()` entries. The fix caps
+  // all 100 visible cards' worth of nested Event entries. The fix caps
   // JSON-LD entries independently of the visible card list (EVENT_JSONLD_ITEM_CAP
   // in eventsSeoPagesPlugin.ts), so every event still gets a real crawlable
   // <a href> card (audit:max-bfs-depth reachability untouched) while the
