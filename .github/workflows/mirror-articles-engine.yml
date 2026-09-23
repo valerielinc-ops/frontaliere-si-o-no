@@ -118,6 +118,7 @@ jobs:
             /scripts/ci/lib/hook-exit-codes.mjs
             /scripts/ci/lib/hook-stdin.mjs
             /scripts/ci/lib/hook-target-cwd.mjs
+            /scripts/lib/pr-body-closes-check.mjs
             /scripts/lib/pr-body-sections-check.mjs
           sparse-checkout-cone-mode: false
 
