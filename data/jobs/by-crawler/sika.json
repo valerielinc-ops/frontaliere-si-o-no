@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sika",
-  "assembledAt": "2026-09-21T15:56:25.556Z",
+  "assembledAt": "2026-09-23T12:09:37.684Z",
   "jobs": [
     {
       "id": "sika-830dc4ea55aa",
@@ -153,84 +153,6 @@
       "previousSlugs": [
         "verantwortliche-kaufm-berufliche-grundbildung-sowie-ubergeordnete-berufliche-grundbildung"
       ]
-    },
-    {
-      "id": "sika-feac34a42cc0",
-      "slug": "meccanico-operativo-polimeccanico-meccanico-industriale-sika-sarnen-obwalden-switzerland",
-      "slugByLocale": {
-        "it": "meccanico-operativo-polimeccanico-meccanico-industriale-sika-sarnen-obwalden-switzerland",
-        "en": "operational-mechanic-polymechanic-industrial-mechanic-sika-sarnen-obwalden-switzerland",
-        "de": "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch",
-        "fr": "mecanicien-operationnel-polymecanique-mecanicien-industriel-sika-sarnen-obwalden-switzerland"
-      },
-      "company": "Sika",
-      "companyKey": "sika",
-      "companyDomain": "sika.com",
-      "title": "Betriebsmechaniker / Polymechaniker - Industrial Mechanic",
-      "titleByLocale": {
-        "it": "Meccanico operativo / Polimeccanico - Meccanico industriale",
-        "en": "Operational mechanic / Polymechanic - Industrial Mechanic",
-        "de": "Betriebsmechaniker / Polymechaniker - Industrial Mechanic",
-        "fr": "Mécanicien opérationnel / Polymécanique - Mécanicien industriel"
-      },
-      "description": "Durchführen der periodischen Revisions-, Reparatur- und Unterhaltsarbeiten mit Hilfe des Instandhaltungssystems sowie Störungsbehebung Mitwirken beim Ersatzteillager und Optimierung der Lagerhaltung Unterstützung bei der Ausbildung der Lernenden Polymechaniker Organisation und Betreuung der periodischen Prüfungen von Betriebsmitteln Einsatzbereitschaft Pikett/Notfalldienst für die Produktion im 3- und 4-Schichtbetrieb",
-      "descriptionByLocale": {
-        "it": "Effettuare controlli periodici, lavori di riparazione e manutenzione con l'aiuto del sistema di manutenzione, nonché la risoluzione dei problemi Partecipazione nel magazzino dei pezzi di ricambio e l'ottimizzazione del magazzino di stoccaggio Supporto nella formazione dell'organizzazione polimeccanica dell'istruttore e il supporto del test periodico delle apparecchiature",
-        "en": "Performing periodic inspection, repair and maintenance work with the help of the maintenance system as well as troubleshooting Participation in the spare parts warehouse and optimization of warehousing Support in the training of the learner polymechanic Organization and support of the periodic testing of equipment Readiness Pikett/emergency service for production in 3- and 4-shift operation",
-        "de": "Durchführen der periodischen Revisions-, Reparatur- und Unterhaltsarbeiten mit Hilfe des Instandhaltungssystems sowie Störungsbehebung Mitwirken beim Ersatzteillager und Optimierung der Lagerhaltung Unterstützung bei der Ausbildung der Lernenden Polymechaniker Organisation und Betreuung der periodischen Prüfungen von Betriebsmitteln Einsatzbereitschaft Pikett/Notfalldienst für die Produktion im 3- und 4-Schichtbetrieb",
-        "fr": "Effectuer des travaux d'inspection, de réparation et d'entretien périodiques avec l'aide du système d'entretien ainsi que de dépannage Participation à l'entrepôt de pièces de rechange et optimisation de l'entreposage Soutien à la formation de l'organisation polymécanique de l'apprenant et soutien aux essais périodiques de l'équipement Service de préparation Pikett/urgence pour la production en 3 et 4 équipes"
-      },
-      "location": "Sarnen, Obwalden",
-      "canton": "OW",
-      "url": "https://www.sika.com/en/career/jobs/job-posting-page/jid-1ebb94c2-698c-4541-a56f-c33e667c41f9.html",
-      "source": "Sika Dedicated Parser",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:05:14.493Z",
-      "addressLocality": "Sarnen",
-      "postalCode": "",
-      "streetAddress": "",
-      "addressRegion": "OW",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Specialty chemicals (construction & industrial)",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2025-11-27",
-      "applyUrl": "https://www.sika.com/en/career/jobs/job-posting-page/jid-1ebb94c2-698c-4541-a56f-c33e667c41f9.html",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
-        ],
-        "en": [
-          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
-        ],
-        "fr": [
-          "betriebsmechaniker-polymechaniker-industrial-mechanic-sika-ch"
-        ]
-      },
-      "firstSeenAt": "2026-06-17T13:57:35.192Z",
-      "salaryMin": 69500,
-      "salaryMax": 106000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 69500,
-          "maxValue": 106000,
-          "unitText": "YEAR"
-        }
-      }
     },
     {
       "id": "sika-eddd20ef7319",
