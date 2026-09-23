@@ -217,4 +217,18 @@ describe('needs-human-sweep.yml — il DATO che il pre-pass legge, non solo i su
     const wf = fs.readFileSync(path.join(ROOT, WORKFLOW), 'utf-8');
     expect(sparsePatternsFor(wf, 'prepass')).toContain('/VISION.md');
   });
+
+  it('crea `automation-deferred` prima del pre-pass che la scrive', () => {
+    const wf = fs.readFileSync(path.join(ROOT, WORKFLOW), 'utf-8');
+    const prepassStart = wf.indexOf('\n  prepass:\n');
+    const sweepStart = wf.indexOf('\n  sweep:\n');
+    expect(prepassStart).toBeGreaterThanOrEqual(0);
+    expect(sweepStart).toBeGreaterThan(prepassStart);
+    const prepass = wf.slice(prepassStart, sweepStart);
+    const bootstrap = prepass.indexOf('Ensure automation-deferred label');
+    const runner = prepass.indexOf('Pre-pass deterministico (zero-Claude)');
+    expect(bootstrap, 'la label tecnica deve avere un bootstrap esplicito').toBeGreaterThanOrEqual(0);
+    expect(prepass.slice(bootstrap, runner), 'il bootstrap deve precedere lo script che usa la label')
+      .toMatch(/gh label create automation-deferred/);
+  });
 });
