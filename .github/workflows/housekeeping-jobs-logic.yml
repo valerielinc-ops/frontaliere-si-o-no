@@ -18,7 +18,16 @@ permissions:
 jobs:
   housekeeping:
     runs-on: ubuntu-latest
-    timeout-minutes: 45
+    # The rest lane has 262 isolated slices in the current corpus. The previous
+    # four-worker cap reached this ceiling before the lane could drain; keep a
+    # hard job budget while giving the bounded fan-out enough headroom to finish.
+    # Revert-risk: eight workers may expose runner saturation or upstream rate
+    # limits before a live run supplies a stable pre/post comparison.
+    # Revert trigger: the first live run exceeds 50 minutes, reaches this
+    # timeout, reports OOM/runner starvation, or receives an upstream 429.
+    # Revert action: restore timeout-minutes to 45 and max_parallel to 4 before
+    # the next run; all worker and validation failures remain fail-closed.
+    timeout-minutes: 60
     concurrency:
       group: jobs-housekeeping-${{ inputs.lane }}
       cancel-in-progress: false
@@ -118,17 +127,19 @@ jobs:
 
           # Each worker owns one crawler slice and its matching expired archive.
           # Keep the cross-slice fan-out bounded: cleanup-jobs already validates
-          # URLs concurrently inside a slice, so four workers are enough to
-          # remove the serial process-start/network wait without opening an
-          # unbounded request burst or sharing a write target. Refill a free
+          # URLs concurrently inside a slice, so eight workers remove the
+          # serial process-start/network wait without opening an unbounded
+          # request burst or sharing a write target. Eight workers is
+          # still bounded and each worker owns one independent slice. Refill a free
           # slot as soon as its worker exits; waiting for a whole batch would
           # leave the lane idle behind one slow upstream slice.
           # There is no stable pre-merge wall-time baseline for this lane:
           # slice count and upstream response time vary with every run. The
           # operational revert trigger is a first live run that approaches
-          # the 45-minute job timeout or shows runner pressure; lower this
-          # value to 2 before the next run if either signal appears.
-          readonly max_parallel=4
+          # 50 minutes, reaches the 60-minute job timeout, reports OOM/runner
+          # starvation, or receives upstream 429 responses; lower this value
+          # to 4 before the next run if any signal appears.
+          readonly max_parallel=8
           status_dir="$(mktemp -d "${RUNNER_TEMP:-${TMPDIR:-/tmp}}/housekeeping-status.XXXXXX")"
           trap 'rm -rf "$status_dir"' EXIT
           running_pids=()
