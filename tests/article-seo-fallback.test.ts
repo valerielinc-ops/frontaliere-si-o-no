@@ -105,6 +105,17 @@ describe('article SEO fallback builder', () => {
     expect(sections.map((s) => s.html)).toEqual(['<h3>Titolo principale</h3><p>Testo del paragrafo.</p>']);
   });
 
+  it('keeps the complete visible HTML for a long body section', () => {
+    const repeated = Array.from({ length: 220 }, (_, i) => `Frase editoriale ${i + 1}.`).join(' ');
+    const [section] = cleanupArticleBodySections(keyed([
+      `## Dati ufficiali\n${repeated}\n\n## Conclusione\nQuesta conclusione deve restare visibile nella pagina completa.`,
+    ]));
+
+    expect(section.html.length).toBeGreaterThan(1800);
+    expect(section.html).toContain('Questa conclusione deve restare visibile nella pagina completa.');
+    expect(section.html).not.toContain('<p>…</p>');
+  });
+
   // Issue #5415: the daily brief ships two pipe tables per edition. Before this,
   // the engine had no table branch, so their rows landed in paragraphBuf and were
   // joined with spaces into one <p> of raw pipes — verified live on 2026-08-08
