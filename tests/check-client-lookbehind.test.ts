@@ -9,7 +9,13 @@
  * #1996 fix left describing the old removed regex.
  */
 import { describe, it, expect } from 'vitest';
-import { clientImportClosure, lineHasClientLookbehind, findViolations, stripComments } from '../scripts/ci/check-client-lookbehind.mjs';
+import {
+  clientImportClosure,
+  importedSpecifiers,
+  lineHasClientLookbehind,
+  findViolations,
+  stripComments,
+} from '../scripts/ci/check-client-lookbehind.mjs';
 
 describe('check-client-lookbehind — predicate', () => {
   it('flags a real client regex lookbehind in code', () => {
@@ -68,6 +74,14 @@ describe('check-client-lookbehind — predicate', () => {
 });
 
 describe('check-client-lookbehind — tree invariant', () => {
+  it('follows static template-literal dynamic imports', () => {
+    expect(importedSpecifiers('const load = () => import(`./lazy.mjs`);')).toContain('./lazy.mjs');
+  });
+
+  it('does not guess an interpolated dynamic import target', () => {
+    expect(importedSpecifiers('const load = () => import(`./${locale}.mjs`);')).not.toContain('./${locale}.mjs');
+  });
+
   it('follows browser imports into shared build modules', () => {
     const closure = clientImportClosure();
     expect(closure).toContain('build-plugins/shared/jobPostingSchema.ts');
