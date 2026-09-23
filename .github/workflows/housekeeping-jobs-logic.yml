@@ -120,58 +120,95 @@ jobs:
           # Keep the cross-slice fan-out bounded: cleanup-jobs already validates
           # URLs concurrently inside a slice, so four workers are enough to
           # remove the serial process-start/network wait without opening an
-          # unbounded request burst or sharing a write target.
-           # There is no stable pre-merge wall-time baseline for this lane:
-           # slice count and upstream response time vary with every run. The
-           # operational revert trigger is a first live run that approaches
-           # the 45-minute job timeout or shows runner pressure; lower this
-           # value to 2 before the next run if either signal appears.
-           readonly max_parallel=4
+          # unbounded request burst or sharing a write target. Refill a free
+          # slot as soon as its worker exits; waiting for a whole batch would
+          # leave the lane idle behind one slow upstream slice.
+          # There is no stable pre-merge wall-time baseline for this lane:
+          # slice count and upstream response time vary with every run. The
+          # operational revert trigger is a first live run that approaches
+          # the 45-minute job timeout or shows runner pressure; lower this
+          # value to 2 before the next run if either signal appears.
+          readonly max_parallel=4
+          status_dir="$(mktemp -d "${RUNNER_TEMP:-${TMPDIR:-/tmp}}/housekeeping-status.XXXXXX")"
+          trap 'rm -rf "$status_dir"' EXIT
           running_pids=()
           running_slices=()
+          running_markers=()
+          running_count=0
           processed=0
+          failed=0
+          next_slice=0
 
           run_slice() {
             local slice="$1"
+            local marker="$2"
+            local status=0
             echo "🧹 [$HOUSEKEEPING_LANE] $slice"
             JOBS_SLICE_FILE="$slice" \
               JOBS_SKIP_LOCALE_HARDENING=1 \
-              node scripts/cleanup-jobs.mjs
+              node scripts/cleanup-jobs.mjs || status=$?
+            printf "%s\n" "$status" > "$marker"
+            return "$status"
           }
 
-          wait_for_batch() {
-            local batch_status=0
-            local i status
-            for i in "${!running_pids[@]}"; do
-              if wait "${running_pids[$i]}"; then
-                processed=$((processed + 1))
-              else
-                status=$?
-                batch_status=1
-                echo "::error::Housekeeping failed [$HOUSEKEEPING_LANE] ${running_slices[$i]} (exit $status)."
+          start_slice() {
+            local slot="$1"
+            local slice="$2"
+            local marker="$status_dir/$slot.done"
+            rm -f "$marker"
+            run_slice "$slice" "$marker" &
+            running_pids[$slot]="$!"
+            running_slices[$slot]="$slice"
+            running_markers[$slot]="$marker"
+            running_count=$((running_count + 1))
+          }
+
+          reap_completed() {
+            local slot=0 status
+            while [ "$slot" -lt "$max_parallel" ]; do
+              if [ -n "${running_pids[$slot]-}" ] && [ -f "${running_markers[$slot]}" ]; then
+                if wait "${running_pids[$slot]}"; then
+                  processed=$((processed + 1))
+                else
+                  status=$?
+                  failed=1
+                  echo "::error::Housekeeping failed [$HOUSEKEEPING_LANE] ${running_slices[$slot]} (exit $status)."
+                fi
+                echo "Housekeeping lane $HOUSEKEEPING_LANE progress: $processed/${#selected_slices[@]} slice(s) completed."
+                running_pids[$slot]=""
+                running_slices[$slot]=""
+                running_markers[$slot]=""
+                running_count=$((running_count - 1))
               fi
+              slot=$((slot + 1))
             done
-            echo "Housekeeping lane $HOUSEKEEPING_LANE progress: $processed/${#selected_slices[@]} slice(s) completed."
-            running_pids=()
-            running_slices=()
-            return "$batch_status"
           }
 
-          for slice in "${selected_slices[@]}"; do
-            run_slice "$slice" &
-            running_pids+=("$!")
-            running_slices+=("$slice")
-            if [ "${#running_pids[@]}" -eq "$max_parallel" ]; then
-              if ! wait_for_batch; then
-                exit 1
-              fi
+          while [ "$next_slice" -lt "${#selected_slices[@]}" ] || [ "$running_count" -gt 0 ]; do
+            if [ "$failed" -eq 0 ]; then
+              slot=0
+              while [ "$slot" -lt "$max_parallel" ] && [ "$next_slice" -lt "${#selected_slices[@]}" ]; do
+                if [ -z "${running_pids[$slot]-}" ]; then
+                  start_slice "$slot" "${selected_slices[$next_slice]}"
+                  next_slice=$((next_slice + 1))
+                fi
+                slot=$((slot + 1))
+              done
+            fi
+
+            if [ "$running_count" -eq 0 ]; then
+              break
+            fi
+
+            previous_running="$running_count"
+            reap_completed
+            if [ "$running_count" -eq "$previous_running" ]; then
+              sleep 0.05
             fi
           done
 
-          if [ "${#running_pids[@]}" -gt 0 ]; then
-            if ! wait_for_batch; then
-              exit 1
-            fi
+          if [ "$failed" -ne 0 ]; then
+            exit 1
           fi
 
           echo "Housekeeping lane $HOUSEKEEPING_LANE processed $processed slice(s)."
