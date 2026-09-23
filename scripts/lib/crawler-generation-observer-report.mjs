@@ -1,6 +1,9 @@
 import { digestDocument } from './canonical-json-digest.mjs';
 import { isCrawlerGenerationToken } from './crawler-generation-token.mjs';
-import { deriveCrawlerGroupIdsFromGroups } from './crawler-generation-group-ids.mjs';
+import {
+  deriveCrawlerGroupIdsFromGroups,
+  normalizeCrawlerGroupIds,
+} from './crawler-generation-group-ids.mjs';
 
 export const CRAWLER_GENERATION_OBSERVER_REPORT_SCHEMA_VERSION = 2;
 export const ARTIFACT_MISSING_GRACE_MS = 6 * 60 * 60 * 1_000;
@@ -63,9 +66,15 @@ function withoutDigest(value) {
   return Object.fromEntries(Object.entries(value).filter(([key]) => key !== 'digest'));
 }
 
-function validDispatchDiagnostics(value) {
+function validDispatchDiagnostics(value, expectedGroupIds = null) {
   let groupIds;
-  try { groupIds = deriveCrawlerGroupIdsFromGroups(value); } catch { return false; }
+  try {
+    groupIds = expectedGroupIds === null
+      ? deriveCrawlerGroupIdsFromGroups(value)
+      : normalizeCrawlerGroupIds(expectedGroupIds);
+  } catch {
+    return false;
+  }
   if (!exactKeys(value, groupIds)) return false;
   return groupIds.every((group) => {
     const diagnostic = value[group];
@@ -129,6 +138,10 @@ export function createCrawlerGenerationObserverReport({
 
 export function validateCrawlerGenerationObserverReport(report, expected = null) {
   const errors = [];
+  let expectedGroupIds = null;
+  if (expected?.groupIds !== undefined) {
+    try { expectedGroupIds = normalizeCrawlerGroupIds(expected.groupIds); } catch { expectedGroupIds = []; }
+  }
   if (!exactKeys(report, REPORT_KEYS)) return { valid: false, errors: ['unsupported_schema'] };
   if (report.schemaVersion !== CRAWLER_GENERATION_OBSERVER_REPORT_SCHEMA_VERSION) {
     errors.push('unsupported_schema_version');
@@ -170,11 +183,12 @@ export function validateCrawlerGenerationObserverReport(report, expected = null)
       : report.observer?.reasons?.length < 1) {
     errors.push('invalid_observer_reasons');
   }
-  if (report.dispatchDiagnostics !== null && !validDispatchDiagnostics(report.dispatchDiagnostics)) {
+  if (report.dispatchDiagnostics !== null
+      && !validDispatchDiagnostics(report.dispatchDiagnostics, expectedGroupIds)) {
     errors.push('invalid_dispatch_diagnostics');
   }
   if (['ready', 'blocked'].includes(report.observer?.status)
-      && !validDispatchDiagnostics(report.dispatchDiagnostics)) {
+      && !validDispatchDiagnostics(report.dispatchDiagnostics, expectedGroupIds)) {
     errors.push('missing_terminal_dispatch_diagnostics');
   }
   if (!exactKeys(report.translation, ['mode', 'wouldDispatch', 'dispatched'])

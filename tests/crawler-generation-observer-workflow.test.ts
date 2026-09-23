@@ -85,7 +85,7 @@ describe('portable crawler generation observer workflow', () => {
 
   it('sparse-checkout contains the complete observer import closure plus the generated roster', () => {
     const doc = YAML.parse(fs.readFileSync(WORKFLOW_PATH, 'utf8'));
-    for (const job of [doc.jobs.sentinel, doc.jobs.observe_event]) {
+    for (const job of [doc.jobs.sentinel, doc.jobs.observe_event, doc.jobs.reconcile_scheduled]) {
       const checkout = job.steps.find((step: any) => step.uses === 'actions/checkout@v5');
       const sparsePaths = checkout.with['sparse-checkout']
         .split('\n')

@@ -4,11 +4,11 @@
   "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "89964ab624a1fbb747b8796c564331149d2c488a",
+  "sourceCommit": "9232a7f724122e715214a26d0c42f34aabe8cd75",
   "artifactObservation": {
     "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
     "sourceRef": "main",
-    "sourceCommit": "89964ab624a1fbb747b8796c564331149d2c488a"
+    "sourceCommit": "9232a7f724122e715214a26d0c42f34aabe8cd75"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -575,12 +575,12 @@
     {
       "source": "observers/workflows/crawler-generation-observer-shadow.yml",
       "target": ".github/workflows/crawler-generation-observer-shadow.yml",
-      "sha256": "57b6e5f14211502fa1e4a2041c8bc06b06ef7362a9ac7fc6f43da79335eda576"
+      "sha256": "0441657a53fe6282a45762903f39a0a3118ef5eb4a27d75146061f3250f15edc"
     },
     {
       "source": "observers/scripts/crawler-generation-observer-selector.mjs",
       "target": "scripts/ci/crawler-generation-observer-selector.mjs",
-      "sha256": "bfb2b00fd4f9cb24aad4f5648a4f53c93aca54dbcc9479342452464050bfc2e7"
+      "sha256": "3aec2f36e957dac125f21a20253af40fa7dd6e0ebcebe6d49556a04263b629d3"
     },
     {
       "source": "observers/scripts/lib/canonical-json-digest.mjs",
@@ -590,7 +590,7 @@
     {
       "source": "observers/scripts/lib/crawler-generation-observer-report.mjs",
       "target": "scripts/ci/lib/crawler-generation-observer-report.mjs",
-      "sha256": "97ad8bae7f3f0a58badc13ad89f56c76011e204ce6c6e1f4080bd11a74a65e60"
+      "sha256": "4faf39895049aa3026ddba344f03e995c1a2acb7bfd81388dad5e4d3f7aa5d72"
     },
     {
       "source": "observers/scripts/lib/crawler-generation-group-ids.mjs",
