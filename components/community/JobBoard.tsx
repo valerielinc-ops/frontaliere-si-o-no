@@ -6786,8 +6786,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
   const job = rewardedApplicationJob;
   if (!job) return;
   setRewardedApplicationJob(null);
-  // A no-fill is not an error for the user. The transparent fallback is the
-  // original employer destination, with the same-tab navigation guaranteed.
+  // A no-fill is not an error for the user: go straight to the original
+  // employer destination, with the same-tab navigation guaranteed.
   redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true);
  };
 
