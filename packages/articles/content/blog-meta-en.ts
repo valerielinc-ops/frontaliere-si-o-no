@@ -11930,6 +11930,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.parco-veicoli-ticino-settembre-2026.title': 'Vehicle fleet in Ticino: ASTRA data for September 2026',
     'blog.article.parco-veicoli-ticino-settembre-2026.excerpt': 'Analysis of the Ticino fleet: 336,430 total vehicles, 13,293 new registrations and 1532 imports of used vehicles according to ASTRA data.',
     'blog.article.parco-veicoli-ticino-settembre-2026.imageAlt': 'Vehicular traffic on a Ticino road with Alpine landscape',
+    'blog.article.immatricolazioni-veicoli-ticino-w38-2026.title': 'New car registrations in Ticino: ASTRA W38 data',
+    'blog.article.immatricolazioni-veicoli-ticino-w38-2026.excerpt': 'Analysis of data on new registrations in Ticino for the week 2026-W38 according to the Federal Office of Roads ASTRA/OFROU.',
+    'blog.article.immatricolazioni-veicoli-ticino-w38-2026.imageAlt': 'Vehicles in transit on a Ticino road.',
 };
 
 export default blogMetaEn;
