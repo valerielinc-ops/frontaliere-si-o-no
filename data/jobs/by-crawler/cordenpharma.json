@@ -1,6 +1,6 @@
 {
   "crawlerKey": "cordenpharma",
-  "assembledAt": "2026-09-21T23:58:59.208Z",
+  "assembledAt": "2026-09-23T23:39:36.864Z",
   "jobs": [
     {
       "id": "cordenpharma-91510af6435e",
@@ -33,7 +33,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20929/technischer-mitarbeitender-infrastruktur-projekte-80-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T23:58:55.440Z",
+      "crawledAt": "2026-09-23T23:39:33.927Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -52,11 +52,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "technischer-mitarbeitender-infrastruktur-projekte-80-m-w-d-cordenpharma-ettingen"
+        "technischer-mitarbeitender-infrastruktur-projekte-80-m-w-d-cordenpharma-ettingen",
+        "personale-tecnico-infrastrutture-e-progetti-80-m-f-d-cordenpharma-ettingen"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "technischer-mitarbeitender-infrastruktur-projekte-80-m-w-d-cordenpharma-ettingen"
+          "technischer-mitarbeitender-infrastruktur-projekte-80-m-w-d-cordenpharma-ettingen",
+          "personale-tecnico-infrastrutture-e-progetti-80-m-f-d-cordenpharma-ettingen"
         ],
         "en": [
           "technischer-mitarbeitender-infrastruktur-projekte-80-m-w-d-cordenpharma-ettingen"
@@ -66,6 +68,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T12:36:03.436Z",
+      "needsRetranslation": true,
       "salaryMin": 55600,
       "salaryMax": 74800,
       "salarySource": "estimated",
@@ -111,7 +114,7 @@
       "url": "https://career.cordenpharma.com/de/p/ettingen/jobs/20956/gruppenleiter-produktion-mwd-2-schicht-ettingen-basel-land-schweiz",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T23:58:54.938Z",
+      "crawledAt": "2026-09-23T23:39:33.272Z",
       "addressLocality": "Ettingen",
       "addressRegion": "BL",
       "streetAddress": "Brühlstrasse 50",
@@ -134,13 +137,15 @@
         "gruppo-leader-m-f-d-2-strati-cordenpharma-ettingen",
         "group-leader-m-f-d-2-layer-cordenpharma-ettingen",
         "chef-de-groupe-h-f-d-2-couches-cordenpharma-ettingen",
-        "gruppenleiter-produktion-m-w-d-2-schicht-cordenpharma-ettingen"
+        "gruppenleiter-produktion-m-w-d-2-schicht-cordenpharma-ettingen",
+        "produzione-leader-di-gruppo-m-f-d-2-shift-cordenpharma-ettingen"
       ],
       "previousSlugsByLocale": {
         "it": [
           "gruppenleiter-m-w-d-2-schicht-cordenpharma-ettingen",
           "gruppo-leader-m-f-d-2-strati-cordenpharma-ettingen",
-          "gruppenleiter-produktion-m-w-d-2-schicht-cordenpharma-ettingen"
+          "gruppenleiter-produktion-m-w-d-2-schicht-cordenpharma-ettingen",
+          "produzione-leader-di-gruppo-m-f-d-2-shift-cordenpharma-ettingen"
         ],
         "en": [
           "gruppenleiter-m-w-d-2-schicht-cordenpharma-ettingen",
@@ -173,28 +178,28 @@
     },
     {
       "id": "cordenpharma-cc6a8ca842f3",
-      "slug": "procurement-specialist-80-100-m-w-d-cordenpharma-liestal",
+      "slug": "procurement-specialista-80-100-m-w-d-cordenpharma-liestal",
       "slugByLocale": {
-        "de": "procurement-specialist-80-100-m-w-d-cordenpharma-liestal",
-        "it": "procurement-specialist-80-100-m-w-d-cordenpharma-liestal",
+        "it": "procurement-specialista-80-100-m-w-d-cordenpharma-liestal",
         "en": "procurement-specialist-80-100-m-w-d-cordenpharma-liestal",
-        "fr": "procurement-specialist-80-100-m-w-d-cordenpharma-liestal"
+        "de": "procurement-specialist-80-100-m-w-d-cordenpharma-liestal",
+        "fr": "procurement-specialiste-80-100-m-w-d-cordenpharma-liestal"
       },
       "company": "CordenPharma",
       "companyKey": "cordenpharma",
       "companyDomain": "cordenpharma.com",
       "title": "Procurement Specialist, 80-100% (m/w/d)",
       "titleByLocale": {
-        "de": "Procurement Spezialist, 80-100% (m/w/d)",
-        "en": "Procurement Specialist, 80-100% (m/f/d)",
         "it": "Procurement Specialista, 80-100% (m/w/d)",
+        "en": "Procurement Specialist, 80-100% (m/w/d)",
+        "de": "Procurement Spezialist, 80-100% (m/w/d)",
         "fr": "Procurement Spécialiste, 80-100% (m/w/d)"
       },
       "description": "CordenPharma ist eine der führenden Contract Development and Manufacturing Organizations (CDMO) und entwickelt und produziert im Auftrag ihrer Kunden als „Full-Service“-Dienstleister pharmazeutische Wirkstoffe, Arzneimittel und damit verbundene Verpackungsdienstleistungen. Die Gruppe beschäftigt rund 3.500 Mitarbeiter. Unser Netzwerk in Europa, Asien und den USA bietet flexible und spezialisierte Lösungen für sechs Technologieplattformen: Peptides, Lipids & Carbohydrates, Injectables, Highly Potent & Oncology, Small Molecules und Oligonucleotides. Wir streben nach Spitzenleistungen bei der Unterstützung dieses Netzwerks und engagieren uns für die Bereitstellung von Produkten höchster Qualität zum Wohle der Patienten. Our People Vision: We strive for excellence. We share our passion. Together, we make a difference in patients’ lives. Procurement Specialist, 80-100% (m/w/d)\n• ​ Liestal\n• ​ per sofort oder nach Vereinbarung\n• ​ 80 - 100%\n• ​ unbefristet\n\nIhr spannendes Aufgabengebiet\n• Eigenverantwortliche Abwicklung operativer Einkaufsprozesse im ERP-System – von der Bedarfserfassung über die Bestellung bis zur termingerechten Lieferung\n• Einholen, Vergleichen und Bewerten von Angeboten unter Berücksichtigung von Preis, Qualität, Lieferfähigkeit und regulatorischen Anforderungen\n• Aktive Überwachung von Lieferterminen, Nachverfolgung offener Bestellungen sowie proaktive Abstimmung mit internen Bedarfsträgern und externen Lieferanten\n• Beschaffung von Rohstoffen, Chemikalien, Labor- und Verbrauchsmaterialien im pharmanahen und qualitätsrelevanten Umfeld\n• Schnittstellenmanagement zwischen Einkauf, Qualitätssicherung, Produktion, Labor, Finanzen und Lieferanten zur Sicherstellung reibungsloser Beschaffungsabläufe\n• Serviceorientierte Beratung interner Kunden zu Preisen, Lieferzeiten, Bezugsquellen und Beschaffungsoptionen\n• Koordination und Nachverfolgung relevanter Lieferantendokumentationen wie Spezifikationen, Analysezertifikate, BSE/TSE-Dokumente und weitere GMP-relevante Nachweise\n• Unterstützung bei Change-Control-Prozessen und einkaufsrelevanten Projekten zur Sicherstellung dokumentierter und qualitätskonformer Änderungen\n• Pflege, Harmonisierung und kontinuierliche Verbesserung von Abläufen und Einkaufsstammdaten\n• Unterstützung des Head of Procurement bei strategischen Einkaufsinitiativen (Schnittstelle zwischen Liestal und dem globalen Einkauf)\n\nIhr Profil\n• Kaufmännische oder technische Grundausbildung, idealerweise ergänzt durch eine Weiterbildung im Einkauf, Supply Chain Management oder einem vergleichbaren Bereich\n• Mehrjährige Erfahrung im operativen Einkauf, vorzugsweise in der Chemie-, Pharma- oder Life-Science-Industrie\n• Kenntnisse im GMP-regulierten Umfeld oder in qualitätsrelevanten Beschaffungsprozessen sind von Vorteil\n• Erfahrung in Change-, Projekt- oder Verbesserungsinitiativen, insbesondere in den Bereichen Prozessstandardisierung, Lieferantenkonsolidierung, Compliance oder Kostenoptimierung\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift\n• Sicherer Umgang mit ERP-Systemen sowie sehr gute Anwenderkenntnisse in MS Office\n• Kommunikationsstärke, Verhandlungsgeschick und überzeugendes Auftreten im Umgang mit Lieferanten, Global Procurement und internen Fachbereichen\n• Teamorientierte Einkaufspersönlichkeit mit hoher Serviceorientierung, Business-Partner-Mentalität und Bereitschaft, Verantwortung innerhalb der Einkaufsorganisation zu übernehmen\n• Kommerzielles Urteilsvermögen, datenbasierte Entscheidungsfindung und die Fähigkeit, globale Einkaufsstrategien in lokale Massnahmen umzusetzen\n\nWas wir Ihnen bieten Dynamisches und spannendes Arbeitsumfeld Attraktives und leistungsgerechtes Vergütungspaket Einen attraktiven Arbeitsplatz mit einer hohen Verantwortungsübernahme Überdurchschnittliche Pensionskassenleistungen / 70% der Beiträge werden von uns übernommen Corden Pharma bietet Ihnen interessante und vielseitige Aufgaben in einem hoch motivierten Team. Durch eine praxisorientierte Einarbeitung helfen wir Ihnen, schnell fachliche Sicherheit zu gewinnen, um selbstständig mit hoher Eigenverantwortung arbeiten zu können.",
       "descriptionByLocale": {
-        "de": "CordenPharma ist eine der führenden Contract Development and Manufacturing Organizations (CDMO) und entwickelt und produziert im Auftrag ihrer Kunden als „Full-Service“-Dienstleister pharmazeutische Wirkstoffe, Arzneimittel und damit verbundene Verpackungsdienstleistungen. Die Gruppe beschäftigt rund 3.500 Mitarbeiter. Unser Netzwerk in Europa, Asien und den USA bietet flexible und spezialisierte Lösungen für sechs Technologieplattformen: Peptides, Lipids & Carbohydrates, Injectables, Highly Potent & Oncology, Small Molecules und Oligonucleotides. Wir streben nach Spitzenleistungen bei der Unterstützung dieses Netzwerks und engagieren uns für die Bereitstellung von Produkten höchster Qualität zum Wohle der Patienten. Our People Vision: We strive for excellence. We share our passion. Together, we make a difference in patients’ lives. Procurement Specialist, 80-100% (m/w/d)\n• ​ Liestal\n• ​ per sofort oder nach Vereinbarung\n• ​ 80 - 100%\n• ​ unbefristet\n\nIhr spannendes Aufgabengebiet\n• Eigenverantwortliche Abwicklung operativer Einkaufsprozesse im ERP-System – von der Bedarfserfassung über die Bestellung bis zur termingerechten Lieferung\n• Einholen, Vergleichen und Bewerten von Angeboten unter Berücksichtigung von Preis, Qualität, Lieferfähigkeit und regulatorischen Anforderungen\n• Aktive Überwachung von Lieferterminen, Nachverfolgung offener Bestellungen sowie proaktive Abstimmung mit internen Bedarfsträgern und externen Lieferanten\n• Beschaffung von Rohstoffen, Chemikalien, Labor- und Verbrauchsmaterialien im pharmanahen und qualitätsrelevanten Umfeld\n• Schnittstellenmanagement zwischen Einkauf, Qualitätssicherung, Produktion, Labor, Finanzen und Lieferanten zur Sicherstellung reibungsloser Beschaffungsabläufe\n• Serviceorientierte Beratung interner Kunden zu Preisen, Lieferzeiten, Bezugsquellen und Beschaffungsoptionen\n• Koordination und Nachverfolgung relevanter Lieferantendokumentationen wie Spezifikationen, Analysezertifikate, BSE/TSE-Dokumente und weitere GMP-relevante Nachweise\n• Unterstützung bei Change-Control-Prozessen und einkaufsrelevanten Projekten zur Sicherstellung dokumentierter und qualitätskonformer Änderungen\n• Pflege, Harmonisierung und kontinuierliche Verbesserung von Abläufen und Einkaufsstammdaten\n• Unterstützung des Head of Procurement bei strategischen Einkaufsinitiativen (Schnittstelle zwischen Liestal und dem globalen Einkauf)\n\nIhr Profil\n• Kaufmännische oder technische Grundausbildung, idealerweise ergänzt durch eine Weiterbildung im Einkauf, Supply Chain Management oder einem vergleichbaren Bereich\n• Mehrjährige Erfahrung im operativen Einkauf, vorzugsweise in der Chemie-, Pharma- oder Life-Science-Industrie\n• Kenntnisse im GMP-regulierten Umfeld oder in qualitätsrelevanten Beschaffungsprozessen sind von Vorteil\n• Erfahrung in Change-, Projekt- oder Verbesserungsinitiativen, insbesondere in den Bereichen Prozessstandardisierung, Lieferantenkonsolidierung, Compliance oder Kostenoptimierung\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift\n• Sicherer Umgang mit ERP-Systemen sowie sehr gute Anwenderkenntnisse in MS Office\n• Kommunikationsstärke, Verhandlungsgeschick und überzeugendes Auftreten im Umgang mit Lieferanten, Global Procurement und internen Fachbereichen\n• Teamorientierte Einkaufspersönlichkeit mit hoher Serviceorientierung, Business-Partner-Mentalität und Bereitschaft, Verantwortung innerhalb der Einkaufsorganisation zu übernehmen\n• Kommerzielles Urteilsvermögen, datenbasierte Entscheidungsfindung und die Fähigkeit, globale Einkaufsstrategien in lokale Massnahmen umzusetzen\n\nWas wir Ihnen bieten Dynamisches und spannendes Arbeitsumfeld Attraktives und leistungsgerechtes Vergütungspaket Einen attraktiven Arbeitsplatz mit einer hohen Verantwortungsübernahme Überdurchschnittliche Pensionskassenleistungen / 70% der Beiträge werden von uns übernommen Corden Pharma bietet Ihnen interessante und vielseitige Aufgaben in einem hoch motivierten Team. Durch eine praxisorientierte Einarbeitung helfen wir Ihnen, schnell fachliche Sicherheit zu gewinnen, um selbstständig mit hoher Eigenverantwortung arbeiten zu können.",
         "it": "CordenPharma è una delle principali organizzazioni di sviluppo e produzione dei contratti (CDMO) e sviluppa e produce principi attivi farmaceutici, farmaci e relativi servizi di imballaggio per conto dei suoi clienti come fornitore di servizi di servizio “full service”. Il gruppo impiega circa 3.500 persone. La nostra rete in Europa, Asia e Stati Uniti offre soluzioni flessibili e specializzate in sei piattaforme tecnologiche: Peptidi, lipidi e carboidrati, iniettabili, altamente potenti e oncologia, piccole molecole e oligonucleotidi. Ci sforziamo di eccellenza nel sostenere questa rete e ci impegniamo a fornire i prodotti di altissima qualità a beneficio dei pazienti. La nostra visione del Popolo: Ci sforziamo di eccellenza. Condividiamo la nostra passione. Insieme, facciamo la differenza nella vita dei pazienti. Specialista di approvvigionamento, 80-100% (m/f/d)\n• Liestal\n• immediatamente o con accordo\n• ​ 80 - 100%\n• Perpetuo\n\nLa tua emozionante area di attività\n• Gestione auto-responsabile dei processi di acquisto operativi nel sistema ERP – dalla registrazione della domanda all'ordine alla consegna tempestiva\n• Ottenere, confrontare e valutare offerte che tengano conto del prezzo, della qualità, della capacità di consegna e dei requisiti normativi\n• Monitoraggio attivo delle date di consegna, monitoraggio degli ordini aperti e coordinamento proattivo con fornitori e fornitori interni\n• Approvvigionamento di materie prime, prodotti chimici, laboratorio e materiali di consumo nell'ambiente farmaceutico e di qualità\n• Gestione dell'interfaccia tra acquisto, garanzia della qualità, produzione, laboratorio, finanza e fornitori per garantire processi di approvvigionamento liscio\n• Consulenza orientata al servizio ai clienti interni sui prezzi, tempi di consegna, fonti di approvvigionamento e opzioni di approvvigionamento\n• Coordinamento e follow-up della documentazione relativa dei fornitori come specifiche, certificati di analisi, documenti BSE/TSE e altre prove rilevanti del GMP\n• Sostegno ai processi di controllo dei cambiamenti e ai progetti rilevanti per l'acquisto per garantire modifiche documentate e conformi alla qualità\n• Manutenzione, armonizzazione e miglioramento continuo dei processi e dei dati master di acquisto\n• Sostegno del Capo degli appalti in iniziative di acquisto strategiche (interfacce tra acquisto globale e liestale)\n\nIl tuo profilo\n• Formazione di base commerciale o tecnica, integrata idealmente da un'ulteriore formazione nell'acquisto, nella gestione della supply chain o in un'area comparabile\n• Diversi anni di esperienza nell'acquisto operativo, preferibilmente nell'industria chimica, farmaceutica o life science\n• La conoscenza nell'ambiente regolamentato dal GMP o nei processi di approvvigionamento rilevanti per la qualità è un vantaggio\n• Esperienza nelle iniziative di cambiamento, progetto o miglioramento, in particolare nei settori della standardizzazione dei processi, consolidamento dei fornitori, ottimizzazione della conformità o dei costi\n• Molto buona conoscenza del tedesco e buona conoscenza dell'inglese in parola e scrittura\n• Gestione sicura dei sistemi ERP e delle ottime conoscenze degli utenti in MS Office\n• Forza di comunicazione, capacità di negoziazione e comportamento convincente nel trattare con fornitori, appalti globali e aree specialistiche interne\n• Persona di acquisto orientata al team con un alto orientamento di servizio, mentalità del partner commerciale e la volontà di assumersi la responsabilità all'interno dell'organizzazione di acquisto\n• Giudizio commerciale, decisioni basate sui dati e la capacità di tradurre strategie di acquisto globali in azione locale\n\nPacchetto di compensazione attraente e orientato alle prestazioni Un posto di lavoro attraente con un alto livello di responsabilità Prestazioni pensionistiche di alto livello / 70% dei contributi sono presi in consegna da noi Corden Pharma offre compiti interessanti e versatili in un team altamente motivato. Attraverso la formazione orientata alla pratica, ti aiutiamo a guadagnare rapidamente la sicurezza professionale per lavorare in modo indipendente con un alto livello di responsabilità personale.",
         "en": "CordenPharma is one of the leading Contract Development and Manufacturing Organizations (CDMO) and develops and produces pharmaceutical active ingredients, drugs and related packaging services on behalf of its customers as a “full service” service provider. The group employs around 3,500 people. Our network in Europe, Asia and the US offers flexible and specialized solutions across six technology platforms: Peptides, Lipids & Carbohydrates, Injectables, Highly Potent & Oncology, Small Molecules and Oligonucleotides. We strive for excellence in supporting this network and are committed to delivering the highest quality products for the benefit of patients. Our People Vision: We strive for excellence. We share our passion. Together, we make a difference in patients’ lives. Procurement Specialist, 80-100% (m/f/d)\n• Liestal\n• immediately or by agreement\n• ​ 80 - 100%\n• Perpetual\n\nYour exciting task area\n• Self-responsible handling of operational purchasing processes in the ERP system – from demand recording to ordering to timely delivery\n• Obtaining, comparing and evaluating offers taking into account price, quality, delivery capability and regulatory requirements\n• Active monitoring of delivery dates, tracking of open orders and proactive coordination with internal suppliers and suppliers\n• Procurement of raw materials, chemicals, laboratory and consumables in the pharmaceutical and quality-relevant environment\n• Interface management between purchasing, quality assurance, production, laboratory, finance and suppliers to ensure smooth procurement processes\n• Service-oriented advice to internal customers on prices, delivery times, sources of supply and procurement options\n• Coordination and follow-up of relevant supplier documentation such as specifications, analysis certificates, BSE/TSE documents and other GMP relevant evidence\n• Support for change control processes and purchase-relevant projects to ensure documented and quality-compliant changes\n• Maintenance, harmonisation and continuous improvement of processes and purchasing master data\n• Support of the Head of Procurement in strategic purchasing initiatives (interface between Liestal and global purchasing)\n\nYour profile\n• Commercial or technical basic training, ideally supplemented by further training in purchasing, supply chain management or a comparable area\n• Several years of experience in operational purchasing, preferably in the chemical, pharmaceutical or life science industry\n• Knowledge in the GMP-regulated environment or in quality-relevant procurement processes is an advantage\n• Experience in change, project or improvement initiatives, in particular in the areas of process standardization, supplier consolidation, compliance or cost optimization\n• Very good knowledge of German and good knowledge of English in word and writing\n• Secure handling of ERP systems as well as very good user knowledge in MS Office\n• Communication strength, negotiation skills and convincing behavior in dealing with suppliers, global procurement and internal specialist areas\n• Team-oriented purchasing person with a high service orientation, business partner mentality and willingness to assume responsibility within the purchasing organization\n• Commercial judgment, data-based decision-making and the ability to translate global purchasing strategies into local action\n\nAttractive and performance-oriented compensation package An attractive workplace with a high level of responsibility Above-average pension benefits / 70% of the contributions are taken over by us Corden Pharma offers you interesting and versatile tasks in a highly motivated team. Through practice-oriented training, we help you quickly gain professional security in order to work independently with a high level of personal responsibility.",
+        "de": "CordenPharma ist eine der führenden Contract Development and Manufacturing Organizations (CDMO) und entwickelt und produziert im Auftrag ihrer Kunden als „Full-Service“-Dienstleister pharmazeutische Wirkstoffe, Arzneimittel und damit verbundene Verpackungsdienstleistungen. Die Gruppe beschäftigt rund 3.500 Mitarbeiter. Unser Netzwerk in Europa, Asien und den USA bietet flexible und spezialisierte Lösungen für sechs Technologieplattformen: Peptides, Lipids & Carbohydrates, Injectables, Highly Potent & Oncology, Small Molecules und Oligonucleotides. Wir streben nach Spitzenleistungen bei der Unterstützung dieses Netzwerks und engagieren uns für die Bereitstellung von Produkten höchster Qualität zum Wohle der Patienten. Our People Vision: We strive for excellence. We share our passion. Together, we make a difference in patients’ lives. Procurement Specialist, 80-100% (m/w/d)\n• ​ Liestal\n• ​ per sofort oder nach Vereinbarung\n• ​ 80 - 100%\n• ​ unbefristet\n\nIhr spannendes Aufgabengebiet\n• Eigenverantwortliche Abwicklung operativer Einkaufsprozesse im ERP-System – von der Bedarfserfassung über die Bestellung bis zur termingerechten Lieferung\n• Einholen, Vergleichen und Bewerten von Angeboten unter Berücksichtigung von Preis, Qualität, Lieferfähigkeit und regulatorischen Anforderungen\n• Aktive Überwachung von Lieferterminen, Nachverfolgung offener Bestellungen sowie proaktive Abstimmung mit internen Bedarfsträgern und externen Lieferanten\n• Beschaffung von Rohstoffen, Chemikalien, Labor- und Verbrauchsmaterialien im pharmanahen und qualitätsrelevanten Umfeld\n• Schnittstellenmanagement zwischen Einkauf, Qualitätssicherung, Produktion, Labor, Finanzen und Lieferanten zur Sicherstellung reibungsloser Beschaffungsabläufe\n• Serviceorientierte Beratung interner Kunden zu Preisen, Lieferzeiten, Bezugsquellen und Beschaffungsoptionen\n• Koordination und Nachverfolgung relevanter Lieferantendokumentationen wie Spezifikationen, Analysezertifikate, BSE/TSE-Dokumente und weitere GMP-relevante Nachweise\n• Unterstützung bei Change-Control-Prozessen und einkaufsrelevanten Projekten zur Sicherstellung dokumentierter und qualitätskonformer Änderungen\n• Pflege, Harmonisierung und kontinuierliche Verbesserung von Abläufen und Einkaufsstammdaten\n• Unterstützung des Head of Procurement bei strategischen Einkaufsinitiativen (Schnittstelle zwischen Liestal und dem globalen Einkauf)\n\nIhr Profil\n• Kaufmännische oder technische Grundausbildung, idealerweise ergänzt durch eine Weiterbildung im Einkauf, Supply Chain Management oder einem vergleichbaren Bereich\n• Mehrjährige Erfahrung im operativen Einkauf, vorzugsweise in der Chemie-, Pharma- oder Life-Science-Industrie\n• Kenntnisse im GMP-regulierten Umfeld oder in qualitätsrelevanten Beschaffungsprozessen sind von Vorteil\n• Erfahrung in Change-, Projekt- oder Verbesserungsinitiativen, insbesondere in den Bereichen Prozessstandardisierung, Lieferantenkonsolidierung, Compliance oder Kostenoptimierung\n• Sehr gute Deutschkenntnisse sowie gute Englischkenntnisse in Wort und Schrift\n• Sicherer Umgang mit ERP-Systemen sowie sehr gute Anwenderkenntnisse in MS Office\n• Kommunikationsstärke, Verhandlungsgeschick und überzeugendes Auftreten im Umgang mit Lieferanten, Global Procurement und internen Fachbereichen\n• Teamorientierte Einkaufspersönlichkeit mit hoher Serviceorientierung, Business-Partner-Mentalität und Bereitschaft, Verantwortung innerhalb der Einkaufsorganisation zu übernehmen\n• Kommerzielles Urteilsvermögen, datenbasierte Entscheidungsfindung und die Fähigkeit, globale Einkaufsstrategien in lokale Massnahmen umzusetzen\n\nWas wir Ihnen bieten Dynamisches und spannendes Arbeitsumfeld Attraktives und leistungsgerechtes Vergütungspaket Einen attraktiven Arbeitsplatz mit einer hohen Verantwortungsübernahme Überdurchschnittliche Pensionskassenleistungen / 70% der Beiträge werden von uns übernommen Corden Pharma bietet Ihnen interessante und vielseitige Aufgaben in einem hoch motivierten Team. Durch eine praxisorientierte Einarbeitung helfen wir Ihnen, schnell fachliche Sicherheit zu gewinnen, um selbstständig mit hoher Eigenverantwortung arbeiten zu können.",
         "fr": "CordenPharma est l'un des principaux organismes de développement et de fabrication de contrats (ODMC) et développe et produit des ingrédients actifs pharmaceutiques, des médicaments et des services d'emballage connexes au nom de ses clients en tant que fournisseur de services complets. Le groupe emploie environ 3 500 personnes. Notre réseau en Europe, en Asie et aux États-Unis offre des solutions flexibles et spécialisées sur six plateformes technologiques: Peptides, Lipides et glucides, Injectables, Très Potent & Oncologie, Petites Molécules et Oligonucléotides. Nous nous efforçons d'atteindre l'excellence pour soutenir ce réseau et nous nous engageons à offrir des produits de la plus haute qualité au bénéfice des patients. Notre vision des gens: Nous nous efforçons d'atteindre l'excellence. Nous partageons notre passion. Ensemble, nous faisons une différence dans la vie des patients. Spécialiste des achats, 80-100% (h/f/d)\n• Liestal\n• immédiatement ou par accord\n• ​ 80 - 100%\n• Perpétuelle\n\nVotre domaine de travail passionnant\n• Gestion autoresponsable des processus d'achat opérationnels dans le système PGI – de l'enregistrement de la demande à la commande jusqu'à la livraison en temps voulu\n• Obtenir, comparer et évaluer les offres en tenant compte du prix, de la qualité, de la capacité de livraison et des exigences réglementaires\n• Surveillance active des dates de livraison, suivi des commandes ouvertes et coordination proactive avec les fournisseurs internes\n• Achat de matières premières, de produits chimiques, de laboratoires et de consommables dans l'environnement pharmaceutique et de qualité\n• Gestion de l'interface entre l'achat, l'assurance de la qualité, la production, le laboratoire, les finances et les fournisseurs pour assurer la fluidité des processus d'approvisionnement\n• Conseils axés sur les services aux clients internes sur les prix, les délais de livraison, les sources d'approvisionnement et les options d'approvisionnement\n• Coordination et suivi des documents pertinents des fournisseurs tels que les spécifications, les certificats d'analyse, les documents sur l'ESB/EST et d'autres preuves pertinentes des BPF\n• Appui aux processus de contrôle du changement et aux projets ayant trait aux achats pour assurer des changements documentés et conformes à la qualité\n• Maintenance, harmonisation et amélioration continue des processus et des données-cadres d'achat\n• Appui du Chef des achats aux initiatives stratégiques d'achat (interface entre Liestal et les achats mondiaux)\n\nVotre profil\n• Formation de base commerciale ou technique, idéalement complétée par une formation continue en matière d'achat, de gestion de la chaîne d'approvisionnement ou d'un domaine comparable\n• Plusieurs années d'expérience dans l'achat opérationnel, de préférence dans l'industrie chimique, pharmaceutique ou des sciences de la vie\n• Les connaissances dans l'environnement réglementé par les BPF ou dans les processus d'approvisionnement liés à la qualité constituent un avantage\n• Expérience des initiatives de changement, de projet ou d'amélioration, en particulier dans les domaines de la normalisation des procédés, de la consolidation des fournisseurs, de la conformité ou de l'optimisation des coûts\n• Très bonne connaissance de l'allemand et bonne connaissance de l'anglais en paroles et en écriture\n• Gestion sécurisée des systèmes ERP et très bonne connaissance des utilisateurs dans MS Office\n• Capacité de communication, compétences en matière de négociation et comportement convaincant dans les relations avec les fournisseurs, les achats mondiaux et les domaines spécialisés internes\n• Une personne d'achat axée sur l'équipe ayant une orientation de service élevée, une mentalité de partenaire d'affaires et une volonté d'assumer la responsabilité au sein de l'organisation d'achat\n• Jugement commercial, prise de décisions fondée sur les données et capacité de traduire les stratégies d'achat mondiales en actions locales\n\nPaquet de rémunération attrayant et axé sur la performance Un lieu de travail attrayant avec un haut niveau de responsabilité Prestations de retraite supérieures à la moyenne / 70% des cotisations sont prises en charge par nous Corden Pharma vous offre des tâches intéressantes et polyvalentes dans une équipe très motivée. Grâce à une formation axée sur la pratique, nous vous aidons à acquérir rapidement la sécurité professionnelle afin de travailler de façon indépendante avec un haut niveau de responsabilité personnelle."
       },
       "location": "Liestal",
@@ -202,7 +207,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20991/procurement-specialist-80-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T23:58:54.446Z",
+      "crawledAt": "2026-09-23T23:39:32.691Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -219,9 +224,20 @@
       "postedDate": "2026-09-16",
       "applyUrl": "https://career.cordenpharma.com/de/p/liestal/jobs/20991/procurement-specialist-80-100-mwd",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-21T23:58:54.446Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-specialist-80-100-m-w-d-cordenpharma-liestal"
+        ],
+        "fr": [
+          "procurement-specialist-80-100-m-w-d-cordenpharma-liestal"
+        ]
       },
+      "previousSlugs": [
+        "procurement-specialist-80-100-m-w-d-cordenpharma-liestal"
+      ],
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -234,8 +250,7 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-21T23:58:54.446Z"
+      }
     },
     {
       "id": "cordenpharma-fbf3481e6e7f",
@@ -254,7 +269,7 @@
         "it": "Laboratorio QC / IPC 100%, (m/f/d)",
         "en": "Laboratory QC / IPC 100%, (m/f/d)",
         "de": "Laborant QC / IPC 100%, (m/w/d)",
-        "fr": "Laboratoire QC / IPC 100%, (h/f/d)"
+        "fr": "Laborant QC / IPC 100%, (m/w/d)"
       },
       "description": "CordenPharma ist eine der führenden Contract Development and Manufacturing Organizations (CDMO) und entwickelt und produziert im Auftrag ihrer Kunden als „Full-Service“-Dienstleister pharmazeutische Wirkstoffe, Arzneimittel und damit verbundene Verpackungsdienstleistungen. Die Gruppe beschäftigt rund 3.500 Mitarbeiter. Unser Netzwerk in Europa, Asien und den USA bietet flexible und spezialisierte Lösungen für sechs Technologieplattformen: Peptides, Lipids & Carbohydrates, Injectables, Highly Potent & Oncology, Small Molecules und Oligonucleotides. Wir streben nach Spitzenleistungen bei der Unterstützung dieses Netzwerks und engagieren uns für die Bereitstellung von Produkten höchster Qualität zum Wohle der Patienten. Our People Vision: We strive for excellence. We share our passion. Together, we make a difference in patients’ lives. Laborant QC / IPC 100%, (m/w/d) Fachrichtung Chemie - im Bereich Qualitätskontrolle & Inprozesskontrolle\n• ​ Liestal\n• ​ per sofort oder nach Vereinbarung\n• ​ Vollzeit\n• ​ unbefristet\n\nIhr spannendes Aufgabengebiet\n• Durchführung von In-Prozess-Kontrollen (IPC) gemäss geltenden Prüfvorschriften und Testmethoden\n• Unterstützung bei Freigabeanalysen von Rohstoffen, Zwischen- und Endprodukten gemäss geltenden Prüfvorschriften und Testmethoden\n• Auswertung, Dokumentation und Beurteilung von Analysenergebnissen unter Einhaltung der GMP-Vorgaben\n• Durchführung von Reinheitsprüfungen an Anlagen\n\nIhr Profil\n• Abgeschlossene Ausbildung als Laborant Fachrichtung Chemie oder vergleichbare Ausbildung\n• Mindestens 2 Jahre Berufserfahrung im analytischen Labor, idealerweise im GMP-regulierten Pharmaumfeld\n• Erfahrung mit HPLC, GC, DC, spektroskopischen Methoden und Titrationen\n• Idealerweise Erfahrung mit der Chromeleon Software\n• Gute Kenntnisse der GMP-Richtlinien\n• Sehr gute Deutschkenntnisse\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n• Bereitschaft zu flexiblen Arbeitszeiten (Produktionsbegleitung)\n\nWas wir Ihnen bieten Attraktives und leistungsgerechtes Vergütungspaket Einen attraktiven Arbeitsplatz mit einer hohen Verantwortungsübernahme Kostenbeteiligung öffentliche Verkehrsmittel Kurze Wege und direkte Kommunikation mit allen Abteilungen Corden Pharma bietet Ihnen interessante und vielseitige Aufgaben in einem hoch motivierten Team. Durch eine praxisorientierte Einarbeitung helfen wir Ihnen, schnell fachliche Sicherheit zu gewinnen, um selbstständig mit hoher Eigenverantwortung arbeiten zu können.",
       "descriptionByLocale": {
@@ -268,7 +283,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20979/laborant-qc-ipc-100-mwd-fachrichtung-chemie-im-bereich-qualitatskontrolle-inprozesskontrolle",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T23:58:53.953Z",
+      "crawledAt": "2026-09-23T23:39:32.175Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -292,7 +307,8 @@
         "laboratory-100-m-w-d-cordenpharma-liestal",
         "laborant-100-m-w-d-cordenpharma-liestal",
         "laboratoire-100-h-f-d-cordenpharma-liestal",
-        "laboratoire-100-m-w-d-cordenpharma-liestal"
+        "laboratoire-100-m-w-d-cordenpharma-liestal",
+        "laboratorio-qc-ipc-100-m-f-d-cordenpharma-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -301,7 +317,8 @@
           "laboratory-100-m-w-d-cordenpharma-liestal",
           "laborant-100-m-w-d-cordenpharma-liestal",
           "laboratoire-100-h-f-d-cordenpharma-liestal",
-          "laboratoire-100-m-w-d-cordenpharma-liestal"
+          "laboratoire-100-m-w-d-cordenpharma-liestal",
+          "laboratorio-qc-ipc-100-m-f-d-cordenpharma-liestal"
         ],
         "en": [
           "laborant-qc-ipc-100-m-w-d-cordenpharma-liestal",
@@ -315,6 +332,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:08.956Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -360,7 +378,7 @@
       "url": "https://career.cordenpharma.com/en/p/liestal/jobs/20959/innovation-scientist-postdoc-chemist-solid-state-development-100-mwd-initial-12-month-contract-with-the-possibility-of-extension",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-21T23:58:53.463Z",
+      "crawledAt": "2026-09-23T23:39:31.688Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -379,11 +397,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "innovation-scientist-postdoc-chemist-solid-state-development-100-m-w-d-cordenpharma"
+        "innovation-scientist-postdoc-chemist-solid-state-development-100-m-w-d-cordenpharma",
+        "scienziato-dell-innovazione-postdoc-chimista-sviluppo-dello-stato-solido-100-m-f-d-cordenpharma-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "innovation-scientist-postdoc-chemist-solid-state-development-100-m-w-d-cordenpharma"
+          "innovation-scientist-postdoc-chemist-solid-state-development-100-m-w-d-cordenpharma",
+          "scienziato-dell-innovazione-postdoc-chimista-sviluppo-dello-stato-solido-100-m-f-d-cordenpharma-liestal"
         ]
       },
       "firstSeenAt": "2026-09-08T13:32:21.104Z",
@@ -416,7 +436,7 @@
       "title": "Innovation Scientist (Postdoc, Chemiker), 100% (m/w/d)",
       "titleByLocale": {
         "it": "Scienziato per l'innovazione (Postdoc, Chemist), 100% (m/f/d)",
-        "en": "Innovation Scientist (Postdoc, Chemist), 100% (m/f/d)",
+        "en": "Innovation Scientist (Postdoc, Chemiker), 100% (m/w/d)",
         "de": "Innovation Scientist (Postdoc, Chemiker), 100% (m/w/d)",
         "fr": "Chercheur en innovation (postdoc, chimiste), 100% (h/f/d)"
       },
@@ -432,7 +452,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20958/innovation-scientist-postdoc-chemiker-100-mwd-dauer-12-monate-mit-moglichkeit-auf-verlangerung",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T23:58:52.959Z",
+      "crawledAt": "2026-09-23T23:39:31.197Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -451,17 +471,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal"
+        "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal",
+        "scienziato-per-l-innovazione-postdoc-chemist-100-m-f-d-cordenpharma-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal"
+          "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal",
+          "scienziato-per-l-innovazione-postdoc-chemist-100-m-f-d-cordenpharma-liestal"
         ],
         "fr": [
           "innovation-scientist-postdoc-chemiker-100-m-w-d-cordenpharma-liestal"
         ]
       },
       "firstSeenAt": "2026-09-03T23:09:49.890Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 138500,
       "salarySource": "estimated",
@@ -480,9 +503,9 @@
       "id": "cordenpharma-d774c9478452",
       "slug": "installatore-elettrico-ingegneria-elettrica-e-calibrazione-m-f-d-100-cordenpharma-liestal",
       "slugByLocale": {
-        "de": "elektromonteur-elektrotechnik-kalibrierung-m-w-d-100-cordenpharma-liestal",
         "it": "installatore-elettrico-ingegneria-elettrica-e-calibrazione-m-f-d-100-cordenpharma-liestal",
         "en": "electrical-installer-electrical-engineering-calibration-m-f-d-100-cordenpharma-liestal",
+        "de": "elektromonteur-elektrotechnik-kalibrierung-m-w-d-100-cordenpharma-liestal",
         "fr": "installation-electrique-genie-electrique-et-calibrage-h-f-d-100-cordenpharma-liestal"
       },
       "company": "CordenPharma",
@@ -490,16 +513,16 @@
       "companyDomain": "cordenpharma.com",
       "title": "Elektromonteur - Elektrotechnik & Kalibrierung (m/w/d), 100%",
       "titleByLocale": {
-        "de": "Elektromonteur - Elektrotechnik & Kalibrierung (m/w/d), 100%",
-        "fr": "Installation électrique - Génie électrique et calibrage (h/f/d), 100%",
         "it": "Installatore elettrico - Ingegneria elettrica e calibrazione (m/f/d), 100%",
-        "en": "Electrical Installer - Electrical Engineering & Calibration (m/f/d), 100%"
+        "en": "Electrical Installer - Electrical Engineering & Calibration (m/f/d), 100%",
+        "de": "Elektromonteur - Elektrotechnik & Kalibrierung (m/w/d), 100%",
+        "fr": "Elektromonteur - Elektrotechnik & Kalibrierung (m/w/d), 100%"
       },
       "description": "CordenPharma ist eine der führenden Contract Development and Manufacturing Organizations (CDMO) und entwickelt und produziert im Auftrag ihrer Kunden als „Full-Service“-Dienstleister pharmazeutische Wirkstoffe, Arzneimittel und damit verbundene Verpackungsdienstleistungen. Die Gruppe beschäftigt rund 3.500 Mitarbeiter. Unser Netzwerk in Europa, Asien und den USA bietet flexible und spezialisierte Lösungen für sechs Technologieplattformen: Peptides, Lipids & Carbohydrates, Injectables, Highly Potent & Oncology, Small Molecules und Oligonucleotides. Wir streben nach Spitzenleistungen bei der Unterstützung dieses Netzwerks und engagieren uns für die Bereitstellung von Produkten höchster Qualität zum Wohle der Patienten. Our People Vision: We strive for excellence. We share our passion. Together, we make a difference in patients’ lives. Elektromonteur - Elektrotechnik & Kalibrierung (m/w/d), 100%\n• ​ Liestal\n• ​ nach Vereinbarung\n• ​ Vollzeit\n• ​ unbefristet\n\nIhr spannendes Aufgabengebiet\n• Sicherstellen des Betriebs sowie der Instandhaltung von Produktionsanlagen, Infrastruktur und technischen Einrichtungen\n• Durchführung von Wartungs-, Unterhalts-, Reparatur- und Störungsbehebungsarbeiten an elektrischen Anlagen und Installationen\n• Planung und Umsetzung von Neuinstallationen sowie Änderungen an der Betriebselektrik\n• Durchführung und GMP-konforme Dokumentation von Kalibrierungen an Mess- und Prozessinstrumenten\n• Pflege und Aktualisierung technischer Dokumentationen und Stammdaten im Instandhaltungssystem\n• Betreuung und Koordination externer Dienstleister sowie Durchführung von Qualitätskontrollen und Abnahmen\n• Verantwortung für die Brandmelde- und Einbruchmeldeanlagen\n• Mitarbeit im Pikettdienst\n• Aktive Mitwirkung bei Optimierungsprojekten sowie bei der Umsetzung von 5S- und kontinuierlichen Verbesserungsmassnahmen\n\nIhr Profil\n• Abgeschlossene Berufslehre als Elektromonteur EFZ / Elektroinstallateur EFZ oder in einem verwandten Beruf, der zur NIV 13-Bewilligung berechtigt\n• Erfahrung in der chemischen, pharmazeutischen oder produzierenden Industrie ist ein Plus\n• Fundierte Kenntnisse in den Bereichen Elektroinstallationen, Instandhaltung elektrischer Anlagen und Kalibrierung\n• Erfahrung im GMP-regulierten Umfeld oder die Bereitschaft, sich in die entsprechenden Anforderungen einzuarbeiten\n• Teamgeist, Eigeninitiative und ein hohes Qualitäts- und Sicherheitsbewusstsein\n• Gute Deutschkenntnisse in Wort und Schrift\n• Englischkenntnisse und IT-Affinität sind wünschenswert\n\nWas wir Ihnen bieten Dynamisches und spannendes Arbeitsumfeld Attraktives und leistungsgerechtes Vergütungspaket Einen attraktiven Arbeitsplatz mit einer hohen Verantwortungsübernahme Überdurchschnittliche Pensionskassenleistungen / 70% der Beiträge werden von uns übernommen Corden Pharma bietet Ihnen interessante und vielseitige Aufgaben in einem hoch motivierten Team. Durch eine praxisorientierte Einarbeitung helfen wir Ihnen, schnell fachliche Sicherheit zu gewinnen, um selbstständig mit hoher Eigenverantwortung arbeiten zu können.",
       "descriptionByLocale": {
-        "de": "CordenPharma ist eine der führenden Contract Development and Manufacturing Organizations (CDMO) und entwickelt und produziert im Auftrag ihrer Kunden als „Full-Service“-Dienstleister pharmazeutische Wirkstoffe, Arzneimittel und damit verbundene Verpackungsdienstleistungen. Die Gruppe beschäftigt rund 3.500 Mitarbeiter. Unser Netzwerk in Europa, Asien und den USA bietet flexible und spezialisierte Lösungen für sechs Technologieplattformen: Peptides, Lipids & Carbohydrates, Injectables, Highly Potent & Oncology, Small Molecules und Oligonucleotides. Wir streben nach Spitzenleistungen bei der Unterstützung dieses Netzwerks und engagieren uns für die Bereitstellung von Produkten höchster Qualität zum Wohle der Patienten. Our People Vision: We strive for excellence. We share our passion. Together, we make a difference in patients’ lives. Elektromonteur - Elektrotechnik & Kalibrierung (m/w/d), 100%\n• ​ Liestal\n• ​ nach Vereinbarung\n• ​ Vollzeit\n• ​ unbefristet\n\nIhr spannendes Aufgabengebiet\n• Sicherstellen des Betriebs sowie der Instandhaltung von Produktionsanlagen, Infrastruktur und technischen Einrichtungen\n• Durchführung von Wartungs-, Unterhalts-, Reparatur- und Störungsbehebungsarbeiten an elektrischen Anlagen und Installationen\n• Planung und Umsetzung von Neuinstallationen sowie Änderungen an der Betriebselektrik\n• Durchführung und GMP-konforme Dokumentation von Kalibrierungen an Mess- und Prozessinstrumenten\n• Pflege und Aktualisierung technischer Dokumentationen und Stammdaten im Instandhaltungssystem\n• Betreuung und Koordination externer Dienstleister sowie Durchführung von Qualitätskontrollen und Abnahmen\n• Verantwortung für die Brandmelde- und Einbruchmeldeanlagen\n• Mitarbeit im Pikettdienst\n• Aktive Mitwirkung bei Optimierungsprojekten sowie bei der Umsetzung von 5S- und kontinuierlichen Verbesserungsmassnahmen\n\nIhr Profil\n• Abgeschlossene Berufslehre als Elektromonteur EFZ / Elektroinstallateur EFZ oder in einem verwandten Beruf, der zur NIV 13-Bewilligung berechtigt\n• Erfahrung in der chemischen, pharmazeutischen oder produzierenden Industrie ist ein Plus\n• Fundierte Kenntnisse in den Bereichen Elektroinstallationen, Instandhaltung elektrischer Anlagen und Kalibrierung\n• Erfahrung im GMP-regulierten Umfeld oder die Bereitschaft, sich in die entsprechenden Anforderungen einzuarbeiten\n• Teamgeist, Eigeninitiative und ein hohes Qualitäts- und Sicherheitsbewusstsein\n• Gute Deutschkenntnisse in Wort und Schrift\n• Englischkenntnisse und IT-Affinität sind wünschenswert\n\nWas wir Ihnen bieten Dynamisches und spannendes Arbeitsumfeld Attraktives und leistungsgerechtes Vergütungspaket Einen attraktiven Arbeitsplatz mit einer hohen Verantwortungsübernahme Überdurchschnittliche Pensionskassenleistungen / 70% der Beiträge werden von uns übernommen Corden Pharma bietet Ihnen interessante und vielseitige Aufgaben in einem hoch motivierten Team. Durch eine praxisorientierte Einarbeitung helfen wir Ihnen, schnell fachliche Sicherheit zu gewinnen, um selbstständig mit hoher Eigenverantwortung arbeiten zu können.",
         "it": "CordenPharma è una delle principali organizzazioni di sviluppo e produzione dei contratti (CDMO) e sviluppa e produce principi attivi farmaceutici, farmaci e relativi servizi di imballaggio per conto dei suoi clienti come fornitore di servizi di servizio “full service”. Il gruppo impiega circa 3.500 persone. La nostra rete in Europa, Asia e Stati Uniti offre soluzioni flessibili e specializzate in sei piattaforme tecnologiche: Peptidi, lipidi e carboidrati, iniettabili, altamente potenti e oncologia, piccole molecole e oligonucleotidi. Ci sforziamo di eccellenza nel sostenere questa rete e ci impegniamo a fornire i prodotti di altissima qualità a beneficio dei pazienti. La nostra visione del Popolo: Ci sforziamo di eccellenza. Condividiamo la nostra passione. Insieme, facciamo la differenza nella vita dei pazienti. Installatore elettrico - Ingegneria elettrica e calibrazione (m/f/d), 100%\n• Liestal\n• Accordo\n• Tempo pieno\n• Perpetuo\n\nLa tua emozionante area di attività\n• Garantire il funzionamento e la manutenzione di impianti di produzione, infrastrutture e impianti tecnici\n• Trasporto di servizi di manutenzione, riparazione e risoluzione dei problemi di impianti elettrici e impianti\n• Pianificazione e realizzazione di nuovi impianti e modifiche ai sistemi elettrici operativi\n• Attuazione e documentazione conforme a GMP delle tarature sugli strumenti di misura e di processo\n• Manutenzione e aggiornamento della documentazione tecnica e dei dati master nel sistema di manutenzione\n• Supporto e coordinamento dei fornitori di servizi esterni, nonché l'attuazione dei controlli di qualità e delle accettazione\n• Responsabilità dei sistemi antincendio e di allarme ladro\n• Collaborazione nel Pikettdienst\n• Partecipazione attiva ai progetti di ottimizzazione e all'implementazione di 5S e misure di miglioramento continuo\n\nIl tuo profilo\n• Completato l'apprendistato professionale come elettroinstallatore EFZ / elettroinstallatore EFZ o in una professione correlata in diritto al permesso NIV 13\n• L'esperienza nel settore chimico, farmaceutico o manifatturiero è un plus\n• Conoscenza approfondita degli impianti elettrici, manutenzione degli impianti elettrici e taratura\n• Esperienza nell'ambiente GMP-regolato o la volontà di familiarizzare con i requisiti pertinenti\n• Spirito di squadra, iniziativa e consapevolezza di alta qualità e sicurezza\n• Buona conoscenza del tedesco nelle parole e nella scrittura\n• Le competenze in inglese e l'affinità IT sono desiderabili\n\nPacchetto di compensazione attraente e orientato alle prestazioni Un posto di lavoro attraente con un alto livello di responsabilità Prestazioni pensionistiche di alto livello / 70% dei contributi sono presi in consegna da noi Corden Pharma offre compiti interessanti e versatili in un team altamente motivato. Attraverso la formazione orientata alla pratica, ti aiutiamo a guadagnare rapidamente la sicurezza professionale per lavorare in modo indipendente con un alto livello di responsabilità personale.",
         "en": "CordenPharma is one of the leading Contract Development and Manufacturing Organizations (CDMO) and develops and produces pharmaceutical active ingredients, drugs and related packaging services on behalf of its customers as a “full service” service provider. The group employs around 3,500 people. Our network in Europe, Asia and the US offers flexible and specialized solutions across six technology platforms: Peptides, Lipids & Carbohydrates, Injectables, Highly Potent & Oncology, Small Molecules and Oligonucleotides. We strive for excellence in supporting this network and are committed to delivering the highest quality products for the benefit of patients. Our People Vision: We strive for excellence. We share our passion. Together, we make a difference in patients’ lives. Electrical Installer - Electrical Engineering & Calibration (m/f/d), 100%\n• Liestal\n• By agreement\n• Full time\n• Perpetual\n\nYour exciting task area\n• Ensuring the operation and maintenance of production facilities, infrastructure and technical facilities\n• Carriage of maintenance, repair and troubleshooting services of electrical installations and installations\n• Planning and implementation of new installations as well as changes to operating electrical systems\n• Implementation and GMP-compliant documentation of calibrations on measurement and process instruments\n• Maintenance and updating of technical documentation and master data in the maintenance system\n• Support and coordination of external service providers as well as implementation of quality controls and acceptances\n• Responsibility for fire detection and burglar alarm systems\n• Collaboration in the Pikettdienst\n• Active participation in optimization projects as well as in the implementation of 5S and continuous improvement measures\n\nYour profile\n• Completed vocational apprenticeship as an electroinstaller EFZ / electroinstaller EFZ or in a related profession entitling to the NIV 13 permit\n• Experience in the chemical, pharmaceutical or manufacturing industry is a plus\n• In-depth knowledge of electrical installations, maintenance of electrical installations and calibration\n• Experience in the GMP-regulated environment or the willingness to familiarize yourself with the relevant requirements\n• Team spirit, initiative and a high quality and safety awareness\n• Good knowledge of German in words and writing\n• English skills and IT affinity are desirable\n\nAttractive and performance-oriented compensation package An attractive workplace with a high level of responsibility Above-average pension benefits / 70% of the contributions are taken over by us Corden Pharma offers you interesting and versatile tasks in a highly motivated team. Through practice-oriented training, we help you quickly gain professional security in order to work independently with a high level of personal responsibility.",
+        "de": "CordenPharma ist eine der führenden Contract Development and Manufacturing Organizations (CDMO) und entwickelt und produziert im Auftrag ihrer Kunden als „Full-Service“-Dienstleister pharmazeutische Wirkstoffe, Arzneimittel und damit verbundene Verpackungsdienstleistungen. Die Gruppe beschäftigt rund 3.500 Mitarbeiter. Unser Netzwerk in Europa, Asien und den USA bietet flexible und spezialisierte Lösungen für sechs Technologieplattformen: Peptides, Lipids & Carbohydrates, Injectables, Highly Potent & Oncology, Small Molecules und Oligonucleotides. Wir streben nach Spitzenleistungen bei der Unterstützung dieses Netzwerks und engagieren uns für die Bereitstellung von Produkten höchster Qualität zum Wohle der Patienten. Our People Vision: We strive for excellence. We share our passion. Together, we make a difference in patients’ lives. Elektromonteur - Elektrotechnik & Kalibrierung (m/w/d), 100%\n• ​ Liestal\n• ​ nach Vereinbarung\n• ​ Vollzeit\n• ​ unbefristet\n\nIhr spannendes Aufgabengebiet\n• Sicherstellen des Betriebs sowie der Instandhaltung von Produktionsanlagen, Infrastruktur und technischen Einrichtungen\n• Durchführung von Wartungs-, Unterhalts-, Reparatur- und Störungsbehebungsarbeiten an elektrischen Anlagen und Installationen\n• Planung und Umsetzung von Neuinstallationen sowie Änderungen an der Betriebselektrik\n• Durchführung und GMP-konforme Dokumentation von Kalibrierungen an Mess- und Prozessinstrumenten\n• Pflege und Aktualisierung technischer Dokumentationen und Stammdaten im Instandhaltungssystem\n• Betreuung und Koordination externer Dienstleister sowie Durchführung von Qualitätskontrollen und Abnahmen\n• Verantwortung für die Brandmelde- und Einbruchmeldeanlagen\n• Mitarbeit im Pikettdienst\n• Aktive Mitwirkung bei Optimierungsprojekten sowie bei der Umsetzung von 5S- und kontinuierlichen Verbesserungsmassnahmen\n\nIhr Profil\n• Abgeschlossene Berufslehre als Elektromonteur EFZ / Elektroinstallateur EFZ oder in einem verwandten Beruf, der zur NIV 13-Bewilligung berechtigt\n• Erfahrung in der chemischen, pharmazeutischen oder produzierenden Industrie ist ein Plus\n• Fundierte Kenntnisse in den Bereichen Elektroinstallationen, Instandhaltung elektrischer Anlagen und Kalibrierung\n• Erfahrung im GMP-regulierten Umfeld oder die Bereitschaft, sich in die entsprechenden Anforderungen einzuarbeiten\n• Teamgeist, Eigeninitiative und ein hohes Qualitäts- und Sicherheitsbewusstsein\n• Gute Deutschkenntnisse in Wort und Schrift\n• Englischkenntnisse und IT-Affinität sind wünschenswert\n\nWas wir Ihnen bieten Dynamisches und spannendes Arbeitsumfeld Attraktives und leistungsgerechtes Vergütungspaket Einen attraktiven Arbeitsplatz mit einer hohen Verantwortungsübernahme Überdurchschnittliche Pensionskassenleistungen / 70% der Beiträge werden von uns übernommen Corden Pharma bietet Ihnen interessante und vielseitige Aufgaben in einem hoch motivierten Team. Durch eine praxisorientierte Einarbeitung helfen wir Ihnen, schnell fachliche Sicherheit zu gewinnen, um selbstständig mit hoher Eigenverantwortung arbeiten zu können.",
         "fr": "CordenPharma est l'un des principaux organismes de développement et de fabrication de contrats (ODMC) et développe et produit des ingrédients actifs pharmaceutiques, des médicaments et des services d'emballage connexes au nom de ses clients en tant que fournisseur de services complets. Le groupe emploie environ 3 500 personnes. Notre réseau en Europe, en Asie et aux États-Unis offre des solutions flexibles et spécialisées sur six plateformes technologiques: Peptides, Lipides et glucides, Injectables, Très Potent & Oncologie, Petites Molécules et Oligonucléotides. Nous nous efforçons d'atteindre l'excellence pour soutenir ce réseau et nous nous engageons à offrir des produits de la plus haute qualité au bénéfice des patients. Notre vision des gens: Nous nous efforçons d'atteindre l'excellence. Nous partageons notre passion. Ensemble, nous faisons une différence dans la vie des patients. Installation électrique - Génie électrique et calibrage (h/f/d), 100%\n• Liestal\n• Par accord\n• Temps plein\n• Perpétuelle\n\nVotre domaine de travail passionnant\n• Assurer le fonctionnement et l'entretien des installations de production, des infrastructures et des installations techniques\n• Services d'entretien, de réparation et de dépannage des installations électriques\n• Planification et mise en œuvre des nouvelles installations ainsi que des modifications apportées au fonctionnement des systèmes électriques\n• Mise en œuvre et documentation conforme aux BPF des étalonnages sur les instruments de mesure et de traitement\n• Maintenance et mise à jour de la documentation technique et des données de base dans le système de maintenance\n• Soutien et coordination des prestataires de services externes ainsi que mise en œuvre des contrôles de qualité et des acceptations\n• Responsabilité en matière de détection d'incendie et de systèmes d'alarme antivol\n• Collaboration dans le Pikettdienst\n• Participation active aux projets d'optimisation ainsi qu'à la mise en œuvre de la 5S et aux mesures d'amélioration continue\n\nVotre profil\n• Achevé l'apprentissage professionnel comme électroinstallateur EFZ / électroinstallateur EFZ ou dans une profession liée donnant droit au permis NIV 13\n• L'expérience dans l'industrie chimique, pharmaceutique ou manufacturière est un plus\n• Connaissance approfondie des installations électriques, entretien des installations électriques et étalonnage\n• Expérience dans l'environnement réglementé par les BPF ou volonté de se familiariser avec les exigences pertinentes\n• Esprit d'équipe, initiative et sensibilisation à la qualité et à la sécurité\n• Bonne connaissance de l'allemand en paroles et en écriture\n• Les compétences en anglais et l'affinité informatique sont souhaitables\n\nPaquet de rémunération attrayant et axé sur la performance Un lieu de travail attrayant avec un haut niveau de responsabilité Prestations de retraite supérieures à la moyenne / 70% des cotisations sont prises en charge par nous Corden Pharma vous offre des tâches intéressantes et polyvalentes dans une équipe très motivée. Grâce à une formation axée sur la pratique, nous vous aidons à acquérir rapidement la sécurité professionnelle afin de travailler de façon indépendante avec un haut niveau de responsabilité personnelle."
       },
       "location": "Liestal",
@@ -507,7 +530,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20975/elektromonteur-elektrotechnik-kalibrierung-mwd-100",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T23:58:52.465Z",
+      "crawledAt": "2026-09-23T23:39:30.656Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -524,9 +547,25 @@
       "postedDate": "2026-09-08",
       "applyUrl": "https://career.cordenpharma.com/de/p/liestal/jobs/20975/elektromonteur-elektrotechnik-kalibrierung-mwd-100",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "elektromonteur-elektrotechnik-kalibrierung-m-w-d-100-cordenpharma-liestal",
+        "installatore-elettrico-ingegneria-elettrica-e-calibrazione-m-f-d-100-cordenpharma-liestal"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "elektromonteur-elektrotechnik-kalibrierung-m-w-d-100-cordenpharma-liestal",
+          "installatore-elettrico-ingegneria-elettrica-e-calibrazione-m-f-d-100-cordenpharma-liestal"
+        ],
+        "en": [
+          "elektromonteur-elektrotechnik-kalibrierung-m-w-d-100-cordenpharma-liestal"
+        ],
+        "fr": [
+          "elektromonteur-elektrotechnik-kalibrierung-m-w-d-100-cordenpharma-liestal"
+        ]
       },
+      "firstSeenAt": "2026-09-21T23:58:52.465Z",
+      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -539,22 +578,7 @@
           "maxValue": 93500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-21T23:58:52.465Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "elektromonteur-elektrotechnik-kalibrierung-m-w-d-100-cordenpharma-liestal"
-        ],
-        "en": [
-          "elektromonteur-elektrotechnik-kalibrierung-m-w-d-100-cordenpharma-liestal"
-        ],
-        "fr": [
-          "elektromonteur-elektrotechnik-kalibrierung-m-w-d-100-cordenpharma-liestal"
-        ]
-      },
-      "previousSlugs": [
-        "elektromonteur-elektrotechnik-kalibrierung-m-w-d-100-cordenpharma-liestal"
-      ]
+      }
     },
     {
       "id": "cordenpharma-4605023155c6",
@@ -571,7 +595,7 @@
       "title": "Analytical Project Leader (APL), 100% (m/w/d)",
       "titleByLocale": {
         "it": "Capo Progetto Analitico (APL), 100% (lunedì/f/g)",
-        "en": "Analytical Project Leader (APL), 100% (m/f/d)",
+        "en": "Analytical Project Leader (APL), 100% (m/w/d)",
         "de": "Analytical Project Leader (APL), 100% (m/w/d)",
         "fr": "Chef de projet analytique (APL), 100 % (m/f/d)"
       },
@@ -587,7 +611,7 @@
       "url": "https://career.cordenpharma.com/de/p/liestal/jobs/20922/analytical-project-leader-apl-100-mwd",
       "source": "CordenPharma Dedicated Parser (d.vinci)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-21T23:58:51.975Z",
+      "crawledAt": "2026-09-23T23:39:30.140Z",
       "addressLocality": "Liestal",
       "addressRegion": "BL",
       "streetAddress": "Eichenweg 1 A",
@@ -606,17 +630,20 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
+        "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal",
+        "capo-progetto-analitico-apl-100-lunedi-f-g-cordenpharma-liestal"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
+          "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal",
+          "capo-progetto-analitico-apl-100-lunedi-f-g-cordenpharma-liestal"
         ],
         "fr": [
           "analytical-project-leader-apl-100-m-w-d-cordenpharma-liestal"
         ]
       },
       "firstSeenAt": "2026-07-04T10:47:48.276Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 138500,
       "salarySource": "estimated",
