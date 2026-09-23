@@ -13,6 +13,7 @@ import {
   extractDetailTableValue,
   extractAddress,
   extractEventJsonLd,
+  mergeDetailEventMetadata,
   mapEventRecord,
 } from '../scripts/crawl-myswitzerland-events.mjs';
 
@@ -158,6 +159,35 @@ describe('extractEventJsonLd', () => {
     expect(extractEventJsonLd('')).toBeNull();
     expect(extractEventJsonLd('<html></html>')).toBeNull();
     expect(extractEventJsonLd('<script type="application/ld+json">{not json</script>')).toBeNull();
+  });
+});
+
+describe('mergeDetailEventMetadata', () => {
+  it('fills missing optional fields from a later locale without replacing primary metadata', () => {
+    const merged = mergeDetailEventMetadata(
+      {
+        '@type': 'MusicEvent',
+        name: 'Evento locale principale',
+        organizer: { '@type': 'Organization', name: 'Organizzatore principale' },
+      },
+      {
+        '@type': 'MusicEvent',
+        name: 'Evento locale alternativo',
+        image: '/-/media/events/alternate.jpg',
+        organizer: { '@type': 'Organization', name: 'Organizzatore alternativo' },
+        performer: { '@type': 'Person', name: 'Artista alternativo', url: '/artist' },
+      },
+      'https://www.myswitzerland.com/it-ch/eventi/principale',
+      'https://www.myswitzerland.com/en-ch/events/alternate',
+    );
+    expect(merged?.name).toBe('Evento locale principale');
+    expect(merged?.organizer).toEqual({ '@type': 'Organization', name: 'Organizzatore principale' });
+    expect(merged?.performer).toEqual({
+      '@type': 'Person',
+      name: 'Artista alternativo',
+      url: 'https://www.myswitzerland.com/artist',
+    });
+    expect(merged?.image).toBe('https://www.myswitzerland.com/-/media/events/alternate.jpg');
   });
 });
 
