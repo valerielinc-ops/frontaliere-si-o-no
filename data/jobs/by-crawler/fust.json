@@ -5408,7 +5408,7 @@
       "crawledAt": "2026-09-22T00:20:40.736Z",
       "firstSeenAt": "2026-09-07T15:24:19.786Z",
       "titleByLocale": {
-        "it": "Responsabile Progetti Business",
+        "it": "Responsabile Progetto Business",
         "en": "Business Project Manager",
         "de": "Projektmanager für Unternehmen",
         "fr": "Chef de Projet Business"
@@ -5490,10 +5490,11 @@
         "business-project-manager-fust-oberburen"
       ],
       "applyUrl": "https://jobs.fust.ch/offene-stellen/business-project-manager/64dd11e1-b464-4b34-80ca-28ff292e23cb",
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3575
     },
     {
       "id": "company-vn08g0",
