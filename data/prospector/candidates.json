@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-23T10:36:18.035Z",
+  "updatedAt": "2026-09-23T10:36:42.830Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -120246,12 +120246,12 @@
     },
     "brefis-personal": {
       "key": "brefis-personal",
-      "status": "promoting",
+      "status": "production",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:27:46.963Z",
-      "updatedAt": "2026-09-22T10:55:20.823Z",
+      "updatedAt": "2026-09-23T10:36:42.799Z",
       "name": "brefis personal ag",
       "city": "",
       "zip": "",
@@ -120324,7 +120324,8 @@
         }
       ],
       "promotionPr": "9531",
-      "promotionBranch": "prospector/promote-2026-09-22"
+      "promotionBranch": "prospector/promote-2026-09-22",
+      "promotedAt": "2026-09-23T10:36:42.799Z"
     },
     "bregaglia.ch": {
       "key": "bregaglia.ch",
