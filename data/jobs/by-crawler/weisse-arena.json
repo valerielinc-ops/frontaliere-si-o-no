@@ -2054,7 +2054,8 @@
         "guest-experience-coordinator-mit-schichtverantwortung-weisse-arena-ch",
         "guest-experience-coordinateur-mit-schichtverantwortung-weisse-arena-gruppe-laax",
         "guest-experience-coordinator-shift-lead-weisse-arena-ch",
-        "guest-experience-manager-weisse-arena-ch"
+        "guest-experience-manager-weisse-arena-ch",
+        "guest-experience-manager-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -2063,7 +2064,8 @@
           "guest-experience-coordinator-mit-schichtverantwortung-weisse-arena-ch",
           "guest-experience-coordinateur-mit-schichtverantwortung-weisse-arena-gruppe-laax",
           "guest-experience-coordinator-shift-lead-weisse-arena-ch",
-          "guest-experience-manager-weisse-arena-ch"
+          "guest-experience-manager-weisse-arena-ch",
+          "guest-experience-manager-weisse-arena-gruppe-laax"
         ],
         "en": [
           "guest-experience-coordinator-shift-lead-weisse-arena-gruppe-laax"
@@ -2090,7 +2092,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "retranslationAttempts": 1
     },
     {
       "id": "weisse-arena-47f247ef882c",
@@ -2239,7 +2242,6 @@
           "allrounder-in-weisse-arena-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-27T00:40:02.606Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -2491,7 +2493,6 @@
           "barist-a-weisse-arena-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T09:59:47.373Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
@@ -2821,17 +2822,27 @@
       "firstSeenAt": "2026-09-21T15:57:39.653Z",
       "previousSlugsByLocale": {
         "it": [
-          "koch-kochin-weisse-arena-ch"
+          "koch-kochin-weisse-arena-ch",
+          "cucina-kochin-weisse-arena-gruppe-laax",
+          "cucina-chef-weisse-arena-gruppe-laax"
         ],
         "en": [
-          "koch-kochin-weisse-arena-ch"
+          "koch-kochin-weisse-arena-ch",
+          "koch-kochin-weisse-arena-gruppe-laax",
+          "cook-chef-weisse-arena-gruppe-laax"
         ],
         "fr": [
-          "koch-kochin-weisse-arena-ch"
+          "koch-kochin-weisse-arena-ch",
+          "cuisson-chef-weisse-arena-gruppe-laax"
         ]
       },
       "previousSlugs": [
-        "koch-kochin-weisse-arena-ch"
+        "koch-kochin-weisse-arena-ch",
+        "cucina-kochin-weisse-arena-gruppe-laax",
+        "cucina-chef-weisse-arena-gruppe-laax",
+        "koch-kochin-weisse-arena-gruppe-laax",
+        "cook-chef-weisse-arena-gruppe-laax",
+        "cuisson-chef-weisse-arena-gruppe-laax"
       ]
     },
     {
@@ -3177,7 +3188,7 @@
       "slugByLocale": {
         "it": "cucina-cucina-weisse-arena-gruppe-laax",
         "en": "cook-cook-weisse-arena-gruppe-laax",
-        "de": "koch-kochin-weisse-arena-ch-7ljqqk",
+        "de": "koch-kochin-weisse-arena-ch",
         "fr": "cuire-faire-cuire-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
@@ -3225,7 +3236,8 @@
       "previousSlugs": [
         "koch-kochin-weisse-arena-ch",
         "koch-kochin-weisse-arena-ch-2",
-        "koch-kochin-weisse-arena-gruppe-laax"
+        "koch-kochin-weisse-arena-gruppe-laax",
+        "koch-kochin-weisse-arena-ch-7ljqqk"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -3240,7 +3252,8 @@
           "koch-kochin-weisse-arena-ch-2"
         ],
         "de": [
-          "koch-kochin-weisse-arena-ch"
+          "koch-kochin-weisse-arena-ch",
+          "koch-kochin-weisse-arena-ch-7ljqqk"
         ]
       },
       "firstSeenAt": "2026-09-04T13:28:06.627Z",
@@ -4546,7 +4559,8 @@
       "previousSlugs": [
         "koch-kochin-weisse-arena-ch",
         "cucina-kochin-weisse-arena-gruppe-laax",
-        "koch-kochin-weisse-arena-gruppe-laax"
+        "koch-kochin-weisse-arena-gruppe-laax",
+        "koch-kochin-weisse-arena-ch-s26q0e"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -4561,7 +4575,8 @@
           "koch-kochin-weisse-arena-ch"
         ],
         "de": [
-          "koch-kochin-weisse-arena-ch"
+          "koch-kochin-weisse-arena-ch",
+          "koch-kochin-weisse-arena-ch-s26q0e"
         ]
       },
       "firstSeenAt": "2026-08-21T09:47:08.547Z",

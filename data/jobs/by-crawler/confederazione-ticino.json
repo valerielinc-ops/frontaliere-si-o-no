@@ -4755,7 +4755,7 @@
       "slugByLocale": {
         "it": "questioni-fiscali-internazionali-specializzate-oecd-minimo-tassa-confederazione-svizzera-bern",
         "en": "specialist-international-tax-issues-oecd-minimum-tax-confederazione-svizzera-bern",
-        "de": "fachspezialist-in-internationale-steuerfragen-oecd-mindeststeuer-confederazione-bern",
+        "de": "fachspezialist-in-internationale-steuerfragen-oecd-mindeststeuer-confederazione-bern-1cwgg6",
         "fr": "questions-fiscales-internationales-specialisees-impot-minimum-de-l-ocde-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-d273abb556b8",
@@ -4782,6 +4782,9 @@
           "fachspezialist-in-internationale-steuerfragen-oecd-mindeststeuer-confederazione-bern"
         ],
         "fr": [
+          "fachspezialist-in-internationale-steuerfragen-oecd-mindeststeuer-confederazione-bern"
+        ],
+        "de": [
           "fachspezialist-in-internationale-steuerfragen-oecd-mindeststeuer-confederazione-bern"
         ]
       },
@@ -4969,7 +4972,7 @@
       "slugByLocale": {
         "it": "responsabile-del-progetto-confederazione-svizzera-bern",
         "en": "project-manager-confederazione-svizzera-bern-bdaa87",
-        "de": "projektleiter-in-confederazione-svizzera-bern",
+        "de": "projektleiter-in-confederazione-svizzera-bern-0lgel9",
         "fr": "gestionnaire-de-projet-confederazione-svizzera-bern-bdaa87"
       },
       "id": "confederazione-ticino-607f49efc550",
@@ -4979,7 +4982,8 @@
           "projektleiter-in-confederazione-bern"
         ],
         "de": [
-          "projektleiter-in-confederazione-bern"
+          "projektleiter-in-confederazione-bern",
+          "projektleiter-in-confederazione-svizzera-bern"
         ],
         "en": [
           "projektleiter-in-confederazione-bern"
@@ -8164,7 +8168,7 @@
       "slugByLocale": {
         "it": "professionista-dell-universita-in-confederazione-svizzera-bern",
         "en": "university-practitioner-in-confederazione-svizzera-bern",
-        "de": "hochschulpraktikant-in-confederazione-svizzera-bern",
+        "de": "hochschulpraktikant-in-confederazione-svizzera-bern-rt6gcy",
         "fr": "pratique-universitaire-in-confederazione-svizzera-bern"
       },
       "id": "confederazione-ticino-825bc51bb6a9",
@@ -8180,7 +8184,8 @@
           "hochschulpraktikant-in-confederazione-svizzera-bern"
         ],
         "de": [
-          "hochschulpraktikant-in-confederazione-bern"
+          "hochschulpraktikant-in-confederazione-bern",
+          "hochschulpraktikant-in-confederazione-svizzera-bern"
         ]
       },
       "previousSlugs": [
@@ -8683,7 +8688,8 @@
       },
       "previousSlugs": [
         "product-manager-communication-1293-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Staatsanwältin/Staatsanwalt des Bundes (Bereich Rechtshilfe)",
@@ -8755,7 +8761,8 @@
       },
       "previousSlugs": [
         "staatsanwaltin-staatsanwalt-des-bundes-bereich-rechtshilfe-confederazione-bern"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Projektleiter/in und Anwendungsverantwortliche/r Initiale Fahrzeugdaten",
@@ -11205,8 +11212,7 @@
       },
       "previousSlugs": [
         "business-analyst-in-senior-confederazione-bern"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "title": "Projektleiter/-in Koordination Zivilschutz",
@@ -12559,7 +12565,8 @@
         "senior-system-ingenieur-microsoft-confederazione-svizzera-zollikofen",
         "senior-system-engineer-microsoft-confederazione-zollikofen"
       ],
-      "salarySource": "estimated"
+      "salarySource": "estimated",
+      "needsRetranslation": true
     },
     {
       "title": "Lernende/-r Fachfrau/-mann Information und Dokumentation EFZ",
@@ -16103,8 +16110,7 @@
       "previousSlugs": [
         "ict-change-manager-in-senior-confederazione-svizzera-bern"
       ],
-      "salarySource": "estimated",
-      "needsRetranslation": true
+      "salarySource": "estimated"
     },
     {
       "title": "Wirtschaftsinformatiker/-in (1023/1024)",
@@ -18614,7 +18620,8 @@
       },
       "firstSeenAt": "2026-07-22T11:19:28.644Z",
       "salarySource": "estimated",
-      "retranslationAttempts": 0
+      "retranslationAttempts": 0,
+      "needsRetranslation": true
     },
     {
       "title": "Staatsanwältin/Staatsanwalt des Bundes (Cyberkriminalität)",

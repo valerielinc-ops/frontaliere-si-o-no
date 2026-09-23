@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-06T06:55:00.273Z",
-    "label": "before",
-    "total": 28455,
-    "needsRetranslation": 12065,
-    "suppressed": 104,
-    "incomplete": 9639,
-    "complete": 18816,
-    "slotsPresent": 18816,
-    "flaggedAmongSlotsPresent": 3268,
-    "verifiedTranslated": 15548,
-    "sourceCopyExcused": 576,
-    "slotsPresentByLength": 28235,
-    "languageVerified": 19740,
-    "missingByLocale": {
-      "it": 873,
-      "en": 588,
-      "de": 287,
-      "fr": 721
-    },
-    "queueAge": {
-      "count": 12065,
-      "withTimestamp": 12065,
-      "oldestAgeDays": 145.9,
-      "p50AgeDays": 18.9,
-      "p90AgeDays": 88,
-      "buckets": {
-        "0-1d": 48,
-        "1-2d": 346,
-        "2-7d": 2932,
-        "0-7d": 3326,
-        "7-30d": 3868,
-        "30-90d": 3777,
-        "90-180d": 1094,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1218
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 1062
-      },
-      {
-        "company": "Roche",
-        "pending": 557
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 322
-      },
-      {
-        "company": "BKW",
-        "pending": 237
-      },
-      {
-        "company": "Sulzer",
-        "pending": 193
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 192
-      },
-      {
-        "company": "PEMSA",
-        "pending": 191
-      },
-      {
-        "company": "Genossenschaft Migros Ostschweiz",
-        "pending": 190
-      },
-      {
-        "company": "Confederazione Svizzera",
-        "pending": 170
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-06T07:01:24.752Z",
     "label": "after",
     "total": 28455,
@@ -19181,6 +19098,100 @@
       "processed": 2,
       "residual": 0,
       "residualRate": 0
+    },
+    "topPending": [
+      {
+        "company": "Die Schweizerische Post",
+        "pending": 202
+      },
+      {
+        "company": "PEMSA",
+        "pending": 175
+      },
+      {
+        "company": "Coop Genossenschaft",
+        "pending": 155
+      },
+      {
+        "company": "Roche",
+        "pending": 119
+      },
+      {
+        "company": "McDonald's Switzerland",
+        "pending": 118
+      },
+      {
+        "company": "Confederazione Svizzera",
+        "pending": 102
+      },
+      {
+        "company": "Manor AG",
+        "pending": 68
+      },
+      {
+        "company": "Swiss Life",
+        "pending": 55
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 49
+      },
+      {
+        "company": "Nestlé",
+        "pending": 47
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-23T13:58:16.038Z",
+    "label": "before",
+    "total": 27193,
+    "needsRetranslation": 2531,
+    "suppressed": 239,
+    "incomplete": 2187,
+    "complete": 25006,
+    "slotsPresent": 25006,
+    "flaggedAmongSlotsPresent": 700,
+    "verifiedTranslated": 24306,
+    "sourceCopyExcused": 560,
+    "slotsPresentByLength": 26981,
+    "languageVerified": 25306,
+    "missingByLocale": {
+      "it": 481,
+      "en": 280,
+      "de": 138,
+      "fr": 294
+    },
+    "queueAge": {
+      "count": 2531,
+      "withTimestamp": 2531,
+      "oldestAgeDays": 163.2,
+      "p50AgeDays": 15,
+      "p90AgeDays": 67.7,
+      "buckets": {
+        "0-1d": 257,
+        "1-2d": 160,
+        "2-7d": 403,
+        "0-7d": 820,
+        "7-30d": 1021,
+        "30-90d": 558,
+        "90-180d": 132,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": null,
+    "genderFormRepair": {
+      "measured": false,
+      "status": "cohort-captured",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 951,
+      "sampled": 120,
+      "processed": 0,
+      "residual": 0,
+      "residualRate": null
     },
     "topPending": [
       {
