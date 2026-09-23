@@ -21,6 +21,12 @@ jobs:
     # The rest lane has 262 isolated slices in the current corpus. The previous
     # four-worker cap reached this ceiling before the lane could drain; keep a
     # hard job budget while giving the bounded fan-out enough headroom to finish.
+    # Revert-risk: eight workers may expose runner saturation or upstream rate
+    # limits before a live run supplies a stable pre/post comparison.
+    # Revert trigger: the first live run exceeds 50 minutes, reaches this
+    # timeout, reports OOM/runner starvation, or receives an upstream 429.
+    # Revert action: restore timeout-minutes to 45 and max_parallel to 4 before
+    # the next run; all worker and validation failures remain fail-closed.
     timeout-minutes: 60
     concurrency:
       group: jobs-housekeeping-${{ inputs.lane }}
