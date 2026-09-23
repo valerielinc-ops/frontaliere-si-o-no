@@ -542,7 +542,7 @@
       "companyDomain": "globus.ch",
       "title": "Lehrstelle als Polydesigner/-in 3D EFZ",
       "titleByLocale": {
-        "it": "Posizione di insegnamento come polidesigner 3D EFZ",
+        "it": "Posizione di insegnamento come polidesigner/-in 3D EFZ",
         "en": "Teaching position as polydesigner/-in 3D EFZ",
         "de": "Lehrstelle als Polydesigner/-in 3D EFZ",
         "fr": "Position d'enseignement en tant que polydesigner/-in 3D EFZ"
@@ -593,7 +593,6 @@
           "lehrstelle-als-polydesigner-in-3d-efz-globus-ch-2"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-12T21:51:11.531Z",
       "salaryMin": 48000,
       "salaryMax": 73000,
@@ -608,7 +607,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2995
     },
     {
       "id": "globus-e5cff5114add",
