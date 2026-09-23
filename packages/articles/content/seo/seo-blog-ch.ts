@@ -86210,6 +86210,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-dff-progressione-freddo-imposte-2027': {
+    title: 'Imposta federale 2027: DFF compensa la progressione a freddo',
+    description: 'Il DFF adegua tariffe e deduzioni per l\'imposta federale diretta 2027 per compensare l\'inflazione dello 0,47%. Scopri le nuove soglie e detrazioni.',
+    keywords: 'frontalieri, ticino, svizzera, italia, imposta, federale, compensa, progressione',
+    ogTitle: 'Imposta federale 2027: DFF compensa la progressione a freddo',
+    ogDescription: 'Il Dipartimento federale delle finanze adegua tariffe e deduzioni per l\'anno fiscale 2027: aumentano le soglie per coniugi, formazione e cura figli per contrastare l\'inflazione.',
+    canonicalPath: '/articoli-svizzera/dff-progressione-freddo-imposte-2027/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Imposta federale 2027: DFF compensa la progressione a freddo",
+      "description": "Il DFF adegua tariffe e deduzioni per l'imposta federale diretta 2027 per compensare l'inflazione dello 0,47%. Scopri le nuove soglie e detrazioni.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/dff-progressione-freddo-imposte-2027.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Palazzo federale a Berna, sede del Dipartimento federale delle finanze"
+      },
+      "datePublished": "2026-09-23T01:17:39+00:00",
+      "dateModified": "2026-09-23T01:17:39+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/dff-progressione-freddo-imposte-2027/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

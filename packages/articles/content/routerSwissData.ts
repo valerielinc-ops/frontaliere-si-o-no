@@ -2239,6 +2239,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'permesso-c-friburgo-guida-requisiti': { it: 'permesso-c-friburgo-guida-requisiti', en: 'settlement-permit-c-fribourg-requirements-application', de: 'niederlassungsbewilligung-c-freiburg-voraussetzungen-gesuch', fr: 'permis-c-fribourg-conditions-demande' },
  'avs-ai-accesso-digitale-dati': { it: 'avs-ai-accesso-digitale-dati', en: 'oasi-iv-digital-data-access', de: 'ahv-iv-digitaler-datenzugriff', fr: 'acces-numerique-donnees-avs-ai' },
  'revisione-legge-epidemie-svizzera': { it: 'revisione-legge-epidemie-svizzera', en: 'revision-epidemics-act-switzerland', de: 'revision-epidemiegesetz-schweiz', fr: 'revision-loi-epidemies-suisse' },
+ 'dff-progressione-freddo-imposte-2027': { it: 'dff-progressione-freddo-imposte-2027', en: 'dff-cold-progression-taxes-2027', de: 'dff-kalte-progression-steuern-2027', fr: 'dff-progression-froide-impots-2027' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

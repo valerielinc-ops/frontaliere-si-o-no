@@ -6650,6 +6650,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.revisione-legge-epidemie-svizzera.title': 'Révision de la loi sur les épidémies : nouvelles règles et indemnisations',
     'blog.article.revisione-legge-epidemie-svizzera.excerpt': 'Le Parlement adopte la révision partielle de la loi sur les épidémies en introduisant des critères clairs pour le soutien financier et la protection de la santé.',
     'blog.article.revisione-legge-epidemie-svizzera.imageAlt': 'Le Palais federal a Berne siege du Parlement suisse',
+    'blog.article.dff-progressione-freddo-imposte-2027.title': 'Impôt fédéral 2027 : DFF compense la progression à froid',
+    'blog.article.dff-progressione-freddo-imposte-2027.excerpt': 'Le DFF ajuste les tarifs et les déductions pour l\'exercice 2027 face à un renchérissement cumulé de 0,47 % enregistré au 30 juin 2026.',
+    'blog.article.dff-progressione-freddo-imposte-2027.imageAlt': 'Palais fédéral à Berne, siège du Département fédéral des finances',
 };
 
 export default blogMetaChFr;
