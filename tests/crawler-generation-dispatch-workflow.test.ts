@@ -269,6 +269,7 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(sentinel.if).toBe('always()');
     expect(sentinel.id).toBe('generation_sentinel');
     expect(sentinel.run).toContain('scripts/crawler-generation-dispatch.mjs dispatch-sentinel');
+    expect(sentinel.run).toContain('--contract ".github/corpus-workflows/contract.json"');
     expect(sentinel.run).toContain('[ "$SHADOW_READY" != "true" ]');
     expect(sentinel.env.SHADOW_READY).toContain('steps.generation_wave.outputs.shadow_ready');
     expect(waveOutcome).toMatchObject({
@@ -311,10 +312,15 @@ describe('crawler generation PR B workflow wiring', () => {
     expect(translationDispatch.env.GENERATION_PREFLIGHT_READY).toContain('steps.generation_preflight.outputs.ready');
     expect(translationDispatch.env.GENERATION_PREFLIGHT_REASONS).toContain('steps.generation_preflight.outputs.reasons');
     expect(translationDispatch.run).toContain('does not make the blocked crawler wave green');
-    const sentinelValidation = YAML.parse(fs.readFileSync(observerPath, 'utf8'))
+    const observerSource = fs.readFileSync(observerPath, 'utf8');
+    const sentinelValidation = YAML.parse(observerSource)
       .jobs.sentinel.steps.find((step: any) => step.name === 'Validate manual sentinel binding before checkout');
     expect(sentinelValidation.env.CORPUS_CODE_COMMIT).toBe('${{ github.sha }}');
     expect(sentinelValidation.run).toContain('envelope.corpusCodeCommit !== process.env.CORPUS_CODE_COMMIT');
+    expect(observerSource).toContain('keys as $groupKeys');
+    expect(observerSource).toContain('$groupCount');
+    expect(observerSource).not.toContain('keys == ["01","02"');
+    expect(observerSource).not.toContain('unique | length == 24');
   });
 
   it('materializes the complete dispatcher import closure in the orchestrator sparse checkout', () => {
@@ -706,5 +712,5 @@ esac
     } finally {
       fs.rmSync(root, { recursive: true, force: true });
     }
-  });
+  }, 30_000);
 });

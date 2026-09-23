@@ -9,11 +9,22 @@ import crypto from 'node:crypto';
 import fs from 'node:fs';
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
+import {
+  createCrawlerGroupIds,
+  deriveCrawlerGroupIdsFromContract,
+} from '../lib/crawler-generation-group-ids.mjs';
 
 export const CRAWLER_WORKFLOW_FILES = [
-  ...Array.from({ length: 24 }, (_, index) => `crawler-group-${String(index + 1).padStart(2, '0')}.yml`),
+  ...createCrawlerGroupIds(24).map((group) => `crawler-group-${group}.yml`),
   'translate-pending.yml',
 ];
+
+export function crawlerWorkflowFilesFromContract(contract) {
+  return [
+    ...deriveCrawlerGroupIdsFromContract(contract).map((group) => `crawler-group-${group}.yml`),
+    'translate-pending.yml',
+  ];
+}
 
 export const CORPUS_CONTRACT_PATH = 'generator/data/crawler-cross-repo-contract.json';
 export const CORPUS_MANIFEST_PATH = 'scripts/ci/loop-sync-manifest.json';
@@ -37,6 +48,10 @@ export const CORPUS_OBSERVER_FILES = [
   {
     source: 'observers/scripts/lib/crawler-generation-observer-report.mjs',
     target: 'scripts/ci/lib/crawler-generation-observer-report.mjs',
+  },
+  {
+    source: 'observers/scripts/lib/crawler-generation-group-ids.mjs',
+    target: 'scripts/ci/lib/crawler-generation-group-ids.mjs',
   },
   {
     source: 'observers/scripts/lib/crawler-generation-token.mjs',
@@ -121,18 +136,18 @@ function readRequired(filePath) {
   return fs.readFileSync(filePath);
 }
 
-export function expectedCorpusPaths() {
+export function expectedCorpusPaths(crawlerWorkflowFiles = CRAWLER_WORKFLOW_FILES) {
   return [
-    ...CRAWLER_WORKFLOW_FILES.map((file) => `.github/workflows/${file}`),
+    ...crawlerWorkflowFiles.map((file) => `.github/workflows/${file}`),
     ...CORPUS_OBSERVER_FILES.map((observer) => observer.target),
     CORPUS_CONTRACT_PATH,
     CORPUS_MANIFEST_PATH,
   ];
 }
 
-function expectedMappings() {
+function expectedMappings(crawlerWorkflowFiles = CRAWLER_WORKFLOW_FILES) {
   return new Map([
-    ...CRAWLER_WORKFLOW_FILES.map((file) => `.github/corpus-workflows/${file}`),
+    ...crawlerWorkflowFiles.map((file) => `.github/corpus-workflows/${file}`),
   ].map((sitePath) => [sitePath, `.github/workflows/${path.basename(sitePath)}`]).concat(
     CORPUS_OBSERVER_FILES.map(({ source, target }) => [
       `.github/corpus-workflows/${source}`,
@@ -152,10 +167,19 @@ function contentForSitePath(sitePath, { contractBuffer, payloads, observerPayloa
 }
 
 /** Consente rispetto a main soltanto le baseline crawler owned censite sopra. */
-export function assertCrawlerManifestDelta({ baseManifest, currentManifest } = {}) {
+export function assertCrawlerManifestDelta({ baseManifest, currentManifest, crawlerWorkflowFiles } = {}) {
   if (!baseManifest || !currentManifest) throw new Error('baseManifest and currentManifest are required');
   const expected = structuredClone(baseManifest);
-  const mappings = expectedMappings();
+  const discoveredWorkflowFiles = crawlerWorkflowFiles ?? [
+    ...new Set([
+      ...CRAWLER_WORKFLOW_FILES,
+      ...(currentManifest.files ?? [])
+        .map((entry) => entry.sitePath)
+        .filter((sitePath) => /^\.github\/corpus-workflows\/crawler-group-\d{2}\.yml$/u.test(sitePath ?? ''))
+        .map((sitePath) => path.basename(sitePath)),
+    ]),
+  ];
+  const mappings = expectedMappings(discoveredWorkflowFiles);
   const currentOwned = new Map();
   for (const entry of currentManifest.files ?? []) {
     if (!mappings.has(entry.sitePath)) continue;
@@ -194,10 +218,11 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
   if (!sourceDir || !corpusRoot) throw new Error('sourceDir and corpusRoot are required');
   const contractBuffer = readRequired(path.join(sourceDir, 'contract.json'));
   const contract = JSON.parse(contractBuffer.toString('utf8'));
+  const crawlerWorkflowFiles = crawlerWorkflowFilesFromContract(contract);
   const contractFiles = (contract.artifacts ?? []).map((artifact) => artifact.file).sort();
-  const expectedFiles = [...CRAWLER_WORKFLOW_FILES].sort();
+  const expectedFiles = [...crawlerWorkflowFiles].sort();
   if (JSON.stringify(contractFiles) !== JSON.stringify(expectedFiles)) {
-    throw new Error('crawler transport contract must name exactly the 25 executable artifacts');
+    throw new Error('crawler transport contract must name exactly the generated executable artifacts');
   }
   if (JSON.stringify(contract.observers ?? []) !== JSON.stringify(
     CORPUS_OBSERVER_FILES.map(({ source, target }) => ({ source, target, sha256: contract.observers?.find((observer) => observer.source === source)?.sha256 })),
@@ -207,7 +232,7 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
 
   // Leggi e valida tutto PRIMA di scrivere. Un export troncato non puo'
   // cancellare o aggiornare parzialmente il checkout di destinazione.
-  const payloads = new Map(CRAWLER_WORKFLOW_FILES.map((file) => [
+  const payloads = new Map(crawlerWorkflowFiles.map((file) => [
     file,
     readRequired(path.join(sourceDir, file)),
   ]));
@@ -232,7 +257,7 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
 
   const manifestPath = path.join(corpusRoot, CORPUS_MANIFEST_PATH);
   const manifest = JSON.parse(readRequired(manifestPath).toString('utf8'));
-  const mappings = expectedMappings();
+  const mappings = expectedMappings(crawlerWorkflowFiles);
   const observed = new Set();
   const date = alignedAt ?? new Date().toISOString().slice(0, 10);
   const normalizedFiles = [];
@@ -296,7 +321,7 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
   fs.mkdirSync(path.dirname(contractDestination), { recursive: true });
   fs.writeFileSync(contractDestination, contractBuffer);
   fs.writeFileSync(manifestPath, `${JSON.stringify(manifest, null, 2)}\n`);
-  return { artifacts: payloads.size, observers: observerPayloads.size, paths: expectedCorpusPaths() };
+  return { artifacts: payloads.size, observers: observerPayloads.size, paths: expectedCorpusPaths(crawlerWorkflowFiles) };
 }
 
 const isMain = process.argv[1] && path.resolve(process.argv[1]) === fileURLToPath(import.meta.url);

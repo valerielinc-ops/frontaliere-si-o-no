@@ -252,6 +252,7 @@ const PORTABLE_CONTRACT_PATH = path.join(PORTABLE_CORPUS_DIR, 'contract.json');
 const CORPUS_OBSERVER_SITE_SOURCES = new Map([
   ['observers/scripts/crawler-generation-observer-selector.mjs', 'scripts/crawler-generation-observer-selector.mjs'],
   ['observers/scripts/lib/canonical-json-digest.mjs', 'scripts/lib/canonical-json-digest.mjs'],
+  ['observers/scripts/lib/crawler-generation-group-ids.mjs', 'scripts/lib/crawler-generation-group-ids.mjs'],
   ['observers/scripts/lib/crawler-generation-observer-report.mjs', 'scripts/lib/crawler-generation-observer-report.mjs'],
   ['observers/scripts/lib/crawler-generation-token.mjs', 'scripts/lib/crawler-generation-token.mjs'],
   ['observers/scripts/lib/github-actions-read-client.mjs', 'scripts/lib/github-actions-read-client.mjs'],
@@ -265,6 +266,7 @@ const CRAWLER_GENERATION_RUNTIME_PATHS = Object.freeze([
   'scripts/lib/atomic-write-json.mjs',
   'scripts/lib/canonical-json-digest.mjs',
   'scripts/lib/crawler-generation-contract.mjs',
+  'scripts/lib/crawler-generation-group-ids.mjs',
   'scripts/lib/crawler-generation-receipt.mjs',
   'scripts/lib/crawler-generation-token.mjs',
   'scripts/lib/global-data-pipeline-lease.mjs',

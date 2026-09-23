@@ -84,17 +84,17 @@ describe('crawler workflow corpus transport', () => {
     expect(script).not.toMatch(/git push[^\n]*(--force|HEAD:main|origin main)/);
     expect(script).not.toMatch(/gh pr edit/);
     expect(script).toContain('branch updated without replacing its body');
-    expect(script.indexOf('git diff --name-only origin/main...HEAD'))
+    expect(script.indexOf('assert_transport_paths origin/main...HEAD'))
       .toBeLessThan(script.indexOf('git push -u origin "HEAD:$target_branch"'));
   });
 
-  it('allowlista esattamente 24 workflow esecutivi, observer shadow, contratto e manifest e rifiuta delete', () => {
-    expect(script).toContain('crawler-group-(0[1-9]|1[0-9]|2[0-4])');
-    expect(script).toContain('crawler-generation-observer-shadow\\.yml');
-    expect(script).toContain('generator/data/crawler-cross-repo-contract\\.json');
-    expect(script).toContain('generator/tests/crawler-cross-repo-artifacts\\.test\\.mjs');
-    expect(script).toContain('scripts/ci/lib/crawler-generation-token');
-    expect(script).toContain('scripts/ci/loop-sync-manifest\\.json');
+  it('deriva dal contratto l allowlist dei workflow esecutivi e rifiuta delete', () => {
+    expect(script).toContain('expected_transport_paths=');
+    expect(script).toContain('contract.artifacts.map');
+    expect(script).toContain('contract.observers.map');
+    expect(script).toContain('assert_transport_paths --cached');
+    expect(script).toContain('assert_transport_paths origin/main...HEAD');
+    expect(script).toContain('scripts/ci/lib/crawler-generation-group-ids.mjs');
     expect(script).toContain('--assert-manifest-delta');
     expect(script).toContain('git diff --cached --diff-filter=D --name-only');
     expect(script).toMatch(/refuses artifact deletion/);

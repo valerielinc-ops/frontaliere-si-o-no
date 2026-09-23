@@ -1,15 +1,12 @@
 import { digestDocument } from './canonical-json-digest.mjs';
 import { isCrawlerGenerationToken } from './crawler-generation-token.mjs';
+import { deriveCrawlerGroupIdsFromGroups } from './crawler-generation-group-ids.mjs';
 
 export const CRAWLER_GENERATION_OBSERVER_REPORT_SCHEMA_VERSION = 2;
 export const ARTIFACT_MISSING_GRACE_MS = 6 * 60 * 60 * 1_000;
 const HASH_RE = /^sha256:[a-f0-9]{64}$/;
 const COMMIT_RE = /^(?:[a-f0-9]{40}|[a-f0-9]{64})$/;
 const STATUS_SET = new Set(['ready', 'blocked', 'waiting', 'infrastructure_error']);
-const GROUP_IDS = Object.freeze(Array.from(
-  { length: 24 },
-  (_, index) => String(index + 1).padStart(2, '0'),
-));
 const DISPATCH_STATUS_SET = new Set([
   'direct', 'reconciled_transport_error', 'reconciled_protocol_mismatch', 'rejected',
   'missing', 'duplicate', 'invalid_200_response', 'binding_mismatch',
@@ -67,8 +64,10 @@ function withoutDigest(value) {
 }
 
 function validDispatchDiagnostics(value) {
-  if (!exactKeys(value, GROUP_IDS)) return false;
-  return GROUP_IDS.every((group) => {
+  let groupIds;
+  try { groupIds = deriveCrawlerGroupIdsFromGroups(value); } catch { return false; }
+  if (!exactKeys(value, groupIds)) return false;
+  return groupIds.every((group) => {
     const diagnostic = value[group];
     if (!exactKeys(diagnostic, ['status', 'runId'])
         || !DISPATCH_STATUS_SET.has(diagnostic.status)

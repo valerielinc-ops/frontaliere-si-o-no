@@ -25,6 +25,7 @@ import {
 } from '../scripts/crawler-generation-dispatch.mjs';
 import {
   GROUP_IDS,
+  createCrawlerGenerationSentinel,
   crawlerGenerationSentinelWorkflowIdentity,
   crawlerGenerationWorkflowIdentity,
   isCrawlerGenerationToken,
@@ -1778,6 +1779,34 @@ describe('generation checkpoint and preflight', () => {
     expect(dispatched.every(({ inputs }) => inputs.site_code_commit === siteCodeCommit)).toBe(true);
   });
 
+  it('dispatches exactly the group set discovered from the contract', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-discovered-wave-'));
+    tempRoots.push(root);
+    const discoveredGroups = ['01', '02', '03'];
+    const dispatched: any[] = [];
+    const result = await runCrawlerGenerationDispatchWave({
+      generationToken,
+      siteCodeCommit,
+      corpusCodeCommit,
+      shadowReady: true,
+      groupIds: discoveredGroups,
+      checkpointPath: path.join(root, 'checkpoint.json'),
+      delayMs: 0,
+      dispatch: async (input) => {
+        dispatched.push(input);
+        return { status: 'direct', runId: `run-${input.group}` };
+      },
+    });
+
+    expect(dispatched.map(({ group, workflowFile }) => [group, workflowFile])).toEqual([
+      ['01', 'crawler-group-01.yml'],
+      ['02', 'crawler-group-02.yml'],
+      ['03', 'crawler-group-03.yml'],
+    ]);
+    expect(Object.keys(result.groups)).toEqual(discoveredGroups);
+    expect(Object.keys(result.dispatchDiagnostics)).toEqual(discoveredGroups);
+  });
+
   it('classifies all 24 hydrated authoritative IDs deterministically in the final checkpoint', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-hydrated-wave-'));
     tempRoots.push(root);
@@ -1941,12 +1970,35 @@ describe('generation checkpoint and preflight', () => {
       '--delay-seconds', '10',
       '--failure-tolerance', '2',
       '--dry-run', 'false',
+      '--contract', path.join(process.cwd(), '.github/corpus-workflows/contract.json'),
       '--repository', process.cwd(),
       '--runner-temp', root,
       '--checkpoint', checkpointPath,
     ], {})).rejects.toThrow('crawler_generation_preflight_not_ready');
     expect(fetchMock).not.toHaveBeenCalled();
     expect(fs.existsSync(checkpointPath)).toBe(false);
+  });
+
+  it('rejects a sentinel checkpoint whose group set differs from the discovered contract', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-sentinel-contract-'));
+    tempRoots.push(root);
+    const checkpointPath = path.join(root, 'crawler-generation-dispatch', 'checkpoint.json');
+    fs.mkdirSync(path.dirname(checkpointPath), { recursive: true });
+    fs.writeFileSync(checkpointPath, JSON.stringify(createCrawlerGenerationSentinel({
+      generationToken,
+      siteCodeCommit,
+      corpusCodeCommit,
+      groupRunIds: { '01': '7001', '02': '7002' },
+    }, ['01', '02'])));
+
+    await expect(runCrawlerGenerationDispatchCli([
+      'dispatch-sentinel',
+      '--generation-token', generationToken,
+      '--contract', path.join(process.cwd(), '.github/corpus-workflows/contract.json'),
+      '--repository', process.cwd(),
+      '--runner-temp', root,
+      '--checkpoint', checkpointPath,
+    ], {})).rejects.toThrow('Invalid crawler generation sentinel checkpoint');
   });
 
   it('aborts a ref-pin failure before the first crawler-group dispatch POST', async () => {
@@ -1976,6 +2028,7 @@ describe('generation checkpoint and preflight', () => {
       '--delay-seconds', '10',
       '--failure-tolerance', '2',
       '--dry-run', 'false',
+      '--contract', path.join(process.cwd(), '.github/corpus-workflows/contract.json'),
       '--repository', process.cwd(),
       '--runner-temp', root,
       '--checkpoint', checkpointPath,
@@ -2075,6 +2128,7 @@ describe('generation checkpoint and preflight', () => {
         '--delay-seconds', '10',
         '--failure-tolerance', '2',
         '--dry-run', 'false',
+        '--contract', path.join(process.cwd(), '.github/corpus-workflows/contract.json'),
         '--repository', process.cwd(),
         '--runner-temp', root,
         '--checkpoint', checkpointPath,
