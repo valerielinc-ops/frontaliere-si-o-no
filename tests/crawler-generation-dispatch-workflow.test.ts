@@ -317,7 +317,8 @@ describe('crawler generation PR B workflow wiring', () => {
       .jobs.sentinel.steps.find((step: any) => step.name === 'Validate manual sentinel binding before checkout');
     expect(sentinelValidation.env.CORPUS_CODE_COMMIT).toBe('${{ github.sha }}');
     expect(sentinelValidation.run).toContain('envelope.corpusCodeCommit !== process.env.CORPUS_CODE_COMMIT');
-    expect(observerSource).toContain('keys as $groupKeys');
+    expect(observerSource).toContain('crawler-cross-repo-contract.json');
+    expect(observerSource).toContain('expectedGroupKeys');
     expect(observerSource).toContain('$groupCount');
     expect(observerSource).not.toContain('keys == ["01","02"');
     expect(observerSource).not.toContain('unique | length == 24');
@@ -394,6 +395,7 @@ describe('crawler generation PR B workflow wiring', () => {
       .toBe('crawler-generation-observer-${{ needs.probe.outputs.generation_token }}');
     const scheduledSource = JSON.stringify(workflow.jobs.reconcile_select);
     expect(scheduledSource).toContain('crawler-generation-observer-selector.mjs');
+    expect(scheduledSource).toContain('--contract');
     expect(scheduledSource).not.toMatch(/POST|git push|gh issue|secrets\./);
     expect(JSON.stringify(workflow.jobs.reconcile_scheduled)).toContain('--timed-out');
     for (const jobName of ['sentinel', 'observe_event', 'reconcile_scheduled']) {
@@ -419,6 +421,15 @@ describe('crawler generation PR B workflow wiring', () => {
       const bin = path.join(root, 'bin');
       fs.mkdirSync(payload);
       fs.mkdirSync(bin);
+      const contractResponse = path.join(root, 'contract-response.json');
+      const contractSource = fs.readFileSync(
+        path.resolve(import.meta.dirname, '../.github/corpus-workflows/contract.json'),
+        'utf8',
+      );
+      fs.writeFileSync(contractResponse, JSON.stringify({
+        encoding: 'base64',
+        content: Buffer.from(contractSource, 'utf8').toString('base64'),
+      }));
       const sentinel = createCrawlerGenerationSentinel({
         generationToken: '9001-2',
         siteCodeCommit: 'a'.repeat(40),
@@ -480,6 +491,7 @@ describe('crawler generation PR B workflow wiring', () => {
 set -euo pipefail
 printf '%s\\n' "$*" >> "$PROBE_CALL_LOG"
 case "$*" in
+  *"/contents/generator/data/crawler-cross-repo-contract.json?ref="*) cat "$PROBE_CONTRACT_RESPONSE" ;;
   *"/actions/artifacts?name="*) cat "$PROBE_ARTIFACT_JSON" ;;
   *"/actions/runs/88"*) cat "$PROBE_SENTINEL_RUN_JSON" ;;
   *"/actions/artifacts/77/zip"*) cat "$PROBE_ARCHIVE" ;;
@@ -515,6 +527,7 @@ esac
           GITHUB_OUTPUT: output,
           PROBE_ARTIFACT_JSON: artifactJson,
           PROBE_ARCHIVE: archive,
+          PROBE_CONTRACT_RESPONSE: contractResponse,
           PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
           PROBE_TRIGGER_RUN_JSON: triggerRunJson,
           PROBE_CALL_LOG: callLog,
@@ -538,6 +551,7 @@ esac
           GITHUB_OUTPUT: output,
           PROBE_ARTIFACT_JSON: artifactJson,
           PROBE_ARCHIVE: archive,
+          PROBE_CONTRACT_RESPONSE: contractResponse,
           PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
           PROBE_TRIGGER_RUN_JSON: triggerRunJson,
           PROBE_CALL_LOG: callLog,
@@ -567,6 +581,7 @@ esac
             GITHUB_OUTPUT: output,
             PROBE_ARTIFACT_JSON: artifactJson,
             PROBE_ARCHIVE: archive,
+            PROBE_CONTRACT_RESPONSE: contractResponse,
             PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
             PROBE_TRIGGER_RUN_JSON: triggerRunJson,
             PROBE_CALL_LOG: callLog,
@@ -595,6 +610,7 @@ esac
           GITHUB_OUTPUT: output,
           PROBE_ARTIFACT_JSON: artifactJson,
           PROBE_ARCHIVE: archive,
+          PROBE_CONTRACT_RESPONSE: contractResponse,
           PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
           PROBE_TRIGGER_RUN_JSON: triggerRunJson,
           PROBE_CALL_LOG: callLog,
@@ -624,6 +640,7 @@ esac
             GITHUB_OUTPUT: output,
             PROBE_ARTIFACT_JSON: artifactJson,
             PROBE_ARCHIVE: archive,
+            PROBE_CONTRACT_RESPONSE: contractResponse,
             PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
             PROBE_TRIGGER_RUN_JSON: triggerRunJson,
             PROBE_CALL_LOG: callLog,
@@ -654,6 +671,7 @@ esac
           GITHUB_OUTPUT: output,
           PROBE_ARTIFACT_JSON: artifactJson,
           PROBE_ARCHIVE: archive,
+          PROBE_CONTRACT_RESPONSE: contractResponse,
           PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
           PROBE_TRIGGER_RUN_JSON: triggerRunJson,
           PROBE_CALL_LOG: callLog,
@@ -697,6 +715,7 @@ esac
           GITHUB_OUTPUT: output,
           PROBE_ARTIFACT_JSON: artifactJson,
           PROBE_ARCHIVE: oversizedArchive,
+          PROBE_CONTRACT_RESPONSE: contractResponse,
           PROBE_SENTINEL_RUN_JSON: sentinelRunJson,
           PROBE_TRIGGER_RUN_JSON: triggerRunJson,
           PROBE_CALL_LOG: callLog,

@@ -10,7 +10,11 @@ import {
   createSentinelSetBinding,
   validateCrawlerGenerationObserverReport,
 } from './lib/crawler-generation-observer-report.mjs';
-import { deriveCrawlerGroupIdsFromGroups } from './lib/crawler-generation-group-ids.mjs';
+import {
+  deriveCrawlerGroupIdsFromContract,
+  deriveCrawlerGroupIdsFromGroups,
+  normalizeCrawlerGroupIds,
+} from './lib/crawler-generation-group-ids.mjs';
 import {
   createGitHubActionsReadClient,
   isMissingExactGitHubResource,
@@ -166,7 +170,7 @@ export function selectLatestCrawlerGenerationObserverReport({
 }
 
 function candidateExpectedBinding(candidate) {
-  return {
+  const binding = {
     generationToken: candidate.generationToken,
     siteCodeCommit: candidate.siteCodeCommit,
     corpusCodeCommit: candidate.corpusCodeCommit,
@@ -174,6 +178,8 @@ function candidateExpectedBinding(candidate) {
     sentinelSetDigest: candidate.sentinelSetDigest,
     sentinelReplayCount: candidate.sentinelReplayCount,
   };
+  if (candidate.groupIds !== undefined) binding.groupIds = candidate.groupIds;
+  return binding;
 }
 
 /** Pure fairness/terminal selector over already hard-bound discovery evidence. */
@@ -230,9 +236,17 @@ export function selectCrawlerGenerationReconciliations({ now, candidates }) {
   }));
 }
 
-function validateSentinelDocument(sentinel) {
+function validateSentinelDocument(sentinel, expectedGroupIds = null) {
   let groupIds;
-  try { groupIds = deriveCrawlerGroupIdsFromGroups(sentinel?.groups); } catch { return false; }
+  try {
+    groupIds = expectedGroupIds === null
+      ? deriveCrawlerGroupIdsFromGroups(sentinel?.groups)
+      : normalizeCrawlerGroupIds(expectedGroupIds);
+  } catch {
+    return false;
+  }
+  let actualGroupIds;
+  try { actualGroupIds = deriveCrawlerGroupIdsFromGroups(sentinel?.groups); } catch { return false; }
   if (!sentinel || sentinel.schemaVersion !== 1
       || !isCrawlerGenerationToken(sentinel.generationToken)
       || !COMMIT_RE.test(sentinel.siteCodeCommit ?? '')
@@ -242,7 +256,7 @@ function validateSentinelDocument(sentinel) {
       || sentinel.digest !== digestDocument(Object.fromEntries(
         Object.entries(sentinel).filter(([key]) => key !== 'digest'),
       ))
-      || canonicalJson(Object.keys(sentinel.groups ?? {}).sort(compareCodePoint)) !== canonicalJson(groupIds)) {
+      || canonicalJson(actualGroupIds) !== canonicalJson(groupIds)) {
     return false;
   }
   return groupIds.every((group) => {
@@ -336,7 +350,17 @@ function assertList(response, key, cap) {
 }
 
 /** GitHub adapter: lists only discovery surfaces, then binds every owner by exact-ID GET. */
-export async function discoverCrawlerGenerationReconciliations({ client, now, runnerTemp }) {
+export async function discoverCrawlerGenerationReconciliations({
+  client,
+  now,
+  runnerTemp,
+  groupIds: expectedGroupIds = null,
+}) {
+  if (expectedGroupIds !== null) {
+    try { expectedGroupIds = normalizeCrawlerGroupIds(expectedGroupIds); } catch {
+      throw new TypeError('invalid contract group set');
+    }
+  }
   const runsResponse = await client.json(crawlerGenerationSentinelDiscoveryPath(now));
   const discoveredRuns = assertList(runsResponse, 'workflow_runs', MAX_DISCOVERY_RUNS);
   const downloads = path.join(runnerTemp, 'crawler-generation-selector-downloads');
@@ -371,7 +395,7 @@ export async function discoverCrawlerGenerationReconciliations({ client, now, ru
       maxBytes: MAX_SENTINEL_BYTES,
       root: downloads,
     });
-    if (!validateSentinelDocument(sentinel)
+    if (!validateSentinelDocument(sentinel, expectedGroupIds)
         || !validateSentinelOwnerRun(run, {
           runId,
           generationToken: token,
@@ -387,7 +411,7 @@ export async function discoverCrawlerGenerationReconciliations({ client, now, ru
   for (const [generationToken, values] of byToken) {
     values.sort((left, right) => right.createdAt - left.createdAt || Number(right.runId) - Number(left.runId));
     const current = values[0];
-    const groupIds = deriveCrawlerGroupIdsFromGroups(current.sentinel.groups);
+    const groupIds = expectedGroupIds ?? deriveCrawlerGroupIdsFromGroups(current.sentinel.groups);
     const sentinelSet = createSentinelSetBinding(values.map(({ sentinel }) => sentinel));
     const dispatchMissing = groupIds.some((group) => current.sentinel.groups[group].runId === null);
     let allRunsTerminal = !dispatchMissing;
@@ -446,6 +470,7 @@ export async function discoverCrawlerGenerationReconciliations({ client, now, ru
         siteCodeCommit: current.sentinel.siteCodeCommit,
         corpusCodeCommit: current.sentinel.corpusCodeCommit,
         sentinelDigest: current.sentinel.digest,
+        groupIds,
         ...sentinelSet,
       },
       records: reportRecords,
@@ -456,6 +481,7 @@ export async function discoverCrawlerGenerationReconciliations({ client, now, ru
       siteCodeCommit: current.sentinel.siteCodeCommit,
       corpusCodeCommit: current.sentinel.corpusCodeCommit,
       sentinelDigest: current.sentinel.digest,
+      groupIds,
       ...sentinelSet,
       sentinelCreatedAt: new Date(current.createdAt).toISOString(),
       dispatchMissing,
@@ -472,12 +498,15 @@ function parseArguments(argv) {
   for (let index = 0; index < argv.length; index += 2) {
     const flag = argv[index];
     const value = argv[index + 1];
-    if (!['--runner-temp', '--output'].includes(flag) || typeof value !== 'string' || flag in values) {
+    if (!['--runner-temp', '--output', '--contract'].includes(flag)
+        || typeof value !== 'string' || flag in values) {
       throw new TypeError('invalid selector arguments');
     }
     values[flag] = value;
   }
-  if (!values['--runner-temp'] || !values['--output']) throw new TypeError('missing selector arguments');
+  if (!values['--runner-temp'] || !values['--output'] || !values['--contract']) {
+    throw new TypeError('missing selector arguments');
+  }
   return values;
 }
 
@@ -488,6 +517,8 @@ export async function runCrawlerGenerationObserverSelectorCli(
   const values = parseArguments(argv);
   const runnerTemp = fs.realpathSync(values['--runner-temp']);
   const output = path.resolve(values['--output']);
+  const contract = JSON.parse(fs.readFileSync(path.resolve(values['--contract']), 'utf8'));
+  const groupIds = deriveCrawlerGroupIdsFromContract(contract);
   if (output !== runnerTemp && !output.startsWith(`${runnerTemp}${path.sep}`)) {
     throw new TypeError('selector output must stay under runner temp');
   }
@@ -497,7 +528,7 @@ export async function runCrawlerGenerationObserverSelectorCli(
     token: env.GH_TOKEN,
   });
   const now = Date.parse(env.CRAWLER_GENERATION_EVALUATED_AT ?? new Date().toISOString());
-  const selected = await discoverCrawlerGenerationReconciliations({ client, now, runnerTemp });
+  const selected = await discoverCrawlerGenerationReconciliations({ client, now, runnerTemp, groupIds });
   const matrix = selected.map((item) => ({
     generation_token: item.generationToken,
     sentinel_run_id: item.sentinelRunId,
