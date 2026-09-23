@@ -1,5 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
-import { CheckCircle2, RefreshCw, ShieldCheck } from 'lucide-react';
+import { createPortal } from 'react-dom';
+import { CheckCircle2, RefreshCw, ShieldCheck, X } from 'lucide-react';
 import GptRewardedAd from '@/components/shared/GptRewardedAd';
 import RewardedHouseVideo from '@/components/shared/RewardedHouseVideo';
 import {
@@ -18,6 +19,7 @@ export interface RewardedApplicationOfferProps {
   jobTitle: string;
   onCompleted: () => void;
   onUnavailable: () => void;
+  onDismiss?: () => void;
 }
 
 /**
@@ -34,6 +36,7 @@ export default function RewardedApplicationOffer({
   jobTitle,
   onCompleted,
   onUnavailable,
+  onDismiss,
 }: RewardedApplicationOfferProps) {
   const [rewarded, setRewarded] = useState(false);
   const [retryRequired, setRetryRequired] = useState(false);
@@ -50,6 +53,19 @@ export default function RewardedApplicationOffer({
       surface: SURFACE,
     });
   }, [companyId, jobId]);
+
+  useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
+    const handleKeyDown = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') onDismiss?.();
+    };
+    document.addEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
+  }, [onDismiss]);
 
   const completeIfReady = () => {
     if (!grantedRef.current || !videoCompletedRef.current || completedRef.current) return;
@@ -156,9 +172,10 @@ export default function RewardedApplicationOffer({
     setHouseFallback(false);
   };
 
-  return (
+  const modal = (
     <div
-      className="fixed inset-0 z-[110] flex items-end justify-center bg-black/45 px-4 py-4 backdrop-blur-sm sm:items-center sm:py-6"
+      className="fixed inset-0 z-[1000] isolate flex min-h-[100dvh] items-end justify-center overflow-y-auto bg-black/55 px-3 py-4 pb-[calc(env(safe-area-inset-bottom,0px)+1rem)] pt-[calc(env(safe-area-inset-top,0px)+1rem)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-6"
+      onClick={(event) => { if (event.target === event.currentTarget) onDismiss?.(); }}
       data-testid="rewarded-application-offer"
     >
       <div
@@ -166,15 +183,26 @@ export default function RewardedApplicationOffer({
         aria-modal="true"
         aria-labelledby="rewarded-application-offer-title"
         aria-describedby="rewarded-application-offer-description"
-        className="relative max-h-[min(90vh,42rem)] w-full max-w-md overflow-y-auto rounded-stripe border border-edge bg-surface p-5 shadow-stripe-lg sm:p-6"
+        className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto overscroll-contain rounded-stripe border border-edge bg-surface p-4 shadow-stripe-lg sm:max-h-[min(90dvh,42rem)] sm:p-6"
       >
         <div className="space-y-5">
-          <div className="min-w-0">
-            <h2 id="rewarded-application-offer-title" className="text-xl font-semibold font-display text-heading">
-              Prepariamo la candidatura
-            </h2>
-            <p className="mt-2 text-sm font-semibold text-accent">{companyName}</p>
-            <p className="mt-1 text-sm leading-relaxed text-subtle">{jobTitle}</p>
+          <div className="flex items-start justify-between gap-4">
+            <div className="min-w-0">
+              <p className="text-sm font-semibold text-accent">{companyName}</p>
+              <h2 id="rewarded-application-offer-title" className="mt-1 text-xl font-semibold font-display text-heading">
+                Prepariamo la candidatura
+              </h2>
+              <p className="mt-2 line-clamp-3 text-sm leading-relaxed text-subtle">{jobTitle}</p>
+            </div>
+            <button
+              type="button"
+              onClick={onDismiss}
+              className="inline-flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-stripe text-muted transition-colors hover:bg-surface-raised hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
+              aria-label="Chiudi"
+              data-testid="rewarded-application-offer-close"
+            >
+              <X className="h-5 w-5" aria-hidden="true" />
+            </button>
           </div>
 
           <p id="rewarded-application-offer-description" className="text-sm leading-relaxed text-body">
@@ -263,4 +291,6 @@ export default function RewardedApplicationOffer({
       </div>
     </div>
   );
+
+  return typeof document === 'undefined' ? modal : createPortal(modal, document.body);
 }
