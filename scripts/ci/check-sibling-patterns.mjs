@@ -84,6 +84,14 @@
  *      slug/config literal sono fatti AST di tipo `literal` e file non
  *      analizzabili dal parser mantengono il pass lessicale storico.
  *
+ *   10. Cache concorrente per `--head`: il risultato JSON di una revisione
+ *       immutabile viene condiviso tra hook paralleli, con lock atomico e
+ *       scrittura atomica. Le scansioni del working tree non vengono mai
+ *       memorizzate perché potrebbero cambiare durante la run. Per la
+ *       scansione dei contenuti, il ref viene anche estratto in un piccolo
+ *       snapshot temporaneo e letto una volta per file: evita che ogni token
+ *       avvii un nuovo `git grep` con il suo picco di memoria.
+ *
  * Uso:
  *   node scripts/ci/check-sibling-patterns.mjs            # advisory, exit 0
  *   node scripts/ci/check-sibling-patterns.mjs --base <ref>
@@ -91,13 +99,28 @@
  *   node scripts/ci/check-sibling-patterns.mjs --strict   # exit 1 se candidati
  *   node scripts/ci/check-sibling-patterns.mjs --json
  *
- * Nessuna dipendenza aggiuntiva: usa il TypeScript già presente nel progetto e
- * git in PATH. Cerca solo file tracked (git grep).
+ * Nessuna dipendenza Node aggiuntiva: usa il TypeScript già presente nel
+ * progetto e git in PATH. `tar` è usato solo per l'ottimizzazione `--head`;
+ * se manca, il checker torna al percorso Git storico. Cerca sempre solo file
+ * tracked.
  */
-import { execFileSync } from 'node:child_process';
+import { createHash } from 'node:crypto';
+import { execFileSync, spawnSync } from 'node:child_process';
+import {
+  closeSync,
+  existsSync,
+  mkdtempSync,
+  mkdirSync,
+  openSync,
+  readFileSync,
+  renameSync,
+  rmSync,
+  statSync,
+  writeFileSync,
+} from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { resolve } from 'node:path';
-import { readFileSync } from 'node:fs';
 import { resolveMergeBase, formatUnresolvableMergeBaseVerdict } from './lib/resolve-merge-base.mjs';
 import {
   astMatchLabels,
@@ -195,6 +218,18 @@ const MAX_FILES = 15;
 // questa run invece di floodare l'output (vedi doc del registro sopra).
 const MAX_PATTERN_CLASS_HITS = 15;
 
+// Il gate può essere invocato in parallelo da più sessioni agent. Cache solo
+// analisi `--head` immutabili: il working tree può cambiare tra due chiamate.
+// Incrementare quando cambiano le semantiche dei candidati, per non riusare
+// JSON prodotti da una versione precedente.
+const CHECK_CACHE_VERSION = '2026-09-23-v3';
+const CHECK_CACHE_WAIT_MS = 240_000;
+const CHECK_CACHE_STALE_MS = 600_000;
+const CHECK_CACHE_POLL_MS = 100;
+const CHECK_CACHE_DISABLED = process.env.CHECK_SIBLING_PATTERNS_CACHE === '0';
+const SLEEP_CELL = new Int32Array(new SharedArrayBuffer(4));
+let HEAD_SNAPSHOT_ROOT = null;
+
 function git(args, { allowFail = false } = {}) {
   try {
     return execFileSync('git', args, {
@@ -208,10 +243,279 @@ function git(args, { allowFail = false } = {}) {
   }
 }
 
+function sleepSync(milliseconds) {
+  Atomics.wait(SLEEP_CELL, 0, 0, milliseconds);
+}
+
+function resolvedRevision(ref) {
+  return git(['rev-parse', '--verify', `${ref}^{commit}`], { allowFail: true }).trim();
+}
+
+function readCachedResult(cachePath) {
+  try {
+    const result = JSON.parse(readFileSync(cachePath, 'utf8'));
+    if (
+      !result ||
+      typeof result !== 'object' ||
+      !Array.isArray(result.changedCode) ||
+      !Array.isArray(result.candidates)
+    ) {
+      return null;
+    }
+    return result;
+  } catch {
+    return null;
+  }
+}
+
+function tryClaimCacheLock(lockPath) {
+  try {
+    const fd = openSync(lockPath, 'wx');
+    closeSync(fd);
+    return true;
+  } catch (error) {
+    if (error?.code === 'EEXIST') return false;
+    return null;
+  }
+}
+
+function cacheLockIsStale(lockPath) {
+  try {
+    return Date.now() - statSync(lockPath).mtimeMs > CHECK_CACHE_STALE_MS;
+  } catch {
+    return false;
+  }
+}
+
+function removeCacheLock(lockPath) {
+  try {
+    rmSync(lockPath, { force: true });
+  } catch {
+    // Optional cache only: a lock cleanup failure must not affect the verdict.
+  }
+}
+
 /**
- * `git grep -l` scopato al ref quando `--head` è attivo. Con un rev in coda
- * git prefissa ogni riga con `<rev>:`; lo togliamo per restituire path nudi
- * identici a quelli del working tree, così i chiamanti non cambiano.
+ * Deduplicate immutable `--head` sweeps across concurrent hook processes.
+ * A cache miss still runs the normal analysis; a process that sees another
+ * owner waits for its small JSON result instead of starting another AST/git
+ * sweep. Cache failures are deliberately fail-open for the checker itself.
+ */
+function createHeadCache(base, mergeBase) {
+  if (!HEAD_REF || CHECK_CACHE_DISABLED) return null;
+
+  const headRevision = resolvedRevision(HEAD_REF);
+  const baseRevision = resolvedRevision(base);
+  const commonDir = git(['rev-parse', '--git-common-dir'], { allowFail: true }).trim();
+  if (!headRevision || !baseRevision || !commonDir) return null;
+
+  const identity = [
+    CHECK_CACHE_VERSION,
+    resolve(commonDir),
+    base,
+    HEAD_REF,
+    baseRevision,
+    headRevision,
+    mergeBase,
+  ].join('\n');
+  const key = createHash('sha256').update(identity).digest('hex');
+  const cacheDir = join(tmpdir(), 'frontaliere-check-sibling-patterns');
+  const cachePath = join(cacheDir, `${key}.json`);
+  const lockPath = join(cacheDir, `${key}.lock`);
+
+  try {
+    mkdirSync(cacheDir, { recursive: true });
+  } catch {
+    return null;
+  }
+
+  const cachedBeforeClaim = readCachedResult(cachePath);
+  if (cachedBeforeClaim) return { cached: cachedBeforeClaim };
+
+  let ownsLock = tryClaimCacheLock(lockPath);
+  if (ownsLock === null) return { cached: null };
+  if (!ownsLock) {
+    const deadline = Date.now() + CHECK_CACHE_WAIT_MS;
+    while (Date.now() < deadline) {
+      const cached = readCachedResult(cachePath);
+      if (cached) return { cached };
+      if (!existsSync(lockPath)) {
+        const retry = tryClaimCacheLock(lockPath);
+        if (retry === true) {
+          ownsLock = true;
+          break;
+        }
+        if (retry === null) return { cached: null };
+      }
+      if (cacheLockIsStale(lockPath)) {
+        removeCacheLock(lockPath);
+        continue;
+      }
+      sleepSync(CHECK_CACHE_POLL_MS);
+    }
+    if (!ownsLock) {
+      const cached = readCachedResult(cachePath);
+      if (cached) return { cached };
+      return { cached: null };
+    }
+  }
+
+  // The owner may have written the cache between the first read and our
+  // atomic claim. Prefer that result and release our temporary lock.
+  const cachedAfterClaim = readCachedResult(cachePath);
+  if (cachedAfterClaim) {
+    removeCacheLock(lockPath);
+    return { cached: cachedAfterClaim };
+  }
+
+  let released = false;
+  const release = () => {
+    if (released) return;
+    released = true;
+    removeCacheLock(lockPath);
+  };
+  process.once('exit', release);
+
+  return {
+    cached: null,
+    save(result) {
+      const tempPath = `${cachePath}.${process.pid}.tmp`;
+      try {
+        writeFileSync(tempPath, JSON.stringify(result));
+        renameSync(tempPath, cachePath);
+      } catch {
+        try {
+          rmSync(tempPath, { force: true });
+        } catch {
+          // Optional cache only: the checker result remains authoritative.
+        }
+      }
+    },
+  };
+}
+
+function cleanupHeadSnapshot() {
+  if (!HEAD_SNAPSHOT_ROOT) return;
+  const root = HEAD_SNAPSHOT_ROOT;
+  HEAD_SNAPSHOT_ROOT = null;
+  try {
+    rmSync(root, { recursive: true, force: true });
+  } catch {
+    // Lo snapshot è temporaneo e non deve trasformare un verdetto valido in
+    // un errore se il sistema operativo lo sta ancora rilasciando.
+  }
+}
+
+/**
+ * Materializza il solo albero di codice del ref in un file temporaneo.
+ * `git grep` ricrea un processo che può arrivare a centinaia di MB per ogni
+ * token; un archive estratto una volta permette al pass lessicale di leggere
+ * ogni file direttamente e poi rilasciarne il contenuto.
+ *
+ * Se archive/tar non sono disponibili, il chiamante usa il percorso Git
+ * storico come fallback: la riduzione della memoria è opzionale, non cambia
+ * il verdetto del checker.
+ */
+function createHeadSnapshot() {
+  if (!HEAD_REF) return null;
+  let root;
+  let archiveFd;
+  try {
+    root = mkdtempSync(join(tmpdir(), 'frontaliere-sibling-patterns-'));
+    const archivePath = join(root, 'tree.tar');
+    archiveFd = openSync(archivePath, 'w');
+    const archive = spawnSync(
+      'git',
+      ['archive', '--format=tar', HEAD_REF, '--', ...CODE_DIRS],
+      { stdio: ['ignore', archiveFd, 'ignore'] },
+    );
+    closeSync(archiveFd);
+    archiveFd = undefined;
+    if (archive.error || archive.status !== 0) {
+      throw archive.error ?? new Error('git archive failed');
+    }
+
+    const extracted = spawnSync(
+      'tar',
+      ['-xf', archivePath, '-C', root],
+      { stdio: ['ignore', 'ignore', 'ignore'] },
+    );
+    if (extracted.error || extracted.status !== 0) {
+      throw extracted.error ?? new Error('tar failed');
+    }
+    rmSync(archivePath, { force: true });
+    HEAD_SNAPSHOT_ROOT = root;
+    process.once('exit', cleanupHeadSnapshot);
+    return root;
+  } catch {
+    if (archiveFd !== undefined) {
+      try {
+        closeSync(archiveFd);
+      } catch {
+        // Best effort: cleanup below covers the temporary directory.
+      }
+    }
+    if (root) {
+      try {
+        rmSync(root, { recursive: true, force: true });
+      } catch {
+        // Optional optimization only; Git fallback remains available.
+      }
+    }
+    return null;
+  }
+}
+
+/**
+ * Build one bounded in-process search index for all needles and pattern
+ * classes. It stores only file names (up to the existing noise caps), never
+ * repository contents, so the scan has a predictable memory ceiling.
+ */
+function createSearchIndex(files, needles, excludedFiles) {
+  if (HEAD_REF && !HEAD_SNAPSHOT_ROOT) return null;
+  const fixedHits = new Map(
+    [...new Set(needles)].map((needle) => [needle, []]),
+  );
+  const classStates = PATTERN_CLASSES.map((cls) => ({
+    cls,
+    prefilter: new RegExp(cls.prefilter, cls.prefilterFlags.includes('i') ? 'i' : ''),
+    hits: [],
+    active: true,
+  }));
+
+  for (const file of files) {
+    const content = readTracked(file);
+    if (content === null) continue;
+
+    for (const [needle, hits] of fixedHits) {
+      if (hits.length > MAX_FILES) continue;
+      if (content.includes(needle)) hits.push(file);
+    }
+
+    for (const state of classStates) {
+      if (
+        !state.active ||
+        excludedFiles.has(file) ||
+        !state.prefilter.test(content)
+      ) continue;
+      if (state.cls.detect(content).length === 0) continue;
+      state.hits.push(file);
+      if (state.hits.length > MAX_PATTERN_CLASS_HITS) state.active = false;
+    }
+  }
+
+  return {
+    fixedHits,
+    classHits: new Map(
+      classStates.map((state) => [state.cls.name, state.active ? state.hits : []]),
+    ),
+  };
+}
+
+/**
+ * `git grep -l` fallback for environments where the temporary snapshot
+ * cannot be created. With the normal path the caller uses `createSearchIndex`
+ * and this function is not invoked.
  */
 function grepFiles(grepArgs, pathspecs) {
   const out = git(
@@ -228,6 +532,13 @@ function grepFiles(grepArgs, pathspecs) {
 
 /** Contenuto di un file tracked, dal ref se `--head` è attivo, altrimenti dal disco. */
 function readTracked(file) {
+  if (HEAD_REF && HEAD_SNAPSHOT_ROOT) {
+    try {
+      return readFileSync(join(HEAD_SNAPSHOT_ROOT, file), 'utf8');
+    } catch {
+      return null;
+    }
+  }
   if (!HEAD_REF) {
     try {
       return readFileSync(file, 'utf8');
@@ -627,6 +938,50 @@ export const PATTERN_CLASSES = [
   },
 ];
 
+function emitReport({ base, changedFiles, changedCode, candidates }) {
+  const result = { base, head: HEAD_REF, changedFiles, changedCode, candidates };
+  if (JSON_OUT) {
+    console.log(JSON.stringify(result, null, 2));
+    process.exit(STRICT && candidates.length ? 1 : 0);
+  }
+
+  console.log(`check-sibling-patterns — base ${base}${HEAD_REF ? ` · head ${HEAD_REF}` : ''}`);
+  console.log(`File di codice cambiati: ${changedCode.length}`);
+  if (candidates.length === 0) {
+    console.log(
+      '✓ Nessun file gemello non-toccato condivide i costrutti modificati. ' +
+        'Sweep di classe verosimilmente completo (verifica comunque i casi strutturali ' +
+        'che il token-match non cattura, es. guard mancante in un twin).',
+    );
+    process.exit(0);
+  }
+
+  console.log(
+    `\n⚠ ${candidates.length} file gemello/i NON toccato/i condivide/ono costrutti che il tuo diff ha modificato.`,
+  );
+  console.log(
+    'Ispeziona ognuno: ha lo STESSO antipattern? → includi il fix nella STESSA PR ' +
+      '(AGENTS.md #6) oppure giustificalo in `## Non implementato`.\n',
+  );
+  const weak = candidates.filter((c) => c.strength === 'debole').length;
+  for (const c of candidates) {
+    console.log(`  [${c.strength}] ${c.file}`);
+    console.log(`      costrutti condivisi: ${c.tokens.join(', ')}`);
+  }
+  console.log(
+    '\nNB: candidate-surfacer euristico — token condivisi ≠ stesso antipattern. ' +
+      'Conferma a mano prima di toccare/giustificare.',
+  );
+  if (weak) {
+    console.log(
+      `[debole] = agganciato a UN solo identificatore nudo (${weak}/${candidates.length} qui). ` +
+        'Storicamente la gran parte di questi è rumore: un nome di variabile o di campo ' +
+        'reimplementato in file scorrelati. Vanno comunque guardati, ma parti dai [forte].',
+    );
+  }
+  process.exit(STRICT ? 1 : 0);
+}
+
 function main() {
   const base = resolveBase();
   // merge-base per il three-dot: cambiamenti del branch dalla divergenza.
@@ -703,6 +1058,12 @@ function main() {
     else console.log(msg);
     process.exit(0);
   }
+
+  // Deduplicate immutable branch checks before doing any content sweep. This
+  // lets concurrent gates wait for the result without each starting its own
+  // Git/parser workload.
+  const headCache = createHeadCache(base, mergeBase);
+  if (headCache?.cached) emitReport(headCache.cached);
 
   // Raccoglie i token distintivi dalle righe cambiate e le espressioni rimosse.
   // L'AST layer filtra i token che hanno una forma strutturale: un nome in un
@@ -781,50 +1142,39 @@ function main() {
     process.exit(0);
   }
 
-  // Per ogni token: git grep dei file tracked nei CODE_DIRS; tieni i candidati
-  // non toccati dal branch. Scarta i token troppo generici (> MAX_FILES match).
+  // A --head scan reads a single temporary tree instead of asking Git to
+  // rescan the object database once per token. Working-tree checks read the
+  // already tracked files directly and keep the same file boundaries.
+  createHeadSnapshot();
+  const searchIndex = createSearchIndex(
+    astFiles,
+    [...tokenToChangedFiles.keys(), ...removedExprs],
+    changedSet,
+  );
+
+  // Collect lexical evidence without retaining repository contents. The
+  // expensive full-file work happens below, once per candidate file.
   const candidateTokens = new Map(); // file -> Set(token condiviso)
-  const astFactsCache = new Map();
-  const factsForCandidate = (file) => {
-    if (astFactsCache.has(file)) return astFactsCache.get(file);
-    const source = readTracked(file);
-    const facts = source
-      ? collectAstFacts(file, source, { files: astFiles })
-      : [];
-    astFactsCache.set(file, facts);
-    return facts;
+  const addCandidateToken = (file, token) => {
+    let tokens = candidateTokens.get(file);
+    if (!tokens) {
+      tokens = new Set();
+      candidateTokens.set(file, tokens);
+    }
+    tokens.add(token);
   };
   const pathspecs = [...CODE_DIRS, ...EXCLUDE_PATHSPECS];
+  const filesContaining = (needle) => searchIndex?.fixedHits.get(needle) ??
+    grepFiles(['-l', '--fixed-strings', '-e', needle], pathspecs);
   for (const [tok, srcFiles] of tokenToChangedFiles) {
-    const hits = grepFiles(['-l', '--fixed-strings', '-e', tok], pathspecs);
+    const hits = filesContaining(tok);
     if (hits.length > MAX_FILES) continue; // troppo comune → rumore
-    const hasAstEvidence = astFactsByToken.has(tok);
-    const changedFacts = astFactsByToken.get(tok) ?? null;
     for (const f of hits) {
       if (changedSet.has(f)) continue; // già nel branch
       if (!isCodeFile(f)) continue;
       // ignora self-match dei file sorgente del token (sono già changed)
       if (srcFiles.has(f)) continue;
-      const astMatches = changedFacts
-        ? matchAstFacts(changedFacts, factsForCandidate(f))
-        : [];
-      // Se il token ha una forma AST nel diff, richiedi la stessa forma nel
-      // candidato. I token puramente lessicali seguono invece il comportamento
-      // storico e non vengono filtrati.
-      // A token with only non-actionable AST facts (plain local identifiers or
-      // package APIs) is intentionally suppressed, not sent through the old
-      // lexical fallback. This is what prevents `sourceFile` and
-      // `ts.createSourceFile` from flooding the candidate list.
-      if (hasAstEvidence && changedFacts.length === 0) continue;
-      // A parser-backed source with no fact for the token means it came from a
-      // comment/docstring or unsupported prose, not from a code construct. Do
-      // not send it through the old lexical fallback; non-AST files retain
-      // that fallback for shell/YAML-like code.
-      if (!hasAstEvidence && astParsedTokens.has(tok)) continue;
-      if (changedFacts && astMatches.length === 0) continue;
-      if (!candidateTokens.has(f)) candidateTokens.set(f, new Set());
-      candidateTokens.get(f).add(tok);
-      for (const label of astMatchLabels(astMatches)) candidateTokens.get(f).add(label);
+      addCandidateToken(f, tok);
     }
   }
 
@@ -835,15 +1185,65 @@ function main() {
   // mentre è esattamente la classe di bug più ampia da sweepare (reviewer
   // finding PR #4272 round 1).
   for (const expr of removedExprs) {
-    const hits = grepFiles(['-l', '--fixed-strings', '-e', expr], pathspecs);
+    const hits = filesContaining(expr);
     if (hits.length > MAX_FILES) continue; // troppo comune → rumore
     for (const f of hits) {
       if (changedSet.has(f)) continue;
       if (!isCodeFile(f)) continue;
-      if (!candidateTokens.has(f)) candidateTokens.set(f, new Set());
       const label = `removed:"${expr.length > 50 ? expr.slice(0, 47) + '…' : expr}"`;
-      candidateTokens.get(f).add(label);
+      addCandidateToken(f, label);
     }
+  }
+
+  // Match AST evidence after the lexical pass, once per candidate file. The
+  // previous implementation cached every parsed sibling for the whole run;
+  // this keeps only the current source/facts live and preserves the exact
+  // token-level filtering semantics above.
+  for (const [file, tokens] of candidateTokens) {
+    const astChecks = [];
+    for (const token of tokens) {
+      if (!tokenToChangedFiles.has(token)) continue;
+      const changedFacts = astFactsByToken.get(token);
+      if (changedFacts?.length) {
+        astChecks.push([token, changedFacts]);
+      } else if (changedFacts || astParsedTokens.has(token)) {
+        // A parser-backed token with no actionable fact is deliberately not
+        // allowed to fall back to lexical matching.
+        tokens.delete(token);
+      }
+    }
+
+    if (astChecks.length > 0) {
+      const source = readTracked(file);
+      const factKeys = new Set();
+      for (const [, changedFacts] of astChecks) {
+        for (const fact of changedFacts) {
+          factKeys.add(`${fact.kind}|${fact.key}|${fact.role}`);
+          if (fact.kind === 'identifier' && fact.role === 'declaration' && fact.exported) {
+            for (const role of ['call', 'reference', 'declaration']) {
+              factKeys.add(`${fact.kind}|${fact.key}|${role}`);
+            }
+          }
+        }
+      }
+      const candidateFacts = source
+        ? collectAstFacts(file, source, {
+          files: astFiles,
+          candidateOnly: true,
+          factKeys,
+        })
+        : [];
+      for (const [token, changedFacts] of astChecks) {
+        const astMatches = matchAstFacts(changedFacts, candidateFacts);
+        if (astMatches.length === 0) {
+          tokens.delete(token);
+          continue;
+        }
+        for (const label of astMatchLabels(astMatches)) tokens.add(label);
+      }
+    }
+
+    if (tokens.size === 0) candidateTokens.delete(file);
   }
 
   // Pattern-class registry (issue #4260 escalation, round 2): indipendente
@@ -852,18 +1252,23 @@ function main() {
   // pass sopra, non serve un token/espressione condivisa col diff — solo la
   // STESSA forma strutturale, anche con nomi di variabile diversi.
   for (const cls of PATTERN_CLASSES) {
-    const files = grepFiles([cls.prefilterFlags, cls.prefilter], pathspecs);
+    const files = searchIndex?.classHits.get(cls.name) ??
+      grepFiles([cls.prefilterFlags, cls.prefilter], pathspecs);
     // Collect first, merge only if under the cap — a misfiring detector
     // should not contribute partial noise just because it fired early.
     const classHits = [];
-    for (const f of files) {
-      if (changedSet.has(f)) continue;
-      if (!isCodeFile(f)) continue;
-      const content = readTracked(f);
-      if (content === null) continue; // deleted/binary/unreadable — skip
-      if (cls.detect(content).length === 0) continue;
-      classHits.push(f);
-      if (classHits.length > MAX_PATTERN_CLASS_HITS) break; // stop early, too broad to be useful
+    if (searchIndex) {
+      classHits.push(...files);
+    } else {
+      for (const f of files) {
+        if (changedSet.has(f)) continue;
+        if (!isCodeFile(f)) continue;
+        const content = readTracked(f);
+        if (content === null) continue; // deleted/binary/unreadable — skip
+        if (cls.detect(content).length === 0) continue;
+        classHits.push(f);
+        if (classHits.length > MAX_PATTERN_CLASS_HITS) break; // stop early, too broad to be useful
+      }
     }
     if (classHits.length > MAX_PATTERN_CLASS_HITS) continue; // detector misfiring broadly → drop this class for this run
     for (const f of classHits) {
@@ -886,48 +1291,9 @@ function main() {
         a.file.localeCompare(b.file),
     );
 
-  if (JSON_OUT) {
-    console.log(
-      JSON.stringify({ base, head: HEAD_REF, changedFiles, changedCode, candidates }, null, 2),
-    );
-    process.exit(STRICT && candidates.length ? 1 : 0);
-  }
-
-  console.log(`check-sibling-patterns — base ${base}${HEAD_REF ? ` · head ${HEAD_REF}` : ''}`);
-  console.log(`File di codice cambiati: ${changedCode.length}`);
-  if (candidates.length === 0) {
-    console.log(
-      '✓ Nessun file gemello non-toccato condivide i costrutti modificati. ' +
-        'Sweep di classe verosimilmente completo (verifica comunque i casi strutturali ' +
-        'che il token-match non cattura, es. guard mancante in un twin).',
-    );
-    process.exit(0);
-  }
-
-  console.log(
-    `\n⚠ ${candidates.length} file gemello/i NON toccato/i condivide/ono costrutti che il tuo diff ha modificato.`,
-  );
-  console.log(
-    'Ispeziona ognuno: ha lo STESSO antipattern? → includi il fix nella STESSA PR ' +
-      '(AGENTS.md #6) oppure giustificalo in `## Non implementato`.\n',
-  );
-  const weak = candidates.filter((c) => c.strength === 'debole').length;
-  for (const c of candidates) {
-    console.log(`  [${c.strength}] ${c.file}`);
-    console.log(`      costrutti condivisi: ${c.tokens.join(', ')}`);
-  }
-  console.log(
-    '\nNB: candidate-surfacer euristico — token condivisi ≠ stesso antipattern. ' +
-      'Conferma a mano prima di toccare/giustificare.',
-  );
-  if (weak) {
-    console.log(
-      `[debole] = agganciato a UN solo identificatore nudo (${weak}/${candidates.length} qui). ` +
-        'Storicamente la gran parte di questi è rumore: un nome di variabile o di campo ' +
-        'reimplementato in file scorrelati. Vanno comunque guardati, ma parti dai [forte].',
-    );
-  }
-  process.exit(STRICT ? 1 : 0);
+  const result = { base, head: HEAD_REF, changedFiles, changedCode, candidates };
+  headCache?.save?.(result);
+  emitReport(result);
 }
 
 // Only run when executed directly (e.g. as a PreToolUse hook), not on import.

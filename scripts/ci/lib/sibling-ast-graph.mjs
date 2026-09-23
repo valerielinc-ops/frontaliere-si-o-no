@@ -194,8 +194,14 @@ export function diffLineRanges(diffText, side = 'new') {
 /**
  * Return AST facts for a source file. `lineRanges` limits facts to changed
  * lines; leaving it undefined parses the whole file for candidate matching.
+ * `candidateOnly` keeps only the requested `factKeys` and actionable
+ * declarations, so a sibling AST does not retain unrelated facts.
  */
-export function collectAstFacts(fileName, source, { lineRanges, files = new Set() } = {}) {
+export function collectAstFacts(
+  fileName,
+  source,
+  { lineRanges, files = new Set(), candidateOnly = false, factKeys = null } = {},
+) {
   const sourceFile = ts.createSourceFile(
     fileName,
     String(source ?? ''),
@@ -220,6 +226,14 @@ export function collectAstFacts(fileName, source, { lineRanges, files = new Set(
     const role = extra.role ?? kind;
     const binding = extra.binding ?? null;
     const bindingKey = binding ? `${binding.module}#${binding.imported}` : '';
+    if (candidateOnly && factKeys && !factKeys.has(`${kind}|${key}|${role}`)) return;
+    const candidateDeclaration = kind === 'identifier' && role === 'declaration';
+    if (candidateOnly && !candidateDeclaration && !isActionableAstFact({
+      kind,
+      role,
+      binding,
+      exported: extra.exported ?? false,
+    })) return;
     const dedupe = `${kind}|${key}|${role}|${bindingKey}`;
     if (seen.has(dedupe)) return;
     seen.add(dedupe);
