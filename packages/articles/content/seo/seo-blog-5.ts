@@ -92503,6 +92503,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-semafori-cadenazzo-traffico': {
+    title: 'Semafori a Cadenazzo e traffico: effetti previsti nel 2027',
+    description: 'Il Consiglio federale risponde sui semafori a Cadenazzo. Monitoraggio costante di Ustra e traffico tra Bellinzona e Locarno con efficacia a fine 2027.',
+    keywords: 'frontalieri, ticino, svizzera, italia, semafori, cadenazzo, traffico, effetti',
+    ogTitle: 'Semafori a Cadenazzo: il punto del Consiglio federale sul traffico',
+    ogDescription: 'Nuovi impianti semaforici a Cadenazzo tra Bellinzona e Locarno: il Consiglio federale e Ustra confermano il monitoraggio costante fino al 2027.',
+    canonicalPath: '/articoli-frontaliere/semafori-cadenazzo-traffico',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Semafori a Cadenazzo e traffico: effetti previsti nel 2027",
+      "description": "Il Consiglio federale risponde sui semafori a Cadenazzo. Monitoraggio costante di Ustra e traffico tra Bellinzona e Locarno con efficacia a fine 2027.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/semafori-cadenazzo-traffico.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Impianti semaforici e flusso di traffico sulla tratta tra Bellinzona e Locarno"
+      },
+      "datePublished": "2026-09-23T01:21:51+00:00",
+      "dateModified": "2026-09-23T01:21:51+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/semafori-cadenazzo-traffico/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
