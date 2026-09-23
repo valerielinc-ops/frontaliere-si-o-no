@@ -197,6 +197,7 @@ const DUP_OUTCOME_MARKER = '<!-- FIX_OUTCOME: skip-duplicate-diagnosis -->';
 const DUP_OUTCOME_MARKER_RE = /<!--\s*FIX_OUTCOME:\s*skip-duplicate-diagnosis\s*-->/i;
 const BLOCKED_LABEL = 'blocked-workflows-scope';
 const PARKED_LABEL = 'fu-parked';
+const AUTOMATION_DEFERRED_LABEL = 'automation-deferred';
 // Signature string scan-job-timeouts.mjs stamps into every issue it auto-files —
 // see that script's issue-body template. Used (Mode 2) to recognize the auto-filed
 // CI-timeout shape without depending on the `ci-timeout` label alone (label taxonomy
@@ -388,7 +389,8 @@ export function filterExactTitleRecurrences(candidates, title, currentIssueNumbe
 /**
  * Shared side-effects for a BLOCKED verdict (either mode): post the advisory comment
  * (body already includes the OUTCOME_MARKER), remove `agent:fix` (no re-dispatch),
- * ensure the `blocked-workflows-scope` label exists, apply it, and add `fu-parked`.
+ * ensure the `blocked-workflows-scope` and `automation-deferred` labels exist,
+ * apply them, and add `fu-parked`.
  * Best-effort (`allowFail: true` throughout) — a comment/label API hiccup must never
  * throw past the `workflows_blocked=true` output already decided.
  *
@@ -414,6 +416,21 @@ function applyBlockedOutcome(comment) {
     { allowFail: true },
   );
   gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', BLOCKED_LABEL], { allowFail: true });
+  gh(
+    [
+      'label',
+      'create',
+      AUTOMATION_DEFERRED_LABEL,
+      '--color',
+      'FBCA04',
+      '--description',
+      'Lavoro automatico differito da policy/capacità; rientra nello sweep',
+      '--force',
+      ...repoArgs,
+    ],
+    { allowFail: true },
+  );
+  gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', AUTOMATION_DEFERRED_LABEL], { allowFail: true });
   gh(['issue', 'edit', ISSUE, ...repoArgs, '--add-label', PARKED_LABEL], { allowFail: true });
 }
 

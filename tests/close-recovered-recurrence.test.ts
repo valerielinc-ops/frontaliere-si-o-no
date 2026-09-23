@@ -295,11 +295,11 @@ test('rientrata sotto soglia: i label cronici vengono tolti', () => {
   eq(decision.hold, false, 'un solo commento senza 🔁 non è cronico');
   const d = decideChronicDeescalation({
     comments: [escalated()],
-    labels: ['bug', 'priority:urgent', 'needs-human', 'fu-parked'],
+    labels: ['bug', 'priority:urgent', 'automation-deferred', 'fu-parked'],
     decision,
   });
   eq(d.clear, true);
-  deepEq(d.labels, ['priority:urgent', 'needs-human']);
+  deepEq(d.labels, ['priority:urgent', 'automation-deferred']);
 });
 
 test('ancora cronica: non si tocca niente', () => {

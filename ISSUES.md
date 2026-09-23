@@ -4,7 +4,7 @@ Contratto: `issue-triage.yml` (route **deterministico, senza agente**) e `issue-
 
 ## Scopo
 
-Le issue sono **auto-generate dai monitor** e vanno classificate e sottoposte alla risk policy. Automazione solo con categoria, path e rischio verificabili; F1/F7, control-plane e segnali ignoti sono deny-by-default sulle issue. Le PR aperte seguono required check e review gate.
+Le issue sono **auto-generate dai monitor** e vanno classificate e sottoposte alla risk policy. Automazione solo con categoria, path e rischio verificabili; F1/F7, control-plane e segnali ignoti sono deny-by-default sulle issue. Il deny tecnico usa `automation-deferred`, non `needs-human`: quest'ultima label è solo una richiesta strutturata di decisione del proprietario. Le PR aperte seguono required check e review gate.
 
 **Dedup a MONTE, non nel triage.** `scripts/lib/github-issue-creator.mjs` usa **titolo stabile** e commenta 🔁 sull'issue canonica. `post-merge-followup`/`FOLLOWUP.md` usa un bucket giornaliero `Europe/Zurich` per repository target; sito e corpus separati. Triage: **shell deterministico + helper Node (`scripts/lib/classify-issue.mjs`), senza agente e senza quota**.
 
@@ -29,7 +29,7 @@ Step shell (`Classify and route`) con helper Node testabile, nessuna action di m
 
 1. **Classifica** via regex su titolo+label → UNA categoria (revenue/tracker prima, per evitare collisioni di nomi azienda). Vedi tabella "Categorie".
 2. **Valuta la risk policy** con `scripts/ci/lib/automation-risk-policy.mjs`: su issue surface F1/F7, control-plane, path sconosciuti, metadata non verificabili e issue non note bloccano il routing; la decisione è fail-closed.
-3. **`agent:triaged`** sempre (anti-loop, idempotente: gate `if: !contains(labels,'agent:triaged')`). Una decisione bloccata rimuove eventuali label di routing stale e aggiunge `needs-human` con `GITHUB_TOKEN`.
+3. **`agent:triaged`** sempre (anti-loop, idempotente: gate `if: !contains(labels,'agent:triaged')`). Una decisione bloccata rimuove eventuali label di routing stale e aggiunge `automation-deferred` con `GITHUB_TOKEN`; `needs-human` viene aggiunta solo dal percorso che ha formulato una domanda del proprietario non coperta dai documenti.
 4. **Routing consentito** (vedi sotto): `crawler` → `agent:fix` via App/PAT immediato **se lo slot `issue-fix` è libero**, altrimenti in coda; le altre categorie ordinarie → `agent:fix-queued` via App/PAT, solo su issue OPEN.
 
 Nessun dedup-close. Una misclassificazione regex degrada a `other`, ma `other` non abilita automaticamente il fixer: senza una label ordinaria nota o altra categoria verificabile la policy nega. Il triage non legge la lista delle issue aperte.
@@ -41,14 +41,14 @@ Nessun dedup-close. Una misclassificazione regex degrada a `other`, ma `other` n
 | `crawler` | **Auto-route `agent:fix` immediato** (`route='fix'`) solo se la risk policy consente l’issue; uno per run di sweep e solo a slot `issue-fix` libero (`crawlerDirectFixBudget`, #5514), con eccedenza in `agent:fix-queued` + `fu-prio:high`. |
 | `follow-up` | **Auto-route `agent:fix-queued`** (`route='queue'`) se non bloccato dalla policy, con `fu-prio:high\|low`. `followup-drainer.yml` promuove fino a 7 issue diverse a `agent:fix` quando gli slot sono liberi; ogni issue mantiene il proprio run/concurrency lane. |
 | `validation-failure` | **Auto-route `agent:fix-queued`** (`route='queue'`) solo dopo la risk policy; resta in coda perché il carattere transiente non è decidibile dal triage deterministico. |
-| `tracker` | `agent:fix-queued` solo se la policy trova una issue ordinaria verificabile; un riferimento a control-plane, path ignoto o dominio F1/F7 va a `needs-human`. |
-| `revenue` | Normalmente **deny sull’issue surface**: i segnali revenue/RPM ricadono nel dominio F1/F7 `billing-revenue-partner`, quindi niente `agent:fix`/`agent:fix-queued`; serve gestione umana separata. |
+| `tracker` | `agent:fix-queued` solo se la policy trova una issue ordinaria verificabile; un riferimento a control-plane, path ignoto o dominio F1/F7 va a `automation-deferred`. |
+| `revenue` | Normalmente **deny sull’issue surface**: i segnali revenue/RPM ricadono nel dominio F1/F7 `billing-revenue-partner`, quindi niente `agent:fix`/`agent:fix-queued`; il defer rientra nello sweep e segue VISION/DECISIONS. |
 | `other` | **Nessun auto-route per default**: passa solo con segnali ordinari espliciti (oggi `job-description-locale` o `job-title-locale`) e path/rischio verificabili; l’unknown resta `route='none'`. |
 
-**Pin fuori dal ciclo (`keep-open`, `agent:no-age-out`).** Una issue con una label riceve `route='none'` + `autofix=false` ed è esclusa da triage/drainer. `pinned`/`do-not-close` NON pinnano. `needs-human` è veto sull’issue surface; rimozione e nuovo routing restano espliciti. `agent:fix` **manuale** non bypassa la risk policy F1/F7/control-plane.
+**Pin fuori dal ciclo (`keep-open`, `agent:no-age-out`).** Una issue con una label riceve `route='none'` + `autofix=false` ed è esclusa da triage/drainer. `pinned`/`do-not-close` NON pinnano. `needs-human` è il canale per una decisione del proprietario e viene rimosso dal pre-pass quando `DECISIONS.md` contiene la risposta; `automation-deferred` è un handoff tecnico e viene riesaminato dallo sweep. `agent:fix` **manuale** non bypassa la risk policy F1/F7/control-plane.
 
 **Meccanismo di routing (App/PAT in bash)**: `Classify and route` applica il label via installation token App (`APP_TOKEN`), con fallback `GITHUB_PAT` da Remote Config, solo se OPEN.
-- **App/PAT, non GITHUB_TOKEN**: `GITHUB_TOKEN` non triggera `issue-fix`; `github-actions[bot]` non passa `sender == valerielinc-ops`. Resta per `agent:triaged` e `needs-human`.
+- **App/PAT, non GITHUB_TOKEN**: `GITHUB_TOKEN` non triggera `issue-fix`; `github-actions[bot]` non passa `sender == valerielinc-ops`. Resta per `agent:triaged` e `automation-deferred`; `needs-human` nasce solo con una richiesta strutturata.
 - **Guard `state == OPEN`**: niente label su issue chiuse.
 - Senza App/PAT (credenziali o RC non disponibili) → skip + warning; mai fixer via GITHUB_TOKEN.
 
@@ -58,7 +58,7 @@ Regola in AGENTS.md → "Auth automazioni & frugalità quota": fixer con `CODEX_
 
 ## Fix flow (`issue-fix.yml`, on `issues: labeled == agent:fix`)
 
-Trigger: aggiungere `agent:fix` è il consenso. La mette l'owner o il triage, quest'ultimo via App/PAT (mai via `GITHUB_TOKEN`). Prima del job fixer, `risk_policy` riclassifica issue/path e può rimuovere il routing con `needs-human`.
+Trigger: aggiungere `agent:fix` è il consenso. La mette l’owner o il triage, quest’ultimo via App/PAT (mai via `GITHUB_TOKEN`). Prima del job fixer, `risk_policy` riclassifica issue/path e può rimuovere il routing con `automation-deferred`.
 
 **Meccanismo comune ai quattro pre-flight 0.1/0/0.5/0.75 (deterministico, pre-agent)**: rimuove `agent:fix`, posta il marker, imposta l'output guard e salta il lane Codex (`if:`).
 
@@ -107,7 +107,7 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
 
 `issue-fix` usa `concurrency: { group: issue-fix-${issue.number || run_id}, cancel-in-progress: false }`: la concorrenza è per issue; un trigger nuovo può sostituire solo il pending della stessa issue e lasciare la label da ri-armare dal drainer. Vale per le route consentite, **crawler inclusi**; il pool resta bounded.
 
-`followup-drainer.yml` (`scripts/ci/followup-drainer.mjs`, cron + dispatch, **zero-agente**) gestisce categorie ≠ `crawler` come `agent:fix-queued`, promuove fino a **7 issue diverse** a `agent:fix` a slot liberi, ordina `fu-prio:high` e usa `isQueueManaged()` (`classifyIssue().route === 'queue'`). **I crawler hanno `crawlerFixDecision`**: run senza verdetto → `fu-attempt:N` → `fu-parked` + `needs-human`; `max-turns`/verdetti fermi → park; `rate-limited` → hold/re-queue senza tentativi.
+`followup-drainer.yml` (`scripts/ci/followup-drainer.mjs`, cron + dispatch, **zero-agente**) gestisce categorie ≠ `crawler` come `agent:fix-queued`, promuove fino a **7 issue diverse** a `agent:fix` a slot liberi, ordina `fu-prio:high` e usa `isQueueManaged()` (`classifyIssue().route === 'queue'`). **I crawler hanno `crawlerFixDecision`**: run senza verdetto → `fu-attempt:N` → `fu-parked` + `automation-deferred`; `max-turns`/verdetti fermi → defer tecnico; `rate-limited` → hold/re-queue senza tentativi.
 
 **Rescue + park:** un `agent:fix` queue-managed orfano (run morta, nessuna PR `fix/issue-N`, `updatedAt` > 30min) → `fu-attempt:N`++; a 3 → `fu-parked` (**non chiuso**, ri-tentabile). Solo a slot libero; ri-processo con `agent:fix-queued`, non `agent:fix` diretto.
 
@@ -117,11 +117,11 @@ I file rigenerati `data/**` (job JSON, snapshot, translation-cache, blog-article
 
 ### Stadio di decomposizione (`issue-decompose.yml`, 2026-08-21)
 
-Le issue grandi restano nel ciclo: `agent:decompose-queued` → UNO `agent:decompose` per tick, sotto quota-backoff/fairness. Il planner **NON implementa**: produce ≤6 sub-issue con `## Scheda` (CAUSA / FIX / METRICA+COMANDO / OSSERVATORE), label `from-decompose` + `fu-prio`; >6 → 5 + UNA contenitore. Il padre usa `decomposed:1` + `<!-- DECOMPOSED_INTO: n1 n2 -->` e PARENT-CLOSE lo chiude a figlie chiuse; `decomposed:1`/`from-decompose` impediscono ricorsione. Esiti: `<!-- DECOMPOSE_OUTCOME: decomposed-K | atomic-requeue | needs-human-decision | already-resolved -->`; run morta → `decompose-retried`, poi `fu-parked`+`needs-human`. Il fixer verifica CAUSA col COMANDO in ≤3 turni.
+Le issue grandi restano nel ciclo: `agent:decompose-queued` → UNO `agent:decompose` per tick, sotto quota-backoff/fairness. Il planner **NON implementa**: produce ≤6 sub-issue con `## Scheda` (CAUSA / FIX / METRICA+COMANDO / OSSERVATORE), label `from-decompose` + `fu-prio`; >6 → 5 + UNA contenitore. Il padre usa `decomposed:1` + `<!-- DECOMPOSED_INTO: n1 n2 -->` e PARENT-CLOSE lo chiude a figlie chiuse; `decomposed:1`/`from-decompose` impediscono ricorsione. Esiti: `<!-- DECOMPOSE_OUTCOME: decomposed-K | atomic-requeue | needs-human-decision | automation-deferred | already-resolved -->`; run morta → `decompose-retried`, poi `fu-parked`+`automation-deferred`, salvo una domanda strutturata realmente mancante. Il fixer verifica CAUSA col COMANDO in ≤3 turni.
 
 ## Local fixer (`/fix-issue N`)
 
-Per issue HIGH-risk o intervento manuale in coda: worktree-first, approvazione umana pre-push.
+Per issue HIGH-risk o intervento manuale in coda: worktree-first, approvazione umana pre-push solo se l'issue contiene `OWNER_DECISION_REQUEST`; un defer tecnico non richiede una domanda al proprietario.
 
 > ⚠️ `.gitignore` ignora `.claude/` (eccetto `settings.json`): `/fix-issue` vive localmente in `.claude/commands/fix-issue.md`; spec in Appendice A.
 
@@ -132,6 +132,8 @@ Per issue HIGH-risk o intervento manuale in coda: worktree-first, approvazione u
 | `agent:fix` | opt-in: l'agent tenta un fix → PR | triage (`crawler` diretto, o promosso dalla coda per le categorie consentite, **via App/PAT**) o owner manuale soggetto alla risk policy |
 | `agent:in-progress` | mutex: qualcuno (fixer CI o sessione locale `/fix-issue`) sta lavorando la issue ORA — anti-doppione (#4788/#4793) | claim gate (0.75 sopra) o sessione locale (Appendice A); rilasciata a fine lavoro/abbandono da entrambi |
 | `agent:triaged` | issue già processata da triage | triage (anti-loop) |
+| `automation-deferred` | handoff tecnico: policy/capability/timeout/body/root-cause da risolvere; rientra nello sweep, non richiede approvazione umana | triage, drainer, decompositore |
+| `needs-human` | domanda strutturata per una decisione del proprietario non coperta da `VISION.md`/`DECISIONS.md`; la risposta viene registrata in `DECISIONS.md` e riapre il ciclo | decompositore o sweep |
 | `duplicate` | storm-duplicate, chiusa | triage |
 | `job-content-quality` | un record crawlato non è un annuncio di lavoro (offerta commerciale, widget di consenso, voce di menu, placeholder di template) | `crawler-content-plausibility-audit.yml` e `scripts/report-crawler-content-error.mjs` |
 

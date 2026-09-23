@@ -110,6 +110,7 @@ describe('classifyIssue', () => {
       route: 'none',
       autofix: false,
       automationBlocked: true,
+      riskBlocked: true,
       humanApprovalRequired: true,
     });
     expect(out.riskDomains).toEqual(expect.arrayContaining([
@@ -370,6 +371,43 @@ describe('policy automazione F1/F7', () => {
       denyCode: 'needs-human-veto',
       needsHumanVeto: true,
       humanApprovalRequired: true,
+    });
+  });
+
+  it('treats automation-deferred as a technical pin, separate from the owner veto', () => {
+    expect(classifyAutomationRisk({
+      title: 'follow-up: safe maintenance',
+      body: 'A deterministic maintenance change with a complete safe path.',
+      labels: ['automation-deferred'],
+      category: 'follow-up',
+      paths: ['src/safe.ts'],
+      pathsComplete: true,
+      surface: 'issue',
+    })).toMatchObject({ blocked: false, decision: 'allow', needsHumanVeto: false });
+    expect(classifyIssue('follow-up: safe maintenance', ['follow-up', 'automation-deferred'], 'A deterministic maintenance change.', {
+      ignoreAutomationDeferred: true,
+    })).toMatchObject({
+      automationDeferred: false,
+      riskBlocked: false,
+      automationBlocked: false,
+      route: 'queue',
+      humanApprovalRequired: false,
+    });
+    expect(classifyIssue('follow-up: safe maintenance', ['follow-up', 'automation-deferred'], 'A deterministic maintenance change.'))
+      .toMatchObject({ automationDeferred: true, riskBlocked: false, automationBlocked: true, route: 'none' });
+  });
+
+  it('keeps an existing needs-human veto out of both autofix and routing', () => {
+    expect(classifyIssue(
+      'follow-up: safe maintenance',
+      ['follow-up', 'needs-human'],
+      'A deterministic maintenance change with a complete safe path.',
+    )).toMatchObject({
+      autofix: false,
+      route: 'none',
+      riskBlocked: true,
+      automationBlocked: true,
+      needsHumanVeto: true,
     });
   });
 

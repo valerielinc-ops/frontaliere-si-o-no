@@ -741,7 +741,13 @@ function main() {
   const queued = labelStats('agent:fix-queued');
   const parked = labelStats('fu-parked');
   const needsHuman = labelStats('needs-human');
-  for (const [label, stat] of [['agent:fix-queued', queued], ['fu-parked', parked], ['needs-human', needsHuman]]) {
+  const automationDeferred = labelStats('automation-deferred');
+  for (const [label, stat] of [
+    ['agent:fix-queued', queued],
+    ['fu-parked', parked],
+    ['needs-human', needsHuman],
+    ['automation-deferred', automationDeferred],
+  ]) {
     if (!stat.measured) {
       dataIncomplete = true;
       warns.push(`conteggio label ${label} non misurabile`);
@@ -750,7 +756,7 @@ function main() {
       warns.push(`conteggio label ${label} troncato al limite ${LABEL_LIST_LIMIT}`);
     }
   }
-  lines.push(`**Backlog:** agent:fix zombie ${countLabel(zombies.measured && !zombies.truncated ? zombies.value : null)} · in coda ${countLabel(queued.measured && !queued.truncated ? queued.value : null)} · fu-parked ${countLabel(parked.measured && !parked.truncated ? parked.value : null)} · needs-human ${countLabel(needsHuman.measured && !needsHuman.truncated ? needsHuman.value : null)}.`);
+  lines.push(`**Backlog:** agent:fix zombie ${countLabel(zombies.measured && !zombies.truncated ? zombies.value : null)} · in coda ${countLabel(queued.measured && !queued.truncated ? queued.value : null)} · fu-parked ${countLabel(parked.measured && !parked.truncated ? parked.value : null)} · needs-human ${countLabel(needsHuman.measured && !needsHuman.truncated ? needsHuman.value : null)} · automation-deferred ${countLabel(automationDeferred.measured && !automationDeferred.truncated ? automationDeferred.value : null)}.`);
 
   // The tracker comments are already the source for warning streaks. Reuse
   // the same read for the queue trend: no extra GitHub request per report.
