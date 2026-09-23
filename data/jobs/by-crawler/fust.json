@@ -105,10 +105,10 @@
       "crawledAt": "2026-09-22T00:20:40.736Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
-        "it": "Proprietario del prodotto",
+        "it": "Responsabile di Prodotto",
         "en": "Product Owner",
         "de": "Produktbesitzer",
-        "fr": "Propriétaire du produit"
+        "fr": "Responsable Produit"
       },
       "descriptionByLocale": {
         "it": "La Svizzera fa acquisti su Fust! Siamo orgogliosi di essere leader nel settore degli elettrodomestici, dell'elettronica multimediale/di consumo e della ristrutturazione di cucine e bagni e con la nostra gamma completa di servizi e i nostri servizi unici creiamo un vero valore aggiunto! Entra a far parte del nostro team e aiutaci a continuare a creare customer experience! Un lavoro da Fust e tutto va per il meglio!\n\nCompiti\n- Derivazione di soluzioni funzionali dalle esigenze aziendali\n- Supporto nella definizione degli MVP, prioritizzazione dell'ambito ed elaborazione della Product Roadmap in stretta collaborazione con il Business Owner, Business Project Manager e specialisti del business e dell'IT\n- Traduzione dei requisiti tecnici in epics, storie utente e criteri di accettazione, inclusa la gestione di sessioni di refinement del backlog\n- Creazione del Project Delivery Plan e responsabilità del Product Backlog e della gestione dello Scrum Team\n- Preparazione ed esecuzione della pianificazione degli sprint, presentazione dei risultati degli sprint e delle product demo, comunicazione trasparente con gli stakeholder e responsabilità per il budget del progetto\n\nRequisiti\n- Laurea in informatica aziendale o formazione commerciale, integrata da un perfezionamento in project management\n- Esperienza pluriennale nella gestione, direzione o coordinamento di progetti aziendali/IT complessi\n- Esperienza come Product Owner o Scrum Master in una",
@@ -144,7 +144,7 @@
       },
       "salaryMin": 57500,
       "salaryMax": 87000,
-      "retranslationAttempts": 1,
+      "retranslationAttempts": 2,
       "previousSlugsByLocale": {
         "it": [
           "product-owner-fust-oberburen"
@@ -260,10 +260,10 @@
       "crawledAt": "2026-09-22T00:20:40.736Z",
       "firstSeenAt": "2026-09-21T16:17:43.102Z",
       "titleByLocale": {
-        "it": "Tech Lead Outsystems",
+        "it": "Responsabile Tecnico di Outsystems",
         "en": "Outsystems Tech Lead",
         "de": "Technologischer Bleiausschlag",
-        "fr": "Tech Lead Outsystems"
+        "fr": "Lead technique des systèmes externes"
       },
       "descriptionByLocale": {
         "it": "La Svizzera fa acquisti su Fust! Siamo orgogliosi di essere leader nel settore degli elettrodomestici, dell'elettronica multimediale/di consumo e della ristrutturazione di cucine e bagni e con la nostra gamma completa di servizi e i nostri servizi unici creiamo un vero valore aggiunto! Entra a far parte del nostro team e aiutaci a continuare a creare customer experience! Un lavoro da Fust e tutto va per il meglio!\n\nCompiti\n- Ownership per la piattaforma Outsystems, dalla pianificazione all'ulteriore sviluppo fino al funzionamento stabile\n- Garantire la qualità necessaria controllando CI/CD e distribuzioni, approvazioni di produzione, revisioni di codici e architetture, refactoring, monitoraggio, test, analisi delle prestazioni, correzione di bug e documentazione di applicazioni e interfacce\n- Pianificazione e sviluppo di applicazioni aziendali in stretta collaborazione con architetti di soluzioni, architetti aziendali e sviluppatori, compresa la preparazione di storie utente, la manutenzione di modelli riutilizzabili e la collaborazione attiva nello sviluppo del software\n- Leadership professionale di sviluppatori interni ed esterni, compresa la selezione e la formazione, integrata da pianificazione degli sprint e delle risorse, esecuzione di dimostrazioni sprint e responsabilità per le stime dei costi\n\nRequisiti\n- Laurea in ambito commerciale o in informatica aziendale\n- Anni di sviluppo di applicazioni aziendali con Outsystem e comprovate",
@@ -296,10 +296,9 @@
           "unitText": "YEAR"
         }
       },
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 156500,
-      "retranslationAttempts": 2,
+      "retranslationAttempts": 3,
       "previousSlugsByLocale": {
         "it": [
           "outsystems-tech-lead-fust-oberburen"
@@ -307,7 +306,9 @@
       },
       "previousSlugs": [
         "outsystems-tech-lead-fust-oberburen"
-      ]
+      ],
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3576
     },
     {
       "id": "company-tv84un",

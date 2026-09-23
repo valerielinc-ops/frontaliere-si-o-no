@@ -1770,7 +1770,6 @@
         "stv-filialleiter-in-80-100-bahnhof-baden-spruengli-aargau",
         "stv-filialleiter-in-80-100-bahnhof-baden-confiserie-sprungli-ag-baden"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:17:28.127Z",
       "salaryMin": 103500,
       "salaryMax": 159500,
@@ -1784,8 +1783,7 @@
           "maxValue": 159500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 2
+      }
     },
     {
       "id": "spruengli-58cf7c5d7718",
