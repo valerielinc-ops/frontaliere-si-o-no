@@ -1,16 +1,16 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-13T14:09:13.912Z",
+  "generatedAt": "2026-09-23T11:54:38.854Z",
   "total": 4,
   "newCount": 0,
-  "updatedCount": 4,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 17443,
-  "avgDurationMs": 17443,
+  "unchangedCount": 2,
+  "durationMs": 25488,
+  "avgDurationMs": 25488,
   "durationHistory": [
-    17443
+    25488
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -20,14 +20,14 @@
       "title": "Store Manager, Landquart",
       "company": "Capri Holdings (Michael Kors / Versace)",
       "companyKey": "capri-holdings",
-      "location": "Graubünden",
+      "location": "Landquart",
       "canton": "GR",
       "country": "CH",
-      "addressLocality": "Graubünden",
+      "addressLocality": "Landquart",
       "addressRegion": "GR",
       "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
+      "postalCode": "7302",
+      "streetAddress": "Bahnhofstrasse 2",
       "slug": "direttore-del-negozio-landquart-capri-holdings-michael-kors-versace-graubunden",
       "category": "retail",
       "datePosted": "2026-09-11",
@@ -39,7 +39,7 @@
       "_brand": "Michael Kors",
       "_targetScope": {
         "canton": "GR",
-        "location": "Graubünden"
+        "location": "Landquart"
       },
       "id": "capri-holdings-3d3f64b95ee9",
       "needsRetranslation": true,
@@ -53,6 +53,47 @@
         "completeness": 15
       }
     },
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
+      "title": "Payroll & Time & Attendance Integration Manager (EMEA)",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Manno",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6928",
+      "streetAddress": "Via Cantonale 2c",
+      "slug": "responsabile-dell-integrazione-paghe-tempo-e-presenze-emea-capri-holdings-michael-kors-versace-manno",
+      "category": "management",
+      "datePosted": "2026-05-30",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Manno"
+      },
+      "id": "capri-holdings-6e41d510f493",
+      "firstSeenAt": "2026-05-30T10:16:45.294Z",
+      "crawledAt": "",
+      "_qualityScore": 89,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 25,
+        "completeness": 15
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
@@ -83,13 +124,18 @@
       "id": "capri-holdings-c2a82205abea",
       "firstSeenAt": "2026-07-27T22:07:37.799Z",
       "crawledAt": "",
+      "salaryMin": 142000,
+      "salaryMax": 249500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
       "needsRetranslation": true,
-      "_qualityScore": 89,
+      "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 24,
         "translation": 25,
-        "completeness": 15
+        "completeness": 20
       }
     },
     {
@@ -122,53 +168,18 @@
       "id": "capri-holdings-80aee6d15b74",
       "firstSeenAt": "2026-07-13T12:14:03.842Z",
       "crawledAt": "",
-      "_qualityScore": 85,
+      "salaryMin": 59000,
+      "salaryMax": 90500,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 15
-      }
-    },
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
-      "title": "Payroll & Time & Attendance Integration Manager (EMEA)",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6850",
-      "streetAddress": "Via Penate",
-      "slug": "responsabile-dell-integrazione-paghe-tempo-e-presenze-emea-capri-holdings-michael-kors-versace-manno",
-      "category": "management",
-      "datePosted": "2026-05-30",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Manno"
-      },
-      "id": "capri-holdings-6e41d510f493",
-      "firstSeenAt": "2026-05-30T10:16:45.294Z",
-      "crawledAt": "",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 15
+        "completeness": 20
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
