@@ -3960,11 +3960,11 @@
     "canton": "AG"
   },
   "AG::it::verkaufer-in-food-coop-aarau-aargau": {
-    "winnerJobIdentifier": "company-4q7j27",
-    "winnerCanonical": "venditore-trice-food-coop-genossenschaft-aarau",
-    "decidedAt": "2026-09-03T00:00:00.000Z",
-    "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.3333,
+    "winnerJobIdentifier": "company-6vnoov",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-aarau",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.7143,
     "candidatesCount": 1,
     "canton": "AG"
   },
@@ -10691,6 +10691,15 @@
     "candidatesCount": 1,
     "canton": "BE"
   },
+  "BE::de::metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern-d1wggm": {
+    "winnerJobIdentifier": "company-j3v1xg",
+    "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-coop-genossenschaft-bern",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.875,
+    "candidatesCount": 2,
+    "canton": "BE"
+  },
   "BE::de::metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern-yf5fm0": {
     "winnerJobIdentifier": "company-hhdndx",
     "winnerCanonical": "metzger-in-fleischfachfrau-fleischfachmann-und-koch-kochin-m-w-d-coop-bern-hhdndx",
@@ -12222,20 +12231,20 @@
     "canton": "BE"
   },
   "BE::en::seller-fresh-products-coop-genossenschaft-herzogenbuchsee": {
-    "winnerJobIdentifier": "company-lu792h",
-    "winnerCanonical": "seller-fresh-products-coop-genossenschaft-biel",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "company-mt661m",
+    "winnerCanonical": "seller-fresh-products-coop-genossenschaft-herzogenbuchsee-bern",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 2,
+    "score": 0.8571,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::en::seller-in-food-coop-genossenschaft-bern-ace4ef": {
-    "winnerJobIdentifier": "company-dpyyhh",
-    "winnerCanonical": "seller-food-coop-genossenschaft-bern-fed6d8",
+    "winnerJobIdentifier": "company-t43kbh",
+    "winnerCanonical": "seller-in-food-coop-genossenschaft-bern-2cfdfc",
     "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.625,
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -13617,11 +13626,11 @@
     "canton": "BE"
   },
   "BE::fr::vendeur-dans-la-nourriture-coop-genossenschaft-bern-ace4ef": {
-    "winnerJobIdentifier": "company-78eft9",
-    "winnerCanonical": "vendeur-dans-la-nourriture-pain-produits-de-boulangerie-coop-genossenschaft-bern",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
+    "winnerJobIdentifier": "company-t43kbh",
+    "winnerCanonical": "vendeur-dans-la-nourriture-coop-genossenschaft-bern-2cfdfc",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.5833,
+    "score": 0.7778,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -13725,12 +13734,12 @@
     "canton": "BE"
   },
   "BE::fr::vendeur-produits-frais-coop-genossenschaft-herzogenbuchsee": {
-    "winnerJobIdentifier": "company-lu792h",
-    "winnerCanonical": "vendeur-produits-frais-coop-genossenschaft-biel",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "company-mt661m",
+    "winnerCanonical": "vendeur-produits-frais-coop-genossenschaft-herzogenbuchsee-bern",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 2,
+    "score": 0.8571,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::fr::vendeur-vendeuse-denner-ag-allschwil": {
@@ -18297,12 +18306,12 @@
     "canton": "BE"
   },
   "BE::it::vendita-prodotti-freschi-coop-genossenschaft-herzogenbuchsee": {
-    "winnerJobIdentifier": "company-lu792h",
-    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-biel",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "company-mt661m",
+    "winnerCanonical": "vendita-prodotti-freschi-coop-genossenschaft-herzogenbuchsee-bern",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 2,
+    "score": 0.8571,
+    "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::venditore-a-denner-ag-allschwil": {
@@ -18504,20 +18513,20 @@
     "canton": "BE"
   },
   "BE::it::venditore-in-food-coop-genossenschaft-bern-ace4ef": {
-    "winnerJobIdentifier": "company-2d3q8k",
-    "winnerCanonical": "venditore-food-sapori-coop-genossenschaft-bern",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "company-t43kbh",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-bern-2cfdfc",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.625,
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "BE"
   },
   "BE::it::venditore-in-food-coop-genossenschaft-bern-ace4ef-6lcjmi": {
-    "winnerJobIdentifier": "company-2d3q8k",
-    "winnerCanonical": "venditore-food-sapori-coop-genossenschaft-bern",
-    "decidedAt": "2026-09-02T00:00:00.000Z",
+    "winnerJobIdentifier": "company-t43kbh",
+    "winnerCanonical": "venditore-in-food-coop-genossenschaft-bern-2cfdfc",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "BE"
   },
@@ -18783,9 +18792,9 @@
     "canton": "BE"
   },
   "BE::it::verkaufer-in-food-coop-bern": {
-    "winnerJobIdentifier": "company-dpyyhh",
+    "winnerJobIdentifier": "company-8kj91c",
     "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-bern",
-    "decidedAt": "2026-09-21T00:00:00.000Z",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 1,
@@ -25371,29 +25380,29 @@
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-disentis-muster-graubunden": {
-    "winnerJobIdentifier": "company-6mgr26",
-    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-disentis-muster",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
+    "winnerJobIdentifier": "company-ctyitz",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-disentis-muster",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.2727,
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-disentis-muster-graubunden-yw2vrg": {
-    "winnerJobIdentifier": "company-yddeq3",
-    "winnerCanonical": "venditore-venditrice-alimentare-coop-genossenschaft-disentis-muster-graubunden",
-    "decidedAt": "2026-08-31T00:00:00.000Z",
-    "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.3333,
+    "winnerJobIdentifier": "company-ctyitz",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-disentis-muster",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "GR"
   },
   "GR::it::verkaufer-in-food-coop-disentis-muster-graubunden-z82xrv": {
-    "winnerJobIdentifier": "company-yddeq3",
-    "winnerCanonical": "venditore-venditrice-alimentare-coop-genossenschaft-disentis-muster-graubunden",
-    "decidedAt": "2026-08-31T00:00:00.000Z",
-    "lastSeenAt": "2026-09-06T00:00:00.000Z",
-    "score": 0.3333,
+    "winnerJobIdentifier": "company-ctyitz",
+    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-disentis-muster",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.6667,
     "candidatesCount": 1,
     "canton": "GR"
   },
@@ -26387,6 +26396,15 @@
     "candidatesCount": 1,
     "canton": "LU"
   },
+  "LU::en::aushilfe-als-sozialpadagogische-r-mitarbeiter-in-uber-mittag-und-tagesbetreuung-betreuung": {
+    "winnerJobIdentifier": "stadt-luzern-c6c74237b2b1",
+    "winnerCanonical": "help-as-a-social-pedagogy-employee-about-lunch-and-day-care-support-sali-steinhof-stadt-luzern-luzern",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::en::building-technology-employees-galliker-transport-ag-altishofen": {
     "winnerJobIdentifier": "galliker-da517f0fd699",
     "winnerCanonical": "building-technology-employees-galliker-transport-ag-altishofen-102eee",
@@ -26711,6 +26729,15 @@
     "candidatesCount": 2,
     "canton": "LU"
   },
+  "LU::en::sozialpadagog-in-hf-fh-uni-kindheitspadagog-in-hf-fachperson-betreuung-zirk-35-sbe": {
+    "winnerJobIdentifier": "volksschule-luzern-42bf0866cfbc",
+    "winnerCanonical": "social-pedagogue-in-hf-fh-uni-childhood-pedagogue-in-hf-specialist-care-circle-35-sbe-grenzhof-ronnimoos-volksschule",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.3,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
   "LU::en::station-manager-in-care-schweizer-paraplegiker-zentrum-spz-nottwil": {
     "winnerJobIdentifier": "paraplegie-a55124bb6918",
     "winnerCanonical": "station-manager-in-care-schweizer-paraplegiker-gruppe-nottwil",
@@ -26925,6 +26952,15 @@
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
     "score": 0.6875,
     "candidatesCount": 1,
+    "canton": "LU"
+  },
+  "LU::fr::aushilfe-als-sozialpadagogische-r-mitarbeiter-in-uber-mittag-und-tagesbetreuung-betreuung": {
+    "winnerJobIdentifier": "stadt-luzern-c6c74237b2b1",
+    "winnerCanonical": "aide-en-tant-qu-employe-de-pedagogie-sociale-pour-le-dejeuner-et-la-garde-de-jour-soutien-sali-steinhof-stadt-luzern",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0,
+    "candidatesCount": 2,
     "canton": "LU"
   },
   "LU::fr::boucher-specialiste-de-la-viande-coop-genossenschaft-meggen-7oygdj": {
@@ -27320,6 +27356,15 @@
     "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
     "score": 0.1739,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::fr::sozialpadagog-in-hf-fh-uni-kindheitspadagog-in-hf-fachperson-betreuung-zirk-35-sbe": {
+    "winnerJobIdentifier": "stadt-luzern-ff877013f613",
+    "winnerCanonical": "pedagogue-sociale-en-hf-fh-uni-pedagogue-en-hf-soins-specialises-circle-35-sbe-grenzhof-ronnimoos-stadt-luzern-luzern",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.2381,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -29561,6 +29606,15 @@
     "decidedAt": "2026-09-06T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
     "score": 0.25,
+    "candidatesCount": 2,
+    "canton": "LU"
+  },
+  "LU::it::sozialpadagog-in-hf-fh-uni-kindheitspadagog-in-hf-fachperson-betreuung-zirk-35-sbe": {
+    "winnerJobIdentifier": "volksschule-luzern-42bf0866cfbc",
+    "winnerCanonical": "pedagogia-sociale-in-hf-fh-uni-pedagogia-infantile-in-hf-assistenza-specialistica-circle-35-sbe-grenzhof-ronnimoos",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.3158,
     "candidatesCount": 2,
     "canton": "LU"
   },
@@ -56610,11 +56664,11 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-frischprodukte-coop-feuerthalen-zurich-zh31qt": {
-    "winnerJobIdentifier": "company-dlupm7",
-    "winnerCanonical": "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "winnerJobIdentifier": "company-6b0mvz",
+    "winnerCanonical": "verkaufer-in-food-coop-zurich-6b0mvz",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.4444,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -56628,11 +56682,11 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-frischprodukte-coop-pfaffikon-zurich-itq4w3": {
-    "winnerJobIdentifier": "company-dlupm7",
-    "winnerCanonical": "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "winnerJobIdentifier": "company-suhvv1",
+    "winnerCanonical": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.5556,
+    "score": 0.625,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -56655,11 +56709,11 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-frischprodukte-coop-zurich-5": {
-    "winnerJobIdentifier": "company-dlupm7",
-    "winnerCanonical": "verkaufer-in-frischprodukte-produktion-coop-zurich-dlupm7",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "winnerJobIdentifier": "company-6b0mvz",
+    "winnerCanonical": "verkaufer-in-food-coop-zurich-6b0mvz",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.625,
+    "score": 0.5,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -56790,12 +56844,12 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufer-in-nonfood-coop-regensdorf-zurich-iw0c65": {
-    "winnerJobIdentifier": "company-aw99o7",
-    "winnerCanonical": "verkaufer-in-nonfood-coop-genossenschaft-regensdorf-zurich-aw99o7",
-    "decidedAt": "2026-08-05T00:00:00.000Z",
-    "lastSeenAt": "2026-09-02T00:00:00.000Z",
-    "score": 0.6667,
-    "candidatesCount": 2,
+    "winnerJobIdentifier": "company-ortzax",
+    "winnerCanonical": "verkaufer-in-nonfood-coop-zurich-ortzax",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.625,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::de::verkaufsberater-in-christ-orologi-gioielli-winterthur-zurich-jkfmkz": {
@@ -56808,11 +56862,11 @@
     "canton": "ZH"
   },
   "ZH::de::verkaufsberater-in-damenkonfektion-coop-city-zurich-jsk5zc": {
-    "winnerJobIdentifier": "company-2xvfps",
-    "winnerCanonical": "verkaufsberater-in-damenkonfektion-coop-city-zurich-2xvfps",
-    "decidedAt": "2026-09-04T00:00:00.000Z",
+    "winnerJobIdentifier": "company-bxkc9u",
+    "winnerCanonical": "verkaufsberater-in-damenkonfektion-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.75,
+    "score": 0.625,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -57402,19 +57456,19 @@
     "canton": "ZH"
   },
   "ZH::en::boulanger-coop-genossenschaft-zurich-m82gh0": {
-    "winnerJobIdentifier": "company-4v2s39",
-    "winnerCanonical": "seller-food-coop-genossenschaft-zurich-86b6f9",
-    "decidedAt": "2026-09-21T00:00:00.000Z",
-    "lastSeenAt": "2026-09-21T00:00:00.000Z",
+    "winnerJobIdentifier": "company-6b0mvz",
+    "winnerCanonical": "seller-food-coop-genossenschaft-zurich-0572fd",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
     "score": 0.375,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::boulanger-ere-coop-genossenschaft-zurich-m82gh0": {
-    "winnerJobIdentifier": "company-4v2s39",
-    "winnerCanonical": "seller-food-coop-genossenschaft-zurich-86b6f9",
-    "decidedAt": "2026-09-21T00:00:00.000Z",
-    "lastSeenAt": "2026-09-21T00:00:00.000Z",
+    "winnerJobIdentifier": "company-6b0mvz",
+    "winnerCanonical": "seller-food-coop-genossenschaft-zurich-0572fd",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -57438,10 +57492,10 @@
     "canton": "ZH"
   },
   "ZH::en::cashier-service-coop-genossenschaft-zurich-t19yhg": {
-    "winnerJobIdentifier": "company-4v2s39",
-    "winnerCanonical": "seller-food-coop-genossenschaft-zurich-86b6f9",
-    "decidedAt": "2026-09-21T00:00:00.000Z",
-    "lastSeenAt": "2026-09-21T00:00:00.000Z",
+    "winnerJobIdentifier": "company-6b0mvz",
+    "winnerCanonical": "seller-food-coop-genossenschaft-zurich-0572fd",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
     "score": 0.3333,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -57546,20 +57600,20 @@
     "canton": "ZH"
   },
   "ZH::en::consultant-en-logement-coop-genossenschaft-winterthur": {
-    "winnerJobIdentifier": "company-n1wbez",
-    "winnerCanonical": "seller-food-coop-genossenschaft-winterthur-e5a645",
-    "decidedAt": "2026-09-15T00:00:00.000Z",
-    "lastSeenAt": "2026-09-15T00:00:00.000Z",
-    "score": 0.3333,
+    "winnerJobIdentifier": "company-2o0q60",
+    "winnerCanonical": "kochin-koch-w-m-d-coop-genossenschaft-winterthur",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.2727,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::consultant-en-logement-coop-genossenschaft-winterthur-q55qqc": {
-    "winnerJobIdentifier": "company-n1wbez",
-    "winnerCanonical": "seller-food-coop-genossenschaft-winterthur-e5a645",
-    "decidedAt": "2026-09-15T00:00:00.000Z",
-    "lastSeenAt": "2026-09-15T00:00:00.000Z",
-    "score": 0.3,
+    "winnerJobIdentifier": "company-2o0q60",
+    "winnerCanonical": "kochin-koch-w-m-d-coop-genossenschaft-winterthur",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -58311,20 +58365,20 @@
     "canton": "ZH"
   },
   "ZH::en::housing-consultant-coop-genossenschaft-winterthur": {
-    "winnerJobIdentifier": "company-n1wbez",
-    "winnerCanonical": "seller-food-coop-genossenschaft-winterthur-e5a645",
-    "decidedAt": "2026-09-15T00:00:00.000Z",
-    "lastSeenAt": "2026-09-15T00:00:00.000Z",
-    "score": 0.375,
+    "winnerJobIdentifier": "company-2o0q60",
+    "winnerCanonical": "kochin-koch-w-m-d-coop-genossenschaft-winterthur",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.3,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::en::housing-consultant-coop-genossenschaft-winterthur-q55qqc": {
-    "winnerJobIdentifier": "company-n1wbez",
-    "winnerCanonical": "seller-food-coop-genossenschaft-winterthur-e5a645",
-    "decidedAt": "2026-09-15T00:00:00.000Z",
-    "lastSeenAt": "2026-09-15T00:00:00.000Z",
-    "score": 0.3333,
+    "winnerJobIdentifier": "company-2o0q60",
+    "winnerCanonical": "kochin-koch-w-m-d-coop-genossenschaft-winterthur",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.2727,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -58950,11 +59004,11 @@
     "canton": "ZH"
   },
   "ZH::en::sales-assistant-fresh-products-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-c2i0sg",
-    "winnerCanonical": "seller-fresh-products-coop-genossenschaft-kleinandelfingen",
-    "decidedAt": "2026-08-05T00:00:00.000Z",
-    "lastSeenAt": "2026-08-31T00:00:00.000Z",
-    "score": 0.4444,
+    "winnerJobIdentifier": "company-suhvv1",
+    "winnerCanonical": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.3,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -59052,7 +59106,7 @@
     "winnerJobIdentifier": "company-i9nkn8",
     "winnerCanonical": "verkaufsberater-in-haushalt-und-elektro-coop-genossenschaft-zurich",
     "decidedAt": "2026-09-20T00:00:00.000Z",
-    "lastSeenAt": "2026-09-20T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
     "score": 0.2308,
     "candidatesCount": 1,
     "canton": "ZH"
@@ -59103,11 +59157,11 @@
     "canton": "ZH"
   },
   "ZH::en::sales-consultant-women-s-fashion-coop-genossenschaft-zurich-jsk5zc": {
-    "winnerJobIdentifier": "company-2xvfps",
-    "winnerCanonical": "sales-consultant-in-women-s-clothing-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-04T00:00:00.000Z",
+    "winnerJobIdentifier": "company-bxkc9u",
+    "winnerCanonical": "verkaufsberater-in-damenkonfektion-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.6364,
+    "score": 0.25,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -60786,11 +60840,11 @@
     "canton": "ZH"
   },
   "ZH::fr::conseiller-ere-de-vente-pret-a-porter-feminin-coop-genossenschaft-zurich-jsk5zc": {
-    "winnerJobIdentifier": "company-2xvfps",
-    "winnerCanonical": "consultant-en-ventes-en-vetements-pour-femmes-coop-genossenschaft-zurich-21f2cb",
-    "decidedAt": "2026-09-04T00:00:00.000Z",
+    "winnerJobIdentifier": "company-bxkc9u",
+    "winnerCanonical": "verkaufsberater-in-damenkonfektion-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.1579,
+    "score": 0.2,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -64935,11 +64989,11 @@
     "canton": "ZH"
   },
   "ZH::it::consulente-di-vendita-abbigliamento-donna-coop-genossenschaft-zurich": {
-    "winnerJobIdentifier": "company-2xvfps",
-    "winnerCanonical": "consulente-di-vendita-in-abbigliamento-femminile-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-04T00:00:00.000Z",
+    "winnerJobIdentifier": "company-bxkc9u",
+    "winnerCanonical": "verkaufsberater-in-damenkonfektion-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.7,
+    "score": 0.2727,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -74835,12 +74889,12 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-coop-zurich-2": {
-    "winnerJobIdentifier": "company-tbmmrc",
-    "winnerCanonical": "verkaufer-in-food-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-21T00:00:00.000Z",
+    "winnerJobIdentifier": "company-6b0mvz",
+    "winnerCanonical": "vendita-prodotti-alimentari-coop-genossenschaft-zurich-0572fd",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
-    "score": 0.7143,
-    "candidatesCount": 2,
+    "score": 0.1818,
+    "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-food-frischprodukte-coop-genossenschaft-schubelbach": {
@@ -75015,20 +75069,20 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-frischprodukte-coop-genossenschaft-zurich-8j3o1g": {
-    "winnerJobIdentifier": "company-2tqynn",
-    "winnerCanonical": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-11T00:00:00.000Z",
-    "score": 0.8571,
+    "winnerJobIdentifier": "company-qe69xe",
+    "winnerCanonical": "verkaufer-in-frischprodukte-produktion-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-frischprodukte-coop-genossenschaft-zurich-v8nef4": {
-    "winnerJobIdentifier": "company-2tqynn",
-    "winnerCanonical": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-11T00:00:00.000Z",
-    "lastSeenAt": "2026-09-11T00:00:00.000Z",
-    "score": 0.8571,
+    "winnerJobIdentifier": "company-qe69xe",
+    "winnerCanonical": "verkaufer-in-frischprodukte-produktion-coop-genossenschaft-zurich",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
+    "lastSeenAt": "2026-09-23T00:00:00.000Z",
+    "score": 0.75,
     "candidatesCount": 1,
     "canton": "ZH"
   },
@@ -75105,9 +75159,9 @@
     "canton": "ZH"
   },
   "ZH::it::verkaufer-in-frischprodukte-coop-zurich": {
-    "winnerJobIdentifier": "company-e9o7yw",
+    "winnerJobIdentifier": "company-suhvv1",
     "winnerCanonical": "verkaufer-in-frischprodukte-coop-genossenschaft-zurich",
-    "decidedAt": "2026-09-20T00:00:00.000Z",
+    "decidedAt": "2026-09-23T00:00:00.000Z",
     "lastSeenAt": "2026-09-23T00:00:00.000Z",
     "score": 0.8333,
     "candidatesCount": 1,
