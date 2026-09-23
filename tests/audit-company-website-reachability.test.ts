@@ -114,6 +114,23 @@ describe('company website reachability audit', () => {
     expect(result).toMatchObject({ reachable: true, verified: false, reason: 'rate-limited' });
   });
 
+  it('passes a bounded transient retry budget to the shared fetcher', async () => {
+    const fetchImpl = vi.fn().mockResolvedValue({
+      ok: false, status: 0, url: 'https://flaky.example/', body: '', transportError: 'timeout',
+    });
+
+    await probePublishedWebsite('https://flaky.example/', {
+      fetchImpl,
+      retries: 2,
+      retryBaseMs: 750,
+    });
+
+    expect(fetchImpl).toHaveBeenCalledWith(
+      'https://flaky.example/',
+      expect.objectContaining({ retries: 2, retryBaseMs: 750 }),
+    );
+  });
+
   it('fails the gate only when unreachable hosts exceed the measured baseline', async () => {
     const probeImpl = vi.fn(async (targetUrl: string) => ({
       reachable: !targetUrl.includes('bad'),
@@ -143,6 +160,8 @@ describe('company website reachability audit', () => {
 
     expect(baseline).toMatchObject({ schemaVersion: 1, maxUnreachable: 22, baselineWebsites: 592 });
     expect(workflow).toContain('node scripts/audit-company-website-reachability.mjs');
+    expect(workflow).toContain('--retries=2');
+    expect(workflow).toContain('--retry-base-ms=750');
     expect(workflow).toContain('upload-artifact');
   });
 });
