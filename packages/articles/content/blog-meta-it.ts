@@ -11925,6 +11925,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-23.imageAlt': 'I numeri del giorno per i frontalieri – 23 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-23.seoDescription': 'Bollettino frontalieri del 23 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-23.ogDescription': 'I numeri del 23 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.rimborso-imposta-lpp-2024.title': 'Rimborso imposta LPP bloccato per i frontalieri',
+    'blog.article.rimborso-imposta-lpp-2024.excerpt': 'Dal 2024 il Canton Ticino non rimborsa più l\'imposta alla fonte del 7% sul capitale LPP, costringendo i frontalieri a pagare anche l\'imposta sostitutiva italiana del 5%.',
+    'blog.article.rimborso-imposta-lpp-2024.imageAlt': 'Edificio moderno a Bellinzona con bandiere svizzere e italiane al tramonto',
 };
 
 export default blogMetaIt;
