@@ -14,7 +14,12 @@
  */
 import { describe, it, expect } from 'vitest';
 import { classifyFeature } from '../../scripts/audit-title-length.mjs';
-import { isJobBoardSectionPath, JOB_BOARD_SECTION_RX } from '../../scripts/lib/jobBoardSections.mjs';
+import {
+  isJobBoardContentPath,
+  isJobBoardSectionPath,
+  JOB_BOARD_PROFESSION_CITY_RX,
+  JOB_BOARD_SECTION_RX,
+} from '../../scripts/lib/jobBoardSections.mjs';
 
 // classifyFeature takes a dist-relative path (with `dist/` prefix + index.html).
 const rel = (p: string) => `dist${p}index.html`;
@@ -48,6 +53,24 @@ describe('job-board section matcher', () => {
   it.each(jobBoardPaths)('classifies %s as job-board', (p) => {
     expect(isJobBoardSectionPath(p)).toBe(true);
     expect(classifyFeature(rel(p))).toBe('job-board');
+  });
+
+  const professionCityPaths = [
+    '/lavoro-lugano-saldatore/',
+    '/en/jobs-lugano-welder/',
+    '/de/arbeit-zurich-pflegefachperson/index.html',
+    '/fr/travail-lausanne-infirmier/',
+  ];
+
+  it.each(professionCityPaths)('treats %s as a job-payload path for content audits', (p) => {
+    expect(isJobBoardContentPath(p)).toBe(true);
+    expect(JOB_BOARD_PROFESSION_CITY_RX.test(p)).toBe(true);
+  });
+
+  it('does not broaden the profession-city matcher to unknown or nested editorial paths', () => {
+    expect(isJobBoardContentPath('/en/jobs-lugano/')).toBe(false);
+    expect(isJobBoardContentPath('/en/jobs-lugano-welder/methodology/')).toBe(false);
+    expect(isJobBoardContentPath('/en/jobs-geneva-welder/')).toBe(false);
   });
 
   const nonJobBoardPaths = [

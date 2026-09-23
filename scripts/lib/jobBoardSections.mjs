@@ -70,6 +70,26 @@ export const JOB_BOARD_SECTION_RX =
   new RegExp(`(?:^|/)(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*/`);
 
 /**
+ * Profession × city landing pages are job-payload pages too, but they use
+ * the locale-natural `/jobs-{city}-{role}/` (or `lavoro`/`arbeit`/`travail`)
+ * shape instead of living below a canton job-board section. Keep this
+ * matcher separate from JOB_BOARD_SECTION_RX: callers that need the section
+ * segment (routing, GSC prefix extraction) must not silently accept a leaf
+ * landing as a section root.
+ *
+ * The city list mirrors `build-plugins/professionCityData.ts`. These are the
+ * eleven enumerated city hubs from which profession landings are emitted;
+ * anchoring the city prevents an editorial `/en/jobs-…/` guide from being
+ * swallowed by the job-payload exemption.
+ */
+const PROFESSION_CITY_SLUG_SOURCE =
+  'lugano|mendrisio|bellinzona|locarno|chiasso|zurich|basel|bern|luzern|geneve|lausanne';
+
+export const JOB_BOARD_PROFESSION_CITY_RX = new RegExp(
+  `(?:^|/)(?:lavoro|jobs|arbeit|travail)-(?:${PROFESSION_CITY_SLUG_SOURCE})-[a-z0-9][a-z0-9-]*(?:/index\\.html)?/?$`,
+);
+
+/**
  * Matches the company-hub segment immediately below a job-board section,
  * including both the directory index and the flat `.html` emitter output.
  * Keeping the section prefix in this shared matcher prevents page-weight
@@ -118,6 +138,16 @@ export const JOB_BOARD_SEGMENT_RX =
  */
 export function isJobBoardSectionPath(normalisedPath) {
   return JOB_BOARD_SECTION_RX.test(normalisedPath);
+}
+
+/**
+ * True for either a canton-aware job-board section or a profession × city
+ * landing with a live jobs payload. This is the scope used by content audits
+ * that compare editorial prose; section-only consumers should keep using
+ * isJobBoardSectionPath().
+ */
+export function isJobBoardContentPath(normalisedPath) {
+  return JOB_BOARD_SECTION_RX.test(normalisedPath) || JOB_BOARD_PROFESSION_CITY_RX.test(normalisedPath);
 }
 
 /**

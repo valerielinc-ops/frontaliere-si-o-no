@@ -57,7 +57,7 @@ import {
   skeletonHashHex,
   isFamilyWideMeasure,
 } from './lib/informationGain.mjs';
-import { JOB_BOARD_SECTION_RX } from './lib/jobBoardSections.mjs';
+import { isJobBoardContentPath } from './lib/jobBoardSections.mjs';
 import { isPlateAuctionSectionPath } from './lib/plateAuctionSections.mjs';
 import { isPharmacySectionPath } from './lib/pharmacySections.mjs';
 
@@ -294,21 +294,19 @@ function createAuditor({ dist = DEFAULT_DIST, sampleRate = 1 } = {}) {
       if (html.includes('noindex') && /<meta[^>]+name=["']?robots["']?[^>]+content=["']?[^"'>]*noindex/i.test(html)) return;
       const relPath = relative(dist, file);
       // Job-board sections (listing hubs + individual job-detail pages, every
-      // canton) are out of scope: they are hydration/JobPosting-JSON-LD driven
-      // pages sourced from third-party postings, not the editorial guide/
-      // comparison prose #5002 targets — see scripts/lib/jobBoardSections.mjs.
-      // Every sibling classifier that separates "editorial" from "job-board"
-      // (audit-title-length, audit-text-html-ratio, audit-page-weight, …) and
-      // this audit's own calibration + companion live-scan MONITORED_SITEMAPS
-      // already treat them as a distinct, unmeasured category; scoring them
-      // here mixes two page kinds with unrelated prose expectations into the
-      // same cohort and floods it with false "below-floor" offenders.
+      // canton) and profession×city landings are out of scope: they are
+      // hydration/JobPosting-JSON-LD or live-jobs-payload pages, not the
+      // editorial guide/comparison prose #5002 targets. The shared content
+      // matcher keeps the section form and the leaf landing form distinct —
+      // see scripts/lib/jobBoardSections.mjs. Scoring these pages here mixes
+      // two page kinds with unrelated prose expectations into the same cohort
+      // and floods it with false "below-floor" offenders.
       // Plate-auction pages have the same property: their differentiating
       // payload is a public record (plate, price, bids and closing date), and
       // the information-gain metric masks those numeric fields by design.
       // Keep this vertical out of the editorial near-duplicate gate rather
       // than adding each newly emitted canton/plate cohort to its inventory.
-      if (JOB_BOARD_SECTION_RX.test(relPath)) return;
+      if (isJobBoardContentPath(relPath)) return;
       if (isPlateAuctionSectionPath(relPath)) return;
       // Pharmacy pages are structured directory and duty records sourced from
       // a maintained catalogue. Their page-specific payload is an address,
