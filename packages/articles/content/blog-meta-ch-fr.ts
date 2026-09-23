@@ -6653,6 +6653,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.dff-progressione-freddo-imposte-2027.title': 'Impôt fédéral 2027 : DFF compense la progression à froid',
     'blog.article.dff-progressione-freddo-imposte-2027.excerpt': 'Le DFF ajuste les tarifs et les déductions pour l\'exercice 2027 face à un renchérissement cumulé de 0,47 % enregistré au 30 juin 2026.',
     'blog.article.dff-progressione-freddo-imposte-2027.imageAlt': 'Palais fédéral à Berne, siège du Département fédéral des finances',
+    'blog.article.costi-auto-elettrica-benzina.title': 'Coûts voiture électrique vs essence : l\'analyse du TCS',
+    'blog.article.costi-auto-elettrica-benzina.excerpt': 'Avec l\'essence à 2,14 fr./litre et le diesel à 2,46 fr./litre, l\'électrique ne convient que si vous le rechargez à la maison. Analyse basée sur les données du Touring Club Suisse.',
+    'blog.article.costi-auto-elettrica-benzina.imageAlt': 'Station de recharge pour voiture électrique et pompe à essence en Suisse',
 };
 
 export default blogMetaChFr;

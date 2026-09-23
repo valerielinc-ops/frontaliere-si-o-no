@@ -6653,6 +6653,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.dff-progressione-freddo-imposte-2027.title': 'Bundessteuer 2027: EFD kompensiert kalte Progression',
     'blog.article.dff-progressione-freddo-imposte-2027.excerpt': 'Das EFD passt die Tarife und Abzüge für das Geschäftsjahr 2027 angesichts einer kumulierten Teuerung von 0,47 % zum 30. Juni 2026 an.',
     'blog.article.dff-progressione-freddo-imposte-2027.imageAlt': 'Bundeshaus in Bern, Sitz des Eidgenössischen Finanzdepartements',
+    'blog.article.costi-auto-elettrica-benzina.title': 'Kosten Elektroauto vs. Benzin: die TCS-Analyse',
+    'blog.article.costi-auto-elettrica-benzina.excerpt': 'Bei Benzin mit 2,14 Fr./Liter und Diesel mit 2,46 Fr./Liter lohnt sich der Elektroantrieb nur, wenn man ihn zu Hause auflädt. Analyse basierend auf Daten des Touring Club Schweiz.',
+    'blog.article.costi-auto-elettrica-benzina.imageAlt': 'Elektroauto-Ladestation und Benzinpumpe in der Schweiz',
 };
 
 export default blogMetaChDe;
