@@ -16,9 +16,10 @@
  *
  * Questo sweep, schedulato, recupera le orfane qualunque sia la causa: riusa il
  * classifier deterministico (`classify-issue.mjs`, stesse regole del path
- * event-driven). I domini F1/F7 vengono marcati `needs-human` e non entrano
- * mai nel routing automatico; le issue ordinarie ricevono `agent:triaged` +
- * routing.
+ * event-driven). I domini F1/F7 vengono marcati `automation-deferred` e non
+ * entrano nel routing automatico; le issue ordinarie ricevono `agent:triaged` +
+ * routing. `needs-human` resta intatta solo se era già un veto/decisione
+ * esplicita del proprietario presente sull'issue.
  *
  * GENTLE BY-CONSTRUCTION (anti-burst, frugalità quota):
  *   - crawler-transient → solo `agent:triaged`, NIENTE route: si auto-chiudono
@@ -68,7 +69,11 @@
  *       GITHUB_PAT (routing), GH_REPO/GITHUB_REPOSITORY.
  */
 import { execFileSync } from 'node:child_process';
-import { classifyIssue, isFixerExempt } from '../lib/classify-issue.mjs';
+import {
+  AUTOMATION_DEFERRED_LABEL,
+  classifyIssue,
+  isFixerExempt,
+} from '../lib/classify-issue.mjs';
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const PAT = process.env.GITHUB_PAT || '';
@@ -142,7 +147,15 @@ const has = (iss, n) => names(iss).includes(n);
 // quindi la label non nuova non arriva mai sulla issue mentre quella vecchia non
 // viene mai rimossa — la issue resta bloccata sul contatore precedente,
 // ritentata a ogni giro senza mai raggiungere `fu-parked`.
-export const ROUTING_LABELS = ['agent:fix', 'agent:fix-queued', 'fu-parked', 'fu-attempt:1', 'fu-attempt:2', 'fu-attempt:3'];
+export const ROUTING_LABELS = [
+  'agent:fix',
+  'agent:fix-queued',
+  'fu-parked',
+  AUTOMATION_DEFERRED_LABEL,
+  'fu-attempt:1',
+  'fu-attempt:2',
+  'fu-attempt:3',
+];
 
 /** Il secondo passaggio non deve riesaminare i pin già esclusi dal routing. */
 export function isTriagedButNotRouted(iss) {
@@ -195,21 +208,33 @@ function main() {
     catch (e) { console.log(`::warning::#${n} agent:triaged fallito: ${String(e).slice(0, 100)}`); }
   };
 
-  // Escalation F1/F7 con l'identità del triage: non usa il PAT/App che attiva
+  // Deny F1/F7 con l'identità del triage: non usa il PAT/App che attiva
   // issue-fix. Un errore qui lascia l'issue senza routing, mai il contrario.
-  const markHuman = (n, domains = []) => {
-    if (DRY) { console.log(`[dry] #${n} → +needs-human (${domains.join(', ') || 'policy'})`); return; }
+  // Il deny è tecnico e rientrabile: non introduce un veto umano nuovo.
+  const markDeferred = (n, domains = [], reason = 'risk') => {
+    if (DRY) { console.log(`[dry] #${n} → +${AUTOMATION_DEFERRED_LABEL} (${reason}: ${domains.join(', ') || 'policy'})`); return; }
     try {
       gh(['issue', 'edit', String(n), '--repo', REPO,
-        '--remove-label', 'agent:fix', '--remove-label', 'agent:fix-queued'], { json: false });
+        '--remove-label', 'agent:fix', '--remove-label', 'agent:fix-queued',
+        '--remove-label', 'agent:vision-approved'], { json: false });
     } catch (e) {
       console.log(`::warning::#${n} rimozione label routing stale fallita (${String(e).slice(0, 120)}) — routing bloccato comunque.`);
     }
     try {
-      gh(['issue', 'edit', String(n), '--repo', REPO, '--add-label', 'needs-human'], { json: false });
-      console.log(`#${n} F1/F7 (${domains.join(', ') || 'policy'}) → needs-human, nessun routing.`);
+      gh(['label', 'create', AUTOMATION_DEFERRED_LABEL, '--repo', REPO,
+        '--color', 'FBCA04',
+        '--description', 'Lavoro automatico differito da policy/capacità; rientra nello sweep',
+        '--force'], { json: false });
+      gh(['issue', 'edit', String(n), '--repo', REPO,
+        '--add-label', AUTOMATION_DEFERRED_LABEL], { json: false });
+      gh(['issue', 'comment', String(n), '--repo', REPO, '--body', [
+        `<!-- AUTOMATION_DEFERRED: ${reason} -->`,
+        `⏸️ **Lavoro differito dal risk gate** (${domains.join(', ') || 'policy'}).`,
+        'Il deny resta fail-closed, ma non introduce una nuova decisione umana: il prepass rivaluterà automaticamente la policy quando l’input sarà verificabile.',
+      ].join('\n\n')], { json: false });
+      console.log(`#${n} ${reason} (${domains.join(', ') || 'policy'}) → ${AUTOMATION_DEFERRED_LABEL}, nessun routing.`);
     } catch (e) {
-      console.log(`::error::#${n} escalation F1/F7 non applicata (${String(e).slice(0, 120)}) — routing bloccato comunque.`);
+      console.log(`::error::#${n} defer F1/F7 non applicato (${String(e).slice(0, 120)}) — routing bloccato comunque.`);
     }
   };
 
@@ -225,7 +250,7 @@ function main() {
 
     for (const iss of orphans) {
       const n = iss.number;
-      const { category, autofix, route, fuPrio, automationBlocked, riskDomains } = classifyIssue(
+      const { category, autofix, route, fuPrio, automationDeferred, riskBlocked, riskDomains } = classifyIssue(
         iss.title,
         names(iss),
         iss.body,
@@ -258,8 +283,13 @@ function main() {
       // Da qui marchiamo SEMPRE triaged (idempotente).
       markTriaged(n);
 
-      if (automationBlocked) {
-        markHuman(n, riskDomains);
+      if (riskBlocked) {
+        markDeferred(n, riskDomains, 'risk');
+        markedOnly++;
+        continue;
+      }
+      if (automationDeferred) {
+        console.log(`#${n} già in ${AUTOMATION_DEFERRED_LABEL} → nessun nuovo defer/routing.`);
         markedOnly++;
         continue;
       }
@@ -284,7 +314,8 @@ function main() {
         if (DRY) { console.log(`[dry] #${n} → agent:fix-queued + fu-prio:${prio}${why}`); if (crawlerToQueue) crawlerQueued++; else routedQueue++; continue; }
         try {
           gh(['issue', 'edit', String(n), '--repo', REPO,
-            '--add-label', 'agent:fix-queued', '--add-label', `fu-prio:${prio}`], { json: false, token: PAT });
+            '--add-label', 'agent:fix-queued', '--add-label', `fu-prio:${prio}`,
+            '--remove-label', AUTOMATION_DEFERRED_LABEL], { json: false, token: PAT });
           console.log(`#${n} → agent:fix-queued + fu-prio:${prio} (drainer).${why}`);
           if (crawlerToQueue) crawlerQueued++; else routedQueue++;
         } catch (e) { console.log(`::warning::#${n} accodamento PAT fallito: ${String(e).slice(0, 100)}`); }
@@ -292,7 +323,8 @@ function main() {
         // crawler non-transient → agent:fix (sotto cap, già verificato sopra).
         if (DRY) { console.log(`[dry] #${n} → agent:fix (crawler)`); routedFix++; continue; }
         try {
-          gh(['issue', 'edit', String(n), '--repo', REPO, '--add-label', 'agent:fix'], { json: false, token: PAT });
+          gh(['issue', 'edit', String(n), '--repo', REPO,
+            '--add-label', 'agent:fix', '--remove-label', AUTOMATION_DEFERRED_LABEL], { json: false, token: PAT });
           console.log(`#${n} → agent:fix (crawler, triggera issue-fix).`);
           routedFix++;
         } catch (e) { console.log(`::warning::#${n} agent:fix PAT fallito: ${String(e).slice(0, 100)}`); }
@@ -317,15 +349,20 @@ function main() {
     console.log(`Issue triaged-but-not-routed: ${unrouted.length}`);
     for (const iss of unrouted) {
       const n = iss.number;
-      const { route, fuPrio, automationBlocked, riskDomains } = classifyIssue(
+      const { route, fuPrio, automationDeferred, riskBlocked, riskDomains } = classifyIssue(
         iss.title,
         names(iss),
         iss.body,
       );
       const isCrawlerTransient = has(iss, 'crawler-transient');
 
-      if (automationBlocked) {
-        markHuman(n, riskDomains);
+      if (riskBlocked) {
+        markDeferred(n, riskDomains, 'risk');
+        markedOnly++;
+        continue;
+      }
+      if (automationDeferred) {
+        console.log(`#${n} già in ${AUTOMATION_DEFERRED_LABEL} → nessun nuovo defer/routing.`);
         markedOnly++;
         continue;
       }
@@ -361,14 +398,16 @@ function main() {
         if (DRY) { console.log(`[dry] #${n} triaged-no-route → agent:fix-queued + fu-prio:${prio}${why}`); if (crawlerToQueue) crawlerQueued++; else routedQueue++; continue; }
         try {
           gh(['issue', 'edit', String(n), '--repo', REPO,
-            '--add-label', 'agent:fix-queued', '--add-label', `fu-prio:${prio}`], { json: false, token: PAT });
+            '--add-label', 'agent:fix-queued', '--add-label', `fu-prio:${prio}`,
+            '--remove-label', AUTOMATION_DEFERRED_LABEL], { json: false, token: PAT });
           console.log(`#${n} triaged-no-route → agent:fix-queued + fu-prio:${prio}.${why}`);
           if (crawlerToQueue) crawlerQueued++; else routedQueue++;
         } catch (e) { console.log(`::warning::#${n} triaged-no-route accodamento fallito: ${String(e).slice(0, 100)}`); }
       } else if (route === 'fix') {
         if (DRY) { console.log(`[dry] #${n} triaged-no-route → agent:fix (crawler)`); routedFix++; continue; }
         try {
-          gh(['issue', 'edit', String(n), '--repo', REPO, '--add-label', 'agent:fix'], { json: false, token: PAT });
+          gh(['issue', 'edit', String(n), '--repo', REPO,
+            '--add-label', 'agent:fix', '--remove-label', AUTOMATION_DEFERRED_LABEL], { json: false, token: PAT });
           console.log(`#${n} triaged-no-route → agent:fix (crawler).`);
           routedFix++;
         } catch (e) { console.log(`::warning::#${n} triaged-no-route agent:fix fallito: ${String(e).slice(0, 100)}`); }

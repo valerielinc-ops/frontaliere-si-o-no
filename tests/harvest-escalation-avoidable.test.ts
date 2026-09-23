@@ -5,7 +5,7 @@
  *   - #2439 `fix-outcome:max-turns`: un run-death `error_max_turns` è burn-fixabile
  *     SOLO su una follow-up single-item ancora instradabile. Aggregate multi-item
  *     (over-budget by construction, target del circuit-breaker) e issue già parkate
- *     `needs-human` dal drainer (#2291: malformed body / network-audit) muoiono al
+ *     `automation-deferred` dal drainer (#2291: malformed body / network-audit) muoiono al
  *     cap DETERMINISTICAMENTE → niente loop fixabile → non contabili.
  *   - #2440 `reviewer-finding/pr-body-contract`: la regex matcha il VOCABOLARIO del
  *     contratto, ma una violazione GENUINA (sezione mancante/vuota, Closes multi-issue)
@@ -44,10 +44,10 @@ describe('isAvoidableMaxTurns — non escalare la morte al cap che è determinis
     )).toBe(true);
   });
 
-  it('issue parkata needs-human dal drainer → NON contabile (#2291: morte deterministica)', () => {
+  it('issue parkata automation-deferred dal drainer → NON contabile (#2291: morte deterministica)', () => {
     expect(isAvoidableMaxTurns(
       'follow-up(#2388): 1 item deferred — feat(traffic): webcam warmup gating',
-      ['follow-up', 'agent:triaged', 'fu-parked', 'needs-human'],
+      ['follow-up', 'agent:triaged', 'fu-parked', 'automation-deferred'],
     )).toBe(false);
   });
 
@@ -77,23 +77,23 @@ describe('isAvoidableMaxTurns — non escalare la morte al cap che è determinis
     )).toBe(true);
   });
 
-  it('crawler-health con needs-human (aggiunto dal drainer crawlersFix pass, #3886) → NON contabile', () => {
-    // After the drainer's crawler max-turns pass runs, it adds fu-parked + needs-human
+  it('crawler-health con automation-deferred (aggiunto dal drainer crawlersFix pass, #3886) → NON contabile', () => {
+    // After the drainer's crawler max-turns pass runs, it adds fu-parked + automation-deferred
     // to crawler issues that hit error_max_turns. isAvoidableMaxTurns must then
-    // return false (already covered by the needs-human gate), so the harvester
+    // return false (already covered by the automation-deferred gate), so the harvester
     // stops counting them and the escalation self-heals.
     expect(isAvoidableMaxTurns(
       '[crawler-health] kiabi: broken',
-      ['agent:fix', 'agent:triaged', 'fu-parked', 'needs-human'],
+      ['agent:fix', 'agent:triaged', 'fu-parked', 'automation-deferred'],
     )).toBe(false);
     expect(isAvoidableMaxTurns(
       '[crawler-health] apg-sga: broken',
-      ['agent:fix', 'agent:triaged', 'fu-parked', 'needs-human'],
+      ['agent:fix', 'agent:triaged', 'fu-parked', 'automation-deferred'],
     )).toBe(false);
   });
 
-  it('crawler-health senza needs-human (prima che il drainer giri) → contabile come segnale attivo', () => {
-    // Until the drainer's new pass runs and adds needs-human, crawler issues
+  it('crawler-health senza automation-deferred (prima che il drainer giri) → contabile come segnale attivo', () => {
+    // Until the drainer's new pass runs and adds automation-deferred, crawler issues
     // that hit max-turns are correctly counted as avoidable burn signal.
     expect(isAvoidableMaxTurns(
       '[crawler-health] kiabi: broken',

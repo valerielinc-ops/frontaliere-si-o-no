@@ -117,11 +117,16 @@ describe('followup-drainer — esito solo dopo la mutazione confermata', () => {
       src.indexOf('const d = verdictExitDecision(outcome, {'),
       src.indexOf('// --- TOO-LARGE ESCALATION'),
     );
-    const branchEnds = ["if (d.action === 'flag')", '// escalate', 'if (succeeded) console.log'];
-    for (const [index, marker] of ["if (d.action === 'close')", "if (d.action === 'flag')", '// escalate'].entries()) {
+    const branchEnds = ["if (d.action === 'flag')", '// defer tecnico', 'if (succeeded) console.log'];
+    for (const [index, marker] of ["if (d.action === 'close')", "if (d.action === 'flag')", '// defer tecnico'].entries()) {
       const branchStart = verdict.indexOf(marker);
       expect(branchStart, `branch ${marker} non trovato`).toBeGreaterThan(-1);
       const branch = verdict.slice(branchStart, verdict.indexOf(branchEnds[index], branchStart));
+      if (marker === '// defer tecnico') {
+        expect(branch).toContain('deferAutomationIssue(');
+        expect(branch.indexOf('deferAutomationIssue(')).toBeLessThan(branch.lastIndexOf('succeeded++'));
+        continue;
+      }
       const edit = branch.indexOf('editChecked');
       const comment = branch.indexOf("gh(['issue', 'comment'");
       expect(edit, marker).toBeGreaterThan(-1);

@@ -21,6 +21,8 @@ import {
   STALE_BLOCK_VERDICTS,
   readVisionAutonomyContract,
   VISION_AUTONOMY_LABEL,
+  AUTOMATION_DEFERRED_LABEL,
+  latestAutomationDeferredReason,
 } from '../scripts/ci/needs-human-prepass.mjs';
 import { classifyAutomationRisk } from '../scripts/ci/lib/automation-risk-policy.mjs';
 
@@ -33,6 +35,33 @@ describe('needs-human — tracking, non veto della PR', () => {
   it('una issue monitor con la label resta instradabile dal pre-pass', () => {
     expect(prepassDecision({ title: 'CI Failure: tests', labels: ['needs-human'] }).action)
       .toBe('requeue');
+  });
+
+  it('un defer tecnico non riapre alla cieca la stessa run', () => {
+    const d = prepassDecision({
+      title: 'CI Failure: tests',
+      labels: [AUTOMATION_DEFERRED_LABEL],
+      automationDeferredReason: 'technical',
+    });
+    expect(d.action).toBe('keep');
+    expect(d.reason).toMatch(/nuovo contesto|nuova misura/i);
+  });
+
+  it('un defer risk viene rivalutato solo se la policy corrente ora consente il lavoro', () => {
+    expect(prepassDecision({
+      title: 'follow-up(#6100): rimisura la soglia',
+      body: 'Misura deterministica già verificata dal driver.',
+      labels: [AUTOMATION_DEFERRED_LABEL],
+      automationDeferredReason: 'risk',
+    }).action).toBe('requeue');
+  });
+
+  it('legge il marker tecnico più recente senza inventare una ragione', () => {
+    expect(latestAutomationDeferredReason([
+      { body: '<!-- AUTOMATION_DEFERRED: risk -->', created_at: '2026-09-01T00:00:00Z' },
+      { body: '<!-- AUTOMATION_DEFERRED: technical -->', created_at: '2026-09-02T00:00:00Z' },
+    ])).toBe('technical');
+    expect(latestAutomationDeferredReason([{ body: 'defer senza marker' }])).toBeNull();
   });
 
   it('la stessa label non blocca la policy sulla superficie pull-request', () => {

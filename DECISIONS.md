@@ -2,6 +2,7 @@
 
 | Data | Decisione | Fonte |
 |---|---|---|
+| 2026-09-23 | `needs-human` è riservato alle decisioni del proprietario realmente mancanti e deve contenere una domanda strutturata. Deny tecnico, capability mancante, timeout, body insufficiente e root-cause non convergente vanno in `automation-deferred` e rientrano nel ciclo autonomo. Quando il proprietario risponde, la risposta si registra qui e il pre-pass reimmette automaticamente l'issue in coda; non si ripete la domanda | istruzione diretta, sessione 23-09 |
 | 2026-07-05 | Auto-route su OGNI categoria; supervisione = gate `## LGTM`, non esclusione a monte | AGENTS.md → Issue automation |
 | 2026-09-03 → superseded 2026-09-16 | Modello unificato Claude Opus a `--effort medium` per i tier del fixer; decisione storica, sostituita dal lane Codex | issue-fix.yml → Tier |
 | 2026-09-16 | Workflow agentici e lane articolo unificati su Codex Luna Max (`gpt-5.6-luna`, reasoning effort `max`); nessun fallback Claude nei workflow | issue-fix.yml, tests.yml, setup Codex lane |

@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 /**
- * needs-human-prepass.mjs — la metà deterministica dello sweep `needs-human`.
+ * needs-human-prepass.mjs — la metà deterministica dello sweep del backlog
+ * `needs-human` + `automation-deferred`.
  *
  * ## Il difetto, misurato
  *
@@ -34,7 +35,8 @@
  * Quindi si riconoscono POSITIVAMENTE le famiglie generate da noi, e tutto il
  * resto resta dov'è. Una famiglia nuova di monitor non viene drenata da questo
  * script finché qualcuno non la aggiunge qui — che è il modo giusto di
- * sbagliare, perché il run Claude la prende comunque.
+ * sbagliare, perché lo sweep agentico la prende comunque senza chiedere al
+ * proprietario una decisione tecnica.
  *
  * ## Il verdetto batte il riconoscimento di famiglia (fix #5608)
  *
@@ -77,12 +79,19 @@ import { execFileSync } from 'node:child_process';
 import { FIX_OUTCOME_RE } from './close-recovered-failure-issues.mjs';
 import { PREPASS_VERDICT_BEATS_FAMILY, AGGREGATE_ITEMS_RE, isDecomposeEligible } from './followup-drainer.mjs';
 import { intFromEnv } from '../lib/int-from-env.mjs';
-import { isFixerExempt } from '../lib/classify-issue.mjs';
+import {
+  AUTOMATION_DEFERRED_LABEL,
+  classifyIssue,
+  isFixerExempt,
+} from '../lib/classify-issue.mjs';
+
+export { AUTOMATION_DEFERRED_LABEL };
 
 const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
 const DRY = process.argv.includes('--dry-run');
 export const VISION_AUTONOMY_LABEL = 'agent:vision-approved';
 export const VISION_AUTONOMY_MARKER = '<!-- VISION_AUTONOMY: vision-v1 -->';
+export const AUTOMATION_DEFERRED_MARKER_RE = /<!--\s*AUTOMATION_DEFERRED:\s*([a-z0-9-]+)\b[^>]*-->/iu;
 const VISION_PATH = new URL('../../VISION.md', import.meta.url);
 // Cap volutamente BASSO, e tarato sulla portata a valle e non sulla dimensione
 // della coda: il sito consegna ~15 PR al giorno (108 `pr-created` in 7 giorni
@@ -140,7 +149,7 @@ export const STALE_BLOCK_VERDICTS = new Set(['blocked-secrets']);
 /**
  * ## Il registro di DECISIONS.md, letto QUI e non solo dal run Claude (#7280)
  *
- * `needs-human-sweep.yml` istruisce il run Claude a «cercare PRIMA una decisione
+ * `needs-human-sweep.yml` istruisce il run Codex a «cercare PRIMA una decisione
  * del proprietario già registrata nel registro di DECISIONS.md: se c'è, la issue
  * non è più una domanda — applicala». È corretto, ma quel run è SETTIMANALE, ha
  * cap 15 e costa quota. Questo pre-pass è GIORNALIERO, costa zero e scala — che
@@ -494,6 +503,30 @@ export function latestVerdict(comments) {
 }
 
 /**
+ * Ultima ragione del defer tecnico, dal commento che l'ha prodotto.
+ *
+ * `automation-deferred` senza marker resta fail-closed: può essere un residuo
+ * storico o un'annotazione arrivata da un altro percorso. Il pre-pass sa
+ * riaprire automaticamente solo un defer `risk` quando la policy corrente non
+ * lo nega più; un defer `technical` deve prima ricevere un input diverso dal
+ * weekly sweep (scheda, misura o decisione registrata).
+ */
+export function latestAutomationDeferredReason(comments) {
+  let latest = null;
+  let at = -Infinity;
+  for (const c of comments || []) {
+    const m = AUTOMATION_DEFERRED_MARKER_RE.exec(String(c?.body || ''));
+    if (!m) continue;
+    const t = Date.parse(c?.created_at ?? c?.createdAt);
+    if (!Number.isNaN(t) && t >= at) {
+      at = t;
+      latest = m[1].toLowerCase();
+    }
+  }
+  return latest;
+}
+
+/**
  * La decisione, dal solo titolo + labels + ultimo verdetto. Pura → testabile.
  *
  * `keep` è il default e non un ramo di errore: significa «non so dirlo senza
@@ -504,7 +537,7 @@ export function latestVerdict(comments) {
  */
 export function prepassDecision({
   title = '', body = '', labels = [], verdict = null,
-  registry = [], staleBlocks = [], homeScope = 'site',
+  registry = [], staleBlocks = [], homeScope = 'site', automationDeferredReason = null,
 } = {}) {
   // Il corpo entra QUI e non nella decisione di famiglia. La distinzione non è
   // formale: `isAggregate`/`AGGREGATE_ITEMS_RE` girano sul TITOLO apposta,
@@ -515,7 +548,7 @@ export function prepassDecision({
   // sul linguaggio — e infatti il giudizio su cosa quella riga autorizzi lo dà
   // la riga, non il corpo della issue.
   const reg = matchRegistry(`${title}\n${body}`, registry, { homeScope });
-  const d = decideAction({ title, labels, verdict, reg });
+  const d = decideAction({ title, body, labels, verdict, reg, automationDeferredReason });
   // Un tracker permanente non si annota. Il solo che porta `agent:no-age-out` è
   // il digest dello sweep, il cui CORPO viene riscritto ogni lunedì con l'elenco
   // delle domande aperte: i riferimenti citati cambiano ogni settimana, quindi
@@ -526,7 +559,7 @@ export function prepassDecision({
 }
 
 /** Il ramo che sceglie l'azione. Separato dal wrapper solo per tenerlo puro. */
-function decideAction({ title = '', labels = [], verdict = null, reg }) {
+function decideAction({ title = '', body = '', labels = [], verdict = null, reg, automationDeferredReason = null }) {
   // Un tracker è aperto per scelta: non si accoda e non si scorpora. `keep-open`
   // sta accanto a `agent:no-age-out` (stessa lista `FIXER_EXEMPT_LABELS` che
   // toglie la issue dal routing automatico, #7648): entrambe dicono «la causa
@@ -543,6 +576,28 @@ function decideAction({ title = '', labels = [], verdict = null, reg }) {
   // (prima di questa fix non rimuoveva quelle label), mai un'issue in lavoro.
   for (const l of ['agent:in-progress']) {
     if (labels.includes(l)) return { action: 'keep', reason: `già in lavorazione (${l})` };
+  }
+
+  // `needs-human` è il canale per una decisione del proprietario; un defer
+  // tecnico è invece un handoff interno al ciclo. Non riaccodare alla cieca
+  // l'ultimo caso: il fixer rifarebbe la stessa diagnosi e il terminale
+  // tornerebbe qui. L'unica eccezione deterministica è il defer `risk`: la
+  // policy può essere cambiata da codice/decisione e allora vale la pena
+  // rivalutare l'issue senza considerare la label come un veto.
+  if (labels.includes(AUTOMATION_DEFERRED_LABEL)) {
+    if (automationDeferredReason !== 'risk') {
+      return {
+        action: 'keep',
+        reason: 'handoff tecnico: serve nuovo contesto o una nuova misura prima del requeue automatico',
+      };
+    }
+    const current = classifyIssue(title, labels, body, { ignoreAutomationDeferred: true, repository: REPO });
+    if (current.automationBlocked) {
+      return {
+        action: 'keep',
+        reason: `policy ancora in deny (${current.riskDenyCode || current.riskReason || 'non verificabile'}): nessun bypass automatico`,
+      };
+    }
   }
 
   const monitor = MONITOR_TITLE_PATTERNS.find((re) => re.test(title));
@@ -806,13 +861,19 @@ function main() {
     // `body` entra qui e non con una chiamata per issue: `gh issue list` lo
     // serve nella stessa risposta, quindi il riconoscimento del registro e
     // quello dei blocchi scaduti costano ZERO chiamate in più sull'elenco.
-    issues = gh(['issue', 'list', '--repo', REPO, '--state', 'open', '--label', 'needs-human',
-      '--json', 'number,title,body,labels,updatedAt', '--limit', '300']);
+    const fields = ['--json', 'number,title,body,labels,updatedAt', '--limit', '300'];
+    const human = gh(['issue', 'list', '--repo', REPO, '--state', 'open', '--label', 'needs-human', ...fields]);
+    const deferred = gh(['issue', 'list', '--repo', REPO, '--state', 'open', '--label', AUTOMATION_DEFERRED_LABEL, ...fields]);
+    const byNumber = new Map();
+    for (const issue of [...human, ...deferred]) byNumber.set(issue.number, issue);
+    issues = [...byNumber.values()];
   } catch (e) {
     console.log(`::warning::needs-human-prepass: elenco non leggibile (${String(e).slice(0, 100)}) → nessuna azione.`);
     return;
   }
-  console.log(`needs-human-prepass — repo ${REPO}, ${issues.length} issue \`needs-human\`, registro DECISIONS.md: ${registry.length} righe, autonomy=${visionAutonomy}${DRY ? ' [DRY-RUN]' : ''}`);
+  const humanCount = issues.filter((issue) => (issue.labels || []).some((label) => label.name === 'needs-human')).length;
+  const deferredCount = issues.filter((issue) => (issue.labels || []).some((label) => label.name === AUTOMATION_DEFERRED_LABEL)).length;
+  console.log(`needs-human-prepass — repo ${REPO}, ${issues.length} issue candidate (${humanCount} \`needs-human\`, ${deferredCount} \`${AUTOMATION_DEFERRED_LABEL}\`), registro DECISIONS.md: ${registry.length} righe, autonomy=${visionAutonomy}${DRY ? ' [DRY-RUN]' : ''}`);
 
   // Le più stantie prima: sono quelle che aspettano da più tempo, e il cap non
   // deve tagliarle sempre. `gh issue list` ordina dalla più recente.
@@ -833,10 +894,12 @@ function main() {
     // perché il titolo basterebbe a decidere `requeue` da solo.
     let comments = [];
     let verdict = null;
+    let automationDeferredReason = null;
     try {
       const cs = gh(['api', `repos/${REPO}/issues/${iss.number}/comments?per_page=100`, '--paginate']);
       comments = Array.isArray(cs) ? cs : [];
       verdict = latestVerdict(comments);
+      automationDeferredReason = latestAutomationDeferredReason(comments);
     } catch { comments = []; verdict = null; }
 
     // I blocchi scaduti si misurano solo dove il corpo ne dichiara uno: su una
@@ -847,7 +910,16 @@ function main() {
       if (st) staleBlocks.push(st);
     }
 
-    const d = prepassDecision({ title: iss.title, body, labels, verdict, registry, staleBlocks, homeScope: HOME_SCOPE });
+    const d = prepassDecision({
+      title: iss.title,
+      body,
+      labels,
+      verdict,
+      registry,
+      staleBlocks,
+      homeScope: HOME_SCOPE,
+      automationDeferredReason,
+    });
     counts[d.action]++;
 
     const already = d.marker && comments.some((c) => String(c?.body || '').includes(d.marker));
@@ -912,7 +984,7 @@ function main() {
       gh(['issue', 'comment', String(iss.number), '--repo', REPO, '--body', note], { json: false });
       const routeArgs = ['issue', 'edit', String(iss.number), '--repo', REPO, '--add-label', add];
       if (visionApproved) routeArgs.push('--add-label', VISION_AUTONOMY_LABEL);
-      routeArgs.push('--remove-label', 'needs-human', '--remove-label', 'fu-parked');
+      routeArgs.push('--remove-label', 'needs-human', '--remove-label', AUTOMATION_DEFERRED_LABEL, '--remove-label', 'fu-parked');
       gh(routeArgs, { json: false });
       console.log(`PREPASS #${iss.number} → ${add} (${d.reason})`);
     } catch (e) {

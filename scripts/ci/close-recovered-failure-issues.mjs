@@ -103,7 +103,7 @@
  * IT DOES LABEL, though — since the chronic-recurrence gate (#249). The blast radius is
  * NOT "never edits" any more, and pretending otherwise is how the next reader gets
  * surprised: `applyChronicLabels()` runs `gh issue edit --add-label priority:urgent
- * --add-label needs-human --remove-label priority:high|medium|low` when a failure
+ * --add-label automation-deferred --remove-label priority:high|medium|low` when a failure
  * recurs past threshold, and `clearChronicLabels()` takes them back off when it stops.
  * Both are best-effort: a failing `gh` never changes the close/don't-close verdict.
  *
@@ -624,14 +624,14 @@ export function recurrenceHoldNote({ workflow, runUrl, decision } = {}) {
 // solo guasto cronico oggi osservabile continui a essere auto-chiuso a ogni run verde
 // e riaperto alla ricorrenza dopo, che è il difetto che questo file ripara.
 //
-// I LABEL. `priority:urgent` perché il costo misurato lo è, e `needs-human` perché
-// l'automazione ha già provato e si è fermata da sola: #249 porta `fu-parked`, che il
-// drainer mette dopo MAX_ATTEMPTS. Gli altri `priority:*` vengono tolti, come fa
+// I LABEL. `priority:urgent` perché il costo misurato lo è, e
+// `automation-deferred` perché l'automazione ha già provato e si è fermata da sola:
+// #249 porta `fu-parked`, che il drainer mette dopo MAX_ATTEMPTS. Gli altri `priority:*` vengono tolti, come fa
 // `setIssuePriorityLabel()` nel creator, per non lasciare due priorità in conflitto
 // sulla stessa issue. Best-effort: se un label non esiste nel repo, `gh` fallisce e
 // il gate resta comunque un hold — il label è la visibilità, non la decisione.
 //
-// I LABEL SI TOLGONO. `needs-human` è un filtro di ESCLUSIONE, non un selettore:
+// I LABEL SI TOLGONO. `automation-deferred` è un filtro di ESCLUSIONE, non un selettore:
 // `scripts/ci/followup-drainer.mjs` lo usa per tenere una issue fuori dal pool dei
 // retry parcheggiati (:1091) e fuori dal rescue `agent:fix` dei crawler (:1204).
 // Applicarlo e non toglierlo mai renderebbe l'escalation una porta a senso unico: la
@@ -661,7 +661,7 @@ export const DEFAULT_CHRONIC_WINDOW_HOURS = 168;
 /** Marker di idempotenza dell'escalation: label e commento una volta sola. */
 export const CHRONIC_MARKER = '<!-- CLOSE_RECOVERED: chronic-recurrence -->';
 /** I label che rendono visibile una issue cronica. */
-export const CHRONIC_LABELS = Object.freeze(['priority:urgent', 'needs-human']);
+export const CHRONIC_LABELS = Object.freeze(['priority:urgent', 'automation-deferred']);
 /** I `priority:*` che l'escalation rimuove per non lasciarne due in conflitto. */
 export const SUPERSEDED_PRIORITY_LABELS = Object.freeze(['priority:high', 'priority:medium', 'priority:low']);
 
@@ -721,9 +721,9 @@ export function chronicEscalationNote({ workflow, decision } = {}) {
     '',
     `Fin qui il ciclo la chiudeva a ogni run verde e il reporter la riapriva alla ricorrenza successiva: la issue viveva pochi minuti per volta e **non entrava mai né nella coda del fixer né in un triage umano**. Un guasto che ricorre non è un guasto risolto.`,
     '',
-    `Da adesso resta aperta con \`${CHRONIC_LABELS.join('`, `')}\` finché qualcuno la chiude a mano dopo aver applicato un fix. Le ricorrenze successive continuano ad accumularsi qui, in un thread solo.`,
+    `Da adesso resta aperta con \`${CHRONIC_LABELS.join('`, `')}\` finché il ciclo automatico applica un fix verificabile. Le ricorrenze successive continuano ad accumularsi qui, in un thread solo.`,
     '',
-    `Finché \`needs-human\` è applicata la issue compare nel digest giornaliero di \`recycle-stale-prs.yml\`. Se il guasto smette da solo e il conteggio rientra sotto ${d.threshold ?? DEFAULT_CHRONIC_RECURRENCES} nella finestra, questi label vengono tolti automaticamente e la issue torna nel flusso normale — l'escalation non è una porta a senso unico.`,
+    `Finché \`automation-deferred\` è applicata la issue resta fuori dalla coda attiva ma viene rivalutata dallo sweep autonomo. Se il guasto smette da solo e il conteggio rientra sotto ${d.threshold ?? DEFAULT_CHRONIC_RECURRENCES} nella finestra, questi label vengono tolti automaticamente e la issue torna nel flusso normale — l'escalation non è una porta a senso unico.`,
     '',
     CHRONIC_MARKER,
   ].join('\n');
@@ -732,7 +732,7 @@ export function chronicEscalationNote({ workflow, decision } = {}) {
 /**
  * Decide se TOGLIERE i label cronici. È la metà mancante di `applyChronicLabels()`.
  *
- * `needs-human` non è una segnalazione: è un filtro di esclusione letto da
+ * `automation-deferred` non è una segnalazione umana: è un filtro di esclusione tecnico letto da
  * `followup-drainer.mjs` (:1091 pool dei retry parcheggiati, :1204 rescue `agent:fix`
  * dei crawler). Lasciarlo appeso dopo che il guasto è rientrato esclude la issue da
  * ogni coda automatica anche alla riapertura successiva, cioè per sempre.
@@ -1150,6 +1150,16 @@ function latestCompletedCrawlerStepRun(slug) {
  * valida — il label è la visibilità, non il gate.
  */
 function applyChronicLabels(issueNumber) {
+  // Le label è introdotto dal nuovo percorso di defer e può non esistere nei
+  // repository già esistenti. Crearlo qui mantiene l'escalation osservabile
+  // senza trasformarla in un `needs-human` implicito.
+  gh([
+    'label', 'create', 'automation-deferred',
+    '--color', 'FBCA04',
+    '--description', 'Lavoro automatico differito da policy/capacità; rientra nello sweep',
+    '--force',
+    ...repoFlag(),
+  ], { allowFailure: true });
   const out = gh([
     'issue', 'edit', String(issueNumber),
     ...CHRONIC_LABELS.flatMap((l) => ['--add-label', l]),
@@ -1246,7 +1256,7 @@ function main() {
       }
 
       // Il conteggio è rientrato: se l'escalation c'era, i label cronici se ne vanno
-      // adesso. `needs-human` è un'esclusione dalle code del drainer, quindi lasciarlo
+      // adesso. `automation-deferred` è un'esclusione dalle code del drainer, quindi lasciarlo
       // appeso renderebbe l'escalation irreversibile anche dopo la riapertura.
       const deescalation = decideChronicDeescalation({ comments, labels: it.labels, decision: chronicDecision });
       if (deescalation.clear) {

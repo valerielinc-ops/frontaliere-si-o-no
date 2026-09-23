@@ -77,30 +77,29 @@ describe('verdictExitDecision — fail-safe nelle due direzioni', () => {
   });
 });
 
-describe('VERDICT-EXIT escalate — regressione #6427 (needs-human morto per sempre)', () => {
+describe('VERDICT-EXIT defer — regressione #6427 (stato tecnico morto per sempre)', () => {
   // `verdictExitDecision` è pura e non tocca le label — la mutazione vera
-  // (`edit(iss.number, { add, remove })`) vive inline nel branch `escalate` di
+  // (`deferAutomationIssue(iss.number, { add, remove })`) vive inline nel branch `escalate` di
   // `main()`, non esportata. Misurato il 2026-08-25 su #6427: quel branch
   // aggiungeva `needs-human` con `remove: []`, lasciando `agent:fix-queued`
-  // (o `agent:fix`) insieme a `needs-human` sull'issue. Il drainer esclude
-  // `needs-human` (riga ~1116/1651/1755), e il prepass `needs-human` per
+  // (o `agent:fix`) insieme al defer sull'issue. Il drainer esclude
+  // il defer (riga ~1116/1651/1755), e il prepass per
   // scelta non tocca issue "già in lavorazione" viste con quelle label — quindi
   // l'issue restava morta per sempre, esclusa da entrambi gli stadi. Non è
   // testabile via `verdictExitDecision` (pura, non chiama `edit`), quindi si
   // scansiona il sorgente: il branch escalate DEVE rimuovere `LBL_FIX` e
-  // `LBL_QUEUED` nello stesso `edit()` che aggiunge `needs-human`.
+  // `LBL_QUEUED` nello stesso defer che aggiunge `LBL_AUTOMATION_DEFERRED`.
   const src = readFileSync(DRAINER_SRC, 'utf8');
 
-  it('il branch "escalate" del VERDICT-EXIT rimuove agent:fix/agent:fix-queued', () => {
-    const marker = 'VERDICT-EXIT escalate #${iss.number}';
+  it('il branch "defer" del VERDICT-EXIT rimuove agent:fix/agent:fix-queued', () => {
+    const marker = 'VERDICT-EXIT defer #${iss.number}';
     const markerIdx = src.indexOf(marker);
-    expect(markerIdx, 'marker di log del branch escalate non trovato — il branch è stato rinominato?').toBeGreaterThan(-1);
-    // L'`editChecked()` che precede il log è la mutazione da verificare.
+    expect(markerIdx, 'marker di log del branch defer non trovato — il branch è stato rinominato?').toBeGreaterThan(-1);
     const before = src.slice(Math.max(0, markerIdx - 900), markerIdx);
-    const editCallIdx = before.lastIndexOf('editChecked(iss.number,');
-    expect(editCallIdx, 'editChecked() del branch escalate non trovato prima del log').toBeGreaterThan(-1);
-    const editCall = before.slice(editCallIdx);
-    expect(editCall, editCall).toContain("add: ['needs-human']");
+    const deferCallIdx = before.lastIndexOf('deferAutomationIssue(iss.number,');
+    expect(deferCallIdx, 'deferAutomationIssue() del branch defer non trovato prima del log').toBeGreaterThan(-1);
+    const editCall = before.slice(deferCallIdx);
+    expect(editCall, editCall).toContain('LBL_AUTOMATION_DEFERRED');
     expect(editCall, editCall).toContain('LBL_FIX');
     expect(editCall, editCall).toContain('LBL_QUEUED');
     expect(editCall, editCall).not.toContain('remove: []');

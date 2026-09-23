@@ -3,7 +3,8 @@ name: Issue decompose (Codex Luna Max → sub-issues)
 # Lo stadio di DECOMPOSIZIONE del ciclo autonomo (2026-08-21).
 #
 # Prima di questo workflow le issue "troppo grandi" uscivano dal ciclo: il
-# fixer moriva `error_max_turns` al primo tentativo → `fu-parked`+`needs-human`
+# fixer moriva `error_max_turns` al primo tentativo → `fu-parked`+
+# `automation-deferred`: il terminale tecnico non è una domanda al proprietario.
 # (stato assorbente), e i detector epic/backlog del drainer parcheggiavano con
 # un commento che CHIEDEVA lo scorporo in issue singole senza che nessun
 # automatismo lo eseguisse. Misurato sulla finestra 07→21/08: esito finale
@@ -171,7 +172,7 @@ jobs:
             **Triage preliminare — tre uscite rapide (scegli la prima che si applica):**
             - **Già risolta**: se la claim della issue non è più vera (rimisurala se il body contiene un comando; altrimenti verifica sul codice), posta un commento con la misura osservata e il comando che la riproduce, poi: `gh issue edit $ISSUE_NUMBER --add-label maybe-resolved --remove-label agent:decompose` e ultimo commento con `<!-- DECOMPOSE_OUTCOME: already-resolved -->`. STOP.
             - **Atomica**: se la issue descrive in realtà UNA sola causa con UN target chiaro (il max-turns era dovuto ad altro: diagnosi lunga, contesto mancante), NON scomporla artificialmente. Arricchisci la issue con un commento `## Scheda` (formato sotto — la scheda è ciò che fa risparmiare turni al fixer), poi `gh issue edit $ISSUE_NUMBER --add-label from-decompose --add-label agent:fix-queued --remove-label agent:decompose` e ultimo commento con `<!-- DECOMPOSE_OUTCOME: atomic-requeue -->`. (`from-decompose` = giudicata atomica: il drainer non la ri-decompone mai.) STOP.
-            - **Decisione del proprietario**: se lo scope richiede una decisione che VISION.md non copre o riserva esplicitamente al proprietario (dati personali/LPD, spese, invii massivi, ritiro di contenuti pubblicati, scelte editoriali), posta un commento che formula la DOMANDA DECIDIBILE (con le opzioni e la misura che serve a rispondere), poi `gh issue edit $ISSUE_NUMBER --add-label needs-human --remove-label agent:decompose` e ultimo commento con `<!-- DECOMPOSE_OUTCOME: needs-human-decision -->`. STOP.
+            - **Decisione del proprietario**: usa questa uscita SOLO se, dopo aver letto VISION.md e DECISIONS.md, manca davvero una decisione necessaria per scegliere lo scope. Non inferire un bisogno umano da dati personali/LPD, spese, invii massivi, ritiro di contenuti o scelte editoriali se i documenti hanno già una regola applicabile. Formula la DOMANDA DECIDIBILE con opzioni, evidenza richiesta e criterio di accettazione; poi `gh issue edit $ISSUE_NUMBER --add-label needs-human --remove-label automation-deferred --remove-label agent:decompose` e ultimo commento con `<!-- DECOMPOSE_OUTCOME: needs-human-decision -->` e `<!-- OWNER_DECISION_REQUEST: ... -->`. STOP.
 
             **Decomposizione (il caso normale):**
             1. Identifica da 2 a 6 unità di lavoro ATOMICHE: una root cause ciascuna, un insieme di file target ciascuna, indipendenti fra loro dove possibile. Se le unità naturali sono più di 6: crea le 5 di massimo valore (funnel: revenue > SEO > stabilità > resto) più UNA issue-contenitore con l'elenco del residuo — la issue-contenitore NON riceve `from-decompose`, così il ciclo la ri-decompone al giro successivo (convergenza: ogni giro chiude ≥5 unità).
@@ -200,8 +201,8 @@ jobs:
             - NON modificare file del repo, NON aprire PR, NON implementare fix. Solo lettura + issue.
             - Massimo 6 figlie nuove per run. Mai una figlia che sia a sua volta un contenitore (eccetto l'unica issue-contenitore residua del punto 1).
             - Ogni riferimento al padre nelle figlie è `Parent: #N` — MAI `Closes`/`Fixes`/`Resolves` adiacente a `#N` (chiuderebbe il padre al primo merge).
-            - Se dopo l'analisi non riesci a produrre NEMMENO una scheda valida (contesto insufficiente, misure irriproducibili), trattala come «decisione del proprietario»: commento con ciò che manca + `needs-human` + `<!-- DECOMPOSE_OUTCOME: needs-human-decision -->`.
-            - L'ULTIMO commento che posti sul padre deve SEMPRE contenere un marker `<!-- DECOMPOSE_OUTCOME: <code> -->` con `<code>` ∈ `decomposed-K` · `atomic-requeue` · `needs-human-decision` · `already-resolved`.
+            - Se dopo l'analisi non riesci a produrre NEMMENO una scheda valida (contesto insufficiente, misure irriproducibili), è un handoff tecnico: assicurati che esista la label `automation-deferred` (`gh label create automation-deferred --repo $REPO --color FBCA04 --description "Lavoro automatico differito da policy/capacità; rientra nello sweep" --force`), poi `gh issue edit $ISSUE_NUMBER --add-label automation-deferred --remove-label agent:decompose` e commenta ciò che manca con `<!-- DECOMPOSE_OUTCOME: automation-deferred -->` e `<!-- AUTOMATION_DEFERRED: technical -->`. Non chiedere al proprietario una decisione che i documenti non richiedono.
+            - L'ULTIMO commento che posti sul padre deve SEMPRE contenere un marker `<!-- DECOMPOSE_OUTCOME: <code> -->` con `<code>` ∈ `decomposed-K` · `atomic-requeue` · `needs-human-decision` · `automation-deferred` · `already-resolved`.
 
       # Backstop deterministico: garantisce che OGNI run lasci un marker
       # DECOMPOSE_OUTCOME interrogabile, anche quando la CLI muore prima di
@@ -222,7 +223,7 @@ jobs:
           gh issue comment "$ISSUE" --body "$(printf '<!-- DECOMPOSE_OUTCOME: no-outcome -->\n_Outcome rilevato dal post-step deterministico (run morta senza verdetto): il rescue del drainer ri-armerà o parcheggerà._')" || true
 
       # Colore del job = lavoro reale: verde se il run ha lasciato un verdetto
-      # (decomposed/atomic/needs-human/already-resolved), rosso se la CLI è
+      # (decomposed/atomic/needs-human/automation-deferred/already-resolved), rosso se la CLI è
       # morta senza produrre nulla (segnale per loop-health; il recupero è del
       # rescue decompose nel drainer).
       - name: Classify outcome (work-done, not CLI exit)
@@ -233,7 +234,7 @@ jobs:
           ACTION_OUTCOME: ${{ steps.codex_decompose.outcome }}
         run: |
           set -uo pipefail
-          DONE=$(gh issue view "$ISSUE" --json comments --jq '[.comments[].body | select(test("<!-- DECOMPOSE_OUTCOME: (decomposed-[0-9]+|atomic-requeue|needs-human-decision|already-resolved) -->"))] | length' 2>/dev/null || echo 0)
+          DONE=$(gh issue view "$ISSUE" --json comments --jq '[.comments[].body | select(test("<!-- DECOMPOSE_OUTCOME: (decomposed-[0-9]+|atomic-requeue|needs-human-decision|automation-deferred|already-resolved) -->"))] | length' 2>/dev/null || echo 0)
           echo "issue=$ISSUE outcome-markers=$DONE action=$ACTION_OUTCOME"
           if [ "${DONE:-0}" != "0" ]; then
             echo "✓ verdetto di decomposizione presente → run SUCCESS (anche se la CLI è uscita '$ACTION_OUTCOME')."

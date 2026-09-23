@@ -28,10 +28,13 @@ Dal 2026-08-24 (istruzione diretta del proprietario) NON esiste più una lista d
 categorie riservate all'umano: la sezione «Sempre umano» che stava qui, e che
 per un mese ha coperto LPD, denaro, invii massivi, ritiro editoriale, scope
 prodotto e infrastruttura irreversibile, è stata rimossa in blocco — vedi la
-riga del 2026-08-24 nel registro sotto. `needs-human` resta un segnale
-operativo per i blocchi di CAPACITÀ reale delle issue (credenziale mancante,
-scope insufficiente, causa non trovata), non una categoria di decisione. Sulla
-superficie PR è solo tracking: non blocca auto-merge, autorebase o dispatch.
+riga del 2026-08-24 nel registro sotto. `needs-human` è ora esclusivamente il
+canale per una **decisione del proprietario realmente mancante**, formulata come
+domanda decidibile. Un deny tecnico, una capability non disponibile, un timeout,
+un body insufficiente o una root-cause non ancora convergente usano
+`automation-deferred`: sono handoff interni che lo sweep deve risolvere senza
+chiedere input umano. Sulla superficie PR `needs-human` è solo tracking: non
+blocca auto-merge, autorebase o dispatch.
 
 <!-- AUTONOMY_CONTRACT: vision-v1 -->
 
@@ -48,9 +51,27 @@ F1/F7 e il control-plane restano veto deny-by-default sulla superficie issue:
 `agent:vision-approved` è provenienza del rientro e non sostituisce il risk
 gate. Restano obbligatori i controlli indipendenti: metadata e file-list
 completi, capability guard per workflow/secret, causa determinata, diff gate,
-test, review e gate `## LGTM`. Un blocco reale osservato durante il run torna a
-`needs-human` e la label transitoria viene rimossa; il pre-pass lo rivaluta al
-giro successivo secondo questa stessa regola.
+test, review e gate `## LGTM`. Un blocco tecnico osservato durante il run torna
+ad `automation-deferred` e la label transitoria viene rimossa; il pre-pass lo
+riapre solo dopo un input diverso o una policy cambiata. Se invece manca una
+decisione del proprietario, l'agente posta `OWNER_DECISION_REQUEST`, mantiene
+`needs-human` e non procede finché la risposta non è stata aggiunta a
+`DECISIONS.md`.
+
+### Protocollo per le decisioni mancanti
+
+Prima di aggiungere `needs-human`, ogni agente cerca la risposta in questo file,
+in `DECISIONS.md`, nel body e nei commenti dell'issue. Se la risposta esiste,
+la applica e cita il driver: non chiede nulla. Se non esiste, crea una sola
+domanda concreta con opzioni, evidenza necessaria e criterio di accettazione,
+posta `<!-- OWNER_DECISION_REQUEST: ... -->` e mantiene l'issue nel digest.
+
+Quando il proprietario risponde, l'agente che raccoglie la risposta aggiunge
+una riga a `DECISIONS.md` nella stessa modifica e lascia il riferimento
+all'issue. Il pre-pass riconosce la riga incondizionata, rimuove
+`needs-human`/`automation-deferred` e reimmette automaticamente l'issue in
+`agent:fix-queued` o `agent:decompose-queued`. Una risposta non può quindi
+restare solo nella conversazione né generare la stessa domanda in futuro.
 
 ## Missione e north-star
 
@@ -111,12 +132,13 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
 - **D5 — Un'issue grande si scorpora, non si parcheggia.** Lo stadio di
   decomposizione (ISSUES.md → «Stadio di decomposizione») è il percorso di
   default per tutto ciò che non sta in un run — comprese le decisioni di
-  prodotto/business, dal 2026-08-24. `needs-human` è riservato ai soli blocchi
-  di capacità reale delle issue; su una PR resta tracking e non è un veto di
-  merge o di autorebase.
+  prodotto/business, dal 2026-08-24. `needs-human` è riservato alle decisioni del
+  proprietario realmente mancanti; i blocchi tecnici vanno in
+  `automation-deferred`, che ha un percorso di rientro autonomo. Su una PR
+  `needs-human` resta tracking e non è un veto di merge o di autorebase.
 
   **Un SECONDO livello di scorporo è escluso, e la ragione è misurata
-  (2026-09-04).** Il drainer manda in `needs-human` le `from-decompose` che
+  (2026-09-04).** Il drainer manda in `automation-deferred` le `from-decompose` che
   esauriscono il turn-budget, perché `isDecomposeEligible` esclude
   `from-decompose` e `decomposed:1`: sembra un pozzo da tappare ammettendo la
   profondità 2. Non lo è. Su 253 issue del sito con un verdetto `FIX_OUTCOME`
@@ -128,7 +150,7 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
   a ogni dimensione. Chi vuole abbassare quel tasso guardi il volume dell'output
   e il prompt, non la granularità della issue.
 
-  E il collo di bottiglia di `needs-human` non è nemmeno lo scorporo: è
+  E il collo di bottiglia del backlog differito non è nemmeno lo scorporo: è
   l'USCITA. Il pre-pass deterministico drena solo le famiglie che riconosce —
   misurato in produzione lo stesso giorno, `requeue=6 decompose=2 keep=41` — e
   le `keep` passano da un run agentico settimanale con cap 15. Allargare il

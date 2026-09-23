@@ -73,7 +73,7 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(gate).toContain('needs-human');
     expect(gate).toContain('remove_label_idempotently "agent:fix"');
     expect(gate).toContain('remove_label_idempotently "agent:fix-queued"');
-    expect(gate).toContain('--add-label "needs-human"');
+    expect(gate).toContain('--add-label "automation-deferred"');
     expect(gate).not.toContain('Mint GitHub App token');
     expect(workflow).toContain('needs: risk_policy');
     expect(workflow).toContain("needs.risk_policy.outputs.blocked != 'true'");
@@ -422,7 +422,7 @@ describe('issue-fix F1/F7 policy gate', () => {
     expect(risk).toContain('label $label già assente — cleanup idempotente');
     expect(risk).toContain('label $label rimossa da un\'operazione concorrente');
     expect(risk).toContain('shape delle label non verificabile');
-    expect(risk).toContain('F1/F7 escalation label non applicata');
+    expect(risk).toContain('defer F1/F7 non applicato');
   });
 });
 

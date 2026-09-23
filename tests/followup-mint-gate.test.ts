@@ -34,6 +34,7 @@ import {
   isLosslessSplit,
   canMintQueueLabel,
   hasNeedsHumanLabel,
+  hasAutomationDeferredLabel,
 } from '../scripts/ci/gate-minted-followups.mjs';
 import { citedTokens, hasFalsifiableAcceptance, splitFollowupItems } from '../scripts/ci/followup-resolution-match.mjs';
 
@@ -125,6 +126,12 @@ describe('gate sul conio — comportamento', () => {
       expect(canMintQueueLabel({ labels })).toBe(false);
     }
     expect(canMintQueueLabel({})).toBe(false);
+  });
+
+  it('automation-deferred blocca una nuova coda finché lo sweep non cambia l’input', () => {
+    const issue = { labels: [{ name: 'automation-deferred' }] };
+    expect(hasAutomationDeferredLabel(issue)).toBe(true);
+    expect(canMintQueueLabel(issue)).toBe(false);
   });
 
   it('sopprime l\'aggregata in cui NESSUN item porta una condizione falsificabile', () => {
