@@ -138,10 +138,15 @@ function assertCompleteTsmgSourceSnapshot(payload) {
         + `country "${country}" is not a recognised country value`,
       );
     }
-    if (normalizedCountry === 'CH' && (
-      isLocationExplicitlyForeign(normalizedLocation)
-      || !inferAnyCanton(normalizedLocation)
-    )) {
+    // A provider can mark a posting as CH while the location field explicitly
+    // names another country. That is a source classification error, not a
+    // reason to discard the whole authoritative snapshot: the caller filters
+    // this row as non-CH below. Unknown Swiss-looking locations remain
+    // fail-closed because they do not provide enough geography evidence.
+    if (normalizedCountry === 'CH' && isLocationExplicitlyForeign(normalizedLocation)) {
+      continue;
+    }
+    if (normalizedCountry === 'CH' && !inferAnyCanton(normalizedLocation)) {
       throw new Error(
         `TSMG Lever returned a degraded snapshot at posting ${index + 1}: `
         + `categories.location "${normalizedLocation}" is not a recognised Swiss location`,
@@ -157,6 +162,12 @@ function normalizeTsmgCountry(value = '') {
   if (classification === 'CH') return 'CH';
   if (classification === 'foreign') return 'FOREIGN';
   return '';
+}
+
+function isTsmgSwissPosting(job = {}) {
+  const country = normalizeTsmgCountry(job?.country);
+  const location = String(job?.categories?.location || '').trim();
+  return country === 'CH' && !isLocationExplicitlyForeign(location);
 }
 
 function isTargetJob(job = {}) {
@@ -329,7 +340,7 @@ async function main() {
   // is allowed to be empty.
   const rawJobs = assertCompleteTsmgSourceSnapshot(await fetchJson(API_URL));
   const authoritativeSnapshotVerified = true;
-  const swiss = rawJobs.filter((job) => normalizeTsmgCountry(job.country) === 'CH');
+  const swiss = rawJobs.filter(isTsmgSwissPosting);
   const foreignDiscarded = rawJobs.length - swiss.length;
   const target = swiss.filter((job) => isTsmgTargetLocation(job?.categories?.location || ''));
   const authoritativeEmptySnapshot = target.length === 0;
@@ -399,4 +410,4 @@ if (isInvokedDirectly(import.meta.url)) {
   main().catch((err) => exitCrawlerOnError(err, 'TSMG'));
 }
 
-export { assertCompleteTsmgSourceSnapshot, normalizeTsmgCountry };
+export { assertCompleteTsmgSourceSnapshot, isTsmgSwissPosting, normalizeTsmgCountry };
