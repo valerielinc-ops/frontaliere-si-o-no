@@ -143,6 +143,37 @@ rmdir "$lock"
   );
 
   it.each(['prospective', 'rest'] as const)(
+    'refills a free %s worker slot before the slowest active slice completes',
+    (lane) => {
+      const fixture = fixtureRoot({ prospectiveCount: 8, restCount: 8 });
+      writeFileSync(
+        join(fixture.bin, 'node'),
+        `#!/bin/sh
+set -eu
+slice="$JOBS_SLICE_FILE"
+printf 'start:%s\\n' "$slice" >> "$HOUSEKEEPING_TEST_LOG"
+case "$slice" in
+  *-0.json) sleep 0.2 ;;
+  *) sleep 0.01 ;;
+esac
+printf 'done:%s\\n' "$slice" >> "$HOUSEKEEPING_TEST_LOG"
+`,
+      );
+      chmodSync(join(fixture.bin, 'node'), 0o755);
+
+      const result = runLane(lane, fixture.bin, fixture.root, fixture.log);
+      const lines = readFileSync(fixture.log, 'utf8').trim().split('\n');
+      const replacementStart = lines.indexOf(`start:data/jobs/by-crawler/${lane}-4.json`);
+      const slowestDone = lines.indexOf(`done:data/jobs/by-crawler/${lane}-0.json`);
+
+      expect(result.status).toBe(0);
+      expect(replacementStart).toBeGreaterThanOrEqual(0);
+      expect(slowestDone).toBeGreaterThanOrEqual(0);
+      expect(replacementStart).toBeLessThan(slowestDone);
+    },
+  );
+
+  it.each(['prospective', 'rest'] as const)(
     'fails closed when a %s worker fails',
     (lane) => {
       const fixture = fixtureRoot({ prospectiveCount: 2, restCount: 2 });
