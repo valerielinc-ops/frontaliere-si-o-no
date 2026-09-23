@@ -335,7 +335,7 @@ test('il reporter diagnostico usa identita e workflow standalone corpus richiudi
       assert.match(text, /name: Report failure to GitHub Issues/);
     }
   }
-  assert.equal(reporterCount, 24);
+  assert.equal(reporterCount, CONTRACT.artifactCount);
 });
 
 test('nessun artifact usa codeload/reusable cross-repo o replica la logica dopo un fallimento parziale', () => {
