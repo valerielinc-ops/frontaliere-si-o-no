@@ -65,9 +65,9 @@ describe('GptRewardedAd', () => {
     vi.clearAllMocks();
   });
 
-  it('uses the rewarded unit selected by the published Offerwall', () => {
+  it('uses the dedicated Ad Manager rewarded unit', () => {
     expect(ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH).toBe(
-      '/23355151813/Offerwall-Ad-Unit-5b9baedaa76b805f',
+      '/23355151813/rewarded-application-video',
     );
   });
 

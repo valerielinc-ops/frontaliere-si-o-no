@@ -7282,6 +7282,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
     onCompleted={handleRewardedApplicationCompleted}
     onUnavailable={handleRewardedApplicationUnavailable}
+    onDismiss={() => setRewardedApplicationJob(null)}
    />
   </Suspense>
  ) : null;

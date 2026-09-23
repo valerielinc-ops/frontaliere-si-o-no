@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import { createPortal } from 'react-dom';
 import { ArrowUpRight, Check, Loader2, Shield, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
 import {
@@ -44,16 +45,21 @@ export default function AssistedApplicationOffer({
   }, [companyId, jobId, variant]);
 
   useEffect(() => {
+    const previousOverflow = document.body.style.overflow;
+    document.body.style.overflow = 'hidden';
     const handleKeyDown = (event: KeyboardEvent) => {
       if (event.key === 'Escape') onClose();
     };
     document.addEventListener('keydown', handleKeyDown);
-    return () => document.removeEventListener('keydown', handleKeyDown);
+    return () => {
+      document.body.style.overflow = previousOverflow;
+      document.removeEventListener('keydown', handleKeyDown);
+    };
   }, [onClose]);
 
-  return (
+  const modal = (
     <div
-      className="fixed inset-0 z-[110] flex items-end justify-center bg-black/45 px-4 py-4 backdrop-blur-sm sm:items-center sm:py-6"
+      className="fixed inset-0 z-[1000] isolate flex min-h-[100dvh] items-end justify-center overflow-y-auto bg-black/55 px-3 py-4 pb-[calc(env(safe-area-inset-bottom,0px)+1rem)] pt-[calc(env(safe-area-inset-top,0px)+1rem)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-6"
       onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}
       data-testid="assisted-application-offer"
     >
@@ -62,7 +68,7 @@ export default function AssistedApplicationOffer({
         aria-modal="true"
         aria-labelledby="assisted-application-offer-title"
         aria-describedby="assisted-application-offer-description"
-        className="relative max-h-[min(90vh,42rem)] w-full max-w-md overflow-y-auto rounded-stripe border border-edge bg-surface p-5 shadow-stripe-lg sm:p-6"
+        className="relative my-auto max-h-[calc(100dvh-2rem)] w-full max-w-md overflow-y-auto overscroll-contain rounded-stripe border border-edge bg-surface p-4 shadow-stripe-lg sm:max-h-[min(90dvh,42rem)] sm:p-6"
       >
         <div className="space-y-5">
           <div className="flex items-start justify-between gap-4">
@@ -136,4 +142,6 @@ export default function AssistedApplicationOffer({
       </div>
     </div>
   );
+
+  return typeof document === 'undefined' ? modal : createPortal(modal, document.body);
 }

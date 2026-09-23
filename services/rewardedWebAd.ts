@@ -6,14 +6,13 @@ import { isAdsConsentGranted } from '@/services/adsConsent';
 import { preloadRewardedHouseVideo } from '@/services/rewardedHouseVideo';
 
 /**
- * The rewarded unit selected by the published Offerwall message.
+ * Dedicated Ad Manager rewarded unit for the job-board GPT request.
  *
- * The Italian job-board surface uses the same inventory through the explicit
- * GPT API because the native Offerwall is suppressed there. Keeping this
- * path aligned with the published Offerwall is important: the separate
- * manual unit has no observed delivery in the production Ad Manager network.
+ * Offerwall units belong to the Offerwall product flow and are not the
+ * inventory target for a custom GPT rewarded slot. This unit is configured
+ * with a rewarded VAST size and AdSense backfill in the production network.
  */
-export const ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH = '/23355151813/Offerwall-Ad-Unit-5b9baedaa76b805f';
+export const ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH = '/23355151813/rewarded-application-video';
 
 export const REWARDED_READY_TIMEOUT_MS = 10_000;
 
