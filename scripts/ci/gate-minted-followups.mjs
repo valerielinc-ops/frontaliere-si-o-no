@@ -111,6 +111,7 @@ const COLLECTION_OK = process.env.COLLECTION_OK === 'true';
 // in cui sbagliare, perché il testo degli item è già al sicuro sulla PR e un commento
 // duplicato costa una riga, mentre perderli è irreversibile.
 const MINT_GATE_MARKER = '<!-- followup-mint-gate -->';
+export const AUTOMATION_DEFERRED_LABEL = 'automation-deferred';
 
 /** Labels are part of the queue admission snapshot, not an optional hint. */
 function issueLabelName(label) {
@@ -129,9 +130,22 @@ export function hasNeedsHumanLabel(issue) {
     && issue.labels.some((label) => issueLabelName(label).toLowerCase() === 'needs-human');
 }
 
+export function hasAutomationDeferredLabel(issue) {
+  return Array.isArray(issue?.labels)
+    && issue.labels.some((label) => issueLabelName(label).toLowerCase() === AUTOMATION_DEFERRED_LABEL);
+}
+
+function queueBlockReason(issue) {
+  if (hasNeedsHumanLabel(issue)) return 'needs-human veto';
+  if (hasAutomationDeferredLabel(issue)) return `${AUTOMATION_DEFERRED_LABEL} handoff tecnico`;
+  return 'labels non verificabili';
+}
+
 /** Missing labels are unverifiable: never mint a new fixer queue entry. */
 export function canMintQueueLabel(issue) {
-  return issueLabelsAreVerifiable(issue?.labels) && !hasNeedsHumanLabel(issue);
+  return issueLabelsAreVerifiable(issue?.labels)
+    && !hasNeedsHumanLabel(issue)
+    && !hasAutomationDeferredLabel(issue);
 }
 
 /**
@@ -699,7 +713,7 @@ function gh(args, { allowFail = false, token = process.env.GH_TOKEN } = {}) {
 
 function addQueueLabelIfEligible(issue, repoArgs) {
   if (!canMintQueueLabel(issue)) {
-    const reason = hasNeedsHumanLabel(issue) ? 'needs-human veto' : 'labels non verificabili';
+    const reason = queueBlockReason(issue);
     console.log('#' + (issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (' + reason + ').');
     return false;
   }
@@ -718,7 +732,7 @@ function addQueueLabelIfEligible(issue, repoArgs) {
     return false;
   }
   if (!canMintQueueLabel(latest)) {
-    const reason = hasNeedsHumanLabel(latest) ? 'needs-human veto' : 'labels non verificabili';
+    const reason = queueBlockReason(latest);
     console.log('#' + (latest.number || issue?.number || 'unknown') + ': nessuna nuova agent:fix-queued (' + reason + ').');
     return false;
   }
@@ -1112,7 +1126,7 @@ function main() {
           const queueMessage = queueEligible
             ? '✅ Daily bucket sigillato in modo deterministico: tutti gli item hanno ID stabile e acceptance verificabile. Ora può essere accodato a agent:fix-queued.'
             : '⚠️ Daily bucket sigillato, ma '
-              + (hasNeedsHumanLabel(iss) ? 'needs-human è presente' : 'labels non verificabili')
+              + (queueBlockReason(iss) === 'labels non verificabili' ? 'labels non verificabili' : `${queueBlockReason(iss)} è presente`)
               + ': nessuna nuova coda automatica.';
           gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
             MINT_GATE_MARKER + '\n' + queueMessage], { allowFail: true });
@@ -1234,10 +1248,10 @@ function main() {
             } else {
               gh(['issue', 'comment', String(iss.number), ...repoArgs, '--body',
                 MINT_GATE_MARKER + '\n⚠️ Dopo la demozione il daily bucket resta sigillato, ma '
-                  + (hasNeedsHumanLabel(iss) ? 'needs-human è presente' : 'labels non verificabili')
+                  + (queueBlockReason(iss) === 'labels non verificabili' ? 'labels non verificabili' : `${queueBlockReason(iss)} è presente`)
                   + ': nessuna nuova coda automatica.'], { allowFail: true });
               console.log('#' + iss.number + ': demozione sigillata senza nuova coda ('
-                + (hasNeedsHumanLabel(iss) ? 'needs-human veto' : 'labels non verificabili') + ').');
+                + queueBlockReason(iss) + ').');
             }
           }
           report.push(d.action === 'dedupe'

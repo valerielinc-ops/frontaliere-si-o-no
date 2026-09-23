@@ -12,9 +12,12 @@
  *
  * `autofix` resta disponibile per le categorie ordinarie, ma la policy F1/F7
  * (`scripts/ci/lib/automation-risk-policy.mjs`) ha precedenza: i domini ad
- * alto rischio sono `route='none'`, `autofix=false` e richiedono gestione umana
- * separata. Anche un errore del chiamante che non fornisce una classificazione
- * valida non abilita un percorso nuovo: il routing effettivo resta nel workflow.
+ * alto rischio sono `route='none'`, `autofix=false` e vengono differiti in
+ * modo automatico. `needs-human` resta riservata a una decisione del
+ * proprietario realmente mancante; il deny tecnico non deve trasformarsi in un
+ * veto umano assorbente. Anche un errore del chiamante che non fornisce una
+ * classificazione valida non abilita un percorso nuovo: il routing effettivo
+ * resta nel workflow.
  *
  * route — COME applicare il fix (2026-06-04, anti-starvation):
  *   'fix'   → agent:fix immediato (crawler: production-critical, basso volume,
@@ -74,6 +77,7 @@ import {
  * sarebbe reintrodurre di soppiatto una guardrail di categoria.
  */
 export const FIXER_EXEMPT_LABELS = ['keep-open', 'agent:no-age-out'];
+export const AUTOMATION_DEFERRED_LABEL = 'automation-deferred';
 
 /**
  * Questa issue è pinnata fuori dal ciclo di fix automatico? Pura → testabile.
@@ -141,7 +145,13 @@ export function classifyIssue(title = '', labels = [], body = '', options = {}) 
   // Per le issue ordinarie il pin conserva la categoria leggibile ma toglie il
   // routing, come prima.
   const exempt = isFixerExempt(labels);
-  const automationBlocked = risk.blocked || !risk.verifiable;
+  const riskBlocked = risk.blocked || !risk.verifiable;
+  // `automation-deferred` è un pin operativo, non una decisione umana. Il
+  // prepass può chiedere esplicitamente di ignorarlo quando verifica se la
+  // capacità/policy che l'ha generato è cambiata.
+  const automationDeferred = has('automation-deferred')
+    && options?.ignoreAutomationDeferred !== true;
+  const automationBlocked = riskBlocked || automationDeferred;
   const autofix = !exempt && !automationBlocked;
   const route = automationBlocked || exempt
     ? 'none'
@@ -164,7 +174,9 @@ export function classifyIssue(title = '', labels = [], body = '', options = {}) 
     fuPrio,
     policyVersion: risk.policyVersion,
     automationBlocked,
-    humanApprovalRequired: risk.humanApprovalRequired || automationBlocked,
+    riskBlocked,
+    automationDeferred,
+    humanApprovalRequired: risk.humanApprovalRequired || risk.needsHumanVeto,
     riskDomains: risk.domains,
     riskReason: risk.reason,
     riskDecision: risk.decision,

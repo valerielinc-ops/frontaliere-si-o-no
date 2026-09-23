@@ -38,8 +38,8 @@
  * every one of them ends in `.*`. The valve stayed shut, the single `.yml` line decided
  * the verdict, and the detector answered "exclusively workflow-scoped" about an issue
  * whose fix is almost entirely a generation-pipeline change. Downstream that is terminal:
- * `blocked-workflows-scope` → `fu-parked` → with `needs-human` it becomes owner-only work
- * forever. A silently-too-narrow valve on a rule whose docstring says "bias to PROMOTE"
+ * `blocked-workflows-scope` → `fu-parked` → with `automation-deferred` it enters the
+ * autonomous sweep instead of becoming owner-only work forever. A silently-too-narrow valve on a rule whose docstring says "bias to PROMOTE"
  * is worse than no valve: it reads as protected and is not.
  *
  * Two changes restore the declared behaviour, in opposite directions and for opposite

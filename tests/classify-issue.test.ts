@@ -110,6 +110,7 @@ describe('classifyIssue', () => {
       route: 'none',
       autofix: false,
       automationBlocked: true,
+      riskBlocked: true,
       humanApprovalRequired: true,
     });
     expect(out.riskDomains).toEqual(expect.arrayContaining([
@@ -371,6 +372,29 @@ describe('policy automazione F1/F7', () => {
       needsHumanVeto: true,
       humanApprovalRequired: true,
     });
+  });
+
+  it('treats automation-deferred as a technical pin, separate from the owner veto', () => {
+    expect(classifyAutomationRisk({
+      title: 'follow-up: safe maintenance',
+      body: 'A deterministic maintenance change with a complete safe path.',
+      labels: ['automation-deferred'],
+      category: 'follow-up',
+      paths: ['src/safe.ts'],
+      pathsComplete: true,
+      surface: 'issue',
+    })).toMatchObject({ blocked: false, decision: 'allow', needsHumanVeto: false });
+    expect(classifyIssue('follow-up: safe maintenance', ['follow-up', 'automation-deferred'], 'A deterministic maintenance change.', {
+      ignoreAutomationDeferred: true,
+    })).toMatchObject({
+      automationDeferred: false,
+      riskBlocked: false,
+      automationBlocked: false,
+      route: 'queue',
+      humanApprovalRequired: false,
+    });
+    expect(classifyIssue('follow-up: safe maintenance', ['follow-up', 'automation-deferred'], 'A deterministic maintenance change.'))
+      .toMatchObject({ automationDeferred: true, riskBlocked: false, automationBlocked: true, route: 'none' });
   });
 
   it('VISION.md è provenienza del rientro, non un bypass del veto F1/F7/control-plane', () => {

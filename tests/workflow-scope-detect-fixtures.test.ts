@@ -2,8 +2,9 @@
  * workflow-scope-detect — verdicts pinned to REAL issue bodies (issue #5595).
  *
  * The detector decides whether the autonomous fixer is allowed to attempt an issue at
- * all: a `true` verdict removes `agent:fix`, adds `blocked-workflows-scope` + `fu-parked`,
- * and — once `needs-human` lands downstream — makes the issue owner-only work for good.
+ * all: a `true` verdict removes `agent:fix`, adds `blocked-workflows-scope` +
+ * `automation-deferred` + `fu-parked`, and sends the issue back to the autonomous
+ * sweep instead of turning a technical capability block into an owner-only task.
  * A wrong `true` therefore does not delay a fix, it buries one, and the argument about
  * whether a given body "reads as workflow-only" is exactly the kind of argument that
  * cannot be settled by opinion. So it is settled by the bodies themselves.

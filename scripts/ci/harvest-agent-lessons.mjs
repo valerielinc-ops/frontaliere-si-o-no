@@ -527,11 +527,11 @@ export function isAvoidableAlreadyFixed(title, labels, body = '') {
 //      ALL items in one run blows the budget by construction (#2332 = 5 items). The
 //      circuit-breaker already caps the run at ONE item; a death here is the
 //      multi-item attempt the breaker is meant to stop, not a fixable loop.
-//   2. Issues the drainer has ALREADY PARKED `needs-human` (malformed body / network
+//   2. Issues the drainer has ALREADY PARKED `automation-deferred` (malformed body / network
 //      -audit / repeated-death too-large): the deterministic pre-flight detected the
 //      structural non-fixability and stopped re-queueing. The lingering marker is the
 //      run that triggered the park, expected — not preventable burn.
-// Single-item, still-routable follow-ups that die at the cap (no `needs-human`) are
+// Single-item, still-routable follow-ups that die at the cap (no `automation-deferred`) are
 // the genuine signal — a fixable loop the budget should have covered → countable.
 // Same feedback-loop class as isAvoidableAlreadyFixed. Pure → unit-tested.
 // `labels` is an array of label-name strings.
@@ -607,7 +607,9 @@ export function isAvoidableMaxTurns(title, labels, delivery = false, body = '') 
   // (4) commits on `fix/issue-<N>` ahead of main → the run delivered recoverable work.
   if (hasRecoverableBranch) return false;
   // (2) drainer already parked it as structurally non-fixable → expected death.
-  if (names.includes('needs-human')) return false;
+  // `needs-human` resta compatibile per le decisioni reali del proprietario;
+  // `automation-deferred` è il percorso tecnico oggi prodotto dal drainer.
+  if (names.includes('needs-human') || names.includes('automation-deferred')) return false;
   // (1) aggregate multi-item/daily bucket → over-budget by construction
   // (circuit-breaker target), not a fixable loop. Reuse the shared predicate;
   // its explicit analytics mode keeps ordinary body prose from changing burn.
@@ -1037,7 +1039,7 @@ async function main() {
       if (code === 'already-fixed' && !isAvoidableAlreadyFixed(issue.title, labelNames, issue.body || '')) continue;
       // `max-turns` on an aggregate multi-item issue (over-budget by construction,
       // the per-item circuit-breaker's target) or on an issue the drainer has already
-      // parked `needs-human` (structurally non-fixable: malformed body / network-audit
+      // parked `automation-deferred` (structurally non-fixable: malformed body / network-audit
       // / repeated-death) is an EXPECTED deterministic death, not a fixable loop → no
       // actionable structural fix beyond what shipped (#2291 + circuit-breaker), so
       // don't escalate it (root cause of #2439: bucket re-fired at 14/14d, examples
