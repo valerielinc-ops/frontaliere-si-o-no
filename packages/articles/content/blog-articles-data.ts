@@ -35537,6 +35537,15 @@ const RAW_ARTICLES = [
  authorSlug: 'marco-ferrari',
  authorName: 'Marco Ferrari',
  },
+ {
+ id: 'parco-veicoli-ticino-settembre-2026',
+ category: 'pratico',
+ date: '2026-09-23T11:09:06.962Z',
+ image: '/images/blog/parco-veicoli-ticino-settembre-2026.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)
