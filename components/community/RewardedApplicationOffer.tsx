@@ -197,6 +197,7 @@ export default function RewardedApplicationOffer({
             <button
               type="button"
               onClick={onDismiss}
+              autoFocus
               className="inline-flex min-h-[44px] min-w-[44px] shrink-0 items-center justify-center rounded-stripe text-muted transition-colors hover:bg-surface-raised hover:text-heading focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-accent focus-visible:ring-offset-2"
               aria-label="Chiudi"
               data-testid="rewarded-application-offer-close"
