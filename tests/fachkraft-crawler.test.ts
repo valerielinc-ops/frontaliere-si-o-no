@@ -233,7 +233,7 @@ describe('fachkraft.ch GmbH crawler parser', () => {
       expect(rows[1]).toMatchObject({ location: '', addressRegion: '' });
     });
 
-    it('rejects malformed or duplicate listing snapshots instead of under-collecting', () => {
+    it('rejects malformed or same-page duplicate listing snapshots instead of under-collecting', () => {
       expect(() => parseFachkraftListingPage('<html></html>')).toThrow(/no ff-job-entry/i);
       const duplicate = listingCard({ title: 'Polymechaniker/in', path: 'same-123' });
       expect(() => parseFachkraftListingPage(listingHtml(duplicate, duplicate))).toThrow(/duplicate URL/i);
@@ -282,6 +282,60 @@ describe('fachkraft.ch GmbH crawler parser', () => {
         discovered: 2,
         detailCompleted: 2,
       });
+      expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
+    });
+
+    it('deduplicates a repeated URL across pages while retaining the unique maximum snapshot', async () => {
+      const firstTitle = 'Polymechaniker/in';
+      const secondTitle = 'Montage-Elektriker/in';
+      const firstUrl = 'https://www.fachkraft.ch/stellen/polymechaniker-in-luzern-123/';
+      const secondUrl = 'https://www.fachkraft.ch/stellen/montage-elektriker-in-zug-456/';
+      const secondPageUrl = 'https://www.fachkraft.ch/stellen/page/2/';
+      const fetchImpl = vi.fn(async (target: string) => {
+        if (target.endsWith('/robots.txt')) return new Response('', { status: 200 });
+        if (target === 'https://www.fachkraft.ch/stellen/') {
+          return new Response(paginatedListingHtml(
+            2,
+            '/stellen/page/2/',
+            listingCard({ title: firstTitle, path: 'polymechaniker-in-luzern-123' }),
+          ), { status: 200 });
+        }
+        if (target === secondPageUrl) {
+          return new Response(paginatedListingHtml(
+            2,
+            null,
+            listingCard({ title: firstTitle, path: 'polymechaniker-in-luzern-123' }),
+            listingCard({
+              title: secondTitle,
+              path: 'montage-elektriker-in-zug-456',
+              location: 'Zug',
+              canton: 'ZG',
+            }),
+          ), { status: 200 });
+        }
+        const detail = target === firstUrl
+          ? { title: firstTitle, description: words(55, 'first') }
+          : { title: secondTitle, description: words(55, 'second'), location: 'Zug', canton: 'ZG' };
+        return new Response(detailHtml(detail), { status: 200 });
+      });
+
+      const snapshot = await fetchFachkraftSnapshot({
+        ...runtimeOptions,
+        fetchImpl,
+        existingJobs: [],
+        detailWorkers: 1,
+      });
+
+      expect(snapshot).toHaveLength(2);
+      expect(snapshot.fachkraftSnapshot).toMatchObject({
+        listingPages: 2,
+        listingDeclaredCount: 2,
+        duplicateListingUrls: 1,
+        discovered: 2,
+        detailRequested: 2,
+        detailCompleted: 2,
+      });
+      expect(fetchImpl.mock.calls.filter(([target]) => target === firstUrl)).toHaveLength(1);
       expect(validateFachkraftAuthoritativeSnapshot(snapshot)).toBe(true);
     });
 
