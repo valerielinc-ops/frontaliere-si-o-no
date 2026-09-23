@@ -130,8 +130,9 @@ jobs:
           # There is no stable pre-merge wall-time baseline for this lane:
           # slice count and upstream response time vary with every run. The
           # operational revert trigger is a first live run that approaches
-          # the 60-minute job timeout or shows runner pressure; lower this
-          # value to 4 before the next run if either signal appears.
+          # 50 minutes, reaches the 60-minute job timeout, reports OOM/runner
+          # starvation, or receives upstream 429 responses; lower this value
+          # to 4 before the next run if any signal appears.
           readonly max_parallel=8
           status_dir="$(mktemp -d "${RUNNER_TEMP:-${TMPDIR:-/tmp}}/housekeeping-status.XXXXXX")"
           trap 'rm -rf "$status_dir"' EXIT
