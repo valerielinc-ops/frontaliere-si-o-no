@@ -225,7 +225,6 @@
           "sales-representative-felfel-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-16T23:38:50.081Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -239,8 +238,7 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "felfel-fab704df78ec",
@@ -1186,7 +1184,6 @@
           "account-executive-felfel-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-03T21:45:10.682Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -1200,8 +1197,7 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     }
   ]
 }

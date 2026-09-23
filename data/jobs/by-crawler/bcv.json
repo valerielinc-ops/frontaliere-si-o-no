@@ -1321,7 +1321,6 @@
         "fx-sales-bcv-lausanne",
         "corporate-sales-rates-fx-bcv-lausanne"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-04T10:16:12.392Z",
       "salaryMin": 72000,
       "salaryMax": 111000,
@@ -1335,8 +1334,7 @@
           "maxValue": 111000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "bcv-77a31083ae2a",

@@ -504838,7 +504838,10 @@
   "id|bls.ch|149bbf4e-e1e4-437b-b72f-fbcc4472d71b": {
     "canonicalSlug": "metallbauer-in-nautiker-in-interlaken-bls-ch",
     "slugByLocale": {
-      "de": "metallbauer-in-nautiker-in-interlaken-bls-ch"
+      "de": "metallbauer-in-nautiker-in-interlaken-bls-ch",
+      "it": "lavoratori-navigatori-interlaken-bls-ag-interlaken",
+      "en": "metalworkers-navigators-interlaken-bls-ag-interlaken",
+      "fr": "metaux-navigateurs-interlaken-bls-ag-interlaken"
     },
     "createdAt": "2026-08-14",
     "canton": "BE"
@@ -504846,7 +504849,10 @@
   "id|bls.ch|e010111f-5205-4020-9688-81bf2100eb0f": {
     "canonicalSlug": "metallbauer-in-nautiker-in-thun-bls-ch",
     "slugByLocale": {
-      "de": "metallbauer-in-nautiker-in-thun-bls-ch"
+      "de": "metallbauer-in-nautiker-in-thun-bls-ch",
+      "it": "metalworker-in-navigatore-in-thun-bls-ag-bern",
+      "en": "metalworker-in-navigator-in-thun-bls-ag-bern",
+      "fr": "metaux-in-navigateur-in-thun-bls-ag-bern"
     },
     "createdAt": "2026-08-14",
     "canton": "BE"
@@ -670117,7 +670123,8 @@
   "url|https://otb.apps.vs.ch/svc/api/joboffersdocument/20495?language=fr": {
     "canonicalSlug": "chief-information-security-officer-ciso-project-management-pmo-80-100-canton-valais-ch",
     "slugByLocale": {
-      "fr": "chief-information-security-officer-ciso-project-management-pmo-80-100-canton-valais-ch"
+      "fr": "chief-information-security-officer-ciso-project-management-pmo-80-100-canton-valais-ch",
+      "de": "chief-information-security-officer-ciso-projektmanagement-pmo-80-100-canton-du-valais-sion"
     },
     "createdAt": "2026-09-08",
     "canton": "VS"
@@ -679857,7 +679864,9 @@
   "id|concordia.ch|bf35e39b-9968-4e08-adb3-fa1fe5029e90": {
     "canonicalSlug": "senior-database-engineer-oracle-postgresql-80-100-concordia-luzern",
     "slugByLocale": {
-      "de": "senior-database-engineer-oracle-postgresql-80-100-concordia-luzern"
+      "de": "senior-database-engineer-oracle-postgresql-80-100-concordia-luzern",
+      "it": "ingegnere-di-banca-dati-senior-oracle-postgresql-80-100-concordia-luzern",
+      "fr": "ingenieur-principal-de-base-de-donnees-oracle-postgresql-80-100-concordia-luzern"
     },
     "createdAt": "2026-09-08",
     "canton": "LU"
@@ -752853,7 +752862,8 @@
     "canonicalSlug": "ceo-spital-oberengadin-samedan",
     "slugByLocale": {
       "de": "ceo-spital-oberengadin-samedan",
-      "fr": "directeur-general-spital-oberengadin-samedan"
+      "fr": "directeur-general-spital-oberengadin-samedan",
+      "it": "amministratore-delegato-spital-oberengadin-samedan"
     },
     "createdAt": "2026-09-18",
     "canton": "GR"
@@ -788317,7 +788327,8 @@
   "id|concordia.ch|7fda128e-5b83-439f-a2fe-e6f8f06ee5e9": {
     "canonicalSlug": "senior-engineer-digital-workplace-w-m-d-80-100-concordia-luzern",
     "slugByLocale": {
-      "de": "senior-engineer-digital-workplace-w-m-d-80-100-concordia-luzern"
+      "de": "senior-engineer-digital-workplace-w-m-d-80-100-concordia-luzern",
+      "fr": "ingenieur-principal-en-milieu-de-travail-numerique-h-f-d-80-100-concordia-luzern"
     },
     "createdAt": "2026-09-22",
     "canton": "LU"
@@ -789094,7 +789105,8 @@
   "id|hitachienergy.com|jid3-217204": {
     "canonicalSlug": "territory-sales-manager-80-100-hitachi-energy-zurich-switzerland",
     "slugByLocale": {
-      "en": "territory-sales-manager-80-100-hitachi-energy-zurich-switzerland"
+      "en": "territory-sales-manager-80-100-hitachi-energy-zurich-switzerland",
+      "fr": "directeur-des-ventes-du-territoire-80-100-hitachi-energy-zurich-switzerland"
     },
     "createdAt": "2026-09-22",
     "canton": "ZH"
@@ -791414,7 +791426,8 @@
     "slugByLocale": {
       "it": "global-senior-product-manager-scs-spinal-cord-stimolazione-medtronic-tolochenaz",
       "en": "global-senior-product-manager-scs-spinal-cord-stimulation-medtronic-ch",
-      "fr": "gestionnaire-de-produits-seniors-scs-stimulation-de-la-moelle-epiniere-medtronic-tolochenaz"
+      "fr": "gestionnaire-de-produits-seniors-scs-stimulation-de-la-moelle-epiniere-medtronic-tolochenaz",
+      "de": "globaler-senior-product-manager-scs-ruckenmarkstimulation-medtronic-tolochenaz"
     },
     "createdAt": "2026-09-23",
     "canton": "VD"
@@ -791468,7 +791481,8 @@
     "slugByLocale": {
       "en": "assembler-ii-medtronic-ch",
       "de": "baugruppe-ii-medtronic-lausanne",
-      "fr": "assembleur-ii-medtronic-lausanne"
+      "fr": "assembleur-ii-medtronic-lausanne",
+      "it": "assemblatore-ii-medtronic-lausanne"
     },
     "createdAt": "2026-09-23",
     "canton": "VD"
@@ -791894,5 +791908,346 @@
     },
     "createdAt": "2026-09-23",
     "canton": "LU"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=101498&publication=2637": {
+    "canonicalSlug": "uno-specialista-per-la-salute-e-la-sicurezza-sul-lavoro-oss-80-100-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "uno-specialista-per-la-salute-e-la-sicurezza-sul-lavoro-oss-80-100-canton-du-valais-sion",
+      "en": "an-occupational-health-and-safety-specialist-oss-80-100-canton-du-valais-sion",
+      "de": "ein-spezialist-fur-gesundheit-und-sicherheit-am-arbeitsplatz-oss-80-100-canton-du-valais-sion",
+      "fr": "un-ou-une-specialiste-en-sante-et-securite-au-travail-ssp-80-100-canton-valais-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=113843&publication=2637": {
+    "canonicalSlug": "uno-o-uno-studente-legale-100-canton-du-valais-monthey",
+    "slugByLocale": {
+      "it": "uno-o-uno-studente-legale-100-canton-du-valais-monthey",
+      "en": "one-or-one-legal-trainee-100-canton-du-valais-monthey",
+      "de": "ein-oder-ein-jurist-100-canton-du-valais-monthey",
+      "fr": "un-ou-une-stagiaire-juridique-100-canton-valais-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=112661&publication=2637": {
+    "canonicalSlug": "collaboratore-specializzato-o-collaboratore-specializzato-50-60-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "collaboratore-specializzato-o-collaboratore-specializzato-50-60-canton-du-valais-sion",
+      "en": "a-specialist-collaborator-or-a-specialist-collaborator-50-60-canton-du-valais-sion",
+      "de": "ein-fachmitarbeiter-oder-ein-fachmitarbeiter-50-60-canton-du-valais-sion",
+      "fr": "un-collaborateur-specialise-ou-une-collaboratrice-specialisee-50-60-canton-valais-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=106436&publication=2637": {
+    "canonicalSlug": "acquisizione-di-terreni-specialistici-70-100-canton-du-valais-brig",
+    "slugByLocale": {
+      "it": "acquisizione-di-terreni-specialistici-70-100-canton-du-valais-brig",
+      "en": "specialist-land-acquisition-70-100-canton-du-valais-brig",
+      "de": "fachspezialist-in-landerwerb-70-100-canton-valais-ch",
+      "fr": "acquisition-de-terrains-specialises-70-100-canton-du-valais-brig"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/svc/api/joboffersdocument/20555?language=fr": {
+    "canonicalSlug": "esecutivi-nel-nostro-servizio-di-riabilitazione-e-servizio-medico-regionale-mrs-psicologi-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "esecutivi-nel-nostro-servizio-di-riabilitazione-e-servizio-medico-regionale-mrs-psicologi-canton-du-valais-sion",
+      "en": "executives-in-our-rehabilitation-service-and-regional-medical-service-mrs-psychologists-canton-du-valais-sion",
+      "de": "fuhrungskrafte-in-unserem-rehabilitation-service-und-regional-medical-service-mrs-psychologen-canton-du-valais-sion",
+      "fr": "des-cadres-au-des-sein-de-notre-service-de-readaptation-et-de-notre-service-medical"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=111534&publication=2638": {
+    "canonicalSlug": "un-tassatore-o-tassatore-100-contratto-a-termine-fisso-di-5-anni-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "un-tassatore-o-tassatore-100-contratto-a-termine-fisso-di-5-anni-canton-du-valais-sion",
+      "en": "a-taxer-or-taxer-100-fixed-term-contract-of-5-years-canton-du-valais-sion",
+      "de": "ein-steuerpflichtiger-oder-steuerpflichtiger-100-befristeter-vertrag-von-5-jahren-canton-du-valais-sion",
+      "fr": "un-taxateur-ou-une-taxatrice-100-contrat-de-duree-determinee-de-5-ans-canton-valais-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=112987&publication=2638": {
+    "canonicalSlug": "auditore-80-100-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "auditore-80-100-canton-du-valais-sion",
+      "en": "auditor-80-100-canton-du-valais-sion",
+      "de": "einschatzer-in-revisor-in-80-100-canton-valais-ch",
+      "fr": "auditeur-80-100-canton-du-valais-sion"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=101098&publication=2638": {
+    "canonicalSlug": "capo-dell-ufficio-cantonale-per-gli-affari-militari-80-100-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "capo-dell-ufficio-cantonale-per-gli-affari-militari-80-100-canton-du-valais-sion",
+      "en": "a-chief-or-chief-of-the-cantonal-office-for-military-affairs-80-100-canton-du-valais-sion",
+      "de": "chef-oder-chef-des-kantonalen-buros-fur-militarische-angelegenheiten-80-100-canton-du-valais-sion",
+      "fr": "un-chef-ou-une-cheffe-de-l-office-cantonal-des-affaires-militaires-80-100-canton-valais-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=108447&publication=2638": {
+    "canonicalSlug": "un-partecipante-100-canton-du-valais-monthey",
+    "slugByLocale": {
+      "it": "un-partecipante-100-canton-du-valais-monthey",
+      "en": "an-attendant-100-canton-du-valais-monthey",
+      "de": "ein-begleiter-100-canton-du-valais-monthey",
+      "fr": "un-prepose-ou-une-preposee-100-canton-valais-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=113758&publication=2638": {
+    "canonicalSlug": "uno-o-uno-capofamiglia-per-i-candidati-rifugiati-minori-non-accompagnati-100-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "uno-o-uno-capofamiglia-per-i-candidati-rifugiati-minori-non-accompagnati-100-canton-du-valais-sion",
+      "en": "one-or-one-head-of-household-for-unaccompanied-minor-refugee-candidates-100-canton-du-valais-sion",
+      "de": "ein-oder-ein-haushaltsleiter-fur-unbegleitete-minderjahrige-fluchtlingskandidaten-100-canton-du-valais-sion",
+      "fr": "un-ou-une-responsable-de-foyer-pour-candidats-refugies-mineurs-non-accompagnes-100-canton"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=114612&publication=2638": {
+    "canonicalSlug": "un-lavoratore-sociale-80-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "un-lavoratore-sociale-80-canton-du-valais-sion",
+      "en": "a-social-worker-80-canton-du-valais-sion",
+      "de": "un-assistent-social-ou-une-assistante-sociale-80-canton-du-valais-sion",
+      "fr": "un-assistant-social-ou-une-assistante-sociale-80-canton-valais-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=114611&publication=2638": {
+    "canonicalSlug": "un-funzionario-educativo-o-un-funzionario-educativo-80-100-canton-du-valais-st-gingolph",
+    "slugByLocale": {
+      "it": "un-funzionario-educativo-o-un-funzionario-educativo-80-100-canton-du-valais-st-gingolph",
+      "en": "an-educational-official-or-an-educational-official-80-100-canton-du-valais-st-gingolph",
+      "de": "ein-bildungsbeamter-oder-ein-bildungsbeamter-80-100-canton-du-valais-st-gingolph",
+      "fr": "un-responsable-educatif-ou-une-responsable-educative-80-100-canton-valais-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=114614&publication=2638": {
+    "canonicalSlug": "assistente-socio-educativo-o-assistente-socio-educativo-80-100-canton-du-valais-st-gingolph",
+    "slugByLocale": {
+      "it": "assistente-socio-educativo-o-assistente-socio-educativo-80-100-canton-du-valais-st-gingolph",
+      "en": "a-socio-educational-assistant-or-a-socio-educational-assistant-80-100-canton-du-valais-st-gingolph",
+      "de": "un-assistent-socio-educatif-ou-une-assistante-socio-educative-80-100-canton-du-valais-st-gingolph",
+      "fr": "un-assistant-socio-educatif-ou-une-assistante-socio-educative-80-100-canton-valais-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=114613&publication=2638": {
+    "canonicalSlug": "assistente-socio-educativo-o-assistente-socio-educativo-80-canton-du-valais-martigny",
+    "slugByLocale": {
+      "it": "assistente-socio-educativo-o-assistente-socio-educativo-80-canton-du-valais-martigny",
+      "en": "a-socio-educational-assistant-or-a-socio-educational-assistant-80-canton-du-valais-martigny",
+      "de": "un-assistent-socio-educatif-ou-une-assistante-socio-educative-80-canton-du-valais-martigny",
+      "fr": "un-assistant-socio-educatif-ou-une-assistante-socio-educative-80-canton-valais-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=109601&publication=2638": {
+    "canonicalSlug": "un-apprendista-it-cfc-opzione-tecnica-dei-sistemi-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "un-apprendista-it-cfc-opzione-tecnica-dei-sistemi-canton-du-valais-sion",
+      "en": "an-it-apprentice-cfc-systems-technical-option-canton-du-valais-sion",
+      "de": "ein-it-lehrling-cfc-systemtechnische-option-canton-du-valais-sion",
+      "fr": "un-apprenti-informaticien-ou-une-apprentie-informaticienne-cfc-option-technique-des"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=108627&publication=2638": {
+    "canonicalSlug": "un-operatore-di-computer-apprendistato-o-un-operatore-di-computer-apprendistato-cfc-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "un-operatore-di-computer-apprendistato-o-un-operatore-di-computer-apprendistato-cfc-canton-du-valais-sion",
+      "en": "an-apprentice-computer-operator-or-an-apprentice-computer-operator-cfc-canton-du-valais-sion",
+      "de": "einen-auszubildenden-computerbetreiber-oder-einen-auszubildenden-computerbetreiber-cfc-canton-du-valais-sion",
+      "fr": "un-apprenti-operateur-en-informatique-ou-une-apprentie-operatrice-en-informatique-cfc"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=110102&publication=2638": {
+    "canonicalSlug": "un-apprendista-vitivinicolo-o-un-apprendista-viticoltore-cfc-opzione-divina-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "un-apprendista-vitivinicolo-o-un-apprendista-viticoltore-cfc-opzione-divina-canton-du-valais-sion",
+      "en": "an-apprentice-wine-grower-or-an-apprentice-wine-grower-cfc-vine-option-canton-du-valais-sion",
+      "de": "ein-auszubildender-oder-ein-auszubildender-cfc-reboption-canton-du-valais-sion",
+      "fr": "un-apprenti-viniculteur-ou-une-apprentie-vinicultrice-cfc-option-vigne-canton-valais-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=101386&publication=2638": {
+    "canonicalSlug": "un-apprendista-in-chimica-o-un-apprendista-in-chimica-cfc-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "un-apprendista-in-chimica-o-un-apprendista-in-chimica-cfc-canton-du-valais-sion",
+      "en": "an-apprentice-in-chemistry-or-an-apprentice-in-chemistry-cfc-canton-du-valais-sion",
+      "de": "ein-lehrling-in-chemie-oder-ein-lehrling-in-chemie-cfc-canton-du-valais-sion",
+      "fr": "un-apprenti-laborantin-en-chimie-ou-une-apprentie-laborantine-en-chimie-cfc-canton-valais"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=108633&publication=2638": {
+    "canonicalSlug": "un-apprendista-in-chimica-o-un-apprendista-in-chimica-cfc-canton-du-valais-sion-746a55",
+    "slugByLocale": {
+      "it": "un-apprendista-in-chimica-o-un-apprendista-in-chimica-cfc-canton-du-valais-sion-746a55",
+      "en": "an-apprentice-in-chemistry-or-an-apprentice-in-chemistry-cfc-canton-du-valais-sion-746a55",
+      "de": "ein-lehrling-in-chemie-oder-ein-lehrling-in-chemie-cfc-canton-du-valais-sion-746a55",
+      "fr": "un-apprenti-laborantin-en-chimie-ou-une-apprentie-laborantinne-en-chimie-cfc-canton-valais"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=104231&publication=2638": {
+    "canonicalSlug": "un-apprendista-it-cfc-opzione-di-collaborazione-e-infrastruttura-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "un-apprendista-it-cfc-opzione-di-collaborazione-e-infrastruttura-canton-du-valais-sion",
+      "en": "an-it-apprentice-cfc-operation-and-infrastructure-option-canton-du-valais-sion",
+      "de": "ein-it-lehrling-cfc-betriebs-und-infrastrukturoption-canton-du-valais-sion",
+      "fr": "un-apprenti-informaticien-ou-une-apprentie-informaticienne-cfc-option-exploitation-et"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=108924&publication=2638": {
+    "canonicalSlug": "un-apprendista-o-apprendista-agricoltore-cfc-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "un-apprendista-o-apprendista-agricoltore-cfc-canton-du-valais-sion",
+      "en": "an-apprentice-farmer-or-apprentice-farmer-cfc-canton-du-valais-sion",
+      "de": "auszubildender-landwirt-oder-auszubildender-cfc-canton-du-valais-sion",
+      "fr": "un-apprenti-agriculteur-ou-une-apprentie-agricultrice-cfc-canton-valais-ch"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "url|https://otb.apps.vs.ch/iapply?job=113332&publication=2638": {
+    "canonicalSlug": "un-funzionario-di-apprentice-o-un-agente-operativo-di-apprentice-cfc-opzione-concierge-canton-du-valais-sion",
+    "slugByLocale": {
+      "it": "un-funzionario-di-apprentice-o-un-agente-operativo-di-apprentice-cfc-opzione-concierge-canton-du-valais-sion",
+      "en": "an-apprentice-operating-officer-or-an-apprentice-operating-officer-cfc-concierge-option-canton-du-valais-sion",
+      "de": "ein-auszubildender-operating-officer-oder-ein-auszubildender-operating-officer-cfc-concierge-option-canton-du-valais",
+      "fr": "un-apprenti-agent-d-exploitation-ou-une-apprentie-agente-d-exploitation-cfc-option"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "VS"
+  },
+  "id|bls.ch|9cec9d21-68ad-4fb0-abb8-f629847a6d4a": {
+    "canonicalSlug": "collaboratore-trice-montage-bls-ag-bonigen",
+    "slugByLocale": {
+      "it": "collaboratore-trice-montage-bls-ag-bonigen",
+      "en": "associate-montage-bls-ag-bonigen",
+      "de": "mitarbeiter-in-montage-bls-ch",
+      "fr": "collaborateur-trice-montage-bls-ag-bonigen"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|bls.ch|99858068-a3fb-41fb-aa2f-dbd64dae6eb0": {
+    "canonicalSlug": "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez",
+    "slugByLocale": {
+      "it": "ingegnere-automeccanico-in-meccanico-del-camion-in-ingegnere-automatico-in-bls-ag-givisiez",
+      "en": "automechatronics-engineer-in-truck-mechanic-in-automatic-engineer-in-bls-ag-givisiez",
+      "de": "automechatroniker-in-lastwagenmechaniker-in-automatiker-in-bls-ch",
+      "fr": "ingenieur-automatique-in-mecanicien-de-camion-in-ingenieur-automatique-in-bls-ag-givisiez"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "FR"
+  },
+  "id|bls.ch|d31bf417-0bf5-4aff-be08-d38c97a45489": {
+    "canonicalSlug": "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez",
+    "slugByLocale": {
+      "it": "azienda-di-manutenzione-nei-veicoli-ferroviari-bls-ag-givisiez",
+      "en": "maintenance-rolling-stock-bls-ag-givisiez",
+      "de": "instandhalter-in-schienenfahrzeuge-bls-ch",
+      "fr": "societe-d-entretien-dans-les-vehicules-ferroviaires-bls-ag-givisiez"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "FR"
+  },
+  "id|bls.ch|125b4d58-28f5-4ccb-9977-c0157cf1f103": {
+    "canonicalSlug": "fitter-di-linea-di-contatto-o-artigiano-r-bls-ag-bern",
+    "slugByLocale": {
+      "it": "fitter-di-linea-di-contatto-o-artigiano-r-bls-ag-bern",
+      "en": "contact-line-fitter-or-craftsman-r-bls-ag-bern",
+      "de": "fahrleitungsmonteur-in-oder-handwerkliche-r-quereinsteiger-in-bls-ch",
+      "fr": "installateur-ou-artisan-de-ligne-de-contact-r-bls-ag-bern"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|bls.ch|2fd274d2-f0cf-435e-b83a-4c30bf6664cf": {
+    "canonicalSlug": "responsabile-del-progetto-in-oberbauleitung-lotschberg-bls-ag-bern",
+    "slugByLocale": {
+      "it": "responsabile-del-progetto-in-oberbauleitung-lotschberg-bls-ag-bern",
+      "en": "project-manager-in-oberbauleitung-lotschberg-base-tunnel-bls-ag-bern",
+      "de": "teilprojektleiter-in-oberbauleitung-lotschberg-basistunnel-bls-ch",
+      "fr": "chef-de-projet-dans-le-tunnel-de-base-d-oberbauleitung-lotschberg-bls-ag-bern"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|bls.ch|9f444a72-ac31-48e8-af8c-3dcbaf4edc95": {
+    "canonicalSlug": "devops-ingegnere-bls-ag-bern",
+    "slugByLocale": {
+      "it": "devops-ingegnere-bls-ag-bern",
+      "en": "devops-engineer-bls-ag-bern",
+      "de": "devops-engineer-bls-ch",
+      "fr": "devops-ingenieur-bls-ag-bern"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|bls.ch|2c363dd2-257a-43f6-a3fb-5c8eac9165dc": {
+    "canonicalSlug": "meccanica-bls-ag-bonigen",
+    "slugByLocale": {
+      "it": "meccanica-bls-ag-bonigen",
+      "en": "polymechanics-bls-ag-bonigen",
+      "de": "polymechaniker-in-bls-ch",
+      "fr": "polymecanique-in-bls-ag-bonigen"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|bls.ch|03c64118-291d-47b3-8c2e-ed41dfcb5ab3": {
+    "canonicalSlug": "installatore-trice-elettrico-a-in-bls-ag-hasle-bei-burgdorf",
+    "slugByLocale": {
+      "it": "installatore-trice-elettrico-a-in-bls-ag-hasle-bei-burgdorf",
+      "en": "electrical-installers-bls-ag-hasle-bei-burgdorf",
+      "de": "elektroinstallateur-in-bls-ch",
+      "fr": "installateurs-electriques-bls-ag-hasle-bei-burgdorf"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
+  },
+  "id|bls.ch|a8bc0154-aea7-4676-8a48-44f8fdb1ba88": {
+    "canonicalSlug": "fornitori-di-veicoli-bls-ag-spiez",
+    "slugByLocale": {
+      "it": "fornitori-di-veicoli-bls-ag-spiez",
+      "en": "vehicle-suppliers-bls-ag-spiez",
+      "de": "fahrzeugbereitsteller-in-bls-ch",
+      "fr": "fournisseur-du-vehicule-bls-ag-spiez"
+    },
+    "createdAt": "2026-09-23",
+    "canton": "BE"
   }
 }
