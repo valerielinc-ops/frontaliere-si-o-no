@@ -19,8 +19,9 @@
  *   - the search index gives id/title/description/dates/geo/image/place per
  *     locale, but NOT price/structured address/category — those exist in the
  *     schema.org Event JSON-LD and, for price, the localized detail table on
- *     each event's own page, so we fetch one detail page per unique event
- *     (across up to 4 locale URLs) to enrich.
+ *     each event's own page, so we fetch the first usable detail page per
+ *     unique event and continue across locale URLs only when optional
+ *     metadata is still missing.
  *   - `objectID` is stable across all 4 locale indices for the same event, so
  *     the 4 locale searches are unioned by id to build titleByLocale /
  *     descriptionByLocale (real per-locale translations, not machine ones).
@@ -339,7 +340,7 @@ export function humanizeCategory(rawType) {
  */
 export function extractDetailTableValue(html, labels) {
   if (typeof html !== 'string' || !html || !Array.isArray(labels) || !labels.length) return undefined;
-  const normalizedLabels = new Set(labels.map((label) => cleanText(label).toLocaleLowerCase()).filter(Boolean));
+  const normalizedLabels = new Set(labels.map((label) => cleanText(label).toLowerCase()).filter(Boolean));
   if (!normalizedLabels.size) return undefined;
   const rowRe = /<tr\b[\s\S]*?<\/tr>/gi;
   let rowMatch;
@@ -348,7 +349,7 @@ export function extractDetailTableValue(html, labels) {
     const labelMatch = /<th\b[^>]*>([\s\S]*?)<\/th>/i.exec(row);
     const valueMatch = /<td\b[^>]*>([\s\S]*?)<\/td>/i.exec(row);
     if (!labelMatch || !valueMatch) continue;
-    const label = cleanText(labelMatch[1]).toLocaleLowerCase();
+    const label = cleanText(labelMatch[1]).toLowerCase();
     if (!normalizedLabels.has(label)) continue;
     return cleanText(valueMatch[1]) || undefined;
   }
@@ -437,6 +438,29 @@ export function extractEventJsonLd(html) {
 }
 
 /**
+ * Fill only missing optional metadata from a later locale detail page.
+ * Main event fields remain owned by the first usable locale, while named
+ * organizer/performer entities and event-specific images can be recovered
+ * from another locale variant of the same source event.
+ */
+export function mergeDetailEventMetadata(primaryLd, candidateLd, primaryUrl = SITE_ORIGIN, candidateUrl = SITE_ORIGIN) {
+  if (!primaryLd) return candidateLd || null;
+  if (!candidateLd) return primaryLd;
+  const merged = { ...primaryLd };
+
+  if (!firstEventImageUrl(merged.image, primaryUrl)) {
+    const image = firstEventImageUrl(candidateLd.image, candidateUrl);
+    if (image) merged.image = image;
+  }
+  for (const field of ['organizer', 'performer']) {
+    if (normalizeEventPeople(merged[field], primaryUrl)) continue;
+    const people = normalizeEventPeople(candidateLd[field], candidateUrl);
+    if (people) merged[field] = people;
+  }
+  return merged;
+}
+
+/**
  * Pure mapping: one merged event (grouped Algolia hits across locales, plus
  * optional detail-page JSON-LD enrichment) → a SiteEvent-shaped record. Never
  * touches the network — `enrichment` is pre-fetched by the caller. Returns
@@ -506,8 +530,9 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
   };
 }
 
-/** One detail-page fetch per event, trying each locale URL until one parses. */
+/** Fetch the first usable detail page and fill optional metadata from later locales when needed. */
 async function fetchDetailEnrichment(perLocaleHits) {
+  let enrichment = null;
   for (const locale of LOCALES) {
     const hit = perLocaleHits[locale];
     if (!hit?.url) continue;
@@ -516,9 +541,19 @@ async function fetchDetailEnrichment(perLocaleHits) {
     const html = await fetchHtml(url);
     if (!html) continue;
     const ld = extractEventJsonLd(html);
-    if (ld) return { detailLd: ld, detailUrl: url, detailHtml: html };
+    if (!ld) continue;
+    if (!enrichment) {
+      enrichment = { detailLd: ld, detailUrl: url, detailHtml: html };
+    } else {
+      enrichment.detailLd = mergeDetailEventMetadata(enrichment.detailLd, ld, enrichment.detailUrl, url);
+    }
+
+    const imageReady = Boolean(firstEventImageUrl(enrichment.detailLd?.image, enrichment.detailUrl));
+    const organizerReady = Boolean(normalizeEventPeople(enrichment.detailLd?.organizer, enrichment.detailUrl));
+    const performerReady = Boolean(normalizeEventPeople(enrichment.detailLd?.performer, enrichment.detailUrl));
+    if (imageReady && organizerReady && performerReady) break;
   }
-  return null;
+  return enrichment;
 }
 
 function parseArgs(argv) {
