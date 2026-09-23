@@ -7,6 +7,7 @@ on:
       - '.github/corpus-workflows/**'
       - 'scripts/ci/prepare-crawler-workflow-corpus-sync.mjs'
       - 'scripts/ci/sync-crawler-workflows-to-corpus.sh'
+      - 'scripts/lib/crawler-generation-group-ids.mjs'
       - '.github/workflows/sync-crawler-workflows-to-corpus.yml'
   schedule:
     - cron: '37 */6 * * *'
@@ -30,6 +31,7 @@ jobs:
           sparse-checkout: |
             /.github/corpus-workflows/
             /scripts/ci/prepare-crawler-workflow-corpus-sync.mjs
+            /scripts/lib/crawler-generation-group-ids.mjs
             /scripts/ci/pr-body-check-gate.mjs
             /scripts/ci/lib/false-positive-declaration.mjs
             /scripts/ci/lib/hook-command-parser.mjs
