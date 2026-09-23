@@ -11915,6 +11915,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.title': 'Sunrise se restructure : jusqu\'à 450 places menacées',
     'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.excerpt': 'L\'opérateur Sunrise annonce un nouveau plan de repositionnement et la possible suppression d\'un maximum de 450 emplois sur 2\'900. Procédure en octobre.',
     'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.imageAlt': 'Siege social et bureaux de Sunrise en Suisse',
+    'blog.article.semafori-cadenazzo-traffico.title': 'Feu de signalisation à Cadenazzo et circulation : effets attendus en 2027',
+    'blog.article.semafori-cadenazzo-traffico.excerpt': 'Le Conseil fédéral répond aux feux à Cadenazzo : efficacité du trafic entre Bellinzone et Locarno attendue fin 2027.',
+    'blog.article.semafori-cadenazzo-traffico.imageAlt': 'Feux de circulation et flux de trafic sur le trajet entre Bellinzona et Locarno',
 };
 
 export default blogMetaFr;

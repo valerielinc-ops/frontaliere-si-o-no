@@ -11914,6 +11914,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.title': 'Sunrise si ristruttura: a rischio fino a 450 posti',
     'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.excerpt': 'L\'operatore Sunrise annuncia un nuovo piano di riposizionamento e la possibile soppressione di un massimo di 450 impieghi su 2\'900. Procedura in ottobre.',
     'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.imageAlt': 'Sede aziendale e uffici di Sunrise in Svizzera',
+    'blog.article.semafori-cadenazzo-traffico.title': 'Semafori a Cadenazzo e traffico: effetti previsti nel 2027',
+    'blog.article.semafori-cadenazzo-traffico.excerpt': 'Il Consiglio federale risponde sui semafori a Cadenazzo: efficacia del traffico tra Bellinzona e Locarno attesa a fine 2027.',
+    'blog.article.semafori-cadenazzo-traffico.imageAlt': 'Impianti semaforici e flusso di traffico sulla tratta tra Bellinzona e Locarno',
 };
 
 export default blogMetaIt;

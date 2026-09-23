@@ -35501,6 +35501,15 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'semafori-cadenazzo-traffico',
+ category: 'pratico',
+ date: '2026-09-23T01:21:51.666Z',
+ image: '/images/blog/semafori-cadenazzo-traffico.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

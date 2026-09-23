@@ -11912,6 +11912,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.title': 'Sunrise restrukturiert sich: Risiko für bis zu 450 Plätze',
     'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.excerpt': 'Der Betreiber Sunrise kündigt einen neuen Neupositionierungsplan und die mögliche Streichung von maximal 450 von 2\'900 Arbeitsplätzen an. Verfahren im Oktober.',
     'blog.article.sunrise-tagli-posti-lavoro-ristrutturazione.imageAlt': 'Sunrise Firmenzentrale und Buerogebaeude in der Schweiz',
+    'blog.article.semafori-cadenazzo-traffico.title': 'Ampeln in Cadenazzo und Verkehr: erwartete Auswirkungen im Jahr 2027',
+    'blog.article.semafori-cadenazzo-traffico.excerpt': 'Der Bundesrat antwortet an den Ampeln in Cadenazzo: Ende 2027 erwartete Verkehrseffizienz zwischen Bellinzona und Locarno.',
+    'blog.article.semafori-cadenazzo-traffico.imageAlt': 'Ampelanlagen und Verkehrsfluss auf der Strecke zwischen Bellinzona und Locarno',
 };
 
 export default blogMetaDe;
