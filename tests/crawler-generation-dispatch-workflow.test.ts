@@ -192,7 +192,7 @@ describe('crawler generation PR B workflow wiring', () => {
       // Il drift che quel confronto inseguiva resta chiuso, e piu' stretto: le
       // due uguaglianze sha256 qui sotto legano OGNI artefatto alla sua sorgente
       // attraverso `contract.json`, e tests/generate-crawler-group-workflows.test.ts
-      // rigenera i 23 gruppi e li confronta byte a byte. Una modifica a mano
+      // rigenera i 24 gruppi e li confronta byte a byte. Una modifica a mano
       // dell'artefatto resta rossa; una rigenerazione corretta ora passa.
       expect(crawler.concurrency).toEqual({
         group: `jobs-crawler-group-${group}`,
@@ -541,7 +541,7 @@ esac
       expect(fs.readFileSync(output, 'utf8')).toContain('observe=true\n');
       expect(fs.readFileSync(output, 'utf8')).toContain('generation_token=9001-2\n');
       const calls = fs.readFileSync(callLog, 'utf8');
-      expect(calls.match(/\/actions\/runs\//g)).toHaveLength(25);
+      expect(calls.match(/\/actions\/runs\//g)).toHaveLength(GROUP_IDS.length + 2);
       expect(calls).not.toContain('/artifacts?name=crawler-group-');
 
       for (const transientKind of ['429', '500', 'transport']) {
@@ -571,7 +571,7 @@ esac
         });
         expect(fs.readFileSync(output, 'utf8')).toContain('observe=true\n');
         expect(fs.readFileSync(transientMarker, 'utf8')).toBe(transientKind);
-        expect(fs.readFileSync(callLog, 'utf8').match(/\/actions\/runs\//g)).toHaveLength(26);
+        expect(fs.readFileSync(callLog, 'utf8').match(/\/actions\/runs\//g)).toHaveLength(GROUP_IDS.length + 3);
       }
 
       fs.writeFileSync(output, '');

@@ -1310,8 +1310,8 @@ describe('generation checkpoint and preflight', () => {
   function preflightFixture(observer: Buffer, groupArtifacts = groupArtifactFixture()) {
     return {
       schemaVersion: 1,
-      groupCount: 23,
-      artifactCount: 24,
+      groupCount: GROUP_IDS.length,
+      artifactCount: GROUP_IDS.length + 1,
       artifacts: [
         ...GROUP_IDS.map((group) => {
           const file = `crawler-group-${group}.yml`;
@@ -1350,7 +1350,7 @@ describe('generation checkpoint and preflight', () => {
       : { status: 404, body: null };
   }
 
-  it('accepts only an exact 23-group/24-artifact active hash-bound transport', () => {
+  it('accepts only an exact 24-group/25-artifact active hash-bound transport', () => {
     const observer = Buffer.from('observer-workflow\n');
     const remoteArtifacts = groupArtifactFixture();
     const contract = preflightFixture(observer, remoteArtifacts);
@@ -1376,7 +1376,7 @@ describe('generation checkpoint and preflight', () => {
     })).toMatchObject({ ready: false, dispatchMode: 'blocked' });
   });
 
-  it('resolves one immutable corpus commit and hash-checks all 23 workflows at that exact ref', async () => {
+  it('resolves one immutable corpus commit and hash-checks all 24 workflows at that exact ref', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-preflight-'));
     tempRoots.push(root);
     const observer = Buffer.from('observer-workflow\n');
@@ -1417,7 +1417,7 @@ describe('generation checkpoint and preflight', () => {
       method: 'GET', path: `/repos/${repository}/commits/main`,
     });
     const contentRequests = requests.filter(({ path: requestPath }) => requestPath.includes('/contents/'));
-    expect(contentRequests).toHaveLength(25);
+    expect(contentRequests).toHaveLength(GROUP_IDS.length + 2);
     expect(contentRequests.every(({ path: requestPath }) => (
       requestPath.endsWith(`?ref=${corpusCodeCommit}`)
     ))).toBe(true);
@@ -1774,11 +1774,11 @@ describe('generation checkpoint and preflight', () => {
     )).toBe(true);
     expect(snapshots.at(-1)).toEqual(result);
     expect(JSON.parse(fs.readFileSync(checkpointPath, 'utf8'))).toEqual(result);
-    expect(dispatched).toHaveLength(23);
+    expect(dispatched).toHaveLength(GROUP_IDS.length);
     expect(dispatched.every(({ inputs }) => inputs.site_code_commit === siteCodeCommit)).toBe(true);
   });
 
-  it('classifies all 23 hydrated authoritative IDs deterministically in the final checkpoint', async () => {
+  it('classifies all 24 hydrated authoritative IDs deterministically in the final checkpoint', async () => {
     const root = fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-generation-hydrated-wave-'));
     tempRoots.push(root);
     let nextRunId = 12_000;
@@ -1832,8 +1832,8 @@ describe('generation checkpoint and preflight', () => {
       }),
     });
 
-    expect(postCalls).toBe(23);
-    expect([...getCallsByRunId.values()]).toEqual(Array(23).fill(5));
+    expect(postCalls).toBe(GROUP_IDS.length);
+    expect([...getCallsByRunId.values()]).toEqual(Array(GROUP_IDS.length).fill(5));
     expect(checkpoint.dispatchDiagnostics).toEqual(Object.fromEntries(GROUP_IDS.map((group, index) => [
       group, { status: 'direct', runId: String(12_001 + index) },
     ])));
@@ -1846,7 +1846,7 @@ describe('generation checkpoint and preflight', () => {
     const observer = Buffer.from('observer-workflow\n');
     const contract = {
       schemaVersion: 1,
-      artifactCount: 24,
+      artifactCount: GROUP_IDS.length + 1,
       observerCount: 1,
       crawlerGeneration: { mode: 'shadow', dispatchesTranslation: false },
       observers: [{

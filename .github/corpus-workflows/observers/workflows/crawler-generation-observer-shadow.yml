@@ -18,7 +18,7 @@ on:
         required: true
         type: string
       registry_json:
-        description: Canonical digest-bound 23-group sentinel envelope (max 32 KiB)
+        description: Canonical digest-bound 24-group sentinel envelope (max 32 KiB)
         required: true
         type: string
   workflow_run:
@@ -46,6 +46,7 @@ on:
       - Crawler Group 21 (sparse cross-repo execution)
       - Crawler Group 22 (sparse cross-repo execution)
       - Crawler Group 23 (sparse cross-repo execution)
+      - Crawler Group 24 (sparse cross-repo execution)
     types: [completed]
     branches: ['crawler-generation-shadow-*']
   schedule:
@@ -197,7 +198,7 @@ jobs:
         run: |
           set -euo pipefail
           printf '%s\n' "observe=false" > "$GITHUB_OUTPUT"
-          if [[ ! "$TRIGGER_TITLE" =~ ^crawler-generation-([1-9][0-9]*-[1-9][0-9]*)-group-(0[1-9]|1[0-9]|2[0-3])$ ]]; then
+          if [[ ! "$TRIGGER_TITLE" =~ ^crawler-generation-([1-9][0-9]*-[1-9][0-9]*)-group-(0[1-9]|1[0-9]|2[0-4])$ ]]; then
             echo "::notice::Malformed generation run-name; observer stays dormant."
             exit 0
           fi
@@ -330,10 +331,10 @@ jobs:
               and ($corpusCommit | type == "string" and test("^(?:[a-f0-9]{40}|[a-f0-9]{64})$"))
               and $sentinelOwnerSha == $corpusCommit
               and $triggerHeadSha == $corpusCommit
-              and (.groups | keys == ["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23"])
+              and (.groups | keys == ["01","02","03","04","05","06","07","08","09","10","11","12","13","14","15","16","17","18","19","20","21","22","23","24"])
               and ([.groups[].corpusCodeCommit] | all(. == $corpusCommit))
               and ([.groups[].runId] | all(type == "string" and test("^[1-9][0-9]*$")))
-              and ([.groups[].runId] | unique | length == 23)
+              and ([.groups[].runId] | unique | length == 24)
               and .groups[$group].runId == $triggerRunId
             ' "$candidate" >/dev/null; then
               sentinel="$candidate"

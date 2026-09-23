@@ -171,7 +171,7 @@ describe('both markers persist to the slices', () => {
  *
  * REACHABILITY IS MEASURED, not assumed. `translate-pending-logic.yml` (which
  * runs the marker — the site's `.github/workflows/translate-pending.yml` is
- * DISABLED since the cross-repo migration) and the 23 `crawler-group-NN.yml`
+ * DISABLED since the cross-repo migration) and the 24 `crawler-group-NN.yml`
  * workflows sit in DIFFERENT
  * concurrency groups — `jobs-data-pipeline` vs `jobs-crawler-group-NN` — so
  * nothing serialises them. Over the 7 days to 2026-08-14 their run windows

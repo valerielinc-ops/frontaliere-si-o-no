@@ -1,7 +1,7 @@
 /**
  * Guards scripts/generate-crawler-group-workflows.mjs's `packGroups`
  * bin-packing logic — the algorithm that decides which of the 581 crawler
- * scripts get bundled into which of the 23 grouped GitHub Actions workflows
+ * scripts get bundled into which of the 24 grouped GitHub Actions workflows
  * (each group is one job holding multiple `background: true` steps, so the
  * job's wall-clock is bounded by its SLOWEST member, not the sum of all
  * members).
@@ -211,7 +211,7 @@ describe('generate() — shared install step reflects per-crawler prep requireme
     };
   }
 
-  // GROUP_COUNT (23) crawlers of similar duration each become their own
+  // GROUP_COUNT (24) crawlers of similar duration each become their own
   // group "anchor" in packGroups' first phase — to reliably land MULTIPLE
   // synthetic crawlers in the SAME group (reproducing the real corpus
   // scenario where a group has ~25 members), use more crawlers than
@@ -1144,7 +1144,7 @@ describe('real-corpus invariant: every manifest crawler in exactly one committed
  *
  *   - PR #6484 removed a crawler from the manifest and hand-edited
  *     crawler-group-10.yml to match, precisely BECAUSE re-running the
- *     generator rewrote all 23 files.
+ *     generator rewrote all 24 files.
  *
  * That was not detectable by the suite afterwards. These tests close the gap
  * from both ends: the output must be reproducible byte-for-byte, and
@@ -1282,10 +1282,25 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     expect(extractAssignmentsFromWorkflows(WORKFLOWS_DIR)).toEqual(expected);
   });
 
-  it('removing ONE crawler from the manifest rewrites ONE group file, not all 23', () => {
+  it('keeps the unstable McDonald crawler isolated in the new group 24', () => {
+    const pins = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
+    const generated = generate({
+      outDir: WORKFLOWS_DIR,
+      assignmentsPath: ASSIGNMENTS_PATH,
+      write: false,
+    });
+    const previousGroup = pins.groups[GROUP_COUNT - 2];
+    const newGroup = pins.groups[GROUP_COUNT - 1];
+
+    expect(newGroup).toEqual(['mcdonald-s-switzerland']);
+    expect(previousGroup).not.toContain('mcdonald-s-switzerland');
+    expect(generated[GROUP_COUNT - 1].members).toEqual(newGroup);
+  });
+
+  it('removing ONE crawler from the manifest rewrites ONE group file, not all 24', () => {
     // The exact regression: on the global bin-pack, dropping
     // `eoc-candidati-posizioni` moved 14 crawlers out of crawler-group-02 and
-    // 14 different ones in, and rewrote all 23 files (~5000 lines) — i.e. it
+    // 14 different ones in, and rewrote all 24 files (~5000 lines) — i.e. it
     // silently changed which crawler runs in which window in production.
     const { manifest } = JSON.parse(fs.readFileSync(MANIFEST_PATH, 'utf8'));
     const victim = manifest[Math.floor(manifest.length / 2)].slug;
@@ -1302,7 +1317,7 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     ).toBe(1);
   });
 
-  it('adding ONE crawler to the manifest rewrites ONE group file, not all 23', () => {
+  it('adding ONE crawler to the manifest rewrites ONE group file, not all 24', () => {
     const { outDir } = regenerate((doc) => {
       doc.manifest.push(crawlerCloneWithIdentity(doc.manifest[0], 'zz-sync-test-crawler'));
       doc.manifest.sort((a: any, b: any) => a.slug.localeCompare(b.slug));
@@ -1460,7 +1475,7 @@ describe('cross-repo crawler execution artifacts', () => {
     return { ...result, outDir, contractPath };
   }
 
-  it('lega i 23 job completi *-logic.yml alla stessa sorgente del generatore', () => {
+  it('lega i 24 job completi *-logic.yml alla stessa sorgente del generatore', () => {
     const { contract } = generateArtifacts();
     const groups = contract.artifacts.filter((artifact: any) => /^crawler-group-/.test(artifact.file));
     const manifest = JSON.parse(fs.readFileSync(path.join(repoRoot, 'data/crawler-manifest.json'), 'utf8'));
@@ -1986,9 +2001,9 @@ describe('cross-repo crawler execution artifacts', () => {
     expect(fs.readFileSync(legacyPath, 'utf8').split('\n').length).toBeLessThan(20);
   });
 
-  it('genera 23 gruppi + translate senza reusable workflow o composite action cross-repo', () => {
+  it('genera 24 gruppi + translate senza reusable workflow o composite action cross-repo', () => {
     const { contract, outDir } = generateArtifacts();
-    expect(contract.artifactCount).toBe(24);
+    expect(contract.artifactCount).toBe(GROUP_COUNT + 1);
 
     for (const artifact of contract.artifacts) {
       const text = fs.readFileSync(path.join(outDir, artifact.file), 'utf8');
@@ -2212,7 +2227,7 @@ describe('cross-repo crawler execution artifacts', () => {
         expect(reporters[0].name).toBe('Report failure to GitHub Issues');
       }
     }
-    expect(diagnosticReporters).toBe(24);
+    expect(diagnosticReporters).toBe(GROUP_COUNT + 1);
   });
 
   it('protegge il solo workflow translate con il claim immutabile del successore', () => {

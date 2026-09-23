@@ -250,9 +250,10 @@ function persistReconciledPromotionState(store, reconciled) {
 /**
  * C'e' gia' una PR di promozione aperta?
  *
- * Ogni promozione rigenera TUTTI i 23 `crawler-group-*.yml`, perche' aggiungere
- * un crawler ribilancia i gruppi. Due PR aperte insieme toccano quindi le stesse
- * 23 file dalla stessa base: conflitto garantito, e NESSUNA delle due mergia
+ * Ogni promozione esegue il generatore sui 24 `crawler-group-*.yml`; i pin
+ * stabili fanno pero' cambiare normalmente un solo gruppo quando si aggiunge
+ * un crawler. Due PR aperte insieme possono comunque toccare lo stesso pin
+ * dalla stessa base: conflitto garantito, e NESSUNA delle due mergia
  * piu' — misurato su #6292 e #6297, 25 file in comune, entrambe bloccate.
  *
  * Il loop gira ogni notte, quindi senza una serializzazione esplicita il caso e'

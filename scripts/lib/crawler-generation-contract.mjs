@@ -5,7 +5,7 @@ import { GITHUB_WORKFLOW_DISPATCH_API_VERSION } from '../../functions/src/github
 
 export { canonicalJson, digestDocument, isCrawlerGenerationToken };
 
-export const GROUP_IDS = Object.freeze(Array.from({ length: 23 }, (_, index) => String(index + 1).padStart(2, '0')));
+export const GROUP_IDS = Object.freeze(Array.from({ length: 24 }, (_, index) => String(index + 1).padStart(2, '0')));
 export const GROUP_MANIFEST_REASON_CODES = Object.freeze([
   'wait_failed',
   'remote_fetch_failed',
@@ -58,10 +58,10 @@ export const SITE_MAIN_REF = 'refs/heads/main';
 export const CALLER_REPOSITORY = 'nanakokyobashi-rgb/frontaliere-articles';
 export const CRAWLER_GENERATION_GITHUB_API_VERSION = GITHUB_WORKFLOW_DISPATCH_API_VERSION;
 export const CRAWLER_GENERATION_DISPATCH_REF_PREFIX = 'crawler-generation-shadow-';
-// 44 KiB × 23 groups = 1,036,288 bytes: the complete shadow cycle stays
-// below 1 MiB by construction, before artifact/container overhead.
-export const MAX_GROUP_MANIFEST_BYTES = 44 * 1024;
+// Derive the per-group cap from the aggregate 1 MiB limit so adding a group
+// cannot make the worst-case shadow cycle exceed it.
 export const MAX_CYCLE_MANIFEST_BYTES = 1024 * 1024;
+export const MAX_GROUP_MANIFEST_BYTES = Math.floor(MAX_CYCLE_MANIFEST_BYTES / GROUP_IDS.length);
 // workflow_dispatch has a 65,535-character aggregate input ceiling. Keep the
 // canonical registry plus its duplicate binding inputs comfortably below it.
 export const MAX_SENTINEL_BYTES = 32 * 1024;
@@ -172,9 +172,9 @@ function dispatchRefForBinding(binding) {
   // generation cycle dispatched pre-deploy and observed post-deploy must
   // keep resolving instead of failing every group closed on the schema edge.
   const runName = binding?.runName ?? '';
-  const groupMatch = /^crawler-generation-(.+)-group-(?:0[1-9]|1[0-9]|2[0-3])$/.exec(runName);
+  const groupMatch = parseCrawlerGenerationRunName(runName);
   const sentinelMatch = /^crawler-generation-sentinel-(.+)$/.exec(runName);
-  const generationToken = groupMatch?.[1] ?? sentinelMatch?.[1] ?? null;
+  const generationToken = groupMatch?.generationToken ?? sentinelMatch?.[1] ?? null;
   return isCrawlerGenerationToken(generationToken) ? crawlerGenerationDispatchRef(generationToken) : null;
 }
 
@@ -510,7 +510,7 @@ export function validateGroupTerminalManifest(manifest) {
 export function createCrawlerGenerationRoster(groups, primarySlices) {
   if (!groups || typeof groups !== 'object' || Array.isArray(groups)) throw new TypeError('Invalid roster groups');
   if (canonicalJson(Object.keys(groups).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
-    throw new TypeError('Roster must contain exactly 23 groups');
+    throw new TypeError('Roster must contain exactly 24 groups');
   }
   const seen = new Set();
   const normalizedGroups = {};
@@ -548,7 +548,7 @@ export function validateCrawlerGenerationRoster(roster) {
  * Immutable same-repository sentinel input for one crawler generation.
  *
  * `siteCodeCommit` pins the observer implementation only. The terminal data
- * snapshot does not exist when the 23 runs are dispatched and is therefore
+ * snapshot does not exist when the 24 runs are dispatched and is therefore
  * deliberately absent; it is derived later from their terminal manifests.
  */
 export function createCrawlerGenerationSentinel(input) {
@@ -557,7 +557,7 @@ export function createCrawlerGenerationSentinel(input) {
   if (!COMMIT_RE.test(input.corpusCodeCommit ?? '')) throw new TypeError('Invalid corpus code commit');
   if (!input.groupRunIds || typeof input.groupRunIds !== 'object' || Array.isArray(input.groupRunIds)
       || canonicalJson(Object.keys(input.groupRunIds).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
-    throw new TypeError('Sentinel must bind exactly 23 groups');
+    throw new TypeError('Sentinel must bind exactly 24 groups');
   }
   const runIds = GROUP_IDS.map((group) => input.groupRunIds[group] === null
     ? null
@@ -577,7 +577,7 @@ export function createCrawlerGenerationSentinel(input) {
   ]));
   if (!diagnosticsInput || typeof diagnosticsInput !== 'object' || Array.isArray(diagnosticsInput)
       || canonicalJson(Object.keys(diagnosticsInput).sort(compareCodePoint)) !== canonicalJson(GROUP_IDS)) {
-    throw new TypeError('Sentinel dispatch diagnostics must contain exactly 23 groups');
+    throw new TypeError('Sentinel dispatch diagnostics must contain exactly 24 groups');
   }
   const dispatchDiagnostics = {};
   for (const group of GROUP_IDS) {
@@ -872,7 +872,7 @@ export function evaluateCrawlerGenerationBarrier(input) {
       if (accepted) {
         try {
           // Receipt commits were already checked against this immutable group
-          // tip by the finalizer. The central snapshot only re-checks the 23
+          // tip by the finalizer. The central snapshot only re-checks the 24
           // group tips against the explicit source commit.
           const commits = [manifest.remote.commit];
           if (commits.some((commit) => !input.isAncestor(commit, input.sourceCommit))) {
