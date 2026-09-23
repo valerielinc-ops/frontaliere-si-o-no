@@ -1084,12 +1084,12 @@
     },
     {
       "id": "concordia-cf89a5a39b8d",
-      "slug": "senior-database-engineer-oracle-postgresql-80-100-concordia-luzern",
+      "slug": "ingegnere-di-banca-dati-senior-oracle-postgresql-80-100-concordia-luzern",
       "slugByLocale": {
-        "it": "senior-database-engineer-oracle-postgresql-80-100-concordia-luzern",
+        "it": "ingegnere-di-banca-dati-senior-oracle-postgresql-80-100-concordia-luzern",
         "en": "senior-database-engineer-oracle-postgresql-80-100-concordia-luzern",
         "de": "senior-database-engineer-oracle-postgresql-80-100-concordia-luzern",
-        "fr": "senior-database-engineer-oracle-postgresql-80-100-concordia-luzern"
+        "fr": "ingenieur-principal-de-base-de-donnees-oracle-postgresql-80-100-concordia-luzern"
       },
       "company": "Concordia",
       "companyKey": "concordia",
@@ -1146,7 +1146,18 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 1,
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-database-engineer-oracle-postgresql-80-100-concordia-luzern"
+        ],
+        "fr": [
+          "senior-database-engineer-oracle-postgresql-80-100-concordia-luzern"
+        ]
+      },
+      "previousSlugs": [
+        "senior-database-engineer-oracle-postgresql-80-100-concordia-luzern"
+      ]
     },
     {
       "id": "concordia-4b39aaad2e7c",
@@ -3417,7 +3428,7 @@
         "it": "senior-engineer-digital-workplace-w-m-d-80-100-concordia-luzern",
         "en": "senior-engineer-digital-workplace-w-m-d-80-100-concordia-luzern",
         "de": "senior-engineer-digital-workplace-w-m-d-80-100-concordia-luzern",
-        "fr": "senior-engineer-digital-workplace-w-m-d-80-100-concordia-luzern"
+        "fr": "ingenieur-principal-en-milieu-de-travail-numerique-h-f-d-80-100-concordia-luzern"
       },
       "company": "Concordia",
       "companyKey": "concordia",
