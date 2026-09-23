@@ -92425,6 +92425,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-carburanti-prezzi-tasse-ticino': {
+    title: 'Caro prezzi carburanti in Ticino: chiesta riduzione fiscale',
+    description: 'Prezzi di benzina e diesel alle stelle in Ticino. Presentata mozione per alleggerire tasse su carburanti e olio da riscaldamento. Dati aggiornati 2026',
+    keywords: 'frontalieri, ticino, svizzera, italia, caro, prezzi, carburanti, chiesta',
+    ogTitle: 'Caro carburanti in Ticino: chiesti sgravi fiscali a Berna',
+    ogDescription: 'I prezzi di benzina e diesel raggiungono livelli record in Ticino. Richiesto l\'alleggerimento fiscale su carburanti e olio da riscaldamento per sostenere consumatori e imprese.',
+    canonicalPath: '/articoli-frontaliere/carburanti-prezzi-tasse-ticino',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Caro prezzi carburanti in Ticino: chiesta riduzione fiscale",
+      "description": "Prezzi di benzina e diesel alle stelle in Ticino. Presentata mozione per alleggerire tasse su carburanti e olio da riscaldamento. Dati aggiornati 2026",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/carburanti-prezzi-tasse-ticino.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Prezzi di benzina e diesel in aumento a una stazione di servizio in Ticino"
+      },
+      "datePublished": "2026-09-23T00:36:17+00:00",
+      "dateModified": "2026-09-23T00:36:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/marco-ferrari/#person",
+        "name": "Marco Ferrari",
+        "url": "https://frontaliereticino.ch/autori/marco-ferrari/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/carburanti-prezzi-tasse-ticino/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

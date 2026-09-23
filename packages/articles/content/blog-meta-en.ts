@@ -11907,6 +11907,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.como-corso-farmacia-svizzera.title': 'Course in Pharmacy in Como: internships in the territory and Switzerland',
     'blog.article.como-corso-farmacia-svizzera.excerpt': 'The new master\'s degree course in Pharmacy at Insubria of Como started with forty-seven students and internships also in Switzerland.',
     'blog.article.como-corso-farmacia-svizzera.imageAlt': 'Pharmacy students at the university course in Como',
+    'blog.article.carburanti-prezzi-tasse-ticino.title': 'Expensive fuel prices in Ticino: tax reduction request',
+    'blog.article.carburanti-prezzi-tasse-ticino.excerpt': 'Motion filed in Bern to lighten the tax burden on gasoline, diesel and heating oil in the face of historic hikes.',
+    'blog.article.carburanti-prezzi-tasse-ticino.imageAlt': 'Petrol and diesel prices rising at a gas station in Ticino',
 };
 
 export default blogMetaEn;
