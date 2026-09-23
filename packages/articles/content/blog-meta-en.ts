@@ -11916,6 +11916,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.semafori-cadenazzo-traffico.title': 'Traffic lights in Cadenazzo and traffic: effects expected in 2027',
     'blog.article.semafori-cadenazzo-traffico.excerpt': 'The Federal Council responds to the traffic lights in Cadenazzo: effective traffic between Bellinzona and Locarno expected at the end of 2027.',
     'blog.article.semafori-cadenazzo-traffico.imageAlt': 'Traffic lights and traffic flow on the route between Bellinzona and Locarno',
+    'blog.article.vivere-brenna-lavorare-ticino.title': 'Living in Brenna and working in Ticino as a border worker',
+    'blog.article.vivere-brenna-lavorare-ticino.excerpt': 'Comprehensive analysis on connections, taxation and costs for those who choose to reside in Brenna and work in Switzerland.',
+    'blog.article.vivere-brenna-lavorare-ticino.imageAlt': 'Panoramic view of Brenna and the border crossing between Italy and Switzerland',
 };
 
 export default blogMetaEn;

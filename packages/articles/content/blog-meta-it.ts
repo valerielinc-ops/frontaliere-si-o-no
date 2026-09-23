@@ -11917,6 +11917,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.semafori-cadenazzo-traffico.title': 'Semafori a Cadenazzo e traffico: effetti previsti nel 2027',
     'blog.article.semafori-cadenazzo-traffico.excerpt': 'Il Consiglio federale risponde sui semafori a Cadenazzo: efficacia del traffico tra Bellinzona e Locarno attesa a fine 2027.',
     'blog.article.semafori-cadenazzo-traffico.imageAlt': 'Impianti semaforici e flusso di traffico sulla tratta tra Bellinzona e Locarno',
+    'blog.article.vivere-brenna-lavorare-ticino.title': 'Vivere a Brenna e lavorare in Ticino da frontaliere',
+    'blog.article.vivere-brenna-lavorare-ticino.excerpt': 'Analisi completa su collegamenti, fiscalità e costi per chi sceglie di risiedere a Brenna e lavorare in Svizzera.',
+    'blog.article.vivere-brenna-lavorare-ticino.imageAlt': 'Vista panoramica di Brenna e del valico di confine confine tra Italia e Svizzera',
 };
 
 export default blogMetaIt;
