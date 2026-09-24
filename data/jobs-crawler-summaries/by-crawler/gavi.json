@@ -1,21 +1,21 @@
 {
   "key": "gavi",
   "label": "Gavi, the Vaccine Alliance",
-  "generatedAt": "2026-09-23T23:35:06.774Z",
+  "generatedAt": "2026-09-24T14:17:38.994Z",
   "total": 2,
   "discovered": null,
-  "parsed": 2,
+  "parsed": 1,
   "lastFetchOutcome": null,
   "written": 2,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 2,
+  "updatedCount": 1,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5917,
-  "avgDurationMs": 5917,
+  "unchangedCount": 1,
+  "durationMs": 5761,
+  "avgDurationMs": 5761,
   "durationHistory": [
-    5917
+    5761
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2526&portal=Global",
       "source": "Gavi Dedicated Parser (Salesforce fRecruit)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:34:58.337Z",
+      "crawledAt": "2026-09-24T14:17:28.960Z",
       "addressLocality": "Le Grand-Saconnex",
       "addressRegion": "GE",
       "streetAddress": "Chemin du Pommier 40",
@@ -56,10 +56,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "gavi-46907ae4fc28",
-      "slug": "manager-governance-gavi-le-grand-saconnex",
+      "slug": "direttore-governance-gavi-the-vaccine-alliance-le-grand-saconnex",
       "company": "Gavi, the Vaccine Alliance",
       "companyKey": "gavi",
       "companyDomain": "gavi.org",
@@ -87,15 +90,17 @@
       "applyUrl": "https://fs-2662.my.salesforce-sites.com/recruit/fRecruit__ApplyJob?vacancyNo=VN2489&portal=Global",
       "jobReqId": "VN2489",
       "firstSeenAt": "2026-09-02T13:33:34.798Z",
-      "_qualityScore": 90,
+      "salaryMin": 107000,
+      "salaryMax": 183000,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
