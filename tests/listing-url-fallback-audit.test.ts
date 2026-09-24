@@ -12,7 +12,8 @@ import {
   resolveStringConstant,
   scanParserSource,
 } from '../scripts/lib/listing-url-fallback-audit.mjs';
-import { run } from '../scripts/audit-listing-url-fallback.mjs';
+import { execFileSync } from 'node:child_process';
+import { main, run } from '../scripts/audit-listing-url-fallback.mjs';
 
 const REPO_ROOT = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
 
@@ -125,6 +126,44 @@ describe('listing-url-fallback-audit (#9679)', () => {
       expect(run(['--root', root])).toBe(0);
       expect(run(['--root', root, '--fail-on-loss'])).toBe(1);
       expect(String(out.mock.calls[0][0])).toContain('parser con perdita riproducibile: acme');
+    });
+
+    // Review finding on #9719: with --ref, an unreadable ref used to read as
+    // "every slice absent", i.e. zero loss and --fail-on-loss exiting 0.
+    function gitFixture(sliceText: string) {
+      root = fs.mkdtempSync(path.join(os.tmpdir(), 'listing-url-audit-git-'));
+      fs.mkdirSync(path.join(root, 'scripts/lib'), { recursive: true });
+      fs.mkdirSync(path.join(root, 'data/jobs/by-crawler'), { recursive: true });
+      fs.writeFileSync(path.join(root, 'scripts/lib/acme-job-parser.mjs'), workdayParser);
+      fs.writeFileSync(path.join(root, 'data/jobs/by-crawler/acme.json'), sliceText);
+      const g = (...args: string[]) => execFileSync('git', args, { cwd: root, stdio: 'ignore' });
+      g('init', '-q');
+      g('add', '-A');
+      g('-c', 'user.name=t', '-c', 'user.email=t@example.invalid', 'commit', '-q', '--no-verify', '-m', 'fixture');
+      // --ref must not read the working tree: drop the materialized slices.
+      fs.rmSync(path.join(root, 'data'), { recursive: true, force: true });
+    }
+
+    it('reads slices from a git ref and still flags the loss', () => {
+      gitFixture(JSON.stringify({ jobs: [{ id: 'acme-1', url: 'https://acme.wd3.myworkdayjobs.com/Careers' }] }));
+      vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+      expect(main(['--root', root, '--ref', 'HEAD', '--fail-on-loss'])).toBe(1);
+    });
+
+    it('exits 2 on an unknown ref instead of reporting zero loss', () => {
+      gitFixture(JSON.stringify({ jobs: [{ id: 'acme-1', url: 'https://acme.wd3.myworkdayjobs.com/Careers' }] }));
+      const err = vi.spyOn(console, 'error').mockImplementation(() => undefined);
+      const out = vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+      expect(main(['--root', root, '--ref', 'no-such-ref', '--fail-on-loss'])).toBe(2);
+      expect(out).not.toHaveBeenCalled();
+      expect(String(err.mock.calls[0][0])).toMatch(/git ref not found: no-such-ref/);
+    });
+
+    it('exits 2 on an unreadable slice at the ref instead of treating it as absent', () => {
+      gitFixture('{ not json');
+      vi.spyOn(console, 'error').mockImplementation(() => undefined);
+      vi.spyOn(process.stdout, 'write').mockImplementation(() => true);
+      expect(main(['--root', root, '--ref', 'HEAD', '--fail-on-loss'])).toBe(2);
     });
 
     it('refuses to report zero when the slices are not materialized', () => {

@@ -56,19 +56,51 @@ function parseSlice(text) {
   return Array.isArray(parsed) ? parsed : (Array.isArray(parsed?.jobs) ? parsed.jobs : []);
 }
 
-function makeSliceLoader({ root, ref }) {
-  if (ref) {
-    return (key) => {
-      try {
-        const text = execFileSync('git', ['show', `${ref}:${SLICE_DIR}/${key}.json`], {
-          cwd: root, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, stdio: ['ignore', 'pipe', 'ignore'],
-        });
-        return parseSlice(text);
-      } catch {
-        return null;
-      }
-    };
+function git(root, args) {
+  return execFileSync('git', args, {
+    cwd: root, encoding: 'utf8', maxBuffer: 256 * 1024 * 1024, stdio: ['ignore', 'pipe', 'pipe'],
+  });
+}
+
+/**
+ * Slices read from a git ref. The ref and the slice directory are checked ONCE
+ * up front, and the set of published slices comes from `git ls-tree`: only a
+ * key missing from that listing is an absent slice. Any other failure (bad
+ * ref, unreadable blob, invalid JSON) throws, so the CLI exits 2 instead of
+ * reporting "no loss" over slices it never read.
+ */
+export function makeGitSliceLoader(root, ref) {
+  try {
+    git(root, ['rev-parse', '--verify', '--quiet', `${ref}^{commit}`]);
+  } catch {
+    throw new Error(`git ref not found: ${ref}`);
   }
+  let listing;
+  try {
+    listing = git(root, ['ls-tree', '--name-only', `${ref}:${SLICE_DIR}`]);
+  } catch (err) {
+    throw new Error(`cannot list ${SLICE_DIR} at ${ref}: ${String(err?.stderr || err?.message || err).trim()}`);
+  }
+  const present = new Set(listing.split('\n').filter((f) => f.endsWith('.json')).map((f) => f.slice(0, -'.json'.length)));
+  return (key) => {
+    if (!present.has(key)) return null;
+    const blob = `${ref}:${SLICE_DIR}/${key}.json`;
+    let text;
+    try {
+      text = git(root, ['show', blob]);
+    } catch (err) {
+      throw new Error(`cannot read ${blob}: ${String(err?.stderr || err?.message || err).trim()}`);
+    }
+    try {
+      return parseSlice(text);
+    } catch (err) {
+      throw new Error(`invalid JSON in ${blob}: ${err?.message || err}`);
+    }
+  };
+}
+
+function makeSliceLoader({ root, ref }) {
+  if (ref) return makeGitSliceLoader(root, ref);
   return (key) => {
     const file = path.join(root, SLICE_DIR, `${key}.json`);
     if (!fs.existsSync(file)) return null;
@@ -86,11 +118,16 @@ export function run(argv = process.argv.slice(2)) {
   return opts.failOnLoss && report.lossyParsers.length > 0 ? 1 : 0;
 }
 
-if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+/** Exit code contract: 0 ran, 1 loss with --fail-on-loss, 2 the audit could not run. */
+export function main(argv = process.argv.slice(2)) {
   try {
-    process.exitCode = run();
+    return run(argv);
   } catch (err) {
     console.error(`audit-listing-url-fallback: ${err?.message || err}`);
-    process.exitCode = 2;
+    return 2;
   }
+}
+
+if (process.argv[1] && import.meta.url === pathToFileURL(process.argv[1]).href) {
+  process.exitCode = main();
 }
