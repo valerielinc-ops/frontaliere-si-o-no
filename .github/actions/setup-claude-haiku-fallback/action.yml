@@ -471,12 +471,46 @@ runs:
         set +e
         node_bin="${TRUSTED_NODE:-}"
         node_sha256_expected="${TRUSTED_NODE_SHA256:-}"
+        # Sui runner GitHub-hosted `trusted_toolchain` rifiuta SEMPRE il Node
+        # del toolcache (mode 777) e usa il Node pinnato per checksum che
+        # estrae in `$RUNNER_TEMP/codex-luna-max-node.XXXXXX` (0700). Questa
+        # allowlist non lo elencava, quindi il broker si rifiutava a ogni run
+        # ("could not use its attested Node runtime", smoke-test-ai-models run
+        # 35995800618) e la lane Codex saltava in silenzio in tutti i
+        # chiamanti. Si accetta SOLO quel percorso esatto, nella sua directory
+        # privata 0700; lo sha256 sotto continua a legare il binario a quello
+        # attestato da `trusted_toolchain`.
+        pinned_runtime_ok=0
+        runner_temp_real=''
+        if [ -n "${RUNNER_TEMP:-}" ]; then
+          for candidate_realpath in /usr/bin/realpath /bin/realpath; do
+            if [ -x "$candidate_realpath" ]; then
+              runner_temp_real="$("$candidate_realpath" -- "$RUNNER_TEMP" 2>/dev/null || true)"
+              break
+            fi
+          done
+        fi
+        case "$runner_temp_real" in
+          /?*)
+            pinned_suffix="${node_bin#"$runner_temp_real"/}"
+            if [ "$pinned_suffix" != "$node_bin" ] && \
+              [[ "$pinned_suffix" =~ ^codex-luna-max-node\.[A-Za-z0-9]{6}/node/bin/node$ ]]; then
+              pinned_runtime_root="$runner_temp_real/${pinned_suffix%%/*}"
+              pinned_runtime_mode="$(/usr/bin/stat -c '%a' -- "$pinned_runtime_root" 2>/dev/null || true)"
+              if [ -d "$pinned_runtime_root" ] && [ ! -L "$pinned_runtime_root" ] && [ "$pinned_runtime_mode" = '700' ]; then
+                pinned_runtime_ok=1
+              fi
+            fi
+            ;;
+        esac
         case "$node_bin" in
           /usr|/usr/*|/usr/local|/usr/local/*|/bin|/bin/*|/opt/hostedtoolcache|/opt/hostedtoolcache/*|/opt/runner|/opt/runner/*|/opt/homebrew|/opt/homebrew/*)
             ;;
           *)
-            echo "::warning::Codex auth broker could not use its attested Node runtime; the normal fallback cascade remain available"
-            exit 0
+            if [ "$pinned_runtime_ok" -ne 1 ]; then
+              echo "::warning::Codex auth broker could not use its attested Node runtime; the normal fallback cascade remain available"
+              exit 0
+            fi
             ;;
         esac
         if [ ! -f "$node_bin" ] || [ ! -x "$node_bin" ] || [ -L "$node_bin" ]; then

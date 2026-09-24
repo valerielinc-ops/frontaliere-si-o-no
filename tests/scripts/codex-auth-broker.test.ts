@@ -187,7 +187,6 @@ enabled = false
 ":root" = "deny"
 ":minimal" = "read"
 ":tmpdir" = "deny"
-":slash_tmp" = "deny"
 
 [permissions.codex-luna-max.filesystem.":workspace_roots"]
 "." = "read"
@@ -547,5 +546,122 @@ describe('Codex auth broker runtime contract', () => {
       new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit after explicit cleanup')), 2000)),
     ]);
     expect(fs.existsSync(socketPath)).toBe(false);
+  });
+
+  // Il profilo negava ":slash_tmp", ma il broker costruisce workspace,
+  // CODEX_HOME e TMPDIR sotto os.tmpdir(), cioe' /tmp: il deny copriva il
+  // workspace stesso e ogni chiamata Codex usciva con code 1 prima del modello
+  // (gemello del corpus, run 36001495484). Il Codex finto registra dove il
+  // broker lo lancia e quale profilo gli scrive, cosi' il contratto si verifica
+  // sui percorsi reali e non sul testo.
+  it('never denies the workspace it launches Codex in, while :root still hides auth', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = path.join(prefix, 'profile-codex.mjs');
+    fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
+      import fs from 'node:fs';
+      import path from 'node:path';
+      const args = process.argv.slice(2);
+      if (args.includes('--version')) {
+        console.log('OpenAI Codex v0.153.4');
+        process.exit(0);
+      }
+      const output = args[args.indexOf('--output-last-message') + 1];
+      process.stdin.resume();
+      process.stdin.on('end', () => fs.writeFileSync(output, JSON.stringify({
+        cwd: process.cwd(),
+        cd: args[args.indexOf('--cd') + 1],
+        tmpdir: process.env.TMPDIR,
+        codexHome: process.env.CODEX_HOME,
+        config: fs.readFileSync(path.join(process.env.CODEX_HOME, 'config.toml'), 'utf8'),
+      })));
+    `);
+    fs.chmodSync(fakeCodex, 0o700);
+    // Come la setup action: `env -i PATH=...`, quindi nessun TMPDIR ereditato.
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"profile-check"}');
+    await waitForSocket(socketPath, child);
+
+    const response = await request(socketPath, { op: 'exec', prompt: 'profile', timeoutMs: 5000, schema: null });
+    expect(response.ok, JSON.stringify(response)).toBe(true);
+    const seen = JSON.parse(String(response.result));
+    expect(seen.cwd).toBe(seen.cd);
+
+    const filesystem: Record<string, string> = {};
+    let inFilesystem = false;
+    for (const line of String(seen.config).split('\n')) {
+      const header = line.match(/^\[(.+)\]\s*$/);
+      if (header) {
+        inFilesystem = /^permissions\.[^.]+\.filesystem$/.test(header[1]);
+        continue;
+      }
+      const entry = inFilesystem ? line.match(/^"([^"]+)"\s*=\s*"([^"]+)"\s*$/) : null;
+      if (entry) filesystem[entry[1]] = entry[2];
+    }
+    // ":root" resta il muro che nasconde auth.json: il workspace lo scavalca
+    // per costruzione, ogni altro deny no.
+    expect(filesystem[':root']).toBe('deny');
+    const real = (target: string) => {
+      try { return fs.realpathSync(target); } catch { return path.resolve(target); }
+    };
+    const special: Record<string, string> = { ':slash_tmp': '/tmp', ':tmpdir': String(seen.tmpdir) };
+    const workspace = real(String(seen.cwd));
+    for (const [rule, access] of Object.entries(filesystem)) {
+      if (access !== 'deny' || rule === ':root') continue;
+      const target = special[rule] ?? (path.isAbsolute(rule) ? rule : null);
+      expect(target, `deny rule the test cannot resolve: ${rule}`).toBeTruthy();
+      const relative = path.relative(real(String(target)), workspace);
+      const coversWorkspace = relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative));
+      expect(coversWorkspace, `${rule} = "deny" covers the workspace ${workspace}`).toBe(false);
+    }
+    const homeInWorkspace = path.relative(workspace, real(String(seen.codexHome)));
+    expect(homeInWorkspace.startsWith('..') || path.isAbsolute(homeInWorkspace)).toBe(true);
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
+  });
+
+  it('returns the last Codex error line on a failed exit, redacted and bounded', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const token = `eyJ${'a'.repeat(40)}.${'b'.repeat(40)}.${'c'.repeat(40)}`;
+    const fakeCodex = path.join(prefix, 'failing-codex.mjs');
+    fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
+      if (process.argv.includes('--version')) {
+        console.log('OpenAI Codex v0.153.4');
+        process.exit(0);
+      }
+      process.stdin.resume();
+      process.stdin.on('end', () => {
+        process.stderr.write('\\x1b[31m2026-09-24T13:59:26Z ERROR codex_models_manager: 401 with ${token}\\x1b[0m\\n');
+        process.stderr.write('Error: thread/start failed: ' + 'error creating thread: '.repeat(15) + 'session ${token}: bwrap: Can\\'t mkdir parents for /tmp/w/tmp: Read-only file system (code -32603)\\n');
+        process.exit(1);
+      });
+    `);
+    fs.chmodSync(fakeCodex, 0o700);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"failure-reason"}');
+    await waitForSocket(socketPath, child);
+
+    const response = await request(socketPath, { op: 'exec', prompt: 'fail', timeoutMs: 5000, schema: null });
+    expect(response.ok).toBe(false);
+    const error = String(response.error);
+    expect(error).toMatch(/^Codex CLI exited with code 1: …/);
+    expect(error).toMatch(/bwrap: Can't mkdir parents for \/tmp\/w\/tmp: Read-only file system \(code -32603\)$/);
+    expect(error.length).toBeLessThanOrEqual(300);
+    expect(error).toContain('[redacted]');
+    expect(error).not.toMatch(/eyJ|[abc]{32,}|\x1b/);
   });
 });
