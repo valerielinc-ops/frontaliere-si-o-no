@@ -27,17 +27,23 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-23T23:49:16.499Z",
     "previousSlugs": [
-      "mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026-claraspital-basel"
+      "mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026-claraspital-basel",
+      "impiegato-a-servizi-a-termine-fino-al-31-12-2026-st-claraspital-basel",
+      "temporary-service-employee-until-december-31-2026-st-claraspital-basel",
+      "employe-e-de-service-temporaire-jusqu-au-31-decembre-2026-st-claraspital-basel"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026-claraspital-basel"
+        "mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026-claraspital-basel",
+        "impiegato-a-servizi-a-termine-fino-al-31-12-2026-st-claraspital-basel"
       ],
       "en": [
-        "mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026-claraspital-basel"
+        "mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026-claraspital-basel",
+        "temporary-service-employee-until-december-31-2026-st-claraspital-basel"
       ],
       "fr": [
-        "mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026-claraspital-basel"
+        "mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026-claraspital-basel",
+        "employe-e-de-service-temporaire-jusqu-au-31-decembre-2026-st-claraspital-basel"
       ]
     },
     "postalCode": "4058",
@@ -45,7 +51,26 @@
     "salaryMin": 88000,
     "salaryMax": 123000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026/24b1f90a-50c5-4f56-836c-18e62d066021",
+    "firstSeenAt": "2026-05-19T12:23:42.136Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026/1104a5df-8d5d-4744-9b6f-7eb7cd6f1825",
+        "firstSeenAt": "2026-07-20T12:13:35.252Z",
+        "title": "Mitarbeiter/in Services befristet bis voraussichtlich 31.12.2026"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026/24b1f90a-50c5-4f56-836c-18e62d066021",
+        "firstSeenAt": "2026-05-19T12:23:42.136Z",
+        "title": "Mitarbeiter/in Services befristet bis voraussichtlich 31.12.2026"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/mitarbeiter-in-services-befristet-bis-voraussichtlich-31-12-2026/70082f72-b54b-4cec-95c8-215a78dc97c5",
+        "firstSeenAt": "2026-08-25T10:01:51.434Z",
+        "title": "Mitarbeiter/in Services befristet bis voraussichtlich 31.12.2026"
+      }
+    ]
   },
   {
     "slug": "carriera-apn-clinical-nurse-specialist-medicina-st-claraspital-basel",
@@ -90,7 +115,135 @@
     "salaryMin": 88000,
     "salaryMax": 123000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/fachleitung-pflege-apn-clinical-nurse-specialist-medizin/ade67b39-303a-488f-adad-8ed5429df98a",
+    "firstSeenAt": "2026-08-13T21:58:20.707Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/fachleitung-pflege-apn-clinical-nurse-specialist-medizin/ade67b39-303a-488f-adad-8ed5429df98a",
+        "firstSeenAt": "2026-08-13T21:58:20.707Z",
+        "title": "Fachleitung Pflege APN (Clinical Nurse Specialist) Medizin"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/fachleitung-pflege-apn-clinical-nurse-specialist-medizin/e3999640-cd7f-4ea1-a52a-5ddd12979eae",
+        "firstSeenAt": "2026-09-19T23:08:10.998Z",
+        "title": "Fachleitung Pflege APN (Clinical Nurse Specialist) Medizin"
+      }
+    ]
+  },
+  {
+    "slug": "psicologo-st-claraspital-basel",
+    "title": "Psychologin / Psychologe",
+    "titleByLocale": {
+      "it": "Psicologo",
+      "en": "Psychologist/psychologist",
+      "de": "Psychologin / Psychologe",
+      "fr": "Psychologue"
+    },
+    "company": "St. Claraspital",
+    "companyKey": "claraspital",
+    "location": "Basel",
+    "addressLocality": "Basel",
+    "descriptionByLocale": {
+      "it": "Il Claraspital partecipa al modello di assistenza SomPsyNet finanziato dal Dipartimento di Salute Basel-Stadt e Promozione della Salute Svizzera insieme all'Ospedale Universitario di Basilea e ad altri ospedali di Basilea per promuovere la prevenzione delle conseguenze di stress psicosociale negli ospedali di cura acuta somatica.\n• Valutazione del programma di studio e di consultazione psicosociale nelle stazioni di cardiologia e polmonologia\n• Iniziazione dei trattamenti di follow-up e attuazione di interventi psicoterapeutici iniziali\n• Cooperazione interdisciplinare con il servizio di allattamento e la professione medica e servizi psicosociali\n• Collaborazione nell'attuazione, sviluppo e raccolta dei dati di Sompsynet\n• Partecipazione a ulteriori corsi di formazione\n• Coordinamento con i servizi sanitari moderni Il Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e ricerca con un mandato di servizio completo per la chirurgia addominale altamente specializzata e la trasmissione transregionale dei suoi centri \"Bäu\" e \"tumor\" così come le sue aree speciali. Nel Claraspital, i dipendenti trovano posti di lavoro dove possono sviluppare sia professionalmente che umanamente. A Claraspital, attribuiamo grande importanza per nutrire consapevolmente e sviluppare la nostra cultura aziendale e vivere attivamente i criteri culturali sviluppati insieme \"insieme - competentemente - responsabilmente\".",
+      "en": "The Claraspital participates in the SomPsyNet care model funded by the Department of Health Basel-Stadt and Health Promotion Switzerland together with the University Hospital Basel and other hospitals in Basel to promote the prevention of psychosocial stress consequences in somatic acute care hospitals. Tasks:\n• Evaluation of the screening and implementation of psychosocial consultancies at the stations of cardiology and pulmonology\n• Initiation of follow-up treatments and implementation of initial psychotherapeutic interventions\n• Interdisciplinary cooperation with nursing service and medical profession as well as psychosocial services\n• Collaboration in the implementation, further development and data collection of Sompsynet\n• Participation in further education and training\n• Coordination with the health department of Basel-Stadt and the partner hospitals involved Requirements:\n• University degree in psychology (university or HAP)\n• Started training in a recognized psychotherapy direction\n• Openness towards different psychotherapy methods as well as interest in creative therapeutic methods (art therapy / music therapy)\n• Joy in and familiarity with somatic medicine\n• Social competence, independent work as well as willingness and pleasure in the multiprofessional and interdisciplinary cooperation We offer:\n• 28-33 paid holidays per year\n• Extensive opportunities for further education and training, e.g. own seminar program with a wide range of education\n• Company health management with preventive measures such as ergonomic advice in the workplace\n• Part-time work as well as the possibility of job sharing also in management functions\n• Bright, friendly rooms with modern infrastructure\n• Strong values and actively lived corporate culture\n• Characterization and co-creation of the Claraspital by the employees The Claraspital, largest Basel private hospital, is a university teaching and research hospital with a full service mandate for highly specialized abdominal surgery and the transregional broadcast of its \"Bäu\" and \"tumor\" centers as well as its special areas. In the Claraspital, employees find jobs where they can develop both professionally and humanly. At Claraspital, we attach great importance to consciously nurturing and developing our corporate culture and actively living the cultural criteria developed together \"together - competently - responsibly\".",
+      "de": "<b>Das Claraspital nimmt Teil am von Gesundheitsdepartement Basel-Stadt und Gesundheitsförderung Schweiz geförderten Versorgungsmodell SomPsyNet zusammen mit dem Universitätsspital Basel sowie weiteren Basler Spitälern zur Förderung der Prävention psychosozialer Belastungsfolgen in somatischen Akutspitälern.</b>\n\nAufgaben:\n• Auswertung des Screenings und Durchführung psychosozialer Konsile auf den Stationen der Kardiologie und Pneumologie\n\n• Initiierung von Weiterbehandlungen und Durchführung erster psychotherapeutischer Interventionen\n\n• Interdisziplinäre Zusammenarbeit mit Pflegedienst und Ärzteschaft sowie psychosozialen Diensten\n\n• Mitarbeit bei der Durchführung, Weiterentwicklung und der Datenerhebung von Sompsynet\n\n• Mitwirkung bei Weiterbildungen und Schulungen\n\n• Koordination mit dem Gesundheitsdepartement Basel-Stadt und den involvierten Partnerspitälern\n\nAnforderungen:\n• Universitätsabschluss in Psychologie (Universität oder HAP)\n\n• Eine begonnene Ausbildung in einer anerkannten Psychotherapierichtung\n\n• Offenheit gegenüber verschiedenen Psychotherapiemethoden sowie Interesse für kreativtherapeutische Methoden (Kunsttherapie/Musiktherapie)\n\n• Freude an und Vertrautheit mit somatischer Medizin\n\n• Sozialkompetenz, eigenständiges Arbeiten sowie Bereitschaft und Freude an der multiprofessionellen und interdisziplinären Zusammenarbeit\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "fr": "Le Claraspital participe au modèle de soins SomPsyNet financé par le Département de la Santé Bâle-Stadt et la Promotion de la Santé Suisse avec l'Hôpital Universitaire Bâle et d'autres hôpitaux de Bâle pour promouvoir la prévention des conséquences du stress psychosocial dans les hôpitaux de soins actifs somatiques. Tâches:\n• Évaluation du dépistage et de la mise en œuvre des services psychosociaux dans les stations de cardiologie et de pulmonologie\n• Lancement de traitements de suivi et mise en oeuvre d'interventions psychothérapeutiques initiales\n• Coopération interdisciplinaire avec les services infirmiers et la profession médicale ainsi que les services psychosociaux\n• Collaboration à la mise en œuvre, au développement ultérieur et à la collecte de données de Sompsynet\n• Participation à la formation et à la formation continues\n• Coordination avec le département de santé de Bâle-Stadt et les hôpitaux partenaires concernés Exigences:\n• Diplôme universitaire en psychologie (université ou HAP)\n• Formation initiale dans une direction psychothérapeutique reconnue\n• Ouverture aux différentes méthodes de psychothérapie ainsi qu'à l'intérêt pour les méthodes thérapeutiques créatives (art thérapie / musicothérapie)\n• Joy in and familiarisity with somatic medicine\n• Compétence sociale, travail indépendant ainsi que volonté et plaisir dans la coopération multiprofessionnelle et interdisciplinaire Nous offrons:\n• 28-33 vacances rémunérées par an\n• Possibilités de poursuivre l'éducation et la formation, p.ex. programme de séminaire propre avec un large éventail de valeurs éducatives\n• Gestion de la santé d'entreprise avec des Le Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche ayant un mandat de service complet pour la chirurgie abdominale hautement spécialisée et la diffusion transrégionale de ses centres \"Bäu\" et \"tumoraux\" ainsi que ses zones spéciales. Dans le Claraspital, les employés trouvent des emplois où ils peuvent se développer à la fois professionnellement et humainement. À Claraspital, nous attachons une grande importance à l'éducation et au développement consciemment de notre culture d'entreprise et à la vie active des critères culturels développés ensemble « ensemble - avec compétence - de manière responsable »."
+    },
+    "slugByLocale": {
+      "it": "psicologo-st-claraspital-basel",
+      "en": "psychologist-psychologist-st-claraspital-basel",
+      "de": "psychologin-psychologe-claraspital-basel",
+      "fr": "psychologue-st-claraspital-basel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-11T23:18:34.816Z",
+    "previousSlugs": [
+      "psychologin-psychologe-claraspital-basel"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "psychologin-psychologe-claraspital-basel"
+      ],
+      "en": [
+        "psychologin-psychologe-claraspital-basel"
+      ],
+      "fr": [
+        "psychologin-psychologe-claraspital-basel"
+      ]
+    },
+    "postalCode": "4058",
+    "streetAddress": "Kleinriehenstrasse 30",
+    "salaryMin": 88000,
+    "salaryMax": 123000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/psychologin-psychologe/4e0320df-acff-435e-aea3-3e6c8baf467f",
+    "firstSeenAt": "2026-06-17T22:20:15.208Z"
+  },
+  {
+    "slug": "case-manager-stazionario-limitato-al-31-12-2026-st-claraspital-basel",
+    "title": "Stationäre/r Case Manager/in befristet bis zum 31.12.2026",
+    "titleByLocale": {
+      "it": "Case manager stazionario limitato al 31.12.2026",
+      "en": "Stationäre/r Case Manager/in befristet bis zum 31.12.2026",
+      "de": "Stationäre/r Case Manager/in befristet bis zum 31.12.2026",
+      "fr": "Gestionnaire de cas stationnaire limité au 31.12.2026"
+    },
+    "company": "St. Claraspital",
+    "companyKey": "claraspital",
+    "location": "Basel",
+    "addressLocality": "Basel",
+    "descriptionByLocale": {
+      "it": "Compiti:\n• Co-responsabilità per la pianificazione e l'ottimizzazione del tempo di abitazione in stretto coordinamento con i medici responsabili, nonché il supporto dei processi inpatici dei pazienti\n\n• Coordinamento e pianificazione delle misure necessarie per ottimizzare la gestione dei licenziamenti in collaborazione con tutti i partecipanti al processo di trattamento e di cura, istituzioni post-assistenza (riabilitazione, Spitex, ecc.), pazienti e, se del caso, i loro parenti\n\n• Valutazione precoce delle esigenze di assistenza post-paziente e di supporto in coordinamento con i pazienti e, se del caso, i loro parenti\n\n• Pianificazione e coordinamento delle nomine sia ospedaliere che mediche per la diagnosi e la terapia\n\n• Raccolta di indicatori rilevanti per le statistiche e la cooperazione nella preparazione e nell'attuazione degli orientamenti nell'ambito delle varie certificazioni\n\n• Assumere compiti amministrativi\n\nRequisiti\n• Allenamento completato come Dipl. Infermiera HF con almeno due anni di esperienza professionale in un ospedale svizzero acuto\n\n• Esperienza e/o qualificazione aggiuntiva nella gestione dei casi\n\n• Personalità impegnata, responsabile e resiliente con un alto livello di competenza sociale, forte competenza consultiva e un aspetto sovrano\n\n• Comunicazione orientabile, apprezzativa ed empatica; cooperazione interdisciplinare e interprofessionale\n\n• Il pensiero e l'azione orientati al processo, al risultato e all'obiettivo, nonché i metodi di lavoro orientati alla soluzione\n\n• Conoscenza IT molto buona, soprattutto nelle applicazioni MS Office e software ospedaliero comune\n\nOffriamo:\n• 28-33 giorni di congedo retribuiti all'anno\n\n• Ampia opportunità di formazione e formazione, ad esempio il proprio programma di seminario con una vasta gamma di opportunità educative\n\n• Gestione della salute sul lavoro con misure preventive come la consulenza ergonomica sul posto di lavoro\n\n• Lavoro a tempo parziale e possibilità di condivisione del lavoro anche nelle funzioni di gestione\n\n• Camere luminose e accoglienti con infrastrutture moderne\n\n• Valori forti e cultura aziendale attivamente vissuta\n\n• Caratterizzazione e partecipazione del Claraspital da parte dei dipendenti\n\nIl Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e ricerca con un mandato di servizio completo per una chirurgia addominale altamente specializzata e una trasmissione supra-regionale dei suoi centri \"Bäu\" e \"Tumor\" così come i suoi campi speciali. Nel Claraspital, i dipendenti trovano posti di lavoro dove possono sviluppare sia professionalmente che umanamente. A Claraspital, attribuiamo grande importanza per nutrire consapevolmente e sviluppare la nostra cultura aziendale e vivere attivamente i criteri culturali sviluppati insieme \"insieme - competentemente - responsabilmente\".",
+      "en": "Tasks:\n• Co-responsibility for the planning and optimization of the dwell time in close coordination with the responsible doctors as well as support of the inpatient processes of the patients\n\n• Coordination and planning of the necessary measures to optimize dismissal management in cooperation with all participants in the treatment and care process, aftercare institutions (rehabilitation, Spitex, etc.), patients and, if applicable, their relatives\n\n• Early assessment of post-patient care and support needs in coordination with patients and, where applicable, their relatives\n\n• Planning and coordination of both inpatient and medical appointments for diagnosis and therapy\n\n• Collection of relevant indicators for statistics as well as cooperation in the preparation and implementation of guidelines within the framework of various certifications\n\n• Taking over administrative tasks\n\nRequirements\n• Completed training as a Dipl. Nurse HF with at least two years of professional experience in a Swiss acute care hospital\n\n• Experience and/or additional qualification in case management\n\n• Committed, responsible and resilient personality with a high level of social competence, strong advisory competence and a sovereign appearance\n\n• Addressable, appreciative and empathetic communication; Enjoying interdisciplinary and interprofessional cooperation\n\n• Process-, result- and goal-oriented thinking and action as well as solution-oriented working methods\n\n• Very good IT knowledge, especially in MS Office applications and common hospital software\n\nWe offer:\n• 28-33 paid leave days per year\n\n• Extensive opportunities for further education and training, e.g. own seminar program with a wide range of educational opportunities\n\n• Occupational health management with preventive measures such as ergonomic advice in the workplace\n\n• Part-time work and possibility of job sharing also in management functions\n\n• Bright, friendly rooms with modern infrastructure\n\n• Strong values and actively lived corporate culture\n\n• Characterisation and participation of the Claraspital by the employees\n\nThe Claraspital, the largest private hospital in Basel, is a university teaching and research hospital with a full service mandate for highly specialized abdominal surgery and a supra-regional broadcast of its centers \"Bäu\" and \"Tumor\" as well as its special fields. In the Claraspital, employees find jobs where they can develop both professionally and humanly. At Claraspital, we attach great importance to consciously nurturing and developing our corporate culture and actively living the cultural criteria developed together \"together - competently - responsibly\".",
+      "de": "Aufgaben:\n• Mitverantwortung für die Planung und Optimierung der Verweildauer in enger Abstimmung mit den zuständigen Ärzten sowie Begleitung der stationären Prozesse der Patienten\n\n• Koordination und Planung der erforderlichen Massnahmen zur Optimierung des Entlassungsmanagements in Zusammenarbeit mit allen am Behandlungs- und Versorgungsprozess Beteiligten, Nachsorgeinstitutionen (Reha, Spitex etc.), Patienten und ggf. deren Angehörigen\n\n• Frühzeitige Erhebung des poststationären Versorgungs- und Unterstützungsbedarfs in Abstimmung mit Patienten und ggf. deren Angehörigen\n\n• Planung und Koordination sowohl stationärer als auch ärztlich angeordneter poststationärer Termine zur Diagnostik und Therapie\n\n• Erhebung relevanter Kennzahlen für Statistiken sowie Mitarbeit bei der Erstellung und Umsetzung von Richtlinien im Rahmen diverser Zertifizierungen\n\n• Übernahme administrativer Aufgaben\n\nAnforderungen:\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF mit mindestens zwei Jahren Berufserfahrung in einem Schweizer Akutspital\n\n• Erfahrung und/oder Zusatzqualifikation im Case Management von Vorteil\n\n• Engagierte, verantwortungsbewusste und belastbare Persönlichkeit mit hoher Sozialkompetenz, ausgeprägter Beratungskompetenz sowie souveränem Auftreten\n\n• Adressatengerechte, wertschätzende und empathische Kommunikation; Freude an interdisziplinärer und interprofessioneller Zusammenarbeit\n\n• Prozess-, ergebnis- und zielorientiertes Denken und Handeln sowie lösungsorientierte Arbeitsweise\n\n• Sehr gute EDV-Kenntnisse, insbesondere in MS-Office-Anwendungen und gängiger Spitalsoftware\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "fr": "Tâches :\n• Coresponsabilité pour la planification et l'optimisation du temps de séjour en étroite coordination avec les médecins responsables ainsi que le soutien des processus d'hospitalisation des patients\n\n• Coordination et planification des mesures nécessaires pour optimiser la gestion des licenciements en coopération avec tous les participants au processus de traitement et de soins, les établissements de soins post-cure (réadaptation, Spitex, etc.), les patients et, le cas échéant, leurs proches\n\n• Évaluation précoce des besoins de soins post-patients et de soutien en coordination avec les patients et, le cas échéant, leurs proches\n\n• Planification et coordination des rendez-vous médicaux et hospitaliers pour le diagnostic et la thérapie\n\n• Collecte d ' indicateurs statistiques pertinents et coopération dans l ' élaboration et la mise en œuvre de directives dans le cadre de diverses certifications\n\n• Prise en charge des tâches administratives\n\nExigences\n• Formation terminée en tant que diplômé. Infirmière HF ayant au moins deux ans d'expérience professionnelle dans un hôpital suisse de soins actifs\n\n• Expérience et/ou qualification supplémentaire en gestion de cas\n\n• Personnalité engagée, responsable et résiliente avec un haut niveau de compétence sociale, une forte compétence consultative et une apparence souveraine\n\n• Communication adressable, reconnaissante et empathique; Profitez de la coopération interdisciplinaire et interprofessionnelle\n\n• Pensée et action axées sur les processus, les résultats et les objectifs, ainsi que méthodes de travail axées sur les solutions\n\n• Très bonne connaissance de la TI, en particulier dans les applications MS Office et les logiciels hospitaliers communs\n\nNous offrons:\n• 28-33 jours de congé payé par an\n\n• Possibilités étendues d'éducation et de formation continue, p.ex. programme de séminaires avec un large éventail de possibilités d'éducation\n\n• Gestion de la santé au travail avec des mesures préventives telles que des conseils ergonomiques sur le lieu de travail\n\n• Travail à temps partiel et possibilité de partage de l'emploi également dans les fonctions de gestion\n\n• Chambres lumineuses et conviviales avec une infrastructure moderne\n\n• Des valeurs fortes et une culture d'entreprise active\n\n• Caractérisation et participation du Claraspital par les salariés\n\nLe Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de service complet pour la chirurgie abdominale hautement spécialisée et une diffusion supra-régionale de ses centres \"Bäu\" et \"Tumor\" ainsi que ses domaines spéciaux. Dans le Claraspital, les employés trouvent des emplois où ils peuvent se développer à la fois professionnellement et humainement. Chez Claraspital, nous attachons une grande importance à l'éducation et au développement consciemment de notre culture d'entreprise et à la vie active des critères culturels développés ensemble « ensemble - avec compétence - de manière responsable »."
+    },
+    "slugByLocale": {
+      "it": "case-manager-stazionario-limitato-al-31-12-2026-st-claraspital-basel",
+      "en": "stationary-case-manager-limited-to-31-12-2026-st-claraspital-basel",
+      "de": "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel",
+      "fr": "gestionnaire-de-cas-stationnaire-limite-au-31-12-2026-st-claraspital-basel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-09T23:13:19.518Z",
+    "previousSlugs": [
+      "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel",
+      "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-st-claraspital-basel"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel",
+        "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-st-claraspital-basel"
+      ],
+      "en": [
+        "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel"
+      ],
+      "fr": [
+        "stationare-r-case-manager-in-befristet-bis-zum-31-12-2026-claraspital-basel"
+      ]
+    },
+    "postalCode": "4058",
+    "streetAddress": "Kleinriehenstrasse 30",
+    "salaryMin": 119000,
+    "salaryMax": 166000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/stationaere-r-case-manager-in-befristet-bis-zum-31-12-2026/a1f31306-0e29-4234-b06b-f66278eaa0c0",
+    "firstSeenAt": "2026-08-10T10:35:03.885Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/stationaere-r-case-manager-in-befristet-bis-zum-31-12-2026/a1f31306-0e29-4234-b06b-f66278eaa0c0",
+        "firstSeenAt": "2026-08-10T10:35:03.885Z",
+        "title": "Stationäre/r Case Manager/in befristet bis zum 31.12.2026"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/stationaere-r-case-manager-in-befristet-bis-zum-31-12-2026/bc3a927f-b1de-48a2-8112-765d9cf21278",
+        "firstSeenAt": "2026-09-09T23:13:19.279Z",
+        "title": "Stationäre/r Case Manager/in befristet bis zum 31.12.2026"
+      }
+    ]
   },
   {
     "slug": "medico-senior-urologia-medico-senior-st-claraspital-basel",
@@ -151,7 +304,104 @@
     "salaryMin": 119000,
     "salaryMax": 166000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/oberaerztin-oberarzt-urologie/617d3b2a-364e-482e-b393-20c5caf63146",
+    "firstSeenAt": "2026-08-13T21:58:20.705Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/oberaerztin-oberarzt-pneumologie/2e4653a0-0c9e-426e-981a-2fc363e29abe",
+        "firstSeenAt": "2026-05-19T12:23:42.134Z",
+        "title": "Oberärztin / Oberarzt Pneumologie"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/oberaerztin-oberarzt-urologie/617d3b2a-364e-482e-b393-20c5caf63146",
+        "firstSeenAt": "2026-08-13T21:58:20.705Z",
+        "title": "Oberärztin / Oberarzt Urologie"
+      }
+    ]
+  },
+  {
+    "slug": "logistiker-in-cfc-st-claraspital-basel",
+    "title": "Logistiker/in EFZ",
+    "titleByLocale": {
+      "it": "Logisticista/EFZ",
+      "en": "Logistician/EFZ",
+      "de": "Logistiker/in EFZ",
+      "fr": "Logisticien/EFZ"
+    },
+    "company": "St. Claraspital",
+    "companyKey": "claraspital",
+    "location": "Basel",
+    "addressLocality": "Basel",
+    "descriptionByLocale": {
+      "it": "Compiti:\nAccettazione delle merci\n• accettazione e ispezione giornaliera del ricevimento delle merci\n\n• Utilizzo della GUI SAP con i moduli MM e WM e l'applicazione mobile SAP FIORI per il lavoro quotidiano\n\n• Distribuzione generale e dipartimentale di pacco mail in ospedale\n\n• Fornire requisiti specifici per il reparto utilizzando SAP FIORI\n\nGestione della conservazione\n• Garantire un deposito ordinato e adeguato\n\n• Monitoraggio dell'inventario / gestione del magazzino utilizzando SAP GUI e SAP FIORI\n\n• Conservazione professionale secondo i principi di archiviazione applicabili\n\nTrattamento degli ordini\n• Ordinare la raccolta e la consegna dei requisiti di domanda\n\n• Elaborazione dei rendimenti e ri-invito\n\nOP logistics\n• Gestione del magazzino con SAP e ConSense\n\n• Trasporto interno dal camion a goccia tra il magazzino chirurgico centrale e il magazzino chirurgico decentrato\n\n• Controllo di carrozze e ricarica tramite sistema ERP (SAP GUI)\n\nConsenso di applicazione\n• Raccolta tempestiva e fornitura dei carri a goccia\n\n• Lavorazione del ritorno e rifornimento nella sala operatoria centrale\n\nAltre attività\n• Supporto attivo nel processo di raccolta\n\n• Lavori di stampa e copia per forme interne\n\n• Verifica dei dati in base alle specifiche di qualità\n\n• Assistenza agli inventori e ai trasporti interni\n\n• Partecipazione alla formazione\n\n• Rispetto delle linee guida per l'igiene e la qualità\n\n• Lavoro come formatore professionale\n\n• Sostegno all'inventario\n\nRequisiti\n• Apprendistato professionale completo come logistico/in EFZ\n\n• Diversi anni di esperienza professionale nella logistica\n\n• Buona conoscenza dell'utente SAP GUI MM/WM e SAP FIORI\n\n• Buona conoscenza MS-Office\n\n• Metodo di lavoro indipendente, affidabile e preciso\n\n• Alta assistenza e orientamento al cliente\n\n• Resistenza fisica e flessibilità\n\n• Personalità responsabile, comunicativa e responsabile\n\n• Molto buona conoscenza del tedesco in parola e scrittura\n\n• Corso di formazione professionale di vantaggio o di volontà di completarlo\n\n• L'esperienza nell'accompagnamento degli studenti e dei tirocinanti/pratici è vantaggiosa\n\nOffriamo:\n• 28-33 giorni di congedo retribuiti all'anno\n\n• Ampia opportunità di formazione e formazione, ad esempio il proprio programma di seminario con una vasta gamma di opportunità educative\n\n• Gestione della salute sul lavoro con misure preventive come la consulenza ergonomica sul posto di lavoro\n\n• Lavoro a tempo parziale e possibilità di condivisione del lavoro anche nelle funzioni di gestione\n\n• Camere luminose e accoglienti con infrastrutture moderne\n\n• Valori forti e cultura aziendale attivamente vissuta\n\n• Caratterizzazione e partecipazione del Claraspital da parte dei dipendenti\n\nIl Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e ricerca con un mandato di servizio completo per una chirurgia addominale altamente specializzata e una trasmissione supra-regionale dei suoi centri \"Bäu\" e \"Tumor\" così come i suoi campi speciali. Nel Claraspital, i dipendenti trovano posti di lavoro dove possono sviluppare sia professionalmente che umanamente. A Claraspital, attribuiamo grande importanza per nutrire consapevolmente e sviluppare la nostra cultura aziendale e vivere attivamente i criteri culturali sviluppati insieme \"insieme - competentemente - responsabilmente\".",
+      "en": "Tasks:\nAcceptance of goods\n• Daily acceptance and inspection of receipt of goods\n\n• Use of SAP GUI with the modules MM and WM and the mobile application SAP FIORI for daily work\n\n• General and departmental distribution of parcel mail in the hospital\n\n• Deliver area-specific requirements for department using SAP FIORI\n\nStorage management\n• Ensuring orderly and adequate storage\n\n• Inventory monitoring / warehouse management using SAP GUI and SAP FIORI\n\n• Professional storage in accordance with applicable storage principles\n\nOrder processing\n• Order picking and delivery of demand requirements\n\n• Processing of returns and re-invitation\n\nOP logistics\n• Warehouse management with SAP and ConSense\n\n• Internal transport from the drop truck between the central surgical warehouse and the decentralised surgical warehouse\n\n• Checking hook wagons and refilling by ERP system (SAP GUI)\n\nApplication ConSense\n• Timely picking and provision of the drop wagons\n\n• Return processing and re-stocking in the central operating room\n\nOther activities\n• Active support in the picking process\n\n• Printing and copying work for internal forms\n\n• Expiry data checks according to quality specifications\n\n• Assistance with inventories and internal transport\n\n• Participation in training\n\n• Compliance with hygiene and quality guidelines\n\n• Work as a vocational trainer\n\n• Inventory support\n\nRequirements\n• Completed vocational apprenticeship as logistician/in EFZ\n\n• Several years of professional experience in logistics\n\n• Good user knowledge SAP GUI MM/WM and SAP FIORI\n\n• Good MS-Office knowledge\n\n• Independent, reliable and exact working method\n\n• High service and customer orientation\n\n• Physical resilience and flexibility\n\n• Team-capable, communicative and responsible personality\n\n• Very good knowledge of German in word and writing\n\n• Vocational training course of advantage or willingness to complete it\n\n• Experience in accompanying learners and trainees/practitioners is advantageous\n\nWe offer:\n• 28-33 paid leave days per year\n\n• Extensive opportunities for further education and training, e.g. own seminar program with a wide range of educational opportunities\n\n• Occupational health management with preventive measures such as ergonomic advice in the workplace\n\n• Part-time work and possibility of job sharing also in management functions\n\n• Bright, friendly rooms with modern infrastructure\n\n• Strong values and actively lived corporate culture\n\n• Characterisation and participation of the Claraspital by the employees\n\nThe Claraspital, the largest private hospital in Basel, is a university teaching and research hospital with a full service mandate for highly specialized abdominal surgery and a supra-regional broadcast of its centers \"Bäu\" and \"Tumor\" as well as its special fields. In the Claraspital, employees find jobs where they can develop both professionally and humanly. At Claraspital, we attach great importance to consciously nurturing and developing our corporate culture and actively living the cultural criteria developed together \"together - competently - responsibly\".",
+      "de": "Aufgaben:\nWarenannahme\n• Tägliche Warenannahme und Wareneingangskontrolle\n\n• Verwendung von SAP GUI mit den Modulen MM und WM und die mobile Anwendung SAP FIORI für die tägliche Arbeit\n\n• Allgemeine und abteilungsspezifische Verteilung der Paketpost im Spital\n\n• Bereichsspezifische Anforderungen an Abteilung liefern mittels SAP FIORI\n\nLagerbewirtschaftung\n• Sicherstellung einer geordneten und ausreichenden Lagerhaltung\n\n• Bestandsüberwachung/Lagerbewirtschaftung mittels SAP GUI und SAP FIORI\n\n• Fachgerechte Einlagerung nach geltenden Lagerprinzipien\n\nBestellabwicklung\n• Kommissionieren und Auslieferung von Bedarfsanforderungen\n\n• Bearbeitung von Retouren und Wiedereinladung\n\nOP-Logistik\n• Lagerbewirtschaftung mit SAP und ConSense\n\n• Interner Transport vom Fallwagen zwischen den OP-Zentrallager und Dezentrale OP-Lager\n\n• Kontrolle Hakenwagen und nachfüllen mittels ERP-System (SAP GUI)\n\nApplikation ConSense\n• Termingerechtes Kommissionieren und Bereitstellen der Fallwagen\n\n• Retourenbearbeitung und Wiedereinlagerung im OP-Zentrallager\n\nWeitere Tätigkeiten\n• Aktive Unterstützung im Kommissionier-Prozess\n\n• Druck- und Kopierarbeiten für interne Formulare\n\n• Verfalldatenkontrollen gemäss Qualitätsvorgaben\n\n• Mithilfe bei Inventuren und internen Transporten\n\n• Teilnahme an Weiterbildungen\n\n• Einhaltung von Hygiene- und Qualitätsrichtlinien\n\n• Tätigkeit als Berufsbildner/in\n\n• Unterstützung bei der Inventur\n\nAnforderungen:\n• Abgeschlossene Berufslehre als Logistiker/in EFZ\n\n• Einige Jahre Berufserfahrung im Logistikbereich\n\n• Gute Anwenderkenntnisse SAP GUI MM/WM und SAP FIORI)\n\n• Gute MS-Office-Kenntnisse\n\n• Selbständige, zuverlässige und exakte Arbeitsweise\n\n• Hohe Dienstleistungs- und Kundenorientierung\n\n• Körperliche Belastbarkeit und Flexibilität\n\n• Teamfähige, kommunikative und verantwortungsbewusste Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Berufsbildnerkurs von Vorteil oder Bereitschaft, diesen zu absolvieren\n\n• Erfahrung in der Begleitung von Lernenden und Praktikanten/Praktikantinnen von Vorteil\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "fr": "Tâches :\nAcceptation des marchandises\n• Acceptation quotidienne et inspection de la réception des marchandises\n\n• Utilisation de SAP GUI avec les modules MM et WM et l'application mobile SAP FIORI pour le travail quotidien\n\n• Distribution générale et départementale du courrier par colis à l'hôpital\n\n• Fournir des exigences spécifiques au secteur pour le ministère en utilisant SAP FIORI\n\nGestion du stockage\n• Assurer un stockage ordonné et adéquat\n\n• Surveillance des stocks/gestion des entrepôts en utilisant SAP GUI et SAP FIORI\n\n• Stockage professionnel conformément aux principes de stockage applicables\n\nTraitement des commandes\n• Commande et livraison de la demande\n\n• Traitement des retours et réinvitation\n\nSoutien logistique\n• Gestion d'entrepôt avec SAP et ConSense\n\n• Transport interne depuis le camion de dépôt entre l'entrepôt central de chirurgie et l'entrepôt décentralisé de chirurgie\n\n• Vérification des wagons à crochets et remplissage par le système ERP (SAP GUI)\n\nApplication Consens\n• Cueillette en temps voulu et mise à disposition des wagons-déposer\n\n• Traitement des retours et restockage dans la salle d'opération centrale\n\nAutres activités\n• Support actif dans le processus de sélection\n\n• Impression et copie de formulaires internes\n\n• Contrôle des données d'expiration selon les spécifications de qualité\n\n• Assistance aux inventaires et aux transports internes\n\n• Participation à la formation\n\n• Respect des directives en matière d'hygiène et de qualité\n\n• Travailler comme formateur professionnel\n\n• Appui aux stocks\n\nExigences\n• Apprentissage professionnel complété en tant que logisticien/en EFZ\n\n• Plusieurs années d'expérience professionnelle en logistique\n\n• Bonnes connaissances des utilisateurs SAP GUI MM/WM et SAP FIORI\n\n• Bonnes connaissances du MS-Office\n\n• Méthode de travail indépendante, fiable et exacte\n\n• Service élevé et orientation client\n\n• Résistance physique et flexibilité\n\n• Personnalité capable d'équipe, communicative et responsable\n\n• Très bonne connaissance de l'allemand en paroles et en écriture\n\n• Formation professionnelle\n\n• L'expérience d'accompagnement des apprenants et des stagiaires/praticiens est avantageuse\n\nNous offrons:\n• 28-33 jours de congé payé par an\n\n• Possibilités étendues d'éducation et de formation continue, p.ex. programme de séminaires avec un large éventail de possibilités d'éducation\n\n• Gestion de la santé au travail avec des mesures préventives telles que des conseils ergonomiques sur le lieu de travail\n\n• Travail à temps partiel et possibilité de partage de l'emploi également dans les fonctions de gestion\n\n• Chambres lumineuses et conviviales avec une infrastructure moderne\n\n• Des valeurs fortes et une culture d'entreprise active\n\n• Caractérisation et participation du Claraspital par les salariés\n\nLe Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de service complet pour la chirurgie abdominale hautement spécialisée et une diffusion supra-régionale de ses centres \"Bäu\" et \"Tumor\" ainsi que ses domaines spéciaux. Dans le Claraspital, les employés trouvent des emplois où ils peuvent se développer à la fois professionnellement et humainement. Chez Claraspital, nous attachons une grande importance à l'éducation et au développement consciemment de notre culture d'entreprise et à la vie active des critères culturels développés ensemble « ensemble - avec compétence - de manière responsable »."
+    },
+    "slugByLocale": {
+      "it": "logistiker-in-cfc-st-claraspital-basel",
+      "en": "logistician-efz-st-claraspital-basel",
+      "de": "logistiker-in-efz-claraspital-basel",
+      "fr": "logisticien-efz-st-claraspital-basel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-07T15:13:40.548Z",
+    "previousSlugs": [
+      "logistiker-in-efz-claraspital-basel",
+      "logistikfachmann-logistikfachfrau-cfc-st-claraspital-basel",
+      "logistikfachmann-logistikfachfrau-efz-claraspital-basel",
+      "logistics-specialist-efz-st-claraspital-basel",
+      "specialiste-de-la-logistique-efz-st-claraspital-basel"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "logistiker-in-efz-claraspital-basel",
+        "logistikfachmann-logistikfachfrau-cfc-st-claraspital-basel",
+        "logistikfachmann-logistikfachfrau-efz-claraspital-basel"
+      ],
+      "en": [
+        "logistiker-in-efz-claraspital-basel",
+        "logistics-specialist-efz-st-claraspital-basel"
+      ],
+      "fr": [
+        "logistiker-in-efz-claraspital-basel",
+        "specialiste-de-la-logistique-efz-st-claraspital-basel"
+      ],
+      "de": [
+        "logistikfachmann-logistikfachfrau-efz-claraspital-basel"
+      ]
+    },
+    "postalCode": "4058",
+    "streetAddress": "Kleinriehenstrasse 30",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/logistiker-in-efz/78976c10-c0fb-4213-93eb-e5dd1e611347",
+    "firstSeenAt": "2026-07-08T22:17:26.366Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/logistiker-in-efz/78976c10-c0fb-4213-93eb-e5dd1e611347",
+        "firstSeenAt": "2026-07-08T22:17:26.366Z",
+        "title": "Logistiker/in EFZ"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/logistiker-in-efz/a5608f2f-0664-461e-8605-f83a726dc223",
+        "firstSeenAt": "2026-08-07T22:10:44.594Z",
+        "title": "Logistiker/in EFZ"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/logistiker-in-efz/f052d7f1-88cf-4087-b486-2856d1236eeb",
+        "firstSeenAt": "2026-09-07T15:13:40.340Z",
+        "title": "Logistiker/in EFZ"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/logistikfachmann-logistikfachfrau-efz/78976c10-c0fb-4213-93eb-e5dd1e611347",
+        "firstSeenAt": "2026-07-08T22:17:26.366Z",
+        "title": "Logistikfachmann/Logistikfachfrau EFZ"
+      }
+    ]
   },
   {
     "slug": "collaboratore-trice-rezeption-st-claraspital-basel",
@@ -181,11 +431,14 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-03T23:20:53.205Z",
     "previousSlugs": [
-      "mitarbeiter-in-rezeption-claraspital-basel"
+      "mitarbeiter-in-rezeption-claraspital-basel",
+      "collaboratore-trice-rezeption-st-claraspital-basel-a5bidi",
+      "collaboratore-trice-rezeption-st-claraspital-basel"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "mitarbeiter-in-rezeption-claraspital-basel"
+        "mitarbeiter-in-rezeption-claraspital-basel",
+        "collaboratore-trice-rezeption-st-claraspital-basel-a5bidi"
       ],
       "en": [
         "mitarbeiter-in-rezeption-claraspital-basel"
@@ -199,7 +452,26 @@
     "salaryMin": 88000,
     "salaryMax": 123000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/mitarbeiter-in-rezeption/71706b15-0d17-4f53-b6b4-30d7286e8dbb",
+    "firstSeenAt": "2026-06-10T11:47:25.424Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/mitarbeiter-in-rezeption/059fd3d8-4b35-4eba-9b04-9e70fddf6452",
+        "firstSeenAt": "2026-07-09T22:35:38.641Z",
+        "title": "Mitarbeiter/in Rezeption"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/mitarbeiter-in-rezeption/71706b15-0d17-4f53-b6b4-30d7286e8dbb",
+        "firstSeenAt": "2026-06-10T11:47:25.424Z",
+        "title": "Mitarbeiter/in Rezeption"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/mitarbeiter-in-rezeption/fc49644f-e360-4f9a-862d-1582aed2d4eb",
+        "firstSeenAt": "2026-08-07T22:10:44.590Z",
+        "title": "Mitarbeiter/in Rezeption"
+      }
+    ]
   },
   {
     "slug": "cura-fachperson-fundraising-partnermanagement-e-administration-m-w-d-st-claraspital-basel",
@@ -229,17 +501,22 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-03T13:43:39.630Z",
     "previousSlugs": [
-      "cura-fachperson-fundraising-partnermanagement-und-administration-m-w-d-claraspital-basel"
+      "cura-fachperson-fundraising-partnermanagement-und-administration-m-w-d-claraspital-basel",
+      "cura-fachperson-fundraising-partnermanagement-e-administration-m-w-d-st-claraspital-takpxu",
+      "cura-collecte-de-fonds-professionnels-gestion-et-administration-des-partenaires-m-f-d-st-claraspital-basel",
+      "cura-fachperson-fundraising-partnermanagement-e-administration-m-w-d-st-claraspital-basel"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "cura-fachperson-fundraising-partnermanagement-und-administration-m-w-d-claraspital-basel"
+        "cura-fachperson-fundraising-partnermanagement-und-administration-m-w-d-claraspital-basel",
+        "cura-fachperson-fundraising-partnermanagement-e-administration-m-w-d-st-claraspital-takpxu"
       ],
       "en": [
         "cura-fachperson-fundraising-partnermanagement-und-administration-m-w-d-claraspital-basel"
       ],
       "fr": [
-        "cura-fachperson-fundraising-partnermanagement-und-administration-m-w-d-claraspital-basel"
+        "cura-fachperson-fundraising-partnermanagement-und-administration-m-w-d-claraspital-basel",
+        "cura-collecte-de-fonds-professionnels-gestion-et-administration-des-partenaires-m-f-d-st-claraspital-basel"
       ]
     },
     "postalCode": "4058",
@@ -247,7 +524,21 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/cura-fachperson-fundraising-partnermanagement-und-administration-m-w-d/cd7796c4-ab1d-4078-856a-f41d2199a4c0",
+    "firstSeenAt": "2026-08-07T01:27:49.786Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/cura-fachperson-fundraising-partnermanagement-und-administration-m-w-d/53d40e96-d124-4871-8a1d-7f833899bf48",
+        "firstSeenAt": "2026-08-12T10:29:07.070Z",
+        "title": "CURA: Fachperson Fundraising, Partnermanagement und Administration (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/cura-fachperson-fundraising-partnermanagement-und-administration-m-w-d/cd7796c4-ab1d-4078-856a-f41d2199a4c0",
+        "firstSeenAt": "2026-08-07T01:27:49.786Z",
+        "title": "CURA: Fachperson Fundraising, Partnermanagement und Administration (m/w/d)"
+      }
+    ]
   },
   {
     "slug": "gestione-letti-gestione-letti-st-claraspital-basel",
@@ -283,7 +574,11 @@
       "gestionnaire-de-lit-gestionnaire-de-lit-st-claraspital-basel",
       "responsabile-della-gestione-dei-letti-st-claraspital-basel",
       "bed-manager-bed-manager-st-claraspital-basel-395376",
-      "gestionnaire-de-lit-gestionnaire-de-lit-st-claraspital-basel-395376"
+      "gestionnaire-de-lit-gestionnaire-de-lit-st-claraspital-basel-395376",
+      "responsabile-del-bed-management-st-claraspital-basel",
+      "bed-management-specialist-st-claraspital-basel",
+      "responsable-de-la-gestion-des-lits-st-claraspital-basel",
+      "responsable-du-gestion-des-lits-st-claraspital-basel"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -291,15 +586,19 @@
         "gestione-letti-gestione-letti-st-claraspital-basel-395376",
         "bed-manager-bed-manager-st-claraspital-basel",
         "gestionnaire-de-lit-gestionnaire-de-lit-st-claraspital-basel",
-        "responsabile-della-gestione-dei-letti-st-claraspital-basel"
+        "responsabile-della-gestione-dei-letti-st-claraspital-basel",
+        "responsabile-del-bed-management-st-claraspital-basel"
       ],
       "en": [
         "bettenmanagerin-bettenmanager-claraspital-basel",
-        "bed-manager-bed-manager-st-claraspital-basel-395376"
+        "bed-manager-bed-manager-st-claraspital-basel-395376",
+        "bed-management-specialist-st-claraspital-basel"
       ],
       "fr": [
         "bettenmanagerin-bettenmanager-claraspital-basel",
-        "gestionnaire-de-lit-gestionnaire-de-lit-st-claraspital-basel-395376"
+        "gestionnaire-de-lit-gestionnaire-de-lit-st-claraspital-basel-395376",
+        "responsable-de-la-gestion-des-lits-st-claraspital-basel",
+        "responsable-du-gestion-des-lits-st-claraspital-basel"
       ]
     },
     "postalCode": "4058",
@@ -307,7 +606,154 @@
     "salaryMin": 119000,
     "salaryMax": 166000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/bettenmanagerin-bettenmanager/865d5d74-f835-4556-b525-88b7830f4c88",
+    "firstSeenAt": "2026-06-05T21:46:13.888Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/bettenmanagerin-bettenmanager/32adfbfe-bb5d-4773-a7f1-9ef1aeb87ff4",
+        "firstSeenAt": "2026-08-06T11:56:07.984Z",
+        "title": "Bettenmanagerin / Bettenmanager"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/bettenmanagerin-bettenmanager/85eefcef-13e3-4e59-883a-e7a3dd26e662",
+        "firstSeenAt": "2026-07-08T22:17:26.371Z",
+        "title": "Bettenmanagerin / Bettenmanager"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/bettenmanagerin-bettenmanager/865d5d74-f835-4556-b525-88b7830f4c88",
+        "firstSeenAt": "2026-06-05T21:46:13.888Z",
+        "title": "Bettenmanagerin / Bettenmanager"
+      }
+    ]
+  },
+  {
+    "slug": "gestione-del-personale-edilizia-st-claraspital-basel",
+    "title": "Sachbearbeiter/in Gebäudemanagement",
+    "titleByLocale": {
+      "it": "Gestione del personale/edilizia",
+      "en": "Personnel/building management",
+      "de": "Sachbearbeiter/in Gebäudemanagement",
+      "fr": "Gestion du personnel et du bâtiment"
+    },
+    "company": "St. Claraspital",
+    "companyKey": "claraspital",
+    "location": "Basel",
+    "addressLocality": "Basel",
+    "descriptionByLocale": {
+      "it": "Compiti:\n• Sostegno ai compiti amministrativi e organizzativi nella gestione degli edifici\n\n• Gestione dei sistemi di accesso, chiusura e autorizzazione\n\n• Elaborazione di fatture, conti e conti\n\n• Cooperazione nel controllo dell'energia e nella manutenzione dei dati e dei master\n\n• Gestione del segnale, dell'alloggiamento del personale e di altri argomenti infrastrutturali\n\nRequisiti\n• Formazione commerciale di base o formazione comparabile\n\n• Diversi anni di esperienza in funzione amministrativa, idealmente in struttura o gestione dell'edilizia\n\n• Gestione sicura di MS Office e sistemi digitali\n\n• Metodo di lavoro indipendente, strutturato e affidabile\n\n• Personalità orientata al servizio con un forte talento organizzativo\n\n• Molto buona conoscenza del tedesco e un tocco per i numeri\n\n• Esperienza con sistemi ERP SAP, pianificazione del personale Polypoint PEP, CAFM WaveWare è un vantaggio\n\nOffriamo:\n• 28-33 giorni di congedo retribuiti all'anno\n\n• Ampia opportunità di formazione e formazione, ad esempio il proprio programma di seminario con una vasta gamma di opportunità educative\n\n• Gestione della salute sul lavoro con misure preventive come la consulenza ergonomica sul posto di lavoro\n\n• Lavoro a tempo parziale e possibilità di condivisione del lavoro anche nelle funzioni di gestione\n\n• Camere luminose e accoglienti con infrastrutture moderne\n\n• Valori forti e cultura aziendale attivamente vissuta\n\n• Caratterizzazione e partecipazione del Claraspital da parte dei dipendenti\n\nIl Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e ricerca con un mandato di servizio completo per una chirurgia addominale altamente specializzata e una trasmissione supra-regionale dei suoi centri \"Bäu\" e \"Tumor\" così come i suoi campi speciali. Nel Claraspital, i dipendenti trovano posti di lavoro dove possono sviluppare sia professionalmente che umanamente. A Claraspital, attribuiamo grande importanza per nutrire consapevolmente e sviluppare la nostra cultura aziendale e vivere attivamente i criteri culturali sviluppati insieme \"insieme - competentemente - responsabilmente\".",
+      "en": "Tasks:\n• Support for administrative and organisational tasks in building management\n\n• Management of access, locking and authorisation systems\n\n• Processing of invoices, accounts and accounts\n\n• Cooperation in energy controlling as well as in data and master data maintenance\n\n• Management of signalling, staff housing and other infrastructure topics\n\nRequirements\n• Basic commercial training or comparable training\n\n• Several years of experience in an administrative function, ideally in facility or building management\n\n• Secure handling of MS Office and digital systems\n\n• Independent, structured and reliable working method\n\n• Service-oriented personality with a strong organisational talent\n\n• Very good knowledge of German and a flair for numbers\n\n• Experience with ERP systems SAP, personnel planning Polypoint PEP, CAFM WaveWare is an advantage\n\nWe offer:\n• 28-33 paid leave days per year\n\n• Extensive opportunities for further education and training, e.g. own seminar program with a wide range of educational opportunities\n\n• Occupational health management with preventive measures such as ergonomic advice in the workplace\n\n• Part-time work and possibility of job sharing also in management functions\n\n• Bright, friendly rooms with modern infrastructure\n\n• Strong values and actively lived corporate culture\n\n• Characterisation and participation of the Claraspital by the employees\n\nThe Claraspital, the largest private hospital in Basel, is a university teaching and research hospital with a full service mandate for highly specialized abdominal surgery and a supra-regional broadcast of its centers \"Bäu\" and \"Tumor\" as well as its special fields. In the Claraspital, employees find jobs where they can develop both professionally and humanly. At Claraspital, we attach great importance to consciously nurturing and developing our corporate culture and actively living the cultural criteria developed together \"together - competently - responsibly\".",
+      "de": "Aufgaben:\n• Unterstützung bei administrativen und organisatorischen Aufgaben im Gebäudemanagement\n\n• Verwaltung von Zutritts-, Schliess- und Berechtigungssystemen\n\n• Bearbeitung von Rechnungen, Kontierungen und Abrechnungen\n\n• Mitarbeit im Energiecontrolling sowie in der Daten- und Stammdatenpflege\n\n• Bewirtschaftung von Signaletik, Personalwohnungen und weiteren Infrastrukturthemen\n\nAnforderungen:\n• Kaufmännische Grundausbildung oder vergleichbare Ausbildung\n\n• Mehrjährige Erfahrung in einer administrativen Funktion, idealerweise im Facility- oder Gebäudemanagement\n\n• Sicherer Umgang mit MS Office und digitalen Systemen\n\n• Selbstständige, strukturierte und zuverlässige Arbeitsweise\n\n• Dienstleistungsorientierte Persönlichkeit mit ausgeprägtem Organisationstalent\n\n• Sehr gute Deutschkenntnisse und ein Flair für Zahlen\n\n• Erfahrung mit ERP-Systemen SAP, Personalplanung Polypoint PEP, CAFM WaveWare von Vorteil\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "fr": "Tâches :\n• Soutien aux tâches administratives et organisationnelles dans la gestion des bâtiments\n\n• Gestion des systèmes d'accès, de verrouillage et d'autorisation\n\n• Traitement des factures, des comptes et des comptes\n\n• Coopération dans le contrôle de l'énergie ainsi que dans la maintenance des données et des données de base\n\n• Gestion de la signalisation, du logement du personnel et d ' autres questions d ' infrastructure\n\nExigences\n• Formation commerciale de base ou formation comparable\n\n• Plusieurs années d'expérience dans une fonction administrative, idéalement dans la gestion des installations ou des bâtiments\n\n• Gestion sécurisée des systèmes MS Office et numériques\n\n• Méthode de travail indépendante, structurée et fiable\n\n• Personnalité orientée vers le service avec un fort talent organisationnel\n\n• Très bonne connaissance de l'allemand et un flair pour les chiffres\n\n• Expérience des systèmes ERP SAP, planification du personnel Polypoint PEP, CAFM WaveWare est un avantage\n\nNous offrons:\n• 28-33 jours de congé payé par an\n\n• Possibilités étendues d'éducation et de formation continue, p.ex. programme de séminaires avec un large éventail de possibilités d'éducation\n\n• Gestion de la santé au travail avec des mesures préventives telles que des conseils ergonomiques sur le lieu de travail\n\n• Travail à temps partiel et possibilité de partage de l'emploi également dans les fonctions de gestion\n\n• Chambres lumineuses et conviviales avec une infrastructure moderne\n\n• Des valeurs fortes et une culture d'entreprise active\n\n• Caractérisation et participation du Claraspital par les salariés\n\nLe Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de service complet pour la chirurgie abdominale hautement spécialisée et une diffusion supra-régionale de ses centres \"Bäu\" et \"Tumor\" ainsi que ses domaines spéciaux. Dans le Claraspital, les employés trouvent des emplois où ils peuvent se développer à la fois professionnellement et humainement. Chez Claraspital, nous attachons une grande importance à l'éducation et au développement consciemment de notre culture d'entreprise et à la vie active des critères culturels développés ensemble « ensemble - avec compétence - de manière responsable »."
+    },
+    "slugByLocale": {
+      "it": "gestione-del-personale-edilizia-st-claraspital-basel",
+      "en": "personnel-building-management-st-claraspital-basel",
+      "de": "sachbearbeiter-in-gebaudemanagement-claraspital-basel",
+      "fr": "gestion-du-personnel-et-du-batiment-st-claraspital-basel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-08-28T05:34:28.556Z",
+    "previousSlugs": [
+      "sachbearbeiter-in-gebaudemanagement-claraspital-basel"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "sachbearbeiter-in-gebaudemanagement-claraspital-basel"
+      ],
+      "en": [
+        "sachbearbeiter-in-gebaudemanagement-claraspital-basel"
+      ],
+      "fr": [
+        "sachbearbeiter-in-gebaudemanagement-claraspital-basel"
+      ]
+    },
+    "postalCode": "4058",
+    "streetAddress": "Kleinriehenstrasse 30",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/sachbearbeiter-in-gebaeudemanagement/2691c693-6dd5-4625-b05a-31ab4b4c6f2b",
+    "firstSeenAt": "2026-08-03T13:13:38.052Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/sachbearbeiter-in-gebaeudemanagement/2691c693-6dd5-4625-b05a-31ab4b4c6f2b",
+        "firstSeenAt": "2026-08-03T13:13:38.052Z",
+        "title": "Sachbearbeiter/in Gebäudemanagement"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/sachbearbeiter-in-gebaeudemanagement/63918301-4fa1-4b1d-a02d-0e2b28e95f45",
+        "firstSeenAt": "2026-08-31T17:31:27.780Z",
+        "title": "Sachbearbeiter/in Gebäudemanagement"
+      }
+    ]
+  },
+  {
+    "slug": "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel",
+    "title": "Leiter/in Infrastrukturelles Gebäudemanagement",
+    "titleByLocale": {
+      "it": "Responsabile della Gestione delle Infrastrutture",
+      "en": "Head of Infrastructural Facility Management",
+      "de": "Leiter/in Infrastrukturelles Gebäudemanagement",
+      "fr": "Responsable de la gestion des infrastructures"
+    },
+    "company": "St. Claraspital",
+    "companyKey": "claraspital",
+    "location": "Basel",
+    "addressLocality": "Basel",
+    "descriptionByLocale": {
+      "it": "In qualità di responsabile della gestione infrastrutturale degli edifici, sarai responsabile della gestione tecnica e del personale di un team impegnato e sarai responsabile della gestione infrastrutturale dei nostri immobili. Garantisci operazioni economiche, sostenibili e orientate all'utente e rappresenti gli interessi dell'organizzazione nei progetti di costruzione, manutenzione e ristrutturazione. Compiti:\n• Gestione del personale e tecnica di cinque dipendenti\n• Organizzazione e direzione dei lavori interni per piccoli progetti di costruzione, lavori di manutenzione e traslochi\n• Pianificazione, coordinamento e realizzazione di progetti di manutenzione, ristrutturazione e ottimizzazione\n• Gestione del progetto e rappresentanza del cliente nelle misure di costruzione\n• Responsabilità dei contratti, della gestione degli ordini nonché dell'accettazione dei lavori e delle garanzie, nonché della gestione dei difetti\n• Assumere la responsabilità dell'operatore nell'area di responsabilità assegnata\n• Pianificazione e coordinamento dell'uso interno ed esterno dello spazio\n• Organizzazione e monitoraggio dei traslochi interni con fornitori di servizi interni o esterni Requisiti:\n• Tecnico di base completato o formazione artigianale (ad es. edilizia, tecnologia edilizia o simili)\n• Formazione continua in facility management, gestione di edifici o costruzione, preferibilmente come manager FM, qualificato. Facility manager o con qualifiche comparabili\n• Esperienza professionale pluriennale nel facility management, nella gestione immobiliare o nella gestione di progetti di costruzione costituisce un vantaggio\n• Esperienza nella gestione di progetti di manutenzione, conversione o ristrutturazione\n• Buona conoscenza del budget, del controllo dei costi e della pianificazione degli investimenti\n• Forti capacità organizzative e concettuali\n• Modo di lavorare indipendente, strutturato e orientato alla soluzione\n• Elevato orientamento al servizio nonché forti capacità comunicative, organizzative e assertive Offriamo:\n• 28-33 giorni di ferie retribuite all'anno a seconda dell'età\n• Ampie opportunità di formazione continua e perfezionamento, ad es. proprio programma di seminari con un'ampia offerta formativa\n• Gestione della salute aziendale con misure preventive come consulenza ergonomica sul posto di lavoro\n• Lavoro a tempo parziale e possibilità di job sharing anche in posizioni dirigenziali\n• Aule luminose e accoglienti con infrastrutture moderne\n• Valori distintivi e cultura aziendale praticata attivamente\n• I collaboratori danno forma e contribuiscono a dare forma al Claraspital Il Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e di ricerca con un mandato di servizio completo per la chirurgia addominale altamente specializzata e l'esposizione nazionale del suo \"addome\" e Centri \"tumori\" e relative aree speciali. Al Claraspital i dipendenti trovano posti di lavoro in cui possono svilupparsi sia professionalmente che personalmente. Al Claraspital attribuiamo grande importanza al mantenimento e allo sviluppo consapevole della nostra cultura aziendale e al vivere attivo i criteri culturali che abbiamo sviluppato insieme: “insieme – con competenza – responsabile”.",
+      "en": "As head of infrastructural building management, you will be responsible for the technical and personnel management of a committed team and will be responsible for the infrastructural management of our properties. You ensure economical, sustainable and user-oriented operations and represent the interests of the organization in construction, maintenance and renovation projects. Tasks:\n• Personnel and technical management of five employees\n• Organization and management of in-house work on smaller construction projects, maintenance work and moves\n• Planning, coordination and implementation of maintenance, renovation and optimization projects\n• Project management and client representation in construction measures\n• Responsibility for contracts, order management as well as work and warranty acceptance, as well as defect management\n• Assuming operator responsibility in the assigned area of responsibility\n• Planning and coordination of internal and external use of space\n• Organization and monitoring internal moves with internal or external service providers Requirements:\n• Completed basic technical or craft training (e.g. construction, building technology or comparable)\n• Further training in facility management, building management or construction, preferably as FM manager, qualified. Facility manager or with comparable qualifications\n• Several years of professional experience in facility management, real estate management or construction project management is an advantage\n• Experience in managing maintenance, conversion or renovation projects\n• Good knowledge of budgeting, cost control and investment planning\n• Strong organizational and conceptual skills\n• Independent, structured and solution-oriented way of working\n• High service orientation as well as strong communication, organization and assertive skills We offer:\n• 28-33 paid vacation days depending on age per year\n• Extensive opportunities for further training and further education, e.g. own seminar program with a wide range of educational offerings\n• Company health management with preventive measures such as ergonomic advice at the workplace\n• Part-time work and the possibility of job sharing, including in management positions\n• Bright, friendly rooms with modern infrastructure\n• Distinctive values and actively practiced corporate culture\n• Employees shape and help shape the Claraspital The Claraspital, Basel's largest private hospital, is a University teaching and research hospital with a comprehensive service mandate for highly specialized abdominal surgery and national exposure of its \"Abdomen\" and \"Tumor\" centers as well as its special areas. At Claraspital, employees find jobs where they can develop both professionally and personally. At Claraspital, we attach great importance to consciously maintaining and developing our corporate culture and actively living the cultural criteria we have developed together: “together – competently – responsibly”.",
+      "de": "<b>Als Leiter/in Infrastrukturelles Gebäudemanagement übernehmen Sie die fachliche und personelle Führung eines engagierten Teams und tragen die Verantwortung für die infrastrukturelle Bewirtschaftung unserer Liegenschaften. Sie stellen einen wirtschaftlichen, nachhaltigen und nutzerorientierten Betrieb sicher und vertreten die Interessen der Organisation bei Bau-, Unterhalts- und Sanierungsprojekten.</b>\n\nAufgaben:\n• Personelle und fachliche Führung von fünf Mitarbeitenden\n\n• Organisation und Leitung von Eigenleistungen bei kleineren Bauprojekten, Unterhaltsarbeiten und Umzügen\n\n• Planung, Koordination und Umsetzung von Unterhalts-, Sanierungs- und Optimierungsprojekten\n\n• Projektleitung und Bauherrenvertretung bei baulichen Massnahmen\n\n• Verantwortung für Vertragswesen, Auftragsmanagement sowie Werk- und Garantieabnahmen, sowie Mängelmanagement\n\n• Wahrnehmung der Betreiberverantwortung im zugewiesenen Verantwortungsbereich\n\n• Planung und Koordination der internen sowie externen Raumnutzung\n\n• Organisation und Überwachung interner Umzüge mit internen oder externen Dienstleistern\n\nAnforderungen:\n• Abgeschlossene technische oder handwerkliche Grundausbildung (z. B. Bau, Gebäudetechnik oder vergleichbar)\n\n• Weiterbildung im Facility Management, Gebäudemanagement oder Bauwesen, vorzugsweise als FM-Leiter/in, dipl. Facility Manager/in oder mit vergleichbarer Qualifikation\n\n• Mehrjährige Berufserfahrung im Facility Management, Immobilienmanagement oder Bauprojektmanagement von Vorteil\n\n• Erfahrung in der Leitung von Unterhalts-, Umbau- oder Sanierungsprojekten\n\n• Gute Kenntnisse in Budgetierung, Kostenkontrolle und Investitionsplanung\n\n• Ausgeprägte organisatorische und konzeptionelle Fähigkeiten\n\n• Selbstständige, strukturierte und lösungsorientierte Arbeitsweise\n\n• Hohe Dienstleistungsorientierung sowie ausgeprägte Kommunikations-, Organisations- und Durchsetzungsfähigkeiten\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "fr": "En tant que responsable de la gestion des bâtiments infrastructurels, vous serez responsable de la gestion technique et du personnel d'une équipe engagée et serez responsable de la gestion des infrastructures de nos propriétés. Vous assurez une exploitation économique, durable et orientée utilisateur et représentez les intérêts de l’organisation dans les projets de construction, d’entretien et de rénovation. Tâches :\n• Gestion du personnel et technique de cinq employés\n• Organisation et gestion des travaux internes sur les petits projets de construction, travaux d'entretien et déménagements\n• Planification, coordination et mise en œuvre de projets d'entretien, de rénovation et d'optimisation\n• Gestion de projet et représentation du client dans les mesures de construction\n• Responsabilité des contrats, de la gestion des commandes ainsi que de l'acceptation des travaux et des garanties, ainsi que de la gestion des défauts\n• Assumer la responsabilité de l'opérateur dans le domaine de responsabilité assigné\n• Planification et coordination de l'utilisation interne et externe de l'espace\n• Organisation et suivi des déménagements internes avec des prestataires de services internes ou externes. ou formation artisanale (par exemple construction, technique du bâtiment ou similaire)\n• Formation continue en matière de gestion d'installations, de gestion de bâtiments ou de construction, de préférence en tant que responsable FM, qualifiée. Gestionnaire d'installations ou avec des qualifications comparables\n• Plusieurs années d'expérience professionnelle dans la gestion d'installations, la gestion immobilière ou la gestion de projets de construction sont un avantage\n• Expérience dans la gestion de projets de maintenance, de conversion ou de rénovation\n• Bonnes connaissances en matière de budgétisation, de contrôle des coûts et de planification des investissements\n• Solides compétences organisationnelles et conceptuelles\n• Méthode de travail indépendante, structurée et orientée vers les solutions\n• Haute orientation vers le service ainsi que de solides compétences en communication, organisation et affirmation de soi Nous offrons :\n• 28-33 jours de vacances payés selon l'âge par an\n• De nombreuses possibilités de formation continue et de formation continue, par ex. propre programme de séminaires avec une large offre de formation\n• Gestion de la santé de l'entreprise avec des mesures préventives telles que des conseils ergonomiques sur le lieu de travail\n• Travail à temps partiel et possibilité de partage d'emploi, y compris dans des postes de direction\n• Des salles lumineuses et conviviales avec une infrastructure moderne\n• Valeurs distinctives et culture d'entreprise activement mise en pratique\n• Les collaborateurs façonnent et contribuent à façonner le Claraspital Le Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de prestation complet pour la chirurgie abdominale hautement spécialisée et une exposition nationale de son \"Abdomen\" et Centres « Tumeurs » ainsi que ses zones spéciales. Au Claraspital, les collaborateurs trouvent des emplois où ils peuvent se développer tant sur le plan professionnel que personnel. Au Claraspital, nous attachons une grande importance à entretenir et développer consciemment notre culture d’entreprise et à vivre activement les critères culturels que nous avons développés ensemble : « ensemble – avec compétence – de manière responsable »."
+    },
+    "slugByLocale": {
+      "it": "responsabile-infrastrukturelles-gebaudemanagement-st-claraspital-basel",
+      "en": "head-of-infrastructural-facility-management-st-claraspital-basel",
+      "de": "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
+      "fr": "responsable-de-la-gestion-des-infrastructures-st-claraspital-basel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-08-28T05:34:28.555Z",
+    "previousSlugs": [
+      "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
+      "head-of-infrastructure-management-st-claraspital-basel",
+      "chef-de-la-gestion-des-infrastructures-st-claraspital-basel"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel"
+      ],
+      "en": [
+        "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
+        "head-of-infrastructure-management-st-claraspital-basel"
+      ],
+      "fr": [
+        "leiter-in-infrastrukturelles-gebaudemanagement-claraspital-basel",
+        "chef-de-la-gestion-des-infrastructures-st-claraspital-basel"
+      ]
+    },
+    "postalCode": "4058",
+    "streetAddress": "Kleinriehenstrasse 30",
+    "salaryMin": 85500,
+    "salaryMax": 129500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/leiter-in-infrastrukturelles-gebaeudemanagement/fa4da652-a4a0-4e5f-89be-b018b44dc82e",
+    "firstSeenAt": "2026-06-16T13:02:57.960Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/leiter-in-infrastrukturelles-gebaeudemanagement/472c94b3-a6ba-4167-892a-3482efdf05ec",
+        "firstSeenAt": "2026-09-03T23:20:53.129Z",
+        "title": "Leiter/in infrastrukturelles Gebäudemanagement"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/leiter-in-infrastrukturelles-gebaeudemanagement/fa4da652-a4a0-4e5f-89be-b018b44dc82e",
+        "firstSeenAt": "2026-06-16T13:02:57.960Z",
+        "title": "Leiter/in Infrastrukturelles Gebäudemanagement"
+      }
+    ]
   },
   {
     "slug": "diatkochin-diatkoch-befristet-per-ein-jahr-st-claraspital-basel",
@@ -359,7 +805,21 @@
     "salaryMin": 88000,
     "salaryMax": 123000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/diaetkoechin-diaetkoch-befristet-fuer-ein-jahr/5837ff89-c4bb-4087-8021-4ead9d3a463e",
+    "firstSeenAt": "2026-07-17T22:42:07.817Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/diaetkoechin-diaetkoch-befristet-fuer-ein-jahr/5837ff89-c4bb-4087-8021-4ead9d3a463e",
+        "firstSeenAt": "2026-07-17T22:42:07.817Z",
+        "title": "Diätköchin / Diätkoch befristet für ein Jahr"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/diaetkoechin-diaetkoch-befristet-fuer-ein-jahr/e9b48afd-80eb-4983-ba10-f4e22fec679b",
+        "firstSeenAt": "2026-07-24T11:22:36.360Z",
+        "title": "Diätköchin / Diätkoch befristet für ein Jahr"
+      }
+    ]
   },
   {
     "slug": "addetto-a-al-ricovero-del-paziente-pronto-soccorso-st-claraspital-basel",
@@ -411,7 +871,45 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/sachbearbeiter-in-patientenaufnahme-notfallaufnahme/bf70d357-8756-457b-96a6-7f35e822bf03",
+    "firstSeenAt": "2026-06-29T12:58:58.107Z"
+  },
+  {
+    "slug": "fachleitung-pflege-apn-clinical-nurse-specialist-claraspital-basel",
+    "title": "Fachleitung Pflege APN (Clinical Nurse Specialist) Medizin",
+    "titleByLocale": {
+      "it": "Fachleitung Pflege APN (Clinical Nurse Specialista) Medizin",
+      "en": "Care APN (Clinical Nurse Specialist)",
+      "de": "Fachleitung Pflege APN (Clinical Nurse Specialist) Medizin",
+      "fr": "Fachleitung Pflege APN (Clinical Nurse Spécialiste) Medizin"
+    },
+    "company": "St. Claraspital",
+    "companyKey": "claraspital",
+    "location": "Basel",
+    "addressLocality": "Basel",
+    "descriptionByLocale": {
+      "it": "Compiti:\n• Condurre lo sviluppo specialistico come parte del team di gestione dell'allattamento, nonché guidare e co-modellare il processo di sviluppo della pratica per promuovere una pratica infermieristica concentrata e basata sulle prove\n\n• Consigliare, potenziare e accompagnare il team interprofessionale, soprattutto in situazioni molto complesse\n\n• Partecipazione a cure dirette e partecipazione attiva a valutazioni, progetti e gruppi di ricerca\n\n• Una stretta collaborazione con la gestione specialistica del Dipartimento di Medicina dell'Acuto e del Dipartimento di Competenza Tecnica e Ricerca dell'Ospedale Universitario di Basilea, nonché la cooperazione in gruppi di lavoro e specialisti internazionali e interclinici, nazionali e internazionali\n\n• Sviluppo, implementazione e sviluppo di linee guida, concetti e standard professionali\n\nRequisiti\n• Diversi anni di esperienza pratica approfondita e conoscenze teoriche approfondite nella ricerca infermieristica e infermieristica e la capacità di trasmettere questa conoscenza\n\n• Lavoro di squadra e competenze nella leadership partecipativa\n\n• Godetevi il lavoro in un ambiente universitario dinamico\n\n• Proattiva, comunicativa e indipendente personalità che può muoversi in modo sicuro nell'ambiente interprofessionale e ispirare gli altri per un ulteriore sviluppo della cura\n\nOffriamo:\n• 28-33 giorni di congedo retribuiti all'anno\n\n• Ampia opportunità di formazione e formazione, ad esempio il proprio programma di seminario con una vasta gamma di opportunità educative\n\n• Gestione della salute sul lavoro con misure preventive come la consulenza ergonomica sul posto di lavoro\n\n• Lavoro a tempo parziale e possibilità di condivisione del lavoro anche nelle funzioni di gestione\n\n• Camere luminose e accoglienti con infrastrutture moderne\n\n• Valori forti e cultura aziendale attivamente vissuta\n\n• Caratterizzazione e partecipazione del Claraspital da parte dei dipendenti\n\nIl Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e ricerca con un mandato di servizio completo per una chirurgia addominale altamente specializzata e una trasmissione supra-regionale dei suoi centri \"Bäu\" e \"Tumor\" così come i suoi campi speciali. Nel Claraspital, i dipendenti trovano posti di lavoro dove possono sviluppare sia professionalmente che umanamente. A Claraspital, attribuiamo grande importanza per nutrire consapevolmente e sviluppare la nostra cultura aziendale e vivere attivamente i criteri culturali sviluppati insieme \"insieme - competentemente - responsabilmente\".",
+      "en": "Tasks:\n• Leading the specialist development as part of the nursing management team as well as leading and co-shaping the practice development process to promote a person-centred and evidence-based nursing practice\n\n• Advise, empower and accompany the interprofessional team, especially in highly complex situations\n\n• Participation in direct care and active participation in evaluations, projects and research groups\n\n• Close cooperation with specialist managements of the Department of Acute Medicine and the Department of Technical Expertise and Research of the University Hospital Basel, as well as cooperation in cross-clinic, national and international specialist and working groups\n\n• Development, implementation and further development of guidelines, concepts and professional standards\n\nRequirements\n• Several years of in-depth practical experience and in-depth theoretical knowledge in nursing and nursing research and the ability to pass on this knowledge\n\n• Teamwork and competencies in participatory leadership\n\n• Enjoy working in a dynamic university environment\n\n• Proactive, communicative and independent personality who can move safely in the interprofessional environment and inspire others for the further development of care\n\nWe offer:\n• 28-33 paid leave days per year\n\n• Extensive opportunities for further education and training, e.g. own seminar program with a wide range of educational opportunities\n\n• Occupational health management with preventive measures such as ergonomic advice in the workplace\n\n• Part-time work and possibility of job sharing also in management functions\n\n• Bright, friendly rooms with modern infrastructure\n\n• Strong values and actively lived corporate culture\n\n• Characterisation and participation of the Claraspital by the employees\n\nThe Claraspital, the largest private hospital in Basel, is a university teaching and research hospital with a full service mandate for highly specialized abdominal surgery and a supra-regional broadcast of its centers \"Bäu\" and \"Tumor\" as well as its special fields. In the Claraspital, employees find jobs where they can develop both professionally and humanly. At Claraspital, we attach great importance to consciously nurturing and developing our corporate culture and actively living the cultural criteria developed together \"together - competently - responsibly\".",
+      "de": "Aufgaben:\n• Führen der Fachentwicklung als Teil des Pflegeleitungsteams sowie Leitung und Mitgestaltung des Praxisentwicklungsprozesses zur Förderung einer personzentrierten und evidenzbasierten Pflegepraxis\n\n• Beraten, Befähigen und Begleiten des interprofessionellen Teams, insbesondere in hochkomplexen Situationen\n\n• Mitarbeit in der direkten Pflege sowie aktive Teilnahme an Evaluationen, Projekten und Forschungsgruppen\n\n• Enge Kooperation mit Fachleitungen des Departements Akutmedizin und der Abteilung Fachexpertise und Forschung des Universitätsspitals Basel, sowie Mitarbeit in klinikübergreifenden, nationalen und internationalen Fach- und Arbeitsgruppen\n\n• Erarbeitung, Implementierung und Weiterentwicklung von Richtlinien, Konzepten und fachlichen Standards\n\nAnforderungen:\n• Master of Science in Nursing oder laufendes Studium\n\n• Mehrjährige fundierte praktische Erfahrung und vertiefte theoretische Kenntnisse in der Pflege und Pflegeforschung sowie die Fähigkeit, dieses Wissen weiterzugeben\n\n• Teamfähigkeit und Kompetenzen in partizipativer Führung\n\n• Freude am Arbeiten in einem dynamischen universitären Umfeld\n\n• Proaktive, kommunikative und eigenständige Persönlichkeit, die sich im interprofessionellen Umfeld sicher bewegt und andere für die Weiterentwicklung der Pflege begeistern kann\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "fr": "Tâches :\n• Diriger le perfectionnement des spécialistes dans le cadre de l'équipe de gestion des soins infirmiers, ainsi que diriger et coordonner le processus d'élaboration des pratiques pour promouvoir une pratique infirmière axée sur la personne et fondée sur des données probantes\n\n• Conseiller, responsabiliser et accompagner l'équipe interprofessionnelle, en particulier dans des situations très complexes\n\n• Participation aux soins directs et participation active aux évaluations, projets et groupes de recherche\n\n• Coopération étroite avec les responsables spécialisés du Département de médecine aiguë et du Département d ' expertise technique et de recherche de l ' hôpital universitaire de Bâle, ainsi qu ' avec des groupes de travail et des spécialistes intercliniques, nationaux et internationaux\n\n• Élaboration, mise en œuvre et développement de directives, de concepts et de normes professionnelles\n\nExigences\n• Plusieurs années d'expérience pratique approfondie et de connaissances théoriques approfondies en recherche en sciences infirmières et en sciences infirmières et la capacité de transmettre ces connaissances\n\n• Travail d'équipe et compétences en matière de leadership participatif\n\n• Profitez de travailler dans un environnement universitaire dynamique\n\n• Personnalité proactive, communicative et indépendante qui peut se déplacer en toute sécurité dans un environnement interprofessionnel et inspirer d'autres personnes au développement futur des soins\n\nNous offrons:\n• 28-33 jours de congé payé par an\n\n• Possibilités étendues d'éducation et de formation continue, p.ex. programme de séminaires avec un large éventail de possibilités d'éducation\n\n• Gestion de la santé au travail avec des mesures préventives telles que des conseils ergonomiques sur le lieu de travail\n\n• Travail à temps partiel et possibilité de partage de l'emploi également dans les fonctions de gestion\n\n• Chambres lumineuses et conviviales avec une infrastructure moderne\n\n• Des valeurs fortes et une culture d'entreprise active\n\n• Caractérisation et participation du Claraspital par les salariés\n\nLe Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de service complet pour la chirurgie abdominale hautement spécialisée et une diffusion supra-régionale de ses centres \"Bäu\" et \"Tumor\" ainsi que ses domaines spéciaux. Dans le Claraspital, les employés trouvent des emplois où ils peuvent se développer à la fois professionnellement et humainement. Chez Claraspital, nous attachons une grande importance à l'éducation et au développement consciemment de notre culture d'entreprise et à la vie active des critères culturels développés ensemble « ensemble - avec compétence - de manière responsable »."
+    },
+    "slugByLocale": {
+      "it": "fachleitung-pflege-apn-clinical-nurse-specialist-claraspital-basel",
+      "en": "care-apn-clinical-nurse-specialist-st-claraspital-basel",
+      "de": "fachleitung-pflege-apn-clinical-nurse-specialist-claraspital-basel",
+      "fr": "fachleitung-pflege-apn-clinical-nurse-specialist-claraspital-basel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-08-14T21:46:39.288Z",
+    "postalCode": "4058",
+    "streetAddress": "Kleinriehenstrasse 30",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/fachleitung-pflege-apn-clinical-nurse-specialist-medizin/76e59505-2409-4c10-bdbf-dcbc06484373",
+    "firstSeenAt": "2026-07-17T11:57:15.061Z"
   },
   {
     "slug": "co-responsabile-amb-case-management-gynakologie-st-claraspital-basel",
@@ -459,7 +957,9 @@
     "salaryMin": 85500,
     "salaryMax": 129500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/co-leiter-in-amb-case-management-gynaekologie/4a31b358-143b-478b-9d8e-77168e4a4390",
+    "firstSeenAt": "2026-07-09T22:35:38.644Z"
   },
   {
     "slug": "specialista-di-radiologia-dipl-st-claraspital-basel",
@@ -504,7 +1004,134 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/dipl-radiologiefachperson-hf/e79c1a39-cff8-46c4-9149-88389167441d",
+    "firstSeenAt": "2026-05-19T12:23:42.139Z"
+  },
+  {
+    "slug": "amb-case-managerin-manager-gynakologie-mpa-claraspital-basel",
+    "title": "Amb. Case Managerin/Manager Gynäkologie (MPA)",
+    "titleByLocale": {
+      "it": "Amb. Case Manager/Manager Gynecology (MPA)",
+      "en": "Gynecology Ambulatory Care Manager (MPA)",
+      "de": "Amb. Case Managerin/Manager Gynäkologie (MPA)",
+      "fr": "Gestionnaire des soins ambulatoires en gynécologie (MPA)"
+    },
+    "company": "St. Claraspital",
+    "companyKey": "claraspital",
+    "location": "Basel",
+    "addressLocality": "Basel",
+    "descriptionByLocale": {
+      "it": "## Mansioni - Responsabile per l'iscrizione dei pazienti di ginecologia - Preparazione e coordinamento degli appuntamenti ambulatoriali - Assistenza telefonica ai pazienti e ai referenti - Interfaccia centrale con i reparti interni ed esterni coinvolti - Responsabilità congiunta per un corretto svolgimento dell'ambulatorio ##\n• Requisiti - Formazione completata come MPA con alcuni anni di esperienza, preferibilmente nel campo della ginecologia - Buone conoscenze di MS-Office - Ottima conoscenza del tedesco e della terminologia medica, altre lingue sono un vantaggio - Buone maniere e alta resistenza - Persona amichevole, competente e motivata, lavora in modo efficiente e aperto alle novità. In momenti hektici mantiene la calma e si comporta in modo cortese con i pazienti e i clienti interni ed esterni ##\n• Cosa offriamo - Giorni di vacanza retribuiti annuali a seconda dell'età, da 28 a 33 - Ampie possibilità di formazione e aggiornamento, ad esempio un proprio programma di seminari con un'ampia offerta formativa - Gestione della salute aziendale con misure preventive come la consulenza ergonomica sul posto di lavoro - Lavoro part-time e possibilità di job-sharing anche in posizioni di leadership - Sale luminosi e accoglienti con moderne infrastrutture - Una forte cultura aziendale e un'attiva partecipazione alla vita dell'azienda - Contribuire alla formazione e alla gestione del Claraspital attraverso il proprio lavoro ## Contatto Il Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario e di ricerca con un ampio raggio di servizi per la chirurgia addominale altamente specializzata e un'ampia gamma di centri \"Addome\" e \"Tumore\" e aree specialistiche. Nel Claraspital i dipendenti trovano posti di lavoro in cui possono svilupparsi sia professionalmente che umanamente. Mettiamo grande enfasi sulla cura della nostra cultura aziendale e sulla sua ulteriore sviluppo, e sulla attiva partecipazione ai criteri culturali \"insieme - competente - responsabile\"",
+      "en": "Mansioni - Responsabile per l 'iscrizione dei pazienti di ginecologia - Preparazione e coordinamento degli appuntamenti ambulatoriali - Assistenza telefonica ai pazienti e ai referenti - Interfaccia centrale con i reparti interni ed esterni coinvolti - Responsabilità congiunta per un corretto svolgimento dell 'ambulatorio\n• Requisiti - Formazione completata come MPA con alcuni anni di esperienza, preferibilmente nel campo della ginecologia - Buone conoscenze di MS-Office - Ottima conoscenza del tedesco e della terminologia medica, altre lingue sono un vantaggio - Buone maniere e alta resistenza - Persona amichevole, competente e motivata, lavora in modo efficiente e aperto alle novità. In momenti hektici mantiene la calma e si comporta in modo cortese con i pazienti e i clienti interni ed esterni\n• Cosa offriamo - Giorni di vacanza retribuiti annuali a seconda dell'età, da 28 a 33 - Ampie possibilità di formazione e aggiornamento, ad esempio un proprio programma di seminari con un 'ampia offerta formativa - Gestione della salute aziendale con misure preventive come la consulenza ergonomica sul posto di lavoro - Lavoro part-time e possibilità di job-sharing anche in posizioni di leadership - Sale luminosi e accoglienti con moderne infrastrutture - Una forte cultura aziendale e un' attiva partecipazione alla vita dell 'azienda - Contribuire alla formazione e alla gestione Claraspital attraverso il proprio lavoro Contatto Il Claraspital, il piùde grande ospedale privato di",
+      "de": "Aufgaben:\n• Verantwortlich für die Patientenanmeldung Gynäkologie\n\n• Vorbereitung und Koordination von Sprechstundenterminen\n\n• telefonische Betreuung von Patienten und Zuweisern\n\n• zentrale Schnittstelle zu involvierten internen und externen Bereichen\n\n• Ebenfalls sind Sie mitverantwortlich für einen optimalen Sprechstundenablauf\n\nAnforderungen:\n• abgeschlossene Ausbildung als MPA mit einigen Jahren Berufserfahrung, idealerweise auf dem Gebiet Gynäkologie\n\n• gute MS-Office Anwenderkenntnisse\n\n• sehr gute Deutsch- und medizinische Terminologiekenntnisse, weitere Sprachen von Vorteil\n\n• angenehme Umgangsformen und eine hohe Belastbarkeit\n\n• Sie sind eine freundliche, kompetente und motivierte Persönlichkeit, arbeiten effizient und sind offen für Neues. In hektischen Momenten bewahren Sie den Überblick und verhalten sich höflich gegenüber Patientinnen und Patienten sowie internen und externen Kundinnen und Kunden.\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "fr": "Mansioni - Responsabile per l'iscrizione dei pazienti di ginecologia - Preparazione e coordinamento degli appuntamenti ambulatoriali - Assistenza telefonica ai pazienti e ai referenti - Interfaccia centrale con i reparti interni ed esterni coinvolti - Responsabilità congiunta per un corretto svolgimento dell'ambulatorio\n• Requisiti - Formazione completata come MPA con alcuni anni di esperienza, preferibilmente nel campo della ginecologia - Buone conoscenze di MS-Office - Ottima conoscenza del tedesco e della terminologia medica, altre lingue sono un vantaggio - Buone maniere e alta resistenza - Persona amichevole, competente e motivata, lavora in modo efficiente e aperto alle novàità. In momenti hektici mantiene la calma e si comporta in modo cortese con i pazienti e i clienti interni ed esterni\n• Cosa offriamo - Giorni di vacanza retribuiti annuali a seconda dell' età, da 28 a 33 - Ampie possibilità di formazione e aggiornamento, ad esempio un proprio programma di seminari con un'ampia offerta formativa - Gestione della salute aziendale con misure preventive come la consulenza ergonomica sul posto di lavoro - Lavoro part-time e possibilità di job-sharing anche in posizioni di leadership - Saleapeli e accoglienti con modern rastrutture - Una forte cultura aziendale e un' attiva partecipazione alla vita dell'azienda - Contribuire alla formazione e gestione del Claras attraverso il proprio il propriovoratto Il, il più il Claras ospato di privato"
+    },
+    "slugByLocale": {
+      "it": "amb-case-managerin-manager-gynakologie-mpa-claraspital-basel",
+      "en": "gynecology-ambulatory-care-manager-mpa-st-claraspital-basel",
+      "de": "amb-case-managerin-manager-gynakologie-mpa-claraspital-basel",
+      "fr": "gestionnaire-des-soins-ambulatoires-en-gynecologie-mpa-st-claraspital-basel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-08-06T11:56:08.091Z",
+    "previousSlugs": [
+      "amb-fallmanagerin-manager-gynakologie-mpa-st-claraspital-basel",
+      "case-manager-urologia-mpa-st-claraspital-basel",
+      "amb-case-managerin-manager-urologie-mpa-claraspital-basel",
+      "gestionnaire-de-dossiers-en-urologie-mpa-st-claraspital-basel",
+      "amb-fallmanagerin-manager-urologie-mpa-st-claraspital-basel"
+    ],
+    "previousSlugsByLocale": {
+      "de": [
+        "amb-fallmanagerin-manager-gynakologie-mpa-st-claraspital-basel"
+      ]
+    },
+    "postalCode": "4058",
+    "streetAddress": "Kleinriehenstrasse 30",
+    "salaryMin": 85500,
+    "salaryMax": 129500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/amb-case-managerin-manager-gynaekologie-mpa/bbd41ca1-a790-4062-9d2a-5e58b5f0afac",
+    "firstSeenAt": "2026-05-19T12:23:42.147Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/amb-case-managerin-manager-gynaekologie-mpa/bbd41ca1-a790-4062-9d2a-5e58b5f0afac",
+        "firstSeenAt": "2026-05-19T12:23:42.147Z",
+        "title": "Amb. Case Managerin/Manager Gynäkologie (MPA)"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/amb-case-managerin-manager-urologie-mpa/b1300bcc-9054-4119-a570-ec754eae8742",
+        "firstSeenAt": "2026-05-19T12:23:42.145Z",
+        "title": "Amb. Case Managerin/Manager Urologie (MPA)"
+      }
+    ]
+  },
+  {
+    "slug": "nutrizione-st-claraspital-basel",
+    "title": "Ernährungsberater/in",
+    "titleByLocale": {
+      "it": "Nutrizione",
+      "en": "Nutritionist",
+      "de": "Ernährungsberater/in",
+      "fr": "Nutritionniste"
+    },
+    "company": "St. Claraspital",
+    "companyKey": "claraspital",
+    "location": "Basel",
+    "addressLocality": "Basel",
+    "descriptionByLocale": {
+      "it": "La consulenza nutrizionale del Claraspital supporta i pazienti del Centro Tumori e Addominali durante la degenza e, se necessario, li accompagna anche in regime ambulatoriale dopo la dimissione. Siamo inoltre specializzati nella cura dei pazienti prima e dopo la chirurgia bariatrica. Compiti:\n• Valutazione ambulatoriale preliminare e assistenza di follow-up dei pazienti bariatrici in un team interdisciplinare\n• Assistenza e consulenza per pazienti ambulatoriali con particolare attenzione all'oncologia, chirurgia viscerale, obesità, diabete e bariatria\n• Conduzione di conferenze interne e pubbliche, nonché ulteriore formazione\n• Partecipazione e implementazione di progetti Requisiti:\n• Formazione professionale completata in Nutrizione e Dietetica (o equivalente)\n• Entusiasmo per l'obesità, il diabete, i bariatrici e la nutrizione clinica con un focus su chirurgia viscerale e oncologia, l'esperienza è un vantaggio\n• Abilità sociali con forti capacità di lavoro di squadra e di comunicazione\n• Flessibilità, resilienza, impegno e modo di lavorare indipendente e responsabile\n• Conoscenza delle lingue straniere (in particolare francese, inglese e italiano è un vantaggio) Offriamo:\n• A seconda dell'età, 28-33 giorni di ferie retribuite all'anno\n• Ampie opportunità di ulteriore istruzione e formazione, ad es. il nostro programma di seminari con un'ampia gamma di offerte formative\n• Gestione della salute aziendale con misure preventive come: Consulenza ergonomica sul posto di lavoro\n• Lavoro a tempo parziale e possibilità di job sharing anche in posizioni dirigenziali\n• Camere luminose e accoglienti con infrastrutture moderne\n• Valori distintivi e cultura aziendale praticata attivamente\n• I collaboratori danno forma e contribuiscono a dare forma al Claraspital Il Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e di ricerca con un mandato di servizio completo per la chirurgia addominale altamente specializzata e una portata nazionale delle sue specialità \"addominali\" e \"tumore\" e le sue specialità. Al Claraspital i dipendenti trovano posti di lavoro in cui possono svilupparsi sia professionalmente che personalmente. Al Claraspital attribuiamo grande importanza al mantenimento e allo sviluppo consapevole della nostra cultura aziendale e al vivere attivo i criteri culturali che abbiamo sviluppato insieme: “insieme – con competenza – responsabile”.",
+      "en": "The Claraspital's nutritional advice supports patients of the Tumor and Abdominal Center during their inpatient stay and, if necessary, also accompanies them in an outpatient setting after they leave. We also specialize in caring for patients before and after bariatric surgery. Tasks:\n• Preliminary outpatient assessment and follow-up care of bariatric patients in an interdisciplinary team\n• Care and advice for outpatients with a focus on oncology, visceral surgery, obesity, diabetes and bariatrics\n• Conducting internal and public lectures as well as further training\n• Participating in and implementing projects Requirements:\n• Completed professional training in BSc Nutrition and Dietetics (or equivalent)\n• Enthusiasm for obesity, diabetes, bariatrics and clinical nutrition with a focus on visceral surgery and oncology, experience is an advantage\n• Social skills with strong teamwork and communication skills\n• Flexibility, resilience, commitment as well as an independent and responsible way of working\n• Knowledge of foreign languages (particularly French, English and Italian is an advantage) We offer:\n• Depending on age, 28-33 paid vacation days per year\n• Extensive opportunities for further education and training, e.g. our own seminar program with a wide range of educational offerings\n• Company health management with preventive measures such as: Ergonomic advice in the workplace\n• Part-time work and the possibility of job sharing, including in management positions\n• Bright, friendly rooms with modern infrastructure\n• Distinctive values and actively practiced corporate culture\n• Employees shape and help shape the Claraspital The Claraspital, Basel's largest private hospital, is a university teaching and research hospital with a comprehensive service mandate for highly specialized abdominal surgery and a national reach of its \"abdominal\" and \"Tumor\" and its specialties. At Claraspital, employees find jobs where they can develop both professionally and personally. At Claraspital, we attach great importance to consciously maintaining and developing our corporate culture and actively living the cultural criteria we have developed together: “together – competently – responsibly”.",
+      "de": "<b>Die Ernährungsberatung des Claraspitals unterstützt Patientinnen und Patienten des Tumor- und Bauchzentrums während ihres stationären Aufenthaltes und begleitet sie bei Bedarf auch nach dem Austritt im ambulanten Rahmen. Ebenfalls spezialisiert sind wir auf die Betreuung von Patientinnen und Patienten vor und nach einer bariatrischen Operation.</b>\n\nAufgaben:\n• Ambulante Vorabklärung und Nachbetreuung bariatrischer Patienten im interdisziplinären Team\n\n• Betreuung und Beratung ambulanter Patienten mit den Schwerpunkten Onkologie, Viszeralchirurgie, Adipositas, Diabetes und Bariatrie\n\n• Durchführen von internen und öffentlichen Vorträgen sowie Fortbildungen\n\n• Mitwirken und Umsetzen von Projekten\n\nAnforderungen:\n• Abgeschlossene Berufsausbildung BSc Ernährung und Diätetik (oder Äquivalent)\n\n• Begeisterung für Adipositas, Diabetes, Bariatrie und für die klinische Ernährung mit Schwerpunkten Viszeralchirurgie und Onkologie, Erfahrung von Vorteil\n\n• Sozialkompetenz mit ausgeprägter Team- und Kommunikationsfähigkeit\n\n• Flexibilität, Belastbarkeit, Engagement sowie eine selbständige und verantwortungsbewusste Arbeitsweise\n\n• Fremdsprachenkenntnisse (insbesondere Französisch, Englisch und Italienisch von Vorteil)\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "fr": "Les conseils nutritionnels du Claraspital accompagnent les patients du Centre Tumeur et Abdominal pendant leur séjour hospitalier et, si nécessaire, les accompagnent également en ambulatoire après leur départ. Nous sommes également spécialisés dans la prise en charge des patients avant et après une chirurgie bariatrique. Tâches :\n• Évaluation ambulatoire préliminaire et suivi des patients bariatriques dans une équipe interdisciplinaire\n• Soins et conseils pour les patients ambulatoires avec un accent sur l'oncologie, la chirurgie viscérale, l'obésité, le diabète et la bariatrie\n• Animer des conférences internes et publiques ainsi que des formations continues\n• Participer et mettre en œuvre des projets Exigences :\n• Formation professionnelle complète en BSc Nutrition et diététique (ou équivalent)\n• Enthousiasme pour l'obésité, le diabète, la bariatrie et la nutrition clinique avec une spécialisation en chirurgie viscérale et en oncologie, l'expérience est un avantage\n• Compétences sociales avec de solides compétences en matière de travail d'équipe et de communication\n• Flexibilité, résilience, engagement ainsi qu'une manière de travailler indépendante et responsable\n• La connaissance de langues étrangères (en particulier le français, l'anglais et l'italien est un avantage) Nous offrons :\n• Selon l'âge, 28 à 33 jours de vacances payés par an\n• De nombreuses possibilités de formation continue, par ex. notre propre programme de séminaires avec une large gamme de formations\n• Gestion de la santé en entreprise avec des mesures préventives telles que : Conseils ergonomiques sur le lieu de travail\n• Travail à temps partiel et possibilité de partage d'emploi, y compris dans les postes de direction\n• Chambres lumineuses et conviviales avec une infrastructure moderne\n• Valeurs distinctives et culture d'entreprise activement mise en pratique\n• Les collaborateurs façonnent et contribuent à façonner le Claraspital Le Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de service complet pour la chirurgie abdominale hautement spécialisée et une portée nationale de ses spécialités \"abdominales\" et \"tumeurs\". Au Claraspital, les collaborateurs trouvent des emplois où ils peuvent se développer tant sur le plan professionnel que personnel. Au Claraspital, nous attachons une grande importance à entretenir et développer consciemment notre culture d’entreprise et à vivre activement les critères culturels que nous avons développés ensemble : « ensemble – avec compétence – de manière responsable »."
+    },
+    "slugByLocale": {
+      "it": "nutrizione-st-claraspital-basel",
+      "en": "nutritionist-st-claraspital-basel",
+      "de": "ernahrungsberater-in-claraspital-basel-1jvmtq",
+      "fr": "nutritionniste-st-claraspital-basel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-08-01T11:14:19.890Z",
+    "previousSlugs": [
+      "ernahrungsberater-in-claraspital-basel"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "ernahrungsberater-in-claraspital-basel"
+      ],
+      "en": [
+        "ernahrungsberater-in-claraspital-basel"
+      ],
+      "fr": [
+        "ernahrungsberater-in-claraspital-basel"
+      ],
+      "de": [
+        "ernahrungsberater-in-claraspital-basel"
+      ]
+    },
+    "postalCode": "4058",
+    "streetAddress": "Kleinriehenstrasse 30",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/ernaehrungsberater-in/ba5ee065-1a45-4676-8107-6a4a7047e950",
+    "firstSeenAt": "2026-06-17T22:20:15.217Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/ernaehrungsberater-in/ba5ee065-1a45-4676-8107-6a4a7047e950",
+        "firstSeenAt": "2026-06-17T22:20:15.217Z",
+        "title": "Ernährungsberater/in"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/ernaehrungsberater-in/f4941588-ef18-40ee-8fee-0708cba5175b",
+        "firstSeenAt": "2026-07-31T12:03:58.618Z",
+        "title": "Ernährungsberater/in"
+      }
+    ]
   },
   {
     "slug": "pflegeassistentin-pflegeassistenten-per-das-ambulatorium-onkologie-e-hamatologie-st-claraspital-basel",
@@ -552,7 +1179,9 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/pflegeassistentin-pflegeassistenten-fuer-das-ambulatorium-onkologie-und-haematologie/0fbffbda-a932-4eb7-bdac-9c9c851844be",
+    "firstSeenAt": "2026-06-24T11:07:27.172Z"
   },
   {
     "slug": "studentische-aushilfe-radiologie-m-w-d-stellenantritt-per-sofort-o-nach-vereinbarung-st-claraspital-basel",
@@ -591,7 +1220,8 @@
       "etudiant-assistant-radiologie-m-f-d-commencant-un-emploi-immediatement-ou-par-accord-st-claraspital-basel",
       "aiuto-studentesco-radiologia-m-w-d-st-claraspital-basel",
       "student-assistant-radiology-m-f-d-st-claraspital-basel",
-      "aushilfe-radiologie-m-w-d-stellenantritt-per-oder-nach-vereinbarung-st-claraspital-basel"
+      "aushilfe-radiologie-m-w-d-stellenantritt-per-oder-nach-vereinbarung-st-claraspital-basel",
+      "studentische-aushilfe-radiologie-m-w-d-stellenantritt-per-sofort-o-nach-vereinbarung-st-claraspital-basel"
     ],
     "previousSlugsByLocale": {
       "it": [
@@ -622,7 +1252,26 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/studentische-aushilfe-radiologie-m-w-d-stellenantritt-per-sofort-oder-nach-vereinbarung/9d9c4cbe-306a-4de9-8ba3-adb6bf93f97b",
+    "firstSeenAt": "2026-05-19T12:23:42.133Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/studentische-aushilfe-radiologie-m-w-d-stellenantritt-per-sofort-oder-nach-vereinbarung/043816e8-5c21-4c3f-8208-195fd282b61f",
+        "firstSeenAt": "2026-07-24T22:15:29.184Z",
+        "title": "Studentische Aushilfe Radiologie (m/w/d) Stellenantritt per sofort oder nach Vereinbarung"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/studentische-aushilfe-radiologie-m-w-d-stellenantritt-per-sofort-oder-nach-vereinbarung/0ffde4a7-32ae-4bd4-85c5-a95eb799b4f1",
+        "firstSeenAt": "2026-07-14T12:02:08.619Z",
+        "title": "Studentische Aushilfe Radiologie (m/w/d) Stellenantritt per sofort oder nach Vereinbarung"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/studentische-aushilfe-radiologie-m-w-d-stellenantritt-per-sofort-oder-nach-vereinbarung/9d9c4cbe-306a-4de9-8ba3-adb6bf93f97b",
+        "firstSeenAt": "2026-05-19T12:23:42.133Z",
+        "title": "Studentische Aushilfe Radiologie (m/w/d) Stellenantritt per sofort oder nach Vereinbarung"
+      }
+    ]
   },
   {
     "slug": "elettricista-industriale-st-claraspital-basel",
@@ -675,7 +1324,9 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/betriebselektriker-in/d1493e11-3701-4595-b2ab-319bddc8804d",
+    "firstSeenAt": "2026-05-19T12:23:42.150Z"
   },
   {
     "slug": "assistente-sociale-st-claraspital-basel",
@@ -717,7 +1368,9 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/sozialarbeiter-in-fh/95838559-62bb-421f-8cb4-6858d6d1bfd2",
+    "firstSeenAt": "2026-05-19T12:23:42.120Z"
   },
   {
     "slug": "collaboratore-trice-kuche-befristet-per-ein-jahr-st-claraspital-basel",
@@ -769,41 +1422,57 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/mitarbeiter-in-kueche-befristet-fuer-ein-jahr/be207daa-6265-439c-b8f1-584d28be81a6",
+    "firstSeenAt": "2026-07-17T22:42:07.814Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/mitarbeiter-in-kueche-befristet-fuer-ein-jahr/2b51ba53-2705-4635-b1d2-50313cdc59ec",
+        "firstSeenAt": "2026-07-24T11:22:36.359Z",
+        "title": "Mitarbeiter/in Küche befristet für ein Jahr"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/mitarbeiter-in-kueche-befristet-fuer-ein-jahr/be207daa-6265-439c-b8f1-584d28be81a6",
+        "firstSeenAt": "2026-07-17T22:42:07.814Z",
+        "title": "Mitarbeiter/in Küche befristet für ein Jahr"
+      }
+    ]
   },
   {
-    "slug": "logistikfachmann-logistikfachfrau-cfc-st-claraspital-basel",
-    "title": "Logistikfachmann/Logistikfachfrau EFZ",
+    "slug": "esperta-di-riferimento-infermieristico-chirurgia-st-claraspital-basel",
+    "title": "Fachexpertin/Fachexperten Pflege (Chirurgie)",
     "titleByLocale": {
-      "it": "Logistikfachmann/Logistikfachfrau CFC",
-      "en": "Logistics specialist EFZ",
-      "de": "Logistikfachmann/Logistikfachfrau EFZ",
-      "fr": "Spécialiste de la logistique EFZ"
+      "it": "Esperta di Riferimento Infermieristico (Chirurgia)",
+      "en": "Specialist Nurse (Surgery)",
+      "de": "Fachexpertin/Fachexperten Pflege (Chirurgie)",
+      "fr": "Spécialiste en soins infirmiers (Chirurgie)"
     },
     "company": "St. Claraspital",
     "companyKey": "claraspital",
     "location": "Basel",
     "addressLocality": "Basel",
     "descriptionByLocale": {
-      "it": "Compiti: Accettazione delle merci\n• accettazione e ispezione giornaliera del ricevimento delle merci\n• Utilizzo della GUI SAP con i moduli MM e WM e l'applicazione mobile SAP FIORI per il lavoro quotidiano\n• Distribuzione generale e dipartimentale di pacco mail in ospedale\n• Fornire requisiti specifici per il reparto utilizzando SAP FIORI Gestione della conservazione\n• Garantire un deposito ordinato e adeguato\n• Monitoraggio dell'inventario / gestione del magazzino utilizzando SAP GUI e SAP FIORI\n• Conservazione professionale secondo i principi di archiviazione applicabili Trattamento degli ordini\n• Ordinare la raccolta e la consegna dei requisiti di domanda\n• Elaborazione dei rendimenti e ri-invito OP logistics\n• Gestione del magazzino con SAP e ConSense\n• Trasporto interno dal camion a goccia tra il magazzino chirurgico centrale e il magazzino chirurgico decentrato\n• Controllo di carrozze e ricarica tramite sistema ERP (SAP GUI) Consenso di applicazione\n• Raccolta tempestiva e fornitura dei carri a goccia\n• Lavorazione del ritorno e rifornimento nella sala operatoria centrale Altre attività\n• Supporto attivo nel processo di raccolta\n• Lavori di stampa e copia per forme interne\n• Verifica dei dati in base alle specifiche di qualità\n• Assistenza agli inventori e ai trasporti interni\n• Partecipazione alla formazione\n• Rispetto delle linee guida per l'igiene e la qualità\n• Lavoro come formatore professionale\n• Sostegno all'inventario Requisiti\n• Apprendistato professionale completo come logistico/in EFZ\n• Diversi anni di esperienza professionale nella logistica\n• Buona conoscenza dell'utente SAP GUI MM/WM e SAP FIORI\n• Buona conoscenza MS-Office\n• Metodo di lavoro indipendente, affidabile e preciso\n• Alta assistenza e orientamento al cliente\n• Resistenza fisica e flessibilità\n• Personalità responsabile, comunicativa e responsabile\n• Molto buona conoscenza del tedesco in parola e scrittura\n• Corso di formazione professionale di vantaggio o di volontà di completarlo\n• L'esperienza nell'accompagnamento degli studenti e dei tirocinanti/pratici è vantaggiosa Offriamo:\n• 28-33 giorni di congedo retribuiti all'anno\n• Ampia opportunità di formazione e formazione, ad esempio il proprio programma di seminario con una vasta gamma di opportunità educative\n• Gestione della salute sul lavoro con misure preventive come la consulenza ergonomica sul posto di lavoro\n• Lavoro a tempo parziale e possibilità di condivisione del lavoro anche nelle funzioni di gestione\n• Camere luminose e accoglienti con infrastrutture moderne\n• Valori forti e cultura aziendale attivamente vissuta\n• Caratterizzazione e partecipazione del Claraspital da parte dei dipendenti Il Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e ricerca con un mandato di servizio completo per una chirurgia addominale altamente specializzata e una trasmissione supra-regionale dei suoi centri \"Bäu\" e \"Tumor\" così come i suoi campi speciali. Nel Claraspital, i dipendenti trovano posti di lavoro dove possono sviluppare sia professionalmente che umanamente. A Claraspital, attribuiamo grande importanza per nutrire consapevolmente e sviluppare la nostra cultura aziendale e vivere attivamente i criteri culturali sviluppati insieme \"insieme - competentemente - responsabilmente\".",
-      "en": "Tasks: Acceptance of goods\n• Daily acceptance and inspection of receipt of goods\n• Use of SAP GUI with the modules MM and WM and the mobile application SAP FIORI for daily work\n• General and departmental distribution of parcel mail in the hospital\n• Deliver area-specific requirements for department using SAP FIORI Storage management\n• Ensuring orderly and adequate storage\n• Inventory monitoring / warehouse management using SAP GUI and SAP FIORI\n• Professional storage in accordance with applicable storage principles Order processing\n• Order picking and delivery of demand requirements\n• Processing of returns and re-invitation OP logistics\n• Warehouse management with SAP and ConSense\n• Internal transport from the drop truck between the central surgical warehouse and the decentralised surgical warehouse\n• Checking hook wagons and refilling by ERP system (SAP GUI) Application ConSense\n• Timely picking and provision of the drop wagons\n• Return processing and re-stocking in the central operating room Other activities\n• Active support in the picking process\n• Printing and copying work for internal forms\n• Expiry data checks according to quality specifications\n• Assistance with inventories and internal transport\n• Participation in training\n• Compliance with hygiene and quality guidelines\n• Work as a vocational trainer\n• Inventory support Requirements\n• Completed vocational apprenticeship as logistician/in EFZ\n• Several years of professional experience in logistics\n• Good user knowledge SAP GUI MM/WM and SAP FIORI\n• Good MS-Office knowledge\n• Independent, reliable and exact working method\n• High service and customer orientation\n• Physical resilience and flexibility\n• Team-capable, communicative and responsible personality\n• Very good knowledge of German in word and writing\n• Vocational training course of advantage or willingness to complete it\n• Experience in accompanying learners and trainees/practitioners is advantageous We offer:\n• 28-33 paid leave days per year\n• Extensive opportunities for further education and training, e.g. own seminar program with a wide range of educational opportunities\n• Occupational health management with preventive measures such as ergonomic advice in the workplace\n• Part-time work and possibility of job sharing also in management functions\n• Bright, friendly rooms with modern infrastructure\n• Strong values and actively lived corporate culture\n• Characterisation and participation of the Claraspital by the employees The Claraspital, the largest private hospital in Basel, is a university teaching and research hospital with a full service mandate for highly specialized abdominal surgery and a supra-regional broadcast of its centers \"Bäu\" and \"Tumor\" as well as its special fields. In the Claraspital, employees find jobs where they can develop both professionally and humanly. At Claraspital, we attach great importance to consciously nurturing and developing our corporate culture and actively living the cultural criteria developed together \"together - competently - responsibly\".",
-      "de": "Aufgaben:\nWarenannahme\n• Tägliche Warenannahme und Wareneingangskontrolle\n\n• Verwendung von SAP GUI mit den Modulen MM und WM und die mobile Anwendung SAP FIORI für die tägliche Arbeit\n\n• Allgemeine und abteilungsspezifische Verteilung der Paketpost im Spital\n\n• Bereichsspezifische Anforderungen an Abteilung liefern mittels SAP FIORI\n\nLagerbewirtschaftung\n• Sicherstellung einer geordneten und ausreichenden Lagerhaltung\n\n• Bestandsüberwachung/Lagerbewirtschaftung mittels SAP GUI und SAP FIORI\n\n• Fachgerechte Einlagerung nach geltenden Lagerprinzipien\n\nBestellabwicklung\n• Kommissionieren und Auslieferung von Bedarfsanforderungen\n\n• Bearbeitung von Retouren und Wiedereinladung\n\nOP-Logistik\n• Lagerbewirtschaftung mit SAP und ConSense\n\n• Interner Transport vom Fallwagen zwischen den OP-Zentrallager und Dezentrale OP-Lager\n\n• Kontrolle Hakenwagen und nachfüllen mittels ERP-System (SAP GUI)\n\nApplikation ConSense\n• Termingerechtes Kommissionieren und Bereitstellen der Fallwagen\n\n• Retourenbearbeitung und Wiedereinlagerung im OP-Zentrallager\n\nWeitere Tätigkeiten\n• Aktive Unterstützung im Kommissionier-Prozess\n\n• Druck- und Kopierarbeiten für interne Formulare\n\n• Verfalldatenkontrollen gemäss Qualitätsvorgaben\n\n• Mithilfe bei Inventuren und internen Transporten\n\n• Teilnahme an Weiterbildungen\n\n• Einhaltung von Hygiene- und Qualitätsrichtlinien\n\n• Tätigkeit als Berufsbildner/in\n\n• Unterstützung bei der Inventur\n\nAnforderungen:\n• Abgeschlossene Berufslehre als Logistiker/in EFZ\n\n• Einige Jahre Berufserfahrung im Logistikbereich\n\n• Gute Anwenderkenntnisse SAP GUI MM/WM und SAP FIORI)\n\n• Gute MS-Office-Kenntnisse\n\n• Selbständige, zuverlässige und exakte Arbeitsweise\n\n• Hohe Dienstleistungs- und Kundenorientierung\n\n• Körperliche Belastbarkeit und Flexibilität\n\n• Teamfähige, kommunikative und verantwortungsbewusste Persönlichkeit\n\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\n• Berufsbildnerkurs von Vorteil oder Bereitschaft, diesen zu absolvieren\n\n• Erfahrung in der Begleitung von Lernenden und Praktikanten/Praktikantinnen von Vorteil\n\nWir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n\n• Helle, freundliche Räume mit moderner Infrastruktur\n\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden\n\nDas Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
-      "fr": "Tâches : Acceptation des marchandises\n• Acceptation quotidienne et inspection de la réception des marchandises\n• Utilisation de SAP GUI avec les modules MM et WM et l'application mobile SAP FIORI pour le travail quotidien\n• Distribution générale et départementale du courrier par colis à l'hôpital\n• Fournir des exigences spécifiques au secteur pour le ministère en utilisant SAP FIORI Gestion du stockage\n• Assurer un stockage ordonné et adéquat\n• Surveillance des stocks/gestion des entrepôts en utilisant SAP GUI et SAP FIORI\n• Stockage professionnel conformément aux principes de stockage applicables Traitement des commandes\n• Commande et livraison de la demande\n• Traitement des retours et réinvitation Soutien logistique\n• Gestion d'entrepôt avec SAP et ConSense\n• Transport interne depuis le camion de dépôt entre l'entrepôt central de chirurgie et l'entrepôt décentralisé de chirurgie\n• Vérification des wagons à crochets et remplissage par le système ERP (SAP GUI) Application Consens\n• Cueillette en temps voulu et mise à disposition des wagons-déposer\n• Traitement des retours et restockage dans la salle d'opération centrale Autres activités\n• Support actif dans le processus de sélection\n• Impression et copie de formulaires internes\n• Contrôle des données d'expiration selon les spécifications de qualité\n• Assistance aux inventaires et aux transports internes\n• Participation à la formation\n• Respect des directives en matière d'hygiène et de qualité\n• Travailler comme formateur professionnel\n• Appui aux stocks Exigences\n• Apprentissage professionnel complété en tant que logisticien/en EFZ\n• Plusieurs années d'expérience professionnelle en logistique\n• Bonnes connaissances des utilisateurs SAP GUI MM/WM et SAP FIORI\n• Bonnes connaissances du MS-Office\n• Méthode de travail indépendante, fiable et exacte\n• Service élevé et orientation client\n• Résistance physique et flexibilité\n• Personnalité capable d'équipe, communicative et responsable\n• Très bonne connaissance de l'allemand en paroles et en écriture\n• Formation professionnelle\n• L'expérience d'accompagnement des apprenants et des stagiaires/praticiens est avantageuse Nous offrons:\n• 28-33 jours de congé payé par an\n• Possibilités étendues d'éducation et de formation continue, p.ex. programme de séminaires avec un large éventail de possibilités d'éducation\n• Gestion de la santé au travail avec des mesures préventives telles que des conseils ergonomiques sur le lieu de travail\n• Travail à temps partiel et possibilité de partage de l'emploi également dans les fonctions de gestion\n• Chambres lumineuses et conviviales avec une infrastructure moderne\n• Des valeurs fortes et une culture d'entreprise active\n• Caractérisation et participation du Claraspital par les salariés Le Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de service complet pour la chirurgie abdominale hautement spécialisée et une diffusion supra-régionale de ses centres \"Bäu\" et \"Tumor\" ainsi que ses domaines spéciaux. Dans le Claraspital, les employés trouvent des emplois où ils peuvent se développer à la fois professionnellement et humainement. Chez Claraspital, nous attachons une grande importance à l'éducation et au développement consciemment de notre culture d'entreprise et à la vie active des critères culturels développés ensemble « ensemble - avec compétence - de manière responsable »."
+      "it": "I nostri reparti letto ti offrono un posto di lavoro responsabile, interessante e vario in cui puoi contribuire e sviluppare ulteriormente le tue competenze, abilità ed esperienze in larga misura. Compiti:\n• Responsabilità della qualità dell'assistenza in reparto in collaborazione con il leadership team\n• Garantire una pratica infermieristica basata sull'evidenza e un'attività attiva nell'assistenza diretta\n• Supportare e responsabilizzare il team infermieristico in situazioni infermieristiche complesse, accompagnando il processo infermieristico e promuovendo l'implementazione di nuove scoperte scientifiche infermieristiche nella pratica\n• Partecipazione allo sviluppo, all'implementazione e all'ulteriore sviluppo di linee guida, linee guida e concetti e garantendo la loro conformità\n• Partecipazione a progetti e gruppi di lavoro per l'ulteriore sviluppo della pratica infermieristica Requisiti:\n• Studi completati come Bachelor o Master of Science in Nursing, o la volontà di completare un Master of Science in Nursing\n• Solida esperienza pratica nel campo della chirurgia, nonché conoscenze teoriche approfondite in infermieristica e sviluppo della pratica\n• Personalità proattiva e comunicativa con un atteggiamento fiducioso in un ambiente interdisciplinare\n• Pensiero e azione orientati agli obiettivi e alla soluzione integrati da forti capacità di consulenza e leadership\n• Elevate abilità sociali e un forte orientamento al servizio Offriamo:\n• A seconda dell'età, 28-33 giorni di ferie retribuite all'anno\n• Ampie opportunità di ulteriore formazione e formazione, ad es. proprio programma di seminari con un'ampia gamma di opportunità formative\n• Gestione della salute aziendale con misure preventive come consulenza ergonomica sul posto di lavoro\n• Lavoro a tempo parziale e possibilità di condivisione del lavoro anche in posizioni dirigenziali\n• Aule luminose e accoglienti con infrastrutture moderne\n• Valori distintivi e cultura aziendale praticata attivamente\n• I dipendenti danno forma e contribuiscono a dare forma al Claraspital Il Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario universitario e di ricerca con un mandato di servizio completo per la chirurgia addominale altamente specializzata e portata nazionale del suo \"addome\" e \"tumore\" centri e le sue aree specialistiche. Al Claraspital i dipendenti trovano posti di lavoro in cui possono svilupparsi sia professionalmente che personalmente. Al Claraspital attribuiamo grande importanza al mantenimento e allo sviluppo consapevole della nostra cultura aziendale e al vivere attivo i criteri culturali che abbiamo sviluppato insieme: “insieme – con competenza – responsabile”.",
+      "en": "Our bed wards offer you a responsible, interesting and varied workplace where you can contribute and further develop your skills, abilities and experience to a large extent. Tasks:\n• Responsibility for the quality of care on the ward in collaboration with the leadership team\n• Ensuring evidence-based nursing practice and active activity in direct care\n• Supporting and empowering the nursing team in complex nursing situations, accompanying the nursing process and promoting the implementation of new nursing scientific findings into practice\n• Participation in the development, implementation and further development of guidelines, guidelines and concepts and ensuring their compliance\n• Participation in project and working groups for the further development of nursing practice Requirements:\n• Completed studies as a Bachelor or Master of Science in Nursing, or the willingness to complete a Master of Science in Nursing\n• Sound practical experience in the field of surgery as well as in-depth theoretical knowledge in nursing and practice development\n• Proactive and communicative personality with a confident demeanor in an interdisciplinary environment\n• Goal- and solution-oriented thinking and action complemented by strong consulting and leadership skills\n• High social skills and a strong service orientation We offer:\n• Depending on age, 28-33 paid vacation days per year\n• Extensive opportunities for Further education and training, e.g. own seminar program with a wide range of educational opportunities\n• Company health management with preventive measures such as ergonomic advice in the workplace\n• Part-time work and the possibility of job sharing, including in management positions\n• Bright, friendly rooms with modern infrastructure\n• Distinctive values and actively practiced corporate culture\n• Employees shape and help shape the Claraspital The Claraspital, Basel's largest private hospital, is a university teaching and Research hospital with a comprehensive service mandate for highly specialized abdominal surgery and national reach of its \"Abdomen\" and \"Tumor\" centers as well as its specialist areas. At Claraspital, employees find jobs where they can develop both professionally and personally. At Claraspital, we attach great importance to consciously maintaining and developing our corporate culture and actively living the cultural criteria we have developed together: “together – competently – responsibly”.",
+      "de": "<b>Unsere Bettenstationen bieten Ihnen einen verantwortungsvollen, interessanten und abwechslungsreichen Arbeitsplatz, an welchem Sie Ihre Kompetenzen, Fähigkeiten und Erfahrungen in hohem Masse einbringen und weiterentwickeln können.</b> Aufgaben:\n• Verantwortung für die Pflegequalität auf der Bettenstation in Zusammenarbeit mit dem Leadershipteam\n• Sicherstellung einer evidenzbasierten Pflegepraxis und aktive Tätigkeit in der direkten Pflege\n• Unterstützung und Befähigung des Pflegeteams in komplexen Pflegesituationen, Begleitung des Pflegeprozesses und Förderung der Umsetzung neuer pflegewissenschaftlicher Erkenntnisse in die Praxis\n• Mitwirkung an der Erarbeitung, Implementierung und Weiterentwicklung von Richtlinien, Leitlinien und Konzepten und Sicherstellung deren Einhaltung\n• Mitarbeit in Projekt- und Arbeitsgruppen zur Weiterentwicklung der Pflegepraxis Anforderungen:\n• Abgeschlossenes Studium als Bachelor oder Master of Science in Nursing, oder die Bereitschaft einen Master of Science in Nursing zu absolvieren\n• Fundierte praktische Erfahrung im Bereich Chirurgie sowie vertiefte theoretische Kenntnisse in der Pflege und Praxisentwicklung\n• Proaktive und kommunikative Persönlichkeit mit sicherem Auftreten im interdisziplinären Umfeld\n• Ziel- und lösungsorientiertes Denken und Handeln ergänzt durch ausgeprägte Beratungs- und Leadershipfähigkeiten\n• Hohe Sozialkompetenz sowie eine ausgeprägte Dienstleistungsorientierung Wir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n• Helle, freundliche Räume mit moderner Infrastruktur\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden Das Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "fr": "Nos services de lit vous offrent un lieu de travail responsable, intéressant et varié où vous pouvez contribuer et développer dans une large mesure vos compétences, vos capacités et votre expérience. Tâches :\n• Responsable de la qualité des soins dans le service en collaboration avec l'équipe de direction\n• Assurer une pratique infirmière fondée sur des preuves et une activité active dans les soins directs\n• Soutenir et responsabiliser l'équipe infirmière dans des situations de soins complexes, accompagner le processus de soins et promouvoir la mise en œuvre de nouvelles découvertes scientifiques en soins infirmiers dans la pratique\n• Participation à l'élaboration, à la mise en œuvre et au développement ultérieur de lignes directrices, de lignes directrices et de concepts et assurer leur conformité\n• Participation à des projets et des groupes de travail pour le développement ultérieur de la pratique infirmière Exigences :\n• Études terminées en tant que baccalauréat ou maîtrise en sciences infirmières, ou la volonté de compléter une maîtrise en sciences infirmières\n• Solide expérience pratique dans le domaine de la chirurgie ainsi que des connaissances théoriques approfondies en soins infirmiers et en développement de la pratique\n• Personnalité proactive et communicative avec une attitude confiante dans un environnement interdisciplinaire\n• Réflexion et action orientées vers les objectifs et les solutions complétées par de solides compétences en conseil et en leadership\n• Compétences sociales élevées et forte orientation vers le service Nous offrons :\n• Selon l'âge, 28 à 33 jours de vacances payés par an\n• De nombreuses opportunités de formation continue, par ex. propre programme de séminaires avec de nombreuses possibilités de formation\n• Gestion de la santé en entreprise avec des mesures préventives telles que des conseils ergonomiques sur le lieu de travail\n• Travail à temps partiel et possibilité de partage d'emploi, y compris dans les postes de direction\n• Des salles lumineuses et conviviales avec une infrastructure moderne\n• Valeurs distinctives et culture d'entreprise activement mise en pratique\n• Les collaborateurs façonnent et contribuent à façonner le Claraspital Le Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de prestation complet pour la chirurgie abdominale hautement spécialisée et une portée nationale pour son \"Abdomen\" et sa \"Tumeur\". centres ainsi que ses domaines de spécialisation. Au Claraspital, les collaborateurs trouvent des emplois où ils peuvent se développer tant sur le plan professionnel que personnel. Au Claraspital, nous attachons une grande importance à entretenir et développer consciemment notre culture d’entreprise et à vivre activement les critères culturels que nous avons développés ensemble : « ensemble – avec compétence – de manière responsable »."
     },
     "slugByLocale": {
-      "it": "logistikfachmann-logistikfachfrau-cfc-st-claraspital-basel",
-      "en": "logistics-specialist-efz-st-claraspital-basel",
-      "de": "logistikfachmann-logistikfachfrau-efz-claraspital-basel",
-      "fr": "specialiste-de-la-logistique-efz-st-claraspital-basel"
+      "it": "esperta-di-riferimento-infermieristico-chirurgia-st-claraspital-basel",
+      "en": "specialist-nurse-surgery-st-claraspital-basel",
+      "de": "fachexpertin-fachexperten-pflege-chirurgie-claraspital-basel",
+      "fr": "specialiste-en-soins-infirmiers-chirurgie-st-claraspital-basel"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-07-16T11:57:59.998Z",
+    "expiredAt": "2026-07-08T22:17:26.449Z",
     "previousSlugs": [
-      "logistikfachmann-logistikfachfrau-efz-claraspital-basel"
+      "fachexpertin-fachexperten-pflege-chirurgie-claraspital-basel",
+      "esperta-di-riferimento-infermieristico-chirurgia-st-claraspital-basel"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "logistikfachmann-logistikfachfrau-efz-claraspital-basel"
+        "fachexpertin-fachexperten-pflege-chirurgie-claraspital-basel",
+        "esperta-di-riferimento-infermieristico-chirurgia-st-claraspital-basel"
       ]
     },
     "postalCode": "4058",
@@ -811,7 +1480,53 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/fachexpertin-fachexperten-pflege-chirurgie/8bbaec72-e3c9-4432-9fe8-d379293748b5",
+    "firstSeenAt": "2026-05-19T12:23:42.138Z"
+  },
+  {
+    "slug": "manager-di-applicazioni-st-claraspital-basel",
+    "title": "Applikationsmanager/in",
+    "titleByLocale": {
+      "it": "Manager di applicazioni",
+      "en": "Application Manager",
+      "de": "Applikationsmanager/in",
+      "fr": "Gestionnaire d'applications"
+    },
+    "company": "St. Claraspital",
+    "companyKey": "claraspital",
+    "location": "Basel",
+    "addressLocality": "Basel",
+    "descriptionByLocale": {
+      "it": "Nel team delle applicazioni IT darai forma attivamente all'ulteriore sviluppo di soluzioni digitali innovative nel nostro ospedale e, insieme al team, garantirai un funzionamento regolare. In questo modo date un contributo importante al Claraspital digitale del futuro. Il focus della posizione è sul supporto dei sistemi diagnostici e sulle loro integrazioni. Compiti:\n• Gestione del ciclo di vita delle applicazioni supportate (inclusa release e change management)\n• Supporto e coordinamento di 2° livello con partner e fornitori esterni\n• Implementazione e funzionamento di interfacce dati\n• Supporto nell'integrazione di dispositivi medici\n• Analisi, specificazione e implementazione di nuovi requisiti di sistema Requisiti:\n• Formazione in informatica, informatica aziendale o informatica medica\n• Idealmente esperienza nel settore sanitario\n• Vantaggioso: conoscenza dell'integrazione di applicazioni e dispositivi medici nei relativi formati di dati (DICOM, HL7, FHIR)\n• Qualità di team player combinate con un modo di lavorare impegnato, strutturato e indipendente Offriamo:\n• A seconda dell'età, 28-33 giorni di ferie retribuite all'anno\n• Ampie opportunità di formazione continua e perfezionamento, ad es. il nostro programma di seminari con un'ampia offerta formativa\n• Gestione della salute aziendale con misure preventive come consulenza ergonomica sul posto di lavoro\n• Lavoro a tempo parziale e possibilità di condivisione del lavoro anche in posizioni dirigenziali\n• Aule luminose e accoglienti con infrastrutture moderne\n• Valori forti e cultura aziendale vissuta attivamente\n• Forma e co-progettazione del Claraspital da parte dei dipendenti Il Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario di insegnamento e di ricerca con un mandato di servizio completo per la chirurgia addominale altamente specializzata e una portata nazionale del suo \"Addome\" e Centri \"tumori\" e relative aree speciali. Al Claraspital i dipendenti trovano posti di lavoro in cui possono svilupparsi sia professionalmente che personalmente. Al Claraspital attribuiamo grande importanza al mantenimento e allo sviluppo consapevole della nostra cultura aziendale e al vivere attivo i criteri culturali che abbiamo sviluppato insieme: “insieme – con competenza – responsabile”.",
+      "en": "In the IT Applications team, you will actively shape the further development of innovative digital solutions in our hospital and, together with the team, ensure smooth operations. In doing so, you are making an important contribution to the digital Claraspital of the future. The focus of the position is on the support of diagnostic systems and their integrations. Tasks:\n• Lifecycle management of the supported applications (including release and change management)\n• 2nd level support and coordination with external partners and suppliers\n• Implementation and operation of data interfaces\n• Support in the integration of medical devices\n• Analysis, specification and implementation of new system requirements Requirements:\n• Training in computer science, business informatics or medical informatics\n• Ideally experience in the healthcare sector\n• Advantageous: knowledge of application and medical device integration in the relevant data formats (DICOM, HL7, FHIR)\n• Team player qualities combined with a committed, structured and independent way of working We offer:\n• Depending on age, 28-33 paid vacation days per year\n• Extensive opportunities for further training and further education, e.g. our own seminar program with a wide range of educational offerings\n• Company health management with preventive measures such as ergonomic advice at the workplace\n• Part-time work and the possibility of job sharing, including in management positions\n• Bright, friendly rooms with modern infrastructure\n• Strong values and actively lived corporate culture\n• Shape and co-design of the Claraspital by the employees The Claraspital, Basel's largest private hospital, is a university teaching and research hospital with a comprehensive service mandate for highly specialized abdominal surgery and a national reach of its \"Abdomen\" and \"Tumor\" centers as well as its special areas. At Claraspital, employees find jobs where they can develop both professionally and personally. At Claraspital, we attach great importance to consciously maintaining and developing our corporate culture and actively living the cultural criteria we have developed together: “together – competently – responsibly”.",
+      "de": "<b>Im Team IT-Applikationen gestalten Sie aktiv die Weiterentwicklung innovativer digitaler Lösungen in unserem Spital mit und stellen gemeinsam mit dem Team einen reibungslosen Betrieb sicher. Damit leisten Sie einen wichtigen Beitrag zum digitalen Claraspital der Zukunft. Der Fokus der Stelle liegt auf der Betreuung von diagnostischen Systemen und deren Integrationen.</b> Aufgaben:\n• Lifecycle-Management der betreuten Applikationen (inkl. Release- und Change-Management)\n• 2nd-Level-Support und Koordination mit externen Partnern und Lieferanten\n• Umsetzung und Betrieb von Datenschnittstellen\n• Unterstützung bei der Integration von Medizingeräten\n• Analyse, Spezifikation und Umsetzung neuer Systemanforderungen Anforderungen:\n• Ausbildung in Informatik, Wirtschaftsinformatik oder Medizininformatik\n• Idealerweise Erfahrung im Gesundheitswesen\n• Von Vorteil: Kenntnisse in der Applikations- und Medizingeräteintegration den relevanten Datenformaten (DICOM, HL7, FHIR)\n• Teamplayer-Qualitäten verbunden mit einer engagierten, strukturierten und selbständigen Arbeitsweise Wir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n• Helle, freundliche Räume mit moderner Infrastruktur\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden Das Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "fr": "Au sein de l'équipe Applications informatiques, vous façonnerez activement le développement futur de solutions numériques innovantes dans notre hôpital et, avec l'équipe, vous assurerez le bon fonctionnement. Vous apportez ainsi une contribution importante au Claraspital numérique du futur. L'accent du poste est mis sur le support des systèmes de diagnostic et leurs intégrations. Tâches :\n• Gestion du cycle de vie des applications supportées (incluant la gestion des releases et des changements)\n• Support de 2ème niveau et coordination avec les partenaires et fournisseurs externes\n• Implémentation et exploitation d'interfaces de données\n• Accompagnement dans l'intégration de dispositifs médicaux\n• Analyse, spécification et mise en œuvre de nouvelles exigences système Exigences :\n• Formation en informatique, informatique de gestion ou informatique médicale\n• Idéalement expérience dans le secteur de la santé\n• Avantageux : connaissance de l'intégration d'applications et de dispositifs médicaux dans les formats de données pertinents (DICOM, HL7, FHIR)\n• Esprit d'équipe combiné à un manière de travailler engagée, structurée et indépendante Nous offrons :\n• Selon l'âge, 28 à 33 jours de congés payés par an\n• De nombreuses possibilités de formation continue et de perfectionnement, par ex. notre propre programme de séminaires avec une large offre de formation\n• Gestion de la santé en entreprise avec des mesures préventives telles que des conseils ergonomiques sur le lieu de travail\n• Travail à temps partiel et possibilité de partage d'emploi, y compris dans des postes de direction\n• Des salles lumineuses et conviviales avec une infrastructure moderne\n• Des valeurs fortes et une culture d'entreprise activement vécue\n• Forme et co-conception du Claraspital par les collaborateurs Le Claraspital, le plus grand hôpital privé de Bâle, est un hôpital universitaire d'enseignement et de recherche avec un mandat de prestation complet pour la chirurgie abdominale hautement spécialisée et une portée nationale pour son \"Abdomen\" et Centres « Tumeurs » ainsi que ses zones spéciales. Au Claraspital, les collaborateurs trouvent des emplois où ils peuvent se développer tant sur le plan professionnel que personnel. Au Claraspital, nous attachons une grande importance à entretenir et développer consciemment notre culture d’entreprise et à vivre activement les critères culturels que nous avons développés ensemble : « ensemble – avec compétence – de manière responsable »."
+    },
+    "slugByLocale": {
+      "it": "manager-di-applicazioni-st-claraspital-basel",
+      "en": "application-manager-st-claraspital-basel",
+      "de": "applikationsmanager-in-claraspital-basel",
+      "fr": "gestionnaire-d-applications-st-claraspital-basel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-07-04T10:29:11.666Z",
+    "previousSlugs": [
+      "applikationsmanager-in-claraspital-basel"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "applikationsmanager-in-claraspital-basel",
+        "manager-di-applicazioni-st-claraspital-basel"
+      ]
+    },
+    "postalCode": "4002",
+    "salaryMin": 85500,
+    "salaryMax": 129500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/applikationsmanager-in/57e86efa-181f-4dd0-ae71-67c05922c459",
+    "firstSeenAt": "2026-05-19T12:23:42.143Z"
   },
   {
     "slug": "capo-team-ambulante-gestione-dei-casi-in-ginecologia-st-claraspital-basel",
@@ -852,7 +1567,56 @@
     "salaryMin": 62000,
     "salaryMax": 94000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/teamleiter-in-ambulantes-case-management-gynaekologie/64e2a501-975e-451c-bcfc-4324e8397642",
+    "firstSeenAt": "2026-05-19T12:23:42.152Z"
+  },
+  {
+    "slug": "assistente-farmaceutico-a-st-claraspital-basel",
+    "title": "Pharma-Assistent/in",
+    "titleByLocale": {
+      "it": "Assistente Farmaceutico/a",
+      "en": "Pharmaceutical assistant",
+      "de": "Pharma-Assistent/in",
+      "fr": "Assistant en Pharmacie"
+    },
+    "company": "St. Claraspital",
+    "companyKey": "claraspital",
+    "location": "Basel",
+    "addressLocality": "Basel",
+    "descriptionByLocale": {
+      "it": "Mansioni - Produzione di chemioterapici personalizzati per i pazienti - Gestione delle farmacie di reparto in collaborazione con il personale infermieristico - Processo di medicazione personalizzata per i pazienti ricoverati - Attività per garantire una fornitura e di qualità di farmaci ospedalieri, inclusi tutti i processi logistici associati - Attività amministrative in tutti i settori\n• Requisiti - Formazione completata come assistente farmaceutico/a FC o tecnico/a della farmacia con specializzazione o farmacista tecnico/a o farmacista - Alcuni anni di esperienza professionale, preferibilmente in una farmacia ospedaliera con processi di produzione - Affinità per le attività di produzione - Buone capacità comunicative, atteggiamento diplomatico e sicuro di sé - Buone conoscenze informatica e linguistiche - Buona capacità di apprendimento - Flessibilità e capacità di lavorare in modo autonomo, responsabile e orientato alla qualità Cosa? - 28-33 giorni di ferie retribuiti all'anno, a seconda dell'età - Ampie possibilità di formazione e aggiornamento, ad esempio attraverso il nostro programma di seminari con una vasta gamma di offerte formative - Gestione della salute aziendale con misure supposte, come ad esempio la consulenza ergonomica sul posto di lavoro - Possibilità di lavoro part-time e condivisione del lavoro anche in posizioni di responsabilità - Spazi luminosi e accoglienti con moderne infrastrutture - Una forte cultura aziendale e un'attiva promozione dei valori - Contribuire alla formazione e alla gestione del Claraspital attraverso il proprio lavoro Il Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario e di ricerca con un ampio mandato di prestazioni per la chirurgia addominale altamente specializzato e un'ampia portata regionale dei suoi centri \"Addome\" e \"Tumore setori Nel Claraspital i dipendenti trovano posti di lavoro in cui possono svilupparsi sia professionalmente che umanemente. Nel Claraspital diamo grande importanza alla cura della nostra cultura aziendale e al suo ulteriore sviluppo e alla promozione attiva dei criteri culturali \"insieme - didattica - responsabili\" concordati insieme.",
+      "en": "Mansioni - Produzione di chemioterapici personalizzati per i pazienti - Gestione delle farmacie di reparto in collaborazione con il personale infermieristico - Processo di medicazione personalizzato per i pazienti ricoverati - Attività per garantire una fornitura affidabile e di qualità di farmaci ospedalieri, inclusi tutti i processi logistici associati - Attività amministrative in tutti i settori\n• Requisiti - Formazione completata come assistente farmaceutico/a FC o tecnico/a della farmacia con specializzazione o farmacista tecnico/a o farmacista - Alcuni anni di esperienza professionale, preferibilmente in una farmacia ospedaliera con processi di produzione - Affinità per le attività di produzione - Buone capacità comunicative, atteggiamento diplomatico e sicuro di sé - Buone conoscenze informatiche e linguistiche - Buona capacità di apprendimento - Flessibilità e capacità di lavorare in modo autonomo, responsabile e orientato alla qualità\n• Cosa offriamo - 28-33 giorni di ferie retribuiti all'anno, a seconda dell'età - Ampie possibilità di formazione e aggiornamento, ad esempio attraverso il nostro programma di seminari con una vasta gamma di offeringte formative - Gestione della salute aziendale con misure supposed, come ad esempio la consulenza ergonomica sul posto di lavoro - Possibilità di lavoro part-time e condivisione del lavoro anche in posizioni di responsabilità - Spazi luminosi e accoglienti con modern infrastrutture - Una forte cultura aziendale e un'attiva promozione dei valori - Contribuire alla formazione e alla gestione del Claraspital attraverso il proprio lavoro Il Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario e di ricerca con un ampio mandato di prestazioni per la chirurgia addominale altamente specializzata e un'ampia portata regional dei suoi centri \"Addome\" e \"Tumore setori Nel Claraspital i dipendenti trovano posti di lavoro in cui possono svilupparsi sia professionalmente che umanamente. Nel Claraspital diamo grande importanza alla cura della nostra cultura aziendale e al suo ulteriore sviluppo e alla promozione attiva dei criteri culturali \"insieme - competenti - responsabili\" concordati insieme.",
+      "de": "Aufgaben:\n• Patientenspezifische Zytostatikaherstellung\n• Bewirtschaftung der Stationsapotheken in Zusammenarbeit mit den Pflegenden\n• Patientenspezifischer Medikamenten-Richtprozess für stationäre Patienten\n• Aufgaben zur Sicherstellung einer zuverlässigen und qualitativen Arzneimittelversorgung des Spitals inkl. aller dazugehöriger Logistikprozesse\n• Administrative Arbeiten in allen Bereichen Anforderungen:\n• Eine abgeschlossene Ausbildung als Pharma-Assistent/in EFZ oder Fachfrau/-mann Apotheke EFZ, Pharmazeutisch-technische Assistentin oder Drogist/in\n• Einige Jahre Berufserfahrung, vorzugsweise in einer Spitalapotheke mit Herstellungsprozessen\n• Affinität für Herstellungstätigkeiten\n• Sicheres Auftreten, gute Kommunikationsfähigkeiten, diplomatisches Gespür\n• Gute Deutsch- und EDV-Kenntnisse\n• Eine schnelle Auffassungsgabe\n• Flexibilität sowie selbstständiges, verantwortungs- und qualitätsbewusstes Arbeiten Wir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n• Helle, freundliche Räume mit moderner Infrastruktur\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden Das Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "fr": "Mansioni - Produzione di chemioterapici personalizzati per i pazienti - Gestione delle farmacie di reparto in collabrazione con il personale infermieristico - Processo di medicazione personalizzato per i pazienti ricoverati - Attività per garantie una fornitura affidabile e di qualità di farmaci ospedalieri, inclusi tutti i processi logistici associati - Attività amministrative in tutti i settori\n• Requisiti - Formazione completata come aidente farmaceutico/a FC o tecnico/a della farmacia con specializzazione o farmacista tecnico/a o farmacista - Alcuni anni di espérienza professionale, preferibilitemente in una farmacia ospedaliera con processi di produzione - Affinità per le attività di produzione - Buone capacità communicative, atteggiamento diplomatique e sicuro di sé - Buone conoscenze informache e linguistiche - Buona capacità di apprendimento - Flessibilità e capacità di lavorare in modo autonomo, responsabile e orientalato alla qualità\n• Cosa offriamo - 28-33 giorni di ferie retribuiti all'anno, une seconde dell'età - Ampie posssibilità di formazione e aggiornamento, ad esempio attraverso il nostro programma di séminari con una vasta gamma di offerte formative - Gestioe della salue aziendale consure supposée, come ad esempio la consulenza ergonomiquea sul posto di lavoro - Possibilità di lavoro à temps partiel e condivisione del lavoro anche inposizioni di responsabilità - Spazi luminosi e accoglienti con moderne infrastructure - Una forte cultura aziendale e un'attiva promozione dei valori - Contribution alla formazione e alla gestione del Claraspital attraverso il proprio lavoro Il Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario e di ricerca con un ampio mandato di prestazioni per la chirurgia addominale altamente specializzata e un'ampia portata regional dei suoi centri \"Addome\" e \"Tumore setori Nel Claraspital i dipendenti trovano posti di lavoro in cuipossono svilupparsi sia professionalmente che umanamente. Nel Claraspital diamo grande importanza alla cura della nostra cultura aziendale e al suo ulteriore sviluppo e alla promozione attiva dei criteri culturali \"insieme - compatiti - responsabili\" concordati insieme."
+    },
+    "slugByLocale": {
+      "it": "assistente-farmaceutico-a-st-claraspital-basel",
+      "en": "pharmacy-assistant-st-claraspital-basel",
+      "de": "pharma-assistent-in-claraspital-basel",
+      "fr": "assistant-en-pharmacie-st-claraspital-basel"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-06-29T12:58:58.183Z",
+    "previousSlugs": [
+      "pharma-assistent-in-claraspital-basel",
+      "pharmaceutical-assistant-st-claraspital-basel"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "pharma-assistent-in-claraspital-basel"
+      ],
+      "en": [
+        "pharmaceutical-assistant-st-claraspital-basel"
+      ]
+    },
+    "postalCode": "4002",
+    "salaryMin": 62000,
+    "salaryMax": 94000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/pharma-assistent-in/9e97a48e-6696-4f87-b6bb-4dd6a26d53b0",
+    "firstSeenAt": "2026-05-19T12:23:42.135Z"
   },
   {
     "slug": "case-manager-ambulatoriale-endocrinologia-e-centro-nutrizionale-st-claraspital-basel",
@@ -901,7 +1665,21 @@
     "salaryMin": 68000,
     "salaryMax": 103000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/ambulante-n-case-manager-in-endokrinologie-und-ernaehrungszentrum/ba96ae2c-4a3d-48a2-9077-921fb9f299bf",
+    "firstSeenAt": "2026-05-19T12:23:42.131Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/ambulante-n-case-manager-in-endokrinologie-und-ernaehrungszentrum/10f26226-d7b5-4665-b678-8da9201611cc",
+        "firstSeenAt": "2026-09-19T23:08:10.994Z",
+        "title": "Ambulante/n Case Manager/in Endokrinologie und Ernährungszentrum"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/ambulante-n-case-manager-in-endokrinologie-und-ernaehrungszentrum/ba96ae2c-4a3d-48a2-9077-921fb9f299bf",
+        "firstSeenAt": "2026-05-19T12:23:42.131Z",
+        "title": "Ambulante/n Case Manager/in Endokrinologie und Ernährungszentrum"
+      }
+    ]
   },
   {
     "slug": "casi-manager-ambulatoriale-pneumologia-chirurgia-toracica-segretario-medico-st-claraspital-basel",
@@ -947,7 +1725,9 @@
     "salaryMin": 68000,
     "salaryMax": 103000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/ambulante-n-case-manager-in-pneumologie-thoraxchirurgie-arztsekretaer-in/1e52fcc9-4695-4d76-b328-b87eb35af15c",
+    "firstSeenAt": "2026-05-21T11:28:41.901Z"
   },
   {
     "slug": "case-manager-per-radiologia-nucleare-st-claraspital-basel",
@@ -994,15 +1774,17 @@
     "salaryMin": 68000,
     "salaryMax": 103000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.claraspital.ch/offene-stellen/ambulante-r-case-manager-in-radiologie-nuklearmedizin/561075f5-8fc3-4dd6-983f-e1f4abaea0a0",
+    "firstSeenAt": "2026-05-19T12:23:42.129Z"
   },
   {
     "slug": "stage-in-logistica-st-claraspital-basel",
     "title": "Praktikant/in Logistik",
     "titleByLocale": {
-      "de": "Praktikant/in Logistik",
       "it": "Stage in Logistica",
       "en": "Logistics Intern",
+      "de": "Praktikant/in Logistik",
       "fr": "Stagiaire en Logistique"
     },
     "company": "St. Claraspital",
@@ -1010,19 +1792,19 @@
     "location": "Basel",
     "addressLocality": "Basel",
     "descriptionByLocale": {
-      "de": "Mansioni\n\n- Ricevimento e controllo delle merci giornaliere\n- Gestione e spedizione dei resi dalle altre divisioni\n- Distribuzione della posta generale del pacco nell'ospedale\n- Stoccaggio dei beni in entrata nel luogo di stoccaggio prestabilito\n- Mantenere una capacità di magazzino sufficiente attraverso un'organizzazione sensata\n- Supporto attivo nel processo di attrezzatura e innesco degli ordini\n- Supporto all'inventario\n\nRequisiti\n\n- Scuola obbligatoria completata e interesse per un apprendistato come logista/stra EFZ\n- Almeno 15 anni\n- Buone conoscenze di tedesco sia in parola che in scrittura\n- Alta affinità per l'IT\n- Personalità orientata al cliente e di squadra\n\nCosa offriamo\n\n- Giorni di vacanza retribuiti annuali a seconda dell'età, da 28 a 33\n- Ampie possibilità di formazione e aggiornamento, ad esempio programma di seminari propio con vasta offerta formativa\n- Gestione della salute aziendale con misure preventive come ad esempio consulenza ergonomica sul posto di lavoro\n- Lavoro part-time e possibilità di condivisione del lavoro anche in posizioni di direzione\n- Spazi luminosi e accoglienti con moderne infrastrutture\n- Valori forti e cultura aziendale attivamente vissuta\n- Formazione e co-gestione del Claraspital da parte dei dipendenti\n\nIl Claraspital, il più grande ospedale privato di Basilea, è un ospedale universitario e di ricerca con un ampio mandato per la chirurgia specialistica della cavità addominale e un raggio d'azione regionale dei suoi centri \"Addome\" e \"Tumore\" sowie dei suoi settori specialistici. Nel Claraspital i dipendenti trovano posti di lavoro in cui possono svilupparsi sia professionalmente che umanamente. Date grande importanza alla cura della nostra cultura aziendale e al suo ulteriore sviluppo e viviamo attivamente i criteri culturali \"insieme - competenti - responsabili\" concordati insieme.",
-      "it": "Mansioni - Ricevimento e controllo delle merci giornaliere - Gestione e spedizione dei resi dalle altre divisioni - Distribuzione della posta generale del pacco nell'ospedale - Stoccaggio dei beni in entrata nel luogo di stoccaggio prestabilito - Mantenere una capacità di magazzino sufficiente attraverso un'organizzazione sensata - Supporto attivo nel processo di attrezzatura e innesco degli ordini - Supporto all'inventario \n• Requisiti - Scuola obbligatoria completata e interesse per un apprendistato come logista/stra EFZ - Almeno 15 anni - Buone conoscenze di tedesco sia in parola che in scrittura - Alta Affinità per l'IT - Personalità orientata al cliente e di squadra Cosa offerto - Giorni di vacanza retribuiti annuali a seconda dell'età da 28 a 33 - Ampie possibilità di formazione e aggiornamento, ad esempio programma di seminario proprio con vasta offerta formativa - Gestione della salute aziendale con Misure preventive come da ergonomica consulenza sul posto di lavoro - Lavoro part-time e possibilità di condivisione del lavoro anche in posizioni di direzione - Spazio luminoso e accogliente con infrastrutture moderne - Valori forti e cultura aziendale attivamente vissuta - Formazione e cogestione del Claraspital La parte degli studenti è il Claraspital, il più grande ospedale privato di Basilea, e un ospedale universitario con mandato di chirurgia specialistica delle cavità aggiuntive e un distretto regionale dei Suoi Centri \"Addome\" e \"Tumores\" nonché i Suoi Settori Specialistici. Il Claraspital e i suoi collaboratori sono responsabili anche della cura dei pazienti. Data grande importanza alla cura della nostra cultura aziendale e al suo ulteriore sviluppo e viviamo attivamente i criteri culturali \"insieme - competenti - responsabili\" concordati insieme.",
-      "en": "Mansioni - Ricevimento e controllo delle merci giornaliere - Gestione e spedizione dei resi dalle altre divisioni - Distribuzione della posta generale del pacco nell'ospedale - Stoccaggio dei beni in entrata nel luogo di stoccaggio prestabilito - Mantenere una capacity di magazzino sufficiente attraverso un'organizzazione sensata - Supporto attivo nel processo di attrezzatura e innesco degli ordini - Supporto all'inventario \n• Requisiti - Scuola obbligatoria completata e interest per un apprendistato come logista/stra EFZ - Almeno 15 anni - Buone conoscenze di tedesco sia in parola che in scrittura - Alta Affinità per l'IT - Personalità orientata al cliente e di squadra \n• Cosa offriamo - Giorni di vacanza retribuiti annuali a seconda dell'età da 28 a 33 - Ampie possibilità di formazione e aggiornamento, ad esempio programma di seminari propio with vasta offerta formativa - Gestione della salute aziendale con Misure preventive come from ergonomic consulenza sul posto di lavoro - Lavoro part-time and possibility of condivisione del lavoro also in posizioni di direzione - Space luminosi and accoglienti with modern infrastructure - Valori forti e cultura aziendale attivamente vissuta - Formazione e co-gestione of Claraspital The part of the students is the Claraspital, the largest private hospital in Basilea, and a university hospital with a mandate for specialist surgery in the additional cavity and a regional district of the Suoi Centri \"Addome\" and \"Tumores\" as well as the Suoi Settori Specialistici. The Claraspital and its employees are also responsible for the treatment of patients. Date grande importanza alla cura della nostra cultura aziendale e al suo ulteriore sviluppo e viviamo attivamente i criteri culturali \"insieme - competenti - responsabili\" concordati insieme.",
-      "fr": "Mansioni - Ricevimento e controllo delle merci giornaliere - Gestione e spedizione dei resi dalle altre divisioni - Distribuzione de la poste générale du paquet dans l'hôpital - Stoccaggio dei beni in entrata nel luogo di stoccaggio prestabilito - Mantenere a a capacité di magazzino suffisante attraverso un'organizzazione sensata - Supporto attivo dans le processus d'acquisition et d'intégration des commandes - Support à l'inventeur \n• Requisiti - École obligatoire complète et intérêt pour un apprenant en logistique/stra EFZ - Almeno 15 ans - Bonne connaissance du métier si elle est dans les mots qui sont écrits - Haute affinité pour l'informatique - Personnalité orientée vers le client et l'équipe Cosa ofriamo - Jours de vacances annuels de rémunération la seconde de l'année du 28 au 33 - Grandes possibilités de formation et d'apprentissage, par exemple un programme de séminaire propre avec une vaste offre formative - Gestion du salut azienda avec des erreurs préventives provenant d'une consultation ergonomique sur le poste de travail - Travail à temps partiel et possibilité de condivisione del travail également dans des positions de direction - Espace lumineux et accoglienti avec une infrastructure moderne - Valeurs fortes et culture aziendale attivamente vissuta - Formation et cogestion du Claraspital La partie des étudiants est le Claraspital, le plus grand hôpital privé de Basilea, et un hôpital universitaire avec mandat de chirurgie spécialisée dans la cavité supplémentaire et un district régional des Suoi Centri \"Addome\" et \"Tumores\" ainsi que le Suoi Settori Specialistici. Le Claraspital et ses collaborateurs sont également responsables du traitement des patients. C'est une grande importance pour la curée de notre culture étrangère et pour son développement ultérieur et nous sommes attentifs aux critères culturels « insiéme - compétent - responsable » concordants dans le cadre."
+      "it": "Mansioni - Ricevimento e controllo delle merci giornaliere - Gestione e spedizione dei resi dalle altre divisioni - Distribuzione della posta generale del pacco nell'ospedale - Stoccaggio dei beni in entrata nel luogo di stoccaggio prestabilito - Mantenere una capacità di magazzino sufficiente attraverso un'organizzazione sensata - Supporto attivo nel processo di attrezzatura e innesco degli ordini - Supporto all'inventario\n• Requisiti - Scuola obbligatoria completata e interesse per un apprendistato come logista/stra EFZ - Almeno 15 anni - Buone conoscenze di tedesco sia in parola che in scrittura - Alta Affinità per l'IT - Personalità orientata al cliente e di squadra Cosa offerto - Giorni di vacanza retribuiti annuali a seconda dell'età da 28 a 33 - Ampie possibilità di formazione e aggiornamento, ad esempio programma di seminario proprio con vasta offerta formativa - Gestione della salute aziendale con Misure preventive come da ergonomica consulenza sul posto di lavoro - Lavoro part-time e possibilità di condivisione del lavoro anche in posizioni di direzione - Spazio luminoso e accogliente con infrastrutture moderne - Valori forti e cultura aziendale attivamente vissuta - Formazione e cogestione del Claraspital La parte degli studenti è il Claraspital, il più grande ospedale privato di Basilea, e un ospedale universitario con mandato di chirurgia specialistica delle cavità aggiuntive e un distretto regionale dei Suoi Centri \"Addome\" e \"Tumores\" nonché i Suoi Settori Specialistici. Il Claraspital e i suoi collaboratori sono responsabili anche della cura dei pazienti. Data grande importanza alla cura della nostra cultura aziendale e al suo ulteriore sviluppo e viviamo attivamente i criteri culturali \"insieme - competenti - responsabili\" concordati insieme.",
+      "en": "Mansioni - Ricevimento e controllo delle merci giornaliere - Gestione e spedizione dei resi dalle altre divisioni - Distribuzione della posta generale del pacco nell'ospedale - Stoccaggio dei beni in entrata nel luogo di stoccaggio prestabilito - Mantenere una capacity di magazzino sufficiente attraverso un'organizzazione sensata - Supporto attivo nel processo di attrezzatura e innesco degli ordini - Supporto all'inventario\n• Requisiti - Scuola obbligatoria completata e interest per un apprendistato come logista/stra EFZ - Almeno 15 anni - Buone conoscenze di tedesco sia in parola che in scrittura - Alta Affinità per l'IT - Personalità orientata al cliente e di squadra\n• Cosa offriamo - Giorni di vacanza retribuiti annuali a seconda dell'età da 28 a 33 - Ampie possibilità di formazione e aggiornamento, ad esempio programma di seminari propio with vasta offerta formativa - Gestione della salute aziendale con Misure preventive come from ergonomic consulenza sul posto di lavoro - Lavoro part-time and possibility of condivisione del lavoro also in posizioni di direzione - Space luminosi and accoglienti with modern infrastructure - Valori forti e cultura aziendale attivamente vissuta - Formazione e co-gestione of Claraspital The part of the students is the Claraspital, the largest private hospital in Basilea, and a university hospital with a mandate for specialist surgery in the additional cavity and a regional district of the Suoi Centri \"Addome\" and \"Tumores\" as well as the Suoi Settori Specialistici. The Claraspital and its employees are also responsible for the treatment of patients. Date grande importanza alla cura della nostra cultura aziendale e al suo ulteriore sviluppo e viviamo attivamente i criteri culturali \"insieme - competenti - responsabili\" concordati insieme.",
+      "de": "Aufgaben:\n• tägliche Warenannahme und Wareneingangskontrolle\n• Bearbeitung und Versand von Retouren von anderen Abteilungen\n• Verteilung der allgemeinen Paketpost im Spital\n• Einlagerung der Wareneingänge im dafür festgelegten Lagerort\n• ausreichende Lagerkapazität durch sinnvolle Ordnung bereithalten\n• aktive Unterstützung im Rüstprozess sowie Bestellungen auslösen\n• Unterstützung bei der Inventur Anforderungen:\n• abgeschlossene obligatorische Schule sowie Interesse an einer Ausbildung als Logistiker/in EFZ\n• mindestens 15 Jahre alt\n• gute Deutschkenntnisse in Wort und Schrift\n• hohe IT-Affinität\n• kundenorientierte und teamfähige Persönlichkeit Wir bieten:\n• Altersabhängig 28-33 bezahlte Urlaubstage pro Jahr\n• Umfangreiche Möglichkeiten zur Fort- und Weiterbildung, z.B. eigenes Seminarprogramm mit breitem Bildungsangebot\n• Betriebliches Gesundheitsmanagement mit Präventivmassnahmen wie z.B. Ergonomische Beratung am Arbeitsplatz\n• Teilzeitarbeit sowie Möglichkeit von Jobsharing auch in Führungsfunktionen\n• Helle, freundliche Räume mit moderner Infrastruktur\n• Ausgeprägte Wertehaltung und aktiv gelebte Unternehmenskultur\n• Prägung und Mitgestaltung des Claraspitals durch die Mitarbeitenden Das Claraspital, grösstes Basler Privatspital, ist ein universitäres Lehr- und Forschungsspital mit einem vollumfänglichen Leistungsauftrag für die hochspezialisierte Bauchchirurgie und überregionaler Ausstrahlung seiner Zentren \"Bauch\" und \"Tumor\" sowie seiner Spezialgebiete. Im Claraspital finden Mitarbeitende Arbeitsplätze, an denen sie sich beruflich wie auch menschlich entfalten können. Grossen Wert legen wir im Claraspital darauf, unsere Unternehmenskultur bewusst zu pflegen und weiterzuentwickeln und die gemeinsam erarbeiteten Kulturkriterien \"gemeinsam – kompetent – verantwortungsbewusst\" aktiv zu leben.",
+      "fr": "Mansioni - Ricevimento e controllo delle merci giornaliere - Gestione e spedizione dei resi dalle altre divisioni - Distribuzione de la poste générale du paquet dans l'hôpital - Stoccaggio dei beni in entrata nel luogo di stoccaggio prestabilito - Mantenere a a capacité di magazzino suffisante attraverso un'organizzazione sensata - Supporto attivo dans le processus d'acquisition et d'intégration des commandes - Support à l'inventeur\n• Requisiti - École obligatoire complète et intérêt pour un apprenant en logistique/stra EFZ - Almeno 15 ans - Bonne connaissance du métier si elle est dans les mots qui sont écrits - Haute affinité pour l'informatique - Personnalité orientée vers le client et l'équipe Cosa ofriamo - Jours de vacances annuels de rémunération la seconde de l'année du 28 au 33 - Grandes possibilités de formation et d'apprentissage, par exemple un programme de séminaire propre avec une vaste offre formative - Gestion du salut azienda avec des erreurs préventives provenant d'une consultation ergonomique sur le poste de travail - Travail à temps partiel et possibilité de condivisione del travail également dans des positions de direction - Espace lumineux et accoglienti avec une infrastructure moderne - Valeurs fortes et culture aziendale attivamente vissuta - Formation et cogestion du Claraspital La partie des étudiants est le Claraspital, le plus grand hôpital privé de Basilea, et un hôpital universitaire avec mandat de chirurgie spécialisée dans la cavité supplémentaire et un district régional des Suoi Centri \"Addome\" et \"Tumores\" ainsi que le Suoi Settori Specialistici. Le Claraspital et ses collaborateurs sont également responsables du traitement des patients. C'est une grande importance pour la curée de notre culture étrangère et pour son développement ultérieur et nous sommes attentifs aux critères culturels « insiéme - compétent - responsable » concordants dans le cadre."
     },
     "slugByLocale": {
-      "de": "praktikant-in-logistik-claraspital-basel",
       "it": "stage-in-logistica-st-claraspital-basel",
       "en": "logistics-intern-st-claraspital-basel",
+      "de": "praktikant-in-logistik-claraspital-basel",
       "fr": "stagiaire-en-logistique-st-claraspital-basel"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-05-19T12:23:42.141Z",
+    "expiredAt": "2026-05-22T08:55:32.077Z",
     "previousSlugs": [
       "praktikant-in-logistik-claraspital-basel"
     ],

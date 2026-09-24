@@ -53,7 +53,9 @@
     "salaryMin": 85000,
     "salaryMax": 119000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000140227709-physiotherapeute-cabinet-ambulatoire-suivi-hospitalier",
+    "firstSeenAt": "2026-07-28T22:15:38.703Z"
   },
   {
     "slug": "supporto-in-sala-operatoria-o-assistente-tecnico-specializzato-in-sala-operatoria-atsso-clinique-generale-ste-anne",
@@ -103,7 +105,9 @@
     "salaryMin": 77000,
     "salaryMax": 116500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000136139809-aide-en-salle-d-operation-ou-assistant-e-technique-specialise-e-en-salle-d-operation-atsso-",
+    "firstSeenAt": "2026-07-07T12:16:45.145Z"
   },
   {
     "slug": "assistente-medico-h-f-apertura-di-un-nuovo-centro-medico-clinique-generale-ste-anne-fribourg",
@@ -159,7 +163,21 @@
     "salaryMin": 68500,
     "salaryMax": 104000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000125270906-assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical",
+    "firstSeenAt": "2026-06-14T19:10:03.717Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000125270906-assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical",
+        "firstSeenAt": "2026-06-14T19:10:03.717Z",
+        "title": "Assistant.e médical.e (H/F) – Ouverture d’un nouveau centre médical"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000139249959-assistant-e-medical-e-h-f-ouverture-d-un-nouveau-centre-medical",
+        "firstSeenAt": "2026-07-23T12:36:51.026Z",
+        "title": "Assistant.e médical.e (H/F) – Ouverture d’un nouveau centre médical"
+      }
+    ]
   },
   {
     "slug": "tso-o-strumentista-in-sala-operatoria-al-60-100-clinique-generale-ste-anne-fribourg",
@@ -201,7 +219,9 @@
     "salaryMin": 68500,
     "salaryMax": 104000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000129116839-tso-ou-instrumentiste-au-bloc-operatoire-a-60-100-",
+    "firstSeenAt": "2026-06-14T19:10:02.812Z"
   },
   {
     "slug": "hr-cronometrista-clinique-generale-ste-anne-fribourg",
@@ -251,7 +271,9 @@
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000091073305-hr-zeitwirtschafter-in-",
+    "firstSeenAt": "2026-05-26T14:04:50.103Z"
   },
   {
     "slug": "tirocinio-hr-time-manager-tempo-determinato-1-anno-clinique-generale-ste-anne-fribourg",
@@ -293,6 +315,8 @@
     "salaryMin": 41600,
     "salaryMax": 63000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.smartrecruiters.com/swissmedicalnetwork1/744000103086056-praktikum-hr-zeitwirtschafter-in-befristet-1-jahr",
+    "firstSeenAt": "2026-05-26T14:04:48.932Z"
   }
 ]
