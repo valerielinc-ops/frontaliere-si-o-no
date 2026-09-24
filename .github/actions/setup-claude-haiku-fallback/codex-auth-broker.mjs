@@ -9,6 +9,15 @@
  * Codex's result; the credential never crosses the socket or enters a child
  * environment.
  *
+ * CODEX_HOME is ONE private directory per broker (per job), not one per
+ * request: the ChatGPT login refresh token is single-use, and Codex writes the
+ * refreshed login back to CODEX_HOME/auth.json. A fresh home per request threw
+ * that write away, so every call after the first refresh replayed the spent
+ * token and failed with "refresh token already used". The home lives outside
+ * the workspace, is 0700 with a 0600 auth.json, and is removed by cleanup, the
+ * idle TTL, SIGTERM/SIGINT and process exit. Only the in-memory copy is ever
+ * refreshed from it; nothing is written back to the job or to the secret.
+ *
  * The socket is deliberately the only job-wide hand-off. Its parent directory
  * is 0700 and the socket is 0600. A malformed request never receives auth or
  * consumes a request slot. The short idle TTL is a backstop for persistent
@@ -286,25 +295,85 @@ function codexFailureReason(stderr) {
     : safe;
 }
 
+/**
+ * The login as Codex left it in the per-job home, or '' when the file is
+ * missing, not a regular file, or not a JSON object (e.g. Codex was killed
+ * while rewriting it). Only a usable login replaces the in-memory copy.
+ */
+function readUsableAuth(authPath) {
+  try {
+    if (!fs.lstatSync(authPath).isFile()) return '';
+    const text = fs.readFileSync(authPath, 'utf8');
+    const parsed = JSON.parse(text);
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? text : '';
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * The broker's single CODEX_HOME, created on first use. auth.json is written
+ * from memory only when the home is new or its login is unusable, so a token
+ * refreshed by request N is what request N+1 starts from.
+ */
+function prepareAuthHome(credential) {
+  if (!authHome) {
+    const home = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-luna-max-auth-'));
+    authHome = home;
+    fs.chmodSync(home, 0o700);
+  }
+  const authPath = path.join(authHome, 'auth.json');
+  const configPath = path.join(authHome, 'config.toml');
+  if (!readUsableAuth(authPath)) {
+    fs.rmSync(authPath, { force: true });
+    fs.writeFileSync(authPath, credential, { encoding: 'utf8', mode: 0o600 });
+  }
+  fs.chmodSync(authPath, 0o600);
+  fs.writeFileSync(configPath, permissionConfig(), { encoding: 'utf8', mode: 0o600 });
+  fs.chmodSync(configPath, 0o600);
+  assertPrivateRuntime(authHome, [], [authPath, configPath]);
+  return { codexHome: authHome, authPath };
+}
+
+/** Keep the in-memory login in step with a refresh Codex wrote to the home. */
+function adoptRefreshedAuth() {
+  if (!authHome) return;
+  const refreshed = readUsableAuth(path.join(authHome, 'auth.json'));
+  if (refreshed) authJson = refreshed;
+}
+
+function removeAuthHome() {
+  const home = authHome;
+  authHome = '';
+  if (!home) return;
+  try { fs.rmSync(home, { recursive: true, force: true }); } catch (error) {
+    console.error(`Codex auth broker auth home cleanup failed: ${error.message}`);
+  }
+}
+
 function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
+  // Per-request tree: workspace, TMPDIR and the output files. The login lives
+  // in the per-job home instead (prepareAuthHome), outside this tree.
   const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-luna-max-broker-'));
-  const codexHome = path.join(runtimeRoot, 'home');
   const codexWorkspace = path.join(runtimeRoot, 'workspace');
   const codexTmp = path.join(runtimeRoot, 'tmp');
-  const authPath = path.join(codexHome, 'auth.json');
-  const configPath = path.join(codexHome, 'config.toml');
-  const outputPath = path.join(codexHome, 'last-message.txt');
-  const schemaPath = path.join(codexHome, 'output-schema.json');
+  const codexOut = path.join(runtimeRoot, 'out');
+  const outputPath = path.join(codexOut, 'last-message.txt');
+  const schemaPath = path.join(codexOut, 'output-schema.json');
+  let codexHome = '';
   let child = null;
   let runtimeCleaned = false;
 
   const finish = () => {
-    // `auth.json`, schema, prompt output, and the private workspace are all
-    // below a fresh 0700 root. This runs on success, failure, and timeout.
+    // Schema, prompt output, and the private workspace are all below a fresh
+    // 0700 root. This runs on success, failure, and timeout. The per-job
+    // login stays in its home; a refresh Codex wrote there becomes the
+    // in-memory copy too.
     if (runtimeCleaned) return;
     runtimeCleaned = true;
     if (activeRuntimeCleanup === finish) activeRuntimeCleanup = null;
     fs.rmSync(runtimeRoot, { recursive: true, force: true });
+    adoptRefreshedAuth();
   };
   // Register before any setup/spawn work: a signal can arrive while the
   // runtime tree is being materialized, before the child handle exists.
@@ -313,16 +382,13 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
   const run = new Promise((resolve, reject) => {
     try {
       fs.chmodSync(runtimeRoot, 0o700);
-      fs.mkdirSync(codexHome, { mode: 0o700 });
       fs.mkdirSync(codexWorkspace, { mode: 0o700 });
       fs.mkdirSync(codexTmp, { mode: 0o700 });
-      fs.chmodSync(codexHome, 0o700);
+      fs.mkdirSync(codexOut, { mode: 0o700 });
       fs.chmodSync(codexWorkspace, 0o700);
       fs.chmodSync(codexTmp, 0o700);
-      fs.writeFileSync(authPath, credential, { encoding: 'utf8', mode: 0o600 });
-      fs.chmodSync(authPath, 0o600);
-      fs.writeFileSync(configPath, permissionConfig(), { encoding: 'utf8', mode: 0o600 });
-      fs.chmodSync(configPath, 0o600);
+      fs.chmodSync(codexOut, 0o700);
+      ({ codexHome } = prepareAuthHome(credential));
       fs.writeFileSync(outputPath, '', { encoding: 'utf8', mode: 0o600 });
       fs.chmodSync(outputPath, 0o600);
 
@@ -347,8 +413,8 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
       }
       assertPrivateRuntime(
         runtimeRoot,
-        [codexHome, codexWorkspace, codexTmp],
-        [authPath, configPath, outputPath, ...(schema ? [schemaPath] : [])],
+        [codexWorkspace, codexTmp, codexOut],
+        [outputPath, ...(schema ? [schemaPath] : [])],
       );
       args.push('-');
 
@@ -421,6 +487,7 @@ function validateRequest(request) {
 }
 
 let authJson = '';
+let authHome = '';
 let activeChild = null;
 let activeRuntimeCleanup = null;
 let codexCliPath = '';
@@ -462,6 +529,7 @@ function cleanup() {
     activeRequest.client.destroy();
   }
   cleanupRuntime();
+  removeAuthHome();
   authJson = '';
   if (codexCliPrefix) {
     try { fs.rmSync(codexCliPrefix, { recursive: true, force: true }); } catch (error) {
@@ -696,3 +764,5 @@ if (process.argv.includes('--cleanup')) {
 
 process.once('SIGTERM', () => { cleanup(); process.exit(0); });
 process.once('SIGINT', () => { cleanup(); process.exit(0); });
+// Last resort for an unexpected exit: never leave the per-job login behind.
+process.once('exit', () => { removeAuthHome(); });

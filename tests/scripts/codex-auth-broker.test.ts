@@ -664,4 +664,126 @@ describe('Codex auth broker runtime contract', () => {
     expect(error).toContain('[redacted]');
     expect(error).not.toMatch(/eyJ|[abc]{32,}|\x1b/);
   });
+
+  // Il refresh token del login ChatGPT e' monouso e Codex riscrive il login
+  // rinnovato in CODEX_HOME/auth.json. Con una home nuova per richiesta quella
+  // scrittura si perdeva e ogni chiamata successiva rigiocava il token speso
+  // («refresh token already used»). Il Codex finto qui fa il refresh a ogni
+  // chiamata: la successiva deve partire dal login rinnovato, dalla stessa home.
+  it('keeps one private CODEX_HOME per job so a refreshed login is reused by the next request', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = path.join(prefix, 'refreshing-codex.mjs');
+    fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
+      import fs from 'node:fs';
+      import path from 'node:path';
+      const args = process.argv.slice(2);
+      if (args.includes('--version')) {
+        console.log('OpenAI Codex v0.153.4');
+        process.exit(0);
+      }
+      const output = args[args.indexOf('--output-last-message') + 1];
+      const workspace = args[args.indexOf('--cd') + 1];
+      let prompt = '';
+      process.stdin.setEncoding('utf8');
+      process.stdin.on('data', (chunk) => { prompt += chunk; });
+      process.stdin.on('end', () => {
+        const authPath = path.join(process.env.CODEX_HOME, 'auth.json');
+        const seen = fs.readFileSync(authPath, 'utf8');
+        const login = JSON.parse(seen);
+        if (prompt.includes('corrupt')) {
+          fs.writeFileSync(authPath, '{"refresh_token":');
+        } else {
+          fs.writeFileSync(authPath, JSON.stringify({ ...login, refresh_token: 'rt-' + (login.generation + 1), generation: login.generation + 1 }));
+        }
+        fs.writeFileSync(output, JSON.stringify({
+          seen: JSON.parse(seen),
+          home: process.env.CODEX_HOME,
+          homeMode: fs.statSync(process.env.CODEX_HOME).mode & 0o777,
+          authMode: fs.statSync(authPath).mode & 0o777,
+          workspace,
+        }));
+      });
+    `);
+    fs.chmodSync(fakeCodex, 0o700);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '60000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"refresh_token":"rt-0","generation":0}');
+    await waitForSocket(socketPath, child);
+
+    const exec = async (prompt: string) => {
+      const response = await request(socketPath, { op: 'exec', prompt, timeoutMs: 5000, schema: null });
+      expect(response.ok, JSON.stringify(response)).toBe(true);
+      return JSON.parse(String(response.result));
+    };
+    const first = await exec('first');
+    const second = await exec('second');
+    expect(first.seen).toEqual({ refresh_token: 'rt-0', generation: 0 });
+    expect(second.seen).toEqual({ refresh_token: 'rt-1', generation: 1 });
+    expect(second.home).toBe(first.home);
+    expect(first.homeMode).toBe(0o700);
+    expect(first.authMode).toBe(0o600);
+    const relative = path.relative(path.resolve(first.workspace), path.resolve(first.home));
+    expect(relative.startsWith('..') || path.isAbsolute(relative)).toBe(true);
+    expect(fs.existsSync(first.workspace)).toBe(false);
+
+    // Un Codex ucciso a meta' riscrittura lascia auth.json illeggibile: la
+    // richiesta dopo riparte dall'ultimo login buono, non dal secret iniziale.
+    const corrupting = await exec('corrupt');
+    expect(corrupting.seen).toEqual({ refresh_token: 'rt-2', generation: 2 });
+    const afterCorruption = await exec('after');
+    expect(afterCorruption.seen).toEqual({ refresh_token: 'rt-2', generation: 2 });
+
+    expect(fs.existsSync(first.home)).toBe(true);
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
+    await Promise.race([
+      once(child, 'exit'),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit after cleanup')), 2000)),
+    ]);
+    expect(fs.existsSync(first.home)).toBe(false);
+  });
+
+  it('removes the per-job CODEX_HOME on SIGTERM', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = path.join(prefix, 'home-codex.mjs');
+    fs.writeFileSync(fakeCodex, `#!/usr/bin/env node
+      import fs from 'node:fs';
+      if (process.argv.includes('--version')) {
+        console.log('OpenAI Codex v0.153.4');
+        process.exit(0);
+      }
+      const output = process.argv[process.argv.indexOf('--output-last-message') + 1];
+      process.stdin.resume();
+      process.stdin.on('end', () => fs.writeFileSync(output, process.env.CODEX_HOME));
+    `);
+    fs.chmodSync(fakeCodex, 0o700);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '60000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"refresh_token":"sigterm"}');
+    await waitForSocket(socketPath, child);
+    const response = await request(socketPath, { op: 'exec', prompt: 'home', timeoutMs: 5000, schema: null });
+    expect(response.ok, JSON.stringify(response)).toBe(true);
+    const home = String(response.result);
+    expect(fs.existsSync(path.join(home, 'auth.json'))).toBe(true);
+    const exited = once(child, 'exit');
+    child.kill('SIGTERM');
+    await Promise.race([
+      exited,
+      new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit after SIGTERM')), 2000)),
+    ]);
+    expect(fs.existsSync(home)).toBe(false);
+  });
 });
