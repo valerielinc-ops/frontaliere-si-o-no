@@ -358,7 +358,7 @@ describe('report payload consumed by the workflow', () => {
     expect(report.problems.join('\n')).toContain('sync-pharmacies-border');
   });
 
-  // asserisce i conteggi reali (749 record, 193 IT-CO) delle snapshot farmacie: rosso possibile senza cambi di codice
+  // asserisce i conteggi reali (751 record, 193 IT-CO) delle snapshot farmacie: rosso possibile senza cambi di codice
   it.skipIf(SKIP_LIVE_DATA)('includes the border health panel in the machine-readable report and dashboard', () => {
     const report = buildReport({
       registry,

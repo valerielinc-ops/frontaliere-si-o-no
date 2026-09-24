@@ -6665,6 +6665,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.tubercolosi-svizzera-aumento-2025.title': 'Tuberkulose in der Schweiz: 544 Fälle im Jahr 2025, Maximum seit 2018',
     'blog.article.tubercolosi-svizzera-aumento-2025.excerpt': 'Im Jahr 2025 verzeichnete die Schweiz 544 Tuberkulosefälle, 112 mehr als 2024; die Rate stieg von 4,8 auf 6,0 pro 100\'000 Einwohner, der höchste Stand seit 2018.',
     'blog.article.tubercolosi-svizzera-aumento-2025.imageAlt': 'Schweizer Gesundheitsarbeiter analysiert Tuberkulose-Testergebnisse in einer Klinik mit Alpenblick',
+    'blog.article.indennita-maltempo-sei-mesi.title': 'Überstunden: Unwetterentschädigung nach sechs Monaten',
+    'blog.article.indennita-maltempo-sei-mesi.excerpt': 'Der Nationalrat genehmigt den Schutz von Zeitarbeitskräften, die seit mindestens sechs Monaten in den laufenden Beziehungen gegen Unwetterunterbrechungen beschäftigt sind.',
+    'blog.article.indennita-maltempo-sei-mesi.imageAlt': 'Schweizer Parlamentskammer bei einer Debatte zum Schutz von Temporärarbeitenden.',
+    'blog.article.ubs-capitale-90-bns.title': 'UBS, SNB genehmigt Kapitalanforderungen zu 90 %',
+    'blog.article.ubs-capitale-90-bns.excerpt': 'Die SNB stimmt dem Entscheid des Ständerates zu: Die Auslandsniederlassungen der UBS sollen zu 90% mit WAK1-Kapital abgesichert werden.',
+    'blog.article.ubs-capitale-90-bns.imageAlt': 'Schweizer Bankgebäude mit Nationalflagge in einer Finanznachrichtenszene',
 };
 
 export default blogMetaChDe;

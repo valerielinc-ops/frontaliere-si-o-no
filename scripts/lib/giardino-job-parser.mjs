@@ -1,43 +1,41 @@
 /**
- * Giardino Group job parser — microsito «Giardino Talents».
- *
- * Dal 2026-09 le offerte non sono più nel post type WordPress `jobs`
- * (`/wp-json/wp/v2/jobs` risponde `[]`, `/giardino-group/jobs/` reindirizza
- * alla home): vivono nel microsito statico https://giardinohotels.ch/talents/
- * — una `a.job-card` per vacancy nella sezione `#stellen`, e una pagina
- * `job-*.html` per vacancy con JSON-LD JobPosting e le sezioni #aboutthejob /
- * #aboutyou / #talentculture. Il crawler leggeva ancora l'API vuota e
- * pubblicava zero da tre run (crawler-health-monitor: giardino broken).
- * Le note sotto sul formato WordPress restano per gli helper ancora esportati.
+ * Giardino Group job parser — "Giardino Talents" static career microsite.
  *
  * Giardino Group operates luxury hotels in Switzerland:
  *   - Giardino Mountain (Champfèr / St. Moritz, GR)
  *   - Giardino Ascona (Ascona, TI)
  *   - Giardino Lago (Minusio / Locarno, TI)
  *
- * Formato del vecchio post type WordPress (solo per gli helper WP esportati):
- * Content structure per job (German):
- *   <div id="introduction">
- *     <h3>#aboutus</h3>         — company boilerplate (skip)
- *     <p>...suchen wir...eine/n:</p>
- *     <h1>TITLE</h1>
- *     <h3>#aboutthejob</h3>     — role description
- *   </div>
- *   <div id="tasks">
- *     <h3>#aboutyou</h3>        — requirements list
- *   </div>
- *   <div id="benefits">
- *     <h3>#talentculture</h3>   — benefits list
- *     <h3>Kontakt</h3>          — contact (skip)
- *   </div>
+ * SOURCE MOVE (issue #6694, observed 2026-09-24). The vacancies used to be a
+ * WordPress "jobs" post type read from /wp-json/wp/v2/jobs. That route now
+ * answers `[]` with `X-WP-Total: 0` in every locale and the old career page
+ * /en/giardino-group/jobs/ 301-redirects to the homepage, while the homepage's
+ * career links point at a static microsite, /talents/, that lists the open
+ * positions. Reading the empty REST route made every run abort on
+ * `no-jobs-parsed` although the source was full.
+ *
+ * Listing (German = source locale, /talents/; English, /talents/en/):
+ *   <!--JOBS-START-->
+ *   <a class="job-card" data-job data-loc="ascona stmoritz" data-dep="service"
+ *      href="job-restaurant-manager.html"> … <h3>TITLE (m/w)</h3> … </a>
+ *   <!--JOBS-ENDE-->
+ *   plus a rendered total: <strong id="jobs-count">N</strong>.
+ *
+ * Detail page (job-*.html): <h1>TITLE (m/w)</h1>, <p class="intro"> naming the
+ * hotel, the same #aboutthejob / #aboutyou / #talentculture sections the
+ * WordPress content used, and a JSON-LD JobPosting (datePosted). The JSON-LD
+ * `title` is NOT unique (two different ads are both "Chef de Rang"), so the
+ * title comes from the <h1>.
+ *
+ * Location is derived from the intro text ("Giardino {Mountain|Ascona|Lago}",
+ * city mentions) and, failing that, from the card's `data-loc` keys.
  *
  * Source: https://giardinohotels.ch/talents/
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
-import { fetchHtml } from './hospital-custom-html-helpers.mjs';
-import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, fetchHtml } from './crawler-template.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -46,8 +44,13 @@ export const GIARDINO_COMPANY_NAME = 'Giardino Group';
 export const GIARDINO_COMPANY_DOMAIN = 'giardinohotels.ch';
 
 const SITE_BASE = 'https://giardinohotels.ch';
-// Listing tedesco del microsito Talents: il tedesco è la lingua sorgente.
-const TALENTS_URL = `${SITE_BASE}/talents/`;
+/** German (source-locale) board of the Giardino Talents microsite. */
+export const TALENTS_URL = `${SITE_BASE}/talents/`;
+// The English board lists the same ads under its own file names (the German
+// `job-night-auditor.html` is `job-chef-de-partie-kopie.html` in English) —
+// the only place the real English permalink can be read from.
+// locale-segment-ok: sottocartella lingua del microsito ESTERNO giardinohotels.ch/talents, non un path per-locale nostro
+export const TALENTS_EN_URL = `${SITE_BASE}/talents/en/`;
 
 /* ── Hotel → location mapping ─────────────────────────────── */
 
@@ -100,6 +103,26 @@ export function decodeWpEntities(raw = '') {
  * Priority: content text mention > WP category > default (Champfèr).
  */
 export function detectHotel(contentHtml = '', categoryIds = []) {
+  const fromText = detectHotelFromText(contentHtml);
+  if (fromText) return fromText;
+
+  // Fallback to WordPress categories
+  const cats = Array.isArray(categoryIds) ? categoryIds : [];
+  for (const catId of cats) {
+    const hotel = CATEGORY_RESORT[catId];
+    if (hotel) return hotel;
+  }
+
+  // Default: company HQ in Champfèr
+  return 'mountain';
+}
+
+/**
+ * Hotel named by the text itself, or null when the text names none — unlike
+ * detectHotel(), which always answers (default: Champfèr), so a caller can
+ * still consult a second signal.
+ */
+export function detectHotelFromText(contentHtml = '') {
   const text = String(contentHtml || '').toLowerCase();
 
   // Check content text for hotel name patterns
@@ -112,14 +135,32 @@ export function detectHotel(contentHtml = '', categoryIds = []) {
   if (/in\s+minusio/i.test(text) || /minusio.?locarno/i.test(text)) return 'lago';
   if (/in\s+ascona/i.test(text)) return 'ascona';
 
-  // Fallback to WordPress categories
-  const cats = Array.isArray(categoryIds) ? categoryIds : [];
-  for (const catId of cats) {
-    const hotel = CATEGORY_RESORT[catId];
+  return null;
+}
+
+/** Talents-card `data-loc` keys → hotel. */
+const LOC_KEY_HOTEL = {
+  stmoritz: 'mountain',
+  champfer: 'mountain',
+  mountain: 'mountain',
+  ascona: 'ascona',
+  locarno: 'lago',
+  minusio: 'lago',
+  lago: 'lago',
+};
+
+/**
+ * Hotel of a Talents ad: the detail page's intro text first (it names the
+ * hotel, "…im Hotel Giardino Mountain in Champfèr-St.Moritz…"), then the
+ * card's `data-loc` keys, then the company HQ.
+ */
+export function detectTalentsHotel(introText = '', locKeys = []) {
+  const fromText = detectHotelFromText(introText);
+  if (fromText) return fromText;
+  for (const key of Array.isArray(locKeys) ? locKeys : []) {
+    const hotel = LOC_KEY_HOTEL[String(key || '').toLowerCase()];
     if (hotel) return hotel;
   }
-
-  // Default: company HQ in Champfèr
   return 'mountain';
 }
 
@@ -148,7 +189,13 @@ export function extractH1Title(contentHtml = '') {
  * Returns { aboutJob, aboutYou, talentCulture } with plain text content.
  */
 export function parseContentSections(contentHtml = '') {
-  const html = String(contentHtml || '');
+  // The Talents microsite renders the hash as its own element inside an <h2>
+  // (`<h2 class="detail-h"><span class="hash">#</span>aboutyou</h2>`), the
+  // WordPress content as plain text in an <h3>. Fold the first shape into the
+  // second so one set of section patterns reads both.
+  const html = String(contentHtml || '')
+    .replace(/<span[^>]*>\s*#\s*<\/span>\s*/gi, '#')
+    .replace(/(#(?:aboutthejob|aboutyou|talentculture))\s*<\/h[1-6]>/gi, '$1</h3>');
 
   const sections = {
     aboutJob: '',
@@ -158,7 +205,7 @@ export function parseContentSections(contentHtml = '') {
 
   // Extract #aboutthejob section — text between #aboutthejob and next h3 or div
   const aboutJobMatch = html.match(
-    /#aboutthejob<\/h3>\s*([\s\S]*?)(?=<h3|<\/div>)/i,
+    /#aboutthejob<\/h3>\s*([\s\S]*?)(?=<h[23]|<\/div>)/i,
   );
   if (aboutJobMatch) {
     sections.aboutJob = normalizeSpace(stripHtml(aboutJobMatch[1]));
@@ -166,7 +213,7 @@ export function parseContentSections(contentHtml = '') {
 
   // Extract #aboutyou items — list items after #aboutyou
   const aboutYouMatch = html.match(
-    /#aboutyou<\/h3>\s*([\s\S]*?)(?=<\/div>|<h3)/i,
+    /#aboutyou<\/h3>\s*([\s\S]*?)(?=<\/div>|<h[23])/i,
   );
   if (aboutYouMatch) {
     const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
@@ -179,7 +226,7 @@ export function parseContentSections(contentHtml = '') {
 
   // Extract #talentculture items — list items after #talentculture
   const cultureMatch = html.match(
-    /#talentculture<\/h3>\s*([\s\S]*?)(?=<h3|<\/div>)/i,
+    /#talentculture<\/h3>\s*([\s\S]*?)(?=<h[23]|<\/div>)/i,
   );
   if (cultureMatch) {
     const liRe = /<li[^>]*>([\s\S]*?)<\/li>/gi;
@@ -295,20 +342,7 @@ export function isTrustedDomain(rawUrl = '') {
   }
 }
 
-/* ── Build English public URL ─────────────────────────────── */
-
-/**
- * Build the English public URL for a job from its ENGLISH WordPress slug.
- *
- * Only safe with a slug that exists in the English listing: WPML gives each
- * translation its own slug (`staff-cook-m-w` in German, `staff-cook-m-f` in
- * English), and /en/jobs/{german-slug}/ answers 200 with the site HOMEPAGE,
- * not the job — a silently dead apply link. Use resolvePublicUrl().
- */
-export function buildEnglishUrl(enSlug) {
-  // locale-segment-ok: permalink WPML del sito esterno, lo slug stesso è quello della versione inglese
-  return `${SITE_BASE}/en/jobs/${enSlug}/`;
-}
+/* ── English public URL ─────────────────────────────────── */
 
 /**
  * Normalize a job title into a translation-agnostic match key.
@@ -373,8 +407,8 @@ export function buildEnglishIndex(enListings = [], deListings = []) {
 
 /**
  * Resolve the public URL of a German listing: its English permalink when the
- * post is translated, otherwise the German permalink the API itself returned
- * (always a real page). Never a slug pasted into the /en/ path.
+ * ad is translated, otherwise the German permalink the board itself linked
+ * (always a real page). Never a German file name pasted into the English path.
  */
 export function resolvePublicUrl(listing, enIndex) {
   const wpSlug = String(listing?.slug || '').trim();
@@ -389,135 +423,169 @@ export function resolvePublicUrl(listing, enIndex) {
 
   const deLink = String(listing?.link || '').trim();
   if (deLink && isTrustedDomain(deLink)) return deLink;
-  // locale-segment-ok: fallback al permalink TEDESCO del sito esterno, dove vive lo slug non tradotto
-  return wpSlug ? `${SITE_BASE}/de/jobs/${wpSlug}/` : `${SITE_BASE}/de/jobs/`;
+  // The German board is the microsite root: a file name resolves against it.
+  return wpSlug ? new URL(wpSlug, TALENTS_URL).href : TALENTS_URL;
 }
 
-/* ── Microsito Talents ──────────────────────────────────────── */
+/* ── Talents microsite parsing ────────────────────────────── */
 
-/** `data-loc` delle job-card → hotel del gruppo. */
-const TALENTS_LOC_HOTEL = {
-  stmoritz: 'mountain',
-  champfer: 'mountain',
-  ascona: 'ascona',
-  lago: 'lago',
-  locarno: 'lago',
-  minusio: 'lago',
-};
+const JOB_FILE_RE = /^job-[a-z0-9][a-z0-9-]*\.html$/i;
+const GENDER_MARKER_RE = /\(\s*[mwfd](?:\s*\/\s*[mwfd])*\s*\)/gi;
 
-/** Località pubblicata per hotel, come la fonte la scrive nel badge/JSON-LD. */
-const TALENTS_HOTEL_LABEL_RX = {
-  mountain: /moritz|champf/i,
-  ascona: /ascona/i,
-  lago: /locarno|minusio|lago/i,
-};
+function readAttr(openTag = '', name = '') {
+  const match = String(openTag).match(new RegExp(`\\s${name}\\s*=\\s*"([^"]*)"`, 'i'));
+  return match ? match[1] : null;
+}
 
-function decodeHtmlText(value = '') {
-  return normalizeSpace(decodeWpEntities(stripHtml(String(value || '')).replace(/&nbsp;|&#160;/g, ' ')));
+/** Drop the gender marker ("(m/w)", "(m/f)", "(w/m/d)") from an ad title. */
+export function stripGenderMarker(raw = '') {
+  return normalizeSpace(String(raw || '').replace(GENDER_MARKER_RE, ' '));
 }
 
 /**
- * Job-card della sezione `#stellen` del listing Talents.
+ * Parse a Talents board (German or English).
  *
- * @param {string} html
- * @param {string} [baseUrl]
- * @returns {{ title: string, url: string, slug: string, locKeys: string[], locationLabel: string, department: string }[]}
+ * `recognized` is true only when the page carries the JOBS-START/JOBS-END
+ * block the board is rendered into: a page without it (a redirect to the
+ * homepage, a redesign) is not a board and says nothing about the vacancies.
+ * `declaredCount` is the rendered total (`id="jobs-count"`), or null.
+ * `rawCardCount` counts what LOOKS like a card inside the JOBS block, whether
+ * or not it parsed: tags with a `job-card` class token, a `data-job` attribute
+ * or a `job-*.html` reference, and every `job-*.html` reference in the block —
+ * in any attribute, whatever the quoting (double, single, none), or in text.
+ * `cards` drops malformed ones, so an empty `cards` alone cannot prove an
+ * empty board.
+ *
+ * @returns {{ recognized: boolean, declaredCount: number|null, rawCardCount: number,
+ *   cards: Array<{ file: string, url: string, rawTitle: string, title: string,
+ *   locKeys: string[], department: string }> }}
  */
 export function parseTalentsListing(html = '', baseUrl = TALENTS_URL) {
-  const out = [];
+  const page = String(html || '');
+  const countMatch = page.match(/id="jobs-count"[^>]*>\s*(\d+)\s*</i);
+  const declaredCount = countMatch ? Number(countMatch[1]) : null;
+
+  const start = page.indexOf('<!--JOBS-START-->');
+  const endMatch = start >= 0 ? /<!--\s*JOBS-END[A-Z]*\s*-->/i.exec(page.slice(start)) : null;
+  if (start < 0 || !endMatch) return { recognized: false, declaredCount, rawCardCount: 0, cards: [] };
+
+  const block = page.slice(start, start + endMatch.index);
+  const cardLikeTags = (block.match(/<[a-z][^>]*>/gi) || [])
+    .filter((tag) => /\bjob-card\b|\sdata-job\b|job-[\w.-]*\.html?/i.test(tag)).length;
+  const jobPageRefs = (block.match(/job-[\w.-]*\.html?/gi) || []).length;
+  const rawCardCount = Math.max(cardLikeTags, jobPageRefs);
+  const cards = [];
   const seen = new Set();
-  const cardRx = /<a\b([^>]*\bclass="[^"]*\bjob-card\b[^"]*"[^>]*)>([\s\S]*?)<\/a>/gi;
+  const cardRe = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
   let match;
-  while ((match = cardRx.exec(String(html || '')))) {
-    const attrs = match[1];
-    const body = match[2];
-    const href = attrs.match(/\bhref="([^"]+)"/i)?.[1] || '';
-    if (!/(?:^|\/)job-[^/]+\.html$/i.test(href)) continue;
-    let url;
-    try { url = new URL(href, baseUrl).href; } catch { continue; }
-    if (!isTrustedDomain(url) || seen.has(url)) continue;
-    const title = decodeHtmlText(body.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i)?.[1] || '');
-    if (!title) continue;
-    seen.add(url);
-    out.push({
-      title,
+  while ((match = cardRe.exec(block)) !== null) {
+    const openTag = match[1];
+    const classes = String(readAttr(openTag, 'class') || '').split(/\s+/);
+    if (!classes.includes('job-card')) continue;
+
+    const file = String(readAttr(openTag, 'href') || '').trim();
+    if (!JOB_FILE_RE.test(file) || seen.has(file)) continue;
+    const url = new URL(file, baseUrl).href;
+    if (!isTrustedDomain(url)) continue;
+
+    const h3 = match[2].match(/<h3[^>]*>([\s\S]*?)<\/h3>/i);
+    const rawTitle = h3 ? decodeWpEntities(normalizeSpace(stripHtml(h3[1]))) : '';
+    const title = stripGenderMarker(rawTitle);
+    if (!title || title.length < 3) continue;
+
+    seen.add(file);
+    cards.push({
+      file,
       url,
-      slug: url.split('/').pop().replace(/\.html$/i, ''),
-      locKeys: (attrs.match(/\bdata-loc="([^"]*)"/i)?.[1] || '').split(/\s+/).filter(Boolean),
-      locationLabel: decodeHtmlText(body.match(/class="job-badge loc"[^>]*>([\s\S]*?)<\/span>/i)?.[1] || ''),
-      department: decodeHtmlText(body.match(/class="job-badge dep"[^>]*>([\s\S]*?)<\/span>/i)?.[1] || ''),
+      rawTitle,
+      title,
+      locKeys: String(readAttr(openTag, 'data-loc') || '').split(/\s+/).filter(Boolean),
+      department: String(readAttr(openTag, 'data-dep') || '').trim(),
     });
   }
-  return out;
+  return { recognized: true, declaredCount, rawCardCount, cards };
 }
 
-/** Testo del paragrafo/lista che segue l'intestazione `#<hash>` di una sezione. */
-function talentsSection(html, hash) {
-  const rx = new RegExp(`<span class="hash">#<\\/span>${hash}<\\/h2>([\\s\\S]*?)(?=<h2\\b|<\\/aside>|<\\/section>)`, 'i');
-  return rx.exec(html)?.[1] || '';
-}
-
-function listItems(html = '') {
-  const items = [];
-  const liRx = /<li[^>]*>([\s\S]*?)<\/li>/gi;
-  let m;
-  while ((m = liRx.exec(html))) {
-    const text = normalizeDescriptionSpace(decodeHtmlText(m[1]));
-    if (text.length > 2) items.push(text);
+function findJobPosting(node) {
+  if (!node || typeof node !== 'object') return null;
+  if (Array.isArray(node)) {
+    for (const item of node) {
+      const hit = findJobPosting(item);
+      if (hit) return hit;
+    }
+    return null;
   }
-  return items;
+  const type = node['@type'];
+  if (type === 'JobPosting' || (Array.isArray(type) && type.includes('JobPosting'))) return node;
+  return findJobPosting(node['@graph']);
 }
 
 /**
- * Pagina `job-*.html` del microsito. Il titolo è l'H1: il JSON-LD della fonte
- * riusa a volte quello di un'altra vacancy (la pagina Night Auditor dichiara
- * «Chef de Partie», misurato il 2026-09-24), quindi dal JSON-LD si leggono solo
- * tipo d'impiego, data e località.
+ * Parse a Talents job page. Returns null when the page carries no JobPosting
+ * JSON-LD: an unknown job-*.html answers 301 to the board, and the board is
+ * not an ad.
  *
- * @param {string} html
+ * @returns {null|{ title: string, intro: string, datePosted: string,
+ *   sections: ReturnType<typeof parseContentSections> }}
  */
-export function parseTalentsDetail(html = '') {
-  const src = String(html || '');
-  let jsonLd = {};
-  for (const block of src.matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+export function parseTalentsJobPage(html = '') {
+  const page = String(html || '');
+  let posting = null;
+  const ldRe = /<script[^>]*type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/gi;
+  let match;
+  while (!posting && (match = ldRe.exec(page)) !== null) {
     try {
-      const node = JSON.parse(block[1]);
-      if (node?.['@type'] === 'JobPosting') { jsonLd = node; break; }
-    } catch { /* blocco non valido: si ignora */ }
+      posting = findJobPosting(JSON.parse(match[1]));
+    } catch {
+      // A malformed block is not proof of anything; keep looking.
+    }
   }
+  if (!posting) return null;
+
+  const title = stripGenderMarker(decodeWpEntities(extractH1Title(page)))
+    || stripGenderMarker(decodeWpEntities(String(posting.title || '')));
+  const introMatch = page.match(/<p[^>]*class="[^"]*\bintro\b[^"]*"[^>]*>([\s\S]*?)<\/p>/i);
+  const datePosted = String(posting.datePosted || '').slice(0, 10);
+
   return {
-    title: decodeHtmlText(src.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || ''),
-    intro: decodeHtmlText(src.match(/<p class="intro"[^>]*>([\s\S]*?)<\/p>/i)?.[1] || ''),
-    locationLabel: normalizeSpace(jsonLd?.jobLocation?.address?.addressLocality || '')
-      || decodeHtmlText(src.match(/class="job-badge loc"[^>]*>([\s\S]*?)<\/span>/i)?.[1] || ''),
-    employmentType: normalizeSpace(jsonLd?.employmentType || '').toUpperCase(),
-    postedDate: /^\d{4}-\d{2}-\d{2}/.test(String(jsonLd?.datePosted || '')) ? String(jsonLd.datePosted).slice(0, 10) : '',
-    sections: {
-      aboutJob: decodeHtmlText(talentsSection(src, 'aboutthejob')),
-      aboutYou: listItems(talentsSection(src, 'aboutyou')),
-      talentCulture: listItems(talentsSection(src, 'talentculture')),
-    },
+    title,
+    intro: introMatch ? normalizeSpace(stripHtml(introMatch[1])) : '',
+    datePosted: /^\d{4}-\d{2}-\d{2}$/.test(datePosted) ? datePosted : '',
+    sections: parseContentSections(page),
   };
 }
 
+/** A board card in the shape buildEnglishIndex()/resolvePublicUrl() read. */
+function toIndexItem(card) {
+  return { slug: card.file, link: card.url, title: { rendered: card.rawTitle } };
+}
+
+/** Thin-content floor (AGENTS.md non-negotiable #4: no indexed page under 50 words). */
+export const MIN_DESCRIPTION_WORDS = 50;
+
+function countWords(text = '') {
+  return String(text || '').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
+}
+
+/* ── Fetch ────────────────────────────────────────────────── */
+
+function fetchTalentsPage(url) {
+  return fetchHtml(url, { timeoutMs: Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000 });
+}
+
 /**
- * Hotel e località pubblicata di una vacancy Talents. Un solo hotel nella
- * card decide da sé; una vacancy stagionale su due hotel (`Ascona · St.
- * Moritz`) prende l'hotel della frase d'apertura («Für unser Power Retreat
- * Giardino Mountain in Champfèr-St.Moritz …»), dove si inizia. La località è
- * quella che la fonte scrive (`St. Moritz`, `Ascona`), non un default.
+ * Fetch the English board, used only to resolve permalinks. A failure here
+ * degrades the apply links to their German permalink — it must never fail the
+ * crawl, since the German board is the source of truth for the jobs.
  */
-export function resolveTalentsLocation(locKeys = [], locationLabel = '', intro = '') {
-  const hotels = [...new Set(locKeys.map((key) => TALENTS_LOC_HOTEL[String(key).toLowerCase()]).filter(Boolean))];
-  const detected = detectHotel(intro);
-  const hotelKey = hotels.length === 1
-    ? hotels[0]
-    : (hotels.includes(detected) ? detected : (hotels[0] || detected));
-  const labels = String(locationLabel || '').split(/\s*[·|,/]\s*/).map((part) => part.trim()).filter(Boolean);
-  const city = labels.find((label) => TALENTS_HOTEL_LABEL_RX[hotelKey]?.test(label))
-    || labels[0]
-    || getHotelLocation(hotelKey).city;
-  return { hotelKey, city, canton: inferAnyCanton(city) || getHotelLocation(hotelKey).canton };
+async function fetchEnglishCards(fetchPage) {
+  try {
+    const listing = parseTalentsListing(await fetchPage(TALENTS_EN_URL), TALENTS_EN_URL);
+    return listing.cards;
+  } catch (err) {
+    console.warn(`⚠️ English Talents board unavailable (${err?.message || err}) — falling back to German permalinks.`);
+    return [];
+  }
 }
 
 /* ── Main Fetch ───────────────────────────────────────────── */
@@ -526,51 +594,106 @@ export function resolveTalentsLocation(locKeys = [], locationLabel = '', intro =
  * Fetch all Giardino Group jobs.
  * Returns an array of ParsedJob objects (source-locale only).
  *
- * IMPORTANT: Only set source-locale fields. Other locales are filled
- * by the AI localization step and translate-pending pipeline.
+ * A zero is published only when the board itself proves it (rendered
+ * `jobs-count` 0 and no card-like tag in the JOBS block): an unrecognised
+ * page, or a board whose cards do not parse, returns a bare `[]` so the
+ * pipeline keeps the previous slice and the health monitor keeps complaining.
+ *
+ * An ad is emitted only with its detail page read and a description of at
+ * least MIN_DESCRIPTION_WORDS words. A card alone yields a thin page, so an ad
+ * whose detail is unavailable is left out of this run: the pipeline's miss
+ * grace keeps its previous record, and the other ads are still published.
+ *
+ * @param {{ fetchPage?: (url: string) => Promise<string> }} [options] page
+ *   fetcher, injectable for tests; defaults to the shared fetchHtml().
  */
-export async function fetchAllGiardinoJobs() {
+export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}) {
   console.log('🔍 Fetching Giardino Group jobs');
   console.log(`   Source: ${TALENTS_URL}\n`);
 
-  const listingHtml = await fetchHtml(TALENTS_URL);
-  const listings = parseTalentsListing(listingHtml, TALENTS_URL);
-  if (listings.length === 0) {
-    console.warn('⚠️ No job cards found on the Giardino Talents listing.');
+  const listing = parseTalentsListing(await fetchPage(TALENTS_URL), TALENTS_URL);
+  if (!listing.recognized) {
+    console.warn('⚠️ Giardino Talents board not recognised (no JOBS-START/JOBS-END block) — keeping the previous slice.');
     return [];
   }
-  console.log(`  📋 Talents job cards found: ${listings.length}`);
+  if (listing.cards.length === 0) {
+    // Proven only when the rendered count is 0 AND the raw block holds no
+    // card-like tag at all: a card the parser failed to read is not an empty
+    // board, and publishing a zero on it would retire every live ad.
+    if (listing.declaredCount === 0 && listing.rawCardCount === 0) {
+      console.log('  📭 Giardino Talents board declares 0 open positions.');
+      return markAuthoritativeEmptySnapshot(
+        [],
+        `Giardino Talents board ${TALENTS_URL}: jobs-count=0 and an empty JOBS-START/JOBS-END block`,
+      );
+    }
+    console.warn(
+      `⚠️ Giardino Talents board declares ${listing.declaredCount ?? 'an unknown number of'} positions`
+      + ` (${listing.rawCardCount} card-like tags) but no job card parsed — keeping the previous slice.`,
+    );
+    return [];
+  }
+
+  console.log(`  📋 Talents job cards found: ${listing.cards.length}`);
+  if (listing.declaredCount != null && listing.declaredCount !== listing.cards.length) {
+    console.warn(`⚠️ Board declares ${listing.declaredCount} positions, parsed ${listing.cards.length} cards.`);
+  }
+
+  const enIndex = buildEnglishIndex((await fetchEnglishCards(fetchPage)).map(toIndexItem), listing.cards.map(toIndexItem));
+  console.log(`  🌐 English permalinks available: ${enIndex.bySlug.size}`);
 
   const jobs = [];
-  for (const listing of listings) {
-    let detail;
+  for (const card of listing.cards) {
+    // Detail page — required: without it the ad would be a thin card-only
+    // page. Skip it this run; miss grace keeps the previous record.
+    let detail = null;
     try {
-      detail = parseTalentsDetail(await fetchHtml(listing.url));
+      detail = parseTalentsJobPage(await fetchPage(card.url));
     } catch (err) {
-      console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
+      console.warn(`⚠️ ${card.url}: detail page unavailable (${err?.message || err}).`);
+    }
+    if (!detail) {
+      console.warn(`⚠️ ${card.url}: no JobPosting on the detail page — ad skipped this run.`);
       continue;
     }
-    const title = normalizeSpace(detail.title || listing.title);
+
+    // Clean title from the detail <h1>, fallback to the card title
+    const title = normalizeSpace(detail.title || card.title);
     if (!title || title.length < 3) continue;
 
-    const { hotelKey, city, canton } = resolveTalentsLocation(
-      listing.locKeys,
-      detail.locationLabel || listing.locationLabel,
-      detail.intro,
-    );
-    if (!canton) {
-      console.warn(`  ⏭️  ${title}: no Swiss canton for "${city}" — skipping`);
+    // Detect hotel and location
+    const hotelKey = detectTalentsHotel(detail.intro, card.locKeys);
+    const loc = getHotelLocation(hotelKey);
+    const city = loc.city;
+    const canton = loc.canton;
+    const postalCode = loc.postalCode;
+
+    // Parsed content sections
+    const sections = detail.sections;
+
+    // Build structured description
+    const description = buildDescription(sections, title, hotelKey, city);
+    if (countWords(description) < MIN_DESCRIPTION_WORDS) {
+      console.warn(`⚠️ ${card.url}: description under ${MIN_DESCRIPTION_WORDS} words — ad skipped this run.`);
       continue;
     }
-    const description = buildDescription(detail.sections, title, hotelKey, city);
-    const idHash = createHash('sha1').update(`talents-${listing.slug}`).digest('hex').slice(0, 12);
-    const sourceLang = 'de';
-    const jobSlug = slugify(`${title} giardino-group ${city}`);
-    const employmentType = ['FULL_TIME', 'PART_TIME', 'TEMPORARY', 'CONTRACTOR', 'INTERN'].includes(detail.employmentType)
-      ? detail.employmentType
-      : 'FULL_TIME';
 
-    jobs.push({
+    // Public URL — English permalink when translated, German one otherwise
+    const publicUrl = resolvePublicUrl(toIndexItem(card), enIndex);
+
+    // Stable ID from the German file name — the board's only per-ad identifier
+    const idHash = createHash('sha1')
+      .update(`talents-${card.file}`)
+      .digest('hex')
+      .slice(0, 12);
+
+    const sourceLang = 'de'; // Content is always in German
+    const jobSlug = slugify(`${title} giardino-group ${city}`);
+
+    // Posted date from the JobPosting JSON-LD
+    const postedDate = detail.datePosted || new Date().toISOString().split('T')[0];
+
+    const job = {
       // ── Required fields ──
       id: `giardino-${idHash}`,
       slug: jobSlug,
@@ -584,30 +707,31 @@ export async function fetchAllGiardinoJobs() {
       descriptionByLocale: { [sourceLang]: description },
       location: city,
       canton,
-      // La pagina tedesca: l'alternate EN della fonte può puntare a un'altra
-      // vacancy (Night Auditor → `en/job-chef-de-partie-kopie.html`).
-      url: listing.url,
-      source: 'Giardino Group Dedicated Parser (Talents)',
+      url: publicUrl,
+      source: 'Giardino Group Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
       addressLocality: city,
+      postalCode,
       addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
-      employmentType,
+      contract: 'full-time',
+      employmentType: 'FULL_TIME',
       experienceLevel: detectExperienceLevel(title),
       sector: 'Ospitalità / Hotellerie',
       currency: 'CHF',
       featured: false,
-      postedDate: detail.postedDate || new Date().toISOString().split('T')[0],
-      applyUrl: listing.url,
-      requirements: detail.sections.aboutYou,
-      requirementsByLocale: { [sourceLang]: detail.sections.aboutYou },
-    });
+      postedDate,
+      applyUrl: publicUrl,
+      requirements: sections.aboutYou,
+      requirementsByLocale: { [sourceLang]: sections.aboutYou },
+    };
+
+    jobs.push(job);
   }
 
   console.log(`\n📋 Total Giardino Group jobs discovered: ${jobs.length}`);
