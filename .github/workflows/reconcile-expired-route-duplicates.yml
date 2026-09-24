@@ -52,6 +52,12 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # Il cron settimanale e' il writer serializzato dell'archivio
+          # expired. Non armato da #8895, esegue solo lo sweep dry-run ed esce
+          # verde senza persistere: la run 35498628176 (2026-09-20) riportava
+          # `filesChanged: 2` mai scritti. Ultima riparazione su main:
+          # 2026-09-14T23:29Z. Scrittura interna: slice + deploy.
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: reconcile-expired-route-duplicates
         run: node scripts/ci/human-side-effect-gate.mjs
 
