@@ -18,6 +18,7 @@ import {
   collectWebcamUrls,
   isStalenessCheckActive,
   staleThresholdMinutesFor,
+  expectedCollectionSlotFor,
   applyWebcamStatus,
   formatDowntime,
   describeMissingWebcamState,
@@ -253,28 +254,75 @@ describe('isStalenessCheckActive (active-window gate)', () => {
   });
 });
 
-describe('staleThresholdMinutesFor (weekend cadence gap, #5960)', () => {
-  // Only the day-of-week matters; the hour/calendar date are irrelevant, so a
-  // fixed reference date is not a time-bomb (2026-01-05 is a Monday).
-  const onDay = (dayOffset: number): number => Date.UTC(2026, 0, 5 + dayOffset, 12, 0, 0);
+describe('staleThresholdMinutesFor (calendar-aware fast loop, #5960/#9658)', () => {
+  // Il calendario conta solo per giorno della settimana e ora UTC: una data di
+  // riferimento fissa non è una time-bomb (2026-01-05 è un lunedì, 2026-01-10 un
+  // sabato). Lo snapshot atterra ~8 min dopo lo slot (traffic-scheduler.yml).
+  const MON = (h: number, m: number): number => Date.UTC(2026, 0, 5, h, m, 0);
+  const THU = (h: number, m: number): number => Date.UTC(2026, 0, 8, h, m, 0);
+  const SAT = (h: number, m: number): number => Date.UTC(2026, 0, 10, h, m, 0);
+  const FRI_PREV = (h: number, m: number): number => Date.UTC(2026, 0, 9, h, m, 0);
+  const SUN_PREV = (h: number, m: number): number => Date.UTC(2026, 0, 4, h, m, 0);
+  const isStale = (snapshotMs: number, nowMs: number): boolean =>
+    Math.round((nowMs - snapshotMs) / 60000) > staleThresholdMinutesFor(nowMs);
 
-  it('uses the tight 90-min weekday threshold Mon–Fri', () => {
-    for (let i = 0; i <= 4; i++) {
-      expect(staleThresholdMinutesFor(onDay(i))).toBe(90);
+  it('does NOT flag the midday 11:00→14:00 gap (issue #9658: 124 min at 13:10)', () => {
+    expect(expectedCollectionSlotFor(THU(13, 10)).toISOString()).toBe('2026-01-08T11:00:00.000Z');
+    expect(isStale(THU(11, 7), THU(13, 10))).toBe(false);
+    expect(isStale(THU(11, 7), THU(13, 59))).toBe(false);
+  });
+
+  it('does NOT flag the morning 07:30→11:00 gap nor the evening gap after 17:30', () => {
+    expect(isStale(THU(7, 38), THU(9, 30))).toBe(false);
+    expect(isStale(THU(7, 38), THU(10, 59))).toBe(false);
+    expect(isStale(THU(17, 38), THU(19, 10))).toBe(false);
+    expect(isStale(THU(17, 38), THU(19, 59))).toBe(false);
+  });
+
+  it('does NOT flag a slot whose collection is still in flight', () => {
+    // 11:10: il run delle 11:00 può non essere ancora atterrato → vale lo slot 07:30.
+    expect(expectedCollectionSlotFor(THU(11, 10)).toISOString()).toBe('2026-01-08T07:30:00.000Z');
+    expect(isStale(THU(7, 38), THU(11, 10))).toBe(false);
+  });
+
+  it('DOES flag a missed midday slot once it must have landed', () => {
+    // Nessuno snapshot delle 11:00: alle 12:30 gli utenti vedono ancora quello delle 07:38.
+    expect(isStale(THU(7, 38), THU(12, 30))).toBe(true);
+    expect(isStale(THU(7, 38), THU(11, 20))).toBe(true);
+  });
+
+  it('tolerates ONE missed weekday peak run but not two', () => {
+    // 06:50: slot atteso 06:30. Run delle 06:30 cancellato → snapshot delle 06:08.
+    expect(isStale(THU(6, 8), THU(6, 50))).toBe(false);
+    // Saltati 06:00 e 06:30 → snapshot delle 05:38.
+    expect(isStale(THU(5, 38), THU(6, 50))).toBe(true);
+  });
+
+  it('is never looser than the old flat 90-min threshold during the weekday peaks', () => {
+    for (let minute = 0; minute < 24 * 60; minute += 5) {
+      const now = THU(Math.floor(minute / 60), minute % 60);
+      const slotMs = expectedCollectionSlotFor(now).getTime();
+      // Nei picchi (slot ogni 30 min) lo slot atteso ha sempre meno di 45 min:
+      // lì la soglia resta sotto i vecchi 90 min; si allarga solo nei buchi.
+      if (now - slotMs < 45 * MIN) {
+        expect(staleThresholdMinutesFor(now)).toBeLessThanOrEqual(90);
+      }
     }
   });
 
-  it('uses a looser threshold on Sat/Sun matching the 4h weekend cadence + cron lag', () => {
-    const saturday = staleThresholdMinutesFor(onDay(5));
-    const sunday = staleThresholdMinutesFor(onDay(6));
-    expect(saturday).toBe(sunday);
-    // Must comfortably clear the actual 240-min weekend gap (Cloud dispatch at
-    // 06/10/14/18 UTC) plus normal collection runtime, or every
-    // weekend slot would still false-page.
-    expect(saturday).toBeGreaterThan(240);
-    // Must stay under the 6h (360-min) coarse backstop so a genuinely frozen
-    // weekend pipeline is still caught by this fast loop first.
-    expect(saturday).toBeLessThan(360);
+  it('follows the 4h weekend cadence and flags a missed weekend slot', () => {
+    expect(isStale(SAT(6, 8), SAT(9, 55))).toBe(false);
+    expect(isStale(SAT(10, 8), SAT(13, 59))).toBe(false);
+    // Slot delle 10:00 saltato: alle 11:00 lo snapshot è ancora quello delle 06:08.
+    expect(isStale(SAT(6, 8), SAT(11, 0))).toBe(true);
+  });
+
+  it('does NOT flag the overnight gaps before the first slot of the day', () => {
+    // Sabato 05:30: ultimo slot atterrato = venerdì 17:30.
+    expect(expectedCollectionSlotFor(SAT(5, 30)).toISOString()).toBe('2026-01-09T17:30:00.000Z');
+    expect(isStale(FRI_PREV(17, 38), SAT(5, 30))).toBe(false);
+    // Lunedì 04:10: ultimo slot atterrato = domenica 18:00.
+    expect(isStale(SUN_PREV(18, 8), MON(4, 10))).toBe(false);
   });
 });
 

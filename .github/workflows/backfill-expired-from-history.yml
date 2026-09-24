@@ -51,6 +51,11 @@ concurrency:
 
 permissions:
   contents: write
+  # The failure reporter below opens/comments the canonical issue. Without
+  # this scope an explicit permissions block zeroes `issues`, and run
+  # 35988019883 (2026-09-24) got `HTTP 403: Resource not accessible by
+  # integration` on createIssue — silent, because the step is continue-on-error.
+  issues: write
 
 jobs:
   backfill:
