@@ -6659,6 +6659,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.parco-veicoli-svizzera-2026.title': 'Vehicle fleet Switzerland: data updated in September 2026',
     'blog.article.parco-veicoli-svizzera-2026.excerpt': 'Analysis of the Swiss vehicle fleet: over 7.1 million vehicles in circulation. ASTRA data on new registrations and imports of used goods in the 26 cantons.',
     'blog.article.parco-veicoli-svizzera-2026.imageAlt': 'Urban traffic in a Swiss city with various types of vehicles',
+    'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.title': 'No naturalization after 5 years',
+    'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.excerpt': 'Swiss Parliament rejects citizenship initiative after 5 years of legal residence',
+    'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.imageAlt': 'Swiss Parliament in Bern with national political decisions',
 };
 
 export default blogMetaChEn;
