@@ -70,7 +70,10 @@ const googleUser = {
   providerData: [{ providerId: 'google.com' }],
 };
 
-describe('login social → iscritto con attribuzione e consenso', () => {
+// Il primo test paga l'import dinamico di newsletterSubscribers/consentTexts
+// (~6 s su una macchina carica): oltre i 5 s di default e' un timeout, non un
+// rosso del contratto.
+describe('login social → iscritto con attribuzione e consenso', { timeout: 30_000 }, () => {
   beforeEach(() => {
     writes.length = 0;
     existingDoc = null;
