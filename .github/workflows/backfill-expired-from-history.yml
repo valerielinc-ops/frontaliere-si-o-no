@@ -51,11 +51,22 @@ concurrency:
 
 permissions:
   contents: write
+  # The failure reporter below opens/comments the canonical issue. Without
+  # this scope an explicit permissions block zeroes `issues`, and run
+  # 35988019883 (2026-09-24) got `HTTP 403: Resource not accessible by
+  # integration` on createIssue — silent, because the step is continue-on-error.
+  issues: write
 
 jobs:
   backfill:
     runs-on: ubuntu-latest
-    timeout-minutes: 90
+    # 90 min no longer covers one full (unbatched) run: on 2026-09-24 the
+    # Checkout took 25-27 min and the history walk alone was still running
+    # after 63 min when the job was cancelled at 90 (runs 35967391320,
+    # 35984607036); the reassemble and the test gate come after it. The
+    # monthly cron has no CRAWLER_KEYS batch, so at 90 it is cancelled by
+    # construction.
+    timeout-minutes: 180
 
     steps:
       - name: Checkout (full history — required to walk by-crawler slices)
@@ -135,22 +146,6 @@ jobs:
       - name: Install dependencies
         run: npm ci
 
-      - name: Prepare Firebase credentials for push auth
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
-        env:
-          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
-        run: |
-          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
-            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
-            exit 1
-          fi
-          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
-          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
-
-      - name: Load push credentials from Remote Config
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
-        run: node scripts/load-rc-env.mjs
-
       - name: Recover dropped jobs from history into expired slices
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/backfill-expired-from-history.mjs
@@ -183,6 +178,30 @@ jobs:
         # all 312 tests in 71.73s. Keep the serial setting until a new run
         # demonstrates that parallelism is safe for these subprocess tests.
         run: npm run test:backfill
+
+      # Credentials are hydrated only AFTER the test gate. load-rc-env.mjs
+      # exports ~100 Remote Config values into $GITHUB_ENV; hydrated before
+      # the tests they leaked into the suite (NEAR_DUP_COSINE=0.93,
+      # FB_PAGE_ACCESS_TOKEN, POSTHOG_*, GITHUB_PAT, ...) and flipped
+      # env-sensitive tests red (run 35988019883), besides handing every
+      # production secret to the whole test process. Neither the history
+      # walk, the reassemble nor the tests read them; only the push and the
+      # deploy dispatch below need GITHUB_PAT.
+      - name: Prepare Firebase credentials for push auth
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        run: node scripts/load-rc-env.mjs
 
       - name: Commit and push
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
