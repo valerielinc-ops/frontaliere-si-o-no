@@ -9,7 +9,7 @@
     <link>https://frontaliereticino.ch</link>
     <description>News and guides about Switzerland: economy, work, taxes and daily life</description>
     <language>en</language>
-    <lastBuildDate>Thu, 24 Sep 2026 21:22:12 GMT</lastBuildDate>
+    <lastBuildDate>Thu, 24 Sep 2026 22:00:35 GMT</lastBuildDate>
     <image>
       <url>https://frontaliereticino.ch/icons/icon-512x512.png</url>
       <title>Frontaliere Ticino — Switzerland</title>
@@ -17,6 +17,60 @@
     </image>
     <atom:link href="https://frontaliereticino.ch/rss-svizzera-en.xml" rel="self" type="application/rss+xml"/>
     <atom:link rel="hub" href="https://pubsubhubbub.appspot.com/"/>
+    <item>
+      <title>SNB leaves guide rate at 0% and raises GDP estimates 2026</title>
+      <link>https://frontaliereticino.ch/en/swiss-articles/snb-leaves-guide-rate-at-0-and-raises-gdp-estimates-2026/</link>
+      <description><![CDATA[The SNB guide rate remains at 0% from June 2025; August inflation at 0.8%; GDP 2026 forecast between 1.5% and 2%.]]></description>
+      <content:encoded><![CDATA[## In breve
+- BNS: tasso guida fermo allo 0% dal giugno 2025
+- Inflazione ad agosto allo 0,8%, spinta dall'energia
+- Crescita 2026 attesa tra 1,5% e 2%
+
+## Fatti chiave
+- Decisione → politica monetaria invariata
+- Tasso guida → 0%
+- Inflazione agosto → 0,8%
+- Crescita 2026 → 1,5%-2%
+- Crescita 2027 → circa 1,5%
+
+Il tasso guida della Banca nazionale svizzera resta allo 0%. La decisione, ampiamente attesa, lascia invariata la politica monetaria e conferma il livello a cui il tasso si trova dal giugno 2025. La notizia è stata diffusa con un comunicato ripreso da Keystone-ATS.
+
+Anche la remunerazione degli averi a vista detenuti dalle banche presso la BNS non cambia. Fino a un determinato limite, gli averi continueranno a essere remunerati in base al tasso guida; per gli importi eccedenti quel limite resterà immutato il livello di 0,25 punti percentuali indicato nel comunicato.
+
+### Prezzi e previsione inflazionistica
+
+Da giugno l'inflazione è ulteriormente cresciuta e in agosto era allo 0,8%. La BNS collega principalmente il movimento al rincaro dell'energia. Nel medio termine, tuttavia, la pressione inflazionistica è aumentata solo di poco. L'istituto considera quindi appropriata la politica monetaria per mantenere l'inflazione nell'area di stabilità dei prezzi e sostenere l'andamento dell'economia.
+
+La previsione condizionata indica un ulteriore aumento dell'inflazione nel quarto trimestre, seguito da una flessione nel corso del 2027. Secondo la BNS, il rincaro energetico, attualmente molto elevato, dovrebbe rallentare nei prossimi trimestri.
+
+| Anno | Previsione BNS | Previsione precedente |
+|---|---:|---:|
+| 2026 | 0,7% | 0,6% a giugno |
+| 2027 | 0,8% | 0,6% |
+| 2028 | 0,8% | 0,7% |
+
+La previsione assume che il tasso guida BNS resti pari allo 0% lungo l'intero orizzonte previsivo.
+
+### Scenario mondiale e crescita svizzera
+
+Nel suo scenario di base, la BNS prevede una crescita mondiale moderata nei prossimi trimestri, ma segnala un'elevata incertezza legata soprattutto alla situazione in Medio Oriente. Prezzi dell'energia nettamente superiori alle attese spingerebbero ancora l'inflazione e rallenterebbero sensibilmente la crescita economica. Anche il quadro della politica commerciale internazionale resta incerto.
+
+Per la Svizzera, l'istituto prevede una crescita moderata, sostenuta dagli impulsi positivi dell'economia mondiale, dalla politica monetaria e dal deprezzamento del franco. Per l'intero 2026 la stima è ora compresa fra l'1,5% e il 2%, contro l'1% circa atteso tre mesi fa. Per il 2027 resta una previsione di crescita di circa l'1,5%.
+....
+
+## Useful tools to protect your net income
+To reduce FX leakage, compare [CHF-EUR exchange options](nav:exchange) and [banks for cross-border workers](nav:banks).
+<translated English text>
+
+Discover [Ticino job offers](nav:jobs) updated daily: 4,000+ positions from Swiss companies hiring cross-border workers.
+
+*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/bns-lascia-tasso-guida-allo-0%2c0%25/92111318)*]]></content:encoded>
+      <pubDate>Thu, 24 Sep 2026 22:00:35 GMT</pubDate>
+      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
+      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/bns-tasso-guida-zero-2026</guid>
+      <category>Notizie</category>
+      <media:content url="https://cdn.frontaliereticino.ch/images/blog/bns-tasso-guida-zero-2026.webp" medium="image"/>
+    </item>
     <item>
       <title>Motion States: organizers pay safety costs</title>
       <link>https://frontaliereticino.ch/en/swiss-articles/motion-states-organizers-pay-safety-costs/</link>
@@ -2460,58 +2514,6 @@ To optimize financial choices and monitor the evolution of movable assets in Swi
       <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/smi-galderma-sandoz-2026</guid>
       <category>Notizie</category>
       <media:content url="https://cdn.frontaliereticino.ch/images/blog/smi-galderma-sandoz-2026.webp" medium="image"/>
-    </item>
-    <item>
-      <title>Security flaws in solar systems threaten the grid</title>
-      <link>https://frontaliereticino.ch/en/swiss-articles/solar-plants-security-grid/</link>
-      <description><![CDATA[The National Cybersecurity Testing Institute has detected over fifty vulnerabilities in eleven widely distributed photovoltaic products.]]></description>
-      <content:encoded><![CDATA[## In brief
-- Over 50 vulnerabilities detected in photovoltaic systems
-- Seven out of eleven products present serious flaws
-- Risk of cyber attacks and remote manipulation
-- Minimum security requirements requested by politics
-
-## Key facts
-- Testing agency: National Institute for Cybersecurity Testing
-- Tested products: 11 devices from 8 companies
-- Inverters analysed: 7
-- Energy management systems: 4
-- Critical vulnerabilities: 7
-- Serious vulnerabilities: 6
-
-Serious flaws in Swiss photovoltaic systems risk compromising their stability. The National Institute for Cybersecurity Testing examined eleven widely used products belonging to eight companies, identifying over fifty vulnerabilities in total. Among the examined devices are seven inverters, i.e., the electronic devices that convert direct current into alternating current, and four energy management systems. The investigation highlighted that seven of these issues were classified as critical and six as serious, while five of the eleven products presented at least one serious security flaw.
-
-### Technical shortcomings identified
-
-The technical analysis conducted by experts revealed alarming shortcomings. In practically all tested inverters, technicians managed to reduce the power fed into the grid to zero without any need for authentication. Additional vulnerabilities identified concerned preset passwords, unprotected maintenance accesses, and insufficient encryption that exposes components to unauthorized intrusions. Nevertheless, experts found no indications of intentionally inserted backdoors, understood as hidden methods to bypass normal authentication and security systems.
-
-The main threat stems from the high level of interconnection of installations across Swiss territory. Many devices are linked to manufacturers' cloud services to receive updates and manage telemetry. Six of the identified vulnerabilities would allow potential attackers to simultaneously manipulate thousands of devices from a centralized location, enormously amplifying the scope of the energy risk.
-
-As explained by Tobias Castagna, testing expert at the institute, it is not only the severity of a vulnerability that makes it dangerous, but also its scope, since a single flaw in a central component can affect thousands of photovoltaic installations simultaneously. On very sunny days, the photovoltaic sector temporarily covers more than half of Switzerland's current electricity consumption, making the grid particularly exposed to sudden fluctuations or induced blackouts.
-The general safety level of the analyzed products is not fundamentally worse than that of other Internet-connected devices available on the consumer or industrial market. What distinguishes these devices, however, is their systemic relevance for the national and cantonal electricity grid. A large‑scale cyber attack could theoretically compromise the stability of power supply, creating immediate imbalances between distributed generation and the country’s total energy demand.
-
-### Risk scenario and market reaction
-
-The concentration of thousands of plants linked to the same manufacturers’ cloud platforms represents a systemic vulnerability point. When a software update or remote connection is compromised, the domino effect can spread nationwide. Fortunately, in most of the cases examined, manufacturers have responded quickly after the vulnerabilities were reported by technicians, releasing corrective patches or modifying access protocols.
-
-From the perspective of critical‑infrastructure protection, the situation highlights the need to rethink the cyber‑security perimeter—not only around large hydroelectric or nuclear plants, but also toward the myriad of small residential and commercial photovoltaic installations distributed across the territory. Those who manage a photovoltaic installation today depend on global components whose cybersecurity was traditionally not considered a parameter of stability for the Swiss electricity grid. The growing digitalization of the energy transition therefore imposes a radical shift in technological‑risk management on the part of installers, manufacturers, and grid operators.
-
-## Recommended tools
-For an updated estimate, use the [net salary calculator](nav:calculator) and the [CHF-EUR exchange comparator](nav:exchange).
-Faced with the critical issues that emerged from cybersecurity tests, the institute recommends the immediate adoption of concrete preventive measures for all owners of photovoltaic systems and for operators in the sector. Practical indications include the strict use of individual access credentials, the strengthening of remote access and the physical or logical separation of photovoltaic systems from the rest of the company or home network. Manufacturers are also encouraged to integrate advanced security standards already in development and implement digital authentication for any software updates.
-
-### Regulatory requests and future prospects
-
-Institutionally, the institute calls on policy and federal authorities to introduce mandatory minimum requirements for all devices placed on the Swiss market. Cybersecurity should become a formal and essential requirement for the connection of any photovoltaic system to the national electricity grid. To deepen the aspects related to the management of the house, the protection of buildings and the economic and structural implications related to the real estate and residential sector, you can consult the dedicated resources on the portal, such as home renovation and security.
-
-For a precise net salary calculation, use our [tax comparator](nav:calculator): compare take-home pay between G and B permits with all 2026 deductions.
-
-*Source: [swissinfo.ch](https://www.swissinfo.ch/ita/falle-sicurezza-impianti-solari-minacciano-rete-elettrica-elvetica/92076053)*]]></content:encoded>
-      <pubDate>Fri, 18 Sep 2026 00:24:00 GMT</pubDate>
-      <dc:creator><![CDATA[Redazione Frontaliere Ticino]]></dc:creator>
-      <guid isPermaLink="false">https://frontaliereticino.ch/en/swiss-articles/sicurezza-impianti-solari-rete</guid>
-      <category>Notizie</category>
-      <media:content url="https://cdn.frontaliereticino.ch/images/blog/sicurezza-impianti-solari-rete.webp" medium="image"/>
     </item>
   </channel>
 </rss>
