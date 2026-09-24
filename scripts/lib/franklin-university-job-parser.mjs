@@ -33,6 +33,8 @@ const HQ = getCompanyDefaults('franklin-university');
 
 const SWISS_LOCATION_RE = /switzerland|svizzera|schweiz|suisse|ticino|lugano|sorengo|mendrisio|bellinzona/i;
 const NO_OPENINGS_RE = /no open positions|no current openings|currently no open/i;
+/** A fragment-safe HTML id: the per-vacancy anchor on the single careers page. */
+const DETAIL_ANCHOR_RE = /^[A-Za-z][\w-]*$/;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -129,11 +131,23 @@ function extractLocationField(bodyText = '') {
  * located outside Switzerland (e.g. US remote admissions roles) are
  * out of scope for this Swiss job board and are skipped.
  * Returns an array of { title, url, snippet, location } objects.
+ *
+ * The page has no per-vacancy detail page, but every leaf accordion carries a
+ * stable Drupal paragraph id (`id="para_4660"`), so each vacancy gets its own
+ * deep link `CAREER_URL#para_<n>`. Publishing the bare list page instead made
+ * every successive vacancy share one URL, and the URL-keyed merge then handed
+ * each new role the previous role's id and slug (issue #9679: the id minted in
+ * July for "Director of Marketing and Communications" was still serving the
+ * "Vice President of Enrollment Management" posting under a "senior advisor"
+ * slug). A leaf WITHOUT an anchor is dropped, not published under the list
+ * URL, and counted in `missingDetailUrlCount` so the crawler template keeps
+ * the existing slice when that loss exceeds MISSING_DETAIL_URL_MAX_RATIO.
  */
-function parseListingPage(html = '') {
-  if (!html) return [];
-  const { document } = new JSDOM(html).window;
+export function parseListingPage(html = '') {
   const jobs = [];
+  jobs.missingDetailUrlCount = 0;
+  if (!html) return jobs;
+  const { document } = new JSDOM(html).window;
 
   const accordions = document.querySelectorAll('.paragraph--type-single-accordion, [class*="paragraph--type-single-accordion"], [class*="single-accordion"]');
   for (const node of accordions) {
@@ -154,7 +168,13 @@ function parseListingPage(html = '') {
     const location = extractLocationField(bodyText);
     if (location && !SWISS_LOCATION_RE.test(location)) continue; // out-of-scope (e.g. US remote)
 
-    jobs.push({ title, url: CAREER_URL, snippet: bodyText, location: location || HQ.city });
+    const anchor = String(node.getAttribute('id') || '').trim();
+    if (!DETAIL_ANCHOR_RE.test(anchor)) {
+      jobs.missingDetailUrlCount += 1;
+      continue;
+    }
+
+    jobs.push({ title, url: `${CAREER_URL}#${anchor}`, snippet: bodyText, location: location || HQ.city });
   }
 
   return jobs;
@@ -174,16 +194,24 @@ export async function fetchAllFranklinUniversityJobs() {
     throw new Error(`Franklin University: failed to fetch the careers page: ${err.message}`, { cause: err });
   }
   const listings = parseListingPage(html);
+  const { missingDetailUrlCount } = listings;
   console.log(`  Jobs found on listing page: ${listings.length}`);
-  if (!listings.length) return [];
+  if (missingDetailUrlCount > 0) {
+    console.warn(`  ⚠️ ${missingDetailUrlCount} vacancy(ies) without a per-vacancy anchor dropped (no list-page fallback)`);
+  }
 
   const jobs = [];
+  jobs.missingDetailUrlCount = missingDetailUrlCount;
+  if (!listings.length) return jobs;
+
   for (const listing of listings) {
     const description = listing.snippet || '';
     const location = listing.location || HQ.city;
     const sourceLang = detectLang(listing.title + ' ' + description, 'en');
     const jobSlug = buildJobSlug(`${listing.title} ${location}`, 'franklin-university');
-    const urlHash = createHash('sha1').update(`${listing.url}#${listing.title}`).digest('hex').slice(0, 12);
+    // Id basis unchanged from the list-page era (`CAREER_URL#title`), so the id
+    // stays a function of the vacancy title and not of Drupal's paragraph id.
+    const urlHash = createHash('sha1').update(`${CAREER_URL}#${listing.title}`).digest('hex').slice(0, 12);
 
     jobs.push({
       id: `${FRANKLIN_UNIVERSITY_KEY}-${urlHash}`,
@@ -210,8 +238,8 @@ export async function fetchAllFranklinUniversityJobs() {
       experienceLevel: detectExperienceLevel(listing.title),
       featured: false,
       postedDate: new Date().toISOString().slice(0, 10),
-      url: listing.url || CAREER_URL,
-      applyUrl: listing.url || CAREER_URL,
+      url: listing.url,
+      applyUrl: listing.url,
       source: 'Franklin University Switzerland Dedicated Parser',
       sourceLang,
       crawledAt: new Date().toISOString(),
