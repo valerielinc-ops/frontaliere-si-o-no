@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CheckCircle2, RefreshCw, ShieldCheck, X } from 'lucide-react';
 import GptRewardedAd from '@/components/shared/GptRewardedAd';
-import RewardedHouseVideo from '@/components/shared/RewardedHouseVideo';
 import {
   grantRewardedApplicationAccess,
 } from '@/services/rewardedApplicationAccess';
@@ -11,18 +10,6 @@ import {
 } from '@/services/assistedApplicationExperiment';
 
 const SURFACE = 'job_detail_rewarded_inline';
-
-const HOUSE_FALLBACK_REASONS = new Set([
-  'no_fill',
-  'ready_timeout',
-  'rewarded_format_unavailable',
-  'slot_not_defined',
-  'gpt_error',
-  'gpt_queue_error',
-  'show_error',
-  'show_not_visible',
-  'preload_unavailable',
-]);
 
 export interface RewardedApplicationOfferProps {
   jobId: string;
@@ -53,7 +40,6 @@ export default function RewardedApplicationOffer({
   const [rewarded, setRewarded] = useState(false);
   const [retryRequired, setRetryRequired] = useState(false);
   const [retryToken, setRetryToken] = useState(0);
-  const [houseFallback, setHouseFallback] = useState(false);
   const grantedRef = useRef(false);
   const videoCompletedRef = useRef(false);
   const completedRef = useRef(false);
@@ -147,57 +133,9 @@ export default function RewardedApplicationOffer({
       surface: SURFACE,
       reason,
     });
-    if (HOUSE_FALLBACK_REASONS.has(reason)) {
-      setHouseFallback(true);
-      return;
-    }
-    // Consent, bot and unsupported-host failures are not demand failures. Do
-    // not turn a first-party fallback into a way around the ad-consent gate.
-    onUnavailable();
-  };
-
-  const handleHouseStarted = () => {
-    trackAssistedApplicationEvent('rewarded_house_video_started', {
-      variant: 'rewarded_ad',
-      jobId,
-      companyId,
-      surface: SURFACE,
-      provider: 'house_video',
-    });
-  };
-
-  const handleHouseCompleted = () => {
-    if (completedRef.current) return;
-    completedRef.current = true;
-    const accessExpiresAt = grantRewardedApplicationAccess();
-    setRewarded(true);
-    trackAssistedApplicationEvent('rewarded_house_video_completed', {
-      variant: 'rewarded_ad',
-      jobId,
-      companyId,
-      surface: SURFACE,
-      provider: 'house_video',
-    });
-    trackAssistedApplicationEvent('rewarded_application_access_granted', {
-      variant: 'rewarded_ad',
-      jobId,
-      companyId,
-      surface: SURFACE,
-      provider: 'house_video',
-      access_expires_at: accessExpiresAt,
-      access_ttl_hours: 12,
-    });
-    onCompleted();
-  };
-
-  const handleHouseUnavailable = () => {
-    trackAssistedApplicationEvent('rewarded_house_video_unavailable', {
-      variant: 'rewarded_ad',
-      jobId,
-      companyId,
-      surface: SURFACE,
-      provider: 'house_video',
-    });
+    // The application path is monetized only by a delivered Google rewarded
+    // ad. No-fill, consent, bot and unsupported-host failures all return to
+    // the caller instead of showing a non-monetized substitute.
     onUnavailable();
   };
 
@@ -208,7 +146,6 @@ export default function RewardedApplicationOffer({
     setRewarded(false);
     setRetryRequired(false);
     setRetryToken((token) => token + 1);
-    setHouseFallback(false);
   };
 
   const modal = (
@@ -246,14 +183,14 @@ export default function RewardedApplicationOffer({
           </div>
 
           <p id="rewarded-application-offer-description" className="text-sm leading-relaxed text-body">
-            Stiamo preparando il collegamento diretto al sito dell’azienda. Se c’è domanda Google, mostriamo la pubblicità; in caso di no-fill proponiamo un contenuto di supporto chiaramente distinto.
+            Stiamo preparando il collegamento diretto al sito dell’azienda. Se c’è domanda Google, puoi scegliere di guardare la pubblicità; al termine apriamo la candidatura.
           </p>
 
           <div className="rounded-stripe border border-info-border bg-info-subtle/60 p-3">
             <div className="flex items-start gap-2.5">
               <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-info" aria-hidden="true" />
               <p className="text-xs leading-relaxed text-body">
-                Google resta il percorso monetizzato principale. Il video parte solo dopo la tua scelta esplicita; se l’asta non restituisce una creatività, il contenuto di supporto evita di lasciare il percorso senza risposta.
+                Questo percorso è monetizzato solo da Google. Il video parte esclusivamente dopo la tua scelta esplicita; se l’asta non restituisce una creatività, torniamo alla candidatura senza mostrare un sostituto non monetizzato.
               </p>
             </div>
           </div>
@@ -265,7 +202,7 @@ export default function RewardedApplicationOffer({
             </li>
             <li className="flex items-start gap-2.5">
               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
-              <span>Mostriamo Google quando disponibile, oppure un contenuto di supporto in caso di no-fill.</span>
+              <span>Mostriamo un annuncio Google solo quando l’asta restituisce una creatività.</span>
             </li>
             <li className="flex items-start gap-2.5">
               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
@@ -280,15 +217,7 @@ export default function RewardedApplicationOffer({
             </p>
           )}
 
-          {!retryRequired && !rewarded && houseFallback && (
-            <RewardedHouseVideo
-              onStarted={handleHouseStarted}
-              onCompleted={handleHouseCompleted}
-              onUnavailable={handleHouseUnavailable}
-            />
-          )}
-
-          {!retryRequired && !rewarded && !houseFallback && (
+          {!retryRequired && !rewarded && (
             <GptRewardedAd
               label="Guarda il video e continua"
               loadingLabel="Stiamo preparando il video…"
