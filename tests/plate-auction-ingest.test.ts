@@ -5,6 +5,7 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import registry from '../data/plate-auction-sources-registry.json';
+import { parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
 import { collectPlateAuctions, PLATE_AUCTION_MISSING_GRACE_MS } from '../scripts/plate-auctions/ingest.mjs';
 
 const NOW = new Date('2026-09-13T12:00:00.000Z');
@@ -525,6 +526,79 @@ describe('plate-auction ingest: a preserved loss converges instead of ratcheting
     expect(run2.sources.ur).toMatchObject({ status: 'active', rowCount: 460 });
     expect(run2.auctions.filter((row: { missingSince?: string }) => row.missingSince)).toEqual([]);
     expect(run2.history).toEqual([]);
+  });
+});
+
+describe('plate-auction ingest: an eCari page that says no auction is running', () => {
+  const HOUR = 60 * 60 * 1000;
+  const base = new Date();
+  const at = (hours: number) => new Date(base.getTime() + hours * HOUR);
+  const EMPTY_PAGE = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
+  const NW_URL = 'https://ecarinwprod.ilz.info/ecari-auction/';
+  const nwRow = (id: string, overrides: Record<string, unknown>) => ({
+    id,
+    sourceKey: 'NW',
+    canton: 'Nidvaldo',
+    platePrefix: 'NW',
+    plateNumber: id.replace(/\D/g, ''),
+    normalizedPlate: `NW${id.replace(/\D/g, '')}`,
+    listingType: 'auction',
+    auctionStatus: 'active',
+    startingPriceChf: 500,
+    officialAuctionUrl: NW_URL,
+    sourceFetchedAt: at(-80).toISOString(),
+    lastVerifiedAt: at(-80).toISOString(),
+    dataConfidence: 'partial',
+    rawSnapshotHash: id,
+    ...overrides,
+  });
+  // Production on 2026-09-24: every NW row had ended (21 rows, closed by
+  // their deadline) and the page printed only its empty labels.
+  const endedRound = () => [
+    ...Array.from({ length: 3 }, (_unused, index) => nwRow(`nw-${1488 + index}`, {
+      auctionStatus: 'closed', endsAt: at(-72).toISOString(), closedAt: at(-72).toISOString(),
+    })),
+    nwRow('nw-1491', { endsAt: at(-72).toISOString() }),
+  ];
+  const run = async (previous: unknown, now: Date, page: string) => JSON.parse(JSON.stringify(await collectPlateAuctions({
+    selectedCantons: ['nw'],
+    fetchers: { nw: async () => parseExpandedEcari('nw', page, { fetchedAt: now.toISOString() }) },
+    previous,
+    now,
+  })));
+
+  it('reports a finished round as a healthy empty catalogue, archiving the ended rows', async () => {
+    const snapshot = await run({ generatedAt: at(-6).toISOString(), auctions: endedRound() }, at(0), EMPTY_PAGE);
+    expect(snapshot.sources.nw).toMatchObject({ status: 'active', rowCount: 4, lastSuccessAt: at(0).toISOString() });
+    expect(snapshot.sources.nw.errorCode).toBeUndefined();
+    const rows = snapshot.auctions.filter((row: { sourceKey: string }) => row.sourceKey === 'NW');
+    expect(rows.map((row: { auctionStatus: string }) => row.auctionStatus)).toEqual(['closed', 'closed', 'closed', 'closed']);
+    expect(rows.find((row: { id: string }) => row.id === 'nw-1491')).toMatchObject({ closedAt: at(-72).toISOString() });
+  });
+
+  it('keeps `zero_rows` for the same page without the explicit label', async () => {
+    const shell = EMPTY_PAGE.replaceAll('Keine laufende Versteigerung', '');
+    const snapshot = await run({ generatedAt: at(-6).toISOString(), auctions: endedRound() }, at(0), shell);
+    expect(snapshot.sources.nw).toMatchObject({ status: 'degraded', errorCode: 'zero_rows', rowCount: 4 });
+  });
+
+  it('judges a listing that vanished behind the empty label, and never retires it on an empty page', async () => {
+    // A fixed-price row with no deadline: the empty page is no evidence that
+    // it sold, so it is reported once, preserved, and left to a later page
+    // that lists something to measure against.
+    const fixed = nwRow('nw-fixed-77', { listingType: 'fixed-price' });
+    const previous = { generatedAt: at(-6).toISOString(), auctions: [...endedRound(), fixed] };
+    const run1 = await run(previous, at(0), EMPTY_PAGE);
+    expect(run1.sources.nw).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared', rowCount: 5 });
+    expect(run1.auctions.find((row: { id: string }) => row.id === 'nw-fixed-77')).toMatchObject({ auctionStatus: 'active', missingSince: at(0).toISOString() });
+
+    const run2 = await run(run1, at(6), EMPTY_PAGE);
+    expect(run2.sources.nw).toMatchObject({ status: 'active', rowCount: 5 });
+
+    const afterGrace = new Date(at(0).getTime() + PLATE_AUCTION_MISSING_GRACE_MS);
+    const run3 = await run(run2, afterGrace, EMPTY_PAGE);
+    expect(run3.sources.nw).toMatchObject({ status: 'active', rowCount: 5 });
+    expect(run3.history.filter((row: { disappearedFromCatalogue?: boolean }) => row.disappearedFromCatalogue)).toEqual([]);
   });
 });
 

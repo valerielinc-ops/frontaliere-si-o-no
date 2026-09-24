@@ -11,6 +11,7 @@ import {
   extractEcariTabSection,
   fetchHtml,
   parseEcariAuctionRows,
+  withEcariEmptyState,
 } from '../../../functions/src/plateAuctionsCore.js';
 
 export const VS_CANTON = 'Vallese';
@@ -46,9 +47,9 @@ export function parseVsAuctionRows(
 export async function fetchVsPlateAuctions() {
   const html = await fetchHtml(VS_AUCTION_URL);
   const fetchedAt = new Date().toISOString();
-  return VS_TAB_SECTIONS.flatMap(({ tabContentId, auctionStatus, listingType, idPrefix }) =>
+  return withEcariEmptyState(VS_TAB_SECTIONS.flatMap(({ tabContentId, auctionStatus, listingType, idPrefix }) =>
     parseVsAuctionRows(extractTabSection(html, tabContentId), { fetchedAt, auctionStatus, listingType, idPrefix }),
-  );
+  ), html);
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

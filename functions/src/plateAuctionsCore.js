@@ -73,6 +73,48 @@ export function extractEcariTabSection(html, tabContentId) {
   return String(html || '').match(pattern)?.[0] || '';
 }
 
+const ECARI_TAB_IDS = ['tabContent1', 'tabContent2', 'tabContent3', 'tabContent4'];
+const ECARI_NO_RUNNING_AUCTION_RE = /Keine\s+laufende\s+Versteigerung/i;
+const ECARI_EMPTY_TAB_RE = /Keine\s+laufende\s+Versteigerung|Kontrollschilder\s+nicht\s+verf(?:ü|&uuml;)gbar/i;
+
+/**
+ * True when an eCari page is the portal's OWN empty catalogue, not a page we
+ * failed to read. Between two auction rounds eCari prints "Keine laufende
+ * Versteigerung" in the auction tab and "Kontrollschilder nicht verfügbar" in
+ * the others: NW and OW served exactly that on 2026-09-24, after all 21 rows
+ * of each had ended on 2026-09-21, and were reported `zero_rows` on every run.
+ *
+ * Fail-closed on purpose: every tab on the page must carry its empty label
+ * and no table row may hold anything else. A page whose real rows the parser
+ * no longer understands, or a shell without the labels (a truncated or error
+ * response), is never mistaken for an empty catalogue.
+ */
+export function isEcariCatalogueExplicitlyEmpty(html) {
+  const tabs = ECARI_TAB_IDS.map((tabId) => extractEcariTabSection(html, tabId)).filter(Boolean);
+  if (!ECARI_NO_RUNNING_AUCTION_RE.test(htmlText(extractEcariTabSection(html, 'tabContent1')))) return false;
+  return tabs.every((section) => ECARI_EMPTY_TAB_RE.test(htmlText(section))
+    && [...section.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)]
+      .map((match) => match[1])
+      .filter((row) => !/<th\b/i.test(row))
+      .every((row) => ECARI_EMPTY_TAB_RE.test(htmlText(row))));
+}
+
+/**
+ * A parse result carries no room for "the source said it is empty", and the
+ * collectors must tell that apart from a parse that found nothing. The flag
+ * rides on the empty array itself (non-enumerable, so equality and JSON are
+ * unchanged) and is read only through isExplicitlyEmptyCatalogue().
+ */
+export function isExplicitlyEmptyCatalogue(rows) {
+  return Array.isArray(rows) && rows.length === 0 && rows.explicitlyEmpty === true;
+}
+
+/** The parsed rows, or the explicitly-empty catalogue when eCari itself says nothing is listed. */
+export function withEcariEmptyState(rows, html) {
+  if (rows.length > 0 || !isEcariCatalogueExplicitlyEmpty(html)) return rows;
+  return Object.defineProperty([], 'explicitlyEmpty', { value: true });
+}
+
 function htmlText(value) {
   return String(value || '')
     .replace(/<[^>]+>/g, ' ')

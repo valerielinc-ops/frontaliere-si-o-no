@@ -28,10 +28,12 @@ import {
 import {
   checkPlateAuctionQuality,
   derivePlateAuctionDataConfidence,
+  PLATE_AUCTION_MISSING_GRACE_MS,
   PLATE_AUCTION_SALE_RECOGNITION,
   observeCatalogueDisappearance,
   recognizeCatalogueSales,
 } from '../../functions/src/plateAuctionQualityCore.js';
+import { isExplicitlyEmptyCatalogue } from '../../functions/src/plateAuctionsCore.js';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const DEFAULT_OUTPUT = resolve(__dirname, '../../public/data/plate-auctions.json');
@@ -140,16 +142,12 @@ function applyQualityPolicy(rows, previousRows, now) {
 }
 
 export const PLATE_AUCTION_HISTORY_CAP = 5000;
-/**
- * How long a row preserved by the band/cap guard may stay absent before its
- * disappearance is recorded. The guard protects the FIRST run of a sudden loss
- * (a truncated PDF must not become a batch of sales); it must not re-judge the
- * same absence forever. 72h is twelve 6-hourly runs and three daily catalogue
- * refreshes (LU/AI/UR publish once a day): long enough for a broken upstream to
- * be seen, reported and fixed, short enough that a sold plate leaves the site.
- */
-export const PLATE_AUCTION_MISSING_GRACE_MS = 72 * 60 * 60 * 1000;
-export { PLATE_AUCTION_SALE_RECOGNITION, observeCatalogueDisappearance, recognizeCatalogueSales };
+export {
+  PLATE_AUCTION_MISSING_GRACE_MS,
+  PLATE_AUCTION_SALE_RECOGNITION,
+  observeCatalogueDisappearance,
+  recognizeCatalogueSales,
+};
 
 
 
@@ -207,6 +205,12 @@ export async function collectPlateAuctions({
     const fetchedAt = now.toISOString();
     try {
       const rows = await fetchers[key]();
+      // An empty fetch is a failure UNLESS the source itself said its
+      // catalogue is empty (eCari between two rounds). That answer is as
+      // authoritative as a non-empty catalogue: its missing rows take the
+      // normal path — archived past their deadline, otherwise preserved and
+      // judged — instead of the `zero_rows` carry-over of a broken fetch.
+      const answered = rows.length > 0 || isExplicitlyEmptyCatalogue(rows);
       const previousForSource = previousRows.filter((row) => row.sourceKey === source.plateCode);
       const previousSuccessAt = previous?.sources?.[key]?.lastSuccessAt || previous?.generatedAt;
       const mergedRows = mergeWithPrevious(rows, previousRows, source.plateCode);
@@ -262,7 +266,10 @@ export async function collectPlateAuctions({
       // A known-missing row is resolved only by a fetch that is itself healthy
       // (non-empty, band and cap passed on the NEW losses) once the grace
       // window has elapsed: a run that may be truncated is no evidence that an
-      // older absence is final, and an empty fetch carries everything anyway.
+      // older absence is final. An explicitly empty page does not qualify
+      // either: it lists nothing to measure against, and retiring the last
+      // rows of a source there would leave it with none, which check-health
+      // rejects as fatal for an active source and would freeze every baseline.
       const healthyFetch = rows.length > 0 && saleDecision.recognized;
       const expiredMissing = healthyFetch
         ? knownMissing.filter((row) => now.getTime() - missingSinceMs(row) >= PLATE_AUCTION_MISSING_GRACE_MS)
@@ -299,22 +306,23 @@ export async function collectPlateAuctions({
         ...knownMissing.filter((row) => !expiredMissingIds.has(row.id)),
       ].map(preserveMissing);
       const displayRows = [...normalizedRows, ...expiredCarry, ...preservedMissing];
-      // An empty response is degraded and preserves the last good snapshot.
+      // An empty response is degraded and preserves the last good snapshot,
+      // unless it is the source's explicit empty catalogue (see `answered`).
       // A non-empty response is authoritative when quality checks do not flag
       // a source disappearance. A partial catalogue must retain unexpired
       // live rows so a markup regression cannot erase the public view.
-      const outputRows = rows.length === 0
-        ? previousForSource.map((row) => closeExpiredObservation(row, now))
-        : displayRows;
+      const outputRows = answered
+        ? displayRows
+        : previousForSource.map((row) => closeExpiredObservation(row, now));
       // Only a row the last fetch still listed can make THIS fetch look broken;
       // a known-missing row was reported by the run that first missed it.
-      const sourceDisappeared = rows.length > 0 && newlyMissing.length > 0;
+      const sourceDisappeared = answered && newlyMissing.length > 0;
       // The source is only healthy-despite-losses when EVERY newly missing
       // active row was a recognized sale. One protected row means the feed also
       // lost something checkDisappearedSources() calls an upstream anomaly, and
       // a single recognized sale must not launder that into `active`.
       const allLossesAreSales = saleDecision.recognized && protectedRows.length === 0 && saleCandidates.length > 0;
-      results[key] = { rows: outputRows, fetchedAt, fetchedRowCount: rows.length, previousRows: previousForSource, previousSuccessAt, zeroRows: rows.length === 0, sourceDisappeared, allLossesAreSales, catalogueSales, qualityIssues: quality.issues, error: null };
+      results[key] = { rows: outputRows, fetchedAt, fetchedRowCount: rows.length, previousRows: previousForSource, previousSuccessAt, zeroRows: !answered, sourceDisappeared, allLossesAreSales, catalogueSales, qualityIssues: quality.issues, error: null };
     } catch (error) {
       const previousForSource = previousRows.filter((row) => row.sourceKey === source.plateCode);
       console.warn(`[collectPlateAuctions:${key}] ${error instanceof Error ? error.message : String(error)}`);
