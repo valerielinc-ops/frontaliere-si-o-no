@@ -146,7 +146,7 @@ describe('normalizeParsedJobsForSlice', () => {
   it('backfills applyUrl only from a recognized HTTPS job-detail URL', () => {
     const jobs: JobLike[] = [
       { url: 'https://jobs.hilcona.com/de/stelle/maschinenfuhrer-123' },
-      { url: 'https://jobs.davos.ch/de/stellenangebote/bergbahn-j_12345' },
+      { url: 'https://jobs.davos.ch/de/stellenangebote/bergbahn_j_12345' },
       { url: 'https://www.tarchinigroup.com/it/work/42/tecnico' },
       { url: 'https://jobs.example.ch/de/stellenangebote/' },
     ];
