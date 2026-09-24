@@ -3,10 +3,9 @@
  * Parse and report the jobs SEO memory/bridge checkpoints emitted by
  * jobsSeoPagesPlugin.
  *
- * The production deploy and the matrix experiment must read the same marker
- * contract.  The experiment is deliberately report-only because it may stop
- * at a phase or use JOBS_SEO_SAMPLE; the production IT leg can additionally
- * require proof that the run was a full-corpus measurement.
+ * Production uses this in full-corpus mode. The matrix experiment uses the
+ * same parser in report-only mode because its sampled and stop-after runs are
+ * useful measurements but are not production evidence.
  */
 import { appendFileSync, existsSync, readFileSync, writeFileSync } from 'node:fs';
 import path from 'node:path';
@@ -15,8 +14,9 @@ import { fileURLToPath } from 'node:url';
 const ANSI_RE = /\u001b\[[0-?]*[ -\/]*[@-~]/gu;
 const MARKER_RE = /^\[(?:mem|jobs-seo-profile|jobs-seo-sample|build-stop-after|incremental-manifest|post-walk|jobs-seo-reuse)/u;
 const MEMORY_RE = /^\[mem\]\s+jobsSeoPages:\s+(.+?)\s+heapUsed=(\d+(?:\.\d+)?)MB\b[\s\S]*?\brss=(\d+(?:\.\d+)?)MB\b/u;
-const PROFILE_RE = /^\[jobs-seo-profile\]\s+(\S+)\s+(\d+)\s+(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s+(\d+(?:\.\d+)?)\s*$/u;
+const PROFILE_RE = /^\[jobs-seo-profile\]\s+(\S+)\s+(.+)$/u;
 const SAMPLE_RE = /^\[jobs-seo-sample\](?:\s|$)/u;
+const STOP_AFTER_RE = /^\[build-stop-after\](?:\s|$)/u;
 
 const REQUIRED_BRIDGE_PROFILES = [
   'previous-slug-bridge',
@@ -37,6 +37,32 @@ function parseFields(line) {
   return fields;
 }
 
+function parseProfileLine(line) {
+  const match = PROFILE_RE.exec(line);
+  if (!match) return null;
+
+  // The profiler emits: count total_ms % avg_ms p50_ms p99_ms min_ms max_ms.
+  // Keep the percentage even though the validator currently needs only count
+  // and total_ms; parsing the emitted schema here prevents silent column drift.
+  const values = match[2].trim().split(/\s+/u).map(Number);
+  if (values.length !== 8 || values.some((value) => !Number.isFinite(value))) return null;
+  const [count, totalMs, percent, avgMs, p50Ms, p99Ms, minMs, maxMs] = values;
+  if (!Number.isInteger(count) || count < 0) return null;
+
+  return {
+    category: match[1],
+    count,
+    totalMs,
+    percent,
+    avgMs,
+    p50Ms,
+    p99Ms,
+    minMs,
+    maxMs,
+    line,
+  };
+}
+
 function phaseMatches(memory, prefix) {
   return memory?.phase === prefix || memory?.phase.startsWith(`${prefix} `);
 }
@@ -45,10 +71,7 @@ function lastMatchingMemory(memories, prefix) {
   return [...memories].reverse().find((memory) => phaseMatches(memory, prefix)) ?? null;
 }
 
-/**
- * Parse one build log.  The returned object is intentionally data-only so
- * tests and post-run tooling can use it without a GitHub Actions environment.
- */
+/** Parse one build log into data-only structures used by CI and tests. */
 export function parseJobsSeoBuildLog(input) {
   const normalized = String(input ?? '').replace(ANSI_RE, '');
   const lines = normalized.split(/\r?\n/u);
@@ -56,8 +79,12 @@ export function parseJobsSeoBuildLog(input) {
   const memories = [];
   const profiles = new Map();
   let sampleMarkers = 0;
+  let stopAfterMarkers = 0;
 
   for (const line of lines) {
+    if (SAMPLE_RE.test(line)) sampleMarkers += 1;
+    if (STOP_AFTER_RE.test(line)) stopAfterMarkers += 1;
+
     const memoryMatch = MEMORY_RE.exec(line);
     if (memoryMatch) {
       const fields = parseFields(line);
@@ -77,25 +104,8 @@ export function parseJobsSeoBuildLog(input) {
       continue;
     }
 
-    if (SAMPLE_RE.test(line)) {
-      sampleMarkers += 1;
-      continue;
-    }
-
-    const profileMatch = PROFILE_RE.exec(line);
-    if (profileMatch) {
-      profiles.set(profileMatch[1], {
-        category: profileMatch[1],
-        count: Number(profileMatch[2]),
-        totalMs: Number(profileMatch[3]),
-        avgMs: Number(profileMatch[4]),
-        p50Ms: Number(profileMatch[5]),
-        p99Ms: Number(profileMatch[6]),
-        minMs: Number(profileMatch[7]),
-        maxMs: Number(profileMatch[8]),
-        line,
-      });
-    }
+    const profile = parseProfileLine(line);
+    if (profile) profiles.set(profile.category, profile);
   }
 
   return {
@@ -105,6 +115,7 @@ export function parseJobsSeoBuildLog(input) {
     memories,
     profiles,
     sampleMarkers,
+    stopAfterMarkers,
     activePages: lastMatchingMemory(memories, 'after-active-pages'),
     previousSlugBridges: lastMatchingMemory(memories, 'after-previous-slug-bridges'),
     corpusRelease: lastMatchingMemory(memories, 'after corpus-release'),
@@ -113,10 +124,10 @@ export function parseJobsSeoBuildLog(input) {
 
 /**
  * Validate the minimum evidence needed to call a production run a full-corpus
- * jobs SEO measurement.  This checks observability and SEO bridge coverage;
- * it deliberately does not turn the historical 2 GB improvement target into
- * a deploy threshold.  A failed improvement is a root-cause/revert decision,
- * not proof that the log is invalid.
+ * jobs SEO measurement. This checks observability and bridge coverage; it
+ * deliberately does not turn the historical 2 GB improvement target into a
+ * deploy threshold. A missed improvement remains a root-cause/revert signal,
+ * not proof that the build log is invalid.
  */
 export function validateFullCorpusMeasurement(report) {
   const errors = [];
@@ -127,6 +138,9 @@ export function validateFullCorpusMeasurement(report) {
   if (!report.logPresent) errors.push('build log is empty or missing');
   if (report.sampleMarkers > 0) {
     errors.push(`[jobs-seo-sample] marker present (${report.sampleMarkers}); this is not a full-corpus run`);
+  }
+  if (report.stopAfterMarkers > 0) {
+    errors.push(`[build-stop-after] marker present (${report.stopAfterMarkers}); this is not a complete production run`);
   }
 
   if (!active) {
@@ -218,13 +232,16 @@ export function renderSummary(report, {
   const bridges = report.previousSlugBridges;
   const release = report.corpusRelease;
   const population = active?.validJobs ?? null;
-  const fullCorpus = report.sampleMarkers === 0 && population !== null && population > 0;
+  const fullCorpus = report.sampleMarkers === 0
+    && report.stopAfterMarkers === 0
+    && population !== null
+    && population > 0;
   const validationText = validation
     ? (validation.ok ? 'PASS' : `FAIL: ${validation.errors.join('; ')}`)
     : 'report-only';
   const rows = [
     ['wall-time build', `${wallSeconds || '?'}s${stopAfter ? ` (stopped after ${stopAfter})` : ''}`],
-    ['full-corpus population', fullCorpus ? `${population} validJobs (no sample marker)` : `not proven (${population ?? '?'})`],
+    ['full-corpus population', fullCorpus ? `${population} validJobs (no sample/stop marker)` : `not proven (${population ?? '?'})`],
     ['after-active-pages heapUsed/rss', active ? `${active.heapUsedMb}MB / ${active.rssMb}MB` : '?'],
     ['previous-slug checkpoint', bridges ? `${bridges.bridgeCount ?? '?'} bridges / ${bridges.previousSlugEntries ?? '?'} entries` : '?'],
     ['previous-slug-bridge count / total', `${profileMetric(report, 'previous-slug-bridge', 'count')} / ${profileMetric(report, 'previous-slug-bridge', 'totalMs', 'ms')}`],
@@ -279,7 +296,7 @@ function parseArgs(argv) {
     else throw new Error(`unknown argument: ${arg}`);
   }
 
-  args.logPath ??= '/tmp/build.log';
+  args.logPath ??= path.join(process.env.RUNNER_TEMP || process.cwd(), 'build.log');
   return args;
 }
 
