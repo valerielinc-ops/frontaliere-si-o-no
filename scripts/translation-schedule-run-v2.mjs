@@ -498,6 +498,10 @@ export async function runTranslationScheduleV2(options = {}) {
     remote: stateRemote,
     ref: stateRef,
   });
+  assertTranslationStateTargetV2({
+    remote: stateStore.remote ?? stateRemote,
+    ref: stateStore.ref ?? stateRef,
+  });
   const provider = options.provider || normalizeProvider({
     repository,
     providerModule: options.providerModule || process.env.TRANSLATION_SCHEDULER_PROVIDER_MODULE,

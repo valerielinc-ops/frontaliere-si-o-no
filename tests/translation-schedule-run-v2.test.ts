@@ -244,12 +244,12 @@ describe('translation scheduler v2 runtime wiring', () => {
     ['non-dedicated ref', { stateRef: 'refs/heads/translation-state-other-v2' }],
     ['non-authorized remote', { stateRemote: 'backup' }],
   ])('rejects an unauthorized state target before any scheduler work (%s)', async (_label, target) => {
-    const { one } = createRepositories();
+    const { one, remote } = createRepositories();
 
     await expect(runTranslationScheduleV2({ repository: one, ...target, logger: { log() {} } }))
       .rejects.toThrow(/translation state writes must target origin\/refs\/heads\/translation-state-v2/);
     expect(git(one, 'rev-parse', 'HEAD')).toBe(git(one, 'rev-parse', 'origin/main'));
-    expect(git(one, 'ls-remote', '--refs', join(dirname(one), 'remote.git'), 'refs/heads/main'))
+    expect(git(one, 'ls-remote', '--refs', remote, 'refs/heads/main'))
       .toContain(git(one, 'rev-parse', 'origin/main'));
   });
 
