@@ -1383,7 +1383,7 @@ export function eventStableId(sourceKey, rawId) {
 // price accordion, tio-agenda's "Prezzo:" label) — one regex pair, not a
 // copy per crawler (AGENTS.md §6: literal duplicate regex across ≥2 files
 // must live in one shared module).
-const PRICE_FREE_RE = /\b(gratis|gratuit[oe]?|free|kostenlos|eintritt frei|entr[ée]e libre|ingresso libero)\b/i;
+const PRICE_FREE_RE = /\b(gratis|gratuit[oe]?|free|kostenlos|eintritt frei|entr[ée]e libre|ingresso libero|entrata libera)\b/i;
 const PRICE_AMOUNT_RE = /(\d+(?:[.,]\d{1,2})?)/g;
 
 /**

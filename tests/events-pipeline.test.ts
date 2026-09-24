@@ -16,6 +16,7 @@ import {
   warnIfLowConfidenceComuneShare,
   mirrorEventImages,
   extractTioPrice,
+  extractTioDetailMetadata,
   enrichEventsWithPrice,
   enrichEventsWithTranslations,
 } from '../scripts/crawl-tio-agenda.mjs';
@@ -336,6 +337,31 @@ describe('eventLd — schema.org/Event completeness gate', () => {
     );
   });
 
+  it('prefers a verified source address locality over a regional fallback', () => {
+    const ld = eventLd(
+      {
+        id: 'tio-agenda:62309',
+        title: 'E tu chi sei?',
+        startDate: '2026-09-24',
+        startTime: '18:30',
+        venue: 'Tertianum Cornaredo',
+        comune: 'Lugano',
+        canton: 'TI',
+        address: { street: 'Via Chiosso 9', postalCode: '6948', locality: 'Porza' },
+        url: 'https://www.tio.ch/agenda/day/20260924/62309',
+        sourceKey: 'tio-agenda',
+        sourceName: 'Tio.ch Agenda',
+      },
+      'it',
+    ) as Record<string, any>;
+    expect(ld.location.address).toMatchObject({
+      streetAddress: 'Via Chiosso 9',
+      postalCode: '6948',
+      addressLocality: 'Porza',
+      addressRegion: 'TI',
+    });
+  });
+
   it('single-day timed event: endDate equals startDate datetime, CEST offset in summer', () => {
     const ld = eventLd(
       {
@@ -480,6 +506,16 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
     expect(extractTioPrice('')).toBeUndefined();
   });
 
+  it('extracts source description, address, venue and explicit free admission', () => {
+    const html = '<div class="col-12 col-xl-8"><h1>E tu chi sei?</h1><p>E TU CHI SEI? Uno spettacolo di e con Isabella Giampaolo.</p><p>Con curiosità, empatia e un pizzico di salvifica ironia, lo spettacolo racconta una storia.</p><p>Entrata libera con prenotazione gradita.</p></div><div class="address"><p>Indirizzo</p><p>Tertianum Cornaredo</p><p>Via Chiosso 9</p><p>6948, Porza</p></div>';
+    expect(extractTioDetailMetadata(html)).toEqual({
+      description: 'E TU CHI SEI? Uno spettacolo di e con Isabella Giampaolo. Con curiosità, empatia e un pizzico di salvifica ironia, lo spettacolo racconta una storia. Entrata libera con prenotazione gradita.',
+      address: { street: 'Via Chiosso 9', postalCode: '6948', locality: 'Porza' },
+      venue: 'Tertianum Cornaredo',
+      price: { amount: 0, currency: 'CHF', isFree: true },
+    });
+  });
+
   it('enrichEventsWithPrice attaches price from the injected fetch, never mutates the source array', async () => {
     const events = [
       { id: 'tio-agenda:63071', url: 'https://www.tio.ch/agenda/day/20260704/63071' },
@@ -491,6 +527,26 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
     expect(out[0].price).toEqual({ amount: 19, currency: 'CHF', isFree: false });
     expect(out[1].price).toBeUndefined();
     expect(events[0].price).toBeUndefined(); // non-mutating
+  });
+
+  it('enrichEventsWithPrice fills detail metadata and corrects a region fallback from the address', async () => {
+    const events = [{
+      id: 'tio-agenda:62309',
+      title: 'E tu chi sei?',
+      comune: 'Lugano',
+      comuneMatch: 'region',
+      url: 'https://www.tio.ch/agenda/day/20260924/62309',
+    }];
+    const detailHtml = '<div class="col-12 col-xl-8"><h1>E tu chi sei?</h1><p>Uno spettacolo di e con Isabella Giampaolo, con una descrizione abbastanza lunga per il test.</p></div><div class="address"><p>Indirizzo</p><p>Tertianum Cornaredo</p><p>Via Chiosso 9</p><p>6948, Porza</p></div>';
+    const out = await enrichEventsWithPrice(events, async () => detailHtml);
+    expect(out[0]).toMatchObject({
+      description: expect.stringContaining('Uno spettacolo'),
+      address: { street: 'Via Chiosso 9', postalCode: '6948', locality: 'Porza' },
+      venue: 'Tertianum Cornaredo',
+      comune: 'Porza',
+      comuneMatch: 'exact',
+    });
+    expect(events[0].comune).toBe('Lugano');
   });
 
   it('enrichEventsWithPrice leaves price unset on fetch failure (soft-fail, never fabricates)', async () => {

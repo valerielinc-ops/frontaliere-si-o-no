@@ -12,6 +12,7 @@ import {
   extractPrice,
   extractDetailTableValue,
   extractAddress,
+  extractDetailAddress,
   extractEventJsonLd,
   mergeDetailEventMetadata,
   mapEventRecord,
@@ -128,6 +129,12 @@ describe('extractPrice', () => {
     expect(extractDetailTableValue(html, ['Prezzo', 'Preis'])).toBe('Gratuito');
     expect(extractPrice({}, html)).toEqual({ amount: 0, currency: 'CHF', isFree: true });
   });
+
+  it('reads definition-list metadata and a structured Località address', () => {
+    const html = '<dl><dt>Località</dt><dd>Hotel Pestalozzi; Via Indipendenza 9; 6900 Lugano; Switzerland</dd><dt>Prezzo</dt><dd>Gratuito</dd></dl>';
+    expect(extractDetailTableValue(html, ['Prezzo'])).toBe('Gratuito');
+    expect(extractDetailAddress(html)).toEqual({ street: 'Via Indipendenza 9', postalCode: '6900', locality: 'Lugano' });
+  });
 });
 
 describe('extractAddress', () => {
@@ -159,6 +166,19 @@ describe('extractEventJsonLd', () => {
     expect(extractEventJsonLd('')).toBeNull();
     expect(extractEventJsonLd('<html></html>')).toBeNull();
     expect(extractEventJsonLd('<script type="application/ld+json">{not json</script>')).toBeNull();
+  });
+
+  it('finds an Event node inside an @graph or array JSON-LD block', () => {
+    const html = `
+      <script type='application/ld+json'>${JSON.stringify({
+        '@context': 'https://schema.org',
+        '@graph': [
+          { '@type': 'BreadcrumbList', itemListElement: [] },
+          { '@type': ['Thing', 'MusicEvent'], name: 'Test', startDate: '2026-07-04T19:00:00+02:00' },
+        ],
+      })}</script>
+    `;
+    expect(extractEventJsonLd(html)).toMatchObject({ '@type': ['Thing', 'MusicEvent'], name: 'Test' });
   });
 });
 
