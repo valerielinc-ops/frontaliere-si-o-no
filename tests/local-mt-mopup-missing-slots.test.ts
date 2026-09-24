@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import {
   buildMopupRequest,
-  classifyMopupWrite,
+  classifyMopupStructure,
   missingSlots,
   negativeMopupCacheKey,
   opusMtRescueEnabled,
@@ -116,7 +116,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
     const opusRaw = 'Globale MSAT-Drogenproduktqualifizierung und Validierungsblei 80-100% ZQX0XQZ';
 
     expect(target.request.text).toContain('ZQX0XQZ');
-    expect(classifyMopupWrite({ ...target, rawText: argosRaw }).decision)
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw }).decision)
       .toBe('skip:candidate-untranslated');
 
     const calls = [];
@@ -136,7 +136,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
     expect(rescue.recovered).toBe(1);
     expect(rescue.writes.get(id).rawText).toBe(opusRaw);
 
-    const final = classifyMopupWrite({ ...target, rawText: opusRaw });
+    const final = classifyMopupStructure({ ...target, rawText: opusRaw });
     expect(final.decision).toBe('write');
     expect(final.incoming).toBe('Globale MSAT-Drogenproduktqualifizierung und Validierungsblei 80-100% (m/w/d)');
   });
@@ -154,7 +154,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
     const argosRaw = 'Business Continuity Manager';
     const opusRaw = 'Gestore della continuità aziendale';
 
-    expect(classifyMopupWrite({ ...target, rawText: argosRaw }).decision).toBe('skip:source-copy');
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw }).decision).toBe('skip:source-copy');
     const rescue = await rescueMopupRejects({
       targets: new Map([[id, target]]),
       results: new Map([[id, argosRaw]]),
@@ -164,7 +164,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
 
     expect(rescue.recovered).toBe(1);
     expect(rescue.writes.get(id).rawText).toBe(opusRaw);
-    expect(classifyMopupWrite({ ...target, rawText: opusRaw })).toMatchObject({ decision: 'write' });
+    expect(classifyMopupStructure({ ...target, rawText: opusRaw })).toMatchObject({ decision: 'write' });
   });
 
   it('rejects a source echo whose protected sentinel is mangled before finalization', () => {
@@ -176,7 +176,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
       sourceText: 'Tecnico laboratorio (m/w/d)',
       existing: '',
     });
-    const result = classifyMopupWrite({
+    const result = classifyMopupStructure({
       ...target,
       rawText: 'Tecnico laboratorio ZQ ①000%',
     });
@@ -198,7 +198,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
     const argosRaw = 'Dettaglio manopolafrau:mann EFZ "Scopri di esperienze di shopping"';
     const opusRaw = 'Specialista del commercio al dettaglio:mann EFZ "Progettare esperienze di shopping"';
 
-    expect(classifyMopupWrite({ ...target, rawText: argosRaw }).decision)
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw }).decision)
       .toBe('skip:candidate-untranslated');
     const rescue = await rescueMopupRejects({
       targets: new Map([[id, target]]),
@@ -225,11 +225,11 @@ describe('local-mt-mopup OpusMT rescue', () => {
     const argosRaw = 'Metzger Aushilfe 60-100%';
     const opusRaw = 'Macellaio 60-100%';
 
-    expect(classifyMopupWrite({ ...target, rawText: argosRaw })).toMatchObject({
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw })).toMatchObject({
       decision: 'skip:candidate-untranslated',
       languageDriven: true,
     });
-    expect(classifyMopupWrite({ ...target, rawText: opusRaw })).toMatchObject({
+    expect(classifyMopupStructure({ ...target, rawText: opusRaw })).toMatchObject({
       decision: 'write',
       languageDriven: true,
     });
@@ -278,7 +278,7 @@ describe('local-mt-mopup OpusMT rescue', () => {
     expect(target.job).toEqual(before);
     expect(rescue).toMatchObject({ attempted: 0, recovered: 0, deferred: 0 });
     expect(rescue.writes.size).toBe(0);
-    expect(classifyMopupWrite({ ...target, rawText: argosRaw }).decision).toBe('skip:source-copy');
+    expect(classifyMopupStructure({ ...target, rawText: argosRaw }).decision).toBe('skip:source-copy');
   });
 
   it('defers every eligible slot when the elapsed-aware budget is exhausted', async () => {

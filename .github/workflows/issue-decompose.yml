@@ -153,6 +153,8 @@ jobs:
           REPO: ${{ github.repository }}
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          # Sotto il `timeout-minutes: 80` dello step (default action: 15).
+          exec_timeout_minutes: "70"
           github_token: ${{ env.APP_TOKEN }}
           # Il bridge host-side può creare sub-issue e il loro evento deve
           # riaprire il triage: usa solo l'identità operativa App/PAT, mai

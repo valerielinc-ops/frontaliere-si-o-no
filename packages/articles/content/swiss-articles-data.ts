@@ -19958,6 +19958,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'tubercolosi-svizzera-aumento-2025',
+    category: 'novita',
+    date: '2026-09-24T17:43:39.994Z',
+    image: '/images/blog/tubercolosi-svizzera-aumento-2025.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'indennita-maltempo-sei-mesi',
+    category: 'novita',
+    date: '2026-09-24T19:15:47.453Z',
+    image: '/images/blog/indennita-maltempo-sei-mesi.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

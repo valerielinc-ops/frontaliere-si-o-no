@@ -2243,6 +2243,8 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'costi-auto-elettrica-benzina': { it: 'costi-auto-elettrica-benzina', en: 'electric-vs-petrol-car-costs-switzerland', de: 'kosten-elektroauto-benzin-schweiz', fr: 'couts-voiture-electrique-essence-suisse' },
  'parco-veicoli-svizzera-2026': { it: 'parco-veicoli-svizzera-2026', en: 'vehicle-fleet-switzerland-2026', de: 'fahrzeugbestand-schweiz-2026', fr: 'parc-vehicules-suisse-2026' },
  'parlamento-nega-naturalizzazione-dopo-5-anni': { it: 'parlamento-nega-naturalizzazione-dopo-5-anni', en: 'parliament-rejects-naturalization-after-5-years', de: 'parlament-lehnt-naturalisierung-nach-5-jahren-ab', fr: 'parlement-rejette-naturalisation-apres-5-ans' },
+ 'tubercolosi-svizzera-aumento-2025': { it: 'tubercolosi-svizzera-aumento-2025', en: 'tuberculosis-switzerland-increase-2025', de: 'tuberkulose-schweiz-zunahme-2025', fr: 'tuberculose-suisse-hausse-2025' },
+ 'indennita-maltempo-sei-mesi': { it: 'indennita-maltempo-sei-mesi', en: 'temporary-workers-weather-allowance', de: 'temporaerarbeiter-wetterentschaedigung', fr: 'travailleurs-temporaires-intemperies' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

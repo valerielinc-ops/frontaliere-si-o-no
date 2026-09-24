@@ -34,6 +34,7 @@ import {
   confirmationFrameForAttempt,
 } from './lib/confirmationEmailContent.js';
 import { makeMailerooRefOnSent } from './lib/mailerooRef.js';
+import { resolveConfirmationJobContext } from './lib/confirmationJobContext.js';
 import {
   confirmationSendRefusal,
   isConfirmationCycleSend,
@@ -260,6 +261,12 @@ export async function sendNewsletterConfirmationEmail({ email, locale, sourcePat
  frame,
  firstSentAt: confirmationFirstSentAt(data),
  login: isLoginLink,
+ // A job-gate signup is asked about THE JOB it came from, not about a
+ // newsletter it never thought it was joining (measured 2026-09-24: 67% of
+ // job-gate recipients opened the generic request, 33% confirmed). Only for a
+ // real cycle send; a re-probe or a login link keeps the plain copy. See
+ // lib/confirmationJobContext.js.
+ jobContext: isCycleSend ? resolveConfirmationJobContext(data) : null,
  });
 
  // Re-read the consent state after all token/template work and immediately

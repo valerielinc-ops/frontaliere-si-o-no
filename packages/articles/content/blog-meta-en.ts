@@ -11941,6 +11941,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.decisione-bns-cambio-franco-euro.title': 'SNB decision: franc down, euro up',
     'blog.article.decisione-bns-cambio-franco-euro.excerpt': 'The SNB keeps the reference rate at 0%, bringing the euro above 0.94 francs and the dollar to annual highs.',
     'blog.article.decisione-bns-cambio-franco-euro.imageAlt': 'Panoramic view of Lugano, financial center of Canton Ticino',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.title': 'CGIL asks Piedmont for a health tax solution',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.excerpt': 'The health tax has been in force for two and a half years without implementing decrees; 2026 refunds rose from 89 to 108 million euros and the presidency of the Regio Insubrica passed to Piedmont, with an inter-ministerial table scheduled for early November.',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.imageAlt': 'Frontaliero walking near Lake Lugano with Alps in the background',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.title': 'Swiss public pension: no taxation in Italy',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.excerpt': 'Response to question no. 177/2026 of the Revenue Agency: public pension DDPS provided by Cassa PUBLICA not taxed in Italy for those who have dual Italian-Swiss citizenship.',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.imageAlt': 'Lake Lugano view with mountains in the background, representing cross-border financial life in Ticino',
 };
 
 export default blogMetaEn;
