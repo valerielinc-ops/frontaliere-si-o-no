@@ -143,7 +143,7 @@ function validateHistoricalRecord(registry, type, record) {
     }
     validateActionClassAgainstPolicy(registry, historicalLoopId, record.actionClass);
     if (type === 'decision') validateDecisionLifecycle(registry, historicalLoopId, record);
-    validateOutcomeAgainstPolicy(registry, historicalLoopId, record.outcome);
+    validateOutcomeAgainstPolicy(registry, historicalLoopId, record.outcome, { allowHistoricalSourceRefs: true });
   } catch (error) {
     throw new Error(`historical ${type} ${record.recordId} violates the registry: ${error.message}`);
   }

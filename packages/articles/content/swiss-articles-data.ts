@@ -19976,6 +19976,24 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'ubs-capitale-90-bns',
+    category: 'novita',
+    date: '2026-09-24T20:09:09.113Z',
+    image: '/images/blog/ubs-capitale-90-bns.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
+   {
+    id: 'mozione-costi-manifestazioni-stati',
+    category: 'novita',
+    date: '2026-09-24T21:22:12.526Z',
+    image: '/images/blog/mozione-costi-manifestazioni-stati.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

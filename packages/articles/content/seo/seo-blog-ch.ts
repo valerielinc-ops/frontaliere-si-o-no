@@ -18817,16 +18817,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-terzo-pilastro-3a-vantaggi-2026-canton-san-gallo': {
     title: 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
-    description: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026',
+    description: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, svizzero, vantaggi',
     ogTitle: 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
-    ogDescription: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
+    ogDescription: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
     canonicalPath: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo",
-      "description": "La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026",
+      "description": "La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -86440,6 +86440,84 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/indennita-maltempo-sei-mesi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ubs-capitale-90-bns': {
+    title: 'UBS, la BNS approva requisiti di capitale al 90%',
+    description: 'La BNS approva la decisione del Consiglio degli Stati: il 90% delle filiali estere di UBS sarà coperto con capitale CET1, contro il 100% proposto dal Consiglio',
+    keywords: 'frontalieri, ticino, svizzera, italia, approva, requisiti, capitale, decisione',
+    ogTitle: 'UBS, la BNS approva il requisito di capitale al 90%',
+    ogDescription: 'Il Consiglio degli Stati ha deciso di coprire al 90% il valore delle filiali estere di UBS con capitale CET1. La BNS considera buona la proposta, mentre il Consiglio federale aveva sostenuto il 100% per una maggiore stabilità finanziaria.',
+    canonicalPath: '/articoli-svizzera/ubs-capitale-90-bns/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS, la BNS approva requisiti di capitale al 90%",
+      "description": "La BNS approva la decisione del Consiglio degli Stati: il 90% delle filiali estere di UBS sarà coperto con capitale CET1, contro il 100% proposto dal Consiglio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-capitale-90-bns.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio bancario svizzero con bandiera nazionale in una scena finanziaria"
+      },
+      "datePublished": "2026-09-24T20:09:09+00:00",
+      "dateModified": "2026-09-24T20:09:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-capitale-90-bns/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-mozione-costi-manifestazioni-stati': {
+    title: 'Mozione Stati: gli organizzatori pagano i costi sicurezza',
+    description: 'Gli Stati approvano la mozione 24-18 con 3 astensioni: il Consiglio federale dovrà preparare una base legale per far pagare agli organizzatori i costi',
+    keywords: 'frontalieri, ticino, svizzera, italia, mozione, stati, organizzatori, pagano',
+    ogTitle: 'Mozione Stati: gli organizzatori pagano i costi sicurezza',
+    ogDescription: 'Il Consiglio degli Stati ha approvato con 24 voti a favore, 18 contrari e 3 astensioni una mozione che chiede al Consiglio federale di elaborare una base legale per far pagare agli organizzatori delle manifestazioni i costi di intervento e sicurezza',
+    canonicalPath: '/articoli-svizzera/mozione-costi-manifestazioni-stati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mozione Stati: gli organizzatori pagano i costi sicurezza",
+      "description": "Gli Stati approvano la mozione 24-18 con 3 astensioni: il Consiglio federale dovrà preparare una base legale per far pagare agli organizzatori i costi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mozione-costi-manifestazioni-stati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione svizzera con forze dell'ordine in primo piano"
+      },
+      "datePublished": "2026-09-24T21:22:12+00:00",
+      "dateModified": "2026-09-24T21:22:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mozione-costi-manifestazioni-stati/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

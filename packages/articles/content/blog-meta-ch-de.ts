@@ -1457,7 +1457,7 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analyse des Bundesamtes für Statistik über das Phänomen des Grenzgängertums: Die Lombardei wächst, der Sprung der Provinz Monza und Brianza fällt auf.',
     'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Panoramablick auf Lugano und seinen See im schweizerischen städtischen Kontext',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Dritte Säule 3a Schweiz: Vorteile 2026 im Kanton St. Gallen',
-    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'Das Doppelbesteuerungsabkommen Italien-Schweiz wurde am 9. Dezember 1976 unterzeichnet. Die neuen Grenzgänger haben eine Selbstbeteiligung von 10.000 €.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'Das Doppelbesteuerungsabkommen Italien-Schweiz wurde am 9. März 1976 unterzeichnet. Die neuen Grenzgänger haben eine Selbstbeteiligung von 10.000 €.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano und See Lugano',
     'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Grenzgängerbewilligung G: Verfahren und Pflichten im Tessin',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Praktischer Leitfaden zur Beantragung der neuen Bewilligung G für Grenzgänger im Tessin: Dokumente, Meldepflichten und Verfahrensgebühren aktualisiert.',
@@ -6668,6 +6668,12 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.indennita-maltempo-sei-mesi.title': 'Überstunden: Unwetterentschädigung nach sechs Monaten',
     'blog.article.indennita-maltempo-sei-mesi.excerpt': 'Der Nationalrat genehmigt den Schutz von Zeitarbeitskräften, die seit mindestens sechs Monaten in den laufenden Beziehungen gegen Unwetterunterbrechungen beschäftigt sind.',
     'blog.article.indennita-maltempo-sei-mesi.imageAlt': 'Schweizer Parlamentskammer bei einer Debatte zum Schutz von Temporärarbeitenden.',
+    'blog.article.ubs-capitale-90-bns.title': 'UBS, SNB genehmigt Kapitalanforderungen zu 90 %',
+    'blog.article.ubs-capitale-90-bns.excerpt': 'Die SNB stimmt dem Entscheid des Ständerates zu: Die Auslandsniederlassungen der UBS sollen zu 90% mit WAK1-Kapital abgesichert werden.',
+    'blog.article.ubs-capitale-90-bns.imageAlt': 'Schweizer Bankgebäude mit Nationalflagge in einer Finanznachrichtenszene',
+    'blog.article.mozione-costi-manifestazioni-stati.title': 'Motion Staaten: Die Organisatoren zahlen die Sicherheitskosten',
+    'blog.article.mozione-costi-manifestazioni-stati.excerpt': 'Die Staaten stimmen der Motion 24-18 mit 3 Enthaltungen zu: Der Bundesrat muss eine gesetzliche Grundlage schaffen, damit die Organisatoren die Kosten für den Einsatz und die Sicherheit der Demonstrationen nach den Unruhen vom 11. Oktober in Bern bezahlen können.',
+    'blog.article.mozione-costi-manifestazioni-stati.imageAlt': 'Schweizer Demonstration mit Polizeikräften im Vordergrund',
 };
 
 export default blogMetaChDe;

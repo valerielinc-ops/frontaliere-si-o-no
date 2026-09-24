@@ -140,7 +140,7 @@ function validateRecord(registry, type, record, line) {
     } else {
       validateActionClassAgainstPolicy(registry, loopId, record.actionClass);
       if (type === 'decision') validateDecisionLifecycle(registry, loopId, record);
-      validateOutcomeAgainstPolicy(registry, loopId, record.outcome);
+      validateOutcomeAgainstPolicy(registry, loopId, record.outcome, { allowHistoricalSourceRefs: true });
     }
   } catch (error) {
     errors.push(`${type} line ${line}: registry validation failed (${error.message})`);

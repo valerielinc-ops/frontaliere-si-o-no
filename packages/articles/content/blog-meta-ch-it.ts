@@ -1457,7 +1457,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analisi dell\'Ufficio federale di statistica sul fenomeno del frontalierato: cresce la Lombardia, spicca il balzo della provincia di Monza e Brianza.',
     'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Veduta panoramica di Lugano e del suo lago con il contesto urbano svizzero',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
-    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano e il Lago di Lugano',
     'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Permesso G per frontalieri: procedura e obblighi in Ticino',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Guida pratica alla richiesta del nuovo permesso G per frontalieri in Ticino: documenti, obblighi di notifica e tasse di procedura aggiornate.',
@@ -6668,6 +6668,12 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.indennita-maltempo-sei-mesi.title': 'Interinali: indennità per intemperie dopo sei mesi',
     'blog.article.indennita-maltempo-sei-mesi.excerpt': 'Il Consiglio nazionale approva la protezione degli interinali impiegati da almeno sei mesi nei rapporti continuativi contro le interruzioni per maltempo.',
     'blog.article.indennita-maltempo-sei-mesi.imageAlt': 'Aula parlamentare svizzera durante il dibattito sulla tutela dei lavoratori interinali.',
+    'blog.article.ubs-capitale-90-bns.title': 'UBS, la BNS approva requisiti di capitale al 90%',
+    'blog.article.ubs-capitale-90-bns.excerpt': 'La BNS approva la decisione del Consiglio degli Stati: le filiali estere di UBS dovranno essere coperte al 90% con capitale CET1.',
+    'blog.article.ubs-capitale-90-bns.imageAlt': 'Edificio bancario svizzero con bandiera nazionale in una scena finanziaria',
+    'blog.article.mozione-costi-manifestazioni-stati.title': 'Mozione Stati: gli organizzatori pagano i costi sicurezza',
+    'blog.article.mozione-costi-manifestazioni-stati.excerpt': 'Gli Stati approvano la mozione 24-18 con 3 astensioni: il Consiglio federale dovrà preparare una base legale per far pagare agli organizzatori i costi di intervento e sicurezza delle manifestazioni, dopo i disordini dell\'11 ottobre a Berna.',
+    'blog.article.mozione-costi-manifestazioni-stati.imageAlt': 'Manifestazione svizzera con forze dell\'ordine in primo piano',
 };
 
 export default blogMetaChIt;

@@ -9,6 +9,7 @@ vi.mock('node:child_process', () => ({ spawn: (...args: unknown[]) => spawnMock(
 
 import {
   AI_MODELS,
+  __enableClaudeCliLaneForTests,
   CODEX_INDIRECT_FALLBACK_EFFORT,
   __codexFallbackTimeoutForTests,
   __installScoreStoreForTests,
@@ -55,6 +56,9 @@ describe('Claude CLI usage-limit → indirect Codex fallback', () => {
 
   beforeEach(async () => {
     resetState();
+    // Haiku e' spento nel codice (2026-09-24): questi test esercitano la
+    // macchina claude-cli rimasta, quindi la riaccendono col seam di test.
+    __enableClaudeCliLaneForTests();
     spawnMock.mockReset();
     for (const key of ENV_KEYS) saved[key] = process.env[key];
     process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '1';

@@ -270,7 +270,7 @@ function readDurableHealth(ledgerDir, registry) {
         throw new Error(`line ${index + 1} is not a health record`);
       }
       validateActionClassAgainstPolicy(registry, health.loopId, health.actionClass);
-      validateOutcomeAgainstPolicy(registry, health.loopId, health.outcome);
+      validateOutcomeAgainstPolicy(registry, health.loopId, health.outcome, { allowHistoricalSourceRefs: true });
       if (!health.execution?.runId || !/^[0-9a-f]{40}$/iu.test(String(health.execution.sha))) {
         throw new Error(`line ${index + 1} has no durable execution identity`);
       }

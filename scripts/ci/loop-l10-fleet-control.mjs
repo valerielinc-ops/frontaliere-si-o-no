@@ -343,7 +343,7 @@ function validateCanonicalHealthHistory(history, {
       if (!object(row.outcome)) rowIssues.push('outcome is missing');
       else {
         try {
-          validateOutcomeAgainstPolicy(registry, row.loopId, row.outcome);
+          validateOutcomeAgainstPolicy(registry, row.loopId, row.outcome, { allowHistoricalSourceRefs: true });
         } catch (error) {
           rowIssues.push(`outcome violates registry: ${error.message}`);
         }
