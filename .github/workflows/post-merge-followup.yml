@@ -597,6 +597,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
+          # I daily del sito contengono anche item instradati dal corpus
+          # (FOLLOWUP.md § Routing cross-repository) con `Sources: PR #N` di
+          # frontaliere-articles: senza questo repository gemello il recovery
+          # storico non li risolveva mai e i daily restavano `collecting`.
+          GATE_ALT_PR_REPO: nanakokyobashi-rgb/frontaliere-articles
+          GATE_ALT_PR_TOKEN: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}
           BATCH_PRS: ${{ steps.collect.outputs.batch_prs }}
           TRIAGE_DAILY_KEY: ${{ steps.collect.outputs.daily_key }}
           COLLECTION_OK: ${{ steps.collect.outputs.collection_ok }}
