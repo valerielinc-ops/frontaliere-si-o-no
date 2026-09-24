@@ -5203,9 +5203,12 @@ export function isLikelyJobDetailUrl(rawUrl = '') {
     /\/jobs\/[^/?#]+/.test(url) ||
     /\/vacanc/.test(url) ||
     /\/offene-stellen\/[^/?#]+/.test(url) ||
+    /\/stelle\/[^/?#]+/.test(url) ||
+    /\/stellenangebote\/[^/?#]+_j_\d+(?:[/?#]|$)/.test(url) ||
     /\/posti-vacanti\/[^/?#]+/.test(url) ||
     /\/open-positions?\/[^/?#]+/.test(url) ||
     /\/offres?-emploi\/[^/?#]+/.test(url) ||
+    /\/work\/\d+\/[^/?#]+/.test(url) ||
     /\/careers?\/job/.test(url) ||
     /[?&](jobid|jobid=|gh_jid|lever-source|wdjobid|job_id|yid)=/.test(url) ||
     /\/position\//.test(url)

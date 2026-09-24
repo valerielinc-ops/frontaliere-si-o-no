@@ -6677,6 +6677,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.bns-tasso-guida-zero-2026.title': 'BNS lascia tasso guida allo 0% e rialza stime PIL 2026',
     'blog.article.bns-tasso-guida-zero-2026.excerpt': 'Il tasso guida BNS resta allo 0% da giugno 2025; inflazione agosto allo 0,8%; PIL 2026 previsto tra 1,5% e 2%.',
     'blog.article.bns-tasso-guida-zero-2026.imageAlt': 'Vista del lago di Lugano con montagne e edifici finanziari sullo sfondo',
+    'blog.article.turismo-agosto-ospiti-estero.title': 'Fine estate con meno turisti stranieri in Svizzera',
+    'blog.article.turismo-agosto-ospiti-estero.excerpt': 'In agosto i pernottamenti in Svizzera sono scesi dell\'1,9% su base annua: pesano gli ospiti stranieri, ma arretra anche la domanda interna.',
+    'blog.article.turismo-agosto-ospiti-estero.imageAlt': 'Turisti sul lungolago svizzero in una scena di fine estate.',
 };
 
 export default blogMetaChIt;
