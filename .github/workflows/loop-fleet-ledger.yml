@@ -264,10 +264,13 @@ jobs:
               exit 1
             fi
             basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
+            # The checkout is shallow and this branch contains large JSONL
+            # blobs; disable thin-pack delta search so the bounded push does
+            # not spend its entire timeout scanning unreachable history.
             if GIT_CONFIG_COUNT=1 \
               GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
               GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}" \
-              bounded_remote git -C "$ledger_worktree" push origin "HEAD:refs/heads/$ledger_branch"; then
+              bounded_remote git -C "$ledger_worktree" -c pack.window=0 -c pack.threads=1 push --no-thin origin "HEAD:refs/heads/$ledger_branch"; then
               unset basic_auth
               exit 0
             fi

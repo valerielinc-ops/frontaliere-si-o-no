@@ -304,7 +304,7 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain(validator);
       expect(source, name).toContain('--registry data/loop-fleet/loop-registry.json');
       expect(source, name).toContain('for attempt in 1 2 3 4 5');
-      expect(source, name).toContain('bounded_remote git -C "$ledger_worktree" push origin "HEAD:refs/heads/$ledger_branch"');
+      expect(source, name).toContain('bounded_remote git -C "$ledger_worktree" -c pack.window=0 -c pack.threads=1 push --no-thin origin "HEAD:refs/heads/$ledger_branch"');
       expect(source, name).toContain('git -C "$ledger_worktree" checkout -B ledger-work "origin/$ledger_branch"');
       expect(source, name).toContain('git -C "$ledger_worktree" checkout HEAD -- data/loop-fleet/ledger/');
       expect(source, name).toContain('ledger_dir="$ledger_worktree/data/loop-fleet/ledger"');
