@@ -209,6 +209,17 @@ export const PLATE_AUCTION_SALE_RECOGNITION = Object.freeze({
 });
 
 /**
+ * How long a row preserved by the band/cap guard may stay absent before its
+ * disappearance is recorded. The guard protects the FIRST run of a sudden loss
+ * (a truncated PDF must not become a batch of sales); it must not re-judge the
+ * same absence forever. 72h is twelve 6-hourly runs and three daily catalogue
+ * refreshes (LU/AI/UR publish once a day): long enough for a broken upstream to
+ * be seen, reported and fixed, short enough that a sold plate leaves the site.
+ * Shared by both collectors so the static snapshot and Firestore cannot drift.
+ */
+export const PLATE_AUCTION_MISSING_GRACE_MS = 72 * 60 * 60 * 1000;
+
+/**
  * Fail-closed toward never inventing a sale: when either test fails we keep
  * today's preserve-as-live behaviour. The accepted consequence is staying at
  * zero recorded sales until the calibration above is confirmed on real data —

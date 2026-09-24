@@ -14,10 +14,11 @@
  * instead — see #4759), which silently starved the old sitemap-based
  * discovery. Primary discovery flow (fallback flow below it):
  *   1. Paginate the job.post.ch recruiting JSON API
- *      (POST /services/recruiting/v1/jobs) and filter entries whose
- *      `brandUrl` field equals "PostFinance" (the API has no server-side
- *      brand filter param that works — passing brand:"PFCH" returns
- *      totalJobs:0 — so filtering happens client-side on the full result set)
+ *      (POST /services/recruiting/v1/jobs) with the server-side
+ *      `brand: "PostFinance"` filter the site's own PostFinance search sends
+ *      (brand:"PFCH" returns totalJobs:0), falling back to the unfiltered
+ *      scan if the filter yields nothing, and keep entries whose `brandUrl`
+ *      field equals "PostFinance"
  *   2. Build the canonical job URL from each entry's `id`/`urlTitle`
  *      (https://job.post.ch/PostFinance/job/{urlTitle}/{id}/)
  *   3. Resolve canton from the entry's `jobLocationShort` field, falling
@@ -107,6 +108,15 @@ const POSTCH_LISTING_URLS = [
 const RECRUITING_API_URL = 'https://job.post.ch/services/recruiting/v1/jobs';
 const RECRUITING_API_PAGE_SIZE = 10;
 const RECRUITING_API_MAX_PAGES = 60; // safety cap; ~126 total postings today (~13 pages)
+// Server-side brand filter. The job.post.ch search SPA sends exactly this
+// value on the PostFinance site (`initJobSearch()`: brand === 'PFCH' →
+// brandFilter 'PostFinance', read from the live page 2026-09-24); the earlier
+// `brand: "PFCH"` probe (#4759) used the site code, not the filter value, and
+// got totalJobs:0. Unfiltered, the de_DE scan is ~245 rows / 25 pages of an
+// unstably date-sorted feed: 2026-09-21 page 25 came back without
+// `jobSearchResult` and 2026-09-23 the last page repeated only known ids
+// ("page made no unique progress"). Filtered it is ~16 rows / 2 pages.
+const RECRUITING_API_BRAND = 'PostFinance';
 
 // ──────────────────────────────────────────────────────────────
 // Helpers
@@ -189,7 +199,7 @@ async function fetchPage(url, timeoutMs = 15000) {
  * Fetch one page of the job.post.ch recruiting JSON API.
  * Returns the parsed response body, or null on failure.
  */
-async function fetchRecruitingApiPage(pageNumber, { locale = 'de_DE', timeoutMs = 15000 } = {}) {
+async function fetchRecruitingApiPage(pageNumber, { locale = 'de_DE', brand = '', timeoutMs = 15000 } = {}) {
   const controller = new AbortController();
   const timer = setTimeout(() => controller.abort(), timeoutMs);
   try {
@@ -207,6 +217,7 @@ async function fetchRecruitingApiPage(pageNumber, { locale = 'de_DE', timeoutMs 
         pageNumber,
         pageSize: RECRUITING_API_PAGE_SIZE,
         sortBy: 'date',
+        ...(brand ? { brand } : {}),
       }),
     });
     if (!res.ok) {
@@ -223,23 +234,21 @@ async function fetchRecruitingApiPage(pageNumber, { locale = 'de_DE', timeoutMs 
 }
 
 /**
- * Paginate the recruiting API and return every Swiss Post Group posting
- * whose `brandUrl` is "PostFinance". There is no working server-side brand
- * filter (passing brand:"PFCH" in the request body returns totalJobs:0),
- * so the full result set is fetched and filtered client-side — see #4759.
+ * One full pagination pass of the recruiting API, optionally narrowed by the
+ * server-side `brand` filter. Returns every unique posting of the pass.
  */
-async function fetchPostFinanceListingsViaRecruitingApi() {
+async function paginateRecruitingApi({ brand = '' } = {}) {
   const resultsById = new Map();
   let total = null;
   let pageNumber = 0;
   const progress = createMutableFeedPaginationTracker({
     getIdentity: (record) => record?.id,
-    source: 'PostFinance API',
+    source: brand ? `PostFinance API (brand=${brand})` : 'PostFinance API',
   });
   let paginationComplete = false;
 
   while (pageNumber < RECRUITING_API_MAX_PAGES) {
-    const page = await fetchRecruitingApiPage(pageNumber);
+    const page = await fetchRecruitingApiPage(pageNumber, { brand });
     if (!page) {
       throw new Error(`PostFinance API pagination failed at page ${pageNumber}: no response received.`);
     }
@@ -290,9 +299,25 @@ async function fetchPostFinanceListingsViaRecruitingApi() {
     );
   }
 
-  const results = [...resultsById.values()];
+  return [...resultsById.values()];
+}
+
+/**
+ * Return every Swiss Post Group posting whose `brandUrl` is "PostFinance".
+ * The brand-filtered query is primary; the client-side `brandUrl` check stays
+ * on both paths. If the filter ever stops matching (0 rows), fall back to the
+ * full unfiltered scan instead of reporting an empty board (#4759).
+ */
+async function fetchPostFinanceListingsViaRecruitingApi() {
+  let results = await paginateRecruitingApi({ brand: RECRUITING_API_BRAND });
+  let scope = `brand=${RECRUITING_API_BRAND}`;
+  if (results.length === 0) {
+    console.warn(`  ⚠️ Recruiting API brand filter "${RECRUITING_API_BRAND}" returned 0 postings — falling back to the unfiltered scan.`);
+    results = await paginateRecruitingApi();
+    scope = 'unfiltered';
+  }
   const pfJobs = results.filter((r) => r?.brandUrl === 'PostFinance');
-  console.log(`  🔎 Recruiting API: ${results.length} unique Swiss Post Group postings scanned, ${pfJobs.length} PostFinance-branded.`);
+  console.log(`  🔎 Recruiting API (${scope}): ${results.length} unique Swiss Post Group postings scanned, ${pfJobs.length} PostFinance-branded.`);
   return pfJobs;
 }
 
@@ -507,7 +532,7 @@ function parsePostFinanceMetaPage(html, url) {
   };
 }
 
-export { parsePostFinanceMetaPage };
+export { parsePostFinanceMetaPage, fetchPostFinanceListingsViaRecruitingApi };
 
 // ──────────────────────────────────────────────────────────────
 // PostCH listing page scan (for supplementary /v2/ URLs)

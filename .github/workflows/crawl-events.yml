@@ -86,6 +86,13 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # Senza questo opt-in il cron giornaliero e' verde e inerte: il gate
+          # nega ogni `schedule` (`event-not-workflow-dispatch`), esce 0 e ogni
+          # step persist/commit/CDN viene saltato. Misurato: data/events.json
+          # fermo al 2026-09-16T11:08Z, e la run 35987430628 (2026-09-24) ha
+          # crawlato ~57 min per poi buttare via il risultato. E' lo stesso
+          # refresh interno dell'agenda di prima di #8889, col suo test gate.
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: events-dataset-publication
         run: node scripts/ci/human-side-effect-gate.mjs
 

@@ -210,6 +210,8 @@ Skipped: P item (🔴 pre-merge or duplicate active follow-up)
 
 Zero item dopo filtro+dedup e zero live-verify → `## Post-merge follow-up triage: zero outstanding items.` senza bucket. Solo live-verify → summary con `Live-verification` e `Created: 0 issue (solo live-verification batchata)`.
 
+Candidati tutti `Dropped`/`Skipped` (zero item persistiti da QUESTA PR, anche se il bucket del giorno esiste) → la riga di claim resta `Created/updated: 0 item.` con lo **0 in cifre**. Il verifier deterministico dello step «Verify complete follow-up triage» legge il numero, non la prosa: «nessun nuovo item nel bucket giornaliero» senza cifra resta un claim da provare e rende rossa la run (35904571443, 35933207218).
+
 ## Supersede detection → spostata su `followup-reconcile` (deterministica, zero-agente)
 
 **2026-06-04:** la supersede detection è in `followup-reconcile.yml` (`scripts/ci/reconcile-followups.mjs`, cron daily, **zero-agente**): per ogni issue `follow-up` aperta verifica se la fix è **presente verbatim** nel file/token citato.

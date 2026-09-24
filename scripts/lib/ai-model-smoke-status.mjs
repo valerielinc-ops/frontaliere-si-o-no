@@ -64,3 +64,54 @@ export function summarizeGitHubModelsVerification(results, bareRoster) {
     counts,
   };
 }
+
+// Salute della flotta: una "corsia" e' un provider con almeno un modello che
+// risponde `pass` al ping. Il gate Mistral `-latest` (#892) e' l'unico che fa
+// fallire lo smoke-test, quindi il crollo dell'intera flotta passava verde:
+// 2026-09-24 (run 35995800618) 4 pass su 104, dopo che le run di produzione
+// (newsletter 35976701363, snapshot lavori 35593110134) avevano gia' registrato
+// decine di "All AI models failed". Corsie sane misurate negli artifact:
+//   2026-09-01  7 (gemini, mistral, groq, openrouter, nvidia, omniroute, claude_cli)
+//   2026-09-16  5 (gemini, cohere, nvidia, omniroute, claude_cli)
+//   2026-09-22  2 (nvidia, omniroute — RC non caricato: no_key 100 su 105)
+//   2026-09-24  2 (nvidia, omniroute — 402 su mistral/hf/cerebras/sambanova,
+//                  catalogo GitHub Models non JSON, corsia Codex senza broker)
+// Sotto 3 corsie la catena di produzione non ha piu' ridondanza fra provider
+// indipendenti: e' il crollo, non una giornata con un provider giu'.
+export const MIN_HEALTHY_PROVIDER_LANES = 3;
+
+const RETIRED_STATUSES = new Set(['http_404', 'http_410']);
+
+function lanesWithStatus(byProvider, status) {
+  return Object.keys(byProvider).filter((lane) => byProvider[lane].statuses[status]).sort();
+}
+
+/**
+ * @param {Array<{model: string, status: string}>} results
+ * @param {(model: string) => string} providerOf
+ */
+export function summarizeAiFleetHealth(results, providerOf, { minHealthyLanes = MIN_HEALTHY_PROVIDER_LANES } = {}) {
+  const rows = results || [];
+  const byProvider = {};
+  for (const row of rows) {
+    const lane = providerOf(row.model);
+    const entry = byProvider[lane] || (byProvider[lane] = { pass: 0, total: 0, statuses: {} });
+    entry.total += 1;
+    if (row.status === 'pass') entry.pass += 1;
+    entry.statuses[row.status] = (entry.statuses[row.status] || 0) + 1;
+  }
+  const healthyLanes = Object.keys(byProvider).filter((lane) => byProvider[lane].pass > 0).sort();
+  return {
+    collapsed: healthyLanes.length < minHealthyLanes,
+    healthyLanes,
+    minHealthyLanes,
+    passCount: rows.filter((row) => row.status === 'pass').length,
+    modelCount: rows.length,
+    // Cause esterne rese visibili, non trasformate in fix: credito/abbonamento
+    // (402) e chiavi non arrivate dal Remote Config (no_key).
+    billingLanes: lanesWithStatus(byProvider, 'http_402'),
+    noKeyLanes: lanesWithStatus(byProvider, 'no_key'),
+    retiredModels: rows.filter((row) => RETIRED_STATUSES.has(row.status)).map((row) => row.model),
+    byProvider,
+  };
+}

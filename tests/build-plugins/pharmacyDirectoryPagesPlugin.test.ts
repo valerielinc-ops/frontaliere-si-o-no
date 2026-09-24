@@ -26,10 +26,16 @@ afterEach(() => {
   while (tempRoots.length > 0) fs.rmSync(tempRoots.pop()!, { recursive: true, force: true });
 });
 
+// Live-data counts: data/pharmacies-*.json are re-synced nightly, so a pinned
+// literal (749, 266) turns this gate red on every legitimate refresh. Derive
+// the expectation from the same snapshot the plugin reads.
+const TOTAL_PHARMACIES = TICINO_PHARMACIES.length + ITALY_BORDER_PHARMACIES.length;
+const italyProvinceCount = (code: string) => ITALY_BORDER_PHARMACIES.filter((pharmacy) => pharmacy.province === code).length;
+
 describe('pharmacy directory page matrix', () => {
   it('emits hubs, areas, city pages and one detail descriptor per pharmacy', () => {
     const descriptors = pharmacyPageDescriptors();
-    expect(descriptors.filter((descriptor) => descriptor.kind === 'pharmacy')).toHaveLength(749);
+    expect(descriptors.filter((descriptor) => descriptor.kind === 'pharmacy')).toHaveLength(TOTAL_PHARMACIES);
     expect(descriptors.some((descriptor) => descriptor.kind === 'country' && descriptor.country === 'IT')).toBe(true);
     expect(descriptors.filter((descriptor) => descriptor.kind === 'area')).toHaveLength(3);
     expect(descriptors.filter((descriptor) => descriptor.kind === 'city' && descriptor.country === 'IT').length).toBeGreaterThan(200);
@@ -156,7 +162,14 @@ describe('pharmacy directory page matrix', () => {
 
   it.each(locales)('keeps the static coverage matrix to five Ticino regions and 25 source-only cantons (%s)', (locale) => {
     const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-hub');
-    const now = new Date(Date.parse(dutiesJson._fetchedAt) + 60_000);
+    // The matrix evaluates the Ticino release (duties + catalogue) AND the
+    // Italian one (duties + status), refreshed by separate crons in either
+    // order. A snapshot fetched after `now` is fail-closed as stale, so pinning
+    // `now` to the Ticino duties alone turned this red whenever the Italian
+    // refresh landed later (2026-09-24: Ticino 09:27, Italy 09:29).
+    const snapshotAt = Math.max(...[dutiesJson._fetchedAt, catalogueJson._fetchedAt, italyDutiesJson._fetchedAt, italyStatusJson._fetchedAt]
+      .map((fetchedAt) => Date.parse(String(fetchedAt))));
+    const now = new Date(snapshotAt + 60_000);
     const page = buildPharmacyDirectoryPage(descriptor!, locale, '', dutiesJson as unknown as PharmacyDutiesDataset, now);
 
     expect(page.indexable).toBe(true);
@@ -224,7 +237,7 @@ describe('pharmacy directory page matrix', () => {
     const page = buildPharmacyDirectoryPage(hub!, 'it', '/tmp/pharmacy-dist');
     const schemas = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
     const collection = schemas.find((schema) => schema['@type'] === 'CollectionPage');
-    expect(collection.mainEntity.numberOfItems).toBe(749);
+    expect(collection.mainEntity.numberOfItems).toBe(TOTAL_PHARMACIES);
     expect(collection.mainEntity.itemListElement).toHaveLength(10);
   });
 
@@ -237,7 +250,7 @@ describe('pharmacy directory page matrix', () => {
     expect(page.indexable).toBe(true);
     expect(Buffer.byteLength(page.html, 'utf8')).toBeLessThan(260 * 1024);
     expect(nav.match(/<li\b/g) || []).toHaveLength(3);
-    for (const [areaSlug, count] of [['como', 193], ['varese', 266], ['verbano-cusio-ossola', 83] ] as const) {
+    for (const [areaSlug, count] of [['como', italyProvinceCount('CO')], ['varese', italyProvinceCount('VA')], ['verbano-cusio-ossola', italyProvinceCount('VB')]] as const) {
       const areaPath = buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug, locale }, locale);
       expect(nav).toContain(`href="${areaPath}"`);
       expect(nav).toContain(String(count));

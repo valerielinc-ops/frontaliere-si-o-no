@@ -453,17 +453,13 @@ describe('un gateway giu\' vota una volta sola, non una per modello ospitato', (
 
 describe('roster — nessun modello ritirato, nessun buco', () => {
   it('un modello ritirato esce dal giro da solo, senza curare il roster a mano', () => {
-    // I tre modelli che Google ha ritirato il 2026-08-14 restano in AI_MODELS DI
-    // PROPOSITO. Toglierli a mano e' cio' che e' gia' stato fatto una volta
-    // (GEMINI_31_FLASH_LITE, 2026-05-27) e che ha lasciato tornare il difetto tre
-    // mesi dopo con altri tre: la lista rimarcisce, il matcher no. Con il matcher
-    // riparato ognuno costa UN 404 per run invece di sedici.
-    //
-    // E c'e' una ragione piu' dura per non toglierli in questa PR: farlo rende
-    // rosso `tests/local-llm-fallback.test.ts`, che passava soltanto perche' quei
-    // tre erano gli unici modelli Gemini non esauriti nello ScoreStore — cioe'
-    // grazie al difetto stesso. Un test che dipende dalla ruggine va reso ermetico
-    // prima, non aggirato.
+    // Il matcher e' la rete di sicurezza: un modello ritirato costa UN 404 per run
+    // anche prima che qualcuno lo tolga dal roster. Curare solo la lista e' cio'
+    // che e' gia' fallito (GEMINI_31_FLASH_LITE, 2026-05-27): la lista rimarcisce,
+    // il matcher no. I tre id Google ritirati il 2026-08-14 sono usciti da
+    // AI_MODELS il 2026-09-24 (smoke-test 35995800618), dopo aver reso ermetico
+    // `tests/local-llm-fallback.test.ts`, che passava soltanto perche' quei tre
+    // erano gli unici Gemini non esauriti nello ScoreStore di produzione.
     for (const dead of ['gemini-2.0-flash', 'gemini-2.0-flash-lite', 'gemini-3-pro-preview']) {
       const r = classifyNonRetryableError(404, `{"error":{"code":404,"message":"This model models/${dead} is no longer available."}}`);
       assert.equal(r.markExhausted, true, `${dead} deve essere marcato esaurito al primo 404`);

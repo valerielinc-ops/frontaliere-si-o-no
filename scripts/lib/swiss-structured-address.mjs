@@ -1,7 +1,7 @@
 import MUNICIPALITY_DATA from '../../data/canton-municipalities.json' with { type: 'json' };
 import SWISS_POSTAL_CODES from '../../data/swiss-postal-codes.json' with { type: 'json' };
-import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
-import { inferAnyCanton } from './target-swiss-locations.mjs';
+import { CITY_FALLBACK_ADDRESSES, resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
+import { inferAnyCanton, isKnownSwissCity } from './target-swiss-locations.mjs';
 
 const CANTONS = new Set([
   'AG', 'AI', 'AR', 'BE', 'BL', 'BS', 'FR', 'GE', 'GL', 'GR', 'JU', 'LU',
@@ -105,4 +105,42 @@ export function resolveSwissStructuredAddress({
   }
 
   return structuredFallback(city, cantonCode, companySlug);
+}
+
+/**
+ * Indirizzo di una località reale quando la fonte non dà via e NPA.
+ *
+ * `resolveFallbackAddress` restituisce il capoluogo cantonale completo per
+ * ogni città fuori dalla sua tabella (Pully → Lausanne, Buchs SG → St. Gallen,
+ * St Moritz → Chur): coerente come tupla, ma pubblicato come
+ * `addressLocality` è il «generic-city fallback» che audit-parser-quality
+ * segnala (issue 5253) e che il JobPosting porta a Google come luogo di
+ * lavoro. Qui la località resta quella della vacancy; via e NPA del ripiego si
+ * tengono solo se il ripiego nomina la stessa località (#3513), altrimenti
+ * NPA verificato BFS della località e via vuota — la completa l'emitter
+ * JobPosting (`resolveAddress` in build-plugins/shared/jobPostingSchema.ts),
+ * senza abbinarla a una località diversa. Un'etichetta che non è un comune
+ * (`GA Wil`, `Villars sur Ollon`) non è una località da pubblicare: per quella
+ * resta la tupla coerente del ripiego, come prima.
+ *
+ * @param {{ city?: string, canton?: string }} input
+ * @returns {{ addressLocality: string, postalCode: string, streetAddress: string }}
+ */
+export function resolveLocalityAddress({ city = '', canton = '' } = {}) {
+  const locality = String(city || '').trim();
+  const fallback = resolveFallbackAddress(undefined, locality, canton);
+  if (!locality) return fallback;
+  const cantonCode = resolveCanton(canton, locality);
+  if (!isKnownSwissCity(locality, cantonCode)) return fallback;
+  const municipality = resolveMunicipality(locality, cantonCode);
+  const fallbackKey = normalize(cleanCity(fallback.addressLocality));
+  const sameLocality = fallbackKey === normalize(cleanCity(locality))
+    || (municipality && fallbackKey === normalize(municipality))
+    || Boolean(CITY_FALLBACK_ADDRESSES[locality.toLowerCase()]);
+  if (sameLocality) return fallback;
+  return {
+    addressLocality: locality,
+    postalCode: verifiedPostalForCity(municipality || locality),
+    streetAddress: '',
+  };
 }

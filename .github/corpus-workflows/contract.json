@@ -4,11 +4,11 @@
   "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "9b9bbe1897e798ab236faec96750846b55a3fa06",
+  "sourceCommit": "48207b409aef44cded1e4b04510aaadad0549df0",
   "artifactObservation": {
     "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
     "sourceRef": "main",
-    "sourceCommit": "9b9bbe1897e798ab236faec96750846b55a3fa06"
+    "sourceCommit": "48207b409aef44cded1e4b04510aaadad0549df0"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -1455,8 +1455,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "74dbaad0e55817b8400f06def353885bb52a6007adb0cdc60eaaa15fb3f5953d",
-      "artifactSha256": "7f681b9dc8038cbea836797e97a825578ccfeabc70912fb15ffac14cffdeddfd",
+      "sourceSha256": "c36eb6762394094ba4fd9540c69963f4a61caf304fee1e196f9e7e0eaedd5a00",
+      "artifactSha256": "1c07e8838ef0d3157b13aa7dea656ff605970684c96579a0512b37a003bf5b5c",
       "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
       "members": [
         "mcdonald-s-switzerland",
@@ -1471,8 +1471,8 @@
     {
       "file": "translate-pending.yml",
       "sourceLogic": "translate-pending-logic.yml",
-      "sourceSha256": "ad8ac8ba9afb9611699ba7fd03c6ec5670ee91226cd7fba413e49f7ebc758347",
-      "artifactSha256": "680f356b302f21b8101d79a30e99786f64814bd5a33c4ab9a26eac47a41678be",
+      "sourceSha256": "5c64d734ed963f4c5a7115c16ee43442a2e11a14a7da2dfdaa071c8b709fed25",
+      "artifactSha256": "bc7345b6dad7db4d80cde37b997f89af9bac7222b984df8fa34ca2143c3e20b9",
       "generatorSha256": "ca6de7edbb725fa6cb7fdb508ee51888025c39696c01bdbde20b71dba06fe4c4",
       "members": []
     }

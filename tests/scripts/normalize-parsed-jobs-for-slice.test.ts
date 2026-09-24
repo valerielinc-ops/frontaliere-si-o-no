@@ -36,6 +36,21 @@ describe('normalizeParsedJobsForSlice', () => {
     expect(jobs[0].location).toBe('Ticino');
   });
 
+  it('keeps the city of a "City & Homeoffice" location instead of the canton label (issue 5253)', () => {
+    // helsana: `Worblaufen & Homeoffice` usciva `Zurigo`, `Chur & Homeoffice` `Grigioni`.
+    const jobs: JobLike[] = [
+      { location: 'Worblaufen & Homeoffice', canton: 'BE' },
+      { location: 'Chur & Homeoffice', canton: 'GR' },
+      { location: 'Dübendorf-Stettbach & Homeoff', canton: 'ZH' },
+    ];
+    normalizeParsedJobsForSlice(jobs);
+    expect(jobs.map((job) => job.location)).toEqual(['Worblaufen', 'Chur', 'Dübendorf-Stettbach']);
+    // «home office» dentro una frase resta prosa.
+    const prose: JobLike[] = [{ location: 'Home office possible two days per week', canton: 'BE' }];
+    normalizeParsedJobsForSlice(prose);
+    expect(prose[0].location).not.toContain('Home office');
+  });
+
   it('preserves a clean city location', () => {
     const jobs: JobLike[] = [{ location: 'Lugano', addressLocality: 'Lugano' }];
     normalizeParsedJobsForSlice(jobs);

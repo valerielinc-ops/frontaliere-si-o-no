@@ -31,7 +31,7 @@ import { TLS_ERROR_CODES } from './transient-fetch.mjs';
 
 import { inferAnyCanton, isTargetSwissLocation, normalizeCantonCode } from './target-swiss-locations.mjs';
 import { coerceCountryField, isChCountry } from './ch-country-guard.mjs';
-import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
+import { resolveLocalityAddress } from './swiss-structured-address.mjs';
 
 export const MCDO_KEY = 'mcdonald-s-switzerland';
 export const COMPANY_NAME = "McDonald's Switzerland";
@@ -572,15 +572,20 @@ export function buildMcdoJob(parsed) {
   const hasConcreteSourceAddress = /^\d{4}$/.test(sourcePostalCode)
     && sourceStreetAddress
     && sourceStreetAddress.toLocaleLowerCase() !== sourceCity.toLocaleLowerCase();
+  // La località del ristorante, non il capoluogo di ripiego (gemello di
+  // nord-anglia/swiss-life, audit-parser-quality issue 5253): via e NPA del
+  // ripiego valgono solo se coerenti con la città. Senza indirizzo concreto e
+  // senza ripiego coerente l'annuncio resta fuori (via obbligatoria, sotto)
+  // invece di essere pubblicato nel capoluogo.
   const fallbackAddress = hasConcreteSourceAddress
     ? null
-    : resolveFallbackAddress('', sourceCity, sourceCanton);
+    : resolveLocalityAddress({ city: sourceCity, canton: sourceCanton });
   const location = hasConcreteSourceAddress
     ? sourceCity
     : String(fallbackAddress?.addressLocality || '').trim();
   const canton = hasConcreteSourceAddress
     ? sourceCanton
-    : String(fallbackAddress?.addressRegion || '').trim();
+    : String(fallbackAddress?.addressRegion || sourceCanton).trim();
   const postalCode = hasConcreteSourceAddress
     ? sourcePostalCode
     : String(fallbackAddress?.postalCode || '').trim();

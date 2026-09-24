@@ -26,6 +26,7 @@ import {
 
 const LIVE_STATUSES = new Set(['queued', 'in_progress', 'waiting', 'requested', 'pending']);
 export const LIVE_RUN_QUERY_TIMEOUT_MS = 30_000;
+export const LIVE_RUN_QUERY_MAX_BUFFER_BYTES = 64 * 1024 * 1024;
 // The longest grouped job is capped at 340 minutes. A six-hour lease gives a
 // crashed runner a bounded takeover window while covering the full job plus
 // finalization/release, and normal runs delete it immediately on completion.
@@ -122,6 +123,11 @@ export function hasLiveRun(groupFile, {
       encoding: 'utf8',
       timeout: timeoutMs,
       killSignal: 'SIGTERM',
+      // `--paginate --slurp` over every historical run of the group file is
+      // well over execFileSync's 1 MiB default buffer (103+ runs of
+      // crawler-group-NN.yml): every corpus run hit `spawnSync gh ENOBUFS`
+      // and the probe silently fell back to fail-open.
+      maxBuffer: LIVE_RUN_QUERY_MAX_BUFFER_BYTES,
       env: { ...process.env, GH_TOKEN: token },
     });
   } catch (errorValue) {

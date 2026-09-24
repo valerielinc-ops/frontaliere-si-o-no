@@ -93,10 +93,17 @@ jobs:
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
+      # Make the soft-skip visible: without INSTAGRAM_ACCESS_TOKEN (RC key
+      # SERVER_INSTAGRAM_ACCESS_TOKEN, pending Meta App Review) every run was
+      # green but posted nothing (data/instagram-posted.json never written).
+      - name: Warn when Instagram credentials are absent
+        if: env.INSTAGRAM_ACCESS_TOKEN == ''
+        run: echo "::warning::INSTAGRAM_ACCESS_TOKEN is not set — nothing will be posted this run (soft-skip)."
+
       # Only needed for the job slot — same reasoning as linkedin-member-daily.yml:
       # without it the poster skips the job slot rather than guessing.
       - name: Assemble jobs dataset
-        if: env.ONLY != 'article' && env.ONLY != 'border'
+        if: env.ONLY != 'article' && env.ONLY != 'border' && env.INSTAGRAM_ACCESS_TOKEN != ''
         run: node scripts/assemble-jobs-dataset.mjs --stats
         continue-on-error: true
 

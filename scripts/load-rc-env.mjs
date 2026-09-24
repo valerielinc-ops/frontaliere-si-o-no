@@ -271,6 +271,18 @@ export const RC_TO_ENV = {
   SERVER_TIKTOK_SANDBOX_CLIENT_KEY:    ['TIKTOK_SANDBOX_CLIENT_KEY'],
   SERVER_TIKTOK_SANDBOX_CLIENT_SECRET: ['TIKTOK_SANDBOX_CLIENT_SECRET'],
 
+  // CODEX_AUTH_JSON lives in Remote Config but is deliberately NOT mapped,
+  // the one exception to "every secret in RC is mapped here" (DECISIONS.md
+  // 2026-09-24). The RC copy exists only for functions/src/codexFallback.js
+  // and is written by codex-auth-rotate.yml WITHOUT refresh_token. CI jobs get
+  // the GitHub secret only as a step-level env/action input, so this script's
+  // own step never has it set and would NOT skip it: it would append
+  // CODEX_AUTH_JSON to $GITHUB_ENV, exposing the login to every later step of
+  // the job (the broker design forbids exactly that: setup-claude-haiku-fallback
+  // /action.yml, generate-crawler-group-workflows.mjs), and any step without
+  // the step-level secret would read the refresh-token-less copy. The GitHub
+  // secret stays the only CI source. Pinned by tests/codex-auth-rotate.test.ts.
+
   // LLM providers (AI model chain for articles + crawlers)
   GROQ_API_KEY:                   ['GROQ_API_KEY'],
   OPENROUTER_API_KEY:             ['OPENROUTER_API_KEY'],
@@ -335,15 +347,18 @@ export const RC_TO_ENV = {
   // by default — code falls back to the built-in 0.86 baseline. Lets a single
   // test window relax the threshold without a code change or redeploy.
   NEAR_DUP_COSINE:                ['NEAR_DUP_COSINE'],
-  // Opt-in article-generation fallback via the `claude` CLI (see
-  // AI_MODELS.CLAUDE_CLI_HAIKU). Since 2026-07-29 (AI_COMPETING_TIERS default
-  // in ai-models.mjs) this tier is tier-0 BY DEFAULT — it competes on real
-  // score against every model in DEFAULT_CHAIN, it is NOT reached only after
-  // every other model (including local/fallback) has failed anymore; set
-  // AI_COMPETING_TIERS='' to restore that old behavior. Unset in RC by
-  // default (OFF) — code requires this AND CLAUDE_CODE_OAUTH_TOKEN before
-  // offering the model at all (see isClaudeCliFallbackEnabled/hasClaudeCodeOauthToken).
+  // Historical gate of the article CLI lane. Since 2026-09-24 it has NO
+  // effect: the owner disabled the Haiku lane in code ("only Codex"),
+  // isClaudeCliFallbackEnabled() in ai-models.mjs is hard-wired to false, and
+  // the Codex lane has its own switch (ENABLE_CODEX_ARTICLE_FALLBACK below).
+  // Still mapped so an existing RC value keeps loading without a warning.
   ENABLE_HAIKU_ARTICLE_FALLBACK:  ['ENABLE_HAIKU_ARTICLE_FALLBACK'],
+  // The Codex Luna Max article lane's own switch (setup-claude-haiku-fallback
+  // action + isCodexCliPrimaryEnabled in ai-models.mjs). Unset = ON; only an
+  // explicit 0/false/no/off turns the lane off. Since 2026-09-24 it replaces
+  // ENABLE_HAIKU_ARTICLE_FALLBACK as the Codex gate, so turning Haiku off can
+  // no longer turn Codex off.
+  ENABLE_CODEX_ARTICLE_FALLBACK:  ['ENABLE_CODEX_ARTICLE_FALLBACK'],
 
   // JSON array of {provider, name, apiKey} — decrypted OmniRoute provider
   // connections synced from a local ~/.omniroute/storage.sqlite via

@@ -1,6 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { chmodSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
-import { spawnSync } from 'node:child_process';
+import { execFileSync, spawnSync } from 'node:child_process';
 import os from 'node:os';
 import path from 'node:path';
 import YAML from 'yaml';
@@ -434,6 +434,37 @@ describe('workflow wiring for the two site PR fixer consumers', () => {
     expect(redflag).toContain('EXPECTED_REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}');
     expect(redflag).toContain("echo 'CLAIM_STATUS=released' >> \"$GITHUB_ENV\"");
     expect(redflag).toContain('Marker REDFLAG_FIX_ROUND $MARKER_ID cancellato: round rimborsato.');
+  });
+
+  it('hashes the PR body in the review-input serialization at every fixer checkpoint', () => {
+    // The redflag admission emits `review-input-revision.mjs hash-pr-json`
+    // (sha256(body + "\n")); the final snapshot must hash an unchanged body to
+    // the same value, or every run stops with «PR snapshot cambiato» before
+    // Codex (runs 35889371876, 35894361109, 36013930419). The redcheck preflight
+    // feeds the same digest to gh-pr-body-check, which recomputes it with the
+    // library, so it must use the library serialization too.
+    const digestOf = (line: string, name: string, body: string | null) => execFileSync(
+      'bash',
+      ['-c', `set -euo pipefail\n${line}\nprintf '%s' "$${name}"`],
+      {
+        env: { ...process.env, snapshot: JSON.stringify({ state: 'open', draft: false, head: { sha: HEAD }, body }), pr: JSON.stringify({ body }) },
+        encoding: 'utf8',
+      },
+    );
+    const assignment = (source: string, prefix: string) => source
+      .split('\n').map((l) => l.trim()).find((l) => l.startsWith(prefix));
+    const checkpoints = [
+      ['redflag snapshot', assignment(redflag, 'snapshot_revision=$('), 'snapshot_revision'],
+      ['redcheck snapshot', assignment(redcheck, 'snapshot_revision=$('), 'snapshot_revision'],
+      ['redcheck preflight', assignment(redcheck, 'review_revision=$(printf'), 'review_revision'],
+    ] as const;
+    for (const [label, line, name] of checkpoints) {
+      expect(line, `${label}: assignment`).toBeTruthy();
+      for (const body of ['## Implementato\n\n- x\n', 'no trailing newline', '', null]) {
+        expect(digestOf(line!, name, body), `${label} ${JSON.stringify(body)}`)
+          .toBe(reviewInputRevisionFromBody(body ?? ''));
+      }
+    }
   });
 
   it('releases a run superseded by an external branch push before failure classification', () => {

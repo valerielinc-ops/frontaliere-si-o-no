@@ -138,7 +138,10 @@ import {
   isTargetSwissLocation,
   isTicinoRelevant,
   isGrigioniRelevant,
+  isKnownSwissCity,
   normalizeCantonCode,
+  swissMunicipalityCantons,
+  TEXT_RESCUE_AMBIGUOUS_TOKENS,
 } from './target-swiss-locations.mjs';
 import {
   isFederalJobsPortalUrl,
@@ -1909,9 +1912,70 @@ function bestJobPostingNodeFromHtml(html) {
   return best;
 }
 
+/**
+ * Località dal blocco `#jl` («Lieu de travail» / «Arbeitsort») del portale
+ * Swatch Group: è la sede che la vacancy dichiara, una riga per campo
+ * (`via<br>NPA località (cantone)<br>paese`). Si pubblica la sola località,
+ * col codice cantone quando il nome è un omonimo BFS (`Lengnau` esiste in AG
+ * e in BE → `Lengnau BE`, la stessa forma di `Buchs AG`/`Wil SG` nel dataset).
+ * Senza una riga `NPA località` si restituisce '' e decide il chiamante.
+ */
+function workplaceBlockLocality(block = '') {
+  const lines = String(block)
+    .replace(/<p[^>]*>[\s\S]*?<\/p>/i, ' ')
+    .split(/<br\s*\/?>|\n/i)
+    .map((line) => normalizeSpace(decodeNumericEntities(decodeHtmlEntities(stripHtml(line)))))
+    .filter(Boolean);
+  for (const line of lines) {
+    const match = line.match(/^(?:CH-)?\d{4}\s+(.+?)(?:\s*\(([^)]+)\))?$/i);
+    if (!match) continue;
+    const city = normalizeSpace(match[1]);
+    if (!city) continue;
+    const cantonCode = normalizeCantonCode(match[2] || '');
+    const homonym = swissMunicipalityCantons(city).length > 1;
+    return homonym && cantonCode ? `${city} ${cantonCode}` : city;
+  }
+  return '';
+}
+
+/**
+ * Una riga `NPA …` letta nel testo dell'intera pagina è una località solo se
+ * dopo il numero viene davvero un comune svizzero: la scansione libera
+ * catturava altrimenti il chrome della pagina — il fuso dell'orologio
+ * (`+0200 Français Rechercher …`), il copyright (`© 2026 The Swatch Group Ltd
+ * Remonter`), un anno (`01.08.2027 Anstellungsart`) o il numero di clearing
+ * (`Clearing-Nr. 8440 MWST CHE`) — e, essendo la più lunga, vinceva sul
+ * luogo di lavoro vero (audit-parser-quality, issue 5253). Si tiene solo
+ * `NPA + comune`, tagliando la coda (`2540 Grenchen Phone` → `2540 Grenchen`).
+ * I comuni che sono anche parole comuni (`© 2026 Alle Rechte vorbehalten`)
+ * restano esclusi come nel recupero dal testo libero
+ * (`TEXT_RESCUE_AMBIGUOUS_TOKENS`).
+ */
+const POSTAL_LINE_RE = /\b(\d{4,5}\s+[A-ZÀ-ÖØ-Ýa-zà-öø-ÿ'(). -]{2,80})\b/g;
+
+function postalLineLocality(line = '') {
+  const match = normalizeSpace(line).match(/^(\d{4,5})\s+(.+)$/);
+  if (!match) return '';
+  const words = match[2].split(/\s+/).filter(Boolean);
+  for (let n = Math.min(3, words.length); n >= 1; n--) {
+    const prefix = words.slice(0, n).join(' ').replace(/[\s,;:.·•|-]+$/, '');
+    const token = prefix.toLowerCase().normalize('NFD').replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]+/g, ' ').trim();
+    if (!prefix || TEXT_RESCUE_AMBIGUOUS_TOKENS.has(token)) continue;
+    if (isKnownSwissCity(prefix) || swissMunicipalityCantons(prefix).length > 0) {
+      return `${match[1]} ${prefix}`;
+    }
+  }
+  return '';
+}
+
 function extractWorkdayLocation(html) {
   const candidates = [];
   const block = String(html).match(/<div[^>]*id=["']jl["'][^>]*>([\s\S]*?)<\/div>/i)?.[1] || '';
+  // Il blocco `#jl` è il luogo di lavoro dichiarato dalla vacancy: quando dà
+  // una località vince su ogni scansione del testo della pagina.
+  const blockLocality = workplaceBlockLocality(block);
+  if (blockLocality) return blockLocality;
   const text = cleanDescription(block);
   if (text) {
     const byLabel = normalizeSpace(text.split(/Arbeitsort|Lieu de travail|Workplace|Sede di lavoro|Work location|Arbeitsstelle/i).pop() || text);
@@ -1920,10 +1984,16 @@ function extractWorkdayLocation(html) {
 
   const plain = stripHtml(html);
   const locLabel = plain.match(/(?:Arbeitsort|Lieu de travail|Workplace|Sede di lavoro|Work location)\s*:?\s*([^\n]{3,180})/i)?.[1];
-  if (locLabel) candidates.push(normalizeSpace(locLabel));
+  if (locLabel) {
+    // `Arbeitsort: Militärflugplatz, 3857 Meiringen …` (jobs.admin.ch): se il
+    // valore etichettato contiene un indirizzo postale, la località è quella.
+    const labelPostal = (locLabel.match(POSTAL_LINE_RE) || []).map(postalLineLocality).find(Boolean);
+    candidates.push(labelPostal || normalizeSpace(locLabel));
+  }
 
-  const postalLine = plain.match(/\b(\d{4,5}\s+[A-ZÀ-ÖØ-Ýa-zà-öø-ÿ'(). -]{2,80})\b/g) || [];
-  for (const p of postalLine.slice(0, 4)) candidates.push(normalizeSpace(p));
+  const postalLine = plain.match(POSTAL_LINE_RE) || [];
+  const postalLocalities = postalLine.map(postalLineLocality).filter(Boolean);
+  for (const p of postalLocalities.slice(0, 4)) candidates.push(p);
 
   // #4587: the "jl" div split and the loose label regex above are the same
   // crude full-text label scan pattern guarded elsewhere in this file (see

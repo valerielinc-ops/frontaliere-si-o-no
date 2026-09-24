@@ -215,6 +215,10 @@ function sanitizeJobLocationField(rawValue, fallbackLocality = 'Ticino') {
     // Shared with alten-job-parser.mjs — see swiss-locality-sentence-split.mjs.
     .split(SWISS_LOCALITY_SENTENCE_SPLIT_RX)[0]
     .replace(/^[\s:]+/, '')
+    // `Worblaufen & Homeoffice`: un suffisso di lavoro ibrido dopo la città non
+    // è prosa. Senza toglierlo, la regola «home office» qui sotto buttava la
+    // città vera e pubblicava il nome del cantone (issue 5253).
+    .replace(/\s*[&+\/,]\s*home[\s-]?off(?:ice)?\.?\s*$/i, '')
     .trim();
   if (s.length > 60 || /\b(availability|offer you|requirements|inspektionen|home ?office|company address|posizione esclusivamente|ottima conoscenza|befristet)\b/i.test(s)) {
     return fallback;

@@ -276,7 +276,7 @@ jobs:
             Una issue aperta per lo STESSO `crawlerKey` copre gia' il caso → commenta li' con l'evidenza nuova invece di aprirne una seconda.
 
             **Per ogni difetto confermato (max 3 issue per run, aggrega i correlati):**
-            `gh issue create --title "[job-content] <crawlerKey>: <sintesi breve>" --label job-content-quality --body "<corpo>"`
+            scrivi prima il corpo in un file con un heredoc a delimitatore quotato (`cat > "$TMPDIR/issue.md" <<'ISSUE_EOF'` … `ISSUE_EOF`), poi, in un comando separato, `gh issue create --title "[job-content] <crawlerKey>: <sintesi breve>" --label job-content-quality --body-file "$TMPDIR/issue.md"`. Mai `--body "..."`: dentro le doppie virgolette la shell esegue i backtick del markdown (i path del corpo sparirebbero) e lascia `\n` come testo.
 
             Il titolo DEVE cominciare con `[job-content] <crawlerKey>:` — il dedup di `scripts/lib/github-issue-creator.mjs` lavora sui primi 60 caratteri e la chiave del crawler deve starci dentro, altrimenti due crawler diversi collassano sulla stessa issue.
 

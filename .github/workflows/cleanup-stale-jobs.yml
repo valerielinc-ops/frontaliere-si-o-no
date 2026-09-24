@@ -29,7 +29,15 @@ env:
 jobs:
   cleanup-stale-jobs:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 30 min cancelled the last four Sunday runs (2026-08-30, 09-06, 09-13,
+    # 09-20) inside a commit step, so Phase 2 (cross-crawler dedup) and Phase 3
+    # (#4057 source-copy bonifica) never reached main. Measured on run
+    # 35502930752: work up to the Phase 2 commit took 13m20s; one
+    # git-commit-data.sh attempt (fetch + 3-way merge of every touched slice +
+    # push) took 8m55s, was rejected because main had moved, and the second
+    # attempt (of 14) was killed at the 30-min cap. Two commit phases at up to
+    # several attempts each need headroom, not a tighter loop.
+    timeout-minutes: 120
 
     steps:
       - name: Checkout

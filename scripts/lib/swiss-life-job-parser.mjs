@@ -22,7 +22,7 @@
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
+import { resolveLocalityAddress } from './swiss-structured-address.mjs';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, isKnownSwissCity, isSwissLocationText, isTargetSwissLocation } from './target-swiss-locations.mjs';
@@ -412,7 +412,11 @@ export async function fetchAllSwissLifeJobs() {
       console.log(`  ⏭️  Skipped — no Swiss canton could be inferred from ${city}`);
       continue;
     }
-    const fallbackAddress = resolveFallbackAddress(undefined, city, canton);
+    // La località della vacancy, non il capoluogo di ripiego: `Buchs SG`
+    // usciva come `addressLocality: St. Gallen` (audit-parser-quality, issue
+    // 5253). Un'etichetta d'agenzia (`GA Wil`) non è un comune e mantiene la
+    // tupla coerente del ripiego.
+    const fallbackAddress = resolveLocalityAddress({ city, canton });
     const sourceAddress = typeof info.streetAddress === 'string'
       ? info.streetAddress
       : typeof info.address === 'string'

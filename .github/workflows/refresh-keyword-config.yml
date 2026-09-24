@@ -58,6 +58,11 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # Il cron del lunedi' e' l'unico refresh automatico di questa config.
+          # Non armato da #8895, nega (`event-not-workflow-dispatch`) ed esce
+          # verde senza scrivere (run 35581561227): data/keyword-pages-config.json
+          # e' fermo al 2026-09-14T09:07Z. Scrittura interna: config + deploy.
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: refresh-keyword-config
         run: node scripts/ci/human-side-effect-gate.mjs
 

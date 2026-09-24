@@ -8,7 +8,8 @@
  *
  * SCOPE (deliberately complementary to traffic-data-freshness.yml):
  *   - traffic-data-freshness.yml already debounces wait-time STALENESS on an
- *     hourly cadence (90-min threshold, peak-hours window) and self-heals by
+ *     hourly cadence (threshold derived from the collection calendar, see
+ *     staleThresholdMinutesFor(); peak-hours window) and self-heals by
  *     dispatching traffic-scheduler. This watchdog does NOT duplicate that fast
  *     loop. It owns two gaps that workflow does not cover:
  *       (a) WEBCAM HEALTH — every borderCrossings[].webcams[].imageUrl is
@@ -18,7 +19,7 @@
  *   - A COARSE staleness backstop (default 6h, env STALE_HOURS) is included so a
  *     totally-frozen pipeline still trips this watchdog even if the hourly
  *     freshness check is itself broken. It is intentionally looser than the
- *     90-min fast loop to avoid double-paging on a transient blip.
+ *     calendar-aware fast loop to avoid double-paging on a transient blip.
  *
  * Exit code: non-zero if anything is stale/all-mock/broken; 0 if all healthy.
  * The CLI prints a human-readable summary the workflow embeds in the issue body.
@@ -33,6 +34,7 @@ import fs from 'node:fs';
 import { buildCookieHeader, updateCookieJar } from './lib/tiChCookieJar.mjs';
 import { WAF_IP_BLOCK_STATUS } from './lib/transient-fetch.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
+import { latestTrafficCollectionSlotAtOrBefore } from '../functions/src/lib/trafficCollectionCalendar.js';
 
 // ── Tunables ────────────────────────────────────────────────────────
 const DEFAULT_STALE_HOURS = 6;
@@ -116,8 +118,9 @@ export function evaluateStaleness(doc, nowMs, staleHours = DEFAULT_STALE_HOURS) 
 //   REASON 2 — morning scheduling-gap false-positive guard (issue #4229):
 //     dispatchTrafficCollection's morning peak ends at 07:30 UTC; the next
 //     scheduled dispatch is the midday check at 11:00 UTC.
-//     This 3.5-hour gap exceeds the 90-min freshness threshold, so data is
-//     EXPECTED to be stale during 08:00–10:59 UTC on weekdays. A stale reading
+//     This 3.5-hour gap exceeded the old flat 90-min freshness threshold, so data
+//     was EXPECTED to be stale during 08:00–10:59 UTC on weekdays (the fast loop
+//     now measures against the calendar, see staleThresholdMinutesFor()). A stale reading
 //     at (e.g.) 10:47 UTC is not a real freeze — it is predictable schedule lag.
 //     The fast freshness loop (traffic-data-freshness.yml) self-heals via
 //     dispatch during this window (STALE ≠ PAGEABLE), so data is refreshed even
@@ -131,8 +134,8 @@ export function evaluateStaleness(doc, nowMs, staleHours = DEFAULT_STALE_HOURS) 
 //     self-heals silently; real freezes are caught when the window opens at 11:00.
 //   - The 6h coarse backstop (border-live-data-watchdog.yml, runs at 12/18 UTC)
 //     is unaffected: both run hours remain ≥ 11.
-//   - A real morning freeze (scheduler broken from ~06:00) is caught at 11:00
-//     by the 90-min fast loop (data >210 min old → STALE + PAGEABLE), or at
+//   - A real morning freeze (scheduler broken from ~06:00) is caught once the
+//     window opens by the calendar-aware fast loop (STALE + PAGEABLE), or at
 //     12:00 by the 6h backstop if the freeze is older than 6h.
 // If the scheduler's morning peak cron moves past 09:30 UTC, revisit this constant.
 const STALE_ACTIVE_START_UTC_HOUR = 11;
@@ -148,32 +151,55 @@ export function isStalenessCheckActive(nowMs) {
   return hour >= STALE_ACTIVE_START_UTC_HOUR && hour < STALE_ACTIVE_END_UTC_HOUR;
 }
 
-// The fast freshness loop's threshold (traffic-data-freshness.yml) was sized for
-// the weekday peak cadence (`*/30 4-7`/`*/30 14-17`, i.e. a run every 30 min).
-// On weekends dispatchTrafficCollection keeps the 06/10/14/18 UTC calendar —
-// one run every 4h (240 min) to conserve HERE quota. A flat 90-min threshold on
-// that cadence guarantees a false "stale" reading ~90 min after every single
-// weekend run, all day — the same false-positive shape as the already-fixed
-// weekday morning gap (see STALE_ACTIVE_START_UTC_HOUR above, #4229), just
-// recurring every ~4h instead of once. Each false positive burns an unwanted
-// HERE self-heal dispatch plus a throwaway pending issue (observed #5960 and
-// its predecessors, one nearly every weekend day/slot).
-const WEEKDAY_STALE_THRESHOLD_MIN = 90;
-// 240-min actual gap + up to ~60min of documented GitHub cron delivery lag
-// (see the PAGEABLE comment below) = 300, so a healthy weekend run never trips
-// this. A genuinely frozen weekend pipeline is still caught by the 6h coarse
-// backstop (DEFAULT_STALE_HOURS above / border-live-data-watchdog.yml).
-const WEEKEND_STALE_THRESHOLD_MIN = 300;
+// Soglia del loop veloce (traffic-data-freshness.yml) misurata sul CALENDARIO di
+// raccolta, non su una costante per giorno della settimana. Cloud Scheduler
+// lancia traffic-scheduler.yml solo negli slot di `isTrafficCollectionSlot()`
+// (feriali: ogni 30 min 04:00–07:30, 11:00, ogni 30 min 14:00–17:30; weekend:
+// 06/10/14/18). La vecchia soglia fissa di 90 min nei feriali ignorava i buchi
+// 07:30→11:00, 11:00→14:00 e 17:30→04:00: ogni giorno feriale le letture delle
+// 12–13 e delle 19 risultavano «stale» e aprivano una issue pending (issue 9658,
+// «Data is 124 minutes old» alle 13:10 con lo snapshot delle 11:07), e quelle
+// delle 09–10 lanciavano una raccolta HERE fuori calendario.
+//
+// Misura: lo snapshot deve essere più recente dell'ultimo slot che a quest'ora
+// deve già essere atterrato, meno la tolleranza. Soglia = minuti trascorsi da
+// quello slot + tolleranza.
+//   - COLLECTION_LANDING_MIN: uno slot conta come «atterrato» 15 min dopo l'orario
+//     (job traffic-scheduler con `timeout-minutes: 10` + coda runner/push; oggi
+//     lo snapshot arriva ~8 min dopo lo slot). Prima di allora vale lo slot
+//     precedente, quindi una raccolta ancora in volo non è mai «stale».
+//   - SLOT_MISS_TOLERANCE_MIN: 45 min assorbono UNA raccolta di picco saltata o
+//     cancellata (lo snapshot resta di ~30 min più vecchio dello slot atteso) ma
+//     non due. Uno slot isolato saltato (11:00 feriale, slot del weekend) è
+//     invece stale già alla lettura successiva, come deve: gli utenti vedrebbero
+//     dati di 3–4 ore prima.
+// Un blocco totale resta coperto anche dal backstop grossolano di 6h
+// (DEFAULT_STALE_HOURS / border-live-data-watchdog.yml).
+const COLLECTION_LANDING_MIN = 15;
+const SLOT_MISS_TOLERANCE_MIN = 45;
 
 /**
- * Freshness threshold (minutes) for the fast loop, matched to the actual
- * Cloud Scheduler dispatch cadence for the day of week.
+ * Ultimo slot di raccolta che all'istante `nowMs` deve aver già prodotto uno
+ * snapshot (slot ≤ now − COLLECTION_LANDING_MIN).
+ * @param {number} nowMs current time in ms (injected for testability)
+ * @returns {Date}
+ */
+export function expectedCollectionSlotFor(nowMs) {
+  const slot = latestTrafficCollectionSlotAtOrBefore(nowMs - COLLECTION_LANDING_MIN * 60000);
+  if (!slot) throw new Error('traffic collection calendar has no slot in the last week');
+  return slot;
+}
+
+/**
+ * Freshness threshold (minutes) for the fast loop, derived from the Cloud
+ * Scheduler collection calendar: age allowed = minutes since the latest slot
+ * that must have landed + SLOT_MISS_TOLERANCE_MIN.
  * @param {number} nowMs current time in ms (injected for testability)
  * @returns {number}
  */
 export function staleThresholdMinutesFor(nowMs) {
-  const day = new Date(nowMs).getUTCDay(); // 0 = Sunday, 6 = Saturday
-  return day === 0 || day === 6 ? WEEKEND_STALE_THRESHOLD_MIN : WEEKDAY_STALE_THRESHOLD_MIN;
+  const slot = expectedCollectionSlotFor(nowMs);
+  return Math.round((nowMs - slot.getTime()) / 60000) + SLOT_MISS_TOLERANCE_MIN;
 }
 
 /**

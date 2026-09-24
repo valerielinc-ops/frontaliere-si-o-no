@@ -95,7 +95,8 @@
  *   - modalità failure (oraria): ~3 chiamate per l'elenco workflow + ~5 per le
  *     run rosse della finestra di 24 h (~465 `failure`, 100 per pagina) +
  *     1 `gh issue list` + per ogni workflow candidato 1 lettura dell'ultima run
- *     (il guard sul rientro) e 1 lettura dei job, entrambe ≤ MAX_ISSUES.
+ *     (il guard sul rientro; 2 solo se la prima non prova niente) e 1 lettura
+ *     dei job, entrambe ≤ MAX_ISSUES.
  *   - modalità `--dormant` (GIORNALIERA, non oraria, proprio per questo): 1
  *     chiamata per workflow schedulato, oggi 180. Una al giorno è il prezzo che
  *     rende il controllo possibile; orario costerebbe 4.320 chiamate/giorno sul
@@ -509,6 +510,64 @@ export function isReportableScope(run, { ignore = IGNORE } = {}) {
   if (run.head_branch !== 'main' && run.event !== 'schedule') return false;
   if (ignore.has(run.workflow_name)) return false;
   return true;
+}
+
+/* ── rientro dopo il rosso ───────────────────────────────────────────── */
+
+/** Quante run recenti del workflow legge il guard sul rientro (una pagina). */
+export const RECOVERY_LISTING_SIZE = 20;
+
+/**
+ * Esiti che non sono un verdetto sul workflow: una run `cancelled` (concorrenza,
+ * supersessione), `skipped` o `neutral` non dice ne' che il guasto e' rientrato
+ * ne' che e' ancora li'. Senza questo filtro un `cancelled` arrivato DOPO il
+ * verde nascondeva il rientro e il rosso gia' guarito veniva segnalato.
+ */
+const NON_VERDICT_CONCLUSIONS = new Set(['cancelled', 'skipped', 'neutral']);
+
+/**
+ * Il rosso `redRun` e' rientrato? Decide la run PIU' RECENTE nel perimetro,
+ * completata e con un verdetto, creata dopo il rosso: rientrato solo se e'
+ * `success`.
+ *
+ * `inconclusive` separa «la lettura non prova niente» da «il guasto c'e'
+ * ancora». La run rossa e' completata e nel perimetro, quindi un listing
+ * coerente la contiene — a meno che dopo di lei ne siano arrivate piu' di una
+ * pagina. Un listing assente, vuoto, o che la salta senza essere pieno di run
+ * piu' recenti e' una lettura rotta: il 2026-09-24 (run 35997761435) il guard
+ * ha riaperto #9478 su `Sync crawler workflows to the corpus repo` con sette
+ * run verdi nel perimetro dopo il rosso 35909380587, e la passata delle 06:45
+ * con lo stesso codice le aveva viste.
+ *
+ * @param {Array<Record<string,string|null>>|null} rows run recenti, newest-first o no
+ * @param {{id?: string|number, created_at: string}} redRun
+ * @returns {{recovered: boolean, inconclusive: boolean, green: Record<string,string|null>|null, reason: string}}
+ */
+export function recoveryVerdict(rows, redRun, { workflowName = null, ignore = IGNORE, pageSize = RECOVERY_LISTING_SIZE } = {}) {
+  if (rows === null) return { recovered: false, inconclusive: true, green: null, reason: 'listing illeggibile' };
+  if (rows.length === 0) return { recovered: false, inconclusive: true, green: null, reason: 'listing vuoto' };
+  const redAt = Date.parse(redRun.created_at);
+  const redId = redRun.id == null ? null : String(redRun.id);
+  const after = rows
+    .filter((r) => r.status == null || r.status === 'completed')
+    .filter((r) => isReportableScope({ ...r, workflow_name: workflowName }, { ignore }))
+    .filter((r) => Date.parse(r.created_at) > redAt && String(r.id) !== redId)
+    .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
+  const verdict = after.find((r) => r.conclusion && !NON_VERDICT_CONCLUSIONS.has(r.conclusion));
+  if (verdict?.conclusion === 'success') {
+    return { recovered: true, inconclusive: false, green: verdict, reason: 'verde dopo il rosso' };
+  }
+  const redListed = redId !== null && rows.some((r) => String(r.id) === redId);
+  const pageFullOfNewer = rows.length >= pageSize && rows.every((r) => Date.parse(r.created_at) > redAt);
+  if (redId !== null && !redListed && !pageFullOfNewer) {
+    return { recovered: false, inconclusive: true, green: null, reason: `listing incoerente: manca la run rossa ${redId}` };
+  }
+  return {
+    recovered: false,
+    inconclusive: false,
+    green: null,
+    reason: verdict ? `ultima run con verdetto: ${verdict.conclusion}` : 'nessuna run con verdetto dopo il rosso',
+  };
 }
 
 /* ── cadenza dichiarata da un cron ───────────────────────────────────── */
@@ -1039,28 +1098,44 @@ async function scanFailures() {
     // di feature o su una PR — che su questo repo sono la maggioranza, 610 su
     // 930 in 48 h — veniva letta come guarigione e sopprimeva il rosso di
     // `main`: un rosso reale reso invisibile dal guard che doveva solo evitare
-    // rumore. Si chiede quindi una pagina di run completate e si guarda la piu'
-    // recente CHE RICADE NEL PERIMETRO, con lo stesso `isReportableScope` che
-    // ha selezionato il rosso.
-    const recent = ghApiRows(
+    // rumore. Si chiede quindi una pagina di run e decide la piu' recente con un
+    // verdetto CHE RICADE NEL PERIMETRO, con lo stesso `isReportableScope` che
+    // ha selezionato il rosso (vedi `recoveryVerdict`).
+    //
+    // Niente `status=completed` lato server: GitHub documenta quel parametro fra
+    // i filtri di ricerca (tetto di 1.000 risultati), e il rientro si legge dal
+    // listing semplice, come fa il chiuditore (`gh run list` senza stato in
+    // close-recovered). Completate ed esiti si filtrano in `recoveryVerdict`.
+    const readRecent = () => ghApiRows(
       `repos/${REPO || '{owner}/{repo}'}/actions/workflows/${run.workflow_id}/runs`
-        + '?per_page=20&status=completed',
-      '.workflow_runs[] | [.conclusion, .created_at, .event, .head_branch] | @tsv',
-      ['conclusion', 'created_at', 'event', 'head_branch'],
+        + `?per_page=${RECOVERY_LISTING_SIZE}`,
+      '.workflow_runs[] | [.id, .status, .conclusion, .created_at, .event, .head_branch] | @tsv',
+      ['id', 'status', 'conclusion', 'created_at', 'event', 'head_branch'],
       { paginate: false },
     );
-    const inScope = (recent || [])
-      .filter((r) => isReportableScope({ ...r, workflow_name: workflowName }))
-      .sort((a, b) => Date.parse(b.created_at) - Date.parse(a.created_at));
-    const newest = inScope[0];
-    if (newest && newest.conclusion === 'success'
-      && Date.parse(newest.created_at) > Date.parse(run.created_at)) {
+    let recovery = recoveryVerdict(readRecent(), run, { workflowName });
+    if (recovery.inconclusive) {
+      // Una sola rilettura: costa una chiamata solo quando la prima non prova
+      // niente, e distingue un listing momentaneamente rotto da uno vero.
+      console.warn(`[scan-unreported-failures] ${workflowName}: rientro non verificabile (${recovery.reason}) — rilettura.`);
+      recovery = recoveryVerdict(readRecent(), run, { workflowName });
+    }
+    if (recovery.recovered) {
+      const newest = recovery.green;
       tally.recovered += 1;
       console.log(
         `[scan-unreported-failures] ${workflowName}: rientrato (run verde ${newest.created_at} `
           + `su \`${newest.head_branch}\`/\`${newest.event}\` dopo il rosso ${run.created_at}) → nessuna issue.`,
       );
       continue;
+    }
+    if (recovery.inconclusive) {
+      // In dubbio si segnala (il costo e' un commento, quello di un rosso perso
+      // sono giorni), ma il motivo si DICE: prima questo ramo era muto.
+      console.warn(
+        `::warning::[scan-unreported-failures] ${workflowName}: rientro non verificabile dopo la rilettura `
+          + `(${recovery.reason}) — segnalo il rosso ${run.html_url} per prudenza.`,
+      );
     }
 
     const title = `CI Failure: ${workflowName}`;

@@ -13,6 +13,7 @@ const cascadeScript = fs.readFileSync(path.resolve('scripts/relocalize-pending-j
 const mopupScript = fs.readFileSync(path.resolve('scripts/local-mt-mopup.mjs'), 'utf8');
 const commitHelper = fs.readFileSync(path.resolve('scripts/lib/git-commit-data.sh'), 'utf8');
 const UPLOAD_ARTIFACT_V7_SHA = '043fb46d1a93c77aae656e7c1c64a875d1fc6a0a';
+const RUN_WIDE_TRANSLATION_DEADLINE_MS = 12_600_000;
 const RECOVERY_READY = "(github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')";
 
 type YamlMapping = Record<string, unknown>;
@@ -141,10 +142,13 @@ describe('translation observability workflow', () => {
   it('bounds Phases 2d/2e from the shared clock and persists the current slice before stopping', () => {
     const source: any = YAML.parse(workflow);
     const timeoutMs = source.jobs.translate['timeout-minutes'] * 60 * 1000;
-    expect(timeoutMs - 16_800_000, 'translation deadline must leave 70min for the queue')
-      .toBe(70 * 60 * 1000);
-    expect(timeoutMs - 14_400_000, 'title-fix deadline must leave 110min for the final queue')
-      .toBe(110 * 60 * 1000);
+    // One run-wide envelope for every translation lane (Argos 2a/2c, title
+    // 2d, description 2e). 140min is the measured post-translation queue
+    // (up to five slice commits at 5-47min each) plus the ~6min spent before
+    // the run-clock marker; 70min/110min let runs 35871986449, 35897636278
+    // and 35726632397 hit the 350min cap before slugs, cache and deploy.
+    expect(timeoutMs - RUN_WIDE_TRANSLATION_DEADLINE_MS, 'translation deadline must leave 140min for the queue')
+      .toBe(140 * 60 * 1000);
 
     for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
       const steps = parseTranslationSteps(document);
@@ -167,19 +171,23 @@ describe('translation observability workflow', () => {
       const titleCommit = steps.find((step) => step.name === 'Commit title fixes');
       const descriptionFix = steps.find((step) => step.name === 'Phase 2e: Fix untranslated descriptions (free cascade)');
       const descriptionCommit = steps.find((step) => step.name === 'Commit description fixes');
+      const bulk = steps.find((step) => step.name === 'Phase 2a: Local MT bulk translate (Argos)');
+      expect(bulk, `${label}: Phase 2a missing`).toMatchObject({
+        env: { LOCAL_MT_MOPUP_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
+      });
       expect(mopup, `${label}: Phase 2c missing`).toMatchObject({
-        env: { LOCAL_MT_MOPUP_DEADLINE_MS: '16800000' },
+        env: { LOCAL_MT_MOPUP_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
       });
       expect(titleFix, `${label}: Phase 2d missing`).toMatchObject({
         if: "github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
-        env: { UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '14400000' },
+        env: { UNTRANSLATED_TITLE_FIX_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
       });
       expect(titleCommit, `${label}: title commit missing`).toMatchObject({
         if: "github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
       });
       expect(descriptionFix, `${label}: Phase 2e missing`).toMatchObject({
         if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",
-        env: { UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '14400000' },
+        env: { UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: String(RUN_WIDE_TRANSLATION_DEADLINE_MS) },
       });
       expect(descriptionCommit, `${label}: description commit missing`).toMatchObject({
         if: "github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true",

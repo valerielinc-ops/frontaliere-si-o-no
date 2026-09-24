@@ -6,6 +6,7 @@ import {
   dispatchTrafficScheduler,
   isTrafficCollectionSlot,
 } from '../functions/src/trafficSchedulerDispatch.js';
+import { latestTrafficCollectionSlotAtOrBefore } from '../functions/src/lib/trafficCollectionCalendar.js';
 
 const root = fileURLToPath(new URL('..', import.meta.url));
 
@@ -26,6 +27,16 @@ describe('traffic scheduler Cloud dispatch', () => {
     expect(isTrafficCollectionSlot('2026-09-20T14:00:00Z')).toBe(true);
     expect(isTrafficCollectionSlot('2026-09-20T18:00:00Z')).toBe(true);
     expect(isTrafficCollectionSlot('2026-09-20T14:30:00Z')).toBe(false);
+  });
+
+  it('finds the latest calendar slot at or before an instant (freshness check, #9658)', () => {
+    const at = (iso: string) => latestTrafficCollectionSlotAtOrBefore(iso)?.toISOString();
+    expect(at('2026-09-22T11:00:00Z')).toBe('2026-09-22T11:00:00.000Z');
+    expect(at('2026-09-22T13:10:50Z')).toBe('2026-09-22T11:00:00.000Z');
+    expect(at('2026-09-22T10:59:59Z')).toBe('2026-09-22T07:30:00.000Z');
+    expect(at('2026-09-22T03:59:00Z')).toBe('2026-09-21T17:30:00.000Z');
+    expect(at('2026-09-21T03:59:00Z')).toBe('2026-09-20T18:00:00.000Z');
+    expect(at('2026-09-19T05:59:00Z')).toBe('2026-09-18T17:30:00.000Z');
   });
 
   it('dispatches the existing workflow on a due slot', async () => {

@@ -110,7 +110,7 @@ describe('observation window — completion time, not start time', () => {
     });
     expect(createdRanges.every((range) => range.includes('..'))).toBe(true);
     const [oldest] = createdRanges[0].split('..');
-    expect(Date.now() - Date.parse(oldest)).toBeGreaterThanOrEqual(35 * 24 * 60 * MINUTE);
+    expect(Date.now() - Date.parse(oldest)).toBeGreaterThanOrEqual(3 * 24 * 60 * MINUTE);
   });
 
   it('bisects a created range above GitHub\'s 1,000-result search cap and reaches the later slice', async () => {

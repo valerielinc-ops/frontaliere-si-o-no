@@ -1,4 +1,7 @@
 import { afterEach, describe, expect, it, vi } from 'vitest';
+import { readFileSync } from 'node:fs';
+import { fileURLToPath } from 'node:url';
+import path from 'node:path';
 import { looksLikeShortLabelValue, extractCompanyFromText, extractLocationFromText, __testables } from '../scripts/lib/shared-jobs-crawler.mjs';
 
 const { buildKnownJobUrlsSet } = __testables;
@@ -166,6 +169,76 @@ describe('extractLocationFromText — does not let stray label keywords in body 
       </body></html>
     `;
     expect(extractLocationFromText(html, '')).toBe('Mendrisio');
+  });
+});
+
+const FIXTURES = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures');
+
+describe('extractLocationFromText — page chrome never becomes the location (audit-parser-quality, issue 5253)', () => {
+  // Pagine reali swatchgroup.com (2026-09-24). Il JSON-LD ha newline grezzi
+  // nella description, quindi il crawler condiviso lo scarta e ricade sul
+  // testo della pagina: lì la scansione `NPA …` sceglieva la riga più lunga,
+  // cioè l'orologio (`+0200 Français Rechercher …`) o il footer
+  // (`© 2026 The Swatch Group Ltd Remonter`), invece del blocco #jl.
+  it('reads the #jl workplace block instead of the header clock (Comadur, Le Locle)', () => {
+    const html = readFileSync(path.join(FIXTURES, 'swatchgroup-comadur-detail-page-chrome.html'), 'utf8');
+    expect(extractLocationFromText(html, '')).toBe('Le Locle');
+  });
+
+  it('publishes a BFS homonym with its canton code instead of the whole address (Rado, Lengnau BE)', () => {
+    const html = readFileSync(path.join(FIXTURES, 'swatchgroup-rado-detail-homonym.html'), 'utf8');
+    expect(extractLocationFromText(html, '')).toBe('Lengnau BE');
+  });
+
+  it('keeps an unambiguous #jl locality bare and ignores the footer copyright year (Nivarox shape)', () => {
+    const html = `
+      <html><body>
+        <h1><span class="field f-n-title">Apprentissage Logisticien / Logisticienne CFC</span></h1>
+        <div id="jl" class="mb-4"> <p class="blue-bold mb-0">Lieu de travail</p> Avenue du Collège 10<br /> 2400 Le Locle (Neuchatel)<br /> Suisse </div>
+        <div class="footer__address"> © 2026 The Swatch Group Ltd <span class="back-to-top__button--text">Remonter</span></div>
+      </body></html>
+    `;
+    expect(extractLocationFromText(html, '')).toBe('Le Locle');
+  });
+
+  it('drops a postal-looking year and takes the postal locality from the labelled workplace (jobs.admin.ch)', () => {
+    const html = `
+      <html><body>
+        <div class="item"><label>Eintrittsdatum:</label><span>01.08.2027</span></div>
+        <div class="item"><label>Anstellungsart:</label><span>befristet</span></div>
+        <div class="item"><label>Arbeitsort:</label><span>Militärflugplatz, 3857 Meiringen</span></div>
+        <p>Diesen Beitrag kannst du leisten</p>
+      </body></html>
+    `;
+    expect(extractLocationFromText(html, '')).toBe('3857 Meiringen');
+  });
+
+  it('ignores a clearing/VAT number and lets the labelled slot answer (Bank Cler)', () => {
+    const html = `
+      <html><body>
+        <span class="JobDetail__item-slot">Arbeitsort</span>
+        <span class="JobDetail__item-slot">St. Gallen</span>
+        <footer><p>Clearing-Nr. 8440</p><p>MWST CHE-116.267.704</p></footer>
+      </body></html>
+    `;
+    expect(extractLocationFromText(html, '')).toBe('St. Gallen');
+  });
+
+  it('does not read a copyright year followed by a prose-homonym commune as a location', () => {
+    // `Alle` (JU) è anche «alle»: la stessa esclusione del recupero dal testo libero.
+    const html = '<html><body><h1>Verkäufer/in</h1><footer>© 2026 Alle Rechte vorbehalten</footer></body></html>';
+    expect(extractLocationFromText(html, '')).toBe('');
+  });
+
+  it('trims the trailing header word after a real postal locality (ETA, Grenchen)', () => {
+    const html = `
+      <html><body>
+        <p>ETA SA Manufacture Horlogère Suisse</p>
+        <p>Schild-Rust-Strasse 17 - CH-2540 Grenchen</p><p>Phone: +41 32 655 71 11</p>
+        <h1>MASCHINENOPERATEUR/IN TDA</h1>
+      </body></html>
+    `;
+    expect(extractLocationFromText(html, '')).toBe('2540 Grenchen');
   });
 });
 

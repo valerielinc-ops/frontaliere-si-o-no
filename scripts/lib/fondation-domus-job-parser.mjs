@@ -16,6 +16,7 @@ import { slugify, stripHtml } from './crawler-template.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 import { readAttr } from './html-attr.mjs';
 import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
+import { FeedEndpointUnavailableError } from './feed-endpoint-guard.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -411,6 +412,18 @@ export async function fetchAllFondationDomusJobs({ fetchPage = fetchCareerPage }
     const provenEmpty = boardRendered
       && cardTitles.length > 0
       && cardTitles.every((title) => isNonVacancyHeading(title));
+    // Board container rendered but the XML loader filled it with nothing, not
+    // even the standing spontaneous-application card: the vendor feed behind
+    // the module did not come through (2026-09-23 23:5x: `cards=0`; the same
+    // page served the card before and after). That is the feed-unavailable
+    // class, not a source verdict: soft-exit and keep the slice, and let the
+    // crawler-health streak surface it if it persists. Still never a zero.
+    if (boardRendered && cardTitles.length === 0) {
+      throw new FeedEndpointUnavailableError(
+        '[Fondation Domus] vacancy board rendered with no card at all (not even the standing '
+          + 'spontaneous-application card) — the XML feed loader is unavailable, keeping the indexed slice',
+      );
+    }
     if (!provenEmpty) {
       console.warn(
         `  ⚠️ Vacancy board did not prove an empty state`

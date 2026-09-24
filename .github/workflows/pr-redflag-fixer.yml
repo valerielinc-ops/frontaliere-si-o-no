@@ -1400,7 +1400,12 @@ jobs:
               # Hasha il body in streaming: jq -r + command substitution
               # eliminerebbero i newline finali e farebbero divergere la
               # revisione dalla preflight per un body valido.
-              snapshot_revision=$(printf '%s' "$snapshot" | jq -j '.body // ""' | shasum -a 256 | awk '{print "body:" $1}')
+              # EXPECTED_REVIEW_REVISION viene da `review-input-revision.mjs
+              # hash-pr-json` (step admission), che dal 2026-09-20 (#9328)
+              # emette la serializzazione `jq-newline`: sha256(body + "\n").
+              # Senza il newline qui il digest non combaciava mai e ogni run
+              # usciva «PR snapshot cambiato» prima di Codex.
+              snapshot_revision=$({ printf '%s' "$snapshot" | jq -j '.body // ""'; printf '\n'; } | shasum -a 256 | awk '{print "body:" $1}')
               if [ "$snapshot_state" != 'open' ] || [ "$snapshot_draft" != 'false' ] \
                 || [ "$snapshot_head" != "$EXPECTED_HEAD_SHA" ] \
                 || [ "$snapshot_revision" != "$EXPECTED_REVIEW_REVISION" ]; then

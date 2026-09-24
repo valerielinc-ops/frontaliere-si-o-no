@@ -311,11 +311,14 @@ describe('headline-selection-protocol — strato 2: requestHeadlineSelection e l
   );
   expect(requestHeadlineSelectionSrc.length, 'estrazione di requestHeadlineSelection sospettosamente corta').toBeGreaterThan(300);
 
-  function makeRequestHeadlineSelection(callLLM: (...args: unknown[]) => Promise<string>) {
+  function makeRequestHeadlineSelection(
+    callLLM: (...args: any[]) => Promise<string>,
+    scoring: { failure?: (model: string | null) => void; success?: (model: string | null) => void } = {},
+  ) {
     const RUN_REPORT = { selectionUsage: { responsesRejected: 0, rejectionReasons: {} as Record<string, number> } };
     const factory = new Function(
       '__d',
-      `const { callLLM, GH_MODEL_LIGHT, parseHeadlineSelection, selectionCorrectionNote, SELECTION_REJECTION, RUN_REPORT } = __d;\n`
+      `const { callLLM, GH_MODEL_LIGHT, parseHeadlineSelection, selectionCorrectionNote, SELECTION_REJECTION, RUN_REPORT, recordModelContentFailure, recordModelContentSuccess } = __d;\n`
       + `return ${requestHeadlineSelectionSrc};`,
     ) as (deps: Record<string, unknown>) => (
       basePrompt: string, candidateCount: number, label: string, maxAttempts: number,
@@ -323,6 +326,8 @@ describe('headline-selection-protocol — strato 2: requestHeadlineSelection e l
     const fn = factory({
       callLLM, GH_MODEL_LIGHT: 'test-model', parseHeadlineSelection, selectionCorrectionNote,
       SELECTION_REJECTION, RUN_REPORT,
+      recordModelContentFailure: scoring.failure ?? (() => {}),
+      recordModelContentSuccess: scoring.success ?? (() => {}),
     });
     return { fn, RUN_REPORT };
   }
@@ -362,5 +367,73 @@ describe('headline-selection-protocol — strato 2: requestHeadlineSelection e l
     // perso insieme all'identità dell'errore.
     await expect(fn('prompt base', 2, 'test', 3)).rejects.toBe(exhausted);
     expect(calls, 'la cascata esaurita non deve essere ritentata: nessun modello resta da provare').toBe(1);
+  });
+
+  // Run 36010807545 del gemello corpus: nvidia/nemotron-3-super rispondeva HTTP
+  // 200 con prosa di ragionamento, il parser la rigettava `unparseable`, ma per
+  // la cascata era un successo (+2) e il tasso storico lo rimetteva primo a ogni
+  // tentativo: 0 finalisti per giro.
+  const PROSA = 'We need to pick a headline from the list, respecting criteria. First priority: any headline marked with ⭐FRONTALIERI.';
+  const JSON_VALIDO = '{"selectedId": "H2", "reason": "rilevante per i frontalieri"}';
+
+  it('una risposta 200 illeggibile conta come fallimento e il ritentativo esclude quel modello', async () => {
+    const chiamate: Array<Record<string, any>> = [];
+    const punteggi = { failure: [] as Array<string | null>, success: [] as Array<string | null> };
+    const { fn, RUN_REPORT } = makeRequestHeadlineSelection(async (_messages, opts) => {
+      chiamate.push(opts);
+      const servito = (opts.excludeModels ?? []).includes('modello-A') ? 'modello-B' : 'modello-A';
+      opts.modelUsedRef.model = servito;
+      return servito === 'modello-A' ? PROSA : JSON_VALIDO;
+    }, { failure: (m) => punteggi.failure.push(m), success: (m) => punteggi.success.push(m) });
+    const result = await fn('prompt base', 3, 'Batch 1', 2);
+    expect(result).toMatchObject({ ok: true, index: 1 });
+    expect(punteggi.failure).toEqual(['modello-A']);
+    expect(punteggi.success).toEqual(['modello-B']);
+    expect(chiamate[0].excludeModels).toBeUndefined();
+    expect(chiamate[1].excludeModels).toEqual(['modello-A']);
+    expect(RUN_REPORT.selectionUsage.rejectionReasons[SELECTION_REJECTION.UNPARSEABLE]).toBe(1);
+  });
+
+  it('con la cascata VERA: A risponde prosa, B JSON — B viene selezionato entro il budget', async () => {
+    const aiModels = await import('../scripts/lib/ai-models.mjs');
+    const A = 'nvidia/nvidia/nemotron-3-super-120b-a12b';
+    const B = 'nvidia/meta/llama-3.1-8b-instruct';
+    const saved = { NVIDIA_API_KEY: process.env.NVIDIA_API_KEY, AI_MODELS_FORCE_CHAIN: process.env.AI_MODELS_FORCE_CHAIN };
+    const originalFetch = globalThis.fetch;
+    process.env.NVIDIA_API_KEY = 'dummy-per-test';
+    delete process.env.AI_MODELS_FORCE_CHAIN;
+    aiModels.__installScoreStoreForTests(null);
+    aiModels.resetState();
+    for (let i = 0; i < 200; i++) aiModels.recordModelSuccess(A, { recordScore: false });
+    const serviti: string[] = [];
+    globalThis.fetch = (async (_url: unknown, init: { body: string }) => {
+      const body = JSON.parse(init.body);
+      serviti.push(body.model);
+      const content = String(body.model).includes('nemotron') ? PROSA : JSON_VALIDO;
+      return new Response(JSON.stringify({ choices: [{ message: { content } }] }), {
+        status: 200,
+        headers: { 'content-type': 'application/json' },
+      });
+    }) as unknown as typeof fetch;
+    try {
+      const { fn } = makeRequestHeadlineSelection(
+        (messages, opts) => aiModels.callLLM(messages, { ...opts, model: undefined, chain: [A, B], recordScore: false }),
+        {
+          failure: (m) => aiModels.recordModelContentFailure(m, { recordScore: false }),
+          success: (m) => aiModels.recordModelContentSuccess(m),
+        },
+      );
+      const result = await fn('prompt base', 3, 'Batch 1', 2);
+      expect(result, `serviti: ${JSON.stringify(serviti)}`).toMatchObject({ ok: true, index: 1 });
+      expect(serviti).toHaveLength(2);
+      expect(serviti[0]).toMatch(/nemotron/);
+      expect(serviti[1], 'il ritentativo e\' tornato sul modello che rispondeva prosa').toMatch(/llama/);
+    } finally {
+      globalThis.fetch = originalFetch;
+      for (const [k, v] of Object.entries(saved)) {
+        if (v === undefined) delete process.env[k]; else process.env[k] = v;
+      }
+      aiModels.resetState();
+    }
   });
 });

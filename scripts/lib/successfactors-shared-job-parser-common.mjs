@@ -687,10 +687,18 @@ export function createSuccessFactorsParser(config) {
       // "Switzerland" / "Schweiz" / "Suisse" that some SF tenants emit when
       // a job has no specific city (e.g. Tecan remote / global roles).
       const COUNTRY_TOKEN = /^(?:switzerland|schweiz|suisse|svizzera|ch)$/i;
-      const detailCity = detail?.city && !COUNTRY_TOKEN.test(detail.city) ? detail.city : '';
+      // `Worblaufen & Homeoffice` / `Dübendorf-Stettbach & Homeoff` (helsana):
+      // il suffisso di lavoro ibrido non è la località. Rimasto attaccato,
+      // impediva di riconoscere il comune (cantone di ripiego ZH per una sede
+      // bernese) e il sanitizer dell'assembler, leggendo «home office» come
+      // prosa, sostituiva la città col nome del cantone (`Zurigo`, `Grigioni`,
+      // `San Gallo`: audit-parser-quality, issue 5253).
+      const HYBRID_WORK_SUFFIX = /\s*[&+\/,]\s*home[\s-]?off(?:ice)?\.?\s*$/i;
+      const stripHybridSuffix = (value) => String(value || '').replace(HYBRID_WORK_SUFFIX, '').trim();
+      const detailCity = detail?.city && !COUNTRY_TOKEN.test(detail.city) ? stripHybridSuffix(detail.city) : '';
       const listingCity = (() => {
         if (!listing.location) return '';
-        const first = listing.location.split(',')[0].trim();
+        const first = stripHybridSuffix(listing.location.split(',')[0]);
         return COUNTRY_TOKEN.test(first) ? '' : first;
       })();
       const city = detailCity || listingCity || defaultCity;

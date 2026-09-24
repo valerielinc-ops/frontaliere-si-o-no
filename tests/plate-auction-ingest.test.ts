@@ -5,7 +5,8 @@ import { dirname, join, resolve } from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import registry from '../data/plate-auction-sources-registry.json';
-import { collectPlateAuctions } from '../scripts/plate-auctions/ingest.mjs';
+import { parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
+import { collectPlateAuctions, PLATE_AUCTION_MISSING_GRACE_MS } from '../scripts/plate-auctions/ingest.mjs';
 
 const NOW = new Date('2026-09-13T12:00:00.000Z');
 const previousRow = {
@@ -421,6 +422,183 @@ describe('plate-auction ingest resilience', () => {
       now: NOW,
     });
     expect(snapshot.auctions[0]).toMatchObject({ id: 'gr-incoherent', dataConfidence: 'conflicting' });
+  });
+});
+
+describe('plate-auction ingest: a preserved loss converges instead of ratcheting', () => {
+  // Relative dates only: what matters is the spacing between runs, not the day.
+  const HOUR = 60 * 60 * 1000;
+  const base = new Date();
+  const at = (hours: number) => new Date(base.getTime() + hours * HOUR);
+  const afterGrace = new Date(base.getTime() + PLATE_AUCTION_MISSING_GRACE_MS);
+  const urPlate = (index: number, seenAt: Date) => ({
+    id: `ur-${index}`,
+    sourceKey: 'UR',
+    canton: 'Uri',
+    platePrefix: 'UR',
+    plateNumber: String(index),
+    normalizedPlate: `UR${index}`,
+    listingType: 'fixed-price',
+    auctionStatus: 'active',
+    startingPriceChf: 300 + index,
+    officialAuctionUrl: 'https://www.ur.ch/dienstleistungen/4046',
+    sourceFetchedAt: seenAt.toISOString(),
+    lastVerifiedAt: seenAt.toISOString(),
+    lastSeenAt: seenAt.toISOString(),
+    dataConfidence: 'partial',
+    rawSnapshotHash: `ur-${index}`,
+  });
+  /** The first `listed` plates of one catalogue, as the upstream lists them at `seenAt`. */
+  const catalogue = (listed: number, seenAt: Date) => Array.from({ length: listed }, (_unused, index) => urPlate(index, seenAt));
+  // Each run reads the file the previous run wrote, so go through JSON.
+  const run = async (previous: unknown, now: Date, listed: number) => JSON.parse(JSON.stringify(await collectPlateAuctions({
+    selectedCantons: ['ur'],
+    fetchers: { ur: async () => catalogue(listed, now) },
+    previous,
+    now,
+  })));
+  const firstPrevious = () => ({ generatedAt: at(-6).toISOString(), auctions: catalogue(460, at(-6)) });
+  const vanishedIds = Array.from({ length: 13 }, (_unused, index) => `ur-${447 + index}`).sort();
+
+  it('stops re-judging the same 13 vanished rows once they were reported (UR 460 → 447 twice)', async () => {
+    // Production, runs 35490328535 and 35995052505: `previous=460 fetched=447
+    // vanished=13 cap=5 decision=preserve-as-live` on both, because the rows
+    // preserved by the first run came back as `previous` and vanished again.
+    const run1 = await run(firstPrevious(), at(0), 447);
+    expect(run1.sources.ur).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared', rowCount: 460 });
+
+    // Same upstream six hours later: the loss was already reported, the fetch
+    // itself lost nothing, so the source must not stay degraded.
+    const run2 = await run(run1, at(6), 447);
+    expect(run2.sources.ur).toMatchObject({ status: 'active', rowCount: 460 });
+
+    // The first run stamped the rows it preserved with its own time.
+    const preserved1 = run1.auctions.filter((row: { missingSince?: string }) => row.missingSince);
+    expect(preserved1.map((row: { id: string }) => row.id).sort()).toEqual(vanishedIds);
+    expect(new Set(preserved1.map((row: { missingSince: string }) => row.missingSince))).toEqual(new Set([at(0).toISOString()]));
+    // Inside the grace window the rows stay visible and keep their first stamp.
+    const preserved2 = run2.auctions.filter((row: { missingSince?: string }) => row.missingSince);
+    expect(preserved2.map((row: { missingSince: string }) => row.missingSince)).toEqual(Array(13).fill(at(0).toISOString()));
+    expect(run2.history.filter((row: { disappearedFromCatalogue?: boolean }) => row.disappearedFromCatalogue)).toEqual([]);
+
+    // Past the grace window a healthy fetch records the absence and the rows
+    // leave the live catalogue — never with a final price.
+    const run3 = await run(run2, afterGrace, 447);
+    expect(run3.sources.ur).toMatchObject({ status: 'active', rowCount: 447 });
+    expect(run3.auctions.filter((row: { missingSince?: string }) => row.missingSince)).toEqual([]);
+    const recorded = run3.history.filter((row: { disappearedFromCatalogue?: boolean }) => row.disappearedFromCatalogue);
+    expect(recorded.map((row: { id: string }) => row.id).sort()).toEqual(vanishedIds);
+    for (const row of recorded) {
+      expect(row).toMatchObject({ auctionStatus: 'closed', dataConfidence: 'partial', closedAt: at(-6).toISOString() });
+      expect(row).not.toHaveProperty('finalPriceChf');
+      expect(row).not.toHaveProperty('finalPriceVerifiedAt');
+    }
+    expect(run3.counts.finalsVerified).toBe(0);
+  });
+
+  it('judges a new sale on its own instead of adding it to the old ghosts', async () => {
+    // Before, one more sale made it `vanished=14` against `previous=460` and
+    // the guard blocked it too; LU's ghosts grew from 146 to 188 this way.
+    const run1 = await run(firstPrevious(), at(0), 447);
+    const run2 = await run(run1, at(6), 446);
+    expect(run2.sources.ur).toMatchObject({ status: 'active', rowCount: 459 });
+    const sold = run2.history.filter((row: { disappearedFromCatalogue?: boolean }) => row.disappearedFromCatalogue);
+    expect(sold.map((row: { id: string }) => row.id)).toEqual(['ur-446']);
+    expect(run2.auctions.filter((row: { missingSince?: string }) => row.missingSince)).toHaveLength(13);
+  });
+
+  it('never resolves an old absence on a run that may itself be truncated', async () => {
+    const run1 = await run(firstPrevious(), at(0), 447);
+    // Past the grace window, but this PDF came back less than half as long:
+    // the guard trips again, and nothing already missing is declared gone.
+    const run2 = await run(run1, afterGrace, 200);
+    expect(run2.sources.ur).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared', rowCount: 460 });
+    expect(run2.history.filter((row: { disappearedFromCatalogue?: boolean }) => row.disappearedFromCatalogue)).toEqual([]);
+    const stamps = run2.auctions
+      .filter((row: { missingSince?: string }) => row.missingSince)
+      .reduce((count: Record<string, number>, row: { missingSince: string }) => ({ ...count, [row.missingSince]: (count[row.missingSince] || 0) + 1 }), {});
+    expect(stamps).toEqual({ [at(0).toISOString()]: 13, [afterGrace.toISOString()]: 247 });
+  });
+
+  it('clears the stamp when a preserved row is listed again', async () => {
+    const run1 = await run(firstPrevious(), at(0), 447);
+    const run2 = await run(run1, at(6), 460);
+    expect(run2.sources.ur).toMatchObject({ status: 'active', rowCount: 460 });
+    expect(run2.auctions.filter((row: { missingSince?: string }) => row.missingSince)).toEqual([]);
+    expect(run2.history).toEqual([]);
+  });
+});
+
+describe('plate-auction ingest: an eCari page that says no auction is running', () => {
+  const HOUR = 60 * 60 * 1000;
+  const base = new Date();
+  const at = (hours: number) => new Date(base.getTime() + hours * HOUR);
+  const EMPTY_PAGE = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction.html'), 'utf8');
+  const NW_URL = 'https://ecarinwprod.ilz.info/ecari-auction/';
+  const nwRow = (id: string, overrides: Record<string, unknown>) => ({
+    id,
+    sourceKey: 'NW',
+    canton: 'Nidvaldo',
+    platePrefix: 'NW',
+    plateNumber: id.replace(/\D/g, ''),
+    normalizedPlate: `NW${id.replace(/\D/g, '')}`,
+    listingType: 'auction',
+    auctionStatus: 'active',
+    startingPriceChf: 500,
+    officialAuctionUrl: NW_URL,
+    sourceFetchedAt: at(-80).toISOString(),
+    lastVerifiedAt: at(-80).toISOString(),
+    dataConfidence: 'partial',
+    rawSnapshotHash: id,
+    ...overrides,
+  });
+  // Production on 2026-09-24: every NW row had ended (21 rows, closed by
+  // their deadline) and the page printed only its empty labels.
+  const endedRound = () => [
+    ...Array.from({ length: 3 }, (_unused, index) => nwRow(`nw-${1488 + index}`, {
+      auctionStatus: 'closed', endsAt: at(-72).toISOString(), closedAt: at(-72).toISOString(),
+    })),
+    nwRow('nw-1491', { endsAt: at(-72).toISOString() }),
+  ];
+  const run = async (previous: unknown, now: Date, page: string) => JSON.parse(JSON.stringify(await collectPlateAuctions({
+    selectedCantons: ['nw'],
+    fetchers: { nw: async () => parseExpandedEcari('nw', page, { fetchedAt: now.toISOString() }) },
+    previous,
+    now,
+  })));
+
+  it('reports a finished round as a healthy empty catalogue, archiving the ended rows', async () => {
+    const snapshot = await run({ generatedAt: at(-6).toISOString(), auctions: endedRound() }, at(0), EMPTY_PAGE);
+    expect(snapshot.sources.nw).toMatchObject({ status: 'active', rowCount: 4, lastSuccessAt: at(0).toISOString() });
+    expect(snapshot.sources.nw.errorCode).toBeUndefined();
+    const rows = snapshot.auctions.filter((row: { sourceKey: string }) => row.sourceKey === 'NW');
+    expect(rows.map((row: { auctionStatus: string }) => row.auctionStatus)).toEqual(['closed', 'closed', 'closed', 'closed']);
+    expect(rows.find((row: { id: string }) => row.id === 'nw-1491')).toMatchObject({ closedAt: at(-72).toISOString() });
+  });
+
+  it('keeps `zero_rows` for the same page without the explicit label', async () => {
+    const shell = EMPTY_PAGE.replaceAll('Keine laufende Versteigerung', '');
+    const snapshot = await run({ generatedAt: at(-6).toISOString(), auctions: endedRound() }, at(0), shell);
+    expect(snapshot.sources.nw).toMatchObject({ status: 'degraded', errorCode: 'zero_rows', rowCount: 4 });
+  });
+
+  it('judges a listing that vanished behind the empty label, and never retires it on an empty page', async () => {
+    // A fixed-price row with no deadline: the empty page is no evidence that
+    // it sold, so it is reported once, preserved, and left to a later page
+    // that lists something to measure against.
+    const fixed = nwRow('nw-fixed-77', { listingType: 'fixed-price' });
+    const previous = { generatedAt: at(-6).toISOString(), auctions: [...endedRound(), fixed] };
+    const run1 = await run(previous, at(0), EMPTY_PAGE);
+    expect(run1.sources.nw).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared', rowCount: 5 });
+    expect(run1.auctions.find((row: { id: string }) => row.id === 'nw-fixed-77')).toMatchObject({ auctionStatus: 'active', missingSince: at(0).toISOString() });
+
+    const run2 = await run(run1, at(6), EMPTY_PAGE);
+    expect(run2.sources.nw).toMatchObject({ status: 'active', rowCount: 5 });
+
+    const afterGrace = new Date(at(0).getTime() + PLATE_AUCTION_MISSING_GRACE_MS);
+    const run3 = await run(run2, afterGrace, EMPTY_PAGE);
+    expect(run3.sources.nw).toMatchObject({ status: 'active', rowCount: 5 });
+    expect(run3.history.filter((row: { disappearedFromCatalogue?: boolean }) => row.disappearedFromCatalogue)).toEqual([]);
   });
 });
 

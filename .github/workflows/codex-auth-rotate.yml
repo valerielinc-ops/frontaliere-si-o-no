@@ -1,0 +1,344 @@
+name: Codex auth rotate
+
+# CODEX_AUTH_JSON è lo snapshot di un login ChatGPT della Codex CLI con un
+# refresh token MONOUSO. Ogni job Codex lo copia in un CODEX_HOME effimero: il
+# primo che deve rinfrescarlo consuma il refresh token e butta i token nuovi,
+# e ogni run successiva fallisce con `refresh_token_reused` (incidente del 2026-09-21, run 35577718786).
+# Questo workflow è l'unico che rinfresca: lo fa con margine, con la CLI
+# pinnata stessa, e riscrive il segreto in ogni repo target, così nessun altro
+# job arriva mai alla soglia di refresh della CLI (`access_token.exp - 5 min`,
+# codex-rs login/src/auth/manager.rs:2924 @ rust-v0.153.4). Dettagli, citazioni
+# e politica: scripts/ci/codex-auth-rotate.mjs.
+#
+# Job:
+#   plan    — decide (refresh | sync | none | blocked) dal login salvato e
+#             dall'alert «Codex auth down»; nessun effetto. In dry run fa
+#             anche la prova generale OFFLINE della CLI (login finto, authority
+#             simulata, rete chiusa): verificabile da un branch.
+#   rotate  — solo su main, mai in dry run: preflight dei token di scrittura,
+#             prova generale, refresh reale, validazione, `gh secret set` su
+#             ogni target (sorgente per primo), poi la copia senza
+#             refresh_token nel parametro Remote Config CODEX_AUTH_JSON che il
+#             rung Codex delle Cloud Functions legge (e non rinfresca mai).
+#   report  — apre/aggiorna l'alert deduplicato «Codex auth down» su un
+#             fallimento e registra il successo che permette a
+#             codex-auth-recovery.yml di chiuderlo.
+#
+# Setup del proprietario (una volta):
+#   1. Environment `codex-auth-rotation` (Settings → Environments), deployment
+#      branches: solo `main`, NESSUN required reviewer (la run schedulata
+#      resterebbe in attesa e il login scadrebbe; vedi
+#      tests/deploy-no-human-approval-gate.test.ts). I token di scrittura
+#      stanno lì e non nei secret di repository: il repo è al cap di 100
+#      secret e solo il job `rotate` li deve vedere. NON creare
+#      CODEX_AUTH_JSON nell'environment: farebbe ombra al secret di
+#      repository (il job lo rileva e si ferma).
+#   2. Nell'environment, un fine-grained PAT per owner (un repo di account
+#      personale lo amministra solo il proprietario, e un fine-grained PAT ha un
+#      solo resource owner), permesso «Secrets: Read and write» sul solo repo:
+#        CODEX_SECRET_WRITER_TOKEN                     owner valerielinc-ops → frontaliere-si-o-no
+#        CODEX_SECRET_WRITER_TOKEN_NANAKOKYOBASHI_RGB  owner nanakokyobashi-rgb → frontaliere-articles
+#      Un target di un altro owner usa CODEX_SECRET_WRITER_TOKEN_<OWNER> (va
+#      aggiunto anche in `env` degli step «Preflight» e «Write»).
+#   3. Il login in CODEX_AUTH_JSON deve essere dedicato alla CI (mai usato da
+#      una sessione `codex` interattiva) e va caricato SOLO in questo repo: la
+#      rotazione lo propaga agli altri target. Target: variabile di repository
+#      CODEX_AUTH_ROTATE_TARGETS o input `targets` (il repo sorgente è
+#      obbligatorio e va per primo).
+#   4. Verifica: dispatch con dry_run=true, poi con force=true su main (la
+#      prima run reale popola anche la copia Remote Config delle functions;
+#      usa il secret di repository FIREBASE_SERVICE_ACCOUNT_JSON, che deve
+#      poter pubblicare il template Remote Config).
+
+run-name: ${{ inputs.dry_run == true && 'Codex auth rotate (dry run)' || (inputs.force == true && 'Codex auth rotate (forced)' || 'Codex auth rotate') }}
+
+on:
+  schedule:
+    - cron: '41 */6 * * *'
+  workflow_dispatch:
+    inputs:
+      force:
+        description: 'Refresh now even if the stored login is not due yet'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Plan + validation + offline CLI rehearsal only: no refresh call, no secret write, no alert'
+        type: boolean
+        default: false
+      targets:
+        description: 'Override the target list (owner/repo, space or comma separated; the source repo is mandatory)'
+        type: string
+        default: ''
+
+permissions: {}
+
+# Un solo rinfrescatore alla volta, globale: due refresh concorrenti dello
+# stesso login sono esattamente il bug che questo workflow elimina.
+concurrency:
+  group: codex-auth-rotate
+  cancel-in-progress: false
+
+env:
+  CODEX_AUTH_ROTATE_TARGETS: ${{ inputs.targets || vars.CODEX_AUTH_ROTATE_TARGETS || 'valerielinc-ops/frontaliere-si-o-no nanakokyobashi-rgb/frontaliere-articles' }}
+  CODEX_AUTH_ROTATE_SOURCE_REPO: ${{ github.repository }}
+  CODEX_AUTH_REFRESH_MARGIN_HOURS: '48'
+  CODEX_AUTH_MAX_AGE_HOURS: '96'
+  CODEX_AUTH_MIN_VALID_HOURS: '12'
+  CODEX_CLI_VERSION: '0.153.4'
+
+jobs:
+  plan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      contents: read
+      issues: read
+    outputs:
+      action: ${{ steps.plan.outputs.action }}
+      auth_digest: ${{ steps.plan.outputs.auth_digest }}
+      expires_at: ${{ steps.plan.outputs.expires_at }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Plan the rotation (no side effects)
+        id: plan
+        env:
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
+          CODEX_AUTH_ROTATE_FORCE: ${{ inputs.force == true && 'true' || 'false' }}
+          GITHUB_TOKEN: ${{ github.token }}
+        run: node scripts/ci/codex-auth-rotate.mjs plan
+
+      - name: Install pinned Codex CLI (dry run)
+        id: codex_cli
+        if: inputs.dry_run == true
+        env:
+          NPM_CONFIG_USERCONFIG: /dev/null
+        run: |
+          set -euo pipefail
+          prefix="$(mktemp -d "$RUNNER_TEMP/codex-cli.XXXXXX")"
+          npm install --global --prefix "$prefix" --ignore-scripts --no-fund --no-audit "@openai/codex@${CODEX_CLI_VERSION}" >/dev/null
+          version="$("$prefix/bin/codex" --version 2>/dev/null || true)"
+          [ "$version" = "codex-cli ${CODEX_CLI_VERSION}" ] || { echo "::error::Unexpected Codex CLI version: $version"; exit 1; }
+          printf 'codex_bin=%s\n' "$prefix/bin/codex" >> "$GITHUB_OUTPUT"
+
+      - name: Offline rehearsal of the CLI refresh (dry run)
+        if: inputs.dry_run == true
+        env:
+          CODEX_BIN: ${{ steps.codex_cli.outputs.codex_bin }}
+        run: node scripts/ci/codex-auth-rotate.mjs rehearse
+
+  rotate:
+    needs: plan
+    if: >-
+      needs.plan.result == 'success'
+      && (needs.plan.outputs.action == 'refresh' || needs.plan.outputs.action == 'sync')
+      && inputs.dry_run != true
+      && github.ref == 'refs/heads/main'
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    environment: codex-auth-rotation
+    permissions:
+      contents: read
+    outputs:
+      stage: ${{ steps.summary.outputs.stage }}
+      consumed: ${{ steps.summary.outputs.consumed }}
+      failure_code: ${{ steps.summary.outputs.failure_code }}
+      pending: ${{ steps.summary.outputs.pending }}
+      new_digest: ${{ steps.summary.outputs.new_digest }}
+    env:
+      CODEX_AUTH_ROTATE_ACTION: ${{ needs.plan.outputs.action }}
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # Prima di toccare il login: il sorgente deve essere scrivibile,
+      # altrimenti un refresh butterebbe via il login appena ruotato.
+      - name: Preflight writer tokens
+        id: preflight
+        env:
+          CODEX_SECRET_WRITER_TOKEN: ${{ secrets.CODEX_SECRET_WRITER_TOKEN }}
+          CODEX_SECRET_WRITER_TOKEN_NANAKOKYOBASHI_RGB: ${{ secrets.CODEX_SECRET_WRITER_TOKEN_NANAKOKYOBASHI_RGB }}
+        run: node scripts/ci/codex-auth-rotate.mjs preflight
+
+      - name: Install pinned Codex CLI (without credentials)
+        id: codex_cli
+        if: env.CODEX_AUTH_ROTATE_ACTION == 'refresh'
+        env:
+          NPM_CONFIG_USERCONFIG: /dev/null
+        run: |
+          set -euo pipefail
+          prefix="$(mktemp -d "$RUNNER_TEMP/codex-cli.XXXXXX")"
+          npm install --global --prefix "$prefix" --ignore-scripts --no-fund --no-audit "@openai/codex@${CODEX_CLI_VERSION}" >/dev/null
+          version="$("$prefix/bin/codex" --version 2>/dev/null || true)"
+          [ "$version" = "codex-cli ${CODEX_CLI_VERSION}" ] || { echo "::error::Unexpected Codex CLI version: $version"; exit 1; }
+          printf 'codex_bin=%s\n' "$prefix/bin/codex" >> "$GITHUB_OUTPUT"
+
+      - name: Offline rehearsal of the CLI refresh
+        if: env.CODEX_AUTH_ROTATE_ACTION == 'refresh'
+        env:
+          CODEX_BIN: ${{ steps.codex_cli.outputs.codex_bin }}
+        run: node scripts/ci/codex-auth-rotate.mjs rehearse
+
+      - name: Refresh with the pinned Codex CLI and validate
+        id: refresh
+        env:
+          CODEX_AUTH_JSON: ${{ secrets.CODEX_AUTH_JSON }}
+          CODEX_AUTH_EXPECTED_DIGEST: ${{ needs.plan.outputs.auth_digest }}
+          CODEX_BIN: ${{ steps.codex_cli.outputs.codex_bin }}
+        run: node scripts/ci/codex-auth-rotate.mjs refresh
+
+      - name: Write CODEX_AUTH_JSON to every target
+        id: write
+        env:
+          CODEX_SECRET_WRITER_TOKEN: ${{ secrets.CODEX_SECRET_WRITER_TOKEN }}
+          CODEX_SECRET_WRITER_TOKEN_NANAKOKYOBASHI_RGB: ${{ secrets.CODEX_SECRET_WRITER_TOKEN_NANAKOKYOBASHI_RGB }}
+        run: node scripts/ci/codex-auth-rotate.mjs write
+
+      # Copia per il rung Codex delle Cloud Functions (functions/src/codexFallback.js):
+      # stesso login SENZA refresh_token nel parametro Remote Config
+      # CODEX_AUTH_JSON, scritto con ETag. Gira anche se `write` è fallito: la
+      # copia non può rinfrescare, quindi non tocca la CI, e alle functions serve
+      # comunque l'access token fresco. Mai in dry run (il job non gira).
+      - name: Copy the login to Remote Config for the Cloud Functions
+        id: write_remote_config
+        if: ${{ !cancelled() && steps.refresh.outcome == 'success' }}
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: node scripts/ci/codex-auth-rotate.mjs write-remote-config
+
+      - name: Remove the refreshed auth.json from the runner
+        if: always()
+        run: rm -f -- "$RUNNER_TEMP/codex-auth-rotate-new-auth.json"
+
+      - name: Summarize
+        id: summary
+        if: always()
+        run: node scripts/ci/codex-auth-rotate.mjs summarize
+
+  report:
+    needs: [plan, rotate]
+    if: >-
+      always()
+      && inputs.dry_run != true
+      && github.ref == 'refs/heads/main'
+      && (needs.plan.result == 'failure' || needs.rotate.result == 'success' || needs.rotate.result == 'failure' || needs.rotate.result == 'cancelled')
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      issues: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # GITHUB_TOKEN, come codex-auth-recovery e l'action Codex: un alert
+      # scritto da App/PAT sveglierebbe issue-triage per una credenziale che
+      # nessun fixer può ruotare.
+      - name: Record the outcome on the Codex auth alert
+        env:
+          GITHUB_TOKEN: ${{ github.token }}
+          PLAN_RESULT: ${{ needs.plan.result }}
+          PLAN_ACTION: ${{ needs.plan.outputs.action }}
+          PLAN_AUTH_DIGEST: ${{ needs.plan.outputs.auth_digest }}
+          PLAN_EXPIRES_AT: ${{ needs.plan.outputs.expires_at }}
+          ROTATE_RESULT: ${{ needs.rotate.result }}
+          ROTATE_STAGE: ${{ needs.rotate.outputs.stage }}
+          ROTATE_CONSUMED: ${{ needs.rotate.outputs.consumed }}
+          ROTATE_FAILURE_CODE: ${{ needs.rotate.outputs.failure_code }}
+          ROTATE_PENDING: ${{ needs.rotate.outputs.pending }}
+          ROTATE_NEW_DIGEST: ${{ needs.rotate.outputs.new_digest }}
+        run: node scripts/ci/codex-auth-rotate.mjs report

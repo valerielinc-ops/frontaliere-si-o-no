@@ -9,6 +9,15 @@
  * Codex's result; the credential never crosses the socket or enters a child
  * environment.
  *
+ * CODEX_HOME is ONE private directory per broker (per job), not one per
+ * request: the ChatGPT login refresh token is single-use, and Codex writes the
+ * refreshed login back to CODEX_HOME/auth.json. A fresh home per request threw
+ * that write away, so every call after the first refresh replayed the spent
+ * token and failed with "refresh token already used". The home lives outside
+ * the workspace, is 0700 with a 0600 auth.json, and is removed by cleanup, the
+ * idle TTL, SIGTERM/SIGINT and process exit. Only the in-memory copy is ever
+ * refreshed from it; nothing is written back to the job or to the secret.
+ *
  * The socket is deliberately the only job-wide hand-off. Its parent directory
  * is 0700 and the socket is 0600. A malformed request never receives auth or
  * consumes a request slot. The short idle TTL is a backstop for persistent
@@ -33,7 +42,7 @@ const DEFAULT_TTL_MS = 30 * 60 * 1000;
 const DEFAULT_MAX_REQUESTS = 512;
 const MAX_TIMEOUT_MS = 600_000;
 const MAX_STDERR_TAIL_CHARS = 16 * 1024;
-// Fits the 300-character error the broker returns, after its own prefix.
+// Sta nei 300 caratteri dell'errore che il broker restituisce, dopo il suo prefisso.
 const MAX_FAILURE_REASON_CHARS = 200;
 const CLIENT_LIVENESS_PROBE = '\0';
 
@@ -91,17 +100,15 @@ function validateSocketParent() {
   }
 }
 
-// No ":slash_tmp" rule, unlike claude-codex-fallback/action.yml: there the
-// workspace is the checkout, here runCodex() builds workspace, CODEX_HOME and
-// TMPDIR under os.tmpdir(), i.e. /tmp (the broker starts under `env -i`).
-// Denying /tmp denied the workspace root itself, and next to ":tmpdir" bwrap
-// could not mount TMPDIR on the read-only /tmp, so every request died before
-// the model was called ("Codex CLI exited with code 1"; the twin broker in
-// nanakokyobashi-rgb/frontaliere-articles failed every call of runs
-// 34792206007, 35298825794, 36001495484). ":root" = "deny" already hides the
-// rest of /tmp: measured with `codex sandbox` 0.153.4, the workspace stays
-// readable while auth.json, config.toml and other /tmp files are not found
-// and TMPDIR is denied.
+// Niente regola ":slash_tmp", a differenza di claude-codex-fallback/action.yml:
+// li' workspace, CODEX_HOME e TMPDIR stanno sotto RUNNER_TEMP, qui runCodex()
+// li costruisce sotto os.tmpdir(), cioe' /tmp (il broker parte con `env -i`).
+// Negare /tmp negava la radice del workspace stesso e, insieme a ":tmpdir",
+// bwrap non poteva montare TMPDIR dentro un /tmp in sola lettura: nel gemello
+// del corpus ogni richiesta moriva prima del modello ("Codex CLI exited with
+// code 1", frontaliere-articles run 36001495484). ":root" = "deny" nasconde gia'
+// il resto di /tmp: con `codex sandbox` 0.153.4 il workspace resta leggibile,
+// auth.json, config.toml e gli altri file di /tmp no, e TMPDIR resta negato.
 function permissionConfig() {
   return `default_permissions = "${CODEX_PROFILE}"
 
@@ -264,12 +271,13 @@ function assertPrivateRuntime(runtimeRoot, directories, files) {
 }
 
 /**
- * The last error line Codex printed, reduced to what may cross the socket.
- * Without it every failure read "Codex CLI exited with code 1", and a sandbox
- * profile that broke all requests went unnoticed for two weeks. The tail of
- * the line is kept because Codex chains errors outermost-first, so the cause
- * (e.g. the bwrap message) is at the end. Token-shaped runs are redacted even
- * though Codex does not print credentials, since this text reaches job logs.
+ * L'ultima riga d'errore stampata da Codex, ridotta a cio' che puo' passare dal
+ * socket. Senza, ogni fallimento si leggeva "Codex CLI exited with code 1" e un
+ * profilo sandbox che rompeva tutte le richieste e' rimasto invisibile per due
+ * settimane. Si tiene la CODA della riga perche' Codex concatena gli errori
+ * dal piu' esterno, quindi la causa (es. il messaggio di bwrap) sta in fondo.
+ * Le sequenze a forma di token vengono oscurate anche se Codex non stampa
+ * credenziali, perche' questo testo finisce nei log del job.
  */
 function codexFailureReason(stderr) {
   const lines = String(stderr || '')
@@ -287,25 +295,85 @@ function codexFailureReason(stderr) {
     : safe;
 }
 
+/**
+ * The login as Codex left it in the per-job home, or '' when the file is
+ * missing, not a regular file, or not a JSON object (e.g. Codex was killed
+ * while rewriting it). Only a usable login replaces the in-memory copy.
+ */
+function readUsableAuth(authPath) {
+  try {
+    if (!fs.lstatSync(authPath).isFile()) return '';
+    const text = fs.readFileSync(authPath, 'utf8');
+    const parsed = JSON.parse(text);
+    return parsed && typeof parsed === 'object' && !Array.isArray(parsed) ? text : '';
+  } catch {
+    return '';
+  }
+}
+
+/**
+ * The broker's single CODEX_HOME, created on first use. auth.json is written
+ * from memory only when the home is new or its login is unusable, so a token
+ * refreshed by request N is what request N+1 starts from.
+ */
+function prepareAuthHome(credential) {
+  if (!authHome) {
+    const home = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-luna-max-auth-'));
+    authHome = home;
+    fs.chmodSync(home, 0o700);
+  }
+  const authPath = path.join(authHome, 'auth.json');
+  const configPath = path.join(authHome, 'config.toml');
+  if (!readUsableAuth(authPath)) {
+    fs.rmSync(authPath, { force: true });
+    fs.writeFileSync(authPath, credential, { encoding: 'utf8', mode: 0o600 });
+  }
+  fs.chmodSync(authPath, 0o600);
+  fs.writeFileSync(configPath, permissionConfig(), { encoding: 'utf8', mode: 0o600 });
+  fs.chmodSync(configPath, 0o600);
+  assertPrivateRuntime(authHome, [], [authPath, configPath]);
+  return { codexHome: authHome, authPath };
+}
+
+/** Keep the in-memory login in step with a refresh Codex wrote to the home. */
+function adoptRefreshedAuth() {
+  if (!authHome) return;
+  const refreshed = readUsableAuth(path.join(authHome, 'auth.json'));
+  if (refreshed) authJson = refreshed;
+}
+
+function removeAuthHome() {
+  const home = authHome;
+  authHome = '';
+  if (!home) return;
+  try { fs.rmSync(home, { recursive: true, force: true }); } catch (error) {
+    console.error(`Codex auth broker auth home cleanup failed: ${error.message}`);
+  }
+}
+
 function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
+  // Per-request tree: workspace, TMPDIR and the output files. The login lives
+  // in the per-job home instead (prepareAuthHome), outside this tree.
   const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-luna-max-broker-'));
-  const codexHome = path.join(runtimeRoot, 'home');
   const codexWorkspace = path.join(runtimeRoot, 'workspace');
   const codexTmp = path.join(runtimeRoot, 'tmp');
-  const authPath = path.join(codexHome, 'auth.json');
-  const configPath = path.join(codexHome, 'config.toml');
-  const outputPath = path.join(codexHome, 'last-message.txt');
-  const schemaPath = path.join(codexHome, 'output-schema.json');
+  const codexOut = path.join(runtimeRoot, 'out');
+  const outputPath = path.join(codexOut, 'last-message.txt');
+  const schemaPath = path.join(codexOut, 'output-schema.json');
+  let codexHome = '';
   let child = null;
   let runtimeCleaned = false;
 
   const finish = () => {
-    // `auth.json`, schema, prompt output, and the private workspace are all
-    // below a fresh 0700 root. This runs on success, failure, and timeout.
+    // Schema, prompt output, and the private workspace are all below a fresh
+    // 0700 root. This runs on success, failure, and timeout. The per-job
+    // login stays in its home; a refresh Codex wrote there becomes the
+    // in-memory copy too.
     if (runtimeCleaned) return;
     runtimeCleaned = true;
     if (activeRuntimeCleanup === finish) activeRuntimeCleanup = null;
     fs.rmSync(runtimeRoot, { recursive: true, force: true });
+    adoptRefreshedAuth();
   };
   // Register before any setup/spawn work: a signal can arrive while the
   // runtime tree is being materialized, before the child handle exists.
@@ -314,16 +382,13 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
   const run = new Promise((resolve, reject) => {
     try {
       fs.chmodSync(runtimeRoot, 0o700);
-      fs.mkdirSync(codexHome, { mode: 0o700 });
       fs.mkdirSync(codexWorkspace, { mode: 0o700 });
       fs.mkdirSync(codexTmp, { mode: 0o700 });
-      fs.chmodSync(codexHome, 0o700);
+      fs.mkdirSync(codexOut, { mode: 0o700 });
       fs.chmodSync(codexWorkspace, 0o700);
       fs.chmodSync(codexTmp, 0o700);
-      fs.writeFileSync(authPath, credential, { encoding: 'utf8', mode: 0o600 });
-      fs.chmodSync(authPath, 0o600);
-      fs.writeFileSync(configPath, permissionConfig(), { encoding: 'utf8', mode: 0o600 });
-      fs.chmodSync(configPath, 0o600);
+      fs.chmodSync(codexOut, 0o700);
+      ({ codexHome } = prepareAuthHome(credential));
       fs.writeFileSync(outputPath, '', { encoding: 'utf8', mode: 0o600 });
       fs.chmodSync(outputPath, 0o600);
 
@@ -348,8 +413,8 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
       }
       assertPrivateRuntime(
         runtimeRoot,
-        [codexHome, codexWorkspace, codexTmp],
-        [authPath, configPath, outputPath, ...(schema ? [schemaPath] : [])],
+        [codexWorkspace, codexTmp, codexOut],
+        [outputPath, ...(schema ? [schemaPath] : [])],
       );
       args.push('-');
 
@@ -422,6 +487,8 @@ function validateRequest(request) {
 }
 
 let authJson = '';
+let authHome = '';
+let listeningPath = '';
 let activeChild = null;
 let activeRuntimeCleanup = null;
 let codexCliPath = '';
@@ -463,6 +530,7 @@ function cleanup() {
     activeRequest.client.destroy();
   }
   cleanupRuntime();
+  removeAuthHome();
   authJson = '';
   if (codexCliPrefix) {
     try { fs.rmSync(codexCliPrefix, { recursive: true, force: true }); } catch (error) {
@@ -473,6 +541,9 @@ function cleanup() {
   if (!firstCleanup) return;
   try { server?.close(); } catch { /* already closed */ }
   try { fs.unlinkSync(socketPath); } catch { /* runner cleanup may win */ }
+  if (listeningPath) {
+    try { fs.unlinkSync(listeningPath); } catch { /* gia' rinominato al suo posto */ }
+  }
   try { fs.rmdirSync(path.dirname(socketPath)); } catch { /* socket/client may remain */ }
 }
 
@@ -665,8 +736,22 @@ function start(auth, cliConfig) {
     cleanup();
     process.exitCode = 1;
   });
-  server.listen(socketPath, () => {
-    fs.chmodSync(socketPath, 0o600);
+  // Il file del socket compare al bind(), un attimo prima del listen(): chi
+  // aspetta che il path esista (lo step di setup, i test) poteva connettersi
+  // nel mezzo e ricevere ECONNREFUSED (gemello del corpus, PR 1773, run
+  // 36038787680). Si ascolta su un nome temporaneo nella stessa directory 0700
+  // e lo si rinomina solo quando accetta connessioni: «esiste» vuol dire «pronto».
+  listeningPath = `${socketPath}.${process.pid}.listening`;
+  server.listen(listeningPath, () => {
+    try {
+      fs.chmodSync(listeningPath, 0o600);
+      fs.renameSync(listeningPath, socketPath);
+    } catch (error) {
+      console.error(`Codex auth broker failed: ${error.message}`);
+      cleanup();
+      process.exitCode = 1;
+      return;
+    }
     expiry = setTimeout(cleanup, ttlMs);
   });
 }
@@ -697,3 +782,5 @@ if (process.argv.includes('--cleanup')) {
 
 process.once('SIGTERM', () => { cleanup(); process.exit(0); });
 process.once('SIGINT', () => { cleanup(); process.exit(0); });
+// Last resort for an unexpected exit: never leave the per-job login behind.
+process.once('exit', () => { removeAuthHome(); });

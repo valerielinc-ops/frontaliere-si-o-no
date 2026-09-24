@@ -64,6 +64,12 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # Arma i due cron settimanali. Non armati da #8895, negavano
+          # (`event-not-workflow-dispatch`) ed uscivano verdi in ~3 min senza
+          # sincronizzare (run 35903141358); l'ultimo commit dei dati orphan e'
+          # del 2026-09-13T17:44Z. Il trigger `workflow_run` resta negato dal
+          # gate by construction. Scrittura interna: dati orphan + deploy.
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: sync-gsc-orphans
         run: node scripts/ci/human-side-effect-gate.mjs
 

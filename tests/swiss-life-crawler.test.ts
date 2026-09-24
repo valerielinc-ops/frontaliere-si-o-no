@@ -3,6 +3,7 @@ import {
   SWISS_LIFE_KEY,
   SWISS_LIFE_COMPANY_NAME,
   assertSwissLifeNationalReadComplete,
+  fetchAllSwissLifeJobs,
   fetchSwissListings,
   isSwissLifeJob,
   isTrustedDomain,
@@ -172,6 +173,38 @@ describe('Swiss Life crawler parser', () => {
 
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
+    });
+  });
+
+  describe('structured address', () => {
+    it('publishes the vacancy municipality instead of the canton capital (issue 5253)', async () => {
+      // Workday: primaria `Buchs SG`, JSON-LD con l'agenzia `GA Glarus-Rheintal`.
+      // Il ripiego di capoluogo stampava `addressLocality: St. Gallen`.
+      const listing = makeListing('Buchs-SG/Sales-Support_R10449-1', 'Buchs SG');
+      vi.stubGlobal('fetch', vi.fn(async (url: string, options?: RequestInit) => {
+        if (options?.body) return jsonResponse({ total: 1, jobPostings: [listing] });
+        expect(String(url)).toContain('/job/Buchs-SG/');
+        return jsonResponse({
+          jobPostingInfo: {
+            title: 'Sales Support (w/m/d) 40% - 60% Generalagentur Glarus-Rheintal',
+            location: 'Buchs SG',
+            jobRequisitionLocation: { descriptor: 'GA Glarus-Rheintal' },
+            jobDescription: '<p>Unterstützung der Generalagentur im Verkaufsinnendienst.</p>',
+          },
+          hiringOrganization: { name: 'Swiss Life GA Glarus-Rheintal' },
+        });
+      }));
+      vi.spyOn(console, 'log').mockImplementation(() => {});
+      vi.useFakeTimers({ shouldAdvanceTime: true, advanceTimeDelta: 1000 });
+      try {
+        const [job] = await fetchAllSwissLifeJobs();
+        expect(job.location).toBe('Buchs SG');
+        expect(job.canton).toBe('SG');
+        expect(job.addressLocality).toBe('Buchs SG');
+        expect(job.streetAddress).not.toBe('Gallusstrasse 14');
+      } finally {
+        vi.useRealTimers();
+      }
     });
   });
 

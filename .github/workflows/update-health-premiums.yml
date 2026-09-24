@@ -56,6 +56,12 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # Il cron domenicale e' l'unico fetch automatico dei premi UFSP/BAG.
+          # Non armato da #8895, nega (`event-not-workflow-dispatch`) ed esce
+          # verde senza scaricare (run 35501861343), proprio a ridosso della
+          # pubblicazione autunnale dei premi: data/health-premiums.json ha
+          # `fetchedAt` 2026-09-06. Scrittura interna: dati + deploy.
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: update-health-premiums
         run: node scripts/ci/human-side-effect-gate.mjs
 

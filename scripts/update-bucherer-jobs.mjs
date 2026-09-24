@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllBuchererJobs,
   isBuchererJob,
@@ -25,6 +26,11 @@ runStandardCrawlerPipeline({
   root: ROOT,
   fetchJobs: fetchAllBuchererJobs,
   isCompanyJob: isBuchererJob,
+  // Zero pubblicato solo se la risposta Dayforce catturata dichiara
+  // `maxCount: 0`; una risposta mai arrivata resta un `[]` non provato.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(BUCHERER_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   isTrustedDomain,
   defaultSourceLang: 'de',
 }).catch((err) => {

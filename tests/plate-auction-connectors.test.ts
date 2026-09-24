@@ -6,6 +6,8 @@ import {
   extractPdfUrl,
   fetchHtml,
   FIXED_PRICE_SOURCE_CONFIGS,
+  isEcariCatalogueExplicitlyEmpty,
+  isExplicitlyEmptyCatalogue,
   resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
@@ -72,6 +74,8 @@ const CARD_SAMPLE = `
 
 const EXPANDED_ECARI_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-ecari-auction-sample.html'), 'utf8');
 const EXPANDED_CARD_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-auction-sample.html'), 'utf8');
+// NW/OW between two rounds: eCari's own empty state in every tab.
+const ECARI_NO_RUNNING_AUCTION = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction.html'), 'utf8');
 
 describe('expanded plate-auction connectors', () => {
   it('does not substitute an unrelated PDF when a configured pattern misses', () => {
@@ -366,5 +370,78 @@ describe('fixed-price PDF url resolution', () => {
       expect(variant.fallbackPdfUrl).toBeUndefined();
       expect(variant.pdfUrlPattern).toBeInstanceOf(RegExp);
     }
+  });
+});
+
+describe('eCari explicit empty catalogue', () => {
+  it('reads the NW/OW "Keine laufende Versteigerung" page as an empty catalogue, not a failed parse', () => {
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION)).toBe(true);
+    for (const sourceKey of ['nw', 'ow']) {
+      const rows = parseExpandedEcari(sourceKey, ECARI_NO_RUNNING_AUCTION);
+      expect(rows, sourceKey).toEqual([]);
+      expect(isExplicitlyEmptyCatalogue(rows), sourceKey).toBe(true);
+    }
+    // Same portal, own parsers: the class, not just the two cantons.
+    for (const rows of [parseGrAuctionRows(ECARI_NO_RUNNING_AUCTION), parseSgAuctionRows(ECARI_NO_RUNNING_AUCTION), parseSzAuctionRows(ECARI_NO_RUNNING_AUCTION), parseTiAuctionRows(ECARI_NO_RUNNING_AUCTION)]) {
+      expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+    }
+  });
+
+  it('keeps an empty parse WITHOUT the explicit label a failed parse', () => {
+    // The page shell answered 200 but the auction tab lost its label: that is
+    // a truncated or changed page, and must stay `zero_rows` downstream.
+    const shell = ECARI_NO_RUNNING_AUCTION.replaceAll('Keine laufende Versteigerung', '');
+    expect(isEcariCatalogueExplicitlyEmpty(shell)).toBe(false);
+    expect(isExplicitlyEmptyCatalogue(parseExpandedEcari('nw', shell))).toBe(false);
+    expect(isExplicitlyEmptyCatalogue(parseExpandedEcari('nw', ''))).toBe(false);
+    // A tab without its own empty label is not known to be empty either.
+    const unlabelledFixedPriceTab = ECARI_NO_RUNNING_AUCTION.replace(
+      /<div id="tabContent3"[\s\S]*?(?=<div id="tabContent4")/,
+      (section) => section.replaceAll('Kontrollschilder nicht verfügbar', ''),
+    );
+    expect(unlabelledFixedPriceTab).not.toBe(ECARI_NO_RUNNING_AUCTION);
+    expect(isEcariCatalogueExplicitlyEmpty(unlabelledFixedPriceTab)).toBe(false);
+  });
+
+  it('never calls a truncated page empty when a tab the connector reads is missing', () => {
+    // Review #9715: a response cut after `tabContent1` still carries the
+    // auction tab's own empty label. Validating only the tabs that survived
+    // accepted it as an authoritative empty catalogue, so live rows in the
+    // lost tabs would be closed as absent instead of failing `zero_rows`.
+    const truncated = ECARI_NO_RUNNING_AUCTION.slice(0, ECARI_NO_RUNNING_AUCTION.indexOf('<div id="tabContent2"'));
+    expect(truncated).toContain('Keine laufende Versteigerung');
+    expect(isEcariCatalogueExplicitlyEmpty(truncated)).toBe(false);
+    for (const sourceKey of ['nw', 'ow']) {
+      expect(isExplicitlyEmptyCatalogue(parseExpandedEcari(sourceKey, truncated)), sourceKey).toBe(false);
+    }
+    for (const rows of [parseGrAuctionRows(truncated), parseSgAuctionRows(truncated), parseSzAuctionRows(truncated), parseTiAuctionRows(truncated)]) {
+      expect(isExplicitlyEmptyCatalogue(rows)).toBe(false);
+    }
+    // Only the last tab lost: still not a complete observation.
+    const withoutWanted = ECARI_NO_RUNNING_AUCTION.replace(/<div id="tabContent4"[\s\S]*$/, '');
+    expect(isEcariCatalogueExplicitlyEmpty(withoutWanted)).toBe(false);
+    // A connector that reads fewer tabs (VS: 1, 2, 4) is judged on its own set.
+    const withoutFixedPrice = ECARI_NO_RUNNING_AUCTION.replace(/<div id="tabContent3"[\s\S]*?(?=<div id="tabContent4")/, '');
+    expect(isEcariCatalogueExplicitlyEmpty(withoutFixedPrice, ['tabContent1', 'tabContent2', 'tabContent4'])).toBe(true);
+    expect(isEcariCatalogueExplicitlyEmpty(withoutFixedPrice)).toBe(false);
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION, [])).toBe(false);
+  });
+
+  it('never calls a page empty when it holds rows the parser cannot read', () => {
+    // A markup change that breaks the row parser while one section still
+    // shows the empty label must not become "nothing is listed".
+    const unreadableRow = ECARI_NO_RUNNING_AUCTION.replace(
+      '<div class="bikeContent"',
+      '<table><tbody><tr class="L"><td><a onclick="showAuction(1768)">OW 691</a></td><td>CHF 950</td></tr></tbody></table><div class="bikeContent"',
+    );
+    const rows = parseExpandedEcari('ow', unreadableRow);
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(false);
+  });
+
+  it('leaves a catalogue with rows untouched', () => {
+    const rows = parseExpandedEcari('nw', EXPANDED_ECARI_SAMPLE);
+    expect(rows).toHaveLength(1);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(false);
   });
 });

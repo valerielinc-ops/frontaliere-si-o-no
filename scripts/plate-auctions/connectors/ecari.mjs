@@ -9,6 +9,7 @@ import {
   extractEcariTabSection,
   fetchHtml,
   parseEcariAuctionRows,
+  withEcariEmptyState,
 } from "../../../functions/src/plateAuctionsCore.js";
 
 export const DEFAULT_ECARI_TABS = [
@@ -28,7 +29,7 @@ export function parseEcariCantonAuctions(
     tabs = DEFAULT_ECARI_TABS,
   },
 ) {
-  return tabs.flatMap(([tabContentId, auctionStatus, listingType, idSuffix]) =>
+  const rows = tabs.flatMap(([tabContentId, auctionStatus, listingType, idSuffix]) =>
     parseEcariAuctionRows(extractEcariTabSection(html, tabContentId), {
       canton,
       plateCode,
@@ -43,6 +44,9 @@ export function parseEcariCantonAuctions(
       detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(officialAuctionUrl, sourceRecordId),
     }),
   );
+  // No rows is either the portal's own "no auction running" page or a page
+  // we could not read; only the first is a healthy empty catalogue.
+  return withEcariEmptyState(rows, html, tabs.map(([tabContentId]) => tabContentId));
 }
 
 export async function fetchEcariCantonAuctions(config) {

@@ -4,6 +4,7 @@ import {
   NOVELIS_COMPANY_NAME,
   isNovelisJob,
   isTrustedDomain,
+  parseLocationCode,
 } from '../scripts/lib/novelis-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -125,5 +126,16 @@ describe('Novelis crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+describe('Novelis — multi-site iCIMS location codes (issue 5253)', () => {
+  it('reads the Swiss entry of a multi-site code instead of the whole string', () => {
+    // Forme reali della pagina iCIMS filtrata sulla Svizzera (2026-09-24).
+    expect(parseLocationCode('CH-ZH-Küsnacht | DE-Göttingen | DE-RP-Koblenz | IT-Bresso'))
+      .toEqual({ city: 'Küsnacht', canton: 'ZH' });
+    expect(parseLocationCode('DE-Göttingen | DE-RP-Koblenz | CH-ZH-Küsnacht | DE-NW-Plettenberg'))
+      .toEqual({ city: 'Küsnacht', canton: 'ZH' });
+    expect(parseLocationCode('CH-VS-Sierre')).toEqual({ city: 'Sierre', canton: 'VS' });
   });
 });

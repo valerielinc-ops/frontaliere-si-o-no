@@ -318,6 +318,10 @@ describe('gate sul conio — pin sul sorgente', () => {
     expect(wf).toMatch(/if \[ -z "\$\{GH_TOKEN:-\}" \]/);
     expect(src).toContain("const prRepoArgs = process.env.GATE_PR_REPO ? ['--repo', process.env.GATE_PR_REPO] : repoArgs;");
     expect(src).toContain("['pr', 'comment', String(pr), ...prRepoArgs");
+    // I daily del sito portano anche Sources del corpus (#9443): lo step del sito
+    // dichiara il repository gemello in cui risolverle, con il token del corpus.
+    expect(wf).toContain('GATE_ALT_PR_REPO: nanakokyobashi-rgb/frontaliere-articles');
+    expect(wf).toContain('GATE_ALT_PR_TOKEN: ${{ env.GITHUB_PAT_NANAKO || env.GITHUB_PAT }}');
   });
 
   it('PIN: un summary non scrivibile non cambia il verdetto dopo le scritture', () => {

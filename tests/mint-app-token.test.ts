@@ -1,7 +1,7 @@
 import { describe, it, expect } from 'vitest';
 import { generateKeyPairSync, createVerify } from 'node:crypto';
 import { readFileSync } from 'node:fs';
-import { buildAppJwt, hasWorkflowsWrite } from '../scripts/ci/mint-app-token.mjs';
+import { buildAppJwt, hasActionsWrite, hasWorkflowsWrite } from '../scripts/ci/mint-app-token.mjs';
 
 // Deterministic test keypair (no network, no real App key).
 const { privateKey, publicKey } = generateKeyPairSync('rsa', { modulusLength: 2048 });
@@ -69,6 +69,29 @@ describe('hasWorkflowsWrite — the two conditions that decide the capability ga
     expect(hasWorkflowsWrite(undefined)).toBe(false);
     expect(hasWorkflowsWrite(null)).toBe(false);
     expect(hasWorkflowsWrite({})).toBe(false);
+  });
+});
+
+/**
+ * deploy.yml's re-arm DISPATCHES a workflow run: an App token that can mint but
+ * lacks `actions: write` would 403 inside a continue-on-error step and leave the
+ * recovered build unpublished (review #9715). The step prefers APP_TOKEN only
+ * when this verified capability says so.
+ */
+describe('hasActionsWrite — dispatch capability read from the token, not assumed', () => {
+  it('granted only by a literal write', () => {
+    expect(hasActionsWrite({ actions: 'write', contents: 'write' })).toBe(true);
+    expect(hasActionsWrite({ actions: 'read' })).toBe(false);
+    expect(hasActionsWrite({ contents: 'write', workflows: 'write' })).toBe(false);
+    expect(hasActionsWrite(undefined)).toBe(false);
+    expect(hasActionsWrite(null)).toBe(false);
+  });
+
+  it('deploy.yml re-arm uses APP_TOKEN only when APP_TOKEN_ACTIONS is true', () => {
+    const deploy = readFileSync(new URL('../.github/workflows/deploy.yml', import.meta.url), 'utf8');
+    const rearm = deploy.slice(deploy.indexOf('- name: Re-arm the build pipeline if it has stopped with work outstanding'));
+    const tokenLine = rearm.split('\n').find((line) => line.trim().startsWith('GH_TOKEN:'));
+    expect(tokenLine?.trim()).toBe("GH_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}");
   });
 });
 

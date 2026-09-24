@@ -114,6 +114,11 @@ describe('evaluateFreshness', () => {
   });
 });
 
+// Derived from the same nightly snapshot the monitor reads (see the comment
+// on the first live-data case): pinned literals went red at 749 -> 751.
+const italyCount = (code: string) => (italy.pharmacies as Array<{ province?: string }>).filter((p) => p.province === code).length;
+const BORDER_TOTAL = ticino.pharmacies.length + italy.pharmacies.length;
+
 describe('evaluateBorderHealth', () => {
   // conta i record reali di data/pharmacies-*.json, risincronizzati ogni notte: rosso possibile senza cambi di codice
   it.skipIf(SKIP_LIVE_DATA)('reports all four policy jurisdictions and their real record counts', () => {
@@ -125,12 +130,12 @@ describe('evaluateBorderHealth', () => {
       nowMs: Date.parse(ticino._fetchedAt) + 3600e3,
     });
     expect(health.jurisdictions).toMatchObject([
-      { key: 'CH-TI', sourceStatus: 'active', recordCount: 207 },
-      { key: 'IT-CO', sourceStatus: 'active', recordCount: 193 },
-      { key: 'IT-VA', sourceStatus: 'active', recordCount: 268 },
-      { key: 'IT-VB', sourceStatus: 'active', recordCount: 83 },
+      { key: 'CH-TI', sourceStatus: 'active', recordCount: ticino.pharmacies.length },
+      { key: 'IT-CO', sourceStatus: 'active', recordCount: italyCount('CO') },
+      { key: 'IT-VA', sourceStatus: 'active', recordCount: italyCount('VA') },
+      { key: 'IT-VB', sourceStatus: 'active', recordCount: italyCount('VB') },
     ]);
-    expect(health.totalRecords).toBe(751);
+    expect(health.totalRecords).toBe(BORDER_TOTAL);
     expect(health.fetchErrors).toEqual([]);
     expect(health.outOfScopeRecords).toEqual([]);
     expect(health.sourceMismatches).toEqual([]);
@@ -369,9 +374,9 @@ describe('report payload consumed by the workflow', () => {
       },
     });
     expect(report.healthy).toBe(true);
-    expect(report.border).toMatchObject({ totalRecords: 751, outOfScopeRecords: [], identityCollisions: [], missingSecondaryProvenance: [] });
-    expect(report.dashboard.join('\n')).toContain('Perimetro operativo: 4 giurisdizioni · 751 record');
-    expect(report.dashboard.join('\n')).toContain('IT-CO [active] — 193 record');
+    expect(report.border).toMatchObject({ totalRecords: BORDER_TOTAL, outOfScopeRecords: [], identityCollisions: [], missingSecondaryProvenance: [] });
+    expect(report.dashboard.join('\n')).toContain(`Perimetro operativo: 4 giurisdizioni · ${BORDER_TOTAL} record`);
+    expect(report.dashboard.join('\n')).toContain(`IT-CO [active] — ${italyCount('CO')} record`);
     expect(report.dashboard.join('\n')).toContain('Errori fetch perimetro: 0');
     expect(report.dashboard.join('\n')).toContain('Record nella snapshot della fonte errata: 0');
   });

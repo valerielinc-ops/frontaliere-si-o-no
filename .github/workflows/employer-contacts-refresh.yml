@@ -31,7 +31,10 @@ concurrency:
 jobs:
   refresh:
     runs-on: ubuntu-latest
-    timeout-minutes: 30
+    # 30 min no longer fits: ~415 companies x ~3.5 s scrape + ~6 min checkout/
+    # assemble. Runs 34831120909 and 35587081055 were cancelled at 367/415,
+    # and the script only upserts after the whole scrape, so nothing was written.
+    timeout-minutes: 60
     steps:
       - name: Checkout
         uses: actions/checkout@v5

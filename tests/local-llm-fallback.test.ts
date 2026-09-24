@@ -1,9 +1,11 @@
-import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
+import { describe, it, expect, beforeAll, beforeEach, afterEach, vi } from 'vitest';
 import http from 'node:http';
 import type { Socket } from 'node:net';
 import { once } from 'node:events';
 import { Agent } from 'undici';
-import { AI_MODELS, DEFAULT_CHAIN, isModelAvailable, callSingleModel, callLLM } from '../scripts/lib/ai-models.mjs';
+import {
+  AI_MODELS, DEFAULT_CHAIN, isModelAvailable, callSingleModel, callLLM, __installScoreStoreForTests,
+} from '../scripts/lib/ai-models.mjs';
 
 // Local open-source fallback provider: opt-in last-resort used when every remote
 // free-tier provider is daily-exhausted. These invariants guard the two things
@@ -11,6 +13,11 @@ import { AI_MODELS, DEFAULT_CHAIN, isModelAvailable, callSingleModel, callLLM } 
 // change behaviour by default; (2) it sits at the very bottom of the chain, so
 // slow CPU inference never displaces a working remote API.
 describe('local LLM fallback provider', () => {
+  // Ermetico: senza questo la prima callLLM del file inizializzava lo ScoreStore
+  // di PRODUZIONE quando GOOGLE_APPLICATION_CREDENTIALS e' impostato, e il test
+  // bypassForceChain dipendeva da quali modelli Gemini erano esauriti in quel
+  // momento (passava solo grazie ai tre id ritirati mai esauriti, nanako#362).
+  beforeAll(() => { __installScoreStoreForTests(null); });
   const prev = process.env.LOCAL_LLM_ENABLED;
   beforeEach(() => { delete process.env.LOCAL_LLM_ENABLED; });
   afterEach(() => {

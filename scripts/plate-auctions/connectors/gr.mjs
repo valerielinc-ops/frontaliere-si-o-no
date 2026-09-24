@@ -5,6 +5,7 @@ import {
   extractEcariTabSection,
   fetchHtml,
   parseEcariAuctionRows,
+  withEcariEmptyState,
 } from '../../../functions/src/plateAuctionsCore.js';
 
 export const GR_CANTON = 'Grigioni';
@@ -18,7 +19,7 @@ export function parseGrAuctionRows(html, { fetchedAt = new Date().toISOString() 
     ['tabContent3', 'active', 'fixed-price', 'gr-fixed'],
     ['tabContent4', 'upcoming', 'wanted', 'gr-wanted'],
   ];
-  return tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(
+  return withEcariEmptyState(tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(
     extractEcariTabSection(html, tab),
     {
       canton: GR_CANTON,
@@ -30,7 +31,7 @@ export function parseGrAuctionRows(html, { fetchedAt = new Date().toISOString() 
       idPrefix,
       detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(GR_AUCTION_URL, sourceRecordId),
     },
-  ));
+  )), html, tabs.map(([tab]) => tab));
 }
 
 export async function fetchGrPlateAuctions() {
