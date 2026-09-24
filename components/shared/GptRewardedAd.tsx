@@ -4,15 +4,23 @@ import { onAdsConsentChange } from '@/services/adsConsent';
 import {
   ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
   disposeRewardedWebAd,
-  getRewardedWebAdEligibilityReason,
+  getRewardedWebAdIneligibility,
   getRewardedWebAdSnapshot,
   isRewardedWebAdEligible,
-  preloadRewardedWebAd,
+  requestRewardedWebAd,
   showRewardedWebAd,
   subscribeRewardedWebAd,
 } from '@/services/rewardedWebAd';
 
 export { ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH, REWARDED_READY_TIMEOUT_MS } from '@/services/rewardedWebAd';
+
+/** Correlation data passed with every rewarded lifecycle callback. */
+export interface GptRewardedAdCallbackInfo {
+  /** Id of the Google request, shared with the `rewarded_web_*` telemetry. */
+  requestId: number;
+  /** Sub-cause of an unavailable outcome, when known. */
+  detail?: string;
+}
 
 export interface GptRewardedAdProps {
   adUnitPath?: string;
@@ -23,26 +31,27 @@ export interface GptRewardedAdProps {
   showUnavailableMessage?: boolean;
   enabled?: boolean;
   /**
-   * Start as soon as the preloaded slot is ready. The caller must only enable
-   * this after the user has already opted into the rewarded flow.
+   * Make the ad visible as soon as GPT emits `rewardedSlotReady`. The caller
+   * mounts this component only after the visitor's own click and discloses
+   * the video, so no second click is needed to start it.
    */
   autoStart?: boolean;
   /**
    * Retry only after the visitor explicitly asks to retry a dismissed ad.
-   * A known no-fill keeps its original request so the caller can choose its
-   * deterministic fallback without creating concurrent rewarded requests.
+   * Each mount and each retry token backs exactly one Google request: the
+   * component never re-requests on its own after a no-fill or a timeout.
    */
   retryToken?: number;
-  onOptIn?: () => void;
-  onReady?: () => void;
-  onVideoCompleted?: () => void;
-  onGranted: () => void;
-  onClosed?: (granted: boolean) => void;
-  onUnavailable?: (reason: string) => void;
+  onOptIn?: (info: GptRewardedAdCallbackInfo) => void;
+  onReady?: (info: GptRewardedAdCallbackInfo) => void;
+  onVideoCompleted?: (info: GptRewardedAdCallbackInfo) => void;
+  onGranted: (info: GptRewardedAdCallbackInfo) => void;
+  onClosed?: (granted: boolean, info: GptRewardedAdCallbackInfo) => void;
+  onUnavailable?: (reason: string, info: GptRewardedAdCallbackInfo) => void;
 }
 
 /**
- * Opt-in GPT Rewarded Web ad.
+ * GPT Rewarded Web ad.
  *
  * GPT reports the reward, while the caller owns the entitlement and the
  * destination redirect. The lifecycle events are intentionally sent through
@@ -67,8 +76,8 @@ export default function GptRewardedAd({
 }: GptRewardedAdProps) {
   const [adsConsentTick, setAdsConsentTick] = useState(0);
   const requestIdRef = useRef(0);
+  const requestedTokenRef = useRef<number | null>(null);
   const lastEventSequenceRef = useRef(0);
-  const autoStartRequestIdRef = useRef(0);
   const autoShownRequestIdRef = useRef(0);
   const unavailableNotifiedRequestIdRef = useRef<number | null>(null);
   const onOptInRef = useRef(onOptIn);
@@ -84,11 +93,11 @@ export default function GptRewardedAd({
   onClosedRef.current = onClosed;
   onUnavailableRef.current = onUnavailable;
 
-  const notifyUnavailable = useCallback((reason = 'unavailable') => {
+  const notifyUnavailable = useCallback((reason: string, detail?: string) => {
     const requestId = requestIdRef.current;
     if (unavailableNotifiedRequestIdRef.current === requestId) return;
     unavailableNotifiedRequestIdRef.current = requestId;
-    onUnavailableRef.current?.(reason);
+    onUnavailableRef.current?.(reason, { requestId, ...(detail ? { detail } : {}) });
   }, []);
 
   useEffect(() => onAdsConsentChange(() => setAdsConsentTick((tick) => tick + 1)), []);
@@ -99,20 +108,29 @@ export default function GptRewardedAd({
     getRewardedWebAdSnapshot,
     getRewardedWebAdSnapshot,
   );
-  const state = snapshot.state === 'idle' ? 'loading' : snapshot.state;
+  // Until this mount owns a request, a finished snapshot belongs to an
+  // earlier request and must not render as this click's outcome.
+  const ownsSnapshot = requestIdRef.current !== 0 && snapshot.requestId === requestIdRef.current;
+  const state = ownsSnapshot
+    ? (snapshot.state === 'idle' ? 'loading' : snapshot.state)
+    : (snapshot.state === 'ready' ? 'ready' : 'loading');
 
   useEffect(() => {
-    if (!active) {
+    const ineligibility = getRewardedWebAdIneligibility(enabled);
+    if (ineligibility) {
       disposeRewardedWebAd(adUnitPath);
       requestIdRef.current = 0;
-      autoStartRequestIdRef.current = 0;
       autoShownRequestIdRef.current = 0;
-      notifyUnavailable(getRewardedWebAdEligibilityReason(enabled) ?? 'ineligible');
+      notifyUnavailable(ineligibility.reason, ineligibility.detail);
       return;
     }
-    requestIdRef.current = preloadRewardedWebAd(adUnitPath, { retryUnavailable: retryToken > 0 });
-    if (!requestIdRef.current) notifyUnavailable('preload_unavailable');
-  }, [active, adUnitPath, adsConsentTick, notifyUnavailable, retryToken]);
+    // One Google request per mount and per explicit retry. A consent tick or a
+    // re-render must not turn a no-fill into an automatic second auction.
+    if (requestedTokenRef.current === retryToken && requestIdRef.current) return;
+    requestedTokenRef.current = retryToken;
+    requestIdRef.current = requestRewardedWebAd(adUnitPath);
+    if (!requestIdRef.current) notifyUnavailable('not_eligible', 'request_refused');
+  }, [active, adUnitPath, adsConsentTick, enabled, notifyUnavailable, retryToken]);
 
   useEffect(() => {
     const pendingEvents = snapshot.events.filter(
@@ -120,37 +138,39 @@ export default function GptRewardedAd({
     );
     pendingEvents.forEach((event) => {
       lastEventSequenceRef.current = event.sequence;
-      if (event.type === 'ready') onReadyRef.current?.();
-      if (event.type === 'granted') onGrantedRef.current();
-      if (event.type === 'completed') onVideoCompletedRef.current?.();
-      if (event.type === 'closed') onClosedRef.current?.(!!event.granted);
-      if (event.type === 'unavailable') notifyUnavailable(event.reason ?? 'unavailable');
+      const info: GptRewardedAdCallbackInfo = { requestId: event.requestId };
+      if (event.type === 'ready') onReadyRef.current?.(info);
+      if (event.type === 'granted') onGrantedRef.current(info);
+      if (event.type === 'completed') onVideoCompletedRef.current?.(info);
+      if (event.type === 'closed') onClosedRef.current?.(!!event.granted, info);
+      if (event.type === 'unavailable') notifyUnavailable(event.reason ?? 'unavailable', event.detail);
     });
   }, [snapshot.events, notifyUnavailable]);
+
+  const show = useCallback(() => {
+    const requestId = requestIdRef.current;
+    onOptInRef.current?.({ requestId });
+    try {
+      const result = showRewardedWebAd(adUnitPath);
+      // A display error is published by the service with its detail and
+      // reaches the caller through the event stream above.
+      if (result === 'slot_not_ready') notifyUnavailable('slot_not_ready');
+    } catch {
+      notifyUnavailable('display_error', 'show_threw');
+    }
+  }, [adUnitPath, notifyUnavailable]);
 
   useEffect(() => {
     if (!autoStart || state !== 'ready') return;
     const requestId = requestIdRef.current;
-    if (!requestId || autoStartRequestIdRef.current === requestId || autoShownRequestIdRef.current === requestId) return;
-
-    autoStartRequestIdRef.current = requestId;
+    if (!requestId || autoShownRequestIdRef.current === requestId) return;
     autoShownRequestIdRef.current = requestId;
-    onOptInRef.current?.();
-    try {
-      if (!showRewardedWebAd(adUnitPath)) notifyUnavailable();
-    } catch {
-      notifyUnavailable();
-    }
-  }, [adUnitPath, autoStart, notifyUnavailable, state, snapshot.requestId]);
+    show();
+  }, [autoStart, show, state, snapshot.requestId]);
 
   const handleOptIn = () => {
     if (state !== 'ready') return;
-    onOptInRef.current?.();
-    try {
-      if (!showRewardedWebAd(adUnitPath)) notifyUnavailable();
-    } catch {
-      notifyUnavailable();
-    }
+    show();
   };
 
   return (

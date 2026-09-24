@@ -1,7 +1,11 @@
 import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CheckCircle2, RefreshCw, ShieldCheck, X } from 'lucide-react';
-import GptRewardedAd from '@/components/shared/GptRewardedAd';
+import GptRewardedAd, { type GptRewardedAdCallbackInfo } from '@/components/shared/GptRewardedAd';
+import {
+  ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
+  REWARDED_WEB_AD_FORMAT,
+} from '@/services/rewardedWebAd';
 import {
   grantRewardedApplicationAccess,
 } from '@/services/rewardedApplicationAccess';
@@ -10,6 +14,13 @@ import {
 } from '@/services/assistedApplicationExperiment';
 
 const SURFACE = 'job_detail_rewarded_inline';
+const TRIGGER = 'candidate_click';
+// A double click on "Candidati" lands its second click on the freshly opened
+// backdrop. Ignore backdrop dismissals inside that window so the same gesture
+// cannot open and immediately cancel the Google request.
+const BACKDROP_DISMISS_GRACE_MS = 600;
+
+const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
 
 export interface RewardedApplicationOfferProps {
   jobId: string;
@@ -41,14 +52,27 @@ export default function RewardedApplicationOffer({
   const [retryRequired, setRetryRequired] = useState(false);
   const [retryToken, setRetryToken] = useState(0);
   const grantedRef = useRef(false);
+  const openedAtRef = useRef(now());
+
+  // Shared shape of every rewarded event of this offer: the job context, the
+  // ad inventory, and the Google request id that joins it to the
+  // `rewarded_web_*` lifecycle telemetry.
+  const eventContext = (info?: GptRewardedAdCallbackInfo) => ({
+    variant: 'rewarded_ad' as const,
+    jobId,
+    companyId,
+    surface: SURFACE,
+    trigger: TRIGGER,
+    ad_unit: ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
+    format: REWARDED_WEB_AD_FORMAT,
+    ms_since_click: Math.round(now() - openedAtRef.current),
+    ...(info?.requestId ? { request_id: info.requestId } : {}),
+  });
 
   useEffect(() => {
-    trackAssistedApplicationEvent('rewarded_application_offer_viewed', {
-      variant: 'rewarded_ad',
-      jobId,
-      companyId,
-      surface: SURFACE,
-    });
+    trackAssistedApplicationEvent('rewarded_application_offer_viewed', eventContext());
+    // The offer is viewed once per mount; the context is read at that moment.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [companyId, jobId]);
 
   useEffect(() => {
@@ -64,22 +88,16 @@ export default function RewardedApplicationOffer({
     };
   }, [onDismiss]);
 
-  const handleGranted = () => {
+  // Only Google's rewardedSlotGranted reaches this handler (directly, or via
+  // the granted bit of the close event that follows it).
+  const handleGranted = (info?: GptRewardedAdCallbackInfo) => {
     if (grantedRef.current) return;
     grantedRef.current = true;
     const accessExpiresAt = grantRewardedApplicationAccess();
     setRewarded(true);
-    trackAssistedApplicationEvent('rewarded_ad_granted', {
-      variant: 'rewarded_ad',
-      jobId,
-      companyId,
-      surface: SURFACE,
-    });
+    trackAssistedApplicationEvent('rewarded_ad_granted', eventContext(info));
     trackAssistedApplicationEvent('rewarded_application_access_granted', {
-      variant: 'rewarded_ad',
-      jobId,
-      companyId,
-      surface: SURFACE,
+      ...eventContext(info),
       access_expires_at: accessExpiresAt,
       access_ttl_hours: 12,
     });
@@ -90,33 +108,30 @@ export default function RewardedApplicationOffer({
     // Video completion is optional telemetry and must never unlock the CTA.
   };
 
-  const handleClosed = (grantedByEvent: boolean) => {
+  const handleClosed = (grantedByEvent: boolean, info?: GptRewardedAdCallbackInfo) => {
+    // `grantedByEvent` is true only when rewardedSlotGranted already fired for
+    // this request; it just guards against the close being delivered first.
     if (grantedByEvent && !grantedRef.current) {
-      // Some GPT builds emit the granted bit on close without delivering the
-      // separate rewardedSlotGranted event. Keep the entitlement and CTA
-      // state deterministic in that case.
-      handleGranted();
+      handleGranted(info);
     }
     if (grantedByEvent || grantedRef.current) {
       return;
     }
+    // No reward: the application stays locked. The visitor may choose to
+    // watch again, but nothing retries on their behalf.
     setRetryRequired(true);
     trackAssistedApplicationEvent('rewarded_ad_unavailable', {
-      variant: 'rewarded_ad',
-      jobId,
-      companyId,
-      surface: SURFACE,
+      ...eventContext(info),
       reason: 'video_closed_before_reward',
+      handoff: 'none',
     });
   };
 
-  const handleUnavailable = (reason = 'unavailable') => {
+  const handleUnavailable = (reason = 'unavailable', info?: GptRewardedAdCallbackInfo) => {
     trackAssistedApplicationEvent('rewarded_ad_unavailable', {
-      variant: 'rewarded_ad',
-      jobId,
-      companyId,
-      surface: SURFACE,
+      ...eventContext(info),
       reason,
+      ...(info?.detail ? { detail: info.detail } : {}),
       handoff: 'direct_external',
     });
     // There is no monetizable impression when Google returns no-fill or the
@@ -136,7 +151,11 @@ export default function RewardedApplicationOffer({
   const modal = (
     <div
       className="fixed inset-0 z-[1000] isolate flex min-h-[100dvh] items-end justify-center overflow-y-auto bg-black/55 px-3 py-4 pb-[calc(env(safe-area-inset-bottom,0px)+1rem)] pt-[calc(env(safe-area-inset-top,0px)+1rem)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-6"
-      onClick={(event) => { if (event.target === event.currentTarget) onDismiss?.(); }}
+      onClick={(event) => {
+        if (event.target !== event.currentTarget) return;
+        if (now() - openedAtRef.current < BACKDROP_DISMISS_GRACE_MS) return;
+        onDismiss?.();
+      }}
       data-testid="rewarded-application-offer"
     >
       <div
@@ -168,14 +187,14 @@ export default function RewardedApplicationOffer({
           </div>
 
           <p id="rewarded-application-offer-description" className="text-sm leading-relaxed text-body">
-            Stiamo preparando il pulsante per aprire la candidatura sul sito dell’azienda. Se c’è domanda Google, puoi scegliere di guardare la pubblicità; al termine sblocchiamo quel pulsante.
+            Per candidarti guardi un breve video pubblicitario Google: parte da solo appena è pronto. Al termine del video sblocchiamo il pulsante per aprire la candidatura sul sito dell’azienda.
           </p>
 
           <div className="rounded-stripe border border-info-border bg-info-subtle/60 p-3">
             <div className="flex items-start gap-2.5">
               <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-info" aria-hidden="true" />
               <p className="text-xs leading-relaxed text-body">
-                Questo percorso è monetizzato solo da Google. Il video parte esclusivamente dopo la tua scelta esplicita; se l’asta non restituisce una creatività, non mostriamo un sostituto non monetizzato.
+                Questo percorso è monetizzato solo da Google. Se in questo momento Google non ha un video da mostrare, ti portiamo subito al sito dell’azienda: nessun video sostitutivo e nessun secondo click.
               </p>
             </div>
           </div>
@@ -187,7 +206,7 @@ export default function RewardedApplicationOffer({
             </li>
             <li className="flex items-start gap-2.5">
               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
-              <span>Mostriamo un annuncio Google solo quando l’asta restituisce una creatività.</span>
+              <span>Il video Google parte da solo quando l’asta restituisce una creatività.</span>
             </li>
             <li className="flex items-start gap-2.5">
               <CheckCircle2 className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
@@ -218,13 +237,9 @@ export default function RewardedApplicationOffer({
               showingLabel="Video in riproduzione…"
               unavailableLabel="Il video non è disponibile in questo momento."
               showUnavailableMessage={false}
+              autoStart
               retryToken={retryToken}
-              onOptIn={() => trackAssistedApplicationEvent('rewarded_ad_opt_in', {
-                variant: 'rewarded_ad',
-                jobId,
-                companyId,
-                surface: SURFACE,
-              })}
+              onOptIn={(info) => trackAssistedApplicationEvent('rewarded_ad_opt_in', eventContext(info))}
               onGranted={handleGranted}
               onVideoCompleted={handleVideoCompleted}
               onClosed={handleClosed}

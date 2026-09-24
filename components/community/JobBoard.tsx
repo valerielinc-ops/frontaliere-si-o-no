@@ -2476,6 +2476,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [appliedJobId, setAppliedJobId] = useState<string | null>(null);
  const [assistedApplicationJob, setAssistedApplicationJob] = useState<JobListing | null>(null);
  const [rewardedApplicationJob, setRewardedApplicationJob] = useState<JobListing | null>(null);
+ // Synchronous twin of `rewardedApplicationJob`: a double click on "Candidati"
+ // runs handleApply twice before React re-renders, and the second run must not
+ // emit a second apply/offer event pair for the same gesture.
+ const rewardedOfferOpenRef = useRef(false);
+ useEffect(() => {
+  if (!rewardedApplicationJob) rewardedOfferOpenRef.current = false;
+ }, [rewardedApplicationJob]);
  const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
  const [assistedCheckoutError, setAssistedCheckoutError] = useState<string | null>(null);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
@@ -3529,9 +3536,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
  const assistedApplicationOrderId = readAssistedApplicationOrderId();
+ // Preload only where "Candidati" is actually reachable: anonymous visitors
+ // see the login gate instead of the CTA, so a request for them could never
+ // be shown and would only inflate the unit's unfilled requests.
  const shouldPreloadRewardedApplicationAd = Boolean(
   isJobDetailView
   && authResolved
+  && hasAccess
   && assistedApplicationVariant === 'rewarded_ad'
   && !killSwitches.rewardedApplicationAd
   && selectedJob
@@ -6928,7 +6939,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return eventId;
  };
 
- const redirectExternalApplication = (job: JobListing, surface: string, trackHandoff: boolean, sameTab = false) => {
+ const redirectExternalApplication = (
+  job: JobListing,
+  surface: string,
+  trackHandoff: boolean,
+  sameTab = false,
+  extraParams: Record<string, string> = {},
+ ) => {
   const applyDestination = buildReferralUrl(job);
   if (!applyDestination) return;
   if (trackHandoff) {
@@ -6939,7 +6956,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }
   trackAssistedApplicationEvent(
    'external_apply_redirected',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, ...extraParams },
   );
   if (sameTab) {
    window.location.assign(applyDestination);
@@ -6974,17 +6991,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // This callback happens after the visitor has explicitly chosen to continue
   // from the rewarded modal, so use the current tab: a late window.open is
   // commonly blocked by the browser.
-  redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true);
+  redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true, {
+   handoff: 'rewarded_granted',
+  });
  };
 
  const handleRewardedApplicationUnavailable = (reason: string) => {
   const job = rewardedApplicationJob;
   if (!job) return;
-  // The offer already records the technical reason and direct handoff on the
-  // rewarded_ad_unavailable event. This callback only owns navigation.
-  void reason;
+  // No Google creative to show (no-fill, timeout, consent, eligibility): the
+  // offer has already tracked the technical detail, and the same click goes
+  // straight to the employer. No retry, no local video, no second click.
   setRewardedApplicationJob(null);
-  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true);
+  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true, {
+   handoff: 'direct_external',
+   reason,
+  });
  };
 
  const handleAssistedPaid = async () => {
@@ -7048,6 +7070,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [rewardedApplicationJob, authResolved, isJobDetailView]);
 
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
+  // The rewarded offer for this click is already open (double click, or a
+  // click that reached the page behind the dialog): one gesture, one request.
+  if (assistedApplicationVariant === 'rewarded_ad' && rewardedOfferOpenRef.current) return;
   const isExternal = isExternalApplicationJob(job);
   if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView) {
    // Keep anonymous job-board visitors on the sign-in/subscription funnel.
@@ -7109,6 +7134,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    'rewarded_application_offer_requested',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, provider: 'google_gpt_rewarded_web' },
   );
+  rewardedOfferOpenRef.current = true;
   setRewardedApplicationJob(job);
   if (!isJobDetailView) openDetail(job);
   return;
