@@ -507,27 +507,12 @@
     <!-- Google AdSense: deferred until after page is interactive to avoid
          blocking critical resources and deprecated-API warnings (Fledge) -->
 
-    <!-- The Italian job board uses direct GPT Rewarded Web so the employer
-         redirect can wait for the rewarded lifecycle. Native Offerwall is
-         page-level and is filtered to avoid racing that flow. -->
-    <script>
-      (function(){
-        var g = window.googlefc = window.googlefc || {};
-        if (g.controlledMessagingFunction) return;
-        g.controlledMessagingFunction = function(message){
-          var E = g.MessageTypeEnum || {};
-          var p = window.location && window.location.pathname || '';
-          var isItalianJobBoard = /^\/cerca-lavoro-ticino(?:\/|$)/.test(p);
-          // Fail open if the enum is unavailable: never block the consent CMP
-          // because an older Funding Choices runtime lacks Offerwall filtering.
-          if (!isItalianJobBoard || E.OFFERWALL === undefined) {
-            message.proceed(true);
-            return;
-          }
-          message.proceed(false, [E.OFFERWALL]);
-        };
-      })();
-    </script>
+    <!-- No controlledMessagingFunction: Funding Choices shows every configured
+         message. The Italian job board's Offerwall is the AdSense one (Privacy &
+         messaging hosted by AdSense since 2026-09-24): its rewarded ad is AdSense
+         demand, the only rewarded demand this site has, while the GPT Rewarded
+         Web request on "Candidati" goes to Ad Manager, which has none. Filtering
+         it here would switch off the only monetised rewarded surface. -->
 
     <!-- CMP → ads-gate bridge: maps the Funding Choices (TCF) outcome onto the
          `frontaliere_ads_consent` gate that every ad-script loader reads. The

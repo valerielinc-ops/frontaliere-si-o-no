@@ -38,10 +38,12 @@ describe('OFFERWALL_FC_SNIPPET — custom choice', () => {
 });
 
 describe('OFFERWALL_FC_SNIPPET — Funding Choices messaging loader', () => {
-  it('filters the native Offerwall only on the Italian job board', () => {
-    expect(OFFERWALL_FC_SNIPPET).toContain('message.proceed(false,[E.OFFERWALL])');
-    expect(OFFERWALL_FC_SNIPPET).toContain('isItalianJobBoard');
-    expect(OFFERWALL_FC_SNIPPET).toContain('message.proceed(true)');
+  it('does not filter the AdSense Offerwall on any page', () => {
+    // The job-board Offerwall is the site's only rewarded demand (AdSense);
+    // a controlledMessagingFunction here would switch it off.
+    expect(OFFERWALL_FC_SNIPPET).not.toContain('controlledMessagingFunction');
+    expect(OFFERWALL_FC_SNIPPET).not.toContain('OFFERWALL]');
+    expect(OFFERWALL_FC_SNIPPET).not.toContain('proceed(false');
   });
 
   it('injects the publisher-id messaging loader (not the network-code one)', () => {
