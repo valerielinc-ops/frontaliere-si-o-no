@@ -59,8 +59,7 @@ const defaultProps = {
   companyId: 'company-1',
   companyName: 'EOC',
   jobTitle: 'Fisioterapista diplomato',
-  onCompleted: vi.fn(),
-  onUnavailable: vi.fn(),
+  onContinue: vi.fn(),
 };
 
 describe('RewardedApplicationOffer', () => {
@@ -89,38 +88,38 @@ describe('RewardedApplicationOffer', () => {
     expect(rewardedMock.props?.autoStart).not.toBe(true);
   });
 
-  it('returns to the original application path when Google has no paid fill', () => {
-    const onUnavailable = vi.fn();
-    render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
+  it('keeps the visitor in the monetized path when Google has no paid fill', () => {
+    render(<RewardedApplicationOffer {...defaultProps} />);
 
     fireEvent.click(screen.getByTestId('mock-google-no-fill'));
 
-    expect(onUnavailable).toHaveBeenCalledTimes(1);
-    expect(screen.queryByTestId('rewarded-house-video-start')).not.toBeInTheDocument();
+    expect(screen.getByRole('button', { name: 'Riprova con il video' })).toBeInTheDocument();
   });
 
-  it('returns to the original application path when consent is required', () => {
-    const onUnavailable = vi.fn();
-    render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
+  it('keeps the visitor in the monetized path when consent is required', () => {
+    render(<RewardedApplicationOffer {...defaultProps} />);
 
     fireEvent.click(screen.getByTestId('mock-google-consent-required'));
 
-    expect(onUnavailable).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole('button', { name: 'Riprova con il video' })).toBeInTheDocument();
   });
 
-  it('completes after the authoritative Google reward signal without requiring optional video telemetry', () => {
-    const onCompleted = vi.fn();
-    render(<RewardedApplicationOffer {...defaultProps} onCompleted={onCompleted} />);
+  it('unlocks only after the authoritative Google reward signal and waits for an explicit continue', () => {
+    const onContinue = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onContinue={onContinue} />);
 
     act(() => {
       (rewardedMock.props?.onGranted as (() => void) | undefined)?.();
     });
-    expect(onCompleted).toHaveBeenCalledTimes(1);
+    expect(screen.getByRole('button', { name: 'Apri la candidatura sul sito dell’azienda' })).toBeInTheDocument();
+    expect(onContinue).not.toHaveBeenCalled();
 
     act(() => {
       (rewardedMock.props?.onVideoCompleted as (() => void) | undefined)?.();
     });
 
-    expect(onCompleted).toHaveBeenCalledTimes(1);
+    expect(onContinue).not.toHaveBeenCalled();
+    fireEvent.click(screen.getByRole('button', { name: 'Apri la candidatura sul sito dell’azienda' }));
+    expect(onContinue).toHaveBeenCalledTimes(1);
   });
 });

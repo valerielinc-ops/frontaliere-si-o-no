@@ -16,8 +16,7 @@ export interface RewardedApplicationOfferProps {
   companyId: string;
   companyName: string;
   jobTitle: string;
-  onCompleted: () => void;
-  onUnavailable: () => void;
+  onContinue: () => void;
   onDismiss?: () => void;
 }
 
@@ -25,7 +24,7 @@ export interface RewardedApplicationOfferProps {
  * Same-page rewarded application step.
  *
  * The job detail remains the canonical page. This dialog only appears after
- * an authenticated visitor asks to apply; it never owns a URL, SEO metadata,
+ * a visitor asks to apply; it never owns a URL, SEO metadata,
  * JobPosting data, or a crawler-specific branch.
  */
 export default function RewardedApplicationOffer({
@@ -33,15 +32,13 @@ export default function RewardedApplicationOffer({
   companyId,
   companyName,
   jobTitle,
-  onCompleted,
-  onUnavailable,
+  onContinue,
   onDismiss,
 }: RewardedApplicationOfferProps) {
   const [rewarded, setRewarded] = useState(false);
   const [retryRequired, setRetryRequired] = useState(false);
   const [retryToken, setRetryToken] = useState(0);
   const grantedRef = useRef(false);
-  const completedRef = useRef(false);
 
   useEffect(() => {
     trackAssistedApplicationEvent('rewarded_application_offer_viewed', {
@@ -65,16 +62,6 @@ export default function RewardedApplicationOffer({
     };
   }, [onDismiss]);
 
-  const completeIfReady = () => {
-    // Google documents rewardedSlotGranted as the authoritative web reward
-    // signal. A rewarded display can satisfy its view-time threshold without
-    // emitting the optional video-completed event, so requiring both events
-    // would strand a valid paid impression behind the modal.
-    if (!grantedRef.current || completedRef.current) return;
-    completedRef.current = true;
-    onCompleted();
-  };
-
   const handleGranted = () => {
     if (grantedRef.current) return;
     grantedRef.current = true;
@@ -94,26 +81,21 @@ export default function RewardedApplicationOffer({
       access_expires_at: accessExpiresAt,
       access_ttl_hours: 12,
     });
-    completeIfReady();
   };
 
   const handleVideoCompleted = () => {
-    setRewarded(true);
-    completeIfReady();
+    // Google documents rewardedSlotGranted as the authoritative web reward.
+    // Video completion is optional telemetry and must never unlock the CTA.
   };
 
   const handleClosed = (grantedByEvent: boolean) => {
     if (grantedByEvent && !grantedRef.current) {
       // Some GPT builds emit the granted bit on close without delivering the
-      // separate rewardedSlotGranted event. Keep the entitlement and redirect
-      // path deterministic in that case.
+      // separate rewardedSlotGranted event. Keep the entitlement and CTA
+      // state deterministic in that case.
       handleGranted();
     }
     if (grantedByEvent || grantedRef.current) {
-      // GPT's granted close event is emitted only after the rewarded
-      // experience has satisfied its completion condition. Treat it as the
-      // final lifecycle signal if a browser omits the separate video event.
-      completeIfReady();
       return;
     }
     setRetryRequired(true);
@@ -134,15 +116,15 @@ export default function RewardedApplicationOffer({
       surface: SURFACE,
       reason,
     });
-    // The application path is monetized only by a delivered Google rewarded
-    // ad. No-fill, consent, bot and unsupported-host failures all return to
-    // the caller instead of showing a non-monetized substitute.
-    onUnavailable();
+    // Keep the visitor inside the monetized path. No-fill, consent, bot and
+    // unsupported-host failures must never silently hand off to the employer
+    // without a paid Google experience; the visitor can retry explicitly.
+    setRewarded(false);
+    setRetryRequired(true);
   };
 
   const retry = () => {
     grantedRef.current = false;
-    completedRef.current = false;
     setRewarded(false);
     setRetryRequired(false);
     setRetryToken((token) => token + 1);
@@ -183,14 +165,14 @@ export default function RewardedApplicationOffer({
           </div>
 
           <p id="rewarded-application-offer-description" className="text-sm leading-relaxed text-body">
-            Stiamo preparando il collegamento diretto al sito dell’azienda. Se c’è domanda Google, puoi scegliere di guardare la pubblicità; al termine apriamo la candidatura.
+            Stiamo preparando il pulsante per aprire la candidatura sul sito dell’azienda. Se c’è domanda Google, puoi scegliere di guardare la pubblicità; al termine sblocchiamo quel pulsante.
           </p>
 
           <div className="rounded-stripe border border-info-border bg-info-subtle/60 p-3">
             <div className="flex items-start gap-2.5">
               <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-info" aria-hidden="true" />
               <p className="text-xs leading-relaxed text-body">
-                Questo percorso è monetizzato solo da Google. Il video parte esclusivamente dopo la tua scelta esplicita; se l’asta non restituisce una creatività, torniamo alla candidatura senza mostrare un sostituto non monetizzato.
+                Questo percorso è monetizzato solo da Google. Il video parte esclusivamente dopo la tua scelta esplicita; se l’asta non restituisce una creatività, non mostriamo un sostituto non monetizzato.
               </p>
             </div>
           </div>
@@ -211,10 +193,19 @@ export default function RewardedApplicationOffer({
           </ol>
 
           {rewarded && (
-            <p role="status" aria-live="polite" className="flex items-center gap-2 text-sm font-semibold text-success">
-              <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
-              Accesso sbloccato. Stiamo aprendo la candidatura…
-            </p>
+            <div className="space-y-3">
+              <p role="status" aria-live="polite" className="flex items-center gap-2 text-sm font-semibold text-success">
+                <CheckCircle2 className="h-4 w-4" aria-hidden="true" />
+                Pulsante candidatura sbloccato.
+              </p>
+              <button
+                type="button"
+                onClick={onContinue}
+                className="inline-flex min-h-[50px] w-full items-center justify-center gap-2 rounded-stripe bg-success-strong px-4 py-3 text-sm font-semibold text-on-accent shadow-stripe-sm transition-colors hover:bg-success-strong-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-success focus-visible:ring-offset-2"
+              >
+                Apri la candidatura sul sito dell’azienda
+              </button>
+            </div>
           )}
 
           {!retryRequired && !rewarded && (
@@ -241,7 +232,7 @@ export default function RewardedApplicationOffer({
           {retryRequired && (
             <div className="space-y-3" role="alert">
               <p className="text-sm leading-relaxed text-body">
-                Il video non è stato completato. Per continuare verso il sito dell’azienda, riprova.
+                Il video Google non è disponibile o non è stato completato. Per sbloccare il pulsante candidatura, riprova.
               </p>
               <button
                 type="button"
@@ -255,7 +246,7 @@ export default function RewardedApplicationOffer({
           )}
 
           <p className="text-xs leading-relaxed text-muted">
-            Il diritto di accesso rewarded resta valido 12 ore su questo dispositivo.
+            Il diritto di accesso al pulsante candidatura resta valido 12 ore su questo dispositivo.
           </p>
         </div>
       </div>
