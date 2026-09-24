@@ -11,8 +11,8 @@
  * quota daily (HTTP 429). When Gemini fails for ANY reason we fall through a
  * chain of free OpenAI-compatible providers whose keys already live in Remote
  * Config (same keys the translation/article AI model chain uses), then a
- * last-resort paid Codex call via the OpenAI API (see codexFallback.js —
- * scoped exception, issue #4495). The endpoint only surfaces an
+ * last-resort Codex Luna Max call authenticated with the CI's Codex ChatGPT
+ * login (see codexFallback.js — scoped exception, issue #4495). The endpoint only surfaces an
  * error when EVERY provider fails — so a single exhausted quota no longer
  * breaks the feature.
  */
@@ -137,13 +137,13 @@ export async function handleGeminiGenerate(req) {
     }
   }
 
-  // 3. Last resort: Codex via the OpenAI API (OPENAI_API_KEY from Remote
-  //    Config) — scoped exception in AGENTS.md (issue #4495). Paid, only
-  //    reached once every free provider above has failed.
+  // 3. Last resort: Codex Luna Max with the Codex ChatGPT login
+  //    (CODEX_AUTH_JSON from Remote Config, never refreshed here) — scoped
+  //    exception in AGENTS.md (issue #4495). Only reached once every free
+  //    provider above has failed.
   const codexResult = await tryCodexFallback({
     systemPrompt,
     messages: [{ role: 'user', content: userPrompt }],
-    maxTokens,
   });
   if (codexResult.ok) {
     console.log('[geminiGenerate] served by fallback codex');

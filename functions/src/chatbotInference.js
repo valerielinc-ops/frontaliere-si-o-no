@@ -9,8 +9,8 @@
  * 2. Groq llama-3.3-70b-versatile — first OpenAI-compatible fallback
  * 3. NVIDIA meta/llama-3.1-70b-instruct — second OpenAI-compatible fallback
  * 4. Groq llama-3.1-8b-instant — last-resort free fallback
- * 5. Codex via the OpenAI API — paid, last-resort of last resort
- *    (see codexFallback.js — scoped exception, #4495)
+ * 5. Codex Luna Max with the CI's Codex ChatGPT login — last-resort of last
+ *    resort (see codexFallback.js — scoped exception, #4495)
  *
  * Tools (searchJobs) are embedded as text in the system prompt; no native
  * function-calling API is used, so OpenAI-compatible providers work identically.
@@ -283,13 +283,13 @@ export async function handleChatbotInference({ messages, systemPrompt }) {
  }
  }
 
- // 4. Last resort: Codex via the OpenAI API (OPENAI_API_KEY from Remote
- // Config) — scoped exception in AGENTS.md (issue #4495). Paid, only reached
- // once every free provider above has failed.
+ // 4. Last resort: Codex Luna Max with the Codex ChatGPT login
+ // (CODEX_AUTH_JSON from Remote Config, never refreshed here) — scoped
+ // exception in AGENTS.md (issue #4495). Only reached once every free
+ // provider above has failed.
  const codexResult = await tryCodexFallback({
  systemPrompt: augmentedPrompt,
  messages,
- maxTokens: 1024,
  });
  if (codexResult.ok) {
  console.log('[chatbot] served by fallback codex');
