@@ -118,6 +118,7 @@ export const COMPANY_HQ = {
   'damiani':                      { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'delvitech':                    { city: 'Bioggio',            canton: 'TI', postalCode: '6934', addressRegion: 'TI' },
   'duferco':                      { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
+  'ecam':                         { city: 'Mendrisio',          canton: 'TI', postalCode: '6850', addressRegion: 'TI' },
   'engelvoelkers':                { city: 'Lugano',             canton: 'TI', postalCode: '6900', addressRegion: 'TI' },
   'eoc':                          { city: 'Bellinzona',         canton: 'TI', postalCode: '6500', addressRegion: 'TI' },
   'fart':                         { city: 'Locarno',            canton: 'TI', postalCode: '6601', addressRegion: 'TI' },
