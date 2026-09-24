@@ -17,6 +17,11 @@ import {
   mergeDetailEventMetadata,
   mapEventRecord,
 } from '../scripts/crawl-myswitzerland-events.mjs';
+import {
+  extractDetailContactName,
+  extractEventPeopleFromText,
+  firstEventImageUrlFromHtml,
+} from '../scripts/lib/event-metadata.mjs';
 
 describe('parseCompactUtc', () => {
   it('parses Algolia compact UTC timestamps', () => {
@@ -321,6 +326,29 @@ describe('mapEventRecord', () => {
     );
   });
 
+  it('fills optional metadata from indexed source copy and HTML fallbacks', () => {
+    const mapped = mapEventRecord(
+      'source-text123',
+      {
+        it: {
+          ...hitIt,
+          image: undefined,
+          content: 'Präsentiert von Noise Reduction & Musikbüro Rote FabrikMitwirkende und Zusatzinformationen:Autechre',
+        },
+      },
+      {
+        detailUrl: 'https://www.myswitzerland.com/it-ch/eventi/autechre',
+        detailHtml: '<meta property="og:image" content="/-/media/events/autechre.jpg">',
+      },
+    );
+    const event = mapped?.event as never as Record<string, unknown>;
+    expect(event.organizer).toEqual({ '@type': 'Organization', name: 'Noise Reduction & Musikbüro Rote Fabrik' });
+    expect(event.performer).toEqual({ name: 'Autechre' });
+    expect((mapped as never as { imageSourceUrl: string }).imageSourceUrl).toBe(
+      'https://www.myswitzerland.com/-/media/events/autechre.jpg',
+    );
+  });
+
   it('rejects venue name that matches performer.name and falls back to addressLocality', () => {
     const detailLd = {
       '@type': 'MusicEvent',
@@ -360,5 +388,35 @@ describe('mapEventRecord', () => {
     const event = mapped?.event as never as Record<string, unknown>;
     // Substring match alone must NOT discard the venue — only exact match counts
     expect(event.venue).toBe('Kongresshaus Zürich');
+  });
+});
+
+describe('source optional metadata fallbacks', () => {
+  it('extracts explicit organizer and performer labels from MySwitzerland copy', () => {
+    expect(
+      extractEventPeopleFromText(
+        'Präsentiert von Noise Reduction & Musikbüro Rote FabrikMitwirkende und Zusatzinformationen:Autechre',
+      ),
+    ).toEqual({
+      organizer: { '@type': 'Organization', name: 'Noise Reduction & Musikbüro Rote Fabrik' },
+      performer: { name: 'Autechre' },
+    });
+    expect(extractEventPeopleFromText('Gestaltet wird der Abend von Zita Gander und Silvia Müller.')).toEqual({
+      performer: [{ name: 'Zita Gander' }, { name: 'Silvia Müller' }],
+    });
+    expect(extractEventPeopleFromText('Auf den Spuren von Marc Chagall. Mit Kerstin Bitar. Treffpunkt ...')).toEqual({
+      performer: { name: 'Kerstin Bitar' },
+    });
+  });
+
+  it('reads event-scoped OpenGraph/itemprop images and named contact blocks', () => {
+    const html = `
+      <meta property="og:image" content="/-/media/events/autechre.jpg">
+      <h2>Contatto</h2><div>Fabriktheater Rote Fabrik<br>Seestrasse 395<br>8038 Zürich</div>
+    `;
+    expect(firstEventImageUrlFromHtml(html, 'https://www.myswitzerland.com/en-ch/events/autechre')).toBe(
+      'https://www.myswitzerland.com/-/media/events/autechre.jpg',
+    );
+    expect(extractDetailContactName(html)).toBe('Fabriktheater Rote Fabrik');
   });
 });
