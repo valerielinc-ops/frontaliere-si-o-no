@@ -70,6 +70,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
+import { intFromEnv } from '../lib/int-from-env.mjs';
 import { setRcParamWithEtag } from '../lib/remote-config-admin.mjs';
 
 const HOUR_MS = 3_600_000;
@@ -1171,7 +1172,7 @@ async function commandWrite() {
       out(`::error::${escapeCommandValue(`${writer.name} is not configured: ${SECRET_NAME} was not written to ${target}.`)}`);
       continue;
     }
-    const retryDelayMs = Number(process.env.CODEX_AUTH_ROTATE_RETRY_DELAY_MS || 5_000);
+    const retryDelayMs = intFromEnv('CODEX_AUTH_ROTATE_RETRY_DELAY_MS', 5_000);
     const result = await writeSecret({ target, token: writer.token, value, redactValues: tokenValues, retryDelayMs });
     if (result.ok) {
       written.push(target);
@@ -1241,7 +1242,7 @@ async function commandWriteRemoteConfig() {
       description: 'Codex ChatGPT login (no refresh_token) for functions/src/codexFallback.js. Written by codex-auth-rotate.yml; never refreshed by the functions.',
       versionDescription: `codex-auth-rotate: ${REMOTE_CONFIG_PARAM}`,
       dryRun,
-      retryDelayMs: Number(process.env.CODEX_AUTH_ROTATE_RETRY_DELAY_MS || 2_000),
+      retryDelayMs: intFromEnv('CODEX_AUTH_ROTATE_RETRY_DELAY_MS', 2_000),
       onAccessToken: (token) => { if (token) { redactValues.push(token); out(`::add-mask::${escapeCommandValue(token)}`); } },
     });
   } catch (error) {
