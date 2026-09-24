@@ -18847,7 +18847,7 @@
       "companyDomain": "swissre.com",
       "title": "Risk Manager EMEA - P&C",
       "titleByLocale": {
-        "it": "Risk Manager EMEA - P&C",
+        "it": "Responsabile del rischio EMEA - Danni",
         "en": "Risk Manager EMEA - P&C",
         "de": "Risikomanager EMEA - P&C",
         "fr": "Gestionnaire des risques EMEA - P&C"
@@ -19053,8 +19053,8 @@
       "companyDomain": "swissre.com",
       "title": "Key Account Manager Asia",
       "titleByLocale": {
-        "it": "Key Account Manager Asia",
         "en": "Key Account Manager Asia",
+        "it": "Responsabile dei Conti Chiave Asia",
         "de": "Key Account Manager Asien",
         "fr": "Key Account Manager Asie"
       },
@@ -19086,7 +19086,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T22:53:08.709Z",
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -19100,7 +19099,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "firstSeenAt": "2026-09-19T22:53:08.709Z"
     },
     {
       "id": "swiss-re-573527d698be",

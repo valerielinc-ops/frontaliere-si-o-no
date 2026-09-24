@@ -1648,7 +1648,7 @@
       "title": "SHEQ Specialist – Schwerpunkt Arbeitssicherheit (m/w/d)",
       "titleByLocale": {
         "it": "SHEQ Professionista responsabile della sicurezza sul lavoro (m/f/d)",
-        "en": "SHEQ Specialist – Schwerpunkt Arbeitssicherheit (m/w/d)",
+        "en": "SHEQ Specialist – Focus on Occupational Safety (m/f/d)",
         "de": "SHEQ Spezialist – Schwerpunkt Arbeitssicherheit (m/w/d)",
         "fr": "SHEQ Professionnel responsable de la sécurité au travail (h/f/d)"
       },
@@ -1693,12 +1693,6 @@
           "EHS (Environment, Health & Safety), Arbeitssicherheit"
         ]
       },
-      "previousSlugs": [
-        "sheq-fachperson-mit-verantwortung-fur-arbeitssicherheit-m-w-d-coopers-aargau",
-        "sheq-fachperson-con-verantwortung-per-arbeitssicherheit-m-w-d-coopers-group-ag-aargau",
-        "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau",
-        "sheq-professionista-responsabile-della-sicurezza-sul-lavoro-m-f-d-coopers-group-ag-aargau"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "sheq-fachperson-mit-verantwortung-fur-arbeitssicherheit-m-w-d-coopers-aargau",
@@ -1716,8 +1710,13 @@
           "sheq-fachperson-mit-verantwortung-fur-arbeitssicherheit-m-w-d-coopers-aargau"
         ]
       },
+      "previousSlugs": [
+        "sheq-fachperson-mit-verantwortung-fur-arbeitssicherheit-m-w-d-coopers-aargau",
+        "sheq-fachperson-con-verantwortung-per-arbeitssicherheit-m-w-d-coopers-group-ag-aargau",
+        "sheq-specialist-schwerpunkt-arbeitssicherheit-m-w-d-coopers-aargau",
+        "sheq-professionista-responsabile-della-sicurezza-sul-lavoro-m-f-d-coopers-group-ag-aargau"
+      ],
       "firstSeenAt": "2026-09-10T23:10:53.825Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -1730,7 +1729,8 @@
           "maxValue": 129500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "coopers-0732f02c2230",
@@ -4683,7 +4683,7 @@
       "title": "Release Train Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Release Train Ingegnere (m/w/d)",
-        "en": "Release Train Engineer (m/w/d)",
+        "en": "Train Engineer (m/f/d)",
         "de": "Release Train Ingenieur (m/w/d)",
         "fr": "Release Train Ingénieur (m/w/d)"
       },
@@ -5832,8 +5832,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-3ed259b6afea",
@@ -5925,8 +5924,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "coopers-facfd193c1ae",

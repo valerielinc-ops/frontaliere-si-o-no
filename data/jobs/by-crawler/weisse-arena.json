@@ -4193,10 +4193,10 @@
       "companyDomain": "weissearena.com",
       "title": "Service-Teamlead",
       "titleByLocale": {
-        "it": "Capo squadra di servizio",
-        "en": "Service Teamlead",
         "de": "Service-Teamlead",
-        "fr": "Service-Teamlead"
+        "fr": "Service-Teamlead",
+        "it": "Capo squadra di servizio",
+        "en": "Service Team Lead"
       },
       "description": "Die Weisse Arena Gruppe in LAAX ist Vorreiter im alpinen Tourismus und eine begeisterte Community für einmalige Bergabenteuer. Mit Bergbahnen, Hotels, Gastronomie, Sport- und Rental-Shops sowie der LAAX School schaffen wir unvergessliche Erlebnisse für unsere Gäste - und attraktive Arbeitsplätze für unsere Mitarbeitenden. | Auf 1980 Metern über Meer befindet sich die Stalla Alp Nagens , wo das frisch umgebaute Restaurant Stalla im rustikalen Kuhstall das ganze Jahr über zum Geniessen einlädt. Hier erwarten dich regionale Spezialitäten mit eigenem Alpkäse, feines Fondue, Raclette und weitere Schweizer Klassiker. Die Sonnenterrasse lädt zum Verweilen ein und nach einem Tag auf der Piste oder einer Winterwanderung geniesst du hier die letzten Sonnenstrahlen bevor es zurück ins Tal geht. | Stell dir vor, du bist unser:e Teamleiter:in Stalla Alp Nagens und bringst unsere durstigen und hungrigen Gäste im Restaurant Stalla zum strahlen. | Was du bewegst:\n• Du übernimmst bei Abwesenheit der Betriebsleitung die Leitung des Servicebereichs\n• Du führst das Team und koordinierst die täglichen Arbeitsabläufe\n• Du betreust die Gäste im À-la-carte-Service und servierst Speisen und Getränke\n• Du stellst die Einhaltung der Hygienevorschriften sicher\n• Du arbeitest neue Mitarbeitende sorgfältig ein\n• Du nimmst Reservationen entgegen und platzierst die Gäste\n• Du planst und organisierst Events\n• Du erledigst Buffetarbeiten und füllst die Getränke regelmässig auf\n• Du bedienst das Lightspeed-Kassensystem und bist für das Einkassieren verantwortlich\n• Du übernimmst den Auf- und Abbau der Terrasseninfrastruktur sowie die Schneeräumung | Was dich ausmacht:\n• Du bringst Führungserfahrung mit und lebst einen kooperativen Führungsstil\n• Du hast eine abgeschlossene Serviceausbildung und Berufserfahrung in einem à la carte Betrieb\n• Du arbeitest speditiv, zuverlässig und umsichtig\n• Du bist hilfsbereit, freundlich, flexibel und belastbar\n• Du sprichst fliessend Deutsch und kannst dich auf Englisch sehr gut verständigen\n• Du hast Lust, deinen Arbeitsplatz im Winter mit Ski oder Snowboard zu erreichen | Ein attraktiver Arbeitsplatz inmitten einer aussergewöhnlichen Bergwelt ist dir gewiss. Du wirst Teil eines dynamischen, aufgeweckten Teams und kannst die Weiterentwicklung von LAAX mitprägen. Bei uns findest du ein Umfeld, in dem Professionalität, Tempo, Pragmatismus und Menschlichkeit zusammengehören. Freue dich auf zahlreiche Mitarbeitervergünstigungen , wie freie Bergfahrten, Vergünstigungen in unseren Shops, Hotels und Gastronomiebetrieben sowie Vorteile für deine Familie. Starte dein berufliches Abenteuer bei der Weissen Arena Gruppe mit deiner vollständigen Online-Bewerbung. Wir freuen uns auf dich. | Weisse Arena Hospitality AG Stalla Alp Nagens Viviene Tonitz www.stalla-alpnagens.com I www.weissearena.com I www.laax.com",
       "descriptionByLocale": {
@@ -4230,22 +4230,7 @@
       "jobNumber": "WAG02560",
       "pensum": "60 - 100%",
       "contractLabel": "Saisonanstellung",
-      "previousSlugs": [
-        "service-teamlead-weisse-arena-ch",
-        "chef-d-equipe-weisse-arena-gruppe-laax",
-        "capo-squadra-di-servizio-weisse-arena-gruppe-laax"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "service-teamlead-weisse-arena-ch",
-          "capo-squadra-di-servizio-weisse-arena-gruppe-laax"
-        ],
-        "fr": [
-          "chef-d-equipe-weisse-arena-gruppe-laax"
-        ]
-      },
       "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T15:57:39.649Z",
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -4259,7 +4244,22 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "firstSeenAt": "2026-09-21T15:57:39.649Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "service-teamlead-weisse-arena-ch",
+          "capo-squadra-di-servizio-weisse-arena-gruppe-laax"
+        ],
+        "fr": [
+          "chef-d-equipe-weisse-arena-gruppe-laax"
+        ]
+      },
+      "previousSlugs": [
+        "service-teamlead-weisse-arena-ch",
+        "chef-d-equipe-weisse-arena-gruppe-laax",
+        "capo-squadra-di-servizio-weisse-arena-gruppe-laax"
+      ]
     },
     {
       "id": "weisse-arena-82b40ba6959e",
@@ -4779,7 +4779,7 @@
       "title": "Supervisor Housekeeping",
       "titleByLocale": {
         "de": "Vorgesetzter Housekeeping",
-        "en": "Supervisor Housekeeping",
+        "en": "Housekeeping Supervisor",
         "it": "Supervisore Housekeeping",
         "fr": "Superviseur Housekeeping"
       },

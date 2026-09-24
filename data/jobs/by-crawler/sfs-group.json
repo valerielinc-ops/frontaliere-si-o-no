@@ -1016,7 +1016,7 @@
       "title": "HR Specialist Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
       "titleByLocale": {
         "it": "Risorse Umane Specialista Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
-        "en": "HR Specialist Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
+        "en": "HR Specialist Recruiting & Administration – limited until 31.12.2027 (m/f/d)",
         "de": "Personalwesen Spezialist Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
         "fr": "Ressources Humaines Spécialiste Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)"
       },
@@ -1063,7 +1063,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:36.939Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1076,7 +1075,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "sfs-group-98ca54d31023",

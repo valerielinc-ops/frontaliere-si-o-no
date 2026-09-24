@@ -1345,15 +1345,14 @@
       },
       "titleByLocale": {
         "it": "Responsable secteur (Fruits/Légumes/Takeout) 100%",
-        "en": "Responsable secteur (Fruits/Légumes/Takeout) 100%",
-        "de": "Verantwortlicher Sekteur (Fruits/Légumes/Takeout) 100%",
-        "fr": "Responsable secteur (Fruits/Légumes/Takeout) 100%"
+        "fr": "Responsable secteur (Fruits/Légumes/Takeout) 100%",
+        "en": "Responsible section (Fruits/Légumes/Takeout) 100%",
+        "de": "Verantwortlicher Sekteur (Fruits/Légumes/Takeout) 100%"
       },
       "sourceLang": "it",
-      "id": "manor-e0061f5050fc",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:05:15.844Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-e0061f5050fc",
       "salaryMin": 77500,
       "salaryMax": 118500,
       "currency": "CHF",
@@ -1368,7 +1367,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-19T23:05:15.844Z"
     },
     {
       "title": "Pâtissier/ère 80%",
@@ -1402,15 +1402,14 @@
       },
       "titleByLocale": {
         "it": "Pâtissier/ère 80%",
-        "en": "Pâtissier/ère 80%",
-        "de": "Pâtissier/ère 80%",
-        "fr": "Pâtissier/ère 80%"
+        "fr": "Pâtissier/ère 80%",
+        "en": "Piss%",
+        "de": "P ⑤tissier / Esre 80%"
       },
       "sourceLang": "it",
-      "id": "manor-16165eba34ec",
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-19T23:05:15.844Z",
       "crawledAt": "",
+      "needsRetranslation": true,
+      "id": "manor-16165eba34ec",
       "salaryMin": 52400,
       "salaryMax": 66000,
       "currency": "CHF",
@@ -1425,7 +1424,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "firstSeenAt": "2026-09-19T23:05:15.844Z"
     },
     {
       "title": "Collaborateur/trice supermarché (Epicerie) 50%",
@@ -3184,7 +3184,7 @@
       },
       "titleByLocale": {
         "it": "Collaboratore/trice*in Supermarkt 20%",
-        "en": "Mitarbeiter*in Supermarkt 20%",
+        "en": "Mitarbeiter * in Supermarket 20%",
         "de": "Mitarbeiter*in Supermarkt 20%",
         "fr": "Mitarbeiter* en Supermarkt 20%"
       },
@@ -3645,8 +3645,8 @@
       "titleByLocale": {
         "it": "Pizzaiolo Polyvalent (Manora) 80%",
         "fr": "Pizzaiolo Polyvalent (Manora) 80%",
-        "en": "Pizzaiolo Polyvalent (Manora) 80%",
-        "de": "Pizzaiolo Polyvalent (Manora) 80%"
+        "en": "Versatile Pizzaiolo (Manora) 80%",
+        "de": "Vielseitiger Pizzaiolo (Manora) 80%"
       },
       "sourceLang": "fr",
       "crawledAt": "",
@@ -4219,7 +4219,7 @@
       "titleByLocale": {
         "it": "Collaboratore/trice Visual Merchandising 50%",
         "en": "Employee Visual Merchandising 50%",
-        "de": "Mitarbeiter/in Visual Merchandising 50%",
+        "de": "Mitarbeiter/im visuellen Merchandising 50 %",
         "fr": "Marchandise visuelle des employés 50%"
       },
       "sourceLang": "it",
@@ -4407,7 +4407,7 @@
       "titleByLocale": {
         "it": "Dipendente Visual Merchandising 60%",
         "en": "Employee Visual Merchandising 60%",
-        "de": "Mitarbeiter*in Visual Merchandising (non food) 80%",
+        "de": "Mitarbeiter*in Visual Merchandising (Nicht-Lebensmittel) 80 %",
         "fr": "Marchandise visuelle des employés 60 %"
       },
       "sourceLang": "fr",
@@ -6503,7 +6503,7 @@
       "titleByLocale": {
         "it": "Dipendenti in servizio 60%",
         "en": "Service Staff Member 60%",
-        "de": "Mitarbeiter*in Service 60%",
+        "de": "Mitarbeiter*im Dienst 60 %",
         "fr": "Collaborateur*rice Service 60%"
       },
       "sourceLang": "it",
@@ -6777,13 +6777,12 @@
       },
       "titleByLocale": {
         "it": "Apprendista Polydesigner 3D 100%",
-        "en": "Apprentice Polydesigner 3D 100%",
+        "en": "100% 3D Polydesigner Apprentice",
         "de": "Lernende/r Polydesigner 3D 100%",
         "fr": "Apprenti Polyconcepteur 3D 100%"
       },
       "sourceLang": "it",
       "id": "manor-cc500c59269d",
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:16:57.125Z",
       "crawledAt": "",
       "salaryMin": 41600,
@@ -6800,7 +6799,8 @@
           "unitText": "YEAR"
         }
       },
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     },
     {
       "title": "Apprendista Polydesigner 3D 100%",

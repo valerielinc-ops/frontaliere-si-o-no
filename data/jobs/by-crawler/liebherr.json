@@ -1619,7 +1619,7 @@
       "title": "Logistics Specialist (m/w/d)",
       "titleByLocale": {
         "de": "Logistik Spezialist (m/w/d)",
-        "en": "Logistics Specialist (m/w/d)",
+        "en": "Quality Assurance Specialist (m/f/d)",
         "it": "Logistica Specialista (m/w/d)",
         "fr": "Logistique Spécialiste (m/w/d)"
       },
@@ -1652,7 +1652,6 @@
       "jobReqId": "1435854533",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "logistics-specialist-m-w-d-liebherr-nussbaumen",
         "logistica-specialista-m-w-d-liebherr-nussbaumen"
@@ -1682,7 +1681,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "liebherr-3a324cb795d3",

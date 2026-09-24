@@ -3637,10 +3637,10 @@
       "companyDomain": "ksml.apps.be.ch",
       "title": "Stellvertretung Schulleiter/in für die Primarschule Schlossmatt, ca. 25 %",
       "titleByLocale": {
-        "it": "Stellvertretung Schulleiter/in per la Primarschule Schlossmatt, ca. 25 %",
-        "en": "Stellvertretung Schulleiter/in für die Primarschule Schlossmatt, ca. 25 %",
         "de": "Stellvertretung Schulleiter/in für die Primarschule Schlossmatt, ca. 25 %",
-        "fr": "Stellvertretung Schulleiter/in für die Primarschule Schlossmatt, ca. 25 %"
+        "it": "Stellvertretung Schulleiter/in per la Primarschule Schlossmatt, ca. 25 %",
+        "en": "Deputy headmaster for the primary school Schlossmatt, approx. 25 %",
+        "fr": "Directeur adjoint de l'école primaire Schlossmatt, environ 25 %"
       },
       "description": "Porträt\nDie Emmestadt Burgdorf stellt ein bedeutendes Bildungszentrum im Kanton Bern dar. An der städtischen Volksschule werden rund 1800 Schülerinnen und Schüler an fünf Primarstufen und zwei Oberstufen sowie an mehreren Kindergartenstandorten unterrichtet. Zur Primarschule Schlossmatt gehören fünf Kindergartenklassen und dreizehn Primarklassen.\n\nAufgaben\n• Als mitverantwortliche Schulleiter/in führen Sie die Primarschule Schlossmatt mit den zugehörigen Kindergärten und den Angeboten der besonderen Massnahmen am Standort personell, pädagogisch und operativ-betrieblich in allen gesetzlich vorgesehenen Aufgabenbereichen.\n• Sie arbeiten in einem Schulleitungsteam mit einer erfahrenen Schulleiterin (100 %) zusammen.\n• Der Schwerpunkt Ihrer Tätigkeit liegt im MR-Bereich.\n\nAnforderungen\n• Sie verfügen über eine pädagogische Ausbildung (Lehrdiplom / Bachelor of Arts in Education) und Unterrichtserfahrung, vorzugsweise im Zyklus 1 oder 2.\n• Kenntnisse im Bereich Kindergarten, Primarstufe und dem gezielten Einsatz der Massnahmen Regelschule sowie entsprechende Arbeitserfahrungen sind erwünscht und von Vorteil.\n• Sie haben eine anerkannte Ausbildung als Schulleiter/in abgeschlossen oder verfügen über eine vergleichbare Ausbildung. Führungserfahrung sowie Kenntnisse im Organisations- und Projektmanagement setzen wir voraus.\n\nWir bieten\n• Administrativ werden Sie durch eine engagierte und mitdenkende Schulsekretärin unterstützt.\n• Die Beratung und Unterstützung durch die aktuelle Stelleninhaberin sowie der Leiterin Volksschule Volksschule sind gewährleistet.",
       "descriptionByLocale": {
@@ -3672,18 +3672,17 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40345",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "stellvertretung-schulleiter-in-fur-die-primarschule-schlossmatt-ca-25-primarschule-40345",
-        "stellvertretung-schulleiter-in-per-la-primarschule-schlossmatt-ca-25-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-grunerstrasse-7"
-      ],
+      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "stellvertretung-schulleiter-in-fur-die-primarschule-schlossmatt-ca-25-primarschule-40345",
           "stellvertretung-schulleiter-in-per-la-primarschule-schlossmatt-ca-25-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-grunerstrasse-7"
         ]
       },
-      "needsRetranslation": true,
-      "firstSeenAt": "2026-09-21T16:10:29.271Z",
+      "previousSlugs": [
+        "stellvertretung-schulleiter-in-fur-die-primarschule-schlossmatt-ca-25-primarschule-40345",
+        "stellvertretung-schulleiter-in-per-la-primarschule-schlossmatt-ca-25-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-grunerstrasse-7"
+      ],
       "salaryMin": 14800,
       "salaryMax": 27100,
       "salarySource": "estimated",
@@ -3696,7 +3695,8 @@
           "maxValue": 27100,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-21T16:10:29.271Z"
     },
     {
       "id": "ksml-f70160a901e3",

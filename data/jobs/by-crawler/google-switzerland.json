@@ -2305,11 +2305,7 @@
           "Bachelor’s degree or equivalent practical experience."
         ]
       },
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 2927,
-      "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-21T16:00:45.158Z",
-      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -2322,7 +2318,10 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2927
     },
     {
       "id": "google-switzerland-28cf39e43079",
