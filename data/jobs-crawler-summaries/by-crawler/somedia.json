@@ -1,21 +1,21 @@
 {
   "key": "somedia",
   "label": "Somedia AG",
-  "generatedAt": "2026-09-23T23:49:25.521Z",
+  "generatedAt": "2026-09-24T14:28:39.813Z",
   "total": 3,
   "discovered": null,
-  "parsed": 3,
+  "parsed": 2,
   "lastFetchOutcome": null,
   "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 3,
+  "updatedCount": 2,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 5948,
-  "avgDurationMs": 5948,
+  "unchangedCount": 1,
+  "durationMs": 5699,
+  "avgDurationMs": 5699,
   "durationHistory": [
-    5948
+    5699
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:49:16.750Z",
+      "crawledAt": "2026-09-24T14:28:30.558Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -52,6 +52,7 @@
         "identifier": "",
         "hiringOrganization": "Somedia Promotion AG"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:15:11.091Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -73,7 +74,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:49:17.817Z",
+      "crawledAt": "2026-09-24T14:28:31.571Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -94,6 +95,7 @@
         "identifier": "",
         "hiringOrganization": "Südostschweiz TV AG"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:17:28.751Z",
       "_qualityScore": 91,
       "_qualityBreakdown": {
@@ -102,10 +104,13 @@
         "translation": 25,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "somedia-9a0ca8ab845a",
-      "slug": "geschaftsfuhrer-in-communicaziun-ch-100-somedia-ch",
+      "slug": "amministratore-delegato-a-communicaziun-ch-100-somedia-ag-ilanz",
       "company": "Somedia AG",
       "companyKey": "somedia",
       "companyDomain": "somedia.ch",
@@ -137,15 +142,18 @@
         "hiringOrganization": "communicaziun.ch ag"
       },
       "firstSeenAt": "2026-05-17T11:04:21.105Z",
-      "_qualityScore": 91,
+      "salaryMin": 92000,
+      "salaryMax": 140000,
+      "salarySource": "estimated",
+      "addressRegion": "GR",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 96,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 21,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
