@@ -1088,6 +1088,7 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
   it('chains newsletter only from the primary job-alert slot and keeps the cron fallback', () => {
     const alerts = workflow('send-job-alerts.yml');
     expect(alerts).toContain('Create primary newsletter handoff marker');
+    expect(alerts).toContain("steps.send-alerts.outcome == 'success' && github.event_name == 'schedule'");
     expect(alerts).toContain("github.event.schedule == '33 0 * * *'");
     expect(alerts).toContain('newsletter-handoff-${{ github.run_id }}');
     expect(alerts).toContain('source_workflow_path: ".github/workflows/send-job-alerts.yml"');

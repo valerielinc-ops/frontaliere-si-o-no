@@ -273,7 +273,7 @@ jobs:
       # to correlate the event-driven run with the fallback cron; recipient-level
       # idempotency remains in the newsletter campaign ledger.
       - name: Create primary newsletter handoff marker
-        if: success() && github.event_name == 'schedule' && github.event.schedule == '33 0 * * *'
+        if: steps.send-alerts.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '33 0 * * *'
         env:
           HANDOFF_DIR: ${{ runner.temp }}/newsletter-handoff
         run: |
@@ -298,7 +298,7 @@ jobs:
             }' > "$HANDOFF_DIR/primary.json"
 
       - name: Upload primary newsletter handoff
-        if: success() && github.event_name == 'schedule' && github.event.schedule == '33 0 * * *'
+        if: steps.send-alerts.outcome == 'success' && github.event_name == 'schedule' && github.event.schedule == '33 0 * * *'
         uses: actions/upload-artifact@v7
         with:
           name: newsletter-handoff-${{ github.run_id }}
