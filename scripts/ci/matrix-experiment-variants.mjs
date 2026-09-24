@@ -20,6 +20,12 @@ export const ALLOWED_ENV_KEYS = Object.freeze([
   'POST_WALK_INCREMENTAL_VERIFY',
   'POST_WALK_TARGETED_WALK',
   'JOBS_SEO_MEM_GC',
+  // Investigation-only (#9613): names ONE extra corpus-release retainer so the
+  // `[mem] jobsSeoPages: after corpus-release candidate=<name>` line carries
+  // its gcFreed. The `retention_probe` input feeds JOBS_SEO_RETENTION_PROBE,
+  // whose parser rejects these candidates; a variant is the only channel.
+  // Empty/absent keeps the default release plan (see jobsSeoRetentionProbe.ts).
+  'JOBS_SEO_GCFREED_PROBE',
   'JOBS_SEO_SAMPLE',
   'BUILD_PROFILE',
   'BUILD_BENCH',
