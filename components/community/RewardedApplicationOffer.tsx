@@ -11,6 +11,11 @@ import {
   grantRewardedApplicationAccess,
 } from '@/services/rewardedApplicationAccess';
 import {
+  isOfferwallHeld,
+  releaseHeldOfferwall,
+  type OfferwallReleaseResult,
+} from '@/services/offerwallClickGate';
+import {
   trackAssistedApplicationEvent,
 } from '@/services/assistedApplicationExperiment';
 import { POPUP_PRIORITY } from '@/services/popupQueue';
@@ -19,6 +24,16 @@ import { usePopupSlot } from '@/hooks/usePopupSlot';
 const SURFACE = 'job_detail_rewarded_inline';
 const TRIGGER = 'candidate_click';
 const POPUP_SLOT_ID = 'rewarded-application-offer';
+const OFFERWALL_PROVIDER = 'adsense_offerwall';
+const OFFERWALL_FORMAT = 'offerwall';
+
+/**
+ * `offerwall`: the held AdSense Offerwall has been released and may render.
+ * `offerwall_visible`: it is on screen, so this dialog steps out of its way.
+ * `offerwall_done`: it was completed and the application is unlocked.
+ * `gpt`: no Offerwall this time; the GPT rewarded request runs as before.
+ */
+type OfferPhase = 'offerwall' | 'offerwall_visible' | 'offerwall_done' | 'gpt';
 
 const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
 
@@ -51,8 +66,13 @@ export default function RewardedApplicationOffer({
   const [rewarded, setRewarded] = useState(false);
   const [retryRequired, setRetryRequired] = useState(false);
   const [retryToken, setRetryToken] = useState(0);
+  // The AdSense Offerwall is the site's only rewarded demand: when Funding
+  // Choices holds one for this page view, the click releases it first.
+  const [phase, setPhase] = useState<OfferPhase>(() => (isOfferwallHeld() ? 'offerwall' : 'gpt'));
   const grantedRef = useRef(false);
   const openedAtRef = useRef(now());
+  const mountedRef = useRef(true);
+  const offerwallStartedRef = useRef(false);
   const handleBackdropClick = useApplicationOfferBackdropDismiss(onDismiss);
 
   // Shared shape of every rewarded event of this offer: the job context, the
@@ -69,6 +89,20 @@ export default function RewardedApplicationOffer({
     ms_since_click: Math.round(now() - openedAtRef.current),
     ...(info?.requestId ? { request_id: info.requestId } : {}),
   });
+
+  const offerwallContext = () => ({
+    ...eventContext(),
+    ad_unit: OFFERWALL_PROVIDER,
+    format: OFFERWALL_FORMAT,
+    provider: OFFERWALL_PROVIDER,
+  });
+
+  useEffect(() => {
+    mountedRef.current = true;
+    return () => {
+      mountedRef.current = false;
+    };
+  }, []);
 
   useEffect(() => {
     trackAssistedApplicationEvent('rewarded_application_offer_viewed', eventContext());
@@ -108,6 +142,68 @@ export default function RewardedApplicationOffer({
       access_ttl_hours: 12,
     });
   };
+
+  // The Offerwall closes only after its rewarded choice (it has no dismiss
+  // button), so its completion unlocks the application like a GPT grant.
+  const handleOfferwallCompleted = (result: Extract<OfferwallReleaseResult, { outcome: 'completed' }>) => {
+    if (grantedRef.current) return;
+    grantedRef.current = true;
+    const accessExpiresAt = grantRewardedApplicationAccess();
+    setRewarded(true);
+    setPhase('offerwall_done');
+    trackAssistedApplicationEvent('rewarded_offerwall_completed', {
+      ...offerwallContext(),
+      shown_ms: result.shownMs,
+      completed_ms: result.completedMs,
+      fc_root: result.root,
+    });
+    trackAssistedApplicationEvent('rewarded_application_access_granted', {
+      ...offerwallContext(),
+      access_expires_at: accessExpiresAt,
+      access_ttl_hours: 12,
+    });
+  };
+
+  useEffect(() => {
+    if (phase !== 'offerwall' || offerwallStartedRef.current) return;
+    offerwallStartedRef.current = true;
+    trackAssistedApplicationEvent('rewarded_offerwall_released', offerwallContext());
+    void releaseHeldOfferwall({
+      onShown: ({ shownMs, root }) => {
+        if (!mountedRef.current) return;
+        setPhase('offerwall_visible');
+        trackAssistedApplicationEvent('rewarded_offerwall_shown', {
+          ...offerwallContext(),
+          shown_ms: shownMs,
+          fc_root: root,
+        });
+      },
+    }).then((result) => {
+      if (!mountedRef.current) return;
+      if (result.outcome === 'completed') {
+        handleOfferwallCompleted(result);
+        return;
+      }
+      if (result.outcome === 'not_shown') {
+        // No Offerwall for this click (none configured, no ad, or access
+        // already granted by Google): the GPT request takes over.
+        trackAssistedApplicationEvent('rewarded_offerwall_not_shown', {
+          ...offerwallContext(),
+          reason: result.reason,
+        });
+        setPhase('gpt');
+        return;
+      }
+      // Still on screen after the completion bound: nothing to unlock.
+      trackAssistedApplicationEvent('rewarded_offerwall_timed_out', {
+        ...offerwallContext(),
+        shown_ms: result.shownMs,
+        fc_root: result.root,
+      });
+    });
+    // Runs once per offer; the context is read at release time.
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [phase]);
 
   const handleVideoCompleted = () => {
     // Google documents rewardedSlotGranted as the authoritative web reward.
@@ -232,7 +328,18 @@ export default function RewardedApplicationOffer({
             </div>
           )}
 
-          {!retryRequired && !rewarded && (
+          {phase === 'offerwall' && (
+            <p
+              role="status"
+              aria-live="polite"
+              className="text-sm font-semibold text-body"
+              data-testid="rewarded-application-offerwall-pending"
+            >
+              Stiamo preparando il video…
+            </p>
+          )}
+
+          {phase === 'gpt' && !retryRequired && !rewarded && (
             <GptRewardedAd
               label="Guarda il video e continua"
               loadingLabel="Stiamo preparando il video…"
@@ -272,6 +379,10 @@ export default function RewardedApplicationOffer({
       </div>
     </div>
   );
+
+  // The Google Offerwall is its own full-page dialog: while it is on screen
+  // this one must not sit on top of it or take its clicks.
+  if (phase === 'offerwall_visible') return null;
 
   return typeof document === 'undefined' ? modal : createPortal(modal, document.body);
 }

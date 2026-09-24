@@ -1,10 +1,10 @@
 /**
  * Funding Choices Offerwall contract.
  *
- * The custom newsletter choice is intentionally disabled globally. The
- * application flow uses direct GPT Rewarded Web on its external page, so the
- * native page-level Offerwall is filtered while other Funding Choices messages
- * remain available.
+ * The custom newsletter choice is intentionally disabled globally. On the
+ * Italian job board the native page-level Offerwall (AdSense) is held until
+ * the visitor clicks "Candidati"; other Funding Choices messages remain
+ * available. Behaviour is executed in tests/offerwall-click-gate-parity.test.ts.
  */
 
 import { readFileSync } from 'node:fs';
@@ -41,13 +41,13 @@ describe('Offerwall custom-choice registry — globally disabled', () => {
   });
 });
 
-describe('Offerwall controlled messaging — direct Rewarded Web flow', () => {
-  it('filters native page-level Offerwall only on the Italian job board', () => {
+describe('Offerwall controlled messaging — held until "Candidati"', () => {
+  it('holds the native Offerwall on the Italian job board instead of suppressing it', () => {
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('controlledMessagingFunction');
-    expect(CONTROLLED_MESSAGING_BLOCK).toContain(
-      'message.proceed(false, [E.OFFERWALL])',
-    );
-    expect(CONTROLLED_MESSAGING_BLOCK).toContain('isItalianJobBoard');
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('/^\\/cerca-lavoro-ticino(?:\\/|$)/');
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('__ftOfferwallGate');
+    expect(CONTROLLED_MESSAGING_BLOCK).toContain('w.release = function()');
+    expect(CONTROLLED_MESSAGING_BLOCK).not.toContain('proceed(false');
     expect(CONTROLLED_MESSAGING_BLOCK).toContain('message.proceed(true)');
   });
 
