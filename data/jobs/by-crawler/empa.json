@@ -1,6 +1,6 @@
 {
   "crawlerKey": "empa",
-  "assembledAt": "2026-09-23T23:52:16.946Z",
+  "assembledAt": "2026-09-24T14:44:50.445Z",
   "jobs": [
     {
       "id": "empa-8d5a51c62388",
@@ -33,7 +33,7 @@
       "url": "https://apply.refline.ch/673276/2176/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.741Z",
+      "crawledAt": "2026-09-24T14:44:45.771Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -115,7 +115,7 @@
       "url": "https://apply.refline.ch/673276/2181/pub/4/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.740Z",
+      "crawledAt": "2026-09-24T14:44:45.770Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -152,6 +152,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.182Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -197,7 +198,7 @@
       "url": "https://apply.refline.ch/673276/2199/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:11.739Z",
+      "crawledAt": "2026-09-24T14:44:45.769Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -256,6 +257,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.178Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -301,7 +303,7 @@
       "url": "https://apply.refline.ch/673276/2206/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:11.738Z",
+      "crawledAt": "2026-09-24T14:44:45.768Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -375,6 +377,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T10:39:25.167Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -420,7 +423,7 @@
       "url": "https://apply.refline.ch/673276/2207/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.737Z",
+      "crawledAt": "2026-09-24T14:44:45.767Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -453,7 +456,8 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-18740ead79ed",
@@ -472,7 +476,7 @@
         "it": "Apprendista Tecnico di Laboratorio Fisico (a)",
         "en": "Apprentice Physics Laboratory Technician (a)",
         "de": "Lernende/r Physiklaborant/in (a)",
-        "fr": "Laboratoire d ' apprentissage/de physique (a)"
+        "fr": "Lernende/r Physiklaborant/in (a)"
       },
       "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nLernende/r Physiklaborant/in (a)\n\nFür August 2027 bieten wir in der Abteilung Werkstoff- und Nanomechanik in Thun einen anspruchsvollen Ausbildungsplatz in einem faszinierenden Forschungsumfeld.\n\nWas erwartet dich\n\nAn einem ETH Forschungsinstitut tätig zu sein, bringt viel Abwechslung in den Berufsalltag. Wenn du Interesse an Physik, Elektronik, Technik und Werkstoffen hast, garantieren wir dir spannende Aufgaben in einem internationalen Umfeld der Forschung. Zudem liebst du das Tüfteln und Werken.\n\nWas bringst du mit\n\n• Sekundarschule A mit sehr guten Leistungen in den naturwissenschaftlichen, mathematischen und sprachlichen Fächern - Englisch ist bei uns Alltagssprache\n\n• Theoretisches und praktisches Interesse für Physik, Chemie, Werkstoffe, Elektronik sowie Informatik und an technischen Systemen\n\n• Abstraktes Denken und methodisches Vorgehen, technisches Verständnis und manuelle Geschicklichkeit\n\n• Gute Beobachtungs- und Auffassungsgabe, Sorgfalt, verantwortungsvolles und zuverlässiges Arbeiten\n\n• Freude an einer hoch technisierten und komplexen Arbeitsumgebung\n\n• Hohe Kompetenzen in der Kommunikation und Zusammenarbeit mit Menschen\n Du bist zudem überzeugt, deine Zukunft mit einer Berufslehre zu starten.\n\nWas wir dir bieten\n\n• Du untersuchst die physikalische und chemische Integrität von metallischen Werkstoffen und ihren Bauteilen, wie sie z.B. in Gebäuden, Brücken, Tunnels, Produktionsanlagen, im Maschinenbau sowie der Energie-, Bahn- und Medizinaltechnik angewendet werden\n\n• Du ermittelst Werkstoffkennwerte mittels modernster analytischer Methoden und führst physikalische Messungen und Versuchsreihen mit Werkstoffen und Systemen durch\n\n• Du tüftelst an Versuchsanlagen, bereitest Versuche vor, führst sie durch und dokumentierst sie anschliessend\n\n• Du besuchst die Berufsschule in Zürich. Der Besuch der BMS wird unterstützt.\n Wir bieten eine spannende und vielseitige Grundausbildung Ausbildung mit modernster Technik. Die Empa ist ein lebendiges und innovatives Forschungsumfeld mit internationalem Flair und hervorragenden Anstellungsbedingungen in der Agglomeration Zürich.\n\n«a» steht in unseren Stelleninseraten für «alle». Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\nWir freuen uns auf deine vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnisse, Diplome und Kontaktdaten von zwei Referenzpersonen. Bitte reiche diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
       "descriptionByLocale": {
@@ -486,7 +490,7 @@
       "url": "https://apply.refline.ch/673276/2197/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:11.736Z",
+      "crawledAt": "2026-09-24T14:44:45.766Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -566,6 +570,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:14:30.867Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -611,7 +616,7 @@
       "url": "https://apply.refline.ch/673276/2218/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.735Z",
+      "crawledAt": "2026-09-24T14:44:45.765Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -644,7 +649,8 @@
           "maxValue": 87000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "empa-d5c944130420",
@@ -677,7 +683,7 @@
       "url": "https://apply.refline.ch/673276/2220/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:11.732Z",
+      "crawledAt": "2026-09-24T14:44:45.762Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -747,6 +753,7 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:49:43.418Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -792,7 +799,7 @@
       "url": "https://apply.refline.ch/673276/2221/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.731Z",
+      "crawledAt": "2026-09-24T14:44:45.761Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -865,8 +872,8 @@
           "chercheur-postdoctoral-en-ceramique-proton-conducteurs-et-semi-conducteur-photoelectrochimie-empa-dubendorf"
         ]
       },
-      "firstSeenAt": "2026-08-12T22:09:11.999Z",
       "needsRetranslation": true,
+      "firstSeenAt": "2026-08-12T22:09:11.999Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -912,7 +919,7 @@
       "url": "https://apply.refline.ch/673276/2223/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:11.729Z",
+      "crawledAt": "2026-09-24T14:44:45.759Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -980,6 +987,7 @@
         ]
       },
       "firstSeenAt": "2026-08-19T10:17:17.406Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1025,7 +1033,7 @@
       "url": "https://apply.refline.ch/673276/2204/pub/2/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:11.728Z",
+      "crawledAt": "2026-09-24T14:44:45.757Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1095,6 +1103,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T21:51:51.012Z",
+      "needsRetranslation": true,
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -1140,7 +1149,7 @@
       "url": "https://apply.refline.ch/673276/2224/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.726Z",
+      "crawledAt": "2026-09-24T14:44:45.755Z",
       "addressLocality": "Thun",
       "addressRegion": "BE",
       "streetAddress": "Feuerwerkerstrasse 39",
@@ -1202,6 +1211,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:33:57.028Z",
+      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -1247,7 +1257,7 @@
       "url": "https://apply.refline.ch/673276/2225/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.724Z",
+      "crawledAt": "2026-09-24T14:44:45.753Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1329,7 +1339,7 @@
       "url": "https://apply.refline.ch/673276/2226/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.723Z",
+      "crawledAt": "2026-09-24T14:44:45.752Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1411,7 +1421,7 @@
       "url": "https://apply.refline.ch/673276/2229/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.721Z",
+      "crawledAt": "2026-09-24T14:44:45.749Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1448,6 +1458,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:47:24.050Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1493,7 +1504,7 @@
       "url": "https://apply.refline.ch/673276/2228/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.720Z",
+      "crawledAt": "2026-09-24T14:44:45.748Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1569,7 +1580,7 @@
       "url": "https://apply.refline.ch/673276/2231/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.719Z",
+      "crawledAt": "2026-09-24T14:44:45.746Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1651,7 +1662,7 @@
       "url": "https://apply.refline.ch/673276/2230/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.717Z",
+      "crawledAt": "2026-09-24T14:44:45.745Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "streetAddress": "Lerchenfeldstrasse 5",
@@ -1688,6 +1699,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T23:33:50.106Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1733,7 +1745,7 @@
       "url": "https://apply.refline.ch/673276/2233/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.714Z",
+      "crawledAt": "2026-09-24T14:44:45.743Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1815,7 +1827,7 @@
       "url": "https://apply.refline.ch/673276/2232/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.711Z",
+      "crawledAt": "2026-09-24T14:44:45.740Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1852,6 +1864,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:08:47.417Z",
+      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1897,7 +1910,7 @@
       "url": "https://apply.refline.ch/673276/2227/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.708Z",
+      "crawledAt": "2026-09-24T14:44:45.737Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -1917,16 +1930,16 @@
       "jobReqId": "2227",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-09-19T23:08:47.414Z",
+      "previousSlugs": [
+        "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf"
+      ],
       "previousSlugsByLocale": {
         "it": [
           "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf"
         ]
       },
-      "previousSlugs": [
-        "ricercatore-post-dottorato-in-dispositivi-di-emissione-luminosa-organica-oled-empa-dubendorf"
-      ],
       "needsRetranslation": true,
+      "firstSeenAt": "2026-09-19T23:08:47.414Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1972,7 +1985,7 @@
       "url": "https://apply.refline.ch/673276/2234/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-23T23:52:11.707Z",
+      "crawledAt": "2026-09-24T14:44:45.735Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -2025,28 +2038,28 @@
     },
     {
       "id": "empa-e05199f1b17e",
-      "slug": "specialist-hr-administration-hr-it-80-100-empa-dubendorf",
+      "slug": "specialista-risorse-umane-administration-risorse-umane-it-80-100-empa-dubendorf",
       "slugByLocale": {
-        "de": "specialist-hr-administration-hr-it-80-100-empa-dubendorf",
-        "it": "specialist-hr-administration-hr-it-80-100-empa-dubendorf",
+        "it": "specialista-risorse-umane-administration-risorse-umane-it-80-100-empa-dubendorf",
         "en": "specialist-hr-administration-hr-it-80-100-empa-dubendorf",
-        "fr": "specialist-hr-administration-hr-it-80-100-empa-dubendorf"
+        "de": "specialist-hr-administration-hr-it-80-100-empa-dubendorf",
+        "fr": "specialiste-ressources-humaines-administration-ressources-humaines-it-80-100-empa-dubendorf"
       },
       "company": "Empa",
       "companyKey": "empa",
       "companyDomain": "empa.ch",
       "title": "Specialist HR-Administration & HR IT (80-100%)",
       "titleByLocale": {
-        "de": "Spezialist Personalwesen-Administration & Personalwesen IT (80-100%)",
-        "en": "Specialist HR-Administration & HR IT (80-100%)",
         "it": "Specialista Risorse Umane-Administration & Risorse Umane IT (80-100%)",
+        "en": "Specialist HR-Administration & HR IT (80-100%)",
+        "de": "Spezialist Personalwesen-Administration & Personalwesen IT (80-100%)",
         "fr": "Spécialiste Ressources Humaines-Administration & Ressources Humaines IT (80-100%)"
       },
       "description": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nSpecialist HR-Administration & HR IT (80-100%)\n\nDie HR-Abteilung ermöglicht die Gewinnung, Betreuung, Entwicklung und Administration von Talenten aus rund 50 Nationen. Zur Verstärkung des Teams HR-Administration & -IT Applikation am Standort Dübendorf suchen wir eine zuverlässige, kommunikative und teamorientierte Persönlichkeit.\n\nIhre Aufgaben\n\nIn dieser abwechslungsreichen Funktion betreuen Sie selbständig eine Organisationseinheit mit Personal am Standort Dübendorf.\n\n• Selbständige Bearbeitung sämtlicher personal-administrativer Aufgaben für einen Teilbereich, im Zusammenhang mit Anstellung, Betreuung und Austritt von Mitarbeitenden, Praktikanten, Diplomanden und akademischen Gästen\n\n• Steuerung der HR-Prozesse vom Eintritt bis zum Austritt: Einholen von Aufenthalts- und Arbeitsbewilligungen, Vertragsänderungen, Verlängerungen sowie Austritt mit Arbeitszeugnis (ohne Saläradministration und Sozialversicherungen)\n\n• Erste Anlaufstelle für administrative Fragen, mit vielfältigen Kontakten zu Mitarbeitenden und Behörden\n\n• Bearbeitung der Aufgaben in zunehmendem Masse mit modernen HR-IT-Tools, im Rahmen der laufenden Weiterentwicklung unserer HR-Applikationen und des Ausbaus der E-Workflows\n\n• Aktive Mitwirkung bei Digitalisierungsprojekten und der Weiterentwicklung unserer HR-Tools, mit der Möglichkeit, dich in diesem Bereich gezielt weiterzuentwickeln\n\n• Übernahme von Spezialaufgaben\n\nIhr Profil\n\n• Mehrjährige Erfahrung in der Personaladministration oder einer vergleichbaren Position\n\n• Höhere Personalfachausbildung (Eidg. HR-Fachausweis)\n\n• Ausgeprägte IT-Affinität sowie Freude am Arbeiten mit digitalen HR-Tools und Systemen\n\n• Erfahrung in der Digitalisierung oder Automatisierung von HR-Prozessen, z. B. durch Mitwirkung bei der Einführung neuer Tools oder E-Workflows\n\n• Ambition, sich fachlich in Richtung HR-Digitalisierung weiterzuentwickeln und mittelfristig mehr Verantwortung in diesem Bereich zu übernehmen\n\n• Wille, Prozesse schlank, effizient und kundenfreundlich zu gestalten\n\n• Strukturierte, sorgfältige Arbeitsweise sowie hohe Diskretion im Umgang mit sensiblen Personendaten\n\n• Dienstleistungsorientierung und Kommunikationsstärke im Kontakt mit Mitarbeitenden und Behörden\n\n• Sehr gute Deutsch- und Englischkenntnisse für die gewandte Kommunikation im internationalen, multikulturellen Umfeld\n\nUnser Angebot\n\nWir bieten Ihnen viel Spielraum in einer spannenden, stimulierenden und dynamischen Umgebung, in der Innovation, Kreativität und Teamgeist wichtige Erfolgsfaktoren sind. Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\n.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnissen und Diplomen. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
       "descriptionByLocale": {
-        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nSpecialist HR-Administration & HR IT (80-100%)\n\nDie HR-Abteilung ermöglicht die Gewinnung, Betreuung, Entwicklung und Administration von Talenten aus rund 50 Nationen. Zur Verstärkung des Teams HR-Administration & -IT Applikation am Standort Dübendorf suchen wir eine zuverlässige, kommunikative und teamorientierte Persönlichkeit.\n\nIhre Aufgaben\n\nIn dieser abwechslungsreichen Funktion betreuen Sie selbständig eine Organisationseinheit mit Personal am Standort Dübendorf.\n\n• Selbständige Bearbeitung sämtlicher personal-administrativer Aufgaben für einen Teilbereich, im Zusammenhang mit Anstellung, Betreuung und Austritt von Mitarbeitenden, Praktikanten, Diplomanden und akademischen Gästen\n\n• Steuerung der HR-Prozesse vom Eintritt bis zum Austritt: Einholen von Aufenthalts- und Arbeitsbewilligungen, Vertragsänderungen, Verlängerungen sowie Austritt mit Arbeitszeugnis (ohne Saläradministration und Sozialversicherungen)\n\n• Erste Anlaufstelle für administrative Fragen, mit vielfältigen Kontakten zu Mitarbeitenden und Behörden\n\n• Bearbeitung der Aufgaben in zunehmendem Masse mit modernen HR-IT-Tools, im Rahmen der laufenden Weiterentwicklung unserer HR-Applikationen und des Ausbaus der E-Workflows\n\n• Aktive Mitwirkung bei Digitalisierungsprojekten und der Weiterentwicklung unserer HR-Tools, mit der Möglichkeit, dich in diesem Bereich gezielt weiterzuentwickeln\n\n• Übernahme von Spezialaufgaben\n\nIhr Profil\n\n• Mehrjährige Erfahrung in der Personaladministration oder einer vergleichbaren Position\n\n• Höhere Personalfachausbildung (Eidg. HR-Fachausweis)\n\n• Ausgeprägte IT-Affinität sowie Freude am Arbeiten mit digitalen HR-Tools und Systemen\n\n• Erfahrung in der Digitalisierung oder Automatisierung von HR-Prozessen, z. B. durch Mitwirkung bei der Einführung neuer Tools oder E-Workflows\n\n• Ambition, sich fachlich in Richtung HR-Digitalisierung weiterzuentwickeln und mittelfristig mehr Verantwortung in diesem Bereich zu übernehmen\n\n• Wille, Prozesse schlank, effizient und kundenfreundlich zu gestalten\n\n• Strukturierte, sorgfältige Arbeitsweise sowie hohe Diskretion im Umgang mit sensiblen Personendaten\n\n• Dienstleistungsorientierung und Kommunikationsstärke im Kontakt mit Mitarbeitenden und Behörden\n\n• Sehr gute Deutsch- und Englischkenntnisse für die gewandte Kommunikation im internationalen, multikulturellen Umfeld\n\nUnser Angebot\n\nWir bieten Ihnen viel Spielraum in einer spannenden, stimulierenden und dynamischen Umgebung, in der Innovation, Kreativität und Teamgeist wichtige Erfolgsfaktoren sind. Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\n.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnissen und Diplomen. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
         "it": "La scienza dei materiali e la tecnologia sono la nostra passione. Con la nostra ricerca all'avanguardia, i circa 1.100 dipendenti di Empa danno un contributo decisivo a beneficio della società per un futuro che vale la pena di vivere. Empa è un'istituzione di ricerca del dominio ETH.\n\nSpecialist HR Administration & HR IT (80-100%)\n\nIl reparto HR consente il reclutamento, mentoring, sviluppo e amministrazione di talenti provenienti da circa 50 nazioni. Per rafforzare il team HR Administration & IT Application nel sito Dübendorf, stiamo cercando una personalità affidabile, comunicativa e orientata al team.\n\nI loro compiti\n\nIn questa variegata funzione, si supervisiona in modo indipendente un'unità organizzativa con il personale nella posizione di Dübendorf.\n\n• Autooccupazione di tutti i compiti amministrativi del personale per una subzona, in relazione all'occupazione, al sostegno e alle dimissioni di dipendenti, tirocinanti, studenti di diploma e ospiti accademici\n\n• Gestione dei processi HR dall'ingresso all'uscita: ottenere permessi di soggiorno e di lavoro, modifiche contrattuali, estensioni e uscite con certificato di occupazione (senza amministrazione salariale e assicurazione sociale)\n\n• Primo punto di contatto per questioni amministrative, con diversi contatti con dipendenti e autorità\n\n• I compiti di elaborazione sempre più con moderni strumenti IT HR, nell'ambito dello sviluppo continuo delle nostre applicazioni HR e dell'espansione dei flussi di e-work\n\n• Partecipazione attiva ai progetti di digitalizzazione e sviluppo ulteriore dei nostri strumenti HR, con l'opportunità di svilupparsi in questo settore\n\n• Assunzione di compiti specializzati\n\nIl tuo profilo\n\n• Diversi anni di esperienza nell'amministrazione del personale o una posizione paragonabile\n\n• Formazione specialistica delle risorse umane superiore (certificato professionale HR federale)\n\n• Forte affinità IT e godimento lavorando con strumenti e sistemi digitali HR\n\n• Esperienza nella digitalizzazione o nell'automazione dei processi HR, ad esempio B. partecipando all'introduzione di nuovi strumenti o flussi di lavoro\n\n• Ambizione di sviluppare professionalmente verso la digitalizzazione delle risorse umane e di assumersi più responsabilità in questo settore a medio termine\n\n• Volontà di progettazione dei processi orientati, efficienti e rispettosi del cliente\n\n• Metodi di lavoro strutturati, attenti e ad alta discrezione nel trattamento dei dati personali sensibili\n\n• Orientamento del servizio e forza di comunicazione a contatto con i dipendenti e le autorità\n\n• Ottima conoscenza del tedesco e dell'inglese per una comunicazione sapiente in un ambiente internazionale e multiculturale\n\nLa nostra offerta\n\nVi offriamo un sacco di spazio in un ambiente emozionante, stimolante e dinamico in cui innovazione, creatività e spirito di squadra sono fattori di successo importanti. Viviamo una cultura di inclusione e rispetto. Diamo il benvenuto a tutte le persone che hanno il desiderio di attività innovative, sostenibili e significative - solo che conta.\n\n.\n\nNon vediamo l'ora della tua applicazione online completa incl. Lettera di motivazione, CV, certificati e diplomi. Si prega di inviarli esclusivamente tramite il nostro portale di applicazione. Le domande per e-mail o per posta non saranno considerate.",
         "en": "Materials science and technology are our passion. With our cutting-edge research, Empa’s approximately 1,100 employees make decisive contributions to the benefit of society for a future worth living in. Empa is a research institution of the ETH Domain.\n\nSpecialist HR Administration & HR IT (80-100%)\n\nThe HR department enables the recruitment, mentoring, development and administration of talent from around 50 nations. To strengthen the HR Administration & IT Application team at the Dübendorf site, we are looking for a reliable, communicative and team-oriented personality.\n\nTheir tasks\n\nIn this varied function, you independently supervise an organizational unit with staff at the Dübendorf location.\n\n• Self-employment of all personnel-administrative tasks for a sub-area, in connection with the employment, support and resignation of employees, interns, diploma students and academic guests\n\n• Management of HR processes from entry to exit: obtaining residence and work permits, contract changes, extensions and exit with employment certificate (without salary administration and social insurance)\n\n• First point of contact for administrative issues, with diverse contacts with employees and authorities\n\n• Processing tasks increasingly with modern HR IT tools, as part of the ongoing development of our HR applications and the expansion of e-workflows\n\n• Active participation in digitalization projects and the further development of our HR tools, with the opportunity to develop yourself in this area\n\n• Taking on specialised tasks\n\nYour profile\n\n• Several years of experience in personnel administration or a comparable position\n\n• Higher Human Resources Specialist Training (Federal HR Professional Certificate)\n\n• Strong IT affinity and enjoyment working with digital HR tools and systems\n\n• Experience in the digitization or automation of HR processes, e.g. B. by participating in the introduction of new tools or e-workflows\n\n• Ambition to develop professionally towards HR digitization and to assume more responsibility in this area in the medium term\n\n• Will to design processes lean, efficient and customer-friendly\n\n• Structured, careful working methods as well as high discretion in handling sensitive personal data\n\n• Service orientation and communication strength in contact with employees and authorities\n\n• Very good knowledge of German and English for skilful communication in an international, multicultural environment\n\nOur offer\n\nWe offer you plenty of leeway in an exciting, stimulating and dynamic environment where innovation, creativity and team spirit are important success factors. We live a culture of inclusion and respect. We welcome all people who have the desire for innovative, sustainable and meaningful activities - only that counts.\n\n.\n\nWe look forward to your complete online application incl. Letter of motivation, CV, certificates and diplomas. Please submit them exclusively via our application portal. Applications by e-mail or by post will not be considered.",
+        "de": "Materialwissenschaft und Technologie sind unsere Leidenschaft. Mit unserer Spitzenforschung leisten die rund 1'100 Mitarbeitenden der Empa entscheidende Beiträge zum Wohle der Gesellschaft für eine lebenswerte Zukunft. Die Empa ist eine Forschungsinstitution des ETH-Bereichs.\n\nSpecialist HR-Administration & HR IT (80-100%)\n\nDie HR-Abteilung ermöglicht die Gewinnung, Betreuung, Entwicklung und Administration von Talenten aus rund 50 Nationen. Zur Verstärkung des Teams HR-Administration & -IT Applikation am Standort Dübendorf suchen wir eine zuverlässige, kommunikative und teamorientierte Persönlichkeit.\n\nIhre Aufgaben\n\nIn dieser abwechslungsreichen Funktion betreuen Sie selbständig eine Organisationseinheit mit Personal am Standort Dübendorf.\n\n• Selbständige Bearbeitung sämtlicher personal-administrativer Aufgaben für einen Teilbereich, im Zusammenhang mit Anstellung, Betreuung und Austritt von Mitarbeitenden, Praktikanten, Diplomanden und akademischen Gästen\n\n• Steuerung der HR-Prozesse vom Eintritt bis zum Austritt: Einholen von Aufenthalts- und Arbeitsbewilligungen, Vertragsänderungen, Verlängerungen sowie Austritt mit Arbeitszeugnis (ohne Saläradministration und Sozialversicherungen)\n\n• Erste Anlaufstelle für administrative Fragen, mit vielfältigen Kontakten zu Mitarbeitenden und Behörden\n\n• Bearbeitung der Aufgaben in zunehmendem Masse mit modernen HR-IT-Tools, im Rahmen der laufenden Weiterentwicklung unserer HR-Applikationen und des Ausbaus der E-Workflows\n\n• Aktive Mitwirkung bei Digitalisierungsprojekten und der Weiterentwicklung unserer HR-Tools, mit der Möglichkeit, dich in diesem Bereich gezielt weiterzuentwickeln\n\n• Übernahme von Spezialaufgaben\n\nIhr Profil\n\n• Mehrjährige Erfahrung in der Personaladministration oder einer vergleichbaren Position\n\n• Höhere Personalfachausbildung (Eidg. HR-Fachausweis)\n\n• Ausgeprägte IT-Affinität sowie Freude am Arbeiten mit digitalen HR-Tools und Systemen\n\n• Erfahrung in der Digitalisierung oder Automatisierung von HR-Prozessen, z. B. durch Mitwirkung bei der Einführung neuer Tools oder E-Workflows\n\n• Ambition, sich fachlich in Richtung HR-Digitalisierung weiterzuentwickeln und mittelfristig mehr Verantwortung in diesem Bereich zu übernehmen\n\n• Wille, Prozesse schlank, effizient und kundenfreundlich zu gestalten\n\n• Strukturierte, sorgfältige Arbeitsweise sowie hohe Diskretion im Umgang mit sensiblen Personendaten\n\n• Dienstleistungsorientierung und Kommunikationsstärke im Kontakt mit Mitarbeitenden und Behörden\n\n• Sehr gute Deutsch- und Englischkenntnisse für die gewandte Kommunikation im internationalen, multikulturellen Umfeld\n\nUnser Angebot\n\nWir bieten Ihnen viel Spielraum in einer spannenden, stimulierenden und dynamischen Umgebung, in der Innovation, Kreativität und Teamgeist wichtige Erfolgsfaktoren sind. Wir leben eine Kultur der Inklusion und des Respekts. Bei uns sind alle Menschen willkommen, die Lust auf innovative, nachhaltige und sinnstiftende Tätigkeiten haben - nur das zählt.\n\n.\n\nWir freuen uns auf Ihre vollständige Online-Bewerbung inkl. Motivationsschreiben, Lebenslauf, Zeugnissen und Diplomen. Bitte reichen Sie diese ausschliesslich über unser Bewerbungsportal ein. Bewerbungen per E-Mail sowie auf dem Postweg werden nicht berücksichtigt.",
         "fr": "La science et la technologie des matériaux sont notre passion. Grâce à notre recherche de pointe, Empa, environ 1 100 employés apportent une contribution décisive au bénéfice de la société pour un avenir digne d'être vécu. Empa est une institution de recherche du domaine ETH.\n\nSpécialiste en administration des RH et en TI des RH (80-100%)\n\nLe département RH permet le recrutement, le mentorat, le perfectionnement et l'administration de talents provenant d'une cinquantaine de pays. Pour renforcer l'équipe d'applications RH Administration & IT sur le site de Dübendorf, nous recherchons une personnalité fiable, communicative et orientée vers l'équipe.\n\nLeurs tâches\n\nDans cette fonction variée, vous supervisez indépendamment une unité organisationnelle avec du personnel à l'emplacement de Dübendorf.\n\n• Travail indépendant de toutes les tâches administratives du personnel pour une sous-zone, en rapport avec l'emploi, le soutien et la démission des employés, des stagiaires, des étudiants diplômés et des étudiants invités\n\n• Gestion des processus RH de l'entrée à la sortie: obtention de permis de séjour et de travail, modification de contrat, prolongation et sortie avec certificat d'emploi (sans administration salariale et assurance sociale)\n\n• Premier point de contact pour les questions administratives, avec divers contacts avec les employés et les autorités\n\n• Traitement des tâches de plus en plus avec des outils modernes de TI RH, dans le cadre du développement continu de nos applications RH et de l'expansion des flux de travail électroniques\n\n• Participation active aux projets de numérisation et développement de nos outils RH, avec l'occasion de se développer dans ce domaine\n\n• Prise en charge de tâches spécialisées\n\nVotre profil\n\n• Plusieurs années d'expérience dans l'administration du personnel ou un poste comparable\n\n• Formation spécialisée en ressources humaines supérieures (Certificat professionnel fédéral des RH)\n\n• Forte affinité informatique et plaisir de travailler avec les outils et systèmes numériques RH\n\n• Expérience dans la numérisation ou l'automatisation des processus RH, p.ex. B. en participant à l'introduction de nouveaux outils ou de nouveaux flux de travail électroniques\n\n• L'ambition de se développer professionnellement vers la numérisation des RH et d'assumer davantage de responsabilités dans ce domaine à moyen terme\n\n• Volonté de concevoir des processus maigres, efficaces et conviviaux\n\n• Méthodes de travail structurées et prudentes et grande discrétion dans le traitement des données personnelles sensibles\n\n• Orientation du service et force de communication en contact avec les employés et les autorités\n\n• Très bonne connaissance de l'allemand et de l'anglais pour une communication habile dans un environnement international et multiculturel\n\nNotre offre\n\nNous vous offrons beaucoup de latitude dans un environnement passionnant, stimulant et dynamique où l'innovation, la créativité et l'esprit d'équipe sont des facteurs de succès importants. Nous vivons une culture d'inclusion et de respect. Nous souhaitons la bienvenue à toutes les personnes qui désirent des activités novatrices, durables et significatives - seulement cela compte.\n\n.\n\nNous attendons avec impatience votre demande en ligne complète, y compris. Lettre de motivation, CV, certificats et diplômes. Veuillez les soumettre exclusivement via notre portail d'applications. Les demandes par courrier électronique ou par la poste ne seront pas prises en considération."
       },
       "location": "Dübendorf",
@@ -2054,7 +2067,7 @@
       "url": "https://apply.refline.ch/673276/2236/pub/1/index.html",
       "source": "Empa Dedicated Parser (Refline 673276)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:52:11.703Z",
+      "crawledAt": "2026-09-24T14:44:45.731Z",
       "addressLocality": "Dübendorf",
       "addressRegion": "ZH",
       "streetAddress": "Ueberlandstrasse 129",
@@ -2073,9 +2086,20 @@
       "hiringOrganizationName": "Empa",
       "jobReqId": "2236",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-23T23:52:11.703Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "specialist-hr-administration-hr-it-80-100-empa-dubendorf"
+        ],
+        "fr": [
+          "specialist-hr-administration-hr-it-80-100-empa-dubendorf"
+        ]
       },
+      "previousSlugs": [
+        "specialist-hr-administration-hr-it-80-100-empa-dubendorf"
+      ],
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -2088,8 +2112,7 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-23T23:52:11.703Z"
+      }
     }
   ]
 }

@@ -1,16 +1,16 @@
 {
   "key": "usi-universita-della-svizzera-italiana",
   "label": "USI",
-  "generatedAt": "2026-09-23T23:54:52.175Z",
+  "generatedAt": "2026-09-24T14:44:17.471Z",
   "total": 14,
   "newCount": 0,
-  "updatedCount": 14,
-  "removedCount": 1,
-  "unchangedCount": 0,
-  "durationMs": 37749,
-  "avgDurationMs": 37749,
+  "updatedCount": 11,
+  "removedCount": 0,
+  "unchangedCount": 3,
+  "durationMs": 39487,
+  "avgDurationMs": 39487,
   "durationHistory": [
-    37749
+    39487
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -274,38 +274,6 @@
       }
     },
     {
-      "url": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
-      "applyUrl": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
-      "title": "Segretario/a Amministrativo/a",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Locarno",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "segretario-a-amministrativo-a-usi-locarno",
-      "department": "Istituto ricerche solari Aldo e Cele Daccó (IRSOL)",
-      "category": "staff",
-      "datePosted": "2026-08-17",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Locarno"
-      },
-      "id": "usi-universita-della-svizzera-italiana-9ed504ad13c4",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-08-17T22:00:33.993Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/bul/bul-bando-e-resources-2026.pdf",
       "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/bul/bul-bando-e-resources-2026.pdf",
       "title": "Bibliotecaria/o specializzata/o in risorse elettroniche E-resources librarian",
@@ -400,6 +368,48 @@
         "translation": 25,
         "completeness": 9
       }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": [
+    {
+      "url": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
+      "applyUrl": "https://www.irsol.usi.ch/storage/app/media/Open%20Positions/2026_08_secretary.pdf",
+      "title": "Segretario/a Amministrativo/a",
+      "company": "USI – Università della Svizzera italiana",
+      "companyKey": "usi-universita-della-svizzera-italiana",
+      "location": "Locarno",
+      "canton": "TI",
+      "country": "CH",
+      "slug": "segretario-a-amministrativo-a-usi-locarno",
+      "department": "Istituto ricerche solari Aldo e Cele Daccó (IRSOL)",
+      "category": "staff",
+      "datePosted": "2026-08-17",
+      "source": "usi-drupal-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "",
+      "sector": "Istruzione e ricerca",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Locarno"
+      },
+      "id": "usi-universita-della-svizzera-italiana-9ed504ad13c4",
+      "sourceLang": "it",
+      "firstSeenAt": "2026-08-17T22:00:33.993Z",
+      "salaryMin": 49500,
+      "salaryMax": 75000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "addressLocality": "Locarno",
+      "addressRegion": "TI",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
     },
     {
       "url": "https://content.usi.ch/sites/default/files/storage/attachments/icup/icup-phd-2026.pdf",
@@ -431,7 +441,7 @@
       "salarySource": "estimated",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -470,7 +480,7 @@
       "salarySource": "estimated",
       "addressLocality": "Mendrisio",
       "addressRegion": "TI",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -479,49 +489,5 @@
         "completeness": 14
       }
     }
-  ],
-  "removedJobs": [
-    {
-      "url": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
-      "applyUrl": "https://content.usi.ch/sites/default/files/storage/attachments/ior/ior-postdoc-radioligand-radiotherapy-prostate-cancer-2026.pdf",
-      "title": "Posizione post-dottorato sulla resistenza ai radioligando e alla radioterapia nel cancro alla prostata nel Functional Cancer Genomics Lab",
-      "company": "USI – Università della Svizzera italiana",
-      "companyKey": "usi-universita-della-svizzera-italiana",
-      "location": "Lugano",
-      "canton": "TI",
-      "country": "CH",
-      "slug": "posizione-post-dottorato-sulla-resistenza-ai-radioligando-e-alla-radioterapia-nel-cancro-alla-prostata-nel-functional-cancer-genomics-lab-usi-lugano",
-      "department": "Institute of Oncology Research (IOR)",
-      "category": "researcher",
-      "datePosted": "2026-05-21",
-      "source": "usi-drupal-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "MID",
-      "sector": "Istruzione e ricerca",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Lugano"
-      },
-      "id": "usi-universita-della-svizzera-italiana-c7a3db81dae5",
-      "sourceLang": "it",
-      "firstSeenAt": "2026-05-21T13:45:01.598Z",
-      "salaryMin": 49500,
-      "salaryMax": 75000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "streetAddress": "Via Giuseppe Buffi 13",
-      "postalCode": "6900",
-      "addressLocality": "Lugano",
-      "addressRegion": "TI",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    }
-  ],
-  "unchangedJobs": []
+  ]
 }

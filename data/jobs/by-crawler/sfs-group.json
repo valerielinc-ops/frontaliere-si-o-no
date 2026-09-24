@@ -1,6 +1,6 @@
 {
   "crawlerKey": "sfs-group",
-  "assembledAt": "2026-09-23T23:54:02.600Z",
+  "assembledAt": "2026-09-24T14:44:42.805Z",
   "jobs": [
     {
       "id": "sfs-group-d28e368a8b5c",
@@ -33,7 +33,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/techniker-in-wärmebehandlung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:58.010Z",
+      "crawledAt": "2026-09-24T14:44:37.370Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -115,7 +115,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/projektleiter-kunststofftechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:57.859Z",
+      "crawledAt": "2026-09-24T14:44:37.261Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -153,6 +153,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:49:47.672Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -168,37 +169,37 @@
       }
     },
     {
-      "id": "sfs-group-58a024143e02",
-      "slug": "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
+      "id": "sfs-group-fe2f64ca13aa",
+      "slug": "project-manager-m-f-d-sfs-group-heerbrugg",
       "slugByLocale": {
-        "de": "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
-        "it": "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
-        "en": "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
-        "fr": "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
+        "de": "project-manager-m-f-d-sfs-group-heerbrugg",
+        "it": "project-manager-m-f-d-sfs-group-heerbrugg",
+        "en": "project-manager-m-f-d-sfs-group-heerbrugg",
+        "fr": "project-manager-m-f-d-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
       "companyDomain": "sfs.com",
-      "title": "Product Manager Rainscreen (m/f/d) 80–",
+      "title": "Project Manager (m/f/d)",
       "titleByLocale": {
-        "de": "Product Manager Rainscreen (m/f/d) 80–",
-        "en": "Product Manager Rainscreen (m/f/d) 80–",
-        "it": "Responsabile prodotto Parapioggia (m/f/d) 80–",
-        "fr": "Gestionnaire de produits Rainscreen (h/f/d) 80–"
+        "de": "Project Manager (m/f/d)",
+        "en": "Project Manager (m/f/d)",
+        "it": "Project Manager (m/f/d)",
+        "fr": "Project Manager (m/f/d)"
       },
-      "description": "Du möchtest aktiv die Entwicklung und Marktstrategie eines innovativen Produktportfolios im Bereich der hinterlüfteten Fassaden (VHF) mitgestalten? Dann bist du bei uns genau richtig! Als Produkt Manager im Segment Fastening Systems übernimmst du eine zentrale Rolle in der strategischen und operativen Führung unseres Produktsortiments. Du bringst deine technische Expertise, dein Marktverständnis und dein unternehmerisches Denken ein, um innovative Lösungen zu entwickeln und unsere Marktführerschaft auszubauen. Your Tasks:\n• Eigenverantwortliche Betreuung und Weiterentwicklung des Produktportfolios im Bereich VHF\n• Analyse von Markt- und Kundenbedürfnissen sowie Entwicklung passender Produktlösungen\n• Unterstützung des Vertriebs bei technischen Fragestellungen und Einführung neuer Produkte\n• Zusammenarbeit mit Entwicklung, Marketing und internationalen Partnern zur Umsetzung von Projekten Your profile:\n• Abgeschlossene Ausbildung als Produktmanager/in, VHF-Spezialist/in oder Fassadenplaner/in -bauer/in\n• Kenntnisse im Bauwesen – idealerweise im Bereich der vorgehängten hinterlüfteten Fassade\n• Starke kommunikative Fähigkeiten, überzeugendes Auftreten sowie strukturierte und analytische Arbeitsweise\n• Sehr gute Deutsch- und Englischkenntnisse\n• Hohes Mass an Eigeninitiative, Teamgeist, Belastbarkeit und Lernbereitschaft We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Personalrestaurant mit attraktiven Preisen Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
+      "description": "In der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die Umsetzung von neuen anspruchsvollen Präzisionsbauteilen von unseren Kunden, suchen wir eine koordinations- und kommunikationsstarke Persönlichkeit mit technischem Verständnis als Bindeglied zwischen dem Kunden und der Produktion zur erfolgreichen Neuteilrealisierung. Your Tasks:\n• Verantwortung für die Leitung von Neuteileprojekten, von der Anfrage bis zur Serienreife\n• Koordinierung und Führung der technischen Abstimmung von Neuteilprojekten mit den Fachspezialisten des Kunden und SFS\n• Durchführung des APQP-Prozesses bei neuen Produkten und Sicherstellung der geforderten Markteinführungszeit\n• Initiierung und Durchführung von Machbarkeitsanalysen sowie Begleitung technischer Kundenaudits\n• Sicherstellung und Weiterentwicklung der technischen Kompetenz im Markt und beim Kunden\n• Fokussierte Prozessentwicklung und -analyse für den optimalen und wirtschaftlichsten Fertigungsablauf der Bauteile Your profile:\n• Abgeschlossene technische Grundausbildung mit Weiterbildung HF oder FH\n• Erfahrung in der Leitung technischer Projekte im industriellen oder automobilen Umfeld\n• Kenntnisse in Prozessen der Kaltumformung oder Zerspanung von Vorteil\n• Verhandlungssicheres Deutsch und Englisch in Wort und Schrift\n• Hohe Eigenverantwortung und Selbstständigkeit mit einer gesunden Portion Neugierde\n• Reisebereitschaft ca. 20% We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
       "descriptionByLocale": {
-        "de": "Du möchtest aktiv die Entwicklung und Marktstrategie eines innovativen Produktportfolios im Bereich der hinterlüfteten Fassaden (VHF) mitgestalten? Dann bist du bei uns genau richtig! Als Produkt Manager im Segment Fastening Systems übernimmst du eine zentrale Rolle in der strategischen und operativen Führung unseres Produktsortiments. Du bringst deine technische Expertise, dein Marktverständnis und dein unternehmerisches Denken ein, um innovative Lösungen zu entwickeln und unsere Marktführerschaft auszubauen. Your Tasks:\n• Eigenverantwortliche Betreuung und Weiterentwicklung des Produktportfolios im Bereich VHF\n• Analyse von Markt- und Kundenbedürfnissen sowie Entwicklung passender Produktlösungen\n• Unterstützung des Vertriebs bei technischen Fragestellungen und Einführung neuer Produkte\n• Zusammenarbeit mit Entwicklung, Marketing und internationalen Partnern zur Umsetzung von Projekten Your profile:\n• Abgeschlossene Ausbildung als Produktmanager/in, VHF-Spezialist/in oder Fassadenplaner/in -bauer/in\n• Kenntnisse im Bauwesen – idealerweise im Bereich der vorgehängten hinterlüfteten Fassade\n• Starke kommunikative Fähigkeiten, überzeugendes Auftreten sowie strukturierte und analytische Arbeitsweise\n• Sehr gute Deutsch- und Englischkenntnisse\n• Hohes Mass an Eigeninitiative, Teamgeist, Belastbarkeit und Lernbereitschaft We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Personalrestaurant mit attraktiven Preisen Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
-        "it": "Vorresti plasmare attivamente la strategia di sviluppo e di mercato di un portafoglio di prodotti innovativo nel campo delle facciate retroventilate (VHF)? Allora hai proprio ragione con noi! Come Product Manager nel segmento Sistemi di Fissaggio, si svolgerà un ruolo centrale nella gestione strategica e operativa della nostra gamma di prodotti. Porti le tue competenze tecniche, la comprensione del mercato e il pensiero imprenditoriale per sviluppare soluzioni innovative e ampliare la nostra leadership di mercato. I vostri compiti:\n• Supporto auto-responsabile e ulteriore sviluppo del portafoglio prodotti nell'area di VHF\n• Analisi delle esigenze del mercato e del cliente e sviluppo di soluzioni di prodotto adeguate\n• Sostegno alle vendite in questioni tecniche e introduzione di nuovi prodotti\n• Collaborazione con lo sviluppo, il marketing e partner internazionali per implementare progetti Il tuo profilo:\n• Formazione completa come product manager, specialista VHF o progettista di facciata\n• Conoscenza della costruzione – idealmente nella zona della facciata posteriore-ventilata a tenda\n• Forte capacità di comunicazione, convincente aspetto e metodi di lavoro strutturati e analitici\n• Ottima conoscenza del tedesco e dell'inglese\n• Alto livello di iniziativa, spirito di squadra, resilienza e disponibilità ad imparare Offriamo:\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• fondi pensione sani e propri con piani di risparmio individuali\n• Corsi di formazione interna e sostegno alla formazione esterna\n• Staff ristorante con prezzi attraenti Abbiamo scatenato il vostro interesse?: Applicare oggi tramite la nostra homepage Offerte di lavoro Riempiamo questa posizione senza il supporto dei fornitori di servizi del personale.",
-        "en": "Would you like to actively shape the development and market strategy of an innovative product portfolio in the field of rear-ventilated facades (VHF)? Then you are exactly right with us! As Product Manager in the Fastening Systems segment, you will play a central role in the strategic and operational management of our product range. You bring your technical expertise, market understanding and entrepreneurial thinking to develop innovative solutions and expand our market leadership. Your Tasks:\n• Self-responsible support and further development of the product portfolio in the area of VHF\n• Analysis of market and customer needs as well as development of suitable product solutions\n• Support for sales in technical issues and introduction of new products\n• Collaboration with development, marketing and international partners to implement projects Your profile:\n• Completed training as a product manager, VHF specialist or facade planner\n• Knowledge of construction – ideally in the area of the curtain-mounted rear-ventilated facade\n• Strong communication skills, convincing appearance and structured and analytical working methods\n• Very good knowledge of German and English\n• High level of initiative, team spirit, resilience and willingness to learn We offer:\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Own healthy pension fund with individual savings plans\n• Internal training courses & support for external training\n• Staff restaurant with attractive prices Have we sparked your interest?: Apply today via our homepage Job offers | Join SFS We fill this position without the support of personnel service providers.",
-        "fr": "Souhaitez-vous façonner activement la stratégie de développement et de marché d'un portefeuille de produits innovants dans le domaine des façades à l'arrière (VHF)? Alors tu as raison avec nous ! En tant que responsable produit dans le segment Systèmes de fixation, vous jouerez un rôle central dans la gestion stratégique et opérationnelle de notre gamme de produits. Vous apportez votre expertise technique, votre compréhension du marché et votre esprit d'entreprise pour développer des solutions innovantes et élargir notre leadership sur le marché. Vos tâches :\n• Soutien autonome et développement du portefeuille de produits dans le domaine de la VHF\n• Analyse des besoins du marché et des clients ainsi que développement de solutions de produits appropriées\n• Soutien aux ventes dans les domaines techniques et introduction de nouveaux produits\n• Collaboration avec des partenaires de développement, de commercialisation et internationaux pour la mise en œuvre de projets Votre profil:\n• Formation terminée en tant que gestionnaire de produits, spécialiste VHF ou planificateur de façade\n• Connaissance de la construction – idéalement dans le domaine de la façade à rideaux à l'arrière\n• Fortes compétences en communication, apparence convaincante et méthodes de travail structurées et analytiques\n• Très bonne connaissance de l'allemand et de l'anglais\n• Haut niveau d'initiative, esprit d'équipe, résilience et volonté d'apprendre Nous offrons :\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Un fonds de pension sain avec des régimes d'épargne individuels\n• Formation interne et soutien à la formation externe\n• Restaurant du personnel à prix attractifs Avons-nous suscité votre intérêt?: Postuler aujourd'hui via notre page d'accueil Offres d'emploi Nous remplissons ce poste sans le soutien des fournisseurs de services de personnel."
+        "de": "In der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die Umsetzung von neuen anspruchsvollen Präzisionsbauteilen von unseren Kunden, suchen wir eine koordinations- und kommunikationsstarke Persönlichkeit mit technischem Verständnis als Bindeglied zwischen dem Kunden und der Produktion zur erfolgreichen Neuteilrealisierung. Your Tasks:\n• Verantwortung für die Leitung von Neuteileprojekten, von der Anfrage bis zur Serienreife\n• Koordinierung und Führung der technischen Abstimmung von Neuteilprojekten mit den Fachspezialisten des Kunden und SFS\n• Durchführung des APQP-Prozesses bei neuen Produkten und Sicherstellung der geforderten Markteinführungszeit\n• Initiierung und Durchführung von Machbarkeitsanalysen sowie Begleitung technischer Kundenaudits\n• Sicherstellung und Weiterentwicklung der technischen Kompetenz im Markt und beim Kunden\n• Fokussierte Prozessentwicklung und -analyse für den optimalen und wirtschaftlichsten Fertigungsablauf der Bauteile Your profile:\n• Abgeschlossene technische Grundausbildung mit Weiterbildung HF oder FH\n• Erfahrung in der Leitung technischer Projekte im industriellen oder automobilen Umfeld\n• Kenntnisse in Prozessen der Kaltumformung oder Zerspanung von Vorteil\n• Verhandlungssicheres Deutsch und Englisch in Wort und Schrift\n• Hohe Eigenverantwortung und Selbstständigkeit mit einer gesunden Portion Neugierde\n• Reisebereitschaft ca. 20% We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "it": "In der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die Umsetzung von neuen anspruchsvollen Präzisionsbauteilen von unseren Kunden, suchen wir eine koordinations- und kommunikationsstarke Persönlichkeit mit technischem Verständnis als Bindeglied zwischen dem Kunden und der Produktion zur erfolgreichen Neuteilrealisierung. Your Tasks:\n• Verantwortung für die Leitung von Neuteileprojekten, von der Anfrage bis zur Serienreife\n• Koordinierung und Führung der technischen Abstimmung von Neuteilprojekten mit den Fachspezialisten des Kunden und SFS\n• Durchführung des APQP-Prozesses bei neuen Produkten und Sicherstellung der geforderten Markteinführungszeit\n• Initiierung und Durchführung von Machbarkeitsanalysen sowie Begleitung technischer Kundenaudits\n• Sicherstellung und Weiterentwicklung der technischen Kompetenz im Markt und beim Kunden\n• Fokussierte Prozessentwicklung und -analyse für den optimalen und wirtschaftlichsten Fertigungsablauf der Bauteile Your profile:\n• Abgeschlossene technische Grundausbildung mit Weiterbildung HF oder FH\n• Erfahrung in der Leitung technischer Projekte im industriellen oder automobilen Umfeld\n• Kenntnisse in Prozessen der Kaltumformung oder Zerspanung von Vorteil\n• Verhandlungssicheres Deutsch und Englisch in Wort und Schrift\n• Hohe Eigenverantwortung und Selbstständigkeit mit einer gesunden Portion Neugierde\n• Reisebereitschaft ca. 20% We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "en": "In der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die Umsetzung von neuen anspruchsvollen Präzisionsbauteilen von unseren Kunden, suchen wir eine koordinations- und kommunikationsstarke Persönlichkeit mit technischem Verständnis als Bindeglied zwischen dem Kunden und der Produktion zur erfolgreichen Neuteilrealisierung. Your Tasks:\n• Verantwortung für die Leitung von Neuteileprojekten, von der Anfrage bis zur Serienreife\n• Koordinierung und Führung der technischen Abstimmung von Neuteilprojekten mit den Fachspezialisten des Kunden und SFS\n• Durchführung des APQP-Prozesses bei neuen Produkten und Sicherstellung der geforderten Markteinführungszeit\n• Initiierung und Durchführung von Machbarkeitsanalysen sowie Begleitung technischer Kundenaudits\n• Sicherstellung und Weiterentwicklung der technischen Kompetenz im Markt und beim Kunden\n• Fokussierte Prozessentwicklung und -analyse für den optimalen und wirtschaftlichsten Fertigungsablauf der Bauteile Your profile:\n• Abgeschlossene technische Grundausbildung mit Weiterbildung HF oder FH\n• Erfahrung in der Leitung technischer Projekte im industriellen oder automobilen Umfeld\n• Kenntnisse in Prozessen der Kaltumformung oder Zerspanung von Vorteil\n• Verhandlungssicheres Deutsch und Englisch in Wort und Schrift\n• Hohe Eigenverantwortung und Selbstständigkeit mit einer gesunden Portion Neugierde\n• Reisebereitschaft ca. 20% We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "fr": "In der Business Unit Industrial werden qualitativ hochwertige Produkte für verschiedene Industriebereiche hergestellt. Für die Umsetzung von neuen anspruchsvollen Präzisionsbauteilen von unseren Kunden, suchen wir eine koordinations- und kommunikationsstarke Persönlichkeit mit technischem Verständnis als Bindeglied zwischen dem Kunden und der Produktion zur erfolgreichen Neuteilrealisierung. Your Tasks:\n• Verantwortung für die Leitung von Neuteileprojekten, von der Anfrage bis zur Serienreife\n• Koordinierung und Führung der technischen Abstimmung von Neuteilprojekten mit den Fachspezialisten des Kunden und SFS\n• Durchführung des APQP-Prozesses bei neuen Produkten und Sicherstellung der geforderten Markteinführungszeit\n• Initiierung und Durchführung von Machbarkeitsanalysen sowie Begleitung technischer Kundenaudits\n• Sicherstellung und Weiterentwicklung der technischen Kompetenz im Markt und beim Kunden\n• Fokussierte Prozessentwicklung und -analyse für den optimalen und wirtschaftlichsten Fertigungsablauf der Bauteile Your profile:\n• Abgeschlossene technische Grundausbildung mit Weiterbildung HF oder FH\n• Erfahrung in der Leitung technischer Projekte im industriellen oder automobilen Umfeld\n• Kenntnisse in Prozessen der Kaltumformung oder Zerspanung von Vorteil\n• Verhandlungssicheres Deutsch und Englisch in Wort und Schrift\n• Hohe Eigenverantwortung und Selbstständigkeit mit einer gesunden Portion Neugierde\n• Reisebereitschaft ca. 20% We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Raum für Eigenverantwortung und Initiative\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/"
       },
       "location": "Heerbrugg",
       "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/product-manager-rainscreen-(m-f-d).html",
+      "url": "https://join.sfs.com/ch/en/vacancies/project-manager-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:57.705Z",
+      "crawledAt": "2026-09-24T14:44:37.152Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -212,9 +213,9 @@
       "sector": "Industria / Meccanica",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-23",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2748/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "2748",
+      "postedDate": "2026-09-24",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3017/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "3017",
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
       "requirementsByLocale": {
@@ -234,7 +235,85 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:53:57.705Z"
+      "firstSeenAt": "2026-09-24T14:44:37.152Z"
+    },
+    {
+      "id": "sfs-group-58a024143e02",
+      "slug": "responsabile-prodotto-parapioggia-m-f-d-80-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "it": "responsabile-prodotto-parapioggia-m-f-d-80-sfs-group-heerbrugg",
+        "en": "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
+        "de": "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg",
+        "fr": "gestionnaire-de-produits-rainscreen-h-f-d-80-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Product Manager Rainscreen (m/f/d) 80–",
+      "titleByLocale": {
+        "it": "Responsabile prodotto Parapioggia (m/f/d) 80–",
+        "en": "Product Manager Rainscreen (m/f/d) 80–",
+        "de": "Product Manager Rainscreen (m/f/d) 80–",
+        "fr": "Gestionnaire de produits Rainscreen (h/f/d) 80–"
+      },
+      "description": "Du möchtest aktiv die Entwicklung und Marktstrategie eines innovativen Produktportfolios im Bereich der hinterlüfteten Fassaden (VHF) mitgestalten? Dann bist du bei uns genau richtig! Als Produkt Manager im Segment Fastening Systems übernimmst du eine zentrale Rolle in der strategischen und operativen Führung unseres Produktsortiments. Du bringst deine technische Expertise, dein Marktverständnis und dein unternehmerisches Denken ein, um innovative Lösungen zu entwickeln und unsere Marktführerschaft auszubauen. Your Tasks:\n• Eigenverantwortliche Betreuung und Weiterentwicklung des Produktportfolios im Bereich VHF\n• Analyse von Markt- und Kundenbedürfnissen sowie Entwicklung passender Produktlösungen\n• Unterstützung des Vertriebs bei technischen Fragestellungen und Einführung neuer Produkte\n• Zusammenarbeit mit Entwicklung, Marketing und internationalen Partnern zur Umsetzung von Projekten Your profile:\n• Abgeschlossene Ausbildung als Produktmanager/in, VHF-Spezialist/in oder Fassadenplaner/in -bauer/in\n• Kenntnisse im Bauwesen – idealerweise im Bereich der vorgehängten hinterlüfteten Fassade\n• Starke kommunikative Fähigkeiten, überzeugendes Auftreten sowie strukturierte und analytische Arbeitsweise\n• Sehr gute Deutsch- und Englischkenntnisse\n• Hohes Mass an Eigeninitiative, Teamgeist, Belastbarkeit und Lernbereitschaft We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Personalrestaurant mit attraktiven Preisen Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
+      "descriptionByLocale": {
+        "it": "Vorresti plasmare attivamente la strategia di sviluppo e di mercato di un portafoglio di prodotti innovativo nel campo delle facciate retroventilate (VHF)? Allora hai proprio ragione con noi! Come Product Manager nel segmento Sistemi di Fissaggio, si svolgerà un ruolo centrale nella gestione strategica e operativa della nostra gamma di prodotti. Porti le tue competenze tecniche, la comprensione del mercato e il pensiero imprenditoriale per sviluppare soluzioni innovative e ampliare la nostra leadership di mercato. I vostri compiti:\n• Supporto auto-responsabile e ulteriore sviluppo del portafoglio prodotti nell'area di VHF\n• Analisi delle esigenze del mercato e del cliente e sviluppo di soluzioni di prodotto adeguate\n• Sostegno alle vendite in questioni tecniche e introduzione di nuovi prodotti\n• Collaborazione con lo sviluppo, il marketing e partner internazionali per implementare progetti Il tuo profilo:\n• Formazione completa come product manager, specialista VHF o progettista di facciata\n• Conoscenza della costruzione – idealmente nella zona della facciata posteriore-ventilata a tenda\n• Forte capacità di comunicazione, convincente aspetto e metodi di lavoro strutturati e analitici\n• Ottima conoscenza del tedesco e dell'inglese\n• Alto livello di iniziativa, spirito di squadra, resilienza e disponibilità ad imparare Offriamo:\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• fondi pensione sani e propri con piani di risparmio individuali\n• Corsi di formazione interna e sostegno alla formazione esterna\n• Staff ristorante con prezzi attraenti Abbiamo scatenato il vostro interesse?: Applicare oggi tramite la nostra homepage Offerte di lavoro Riempiamo questa posizione senza il supporto dei fornitori di servizi del personale.",
+        "en": "Would you like to actively shape the development and market strategy of an innovative product portfolio in the field of rear-ventilated facades (VHF)? Then you are exactly right with us! As Product Manager in the Fastening Systems segment, you will play a central role in the strategic and operational management of our product range. You bring your technical expertise, market understanding and entrepreneurial thinking to develop innovative solutions and expand our market leadership. Your Tasks:\n• Self-responsible support and further development of the product portfolio in the area of VHF\n• Analysis of market and customer needs as well as development of suitable product solutions\n• Support for sales in technical issues and introduction of new products\n• Collaboration with development, marketing and international partners to implement projects Your profile:\n• Completed training as a product manager, VHF specialist or facade planner\n• Knowledge of construction – ideally in the area of the curtain-mounted rear-ventilated facade\n• Strong communication skills, convincing appearance and structured and analytical working methods\n• Very good knowledge of German and English\n• High level of initiative, team spirit, resilience and willingness to learn We offer:\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Own healthy pension fund with individual savings plans\n• Internal training courses & support for external training\n• Staff restaurant with attractive prices Have we sparked your interest?: Apply today via our homepage Job offers | Join SFS We fill this position without the support of personnel service providers.",
+        "de": "Du möchtest aktiv die Entwicklung und Marktstrategie eines innovativen Produktportfolios im Bereich der hinterlüfteten Fassaden (VHF) mitgestalten? Dann bist du bei uns genau richtig! Als Produkt Manager im Segment Fastening Systems übernimmst du eine zentrale Rolle in der strategischen und operativen Führung unseres Produktsortiments. Du bringst deine technische Expertise, dein Marktverständnis und dein unternehmerisches Denken ein, um innovative Lösungen zu entwickeln und unsere Marktführerschaft auszubauen. Your Tasks:\n• Eigenverantwortliche Betreuung und Weiterentwicklung des Produktportfolios im Bereich VHF\n• Analyse von Markt- und Kundenbedürfnissen sowie Entwicklung passender Produktlösungen\n• Unterstützung des Vertriebs bei technischen Fragestellungen und Einführung neuer Produkte\n• Zusammenarbeit mit Entwicklung, Marketing und internationalen Partnern zur Umsetzung von Projekten Your profile:\n• Abgeschlossene Ausbildung als Produktmanager/in, VHF-Spezialist/in oder Fassadenplaner/in -bauer/in\n• Kenntnisse im Bauwesen – idealerweise im Bereich der vorgehängten hinterlüfteten Fassade\n• Starke kommunikative Fähigkeiten, überzeugendes Auftreten sowie strukturierte und analytische Arbeitsweise\n• Sehr gute Deutsch- und Englischkenntnisse\n• Hohes Mass an Eigeninitiative, Teamgeist, Belastbarkeit und Lernbereitschaft We offer:\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Personalrestaurant mit attraktiven Preisen Have we sparked your interest?: Bewerbe dich noch heute über unsere Homepage Stellenangebote | Join SFS Diese Stelle besetzen wir ohne die Unterstützung von Personaldienstleistern.",
+        "fr": "Souhaitez-vous façonner activement la stratégie de développement et de marché d'un portefeuille de produits innovants dans le domaine des façades à l'arrière (VHF)? Alors tu as raison avec nous ! En tant que responsable produit dans le segment Systèmes de fixation, vous jouerez un rôle central dans la gestion stratégique et opérationnelle de notre gamme de produits. Vous apportez votre expertise technique, votre compréhension du marché et votre esprit d'entreprise pour développer des solutions innovantes et élargir notre leadership sur le marché. Vos tâches :\n• Soutien autonome et développement du portefeuille de produits dans le domaine de la VHF\n• Analyse des besoins du marché et des clients ainsi que développement de solutions de produits appropriées\n• Soutien aux ventes dans les domaines techniques et introduction de nouveaux produits\n• Collaboration avec des partenaires de développement, de commercialisation et internationaux pour la mise en œuvre de projets Votre profil:\n• Formation terminée en tant que gestionnaire de produits, spécialiste VHF ou planificateur de façade\n• Connaissance de la construction – idéalement dans le domaine de la façade à rideaux à l'arrière\n• Fortes compétences en communication, apparence convaincante et méthodes de travail structurées et analytiques\n• Très bonne connaissance de l'allemand et de l'anglais\n• Haut niveau d'initiative, esprit d'équipe, résilience et volonté d'apprendre Nous offrons :\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Un fonds de pension sain avec des régimes d'épargne individuels\n• Formation interne et soutien à la formation externe\n• Restaurant du personnel à prix attractifs Avons-nous suscité votre intérêt?: Postuler aujourd'hui via notre page d'accueil Offres d'emploi Nous remplissons ce poste sans le soutien des fournisseurs de services de personnel."
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/product-manager-rainscreen-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-24T14:44:37.043Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2748/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "2748",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "needsRetranslation": true,
+      "firstSeenAt": "2026-09-23T23:53:57.705Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
+        ],
+        "fr": [
+          "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
+        ]
+      },
+      "previousSlugs": [
+        "product-manager-rainscreen-m-f-d-80-sfs-group-heerbrugg"
+      ],
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      }
     },
     {
       "id": "sfs-group-d0bc1539dbb2",
@@ -267,7 +346,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/process-engineer-aerospace-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:57.551Z",
+      "crawledAt": "2026-09-24T14:44:36.933Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -288,6 +367,7 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-11T13:52:15.375Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -333,7 +413,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/polymechaniker-in-–-erosion-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:57.400Z",
+      "crawledAt": "2026-09-24T14:44:36.823Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -401,6 +481,7 @@
         ]
       },
       "firstSeenAt": "2026-07-16T22:55:34.456Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -446,7 +527,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/messtechniker-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:57.246Z",
+      "crawledAt": "2026-09-24T14:44:36.711Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -527,7 +608,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/maschinenbediener-in-umformtechnik-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:57.096Z",
+      "crawledAt": "2026-09-24T14:44:36.595Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -579,29 +660,98 @@
       }
     },
     {
-      "id": "sfs-group-bd01b3142b6e",
-      "slug": "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
+      "id": "sfs-group-ef7c66ad83ea",
+      "slug": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
       "slugByLocale": {
-        "de": "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
-        "it": "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
+        "de": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+        "it": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+        "en": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg",
+        "fr": "marketing-manager-employer-branding-hr-m-f-d-80-sfs-group-heerbrugg"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
+      "titleByLocale": {
+        "de": "Marketing Manager–Employer Branding & Personalwesen (m/f/d) 80–",
+        "en": "Marketing Manager–Employer Branding & HR (m/f/d) 80–",
+        "it": "Marketing Manager–Employer Branding & Risorse Umane (m/f/d) 80–",
+        "fr": "Marketing Manager–Employer Branding & Ressources Humaines (m/f/d) 80–"
+      },
+      "description": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
+      "descriptionByLocale": {
+        "de": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
+        "it": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
+        "en": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg",
+        "fr": "Gestalte die Employer Brand von morgen Bei uns hast du die Möglichkeit, eine internationale Arbeitgebermarke aktiv zu prägen, strategisch, kreativ und mit viel Gestaltungsspielraum. Aus Insights werden starke Ideen, aus Strategien relevante Kampagnen und aus unterschiedlichen Perspektiven Kommunikation, die hängen bleibt. Wenn du Dinge nicht einfach umsetzen, sondern neu denken und wirklich etwas bewegen willst, sollten wir uns unbedingt kennenlernen. Your Tasks:\n• Globale Weiterentwicklung und Umsetzung der Employer-Branding- und HR-Marketingstrategie für alle Marken und relevanten Zielgruppen\n• Beratung und kommunikative Unterstützung der HR-Fachbereiche und relevanten Stakeholdern sowie Entwicklung von Konzepten, Botschaften und kreativen Leitideen\n• Planung und Umsetzung globaler und lokaler Employer-Branding-Kampagnen sowie Erstellung und Steuerung von Inhalten für digitale und interne Kanäle\n• Planung, Priorisierung und Koordination von Massnahmen im Tagesgeschäft sowie Steuerung der Zusammenarbeit mit internen Creation Teams, Competence- und Service Centern und externen Partnern\n• Sicherstellung eines konsistenten Auftritts über alle Länder und Kanäle hinweg sowie Entwicklung tragfähiger Lösungen im internationalen Multi-Brand-Setup\n• Definition und Auswertung relevanter KPIs sowie Erstellung, Kontrolle und Freigabe von Präsentationen Your profile:\n• Abgeschlossenes Studium in Marketing, Kommunikation, Multimedia Production, Digital Marketing oder vergleichbare Qualifikation. Alternativ HR Background mit Weiterentwicklung in Richtung Marketing, Employer Branding oder Branding\n• Erfahrung in einer strategisch-konzeptionellen Funktion, im Project Management sowie fundierte Erfahrung im Employer Branding, HR Marketing oder einem vergleichbaren Umfeld\n• Deutsch auf Muttersprachniveau und fliessende Englischkenntnisse\n• Fähigkeit, Strategien, Konzepte und Kampagnen zu entwickeln und diese in einer internationalen HR-, Brand- oder Marketing-Community überzeugend zu präsentieren und zu verankern\n• Souveräner Umgang mit unterschiedlichen Interessen und Anforderungen sowie Fähigkeit, in einem internationalen Multi-Brand-Setup tragfähige Lösungen zu entwickeln\n• Kommunikationsstärke, Kreativität, Teamfähigkeit und Eigeninitiative sowie eine strukturierte Arbeitsweise und gutes Zeitmanagement We offer:\n• Abwechslungsreiches Aufgabengebiet sowie Raum für Eigenverantwortung und Initiative\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung, zahlreiche Sportangebote & Mitarbeiterevents, Personalrestaurant mit attraktiven Preisen\n• Flexibles Mobilitätskonzept für deinen Arbeitsweg"
+      },
+      "location": "Heerbrugg",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/marketing-manager-–-employer-branding-hr-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-24T14:44:36.484Z",
+      "addressLocality": "Heerbrugg",
+      "addressRegion": "SG",
+      "streetAddress": "Rosenbergsaustrasse 8",
+      "postalCode": "9435",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-24",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/3025/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "3025",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-24T14:44:36.484Z"
+    },
+    {
+      "id": "sfs-group-bd01b3142b6e",
+      "slug": "ingegnere-di-progettazione-di-piombo-che-forma-gli-strumenti-m-f-d-80-sfs-group-heerbrugg",
+      "slugByLocale": {
+        "it": "ingegnere-di-progettazione-di-piombo-che-forma-gli-strumenti-m-f-d-80-sfs-group-heerbrugg",
         "en": "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
-        "fr": "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+        "de": "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
+        "fr": "ingenieur-de-conception-principal-formant-des-outils-h-f-d-80-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
       "companyKey": "sfs-group",
       "companyDomain": "sfs.com",
       "title": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
       "titleByLocale": {
-        "de": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
-        "en": "Lead Design Engineer Forming Tools (m/f/d) 80–",
         "it": "Ingegnere di progettazione di piombo che forma gli strumenti (m/f/d) 80–",
+        "en": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
+        "de": "Lead Konstrukteur Umformwerkzeuge (m/f/d) 80–",
         "fr": "Ingénieur de conception principal formant des outils (h/f/d) 80–"
       },
       "description": "Technik, Präzision und Aerospace verbinden: Als Lead-Konstrukteur verantwortest du anspruchsvolle Konstruktions- und Entwicklungsaufgaben rund um die Kaltmassivumformung von Aerospace Fasteners. Mit deinem Know-how in Umformtechnik und Werkzeugbau gestaltest du Prozesse, entwickelst innovative Werkzeuglösungen und begleitest Projekte von der Auslegung bis in die Serienproduktion. Your Tasks:\n• Verantwortung für die Auslegung und Berechnung von Stadienfolgen für die Kaltmassivumformung\n• Entwicklung und Konstruktion von Umformwerkzeugen für Mehrstufen-Pressen mit CAD\n• Erstellung und Sicherstellung vollständiger und korrekter Fertigungsunterlagen\n• Betreuung und Koordination der Werkzeug- und Prozessumsetzung auf der Umformmaschine\n• Durchführung von Prozessreviews nach Bemusterungen und Testläufen sowie Begleitung des Serienhochlaufs\n• Mitarbeit und Verantwortung bei Prozessoptimierungen Your profile:\n• Abgeschlossene Ausbildung als Konstrukteur mit entsprechender Berufserfahrung, Weiterbildung zum Techniker HF oder Studium FH von Vorteil\n• Mehrjährige Erfahrung in der Umformtechnik sowie fundierte Kenntnisse im Werkzeugbau, idealerweise in der Kaltmassivumformung und Mehrstufen-Pressentechnik\n• Sehr gute CAD-Kenntnisse und MS Office Kenntnisse sowie Erfahrung mit PLM/PDM und FEM-Tools von Vorteil\n• Fliessende Deutschkenntnisse sowie gute Englischkenntnisse\n• Technisches Verständnis, lösungsorientierte, präzise und gewissenhafte Arbeitsweise\n• Ausgeprägte Team- und Kommunikationsfähigkeit We offer:\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
       "descriptionByLocale": {
-        "de": "Technik, Präzision und Aerospace verbinden: Als Lead-Konstrukteur verantwortest du anspruchsvolle Konstruktions- und Entwicklungsaufgaben rund um die Kaltmassivumformung von Aerospace Fasteners. Mit deinem Know-how in Umformtechnik und Werkzeugbau gestaltest du Prozesse, entwickelst innovative Werkzeuglösungen und begleitest Projekte von der Auslegung bis in die Serienproduktion. Your Tasks:\n• Verantwortung für die Auslegung und Berechnung von Stadienfolgen für die Kaltmassivumformung\n• Entwicklung und Konstruktion von Umformwerkzeugen für Mehrstufen-Pressen mit CAD\n• Erstellung und Sicherstellung vollständiger und korrekter Fertigungsunterlagen\n• Betreuung und Koordination der Werkzeug- und Prozessumsetzung auf der Umformmaschine\n• Durchführung von Prozessreviews nach Bemusterungen und Testläufen sowie Begleitung des Serienhochlaufs\n• Mitarbeit und Verantwortung bei Prozessoptimierungen Your profile:\n• Abgeschlossene Ausbildung als Konstrukteur mit entsprechender Berufserfahrung, Weiterbildung zum Techniker HF oder Studium FH von Vorteil\n• Mehrjährige Erfahrung in der Umformtechnik sowie fundierte Kenntnisse im Werkzeugbau, idealerweise in der Kaltmassivumformung und Mehrstufen-Pressentechnik\n• Sehr gute CAD-Kenntnisse und MS Office Kenntnisse sowie Erfahrung mit PLM/PDM und FEM-Tools von Vorteil\n• Fliessende Deutschkenntnisse sowie gute Englischkenntnisse\n• Technisches Verständnis, lösungsorientierte, präzise und gewissenhafte Arbeitsweise\n• Ausgeprägte Team- und Kommunikationsfähigkeit We offer:\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
         "it": "Combinando tecnologia, precisione e aerospaziale: In qualità di lead designer, sarai responsabile di compiti di progettazione e sviluppo impegnativi legati alla formazione di massa fredda dei Fastener Aerospace. Con il vostro know-how nella formazione della tecnologia e della produzione di utensili, progettate processi, sviluppate soluzioni innovative di utensili e progetti di accompagnamento dalla progettazione alla produzione di serie. I vostri compiti:\n• Responsabilità per la progettazione e il calcolo delle sequenze di fase per la formazione di massa fredda\n• Sviluppo e costruzione di utensili per presse multistadio con CAD\n• Preparazione e garanzia dei documenti di produzione completi e corretti\n• Supporto e coordinamento dell'implementazione di strumenti e processi sulla macchina di formatura\n• Attuazione delle recensioni di processo dopo i campioni e le prove e il monitoraggio dell'avvio di serie\n• Cooperazione e responsabilità nell'ottimizzazione dei processi Il tuo profilo:\n• Formazione completa come costruttore con corrispondente esperienza professionale, ulteriore formazione come tecnico HF o studio FH vantaggiosa\n• Diversi anni di esperienza nella formazione di tecnologia e conoscenza approfondita nella fabbricazione di utensili, idealmente nella formazione di massa fredda e tecnologia di pressatura multistadio\n• Eccellente conoscenza CAD e conoscenza MS Office e l'esperienza con strumenti PLM/PDM e FEM\n• Conoscenze di flusso di tedesco e buona conoscenza dell'inglese\n• Comprensione tecnica, metodo di lavoro orientato alla soluzione, preciso e consapevole\n• Forte capacità di team e comunicazione Offriamo:\n• Attività varie\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• fondi pensione sani e propri con piani di risparmio individuali\n• Corsi di formazione interna e sostegno alla formazione esterna\n• Altri vantaggi: https://join.sfs.com/ch/de/benefits/",
         "en": "Combining technology, precision and aerospace: As a lead designer, you will be responsible for challenging design and development tasks related to the cold mass forming of Aerospace Fasteners. With your know-how in forming technology and tool manufacturing, you design processes, develop innovative tool solutions and accompanying projects from design to series production. Your Tasks:\n• Responsibility for the design and calculation of stage sequences for cold mass forming\n• Development and construction of forming tools for multi-stage presses with CAD\n• Preparation and assurance of complete and correct production documents\n• Support and coordination of tool and process implementation on the forming machine\n• Implementation of process reviews after samples and test runs as well as monitoring of series start-up\n• Cooperation and responsibility in process optimization Your profile:\n• Completed training as a constructor with corresponding professional experience, further training as a technician HF or study FH advantageous\n• Several years of experience in forming technology as well as in-depth knowledge in toolmaking, ideally in cold mass forming and multi-stage pressing technology\n• Excellent CAD knowledge and MS Office knowledge as well as experience with PLM/PDM and FEM tools\n• Flowing knowledge of German and good knowledge of English\n• Technical understanding, solution-oriented, precise and conscientious working method\n• Strong team and communication skills We offer:\n• Varied tasks\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Own healthy pension fund with individual savings plans\n• Internal training courses & support for external training\n• Other benefits: https://join.sfs.com/ch/de/benefits/",
+        "de": "Technik, Präzision und Aerospace verbinden: Als Lead-Konstrukteur verantwortest du anspruchsvolle Konstruktions- und Entwicklungsaufgaben rund um die Kaltmassivumformung von Aerospace Fasteners. Mit deinem Know-how in Umformtechnik und Werkzeugbau gestaltest du Prozesse, entwickelst innovative Werkzeuglösungen und begleitest Projekte von der Auslegung bis in die Serienproduktion. Your Tasks:\n• Verantwortung für die Auslegung und Berechnung von Stadienfolgen für die Kaltmassivumformung\n• Entwicklung und Konstruktion von Umformwerkzeugen für Mehrstufen-Pressen mit CAD\n• Erstellung und Sicherstellung vollständiger und korrekter Fertigungsunterlagen\n• Betreuung und Koordination der Werkzeug- und Prozessumsetzung auf der Umformmaschine\n• Durchführung von Prozessreviews nach Bemusterungen und Testläufen sowie Begleitung des Serienhochlaufs\n• Mitarbeit und Verantwortung bei Prozessoptimierungen Your profile:\n• Abgeschlossene Ausbildung als Konstrukteur mit entsprechender Berufserfahrung, Weiterbildung zum Techniker HF oder Studium FH von Vorteil\n• Mehrjährige Erfahrung in der Umformtechnik sowie fundierte Kenntnisse im Werkzeugbau, idealerweise in der Kaltmassivumformung und Mehrstufen-Pressentechnik\n• Sehr gute CAD-Kenntnisse und MS Office Kenntnisse sowie Erfahrung mit PLM/PDM und FEM-Tools von Vorteil\n• Fliessende Deutschkenntnisse sowie gute Englischkenntnisse\n• Technisches Verständnis, lösungsorientierte, präzise und gewissenhafte Arbeitsweise\n• Ausgeprägte Team- und Kommunikationsfähigkeit We offer:\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Eigene gesunde Pensionskasse mit individuellen Sparplänen\n• Interne Weiterbildungskurse & Unterstützung von externen Weiterbildungen\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
         "fr": "Combiner technologie, précision et aérospatiale : En tant que concepteur principal, vous serez responsable des tâches de conception et de développement difficiles liées au formage à froid de fixations aérospatiales. Avec votre savoir-faire en matière de formation de technologies et de fabrication d'outils, vous concevez des processus, développez des solutions d'outils innovantes et accompagnez des projets de conception à la production en série. Vos tâches :\n• Responsabilité de la conception et du calcul des séquences d'étages pour la formation à froid\n• Développement et construction d'outils de formage pour presses multi-étapes avec CAO\n• Préparation et assurance de documents de production complets et corrects\n• Soutien et coordination de la mise en œuvre des outils et des processus sur la machine de formage\n• Mise en oeuvre d'examens de processus après des échantillons et des essais ainsi que surveillance du démarrage des séries\n• Coopération et responsabilité dans l'optimisation des processus Votre profil :\n• Formation complétée en tant que constructeur avec l'expérience professionnelle correspondante, formation continue en tant que technicien HF ou étudier FH avantageux\n• Plusieurs années d'expérience dans la formation technologique ainsi que des connaissances approfondies dans la fabrication d'outils, idéalement dans le formage à froid et la technologie de pressage multi-étapes\n• Excellente connaissance CAO et MS Office ainsi que l'expérience des outils PLM/PDM et FEM\n• Connaissance de l'allemand et bonne connaissance de l'anglais\n• Compréhension technique, méthode de travail axée sur la solution, précise et consciencieuse\n• Fortes compétences en équipe et en communication Nous offrons:\n• Tâches variées\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Un fonds de pension sain avec des régimes d'épargne individuels\n• Formation interne et soutien à la formation externe\n• Autres avantages: https://join.sfs.com/ch/de/bénéfices/"
       },
       "location": "Heerbrugg",
@@ -609,7 +759,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/lead-konstrukteur-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:56.944Z",
+      "crawledAt": "2026-09-24T14:44:36.375Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -628,9 +778,20 @@
       "jobReqId": "3034",
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-23T23:53:56.944Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+        ],
+        "fr": [
+          "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+        ]
       },
+      "previousSlugs": [
+        "lead-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+      ],
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -643,8 +804,7 @@
           "maxValue": 120000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-23T23:53:56.944Z"
+      }
     },
     {
       "id": "sfs-group-e580de844c37",
@@ -677,7 +837,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-für-verfahrenstechnik-spritzgiessen-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:56.791Z",
+      "crawledAt": "2026-09-24T14:44:36.266Z",
       "addressLocality": "Altstätten",
       "addressRegion": "SG",
       "postalCode": "9000",
@@ -760,7 +920,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kunststofftechnologe-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:56.638Z",
+      "crawledAt": "2026-09-24T14:44:36.155Z",
       "addressLocality": "Hallau",
       "addressRegion": "SH",
       "postalCode": "8200",
@@ -797,6 +957,7 @@
         ]
       },
       "firstSeenAt": "2026-08-09T21:42:09.947Z",
+      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -826,7 +987,7 @@
       "title": "Kaltmassivumformer/in (m/f/d)",
       "titleByLocale": {
         "it": "Operatore/Operatrice di stampaggio a freddo (m/f/d)",
-        "en": "Cold mass converter (m/f/d)",
+        "en": "Kaltmassivumformer/in (m/f/d)",
         "de": "Kaltmassivumformer/in (m/f/d)",
         "fr": "Opérateur/Opératrice de formage à froid (m/f/d)"
       },
@@ -842,7 +1003,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/kaltmassivumformer-in-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:56.486Z",
+      "crawledAt": "2026-09-24T14:44:36.046Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -912,6 +1073,7 @@
         ]
       },
       "firstSeenAt": "2026-08-20T22:10:07.433Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -928,11 +1090,11 @@
     },
     {
       "id": "sfs-group-b59c8a377e5d",
-      "slug": "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
+      "slug": "junior-costruttore-formatore-strumenti-m-f-d-80-sfs-group-heerbrugg",
       "slugByLocale": {
+        "it": "junior-costruttore-formatore-strumenti-m-f-d-80-sfs-group-heerbrugg",
+        "en": "junior-constructor-forming-tools-m-f-d-80-sfs-group-heerbrugg",
         "de": "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
-        "it": "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
-        "en": "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg",
         "fr": "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
       },
       "company": "SFS Group",
@@ -940,16 +1102,16 @@
       "companyDomain": "sfs.com",
       "title": "Junior Konstrukteur–Umformwerkzeuge (m/f/d) 80–",
       "titleByLocale": {
-        "de": "Junior Konstrukteur–Umformwerkzeuge (m/f/d) 80–",
-        "fr": "Outils de construction junior (h/f/d) 80–",
         "it": "Junior costruttore-formatore strumenti (m/f/d) 80–",
-        "en": "Junior constructor–forming tools (m/f/d) 80–"
+        "en": "Junior constructor–forming tools (m/f/d) 80–",
+        "de": "Junior Konstrukteur–Umformwerkzeuge (m/f/d) 80–",
+        "fr": "Junior Konstrukteur–Umformwerkzeuge (m/f/d) 80–"
       },
       "description": "Du möchtest deinen Karriereweg in einer dynamischen Engineering-Umgebung ausbauen und Verantwortung in der Werkzeugkonstruktion übernehmen? Als Junior-Konstrukteur Umformwerkzeuge gestaltest du innovative Prozesse in der Kaltmassivumformung aktiv mit und setzt präzise Lösungen erfolgreich um. Your Tasks:\n• Konstruktion und Modifikation von Umformwerkzeugen mittels modernem CAD-System (MSTK, MSTG)\n• Auslegung der Stadienfolge nach vorgegebenen Spezifikationen\n• Mitarbeit bei der Prozessentwicklung sowie beim Contract Review für den Bereich Kaltumformen\n• Erstellung und Verantwortung von präzisen Fertigungsunterlagen für Werkzeuge\n• Betreuung und Optimierung über die gesamte Produktelebensdauer Your profile:\n• Abgeschlossene technische Ausbildung und idealerweise erster Berufserfahrung als Konstrukteur\n• Kenntnisse in der Anwendung von CAD-Programmen sowie MS-Office. PLM/PDM-Kenntnisse von Vorteil\n• Erfahrung im allgemeinen Werkzeugbau sowie in der Umformtechnik und Mehrstufen-Pressen-Technik wünschenswert\n• Sehr gute Deutschkenntnisse und gute Englischkenntnisse\n• Lösungsorientierte Arbeitsweise mit hohem Qualitäts- und Verantwortungsbewusstsein We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
       "descriptionByLocale": {
-        "de": "Du möchtest deinen Karriereweg in einer dynamischen Engineering-Umgebung ausbauen und Verantwortung in der Werkzeugkonstruktion übernehmen? Als Junior-Konstrukteur Umformwerkzeuge gestaltest du innovative Prozesse in der Kaltmassivumformung aktiv mit und setzt präzise Lösungen erfolgreich um. Your Tasks:\n• Konstruktion und Modifikation von Umformwerkzeugen mittels modernem CAD-System (MSTK, MSTG)\n• Auslegung der Stadienfolge nach vorgegebenen Spezifikationen\n• Mitarbeit bei der Prozessentwicklung sowie beim Contract Review für den Bereich Kaltumformen\n• Erstellung und Verantwortung von präzisen Fertigungsunterlagen für Werkzeuge\n• Betreuung und Optimierung über die gesamte Produktelebensdauer Your profile:\n• Abgeschlossene technische Ausbildung und idealerweise erster Berufserfahrung als Konstrukteur\n• Kenntnisse in der Anwendung von CAD-Programmen sowie MS-Office. PLM/PDM-Kenntnisse von Vorteil\n• Erfahrung im allgemeinen Werkzeugbau sowie in der Umformtechnik und Mehrstufen-Pressen-Technik wünschenswert\n• Sehr gute Deutschkenntnisse und gute Englischkenntnisse\n• Lösungsorientierte Arbeitsweise mit hohem Qualitäts- und Verantwortungsbewusstsein We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
         "it": "Vuoi espandere il tuo percorso di carriera in un ambiente di ingegneria dinamica e assumersi la responsabilità nella progettazione degli strumenti? Come junior designer di strumenti di formazione, formate attivamente processi innovativi nella formazione a massa fredda e implementate con successo soluzioni precise. I vostri compiti:\n• Progettazione e modifica di strumenti di formatura utilizzando il moderno sistema CAD (MSTK, MSTG)\n• Progettazione della sequenza delle fasi secondo specifiche specificate\n• Cooperazione nello sviluppo dei processi e nella revisione dei contratti per il settore della formazione a freddo\n• Creazione e responsabilità di documenti di produzione precisi per strumenti\n• Supporto e ottimizzazione per tutta la durata del prodotto Il tuo profilo:\n• Formazione tecnica completa e prima esperienza professionale ideale come costruttore\n• Conoscenza nell'applicazione dei programmi CAD e MS-Office. La conoscenza PLM/PDM è un vantaggio\n• L'esperienza nella fabbricazione di utensili generale, così come nella formazione di tecnologia e tecnologia di pressatura multistadio è auspicabile\n• Ottima conoscenza del tedesco e dell'inglese\n• Metodo di lavoro orientato alla soluzione con alta qualità e responsabilità Offriamo:\n• Occupazione in azienda innovativa e orientata al futuro\n• Attività varie\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• Ristorante personale con prezzi interessanti\n• Numerose offerte sportive & eventi dei dipendenti",
         "en": "Do you want to expand your career path in a dynamic engineering environment and take on responsibility in tool design? As a junior designer of forming tools, you actively shape innovative processes in cold mass forming and successfully implement precise solutions. Your Tasks:\n• Design and modification of forming tools using modern CAD system (MSTK, MSTG)\n• Design of the sequence of stages according to specified specifications\n• Cooperation in process development as well as in the contract review for the field of cold forming\n• Creation and responsibility of precise production documents for tools\n• Support and optimization over the entire product lifetime Your profile:\n• Completed technical training and ideally first professional experience as a constructor\n• Knowledge in the application of CAD programs as well as MS-Office. PLM/PDM knowledge is an advantage\n• Experience in general toolmaking as well as in forming technology and multi-stage pressing technology is desirable\n• Very good knowledge of German and English\n• Solution-oriented working method with high quality and responsibility We offer:\n• Employment in future-oriented & innovative company\n• Varied tasks\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Staff restaurant with attractive prices\n• Numerous sports offers & employee events",
+        "de": "Du möchtest deinen Karriereweg in einer dynamischen Engineering-Umgebung ausbauen und Verantwortung in der Werkzeugkonstruktion übernehmen? Als Junior-Konstrukteur Umformwerkzeuge gestaltest du innovative Prozesse in der Kaltmassivumformung aktiv mit und setzt präzise Lösungen erfolgreich um. Your Tasks:\n• Konstruktion und Modifikation von Umformwerkzeugen mittels modernem CAD-System (MSTK, MSTG)\n• Auslegung der Stadienfolge nach vorgegebenen Spezifikationen\n• Mitarbeit bei der Prozessentwicklung sowie beim Contract Review für den Bereich Kaltumformen\n• Erstellung und Verantwortung von präzisen Fertigungsunterlagen für Werkzeuge\n• Betreuung und Optimierung über die gesamte Produktelebensdauer Your profile:\n• Abgeschlossene technische Ausbildung und idealerweise erster Berufserfahrung als Konstrukteur\n• Kenntnisse in der Anwendung von CAD-Programmen sowie MS-Office. PLM/PDM-Kenntnisse von Vorteil\n• Erfahrung im allgemeinen Werkzeugbau sowie in der Umformtechnik und Mehrstufen-Pressen-Technik wünschenswert\n• Sehr gute Deutschkenntnisse und gute Englischkenntnisse\n• Lösungsorientierte Arbeitsweise mit hohem Qualitäts- und Verantwortungsbewusstsein We offer:\n• Anstellung in zukunftsorientiertem & innovativem Unternehmen\n• Abwechslungsreiches Aufgabengebiet\n• Sechs Wochen Ferien & und zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Personalrestaurant mit attraktiven Preisen\n• Zahlreiche Sportangebote & Mitarbeiterevents",
         "fr": "Voulez-vous élargir votre parcours professionnel dans un environnement d'ingénierie dynamique et prendre en charge la conception d'outils? En tant que concepteur junior d'outils de formage, vous façonnez activement des processus innovants dans le formage de masse à froid et appliquez avec succès des solutions précises. Vos tâches :\n• Conception et modification des outils de formage utilisant le système CAO moderne (MSTK, MSTG)\n• Conception de la séquence des étapes selon les spécifications spécifiées\n• Coopération en matière d ' élaboration de procédés et d ' examen des contrats dans le domaine de la formation à froid\n• Création et responsabilité de documents de production précis pour les outils\n• Support et optimisation pendant toute la durée de vie du produit Votre profil :\n• Formation technique terminée et idéalement première expérience professionnelle comme constructeur\n• Connaissances dans l'application des programmes CAO ainsi que MS-Office. La connaissance PLM/PDM est un avantage\n• Il est souhaitable de disposer d ' une expérience en matière de fabrication d ' outils en général, de formation et de pressage à plusieurs niveaux.\n• Très bonne connaissance de l'allemand et de l'anglais\n• Méthode de travail orientée vers la solution avec une qualité et une responsabilité élevées Nous offrons:\n• L'emploi dans une entreprise tournée vers l'avenir et innovante\n• Tâches variées\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Restaurant du personnel à prix attractifs\n• Nombreuses offres sportives et événements pour les employés"
       },
       "location": "Heerbrugg",
@@ -957,7 +1119,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/junior-konstrukteur-–-umformwerkzeuge-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:56.333Z",
+      "crawledAt": "2026-09-24T14:44:35.934Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -976,9 +1138,20 @@
       "jobReqId": "3035",
       "legalEntity": "SFS Group Schweiz AG",
       "requirements": [],
-      "requirementsByLocale": {
-        "de": []
+      "requirementsByLocale": {},
+      "firstSeenAt": "2026-09-23T23:53:56.333Z",
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+        ],
+        "en": [
+          "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+        ]
       },
+      "previousSlugs": [
+        "junior-konstrukteur-umformwerkzeuge-m-f-d-80-sfs-group-heerbrugg"
+      ],
       "salaryMin": 48000,
       "salaryMax": 73000,
       "salarySource": "estimated",
@@ -991,8 +1164,7 @@
           "maxValue": 73000,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-23T23:53:56.333Z"
+      }
     },
     {
       "id": "sfs-group-cde51c26acb7",
@@ -1009,7 +1181,7 @@
       "title": "HR Specialist Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
       "titleByLocale": {
         "it": "Risorse Umane Specialista Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
-        "en": "HR Specialist Recruiting & Administration – limited until 31.12.2027 (m/f/d)",
+        "en": "HR Specialist Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
         "de": "Personalwesen Spezialist Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)",
         "fr": "Ressources Humaines Spécialiste Recruiting & Administration–befristet bis 31.12.2027 (m/f/d)"
       },
@@ -1025,7 +1197,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/hr-specialist-recruiting-administration-–-befristet-bis-31.12.2027-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:56.179Z",
+      "crawledAt": "2026-09-24T14:44:35.818Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1056,6 +1228,7 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:05:36.939Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1066,85 +1239,6 @@
           "@type": "QuantitativeValue",
           "minValue": 57500,
           "maxValue": 87000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "sfs-group-98ca54d31023",
-      "slug": "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz",
-      "slugByLocale": {
-        "it": "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz",
-        "en": "area-sales-manager-industry-and-metal-m-f-d-sfs-group-rotkreuz",
-        "de": "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
-        "fr": "directeur-des-ventes-industrie-et-metal-h-f-d-sfs-group-rotkreuz"
-      },
-      "company": "SFS Group",
-      "companyKey": "sfs-group",
-      "companyDomain": "sfs.com",
-      "title": "Gebietsverkaufsleiter/in–Industrie und Metall (m/f/d)",
-      "titleByLocale": {
-        "it": "Area Sales Manager – Industria e Metal (m/f/d)",
-        "en": "Area Sales Manager – Industry and Metal (m/f/d)",
-        "de": "Gebietsverkaufsleiter/in–Industrie und Metall (m/f/d)",
-        "fr": "Gestionnaire régional des ventes – Industrie et métal (h/f/d)"
-      },
-      "description": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
-      "descriptionByLocale": {
-        "it": "SFS Group Schweiz AG, leader nella tecnologia di fissaggio meccanico, offre soluzioni innovative che ottimizzano i processi produttivi dei nostri clienti. Per il nostro team nella regione di Basilea, stiamo cercando un responsabile vendite motivato – industria e metalli. I vostri compiti:\n• Consulenza ai nostri clienti industriali e metalmeccanici\n• Vendita e introduzione di nuovi prodotti e servizi\n• Acquisizione di nuovi clienti e manutenzione delle relazioni con i clienti esistenti\n• Garantire la soddisfazione e la gestione dei reclami dei clienti\n• Visitare la pianificazione, la segnalazione e la manutenzione dei dati del cliente master nel CRM\n• Acquisire le tendenze del mercato e le nuove esigenze del cliente e avviare misure di redditività Il tuo profilo:\n• Istruzione tecnica di base, idealmente come polimeccanica combinata con un'istruzione commerciale\n• Esperienza nel settore industriale o metallo\n• Esperienza di vendita nel settore\n• Conoscenza negoziante del tedesco\n• Luogo di residenza nella zona di mercato\n• Personalità indipendente e orientata al cliente\n• Capacità di negoziazione e piacere nell'acquisizione di nuovi clienti Offriamo:\n• Fase di formazione chiaramente strutturata con programma di onboard cross-department\n• Ore lavorative flessibili e ufficio domestico\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• Altri vantaggi: https://join.sfs.com/ch/de/benefits/",
-        "en": "As a leader in mechanical fastening technology, SFS Group Schweiz AG offers innovative solutions that optimize the production processes of our customers. For our team in the Basel region, we are looking for a motivated sales manager – industry and metals. Your Tasks:\n• Advising our industrial and metalworking customers\n• Sale and introduction of new products and services\n• Acquisition of new customers and maintenance of existing customer relationships\n• Ensuring customer satisfaction and handling customer complaints\n• Visit planning, reporting and maintenance of customer master data in the CRM\n• Capture market trends and new customer needs and initiate sales-effective measures Your profile:\n• Basic technical education, ideally as a polymechanic combined with a commercial education\n• Industry experience from the industrial or metal sector\n• Sales experience in the field\n• Negotiating knowledge of German\n• Place of residence in the market area\n• Independent and customer-oriented personality\n• Negotiation skills and pleasure in acquiring new customers We offer:\n• Clearly structured training phase with cross-department onboarding program\n• Flexible working hours and home office\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Other benefits: https://join.sfs.com/ch/de/benefits/",
-        "de": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
-        "fr": "Leader de la technologie de fixation mécanique, SFS Group Schweiz AG propose des solutions innovantes qui optimisent les processus de production de nos clients. Pour notre équipe dans la région de Bâle, nous recherchons un directeur commercial motivé – industrie et métaux. Vos tâches :\n• Conseiller nos clients industriels et de la métallurgie\n• Vente et introduction de nouveaux produits et services\n• Acquisition de nouveaux clients et maintien des relations client existantes\n• Assurer la satisfaction des clients et le traitement des plaintes des clients\n• Visitez la planification, le rapport et la maintenance des données de référence client dans le CRM\n• Capturer les tendances du marché et les nouveaux besoins des clients et prendre des mesures efficaces en matière de ventes Votre profil:\n• Enseignement technique de base, idéalement en tant que polymécanique combiné à un enseignement commercial\n• Expérience industrielle du secteur industriel ou métallurgique\n• Expérience commerciale dans le domaine\n• Négocier la connaissance de l'allemand\n• Lieu de résidence dans la zone de marché\n• Personnalité indépendante et orientée vers le client\n• Compétences de négociation et plaisir à acquérir de nouveaux clients Nous offrons:\n• Phase de formation clairement structurée avec programme interservices à bord\n• Heures de travail flexibles et bureau à domicile\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Autres avantages: https://join.sfs.com/ch/de/bénéfices/"
-      },
-      "location": "Rotkreuz",
-      "canton": "SG",
-      "url": "https://join.sfs.com/ch/en/vacancies/gebietsverkaufsleiter-in-–-industrie-und-metall-(m-f-d).html",
-      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:56.025Z",
-      "addressLocality": "Rotkreuz",
-      "addressRegion": "SG",
-      "postalCode": "9000",
-      "addressCountry": "CH",
-      "country": "CH",
-      "category": "Altro",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "mid",
-      "sector": "Industria / Meccanica",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2985/Application/CheckLogin/1?lang=eng",
-      "jobReqId": "2985",
-      "legalEntity": "SFS Group Schweiz AG",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "previousSlugs": [
-        "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
-        "gebietsverkaufsleiter-in-industrie-und-metall-m-w-d-sfs-group-rotkreuz",
-        "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
-          "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz"
-        ],
-        "en": [
-          "gebietsverkaufsleiter-in-industrie-und-metall-m-w-d-sfs-group-rotkreuz"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T23:05:36.822Z",
-      "salaryMin": 79000,
-      "salaryMax": 120000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 79000,
-          "maxValue": 120000,
           "unitText": "YEAR"
         }
       }
@@ -1180,7 +1274,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/filialleiter-in-handwerkstadt-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:55.872Z",
+      "crawledAt": "2026-09-24T14:44:35.707Z",
       "addressLocality": "Hinwil",
       "addressRegion": "ZH",
       "postalCode": "9435",
@@ -1216,6 +1310,7 @@
         ]
       },
       "firstSeenAt": "2026-08-21T10:08:10.879Z",
+      "needsRetranslation": true,
       "salaryMin": 101500,
       "salaryMax": 154000,
       "salarySource": "estimated",
@@ -1261,7 +1356,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-labor-(metallographie-werkstoffprüfung)-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:55.717Z",
+      "crawledAt": "2026-09-24T14:44:35.597Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1343,7 +1438,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/fachperson-debitorenbuchhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:55.563Z",
+      "crawledAt": "2026-09-24T14:44:35.486Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1411,6 +1506,7 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:32:13.503Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1456,7 +1552,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/conseiller-de-vente-cité-de-l'artisan-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-23T23:53:55.409Z",
+      "crawledAt": "2026-09-24T14:44:35.375Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "postalCode": "9435",
@@ -1537,7 +1633,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-schichtmodell-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:55.257Z",
+      "crawledAt": "2026-09-24T14:44:35.265Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1574,6 +1670,7 @@
         ]
       },
       "firstSeenAt": "2026-07-04T12:18:31.291Z",
+      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -1619,7 +1716,7 @@
       "url": "https://join.sfs.com/ch/en/vacancies/automatiker-in-oder-betriebselektriker-in-–-instandhaltung-(m-f-d).html",
       "source": "SFS Group Dedicated Parser (Umantis/AEM)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:53:55.083Z",
+      "crawledAt": "2026-09-24T14:44:35.128Z",
       "addressLocality": "Heerbrugg",
       "addressRegion": "SG",
       "streetAddress": "Rosenbergsaustrasse 8",
@@ -1671,6 +1768,87 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "sfs-group-98ca54d31023",
+      "slug": "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz",
+      "slugByLocale": {
+        "it": "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz",
+        "en": "area-sales-manager-industry-and-metal-m-f-d-sfs-group-rotkreuz",
+        "de": "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
+        "fr": "directeur-des-ventes-industrie-et-metal-h-f-d-sfs-group-rotkreuz"
+      },
+      "company": "SFS Group",
+      "companyKey": "sfs-group",
+      "companyDomain": "sfs.com",
+      "title": "Gebietsverkaufsleiter/in–Industrie und Metall (m/f/d)",
+      "titleByLocale": {
+        "it": "Area Sales Manager – Industria e Metal (m/f/d)",
+        "en": "Area Sales Manager – Industry and Metal (m/f/d)",
+        "de": "Gebietsverkaufsleiter/in–Industrie und Metall (m/f/d)",
+        "fr": "Gestionnaire régional des ventes – Industrie et métal (h/f/d)"
+      },
+      "description": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+      "descriptionByLocale": {
+        "it": "SFS Group Schweiz AG, leader nella tecnologia di fissaggio meccanico, offre soluzioni innovative che ottimizzano i processi produttivi dei nostri clienti. Per il nostro team nella regione di Basilea, stiamo cercando un responsabile vendite motivato – industria e metalli. I vostri compiti:\n• Consulenza ai nostri clienti industriali e metalmeccanici\n• Vendita e introduzione di nuovi prodotti e servizi\n• Acquisizione di nuovi clienti e manutenzione delle relazioni con i clienti esistenti\n• Garantire la soddisfazione e la gestione dei reclami dei clienti\n• Visitare la pianificazione, la segnalazione e la manutenzione dei dati del cliente master nel CRM\n• Acquisire le tendenze del mercato e le nuove esigenze del cliente e avviare misure di redditività Il tuo profilo:\n• Istruzione tecnica di base, idealmente come polimeccanica combinata con un'istruzione commerciale\n• Esperienza nel settore industriale o metallo\n• Esperienza di vendita nel settore\n• Conoscenza negoziante del tedesco\n• Luogo di residenza nella zona di mercato\n• Personalità indipendente e orientata al cliente\n• Capacità di negoziazione e piacere nell'acquisizione di nuovi clienti Offriamo:\n• Fase di formazione chiaramente strutturata con programma di onboard cross-department\n• Ore lavorative flessibili e ufficio domestico\n• Sei settimane di vacanze e possibilità di acquisto di vacanze aggiuntive\n• Partecipazione annuale al successo\n• Altri vantaggi: https://join.sfs.com/ch/de/benefits/",
+        "en": "As a leader in mechanical fastening technology, SFS Group Schweiz AG offers innovative solutions that optimize the production processes of our customers. For our team in the Basel region, we are looking for a motivated sales manager – industry and metals. Your Tasks:\n• Advising our industrial and metalworking customers\n• Sale and introduction of new products and services\n• Acquisition of new customers and maintenance of existing customer relationships\n• Ensuring customer satisfaction and handling customer complaints\n• Visit planning, reporting and maintenance of customer master data in the CRM\n• Capture market trends and new customer needs and initiate sales-effective measures Your profile:\n• Basic technical education, ideally as a polymechanic combined with a commercial education\n• Industry experience from the industrial or metal sector\n• Sales experience in the field\n• Negotiating knowledge of German\n• Place of residence in the market area\n• Independent and customer-oriented personality\n• Negotiation skills and pleasure in acquiring new customers We offer:\n• Clearly structured training phase with cross-department onboarding program\n• Flexible working hours and home office\n• Six weeks of holidays & additional holiday purchase possible\n• Annual participation in success\n• Other benefits: https://join.sfs.com/ch/de/benefits/",
+        "de": "Als führendes Unternehmen in der mechanischen Befestigungstechnik bietet die SFS Group Schweiz AG innovative Lösungen, die die Produktionsprozesse unserer Kunden optimieren. Für unser Team in der Region Basel suchen wir eine/n motivierte/n Gebiets-Verkaufsleiter/in – Industrie und Metall. Your Tasks:\n• Beratung unserer Industrie- und Metallverarbeitenden Kunden\n• Verkauf und Einführung neuer Produkte und Dienstleistungen\n• Akquisition von Neukunden und Pflege bestehender Kundenbeziehungen\n• Sicherstellung der Kundenzufriedenheit und Bearbeitung von Kundenreklamationen\n• Besuchsplanung, Rapportwesen und Pflege der Kundenstammdaten im CRM\n• Markttrends und neue Kundenbedürfnisse erfassen und absatzwirksame Massnahmen einleiten Your profile:\n• Technische Grundbildung, idealerweise als Polymechaniker kombiniert mit einer kaufmännischen Weiterbildung\n• Branchenerfahrung aus dem Industrie- oder Metallsektor\n• Verkaufserfahrung im Aussendienst\n• Verhandlungssichere Deutschkenntnisse\n• Wohnort im Marktgebiet\n• Selbständige und kundenorientierte Persönlichkeit\n• Verhandlungsgeschick und Freude am Akquirieren von Neukunden We offer:\n• Klar strukturierte Einarbeitungsphase mit abteilungsübergreifendem Onboarding-Programm\n• Flexible Arbeitszeiten & Homeoffice\n• Sechs Wochen Ferien & zusätzlicher Ferienkauf möglich\n• Jährliche Erfolgsbeteiligung\n• Weitere Benefits: https://join.sfs.com/ch/de/benefits/",
+        "fr": "Leader de la technologie de fixation mécanique, SFS Group Schweiz AG propose des solutions innovantes qui optimisent les processus de production de nos clients. Pour notre équipe dans la région de Bâle, nous recherchons un directeur commercial motivé – industrie et métaux. Vos tâches :\n• Conseiller nos clients industriels et de la métallurgie\n• Vente et introduction de nouveaux produits et services\n• Acquisition de nouveaux clients et maintien des relations client existantes\n• Assurer la satisfaction des clients et le traitement des plaintes des clients\n• Visitez la planification, le rapport et la maintenance des données de référence client dans le CRM\n• Capturer les tendances du marché et les nouveaux besoins des clients et prendre des mesures efficaces en matière de ventes Votre profil:\n• Enseignement technique de base, idéalement en tant que polymécanique combiné à un enseignement commercial\n• Expérience industrielle du secteur industriel ou métallurgique\n• Expérience commerciale dans le domaine\n• Négocier la connaissance de l'allemand\n• Lieu de résidence dans la zone de marché\n• Personnalité indépendante et orientée vers le client\n• Compétences de négociation et plaisir à acquérir de nouveaux clients Nous offrons:\n• Phase de formation clairement structurée avec programme interservices à bord\n• Heures de travail flexibles et bureau à domicile\n• Six semaines de vacances et un achat de vacances supplémentaire possible\n• Participation annuelle au succès\n• Autres avantages: https://join.sfs.com/ch/de/bénéfices/"
+      },
+      "location": "Rotkreuz",
+      "canton": "SG",
+      "url": "https://join.sfs.com/ch/en/vacancies/gebietsverkaufsleiter-in-–-industrie-und-metall-(m-f-d).html",
+      "source": "SFS Group Dedicated Parser (Umantis/AEM)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:53:56.025Z",
+      "addressLocality": "Rotkreuz",
+      "addressRegion": "SG",
+      "postalCode": "9000",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Industria / Meccanica",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://jobapplication.sfs.com/Vacancies/2985/Application/CheckLogin/1?lang=eng",
+      "jobReqId": "2985",
+      "legalEntity": "SFS Group Schweiz AG",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "previousSlugs": [
+        "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
+        "gebietsverkaufsleiter-in-industrie-und-metall-m-w-d-sfs-group-rotkreuz",
+        "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "gebietsverkaufsleiter-in-industrie-und-metall-m-f-d-sfs-group-rotkreuz",
+          "responsabile-vendite-di-zona-industria-e-metallo-m-f-d-sfs-group-rotkreuz"
+        ],
+        "en": [
+          "gebietsverkaufsleiter-in-industrie-und-metall-m-w-d-sfs-group-rotkreuz"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:05:36.822Z",
+      "salaryMin": 79000,
+      "salaryMax": 120000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 79000,
+          "maxValue": 120000,
+          "unitText": "YEAR"
+        }
+      },
+      "crawlerMissStreak": 1,
+      "needsRetranslation": true
     },
     {
       "id": "sfs-group-22c39276b3dd",
@@ -1763,7 +1941,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "needsRetranslation": true
     }
   ]
