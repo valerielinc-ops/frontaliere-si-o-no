@@ -67,6 +67,10 @@ import {
 import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_PATH } from './lib/job-traffic-priority.mjs';
 import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { translateWithLocalOpusMt } from './lib/local-opus-mt.mjs';
+import {
+  judgeLocalMtMeaning,
+  LOCAL_MT_SEMANTIC_JUDGE_VERSION,
+} from './lib/local-mt-semantic-judge.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -84,6 +88,8 @@ const MIN_DESC_CHARS = 120;
 const WRITE_GUARD_DECISIONS = [
   'write',
   'skip:candidate-untranslated',
+  'skip:semantic-mismatch',
+  'skip:semantic-unavailable',
   'skip:source-copy',
   'skip:existing-good',
   'skip:finalize-empty',
@@ -97,13 +103,14 @@ const OPUS_MT_RESCUE_DECISIONS = new Set([
 ]);
 const NEGATIVE_CACHE_DECISIONS = new Set([
   'skip:candidate-untranslated',
+  'skip:semantic-mismatch',
   'skip:source-copy',
   'skip:finalize-empty',
   'skip:no-op',
 ]);
 const NEGATIVE_CACHE_TTL_MS = Number(process.env.LOCAL_MT_NEGATIVE_CACHE_TTL_MS) || 7 * 24 * 60 * 60 * 1000;
 const NEGATIVE_CACHE_JITTER_MS = Number(process.env.LOCAL_MT_NEGATIVE_CACHE_JITTER_MS) || 6 * 60 * 60 * 1000;
-const NEGATIVE_CACHE_VERSION = 'local-mt-v2:glossary-v2';
+const NEGATIVE_CACHE_VERSION = `local-mt-v3:glossary-v2:${LOCAL_MT_SEMANTIC_JUDGE_VERSION}`;
 
 /**
  * Rollout switch for the language arm of classifyMopupWrite() (workspace issue
@@ -559,7 +566,7 @@ export function createFreshCoverageMeter({ now = Date.now() } = {}) {
   };
 }
 
-export function classifyMopupWrite({
+function classifyMopupWriteBase({
   job,
   locale,
   field,
@@ -685,6 +692,95 @@ export function classifyMopupWrite({
   }
 
   return { ...base, incoming, decision: 'write' };
+}
+
+const SEMANTIC_UNAVAILABLE_REASONS = new Set([
+  'embedding-error',
+  'score-missing',
+  'missing-text',
+  'semantic-unavailable',
+]);
+
+function applySemanticVerdict(base, verdict) {
+  const scoreAvailable = typeof verdict?.score === 'number'
+    && Number.isFinite(verdict.score)
+    && verdict.score >= -1
+    && verdict.score <= 1;
+  const score = scoreAvailable ? verdict.score : null;
+  const reason = String(verdict?.reason || 'semantic-unavailable');
+
+  if (verdict?.accepted === true && scoreAvailable) {
+    return {
+      ...base,
+      semanticScore: score,
+      semanticReason: reason,
+    };
+  }
+
+  const mismatch = scoreAvailable && !SEMANTIC_UNAVAILABLE_REASONS.has(reason);
+  return {
+    ...base,
+    decision: mismatch ? 'skip:semantic-mismatch' : 'skip:semantic-unavailable',
+    reason: mismatch ? 'semantic-mismatch' : 'semantic-unavailable',
+    semanticScore: scoreAvailable ? score : null,
+    semanticReason: reason,
+  };
+}
+
+/**
+ * Apply the local semantic guard to a candidate that already passed the
+ * synchronous rejection chain.  The source and candidate are both finalized
+ * text; no job field is mutated here.  A missing score or an embedder error is
+ * deliberately treated as unavailable, so the caller keeps the stored value.
+ */
+export async function classifyMopupWriteWithSemantic({
+  job,
+  locale,
+  field,
+  rawText,
+  protectedTokens = [],
+  langAware = true,
+  semanticJudge = judgeLocalMtMeaning,
+} = {}) {
+  const base = classifyMopupWriteBase({
+    job,
+    locale,
+    field,
+    rawText,
+    protectedTokens,
+    langAware,
+  });
+  if (base.decision !== 'write') return base;
+
+  let verdict;
+  try {
+    verdict = await semanticJudge({
+      sourceText: base.normalizedSourceText,
+      candidateText: base.incoming,
+      sourceLang: job?.sourceLang || 'it',
+      targetLang: locale,
+      field,
+      existingText: base.existing,
+    });
+  } catch {
+    verdict = { accepted: false, score: null, reason: 'embedding-error' };
+  }
+  return applySemanticVerdict(base, verdict);
+}
+
+/**
+ * Keep the historical synchronous classifier available to research/audit
+ * callers.  Passing `semanticVerdict` applies an already-computed score
+ * synchronously; passing `semanticJudge` opts into the async guarded path.
+ */
+export function classifyMopupWrite(options = {}) {
+  if (typeof options.semanticJudge === 'function') {
+    return classifyMopupWriteWithSemantic(options);
+  }
+  const base = classifyMopupWriteBase(options);
+  return options.semanticVerdict === undefined
+    ? base
+    : applySemanticVerdict(base, options.semanticVerdict);
 }
 
 /**
@@ -1093,9 +1189,15 @@ async function main() {
       // The whole chain (empty-raw → finalize-empty → source-copy →
       // existing-good → language arm) lives in classifyMopupWrite() so the
       // reject audit can observe it.
-      const { decision, incoming, reason, languageDriven } = classifyMopupWrite({
-        job, locale, field, rawText: text, protectedTokens,
+      const initialCandidate = await classifyMopupWriteWithSemantic({
+        job,
+        locale,
+        field,
+        rawText: text,
+        protectedTokens,
+        semanticJudge: judgeLocalMtMeaning,
       });
+      const { decision, reason, languageDriven } = initialCandidate;
       decisionTally[decision] = (decisionTally[decision] || 0) + 1;
       if (languageDriven) {
         const bucket = decision === 'write' ? langWriteReasons : langSkipReasons;
@@ -1106,14 +1208,15 @@ async function main() {
       // Missing fields remain eligible regardless of the rollout switch.
       const rescue = opusRescue?.writes.get(id);
       const finalCandidate = rescue
-        ? classifyMopupWrite({
+        ? await classifyMopupWriteWithSemantic({
             job,
             locale,
             field,
             rawText: rescue.rawText,
             protectedTokens,
+            semanticJudge: judgeLocalMtMeaning,
           })
-        : { decision, incoming, languageDriven };
+        : initialCandidate;
       if (rescue && finalCandidate.decision === 'write') {
         if (negativeCache.entries[negativeCacheKey]) {
           delete negativeCache.entries[negativeCacheKey];
@@ -1131,7 +1234,7 @@ async function main() {
         languageDriven: finalCandidate.languageDriven,
         langAwareOverwrite: LANG_AWARE_OVERWRITE,
       })) {
-        if (decision === 'write' && languageDriven) {
+        if (finalCandidate.decision === 'write' && finalCandidate.languageDriven) {
           shadowWithheld++;
         }
         continue;
@@ -1153,7 +1256,7 @@ async function main() {
       job[bag][locale] = finalCandidate.incoming;
       fileChanged = true;
       fieldsFilled++;
-      if (languageDriven) languageFieldsRewritten++;
+      if (finalCandidate.languageDriven) languageFieldsRewritten++;
       touchedJobs.add(jobIdx);
     }
 
