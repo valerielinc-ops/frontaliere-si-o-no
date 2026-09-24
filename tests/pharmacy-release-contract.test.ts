@@ -154,7 +154,9 @@ describe('pharmacy atomic release contract', () => {
   it.skipIf(SKIP_LIVE_DATA)('exposes the checked-in release as fresh and limited to five verified Ticino regions', () => {
     const catalogue = catalogueJson as unknown as PharmacyCatalogueDataset;
     const duties = dutiesJson as unknown as PharmacyDutiesDataset;
-    const now = new Date(Date.parse(duties._fetchedAt) + 60_000);
+    // La valutazione giudica anche la freschezza del catalogo, scritto ~50 s
+    // DOPO i turni dallo stesso refresh: un fetchedAt nel futuro è stale.
+    const now = new Date(Math.max(Date.parse(duties._fetchedAt), Date.parse(catalogue._fetchedAt)) + 60_000);
     const evaluation = getPharmacyReleaseEvaluation(duties, now, catalogue);
 
     expect(validatePharmacyReleaseContract(catalogue._release)).toEqual([]);

@@ -1457,7 +1457,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analysis of the Federal Statistical Office on the frontier phenomenon: Lombardy is growing, the province of Monza and Brianza stands out.',
     'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Panoramic view of Lugano and its lake with the Swiss urban context',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Swiss 3rd Pillar: Advantages 2026 in the Canton of St. Gallen',
-    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'The Italy-Switzerland double taxation agreement was signed on 9 December 1976. The new frontier workers have a deductible of €10,000.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'The Italy-Switzerland double taxation agreement was signed on 9 March 1976. The new frontier workers have a deductible of €10,000.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano and Lake Lugano',
     'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'G Permit for frontier workers: procedure and obligations in Ticino',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Practical guide to applying for the new G permit for border workers in Ticino: documents, notification obligations and updated procedure fees.',
@@ -6671,6 +6671,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ubs-capitale-90-bns.title': 'UBS, SNB approves 90% capital requirements',
     'blog.article.ubs-capitale-90-bns.excerpt': 'The SNB approves the decision of the Council of States: UBS\'s foreign subsidiaries will have to be covered 90% with CET1 capital.',
     'blog.article.ubs-capitale-90-bns.imageAlt': 'Swiss bank building with a national flag in a financial news scene',
+    'blog.article.mozione-costi-manifestazioni-stati.title': 'Motion States: organizers pay safety costs',
+    'blog.article.mozione-costi-manifestazioni-stati.excerpt': 'The States approve the motion 24-18 with 3 abstentions: the Federal Council will have to prepare a legal basis to make the organizers pay the costs of intervention and security of the demonstrations, after the riots of October 11 in Bern.',
+    'blog.article.mozione-costi-manifestazioni-stati.imageAlt': 'Swiss demonstration with police forces in the foreground',
 };
 
 export default blogMetaChEn;
