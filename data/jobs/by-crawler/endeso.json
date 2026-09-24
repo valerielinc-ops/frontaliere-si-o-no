@@ -1,6 +1,6 @@
 {
   "crawlerKey": "endeso",
-  "assembledAt": "2026-09-22T00:09:55.282Z",
+  "assembledAt": "2026-09-23T23:49:09.525Z",
   "jobs": [
     {
       "id": "endeso-277af4da9b39",
@@ -33,7 +33,7 @@
       "url": "https://endeso.ch/jobs/job-27898-regionalbetreiber-bern/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:50.939Z",
+      "crawledAt": "2026-09-23T23:49:05.252Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -113,7 +113,7 @@
       "url": "https://endeso.ch/jobs/job-27899-praktikum-im-kundendienst-der-direkte-weg-zur-festanstellung/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:50.935Z",
+      "crawledAt": "2026-09-23T23:49:05.250Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -193,7 +193,7 @@
       "url": "https://endeso.ch/jobs/job-27900-recruiting-fachinterviews-hauswirtschaft/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:50.933Z",
+      "crawledAt": "2026-09-23T23:49:05.249Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -226,11 +226,13 @@
       "salarySource": "estimated",
       "previousSlugs": [
         "recruiting-amp-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch",
+        "recruiting-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch",
         "reclutamento-e-interviste-specialistiche-endeso-gmbh-frauenfeld"
       ],
       "previousSlugsByLocale": {
         "it": [
           "recruiting-amp-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch",
+          "recruiting-fachinterviews-hauswirtschaft-frauenfeld-endeso-ch",
           "reclutamento-e-interviste-specialistiche-endeso-gmbh-frauenfeld"
         ],
         "en": [
@@ -273,7 +275,7 @@
       "url": "https://endeso.ch/jobs/job-27901-regionale-repraesentantin-swissbutler/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:50.931Z",
+      "crawledAt": "2026-09-23T23:49:05.248Z",
       "addressLocality": "Luzern",
       "addressRegion": "LU",
       "addressCountry": "CH",
@@ -347,7 +349,7 @@
       "url": "https://endeso.ch/jobs/job-27902-haushaelterin-im-monatsgehalt-angestellt-privathaushalt/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:50.929Z",
+      "crawledAt": "2026-09-23T23:49:05.246Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -427,7 +429,7 @@
       "url": "https://endeso.ch/jobs/job-27903-chefgaertner-in-fuer-die-parkanlage-eines-schlosses/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:50.928Z",
+      "crawledAt": "2026-09-23T23:49:05.245Z",
       "addressLocality": "Zug",
       "addressRegion": "ZG",
       "addressCountry": "CH",
@@ -509,7 +511,7 @@
       "url": "https://endeso.ch/jobs/job-27904-projektleiter-in-elektroinstallation/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:50.926Z",
+      "crawledAt": "2026-09-23T23:49:05.244Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -589,7 +591,7 @@
       "url": "https://endeso.ch/jobs/job-27905-hr-fachspezialist-in-lohn/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:50.925Z",
+      "crawledAt": "2026-09-23T23:49:05.242Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -669,7 +671,7 @@
       "url": "https://endeso.ch/jobs/job-27906-remote-grafiker-in-fuer-webgrafiken-als-freelance/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:50.923Z",
+      "crawledAt": "2026-09-23T23:49:05.240Z",
       "addressLocality": "Thurgau/Bodensee",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -718,7 +720,8 @@
           "remote-grafiker-in-fur-webgrafiken-als-freelance-thurgau-bodensee-endeso-ch"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:00:29.174Z"
+      "firstSeenAt": "2026-09-19T23:00:29.174Z",
+      "needsRetranslation": true
     },
     {
       "id": "endeso-2dc7d53cbe3c",
@@ -751,7 +754,7 @@
       "url": "https://endeso.ch/jobs/job-27909-praktikum-personalwesen-und-disposition-option-auf-festanstellung/",
       "source": "endeso GmbH Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:50.918Z",
+      "crawledAt": "2026-09-23T23:49:05.237Z",
       "addressLocality": "Frauenfeld",
       "addressRegion": "TG",
       "addressCountry": "CH",
@@ -800,7 +803,8 @@
           "praktikum-personalwesen-und-disposition-option-auf-festanstellung-frauenfeld-endeso-ch"
         ]
       },
-      "firstSeenAt": "2026-09-19T23:00:29.167Z"
+      "firstSeenAt": "2026-09-19T23:00:29.167Z",
+      "needsRetranslation": true
     }
   ]
 }

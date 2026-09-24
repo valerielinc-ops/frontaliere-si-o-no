@@ -1,6 +1,6 @@
 {
   "crawlerKey": "somedia",
-  "assembledAt": "2026-09-22T00:09:12.645Z",
+  "assembledAt": "2026-09-23T23:49:23.260Z",
   "jobs": [
     {
       "id": "somedia-9a0ca8ab845a",
@@ -33,7 +33,7 @@
       "url": "https://jobs.somedia.ch/Geschaeftsfuehrerin-communicaziunch-100-de-j390.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:07.771Z",
+      "crawledAt": "2026-09-23T23:49:18.666Z",
       "addressLocality": "Ilanz",
       "addressCountry": "CH",
       "country": "CH",
@@ -91,6 +91,7 @@
         ]
       },
       "firstSeenAt": "2026-05-17T11:04:21.105Z",
+      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 140000,
       "salarySource": "estimated",
@@ -121,7 +122,7 @@
       "title": "Redaktor/in Video (40%)",
       "titleByLocale": {
         "it": "Video editoriale (40%)",
-        "en": "Editorial Video (40%)",
+        "en": "Redaktor/in Video (40%)",
         "de": "Redaktor/in Video (40%)",
         "fr": "Rédacteur/en vidéo (40)"
       },
@@ -137,7 +138,7 @@
       "url": "https://jobs.somedia.ch/Redaktorin-Video-40-de-j415.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:06.922Z",
+      "crawledAt": "2026-09-23T23:49:17.817Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -199,6 +200,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T14:17:28.751Z",
+      "needsRetranslation": true,
       "salaryMin": 26000,
       "salaryMax": 39400,
       "salarySource": "estimated",
@@ -229,7 +231,7 @@
       "title": "Sales Manager/in Aussendienst (80-100%)",
       "titleByLocale": {
         "it": "Sales Manager Field Service (80-100%)",
-        "en": "Sales Manager Field Service (80-100%)",
+        "en": "Sales Manager/in Aussendienst (80-100%)",
         "de": "Sales Manager/in Aussendienst (80-100%)",
         "fr": "Directeur des ventes Service mobile (80-100 %)"
       },
@@ -245,7 +247,7 @@
       "url": "https://jobs.somedia.ch/Sales-Managerin-Aussendienst-80-100-de-j416.html",
       "source": "Somedia AG Dedicated Parser (Rexx Systems)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:09:05.853Z",
+      "crawledAt": "2026-09-23T23:49:16.750Z",
       "addressLocality": "Glarus",
       "addressCountry": "CH",
       "country": "CH",
@@ -292,6 +294,7 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:15:11.091Z",
+      "needsRetranslation": true,
       "salaryMin": 100000,
       "salaryMax": 152000,
       "salarySource": "estimated",
