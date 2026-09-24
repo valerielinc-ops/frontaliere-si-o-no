@@ -23,10 +23,15 @@ describe('assisted application JobBoard handoff', () => {
     );
     expect(rewardedArm).toContain("'rewarded_application_offer_requested'");
     expect(rewardedArm).toContain("provider: 'google_gpt_rewarded_web'");
+    expect(rewardedArm).toContain('const rewardedAdStarted = showRewardedWebAd();');
+    expect(rewardedArm).toContain("trigger: 'candidate_click'");
+    expect(rewardedArm).toContain("handoff: 'direct_external'");
+    expect(rewardedArm).toContain("'not_ready_on_candidate_click'");
     expect(rewardedArm).toContain('setRewardedApplicationJob(job)');
     expect(rewardedArm).toContain('if (!isJobDetailView) openDetail(job)');
     expect(jobBoardSource).toContain('RewardedApplicationOffer');
     expect(jobBoardSource).toContain('preloadRewardedWebAd');
+    expect(jobBoardSource).toContain('getRewardedWebAdSnapshot');
     expect(jobBoardSource).toContain('shouldPreloadRewardedApplicationAd');
     expect(jobBoardSource).not.toContain('rewarded_application_native_offerwall');
     expect(jobBoardSource).not.toContain('RewardedApplicationPage');

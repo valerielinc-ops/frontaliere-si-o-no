@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { act, cleanup, render, screen } from '@testing-library/react';
+import { act, cleanup, fireEvent, render, screen } from '@testing-library/react';
 import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 
 const mocks = vi.hoisted(() => {
@@ -71,7 +71,7 @@ describe('GptRewardedAd', () => {
     );
   });
 
-  it('opens the ad as soon as the preloaded slot is ready and reports the GPT lifecycle', () => {
+  it('opens the ad from the explicit user action and reports the GPT lifecycle', () => {
     const onGranted = vi.fn();
     const onClosed = vi.fn();
     const onOptIn = vi.fn();
@@ -83,7 +83,6 @@ describe('GptRewardedAd', () => {
         label="Guarda il video"
         loadingLabel="Caricamento…"
         unavailableLabel="Non disponibile"
-        autoStart
         onOptIn={onOptIn}
         onVideoCompleted={onVideoCompleted}
         onGranted={onGranted}
@@ -94,6 +93,8 @@ describe('GptRewardedAd', () => {
     act(() => {
       mocks.listeners.get('rewardedSlotReady')?.(readyEvent);
     });
+
+    fireEvent.click(screen.getByTestId('assisted-application-offer-rewarded'));
 
     expect(onOptIn).toHaveBeenCalledTimes(1);
     expect(mocks.makeRewardedVisible).toHaveBeenCalledTimes(1);
@@ -133,7 +134,7 @@ describe('GptRewardedAd', () => {
     expect(mocks.tag.display).toHaveBeenCalledTimes(1);
   });
 
-  it('opens a ready preloaded slot without a second CTA click when auto-start is enabled', () => {
+  it('opens a ready preloaded slot from one CTA click', () => {
     preloadRewardedWebAd();
     const onOptIn = vi.fn();
     const readyEvent = { slot: mocks.slot, makeRewardedVisible: mocks.makeRewardedVisible };
@@ -148,11 +149,12 @@ describe('GptRewardedAd', () => {
         loadingLabel="Caricamento…"
         showingLabel="Video in riproduzione…"
         unavailableLabel="Non disponibile"
-        autoStart
         onOptIn={onOptIn}
         onGranted={vi.fn()}
       />,
     );
+
+    fireEvent.click(screen.getByTestId('assisted-application-offer-rewarded'));
 
     expect(onOptIn).toHaveBeenCalledTimes(1);
     expect(mocks.makeRewardedVisible).toHaveBeenCalledTimes(1);
@@ -174,11 +176,12 @@ describe('GptRewardedAd', () => {
         label="Guarda il video"
         loadingLabel="Caricamento…"
         unavailableLabel="Non disponibile"
-        autoStart
         onGranted={vi.fn()}
         onUnavailable={onUnavailable}
       />,
     );
+
+    fireEvent.click(screen.getByTestId('assisted-application-offer-rewarded'));
 
     expect(onUnavailable).toHaveBeenCalledTimes(1);
     expect(screen.queryByText('Caricamento…')).not.toBeInTheDocument();
