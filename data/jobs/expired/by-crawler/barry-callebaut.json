@@ -46,7 +46,9 @@
     "salaryMin": 73500,
     "salaryMax": 111500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-finance-business-partner-csd-global-cocoa-8005/1426760600",
+    "firstSeenAt": "2026-09-04T13:42:20.856Z"
   },
   {
     "slug": "commercio-di-derivati-del-cacao-senior-barry-callebaut-zurich",
@@ -89,7 +91,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-senior-cocoa-derivatives-trader-8005/1428373800",
+    "firstSeenAt": "2026-09-10T21:57:23.365Z"
   },
   {
     "slug": "assistente-esecutivo-cpco-barry-callebaut-zurich",
@@ -129,7 +133,9 @@
     "salaryMin": 73500,
     "salaryMax": 111500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-executive-assistant-cpco-8005/1405562000",
+    "firstSeenAt": "2026-07-03T21:24:25.530Z"
   },
   {
     "slug": "responsabile-eccellenza-commerciale-azienda-gourmet-barry-callebaut-zurich",
@@ -180,13 +186,35 @@
         "commercial-excellence-manager-gourmet-business-barry-callebaut-ch"
       ],
       "de": [
-        "commercial-excellence-manager-gourmet-business-barry-callebaut-ch"
+        "commercial-excellence-manager-gourmet-business-barry-callebaut-ch",
+        "manager-fur-kommerzielle-exzellenz-fm-fachgebiete-barry-callebaut-zurich",
+        "commercial-excellence-manager-fm-specialties-barry-callebaut-ch"
+      ],
+      "en": [
+        "commercial-excellence-manager-fm-specialties-barry-callebaut-ch"
+      ],
+      "fr": [
+        "gestionnaire-d-excellence-commerciale-fm-specialites-barry-callebaut-zurich"
       ]
     },
     "salaryMin": 117000,
     "salaryMax": 180000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-commercial-excellence-manager-gourmet-business-8005/1421035000",
+    "firstSeenAt": "2026-09-10T21:57:23.370Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-commercial-excellence-manager-fm-&-specialties-8005/1387640800",
+        "firstSeenAt": "2026-07-03T21:24:25.534Z",
+        "title": "Commercial Excellence Manager - FM & Specialties"
+      },
+      {
+        "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-commercial-excellence-manager-gourmet-business-8005/1421035000",
+        "firstSeenAt": "2026-09-10T21:57:23.370Z",
+        "title": "Commercial Excellence Manager - Gourmet Business"
+      }
+    ]
   },
   {
     "slug": "manager-fp-a-fornitura-di-cacao-barry-callebaut-zurich",
@@ -229,7 +257,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-manager-fp&a-cocoa-sourcing-8005/1411992200",
+    "firstSeenAt": "2026-07-23T22:30:18.202Z"
   },
   {
     "slug": "vp-procurement-spesa-indiretta-barry-callebaut-zurich",
@@ -277,7 +307,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-vp-procurement%2c-indirect-spend-8005/1427892200",
+    "firstSeenAt": "2026-09-09T13:56:54.623Z"
   },
   {
     "slug": "responsabile-brand-globale-barry-callebaut-zurich",
@@ -325,7 +357,9 @@
     "salaryMin": 117000,
     "salaryMax": 180000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-global-brand-manager-8005/1420013500",
+    "firstSeenAt": "2026-08-17T21:52:30.907Z"
   },
   {
     "slug": "business-development-manager-barry-callebaut-ch",
@@ -353,11 +387,13 @@
       "fr": "directeur-du-developpement-des-affaires-barry-callebaut-zurich"
     },
     "sector": "Alimentare",
-    "expiredAt": "2026-09-01T14:19:54.562Z",
+    "expiredAt": "2026-09-01T14:31:55.264Z",
     "salaryMin": 117000,
     "salaryMax": 180000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-business-development-manager-cee&mea-8005/1407656600",
+    "firstSeenAt": "2026-07-10T23:07:06.825Z"
   },
   {
     "slug": "responsabile-sourcing-general-services-barry-callebaut-zurich",
@@ -405,7 +441,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-head-of-sourcing%2c-general-services-8005/1419041800",
+    "firstSeenAt": "2026-08-13T22:29:24.229Z"
   },
   {
     "slug": "manager-area-vende-barry-callebaut-zurich",
@@ -453,7 +491,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-area-sales-manager-8005/1410029700",
+    "firstSeenAt": "2026-07-17T22:38:24.626Z"
   },
   {
     "slug": "responsabile-del-valore-e-della-conformita-dei-clienti-fsqr-barry-callebaut-zurich",
@@ -499,7 +539,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-fsqr-customer-value-systems-&-compliance-manager-8005/1416955300",
+    "firstSeenAt": "2026-08-07T22:05:50.337Z"
   },
   {
     "slug": "gestione-contabilita-e-reporting-di-gruppo-barry-callebaut-zurich",
@@ -545,7 +587,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-manager%2c-group-accounting-&-reporting-8005/1399308500",
+    "firstSeenAt": "2026-07-03T21:24:25.535Z"
   },
   {
     "slug": "gestione-del-rischio-forestale-e-monitoraggio-barry-callebaut-zurich",
@@ -591,7 +635,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-forest-risk-&-monitoring-manager-8005/1407527300",
+    "firstSeenAt": "2026-07-10T13:28:30.806Z"
   },
   {
     "slug": "responsabile-del-programma-foresta-e-clima-barry-callebaut-zurich",
@@ -631,7 +677,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-forest-&-climate-program-manager-8005/1407153800",
+    "firstSeenAt": "2026-07-09T22:35:51.252Z"
   },
   {
     "slug": "categoria-manager-packaging-barry-callebaut-zurich",
@@ -674,7 +722,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-category-manager-packaging-8005/1379038700",
+    "firstSeenAt": "2026-07-03T21:24:25.540Z"
   },
   {
     "slug": "assistente-alla-gestione-del-vp-delle-comunicazioni-aziendali-e-degli-affari-pubblici-part-time-barry-callebaut-zurich",
@@ -722,7 +772,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-management-assistant-to-vp%2c-corporate-communications-&-public-affairs-part-time-8005/1399310700",
+    "firstSeenAt": "2026-07-03T21:24:25.539Z"
   },
   {
     "slug": "responsabile-global-media-content-barry-callebaut-zurich",
@@ -768,7 +820,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-head-of-global-media-&-content-8005/1399298700",
+    "firstSeenAt": "2026-07-03T21:24:25.537Z"
   },
   {
     "slug": "cocoa-pricing-position-manager-barry-callebaut-ch",
@@ -800,7 +854,9 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-cocoa-pricing-&-position-manager-8005/1397975700",
+    "firstSeenAt": "2026-07-03T21:24:25.542Z"
   },
   {
     "slug": "responsabile-relazioni-investitori-barry-callebaut-zurich",
@@ -843,6 +899,8 @@
     "salaryMin": 101500,
     "salaryMax": 154000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://jobs.barry-callebaut.com/job/zurich-investor-relations-manager-8005/1392936000",
+    "firstSeenAt": "2026-07-03T21:24:25.541Z"
   }
 ]
