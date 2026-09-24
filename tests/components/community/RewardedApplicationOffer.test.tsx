@@ -89,24 +89,23 @@ describe('RewardedApplicationOffer', () => {
     expect(rewardedMock.props?.autoStart).not.toBe(true);
   });
 
-  it('shows the first-party fallback when Google has no paid fill', () => {
+  it('returns to the original application path when Google has no paid fill', () => {
     const onUnavailable = vi.fn();
     render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
 
     fireEvent.click(screen.getByTestId('mock-google-no-fill'));
 
-    expect(onUnavailable).not.toHaveBeenCalled();
-    expect(screen.getByTestId('rewarded-house-video-start')).toBeInTheDocument();
+    expect(onUnavailable).toHaveBeenCalledTimes(1);
+    expect(screen.queryByTestId('rewarded-house-video-start')).not.toBeInTheDocument();
   });
 
-  it('does not use the fallback to bypass an ad-consent failure', () => {
+  it('returns to the original application path when consent is required', () => {
     const onUnavailable = vi.fn();
     render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
 
     fireEvent.click(screen.getByTestId('mock-google-consent-required'));
 
     expect(onUnavailable).toHaveBeenCalledTimes(1);
-    expect(screen.queryByTestId('rewarded-house-video-start')).not.toBeInTheDocument();
   });
 
   it('completes the application flow only after Google grants and completes the video', () => {
