@@ -86366,6 +86366,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tubercolosi-svizzera-aumento-2025': {
+    title: 'Tubercolosi in Svizzera: 544 casi nel 2025, massimo dal 2018',
+    description: 'Nel 2025 la Svizzera ha registrato 544 casi di tubercolosi, il livello più alto dal 2018, con un aumento di 112 casi rispetto al 2024 e un tasso',
+    keywords: 'frontalieri, ticino, svizzera, italia, tubercolosi, casi, massimo, registrato',
+    ogTitle: 'Tubercolosi in Svizzera: 544 casi nel 2025, massimo dal 2018',
+    ogDescription: 'La tubercolosi in Svizzera ha raggiunto nel 2025 il livello più alto dal 2018, con 544 casi totali (Liechtenstein incluso) e un aumento di 112 unità rispetto al 2024. Il tasso di dichiarazione è passato da 4,8 a 6,0 ogni 100\'000 abitanti',
+    canonicalPath: '/articoli-svizzera/tubercolosi-svizzera-aumento-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tubercolosi in Svizzera: 544 casi nel 2025, massimo dal 2018",
+      "description": "Nel 2025 la Svizzera ha registrato 544 casi di tubercolosi, il livello più alto dal 2018, con un aumento di 112 casi rispetto al 2024 e un tasso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tubercolosi-svizzera-aumento-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operatore sanitario svizzero che analizza risultati di test per tubercolosi in clinica con vista sulle Alpi"
+      },
+      "datePublished": "2026-09-24T17:43:40+00:00",
+      "dateModified": "2026-09-24T17:43:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tubercolosi-svizzera-aumento-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

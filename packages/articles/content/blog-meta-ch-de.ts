@@ -6662,6 +6662,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.title': 'Nein zur Einbürgerung nach 5 Jahren',
     'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.excerpt': 'Das Schweizer Parlament lehnt die Bürgerinitiative nach 5 Jahren legalem Aufenthalt ab',
     'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.imageAlt': 'Schweizer Parlament in Bern mit nationalen politischen Entscheidungen',
+    'blog.article.tubercolosi-svizzera-aumento-2025.title': 'Tuberkulose in der Schweiz: 544 Fälle im Jahr 2025, Maximum seit 2018',
+    'blog.article.tubercolosi-svizzera-aumento-2025.excerpt': 'Im Jahr 2025 verzeichnete die Schweiz 544 Tuberkulosefälle, 112 mehr als 2024; die Rate stieg von 4,8 auf 6,0 pro 100\'000 Einwohner, der höchste Stand seit 2018.',
+    'blog.article.tubercolosi-svizzera-aumento-2025.imageAlt': 'Schweizer Gesundheitsarbeiter analysiert Tuberkulose-Testergebnisse in einer Klinik mit Alpenblick',
 };
 
 export default blogMetaChDe;
