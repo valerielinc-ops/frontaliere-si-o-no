@@ -100,6 +100,16 @@ describe('post-merge triage marker contract', () => {
     expect(zeroResultBranch).not.toContain('persistence_ok=false');
   });
 
+  it('keeps the #9286 unchanged-bucket prose on the zero-result path', () => {
+    const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
+    const marker = '## Post-merge follow-up triage\n\nCreated/updated: nessun item per questa PR; bucket giornaliero #9508 non modificato da questa PR.';
+    const claimLine = marker.split('\n').find((line) => line.startsWith('Created/updated:'))!;
+    expect(claimLine).toMatch(/nessun\s+item\s+per\s+questa\s+PR/i);
+    expect(claimLine).toMatch(/bucket[^#]*#9508[^\n]*non\s+modificato\s+da\s+questa\s+PR/i);
+    expect(workflow).toContain('unchanged_bucket_zero=false');
+    expect(workflow).toMatch(/\[ "\$zero_claim" = true \] \|\| \[ "\$unchanged_bucket_zero" = true \]/);
+  });
+
   it('reads positive persistence only from the explicit creation/update line', () => {
     const workflow = readFileSync(fileURLToPath(new URL('../.github/workflows/post-merge-followup.yml', import.meta.url)), 'utf8');
     // I riferimenti al bucket si leggono SOLO dalle righe di claim: una prosa

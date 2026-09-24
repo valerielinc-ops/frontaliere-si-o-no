@@ -349,10 +349,23 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   // item. E' il secondo finding 🔴 della review su questa PR.
   const legacyEmptyHeader = claimLines.length === 0
     && /zero outstanding items|backfill skipped/i.test(body);
-  const noBucketExpected = zeroClaim || legacyEmptyHeader;
+  // La variante osservata su #9286 usa prosa invece di `0`: dichiara nello
+  // stesso claim che non esiste alcun item per la PR e che il bucket numerato
+  // non è stato modificato. Il numero è contesto di audit, non una promessa
+  // di persistenza da verificare nel bucket.
+  // This legacy prose is an empty-result claim only when EVERY claim line is
+  // exactly the zero-item/unchanged-bucket form.  Requiring the whole line to
+  // match keeps a second claim, a positive count, or an "updated" bucket from
+  // being hidden behind one harmless-looking line.
+  const unchangedBucketZeroLine = /^\s*(?:[-*]\s+)?Created(?:\/updated)?:\s*nessun\s+item\s+per\s+questa\s+PR\s*;\s*bucket(?:\s+giornaliero)?\s+#[1-9]\d*\s+non\s+modificat[oa]\s+da\s+questa\s+PR\s*\.?\s*$/i;
+  const unchangedBucketZero = claimLines.length > 0
+    && claimLines.every((line) => unchangedBucketZeroLine.test(line));
+  const noBucketExpected = zeroClaim || unchangedBucketZero || legacyEmptyHeader;
   return {
-    buckets: uniqueBuckets,
-    requiresBucket: uniqueBuckets.length > 0 || !noBucketExpected,
+    // Un bucket citato da un esito zero è solo contesto: non deve riattivare
+    // la verifica di persistenza che ha causato la failure di #9286.
+    buckets: noBucketExpected ? [] : uniqueBuckets,
+    requiresBucket: !noBucketExpected,
   };
 }
 
