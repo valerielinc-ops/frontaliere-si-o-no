@@ -1,0 +1,254 @@
+{
+  "schemaVersion": 1,
+  "description": "Synthetic, human-reviewed cases for deciding whether an Argos candidate may replace an existing translation.",
+  "labelDefinitions": {
+    "preserved": "The candidate preserves the source meaning and the material facts of the existing translation.",
+    "inversion": "The candidate reverses a material fact, polarity, actor, direction, place, or time.",
+    "loss": "The candidate drops a material fact, condition, quantity, or requirement.",
+    "wrong-language": "The candidate is written in a language other than the requested target locale, even when its meaning is otherwise understandable.",
+    "equal": "The candidate is materially identical to the existing translation and should not trigger a replacement.",
+    "unclear": "The candidate cannot be judged safely without context that is not present in the translation unit."
+  },
+  "cases": [
+    {
+      "id": "preserved-01",
+      "source": "L'azienda cerca un tecnico per la manutenzione degli impianti.",
+      "sourceLang": "it",
+      "targetLocale": "en",
+      "existing": "The company is looking for a technician to maintain its systems.",
+      "candidate": "The company seeks a technician for plant maintenance.",
+      "label": "preserved",
+      "reason": "Both translations retain the technician role and the maintenance responsibility; the wording changes but no material fact does."
+    },
+    {
+      "id": "preserved-02",
+      "source": "Die Stelle bietet einen unbefristeten Vollzeitvertrag.",
+      "sourceLang": "de",
+      "targetLocale": "it",
+      "existing": "La posizione offre un contratto a tempo indeterminato e a tempo pieno.",
+      "candidate": "Il ruolo propone un impiego stabile a tempo pieno.",
+      "label": "preserved",
+      "reason": "Stabile conveys an indefinite contract in this synthetic context, and both versions preserve full-time employment."
+    },
+    {
+      "id": "preserved-03",
+      "source": "Le poste commence en septembre et comprend deux jours au bureau.",
+      "sourceLang": "fr",
+      "targetLocale": "de",
+      "existing": "Die Stelle beginnt im September und umfasst zwei Tage im Büro.",
+      "candidate": "Die Position startet im September und sieht zwei Bürotage vor.",
+      "label": "preserved",
+      "reason": "Both candidates preserve the September start and the two required office days."
+    },
+    {
+      "id": "preserved-04",
+      "source": "Applicants must have two years of experience in payroll.",
+      "sourceLang": "en",
+      "targetLocale": "fr",
+      "existing": "Les candidats doivent avoir deux ans d'expérience en gestion des salaires.",
+      "candidate": "Les personnes candidates doivent justifier de deux ans d'expérience en paie.",
+      "label": "preserved",
+      "reason": "The obligation, two-year threshold, and payroll domain remain present despite the French wording change."
+    },
+    {
+      "id": "inversion-01",
+      "source": "Il lavoro è a tempo pieno.",
+      "sourceLang": "it",
+      "targetLocale": "en",
+      "existing": "The job is full-time.",
+      "candidate": "The job is part-time.",
+      "label": "inversion",
+      "reason": "Part-time reverses the employment percentage stated by the source and existing translation."
+    },
+    {
+      "id": "inversion-02",
+      "source": "Der Bewerber muss den Führerschein B besitzen.",
+      "sourceLang": "de",
+      "targetLocale": "it",
+      "existing": "Il candidato deve avere la patente B.",
+      "candidate": "Il candidato non deve avere la patente B.",
+      "label": "inversion",
+      "reason": "Adding non reverses the requirement from mandatory possession to no requirement."
+    },
+    {
+      "id": "inversion-03",
+      "source": "Le poste est à Lugano, pas à Bellinzone.",
+      "sourceLang": "fr",
+      "targetLocale": "de",
+      "existing": "Die Stelle ist in Lugano, nicht in Bellinzona.",
+      "candidate": "Die Stelle ist in Bellinzona, nicht in Lugano.",
+      "label": "inversion",
+      "reason": "The candidate swaps the included and excluded locations, changing the job location."
+    },
+    {
+      "id": "inversion-04",
+      "source": "The shift starts at 06:00.",
+      "sourceLang": "en",
+      "targetLocale": "it",
+      "existing": "Il turno inizia alle 06:00.",
+      "candidate": "Il turno termina alle 06:00.",
+      "label": "inversion",
+      "reason": "Termina changes the event from the start of the shift to its end at the same time."
+    },
+    {
+      "id": "loss-01",
+      "source": "Il contratto dura dodici mesi e può essere rinnovato.",
+      "sourceLang": "it",
+      "targetLocale": "de",
+      "existing": "Der Vertrag dauert zwölf Monate und kann verlängert werden.",
+      "candidate": "Der Vertrag dauert zwölf Monate.",
+      "label": "loss",
+      "reason": "The candidate drops the material condition that the twelve-month contract may be renewed."
+    },
+    {
+      "id": "loss-02",
+      "source": "Die Stelle erfordert Deutsch und Italienisch auf B2-Niveau.",
+      "sourceLang": "de",
+      "targetLocale": "fr",
+      "existing": "Le poste exige l'allemand et l'italien au niveau B2.",
+      "candidate": "Le poste exige l'allemand.",
+      "label": "loss",
+      "reason": "The Italian-language requirement and its B2 level are removed from the candidate."
+    },
+    {
+      "id": "loss-03",
+      "source": "Le salaire comprend un bonus annuel de 5 %.",
+      "sourceLang": "fr",
+      "targetLocale": "en",
+      "existing": "The salary includes an annual bonus of 5%.",
+      "candidate": "The salary includes an annual bonus.",
+      "label": "loss",
+      "reason": "The candidate preserves the bonus but loses its material five-percent amount."
+    },
+    {
+      "id": "loss-04",
+      "source": "Remote work is allowed two days per week after probation.",
+      "sourceLang": "en",
+      "targetLocale": "it",
+      "existing": "Il lavoro da remoto è consentito due giorni alla settimana dopo il periodo di prova.",
+      "candidate": "Il lavoro da remoto è consentito.",
+      "label": "loss",
+      "reason": "The candidate drops both the two-day frequency and the after-probation condition."
+    },
+    {
+      "id": "wrong-language-01",
+      "source": "L'azienda apre una nuova sede a Zurigo.",
+      "sourceLang": "it",
+      "targetLocale": "de",
+      "existing": "Das Unternehmen eröffnet einen neuen Standort in Zürich.",
+      "candidate": "L'azienda apre una nuova sede a Zurigo.",
+      "label": "wrong-language",
+      "reason": "The candidate repeats the Italian source while the requested target locale is German."
+    },
+    {
+      "id": "wrong-language-02",
+      "source": "Die Position beginnt im September.",
+      "sourceLang": "de",
+      "targetLocale": "it",
+      "existing": "La posizione inizia a settembre.",
+      "candidate": "Die Stelle beginnt im September.",
+      "label": "wrong-language",
+      "reason": "The candidate is German, not Italian, so it cannot replace the Italian slot."
+    },
+    {
+      "id": "wrong-language-03",
+      "source": "Le team travaille à Genève.",
+      "sourceLang": "fr",
+      "targetLocale": "en",
+      "existing": "The team works in Geneva.",
+      "candidate": "L'équipe travaille à Genève.",
+      "label": "wrong-language",
+      "reason": "The French candidate expresses the source text instead of the requested English translation."
+    },
+    {
+      "id": "wrong-language-04",
+      "source": "The contract is permanent.",
+      "sourceLang": "en",
+      "targetLocale": "fr",
+      "existing": "Le contrat est à durée indéterminée.",
+      "candidate": "The contract is permanent.",
+      "label": "wrong-language",
+      "reason": "The candidate remains in English even though the target slot requires French."
+    },
+    {
+      "id": "equal-01",
+      "source": "Il colloquio si svolge lunedì.",
+      "sourceLang": "it",
+      "targetLocale": "en",
+      "existing": "The interview takes place on Monday.",
+      "candidate": "The interview takes place on Monday.",
+      "label": "equal",
+      "reason": "The candidate is byte-for-byte equal to the existing translation, so an overwrite has no value."
+    },
+    {
+      "id": "equal-02",
+      "source": "Die Stelle ist zu 80 % besetzt.",
+      "sourceLang": "de",
+      "targetLocale": "fr",
+      "existing": "Le poste est à 80 %.",
+      "candidate": "Le poste est à 80 %.",
+      "label": "equal",
+      "reason": "The candidate exactly repeats the existing French value and adds no new information."
+    },
+    {
+      "id": "equal-03",
+      "source": "Le travail se fait à Genève.",
+      "sourceLang": "fr",
+      "targetLocale": "it",
+      "existing": "Il lavoro è a Ginevra.",
+      "candidate": "Il lavoro è a Ginevra.",
+      "label": "equal",
+      "reason": "The candidate and existing Italian translation are materially identical."
+    },
+    {
+      "id": "equal-04",
+      "source": "The application must be submitted online.",
+      "sourceLang": "en",
+      "targetLocale": "de",
+      "existing": "Die Bewerbung muss online erfolgen.",
+      "candidate": "Die Bewerbung muss online erfolgen.",
+      "label": "equal",
+      "reason": "The candidate exactly matches the existing German translation and should be treated as a no-op."
+    },
+    {
+      "id": "unclear-01",
+      "source": "Il ruolo richiede esperienza nella gestione dei clienti.",
+      "sourceLang": "it",
+      "targetLocale": "en",
+      "existing": "The role requires experience in customer management.",
+      "candidate": "The role requires experience in customer care.",
+      "label": "unclear",
+      "reason": "Customer care may be an equivalent wording or a narrower support function; the missing job context prevents a safe verdict."
+    },
+    {
+      "id": "unclear-02",
+      "source": "Die Stelle bietet Entwicklungsmöglichkeiten.",
+      "sourceLang": "de",
+      "targetLocale": "it",
+      "existing": "La posizione offre possibilità di crescita.",
+      "candidate": "La posizione offre opportunità di formazione.",
+      "label": "unclear",
+      "reason": "Development may mean career growth or training here, and the short source does not resolve which meaning was intended."
+    },
+    {
+      "id": "unclear-03",
+      "source": "Le candidat rejoint l'équipe mobile.",
+      "sourceLang": "fr",
+      "targetLocale": "en",
+      "existing": "The candidate joins the mobile team.",
+      "candidate": "The candidate joins the moving team.",
+      "label": "unclear",
+      "reason": "Mobile can describe a team that travels or a team using mobile technology; without the job context the candidate cannot be safely scored."
+    },
+    {
+      "id": "unclear-04",
+      "source": "The role covers client onboarding.",
+      "sourceLang": "en",
+      "targetLocale": "it",
+      "existing": "Il ruolo comprende l'inserimento dei clienti.",
+      "candidate": "Il ruolo copre l'accoglienza dei clienti.",
+      "label": "unclear",
+      "reason": "Accoglienza may mean reception rather than onboarding, but the isolated sentence does not establish the intended process."
+    }
+  ]
+}
