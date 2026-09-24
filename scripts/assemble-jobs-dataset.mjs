@@ -2478,6 +2478,20 @@ async function assembleJobs() {
 
   if (slices.length === 0) return null;
 
+  // Existing slices may have been written by a producer before the shared
+  // handoff contract was hardened. Repair only source-backed detail URLs at
+  // assembly too, so a deploy does not keep publishing a broken apply CTA
+  // until that crawler happens to run again.
+  let assembledApplyUrlBackfilled = 0;
+  for (const slice of slices) {
+    for (const job of slice.jobs) {
+      if (backfillApplyUrlFromDetail(job)) assembledApplyUrlBackfilled++;
+    }
+  }
+  if (assembledApplyUrlBackfilled > 0) {
+    console.log(`  🔗 Assembly handoff normalize: applyUrl backfilled ${assembledApplyUrlBackfilled}`);
+  }
+
   // Collect the set of crawlerKeys that have been migrated
   const migratedKeys = new Set(slices.map((s) => s.crawlerKey).filter(Boolean));
 
@@ -2986,6 +3000,19 @@ function assembleSummaries() {
       malformedSummary.map((m) => `  - ${m}`).join('\n') +
       `\nResolve before re-running.`,
     );
+  }
+
+  let assembledSummaryApplyUrlBackfilled = 0;
+  for (const entry of sliceEntries) {
+    for (const listKey of ['newJobs', 'updatedJobs', 'removedJobs', 'unchangedJobs']) {
+      if (!Array.isArray(entry[listKey])) continue;
+      for (const job of entry[listKey]) {
+        if (backfillApplyUrlFromDetail(job)) assembledSummaryApplyUrlBackfilled++;
+      }
+    }
+  }
+  if (assembledSummaryApplyUrlBackfilled > 0) {
+    console.log(`  🔗 Summary handoff normalize: applyUrl backfilled ${assembledSummaryApplyUrlBackfilled}`);
   }
 
   // Merge with existing global summaries: slice entries take precedence over
