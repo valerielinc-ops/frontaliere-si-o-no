@@ -3,6 +3,7 @@ import { GPT_ENABLED, getGptTag, initGptFramework } from '@/components/shared/Gp
 import { isLikelyBot } from '@/services/botPatterns';
 import { Analytics } from '@/services/analytics';
 import { isAdsConsentGranted } from '@/services/adsConsent';
+import { preloadRewardedHouseVideo } from '@/services/rewardedHouseVideo';
 
 /**
  * Dedicated Ad Manager rewarded unit for the job-board GPT request.
@@ -13,11 +14,22 @@ import { isAdsConsentGranted } from '@/services/adsConsent';
  */
 export const ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH = '/23355151813/rewarded-application-video';
 
-export const REWARDED_READY_TIMEOUT_MS = 10_000;
+// Preloading starts on the job detail, but GPT can still be waiting on the
+// script/auction when the dialog opens. Keep a bounded escape hatch without
+// treating a slow auction as an immediate no-fill.
+export const REWARDED_READY_TIMEOUT_MS = 15_000;
 
 export type RewardedWebAdState = 'idle' | 'loading' | 'ready' | 'showing' | 'unavailable';
 
 type RewardedWebEventType = 'started' | 'ready' | 'granted' | 'completed' | 'closed' | 'unavailable';
+
+export type RewardedWebAdEligibilityReason =
+  | 'gpt_disabled'
+  | 'disabled'
+  | 'not_browser'
+  | 'unsupported_host'
+  | 'bot'
+  | 'consent_required';
 
 export interface RewardedWebAdEvent {
   type: RewardedWebEventType;
@@ -47,6 +59,7 @@ interface RewardedWebAdResource {
   readyTimeout: number | null;
   handlers: {
     ready: ((event: any) => void) | null;
+    renderEnded: ((event: any) => void) | null;
     granted: ((event: any) => void) | null;
     completed: ((event: any) => void) | null;
     closed: ((event: any) => void) | null;
@@ -95,12 +108,19 @@ function track(eventName: string, adUnitPath: string, reason?: string): void {
 }
 
 export function isRewardedWebAdEligible(enabled = true): boolean {
-  return GPT_ENABLED
-    && enabled
-    && typeof window !== 'undefined'
-    && isAdSenseProductionHost(window.location.hostname)
-    && !isLikelyBot()
-    && isAdsConsentGranted();
+  return getRewardedWebAdEligibilityReason(enabled) === null;
+}
+
+export function getRewardedWebAdEligibilityReason(
+  enabled = true,
+): RewardedWebAdEligibilityReason | null {
+  if (!GPT_ENABLED) return 'gpt_disabled';
+  if (!enabled) return 'disabled';
+  if (typeof window === 'undefined') return 'not_browser';
+  if (!isAdSenseProductionHost(window.location.hostname)) return 'unsupported_host';
+  if (isLikelyBot()) return 'bot';
+  if (!isAdsConsentGranted()) return 'consent_required';
+  return null;
 }
 
 function destroyResource(resource: RewardedWebAdResource): void {
@@ -112,6 +132,7 @@ function destroyResource(resource: RewardedWebAdResource): void {
   try {
     if (resource.pubads) {
       if (resource.handlers.ready) resource.pubads.removeEventListener('rewardedSlotReady', resource.handlers.ready);
+      if (resource.handlers.renderEnded) resource.pubads.removeEventListener('slotRenderEnded', resource.handlers.renderEnded);
       if (resource.handlers.granted) resource.pubads.removeEventListener('rewardedSlotGranted', resource.handlers.granted);
       if (resource.handlers.completed) resource.pubads.removeEventListener('rewardedSlotVideoCompleted', resource.handlers.completed);
       if (resource.handlers.closed) resource.pubads.removeEventListener('rewardedSlotClosed', resource.handlers.closed);
@@ -163,6 +184,11 @@ export function preloadRewardedWebAd(
     return 0;
   }
 
+  // Keep the deterministic first-party/sponsor fallback warm while the
+  // consented Google request is in flight. It is shown only after Google has
+  // actually failed to produce a rewardable slot.
+  preloadRewardedHouseVideo();
+
   const existing = activeResource;
   if (existing?.adUnitPath === adUnitPath) {
     if (existing.state === 'loading' || existing.state === 'ready' || existing.state === 'showing') {
@@ -188,7 +214,7 @@ export function preloadRewardedWebAd(
     gpt: null,
     pubads: null,
     readyTimeout: null,
-    handlers: { ready: null, granted: null, completed: null, closed: null },
+    handlers: { ready: null, renderEnded: null, granted: null, completed: null, closed: null },
   };
   activeResource = resource;
   notify({ state: 'loading', requestId, lastEvent: null, events: [] });
@@ -232,6 +258,10 @@ export function preloadRewardedWebAd(
           track('rewarded_web_ready', adUnitPath);
           publish(resource, 'ready', { type: 'ready' });
         };
+        resource.handlers.renderEnded = (event: any) => {
+          if (event?.slot !== slot || activeResource !== resource || resource.cancelled) return;
+          if (event?.isEmpty) markUnavailable(resource, 'no_fill');
+        };
         resource.handlers.granted = (event: any) => {
           if (event?.slot !== slot || activeResource !== resource || resource.cancelled || resource.granted) return;
           resource.granted = true;
@@ -253,6 +283,7 @@ export function preloadRewardedWebAd(
         };
 
         pubads.addEventListener('rewardedSlotReady', resource.handlers.ready);
+        pubads.addEventListener('slotRenderEnded', resource.handlers.renderEnded);
         pubads.addEventListener('rewardedSlotGranted', resource.handlers.granted);
         pubads.addEventListener('rewardedSlotVideoCompleted', resource.handlers.completed);
         pubads.addEventListener('rewardedSlotClosed', resource.handlers.closed);

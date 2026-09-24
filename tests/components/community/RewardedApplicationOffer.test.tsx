@@ -15,9 +15,16 @@ vi.mock('@/components/shared/GptRewardedAd', () => ({
         <button
           type="button"
           data-testid="mock-google-no-fill"
-          onClick={() => (props.onUnavailable as (() => void) | undefined)?.()}
+          onClick={() => (props.onUnavailable as ((reason?: string) => void) | undefined)?.('no_fill')}
         >
           No fill
+        </button>
+        <button
+          type="button"
+          data-testid="mock-google-consent-required"
+          onClick={() => (props.onUnavailable as ((reason?: string) => void) | undefined)?.('consent_required')}
+        >
+          Consent required
         </button>
         <button
           type="button"
@@ -76,17 +83,27 @@ describe('RewardedApplicationOffer', () => {
     expect(onDismiss).toHaveBeenCalledTimes(2);
   });
 
-  it('uses the original candidature intent to start a ready Google rewarded ad', () => {
+  it('keeps the Google request preloaded but requires an explicit ad opt-in', () => {
     render(<RewardedApplicationOffer {...defaultProps} />);
 
-    expect(rewardedMock.props?.autoStart).toBe(true);
+    expect(rewardedMock.props?.autoStart).not.toBe(true);
   });
 
-  it('redirects immediately when Google has no paid fill and renders no house video', () => {
+  it('shows the first-party fallback when Google has no paid fill', () => {
     const onUnavailable = vi.fn();
     render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
 
     fireEvent.click(screen.getByTestId('mock-google-no-fill'));
+
+    expect(onUnavailable).not.toHaveBeenCalled();
+    expect(screen.getByTestId('rewarded-house-video-start')).toBeInTheDocument();
+  });
+
+  it('does not use the fallback to bypass an ad-consent failure', () => {
+    const onUnavailable = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
+
+    fireEvent.click(screen.getByTestId('mock-google-consent-required'));
 
     expect(onUnavailable).toHaveBeenCalledTimes(1);
     expect(screen.queryByTestId('rewarded-house-video-start')).not.toBeInTheDocument();

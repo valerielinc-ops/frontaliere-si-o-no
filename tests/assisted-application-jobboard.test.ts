@@ -47,7 +47,7 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource).toContain('isCrawlerVisitorAgent');
   });
 
-  it('uses the original employer destination for no-fill and completed rewarded flows', () => {
+  it('uses the original employer destination when the rewarded flow cannot complete', () => {
     expect(jobBoardSource).toMatch(
       /const handleRewardedApplicationCompleted = \(\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_completed', true, true\);/,
     );

@@ -185,6 +185,26 @@ describe('GptRewardedAd', () => {
     expect(screen.getByText('Non disponibile')).toBeInTheDocument();
   });
 
+  it('reports an explicit GPT empty render as no fill', () => {
+    const onUnavailable = vi.fn();
+
+    render(
+      <GptRewardedAd
+        label="Guarda il video"
+        loadingLabel="Caricamento…"
+        unavailableLabel="Non disponibile"
+        onGranted={vi.fn()}
+        onUnavailable={onUnavailable}
+      />,
+    );
+
+    act(() => {
+      mocks.listeners.get('slotRenderEnded')?.({ slot: mocks.slot, isEmpty: true });
+    });
+
+    expect(onUnavailable).toHaveBeenCalledWith('no_fill');
+  });
+
   it('does not leave the caller loading forever when GPT never makes the slot ready', () => {
     vi.useFakeTimers();
     const onUnavailable = vi.fn();
