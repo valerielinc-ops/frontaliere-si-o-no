@@ -1,23 +1,24 @@
 {
   "key": "logitech",
   "label": "Logitech",
-  "generatedAt": "2026-09-19T23:13:14.714Z",
+  "generatedAt": "2026-09-24T00:10:07.437Z",
   "total": 5,
   "discovered": null,
   "parsed": 5,
   "lastFetchOutcome": null,
   "written": 5,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 4,
+  "newCount": 0,
+  "updatedCount": 5,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 31459,
-  "avgDurationMs": 31459,
+  "durationMs": 34197,
+  "avgDurationMs": 34197,
   "durationHistory": [
-    31459
+    34197
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "logitech-b591bfe0cc9b",
       "slug": "pws-global-marketing-manager-logitech-ch",
@@ -30,7 +31,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/PWS-Global-Marketing-Manager_147736",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:13:03.509Z",
+      "crawledAt": "2026-09-24T00:09:56.744Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -43,16 +44,16 @@
       "featured": false,
       "postedDate": "2026-09-19",
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/PWS-Global-Marketing-Manager_147736",
-      "_qualityScore": 58,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-19T23:13:03.509Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 20,
-        "translation": 4,
+        "translation": 23,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "logitech-8f7f6dc8ae9c",
       "slug": "dtx-data-analytics-insights-manager-logitech-ch",
@@ -65,7 +66,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/DTX-Data-Analytics---Insights-Manager_147018",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:13:04.401Z",
+      "crawledAt": "2026-09-24T00:09:57.686Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -99,7 +100,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Sourcing-Specialist_148044",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:13:05.296Z",
+      "crawledAt": "2026-09-24T00:09:58.742Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -133,7 +134,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Audio-Machine-Learning-Data-Engineer_148005",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:13:06.193Z",
+      "crawledAt": "2026-09-24T00:09:59.714Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -167,7 +168,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:13:07.105Z",
+      "crawledAt": "2026-09-24T00:10:00.637Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
