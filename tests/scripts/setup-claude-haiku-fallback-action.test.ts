@@ -34,6 +34,9 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(resolver).toContain('path_components_trusted');
     expect(resolver).toContain('node_version=');
     expect(resolver).toContain('node_archive_sha256=');
+    // Download limitato: senza tetto un nodejs.org appeso blocca lo step fino
+    // al timeout del job (post-merge-followup run 35735836333, 32 minuti).
+    expect(resolver).toMatch(/\/usr\/bin\/curl [^\n]*\\\n\s+--connect-timeout \d+ --max-time \d+ --retry \d+/);
     expect(install).toContain('env -i');
     expect(install).toContain('PATH="$safe_path"');
     expect(install).toContain('NPM_CONFIG_USERCONFIG="$npmrc"');

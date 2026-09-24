@@ -242,7 +242,11 @@ runs:
           node_runtime_root="$(/usr/bin/mktemp -d "$runner_temp/codex-luna-max-node.XXXXXX")"
           /usr/bin/chmod 700 "$node_runtime_root"
           archive_path="$node_runtime_root/$node_archive"
+          # Stesso tetto del gemello in claude-codex-fallback/action.yml: un
+          # download appeso a nodejs.org ha bloccato quello step 32 minuti
+          # (post-merge-followup run 35735836333).
           /usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
+            --connect-timeout 20 --max-time 120 --retry 2 --retry-delay 5 \
             --output "$archive_path" "$node_url"
           archive_sha256="$(/usr/bin/sha256sum -- "$archive_path" | "$cut_cmd" -d ' ' -f 1)"
           if [ "$archive_sha256" != "$node_archive_sha256" ]; then

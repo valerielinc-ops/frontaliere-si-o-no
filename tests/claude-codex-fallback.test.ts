@@ -1281,6 +1281,9 @@ describe('copertura workflow diretti', () => {
     expect(action).toContain("node_archive_sha256='fd8e59d5a511510f6a298afb548f18c7d2b1be404d8b4a27d94fbe49f56cb2d6'");
     expect(action).toContain('Linux:x86_64');
     expect(action).toContain('/usr/bin/curl --fail --silent --show-error --location');
+    // Download limitato: la run 35735836333 di post-merge-followup e' rimasta
+    // 32 minuti in questo step su una connessione appesa, fino al timeout.
+    expect(action).toMatch(/\/usr\/bin\/curl [^\n]*\\\n\s+--connect-timeout \d+ --max-time \d+ --retry \d+/);
     expect(action).toContain('/usr/bin/tar --extract --file "$archive_path"');
     expect(action).toContain('--use-compress-program=/usr/bin/xz');
     expect(action).toContain('node_realpath="$(realpath "$node_root/bin/node")"');
