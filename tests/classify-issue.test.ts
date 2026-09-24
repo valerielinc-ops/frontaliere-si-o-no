@@ -2,8 +2,9 @@
  * classify-issue — regression test per classificazione deterministica del
  * triage (scripts/lib/classify-issue.mjs). Garantisce che il routing autonomo
  * non drifti silenziosamente: un mis-routing instrada
- * `agent:fix` immediato dove dovrebbe passare dalla coda (o viceversa), o
- * lascia instradata una categoria F1/F7 che richiede gestione umana.
+ * `agent:fix` immediato dove dovrebbe passare dalla coda (o viceversa). Dal
+ * 2026-09-24 (policy f1-f7-v4, DECISIONS «Nessun veto sul ciclo autonomo»)
+ * nessuna categoria F1/F7 resta fuori dal routing: i domini sono evidenza.
  */
 
 import { describe, it, expect } from 'vitest';
@@ -35,24 +36,23 @@ describe('classifyIssue', () => {
     { title: 'Crawler Failure: Update TECAN', labels: ['bug'], category: 'crawler', autofix: true, route: 'fix', fuPrio: null },
     // parser-health → crawler (🟡 review #927: era 'other' sotto regex bash)
     { title: '[parser-health] octapharma boilerplate-only', labels: ['parser-broken', 'automated'], category: 'crawler', autofix: true, route: 'fix', fuPrio: null },
-    // funnel-seo è F1/F7: la categoria resta leggibile, ma non viene instradata.
-    { title: 'follow-up(#852): 7 crawler senza fallback', labels: ['follow-up', 'funnel-seo'], category: 'follow-up', autofix: false, route: 'none', fuPrio: null },
+    // funnel-seo è un dominio F1/F7: evidenza, non veto → coda ad alta priorità.
+    { title: 'follow-up(#852): 7 crawler senza fallback', labels: ['follow-up', 'funnel-seo'], category: 'follow-up', autofix: true, route: 'queue', fuPrio: 'high' },
     // validation-failure → autofix esteso (2026-07-05): coda, high (priority:urgent)
     { title: 'Validation Failure (dist)', labels: ['bug', 'priority:urgent'], category: 'validation-failure', autofix: true, route: 'queue', fuPrio: 'high' },
-    // revenue è F1/F7: billing/revenue/partner non entra nella coda automatica.
-    { title: 'RPM canary regression', labels: ['revenue'], category: 'revenue', autofix: false, route: 'none', fuPrio: null },
+    // revenue entra in coda come ogni categoria (DECISIONS 2026-07-05 e 2026-09-24).
+    { title: 'RPM canary regression', labels: ['revenue'], category: 'revenue', autofix: true, route: 'queue', fuPrio: 'high' },
     { title: 'master tracker: Q3 migration', labels: [], category: 'tracker', autofix: true, route: 'queue', fuPrio: 'low' },
-    // SEO è F1/F7 anche se la categoria nominale resta `other`.
-    { title: 'Random unclassified issue', labels: ['seo-audit'], category: 'other', autofix: false, route: 'none', fuPrio: null },
-    { title: 'Random unclassified issue', labels: ['seo-audit', 'priority:high'], category: 'other', autofix: false, route: 'none', fuPrio: null },
+    // Una categoria `other` sconosciuta non è più deny-by-default.
+    { title: 'Random unclassified issue', labels: ['seo-audit'], category: 'other', autofix: true, route: 'queue', fuPrio: 'low' },
+    { title: 'Random unclassified issue', labels: ['seo-audit', 'priority:high'], category: 'other', autofix: true, route: 'queue', fuPrio: 'high' },
     // company-name collision guards (#933 item 1): conservative ordering fires
     // revenue/tracker BEFORE crawler — intentional override; prevents future
-    // code reordering from silently removing guardrail. autofix/route ora
-    // uguali a ogni altra categoria, salvo la policy F1/F7 sul dominio revenue.
-    { title: '[crawler-health] RPM Software AG broken', labels: ['priority:high', 'bug'], category: 'revenue', autofix: false, route: 'none', fuPrio: null },
+    // code reordering from silently removing guardrail.
+    { title: '[crawler-health] RPM Software AG broken', labels: ['priority:high', 'bug'], category: 'revenue', autofix: true, route: 'queue', fuPrio: 'high' },
     { title: '[parser-health] recovery GmbH boilerplate-only', labels: ['parser-broken', 'automated'], category: 'tracker', autofix: true, route: 'queue', fuPrio: 'low' },
-    // Auto Ads/monetization è F1/F7, anche senza il token RPM.
-    { title: 'follow-up(#900): tune AdSense vignette threshold', labels: ['follow-up', 'funnel-monetization'], category: 'follow-up', autofix: false, route: 'none', fuPrio: null },
+    // Auto Ads/monetization: evidenza per la review, non veto.
+    { title: 'follow-up(#900): tune AdSense vignette threshold', labels: ['follow-up', 'funnel-monetization'], category: 'follow-up', autofix: true, route: 'queue', fuPrio: 'high' },
     // follow-up senza funnel/priority → coda priorità bassa
     { title: 'follow-up(#910): de-rot comment anchor', labels: ['follow-up', 'funnel-ux'], category: 'follow-up', autofix: true, route: 'queue', fuPrio: 'low' },
     // [job-content] — audit di plausibilità + segnalazione manuale
@@ -63,16 +63,16 @@ describe('classifyIssue', () => {
     // domani il prefisso cambiasse in qualcosa che matcha /crawler|parser/i,
     // una label `priority:high` lo promuoverebbe a `crawler` senza che nessuno
     // l'abbia deciso — questi tre casi fissano la scelta.
-    { title: '[job-content] hotel-international: booking-offer (5/5 record)', labels: ['job-content-quality'], category: 'other', autofix: false, route: 'none', fuPrio: null },
+    { title: '[job-content] hotel-international: booking-offer (5/5 record)', labels: ['job-content-quality'], category: 'other', autofix: true, route: 'queue', fuPrio: 'low' },
     // --urgent: `parser-broken` da SOLA basta a dare categoria `crawler`.
     // È l'unica leva che questo meccanismo usa per il fix immediato, ed è
     // deliberatamente opt-in (vedi il blocco ROUTING in
     // report-crawler-content-error.mjs).
-    { title: '[job-content] schindler: titolo = widget consenso cookie', labels: ['job-content-quality', 'parser-broken'], category: 'crawler', autofix: false, route: 'none', fuPrio: null },
+    { title: '[job-content] schindler: titolo = widget consenso cookie', labels: ['job-content-quality', 'parser-broken'], category: 'crawler', autofix: true, route: 'fix', fuPrio: null },
     // priority:high SENZA parser-broken resta in coda: il prefisso [job-content]
     // non matcha /crawler|parser/i, quindi il ramo `priority:high`+crawler/parser
     // non scatta. Alzare la priorità NON deve cambiare la route di nascosto.
-    { title: '[job-content] gemeinde-st-moritz: no-job-signal (5 record)', labels: ['job-content-quality', 'priority:high'], category: 'other', autofix: false, route: 'none', fuPrio: null },
+    { title: '[job-content] gemeinde-st-moritz: no-job-signal (5 record)', labels: ['job-content-quality', 'priority:high'], category: 'other', autofix: true, route: 'queue', fuPrio: 'high' },
   ];
 
   for (const c of cases) {
@@ -85,33 +85,27 @@ describe('classifyIssue', () => {
     });
   }
 
-  it('autofix segue la policy: solo le categorie ordinarie restano automatizzabili', () => {
+  it('autofix: ogni categoria non pinnata è automatizzabile', () => {
     for (const c of cases) {
       expect(classifyIssue(c.title, c.labels).autofix).toBe(c.autofix);
     }
   });
 
-  it("route='fix' SOLO per crawler ordinari; il resto è coda o escalation umana", () => {
+  it("route='fix' SOLO per crawler; il resto è coda", () => {
     for (const c of cases) {
       const out = classifyIssue(c.title, c.labels);
-      if (out.category === 'crawler') {
-        expect(out.route).toBe(c.route);
-      } else if (out.automationBlocked) {
-        expect(out.route).toBe('none');
-      } else {
-        expect(out.route).toBe('queue');
-      }
+      expect(out.route).toBe(out.category === 'crawler' ? 'fix' : 'queue');
     }
   });
 
-  it('una categoria F1/F7 produce route none e richiede approvazione umana separata', () => {
+  it('una categoria F1/F7 resta instradata e porta i domini come evidenza', () => {
     const out = classifyIssue('Aggiornare il workflow di deploy del service account con permessi', ['follow-up']);
     expect(out).toMatchObject({
-      route: 'none',
-      autofix: false,
-      automationBlocked: true,
-      riskBlocked: true,
-      humanApprovalRequired: true,
+      route: 'queue',
+      autofix: true,
+      automationBlocked: false,
+      riskBlocked: false,
+      humanApprovalRequired: false,
     });
     expect(out.riskDomains).toEqual(expect.arrayContaining([
       'deploy-workflow-functions',
@@ -145,10 +139,9 @@ describe('classifyIssue — pin fuori dal ciclo di fix', () => {
 
   it('le label del veto auto-close che NON pinnano restano instradate', () => {
     // `pinned`/`do-not-close` dicono «non chiudere», non «non riparare»;
-    // `tracker` resta ordinario, mentre `revenue` è protetto dalla policy F1/F7.
+    // `tracker` e `revenue` restano instradate come ogni altra categoria.
     for (const l of ['pinned', 'do-not-close', 'revenue', 'tracker']) {
-      const expected = l === 'revenue' ? 'none' : 'queue';
-      expect(classifyIssue('follow-up(#1): qualcosa', ['follow-up', l]).route).toBe(expected);
+      expect(classifyIssue('follow-up(#1): qualcosa', ['follow-up', l]).route).toBe('queue');
     }
   });
 
@@ -177,15 +170,15 @@ describe('policy automazione F1/F7', () => {
     ['outreach/comunicazioni', { title: 'Inviare la newsletter di outreach', labels: [] }, 'outreach-communications'],
   ] as const;
 
-  it.each(riskCases)('blocca il dominio %s', (_label, input, domain) => {
+  it.each(riskCases)('riporta il dominio %s come evidenza senza bloccare', (_label, input, domain) => {
     const out = classifyAutomationRisk(input);
-    expect(out).toMatchObject({ blocked: true, verifiable: true, humanApprovalRequired: true });
+    expect(out).toMatchObject({ blocked: false, decision: 'allow', verifiable: true, humanApprovalRequired: false });
     expect(out.domains).toContain(domain);
   });
 
   it('classifica anche un segnale presente solo nel body della issue', () => {
     const out = classifyAutomationRisk({ title: 'Issue generica', body: 'sitemap pubblicata da correggere', labels: [] });
-    expect(out).toMatchObject({ blocked: true, verifiable: true });
+    expect(out).toMatchObject({ blocked: false, verifiable: true });
     expect(out.domains).toContain('published-content-seo-auto-ads');
   });
 
@@ -195,10 +188,10 @@ describe('policy automazione F1/F7', () => {
     ['services/partner/billing.ts', 'billing-revenue-partner'],
     ['packages/articles/content/guide.md', 'published-content-seo-auto-ads'],
     ['scripts/newsletter/send.mjs', 'outreach-communications'],
-  ])('blocca il path %s nella superficie issue, nel dominio %s', (path, domain) => {
+  ])('instrada il path %s sulla superficie issue, con il dominio %s come evidenza', (path, domain) => {
     const out = classifyAutomationRisk({ paths: [path], pathsComplete: true });
-    expect(out).toMatchObject({ blocked: true, verifiable: true });
-    expect(out.domains).toContain(domain);
+    expect(out).toMatchObject({ blocked: false, decision: 'allow', verifiable: true });
+    expect(out.evidence.path.concat(out.evidence.issue)).toContain(domain);
   });
 
   it.each([
@@ -242,11 +235,22 @@ describe('policy automazione F1/F7', () => {
     });
   });
 
-  it('nega per default quando il file list dell’issue è incompleto', () => {
-    expect(classifyAutomationRisk({ paths: ['src/safe.ts'], pathsComplete: false })).toMatchObject({
+  it('un file list incompleto sulla issue è evidenza, non deny', () => {
+    expect(classifyAutomationRisk({ paths: ['src/safe.ts', ''], pathsComplete: false })).toMatchObject({
+      blocked: false,
+      decision: 'allow',
+      verifiable: true,
+      pathsComplete: false,
+      humanApprovalRequired: false,
+    });
+  });
+
+  it('continua a negare metadata issue illeggibili (retry, non veto)', () => {
+    expect(classifyAutomationRisk({ title: null, body: '', labels: [] })).toMatchObject({
       blocked: true,
+      decision: 'deny',
+      denyCode: 'metadata-unverifiable',
       verifiable: false,
-      humanApprovalRequired: true,
     });
   });
 
@@ -298,20 +302,22 @@ describe('policy automazione F1/F7', () => {
     })).toMatchObject({ blocked: false, verifiable: true });
   });
 
-  it('denies every explicit control-plane path on the issue surface', () => {
+  it('routes every explicit control-plane path on the issue surface, flagged as evidence', () => {
     for (const path of CONTROL_PLANE_PATHS) {
       expect(isControlPlanePath(path), path).toBe(true);
-      expect(classifyAutomationRisk({ paths: [path], pathsComplete: true })).toMatchObject({
-        blocked: true,
-        decision: 'deny',
-        denyCode: 'control-plane',
+      const out = classifyAutomationRisk({ paths: [path], pathsComplete: true });
+      expect(out).toMatchObject({
+        blocked: false,
+        decision: 'allow',
+        denyCode: null,
         controlPlane: true,
-        humanApprovalRequired: true,
+        humanApprovalRequired: false,
       });
+      expect(out.domains).toContain('control-plane');
     }
   });
 
-  it('allows control-plane paths for PR auto-merge while issue classification stays deny-by-default', () => {
+  it('allows control-plane paths for PR auto-merge too', () => {
     for (const path of CONTROL_PLANE_PATHS) {
       const out = classifyAutomationRisk({
         title: 'Aggiornare il workflow di auto-merge',
@@ -325,38 +331,35 @@ describe('policy automazione F1/F7', () => {
     }
   });
 
-  it('does not let an unrecognised path or generic issue text enter automation', () => {
+  it('lets an unrecognised path or generic issue text enter automation, reported as evidence', () => {
     expect(isRecognizedAutomationPath('unknown-zone/agent-target.ts')).toBe(false);
-    expect(classifyAutomationRisk({
+    const unknownPath = classifyAutomationRisk({
       paths: ['unknown-zone/agent-target.ts'],
       pathsComplete: true,
-    })).toMatchObject({ blocked: true, decision: 'deny', denyCode: 'unknown-path' });
+    });
+    expect(unknownPath).toMatchObject({ blocked: false, decision: 'allow', denyCode: null });
+    expect(unknownPath.unknownPaths).toEqual(['unknown-zone/agent-target.ts']);
     expect(classifyAutomationRisk({
       title: 'Please investigate this',
       body: 'No deterministic category is declared.',
       labels: [],
-    })).toMatchObject({ blocked: true, decision: 'deny', denyCode: 'unknown-issue' });
+    })).toMatchObject({ blocked: false, decision: 'allow', denyCode: null, knownIssue: false });
   });
 
-  it('allows only the explicit locale-audit issue signals without weakening unknown deny', () => {
+  it('reports locale-audit labels as known ordinary signals', () => {
     for (const label of KNOWN_ORDINARY_ISSUE_LABELS) {
       expect(classifyAutomationRisk({
         title: 'Metric anomaly',
         labels: [label],
-      })).toMatchObject({ blocked: false, decision: 'allow', denyCode: null });
+      })).toMatchObject({ blocked: false, decision: 'allow', denyCode: null, knownIssue: true });
     }
     expect(classifyAutomationRisk({
       title: 'Metric anomaly',
       labels: ['locale-audit'],
-    })).toMatchObject({ blocked: true, decision: 'deny', denyCode: 'unknown-issue' });
-    expect(classifyAutomationRisk({
-      title: 'Metric anomaly',
-      body: 'Fix canonical SEO before the locale audit',
-      labels: ['job-title-locale'],
-    })).toMatchObject({ blocked: true, decision: 'deny', denyCode: 'high-risk-domain' });
+    })).toMatchObject({ blocked: false, decision: 'allow', knownIssue: false });
   });
 
-  it('keeps needs-human as a hard veto on the issue surface', () => {
+  it('treats needs-human as tracking on the issue surface too (no veto)', () => {
     expect(classifyAutomationRisk({
       title: 'follow-up: safe maintenance',
       body: 'A deterministic maintenance change with a complete safe path.',
@@ -366,11 +369,12 @@ describe('policy automazione F1/F7', () => {
       pathsComplete: true,
       surface: 'issue',
     })).toMatchObject({
-      blocked: true,
-      decision: 'deny',
-      denyCode: 'needs-human-veto',
-      needsHumanVeto: true,
-      humanApprovalRequired: true,
+      blocked: false,
+      decision: 'allow',
+      denyCode: null,
+      needsHumanVeto: false,
+      humanLabel: true,
+      humanApprovalRequired: false,
     });
   });
 
@@ -397,73 +401,38 @@ describe('policy automazione F1/F7', () => {
       .toMatchObject({ automationDeferred: true, riskBlocked: false, automationBlocked: true, route: 'none' });
   });
 
-  it('keeps an existing needs-human veto out of both autofix and routing', () => {
+  it('routes an issue carrying needs-human (tracking, not veto)', () => {
     expect(classifyIssue(
       'follow-up: safe maintenance',
       ['follow-up', 'needs-human'],
       'A deterministic maintenance change with a complete safe path.',
     )).toMatchObject({
-      autofix: false,
-      route: 'none',
-      riskBlocked: true,
-      automationBlocked: true,
-      needsHumanVeto: true,
+      autofix: true,
+      route: 'queue',
+      riskBlocked: false,
+      automationBlocked: false,
+      needsHumanVeto: false,
     });
   });
 
-  it('VISION.md è provenienza del rientro, non un bypass del veto F1/F7/control-plane', () => {
-    expect(classifyAutomationRisk({
-      title: 'CI Failure: Publish to GitHub Pages',
-      body: 'Il monitor ha rilevato il guasto nel workflow.',
-      labels: ['needs-human'],
-      paths: ['.github/workflows/publish.yml'],
-      pathsComplete: true,
-    })).toMatchObject({
-      blocked: true,
-      decision: 'deny',
-      denyCode: 'needs-human-veto',
-      humanApprovalRequired: true,
-    });
-
-    expect(classifyAutomationRisk({
-      title: 'CI Failure: Publish to GitHub Pages',
-      body: 'Il monitor ha rilevato il guasto nel workflow.',
-      labels: ['needs-human', 'agent:vision-approved'],
-      paths: ['.github/workflows/publish.yml'],
-      pathsComplete: true,
-    })).toMatchObject({
-      blocked: true,
-      decision: 'deny',
-      denyCode: 'control-plane',
-      visionApproved: true,
-      humanApprovalRequired: true,
-    });
-
-    expect(classifyAutomationRisk({
-      title: 'CI Failure: Publish to GitHub Pages',
-      body: 'Il monitor ha rilevato un riferimento ambiguo Europe/Zurich.',
-      labels: ['agent:vision-approved'],
-      paths: ['.github/workflows/publish.yml'],
-      pathsComplete: false,
-    })).toMatchObject({
-      blocked: true,
-      decision: 'deny',
-      denyCode: 'paths-unverifiable',
-      verifiable: false,
-    });
-
-    expect(classifyAutomationRisk({
-      title: 'CI Failure: Publish to GitHub Pages',
-      body: 'Il monitor ha indicato un target non riconosciuto.',
-      labels: ['agent:vision-approved'],
-      paths: ['unknown-zone/agent-target.ts'],
-      pathsComplete: true,
-    })).toMatchObject({
-      blocked: true,
-      decision: 'deny',
-      denyCode: 'unknown-path',
-      humanApprovalRequired: true,
-    });
+  it('una CI Failure su un workflow entra nel ciclo con o senza VISION approval', () => {
+    for (const labels of [['needs-human'], ['needs-human', 'agent:vision-approved'], ['agent:vision-approved'], []]) {
+      const out = classifyAutomationRisk({
+        title: 'CI Failure: Publish to GitHub Pages',
+        body: 'Il monitor ha rilevato il guasto nel workflow.',
+        labels,
+        paths: ['.github/workflows/publish.yml'],
+        pathsComplete: true,
+      });
+      expect(out, labels.join(',')).toMatchObject({
+        blocked: false,
+        decision: 'allow',
+        denyCode: null,
+        controlPlane: true,
+        visionApproved: labels.includes('agent:vision-approved'),
+        humanApprovalRequired: false,
+      });
+    }
   });
 
   it('treats needs-human as tracking only on the pull-request surface', () => {
@@ -535,8 +504,8 @@ describe('policy automazione F1/F7', () => {
       code + 'cat unknown.json' + code,
       { repository },
     )).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'unknown-path',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
     expect(extractIssueReferences(
       code + "git show origin/main:data/crawler-health.json | jq -r '.status'" + code,

@@ -1,18 +1,20 @@
 /**
  * Bounded F1/F7 policy for automation entry points.
  *
- * The policy is deliberately explicit: issue triage/fixer keeps its deny-by-
- * default F1/F7, control-plane, and issue-routing policy. The pull-request
- * surface still requires verifiable metadata and a complete file list, but
- * F1/F7 domains, control-plane paths, and unknown paths are evidence rather than human-
- * approval vetoes there. `needs-human` is an operational tracking label only;
- * it never vetoes a pull request.
+ * f1-f7-v4 (owner 2026-09-24, DECISIONS «Nessun veto sul ciclo autonomo»):
+ * on the issue surface nothing vetoes routing. F1/F7 domains, control-plane
+ * paths, unknown paths/categories, incomplete path lists and `needs-human`
+ * are reported as evidence for the fixer prompt and the PR review. Only
+ * unreadable issue metadata still fails (a retry, not a veto). The
+ * pull-request surface keeps requiring verifiable metadata and a complete file
+ * list; there too F1/F7, control-plane and unknown paths are evidence.
+ * Measured before the change: 135/136 open issues denied, backlog frozen.
  *
- * This module has no GitHub side effects. Callers decide how to escalate a
- * blocked item, and must fail closed when a PR file list is not verifiable.
+ * This module has no GitHub side effects. Callers must fail closed when a PR
+ * file list is not verifiable.
  */
 
-export const AUTOMATION_RISK_POLICY_VERSION = 'f1-f7-v3';
+export const AUTOMATION_RISK_POLICY_VERSION = 'f1-f7-v4';
 export const HUMAN_APPROVAL_LABEL = 'needs-human';
 export const VISION_AUTONOMY_LABEL = 'agent:vision-approved';
 export const VISION_AUTONOMY_CONTRACT_VERSION = 'vision-v1';
@@ -456,35 +458,16 @@ export function classifyAutomationRisk({
     visionApproved === true
     || labelNames.some((label) => label.toLowerCase() === VISION_AUTONOMY_LABEL)
   );
-  // The issue surface still uses `needs-human` as a terminal routing pin. Keep
-  // this explicitly separate from the PR surface: the same label is tracking
-  // only for PRs and must never veto their merge/autorebase/dispatch paths.
-  // A deterministic VISION-approved re-entry is the one explicit exception:
-  // it is the machine-readable handoff from needs-human-sweep back to the
-  // normal issue-fix path, not a category allowlist.
-  const hasIssueHumanVeto = surface === 'issue'
-    && labelNames.some((label) => label.toLowerCase() === HUMAN_APPROVAL_LABEL)
-    && !hasVisionAutonomyApproval;
-  if (hasIssueHumanVeto) {
-    return {
-      policyVersion: AUTOMATION_RISK_POLICY_VERSION,
-      verifiable: true,
-      blocked: true,
-      decision: 'deny',
-      denyCode: 'needs-human-veto',
-      controlPlane: false,
-      needsHumanVeto: true,
-      domains: [],
-      unknownPaths: [],
-      humanApprovalRequired: true,
-      visionApproved: false,
-      reason: '`needs-human` è un veto persistente; serve una rimozione umana associata alla HEAD',
-    };
-  }
+  // `needs-human` is tracking on both surfaces (owner 2026-09-24, DECISIONS
+  // «Nessun veto sul ciclo autonomo»). The flag stays in the output so callers
+  // can report it, but it never decides routing.
+  const hasHumanLabel = labelNames.some((label) => label.toLowerCase() === HUMAN_APPROVAL_LABEL);
 
   const issueText = [title, body, ...labelNames].join('\n');
   const hasPathSnapshot = paths !== undefined || pathsComplete !== undefined;
-  if ((isPullRequestSurface || hasPathSnapshot)
+  // The PR surface still needs a complete file list: it is the only place
+  // where the real diff is known, and the native gate reads it.
+  if (isPullRequestSurface
     && (!Array.isArray(paths) || pathsComplete !== true
     || paths.length === 0 || paths.some((path) => !normalizedPath(path)))) {
     return {
@@ -497,15 +480,20 @@ export function classifyAutomationRisk({
       needsHumanVeto: false,
       domains: [],
       unknownPaths: [],
-      humanApprovalRequired: !isPullRequestSurface,
+      humanApprovalRequired: false,
       visionApproved: false,
-      reason: isPullRequestSurface
-        ? 'elenco path PR non verificabile; deny fail-closed senza approvazione umana'
-        : 'elenco path issue non verificabile; automation deny-by-default',
+      reason: 'elenco path PR non verificabile; deny fail-closed senza approvazione umana',
     };
   }
 
-  const snapshotPaths = hasPathSnapshot ? paths.map(normalizedPath) : [];
+  // Issue surface (f1-f7-v4): i path citati nella prosa sono un indizio, non il
+  // diff. Un elenco incompleto conserva i path leggibili come evidenza.
+  const snapshotPaths = hasPathSnapshot && Array.isArray(paths)
+    ? paths.map(normalizedPath).filter(Boolean)
+    : [];
+  const issuePathsComplete = isPullRequestSurface
+    || !hasPathSnapshot
+    || (Array.isArray(paths) && pathsComplete === true && snapshotPaths.length === paths.length);
   const controlPlanePaths = snapshotPaths.filter(isControlPlanePath);
   const controlPlaneEvidence = isPullRequestSurface ? [] : controlPlanePaths;
   const pathsForRisk = isPullRequestSurface
@@ -534,29 +522,21 @@ export function classifyAutomationRisk({
   const knownIssue = KNOWN_ISSUE_CATEGORIES.has(String(category).toLowerCase())
     || issueMatches.length > 0
     || labelNames.some((label) => KNOWN_ORDINARY_ISSUE_LABEL_SET.has(label));
-  const denyCode = isPullRequestSurface
-    ? null
-    : controlPlane
-      ? 'control-plane'
-      : unknown.length > 0
-        ? 'unknown-path'
-        : issueMatches.length || pathMatches.length
-          ? 'high-risk-domain'
-          : !hasPathSnapshot && !knownIssue
-            ? 'unknown-issue'
-            : null;
-  // VISION is provenance for a deterministic re-entry, not a bypass for the
-  // issue-surface risk policy. F1/F7 and control-plane findings must remain
-  // blocked until the independent gates and a human-verifiable path clear them.
-  const blocked = denyCode !== null;
+  // Nessun veto sulla superficie issue (owner 2026-09-24): F1/F7, control-plane,
+  // path e categorie sconosciuti sono evidenza per il fixer e per la review
+  // della PR. La supervisione resta sulla superficie PR (file-list completa,
+  // `## LGTM`, check verdi, HEAD esatta), come da DECISIONS 2026-07-05.
   return {
     policyVersion: AUTOMATION_RISK_POLICY_VERSION,
     verifiable: true,
-    blocked,
-    decision: blocked ? 'deny' : 'allow',
-    denyCode,
+    blocked: false,
+    decision: 'allow',
+    denyCode: null,
     controlPlane,
     needsHumanVeto: false,
+    humanLabel: hasHumanLabel,
+    knownIssue: isPullRequestSurface || knownIssue,
+    pathsComplete: issuePathsComplete,
     domains: controlPlane ? domains : domains.filter((domain) => domain !== CONTROL_PLANE_DOMAIN),
     unknownPaths: unknown,
     evidence: {
@@ -564,19 +544,11 @@ export function classifyAutomationRisk({
       path: pathMatches,
       controlPlane: controlPlaneEvidence,
     },
-    humanApprovalRequired: blocked,
+    humanApprovalRequired: false,
     visionApproved: hasVisionAutonomyApproval,
-    reason: blocked
-      ? denyCode === 'unknown-issue'
-        ? 'issue non classificabile con segnali noti; automation deny-by-default'
-        : denyCode === 'unknown-path'
-          ? `path non riconosciuti: ${unknown.join(', ')}`
-          : controlPlane
-            ? `control-plane sotto modifica: ${controlPlanePaths.join(', ') || 'riferimento issue'}`
-            : `domini F1/F7 rilevati: ${domains.join(', ')}`
-      : isPullRequestSurface
-        ? 'PR con metadata e file-list completi e verificabili; F1/F7, control-plane e path sconosciuti non sono veto policy'
-        : 'nessun dominio F1/F7 rilevato e path riconosciuti',
+    reason: isPullRequestSurface
+      ? 'PR con metadata e file-list completi e verificabili; F1/F7, control-plane e path sconosciuti non sono veto policy'
+      : 'issue instradabile: F1/F7, control-plane, path e categorie sconosciuti sono evidenza, non veto',
   };
 }
 
