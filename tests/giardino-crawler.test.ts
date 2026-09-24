@@ -1071,6 +1071,10 @@ describe('fetchAllGiardinoJobs — Talents board (issue #6694)', () => {
     ['a card whose href is not a job page', talentsCard('stellen/night-auditor', 'stmoritz', 'frontoffice', 'Night Auditor (m/w)')],
     ['a card without a title', talentsCard('job-night-auditor.html', 'stmoritz', 'frontoffice', '')],
     ['a card-like tag without the job-card class', '<div data-job data-loc="stmoritz"><h3>Night Auditor</h3></div>'],
+    ['a single-quoted job link', "<a class='card' href='job-night-auditor.html'><h3>Night Auditor</h3></a>"],
+    ['an unquoted job link', '<a class=card href=job-night-auditor.html><h3>Night Auditor</h3></a>'],
+    ['a job page referenced outside href', '<div class="tile" onclick="location=\'job-night-auditor.html\'">Night Auditor</div>'],
+    ['a job page named only in text', '<p>Night Auditor: siehe job-night-auditor.html</p>'],
   ])('does NOT prove a zero when jobs-count is 0 but the JOBS block holds %s', async (_label, card) => {
     const board = talentsBoard([card], 0);
     const listing = parseTalentsListing(board, TALENTS_URL);

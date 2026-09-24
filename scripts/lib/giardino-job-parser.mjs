@@ -449,10 +449,12 @@ export function stripGenderMarker(raw = '') {
  * block the board is rendered into: a page without it (a redirect to the
  * homepage, a redesign) is not a board and says nothing about the vacancies.
  * `declaredCount` is the rendered total (`id="jobs-count"`), or null.
- * `rawCardCount` counts every tag inside the JOBS block that LOOKS like a card
- * (a `job-card` class token, a `data-job` attribute or a `job-*.html` link),
- * whether or not it parsed: `cards` drops malformed ones, so an empty `cards`
- * alone cannot prove an empty board.
+ * `rawCardCount` counts what LOOKS like a card inside the JOBS block, whether
+ * or not it parsed: tags with a `job-card` class token, a `data-job` attribute
+ * or a `job-*.html` reference, and every `job-*.html` reference in the block —
+ * in any attribute, whatever the quoting (double, single, none), or in text.
+ * `cards` drops malformed ones, so an empty `cards` alone cannot prove an
+ * empty board.
  *
  * @returns {{ recognized: boolean, declaredCount: number|null, rawCardCount: number,
  *   cards: Array<{ file: string, url: string, rawTitle: string, title: string,
@@ -468,9 +470,10 @@ export function parseTalentsListing(html = '', baseUrl = TALENTS_URL) {
   if (start < 0 || !endMatch) return { recognized: false, declaredCount, rawCardCount: 0, cards: [] };
 
   const block = page.slice(start, start + endMatch.index);
-  const rawCardCount = (
-    block.match(/<[a-z][^>]*(?:\bjob-card\b|\sdata-job\b|href\s*=\s*"[^"]*job-[^"]*\.html)[^>]*>/gi) || []
-  ).length;
+  const cardLikeTags = (block.match(/<[a-z][^>]*>/gi) || [])
+    .filter((tag) => /\bjob-card\b|\sdata-job\b|job-[\w.-]*\.html?/i.test(tag)).length;
+  const jobPageRefs = (block.match(/job-[\w.-]*\.html?/gi) || []).length;
+  const rawCardCount = Math.max(cardLikeTags, jobPageRefs);
   const cards = [];
   const seen = new Set();
   const cardRe = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
