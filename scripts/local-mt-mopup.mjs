@@ -72,6 +72,11 @@ import {
   judgeLocalMtMeaning,
   SEMANTIC_VERDICT,
 } from './lib/local-mt-semantic-judge.mjs';
+import {
+  createSemanticRollbackGuard,
+  evaluateOverwritePolicy,
+  POLICY_VERDICT,
+} from './lib/local-mt-semantic-policy.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -91,6 +96,9 @@ const WRITE_GUARD_DECISIONS = [
   'skip:candidate-untranslated',
   'skip:semantic-mismatch',
   'skip:semantic-unavailable',
+  'skip:semantic-reject',
+  'skip:semantic-unclear',
+  'skip:semantic-rollback',
   'skip:source-copy',
   'skip:existing-good',
   'skip:finalize-empty',
@@ -728,6 +736,53 @@ function applySemanticVerdict(structural, verdict) {
 }
 
 /**
+ * Overwrite policy (#9676). A structural `write` that REPLACES a stored value
+ * (the language-driven arm) must also pass scripts/lib/local-mt-semantic-policy
+ * .mjs: deterministic meaning guards, the echo ceiling and the calibrated
+ * cutoff. `reject` and `unclear` keep the stored value. With a run guard, the
+ * first unavailable verdict or a rejected share above the rollback limit
+ * switches the arm off before the next candidate is written. Fills of an empty
+ * slot are left to the judge's bootstrap gate.
+ */
+function applyOverwritePolicy(structural, judged, { sourceLang, locale, rollbackGuard } = {}) {
+  if (structural?.decision !== 'write' || !structural.languageDriven) return judged;
+  if (rollbackGuard?.status().tripped) {
+    rollbackGuard.withhold();
+    return {
+      ...judged,
+      decision: 'skip:semantic-rollback',
+      semanticPolicy: { verdict: 'rollback', reason: rollbackGuard.status().reason },
+    };
+  }
+  if (judged?.decision === 'skip:semantic-unavailable') {
+    rollbackGuard?.observe({ verdict: POLICY_VERDICT.UNAVAILABLE, reason: judged.semanticReason });
+    return judged;
+  }
+  if (judged?.decision === 'skip:semantic-mismatch') {
+    rollbackGuard?.observe({ verdict: POLICY_VERDICT.REJECT, reason: 'semantic-mismatch' });
+    return judged;
+  }
+  if (judged?.decision !== 'write') return judged;
+  const policy = evaluateOverwritePolicy({
+    sourceText: judged.normalizedSourceText,
+    sourceLang,
+    candidateText: judged.incoming,
+    targetLocale: locale,
+    existingText: judged.existing,
+    score: judged.semanticScore,
+  });
+  rollbackGuard?.observe(policy);
+  if (policy.shouldWrite) return { ...judged, semanticPolicy: policy };
+  return {
+    ...judged,
+    semanticPolicy: policy,
+    decision: policy.verdict === POLICY_VERDICT.UNCLEAR
+      ? 'skip:semantic-unclear'
+      : policy.verdict === POLICY_VERDICT.REJECT ? 'skip:semantic-reject' : 'skip:semantic-unavailable',
+  };
+}
+
+/**
  * The full write guard: the structural chain plus the semantic gate.
  *
  * Synchronous by design, so it can be called from audits and one-liners: the
@@ -736,7 +791,11 @@ function applySemanticVerdict(structural, verdict) {
  * `skip:semantic-unavailable` — fail-closed: no score, no write.
  */
 export function classifyMopupWrite({ semanticVerdict, ...options }) {
-  return applySemanticVerdict(classifyMopupStructure(options), semanticVerdict);
+  const structural = classifyMopupStructure(options);
+  return applyOverwritePolicy(structural, applySemanticVerdict(structural, semanticVerdict), {
+    sourceLang: options.job?.sourceLang || 'it',
+    locale: options.locale,
+  });
 }
 
 /**
@@ -751,6 +810,7 @@ export async function judgeMopupWrite(structural, {
   locale,
   field,
   judge = judgeLocalMtMeaning,
+  rollbackGuard,
 } = {}) {
   if (structural?.decision !== 'write') return structural;
   let verdict;
@@ -765,7 +825,11 @@ export async function judgeMopupWrite(structural, {
   } catch {
     verdict = { accepted: false, score: null, reason: 'judge-error' };
   }
-  return applySemanticVerdict(structural, verdict);
+  return applyOverwritePolicy(structural, applySemanticVerdict(structural, verdict), {
+    sourceLang,
+    locale,
+    rollbackGuard,
+  });
 }
 
 /**
@@ -780,12 +844,14 @@ export async function commitMopupCandidate({
   field,
   candidate,
   judge = judgeLocalMtMeaning,
+  rollbackGuard,
 }) {
   const judged = await judgeMopupWrite(candidate, {
     sourceLang: job?.sourceLang || 'it',
     locale,
     field,
     judge,
+    rollbackGuard,
   });
   if (judged?.decision !== 'write') {
     return { written: false, decision: judged?.decision, judged };
@@ -1167,6 +1233,8 @@ async function main() {
   let shadowWithheld = 0;
   let languageFieldsRewritten = 0;
   const semanticTally = {};
+  // One rollback guard per run for the overwrite arm (#9676).
+  const overwriteRollback = createSemanticRollbackGuard();
 
   for (const [file, edits] of byFile) {
     if (!budgetOk()) {
@@ -1266,14 +1334,17 @@ async function main() {
       // `Gefängnisseelsorger → Cappellano carcerario` from
       // `Gefängnisseelsorger → Prigionieri`. Compare source and finalized
       // candidate before the write; a mismatch or an unavailable score keeps
-      // the stored value. Not negative-cached on purpose: the threshold is a
-      // bootstrap value until #9676 calibrates it, and a cached verdict would
-      // park the slot for a week on an uncalibrated number.
+      // the stored value. An overwrite of a stored value also passes the
+      // #9676 policy (meaning guards + calibrated cutoff + run rollback). Not
+      // negative-cached on purpose: the fill threshold is still a bootstrap
+      // value and the overwrite cutoff rests on a small synthetic dataset, so a
+      // cached verdict would park the slot for a week on a provisional number.
       const committed = await commitMopupCandidate({
         job,
         locale,
         field,
         candidate: finalCandidate,
+        rollbackGuard: overwriteRollback,
       });
       semanticTally[committed.decision] = (semanticTally[committed.decision] || 0) + 1;
       if (!committed.written) continue;
@@ -1333,6 +1404,8 @@ async function main() {
     const pct = semanticTotal ? ((100 * n) / semanticTotal).toFixed(1) : '0.0';
     console.log(`   ${decision.padEnd(28)} ${String(n).padStart(6)}  ${pct}%`);
   }
+  const rollback = overwriteRollback.status();
+  console.log(`   overwrite rollback: ${rollback.tripped ? 'TRIPPED' : 'armed'} (${rollback.reason}; observed=${rollback.observed} rejected=${rollback.regressions} unavailable=${rollback.unavailable} withheld=${rollback.withheld} limit=${rollback.maxRegressionRate})`);
   const langWrites = Object.values(langWriteReasons).reduce((a, b) => a + b, 0);
   const langSkips = Object.values(langSkipReasons).reduce((a, b) => a + b, 0);
   console.log(`\n🌍 [local-mt] Language arm — LOCAL_MT_LANG_AWARE_OVERWRITE=${LANG_AWARE_OVERWRITE ? '1 (ENFORCING, writes applied)' : '0 (SHADOW, writes withheld)'}`);
