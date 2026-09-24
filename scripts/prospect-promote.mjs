@@ -39,6 +39,7 @@ import { loadCandidates, saveCandidates, setStatus, byStatus } from './lib/prosp
 import {
   selectForPromotion,
   summarizePromotionBlocks,
+  diagnosePromotionBlocks,
   clampMinDays,
   findOpenPromotionPr,
   GATE_DEFAULTS,
@@ -342,7 +343,18 @@ console.log('═══ Prospector · PROMOTE ═══');
 console.log(`candidati graduati "promoted": ${byStatus(store, 'promoted').length}`);
 console.log(`passano il gate di produzione: ${promotable.length}${capped ? ` (+${capped} oltre il tetto di ${maxPerRun}, rinviati)` : ''}`);
 const blockedSummary = summarizePromotionBlocks(blocked);
-console.log(`fermati dal gate: ${blocked.length} (${blockedSummary.stabilityOnly} solo stabilita'; ${blockedSummary.other} altre condizioni)\n`);
+console.log(`fermati dal gate: ${blocked.length} (${blockedSummary.stabilityOnly} solo stabilita'; ${blockedSummary.other} altre condizioni)`);
+
+// Attribuzione per predicato dei blocchi `other` (#9680): conta per nome del
+// check, stabile fra le run, invece che per testo della ragione.
+const blockedDiagnosis = diagnosePromotionBlocks(blocked);
+const checkTally = Object.entries(blockedDiagnosis.failedChecks).map(([name, n]) => `${name} ${n}`).join(', ');
+if (checkTally) console.log(`predicati falliti nelle altre condizioni: ${checkTally}`);
+console.log(`altre condizioni senza causa concreta: ${blockedDiagnosis.unattributed.length}`);
+if (blockedDiagnosis.unattributed.length) {
+  console.log(`::warning::${blockedDiagnosis.unattributed.length} blocchi del gate senza check fallito o senza ragione: ${blockedDiagnosis.unattributed.slice(0, 20).join(', ')}`);
+}
+console.log('');
 
 // Why each one was held back. With nobody watching, this IS the review.
 const reasonTally = {};

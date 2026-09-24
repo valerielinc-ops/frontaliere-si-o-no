@@ -324,6 +324,21 @@ export function selectForPromotion(candidates, ctx = {}, opts = {}) {
   return { promotable: promotable.slice(0, g.maxPerRun), blocked, capped };
 }
 
+/** @param {{ checks?: Record<string, boolean> }} item */
+function failedChecksOf(item) {
+  return Object.entries(item?.checks || {})
+    .filter(([, passed]) => passed === false)
+    .map(([name]) => name);
+}
+
+/** I soli predicati che una run successiva puo' soddisfare da se'. */
+const STABILITY_CHECKS = new Set(['runs', 'days']);
+
+/** @param {string[]} failed */
+function isStabilityOnly(failed) {
+  return failed.length > 0 && failed.every((name) => STABILITY_CHECKS.has(name));
+}
+
 /**
  * Separate candidates waiting only for the two-day stability window from
  * candidates failing any other production condition. The distinction keeps
@@ -340,14 +355,57 @@ export function summarizePromotionBlocks(blocked = []) {
   let stabilityOnly = 0;
   let other = 0;
   for (const item of blocked) {
-    const failedChecks = Object.entries(item?.checks || {})
-      .filter(([, passed]) => passed === false)
-      .map(([name]) => name);
-    if (failedChecks.length > 0 && failedChecks.every((name) => name === 'runs' || name === 'days')) {
-      stabilityOnly += 1;
-    } else {
-      other += 1;
-    }
+    if (isStabilityOnly(failedChecksOf(item))) stabilityOnly += 1;
+    else other += 1;
   }
   return { stabilityOnly, other };
+}
+
+/**
+ * Attribuisce ogni blocco `other` ai predicati che ha effettivamente fallito
+ * (#9680). La sola partizione stabilita'/altro dice QUANTI candidati servono
+ * una diagnosi, non QUALE: il tally per testo della ragione si frammenta,
+ * perche' le ragioni portano i valori misurati ("qualita' 0.62 sotto...",
+ * "qualita' 0.71 sotto..."), e la sua top-10 nasconde la coda. Qui si conta
+ * per NOME del check, che e' stabile fra le run e confrontabile nel tempo.
+ *
+ * `unattributed` elenca i candidati `other` senza una causa concreta: nessun
+ * check a `false` oppure nessuna ragione registrata. Deve restare vuoto; un
+ * elemento qui e' un blocco che nessun predicato spiega, cioe' un difetto
+ * del gate o del record, non del candidato.
+ *
+ * I conteggi di `failedChecks` si sovrappongono: un candidato puo' fallire
+ * piu' predicati. Ordinati per frequenza decrescente, poi per nome, cosi'
+ * l'output e' deterministico.
+ *
+ * @param {{ candidate?: Record<string, any>, reasons?: string[], checks?: Record<string, boolean> }[]} blocked
+ * @returns {{ stabilityOnly: number, other: number, failedChecks: Record<string, number>, stabilityOnlyKeys: string[], unattributed: string[] }}
+ */
+export function diagnosePromotionBlocks(blocked = []) {
+  const { stabilityOnly, other } = summarizePromotionBlocks(blocked);
+  /** @type {Record<string, number>} */
+  const tally = {};
+  const stabilityOnlyKeys = [];
+  const unattributed = [];
+  for (const item of blocked) {
+    const failed = failedChecksOf(item);
+    const key = String(item?.candidate?.key || item?.candidate?.crawlerKey || '(senza chiave)');
+    if (isStabilityOnly(failed)) {
+      stabilityOnlyKeys.push(key);
+      continue;
+    }
+    for (const name of failed) tally[name] = (tally[name] || 0) + 1;
+    const hasReason = Array.isArray(item?.reasons) && item.reasons.some((r) => String(r || '').trim());
+    if (failed.length === 0 || !hasReason) unattributed.push(key);
+  }
+  const failedChecks = Object.fromEntries(
+    Object.entries(tally).sort((a, b) => b[1] - a[1] || a[0].localeCompare(b[0])),
+  );
+  return {
+    stabilityOnly,
+    other,
+    failedChecks,
+    stabilityOnlyKeys: stabilityOnlyKeys.sort(),
+    unattributed: unattributed.sort(),
+  };
 }
