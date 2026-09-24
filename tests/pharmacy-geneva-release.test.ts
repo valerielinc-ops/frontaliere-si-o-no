@@ -16,10 +16,11 @@ import {
 import type { GenevaDutySnapshot } from '../services/pharmacies/genevaRelease';
 import { importGenevaPharmacyDuties } from '../scripts/import-pharmacy-duties-geneva.mjs';
 
-const FETCHED_AT = '2026-09-15T12:00:00.000Z';
+const FETCHED_AT = '2026-09-24T12:00:00.000Z';
 const NOW = new Date(FETCHED_AT);
 const SOURCES = sourceConfig as unknown as Record<string, unknown>;
 const CATALOGUE = [
+  { id: 'ge-pharma24', country: 'CH', canton: 'Geneva' },
   { id: 'ge-pharmacie-du-museum', country: 'CH', canton: 'Geneva' },
   { id: 'ge-pharmacie-plaza', country: 'CH', canton: 'Geneva' },
 ];
@@ -79,24 +80,32 @@ function completeSnapshots() {
 }
 
 describe('Geneva pharmacy duty release gate', () => {
-  it('imports the fixture into an atomic not_published release without writing files', async () => {
+  it('imports the fixture into an atomic fresh release without writing files', async () => {
     const imported = await importGenevaPharmacyDuties({
       fixtureDir: fileURLToPath(new URL('./fixtures/pharmacy-duties', import.meta.url)),
       attemptedAt: FETCHED_AT,
       write: false,
     });
 
-    expect(imported.release.state).toBe('not_published');
-    expect(imported.duties.duties).toEqual([]);
+    expect(imported.release.state).toBe('fresh');
+    expect(imported.duties.duties).toHaveLength(379);
     expect(imported.status._coverage).toMatchObject({
-      observedCalendarDays: 14,
-      uncoveredCalendarDays: 351,
-      coverage: 'partial',
+      observedCalendarDays: 365,
+      uncoveredCalendarDays: 0,
+      coverage: 'covered',
     });
     expect(imported.duties._release.releaseId).toBe(imported.status._release.releaseId);
+    const evaluation = evaluateGenevaDutyRelease({
+      duties: imported.duties,
+      status: imported.status,
+      sources: SOURCES,
+      catalogue: CATALOGUE,
+      now: NOW,
+    });
+    expect(evaluation).toMatchObject({ state: 'fresh', publishable: true, indexable: true });
   });
 
-  it('keeps the checked-in partial source as not_published and non-indexable', () => {
+  it('keeps the checked-in release fresh and indexable', () => {
     expect(validateGenevaDutySourceRegistry(SOURCES)).toEqual([]);
     expect(validateGenevaDutyRelease((dutiesSnapshot as GenevaDutySnapshot)._release)).toEqual([]);
     expect(verifyGenevaDutyRelease({
@@ -113,16 +122,12 @@ describe('Geneva pharmacy duty release gate', () => {
       now: NOW,
     });
 
-    expect(evaluation.state).toBe('not_published');
-    expect(evaluation.coverage).toBe('partial');
+    expect(evaluation.state).toBe('fresh');
+    expect(evaluation.coverage).toBe('covered');
     expect(evaluation.freshness).toBe('fresh');
-    expect(evaluation.publishable).toBe(false);
-    expect(evaluation.indexable).toBe(false);
-    expect(evaluation.reasons).toEqual(expect.arrayContaining([
-      'Geneva calendar coverage is not a complete contiguous 2026 calendar',
-      'Geneva source status is degraded',
-      'Geneva release state is not_published',
-    ]));
+    expect(evaluation.publishable).toBe(true);
+    expect(evaluation.indexable).toBe(true);
+    expect(evaluation.reasons).toEqual([]);
   });
 
   it('would publish only an intact complete release with an active source and resolved identity', () => {
