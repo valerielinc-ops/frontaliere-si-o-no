@@ -2859,7 +2859,7 @@
       "title": "Koch/Köchin",
       "titleByLocale": {
         "it": "Cucina/chef",
-        "en": "Koch/Köchin",
+        "en": "Cook/chef",
         "de": "Koch/Köchin",
         "fr": "Cuisson/chef"
       },
@@ -2922,7 +2922,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:57:39.653Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -4685,7 +4684,7 @@
       "title": "Koch/Köchin",
       "titleByLocale": {
         "it": "Cucina/chef",
-        "en": "Koch/Köchin",
+        "en": "Cook/chef",
         "de": "Koch/Köchin",
         "fr": "Cuisson/chef"
       },
@@ -4758,8 +4757,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "weisse-arena-1969dfcdf4dc",
