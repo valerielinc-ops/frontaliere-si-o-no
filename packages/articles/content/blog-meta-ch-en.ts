@@ -6677,6 +6677,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.bns-tasso-guida-zero-2026.title': 'SNB leaves guide rate at 0% and raises GDP estimates 2026',
     'blog.article.bns-tasso-guida-zero-2026.excerpt': 'The SNB guide rate remains at 0% from June 2025; August inflation at 0.8%; GDP 2026 forecast between 1.5% and 2%.',
     'blog.article.bns-tasso-guida-zero-2026.imageAlt': 'Lake Lugano view with mountains and financial buildings in the background',
+    'blog.article.turismo-agosto-ospiti-estero.title': 'End of summer with fewer foreign tourists in Switzerland',
+    'blog.article.turismo-agosto-ospiti-estero.excerpt': 'In August, overnight stays in Switzerland fell by 1.9% on an annual basis: foreign guests weigh on them, but domestic demand also lags behind.',
+    'blog.article.turismo-agosto-ospiti-estero.imageAlt': 'Tourists on a Swiss lakeside promenade in a late-summer scene.',
 };
 
 export default blogMetaChEn;
