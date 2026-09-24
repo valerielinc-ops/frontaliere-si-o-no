@@ -41,7 +41,6 @@ export default function RewardedApplicationOffer({
   const [retryRequired, setRetryRequired] = useState(false);
   const [retryToken, setRetryToken] = useState(0);
   const grantedRef = useRef(false);
-  const videoCompletedRef = useRef(false);
   const completedRef = useRef(false);
 
   useEffect(() => {
@@ -99,7 +98,6 @@ export default function RewardedApplicationOffer({
   };
 
   const handleVideoCompleted = () => {
-    videoCompletedRef.current = true;
     setRewarded(true);
     completeIfReady();
   };
@@ -115,7 +113,6 @@ export default function RewardedApplicationOffer({
       // GPT's granted close event is emitted only after the rewarded
       // experience has satisfied its completion condition. Treat it as the
       // final lifecycle signal if a browser omits the separate video event.
-      videoCompletedRef.current = true;
       completeIfReady();
       return;
     }
@@ -145,7 +142,6 @@ export default function RewardedApplicationOffer({
 
   const retry = () => {
     grantedRef.current = false;
-    videoCompletedRef.current = false;
     completedRef.current = false;
     setRewarded(false);
     setRetryRequired(false);
