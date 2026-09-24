@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kulm-hotel",
-  "assembledAt": "2026-09-23T18:35:57.367Z",
+  "assembledAt": "2026-09-23T23:46:26.610Z",
   "jobs": [
     {
       "id": "kulm-hotel-6d5358fd2a15",
@@ -33,7 +33,7 @@
       "url": "https://careers.kulm.com/en/vacancies/708",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:02:43.127Z",
+      "crawledAt": "2026-09-23T23:46:21.861Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -63,7 +63,8 @@
         "driver-m-w-d-kulm-hotel-st-moritz",
         "driver-m-w-d-kulm-hotel-st-moritz-pontresina",
         "pilote-h-f-d-kulm-hotel-st-moritz-pontresina",
-        "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina"
+        "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -76,7 +77,8 @@
           "driver-m-w-d-kulm-hotel-st-moritz",
           "driver-m-w-d-kulm-hotel-st-moritz-pontresina",
           "pilote-h-f-d-kulm-hotel-st-moritz-pontresina",
-          "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina"
+          "fahrer-m-w-d-kulm-hotel-st-moritz-pontresina",
+          "tecnico-m-w-d-kulm-hotel-st-moritz-pontresina"
         ],
         "en": [
           "driver-m-w-d-kulm-hotel-st-moritz"
@@ -138,7 +140,7 @@
       "url": "https://careers.kulm.com/en/vacancies/723",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:02:42.960Z",
+      "crawledAt": "2026-09-23T23:46:21.686Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -161,7 +163,8 @@
       "previousSlugsByLocale": {
         "it": [
           "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz",
-          "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz"
+          "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz",
+          "sous-chef-deve-avere-fluente-in-italiano-iniziare-immediatamente-m-f-d-kulm-hotel-st-moritz-pontresina"
         ],
         "de": [
           "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz"
@@ -172,9 +175,11 @@
       },
       "previousSlugs": [
         "sous-chef-must-have-fluent-in-italian-start-immediately-m-w-d-kulm-hotel-st-moritz",
-        "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz"
+        "sous-chef-main-kitchen-16-gaultmillau-points-m-w-d-kulm-hotel-st-moritz",
+        "sous-chef-deve-avere-fluente-in-italiano-iniziare-immediatamente-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
       "firstSeenAt": "2026-08-24T10:10:40.981Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -220,7 +225,7 @@
       "url": "https://careers.kulm.com/en/vacancies/719",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:02:41.967Z",
+      "crawledAt": "2026-09-23T23:46:20.709Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -242,12 +247,14 @@
       "pensum": "100%",
       "previousSlugs": [
         "events-planning-manager-m-w-d-kulm-hotel-st-moritz",
-        "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz"
+        "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz",
+        "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
       ],
       "previousSlugsByLocale": {
         "it": [
           "events-planning-manager-m-w-d-kulm-hotel-st-moritz",
-          "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz"
+          "senior-events-planning-manager-m-w-d-kulm-hotel-st-moritz",
+          "gestione-della-pianificazione-degli-eventi-m-f-d-kulm-hotel-st-moritz-st-moritz-2f5977"
         ],
         "de": [
           "events-planning-manager-m-w-d-kulm-hotel-st-moritz"
@@ -257,6 +264,7 @@
         ]
       },
       "firstSeenAt": "2026-08-11T22:01:56.519Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -270,6 +278,86 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kulm-hotel-875c16e64568",
+      "slug": "addetto-alle-camere-cameriera-roomboy-m-w-d-kulm-hotel-st-moritz-pontresina",
+      "slugByLocale": {
+        "fr": "salle-d-assistance-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "de": "zimmerbetreuer-zimmerdame-zimmerjunge-m-w-d-kulm-hotel-st-moritz-pontresina",
+        "en": "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz",
+        "it": "addetto-alle-camere-cameriera-roomboy-m-w-d-kulm-hotel-st-moritz-pontresina"
+      },
+      "company": "Kulm Hotel St. Moritz",
+      "companyKey": "kulm-hotel",
+      "companyDomain": "kulm.com",
+      "title": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d)",
+      "titleByLocale": {
+        "fr": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d)",
+        "it": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d)",
+        "en": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d)",
+        "de": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d)"
+      },
+      "description": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-07-15.\n\nWhere alpine grandeur meets genuine warmth: For generations, the Grand Hotel Kronenhof has stood for timeless elegance, excellent service, and the highest standards at a 5-star superior level. Our philosophy combines uncompromising quality with an atmosphere of warmth and hospitality. To bring this high standard to life for our guests every day, we are looking for a personality who shares our passion for perfection. | This is what you move with us:\n• Excellence in Detail: Impeccable cleaning and maintenance of our luxurious rooms and suites in strict compliance with and implementation of LQA and Forbes standards.\n\n• Perfect Guest Service: Conducting first-class morning and evening services (turndown) as well as cleaning public hotel areas and guest restrooms.\n\n• Preservation of Value: Meticulous and professional care of fine materials, high-quality furniture, and decorative elements.\n\n• Attentive & Discreet: Replenishing and monitoring the minibar.\n\n• Genuine Warmth: Discreet, courteous, and warm service to perfectly safeguard the privacy of our discerning guests at all times.\n\n• Start date: Immediate or by arrangement | This is you:\n• Luxury Segment Experience: Professional experience within the 5-star hospitality industry.\n\n• Standard Expertise (Must-Have): You already possess profound knowledge and proven practical experience with Forbes and LQA quality benchmarks and implement them routinely.\n\n• Eye for Detail: You have a keen sense of cleanliness, aesthetics, and detail.\n\n• Personality: Absolute reliability, discretion, and a consistently well-groomed, professional appearance are second nature to you.\n\n• Team Spirit & Warmth: You take genuine pleasure in service, possess a warm charisma, and enjoy working hand-in-hand within a passionate team.\n\n• Communication: You have a good command of German or English; any additional language is a valuable asset. | Benefits:\n• A work environment characterized by mutual respect, team spirit, and lived appreciation.\n\n• The opportunity to make a meaningful impact in one of Switzerland’s leading luxury hotels.\n\n• Attractive development opportunities, comfortable accommodation, reasonably priced meals in the staff restaurant, and numerous perks and discounts.",
+      "descriptionByLocale": {
+        "fr": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-07-15.\n\nWhere alpine grandeur meets genuine warmth: For generations, the Grand Hotel Kronenhof has stood for timeless elegance, excellent service, and the highest standards at a 5-star superior level. Our philosophy combines uncompromising quality with an atmosphere of warmth and hospitality. To bring this high standard to life for our guests every day, we are looking for a personality who shares our passion for perfection. | This is what you move with us:\n• Excellence in Detail: Impeccable cleaning and maintenance of our luxurious rooms and suites in strict compliance with and implementation of LQA and Forbes standards.\n\n• Perfect Guest Service: Conducting first-class morning and evening services (turndown) as well as cleaning public hotel areas and guest restrooms.\n\n• Preservation of Value: Meticulous and professional care of fine materials, high-quality furniture, and decorative elements.\n\n• Attentive & Discreet: Replenishing and monitoring the minibar.\n\n• Genuine Warmth: Discreet, courteous, and warm service to perfectly safeguard the privacy of our discerning guests at all times.\n\n• Start date: Immediate or by arrangement | This is you:\n• Luxury Segment Experience: Professional experience within the 5-star hospitality industry.\n\n• Standard Expertise (Must-Have): You already possess profound knowledge and proven practical experience with Forbes and LQA quality benchmarks and implement them routinely.\n\n• Eye for Detail: You have a keen sense of cleanliness, aesthetics, and detail.\n\n• Personality: Absolute reliability, discretion, and a consistently well-groomed, professional appearance are second nature to you.\n\n• Team Spirit & Warmth: You take genuine pleasure in service, possess a warm charisma, and enjoy working hand-in-hand within a passionate team.\n\n• Communication: You have a good command of German or English; any additional language is a valuable asset. | Benefits:\n• A work environment characterized by mutual respect, team spirit, and lived appreciation.\n\n• The opportunity to make a meaningful impact in one of Switzerland’s leading luxury hotels.\n\n• Attractive development opportunities, comfortable accommodation, reasonably priced meals in the staff restaurant, and numerous perks and discounts.",
+        "it": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-07-15.\n\nWhere alpine grandeur meets genuine warmth: For generations, the Grand Hotel Kronenhof has stood for timeless elegance, excellent service, and the highest standards at a 5-star superior level. Our philosophy combines uncompromising quality with an atmosphere of warmth and hospitality. To bring this high standard to life for our guests every day, we are looking for a personality who shares our passion for perfection. | This is what you move with us:\n• Excellence in Detail: Impeccable cleaning and maintenance of our luxurious rooms and suites in strict compliance with and implementation of LQA and Forbes standards.\n\n• Perfect Guest Service: Conducting first-class morning and evening services (turndown) as well as cleaning public hotel areas and guest restrooms.\n\n• Preservation of Value: Meticulous and professional care of fine materials, high-quality furniture, and decorative elements.\n\n• Attentive & Discreet: Replenishing and monitoring the minibar.\n\n• Genuine Warmth: Discreet, courteous, and warm service to perfectly safeguard the privacy of our discerning guests at all times.\n\n• Start date: Immediate or by arrangement | This is you:\n• Luxury Segment Experience: Professional experience within the 5-star hospitality industry.\n\n• Standard Expertise (Must-Have): You already possess profound knowledge and proven practical experience with Forbes and LQA quality benchmarks and implement them routinely.\n\n• Eye for Detail: You have a keen sense of cleanliness, aesthetics, and detail.\n\n• Personality: Absolute reliability, discretion, and a consistently well-groomed, professional appearance are second nature to you.\n\n• Team Spirit & Warmth: You take genuine pleasure in service, possess a warm charisma, and enjoy working hand-in-hand within a passionate team.\n\n• Communication: You have a good command of German or English; any additional language is a valuable asset. | Benefits:\n• A work environment characterized by mutual respect, team spirit, and lived appreciation.\n\n• The opportunity to make a meaningful impact in one of Switzerland’s leading luxury hotels.\n\n• Attractive development opportunities, comfortable accommodation, reasonably priced meals in the staff restaurant, and numerous perks and discounts.",
+        "en": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-07-15.\n\nWhere alpine grandeur meets genuine warmth: For generations, the Grand Hotel Kronenhof has stood for timeless elegance, excellent service, and the highest standards at a 5-star superior level. Our philosophy combines uncompromising quality with an atmosphere of warmth and hospitality. To bring this high standard to life for our guests every day, we are looking for a personality who shares our passion for perfection. | This is what you move with us:\n• Excellence in Detail: Impeccable cleaning and maintenance of our luxurious rooms and suites in strict compliance with and implementation of LQA and Forbes standards.\n\n• Perfect Guest Service: Conducting first-class morning and evening services (turndown) as well as cleaning public hotel areas and guest restrooms.\n\n• Preservation of Value: Meticulous and professional care of fine materials, high-quality furniture, and decorative elements.\n\n• Attentive & Discreet: Replenishing and monitoring the minibar.\n\n• Genuine Warmth: Discreet, courteous, and warm service to perfectly safeguard the privacy of our discerning guests at all times.\n\n• Start date: Immediate or by arrangement | This is you:\n• Luxury Segment Experience: Professional experience within the 5-star hospitality industry.\n\n• Standard Expertise (Must-Have): You already possess profound knowledge and proven practical experience with Forbes and LQA quality benchmarks and implement them routinely.\n\n• Eye for Detail: You have a keen sense of cleanliness, aesthetics, and detail.\n\n• Personality: Absolute reliability, discretion, and a consistently well-groomed, professional appearance are second nature to you.\n\n• Team Spirit & Warmth: You take genuine pleasure in service, possess a warm charisma, and enjoy working hand-in-hand within a passionate team.\n\n• Communication: You have a good command of German or English; any additional language is a valuable asset. | Benefits:\n• A work environment characterized by mutual respect, team spirit, and lived appreciation.\n\n• The opportunity to make a meaningful impact in one of Switzerland’s leading luxury hotels.\n\n• Attractive development opportunities, comfortable accommodation, reasonably priced meals in the staff restaurant, and numerous perks and discounts.",
+        "de": "Room Attendant / Zimmerdame / Roomboy - start now (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-07-15.\n\nWhere alpine grandeur meets genuine warmth: For generations, the Grand Hotel Kronenhof has stood for timeless elegance, excellent service, and the highest standards at a 5-star superior level. Our philosophy combines uncompromising quality with an atmosphere of warmth and hospitality. To bring this high standard to life for our guests every day, we are looking for a personality who shares our passion for perfection. | This is what you move with us:\n• Excellence in Detail: Impeccable cleaning and maintenance of our luxurious rooms and suites in strict compliance with and implementation of LQA and Forbes standards.\n\n• Perfect Guest Service: Conducting first-class morning and evening services (turndown) as well as cleaning public hotel areas and guest restrooms.\n\n• Preservation of Value: Meticulous and professional care of fine materials, high-quality furniture, and decorative elements.\n\n• Attentive & Discreet: Replenishing and monitoring the minibar.\n\n• Genuine Warmth: Discreet, courteous, and warm service to perfectly safeguard the privacy of our discerning guests at all times.\n\n• Start date: Immediate or by arrangement | This is you:\n• Luxury Segment Experience: Professional experience within the 5-star hospitality industry.\n\n• Standard Expertise (Must-Have): You already possess profound knowledge and proven practical experience with Forbes and LQA quality benchmarks and implement them routinely.\n\n• Eye for Detail: You have a keen sense of cleanliness, aesthetics, and detail.\n\n• Personality: Absolute reliability, discretion, and a consistently well-groomed, professional appearance are second nature to you.\n\n• Team Spirit & Warmth: You take genuine pleasure in service, possess a warm charisma, and enjoy working hand-in-hand within a passionate team.\n\n• Communication: You have a good command of German or English; any additional language is a valuable asset. | Benefits:\n• A work environment characterized by mutual respect, team spirit, and lived appreciation.\n\n• The opportunity to make a meaningful impact in one of Switzerland’s leading luxury hotels.\n\n• Attractive development opportunities, comfortable accommodation, reasonably priced meals in the staff restaurant, and numerous perks and discounts."
+      },
+      "location": "Pontresina",
+      "canton": "GR",
+      "url": "https://careers.kulm.com/en/vacancies/680",
+      "source": "Kulm Hotel St. Moritz Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-23T23:46:19.737Z",
+      "addressLocality": "Pontresina",
+      "postalCode": "7504",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Housekeeping",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "contractType": "seasonal",
+      "experienceLevel": "mid",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-15",
+      "applyUrl": "https://careers.kulm.com/en/vacancies/680",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Grand Hotel Kronenhof",
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "room-attendant-zimmerdame-roomboy-start-now-m-w-d-kulm-hotel-st-moritz"
+        ],
+        "fr": [
+          "room-attendant-zimmerdame-roomboy-start-now-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "room-attendant-zimmerdame-roomboy-start-now-m-w-d-kulm-hotel-st-moritz"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-23T23:46:19.737Z"
     },
     {
       "id": "kulm-hotel-e520ebe58e59",
@@ -302,7 +390,7 @@
       "url": "https://careers.kulm.com/en/vacancies/725",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:02:40.998Z",
+      "crawledAt": "2026-09-23T23:46:18.766Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -323,11 +411,13 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "previousSlugs": [
-        "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz"
+        "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz",
+        "pasticceria-talent-demi-chef-de-partie-patisserie-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz"
+          "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz",
+          "pasticceria-talent-demi-chef-de-partie-patisserie-m-f-d-kulm-hotel-st-moritz-pontresina"
         ],
         "en": [
           "pastry-talent-demi-chef-de-partie-patisserie-m-w-d-kulm-hotel-st-moritz"
@@ -337,6 +427,7 @@
         ]
       },
       "firstSeenAt": "2026-09-04T23:01:11.741Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -382,7 +473,7 @@
       "url": "https://careers.kulm.com/en/vacancies/696",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:02:40.031Z",
+      "crawledAt": "2026-09-23T23:46:17.790Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -404,11 +495,13 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "en": [
-          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz"
+          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz",
+          "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz"
         ],
         "it": [
           "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz",
-          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz"
+          "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz",
+          "partecipante-in-camera-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz"
         ],
         "fr": [
           "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz"
@@ -416,9 +509,11 @@
       },
       "previousSlugs": [
         "room-attendant-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz",
-        "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz"
+        "luxury-housekeeping-specialist-m-f-d-5-star-swiss-lqa-standards-m-w-d-kulm-hotel-st-moritz",
+        "partecipante-in-camera-zimmerdame-roomboy-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "firstSeenAt": "2026-09-09T13:49:53.587Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -464,7 +559,7 @@
       "url": "https://careers.kulm.com/en/vacancies/690",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:02:39.064Z",
+      "crawledAt": "2026-09-23T23:46:16.822Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -486,19 +581,24 @@
       "pensum": "100%",
       "previousSlugsByLocale": {
         "fr": [
-          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
+          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
+          "lave-linge-presse-repassage-tournant-m-m-j-kulm-hotel-st-moritz-st-moritz-67749c"
         ],
         "it": [
-          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
+          "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
+          "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c"
         ],
         "de": [
           "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
         ]
       },
       "previousSlugs": [
-        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz"
+        "laundry-attendant-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz",
+        "lave-linge-presse-repassage-tournant-m-m-j-kulm-hotel-st-moritz-st-moritz-67749c",
+        "servizio-lavanderia-press-ironer-tournant-m-w-d-kulm-hotel-st-moritz-st-moritz-67749c"
       ],
       "firstSeenAt": "2026-07-14T12:06:58.597Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -528,7 +628,7 @@
       "title": "Ice Master/ Ice Technician (m/w/d)",
       "titleByLocale": {
         "it": "Maestro di ghiaccio / Tecnico di ghiaccio (m/f/d)",
-        "en": "Ice Master/Ice Technician (m/f/d)",
+        "en": "Ice Master/ Ice Technician (m/w/d)",
         "de": "Ice Master/ Ice Techniker (m/w/d)",
         "fr": "Ice Master/ Ice Technicien (m/w/d)"
       },
@@ -544,7 +644,7 @@
       "url": "https://careers.kulm.com/en/vacancies/722",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:02:38.093Z",
+      "crawledAt": "2026-09-23T23:46:15.845Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -565,14 +665,17 @@
       "department": "Kulm Hotel",
       "pensum": "100%",
       "previousSlugs": [
-        "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz"
+        "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz",
+        "maestro-di-ghiaccio-tecnico-di-ghiaccio-m-f-d-kulm-hotel-st-moritz-st-moritz-bcedfc"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz"
+          "ice-master-ice-technician-m-w-d-kulm-hotel-st-moritz",
+          "maestro-di-ghiaccio-tecnico-di-ghiaccio-m-f-d-kulm-hotel-st-moritz-st-moritz-bcedfc"
         ]
       },
       "firstSeenAt": "2026-08-20T21:44:18.167Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -618,7 +721,7 @@
       "url": "https://careers.kulm.com/en/vacancies/689",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:02:37.133Z",
+      "crawledAt": "2026-09-23T23:46:14.864Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -642,14 +745,16 @@
         "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz",
         "directeur-adjoint-de-la-liaison-m-m-j-kulm-hotel-st-moritz-st-moritz",
         "assistant-event-manager-m-w-d-kulm-hotel-st-moritz",
-        "front-office-agent-m-w-d-kulm-hotel-st-moritz"
+        "front-office-agent-m-w-d-kulm-hotel-st-moritz",
+        "agente-di-ufficio-anteriore-m-w-d-kulm-hotel-st-moritz-st-moritz-223128"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistant-front-office-manager-m-w-d-kulm-hotel-st-moritz",
           "directeur-adjoint-de-la-liaison-m-m-j-kulm-hotel-st-moritz-st-moritz",
           "assistant-event-manager-m-w-d-kulm-hotel-st-moritz",
-          "front-office-agent-m-w-d-kulm-hotel-st-moritz"
+          "front-office-agent-m-w-d-kulm-hotel-st-moritz",
+          "agente-di-ufficio-anteriore-m-w-d-kulm-hotel-st-moritz-st-moritz-223128"
         ],
         "en": [
           "assistant-event-manager-m-w-d-kulm-hotel-st-moritz"
@@ -663,6 +768,7 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:19:00.177Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -678,10 +784,87 @@
       }
     },
     {
+      "id": "kulm-hotel-6c750ad2f08d",
+      "slug": "assistente-amministrativo-f-b-m-f-d-kulm-hotel-st-moritz-st-moritz-c88615",
+      "slugByLocale": {
+        "en": "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz",
+        "it": "assistente-amministrativo-f-b-m-f-d-kulm-hotel-st-moritz-st-moritz-c88615",
+        "de": "f-b-administrative-assistent-m-w-d-kulm-hotel-st-moritz-st-moritz",
+        "fr": "assistant-administratif-f-b-h-f-d-kulm-hotel-st-moritz-st-moritz-c88615"
+      },
+      "company": "Kulm Hotel St. Moritz",
+      "companyKey": "kulm-hotel",
+      "companyDomain": "kulm.com",
+      "title": "F&B Administrative Assistant (m/w/d)",
+      "titleByLocale": {
+        "en": "F&B Administrative Assistant (m/w/d)",
+        "fr": "F&B Administrative Assistant (m/w/d)",
+        "it": "F&B Administrative Assistant (m/w/d)",
+        "de": "F&B Administrative Assistent (m/w/d)"
+      },
+      "description": "F&B Administrative Assistant (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: In this versatile key position, you are the “Enabler” of our entire F&B division. You bridge the gap between administrative precision, cutting-edge hospitality technology, and front-of-house operations. You ensure that technical processes run flawlessly in the background while proactively supporting the F&B management in their daily business.Your Mission - Where Culinary Delight meets Logistics:\n• Reservation Management: You are the primary point of contact for reservations (on-site, phone, email) via our software for all hotel outlets.\n\n• Menu Design & Coordination: In close collaboration with the kitchen, marketing, and restaurant management, you coordinate and update our menus via “Ai-web-to-print.”\n\n• Daily Operations: During the season, you create daily half-board menus, staff menus, and buffet labeling using “Ai-web-to-print” and “Viewneo.”\n\n• Guest Experiences: You process individual guest requests for aperitifs or birthdays, ensuring that \"extra touch\" that defines our service.\n\n• Amenity Management: Coordinate guest amenities with the Front Office and Room Service, including payment processing via “Saferpay” and “Opera.”\n\n• Front-Line Support: When needed, you actively support our team directly in service, staying close to our guests.\n\n• Quality Ambassador: You ensure compliance with the highest standards (LQA and Forbes Travel Guide) and professionally handle guest feedback and complaints.\n\n• Administrative Excellence: Preparation of corporate invoices and general correspondence (office share approx. 80–90%). | This is you:\n• Foundation: Completed hotel or commercial apprenticeship, as well as professional experience in a similar role, ideally within the luxury hospitality industry.\n\n• Linguistic Excellence: Business fluent in German and English (written and spoken). Italian is a significant asset.\n\n• IT Proficiency: Confident handling of MS Office and hotel systems (e.g., Opera Cloud).\n\n• Personality: You are an organizational talent with absolute reliability and discretion. You remain calm and solution-oriented, even under high pressure.\n\n• Host Mindset: You communicate at the highest service level, possess a poised appearance, and apply a “hands-on” mentality when it counts.\nWhy the Kulm Group? We offer you a workplace where tradition meets innovation. You will have the freedom to actively shape processes and benefit from the attractive perks of one of Switzerland's most renowned hotel groups.Ready to shape the F&B world of tomorrow? We look forward to receiving your application! | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+      "descriptionByLocale": {
+        "en": "F&B Administrative Assistant (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: In this versatile key position, you are the “Enabler” of our entire F&B division. You bridge the gap between administrative precision, cutting-edge hospitality technology, and front-of-house operations. You ensure that technical processes run flawlessly in the background while proactively supporting the F&B management in their daily business.Your Mission - Where Culinary Delight meets Logistics:\n• Reservation Management: You are the primary point of contact for reservations (on-site, phone, email) via our software for all hotel outlets.\n\n• Menu Design & Coordination: In close collaboration with the kitchen, marketing, and restaurant management, you coordinate and update our menus via “Ai-web-to-print.”\n\n• Daily Operations: During the season, you create daily half-board menus, staff menus, and buffet labeling using “Ai-web-to-print” and “Viewneo.”\n\n• Guest Experiences: You process individual guest requests for aperitifs or birthdays, ensuring that \"extra touch\" that defines our service.\n\n• Amenity Management: Coordinate guest amenities with the Front Office and Room Service, including payment processing via “Saferpay” and “Opera.”\n\n• Front-Line Support: When needed, you actively support our team directly in service, staying close to our guests.\n\n• Quality Ambassador: You ensure compliance with the highest standards (LQA and Forbes Travel Guide) and professionally handle guest feedback and complaints.\n\n• Administrative Excellence: Preparation of corporate invoices and general correspondence (office share approx. 80–90%). | This is you:\n• Foundation: Completed hotel or commercial apprenticeship, as well as professional experience in a similar role, ideally within the luxury hospitality industry.\n\n• Linguistic Excellence: Business fluent in German and English (written and spoken). Italian is a significant asset.\n\n• IT Proficiency: Confident handling of MS Office and hotel systems (e.g., Opera Cloud).\n\n• Personality: You are an organizational talent with absolute reliability and discretion. You remain calm and solution-oriented, even under high pressure.\n\n• Host Mindset: You communicate at the highest service level, possess a poised appearance, and apply a “hands-on” mentality when it counts.\nWhy the Kulm Group? We offer you a workplace where tradition meets innovation. You will have the freedom to actively shape processes and benefit from the attractive perks of one of Switzerland's most renowned hotel groups.Ready to shape the F&B world of tomorrow? We look forward to receiving your application! | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "it": "F&B Administrative Assistant (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: In this versatile key position, you are the “Enabler” of our entire F&B division. You bridge the gap between administrative precision, cutting-edge hospitality technology, and front-of-house operations. You ensure that technical processes run flawlessly in the background while proactively supporting the F&B management in their daily business.Your Mission - Where Culinary Delight meets Logistics:\n• Reservation Management: You are the primary point of contact for reservations (on-site, phone, email) via our software for all hotel outlets.\n\n• Menu Design & Coordination: In close collaboration with the kitchen, marketing, and restaurant management, you coordinate and update our menus via “Ai-web-to-print.”\n\n• Daily Operations: During the season, you create daily half-board menus, staff menus, and buffet labeling using “Ai-web-to-print” and “Viewneo.”\n\n• Guest Experiences: You process individual guest requests for aperitifs or birthdays, ensuring that \"extra touch\" that defines our service.\n\n• Amenity Management: Coordinate guest amenities with the Front Office and Room Service, including payment processing via “Saferpay” and “Opera.”\n\n• Front-Line Support: When needed, you actively support our team directly in service, staying close to our guests.\n\n• Quality Ambassador: You ensure compliance with the highest standards (LQA and Forbes Travel Guide) and professionally handle guest feedback and complaints.\n\n• Administrative Excellence: Preparation of corporate invoices and general correspondence (office share approx. 80–90%). | This is you:\n• Foundation: Completed hotel or commercial apprenticeship, as well as professional experience in a similar role, ideally within the luxury hospitality industry.\n\n• Linguistic Excellence: Business fluent in German and English (written and spoken). Italian is a significant asset.\n\n• IT Proficiency: Confident handling of MS Office and hotel systems (e.g., Opera Cloud).\n\n• Personality: You are an organizational talent with absolute reliability and discretion. You remain calm and solution-oriented, even under high pressure.\n\n• Host Mindset: You communicate at the highest service level, possess a poised appearance, and apply a “hands-on” mentality when it counts.\nWhy the Kulm Group? We offer you a workplace where tradition meets innovation. You will have the freedom to actively shape processes and benefit from the attractive perks of one of Switzerland's most renowned hotel groups.Ready to shape the F&B world of tomorrow? We look forward to receiving your application! | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "de": "F&B Administrative Assistant (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: In this versatile key position, you are the “Enabler” of our entire F&B division. You bridge the gap between administrative precision, cutting-edge hospitality technology, and front-of-house operations. You ensure that technical processes run flawlessly in the background while proactively supporting the F&B management in their daily business.Your Mission - Where Culinary Delight meets Logistics:\n• Reservation Management: You are the primary point of contact for reservations (on-site, phone, email) via our software for all hotel outlets.\n\n• Menu Design & Coordination: In close collaboration with the kitchen, marketing, and restaurant management, you coordinate and update our menus via “Ai-web-to-print.”\n\n• Daily Operations: During the season, you create daily half-board menus, staff menus, and buffet labeling using “Ai-web-to-print” and “Viewneo.”\n\n• Guest Experiences: You process individual guest requests for aperitifs or birthdays, ensuring that \"extra touch\" that defines our service.\n\n• Amenity Management: Coordinate guest amenities with the Front Office and Room Service, including payment processing via “Saferpay” and “Opera.”\n\n• Front-Line Support: When needed, you actively support our team directly in service, staying close to our guests.\n\n• Quality Ambassador: You ensure compliance with the highest standards (LQA and Forbes Travel Guide) and professionally handle guest feedback and complaints.\n\n• Administrative Excellence: Preparation of corporate invoices and general correspondence (office share approx. 80–90%). | This is you:\n• Foundation: Completed hotel or commercial apprenticeship, as well as professional experience in a similar role, ideally within the luxury hospitality industry.\n\n• Linguistic Excellence: Business fluent in German and English (written and spoken). Italian is a significant asset.\n\n• IT Proficiency: Confident handling of MS Office and hotel systems (e.g., Opera Cloud).\n\n• Personality: You are an organizational talent with absolute reliability and discretion. You remain calm and solution-oriented, even under high pressure.\n\n• Host Mindset: You communicate at the highest service level, possess a poised appearance, and apply a “hands-on” mentality when it counts.\nWhy the Kulm Group? We offer you a workplace where tradition meets innovation. You will have the freedom to actively shape processes and benefit from the attractive perks of one of Switzerland's most renowned hotel groups.Ready to shape the F&B world of tomorrow? We look forward to receiving your application! | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "fr": "F&B Administrative Assistant (m/w/d) — Kulm Hotel St. Moritz (Kulm Hotel), St. Moritz (Engadin, Graubünden). Pensum: 100%. Vertrag: Unbefristet / Permanent. Stellenantritt: 2026-12-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | This is what you move with us: In this versatile key position, you are the “Enabler” of our entire F&B division. You bridge the gap between administrative precision, cutting-edge hospitality technology, and front-of-house operations. You ensure that technical processes run flawlessly in the background while proactively supporting the F&B management in their daily business.Your Mission - Where Culinary Delight meets Logistics:\n• Reservation Management: You are the primary point of contact for reservations (on-site, phone, email) via our software for all hotel outlets.\n\n• Menu Design & Coordination: In close collaboration with the kitchen, marketing, and restaurant management, you coordinate and update our menus via “Ai-web-to-print.”\n\n• Daily Operations: During the season, you create daily half-board menus, staff menus, and buffet labeling using “Ai-web-to-print” and “Viewneo.”\n\n• Guest Experiences: You process individual guest requests for aperitifs or birthdays, ensuring that \"extra touch\" that defines our service.\n\n• Amenity Management: Coordinate guest amenities with the Front Office and Room Service, including payment processing via “Saferpay” and “Opera.”\n\n• Front-Line Support: When needed, you actively support our team directly in service, staying close to our guests.\n\n• Quality Ambassador: You ensure compliance with the highest standards (LQA and Forbes Travel Guide) and professionally handle guest feedback and complaints.\n\n• Administrative Excellence: Preparation of corporate invoices and general correspondence (office share approx. 80–90%). | This is you:\n• Foundation: Completed hotel or commercial apprenticeship, as well as professional experience in a similar role, ideally within the luxury hospitality industry.\n\n• Linguistic Excellence: Business fluent in German and English (written and spoken). Italian is a significant asset.\n\n• IT Proficiency: Confident handling of MS Office and hotel systems (e.g., Opera Cloud).\n\n• Personality: You are an organizational talent with absolute reliability and discretion. You remain calm and solution-oriented, even under high pressure.\n\n• Host Mindset: You communicate at the highest service level, possess a poised appearance, and apply a “hands-on” mentality when it counts.\nWhy the Kulm Group? We offer you a workplace where tradition meets innovation. You will have the freedom to actively shape processes and benefit from the attractive perks of one of Switzerland's most renowned hotel groups.Ready to shape the F&B world of tomorrow? We look forward to receiving your application! | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks."
+      },
+      "location": "St. Moritz",
+      "canton": "GR",
+      "url": "https://careers.kulm.com/en/vacancies/729",
+      "source": "Kulm Hotel St. Moritz Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-23T23:46:13.885Z",
+      "addressLocality": "St. Moritz",
+      "postalCode": "7500",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Food & Beverage",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "contractType": "indefinite",
+      "experienceLevel": "junior",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-12-01",
+      "applyUrl": "https://careers.kulm.com/en/vacancies/729",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "department": "Kulm Hotel",
+      "pensum": "100%",
+      "previousSlugsByLocale": {
+        "it": [
+          "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz"
+        ]
+      },
+      "previousSlugs": [
+        "f-b-administrative-assistant-m-w-d-kulm-hotel-st-moritz"
+      ],
+      "needsRetranslation": true,
+      "salaryMin": 58000,
+      "salaryMax": 79000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 58000,
+          "maxValue": 79000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-23T23:46:13.885Z"
+    },
+    {
       "id": "kulm-hotel-fe14f6cf94b1",
       "slug": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
       "slugByLocale": {
-        "it": "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "it": "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina",
         "en": "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
         "de": "geschaftsfuhrer-der-hauswirtschaft-m-w-d-kulm-hotel-st-moritz-pontresina",
         "fr": "directeur-executif-du-menage-m-m-j-kulm-hotel-st-moritz-pontresina"
@@ -708,7 +891,7 @@
       "url": "https://careers.kulm.com/en/vacancies/679",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:02:36.166Z",
+      "crawledAt": "2026-09-23T23:46:12.906Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -747,7 +930,9 @@
         "housekeeping-director-m-w-d-kulm-hotel-st-moritz",
         "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
         "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
-        "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz"
+        "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
+        "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
+        "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -768,7 +953,9 @@
           "housekeeping-direktor-m-w-d-kulm-hotel-st-moritz-st",
           "directeur-du-menage-m-w-d-kulm-hotel-st-moritz-st-moritz",
           "directeur-du-menage-m-m-j-kulm-hotel-st-moritz-st-moritz",
-          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz"
+          "executive-housekeeping-manager-m-w-d-kulm-hotel-st-moritz",
+          "direttore-esecutivo-della-pulizia-m-f-d-kulm-hotel-st-moritz-pontresina",
+          "responsabile-executive-housekeeping-m-w-d-kulm-hotel-st-moritz-pontresina"
         ],
         "en": [
           "housekeeping-supervisor-m-w-d-kulm-hotel-st-moritz"
@@ -813,7 +1000,7 @@
       "title": "Executive Assistant Manager - Rooms Division (m/w/d)",
       "titleByLocale": {
         "it": "Executive Assistant Manager - Rooms Division (m/w/d)",
-        "en": "Executive 1830 - Rooms 3020 (m/f/d)",
+        "en": "Executive Assistant Manager - Rooms Division (m/w/d)",
         "de": "Executive Assistant Manager - Zimmerbereich (m/w/d)",
         "fr": "Assistant exécutif - Division des chambres (h/f/d)"
       },
@@ -829,7 +1016,7 @@
       "url": "https://careers.kulm.com/en/vacancies/636",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:02:35.200Z",
+      "crawledAt": "2026-09-23T23:46:11.910Z",
       "addressLocality": "St. Moritz",
       "postalCode": "7500",
       "addressRegion": "GR",
@@ -852,7 +1039,8 @@
       "previousSlugsByLocale": {
         "it": [
           "assistente-esecutivo-manager-rooms-division-m-w-d-kulm-hotel-st-moritz-st-moritz",
-          "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
+          "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
+          "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz"
         ],
         "fr": [
           "gestionnaire-adjoint-executif-division-des-salles-m-m-j-kulm-hotel-st-moritz-st-moritz"
@@ -861,9 +1049,11 @@
       "previousSlugs": [
         "assistente-esecutivo-manager-rooms-division-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "gestionnaire-adjoint-executif-division-des-salles-m-m-j-kulm-hotel-st-moritz-st-moritz",
-        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz"
+        "executive-assistant-manager-rooms-division-m-w-d-kulm-hotel-st-moritz",
+        "executive-assistant-manager-divisione-camere-m-w-d-kulm-hotel-st-moritz-st-moritz"
       ],
       "firstSeenAt": "2026-05-27T23:33:49.949Z",
+      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -909,7 +1099,7 @@
       "url": "https://careers.kulm.com/en/vacancies/717",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:02:32.313Z",
+      "crawledAt": "2026-09-23T23:46:10.934Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -930,6 +1120,7 @@
       "department": "Grand Hotel Kronenhof",
       "pensum": "100%",
       "firstSeenAt": "2026-08-05T22:29:25.104Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -975,7 +1166,7 @@
       "url": "https://careers.kulm.com/en/vacancies/682",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-22T00:02:31.348Z",
+      "crawledAt": "2026-09-23T23:46:09.946Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -998,11 +1189,13 @@
       "previousSlugsByLocale": {
         "fr": [
           "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz",
-          "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
+          "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
+          "commissaire-de-rang-assistant-serveur-m-m-j-kulm-hotel-st-moritz-pontresina"
         ],
         "it": [
           "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz",
-          "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
+          "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
+          "commis-di-sala-assistente-cameriere-m-f-d-kulm-hotel-st-moritz-pontresina"
         ],
         "de": [
           "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz"
@@ -1019,9 +1212,12 @@
         "commis-de-cuisine-h-f-d-kulm-hotel-st-moritz-st-moritz",
         "commis-de-cuisine-m-w-d-kulm-hotel-st-moritz-st-moritz",
         "commis-de-rang-assistant-waiter-m-w-d-kulm-hotel-st-moritz",
-        "commis-de-rang-m-w-d-kulm-hotel-st-moritz"
+        "commis-de-rang-m-w-d-kulm-hotel-st-moritz",
+        "commissaire-de-rang-assistant-serveur-m-m-j-kulm-hotel-st-moritz-pontresina",
+        "commis-di-sala-assistente-cameriere-m-f-d-kulm-hotel-st-moritz-pontresina"
       ],
       "firstSeenAt": "2026-07-02T22:34:26.552Z",
+      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -1067,7 +1263,7 @@
       "url": "https://careers.kulm.com/en/vacancies/716",
       "source": "Kulm Hotel St. Moritz Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:02:29.421Z",
+      "crawledAt": "2026-09-23T23:46:08.965Z",
       "addressLocality": "Pontresina",
       "postalCode": "7504",
       "addressRegion": "GR",
@@ -1090,13 +1286,15 @@
       "previousSlugs": [
         "chef-de-rang-m-w-d-kulm-hotel-st-moritz",
         "chef-de-rang-m-f-d-kulm-hotel-st-moritz-st-moritz",
-        "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz"
+        "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz",
+        "chef-de-rang-partenza-immediata-m-w-d-kulm-hotel-st-moritz-pontresina"
       ],
       "previousSlugsByLocale": {
         "it": [
           "chef-de-rang-m-w-d-kulm-hotel-st-moritz",
           "chef-de-rang-m-f-d-kulm-hotel-st-moritz-st-moritz",
-          "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz"
+          "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz",
+          "chef-de-rang-partenza-immediata-m-w-d-kulm-hotel-st-moritz-pontresina"
         ],
         "de": [
           "chef-de-rang-immediate-start-m-w-d-kulm-hotel-st-moritz"
@@ -1119,6 +1317,75 @@
           "unitText": "YEAR"
         }
       }
+    },
+    {
+      "id": "kulm-hotel-ed7c80582448",
+      "slug": "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz",
+      "slugByLocale": {
+        "fr": "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz",
+        "it": "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz",
+        "en": "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz",
+        "de": "chef-de-partie-entremetier-m-w-d-kulm-hotel-st-moritz"
+      },
+      "company": "Kulm Hotel St. Moritz",
+      "companyKey": "kulm-hotel",
+      "companyDomain": "kulm.com",
+      "title": "Chef de Partie - Entremetier (m/w/d)",
+      "titleByLocale": {
+        "fr": "Chef de Partie - Entremetier (m/w/d)",
+        "it": "Chef de Partie - Entremetier (m/w/d)",
+        "en": "Chef de Partie - Entremetier (m/w/d)",
+        "de": "Chef de Partie - Entremetier (m/w/d)"
+      },
+      "description": "Chef de Partie - Entremetier (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-10-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | Your mission:: To strengthen our kitchen team, we are looking for a passionate Chef de Partie – Gardemanger (f/m/d) who delivers top quality to the plate with passion, precision, and a flair for cold culinary artistry.\n• Section Ownership: You lead the gardemanger section independently, preparing exquisite cold starters, salads, creative carpaccios, tartares, terrines, and sophisticated canapés to the highest standard (16 GaultMillau points).\n\n• Flawless Mise en Place: You organise your section with structure, precision, and a sharp eye for detail – from handling delicate raw produce and fresh herbs through to the final, immaculate presentation at the pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal cold dishes, plating concepts, and innovative culinary techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure a smooth service flow at the cold station and maintain exemplary hygiene, cold-chain, and HACCP standards at all times.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Commis de Cuisine and apprentices on your section, fostering a respectful and encouraging work environment. | This is you::\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy, ideally with specific exposure to the gardemanger station.\n\n• Passion for Produce: Deep knowledge of fresh raw ingredients, cold preparation techniques, and seasoning, paired with a strong commitment to premium quality and aesthetics.\n\n• Precision under Pressure: A calm demeanor, composure, and sharp focus, even during peak service hours when timing is critical.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Must-Have: Italian. Ideally, good knowledge of English or German.\nWhat You Can Expect from Us:\n• Shape World-Class Gastronomy: Work within one of the most prestigious kitchen brigades in the Swiss Alps.\n\n• Room for Growth: Tailored professional development opportunities and career advancement prospects within the Kulm Group.\n\n• Attractive Living Environment: Work and live in the breathtaking mountain landscape of the Engadin, featuring attractive staff benefits and employee accommodation. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+      "descriptionByLocale": {
+        "fr": "Chef de Partie - Entremetier (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-10-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | Your mission:: To strengthen our kitchen team, we are looking for a passionate Chef de Partie – Gardemanger (f/m/d) who delivers top quality to the plate with passion, precision, and a flair for cold culinary artistry.\n• Section Ownership: You lead the gardemanger section independently, preparing exquisite cold starters, salads, creative carpaccios, tartares, terrines, and sophisticated canapés to the highest standard (16 GaultMillau points).\n\n• Flawless Mise en Place: You organise your section with structure, precision, and a sharp eye for detail – from handling delicate raw produce and fresh herbs through to the final, immaculate presentation at the pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal cold dishes, plating concepts, and innovative culinary techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure a smooth service flow at the cold station and maintain exemplary hygiene, cold-chain, and HACCP standards at all times.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Commis de Cuisine and apprentices on your section, fostering a respectful and encouraging work environment. | This is you::\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy, ideally with specific exposure to the gardemanger station.\n\n• Passion for Produce: Deep knowledge of fresh raw ingredients, cold preparation techniques, and seasoning, paired with a strong commitment to premium quality and aesthetics.\n\n• Precision under Pressure: A calm demeanor, composure, and sharp focus, even during peak service hours when timing is critical.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Must-Have: Italian. Ideally, good knowledge of English or German.\nWhat You Can Expect from Us:\n• Shape World-Class Gastronomy: Work within one of the most prestigious kitchen brigades in the Swiss Alps.\n\n• Room for Growth: Tailored professional development opportunities and career advancement prospects within the Kulm Group.\n\n• Attractive Living Environment: Work and live in the breathtaking mountain landscape of the Engadin, featuring attractive staff benefits and employee accommodation. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "it": "Chef de Partie - Entremetier (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-10-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | Your mission:: To strengthen our kitchen team, we are looking for a passionate Chef de Partie – Gardemanger (f/m/d) who delivers top quality to the plate with passion, precision, and a flair for cold culinary artistry.\n• Section Ownership: You lead the gardemanger section independently, preparing exquisite cold starters, salads, creative carpaccios, tartares, terrines, and sophisticated canapés to the highest standard (16 GaultMillau points).\n\n• Flawless Mise en Place: You organise your section with structure, precision, and a sharp eye for detail – from handling delicate raw produce and fresh herbs through to the final, immaculate presentation at the pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal cold dishes, plating concepts, and innovative culinary techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure a smooth service flow at the cold station and maintain exemplary hygiene, cold-chain, and HACCP standards at all times.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Commis de Cuisine and apprentices on your section, fostering a respectful and encouraging work environment. | This is you::\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy, ideally with specific exposure to the gardemanger station.\n\n• Passion for Produce: Deep knowledge of fresh raw ingredients, cold preparation techniques, and seasoning, paired with a strong commitment to premium quality and aesthetics.\n\n• Precision under Pressure: A calm demeanor, composure, and sharp focus, even during peak service hours when timing is critical.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Must-Have: Italian. Ideally, good knowledge of English or German.\nWhat You Can Expect from Us:\n• Shape World-Class Gastronomy: Work within one of the most prestigious kitchen brigades in the Swiss Alps.\n\n• Room for Growth: Tailored professional development opportunities and career advancement prospects within the Kulm Group.\n\n• Attractive Living Environment: Work and live in the breathtaking mountain landscape of the Engadin, featuring attractive staff benefits and employee accommodation. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "en": "Chef de Partie - Entremetier (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-10-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | Your mission:: To strengthen our kitchen team, we are looking for a passionate Chef de Partie – Gardemanger (f/m/d) who delivers top quality to the plate with passion, precision, and a flair for cold culinary artistry.\n• Section Ownership: You lead the gardemanger section independently, preparing exquisite cold starters, salads, creative carpaccios, tartares, terrines, and sophisticated canapés to the highest standard (16 GaultMillau points).\n\n• Flawless Mise en Place: You organise your section with structure, precision, and a sharp eye for detail – from handling delicate raw produce and fresh herbs through to the final, immaculate presentation at the pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal cold dishes, plating concepts, and innovative culinary techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure a smooth service flow at the cold station and maintain exemplary hygiene, cold-chain, and HACCP standards at all times.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Commis de Cuisine and apprentices on your section, fostering a respectful and encouraging work environment. | This is you::\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy, ideally with specific exposure to the gardemanger station.\n\n• Passion for Produce: Deep knowledge of fresh raw ingredients, cold preparation techniques, and seasoning, paired with a strong commitment to premium quality and aesthetics.\n\n• Precision under Pressure: A calm demeanor, composure, and sharp focus, even during peak service hours when timing is critical.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Must-Have: Italian. Ideally, good knowledge of English or German.\nWhat You Can Expect from Us:\n• Shape World-Class Gastronomy: Work within one of the most prestigious kitchen brigades in the Swiss Alps.\n\n• Room for Growth: Tailored professional development opportunities and career advancement prospects within the Kulm Group.\n\n• Attractive Living Environment: Work and live in the breathtaking mountain landscape of the Engadin, featuring attractive staff benefits and employee accommodation. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks.",
+        "de": "Chef de Partie - Entremetier (m/w/d) — Kulm Hotel St. Moritz (Grand Hotel Kronenhof), Pontresina (Engadin, Graubünden). Pensum: 100%. Vertrag: Saisonstelle / Seasonal. Stellenantritt: 2026-10-01.\n\nPeople at 1800m above sea level are shaping the Luxury Mountain Travel. Our dynamic and international community offers our guests smart Luxury for an inimitable holiday experience. As a member of the Luxury Kulm Group you are part of the key to our success. Together, we make every stay deeply inspiring, unique and distinctive. And as such, we embrace our culture: understated luxury, inspiration, and a life experience. Together, we make it happen. This is your chance to be a member of our shaping culture: | Your mission:: To strengthen our kitchen team, we are looking for a passionate Chef de Partie – Gardemanger (f/m/d) who delivers top quality to the plate with passion, precision, and a flair for cold culinary artistry.\n• Section Ownership: You lead the gardemanger section independently, preparing exquisite cold starters, salads, creative carpaccios, tartares, terrines, and sophisticated canapés to the highest standard (16 GaultMillau points).\n\n• Flawless Mise en Place: You organise your section with structure, precision, and a sharp eye for detail – from handling delicate raw produce and fresh herbs through to the final, immaculate presentation at the pass during service.\n\n• Creative Input: You actively contribute your own ideas for seasonal cold dishes, plating concepts, and innovative culinary techniques to the kitchen brigade.\n\n• Quality & Efficiency: You ensure a smooth service flow at the cold station and maintain exemplary hygiene, cold-chain, and HACCP standards at all times.\n\n• Team Spirit & Mentorship: You provide inspiring leadership to Commis de Cuisine and apprentices on your section, fostering a respectful and encouraging work environment. | This is you::\n• Solid Foundation: Completed professional chef training and several years of experience in fine dining or luxury gastronomy, ideally with specific exposure to the gardemanger station.\n\n• Passion for Produce: Deep knowledge of fresh raw ingredients, cold preparation techniques, and seasoning, paired with a strong commitment to premium quality and aesthetics.\n\n• Precision under Pressure: A calm demeanor, composure, and sharp focus, even during peak service hours when timing is critical.\n\n• Personality: High personal standards of quality, a true team-player mindset, resilience, and a genuine passion for high-end gastronomy.\n\n• Languages: Must-Have: Italian. Ideally, good knowledge of English or German.\nWhat You Can Expect from Us:\n• Shape World-Class Gastronomy: Work within one of the most prestigious kitchen brigades in the Swiss Alps.\n\n• Room for Growth: Tailored professional development opportunities and career advancement prospects within the Kulm Group.\n\n• Attractive Living Environment: Work and live in the breathtaking mountain landscape of the Engadin, featuring attractive staff benefits and employee accommodation. | Benefits: At Kulm Group, our employees are the heart of our success. We offer attractive development opportunities, comfortable accommodations, affordable meals in the staff restaurant, and numerous perks."
+      },
+      "location": "Pontresina",
+      "canton": "GR",
+      "url": "https://careers.kulm.com/en/vacancies/732",
+      "source": "Kulm Hotel St. Moritz Dedicated Parser",
+      "sourceLang": "fr",
+      "crawledAt": "2026-09-23T23:46:07.964Z",
+      "addressLocality": "Pontresina",
+      "postalCode": "7504",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Cucina",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "contractType": "seasonal",
+      "experienceLevel": "senior",
+      "sector": "Ospitalità / Hotellerie",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-10-01",
+      "applyUrl": "https://careers.kulm.com/en/vacancies/732",
+      "requirements": [],
+      "requirementsByLocale": {
+        "fr": []
+      },
+      "department": "Grand Hotel Kronenhof",
+      "pensum": "100%",
+      "needsRetranslation": true,
+      "salaryMin": 62000,
+      "salaryMax": 78000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 62000,
+          "maxValue": 78000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-23T23:46:07.964Z"
     }
   ]
 }
