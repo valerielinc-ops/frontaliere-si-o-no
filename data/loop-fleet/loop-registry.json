@@ -149,7 +149,7 @@
       },
       "goal": "Demand to Utility",
       "owner": "Chief Growth / SEO",
-      "oracle": "GSC snapshot plus landing-path evidence",
+      "oracle": "GSC snapshot plus GA4 landing-path evidence",
       "sourceRefs": ["gsc", "ga4-landing-path"],
       "cadence": "daily / weekly",
       "primaryMetric": "useful_action_per_1000_eligible_landing_sessions",
