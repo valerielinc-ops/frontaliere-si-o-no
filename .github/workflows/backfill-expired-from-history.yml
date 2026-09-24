@@ -38,6 +38,11 @@ on:
         required: false
         type: boolean
         default: false
+      crawler_keys:
+        description: 'Optional comma/newline-separated crawler keys for a bounded batch.'
+        required: false
+        type: string
+        default: ''
 
 concurrency:
   group: jobs-data-pipeline
@@ -152,6 +157,7 @@ jobs:
         env:
           DRY_RUN: ${{ inputs.dry_run == true && '1' || '0' }}
           MAX_COMMITS: ${{ inputs.max_commits || '0' }}
+          CRAWLER_KEYS: ${{ inputs.crawler_keys || '' }}
 
       - name: Reassemble dataset (so the test gate has data/jobs.json; not committed)
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
