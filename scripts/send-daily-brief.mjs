@@ -13,6 +13,10 @@
  *   - newsletter side: every registered row not excluded by its status or a
  *     recorded opt-out. Registration terms, not a second checkbox, establish
  *     the base relationship; no confirmation proof is required for delivery.
+ *     A row with no relationship at all (profile-only sign-in document: no
+ *     status, terms, consent or confirmation — hasSubscriptionBasis) is not
+ *     on the newsletter side; an eligible job-alert membership remains its
+ *     own basis on the other side.
  *   - job-alert side: root docs not excluded by isJobAlertExcluded().
  *   - anyone whose newsletter document records an explicit unsubscribe, hard
  *     address suppression or legacy global stop-all flag is OUT even if they
@@ -58,6 +62,7 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isCrossChannelStop, isNewsletterExcluded, isJobAlertExcluded } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
+import { hasSubscriptionBasis } from '../services/subscriberConsent.mjs';
 import { sanitizeFirstName, nlNormLocale } from '../services/newsletter-template.mjs';
 import { buildDailyBriefEmail, briefSections } from '../services/daily-brief-template.mjs';
 import { makeOneClickUnsubscribeUrl, makePreferencesUrl } from '../services/newsletterUrls.mjs';
@@ -200,6 +205,7 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
     jobAlertSeen: jobAlertRows.length,
     newsletterRegistered: 0,
     newsletterExcluded: 0,
+    excludedNoBasis: 0,
     jobAlertEligible: 0,
     jobAlertExcluded: 0,
     optOutWins: 0,
@@ -219,6 +225,10 @@ export function dedupeRecipients(newsletterRows, jobAlertRows) {
     const status = String(row.status || '').trim().toLowerCase();
     if (isNewsletterExcluded(status) || isNewsletterOptOutBinding(row.doc || row)) {
       stats.newsletterExcluded++;
+      continue;
+    }
+    if (!hasSubscriptionBasis(row)) {
+      stats.excludedNoBasis++;
       continue;
     }
     stats.newsletterRegistered++;
@@ -576,7 +586,7 @@ async function main() {
   const { newsletterRows, jobAlertRows } = await fetchRecipients(db);
   const { recipients, stats } = dedupeRecipients(newsletterRows, jobAlertRows);
   console.log(
-    `👥 dedup: newsletter ${stats.newsletterSeen} (registered ${stats.newsletterRegistered}) ∪ job-alert ${stats.jobAlertSeen} (eligible ${stats.jobAlertEligible})` +
+    `👥 dedup: newsletter ${stats.newsletterSeen} (registered ${stats.newsletterRegistered}, excludedNoBasis ${stats.excludedNoBasis}) ∪ job-alert ${stats.jobAlertSeen} (eligible ${stats.jobAlertEligible})` +
     ` → UNION ${stats.union} (overlap ${stats.overlap}, opt-out wins ${stats.optOutWins})`,
   );
 

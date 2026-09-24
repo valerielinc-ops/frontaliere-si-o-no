@@ -16,6 +16,7 @@
 export {
   CONFIRMATION_LINK_PROOF,
   hasConfirmationProof,
+  hasSubscriptionBasis,
   hasUnifiedEmailConsent,
   isBaseCommunicationsReady,
   isNewsletterConfirmationEvent,

@@ -179,6 +179,63 @@ export function isBaseCommunicationsReady(_row) {
   return true;
 }
 
+function hasText(value) {
+  return typeof value === 'string' && value.trim() !== '';
+}
+
+/**
+ * Whether the row records ANY relationship that allows ordinary
+ * communications — the floor under the #8754 policy, not a proof gate.
+ *
+ * #8754 removed the double-opt-in proof from delivery: registration terms,
+ * not a second checkbox, establish the base relationship. That policy still
+ * needs a relationship to exist. #8341 separated consent from login, and from
+ * then on a generic sign-in could write a PROFILE-ONLY document into
+ * `newsletter_subscribers` (name, photo, `auth_uid`, `lastLoginAt`) with no
+ * status, no accepted registration terms, no consent and no confirmation. The
+ * senders read "no status" as the legacy mailable status `''`, so those rows
+ * joined the audience. Measured 2026-09-24 on 13.064 documents: 235 rows carry
+ * none of the markers below, and all of them sit in the `weekly_2026-09-14`
+ * and `weekly_2026-09-21` resume logs.
+ *
+ * Any ONE of these is a relationship, so every row the #8754 policy accepts
+ * still passes (no proof, no confirmation, no second checkbox required):
+ *   - a subscription `status` of any value — `pending` included. Excluded
+ *     statuses stay the job of `NEWSLETTER_EXCLUDED_STATUSES`, not of this;
+ *   - accepted registration terms or a recorded `consent_basis`;
+ *   - a recorded consent act: `consent_given` or a stored `consent_text`
+ *     (the communications banner records the text it displayed);
+ *   - a confirmation stamp (`confirmed_at`), whatever its provenance;
+ *   - the legacy subscription shape that predates all of the above
+ *     (`isActive` / `active` / `confirmed` booleans, a `preferences` map, a
+ *     `subscribed_at` stamp) — the same shape `hasNewsletterSubscriberRecord`
+ *     in `jobAlertBackfillCore.js` treats as a subscriber record.
+ *
+ * Opt-outs and hard suppression are NOT read here: a row with a basis can
+ * still be excluded by the channel's own stop predicates, and a row without
+ * one is excluded whatever those say.
+ *
+ * @param {({doc?: object} & Record<string, unknown>) | null | undefined} row
+ *   Raw Firestore row or a projection carrying it on `.doc`.
+ * @returns {boolean}
+ */
+export function hasSubscriptionBasis(row) {
+  if (!row || typeof row !== 'object') return false;
+  if (hasText(readField(row, 'status'))) return true;
+  if (readField(row, 'registration_terms_accepted', 'registrationTermsAccepted') === true) return true;
+  if (hasText(readField(row, 'consent_basis', 'consentBasis'))) return true;
+  if (readField(row, 'consent_given', 'consentGiven') === true) return true;
+  if (hasText(readField(row, 'consent_text', 'consentText'))) return true;
+  if (hasConfirmationStamp(row)) return true;
+  for (const field of ['isActive', 'active', 'confirmed']) {
+    if (typeof readField(row, field) === 'boolean') return true;
+  }
+  const preferences = readField(row, 'preferences');
+  if (preferences && typeof preferences === 'object') return true;
+  if (readField(row, 'subscribed_at', 'subscribedAt')) return true;
+  return false;
+}
+
 /**
  * Whether the confirmed relationship came from the displayed, unified email
  * choice. This enables recurring feature emails whose concrete content is

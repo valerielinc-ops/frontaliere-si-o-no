@@ -59,6 +59,7 @@ import { refreshEngagementScore } from '../functions/src/lib/engagementScore.js'
 import { prioritizeSubscribers } from '../services/newsletter-priority.mjs';
 import { NEWSLETTER_EXCLUDED_STATUSES, isCrossChannelStop } from '../services/emailSuppression.mjs';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
+import { hasSubscriptionBasis } from '../services/subscriberConsent.mjs';
 import { makeUnsubscribeUrl, makeResubscribeUrl, makeOneClickUnsubscribeUrl, generateAutologinCode, makePreferencesUrl, makeAuthenticatedUrl, isOwnRewritableHref } from '../services/newsletterUrls.mjs';
 import { auditEmailLinksStatic } from './lib/email-link-audit.mjs';
 import { filterFixtureJobs } from './lib/fixture-data-filter.mjs';
@@ -1497,6 +1498,10 @@ async function fetchTargetSubscriber(email) {
   //
   // This is orthogonal to the registration basis: it answers "did they leave?".
   if (isNewsletterOptOutBinding(rowForSend)) return { subscriber: null, refusal: 'unsubscribed' };
+  // A profile-only document (a sign-in, no status/terms/consent) exists but is
+  // not a subscription: refuse it rather than fall back to the synthetic
+  // profile, which would mail exactly the row the bulk path excludes.
+  if (!hasSubscriptionBasis(rowForSend)) return { subscriber: null, refusal: 'no subscription basis (profile-only document)' };
   return { subscriber: subscriberFromFirestoreRow(rowForSend), refusal: null };
 }
 
@@ -1507,10 +1512,12 @@ async function fetchSubscribers() {
   // preferredSendSampleCount, but computeGlobalPreferredHour reads the
   // Firestore field names directly off the row, so keep the rows around too.
   const rawRows = [];
+  let excludedNoBasis = 0;
   try {
     // Every non-excluded subscriber is eligible here, including pending rows
-    // and rows without a confirmation proof. The only delivery stops are the
-    // newsletter opt-out/status, cross-channel hard stop and malformed address.
+    // and rows without a confirmation proof. The delivery stops are the
+    // newsletter opt-out/status, cross-channel hard stop, malformed address
+    // and a row with no subscription basis at all (hasSubscriptionBasis).
     const snap = await db.collection('newsletter_subscribers').get();
     snap.docs.forEach((d) => {
       if (d.id === '_meta_') return;
@@ -1529,6 +1536,10 @@ async function fetchSubscribers() {
       // fetchTargetSubscriber above — a stamp superseded by a strictly later
       // explicit re-opt-in is not binding (#5711).
       if (isNewsletterOptOutBinding(rowForSend)) return;
+      // Profile-only rows written by a generic sign-in since #8341 carry no
+      // status, terms, consent or confirmation: no relationship, no mail. The
+      // #8754 policy (terms, no proof) is unchanged for every other row.
+      if (!hasSubscriptionBasis(rowForSend)) { excludedNoBasis++; return; }
       rawRows.push(rowForSend);
       // Pass the RAW row.email so subscriberFromFirestoreRow can harvest a
       // "Name <addr>" display name; it strips the wrapper internally and
@@ -1539,6 +1550,7 @@ async function fetchSubscribers() {
   } catch (e) {
     console.warn('\u26a0\ufe0f Subscriber fetch failed:', e.message);
   }
+  console.log(`\ud83d\udc65 Subscribers eligible: ${subscribers.size} (excludedNoBasis ${excludedNoBasis})`);
 
   // user_profiles collection removed — all subscriber data is in newsletter_subscribers
 
