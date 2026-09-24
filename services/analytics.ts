@@ -134,6 +134,26 @@ export const JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff';
 export const DECISION_MOMENT_COMPLETED_EVENT = 'decision_moment_completed';
 export const DECISION_MOMENT_NEXT_ACTION_EVENT = 'decision_moment_next_action';
 
+export type JobAuthGateSurface = 'inline' | 'modal' | 'expired' | 'orphan' | 'unknown';
+export type JobAuthGateState = 'anonymous' | 'pending_email' | 'registered' | 'unknown';
+
+export interface JobAuthGateTelemetry {
+ surface?: JobAuthGateSurface;
+ method?: 'google' | 'linkedin' | 'email' | 'facebook' | 'unknown' | string;
+ authState?: JobAuthGateState;
+ variant?: string;
+ experimentId?: string;
+ jobSlug?: string | null;
+}
+
+export interface NewsletterTelemetryContext {
+ sourceChannel?: string;
+ sourceCta?: string;
+ sourcePage?: string;
+ jobSlug?: string | null;
+ registrationMethod?: 'email' | 'authenticated' | string;
+}
+
 /**
  * Resolve the identity carried by job analytics from the canonical job fields.
  * The caller must already have resolved route aliases/locales to the current
@@ -230,6 +250,13 @@ function tagClarity(key: string, value: string): void {
  if (typeof c === 'function') {
  c('set', key, value);
  }
+ } catch { /* Clarity not available — silent */ }
+}
+
+function emitClarityEvent(name: string): void {
+ try {
+  const c = (window as any).clarity;
+  if (typeof c === 'function') c('event', name);
  } catch { /* Clarity not available — silent */ }
 }
 
@@ -374,6 +401,13 @@ const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
    }
   });
  }
+};
+
+// Keep the historical PostHog stream alive for existing dashboards while new
+// measurement contracts can be GA4-only. PostHog is deliberately not used as
+// the source of truth for the experiments or revenue analysis.
+const logPostHogOnly = (eventName: string, params?: Record<string, any>) => {
+ posthogCapture(eventName, params);
 };
 
 const log = (eventName: string, params?: Record<string, any>) => {
@@ -2071,10 +2105,54 @@ export const Analytics = {
  },
 
  /**
- * Job auth gate funnel — full conversion tracking for the job detail login wall.
- * Tracks the job context (category, location, keywords, search query) so we
- * know exactly which listing triggered the sign-up.
- */
+  * Canonical GA4/Clarity signal for the job auth gate.
+  *
+  * The fields deliberately reuse custom dimensions already registered in GA4:
+  * page, section, component, action, cta_id, details and job_slug. This keeps
+  * the new measurement queryable without adding another permanent dimension.
+  * Details are categorical only; no email, title, company or search text is
+  * sent to this stream.
+  */
+ trackJobAuthGate: (action: 'view' | 'method_click' | 'success' | 'fail' | 'dismiss', details: JobAuthGateTelemetry = {}) => {
+  const surface = details.surface || 'unknown';
+  const method = details.method || 'unknown';
+  const state = details.authState || 'unknown';
+  const variant = truncate(details.variant || 'control', 40);
+  const experimentId = truncate(details.experimentId || '', 60);
+  const jobSlug = truncate(details.jobSlug || '', 180);
+  const ctaId = `job_auth_gate.${surface}.${method}.${action}`;
+  const detailValue = [
+   `state=${state}`,
+   `variant=${variant}`,
+   ...(experimentId ? [`experiment=${experimentId}`] : []),
+  ].join('|');
+
+  logFirebaseOnly('ui_interaction', {
+   page: 'job_auth_gate',
+   section: surface,
+   component: method,
+   action,
+   cta_id: ctaId,
+   details: detailValue,
+   ...(jobSlug ? { job_slug: jobSlug } : {}),
+   ...(experimentId ? { experiment_id: experimentId } : {}),
+   variant,
+  });
+
+  tagClarity('job_auth_surface', surface);
+  tagClarity('job_auth_method', method);
+  tagClarity('job_auth_action', action);
+  emitClarityEvent('job_auth_gate');
+ },
+
+ /**
+  * Backward-compatible job auth funnel event.
+  *
+  * The legacy PostHog payload keeps its historical context, but GA4 now
+  * receives only categorical fields. The previous implementation forwarded
+  * titles, search text and email domains to GA4, where they were both noisy
+  * and not queryable as registered dimensions.
+  */
  trackJobAuthFunnel: (
  action: 'gate_view' | 'auth_method_click' | 'auth_success' | 'auth_fail' | 'gate_dismiss',
  details?: {
@@ -2086,26 +2164,57 @@ export const Analytics = {
  location?: string;
  searchQuery?: string;
  keywords?: string;
+ surface?: JobAuthGateSurface;
+ authState?: JobAuthGateState;
+ variant?: string;
+ experimentId?: string;
+ jobSlug?: string | null;
  }
  ) => {
- // The action value IS the funnel step — also emit it as `step`/`funnel`
- // so the PostHog funnel_step + job_auth_funnel dashboards share keys.
- log('job_auth_funnel', {
- action,
- step: action,
- funnel: 'job_auth',
- ...details,
- });
- // Also emit a normalized funnel_step event so all funnels can be queried
- // via the same event shape in PostHog.
- log('funnel_step', {
- step: action,
- funnel: 'job_auth',
- funnel_name: 'job_auth',
- step_name: action,
- step_index: 0,
- ...(details || {}),
- });
+  const safeDetails = {
+   method: details?.method,
+   category: truncate(details?.category || '', 60) || undefined,
+   location: truncate(details?.location || '', 80) || undefined,
+   surface: details?.surface,
+   auth_state: details?.authState,
+   variant: truncate(details?.variant || '', 40) || undefined,
+   experiment_id: truncate(details?.experimentId || '', 60) || undefined,
+   job_slug: truncate(details?.jobSlug || '', 180) || undefined,
+  };
+  const legacyDetails = details || {};
+
+  // Preserve the historical PostHog stream without making it the GA4 source.
+  logPostHogOnly('job_auth_funnel', {
+   action,
+   step: action,
+   funnel: 'job_auth',
+   ...legacyDetails,
+  });
+  logPostHogOnly('funnel_step', {
+   step: action,
+   funnel: 'job_auth',
+   funnel_name: 'job_auth',
+   step_name: action,
+   step_index: 0,
+   ...legacyDetails,
+  });
+
+  // Keep the existing GA4 event names so historical reports remain useful,
+  // while excluding free-text/PII fields from new GA4 collection.
+  logFirebaseOnly('job_auth_funnel', {
+   action,
+   step: action,
+   funnel: 'job_auth',
+   ...safeDetails,
+  });
+  logFirebaseOnly('funnel_step', {
+   step: action,
+   funnel: 'job_auth',
+   funnel_name: 'job_auth',
+   step_name: action,
+   step_index: 0,
+   ...safeDetails,
+  });
  },
 
  /**
@@ -2140,11 +2249,39 @@ export const Analytics = {
  * Newsletter — subscribe is NOT a generate_lead (reserved for simulation_complete)
  */
  trackNewsletter: (
-  action: 'view_form' | 'subscribe_attempt' | 'subscribe' | 'unsubscribe' | 'error',
+  action: 'view_form' | 'subscribe_attempt' | 'subscribe' | 'unsubscribe' | 'error' | 'confirm',
   emailDomain?: string,
-  sourceCta?: string,
+  contextOrSourceCta: NewsletterTelemetryContext | string = {},
  ) => {
- log('newsletter', { action, email_domain: emailDomain, source_cta: sourceCta });
+  const context: NewsletterTelemetryContext = typeof contextOrSourceCta === 'string'
+   ? { sourceCta: contextOrSourceCta }
+   : contextOrSourceCta;
+  log('newsletter', {
+   action,
+   email_domain: emailDomain,
+   source_cta: context.sourceCta,
+  });
+
+  // `source_channel`/`source_cta` were historically emitted as free-form
+  // params, but they are not registered GA4 dimensions. Mirror the source
+  // through the already-registered structural fields so a subscription can be
+  // joined to the gate without adding another permanent custom dimension.
+  if (context.sourceChannel || context.sourceCta || context.sourcePage || context.jobSlug) {
+   const sourceChannel = truncate(context.sourceChannel || 'newsletter', 60);
+   const sourceCta = truncate(context.sourceCta || 'newsletter', 80);
+   const registrationMethod = truncate(context.registrationMethod || 'unknown', 40);
+   const sourcePage = truncate(context.sourcePage || '', 180);
+   logFirebaseOnly('ui_interaction', {
+    page: 'newsletter',
+    section: sourceChannel,
+    component: sourceCta,
+    action,
+    cta_id: `newsletter.${sourceChannel}.${sourceCta}.${action}`,
+    details: `registration_method=${registrationMethod}`,
+    ...(sourcePage ? { page_path: sourcePage } : {}),
+    ...(context.jobSlug ? { job_slug: truncate(context.jobSlug, 180) } : {}),
+   });
+  }
  },
 
  trackNewsletterEvent: (

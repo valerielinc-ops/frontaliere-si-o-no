@@ -52,7 +52,7 @@
 import { writeFileSync, mkdirSync } from 'node:fs';
 import { fileURLToPath } from 'node:url';
 import { dirname, resolve } from 'node:path';
-import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID } from './lib/ga4-service-account.mjs';
+import { sleep, fetchRetry, getServiceAccountToken, DEFAULT_GA4_PROPERTY_ID, ga4DateRange } from './lib/ga4-service-account.mjs';
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 const OUTPUT_PATH = resolve(__dirname, '..', 'data', 'user-value-report.json');
@@ -288,6 +288,88 @@ async function fetchSegmentedArpu(propertyId, headers, period, registration) {
   };
 }
 
+// ── 3b. Clean registered-vs-anonymous benchmark ─────────────────────────
+// Keep this query free of device/source dimensions: one row is one value of
+// the user property, so the comparison is additive and not a sum of repeated
+// user rows. `(not set)` remains a first-class row because it measures how much
+// of the property still lacks a reliable auth-state signal.
+async function fetchRegistrationSummary(propertyId, headers, period) {
+  const segmentDimension = 'customUser:is_registered';
+  const revenueResult = await runReport(propertyId, headers, {
+    dateRanges: [{ startDate: period.start, endDate: period.end }],
+    dimensions: [{ name: segmentDimension }],
+    metrics: [{ name: 'totalAdRevenue' }, { name: 'activeUsers' }, { name: 'sessions' }],
+    orderBys: [{ metric: { metricName: 'activeUsers' }, desc: true }],
+    limit: 20,
+  });
+  const adResult = await runReport(propertyId, headers, {
+    dateRanges: [{ startDate: period.start, endDate: period.end }],
+    dimensions: [{ name: segmentDimension }],
+    metrics: [{ name: 'eventCount' }, { name: 'totalUsers' }],
+    dimensionFilter: {
+      filter: {
+        fieldName: 'eventName',
+        stringFilter: { value: 'ad_impression', matchType: 'EXACT' },
+      },
+    },
+    orderBys: [{ metric: { metricName: 'eventCount' }, desc: true }],
+    limit: 20,
+  });
+
+  const errors = [];
+  if (!revenueResult.ok) errors.push(`revenue: ${revenueResult.data?.error?.message || `HTTP ${revenueResult.status}`}`);
+  if (!adResult.ok) errors.push(`ad_impression: ${adResult.data?.error?.message || `HTTP ${adResult.status}`}`);
+
+  const revenueRows = revenueResult.ok
+    ? rowsToObjects(revenueResult.data, [segmentDimension], ['totalAdRevenue', 'activeUsers', 'sessions'])
+    : [];
+  const adRows = adResult.ok
+    ? rowsToObjects(adResult.data, [segmentDimension], ['eventCount', 'totalUsers'])
+    : [];
+  const adBySegment = new Map(adRows.map((row) => [row[segmentDimension], row]));
+  const segments = [...new Set([
+    ...revenueRows.map((row) => row[segmentDimension]),
+    ...adRows.map((row) => row[segmentDimension]),
+  ])];
+  const rows = segments.map((segment) => {
+    const revenue = revenueRows.find((row) => row[segmentDimension] === segment) || {};
+    const ads = adBySegment.get(segment) || {};
+    return {
+      segment,
+      totalAdRevenue: Number(revenue.totalAdRevenue || 0),
+      activeUsers: Number(revenue.activeUsers || 0),
+      sessions: Number(revenue.sessions || 0),
+      arpu: computeArpu(revenue.totalAdRevenue, revenue.activeUsers),
+      adImpressions: Number(ads.eventCount || 0),
+      adUsers: Number(ads.totalUsers || 0),
+      adImpressionsPerActiveUser: computeArpu(ads.eventCount, revenue.activeUsers),
+    };
+  });
+
+  const totalRevenue = rows.reduce((sum, row) => sum + row.totalAdRevenue, 0);
+  const totalUsers = rows.reduce((sum, row) => sum + row.activeUsers, 0);
+  const totalAdImpressions = rows.reduce((sum, row) => sum + row.adImpressions, 0);
+  const notSetUsers = rows.find((row) => row.segment === '(not set)')?.activeUsers || 0;
+
+  return {
+    dimension: segmentDimension,
+    rows,
+    totals: {
+      totalAdRevenue: Number(totalRevenue.toFixed(4)),
+      activeUsers: totalUsers,
+      sessions: rows.reduce((sum, row) => sum + row.sessions, 0),
+      arpu: computeArpu(totalRevenue, totalUsers),
+      adImpressions: totalAdImpressions,
+      notSetActiveUsers: notSetUsers,
+      notSetActiveUserShare: totalUsers > 0 ? Number((notSetUsers / totalUsers).toFixed(4)) : null,
+    },
+    revenueQuery: revenueResult.ok ? null : errors.find((error) => error.startsWith('revenue:')) || null,
+    adImpressionQuery: adResult.ok ? null : errors.find((error) => error.startsWith('ad_impression:')) || null,
+    error: errors.length ? errors.join(' | ') : null,
+    currencyCode: revenueResult.data?.metadata?.currencyCode || null,
+  };
+}
+
 // ── 4. Cohort / LTV curve (revenue by days-since-acquisition) ─
 //
 // Live-verified 2026-07-17 findings (see git history / PR description for
@@ -339,6 +421,7 @@ async function fetchSegmentedArpu(propertyId, headers, period, registration) {
 //    secondary, single-call cross-check, clearly labeled as an approximation
 //    — it is not needed as the primary path since the real thing works.
 async function fetchCohortLtv(propertyId, headers, cohortPeriod, registration) {
+  const reportEnd = new Date(`${cohortPeriod.endDate}T00:00:00Z`);
   const baseCurve = {
     granularity: 'DAILY',
     acquisitionWindow: cohortPeriod,
@@ -391,7 +474,7 @@ async function fetchCohortLtv(propertyId, headers, cohortPeriod, registration) {
     const dimRows = [];
     const dimErrors = [];
     for (let daysAgo = SLICE_LOOKBACK_DAYS; daysAgo >= 1; daysAgo--) {
-      const acqDate = new Date();
+      const acqDate = new Date(reportEnd);
       acqDate.setUTCDate(acqDate.getUTCDate() - daysAgo);
       const acqDateStr = fmtDate(acqDate);
       const dayResult = await runReport(propertyId, headers, {
@@ -437,7 +520,7 @@ async function fetchCohortLtv(propertyId, headers, cohortPeriod, registration) {
   // everywhere it's surfaced (console + JSON).
   const proxyFallback = { method: 'APPROXIMATION — rolling weekly runReport snapshots, not a true acquisition-cohort curve', byDim: {} };
   const weekRanges = [0, 1, 2, 3].map((weeksAgo) => {
-    const end = new Date();
+    const end = new Date(reportEnd);
     end.setUTCDate(end.getUTCDate() - weeksAgo * 7);
     const start = new Date(end);
     start.setUTCDate(start.getUTCDate() - 6);
@@ -498,6 +581,18 @@ function renderConsoleSummary(report) {
   console.log(`   Used in this report: ${report.locale.dimensionUsedInThisReport}`);
   console.log('');
 
+  console.log('👤 Registered vs anonymous benchmark (additive user-property query):');
+  if (report.registrationSummary?.error && report.registrationSummary.rows.length === 0) {
+    console.log(`   ⚠️  Query failed: ${report.registrationSummary.error}`);
+  } else {
+    console.table(report.registrationSummary?.rows || []);
+    const totals = report.registrationSummary?.totals;
+    console.log(`   Totals: revenue=${totals?.totalAdRevenue} ${report.registrationSummary?.currencyCode ?? ''} | activeUsers=${totals?.activeUsers} | ARPU=${totals?.arpu} | ad_impressions=${totals?.adImpressions}`);
+    console.log(`   "(not set)" active-user share: ${totals?.notSetActiveUserShare ?? '—'}`);
+    if (report.registrationSummary?.error) console.log(`   ⚠️  Partial query warning: ${report.registrationSummary.error}`);
+  }
+  console.log('');
+
   console.log('💰 Segmented ARPU (top rows by totalAdRevenue):');
   if (report.segmentedArpu.error) {
     console.log(`   ⚠️  Query failed: ${report.segmentedArpu.error}`);
@@ -545,6 +640,7 @@ async function main() {
     period: null,
     customDimensionRegistration: null,
     locale: null,
+    registrationSummary: null,
     segmentedArpu: null,
     ltv: null,
     warnings: [],
@@ -566,17 +662,19 @@ async function main() {
   const headers = { Authorization: `Bearer ${token}`, 'Content-Type': 'application/json' };
   log('🔑', 'OAuth2 authenticated (GA4 Data API)');
 
-  const endDate = EXPLICIT_END ? new Date(EXPLICIT_END) : new Date();
-  const startDate = EXPLICIT_START ? new Date(EXPLICIT_START) : (() => {
-    const d = new Date(endDate);
-    d.setUTCDate(d.getUTCDate() - DAYS);
-    return d;
-  })();
-  const period = { start: fmtDate(startDate), end: fmtDate(endDate), days: DAYS };
+  const settledRange = ga4DateRange(DAYS, 2);
+  const period = {
+    start: EXPLICIT_START || settledRange.startDate,
+    end: EXPLICIT_END || settledRange.endDate,
+    days: DAYS,
+  };
   report.period = period;
+  if (!EXPLICIT_START && !EXPLICIT_END) {
+    report.warnings.push(`Default GA4 window uses a 2-day freshness lag (${period.start} → ${period.end}); pass --start/--end to override.`);
+  }
 
-  const cohortEnd = new Date();
-  const cohortStart = new Date();
+  const cohortEnd = new Date(`${period.end}T00:00:00Z`);
+  const cohortStart = new Date(cohortEnd);
   cohortStart.setUTCDate(cohortStart.getUTCDate() - COHORT_DAYS);
   const cohortPeriod = { startDate: fmtDate(cohortStart), endDate: fmtDate(cohortEnd) };
 
@@ -613,7 +711,16 @@ async function main() {
     report.errors.push(`Locale check failed: ${e.message}`);
   }
 
-  // 3. Segmented ARPU.
+  // 3. Clean registered-vs-anonymous benchmark (no repeated device/source rows).
+  try {
+    report.registrationSummary = await fetchRegistrationSummary(propertyId, headers, period);
+    log('👤', `Registered-vs-anonymous benchmark done — ${report.registrationSummary.rows.length} segments`);
+  } catch (e) {
+    report.errors.push(`Registration summary failed: ${e.message}`);
+    report.registrationSummary = { rows: [], totals: null, error: e.message };
+  }
+
+  // 4. Segmented ARPU.
   try {
     report.segmentedArpu = await fetchSegmentedArpu(propertyId, headers, period, registration);
     log('💰', `Segmented ARPU query done — ${report.segmentedArpu.rowCount ?? 0} rows`);
@@ -622,7 +729,7 @@ async function main() {
     report.segmentedArpu = { dimensionsRequested: [], dimensionsUsed: [], dimensionsSkipped: [], error: e.message, rows: [], totals: null };
   }
 
-  // 4. Cohort / LTV.
+  // 5. Cohort / LTV.
   try {
     report.ltv = await fetchCohortLtv(propertyId, headers, cohortPeriod, registration);
     log('📈', `LTV cohort query done — ${report.ltv.baseCurve.rows.length} day-rows`);
