@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "updatedAt": "2026-09-24T10:05:39.637Z",
+  "updatedAt": "2026-09-24T10:06:24.075Z",
   "candidates": {
     "2225": {
       "key": "2225",
@@ -38923,13 +38923,13 @@
     },
     "anicura.ch": {
       "key": "anicura.ch",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "web",
         "osm"
       ],
       "firstSeenAt": "2026-08-22T04:10:02.823Z",
-      "updatedAt": "2026-09-24T10:01:04.385Z",
+      "updatedAt": "2026-09-24T10:06:24.051Z",
       "name": "anicura",
       "domain": "anicura.ch",
       "careersUrl": "https://jobs.anicura.ch/jobs/5851151-tieraerzt-in-80-100-w-m-d-thun",
@@ -39047,7 +39047,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "9645",
+      "promotionBranch": "prospector/promote-2026-09-24"
     },
     "anifit-bruvona.ch": {
       "key": "anifit-bruvona.ch",
@@ -263116,12 +263118,12 @@
     },
     "fisba": {
       "key": "fisba",
-      "status": "promoted",
+      "status": "promoting",
       "sources": [
         "seco"
       ],
       "firstSeenAt": "2026-08-21T08:28:54.569Z",
-      "updatedAt": "2026-09-24T10:03:27.967Z",
+      "updatedAt": "2026-09-24T10:06:24.051Z",
       "name": "FISBA AG",
       "city": "",
       "zip": "",
@@ -263189,7 +263191,9 @@
           "jobLikeRate": 1,
           "logoFound": true
         }
-      ]
+      ],
+      "promotionPr": "9645",
+      "promotionBranch": "prospector/promote-2026-09-24"
     },
     "fisba.com": {
       "key": "fisba.com",
