@@ -222,7 +222,65 @@ export type NewsletterUpsertInput = {
   * deliberate `reconsent` keeps the DOI flow and is never skipped.
   */
  skipConfirmationEmail?: boolean;
+ /**
+  * How the last-touch attribution fields (`source_page`, `source_cta`,
+  * `source_component`, `source_route_family`) merge with an existing row.
+  * `overwrite` (default) is a real touch: the input replaces them. `fill`
+  * is a background reconciliation (session restore, login without a
+  * surface context): it only fills fields the row does not have yet, so a
+  * login never erases the box that actually produced the signup. First-touch
+  * `source` / `source_channel` are unaffected by either mode.
+  */
+ attributionMode?: 'overwrite' | 'fill';
 };
+
+export type SourceAttributionFields = {
+ source_page: string | null;
+ source_cta: string | null;
+ source_component: string | null;
+ source_route_family: string | null;
+};
+
+/**
+ * Merge the last-touch attribution of an upsert with the stored row.
+ *
+ * Overwrite: the page and its route family travel together — a new page
+ * without an explicit family takes the family derived from that page
+ * (`resolved`), not the stale family of an earlier touch.
+ */
+export function mergeSourceAttribution(
+ input: Pick<NewsletterUpsertInput, 'sourcePage' | 'sourceCta' | 'sourceComponent' | 'sourceRouteFamily' | 'attributionMode'>,
+ existing: Record<string, any> | undefined,
+ resolved: { sourcePage: string | null; sourceRouteFamily: string | null },
+): SourceAttributionFields {
+ const inputPage = sanitizeString(input.sourcePage);
+ const inputCta = sanitizeString(input.sourceCta);
+ const inputComponent = sanitizeString(input.sourceComponent);
+ const inputRouteFamily = sanitizeString(input.sourceRouteFamily);
+ const existingPage = sanitizeString(existing?.source_page);
+ const existingCta = sanitizeString(existing?.source_cta);
+ const existingComponent = sanitizeString(existing?.source_component);
+ const existingRouteFamily = sanitizeString(existing?.source_route_family);
+ const resolvedPage = sanitizeString(resolved.sourcePage);
+ const resolvedRouteFamily = sanitizeString(resolved.sourceRouteFamily);
+ if (input.attributionMode === 'fill') {
+  return {
+   source_page: existingPage || inputPage || resolvedPage,
+   source_cta: existingCta || inputCta,
+   source_component: existingComponent || inputComponent,
+   source_route_family: existingRouteFamily || inputRouteFamily || resolvedRouteFamily,
+  };
+ }
+ return {
+  source_page: inputPage || existingPage || resolvedPage,
+  source_cta: inputCta || existingCta,
+  source_component: inputComponent || existingComponent,
+  source_route_family: inputRouteFamily
+   || (inputPage ? resolvedRouteFamily : null)
+   || existingRouteFamily
+   || resolvedRouteFamily,
+ };
+}
 
 /**
  * The shared registration write used by alert and feature gates.
@@ -1430,10 +1488,7 @@ export async function captureNewsletterSubscriber(
  source_channel: sourceChannel === 'resubscribe_link'
  ? sourceChannel
  : (sanitizeString(existingData?.source_channel) || sourceChannel),
- source_page: sanitizeString(input.sourcePage) || sanitizeString(existingData?.source_page) || resolved.sourcePage,
- source_cta: sanitizeString(input.sourceCta) || sanitizeString(existingData?.source_cta),
- source_component: sanitizeString(input.sourceComponent) || sanitizeString(existingData?.source_component),
- source_route_family: sanitizeString(input.sourceRouteFamily) || sanitizeString(existingData?.source_route_family) || resolved.sourceRouteFamily,
+ ...mergeSourceAttribution(input, existingData, resolved),
  source_utm: input.sourceUtm || existingData?.source_utm || resolved.sourceUtm || null,
  locale: sanitizeString(input.locale) || sanitizeString(existingData?.locale) || resolved.locale,
  signup_locale: sanitizeString(input.signupLocale) || sanitizeString(existingData?.signup_locale) || resolved.signupLocale,
