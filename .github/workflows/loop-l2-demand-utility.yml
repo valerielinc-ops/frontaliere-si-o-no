@@ -18,6 +18,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'services/analytics.ts'
       - '.github/workflows/loop-l2-demand-utility.yml'
   pull_request:
     paths:
@@ -33,6 +34,7 @@ on:
       - 'scripts/lib/loop-fleet-contract.mjs'
       - 'scripts/lib/loop-fleet-outcome.mjs'
       - 'scripts/lib/github-issue-creator.mjs'
+      - 'services/analytics.ts'
       - '.github/workflows/loop-l2-demand-utility.yml'
   workflow_dispatch:
     inputs:
@@ -122,7 +124,7 @@ jobs:
           set -e
           if [ "$export_code" -ne 0 ]; then
             echo '::warning::L2 live outcome export failed; recording an explicitly unavailable outcome so utility remains fail-closed'
-            node scripts/ci/export-l2-demand-outcomes.mjs --unavailable --input data/gsc-orphan-queries-clusters.json --out "$OUTCOME_PATH" --reason 'PostHog/GSC live join failed'
+            node scripts/ci/export-l2-demand-outcomes.mjs --unavailable --input data/gsc-orphan-queries-clusters.json --out "$OUTCOME_PATH" --reason 'GA4/GSC live join failed'
           fi
       - name: Audit demand to utility
         env:

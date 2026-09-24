@@ -4,9 +4,11 @@ import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import {
   buildL2DemandExport,
-  buildL2OutcomeQuery,
+  buildL2LandingSessionReportBody,
+  buildL2OutcomeCounts,
   buildUnavailableL2DemandExport,
   exportL2,
+  L2_USEFUL_ACTION_EVENT,
   landingPathsFromGsc,
 } from '../scripts/ci/export-l2-demand-outcomes.mjs';
 
@@ -29,16 +31,54 @@ describe('L2 read-only demand outcome export', () => {
     expect(() => landingPathsFromGsc(source({ clusters: [] }))).toThrow('no landing paths');
   });
 
-  it('builds a session-level query with the registered events and no identity fields', () => {
-    const query = buildL2OutcomeQuery({
-      paths: ['/offerte-lavoro-ticino/'],
-      window: { start: '2026-09-04T00:00:00.000Z', end: '2026-09-12T00:00:00.000Z' },
+  it('builds bounded GA4 session reports and keeps useful actions once per session', () => {
+    const landingReport = buildL2LandingSessionReportBody({
+      startDate: '2026-09-04',
+      endDate: '2026-09-12',
     });
-    expect(query).toContain('properties.$pathname');
-    expect(query).toContain('main_conversion');
-    expect(query).toContain('calculate');
-    expect(query).toContain('$session_id');
-    expect(query).not.toMatch(/email|distinct_id|person_id/iu);
+    const usefulReport = buildL2LandingSessionReportBody({
+      startDate: '2026-09-04',
+      endDate: '2026-09-12',
+      eventName: L2_USEFUL_ACTION_EVENT,
+    });
+    expect(landingReport).toMatchObject({
+      dimensions: [{ name: 'landingPagePlusQueryString' }],
+      metrics: [{ name: 'sessions' }],
+    });
+    expect(usefulReport.dimensionFilter.filter).toMatchObject({
+      fieldName: 'eventName',
+      stringFilter: { value: L2_USEFUL_ACTION_EVENT, matchType: 'EXACT' },
+    });
+    expect(JSON.stringify(landingReport)).not.toMatch(/email|distinct_id|person_id/iu);
+  });
+
+  it('joins only GSC paths and rejects incomplete GA4 aggregation', () => {
+    expect(buildL2OutcomeCounts({
+      landingPaths: ['/offerte-lavoro-ticino/', '/en/jobs-ticino/'],
+      landingSessionReport: {
+        rows: [
+          { dimensionValues: [{ value: '/offerte-lavoro-ticino/?utm_source=gsc' }], metricValues: [{ value: '1200' }] },
+          { dimensionValues: [{ value: '/en/jobs-ticino/' }], metricValues: [{ value: '900' }] },
+          { dimensionValues: [{ value: '/outside-gsc/' }], metricValues: [{ value: '9999' }] },
+        ],
+      },
+      usefulActionReport: {
+        rows: [
+          { dimensionValues: [{ value: '/offerte-lavoro-ticino/' }], metricValues: [{ value: '180' }] },
+          { dimensionValues: [{ value: '/outside-gsc/' }], metricValues: [{ value: '9999' }] },
+        ],
+      },
+    })).toEqual({ eligibleLandingSessions: 2100, usefulActions: 180 });
+    expect(buildL2OutcomeCounts({
+      landingPaths: ['/offerte-lavoro-ticino/'],
+      landingSessionReport: { rows: [{ dimensionValues: [{ value: '/offerte-lavoro-ticino/' }], metricValues: [{ value: '1000' }] }] },
+      usefulActionReport: { rowCount: 0 },
+    })).toEqual({ eligibleLandingSessions: 1000, usefulActions: 0 });
+    expect(() => buildL2OutcomeCounts({
+      landingPaths: ['/offerte-lavoro-ticino/'],
+      landingSessionReport: { rowCount: 2, rows: [{ dimensionValues: [{ value: '/offerte-lavoro-ticino/' }], metricValues: [{ value: '1' }] }] },
+      usefulActionReport: { rows: [] },
+    })).toThrow('truncated');
   });
 
   it('adds only reconciled non-negative counts to the GSC snapshot', () => {
@@ -69,18 +109,14 @@ describe('L2 read-only demand outcome export', () => {
     expect(output._meta).toMatchObject({ independent: false, unavailableReason: 'credentials unavailable' });
   });
 
-  it('uses read-only PostHog configuration and writes a runner-local live export', async () => {
+  it('uses read-only GA4 reports and writes a runner-local live export', async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l2-outcome-export-'));
     const inputPath = path.join(dir, 'gsc.json');
     const outputPath = path.join(dir, 'outcomes.json');
     fs.writeFileSync(inputPath, `${JSON.stringify(source())}\n`);
-    const queries: string[] = [];
+    const queries: unknown[] = [];
     const client = {
-      remoteConfig: async () => ({ parameters: {
-        SERVER_POSTHOG_PERSONAL_API_KEY: { defaultValue: { value: 'test-key' } },
-        SERVER_POSTHOG_PROJECT_ID: { defaultValue: { value: '123' } },
-        SERVER_POSTHOG_HOST: { defaultValue: { value: 'https://posthog.test' } },
-      } }),
+      accessToken: async () => 'test-token',
     };
     const output = await exportL2({
       inputPath,
@@ -88,13 +124,19 @@ describe('L2 read-only demand outcome export', () => {
       now: NOW,
       days: 8,
       client: client as any,
-      posthogRunner: async (query, config) => {
-        queries.push(`${query}\n${JSON.stringify(config)}`);
-        return { columns: ['eligibleLandingSessions', 'usefulActions'], results: [[1200, 210]] };
+      ga4Runner: async ({ body }) => {
+        queries.push(body);
+        return body.dimensionFilter
+          ? { rows: [{ dimensionValues: [{ value: '/offerte-lavoro-ticino/' }], metricValues: [{ value: '210' }] }] }
+          : { rows: [
+            { dimensionValues: [{ value: '/offerte-lavoro-ticino/' }], metricValues: [{ value: '1200' }] },
+            { dimensionValues: [{ value: '/en/jobs-ticino/' }], metricValues: [{ value: '900' }] },
+          ] };
       },
     });
-    expect(output.outcomes).toEqual({ eligibleLandingSessions: 1200, usefulActions: 210 });
-    expect(queries[0]).toContain('https://posthog.test');
+    expect(output.outcomes).toEqual({ eligibleLandingSessions: 2100, usefulActions: 210 });
+    expect(queries).toHaveLength(2);
+    expect(queries.some((body: any) => body.dimensionFilter?.filter?.stringFilter?.value === L2_USEFUL_ACTION_EVENT)).toBe(true);
     expect(JSON.parse(fs.readFileSync(outputPath, 'utf8')).outcomes).toEqual(output.outcomes);
   });
 });

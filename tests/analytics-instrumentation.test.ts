@@ -217,6 +217,19 @@ describe('analytics.ts — qualified application funnel', () => {
   });
 });
 
+describe('analytics.ts — L2 useful-action outcome', () => {
+  it('declares a Firebase-only, once-per-session useful-action event', () => {
+    expect(analyticsSrc).toContain("L2_USEFUL_ACTION_EVENT = 'l2_useful_action'");
+    expect(analyticsSrc).toContain('L2_USEFUL_ACTION_SESSION_KEY');
+    expect(analyticsSrc).toContain('sessionStorage.getItem(L2_USEFUL_ACTION_SESSION_KEY)');
+    expect(analyticsSrc).toMatch(/L2_USEFUL_ACTION_STEPS = new Set\(\['calculate', 'compare', 'cta_click'\]\)/);
+    expect(analyticsSrc).toMatch(/params\.funnel === 'main_conversion'/);
+    expect(analyticsSrc).toMatch(/logFirebaseOnly\(L2_USEFUL_ACTION_EVENT\)/);
+    const helper = analyticsSrc.match(/function maybeEmitL2UsefulAction[\s\S]*?\n\}/);
+    expect(helper?.[0]).not.toMatch(/posthogCapture/);
+  });
+});
+
 describe('analytics.ts — job_auth funnel aliasing', () => {
   it('trackJobAuthFunnel emits both `step` and `funnel: \'job_auth\'`', () => {
     const block = analyticsSrc.match(/trackJobAuthFunnel:[\s\S]*?\},\n/);
