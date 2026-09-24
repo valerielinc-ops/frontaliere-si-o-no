@@ -582,12 +582,14 @@
       "department": "Pflege (inkl. Hebamme)",
       "contractDuration": "permanent",
       "previousSlugs": [
+        "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r136ul",
         "dipl-pflegefachmann-frau-forensik-stgag-ch",
         "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
         "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r136ul",
           "dipl-pflegefachmann-frau-forensik-stgag-ch",
           "dipl-pflegefachmann-frau-forensik-stgag-ch-2",
           "dipl-pflegefachmann-frau-forensik-spital-thurgau-stgag-munsterlingen-r14fca"
@@ -6340,7 +6342,7 @@
         "it": "Amministrazione Paziente – Fatturazione Ambulatoriale",
         "en": "Patient Administration – Outpatient Invoicing",
         "de": "Sachbearbeiter/-in Patientenadministration – ambulante Fakturierung",
-        "fr": "Sachbearbeiter/-in Patientenadministration – ambulante Fakturierung"
+        "fr": "Administration du patient – Facturation externe"
       },
       "description": "Sachbearbeiter/-in Patientenadministration – ambulante Fakturierung — Spital Thurgau (STGAG).\n\n• Standort: Kantonsspital Münsterlingen\n• Abteilung: Administration\n• Bereich: Spital Thurgau AG\n• Pensum: Teilzeit\n• Anstellungsverhältnis: Unbefristet\n• Eintrittsdatum: 01.11.2026",
       "descriptionByLocale": {
@@ -6403,7 +6405,6 @@
           "sachbearbeiter-in-patientenadministration-ambulante-fakturierung-stgag-munsterlingen-r134jq"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:24:15.114Z",
       "salaryMin": 57500,
       "salaryMax": 87000,
@@ -6434,7 +6435,7 @@
       "title": "Dipl. Expertin / Experte Intensivpflege NDS HF mit Zusatzfunktion in der Fachverantwortung",
       "titleByLocale": {
         "it": "Dipl. Expert / Expert Intensive Care NDS HF con funzione aggiuntiva nella responsabilità professionale",
-        "en": "Dipl. Expertin / Experte Intensivpflege NDS HF mit Zusatzfunktion in der Fachverantwortung",
+        "en": "Dipl. Expert / Expert Intensive Care NDS HF with additional function in professional responsibility",
         "de": "Dipl. Expertin / Experte Intensivpflege NDS HF mit Zusatzfunktion in der Fachverantwortung",
         "fr": "Dipl. Expert / Expert soins intensifs NDS HF avec une fonction supplémentaire en responsabilité professionnelle"
       },
@@ -6506,7 +6507,6 @@
           "dipl-expert-expert-soins-intensifs-nds-hf-avec-fonction-supplementaire-mise-en-uvre-etude-ficus-70-100-spital-thurgau"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-26T10:01:19.121Z",
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -11714,7 +11714,7 @@
       "title": "Dipl. Pflegefachmann/-frau Alkoholentzug & Therapie",
       "titleByLocale": {
         "it": "Dipl. Infermieristica professionale / donna Alcohol ritiro & terapia",
-        "en": "Dipl. Pflegefachmann/-frau Alkoholentzug & Therapie",
+        "en": "Dipl. Nursing Professional Alcohol Withdrawal & Therapy",
         "de": "Dipl. Pflegefachmann/-frau Alkoholentzug & Therapie",
         "fr": "Dipl. Professionnels des soins infirmiers / femme Retrait d'alcool & thérapie"
       },
@@ -11767,7 +11767,6 @@
           "dipl-pflegefachmann-frau-alkoholentzug-therapie-stgag-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:09:46.097Z",
       "salaryMin": 81500,
       "salaryMax": 114000,

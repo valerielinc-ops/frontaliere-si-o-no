@@ -19,6 +19,7 @@ import { parseGenevaDutySource } from './lib/pharmacy-geneva-duty-parser.mjs';
 const SCRIPT_PATH = fileURLToPath(import.meta.url);
 const REPO_ROOT = resolve(dirname(SCRIPT_PATH), '..');
 const SOURCES_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-geneva-sources.json');
+const CATALOGUE_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-geneva-catalogue.json');
 const DUTIES_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-geneva.json');
 const STATUS_PATH = resolve(REPO_ROOT, 'data/pharmacy-duties-geneva-status.json');
 const USER_AGENT = 'FrontaliereGenevaPharmacyDutyBot/1.0 (+https://frontaliereticino.ch/bot)';
@@ -31,6 +32,16 @@ function argumentValue(prefix) {
 
 async function readJson(filePath) {
   return JSON.parse(await readFile(filePath, 'utf8'));
+}
+
+function catalogueEntries(value) {
+  if (Array.isArray(value)) return value;
+  if (value && Array.isArray(value.pharmacies)) return value.pharmacies;
+  throw new Error('Geneva identity catalogue is missing or malformed');
+}
+
+async function readGenevaCatalogue() {
+  return catalogueEntries(await readJson(CATALOGUE_PATH));
 }
 
 function sourceFromRegistry(sourceData) {
@@ -119,7 +130,7 @@ function baseSnapshot({ attemptedAt, source, sourceData, parsed, fetchedAt = att
     _timezone: GENEVA_DUTY_RELEASE_TIMEZONE,
     _scope: { country: 'CH', canton: GENEVA_DUTY_RELEASE_CANTON },
     _coverage: coverage,
-    _observedEntryCount: parsed?.observations?.filter((entry) => entry.kind === 'dated').length || 0,
+    _observedEntryCount: parsed?.observations?.filter((entry) => entry.kind === 'dated' || entry.kind === 'permanent').length || 0,
     _resolvedDutyCount: duties.length,
     _unresolvedIdentities: unresolvedIdentities,
     _allSourcesFailed: allSourcesFailed,
@@ -193,8 +204,9 @@ export async function importGenevaPharmacyDuties({
   let atomic;
   let fetchError = null;
   try {
+    const resolvedCatalogue = catalogue === undefined ? await readGenevaCatalogue() : catalogue;
     const html = await loadSource(source, fixtureDir);
-    atomic = buildGenevaDutyDatasets({ sourceData, html, attemptedAt, catalogue });
+    atomic = buildGenevaDutyDatasets({ sourceData, html, attemptedAt, catalogue: resolvedCatalogue });
   } catch (error) {
     fetchError = error;
     const failed = fetchFailureSnapshots({ attemptedAt, source, sourceData, error });

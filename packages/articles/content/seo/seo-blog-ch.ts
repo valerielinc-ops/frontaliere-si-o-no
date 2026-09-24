@@ -86366,6 +86366,123 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-tubercolosi-svizzera-aumento-2025': {
+    title: 'Tubercolosi in Svizzera: 544 casi nel 2025, massimo dal 2018',
+    description: 'Nel 2025 la Svizzera ha registrato 544 casi di tubercolosi, il livello più alto dal 2018, con un aumento di 112 casi rispetto al 2024 e un tasso',
+    keywords: 'frontalieri, ticino, svizzera, italia, tubercolosi, casi, massimo, registrato',
+    ogTitle: 'Tubercolosi in Svizzera: 544 casi nel 2025, massimo dal 2018',
+    ogDescription: 'La tubercolosi in Svizzera ha raggiunto nel 2025 il livello più alto dal 2018, con 544 casi totali (Liechtenstein incluso) e un aumento di 112 unità rispetto al 2024. Il tasso di dichiarazione è passato da 4,8 a 6,0 ogni 100\'000 abitanti',
+    canonicalPath: '/articoli-svizzera/tubercolosi-svizzera-aumento-2025/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Tubercolosi in Svizzera: 544 casi nel 2025, massimo dal 2018",
+      "description": "Nel 2025 la Svizzera ha registrato 544 casi di tubercolosi, il livello più alto dal 2018, con un aumento di 112 casi rispetto al 2024 e un tasso",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/tubercolosi-svizzera-aumento-2025.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Operatore sanitario svizzero che analizza risultati di test per tubercolosi in clinica con vista sulle Alpi"
+      },
+      "datePublished": "2026-09-24T17:43:40+00:00",
+      "dateModified": "2026-09-24T17:43:40+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/tubercolosi-svizzera-aumento-2025/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-indennita-maltempo-sei-mesi': {
+    title: 'Interinali: indennità per intemperie dopo sei mesi',
+    description: 'Il Consiglio nazionale estende l\'indennità per intemperie agli interinali impiegati da almeno sei mesi in rapporti continuativi. L\'attuazione passa al governo.',
+    keywords: 'frontalieri, ticino, svizzera, italia, interinali, indennità, intemperie, dopo',
+    ogTitle: 'Interinali, indennità per intemperie dopo sei mesi',
+    ogDescription: 'Il Consiglio nazionale protegge gli interinali impiegati a lungo termine dalle interruzioni per maltempo: il testo riguarda rapporti continuativi di almeno sei mesi. Gli incarichi brevi restano fuori; la mozione modificata dagli Stati è trasmessa',
+    canonicalPath: '/articoli-svizzera/indennita-maltempo-sei-mesi/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Interinali: indennità per intemperie dopo sei mesi",
+      "description": "Il Consiglio nazionale estende l'indennità per intemperie agli interinali impiegati da almeno sei mesi in rapporti continuativi. L'attuazione passa al governo.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/indennita-maltempo-sei-mesi.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Aula parlamentare svizzera durante il dibattito sulla tutela dei lavoratori interinali."
+      },
+      "datePublished": "2026-09-24T19:15:47+00:00",
+      "dateModified": "2026-09-24T19:15:47+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/indennita-maltempo-sei-mesi/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-ubs-capitale-90-bns': {
+    title: 'UBS, la BNS approva requisiti di capitale al 90%',
+    description: 'La BNS approva la decisione del Consiglio degli Stati: il 90% delle filiali estere di UBS sarà coperto con capitale CET1, contro il 100% proposto dal Consiglio',
+    keywords: 'frontalieri, ticino, svizzera, italia, approva, requisiti, capitale, decisione',
+    ogTitle: 'UBS, la BNS approva il requisito di capitale al 90%',
+    ogDescription: 'Il Consiglio degli Stati ha deciso di coprire al 90% il valore delle filiali estere di UBS con capitale CET1. La BNS considera buona la proposta, mentre il Consiglio federale aveva sostenuto il 100% per una maggiore stabilità finanziaria.',
+    canonicalPath: '/articoli-svizzera/ubs-capitale-90-bns/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "UBS, la BNS approva requisiti di capitale al 90%",
+      "description": "La BNS approva la decisione del Consiglio degli Stati: il 90% delle filiali estere di UBS sarà coperto con capitale CET1, contro il 100% proposto dal Consiglio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/ubs-capitale-90-bns.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Edificio bancario svizzero con bandiera nazionale in una scena finanziaria"
+      },
+      "datePublished": "2026-09-24T20:09:09+00:00",
+      "dateModified": "2026-09-24T20:09:09+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/ubs-capitale-90-bns/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
