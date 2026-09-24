@@ -6668,6 +6668,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.indennita-maltempo-sei-mesi.title': 'Intermédiaires : indemnités pour intempéries après six mois',
     'blog.article.indennita-maltempo-sei-mesi.excerpt': 'Le Conseil national approuve la protection des intérimaires employés depuis au moins six mois dans les relations continues contre les interruptions dues aux intempéries.',
     'blog.article.indennita-maltempo-sei-mesi.imageAlt': 'Salle parlementaire suisse lors d\'un débat sur la protection des travailleurs temporaires.',
+    'blog.article.ubs-capitale-90-bns.title': 'UBS, la BNS approuve les exigences de fonds propres à 90 %',
+    'blog.article.ubs-capitale-90-bns.excerpt': 'La BNS approuve la décision du Conseil des Etats : les filiales étrangères d\'UBS devront être couvertes à 90 % par du capital CET1.',
+    'blog.article.ubs-capitale-90-bns.imageAlt': 'Bâtiment bancaire suisse avec drapeau national dans une scène financière',
 };
 
 export default blogMetaChFr;
