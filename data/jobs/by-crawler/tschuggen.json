@@ -174,7 +174,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:15:33.506Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 78000,
       "salarySource": "estimated",
@@ -605,8 +604,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "tschuggen-c57926897ed4",
@@ -680,8 +678,7 @@
         }
       },
       "addressRegion": "GR",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

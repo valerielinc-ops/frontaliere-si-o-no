@@ -142,8 +142,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "msc-cargo-50d293b9d6b0",
@@ -272,7 +271,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-23T23:46:26.851Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "manager-cruise-development-and-execution-msc-geneva"
@@ -377,8 +375,7 @@
           "maxValue": 156000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "msc-cargo-1271772d19b8",
@@ -598,7 +595,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:58:04.814Z",
-      "needsRetranslation": true,
       "salaryMin": 61500,
       "salaryMax": 109000,
       "salarySource": "estimated",
@@ -834,7 +830,6 @@
         ]
       },
       "firstSeenAt": "2026-09-12T13:05:47.757Z",
-      "needsRetranslation": true,
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -1096,8 +1091,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "msc-cargo-a54fe831505d",
@@ -1181,8 +1175,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "msc-cargo-b97d5d608b1c",

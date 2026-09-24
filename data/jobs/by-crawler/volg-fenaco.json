@@ -755,7 +755,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-979aaf",
         "en": "seller-seller-m-f-d-volg-bern-979aaf",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-hy16m4",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-979aaf"
       },
       "crawledAt": "2026-09-24T14:22:56.981Z",
@@ -769,6 +769,9 @@
           "verkauferin-verkaufer-m-w-d-volg-bern"
         ],
         "fr": [
+          "verkauferin-verkaufer-m-w-d-volg-bern"
+        ],
+        "de": [
           "verkauferin-verkaufer-m-w-d-volg-bern"
         ]
       },
@@ -3843,8 +3846,7 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-19T22:50:09.541Z",
-      "needsRetranslation": true
+      "firstSeenAt": "2026-09-19T22:50:09.541Z"
     },
     {
       "title": "Logistikerin / Logistiker EFZ (w/m/d)",
@@ -12378,7 +12380,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-76eeab",
         "en": "seller-seller-m-f-d-volg-bern-76eeab",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-pthavz",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-76eeab"
       },
       "crawledAt": "2026-09-24T14:22:57.000Z",
@@ -12460,7 +12462,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-1d4233",
         "en": "seller-seller-m-f-d-volg-bern-1d4233",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-igly0n",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-1d4233"
       },
       "crawledAt": "2026-09-24T14:22:57.000Z",
@@ -13686,7 +13688,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern-159590",
         "en": "seller-seller-m-f-d-volg-bern-159590",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-8skag2",
         "fr": "vendeur-vendeur-h-f-d-volg-bern-159590"
       },
       "crawledAt": "2026-09-24T14:22:57.002Z",
@@ -14456,7 +14458,7 @@
       "slugByLocale": {
         "it": "venditore-venditore-m-f-d-volg-bern",
         "en": "seller-seller-m-f-d-volg-bern",
-        "de": "verkauferin-verkaufer-m-w-d-volg-bern",
+        "de": "verkauferin-verkaufer-m-w-d-volg-bern-opxpwh",
         "fr": "vendeur-vendeur-h-f-d-volg-bern"
       },
       "crawledAt": "2026-09-24T14:22:57.003Z",
@@ -17658,7 +17660,8 @@
       },
       "previousSlugs": [
         "ladenleiter-stellvertreterin-ladenleiter-stellvertreter-w-m-d-volg-wallbach"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Detailhandelsfachangestellte/n 60-100%",
@@ -19736,7 +19739,8 @@
       },
       "previousSlugs": [
         "verkauferin-verkaufer-m-w-d-volg-oberiberg"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Verkäuferin / Verkäufer (m/w/d)",
@@ -19811,7 +19815,8 @@
       },
       "previousSlugs": [
         "verkauferin-verkaufer-m-w-d-volg-stansstad"
-      ]
+      ],
+      "needsRetranslation": true
     },
     {
       "title": "Lehrstelle als Detailhandelsfachfrau / Detailhandelsfachmann EFZ ab August 2027 w/m/d",

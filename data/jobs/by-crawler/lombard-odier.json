@@ -223,7 +223,6 @@
         ]
       },
       "firstSeenAt": "2026-07-09T12:47:02.061Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -372,7 +371,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:39:37.497Z",
-      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -453,7 +451,6 @@
         ]
       },
       "firstSeenAt": "2026-05-18T12:47:12.099Z",
-      "needsRetranslation": true,
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -839,7 +836,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:57:32.958Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -1070,7 +1066,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:08:56.878Z",
-      "needsRetranslation": true,
       "salaryMin": 120000,
       "salaryMax": 162000,
       "salarySource": "estimated",
@@ -1300,7 +1295,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:08:54.009Z",
-      "needsRetranslation": true,
       "salaryMin": 104500,
       "salaryMax": 183500,
       "salarySource": "estimated",
@@ -1379,7 +1373,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T23:01:36.680Z",
-      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -1621,7 +1614,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:57:11.307Z",
-      "needsRetranslation": true,
       "salaryMin": 51100,
       "salaryMax": 77500,
       "salarySource": "estimated",
@@ -1869,8 +1861,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE",
-      "needsRetranslation": true
+      "addressRegion": "GE"
     },
     {
       "id": "lombard-odier-9eff9f3aa7ea",
@@ -2253,7 +2244,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:27:06.528Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2362,8 +2352,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GE",
-      "needsRetranslation": true
+      "addressRegion": "GE"
     },
     {
       "id": "lombard-odier-ba584140efaa",
@@ -3986,8 +3975,7 @@
         }
       },
       "addressRegion": "GE",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "lombard-odier-beb22f230355",
@@ -4074,8 +4062,7 @@
         }
       },
       "addressRegion": "GE",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "lombard-odier-e988313e5137",

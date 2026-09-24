@@ -519,7 +519,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-24T00:08:39.951Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "quality-engineer-equipment-gn-oerlikon-ch"
@@ -780,7 +779,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T21:46:49.353Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -950,8 +948,7 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "oerlikon-8bea31130adc",
@@ -1015,7 +1012,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:25:18.479Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
