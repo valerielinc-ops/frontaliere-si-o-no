@@ -18,6 +18,7 @@ import {
   inferAnyCanton,
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
+import { looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 
 const BASE_URL = 'https://www.artificialy.com';
 
@@ -51,6 +52,40 @@ function slugify(value = '') {
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-'), 180);
+}
+
+/**
+ * Identify the Cloudflare denial page returned by Artificialy instead of the
+ * career HTML. The shared challenge markers cover the 200-with-challenge
+ * variant; the additional Cloudflare + denial check covers the source's hard
+ * 403 body without treating an ordinary short/empty page as a valid crawl.
+ */
+export function isArtificialyCloudflareBlockedPage(html = '') {
+  const source = String(html || '');
+  if (looksLikeAntiBotChallenge(source)) return true;
+
+  const title = source.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '';
+  const hasCloudflareTitle = /\bcloudflare\b/i.test(title);
+  const hasDeniedTitle = /\b(?:error\s*)?403\b|\bforbidden\b|\battention required\b|\baccess denied\b|\bblocked\b/i.test(title);
+  if (hasCloudflareTitle && hasDeniedTitle) return true;
+
+  // Cloudflare's hard-denial template keeps the denial evidence in a named
+  // error block. Restrict the match to that block so a healthy career page
+  // mentioning Cloudflare/403 in an unrelated script or help paragraph does
+  // not discard otherwise valid JSON-LD jobs.
+  const errorBlock = source.match(
+    /<(?:div|section|main)[^>]*class=["'][^"']*\b(?:cf-error-details|cf-error|challenge-error)\b[^"']*["'][^>]*>([\s\S]*?)<\/(?:div|section|main)>/i,
+  )?.[1] || '';
+  const hasDeniedErrorBlock = /\b(?:error\s*)?403\b|\bforbidden\b|\b(?:you\s+are|you['’]re)\s+blocked\b|\baccess denied\b|\bunable to access\b/i.test(errorBlock);
+  if (hasDeniedErrorBlock) return true;
+
+  // Some variants omit the class but expose both the Cloudflare Ray ID and a
+  // denial heading. The two markers must be structurally separate from
+  // arbitrary document prose; a generic whole-document AND is intentionally
+  // avoided here (review finding b995b43e1902).
+  const hasRayId = /\b(?:cloudflare\s+)?ray\s+id\b/i.test(source);
+  const hasDeniedHeading = /<h[1-2][^>]*>[\s\S]*?\b(?:error\s*)?403\b[\s\S]*?<\/h[1-2]>|<h[1-2][^>]*>[\s\S]*?\b(?:forbidden|access denied|blocked)\b[\s\S]*?<\/h[1-2]>/i.test(source);
+  return hasRayId && hasDeniedHeading;
 }
 
 /**
@@ -195,12 +230,13 @@ function extractLinkBasedJobs(html) {
  * @returns {{ items: Array }}
  */
 export function parseArtificialyCareerPage(html = '') {
-  if (!html || html.length < 200) return { items: [] };
-
-  // Check for Cloudflare challenge page
-  if (html.includes('Just a moment...') || html.includes('cf_chl_opt') || html.includes('challenge-platform')) {
+  // Check this before the minimum-length guard: a short denial page is still
+  // an explicit block and must not be reported as a healthy empty crawl.
+  if (isArtificialyCloudflareBlockedPage(html)) {
     return { items: [], blocked: true };
   }
+
+  if (!html || html.length < 200) return { items: [] };
 
   // Try strategies in order of reliability
   let items = extractJsonLdJobs(html);
