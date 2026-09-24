@@ -248,6 +248,19 @@ async function fetchJsonWithRetry(url, options = {}) {
  * @property {string} [userAgent] Override User-Agent header.
  * @property {number} [minDelayMs] Polite delay between paginated calls (default 2000ms).
  * @property {number} [timeoutMs] Per-request timeout (default 20000ms).
+ * @property {WorkdayFetchStats} [stats] Optional mutable object the iterator
+ *   fills with how pagination ended. Read-only signal: passing it never changes
+ *   what is fetched or yielded.
+ */
+
+/**
+ * @typedef {Object} WorkdayFetchStats
+ * @property {number|null} firstPageTotal `total` reported by page 0, or null
+ *   when page 0 did not carry a finite number.
+ * @property {number} yielded Postings yielded so far.
+ * @property {'empty-page'|'total-reached'|'short-page'|'max-pages'|'page-error'|null} endReason
+ *   Why pagination stopped. `page-error` is the silent partial board: a page
+ *   after page 0 failed and the iterator returned what it had.
  */
 
 /**
@@ -300,6 +313,15 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
   let offset = 0;
   let yielded = 0;
   let total = Infinity;
+  const stats = options.stats && typeof options.stats === 'object' ? options.stats : null;
+  if (stats) {
+    stats.firstPageTotal = null;
+    stats.yielded = 0;
+    stats.endReason = null;
+  }
+  const end = (reason) => {
+    if (stats) stats.endReason = reason;
+  };
 
   for (let page = 0; page < maxPages; page += 1) {
     const body = JSON.stringify({
@@ -324,6 +346,7 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
       // gracefully (we already returned partial results).
       if (err instanceof WorkdayAuthError) throw err;
       if (page === 0) throw err;
+      end('page-error');
       return;
     }
 
@@ -336,17 +359,28 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
     // pagination so a degenerate total:0 never short-circuits after page 1.
     if (page === 0 && typeof data?.total === 'number' && Number.isFinite(data.total)) {
       total = data.total;
+      if (stats) stats.firstPageTotal = data.total;
     }
 
-    if (postings.length === 0) return;
+    if (postings.length === 0) {
+      end('empty-page');
+      return;
+    }
 
     for (const posting of postings) {
       yield posting;
       yielded += 1;
+      if (stats) stats.yielded = yielded;
     }
 
-    if (total > 0 && yielded >= total) return;
-    if (postings.length < pageSize) return;
+    if (total > 0 && yielded >= total) {
+      end('total-reached');
+      return;
+    }
+    if (postings.length < pageSize) {
+      end('short-page');
+      return;
+    }
 
     offset += pageSize;
 
@@ -355,6 +389,7 @@ export async function* fetchWorkdayJobs(apiBase, options = {}) {
       await new Promise((r) => setTimeout(r, minDelayMs));
     }
   }
+  end('max-pages');
 }
 
 /* ── Detail fetch ──────────────────────────────────────────────────────── */
