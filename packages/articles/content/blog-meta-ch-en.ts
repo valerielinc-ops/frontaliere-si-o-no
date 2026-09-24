@@ -1457,7 +1457,7 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analysis of the Federal Statistical Office on the frontier phenomenon: Lombardy is growing, the province of Monza and Brianza stands out.',
     'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Panoramic view of Lugano and its lake with the Swiss urban context',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Swiss 3rd Pillar: Advantages 2026 in the Canton of St. Gallen',
-    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'The Italy-Switzerland double taxation agreement was signed on 9 December 1976. The new frontier workers have a deductible of €10,000.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'The Italy-Switzerland double taxation agreement was signed on 9 March 1976. The new frontier workers have a deductible of €10,000.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano and Lake Lugano',
     'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'G Permit for frontier workers: procedure and obligations in Ticino',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Practical guide to applying for the new G permit for border workers in Ticino: documents, notification obligations and updated procedure fees.',
@@ -6665,6 +6665,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tubercolosi-svizzera-aumento-2025.title': 'Tuberculosis in Switzerland: 544 cases in 2025, maximum since 2018',
     'blog.article.tubercolosi-svizzera-aumento-2025.excerpt': 'In 2025, Switzerland recorded 544 cases of tuberculosis, 112 more than in 2024; the rate rose from 4.8 to 6.0 per 100,000 inhabitants, the highest level since 2018.',
     'blog.article.tubercolosi-svizzera-aumento-2025.imageAlt': 'Swiss healthcare worker analyzing tuberculosis test results in a clinic with Alpine view',
+    'blog.article.indennita-maltempo-sei-mesi.title': 'Interim: weather allowance after six months',
+    'blog.article.indennita-maltempo-sei-mesi.excerpt': 'The National Council approves the protection of temporary workers employed for at least six months in continuous relationships against interruptions due to bad weather.',
+    'blog.article.indennita-maltempo-sei-mesi.imageAlt': 'Swiss parliamentary chamber during a debate on protections for temporary workers.',
+    'blog.article.ubs-capitale-90-bns.title': 'UBS, SNB approves 90% capital requirements',
+    'blog.article.ubs-capitale-90-bns.excerpt': 'The SNB approves the decision of the Council of States: UBS\'s foreign subsidiaries will have to be covered 90% with CET1 capital.',
+    'blog.article.ubs-capitale-90-bns.imageAlt': 'Swiss bank building with a national flag in a financial news scene',
 };
 
 export default blogMetaChEn;

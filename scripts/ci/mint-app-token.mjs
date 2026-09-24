@@ -116,9 +116,30 @@ function setWorkflowsCapability(granted) {
   if (out) appendFileSync(out, `APP_TOKEN_WORKFLOWS=${granted ? 'true' : 'false'}\n`);
 }
 
+/**
+ * Does this installation token grant `actions: write`, i.e. may it dispatch or
+ * re-run workflows? Same fail-closed rule as `hasWorkflowsWrite`: only the
+ * literal `'write'` counts. A caller that dispatches (deploy.yml re-arm) must
+ * not prefer an APP_TOKEN that cannot: the dispatch would 403 in a
+ * `continue-on-error` step and the recovered build would stay unpublished.
+ *
+ * @param {Record<string, string>|null|undefined} permissions `tok.body.permissions`
+ * @returns {boolean}
+ */
+export function hasActionsWrite(permissions) {
+  return permissions?.actions === 'write';
+}
+
+/** `APP_TOKEN_ACTIONS=true|false`, written on every exit path like APP_TOKEN_WORKFLOWS. */
+function setActionsCapability(granted) {
+  const out = process.env.GITHUB_ENV;
+  if (out) appendFileSync(out, `APP_TOKEN_ACTIONS=${granted ? 'true' : 'false'}\n`);
+}
+
 function warnExit(msg) {
   console.log(`::warning::mint-app-token: ${msg} — APP_TOKEN not set, callers fall back to GITHUB_PAT/GITHUB_TOKEN.`);
   setWorkflowsCapability(false);
+  setActionsCapability(false);
   process.exit(0);
 }
 
@@ -163,6 +184,8 @@ async function main() {
   // see the module docstring (#5288). Never infer it from the mint having succeeded.
   const workflowsWrite = hasWorkflowsWrite(tok.body.permissions);
   setWorkflowsCapability(workflowsWrite);
+  const actionsWrite = hasActionsWrite(tok.body.permissions);
+  setActionsCapability(actionsWrite);
   if (!workflowsWrite) {
     console.log(
       '::warning::mint-app-token: the installation token does NOT carry `workflows: write` ' +
@@ -174,7 +197,7 @@ async function main() {
   }
   console.log(
     `mint-app-token: minted installation token for ${repo} (expires ${tok.body.expires_at}; ` +
-      `workflows=${workflowsWrite ? 'write' : 'not granted'}).`,
+      `workflows=${workflowsWrite ? 'write' : 'not granted'}; actions=${actionsWrite ? 'write' : 'not granted'}).`,
   );
 }
 

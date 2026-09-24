@@ -93,9 +93,9 @@
       "timezone": "Europe/Zurich",
       "sourceType": "association",
       "owner": "platform",
-      "status": "degraded",
-      "lastVerifiedAt": "2026-09-15T00:00:00.000Z",
-      "notes": "Fonte associativa allowlisted con parser e contratto GE dedicati; la pagina espone finestre 2026 parziali e una carta 24/7, quindi lo snapshot resta not_published senza righe operative finché calendario annuale e identità non sono verificati."
+      "status": "active",
+      "lastVerifiedAt": "2026-09-24T00:00:00.000Z",
+      "notes": "Fonte associativa allowlisted con parser e contratto GE dedicati; pharma24 dichiara apertura 24h/24, 7j/7 e 365j/an, mentre le finestre datate aggiungono copertura concorrente. Le identità sono risolte dal catalogo GE verificato."
     },
     "glarus": {
       "canton": "Glarona",

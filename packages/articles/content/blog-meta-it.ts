@@ -8361,7 +8361,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.excerpt': 'Il mercato del lavoro ticinese sta attraversando un periodo di crescita, con settori come la tecnologia e la sanità che richiedono professionisti qualificati.',
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.imageAlt': 'Panorama di Lugano con edifici moderni e lago',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.title': 'Frontaliere insegnante scuola Ticino stipendio requisiti',
-    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.imageAlt': 'Una scena di insegnamento in Ticino con la città sullo sfondo.',
     'blog.article.samarate-licenziamenti-2026.title': 'Samarate, ex Deltapav, licenzia un terzo della forza lavoro',
     'blog.article.samarate-licenziamenti-2026.excerpt': 'La procedura collettiva prevede nove esuberi tra gli impiegati, mentre non sono previste riduzioni tra gli operai.',
@@ -10364,7 +10364,7 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.excerpt': 'Imposte alla fonte, permesso G, ristorni e altri vantaggi per i frontalieri che lavorano in Ticino.',
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.imageAlt': 'Un frontaliere che si trasferisce a Colverde per lavorare in Ticino.',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.title': 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
-    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.imageAlt': 'Frontalieri che lavorano in Ticino',
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.title': 'Vivere a Cremia e lavorare in Ticino: frontaliere conviene?',
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.excerpt': 'Cremia come base residenziale per frontalieri in Ticino: fiscalità, permesso G, AVS, imposta alla fonte, costi di trasporto e valichi di confine.',
@@ -11942,6 +11942,12 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.decisione-bns-cambio-franco-euro.title': 'Decisione BNS: franco in calo, euro in risalita',
     'blog.article.decisione-bns-cambio-franco-euro.excerpt': 'La BNS mantiene il tasso di riferimento allo 0%, portando l\'euro sopra 0,94 franchi e il dollaro ai massimi annuali.',
     'blog.article.decisione-bns-cambio-franco-euro.imageAlt': 'Vista panoramica di Lugano, centro finanziario del Canton Ticino',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.title': 'Cgil chiede al Piemonte soluzione tassa salute',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.excerpt': 'La tassa sulla salute è in vigore da due anni e mezzo senza decreti attuativi; i ristorni 2026 sono saliti da 89 a 108 milioni di euro e la presidenza della Regio Insubrica è passata al Piemonte, con tavolo interministeriale previsto a inizio novembre.',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.imageAlt': 'Frontaliere che cammina vicino al lago di Lugano con le Alpi sullo sfondo',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.title': 'Pensione pubblica svizzera: nessuna tassazione in Italia',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.excerpt': 'Risposta a interpello n. 177/2026 dell’Agenzia delle Entrate: pensione pubblica DDPS erogata da Cassa PUBLICA non tassata in Italia per chi ha doppia cittadinanza italo-svizzera.',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.imageAlt': 'Vista sul lago di Lugano con montagne sullo sfondo, rappresentante la vita finanziaria transfrontaliera in Ticino',
 };
 
 export default blogMetaIt;

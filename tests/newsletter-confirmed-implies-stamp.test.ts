@@ -328,7 +328,29 @@ describe('every branch that writes the word writes the proof', () => {
 
   it('each of the two records its own event — the second half of the proof', () => {
     const branches = Object.fromEntries(actionBranches(src).map((b) => [b.action, stripComments(b.body)]));
-    expect(branches.confirm).toMatch(/event_type\s*:\s*'confirm'/);
+    // #9448 made the event type conditional: a click on a fresh RE-CONSENT
+    // token (a `pending` doc carrying `resubscribe_pending: true`) records
+    // `subscription_resubscribed`, every other DOI click still records
+    // `confirm`. Production read 2026-09-24: 11/13/16/5 `confirm` events on
+    // 21-24/09 after the deploy, one per `confirmed_via: confirmation_link`
+    // stamp — the event did not disappear, it changed spelling.
+    //
+    // Pinned as the EXACT two accepted shapes, not as "mentions confirm":
+    // the plain literal, or the ternary whose FALSE arm is 'confirm'. A
+    // ternary that sent the ordinary click anywhere else — or a third arm —
+    // fails here, which is the regression this assertion exists for.
+    const CONFIRM_EVENT_TYPE =
+      /event_type\s*:\s*(?:'confirm'|pendingReconsent\s*\?\s*'subscription_resubscribed'\s*:\s*'confirm')\s*,/;
+    expect(branches.confirm).toMatch(CONFIRM_EVENT_TYPE);
+    // …and the event is the confirmation link's, whichever spelling it takes.
+    const eventWrite = branches.confirm.slice(branches.confirm.search(CONFIRM_EVENT_TYPE));
+    expect(eventWrite).toMatch(/^[^}]*source_channel\s*:\s*'confirmation_link'/);
+    // The alternative arm is reachable ONLY on a pending re-consent: were
+    // `pendingReconsent` widened, ordinary clicks would stop writing `confirm`
+    // while this file stayed green.
+    expect(branches.confirm).toMatch(
+      /const pendingReconsent = subscriberData\.resubscribe_pending === true\s*&&\s*String\(subscriberData\.status \|\| ''\)\.trim\(\)\.toLowerCase\(\) === 'pending';/,
+    );
     // The root marker is what lets bulk senders honour a DOI click even when
     // the document's older source_channel still says auth_* and no sender can
     // afford an events-subcollection read per recipient.

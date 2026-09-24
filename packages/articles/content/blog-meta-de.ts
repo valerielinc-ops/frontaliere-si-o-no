@@ -8359,7 +8359,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.excerpt': 'Der Tessiner Arbeitsmarkt befindet sich in einer Wachstumsphase, in der Branchen wie Technologie und Gesundheitswesen qualifizierte Fachkräfte erfordern.',
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.imageAlt': 'Luganos Stadtansicht mit modernen Gebäuden und See',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.title': 'Grenzgänger Lehrer Schule Tessin Gehaltsvoraussetzungen',
-    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'Das neue italienisch-schweizerische Abkommen vom 9. Dezember 1976 vermeidet die Doppelbesteuerung mit der Steuergutschrift (EG-Rahmen 730).',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'Das neue italienisch-schweizerische Abkommen vom 9. März 1976 vermeidet die Doppelbesteuerung mit der Steuergutschrift (EG-Rahmen 730).',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.imageAlt': 'Ein Lehrer in Ticino mit der Stadt im Hintergrund.',
     'blog.article.samarate-licenziamenti-2026.title': 'Samarate, ehemaliger Deltapav, entlässt ein Drittel der Belegschaft',
     'blog.article.samarate-licenziamenti-2026.excerpt': 'Das Kollektivverfahren sieht neun Entlassungen unter den Angestellten vor, während unter den Arbeitern keine Kürzungen vorgesehen sind.',
@@ -10362,7 +10362,7 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.excerpt': 'Quellensteuern, G-Genehmigung, Rückerstattungen und andere Vergünstigungen für Grenzgänger, die im Tessin arbeiten.',
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.imageAlt': 'Ein Frontalier, der sich nach Colverde verlegt, um in Tessin zu arbeiten.',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.title': 'Wohnen in Fagnano Olona und Arbeiten im Tessin als Grenzgänger',
-    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Italienisch-schweizerisches Doppelbesteuerungsabkommen: unterzeichnet am 9. Dezember 1976',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Italienisch-schweizerisches Doppelbesteuerungsabkommen: unterzeichnet am 9. März 1976',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.imageAlt': 'Frontalier in Ticino',
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.title': 'Leben in Cremia und Arbeiten im Tessin: Grenzgänger lohnt sich?',
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.excerpt': 'Cremia als Wohnbasis für Grenzgänger im Tessin: Steuern, Bewilligung G, AHV, Quellensteuer, Transportkosten und Grenzübergänge.',
@@ -11940,6 +11940,12 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.decisione-bns-cambio-franco-euro.title': 'SNB-Beschluss: Franken sinken, Euro steigen',
     'blog.article.decisione-bns-cambio-franco-euro.excerpt': 'Die SNB hält den Referenzzinssatz bei 0% und bringt den Euro über 0,94 Franken und den Dollar auf Jahreshoch.',
     'blog.article.decisione-bns-cambio-franco-euro.imageAlt': 'Panoramablick auf Lugano, Finanzzentrum des Kantons Tessin',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.title': 'Cgil bittet das Piemont um eine Krankenversicherungsgebühr',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.excerpt': 'Die Gesundheitsabgabe ist seit zweieinhalb Jahren ohne Durchführungsdekrete in Kraft; die Erstattungen 2026 sind von 89 auf 108 Millionen Euro gestiegen und der Vorsitz der Regio Insubrica ist auf das Piemont übergegangen, mit einem interministeriellen Tisch, der für Anfang November geplant ist.',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.imageAlt': 'Grenzgänger, der nahe dem Luganer See spaziert, mit den Alpen im Hintergrund',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.title': 'Öffentliche Rente Schweiz: Keine Besteuerung in Italien',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.excerpt': 'Antwort auf Anfrage Nr. 177/2026 der Agentur der Einnahmen: Öffentliche Rente VBS, die von der Cassa PUBLICA ohne Steuern in Italien für Personen mit doppelter italienisch-schweizerischer Staatsbürgerschaft gezahlt wird.',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.imageAlt': 'Blick auf den Luganer See mit Bergen im Hintergrund, das grenzüberschreitende Finanzleben in der Tessin darstellend',
 };
 
 export default blogMetaDe;

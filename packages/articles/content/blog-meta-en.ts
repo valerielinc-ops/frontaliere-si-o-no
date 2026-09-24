@@ -8360,7 +8360,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.excerpt': 'The Ticino labour market is going through a period of growth, with sectors such as technology and healthcare requiring skilled professionals.',
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.imageAlt': 'Lugano cityscape with modern buildings and lake',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.title': 'Border teacher school Ticino salary requirements',
-    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'The new Italian-Swiss convention of 9 December 1976 avoids double taxation with the tax credit (EC framework of 730).',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'The new Italian-Swiss convention of 9 March 1976 avoids double taxation with the tax credit (EC framework of 730).',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.imageAlt': 'A teaching scene in Ticino with the city in the background.',
     'blog.article.samarate-licenziamenti-2026.title': 'Samarate, Former Deltapav, Fires a Third of Workforce',
     'blog.article.samarate-licenziamenti-2026.excerpt': 'The collective procedure provides for nine redundancies among employees, while there are no reductions among workers.',
@@ -10363,7 +10363,7 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.excerpt': 'Taxes at source, G permit, refunds and other benefits for border workers working in Ticino.',
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.imageAlt': 'A frontaliere who relocates to Colverde to work in Ticino.',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.title': 'Living in Fagnano Olona and working in Ticino as a border worker',
-    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Italian-Swiss Double Taxation Convention: signed on 9 December 1976',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Italian-Swiss Double Taxation Convention: signed on 9 March 1976',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.imageAlt': 'Frontaliers working in Ticino',
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.title': 'Living in Cremia and working in Ticino: is it convenient for border workers?',
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.excerpt': 'Cremia as a residential base for border workers in Ticino: taxation, G permit, AVS, source tax, transport costs and border crossings.',
@@ -11941,6 +11941,12 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.decisione-bns-cambio-franco-euro.title': 'SNB decision: franc down, euro up',
     'blog.article.decisione-bns-cambio-franco-euro.excerpt': 'The SNB keeps the reference rate at 0%, bringing the euro above 0.94 francs and the dollar to annual highs.',
     'blog.article.decisione-bns-cambio-franco-euro.imageAlt': 'Panoramic view of Lugano, financial center of Canton Ticino',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.title': 'CGIL asks Piedmont for a health tax solution',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.excerpt': 'The health tax has been in force for two and a half years without implementing decrees; 2026 refunds rose from 89 to 108 million euros and the presidency of the Regio Insubrica passed to Piedmont, with an inter-ministerial table scheduled for early November.',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.imageAlt': 'Frontaliero walking near Lake Lugano with Alps in the background',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.title': 'Swiss public pension: no taxation in Italy',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.excerpt': 'Response to question no. 177/2026 of the Revenue Agency: public pension DDPS provided by Cassa PUBLICA not taxed in Italy for those who have dual Italian-Swiss citizenship.',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.imageAlt': 'Lake Lugano view with mountains in the background, representing cross-border financial life in Ticino',
 };
 
 export default blogMetaEn;

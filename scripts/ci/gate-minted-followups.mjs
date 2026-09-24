@@ -57,6 +57,10 @@
  *   GH_TOKEN        richiesto per le scritture.
  *   GATE_PR_TOKEN   token per leggere/commentare le PR in GATE_PR_REPO quando
  *                   differisce da GH_REPO (default: GH_TOKEN).
+ *   GATE_ALT_PR_REPO / GATE_ALT_PR_TOKEN  repository gemello (e suo token) in cui
+ *                   risolvere una `Sources: PR #N` che in GATE_PR_REPO non e' una
+ *                   PR (item instradati cross-repository). Default: GH_REPO con
+ *                   GH_TOKEN quando GATE_PR_REPO ne differisce.
  *   DRY_RUN         "1" → stampa il verdetto, nessuna scrittura.
  *   GATE_MAX_AGE_MIN  età massima (minuti) della issue su cui agire (default 240). Un
  *                   backfill via workflow_dispatch su una PR vecchia non deve poter
@@ -802,13 +806,120 @@ export function dailyBucketRecoveryDecision({
   return { eligible: true, reason: 'historical-triage-markers', ...result };
 }
 
+// `gh pr view N` su un numero che nel repository e' una issue, o non esiste:
+// risposta DEFINITIVA, non un guasto transitorio.
+const NOT_A_PULL_REQUEST_RE = /Could not resolve to a PullRequest with the number of/i;
+
+/**
+ * Stato del marker di triage per UNA PR sorgente di un daily bucket.
+ *
+ * `Sources: PR #N` non porta il repository, ma un bucket puo' contenere item
+ * instradati dall'altro repository (FOLLOWUP.md § Routing cross-repository):
+ * il daily del sito #9443 cita `PR #1590`/`#1613`/`#1625` di
+ * frontaliere-articles accanto a `PR #9153`/`#9262` del sito. Cercarle solo nel
+ * repository delle PR rendeva `scanOk=false` a ogni run, e dal 2026-09-12 undici
+ * daily del sito restavano `collecting` (skip `triage-incomplete`) senza mai
+ * entrare in coda.
+ *
+ * `lookups` e' la lista ORDINATA dei repository in cui cercare
+ * (`{ repo, read(number) → { ok, comments } | { ok: false, notPr } }`). Si passa
+ * al successivo SOLO quando il precedente risponde «non e' una PR»; un guasto
+ * resta `unavailable` (fail-closed) e non viene indovinato altrove. Il primo
+ * repository in cui N e' una PR decide: con un numero che e' PR in entrambi, la
+ * Source si legge nel repository delle PR, come prima di questa risoluzione.
+ */
+export function resolveSourcePrTriage(number, lookups) {
+  const list = Array.isArray(lookups) ? lookups : [];
+  for (let index = 0; index < list.length; index += 1) {
+    const lookup = list[index];
+    const result = lookup?.read?.(number);
+    if (result?.ok === true) {
+      return {
+        status: hasTriageComment(result.comments) ? 'triaged' : 'untriaged',
+        repo: lookup.repo,
+        fallback: index > 0,
+      };
+    }
+    if (result?.notPr !== true) return { status: 'unavailable', repo: lookup?.repo || null, fallback: index > 0 };
+  }
+  return { status: 'unavailable', repo: null, fallback: false, notPrAnywhere: list.length > 0 };
+}
+
+/**
+ * `gh pr <sub> N` in UN repository, distinguendo «N non e' una PR qui»
+ * (`notPr`, definitivo) da un guasto. Un tentativo `notPr` non ha scritto nulla.
+ */
+function ghOnSourcePr(lookup, subcommand, number, extraArgs) {
+  try {
+    const env = lookup.token ? { ...process.env, GH_TOKEN: lookup.token } : process.env;
+    const out = execFileSync('gh', ['pr', subcommand, String(number), ...lookup.args, ...extraArgs], {
+      encoding: 'utf-8', maxBuffer: 1 << 26, env, stdio: ['ignore', 'pipe', 'pipe'],
+    });
+    return { ok: true, out };
+  } catch (e) {
+    const detail = `${e?.stderr || ''}\n${e?.message || ''}`;
+    const notPr = NOT_A_PULL_REQUEST_RE.test(detail);
+    if (!notPr) console.log(`gh pr ${subcommand} ${number} → fallito: ${String(e?.message || '').split('\n')[0]}`);
+    return { ok: false, notPr };
+  }
+}
+
+/**
+ * Repository in cui risolvere le Sources di un bucket, in ordine: quello delle PR
+ * (`GATE_PR_REPO`, default `GH_REPO`), poi il repository gemello. Il gemello e'
+ * `GATE_ALT_PR_REPO` (+ `GATE_ALT_PR_TOKEN`) quando dichiarato; altrimenti, se le
+ * PR vivono in un repository diverso da quello delle issue, e' il repository
+ * delle issue stesso con `GH_TOKEN` (gli item che il suo triage vi ha scritto).
+ */
+function sourcePrLookups(prRepoArgs) {
+  const issueRepo = process.env.GH_REPO || '';
+  const prRepo = process.env.GATE_PR_REPO || issueRepo;
+  const lookups = [{
+    repo: prRepo || '(repo di default)',
+    args: prRepoArgs,
+    token: process.env.GATE_PR_TOKEN || process.env.GH_TOKEN,
+  }];
+  const altRepo = process.env.GATE_ALT_PR_REPO || (prRepo && issueRepo && prRepo !== issueRepo ? issueRepo : '');
+  const altToken = process.env.GATE_ALT_PR_REPO ? (process.env.GATE_ALT_PR_TOKEN || '') : process.env.GH_TOKEN;
+  if (altRepo && altRepo !== prRepo) {
+    if (altToken) {
+      lookups.push({ repo: altRepo, args: ['--repo', altRepo], token: altToken });
+    } else {
+      console.log(`⚠️ Sources cross-repository: nessun token per ${altRepo} → le PR di quel repository restano non verificabili.`);
+    }
+  }
+  return lookups.map((lookup) => ({
+    ...lookup,
+    read: (n) => {
+      const result = ghOnSourcePr(lookup, 'view', n, ['--json', 'comments']);
+      return result.ok ? { ok: true, comments: result.out } : result;
+    },
+  }));
+}
+
+/**
+ * Commenta la PR sorgente nel primo repository in cui N e' una PR (stessa
+ * risoluzione del recovery): gli item demoti di un daily con Sources
+ * cross-repository restano leggibili sulla loro PR invece di bloccare la
+ * demozione per sempre. `null` = non riuscito, come `gh()` con `allowFail`.
+ */
+function commentOnSourcePr(number, body, lookups) {
+  for (const lookup of lookups) {
+    const result = ghOnSourcePr(lookup, 'comment', number, ['--body', body]);
+    if (result.ok) return result.out;
+    if (!result.notPr) return null;
+  }
+  console.log(`gh pr comment ${number} → fallito: non è una PR in ${lookups.map((lookup) => lookup.repo).join(' né in ')}`);
+  return null;
+}
+
 /**
  * Find daily identities whose old collecting bodies can be sealed safely after a
  * zero-result batch.  Every duplicate body is read and contributes its live Sources
  * before checking markers, so consolidation cannot strand provenance from a newer
  * duplicate.  Any unreadable issue/PR is a failed proof, never an empty proof.
  */
-function recoverableDailyIdentities(open, repoArgs, prRepoArgs) {
+function recoverableDailyIdentities(open, repoArgs, sourceLookups) {
   const groups = new Map();
   for (const issue of Array.isArray(open) ? open : []) {
     const identity = dailyBucketIdentity(issue?.title || '');
@@ -845,12 +956,18 @@ function recoverableDailyIdentities(open, repoArgs, prRepoArgs) {
     const triagedPrs = [];
     let scanOk = true;
     for (const number of positivePrNumbers(sourcePrs)) {
-      const comments = ghPr(['pr', 'view', String(number), ...prRepoArgs, '--json', 'comments'], { allowFail: true });
-      if (comments === null) {
+      const resolved = resolveSourcePrTriage(number, sourceLookups);
+      if (resolved.status === 'unavailable') {
         scanOk = false;
+        if (resolved.notPrAnywhere) {
+          console.log(`⚠️ daily ${identity}: PR #${number} non è una PR in ${sourceLookups.map((lookup) => lookup.repo).join(' né in ')} → Source non verificabile.`);
+        }
         continue;
       }
-      if (hasTriageComment(comments)) triagedPrs.push(number);
+      if (resolved.fallback) {
+        console.log(`ℹ️ daily ${identity}: PR #${number} non è una PR in ${sourceLookups[0].repo} → Source risolta in ${resolved.repo}.`);
+      }
+      if (resolved.status === 'triaged') triagedPrs.push(number);
     }
     const decision = dailyBucketRecoveryDecision({
       state: 'collecting',
@@ -1028,8 +1145,9 @@ function main() {
   // Collection completeness is proved per collecting bucket from its own Sources
   // and triage markers. Sealed buckets take a separate queue-repair path below and
   // never inherit a batch-wide completion signal.
+  const sourceLookups = sourcePrLookups(prRepoArgs);
   const recoveredDailyIdentities = COLLECTION_OK
-    ? recoverableDailyIdentities(open, repoArgs, prRepoArgs)
+    ? recoverableDailyIdentities(open, repoArgs, sourceLookups)
     : new Set();
   const blockedDailyIdentities = consolidateDailyBuckets(open, repoArgs, recoveredDailyIdentities);
   const report = [];
@@ -1077,6 +1195,9 @@ function main() {
           triageComplete: daily ? issueTriageComplete : TRIAGE_COMPLETE,
         });
         let commentTargets = daily ? sourcePrNumbers(iss.body, pr) : [pr];
+        // Le Sources di un daily possono essere PR dell'altro repository: si
+        // commentano dove sono PR (`commentOnSourcePr`), non alla cieca in GATE_PR_REPO.
+        let commentViaSources = Boolean(daily);
         console.log(`#${iss.number} (${daily ? `daily:${daily.dailyKey}` : `PR #${pr}`}) → ${d.action} (${d.reason}; validi ${d.valid.length}, demoti ${d.demoted.length})`);
         tally.push({ pr, issue: iss.number, action: d.action, reason: d.reason, demoted: d.demoted.length, kept: d.valid.length });
         if (d.action === 'skip' || d.action === 'keep') {
@@ -1160,6 +1281,7 @@ function main() {
             triageComplete: latestDaily ? latestTriageComplete : TRIAGE_COMPLETE,
           });
           commentTargets = latestDaily ? sourcePrNumbers(iss.body, pr) : [pr];
+          commentViaSources = Boolean(latestDaily);
           if (d.action === 'skip' || d.action === 'keep' || !d.body) {
             console.log(`#${iss.number}: body cambiato dopo la lista → decisione ricalcolata (${d.action}/${d.reason}), nessun overwrite stale.`);
             continue;
@@ -1199,7 +1321,9 @@ function main() {
         // ['pr', 'comment', String(pr), ...prRepoArgs
         const commentResults = d.action === 'dedupe'
           ? []
-          : commentTargets.map((targetPr) => ghPr(['pr', 'comment', String(targetPr), ...prRepoArgs, '--body', commentBody], { allowFail: true }));
+          : commentTargets.map((targetPr) => (commentViaSources
+            ? commentOnSourcePr(targetPr, commentBody, sourceLookups)
+            : ghPr(['pr', 'comment', String(targetPr), ...prRepoArgs, '--body', commentBody], { allowFail: true })));
         const posted = d.action === 'dedupe' || commentResults.every((result) => result !== null) ? 'posted' : null;
         if (d.action === 'demote' && posted === null) {
           console.log(`⚠️ #${iss.number}: commento sulla PR #${pr} non riuscito → NON riscrivo il corpo. Gli item demoti restano dove sono; il prossimo giro riprova.`);

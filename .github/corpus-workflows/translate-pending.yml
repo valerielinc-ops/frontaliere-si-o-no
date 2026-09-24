@@ -243,7 +243,7 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: "9000000"
-          LOCAL_MT_MOPUP_DEADLINE_MS: "16800000"
+          LOCAL_MT_MOPUP_DEADLINE_MS: "12600000"
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
           MT_LOCAL_OPUSMT: "1"
@@ -351,7 +351,7 @@ jobs:
         continue-on-error: true
         env:
           LOCAL_MT_TIME_BUDGET_MS: "9000000"
-          LOCAL_MT_MOPUP_DEADLINE_MS: "16800000"
+          LOCAL_MT_MOPUP_DEADLINE_MS: "12600000"
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
           MT_LOCAL_OPUSMT: "1"
@@ -376,7 +376,7 @@ jobs:
       - name: "Phase 2d: Fix untranslated titles (free cascade)"
         if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         env:
-          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: "14400000"
+          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: "12600000"
         run: node scripts/fix-untranslated-titles.mjs
       - name: Commit title fixes
         id: commit_title_fixes
@@ -391,7 +391,7 @@ jobs:
       - name: "Phase 2e: Fix untranslated descriptions (free cascade)"
         if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
         env:
-          UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: "14400000"
+          UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: "12600000"
           UNTRANSLATED_DESCRIPTION_FIX_MAX: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_MAX || '2000' }}
         run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
       - name: Commit description fixes

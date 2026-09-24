@@ -8362,7 +8362,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.excerpt': 'Le marché du travail tessinois connaît une période de croissance, avec des secteurs tels que la technologie et la santé qui nécessitent des professionnels qualifiés.',
     'blog.article.mercato-del-lavoro-ticino-settori-in-crescita.imageAlt': 'Paysage de Lugano avec des immeubles modernes et un lac',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.title': 'Frontalier enseignant école Ticino salaire exigences',
-    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'La nouvelle convention italo-suisse du 9 décembre 1976 évite la double imposition avec le crédit d\'impôt (cadre CE de 730).',
+    'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.excerpt': 'La nouvelle convention italo-suisse du 9 mars 1976 évite la double imposition avec le crédit d\'impôt (cadre CE de 730).',
     'blog.article.insegnanti-frontalieri-stipendio-requisiti-ticino.imageAlt': 'Une scène d\'enseignement au Tessin avec la ville en arrière-plan.',
     'blog.article.samarate-licenziamenti-2026.title': 'Samarate, ancien Deltapav, licencie un tiers de la main-d\' œuvre',
     'blog.article.samarate-licenziamenti-2026.excerpt': 'La procédure collective prévoit neuf licenciements parmi les employés, alors qu\'aucune réduction n\'est prévue parmi les ouvriers.',
@@ -10365,7 +10365,7 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.excerpt': 'Taxes à la source, permis G, rafraîchissements et autres avantages pour les frontaliers qui travaillent au Tessin.',
     'blog.article.vivere-colverde-lavorare-ticino-frontaliere.imageAlt': 'Un frontalier qui se déplace à Colverde pour travailler en Suisse du Tessin.',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.title': 'Vivre à Fagnano Olona et travailler au Tessin en tant que frontalier',
-    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Convention italo-suisse contre les doubles impositions : signée le 9 décembre 1976',
+    'blog.article.vivere-fagnano-olona-lavorare-ticino.excerpt': 'Convention italo-suisse contre les doubles impositions : signée le 9 mars 1976',
     'blog.article.vivere-fagnano-olona-lavorare-ticino.imageAlt': 'Frontalier travaillant en Ticino',
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.title': 'Vivre à Cremia et travailler au Tessin : frontalier est-il avantageux ?',
     'blog.article.vivere-cremia-lavorare-ticino-frontaliere.excerpt': 'Cremia comme base résidentielle pour les frontaliers au Tessin : fiscalité, permis G, AVS, taxe à la source, frais de transport et points de passage frontaliers.',
@@ -11943,6 +11943,12 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.decisione-bns-cambio-franco-euro.title': 'Décision BNS : franc en baisse, euro en hausse',
     'blog.article.decisione-bns-cambio-franco-euro.excerpt': 'La BNS maintient le taux de référence à 0%, portant l\'euro au-dessus de 0,94 franc et le dollar au plus haut annuel.',
     'blog.article.decisione-bns-cambio-franco-euro.imageAlt': 'Vue panoramique de Lugano, centre financier du Canton Ticino',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.title': 'Cgil demande au Piémont la solution de la taxe de santé',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.excerpt': 'La taxe de santé est en vigueur depuis deux ans et demi sans décrets d\'application ; les restaurations 2026 sont passées de 89 à 108 millions d\'euros et la présidence de la Regio Insubrica est passée au Piémont, avec une table interministérielle prévue début novembre.',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.imageAlt': 'Frontalier marchant près du lac de Lugano avec les Alpes en arrière-plan',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.title': 'Pension publique suisse : pas d\'imposition en Italie',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.excerpt': 'Réponse à l\'interpellation n ° 177/2026 de l\'Agence du revenu : pension publique DDPS versée par Cassa PUBLICA non imposée en Italie pour les personnes ayant la double nationalité italo-suisse.',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.imageAlt': 'Vue sur le lac de Lugano avec montagnes en arrière-plan, représentant la vie financière transfrontalière au Tessin',
 };
 
 export default blogMetaFr;

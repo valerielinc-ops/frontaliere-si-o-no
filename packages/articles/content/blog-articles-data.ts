@@ -35574,6 +35574,24 @@ const RAW_ARTICLES = [
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
  },
+ {
+ id: 'cgil-regio-insubrica-incontro-novembre',
+ category: 'novita',
+ date: '2026-09-24T18:07:31.723Z',
+ image: '/images/blog/cgil-regio-insubrica-incontro-novembre.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
+ {
+ id: 'pensione-pubblica-svizzera-non-tassata-italia',
+ category: 'pensione',
+ date: '2026-09-24T18:59:17.805Z',
+ image: '/images/blog/pensione-pubblica-svizzera-non-tassata-italia.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

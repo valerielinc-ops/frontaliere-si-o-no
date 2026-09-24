@@ -1457,7 +1457,7 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analyse de l\'Office fédéral de la statistique sur le phénomène du frontalier : la Lombardie se développe, le bond de la province de Monza et de Brianza se distingue.',
     'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Vue panoramique de Lugano et de son lac avec le contexte urbain suisse',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Troisième pilier 3a suisse : avantages 2026 dans le canton de Saint-Gall',
-    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'La convention double imposition Italie-Suisse a été signée le 9 décembre 1976. Les nouveaux frontaliers bénéficient d\'une franchise de 10 000 € .',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'La convention double imposition Italie-Suisse a été signée le 9 mars 1976. Les nouveaux frontaliers bénéficient d\'une franchise de 10 000 € .',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano et lac Lugano',
     'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Permis G pour frontaliers : procédure et obligations au Tessin',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Guide pratique pour demander le nouveau permis G pour les frontaliers au Tessin : documents, obligations de notification et frais de procédure mis à jour.',
@@ -6665,6 +6665,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tubercolosi-svizzera-aumento-2025.title': 'Tuberculose en Suisse : 544 cas en 2025, maximum depuis 2018',
     'blog.article.tubercolosi-svizzera-aumento-2025.excerpt': 'En 2025, la Suisse a enregistré 544 cas de tuberculose, soit 112 de plus qu\'en 2024 ; le taux est passé de 4,8 à 6,0 pour 100\'000 habitants, son niveau le plus élevé depuis 2018.',
     'blog.article.tubercolosi-svizzera-aumento-2025.imageAlt': 'Travailleur de la santé suisse analysant les résultats des tests de tuberculose dans une clinique avec vue sur les Alpes',
+    'blog.article.indennita-maltempo-sei-mesi.title': 'Intermédiaires : indemnités pour intempéries après six mois',
+    'blog.article.indennita-maltempo-sei-mesi.excerpt': 'Le Conseil national approuve la protection des intérimaires employés depuis au moins six mois dans les relations continues contre les interruptions dues aux intempéries.',
+    'blog.article.indennita-maltempo-sei-mesi.imageAlt': 'Salle parlementaire suisse lors d\'un débat sur la protection des travailleurs temporaires.',
+    'blog.article.ubs-capitale-90-bns.title': 'UBS, la BNS approuve les exigences de fonds propres à 90 %',
+    'blog.article.ubs-capitale-90-bns.excerpt': 'La BNS approuve la décision du Conseil des Etats : les filiales étrangères d\'UBS devront être couvertes à 90 % par du capital CET1.',
+    'blog.article.ubs-capitale-90-bns.imageAlt': 'Bâtiment bancaire suisse avec drapeau national dans une scène financière',
 };
 
 export default blogMetaChFr;
