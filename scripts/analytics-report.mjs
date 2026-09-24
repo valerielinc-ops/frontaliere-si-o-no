@@ -1723,6 +1723,9 @@ async function reportGA4(token) {
     { parameterName: 'experiment_id', displayName: 'Experiment ID', description: 'Stable experiment identifier for funnel attribution' },
     { parameterName: 'variant', displayName: 'Experiment Variant', description: 'Assigned experiment arm (control, assisted_application, rewarded_ad)' },
     { parameterName: 'access_ttl_hours', displayName: 'Reward Access TTL Hours', description: 'Rewarded application access lifetime in hours' },
+    // Employer-insights D18 evidence probe. The refresh queries this event
+    // parameter to prove complete per-emission coverage before writing.
+    { parameterName: 'emission_id', displayName: 'Analytics Emission ID', description: 'Stable analytics emission identifier for employer-insights deduplication' },
     // Page context dimensions
     { parameterName: 'page_template', displayName: 'Page Template', description: 'Derived page template (job_detail, jobs_search, article_detail, calculator_tool, etc.)' },
     { parameterName: 'content_group', displayName: 'Content Group', description: 'Top-level content group (jobs, articles, tools, guides, stats, etc.)' },
