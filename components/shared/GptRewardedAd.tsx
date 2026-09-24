@@ -4,6 +4,7 @@ import { onAdsConsentChange } from '@/services/adsConsent';
 import {
   ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
   disposeRewardedWebAd,
+  getRewardedWebAdEligibilityReason,
   getRewardedWebAdSnapshot,
   isRewardedWebAdEligible,
   preloadRewardedWebAd,
@@ -28,7 +29,8 @@ export interface GptRewardedAdProps {
   autoStart?: boolean;
   /**
    * Retry only after the visitor explicitly asks to retry a dismissed ad.
-   * A known no-fill keeps its original request so it redirects immediately.
+   * A known no-fill keeps its original request so the caller can choose its
+   * deterministic fallback without creating concurrent rewarded requests.
    */
   retryToken?: number;
   onOptIn?: () => void;
@@ -36,7 +38,7 @@ export interface GptRewardedAdProps {
   onVideoCompleted?: () => void;
   onGranted: () => void;
   onClosed?: (granted: boolean) => void;
-  onUnavailable?: () => void;
+  onUnavailable?: (reason: string) => void;
 }
 
 /**
@@ -82,11 +84,11 @@ export default function GptRewardedAd({
   onClosedRef.current = onClosed;
   onUnavailableRef.current = onUnavailable;
 
-  const notifyUnavailable = useCallback(() => {
+  const notifyUnavailable = useCallback((reason = 'unavailable') => {
     const requestId = requestIdRef.current;
     if (unavailableNotifiedRequestIdRef.current === requestId) return;
     unavailableNotifiedRequestIdRef.current = requestId;
-    onUnavailableRef.current?.();
+    onUnavailableRef.current?.(reason);
   }, []);
 
   useEffect(() => onAdsConsentChange(() => setAdsConsentTick((tick) => tick + 1)), []);
@@ -105,11 +107,11 @@ export default function GptRewardedAd({
       requestIdRef.current = 0;
       autoStartRequestIdRef.current = 0;
       autoShownRequestIdRef.current = 0;
-      notifyUnavailable();
+      notifyUnavailable(getRewardedWebAdEligibilityReason(enabled) ?? 'ineligible');
       return;
     }
     requestIdRef.current = preloadRewardedWebAd(adUnitPath, { retryUnavailable: retryToken > 0 });
-    if (!requestIdRef.current) notifyUnavailable();
+    if (!requestIdRef.current) notifyUnavailable('preload_unavailable');
   }, [active, adUnitPath, adsConsentTick, notifyUnavailable, retryToken]);
 
   useEffect(() => {
@@ -122,7 +124,7 @@ export default function GptRewardedAd({
       if (event.type === 'granted') onGrantedRef.current();
       if (event.type === 'completed') onVideoCompletedRef.current?.();
       if (event.type === 'closed') onClosedRef.current?.(!!event.granted);
-      if (event.type === 'unavailable') notifyUnavailable();
+      if (event.type === 'unavailable') notifyUnavailable(event.reason ?? 'unavailable');
     });
   }, [snapshot.events, notifyUnavailable]);
 
