@@ -36,6 +36,49 @@ describe('carryForwardFirstSeenAt', () => {
     expect(result.enrichedFields).toBe(2);
   });
 
+  it('repairs a currently active job whose crawler reset firstSeenAt', () => {
+    const current = job({ firstSeenAt: '2026-09-23T23:53:42.243Z' });
+    const history = createFirstSeenMetadataIndex();
+    history.add(job({ firstSeenAt: '2026-09-10T23:21:49.331Z' }));
+
+    const result = history.enrichActive([current]);
+
+    expect(current).toMatchObject({
+      sourceIdentity: 'url:https://recruitingapp-2761.umantis.com/vacancies/1373/description/4',
+      firstSeenAt: '2026-09-10T23:21:49.331Z',
+    });
+    expect(result.enrichedEntries).toBe(1);
+    expect(result.enrichedFields).toBe(2);
+  });
+
+  it('keeps the current URL when a previous slug points to another same-title vacancy', () => {
+    const current = job({
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2776/Description/4',
+      slug: 'infermiere-a-in-cure-generali-eoc-lugano',
+      previousSlugs: ['infermiere-a-in-cure-generali-eoc-bellinzona'],
+      firstSeenAt: '2026-09-23T23:53:42.243Z',
+    });
+    const history = createFirstSeenMetadataIndex();
+    history.add({
+      ...current,
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2776/Description/4',
+      firstSeenAt: '2026-09-10T23:21:49.331Z',
+    });
+    history.add({
+      ...current,
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/1094/Description/4',
+      slug: 'infermiere-a-in-cure-generali-eoc-bellinzona',
+      firstSeenAt: '2026-05-21T11:53:54.295Z',
+    });
+
+    history.enrichActive([current]);
+
+    expect(current.sourceIdentity).toBe(
+      'url:https://recruitingapp-2761.umantis.com/vacancies/2776/description/4',
+    );
+    expect(current.firstSeenAt).toBe('2026-09-10T23:21:49.331Z');
+  });
+
   it('archives the stable source identity and firstSeenAt for future reintroductions', () => {
     const entry = buildExpiredEntry(job());
 
