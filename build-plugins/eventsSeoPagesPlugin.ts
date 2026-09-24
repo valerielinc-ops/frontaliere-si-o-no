@@ -1217,6 +1217,7 @@ export function eventLd(event: SiteEvent, locale: Locale, canonicalUrl?: string)
     rawDescription && rawDescription.trim().length >= 30 ? rawDescription.trim() : synthDescription;
   const eventImage = mirroredEventImageObject(event);
   return {
+    '@context': 'https://schema.org',
     '@type': 'Event',
     name: title,
     startDate: startIso,

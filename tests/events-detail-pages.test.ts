@@ -180,6 +180,11 @@ describe('eventLd canonical', () => {
     expect(ld.url).toBe(EVENT.url);
     expect(ld.sameAs).toBeUndefined();
   });
+  it('declares the schema.org context so Google recognizes the Event block', () => {
+    const ld = eventLd(EVENT as never, 'it') as Record<string, unknown>;
+    expect(ld['@context']).toBe('https://schema.org');
+    expect(ld['@type']).toBe('Event');
+  });
 });
 
 describe('eventLd source attribution (#3125)', () => {
@@ -313,6 +318,7 @@ describe('renderEventDetailPage', () => {
   it('carries the title, an Event JSON-LD with our canonical + sameAs, breadcrumb and FAQ', () => {
     // (HTML is minified — JSON-LD has no spaces after colons)
     expect(page.html).toContain('Concerto sinfonico al LAC');
+    expect(page.html).toContain('"@context":"https://schema.org","@type":"Event"');
     expect(page.html).toContain('"@type":"Event"');
     expect(page.html).toContain(`"url":"https://frontaliereticino.ch/eventi/ticino/lugano/${slugifyEvent(EVENT)}/"`);
     expect(page.html).toContain(`"sameAs":["${EVENT.url}"]`);
