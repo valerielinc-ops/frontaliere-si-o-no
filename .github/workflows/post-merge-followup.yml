@@ -274,6 +274,12 @@ jobs:
           # Percorsi storici non presenti in questo repository: `auto-merge-on-lgtm.yml`
           # e `pr-review-loop.yml`. Il triage corrente vive in questo workflow e in
           # `tests.yml`; i nomi sopra sono solo riferimenti documentali di confine.
+          # Watchdog Codex 900s→1500s: #1975 (35534254329) e #1979 (35619427693)
+          # sono morte sul cap fisso da 900s con un batch di 4 PR, e #1993 ha
+          # misurato 780s. 1500s + setup Codex (~2-4 min) + kill grace + coda
+          # restano sotto lo step da 32 min: il watchdog scatta prima del kill
+          # del runner e la action pubblica `codex_timed_out`.
+          exec_timeout_seconds: '1500'
           prompt: |
             Triage automatico follow-up in BATCH (${{ github.event_name }}).
             PR da processare (CSV): ${{ steps.collect.outputs.batch_prs }}

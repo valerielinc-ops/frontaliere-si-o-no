@@ -5,6 +5,10 @@ name: Codex auth recovery
 # repeat the 401 and burn another runner slot.  The Codex action writes a
 # durable, non-secret digest marker on the affected PR; this workflow retries
 # the exact pull_request run only after the repository secret has changed.
+# Callers without a PR (schedule/dispatch) record their rejection directly on
+# the same alert issue (CODEX_AUTH_BLOCKED_RUN); the periodic sweep closes that
+# alert once the secret digest differs from every recorded one and no PR is
+# still blocked.
 #
 # The workflow never dispatches tests on a branch/ref chosen from the PR.  It
 # only re-runs a pre-existing pull_request run whose immutable run metadata and
@@ -69,6 +73,10 @@ jobs:
             const authPresent = process.env.CODEX_AUTH_PRESENT === 'true';
             const AUTH_BLOCKED_PREFIX = '<!-- CODEX_AUTH_BLOCKED:';
             const AUTH_RECOVERY_PREFIX = '<!-- CODEX_AUTH_RECOVERY:';
+            // Written on the alert issue itself by claude-codex-fallback for
+            // callers without a PR (schedule/dispatch): there is no PR run to
+            // retry, only a credential to replace.
+            const AUTH_BLOCKED_RUN_PREFIX = '<!-- CODEX_AUTH_BLOCKED_RUN:';
             const CODEX_AUTH_ALERT_TITLE = 'Codex auth down: CODEX_AUTH_JSON refresh token rejected';
             const TESTS_WORKFLOW_PATH = '.github/workflows/tests.yml';
             const CODEX_AUTH_BOT_LOGIN_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/iu;
@@ -113,6 +121,16 @@ jobs:
                 && isPositiveCodexId(marker.targetAttempt)
                 && (marker.authDigest === 'missing' || CODEX_AUTH_DIGEST_RE.test(String(marker.authDigest || '')))
                 && CODEX_AUTH_BOT_LOGIN_RE.test(String(comment?.user?.login || ''));
+            }
+
+            function validBlockedRunMarker(marker) {
+              return marker?.version === 1
+                && marker.status === 'blocked'
+                && typeof marker.workflow === 'string'
+                && marker.workflow.length > 0
+                && isPositiveCodexId(marker.runId)
+                && isPositiveCodexId(marker.runAttempt)
+                && (marker.authDigest === 'missing' || CODEX_AUTH_DIGEST_RE.test(String(marker.authDigest || '')));
             }
 
             async function listCodexAuthComments(number) {
@@ -243,9 +261,37 @@ jobs:
               }
             }
 
+            // Alerts raised by non-PR runs carry only CODEX_AUTH_BLOCKED_RUN
+            // markers. Nothing can be re-run for them, so the alert closes
+            // once the secret no longer has any recorded rejected digest,
+            // provided no PR is still blocked or waiting for its exact rerun
+            // (that path keeps closing the alert itself after the rerun).
+            async function reconcileNonPrAlert() {
+              if (!authPresent || !CODEX_AUTH_DIGEST_RE.test(currentDigest)) return;
+              const issue = await openCodexAuthAlert();
+              if (!issue) return;
+              const comments = await listCodexAuthComments(issue.number);
+              const markers = [issue, ...comments]
+                .filter(entry => CODEX_AUTH_BOT_LOGIN_RE.test(String(entry?.user?.login || '')))
+                .map(entry => extractMarker(entry.body, AUTH_BLOCKED_RUN_PREFIX))
+                .filter(validBlockedRunMarker);
+              if (markers.length === 0) return;
+              if (markers.some(marker => String(marker.authDigest).toLowerCase() === currentDigest)) {
+                core.info(`Codex auth alert #${issue.number}: CODEX_AUTH_JSON is still the rejected credential.`);
+                return;
+              }
+              await github.rest.issues.createComment({
+                ...repo, issue_number: issue.number,
+                body: `✅ \`CODEX_AUTH_JSON\` changed since the rejected non-PR run(s) (${[...new Set(markers.map(marker => marker.workflow))].join(', ')}) and no pull request is still blocked; auto-closing. A Codex run that is rejected again opens a new alert.`,
+              });
+              await github.rest.issues.update({ ...repo, issue_number: issue.number, state: 'closed', state_reason: 'completed' });
+            }
+
+            // Returns true while the PR still holds Codex auth recovery open:
+            // its latest marker is a block, or a rerun that has not completed.
             async function processPr(number) {
               const { data: pr } = await github.rest.pulls.get({ ...repo, pull_number: number });
-              if (pr.state !== 'open' || pr.base?.ref !== 'main' || pr.draft === true || !CODEX_AUTH_SHA_RE.test(pr.head?.sha || '')) return;
+              if (pr.state !== 'open' || pr.base?.ref !== 'main' || pr.draft === true || !CODEX_AUTH_SHA_RE.test(pr.head?.sha || '')) return false;
               const comments = await listCodexAuthComments(number);
               const events = comments
                 .filter(comment => CODEX_AUTH_BOT_LOGIN_RE.test(String(comment.user?.login || '')))
@@ -258,21 +304,22 @@ jobs:
                 })
                 .sort((a, b) => Number(a.comment.id) - Number(b.comment.id));
               const latest = events.at(-1);
-              if (!latest) return;
+              if (!latest) return false;
               if (latest.type === 'recovery') {
-                if (latest.marker.status === 'completed') return;
+                if (latest.marker.status === 'completed') return false;
                 await reconcileCodexAuthRerun(pr, latest);
-                return;
+                return true;
               }
               const blocked = latest.marker;
               await ensureAlert(pr, blocked);
               if (!authPresent || !CODEX_AUTH_DIGEST_RE.test(currentDigest) || currentDigest === String(blocked.authDigest).toLowerCase()) {
                 core.info(`PR #${number}: Codex auth still blocked; no blind rerun.`);
-                return;
+                return true;
               }
               const run = await getExactCodexTestsRun(blocked, pr);
-              if (!run || run.status !== 'completed') return;
+              if (!run || run.status !== 'completed') return true;
               await queueCodexAuthRerun(pr, run, currentDigest);
+              return true;
             }
 
             let numbers;
@@ -308,10 +355,22 @@ jobs:
               });
               numbers = open.map(pr => Number(pr.number)).filter(isPositiveCodexId);
             }
+            let prRecoveryPending = false;
             for (const number of [...new Set(numbers)]) {
               try {
-                await processPr(number);
+                if (await processPr(number)) prRecoveryPending = true;
               } catch (error) {
+                // Unknown state: never close the alert on a PR we could not read.
+                prRecoveryPending = true;
                 core.warning(`Codex auth recovery failed for PR #${number}: ${String(error)}`);
+              }
+            }
+            // Only the full sweep (schedule/dispatch) has seen every open PR;
+            // a workflow_run event covers one PR and cannot vouch for the rest.
+            if (context.eventName !== 'workflow_run' && !prRecoveryPending) {
+              try {
+                await reconcileNonPrAlert();
+              } catch (error) {
+                core.warning(`Codex auth alert reconciliation failed: ${String(error)}`);
               }
             }

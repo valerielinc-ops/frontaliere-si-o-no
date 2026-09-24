@@ -53,3 +53,124 @@ describe('Codex auth recovery', () => {
     expect(RECOVERY_SCRIPT).not.toMatch(/console\.(log|info|warn|error)\([^\n]*CODEX_AUTH/iu);
   });
 });
+
+const ACTION = readFileSync(new URL('../.github/actions/claude-codex-fallback/action.yml', import.meta.url), 'utf8');
+const DIGEST_A = 'a'.repeat(64);
+const DIGEST_B = 'b'.repeat(64);
+const PR_HEAD = 'c'.repeat(40);
+
+type Call = [string, unknown];
+
+async function runRecovery({
+  currentDigest,
+  issues = [],
+  comments = {},
+  prs = [],
+  eventName = 'schedule',
+}: {
+  currentDigest: string;
+  issues?: Array<Record<string, unknown>>;
+  comments?: Record<number, Array<Record<string, unknown>>>;
+  prs?: Array<Record<string, any>>;
+  eventName?: string;
+}): Promise<Call[]> {
+  const calls: Call[] = [];
+  const rest = {
+    pulls: {
+      list: Symbol('pulls.list'),
+      get: async ({ pull_number }: { pull_number: number }) => ({ data: prs.find((pr) => pr.number === pull_number) }),
+    },
+    issues: {
+      listForRepo: Symbol('issues.listForRepo'),
+      listComments: Symbol('issues.listComments'),
+      create: async (params: unknown) => { calls.push(['create', params]); return { data: { number: 900 } }; },
+      createComment: async (params: unknown) => { calls.push(['createComment', params]); return { data: {} }; },
+      update: async (params: unknown) => { calls.push(['update', params]); return { data: {} }; },
+    },
+    actions: {
+      getWorkflowRun: async () => { throw new Error('run not found'); },
+      reRunWorkflow: async (params: unknown) => { calls.push(['reRunWorkflow', params]); },
+    },
+  };
+  const github = {
+    rest,
+    paginate: async (fn: symbol, params: { issue_number?: number }) => {
+      if (fn === rest.pulls.list) return prs;
+      if (fn === rest.issues.listForRepo) return issues;
+      if (fn === rest.issues.listComments) return comments[params.issue_number ?? 0] ?? [];
+      throw new Error(`paginate inatteso: ${String(fn)}`);
+    },
+  };
+  const core = { info: () => {}, warning: (message: string) => { calls.push(['warning', message]); } };
+  const context = { eventName, repo: { owner: 'owner', repo: 'repo' }, payload: {} };
+  const fakeProcess = { env: { CODEX_AUTH_DIGEST: currentDigest, CODEX_AUTH_PRESENT: 'true', REPOSITORY: 'owner/repo' } };
+  const AsyncFunction = Object.getPrototypeOf(async () => {}).constructor;
+  await new AsyncFunction('github', 'context', 'core', 'process', RECOVERY_SCRIPT)(github, context, core, fakeProcess);
+  return calls;
+}
+
+describe('Codex auth recovery — alert dei run senza PR', () => {
+  const ALERT_TITLE = /const CODEX_AUTH_ALERT_TITLE = '([^']+)';/u.exec(RECOVERY_SCRIPT)?.[1] ?? '';
+  const nonPrMarker = (authDigest: string, workflow = 'post-merge-followup') =>
+    `<!-- CODEX_AUTH_BLOCKED_RUN: ${JSON.stringify({ version: 1, status: 'blocked', workflow, runId: 11, runAttempt: 1, authDigest })} -->`;
+  const alert = (body: string, login = 'github-actions[bot]') => ({ number: 42, title: ALERT_TITLE, body, user: { login } });
+  const closed = (calls: Call[]) => calls.some(([kind, params]) => kind === 'update'
+    && (params as { issue_number?: number; state?: string }).issue_number === 42
+    && (params as { state?: string }).state === 'closed');
+
+  it('l\'action apre lo STESSO alert che il monitor riusa e chiude', () => {
+    expect(ALERT_TITLE).toBe('Codex auth down: CODEX_AUTH_JSON refresh token rejected');
+    expect(ACTION).toContain(`alert_title='${ALERT_TITLE}'`);
+    expect(ACTION).toContain('<!-- CODEX_AUTH_BLOCKED_RUN: %s -->');
+    expect(RECOVERY_SCRIPT).toContain("const AUTH_BLOCKED_RUN_PREFIX = '<!-- CODEX_AUTH_BLOCKED_RUN:';");
+  });
+
+  it('chiude l\'alert non-PR quando il secret non è più nessuna credenziale rifiutata', async () => {
+    const calls = await runRecovery({
+      currentDigest: DIGEST_B,
+      issues: [alert(nonPrMarker(DIGEST_A))],
+      comments: { 42: [{ user: { login: 'github-actions[bot]' }, body: nonPrMarker(DIGEST_A, 'growth-report') }] },
+    });
+    expect(closed(calls)).toBe(true);
+    const comment = calls.find(([kind]) => kind === 'createComment')?.[1] as { body?: string };
+    expect(comment.body).toContain('post-merge-followup, growth-report');
+  });
+
+  it('lascia aperto l\'alert finché il secret resta quello rifiutato', async () => {
+    const calls = await runRecovery({
+      currentDigest: DIGEST_A,
+      issues: [alert(nonPrMarker(DIGEST_B))],
+      comments: { 42: [{ user: { login: 'github-actions[bot]' }, body: nonPrMarker(DIGEST_A, 'growth-report') }] },
+    });
+    expect(closed(calls)).toBe(false);
+  });
+
+  it('non chiude un alert del percorso PR, né su marker umani o su un evento workflow_run', async () => {
+    expect(closed(await runRecovery({ currentDigest: DIGEST_B, issues: [alert('## Codex review authentication blocked')] }))).toBe(false);
+    expect(closed(await runRecovery({ currentDigest: DIGEST_B, issues: [alert(nonPrMarker(DIGEST_A), 'someone')] }))).toBe(false);
+    expect(closed(await runRecovery({
+      currentDigest: DIGEST_B,
+      issues: [alert(nonPrMarker(DIGEST_A))],
+      eventName: 'workflow_run',
+    }))).toBe(false);
+  });
+
+  it('non chiude mentre una PR è ancora bloccata in attesa del rerun esatto', async () => {
+    const pr = { number: 5, state: 'open', draft: false, base: { ref: 'main' }, head: { sha: PR_HEAD } };
+    const blocked = {
+      id: 1,
+      user: { login: 'github-actions[bot]' },
+      body: `<!-- CODEX_AUTH_BLOCKED: ${JSON.stringify({
+        version: 1, status: 'blocked', prNumber: 5, headSha: PR_HEAD, runId: 77, runAttempt: 1, authDigest: DIGEST_A,
+      })} -->`,
+    };
+    const calls = await runRecovery({
+      currentDigest: DIGEST_B,
+      prs: [pr],
+      issues: [alert(nonPrMarker(DIGEST_A))],
+      comments: { 5: [blocked] },
+    });
+    expect(closed(calls)).toBe(false);
+    expect(calls.some(([kind]) => kind === 'create')).toBe(false);
+  });
+});

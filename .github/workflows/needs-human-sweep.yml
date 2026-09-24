@@ -212,6 +212,11 @@ jobs:
           # Lo sweep modifica label/issue e riattiva il ciclo: il bridge
           # host-side usa solo App/PAT; il vuoto resta fail-closed nell'action.
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          # Watchdog Codex 900s→1800s: la run 35591877354 (2026-09-21) è
+          # morta sul cap fisso da 900s con uno sweep fino a 15 azioni; le
+          # run sane misurano ~630s. 1800s + setup/coda restano sotto lo
+          # step da 110 min.
+          exec_timeout_seconds: '1800'
           prompt: |
             Sei lo sweep giornaliero del backlog fermo (`needs-human`, `automation-deferred`, `fu-parked`) di questo repo. Il tuo compito: rimettere TUTTO nel ciclo autonomo. Dal 2026-09-24 il proprietario non vuole più domande (DECISIONS.md: «Nessun veto sul ciclo autonomo», «Parametri, soglie e scelte interne: sempre autonomi, mai una riga del proprietario»): ogni scelta la prendi tu con la direttiva unica «non perdere pagine SEO, revenue o utenti». NON implementi fix e NON apri PR.
 
