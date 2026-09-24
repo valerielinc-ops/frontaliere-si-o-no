@@ -116,6 +116,25 @@ describe('useImpressionTracker', () => {
 });
 
 describe('#5039 — no alert-CTA impression is emitted from a bare mount', () => {
+  it('JobAlertForm tracks the inline CTA through the visibility observer', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    expect(src).toContain('useImpressionTracker');
+    expect(src).toMatch(/const impressionRef = useImpressionTracker/);
+    expect(src).toMatch(/<div ref=\{impressionRef\}>/);
+
+    const autoExpandStart = src.indexOf('// Auto-expand after');
+    const autoExpandEnd = src.indexOf('// Listen for external requests', autoExpandStart);
+    expect(autoExpandStart).toBeGreaterThanOrEqual(0);
+    expect(src.slice(autoExpandStart, autoExpandEnd)).not.toContain('trackJobAlertCtaShown');
+  });
+
+  it('JobAlertForm reports every inline CTA action on the same surface', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    for (const action of ['open', 'accept', 'success', 'error']) {
+      expect(src, `missing inline_card ${action} action`).toContain(`trackInlineCtaAction('${action}'`);
+    }
+  });
+
   it('JobAlertEndCard tracks on visibility, not on mount', () => {
     const src = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertEndCard.tsx'), 'utf-8');
     expect(src).toContain('useImpressionTracker');
