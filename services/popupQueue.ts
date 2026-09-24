@@ -196,9 +196,17 @@ export function subscribe(listener: Listener): () => void {
  *
  * All bottom prompts are below `COOKIE_CONSENT` and `AUTH_GATE` on purpose: a consent
  * banner or a sign-in gate is not an offer that can be postponed.
+ *
+ * `REWARDED_APPLICATION_OFFER` holds the queue while the rewarded application
+ * dialog, and the Google video it opens, is on screen. The newsletter popup
+ * toggles `body.modal-open`, whose CSS hides every `[id^="google_ads"]` and
+ * doubleclick iframe: letting it in would hide the rewarded video mid-play,
+ * losing both the reward and the impression. Only the chatbot panel, which
+ * the visitor opens deliberately, ranks above it.
  */
 export const POPUP_PRIORITY = {
  CHATBOT_PANEL: 120,
+ REWARDED_APPLICATION_OFFER: 115,
  INLINE_AUTH_GATE: 110,
  ACHIEVEMENT_TOAST: 100,
  EASTER_EGG_TOAST: 90,

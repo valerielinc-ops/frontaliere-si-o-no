@@ -79,6 +79,22 @@ describe('AssistedApplicationOffer', () => {
     expect(props.onClose).toHaveBeenCalledTimes(1);
   });
 
+  it('ignores the second click of a double click on the backdrop, but honours a later one', () => {
+    let clock = 5_000;
+    const nowSpy = vi.spyOn(performance, 'now').mockImplementation(() => clock);
+    const props = renderOffer();
+    const backdrop = screen.getByTestId('assisted-application-offer');
+
+    clock += 150;
+    fireEvent.click(backdrop);
+    expect(props.onClose).not.toHaveBeenCalled();
+
+    clock += 1_000;
+    fireEvent.click(backdrop);
+    expect(props.onClose).toHaveBeenCalledTimes(1);
+    nowSpy.mockRestore();
+  });
+
   it('keeps checkout errors visible to assist recovery', () => {
     renderOffer({ error: 'Non siamo riusciti ad avviare il pagamento.' });
 
