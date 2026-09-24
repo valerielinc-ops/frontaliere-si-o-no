@@ -120,6 +120,33 @@ describe('archiveRemovedJobsToSlice — repairs the slice it reads back', () => 
       expect(isParsableExpiredAt(written[0].expiredAt)).toBe(true);
     });
   });
+
+  it('persists first-seen metadata when a newer payload replaces a legacy slug', () => {
+    withTmpDir((dir) => {
+      const slicePath = path.join(dir, 'acme.json');
+      fs.writeFileSync(
+        slicePath,
+        JSON.stringify([{
+          slug: 'legacy',
+          title: 'Legacy',
+          expiredAt: '2020-01-01T00:00:00.000Z',
+        }]),
+      );
+
+      expect(archiveRemovedJobsToSlice([{
+        slug: 'legacy',
+        title: 'Legacy',
+        url: 'https://example.test/jobs/legacy',
+        firstSeenAt: '2026-09-20T00:00:00.000Z',
+      }], 'acme', { dir })).toBe(0);
+
+      const written = JSON.parse(fs.readFileSync(slicePath, 'utf8'));
+      expect(written[0]).toMatchObject({
+        sourceIdentity: 'url:https://example.test/jobs/legacy',
+        firstSeenAt: '2026-09-20T00:00:00.000Z',
+      });
+    });
+  });
 });
 
 describe('assemble ingress repair — persists the repaired source slice', () => {

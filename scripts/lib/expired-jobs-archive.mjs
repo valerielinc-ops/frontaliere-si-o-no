@@ -274,6 +274,11 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
 
   let added = 0;
   let metadataChanged = false;
+  const firstSeenMetadata = (entry) => JSON.stringify({
+    sourceIdentity: entry?.sourceIdentity,
+    firstSeenAt: entry?.firstSeenAt,
+    sourceIdentityHistory: entry?.sourceIdentityHistory,
+  });
   for (const job of removedJobs) {
     if (!job?.slug) continue;
     const entry = buildExpiredEntry(job);
@@ -282,8 +287,15 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
       bySlug.set(entry.slug, entry);
       added++;
     } else if (compareExpiredAt(entry.expiredAt, prev.expiredAt) >= 0) {
+      const previousMetadata = firstSeenMetadata(prev);
       bySlug.set(entry.slug, entry);
-      metadataChanged = mergeSourceIdentityHistory(entry, prev) || metadataChanged;
+      const merged = mergeSourceIdentityHistory(entry, prev);
+      // A newer payload may replace a legacy entry that has no metadata. The
+      // merge itself is intentionally a no-op when there is only one source
+      // identity, so compare the selected payload before returning below.
+      metadataChanged = merged
+        || previousMetadata !== firstSeenMetadata(entry)
+        || metadataChanged;
     } else {
       metadataChanged = mergeSourceIdentityHistory(prev, entry) || metadataChanged;
     }
