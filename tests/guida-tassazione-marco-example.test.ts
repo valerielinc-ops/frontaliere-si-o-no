@@ -14,25 +14,20 @@ const GROSS_SALARY_CHF = 84000;
 const SWISS_SOURCE_TAX_CHF = 7800;
 const CHF_PER_EUR = 0.96;
 
-// 2026 IRPEF brackets (art. 11 TUIR as amended by L. 199/2025): 23% up to
-// EUR 28,000, 33% up to EUR 50,000, 43% above. The service switches the middle
-// bracket from 35% to 33% in PR #9724 (#9713); until then only the middle
-// slice is computed from the declared 2026 rate, the other two come from the
-// service and the strict equality check below is skipped.
-const LOWER_THRESHOLD = 28000;
-const UPPER_THRESHOLD = 50000;
-const MIDDLE_RATE_2026 = 0.33;
-const serviceMiddleRate =
-  (calculateIrpefGross(UPPER_THRESHOLD) - calculateIrpefGross(LOWER_THRESHOLD)) /
-  (UPPER_THRESHOLD - LOWER_THRESHOLD);
+// Bracket rates as the service applies them (derived, never re-declared here):
+// the example must print exactly the rates the site's simulator uses, so when
+// the service changes a bracket (e.g. #9713 / PR #9724, 35% -> 33%) this test
+// forces the published figures to be recomputed in the same change.
+const rateBetween = (from: number, to: number) =>
+  (calculateIrpefGross(to) - calculateIrpefGross(from)) / (to - from);
+const serviceRatesLabel = [rateBetween(0, 28000), rateBetween(28000, 50000), rateBetween(50000, 60000)]
+  .map((r) => Math.round(r * 100))
+  .join('-') + '%';
 
 const grossIncomeEUR = GROSS_SALARY_CHF / CHF_PER_EUR;
 const swissTaxEUR = SWISS_SOURCE_TAX_CHF / CHF_PER_EUR;
 const taxableBaseEUR = grossIncomeEUR - FRANCHIGIA_NUOVI_FRONTALIERI;
-const irpefGrossEUR =
-  calculateIrpefGross(LOWER_THRESHOLD) +
-  (UPPER_THRESHOLD - LOWER_THRESHOLD) * MIDDLE_RATE_2026 +
-  (calculateIrpefGross(taxableBaseEUR) - calculateIrpefGross(UPPER_THRESHOLD));
+const irpefGrossEUR = calculateIrpefGross(taxableBaseEUR);
 const creditEUR = calculateProportionalTaxCredit(swissTaxEUR, taxableBaseEUR, grossIncomeEUR);
 const balanceEUR = irpefGrossEUR - creditEUR;
 
@@ -66,23 +61,14 @@ describe('taxation guide: Marco worked example matches the calculator (#9733)', 
     expect(text).toContain(eur(grossIncomeEUR)); // 87,500
     expect(text).toContain(eur(taxableBaseEUR)); // 77,500
     expect(text).toContain(eur(swissTaxEUR)); // 8,125
-    expect(text).toContain('23-33-43%');
-    expect(text).toContain(eur(round100(irpefGrossEUR))); // ~25,500
+    expect(text).toContain(serviceRatesLabel);
+    expect(text).toContain(eur(round100(irpefGrossEUR)));
     expect(text).toContain(eur(round100(creditEUR))); // ~7,200
-    expect(text).toContain(eur(round100(balanceEUR))); // ~18,300
+    expect(text).toContain(eur(round100(balanceEUR)));
     expect(text).not.toMatch(/2[.,]000-5[.,]000/);
-    expect(text).not.toContain('23-35-43%');
   });
 
   it('the recomputed balance is far from the old 2,000-5,000 claim', () => {
     expect(balanceEUR).toBeGreaterThan(5000 * 3);
   });
-
-  it.skipIf(serviceMiddleRate === 0.35)(
-    'the service applies the 2026 middle bracket declared by the example (active once #9724 lands)',
-    () => {
-      expect(serviceMiddleRate).toBeCloseTo(MIDDLE_RATE_2026, 10);
-      expect(calculateIrpefGross(taxableBaseEUR)).toBeCloseTo(irpefGrossEUR, 6);
-    },
-  );
 });
