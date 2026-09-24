@@ -237,7 +237,7 @@
       "title": "Project manager pour ascenseurs (h/f/d) 80-100%",
       "titleByLocale": {
         "it": "Project manager per ascensori (m/f/d) 80-100%",
-        "en": "Project manager pour ascenseurs (h/f/d) 80-100%",
+        "en": "Project manager for elevators (m/f/d) 80-100%",
         "de": "Projektmanager für Aufzüge (m/w/d) 80-100%",
         "fr": "Project manager pour ascenseurs (h/f/d) 80-100%"
       },
@@ -280,7 +280,6 @@
           "project-manager-per-ascensori-m-f-d-80-100-schindler-plan-les-ouates"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-07T15:26:10.315Z",
       "salaryMin": 83500,
       "salaryMax": 126500,
@@ -311,7 +310,7 @@
       "title": "Sales Support Service Region St. Gallen (m/w/d) 80-100% Pensum",
       "titleByLocale": {
         "it": "Servizio di assistenza vendita Regione San Gallo (m/f/d) 80- 100% di Pensum",
-        "en": "Sales Support Service Region St. Gallen (m/w/d) 80-100% Pensum",
+        "en": "Sales Support Service Region St. Gallen (m/f/d) 80-100% Pensum",
         "de": "Sales Support Service Region St. Gallen (m/w/d) 80-100% Pensum",
         "fr": "Service de soutien aux ventes Région St. Gallen (h/f/d) 80- 100% Pensum"
       },
@@ -357,7 +356,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:30:10.559Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 105000,
       "salarySource": "estimated",
@@ -370,7 +368,8 @@
           "maxValue": 105000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "schindler-6b09cfbd9644",
@@ -386,7 +385,7 @@
       "companyDomain": "schindler.com",
       "title": "Teamleiter*in Service Region Wattwil - Wil - St. Gallen Winkeln (m/w/d)",
       "titleByLocale": {
-        "it": "Teamleiter*in Service Region Wattwil - Wil - St. Gallen Winkeln (m/w/d)",
+        "it": "Team Leader Service Region Wattwil - Wil - St. Gallen Winkeln (m/f/d)",
         "en": "Team Principal in Service Region Wattwil - Wil - St. Gallen Winkeln (m/f/d) 80-100 %",
         "de": "Teamleiter*in Service Region Wattwil - Wil - St. Gallen Winkeln (m/w/d)",
         "fr": "Chef d'équipe dans la région de service Wattwil - Wil - St. Gallen Winkeln (h/f/d) 80-100 %"
@@ -437,7 +436,6 @@
         "teamleiter-in-service-region-wattwil-wil-st-gallen-winkeln-m-w-d-schindler-st-gallen",
         "teamchef-in-service-region-wattwil-wil-st-gallen-winkeln-m-w-d-80-100-schindler-st-gallen"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-02T13:55:00.040Z",
       "salaryMin": 79000,
       "salaryMax": 120000,
@@ -1275,7 +1273,7 @@
       "companyDomain": "schindler.com",
       "title": "Junior Verkaufstalent Region St. Gallen (m/w/d) 80-100%",
       "titleByLocale": {
-        "it": "Junior Verkaufstalent Region St. Gallen (m/w/d) 80-100%",
+        "it": "Junior sales talenti Regione St. Gallen (m/f/d) 80-100 %",
         "en": "Junior sales talent Region St. Gallen (m/f/d) 80-100 %",
         "de": "Junior Verkaufstalent Region St. Gallen (m/w/d) 80-100%",
         "fr": "Jeunes talents de vente Région St. Gallen (h/f/d) 80-100 %"
@@ -1309,13 +1307,6 @@
       "jobReqId": "1410728433",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "junior-verkaufstalent-region-st-gallen-m-w-d-80-100-schindler-st-gallen",
-        "junior-sales-talenti-m-f-d-80-100-regione-st-gallen-schindler-st-gallen",
-        "junior-verkaufstalent-region-st-gallen-m-w-d-80-100-schindler-steinach",
-        "junior-sales-talent-l-f-d-80-100-regione-st-gallen-schindler-st-gallen",
-        "junior-verkaufstalent-m-w-d-80-100-region-st-gallen-schindler-st-gallen"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "junior-verkaufstalent-region-st-gallen-m-w-d-80-100-schindler-st-gallen",
@@ -1329,7 +1320,13 @@
           "junior-verkaufstalent-m-w-d-80-100-region-st-gallen-schindler-st-gallen"
         ]
       },
-      "needsRetranslation": true,
+      "previousSlugs": [
+        "junior-verkaufstalent-region-st-gallen-m-w-d-80-100-schindler-st-gallen",
+        "junior-sales-talenti-m-f-d-80-100-regione-st-gallen-schindler-st-gallen",
+        "junior-verkaufstalent-region-st-gallen-m-w-d-80-100-schindler-steinach",
+        "junior-sales-talent-l-f-d-80-100-regione-st-gallen-schindler-st-gallen",
+        "junior-verkaufstalent-m-w-d-80-100-region-st-gallen-schindler-st-gallen"
+      ],
       "firstSeenAt": "2026-08-26T10:24:57.305Z",
       "salaryMin": 54000,
       "salaryMax": 82500,
@@ -3290,7 +3287,7 @@
       "companyDomain": "schindler.com",
       "title": "Aufzugsmonteur*in Region Aargau / Solothurn (m/w/d) 80-100%",
       "titleByLocale": {
-        "it": "Aufzugsmonteur*in Region Aargau / Solothurn (m/w/d) 80-100%",
+        "it": "Installatore di ascensore Regione Aargau / Solothurn (m/f/d) 80-100 %",
         "en": "Elevator assembler Region Aargau / Solothurn (m/f/d) 80-100 %",
         "de": "Aufzugsmonteur*in Region Aargau / Solothurn (m/w/d) 80-100%",
         "fr": "Installation d'ascenseur* dans la région d'Aargau / Soleure (h/f/d) 80-100 %"
@@ -3337,7 +3334,6 @@
           "aufzugsmonteur-in-region-aargau-solothurn-m-w-d-80-100-schindler-schonbuhl"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-31T17:29:21.932Z",
       "salaryMin": 77000,
       "salaryMax": 116500,
@@ -5093,7 +5089,7 @@
       "title": "Working Student à Bussigny (h/f/d) 40%",
       "titleByLocale": {
         "it": "Working Student à Bussigny (f/m/d) 40%",
-        "en": "Working Student à Bussigny (h/f/d) 40%",
+        "en": "Working Student in Bussigny (m/f/d) 40%",
         "de": "Werkstudent in Bussigny (m/w/d) 40%",
         "fr": "Working Student à Bussigny (h/f/d) 40%"
       },
@@ -5126,7 +5122,6 @@
       "jobReqId": "1436683333",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T23:09:48.525Z",
       "salaryMin": 24200,
       "salaryMax": 36600,
@@ -5476,7 +5471,7 @@
       "title": "Sales Support Repairs (m/w/d) 80-100%",
       "titleByLocale": {
         "it": "Riparazione (m/f/d) 80-100 %",
-        "en": "Sales Support Repairs (m/w/d) 80-100%",
+        "en": "Sales Support Repairs (m/f/d) 80-100 %",
         "de": "Sales Support Repairs (m/w/d) 80-100%",
         "fr": "Réparations de support des ventes (h/f/d) 80-100 %"
       },
@@ -5522,7 +5517,6 @@
           "sales-support-repairs-m-w-d-80-100-schindler-ebikon"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-01T14:27:45.048Z",
       "salaryMin": 79000,
       "salaryMax": 121500,
@@ -6277,7 +6271,7 @@
         "it": "Apprendista d'impiegato de 75 CFC, classe I, classe II, classe II, classe II, classe II, classe II, classe II, classe II, classe II, classe II, classe II, classe II, classe II, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III,\n\nClasse III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, e classe III, classe III, classe III, classe III\n\nClasse III e, classe III, classe III, classe III e classe III e, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III, classe III e, e, classe III, classe III, sub e sub, classe III, sub e sub, classe III, sub e sub e sub e sub, e sub, classe III, e sub, e sub, e sub, e sub, e sub, e sub, classe III, e sub e sub, e sub, classe III, classe III, classe III, e sub, e sub, classe III, classe III, e sub, classe III, e sub, e sub, e sub, e sub, classe III, classe III, e sub, e sub, sub e sub, e sub, sub, e sub, sub, sub, sub, sub, sub, sub, sub, sub, sub, sub, sub, sub, sub, sub, sub, sub, sub, sub, sub, sub, sub",
         "en": "Apprentissage d'Employé-e de 75 CFC, Class I, Class II, Class II, Class II, Class II, Class II, Class II, Class II, Class II, Class II, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, and Class III, Class III, and, Class III, Class III, Class III, and, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, Class III, and, and, Class III, Class III, and sub, and sub, Class III, and sub, and sub, and sub, and sub, and sub, Class III, and sub, and sub, and sub, and sub, and sub, and sub, Class III, and sub, and sub, and sub, Class III, Class III, Class III, Class III, and sub, Class III, and sub, and sub, and sub, Class III, Class III, and sub, and sub, and sub, and sub, and sub, sub, sub, sub, sub, sub, sub, sub, sub",
         "de": "Apprentissage d'Employé-e de commerce CFC pour 2027",
-        "fr": "Apprentissage d'Employé-e de commerce CFC pour 2027"
+        "fr": "Apprentissage d'employeur-e de commerce CFC pour 2027"
       },
       "description": "Apprentissage d'Employé-e de commerce CFC pour 2027 bei Schindler in Le Mont-sur-Lausanne.\n\nDie Schindler-Gruppe ist einer der weltweit führenden Hersteller von Aufzügen, Fahrtreppen und Fahrsteigen. Das 1874 in der Schweiz gegründete Unternehmen beschäftigt rund 70'000 Mitarbeitende weltweit, davon mehrere tausend in der Schweiz. Schindler bietet ein modernes Arbeitsumfeld, attraktive Anstellungsbedingungen, vielfältige Weiterbildungsmöglichkeiten und Karriereperspektiven in einem global tätigen Schweizer Technologieunternehmen mit Hauptsitz in Ebikon (Kanton Luzern).",
       "descriptionByLocale": {
@@ -6331,7 +6325,6 @@
           "title-a-le-mont-sur-lausanne-schindler-le-mont-sur-lausanne"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-24T21:32:10.846Z",
       "salaryMin": 57000,
       "salaryMax": 87500,

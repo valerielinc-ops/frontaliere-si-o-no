@@ -52,6 +52,12 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # The weekly cron is the workflow's autonomous repair principal.
+          # Without this opt-in, the fail-closed gate exits green with
+          # `event-not-workflow-dispatch` and every scheduled repair step is
+          # skipped. Manual dispatches still require explicit approval and
+          # `dry_run: false` through the shared gate contract.
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: reconcile-expired-route-duplicates
         run: node scripts/ci/human-side-effect-gate.mjs
 
