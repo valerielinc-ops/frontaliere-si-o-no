@@ -136,9 +136,6 @@ export function buildL2LandingSessionReportBody({
   return body;
 }
 
-/** Backwards-compatible descriptive alias for callers that build the report. */
-export const buildL2OutcomeQuery = buildL2LandingSessionReportBody;
-
 function reportRows(report, label) {
   if (!object(report)) throw new Error(`GA4 ${label} report is missing rows`);
   const rows = report.rows === undefined ? [] : report.rows;
