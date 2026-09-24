@@ -84,6 +84,19 @@ describe('useSimulationState', () => {
         funnel: 'calculator',
       }));
     });
+
+    it('does not record a conversion for an automatic recalculation', async () => {
+      const { result } = renderHook(() => useSimulationState('forum', null));
+
+      await act(async () => {
+        await result.current.handleCalculate(false);
+      });
+
+      expect(result.current.result).toBeTruthy();
+      expect(Analytics.trackCalculation).not.toHaveBeenCalled();
+      expect(unlockAchievement).not.toHaveBeenCalled();
+      expect(Analytics.trackFunnelStep).not.toHaveBeenCalled();
+    });
   });
 
   describe('SEO landing presets', () => {

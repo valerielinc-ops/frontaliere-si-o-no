@@ -67,7 +67,7 @@ export interface SimulationState {
  setInputs: Dispatch<SetStateAction<SimulationInputs>>;
  result: SimulationResult | null;
  setResult: Dispatch<SetStateAction<SimulationResult | null>>;
- handleCalculate: () => Promise<void>;
+ handleCalculate: (userInitiated?: boolean) => Promise<void>;
  urlHydrated: MutableRefObject<boolean>;
 }
 
@@ -103,17 +103,21 @@ export function useSimulationState(activeTab: ActiveTab, seoLanding: SeoLandingI
  const { calculateSimulation } = await lazyCalculate();
  const res = calculateSimulation(inputs);
  setResult(res);
+ if (userInitiated) {
  import('@/services/firestoreService')
  .then(m => m.registerSimulationForSocialProof())
  .catch((e) => reportCaughtError(e, 'simulation.socialProof'));
  unlockAchievement('first_simulation');
  unlockAchievement('simulation_pro');
+ // Automatic hydration/idle recalculation still produces the result card,
+ // but it is not evidence of an intentional conversion. Keep completion
+ // events tied to an explicit calculation so `generate_lead` and
+ // `simulation_complete` reflect a real user action.
  Analytics.trackCalculation(
  inputs.workerType,
  inputs.grossSalary,
  inputs.hasChildren
  );
- if (userInitiated) {
  Analytics.trackFunnelStep('calculate', {
  funnel: 'calculator',
  worker_type: inputs.workerType,

@@ -92,6 +92,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  const [status, setStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error' | 'exists'>('idle');
  const [errorMessage, setErrorMessage] = useState('');
  const [pendingSocialMethod, setPendingSocialMethod] = useState<'google_oauth' | 'linkedin_oauth' | 'facebook_oauth' | null>(null);
+ const analyticsSourceCta = acquisitionSource || (compact ? 'newsletter_footer_compact' : 'newsletter_page_submit');
 
  // A provider button authenticates and registers the visitor in one flow. The
  // terms-based relationship is written after Auth supplies the verified
@@ -132,7 +133,8 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
            setErrorMessage(t('newsletter.subscribeError'));
            return;
          }
-         markNewsletterSubscribedLocally();
+        markNewsletterSubscribedLocally();
+        Analytics.trackNewsletter('subscribe', socialEmail.split('@')[1], analyticsSourceCta);
          setPendingSocialMethod(null);
          setStatus('success');
        }
@@ -193,7 +195,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  }
 
  setStatus('loading');
- Analytics.trackNewsletter('subscribe', email.split('@')[1]);
+ Analytics.trackNewsletter('subscribe_attempt', email.split('@')[1], analyticsSourceCta);
  console.log('[Newsletter] Subscribe attempt:', { email: email.replace(/(.{2}).*(@.*)/, '$1***$2'), name: name || '(none)', preferences });
 
  // MX record check (async, fail-open)
@@ -202,7 +204,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  if (!hasMx) {
  setErrorMessage(t('newsletter.mxCheckFailed'));
  setStatus('error');
- Analytics.trackNewsletter('error', 'no_mx_record');
+ Analytics.trackNewsletter('error', 'no_mx_record', analyticsSourceCta);
  return;
  }
 
@@ -233,14 +235,14 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  if (isRejectedNewsletterCapture(upsert)) {
  setErrorMessage(t('newsletter.subscribeError'));
  setStatus('error');
- Analytics.trackNewsletter('error', 'suppressed');
+ Analytics.trackNewsletter('error', 'suppressed', analyticsSourceCta);
  return;
  }
  const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
  if (upsert.existed && !needsConfirmation) {
  console.log('[Newsletter] Email already subscribed');
  setStatus('exists');
- Analytics.trackNewsletter('error', email.split('@')[1]);
+ Analytics.trackNewsletter('error', email.split('@')[1], analyticsSourceCta);
  return;
  }
 
@@ -249,7 +251,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  setEmail('');
  setName('');
  console.log('[Newsletter] ⏳ Confirmation link sent; communications remain active under the registration terms');
- Analytics.trackNewsletter('subscribe', email.split('@')[1]);
+ Analytics.trackNewsletter('subscribe', email.split('@')[1], analyticsSourceCta);
  return;
  }
 
@@ -259,12 +261,12 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  setName('');
  unlockAchievement('newsletter_sub');
  console.log('[Newsletter] ✅ Subscription saved under the registration terms');
- Analytics.trackNewsletter('subscribe', email.split('@')[1]);
+ Analytics.trackNewsletter('subscribe', email.split('@')[1], analyticsSourceCta);
  } catch (error: any) {
  reportCaughtError(error, 'newsletter.subscribe');
  setErrorMessage(error.message || t('newsletter.subscribeError'));
  setStatus('error');
- Analytics.trackNewsletter('error', error.message);
+ Analytics.trackNewsletter('error', error.message, analyticsSourceCta);
  }
  };
 
@@ -336,7 +338,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  <button
  onClick={async () => {
  setPendingSocialMethod('google_oauth');
- Analytics.trackNewsletter('view_form', 'google');
+ Analytics.trackNewsletter('view_form', 'google', analyticsSourceCta);
  await googleSignIn();
  }}
  className="w-full min-h-[44px] grid grid-cols-[20px_1fr_20px] items-center px-4 py-2 bg-on-accent/10 border border-on-accent/20 rounded-xl text-on-accent/90 text-xs font-semibold hover:bg-on-accent/20 transition-colors disabled:opacity-50"

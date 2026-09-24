@@ -131,11 +131,18 @@ describe('chatbot_question carries the shape of the question, never the question
     expect(Object.keys(payload).sort()).toEqual(
       [
         'auth_state',
+        'content_group',
+        'content_locale',
+        'landing_path',
+        'page_path',
+        'page_template',
         'question_length',
         'question_topic',
         'question_word_count',
         'redacted_count',
         'redacted_kinds',
+        'route_family',
+        'site_section',
         'trigger',
       ].sort(),
     );

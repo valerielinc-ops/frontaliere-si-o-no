@@ -104,8 +104,16 @@ export function captureEvent(eventName: string, properties?: Record<string, any>
  * Capture a page view with path and title.
  */
 export function capturePageView(path: string, title?: string): void {
+ let pathname = path;
+ try {
+  pathname = new URL(path, window.location.origin).pathname;
+ } catch {
+  pathname = path.split(/[?#]/, 1)[0] || '/';
+ }
  captureEvent('$pageview', {
  $current_url: window.location.origin + path,
+ $pathname: pathname,
+ landing_path: pathname,
  title: title || document.title,
  });
 }

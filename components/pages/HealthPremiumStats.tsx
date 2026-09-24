@@ -1,8 +1,11 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Heart, TrendingDown, TrendingUp, MapPin, Filter, ChevronDown, ChevronUp, ExternalLink } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { Analytics } from '@/services/analytics';
+import { buildPath } from '@/services/router';
 import DataFreshness from '@/components/shared/DataFreshness';
 import { cdnDataUrl } from '@/services/cdnDataBase';
+import type { Locale } from '@/services/i18n';
 
 interface RankingEntry {
  municipality: string;
@@ -27,27 +30,94 @@ interface HealthData {
 
 type SortKey = 'name' | 'avgPremium' | 'numInsurers' | 'canton';
 
+const HEALTH_FALLBACK_COPY: Record<Locale, {
+ loading: string;
+ title: string;
+ body: string;
+ retry: string;
+ comparator: string;
+ officialSource: string;
+}> = {
+ it: {
+  loading: 'Caricamento dati premi...',
+  title: 'I dati dei premi non sono disponibili',
+  body: 'Il dataset ufficiale non ha risposto. Puoi riprovare oppure usare il comparatore e la fonte UFSP mentre ripristiniamo l’aggiornamento.',
+  retry: 'Riprova',
+  comparator: 'Apri il comparatore LAMal',
+  officialSource: 'Fonte ufficiale UFSP',
+ },
+ en: {
+  loading: 'Loading premium data...',
+  title: 'Premium data is temporarily unavailable',
+  body: 'The official dataset did not respond. Try again, or use the comparator and the FOPH source while we restore the update.',
+  retry: 'Try again',
+  comparator: 'Open the LAMal comparator',
+  officialSource: 'Official FOPH source',
+ },
+ de: {
+  loading: 'Prämiendaten werden geladen...',
+  title: 'Prämiendaten sind vorübergehend nicht verfügbar',
+  body: 'Der offizielle Datensatz hat nicht geantwortet. Versuche es erneut oder nutze inzwischen den Vergleich und die BAG-Quelle.',
+  retry: 'Erneut versuchen',
+  comparator: 'LAMal-Vergleich öffnen',
+  officialSource: 'Offizielle BAG-Quelle',
+ },
+ fr: {
+  loading: 'Chargement des données de primes...',
+  title: 'Les données de primes sont temporairement indisponibles',
+  body: 'Le jeu de données officiel n’a pas répondu. Réessayez ou utilisez le comparateur et la source OFSP pendant le rétablissement de la mise à jour.',
+  retry: 'Réessayer',
+  comparator: 'Ouvrir le comparateur LAMal',
+  officialSource: 'Source officielle OFSP',
+ },
+};
+
 const HealthPremiumStats: React.FC = () => {
- const { t } = useTranslation();
+ const { t, locale } = useTranslation();
+ const fallbackCopy = HEALTH_FALLBACK_COPY[locale];
  const [data, setData] = useState<HealthData | null>(null);
+ const [loading, setLoading] = useState(true);
+ const [loadError, setLoadError] = useState(false);
+ const [reloadToken, setReloadToken] = useState(0);
  const [cantonFilter, setCantonFilter] = useState<string>('all');
  const [sortKey, setSortKey] = useState<SortKey>('avgPremium');
  const [sortAsc, setSortAsc] = useState(true);
  const [showAll, setShowAll] = useState(false);
 
  useEffect(() => {
- // Prefer F2-A3 year-scoped dataset, fall back to legacy flat path.
- const year = new Date().getUTCFullYear();
- const primary = `/data/health-premiums/${year}.json`;
- const fallback = '/data/health-premiums.json';
- fetch(cdnDataUrl(primary))
- .then(r => r.ok ? r.json() : null)
- .then(d => {
- if (d) { setData(d); return; }
- return fetch(cdnDataUrl(fallback)).then(r => r.ok ? r.json() : null).then(d2 => { if (d2) setData(d2); });
- })
- .catch(() => {});
- }, []);
+ let cancelled = false;
+ const load = async () => {
+  setLoading(true);
+  setLoadError(false);
+  setData(null);
+  // Prefer F2-A3 year-scoped dataset, fall back to legacy flat path.
+  const year = new Date().getUTCFullYear();
+  const primary = `/data/health-premiums/${year}.json`;
+  const fallback = '/data/health-premiums.json';
+  try {
+   const primaryResponse = await fetch(cdnDataUrl(primary));
+   let payload: HealthData | null = primaryResponse.ok ? await primaryResponse.json() : null;
+   if (!payload) {
+    const fallbackResponse = await fetch(cdnDataUrl(fallback));
+    payload = fallbackResponse.ok ? await fallbackResponse.json() : null;
+   }
+   if (!payload) throw new Error('health premium dataset unavailable');
+   if (!cancelled) {
+    setData(payload);
+    setLoading(false);
+    Analytics.trackUIInteraction('statistiche', 'premi_cassa_malati', 'data', 'loaded', String(payload.year));
+   }
+  } catch {
+   if (!cancelled) {
+    setLoading(false);
+    setLoadError(true);
+    Analytics.trackUIInteraction('statistiche', 'premi_cassa_malati', 'data', 'error', 'fallback');
+   }
+  }
+ };
+ void load();
+ return () => { cancelled = true; };
+ }, [reloadToken]);
 
  // Build full commune ranking from premiums data
  const allCommunes = useMemo(() => {
@@ -115,12 +185,54 @@ const HealthPremiumStats: React.FC = () => {
  else { setSortKey(key); setSortAsc(key === 'avgPremium'); }
  };
 
- if (!data) {
+ if (loading) {
  return (
- <div className="flex items-center justify-center min-h-[300px] text-muted">
- <Heart className="animate-pulse mr-2" size={20} /> Caricamento dati premi...
+ <div className="flex min-h-[300px] items-center justify-center text-muted" role="status" aria-live="polite">
+  <Heart className="animate-pulse mr-2" size={20} /> {fallbackCopy.loading}
  </div>
  );
+ }
+
+ if (loadError || !data) {
+  const comparePath = buildPath({ activeTab: 'confronti', confrontiSubTab: 'health' }, locale);
+  return (
+   <div className="mx-auto flex min-h-[300px] max-w-2xl items-center justify-center px-4 py-10">
+    <div className="w-full rounded-2xl border border-warning-border bg-warning-subtle p-6 text-center" role="alert">
+     <Heart className="mx-auto mb-3 text-warning" size={28} aria-hidden="true" />
+     <h2 className="font-display text-xl font-bold text-heading">{fallbackCopy.title}</h2>
+     <p className="mx-auto mt-2 max-w-lg text-sm leading-6 text-body">
+      {fallbackCopy.body}
+     </p>
+     <div className="mt-5 flex flex-col justify-center gap-3 sm:flex-row">
+      <button
+       type="button"
+       onClick={() => {
+        Analytics.trackUIInteraction('statistiche', 'premi_cassa_malati', 'fallback', 'retry');
+        setReloadToken((value) => value + 1);
+       }}
+       className="min-h-11 rounded-xl bg-warning-strong px-4 py-2.5 text-sm font-bold text-on-accent hover:bg-warning-strong-hover focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-warning focus-visible:ring-offset-2"
+      >
+       {fallbackCopy.retry}
+      </button>
+      <a
+       href={comparePath}
+       onClick={() => Analytics.trackCtaClick('health_fallback_comparator', { targetUrl: comparePath, component: 'HealthPremiumStats', section: 'health', label: 'comparatore_lamal' })}
+       className="inline-flex min-h-11 items-center justify-center rounded-xl border border-warning-border px-4 py-2.5 text-sm font-semibold text-warning-strong underline underline-offset-4 hover:text-warning focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-warning focus-visible:ring-offset-2"
+      >
+       {fallbackCopy.comparator}
+      </a>
+     </div>
+     <a
+      href="https://www.priminfo.admin.ch"
+      target="_blank"
+      rel="noopener noreferrer"
+      className="mt-5 inline-flex items-center gap-1 text-xs text-muted underline underline-offset-4 hover:text-body"
+     >
+      {fallbackCopy.officialSource} <ExternalLink size={12} aria-hidden="true" />
+     </a>
+    </div>
+   </div>
+  );
  }
 
  const maxAvg = cantonAverages.length > 0 ? cantonAverages[cantonAverages.length - 1].avg : 1;

@@ -353,6 +353,7 @@ const NewsletterPopup: React.FC = () => {
  return;
  }
  setStatus('loading');
+ Analytics.trackNewsletter('subscribe_attempt', email.split('@')[1], 'newsletter_popup_submit');
 
  try {
  const firestore = await initFirestore();
@@ -382,23 +383,27 @@ const NewsletterPopup: React.FC = () => {
  const needsConfirmation = upsert.status === 'pending' && !upsert.hadConfirmationProof;
  if (upsert.existed && !needsConfirmation) {
  setStatus('exists');
+ Analytics.trackNewsletter('error', email.split('@')[1], 'newsletter_popup_submit');
  return;
  }
 
  if (needsConfirmation) {
  setStatus('pending');
+ Analytics.trackNewsletter('subscribe', email.split('@')[1], 'newsletter_popup_submit');
  Analytics.trackUIInteraction('newsletter_popup', 'form', 'subscribe', 'confirmation_pending');
  return;
  }
 
  markNewsletterSubscribedLocally();
  setStatus('success');
+ Analytics.trackNewsletter('subscribe', email.split('@')[1], 'newsletter_popup_submit');
  unlockAchievement('newsletter_sub');
  Analytics.trackUIInteraction('newsletter_popup', 'form', 'subscribe', 'success');
  } catch (error: any) {
  reportCaughtError(error, 'newsletterPopup.subscribe');
  setErrorMessage(error.message || t('newsletter.subscribeError'));
  setStatus('error');
+ Analytics.trackNewsletter('error', error.message, 'newsletter_popup_submit');
  }
  };
 
