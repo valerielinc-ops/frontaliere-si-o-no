@@ -66,7 +66,7 @@ const TITLE_FORBIDDEN_RE = /[\u0000-\u001F\u007F​-‏‪-‮⁠-⁤﻿<>@{}]|h
  *   60-character `source` stamp and may have been cut mid-word
  * @returns {string|null}
  */
-export function sanitizeJobTitle(raw, { truncated = false } = {}) {
+export function sanitizeConfirmationJobTitle(raw, { truncated = false } = {}) {
   if (typeof raw !== 'string') return null;
   const trimmed = raw.replace(/\s+/g, ' ').trim();
   if (trimmed.length < 3 || trimmed.length > 90) return null;
@@ -126,7 +126,7 @@ export function resolveConfirmationJobContext(data) {
     const kind = CONFIRMATION_JOB_CONTEXT_KINDS[String(data.source_cta || '').trim()];
     if (!kind) return null;
 
-    const title = sanitizeJobTitle(jobTitleFromSource(data), { truncated: true });
+    const title = sanitizeConfirmationJobTitle(jobTitleFromSource(data), { truncated: true });
     const company = sanitizeCompany(data.job_company);
     if (!title && !company) return null;
 

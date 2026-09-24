@@ -13,7 +13,7 @@
 import { describe, expect, it } from 'vitest';
 import {
   resolveConfirmationJobContext,
-  sanitizeJobTitle,
+  sanitizeConfirmationJobTitle,
   jobTitleFromSource,
   CONFIRMATION_JOB_CONTEXT_KINDS,
 } from '../functions/src/lib/confirmationJobContext.js';
@@ -71,7 +71,7 @@ describe('resolveConfirmationJobContext: which offer, if any', () => {
   it('marks a title cut at 60 characters by the client with an ellipsis, never mid-word', () => {
     const cut = 'Celonis CoE - Senior Value Engineer Hitachi Energy Zurich Sw';
     expect(cut).toHaveLength(60);
-    expect(sanitizeJobTitle(cut, { truncated: true })).toBe('Celonis CoE - Senior Value Engineer Hitachi Energy Zurich…');
+    expect(sanitizeConfirmationJobTitle(cut, { truncated: true })).toBe('Celonis CoE - Senior Value Engineer Hitachi Energy Zurich…');
   });
 
   it('returns null — the generic email — for every surface not on the allowlist', () => {
@@ -90,7 +90,7 @@ describe('resolveConfirmationJobContext: which offer, if any', () => {
 
   it('refuses titles that could inject or spoof', () => {
     for (const bad of ['<img src=x>', 'Visit https://evil.test', 'mail me@x.ch', '‮evil', '--', '42']) {
-      expect(sanitizeJobTitle(bad), bad).toBeNull();
+      expect(sanitizeConfirmationJobTitle(bad), bad).toBeNull();
     }
   });
 
