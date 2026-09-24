@@ -11940,6 +11940,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-24.imageAlt': 'Les chiffres du jour pour les frontaliers – 24 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
     'blog.article.bollettino-frontaliere-2026-09-24.seoDescription': 'Bulletin du frontalier du 24 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
     'blog.article.bollettino-frontaliere-2026-09-24.ogDescription': 'Les chiffres du 24 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
+    'blog.article.decisione-bns-cambio-franco-euro.title': 'Décision BNS : franc en baisse, euro en hausse',
+    'blog.article.decisione-bns-cambio-franco-euro.excerpt': 'La BNS maintient le taux de référence à 0%, portant l\'euro au-dessus de 0,94 franc et le dollar au plus haut annuel.',
+    'blog.article.decisione-bns-cambio-franco-euro.imageAlt': 'Vue panoramique de Lugano, centre financier du Canton Ticino',
 };
 
 export default blogMetaFr;

@@ -92776,6 +92776,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-decisione-bns-cambio-franco-euro': {
+    title: 'Decisione BNS: franco in calo, euro in risalita',
+    description: 'La BNS mantiene il tasso di riferimento allo 0%, l\'euro risale sopra 0,94 franchi e il dollaro ai massimi annuali. Impatti per i frontalieri. Dati aggiornati',
+    keywords: 'frontalieri, ticino, svizzera, italia, decisione, franco, calo, euro',
+    ogTitle: 'Decisione BNS: franco in calo, euro in risalita',
+    ogDescription: 'La Banca nazionale svizzera mantiene il tasso di riferimento allo 0%, portando l\'euro sopra 0,94 franchi. Scopri come l\'indebolimento del franco influenza il potere d\'acquisto dei frontalieri e l\'inflazione.',
+    canonicalPath: '/articoli-frontaliere/decisione-bns-cambio-franco-euro',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Decisione BNS: franco in calo, euro in risalita",
+      "description": "La BNS mantiene il tasso di riferimento allo 0%, l'euro risale sopra 0,94 franchi e il dollaro ai massimi annuali. Impatti per i frontalieri. Dati aggiornati",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/decisione-bns-cambio-franco-euro.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista panoramica di Lugano, centro finanziario del Canton Ticino"
+      },
+      "datePublished": "2026-09-24T10:42:56+00:00",
+      "dateModified": "2026-09-24T10:42:56+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/decisione-bns-cambio-franco-euro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

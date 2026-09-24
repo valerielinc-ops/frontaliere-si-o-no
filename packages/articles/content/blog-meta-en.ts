@@ -11938,6 +11938,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-24.imageAlt': 'The day\'s numbers for cross-border commuters – September 24, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
     'blog.article.bollettino-frontaliere-2026-09-24.seoDescription': 'Cross-border brief, September 24, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
     'blog.article.bollettino-frontaliere-2026-09-24.ogDescription': 'The numbers for September 24, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
+    'blog.article.decisione-bns-cambio-franco-euro.title': 'SNB decision: franc down, euro up',
+    'blog.article.decisione-bns-cambio-franco-euro.excerpt': 'The SNB keeps the reference rate at 0%, bringing the euro above 0.94 francs and the dollar to annual highs.',
+    'blog.article.decisione-bns-cambio-franco-euro.imageAlt': 'Panoramic view of Lugano, financial center of Canton Ticino',
 };
 
 export default blogMetaEn;
