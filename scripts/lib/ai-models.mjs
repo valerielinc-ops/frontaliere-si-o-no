@@ -7001,6 +7001,10 @@ export async function callSingleModel(messages, opts = {}) {
  * @param {object} opts — Options (same as callSingleModel, plus `chain`)
  * @param {string} [opts.model] — Starting model (overrides chain start)
  * @param {string[]} [opts.chain] — Custom fallback chain
+ * @param {string[]} [opts.excludeModels] — Models to leave out of THIS call's
+ *   chain (after sort and preference), e.g. the model whose HTTP-200 answer the
+ *   caller just rejected. Ignored under AI_MODELS_FORCE_CHAIN and when it would
+ *   leave the chain empty; disables the response cache for the call.
  * @returns {Promise<string>} — Text content from whichever model succeeded
  */
 export async function callLLM(messages, opts = {}) {
@@ -7015,7 +7019,12 @@ export async function callLLM(messages, opts = {}) {
   // (e.g. fact-check re-checking an unchanged article body across regeneration
   // attempts). A hit avoids the entire fallback cascade — the dominant intra-run
   // burn — at zero risk, since the key includes the full prompt + model + params.
-  const _cacheOn = o.cache === true;
+  // Una chiamata che esclude dei modelli sta ritentando DOPO aver rigettato una
+  // risposta: rispondere dalla cache potrebbe restituire proprio quella.
+  const _excludedModels = Array.isArray(o.excludeModels)
+    ? [...new Set(o.excludeModels.filter((m) => typeof m === 'string' && m))]
+    : [];
+  const _cacheOn = o.cache === true && _excludedModels.length === 0;
   let _cacheKey = null;
   if (_cacheOn) {
     _cacheKey = _responseCacheKey(messages, o);
@@ -7073,6 +7082,15 @@ export async function callLLM(messages, opts = {}) {
     // `opts.prefer` o sull'opt-in esplicito `AI_MODELS_PREFER` — mai da un
     // default, che e' vuoto. Vedi il blocco di commento su applyModelsPrefer.
     chain = applyModelsPrefer(chain, o.prefer);
+    // Esclusione per-chiamata, DOPO sort e preferenza: un chiamante che ha
+    // appena rigettato la risposta HTTP 200 di un modello (selezione headline:
+    // prosa di ragionamento invece del JSON) ritenta sugli altri, invece di
+    // tornare sullo stesso che il tasso di successo storico rimette primo.
+    // Non tronca a vuoto: se toglierebbe tutto, la catena resta com'era.
+    if (_excludedModels.length) {
+      const remaining = chain.filter((m) => !_excludedModels.includes(m));
+      if (remaining.length) chain = remaining;
+    }
   }
 
   const errors = [];

@@ -4183,6 +4183,10 @@ async function callLLM(messages, opts = {}) {
     // attempt consumed nearly all of it). ...opts still wins if a caller passes
     // its own deadlineMs (or explicit null to opt out of the cap entirely).
     const result = await _aiCallLLM(messages, { temperature: 0.7, maxTokens: 4000, timeout: 90_000, deadlineMs: RUN_START_MS + RUN_WALL_BUDGET_MS, ...opts, modelUsedRef });
+    // `modelUsedRef` del chiamante: il wrapper usa il suo per la validazione e
+    // gli copia sopra il modello servito, cosi' chi valida a valle una risposta
+    // (la selezione headline) puo' dire a QUALE modello attribuire il rigetto.
+    if (opts.modelUsedRef && typeof opts.modelUsedRef === 'object') opts.modelUsedRef.model = modelUsedRef.model;
     if (modelUsedRef.model === AI_MODELS.LOCAL_FALLBACK) _localFallbackUsedThisHeadline = true;
     if (isBody2Check) {
       let itContent = null;
@@ -4972,15 +4976,33 @@ const HEADLINE_SELECTION_MAX_ATTEMPTS_FINAL = 3;
 
 async function requestHeadlineSelection(basePrompt, candidateCount, label, maxAttempts) {
   let last = null;
+  // I modelli la cui risposta HTTP 200 il protocollo ha RIGETTATO in questa
+  // selezione. Per la cascata quella era una chiamata riuscita (+2): nel
+  // gemello del corpus (frontaliere-articles run 36010807545)
+  // nvidia/nemotron-3-super ha risposto con prosa di ragionamento («We need to
+  // pick…») a OGNI tentativo, il suo tasso di successo storico lo rimetteva
+  // primo, e ogni giro chiudeva con 0 finalisti. Il rigetto conta ora come
+  // fallimento di contenuto (recordModelContentFailure: penalita', e al
+  // secondo di fila il modello e' escluso per la run) e il tentativo successivo
+  // di QUESTA selezione non torna sullo stesso modello (`excludeModels`).
+  const rejectedModels = [];
   for (let attempt = 1; attempt <= maxAttempts; attempt++) {
     const prompt = attempt === 1
       ? basePrompt
       : `${basePrompt}\n\n${selectionCorrectionNote(last?.rejection, candidateCount)}`;
     let rawText;
+    const modelUsedRef = { model: null };
     try {
       rawText = await callLLM(
         [{ role: 'user', content: prompt }],
-        { model: GH_MODEL_LIGHT, temperature: 0.3, maxTokens: 512, jsonMode: true },
+        {
+          model: GH_MODEL_LIGHT,
+          temperature: 0.3,
+          maxTokens: 512,
+          jsonMode: true,
+          modelUsedRef,
+          ...(rejectedModels.length ? { excludeModels: [...rejectedModels] } : {}),
+        },
       );
     } catch (err) {
       // La cascata modelli esaurita (issue #5849) non e' un errore da assorbire
@@ -5003,7 +5025,14 @@ async function requestHeadlineSelection(basePrompt, candidateCount, label, maxAt
       continue;
     }
     const parsed = parseHeadlineSelection(rawText, candidateCount);
-    if (parsed.ok) return { ...parsed, attempts: attempt };
+    if (parsed.ok) {
+      recordModelContentSuccess(modelUsedRef.model);
+      return { ...parsed, attempts: attempt };
+    }
+    // Una risposta arrivata e rigettata dal protocollo e' un fallimento di
+    // CONTENUTO del modello che l'ha data, non un successo di trasporto.
+    recordModelContentFailure(modelUsedRef.model);
+    if (modelUsedRef.model && !rejectedModels.includes(modelUsedRef.model)) rejectedModels.push(modelUsedRef.model);
     last = parsed;
     console.error(
       `  ⚠️  ${label}: risposta RIGETTATA (${parsed.rejection}: ${parsed.detail}) — tentativo ${attempt}/${maxAttempts}`,
