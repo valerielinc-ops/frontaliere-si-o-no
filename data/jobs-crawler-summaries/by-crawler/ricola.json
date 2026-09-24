@@ -1,23 +1,24 @@
 {
   "key": "ricola",
   "label": "Ricola",
-  "generatedAt": "2026-09-24T00:11:11.173Z",
+  "generatedAt": "2026-09-24T14:52:36.366Z",
   "total": 3,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
   "written": 3,
   "authoritativeEmptySnapshot": false,
-  "newCount": 1,
-  "updatedCount": 1,
+  "newCount": 0,
+  "updatedCount": 2,
   "removedCount": 0,
   "unchangedCount": 1,
-  "durationMs": 5356,
-  "avgDurationMs": 5356,
+  "durationMs": 4751,
+  "avgDurationMs": 4751,
   "durationHistory": [
-    5356
+    4751
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "ricola-c78588f1aa2b",
       "slug": "head-of-controlling-100-ricola-ch",
@@ -25,13 +26,13 @@
       "companyKey": "ricola",
       "companyDomain": "ricola.com",
       "title": "Head of Controlling (100%)",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Laufen",
       "canton": "BL",
       "url": "https://career.ricola.com/Vacancies/1064/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T00:11:03.696Z",
+      "crawledAt": "2026-09-24T14:52:29.571Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -47,16 +48,15 @@
       "featured": false,
       "postedDate": "2026-09-24",
       "applyUrl": "https://career.ricola.com/Vacancies/1064/Description/2",
-      "_qualityScore": 67,
+      "firstSeenAt": "2026-09-24T00:11:03.696Z",
+      "_qualityScore": 88,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 20
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "ricola-6e3762cab55f",
       "slug": "head-of-health-safety-80-ricola-ch",
@@ -70,7 +70,7 @@
       "url": "https://career.ricola.com/Vacancies/1062/Description/2",
       "source": "Ricola Dedicated Parser (Umantis listing tenant 2747)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T00:11:03.924Z",
+      "crawledAt": "2026-09-24T14:52:29.816Z",
       "addressLocality": "Laufen",
       "addressRegion": "BL",
       "streetAddress": "Baselstrasse 31",
@@ -131,7 +131,7 @@
       "salaryMin": 31000,
       "salaryMax": 47000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 93,
       "_qualityBreakdown": {
         "cleanliness": 25,

@@ -1,6 +1,6 @@
 {
   "crawlerKey": "logitech",
-  "assembledAt": "2026-09-24T00:10:05.093Z",
+  "assembledAt": "2026-09-24T14:52:52.756Z",
   "jobs": [
     {
       "id": "logitech-171aac38ec54",
@@ -33,7 +33,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Hardware-Product-User-Experience-Designer_146581",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T00:10:00.637Z",
+      "crawledAt": "2026-09-24T14:52:48.053Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -67,6 +67,7 @@
         ]
       },
       "firstSeenAt": "2026-05-28T13:21:21.034Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -113,7 +114,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Audio-Machine-Learning-Data-Engineer_148005",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T00:09:59.714Z",
+      "crawledAt": "2026-09-24T14:52:47.116Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -158,7 +159,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD"
+      "addressRegion": "VD",
+      "needsRetranslation": true
     },
     {
       "id": "logitech-9e9c2ed0e9da",
@@ -191,7 +193,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Senior-Sourcing-Specialist_148044",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T00:09:58.742Z",
+      "crawledAt": "2026-09-24T14:52:46.215Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -269,7 +271,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/DTX-Data-Analytics---Insights-Manager_147018",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T00:09:57.686Z",
+      "crawledAt": "2026-09-24T14:52:45.322Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -301,6 +303,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:52:23.708Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -320,8 +323,8 @@
       "id": "logitech-b591bfe0cc9b",
       "slug": "responsabile-marketing-globale-di-pws-logitech-lausanne",
       "slugByLocale": {
-        "en": "pws-global-marketing-manager-logitech-ch",
         "it": "responsabile-marketing-globale-di-pws-logitech-lausanne",
+        "en": "pws-global-marketing-manager-logitech-ch",
         "de": "pws-globaler-marketingleiter-logitech-lausanne",
         "fr": "gestionnaire-mondial-de-marketing-pws-logitech-lausanne"
       },
@@ -330,8 +333,8 @@
       "companyDomain": "logitech.com",
       "title": "PWS Global Marketing Manager",
       "titleByLocale": {
-        "en": "PWS Global Marketing Manager",
         "it": "Responsabile Marketing Globale di PWS",
+        "en": "PWS Global Marketing Manager",
         "de": "PWS Globaler Marketingleiter",
         "fr": "Gestionnaire mondial de marketing PWS"
       },
@@ -347,7 +350,7 @@
       "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/PWS-Global-Marketing-Manager_147736",
       "source": "Logitech Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-24T00:09:56.744Z",
+      "crawledAt": "2026-09-24T14:52:44.358Z",
       "addressLocality": "Lausanne",
       "addressCountry": "CH",
       "country": "CH",
@@ -362,6 +365,20 @@
       "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/PWS-Global-Marketing-Manager_147736",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "pws-global-marketing-manager-logitech-ch",
+        "responsabile-marketing-globale-di-pws-logitech-lausanne"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "pws-global-marketing-manager-logitech-ch",
+          "responsabile-marketing-globale-di-pws-logitech-lausanne"
+        ],
+        "de": [
+          "pws-global-marketing-manager-logitech-ch"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:13:03.509Z",
       "salaryMin": 92000,
       "salaryMax": 163000,
       "salarySource": "estimated",
@@ -375,19 +392,72 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "VD",
-      "firstSeenAt": "2026-09-19T23:13:03.509Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "pws-global-marketing-manager-logitech-ch"
-        ],
-        "de": [
-          "pws-global-marketing-manager-logitech-ch"
-        ]
+      "addressRegion": "VD"
+    },
+    {
+      "id": "logitech-733d805b7f54",
+      "slug": "technical-project-manager-logitech-ch",
+      "slugByLocale": {
+        "en": "technical-project-manager-logitech-ch",
+        "it": "technical-project-manager-logitech-ch",
+        "de": "technical-project-manager-logitech-ch",
+        "fr": "technical-project-manager-logitech-ch"
       },
-      "previousSlugs": [
-        "pws-global-marketing-manager-logitech-ch"
-      ]
+      "company": "Logitech",
+      "companyKey": "logitech",
+      "companyDomain": "logitech.com",
+      "title": "Technical Project Manager",
+      "titleByLocale": {
+        "en": "Technical Project Manager",
+        "it": "Technical Project Manager",
+        "de": "Technical Project Manager",
+        "fr": "Technical Project Manager"
+      },
+      "description": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nTechnical Project Manager Job Description\nPosition at Logitech PWS (Personal Work Solutions) MKS (Mice and Keyboards Solutions)\n\nLogitech PWS MKS is committed to help people create and communicate their passion and work to the world, anytime, anywhere. Innovation in the personal work solution with the user in the center is our obsession. This is more than computer mice, keyboards - it's about enabling the future beyond today's tools and in a sustainable way. Everything goes through great design and exceptional user experience.\n\nThe Role\nAs a Technical Project Manager based in Lausanne for our MKS business, you will lead a multi-disciplinary team for New Product Introduction (NPI) - from Project definition up to the introduction in Mass Production (MP). You will be a catalyst between our ESW (Embedded Software) and Software groups delivering superior UX's and continuous device enhancements. You will make the difference by leading the team towards the agreed objectives and by managing activities across multiple sites. Your technical background and your ability to reduce risks, investigate issues and solve problems at project level will be a great asset. You are passionate about products and delivering amazing experiences to enhance the life of millions of people as they interact everyday with digital content.\n\nYour Contribution\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and Just Do. These are the behaviors you'll need for success at Logitech. In this role you will:\n\n• Manage and coordinate New Product Introduction (NPI) development through the product life cycle process from concept to product delivery - apply project management standards.\n\n• Lead the MKS strategic direction of ESW (Embedded Software) activities, ensuring seamless alignment and cross-functional integration between ESW, software, hardware, and design teams to deliver superior user experiences.\n\n• Drive the practical application of AI/ML technologies by leading both the integration of intelligent features into device ESW and the adoption of AI-driven tools to optimize internal development workflows.\n\n• Partner with Product Management, Hardware and Software Engineering, Supply Chain, and Manufacturing to deliver projects on time within defined expectations in terms of experience, cost and quality.\n\n• Collaborate with Product Management, Design, Hardware and Software Engineering and Operations to explore and deliver the technical bricks for the needs of the roadmap.\n\n• Lead and staff a project team - multi-functions and multi-sites (worldwide).\n\n• Synthesize and present the project's stake in a comprehensive manner to help the team make decisions, make clear recommendations when needed.\n\n• Report and communicate on a regular basis. Escalate when project goals are at risk. This includes regular reporting of project status to key stakeholders, Business Group leader through management review meetings and Gate meetings as prescribed by internal development processes.\n\n• Identify, evaluate and escalate the risks associated with project activities and take appropriate actions to control the risks and to drive solutions.\n\n• Synthesize data and information related to scope or risks change.\n\n• Collaborate with Functional Manager to improve project organization, efficiency (tools, processes) and time to market.\n\n• Ensure that project activities operate within the policies and processes of the organization.\n\nKey Qualifications\nFor consideration, you must bring the following minimum skills and behaviors to our team:\n\n• Essential Knowledge of AI/ML: Practical experience with AI frameworks and platforms on both Host and Device sides (e.g., EdgeAI, TinyML) is required to support our AI-driven team transformation and ESW integration.\n\n• Minimum 7 years of project management experience in a high-tech",
+      "descriptionByLocale": {
+        "en": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nTechnical Project Manager Job Description\nPosition at Logitech PWS (Personal Work Solutions) MKS (Mice and Keyboards Solutions)\n\nLogitech PWS MKS is committed to help people create and communicate their passion and work to the world, anytime, anywhere. Innovation in the personal work solution with the user in the center is our obsession. This is more than computer mice, keyboards - it's about enabling the future beyond today's tools and in a sustainable way. Everything goes through great design and exceptional user experience.\n\nThe Role\nAs a Technical Project Manager based in Lausanne for our MKS business, you will lead a multi-disciplinary team for New Product Introduction (NPI) - from Project definition up to the introduction in Mass Production (MP). You will be a catalyst between our ESW (Embedded Software) and Software groups delivering superior UX's and continuous device enhancements. You will make the difference by leading the team towards the agreed objectives and by managing activities across multiple sites. Your technical background and your ability to reduce risks, investigate issues and solve problems at project level will be a great asset. You are passionate about products and delivering amazing experiences to enhance the life of millions of people as they interact everyday with digital content.\n\nYour Contribution\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and Just Do. These are the behaviors you'll need for success at Logitech. In this role you will:\n\n• Manage and coordinate New Product Introduction (NPI) development through the product life cycle process from concept to product delivery - apply project management standards.\n\n• Lead the MKS strategic direction of ESW (Embedded Software) activities, ensuring seamless alignment and cross-functional integration between ESW, software, hardware, and design teams to deliver superior user experiences.\n\n• Drive the practical application of AI/ML technologies by leading both the integration of intelligent features into device ESW and the adoption of AI-driven tools to optimize internal development workflows.\n\n• Partner with Product Management, Hardware and Software Engineering, Supply Chain, and Manufacturing to deliver projects on time within defined expectations in terms of experience, cost and quality.\n\n• Collaborate with Product Management, Design, Hardware and Software Engineering and Operations to explore and deliver the technical bricks for the needs of the roadmap.\n\n• Lead and staff a project team - multi-functions and multi-sites (worldwide).\n\n• Synthesize and present the project's stake in a comprehensive manner to help the team make decisions, make clear recommendations when needed.\n\n• Report and communicate on a regular basis. Escalate when project goals are at risk. This includes regular reporting of project status to key stakeholders, Business Group leader through management review meetings and Gate meetings as prescribed by internal development processes.\n\n• Identify, evaluate and escalate the risks associated with project activities and take appropriate actions to control the risks and to drive solutions.\n\n• Synthesize data and information related to scope or risks change.\n\n• Collaborate with Functional Manager to improve project organization, efficiency (tools, processes) and time to market.\n\n• Ensure that project activities operate within the policies and processes of the organization.\n\nKey Qualifications\nFor consideration, you must bring the following minimum skills and behaviors to our team:\n\n• Essential Knowledge of AI/ML: Practical experience with AI frameworks and platforms on both Host and Device sides (e.g., EdgeAI, TinyML) is required to support our AI-driven team transformation and ESW integration.\n\n• Minimum 7 years of project management experience in a high-tech",
+        "it": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nTechnical Project Manager Job Description\nPosition at Logitech PWS (Personal Work Solutions) MKS (Mice and Keyboards Solutions)\n\nLogitech PWS MKS is committed to help people create and communicate their passion and work to the world, anytime, anywhere. Innovation in the personal work solution with the user in the center is our obsession. This is more than computer mice, keyboards - it's about enabling the future beyond today's tools and in a sustainable way. Everything goes through great design and exceptional user experience.\n\nThe Role\nAs a Technical Project Manager based in Lausanne for our MKS business, you will lead a multi-disciplinary team for New Product Introduction (NPI) - from Project definition up to the introduction in Mass Production (MP). You will be a catalyst between our ESW (Embedded Software) and Software groups delivering superior UX's and continuous device enhancements. You will make the difference by leading the team towards the agreed objectives and by managing activities across multiple sites. Your technical background and your ability to reduce risks, investigate issues and solve problems at project level will be a great asset. You are passionate about products and delivering amazing experiences to enhance the life of millions of people as they interact everyday with digital content.\n\nYour Contribution\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and Just Do. These are the behaviors you'll need for success at Logitech. In this role you will:\n\n• Manage and coordinate New Product Introduction (NPI) development through the product life cycle process from concept to product delivery - apply project management standards.\n\n• Lead the MKS strategic direction of ESW (Embedded Software) activities, ensuring seamless alignment and cross-functional integration between ESW, software, hardware, and design teams to deliver superior user experiences.\n\n• Drive the practical application of AI/ML technologies by leading both the integration of intelligent features into device ESW and the adoption of AI-driven tools to optimize internal development workflows.\n\n• Partner with Product Management, Hardware and Software Engineering, Supply Chain, and Manufacturing to deliver projects on time within defined expectations in terms of experience, cost and quality.\n\n• Collaborate with Product Management, Design, Hardware and Software Engineering and Operations to explore and deliver the technical bricks for the needs of the roadmap.\n\n• Lead and staff a project team - multi-functions and multi-sites (worldwide).\n\n• Synthesize and present the project's stake in a comprehensive manner to help the team make decisions, make clear recommendations when needed.\n\n• Report and communicate on a regular basis. Escalate when project goals are at risk. This includes regular reporting of project status to key stakeholders, Business Group leader through management review meetings and Gate meetings as prescribed by internal development processes.\n\n• Identify, evaluate and escalate the risks associated with project activities and take appropriate actions to control the risks and to drive solutions.\n\n• Synthesize data and information related to scope or risks change.\n\n• Collaborate with Functional Manager to improve project organization, efficiency (tools, processes) and time to market.\n\n• Ensure that project activities operate within the policies and processes of the organization.\n\nKey Qualifications\nFor consideration, you must bring the following minimum skills and behaviors to our team:\n\n• Essential Knowledge of AI/ML: Practical experience with AI frameworks and platforms on both Host and Device sides (e.g., EdgeAI, TinyML) is required to support our AI-driven team transformation and ESW integration.\n\n• Minimum 7 years of project management experience in a high-tech",
+        "de": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nTechnical Project Manager Job Description\nPosition at Logitech PWS (Personal Work Solutions) MKS (Mice and Keyboards Solutions)\n\nLogitech PWS MKS is committed to help people create and communicate their passion and work to the world, anytime, anywhere. Innovation in the personal work solution with the user in the center is our obsession. This is more than computer mice, keyboards - it's about enabling the future beyond today's tools and in a sustainable way. Everything goes through great design and exceptional user experience.\n\nThe Role\nAs a Technical Project Manager based in Lausanne for our MKS business, you will lead a multi-disciplinary team for New Product Introduction (NPI) - from Project definition up to the introduction in Mass Production (MP). You will be a catalyst between our ESW (Embedded Software) and Software groups delivering superior UX's and continuous device enhancements. You will make the difference by leading the team towards the agreed objectives and by managing activities across multiple sites. Your technical background and your ability to reduce risks, investigate issues and solve problems at project level will be a great asset. You are passionate about products and delivering amazing experiences to enhance the life of millions of people as they interact everyday with digital content.\n\nYour Contribution\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and Just Do. These are the behaviors you'll need for success at Logitech. In this role you will:\n\n• Manage and coordinate New Product Introduction (NPI) development through the product life cycle process from concept to product delivery - apply project management standards.\n\n• Lead the MKS strategic direction of ESW (Embedded Software) activities, ensuring seamless alignment and cross-functional integration between ESW, software, hardware, and design teams to deliver superior user experiences.\n\n• Drive the practical application of AI/ML technologies by leading both the integration of intelligent features into device ESW and the adoption of AI-driven tools to optimize internal development workflows.\n\n• Partner with Product Management, Hardware and Software Engineering, Supply Chain, and Manufacturing to deliver projects on time within defined expectations in terms of experience, cost and quality.\n\n• Collaborate with Product Management, Design, Hardware and Software Engineering and Operations to explore and deliver the technical bricks for the needs of the roadmap.\n\n• Lead and staff a project team - multi-functions and multi-sites (worldwide).\n\n• Synthesize and present the project's stake in a comprehensive manner to help the team make decisions, make clear recommendations when needed.\n\n• Report and communicate on a regular basis. Escalate when project goals are at risk. This includes regular reporting of project status to key stakeholders, Business Group leader through management review meetings and Gate meetings as prescribed by internal development processes.\n\n• Identify, evaluate and escalate the risks associated with project activities and take appropriate actions to control the risks and to drive solutions.\n\n• Synthesize data and information related to scope or risks change.\n\n• Collaborate with Functional Manager to improve project organization, efficiency (tools, processes) and time to market.\n\n• Ensure that project activities operate within the policies and processes of the organization.\n\nKey Qualifications\nFor consideration, you must bring the following minimum skills and behaviors to our team:\n\n• Essential Knowledge of AI/ML: Practical experience with AI frameworks and platforms on both Host and Device sides (e.g., EdgeAI, TinyML) is required to support our AI-driven team transformation and ESW integration.\n\n• Minimum 7 years of project management experience in a high-tech",
+        "fr": "Logitech is the Sweet Spot for people who want their actions to have a positive global impact while having the flexibility to do it in their own way.\n\nTechnical Project Manager Job Description\nPosition at Logitech PWS (Personal Work Solutions) MKS (Mice and Keyboards Solutions)\n\nLogitech PWS MKS is committed to help people create and communicate their passion and work to the world, anytime, anywhere. Innovation in the personal work solution with the user in the center is our obsession. This is more than computer mice, keyboards - it's about enabling the future beyond today's tools and in a sustainable way. Everything goes through great design and exceptional user experience.\n\nThe Role\nAs a Technical Project Manager based in Lausanne for our MKS business, you will lead a multi-disciplinary team for New Product Introduction (NPI) - from Project definition up to the introduction in Mass Production (MP). You will be a catalyst between our ESW (Embedded Software) and Software groups delivering superior UX's and continuous device enhancements. You will make the difference by leading the team towards the agreed objectives and by managing activities across multiple sites. Your technical background and your ability to reduce risks, investigate issues and solve problems at project level will be a great asset. You are passionate about products and delivering amazing experiences to enhance the life of millions of people as they interact everyday with digital content.\n\nYour Contribution\nBe Yourself. Be Open. Stay Hungry and Humble. Collaborate. Challenge. Decide and Just Do. These are the behaviors you'll need for success at Logitech. In this role you will:\n\n• Manage and coordinate New Product Introduction (NPI) development through the product life cycle process from concept to product delivery - apply project management standards.\n\n• Lead the MKS strategic direction of ESW (Embedded Software) activities, ensuring seamless alignment and cross-functional integration between ESW, software, hardware, and design teams to deliver superior user experiences.\n\n• Drive the practical application of AI/ML technologies by leading both the integration of intelligent features into device ESW and the adoption of AI-driven tools to optimize internal development workflows.\n\n• Partner with Product Management, Hardware and Software Engineering, Supply Chain, and Manufacturing to deliver projects on time within defined expectations in terms of experience, cost and quality.\n\n• Collaborate with Product Management, Design, Hardware and Software Engineering and Operations to explore and deliver the technical bricks for the needs of the roadmap.\n\n• Lead and staff a project team - multi-functions and multi-sites (worldwide).\n\n• Synthesize and present the project's stake in a comprehensive manner to help the team make decisions, make clear recommendations when needed.\n\n• Report and communicate on a regular basis. Escalate when project goals are at risk. This includes regular reporting of project status to key stakeholders, Business Group leader through management review meetings and Gate meetings as prescribed by internal development processes.\n\n• Identify, evaluate and escalate the risks associated with project activities and take appropriate actions to control the risks and to drive solutions.\n\n• Synthesize data and information related to scope or risks change.\n\n• Collaborate with Functional Manager to improve project organization, efficiency (tools, processes) and time to market.\n\n• Ensure that project activities operate within the policies and processes of the organization.\n\nKey Qualifications\nFor consideration, you must bring the following minimum skills and behaviors to our team:\n\n• Essential Knowledge of AI/ML: Practical experience with AI frameworks and platforms on both Host and Device sides (e.g., EdgeAI, TinyML) is required to support our AI-driven team transformation and ESW integration.\n\n• Minimum 7 years of project management experience in a high-tech"
+      },
+      "location": "Lausanne",
+      "canton": "VD",
+      "url": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Technical-Project-Manager_148405",
+      "source": "Logitech Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-24T14:52:43.398Z",
+      "addressLocality": "Lausanne",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Tecnica",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Tecnologia / Hardware Consumer",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-24",
+      "applyUrl": "https://logitech.wd5.myworkdayjobs.com/en/Logitech/job/Lausanne-Switzerland/Technical-Project-Manager_148405",
+      "requirements": [],
+      "requirementsByLocale": {
+        "en": []
+      },
+      "needsRetranslation": true,
+      "salaryMin": 97500,
+      "salaryMax": 148000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 97500,
+          "maxValue": 148000,
+          "unitText": "YEAR"
+        }
+      },
+      "addressRegion": "VD",
+      "firstSeenAt": "2026-09-24T14:52:43.398Z"
     }
   ]
 }
