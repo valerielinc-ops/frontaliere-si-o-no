@@ -162,7 +162,14 @@ describe('pharmacy directory page matrix', () => {
 
   it.each(locales)('keeps the static coverage matrix to five Ticino regions and 25 source-only cantons (%s)', (locale) => {
     const descriptor = pharmacyPageDescriptors().find((candidate) => candidate.kind === 'duty-hub');
-    const now = new Date(Date.parse(dutiesJson._fetchedAt) + 60_000);
+    // The matrix evaluates the Ticino release (duties + catalogue) AND the
+    // Italian one (duties + status), refreshed by separate crons in either
+    // order. A snapshot fetched after `now` is fail-closed as stale, so pinning
+    // `now` to the Ticino duties alone turned this red whenever the Italian
+    // refresh landed later (2026-09-24: Ticino 09:27, Italy 09:29).
+    const snapshotAt = Math.max(...[dutiesJson._fetchedAt, catalogueJson._fetchedAt, italyDutiesJson._fetchedAt, italyStatusJson._fetchedAt]
+      .map((fetchedAt) => Date.parse(String(fetchedAt))));
+    const now = new Date(snapshotAt + 60_000);
     const page = buildPharmacyDirectoryPage(descriptor!, locale, '', dutiesJson as unknown as PharmacyDutiesDataset, now);
 
     expect(page.indexable).toBe(true);
