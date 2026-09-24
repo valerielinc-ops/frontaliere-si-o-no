@@ -53,7 +53,7 @@ export const FAMILY_RULES = Object.freeze([
 export const FALLBACK_FAMILY = 'custom-html';
 
 /** Drop block and line comments; keep `https://` inside string literals. */
-export function stripComments(source) {
+export function stripParserComments(source) {
   return String(source)
     .replace(/\/\*[\s\S]*?\*\//g, '')
     .replace(/(^|[^:'"`\\])\/\/.*$/gm, '$1');
@@ -65,7 +65,7 @@ export function classifyFamily(source) {
   for (const rule of FAMILY_RULES) {
     if (rule.imports.test(imports)) return rule.family;
   }
-  const code = stripComments(source);
+  const code = stripParserComments(source);
   for (const rule of FAMILY_RULES) {
     if (rule.code && rule.code.test(code)) return rule.family;
   }
@@ -142,7 +142,7 @@ export function scanParserSource(fileName, source) {
  * DOES identify a listing on single-page boards (Franklin `#para_4660`,
  * Galenica, Bellinzona), exactly as `scripts/lib/job-url-key.mjs` keeps it.
  */
-export function normalizeUrl(raw) {
+export function normalizeListingUrl(raw) {
   const value = String(raw || '').trim();
   if (!value) return '';
   try {
@@ -170,12 +170,12 @@ function countExtraDuplicates(values) {
  */
 export function measureSlice(jobs, fallbackUrl) {
   const list = Array.isArray(jobs) ? jobs : [];
-  const fallback = normalizeUrl(fallbackUrl);
+  const fallback = normalizeListingUrl(fallbackUrl);
   let missingDetailUrl = 0;
   let fallbackEmissions = 0;
   for (const job of list) {
-    const url = normalizeUrl(job?.url);
-    const applyUrl = normalizeUrl(job?.applyUrl);
+    const url = normalizeListingUrl(job?.url);
+    const applyUrl = normalizeListingUrl(job?.applyUrl);
     if (!url) missingDetailUrl += 1;
     if (fallback && (url === fallback || applyUrl === fallback)) fallbackEmissions += 1;
   }
@@ -184,7 +184,7 @@ export function measureSlice(jobs, fallbackUrl) {
     missingDetailUrl,
     fallbackEmissions,
     duplicateIds: countExtraDuplicates(list.map((j) => String(j?.id || ''))),
-    duplicateUrls: countExtraDuplicates(list.map((j) => normalizeUrl(j?.url))),
+    duplicateUrls: countExtraDuplicates(list.map((j) => normalizeListingUrl(j?.url))),
   };
 }
 
