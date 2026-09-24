@@ -985,6 +985,8 @@ const frCore: Record<string, string> = {
  'jobAlert.loading': 'Chargement des alertes...',
  'jobAlert.error.emptyFields': 'Saisissez au moins un mot-clé ou une zone.',
  'jobAlert.error.generic': 'Impossible de créer l\'alerte. Réessayez.',
+ 'jobAlert.pendingStorageUnavailable': 'Ce navigateur ne nous permet pas de conserver l\'alerte pendant la connexion (navigation privée ou stockage plein). Après la connexion, revenez ici et appuyez à nouveau sur «Créer une alerte».',
+ 'jobAlert.loginAnyway': 'Se connecter quand même',
  'jobAlert.sector': 'Secteur',
  'jobAlert.edit': 'Modifier',
  'jobAlert.updated': 'Alerte mise à jour.',

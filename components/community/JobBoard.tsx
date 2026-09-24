@@ -69,6 +69,7 @@ import {
   savePendingSaveJobIntent,
   consumePendingSaveJobIntent,
   peekPendingSaveJobIntent,
+  type PendingSaveJobIntent,
   type SaveJobSurface,
 } from '@/services/pendingSaveJob';
 import {
@@ -2690,6 +2691,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
  });
  }, []);
 
+ // Issue 9575 (sibling of the job-alert form): when localStorage cannot hold
+ // the pending intent, keep it in memory. The sign-in modal opens in THIS tab,
+ // so an in-tab sign-in still replays the save; only a link opened in another
+ // tab has no channel to it. Every reader below falls back to this ref.
+ const pendingSaveFallbackRef = useRef<PendingSaveJobIntent | null>(null);
+ const stashPendingSave = useCallback((intent: PendingSaveJobIntent): boolean => {
+ const stored = savePendingSaveJobIntent(intent);
+ pendingSaveFallbackRef.current = stored ? null : intent;
+ return stored;
+ }, []);
+
  // Account-gating (#4466 follow-up): anonymous tap never writes — stash the
  // pending job in services/pendingSaveJob.ts (localStorage, survives a
  // magic-link email opened in a brand new tab) + open the sign-in modal.
@@ -2698,7 +2710,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const handleToggleSave = useCallback((job: JobListing, surface: SaveJobSurface = 'list') => {
  const uid = authUser?.uid ?? null;
  if (!uid) {
- savePendingSaveJobIntent({
+ const pendingStored = stashPendingSave({
  kind: 'save_job',
  entry: {
  id: job.id,
@@ -2716,11 +2728,11 @@ const JobBoard: React.FC<JobBoardProps> = ({
       // full-screen overlay on top of this modal.
       requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
  setSaveAuthPromptOpen(true);
- Analytics.trackEvent('save_signin_prompt_shown', { job_id: job.id, surface });
+ Analytics.trackEvent('save_signin_prompt_shown', { job_id: job.id, surface, pending_stored: pendingStored });
  return;
  }
  performToggleSave(job, surface, uid);
- }, [authUser?.uid, performToggleSave]);
+ }, [authUser?.uid, performToggleSave, stashPendingSave]);
 
  const handleToggleSaveFromList = useCallback(
  (job: JobListing) => handleToggleSave(job, 'list'),
@@ -2740,7 +2752,8 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!uid) return;
       releaseSlot('save-auth-prompt');
  setSaveAuthPromptOpen(false);
- const intent = consumePendingSaveJobIntent();
+ const intent = consumePendingSaveJobIntent() ?? pendingSaveFallbackRef.current;
+ pendingSaveFallbackRef.current = null;
  if (!intent) return;
  if (intent.kind === 'save_job') {
  Analytics.trackEvent('save_signin_prompt_completed', { job_id: intent.entry.id, surface: intent.surface });
@@ -2765,7 +2778,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  // another tab); closing the "check your email" card isn't abandonment.
  // The 15-minute TTL in pendingSaveJob.ts handles true abandonment.
  const handleSaveAuthPromptDismiss = useCallback(() => {
- const intent = peekPendingSaveJobIntent();
+ const intent = peekPendingSaveJobIntent() ?? pendingSaveFallbackRef.current;
  Analytics.trackEvent(
  'save_signin_prompt_dismissed',
  intent?.kind === 'save_job' ? { job_id: intent.entry.id, surface: intent.surface } : { surface: 'saved_filter_pill' },
@@ -2952,7 +2965,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const gateSaveReaskedRef = useRef(false);
  useEffect(() => {
  if (!hasAccess || authUser?.uid || gateSaveReaskedRef.current) return;
- const intent = peekPendingSaveJobIntent();
+ const intent = peekPendingSaveJobIntent() ?? pendingSaveFallbackRef.current;
  if (intent?.kind !== 'save_job' || intent.surface !== 'detail_gate') return;
  gateSaveReaskedRef.current = true;
  requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
@@ -10658,10 +10671,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onClick={() => {
  const next = !showSavedOnly;
  if (next && !authUser?.uid) {
- savePendingSaveJobIntent({ kind: 'show_saved_only' });
+ const pendingStored = stashPendingSave({ kind: 'show_saved_only' });
       requestSlot('save-auth-prompt', POPUP_PRIORITY.AUTH_GATE);
  setSaveAuthPromptOpen(true);
- Analytics.trackEvent('save_signin_prompt_shown', { surface: 'saved_filter_pill' });
+ Analytics.trackEvent('save_signin_prompt_shown', { surface: 'saved_filter_pill', pending_stored: pendingStored });
  return;
  }
  setShowSavedOnly(next);
