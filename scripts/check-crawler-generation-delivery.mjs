@@ -24,6 +24,7 @@ import {
   evaluateCrawlerGenerationDelivery,
   formatCrawlerDeliveryMarker,
   formatCrawlerDeliveryMarkdown,
+  generationFirstWriteAt,
   selectSettledGenerationToken,
 } from './lib/crawler-generation-delivery.mjs';
 
@@ -101,14 +102,10 @@ export function runCrawlerGenerationDeliveryCheck(options, io = {}) {
     });
     token = selection.token;
     skipped = selection.skipped;
-    tokenlessSince = selection.firstAt;
+    tokenlessSince = selection.tokenlessSince;
   } else {
-    tokenlessSince = Math.min(...entries
-      .filter((entry) => entry.generationToken === token)
-      .map((entry) => Date.parse(entry.checkedAt)));
+    tokenlessSince = generationFirstWriteAt(entries, token);
   }
-  // Without a judged generation every tokenless record is evidence against it.
-  if (token === null || !Number.isFinite(tokenlessSince)) tokenlessSince = -Infinity;
   const report = evaluateCrawlerGenerationDelivery({ entries, generationToken: token, expectedGroupIds, tokenlessSince });
   const result = { ...report, skippedTokens: skipped };
 

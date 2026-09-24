@@ -100,6 +100,39 @@ describe('selectSettledGenerationToken', () => {
       { token: '450-1', groups: 1, reason: 'partial' },
     ]);
   });
+
+  it('surfaces a tokenless newest wave instead of silently falling back to an older generation', () => {
+    const tokenless = ['generation_token_missing', 'receipt_missing'];
+    const entries = [
+      ...wave('400-1', '2026-09-24T10:00:00.000Z'),
+      ...GROUPS.map((group) => entry({ group, token: null, reasons: tokenless, at: '2026-09-24T15:00:00.000Z' })),
+      // Tokenless and older than the judged generation: history, not evidence against it.
+      entry({ group: '01', token: null, reasons: tokenless, at: '2026-09-24T08:00:00.000Z' }),
+    ];
+    const selection = selectSettledGenerationToken(entries, { now, settleMs: 2 * HOUR, minGroups: 2 });
+    expect(selection.token).toBe('400-1');
+    expect(selection.tokenlessSince).toBe(Date.parse('2026-09-24T10:00:00.000Z'));
+    expect(selection.skipped).toEqual([{ token: null, groups: 4, reason: 'token_missing' }]);
+    const report = evaluateCrawlerGenerationDelivery({
+      entries,
+      generationToken: selection.token,
+      expectedGroupIds: GROUPS,
+      tokenlessSince: selection.tokenlessSince,
+    });
+    expect(report.delivered).toBe(false);
+    expect(report.counts).toMatchObject({ published: 0, token_missing: 4 });
+  });
+
+  it('bounds tokenless evidence to -Infinity when nothing is judged', () => {
+    const entries = [entry({ group: '01', token: null, reasons: ['generation_token_missing'], at: '2026-09-24T01:00:00.000Z' })];
+    const selection = selectSettledGenerationToken(entries, { now, settleMs: 2 * HOUR, minGroups: 2 });
+    expect(selection).toEqual({
+      token: null,
+      firstAt: null,
+      tokenlessSince: -Infinity,
+      skipped: [{ token: null, groups: 1, reason: 'token_missing' }],
+    });
+  });
 });
 
 function fixture(entries: object[]) {
@@ -186,6 +219,32 @@ describe('check-crawler-generation-delivery CLI', () => {
       { stdout: () => {}, summaryPath: files.summary },
     );
     expect(result.delivered).toBe(true);
+  });
+
+  it('judges an explicit --token without records as not persisted, not by unrelated tokenless history', () => {
+    const files = fixture([
+      ...GROUPS.map((group) => entry({ group, token: '500-1', reasons: [], at })),
+    ]);
+    const result = runCrawlerGenerationDeliveryCheck(
+      parseArgs(['--ledger', files.ledger, '--roster', files.roster, '--token', '999-1']),
+      { stdout: () => {}, summaryPath: files.summary },
+    );
+    expect(result.delivered).toBe(false);
+    expect(result.counts).toMatchObject({ published: 0, not_persisted: 4 });
+  });
+
+  it('surfaces the tokenless wave in skippedTokens', () => {
+    const files = fixture([
+      ...GROUPS.map((group) => entry({ group, token: '500-1', reasons: [], at })),
+      ...GROUPS.map((group) => entry({ group, token: null, reasons: ['generation_token_missing', 'receipt_missing'], at: '2026-09-24T15:00:00.000Z' })),
+    ]);
+    const result = runCrawlerGenerationDeliveryCheck(
+      parseArgs(['--ledger', files.ledger, '--roster', files.roster, '--now', now]),
+      { stdout: () => {}, summaryPath: files.summary },
+    );
+    expect(result.delivered).toBe(false);
+    expect(result.counts).toMatchObject({ published: 0, token_missing: 4 });
+    expect(result.skippedTokens).toContainEqual({ token: null, groups: 4, reason: 'token_missing' });
   });
 
   it('counts tokenless records when no settled generation exists', () => {

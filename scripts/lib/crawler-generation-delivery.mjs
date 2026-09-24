@@ -53,14 +53,40 @@ function entryTime(entry) {
   return Number.isNaN(time) ? -Infinity : time;
 }
 
+function isTokenless(entry) {
+  return entry?.generationToken === null || entry?.generationToken === undefined;
+}
+
+/** First ledger write of `token`; -Infinity when the token has no record (every tokenless row then counts). */
+export function generationFirstWriteAt(entries, token) {
+  let firstAt = Infinity;
+  for (const entry of entries) {
+    if (token !== null && entry?.generationToken === token) firstAt = Math.min(firstAt, entryTime(entry));
+  }
+  return Number.isFinite(firstAt) ? firstAt : -Infinity;
+}
+
 /**
  * Pick the newest generation that is complete enough to judge: at least
  * `minGroups` distinct groups recorded and no ledger write for `settleMs`
  * (a wave still finalizing would otherwise read as `not_persisted`).
+ *
+ * Tokenless records take part in the selection: they cannot be judged as a
+ * generation of their own, so they are never selected, but every tokenless
+ * record written at or after the judged generation's first write (or any, when
+ * nothing is judged) is surfaced in `skipped` as `token_missing` and bounded by
+ * `tokenlessSince`, which the evaluation uses to count them against their
+ * group. A newest wave that recorded no token can therefore never fall back to
+ * an older, fully published generation and read as `delivered`.
  */
 export function selectSettledGenerationToken(entries, { now, settleMs = DEFAULT_DELIVERY_SETTLE_MS, minGroups }) {
   const byToken = new Map();
+  const tokenless = [];
   for (const entry of entries) {
+    if (isTokenless(entry)) {
+      tokenless.push(entry);
+      continue;
+    }
     if (typeof entry?.generationToken !== 'string') continue;
     const bucket = byToken.get(entry.generationToken) ?? { groups: new Set(), firstAt: Infinity, lastAt: -Infinity };
     bucket.groups.add(entry.group);
@@ -72,16 +98,22 @@ export function selectSettledGenerationToken(entries, { now, settleMs = DEFAULT_
     .map(([token, bucket]) => ({ token, groups: bucket.groups.size, firstAt: bucket.firstAt, lastAt: bucket.lastAt }))
     .sort((left, right) => right.lastAt - left.lastAt || compareCodePoint(right.token, left.token));
   const skipped = [];
+  const finish = (token, firstAt) => {
+    const tokenlessSince = token === null ? -Infinity : firstAt;
+    const pending = new Set(tokenless.filter((entry) => entryTime(entry) >= tokenlessSince).map((entry) => entry.group));
+    if (pending.size > 0) skipped.unshift({ token: null, groups: pending.size, reason: 'token_missing' });
+    return { token, firstAt, tokenlessSince, skipped };
+  };
   for (const candidate of candidates) {
     if (candidate.groups < minGroups) {
       skipped.push({ token: candidate.token, groups: candidate.groups, reason: 'partial' });
     } else if (now - candidate.lastAt < settleMs) {
       skipped.push({ token: candidate.token, groups: candidate.groups, reason: 'unsettled' });
     } else {
-      return { token: candidate.token, firstAt: candidate.firstAt, skipped };
+      return finish(candidate.token, candidate.firstAt);
     }
   }
-  return { token: null, firstAt: null, skipped };
+  return finish(null, null);
 }
 
 /**
@@ -104,7 +136,7 @@ export function evaluateCrawlerGenerationDelivery({ entries, generationToken, ex
   const tokenlessByGroup = new Map();
   for (const entry of entries) {
     if (generationToken !== null && entry?.generationToken === generationToken) keepNewest(latestByGroup, entry);
-    else if (entry?.generationToken === null && tokenlessSince !== null && entryTime(entry) >= tokenlessSince) {
+    else if (isTokenless(entry) && tokenlessSince !== null && entryTime(entry) >= tokenlessSince) {
       keepNewest(tokenlessByGroup, entry);
     }
   }
