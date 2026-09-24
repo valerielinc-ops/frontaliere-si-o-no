@@ -38,6 +38,7 @@ import {
   fetchAllGiardinoJobs,
   TALENTS_URL,
   TALENTS_EN_URL,
+  MIN_DESCRIPTION_WORDS,
 } from '../scripts/lib/giardino-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
@@ -819,7 +820,8 @@ const talentsJobPage = ({
 <section><div class="container detail-grid"><div><div>
 <h2 class="detail-h"><span class="hash">#</span>aboutthejob</h2>
 <p class="detail-text">Du betreust unsere Gäste mit Leidenschaft.</p>
-<p class="detail-text">Du arbeitest eng mit der Küche zusammen.</p></div>
+<p class="detail-text">Du arbeitest eng mit der Küche zusammen.</p>
+<p class="detail-text">Gemeinsam mit dem Team sorgst du für reibungslose Abläufe, berätst unsere Gäste persönlich und trägst dazu bei, dass jeder Besuch zu einem besonderen Erlebnis wird.</p></div>
 <div><h2 class="detail-h"><span class="hash">#</span>aboutyou</h2>
 <ul class="detail-list"><li>Berufsausbildung in der Hotellerie</li><li>Sehr gute Deutschkenntnisse</li></ul></div></div>
 <aside class="offer"><div class="offer-box"><h2 class="detail-h"><span class="hash">#</span>talentculture</h2>
@@ -958,10 +960,11 @@ describe('fetchAllGiardinoJobs — Talents board (issue #6694)', () => {
     });
     const jobs = await fetchAllGiardinoJobs({ fetchPage });
 
-    expect(jobs).toHaveLength(3);
+    // The third card has no detail page: it is left out (finding 1 of #9705).
+    expect(jobs).toHaveLength(2);
     expect(requested.some((url) => url.includes('wp-json'))).toBe(false);
 
-    const [manager, auditor, rang] = jobs;
+    const [manager, auditor] = jobs;
     expect(manager).toMatchObject({
       title: 'Restaurant Manager',
       location: 'Champfèr',
@@ -973,20 +976,66 @@ describe('fetchAllGiardinoJobs — Talents board (issue #6694)', () => {
       companyKey: 'giardino',
     });
     expect(manager.description).toContain('## Anforderungen');
+    expect(manager.description.split(/\s+/).length).toBeGreaterThanOrEqual(MIN_DESCRIPTION_WORDS);
     expect(manager.id).toMatch(/^giardino-[0-9a-f]{12}$/);
 
     // Translated under another file name: matched by title, not pasted.
     expect(auditor.url).toBe('https://giardinohotels.ch/talents/en/job-chef-de-partie-kopie.html');
+    expect(new Set(jobs.map((j) => j.id)).size).toBe(2);
+  });
 
-    // Detail page unavailable and no English twin: the card alone still
-    // carries title, hotel (data-loc) and the German permalink.
-    expect(rang).toMatchObject({
+  it('uses the card data-loc and the German permalink for an untranslated ad', async () => {
+    const { fetchPage } = stubFetchPage({
+      [TALENTS_URL]: DE_BOARD,
+      [TALENTS_EN_URL]: EN_BOARD,
+      ...DETAIL_PAGES,
+      [`${TALENTS_URL}job-rang-hide-seek.html`]: talentsJobPage({
+        h1: 'Chef de Rang - 50% Hide &amp; Seek (m/w)',
+        ldTitle: 'Chef de Rang',
+        intro: 'Für die Sommersaison suchen wir eine/n Chef de Rang.',
+        datePosted: POSTED,
+      }),
+    });
+    const jobs = await fetchAllGiardinoJobs({ fetchPage });
+    expect(jobs).toHaveLength(3);
+    expect(jobs[2]).toMatchObject({
       title: 'Chef de Rang - 50% Hide & Seek',
       location: 'Minusio',
       canton: 'TI',
       url: 'https://giardinohotels.ch/talents/job-rang-hide-seek.html',
     });
-    expect(new Set(jobs.map((j) => j.id)).size).toBe(3);
+  });
+
+  it('never emits a card-only ad: a missing detail page skips that ad, not the others', async () => {
+    const { fetchPage } = stubFetchPage({
+      [TALENTS_URL]: DE_BOARD,
+      [TALENTS_EN_URL]: EN_BOARD,
+      [`${TALENTS_URL}job-restaurant-manager.html`]: DETAIL_PAGES[`${TALENTS_URL}job-restaurant-manager.html`],
+      // A detail URL that redirects to the board: no JobPosting.
+      [`${TALENTS_URL}job-night-auditor.html`]: DE_BOARD,
+    });
+    const jobs = await fetchAllGiardinoJobs({ fetchPage });
+    expect(jobs.map((j) => j.title)).toEqual(['Restaurant Manager']);
+  });
+
+  it('skips an ad whose detail page yields a thin description', async () => {
+    const thin = `<html><head><script type="application/ld+json">${JSON.stringify({
+      '@type': 'JobPosting', title: 'Night Auditor', datePosted: POSTED,
+    })}</script></head><body><h1>Night Auditor (m/w)</h1></body></html>`;
+    const { fetchPage } = stubFetchPage({
+      [TALENTS_URL]: DE_BOARD,
+      ...DETAIL_PAGES,
+      [`${TALENTS_URL}job-night-auditor.html`]: thin,
+    });
+    const jobs = await fetchAllGiardinoJobs({ fetchPage });
+    expect(jobs.map((j) => j.title)).toEqual(['Restaurant Manager']);
+  });
+
+  it('keeps the previous slice (bare, unproven []) when no detail page is readable', async () => {
+    const { fetchPage } = stubFetchPage({ [TALENTS_URL]: DE_BOARD });
+    const jobs = await fetchAllGiardinoJobs({ fetchPage });
+    expect(jobs).toEqual([]);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
   });
 
   it('degrades to German permalinks when the English board fails', async () => {
@@ -995,7 +1044,6 @@ describe('fetchAllGiardinoJobs — Talents board (issue #6694)', () => {
     expect(jobs.map((j) => j.url)).toEqual([
       'https://giardinohotels.ch/talents/job-restaurant-manager.html',
       'https://giardinohotels.ch/talents/job-night-auditor.html',
-      'https://giardinohotels.ch/talents/job-rang-hide-seek.html',
     ]);
   });
 
@@ -1016,6 +1064,22 @@ describe('fetchAllGiardinoJobs — Talents board (issue #6694)', () => {
   it('does NOT prove a zero when the board declares positions no card parses', async () => {
     const { fetchPage } = stubFetchPage({ [TALENTS_URL]: talentsBoard([], 2) });
     const jobs = await fetchAllGiardinoJobs({ fetchPage });
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it.each([
+    ['a card whose href is not a job page', talentsCard('stellen/night-auditor', 'stmoritz', 'frontoffice', 'Night Auditor (m/w)')],
+    ['a card without a title', talentsCard('job-night-auditor.html', 'stmoritz', 'frontoffice', '')],
+    ['a card-like tag without the job-card class', '<div data-job data-loc="stmoritz"><h3>Night Auditor</h3></div>'],
+  ])('does NOT prove a zero when jobs-count is 0 but the JOBS block holds %s', async (_label, card) => {
+    const board = talentsBoard([card], 0);
+    const listing = parseTalentsListing(board, TALENTS_URL);
+    expect(listing.cards).toEqual([]);
+    expect(listing.rawCardCount).toBeGreaterThan(0);
+
+    const { fetchPage } = stubFetchPage({ [TALENTS_URL]: board });
+    const jobs = await fetchAllGiardinoJobs({ fetchPage });
+    expect(jobs).toEqual([]);
     expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
   });
 

@@ -449,8 +449,12 @@ export function stripGenderMarker(raw = '') {
  * block the board is rendered into: a page without it (a redirect to the
  * homepage, a redesign) is not a board and says nothing about the vacancies.
  * `declaredCount` is the rendered total (`id="jobs-count"`), or null.
+ * `rawCardCount` counts every tag inside the JOBS block that LOOKS like a card
+ * (a `job-card` class token, a `data-job` attribute or a `job-*.html` link),
+ * whether or not it parsed: `cards` drops malformed ones, so an empty `cards`
+ * alone cannot prove an empty board.
  *
- * @returns {{ recognized: boolean, declaredCount: number|null,
+ * @returns {{ recognized: boolean, declaredCount: number|null, rawCardCount: number,
  *   cards: Array<{ file: string, url: string, rawTitle: string, title: string,
  *   locKeys: string[], department: string }> }}
  */
@@ -461,9 +465,12 @@ export function parseTalentsListing(html = '', baseUrl = TALENTS_URL) {
 
   const start = page.indexOf('<!--JOBS-START-->');
   const endMatch = start >= 0 ? /<!--\s*JOBS-END[A-Z]*\s*-->/i.exec(page.slice(start)) : null;
-  if (start < 0 || !endMatch) return { recognized: false, declaredCount, cards: [] };
+  if (start < 0 || !endMatch) return { recognized: false, declaredCount, rawCardCount: 0, cards: [] };
 
   const block = page.slice(start, start + endMatch.index);
+  const rawCardCount = (
+    block.match(/<[a-z][^>]*(?:\bjob-card\b|\sdata-job\b|href\s*=\s*"[^"]*job-[^"]*\.html)[^>]*>/gi) || []
+  ).length;
   const cards = [];
   const seen = new Set();
   const cardRe = /<a\b([^>]*)>([\s\S]*?)<\/a>/gi;
@@ -493,7 +500,7 @@ export function parseTalentsListing(html = '', baseUrl = TALENTS_URL) {
       department: String(readAttr(openTag, 'data-dep') || '').trim(),
     });
   }
-  return { recognized: true, declaredCount, cards };
+  return { recognized: true, declaredCount, rawCardCount, cards };
 }
 
 function findJobPosting(node) {
@@ -550,6 +557,13 @@ function toIndexItem(card) {
   return { slug: card.file, link: card.url, title: { rendered: card.rawTitle } };
 }
 
+/** Thin-content floor (AGENTS.md non-negotiable #4: no indexed page under 50 words). */
+export const MIN_DESCRIPTION_WORDS = 50;
+
+function countWords(text = '') {
+  return String(text || '').split(/\s+/).filter((w) => /[\p{L}\p{N}]/u.test(w)).length;
+}
+
 /* ── Fetch ────────────────────────────────────────────────── */
 
 function fetchTalentsPage(url) {
@@ -578,9 +592,14 @@ async function fetchEnglishCards(fetchPage) {
  * Returns an array of ParsedJob objects (source-locale only).
  *
  * A zero is published only when the board itself proves it (rendered
- * `jobs-count` 0 and an empty JOBS block): an unrecognised page, or a board
- * that declares positions none of which parse, returns a bare `[]` so the
+ * `jobs-count` 0 and no card-like tag in the JOBS block): an unrecognised
+ * page, or a board whose cards do not parse, returns a bare `[]` so the
  * pipeline keeps the previous slice and the health monitor keeps complaining.
+ *
+ * An ad is emitted only with its detail page read and a description of at
+ * least MIN_DESCRIPTION_WORDS words. A card alone yields a thin page, so an ad
+ * whose detail is unavailable is left out of this run: the pipeline's miss
+ * grace keeps its previous record, and the other ads are still published.
  *
  * @param {{ fetchPage?: (url: string) => Promise<string> }} [options] page
  *   fetcher, injectable for tests; defaults to the shared fetchHtml().
@@ -595,7 +614,10 @@ export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}
     return [];
   }
   if (listing.cards.length === 0) {
-    if (listing.declaredCount === 0) {
+    // Proven only when the rendered count is 0 AND the raw block holds no
+    // card-like tag at all: a card the parser failed to read is not an empty
+    // board, and publishing a zero on it would retire every live ad.
+    if (listing.declaredCount === 0 && listing.rawCardCount === 0) {
       console.log('  📭 Giardino Talents board declares 0 open positions.');
       return markAuthoritativeEmptySnapshot(
         [],
@@ -603,7 +625,8 @@ export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}
       );
     }
     console.warn(
-      `⚠️ Giardino Talents board declares ${listing.declaredCount ?? 'an unknown number of'} positions but no job card parsed — keeping the previous slice.`,
+      `⚠️ Giardino Talents board declares ${listing.declaredCount ?? 'an unknown number of'} positions`
+      + ` (${listing.rawCardCount} card-like tags) but no job card parsed — keeping the previous slice.`,
     );
     return [];
   }
@@ -618,32 +641,39 @@ export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}
 
   const jobs = [];
   for (const card of listing.cards) {
-    // Detail page — may be unavailable: the card alone still carries the
-    // title, the location keys and the permalink.
+    // Detail page — required: without it the ad would be a thin card-only
+    // page. Skip it this run; miss grace keeps the previous record.
     let detail = null;
     try {
       detail = parseTalentsJobPage(await fetchPage(card.url));
     } catch (err) {
       console.warn(`⚠️ ${card.url}: detail page unavailable (${err?.message || err}).`);
     }
-    if (!detail) console.warn(`⚠️ ${card.url}: no JobPosting on the detail page — building the ad from its card.`);
+    if (!detail) {
+      console.warn(`⚠️ ${card.url}: no JobPosting on the detail page — ad skipped this run.`);
+      continue;
+    }
 
     // Clean title from the detail <h1>, fallback to the card title
-    const title = normalizeSpace((detail && detail.title) || card.title);
+    const title = normalizeSpace(detail.title || card.title);
     if (!title || title.length < 3) continue;
 
     // Detect hotel and location
-    const hotelKey = detectTalentsHotel(detail ? detail.intro : '', card.locKeys);
+    const hotelKey = detectTalentsHotel(detail.intro, card.locKeys);
     const loc = getHotelLocation(hotelKey);
     const city = loc.city;
     const canton = loc.canton;
     const postalCode = loc.postalCode;
 
     // Parsed content sections
-    const sections = detail ? detail.sections : { aboutJob: '', aboutYou: [], talentCulture: [] };
+    const sections = detail.sections;
 
     // Build structured description
     const description = buildDescription(sections, title, hotelKey, city);
+    if (countWords(description) < MIN_DESCRIPTION_WORDS) {
+      console.warn(`⚠️ ${card.url}: description under ${MIN_DESCRIPTION_WORDS} words — ad skipped this run.`);
+      continue;
+    }
 
     // Public URL — English permalink when translated, German one otherwise
     const publicUrl = resolvePublicUrl(toIndexItem(card), enIndex);
@@ -658,7 +688,7 @@ export async function fetchAllGiardinoJobs({ fetchPage = fetchTalentsPage } = {}
     const jobSlug = slugify(`${title} giardino-group ${city}`);
 
     // Posted date from the JobPosting JSON-LD
-    const postedDate = (detail && detail.datePosted) || new Date().toISOString().split('T')[0];
+    const postedDate = detail.datePosted || new Date().toISOString().split('T')[0];
 
     const job = {
       // ── Required fields ──
