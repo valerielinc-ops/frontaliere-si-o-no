@@ -196,7 +196,7 @@ jobs:
           checkpoint_failed=0
 
           has_dirty_slices() {
-            git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler | grep -q '.'
+            git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler | grep . >/dev/null
           }
 
           checkpoint() {
