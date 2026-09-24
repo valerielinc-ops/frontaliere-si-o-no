@@ -11,8 +11,10 @@ import {
   funnelUsersByArm,
   holmAdjust,
   logGamma,
+  metricBlock,
   normalCdf,
   normalQuantile,
+  parseArmWeights,
   parseGa4Rows,
   relativeUplift,
   renderBaselineMarkdown,
@@ -298,9 +300,37 @@ describe('buildExperimentReadout', () => {
       subs: { control: { newSubscribers: 12, confirmed: 0, matured: 0, confirmedWithin72hMatured: 0, active: 0 }, a: { newSubscribers: 3, confirmed: 0, matured: 0, confirmedWithin72hMatured: 0, active: 0 } },
     });
     expect(r.perArm.control.primary.overflow).toBe(true);
+    expect(r.perArm.control.primary.x).toBe(12);
+    expect(r.perArm.control.primary.rate).toBe(1);
+    expect(r.perArm.control.primary.ci95![1]).toBeLessThanOrEqual(1);
+    // La potenza usa lo stesso tasso limitato: 1 non ha un +20% sotto 100%.
+    expect(r.power.baselineRate).toBe(1);
+    expect(r.power.requiredPerArm).toBeNull();
     expect(r.comparisons.primary[0].pValue).not.toBeNaN();
     const md = renderExperimentMarkdown(r, { experimentId: 'jobgate-v3', since: '2026-09-25', until: '2026-10-08' });
     expect(md).toContain('superano le persone gate_view');
+    // Nessun tasso sopra 100% (100,00% è il massimo legittimo).
+    expect(md).not.toMatch(/(?:10[1-9]|1[1-9]\d|[2-9]\d\d|\d{4,}),\d{2}%/);
+  });
+
+  it('metricBlock: tasso e IC coerenti col numeratore limitato', () => {
+    const over = metricBlock(15, 10);
+    expect(over).toMatchObject({ x: 15, n: 10, rate: 1, overflow: true });
+    expect(over.ci95).toEqual(metricBlock(10, 10).ci95);
+    const normal = metricBlock(3, 10);
+    expect(normal.rate).toBeCloseTo(0.3, 12);
+    expect(normal.overflow).toBe(false);
+    expect(metricBlock(5, 0)).toMatchObject({ rate: null, ci95: null, overflow: false });
+  });
+
+  it('potenza su CR limitata: overflow nel control non gonfia il tasso di base', () => {
+    const r = buildExperimentReadout({
+      arms: ['control', 'a'],
+      ga: { control: { gateView: 100, authSuccess: 0 }, a: { gateView: 100, authSuccess: 0 } },
+      subs: { control: { newSubscribers: 150, confirmed: 0, matured: 0, confirmedWithin72hMatured: 0, active: 0 }, a: { newSubscribers: 10, confirmed: 0, matured: 0, confirmedWithin72hMatured: 0, active: 0 } },
+    });
+    expect(r.perArm.control.primary.rate).toBe(1);
+    expect(r.power.baselineRate).toBeLessThanOrEqual(1);
   });
 
   it('senza control: niente confronti, markdown lo dice', () => {
@@ -339,5 +369,33 @@ describe('buildBaseline', () => {
     const md = renderBaselineMarkdown(b, { since: '2026-09-09', until: '2026-09-22' });
     expect(md).toContain('Persone gate_view');
     expect(md).toContain('`job_board_social_unlock`');
+  });
+});
+
+describe('parseArmWeights', () => {
+  it('oggetto, oggetto con weight e array', () => {
+    expect(parseArmWeights('{"control":50,"b":50}')).toEqual({ control: 50, b: 50 });
+    expect(parseArmWeights('{"control":{"weight":2},"b":{"weight":1}}')).toEqual({ control: 2, b: 1 });
+    expect(parseArmWeights('[{"arm":"control","weight":1},{"name":"b","weight":3}]')).toEqual({ control: 1, b: 3 });
+  });
+
+  it('peso 0 su un braccio è ammesso (braccio spento)', () => {
+    expect(parseArmWeights('{"control":1,"b":0}')).toEqual({ control: 1, b: 0 });
+  });
+
+  it('rifiuta pesi mancanti, negativi o non interi', () => {
+    expect(() => parseArmWeights('{"control":null,"b":1}')).toThrow(/peso non valido per `control`/);
+    expect(() => parseArmWeights('{"control":-1,"b":1}')).toThrow(/intero >= 0/);
+    expect(() => parseArmWeights('{"control":0.5,"b":1}')).toThrow(/intero >= 0/);
+    expect(() => parseArmWeights('{"control":"50","b":1}')).toThrow(/intero >= 0/);
+    expect(() => parseArmWeights('[{"arm":"control"}]')).toThrow(/peso non valido/);
+  });
+
+  it('tutti a 0, vuoto, non JSON o forma sbagliata → errore chiaro', () => {
+    expect(() => parseArmWeights('{"control":0,"b":0}')).toThrow(/tutti i bracci hanno peso 0/);
+    expect(() => parseArmWeights('{}')).toThrow(/nessun braccio/);
+    expect(() => parseArmWeights('not json')).toThrow(/pesi non JSON/);
+    expect(() => parseArmWeights('42')).toThrow(/atteso un oggetto/);
+    expect(() => parseArmWeights('[{"weight":1}]')).toThrow(/senza nome di braccio/);
   });
 });

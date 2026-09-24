@@ -426,11 +426,64 @@ export function armFromVariantTag(tag, experimentId) {
   return arm || null;
 }
 
+/**
+ * Pesi di allocazione dei bracci (`--weights`, env o RC
+ * `JOBGATE_EXPERIMENT_ARMS`): oggetto `{braccio: peso}` (anche
+ * `{braccio: {weight}}`) oppure array `[{arm|name|id|variant, weight}]`.
+ * Ogni peso dev'essere un intero >= 0 (0 = braccio spento); un peso
+ * mancante, negativo o non intero, o tutti i pesi a 0, è un errore: un SRM
+ * calcolato su pesi sbagliati darebbe un verdetto falso in silenzio.
+ * @param {string} raw JSON
+ * @returns {Record<string, number>}
+ * @throws {Error} messaggio in italiano, pronto per la CLI
+ */
+export function parseArmWeights(raw) {
+  let parsed;
+  try {
+    parsed = JSON.parse(raw);
+  } catch {
+    throw new Error(`pesi non JSON: ${String(raw).slice(0, 80)}`);
+  }
+  const entries = [];
+  if (Array.isArray(parsed)) {
+    for (const item of parsed) {
+      const name = item?.arm ?? item?.name ?? item?.id ?? item?.variant;
+      if (!name) throw new Error(`peso senza nome di braccio: ${JSON.stringify(item).slice(0, 80)}`);
+      entries.push([String(name), item?.weight ?? item?.w]);
+    }
+  } else if (parsed && typeof parsed === 'object') {
+    for (const [k, v] of Object.entries(parsed)) {
+      entries.push([k, v !== null && typeof v === 'object' ? v.weight : v]);
+    }
+  } else {
+    throw new Error('pesi: atteso un oggetto {braccio: peso} o un array [{arm, weight}]');
+  }
+  if (!entries.length) throw new Error('pesi: nessun braccio definito');
+  const out = {};
+  for (const [arm, w] of entries) {
+    if (typeof w !== 'number' || !Number.isInteger(w) || w < 0) {
+      throw new Error(`peso non valido per \`${arm}\`: ${JSON.stringify(w)} (serve un intero >= 0)`);
+    }
+    out[arm] = w;
+  }
+  if (Object.values(out).every((w) => w <= 0)) {
+    throw new Error('pesi: tutti i bracci hanno peso 0, nessuna allocazione da verificare');
+  }
+  return out;
+}
+
 // ── Readout ──────────────────────────────────────────────────
 
-function metricBlock(x, n) {
-  const ci = wilsonInterval(Math.min(x, n), n);
-  return { x, n, rate: n > 0 ? x / n : null, ci95: ci ? [ci.lo, ci.hi] : null, overflow: n > 0 && x > n };
+/**
+ * Tasso x/n con IC di Wilson. Se x > n (iscritti Firestore oltre le persone
+ * gate_view GA4, per consent mode/adblock) il numeratore è limitato a n in
+ * modo COERENTE per tasso, IC, test e potenza: nessun tasso > 100% esce da
+ * qui. `x` resta il conteggio grezzo e `overflow` segnala il troncamento.
+ */
+export function metricBlock(x, n) {
+  const bounded = n > 0 ? Math.min(x, n) : 0;
+  const ci = wilsonInterval(bounded, n);
+  return { x, n, rate: n > 0 ? bounded / n : null, ci95: ci ? [ci.lo, ci.hi] : null, overflow: n > 0 && x > n };
 }
 
 /**

@@ -41,6 +41,7 @@ import {
   buildExperimentReadout,
   classifySubscriber,
   funnelUsersByArm,
+  parseArmWeights,
   parseGa4Rows,
   renderBaselineMarkdown,
   renderExperimentMarkdown,
@@ -119,23 +120,11 @@ function zurichMidnightMs(dateStr) {
 }
 
 function parseWeights(raw) {
-  if (!raw) return null;
-  let parsed;
-  try { parsed = JSON.parse(raw); } catch { fail(`pesi non JSON: ${String(raw).slice(0, 80)}`); }
-  const out = {};
-  if (Array.isArray(parsed)) {
-    for (const item of parsed) {
-      const name = item?.arm ?? item?.name ?? item?.id ?? item?.variant;
-      const w = Number(item?.weight ?? item?.w);
-      if (name && Number.isFinite(w)) out[String(name)] = w;
-    }
-  } else if (parsed && typeof parsed === 'object') {
-    for (const [k, v] of Object.entries(parsed)) {
-      const w = Number(typeof v === 'object' && v !== null ? v.weight : v);
-      if (Number.isFinite(w)) out[k] = w;
-    }
+  try {
+    return parseArmWeights(raw);
+  } catch (e) {
+    return fail(e.message);
   }
-  return Object.keys(out).length ? out : null;
 }
 
 async function loadWeights(notes) {
