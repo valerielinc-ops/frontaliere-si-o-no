@@ -294,6 +294,7 @@ jobs:
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: "1"
+          TRANSLATION_THINKING_AB: "1"
           JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
           MT_LOCAL_OPUSMT: "1"
           TRANSFORMERS_CACHE: .cache/transformers
@@ -343,6 +344,14 @@ jobs:
           printf 'expected_decision_digest=%s\n' "$expected_decision_digest" >> "$GITHUB_OUTPUT"
           printf 'expected_contract_digest=%s\n' "$expected_contract_digest" >> "$GITHUB_OUTPUT"
           exit "$legacy_status"
+      - name: Upload translation thinking A/B artifact
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          if-no-files-found: error
       - name: Scatter changes back to per-crawler slices
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && (github.run_attempt == 1 || steps.recovery_guard.outcome == 'success')
         run: node scripts/scatter-jobs-to-slices.mjs

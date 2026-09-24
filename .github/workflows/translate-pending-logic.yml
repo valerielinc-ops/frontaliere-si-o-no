@@ -343,6 +343,10 @@ jobs:
         if: inputs.skip_translate != true
         env:
           JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
+          # Decisione proprietario #814: l'esperimento deve restare acceso nel
+          # percorso di produzione per raccogliere la misura reale, non solo nei
+          # test. Il cascade scrive l'artefatto in RUNNER_TEMP a ogni esecuzione.
+          TRANSLATION_THINKING_AB: '1'
           # Translation and metadata calls deliberately keep the normal
           # cascade; Codex preference is scoped to body generation inside
           # create-article.
@@ -395,6 +399,15 @@ jobs:
           printf 'expected_decision_digest=%s\n' "$expected_decision_digest" >> "$GITHUB_OUTPUT"
           printf 'expected_contract_digest=%s\n' "$expected_contract_digest" >> "$GITHUB_OUTPUT"
           exit "$legacy_status"
+
+      - name: Upload translation thinking A/B artifact
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          if-no-files-found: error
 
       - name: Scatter changes back to per-crawler slices
         if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true

@@ -311,4 +311,30 @@ describe('translation observability workflow', () => {
     expect(translateArtifact.sourceSha256).toBe(sha256(workflow));
     expect(translateArtifact.artifactSha256).toBe(sha256(portableWorkflow));
   });
+
+  it('enables and uploads the production thinking A/B observation artifact', () => {
+    for (const [label, document] of [['source', workflow], ['portable artifact', portableWorkflow]]) {
+      const steps = parseTranslationSteps(document);
+      const cascade = steps.find((step) => step.name === 'Phase 2b: Translate pending jobs (cascade top-up)');
+      const upload = steps.find((step) => step.name === 'Upload translation thinking A/B artifact');
+      expect(cascade, `${label}: cascade step missing`).toMatchObject({
+        env: { TRANSLATION_THINKING_AB: '1' },
+      });
+      expect(upload, `${label}: thinking A/B artifact upload missing`).toMatchObject({
+        if: expectedIf(label, "always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true"),
+        uses: `actions/upload-artifact@${UPLOAD_ARTIFACT_V7_SHA}`,
+      });
+      expect(upload).not.toHaveProperty('continue-on-error');
+      expect(upload?.with).toMatchObject({
+        'retention-days': 30,
+        'if-no-files-found': 'error',
+        path: '${{ runner.temp }}/translation-thinking-ab.json',
+      });
+      expect(upload?.with?.name).toContain('translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}');
+      expect(steps.indexOf(upload!)).toBeGreaterThan(steps.indexOf(cascade!));
+      expect(steps.indexOf(upload!)).toBeLessThan(
+        steps.findIndex((step) => step.name === 'Scatter changes back to per-crawler slices'),
+      );
+    }
+  });
 });
