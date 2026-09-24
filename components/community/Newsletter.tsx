@@ -13,6 +13,7 @@ import {
 import { isNewsletterExcluded } from '@/services/emailSuppression.mjs';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
 import TelegramChannelCta from '@/components/shared/TelegramChannelCta';
+import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 
 // Firebase Firestore will be lazily imported
 let firestoreInitialized = false;
@@ -50,6 +51,11 @@ interface NewsletterProps {
  subtitleOverride?: string;
  /** Acquisition source tag for downstream analytics; persisted into sourceCta. */
  acquisitionSource?: string;
+ /**
+  * GA4 `section` of the visibility event (`newsletter_box.<placement>.show.<source>`).
+  * Defaults to `compact` / `page`; NewsletterMount passes `island`.
+  */
+ impressionPlacement?: 'compact' | 'page' | 'island';
 }
 
 const SUBSCRIBED_KEY = 'newsletter_subscribed';
@@ -64,7 +70,7 @@ function isRejectedNewsletterCapture(result: { optedOut?: boolean; status?: stri
  return result.optedOut === true || isNewsletterExcluded(result.status);
 }
 
-const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverride, subtitleOverride, acquisitionSource }) => {
+const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverride, subtitleOverride, acquisitionSource, impressionPlacement }) => {
  const { t, locale } = useTranslation();
  const { user, signIn: googleSignIn } = useAuth();
  const [email, setEmail] = useState('');
@@ -93,6 +99,14 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  const [errorMessage, setErrorMessage] = useState('');
  const [pendingSocialMethod, setPendingSocialMethod] = useState<'google_oauth' | 'linkedin_oauth' | 'facebook_oauth' | null>(null);
  const analyticsSourceCta = acquisitionSource || (compact ? 'newsletter_footer_compact' : 'newsletter_page_submit');
+ // Visibility denominator for the submit event `newsletter.newsletter.<source>.subscribe`:
+ // same source token, so show and submit pair on it.
+ const impressionRef = useCaptureImpression({
+  page: 'newsletter_box',
+  section: impressionPlacement || (compact ? 'compact' : 'page'),
+  variant: analyticsSourceCta,
+  enabled: !user && !alreadySubscribed,
+ });
 
  // A provider button authenticates and registers the visitor in one flow. The
  // terms-based relationship is written after Auth supplies the verified
@@ -276,7 +290,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
 
  if (compact) {
  return (
- <div className="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent">
+ <div ref={impressionRef} className="bg-gradient-to-r from-info-strong to-success-strong rounded-2xl p-4 sm:p-6 text-on-accent">
  <div className="flex items-center gap-3 mb-3">
  <Bell size={20} />
  <h3 className="font-bold font-display text-lg">{headingOverride || t('newsletter.title')}</h3>
@@ -436,7 +450,7 @@ const Newsletter: React.FC<NewsletterProps> = ({ compact = false, headingOverrid
  </p>
  </div>
  ) : (
- <form onSubmit={handleSubscribe} className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm space-y-5">
+ <form ref={impressionRef} onSubmit={handleSubscribe} className="bg-surface rounded-2xl border border-edge p-4 sm:p-6 shadow-sm space-y-5">
  <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
  <div>
  <label htmlFor="newsletter-email" className="text-xs font-bold text-muted uppercase mb-1 block">{t('newsletter.emailLabel')}</label>

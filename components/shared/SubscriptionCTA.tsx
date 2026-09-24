@@ -35,6 +35,9 @@ import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 
 import { NEWSLETTER_CTA_DISMISSED_KEY as CTA_DISMISSED_KEY, isNewsletterCtaEligible } from '@/services/newsletterCtaState';
 
+/** Last-touch attribution for a login started from this box (see authService). */
+const SUBSCRIPTION_CTA_AUTH_ATTRIBUTION = { cta: 'post_calc_newsletter_social', component: 'SubscriptionCTA' } as const;
+
 /** Calculate days until next Monday (newsletter send day) */
 function daysUntilNextMonday(): number {
  const now = new Date();
@@ -282,6 +285,7 @@ const SubscriptionCTA: React.FC = () => {
  googleFallbackVariant="sm"
  linkedInResponsiveLabel
  errorContext="subscriptionCta"
+ attribution={SUBSCRIPTION_CTA_AUTH_ATTRIBUTION}
  />
 
 
