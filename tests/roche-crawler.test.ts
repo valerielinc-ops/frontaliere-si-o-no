@@ -99,6 +99,43 @@ describe('Roche crawler parser', () => {
     expect(mocks.fetchWorkdayJobDescriptionText).toHaveBeenCalledTimes(1);
   });
 
+  // #9508 FU-2026-09-22-018: the Workday Swiss country facet does not filter
+  // this tenant, and bare foreign city names ("Hyderabad", "Penzberg") are not
+  // in the foreign blocklist. The published slice carried 540/862 such rows
+  // tagged `BS/CH`, so Swiss membership must be proven, not assumed.
+  it('keeps only listings with positive Swiss evidence', async () => {
+    const postings = [
+      ['Hyderabad', 'JR20'],
+      ['Penzberg', 'JR21'],
+      ['Mannheim', 'JR22'],
+      ['Grenzach', 'JR23'],
+      ['Sant Cugat del Vallès', 'JR24'],
+      ['San Jose, Costa Rica', 'JR25'],
+      ['Basel', 'JR26'],
+      ['Kaiseraugst', 'JR27'],
+      ['Rotkreuz', 'JR28'],
+    ];
+    mocks.fetchWorkdayJobs.mockImplementation(async function* fetchMockJobs() {
+      for (const [location, jobReqId] of postings) {
+        yield {
+          title: `Role in ${location}`,
+          location,
+          externalPath: `/job/${jobReqId}`,
+          applyUrl: `https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/${jobReqId}`,
+          jobReqId,
+        };
+      }
+    });
+
+    const jobs = await fetchAllRocheJobs();
+
+    expect(jobs.map((job: any) => [job.location, job.canton])).toEqual([
+      ['Basel', 'BS'],
+      ['Kaiseraugst', 'AG'],
+      ['Rotkreuz', 'ZG'],
+    ]);
+  });
+
   // ── isCompanyJob ──
   describe('isRocheJob', () => {
     it('matches by companyKey', () => {
