@@ -114,7 +114,7 @@ import {
   enrichEventsWithGeoComune,
 } from './lib/events-utils.mjs';
 import { loadCursor, saveCursor, mergeEventsIntoSlice } from './lib/crawl-checkpoint.mjs';
-import { firstEventImageUrl, normalizeEventPeople } from './lib/event-metadata.mjs';
+import { extractEventPeopleFromText, firstEventImageUrl, normalizeEventPeople } from './lib/event-metadata.mjs';
 
 // Re-exported so existing importers (tests/crawl-guidle-events.test.ts) keep
 // working — the parser itself now lives in events-utils.mjs, shared with
@@ -353,14 +353,18 @@ export function mapDetailPageToLocaleData(html, locale) {
   const title = cleanText(first.name);
   if (!title) return null;
   const description = cleanText(first.description) || undefined;
+  const doc = new JSDOM(html).window.document;
+  const sourceDescription = cleanText(doc.querySelector('[itemprop="description"]')?.textContent) || undefined;
+  const textPeople = extractEventPeopleFromText([sourceDescription, description].filter(Boolean).join('. '));
   const venue = cleanText(first.location?.name) || undefined;
   const address = extractAddress(first.location?.address);
   const addressLocality = cleanText(first.location?.address?.addressLocality) || undefined;
   const imageSourceUrl = occurrences.map((occurrence) => firstEventImageUrl(occurrence.image, SITE_ORIGIN)).find(Boolean);
-  const organizer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.organizer, SITE_ORIGIN)).find(Boolean);
-  const performer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.performer, SITE_ORIGIN)).find(Boolean);
+  const organizer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.organizer, SITE_ORIGIN)).find(Boolean)
+    || normalizeEventPeople(textPeople.organizer, SITE_ORIGIN);
+  const performer = occurrences.map((occurrence) => normalizeEventPeople(occurrence.performer, SITE_ORIGIN)).find(Boolean)
+    || normalizeEventPeople(textPeople.performer, SITE_ORIGIN);
 
-  const doc = new JSDOM(html).window.document;
   const category = extractCategory(doc, locale);
   const price = extractPrice(doc, locale);
   const { geo, canton } = extractGeoAndCanton(doc);
