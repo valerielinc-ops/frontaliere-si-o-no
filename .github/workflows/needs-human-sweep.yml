@@ -40,6 +40,8 @@ permissions:
   contents: read
   issues: write
   id-token: write
+  # La guardia sulle issue `... Failure:` legge l'ultima run completata.
+  actions: read
 
 jobs:
   # Zero Claude, zero quota: riconosce POSITIVAMENTE le famiglie di issue aperte
@@ -223,12 +225,14 @@ jobs:
                - `gh issue list --repo $REPO --state open --label fu-parked --json number,title,labels,createdAt,updatedAt --limit 100`
 
             **Per ogni issue (MASSIMO 15 azioni totali in questo run — un'azione = un cambio di label/stato; le issue oltre il cap restano al giro successivo):**
-            1. Leggi body + commenti (`gh issue view N --json body,comments,labels`). Cerca PRIMA una decisione già registrata in DECISIONS.md: se c'è, applicala.
+            1. Leggi body + commenti (`gh issue view N --repo $REPO --json body,comments,labels,createdAt`). Cerca PRIMA una decisione già registrata in DECISIONS.md: se c'è, applicala.
             2. Classifica in UNA delle tre:
                - **B — lavoro eseguibile**: la decisione esiste nei documenti oppure la prendi tu (default più conservativo rispetto alla direttiva «non perdere pagine SEO, revenue o utenti», scritto nel commento con il driver citato). Misura la causa, completa la scheda se manca, quindi rimuovi `needs-human`/`automation-deferred`/`fu-parked` e usa `agent:fix-queued` per una issue atomica o `agent:decompose-queued` per una grande/contenitore; aggiungi `agent:vision-approved`.
                - **C — claim scaduta**: il difetto descritto non esiste più (verificalo con la misura più economica che decide: un comando dal body, un grep sul codice, una gh api). Commento con la misura osservata e il comando che la riproduce, poi `gh issue close N`. Se NON riesci a misurare, non chiudere: trattala come D.
                - **D — defer tecnico ancora reale**: il fixer ha fallito per input/turn-budget/causa non convergente. Riscrivi il body/commento con ciò che manca (causa misurata, file, criterio di accettazione), togli `needs-human` e fai rientrare con `agent:fix-queued` o `agent:decompose-queued` solo dopo avere cambiato l'input; se l'input non si può ancora cambiare lascia `automation-deferred`. Mai `needs-human`.
             3. VINCOLI: mai chiudere ciò che non hai misurato; mai rimuovere `agent:no-age-out`/`keep-open`; un'issue con PR aperta collegata non si tocca.
+
+            **Guardia obbligatoria per la chiusura delle issue di failure.** Prima di qualsiasi `gh issue close` su un titolo che corrisponde a `^(Workflow|Crawler|CI) Failure: `, applica lo stesso oracolo di `scripts/ci/close-recovered-failure-issues.mjs`: per `Workflow Failure:` e `CI Failure:` esegui `gh run list --repo $REPO -w "$workflow_name" -b main -L 100 --json databaseId,conclusion,status,createdAt`, tieni le sole run con `status == completed`, ordinale per `createdAt` decrescente e usa l'ultima; deve avere `conclusion == success` e una data successiva a `createdAt` dell'issue. Per `Crawler Failure: Run <slug>` usa la stessa risoluzione gruppo→step del reconciler (`crawler-group-*.yml` corrente, step esatto `Run <slug>`) e verifica la conclusione dello step nella run completata più recente su `main`. Se l'ultima run/step è rossa, `cancelled`, assente o non leggibile, NON chiudere: lascia l'issue aperta e commenta la misura. Un `maybe-resolved`, un verdetto o una decisione di sweep non sostituiscono questa prova.
 
             **Digest (ultima azione, sempre):** una sola issue col titolo ESATTO `🧭 Decisioni del proprietario — digest` (cerca fra le aperte; se non esiste creala con label `automation,agent:no-age-out`). Sostituisci/aggiorna il body con le decisioni prese in autonomia in questo run (issue, scelta, driver citato) e i conteggi residui separati di `needs-human`, `automation-deferred` e `fu-parked`. Nessuna domanda al proprietario.
 

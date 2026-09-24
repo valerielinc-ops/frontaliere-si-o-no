@@ -125,6 +125,84 @@ describe('host-prepared complete review patch', () => {
     expect(delta).toContain('new since review');
   });
 
+  // Issue #9321 FU-2026-09-20-030. The mirror image of #9189: after a rebase
+  // or a `merge origin/main`, a file can keep the SAME content it had at the
+  // reviewed head while the PR contribution for it changes, because its BASE
+  // moved. The canonical case is a silent revert: `main` updates `shared.mjs`,
+  // the branch keeps the old copy, so the PR now undoes main's change. The file
+  // is PR-owned (it differs from the new merge-base) but did not move since
+  // `reviewedFrom`, and a delta built only from `reviewedFrom..HEAD` hid it.
+  it('keeps a PR-owned file whose base moved since the review (silent revert of main)', () => {
+    const f = fixture();
+    writeFileSync(join(f.repo, 'shared.mjs'), 'export const shared = "v1";\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'shared v1');
+    const oldBase = f.git('rev-parse', 'HEAD');
+    // Reviewed head: branches from the old base and touches only its own file.
+    f.git('checkout', '-q', '-b', 'reviewed', oldBase);
+    writeFileSync(join(f.repo, 'owned.mjs'), 'export const owned = 1;\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'reviewed head');
+    const lastRev = f.git('rev-parse', 'HEAD');
+    // main advances shared.mjs after the review.
+    f.git('checkout', '-q', '-b', 'main-advanced', oldBase);
+    writeFileSync(join(f.repo, 'shared.mjs'), 'export const shared = "v2 from main";\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'main updates shared');
+    const mainTip = f.git('rev-parse', 'HEAD');
+    // Current head: rebased onto main, but carries the OLD shared.mjs back.
+    f.git('checkout', '-q', '-b', 'pr', mainTip);
+    writeFileSync(join(f.repo, 'owned.mjs'), 'export const owned = 1;\n');
+    writeFileSync(join(f.repo, 'shared.mjs'), 'export const shared = "v1";\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'pr head reverting main');
+    const head = f.git('rev-parse', 'HEAD');
+    // Precondition: shared.mjs did not move since the review...
+    expect(f.git('diff', '--name-only', lastRev, head)).toBe('');
+
+    const names = writeReviewDiff({
+      base: mainTip, head, directory: f.output, exclusions: ['data'],
+      incremental: true, reviewedFrom: lastRev, cwd: f.repo,
+    });
+    // ...yet the reviewer must see that the PR now reverts main's change.
+    expect(names).toEqual(['shared.mjs']);
+    const delta = readFileSync(join(f.output, 'delta.patch'), 'utf8');
+    expect(delta).toContain('-export const shared = "v2 from main";');
+    expect(delta).toContain('+export const shared = "v1";');
+    // A file only main moved and the PR does not own stays out of the delta.
+    expect(delta).not.toContain('owned.mjs');
+
+    // Same verdict through main(), where the reviewed base comes from GitHub's
+    // compare API (a force-pushed reviewedFrom is fetched shallow in CI).
+    const viaMain = join(f.root, 'via-main');
+    mkdirSync(viaMain);
+    const api: Record<string, string> = {
+      'repos/o/r/pulls/9321': JSON.stringify({ base: { sha: mainTip } }),
+      [`repos/o/r/compare/${mainTip}...${head}`]: JSON.stringify({ merge_base_commit: { sha: mainTip } }),
+      [`repos/o/r/compare/${mainTip}...${lastRev}`]: JSON.stringify({ merge_base_commit: { sha: oldBase } }),
+    };
+    main({
+      HEAD_SHA: head, REPO: 'o/r', PR_NUMBER: '9321', CTX_DIR: viaMain,
+      INCREMENTAL_BASE: lastRev, REVIEW_DIFF_EXCLUSIONS: 'data',
+    }, { api: (endpoint: string) => api[endpoint], cwd: f.repo });
+    expect(readFileSync(join(viaMain, 'delta-files.txt'), 'utf8')).toBe('shared.mjs\n');
+  });
+
+  it('falls back to the full PR contribution when the reviewed base cannot be located', () => {
+    const f = fixture();
+    writeFileSync(join(f.repo, 'owned.mjs'), 'export const owned = 1;\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'pr head');
+    const head = f.git('rev-parse', 'HEAD');
+    // An unrelated root commit: no merge-base with the PR base exists.
+    f.git('checkout', '-q', '--orphan', 'unrelated');
+    f.git('rm', '-rq', '--cached', '.');
+    writeFileSync(join(f.repo, 'unrelated.mjs'), 'export const unrelated = 1;\n');
+    f.git('add', 'unrelated.mjs'); f.git('commit', '-qm', 'unrelated root');
+    const unrelated = f.git('rev-parse', 'HEAD');
+    const names = writeReviewDiff({
+      base: f.base, head, directory: f.output, exclusions: ['data'],
+      incremental: true, reviewedFrom: unrelated, cwd: f.repo,
+    });
+    // Never narrower than the PR contribution when convergence is unprovable.
+    expect(names).toEqual(['owned.mjs']);
+  });
+
   it('writes an empty delta rather than the whole PR when nothing moved', () => {
     const f = fixture();
     writeFileSync(join(f.repo, 'owned.mjs'), 'export const owned = 1;\n');
