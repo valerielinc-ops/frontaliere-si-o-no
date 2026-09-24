@@ -67,7 +67,11 @@ export default function RewardedApplicationOffer({
   }, [onDismiss]);
 
   const completeIfReady = () => {
-    if (!grantedRef.current || !videoCompletedRef.current || completedRef.current) return;
+    // Google documents rewardedSlotGranted as the authoritative web reward
+    // signal. A rewarded display can satisfy its view-time threshold without
+    // emitting the optional video-completed event, so requiring both events
+    // would strand a valid paid impression behind the modal.
+    if (!grantedRef.current || completedRef.current) return;
     completedRef.current = true;
     onCompleted();
   };

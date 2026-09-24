@@ -8,10 +8,12 @@ import { isAdsConsentGranted } from '@/services/adsConsent';
  * Dedicated Ad Manager rewarded unit for the job-board GPT request.
  *
  * Offerwall units belong to the Offerwall product flow and are not the
- * inventory target for a custom GPT rewarded slot. This unit is configured
- * with 1x1v/640x480v VIDEO_PLAYER sizes plus a 1x1 BROWSER size: the former
- * serve rewarded video demand, while the latter is required for the AdSense
- * display backfill line to match this inventory in GAM.
+ * inventory target for a custom GPT rewarded slot. The unit accepts the
+ * standard rewarded-web sizes, but sizes alone do not create demand or
+ * guarantee a fill. Monetization must come from an eligible Google auction
+ * source (for example a linked Ad Exchange property) or a paid reservation
+ * line item; a configured ad unit with no eligible demand correctly returns
+ * `slotRenderEnded.isEmpty`.
  */
 export const ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH = '/23355151813/rewarded-application-video';
 
@@ -266,6 +268,10 @@ export function preloadRewardedWebAd(
         };
         resource.handlers.completed = (event: any) => {
           if (event?.slot !== slot || activeResource !== resource || resource.cancelled) return;
+          // `rewardedSlotGranted` is the authoritative reward signal for web.
+          // Google can grant display demand after its view-time threshold, so
+          // not every rewarded experience emits a video-completed event.
+          // Keep this event as optional telemetry for callers that want it.
           track('rewarded_web_video_completed', adUnitPath);
           publish(resource, resource.state, { type: 'completed' });
         };
