@@ -18,6 +18,7 @@ import {
   inferAnyCanton,
   swissCityFromLocationField,
 } from './target-swiss-locations.mjs';
+import { looksLikeAntiBotChallenge } from './jina-proxy.mjs';
 
 const BASE_URL = 'https://www.artificialy.com';
 
@@ -51,6 +52,21 @@ function slugify(value = '') {
     .replace(/[^\p{L}\p{N}]+/gu, '-')
     .replace(/^-+|-+$/g, '')
     .replace(/-{2,}/g, '-'), 180);
+}
+
+/**
+ * Identify the Cloudflare denial page returned by Artificialy instead of the
+ * career HTML. The shared challenge markers cover the 200-with-challenge
+ * variant; the additional Cloudflare + denial check covers the source's hard
+ * 403 body without treating an ordinary short/empty page as a valid crawl.
+ */
+export function isArtificialyCloudflareBlockedPage(html = '') {
+  const source = String(html || '');
+  if (looksLikeAntiBotChallenge(source)) return true;
+
+  const hasCloudflareIdentity = /\bcloudflare\b|\bcf-ray\b|\bcf-error-details\b/i.test(source);
+  const hasAccessDenial = /\b(?:error\s*)?403\b|\bforbidden\b|\byou(?:'| a)?re blocked\b|\bunable to access\b/i.test(source);
+  return hasCloudflareIdentity && hasAccessDenial;
 }
 
 /**
@@ -195,12 +211,13 @@ function extractLinkBasedJobs(html) {
  * @returns {{ items: Array }}
  */
 export function parseArtificialyCareerPage(html = '') {
-  if (!html || html.length < 200) return { items: [] };
-
-  // Check for Cloudflare challenge page
-  if (html.includes('Just a moment...') || html.includes('cf_chl_opt') || html.includes('challenge-platform')) {
+  // Check this before the minimum-length guard: a short denial page is still
+  // an explicit block and must not be reported as a healthy empty crawl.
+  if (isArtificialyCloudflareBlockedPage(html)) {
     return { items: [], blocked: true };
   }
+
+  if (!html || html.length < 200) return { items: [] };
 
   // Try strategies in order of reliability
   let items = extractJsonLdJobs(html);
