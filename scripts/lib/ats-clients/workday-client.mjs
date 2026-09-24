@@ -74,6 +74,8 @@ export class WorkdayAuthError extends WorkdayApiError {
 
 const DEFAULT_USER_AGENT = 'FrontaliereTicino-Bot/1.0 (+https://frontaliereticino.ch/)';
 const DEFAULT_PAGE_SIZE = 20;
+/** Page size `fetchWorkdayJobs` requests unless the caller overrides it. */
+export const WORKDAY_DEFAULT_PAGE_SIZE = DEFAULT_PAGE_SIZE;
 const DEFAULT_MAX_PAGES = 100000; // uncapped — loop breaks on yielded>=total / partial page
 const DEFAULT_MIN_DELAY_MS = 2000;
 const DEFAULT_TIMEOUT_MS = 20000;

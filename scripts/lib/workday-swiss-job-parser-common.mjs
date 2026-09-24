@@ -24,6 +24,7 @@ import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -32,10 +33,37 @@ import {
   extractWorkdayJobIdentity,
   WorkdayAuthError,
   workdayPrimaryLocationState,
+  WORKDAY_DEFAULT_PAGE_SIZE,
 } from './ats-clients/workday-client.mjs';
 
 // Switzerland country UUID — standard across nearly all Workday tenants.
 export const WORKDAY_SWISS_LOCATION_IDS = ['187134fccb084a0ea9b4b95f23890dbe'];
+
+// `fetchWorkdayJobs` requests pages of WORKDAY_DEFAULT_PAGE_SIZE and, on a
+// failure AFTER page 0, returns the partial board silently. A board shorter
+// than one page is therefore the only size at which "every listing was seen"
+// is provable from the listings alone: page 0 either succeeded whole or threw.
+
+/**
+ * The req's structured primary country, when Workday states one and it is NOT
+ * Switzerland; otherwise `''`.
+ *
+ * Reads `jobRequisitionLocation.country` (alpha-2 first) and the posting-level
+ * `country`. Only an explicit foreign statement counts: an absent, Swiss or
+ * unrecognised country returns `''`, so this can never manufacture a verdict
+ * from missing data. Used exclusively as EVIDENCE for the authoritative-empty
+ * proof below — it never decides whether a job is published.
+ */
+export function workdayStructuredForeignPrimaryCountry(info = {}) {
+  const req = info?.jobRequisitionLocation;
+  const alpha2 = String(req?.country?.alpha2Code || '').trim().toUpperCase();
+  if (alpha2) return alpha2 === 'CH' ? '' : alpha2;
+  for (const candidate of [req?.country?.descriptor, info?.country?.descriptor]) {
+    const text = normalizeSpace(candidate || '');
+    if (text && isLocationExplicitlyForeign(text)) return text;
+  }
+  return '';
+}
 
 function normalize(value = '') {
   return String(value || '').trim().toLowerCase();
@@ -164,6 +192,14 @@ function detectEmploymentType(timeType = '', title = '') {
  * @param {boolean} [config.preferJobRequisitionLocation=false] Use the
  *   requisition's structured workplace when the tenant's public listing
  *   location is a search/region label.
+ * @param {boolean} [config.proveForeignOnlyBoardEmpty=false] Stamp an empty
+ *   result as a source-proven zero (`markAuthoritativeEmptySnapshot`) when the
+ *   Swiss-faceted board was seen whole and EVERY listing on it is a req whose
+ *   structured primary country is foreign — i.e. cross-postings that list a
+ *   Swiss site only as an additional location, which the primary-only gate
+ *   refuses by design (issue #9651). Pair with the runner's
+ *   `allowAuthoritativeEmptySnapshot` + `authoritativeSnapshotScope:
+ *   'empty-only'`.
  */
 export function createWorkdaySwissParser(config) {
   const {
@@ -180,6 +216,7 @@ export function createWorkdaySwissParser(config) {
     defaultSourceLang = 'en',
     locationFilters = WORKDAY_SWISS_LOCATION_IDS,
     preferJobRequisitionLocation = false,
+    proveForeignOnlyBoardEmpty = false,
   } = config;
 
   if (!companyKey || !companyName || !tenantHost || !sitePath || !defaultCanton) {
@@ -293,6 +330,11 @@ export function createWorkdaySwissParser(config) {
 
     const jobs = [];
     let missingDetailUrlCount = 0;
+    // Listings whose detail was fetched AND states a foreign primary country.
+    // Counted before any drop decision; the proof below needs it to equal the
+    // whole board, so a skipped listing, a failed detail fetch or a req with
+    // no structured country each break the proof by construction.
+    const foreignPrimaryListings = [];
     for (const listing of listings) {
       const title = normalizeSpace(listing.title || '');
       if (!title || title.length < 3) continue;
@@ -322,6 +364,8 @@ export function createWorkdaySwissParser(config) {
         detail = null;
       }
       const detailInfo = detail?.jobPostingInfo || {};
+      const foreignPrimaryCountry = detail ? workdayStructuredForeignPrimaryCountry(detailInfo) : '';
+      if (foreignPrimaryCountry) foreignPrimaryListings.push(`${listing.jobReqId || title}:${foreignPrimaryCountry}`);
       const requisitionState = workdayPrimaryLocationState({
         location: detailInfo.jobRequisitionLocation,
       });
@@ -483,6 +527,25 @@ export function createWorkdaySwissParser(config) {
 
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
     jobs.missingDetailUrlCount = missingDetailUrlCount;
+    // Source-proven zero: the facet-scoped board was observed whole (one short
+    // page — see WORKDAY_DEFAULT_PAGE_SIZE) and every req on it is worked
+    // abroad. That is a positive statement by the source, not "the parser
+    // found nothing": an anti-bot `[]`, a zero-listing board, a facet the
+    // tenant ignored, a detail that failed to load or a req without a
+    // structured country all leave the batch unstamped, so the pipeline keeps
+    // failing closed on them.
+    if (
+      proveForeignOnlyBoardEmpty
+      && jobs.length === 0
+      && facetApplied
+      && listings.length < WORKDAY_DEFAULT_PAGE_SIZE
+      && foreignPrimaryListings.length === listings.length
+    ) {
+      const evidence = `${companyName} Workday Swiss-faceted board: ${listings.length} listing(s), `
+        + `every primary workplace abroad (${foreignPrimaryListings.join(', ')})`;
+      console.log(`  🧾 Proven empty Swiss board — ${evidence}`);
+      return markAuthoritativeEmptySnapshot(jobs, evidence);
+    }
     return jobs;
   }
 

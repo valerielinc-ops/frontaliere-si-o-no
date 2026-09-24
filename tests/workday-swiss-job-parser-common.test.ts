@@ -2,7 +2,13 @@ import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   createWorkdaySwissParser,
   resolveWorkdayPrimarySwissLocation,
+  workdayStructuredForeignPrimaryCountry,
 } from '../scripts/lib/workday-swiss-job-parser-common.mjs';
+import { evaluateAuthoritativeSnapshot } from '../scripts/lib/crawler-template.mjs';
+import {
+  authoritativeEmptySnapshotValidator,
+  isAuthoritativeEmptySnapshot,
+} from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
 /**
  * The publish gate reads the req's OWN primary workplace, never the union of
@@ -502,5 +508,211 @@ describe('createWorkdaySwissParser — HQ default is not a fallback on the facet
     expect(jobs.some((j: any) => j.title === 'Opaque site role')).toBe(false);
     expect(jobs.map((j: any) => j.title)).toEqual(['Real Swiss role']);
     expect(jobs[0]).toMatchObject({ location: 'Zug', canton: 'ZG' });
+  });
+});
+
+/**
+ * Issue #9651 (siemens-healthineers). The Swiss facet returns only reqs that
+ * are cross-posted to a Swiss site while their PRIMARY workplace is abroad
+ * (live 2026-09-24: 3 listings, `N Locations` roll-ups, opaque primary codes,
+ * `jobRequisitionLocation.country` GB / DE / FR). The primary-only gate drops
+ * all of them by design, and the pipeline read the resulting bare `[]` as
+ * "aborted before looking" — keeping the 3 HQ-stamped records live forever.
+ *
+ * With `proveForeignOnlyBoardEmpty` the parser stamps that zero as
+ * source-proven. Every other empty stays a bare `[]`, which the runner's
+ * validator refuses (fail-closed, previous slice kept).
+ */
+describe('createWorkdaySwissParser — foreign-only Swiss board is a proven empty (#9651)', () => {
+  const ORIGINAL_FETCH = global.fetch;
+
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  const CROSS_POSTS = [
+    { site: 'AAA-BO', req: 'R-1', alpha2: 'GB', country: 'United Kingdom' },
+    { site: 'BBB-L-1', req: 'R-2', alpha2: 'DE', country: 'Germany' },
+    { site: 'CCC-BO', req: 'R-3', alpha2: 'FR', country: 'France' },
+  ];
+
+  function posting(p: { site: string; req: string }) {
+    return {
+      title: `Cross-posted role ${p.req}`,
+      externalPath: `/job/${p.site}/Cross-posted-role_${p.req}-1`,
+      locationsText: '6 Locations',
+      postedOn: 'Posted 3 Days Ago',
+      bulletFields: [p.req],
+    };
+  }
+
+  function detail(p: { site: string; alpha2?: string; country?: string }) {
+    const country = p.alpha2
+      ? { descriptor: p.country, id: 'x', alpha2Code: p.alpha2 }
+      : undefined;
+    return {
+      jobPostingInfo: {
+        title: 'Cross-posted role',
+        location: p.site.replace(/-/g, ' '),
+        additionalLocations: ['ZZZ T', 'MIL VIP'],
+        jobRequisitionLocation: { descriptor: p.site.replace(/-/g, ' '), ...(country ? { country } : {}) },
+        ...(p.country ? { country: { descriptor: p.country, id: 'x' } } : {}),
+        jobDescription: '<p>Role description</p>',
+      },
+    };
+  }
+
+  function mockBoard(
+    postings: any[],
+    details: Record<string, any>,
+    { listStatus = 200 }: { listStatus?: number } = {},
+  ) {
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        if (listStatus !== 200) return new Response('blocked', { status: listStatus });
+        return new Response(JSON.stringify({ total: postings.length, jobPostings: postings }), { status: 200 });
+      }
+      const hit = Object.keys(details).find((path) => urlStr.endsWith(path));
+      if (hit && details[hit]) return new Response(JSON.stringify(details[hit]), { status: 200 });
+      return new Response('', { status: 404 });
+    });
+  }
+
+  function parser(opts: Record<string, unknown> = {}) {
+    return createWorkdaySwissParser({
+      companyKey: 'testco',
+      companyName: 'Test Co',
+      companyDomain: 'testco.com',
+      tenantHost: 'testco.wd3.myworkdayjobs.com',
+      sitePath: 'Test_Careers',
+      defaultCanton: 'ZH',
+      defaultCity: 'Zurich',
+      proveForeignOnlyBoardEmpty: true,
+      ...opts,
+    });
+  }
+
+  function verdict(jobs: any) {
+    return evaluateAuthoritativeSnapshot(jobs, {
+      validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator('Test Co'),
+      allowAuthoritativeEmptySnapshot: true,
+      authoritativeSnapshotScope: 'empty-only',
+      companyLabel: 'Test Co',
+    });
+  }
+
+  const allDetails = () => Object.fromEntries(
+    CROSS_POSTS.map((p) => [posting(p).externalPath, detail(p)]),
+  );
+
+  it('stamps a whole board of foreign-primary cross-posts as a proven zero', async () => {
+    mockBoard(CROSS_POSTS.map(posting), allDetails());
+    const jobs = await parser().fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect((jobs as any).authoritativeEmptyEvidence).toMatch(/R-1:GB, R-2:DE, R-3:FR/);
+    expect(verdict(jobs)).toEqual({ authoritativeSnapshotVerified: true, authoritativeEmptySnapshot: true });
+  });
+
+  it('leaves other factory consumers unchanged: no opt-in, no stamp', async () => {
+    mockBoard(CROSS_POSTS.map(posting), allDetails());
+    const jobs = await parser({ proveForeignOnlyBoardEmpty: false }).fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('refuses the proof when one detail failed to load', async () => {
+    const details = allDetails();
+    details[posting(CROSS_POSTS[1]).externalPath] = null;
+    mockBoard(CROSS_POSTS.map(posting), details);
+    const jobs = await parser().fetchAllJobs();
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(() => verdict(jobs)).toThrow(/not a proven authoritative empty state/);
+  });
+
+  it('refuses the proof when one req states no structured country', async () => {
+    const details = allDetails();
+    details[posting(CROSS_POSTS[2]).externalPath] = detail({ site: CROSS_POSTS[2].site });
+    mockBoard(CROSS_POSTS.map(posting), details);
+    const jobs = await parser().fetchAllJobs();
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('refuses the proof on a zero-listing board (a facet the tenant stopped honouring looks the same)', async () => {
+    mockBoard([], {});
+    const jobs = await parser().fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('refuses the proof on an anti-bot block', async () => {
+    mockBoard(CROSS_POSTS.map(posting), allDetails(), { listStatus: 403 });
+    const jobs = await parser().fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(() => verdict(jobs)).toThrow(/not a proven authoritative empty state/);
+  });
+
+  it('refuses the proof on a full first page, whose completeness is unprovable', async () => {
+    const many = Array.from({ length: 20 }, (_, i) => ({
+      site: `S${i}-BO`, req: `R-${100 + i}`, alpha2: 'GB', country: 'United Kingdom',
+    }));
+    // Page 0 is full; page 1 fails, which `fetchWorkdayJobs` swallows.
+    let calls = 0;
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        calls += 1;
+        if (calls > 1) return new Response('', { status: 404 });
+        return new Response(JSON.stringify({ total: 25, jobPostings: many.map(posting) }), { status: 200 });
+      }
+      const p = many.find((m) => urlStr.endsWith(posting(m).externalPath));
+      return p ? new Response(JSON.stringify(detail(p)), { status: 200 }) : new Response('', { status: 404 });
+    });
+    const jobs = await parser().fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  }, 30_000);
+
+  it('never stamps a board that yields a Swiss-primary job', async () => {
+    const swiss = { site: 'Zug', req: 'R-9' };
+    mockBoard([...CROSS_POSTS.map(posting), posting(swiss)], {
+      ...allDetails(),
+      [posting(swiss).externalPath]: {
+        jobPostingInfo: {
+          location: 'Zug',
+          jobRequisitionLocation: { descriptor: 'Zug', country: { descriptor: 'Switzerland', alpha2Code: 'CH' } },
+          jobDescription: '<p>Swiss role</p>',
+        },
+      },
+    });
+    const jobs = await parser().fetchAllJobs();
+    expect(jobs.map((j: any) => j.location)).toEqual(['Zug']);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+});
+
+describe('workdayStructuredForeignPrimaryCountry', () => {
+  it('reads the requisition alpha-2 first and ignores Switzerland', () => {
+    expect(workdayStructuredForeignPrimaryCountry({
+      jobRequisitionLocation: { country: { alpha2Code: 'gb', descriptor: 'United Kingdom' } },
+    })).toBe('GB');
+    expect(workdayStructuredForeignPrimaryCountry({
+      jobRequisitionLocation: { country: { alpha2Code: 'CH', descriptor: 'Switzerland' } },
+      country: { descriptor: 'Germany' },
+    })).toBe('');
+  });
+
+  it('falls back to an explicitly foreign country descriptor', () => {
+    expect(workdayStructuredForeignPrimaryCountry({ country: { descriptor: 'Germany' } })).toBe('Germany');
+    expect(workdayStructuredForeignPrimaryCountry({ country: { descriptor: 'Switzerland' } })).toBe('');
+  });
+
+  it('never manufactures a verdict from missing or opaque data', () => {
+    expect(workdayStructuredForeignPrimaryCountry({})).toBe('');
+    expect(workdayStructuredForeignPrimaryCountry({ location: 'CEY BO' })).toBe('');
+    expect(workdayStructuredForeignPrimaryCountry(undefined as any)).toBe('');
   });
 });
