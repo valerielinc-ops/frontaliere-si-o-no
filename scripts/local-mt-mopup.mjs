@@ -105,6 +105,94 @@ const NEGATIVE_CACHE_TTL_MS = Number(process.env.LOCAL_MT_NEGATIVE_CACHE_TTL_MS)
 const NEGATIVE_CACHE_JITTER_MS = Number(process.env.LOCAL_MT_NEGATIVE_CACHE_JITTER_MS) || 6 * 60 * 60 * 1000;
 const NEGATIVE_CACHE_VERSION = 'local-mt-v2:glossary-v2';
 
+export const SEMANTIC_VERDICTS = Object.freeze(['accepted', 'rejected', 'unclear', 'error']);
+export const DEFAULT_SEMANTIC_WRITE_CAP = 100;
+const SEMANTIC_TELEMETRY_SCHEMA_VERSION = 1;
+const SEMANTIC_PHASE = process.env.LOCAL_MT_SEMANTIC_PHASE || 'local-mt';
+const SEMANTIC_TELEMETRY_PATH = process.env.LOCAL_MT_SEMANTIC_TELEMETRY_PATH || '';
+
+/**
+ * Parse the safety cap without allowing NaN, fractions, negatives, or an
+ * unsafe integer to turn into an accidental unlimited rollout. `0` is valid:
+ * it is the explicit owner-controlled way to observe the semantic arm without
+ * permitting a single overwrite.
+ */
+export function parseSemanticWriteCap(value = DEFAULT_SEMANTIC_WRITE_CAP) {
+  const text = String(value ?? '').trim();
+  if (!/^\d+$/.test(text)) return null;
+  const cap = Number(text);
+  return Number.isSafeInteger(cap) ? cap : null;
+}
+
+const SEMANTIC_WRITE_CAP = parseSemanticWriteCap(
+  process.env.LOCAL_MT_SEMANTIC_WRITE_CAP ?? DEFAULT_SEMANTIC_WRITE_CAP,
+);
+
+function emptySemanticVerdicts() {
+  return Object.fromEntries(SEMANTIC_VERDICTS.map((verdict) => [verdict, 0]));
+}
+
+/**
+ * Build the hash-free, bounded artifact consumed by the workflow guard. It
+ * intentionally stores counts and decisions only: no title, URL, job id, or
+ * company value is allowed to leave the runner in this telemetry path.
+ */
+export function createSemanticTelemetry({
+  phase = SEMANTIC_PHASE,
+  killSwitchEnabled = false,
+  cap = SEMANTIC_WRITE_CAP,
+  semanticVerdicts = {},
+  writesWithheld = 0,
+  writesApplied = 0,
+  status = 'success',
+  rollback = false,
+  reason = null,
+  error = null,
+} = {}) {
+  const verdicts = { ...emptySemanticVerdicts() };
+  for (const verdict of SEMANTIC_VERDICTS) {
+    const count = Number(semanticVerdicts?.[verdict]);
+    verdicts[verdict] = Number.isSafeInteger(count) && count >= 0 ? count : 0;
+  }
+  const accepted = verdicts.accepted;
+  const validCap = Number.isSafeInteger(cap) && cap >= 0 ? cap : null;
+  const capExceeded = validCap === null || accepted > validCap;
+  return {
+    schemaVersion: SEMANTIC_TELEMETRY_SCHEMA_VERSION,
+    phase,
+    killSwitch: {
+      name: 'LOCAL_MT_LANG_AWARE_OVERWRITE',
+      enabled: Boolean(killSwitchEnabled),
+    },
+    semanticVerdicts: verdicts,
+    writesWithheld: Number.isSafeInteger(writesWithheld) && writesWithheld >= 0 ? writesWithheld : 0,
+    writesApplied: Number.isSafeInteger(writesApplied) && writesApplied >= 0 ? writesApplied : 0,
+    cap: {
+      name: 'LOCAL_MT_SEMANTIC_WRITE_CAP',
+      value: validCap,
+      accepted,
+      exceeded: capExceeded,
+    },
+    status,
+    rollback: Boolean(rollback),
+    reason: reason || null,
+    error: error || null,
+    createdAt: new Date().toISOString(),
+  };
+}
+
+function writeSemanticTelemetry(report) {
+  if (!SEMANTIC_TELEMETRY_PATH) return;
+  try {
+    writeJson(SEMANTIC_TELEMETRY_PATH, report);
+  } catch (error) {
+    // A missing artifact is an unmeasurable rollout. Keep the data path
+    // fail-closed even when the runner cannot persist the safety report.
+    process.exitCode = 1;
+    console.error(`❌ [local-mt] Could not persist semantic telemetry: ${error?.message || error}`);
+  }
+}
+
 /**
  * Rollout switch for the language arm of classifyMopupWrite() (workspace issue
  * 16). Default OFF, and OFF does not mean blind: the arm still runs and still
@@ -449,16 +537,39 @@ function isProtectedSourceCopy(sourceText = '', candidate = '') {
  * for the language-aware arm of the existing-value guard — see below.
  *
  * @returns {{decision: string, incoming: string, sourceText: string,
- *   normalizedSourceText: string, existing: string, languageDriven: boolean}}
+ *   normalizedSourceText: string, existing: string, languageDriven: boolean,
+ *   semanticVerdict: 'accepted'|'rejected'|'unclear'|'error'|null}}
  *   decision is 'write' or one of 'skip:source-locale' | 'skip:empty-raw' |
  *   'skip:finalize-empty' | 'skip:source-copy' | 'skip:existing-good' |
- *   'skip:candidate-untranslated'. languageDriven marks the decisions the
- *   language arm made, the ones the rollout switch gates.
+ *   'skip:candidate-untranslated' | 'skip:semantic-error'. languageDriven
+ *   marks the decisions the language arm made, the ones the rollout switch
+ *   gates. semanticVerdict is present only when the existing-value language
+ *   arm actually judged a candidate.
  *
  * `base.sourceText` stays unchanged for persistence; `base.normalizedSourceText`
  * is comparison-only. Neither may be written into `job.title` or
  * `job.titleByLocale[srcLang]` by the caller.
  */
+/**
+ * Normalize the language-aware overwrite decision into the four semantic
+ * telemetry buckets. A detector that cannot prove the stored value is bad is
+ * deliberately `unclear`, not accepted: the safe action is to leave it alone.
+ */
+export function judgeMopupSemanticCandidate({ existingVerdict, candidateVerdict } = {}) {
+  if (!existingVerdict || typeof existingVerdict.untranslated !== 'boolean') {
+    return { verdict: 'error', reason: 'invalid-existing-verdict' };
+  }
+  if (!existingVerdict.untranslated) {
+    return { verdict: 'unclear', reason: 'existing-not-proven-untranslated' };
+  }
+  if (!candidateVerdict || typeof candidateVerdict.untranslated !== 'boolean') {
+    return { verdict: 'error', reason: 'invalid-candidate-verdict' };
+  }
+  return candidateVerdict.untranslated
+    ? { verdict: 'rejected', reason: candidateVerdict.reason || 'candidate-untranslated' }
+    : { verdict: 'accepted', reason: existingVerdict.reason || 'existing-untranslated' };
+}
+
 /**
  * Il nome con cui questo entry point chiede la sua politica di corsia.
  *
@@ -574,7 +685,9 @@ export function classifyMopupWrite({
     : (job.description || job.descriptionByLocale?.[srcLang] || '').trim();
   const normalizedSourceText = normalizeArgosText(rawSourceText, srcLang, field);
   const existing = String(job[bag]?.[locale] || '').trim();
-  const base = { incoming: '', sourceText: rawSourceText, normalizedSourceText, existing };
+  const base = {
+    incoming: '', sourceText: rawSourceText, normalizedSourceText, existing, semanticVerdict: null,
+  };
 
   if (locale === srcLang) return { ...base, decision: 'skip:source-locale' };
 
@@ -657,21 +770,71 @@ export function classifyMopupWrite({
       company: job.company || '',
       location: job.location || '',
     });
-    const existingVerdict = ask(existing);
+    let existingVerdict;
+    try {
+      existingVerdict = ask(existing);
+    } catch {
+      return {
+        ...base,
+        incoming,
+        decision: 'skip:semantic-error',
+        semanticVerdict: 'error',
+        semanticReason: 'existing-judge-threw',
+        languageDriven: true,
+      };
+    }
+    if (!existingVerdict || typeof existingVerdict.untranslated !== 'boolean') {
+      return {
+        ...base,
+        incoming,
+        decision: 'skip:semantic-error',
+        semanticVerdict: 'error',
+        semanticReason: 'invalid-existing-verdict',
+        languageDriven: true,
+      };
+    }
     if (!existingVerdict.untranslated) {
+      const semantic = judgeMopupSemanticCandidate({ existingVerdict });
       return {
         ...base,
         incoming,
         decision: existing === incoming ? 'skip:no-op' : 'skip:existing-good',
+        semanticVerdict: semantic.verdict,
+        semanticReason: semantic.reason,
       };
     }
-    const candidateVerdict = ask(incoming);
-    if (candidateVerdict.untranslated) {
+    let candidateVerdict;
+    try {
+      candidateVerdict = ask(incoming);
+    } catch {
+      return {
+        ...base,
+        incoming,
+        decision: 'skip:semantic-error',
+        semanticVerdict: 'error',
+        semanticReason: 'candidate-judge-threw',
+        languageDriven: true,
+      };
+    }
+    const semantic = judgeMopupSemanticCandidate({ existingVerdict, candidateVerdict });
+    if (semantic.verdict === 'error') {
+      return {
+        ...base,
+        incoming,
+        decision: 'skip:semantic-error',
+        semanticVerdict: 'error',
+        semanticReason: semantic.reason,
+        languageDriven: true,
+      };
+    }
+    if (semantic.verdict === 'rejected') {
       return {
         ...base,
         incoming,
         decision: 'skip:candidate-untranslated',
-        reason: candidateVerdict.reason,
+        reason: semantic.reason,
+        semanticVerdict: 'rejected',
+        semanticReason: semantic.reason,
         languageDriven: true,
       };
     }
@@ -679,7 +842,9 @@ export function classifyMopupWrite({
       ...base,
       incoming,
       decision: 'write',
-      reason: existingVerdict.reason,
+      reason: semantic.reason,
+      semanticVerdict: 'accepted',
+      semanticReason: semantic.reason,
       languageDriven: true,
     };
   }
@@ -811,6 +976,44 @@ async function main() {
   // mop-up phase, even when both entry points receive --dry-run.
   const dryRun = parseFlag('--dry-run') || String(process.env.LOCAL_MT_DRY_RUN || '0') === '1';
   const maxJobs = Number(parseOpt('--max-jobs', process.env.LOCAL_MT_MAX_JOBS)) || 2000;
+  const semanticVerdicts = emptySemanticVerdicts();
+  let semanticWritesWithheld = 0;
+  let semanticWritesApplied = 0;
+
+  const emitSemanticTelemetry = ({
+    status = LANG_AWARE_OVERWRITE ? 'enforcing' : 'shadow',
+    rollback = false,
+    reason = null,
+    error = null,
+  } = {}) => {
+    const report = createSemanticTelemetry({
+      phase: SEMANTIC_PHASE,
+      killSwitchEnabled: LANG_AWARE_OVERWRITE,
+      cap: SEMANTIC_WRITE_CAP,
+      semanticVerdicts,
+      writesWithheld: semanticWritesWithheld,
+      writesApplied: semanticWritesApplied,
+      status,
+      rollback,
+      reason,
+      error,
+    });
+    console.log(`📡 [local-mt] semantic verdict accepted=${report.semanticVerdicts.accepted} rejected=${report.semanticVerdicts.rejected} unclear=${report.semanticVerdicts.unclear} error=${report.semanticVerdicts.error}`);
+    console.log(`   semantic writes-withheld=${report.writesWithheld} writes-applied=${report.writesApplied} cap=${report.cap.value ?? 'invalid'} cap-exceeded=${report.cap.exceeded ? '1' : '0'} status=${report.status} rollback=${report.rollback ? '1' : '0'}`);
+    writeSemanticTelemetry(report);
+    return report;
+  };
+
+  if (SEMANTIC_WRITE_CAP === null) {
+    emitSemanticTelemetry({
+      status: 'error',
+      rollback: true,
+      reason: 'invalid-semantic-write-cap',
+      error: 'LOCAL_MT_SEMANTIC_WRITE_CAP must be a non-negative safe integer',
+    });
+    process.exitCode = 1;
+    return;
+  }
 
   // Publish the run start (WRITE-ONCE) so that under the Argos-first ordering this
   // BULK pass (Phase 2a) — which runs BEFORE the cascade — establishes the shared
@@ -829,6 +1032,7 @@ async function main() {
   if (TIME_BUDGET_MS <= WRITE_RESERVE_MS) {
     const elapsedMin = Math.round((Date.now() - RUN_START_MS) / 60000);
     console.log(`⏰ [local-mt] Run-wide budget effectively exhausted (${Math.round(TIME_BUDGET_MS / 1000)}s left of the ${Math.round(MOPUP_DEADLINE_MS / 60000)}min deadline, ~${elapsedMin}min elapsed) — skipping mop-up so the commit step runs before the job timeout. Leftovers stay flagged for the next run.`);
+    emitSemanticTelemetry({ status: 'skipped', reason: 'run-budget-exhausted' });
     return;
   }
 
@@ -836,6 +1040,7 @@ async function main() {
 
   if (!fs.existsSync(BY_CRAWLER_DIR)) {
     console.log('ℹ️  by-crawler dir not found — nothing to do.');
+    emitSemanticTelemetry({ status: 'skipped', reason: 'slice-directory-missing' });
     return;
   }
 
@@ -952,6 +1157,7 @@ async function main() {
     console.log(negativeCacheHits > 0
       ? '✅ [local-mt] No uncached mop-up requests remain — rejected fields stay deferred for the next cache expiry or source change.'
       : '✅ [local-mt] Nothing to mop up — all locale fields already complete.');
+    emitSemanticTelemetry({ reason: 'no-uncached-requests' });
     return;
   }
 
@@ -961,6 +1167,7 @@ async function main() {
       .map((r) => `   ${r.from}->${r.to} [${(r.text || '').slice(0, 50)}…]`)
       .join('\n');
     console.log('   Sample requests:\n' + sample);
+    emitSemanticTelemetry({ status: 'dry-run', reason: 'dry-run' });
     return;
   }
 
@@ -983,6 +1190,12 @@ async function main() {
   const bufOverflow = proc.error?.code === 'ENOBUFS';
   if (proc.error && !timedOut && !bufOverflow) {
     console.error(`❌ [local-mt] Failed to spawn Python worker: ${proc.error.message}`);
+    emitSemanticTelemetry({
+      status: 'error',
+      rollback: true,
+      reason: 'translation-worker-error',
+      error: proc.error.message,
+    });
     process.exitCode = 1;
     return;
   }
@@ -995,6 +1208,12 @@ async function main() {
     console.warn(`⚠️  [local-mt] Python worker stdout exceeded 256 MB maxBuffer — parsing captured partial results. Consider reducing --max-jobs or LOCAL_MT_MAX_JOBS.`);
   } else if (proc.status !== 0) {
     console.error(`❌ [local-mt] Python worker exited with status ${proc.status}.`);
+    emitSemanticTelemetry({
+      status: 'error',
+      rollback: true,
+      reason: 'translation-worker-error',
+      error: `worker-exit-${proc.status}`,
+    });
     process.exitCode = 1;
     return;
   }
@@ -1019,6 +1238,7 @@ async function main() {
 
   if (okCount === 0) {
     console.log('⚠️  [local-mt] Zero successful translations — leaving slices untouched.');
+    emitSemanticTelemetry({ status: 'no-results', reason: 'zero-successful-translations' });
     return;
   }
 
@@ -1034,7 +1254,9 @@ async function main() {
     : null;
   if (opusRescue) logOpusMtRescueReport(opusRescue);
 
-  // Group results by file → apply, with the same write guards relocalize uses.
+  // Group results by file. Classification is deliberately a separate preflight
+  // from persistence: a cap breach must not leave the first alphabetic slices
+  // changed while the later semantic candidates are rolled back.
   const byFile = new Map(); // file -> array of { jobIdx, locale, field, text }
   for (const [id, text] of results) {
     const tgt = targets.get(id);
@@ -1055,65 +1277,105 @@ async function main() {
   const decisionTally = {};
   const langWriteReasons = {};
   const langSkipReasons = {};
-  let shadowWithheld = 0;
   let languageFieldsRewritten = 0;
+  const preparedByFile = new Map();
 
   for (const [file, edits] of byFile) {
-    if (!budgetOk()) {
-      console.log('⏰ [local-mt] Time budget reached — stopping before remaining files (already-translated fields stay in memory but unwritten).');
-      break;
-    }
     const filePath = path.join(BY_CRAWLER_DIR, file);
     const data = readJson(filePath);
     if (!data || !Array.isArray(data.jobs)) continue;
 
-    let fileChanged = false;
-    const touchedJobs = new Set();
-
-    for (const { id, jobIdx, locale, field, text, protectedTokens, negativeCacheKey } of edits) {
-      const job = data.jobs[jobIdx];
+    const prepared = [];
+    for (const edit of edits) {
+      const job = data.jobs[edit.jobIdx];
       if (!job) continue;
       const srcLang = job.sourceLang || 'it';
-      if (locale === srcLang) continue; // never write the source locale
+      if (edit.locale === srcLang) continue; // never write the source locale
 
-      const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
+      const bag = edit.field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
       if (!job[bag] || typeof job[bag] !== 'object') job[bag] = {};
 
-      // Quality parity with the other two entry points: the SAME shared exit
-      // transform (`finalizeTranslatedText`, via finalizeMopupTranslation) —
-      // balance markdown markers, restore the masked gender trigraphs in the
-      // target locale's display form, apply the protected-term glossary, strip
-      // leaked template placeholders. The raw Argos output skipped all of it, so
-      // the BULK of the mop-up-translated corpus (the workhorse tier) shipped
-      // lower quality than the cascade's — orphan `**` leaking as literal
-      // markers, meaning-inverted MT (e.g. DE "Nachtwache" → IT "orologio
-      // notturno") never corrected, a German "(m/w/d)" surviving verbatim into an
-      // Italian title, and a leaked "(ORGANIZZAZIONE)" reaching the dataset.
-      // Returns '' when nothing meaningful survives, which the guard chain skips.
-      // The whole chain (empty-raw → finalize-empty → source-copy →
-      // existing-good → language arm) lives in classifyMopupWrite() so the
-      // reject audit can observe it.
-      const { decision, incoming, reason, languageDriven } = classifyMopupWrite({
-        job, locale, field, rawText: text, protectedTokens,
+      // The complete guard chain remains a single callable. Both the initial
+      // Argos result and a successful Opus rescue are judged against the exact
+      // job snapshot that will be persisted below.
+      const initial = classifyMopupWrite({
+        job,
+        locale: edit.locale,
+        field: edit.field,
+        rawText: edit.text,
+        protectedTokens: edit.protectedTokens,
       });
-      decisionTally[decision] = (decisionTally[decision] || 0) + 1;
-      if (languageDriven) {
-        const bucket = decision === 'write' ? langWriteReasons : langSkipReasons;
-        bucket[reason] = (bucket[reason] || 0) + 1;
+      decisionTally[initial.decision] = (decisionTally[initial.decision] || 0) + 1;
+      if (initial.languageDriven) {
+        const bucket = initial.decision === 'write' ? langWriteReasons : langSkipReasons;
+        bucket[initial.reason] = (bucket[initial.reason] || 0) + 1;
       }
-      // Shadow arm: with the switch off, a language-driven write is counted and
-      // withheld. The corpus is untouched and the log still reports the volume.
-      // Missing fields remain eligible regardless of the rollout switch.
-      const rescue = opusRescue?.writes.get(id);
+
+      const rescue = opusRescue?.writes.get(edit.id);
       const finalCandidate = rescue
         ? classifyMopupWrite({
             job,
-            locale,
-            field,
+            locale: edit.locale,
+            field: edit.field,
             rawText: rescue.rawText,
-            protectedTokens,
+            protectedTokens: edit.protectedTokens,
           })
-        : { decision, incoming, languageDriven };
+        : initial;
+      const semanticVerdict = finalCandidate.semanticVerdict;
+      if (semanticVerdict) {
+        if (!SEMANTIC_VERDICTS.includes(semanticVerdict)) {
+          semanticVerdicts.error++;
+        } else {
+          semanticVerdicts[semanticVerdict]++;
+        }
+      }
+      prepared.push({ ...edit, data, filePath, job, bag, initial, finalCandidate, rescue });
+    }
+    if (prepared.length > 0) preparedByFile.set(file, prepared);
+  }
+
+  const acceptedSemanticWrites = semanticVerdicts.accepted;
+  const semanticCapExceeded = acceptedSemanticWrites > SEMANTIC_WRITE_CAP;
+  if (semanticVerdicts.error > 0) {
+    semanticWritesWithheld = acceptedSemanticWrites;
+    console.error('❌ [local-mt] Semantic judge returned an error — withholding the entire mop-up batch (rollback).');
+    emitSemanticTelemetry({
+      status: 'error',
+      rollback: true,
+      reason: 'semantic-judge-error',
+      error: `${semanticVerdicts.error} semantic error verdict(s)`,
+    });
+    process.exitCode = 1;
+    return;
+  }
+  if (LANG_AWARE_OVERWRITE && semanticCapExceeded) {
+    semanticWritesWithheld = acceptedSemanticWrites;
+    console.error(`❌ [local-mt] Semantic write cap exceeded (${acceptedSemanticWrites} accepted > ${SEMANTIC_WRITE_CAP}) — withholding the entire mop-up batch (rollback).`);
+    emitSemanticTelemetry({
+      status: 'error',
+      rollback: true,
+      reason: 'semantic-write-cap-exceeded',
+      error: `${acceptedSemanticWrites} accepted semantic writes exceed cap ${SEMANTIC_WRITE_CAP}`,
+    });
+    process.exitCode = 1;
+    return;
+  }
+  if (!LANG_AWARE_OVERWRITE) semanticWritesWithheld = acceptedSemanticWrites;
+
+  for (const [file, edits] of preparedByFile) {
+    if (!budgetOk()) {
+      console.log('⏰ [local-mt] Time budget reached — stopping before remaining files (already-translated fields stay in memory but unwritten).');
+      break;
+    }
+    const data = edits[0].data;
+    const filePath = edits[0].filePath;
+
+    let fileChanged = false;
+    const touchedJobs = new Set();
+
+    for (const {
+      id, jobIdx, locale, field, protectedTokens, negativeCacheKey, job, bag, finalCandidate, rescue,
+    } of edits) {
       if (rescue && finalCandidate.decision === 'write') {
         if (negativeCache.entries[negativeCacheKey]) {
           delete negativeCache.entries[negativeCacheKey];
@@ -1131,9 +1393,6 @@ async function main() {
         languageDriven: finalCandidate.languageDriven,
         langAwareOverwrite: LANG_AWARE_OVERWRITE,
       })) {
-        if (decision === 'write' && languageDriven) {
-          shadowWithheld++;
-        }
         continue;
       }
 
@@ -1153,7 +1412,10 @@ async function main() {
       job[bag][locale] = finalCandidate.incoming;
       fileChanged = true;
       fieldsFilled++;
-      if (languageDriven) languageFieldsRewritten++;
+      if (finalCandidate.languageDriven) {
+        languageFieldsRewritten++;
+        if (finalCandidate.semanticVerdict === 'accepted') semanticWritesApplied++;
+      }
       touchedJobs.add(jobIdx);
     }
 
@@ -1203,13 +1465,17 @@ async function main() {
   const langWrites = Object.values(langWriteReasons).reduce((a, b) => a + b, 0);
   const langSkips = Object.values(langSkipReasons).reduce((a, b) => a + b, 0);
   console.log(`\n🌍 [local-mt] Language arm — LOCAL_MT_LANG_AWARE_OVERWRITE=${LANG_AWARE_OVERWRITE ? '1 (ENFORCING, writes applied)' : '0 (SHADOW, writes withheld)'}`);
-  console.log(`   ${langWrites} wrong-language slots with a target-language candidate${LANG_AWARE_OVERWRITE ? ` → ${languageFieldsRewritten} actually overwritten` : ` → WITHHELD (${shadowWithheld} not written)`}`);
+  console.log(`   ${langWrites} wrong-language slots with a target-language candidate${LANG_AWARE_OVERWRITE ? ` → ${languageFieldsRewritten} actually overwritten` : ` → WITHHELD (${semanticWritesWithheld} not written)`}`);
   for (const [reason, n] of sorted(langWriteReasons)) console.log(`      existing was ${reason.padEnd(22)} ${String(n).padStart(6)}`);
   console.log(`   ${langSkips} wrong-language slots whose candidate was ALSO wrong-language → still rejected`);
   for (const [reason, n] of sorted(langSkipReasons)) console.log(`      candidate was ${reason.padEnd(21)} ${String(n).padStart(6)}`);
+  if (semanticCapExceeded) {
+    console.warn(`⚠️  [local-mt] Semantic candidates exceed the per-run cap (${acceptedSemanticWrites}/${SEMANTIC_WRITE_CAP}); the kill-switch remains ${LANG_AWARE_OVERWRITE ? 'ENFORCING' : 'OFF/SHADOW'}.`);
+  }
   if (!LANG_AWARE_OVERWRITE && langWrites > 0) {
     console.log(`   ℹ️  Set repo variable LOCAL_MT_LANG_AWARE_OVERWRITE=1 to apply these ${langWrites} writes.`);
   }
+  emitSemanticTelemetry({ reason: semanticCapExceeded ? 'semantic-cap-observed-in-shadow' : 'semantic-rollout-complete' });
   console.log('✅ [local-mt] Local MT mop-up complete.');
 }
 

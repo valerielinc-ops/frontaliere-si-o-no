@@ -2,9 +2,13 @@ import { describe, it, expect } from 'vitest';
 import {
   buildMopupRequest,
   classifyMopupWrite,
+  createSemanticTelemetry,
+  DEFAULT_SEMANTIC_WRITE_CAP,
+  judgeMopupSemanticCandidate,
   missingSlots,
   negativeMopupCacheKey,
   opusMtRescueEnabled,
+  parseSemanticWriteCap,
   rescueMopupRejects,
 } from '../scripts/local-mt-mopup.mjs';
 
@@ -302,5 +306,62 @@ describe('local-mt-mopup OpusMT rescue', () => {
 
     expect(rescue).toMatchObject({ attempted: 0, recovered: 0, deferred: 1 });
     expect(rescue.writes.size).toBe(0);
+  });
+});
+
+describe('local-mt-mopup semantic rollout telemetry', () => {
+  it('keeps the semantic cap finite and rejects malformed overrides', () => {
+    expect(DEFAULT_SEMANTIC_WRITE_CAP).toBeGreaterThan(0);
+    expect(parseSemanticWriteCap()).toBe(DEFAULT_SEMANTIC_WRITE_CAP);
+    expect(parseSemanticWriteCap('0')).toBe(0);
+    expect(parseSemanticWriteCap('100')).toBe(100);
+    expect(parseSemanticWriteCap('-1')).toBeNull();
+    expect(parseSemanticWriteCap('1.5')).toBeNull();
+    expect(parseSemanticWriteCap('unlimited')).toBeNull();
+    expect(parseSemanticWriteCap('9007199254740992')).toBeNull();
+  });
+
+  it('normalizes accepted, rejected, unclear and error outcomes fail-closed', () => {
+    expect(judgeMopupSemanticCandidate({
+      existingVerdict: { untranslated: true, reason: 'source-overlap' },
+      candidateVerdict: { untranslated: false, reason: 'ok' },
+    })).toEqual({ verdict: 'accepted', reason: 'source-overlap' });
+    expect(judgeMopupSemanticCandidate({
+      existingVerdict: { untranslated: true, reason: 'source-overlap' },
+      candidateVerdict: { untranslated: true, reason: 'compound-residue' },
+    })).toEqual({ verdict: 'rejected', reason: 'compound-residue' });
+    expect(judgeMopupSemanticCandidate({
+      existingVerdict: { untranslated: false, reason: 'ok' },
+    })).toEqual({ verdict: 'unclear', reason: 'existing-not-proven-untranslated' });
+    expect(judgeMopupSemanticCandidate({ existingVerdict: null })).toEqual({
+      verdict: 'error', reason: 'invalid-existing-verdict',
+    });
+  });
+
+  it('emits only bounded counters and records rollback metadata without raw job values', () => {
+    const report = createSemanticTelemetry({
+      phase: 'phase-2a',
+      killSwitchEnabled: true,
+      cap: 2,
+      semanticVerdicts: { accepted: 3, rejected: 4, unclear: 1, error: 0 },
+      writesWithheld: 3,
+      writesApplied: 0,
+      status: 'error',
+      rollback: true,
+      reason: 'semantic-write-cap-exceeded',
+    });
+
+    expect(report).toMatchObject({
+      schemaVersion: 1,
+      phase: 'phase-2a',
+      semanticVerdicts: { accepted: 3, rejected: 4, unclear: 1, error: 0 },
+      writesWithheld: 3,
+      writesApplied: 0,
+      cap: { name: 'LOCAL_MT_SEMANTIC_WRITE_CAP', value: 2, accepted: 3, exceeded: true },
+      status: 'error',
+      rollback: true,
+    });
+    expect(JSON.stringify(report)).not.toContain('private-job');
+    expect(JSON.stringify(report)).not.toContain('https://');
   });
 });

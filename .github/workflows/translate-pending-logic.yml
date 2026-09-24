@@ -246,10 +246,12 @@ jobs:
         env:
           ROLLOUT_REPOSITORY: ${{ github.repository }}
           ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          SEMANTIC_WRITE_CAP: ${{ vars.LOCAL_MT_SEMANTIC_WRITE_CAP || '100' }}
           OPUSMT_RESCUE_SWITCH: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
         run: |
           echo "Translation rollout repository=$ROLLOUT_REPOSITORY"
           echo "LOCAL_MT_LANG_AWARE_OVERWRITE=$ROLLOUT_SWITCH"
+          echo "LOCAL_MT_SEMANTIC_WRITE_CAP=$SEMANTIC_WRITE_CAP"
           echo "LOCAL_MT_OPUSMT_RESCUE=$OPUSMT_RESCUE_SWITCH"
 
       - name: Log translation stats (before)
@@ -277,6 +279,12 @@ jobs:
           # Default '0' = the arm runs and COUNTS but withholds the write, so a run
           # can be read before it is allowed to act. Set the repo variable to '1'.
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          # Hard cap for accepted semantic overwrites. The local script
+          # preflights the full batch and rolls back before any slice write when
+          # an enabled rollout would exceed it.
+          LOCAL_MT_SEMANTIC_WRITE_CAP: ${{ vars.LOCAL_MT_SEMANTIC_WRITE_CAP || '100' }}
+          LOCAL_MT_SEMANTIC_PHASE: 'phase-2a'
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
           # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
           # only after the rollout is approved.
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
@@ -284,6 +292,44 @@ jobs:
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
+
+      - name: Enforce Argos semantic rollout guard (Phase 2a)
+        id: semantic_rollout_guard_phase_2a
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
+        env:
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          const file = process.env.LOCAL_MT_SEMANTIC_TELEMETRY_PATH;
+          if (!file || !fs.existsSync(file)) {
+            console.error(`::error::Argos semantic telemetry is missing: ${file || '(unset)'}`);
+            process.exit(1);
+          }
+          let report;
+          try {
+            report = JSON.parse(fs.readFileSync(file, 'utf8'));
+          } catch (error) {
+            console.error(`::error::Argos semantic telemetry is unreadable: ${error.message}`);
+            process.exit(1);
+          }
+          const verdicts = report?.semanticVerdicts;
+          const names = ['accepted', 'rejected', 'unclear', 'error'];
+          const valid = report?.schemaVersion === 1
+            && names.every((name) => Number.isSafeInteger(verdicts?.[name]) && verdicts[name] >= 0)
+            && Number.isSafeInteger(report?.writesWithheld) && report.writesWithheld >= 0
+            && Number.isSafeInteger(report?.cap?.value) && report.cap.value >= 0;
+          if (!valid) {
+            console.error('::error::Argos semantic telemetry failed its bounded schema check; refusing to publish the batch.');
+            process.exit(1);
+          }
+          if (report.rollback === true || report.status === 'error' || report.cap.exceeded && report.killSwitch?.enabled) {
+            console.error(`::error::Argos semantic rollout failed closed (${report.reason || 'unreported reason'}); no semantic writes may be published.`);
+            process.exit(1);
+          }
+          console.log(`Argos semantic rollout guard passed: accepted=${verdicts.accepted} withheld=${report.writesWithheld} cap=${report.cap.value}.`);
+          NODE
 
       # Keep this re-assemble on the default full form. The baseline and Phase
       # 2b cascade consume the dataset produced here, so skipping summaries
@@ -300,7 +346,7 @@ jobs:
       # later timeout from hiding work that was already translated locally.
       - name: Commit Argos translations before cascade
         id: commit_argos_translations
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1' && steps.semantic_rollout_guard_phase_2a.outcome != 'failure'
         env:
           SKIP_AI_TRANSLATION: '1'
         run: |
@@ -411,6 +457,9 @@ jobs:
           # Default '0' = the arm runs and COUNTS but withholds the write, so a run
           # can be read before it is allowed to act. Set the repo variable to '1'.
           LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          LOCAL_MT_SEMANTIC_WRITE_CAP: ${{ vars.LOCAL_MT_SEMANTIC_WRITE_CAP || '100' }}
+          LOCAL_MT_SEMANTIC_PHASE: 'phase-2c'
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
           # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
           # only after the rollout is approved.
           LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
@@ -418,6 +467,44 @@ jobs:
           TRANSFORMERS_CACHE: .cache/transformers
           INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
         run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
+
+      - name: Enforce Argos semantic rollout guard (Phase 2c)
+        id: semantic_rollout_guard_phase_2c
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        env:
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
+        run: |
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+
+          const file = process.env.LOCAL_MT_SEMANTIC_TELEMETRY_PATH;
+          if (!file || !fs.existsSync(file)) {
+            console.error(`::error::Argos semantic telemetry is missing: ${file || '(unset)'}`);
+            process.exit(1);
+          }
+          let report;
+          try {
+            report = JSON.parse(fs.readFileSync(file, 'utf8'));
+          } catch (error) {
+            console.error(`::error::Argos semantic telemetry is unreadable: ${error.message}`);
+            process.exit(1);
+          }
+          const verdicts = report?.semanticVerdicts;
+          const names = ['accepted', 'rejected', 'unclear', 'error'];
+          const valid = report?.schemaVersion === 1
+            && names.every((name) => Number.isSafeInteger(verdicts?.[name]) && verdicts[name] >= 0)
+            && Number.isSafeInteger(report?.writesWithheld) && report.writesWithheld >= 0
+            && Number.isSafeInteger(report?.cap?.value) && report.cap.value >= 0;
+          if (!valid) {
+            console.error('::error::Argos semantic telemetry failed its bounded schema check; refusing to publish the batch.');
+            process.exit(1);
+          }
+          if (report.rollback === true || report.status === 'error' || report.cap.exceeded && report.killSwitch?.enabled) {
+            console.error(`::error::Argos semantic rollout failed closed (${report.reason || 'unreported reason'}); no semantic writes may be published.`);
+            process.exit(1);
+          }
+          console.log(`Argos semantic rollout guard passed: accepted=${verdicts.accepted} withheld=${report.writesWithheld} cap=${report.cap.value}.`);
+          NODE
 
       # Phase 2c mutates slices only. Re-assemble slice -> dataset; scattering
       # the stale assembled file in this direction would erase its new fills.
@@ -429,7 +516,7 @@ jobs:
 
       - name: Commit translations
         id: commit_translations
-        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true && steps.semantic_rollout_guard_phase_2a.outcome != 'failure' && steps.semantic_rollout_guard_phase_2c.outcome != 'failure'
         env:
           SKIP_AI_TRANSLATION: '1'
         run: |
@@ -532,6 +619,18 @@ jobs:
             --mode finalize --report "$RUNNER_TEMP/translation-observability.json" \
             --output "$RUNNER_TEMP/translation-observability.json" \
             --final-commit "${{ steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}"
+
+      - name: Upload Argos semantic rollout telemetry
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-semantic-rollout-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
+            ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
+          retention-days: 14
+          if-no-files-found: warn
 
       - name: Finalize translation shadow preflight v2 observation
         id: translation_shadow_preflight_v2_finalize

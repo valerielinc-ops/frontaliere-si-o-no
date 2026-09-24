@@ -5,6 +5,7 @@ import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 
 const workflow = fs.readFileSync(path.resolve('.github/workflows/translate-pending-logic.yml'), 'utf8');
+const legacyWorkflow = fs.readFileSync(path.resolve('.github/workflows/translate-pending.yml'), 'utf8');
 const portableWorkflow = fs.readFileSync(path.resolve('.github/corpus-workflows/translate-pending.yml'), 'utf8');
 const portableContract = JSON.parse(fs.readFileSync(path.resolve('.github/corpus-workflows/contract.json'), 'utf8'));
 const titleFixScript = fs.readFileSync(path.resolve('scripts/fix-untranslated-titles.mjs'), 'utf8');
@@ -224,6 +225,51 @@ describe('translation observability workflow', () => {
     expect(runs).toContain('node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"');
     expect(runs).toContain('node scripts/assemble-jobs-dataset.mjs');
     expect(runs).not.toContain('gh workflow run');
+  });
+
+  it('bounds the Argos semantic arm, reuses the default-off kill-switch, and uploads rollback evidence', () => {
+    for (const [label, document] of [
+      ['legacy source', legacyWorkflow],
+      ['source logic', workflow],
+      ['portable artifact', portableWorkflow],
+    ]) {
+      expect(document, `${label}: semantic cap missing`).toContain('LOCAL_MT_SEMANTIC_WRITE_CAP');
+      expect(document, `${label}: default-off kill-switch missing`).toContain("LOCAL_MT_LANG_AWARE_OVERWRITE || '0'");
+      expect(document, `${label}: semantic verdict counters missing`).toContain('semanticVerdicts');
+      expect(document, `${label}: writes-withheld counter missing`).toContain('writesWithheld');
+      expect(document, `${label}: rollback signal missing`).toContain('rollback');
+    }
+
+    const steps = parseTranslationSteps(workflow);
+    const phase2a = steps.find((step) => step.name === 'Phase 2a: Local MT bulk translate (Argos)');
+    const phase2c = steps.find((step) => step.name === 'Phase 2c mop-up: local MT (Argos Translate, in-process)');
+    const guard2a = steps.find((step) => step.name === 'Enforce Argos semantic rollout guard (Phase 2a)');
+    const guard2c = steps.find((step) => step.name === 'Enforce Argos semantic rollout guard (Phase 2c)');
+    const upload = steps.find((step) => step.name === 'Upload Argos semantic rollout telemetry');
+    expect(phase2a?.env).toMatchObject({
+      LOCAL_MT_SEMANTIC_WRITE_CAP: "${{ vars.LOCAL_MT_SEMANTIC_WRITE_CAP || '100' }}",
+      LOCAL_MT_SEMANTIC_PHASE: 'phase-2a',
+    });
+    expect(phase2c?.env).toMatchObject({
+      LOCAL_MT_SEMANTIC_WRITE_CAP: "${{ vars.LOCAL_MT_SEMANTIC_WRITE_CAP || '100' }}",
+      LOCAL_MT_SEMANTIC_PHASE: 'phase-2c',
+    });
+    expect(guard2a?.run).toContain('report.rollback === true');
+    expect(guard2a?.run).toContain('report.cap.exceeded');
+    expect(guard2c?.run).toContain('report.rollback === true');
+    expect(guard2c?.run).toContain('report.cap.exceeded');
+    expect(upload).toMatchObject({
+      'continue-on-error': true,
+      uses: `actions/upload-artifact@${UPLOAD_ARTIFACT_V7_SHA}`,
+    });
+    expect(JSON.stringify(upload?.with)).toContain('local-mt-semantic-telemetry-phase-2a.json');
+    expect(JSON.stringify(upload?.with)).toContain('local-mt-semantic-telemetry-phase-2c.json');
+
+    const argosCommit = steps.find((step) => step.name === 'Commit Argos translations before cascade');
+    const translationsCommit = steps.find((step) => step.name === 'Commit translations');
+    expect(argosCommit?.if).toContain("steps.semantic_rollout_guard_phase_2a.outcome != 'failure'");
+    expect(translationsCommit?.if).toContain("steps.semantic_rollout_guard_phase_2a.outcome != 'failure'");
+    expect(translationsCommit?.if).toContain("steps.semantic_rollout_guard_phase_2c.outcome != 'failure'");
   });
 
   it('wires only shadow preflight v2 through source, generated artifact, and hash contract', () => {
