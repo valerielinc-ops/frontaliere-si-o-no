@@ -95,6 +95,7 @@ import {
   TOKEN_SCOPES,
 } from '../functions/src/lib/newsletterActionToken.js';
 import { normalizeLocale } from '../functions/src/emailI18n.js';
+import { resolveConfirmationJobContext } from '../functions/src/lib/confirmationJobContext.js';
 import { resolveSubscriberLocale } from '../functions/src/lib/subscriberLocale.js';
 import { hasConfirmationProof } from '../services/subscriberConsent.mjs';
 import { commitInChunks } from './lib/firestore-batch.mjs';
@@ -235,6 +236,10 @@ export function buildFollowupRequest(item, { secret, tokenPolicy } = {}) {
     // absent. `confirmationFirstSentAt` returns null on a document that has no
     // anchor and the copy falls back to an undated wording.
     firstSentAt: confirmationFirstSentAt(item.data),
+    // Same resolver, same document as request #1 in the Cloud Function, so a
+    // reminder names the same offer the first request named — the reminder is
+    // still the first email plus a banner, whichever variant that was.
+    jobContext: resolveConfirmationJobContext(item.data),
   });
   return {
     payload: { from: CONFIRMATION_FROM_EMAIL, to: email, subject, html, tags },
