@@ -1743,6 +1743,13 @@ async function reportGA4(token) {
     { parameterName: 'metric_name', displayName: 'Web Vitals Metric Name', description: 'Web Vitals metric name (LCP, INP, CLS)' },
     { parameterName: 'metric_value', displayName: 'Web Vitals Metric Value', description: 'Web Vitals metric value (CLS in thousandths, other metrics in milliseconds)' },
     { parameterName: 'metric_rating', displayName: 'Web Vitals Metric Rating', description: 'Web Vitals metric rating (good, needs-improvement, poor)' },
+    // Employer insights (scripts/build-employer-insights.mjs). The refresh
+    // queries these parameters as customEvent dimensions; emission_id is the
+    // D18 evidence probe that the fail-closed refresh gate requires (#9403).
+    // Already-registered parameters are skipped, so listing them is idempotent.
+    { parameterName: 'employer_key', displayName: 'Employer Key', description: 'Stable employer key attached to job and employer-profile events' },
+    { parameterName: 'job_slug', displayName: 'Job Slug', description: 'Job ad slug attached to job detail and apply events' },
+    { parameterName: 'emission_id', displayName: 'Analytics Emission ID', description: 'Per-emission analytics identifier used to deduplicate employer-insights events' },
   ];
 
   try {

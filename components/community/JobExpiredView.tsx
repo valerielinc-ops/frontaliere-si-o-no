@@ -27,6 +27,7 @@ import { AD_SLOTS, shouldPlaceInfeedAd } from '@/services/adsenseSlots';
 import { getJobLocationSnapshot } from '@/services/jobLocationSnapshot';
 import { buildPath } from '@/services/router';
 import { useMediaQuery } from '@/hooks/useMediaQuery';
+import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import AdSenseBanner from '@/components/shared/AdSenseBanner';
 import ArticleRailAdStack from '@/components/shared/ArticleRailAdStack';
@@ -160,7 +161,7 @@ const JOB_EMAIL_ACCESS_KEY = 'ft_job_email';
 
 export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAccess: hasAccessProp, totalActiveJobs, onNavigateToCompany, onNavigateToLocation, onNavigateToJob, onPostJob, onNavigateToSearch }: JobExpiredViewProps) {
  const [locale] = useLocale();
- const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+ const { headline: gateHeadline, variant: gateVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const isDesktopXl = useMediaQuery('(min-width: 1280px)');
  const isDesktopLg = useMediaQuery('(min-width: 1024px)');
  const googleButtonRef = useRef<HTMLDivElement>(null);
@@ -237,8 +238,25 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  company: job.company,
  jobTitle: localizedTitle,
  location: jobLocation,
+ surface: 'expired',
  });
  }, [job.slug, alreadySignedIn]);
+
+ // Visible-gate impression, paired on cta_id with the email success below:
+ // `job_auth_gate.expired.unknown.view` → `job_auth_gate.expired.email.success`.
+ const gateImpressionRef = useCaptureImpression({
+  page: 'job_auth_gate',
+  section: 'expired',
+  variant: 'view',
+  ctaId: 'job_auth_gate.expired.unknown.view',
+  enabled: !alreadySignedIn,
+  emit: () => Analytics.trackJobAuthGate('view', {
+   surface: 'expired',
+   authState: 'anonymous',
+   variant: gateVariant,
+   jobSlug: job.slug,
+  }),
+ });
 
  // ── Auth setup ──
 
@@ -288,6 +306,24 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  sourceComponent: 'JobExpiredView',
  sourceRouteFamily: 'job-board',
  jobContext: newsletterJobContext,
+ });
+ Analytics.trackJobAuthGate('success', {
+  surface: 'expired',
+  method: 'email',
+  authState: 'pending_email',
+  variant: gateVariant,
+  jobSlug: job.slug,
+ });
+ Analytics.trackJobAuthFunnel('auth_success', {
+  method: 'email',
+  emailDomain: email.split('@')[1] || 'unknown',
+  company: job.company,
+  jobTitle: localizedTitle,
+  location: jobLocation,
+  surface: 'expired',
+  authState: 'pending_email',
+  variant: gateVariant,
+  jobSlug: job.slug,
  });
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  window.location.reload();
@@ -874,7 +910,7 @@ export default function JobExpiredView({ job, relatedJobs = [], onBack, hasAcces
  )}
 
  {/* Auth gate */}
- <div id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
+ <div ref={gateImpressionRef} id="job-auth-gate" role="region" aria-label={t('jobBoard.gate.title')} className="relative z-10 mt-3 scroll-mt-20 rounded-stripe border border-accent-border bg-accent-subtle p-4 sm:p-6">
  <h2 className="flex items-start gap-2 text-lg sm:text-xl font-bold font-display text-heading leading-tight">
  <Eye className="w-5 h-5 mt-0.5 text-accent flex-shrink-0" aria-hidden="true" />
  <span>{gateHeadline}</span>
