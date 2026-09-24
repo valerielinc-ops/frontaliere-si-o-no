@@ -60,6 +60,7 @@ const defaultProps = {
   companyName: 'EOC',
   jobTitle: 'Fisioterapista diplomato',
   onContinue: vi.fn(),
+  onUnavailable: vi.fn(),
 };
 
 describe('RewardedApplicationOffer', () => {
@@ -88,20 +89,24 @@ describe('RewardedApplicationOffer', () => {
     expect(rewardedMock.props?.autoStart).not.toBe(true);
   });
 
-  it('keeps the visitor in the monetized path when Google has no paid fill', () => {
-    render(<RewardedApplicationOffer {...defaultProps} />);
+  it('redirects the visitor without retrying when Google has no paid fill', () => {
+    const onUnavailable = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
 
     fireEvent.click(screen.getByTestId('mock-google-no-fill'));
 
-    expect(screen.getByRole('button', { name: 'Riprova con il video' })).toBeInTheDocument();
+    expect(onUnavailable).toHaveBeenCalledWith('no_fill');
+    expect(screen.queryByRole('button', { name: 'Riprova con il video' })).not.toBeInTheDocument();
   });
 
-  it('keeps the visitor in the monetized path when consent is required', () => {
-    render(<RewardedApplicationOffer {...defaultProps} />);
+  it('reports consent ineligibility without retrying the empty request', () => {
+    const onUnavailable = vi.fn();
+    render(<RewardedApplicationOffer {...defaultProps} onUnavailable={onUnavailable} />);
 
     fireEvent.click(screen.getByTestId('mock-google-consent-required'));
 
-    expect(screen.getByRole('button', { name: 'Riprova con il video' })).toBeInTheDocument();
+    expect(onUnavailable).toHaveBeenCalledWith('consent_required');
+    expect(screen.queryByRole('button', { name: 'Riprova con il video' })).not.toBeInTheDocument();
   });
 
   it('unlocks only after the authoritative Google reward signal and waits for an explicit continue', () => {

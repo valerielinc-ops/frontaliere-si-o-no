@@ -48,7 +48,10 @@ describe('assisted application JobBoard handoff', () => {
   });
 
   it('uses the original employer destination only after rewarded continue', () => {
-    expect(jobBoardSource).not.toContain("rewarded_application_inline_unavailable");
+    // Direct no-fill handoff is covered by the source contract below.
+    expect(jobBoardSource).toMatch(
+      /const handleRewardedApplicationUnavailable = \(reason: string\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_unavailable', true, true\);/,
+    );
     expect(jobBoardSource).toMatch(
       /const handleRewardedApplicationContinue = \(\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_completed', true, true\);/,
     );

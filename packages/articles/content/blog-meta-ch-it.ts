@@ -6659,6 +6659,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.parco-veicoli-svizzera-2026.title': 'Parco veicoli Svizzera: i dati aggiornati a settembre 2026',
     'blog.article.parco-veicoli-svizzera-2026.excerpt': 'Analisi del parco veicoli svizzero: oltre 7,1 milioni di mezzi circolanti. Dati ASTRA sulle nuove immatricolazioni e importazioni di usati nei 26 cantoni.',
     'blog.article.parco-veicoli-svizzera-2026.imageAlt': 'Traffico urbano in una città svizzera con veicoli di diverse tipologie',
+    'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.title': 'No alla naturalizzazione dopo 5 anni',
+    'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.excerpt': 'Il Parlamento svizzero respinge l\'iniziativa per la cittadinanza dopo 5 anni di soggiorno legale',
+    'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.imageAlt': 'Parlamento svizzero a Berna con decisioni politiche nazionali',
 };
 
 export default blogMetaChIt;

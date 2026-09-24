@@ -25,6 +25,7 @@
  * Env:
  *   DRY_RUN=1   — log what would change, don't write
  *   MAX_COMMITS=N — cap history depth per file (default: unbounded)
+ *   CRAWLER_KEYS=key-a,key-b — restrict one run to a bounded crawler batch
  */
 
 import fs from 'node:fs';
@@ -52,7 +53,11 @@ const DRY_RUN = process.env.DRY_RUN === '1';
 const MAX_COMMITS = process.env.MAX_COMMITS ? Number(process.env.MAX_COMMITS) : 0;
 
 const argv = process.argv.slice(2).filter((a) => !a.startsWith('-'));
-const onlyKeys = new Set(argv);
+const envKeys = String(process.env.CRAWLER_KEYS || '')
+  .split(/[\s,]+/u)
+  .map((key) => key.trim())
+  .filter(Boolean);
+const onlyKeys = new Set([...argv, ...envKeys]);
 
 function git(args, { quiet = false } = {}) {
   return execFileSync('git', args, {
