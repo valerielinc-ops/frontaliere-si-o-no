@@ -11946,6 +11946,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.pensione-pubblica-svizzera-non-tassata-italia.title': 'Öffentliche Rente Schweiz: Keine Besteuerung in Italien',
     'blog.article.pensione-pubblica-svizzera-non-tassata-italia.excerpt': 'Antwort auf Anfrage Nr. 177/2026 der Agentur der Einnahmen: Öffentliche Rente VBS, die von der Cassa PUBLICA ohne Steuern in Italien für Personen mit doppelter italienisch-schweizerischer Staatsbürgerschaft gezahlt wird.',
     'blog.article.pensione-pubblica-svizzera-non-tassata-italia.imageAlt': 'Blick auf den Luganer See mit Bergen im Hintergrund, das grenzüberschreitende Finanzleben in der Tessin darstellend',
+    'blog.article.mobilizzazione-ferroviaria-luino-svizzera.title': 'Linie Luino-Schweiz: Aktion haftet an Lombardei bewegt sich',
+    'blog.article.mobilizzazione-ferroviaria-luino-svizzera.excerpt': 'Samstag, 26. September Mobilisierung in den lombardischen Bahnhöfen für die Effizienz der Eisenbahn. Fokus auf Strecke Luino-Schweiz und Unterschriftensammlung für den Minister.',
+    'blog.article.mobilizzazione-ferroviaria-luino-svizzera.imageAlt': 'Regionalzug kommt in einem Bahnhof im Tessin an',
 };
 
 export default blogMetaDe;
