@@ -30,6 +30,7 @@ import {
   LOCALES,
   promotePreviousSlugToLegacy,
 } from './dedicated-crawler-common.mjs';
+import { buildStableJobIdentity } from './job-identity.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -46,6 +47,7 @@ const DEFAULT_EXPIRED_SLICES_DIR = path.join(ROOT, 'data', 'jobs', 'expired', 'b
  * @returns {object} expired entry
  */
 export function buildExpiredEntry(job) {
+  const sourceIdentity = job?.sourceIdentity || (job?.url ? buildStableJobIdentity(job) : '');
   const entry = {
     slug: job.slug,
     title: job.title || '',
@@ -75,12 +77,21 @@ export function buildExpiredEntry(job) {
     salaryCurrency: job.salaryCurrency || 'CHF',
     salaryPeriod: job.salaryPeriod || 'YEAR',
     dedupArchive: job.dedupArchive === true ? true : undefined,
+    sourceIdentity: sourceIdentity || undefined,
+    firstSeenAt: job.firstSeenAt || undefined,
+    sourceIdentityHistory:
+      Array.isArray(job.sourceIdentityHistory) && job.sourceIdentityHistory.length > 0
+        ? JSON.parse(JSON.stringify(job.sourceIdentityHistory))
+        : undefined,
   };
   if (!entry.postalCode) delete entry.postalCode;
   if (!entry.streetAddress) delete entry.streetAddress;
   if (!entry.salaryMin) delete entry.salaryMin;
   if (!entry.salaryMax) delete entry.salaryMax;
   if (entry.dedupArchive !== true) delete entry.dedupArchive;
+  if (!entry.sourceIdentity) delete entry.sourceIdentity;
+  if (!entry.firstSeenAt) delete entry.firstSeenAt;
+  if (!entry.sourceIdentityHistory) delete entry.sourceIdentityHistory;
   return entry;
 }
 
@@ -160,6 +171,69 @@ export function normalizeExpiredAtEntries(entries, opts = {}) {
 }
 
 /**
+ * Preserve first-seen metadata when two archive payloads collapse onto one
+ * route. Route history can represent multiple legitimate source postings, so
+ * a single `sourceIdentity` is not enough after a dedup merge.
+ *
+ * @returns {boolean} whether the survivor changed
+ */
+export function mergeSourceIdentityHistory(survivor, removed) {
+  if (!survivor || typeof survivor !== 'object' || !removed || typeof removed !== 'object') {
+    return false;
+  }
+
+  const byIdentity = new Map();
+  const add = (identity, firstSeenAt, title) => {
+    if (!identity) return;
+    const incoming = {
+      sourceIdentity: identity,
+      ...(firstSeenAt ? { firstSeenAt } : {}),
+      ...(title ? { title } : {}),
+    };
+    const current = byIdentity.get(identity);
+    if (!current) {
+      byIdentity.set(identity, incoming);
+      return;
+    }
+    const currentTime = Date.parse(current.firstSeenAt || '');
+    const incomingTime = Date.parse(incoming.firstSeenAt || '');
+    if ((!Number.isFinite(currentTime) && Number.isFinite(incomingTime))
+      || (Number.isFinite(currentTime) && Number.isFinite(incomingTime) && incomingTime < currentTime)) {
+      byIdentity.set(identity, { ...current, ...incoming });
+    }
+  };
+  const addRecord = (record) => {
+    add(record.sourceIdentity, record.firstSeenAt, record.title);
+    for (const history of Array.isArray(record.sourceIdentityHistory) ? record.sourceIdentityHistory : []) {
+      add(history?.sourceIdentity, history?.firstSeenAt || record.firstSeenAt, history?.title || record.title);
+    }
+  };
+  addRecord(survivor);
+  addRecord(removed);
+
+  const history = [...byIdentity.values()].sort((a, b) => (
+    a.sourceIdentity < b.sourceIdentity ? -1 : a.sourceIdentity > b.sourceIdentity ? 1 : 0
+  ));
+  const before = JSON.stringify({
+    sourceIdentity: survivor.sourceIdentity,
+    firstSeenAt: survivor.firstSeenAt,
+    sourceIdentityHistory: survivor.sourceIdentityHistory,
+  });
+
+  if (!survivor.sourceIdentity && history[0]) survivor.sourceIdentity = history[0].sourceIdentity;
+  if (!survivor.firstSeenAt && history[0]?.firstSeenAt) survivor.firstSeenAt = history[0].firstSeenAt;
+  if (history.length > 1) survivor.sourceIdentityHistory = history;
+  else delete survivor.sourceIdentityHistory;
+
+  const after = JSON.stringify({
+    sourceIdentity: survivor.sourceIdentity,
+    firstSeenAt: survivor.firstSeenAt,
+    sourceIdentityHistory: survivor.sourceIdentityHistory,
+  });
+  return before !== after;
+}
+
+/**
  * Archive removed jobs to a per-crawler expired slice file.
  *
  * Merges with any existing entries by `slug`, keeping the most-recently
@@ -199,6 +273,7 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
   const sizeBefore = bySlug.size;
 
   let added = 0;
+  let metadataChanged = false;
   for (const job of removedJobs) {
     if (!job?.slug) continue;
     const entry = buildExpiredEntry(job);
@@ -208,12 +283,15 @@ export function archiveRemovedJobsToSlice(removedJobs, crawlerKey, opts = {}) {
       added++;
     } else if (compareExpiredAt(entry.expiredAt, prev.expiredAt) >= 0) {
       bySlug.set(entry.slug, entry);
+      metadataChanged = mergeSourceIdentityHistory(entry, prev) || metadataChanged;
+    } else {
+      metadataChanged = mergeSourceIdentityHistory(prev, entry) || metadataChanged;
     }
   }
 
   // A repair alone changes no slug, so the counters above stay put: write it
   // out anyway, otherwise the bad value survives on disk until the next add.
-  if (added === 0 && bySlug.size === sizeBefore && repaired === 0) return 0;
+  if (added === 0 && bySlug.size === sizeBefore && repaired === 0 && !metadataChanged) return 0;
 
   const archived = collapseDuplicateRouteEntries(
     [...bySlug.values()].sort((a, b) => compareExpiredAt(b.expiredAt, a.expiredAt)),
@@ -464,6 +542,7 @@ export function collapseDuplicateRouteEntries(entries, { source = 'expired-archi
     try {
       for (const removed of component) {
         if (removed === component[0]) continue;
+        mergeSourceIdentityHistory(survivor, removed);
         transferred += transferSlugHistory(survivor, removed, source);
       }
     } catch (error) {
