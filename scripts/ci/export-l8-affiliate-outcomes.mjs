@@ -146,6 +146,20 @@ export function buildL8AttributionExport({
       : (Array.isArray(suppliedCommercial.rows) ? suppliedCommercial.rows : null))
     : null;
   const commercialRowsPresent = Array.isArray(rows);
+  const evidence = suppliedCommercial
+    ? attributionEvidence({
+      telemetryWindow: window,
+      commercial: suppliedCommercial,
+      commercialRowsPresent,
+    })
+    : {
+      source: 'posthog-affiliate-attribution-export',
+      sourceRefs: ['posthog.affiliate_experiment_exposure', 'posthog.affiliate_click'],
+      status: 'missing',
+      commercialLedger: 'missing',
+      reason: text(reason) || 'live PostHog attribution export unavailable',
+      telemetryWindow: window,
+    };
   return {
     ...(suppliedCommercial || {}),
     schemaVersion: 1,
@@ -154,11 +168,7 @@ export function buildL8AttributionExport({
     // current PostHog timestamp must not make an old commission ledger fresh.
     generatedAt: text(suppliedCommercial?.generatedAt) || generated,
     independent: suppliedCommercial?.independent === true && commercialRowsPresent,
-    evidence: attributionEvidence({
-      telemetryWindow: window,
-      commercial: suppliedCommercial,
-      commercialRowsPresent,
-    }),
+    evidence,
     period: suppliedCommercial?.period || periodFromWindow(window),
     clicks: {
       web: webClicks,
@@ -185,29 +195,37 @@ export function buildUnavailableL8AttributionExport({
   generatedAt = new Date(),
   telemetryWindow = completeUtcWindow(generatedAt),
   reason = 'live PostHog attribution export unavailable',
+  commercial = null,
 } = {}) {
   const generated = isoDate(generatedAt, 'L8 unavailable generatedAt');
   const window = {
     start: isoDate(telemetryWindow.start, 'L8 unavailable window start'),
     end: isoDate(telemetryWindow.end, 'L8 unavailable window end'),
   };
+  const suppliedCommercial = object(commercial) ? commercial : null;
+  const rows = suppliedCommercial
+    ? (Array.isArray(suppliedCommercial.transactions)
+      ? suppliedCommercial.transactions
+      : (Array.isArray(suppliedCommercial.rows) ? suppliedCommercial.rows : null))
+    : null;
+  const commercialRowsPresent = Array.isArray(rows);
   return {
+    ...(suppliedCommercial || {}),
     schemaVersion: 1,
     loopId: LOOP_ID,
-    generatedAt: generated,
-    independent: false,
-    evidence: {
-      source: 'posthog-affiliate-attribution-export',
-      sourceRefs: ['posthog.affiliate_experiment_exposure', 'posthog.affiliate_click'],
-      status: 'missing',
-      commercialLedger: 'missing',
-      reason: text(reason) || 'live PostHog attribution export unavailable',
+    // Keep a valid network timestamp when PostHog is unavailable. The
+    // telemetry timestamp must never make an old commercial ledger fresh.
+    generatedAt: text(suppliedCommercial?.generatedAt) || generated,
+    independent: suppliedCommercial?.independent === true && commercialRowsPresent,
+    evidence: attributionEvidence({
       telemetryWindow: window,
-    },
-    period: periodFromWindow(window),
+      commercial: suppliedCommercial,
+      commercialRowsPresent,
+    }),
+    period: suppliedCommercial?.period || periodFromWindow(window),
     clicks: { web: null, email: null, relevant: null, total: null },
-    exposures: { web: null, email: null },
-    transactions: null,
+    exposures: suppliedCommercial?.exposures || { web: null, email: null },
+    transactions: rows,
     attribution: {
       source: 'posthog',
       sourceEvents: null,
@@ -263,17 +281,19 @@ export async function main({ argv = process.argv.slice(2), logger = console } = 
   const now = new Date();
   const days = Number(valueAfter(argv, '--days', DEFAULT_DAYS));
   const window = completeUtcWindow(now, days);
+  const commercialPath = valueAfter(argv, '--commercial');
   const outcome = argv.includes('--unavailable')
     ? buildUnavailableL8AttributionExport({
       generatedAt: now,
       telemetryWindow: window,
       reason: valueAfter(argv, '--reason'),
+      commercial: readOptionalCommercial(commercialPath),
     })
     : await exportL8Attribution({
       outputPath,
       now,
       days,
-      commercialPath: valueAfter(argv, '--commercial'),
+      commercialPath,
     });
   if (argv.includes('--unavailable')) writeJson(outputPath, outcome);
   if (argv.includes('--json')) logger.log(JSON.stringify(outcome, null, 2));

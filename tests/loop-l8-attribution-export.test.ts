@@ -115,6 +115,29 @@ describe('L8 affiliate attribution exporter', () => {
     });
   });
 
+  it('keeps an authorised commercial ledger when PostHog telemetry is unavailable', () => {
+    const outcome = buildUnavailableL8AttributionExport({
+      generatedAt: NOW,
+      telemetryWindow: WINDOW,
+      reason: 'PostHog credentials unavailable',
+      commercial: {
+        generatedAt: '2026-09-14T11:00:00.000Z',
+        independent: true,
+        evidence: { source: 'network-export', sourceRefs: ['authorised-network'] },
+        exposures: { web: 120, email: null },
+        transactions: [{ transactionId: 'approved-1', status: 'approved' }],
+      },
+    });
+    expect(outcome).toMatchObject({
+      independent: true,
+      generatedAt: '2026-09-14T11:00:00.000Z',
+      exposures: { web: 120, email: null },
+      transactions: [{ transactionId: 'approved-1' }],
+      clicks: { web: null, email: null, relevant: null, total: null },
+      evidence: { source: 'network-export', commercialLedger: 'supplied-by-authorised-export' },
+    });
+  });
+
   it('writes a runner-local live export through an injectable PostHog response', async () => {
     const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l8-attribution-test-'));
     const outputPath = path.join(dir, 'outcome.json');

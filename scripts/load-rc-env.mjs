@@ -192,6 +192,15 @@ export const RC_TO_ENV = {
   SERVER_POSTHOG_PROJECT_ID:       ['POSTHOG_PROJECT_ID'],
   SERVER_POSTHOG_HOST:             ['POSTHOG_HOST'],
 
+  // Authorised affiliate-network export consumed by the read-only L8
+  // reconciliation runner. The URL may be a signed endpoint; otherwise the
+  // bearer token or complete Authorization header is supplied separately.
+  AFFILIATE_REVENUE_EXPORT_URL:          ['AFFILIATE_REVENUE_EXPORT_URL'],
+  AFFILIATE_REVENUE_EXPORT_TOKEN:        ['AFFILIATE_REVENUE_EXPORT_TOKEN'],
+  AFFILIATE_REVENUE_EXPORT_AUTH_HEADER:  ['AFFILIATE_REVENUE_EXPORT_AUTH_HEADER'],
+  AFFILIATE_REVENUE_EXPORT_SOURCE:       ['AFFILIATE_REVENUE_EXPORT_SOURCE'],
+  AFFILIATE_REVENUE_AMOUNT_FORMAT:       ['AFFILIATE_REVENUE_AMOUNT_FORMAT'],
+
   // LinkedIn auto-posting (Company Page articles)
   LINKEDIN_POST_CLIENT_ID:        ['LINKEDIN_POST_CLIENT_ID'],
   LINKEDIN_POST_CLIENT_SECRET:    ['LINKEDIN_POST_CLIENT_SECRET'],
