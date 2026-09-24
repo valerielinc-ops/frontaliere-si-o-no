@@ -985,6 +985,7 @@ const frCore: Record<string, string> = {
  'jobAlert.loading': 'Chargement des alertes...',
  'jobAlert.error.emptyFields': 'Saisissez au moins un mot-clé ou une zone.',
  'jobAlert.error.generic': 'Impossible de créer l\'alerte. Réessayez.',
+ 'jobAlert.error.storage': "Impossible d'enregistrer cette alerte dans le navigateur. Libérez de l'espace ou activez le stockage, puis réessayez.",
  'jobAlert.sector': 'Secteur',
  'jobAlert.edit': 'Modifier',
  'jobAlert.updated': 'Alerte mise à jour.',

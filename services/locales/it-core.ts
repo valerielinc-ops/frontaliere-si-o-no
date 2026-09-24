@@ -1029,6 +1029,7 @@ const translations: Record<string, string> = {
  'jobAlert.loading': 'Caricamento alert...',
  'jobAlert.error.emptyFields': 'Inserisci almeno una keyword o una zona.',
  'jobAlert.error.generic': 'Errore durante la creazione dell\'alert. Riprova.',
+ 'jobAlert.error.storage': 'Non è stato possibile salvare l\'alert nel browser. Libera spazio o abilita l\'archiviazione, quindi riprova.',
  'jobAlert.sector': 'Settore',
  'jobAlert.edit': 'Modifica',
  'jobAlert.updated': 'Alert aggiornata.',

@@ -334,7 +334,18 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  const handleCreate = async () => {
  if (!authUser) {
  const pendingConfig = buildConfig();
-          if (!configIsEmpty(pendingConfig)) savePendingJobAlert(pendingConfig);
+          if (configIsEmpty(pendingConfig)) {
+            showToast(t('jobAlert.error.emptyFields') || 'Inserisci almeno una keyword o una zona.');
+            return;
+          }
+          const saveResult = savePendingJobAlert(pendingConfig);
+          if (!saveResult.ok) {
+            showToast(
+              t('jobAlert.error.storage')
+              || 'Non è stato possibile salvare l\'alert nel browser. Libera spazio o abilita l\'archiviazione, quindi riprova.',
+            );
+            return;
+          }
           onRequireAuth?.();
  return;
  }
