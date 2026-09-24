@@ -9,6 +9,7 @@ import {
 } from '../scripts/update-abb-jobs.mjs';
 import {
   assertMigrosAdapterParity,
+  compareMigrosDetailUrls,
   ensureAdapterSeedUrls as ensureMigros,
   finalizeMigrosDiscovery,
 } from '../scripts/update-migros-jobs.mjs';
@@ -166,6 +167,36 @@ describe('Migros SPA discovery finalization', () => {
     const result = finalizeMigrosDiscovery([itPath, de], { termination: 'next-disabled', pagesFetched: 2 });
     expect(result).toMatchObject({ sourceZero: false, duplicateIdentity: 1, pagesFetched: 2 });
     expect(result.urls).toHaveLength(1);
+  });
+
+  // #6932 item 4: the duplicate-identity winner is chosen by locale
+  // precedence (it > de > others), not by lexical order, and the choice is
+  // stable across reruns whatever order the listing emits the variants in.
+  // A lexical-only comparator picks /de/ ("de" < "it") and fails here.
+  it('prefers the Italian variant of one posting regardless of discovery order (#6932)', () => {
+    const fr = `/fr/nos-entreprises/job/migros-ticino/test/${uuid}`;
+    const otherUuid = '22222222-2222-4222-8222-222222222222';
+    const deOnly = `/de/unsere-unternehmen/job/migros-ticino/other/${otherUuid}`;
+    const frOnlyTwin = `/fr/nos-entreprises/job/migros-ticino/other/${otherUuid}`;
+    const options = { termination: 'next-disabled', pagesFetched: 1 } as const;
+
+    const orders = [
+      [de, fr, itPath, frOnlyTwin, deOnly],
+      [itPath, de, fr, deOnly, frOnlyTwin],
+      [fr, deOnly, itPath, frOnlyTwin, de],
+    ];
+    const results = orders.map((paths) => finalizeMigrosDiscovery(paths, options));
+    for (const result of results) {
+      expect(result.duplicateIdentity).toBe(3);
+      expect(result.urls).toEqual([
+        `https://jobs.migros.ch${itPath}`,
+        `https://jobs.migros.ch${deOnly}`,
+      ]);
+    }
+    expect(compareMigrosDetailUrls(`https://jobs.migros.ch${itPath}`, `https://jobs.migros.ch${de}`))
+      .toBeLessThan(0);
+    expect(compareMigrosDetailUrls(`https://jobs.migros.ch${de}`, `https://jobs.migros.ch${fr}`))
+      .toBeLessThan(0);
   });
 
   it('fails closed without terminal pagination or on a malformed detail path', () => {

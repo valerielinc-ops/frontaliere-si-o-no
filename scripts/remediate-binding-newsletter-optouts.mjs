@@ -20,6 +20,7 @@
 import admin from 'firebase-admin';
 import { isNewsletterOptOutBinding } from '../services/newsletterOptOut.mjs';
 import { ADDRESS_SUPPRESSED_STATUSES } from '../services/emailSuppression.mjs';
+import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 
 const COLLECTION = 'newsletter_subscribers';
 const EVENT_TYPE = 'opt_out_integrity_repaired';
@@ -175,11 +176,7 @@ async function main() {
   console.log(`APPLY — record riparati: ${written}; eventi audit: ${written}.`);
 }
 
-const isInvokedDirectly = process.argv[1]
-  ? import.meta.url === `file://${process.argv[1]}`
-  : false;
-
-if (isInvokedDirectly) {
+if (isInvokedDirectly(import.meta.url)) {
   main().catch((error) => {
     console.error('remediate-binding-newsletter-optouts failed:', error?.message || error);
     process.exitCode = 1;
