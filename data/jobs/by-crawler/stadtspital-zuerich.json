@@ -186,7 +186,7 @@
       "title": "HMS-Praxisjahr 2027 Finanzen Triemli",
       "titleByLocale": {
         "it": "HMS Pratico Anno 2027 Finanza Triemli",
-        "en": "HMS-Praxisjahr 2027 Finanzen Triemli",
+        "en": "HMS Practical Year 2027 Finance Triemli",
         "de": "HMS-Praxisjahr 2027 Finanzen Triemli",
         "fr": "HMS Année pratique 2027 Finance Triemli"
       },
@@ -236,7 +236,6 @@
           "hms-praxisjahr-2027-finanzen-triemli-stadtspital-zuerich-51414"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-08-28T05:32:44.311Z",
       "salaryMin": 73500,
       "salaryMax": 111500,
@@ -12391,7 +12390,7 @@
       "title": "HMS-Praxisjahr 2027 Sekretariat Therapien Waid & Triemli",
       "titleByLocale": {
         "it": "HMS Pratico Anno 2027 Terapie Segreteria Waid & Triemli",
-        "en": "HMS-Praxisjahr 2027 Sekretariat Therapien Waid & Triemli",
+        "en": "HMS Practical Year 2027 Secretariat Therapies Waid & Triemli",
         "de": "HMS-Praxisjahr 2027 Sekretariat Therapien Waid & Triemli",
         "fr": "HMS Année pratique 2027 Secrétariat Thérapies Waid & Triemli"
       },
@@ -12440,7 +12439,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:32:44.311Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "salarySource": "estimated",
@@ -12641,7 +12639,7 @@
       "companyDomain": "stadtspital.ch",
       "title": "HMS-Praxisjahr 2027 Notfallaufnahme Triemli",
       "titleByLocale": {
-        "it": "HMS-Praxisjahr 2027 Notfallaufnahme Triemli",
+        "it": "HMS Pratico Anno 2027 Reception di emergenza Triemli",
         "en": "HMS Practical Year 2027 Emergency Reception Triemli",
         "de": "HMS-Praxisjahr 2027 Notfallaufnahme Triemli",
         "fr": "HMS Année pratique 2027 Réception d'urgence Triemli"
@@ -12709,8 +12707,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "stadtspital-zuerich-2bf213a0fc1f",
