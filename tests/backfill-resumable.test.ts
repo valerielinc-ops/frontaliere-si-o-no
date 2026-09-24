@@ -21,6 +21,8 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs');
     expect(block).toContain('trap on_exit EXIT');
     expect(block).toContain('has_dirty_slices');
+    expect(block).toContain("git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler | grep -q '.'");
+    expect(block).not.toContain('rg -q');
     expect(block).toContain('data/jobs/by-crawler data/jobs/expired/by-crawler');
     expect(block).toContain('grep . >/dev/null');
     expect(block).not.toContain('rg -q');
