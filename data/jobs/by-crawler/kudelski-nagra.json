@@ -1,6 +1,6 @@
 {
   "crawlerKey": "kudelski-nagra",
-  "assembledAt": "2026-09-22T00:18:06.651Z",
+  "assembledAt": "2026-09-24T00:08:41.585Z",
   "jobs": [
     {
       "id": "kudelski-nagra-362f31b80bbf",
@@ -33,7 +33,7 @@
       "url": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "source": "Kudelski NAGRA Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:18:01.958Z",
+      "crawledAt": "2026-09-24T00:08:36.872Z",
       "addressLocality": "Zurich, Switzerland (Hybrid, onsite with client)",
       "addressRegion": "ZH",
       "streetAddress": "Bahnhofstrasse 1",
@@ -51,7 +51,16 @@
       "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15828",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugs": [
+        "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
+      ],
+      "previousSlugsByLocale": {
+        "en": [
+          "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
+        ]
+      },
       "firstSeenAt": "2026-09-19T23:09:21.794Z",
+      "needsRetranslation": true,
       "salaryMin": 83000,
       "salaryMax": 126000,
       "salarySource": "estimated",
@@ -64,15 +73,7 @@
           "maxValue": 126000,
           "unitText": "YEAR"
         }
-      },
-      "previousSlugsByLocale": {
-        "en": [
-          "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
-        ]
-      },
-      "previousSlugs": [
-        "security-5-kudelski-nagra-zurich-switzerland-hybrid-onsite-with-client"
-      ]
+      }
     }
   ]
 }
