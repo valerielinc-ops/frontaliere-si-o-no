@@ -155,7 +155,7 @@ const deStats: Record<string, string> = {
  'glossary.terms.impostaAllaFonte.example': 'Bei einem Bruttogehalt von CHF 5.000/Monat zahlt eine ledige Person ohne Kinder in Lugano etwa 12% Quellensteuer.',
  'glossary.terms.irpef.title': 'IRPEF',
  'glossary.terms.irpef.desc': 'Italienische Einkommensteuer für natürliche Personen. Die Haupteinkommensteuer Italiens mit progressiven Sätzen von 23% bis 43%.',
- 'glossary.terms.irpef.example': 'Einkommen €30.000: erste €28.000 zu 23%, restliche €2.000 zu 35% → IRPEF brutto €7.140.',
+ 'glossary.terms.irpef.example': 'Einkommen €30.000: erste €28.000 zu 23%, restliche €2.000 zu 33% → IRPEF brutto €7.100.',
  'glossary.terms.franchigia.title': 'Freibetrag €10.000',
  'glossary.terms.franchigia.desc': 'Mit dem Abkommen 2026 profitieren neu eingestellte Grenzgänger von einem Freibetrag von €10.000 auf das Einkommen für IRPEF-Zwecke.',
  'glossary.terms.franchigia.example': 'Bruttoeinkommen €40.000: mit Freibetrag nur €30.000 unterliegen der IRPEF.',

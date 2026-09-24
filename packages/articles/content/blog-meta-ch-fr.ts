@@ -6671,6 +6671,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.ubs-capitale-90-bns.title': 'UBS, la BNS approuve les exigences de fonds propres à 90 %',
     'blog.article.ubs-capitale-90-bns.excerpt': 'La BNS approuve la décision du Conseil des Etats : les filiales étrangères d\'UBS devront être couvertes à 90 % par du capital CET1.',
     'blog.article.ubs-capitale-90-bns.imageAlt': 'Bâtiment bancaire suisse avec drapeau national dans une scène financière',
+    'blog.article.mozione-costi-manifestazioni-stati.title': 'Motion États : les organisateurs paient les frais de sécurité',
+    'blog.article.mozione-costi-manifestazioni-stati.excerpt': 'Les Etats approuvent la motion 24-18 avec 3 abstentions : le Conseil fédéral devra préparer une base légale pour faire payer aux organisateurs les frais d\'intervention et de sécurité des manifestations, après les émeutes du 11 octobre à Berne.',
+    'blog.article.mozione-costi-manifestazioni-stati.imageAlt': 'Manifestation suisse avec les forces de l\'ordre au premier plan',
 };
 
 export default blogMetaChFr;

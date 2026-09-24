@@ -6671,6 +6671,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.ubs-capitale-90-bns.title': 'UBS, SNB approves 90% capital requirements',
     'blog.article.ubs-capitale-90-bns.excerpt': 'The SNB approves the decision of the Council of States: UBS\'s foreign subsidiaries will have to be covered 90% with CET1 capital.',
     'blog.article.ubs-capitale-90-bns.imageAlt': 'Swiss bank building with a national flag in a financial news scene',
+    'blog.article.mozione-costi-manifestazioni-stati.title': 'Motion States: organizers pay safety costs',
+    'blog.article.mozione-costi-manifestazioni-stati.excerpt': 'The States approve the motion 24-18 with 3 abstentions: the Federal Council will have to prepare a legal basis to make the organizers pay the costs of intervention and security of the demonstrations, after the riots of October 11 in Bern.',
+    'blog.article.mozione-costi-manifestazioni-stati.imageAlt': 'Swiss demonstration with police forces in the foreground',
 };
 
 export default blogMetaChEn;

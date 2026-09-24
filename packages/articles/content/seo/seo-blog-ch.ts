@@ -86483,6 +86483,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mozione-costi-manifestazioni-stati': {
+    title: 'Mozione Stati: gli organizzatori pagano i costi sicurezza',
+    description: 'Gli Stati approvano la mozione 24-18 con 3 astensioni: il Consiglio federale dovrà preparare una base legale per far pagare agli organizzatori i costi',
+    keywords: 'frontalieri, ticino, svizzera, italia, mozione, stati, organizzatori, pagano',
+    ogTitle: 'Mozione Stati: gli organizzatori pagano i costi sicurezza',
+    ogDescription: 'Il Consiglio degli Stati ha approvato con 24 voti a favore, 18 contrari e 3 astensioni una mozione che chiede al Consiglio federale di elaborare una base legale per far pagare agli organizzatori delle manifestazioni i costi di intervento e sicurezza',
+    canonicalPath: '/articoli-svizzera/mozione-costi-manifestazioni-stati/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Mozione Stati: gli organizzatori pagano i costi sicurezza",
+      "description": "Gli Stati approvano la mozione 24-18 con 3 astensioni: il Consiglio federale dovrà preparare una base legale per far pagare agli organizzatori i costi",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mozione-costi-manifestazioni-stati.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Manifestazione svizzera con forze dell'ordine in primo piano"
+      },
+      "datePublished": "2026-09-24T21:22:12+00:00",
+      "dateModified": "2026-09-24T21:22:12+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/mozione-costi-manifestazioni-stati/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
