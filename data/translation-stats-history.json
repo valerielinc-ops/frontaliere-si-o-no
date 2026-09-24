@@ -1,88 +1,5 @@
 [
   {
-    "timestamp": "2026-09-07T03:21:00.959Z",
-    "label": "before",
-    "total": 28564,
-    "needsRetranslation": 16835,
-    "suppressed": 108,
-    "incomplete": 11243,
-    "complete": 17321,
-    "slotsPresent": 17321,
-    "flaggedAmongSlotsPresent": 6446,
-    "verifiedTranslated": 10875,
-    "sourceCopyExcused": 837,
-    "slotsPresentByLength": 28346,
-    "languageVerified": 18230,
-    "missingByLocale": {
-      "it": 784,
-      "en": 426,
-      "de": 251,
-      "fr": 441
-    },
-    "queueAge": {
-      "count": 16835,
-      "withTimestamp": 16835,
-      "oldestAgeDays": 146.7,
-      "p50AgeDays": 27.7,
-      "p90AgeDays": 96.6,
-      "buckets": {
-        "0-1d": 144,
-        "1-2d": 42,
-        "2-7d": 3400,
-        "0-7d": 3586,
-        "7-30d": 4882,
-        "30-90d": 6337,
-        "90-180d": 2030,
-        "180d+": 0
-      },
-      "alert": false,
-      "alertDays": 150
-    },
-    "completionAge": null,
-    "topPending": [
-      {
-        "company": "Coop Genossenschaft",
-        "pending": 1241
-      },
-      {
-        "company": "fachkraft.ch GmbH",
-        "pending": 987
-      },
-      {
-        "company": "Roche",
-        "pending": 552
-      },
-      {
-        "company": "Stadt Zürich",
-        "pending": 326
-      },
-      {
-        "company": "Migrol AG",
-        "pending": 266
-      },
-      {
-        "company": "BKW",
-        "pending": 243
-      },
-      {
-        "company": "Die Schweizerische Post",
-        "pending": 199
-      },
-      {
-        "company": "Sulzer",
-        "pending": 199
-      },
-      {
-        "company": "Interdiscount",
-        "pending": 192
-      },
-      {
-        "company": "PEMSA",
-        "pending": 190
-      }
-    ]
-  },
-  {
     "timestamp": "2026-09-07T03:25:29.528Z",
     "label": "after",
     "total": 28564,
@@ -19336,6 +19253,118 @@
       {
         "company": "Stadt Zürich",
         "pending": 96
+      }
+    ]
+  },
+  {
+    "timestamp": "2026-09-24T13:37:16.443Z",
+    "label": "after",
+    "total": 26656,
+    "needsRetranslation": 2458,
+    "suppressed": 236,
+    "incomplete": 2813,
+    "complete": 23843,
+    "slotsPresent": 23843,
+    "flaggedAmongSlotsPresent": 0,
+    "verifiedTranslated": 23843,
+    "sourceCopyExcused": 736,
+    "slotsPresentByLength": 26529,
+    "languageVerified": 24269,
+    "missingByLocale": {
+      "it": 183,
+      "en": 96,
+      "de": 154,
+      "fr": 143
+    },
+    "queueAge": {
+      "count": 2458,
+      "withTimestamp": 2458,
+      "oldestAgeDays": 164.1,
+      "p50AgeDays": 16.9,
+      "p90AgeDays": 76.1,
+      "buckets": {
+        "0-1d": 271,
+        "1-2d": 21,
+        "2-7d": 523,
+        "0-7d": 815,
+        "7-30d": 969,
+        "30-90d": 530,
+        "90-180d": 144,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "completionAge": {
+      "count": 1988,
+      "withTimestamp": 1988,
+      "oldestAgeDays": 164.2,
+      "p50AgeDays": 51.1,
+      "p90AgeDays": 127.6,
+      "buckets": {
+        "0-1d": 426,
+        "1-2d": 0,
+        "2-7d": 57,
+        "0-7d": 483,
+        "7-30d": 267,
+        "30-90d": 769,
+        "90-180d": 469,
+        "180d+": 0
+      },
+      "alert": true,
+      "alertDays": 150
+    },
+    "genderFormRepair": {
+      "measured": false,
+      "status": "partial",
+      "seed": 20260908,
+      "requested": 120,
+      "queuedCandidates": 814,
+      "sampled": 120,
+      "processed": 72,
+      "residual": 0,
+      "residualRate": 0
+    },
+    "topPending": [
+      {
+        "company": "PEMSA",
+        "pending": 240
+      },
+      {
+        "company": "Roche",
+        "pending": 137
+      },
+      {
+        "company": "Manor AG",
+        "pending": 120
+      },
+      {
+        "company": "Jaeger-LeCoultre",
+        "pending": 110
+      },
+      {
+        "company": "Sulzer",
+        "pending": 66
+      },
+      {
+        "company": "Swiss Life",
+        "pending": 66
+      },
+      {
+        "company": "Stadt Zürich",
+        "pending": 65
+      },
+      {
+        "company": "Swiss Medical Network",
+        "pending": 56
+      },
+      {
+        "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
+        "pending": 51
+      },
+      {
+        "company": "Swiss Re",
+        "pending": 51
       }
     ]
   }
