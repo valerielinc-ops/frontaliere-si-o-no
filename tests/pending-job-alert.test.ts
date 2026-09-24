@@ -24,11 +24,24 @@ describe('pendingJobAlert', () => {
   });
   afterEach(() => {
     vi.useRealTimers();
+    vi.restoreAllMocks();
   });
 
   it('round-trips a saved config', () => {
-    savePendingJobAlert(config);
+    expect(savePendingJobAlert(config)).toEqual({ ok: true });
     expect(consumePendingJobAlert()).toEqual(config);
+  });
+
+  it('reports when browser storage rejects the pending intent', () => {
+    vi.spyOn(localStorage, 'setItem').mockImplementation(() => {
+      throw new Error('storage blocked');
+    });
+
+    expect(savePendingJobAlert(config)).toEqual({
+      ok: false,
+      reason: 'storage_unavailable',
+    });
+    expect(consumePendingJobAlert()).toBeNull();
   });
 
   it('consumes once — a second consume returns null', () => {

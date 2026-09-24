@@ -989,6 +989,7 @@ const enCore: Record<string, string> = {
  'jobAlert.loading': 'Loading alerts...',
  'jobAlert.error.emptyFields': 'Enter at least one keyword or area.',
  'jobAlert.error.generic': 'Could not create the alert. Please try again.',
+ 'jobAlert.error.storage': "We couldn't save this alert in your browser. Free up storage or enable it, then try again.",
  'jobAlert.sector': 'Sector',
  'jobAlert.edit': 'Edit',
  'jobAlert.updated': 'Alert updated.',

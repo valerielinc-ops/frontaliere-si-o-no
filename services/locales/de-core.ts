@@ -992,6 +992,7 @@ const deCore: Record<string, string> = {
  'jobAlert.loading': 'Alerts werden geladen...',
  'jobAlert.error.emptyFields': 'Geben Sie mindestens ein Stichwort oder ein Gebiet ein.',
  'jobAlert.error.generic': 'Alert konnte nicht erstellt werden. Bitte erneut versuchen.',
+ 'jobAlert.error.storage': 'Der Alert konnte nicht im Browser gespeichert werden. Geben Sie Speicherplatz frei oder aktivieren Sie den Speicher und versuchen Sie es erneut.',
  'jobAlert.sector': 'Branche',
  'jobAlert.edit': 'Bearbeiten',
  'jobAlert.updated': 'Alert aktualisiert.',

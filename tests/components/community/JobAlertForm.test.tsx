@@ -91,6 +91,27 @@ beforeEach(() => {
 
 afterEach(() => {
   cleanup();
+  vi.restoreAllMocks();
+});
+
+describe('JobAlertForm — guest persistence', () => {
+  it('does not start auth when browser storage rejects the pending intent', () => {
+    const onRequireAuth = vi.fn();
+    vi.spyOn(localStorage, 'setItem').mockImplementation(() => {
+      throw new Error('storage blocked');
+    });
+
+    render(<JobAlertForm authUser={null} onRequireAuth={onRequireAuth} />);
+    expandForm();
+    fireEvent.change(screen.getByRole('textbox'), { target: { value: 'infermiere' } });
+
+    const form = document.getElementById('job-alert-form');
+    expect(form).not.toBeNull();
+    fireEvent.click(within(form!).getAllByRole('button')[0]);
+
+    expect(onRequireAuth).not.toHaveBeenCalled();
+    expect(screen.getByText(/salvare l['’]alert nel browser/i)).toBeTruthy();
+  });
 });
 
 describe('JobAlertForm — canton geo filter', () => {
