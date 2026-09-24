@@ -488,6 +488,7 @@ function validateRequest(request) {
 
 let authJson = '';
 let authHome = '';
+let listeningPath = '';
 let activeChild = null;
 let activeRuntimeCleanup = null;
 let codexCliPath = '';
@@ -540,6 +541,9 @@ function cleanup() {
   if (!firstCleanup) return;
   try { server?.close(); } catch { /* already closed */ }
   try { fs.unlinkSync(socketPath); } catch { /* runner cleanup may win */ }
+  if (listeningPath) {
+    try { fs.unlinkSync(listeningPath); } catch { /* gia' rinominato al suo posto */ }
+  }
   try { fs.rmdirSync(path.dirname(socketPath)); } catch { /* socket/client may remain */ }
 }
 
@@ -732,8 +736,22 @@ function start(auth, cliConfig) {
     cleanup();
     process.exitCode = 1;
   });
-  server.listen(socketPath, () => {
-    fs.chmodSync(socketPath, 0o600);
+  // Il file del socket compare al bind(), un attimo prima del listen(): chi
+  // aspetta che il path esista (lo step di setup, i test) poteva connettersi
+  // nel mezzo e ricevere ECONNREFUSED (gemello del corpus, PR 1773, run
+  // 36038787680). Si ascolta su un nome temporaneo nella stessa directory 0700
+  // e lo si rinomina solo quando accetta connessioni: «esiste» vuol dire «pronto».
+  listeningPath = `${socketPath}.${process.pid}.listening`;
+  server.listen(listeningPath, () => {
+    try {
+      fs.chmodSync(listeningPath, 0o600);
+      fs.renameSync(listeningPath, socketPath);
+    } catch (error) {
+      console.error(`Codex auth broker failed: ${error.message}`);
+      cleanup();
+      process.exitCode = 1;
+      return;
+    }
     expiry = setTimeout(cleanup, ttlMs);
   });
 }

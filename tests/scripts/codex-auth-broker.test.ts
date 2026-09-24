@@ -359,6 +359,35 @@ describe('Codex auth broker runtime contract', () => {
     expect(fs.existsSync(root)).toBe(false);
   });
 
+  // The socket file appears at bind(), a moment before listen(): a client that
+  // waits for the path to exist could connect in between and get ECONNREFUSED
+  // (corpus twin, PR 1773, run 36038787680). The broker listens on a temporary
+  // name in the same 0700 directory and renames it into place once it accepts
+  // connections, so the path existing means the broker is ready.
+  it('publishes the socket path only once it accepts connections', async () => {
+    const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-auth-broker-test-'));
+    fs.chmodSync(root, 0o700);
+    roots.push(root);
+    const socketPath = path.join(root, 'auth.sock');
+    const prefix = codexPrefix(root);
+    const fakeCodex = writeFakeCodex(prefix);
+    const child = spawn(process.execPath, [brokerPath, '--socket', socketPath, '--ttl-ms', '10000', ...codexAttestationArgs(fakeCodex, prefix)], {
+      stdio: ['pipe', 'ignore', 'pipe'],
+      env: { PATH: process.env.PATH || '/usr/bin:/bin' },
+    });
+    children.push(child);
+    child.stdin.end('{"access_token":"ready-test"}');
+    await waitForSocket(socketPath, child);
+    expect(fs.lstatSync(socketPath).mode & 0o777).toBe(0o600);
+    expect(fs.readdirSync(root).filter((name) => name.endsWith('.listening'))).toEqual([]);
+    await expect(request(socketPath, { op: 'cleanup' })).resolves.toEqual({ ok: true, cleaned: true });
+    await Promise.race([
+      once(child, 'exit'),
+      new Promise((_, reject) => setTimeout(() => reject(new Error('broker did not exit')), 2000)),
+    ]);
+    expect(fs.existsSync(socketPath)).toBe(false);
+  });
+
   // The profile used to deny ":slash_tmp" while the broker builds workspace,
   // CODEX_HOME and TMPDIR under /tmp, so the deny covered the workspace and
   // every real Codex call exited 1 before reaching the model. The fake binary
