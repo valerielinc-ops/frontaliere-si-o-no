@@ -3,14 +3,15 @@ import { GPT_ENABLED, getGptTag, initGptFramework } from '@/components/shared/Gp
 import { isLikelyBot } from '@/services/botPatterns';
 import { Analytics } from '@/services/analytics';
 import { isAdsConsentGranted } from '@/services/adsConsent';
-import { preloadRewardedHouseVideo } from '@/services/rewardedHouseVideo';
 
 /**
  * Dedicated Ad Manager rewarded unit for the job-board GPT request.
  *
  * Offerwall units belong to the Offerwall product flow and are not the
  * inventory target for a custom GPT rewarded slot. This unit is configured
- * with a rewarded VAST size and AdSense backfill in the production network.
+ * with 1x1v/640x480v VIDEO_PLAYER sizes plus a 1x1 BROWSER size: the former
+ * serve rewarded video demand, while the latter is required for the AdSense
+ * display backfill line to match this inventory in GAM.
  */
 export const ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH = '/23355151813/rewarded-application-video';
 
@@ -183,11 +184,6 @@ export function preloadRewardedWebAd(
     if (activeResource?.adUnitPath === adUnitPath) disposeRewardedWebAd(adUnitPath);
     return 0;
   }
-
-  // Keep the deterministic first-party/sponsor fallback warm while the
-  // consented Google request is in flight. It is shown only after Google has
-  // actually failed to produce a rewardable slot.
-  preloadRewardedHouseVideo();
 
   const existing = activeResource;
   if (existing?.adUnitPath === adUnitPath) {
