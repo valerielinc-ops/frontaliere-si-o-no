@@ -69,6 +69,11 @@ describe('L2 read-only demand outcome export', () => {
         ],
       },
     })).toEqual({ eligibleLandingSessions: 2100, usefulActions: 180 });
+    expect(buildL2OutcomeCounts({
+      landingPaths: ['/offerte-lavoro-ticino/'],
+      landingSessionReport: { rows: [{ dimensionValues: [{ value: '/offerte-lavoro-ticino/' }], metricValues: [{ value: '1000' }] }] },
+      usefulActionReport: { rowCount: 0 },
+    })).toEqual({ eligibleLandingSessions: 1000, usefulActions: 0 });
     expect(() => buildL2OutcomeCounts({
       landingPaths: ['/offerte-lavoro-ticino/'],
       landingSessionReport: { rowCount: 2, rows: [{ dimensionValues: [{ value: '/offerte-lavoro-ticino/' }], metricValues: [{ value: '1' }] }] },

@@ -140,18 +140,18 @@ export function buildL2LandingSessionReportBody({
 export const buildL2OutcomeQuery = buildL2LandingSessionReportBody;
 
 function reportRows(report, label) {
-  if (!object(report) || !Array.isArray(report.rows)) {
-    throw new Error(`GA4 ${label} report is missing rows`);
-  }
-  const rowCount = report.rowCount === undefined ? report.rows.length : Number(report.rowCount);
+  if (!object(report)) throw new Error(`GA4 ${label} report is missing rows`);
+  const rows = report.rows === undefined ? [] : report.rows;
+  if (!Array.isArray(rows)) throw new Error(`GA4 ${label} report has invalid rows`);
+  const rowCount = report.rowCount === undefined ? rows.length : Number(report.rowCount);
   if (!Number.isInteger(rowCount) || rowCount < 0) throw new Error(`GA4 ${label} report has invalid rowCount`);
-  if (rowCount > report.rows.length) {
-    throw new Error(`GA4 ${label} report is truncated (${report.rows.length} of ${rowCount} rows)`);
+  if (rowCount > rows.length) {
+    throw new Error(`GA4 ${label} report is truncated (${rows.length} of ${rowCount} rows)`);
   }
-  if (report.rows.some((row) => row?.dimensionValues?.some((dimension) => dimension?.value === '(other)'))) {
+  if (rows.some((row) => row?.dimensionValues?.some((dimension) => dimension?.value === '(other)'))) {
     throw new Error(`GA4 ${label} report contains an (other) bucket`);
   }
-  return report.rows;
+  return rows;
 }
 
 function sessionCountsByLandingPath(report, label) {
