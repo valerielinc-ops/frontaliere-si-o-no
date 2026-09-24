@@ -1,7 +1,7 @@
 {
   "key": "therapiezentrum-meggen",
   "label": "Therapiezentrum Meggen",
-  "generatedAt": "2026-09-22T00:01:52.880Z",
+  "generatedAt": "2026-09-23T23:40:39.778Z",
   "total": 1,
   "discovered": null,
   "parsed": 1,
@@ -12,10 +12,10 @@
   "updatedCount": 1,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 3613,
-  "avgDurationMs": 3613,
+  "durationMs": 3310,
+  "avgDurationMs": 3310,
   "durationHistory": [
-    3613
+    3310
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -26,14 +26,14 @@
       "companyKey": "therapiezentrum-meggen",
       "companyDomain": "tzm.ch",
       "title": "Psychotherapeut/Psychotherapeutin (80 - 100%) mit Zusatzaufgaben",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "location": "Meggen",
       "canton": "LU",
       "url": "https://www.tzm.ch/app/download/14369181133/Psychotherapie%20Stellenausschreibung_erfahren_mit_Zusatzaufgaben.pdf?t=1590756941",
       "applyUrl": "https://www.tzm.ch/offene-stellen/",
       "source": "Therapiezentrum Meggen Dedicated Parser (Jimdo HTML + PDF)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:01:44.013Z",
+      "crawledAt": "2026-09-23T23:40:33.821Z",
       "addressLocality": "Meggen",
       "addressRegion": "LU",
       "addressCountry": "CH",

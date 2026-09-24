@@ -1,6 +1,6 @@
 {
   "crawlerKey": "im-bethesda-spital",
-  "assembledAt": "2026-09-22T00:02:50.414Z",
+  "assembledAt": "2026-09-23T23:41:00.160Z",
   "jobs": [
     {
       "id": "im-bethesda-spital-75f4f0aaf36d",
@@ -33,7 +33,7 @@
       "url": "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html",
       "source": "& im Bethesda Spital Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:02:45.787Z",
+      "crawledAt": "2026-09-23T23:40:57.726Z",
       "addressLocality": "Basel",
       "addressRegion": "Basel-Stadt",
       "addressCountry": "CH",
@@ -53,12 +53,14 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel",
-        "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel"
+        "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel",
+        "assistente-medico-clinica-rheumatology-e-medicina-del-dolore-100-im-bethesda-spital-basel-basel-stadt"
       ],
       "previousSlugsByLocale": {
         "it": [
           "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel",
-          "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel"
+          "assistenzarztin-assistenzarzt-klinik-rheumatologie-e-schmerzmedizin-100-im-bethesda-spital-basel",
+          "assistente-medico-clinica-rheumatology-e-medicina-del-dolore-100-im-bethesda-spital-basel-basel-stadt"
         ],
         "en": [
           "assistenzarztin-assistenzarzt-klinik-rheumatologie-und-schmerzmedizin-100-basel-basel"
@@ -68,6 +70,7 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:01:29.727Z",
+      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
