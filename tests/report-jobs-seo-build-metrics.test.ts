@@ -65,8 +65,8 @@ describe('report-jobs-seo-build-metrics', () => {
   it('requires the bridge checkpoint, release flags, and both positive profile rows', () => {
     const incomplete = parseJobsSeoBuildLog(
       FULL_CORPUS_LOG
-        .replace(/after-previous-slug-bridges[^\n]+\n/u, '')
-        .replace(/previous-slug-bridge-legacy-ti[^\n]+\n/u, '')
+        .replace(/^.*after-previous-slug-bridges[^\n]*\n/um, '')
+        .replace(/^.*previous-slug-bridge-legacy-ti[^\n]*\n/um, '')
         .replace(/releasedRelatedIndexes=1/u, 'releasedRelatedIndexes=0'),
     );
 
