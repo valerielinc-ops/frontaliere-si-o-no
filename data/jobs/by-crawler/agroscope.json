@@ -1,6 +1,6 @@
 {
   "crawlerKey": "agroscope",
-  "assembledAt": "2026-09-23T23:35:00.444Z",
+  "assembledAt": "2026-09-24T14:17:00.822Z",
   "jobs": [
     {
       "title": "Administrative/-r Mitarbeiter/-in",
@@ -40,19 +40,11 @@
       },
       "slugByLocale": {
         "it": "administrative-r-collaboratore-trice-in-agroscope-posieux",
-        "en": "administrative-r-mitarbeiter-in-agroscope-posieux",
+        "en": "administrative-r-employees-agroscope-posieux",
         "de": "administrative-r-mitarbeiter-in-agroscope-posieux",
-        "fr": "administrative-r-mitarbeiter-in-agroscope-posieux"
+        "fr": "employes-administratifs-r-agroscope-posieux"
       },
       "id": "agroscope-4c4c99fb6754",
-      "previousSlugsByLocale": {
-        "it": [
-          "administrative-r-mitarbeiter-in-agroscope-posieux"
-        ]
-      },
-      "previousSlugs": [
-        "administrative-r-mitarbeiter-in-agroscope-posieux"
-      ],
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -67,7 +59,21 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:34:58.444Z"
+      "firstSeenAt": "2026-09-23T23:34:58.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "administrative-r-mitarbeiter-in-agroscope-posieux"
+        ],
+        "en": [
+          "administrative-r-mitarbeiter-in-agroscope-posieux"
+        ],
+        "fr": [
+          "administrative-r-mitarbeiter-in-agroscope-posieux"
+        ]
+      },
+      "previousSlugs": [
+        "administrative-r-mitarbeiter-in-agroscope-posieux"
+      ]
     },
     {
       "title": "PhD Entscheidungsunterstützung landwirtschaftliches Wassermanagement",
@@ -292,7 +298,7 @@
     },
     {
       "title": "Wissenschaftlicher Mitarbeiter/-in im Bereich Graslandsysteme",
-      "slug": "wissenschaftlicher-collaboratore-trice-in-im-bereich-graslandsysteme-agroscope-posieux",
+      "slug": "assistente-alla-ricerca-di-sistemi-di-grassland-agroscope-posieux",
       "url": "https://jobs.admin.ch/posti-vacanti/wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme/0fc8d7c2-557b-4dde-9ffb-f7b32b405d2c",
       "applyUrl": "https://career74.sapsf.eu/career?company=bundesamtf&career_ns=job_application&career_job_req_id=20283",
       "company": "Agroscope",
@@ -327,20 +333,12 @@
         "fr": "• Conception et gestion de projets de recherche dans le domaine des systèmes de sables bitumineux: coordination des travaux de terrain et de laboratoire, analyse des données et communication\n\n• Réalisation d'essais sur le terrain pour tester les variétés de plantes fourragères en Suisse occidentale: planification, évaluation et analyse\n\n• Acquisition de fonds de tiers : conception, gestion et rapports\n\n• Supervision des doctorants et des maîtres\n\n• Réseautage avec les parties prenantes aux niveaux national et international\n\n• Publication des résultats de la recherche dans des revues scientifiques évaluées par des pairs ainsi que présentation d'événements avec des pratiques agricoles\n\n• Doctorat en sciences agricoles ou diplôme équivalent\n\n• Capacité de concevoir et de coordonner des projets de recherche\n\n• Publication dans des revues scientifiques évaluées par des pairs et des revues axées sur les applications\n\n• Expérience en analyse de données, modélisation et visualisation avec R ou Python\n\n• Excellentes compétences en communication avec les chercheurs et les agriculteurs\n\n• Bonne connaissance de deux langues officielles et de l'anglais"
       },
       "slugByLocale": {
-        "it": "wissenschaftlicher-collaboratore-trice-in-im-bereich-graslandsysteme-agroscope-posieux",
-        "en": "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux",
+        "it": "assistente-alla-ricerca-di-sistemi-di-grassland-agroscope-posieux",
+        "en": "grassland-systems-research-assistant-agroscope-posieux",
         "de": "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux",
-        "fr": "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux"
+        "fr": "assistant-de-recherche-sur-les-systemes-des-prairies-agroscope-posieux"
       },
       "id": "agroscope-cc7eeb643a79",
-      "previousSlugsByLocale": {
-        "it": [
-          "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux"
-        ]
-      },
-      "previousSlugs": [
-        "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux"
-      ],
       "salaryMin": 89000,
       "salaryMax": 147500,
       "currency": "CHF",
@@ -355,7 +353,23 @@
           "unitText": "YEAR"
         }
       },
-      "firstSeenAt": "2026-09-23T23:34:58.444Z"
+      "firstSeenAt": "2026-09-23T23:34:58.444Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux",
+          "wissenschaftlicher-collaboratore-trice-in-im-bereich-graslandsysteme-agroscope-posieux"
+        ],
+        "en": [
+          "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux"
+        ],
+        "fr": [
+          "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux"
+        ]
+      },
+      "previousSlugs": [
+        "wissenschaftlicher-mitarbeiter-in-im-bereich-graslandsysteme-agroscope-posieux",
+        "wissenschaftlicher-collaboratore-trice-in-im-bereich-graslandsysteme-agroscope-posieux"
+      ]
     },
     {
       "title": "Jurist/in",
@@ -457,7 +471,7 @@
         "it": "Risorse Umane Business Partner/-in",
         "en": "HR Business Partner",
         "de": "Personalwesen Business Partner/-in",
-        "fr": "Partenaire d'affaires RH"
+        "fr": "HR Business Partner/-in"
       },
       "descriptionByLocale": {
         "it": "• Consulenza dei supervisori su tutte le questioni relative al ciclo di vita dei dipendenti\n\n• Sostegno ai supervisori nel bilancio del personale\n\n• Sostegno a progetti di ristrutturazione e trasformazione, nonché partecipazione attiva alle riunioni di gestione\n\n• Responsabilità per l'attuazione dei processi HR in conformità alle norme e ai regolamenti applicabili\n\n• Partecipazione attiva all'ulteriore sviluppo dei processi HR all'interno di progetti e gruppi di lavoro\n\n• Studi completi in Risorse Umane e Business Administration (FH/University) con Federal FA in HR\n\n• Diversi anni di esperienza nella consulenza HR e nel supporto ai processi di sviluppo e cambiamento organizzativi\n\n• Personalità indipendente, orientata al team con forte comunicazione e forza di negoziazione\n\n• Stile di lavoro orientato alle prestazioni e alle soluzioni, combinato con agilità, struttura, resilienza e elevata resilienza\n\n• Competenze di MS Office molto buone; la conoscenza di SAP è un vantaggio\n\n• Molto buona conoscenza di due lingue ufficiali e inglese in parola e scrittura",
