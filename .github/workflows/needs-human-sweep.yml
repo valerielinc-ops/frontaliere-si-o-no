@@ -93,6 +93,20 @@ jobs:
           sparse-checkout-cone-mode: false
         timeout-minutes: 10
 
+      # Il pre-pass scrive `automation-deferred` sulle issue tecniche. La label
+      # non è garantita da un bootstrap precedente: se manca, `gh issue edit`
+      # fallisce e il job resta verde solo perché il pre-pass è fail-open,
+      # lasciando il tecnico in `needs-human` senza porta di rientro.
+      - name: Ensure automation-deferred label (zero-Claude)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+        run: >-
+          gh label create automation-deferred --repo "$REPO"
+          --color FBCA04
+          --description "Lavoro automatico differito da policy/capacità; rientra nello sweep"
+          --force
+
       - name: Pre-pass deterministico (zero-Claude)
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
