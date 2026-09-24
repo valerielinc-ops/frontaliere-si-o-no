@@ -92893,6 +92893,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-mobilizzazione-ferroviaria-luino-svizzera': {
+    title: 'Linea Luino-Svizzera: Azione aderisce a Lombardia si muove',
+    description: 'Sabato 26 settembre mobilitazione ferroviaria in Lombardia. Focus sulla tratta Luino-Svizzera: frequenze S30 ridotte e raccolta firme per il Ministro.',
+    keywords: 'frontalieri, ticino, svizzera, italia, linea, luino-svizzera, azione, aderisce',
+    ogTitle: 'Linea Luino-Svizzera: mobilitazione il 26 settembre',
+    ogDescription: 'Azione aderisce al presidio di \'Lombardia si muove\' per denunciare il calo delle corse S30 (da 2/h a 4 al giorno) e lo stato delle stazioni di Luino e Maccagno.',
+    canonicalPath: '/articoli-frontaliere/mobilizzazione-ferroviaria-luino-svizzera',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Linea Luino-Svizzera: Azione aderisce a Lombardia si muove",
+      "description": "Sabato 26 settembre mobilitazione ferroviaria in Lombardia. Focus sulla tratta Luino-Svizzera: frequenze S30 ridotte e raccolta firme per il Ministro.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/mobilizzazione-ferroviaria-luino-svizzera.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Treno regionale in arrivo in una stazione del Ticino"
+      },
+      "datePublished": "2026-09-24T23:41:49+00:00",
+      "dateModified": "2026-09-24T23:41:49+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/mobilizzazione-ferroviaria-luino-svizzera/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;

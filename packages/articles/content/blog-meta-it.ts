@@ -11948,6 +11948,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.pensione-pubblica-svizzera-non-tassata-italia.title': 'Pensione pubblica svizzera: nessuna tassazione in Italia',
     'blog.article.pensione-pubblica-svizzera-non-tassata-italia.excerpt': 'Risposta a interpello n. 177/2026 dell’Agenzia delle Entrate: pensione pubblica DDPS erogata da Cassa PUBLICA non tassata in Italia per chi ha doppia cittadinanza italo-svizzera.',
     'blog.article.pensione-pubblica-svizzera-non-tassata-italia.imageAlt': 'Vista sul lago di Lugano con montagne sullo sfondo, rappresentante la vita finanziaria transfrontaliera in Ticino',
+    'blog.article.mobilizzazione-ferroviaria-luino-svizzera.title': 'Linea Luino-Svizzera: Azione aderisce a Lombardia si muove',
+    'blog.article.mobilizzazione-ferroviaria-luino-svizzera.excerpt': 'Sabato 26 settembre mobilitazione nelle stazioni lombarde per l\'efficienza ferroviaria. Focus sulla tratta Luino-Svizzera e raccolta firme per il Ministro.',
+    'blog.article.mobilizzazione-ferroviaria-luino-svizzera.imageAlt': 'Treno regionale in arrivo in una stazione del Ticino',
 };
 
 export default blogMetaIt;
