@@ -42,6 +42,7 @@
  * │ decision_moment_next_action │ Explicit next useful action after completion │
  * │ job_qualified_session │ One qualified job-detail session │
  * │ job_apply_handoff │ External application destination hand-off │
+ * │ l2_useful_action │ One measurable main-conversion action per session │
  * ├──────────────────────┼──────────────────────────────────────┤
  * │ APP-SPECIFIC — Feature usage │
  * ├──────────────────────┼──────────────────────────────────────┤
@@ -134,6 +135,7 @@ export const JOB_QUALIFIED_SESSION_EVENT = 'job_qualified_session';
 export const JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff';
 export const DECISION_MOMENT_COMPLETED_EVENT = 'decision_moment_completed';
 export const DECISION_MOMENT_NEXT_ACTION_EVENT = 'decision_moment_next_action';
+export const L2_USEFUL_ACTION_EVENT = 'l2_useful_action';
 
 export type JobAuthGateSurface = 'inline' | 'modal' | 'expired' | 'orphan' | 'bridge' | 'unknown';
 export type JobAuthGateState = 'anonymous' | 'pending_email' | 'registered' | 'unknown';
@@ -411,6 +413,42 @@ const logPostHogOnly = (eventName: string, params?: Record<string, any>) => {
  posthogCapture(eventName, params);
 };
 
+const L2_USEFUL_ACTION_SESSION_KEY = 'fr_l2_useful_action_v1';
+const L2_USEFUL_ACTION_STEPS = new Set(['calculate', 'compare', 'cta_click']);
+let l2UsefulActionEmitted = false;
+
+function claimL2UsefulAction(): boolean {
+ if (l2UsefulActionEmitted) return false;
+ try {
+  if (sessionStorage.getItem(L2_USEFUL_ACTION_SESSION_KEY) === '1') return false;
+  sessionStorage.setItem(L2_USEFUL_ACTION_SESSION_KEY, '1');
+ } catch {
+  // Private browsing or blocked storage: the module guard still deduplicates
+  // repeated events during the current page lifetime.
+ }
+ l2UsefulActionEmitted = true;
+ return true;
+}
+
+function isL2UsefulAction(eventName: string, params: Record<string, any>): boolean {
+ if (eventName === 'simulation_complete' || eventName === 'generate_lead') return true;
+ return eventName === 'funnel_step'
+  && params.funnel === 'main_conversion'
+  && typeof params.step === 'string'
+  && L2_USEFUL_ACTION_STEPS.has(params.step);
+}
+
+/**
+ * Emit one low-cardinality Firebase/GA4 event for the L2 useful-action
+ * denominator. It is deliberately Firebase-only: the PostHog quota policy
+ * samples ordinary page/funnel events and cannot be an L2 source of truth.
+ */
+function maybeEmitL2UsefulAction(eventName: string, params: Record<string, any>): void {
+ if (isL2UsefulAction(eventName, params) && claimL2UsefulAction()) {
+  logFirebaseOnly(L2_USEFUL_ACTION_EVENT);
+ }
+}
+
 const log = (eventName: string, params?: Record<string, any>) => {
  const enrichedParams = enrichEventParams(params);
  // Mirror to PostHog (fire-and-forget, independent of Firebase)
@@ -427,6 +465,7 @@ const log = (eventName: string, params?: Record<string, any>) => {
  }
 
  logFirebaseOnly(eventName, enrichedParams);
+ maybeEmitL2UsefulAction(eventName, enrichedParams);
 };
 
 const setProps = (properties: Record<string, string>) => {
