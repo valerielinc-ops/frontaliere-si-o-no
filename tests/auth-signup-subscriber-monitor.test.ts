@@ -321,10 +321,17 @@ describe('gate di chiusura — solo dopo una misura riuscita e verde', () => {
     expect(byName(/^Fail if threshold/).id).toBe('failgate');
   });
 
-  it('firebase-admin arriva dal lockfile, non da latest', () => {
+  it('firebase-admin arriva dal lockfile via npm ci, non da un install separato', () => {
+    const wf = parseYaml(fs.readFileSync(path.join(__dirname, '..', '.github/workflows/auth-signup-subscriber-monitor.yml'), 'utf8'));
+    const steps: Array<{ name: string; run?: string }> = wf.jobs.check.steps;
+    const install = steps.find((s) => /^Install dependencies$/.test(s.name));
+    expect(install, 'Install dependencies step').toBeDefined();
+    expect(String(install!.run || '')).toMatch(/npm ci(?!\s*--omit=dev)/);
+    expect(String(install!.run || '')).not.toMatch(/--omit=dev/);
+
     const src = fs.readFileSync(path.join(__dirname, '..', '.github/workflows/auth-signup-subscriber-monitor.yml'), 'utf8');
-    expect(src).not.toMatch(/npm install --no-save firebase-admin\s*$/m);
-    expect(src).toMatch(/package-lock\.json'\)\.packages\['node_modules\/firebase-admin'\]\.version/);
+    expect(src).not.toMatch(/npm install --no-save(?:--no-package-lock)?\s+["']?firebase-admin@latest/);
+    expect(steps.some((s) => /^Install firebase-admin/.test(s.name))).toBe(false);
   });
 });
 
