@@ -58,4 +58,41 @@ describe('Migros browser-free SSR discovery', () => {
       fetchPage: async (url: string) => url === LISTING_URL ? PAGE_1 : '<html><body>stalled</body></html>',
     })).rejects.toThrow('page 2 has no detail links');
   });
+
+  it('fails closed when the first paginated page has no detail links', async () => {
+    const emptyFirstPage = `
+      <html><body>
+        <a href="${LISTING_URL}?page=1">1</a>
+        <a href="${LISTING_URL}?page=2">2</a>
+      </body></html>`;
+
+    await expect(fetchMigrosHttpJobDetailUrls({
+      listingUrl: LISTING_URL,
+      maxPages: 2,
+      fetchPage: async () => emptyFirstPage,
+    })).rejects.toThrow('first page has no detail links');
+  });
+
+  it('accepts an explicit validated zero-result page without pagination', async () => {
+    const emptyListing = '<html><body><p>No jobs found.</p></body></html>';
+    await expect(fetchMigrosHttpJobDetailUrls({
+      listingUrl: LISTING_URL,
+      maxPages: 2,
+      fetchPage: async () => emptyListing,
+    })).resolves.toMatchObject({
+      sourceZero: true,
+      pagesFetched: 1,
+      rawUniqueUrls: 0,
+    });
+  });
+
+  it('rejects a numbered page that resolves back to page one', async () => {
+    await expect(fetchMigrosHttpJobDetailUrls({
+      listingUrl: LISTING_URL,
+      maxPages: 2,
+      fetchPage: async (url: string) => url === LISTING_URL
+        ? PAGE_1
+        : { body: PAGE_2, status: 200, url: LISTING_URL },
+    })).rejects.toThrow('resolved page 2');
+  });
 });

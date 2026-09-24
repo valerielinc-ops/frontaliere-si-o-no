@@ -237,12 +237,47 @@ async function readMigrosListingSnapshot(fetched, requestedUrl) {
 }
 
 /**
+ * Fetch the default HTTP listing path while retaining the URL after native
+ * redirect handling. `fetchHtml()` intentionally returns only HTML to its
+ * existing callers, so capture Response.url at its fetch boundary instead of
+ * assuming the requested numbered URL was the page that was served.
+ */
+async function fetchMigrosListingPage(url, options = {}) {
+  let finalUrl = '';
+  const body = await fetchHtml(url, {
+    ...options,
+    fetchImpl: async (requestUrl, requestOptions) => {
+      const response = await fetch(requestUrl, requestOptions);
+      finalUrl = response.url || requestUrl;
+      return response;
+    },
+  });
+  return { body, status: 200, url: finalUrl || url };
+}
+
+export function migrosListingPageMatchesRequestedUrl(actualUrl, requestedUrl) {
+  try {
+    const actual = new URL(actualUrl);
+    const requested = new URL(requestedUrl);
+    const requestedPage = Number(requested.searchParams.get('page')) || 1;
+    const actualPage = Number(actual.searchParams.get('page')) || 1;
+    return (
+      actual.origin === requested.origin &&
+      actual.pathname === requested.pathname &&
+      actualPage === requestedPage
+    );
+  } catch {
+    return false;
+  }
+}
+
+/**
  * Discover the complete Migros listing without a browser. The source's SSR
  * page publishes the authoritative numbered pagination links; every declared
  * page is fetched and must contain detail links before finalization.
  */
 export async function fetchMigrosHttpJobDetailUrls({
-  fetchPage = fetchHtml,
+  fetchPage = fetchMigrosListingPage,
   listingUrl = LISTING_URL,
   maxPages = positiveIntFromEnv('JOBS_MIGROS_MAX_PAGES', 1000),
 } = {}) {
@@ -257,10 +292,16 @@ export async function fetchMigrosHttpJobDetailUrls({
   if (first.status < 200 || first.status >= 300 || !first.body) {
     throw new Error(`Migros HTTP discovery failed for ${first.url}: HTTP ${first.status}`);
   }
+  if (!migrosListingPageMatchesRequestedUrl(first.url, listingUrl)) {
+    throw new Error(`Migros HTTP discovery resolved first page to ${first.url}, expected ${listingUrl}`);
+  }
 
   const pageNumbers = extractMigrosListingPageNumbers(first.body, listingUrl);
   const lastPage = Math.max(...pageNumbers);
   const firstPaths = extractMigrosListingDetailPaths(first.body);
+  if (firstPaths.length === 0 && lastPage > 1) {
+    throw new Error('Migros HTTP discovery incomplete: first page has no detail links despite pagination');
+  }
   if (pageNumbers.length < 2 && firstPaths.length > 0) {
     throw new Error('Migros HTTP discovery is missing authoritative pagination links');
   }
@@ -277,6 +318,9 @@ export async function fetchMigrosHttpJobDetailUrls({
     );
     if (snapshot.status < 200 || snapshot.status >= 300 || !snapshot.body) {
       throw new Error(`Migros HTTP discovery failed for page ${page}: HTTP ${snapshot.status}`);
+    }
+    if (!migrosListingPageMatchesRequestedUrl(snapshot.url, pageUrl)) {
+      throw new Error(`Migros HTTP discovery resolved page ${page} to ${snapshot.url}, expected ${pageUrl}`);
     }
     const paths = extractMigrosListingDetailPaths(snapshot.body);
     if (paths.length === 0) {
