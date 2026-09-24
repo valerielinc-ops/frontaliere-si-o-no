@@ -4,11 +4,11 @@
   "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "9232a7f724122e715214a26d0c42f34aabe8cd75",
+  "sourceCommit": "d3c5653e8e39a6581f45453cee4efb8c1b32aa34",
   "artifactObservation": {
     "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
     "sourceRef": "main",
-    "sourceCommit": "9232a7f724122e715214a26d0c42f34aabe8cd75"
+    "sourceCommit": "d3c5653e8e39a6581f45453cee4efb8c1b32aa34"
   },
   "groupCount": 24,
   "artifactCount": 25,
@@ -17,7 +17,7 @@
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:d2939008c94b9558d04d16239d0ae7c8f7029bcbb5076c87684d50b390835930",
+    "rosterDigest": "sha256:b5bbdbe86b0373a8b49019f78f716f3290ba6bc4bc67b5d9693323c43afa0385",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -719,8 +719,8 @@
     {
       "file": "crawler-group-04.yml",
       "sourceLogic": "crawler-group-04-logic.yml",
-      "sourceSha256": "c0760db34448a400a214c8249147dd81d91c673aae0420236a8b9bd5ed6098d7",
-      "artifactSha256": "c40c6f4de34ebff93898a3eab2a9985f90a3782a60668254e12b8a1142b73e9a",
+      "sourceSha256": "606308ef43da4838fc919e0707ee765d3e496a84acaa8a3c3a97e0dfb868986d",
+      "artifactSha256": "32a9dde493df1c7e5540dc770a440dfb52d0d219ad76de3420f7d19f9e8fdab1",
       "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
       "members": [
         "spital-limmattal",
@@ -729,7 +729,6 @@
         "pemsa",
         "tarchini-group",
         "puk-zuerich",
-        "pole-sante-pays-enhaut",
         "zurzach-care",
         "hitachi-energy",
         "google-switzerland",
@@ -947,8 +946,8 @@
     {
       "file": "crawler-group-10.yml",
       "sourceLogic": "crawler-group-10-logic.yml",
-      "sourceSha256": "1e1a95102dd94713188435de6ae5143b240de519662eb36106d5d557d0f6442e",
-      "artifactSha256": "15b98ed68cf381650684d11af710832425a94f099a29856df29b272c501ce433",
+      "sourceSha256": "9f48da17b7747342d78480ab19598194bf64f154aa8af10894418d49e0e7b8fe",
+      "artifactSha256": "175740ab8490e523c785edc6c38ed2e48639f26dc6bdf4181d94578219ac65f1",
       "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
       "members": [
         "jumbo",
@@ -976,7 +975,6 @@
         "ksgl",
         "endress-hauser",
         "berit-klinik",
-        "fondation-domus",
         "stellentreff",
         "atec-personal",
         "debiopharm"
@@ -985,8 +983,8 @@
     {
       "file": "crawler-group-11.yml",
       "sourceLogic": "crawler-group-11-logic.yml",
-      "sourceSha256": "e46d3898f4dfb4a0bbba3345d8b2b07d6b775fe89dca7f9cb208a49006b3d3e6",
-      "artifactSha256": "036ae6a6eee700456361a5055d5b95dffe11d7a1f6c9302cfddc2302f6280994",
+      "sourceSha256": "fccac03fa23ddd81459638d20203eb834ccf25891b3d086e82762c91a81f364b",
+      "artifactSha256": "ee44a4b8b0f3281413756702f6b08b535f1c13da7374c89596cef1b7fcb7d48f",
       "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
       "members": [
         "rehab-basel",
@@ -1008,7 +1006,6 @@
         "msc-cargo",
         "crr-suva-sion",
         "clienia-ag",
-        "cnp",
         "igs-bern",
         "axpo",
         "ardentis",
@@ -1434,8 +1431,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "b841fbe01e7ec18e2f62ac6313e8d35fcbc943e331103d687d4805afe5d349d7",
-      "artifactSha256": "8965caddf2b773ee0b11a10e7d2876effe1e9eff5f480320427690a3a835b492",
+      "sourceSha256": "fde6039f922c28a693cb58d0368e03085ee78fea51614a6ce609985e1d2e24d6",
+      "artifactSha256": "c80541c8e32061fc4b302d2df08b4e86a97df13ad085adc457d590e944716485",
       "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
       "members": [
         "albergo-gardenia",
@@ -1443,7 +1440,6 @@
         "capri-holdings",
         "confederazione",
         "csd-engineers",
-        "fachkraft",
         "fust",
         "hugo-boss",
         "lidl",
@@ -1451,19 +1447,23 @@
         "nestle",
         "postauto",
         "postch",
-        "postfinance",
-        "tsmg",
         "brefispersonal"
       ]
     },
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "641c50a0685c7b53c86454c956f623ef2eeb05dd0127c690246197eb58617586",
-      "artifactSha256": "23457e77529681aeec7369d07857464384d7210a130cc570789c49d31a7715ad",
+      "sourceSha256": "74dbaad0e55817b8400f06def353885bb52a6007adb0cdc60eaaa15fb3f5953d",
+      "artifactSha256": "7f681b9dc8038cbea836797e97a825578ccfeabc70912fb15ffac14cffdeddfd",
       "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
       "members": [
-        "mcdonald-s-switzerland"
+        "mcdonald-s-switzerland",
+        "pole-sante-pays-enhaut",
+        "fondation-domus",
+        "cnp",
+        "fachkraft",
+        "postfinance",
+        "tsmg"
       ]
     },
     {

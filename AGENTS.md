@@ -20,8 +20,12 @@ Iniettato in ogni sessione agent. Detail durevole nei docs, carica on-demand.
 ## Privacy
 
 - Git identity canonica: `Valerie Linc <valerielinc@gmail.com>`. Mai altre identità.
-- Pre-commit PII scan vs `.git/info/pii-blocklist.txt` (untracked, per-clone). Mancante → prompt user.
-  - Scan: `git diff --cached | grep -niE -f .git/info/pii-blocklist.txt` + same per commit-msg file.
+- Pre-commit PII scan against the untracked, per-clone blocklist. Resolve its
+  path with Git in every checkout/worktree:
+  `BL="$(git rev-parse --git-path info/pii-blocklist.txt)"; test -f "$BL"`.
+  A linked worktree has a `.git` *file*, so the literal path
+  `.git/info/pii-blocklist.txt` is invalid even when the blocklist exists.
+  - Scan: `git diff --cached | grep -niE -f "$BL"` + same per commit-msg file.
   - Match → abort + chiedi sanitize.
 - Strip `Co-authored-by:` con email non canonica.
 - Mai committare absolute home `/Users/<anyone>/...`. Usa relative, `$HOME`, `~`, `git rev-parse --show-toplevel`, env.

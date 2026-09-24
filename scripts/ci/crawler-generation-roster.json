@@ -12,7 +12,6 @@
       "emmi",
       "ems-chemie",
       "endress-hauser",
-      "fondation-domus",
       "hamilton-bonaduz-ag",
       "hilti",
       "hug",
@@ -42,7 +41,6 @@
       "axpo-group",
       "bls",
       "clienia-ag",
-      "cnp",
       "crr-suva-sion",
       "hess-carrosserie",
       "hilcona",
@@ -406,19 +404,22 @@
       "capri-holdings",
       "confederazione-ticino",
       "csd-engineers",
-      "fachkraft",
       "fust",
       "hugo-boss",
       "lidl-svizzera",
       "migros-hq",
       "nestle",
       "posta-svizzera-centro-regionale",
-      "postauto",
-      "postfinance",
-      "tsmg"
+      "postauto"
     ],
     "24": [
-      "mcdonald-s-switzerland"
+      "cnp",
+      "fachkraft",
+      "fondation-domus",
+      "mcdonald-s-switzerland",
+      "pole-sante-pays-enhaut",
+      "postfinance",
+      "tsmg"
     ],
     "01": [
       "coop-ticino"
@@ -507,7 +508,6 @@
       "nant",
       "parmag",
       "pemsa",
-      "pole-sante-pays-enhaut",
       "puk-zuerich",
       "spital-limmattal",
       "spitex-basel",
@@ -1294,5 +1294,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:d2939008c94b9558d04d16239d0ae7c8f7029bcbb5076c87684d50b390835930"
+  "digest": "sha256:b5bbdbe86b0373a8b49019f78f716f3290ba6bc4bc67b5d9693323c43afa0385"
 }
