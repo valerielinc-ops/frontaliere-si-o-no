@@ -42,6 +42,23 @@ const TRANSLATIONS = {
  confirmReminderWhenUndated: 'qualche giorno fa',
  confirmReminderLastNotice: '<strong>Questo è l\'ultimo promemoria.</strong> Se non confermi non riceverai altro da noi, e non devi fare nulla perché sia così.',
 
+ // Richiesta di conferma nata da un'offerta di lavoro (job gate, offerta
+ // scaduta): lib/confirmationJobContext.js. Nomina l'offerta e l'unica cosa
+ // concreta che la conferma aggiunge. Stesso link, stessa cadenza, stesso tetto.
+ // {title}/{company}/{location} arrivano già sanificati ed escapati.
+ confirmJobSubjectTitle: 'Offerte simili a «{title}»: conferma la tua email',
+ confirmJobSubjectCompany: 'Nuove offerte come quella di {company}: conferma la tua email',
+ confirmJobReminderPrefix: 'Promemoria: ',
+ confirmJobReminderLastPrefix: 'Ultimo promemoria: ',
+ confirmJobLabelTitleCompany: 'l\'offerta <strong>«{title}»</strong> presso {company}',
+ confirmJobLabelTitle: 'l\'offerta <strong>«{title}»</strong>',
+ confirmJobLabelCompany: 'un\'offerta di <strong>{company}</strong>',
+ confirmJobIntroUnlocked: 'Hai appena sbloccato {job}. Conferma la tua email per ricevere le nuove offerte simili{where} appena vengono pubblicate, insieme alla newsletter settimanale di <strong>Frontaliere Ticino</strong>.',
+ confirmJobIntroExpired: 'Hai consultato {job}, che non è più disponibile. Conferma la tua email per ricevere le nuove offerte simili{where} appena vengono pubblicate, insieme alla newsletter settimanale di <strong>Frontaliere Ticino</strong>.',
+ confirmJobWhere: ' nella zona di {location}',
+ confirmJobReturn: 'Il pulsante ti riporta direttamente all\'offerta.',
+ confirmJobButton: 'Conferma e ricevi offerte simili',
+
  // Welcome email (social sign-in): moved to functions/src/lib/welcomeEmailTemplate.js (buildWelcomeEmail) — segment-aware, no longer key-based i18n.
 
  // Verification email (password sign-up)
@@ -111,6 +128,19 @@ const TRANSLATIONS = {
  confirmReminderWhenUndated: 'a few days ago',
  confirmReminderLastNotice: '<strong>This is the last reminder.</strong> If you do not confirm you will not hear from us again, and you do not have to do anything for that to be the case.',
 
+ confirmJobSubjectTitle: 'Jobs similar to “{title}”: confirm your email',
+ confirmJobSubjectCompany: 'More jobs like the one at {company}: confirm your email',
+ confirmJobReminderPrefix: 'Reminder: ',
+ confirmJobReminderLastPrefix: 'Last reminder: ',
+ confirmJobLabelTitleCompany: 'the job <strong>“{title}”</strong> at {company}',
+ confirmJobLabelTitle: 'the job <strong>“{title}”</strong>',
+ confirmJobLabelCompany: 'a job at <strong>{company}</strong>',
+ confirmJobIntroUnlocked: 'You just unlocked {job}. Confirm your email to receive new similar jobs{where} as soon as they are published, together with the weekly <strong>Frontaliere Ticino</strong> newsletter.',
+ confirmJobIntroExpired: 'You looked at {job}, which is no longer open. Confirm your email to receive new similar jobs{where} as soon as they are published, together with the weekly <strong>Frontaliere Ticino</strong> newsletter.',
+ confirmJobWhere: ' in the {location} area',
+ confirmJobReturn: 'The button takes you straight back to the job.',
+ confirmJobButton: 'Confirm and get similar jobs',
+
  // Welcome email (social sign-in): moved to functions/src/lib/welcomeEmailTemplate.js (buildWelcomeEmail) — segment-aware, no longer key-based i18n.
 
  verifySubject: 'Verify your email – Frontaliere Ticino',
@@ -175,6 +205,19 @@ const TRANSLATIONS = {
  confirmReminderWhenUndated: 'vor einigen Tagen',
  confirmReminderLastNotice: '<strong>Dies ist die letzte Erinnerung.</strong> Wenn Sie nicht bestätigen, hören Sie nichts mehr von uns — und dafür müssen Sie nichts tun.',
 
+ confirmJobSubjectTitle: 'Ähnliche Stellen wie „{title}“: bitte E-Mail bestätigen',
+ confirmJobSubjectCompany: 'Weitere Stellen wie bei {company}: bitte E-Mail bestätigen',
+ confirmJobReminderPrefix: 'Erinnerung: ',
+ confirmJobReminderLastPrefix: 'Letzte Erinnerung: ',
+ confirmJobLabelTitleCompany: 'das Stellenangebot <strong>„{title}“</strong> bei {company}',
+ confirmJobLabelTitle: 'das Stellenangebot <strong>„{title}“</strong>',
+ confirmJobLabelCompany: 'ein Stellenangebot bei <strong>{company}</strong>',
+ confirmJobIntroUnlocked: 'Sie haben soeben {job} freigeschaltet. Bestätigen Sie Ihre E-Mail-Adresse, um neue ähnliche Stellen{where} zu erhalten, sobald sie veröffentlicht werden – zusammen mit dem wöchentlichen <strong>Frontaliere Ticino</strong>-Newsletter.',
+ confirmJobIntroExpired: 'Sie haben sich {job} angesehen, das nicht mehr verfügbar ist. Bestätigen Sie Ihre E-Mail-Adresse, um neue ähnliche Stellen{where} zu erhalten, sobald sie veröffentlicht werden – zusammen mit dem wöchentlichen <strong>Frontaliere Ticino</strong>-Newsletter.',
+ confirmJobWhere: ' in der Region {location}',
+ confirmJobReturn: 'Der Button führt Sie direkt zurück zum Stellenangebot.',
+ confirmJobButton: 'Bestätigen und ähnliche Stellen erhalten',
+
  // Welcome email (social sign-in): moved to functions/src/lib/welcomeEmailTemplate.js (buildWelcomeEmail) — segment-aware, no longer key-based i18n.
 
  verifySubject: 'E-Mail bestätigen – Frontaliere Ticino',
@@ -238,6 +281,19 @@ const TRANSLATIONS = {
  confirmReminderWhenDated: 'le {date}',
  confirmReminderWhenUndated: 'il y a quelques jours',
  confirmReminderLastNotice: '<strong>Ceci est le dernier rappel.</strong> Si vous ne confirmez pas, vous n\'aurez plus de nouvelles de notre part, et vous n\'avez rien à faire pour cela.',
+
+ confirmJobSubjectTitle: 'Offres similaires à « {title} » : confirmez votre e-mail',
+ confirmJobSubjectCompany: 'D\'autres offres comme celle de {company} : confirmez votre e-mail',
+ confirmJobReminderPrefix: 'Rappel : ',
+ confirmJobReminderLastPrefix: 'Dernier rappel : ',
+ confirmJobLabelTitleCompany: 'l\'offre <strong>« {title} »</strong> chez {company}',
+ confirmJobLabelTitle: 'l\'offre <strong>« {title} »</strong>',
+ confirmJobLabelCompany: 'une offre de <strong>{company}</strong>',
+ confirmJobIntroUnlocked: 'Vous venez de débloquer {job}. Confirmez votre e-mail pour recevoir les nouvelles offres similaires{where} dès leur publication, avec la newsletter hebdomadaire de <strong>Frontaliere Ticino</strong>.',
+ confirmJobIntroExpired: 'Vous avez consulté {job}, qui n\'est plus disponible. Confirmez votre e-mail pour recevoir les nouvelles offres similaires{where} dès leur publication, avec la newsletter hebdomadaire de <strong>Frontaliere Ticino</strong>.',
+ confirmJobWhere: ' dans la région de {location}',
+ confirmJobReturn: 'Le bouton vous ramène directement à l\'offre.',
+ confirmJobButton: 'Confirmer et recevoir des offres similaires',
 
  // Welcome email (social sign-in): moved to functions/src/lib/welcomeEmailTemplate.js (buildWelcomeEmail) — segment-aware, no longer key-based i18n.
 
