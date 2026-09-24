@@ -355,6 +355,7 @@ export async function runL2({
     : now.toISOString();
   const sourceSnapshot = {
     ...(verdict.snapshot || { source: 'gsc-orphan-query-clusters', path: sourcePath }),
+    source: 'gsc-orphan-query-clusters+ga4-landing-path',
     sourceRefs: loopPolicy.sourceRefs,
     outcomeSource: verdict.snapshot?.outcomeJoin === 'joined'
       ? 'GA4 landing-page sessions joined to GSC paths'
