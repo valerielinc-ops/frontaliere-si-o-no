@@ -809,6 +809,29 @@ describe('EOC Umantis source continuity across vacancy-ID rotation', () => {
     });
   });
 
+  it('requires both the EOC company key and the EOC Umantis host', () => {
+    const existing = [baseJob({
+      id: 'eoc-old-id',
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2670/Description/4',
+      firstSeenAt: '2026-05-26T22:48:33.043Z',
+    })];
+
+    const otherHost = [baseJob({
+      url: 'https://jobs.example.test/Vacancies/2696/Description/4',
+      firstSeenAt: '2026-09-23T23:53:42.243Z',
+    })];
+    const otherCompany = [baseJob({
+      companyKey: 'other-company',
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2696/Description/4',
+      firstSeenAt: '2026-09-23T23:53:42.243Z',
+    })];
+
+    expect(mergeAndDeduplicate(existing, otherHost, cfg, { continuityKey: eocContinuityKey }).merged)
+      .toHaveLength(2);
+    expect(mergeAndDeduplicate(existing, otherCompany, cfg, { continuityKey: eocContinuityKey }).merged)
+      .toHaveLength(2);
+  });
+
   it('does not bridge a same-title record whose location differs', () => {
     const existing = [baseJob({
       id: 'eoc-bellinzona',

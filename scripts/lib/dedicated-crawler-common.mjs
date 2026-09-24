@@ -5627,7 +5627,7 @@ export function eocContinuityKey(job = {}) {
     host = '';
   }
   const companyKey = normalizeCompanyKey(job?.companyKey || '');
-  if (host !== EOC_UMANTIS_HOST && companyKey !== EOC_COMPANY_KEY) return '';
+  if (host !== EOC_UMANTIS_HOST || companyKey !== EOC_COMPANY_KEY) return '';
 
   const sourceLang = normalizeContinuityPart(job?.sourceLang || 'it') || 'it';
   const sourceSlug = job?.slugByLocale?.[sourceLang]
