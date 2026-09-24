@@ -1,9 +1,10 @@
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
-import { describe, expect, it } from 'vitest';
+import { describe, expect, it, vi } from 'vitest';
 import {
   buildL1TelemetryExport,
+  buildGa4EventMetricsBody,
   buildUnavailableL1TelemetryExport,
   buildUnavailableL3OutcomeExport,
   buildUnavailableL4OutcomeExport,
@@ -15,10 +16,12 @@ import {
   buildL7ExperimentLedger,
   buildL7ExperimentLedgerQuery,
   buildL9OutcomeLedger,
+  exportL1,
   exportL3,
   exportL4,
   exportL5,
   exportL7,
+  fetchL1Ga4SessionCounts,
   GoogleDataClient,
 } from '../scripts/ci/export-loop-outcomes.mjs';
 
@@ -81,6 +84,80 @@ describe('read-only loop outcome exporters', () => {
       errorFreeUsefulSessions: 7738,
       _meta: { issue: 4304, generatedAt: NOW.toISOString() },
     });
+  });
+
+  it('queries GA4 page-view and error sessions as separate, explicit cohorts', async () => {
+    const calls: Array<{ url: string; body: any }> = [];
+    const client = {
+      request: async (url: string, init: RequestInit) => {
+        const body = JSON.parse(String(init.body));
+        calls.push({ url, body });
+        return body.metrics.length === 1
+          ? { rows: [{ metricValues: [{ value: '240' }] }] }
+          : { rows: [{ metricValues: [{ value: '40' }, { value: '55' }] }] };
+      },
+    };
+
+    await expect(fetchL1Ga4SessionCounts({
+      client: client as any,
+      startDate: '2026-09-06',
+      endDate: '2026-09-10',
+      propertyId: '524485296',
+    })).resolves.toEqual({
+      usefulSessions: 240,
+      errorFreeUsefulSessions: 200,
+      observedErrorEvents: 55,
+    });
+
+    expect(calls).toHaveLength(2);
+    expect(calls[0].body).toMatchObject({
+      dateRanges: [{ startDate: '2026-09-06', endDate: '2026-09-10' }],
+      metrics: [{ name: 'sessions' }],
+      dimensionFilter: {
+        filter: { fieldName: 'eventName', stringFilter: { value: 'page_view', matchType: 'EXACT' } },
+      },
+    });
+    expect(calls[1].body.dimensionFilter.orGroup.expressions).toHaveLength(3);
+    expect(buildGa4EventMetricsBody({ eventNames: ['page_view'], startDate: 'a', endDate: 'b' }))
+      .toMatchObject({ metrics: [{ name: 'sessions' }] });
+  });
+
+  it('falls back to GA4 when a successful PostHog query returns a sub-floor cohort', async () => {
+    const outputDir = fs.mkdtempSync(path.join(os.tmpdir(), 'loop-l1-ga4-fallback-'));
+    fs.writeFileSync(path.join(outputDir, 'baseline.json'), JSON.stringify({ oldFact: true }));
+    const posthogRunner = vi.fn(async (query: string) => query.includes('observedErrorEvents')
+      ? { columns: ['observedErrorEvents'], results: [[0]] }
+      : { columns: ['usefulSessions', 'errorFreeUsefulSessions'], results: [[0, 0]] });
+    const ga4SessionRunner = vi.fn(async () => ({
+      usefulSessions: 240,
+      errorFreeUsefulSessions: 200,
+      observedErrorEvents: 55,
+    }));
+
+    const output = await exportL1({
+      now: NOW,
+      inputPath: path.join(outputDir, 'baseline.json'),
+      outputPath: path.join(outputDir, 'outcomes.json'),
+      client: postHogClient() as any,
+      ga4Client: {} as any,
+      posthogRunner,
+      ga4SessionRunner,
+      checkLivenessImpl: async () => ({ alive: true, reason: 'test source is alive' }) as any,
+    });
+
+    expect(posthogRunner).toHaveBeenCalledTimes(2);
+    expect(ga4SessionRunner).toHaveBeenCalledTimes(1);
+    expect(output).toMatchObject({
+      usefulSessions: 240,
+      errorFreeUsefulSessions: 200,
+      telemetrySource: 'ga4-error-telemetry',
+      _meta: {
+        sourceRef: 'ga4-error-telemetry',
+        source: 'GA4 Data API, read-only settled export',
+      },
+      export: { sourceRefs: ['ga4-error-telemetry'], readOnly: true },
+    });
+    expect(JSON.parse(fs.readFileSync(path.join(outputDir, 'outcomes.json'), 'utf8'))).toEqual(output);
   });
 
   it('emits explicit unavailable L1/L3/L4 placeholders instead of failing before evidence recording', () => {

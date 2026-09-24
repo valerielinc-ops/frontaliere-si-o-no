@@ -10,7 +10,7 @@ const NOW = new Date('2026-09-13T12:00:00.000Z');
 
 function directEvidence({
   outcomeId = 'error-free-useful-session',
-  sourceRefs = ['posthog-error-telemetry'],
+  sourceRefs = ['posthog-error-telemetry', 'ga4-error-telemetry'],
   primaryMetric = 'error_free_useful_session_rate',
   status = 'observed',
   numerator = 95,

@@ -93,8 +93,14 @@ export function validateTelemetry(telemetry, {
     issues.push(`usefulSessions is below minimum sample (${usefulSessions} < ${minimumSample})`);
   }
 
+  const telemetrySource = typeof telemetry.telemetrySource === 'string' && telemetry.telemetrySource.trim()
+    ? telemetry.telemetrySource.trim()
+    : (typeof telemetry._meta?.sourceRef === 'string' && telemetry._meta.sourceRef.trim()
+      ? telemetry._meta.sourceRef.trim()
+      : 'error-ux-telemetry');
+
   const snapshot = {
-    source: 'error-ux-telemetry',
+    source: telemetrySource,
     path: sourcePath,
     generatedAt: generatedAt?.toISOString() || null,
     ageHours: ageHours === null ? null : Number(ageHours.toFixed(3)),
@@ -255,7 +261,7 @@ export async function runL1({
     denominator: verdict.ok ? denominator : null,
     observedAt: generatedAt?.toISOString() || null,
     reason: verdict.ok
-      ? 'fresh PostHog useful-session export contains the complete session outcome'
+      ? `fresh ${observation.sourceSnapshot.source} useful-session export contains the complete session outcome`
       : `useful-session outcome is ${verdict.quality}; no reliability change is authorized`,
     now,
   });

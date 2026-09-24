@@ -421,6 +421,7 @@ describe('the PostHog monitor fleet is fully declared', () => {
     expect(guarded).toEqual([
       'scripts/build-evidence-index.mjs',
       'scripts/campaign-goal-check.mjs',
+      'scripts/ci/export-loop-outcomes.mjs',
       'scripts/cwv-monitor-check.mjs',
       'scripts/fetch-article-performance.mjs',
       'scripts/posthog-error-issue-sync.mjs',
@@ -434,7 +435,10 @@ describe('the PostHog monitor fleet is fully declared', () => {
     expect(guarded.length).toBeGreaterThan(0);
     for (const m of guarded) {
       const src = read(m.path);
-      expect(src, `${m.path} must import the guard`).toMatch(/from '\.\/lib\/source-liveness\.mjs'/);
+      const importPattern = m.path.startsWith('scripts/ci/')
+        ? /from '\.\.\/lib\/source-liveness\.mjs'/
+        : /from '\.\/lib\/source-liveness\.mjs'/;
+      expect(src, `${m.path} must import the guard`).toMatch(importPattern);
       expect(src, `${m.path} must CALL the guard`).toMatch(/abstainIfSourceDead\(|checkLivenessImpl\(|checkPostHogLiveness\(/);
     }
   });

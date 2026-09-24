@@ -18,8 +18,12 @@ import {
   ga4DateRange,
 } from '../lib/ga4-service-account.mjs';
 import { loadLoopPolicy } from '../lib/loop-fleet-contract.mjs';
+import { checkPostHogLiveness } from '../lib/source-liveness.mjs';
+import { MINIMUM_SAMPLE } from './loop-l1-reliability.mjs';
 
 export const DEFAULT_L1_WINDOW_DAYS = 4;
+export const L1_GA4_ERROR_EVENTS = Object.freeze(['app_error', 'exception', 'error_page_view']);
+export const L1_SOURCE_REFS = Object.freeze(['posthog-error-telemetry', 'ga4-error-telemetry']);
 export const DEFAULT_L5_WINDOW_DAYS = 8;
 export const DEFAULT_L3_WINDOW_DAYS = 4;
 export const DEFAULT_L4_WINDOW_HOURS = 30;
@@ -822,8 +826,12 @@ export function buildL1TelemetryExport(input, {
   observedErrorEvents,
   generatedAt,
   telemetryWindow,
+  source = 'PostHog HogQL, read-only live export',
+  sourceRef = 'posthog-error-telemetry',
+  sourceRefs = [sourceRef],
 } = {}) {
   const meta = isObject(input?._meta) ? input._meta : {};
+  const refs = [...new Set((Array.isArray(sourceRefs) ? sourceRefs : [sourceRef]).filter(text))];
   return {
     ...(isObject(input) ? input : {}),
     generatedAt,
@@ -831,10 +839,21 @@ export function buildL1TelemetryExport(input, {
     errorFreeUsefulSessions,
     observedErrorEvents,
     telemetryWindow,
+    telemetrySource: sourceRef,
+    independent: true,
+    export: {
+      ...(isObject(input?.export) ? input.export : {}),
+      schemaVersion: 1,
+      sourceRefs: refs,
+      readOnly: true,
+      publishedDataUntouched: true,
+    },
     _meta: {
       ...meta,
       generatedAt,
-      source: 'PostHog HogQL, read-only live export',
+      source,
+      sourceRef,
+      sourceRefs: refs,
       purpose: 'Fresh useful-session/error-free-useful-session evidence for Loop L1',
       telemetryWindow,
     },
@@ -855,10 +874,11 @@ export function buildUnavailableL1TelemetryExport({
     usefulSessions: null,
     errorFreeUsefulSessions: null,
     observedErrorEvents: null,
+    telemetrySource: 'unavailable',
     independent: false,
     export: {
       schemaVersion: 1,
-      sourceRefs: ['posthog-error-telemetry'],
+      sourceRefs: [...L1_SOURCE_REFS],
       readOnly: true,
       unavailable: true,
       mutationsPerformed: false,
@@ -866,42 +886,166 @@ export function buildUnavailableL1TelemetryExport({
     _meta: {
       generatedAt,
       source: 'PostHog HogQL, read-only live export unavailable',
+      sourceRefs: [...L1_SOURCE_REFS],
       purpose: 'Explicit fail-closed placeholder for Loop L1',
       reason,
     },
   };
 }
 
-export async function exportL1({ inputPath, outputPath, now = new Date(), days = DEFAULT_L1_WINDOW_DAYS, client = null, posthogRunner = runHogQL } = {}) {
-  const firestore = client || new GoogleDataClient();
-  const window = completeUtcWindow(now, days);
-  const config = await resolvePostHogConfig(firestore);
-  const sessionQuery = `
-    SELECT count() AS usefulSessions, countIf(errorEvents = 0) AS errorFreeUsefulSessions
-    FROM (
-      SELECT $session_id,
-        countIf(event IN ('$pageview', 'pageview')) AS pageViews,
-        countIf(event IN ('app_error', 'exception', 'error_page_view')) AS errorEvents
-      FROM events
-      WHERE timestamp >= '${window.start}' AND timestamp < '${window.end}'
-      GROUP BY $session_id
-      HAVING pageViews > 0
-    )`;
-  const errorQuery = `
-    SELECT count() AS observedErrorEvents
-    FROM events
-    WHERE timestamp >= '${window.start}' AND timestamp < '${window.end}'
-      AND event IN ('app_error', 'exception', 'error_page_view')`;
-  const [sessionResponse, errorResponse] = await Promise.all([
-    posthogRunner(sessionQuery, config),
-    posthogRunner(errorQuery, config),
+function usableL1Counts(counts, minimumSample) {
+  return Boolean(counts)
+    && integer(counts.usefulSessions)
+    && integer(counts.errorFreeUsefulSessions)
+    && integer(counts.observedErrorEvents)
+    && counts.errorFreeUsefulSessions <= counts.usefulSessions
+    && counts.usefulSessions >= minimumSample;
+}
+
+export async function fetchL1Ga4SessionCounts({ client, startDate, endDate, propertyId } = {}) {
+  const [useful, errors] = await Promise.all([
+    fetchGa4EventMetrics({
+      client,
+      eventNames: ['page_view'],
+      startDate,
+      endDate,
+      propertyId,
+      metrics: ['sessions'],
+    }),
+    fetchGa4EventMetrics({
+      client,
+      eventNames: [...L1_GA4_ERROR_EVENTS],
+      startDate,
+      endDate,
+      propertyId,
+      metrics: ['sessions', 'eventCount'],
+    }),
   ]);
+  if (errors.sessions > useful.sessions) {
+    throw new Error(`GA4 error sessions (${errors.sessions}) exceed useful page-view sessions (${useful.sessions})`);
+  }
+  return {
+    usefulSessions: useful.sessions,
+    errorFreeUsefulSessions: useful.sessions - errors.sessions,
+    observedErrorEvents: errors.eventCount,
+  };
+}
+
+export async function exportL1({
+  inputPath,
+  outputPath,
+  now = new Date(),
+  days = DEFAULT_L1_WINDOW_DAYS,
+  client = null,
+  ga4Client = null,
+  posthogRunner = runHogQL,
+  ga4SessionRunner = fetchL1Ga4SessionCounts,
+  checkLivenessImpl = checkPostHogLiveness,
+  minimumSample = MINIMUM_SAMPLE,
+  propertyId = null,
+} = {}) {
+  const window = completeUtcWindow(now, days);
+  const sampleFloor = integer(minimumSample) ? minimumSample : MINIMUM_SAMPLE;
+  let posthogCounts = null;
+  let posthogFailure = null;
+
+  try {
+    const firestore = client || new GoogleDataClient();
+    const config = await resolvePostHogConfig(firestore);
+    const liveness = await checkLivenessImpl({
+      windowDays: Number(days),
+      now,
+      apiKey: config.apiKey,
+      projectId: config.projectId,
+      host: config.host,
+      runHogQLImpl: posthogRunner,
+    });
+    if (!liveness.alive) {
+      posthogFailure = `PostHog non misurabile: ${liveness.reason}`;
+    } else {
+      const sessionQuery = `
+        SELECT count() AS usefulSessions, countIf(errorEvents = 0) AS errorFreeUsefulSessions
+        FROM (
+          SELECT $session_id,
+            countIf(event IN ('$pageview', 'pageview')) AS pageViews,
+            countIf(event IN ('app_error', 'exception', 'error_page_view')) AS errorEvents
+          FROM events
+          WHERE timestamp >= '${window.start}' AND timestamp < '${window.end}'
+          GROUP BY $session_id
+          HAVING pageViews > 0
+        )`;
+      const errorQuery = `
+        SELECT count() AS observedErrorEvents
+        FROM events
+        WHERE timestamp >= '${window.start}' AND timestamp < '${window.end}'
+          AND event IN ('app_error', 'exception', 'error_page_view')`;
+      const [sessionResponse, errorResponse] = await Promise.all([
+        posthogRunner(sessionQuery, config),
+        posthogRunner(errorQuery, config),
+      ]);
+      posthogCounts = {
+        usefulSessions: nonNegativeInteger(postHogRow(sessionResponse, 'usefulSessions'), 'usefulSessions'),
+        errorFreeUsefulSessions: nonNegativeInteger(postHogRow(sessionResponse, 'errorFreeUsefulSessions'), 'errorFreeUsefulSessions'),
+        observedErrorEvents: nonNegativeInteger(postHogRow(errorResponse, 'observedErrorEvents'), 'observedErrorEvents'),
+      };
+    }
+  } catch (error) {
+    posthogFailure = `PostHog export failed: ${error.message}`;
+  }
+
+  let selected = usableL1Counts(posthogCounts, sampleFloor) && !posthogFailure
+    ? {
+      counts: posthogCounts,
+      source: 'PostHog HogQL, read-only live export',
+      sourceRef: 'posthog-error-telemetry',
+      telemetryWindow: window,
+    }
+    : null;
+  let ga4Failure = null;
+
+  // A successful empty HogQL result is not proof of a healthy source. When
+  // PostHog is dead or below the L1 floor, use the existing GA4 mirror for the
+  // same page/error events; if that also fails, the caller emits the explicit
+  // unavailable placeholder rather than promoting a partial count.
+  if (!usableL1Counts(posthogCounts, sampleFloor)) {
+    try {
+      const analytics = ga4Client || new GoogleDataClient({ oauthScope: GA4_READONLY_SCOPE });
+      const range = ga4DateRange(Number(days), 2, now);
+      const counts = await ga4SessionRunner({
+        client: analytics,
+        ...range,
+        propertyId,
+      });
+      if (!usableL1Counts(counts, 0)) {
+        throw new Error('GA4 returned an invalid useful-session cohort');
+      }
+      selected = {
+        counts,
+        source: 'GA4 Data API, read-only settled export',
+        sourceRef: 'ga4-error-telemetry',
+        telemetryWindow: { ...range, lagDays: 2, source: 'GA4 settled calendar dates' },
+      };
+      console.error('[L1] PostHog non misurabile o sotto il campione minimo: uso GA4 come fallback');
+    } catch (error) {
+      ga4Failure = `GA4 fallback failed: ${error.message}`;
+    }
+  }
+
+  if (!selected) {
+    throw new Error([
+      'L1 telemetry export unavailable',
+      posthogFailure,
+      ga4Failure,
+    ].filter(Boolean).join('; '));
+  }
+
   const telemetry = buildL1TelemetryExport(JSON.parse(fs.readFileSync(path.resolve(inputPath), 'utf8')), {
-    usefulSessions: nonNegativeInteger(postHogRow(sessionResponse, 'usefulSessions'), 'usefulSessions'),
-    errorFreeUsefulSessions: nonNegativeInteger(postHogRow(sessionResponse, 'errorFreeUsefulSessions'), 'errorFreeUsefulSessions'),
-    observedErrorEvents: nonNegativeInteger(postHogRow(errorResponse, 'observedErrorEvents'), 'observedErrorEvents'),
+    ...selected.counts,
     generatedAt: now.toISOString(),
-    telemetryWindow: window,
+    telemetryWindow: selected.telemetryWindow,
+    source: selected.source,
+    sourceRef: selected.sourceRef,
+    sourceRefs: [selected.sourceRef],
   });
   fs.mkdirSync(path.dirname(path.resolve(outputPath)), { recursive: true });
   fs.writeFileSync(path.resolve(outputPath), `${JSON.stringify(telemetry, null, 2)}\n`);
@@ -944,16 +1088,26 @@ function normalizeGa4PropertyId(raw) {
   return value.startsWith('properties/') ? value : `properties/${value}`;
 }
 
-function ga4EventSessionsBody({ eventName, startDate, endDate }) {
+function ga4EventFilter(eventNames) {
+  const names = Array.isArray(eventNames) ? eventNames.filter(text) : [];
+  if (!names.length) throw new Error('GA4 event filter requires at least one event name');
+  const expressions = names.map((eventName) => ({
+    filter: {
+      fieldName: 'eventName',
+      stringFilter: { value: eventName, matchType: 'EXACT' },
+    },
+  }));
+  return expressions.length === 1 ? expressions[0] : { orGroup: { expressions } };
+}
+
+export function buildGa4EventMetricsBody({ eventNames, startDate, endDate, metrics = ['sessions'] } = {}) {
+  if (!Array.isArray(metrics) || !metrics.length || metrics.some((metric) => !text(metric))) {
+    throw new Error('GA4 event metrics requires at least one metric');
+  }
   return {
     dateRanges: [{ startDate, endDate }],
-    metrics: [{ name: 'sessions' }],
-    dimensionFilter: {
-      filter: {
-        fieldName: 'eventName',
-        stringFilter: { value: eventName, matchType: 'EXACT' },
-      },
-    },
+    metrics: metrics.map((name) => ({ name })),
+    dimensionFilter: ga4EventFilter(eventNames),
     limit: 1,
   };
 }
@@ -964,22 +1118,44 @@ function nonNegativeCount(value, label) {
   return parsed;
 }
 
+export async function fetchGa4EventMetrics({
+  client,
+  eventNames,
+  startDate,
+  endDate,
+  propertyId,
+  metrics = ['sessions'],
+} = {}) {
+  const data = await client.request(
+    `https://analyticsdata.googleapis.com/v1beta/${normalizeGa4PropertyId(propertyId)}:runReport`,
+    {
+      method: 'POST',
+      headers: { 'content-type': 'application/json' },
+      body: JSON.stringify(buildGa4EventMetricsBody({ eventNames, startDate, endDate, metrics })),
+    },
+  );
+  const values = data?.rows?.[0]?.metricValues || [];
+  return Object.fromEntries(metrics.map((metric, index) => [
+    metric,
+    nonNegativeCount(values[index]?.value ?? 0, `${metric} for ${eventNames.join(', ')}`),
+  ]));
+}
+
 /**
  * Read one exact GA4 event-session count. The event emitter validates the
  * destination before recording `job_apply_handoff`; this exporter preserves
  * that event as a handoff and never upgrades it to an application submission.
  */
 export async function fetchL3EventSessions({ client, eventName, startDate, endDate, propertyId } = {}) {
-  const data = await client.request(
-    `https://analyticsdata.googleapis.com/v1beta/${normalizeGa4PropertyId(propertyId)}:runReport`,
-    {
-      method: 'POST',
-      headers: { 'content-type': 'application/json' },
-      body: JSON.stringify(ga4EventSessionsBody({ eventName, startDate, endDate })),
-    },
-  );
-  const value = data?.rows?.[0]?.metricValues?.[0]?.value ?? 0;
-  return nonNegativeCount(value, `sessions for ${eventName}`);
+  const metrics = await fetchGa4EventMetrics({
+    client,
+    eventNames: [eventName],
+    startDate,
+    endDate,
+    propertyId,
+    metrics: ['sessions'],
+  });
+  return metrics.sessions;
 }
 
 export function buildL3OutcomeExport({

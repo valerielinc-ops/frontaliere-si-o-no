@@ -50,6 +50,7 @@
   "sourceCatalog": {
     "manifest-api-corpus": "Published corpus/API manifest",
     "posthog-error-telemetry": "PostHog error and useful-session telemetry",
+    "ga4-error-telemetry": "GA4 app-error and useful-session telemetry",
     "gsc": "Google Search Console snapshot",
     "posthog-landing-path": "PostHog landing-path and useful-action telemetry",
     "job-crawler-summaries": "Job crawler summary snapshots",
@@ -118,12 +119,12 @@
       "goal": "Reliability & UX",
       "owner": "CTO / Reliability",
       "oracle": "independent synthetic path and error telemetry",
-      "sourceRefs": ["posthog-error-telemetry"],
+      "sourceRefs": ["posthog-error-telemetry", "ga4-error-telemetry"],
       "cadence": "hourly / daily",
       "primaryMetric": "error_free_useful_session_rate",
       "outcome": {
         "outcomeId": "error-free-useful-session",
-        "sourceRefs": ["posthog-error-telemetry"],
+        "sourceRefs": ["posthog-error-telemetry", "ga4-error-telemetry"],
         "requiredFields": ["generatedAt", "numerator", "denominator"]
       },
       "minimumSample": 100,
