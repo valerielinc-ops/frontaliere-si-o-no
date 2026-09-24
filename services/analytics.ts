@@ -111,6 +111,7 @@ import {
 } from './benignErrorPatterns';
 import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
 import { readBuildIdForTelemetry } from './buildInfo';
+import { jobGateNewsletterTags } from './jobGateExperiment';
 
 export interface AnalyticsPageViewIdentity {
  jobSlug?: string;
@@ -2260,6 +2261,9 @@ export const Analytics = {
    action,
    email_domain: emailDomain,
    source_cta: context.sourceCta,
+   // jobgate-v3: the JobBoard gate's subscribe carries the visitor's arm
+   // (empty object for every other CTA or when the experiment is off).
+   ...jobGateNewsletterTags(context.sourceCta),
   });
 
   // `source_channel`/`source_cta` were historically emitted as free-form
