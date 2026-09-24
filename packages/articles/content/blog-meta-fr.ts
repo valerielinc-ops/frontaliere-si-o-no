@@ -11946,6 +11946,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.cgil-regio-insubrica-incontro-novembre.title': 'Cgil demande au Piémont la solution de la taxe de santé',
     'blog.article.cgil-regio-insubrica-incontro-novembre.excerpt': 'La taxe de santé est en vigueur depuis deux ans et demi sans décrets d\'application ; les restaurations 2026 sont passées de 89 à 108 millions d\'euros et la présidence de la Regio Insubrica est passée au Piémont, avec une table interministérielle prévue début novembre.',
     'blog.article.cgil-regio-insubrica-incontro-novembre.imageAlt': 'Frontalier marchant près du lac de Lugano avec les Alpes en arrière-plan',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.title': 'Pension publique suisse : pas d\'imposition en Italie',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.excerpt': 'Réponse à l\'interpellation n ° 177/2026 de l\'Agence du revenu : pension publique DDPS versée par Cassa PUBLICA non imposée en Italie pour les personnes ayant la double nationalité italo-suisse.',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.imageAlt': 'Vue sur le lac de Lugano avec montagnes en arrière-plan, représentant la vie financière transfrontalière au Tessin',
 };
 
 export default blogMetaFr;
