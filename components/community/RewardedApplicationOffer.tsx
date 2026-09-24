@@ -168,14 +168,14 @@ export default function RewardedApplicationOffer({
           </div>
 
           <p id="rewarded-application-offer-description" className="text-sm leading-relaxed text-body">
-            Stiamo preparando il pulsante per aprire la candidatura sul sito dell’azienda. Se c’è domanda Google, puoi scegliere di guardare la pubblicità; al termine sblocchiamo quel pulsante.
+            Stiamo preparando il pulsante per aprire la candidatura sul sito dell’azienda. Se c’è domanda Google, il video parte automaticamente dopo il click su “Candidati”; al termine sblocchiamo quel pulsante.
           </p>
 
           <div className="rounded-stripe border border-info-border bg-info-subtle/60 p-3">
             <div className="flex items-start gap-2.5">
               <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-info" aria-hidden="true" />
               <p className="text-xs leading-relaxed text-body">
-                Questo percorso è monetizzato solo da Google. Il video parte esclusivamente dopo la tua scelta esplicita; se l’asta non restituisce una creatività, non mostriamo un sostituto non monetizzato.
+                Questo percorso è monetizzato solo da Google. Il click su “Candidati” avvia la richiesta; se l’asta non restituisce una creatività, non mostriamo un sostituto non monetizzato e procediamo con il redirect diretto.
               </p>
             </div>
           </div>
@@ -219,12 +219,6 @@ export default function RewardedApplicationOffer({
               unavailableLabel="Il video non è disponibile in questo momento."
               showUnavailableMessage={false}
               retryToken={retryToken}
-              onOptIn={() => trackAssistedApplicationEvent('rewarded_ad_opt_in', {
-                variant: 'rewarded_ad',
-                jobId,
-                companyId,
-                surface: SURFACE,
-              })}
               onGranted={handleGranted}
               onVideoCompleted={handleVideoCompleted}
               onClosed={handleClosed}
