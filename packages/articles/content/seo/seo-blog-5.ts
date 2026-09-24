@@ -92815,6 +92815,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-cgil-regio-insubrica-incontro-novembre': {
+    title: 'Cgil chiede al Piemonte soluzione tassa salute',
+    description: 'La Cgil chiede al Piemonte di chiudere la partita sulla tassa della salute: contributo sanitario senza decreti, ristorni 2026 a 108 milioni, tavolo',
+    keywords: 'frontalieri, ticino, svizzera, italia, cgil, chiede, piemonte, soluzione',
+    ogTitle: 'Cgil chiede al Piemonte soluzione tassa salute',
+    ogDescription: 'La Cgil sollecita il Piemonte a utilizzare la presidenza della Regio Insubrica per risolvere la questione della tassa sulla salute, ancora senza decreti attuativi dopo due anni e mezzo, mentre i ristorni 2026 raggiungono 108 milioni di euro',
+    canonicalPath: '/articoli-frontaliere/cgil-regio-insubrica-incontro-novembre',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cgil chiede al Piemonte soluzione tassa salute",
+      "description": "La Cgil chiede al Piemonte di chiudere la partita sulla tassa della salute: contributo sanitario senza decreti, ristorni 2026 a 108 milioni, tavolo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cgil-regio-insubrica-incontro-novembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che cammina vicino al lago di Lugano con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-09-24T18:07:31+00:00",
+      "dateModified": "2026-09-24T18:07:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cgil-regio-insubrica-incontro-novembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
