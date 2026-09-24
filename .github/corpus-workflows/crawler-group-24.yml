@@ -942,44 +942,39 @@ jobs:
           printf '%s\n' 'set -uo pipefail
           set +e
 
-          # ---- fachkraft: run crawler (verbatim from original workflow) ----
+          # ---- fachkraft: 150 minute target wall timeout ----
+          # shellcheck disable=SC2016 -- child-shell variables expand inside the quoted bash -c body
+          timeout --signal=TERM --kill-after=30s 150m bash -c '\''set -uo pipefail
+          set +e
+
+          # ---- fachkraft: run crawler (bounded work phase) ----
           node scripts/update-fachkraft-jobs.mjs
           crawler_exit=$?
           git_commit_exit=0
 
-          # ---- fachkraft: Housekeeping — remove expired job listings (scoped) (verbatim, only if crawler succeeded) ----
+          # ---- fachkraft: Housekeeping — remove expired job listings (scoped) (only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
             (node scripts/cleanup-jobs.mjs) || true
           fi
 
-          # ---- fachkraft: Commit and push (verbatim, only if crawler succeeded) ----
+          # ---- fachkraft: Commit and push (only if crawler succeeded) ----
           if [ "$crawler_exit" -eq 0 ]; then
-            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update fachkraft.ch GmbH jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''
+            CRAWLER_GROUP_DEFER_COMMIT=1 flock /tmp/crawler-group-git.lock -c '\''\'\'''\''bash scripts/lib/git-commit-data.sh --slice-only "💼 Auto-update fachkraft.ch GmbH jobs (dedicated crawler)" data/jobs-crawler-adapters/'\''\'\'''\''
             git_commit_exit=$?
           fi
 
-          # ---- fachkraft: Report failure to GitHub Issue (verbatim except github.workflow -> literal per-crawler id, only on crawler OR commit failure) ----
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 43 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
-            node scripts/lib/github-issue-creator.mjs \
-              --title "Crawler Failure: Run fachkraft" \
-              --description "## Crawler fallito
-            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
-            **Branch:** ${{ github.ref_name }}
-            **Trigger:** ${{ github.event_name }}" \
-              --priority 2 \
-              --label Bug \
-              --workflow "Run fachkraft"
-          fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 42 ]; then
             echo "::warning::fachkraft: crawl OK but push lost the ref race after all retries (contention). Cycle lost, self-heals next scheduled run — no issue filed (systemic class)."
             echo "⚠️ fachkraft: push contention loss (exit 42) — crawl was fine, no issue filed" >> "$GITHUB_STEP_SUMMARY"
+            exit 0
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 44 ]; then
             echo "::warning::fachkraft: global data-pipeline lease is busy (exit 44); this writer staged nothing and will be retried by the next scheduled cycle — no per-crawler issue filed (systemic class)."
             echo "⚠️ fachkraft: global data-pipeline lease busy (exit 44) — no data staged, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
+            exit 44
           fi
           if [ "$crawler_exit" -eq 0 ] && [ "$git_commit_exit" -eq 43 ]; then
-            echo "::error::fachkraft: crawl OK but the crawler group'\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
+            echo "::error::fachkraft: crawl OK but the crawler group'\''\'\'''\''s shared deferred-commit precondition failed (exit 43). Group-wide fault, identical for every sibling — step stays red, no per-crawler issue filed (systemic class)."
             echo "❌ fachkraft: shared group precondition failure (exit 43) — crawl was fine, no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 43
           fi
@@ -988,8 +983,38 @@ jobs:
             echo "⚠️ fachkraft: runner shutdown (exit 143) — no per-crawler issue filed" >> "${GITHUB_STEP_SUMMARY:-/dev/null}"
             exit 143
           fi
+          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+            exit 1
+          fi
+          exit 0'\''
+          target_exit=$?
+          if [ "$target_exit" -eq 124 ]; then
+            echo "::error::fachkraft: target exceeded 150 minute wall timeout"
+            if [ -n "${GITHUB_STEP_SUMMARY:-}" ]; then echo "❌ fachkraft: target timed out after 150 minutes" >> "$GITHUB_STEP_SUMMARY"; fi
+          fi
 
-          if { [ "$crawler_exit" -ne 0 ] && [ "$crawler_exit" -ne 143 ]; } || { [ "$git_commit_exit" -ne 0 ] && [ "$git_commit_exit" -ne 42 ] && [ "$git_commit_exit" -ne 44 ] && [ "$git_commit_exit" -ne 143 ]; }; then
+          # ---- fachkraft: Report failure to GitHub Issue (outside timeout, only on target failure) ----
+          crawler_failure_timeout_detail='\'''\''
+          if [ "$target_exit" -eq 124 ]; then
+            crawler_failure_timeout_detail='\''
+          **Causa:** timeout del target dopo 150 minuti (exit 124).'\''
+          fi
+          if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne 43 ] && [ "$target_exit" -ne 44 ] && [ "$target_exit" -ne 143 ]; then
+            node scripts/lib/github-issue-creator.mjs \
+              --title "Crawler Failure: Run fachkraft" \
+              --description "## Crawler fallito${crawler_failure_timeout_detail}
+            **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+            **Branch:** ${{ github.ref_name }}
+            **Trigger:** ${{ github.event_name }}" \
+              --priority 2 \
+              --label Bug \
+              --workflow "Run fachkraft"
+          fi
+
+          if [ "$target_exit" -eq 143 ]; then
+            exit 143
+          fi
+          if [ "$target_exit" -ne 0 ] && [ "$target_exit" -ne 44 ] && [ "$target_exit" -ne 143 ]; then
             exit 1
           fi
           exit 0' > "$script_path"
@@ -1013,10 +1038,10 @@ jobs:
           status_tmp="$RUNNER_TEMP/crawler-generation/group-24/fachkraft.status.tmp.$$"
           started_file="$RUNNER_TEMP/crawler-generation/group-24/fachkraft.started"
           worker_watchdog_max=330
-          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-74}"
+          worker_watchdog_minutes="${CRAWLER_WORKER_TIMEOUT_MINUTES:-160}"
           if ! [[ "$worker_watchdog_minutes" =~ ^[1-9][0-9]*$ ]] || [ "$worker_watchdog_minutes" -gt "$worker_watchdog_max" ]; then
-            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 74)"
-            worker_watchdog_minutes=74
+            echo "Invalid CRAWLER_WORKER_TIMEOUT_MINUTES: $worker_watchdog_minutes (must be <= $worker_watchdog_max; default 160)"
+            worker_watchdog_minutes=160
           fi
           max_parallel="${CRAWLER_GROUP_MAX_PARALLEL:-4}"
           if ! [[ "$max_parallel" =~ ^[1-9][0-9]*$ ]]; then
