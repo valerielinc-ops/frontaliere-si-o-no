@@ -13,9 +13,11 @@ import {
 import {
   trackAssistedApplicationEvent,
 } from '@/services/assistedApplicationExperiment';
+import { POPUP_PRIORITY, releaseSlot, requestSlot } from '@/services/popupQueue';
 
 const SURFACE = 'job_detail_rewarded_inline';
 const TRIGGER = 'candidate_click';
+const POPUP_SLOT_ID = 'rewarded-application-offer';
 
 const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
 
@@ -72,6 +74,13 @@ export default function RewardedApplicationOffer({
     // The offer is viewed once per mount; the context is read at that moment.
     // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [companyId, jobId]);
+
+  // Hold the popup queue for the whole offer: a queued popup (newsletter,
+  // prompts) must not cover or hide the Google video while it plays.
+  useEffect(() => {
+    requestSlot(POPUP_SLOT_ID, POPUP_PRIORITY.REWARDED_APPLICATION_OFFER);
+    return () => releaseSlot(POPUP_SLOT_ID);
+  }, []);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;

@@ -32,6 +32,7 @@ vi.mock('@/services/assistedApplicationExperiment', () => ({
 }));
 
 import RewardedApplicationOffer from '@/components/community/RewardedApplicationOffer';
+import { isActive, POPUP_PRIORITY, releaseSlot, requestSlot } from '@/services/popupQueue';
 
 const callProp = <T extends unknown[]>(name: string, ...args: T) => {
   act(() => {
@@ -196,6 +197,32 @@ describe('RewardedApplicationOffer', () => {
     expect(tracked('rewarded_ad_unavailable')).toEqual([
       expect.objectContaining({ ...adContext, reason: 'video_closed_before_reward', handoff: 'none', request_id: 11 }),
     ]);
+  });
+
+  it('holds the popup queue so the newsletter popup cannot hide the Google video', () => {
+    vi.useFakeTimers();
+    try {
+      const { unmount } = render(<RewardedApplicationOffer {...defaultProps} />);
+
+      expect(isActive('rewarded-application-offer')).toBe(true);
+      expect(requestSlot('newsletter-popup', POPUP_PRIORITY.NEWSLETTER)).toBe(false);
+      expect(isActive('newsletter-popup')).toBe(false);
+
+      // Closing the offer releases the queue; the waiting popup is promoted
+      // after the queue's exit window.
+      unmount();
+      act(() => {
+        vi.advanceTimersByTime(500);
+      });
+      expect(isActive('rewarded-application-offer')).toBe(false);
+      expect(isActive('newsletter-popup')).toBe(true);
+    } finally {
+      releaseSlot('newsletter-popup');
+      act(() => {
+        vi.runOnlyPendingTimers();
+      });
+      vi.useRealTimers();
+    }
   });
 
   it('never ships a house, service or local video fallback', () => {
