@@ -17,6 +17,7 @@ export interface RewardedApplicationOfferProps {
   companyName: string;
   jobTitle: string;
   onContinue: () => void;
+  onUnavailable: (reason: string) => void;
   onDismiss?: () => void;
 }
 
@@ -33,6 +34,7 @@ export default function RewardedApplicationOffer({
   companyName,
   jobTitle,
   onContinue,
+  onUnavailable,
   onDismiss,
 }: RewardedApplicationOfferProps) {
   const [rewarded, setRewarded] = useState(false);
@@ -116,11 +118,11 @@ export default function RewardedApplicationOffer({
       surface: SURFACE,
       reason,
     });
-    // Keep the visitor inside the monetized path. No-fill, consent, bot and
-    // unsupported-host failures must never silently hand off to the employer
-    // without a paid Google experience; the visitor can retry explicitly.
-    setRewarded(false);
-    setRetryRequired(true);
+    // There is no monetizable impression when Google returns no-fill or the
+    // request is ineligible. Do not ask the visitor to reload the same empty
+    // auction: report the reason and let the parent perform the direct,
+    // same-tab employer hand-off.
+    onUnavailable(reason);
   };
 
   const retry = () => {
@@ -232,7 +234,7 @@ export default function RewardedApplicationOffer({
           {retryRequired && (
             <div className="space-y-3" role="alert">
               <p className="text-sm leading-relaxed text-body">
-                Il video Google non è disponibile o non è stato completato. Per sbloccare il pulsante candidatura, riprova.
+                Hai chiuso il video prima del reward. Per sbloccare il pulsante candidatura, puoi riprovare.
               </p>
               <button
                 type="button"
