@@ -1,18 +1,89 @@
 {
   "key": "julius-baer",
   "label": "Julius Baer",
-  "generatedAt": "2026-09-23T23:36:07.018Z",
+  "generatedAt": "2026-09-24T14:20:45.742Z",
   "total": 84,
-  "newCount": 6,
-  "updatedCount": 68,
-  "removedCount": 5,
+  "newCount": 0,
+  "updatedCount": 74,
+  "removedCount": 0,
   "unchangedCount": 10,
-  "durationMs": 41926,
-  "avgDurationMs": 41926,
+  "durationMs": 45676,
+  "avgDurationMs": 45676,
   "durationHistory": [
-    41926
+    45676
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Wealth-Planner-Key-Clients---Family-Office-Services--Zrich--100---f-m-d-_r-19033-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Wealth-Planner-Key-Clients---Family-Office-Services--Zrich--100---f-m-d-_r-19033-1",
+      "title": "Wealth Planner, LATAM & Iberia, Key Clients & Family Office Services, Zürich, 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "wealth-planner-key-clients-family-office-services-zurich-100-f-m-d-julius-baer",
+      "category": "wealth-management",
+      "datePosted": "2026-07-20",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-07-20T11:52:04.581Z",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Geneva--100---f-m-d-_r-19661-1",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Geneva--100---f-m-d-_r-19661-1",
+      "title": "Account Manager, Geneva, 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Geneva",
+      "canton": "GE",
+      "country": "CH",
+      "addressLocality": "Geneva",
+      "addressRegion": "GE",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "account-manager-geneva-100-f-m-d-julius-baer",
+      "category": "finance",
+      "datePosted": "2026-09-21",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "SENIOR",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "GE",
+        "location": "Geneva"
+      },
+      "firstSeenAt": "2026-09-21T15:57:50.187Z",
+      "_qualityScore": 77,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 9
+      }
+    },
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Art-Director-100---f-m-d----Zurich_r-19815-2",
       "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Art-Director-100---f-m-d----Zurich_r-19815-2",
@@ -39,11 +110,12 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-09-23T23:36:02.791Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -73,11 +145,12 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-09-23T23:36:02.791Z",
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -107,11 +180,13 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "_qualityScore": 53,
+      "firstSeenAt": "2026-09-23T23:36:02.791Z",
+      "needsRetranslation": true,
+      "_qualityScore": 72,
       "_qualityBreakdown": {
         "cleanliness": 20,
         "richness": 18,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -141,11 +216,13 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "_qualityScore": 58,
+      "firstSeenAt": "2026-09-23T23:36:02.791Z",
+      "needsRetranslation": true,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 6,
+        "translation": 25,
         "completeness": 9
       }
     },
@@ -175,77 +252,7 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "_qualityScore": 58,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 6,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Market-Risk-Controller-100---f-m-d-_r-19899",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Market-Risk-Controller-100---f-m-d-_r-19899",
-      "title": "Market Risk Controller 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "market-risk-controller-100-f-m-d-julius-baer",
-      "category": "risk",
-      "datePosted": "2026-09-22",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "MID",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "_qualityScore": 60,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 6,
-        "completeness": 9
-      }
-    }
-  ],
-  "updatedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Geneva--100---f-m-d-_r-19661-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Account-Manager--Geneva--100---f-m-d-_r-19661-1",
-      "title": "Account Manager, Geneva, 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Geneva",
-      "canton": "GE",
-      "country": "CH",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "account-manager-geneva-100-f-m-d-julius-baer",
-      "category": "finance",
-      "datePosted": "2026-09-21",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Geneva"
-      },
-      "firstSeenAt": "2026-09-21T15:57:50.187Z",
+      "firstSeenAt": "2026-09-23T23:36:02.791Z",
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -354,6 +361,41 @@
       "_qualityScore": 74,
       "_qualityBreakdown": {
         "cleanliness": 20,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 9
+      }
+    },
+    {
+      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Market-Risk-Controller-100---f-m-d-_r-19899",
+      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Market-Risk-Controller-100---f-m-d-_r-19899",
+      "title": "Market Risk Controller 100% (f/m/d)",
+      "company": "Julius Baer",
+      "companyKey": "julius-baer",
+      "location": "Zurich",
+      "canton": "ZH",
+      "country": "CH",
+      "addressLocality": "Zurich",
+      "addressRegion": "ZH",
+      "addressCountry": "CH",
+      "postalCode": "",
+      "streetAddress": "",
+      "slug": "market-risk-controller-100-f-m-d-julius-baer",
+      "category": "risk",
+      "datePosted": "2026-09-22",
+      "source": "julius-baer-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "sourceLang": "en",
+      "experienceLevel": "MID",
+      "sector": "Banking / Wealth Management",
+      "_targetScope": {
+        "canton": "ZH",
+        "location": "Zurich"
+      },
+      "firstSeenAt": "2026-09-23T23:36:02.791Z",
+      "_qualityScore": 79,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
         "richness": 20,
         "translation": 25,
         "completeness": 9
@@ -736,7 +778,6 @@
         "canton": "ZH",
         "location": "Zurich"
       },
-      "needsRetranslation": false,
       "firstSeenAt": "2026-07-15T10:59:12.546Z",
       "_qualityScore": 79,
       "_qualityBreakdown": {
@@ -1025,457 +1066,9 @@
         "translation": 25,
         "completeness": 9
       }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---AI-Transformation-Specialist-100---f-m-d-_r-19782-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---AI-Transformation-Specialist-100---f-m-d-_r-19782-2",
-      "title": "University Graduate – AI Transformation Specialist 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "university-graduate-ai-transformation-specialist-100-f-m-d-julius-baer",
-      "category": "general",
-      "datePosted": "2026-09-10",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-09-09T23:05:36.172Z",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Account-Manager-UHNWI-100---f-m-d-_r-19694-2",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Account-Manager-UHNWI-100---f-m-d-_r-19694-2",
-      "title": "University Graduate – Account Manager UHNWI 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "university-graduate-account-manager-uhnwi-100-f-m-d-julius-baer",
-      "category": "finance",
-      "datePosted": "2026-09-10",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-09-09T23:05:36.172Z",
-      "needsRetranslation": true,
-      "_qualityScore": 83,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Business-Management-Region-Western-Markets---Switzerland-100---f-m-d-_r-19702-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Business-Management-Region-Western-Markets---Switzerland-100---f-m-d-_r-19702-1",
-      "title": "University Graduate - Business Management Region Western Markets & Switzerland 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "university-graduate-business-management-region-western-markets-switzerland-100-f-m-d-julius-baer",
-      "category": "management",
-      "datePosted": "2026-09-10",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-09-09T23:05:36.172Z",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Corporate-FX-and-Hedging-100---f-m-d-_r-19737",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Corporate-FX-and-Hedging-100---f-m-d-_r-19737",
-      "title": "University Graduate – Corporate FX and Hedging 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "university-graduate-corporate-fx-and-hedging-100-f-m-d-julius-baer",
-      "category": "general",
-      "datePosted": "2026-09-10",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-09-09T23:05:36.172Z",
-      "_qualityScore": 81,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 22,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Global-Network-Management-Specialist-100---f-m-d-_r-19756",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Global-Network-Management-Specialist-100---f-m-d-_r-19756",
-      "title": "University Graduate – Global Network Management Specialist 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "university-graduate-global-network-management-specialist-100-f-m-d-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-09-10",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-09-09T23:05:36.172Z",
-      "needsRetranslation": true,
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Group-Communications-100---f-m-d-_r-19750-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Group-Communications-100---f-m-d-_r-19750-1",
-      "title": "University Graduate – Group Communications 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "university-graduate-group-communications-100-f-m-d-julius-baer",
-      "category": "sales",
-      "datePosted": "2026-09-10",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-09-09T23:05:36.172Z",
-      "_qualityScore": 77,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 9
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Investment-Controlling-100---f-m-d-_r-19680-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/University-Graduate---Investment-Controlling-100---f-m-d-_r-19680-1",
-      "title": "University Graduate – Investment Controlling 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "university-graduate-investment-controlling-100-f-m-d-julius-baer",
-      "category": "general",
-      "datePosted": "2026-09-10",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-09-09T23:05:36.172Z",
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 9
-      }
     }
   ],
-  "removedJobs": [
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Test-Data-Engineer---CLM-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31032027--possible-extension-_r-19540-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Junior-Test-Data-Engineer---CLM-100---f-m-d---Contract-through-our-external-payroll-partner-with-immediate-start-until-31032027--possible-extension-_r-19540-1",
-      "title": "Junior Test Data Engineer - CLM 100% (f/m/d) (Contract through our external payroll partner with immediate start until 31.03.2027, possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "junior-test-data-engineer-clm-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-03-2027-possible-extension-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-08-27",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "ENTRY",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-08-27T19:53:09.116Z",
-      "salaryMin": 71000,
-      "salaryMax": 120500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Assistant-Relationship-Manager--Geneva--100---f-m-d-_r-19467-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Geneva/Assistant-Relationship-Manager--Geneva--100---f-m-d-_r-19467-1",
-      "title": "Assistant Relationship Manager, Geneva, 100% (f/m/d)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Geneva",
-      "canton": "GE",
-      "country": "CH",
-      "addressLocality": "Geneva",
-      "addressRegion": "GE",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "assistant-relationship-manager-geneva-100-f-m-d-julius-baer",
-      "category": "wealth-management",
-      "datePosted": "2026-08-26",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "GE",
-        "location": "Geneva"
-      },
-      "firstSeenAt": "2026-08-26T09:55:21.409Z",
-      "salaryMin": 174500,
-      "salaryMax": 306000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/System-Architect-for-GPS-ART-100---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-for-12-months--possible-extension-_r-19526-7",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/System-Architect-for-GPS-ART-100---f-m-d-----Contract-through-our-external-payroll-partner--immediate-start-for-12-months--possible-extension-_r-19526-7",
-      "title": "Senior System Architect for GPS ART 100% (f/m/d) - (Contract through our external payroll partner, immediate start for 12 months, possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "senior-system-architect-for-gps-art-100-f-m-d-contract-through-our-external-payroll-partner-immediate-start-for-12-months-possible-extension-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-08-19",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-08-19T21:33:13.164Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 82,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Data-Platform-Engineer---Reference-Data-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026-with-possible-extension-_r-19364-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Data-Platform-Engineer---Reference-Data-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31122026-with-possible-extension-_r-19364-1",
-      "title": "IDMC Implementation Lead/Specialist 100% (f/m/d) - (Contract through our external payroll partner with immediate start until 31.12.2026 with possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "idmc-implementation-lead-specialist-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-12-2026-with-possible-extension-julius-baer",
-      "category": "hr",
-      "datePosted": "2026-07-28",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-28T11:28:20.421Z",
-      "salaryMin": 101500,
-      "salaryMax": 154000,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 84,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    },
-    {
-      "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-System-Architect---Finance---Credit-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31082027--possible-extension-_r-19259-1",
-      "applyUrl": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/Senior-System-Architect---Finance---Credit-100---f-m-d-----Contract-through-our-external-payroll-partner-with-immediate-start-until-31082027--possible-extension-_r-19259-1",
-      "title": "Senior System Architect - Finance & Credit 100% (f/m/d) - (Contract through our external payroll partner with immediate start until 31.08.2027, possible extension)",
-      "company": "Julius Baer",
-      "companyKey": "julius-baer",
-      "location": "Zurich",
-      "canton": "ZH",
-      "country": "CH",
-      "addressLocality": "Zurich",
-      "addressRegion": "ZH",
-      "addressCountry": "CH",
-      "postalCode": "",
-      "streetAddress": "",
-      "slug": "senior-system-architect-finance-credit-100-f-m-d-contract-through-our-external-payroll-partner-with-immediate-start-until-31-08-2027-possible-extension-julius-baer",
-      "category": "technology",
-      "datePosted": "2026-07-15",
-      "source": "julius-baer-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "sourceLang": "en",
-      "experienceLevel": "SENIOR",
-      "sector": "Banking / Wealth Management",
-      "_targetScope": {
-        "canton": "ZH",
-        "location": "Zurich"
-      },
-      "firstSeenAt": "2026-07-16T22:06:26.627Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 2,
-      "_qualityScore": 79,
-      "_qualityBreakdown": {
-        "cleanliness": 20,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 14
-      }
-    }
-  ],
+  "removedJobs": [],
   "unchangedJobs": [
     {
       "url": "https://juliusbaer.wd3.myworkdayjobs.com/en-US/External/job/Zurich/AI-Office---AI-Transformation-Manager-100---f-m-d-_r-19657-1",
@@ -1508,7 +1101,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:01:26.556Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -1548,7 +1141,7 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "firstSeenAt": "2026-09-22T00:01:26.556Z",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1588,7 +1181,7 @@
       "salaryMax": 11200,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1628,7 +1221,7 @@
       "salaryMax": 77500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1668,7 +1261,7 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1708,7 +1301,7 @@
       "salaryMax": 331500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1748,7 +1341,7 @@
       "salaryMax": 206500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 79,
       "_qualityBreakdown": {
         "cleanliness": 20,
@@ -1788,7 +1381,7 @@
       "salaryMax": 111500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1828,7 +1421,7 @@
       "salaryMax": 206500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -1868,7 +1461,7 @@
       "salaryMax": 134500,
       "currency": "CHF",
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
