@@ -464,6 +464,34 @@ describe('one code verdict and metadata-triggered review recovery', () => {
     expect(retried.dispatches).toHaveLength(1);
   });
 
+  it('keeps the one-retry flag when a duplicate edit arrives while the interrupted retry is active', async () => {
+    const markerState = (comments: Array<{ body: string }>) => {
+      const last = comments.at(-1)?.body || '';
+      return JSON.parse(last.slice(last.indexOf('{'), last.indexOf('-->')));
+    };
+    const duplicate = await runRecovery({
+      body: 'success', status: 'in_progress', conclusion: '', pendingStatus: 'queued',
+      markerExtra: { interruptedRetry: true }, returnComments: true,
+    });
+    expect(duplicate.reruns).toEqual([]);
+    expect(markerState(duplicate.comments!)).toMatchObject({ status: 'pending', interruptedRetry: true });
+    // The retry then ends cancelled again: its completion consumes the pending
+    // marker without a second rerun for the same HEAD + body digest.
+    const completion = await runRecovery({
+      body: 'success', conclusion: 'cancelled', eventName: 'workflow_run', pendingStatus: 'pending',
+      markerExtra: { interruptedRetry: true },
+    });
+    expect(completion.reruns).toEqual([]);
+    expect(completion.dispatches).toHaveLength(1);
+    // A different body digest does not inherit the spent flag.
+    const newBody = await runRecovery({
+      body: 'success', status: 'in_progress', conclusion: '', pendingStatus: 'queued',
+      markerExtra: { interruptedRetry: true, bodyRevision: reviewInputRevisionFromBody('older body') },
+      returnComments: true,
+    });
+    expect(markerState(newBody.comments!).interruptedRetry).toBeUndefined();
+  });
+
   it('keeps every other non-failure conclusion without a body-recovery rerun', async () => {
     for (const conclusion of ['skipped', 'neutral', 'action_required', 'stale']) {
       expect(await runRecovery({ body: 'success', conclusion })).toEqual({ reruns: [], dispatches: [] });

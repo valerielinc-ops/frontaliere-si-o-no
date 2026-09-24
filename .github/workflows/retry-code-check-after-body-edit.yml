@@ -431,10 +431,19 @@ jobs:
                 throw new Error(`run ${latest.id} attempt non verificabile: marker resta pending`);
               }
               if (currentRun.data.status !== 'completed') {
+                // A duplicate edit delivery can arrive while the interrupted-run
+                // retry is still active: keep its one-retry flag for the same
+                // HEAD + body digest, or a second cancellation would earn a
+                // second retry.
+                const bodyDigest = BODY_REVISION(pr.body);
+                const keepInterruptedRetry = existing?.state?.interruptedRetry === true
+                  && existing.state.headSha === pr.head.sha
+                  && existing.state.bodyRevision === bodyDigest;
                 await persistMarker(number, {
                   version: 1, status: 'pending', prNumber: number, runId: latest.id,
                   runAttempt: observedAttempt, headSha: pr.head.sha,
-                  bodyRevision: BODY_REVISION(pr.body),
+                  bodyRevision: bodyDigest,
+                  ...(keepInterruptedRetry ? { interruptedRetry: true } : {}),
                 }, existing);
                 core.info(`Tests run ${latest.id} ancora attiva: marker durevole, retry demandato a workflow_run.`);
                 return;
