@@ -611,6 +611,7 @@ describe('translation completion scheduler v2', () => {
     expect(current.metrics.outcomeCounts.duplicate_attempt).toBe(1);
 
     const legacy = structuredClone(current);
+    delete (legacy.metrics.outcomeCounts as Record<string, number>).canary_skipped;
     delete (legacy.metrics.outcomeCounts as Record<string, number>).duplicate_attempt;
     delete (legacy.metrics.outcomeCounts as Record<string, number>).retryable_reject;
     legacy.outcomes = outcomesFor(planned.plan, 'generation_failed');
