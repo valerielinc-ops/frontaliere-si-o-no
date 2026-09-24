@@ -11933,6 +11933,11 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.immatricolazioni-veicoli-ticino-w38-2026.title': 'New car registrations in Ticino: ASTRA W38 data',
     'blog.article.immatricolazioni-veicoli-ticino-w38-2026.excerpt': 'Analysis of data on new registrations in Ticino for the week 2026-W38 according to the Federal Office of Roads ASTRA/OFROU.',
     'blog.article.immatricolazioni-veicoli-ticino-w38-2026.imageAlt': 'Vehicles in transit on a Ticino road.',
+    'blog.article.bollettino-frontaliere-2026-09-24.title': 'Cross-border daily brief – September 24, 2026: 387 new job listings yesterday',
+    'blog.article.bollettino-frontaliere-2026-09-24.excerpt': 'Today\'s numbers, September 24, 2026, for cross-border commuters: the waits measured at every crossing this morning, the municipalities where fuel is cheapest, the franc-euro rate at yesterday\'s close and the jobs newly posted in Switzerland. Measured daily by our own monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-24.imageAlt': 'The day\'s numbers for cross-border commuters – September 24, 2026: border waits, fuel prices, CHF-EUR rate and job listings',
+    'blog.article.bollettino-frontaliere-2026-09-24.seoDescription': 'Cross-border brief, September 24, 2026: queues at the crossings this morning, where fuel is cheapest, the franc-euro rate and new job postings in Switzerland.',
+    'blog.article.bollettino-frontaliere-2026-09-24.ogDescription': 'The numbers for September 24, 2026, for cross-border commuters: how long the queue is at each crossing this morning, which towns have the cheapest fuel, what the franc is worth today and how many Swiss jobs went up.',
 };
 
 export default blogMetaEn;
