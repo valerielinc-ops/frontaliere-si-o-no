@@ -353,6 +353,12 @@ export function extractDetailTableValue(html, labels) {
     if (!normalizedLabels.has(label)) continue;
     return cleanText(valueMatch[1]) || undefined;
   }
+  const definitionRe = /<dt\b[^>]*>([\s\S]*?)<\/dt>\s*<dd\b[^>]*>([\s\S]*?)<\/dd>/gi;
+  let definitionMatch;
+  while ((definitionMatch = definitionRe.exec(html))) {
+    const label = cleanText(definitionMatch[1]).toLowerCase();
+    if (normalizedLabels.has(label)) return cleanText(definitionMatch[2]) || undefined;
+  }
   return undefined;
 }
 
@@ -392,6 +398,23 @@ export function extractAddress(ld) {
   return { street, postalCode, locality, region };
 }
 
+/** Address fallback for detail pages that publish "Località" outside JSON-LD. */
+export function extractDetailAddress(html) {
+  const raw = extractDetailTableValue(html, ['Località', 'Location', 'Ort', 'Lieu']);
+  if (!raw) return undefined;
+  const parts = cleanText(raw)
+    .split(/\s*[;|]\s*/)
+    .map((part) => part.trim())
+    .filter(Boolean);
+  const postalIndex = parts.findIndex((part) => /^(?:CH[- ]?)?\d{4}\b/i.test(part));
+  if (postalIndex < 0) return undefined;
+  const postalMatch = /^(?:CH[- ]?)?(\d{4})\s*,?\s*(.+)$/i.exec(parts[postalIndex]);
+  if (!postalMatch) return undefined;
+  const address = { postalCode: postalMatch[1], locality: postalMatch[2].trim() };
+  if (postalIndex > 0) address.street = parts[postalIndex - 1];
+  return address;
+}
+
 /** Returns true if `name` matches any name in a schema.org performer/organizer value (string | object | array). */
 function matchesPersonField(name, field) {
   if (!field) return false;
@@ -419,17 +442,30 @@ function extractVenue(ld, fallbackPlace) {
   return fallbackPlace || undefined;
 }
 
-const LD_JSON_RE = /<script type="application\/ld\+json"[^>]*>([\s\S]*?)<\/script>/g;
+const LD_JSON_RE = /<script\b[^>]*\btype\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
 
-/** Pick the schema.org Event(-subtype) JSON-LD block off a detail page (skips BreadcrumbList etc). */
+function eventJsonLdCandidates(value) {
+  if (Array.isArray(value)) return value.flatMap(eventJsonLdCandidates);
+  if (!value || typeof value !== 'object') return [];
+  if (Array.isArray(value['@graph'])) return value['@graph'].flatMap(eventJsonLdCandidates);
+  return [value];
+}
+
+function isEventJsonLdType(value) {
+  const types = Array.isArray(value) ? value : [value];
+  return types.some((type) => typeof type === 'string' && (type === 'Event' || type.endsWith('Event')));
+}
+
+/** Pick the schema.org Event(-subtype) JSON-LD node off a detail page (skips BreadcrumbList etc). */
 export function extractEventJsonLd(html) {
   if (typeof html !== 'string' || !html) return null;
   LD_JSON_RE.lastIndex = 0;
   let match;
   while ((match = LD_JSON_RE.exec(html))) {
     try {
-      const obj = JSON.parse(match[1]);
-      if (obj && typeof obj === 'object' && obj['@type'] && obj.startDate) return obj;
+      const parsed = JSON.parse(match[1].trim().replace(/^<!--\s*|\s*-->$/g, ''));
+      const event = eventJsonLdCandidates(parsed).find((candidate) => isEventJsonLdType(candidate?.['@type']) && candidate.startDate);
+      if (event) return event;
     } catch {
       // malformed block — keep scanning the rest of the page
     }
@@ -497,6 +533,16 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
     || `${SITE_ORIGIN}/${LOCALE_URL_PREFIX[primaryLocale]}${String(primary.url || '').startsWith('/') ? primary.url : `/${primary.url || ''}`}`;
   const organizer = normalizeEventPeople(detailLd?.organizer, detailUrl || SITE_ORIGIN);
   const performer = normalizeEventPeople(detailLd?.performer, detailUrl || SITE_ORIGIN);
+  const ldAddress = extractAddress(detailLd);
+  const htmlAddress = extractDetailAddress(detailHtml);
+  const address = ldAddress || htmlAddress
+    ? {
+        street: ldAddress?.street || htmlAddress?.street,
+        postalCode: ldAddress?.postalCode || htmlAddress?.postalCode,
+        locality: ldAddress?.locality || htmlAddress?.locality,
+        region: ldAddress?.region || htmlAddress?.region,
+      }
+    : undefined;
   const imageSourceUrl =
     LOCALES.map((locale) => firstEventImageUrl(perLocaleHits[locale]?.image, SITE_ORIGIN)).find(Boolean)
     || firstEventImageUrl(detailLd?.image, detailUrl || SITE_ORIGIN);
@@ -519,7 +565,7 @@ export function mapEventRecord(objectID, perLocaleHits, enrichment = {}) {
       sourceKey: SOURCE.key,
       sourceName: SOURCE.label,
       price: extractPrice(detailLd, detailHtml),
-      address: extractAddress(detailLd),
+      address,
       geo: extractGeo(primary),
       recurring: dateInfo.recurring,
       ...(organizer ? { organizer } : {}),
@@ -541,11 +587,16 @@ async function fetchDetailEnrichment(perLocaleHits) {
     const html = await fetchHtml(url);
     if (!html) continue;
     const ld = extractEventJsonLd(html);
-    if (!ld) continue;
+    const hasHtmlMetadata = Boolean(
+      extractDetailAddress(html) || extractDetailTableValue(html, ['Prezzo', 'Preis', 'Price', 'Prix']),
+    );
+    if (!ld && !hasHtmlMetadata) continue;
     if (!enrichment) {
       enrichment = { detailLd: ld, detailUrl: url, detailHtml: html };
-    } else {
+    } else if (ld && enrichment.detailLd) {
       enrichment.detailLd = mergeDetailEventMetadata(enrichment.detailLd, ld, enrichment.detailUrl, url);
+    } else if (ld) {
+      enrichment.detailLd = ld;
     }
 
     const imageReady = Boolean(firstEventImageUrl(enrichment.detailLd?.image, enrichment.detailUrl));
