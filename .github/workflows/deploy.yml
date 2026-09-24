@@ -58,6 +58,7 @@ on:
       - 'data/seo-health-state.json'
       - 'data/seo-health/**'
       - 'data/border-wait-averages.json'
+      - 'public/data/border-wait-averages.json'
       - 'data/weather-snapshot.json'
       # Telemetria/evidence-only: se lo stesso push contiene anche data/jobs,
       # articoli o altri input della build, GitHub non applica paths-ignore.
