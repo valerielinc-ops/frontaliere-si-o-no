@@ -46,7 +46,7 @@ describe('L2 Demand → Utility', () => {
   it('accepts explicit outcome data and keeps the landing path canonical', () => {
     const verdict = validateDemandSnapshot(snapshot(), { now: NOW });
     expect(verdict).toMatchObject({ ok: true, quality: 'observed' });
-    expect(verdict.candidates[0].landingPath).toBe('/offerte-lavoro-ticino/');
+    expect(verdict.candidates[0].landingPath).toBe('/ricerca/offerte-lavoro-ticino/');
     expect(verdict.snapshot.outcomes).toEqual({ eligibleLandingSessions: 1200, usefulActions: 180 });
   });
 
@@ -161,7 +161,7 @@ describe('L2 Demand → Utility', () => {
     expect(result.candidatesWritten).toBe(true);
     expect(result.issued).toBe(true);
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l2-candidates.json'), 'utf8')))
-      .toMatchObject({ reversible: true, candidates: [{ landingPath: '/offerte-lavoro-ticino/' }] });
+      .toMatchObject({ reversible: true, candidates: [{ landingPath: '/ricerca/offerte-lavoro-ticino/' }] });
     expect(JSON.parse(fs.readFileSync(path.join(reportDir, 'l2-result.json'), 'utf8'))).toMatchObject({
       ok: false,
       issued: true,
