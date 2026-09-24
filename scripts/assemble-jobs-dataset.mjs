@@ -65,6 +65,7 @@ import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { validateJobUrls } from './lib/validate-job-url.mjs';
 import { absoluteJobUrl } from './lib/job-url-host.mjs';
 import { archiveRemovedJobsToSlice, collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
+import { carryForwardFirstSeenAt } from './lib/first-seen-history.mjs';
 import { loadSourceHostOwnership, dropForeignOwnedVacancies } from './lib/crawler-source-hosts.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { detailDropSummaryFields } from './lib/crawler-detail-drop.mjs';
@@ -2155,10 +2156,21 @@ export function writeJobsCrawlerSlice(crawlerKey, jobs, options = {}) {
     if (ej.firstSeenAt) existingFirstSeen.set(identity, ej.firstSeenAt);
     if (ej.postedDate) existingPostedDate.set(identity, ej.postedDate);
   }
+  const expiredSlice = readJson(path.join(EXPIRED_SLICES_DIR, `${crawlerKey}.json`), []);
+  const firstSeenHistory = carryForwardFirstSeenAt(hardened.jobs, {
+    existingJobs: existingSlice?.jobs || [],
+    archivedJobs: Array.isArray(expiredSlice) ? expiredSlice : [],
+  });
+  if (firstSeenHistory.restored > 0 || firstSeenHistory.suppressed > 0) {
+    console.log(
+      `  🕰️ firstSeenAt history: restored ${firstSeenHistory.restored}, `
+      + `suppressed legacy reintroduction ${firstSeenHistory.suppressed}`,
+    );
+  }
   const now = new Date().toISOString();
   for (const job of hardened.jobs) {
     const identity = buildStableJobIdentity(job);
-    if (!job.firstSeenAt) {
+    if (!job.firstSeenAt && !firstSeenHistory.suppressedJobs.has(job)) {
       job.firstSeenAt = (identity && existingFirstSeen.get(identity)) || job.crawledAt || now;
     }
     if (identity && job.postedDate) {
