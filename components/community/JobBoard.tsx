@@ -6782,6 +6782,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
   redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true);
  };
 
+ const handleRewardedApplicationUnavailable = (reason: string) => {
+  const job = rewardedApplicationJob;
+  if (!job) return;
+  // The offer already records the technical reason and direct handoff on the
+  // rewarded_ad_unavailable event. This callback only owns navigation.
+  void reason;
+  setRewardedApplicationJob(null);
+  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true);
+ };
+
  const handleAssistedPaid = async () => {
   const job = assistedApplicationJob;
   if (!job || assistedApplicationVariant !== 'assisted_application' || assistedCheckoutBusy) return;
@@ -7272,6 +7282,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     companyName={rewardedApplicationJob.company}
     jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
     onContinue={handleRewardedApplicationContinue}
+    onUnavailable={handleRewardedApplicationUnavailable}
     onDismiss={() => setRewardedApplicationJob(null)}
    />
   </Suspense>
