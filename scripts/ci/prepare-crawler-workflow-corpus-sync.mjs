@@ -157,6 +157,69 @@ function expectedMappings(crawlerWorkflowFiles = CRAWLER_WORKFLOW_FILES) {
   ]));
 }
 
+export const PORTABLE_CORPUS_SITE_PREFIX = '.github/corpus-workflows/';
+
+/**
+ * Registro lockstep delle famiglie crawler: i sitePath che il trasporto
+ * registra come voci `identical` del loop-sync manifest del corpus. E' la
+ * stessa mappa che `prepareCrawlerWorkflowCorpusSync` copia e baselinea, non
+ * una lista parallela da tenere allineata a mano.
+ */
+export function registeredCorpusSitePaths(crawlerWorkflowFiles = CRAWLER_WORKFLOW_FILES) {
+  return [...expectedMappings(crawlerWorkflowFiles).keys()].sort();
+}
+
+/** Elenca ricorsivamente un albero portabile come sitePath `.github/corpus-workflows/...`. */
+export function listPortableTreeSitePaths(dir) {
+  const out = [];
+  const walk = (current, rel) => {
+    for (const entry of fs.readdirSync(current, { withFileTypes: true })) {
+      const childRel = rel ? `${rel}/${entry.name}` : entry.name;
+      if (entry.isDirectory()) walk(path.join(current, entry.name), childRel);
+      else out.push(`${PORTABLE_CORPUS_SITE_PREFIX}${childRel}`);
+    }
+  };
+  walk(dir, '');
+  return out.sort();
+}
+
+/**
+ * Differenza fra le famiglie emesse e il registro lockstep. `unregistered` sono
+ * file emessi che il trasporto non copierebbe ne' censirebbe (il corpus li
+ * scoprirebbe solo dal censimento notturno dei gemelli, #1571 corpus);
+ * `unemitted` sono voci registrate senza un file emesso, che farebbero fallire
+ * la consegna a meta'.
+ */
+export function diffEmittedFamiliesAgainstRegistry({ emittedSitePaths, registeredSitePaths } = {}) {
+  if (!Array.isArray(registeredSitePaths) || registeredSitePaths.length === 0) {
+    throw new Error('crawler lockstep registry missing or empty: cannot prove emitted families are registered');
+  }
+  if (!Array.isArray(emittedSitePaths)) {
+    throw new Error('crawler lockstep check requires the emitted site paths');
+  }
+  const registered = new Set(registeredSitePaths);
+  const emitted = new Set(emittedSitePaths);
+  return {
+    unregistered: [...emitted].filter((sitePath) => !registered.has(sitePath)).sort(),
+    unemitted: [...registered].filter((sitePath) => !emitted.has(sitePath)).sort(),
+  };
+}
+
+/** Fallisce se una famiglia emessa non ha la sua voce lockstep, o viceversa. */
+export function assertEmittedFamiliesRegistered({ emittedSitePaths, registeredSitePaths, origin = 'emitted' } = {}) {
+  const { unregistered, unemitted } = diffEmittedFamiliesAgainstRegistry({ emittedSitePaths, registeredSitePaths });
+  if (unregistered.length === 0 && unemitted.length === 0) return;
+  const lines = [
+    ...unregistered.map((sitePath) => `  unregistered ${origin} family: ${sitePath}`),
+    ...unemitted.map((sitePath) => `  registered but not ${origin}: ${sitePath}`),
+  ];
+  throw new Error(
+    'crawler family lockstep violated: every file under .github/corpus-workflows/ must be a '
+    + 'transport mapping (CRAWLER_WORKFLOW_FILES / CORPUS_OBSERVER_FILES / contract.json) '
+    + `in scripts/ci/prepare-crawler-workflow-corpus-sync.mjs\n${lines.join('\n')}`,
+  );
+}
+
 function contentForSitePath(sitePath, { contractBuffer, payloads, observerPayloads }) {
   if (sitePath.endsWith('/contract.json')) return contractBuffer;
   const observer = CORPUS_OBSERVER_FILES.find(({ source }) =>
@@ -254,6 +317,14 @@ export function prepareCrawlerWorkflowCorpusSync({ sourceDir, corpusRoot, aligne
       throw new Error(`${observer.source}: content does not match transport contract`);
     }
   }
+  // Un file dell'export che nessuna mappa registra non verrebbe ne' copiato ne'
+  // baselineato: la consegna resterebbe verde lasciando la famiglia fuori dal
+  // lockstep. Fallisci prima di scrivere nel checkout del corpus.
+  assertEmittedFamiliesRegistered({
+    emittedSitePaths: listPortableTreeSitePaths(sourceDir),
+    registeredSitePaths: registeredCorpusSitePaths(crawlerWorkflowFiles),
+    origin: 'exported',
+  });
 
   const manifestPath = path.join(corpusRoot, CORPUS_MANIFEST_PATH);
   const manifest = JSON.parse(readRequired(manifestPath).toString('utf8'));
