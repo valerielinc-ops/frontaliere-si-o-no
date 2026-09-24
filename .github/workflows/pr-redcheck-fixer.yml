@@ -127,7 +127,7 @@ jobs:
           author=$(printf '%s' "$pr" | jq -r '.user.login')
           head_ref=$(printf '%s' "$pr" | jq -r '.head.ref')
           head_sha=$(printf '%s' "$pr" | jq -r '.head.sha')
-          review_revision=$(printf '%s' "$pr" | node -e 'const crypto=require("node:crypto");let s="";process.stdin.on("data",c=>s+=c).on("end",()=>{const body=JSON.parse(s).body ?? "";process.stdout.write("body:"+crypto.createHash("sha256").update(body,"utf8").digest("hex"));});')
+          review_revision=$(printf '%s' "$pr" | node -e 'const crypto=require("node:crypto");let s="";process.stdin.on("data",c=>s+=c).on("end",()=>{const body=JSON.parse(s).body ?? "";process.stdout.write("body:"+crypto.createHash("sha256").update(body+"\n","utf8").digest("hex"));});')
           has_autofix=$(printf '%s' "$pr" | jq -r 'any(.labels[]?.name; . == "agent:autofix")')
 
           if [ "$state" != "open" ]; then
@@ -1002,7 +1002,10 @@ jobs:
               # Hasha il body in streaming: jq -r + command substitution
               # eliminerebbero i newline finali e farebbero divergere la
               # revisione dalla preflight per un body valido.
-              snapshot_revision=$(printf '%s' "$snapshot" | jq -j '.body // ""' | shasum -a 256 | awk '{print "body:" $1}')
+              # Stessa serializzazione `jq-newline` di review-input-revision.mjs
+              # (sha256(body + "\n")), che gh-pr-body-check usa per il CAS del
+              # body: la preflight sopra la emette allo stesso modo.
+              snapshot_revision=$({ printf '%s' "$snapshot" | jq -j '.body // ""'; printf '\n'; } | shasum -a 256 | awk '{print "body:" $1}')
               if [ "$snapshot_state" != 'open' ] || [ "$snapshot_draft" != 'false' ] \
                 || [ "$snapshot_head" != "$EXPECTED_HEAD_SHA" ] \
                 || [ "$snapshot_revision" != "$EXPECTED_REVIEW_REVISION" ]; then
