@@ -325,6 +325,11 @@ export async function signOut(): Promise<void> {
  mirrorAuthSessionMarker(null);
  const { Analytics } = await import('@/services/analytics');
  Analytics.trackUIInteraction('auth', 'general', 'logout', 'success');
+ if (typeof window !== 'undefined') {
+ // An explicit logout must opt out of GIS auto-select, otherwise One Tap can
+ // immediately restore the same account and make the logout look broken.
+  window.google?.accounts?.id?.disableAutoSelect?.();
+ }
  } catch (error) {
  reportCaughtError(error, 'auth.signOut');
  }
@@ -926,6 +931,9 @@ export interface AuthJobContext {
  location?: string | null;
  category?: string | null;
  searchQuery?: string | null;
+ surface?: 'inline' | 'modal' | 'expired' | 'orphan' | 'unknown';
+ variant?: string;
+ experimentId?: string;
 }
 
 /** Save job context before an OAuth redirect so the callback can enrich the newsletter subscription. */
@@ -977,6 +985,7 @@ export async function signInWithLinkedIn(redirectPath?: string): Promise<void> {
  state,
  });
 
+ Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'redirect-start', 'source=job_auth_or_cta', 'auth.linkedin.redirect_start');
  window.location.href = `https://www.linkedin.com/oauth/v2/authorization?${params.toString()}`;
  } catch (error) {
  reportCaughtError(error, 'auth.signInWithLinkedIn');
@@ -1264,8 +1273,9 @@ declare global {
  accounts: {
  id: {
  initialize: (config: OneTapConfig) => void;
- prompt: (callback?: (notification: OneTapNotification) => void) => void;
+ prompt: (callback?: (notification?: OneTapNotification) => void) => void;
  cancel: () => void;
+ disableAutoSelect?: () => void;
  renderButton: (parent: HTMLElement, options: OneTapButtonOptions) => void;
  };
  };
@@ -1279,7 +1289,6 @@ interface OneTapConfig {
  auto_select?: boolean;
  cancel_on_tap_outside?: boolean;
  context?: 'signin' | 'signup' | 'use';
- use_fedcm_for_prompt?: boolean;
  itp_support?: boolean;
  intermediate_iframe_close_callback?: () => void;
 }
@@ -1291,9 +1300,9 @@ interface OneTapResponse {
 }
 
 interface OneTapNotification {
- isNotDisplayed: () => boolean;
- isSkippedMoment: () => boolean;
- isDismissedMoment: () => boolean;
+ isNotDisplayed?: () => boolean;
+ isSkippedMoment?: () => boolean;
+ isDismissedMoment?: () => boolean;
  getNotDisplayedReason?: () => string;
  getSkippedReason?: () => string;
  getDismissedReason?: () => string;
@@ -1314,6 +1323,21 @@ interface OneTapButtonOptions {
 let oneTapInitialized = false;
 let oneTapInitPromise: Promise<boolean> | null = null;
 let clientId: string | null = null;
+
+function trackOneTapMetric(action: string, details: string): void {
+ void import('@/services/analytics')
+  .then(({ Analytics }) => {
+   Analytics.trackExperimentUIInteraction(
+    'auth',
+    'google',
+    'onetap',
+    action,
+    details,
+    `auth.google.onetap.${action}`,
+   );
+  })
+  .catch(() => { /* Analytics is best-effort during auth bootstrap. */ });
+}
 
 function isMobileBrowserContext(): boolean {
  if (typeof window === 'undefined') return false;
@@ -1383,7 +1407,6 @@ export async function initOneTap(): Promise<boolean> {
  auto_select: true,
  cancel_on_tap_outside: true,
  context: 'signin',
- use_fedcm_for_prompt: false,
  itp_support: true,
  intermediate_iframe_close_callback: () => {
  // Safari ITP: intermediate iframe closed after user authenticated.
@@ -1416,6 +1439,14 @@ async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  const result = await _authModule.signInWithCredential(authInstance, credential);
  mirrorAuthSessionMarker(result.user);
  const { Analytics } = await import('@/services/analytics');
+ Analytics.trackExperimentUIInteraction(
+  'auth',
+  'google',
+  'onetap',
+  'success',
+  `select_by=${String(response.select_by || 'unknown').slice(0, 40)}`,
+  'auth.google.onetap.success',
+ );
  Analytics.trackUIInteraction('auth', 'google', 'login', 'onetap');
 
  // Authentication is a registration channel under the site terms. The central
@@ -1433,6 +1464,7 @@ async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  } catch (error) {
  reportCaughtError(error, 'auth.oneTapCredential');
  const { Analytics } = await import('@/services/analytics');
+ Analytics.trackExperimentUIInteraction('auth', 'google', 'onetap', 'error', 'stage=credential', 'auth.google.onetap.error');
  Analytics.trackUIInteraction('auth', 'google', 'login', 'onetap-error');
  }
 }
@@ -1441,27 +1473,55 @@ async function handleOneTapResponse(response: OneTapResponse): Promise<void> {
  * Show Google One Tap prompt
  * Call this when the user arrives at a sign-in page
  */
-export async function promptOneTap(): Promise<void> {
+export async function promptOneTap(options: { surface?: string } = {}): Promise<void> {
+ const surface = String(options.surface || 'unknown').replace(/[^a-z0-9_-]/gi, '_').slice(0, 40);
  // Suppress while a newsletter autologin is exchanging — the user is about to
  // be signed in, so prompting now is redundant and delays the linked content.
- if (isNewsletterAutologinInFlight()) return;
+ if (isNewsletterAutologinInFlight()) {
+  trackOneTapMetric('blocked', `surface=${surface}|reason=autologin`);
+  return;
+ }
  await ensureFirebaseAuth();
  const authInstance = getAuthInstance();
- if (authInstance?.currentUser) return;
+ if (authInstance?.currentUser) {
+  trackOneTapMetric('blocked', `surface=${surface}|reason=authenticated`);
+  return;
+ }
  // Keep UX clean: never stack browser One Tap over an existing in-app popup/banner.
- if (hasActiveSlot()) return;
+ if (hasActiveSlot()) {
+  trackOneTapMetric('blocked', `surface=${surface}|reason=active_slot`);
+  return;
+ }
 
  if (!oneTapInitialized) {
  const initialized = await initOneTap();
- if (!initialized) return;
+ if (!initialized) {
+  trackOneTapMetric('init_failed', `surface=${surface}`);
+  return;
  }
- 
+ }
+
+ trackOneTapMetric('prompted', `surface=${surface}`);
  window.google?.accounts?.id.prompt((notification) => {
- if (notification.isNotDisplayed()) {
- console.log('[OneTap] Not displayed:', notification.getNotDisplayedReason?.());
- } else if (notification.isSkippedMoment()) {
- console.log('[OneTap] Skipped:', notification.getSkippedReason?.());
- }
+  if (!notification) {
+   trackOneTapMetric('callback', `surface=${surface}|reason=no_moment_details`);
+   return;
+  }
+  const isNotDisplayed = notification.isNotDisplayed?.() === true;
+  const isSkipped = notification.isSkippedMoment?.() === true;
+  const isDismissed = notification.isDismissedMoment?.() === true;
+  if (isNotDisplayed) {
+   const reason = String(notification.getNotDisplayedReason?.() || 'unknown').replace(/[^a-z0-9_-]/gi, '_').slice(0, 60);
+   trackOneTapMetric('not_displayed', `surface=${surface}|reason=${reason}`);
+  } else if (isSkipped) {
+   const reason = String(notification.getSkippedReason?.() || 'unknown').replace(/[^a-z0-9_-]/gi, '_').slice(0, 60);
+   trackOneTapMetric('skipped', `surface=${surface}|reason=${reason}`);
+  } else if (isDismissed) {
+   const reason = String(notification.getDismissedReason?.() || 'unknown').replace(/[^a-z0-9_-]/gi, '_').slice(0, 60);
+   trackOneTapMetric('dismissed', `surface=${surface}|reason=${reason}`);
+  } else {
+   trackOneTapMetric('displayed', `surface=${surface}`);
+  }
  });
 }
 

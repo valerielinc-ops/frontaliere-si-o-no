@@ -2257,6 +2257,8 @@ function isExternalApplicationJob(job: JobListing): boolean {
  return mode !== 'in_house' && mode !== 'forward_email';
 }
 
+const JOB_AUTH_GATE_EXPERIMENT_ID = 'authgate-headline-v3';
+
 function assistedApplicationJobContext(job: JobListing, variant: AssistedApplicationVariant) {
  return {
   variant,
@@ -2283,7 +2285,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
 }) => {
  const { t } = useTranslation();
  const [locale] = useLocale();
- const { headline: gateHeadline } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
+ const { headline: gateHeadline, variant: gateVariant } = useAuthGateHeadlineVariant(locale, t('jobBoard.gate.title'));
  const killSwitches = useKillSwitches();
  // Keep crawlers and automated browsers on the canonical/original apply path:
  // do not fetch Remote Config, assign a paid/rewarded arm, or emit experiment
@@ -2561,6 +2563,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const modalGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const inlineGoogleButtonRef = useRef<HTMLDivElement | null>(null);
  const authUnlockCandidateRef = useRef<string | null>(null);
+ const jobAuthExposureRef = useRef<string | null>(null);
  const wasLoggedInRef = useRef(isLoggedIn);
  // Job id whose detail was just unlocked by a fresh social (Google/FB) auth.
  // The job-detail alert prompt fires immediately (delay 0) for this job —
@@ -6170,11 +6173,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  company: focusedJob.company || null,
  title: sanitizeJobTitle(focusedJob.titleByLocale?.[locale] ?? focusedJob.title),
  location: focusedJob.location || focusedJob.addressLocality || null,
- category: focusedJob.category || null,
- searchQuery: searchQuery.trim() || null,
+  category: focusedJob.category || null,
+  searchQuery: searchQuery.trim() || null,
+  surface: 'modal',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
  });
  }
- void promptOneTap();
+ void promptOneTap({ surface: 'job_gate_modal' });
  }, [authResolved, authGateOpen, hasAccess, pendingJob, selectedJob]);
 
  // Close auth gate modal on Escape key
@@ -6182,29 +6188,47 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!authGateOpen) return;
  const handleKeyDown = (e: KeyboardEvent) => {
  if (e.key === 'Escape') {
- authUnlockCandidateRef.current = null;
- setAuthGateOpen(false);
- releaseSlot('job-auth-gate');
- setPendingJob(null);
- setAuthError(null);
+ dismissAuthGate('modal');
  }
  };
  window.addEventListener('keydown', handleKeyDown);
  return () => window.removeEventListener('keydown', handleKeyDown);
- }, [authGateOpen]);
+ }, [authGateOpen, gateVariant, pendingJob, selectedJob]);
 
  useEffect(() => {
  if (!authResolved || !selectedJob || hasAccess) return;
+ const exposureKey = `${selectedJob.id}:inline:${gateVariant}`;
+ if (jobAuthExposureRef.current === exposureKey) return;
+ jobAuthExposureRef.current = exposureKey;
  authUnlockCandidateRef.current = selectedJob.id;
  saveAuthJobContext({
  slug: selectedJob.slug || null,
  company: selectedJob.company || null,
  location: selectedJob.location || selectedJob.addressLocality || null,
  category: selectedJob.category || null,
+ surface: 'inline',
+ variant: gateVariant,
+ experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
  });
- void promptOneTap();
- Analytics.trackJobAuthFunnel('gate_view', buildJobTrackingContext(selectedJob));
- }, [authResolved, selectedJob, hasAccess]);
+ void promptOneTap({ surface: 'job_gate_inline' });
+ const context = buildJobTrackingContext(selectedJob);
+ const telemetry = {
+  surface: 'inline' as const,
+  authState: 'anonymous' as const,
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: context.jobSlug,
+ };
+ Analytics.trackJobAuthGate('view', telemetry);
+ Analytics.trackJobAuthFunnel('gate_view', {
+  ...context,
+  surface: 'inline',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: context.jobSlug,
+ });
+ }, [authResolved, selectedJob?.id, hasAccess, gateVariant]);
 
  useEffect(() => {
  // Wait for auth to resolve before rendering GIS buttons.
@@ -6216,9 +6240,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  let cancelled = false;
 
  const mountGoogleButton = async (
- buttonContainer: HTMLDivElement | null,
- setReady: React.Dispatch<React.SetStateAction<boolean>>,
- active: boolean,
+  buttonContainer: HTMLDivElement | null,
+  setReady: React.Dispatch<React.SetStateAction<boolean>>,
+  active: boolean,
+  surface: 'inline' | 'modal',
  ) => {
  if (!active || !buttonContainer) {
  setReady(false);
@@ -6227,11 +6252,33 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  buttonContainer.innerHTML = '';
  try {
+ const job = surface === 'inline' ? selectedJob : pendingJob || selectedJob;
+ const context = job ? buildJobTrackingContext(job) : { jobSlug: null };
  // Use renderGoogleButton directly (same approach as profile page).
  await renderGoogleButton(buttonContainer, {
- theme: 'outline',
- size: 'large',
- text: 'signin_with',
+  theme: 'outline',
+  size: 'large',
+  text: 'signin_with',
+  click_listener: () => {
+   const telemetry = {
+    surface,
+    method: 'google' as const,
+    authState: 'anonymous' as const,
+    variant: gateVariant,
+    experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+    jobSlug: context.jobSlug,
+   };
+   Analytics.trackJobAuthGate('method_click', telemetry);
+   Analytics.trackJobAuthFunnel('auth_method_click', {
+    ...context,
+    method: 'google',
+    surface,
+    authState: 'anonymous',
+    variant: gateVariant,
+    experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+    jobSlug: context.jobSlug,
+   });
+  },
  });
  if (cancelled) return;
  // Check if GIS rendered children (same readiness check as profile page)
@@ -6250,13 +6297,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  };
 
- void mountGoogleButton(modalGoogleButtonRef.current, setModalGoogleButtonReady, authGateOpen && !hasAccess);
- void mountGoogleButton(inlineGoogleButtonRef.current, setInlineGoogleButtonReady, Boolean(selectedJob && !hasAccess));
+ void mountGoogleButton(modalGoogleButtonRef.current, setModalGoogleButtonReady, authGateOpen && !hasAccess, 'modal');
+ void mountGoogleButton(inlineGoogleButtonRef.current, setInlineGoogleButtonReady, Boolean(selectedJob && !hasAccess), 'inline');
 
  return () => {
  cancelled = true;
  };
- }, [authResolved, authGateOpen, hasAccess, locale, selectedJob]);
+ }, [authResolved, authGateOpen, hasAccess, locale, selectedJob, pendingJob, gateVariant]);
 
  useEffect(() => {
  const becameLoggedIn = !wasLoggedInRef.current && isLoggedIn;
@@ -6278,9 +6325,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const userEmail = getAuthEmail(authUser);
  const sourceSuffix = `:${unlockedJob.company}:${sanitizeJobTitle(unlockedJob.title).slice(0, 60)}`;
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
+ const jobContext = buildJobTrackingContext(unlockedJob);
 
  void autoNewsletterSubscribe(userEmail || undefined, `job_gate_google${sourceSuffix}`, 'authenticated').then((consented) => {
-  if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
+  if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
+   sourceChannel: 'job_gate',
+   sourceCta: 'job_gate_google_unlock',
+   sourcePage: typeof window !== 'undefined' ? window.location.pathname : undefined,
+   jobSlug: jobContext.jobSlug,
+   registrationMethod: 'authenticated',
+  });
  });
  // Leva B: offer the one-tap job alert immediately on this just-unlocked job.
  justAuthedJobIdRef.current = unlockedJob.id;
@@ -6288,10 +6342,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setAuthError(null);
  setAuthGateOpen(false);
  releaseSlot('job-auth-gate');
+ Analytics.trackJobAuthGate('success', {
+  surface: 'inline',
+  method: 'google',
+  authState: 'registered',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: jobContext.jobSlug,
+ });
  Analytics.trackJobAuthFunnel('auth_success', {
- method: 'google',
- emailDomain,
- ...buildJobTrackingContext(unlockedJob),
+  method: 'google',
+  emailDomain,
+  ...jobContext,
+  surface: 'inline',
+  authState: 'registered',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: jobContext.jobSlug,
  });
  Analytics.trackSelectContent('job_board_open_detail', `${unlockedJob.company}_${unlockedJob.title}`);
 
@@ -6409,13 +6476,39 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return nodes;
  });
 
- const handleAuthAndOpen = async (provider: 'google' | 'facebook') => {
+ const dismissAuthGate = (surface: 'modal' | 'inline' = 'modal') => {
+  const jobToTrack = pendingJob || selectedJob;
+  const jobContext = jobToTrack ? buildJobTrackingContext(jobToTrack) : { jobSlug: null };
+  Analytics.trackJobAuthGate('dismiss', {
+   surface,
+   method: 'unknown',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+   jobSlug: jobContext.jobSlug,
+  });
+  Analytics.trackJobAuthFunnel('gate_dismiss', {
+   ...jobContext,
+   surface,
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+   jobSlug: jobContext.jobSlug,
+  });
+  authUnlockCandidateRef.current = null;
+  setAuthGateOpen(false);
+  releaseSlot('job-auth-gate');
+  setPendingJob(null);
+  setAuthError(null);
+ };
+
+ const handleAuthAndOpen = async (provider: 'google' | 'facebook', surface: 'inline' | 'modal') => {
  const authFn = provider === 'google' ? onGoogleAuthRequired : onFacebookAuthRequired;
  if (!authFn) return;
  setAuthBusy(provider);
  setAuthError(null);
  const jobToTrack = pendingJob || selectedJob;
- const jobContext = jobToTrack ? buildJobTrackingContext(jobToTrack) : {};
+ const jobContext = jobToTrack ? buildJobTrackingContext(jobToTrack) : { jobSlug: null };
  const redirectSlug = jobToTrack ? deriveLocalizedJobSlug(jobToTrack, locale) : null;
  try {
  // Persist the intended detail target before auth starts. On mobile redirect
@@ -6437,6 +6530,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  clearJobAuthRedirectSlug();
  setAuthError(t('jobBoard.authCancelled'));
+ Analytics.trackJobAuthGate('fail', {
+  surface,
+  method: provider,
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: jobContext.jobSlug,
+ });
  Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext });
  return;
  }
@@ -6444,11 +6545,34 @@ const JobBoard: React.FC<JobBoardProps> = ({
  clearJobAuthRedirectSlug();
  const userEmail = result.email || result.user?.email;
  const sourceSuffix = jobToTrack ? `:${jobToTrack.company}:${sanitizeJobTitle(jobToTrack.title).slice(0, 60)}` : '';
- const consented = await autoNewsletterSubscribe(userEmail, `job_gate_google${sourceSuffix}`, 'authenticated');
+ const consented = await autoNewsletterSubscribe(userEmail, `job_gate_${provider}${sourceSuffix}`, 'authenticated');
  setAuthNotice(null);
  const emailDomain = String(userEmail || '').split('@')[1] || 'unknown';
- Analytics.trackJobAuthFunnel('auth_success', { method: provider, emailDomain, ...jobContext });
- if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
+ Analytics.trackJobAuthGate('success', {
+  surface,
+  method: provider,
+  authState: 'registered',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: jobContext.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_success', {
+  method: provider,
+  emailDomain,
+  ...jobContext,
+  surface,
+  authState: 'registered',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: jobContext.jobSlug,
+ });
+ if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
+  sourceChannel: 'job_gate',
+  sourceCta: `job_gate_${provider}_unlock`,
+  sourcePage: typeof window !== 'undefined' ? window.location.pathname : undefined,
+  jobSlug: jobContext.jobSlug,
+  registrationMethod: 'authenticated',
+ });
  setAuthGateOpen(false);
  releaseSlot('job-auth-gate');
  const jobToOpen = pendingJob || selectedJob;
@@ -6461,6 +6585,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  } catch {
  setAuthError(t('jobBoard.authFailed'));
+ Analytics.trackJobAuthGate('fail', {
+  surface,
+  method: provider,
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: jobContext.jobSlug,
+ });
  Analytics.trackJobAuthFunnel('auth_fail', { method: provider, ...jobContext });
  } finally {
  setAuthBusy(null);
@@ -6472,7 +6604,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  if (!email || !validateEmailStrict(email).valid) { setAuthError(t('newsletter.invalidEmail')); return; }
  setAuthBusy('email');
  setAuthError(null);
- const jobContext = pendingJob ? buildJobTrackingContext(pendingJob) : {};
+ const jobContext = pendingJob ? buildJobTrackingContext(pendingJob) : { jobSlug: null };
  try {
  const sourceSuffix = pendingJob ? `:${pendingJob.company}:${sanitizeJobTitle(pendingJob.title).slice(0, 60)}` : '';
  const consented = await autoNewsletterSubscribe(email, `job_gate_email${sourceSuffix}`, 'email');
@@ -6480,8 +6612,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
  const emailDomain = email.split('@')[1] || 'unknown';
- Analytics.trackJobAuthFunnel('auth_success', { method: 'email', emailDomain, ...jobContext });
- if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
+ Analytics.trackJobAuthGate('success', {
+  surface: 'modal',
+  method: 'email',
+  authState: 'pending_email',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: jobContext.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_success', {
+  method: 'email',
+  emailDomain,
+  ...jobContext,
+  surface: 'modal',
+  authState: 'pending_email',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: jobContext.jobSlug,
+ });
+ if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
+  sourceChannel: 'job_gate',
+  sourceCta: 'job_board_email_unlock',
+  sourcePage: typeof window !== 'undefined' ? window.location.pathname : undefined,
+  jobSlug: jobContext.jobSlug,
+  registrationMethod: 'email',
+ });
  Analytics.trackSelectContent('job_board_email_access', emailDomain);
  authUnlockCandidateRef.current = null;
  setAuthGateOpen(false);
@@ -6495,6 +6650,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }
  } catch {
  setAuthError(t('jobBoard.authFailed'));
+ Analytics.trackJobAuthGate('fail', {
+  surface: 'modal',
+  method: 'email',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: jobContext.jobSlug,
+ });
  Analytics.trackJobAuthFunnel('auth_fail', { method: 'email', ...jobContext });
  } finally {
  setAuthBusy(null);
@@ -6514,14 +6677,45 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
  const emailDomain = email.split('@')[1] || 'unknown';
- Analytics.trackJobAuthFunnel('auth_success', { method: 'email', emailDomain, ...jobContext });
- if (consented) Analytics.trackNewsletter('subscribe', emailDomain);
+ Analytics.trackJobAuthGate('success', {
+  surface: 'inline',
+  method: 'email',
+  authState: 'pending_email',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: jobContext.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_success', {
+  method: 'email',
+  emailDomain,
+  ...jobContext,
+  surface: 'inline',
+  authState: 'pending_email',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: jobContext.jobSlug,
+ });
+ if (consented) Analytics.trackNewsletter('subscribe', emailDomain, {
+  sourceChannel: 'job_gate',
+  sourceCta: 'job_gate_email_unlock',
+  sourcePage: typeof window !== 'undefined' ? window.location.pathname : undefined,
+  jobSlug: jobContext.jobSlug,
+  registrationMethod: 'email',
+ });
  authUnlockCandidateRef.current = null;
  setEmailInput('');
  // No need to route — the component will re-render with hasAccess=true
  Analytics.trackSelectContent('job_board_open_detail', `${job.company}_${job.title}`);
  } catch {
  setAuthError(t('jobBoard.authFailed'));
+ Analytics.trackJobAuthGate('fail', {
+  surface: 'inline',
+  method: 'email',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: jobContext.jobSlug,
+ });
  Analytics.trackJobAuthFunnel('auth_fail', { method: 'email', ...jobContext });
  } finally {
  setAuthBusy(null);
@@ -6548,6 +6742,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  location,
  searchQuery: searchQuery.trim() || undefined,
  keywords,
+ jobSlug: job.slugByLocale?.it ?? job.slug ?? null,
  };
  };
 
@@ -7314,7 +7509,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ) : null;
 
  const authGateModalJsx = authGateOpen ? (
- <div className="fixed inset-0 z-[90] flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); } }}>
+ <div className="fixed inset-0 z-[90] flex items-center justify-center p-4" onClick={(e) => { if (e.target === e.currentTarget) dismissAuthGate('modal'); }}>
  <div aria-hidden="true" className="absolute inset-0 bg-black/45 backdrop-blur-sm" />
  <div role="dialog" aria-modal="true" aria-label={t('jobBoard.gate.title') || 'Accedi per continuare'} className="relative w-full max-w-md rounded-stripe border border-edge bg-surface p-5 space-y-4">
  {/* Close X button */}
@@ -7327,7 +7522,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <p className="text-sm text-subtle">{t('jobBoard.gate.subtitle')}</p>
  </div>
  </div>
- <button type="button" onClick={() => { authUnlockCandidateRef.current = null; setAuthGateOpen(false); releaseSlot('job-auth-gate'); setPendingJob(null); setAuthError(null); }} className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-stripe text-muted hover:text-subtle" aria-label={t('common.close')}>
+ <button type="button" onClick={() => dismissAuthGate('modal')} className="p-2.5 min-w-[44px] min-h-[44px] flex items-center justify-center rounded-stripe text-muted hover:text-subtle" aria-label={t('common.close')}>
  <X size={18} />
  </button>
  </div>
@@ -7370,7 +7565,28 @@ const JobBoard: React.FC<JobBoardProps> = ({
  {!modalGoogleButtonReady && (
  <button
  type="button"
- onClick={() => void handleAuthAndOpen('google')}
+ onClick={() => {
+  const job = pendingJob || selectedJob;
+  const ctx = job ? buildJobTrackingContext(job) : { jobSlug: null };
+  Analytics.trackJobAuthGate('method_click', {
+   surface: 'modal',
+   method: 'google',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+   jobSlug: ctx.jobSlug,
+  });
+  Analytics.trackJobAuthFunnel('auth_method_click', {
+   method: 'google',
+   ...ctx,
+   surface: 'modal',
+   authState: 'anonymous',
+   variant: gateVariant,
+   experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+   jobSlug: ctx.jobSlug,
+  });
+  void handleAuthAndOpen('google', 'modal');
+ }}
  disabled={authBusy !== null}
  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised disabled:opacity-60 text-strong text-sm font-semibold shadow-sm transition-colors"
  >
@@ -7396,7 +7612,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const job = pendingJob || selectedJob;
  if (job) {
  const ctx = buildJobTrackingContext(job);
- Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', ...ctx });
+ Analytics.trackJobAuthGate('method_click', {
+  surface: 'modal',
+  method: 'linkedin',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: ctx.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_method_click', {
+  method: 'linkedin',
+  ...ctx,
+  surface: 'modal',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: ctx.jobSlug,
+ });
  setAuthBusy('linkedin');
  saveAuthJobContext({
   slug: job.slug,
@@ -7405,6 +7637,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
   location: job.location,
   category: job.category,
   searchQuery: searchQuery.trim() || null,
+  surface: 'modal',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
  });
  const jobSlug = job.slugByLocale?.[locale] ?? job.slug;
  const section = getJobBoardSectionSlug(locale);
@@ -8853,8 +9088,24 @@ const JobBoard: React.FC<JobBoardProps> = ({
  type="button"
  onClick={() => {
  const ctx = buildJobTrackingContext(selectedJob);
- Analytics.trackJobAuthFunnel('auth_method_click', { method: 'google', ...ctx });
- void handleAuthAndOpen('google');
+ Analytics.trackJobAuthGate('method_click', {
+  surface: 'inline',
+  method: 'google',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: ctx.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_method_click', {
+  method: 'google',
+  ...ctx,
+  surface: 'inline',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: ctx.jobSlug,
+ });
+ void handleAuthAndOpen('google', 'inline');
  }}
  disabled={authBusy !== null}
  className="w-full min-h-[44px] inline-flex items-center justify-center gap-2 px-4 py-2.5 rounded-stripe bg-surface border border-edge hover:bg-surface-raised disabled:opacity-60 text-strong text-sm font-semibold shadow-sm transition-colors"
@@ -8879,7 +9130,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const job = selectedJob;
  if (job) {
  const ctx = buildJobTrackingContext(job);
- Analytics.trackJobAuthFunnel('auth_method_click', { method: 'linkedin', ...ctx });
+ Analytics.trackJobAuthGate('method_click', {
+  surface: 'inline',
+  method: 'linkedin',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: ctx.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_method_click', {
+  method: 'linkedin',
+  ...ctx,
+  surface: 'inline',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: ctx.jobSlug,
+ });
  setAuthBusy('linkedin');
  saveAuthJobContext({
   slug: job.slug,
@@ -8888,6 +9155,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
   location: job.location,
   category: job.category,
   searchQuery: searchQuery.trim() || null,
+  surface: 'inline',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
  });
  const jobSlug = job.slugByLocale?.[locale] ?? job.slug;
  const section = getJobBoardSectionSlug(locale);
@@ -8923,7 +9193,23 @@ const JobBoard: React.FC<JobBoardProps> = ({
  onSubmit={(e) => {
  e.preventDefault();
  const ctx = buildJobTrackingContext(selectedJob);
- Analytics.trackJobAuthFunnel('auth_method_click', { method: 'email', ...ctx });
+ Analytics.trackJobAuthGate('method_click', {
+  surface: 'inline',
+  method: 'email',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: ctx.jobSlug,
+ });
+ Analytics.trackJobAuthFunnel('auth_method_click', {
+  method: 'email',
+  ...ctx,
+  surface: 'inline',
+  authState: 'anonymous',
+  variant: gateVariant,
+  experimentId: JOB_AUTH_GATE_EXPERIMENT_ID,
+  jobSlug: ctx.jobSlug,
+ });
  void handleInlineEmailAccess(selectedJob);
  }}
  className="mt-3 space-y-2"

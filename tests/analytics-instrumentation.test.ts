@@ -226,6 +226,28 @@ describe('analytics.ts — job_auth funnel aliasing', () => {
   });
 });
 
+describe('analytics.ts — GA4 job gate contract', () => {
+  it('uses registered GA4 dimensions and keeps the historical PostHog payload separate', () => {
+    const block = analyticsSrc.match(/trackJobAuthGate:[\s\S]*?emitClarityEvent\('job_auth_gate'\);/);
+    expect(block).not.toBeNull();
+    for (const key of ['page:', 'section:', 'component:', 'action:', 'cta_id:', 'details:', 'job_slug:', 'experiment_id:', 'variant,']) {
+      expect(block![0]).toContain(key);
+    }
+    expect(analyticsSrc).toMatch(/logPostHogOnly\('job_auth_funnel'/);
+    expect(analyticsSrc).toMatch(/logFirebaseOnly\('job_auth_funnel'/);
+  });
+
+  it('routes newsletter source context through a queryable GA4 ui_interaction', () => {
+    const block = analyticsSrc.match(/trackNewsletter:[\s\S]*?\n \},\n\n trackNewsletterEvent:/);
+    expect(block).not.toBeNull();
+    expect(block![0]).toMatch(/page:\s*'newsletter'/);
+    expect(block![0]).toMatch(/section:\s*sourceChannel/);
+    expect(block![0]).toMatch(/component:\s*sourceCta/);
+    expect(block![0]).toMatch(/cta_id:/);
+    expect(block![0]).toMatch(/registration_method=/);
+  });
+});
+
 describe('errorReporter.ts — api_error fallbacks', () => {
   it('always resolves an `apiEndpoint` (falls back to `context`) when forwarding to trackAppError', () => {
     expect(errorReporterSrc).toMatch(/const resolvedEndpoint\s*=\s*options\.apiEndpoint\s*\|\|\s*context/);
