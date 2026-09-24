@@ -6671,6 +6671,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.ubs-capitale-90-bns.title': 'UBS, SNB genehmigt Kapitalanforderungen zu 90 %',
     'blog.article.ubs-capitale-90-bns.excerpt': 'Die SNB stimmt dem Entscheid des Ständerates zu: Die Auslandsniederlassungen der UBS sollen zu 90% mit WAK1-Kapital abgesichert werden.',
     'blog.article.ubs-capitale-90-bns.imageAlt': 'Schweizer Bankgebäude mit Nationalflagge in einer Finanznachrichtenszene',
+    'blog.article.mozione-costi-manifestazioni-stati.title': 'Motion Staaten: Die Organisatoren zahlen die Sicherheitskosten',
+    'blog.article.mozione-costi-manifestazioni-stati.excerpt': 'Die Staaten stimmen der Motion 24-18 mit 3 Enthaltungen zu: Der Bundesrat muss eine gesetzliche Grundlage schaffen, damit die Organisatoren die Kosten für den Einsatz und die Sicherheit der Demonstrationen nach den Unruhen vom 11. Oktober in Bern bezahlen können.',
+    'blog.article.mozione-costi-manifestazioni-stati.imageAlt': 'Schweizer Demonstration mit Polizeikräften im Vordergrund',
 };
 
 export default blogMetaChDe;
