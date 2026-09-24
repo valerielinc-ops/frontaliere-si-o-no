@@ -1,6 +1,6 @@
 {
   "crawlerKey": "mikron",
-  "assembledAt": "2026-09-22T00:11:59.930Z",
+  "assembledAt": "2026-09-24T00:02:00.841Z",
   "jobs": [
     {
       "url": "https://www.mikron.com/en/polymecanic-team-leader",
@@ -98,6 +98,7 @@
         "canton": "NE",
         "location": "Boudry"
       },
+      "needsRetranslation": true,
       "firstSeenAt": "2026-09-03T13:45:11.813Z",
       "addressLocality": "Boudry",
       "addressRegion": "NE",
@@ -114,9 +115,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true,
-      "retranslationAttempts": 0
+      }
     },
     {
       "url": "https://www.mikron.com/en/product-conformity-specialist",

@@ -1,26 +1,25 @@
 {
   "key": "alpiq",
   "label": "Alpiq",
-  "generatedAt": "2026-09-22T00:14:04.619Z",
-  "total": 4,
-  "newCount": 0,
-  "updatedCount": 4,
+  "generatedAt": "2026-09-24T00:02:19.655Z",
+  "total": 5,
+  "newCount": 1,
+  "updatedCount": 3,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 9573,
-  "avgDurationMs": 9573,
+  "unchangedCount": 1,
+  "durationMs": 11997,
+  "avgDurationMs": 11997,
   "durationHistory": [
-    9573
+    11997
   ],
-  "newJobs": [],
-  "updatedJobs": [
+  "newJobs": [
     {
-      "id": "alpiq-150e7535e7a7",
-      "slug": "project-manager-non-it-iii-alpiq-switzerland",
+      "id": "alpiq-8ca59717291e",
+      "slug": "project-manager-hydropower-alpiq-switzerland",
       "company": "Alpiq",
       "companyKey": "alpiq",
       "companyDomain": "alpiq.com",
-      "title": "Project Manager (non-IT) III",
+      "title": "Project Manager Hydropower",
       "location": "Lausanne",
       "canton": "VD",
       "postalCode": "1003",
@@ -33,21 +32,22 @@
       "contract": "full-time",
       "currency": "CHF",
       "featured": false,
-      "postedDate": "2026-09-17",
-      "url": "https://www.alpiq.com/career/open-jobs/your-application/98",
-      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=98&lang=en_GB",
+      "postedDate": "2026-09-24",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/141",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=141&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:13:57.924Z",
-      "firstSeenAt": "2026-09-17T10:32:06.223Z",
-      "_qualityScore": 90,
+      "crawledAt": "2026-09-24T00:02:12.812Z",
+      "_qualityScore": 71,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 25,
+        "translation": 6,
         "completeness": 20
       }
-    },
+    }
+  ],
+  "updatedJobs": [
     {
       "id": "alpiq-c58e916d1b0b",
       "slug": "product-manager-trading-and-origination-alpiq-olten",
@@ -72,7 +72,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=21&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:13:57.915Z",
+      "crawledAt": "2026-09-24T00:02:12.799Z",
       "firstSeenAt": "2026-09-10T23:23:08.459Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -106,7 +106,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=33&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:13:57.919Z",
+      "crawledAt": "2026-09-24T00:02:12.805Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -140,7 +140,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=36&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:13:57.920Z",
+      "crawledAt": "2026-09-24T00:02:12.807Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3000,
       "retranslationAttempts": 3,
@@ -157,6 +157,39 @@
   "removedJobs": [],
   "unchangedJobs": [
     {
+      "id": "alpiq-8ca59717291e",
+      "slug": "project-manager-hydropower-alpiq-switzerland",
+      "company": "Alpiq",
+      "companyKey": "alpiq",
+      "companyDomain": "alpiq.com",
+      "title": "Project Manager Hydropower",
+      "location": "Lausanne",
+      "canton": "VD",
+      "postalCode": "1003",
+      "streetAddress": "Chemin de Mornex 10",
+      "addressLocality": "Lausanne",
+      "addressRegion": "VD",
+      "addressCountry": "CH",
+      "employmentType": "FULL_TIME",
+      "category": "energy",
+      "contract": "full-time",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-24",
+      "url": "https://www.alpiq.com/career/open-jobs/your-application/141",
+      "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=141&lang=en_GB",
+      "source": "Alpiq Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-24T00:02:12.812Z",
+      "_qualityScore": 71,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 6,
+        "completeness": 20
+      }
+    },
+    {
       "id": "alpiq-150e7535e7a7",
       "slug": "project-manager-non-it-iii-alpiq-switzerland",
       "company": "Alpiq",
@@ -182,12 +215,16 @@
       "sourceLang": "en",
       "crawledAt": "2026-09-22T00:13:57.924Z",
       "firstSeenAt": "2026-09-17T10:32:06.223Z",
-      "_qualityScore": 90,
+      "salaryMin": 117500,
+      "salaryMax": 179500,
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
         "translation": 25,
-        "completeness": 20
+        "completeness": 25
       }
     },
     {
@@ -214,7 +251,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=21&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:13:57.915Z",
+      "crawledAt": "2026-09-24T00:02:12.799Z",
       "firstSeenAt": "2026-09-10T23:23:08.459Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -248,7 +285,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=33&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:13:57.919Z",
+      "crawledAt": "2026-09-24T00:02:12.805Z",
       "firstSeenAt": "2026-09-10T23:23:08.460Z",
       "_qualityScore": 88,
       "_qualityBreakdown": {
@@ -282,7 +319,7 @@
       "applyUrl": "https://career5.successfactors.eu/careers?career_ns=job_application&company=Alpiq&career_job_req_id=36&lang=en_GB",
       "source": "Alpiq Dedicated Parser",
       "sourceLang": "en",
-      "crawledAt": "2026-09-22T00:13:57.920Z",
+      "crawledAt": "2026-09-24T00:02:12.807Z",
       "localeMismatchSuppressed": true,
       "localeMismatchSuppressedLen": 3000,
       "retranslationAttempts": 3,
