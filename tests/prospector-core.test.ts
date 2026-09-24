@@ -31,6 +31,7 @@ import {
   evaluatePromotion,
   selectForPromotion,
   summarizePromotionBlocks,
+  diagnosePromotionBlocks,
   clampMinDays,
   findOpenPromotionPr,
   GATE_DEFAULTS,
@@ -1802,6 +1803,45 @@ describe('promotion gate', () => {
     expect(blocked.every((entry) => entry.checks)).toBe(true);
     expect(summarizePromotionBlocks(blocked)).toEqual({ stabilityOnly: 2, other: 1 });
     expect(summarizePromotionBlocks([{ checks: {} }])).toEqual({ stabilityOnly: 0, other: 1 });
+  });
+
+  it('attribuisce ogni blocco other ai predicati falliti, per nome del check (#9680)', () => {
+    // Due candidati con la stessa causa ma valori diversi: il tally per testo
+    // della ragione li separerebbe ("qualita' 0.50 ..." vs "qualita' 0.60 ...").
+    const lowA = graded(2, { key: 'low-a', crawlerKey: 'low-a' });
+    lowA.validationHistory.at(-1).score = 0.5;
+    const lowB = graded(2, { key: 'low-b', crawlerKey: 'low-b' });
+    lowB.validationHistory.at(-1).score = 0.6;
+    lowB.validationHistory.at(-1).logoFound = false;
+    // Fallisce stabilita' E qualita': e' `other`, e `days` entra nel tally.
+    const mixed = graded(1, { key: 'mixed', crawlerKey: 'mixed' });
+    mixed.validationHistory.at(-1).contentfulRate = 0;
+    const waiting = graded(1, { key: 'waiting', crawlerKey: 'waiting' });
+    const { blocked } = selectForPromotion([lowB, waiting, lowA, mixed]);
+
+    const d = diagnosePromotionBlocks(blocked);
+    expect(d.stabilityOnly).toBe(1);
+    expect(d.other).toBe(3);
+    expect(d.stabilityOnlyKeys).toEqual(['waiting']);
+    expect(d.failedChecks).toEqual({ score: 2, contentful: 1, days: 1, logo: 1, runs: 1 });
+    // Ordine deterministico: frequenza decrescente, poi nome.
+    expect(Object.keys(d.failedChecks)).toEqual(['score', 'contentful', 'days', 'logo', 'runs']);
+    expect(d.unattributed).toEqual([]);
+    // Coerente con la partizione gia' esistente.
+    expect({ stabilityOnly: d.stabilityOnly, other: d.other }).toEqual(summarizePromotionBlocks(blocked));
+  });
+
+  it('segnala come unattributed un blocco other senza check fallito o senza ragione', () => {
+    const d = diagnosePromotionBlocks([
+      { candidate: { key: 'no-checks' }, reasons: ['qualcosa'], checks: {} },
+      { candidate: { key: 'no-reason' }, reasons: [], checks: { score: false } },
+      { candidate: { key: 'ok' }, reasons: ['qualita\' bassa'], checks: { score: false } },
+      // Stability-only senza ragione non e' `other`: non entra in unattributed.
+      { candidate: { key: 'wait' }, reasons: [], checks: { runs: false, days: true } },
+    ]);
+    expect(d.other).toBe(3);
+    expect(d.unattributed).toEqual(['no-checks', 'no-reason']);
+    expect(d.stabilityOnlyKeys).toEqual(['wait']);
   });
 
   it('ships the biggest inventory first', () => {
