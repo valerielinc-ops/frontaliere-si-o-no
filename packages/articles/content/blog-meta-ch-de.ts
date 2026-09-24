@@ -6659,6 +6659,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.parco-veicoli-svizzera-2026.title': 'Fuhrpark Schweiz: Stand September 2026',
     'blog.article.parco-veicoli-svizzera-2026.excerpt': 'Analyse des Schweizer Fuhrparks: über 7,1 Millionen Fahrzeuge im Verkehr. Astra-Daten zu Neuzulassungen und Importen von Gebrauchtfahrzeugen in den 26 Kantonen.',
     'blog.article.parco-veicoli-svizzera-2026.imageAlt': 'Stadtverkehr in einer Schweizer Stadt mit verschiedenen Fahrzeugtypen',
+    'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.title': 'Nein zur Einbürgerung nach 5 Jahren',
+    'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.excerpt': 'Das Schweizer Parlament lehnt die Bürgerinitiative nach 5 Jahren legalem Aufenthalt ab',
+    'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.imageAlt': 'Schweizer Parlament in Bern mit nationalen politischen Entscheidungen',
 };
 
 export default blogMetaChDe;

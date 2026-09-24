@@ -6659,6 +6659,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.parco-veicoli-svizzera-2026.title': 'Parc Véhicules Suisse : les données mises à jour en septembre 2026',
     'blog.article.parco-veicoli-svizzera-2026.excerpt': 'Analyse du parc automobile suisse : plus de 7,1 millions de véhicules en circulation. Données ASTRA sur les nouvelles immatriculations et importations d\'occasion dans les 26 cantons.',
     'blog.article.parco-veicoli-svizzera-2026.imageAlt': 'Trafic urbain dans une ville suisse avec différents types de véhicules',
+    'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.title': 'Non à la naturalisation après 5 ans',
+    'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.excerpt': 'Le Parlement suisse rejette l\'initiative pour la citoyenneté après 5 ans de séjour légal',
+    'blog.article.parlamento-nega-naturalizzazione-dopo-5-anni.imageAlt': 'Parlement suisse à Berne avec décisions politiques nationales',
 };
 
 export default blogMetaChFr;
