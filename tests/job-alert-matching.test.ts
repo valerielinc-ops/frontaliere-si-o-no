@@ -40,6 +40,17 @@ describe('jobAlertMatching — explicit keyword contract (legacy preserved)', ()
     expect(score(job(), { keywords: ['idraulico'] })).toBe(0);
   });
 
+  it('matches a profession keyword across the shared cross-locale taxonomy', () => {
+    const italianNurse = job({
+      title: 'Infermiere',
+      titleByLocale: { it: 'Infermiere', en: 'Nurse' },
+      description: 'Assistenza infermieristica in reparto ospedaliero.',
+      sector: 'Sanità',
+      category: 'Cura',
+    });
+    expect(score(italianNurse, { keywords: ['nurse'] }, null)).toBeGreaterThan(0);
+  });
+
   it('ranks a job matching MORE keyword tokens higher (tokenized bonus)', () => {
     const j = job({ title: 'Senior Software Engineer', description: 'cloud platform role' });
     const one = score(j, { keywords: ['engineer'] });
