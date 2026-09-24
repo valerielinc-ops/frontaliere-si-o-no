@@ -1308,6 +1308,117 @@ export function buildConflictHandoffIssue({ num, branch, head, files }) {
   return { title, body };
 }
 
+// --- CONTENUTO GIA' SU MAIN (#9741) ------------------------------------------
+// Un conflitto dopo LGTM puo' nascere proprio perche' il contributo della PR e'
+// gia' arrivato su `main` da un'altra PR (la riapplicazione di un hand-off
+// precedente, squash-mergiata): #9708 e' stata aperta per #9693 un minuto dopo
+// il merge di #9701, che l'aveva gia' riapplicata; una seconda riapplicazione
+// ha poi prodotto la PR duplicata #9704. `git merge-base --is-ancestor` non
+// vede nulla, perche' lo squash non porta i commit della PR su main: l'unico
+// confronto che regge e' sul contenuto, file per file.
+//
+// Per ogni file toccato dalla PR (diff merge-base..HEAD, senza rename):
+//   - blob identico su HEAD e su main (anche entrambi assenti) → gia' su main;
+//   - altrimenti, le righe non vuote AGGIUNTE dalla PR devono comparire su main
+//     almeno tante volte quante nell'HEAD della PR (il caso #9693: main ha le
+//     asserzioni nuove piu' una riga che la PR toglieva). Un file senza righe
+//     aggiunte (sola rimozione, cancellazione, binario) con blob diverso NON e'
+//     su main: la rimozione non si puo' dimostrare applicata.
+// Qualunque errore di git → `unknown`, e il chiamante si comporta come prima
+// (fail-closed: la issue si apre).
+export const CONTENT_ON_MAIN_MAX_FILES = 300;
+
+/** Il contributo della PR a UN file e' gia' su main? Puro: niente git. */
+export function fileContentOnMain({ prOid, mainOid, addedLines, prText, mainText }) {
+  if ((prOid || null) === (mainOid || null)) return true;
+  if (!prOid || !mainOid) return false;
+  const added = (addedLines || []).filter((l) => l.trim() !== '');
+  if (added.length === 0) return false;
+  const count = (text) => {
+    const m = new Map();
+    for (const l of String(text ?? '').split('\n')) m.set(l, (m.get(l) || 0) + 1);
+    return m;
+  };
+  const prCount = count(prText);
+  const mainCount = count(mainText);
+  return added.every((l) => (mainCount.get(l) || 0) >= Math.max(1, prCount.get(l) || 0));
+}
+
+/** Righe aggiunte da un `git diff --unified=0` di un solo file. Pura. */
+export function addedLinesFromDiff(diff) {
+  const out = [];
+  let inHunk = false;
+  for (const l of String(diff ?? '').split('\n')) {
+    if (l.startsWith('@@')) { inHunk = true; continue; }
+    if (!inHunk) continue;
+    if (l.startsWith('+')) out.push(l.slice(1));
+  }
+  return out;
+}
+
+/**
+ * Verdetto sul contenuto della PR rispetto a main, calcolato solo con git
+ * locale (nessuna rete). `cwd` e `mainRef` servono ai test su un repo sintetico.
+ *
+ * @returns {{ state: 'on-main'|'not-on-main'|'unknown', files: string[], missing: string[], reason: string }}
+ */
+export function prContentOnMainVerdict(headSha, { mainRef = 'origin/main', cwd } = {}) {
+  const run = (args) => {
+    const res = spawnSync('git', ['--literal-pathspecs', ...args], {
+      cwd, encoding: 'utf8', maxBuffer: 64 * 1024 * 1024,
+    });
+    return res.status === 0 ? res.stdout : null;
+  };
+  const unknown = (reason) => ({ state: 'unknown', files: [], missing: [], reason });
+  const head = String(run(['rev-parse', '--verify', '--quiet', `${headSha}^{commit}`]) || '').trim();
+  const main = String(run(['rev-parse', '--verify', '--quiet', `${mainRef}^{commit}`]) || '').trim();
+  if (!head || !main) return unknown(`ref illeggibile (head=${Boolean(head)}, main=${Boolean(main)})`);
+  const base = String(run(['merge-base', main, head]) || '').trim();
+  if (!base) return unknown('merge-base non calcolabile');
+  const status = run(['diff', '-z', '--no-renames', '--name-only', base, head]);
+  if (status === null) return unknown('diff merge-base..HEAD fallito');
+  const files = status.split('\0').filter(Boolean);
+  if (files.length === 0) return unknown('la PR non ha file rispetto al merge-base');
+  if (files.length > CONTENT_ON_MAIN_MAX_FILES) return unknown(`${files.length} file (> ${CONTENT_ON_MAIN_MAX_FILES})`);
+
+  const tree = (ref) => {
+    const raw = run(['ls-tree', '-r', '-z', ref, '--', ...files]);
+    if (raw === null) return null;
+    const map = new Map();
+    for (const entry of raw.split('\0').filter(Boolean)) {
+      const m = /^[0-7]{6} \w+ ([0-9a-f]{40,64})\t([\s\S]+)$/.exec(entry);
+      if (m) map.set(m[2], m[1]);
+    }
+    return map;
+  };
+  const prTree = tree(head);
+  const mainTree = tree(main);
+  if (!prTree || !mainTree) return unknown('ls-tree fallito');
+
+  const missing = [];
+  for (const path of files) {
+    const prOid = prTree.get(path) || null;
+    const mainOid = mainTree.get(path) || null;
+    let addedLines = [];
+    let prText = '';
+    let mainText = '';
+    if (prOid && mainOid && prOid !== mainOid) {
+      const diff = run(['diff', '--no-color', '--no-ext-diff', '--no-renames', '--unified=0', base, head, '--', path]);
+      prText = run(['cat-file', 'blob', prOid]);
+      mainText = run(['cat-file', 'blob', mainOid]);
+      if (diff === null || prText === null || mainText === null) return unknown(`lettura di ${path} fallita`);
+      addedLines = addedLinesFromDiff(diff);
+    }
+    if (!fileContentOnMain({ prOid, mainOid, addedLines, prText, mainText })) missing.push(path);
+  }
+  return {
+    state: missing.length === 0 ? 'on-main' : 'not-on-main',
+    files,
+    missing,
+    reason: missing.length === 0 ? `${files.length} file gia' su main` : `${missing.length}/${files.length} file non su main`,
+  };
+}
+
 /** `gh` con esito binario: true solo se il comando e' uscito 0. */
 function ghOk(args) {
   try {
@@ -1328,6 +1439,16 @@ function handOffConflictToFixer(num, branch, head, lgtm) {
   if (verdict.state !== 'conflicted') {
     console.log(`PR #${num}: merge-tree ${verdict.state} al momento dell'hand-off → nessuna issue.`);
     return;
+  }
+  // #9741: il conflitto puo' essere con la riapplicazione della PR stessa.
+  // Solo un `on-main` dimostrato sopprime la issue; `unknown` resta fail-closed.
+  const onMain = prContentOnMainVerdict(head);
+  if (onMain.state === 'on-main') {
+    console.log(`PR #${num}: contenuto gia' su main (confronto per blob: ${onMain.reason}) → nessuna issue di hand-off.`);
+    return;
+  }
+  if (onMain.state === 'unknown') {
+    console.log(`PR #${num}: confronto per blob con main non determinabile (${onMain.reason}) → hand-off invariato.`);
   }
   const { title, body } = buildConflictHandoffIssue({ num, branch, head, files: verdict.files });
   if (DRY) { console.log(`[dry] #${num} conflitto dopo LGTM → issue agent:fix «${title}»`); return; }
