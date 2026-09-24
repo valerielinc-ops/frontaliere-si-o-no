@@ -1688,6 +1688,33 @@ export function checkContradictoryNormDates(text) {
   return issues;
 }
 
+// ─── 6b. Convention date ──────────────────────────────────────────────
+//
+// La Convenzione Italia-Svizzera contro le doppie imposizioni e' stata conclusa
+// il 9 MARZO 1976: RS 0.672.945.41, «Convenzione del 9 marzo 1976»
+// (https://www.fedlex.admin.ch/eli/cc/1979/461_461_461/it), e il MEF la cita
+// come «Convenzione per evitare le doppie imposizioni del 9 marzo 1976».
+// Il generatore ha dettato ai modelli «9 DICEMBRE 1976 (NON marzo)» e il suo
+// gate bocciava la data giusta: la run 36029664367 di frontaliere-articles ha
+// perso ogni tentativo su un corpo che la riportava corretta, col feedback che
+// chiedeva la data errata.
+export const CONVENTION_DATE_IT = '9 marzo 1976';
+const WRONG_CONVENTION_DATE = String.raw`\b0?9\s*(?:dicembre|[./]\s*12\s*[./])\s*1976\b`;
+const WRONG_CONVENTION_DATE_RES = [
+  new RegExp(String.raw`convenzione.*${WRONG_CONVENTION_DATE}`, 'i'),
+  new RegExp(String.raw`${WRONG_CONVENTION_DATE}.*convenzione`, 'i'),
+];
+
+/**
+ * True when a line pairs «Convenzione» with the wrong 9 December 1976 date
+ * (written out or as 9/12/1976). Same-line proximity, as the other Italian
+ * denylist checks: `.` does not cross a newline.
+ */
+export function mentionsWrongConventionDate(text) {
+  if (typeof text !== 'string') return false;
+  return WRONG_CONVENTION_DATE_RES.some((re) => re.test(text));
+}
+
 // ─── 7. Source freshness ──────────────────────────────────────────────
 //
 // A 25 January 2026 source was published as news on 28 July 2026, still in the

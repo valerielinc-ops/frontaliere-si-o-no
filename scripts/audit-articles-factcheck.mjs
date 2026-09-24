@@ -114,7 +114,7 @@ COMPITO: Analizza questi ${batch.length} articoli e segnala SOLO quelli con ALLU
 SEGNALA SOLO:
 1. **LEGGI INESISTENTI**: Decreti, leggi con numeri specifici che NON ESISTONO (es. "D.Lgs 147/2015 sulla tassa salute" — NON esiste). NB: DPR 917/1986, D.Lgs 241/1997, DL 78/2010, D.Lgs 81/2008 ESISTONO.
 2. **ISTITUZIONI INVENTATE**: Enti/commissioni/uffici che NON esistono. Acronimi inventati (CFL, UFOL, ONSLL, UBSP, CCFL, UFML). NB: SECO, SEM, SUVA, USTAT, BAG, SUPSI, INPS ESISTONO.
-3. **FATTI NOTORIAMENTE FALSI**: "tassa sulla salute del 10%", "Convenzione del 9 marzo 1976" (è 3 ottobre 1974), Ticino descritto come "regione d'Italia" (è un cantone svizzero).
+3. **FATTI NOTORIAMENTE FALSI**: "tassa sulla salute del 10%", "Convenzione del 9 dicembre 1976" (è del 9 marzo 1976; il 3 ottobre 1974 è l'Accordo sui frontalieri), Ticino descritto come "regione d'Italia" (è un cantone svizzero).
 4. **EVENTI MAI AVVENUTI**: Referendum, votazioni, conferenze, proteste che sicuramente non sono mai avvenuti e NON possono provenire da una fonte giornalistica.
 5. **CONTRADDIZIONI GEOGRAFICHE**: Città svizzere in Italia o viceversa, confini sbagliati, istituzioni attribuite al paese sbagliato.
 

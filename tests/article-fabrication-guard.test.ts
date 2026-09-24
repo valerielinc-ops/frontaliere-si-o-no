@@ -5,7 +5,7 @@
  * known hallucination patterns:
  * - Fabricated Swiss/Italian laws and legal references
  * - Fabricated institutions and acronyms
- * - Known incorrect facts (wrong convention dates, fake tax rates)
+ * - Known incorrect facts (fake tax rates)
  * - Fabricated statistics (unsourced precise percentages)
  *
  * This test acts as a permanent safety net: any article containing
