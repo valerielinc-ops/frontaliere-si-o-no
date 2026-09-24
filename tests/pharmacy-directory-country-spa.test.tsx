@@ -2,7 +2,7 @@
 import { cleanup, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import PharmacyDirectory from '../components/pages/PharmacyDirectory';
-import { TICINO_CITIES } from '../services/pharmacies/data';
+import { ITALY_BORDER_PROVINCES, TICINO_CITIES, pharmaciesForProvince } from '../services/pharmacies/data';
 import { buildItalyDutyWeekModel, currentItalyDutyWeekStart } from '../services/pharmacies/italyDuty';
 import { buildPharmacyPath } from '../services/pharmacies/paths';
 import { parsePharmacyRoute } from '../services/pharmacies/routePaths';
@@ -29,7 +29,13 @@ describe('pharmacy country SPA route', () => {
 
     expect(links).toHaveLength(3);
     expect(links.map((link) => link.getAttribute('href'))).toEqual(provincePaths[locale]);
-    for (const [index, count] of ['193', '266', '83'].entries()) expect(links[index].textContent || '').toContain(count);
+    // Counts come from data/pharmacies-italy-border.json, which a cron refreshes
+    // on main: derive them from the dataset instead of pinning a snapshot.
+    const counts = ITALY_BORDER_PROVINCES.map((province) => String(pharmaciesForProvince(province.code).length));
+    for (const [index, count] of counts.entries()) {
+      expect(Number(count)).toBeGreaterThan(0);
+      expect(links[index].textContent || '').toContain(count);
+    }
     expect(container.querySelectorAll('article')).toHaveLength(0);
     expect(container.querySelector('#pharmacy-search')).toBeNull();
     expect(container.querySelector('#pharmacy-map-heading')).toBeNull();
