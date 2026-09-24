@@ -38,6 +38,9 @@ import {
 import { executeTranslationCandidateV2 } from './lib/translation-candidate-executor-v2.mjs';
 import {
   MAX_TRANSLATION_STATE_BATCH_V2,
+  TRANSLATION_STATE_REF_V2,
+  TRANSLATION_STATE_REMOTE_V2,
+  assertTranslationStateTargetV2,
   createTranslationStateStoreV2,
 } from './lib/translation-state-store-v2.mjs';
 import { digestTranslationDocumentV2 } from './lib/translation-unit-identity-v2.mjs';
@@ -483,9 +486,17 @@ export async function runTranslationScheduleV2(options = {}) {
     'translation scheduler providerTimeoutMs',
     300_000,
   );
+  const stateRemote = options.stateRemote
+    ?? process.env.TRANSLATION_STATE_REMOTE_V2
+    ?? TRANSLATION_STATE_REMOTE_V2;
+  const stateRef = options.stateRef
+    ?? process.env.TRANSLATION_STATE_REF_V2
+    ?? TRANSLATION_STATE_REF_V2;
+  assertTranslationStateTargetV2({ remote: stateRemote, ref: stateRef });
   const stateStore = options.stateStore || createTranslationStateStoreV2({
     repository,
-    ref: options.stateRef || process.env.TRANSLATION_STATE_REF_V2,
+    remote: stateRemote,
+    ref: stateRef,
   });
   const provider = options.provider || normalizeProvider({
     repository,
@@ -523,6 +534,7 @@ export async function runTranslationScheduleV2(options = {}) {
   if (planned.plan.selectedJobs.length === 0) {
     const report = {
       mode,
+      stateRemote: stateStore.remote ?? stateRemote,
       status: 'empty',
       scopeKey,
       stateRef: stateStore.ref,
@@ -567,6 +579,7 @@ export async function runTranslationScheduleV2(options = {}) {
   const selectedUnits = planned.plan.selectedJobs.reduce((sum, job) => sum + job.units.length, 0);
   const report = {
     mode,
+    stateRemote: stateStore.remote ?? stateRemote,
     status: 'settled',
     scopeKey,
     stateRef: stateStore.ref,
@@ -605,6 +618,7 @@ function parseCli(argv) {
     ['--provider-module', 'providerModule'],
     ['--provider-export', 'providerExportName'],
     ['--scope', 'scopeKey'],
+    ['--state-remote', 'stateRemote'],
     ['--state-ref', 'stateRef'],
     ['--report', 'reportPath'],
   ]);

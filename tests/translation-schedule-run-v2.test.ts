@@ -136,6 +136,8 @@ describe('translation scheduler v2 runtime wiring', () => {
     expect(report.scheduler.selectedUnits).toBe(1);
     expect(report.state.reserved).toBe(true);
     expect(report.state.settled).toBe(true);
+    expect(report.stateRemote).toBe('origin');
+    expect(report.stateRef).toBe('refs/heads/translation-state-v2');
     expect(git(one, 'rev-parse', 'HEAD')).toBe(mainBefore);
     expect(git(one, 'ls-remote', '--refs', remote, 'refs/heads/main')).toContain(mainBefore);
     expect(readFileSync(join(one, 'data/jobs/by-crawler/example-crawler.json'), 'utf8'))
@@ -235,5 +237,31 @@ describe('translation scheduler v2 runtime wiring', () => {
     // The scratch files stay untouched on disk — skipped, not repaired or deleted.
     expect(readFileSync(join(dataDirectory, 'coop-ticino-locale-cache.json'), 'utf8')).toBe('[]\n');
     expect(git(one, 'ls-remote', '--refs', remote, report.stateRef)).toContain(report.state.after);
+  });
+
+  it.each([
+    ['main ref', { stateRef: 'refs/heads/main' }],
+    ['non-dedicated ref', { stateRef: 'refs/heads/translation-state-other-v2' }],
+    ['non-authorized remote', { stateRemote: 'backup' }],
+  ])('rejects an unauthorized state target before any scheduler work (%s)', async (_label, target) => {
+    const { one } = createRepositories();
+
+    await expect(runTranslationScheduleV2({ repository: one, ...target, logger: { log() {} } }))
+      .rejects.toThrow(/translation state writes must target origin\/refs\/heads\/translation-state-v2/);
+    expect(git(one, 'rev-parse', 'HEAD')).toBe(git(one, 'rev-parse', 'origin/main'));
+    expect(git(one, 'ls-remote', '--refs', join(dirname(one), 'remote.git'), 'refs/heads/main'))
+      .toContain(git(one, 'rev-parse', 'origin/main'));
+  });
+
+  it('binds the shadow workflow permission and state destination to the same contract', () => {
+    const workflow = readFileSync(
+      new URL('../.github/workflows/translation-schedule-v2-shadow.yml', import.meta.url),
+      'utf8',
+    );
+
+    expect(workflow).toMatch(/permissions:\n  contents: write/u);
+    expect(workflow).toMatch(/TRANSLATION_STATE_REMOTE_V2:\s*origin/u);
+    expect(workflow).toMatch(/TRANSLATION_STATE_REF_V2:\s*refs\/heads\/translation-state-v2/u);
+    expect(workflow).toContain('node scripts/translation-schedule-run-v2.mjs --shadow');
   });
 });
