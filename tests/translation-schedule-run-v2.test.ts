@@ -13,6 +13,7 @@ import {
   collectTranslationSchedulerInput,
   runTranslationScheduleV2,
 } from '../scripts/translation-schedule-run-v2.mjs';
+import { createTranslationStateStoreV2 } from '../scripts/lib/translation-state-store-v2.mjs';
 
 const roots: string[] = [];
 
@@ -125,6 +126,7 @@ describe('translation scheduler v2 runtime wiring', () => {
     const report = await runTranslationScheduleV2({
       repository: one,
       providerModule,
+      publishEnabled: true,
       maxJobs: 10,
       maxUnits: 1,
       providerTimeoutMs: 10_000,
@@ -154,6 +156,7 @@ describe('translation scheduler v2 runtime wiring', () => {
 
     const report = await runTranslationScheduleV2({
       repository: one,
+      publishEnabled: true,
       logger: { log() {} },
     });
 
@@ -187,6 +190,7 @@ describe('translation scheduler v2 runtime wiring', () => {
       const report = await runTranslationScheduleV2({
         repository: one,
         providerModule,
+        publishEnabled: true,
         maxJobs: 10,
         maxUnits: 1,
         providerTimeoutMs: 10_000,
@@ -222,6 +226,7 @@ describe('translation scheduler v2 runtime wiring', () => {
     const report = await runTranslationScheduleV2({
       repository: one,
       providerModule,
+      publishEnabled: true,
       maxJobs: 10,
       maxUnits: 1,
       providerTimeoutMs: 10_000,
@@ -235,5 +240,81 @@ describe('translation scheduler v2 runtime wiring', () => {
     // The scratch files stay untouched on disk — skipped, not repaired or deleted.
     expect(readFileSync(join(dataDirectory, 'coop-ticino-locale-cache.json'), 'utf8')).toBe('[]\n');
     expect(git(one, 'ls-remote', '--refs', remote, report.stateRef)).toContain(report.state.after);
+  });
+
+  it('keeps main and the state ref unchanged when publication is not explicitly enabled', async () => {
+    const { one, providerModule, remote } = createRepositories();
+    const mainBefore = git(one, 'rev-parse', 'HEAD');
+    const reportPath = join(one, 'translation-scheduler-report.json');
+
+    const report = await runTranslationScheduleV2({
+      repository: one,
+      providerModule,
+      promotionEnv: {},
+      reportPath,
+      logger: { log() {} },
+    });
+
+    expect(report).toMatchObject({
+      status: 'disabled',
+      promotion: {
+        decision: {
+          enabled: false,
+          reason: 'default_off',
+          source: 'default',
+        },
+      },
+      state: { before: null, after: null, reserved: false, settled: false },
+    });
+    expect(git(one, 'rev-parse', 'HEAD')).toBe(mainBefore);
+    expect(git(one, 'ls-remote', '--refs', remote, 'refs/heads/translation-state-v2')).toBe('');
+    expect(JSON.parse(readFileSync(reportPath, 'utf8')).status).toBe('disabled');
+  });
+
+  it('reports a bounded explicit rollback when promotion persistence fails', async () => {
+    const { one, providerModule } = createRepositories();
+    const realStore = createTranslationStateStoreV2({ repository: one });
+    const stateStore = {
+      ...realStore,
+      checkpointBatch: async () => {
+        throw new Error('promotion persistence failed');
+      },
+    };
+    const rollbackCheckpoints: any[] = [];
+    const reportPath = join(one, 'translation-scheduler-failure-report.json');
+
+    await expect(runTranslationScheduleV2({
+      repository: one,
+      stateStore,
+      providerModule,
+      publishEnabled: true,
+      rollback: async (checkpoint: any, context: any) => {
+        rollbackCheckpoints.push({ checkpoint, context });
+        return true;
+      },
+      reportPath,
+      maxJobs: 10,
+      maxUnits: 1,
+      providerTimeoutMs: 10_000,
+      logger: { log() {}, error() {} },
+    })).rejects.toThrow('promotion persistence failed');
+
+    const report = JSON.parse(readFileSync(reportPath, 'utf8'));
+    expect(report).toMatchObject({
+      status: 'failed',
+      error: { phase: 'state_persistence', message: 'promotion persistence failed' },
+      promotion: { rollback: { status: 'rolled_back', attempts: 1, maxAttempts: 1 } },
+    });
+    expect(rollbackCheckpoints).toHaveLength(1);
+    expect(rollbackCheckpoints[0].checkpoint).toMatchObject({
+      stateRef: 'refs/heads/translation-state-v2',
+      scopeKey: 'translation-shadow-v2',
+    });
+    expect(rollbackCheckpoints[0].context).toMatchObject({
+      attempt: 1,
+      maxAttempts: 1,
+      phase: 'state_persistence',
+      cause: { message: 'promotion persistence failed' },
+    });
   });
 });

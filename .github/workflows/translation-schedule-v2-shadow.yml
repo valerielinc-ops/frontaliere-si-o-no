@@ -34,6 +34,10 @@ jobs:
     timeout-minutes: 30
     env:
       TRANSLATION_SHADOW_ENABLE_GENERATION: ${{ vars.TRANSLATION_SHADOW_ENABLE_GENERATION || '0' }}
+      # Publication is a separate boundary from provider generation.  Keep it
+      # fail-closed until an explicitly reviewed publisher is wired; an absent
+      # repository variable must never promote a shadow candidate.
+      TRANSLATION_SCHEDULER_PUBLISH_ENABLED: ${{ vars.TRANSLATION_SCHEDULER_PUBLISH_ENABLED || '0' }}
       TRANSLATION_SHADOW_MAX_JOBS: '250'
       TRANSLATION_SHADOW_MAX_UNITS: ${{ inputs.max_units || '25' }}
     steps:
