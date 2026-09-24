@@ -91,7 +91,9 @@ data/all-known-job-slugs/part-*.json merge=known-slugs-shard
 # scripts/lib/git-push-with-retry.sh and scripts/lib/git-commit-data.sh.
 data/orphan-enriched-data/part-*.json merge=orphan-enriched-shard
 
-# data/jobs-stats-history/YYYY-MM.json are monthly rewrites of the logical job
-# history. Merge concurrent writers by date/action-key union rather than by
-# lines, which would keep two full sorted JSON rewrites or conflict.
+# data/jobs-stats-history/YYYY-MM-DD.json (daily, #9654) and the legacy
+# YYYY-MM.json monthly shards are rewrites of the logical job history. Merge
+# concurrent writers by date/action-key union rather than by lines, which would
+# keep two full sorted JSON rewrites or conflict.
+data/jobs-stats-history/????-??-??.json merge=job-stats-history-shard
 data/jobs-stats-history/????-??.json merge=job-stats-history-shard

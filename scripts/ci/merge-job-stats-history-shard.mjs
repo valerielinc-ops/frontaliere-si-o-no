@@ -1,14 +1,19 @@
 #!/usr/bin/env node
-// 3-way merge driver for data/jobs-stats-history/YYYY-MM.json.
+// 3-way merge driver for data/jobs-stats-history/YYYY-MM-DD.json (daily
+// shards) and the legacy YYYY-MM.json monthly shards.
 //
-// Monthly shards are rewritten JSON, not append-only text. Git's line merge
+// Shards are rewritten JSON, not append-only text. Git's line merge
 // would therefore retain two complete sorted rewrites or report a conflict
-// whenever concurrent persist-job-stats runs update the same month. The store
+// whenever concurrent persist-job-stats runs update the same shard. The store
 // merge is monotone by date: action keys are unioned and scalar counts keep the
 // larger observed value.
 import { readFileSync, writeFileSync } from 'node:fs';
 
-import { mergeJobStatsHistoryEntries } from '../lib/job-stats-history-store.mjs';
+import {
+  assertJobStatsHistoryShardSize,
+  mergeJobStatsHistoryEntries,
+  serializeJobStatsHistoryShard,
+} from '../lib/job-stats-history-store.mjs';
 
 const [, , basePath, oursPath, theirsPath] = process.argv;
 
@@ -43,4 +48,13 @@ if (!base.ok || !ours.ok || !theirs.ok ||
 }
 
 const entries = mergeJobStatsHistoryEntries(ours.entries, theirs.entries);
-writeFileSync(oursPath, JSON.stringify({ entries }, null, 2) + '\n', 'utf8');
+const serialized = serializeJobStatsHistoryShard(entries);
+// A union that GitHub would refuse to push must surface as a conflict, not as
+// a clean merge that fails later at `git push` (#9654).
+try {
+  assertJobStatsHistoryShardSize(oursPath, serialized);
+} catch (error) {
+  process.stderr.write(`[merge-job-stats-history-shard] ${error.message}; surfacing conflict\n`);
+  process.exit(1);
+}
+writeFileSync(oursPath, serialized, 'utf8');
