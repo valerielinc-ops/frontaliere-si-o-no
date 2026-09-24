@@ -8,6 +8,7 @@
 import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { runStandardCrawlerPipeline } from './lib/crawler-template.mjs';
+import { authoritativeEmptySnapshotValidator } from './lib/authoritative-empty-snapshot.mjs';
 import {
   fetchAllSiemensHealthineersJobs,
   isSiemensHealthineersJob,
@@ -25,6 +26,13 @@ runStandardCrawlerPipeline({
   root: ROOT,
   fetchJobs: fetchAllSiemensHealthineersJobs,
   isCompanyJob: isSiemensHealthineersJob,
+  // Publish a zero only when the parser proved the Swiss board holds nothing
+  // but foreign-primary cross-postings (issue #9651). A bare `[]` (anti-bot,
+  // failed fetch, unproven drop) is refused by the validator and keeps the
+  // previous slice.
+  validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator(SIEMENS_HEALTHINEERS_COMPANY_NAME),
+  allowAuthoritativeEmptySnapshot: true,
+  authoritativeSnapshotScope: 'empty-only',
   isTrustedDomain,
   defaultSourceLang: 'en',
 }).catch((err) => {
