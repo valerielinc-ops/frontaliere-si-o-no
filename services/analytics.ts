@@ -135,7 +135,7 @@ export const JOB_APPLY_HANDOFF_EVENT = 'job_apply_handoff';
 export const DECISION_MOMENT_COMPLETED_EVENT = 'decision_moment_completed';
 export const DECISION_MOMENT_NEXT_ACTION_EVENT = 'decision_moment_next_action';
 
-export type JobAuthGateSurface = 'inline' | 'modal' | 'expired' | 'orphan' | 'unknown';
+export type JobAuthGateSurface = 'inline' | 'modal' | 'expired' | 'orphan' | 'bridge' | 'unknown';
 export type JobAuthGateState = 'anonymous' | 'pending_email' | 'registered' | 'unknown';
 
 export interface JobAuthGateTelemetry {
