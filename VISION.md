@@ -123,8 +123,9 @@ Crescono insieme o non crescono: contenuto scadente = traffico che non torna.
   workflow, perché le altre run erano Codex-primary, skip o non parsabili.
   **Decisione storica superseduta il 2026-09-16.** I workflow agentici ora usano
   Codex Luna Max (`gpt-5.6-luna`, reasoning effort `max`) attraverso il broker
-  privato; non esiste più un fallback Claude nei workflow. Resta separata e
-  owner-approved la chiamata diretta Haiku delle Cloud Functions (#4495).
+  privato; non esiste più un fallback Claude nei workflow. Resta separato e
+  owner-approved l'ultimo rung a pagamento delle Cloud Functions (#4495), dal
+  2026-09-24 Codex via API OpenAI al posto di Haiku.
 - **D5 — Un'issue grande si scorpora, non si parcheggia.** Lo stadio di
   decomposizione (ISSUES.md → «Stadio di decomposizione») è il percorso di
   default per tutto ciò che non sta in un run — comprese le decisioni di
