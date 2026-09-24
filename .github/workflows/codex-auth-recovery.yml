@@ -10,6 +10,13 @@ name: Codex auth recovery
 # alert once the secret digest differs from every recorded one and no PR is
 # still blocked.
 #
+# codex-auth-rotate.yml keeps the secret fresh so that no job has to spend the
+# refresh token itself; its failures land on the same alert as
+# CODEX_AUTH_ROTATION markers.  While the latest rotation marker is a failure
+# the alert stays open, even if the digest changed (a target may still hold the
+# spent login); a rotation run on main that failed without recording its own
+# marker gets one from this monitor.
+#
 # The workflow never dispatches tests on a branch/ref chosen from the PR.  It
 # only re-runs a pre-existing pull_request run whose immutable run metadata and
 # HEAD still match the open PR, so the normal tests/review secret boundary is
@@ -17,7 +24,7 @@ name: Codex auth recovery
 
 on:
   workflow_run:
-    workflows: [tests]
+    workflows: [tests, Codex auth rotate]
     types: [completed]
   schedule:
     - cron: '*/15 * * * *'
@@ -35,7 +42,10 @@ concurrency:
 
 jobs:
   recover:
-    if: github.event_name != 'workflow_run' || github.event.workflow_run.event == 'pull_request'
+    if: >-
+      github.event_name != 'workflow_run'
+      || github.event.workflow_run.event == 'pull_request'
+      || github.event.workflow_run.path == '.github/workflows/codex-auth-rotate.yml'
     runs-on: ubuntu-latest
     timeout-minutes: 10
     steps:
@@ -77,6 +87,11 @@ jobs:
             // callers without a PR (schedule/dispatch): there is no PR run to
             // retry, only a credential to replace.
             const AUTH_BLOCKED_RUN_PREFIX = '<!-- CODEX_AUTH_BLOCKED_RUN:';
+            // Written by codex-auth-rotate.yml (scripts/ci/codex-auth-rotate.mjs):
+            // a failed rotation keeps the alert open until a later rotation
+            // records `succeeded`, whatever the digest does.
+            const AUTH_ROTATION_PREFIX = '<!-- CODEX_AUTH_ROTATION:';
+            const ROTATE_WORKFLOW_PATH = '.github/workflows/codex-auth-rotate.yml';
             const CODEX_AUTH_ALERT_TITLE = 'Codex auth down: CODEX_AUTH_JSON refresh token rejected';
             const TESTS_WORKFLOW_PATH = '.github/workflows/tests.yml';
             const CODEX_AUTH_BOT_LOGIN_RE = /^(?:github-actions|frontaliere-automation)\[bot\]$/iu;
@@ -121,6 +136,28 @@ jobs:
                 && isPositiveCodexId(marker.targetAttempt)
                 && (marker.authDigest === 'missing' || CODEX_AUTH_DIGEST_RE.test(String(marker.authDigest || '')))
                 && CODEX_AUTH_BOT_LOGIN_RE.test(String(comment?.user?.login || ''));
+            }
+
+            function validRotationMarker(marker) {
+              return marker?.version === 1
+                && ['failed', 'succeeded'].includes(marker.status)
+                && /^[a-z][a-z-]{0,39}$/u.test(String(marker.stage || ''))
+                && isPositiveCodexId(marker.runId)
+                && isPositiveCodexId(marker.runAttempt)
+                && (marker.authDigest === 'missing' || CODEX_AUTH_DIGEST_RE.test(String(marker.authDigest || '')));
+            }
+
+            function latestRotationMarker(entries) {
+              return entries
+                .filter(entry => CODEX_AUTH_BOT_LOGIN_RE.test(String(entry?.user?.login || '')))
+                .map(entry => extractMarker(entry.body, AUTH_ROTATION_PREFIX))
+                .filter(validRotationMarker)
+                .at(-1) || null;
+            }
+
+            async function alertEntries(issue) {
+              const comments = await listCodexAuthComments(issue.number);
+              return [issue, ...comments.sort((a, b) => Number(a.id) - Number(b.id))];
             }
 
             function validBlockedRunMarker(marker) {
@@ -173,6 +210,10 @@ jobs:
             async function closeAlert(reason) {
               const issue = await openCodexAuthAlert();
               if (!issue) return;
+              if (latestRotationMarker(await alertEntries(issue))?.status === 'failed') {
+                core.info(`Codex auth alert #${issue.number} stays open: the latest credential rotation failed.`);
+                return;
+              }
               await github.rest.issues.createComment({
                 ...repo, issue_number: issue.number,
                 body: `✅ Codex authentication recovered: ${reason}. The exact PR run completed without a new auth-blocked marker; auto-closing.`,
@@ -270,21 +311,68 @@ jobs:
               if (!authPresent || !CODEX_AUTH_DIGEST_RE.test(currentDigest)) return;
               const issue = await openCodexAuthAlert();
               if (!issue) return;
-              const comments = await listCodexAuthComments(issue.number);
-              const markers = [issue, ...comments]
+              const entries = await alertEntries(issue);
+              const markers = entries
                 .filter(entry => CODEX_AUTH_BOT_LOGIN_RE.test(String(entry?.user?.login || '')))
                 .map(entry => extractMarker(entry.body, AUTH_BLOCKED_RUN_PREFIX))
                 .filter(validBlockedRunMarker);
-              if (markers.length === 0) return;
+              const rotation = latestRotationMarker(entries);
+              if (markers.length === 0 && !rotation) return;
               if (markers.some(marker => String(marker.authDigest).toLowerCase() === currentDigest)) {
                 core.info(`Codex auth alert #${issue.number}: CODEX_AUTH_JSON is still the rejected credential.`);
                 return;
               }
+              if (rotation?.status === 'failed') {
+                core.info(`Codex auth alert #${issue.number}: the latest credential rotation (${rotation.stage}) failed.`);
+                return;
+              }
+              const reasons = [];
+              if (markers.length > 0) reasons.push(`\`CODEX_AUTH_JSON\` changed since the rejected non-PR run(s) (${[...new Set(markers.map(marker => marker.workflow))].join(', ')})`);
+              if (rotation) reasons.push(`the credential rotation recovered (run ${rotation.runId})`);
               await github.rest.issues.createComment({
                 ...repo, issue_number: issue.number,
-                body: `✅ \`CODEX_AUTH_JSON\` changed since the rejected non-PR run(s) (${[...new Set(markers.map(marker => marker.workflow))].join(', ')}) and no pull request is still blocked; auto-closing. A Codex run that is rejected again opens a new alert.`,
+                body: `✅ ${reasons.join(' and ')}, and no pull request is still blocked; auto-closing. A Codex run that is rejected again opens a new alert.`,
               });
               await github.rest.issues.update({ ...repo, issue_number: issue.number, state: 'closed', state_reason: 'completed' });
+            }
+
+            // Backstop for a rotation run on main that failed before its own
+            // report job could record the failure (startup failure, timeout,
+            // report job down). Dry runs (run-name suffix) never alert.
+            async function recordRotationRunFailure(run) {
+              if (!['failure', 'timed_out', 'startup_failure'].includes(String(run.conclusion || ''))) return;
+              if (run.head_branch !== 'main' || /\(dry run\)/u.test(String(run.display_title || ''))) return;
+              const existing = await openCodexAuthAlert();
+              const entries = existing ? await alertEntries(existing) : [];
+              const rotationMarkers = entries
+                .filter(entry => CODEX_AUTH_BOT_LOGIN_RE.test(String(entry?.user?.login || '')))
+                .map(entry => extractMarker(entry.body, AUTH_ROTATION_PREFIX))
+                .filter(validRotationMarker);
+              // Already recorded by the run itself, or a failure is already the
+              // latest word: never overwrite it (a `consumed` marker is what
+              // stops the next rotation from replaying a spent refresh token).
+              if (rotationMarkers.some(marker => Number(marker.runId) === Number(run.id))
+                  || rotationMarkers.at(-1)?.status === 'failed') return;
+              const marker = {
+                version: 1,
+                status: 'failed',
+                stage: 'unknown',
+                runId: Number(run.id),
+                runAttempt: Number(run.run_attempt) || 1,
+                authDigest: CODEX_AUTH_DIGEST_RE.test(currentDigest) ? currentDigest : 'missing',
+                consumed: false,
+              };
+              const text = `The credential rotation run ${run.html_url || run.id} failed (${run.conclusion}) without recording its stage. Open the run log: if the refresh ran but the write did not, log in again and replace \`CODEX_AUTH_JSON\`.\n\n${AUTH_ROTATION_PREFIX} ${JSON.stringify(marker)} -->`;
+              if (existing) {
+                await github.rest.issues.createComment({ ...repo, issue_number: existing.number, body: `🔁 ${text}` });
+                return;
+              }
+              await github.rest.issues.create({
+                ...repo,
+                title: CODEX_AUTH_ALERT_TITLE,
+                labels: ['automation'],
+                body: `## Codex authentication rotation failed\n\n${text}\n\nThe issue contains no credential or token.`,
+              });
             }
 
             // Returns true while the PR still holds Codex auth recovery open:
@@ -320,6 +408,21 @@ jobs:
               if (!run || run.status !== 'completed') return true;
               await queueCodexAuthRerun(pr, run, currentDigest);
               return true;
+            }
+
+            if (context.eventName === 'workflow_run' && context.payload.workflow_run?.path === ROTATE_WORKFLOW_PATH) {
+              const eventRun = context.payload.workflow_run;
+              if (!isPositiveCodexId(eventRun.id)) return;
+              let run;
+              try {
+                ({ data: run } = await github.rest.actions.getWorkflowRun({ ...repo, run_id: Number(eventRun.id) }));
+              } catch (error) {
+                core.warning(`Cannot read rotation run ${eventRun.id}: ${String(error)}`);
+                return;
+              }
+              if (run?.path !== ROTATE_WORKFLOW_PATH || run.repository?.full_name !== repository) return;
+              await recordRotationRunFailure(run);
+              return;
             }
 
             let numbers;
