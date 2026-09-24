@@ -4,20 +4,20 @@
   "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "12a413d1f42a9958cc7e0b0d142423f18d169878",
+  "sourceCommit": "a1dacd48846664e31494c4b867b6d32066fdbd63",
   "artifactObservation": {
     "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
     "sourceRef": "main",
-    "sourceCommit": "12a413d1f42a9958cc7e0b0d142423f18d169878"
+    "sourceCommit": "a1dacd48846664e31494c4b867b6d32066fdbd63"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 621,
+  "crawlerCount": 623,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:6e4506a55989a1ebf277b2ddb528dcd4a963102a265b99b64422305eae23d2b2",
+    "rosterDigest": "sha256:24abafb15dc43cd11a73b85a65e3a8c3351ae2426d5bf25c5a5ce183ad8476c4",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -79,6 +79,7 @@
     "scripts/update-ameos-ch-jobs.mjs",
     "scripts/update-amina-bank-jobs.mjs",
     "scripts/update-amstein-walthert-jobs.mjs",
+    "scripts/update-anicura-jobs.mjs",
     "scripts/update-anker-swiss-jobs.mjs",
     "scripts/update-answerconsulting-jobs.mjs",
     "scripts/update-anybotics-jobs.mjs",
@@ -211,6 +212,7 @@
     "scripts/update-ferring-jobs.mjs",
     "scripts/update-fhgr-jobs.mjs",
     "scripts/update-fielmann-jobs.mjs",
+    "scripts/update-fisba-jobs.mjs",
     "scripts/update-flury-stiftung-jobs.mjs",
     "scripts/update-fmi-jobs.mjs",
     "scripts/update-fondation-domus-jobs.mjs",
@@ -1455,8 +1457,8 @@
     {
       "file": "crawler-group-24.yml",
       "sourceLogic": "crawler-group-24-logic.yml",
-      "sourceSha256": "74dbaad0e55817b8400f06def353885bb52a6007adb0cdc60eaaa15fb3f5953d",
-      "artifactSha256": "7f681b9dc8038cbea836797e97a825578ccfeabc70912fb15ffac14cffdeddfd",
+      "sourceSha256": "09e8a51ee9cf934a9f7ff36321b8730201dfc453809fb4db2c43412d3bdfa2c6",
+      "artifactSha256": "90b202deeeaddea7f0f0b7d56cd0bb47095f324bc41009f42cc1e0997d1a7be8",
       "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
       "members": [
         "mcdonald-s-switzerland",
@@ -1465,7 +1467,9 @@
         "cnp",
         "fachkraft",
         "postfinance",
-        "tsmg"
+        "tsmg",
+        "anicura",
+        "fisba"
       ]
     },
     {

@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 621,
+  "crawlerCount": 623,
   "groups": {
     "10": [
       "atec-personal",
@@ -414,8 +414,10 @@
       "postauto"
     ],
     "24": [
+      "anicura",
       "cnp",
       "fachkraft",
+      "fisba",
       "fondation-domus",
       "mcdonald-s-switzerland",
       "pole-sante-pays-enhaut",
@@ -698,6 +700,7 @@
     "amina-bank": "data/jobs/by-crawler/amina-bank.json",
     "amministrazione-cantonale-ti": "data/jobs/by-crawler/amministrazione-cantonale-ti.json",
     "amstein-walthert": "data/jobs/by-crawler/amstein-walthert.json",
+    "anicura": "data/jobs/by-crawler/anicura.json",
     "anker-swiss": "data/jobs/by-crawler/anker-swiss.json",
     "answerconsulting": "data/jobs/by-crawler/answerconsulting.json",
     "anybotics": "data/jobs/by-crawler/anybotics.json",
@@ -874,6 +877,7 @@
     "fhgr": "data/jobs/by-crawler/fhgr.json",
     "fielmann": "data/jobs/by-crawler/fielmann.json",
     "fincons-group": "data/jobs/by-crawler/fincons-group.json",
+    "fisba": "data/jobs/by-crawler/fisba.json",
     "flury-stiftung": "data/jobs/by-crawler/flury-stiftung.json",
     "fmi": "data/jobs/by-crawler/fmi.json",
     "fnz": "data/jobs/by-crawler/fnz.json",
@@ -1296,5 +1300,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:6e4506a55989a1ebf277b2ddb528dcd4a963102a265b99b64422305eae23d2b2"
+  "digest": "sha256:24abafb15dc43cd11a73b85a65e3a8c3351ae2426d5bf25c5a5ce183ad8476c4"
 }
