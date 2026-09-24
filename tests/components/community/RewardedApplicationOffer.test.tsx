@@ -108,14 +108,14 @@ describe('RewardedApplicationOffer', () => {
     expect(onUnavailable).toHaveBeenCalledTimes(1);
   });
 
-  it('completes the application flow only after Google grants and completes the video', () => {
+  it('completes after the authoritative Google reward signal without requiring optional video telemetry', () => {
     const onCompleted = vi.fn();
     render(<RewardedApplicationOffer {...defaultProps} onCompleted={onCompleted} />);
 
     act(() => {
       (rewardedMock.props?.onGranted as (() => void) | undefined)?.();
     });
-    expect(onCompleted).not.toHaveBeenCalled();
+    expect(onCompleted).toHaveBeenCalledTimes(1);
 
     act(() => {
       (rewardedMock.props?.onVideoCompleted as (() => void) | undefined)?.();
