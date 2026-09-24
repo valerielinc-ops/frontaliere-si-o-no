@@ -12,6 +12,9 @@ import { normalizeParsedJobsForSlice } from '../../scripts/assemble-jobs-dataset
 interface JobLike {
   location?: string;
   url?: string;
+  applyUrl?: string;
+  applicationEmail?: string;
+  contactEmail?: string;
   canton?: string;
   addressLocality?: string;
   addressCountry?: string;
@@ -138,5 +141,35 @@ describe('normalizeParsedJobsForSlice', () => {
     expect(jobs[0].url).toBeUndefined();
     expect(jobs[1].url).toBe('   ');
     expect(report.urlNormalized).toBe(0);
+  });
+
+  it('backfills applyUrl only from a recognized HTTPS job-detail URL', () => {
+    const jobs: JobLike[] = [
+      { url: 'https://jobs.hilcona.com/de/stelle/maschinenfuhrer-123' },
+      { url: 'https://jobs.davos.ch/de/stellenangebote/bergbahn_j_12345' },
+      { url: 'https://www.tarchinigroup.com/it/work/42/tecnico' },
+      { url: 'https://jobs.example.ch/de/stellenangebote/' },
+    ];
+
+    const report = normalizeParsedJobsForSlice(jobs);
+
+    expect(jobs[0].applyUrl).toBe(jobs[0].url);
+    expect(jobs[1].applyUrl).toBe(jobs[1].url);
+    expect(jobs[2].applyUrl).toBe(jobs[2].url);
+    expect(jobs[3].applyUrl).toBeUndefined();
+    expect(report.applyUrlBackfilled).toBe(3);
+  });
+
+  it('replaces a non-HTTPS detail handoff while preserving mailto provenance', () => {
+    const jobs: JobLike[] = [{
+      url: 'https://www.tarchinigroup.com/it/work/42/tecnico',
+      applyUrl: 'mailto:risorseumane@tarchinigroup.com?subject=Tecnico',
+    }];
+
+    const report = normalizeParsedJobsForSlice(jobs);
+
+    expect(jobs[0].applyUrl).toBe(jobs[0].url);
+    expect(jobs[0].applicationEmail).toBe('risorseumane@tarchinigroup.com');
+    expect(report.applyUrlBackfilled).toBe(1);
   });
 });

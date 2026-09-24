@@ -188,12 +188,16 @@ async function enrichWithDetails(listings) {
 function buildTarchiniJob(row) {
   const localized = buildTarchiniLocalizedContent(row);
   const canton = inferTarchiniCanton(row.location);
-  const applyUrl = `mailto:${row.applyEmail || 'risorseumane@tarchinigroup.com'}?subject=${encodeURIComponent(row.title)}`;
+  const applicationEmail = row.applyEmail || 'risorseumane@tarchinigroup.com';
   return {
     title: localized.titleByLocale.it,
     slug: localized.slugByLocale.it,
     url: row.detailUrl,
-    applyUrl,
+    // Applications are requested by email on the source detail page. Keep
+    // that source contact, but make the published handoff an HTTPS vacancy
+    // page rather than an opaque mailto URL.
+    applyUrl: row.detailUrl,
+    applicationEmail,
     company: COMPANY_NAME,
     companyKey: COMPANY_KEY,
     companyDomain: COMPANY_DOMAIN,

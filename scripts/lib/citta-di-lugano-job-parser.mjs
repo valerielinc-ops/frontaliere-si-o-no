@@ -20,6 +20,23 @@ import { getCompanyDefaults } from './crawler-location-config.mjs';
 import { stripScriptsAndStyles } from './crawler-template.mjs';
 
 const HQ = getCompanyDefaults('citta-di-lugano');
+const GENERIC_LUGANO_APPLY_PATH = '/it/services/3';
+
+function isGenericLuganoApplyUrl(value = '') {
+  try {
+    const url = new URL(String(value || '').trim());
+    return url.hostname.toLowerCase() === 'egov.lugano.ch'
+      && url.pathname.replace(/\/+$/, '') === GENERIC_LUGANO_APPLY_PATH;
+  } catch {
+    return false;
+  }
+}
+
+function firstJobSpecificLuganoUrl(...values) {
+  return values
+    .map((value) => String(value || '').trim())
+    .find((value) => value && /^https:\/\//i.test(value) && !isGenericLuganoApplyUrl(value)) || '';
+}
 
 /* ── Text helpers ──────────────────────────────────────────── */
 
@@ -115,9 +132,16 @@ export function parseListingPage(html) {
 
     // Extract application URL
     const applyMatch = liHtml.match(/href="(https?:\/\/egov\.lugano\.ch[^"]*)"/i);
-    const applyUrl = applyMatch ? applyMatch[1] : 'https://egov.lugano.ch/it/services/3';
+    const linkedApplyUrl = applyMatch ? applyMatch[1] : '';
+    const applyUrl = firstJobSpecificLuganoUrl(linkedApplyUrl, pdfUrl);
 
-    // Use the application URL or PDF as the job URL
+    // A generic e-government service page is not a vacancy handoff. Keep the
+    // record only when the listing exposes a job-specific official document or
+    // application URL; otherwise publishing it would create a false CTA.
+    if (!applyUrl) continue;
+
+    // Prefer the job-specific PDF as the canonical URL when no dedicated
+    // application URL was supplied; it contains the official instructions.
     const jobUrl = pdfUrl || applyUrl;
 
     if (seen.has(title)) continue;
@@ -134,27 +158,9 @@ export function parseListingPage(html) {
     });
   }
 
-  // Pattern 2: Heading-based structure (h3/h4 with job titles)
-  const headingRe = /<h[3-4][^>]*>([\s\S]*?)<\/h[3-4]>/gi;
-  while ((match = headingRe.exec(html)) !== null) {
-    const title = normalizeSpace(stripHtml(match[1]));
-    if (!title || title.length < 5) continue;
-    if (seen.has(title)) continue;
-
-    // Check if it looks like a job title (not a section heading)
-    if (/concors|lavoro|impieg|responsabil|collaborat|architett|operai|autist|educat|cassi/i.test(title)) {
-      seen.add(title);
-      jobs.push({
-        title,
-        url: 'https://egov.lugano.ch/it/services/3',
-        pdfUrl: '',
-        applyUrl: 'https://egov.lugano.ch/it/services/3',
-        location: 'Lugano',
-        datePosted: '',
-        deadline: '',
-      });
-    }
-  }
+  // Heading-only entries have no job-specific URL. Do not turn a section
+  // heading into a published vacancy with the generic e-government service
+  // page as its applyUrl.
 
   return jobs;
 }
@@ -237,12 +243,14 @@ export function buildJob(raw) {
   // Use raw description only if it meets both quality gates: >= 220 chars AND >= 50 words
   const rawWordCount = rawDescription.split(/\s+/).filter(Boolean).length;
   const finalDescription = (rawDescription.length >= 220 && rawWordCount >= 50) ? rawDescription : richDesc;
+  const applyUrl = firstJobSpecificLuganoUrl(raw.applyUrl, raw.pdfUrl, raw.url);
 
   return {
     title,
     company: 'Città di Lugano',
     companyKey: 'citta-di-lugano',
     url: raw.url || 'https://egov.lugano.ch/it/services/3',
+    applyUrl,
     location: 'Lugano',
     canton: HQ.canton,
     country: 'CH',

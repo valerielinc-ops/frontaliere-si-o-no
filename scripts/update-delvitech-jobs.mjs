@@ -275,12 +275,6 @@ function assertCompleteDelvitechSnapshot(jobs = []) {
   return true;
 }
 
-function buildApplyUrl(email, title, fallbackUrl) {
-  if (!email) return fallbackUrl;
-  const subject = encodeURIComponent(`Application - ${title}`);
-  return `mailto:${email}?subject=${subject}`;
-}
-
 async function buildDelvitechJob(listing) {
   const detailUrl = absoluteUrl(listing.href);
   const html = await fetchRobust(detailUrl);
@@ -308,7 +302,10 @@ async function buildDelvitechJob(listing) {
       title: detail.title,
       slug: localized.slugByLocale.en,
       url: detailUrl,
-      applyUrl: buildApplyUrl(detail.email, detail.title, detailUrl),
+      // The source advertises email applications inside this HTTPS detail
+      // page. Publish the page as the navigable handoff; keep the source email
+      // separately so a mailto value never becomes the L3 applyUrl.
+      applyUrl: detailUrl,
       company: COMPANY_NAME,
       companyKey: COMPANY_KEY,
       companyDomain: COMPANY_DOMAIN,
