@@ -1,6 +1,6 @@
 {
   "crawlerKey": "igroove",
-  "assembledAt": "2026-09-19T23:06:27.478Z",
+  "assembledAt": "2026-09-24T00:10:33.295Z",
   "jobs": [
     {
       "id": "igroove-c5d93def086a",
@@ -28,16 +28,16 @@
         "de": "Ihre Mission Wir stellen einen Senior Data Pipeline Engineer ein, um unsere Datenverpflegungsinfrastruktur aufzubauen und zu besitzen. Dies ist keine Unterstützungsrolle. Dies ist die Person, die das Datenrückgrat des Unternehmens besitzt.\n\nWir haben bereits eine funktionierende Dateninfrastruktur, die über mehr als ein Jahrzehnt in der Musikindustrie gebaut wurde, mit Produktionspipelines, Robots und Integrationen, die heute echte Produkte speisen. Unsere KI-Agenten werden diese Daten nutzen, um Künstler, Modelldeals, prognostizierte Einnahmen und Automatisierungsoperationen zu ermitteln.\n\nIhre Aufgabe ist es, das zu nehmen, was existiert, es zu Ihrem, und skalieren es. Verbessern Sie Zuverlässigkeit, erweitern Sie die Abdeckung, neue Quellen hinzufügen, und entwickeln Sie die Architektur, während wir wachsen. Sie werden auch entwerfen und bauen neue Pipelines, wo erforderlich.\n\nDies ist ein hoher Eigentümer Mietvertrag. Sie arbeiten eng mit Produkt und Engineering zusammen, gestalten, wie wir externe Daten sammeln und verarbeiten, und haben vom ersten Tag an echte architektonische Autorität.\n\nIhr Profil\n\nWas wir suchen\n\nMuss:\n\n- 5+ Jahre Erfahrung mit dem Bau von Datenpipelines und/oder Webcrawling-Infrastruktur in Produktionsumgebungen - Starke Python-Fähigkeiten: Scrapy, BeautifulSoup, Selenium, Playwright oder Äquivalent - Erfahrung mit Pipeline-Orchestrierungstools wie Airflow, Prefect oder Dagster - Solides Verständnis von Datenbanken (PostgreSQL, MongoDB oder ähnliches) und Datenmodellierung - Erfahrung mit chaotischen, inkonsistenten Real-World-Daten und Gebäudevalidierungsschichten rund um sie - Komfort mit Cloud-Infrastruktur (AWS, GCP oder Azure) - Eine Erfolgsbilanz von Gebäudesystemen, die zuverlässig ohne konstante\n\nAufsicht - Tiefe Vertrautheit mit KI-Tools und Workflows.\n\nKI sollte bereits Teil der täglichen Arbeit sein. Sie schließen sich einem KI-native Unternehmen an, das KI-powered Produkte baut.\n\nSchön zu haben:\n\n- Erfahrung mit kopflosen Browsern und Anti-Detektionstechniken im Maßstab - Vertrautheit mit der Musikindustrie, Streaming-Plattformen oder Mediendaten - Erfahrung mit Daten-Warehousing (BigQuery, Snowflake, Redshift) - Exposition gegenüber Nachrichten Warteschlangen (Kafka, RabbitMQ, Redis) - Erfahrung beim Aufbau interner Werkzeuge und Dashboards\n\nWer du bist\n\n- Sie denken in Systemen, nicht in Skripten. Sie haben Crawling oder Datenaufnahme-Infrastruktur bei einem Unternehmen gebaut, wo externe Daten ein Kerneingang für das Produkt war, nicht ein Nebenprojekt. Sie haben mit den hässlichen Realitäten behandelt: Websites, die Layouts über Nacht ändern, Anti-Bot-Systeme, Rate Grenzen, inkonsistente APIs und fehlende Daten. Sie haben Pipelines Ende bis Ende. - Sie sind selbst-gerichtet. Sie treffen architektonische Entscheidungen, nicht nur ausführen Tickets. Sie kümmern sich fast obsessiv um Datenqualität. Sie sind die Art von Person, die drei Validierungskontrollen, wo man \"fein\" sein würde erstellt.\n\nWarum diese Rolle\n\n- Ihre Pipelines füttern die KI-Agenten, die Scouting, Deal Modeling, Lizenzgebühren, Release-Planung und Marketing für unsere Kunden betreiben. - Sie erben eine über mehr als ein Jahrzehnt gebaute Arbeitsdateninfrastruktur und machen es zu Ihrem. - Wir haben den gesamten Tech-Stack von Grund auf neu aufgebaut. Kein Erbe zu arbeiten. - Kleines, aber hochqualifiziertes Team. Ihre Arbeit Schiffe schnell und berührt alles. - Fernfreundlich mit flexiblen Stunden. Büro in Zürich für diejenigen, die es bevorzugen.\n\nWie Sie anwenden\n\nSenden Sie Ihren Lebenslauf und einen kurzen Hinweis, der eine Datenpipeline oder ein von Ihnen erstelltes Kriechensystem beschreibt. Wir möchten hören, auf welcher Skala es funktionierte, was kaputt war und wie Sie es reparierten.\n\nWarum wir?",
         "fr": "Votre mission Nous embauchons un ingénieur principal en pipeline de données pour construire et posséder notre infrastructure d'ingestion de données. Ce n'est pas un rôle de soutien.\n\nNous avons déjà une infrastructure de données de travail construite depuis plus d'une décennie dans l'industrie musicale, avec des pipelines de production, des rampeurs et des intégrations alimentant aujourd'hui des produits réels. Nos agents d'IA utiliseront ces données pour repérer les artistes, modéliser les offres, prévoir les revenus et automatiser les opérations.\n\nVotre travail est de prendre ce qui existe, de le faire le vôtre, et de l'étendre. Améliorer la fiabilité, élargir la couverture, ajouter de nouvelles sources et d'évoluer l'architecture à mesure que nous grandissons. Vous concevrez et construireez également de nouveaux pipelines lorsque nécessaire. La fondation est solide.\n\nVous travaillerez en étroite collaboration avec les produits et l'ingénierie, vous façonnerez la façon dont nous recueillons et traitons les données externes et vous aurez une véritable autorité architecturale dès le premier jour.\n\nVotre profil\n\nCe que nous cherchons\n\nDoit avoir:\n\n- 5 ans d'expérience dans la construction de pipelines de données et/ou d'infrastructures de coulissement web dans les environnements de production - Fortes compétences en python : Scrapy, BeautifulSoup, Selenium, Playwright ou équivalent - Expérience avec des outils de citation de pipelines tels que Airflow, Prefect ou Dagster - Compréhension solide des bases de données (PostgreSQL, MongoDB ou similaire) et modélisation de données - Expérience dans la gestion de données désordonnées, incohérentes dans le monde réel et dans la validation de bâtiments autour de lui - Confort avec l'infrastructure cloud (AWS, GCP ou Azure) - Une piste de systèmes de construction fonctionnant de façon fiable et sans constante\n\nsupervision - Connaissance approfondie des outils et des processus d'IA.\n\nL'IA devrait déjà faire partie de votre façon de travailler tous les jours. Vous rejoignez une entreprise de fabrication de produits à moteur d'IA.\n\nC'est bien d'avoir :\n\n- Expérience avec les navigateurs sans tête et les techniques anti-détection à l'échelle - Familiarisation avec l'industrie de la musique, les plateformes de streaming ou les données multimédia - Expérience avec l'entreposage de données (BigQuery, Snowflake, Redshift) - Exposition aux files d'attente de messages (Kafka, RabbitMQ, Redis) - Expérience de la construction d'outils internes et tableaux de bord\n\nQui vous êtes\n\nVous avez fait face aux réalités laids : sites qui changent la mise en page du jour au lendemain, systèmes anti-bot, limites de taux, API incohérentes, et données manquantes. Vous avez possédé des pipelines fin à fin. - Vous êtes auto-dirigé. Vous prenez des décisions architecturales, pas seulement exécuter des tickets. Vous vous souciez de la qualité des données presque obsessivement. Vous êtes le genre de personne qui construit trois vérifications de validation où on serait « fin ».\n\nPourquoi ce rôle\n\n- Vos pipelines alimentent les agents de l'IA qui effectuent des recherches, des modélisations de transactions, des redevances, des plans de libération et du marketing pour nos clients. - Vous héritez d'une infrastructure de données de travail construite depuis plus d'une décennie et qui vous appartient. - Nous avons reconstruit toute la pile de technologie de zéro. Pas d'héritage pour travailler autour. - Petite mais très qualifiée équipe. Votre travail est rapide et touche tout. - Télé-friendly avec des heures flexibles. Bureau disponible à Zurich pour ceux qui le préfèrent.\n\nComment faire une demande\n\nEnvoyez votre CV et une brève note décrivant un pipeline de données ou un système de rampe que vous avez construit à partir de zéro. Nous voulons savoir à quelle échelle il a fonctionné, à quel point il a cassé et comment vous l'avez réparé.\n\nPourquoi nous?"
       },
-      "location": "Zürich Hybrid",
-      "canton": "ZH",
+      "location": "Pfäffikon",
+      "canton": "SZ",
       "url": "https://igroove.jobs.personio.de/job/2588083",
       "source": "iGroove Dedicated Parser (Personio)",
       "sourceLang": "en",
-      "crawledAt": "2026-09-19T23:06:21.974Z",
-      "addressLocality": "Zürich",
-      "addressRegion": "Zürich",
-      "streetAddress": "",
-      "postalCode": "8001",
+      "crawledAt": "2026-09-24T00:10:29.233Z",
+      "addressLocality": "Pfäffikon",
+      "addressRegion": "SZ",
+      "streetAddress": "Churerstrasse 135",
+      "postalCode": "8808",
       "addressCountry": "CH",
       "country": "CH",
       "category": "IT",
@@ -52,13 +52,14 @@
       "jobReqId": "2588083",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "senior-data-pipeline-engineer-igroove-zurich-hybrid",
-        "senior-data-pipeline-ingegnere-igroove-ag-zurich"
-      ],
       "previousSlugsByLocale": {
+        "en": [
+          "senior-data-pipeline-engineer-igroove-pfaffikon",
+          "senior-data-pipeline-engineer-igroove-zurich-hybrid"
+        ],
         "it": [
           "senior-data-pipeline-engineer-igroove-zurich-hybrid",
+          "senior-data-pipeline-engineer-igroove-pfaffikon",
           "senior-data-pipeline-ingegnere-igroove-ag-zurich"
         ],
         "de": [
@@ -68,17 +69,22 @@
           "senior-data-pipeline-engineer-igroove-zurich-hybrid"
         ]
       },
+      "previousSlugs": [
+        "senior-data-pipeline-engineer-igroove-zurich-hybrid",
+        "senior-data-pipeline-engineer-igroove-pfaffikon",
+        "senior-data-pipeline-ingegnere-igroove-ag-zurich"
+      ],
       "firstSeenAt": "2026-07-03T21:58:03.200Z",
-      "salaryMin": 121500,
-      "salaryMax": 206500,
+      "salaryMin": 114500,
+      "salaryMax": 195000,
       "salarySource": "estimated",
       "baseSalary": {
         "@type": "MonetaryAmount",
         "currency": "CHF",
         "value": {
           "@type": "QuantitativeValue",
-          "minValue": 121500,
-          "maxValue": 206500,
+          "minValue": 114500,
+          "maxValue": 195000,
           "unitText": "YEAR"
         }
       }
