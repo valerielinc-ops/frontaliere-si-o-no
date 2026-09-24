@@ -5,20 +5,23 @@
  * for SEO-critical fields.
  *
  * The Migros careers portal at jobs.migros.ch is a Nuxt.js SPA.
- * The listing page renders ~7 pinned jobs in the SSR HTML, but the
- * full result set (all open positions across Switzerland) is only
- * visible after client-side hydration and pagination clicks.
+ * The listing page is a Nuxt.js SPA, but it also exposes the complete
+ * numbered pagination envelope in its server-rendered HTML. The default
+ * worker path consumes that envelope over plain HTTP; browser discovery is
+ * retained as an explicit escape hatch for a future source rollout.
  *
  * This script:
- *   1. Launches a headless Chromium via Playwright on the unfiltered
- *      listing URL (no REGION param → nationwide), accepts the cookie
- *      banner, then clicks "Pagina successiva" repeatedly until the
- *      button is disabled.
+ *   1. Fetches the unfiltered listing URL over HTTP (no REGION param →
+ *      nationwide) and follows each numbered `?page=N` link.
  *   2. Collects every job detail href (any locale prefix) and sets
  *      them as adapter seed URLs.
  *   3. Runs the base crawler which fetches each detail page and
  *      parses the HTML content (no JSON-LD — Migros uses Nuxt
  *      with __NUXT_DATA__ hydration payloads).
+ *
+ * Set JOBS_MIGROS_DISCOVERY_MODE=browser to use the legacy Playwright
+ * discovery path explicitly. Automatic runs default to `http` and therefore
+ * do not require CUA/Chromium.
  *
  * Listing URL pattern (unfiltered → nationwide):
  *   https://jobs.migros.ch/it/le-nostre-imprese/gruppo-migros/posti-di-lavoro-vacanti
@@ -42,7 +45,7 @@ import {
 } from './assemble-jobs-dataset.mjs';
 import { runDedicatedBaseCrawler, validateDedicatedLocaleCoverage, detectLang, deriveLocalizedSlug, normalize } from './lib/dedicated-crawler-common.mjs';
 import { runQualityGuards } from './lib/crawler-quality-guards.mjs';
-import { exitCrawlerOnError } from './lib/crawler-template.mjs';
+import { exitCrawlerOnError, fetchHtml } from './lib/crawler-template.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
 import { crawlerScratchPathFor } from './lib/crawler-scratch-path.mjs';
 import { dedicatedMigrosOwner } from './lib/crawler-company-ownership.mjs';
@@ -76,6 +79,10 @@ const JOB_DETAIL_HREF_RE =
   /^\/(it|de|fr|en)\/(le-nostre-imprese|unsere-unternehmen|nos-entreprises|our-companies)\/job\/[^/]+\/[^/]+\/[a-f0-9-]{36}$/;
 
 const MIGROS_LOCALE_PRIORITY = { it: 0, de: 1 };
+const MIGROS_LISTING_HEADERS = {
+  Accept: 'text/html,application/xhtml+xml',
+  'Accept-Language': 'it-CH,it;q=0.9,de-CH;q=0.8,de;q=0.7,en;q=0.6',
+};
 
 // ──────────────────────────────────────────────────────────────
 // Helpers
@@ -148,6 +155,141 @@ function migrosLocalePriority(rawUrl) {
 export function compareMigrosDetailUrls(left, right) {
   const priorityDelta = migrosLocalePriority(left) - migrosLocalePriority(right);
   return priorityDelta || String(left).localeCompare(String(right));
+}
+
+function extractMigrosHrefValues(html = '') {
+  const hrefs = [];
+  const hrefRe = /<a\b[^>]*\bhref\s*=\s*(?:"([^"]*)"|'([^']*)')/gi;
+  let match;
+  while ((match = hrefRe.exec(String(html || ''))) !== null) {
+    hrefs.push(String(match[1] ?? match[2] ?? '').replaceAll('&amp;', '&'));
+  }
+  return hrefs;
+}
+
+/**
+ * Extract canonical job paths from a server-rendered Migros listing page.
+ * Mixed-locale links for one posting are intentionally left for the shared
+ * identity finalizer to deduplicate.
+ */
+export function extractMigrosListingDetailPaths(html = '') {
+  const paths = new Set();
+  for (const href of extractMigrosHrefValues(html)) {
+    let url;
+    try {
+      url = new URL(href, LISTING_URL);
+    } catch {
+      continue;
+    }
+    if (url.hostname !== 'jobs.migros.ch' || url.protocol !== 'https:') continue;
+    if (JOB_DETAIL_HREF_RE.test(url.pathname)) paths.add(url.pathname);
+  }
+  return [...paths];
+}
+
+/**
+ * Read the numbered page links that make the HTTP listing snapshot complete.
+ * A page with jobs but no pagination envelope is rejected by the caller
+ * instead of silently publishing only the first SSR batch.
+ */
+export function extractMigrosListingPageNumbers(html = '', listingUrl = LISTING_URL) {
+  const seed = new URL(listingUrl);
+  const pages = new Set([Number(seed.searchParams.get('page')) || 1]);
+  for (const href of extractMigrosHrefValues(html)) {
+    let url;
+    try {
+      url = new URL(href, seed);
+    } catch {
+      continue;
+    }
+    if (url.origin !== seed.origin || url.pathname !== seed.pathname) continue;
+    const page = Number(url.searchParams.get('page'));
+    if (Number.isInteger(page) && page >= 1) pages.add(page);
+  }
+  return [...pages].sort((left, right) => left - right);
+}
+
+export function migrosListingPageUrl(listingUrl, page) {
+  const url = new URL(listingUrl);
+  url.searchParams.set('page', String(page));
+  return url.toString();
+}
+
+async function readMigrosListingSnapshot(fetched, requestedUrl) {
+  if (typeof fetched === 'string') {
+    return { body: fetched, status: 200, url: requestedUrl };
+  }
+  if (fetched && typeof fetched.body === 'string') {
+    return {
+      body: fetched.body,
+      status: Number(fetched.status || 200),
+      url: fetched.url || requestedUrl,
+    };
+  }
+  if (fetched && typeof fetched.text === 'function') {
+    return {
+      body: await fetched.text(),
+      status: Number(fetched.status || 200),
+      url: fetched.url || requestedUrl,
+    };
+  }
+  throw new Error(`Migros HTTP discovery returned no HTML for ${requestedUrl}`);
+}
+
+/**
+ * Discover the complete Migros listing without a browser. The source's SSR
+ * page publishes the authoritative numbered pagination links; every declared
+ * page is fetched and must contain detail links before finalization.
+ */
+export async function fetchMigrosHttpJobDetailUrls({
+  fetchPage = fetchHtml,
+  listingUrl = LISTING_URL,
+  maxPages = positiveIntFromEnv('JOBS_MIGROS_MAX_PAGES', 1000),
+} = {}) {
+  if (!Number.isInteger(maxPages) || maxPages < 1) {
+    throw new Error(`Migros HTTP discovery requires a positive page cap, got ${maxPages}`);
+  }
+
+  const first = await readMigrosListingSnapshot(
+    await fetchPage(listingUrl, { headers: MIGROS_LISTING_HEADERS }),
+    listingUrl,
+  );
+  if (first.status < 200 || first.status >= 300 || !first.body) {
+    throw new Error(`Migros HTTP discovery failed for ${first.url}: HTTP ${first.status}`);
+  }
+
+  const pageNumbers = extractMigrosListingPageNumbers(first.body, listingUrl);
+  const lastPage = Math.max(...pageNumbers);
+  const firstPaths = extractMigrosListingDetailPaths(first.body);
+  if (pageNumbers.length < 2 && firstPaths.length > 0) {
+    throw new Error('Migros HTTP discovery is missing authoritative pagination links');
+  }
+  if (lastPage > maxPages) {
+    throw new Error(`Migros HTTP discovery declares ${lastPage} pages, above the safe limit ${maxPages}`);
+  }
+
+  const rawPaths = new Set(firstPaths);
+  for (let page = 2; page <= lastPage; page += 1) {
+    const pageUrl = migrosListingPageUrl(listingUrl, page);
+    const snapshot = await readMigrosListingSnapshot(
+      await fetchPage(pageUrl, { headers: MIGROS_LISTING_HEADERS }),
+      pageUrl,
+    );
+    if (snapshot.status < 200 || snapshot.status >= 300 || !snapshot.body) {
+      throw new Error(`Migros HTTP discovery failed for page ${page}: HTTP ${snapshot.status}`);
+    }
+    const paths = extractMigrosListingDetailPaths(snapshot.body);
+    if (paths.length === 0) {
+      throw new Error(`Migros HTTP discovery incomplete: page ${page} has no detail links`);
+    }
+    for (const path of paths) rawPaths.add(path);
+  }
+
+  return finalizeMigrosDiscovery([...rawPaths], {
+    termination: 'http-pagination',
+    pagesFetched: lastPage,
+    maxPages,
+  });
 }
 
 // ──────────────────────────────────────────────────────────────
@@ -320,7 +462,7 @@ export async function fetchMigrosJobDetailUrls() {
  */
 export function finalizeMigrosDiscovery(rawPaths, options = {}) {
   const { termination = '', pagesFetched = 0, maxPages = 1000 } = options;
-  if (!['next-disabled', 'next-unavailable'].includes(termination)
+  if (!['next-disabled', 'next-unavailable', 'http-pagination'].includes(termination)
       || !Number.isInteger(pagesFetched) || pagesFetched < 1 || pagesFetched > maxPages) {
     throw new Error(`Migros discovery incomplete: reached JOBS_MIGROS_MAX_PAGES=${maxPages} without terminal pagination state.`);
   }
@@ -483,12 +625,20 @@ async function main() {
   setCrawlerStartTime();
   registerCrawlerSummaryGuard(MIGROS_KEY, 'Migros');
   console.log('🛒 Running dedicated Migros Switzerland jobs crawler...');
-  console.log('   Platform: Nuxt.js SPA (jobs.migros.ch) via Playwright');
+  console.log('   Platform: Nuxt.js SSR listing (jobs.migros.ch) via HTTP');
   console.log('   Scope: nationwide (no REGION filter — all Swiss cantons)');
   console.log('');
 
-  // Step 1: Fetch job detail URLs from the SSR listing pages
-  const discovery = await fetchMigrosJobDetailUrls();
+  // Step 1: Fetch job detail URLs from the SSR listing pages. HTTP is the
+  // browser-free default; Playwright remains an explicit escape hatch for a
+  // future source rollout that removes numbered SSR links.
+  const discoveryMode = process.env.JOBS_MIGROS_DISCOVERY_MODE || 'http';
+  if (!['http', 'browser'].includes(discoveryMode)) {
+    throw new Error(`Unsupported JOBS_MIGROS_DISCOVERY_MODE=${discoveryMode}; use http or browser`);
+  }
+  const discovery = discoveryMode === 'browser'
+    ? await fetchMigrosJobDetailUrls()
+    : await fetchMigrosHttpJobDetailUrls();
   const detailUrls = discovery.urls;
   if (discovery.sourceZero) {
     console.log('ℹ️ Nessun URL di dettaglio Migros trovato dalla listing. Uscita OK.');
