@@ -172,4 +172,3 @@ describe('local-mt write integration', () => {
     });
   });
 });
-

@@ -147,4 +147,3 @@ const defaultJudge = createLocalMtSemanticJudge();
 export function judgeLocalMtMeaning(options = {}) {
   return defaultJudge(options);
 }
-
