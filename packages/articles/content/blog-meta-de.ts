@@ -11932,6 +11932,11 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.immatricolazioni-veicoli-ticino-w38-2026.title': 'Neuzulassungen im Tessin: die Daten ASTRA W38',
     'blog.article.immatricolazioni-veicoli-ticino-w38-2026.excerpt': 'Analyse der Daten zu den Neuzulassungen im Tessin für die Woche 2026-W38 gemäss Bundesamt für Strassen ASTRA/OFROU.',
     'blog.article.immatricolazioni-veicoli-ticino-w38-2026.imageAlt': 'Fahrzeuge im Verkehr auf einer Tessiner Straße.',
+    'blog.article.bollettino-frontaliere-2026-09-24.title': 'Grenzgänger-Tagesbulletin – 24. September 2026: 387 neue Stellenangebote gestern',
+    'blog.article.bollettino-frontaliere-2026-09-24.excerpt': 'Die Zahlen von heute, 24. September 2026, für Grenzgänger: die heute Morgen gemessenen Wartezeiten an den Übergängen, die Gemeinden mit dem günstigsten Benzin, der Franken-Euro-Kurs vom Schlusskurs und die neu ausgeschriebenen Stellen in der Schweiz. Täglich aus unserem Monitoring.',
+    'blog.article.bollettino-frontaliere-2026-09-24.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 24. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
+    'blog.article.bollettino-frontaliere-2026-09-24.seoDescription': 'Grenzgänger-Bulletin vom 24. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
+    'blog.article.bollettino-frontaliere-2026-09-24.ogDescription': 'Die Zahlen vom 24. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
 };
 
 export default blogMetaDe;
