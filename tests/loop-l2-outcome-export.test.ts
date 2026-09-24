@@ -26,7 +26,7 @@ function source(overrides: Record<string, unknown> = {}) {
 }
 
 describe('L2 read-only demand outcome export', () => {
-  it('normalizes every GSC landing path and rejects an empty cohort', () => {
+  it('builds every emitted GSC landing path and rejects an empty cohort', () => {
     expect(landingPathsFromGsc(source())).toEqual(['/en/search/jobs-ticino/', '/ricerca/offerte-lavoro-ticino/']);
     expect(() => landingPathsFromGsc(source({ clusters: [] }))).toThrow('no landing paths');
   });
@@ -91,7 +91,7 @@ describe('L2 read-only demand outcome export', () => {
       usefulActionReport: { rowCount: 0 },
     })).toEqual({ eligibleLandingSessions: 1000, usefulActions: 0 });
     expect(() => buildL2OutcomeCounts({
-      landingPaths: ['/offerte-lavoro-ticino/'],
+      landingPaths: ['/ricerca/offerte-lavoro-ticino/'],
       landingSessionReport: { rowCount: 2, rows: [{ dimensionValues: [{ value: '/ricerca/offerte-lavoro-ticino/' }], metricValues: [{ value: '1' }] }] },
       usefulActionReport: { rows: [] },
     })).toThrow('truncated');
