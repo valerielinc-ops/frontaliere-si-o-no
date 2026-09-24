@@ -14,7 +14,7 @@ const script = recoveryScriptStep.with.script;
 const AsyncFunction = Object.getPrototypeOf(async function () {}).constructor;
 const require = createRequire(import.meta.url);
 
-async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false } = {}) {
+async function runRecovery({ body = 'failure', status = 'completed', conclusion = 'failure', changedHead = false, changedAttempt = false, finishing = false, olderFailed = false, workflowRuns = 'existing', eventName = 'pull_request_target', pendingStatus = null, rerunFails = false, dispatchFails = false, eventRunId = 42, eventRunAttempt = 1, failedSteps = [], codexAuthBlocked = false, nativeAutoMerge = false, trustedToken = 'test-app-token', returnComments = false, markerExtra = {} as Record<string, unknown> } = {}) {
   const reruns: number[] = [];
   const dispatches: unknown[] = [];
   const callOrder: string[] = [];
@@ -29,6 +29,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
       version: 1, status: pendingStatus, prNumber: 1, runId: 42, runAttempt: 1,
         headSha: 'head', bodyRevision: reviewInputRevisionFromBody(body),
         ...(pendingStatus === 'manual' ? { runAttempt: 2, reconcileAttempts: 1, sourceEvent: 'rerun-ambiguous' } : {}),
+        ...markerExtra,
       })} -->`,
   }] : [];
   if (codexAuthBlocked) comments.push({
@@ -147,7 +148,7 @@ async function runRecovery({ body = 'failure', status = 'completed', conclusion 
   }
   if (rerunFails || dispatchFails) return { reruns, dispatches, comments, error };
   if (nativeAutoMerge) return { reruns, dispatches, callOrder, ...(returnComments ? { comments } : {}) };
-  return { reruns, dispatches };
+  return { reruns, dispatches, ...(returnComments ? { comments } : {}) };
 }
 
 describe('one code verdict and metadata-triggered review recovery', () => {
@@ -425,6 +426,48 @@ describe('one code verdict and metadata-triggered review recovery', () => {
         ref: 'main', inputs: { pr_number: '1' },
       }],
     });
+  });
+
+  it('retries a cancelled or timed-out run once per HEAD and body digest after an edit', async () => {
+    const markerState = (comments: Array<{ body: string }>) => {
+      const last = comments.at(-1)?.body || '';
+      return JSON.parse(last.slice(last.indexOf('{'), last.indexOf('-->')));
+    };
+    for (const conclusion of ['cancelled', 'timed_out']) {
+      const first = await runRecovery({ body: 'success', conclusion, returnComments: true });
+      expect(first.reruns).toEqual([42]);
+      expect(markerState(first.comments!)).toMatchObject({
+        status: 'queued', headSha: 'head', runId: 42, runAttempt: 2, interruptedRetry: true,
+      });
+      // A repeated edit delivery for the same HEAD + body digest, after the
+      // bounded retry was already spent: no second rerun, no loop.
+      expect(await runRecovery({
+        body: 'success', conclusion, pendingStatus: 'completed', markerExtra: { interruptedRetry: true },
+      })).toMatchObject({ reruns: [] });
+      // A new body digest on the same HEAD earns its own single retry.
+      expect(await runRecovery({
+        body: 'success', conclusion, pendingStatus: 'completed',
+        markerExtra: { interruptedRetry: true, bodyRevision: reviewInputRevisionFromBody('older body') },
+      })).toMatchObject({ reruns: [42] });
+    }
+  });
+
+  it('retries an interrupted run that was still active at the edit, but not its interrupted retry', async () => {
+    expect(await runRecovery({
+      body: 'success', conclusion: 'cancelled', eventName: 'workflow_run', pendingStatus: 'pending',
+    })).toEqual({ reruns: [42], dispatches: [] });
+    const retried = await runRecovery({
+      body: 'success', conclusion: 'timed_out', eventName: 'workflow_run', pendingStatus: 'queued',
+      markerExtra: { interruptedRetry: true },
+    });
+    expect(retried.reruns).toEqual([]);
+    expect(retried.dispatches).toHaveLength(1);
+  });
+
+  it('keeps every other non-failure conclusion without a body-recovery rerun', async () => {
+    for (const conclusion of ['skipped', 'neutral', 'action_required', 'stale']) {
+      expect(await runRecovery({ body: 'success', conclusion })).toEqual({ reruns: [], dispatches: [] });
+    }
   });
 
   it('preserves a newer queued attempt instead of rerunning an older failed body', async () => {
