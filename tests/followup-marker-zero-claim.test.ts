@@ -105,6 +105,29 @@ describe('claim di persistenza a zero', () => {
       expect(verifyTriageMarkerPersistence(body, 9435, () => null)).not.toBe(true);
     }
   });
+
+  it('non lascia che una riga invariata nasconda un claim positivo', () => {
+    const body = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: nessun item per questa PR; bucket giornaliero #9508 non modificato da questa PR.',
+      'Created/updated: 2 item; bucket #9510.',
+    ].join('\n');
+    const expectation = triageMarkerPersistenceExpectation(body);
+    expect(expectation.requiresBucket).toBe(true);
+    expect(expectation.buckets).toEqual([9510]);
+  });
+
+  it('rifiuta contraddizioni nello stesso claim invariato', () => {
+    for (const line of [
+      'Created/updated: nessun item per questa PR; bucket giornaliero #9508 aggiornato da questa PR.',
+      'Created/updated: nessun item per questa PR; 2 item; bucket giornaliero #9508 non modificato da questa PR.',
+      'Created/updated: nessun item per questa PR; bucket #9508 non modificato da questa PR; bucket #9510 aggiornato.',
+    ]) {
+      const body = `## Post-merge follow-up triage\n\n${line}\n`;
+      expect(triageMarkerPersistenceExpectation(body).requiresBucket, line).toBe(true);
+    }
+  });
 });
 
 describe('i due finding della review', () => {
@@ -185,5 +208,11 @@ describe('il gemello bash dello YAML resta allineato', () => {
     // Il fallback non deve piu' essere cercato nell'intero corpo quando esiste
     // un claim: nello YAML e' racchiuso in un gruppo con `-z "$claim_lines"`.
     expect(yml).toMatch(/\[ -z "\$claim_lines" \][\s\S]{0,120}zero outstanding items\|backfill skipped/);
+  });
+
+  it('il fallback bucket invariato richiede che ogni claim line sia esclusivamente zero', () => {
+    expect(yml).toMatch(/unchanged_bucket_zero=false[\s\S]{0,500}unchanged_bucket_zero=true[\s\S]{0,700}grep -Eq/);
+    expect(yml).toContain('nessun[[:space:]]+item[[:space:]]+per[[:space:]]+questa[[:space:]]+PR');
+    expect(yml).toContain('non[[:space:]]+modificat[oa]');
   });
 });

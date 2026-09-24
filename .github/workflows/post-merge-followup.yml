@@ -495,13 +495,15 @@ jobs:
                 # clausole devono stare sulla STESSA riga; separarle in prosa
                 # renderebbe il fallback troppo permissivo.
                 unchanged_bucket_zero=false
-                while IFS= read -r claim_line; do
-                  if printf '%s\n' "$claim_line" | grep -Eqi 'nessun[[:space:]]+item[[:space:]]+per[[:space:]]+questa[[:space:]]+PR' \
-                    && printf '%s\n' "$claim_line" | grep -Eqi 'bucket[^#[:cntrl:]]*#[1-9][0-9]*[^[:cntrl:]]*non[[:space:]]+modificat[oa][[:space:]]+da[[:space:]]+questa[[:space:]]+PR'; then
-                    unchanged_bucket_zero=true
-                    break
-                  fi
-                done <<< "$claim_lines"
+                if [ -n "$claim_lines" ]; then
+                  unchanged_bucket_zero=true
+                  while IFS= read -r claim_line; do
+                    if ! printf '%s\n' "$claim_line" | grep -Eqi "${claim_head}[[:space:]]*nessun[[:space:]]+item[[:space:]]+per[[:space:]]+questa[[:space:]]+PR[[:space:]]*;[[:space:]]*bucket([[:space:]]+giornaliero)?[[:space:]]+#[1-9][0-9]*[[:space:]]+non[[:space:]]+modificat[oa][[:space:]]+da[[:space:]]+questa[[:space:]]+PR[[:space:]]*\.?[[:space:]]*$"; then
+                      unchanged_bucket_zero=false
+                      break
+                    fi
+                  done <<< "$claim_lines"
+                fi
                 # Le formule d'intestazione valgono SOLO se non esiste alcuna riga
                 # di claim: cercarle nell'intero corpo anche con un claim non-zero
                 # permetteva a una prosa successiva di scavalcare la verifica del
