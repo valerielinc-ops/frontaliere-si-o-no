@@ -9,11 +9,13 @@
  *   - the event is an explicit workflow_dispatch, a repository_dispatch
  *     carrying the exact publisher action and a workflow-pinned principal
  *     attestation (or the narrowly allowlisted event-only compatibility
- *     contract while that attestation is being rolled out), or an explicitly
- *     opted-in schedule
- *     (APPROVAL_TRUSTED_SCHEDULE=true);
- *   - the dispatch was initiated by the same actor that triggered the run;
- *   - GitHub identifies that actor as a User (not an App/bot);
+ *     contract while that attestation is being rolled out), an explicitly
+ *     opted-in schedule (APPROVAL_TRUSTED_SCHEDULE=true), or a workflow_run
+ *     whose producer has been verified by the caller and opted in with
+ *     APPROVAL_TRUSTED_WORKFLOW_RUN=true;
+ *   - where a dispatch is used, it was initiated by the same actor that
+ *     triggered the run and GitHub identifies that actor as a User (not an
+ *     App/bot);
  *   - a manual dispatch explicitly supplied human_approval=true and
  *     dry_run=false, or the publisher dispatch has no input override;
  *   - this is the first attempt of a fresh run.
@@ -170,6 +172,7 @@ export function evaluateHumanApproval({
   dispatchSourceBranch,
   dispatchSourceEvent,
   approvalTrustedSchedule,
+  approvalTrustedWorkflowRun,
   trustedSchedule,
   allowLegacyPublisherDispatch,
   expectedDispatchActor,
@@ -182,6 +185,11 @@ export function evaluateHumanApproval({
   const isPublisherDispatchEvent = eventName === PUBLISHER_DISPATCH_EVENT;
   const isTrustedScheduleEvent = eventName === 'schedule'
     && normalizeBooleanInput(approvalTrustedSchedule ?? trustedSchedule) === 'true';
+  // The caller must verify the producer run before setting this opt-in. This
+  // keeps the generic gate independent of the producer-specific artifact/API
+  // contract while preserving a single fail-closed decision point.
+  const isTrustedWorkflowRunEvent = eventName === 'workflow_run'
+    && normalizeBooleanInput(approvalTrustedWorkflowRun) === 'true';
   const isDispatchEvent = isManualApprovalEvent || isPublisherDispatchEvent;
   const humanActor = stringValue(actor);
   const initiator = stringValue(triggeringActor);
@@ -217,7 +225,9 @@ export function evaluateHumanApproval({
   const configuredWorkflow = stringValue(expectedDispatchWorkflow);
   const reasons = [];
 
-  if (!isDispatchEvent && !isTrustedScheduleEvent) reasons.push('event-not-workflow-dispatch');
+  if (!isDispatchEvent && !isTrustedScheduleEvent && !isTrustedWorkflowRunEvent) {
+    reasons.push('event-not-workflow-dispatch');
+  }
   if (isManualApprovalEvent && approval !== 'true') reasons.push('human-approval-not-explicit');
   if (isManualApprovalEvent && requestedDryRun !== 'false') reasons.push('dry-run-not-explicitly-disabled');
   if (isDispatchEvent) {
@@ -304,7 +314,9 @@ export function evaluateHumanApproval({
         : 'trusted-publisher-dispatch-approved')
       : isTrustedScheduleEvent
         ? 'trusted-schedule-approved'
-        : 'human-workflow-dispatch-approved'),
+        : isTrustedWorkflowRunEvent
+          ? 'trusted-workflow-run-approved'
+          : 'human-workflow-dispatch-approved'),
     reasons,
   };
 }
@@ -367,6 +379,7 @@ function githubEnvironment(env = process.env) {
     dispatchSourceBranch: env.APPROVAL_DISPATCH_SOURCE_BRANCH,
     dispatchSourceEvent: env.APPROVAL_DISPATCH_SOURCE_EVENT,
     approvalTrustedSchedule: env.APPROVAL_TRUSTED_SCHEDULE,
+    approvalTrustedWorkflowRun: env.APPROVAL_TRUSTED_WORKFLOW_RUN,
     allowLegacyPublisherDispatch: env.APPROVAL_ALLOW_LEGACY_PUBLISHER_DISPATCH,
     expectedDispatchActor: env.APPROVAL_EXPECTED_DISPATCH_ACTOR,
     expectedDispatchRepository: env.APPROVAL_EXPECTED_DISPATCH_REPOSITORY,

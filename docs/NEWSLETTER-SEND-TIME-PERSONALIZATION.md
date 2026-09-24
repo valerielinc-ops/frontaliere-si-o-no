@@ -29,10 +29,13 @@ immediate send) when there isn't enough personal signal yet.
      opens/clicks cluster tightly around one hour, close to 0 = spread evenly
      across the day (no real preference even with enough samples).
    - `preferred_send_updated_at` — server timestamp of the last refresh.
-4. **Daily run** (cron unchanged — still once/day per campaign type) resolves,
-   for each recipient, the effective hour and schedules that subscriber's
-   send for that hour (today if it hasn't passed yet + a safety margin, else
-   tomorrow), instead of sending everyone at the cron's own fire time.
+4. **Daily campaign trigger** — the newsletter cron remains the safety net, and
+   a successful primary job-alert run can enqueue a verified handoff. Both
+   paths enter the same serialized workflow; the campaign resume ledger makes
+   the second trigger idempotent per recipient. The effective hour is then
+   resolved for each recipient and scheduled for today (if it hasn't passed yet
+   + a safety margin) or tomorrow, instead of sending everyone at the trigger's
+   own fire time.
 5. **Delivery** — the resolved timestamp is handed to the provider's native
    scheduled-send API (`scripts/lib/email-cascade.mjs`, `payload.scheduledAt`).
    Providers without scheduled-send support just send immediately for that
@@ -51,7 +54,7 @@ newsletter_subscribers/{email} or job_alert_subscribers/{email}:
   preferred_send_hour_utc / preferred_send_sample_count /
   preferred_send_strength / preferred_send_updated_at
         │
-        ▼  (next scheduled run — cron itself is UNCHANGED, once/day)
+        ▼  (next campaign trigger — cron fallback or verified job-alert handoff)
 send-newsletter.mjs / send-job-alerts.mjs, per recipient:
   resolveEffectivePreferredHour({ subscriberDoc, fallbackDoc, globalHour })
     → { hourUtc, source: 'personal' | 'fallback-doc' | 'global' | null }
@@ -112,15 +115,16 @@ newsletter_subscribers/_meta_
 reliable site-wide aggregate — and newsletter/job-alert audiences overlap
 heavily) rather than computing a separate one.
 
-**Cross-run staleness (by design)** — with the cron slots below,
-`send-job-alerts` fires at 00:33 UTC, *before* `send-newsletter` at 03:33 UTC.
-So the `global_preferred_send_hour_utc` job-alerts reads on any given day is
-the value `send-newsletter` wrote on the *previous* day's run, never today's.
-This is intentionally harmless: the global aggregate is a slow-moving mean
-over many users, and a ~1-day-old snapshot doesn't meaningfully differ from
-a same-day one. If this ever needs tightening: (a) swap the two crons' fire
-order, or (b) have `send-job-alerts` compute its own global hour from the
-subscriber profiles it already loads into memory during the run.
+**Cross-run staleness (by design)** — `send-job-alerts` still fires at 00:33
+UTC, while the newsletter's scheduled fallback is 03:33 UTC. The primary
+job-alert run may now hand off to the newsletter after it completes, but the
+job-alerts process still reads the `global_preferred_send_hour_utc` value written
+by the previous newsletter run, never today's. This is intentionally harmless:
+the global aggregate is a slow-moving mean over many users, and a ~1-day-old
+snapshot doesn't meaningfully differ from a same-day one. If this ever needs
+tightening: (a) swap the two crons' fire order, or (b) have `send-job-alerts`
+compute its own global hour from the subscriber profiles it already loads into
+memory during the run.
 
 ## Provider matrix — scheduled-send support
 
@@ -302,12 +306,15 @@ large enough to matter in practice.
 
 ## Cron slots
 
-Both sends stay at **once per day** — this feature changes *when within
-the day* each subscriber's email goes out, not how often the workflow runs.
+Both audiences retain their **daily eligibility cadence**. The newsletter may
+have two workflow entry points (handoff plus cron fallback), but the shared
+concurrency group and `campaign_sends` resume ledger make a duplicate trigger
+resume/skip per recipient rather than send twice. This feature changes *when
+within the day* each subscriber's email goes out, not the 36h cooldown policy.
 
 | Workflow | Cron (UTC) | Effective start (median) | Rationale |
 |---|---|---|---|
-| `send-newsletter.yml` | `33 3 * * *` (03:33) | ~06:13 | Unchanged by this feature. Tuned via PostHog click data + owner request (2026-07-08). |
+| `send-newsletter.yml` | `33 3 * * *` (03:33) | ~06:13 | Safety-net fallback. The primary jobalert handoff may start the same campaign earlier. Slot retained from the PostHog/owner tuning (2026-07-08). |
 | `send-job-alerts.yml` | `33 0 * * *` (00:33) | ~04:33 | Moved from `0 5 * * *` (2026-07-11, #3798 rollout), then 01:47→00:33 (2026-07-21). Kept at 00:33 after the 2026-08-05 re-audit — see below. |
 
 ### Audit basis — corrected 2026-08-05 (#3798 Fase 1)
@@ -353,10 +360,13 @@ start of any sampled slot, and even its p90 (~08:24) clears the morning crawler
 batch (dispatched ~11:20; longest group `crawler-group-01` runs ~3-4h, not the
 5h40m its `timeout-minutes` allows).
 
-**The previously-claimed 3h gap between the two sends does not exist** and is
-not needed: effective starts are ~04:33 and ~06:13 (~1h40m apart), and on p90
-days job-alerts starts *after* the newsletter. The two workflows have no data
-dependency and separate `concurrency` groups.
+**The previously-claimed 3h gap between the two sends does not exist.** The
+cron fallback's effective starts are ~04:33 and ~06:13 (~1h40m apart), and on
+p90 days job-alerts starts *after* the newsletter. The primary slot now offers
+an event-driven handoff when it succeeds; the fallback remains because a
+delayed or failed jobalert must not suppress the newsletter. The two workflows
+still have separate concurrency groups, while newsletter triggers share one
+group and the campaign ledger prevents duplicate recipient sends.
 
 ### The 23:00 slot is being measured, not argued about
 
