@@ -3,10 +3,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { describe, expect, it } from 'vitest';
 import YAML from 'yaml';
-import {
-  createCrawlerGenerationLedgerEntry,
-  reportCrawlerGroupDelivery,
-} from '../scripts/crawler-group-generation-finalizer.mjs';
+import { createCrawlerGenerationLedgerEntry } from '../scripts/crawler-group-generation-finalizer.mjs';
 import {
   classifyCrawlerDelivery,
   evaluateCrawlerGenerationDelivery,
@@ -171,30 +168,12 @@ describe('check-crawler-generation-delivery CLI', () => {
   });
 });
 
-describe('finalizer delivery annotation', () => {
-  it('annotates a green group run that published nothing', () => {
-    let out = '';
-    const summary = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'crawler-delivery-')), 'summary.md');
-    const outcome = reportCrawlerGroupDelivery(
-      { group: '07', generationToken: '36010271578-1', valid: false, reasons: GREEN_UNDELIVERED },
-      { stdout: (text: string) => { out += text; }, summaryPath: summary },
-    );
-    expect(outcome).toBe('green_undelivered');
-    expect(out).toContain('CRAWLER_DELIVERY_OUTCOME: green_undelivered');
-    expect(out).toContain('::error title=Crawler group delivery not published::group 07');
-    expect(fs.readFileSync(summary, 'utf8')).toContain('green run without published delivery');
-  });
-
-  it('stays quiet on a published group and on an already-red crawl', () => {
-    for (const [reasons, expected] of [[[], 'published'], [CRAWLER_FAILED, 'crawler_failed']] as const) {
-      let out = '';
-      const outcome = reportCrawlerGroupDelivery(
-        { group: '01', generationToken: '1-1', valid: reasons.length === 0, reasons: [...reasons] },
-        { stdout: (text: string) => { out += text; }, summaryPath: '' },
-      );
-      expect(outcome).toBe(expected);
-      expect(out).not.toContain('::error');
-    }
+describe('finalizer import closure', () => {
+  // Corpus artifacts pin the finalizer closure path by path; a new import
+  // would be missing from the corpus caller until the next mirror sync.
+  it('leaves the finalizer free of the delivery module', () => {
+    const source = fs.readFileSync(path.resolve('scripts/crawler-group-generation-finalizer.mjs'), 'utf8');
+    expect(source).not.toContain('crawler-generation-delivery');
   });
 });
 

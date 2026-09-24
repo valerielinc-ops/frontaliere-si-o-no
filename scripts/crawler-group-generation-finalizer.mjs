@@ -11,7 +11,6 @@ import {
   createGroupTerminalManifest,
   digestDocument,
 } from './lib/crawler-generation-contract.mjs';
-import { classifyCrawlerDelivery } from './lib/crawler-generation-delivery.mjs';
 import { isCrawlerGroupId } from './lib/crawler-generation-group-ids.mjs';
 import {
   MAX_RECEIPT_BYTES,
@@ -355,31 +354,7 @@ export function runCrawlerGroupGenerationFinalizerCli() {
   });
   writeJsonAtomic(outputPath, manifest, { compact: true });
   process.stdout.write(`${JSON.stringify({ valid: manifest.valid, reasons: manifest.reasons })}\n`);
-  reportCrawlerGroupDelivery(manifest);
   return manifest;
-}
-
-/**
- * The finalizer step is continue-on-error and the commit path exits 0 on push
- * contention / busy lease, so an invalid manifest never turns the run red.
- * Say which case this is: a green run that published nothing gets an error
- * annotation and a machine-readable marker instead of hiding behind success.
- */
-export function reportCrawlerGroupDelivery(manifest, io = {}) {
-  const write = io.stdout ?? ((text) => process.stdout.write(text));
-  const summaryPath = io.summaryPath ?? process.env.GITHUB_STEP_SUMMARY;
-  const outcome = classifyCrawlerDelivery(manifest);
-  write(`CRAWLER_DELIVERY_OUTCOME: ${outcome}\n`);
-  let summary = `Crawler group ${manifest.group} delivery: **${outcome}**`;
-  if (outcome === 'green_undelivered') {
-    const reasons = manifest.reasons.join(', ');
-    write(`::error title=Crawler group delivery not published::group ${manifest.group}: every crawler succeeded but no token-bound receipt was verified on main (${reasons}); the run stays green, the generation ledger records the loss\n`);
-    summary += ` — green run without published delivery (${reasons})`;
-  }
-  if (summaryPath) {
-    try { fs.appendFileSync(summaryPath, `${summary}\n`); } catch { /* summary is best-effort */ }
-  }
-  return outcome;
 }
 
 if (path.resolve(process.argv[1] ?? '') === SCRIPT_PATH) {
