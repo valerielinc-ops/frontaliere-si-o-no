@@ -2,7 +2,8 @@
  * experiment-stats.mjs — statistica PURA per il readout degli esperimenti A/B
  * (primo consumer: scripts/analytics/job-gate-experiment-readout.mjs).
  *
- * Niente I/O, niente rete, niente Firestore: ogni funzione prende numeri o
+ * Niente I/O, niente rete, niente Firestore (l'unico import è la coercizione
+ * pura dei timestamp): ogni funzione prende numeri o
  * risposte GA4 già scaricate e restituisce numeri. Così i valori di
  * riferimento (Wilson, test z, Holm, chi-quadro, potenza) sono pinnati da
  * test deterministici e lo script di readout resta un sottile strato di
@@ -14,6 +15,8 @@
  *  - `null` quando la statistica non è definita (denominatore 0, ecc.),
  *    mai NaN che si propaga silenziosamente in un report.
  */
+
+import { toMillis } from './firestoreTimestamp.mjs';
 
 // ── Normale standard ─────────────────────────────────────────
 
@@ -345,19 +348,11 @@ export function funnelUsersByArm(response, { variantDim = 'customEvent:variant',
 const MS_72H = 72 * 60 * 60 * 1000;
 
 /**
- * Timestamp Firestore (Timestamp admin, `{_seconds}`, Date, ISO string,
- * epoch ms) → epoch ms. Stessa semantica di scripts/lib/firestoreTimestamp.mjs,
- * duplicata qui per mantenere la lib priva di import.
+ * Timestamp Firestore (Timestamp admin, `{_seconds}`, Date, ISO string) →
+ * epoch ms. Riusa la coercizione canonica di firestoreTimestamp.mjs (pura,
+ * senza I/O) invece di duplicarla.
  */
-export function timestampMs(v) {
-  if (v == null || v === '') return null;
-  if (typeof v === 'number') return Number.isFinite(v) ? v : null;
-  if (typeof v === 'object' && typeof v.toMillis === 'function') return v.toMillis();
-  if (typeof v === 'object' && typeof v.toDate === 'function') return v.toDate().getTime();
-  if (typeof v === 'object' && typeof v._seconds === 'number') return v._seconds * 1000;
-  const t = new Date(v).getTime();
-  return Number.isFinite(t) ? t : null;
-}
+export const timestampMs = toMillis;
 
 const CONFIRMED_STATUSES = new Set(['confirmed', 'subscribed', 'active']);
 const SUPPRESSED_STATUSES = new Set(['unsubscribed', 'bounced', 'complained', 'suppressed', 'deleted']);
