@@ -167,10 +167,37 @@ export function calibrateSemanticThreshold(input, options = {}) {
     });
   }
 
+  // Never report metrics for the un-clamped threshold when the conservative
+  // production floor raises it.  A fixture whose useful evidence all sits
+  // below that floor is not calibrated enough to enable the arm.
+  const effectiveCutoff = Math.max(SEMANTIC_SCORE_CUTOFF, selected.cutoff);
+  const effectivePredicted = rows.filter(({ score }) => score >= effectiveCutoff);
+  const effectiveTruePositives = effectivePredicted.filter(({ label }) => label === 'positive').length;
+  const effectivePrecision = effectivePredicted.length > 0
+    ? effectiveTruePositives / effectivePredicted.length
+    : 0;
+  if (effectivePredicted.length < minAccepted || effectivePrecision < targetPrecision) {
+    return calibrationUnavailable('no-high-precision-cutoff', {
+      cases: rows.length,
+      requiredCases: minCases,
+      targetPrecision,
+    });
+  }
+  const totalPositive = rows.filter(({ label }) => label === 'positive').length;
+  selected = {
+    cutoff: effectiveCutoff,
+    accepted: effectivePredicted.length,
+    truePositives: effectiveTruePositives,
+    falsePositives: effectivePredicted.length - effectiveTruePositives,
+    precision: effectivePrecision,
+    recall: totalPositive > 0 ? effectiveTruePositives / totalPositive : 0,
+    totalPositive,
+  };
+
   return Object.freeze({
     status: 'ready',
     source: String(options.source || 'issue-9674'),
-    scoreCutoff: Math.max(SEMANTIC_SCORE_CUTOFF, selected.cutoff),
+    scoreCutoff: selected.cutoff,
     targetPrecision,
     cases: rows.length,
     ...selected,
@@ -392,10 +419,10 @@ export function createSemanticRunGuard(options = {}) {
       state.attempted++;
       const value = candidateResult && typeof candidateResult === 'object' ? candidateResult : {};
       if (value.verdict === 'accept' || value.verdict === 'reject') state.judged++;
-      if (value.reason === 'semantic-worse' || value.reason === 'regression-limit') state.regressions++;
-      if (value.rollback) {
-        if (value.reason === 'regression-limit' || value.reason === 'semantic-worse') state.regressions++;
-        else state.errors++;
+      if (value.reason === 'semantic-worse' || value.reason === 'regression-limit') {
+        state.regressions++;
+      } else if (value.rollback) {
+        state.errors++;
       }
       if (value.reason === 'semantic-score-unavailable'
         || value.reason === 'semantic-verdict-unavailable'
