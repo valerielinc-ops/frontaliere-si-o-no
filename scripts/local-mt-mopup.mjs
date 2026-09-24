@@ -72,6 +72,12 @@ import {
   judgeLocalMtMeaning,
   SEMANTIC_VERDICT,
 } from './lib/local-mt-semantic-judge.mjs';
+import {
+  createSemanticRolloutFromEnv,
+  formatSemanticTelemetry,
+  semanticBucketOf,
+  semanticWriteKind,
+} from './lib/local-mt-semantic-rollout.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
@@ -773,6 +779,12 @@ export async function judgeMopupWrite(structural, {
  * `write` candidate and assigns it to `job[titleByLocale|descriptionByLocale]`
  * only on an accepted verdict; any other outcome — mismatch, missing score,
  * judge error — leaves the job object exactly as it was.
+ *
+ * With a `rollout` (scripts/lib/local-mt-semantic-rollout.mjs, #9677) the
+ * boundary is also bounded: a language-driven overwrite needs the kill-switch
+ * on and room under the per-phase cap, and after the error stop nothing is
+ * judged or written. A withheld candidate returns `withheld:<reason>` and the
+ * job is untouched. Without a rollout the behaviour is the #9675 gate alone.
  */
 export async function commitMopupCandidate({
   job,
@@ -780,15 +792,26 @@ export async function commitMopupCandidate({
   field,
   candidate,
   judge = judgeLocalMtMeaning,
+  rollout = null,
 }) {
+  const kind = semanticWriteKind(candidate);
+  if (rollout && candidate?.decision === 'write') {
+    const reason = rollout.beforeJudge({ kind });
+    if (reason) return { written: false, decision: `withheld:${reason}`, judged: candidate };
+  }
   const judged = await judgeMopupWrite(candidate, {
     sourceLang: job?.sourceLang || 'it',
     locale,
     field,
     judge,
   });
+  if (rollout) rollout.recordVerdict(semanticBucketOf(judged));
   if (judged?.decision !== 'write') {
     return { written: false, decision: judged?.decision, judged };
+  }
+  if (rollout) {
+    const reason = rollout.admitWrite({ kind });
+    if (reason) return { written: false, decision: `withheld:${reason}`, judged };
   }
   const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
   if (!job[bag] || typeof job[bag] !== 'object') job[bag] = {};
@@ -914,7 +937,55 @@ function normalizeCompanyKey(value = '') {
     .replace(/^-+|-+$/g, '');
 }
 
+/**
+ * Emit the semantic rollout telemetry (#9677): the console block and the
+ * greppable JSON line always, the JSON file when the workflow names one
+ * (uploaded as an artifact), a short job-summary block when running in
+ * Actions. Written on every exit path of the mop-up, early returns included,
+ * so a missing file means the step never ran, not that it ran clean.
+ */
+function reportSemanticTelemetry(snapshot, env = process.env) {
+  console.log('');
+  for (const line of formatSemanticTelemetry(snapshot)) console.log(line);
+  const target = String(env.LOCAL_MT_SEMANTIC_TELEMETRY_PATH || '').trim();
+  if (target) {
+    try {
+      fs.mkdirSync(path.dirname(target), { recursive: true });
+      fs.writeFileSync(target, `${JSON.stringify(snapshot, null, 2)}\n`, 'utf-8');
+    } catch (err) {
+      console.log(`::warning::[local-mt] could not write semantic telemetry to ${target}: ${err?.message || err}`);
+    }
+  }
+  const summary = String(env.GITHUB_STEP_SUMMARY || '').trim();
+  if (summary) {
+    const { verdicts, written, withheld, cap } = snapshot;
+    const lines = [
+      `### Argos semantic gate (${snapshot.status})`,
+      `- verdicts: accepted ${verdicts.accepted}, rejected ${verdicts.rejected}, unclear ${verdicts.unclear}, error ${verdicts.error}`,
+      `- written: fill ${written.fill}, repair ${written.repair}, overwrite ${written.overwrite}/${cap.maxOverwrites}`,
+      `- withheld: kill-switch ${withheld['kill-switch']}, cap ${withheld.cap}, error-stop ${withheld['error-stop']}`,
+    ];
+    if (snapshot.rollbackRecommended) {
+      lines.push(`- rollback recommended: set ${snapshot.killSwitch.variable}=0`);
+    }
+    try {
+      fs.appendFileSync(summary, `${lines.join('\n')}\n\n`, 'utf-8');
+    } catch { /* the summary is a convenience; the log line is the record */ }
+  }
+}
+
 async function main() {
+  const rollout = createSemanticRolloutFromEnv(process.env, {
+    overwritesEnabled: LANG_AWARE_OVERWRITE,
+  });
+  try {
+    await runMopup(rollout);
+  } finally {
+    reportSemanticTelemetry(rollout.snapshot());
+  }
+}
+
+async function runMopup(rollout) {
   // Parse CLI options only for direct execution. This module is imported by
   // mark-mistranslated-jobs.mjs; its flags must not configure an imported
   // mop-up phase, even when both entry points receive --dry-run.
@@ -1246,6 +1317,18 @@ async function main() {
         if (decision === 'write' && languageDriven) {
           shadowWithheld++;
         }
+        // Shadow sample (#9677): with the kill-switch off, judge a bounded
+        // number of the overwrites the flip would make, so the first enforced
+        // run is predicted by a measured accept/reject rate. Never written.
+        if (finalCandidate.decision === 'write' && finalCandidate.languageDriven
+            && rollout.shouldShadowJudge()) {
+          const shadow = await judgeMopupWrite(finalCandidate, {
+            sourceLang: srcLang,
+            locale,
+            field,
+          });
+          rollout.recordShadowVerdict(semanticBucketOf(shadow));
+        }
         continue;
       }
 
@@ -1274,6 +1357,7 @@ async function main() {
         locale,
         field,
         candidate: finalCandidate,
+        rollout,
       });
       semanticTally[committed.decision] = (semanticTally[committed.decision] || 0) + 1;
       if (!committed.written) continue;
