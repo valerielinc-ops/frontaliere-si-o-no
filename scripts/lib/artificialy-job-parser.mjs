@@ -64,9 +64,28 @@ export function isArtificialyCloudflareBlockedPage(html = '') {
   const source = String(html || '');
   if (looksLikeAntiBotChallenge(source)) return true;
 
-  const hasCloudflareIdentity = /\bcloudflare\b|\bcf-ray\b|\bcf-error-details\b/i.test(source);
-  const hasAccessDenial = /\b(?:error\s*)?403\b|\bforbidden\b|\byou(?:'| a)?re blocked\b|\bunable to access\b/i.test(source);
-  return hasCloudflareIdentity && hasAccessDenial;
+  const title = source.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '';
+  const hasCloudflareTitle = /\bcloudflare\b/i.test(title);
+  const hasDeniedTitle = /\b(?:error\s*)?403\b|\bforbidden\b|\battention required\b|\baccess denied\b|\bblocked\b/i.test(title);
+  if (hasCloudflareTitle && hasDeniedTitle) return true;
+
+  // Cloudflare's hard-denial template keeps the denial evidence in a named
+  // error block. Restrict the match to that block so a healthy career page
+  // mentioning Cloudflare/403 in an unrelated script or help paragraph does
+  // not discard otherwise valid JSON-LD jobs.
+  const errorBlock = source.match(
+    /<(?:div|section|main)[^>]*class=["'][^"']*\b(?:cf-error-details|cf-error|challenge-error)\b[^"']*["'][^>]*>([\s\S]*?)<\/(?:div|section|main)>/i,
+  )?.[1] || '';
+  const hasDeniedErrorBlock = /\b(?:error\s*)?403\b|\bforbidden\b|\b(?:you\s+are|you['’]re)\s+blocked\b|\baccess denied\b|\bunable to access\b/i.test(errorBlock);
+  if (hasDeniedErrorBlock) return true;
+
+  // Some variants omit the class but expose both the Cloudflare Ray ID and a
+  // denial heading. The two markers must be structurally separate from
+  // arbitrary document prose; a generic whole-document AND is intentionally
+  // avoided here (review finding b995b43e1902).
+  const hasRayId = /\b(?:cloudflare\s+)?ray\s+id\b/i.test(source);
+  const hasDeniedHeading = /<h[1-2][^>]*>[\s\S]*?\b(?:error\s*)?403\b[\s\S]*?<\/h[1-2]>|<h[1-2][^>]*>[\s\S]*?\b(?:forbidden|access denied|blocked)\b[\s\S]*?<\/h[1-2]>/i.test(source);
+  return hasRayId && hasDeniedHeading;
 }
 
 /**

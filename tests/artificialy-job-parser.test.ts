@@ -44,4 +44,24 @@ describe('Artificialy career parser', () => {
       items: [expect.objectContaining({ title: 'AI Scientist', location: 'Lugano' })],
     });
   });
+
+  it('does not treat unrelated Cloudflare prose as a denial page', () => {
+    const html = `
+      <html><head><title>Artificialy careers</title></head><body>
+        <script>const helpText = 'Cloudflare documents 403 Forbidden responses';</script>
+        <script type="application/ld+json">${JSON.stringify({
+          '@type': 'JobPosting',
+          title: 'Platform Engineer',
+          jobLocation: { address: { addressLocality: 'Zurich', addressRegion: 'ZH' } },
+          description: 'Build reliable platform services.',
+          url: 'https://www.artificialy.com/careers/platform-engineer',
+        })}</script>
+      </body></html>`;
+
+    expect(isArtificialyCloudflareBlockedPage(html)).toBe(false);
+    expect(parseArtificialyCareerPage(html)).toMatchObject({
+      blocked: false,
+      items: [expect.objectContaining({ title: 'Platform Engineer', location: 'Zurich' })],
+    });
+  });
 });
