@@ -1,21 +1,21 @@
 {
   "key": "fhgr",
   "label": "Fachhochschule Graubünden",
-  "generatedAt": "2026-09-22T00:12:32.526Z",
-  "total": 4,
+  "generatedAt": "2026-09-23T23:51:46.758Z",
+  "total": 3,
   "discovered": null,
   "parsed": 2,
   "lastFetchOutcome": null,
-  "written": 4,
+  "written": 3,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5866,
-  "avgDurationMs": 5866,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 7288,
+  "avgDurationMs": 7288,
   "durationHistory": [
-    5866
+    7288
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -31,7 +31,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/807/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:12:22.668Z",
+      "crawledAt": "2026-09-23T23:51:37.108Z",
       "addressLocality": "Zürich",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -68,7 +68,7 @@
       "url": "https://jobs.fhgr.ch/Vacancies/749/Description/1",
       "source": "Fachhochschule Graubünden Dedicated Parser (Umantis)",
       "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:12:23.502Z",
+      "crawledAt": "2026-09-23T23:51:38.268Z",
       "addressLocality": "Chur",
       "postalCode": "7000",
       "addressCountry": "CH",
@@ -94,8 +94,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "fhgr-b9a11e45c5e0",
       "slug": "assistente-hr-fachhochschule-graubunden-chur",
@@ -137,7 +136,9 @@
         "translation": 25,
         "completeness": 22
       }
-    },
+    }
+  ],
+  "unchangedJobs": [
     {
       "id": "fhgr-b052f8397abe",
       "slug": "responsabile-del-progetto-direttore-amministrativo-fachhochschule-graubunden-chur",
@@ -171,7 +172,7 @@
       "salaryMax": 135000,
       "salarySource": "estimated",
       "addressRegion": "GR",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
