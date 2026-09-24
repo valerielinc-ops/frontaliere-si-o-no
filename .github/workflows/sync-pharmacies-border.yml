@@ -52,6 +52,24 @@ jobs:
         env:
           PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
         run: node scripts/sync-pharmacy-duties.mjs
+      - name: Fetch Geneva duty release
+        id: geneva
+        continue-on-error: true
+        run: |
+          set +e
+          node scripts/import-pharmacy-duties-geneva.mjs
+          geneva_exit=$?
+          set -e
+          echo "exit=$geneva_exit" >> "$GITHUB_OUTPUT"
+          echo "unexpected=false" >> "$GITHUB_OUTPUT"
+          case "$geneva_exit" in
+            0) echo "Geneva duty release is fresh and publishable." ;;
+            1) echo "Geneva duty importer reported a data-quality diagnostic; committing its fail-closed snapshot for the health monitor." ;;
+            *) echo "unexpected=true" >> "$GITHUB_OUTPUT"; echo "::error::Geneva duty importer failed unexpectedly with exit=$geneva_exit"; exit 1 ;;
+          esac
+      - name: Fail on unexpected Geneva importer failure
+        if: steps.geneva.outputs.unexpected == 'true'
+        run: exit 1
       - name: Import and finalize official border catalogue release
         env:
           PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
@@ -63,13 +81,13 @@ jobs:
           PHARMACY_DUTY_STAGE_DIR: ${{ runner.temp }}/pharmacy-duty-stage
         run: |
           set -euo pipefail
-          if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json; then
+          if git diff --quiet -- data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json data/pharmacy-duties-geneva.json data/pharmacy-duties-geneva-status.json; then
             echo "No cross-border pharmacy data changes."
             exit 0
           fi
           git config user.name "github-actions[bot]"
           git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json
+          git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json data/pharmacy-duties-geneva.json data/pharmacy-duties-geneva-status.json
           git commit -m "chore(data): refresh atomic cross-border pharmacy release"
           bash scripts/lib/git-push-with-retry.sh \
             --regenerate-cmd '
@@ -79,6 +97,12 @@ jobs:
               case "$duty_exit" in
                 0|1|2) echo "[pharmacy-retry] duty fetch diagnostic exit=$duty_exit; continuing to atomic finalizer" ;;
                 *) echo "[pharmacy-retry] unexpected duty fetch exit=$duty_exit" ; exit "$duty_exit" ;;
+              esac
+              geneva_exit=0
+              node scripts/import-pharmacy-duties-geneva.mjs || geneva_exit=$?
+              case "$geneva_exit" in
+                0|1) echo "[pharmacy-retry] Geneva duty diagnostic exit=$geneva_exit; continuing to atomic finalizer" ;;
+                *) echo "[pharmacy-retry] unexpected Geneva duty exit=$geneva_exit" ; return "$geneva_exit" ;;
               esac
               npm run pharmacies:import
               finalizer_exit=$?
@@ -92,7 +116,7 @@ jobs:
                 echo "::error::[pharmacy-retry] pharmacies:check failed with exit=$check_exit"
                 return "$check_exit"
               fi
-              git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json
+              git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json data/pharmacy-duties-geneva.json data/pharmacy-duties-geneva-status.json
               stage_exit=$?
               if [ "$stage_exit" -ne 0 ]; then
                 echo "::error::[pharmacy-retry] git add failed with exit=$stage_exit"

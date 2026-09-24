@@ -302,6 +302,12 @@ function dateWithinWindow(date) {
 
 function coverageDays(cards) {
   const days = new Set();
+  if (cards.some((candidate) => candidate.kind === 'permanent')) {
+    for (const key of dateKeysBetween(
+      dateFromKey(GENEVA_DUTY_RELEASE_VALID_FROM),
+      dateFromKey(GENEVA_DUTY_RELEASE_VALID_TO),
+    )) days.add(key);
+  }
   for (const card of cards.filter((candidate) => candidate.kind === 'dated')) {
     for (const key of dateKeysBetween(card.start, card.end)) days.add(key);
   }
@@ -322,6 +328,7 @@ function hasGap(days) {
 function intervalOverlaps(cards) {
   const dated = cards.filter((candidate) => candidate.kind === 'dated');
   return dated.some((current, index) => dated.slice(index + 1).some((next) => {
+    if (normalizeGenevaDutyText(current.sourceLabel) !== normalizeGenevaDutyText(next.sourceLabel)) return false;
     const currentStart = Date.UTC(current.start.year, current.start.month - 1, current.start.day);
     const currentEnd = Date.UTC(nextDate(current.end).year, nextDate(current.end).month - 1, nextDate(current.end).day);
     const nextStart = Date.UTC(next.start.year, next.start.month - 1, next.start.day);
@@ -334,7 +341,11 @@ function dutyId(sourceKey, date, pharmacyId) {
   return `ge-duty-${sourceKey}-${dateKey(date)}-${pharmacyId}`.replace(/[^a-zA-Z0-9_-]/g, '-');
 }
 
-function toObservedDuties(card, source, identity, fetchedAt) {
+function dutyStatusFor(endsAt, asOf) {
+  return Date.parse(endsAt) <= Date.parse(asOf) ? 'expired' : 'verified';
+}
+
+function toObservedDuties(card, source, identity, fetchedAt, asOf) {
   if (!source) return null;
   const duties = [];
   const overnight = card.endTime <= card.startTime;
@@ -352,7 +363,36 @@ function toObservedDuties(card, source, identity, fetchedAt) {
       startsAt,
       endsAt,
       dutyType: 'day',
-      status: 'verified',
+      status: dutyStatusFor(endsAt, asOf),
+      sourceUrl: GENEVA_DUTY_RELEASE_SOURCE_URL,
+      sourceType: 'association',
+      fetchedAt,
+      verifiedAt: fetchedAt,
+    });
+  }
+  return duties;
+}
+
+function toPermanentDuties(source, identity, fetchedAt, asOf) {
+  if (!source) return null;
+  const duties = [];
+  for (const key of dateKeysBetween(
+    dateFromKey(GENEVA_DUTY_RELEASE_VALID_FROM),
+    dateFromKey(GENEVA_DUTY_RELEASE_VALID_TO),
+  )) {
+    const date = dateFromKey(key);
+    const startsAt = localDateTimeToGenevaIso(date, '00:00');
+    const endsAt = localDateTimeToGenevaIso(nextDate(date), '00:00');
+    if (!startsAt || !endsAt || Date.parse(endsAt) <= Date.parse(startsAt)) return null;
+    duties.push({
+      id: dutyId(source.key, date, identity.pharmacyId),
+      pharmacyId: identity.pharmacyId,
+      coverageType: 'canton',
+      coverageName: GENEVA_DUTY_RELEASE_COVERAGE_NAME,
+      startsAt,
+      endsAt,
+      dutyType: '24h',
+      status: dutyStatusFor(endsAt, asOf),
       sourceUrl: GENEVA_DUTY_RELEASE_SOURCE_URL,
       sourceType: 'association',
       fetchedAt,
@@ -394,14 +434,14 @@ export function parseGenevaDutySource(rawHtml, registry, {
   const datedCards = parsed.cards.filter((card) => card.kind === 'dated');
   const permanentCards = parsed.cards.filter((card) => card.kind === 'permanent');
   if (permanentCards.length > 0) {
-    warnings.push('permanent 24/7 cards are retained as observations only; no dated duty interval is inferred');
+    warnings.push('permanent 24/7 cards are expanded into explicit daily 24h duty intervals');
   }
   for (const card of parsed.cards.filter((candidate) => candidate.kind === 'invalid')) {
     errors.push(`source card ${card.index} is missing an explicit date range, interval or Geneva locality`);
   }
   if (datedCards.length === 0) errors.push('official source contains no dated Geneva duty window');
 
-  const days = coverageDays(datedCards);
+  const days = coverageDays(parsed.cards);
   const outOfWindow = datedCards.filter((card) => !dateWithinWindow(card.start) || !dateWithinWindow(card.end));
   if (outOfWindow.length > 0) errors.push(`official duty window is outside the declared 2026 calendar: ${outOfWindow.length} card(s)`);
   if (intervalOverlaps(datedCards)) errors.push('official duty windows overlap; coverage is conflicting');
@@ -414,7 +454,7 @@ export function parseGenevaDutySource(rawHtml, registry, {
   const observedDuties = [];
   const unresolvedIdentities = [];
   const seenIdentityErrors = new Set();
-  for (const card of datedCards) {
+  for (const card of parsed.cards.filter((candidate) => candidate.kind === 'dated' || candidate.kind === 'permanent')) {
     const identity = resolveIdentity(card.sourceLabel, source, catalogue);
     if (identity.error) {
       unresolvedIdentities.push(identity.pharmacyId || card.sourceLabel);
@@ -424,7 +464,9 @@ export function parseGenevaDutySource(rawHtml, registry, {
       }
       continue;
     }
-    const duties = toObservedDuties(card, source, identity, fetchedAt);
+    const duties = card.kind === 'permanent'
+      ? toPermanentDuties(source, identity, fetchedAt, asOf)
+      : toObservedDuties(card, source, identity, fetchedAt, asOf);
     if (!duties) {
       errors.push(`source card ${card.index} has an invalid ${GENEVA_DUTY_RELEASE_TIMEZONE} boundary`);
       continue;

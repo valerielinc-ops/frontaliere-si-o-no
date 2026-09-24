@@ -127,10 +127,10 @@ describe('evaluateBorderHealth', () => {
     expect(health.jurisdictions).toMatchObject([
       { key: 'CH-TI', sourceStatus: 'active', recordCount: 207 },
       { key: 'IT-CO', sourceStatus: 'active', recordCount: 193 },
-      { key: 'IT-VA', sourceStatus: 'active', recordCount: 266 },
+      { key: 'IT-VA', sourceStatus: 'active', recordCount: 268 },
       { key: 'IT-VB', sourceStatus: 'active', recordCount: 83 },
     ]);
-    expect(health.totalRecords).toBe(749);
+    expect(health.totalRecords).toBe(751);
     expect(health.fetchErrors).toEqual([]);
     expect(health.outOfScopeRecords).toEqual([]);
     expect(health.sourceMismatches).toEqual([]);
@@ -353,7 +353,7 @@ describe('report payload consumed by the workflow', () => {
     expect(report.problems.join('\n')).toContain('sync-pharmacies-border');
   });
 
-  // asserisce i conteggi reali (749 record, 193 IT-CO) delle snapshot farmacie: rosso possibile senza cambi di codice
+  // asserisce i conteggi reali (751 record, 193 IT-CO) delle snapshot farmacie: rosso possibile senza cambi di codice
   it.skipIf(SKIP_LIVE_DATA)('includes the border health panel in the machine-readable report and dashboard', () => {
     const report = buildReport({
       registry,
@@ -369,8 +369,8 @@ describe('report payload consumed by the workflow', () => {
       },
     });
     expect(report.healthy).toBe(true);
-    expect(report.border).toMatchObject({ totalRecords: 749, outOfScopeRecords: [], identityCollisions: [], missingSecondaryProvenance: [] });
-    expect(report.dashboard.join('\n')).toContain('Perimetro operativo: 4 giurisdizioni · 749 record');
+    expect(report.border).toMatchObject({ totalRecords: 751, outOfScopeRecords: [], identityCollisions: [], missingSecondaryProvenance: [] });
+    expect(report.dashboard.join('\n')).toContain('Perimetro operativo: 4 giurisdizioni · 751 record');
     expect(report.dashboard.join('\n')).toContain('IT-CO [active] — 193 record');
     expect(report.dashboard.join('\n')).toContain('Errori fetch perimetro: 0');
     expect(report.dashboard.join('\n')).toContain('Record nella snapshot della fonte errata: 0');

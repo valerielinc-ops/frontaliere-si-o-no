@@ -51,6 +51,7 @@ describe('pharmacy atomic refresh workflow', () => {
 
     const regenerateCommand = retryCommand!
       .replace('node scripts/sync-pharmacy-duties.mjs', '(exit "$DUTY_SIMULATED_EXIT")')
+      .replace('node scripts/import-pharmacy-duties-geneva.mjs', ':')
       .replace('npm run pharmacies:import', 'echo FINALIZER')
       .replace('npm run pharmacies:check', 'echo CHECK')
       .replace('git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json', 'echo ADD');
@@ -88,6 +89,7 @@ describe('pharmacy atomic refresh workflow', () => {
 
     const regenerateCommand = retryCommand!
       .replace('node scripts/sync-pharmacy-duties.mjs', ':')
+      .replace('node scripts/import-pharmacy-duties-geneva.mjs', ':')
       .replace('npm run pharmacies:import', command === 'npm run pharmacies:import' ? '(exit "$FAILURE_EXIT")' : 'echo FINALIZER')
       .replace('npm run pharmacies:check', command === 'npm run pharmacies:check' ? '(exit "$FAILURE_EXIT")' : 'echo CHECK')
       .replace('git add data/pharmacies-ticino-complete.json data/pharmacies-italy-border.json data/pharmacy-duties-ticino.json data/pharmacy-duties-ticino-status.json', command.startsWith('git add') ? '(exit "$FAILURE_EXIT")' : 'echo ADD');
