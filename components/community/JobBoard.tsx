@@ -197,6 +197,12 @@ import {
 } from '@/services/rewardedApplicationAccess';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
 import {
+ getRewardedWebAdEligibilityReason,
+ getRewardedWebAdSnapshot,
+ preloadRewardedWebAd,
+ showRewardedWebAd,
+} from '@/services/rewardedWebAd';
+import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
 } from '@/services/assistedApplicationCheckout';
@@ -3540,38 +3546,18 @@ const JobBoard: React.FC<JobBoardProps> = ({
  );
  useEffect(() => {
   if (!shouldPreloadRewardedApplicationAd) return;
- let cancelled = false;
- let idleId: number | null = null;
- let timeoutId: number | null = null;
- let preloadPromise: Promise<unknown> | null = null;
- const idleWindow = window as Window & {
-   requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
-   cancelIdleCallback?: (id: number) => void;
- };
- const start = () => {
-   if (cancelled || !isAdsConsentGranted() || preloadPromise) return;
-   // Keep the rewarded/GPT implementation out of the initial JobBoard chunk.
-   // The page only downloads it for an eligible, consented detail view.
-   preloadPromise = import('@/services/rewardedWebAd')
-    .then(({ preloadRewardedWebAd }) => {
-     if (!cancelled) preloadRewardedWebAd();
-    })
-    .catch(() => {});
- };
-  if (typeof idleWindow.requestIdleCallback === 'function') {
-   idleId = idleWindow.requestIdleCallback(start, { timeout: 1000 });
-  } else {
-   timeoutId = window.setTimeout(start, 250);
-  }
-  const unsubscribe = onAdsConsentChange((value) => {
-   if (value === 'granted') start();
-  });
-  return () => {
-   cancelled = true;
+ // The candidate click must be able to call showRewardedWebAd synchronously;
+ // an idle callback or a dynamic import here would lose the browser's user
+ // activation before GPT receives makeRewardedVisible(). The service is a
+ // small static dependency and the auction is still started only for an
+ // eligible, consented job detail.
+ if (isAdsConsentGranted()) preloadRewardedWebAd();
+ const unsubscribe = onAdsConsentChange((value) => {
+   if (value === 'granted') preloadRewardedWebAd();
+ });
+ return () => {
    unsubscribe();
-   if (idleId !== null) idleWindow.cancelIdleCallback?.(idleId);
-   if (timeoutId !== null) window.clearTimeout(timeoutId);
-  };
+ };
  }, [shouldPreloadRewardedApplicationAd]);
  const assistedExposureKeysRef = useRef(new Set<string>());
  useEffect(() => {
@@ -7108,6 +7094,51 @@ const JobBoard: React.FC<JobBoardProps> = ({
   trackAssistedApplicationEvent(
    'rewarded_application_offer_requested',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, provider: 'google_gpt_rewarded_web' },
+  );
+
+  // This call must stay in the original candidate click handler. Calling it
+  // from the offer component's readiness effect happens after React commits
+  // the modal and can lose the browser user-activation required by GPT's
+  // makeRewardedVisible(). A failed synchronous show is a deterministic
+  // monetization miss: record the exact reason and hand the visitor directly
+  // to the employer without mounting an empty/retry offer.
+  const requestSnapshotBeforeShow = getRewardedWebAdSnapshot();
+  const rewardedAdStarted = showRewardedWebAd();
+  if (!rewardedAdStarted) {
+   const requestSnapshotAfterShow = getRewardedWebAdSnapshot();
+   const eventReason = requestSnapshotAfterShow.lastEvent?.requestId === requestSnapshotAfterShow.requestId
+    && requestSnapshotAfterShow.lastEvent.type === 'unavailable'
+    ? requestSnapshotAfterShow.lastEvent.reason
+    : undefined;
+   const reason = eventReason
+    || getRewardedWebAdEligibilityReason()
+    || (requestSnapshotBeforeShow.state === 'loading'
+     ? 'not_ready_on_candidate_click'
+     : requestSnapshotBeforeShow.state === 'idle'
+      ? 'not_preloaded_on_candidate_click'
+      : 'show_not_started_on_candidate_click');
+   trackAssistedApplicationEvent(
+    'rewarded_ad_unavailable',
+    {
+     ...assistedApplicationJobContext(job, assistedApplicationVariant),
+     surface,
+     reason,
+     trigger: 'candidate_click',
+     request_state: requestSnapshotBeforeShow.state,
+     handoff: 'direct_external',
+    },
+   );
+   redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true);
+   return;
+  }
+  trackAssistedApplicationEvent(
+   'rewarded_ad_opt_in',
+   {
+    ...assistedApplicationJobContext(job, assistedApplicationVariant),
+    surface,
+    trigger: 'candidate_click',
+    request_state: requestSnapshotBeforeShow.state,
+   },
   );
   setRewardedApplicationJob(job);
   if (!isJobDetailView) openDetail(job);

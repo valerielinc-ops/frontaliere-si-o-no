@@ -83,10 +83,11 @@ describe('RewardedApplicationOffer', () => {
     expect(onDismiss).toHaveBeenCalledTimes(2);
   });
 
-  it('keeps the Google request preloaded but requires an explicit ad opt-in', () => {
+  it('does not add a second opt-in CTA after the candidate click owns ad start', () => {
     render(<RewardedApplicationOffer {...defaultProps} />);
 
-    expect(rewardedMock.props?.autoStart).not.toBe(true);
+    expect(rewardedMock.props?.autoStart).toBeUndefined();
+    expect(rewardedMock.props?.onOptIn).toBeUndefined();
   });
 
   it('redirects the visitor without retrying when Google has no paid fill', () => {

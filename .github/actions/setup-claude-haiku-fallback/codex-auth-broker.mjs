@@ -32,6 +32,9 @@ const MAX_AUTH_BYTES = 256 * 1024;
 const DEFAULT_TTL_MS = 30 * 60 * 1000;
 const DEFAULT_MAX_REQUESTS = 512;
 const MAX_TIMEOUT_MS = 600_000;
+const MAX_STDERR_TAIL_CHARS = 16 * 1024;
+// Fits the 300-character error the broker returns, after its own prefix.
+const MAX_FAILURE_REASON_CHARS = 200;
 const CLIENT_LIVENESS_PROBE = '\0';
 
 function argument(name, fallback = '') {
@@ -88,6 +91,17 @@ function validateSocketParent() {
   }
 }
 
+// No ":slash_tmp" rule, unlike claude-codex-fallback/action.yml: there the
+// workspace is the checkout, here runCodex() builds workspace, CODEX_HOME and
+// TMPDIR under os.tmpdir(), i.e. /tmp (the broker starts under `env -i`).
+// Denying /tmp denied the workspace root itself, and next to ":tmpdir" bwrap
+// could not mount TMPDIR on the read-only /tmp, so every request died before
+// the model was called ("Codex CLI exited with code 1"; the twin broker in
+// nanakokyobashi-rgb/frontaliere-articles failed every call of runs
+// 34792206007, 35298825794, 36001495484). ":root" = "deny" already hides the
+// rest of /tmp: measured with `codex sandbox` 0.153.4, the workspace stays
+// readable while auth.json, config.toml and other /tmp files are not found
+// and TMPDIR is denied.
 function permissionConfig() {
   return `default_permissions = "${CODEX_PROFILE}"
 
@@ -102,7 +116,6 @@ enabled = false
 ":root" = "deny"
 ":minimal" = "read"
 ":tmpdir" = "deny"
-":slash_tmp" = "deny"
 
 [permissions.${CODEX_PROFILE}.filesystem.":workspace_roots"]
 "." = "read"
@@ -250,6 +263,30 @@ function assertPrivateRuntime(runtimeRoot, directories, files) {
   for (const file of files) assertEntry(file, 'file', 0o600);
 }
 
+/**
+ * The last error line Codex printed, reduced to what may cross the socket.
+ * Without it every failure read "Codex CLI exited with code 1", and a sandbox
+ * profile that broke all requests went unnoticed for two weeks. The tail of
+ * the line is kept because Codex chains errors outermost-first, so the cause
+ * (e.g. the bwrap message) is at the end. Token-shaped runs are redacted even
+ * though Codex does not print credentials, since this text reaches job logs.
+ */
+function codexFailureReason(stderr) {
+  const lines = String(stderr || '')
+    .replace(/\x1b\[[0-9;]*[A-Za-z]/g, '')
+    .split(/\r?\n/)
+    .map((line) => line.trim())
+    .filter(Boolean);
+  const line = [...lines].reverse().find((candidate) => /error/i.test(candidate)) || lines.at(-1) || '';
+  const safe = line
+    .replace(/eyJ[\w-]+\.[\w-]+\.[\w-]+/g, '[redacted]')
+    .replace(/[A-Za-z0-9_+=-]{32,}/g, '[redacted]')
+    .replace(/\s+/g, ' ');
+  return safe.length > MAX_FAILURE_REASON_CHARS
+    ? `…${safe.slice(-(MAX_FAILURE_REASON_CHARS - 1))}`
+    : safe;
+}
+
 function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
   const runtimeRoot = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-luna-max-broker-'));
   const codexHome = path.join(runtimeRoot, 'home');
@@ -320,12 +357,17 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
         throw new Error('Codex CLI changed after attestation');
       }
       child = spawn(codexCliPath, args, {
-        stdio: ['pipe', 'ignore', 'ignore'],
+        stdio: ['pipe', 'ignore', 'pipe'],
         env: childEnv(codexHome, codexTmp),
         cwd: codexWorkspace,
         detached: process.platform !== 'win32',
       });
       activeChild = child;
+      let stderrTail = '';
+      child.stderr.setEncoding('utf8');
+      child.stderr.on('data', (chunk) => {
+        stderrTail = (stderrTail + chunk).slice(-MAX_STDERR_TAIL_CHARS);
+      });
       let settled = false;
       const timer = setTimeout(() => {
         if (settled) return;
@@ -347,7 +389,8 @@ function runCodex({ authJson: credential, prompt, timeoutMs, schema }) {
         settled = true;
         clearTimeout(timer);
         if (code !== 0) {
-          reject(new Error(`Codex CLI exited with code ${code}`));
+          const reason = codexFailureReason(stderrTail);
+          reject(new Error(`Codex CLI exited with code ${code}${reason ? `: ${reason}` : ''}`));
           return;
         }
         try {
