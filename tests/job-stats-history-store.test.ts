@@ -8,9 +8,26 @@ import { fileURLToPath } from 'node:url';
 
 import {
   JOB_STATS_HISTORY_LEGACY_FILE,
+  JOB_STATS_HISTORY_SHARD_MAX_BYTES,
   readJobsStatsHistory,
   writeJobsStatsHistory,
 } from '../scripts/lib/job-stats-history-store.mjs';
+import { updateJobsStatsHistory } from '../scripts/lib/job-board-stats.mjs';
+
+const SHARD_DIR = 'data/jobs-stats-history';
+
+function shardSizes(root: string) {
+  const dir = path.join(root, SHARD_DIR);
+  return Object.fromEntries(
+    fs.readdirSync(dir)
+      .filter((name) => name !== 'manifest.json')
+      .map((name) => [name, fs.statSync(path.join(dir, name)).size]),
+  );
+}
+
+function readShard(root: string, name: string) {
+  return JSON.parse(fs.readFileSync(path.join(root, SHARD_DIR, name), 'utf8'));
+}
 
 function withTempRoot(run: (root: string) => void) {
   const root = fs.mkdtempSync(path.join(os.tmpdir(), 'job-stats-history-'));
@@ -62,7 +79,7 @@ describe('job stats history store', () => {
     });
   });
 
-  it('writes only the current monthly shard and leaves the legacy blob byte-identical', () => {
+  it('writes only the current daily shard and leaves the legacy blob byte-identical', () => {
     withTempRoot((root) => {
       const legacyPath = path.join(root, JOB_STATS_HISTORY_LEGACY_FILE);
       fs.mkdirSync(path.dirname(legacyPath), { recursive: true });
@@ -74,96 +91,37 @@ describe('job stats history store', () => {
         entry('2026-09-20', { added: 1, addedKeys: ['url:new'] }),
       ] }, root, { currentDate: '2026-09-20' });
 
-      expect(result.month).toBe('2026-09');
+      expect(result.date).toBe('2026-09-20');
       expect(fs.readFileSync(legacyPath, 'utf8')).toBe(legacy);
-      expect(fs.readdirSync(path.join(root, 'data/jobs-stats-history')).sort()).toEqual(['2026-09.json', 'manifest.json']);
-      expect(JSON.parse(fs.readFileSync(path.join(root, 'data/jobs-stats-history/2026-09.json'), 'utf8')).entries).toEqual([
+      expect(fs.readdirSync(path.join(root, SHARD_DIR)).sort()).toEqual(['2026-09-20.json', 'manifest.json']);
+      expect(readShard(root, '2026-09-20.json').entries).toEqual([
         entry('2026-09-20', { added: 1, addedKeys: ['url:new'] }),
       ]);
       expect(readJobsStatsHistory(root).entries.map((item) => item.date)).toEqual(['2026-09-19', '2026-09-20']);
     });
   });
 
-  it('preserves existing days in a shard while replacing the current day', () => {
+  it('rewrites a past day from the slimmed canonical history and keeps the current day verbatim', () => {
     withTempRoot((root) => {
-      const shardPath = path.join(root, 'data/jobs-stats-history/2026-09.json');
-      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
-      fs.writeFileSync(shardPath, JSON.stringify({ entries: [entry('2026-09-19', { added: 2, addedKeys: ['url:old'] })] }));
-
-      writeJobsStatsHistory({ entries: [
-        entry('2026-09-19', { added: 99, addedKeys: ['url:should-not-replace-old-day'] }),
-        entry('2026-09-20', { totalJobs: 13 }),
-      ] }, root, { currentDate: '2026-09-20' });
-
-      expect(JSON.parse(fs.readFileSync(shardPath, 'utf8')).entries).toEqual([
-        entry('2026-09-19', { added: 2, addedKeys: ['url:old'] }),
-        entry('2026-09-20', { totalJobs: 13 }),
-      ]);
-    });
-  });
-
-  it('slims the current shard past days without taking values from the canonical history', () => {
-    withTempRoot((root) => {
-      const shardPath = path.join(root, 'data/jobs-stats-history/2026-09.json');
-      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
-      // A past day still carrying its full "today" payload, as the writer used
-      // to keep it (GH001: 2026-09.json reached 105 MB on its fifth day).
-      fs.writeFileSync(shardPath, JSON.stringify({ entries: [entry('2026-09-19', {
-        added: 2,
+      const pastPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(pastPath), { recursive: true });
+      fs.writeFileSync(pastPath, JSON.stringify({ entries: [entry('2026-09-19', {
+        added: 1,
         updated: 2,
-        removed: 1,
-        addedKeys: ['url:a', 'url:b'],
+        addedKeys: ['url:old'],
         updatedKeys: ['url:u1', 'url:u2'],
-        removedKeys: ['url:r1'],
-        companyStats: [
-          { key: 'acme', addedKeys: ['url:a'], updatedKeys: ['url:u1'], removedKeys: ['url:r1'] },
-          { key: 'updated-only-co', addedKeys: [], updatedKeys: ['url:u2'], removedKeys: [] },
-        ],
-        locationStats: [
-          { key: 'lugano', addedKeys: ['url:a', 'url:b'], updatedKeys: ['url:u1'], removedKeys: [] },
-          { key: 'updated-only-loc', addedKeys: [], updatedKeys: ['url:u2'], removedKeys: ['url:r1'] },
-        ],
-        titleStats: [
-          { key: 'dev', addedKeys: ['url:a'], updatedKeys: [], removedKeys: [] },
-          { key: 'updated-only-title', addedKeys: [], updatedKeys: ['url:u1', 'url:u2'], removedKeys: [] },
-        ],
       })] }));
 
-      const history = { entries: [
-        entry('2026-09-19', { added: 99, addedKeys: ['url:should-not-replace-old-day'] }),
-        entry('2026-09-20', { totalJobs: 13, updated: 1, updatedKeys: ['url:today'] }),
-      ] };
-      writeJobsStatsHistory(history, root, { currentDate: '2026-09-20' });
+      const slimmedPast = entry('2026-09-19', { added: 1, updated: 2, addedKeys: ['url:old'] });
+      const today = entry('2026-09-20', { totalJobs: 13, updated: 1, updatedKeys: ['url:u3'] });
+      writeJobsStatsHistory({ entries: [slimmedPast, today] }, root, { currentDate: '2026-09-20' });
 
-      const written = fs.readFileSync(shardPath, 'utf8');
-      expect(JSON.parse(written).entries).toEqual([
-        entry('2026-09-19', {
-          added: 2,
-          updated: 2,
-          removed: 1,
-          addedKeys: ['url:a', 'url:b'],
-          companyStats: [
-            { key: 'acme', addedKeys: ['url:a'], updatedKeys: [], removedKeys: [], updatedCount: 1, removedCount: 1 },
-            { key: 'updated-only-co', addedKeys: [], updatedKeys: [], removedKeys: [], updatedCount: 1 },
-          ],
-          locationStats: [
-            { key: 'lugano', addedKeys: ['url:a', 'url:b'], updatedKeys: [], removedKeys: [], updatedCount: 1 },
-          ],
-          titleStats: [
-            { key: 'dev', addedKeys: ['url:a'], updatedKeys: [], removedKeys: [] },
-          ],
-        }),
-        // The still-accumulating day keeps its full key arrays.
-        entry('2026-09-20', { totalJobs: 13, updated: 1, updatedKeys: ['url:today'] }),
-      ]);
-
-      // Fixed point: a slimmed day is not rewritten by later runs.
-      expect(writeJobsStatsHistory(history, root, { currentDate: '2026-09-20' }).shardChanged).toBe(false);
-      expect(fs.readFileSync(shardPath, 'utf8')).toBe(written);
+      expect(readShard(root, '2026-09-19.json').entries).toEqual([slimmedPast]);
+      expect(readShard(root, '2026-09-20.json').entries).toEqual([today]);
     });
   });
 
-  it('reconciles existing shards with compacted history and prunes expired entries', () => {
+  it('migrates legacy monthly shards to compacted daily shards and prunes expired entries', () => {
     withTempRoot((root) => {
       const oldShardPath = path.join(root, 'data/jobs-stats-history/2026-07.json');
       const expiredShardPath = path.join(root, 'data/jobs-stats-history/2025-12.json');
@@ -181,10 +139,117 @@ describe('job stats history store', () => {
         entry('2026-09-20', { totalJobs: 13 }),
       ] }, root, { currentDate: '2026-09-20' });
 
-      expect(JSON.parse(fs.readFileSync(oldShardPath, 'utf8')).entries).toEqual([compacted]);
+      // The legacy monthly shard is migrated into a compacted daily shard.
+      expect(fs.existsSync(oldShardPath)).toBe(false);
+      expect(readShard(root, '2026-07-01.json').entries).toEqual([compacted]);
       expect(fs.existsSync(expiredShardPath)).toBe(false);
-      expect(JSON.parse(fs.readFileSync(path.join(root, 'data/jobs-stats-history/manifest.json'), 'utf8')).months)
-        .toEqual(['2026-07', '2026-09']);
+      expect(readShard(root, 'manifest.json')).toMatchObject({
+        format: 'daily-entry-shards',
+        days: ['2026-07-01', '2026-09-20'],
+      });
+    });
+  });
+
+  it('reads legacy monolith, legacy monthly shards and daily shards together', () => {
+    withTempRoot((root) => {
+      const legacyPath = path.join(root, JOB_STATS_HISTORY_LEGACY_FILE);
+      fs.mkdirSync(path.join(root, SHARD_DIR), { recursive: true });
+      fs.writeFileSync(legacyPath, JSON.stringify({ entries: [entry('2026-08-30'), entry('2026-09-01', { totalJobs: 1 })] }));
+      fs.writeFileSync(path.join(root, SHARD_DIR, '2026-09.json'), JSON.stringify({ entries: [
+        entry('2026-09-01', { totalJobs: 11 }),
+        entry('2026-09-02', { added: 1, addedKeys: ['url:monthly'] }),
+      ] }));
+      fs.writeFileSync(path.join(root, SHARD_DIR, '2026-09-02.json'), JSON.stringify({ entries: [
+        entry('2026-09-02', { added: 1, addedKeys: ['url:daily'] }),
+      ] }));
+      fs.writeFileSync(path.join(root, SHARD_DIR, '2026-09-03.json'), JSON.stringify({ entries: [entry('2026-09-03', { totalJobs: 12 })] }));
+
+      const entries = readJobsStatsHistory(root).entries;
+      expect(entries.map((item) => item.date)).toEqual(['2026-08-30', '2026-09-01', '2026-09-02', '2026-09-03']);
+      expect(entries[1].totalJobs).toBe(11);
+      // A date present in both a monthly and a daily shard is merged monotonically.
+      expect(entries[2]).toMatchObject({ added: 2, addedKeys: ['url:daily', 'url:monthly'] });
+    });
+  });
+
+  it('keeps every shard under the push guard across a full month of realistic days (#9654)', () => {
+    // Production shape, scaled down: ~25k updated jobs/day made a verbose day
+    // ~20 MB against a 90 MB guard (ratio 4.5). Here a day is ~1/15 of that
+    // and the guard keeps the same ratio to the verbose day size.
+    const GUARD_TO_VERBOSE_DAY = 4.5;
+    const UPDATED_PER_DAY = 1000;
+    const ADDED_PER_DAY = 120;
+    const REMOVED_PER_DAY = 90;
+    const job = (id: string) => {
+      const n = Number(id.replace(/\D/g, '')) || 0;
+      return {
+        url: `https://careers.example-employer-${n % 400}.ch/jobs/offerta-lavoro-posizione-${id}-full-time-100`,
+        company: `Employer ${n % 400}`,
+        location: `Localita ${n % 150}`,
+        title: `Titolo professionale ${n % 1200}`,
+      };
+    };
+    withTempRoot((root) => {
+      let verboseDayBytes = 0;
+      let history: Record<string, unknown> = { entries: [] };
+      for (let day = 1; day <= 30; day += 1) {
+        const date = `2026-09-${String(day).padStart(2, '0')}`;
+        const diff = {
+          updatedJobs: Array.from({ length: UPDATED_PER_DAY }, (_, i) => job(`u${(day * 997 + i) % 20000}`)),
+          addedJobs: Array.from({ length: ADDED_PER_DAY }, (_, i) => job(`a${day * 1000 + i}`)),
+          removedJobs: Array.from({ length: REMOVED_PER_DAY }, (_, i) => job(`r${day * 1000 + i}`)),
+        };
+        history = updateJobsStatsHistory(readJobsStatsHistory(root), diff, new Array(20000).fill({}), {
+          now: `${date}T10:00:00.000Z`,
+        });
+        const current = (history.entries as Array<{ date: string }>).find((item) => item.date === date);
+        verboseDayBytes = Math.max(
+          verboseDayBytes,
+          Buffer.byteLength(JSON.stringify({ entries: [current] }, null, 2)),
+        );
+        writeJobsStatsHistory(history, root, {
+          currentDate: date,
+          maxShardBytes: Math.floor(verboseDayBytes * GUARD_TO_VERBOSE_DAY),
+        });
+      }
+
+      const guard = Math.floor(verboseDayBytes * GUARD_TO_VERBOSE_DAY);
+      const sizes = shardSizes(root);
+      const total = Object.values(sizes).reduce((sum, size) => sum + size, 0);
+      // The month as a whole does not fit under the guard: a monthly shard cannot work.
+      expect(total).toBeGreaterThan(guard);
+      for (const [name, size] of Object.entries(sizes)) {
+        expect({ name, underGuard: size <= guard }).toEqual({ name, underGuard: true });
+      }
+      expect(Object.keys(sizes)).toHaveLength(30);
+
+      const entries = readJobsStatsHistory(root).entries;
+      expect(entries).toHaveLength(30);
+      for (const item of entries) {
+        expect(item).toMatchObject({ added: ADDED_PER_DAY, updated: UPDATED_PER_DAY, removed: REMOVED_PER_DAY });
+        expect(item.addedKeys).toHaveLength(ADDED_PER_DAY);
+      }
+    });
+  }, 60_000);
+
+  it('refuses to write a shard above the guard and leaves the store untouched', () => {
+    withTempRoot((root) => {
+      const pastPath = path.join(root, SHARD_DIR, '2026-09-19.json');
+      fs.mkdirSync(path.dirname(pastPath), { recursive: true });
+      const before = JSON.stringify({ entries: [entry('2026-09-19')] });
+      fs.writeFileSync(pastPath, before);
+
+      const huge = entry('2026-09-20', {
+        updated: 5000,
+        updatedKeys: Array.from({ length: 5000 }, (_, i) => `url:https://example.ch/job/${i}`),
+      });
+      expect(() => writeJobsStatsHistory({ entries: [entry('2026-09-19'), huge] }, root, {
+        currentDate: '2026-09-20',
+        maxShardBytes: 10_000,
+      })).toThrow(/2026-09-20\.json would be .* MB, above the .* MB guard/);
+      expect(fs.readFileSync(pastPath, 'utf8')).toBe(before);
+      expect(fs.existsSync(path.join(root, SHARD_DIR, '2026-09-20.json'))).toBe(false);
+      expect(JOB_STATS_HISTORY_SHARD_MAX_BYTES).toBeLessThan(100 * 1024 * 1024);
     });
   });
 

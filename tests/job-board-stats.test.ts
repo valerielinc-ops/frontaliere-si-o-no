@@ -398,17 +398,9 @@ describe('job-board-stats', () => {
               updatedKeys,
               removedKeys,
             },
-            // Updated-only company: the job-market snapshot counts it as an
-            // active employer, so it survives slimming.
-            { key: 'updated-only-co', name: 'Updated Co', addedKeys: [], updatedKeys, removedKeys: [] },
           ],
-          // Location/title rows are read on past days only through addedKeys.
-          locationStats: [
-            { key: 'updated-only-loc', name: 'Updated Loc', addedKeys: [], updatedKeys, removedKeys },
-          ],
-          titleStats: [
-            { key: 'updated-only-title', name: 'Updated Title', addedKeys: [], updatedKeys, removedKeys: [] },
-          ],
+          locationStats: [],
+          titleStats: [],
         },
       ],
     };
@@ -436,13 +428,6 @@ describe('job-board-stats', () => {
     expect(pastCompany.removedKeys).toHaveLength(0);
     expect(pastCompany.updatedCount).toBe(50);
     expect(pastCompany.removedCount).toBe(10);
-    expect(past.companyStats.find((item) => item.key === 'updated-only-co')).toMatchObject({
-      updatedKeys: [],
-      updatedCount: 50,
-    });
-    // Location/title rows without addedKeys are dead weight on past days.
-    expect(past.locationStats).toHaveLength(0);
-    expect(past.titleStats).toHaveLength(0);
 
     // Current day: full arrays retained (concurrent same-day pushes dedupe on them).
     expect(Array.isArray(today.addedKeys)).toBe(true);

@@ -7,7 +7,6 @@ import {
   jobsDiffer,
 } from './job-identity.mjs';
 import { AGGREGATE_KEY, createCantonResolvers } from '../../build-plugins/shared/cantonResolvers.mjs';
-import { slimPastJobStatsHistoryEntry } from './job-stats-history-store.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const ROOT = path.resolve(__dirname, '..', '..');
@@ -42,11 +41,7 @@ const ZURICH_TIMEZONE = 'Europe/Zurich';
 //      `updated` / `removed` (entry level) and `updatedCount` / `removedCount`
 //      (bucket level). So for every entry except the still-accumulating
 //      current day we drop those arrays, eliminating ~58 MB of dead weight
-//      (the dominant contributor: ~6 000 updatedKeys/day × 30 days). Past
-//      location/title rows without `addedKeys` are dropped too (~19k
-//      updated-only title rows/day at 27k jobs); company rows stay, because
-//      the job-market snapshot counts them as active employers. The store
-//      applies the same slimming to the current month shard's past days.
+//      (the dominant contributor: ~6 000 updatedKeys/day × 30 days).
 //
 // Today's entry keeps full arrays because concurrent same-day crawler pushes
 // rely on `entry.updatedKeys.includes(jobKey)` to deduplicate within the day.
@@ -348,13 +343,24 @@ export function computeJobDiff(previousJobs = [], currentJobs = []) {
  * ever read for their length, so we collapse them to the scalar counts that
  * consumers already use (`updated` / `removed` at entry level,
  * `updatedCount` / `removedCount` at bucket level). `addedKeys` are kept
- * because the 30-day "added" leader aggregation dedupes them by value, and
- * location/title rows without them are dropped (no past-day reader uses them).
- * The store applies the same function to the current shard's past days.
+ * because the 30-day "added" leader aggregation dedupes them by value.
  */
 function slimVerboseKeyArrays(entry, keepDate) {
   if (entry.date === keepDate) return entry;
-  return slimPastJobStatsHistoryEntry(entry);
+  entry.updatedKeys = [];
+  entry.removedKeys = [];
+  for (const bucketKey of ['companyStats', 'locationStats', 'titleStats']) {
+    for (const item of safeArray(entry[bucketKey])) {
+      const updatedCount = safeArray(item.updatedKeys).length || Number(item.updatedCount || 0);
+      const removedCount = safeArray(item.removedKeys).length || Number(item.removedCount || 0);
+      item.updatedKeys = [];
+      item.removedKeys = [];
+      // Omit zero counts to keep the file lean; absent === 0 for consumers.
+      if (updatedCount > 0) item.updatedCount = updatedCount; else delete item.updatedCount;
+      if (removedCount > 0) item.removedCount = removedCount; else delete item.removedCount;
+    }
+  }
+  return entry;
 }
 
 export function updateJobsStatsHistory(existingHistory = {}, diff = {}, currentJobs = [], options = {}) {

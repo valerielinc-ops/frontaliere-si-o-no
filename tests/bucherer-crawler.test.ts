@@ -5,7 +5,8 @@ import {
   isBuchererJob,
   isTrustedDomain,
   parsePostings,
-  summarizeDayforceSearch,
+  mergeCulturePostings,
+  BUCHERER_CULTURES,
 } from '../scripts/lib/bucherer-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -32,6 +33,11 @@ describe('Bucherer crawler parser', () => {
 
     it('matches by Dayforce candidate portal URL', () => {
       expect(isBuchererJob({ url: 'https://jobs.dayforcehcm.com/en-GB/bucherer/CANDIDATEPORTAL/Job/737' })).toBe(true);
+    });
+
+    it('matches by a Dayforce URL in any culture (de-DE / fr-FR)', () => {
+      expect(isBuchererJob({ url: 'https://jobs.dayforcehcm.com/de-DE/bucherer/CANDIDATEPORTAL/jobs/5001' })).toBe(true);
+      expect(isBuchererJob({ url: 'https://jobs.dayforcehcm.com/fr-FR/bucherer/CANDIDATEPORTAL/jobs/5002' })).toBe(true);
     });
 
     it('rejects unrelated jobs', () => {
@@ -370,20 +376,102 @@ describe('Bucherer crawler parser', () => {
       expect(job.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
   });
-});
 
-describe('summarizeDayforceSearch — proven zero vs unobserved (crawler-health-monitor)', () => {
-  it('proves a zero only from a captured search response that declares maxCount 0', () => {
-    expect(summarizeDayforceSearch([{ maxCount: 0, jobPostings: [] }])).toEqual({ observed: true, provenEmpty: true });
-    expect(summarizeDayforceSearch([{ maxCount: 0 }])).toEqual({ observed: true, provenEmpty: true });
-  });
+  // ── #9649: postings are scoped per Dayforce culture ──
+  // Shape of the real `jobposting/search` responses observed on 2026-09-24:
+  // en-GB answered maxCount 0 while de-DE / fr-FR carried the live postings.
+  // Ids, titles and addresses below are synthetic.
+  describe('multi-culture crawl (#9649)', () => {
+    const description = `<p>${'Ihre Rolle bei uns im Verkauf von hochwertigen Uhren und Schmuck. '.repeat(8)}</p>`;
+    const descriptionFr = `<p>${'Votre rôle chez nous dans la vente de montres et de bijoux de luxe. '.repeat(8)}</p>`;
+    const posting = (id, title, loc, desc = description) => ({
+      clientNamespace: 'bucherer',
+      jobBoardId: 1,
+      jobPostingId: id,
+      jobReqId: id - 4000,
+      jobTitle: title,
+      jobDescription: desc,
+      hasVirtualLocation: false,
+      postingStartTimestampUTC: '2026-09-20T22:00:00+00:00',
+      postingExpiryTimestampUTC: null,
+      isEvergreen: false,
+      postingLocations: [{ locationId: 1, locationType: 2, isoCountryCode: 'CH', ...loc }],
+    });
+    const empty = { jobPostings: [], maxCount: 0, offset: 0, count: 0 };
+    const deBody = {
+      jobPostings: [
+        posting(5001, 'Client Advisor 100% (m/w/d) - Luzern', { cityName: 'Luzern', stateCode: 'LU', formattedAddress: 'Luzern, Switzerland' }),
+        posting(5002, 'Watchmaker 100% (m/w/d) - Zürich', { cityName: 'Zürich', stateCode: 'ZH', formattedAddress: 'Musterstrasse 1, 8001 Zürich, Switzerland' }),
+      ],
+      maxCount: 2,
+      offset: 0,
+      count: 2,
+    };
+    const frBody = {
+      jobPostings: [
+        posting(5003, 'Client Advisor Horlogerie 100% (m/f/d) - Valais', { cityName: 'Musterdorf', stateCode: 'CH-VS', formattedAddress: 'Musterdorf, Valais, Suisse' }, descriptionFr),
+      ],
+      maxCount: 1,
+      offset: 0,
+      count: 1,
+    };
 
-  it('never proves a zero when no response was captured or the count is missing', () => {
-    // Nessuna risposta catturata: challenge Cloudflare o XHR cambiata, la
-    // fonte NON è stata osservata vuota.
-    expect(summarizeDayforceSearch([])).toEqual({ observed: false, provenEmpty: false });
-    expect(summarizeDayforceSearch(undefined as any)).toEqual({ observed: false, provenEmpty: false });
-    expect(summarizeDayforceSearch([{ jobPostings: [] }])).toEqual({ observed: true, provenEmpty: false });
-    expect(summarizeDayforceSearch([{ maxCount: 3, jobPostings: [] }])).toEqual({ observed: true, provenEmpty: false });
+    it('crawls the cultures that carry the postings, not only en-GB', () => {
+      expect(BUCHERER_CULTURES).toEqual(expect.arrayContaining(['de-DE', 'fr-FR', 'en-GB']));
+    });
+
+    it('merges postings from every culture even when en-GB is empty', () => {
+      const merged = mergeCulturePostings([
+        { cultureCode: 'en-GB', body: empty },
+        { cultureCode: 'de-DE', body: deBody },
+        { cultureCode: 'fr-FR', body: frBody },
+      ]);
+      expect(merged.map((p) => [p.jobPostingId, p._cultureCode])).toEqual([
+        [5001, 'de-DE'],
+        [5002, 'de-DE'],
+        [5003, 'fr-FR'],
+      ]);
+      expect(parsePostings(merged)).toHaveLength(3);
+    });
+
+    it('keeps the higher-priority culture when an id is published in two cultures', () => {
+      const merged = mergeCulturePostings([
+        { cultureCode: 'fr-FR', body: { ...frBody, jobPostings: [{ ...deBody.jobPostings[0], jobTitle: 'Conseiller client' }] } },
+        { cultureCode: 'de-DE', body: deBody },
+      ]);
+      expect(merged).toHaveLength(2);
+      const dup = merged.find((p) => p.jobPostingId === 5001);
+      expect(dup._cultureCode).toBe('de-DE');
+      expect(dup.jobTitle).toBe('Client Advisor 100% (m/w/d) - Luzern');
+    });
+
+    it('returns an empty list when every culture is empty (fail-closed stays upstream)', () => {
+      expect(mergeCulturePostings(BUCHERER_CULTURES.map((c) => ({ cultureCode: c, body: empty })))).toEqual([]);
+    });
+
+    it("links each job to its own culture's detail page (the other cultures 404)", () => {
+      const jobs = parsePostings(mergeCulturePostings([
+        { cultureCode: 'de-DE', body: deBody },
+        { cultureCode: 'fr-FR', body: frBody },
+      ]));
+      const byTitle = Object.fromEntries(jobs.map((j) => [j.title, j]));
+      const de = byTitle['Client Advisor 100% (m/w/d) - Luzern'];
+      const fr = byTitle['Client Advisor Horlogerie 100% (m/f/d) - Valais'];
+      expect(de.url).toBe('https://jobs.dayforcehcm.com/de-DE/bucherer/CANDIDATEPORTAL/jobs/5001');
+      expect(fr.url).toBe('https://jobs.dayforcehcm.com/fr-FR/bucherer/CANDIDATEPORTAL/jobs/5003');
+      expect(de.applyUrl).toBe(de.url);
+      expect(de.sourceLang).toBe('de');
+      expect(fr.sourceLang).toBe('fr');
+      for (const job of jobs) {
+        expect(job.url).not.toMatch(/\/en-GB\/|\/Job\//);
+        expect(isBuchererJob({ url: job.url })).toBe(true);
+        expect(isTrustedDomain(job.url)).toBe(true);
+      }
+    });
+
+    it('reads a CH-prefixed Dayforce stateCode (CH-VS) as the canton', () => {
+      const [job] = parsePostings(mergeCulturePostings([{ cultureCode: 'fr-FR', body: frBody }]));
+      expect(job.canton).toBe('VS');
+    });
   });
 });

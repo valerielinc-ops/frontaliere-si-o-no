@@ -2,10 +2,12 @@
  * Logical store for the job-board history.
  *
  * The legacy `data/jobs-stats-history.json` is kept as a read fallback so the
- * migration does not require a 50+ MB one-shot rewrite. New daily entries are
- * written to the current calendar-month shard only. Shards are authoritative
- * for dates they contain; this lets the first post-migration refresh replace
- * the legacy copy of today's entry without rewriting the legacy blob.
+ * migration does not require a 50+ MB one-shot rewrite. Entries are written
+ * as one shard per day (`YYYY-MM-DD.json` in the shard directory); legacy
+ * monthly shards (`YYYY-MM.json`, #9409) are still read and are migrated into
+ * daily shards by the next write. Shards are authoritative for dates they
+ * contain; this lets the first post-migration refresh replace the legacy copy
+ * of today's entry without rewriting the legacy blob.
  */
 import fs from 'node:fs';
 import path from 'node:path';
@@ -19,6 +21,14 @@ export const JOB_STATS_HISTORY_MANIFEST_FILE = `${JOB_STATS_HISTORY_SHARD_DIR}/m
 const MONTH_RE = /^\d{4}-(?:0[1-9]|1[0-2])$/;
 const DATE_RE = /^\d{4}-(?:0[1-9]|1[0-2])-\d{2}$/;
 const MONTH_SHARD_RE = /^(\d{4}-(?:0[1-9]|1[0-2]))\.json$/;
+const DAY_SHARD_RE = /^(\d{4}-(?:0[1-9]|1[0-2])-\d{2})\.json$/;
+
+/**
+ * Hard ceiling for one shard file, below GitHub's 100 MB per-file push limit.
+ * A single verbose day weighs ~20 MB (2026-09), so a daily shard stays far
+ * under it; the guard only fires if one day alone grows past it.
+ */
+export const JOB_STATS_HISTORY_SHARD_MAX_BYTES = 90_000_000;
 
 function clone(value) {
   return JSON.parse(JSON.stringify(value));
@@ -27,50 +37,6 @@ function clone(value) {
 function numeric(value) {
   const n = Number(value);
   return Number.isFinite(n) ? n : 0;
-}
-
-function arrayLength(value) {
-  return Array.isArray(value) ? value.length : 0;
-}
-
-// Past-day readers use locationStats/titleStats rows only through their
-// `addedKeys` (30-day added leaders, job-market snapshot roles, cities and
-// sectors), so a past row without them is dead weight: ~19k updated-only
-// title rows per day at 27k jobs. companyStats rows are all kept, because the
-// job-market snapshot counts updated/removed-only companies as active
-// employers and the employer profiles read `removedCount`.
-const ADDED_KEYS_ONLY_PAST_BUCKETS = new Set(['locationStats', 'titleStats']);
-
-/**
- * Slim a day that no longer accumulates to the fields its readers use.
- * `updatedKeys`/`removedKeys` collapse into their scalar counts (entry
- * `updated`/`removed`, bucket `updatedCount`/`removedCount`) and location/title
- * rows without `addedKeys` are dropped. Counts are never lowered and the result
- * is a fixed point, so a compacted day stays byte-identical on later rewrites.
- * Mutates and returns `entry`.
- */
-export function slimPastJobStatsHistoryEntry(entry) {
-  entry.updated = Math.max(numeric(entry.updated), arrayLength(entry.updatedKeys));
-  entry.removed = Math.max(numeric(entry.removed), arrayLength(entry.removedKeys));
-  entry.updatedKeys = [];
-  entry.removedKeys = [];
-  for (const bucketKey of ['companyStats', 'locationStats', 'titleStats']) {
-    if (!Array.isArray(entry[bucketKey])) continue;
-    for (const item of entry[bucketKey]) {
-      if (!item || typeof item !== 'object') continue;
-      const updatedCount = Math.max(arrayLength(item.updatedKeys), numeric(item.updatedCount));
-      const removedCount = Math.max(arrayLength(item.removedKeys), numeric(item.removedCount));
-      item.updatedKeys = [];
-      item.removedKeys = [];
-      // Omit zero counts to keep the file lean; absent === 0 for consumers.
-      if (updatedCount > 0) item.updatedCount = updatedCount; else delete item.updatedCount;
-      if (removedCount > 0) item.removedCount = removedCount; else delete item.removedCount;
-    }
-    if (ADDED_KEYS_ONLY_PAST_BUCKETS.has(bucketKey)) {
-      entry[bucketKey] = entry[bucketKey].filter((item) => arrayLength(item?.addedKeys) > 0);
-    }
-  }
-  return entry;
 }
 
 function sortedUniqueStrings(...values) {
@@ -120,7 +86,7 @@ function mergeStatBuckets(a = [], b = []) {
 }
 
 /**
- * Merge entries produced by concurrent writers of one monthly shard.
+ * Merge entries produced by concurrent writers of one shard.
  *
  * The history writer is monotone within a date: action keys are unioned and
  * scalar counts are never allowed to fall below either side. This is also the
@@ -178,20 +144,49 @@ function legacyHistory(rootDir) {
   };
 }
 
-export function jobStatsHistoryShardFile(month, rootDir = process.cwd()) {
-  if (!MONTH_RE.test(String(month))) throw new Error(`Invalid job stats history month: ${month}`);
-  return path.resolve(rootDir, JOB_STATS_HISTORY_SHARD_DIR, `${month}.json`);
+/**
+ * Path of one shard. A `YYYY-MM-DD` key names a daily shard (the format
+ * written since #9654); a `YYYY-MM` key names a legacy monthly shard, which is
+ * still read and migrated but never written again.
+ */
+export function jobStatsHistoryShardFile(key, rootDir = process.cwd()) {
+  const value = String(key);
+  if (!MONTH_RE.test(value) && !DATE_RE.test(value)) {
+    throw new Error(`Invalid job stats history shard key: ${key}`);
+  }
+  return path.resolve(rootDir, JOB_STATS_HISTORY_SHARD_DIR, `${value}.json`);
 }
 
 export function listJobStatsHistoryShardFiles(rootDir = process.cwd()) {
   const dir = path.resolve(rootDir, JOB_STATS_HISTORY_SHARD_DIR);
   let names;
   try {
-    names = fs.readdirSync(dir).filter((name) => MONTH_SHARD_RE.test(name)).sort();
+    names = fs.readdirSync(dir).filter((name) => MONTH_SHARD_RE.test(name) || DAY_SHARD_RE.test(name)).sort();
   } catch {
     return [];
   }
   return names.map((name) => path.join(dir, name));
+}
+
+/** Canonical on-disk form of a shard, shared by the writer and the merge driver. */
+export function serializeJobStatsHistoryShard(entries = []) {
+  return JSON.stringify({ entries }, null, 2) + '\n';
+}
+
+/**
+ * Refuse to produce a shard GitHub would reject at push time. Failing here
+ * names the file and the size, instead of a remote `pre-receive hook declined`
+ * after the commit has already been built (#9654).
+ */
+export function assertJobStatsHistoryShardSize(filePath, serialized, maxBytes = JOB_STATS_HISTORY_SHARD_MAX_BYTES) {
+  const bytes = Buffer.byteLength(serialized, 'utf8');
+  if (bytes > maxBytes) {
+    throw new Error(
+      `Job stats history shard ${filePath} would be ${(bytes / 1e6).toFixed(2)} MB, above the `
+      + `${(maxBytes / 1e6).toFixed(2)} MB guard (GitHub rejects files over 100 MB); refusing to write it`,
+    );
+  }
+  return bytes;
 }
 
 function readShardDocument(filePath) {
@@ -220,7 +215,8 @@ function readShardedHistory(rootDir) {
 }
 
 /**
- * Read the logical history from the legacy fallback plus monthly shards.
+ * Read the logical history from the legacy fallback plus daily and legacy
+ * monthly shards.
  * Shards override legacy entries for the dates they contain.
  */
 export function readJobsStatsHistory(rootDir = process.cwd()) {
@@ -236,85 +232,88 @@ export function readJobsStatsHistory(rootDir = process.cwd()) {
 }
 
 /**
- * Write the current month's shard and reconcile shards already materialized.
- * Existing legacy dates are deliberately not backfilled: the first
- * post-migration run writes today's complete entry, and the reader keeps older
- * legacy dates visible without a 50+ MB diff. Existing shards are rebuilt from
- * the canonical history so compaction and retention are not bypassed after the
- * shard's month has stopped receiving daily writes. The current shard keeps its
- * own past-day values, slimmed with slimPastJobStatsHistoryEntry().
+ * Write the logical history as one shard per day.
+ *
+ * Monthly shards (#9409) grew with every day of the month: the current month
+ * kept each past day verbatim, ~20 MB per day, and 2026-09 hit 105 MB after
+ * five days, which GitHub refuses to push (#9654). A daily shard is bounded by
+ * one day's payload by construction.
+ *
+ * Every date already materialized in a shard (daily or legacy monthly) is
+ * rewritten from the canonical history: past days in their slimmed/compacted
+ * form, the current day verbatim. Legacy monthly shards are thereby migrated
+ * into daily files and removed. Legacy-monolith dates are deliberately not
+ * backfilled: the reader keeps them visible without a 50+ MB diff. Dates the
+ * canonical history no longer holds (retention) are dropped.
  */
 export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), options = {}) {
   const entries = historyEntries(history);
   const currentDate = String(options.currentDate || entries.at(-1)?.date || '');
   if (!DATE_RE.test(currentDate)) throw new Error('A valid currentDate is required to write job stats history');
+  const maxShardBytes = Number(options.maxShardBytes) > 0
+    ? Number(options.maxShardBytes)
+    : JOB_STATS_HISTORY_SHARD_MAX_BYTES;
 
-  const month = currentDate.slice(0, 7);
-  const filePath = jobStatsHistoryShardFile(month, rootDir);
+  const filePath = jobStatsHistoryShardFile(currentDate, rootDir);
   const currentEntry = entries.find((entry) => entry.date === currentDate);
   if (!currentEntry) throw new Error(`History does not contain current date ${currentDate}`);
 
   const canonicalByDate = new Map(entries.map((entry) => [entry.date, entry]));
-  const shardFiles = new Set(listJobStatsHistoryShardFiles(rootDir));
-  shardFiles.add(filePath);
-  let shardChanged = false;
+  const targetDates = new Set([currentDate]);
+  const obsoleteFiles = [];
 
-  for (const shardFile of shardFiles) {
+  for (const shardFile of listJobStatsHistoryShardFiles(rootDir)) {
     const existing = readShardDocument(shardFile);
     if (!existing.ok) {
       if (shardFile === filePath) {
         throw new Error(`Cannot safely update corrupt job stats shard: ${shardFile}`);
       }
+      // A corrupt shard cannot be migrated: leave it for a human, never delete it.
       continue;
     }
-
-    const shardEntries = new Map();
     for (const existingEntry of existing.entries) {
-      const canonicalEntry = canonicalByDate.get(existingEntry.date);
-      if (!canonicalEntry) continue;
-      // The current shard remains authoritative for its already-written past
-      // days (append-forward: a run never rewrites persisted values from its
-      // canonical view), but stores them slimmed like the canonical past days.
-      // Keeping them verbatim kept each day's full "today" payload (~20 MB at
-      // 27k jobs) and pushed 2026-09.json past GitHub's 100 MB limit on the
-      // fifth day (GH001, persist-job-stats run 35995267599). Closed-month
-      // shards use the canonical, compacted representation so they cannot
-      // retain verbose payloads after the month rolls over.
-      const nextEntry = shardFile === filePath
-        ? slimPastJobStatsHistoryEntry(clone(existingEntry))
-        : clone(canonicalEntry);
-      shardEntries.set(existingEntry.date, nextEntry);
+      if (canonicalByDate.has(existingEntry.date)) targetDates.add(existingEntry.date);
     }
-    if (shardFile === filePath) shardEntries.set(currentDate, clone(currentEntry));
-
-    if (shardEntries.size === 0) {
-      if (existing.exists) {
-        fs.unlinkSync(shardFile);
-        shardChanged = true;
-      }
-      continue;
-    }
-
-    const serialized = JSON.stringify({
-      entries: [...shardEntries.values()].sort((a, b) => a.date.localeCompare(b.date)),
-    }, null, 2) + '\n';
-    fs.mkdirSync(path.dirname(shardFile), { recursive: true });
-    shardChanged = writeShardFileIfChanged(shardFile, serialized) || shardChanged;
+    obsoleteFiles.push(shardFile);
   }
 
-  const months = listJobStatsHistoryShardFiles(rootDir)
+  // Serialize and size-check every shard before touching the disk, so an
+  // oversized day leaves the previous store intact.
+  const planned = [...targetDates].sort().map((date) => {
+    const shardFile = jobStatsHistoryShardFile(date, rootDir);
+    const entry = date === currentDate ? currentEntry : canonicalByDate.get(date);
+    const serialized = serializeJobStatsHistoryShard([clone(entry)]);
+    assertJobStatsHistoryShardSize(shardFile, serialized, maxShardBytes);
+    return { shardFile, serialized };
+  });
+
+  let shardChanged = false;
+  const written = new Set();
+  fs.mkdirSync(path.resolve(rootDir, JOB_STATS_HISTORY_SHARD_DIR), { recursive: true });
+  for (const { shardFile, serialized } of planned) {
+    shardChanged = writeShardFileIfChanged(shardFile, serialized) || shardChanged;
+    written.add(shardFile);
+  }
+  for (const shardFile of obsoleteFiles) {
+    if (written.has(shardFile)) continue;
+    fs.unlinkSync(shardFile);
+    shardChanged = true;
+  }
+
+  const days = listJobStatsHistoryShardFiles(rootDir)
     .map((file) => path.basename(file, '.json'))
+    .filter((key) => DATE_RE.test(key))
     .sort();
   const manifestPath = path.resolve(rootDir, JOB_STATS_HISTORY_MANIFEST_FILE);
   writeFileAtomic(
     manifestPath,
     JSON.stringify({
-      version: 1,
-      format: 'monthly-entry-shards',
+      version: 2,
+      format: 'daily-entry-shards',
       legacyFallback: JOB_STATS_HISTORY_LEGACY_FILE,
-      months,
+      days,
     }, null, 2) + '\n',
   );
 
-  return { month, shardChanged, months, filePath };
+  return { month: currentDate.slice(0, 7), date: currentDate, shardChanged, days, filePath };
 }
