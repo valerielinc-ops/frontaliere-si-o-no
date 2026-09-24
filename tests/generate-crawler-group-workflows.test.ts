@@ -1282,7 +1282,7 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     expect(extractAssignmentsFromWorkflows(WORKFLOWS_DIR)).toEqual(expected);
   });
 
-  it('keeps the unstable McDonald crawler isolated in the new group 24', () => {
+  it('keeps unstable crawlers together in the new group 24', () => {
     const pins = JSON.parse(fs.readFileSync(ASSIGNMENTS_PATH, 'utf8'));
     const generated = generate({
       outDir: WORKFLOWS_DIR,
@@ -1292,7 +1292,15 @@ describe('#6482 — committed crawler-group-*.yml are byte-identical to the gene
     const previousGroup = pins.groups[GROUP_COUNT - 2];
     const newGroup = pins.groups[GROUP_COUNT - 1];
 
-    expect(newGroup).toEqual(['mcdonald-s-switzerland']);
+    expect(newGroup).toEqual([
+      'mcdonald-s-switzerland',
+      'pole-sante-pays-enhaut',
+      'fondation-domus',
+      'cnp',
+      'fachkraft',
+      'postfinance',
+      'tsmg',
+    ]);
     expect(previousGroup).not.toContain('mcdonald-s-switzerland');
     expect(generated[GROUP_COUNT - 1].members).toEqual(newGroup);
   });
