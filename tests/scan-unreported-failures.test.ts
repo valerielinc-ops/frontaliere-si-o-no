@@ -20,6 +20,8 @@
  */
 
 import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
 import {
   isReportableRun,
   isReportableScope,
@@ -36,6 +38,7 @@ import {
   latestIssuePerWorkflow,
   runBody,
   dormantBody,
+  isHandledExpectedFailure,
 } from '../scripts/ci/scan-unreported-failures.mjs';
 import { TITLE_RE } from '../scripts/ci/close-recovered-failure-issues.mjs';
 
@@ -460,6 +463,74 @@ describe('corpo della issue: job illeggibili vs nessun job fallito', () => {
     const body = runBody({ run, workflowName: 'x', jobs: { total_count: 2, jobs: [] }, jobsReadable: true });
     expect(body).toContain('fallimento a livello di run');
     expect(body).not.toContain('lettura dei job NON riuscita');
+  });
+});
+
+describe('failure atteso già trattato dal monitor', () => {
+  const workflowSource = fs.readFileSync(
+    path.join(process.cwd(), '.github', 'workflows', 'crawler-health-monitor.yml'),
+    'utf8',
+  );
+
+  function jobs(overrides: Record<string, unknown> = {}) {
+    return {
+      total_count: 1,
+      jobs: [{
+        name: 'check',
+        conclusion: 'failure',
+        steps: [
+          { name: 'Open issues for stale crawlers', conclusion: 'success' },
+          { name: 'Fail if any crawler stale', conclusion: 'failure' },
+          { name: 'Report unexpected failure to GitHub Issues', conclusion: 'skipped' },
+        ],
+        ...overrides,
+      }],
+    };
+  }
+
+  it('non apre una CI Failure quando il failgate è l’unico rosso e il reporter interno è skipped', () => {
+    expect(isHandledExpectedFailure({ source: workflowSource, jobs: jobs() })).toBe(true);
+  });
+
+  it('resta fail-closed se l’opener della issue per-crawler fallisce', () => {
+    expect(isHandledExpectedFailure({
+      source: workflowSource,
+      jobs: jobs({
+        steps: [
+          { name: 'Open issues for stale crawlers', conclusion: 'failure' },
+          { name: 'Fail if any crawler stale', conclusion: 'failure' },
+          { name: 'Report unexpected failure to GitHub Issues', conclusion: 'skipped' },
+        ],
+      }),
+    })).toBe(false);
+  });
+
+  it('resta fail-closed se un altro step fallisce o i job sono illeggibili', () => {
+    expect(isHandledExpectedFailure({
+      source: workflowSource,
+      jobs: jobs({
+        steps: [
+          { name: 'Open issues for stale crawlers', conclusion: 'success' },
+          { name: 'Commit updated health state', conclusion: 'failure' },
+          { name: 'Fail if any crawler stale', conclusion: 'failure' },
+          { name: 'Report unexpected failure to GitHub Issues', conclusion: 'skipped' },
+        ],
+      }),
+    })).toBe(false);
+    expect(isHandledExpectedFailure({ source: workflowSource, jobs: null })).toBe(false);
+  });
+
+  it('non sopprime un reporter eseguito per un crash fuori dal failgate', () => {
+    expect(isHandledExpectedFailure({
+      source: workflowSource,
+      jobs: jobs({
+        steps: [
+          { name: 'Open issues for stale crawlers', conclusion: 'success' },
+          { name: 'Fail if any crawler stale', conclusion: 'skipped' },
+          { name: 'Report unexpected failure to GitHub Issues', conclusion: 'success' },
+        ],
+      }),
+    })).toBe(false);
   });
 });
 

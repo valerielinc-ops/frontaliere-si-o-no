@@ -835,6 +835,99 @@ function issueTexts(number) {
   }
 }
 
+/**
+ * Read a workflow source file named by the Actions workflow registry.
+ *
+ * The registry gives us the authoritative display name and path, while the
+ * local checkout contains the source that defines the failure reporter. Keep
+ * the path constrained to `.github/workflows/`: a registry value must never
+ * turn a diagnostic read into an arbitrary repository-file read.
+ *
+ * @param {string|null|undefined} workflowPath
+ * @returns {string|null}
+ */
+function workflowSourceForPath(workflowPath) {
+  if (!workflowPath) return null;
+  const candidate = path.resolve(REPO_ROOT, String(workflowPath));
+  const relative = path.relative(WORKFLOWS_DIR, candidate);
+  if (relative.startsWith('..') || path.isAbsolute(relative)) return null;
+  try {
+    return fs.readFileSync(candidate, 'utf8');
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Split the named steps of a workflow without pulling a YAML dependency into
+ * the no-`npm ci` scanner. A step block starts at `- name:` and ends at the
+ * next sibling `- name:` with the same indentation; that is enough to inspect
+ * the existing `id: failgate` / failure-reporter contract.
+ *
+ * @param {string|null|undefined} source
+ * @returns {Array<{name:string, text:string}>}
+ */
+function workflowStepBlocks(source) {
+  if (!source) return [];
+  const lines = String(source).split('\n');
+  const starts = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const match = lines[i].match(/^(\s*)-\s+name:\s*(.*?)\s*$/);
+    if (!match) continue;
+    const name = match[2].replace(/^(['"])(.*)\1$/, '$2').trim();
+    starts.push({ index: i, indent: match[1].length, name });
+  }
+
+  return starts.map((step, index) => {
+    const next = starts.slice(index + 1).find((candidate) => candidate.indent === step.indent);
+    return {
+      name: step.name,
+      text: lines.slice(step.index, next ? next.index : lines.length).join('\n'),
+    };
+  });
+}
+
+function comparableStepName(name) {
+  return String(name ?? '').replace(/\s*\([^()]*\)\s*$/, '').trim();
+}
+
+/**
+ * Whether a failed run is the workflow's own expected condition, already
+ * surfaced by its internal issue opener.
+ *
+ * The global scanner must still report a crash before/outside detection. The
+ * safe contract is therefore deliberately narrow: the workflow source must
+ * have a `failgate` step and a `Report unexpected failure to GitHub Issues`
+ * step whose guard explicitly distinguishes a failgate failure; the Jobs API
+ * must show exactly that gate as the only failed step and the reporter must be
+ * skipped. If the issue opener fails, another step fails, or the Jobs API is
+ * unreadable, this returns false and the global alarm remains fail-closed.
+ *
+ * @param {{source?: string|null, jobs?: {jobs?: Array<{steps?: Array<{name?: string, conclusion?: string}>}>}|null}}} input
+ */
+export function isHandledExpectedFailure({ source, jobs } = {}) {
+  const blocks = workflowStepBlocks(source);
+  const gate = blocks.find((block) => /(^|\n)\s*id:\s*failgate\s*$/m.test(block.text));
+  const reporter = blocks.find((block) => block.name === 'Report unexpected failure to GitHub Issues');
+  if (!gate || !reporter) return false;
+
+  const reporterIf = reporter.text.match(/(^|\n)\s*if:\s*(.+)$/m)?.[2] || '';
+  if (!/failure\(\)/.test(reporterIf) || !/steps\.failgate\./.test(reporterIf)) return false;
+  if (!jobs || !Array.isArray(jobs.jobs)) return false;
+
+  const steps = jobs.jobs.flatMap((job) => (Array.isArray(job?.steps) ? job.steps : []));
+  const failedSteps = steps.filter((step) => step?.conclusion === 'failure');
+  const gateName = comparableStepName(gate.name);
+  const gateFailed = failedSteps.some((step) => comparableStepName(step?.name) === gateName);
+  const anotherStepFailed = failedSteps.some((step) => comparableStepName(step?.name) !== gateName);
+  const reporterSkipped = steps.some(
+    (step) => comparableStepName(step?.name) === comparableStepName(reporter.name)
+      && step?.conclusion === 'skipped',
+  );
+
+  return gateFailed && !anotherStepFailed && reporterSkipped;
+}
+
 /** La riga-marker da allegare a ogni registrazione, cosi' la prossima passata la riconosce. */
 function signatureLine(signature) {
   return signature ? `\n\n<!-- ${SIGNATURE_MARKER} ${signature} -->` : '';
@@ -920,7 +1013,12 @@ async function scanFailures() {
       console.warn(`::warning::[scan-unreported-failures] run ${run.id} senza workflow risolvibile (${run.path}) — saltata.`);
       continue;
     }
-    reportable.push({ ...run, workflowName });
+    reportable.push({
+      ...run,
+      workflowName,
+      workflowPath: wf.path,
+      workflowSource: workflowSourceForPath(wf.path),
+    });
   }
 
   // Un solo thread per workflow: si tiene la run più recente, le altre sono la
@@ -971,6 +1069,13 @@ async function scanFailures() {
       //      segnalato. Il caso 2 è la sola cosa che poteva romperlo.
       const stale = isCoveredIssueStale(already.updatedAt);
       const { jobs: coveredJobs } = readRunJobs(run.id);
+      if (isHandledExpectedFailure({ source: run.workflowSource, jobs: coveredJobs })) {
+        tally.active += 1;
+        console.log(
+          `[scan-unreported-failures] ${workflowName}: expected failgate failure already surfaced by its internal reporter → skip.`,
+        );
+        continue;
+      }
       const signature = failureSignature(coveredJobs);
       const known = issueTexts(already.number);
       // Firma assente (job illeggibili) o thread illeggibile: si TACE sulla
@@ -1071,6 +1176,13 @@ async function scanFailures() {
     }
 
     const { jobs, readable: jobsReadable } = readRunJobs(run.id);
+    if (isHandledExpectedFailure({ source: run.workflowSource, jobs })) {
+      tally.active += 1;
+      console.log(
+        `[scan-unreported-failures] ${workflowName}: expected failgate failure already surfaced by its internal reporter → skip.`,
+      );
+      continue;
+    }
     // Il marker entra nel body fin dall'apertura: senza, la passata successiva
     // non troverebbe la firma nel thread e leggerebbe come «guasto cambiato»
     // lo stesso identico guasto, a ogni ora.
