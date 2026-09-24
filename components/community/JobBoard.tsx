@@ -6782,6 +6782,25 @@ const JobBoard: React.FC<JobBoardProps> = ({
   redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true);
  };
 
+ const handleRewardedApplicationUnavailable = (reason: string) => {
+  const job = rewardedApplicationJob;
+  if (!job) return;
+  // A no-fill/ineligible request has no paid impression to recover. Keep the
+  // reason on the rewarded funnel event, then hand the visitor directly to the
+  // employer instead of asking them to reload the same empty auction.
+  trackAssistedApplicationEvent(
+   'rewarded_application_inline_unavailable',
+   {
+    ...assistedApplicationJobContext(job, assistedApplicationVariant),
+    surface: 'job_detail_rewarded_inline',
+    reason: reason || 'unavailable',
+    handoff: 'direct_external',
+   },
+  );
+  setRewardedApplicationJob(null);
+  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true);
+ };
+
  const handleAssistedPaid = async () => {
   const job = assistedApplicationJob;
   if (!job || assistedApplicationVariant !== 'assisted_application' || assistedCheckoutBusy) return;
@@ -7272,6 +7291,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     companyName={rewardedApplicationJob.company}
     jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
     onContinue={handleRewardedApplicationContinue}
+    onUnavailable={handleRewardedApplicationUnavailable}
     onDismiss={() => setRewardedApplicationJob(null)}
    />
   </Suspense>

@@ -23,6 +23,7 @@ export const ASSISTED_APPLICATION_EVENT_NAMES = [
   'rewarded_ad_opt_in',
   'rewarded_ad_granted',
   'rewarded_ad_unavailable',
+  'rewarded_application_inline_unavailable',
   'rewarded_application_access_granted',
   'rewarded_application_access_used',
   'external_apply_redirected',
