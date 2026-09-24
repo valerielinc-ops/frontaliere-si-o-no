@@ -3,6 +3,7 @@ import fs from 'node:fs';
 import {
   CRAWLER_GROUP_LIVE_LEASE_TTL_MS,
   CRAWLER_GROUP_LIVE_LEASE_WAIT_MS,
+  LIVE_RUN_QUERY_MAX_BUFFER_BYTES,
   LIVE_RUN_QUERY_TIMEOUT_MS,
   crawlerGroupLeaseDoc,
   crawlerGroupLeaseResourceName,
@@ -71,6 +72,7 @@ describe('cross-entry crawler live-run guard', () => {
         encoding: 'utf8',
         timeout: LIVE_RUN_QUERY_TIMEOUT_MS,
         killSignal: 'SIGTERM',
+        maxBuffer: LIVE_RUN_QUERY_MAX_BUFFER_BYTES,
         env: expect.objectContaining({ GH_TOKEN: 'token-for-test' }),
       }),
     );
@@ -100,6 +102,35 @@ describe('cross-entry crawler live-run guard', () => {
       token: 'token-for-test',
       gh,
     })).toBe(true);
+  });
+
+  // Regressione ENOBUFS: `--paginate --slurp` sull'intero storico di
+  // crawler-group-NN.yml supera il buffer di default di execFileSync (1 MiB) e
+  // ogni run del corpus finiva in `spawnSync gh ENOBUFS` + fail-open. Qui le
+  // opzioni reali passate dal probe vengono usate per uno spawn vero che scrive
+  // ~3 MiB su stdout, con l'unica run live nell'ultima pagina.
+  it('reads a multi-MiB paginated run history through a real child process', async () => {
+    const { execFileSync } = await import('node:child_process');
+    const script = [
+      "const pad = 'x'.repeat(8000);",
+      'const pages = [];',
+      "for (let p = 0; p < 4; p += 1) pages.push({ workflow_runs: Array.from({ length: 100 }, () => ({ status: 'completed', pad })) });",
+      "pages.push({ workflow_runs: [{ status: 'in_progress' }] });",
+      'process.stdout.write(JSON.stringify(pages));',
+    ].join('\n');
+    const warn = vi.fn();
+    const gh = vi.fn((_command: string, _args: string[], options: Record<string, unknown>) => (
+      execFileSync(process.execPath, ['-e', script], options)
+    ));
+
+    expect(hasLiveRun('crawler-group-19.yml', {
+      repo: 'nanakokyobashi-rgb/frontaliere-articles',
+      token: 'token-for-test',
+      gh: gh as any,
+      logger: { warn, log: vi.fn(), error: vi.fn() },
+    })).toBe(true);
+    expect(warn).not.toHaveBeenCalled();
+    expect(LIVE_RUN_QUERY_MAX_BUFFER_BYTES).toBeGreaterThan(3 * 1024 * 1024);
   });
 
   it('proceeds safely when credentials, gh, or JSON data are unavailable', () => {
