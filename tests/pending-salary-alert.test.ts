@@ -1,6 +1,6 @@
 // @vitest-environment jsdom
 
-import { describe, it, expect, beforeEach, vi } from 'vitest';
+import { describe, it, expect, beforeEach, afterEach, vi } from 'vitest';
 import {
   savePendingSalaryAlert,
   consumePendingSalaryAlert,
@@ -24,10 +24,25 @@ describe('pendingSalaryAlert', () => {
     localStorage.clear();
     vi.useRealTimers();
   });
+  afterEach(() => {
+    vi.restoreAllMocks();
+  });
 
   it('round-trips and consumes the calculator-specific intent once', () => {
-    savePendingSalaryAlert(config);
+    expect(savePendingSalaryAlert(config)).toEqual({ ok: true });
     expect(consumePendingSalaryAlert()).toEqual(config);
+    expect(consumePendingSalaryAlert()).toBeNull();
+  });
+
+  it('reports when browser storage rejects the calculator intent', () => {
+    vi.spyOn(localStorage, 'setItem').mockImplementation(() => {
+      throw new Error('storage blocked');
+    });
+
+    expect(savePendingSalaryAlert(config)).toEqual({
+      ok: false,
+      reason: 'storage_unavailable',
+    });
     expect(consumePendingSalaryAlert()).toBeNull();
   });
 

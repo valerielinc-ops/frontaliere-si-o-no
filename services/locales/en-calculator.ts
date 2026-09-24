@@ -448,6 +448,7 @@ const enCalculator: Record<string, string> = {
  'results.salaryAlert.button': 'Yes, email me',
  'results.salaryAlert.retry': 'Try again',
  'results.salaryAlert.error': "We couldn't create the alert. Please try again.",
+ 'results.salaryAlert.storageError': "We couldn't save the alert in your browser. Enable browser storage and try again.",
  'results.salaryAlert.successTitle': 'Alert active ✓',
  'results.salaryAlert.successBody': "We'll email you as soon as Ticino jobs with net pay ≥ {amount} appear.",
  'results.salaryAlert.capture.title': 'Save this alert in a few seconds',

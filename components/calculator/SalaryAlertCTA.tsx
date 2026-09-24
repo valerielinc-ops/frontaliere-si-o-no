@@ -163,7 +163,12 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
     // Anonymous: keep the visitor at the result and make the next action
     // explicit. The alert is written only after authentication completes.
     if (!uid || !email) {
-      savePendingSalaryAlert(config);
+      const saveResult = savePendingSalaryAlert(config);
+      if (!saveResult.ok) {
+        setCaptureError(t('results.salaryAlert.storageError'));
+        setStatus('error');
+        return;
+      }
       setCaptureStatus('idle');
       setCaptureError('');
       setStatus('capture');
@@ -273,7 +278,7 @@ export const SalaryAlertCTA: React.FC<Props> = ({ netMonthlyCHF }) => {
               />
               {status === 'error' && (
                 <p className="text-sm text-danger mb-3" role="alert">
-                  {t('results.salaryAlert.error')}
+                  {captureError || t('results.salaryAlert.error')}
                 </p>
               )}
               {status === 'capture' ? (

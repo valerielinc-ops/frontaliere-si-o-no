@@ -15,6 +15,13 @@ describe('calculator salary-alert capture', () => {
     expect(source).not.toContain("window.location.assign('/lavoro/')");
   });
 
+  it('does not expose an auth capture path when the pending alert cannot be stored', () => {
+    const source = read('components/calculator/SalaryAlertCTA.tsx');
+    expect(source).toContain('const saveResult = savePendingSalaryAlert(config);');
+    expect(source).toContain('if (!saveResult.ok)');
+    expect(source).toContain("setStatus('error')");
+  });
+
   it('uses the DOI for new email captures and a login link only when proof already exists', () => {
     const source = read('components/calculator/SalaryAlertCTA.tsx');
     expect(source).toContain("await requestConfirmationEmail(trimmed, 'login');");

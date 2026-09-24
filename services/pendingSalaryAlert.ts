@@ -9,12 +9,15 @@
  */
 
 import type { JobAlertConfig } from '@/services/jobAlertService';
-import { saveIntent, consumeIntent, clearIntent } from '@/services/pendingIntentStore';
+import { saveIntentResult, consumeIntent, clearIntent } from '@/services/pendingIntentStore';
+import type { PendingIntentSaveResult } from '@/services/pendingIntentStore';
 
 const KEY = 'pending_salary_alert';
 
-export function savePendingSalaryAlert(config: JobAlertConfig): void {
-  saveIntent(KEY, config);
+export type PendingSalaryAlertSaveResult = PendingIntentSaveResult;
+
+export function savePendingSalaryAlert(config: JobAlertConfig): PendingSalaryAlertSaveResult {
+  return saveIntentResult(KEY, config);
 }
 
 /** Read and clear a still-valid calculator alert intent. */

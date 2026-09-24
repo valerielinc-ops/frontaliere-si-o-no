@@ -448,6 +448,7 @@ const frCalculator: Record<string, string> = {
  'results.salaryAlert.button': 'Oui, pr\u00e9viens-moi par e-mail',
  'results.salaryAlert.retry': 'R\u00e9essayer',
  'results.salaryAlert.error': "Impossible de cr\u00e9er l'alerte. R\u00e9essaie.",
+ 'results.salaryAlert.storageError': "Impossible d'enregistrer l'alerte dans le navigateur. Active le stockage du navigateur et r\u00e9essaie.",
  'results.salaryAlert.successTitle': 'Alerte activ\u00e9e \u2713',
  'results.salaryAlert.successBody': "On t'\u00e9crit d\u00e8s que des offres au Tessin avec net \u2265 {amount} apparaissent.",
  'results.salaryAlert.capture.title': 'Enregistre cette alerte en quelques secondes',

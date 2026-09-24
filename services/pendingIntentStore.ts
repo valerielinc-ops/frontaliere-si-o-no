@@ -14,6 +14,10 @@ interface StoredIntent<T> {
 
 export const DEFAULT_INTENT_TTL_MS = 15 * 60 * 1000;
 
+export type PendingIntentSaveResult =
+  | { ok: true }
+  | { ok: false; reason: 'storage_unavailable' };
+
 export function saveIntent<T>(key: string, value: T): boolean {
   if (typeof window === 'undefined') return false;
   try {
@@ -24,6 +28,13 @@ export function saveIntent<T>(key: string, value: T): boolean {
     /* localStorage unavailable (private mode / quota) — caller shows recovery */
     return false;
   }
+}
+
+/** Persist an intent and keep storage failure observable to the caller. */
+export function saveIntentResult<T>(key: string, value: T): PendingIntentSaveResult {
+  return saveIntent(key, value)
+    ? { ok: true }
+    : { ok: false, reason: 'storage_unavailable' };
 }
 
 function readValidIntent<T>(key: string, ttlMs: number): T | null {

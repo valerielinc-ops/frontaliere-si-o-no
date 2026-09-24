@@ -460,6 +460,7 @@ const translations: Record<string, string> = {
  'results.salaryAlert.button': 'Sì, avvisami via email',
  'results.salaryAlert.retry': 'Riprova',
  'results.salaryAlert.error': "Non siamo riusciti a creare l'alert. Riprova.",
+ 'results.salaryAlert.storageError': "Non è stato possibile salvare l'alert nel browser. Abilita l'archiviazione e riprova.",
  'results.salaryAlert.successTitle': 'Alert attivato ✓',
  'results.salaryAlert.successBody': 'Ti scriviamo appena escono offerte in Ticino con netto ≥ {amount}.',
  'results.salaryAlert.capture.title': 'Salva questo alert in pochi secondi',

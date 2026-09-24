@@ -448,6 +448,7 @@ const deCalculator: Record<string, string> = {
  'results.salaryAlert.button': 'Ja, per E-Mail benachrichtigen',
  'results.salaryAlert.retry': 'Erneut versuchen',
  'results.salaryAlert.error': 'Der Alert konnte nicht erstellt werden. Bitte versuche es erneut.',
+ 'results.salaryAlert.storageError': 'Der Alert konnte nicht im Browser gespeichert werden. Bitte aktiviere den Speicher und versuche es erneut.',
  'results.salaryAlert.successTitle': 'Alert aktiv ✓',
  'results.salaryAlert.successBody': 'Wir melden uns per E-Mail, sobald Tessiner Stellen mit Nettolohn ≥ {amount} erscheinen.',
  'results.salaryAlert.capture.title': 'Diesen Alert in wenigen Sekunden speichern',

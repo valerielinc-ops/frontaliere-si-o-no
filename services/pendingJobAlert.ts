@@ -14,18 +14,15 @@
  */
 
 import type { JobAlertConfig } from '@/services/jobAlertService';
-import { saveIntent, consumeIntent, clearIntent } from '@/services/pendingIntentStore';
+import { saveIntentResult, consumeIntent, clearIntent } from '@/services/pendingIntentStore';
+import type { PendingIntentSaveResult } from '@/services/pendingIntentStore';
 
 const KEY = 'pending_job_alert';
 
-export type PendingJobAlertSaveResult =
-  | { ok: true }
-  | { ok: false; reason: 'storage_unavailable' };
+export type PendingJobAlertSaveResult = PendingIntentSaveResult;
 
 export function savePendingJobAlert(config: JobAlertConfig): PendingJobAlertSaveResult {
-  return saveIntent(KEY, config)
-    ? { ok: true }
-    : { ok: false, reason: 'storage_unavailable' };
+  return saveIntentResult(KEY, config);
 }
 
 /**
