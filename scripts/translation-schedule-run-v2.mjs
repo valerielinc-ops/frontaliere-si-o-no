@@ -499,8 +499,8 @@ export async function runTranslationScheduleV2(options = {}) {
     ref: stateRef,
   });
   assertTranslationStateTargetV2({
-    remote: stateStore.remote ?? stateRemote,
-    ref: stateStore.ref ?? stateRef,
+    remote: stateStore.remote,
+    ref: stateStore.ref,
   });
   const provider = options.provider || normalizeProvider({
     repository,
@@ -538,7 +538,7 @@ export async function runTranslationScheduleV2(options = {}) {
   if (planned.plan.selectedJobs.length === 0) {
     const report = {
       mode,
-      stateRemote: stateStore.remote ?? stateRemote,
+      stateRemote: stateStore.remote,
       status: 'empty',
       scopeKey,
       stateRef: stateStore.ref,
@@ -583,7 +583,7 @@ export async function runTranslationScheduleV2(options = {}) {
   const selectedUnits = planned.plan.selectedJobs.reduce((sum, job) => sum + job.units.length, 0);
   const report = {
     mode,
-    stateRemote: stateStore.remote ?? stateRemote,
+    stateRemote: stateStore.remote,
     status: 'settled',
     scopeKey,
     stateRef: stateStore.ref,

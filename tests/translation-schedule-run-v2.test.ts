@@ -253,6 +253,20 @@ describe('translation scheduler v2 runtime wiring', () => {
       .toContain(git(one, 'rev-parse', 'origin/main'));
   });
 
+  it('rejects an injected state store without an explicit remote before initialization', async () => {
+    let initialized = false;
+    const stateStore = {
+      ref: 'refs/heads/translation-state-v2',
+      async initialize() {
+        initialized = true;
+      },
+    };
+
+    await expect(runTranslationScheduleV2({ repository: 'unused-repository', stateStore, logger: { log() {} } }))
+      .rejects.toThrow(/translation state writes must target origin\/refs\/heads\/translation-state-v2/);
+    expect(initialized).toBe(false);
+  });
+
   it('binds the shadow workflow permission and state destination to the same contract', () => {
     const workflow = readFileSync(
       new URL('../.github/workflows/translation-schedule-v2-shadow.yml', import.meta.url),
