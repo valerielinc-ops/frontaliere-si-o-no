@@ -15,6 +15,7 @@ import {
   extractDetailAddress,
   extractEventJsonLd,
   mergeDetailEventMetadata,
+  detailEnrichmentReady,
   mapEventRecord,
 } from '../scripts/crawl-myswitzerland-events.mjs';
 import {
@@ -213,6 +214,27 @@ describe('mergeDetailEventMetadata', () => {
       url: 'https://www.myswitzerland.com/artist',
     });
     expect(merged?.image).toBe('https://www.myswitzerland.com/-/media/events/alternate.jpg');
+  });
+});
+
+describe('detailEnrichmentReady', () => {
+  const perLocaleHits = { it: { image: 'https://cdn.myswitzerland.com/images/event.jpg' } };
+  const sourcePeople = {
+    organizer: { '@type': 'Organization', name: 'Promotore' },
+    performer: { name: 'Artista' },
+  };
+  const complete = {
+    detailAddress: { postalCode: '6900', locality: 'Lugano' },
+    detailPrice: { amount: 25, currency: 'CHF', isFree: false },
+  };
+
+  it('keeps fetching when address or price is still missing', () => {
+    expect(detailEnrichmentReady({ ...complete, detailAddress: undefined }, perLocaleHits, sourcePeople)).toBe(false);
+    expect(detailEnrichmentReady({ ...complete, detailPrice: undefined }, perLocaleHits, sourcePeople)).toBe(false);
+  });
+
+  it('stops only when attribution, image, address, and price are resolved', () => {
+    expect(detailEnrichmentReady(complete, perLocaleHits, sourcePeople)).toBe(true);
   });
 });
 

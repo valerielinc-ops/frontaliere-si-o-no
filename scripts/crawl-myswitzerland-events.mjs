@@ -611,20 +611,34 @@ async function fetchDetailEnrichment(perLocaleHits) {
     if (!enrichment.detailContactName && candidateContactName) enrichment.detailContactName = candidateContactName;
     if (!enrichment.detailImageSourceUrl && candidateImageSourceUrl) enrichment.detailImageSourceUrl = candidateImageSourceUrl;
 
-    const imageReady = Boolean(
-      LOCALES.some((candidateLocale) => firstEventImageUrl(perLocaleHits[candidateLocale]?.image, SITE_ORIGIN))
-      || firstEventImageUrl(enrichment.detailLd?.image, enrichment.detailUrl)
-      || enrichment.detailImageSourceUrl,
-    );
-    const organizerReady = Boolean(
-      normalizeEventPeople(enrichment.detailLd?.organizer, enrichment.detailUrl)
-      || sourcePeople.organizer
-      || enrichment.detailContactName,
-    );
-    const performerReady = Boolean(normalizeEventPeople(enrichment.detailLd?.performer, enrichment.detailUrl) || sourcePeople.performer);
-    if (imageReady && organizerReady && performerReady) break;
+    if (detailEnrichmentReady(enrichment, perLocaleHits, sourcePeople)) break;
   }
   return enrichment;
+}
+
+/**
+ * Stop locale detail-page fetching only after every supported optional field
+ * is resolved. Source attribution and an Algolia image alone are not enough:
+ * address and price can live on a different localized detail page.
+ */
+export function detailEnrichmentReady(enrichment, perLocaleHits = {}, sourcePeople = {}) {
+  const imageReady = Boolean(
+    LOCALES.some((candidateLocale) => firstEventImageUrl(perLocaleHits[candidateLocale]?.image, SITE_ORIGIN))
+    || firstEventImageUrl(enrichment?.detailLd?.image, enrichment?.detailUrl || SITE_ORIGIN)
+    || enrichment?.detailImageSourceUrl,
+  );
+  const organizerReady = Boolean(
+    normalizeEventPeople(enrichment?.detailLd?.organizer, enrichment?.detailUrl || SITE_ORIGIN)
+    || sourcePeople.organizer
+    || enrichment?.detailContactName,
+  );
+  const performerReady = Boolean(
+    normalizeEventPeople(enrichment?.detailLd?.performer, enrichment?.detailUrl || SITE_ORIGIN)
+    || sourcePeople.performer,
+  );
+  const addressReady = Boolean(enrichment?.detailAddress);
+  const priceReady = Boolean(enrichment?.detailPrice);
+  return imageReady && organizerReady && performerReady && addressReady && priceReady;
 }
 
 function parseArgs(argv) {
