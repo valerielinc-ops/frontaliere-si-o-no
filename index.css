@@ -331,11 +331,31 @@ a.seo-entity-card:focus-visible {
    of that block: pages without it have nothing to protect and must keep their
    static content flowing right below the 57px header. `:has()` matches from
    the initial prerendered HTML (the block is a static sibling), so the gate is
-   live before JS and the homepage flash protection is preserved. */
+   live before JS and the homepage flash protection is preserved.
+
+   SECOND EXCLUSION (#8868) — SPA-takeover job board. `/cerca-lavoro-ticino/`
+   (and its locale twins) DOES emit a footer block (`aside#jb-seo-block`), but
+   its prerendered content is NOT inside #root: #root holds only the 80px
+   `.ft-hdr-reserve`, and the crawler fallback is a body-level
+   `.ft-rail-grid > main.seo-static-content` after it. The footer block is the
+   LAST thing in a ~150KB document, so on a slow connection the browser paints
+   the static listing first and only then parses the aside: the `:has()` gate
+   flips on mid-load, #root jumps from 80px to 100vh and pushes the whole
+   visible listing (plus the static sub-nav) below the fold — a single
+   layout-shift of 0.58 (desktop, Playwright attribution against production,
+   4x CPU / 1.6 Mbps, 2026-09-24). Such pages have nothing inside #root to
+   protect: index.tsx moves the fallback INTO #root and reserves its real
+   height inline before createRoot().render(). So the reservation stays off
+   while a static fallback still sits outside #root. */
 #root {
   display: flow-root;
 }
-body:has(.seo-footer-block) #root {
+body:has(.seo-footer-block):not(:has(
+  > .ft-rail-grid > main.seo-static-content,
+  > .ft-rail-grid > main.cluster-seo-prose,
+  > main.seo-static-content,
+  > main.cluster-seo-prose
+)) #root {
   min-height: 100vh;
 }
 
