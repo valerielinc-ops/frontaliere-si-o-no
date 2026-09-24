@@ -174,8 +174,10 @@ jobs:
             --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" \
             || echo "::warning::Codex auth broker cleanup did not complete"
 
+      # Solo su main: un dispatch di verifica da un branch (es. controllo live
+      # della corsia Codex) non deve aprire o commentare l'issue canonica.
       - name: Report failure to GitHub Issues
-        if: failure()
+        if: failure() && github.ref == 'refs/heads/main'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
