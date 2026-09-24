@@ -269,14 +269,11 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
     expect(steps.indexOf(benchHtml!)).toBeLessThan(steps.indexOf(html!));
     expect(extract?.if).toBe('always()');
     expect(extract?.run).toContain('/tmp/build-${BUILD_LOCALE}.log');
-    expect(extract?.run).toContain('[jobs-seo-profile');
-    expect(extract?.run).toContain('[jobs-seo-reuse');
-    expect(extract?.run).toContain('[post-walk');
-    expect(extract?.run).toContain('incremental-verify');
-    expect(extract?.run).toContain('jobs-seo-sample');
-    expect(extract?.run).toContain('build-stop-after');
-    expect(extract?.run).toContain('wall-time-build-status');
-    expect(extract?.run).toContain('post-walk');
+    expect(extract?.run).toContain('scripts/ci/report-jobs-seo-build-metrics.mjs');
+    expect(extract?.run).toContain('--report-only');
+    expect(extract?.run).toContain('--markers-out="$MARKER_FILE"');
+    expect(extract?.run).toContain('--stop-after="${BUILD_STOP_AFTER:-}"');
+    expect(extract?.run).not.toContain('profile_seconds()');
     expect(stop?.if).toBe('inputs.stop_after_jobs_seo == true');
     expect(WORKFLOW.jobs['build-locale'].env).toMatchObject({
       BUILD_BENCH: '1',
