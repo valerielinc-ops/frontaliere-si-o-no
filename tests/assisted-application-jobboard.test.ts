@@ -41,8 +41,8 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource.match(/\{rewardedApplicationOfferJsx\}/g)?.length).toBeGreaterThanOrEqual(2);
   });
 
-  it('allows the rewarded request before sign-in while keeping the detail gate', () => {
-    expect(jobBoardSource).not.toContain("assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid");
+  it('keeps the anonymous job-board login gate while allowing the detail request', () => {
+    expect(jobBoardSource).toContain("assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView");
     expect(jobBoardSource).toContain('const hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor;');
     expect(jobBoardSource).toContain('isCrawlerVisitorAgent');
   });

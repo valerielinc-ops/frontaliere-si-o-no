@@ -6844,6 +6844,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
   const isExternal = isExternalApplicationJob(job);
+  if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView) {
+   // Keep anonymous job-board visitors on the sign-in/subscription funnel.
+   // The detail view is the only surface allowed to request the rewarded ad
+   // before sign-in, because it owns the canonical rewarded offer host.
+   onRequireAuth?.();
+   return;
+  }
   const rewardedAccessExpiresAt = isExternal && assistedApplicationVariant === 'rewarded_ad'
    ? getRewardedApplicationAccessExpiresAt()
    : null;
