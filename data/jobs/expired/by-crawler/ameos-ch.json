@@ -56,7 +56,26 @@
     "salaryMin": 86500,
     "salaryMax": 120500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/7801-dipl-pflegefachperson-geriatrie-hffh-80-100%25-in-einsiedeln",
+    "firstSeenAt": "2026-07-13T12:23:19.545Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/11068-dipl-pflegefachperson-geriatrie-in-einsiedeln",
+        "firstSeenAt": "2026-08-27T19:57:36.822Z",
+        "title": "Dipl. Pflegefachperson (m/w/d) Geriatrie"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/6199-dipl-pflegefachperson-geriatrie-hffh-80-100%25-in-einsiedeln",
+        "firstSeenAt": "2026-06-15T22:31:45.253Z",
+        "title": "Dipl. Pflegefachperson Geriatrie HF/FH (m/w/d) 80-100%"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/7801-dipl-pflegefachperson-geriatrie-hffh-80-100%25-in-einsiedeln",
+        "firstSeenAt": "2026-07-13T12:23:19.545Z",
+        "title": "Dipl. Pflegefachperson (m/w/d) Geriatrie"
+      }
+    ]
   },
   {
     "slug": "vicedirettore-di-reparto-m-f-d-reparto-letto-interdisciplinare-ameos-schweiz-einsiedeln",
@@ -89,27 +108,191 @@
       "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
       "stv-linea-della-stazione-m-f-d-ameos-schweiz-einsiedeln",
       "stv-station-line-m-f-d-interdisciplinary-bed-station-ameos-schweiz-einsiedeln",
-      "ligne-de-la-station-stv-m-f-d-ameos-schweiz-einsiedeln"
+      "ligne-de-la-station-stv-m-f-d-ameos-schweiz-einsiedeln",
+      "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln",
+      "projektleiter-m-w-d-ameos-schweiz-einsiedeln",
+      "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
+      "projektleiter-m-w-d-ameos-schweiz-einsiedeln-12a8b8",
+      "paramedic-training-station-m-f-d-ameos-schweiz-einsiedeln",
+      "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
+      "station-de-formation-paramedicale-m-f-d-ameos-schweiz-einsiedeln",
+      "projektleiter-m-m-j-ameos-schweiz-einsiedeln-12a8b8",
+      "projektleiter-m-w-d-ameos-schweiz-einsiedeln-80eb4u",
+      "projektleiter-m-w-d-ameos-schweiz-einsiedeln-edf0ec",
+      "projektleiter-m-m-j-ameos-schweiz-einsiedeln-edf0ec",
+      "professionale-m-f-d-terapia-professionale-ameos-schweiz-einsiedeln",
+      "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
+      "professionnel-m-f-d-ergotherapie-ameos-schweiz-einsiedeln",
+      "projektleiter-m-w-d-ameos-schweiz-einsiedeln-9j4fsw",
+      "projektleiter-m-w-d-ameos-schweiz-einsiedeln-71063c",
+      "projektleiter-m-m-j-ameos-schweiz-einsiedeln-71063c",
+      "aiuto-da-cucina-m-f-d-50-100-ameos-schweiz-einsiedeln",
+      "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln",
+      "kitchen-aid-m-f-d-50-100-ameos-schweiz-einsiedeln",
+      "aide-a-la-cuisine-m-f-j-50-100-ameos-schweiz-einsiedeln",
+      "projektleiter-m-w-d-ameos-schweiz-einsiedeln-q49gnp",
+      "projektleiter-m-w-d-ameos-schweiz-einsiedeln-87a6b2",
+      "fisioterapista-lun-f-d-ameos-schweiz-einsiedeln",
+      "physiotherapeut-m-w-d-ameos-einsiedeln",
+      "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+      "fisioterapista-m-f-d-ameos-schweiz-einsiedeln",
+      "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
+      "physiotherapist-m-f-d-ameos-schweiz-einsiedeln",
+      "physiotherapeute-m-f-d-ameos-schweiz-einsiedeln",
+      "physiotherapie-m-p-p-ameos-schweiz-einsiedeln",
+      "projektleiter-m-w-d-ameos-schweiz-einsiedeln-21eb1o",
+      "vice-capo-reparto-m-f-d-reparto-letto-interdisciplinare-ameos-schweiz-einsiedeln",
+      "projektleiter-m-w-d-ameos-schweiz-einsiedeln-2a036f",
+      "projektleiter-m-m-j-ameos-schweiz-einsiedeln-2a036f"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "stv-linea-della-stazione-m-f-d-ameos-schweiz-einsiedeln"
+        "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-12a8b8",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-80eb4u",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-edf0ec",
+        "professionale-m-f-d-terapia-professionale-ameos-schweiz-einsiedeln",
+        "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-9j4fsw",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-71063c",
+        "aiuto-da-cucina-m-f-d-50-100-ameos-schweiz-einsiedeln",
+        "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-q49gnp",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-87a6b2",
+        "fisioterapista-lun-f-d-ameos-schweiz-einsiedeln",
+        "physiotherapeut-m-w-d-ameos-einsiedeln",
+        "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+        "fisioterapista-m-f-d-ameos-schweiz-einsiedeln",
+        "fisioterapia-m-w-d-ameos-schweiz-einsiedeln",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-21eb1o",
+        "vice-capo-reparto-m-f-d-reparto-letto-interdisciplinare-ameos-schweiz-einsiedeln",
+        "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
       ],
       "en": [
-        "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "stv-station-line-m-f-d-interdisciplinary-bed-station-ameos-schweiz-einsiedeln"
+        "stv-station-line-m-f-d-interdisciplinary-bed-station-ameos-schweiz-einsiedeln",
+        "paramedic-training-station-m-f-d-ameos-schweiz-einsiedeln",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-12a8b8",
+        "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-edf0ec",
+        "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
+        "kitchen-aid-m-f-d-50-100-ameos-schweiz-einsiedeln",
+        "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-87a6b2",
+        "physiotherapist-m-f-d-ameos-schweiz-einsiedeln",
+        "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-2a036f",
+        "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
       ],
       "fr": [
-        "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
-        "ligne-de-la-station-stv-m-f-d-ameos-schweiz-einsiedeln"
+        "ligne-de-la-station-stv-m-f-d-ameos-schweiz-einsiedeln",
+        "station-de-formation-paramedicale-m-f-d-ameos-schweiz-einsiedeln",
+        "projektleiter-m-m-j-ameos-schweiz-einsiedeln-12a8b8",
+        "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
+        "projektleiter-m-m-j-ameos-schweiz-einsiedeln-edf0ec",
+        "professionnel-m-f-d-ergotherapie-ameos-schweiz-einsiedeln",
+        "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
+        "projektleiter-m-m-j-ameos-schweiz-einsiedeln-71063c",
+        "aide-a-la-cuisine-m-f-j-50-100-ameos-schweiz-einsiedeln",
+        "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-q49gnp",
+        "physiotherapeute-m-f-d-ameos-schweiz-einsiedeln",
+        "physiotherapeut-m-w-d-ameos-schweiz-einsiedeln",
+        "physiotherapie-m-p-p-ameos-schweiz-einsiedeln",
+        "projektleiter-m-w-d-ameos-schweiz-einsiedeln-21eb1o",
+        "projektleiter-m-m-j-ameos-schweiz-einsiedeln-2a036f",
+        "stv-stationsleitung-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln"
+      ],
+      "de": [
+        "fachperson-gesundheit-m-w-d-interdisziplinare-privatstation-ameos-einsiedeln",
+        "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
+        "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln",
+        "physiotherapeut-m-w-d-ameos-einsiedeln"
       ]
     },
     "postalCode": "8840",
     "salaryMin": 117000,
     "salaryMax": 163000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/3583-stv-stationsleitung-interdisziplin%c3%a4re-bettenstation-in-einsiedeln",
+    "firstSeenAt": "2026-05-22T10:50:24.726Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/11061-stv-stationsleitung-interdisziplin%c3%a4re-bettenstation-in-einsiedeln",
+        "firstSeenAt": "2026-08-27T19:57:37.661Z",
+        "title": "Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/2083-fachperson-ergotherapie-in-einsiedeln",
+        "firstSeenAt": "2026-06-01T13:37:22.388Z",
+        "title": "Fachperson (m/w/d) Ergotherapie"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/3449-ausbildungsplatz-als-rettungssanit%c3%a4ter-in-einsiedeln",
+        "firstSeenAt": "2026-05-20T10:54:54.759Z",
+        "title": "Ausbildungsplatz als Rettungssanitäter (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/3578-fachperson-gesundheit-interdisziplin%c3%a4re-privatstation-in-einsiedeln",
+        "firstSeenAt": "2026-05-20T10:54:48.181Z",
+        "title": "Fachperson Gesundheit (m/w/d) interdisziplinäre Privatstation"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/3583-stv-stationsleitung-interdisziplin%c3%a4re-bettenstation-in-einsiedeln",
+        "firstSeenAt": "2026-05-22T10:50:24.726Z",
+        "title": "Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/3719-physiotherapeut-in-einsiedeln",
+        "firstSeenAt": "2026-05-20T10:54:37.604Z",
+        "title": "Physiotherapeut (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5384-fachperson-gesundheit-interdisziplin%c3%a4re-privatstation-in-einsiedeln",
+        "firstSeenAt": "2026-06-01T22:44:51.083Z",
+        "title": "Fachperson Gesundheit (m/w/d) interdisziplinäre Privatstation"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5590-fachperson-ergotherapie-in-einsiedeln",
+        "firstSeenAt": "2026-06-03T12:39:08.824Z",
+        "title": "Fachperson (m/w/d) Ergotherapie"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5599-physiotherapeut-in-einsiedeln",
+        "firstSeenAt": "2026-06-03T12:39:09.725Z",
+        "title": "Physiotherapeut (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5710-stv-stationsleitung-interdisziplin%c3%a4re-bettenstation-in-einsiedeln",
+        "firstSeenAt": "2026-06-04T14:27:55.369Z",
+        "title": "Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5716-k%c3%bcchenhilfe-50-100%25-in-einsiedeln",
+        "firstSeenAt": "2026-06-04T14:27:57.363Z",
+        "title": "Küchenhilfe (m/w/d) 50 - 100%"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/6813-ausbildungsplatz-als-rettungssanit%c3%a4ter-in-einsiedeln",
+        "firstSeenAt": "2026-06-25T10:37:31.387Z",
+        "title": "Ausbildungsplatz als Rettungssanitäter (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/7107-physiotherapeut-in-einsiedeln",
+        "firstSeenAt": "2026-07-01T11:05:53.904Z",
+        "title": "Physiotherapeut (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/7170-stv-stationsleitung-interdisziplin%c3%a4re-bettenstation-in-einsiedeln",
+        "firstSeenAt": "2026-07-02T10:33:12.726Z",
+        "title": "Stv. Stationsleitung (m/w/d) Interdisziplinäre Bettenstation"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/9441-physiotherapeut-in-einsiedeln",
+        "firstSeenAt": "2026-08-04T11:40:38.938Z",
+        "title": "Physiotherapeut (m/w/d)"
+      }
+    ]
   },
   {
     "slug": "ricevimento-del-dipendente-m-f-d-ameos-schweiz-einsiedeln",
@@ -158,7 +341,9 @@
     "salaryMin": 86500,
     "salaryMax": 120500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/10506-mitarbeiter-empfang-in-einsiedeln",
+    "firstSeenAt": "2026-08-20T09:57:33.673Z"
   },
   {
     "slug": "responsabile-della-cura-operativa-m-f-d-ameos-schweiz-einsiedeln",
@@ -190,26 +375,119 @@
     "previousSlugs": [
       "head-of-m-f-d-operational-care-ameos-schweiz-einsiedeln",
       "chef-des-soins-operationnels-h-f-d-ameos-schweiz-einsiedeln",
-      "leitung-m-w-d-operationspflege-ameos-einsiedeln"
+      "leitung-m-w-d-operationspflege-ameos-einsiedeln",
+      "gestione-m-f-d-cura-operativa-ameos-schweiz-einsiedeln",
+      "management-m-f-d-operational-care-ameos-schweiz-einsiedeln",
+      "gestion-m-f-d-soins-operationnels-ameos-schweiz-einsiedeln",
+      "direzione-m-f-d-cura-chirurgica-ameos-schweiz-einsiedeln"
     ],
     "previousSlugsByLocale": {
       "it": [
         "head-of-m-f-d-operational-care-ameos-schweiz-einsiedeln",
         "chef-des-soins-operationnels-h-f-d-ameos-schweiz-einsiedeln",
-        "leitung-m-w-d-operationspflege-ameos-einsiedeln"
+        "leitung-m-w-d-operationspflege-ameos-einsiedeln",
+        "gestione-m-f-d-cura-operativa-ameos-schweiz-einsiedeln",
+        "direzione-m-f-d-cura-chirurgica-ameos-schweiz-einsiedeln"
       ],
       "en": [
-        "leitung-m-w-d-operationspflege-ameos-einsiedeln"
+        "leitung-m-w-d-operationspflege-ameos-einsiedeln",
+        "management-m-f-d-operational-care-ameos-schweiz-einsiedeln"
       ],
       "fr": [
-        "leitung-m-w-d-operationspflege-ameos-einsiedeln"
+        "leitung-m-w-d-operationspflege-ameos-einsiedeln",
+        "gestion-m-f-d-soins-operationnels-ameos-schweiz-einsiedeln"
       ]
     },
     "postalCode": "8840",
     "salaryMin": 117000,
     "salaryMax": 163000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5848-leitung-operationspflege-in-einsiedeln",
+    "firstSeenAt": "2026-06-09T10:55:22.818Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/11686-leitung-operationspflege-in-einsiedeln",
+        "firstSeenAt": "2026-09-08T13:32:48.523Z",
+        "title": "Leitung (m/w/d) Operationspflege"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5848-leitung-operationspflege-in-einsiedeln",
+        "firstSeenAt": "2026-06-09T10:55:22.818Z",
+        "title": "Leitung (m/w/d) Operationspflege"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/7429-leitung-operationspflege-in-einsiedeln",
+        "firstSeenAt": "2026-07-07T22:17:10.927Z",
+        "title": "Leitung (m/w/d) Operationspflege"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/9903-leitung-operationspflege-in-einsiedeln",
+        "firstSeenAt": "2026-08-11T21:52:58.963Z",
+        "title": "Leitung (m/w/d) Operationspflege"
+      }
+    ]
+  },
+  {
+    "slug": "collaboratore-trice-m-w-d-roomservice-ameos-schweiz-einsiedeln",
+    "title": "Mitarbeiter (m/w/d) Roomservice",
+    "titleByLocale": {
+      "it": "Collaboratore/trice (m/w/d) Roomservice",
+      "en": "Employees (m/f/d) Roomservice",
+      "de": "Mitarbeiter (m/w/d) Roomservice",
+      "fr": "Employés (h/f/d) Roomservice"
+    },
+    "company": "AMEOS Schweiz",
+    "companyKey": "ameos-ch",
+    "location": "Einsiedeln",
+    "addressLocality": "Einsiedeln",
+    "descriptionByLocale": {
+      "it": "AMEOS Svizzera — parte del Gruppo AMEOS (ospedali, policlinici, riabilitazione e assistenza). Località svizzere: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Lavoro: Dipendente (m/f/d) Roomservice (Einsiedeln, SZ).\n\nI dipendenti (m/f/d) Roomservice Design il futuro in Einsiedeln con noi! Per rafforzare il nostro team a AMEOS Spital Einsiedeln stiamo cercando un dipendente (m/f/d) Roomservice60%Your vantaggi Un'attività interessante, versatile e impegnativaUn team creato e motivatoI vantaggi potenziali attraverso l'operazione Il roster è di solito scritto 6 settimane in anticipo Siete liberi al mese 2 fine settimana è possibile specificare i giorni liberi di lavoro desiderati Il gallo è molto flessibile e scritto individualmente Lavoriamo senza orario di cameraLavoriamo solo tra le 06:45 e le 19:00\n• Offriamo 5 o 6.5 o 12 turni di ora Insieme ai vostri compagni di squadra, siete responsabili di un processo regolare per l'industria alberghiera stazionaria su tutti i piani Voi rappresentate l'Ospedale AMEOS Einsiedeln nelle sale dei pazienti e adempite al ruolo di hosting Garantite una cura altamente professionale e personalizzata dei nostri pazienti e visitatori e assumete la responsabilità di un aspetto liscio e competente nelle stazioni letto Siete responsabili per l'ordinazione alimentare in casa e garantire un ambiente benevolo Il tuo profilo di formazione nel settore catering / hotel di vantaggio Devi essere felice di lavorare con le persone Si parla fluente GermanStrong servizio disponibilità e flessibilità Hai suscitato il tuo interesse? Per ulteriori informazioni, si prega di contattare il responsabile del servizio, il sig. Philippe Schnider, al tel. +41 (0)55 418 51 11. Siamo felici di attendere la vostra applicazione. Saranno prese in considerazione solo le domande che sono presentate in pieno (comprese le lettere di copertura, i CV e i diplomi) tramite il nostro portale di candidati online. Attendiamo con ansia la vostra applicazione! Seguici su Instagram@ameos groupNow Applicare Sopra tutto il negozio di salute ameos.eu... \"onload=\"this.removeAttribute('srcdoc')\" larghezza=\"320\" altezza=\"2130\" titolo=\"job Description\" id=\"job-details-frame\" style=\"larghezza: 100%;\" referrerpolicy=\"origin\"rolling=\"auto\">",
+      "en": "AMEOS Switzerland — part of the AMEOS Group (hospitals, polyclinics, rehabilitation and care facilities). Swiss locations: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Job: Employee (m/f/d) Roomservice (Einsiedeln, SZ).\n\nEmployees (m/f/d) Roomservice Design the future in Einsiedeln with us! To strengthen our team at AMEOS Spital Einsiedeln we are looking for an employee (m/f/d) Roomservice60%Your advantagesAn interesting, versatile and demanding activityA set up and motivated teamNumerous benefits through the operationThe roster is usually written 6 weeks in advance You are free per month 2 weekend you can specify desired work-free daysThe roster is very flexible and individually written We work without room hourWe only work between 06:45 and 19:00\n• We offer 5 or 6.5 or 12 hour shifts Together with your teammates, you are responsible for a smooth process for the stationary hotel industry on all floors You represent the AMEOS Hospital Einsiedeln in the patient rooms and fulfill the hosting role You guarantee a highly professional, personalized care of our patients and visitors and bear the responsibility for a smooth and competent appearance on the bed stations You are responsible for the food ordering in the house and ensure a benevolent ambienceYour profile training in the catering / hotel industry of advantageYou must be happy to work with people You speak fluent GermanStrong service willingness and flexibility Have we aroused your interest? For further information, please contact the Head of Service, Mr. Philippe Schnider, at tel. +41 (0)55 418 51 11.We are happy to await your application. Only applications that are submitted in full (including cover letters, CVs and diplomas) via our online applicant portal will be considered. We look forward to your application! Follow us on Instagram@ameos groupNow Apply Above all health ameos.eu store... \"onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"job description\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\">",
+      "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Mitarbeiter (m/w/d) Roomservice (Einsiedeln, SZ).\n\nMitarbeiter (m/w/d) Roomservice Gestalten Sie mit uns die Zukunft in Einsiedeln!Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir einenMitarbeiter (m/w/d) Roomservice60%Ihre VorteileEine interessante, vielseitige und anspruchsvolle TätigkeitEin aufgestelltes und motiviertes TeamZahlreiche Benefits durch den BetriebDer Dienstplan wird in der Regel 6 Wochen im Voraus geschriebenIm Schnitt haben Sie pro Monat 2 Wochenende freiSie können gewünschte arbeitsfreie Tage angebenDer Dienstplan wird sehr flexibel und individuell geschrieben Wir arbeiten ohne ZimmerstundeWir arbeiten nur zwischen 06:45 Uhr und 19:00 UhrWir bieten 5 oder 6.5 oder 12 Stundenschichten Ihre AufgabenSie sind mit Ihren Teamkollegen verantwortlich für einen reibungslosen Ablauf für die stationäre Hotellerie in allen EtagenSie repräsentieren in den Patientenzimmern das AMEOS Spital Einsiedeln und erfüllen die Gastgeberrolle Sie gewährleisten eine hochprofessionelle, personalisierte Betreuung unserer Patienten und Besucher und tragen die Verantwortung für einen reibungslosen und kompetenten Auftritt auf den BettenstationenSie sind für das Essensbestellwesen im Haus zuständig und sorgen für ein wohlwollendes AmbienteIhr ProfilAusbildung in der Gastronomie / Hotellerie von VorteilSie müssen gerne mit Menschen arbeitenSie sprechen fliessend DeutschAusgeprägte Dienstleistungsbereitschaft und Flexibilität Haben wir Ihr Interesse geweckt? Für nähere Auskünfte wenden Sie sich bitte an den Leiter Dienstleistung, Herr Philippe Schnider, unter Tel. +41 (0)55 418 51 11.Gerne erwarten wir Ihre Bewerbung. Es werden nur Bewerbungen berücksichtigt, welche vollständig (inkl. Anschreiben, Lebenslauf und Diplome) über unser Online-Bewerberportal eingereicht werden. Wir freuen uns auf Ihre Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
+      "fr": "AMEOS Suisse — faisant partie du groupe AMEOS (hôpitaux, polycliniques, centres de réadaptation et de soins). Lieux suisses: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Emploi: Employé (h/f/d) Roomservice (Einsiedeln, SZ).\n\nEmployés (h/f/d) Roomservice Concevez l'avenir à Einsiedeln avec nous! Pour renforcer notre équipe chez AMEOS Spital Einsiedeln, nous recherchons un employé (h/f/d) Roomservice60%Vos avantages Une activité intéressante, polyvalente et exigeanteUne équipe organisée et motivéeBénéfices considérables grâce à l'opération La liste est généralement écrite 6 semaines à l'avance Vous êtes libre par mois 2 week-end vous pouvez spécifier les jours sans travail souhaités Le fichier est très souple et rédigé individuellement. Nous travaillons sans heure de chambreNous travaillons seulement entre 06:45 et 19:00\n• Nous offrons 5 ou 6.5 ou 12 heures de travail Avec vos coéquipiers, vous êtes responsable d'un processus en douceur pour l'industrie hôtelière stationnaire sur tous les étages Vous représentez l'hôpital AMEOS Einsiedeln dans les chambres des patients et remplir le rôle d'hébergement Vous garantissez un soin hautement professionnel et personnalisé de nos patients et visiteurs et portez la responsabilité d'une apparence lisse et compétente sur les postes de lit Vous êtes responsable de la commande de nourriture dans la maison et assurer une ambiance bienveillante\n• Votre profil formation dans l'hôtellerie / restauration d'avantage Vous devez être heureux de travailler avec des gens Vous parlez couramment AllemandFort volonté de service et flexibilité Nous avons suscité votre intérêt? Pour de plus amples informations, veuillez contacter le Chef du Service, M. Philippe Schnider, au +41 (0)55 418 51 11. Nous sommes heureux d'attendre votre candidature. Seules les demandes soumises en entier (y compris les lettres de motivation, les CV et les diplômes) via notre portail en ligne seront prises en considération. Nous nous réjouissons de votre candidature! Suivez-nous sur Instagram@ameos groupNow Apply Par-dessus tout santé ameos.eu store... \"onload\"this.removeAttribute('srcdoc')\" width\"320\" height\"2130\" title\" id\"job-details-frame\" style\"width: 100%;\" referrerpolicy\"origin\" scrolling\"auto\">"
+    },
+    "slugByLocale": {
+      "it": "collaboratore-trice-m-w-d-roomservice-ameos-schweiz-einsiedeln",
+      "en": "employees-m-f-d-roomservice-ameos-schweiz-einsiedeln",
+      "de": "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln",
+      "fr": "employes-h-f-d-roomservice-ameos-schweiz-einsiedeln"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-14T23:41:21.356Z",
+    "previousSlugs": [
+      "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln"
+      ],
+      "en": [
+        "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln"
+      ],
+      "fr": [
+        "mitarbeiter-m-w-d-roomservice-ameos-einsiedeln"
+      ]
+    },
+    "postalCode": "8840",
+    "salaryMin": 86500,
+    "salaryMax": 120500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/10278-mitarbeiter-roomservice-in-einsiedeln",
+    "firstSeenAt": "2026-08-17T21:35:36.584Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/10278-mitarbeiter-roomservice-in-einsiedeln",
+        "firstSeenAt": "2026-08-17T21:35:36.584Z",
+        "title": "Mitarbeiter (m/w/d) Roomservice"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/12421-mitarbeiter-roomservice-in-einsiedeln",
+        "firstSeenAt": "2026-09-19T22:51:22.173Z",
+        "title": "Mitarbeiter (m/w/d) Roomservice"
+      }
+    ]
   },
   {
     "slug": "personale-del-progetto-m-f-d-acquisizione-della-partecipazione-ameos-schweiz-zurich",
@@ -256,7 +534,9 @@
     "salaryMin": 91500,
     "salaryMax": 128000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/9388-projektmitarbeiter-beteiligungserwerb-in-z%c3%bcrich",
+    "firstSeenAt": "2026-08-03T22:13:14.424Z"
   },
   {
     "slug": "assistente-pj-m-f-d-medicina-interna-ameos-schweiz-einsiedeln",
@@ -286,71 +566,231 @@
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-09-09T13:45:40.783Z",
     "previousSlugs": [
-      "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln"
+      "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln",
+      "sub-assistante-chirurgia-pj-m-f-d-ameos-schweiz-einsiedeln",
+      "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
+      "sub-assistant-pj-m-f-d-surgery-ameos-schweiz-einsiedeln",
+      "chirurgie-sous-assistante-pj-h-f-d-ameos-schweiz-einsiedeln",
+      "chirurgia-subassista-pj-m-f-d-ameos-schweiz-einsiedeln",
+      "sub-assistante-pj-m-f-d-medicina-interna-ameos-schweiz-einsiedeln",
+      "sub-assistant-pj-m-f-d-internal-medicine-ameos-schweiz-einsiedeln",
+      "sous-assistant-pj-m-f-d-medecine-interne-ameos-schweiz-einsiedeln",
+      "chirurgie-sous-assistante-pj-m-f-d-ameos-schweiz-einsiedeln"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln"
+        "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln",
+        "sub-assistante-chirurgia-pj-m-f-d-ameos-schweiz-einsiedeln",
+        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
+        "chirurgia-subassista-pj-m-f-d-ameos-schweiz-einsiedeln",
+        "sub-assistante-pj-m-f-d-medicina-interna-ameos-schweiz-einsiedeln",
+        "sub-assistant-pj-m-f-d-internal-medicine-ameos-schweiz-einsiedeln",
+        "sous-assistant-pj-m-f-d-medecine-interne-ameos-schweiz-einsiedeln"
       ],
       "en": [
-        "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln"
+        "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln",
+        "sub-assistant-pj-m-f-d-surgery-ameos-schweiz-einsiedeln",
+        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
+        "sub-assistant-pj-m-f-d-internal-medicine-ameos-schweiz-einsiedeln"
       ],
       "fr": [
-        "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln"
+        "unterassistent-pj-m-w-d-innere-medizin-ameos-einsiedeln",
+        "chirurgie-sous-assistante-pj-h-f-d-ameos-schweiz-einsiedeln",
+        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
+        "chirurgie-sous-assistante-pj-m-f-d-ameos-schweiz-einsiedeln",
+        "sous-assistant-pj-m-f-d-medecine-interne-ameos-schweiz-einsiedeln"
+      ],
+      "de": [
+        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
       ]
     },
     "postalCode": "8840",
     "salaryMin": 86500,
     "salaryMax": 120500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/9270-unterassistent-pj-innere-medizin-in-einsiedeln",
+    "firstSeenAt": "2026-09-07T23:24:14.888Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/9270-unterassistent-pj-innere-medizin-in-einsiedeln",
+        "firstSeenAt": "2026-07-31T11:39:40.176Z",
+        "title": "Unterassistent /PJ (m/w/d) Innere Medizin"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/9318-unterassistent-pj-chirurgie-in-einsiedeln",
+        "firstSeenAt": "2026-07-31T11:39:39.351Z",
+        "title": "Unterassistent / PJ (m/w/d) Chirurgie"
+      }
+    ]
   },
   {
-    "slug": "sub-assistante-chirurgia-pj-m-f-d-ameos-schweiz-einsiedeln",
-    "title": "Unterassistent / PJ (m/w/d) Chirurgie",
+    "slug": "riabilitazione-nutrizionale-m-f-d-ameos-schweiz-einsiedeln",
+    "title": "Ernährungsberater (m/w/d) Rehabilitation",
     "titleByLocale": {
-      "it": "Sub-assistante / chirurgia PJ (m/f/d)",
-      "en": "Sub-assistant / PJ (m/f/d) surgery",
-      "de": "Unterassistent / PJ (m/w/d) Chirurgie",
-      "fr": "Chirurgie sous-assistante / PJ (h/f/d)"
+      "it": "Riabilitazione nutrizionale (m/f/d)",
+      "en": "Nutritionist (m/f/d) Rehabilitation",
+      "de": "Ernährungsberater (m/w/d) Rehabilitation",
+      "fr": "Nutritionniste Réhabilitation (h/f/d)"
     },
     "company": "AMEOS Schweiz",
     "companyKey": "ameos-ch",
     "location": "Einsiedeln",
     "addressLocality": "Einsiedeln",
     "descriptionByLocale": {
-      "it": "AMEOS Svizzera — parte del Gruppo AMEOS (ospedali, policlinici, riabilitazione e assistenza). Località svizzere: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Posizione: Sub-assistant / PJ (m/f/d) Chirurgia (Einsiedeln, SZ).\n\nSub-assistante / PJ (m/f/d) Chirurgia Progettare il futuro a Einsiedeln con noi! L'AMEOS Spital Einsiedeln è un importante fornitore di assistenza sanitaria per Einsiedeln, la regione circostante e molto oltre e sta per la medicina di alta qualità e basata sulle esigenze. Stiamo valutando costantemente le applicazioni per le posizioni come sub-assistante / PJ (m/f/d) SurgeryYour vantaggiUn'introduzione strutturata e praticaClose supervisione da parte dei professionisti del cadreComportamento attivo nella vita quotidiana clinica con alta curva di apprendimentoFormazioni interne regolari Ambiente di lavoro familiare con la cultura del team apprezzativaIl luogo di lavoro attraente nel cuore della Svizzera centrale con alto valore di tempo liberoL'informazione sul sitoI vostri compitiLearning di trattare con i pazienti Indagine della storiaL'apprendimento dei principi di trattamento chirurgicoOpportunità di imparare le tecniche chirurgiche nella sala operatoriaImmatricolazione nella medicina umanaInteressi in questioni chirurgiche e attività operative Elevata disponibilità ad imparare il tedesco nella parola e nella scritturaI metodi di lavoro responsabili e orientati al paziente Abbiamo suscitato il vostro interesse? Attendiamo con ansia la vostra applicazione. Saranno prese in considerazione solo le domande che vengono presentate in pieno (comprese le lettere di copertura, i CV e i certificati) tramite il nostro portale di applicazione online. Si prega di inserire il periodo di assegnazione desiderato nella lettera di motivazione. Non vediamo l'ora di ricevere la vostra applicazione! Seguici su Instagram@ameos groupNow Applicare Sopra tutto il negozio di salute ameos.eu... \"onload=\"this.removeAttribute('srcdoc')\" larghezza=\"320\" altezza=\"2130\" titolo=\"job Description\" id=\"job-details-frame\" style=\"larghezza: 100%;\" referrerpolicy=\"origin\"rolling=\"auto\">",
-      "en": "AMEOS Switzerland — part of the AMEOS Group (hospitals, polyclinics, rehabilitation and care facilities). Swiss locations: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Position: Sub-assistant / PJ (m/f/d) Surgery (Einsiedeln, SZ).\n\nSub-assistant / PJ (m/f/d) Surgery Design the future in Einsiedeln with us! The AMEOS Spital Einsiedeln is an important health care provider for Einsiedeln, the surrounding region and far beyond and stands for high-quality and needs-based medicine.We are constantly evaluating applications for the positions as sub-assistant / PJ (m/f/d) SurgeryYour advantagesA structured and practical introductionClose supervision by cadre practitionersActive involvement in clinical everyday life with high learning curveRegular internal trainingsFamily working environment with appreciative team cultureAttractive place of work in the heart of Central Switzerland with high leisure valueWohnoption on siteYour tasksLearning of dealing with patients Survey of the historyLearning of the surgical treatment principlesOpportunity to learn surgical techniques in the operating roomImmatriculation in human medicineInterest in surgical issues and operative activitiesHigh willingness to learn German in word and writingResponsible and patient-oriented working methods Have we aroused your interest? We look forward to your application. Only applications that are submitted in full (including cover letters, CVs and certificates) via our online application portal will be considered. Please enter the desired assignment period in the motivation letter.We look forward to receiving your application! Follow us on Instagram@ameos groupNow Apply Above all health ameos.eu store... \"onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"job description\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\">",
-      "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Unterassistent / PJ (m/w/d) Chirurgie (Einsiedeln, SZ).\n\nUnterassistent / PJ (m/w/d) Chirurgie Gestalten Sie mit uns die Zukunft in Einsiedeln!Das AMEOS Spital Einsiedeln ist ein bedeutender Gesundheitsversorger für Einsiedeln, die umliegende Region und weit darüber hinaus und steht für eine hochwertige und bedarfsgerechte Medizin.Wir evaluieren laufend Bewerbungen für die Stellen alsUnterassistent / PJ (m/w/d) ChirurgieIhre VorteileEine strukturierte und praxisnahe EinführungEnge Betreuung durch KaderärzteAktive Einbindung in den klinischen Alltag mit hoher LernkurveRegelmässige interne FortbildungenFamiliäres Arbeitsumfeld mit wertschätzender TeamkulturAttraktiver Arbeitsort im Herzen der Zentralschweiz mit hohem FreizeitwertWohnmöglichkeit vor OrtIhre AufgabenErlernen des Umgangs mit Patientinnen und Patienten Erhebung der AnamneseErlernen der chirurgischen BehandlungsprinzipienGelegenheit, im Operationssaal chirurgische Techniken zu erlernenIhr ProfilImmatrikulation in der HumanmedizinInteresse an chirurgischen Fragestellungen und operativen TätigkeitenSehr gute Deutschkenntnisse in Wort und SchriftHohe Lernbereitschaft, Eigeninitiative und TeamfähigkeitVerantwortungsbewusste und patientenorientierte Arbeitsweise Haben wir Ihr Interesse geweckt? Gerne erwarten wir Ihre Bewerbung. Es werden nur Bewerbungen berücksichtigt, welche vollständig (inkl. Anschreiben, Lebenslauf und Zeugnissen) über unser Online-Bewerbungsportal eingereicht werden. Bitte geben Sie den gewünschten Einsatzzeitraum im Motivationsschreiben an.Wir freuen uns auf Ihre Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
-      "fr": "AMEOS Suisse — faisant partie du groupe AMEOS (hôpitaux, polycliniques, centres de réadaptation et de soins). Lieux suisses: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Position: Sous-assistant / Chirurgie PJ (h/f/d) (Einsiedeln, SZ).\n\nSous-assistant / PJ (h/f/d) Chirurgie Concevoir l'avenir à Einsiedeln avec nous! L'AMEOS Spital Einsiedeln est un important fournisseur de soins de santé pour Einsiedeln, la région environnante et bien au-delà et représente une médecine de haute qualité et axée sur les besoins. Nous évaluons en permanence les applications pour les postes de sous-assistant / PJ (h/f/d) ChirurgieVos avantagesUne introduction structurée et pratiqueEncadrement étroit par les praticiens cadresInvestissement actif dans la vie quotidienne clinique avec une courbe d'apprentissage élevéeFormations internes régulières Milieu de travail familial avec une culture d'équipe appréciatriceLieu de travail attrayant au cœur de la Suisse centrale avec une valeur de loisir élevéeWohnoption sur placeVos tâchesApprendre à traiter avec les patients Survey of the historyApprendre les principes du traitement chirurgicalOpportunité d'apprendre les techniques chirurgicales dans la salle d'opérationImmatriculation en médecine humaineIntérêt dans les questions chirurgicales et les activités opérationnelles Haute volonté d'apprendre l'allemand en paroles et en écritureMéthodes de travail responsables et axées sur le patient Avons-nous suscité votre intérêt? Nous attendons avec impatience votre candidature. Seules les demandes soumises en entier (y compris les lettres de motivation, les CV et les certificats) via notre portail d'applications en ligne seront prises en considération. Veuillez inscrire la période d'affectation souhaitée dans la lettre de motivation. Nous sommes impatients de recevoir votre candidature! Suivez-nous sur Instagram@ameos groupNow Apply Par-dessus tout santé ameos.eu store... \"onload\"this.removeAttribute('srcdoc')\" width\"320\" height\"2130\" title\" id\"job-details-frame\" style\"width: 100%;\" referrerpolicy\"origin\" scrolling\"auto\">"
+      "it": "AMEOS Svizzera — parte del Gruppo AMEOS (ospedale, policlinici, riabilitazione e assistenza). Località svizzere: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Posizione: Riabilitazione Dietitian (m/f/d) (Einsiedeln, SZ).\n\nNutritionist (m/f/d) Riabilitazione Design il futuro in Einsiedeln con noi! Per rafforzare il nostro team nell'AMEOS Spital Einsiedeln stiamo cercando un consulente nutrizionale (m/f/d) Rehabilitation60 - 70%I vostri vantaggiSupporto nella nutrizione clinica di chirurgia, medicina, geriatria co-design in aree specializzate come bariatria e misurazioni H2-breathing Piccolo team, che è accompagnato da una leadership agileCoole e compagni di squadra entusiasti della conoscenza I vostri compitiLa produzione di una consulenza tecnicamente sana e individuale di nutrizione La partecipazione a discussioni interdisciplinari di casi con una cooperazione interdisciplinare nell'attuazione della pianificazione nutrizionaleLa chiarificazione delle domande nella prevenzione e nel trattamento della malnutrizioneCo-design e lo sviluppo di documenti, istruzioni e linee guida nel campo della consulenza nutrizionaleIl vostro profiloLa formazione integrata come consulente di nutrizione FH (BSc) o grado equivalente Siamo lieti di attendere la vostra domanda completa con lettera di motivazione, CV, diplomi, certificati tramite il nostro portale online richiedente. Seguici su Instagram@ameos groupNow Applicare Sopra tutto il negozio di salute ameos.eu... \"onload=\"this.removeAttribute('srcdoc')\" larghezza=\"320\" altezza=\"2130\" titolo=\"job Description\" id=\"job-details-frame\" style=\"larghezza: 100%;\" referrerpolicy=\"origin\"rolling=\"auto\">",
+      "en": "AMEOS Switzerland — part of the AMEOS Group (hospitals, polyclinics, rehabilitation and care facilities). Swiss locations: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Position: Dietitian (m/f/d) Rehabilitation (Einsiedeln, SZ).\n\nNutritionist (m/f/d) Rehabilitation Design the future in Einsiedeln with us! To strengthen our team in the AMEOS Spital Einsiedeln we are looking for a nutrition consultant (m/f/d) Rehabilitation60 - 70%Your advantagesSupport in clinical nutrition of surgery, medicine, geriatrics co-design in specialist areas such as bariatrics and H2-breathing measurementsSmall team, which is accompanied with an agile leadershipCoole and knowledge-enthusiastic teammatesYour tasksSuccess production of a technically sound and individual nutrition consultancy Participation in interdisciplinary case discussions with focus nutrition interdisciplinary cooperation in the implementation of nutritional planningClarification of questions in the prevention and treatment of malnutritionCo-design and development of documents, instructions and guidelines in the field of nutrition consultingYour profileCompleted training as a nutrition consultant FH (BSc) or equivalent degree Independent, structured working method with high organizational and communication skillsExcitement in cooperation with projects as well as in the further development of processesGood PC user knowledge and openness for new flexibility and openness for changeInterested, motivated and thinking, concealed personality, which is characterized by high team ability Have For more information, please contact the Service Director, Mr. Philippe Schnider, at tel. +41 (0)55 418 51 23 or by e-mail to philippe.schnider@einsiedeln.ameos.ch.We are happy to await your complete application with letter of motivation, CV, diplomas, certificates via our online applicant portal. Follow us on Instagram@ameos groupNow Apply Above all health ameos.eu store... \"onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"job description\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\">",
+      "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Ernährungsberater (m/w/d) Rehabilitation (Einsiedeln, SZ).\n\nErnährungsberater (m/w/d) Rehabilitation Gestalten Sie mit uns die Zukunft in Einsiedeln!Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir einenErnährungsberater (m/w/d) Rehabilitation60 - 70%Ihre VorteileUnterstützung in klinischer Ernährung der Chirurgie, Medizin, Geriatrie Mitgestaltung in Fachgebieten wie z.B. Bariatrie und H₂-AtemtestmessungenKleines Team, welches mit einer agilen Führung begleitet wirdSelbstorganisierte TagesplanungCoole und wissensbegeisterte TeamkolleginnenIhre AufgabenSicherstellung einer fachlich fundierten und individuellen Ernährungsberatung Teilnahme an interdisziplinären Fallbesprechungen mit Fokus ErnährungInterdisziplinäre Zusammenarbeit bei der Umsetzung der KostformplanungAktive Mitwirkung bei der Prävention und Behandlung von MangelernährungAbklärung von Fragestellungen bei Unverträglichkeiten und ernährungsbedingten BeschwerdenMitgestaltung und Erarbeitung von Dokumenten, Weisungen und Richtlinien im Bereich ErnährungsberatungIhr ProfilAbgeschlossene Ausbildung als Ernährungsberater FH (BSc) oder gleichwertiger AbschlussSelbstständige, strukturierte Arbeitsweise mit hoher Organisations- und KommunikationsfähigkeitBegeisterung in der Mitarbeit bei Projekten sowie in der Weiterentwicklung von ProzessenGute PC-Anwenderkenntnisse und Offenheit für NeuesFlexibilität und Offenheit für VeränderungenInteressierte, motivierte und mitdenkende, verschwiegene Persönlichkeit, die sich durch hohe Teamfähigkeit auszeichnet Haben wir Ihr Interesse geweckt? Für nähere Auskünfte wenden Sie sich bitte an die Leitung Dienstleistung, Herr Philippe Schnider, unter Tel. +41 (0)55 418 51 23 oder per E-Mail an philippe.schnider@einsiedeln.ameos.ch.Gerne erwarten wir Ihre vollständige Bewerbung mit Motivationsschreiben, Lebenslauf, Diplome, Zeugnissen über unser Online-Bewerberportal. Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
+      "fr": "AMEOS Suisse — faisant partie du groupe AMEOS (hôpitaux, polycliniques, centres de réadaptation et de soins). Lieux suisses: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Fonction: Réhabilitation du régime alimentaire (h/f/d) (Einsiedeln, SZ).\n\nNutritionniste (h/f/d) Réhabilitation Concevoir l'avenir à Einsiedeln avec nous! Pour renforcer notre équipe dans l'AMEOS Spital Einsiedeln, nous sommes à la recherche d'un consultant en nutrition (h/f/d) Rehabilitation60 - 70%Vos avantagesSoutien en nutrition clinique de la chirurgie, de la médecine, de la gériatrie co-conception dans des domaines spécialisés tels que la bariatrie et les mesures de respiration H2 Petite équipe, accompagnée d'un leadership agileCoole et coéquipiers enthousiastes du savoir Vos tâchesRéussir la production d'un conseil en nutrition techniquement solide et individuel Participation à des discussions interdisciplinaires de cas avec focalisation nutrition coopération interdisciplinaire dans la mise en œuvre de la planification nutritionnelleClarification des questions dans la prévention et le traitement de la malnutritionCo-conception et développement de documents, instructions et lignes directrices dans le domaine de la consultation nutritionnelleVotre profilFormation complète en tant que consultant en nutrition FH (BSc) ou diplôme équivalent Méthode de travail structurée indépendante avec des compétences élevées en matière d'organisation et de communicationExcitation en coopération avec des projets ainsi que dans le développement de processus Bonne connaissance utilisateur PC et ouverture pour une nouvelle flexibilité et ouverture pour le changementIntéressé, motivé et réfléchi, personnalité cachée, caractérisée par une grande capacité d'équipe Avoir Pour plus d'informations, veuillez contacter le Directeur de service, M. Philippe Schnider, au +41 (0)55 418 51 23 ou par e-mail à philippe.schnider@einsiedeln.ameos.ch. Nous sommes heureux d'attendre votre candidature complète avec lettre de motivation, CV, diplômes, certificats via notre portail de candidats en ligne. Suivez-nous sur Instagram@ameos groupNow Apply Par-dessus tout santé ameos.eu store... \"onload\"this.removeAttribute('srcdoc')\" width\"320\" height\"2130\" title\" id\"job-details-frame\" style\"width: 100%;\" referrerpolicy\"origin\" scrolling\"auto\">"
     },
     "slugByLocale": {
-      "it": "sub-assistante-chirurgia-pj-m-f-d-ameos-schweiz-einsiedeln",
-      "en": "sub-assistant-pj-m-f-d-surgery-ameos-schweiz-einsiedeln",
-      "de": "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln",
-      "fr": "chirurgie-sous-assistante-pj-h-f-d-ameos-schweiz-einsiedeln"
+      "it": "riabilitazione-nutrizionale-m-f-d-ameos-schweiz-einsiedeln",
+      "en": "nutritionist-m-f-d-rehabilitation-ameos-schweiz-einsiedeln",
+      "de": "ernahrungsberater-m-w-d-rehabilitation-ameos-einsiedeln",
+      "fr": "nutritionniste-rehabilitation-h-f-d-ameos-schweiz-einsiedeln"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-09-09T13:45:40.783Z",
+    "expiredAt": "2026-09-07T23:24:23.404Z",
     "previousSlugs": [
-      "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
+      "ernahrungsberater-m-w-d-rehabilitation-ameos-einsiedeln",
+      "riabilitazione-nutrizionale-m-f-d-ameos-schweiz-einsiedeln",
+      "nutrizionista-m-f-d-riabilitazione-ameos-schweiz-einsiedeln",
+      "nutritionniste-m-f-d-readaptation-ameos-schweiz-einsiedeln"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
+        "ernahrungsberater-m-w-d-rehabilitation-ameos-einsiedeln",
+        "riabilitazione-nutrizionale-m-f-d-ameos-schweiz-einsiedeln",
+        "nutrizionista-m-f-d-riabilitazione-ameos-schweiz-einsiedeln"
       ],
       "en": [
-        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
+        "ernahrungsberater-m-w-d-rehabilitation-ameos-einsiedeln"
       ],
       "fr": [
-        "unterassistent-pj-m-w-d-chirurgie-ameos-einsiedeln"
+        "ernahrungsberater-m-w-d-rehabilitation-ameos-einsiedeln",
+        "nutritionniste-m-f-d-readaptation-ameos-schweiz-einsiedeln"
       ]
     },
     "postalCode": "8840",
     "salaryMin": 86500,
     "salaryMax": 120500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/6077-ern%c3%a4hrungsberater-rehabilitation-in-einsiedeln",
+    "firstSeenAt": "2026-06-11T22:09:07.961Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/11821-ern%c3%a4hrungsberater-rehabilitation-in-einsiedeln",
+        "firstSeenAt": "2026-09-08T13:32:46.499Z",
+        "title": "Ernährungsberater (m/w/d) Rehabilitation"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/6077-ern%c3%a4hrungsberater-rehabilitation-in-einsiedeln",
+        "firstSeenAt": "2026-06-11T22:09:07.961Z",
+        "title": "Ernährungsberater (m/w/d) Rehabilitation"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/7522-ern%c3%a4hrungsberater-rehabilitation-in-einsiedeln",
+        "firstSeenAt": "2026-07-09T12:16:49.352Z",
+        "title": "Ernährungsberater (m/w/d) Rehabilitation"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/9912-ern%c3%a4hrungsberater-rehabilitation-in-einsiedeln",
+        "firstSeenAt": "2026-08-11T21:52:58.165Z",
+        "title": "Ernährungsberater (m/w/d) Rehabilitation"
+      }
+    ]
+  },
+  {
+    "slug": "medico-massaggiatore-m-f-d-ameos-schweiz-einsiedeln",
+    "title": "Medizinischen Masseur (m/w/d)",
+    "titleByLocale": {
+      "it": "Massaggiatore medico (m/f/d)",
+      "en": "Medical masseur (m/f/d)",
+      "de": "Medizinischen Masseur (m/w/d)",
+      "fr": "Masseur médical (m/f/d)"
+    },
+    "company": "AMEOS Schweiz",
+    "companyKey": "ameos-ch",
+    "location": "Einsiedeln",
+    "addressLocality": "Einsiedeln",
+    "descriptionByLocale": {
+      "it": "AMEOS Svizzera — parte del Gruppo AMEOS (ospedali, policlinici, riabilitazione e assistenza). Località svizzere: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Posizione: Massaggiatore medico (m/f/d) (Einsiedeln, SZ).\n\nMassaggiatore medico (m/f/d) Formare il futuro in Einsiedeln con noi! Per rafforzare il nostro team all'AMEOS Spital Einsiedeln stiamo cercando uno specialista come massaggiatore medico (m/f/d)50 - 60% Lavorazione indipendente nelle sale terapeutiche moderneCondizioni di lavoro interessanti con orari di lavoro flessibiliSostegno all'ulteriore istruzione e formazione Ambiente di lavoro collegiale in una regione attraenteProgettazione in un nuovo reparto Il vostro compito Trattamento di pazienti malati e pazienti ambulatoriali con diverse tecniche di massaggio medico, drenaggio linfa manuale, terapia termica ecc. Consulenza dei pazienti e dei loro parentiFachgenauesErachsatzsbildungs als med. Masseur con il riconoscimento EMR federale del vantaggioInteressi nel lavorare con la riabilitazione di MSK e pazienti geriatrici Buon PC competenzeInglese in parola e scrivendo molto buonaGioia nella cooperazione interdisciplinareLa forza e l'empatia di comunicazione Abbiamo suscitato il vostro interesse? Per ulteriori informazioni, si prega di contattare il nostro capo di fisioterapia, la signora Susann Wichert, su tel. +41 (0)55 418 58 26. Attendiamo con ansia la vostra applicazione. Saranno prese in considerazione solo le domande che sono presentate in pieno (comprese le lettere di copertura, i CV e i certificati) tramite il nostro portale di candidati online. Attendiamo con ansia la vostra applicazione! Seguici su Instagram@ameos groupNow Applicare Sopra tutto il negozio di salute ameos.eu... \"onload=\"this.removeAttribute('srcdoc')\" larghezza=\"320\" altezza=\"2130\" titolo=\"job Description\" id=\"job-details-frame\" style=\"larghezza: 100%;\" referrerpolicy=\"origin\"rolling=\"auto\">",
+      "en": "AMEOS Switzerland — part of the AMEOS Group (hospitals, polyclinics, rehabilitation and care facilities). Swiss locations: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Position: Medical masseur (m/f/d) (Einsiedeln, SZ).\n\nMedical masseur (m/f/d) Shape the future in Einsiedeln with us! To strengthen our team at the AMEOS Spital Einsiedeln we are looking for a specialist as a medical massage therapist (m/f/d)50 - 60%Your advantagesIndependent working in modern therapy roomsAttractive working conditions with flexible working hoursSupport in further education and training Collegial working environment in an attractive regionCo-designing in a new departmentYour task Treatment of inpatient and outpatient patients with different medical massage techniques, manual lymph drainage, thermal therapy etc. Counselling of patients as well as their relativesFachgenauesErachsatzsbildungs als med. Masseur with federal EMR recognition of advantageInterest in working with MSK rehabilitation and geriatric patients Good PC skillsEnglish in word and writing very goodJoy in the interdisciplinary cooperationCommunication strength and empathy Have we aroused your interest? For more information, please contact our head of physiotherapy, Ms. Susann Wichert, on tel. +41 (0)55 418 58 26. We look forward to your application. Only applications that are submitted in full (including cover letters, CVs and certificates) via our online applicant portal will be considered. We look forward to your application! Follow us on Instagram@ameos groupNow Apply Above all health ameos.eu store... \"onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"job description\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\">",
+      "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Medizinischen Masseur (m/w/d) (Einsiedeln, SZ).\n\nMedizinischen Masseur (m/w/d) Gestalten Sie mit uns die Zukunft in Einsiedeln!Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir eine Fachperson alsMedizinischen Masseur (m/w/d)50 - 100%Ihre VorteileEigenständiges Arbeiten in modernen TherapieräumenAttraktive Arbeitsbedingungen mit flexiblen ArbeitszeitenUnterstützung bei Fort- und WeiterbildungenKollegiales Arbeitsumfeld in einer attraktiven RegionMitgestalten in einer neuen AbteilungIhre AufgabenBehandlung von stationären und ambulanten Patienten mit unterschiedlichen medizinischen Massagetechniken, manuelle Lymphdrainage, Thermotherapie etc.Beratung von Patienten sowie deren AngehörigenFachspezifisches Erheben eines BefundesIhr ProfilAbgeschlossene Ausbildung als med. MasseurIn mit eidg. Fachausweis EMR-Anerkennung von VorteilInteresse an der Arbeit mit MSK-Reha- und geriatrischen Patienten Gute PC-KenntnisseDeutsch in Wort und Schrift sehr gutFreude an der interdisziplinären ZusammenarbeitKommunikationsstärke und Einfühlungsvermögen Haben wir Ihr Interesse geweckt? Für nähere Auskünfte wenden Sie sich bitte an unsere Leiterin Physiotherapie, Frau Susann Wichert, unter Tel. +41 (0)55 418 58 26. Gern erwarten wir Ihre Bewerbung. Es werden nur Bewerbungen berücksichtigt, welche vollständig (inkl. Anschreiben, Lebenslauf und Zeugnissen) über unser Online-Bewerberportal eingereicht werden. Wir freuen uns auf Ihre Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
+      "fr": "AMEOS Suisse — faisant partie du groupe AMEOS (hôpitaux, polycliniques, centres de réadaptation et de soins). Lieux suisses: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Fonction: masseur médical (m/f/d) (Einsiedeln, SZ).\n\nMasseur médical (m/f/d) Formez l'avenir à Einsiedeln avec nous! Pour renforcer notre équipe à l'AMEOS Spital Einsiedeln, nous recherchons un spécialiste en massothérapie médicale (m/f/d)50 - 60% Vos avantages Travail indépendant dans les salles de thérapies modernesConditions de travail attrayantes avec horaires de travail flexiblesSoutien à l'éducation et à la formation continues Environnement de travail collégial dans une région attractiveCo-conception dans un nouveau département Votre tâche Traitement des patients hospitalisés et externes avec différentes techniques de massage médical, drainage lymphatique manuel, thérapie thermique, etc. Conseils aux patients et à leurs prochesFachgenauesErachsatzsbildungs als med. Masseur avec reconnaissance fédérale de l'avantage EMRIntérêt dans le travail avec la réadaptation MSK et les patients gériatriques Bonnes compétences en PCAnglais en paroles et en écriture très bonJoy dans la coopération interdisciplinaire force de communication et empathie Avez-vous suscité votre intérêt? Pour plus d'informations, veuillez contacter notre chef de physiothérapie, Mme Susann Wichert, au +41 (0)55 418 58 26. Nous attendons avec impatience votre candidature. Seules les demandes soumises en entier (y compris les lettres de motivation, les CV et les certificats) via notre portail en ligne seront prises en considération. Nous nous réjouissons de votre candidature! Suivez-nous sur Instagram@ameos groupNow Apply Par-dessus tout santé ameos.eu store... \"onload\"this.removeAttribute('srcdoc')\" width\"320\" height\"2130\" title\" id\"job-details-frame\" style\"width: 100%;\" referrerpolicy\"origin\" scrolling\"auto\">"
+    },
+    "slugByLocale": {
+      "it": "medico-massaggiatore-m-f-d-ameos-schweiz-einsiedeln",
+      "en": "medical-masseur-m-f-d-ameos-schweiz-einsiedeln",
+      "de": "medizinischen-masseur-m-w-d-ameos-einsiedeln",
+      "fr": "masseur-medical-m-f-d-ameos-schweiz-einsiedeln"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-09-01T00:33:35.983Z",
+    "previousSlugs": [
+      "medizinischen-masseur-m-w-d-ameos-einsiedeln",
+      "codice-medico-m-f-d-ameos-schweiz-einsiedeln",
+      "medical-coder-m-f-d-ameos-schweiz-einsiedeln",
+      "medizinischer-kodierer-m-w-d-ameos-einsiedeln",
+      "codeur-medical-m-f-d-ameos-schweiz-einsiedeln",
+      "medico-massaggiatore-m-f-d-ameos-schweiz-einsiedeln"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "medizinischen-masseur-m-w-d-ameos-einsiedeln",
+        "codice-medico-m-f-d-ameos-schweiz-einsiedeln",
+        "medical-coder-m-f-d-ameos-schweiz-einsiedeln",
+        "medizinischer-kodierer-m-w-d-ameos-einsiedeln",
+        "codeur-medical-m-f-d-ameos-schweiz-einsiedeln",
+        "medico-massaggiatore-m-f-d-ameos-schweiz-einsiedeln"
+      ],
+      "en": [
+        "medical-coder-m-f-d-ameos-schweiz-einsiedeln",
+        "medizinischer-kodierer-m-w-d-ameos-einsiedeln"
+      ],
+      "de": [
+        "medizinischer-kodierer-m-w-d-ameos-einsiedeln"
+      ],
+      "fr": [
+        "codeur-medical-m-f-d-ameos-schweiz-einsiedeln",
+        "medizinischer-kodierer-m-w-d-ameos-einsiedeln"
+      ]
+    },
+    "postalCode": "8840",
+    "salaryMin": 86500,
+    "salaryMax": 120500,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/3979-medizinischen-masseur-in-einsiedeln",
+    "firstSeenAt": "2026-05-22T10:50:23.956Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/11227-medizinischen-masseur-in-einsiedeln",
+        "firstSeenAt": "2026-09-01T08:41:03.747Z",
+        "title": "Medizinischen Masseur (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/3979-medizinischen-masseur-in-einsiedeln",
+        "firstSeenAt": "2026-05-22T10:50:23.956Z",
+        "title": "Medizinischen Masseur (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5842-medizinischen-masseur-in-einsiedeln",
+        "firstSeenAt": "2026-06-09T10:55:23.678Z",
+        "title": "Medizinischen Masseur (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/6086-medizinischer-kodierer-in-einsiedeln",
+        "firstSeenAt": "2026-06-11T22:09:06.933Z",
+        "title": "Medizinischer Kodierer (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/8790-medizinischer-kodierer-in-einsiedeln",
+        "firstSeenAt": "2026-07-27T22:16:39.657Z",
+        "title": "Medizinischer Kodierer (m/w/d)"
+      }
+    ]
   },
   {
     "slug": "apprendistato-per-kaufleute-cfc-m-w-d-ameos-schweiz-einsiedeln",
@@ -383,27 +823,52 @@
       "lehrstelle-fur-kaufleute-efz-m-w-d-ameos-einsiedeln",
       "apprenticeship-for-merchants-efz-m-f-d-ameos-schweiz-einsiedeln",
       "apprentissage-des-marchands-efz-m-f-d-ameos-schweiz-einsiedeln",
-      "apprendistato-per-kaufleute-cfc-m-w-d-ameos-schweiz-einsiedeln"
+      "apprendistato-per-kaufleute-cfc-m-w-d-ameos-schweiz-einsiedeln",
+      "apprendistato-im-bereich-kv-m-w-d-ameos-schweiz-einsiedeln",
+      "lehrstelle-im-bereich-kv-m-w-d-ameos-einsiedeln"
     ],
     "previousSlugsByLocale": {
       "it": [
         "lehrstelle-fur-kaufleute-efz-m-w-d-ameos-einsiedeln",
         "apprenticeship-for-merchants-efz-m-f-d-ameos-schweiz-einsiedeln",
         "apprentissage-des-marchands-efz-m-f-d-ameos-schweiz-einsiedeln",
-        "apprendistato-per-kaufleute-cfc-m-w-d-ameos-schweiz-einsiedeln"
+        "apprendistato-per-kaufleute-cfc-m-w-d-ameos-schweiz-einsiedeln",
+        "apprendistato-im-bereich-kv-m-w-d-ameos-schweiz-einsiedeln"
       ],
       "en": [
         "lehrstelle-fur-kaufleute-efz-m-w-d-ameos-einsiedeln"
       ],
       "fr": [
         "lehrstelle-fur-kaufleute-efz-m-w-d-ameos-einsiedeln"
+      ],
+      "de": [
+        "lehrstelle-im-bereich-kv-m-w-d-ameos-einsiedeln"
       ]
     },
     "postalCode": "8840",
     "salaryMin": 77500,
     "salaryMax": 108000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5795-lehrstelle-im-bereich-kv-in-einsiedeln",
+    "firstSeenAt": "2026-07-03T10:31:31.983Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5795-lehrstelle-im-bereich-kv-in-einsiedeln",
+        "firstSeenAt": "2026-07-03T10:31:31.983Z",
+        "title": "Lehrstelle für Kaufleute EFZ (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/7344-lehrstelle-f%c3%bcr-kaufleute-efz-in-einsiedeln",
+        "firstSeenAt": "2026-07-06T12:59:21.332Z",
+        "title": "Lehrstelle für Kaufleute EFZ (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/9361-lehrstelle-f%c3%bcr-kaufleute-efz-in-einsiedeln",
+        "firstSeenAt": "2026-08-03T12:50:24.212Z",
+        "title": "Lehrstelle für Kaufleute EFZ (m/w/d)"
+      }
+    ]
   },
   {
     "slug": "apprendistato-come-fachperson-gesundheit-m-w-d-cfc-ameos-schweiz-einsiedeln",
@@ -456,7 +921,26 @@
     "salaryMin": 77500,
     "salaryMax": 108000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5789-lehrstelle-als-fachperson-gesundheit-efz-in-einsiedeln",
+    "firstSeenAt": "2026-06-08T12:24:18.561Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5789-lehrstelle-als-fachperson-gesundheit-efz-in-einsiedeln",
+        "firstSeenAt": "2026-06-08T12:24:18.561Z",
+        "title": "Lehrstelle als Fachperson Gesundheit (m/w/d) EFZ"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/7329-lehrstelle-als-fachperson-gesundheit-efz-in-einsiedeln",
+        "firstSeenAt": "2026-07-06T12:59:20.548Z",
+        "title": "Lehrstelle als Fachperson Gesundheit (m/w/d) EFZ"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/9373-lehrstelle-als-fachperson-gesundheit-efz-in-einsiedeln",
+        "firstSeenAt": "2026-08-03T12:50:25.114Z",
+        "title": "Lehrstelle als Fachperson Gesundheit (m/w/d) EFZ"
+      }
+    ]
   },
   {
     "slug": "capo-aggiunto-m-f-d-segretariati-medici-ameos-schweiz-brunnen",
@@ -503,7 +987,9 @@
     "salaryMin": 96000,
     "salaryMax": 146000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/8767-stellvertretende-leitung-medizinische-sekretariate-in-brunnen",
+    "firstSeenAt": "2026-07-24T22:10:22.698Z"
   },
   {
     "slug": "professionista-m-f-d-fatturazione-ameos-schweiz-einsiedeln",
@@ -550,54 +1036,9 @@
     "salaryMin": 69500,
     "salaryMax": 106000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
-  },
-  {
-    "slug": "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln",
-    "title": "Ausbildungsplatz als Rettungssanitäter (m/w/d)",
-    "titleByLocale": {
-      "it": "Ausbildungsplatz come Rettungssanitäter (m/w/d)",
-      "en": "Paramedic training station (m/f/d)",
-      "de": "Ausbildungsplatz als Rettungssanitäter (m/w/d)",
-      "fr": "Station de formation paramédicale (m/f/d)"
-    },
-    "company": "AMEOS Schweiz",
-    "companyKey": "ameos-ch",
-    "location": "Einsiedeln",
-    "addressLocality": "Einsiedeln",
-    "descriptionByLocale": {
-      "it": "AMEOS Svizzera — parte del Gruppo AMEOS (ospedali, policlinici, riabilitazione e assistenza). Località svizzere: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Lavoro: Stazione di formazione paramedica (m/f/d) (Einsiedeln, SZ). Luogo di formazione come paramedico (m/f/d) Progettare il futuro a Einsiedeln con noi! Presso l'AMEOS Spital Einsiedeln offriamo dal novembre 2026 un luogo di allenamento come paramedico (m/f/d)100% Opportunità per vari tirocini interni ed esterniLavorare in un team esperto e dinamicoGiorno di apprendimento comune nel team di formazione professionale L'apprendimento virtuale attraverso piattaforme e strumenti di e-learning digitaliLa vostra gestione delle attività: gestione e documentazione delle assegnazioniCooperazione: Comunicazione e cooperazione con specialisti coinvolti nell'assegnazione Trattamento e assistenza preclinica: Salvataggio e trasporto sicuro: coordinamento e attuazione dei mezzi di soccorso Certificato di competenza (EFZ) o scheda di scuola secondaria specializzata o maturità professionale, tecnica o ginnastica o qualifica equivalente almeno 21 anniBuona espressione nella lingua tedesca Psychic, idoneità fisica e sociale gestione sicura degli aiuti tecniciDriving card Cat. C1Procedimento di ammissione esistente (http://www.stadt-zuerich.ch/pd/en/index/schutz u retung zuerich Per ulteriori informazioni, si prega di contattare il nostro ufficiale di formazione nel servizio di soccorso, Mr. Stefan Veit, via e-mail a stefan.veit@einsiedeln.ameos.ch o al tel. +41 (0)55 418 51 44. Siamo lieti della vostra applicazione. Saranno prese in considerazione solo le domande che sono presentate in pieno (compresa la lettera di copertura, il CV, i certificati e il multi-check) tramite il nostro portale di applicazione online. Si prega inoltre di notare le norme di ammissione della Scuola di Protezione e Soccorso di Zurigo. Questi devono essere raggiunti anche per l'occupazione. La procedura di selezione più breve inizierà dal luglio 2026 e finalizzerà l'assegnazione del post entro il settembre 2026. Lavoro precoce in azienda per lo stage preliminare a partire dal 1 novembre 2026 – Inizio degli studi Scuola Primavera 2027. Attendiamo con ansia la vostra applicazione! Seguici su Instagram@ameos groupNow Applicare Sopra tutto il negozio di salute ameos.eu... \"onload=\"this.removeAttribute('srcdoc')\" larghezza=\"320\" altezza=\"2130\" titolo=\"job Description\" id=\"job-details-frame\" style=\"larghezza: 100%;\" referrerpolicy=\"origin\"rolling=\"auto\">",
-      "en": "AMEOS Switzerland — part of the AMEOS Group (hospitals, polyclinics, rehabilitation and care facilities). Swiss locations: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Job: Paramedic training station (m/f/d) (Einsiedeln, SZ). Training place as a paramedic (m/f/d) Design the future in Einsiedeln with us! At the AMEOS Spital Einsiedeln we offer from November 2026 a training place as a paramedic (m/f/d)100%Your advantagesHigh share of self-learning time in the companyTimely remuneration Opportunity for various internal and external internshipsWorking in an experienced and dynamic team Common learning days in the vocational training team Virtual learning through digital e-learning platforms and toolsYour task management: management and documentation of assignmentsCooperation: Communication and cooperation with specialists involved in the assignment Preclinical treatment and care: Rescue and transport: coordination and implementation of rescues and safe management of emergency vehiclesTechnology and infrastructure: Responsibility for technical devices and use of information technologiesDevelopment: Prevention, ethical and legal principlesYour Profileidg. Certificate of competence (EFZ) or specialised secondary school card or vocational, technical or gymnasial maturity or equivalent qualification at least 21 years oldGood expression in German script and language Psychic, physical and social suitability safe handling of technical aidsDriving card Cat. C1Existing admission procedure (https://www.stadt-zuerich.ch/pd/en/index/schutz u rettung zuerich/fachschule rettungsberufe/bildungs-und-leadungslehrgaenge/dipl--rettungssanitaeter-in-hf/ admission procedure.html )Communication ability, a strong sense of responsibility and an independent willingness to work at irregular working hours Have we aroused your interest? For more information, please contact our training officer in the rescue service, Mr. Stefan Veit, by e-mail at stefan.veit@einsiedeln.ameos.ch or at tel. +41 (0)55 418 51 44.We are looking forward to your application. Only applications that are submitted in full (including cover letter, CV, certificates and multi-check) via our online application portal will be considered.Please also note the admission regulations of the Zurich School of Protection and Rescue. These must also be reached for employment. The shorter selection procedure will start from July 2026 and finalise the awarding of the post by September 2026. Early employment in the company for the preliminary internship as of 1 November 2026 – Start of studies School Spring 2027. We look forward to your application! Follow us on Instagram@ameos groupNow Apply Above all health ameos.eu store... \"onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"job description\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\">",
-      "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Ausbildungsplatz als Rettungssanitäter (m/w/d) (Einsiedeln, SZ).\n\nAusbildungsplatz als Rettungssanitäter (m/w/d) Gestalten Sie mit uns die Zukunft in Einsiedeln!Am AMEOS Spital Einsiedeln bieten wir ab November 2026 einen Ausbildungsplatz als Rettungssanitäter (m/w/d)100%Ihre VorteileHoher Anteil an Selbstlernzeit im BetriebZeitgerechte EntlöhnungMöglichkeit für diverse interne sowie externe PraktikaArbeiten in einem erfahrenen und dynamischen Team Gemeinsame Lerntage im Berufsbildungsteam Virtuelles Lernen durch digitale E-Learning-Plattformen und -ToolsIhre AufgabenEinsatzführung: Leitung und Dokumentation von EinsätzenKooperation: Kommunikation und Zusammenarbeit mit am Einsatz beteiligten FachpersonenPräklinische Behandlung und Pflege: Patienten in einer Notfall-, Krisen- oder Risikosituation professionell betreuenRettung und Transport: Koordination und Durchführung von Rettungen und sicheres Führen der EinsatzfahrzeugeTechnik und Infrastruktur: Verantwortung für technische Geräte und Einsatz von InformationstechnologienEntwicklung: Prävention, ethische und rechtliche PrinzipienIhr Profileidg. Fähigkeitszeugnis (EFZ) oder Fachmittelschulausweis oder Berufs-, Fach- oder gymnasialen Maturität oder gleichwertige Qualifikationmindestens 21 Jahre altGuter Ausdruck in deutscher Schrift und Sprache Psychische, körperliche und soziale Eignung sicherer Umgang mit technischen HilfsmittelnFahrausweis Kat. C1Bestandenes Zulassungsverfahren (https://www.stadt-zuerich.ch/pd/de/index/schutz_u_rettung_zuerich/fachschule_rettungsberufe/bildungs-und-fuehrungslehrgaenge/dipl--rettungssanitaeter--in-hf/zulassungsverfahren.html )Kommunikationsfähigkeit, ausgeprägtes Verantwortungsbewusstsein sowie eine selbstständige ArbeitsweiseBereitschaft zu unregelmäßigen Arbeitszeiten Haben wir Ihr Interesse geweckt? Für nähere Auskünfte wenden Sie sich bitte an unseren Ausbildungsverantwortlichen im Rettungsdienst, Herr Stefan Veit, per E-Mail unter stefan.veit@einsiedeln.ameos.ch oder unter Tel. +41 (0)55 418 51 44.Gern erwarten wir Ihre Bewerbung. Es werden nur Bewerbungen berücksichtigt, welche vollständig (inkl. Anschreiben, Lebenslauf, Zeugnisse und Multicheck) über unser Online-Bewerbungsportal eingereicht werden.Bitte beachten Sie ergänzend die Aufnahmebestimmungen der Schule «Schutz und Rettung Zürich». Diese müssen für eine Anstellung ebenfalls erreicht sein. Das engere Auswahlverfahren beginnt ab Juli 2026 und die Vergabe der Stelle per September 2026 finalisieren. Frühzeitige Anstellung im Betrieb für das Vorpraktikum per 1. November 2026 – Studienbeginn Schule Frühjahr 2027. Wir freuen uns auf Ihre Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
-      "fr": "AMEOS Suisse — faisant partie du groupe AMEOS (hôpitaux, polycliniques, centres de réadaptation et de soins). Lieux suisses: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Emploi: Station de formation paramédicale (m/f/d) (Einsiedeln, SZ). Lieu de formation comme ambulancier (m/f/d) Concevoir l'avenir à Einsiedeln avec nous! A l'AMEOS Spital Einsiedeln nous offrons à partir de novembre 2026 un lieu de formation comme ambulancier (m/f/d)100% Vos avantagesTravailler dans une équipe expérimentée et dynamique Journées d'apprentissage en commun au sein de l'équipe de formation professionnelle Apprentissage virtuel à travers des plateformes et des outils numériques d'apprentissage en ligneVotre gestion des tâches: gestion et documentation des missionsCoopération: Communication et coopération avec les spécialistes impliqués dans l'affectation Traitement et soins précliniques: Sauvetage et transport: coordination et mise en œuvre des sauvetages et gestion sûre des véhicules d'urgenceTechnologie et infrastructure: Responsabilité pour les dispositifs techniques et l'utilisation des technologies de l'informationDéveloppement: Prévention, principes éthiques et juridiquesVotre profilidg. Certificat de compétence (EFZ) ou carte d'études secondaires spécialisées ou maturité professionnelle, technique ou sportive ou qualification équivalente d'au moins 21 ans Bonne expression en allemand script et langue Psychique, physique et sociale aptitude à manipuler en toute sécurité les aides techniques Carte de conduite Cat. C1Procédure d'admission existante (https://www.stadt-zuerich.ch/pd/fr/index/schutz u rettung zuerich/fachschule rettungsberufe/bildungs-und-leadungslehrgaenge/dipl--rettungsssanitaeter-in-hf/procédure d'admission.html )Capacité de communication, fort sens des responsabilités et volonté indépendante de travailler à des heures de travail irrégulières Avons-nous suscité votre intérêt? Pour plus d'informations, veuillez contacter notre agent de formation au service de sauvetage, M. Stefan Veit, par e-mail à stefan.veit@einsiedeln.ameos.ch ou par tél. +41 (0)55 418 51 44. Nous attendons votre candidature avec impatience. Seules les demandes qui sont soumises en entier (y compris la lettre de motivation, CV, certificats et multi-vérifications) via notre portail d'applications en ligne seront prises en considération. Veuillez également prendre note des règles d'admission de l'École de protection et de sauvetage de Zurich. Ils doivent également être atteints pour l'emploi. La procédure de sélection plus courte commencera à partir de juillet 2026 et finalisera l'attribution du poste d'ici septembre 2026. Premier emploi dans l'entreprise pour le stage préliminaire au 1er novembre 2026 – Début des études École Printemps 2027. Nous attendons avec impatience votre candidature! Suivez-nous sur Instagram@ameos groupNow Apply Par-dessus tout santé ameos.eu store... \"onload\"this.removeAttribute('srcdoc')\" width\"320\" height\"2130\" title\" id\"job-details-frame\" style\"width: 100%;\" referrerpolicy\"origin\" scrolling\"auto\">"
-    },
-    "slugByLocale": {
-      "it": "ausbildungsplatz-come-rettungssanitater-m-w-d-ameos-schweiz-einsiedeln",
-      "en": "paramedic-training-station-m-f-d-ameos-schweiz-einsiedeln",
-      "de": "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln",
-      "fr": "station-de-formation-paramedicale-m-f-d-ameos-schweiz-einsiedeln"
-    },
-    "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-08-18T08:19:36.037Z",
-    "previousSlugs": [
-      "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln"
-    ],
-    "previousSlugsByLocale": {
-      "it": [
-        "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln"
-      ],
-      "en": [
-        "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln"
-      ],
-      "fr": [
-        "ausbildungsplatz-als-rettungssanitater-m-w-d-ameos-einsiedeln"
-      ]
-    },
-    "postalCode": "8840",
-    "salaryMin": 69500,
-    "salaryMax": 106000,
-    "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/9103-fachperson-fakturierung-in-einsiedeln",
+    "firstSeenAt": "2026-07-29T22:16:06.926Z"
   },
   {
     "slug": "centro-di-emergenza-mpa-m-f-d-ameos-schweiz-einsiedeln",
@@ -649,7 +1090,9 @@
     "salaryMin": 69500,
     "salaryMax": 106000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/8170-mpa-notfallzentrum-in-einsiedeln",
+    "firstSeenAt": "2026-07-17T22:12:25.484Z"
   },
   {
     "slug": "aiuto-da-cucina-m-f-d-ameos-schweiz-einsiedeln",
@@ -696,7 +1139,9 @@
     "salaryMin": 69500,
     "salaryMax": 106000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/8398-k%c3%bcchenhilfe-in-einsiedeln",
+    "firstSeenAt": "2026-07-21T11:38:57.966Z"
   },
   {
     "slug": "scienziati-sportivi-m-f-d-ameos-schweiz-einsiedeln",
@@ -748,7 +1193,21 @@
     "salaryMin": 69500,
     "salaryMax": 106000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/6083-sportwissenschaftler-in-einsiedeln",
+    "firstSeenAt": "2026-06-11T22:09:05.908Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/6083-sportwissenschaftler-in-einsiedeln",
+        "firstSeenAt": "2026-06-11T22:09:05.908Z",
+        "title": "Sportwissenschaftler (m/w/d)"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/7519-sportwissenschaftler-in-einsiedeln",
+        "firstSeenAt": "2026-07-09T12:16:47.600Z",
+        "title": "Sportwissenschaftler (m/w/d)"
+      }
+    ]
   },
   {
     "slug": "sport-e-bewegungstherapeut-m-w-d-ameos-schweiz-brunnen",
@@ -795,7 +1254,9 @@
     "salaryMin": 69500,
     "salaryMax": 106000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/6190-sport-und-bewegungstherapeut-in-brunnen",
+    "firstSeenAt": "2026-06-15T22:31:42.784Z"
   },
   {
     "slug": "psicologo-capo-m-f-d-ameos-schweiz-brunnen",
@@ -849,7 +1310,9 @@
     "salaryMin": 96000,
     "salaryMax": 146000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5509-oberpsychologen-in-brunnen",
+    "firstSeenAt": "2026-06-02T22:34:52.342Z"
   },
   {
     "slug": "assistenza-medica-pratica-m-f-d-centro-di-emergenza-ameos-schweiz-einsiedeln",
@@ -877,28 +1340,48 @@
       "fr": "assistance-medicale-m-f-d-ameos-schweiz-einsiedeln"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-07-13T10:43:32.119Z",
+    "expiredAt": "2026-07-13T12:23:34.563Z",
     "previousSlugs": [
       "medizinische-praxisassistenz-m-w-d-notfallzentrum-ameos-einsiedeln",
-      "assistenza-medica-pratica-m-f-d-centro-di-emergenza-ameos-schweiz-einsiedeln"
+      "assistenza-medica-pratica-m-f-d-centro-di-emergenza-ameos-schweiz-einsiedeln",
+      "gestione-del-prodotto-m-w-d-ameos-schweiz-einsiedeln",
+      "projektmanagement-m-w-d-ameos-schweiz-einsiedeln",
+      "gestion-du-projet-m-w-d-ameos-schweiz-einsiedeln"
     ],
     "previousSlugsByLocale": {
       "it": [
         "medizinische-praxisassistenz-m-w-d-notfallzentrum-ameos-einsiedeln",
-        "assistenza-medica-pratica-m-f-d-centro-di-emergenza-ameos-schweiz-einsiedeln"
+        "assistenza-medica-pratica-m-f-d-centro-di-emergenza-ameos-schweiz-einsiedeln",
+        "gestione-del-prodotto-m-w-d-ameos-schweiz-einsiedeln"
       ],
       "en": [
-        "medizinische-praxisassistenz-m-w-d-notfallzentrum-ameos-einsiedeln"
+        "medizinische-praxisassistenz-m-w-d-notfallzentrum-ameos-einsiedeln",
+        "projektmanagement-m-w-d-ameos-schweiz-einsiedeln"
       ],
       "fr": [
-        "medizinische-praxisassistenz-m-w-d-notfallzentrum-ameos-einsiedeln"
+        "medizinische-praxisassistenz-m-w-d-notfallzentrum-ameos-einsiedeln",
+        "gestion-du-projet-m-w-d-ameos-schweiz-einsiedeln"
       ]
     },
     "postalCode": "8840",
     "salaryMin": 69500,
     "salaryMax": 106000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/4426-medizinische-praxisassistenz-notfallzentrum-in-einsiedeln",
+    "firstSeenAt": "2026-05-20T10:54:39.189Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/4426-medizinische-praxisassistenz-notfallzentrum-in-einsiedeln",
+        "firstSeenAt": "2026-05-20T10:54:39.189Z",
+        "title": "Medizinische Praxisassistenz (m/w/d) Notfallzentrum"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/6153-medizinische-praxisassistenz-notfallzentrum-in-einsiedeln",
+        "firstSeenAt": "2026-06-15T13:49:55.795Z",
+        "title": "Medizinische Praxisassistenz (m/w/d) Notfallzentrum"
+      }
+    ]
   },
   {
     "slug": "apprendista-come-kauffrau-kaufmann-gesundheit-cfc-m-w-d-ameos-schweiz-brunnen",
@@ -916,7 +1399,7 @@
     "descriptionByLocale": {
       "it": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d) (Brunnen, SZ). Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d) Gestalte mit uns die Zukunft in Brunnen!Das AMEOS Seeklinikum Brunnen ist auf die stationäre Behandlung von Stressfolgeerkrankungen wie Depressionen, Burnout, Angsterkrankungen und Schlafstörungen spezialisiert. In diesem Bereich verfügen wir über eine hohe fachliche Kompetenz. Wir suchen ab Sommer 2027 eine engagierte Persönlichkeit, die ihre Ausbildung bei uns im AMEOS Seeklinikum Brunnen absolvieren möchte.Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d)100% per 1.8.2027Was bieten wir dir?Vielseitige Ausbildung: Du wirst in verschiedenen Bereichen eingesetzt, darunter Empfang, Patientenadministration, Fakturierung und Finanzbuchhaltung.Sechs Wochen Ferien:\n• Wir bieten dir sechs Wochen Ferien pro Jahr.Zusätzliche Bildungswoche: Eine zusätzliche Woche ist für eine schulische Bildungsreise ins Ausland vorgesehen.Vielfältige Einblicke: Du erhältst Einblicke in unterschiedliche Bereiche wie Controlling und Codierung sowie Marketing.Während deiner Ausbildung lernst du...Agiles Arbeiten: Du handelst in agilen Arbeits- und Organisationsformen.Vernetztes Arbeiten: Du interagierst in einem vernetzten Arbeitsumfeld.Prozesskoordination: Du koordinierst unternehmerische Arbeitsprozesse.Beziehungsmanagement: Du gestaltest Kunden- und Lieferantenbeziehungen.Digitale Technologien: Du setzt Technologien der digitalen Arbeitswelt ein.Projektarbeit: Du arbeitest an individuellen Projekten.Was bringst du mit?Du bist interessiert und motiviert Neues zu lernenDu hast eine abgeschlossene GrundschuleDu hast eine gute Auffassungsgabe und ein Flair für ZahlenDu hast Freude an Teamarbeit und am Umgang mit MenschenDu bist teamfähig und kontaktfreudigDu sprichst Deutsch und verfügst über eine gute sprachliche AusdrucksfähigkeitDu hast Interesse an Neuem und an den Entwicklungen in der Branche Haben wir deine Interessen geweckt? Für nähere Auskünfte wende dich bitte an die Kooperationsmanagerin und Kommunikation, Frau Karin Auf der Maur, unter Tel +41 (0)41 825 48 82 oder per E-Mail: karin.aufdermaur@brunnen.ameos.ch Es werden nur Bewerbungen berücksichtigt, welche vollständig (inkl. Anschreiben, Lebenslauf und Zeugnissen) über unser Online-Bewerberportal eingereicht werden. Wir freuen uns auf deine Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" > AMEOS Gruppe Vor allem Gesundheit AMEOS sichert die Gesundheitsversorgung in den Regionen: An über 60 Standorten in unseren Krankenhäusern, Poliklinika, Reha-, Pflege- und Eingliederungseinrichtungen sind wir Vorreiter in Medizin und Pflege. AMEOS steht für eine umfassende und zukunftssichere Versorgung der breiten Bevölkerung in regionalen Netzwerken. Denn für AMEOS gilt: vor allem Gesundheit. Startseite der AMEOS Gruppe Besuchen Sie uns auch auf: Impressum Lieferkettengesetz Datenschutz Kontakt Barrierefreiheitserklärung Cookie-Einstellungen AMEOS Gruppe Bahnhofplatz 14 CH-8021 Zürich +41 44 56 78 366 Kontakt: +41 44 56 78 366 +41 44 56 78 329 Kontakt Adresse: AMEOS Gruppe Bahnhofplatz 14 CH-8021 Zürich Initiativ bewerben",
       "en": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d) (Brunnen, SZ). Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d) Gestalte mit uns die Zukunft in Brunnen!Das AMEOS Seeklinikum Brunnen ist auf die stationäre Behandlung von Stressfolgeerkrankungen wie Depressionen, Burnout, Angsterkrankungen und Schlafstörungen spezialisiert. In diesem Bereich verfügen wir über eine hohe fachliche Kompetenz. Wir suchen ab Sommer 2027 eine engagierte Persönlichkeit, die ihre Ausbildung bei uns im AMEOS Seeklinikum Brunnen absolvieren möchte.Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d)100% per 1.8.2027Was bieten wir dir?Vielseitige Ausbildung: Du wirst in verschiedenen Bereichen eingesetzt, darunter Empfang, Patientenadministration, Fakturierung und Finanzbuchhaltung.Sechs Wochen Ferien:\n• Wir bieten dir sechs Wochen Ferien pro Jahr.Zusätzliche Bildungswoche: Eine zusätzliche Woche ist für eine schulische Bildungsreise ins Ausland vorgesehen.Vielfältige Einblicke: Du erhältst Einblicke in unterschiedliche Bereiche wie Controlling und Codierung sowie Marketing.Während deiner Ausbildung lernst du...Agiles Arbeiten: Du handelst in agilen Arbeits- und Organisationsformen.Vernetztes Arbeiten: Du interagierst in einem vernetzten Arbeitsumfeld.Prozesskoordination: Du koordinierst unternehmerische Arbeitsprozesse.Beziehungsmanagement: Du gestaltest Kunden- und Lieferantenbeziehungen.Digitale Technologien: Du setzt Technologien der digitalen Arbeitswelt ein.Projektarbeit: Du arbeitest an individuellen Projekten.Was bringst du mit?Du bist interessiert und motiviert Neues zu lernenDu hast eine abgeschlossene GrundschuleDu hast eine gute Auffassungsgabe und ein Flair für ZahlenDu hast Freude an Teamarbeit und am Umgang mit MenschenDu bist teamfähig und kontaktfreudigDu sprichst Deutsch und verfügst über eine gute sprachliche AusdrucksfähigkeitDu hast Interesse an Neuem und an den Entwicklungen in der Branche Haben wir deine Interessen geweckt? Für nähere Auskünfte wende dich bitte an die Kooperationsmanagerin und Kommunikation, Frau Karin Auf der Maur, unter Tel +41 (0)41 825 48 82 oder per E-Mail: karin.aufdermaur@brunnen.ameos.ch Es werden nur Bewerbungen berücksichtigt, welche vollständig (inkl. Anschreiben, Lebenslauf und Zeugnissen) über unser Online-Bewerberportal eingereicht werden. Wir freuen uns auf deine Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" > AMEOS Gruppe Vor allem Gesundheit AMEOS sichert die Gesundheitsversorgung in den Regionen: An über 60 Standorten in unseren Krankenhäusern, Poliklinika, Reha-, Pflege- und Eingliederungseinrichtungen sind wir Vorreiter in Medizin und Pflege. AMEOS steht für eine umfassende und zukunftssichere Versorgung der breiten Bevölkerung in regionalen Netzwerken. Denn für AMEOS gilt: vor allem Gesundheit. Startseite der AMEOS Gruppe Besuchen Sie uns auch auf: Impressum Lieferkettengesetz Datenschutz Kontakt Barrierefreiheitserklärung Cookie-Einstellungen AMEOS Gruppe Bahnhofplatz 14 CH-8021 Zürich +41 44 56 78 366 Kontakt: +41 44 56 78 366 +41 44 56 78 329 Kontakt Adresse: AMEOS Gruppe Bahnhofplatz 14 CH-8021 Zürich Initiativ bewerben",
-      "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d) (Brunnen, SZ). Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d) Gestalte mit uns die Zukunft in Brunnen!Das AMEOS Seeklinikum Brunnen ist auf die stationäre Behandlung von Stressfolgeerkrankungen wie Depressionen, Burnout, Angsterkrankungen und Schlafstörungen spezialisiert. In diesem Bereich verfügen wir über eine hohe fachliche Kompetenz. Wir suchen ab Sommer 2027 eine engagierte Persönlichkeit, die ihre Ausbildung bei uns im AMEOS Seeklinikum Brunnen absolvieren möchte.Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d)100% per 1.8.2027Was bieten wir dir?Vielseitige Ausbildung: Du wirst in verschiedenen Bereichen eingesetzt, darunter Empfang, Patientenadministration, Fakturierung und Finanzbuchhaltung.Sechs Wochen Ferien: \n• Wir bieten dir sechs Wochen Ferien pro Jahr.Zusätzliche Bildungswoche: Eine zusätzliche Woche ist für eine schulische Bildungsreise ins Ausland vorgesehen.Vielfältige Einblicke: Du erhältst Einblicke in unterschiedliche Bereiche wie Controlling und Codierung sowie Marketing.Während deiner Ausbildung lernst du...Agiles Arbeiten: Du handelst in agilen Arbeits- und Organisationsformen.Vernetztes Arbeiten: Du interagierst in einem vernetzten Arbeitsumfeld.Prozesskoordination: Du koordinierst unternehmerische Arbeitsprozesse.Beziehungsmanagement: Du gestaltest Kunden- und Lieferantenbeziehungen.Digitale Technologien: Du setzt Technologien der digitalen Arbeitswelt ein.Projektarbeit: Du arbeitest an individuellen Projekten.Was bringst du mit?Du bist interessiert und motiviert Neues zu lernenDu hast eine abgeschlossene GrundschuleDu hast eine gute Auffassungsgabe und ein Flair für ZahlenDu hast Freude an Teamarbeit und am Umgang mit MenschenDu bist teamfähig und kontaktfreudigDu sprichst Deutsch und verfügst über eine gute sprachliche AusdrucksfähigkeitDu hast Interesse an Neuem und an den Entwicklungen in der Branche Haben wir deine Interessen geweckt? Für nähere Auskünfte wende dich bitte an die Kooperationsmanagerin und Kommunikation, Frau Karin Auf der Maur, unter Tel +41 (0)41 825 48 82 oder per E-Mail: karin.aufdermaur@brunnen.ameos.ch Es werden nur Bewerbungen berücksichtigt, welche vollständig (inkl. Anschreiben, Lebenslauf und Zeugnissen) über unser Online-Bewerberportal eingereicht werden. Wir freuen uns auf deine Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
+      "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d) (Brunnen, SZ). Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d) Gestalte mit uns die Zukunft in Brunnen!Das AMEOS Seeklinikum Brunnen ist auf die stationäre Behandlung von Stressfolgeerkrankungen wie Depressionen, Burnout, Angsterkrankungen und Schlafstörungen spezialisiert. In diesem Bereich verfügen wir über eine hohe fachliche Kompetenz. Wir suchen ab Sommer 2027 eine engagierte Persönlichkeit, die ihre Ausbildung bei uns im AMEOS Seeklinikum Brunnen absolvieren möchte.Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d)100% per 1.8.2027Was bieten wir dir?Vielseitige Ausbildung: Du wirst in verschiedenen Bereichen eingesetzt, darunter Empfang, Patientenadministration, Fakturierung und Finanzbuchhaltung.Sechs Wochen Ferien:\n• Wir bieten dir sechs Wochen Ferien pro Jahr.Zusätzliche Bildungswoche: Eine zusätzliche Woche ist für eine schulische Bildungsreise ins Ausland vorgesehen.Vielfältige Einblicke: Du erhältst Einblicke in unterschiedliche Bereiche wie Controlling und Codierung sowie Marketing.Während deiner Ausbildung lernst du...Agiles Arbeiten: Du handelst in agilen Arbeits- und Organisationsformen.Vernetztes Arbeiten: Du interagierst in einem vernetzten Arbeitsumfeld.Prozesskoordination: Du koordinierst unternehmerische Arbeitsprozesse.Beziehungsmanagement: Du gestaltest Kunden- und Lieferantenbeziehungen.Digitale Technologien: Du setzt Technologien der digitalen Arbeitswelt ein.Projektarbeit: Du arbeitest an individuellen Projekten.Was bringst du mit?Du bist interessiert und motiviert Neues zu lernenDu hast eine abgeschlossene GrundschuleDu hast eine gute Auffassungsgabe und ein Flair für ZahlenDu hast Freude an Teamarbeit und am Umgang mit MenschenDu bist teamfähig und kontaktfreudigDu sprichst Deutsch und verfügst über eine gute sprachliche AusdrucksfähigkeitDu hast Interesse an Neuem und an den Entwicklungen in der Branche Haben wir deine Interessen geweckt? Für nähere Auskünfte wende dich bitte an die Kooperationsmanagerin und Kommunikation, Frau Karin Auf der Maur, unter Tel +41 (0)41 825 48 82 oder per E-Mail: karin.aufdermaur@brunnen.ameos.ch Es werden nur Bewerbungen berücksichtigt, welche vollständig (inkl. Anschreiben, Lebenslauf und Zeugnissen) über unser Online-Bewerberportal eingereicht werden. Wir freuen uns auf deine Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
       "fr": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d) (Brunnen, SZ). Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d) Gestalte mit uns die Zukunft in Brunnen!Das AMEOS Seeklinikum Brunnen ist auf die stationäre Behandlung von Stressfolgeerkrankungen wie Depressionen, Burnout, Angsterkrankungen und Schlafstörungen spezialisiert. In diesem Bereich verfügen wir über eine hohe fachliche Kompetenz. Wir suchen ab Sommer 2027 eine engagierte Persönlichkeit, die ihre Ausbildung bei uns im AMEOS Seeklinikum Brunnen absolvieren möchte.Lernende als Kauffrau / Kaufmann Gesundheit EFZ (m/w/d)100% per 1.8.2027Was bieten wir dir?Vielseitige Ausbildung: Du wirst in verschiedenen Bereichen eingesetzt, darunter Empfang, Patientenadministration, Fakturierung und Finanzbuchhaltung.Sechs Wochen Ferien:\n• Wir bieten dir sechs Wochen Ferien pro Jahr.Zusätzliche Bildungswoche: Eine zusätzliche Woche ist für eine schulische Bildungsreise ins Ausland vorgesehen.Vielfältige Einblicke: Du erhältst Einblicke in unterschiedliche Bereiche wie Controlling und Codierung sowie Marketing.Während deiner Ausbildung lernst du...Agiles Arbeiten: Du handelst in agilen Arbeits- und Organisationsformen.Vernetztes Arbeiten: Du interagierst in einem vernetzten Arbeitsumfeld.Prozesskoordination: Du koordinierst unternehmerische Arbeitsprozesse.Beziehungsmanagement: Du gestaltest Kunden- und Lieferantenbeziehungen.Digitale Technologien: Du setzt Technologien der digitalen Arbeitswelt ein.Projektarbeit: Du arbeitest an individuellen Projekten.Was bringst du mit?Du bist interessiert und motiviert Neues zu lernenDu hast eine abgeschlossene GrundschuleDu hast eine gute Auffassungsgabe und ein Flair für ZahlenDu hast Freude an Teamarbeit und am Umgang mit MenschenDu bist teamfähig und kontaktfreudigDu sprichst Deutsch und verfügst über eine gute sprachliche AusdrucksfähigkeitDu hast Interesse an Neuem und an den Entwicklungen in der Branche Haben wir deine Interessen geweckt? Für nähere Auskünfte wende dich bitte an die Kooperationsmanagerin und Kommunikation, Frau Karin Auf der Maur, unter Tel +41 (0)41 825 48 82 oder per E-Mail: karin.aufdermaur@brunnen.ameos.ch Es werden nur Bewerbungen berücksichtigt, welche vollständig (inkl. Anschreiben, Lebenslauf und Zeugnissen) über unser Online-Bewerberportal eingereicht werden. Wir freuen uns auf deine Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" > AMEOS Gruppe Vor allem Gesundheit AMEOS sichert die Gesundheitsversorgung in den Regionen: An über 60 Standorten in unseren Krankenhäusern, Poliklinika, Reha-, Pflege- und Eingliederungseinrichtungen sind wir Vorreiter in Medizin und Pflege. AMEOS steht für eine umfassende und zukunftssichere Versorgung der breiten Bevölkerung in regionalen Netzwerken. Denn für AMEOS gilt: vor allem Gesundheit. Startseite der AMEOS Gruppe Besuchen Sie uns auch auf: Impressum Lieferkettengesetz Datenschutz Kontakt Barrierefreiheitserklärung Cookie-Einstellungen AMEOS Gruppe Bahnhofplatz 14 CH-8021 Zürich +41 44 56 78 366 Kontakt: +41 44 56 78 366 +41 44 56 78 329 Kontakt Adresse: AMEOS Gruppe Bahnhofplatz 14 CH-8021 Zürich Initiativ bewerben"
     },
     "slugByLocale": {
@@ -926,7 +1409,7 @@
       "fr": "apprenti-e-als-kauffrau-kaufmann-gesundheit-efz-m-w-d-ameos-schweiz-brunnen"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-07-08T09:58:01.423Z",
+    "expiredAt": "2026-07-08T11:20:31.226Z",
     "previousSlugs": [
       "lernende-als-kauffrau-kaufmann-gesundheit-efz-m-w-d-ameos-brunnen"
     ],
@@ -945,7 +1428,9 @@
     "salaryMin": 58500,
     "salaryMax": 89000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/586-lernende-als-kauffrau-kaufmann-gesundheit-efz-in-brunnen",
+    "firstSeenAt": "2026-05-20T10:54:36.818Z"
   },
   {
     "slug": "incaricato-m-f-d-pianificazione-ameos-schweiz-brunnen",
@@ -973,7 +1458,7 @@
       "fr": "sachbearbeiter-m-w-d-planung-ameos-brunnen"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-07-08T09:58:01.423Z",
+    "expiredAt": "2026-07-08T11:20:31.226Z",
     "previousSlugs": [
       "sachbearbeiter-m-w-d-planung-ameos-brunnen",
       "sachbearbeiter-patientenadministration-m-w-d-ameos-brunnen"
@@ -991,7 +1476,9 @@
     "salaryMin": 69500,
     "salaryMax": 106000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5095-sachbearbeiter-planung-in-brunnen",
+    "firstSeenAt": "2026-05-27T22:07:42.762Z"
   },
   {
     "slug": "corporate-contabile-m-w-d-ameos-schweiz-zurich",
@@ -1037,7 +1524,9 @@
     "salaryMin": 73500,
     "salaryMax": 111500,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/4006-corporate-accountant-in-z%c3%bcrich",
+    "firstSeenAt": "2026-05-20T10:54:52.884Z"
   },
   {
     "slug": "oberarzt-e-o-leitender-facharzt-psychiatrie-e-psychotherapie-m-w-d-80-100-stationar-ameos-schweiz-brunnen",
@@ -1084,98 +1573,101 @@
     "salaryMin": 96000,
     "salaryMax": 146000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/889-oberarzt-psychiatrie-und-psychotherapie-in-brunnen",
+    "firstSeenAt": "2026-05-20T10:54:35.078Z"
   },
   {
-    "slug": "aiuto-da-cucina-m-f-d-50-100-ameos-schweiz-einsiedeln",
-    "title": "Küchenhilfe (m/w/d) 50 - 100%",
+    "slug": "ausbildungsplatz-come-pflegefachperson-hf-m-w-d-ameos-schweiz-einsiedeln",
+    "title": "Ausbildungsplatz als Pflegefachperson HF (m/w/d)",
     "titleByLocale": {
-      "it": "Aiuto da cucina (m/f/d) 50 - 100 %",
-      "en": "Kitchen aid (m/f/d) 50 - 100 %",
-      "de": "Küchenhilfe (m/w/d) 50 - 100%",
-      "fr": "Aide à la cuisine (m/f/j) 50 - 100 %"
+      "it": "Ausbildungsplatz come Pflegefachperson HF (m/w/d)",
+      "en": "Ausbildungsplatz als Pflegefachperson HF (m/w/d)",
+      "de": "Ausbildungsplatz als Pflegefachperson HF (m/w/d)",
+      "fr": "Consultant principal (m/m/j)"
     },
     "company": "AMEOS Schweiz",
     "companyKey": "ameos-ch",
     "location": "Einsiedeln",
     "addressLocality": "Einsiedeln",
     "descriptionByLocale": {
-      "it": "AMEOS Svizzera — Parte del gruppo AMEOS Kitchen Help (m/f/d) 50 - 100% (Einsiedeln, SZ)\n• Cosa offriamo - Motivated, team caldo e apprezzata cultura del lavoro - Ispezione nelle operazioni ospedaliere - Buona accessibilità e parcheggi - Vantaggi interessanti - Offerta attraente per un'ulteriore formazione e formazione, che sosteniamo generosamente Descrizione Design the future in Einsiedeln con noi! Per rafforzare il nostro team a AMEOS Spital Einsiedeln stiamo cercando un aiuto per la cucina (m/f/d) 50 - 100% Mansioni - Supporto nella preparazione e nella presentazione di passate - Anführen e distribuzione delle colazioni - Pulizia della cucina, degli strumenti e delle superfici di lavoro - Esecuzione dei protocolli di igiene HACCP - Supporto per le operazioni di spazzinaggio e occasioni Ideal Siamo felici di ricevere la vostra candidatura”. Le candidature saranno prese in considerazione solo se saranno inviate in modo completo (incluso il curriculum, i documenti e le referenze) attraverso il nostro portale di candidatura online.",
-      "en": "AMEOS Switzerland — Part of the AMEOS group Kitchen Help (m/f/d) 50 - 100% (Einsiedeln, SZ)\n• Cosa offriamo - Motivated, warm team and appreciative work culture - Insight into hospital operations - Good accessibility and parking facilities - Interesting benefits - Attractive offer for further education and training, which we generously support Descrizione Design the future in Einsiedeln with us! In order to strengthen our team at AMEOS Spital Einsiedeln we are looking for a kitchen help (m/f/d) 50 - 100% Mansioni - Supporto nella preparazione e nella presentazione di pasti - Anführen e distribuzione delle colazioni - Pulizia della cucina, degli strumenti e delle superfici di lavoro - Esecuzione dei protocolli di igiene HACCP - Supporto per le operazioni di spazzinaggio e smaltimento - Supporto per le operazioni di magazzinaggio e rifornimento di scorte - Collaborazione con il team di cucina - Supporto per le attività di catering e eventi speciali nel ospedale\n• Requisiti - Ideale esperienza nella gastronomia o nella grande distribuzione - Flexibilità e disponibilità a lavorare or irregolari (inclusi weekend) - Aff Per ulteriori informazioni, si prega di contattare il nostro chef di cucina, Mr Rolf Kimmig, al numero +41 (0)55 418 51 19. Siamo felici di ricevere la vostra candidatura.’ Le candidature saranno prese in considerazione solo se saranno inviate in modo completo (incluso il curriculum, i documenti e le referenze) attraverso il nostro portale di candidatura online.",
-      "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Küchenhilfe (m/w/d) 50 - 100% (Einsiedeln, SZ). Küchenhilfe (m/w/d) 50 - 100% Gestalten Sie mit uns die Zukunft in Einsiedeln!Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir eineKüchenhilfe (m/w/d) 50 - 100%Ihre VorteileMotiviertes, herzliches Team und wertschätzende ArbeitskulturEinblick in den SpitalbetriebGute Erreichbarkeit und ParkmöglichkeitenInteressante BenefitsAttraktives Angebot zur Fort- und Weiterbildung, welches wir grosszügig unterstützenIhre AufgabenUnterstützung bei der Vor- und Zubereitung von SpeisenAnrichten und Ausgeben der MahlzeitenReinigung von Küche, Geräten und ArbeitsflächenEinhaltung der HACCP‑HygienestandardsSpüldienst und AbfallentsorgungUnterstützung bei Lagerarbeiten und VorratsauffüllungMitarbeit bei Veranstaltungen und Sonderanlässen im SpitalEnge Zusammenarbeit mit dem KüchenteamIhr ProfilIdealerweise erste Erfahrung in der Gastronomie oder GrossverpflegungFlexibilität und Bereitschaft zu unregelmässigen Arbeitszeiten (inkl. Wochenenden)Zuverlässigkeit und TeamfähigkeitGute Deutschkenntnisse in Wort und SchriftSelbständige, saubere und hygienische Arbeitsweise Haben wir Ihr Interesse geweckt? Für nähere Auskünfte wenden Sie sich bitte an unseren Küchenchef, Herr Rolf Kimmig, unter Tel. +41 (0)55 418 51 19. Gerne erwarten wir Ihre Bewerbung. Es werden nur Bewerbungen berücksichtigt, welche vollständig (inkl. Anschreiben, Lebenslauf und Zeugnissen) über unser Online-Bewerberportal eingereicht werden. Wir freuen uns auf Ihre Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
-      "fr": "AMEOS Suisse - Partie du groupe AMEOS Kitchen Help (m/f/d) 50 - 100% (Einsiedeln, SZ)\n• Cosa offriamo - Motivé, chaleureux équipe et une culture de travail appréciatrice - Regard sur les opérations hospitalières - Bonne accessibilité et parking - Avantages intéressants - Offre attrayante pour la formation continue, que nous soutenons généreusement Descrizione Design the future in Einsiedeln with us! Afin de renforcer notre équipe à AMEOS Spital Einsiedeln nous sommes à la recherche d'une aide cuisine (m/f/d) 50 - 100% Mansioni - Supporto nella preparazione e nella presentazione di pasti - Anführen e distribuzione delle colazioni - Pulizia della cucina, degli strumenti e delle superfici di lavoro - Esecuzione dei protocolli di igiene HACCP - Supporto per le opérazioni di sparzinaggio e smaltimento - Supporto per le opérazioni di magazzinaggio e rifornimento di scorte - Collaborazione con il team di cucina - Supporto per leatività di catering e e eventi speciali nel ospedale\n• Requisiti - Ideale espérienza nella gastronomia o nella grande distribuzione - Flexibilità e disponibilità e e eventi nel ospedale\n• Requisiti - Identa nella gast Siamo felici di rizvere la vostra candidatura. Le candidature saranno prese in considerazione solo se saranno inviate in modo completto (incluso il curriculum, i documenti e le referenze) attraverso il nostro portail di candidatura online."
+      "it": "AMEOS Svizzera — Parte del Gruppo AMEOS Luogo di formazione come specialista HF (m/w/d) Progettare il futuro a Einsiedeln con noi!\n• Requisiti - In collaborazione con lo XUND, il Careum e il BZGS Glarus nell'AMEOS Spital Einsiedeln offriamo un luogo di formazione professionale come HF (m/w/d) - Al BZGS Glarus è possibile un'occupazione e un lavoro scolastico - L'inizio della scuola si svolge nel corso regolare e abbreviato di istruzione in autunno - Al Careum offriamo una formazione a tempo pieno regolare o abbreviata, nonché una formazione professionale in occupazione permanente - XUND offre diverse start-up distribuite durante tutto l'anno - Vi permettiamo soluzioni individuali per soddisfare le vostre esigenze - La formazione è possibile anche in entrambe le località (Luzern o Pfäffikon) Cosa? - Tutto l'inizio degli allenamenti può essere trovato sulla rispettiva homepage delle scuole di cui sopra - Vi permettiamo soluzioni individuali per soddisfare le vostre esigenze Contatto - Abbiamo risvegliato il tuo interesse? Per ulteriori informazioni si prega di contattare il nostro responsabile dell'istruzione, la sig.ra Stefanie Steiner, a Tel. +41 (0)55 418 58 66 - Siamo felici di aspettarci la vostra applicazione - Vengono prese in considerazione solo le domande, che corrispondono pienamente ai requisiti della rispettiva scuola (comprese le lettere, il CV e i certificati) tramite il nostro portale di candidati online. - Non vediamo l'ora della tua applicazione!",
+      "en": "AMEOS Switzerland — Part of the AMEOS Group Training place as a nursing specialist HF (m/w/d) Design the future in Einsiedeln with us!\n• Requisiti - In cooperation with the XUND, the Careum and the BZGS Glarus in the AMEOS Spital Einsiedeln we offer a training place as a nursing professional HF (m/w/d) - At the BZGS Glarus, an employment and a school job is possible - The beginning of school takes place in the regular and shortened course of education in autumn - At the Careum we offer regular or shortened full-time training as well as professional training in permanent employment - The XUND offers different start-ups distributed throughout the year - We allow you individual solutions to suit your needs - Training is also possible at both locations (Luzern or Pfäffikon)\n• Cosa offriamo - All the start of the trainings can be found on the respective homepage of the above mentioned schools - We allow you individual solutions to suit your needs Contatto - Did we awaken your interest? For further information please contact our Head of Education, Mrs Stefanie Steiner, at Tel. +41 (0)55 418 58 66 - We are happy to expect your application - Only applications are taken into account, which correspond fully to the requirements of the respective school (including letters, CV and certificates) via our online applicant portal. - We look forward to your application!",
+      "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Ausbildungsplatz als Pflegefachperson HF (m/w/d) (Einsiedeln, SZ). Ausbildungsplatz als Pflegefachperson HF (m/w/d) Gestalte mit uns die Zukunft in Einsiedeln!\n• Wir bieten in Zusammenarbeit mit der XUND, dem Careum sowie dem BZGS Glarus im AMEOS Spital Einsiedeln laufend einen Ausbildungsplatz als Pflegefachperson HF (m/w/d) An der BZGS Glarus ist eine Betriebs- sowie eine Schulanstellung möglich. Der Schulbeginn findet jeweils im regulären wie verkürzten Bildungsgang im Herbst statt.Am Careum bieten wir die reguläre oder verkürzte Vollzeitausbildung sowie berufsbegleitende Ausbildung in Festanstellung an.Die XUND bietet unterschiedliche Starts durch das Jahr verteilt an. Wir ermöglichen Ihnen individuelle Lösungen passend für Ihre Bedürfnisse. Zudem ist die Ausbildung an beiden Standorten (Luzern oder Pfäffikon) möglich.Jegliche Starts der Ausbildungen finden Sie auf der jeweiligen Homepage der oben genannten Schulen. Haben wir Ihr Interesse geweckt? Für nähere Auskünfte wenden Sie sich bitte an unsere Leiterin Ausbildung, Frau Stefanie Steiner, unter Tel. +41 (0)55 418 58 66.Gerne erwarten wir Ihre Bewerbung. Es werden nur Bewerbungen berücksichtigt, welche vollständig und den Vorgaben der jeweiligen Schule entsprechen (inkl. Anschreiben, Lebenslauf und Zeugnissen) über unser Online-Bewerberportal eingereicht werden.Wir freuen uns auf Ihre Bewerbung! Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
+      "fr": "AMEOS Suisse — Partie du groupe AMEOS Lieu de formation en tant que spécialiste en soins infirmiers HF (m/w/d) Concevoir l'avenir à Einsiedeln avec nous!\n• Requisiti - En coopération avec le XUND, le Careum et le BZGS Glarus dans l'AMEOS Spital Einsiedeln, nous offrons un lieu de formation en tant que professionnel des soins infirmiers HF (m/w/d) - Au BZGS Glarus, un emploi et un travail scolaire sont possibles - Le début de l'école a lieu dans le cours régulier et raccourci de l'éducation à l'automne - Au Careum nous offrons une formation régulière ou raccourcie à temps plein ainsi qu'une formation professionnelle en emploi permanent - Le XUND propose différentes start-up distribuées tout au long de l'année - Nous vous proposons des solutions individuelles adaptées à vos besoins - Une formation est également possible dans les deux localités (Luzern ou Pfäffikon)\n• Cosa offriamo - Tout le début des formations se trouve sur la page d'accueil des écoles mentionnées ci-dessus - Nous vous proposons des solutions individuelles adaptées à vos besoins Contatto - On a réveillé votre intérêt ? Pour de plus amples informations, veuillez contacter notre responsable de l'éducation, Mme Stefanie Steiner, au tél. +41 (0)55 418 58 66 - Nous sommes heureux d'attendre votre candidature - Seules les candidatures sont prises en compte, qui correspondent pleinement aux exigences de l'école concernée (y compris les lettres, CV et certificats) via notre portail en ligne des candidats. - Nous attendons votre candidature!"
     },
     "slugByLocale": {
-      "it": "aiuto-da-cucina-m-f-d-50-100-ameos-schweiz-einsiedeln",
-      "en": "kitchen-aid-m-f-d-50-100-ameos-schweiz-einsiedeln",
-      "de": "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln",
-      "fr": "aide-a-la-cuisine-m-f-j-50-100-ameos-schweiz-einsiedeln"
+      "it": "ausbildungsplatz-come-pflegefachperson-hf-m-w-d-ameos-schweiz-einsiedeln",
+      "en": "ausbildungsplatz-als-pflegefachperson-hf-m-w-d-ameos-einsiedeln",
+      "de": "ausbildungsplatz-als-pflegefachperson-hf-m-w-d-ameos-einsiedeln",
+      "fr": "consultant-principal-m-m-j-ameos-schweiz-einsiedeln-85a20f"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-06-15T22:31:54.236Z",
     "previousSlugs": [
-      "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln"
+      "ausbildungsplatz-als-pflegefachperson-hf-m-w-d-ameos-einsiedeln"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln"
-      ],
-      "en": [
-        "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln"
+        "ausbildungsplatz-als-pflegefachperson-hf-m-w-d-ameos-einsiedeln"
       ],
       "fr": [
-        "kuchenhilfe-m-w-d-50-100-ameos-einsiedeln"
+        "ausbildungsplatz-als-pflegefachperson-hf-m-w-d-ameos-einsiedeln"
       ]
     },
     "postalCode": "8840",
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5728-ausbildungsplatz-als-pflegefachperson-hf-in-einsiedeln",
+    "firstSeenAt": "2026-06-04T14:27:59.298Z"
   },
   {
-    "slug": "professionale-m-f-d-terapia-professionale-ameos-schweiz-einsiedeln",
-    "title": "Fachperson (m/w/d) Ergotherapie",
+    "slug": "dipl-projektleiter-m-w-d-ameos-schweiz-einsiedeln",
+    "title": "Dipl. Fachperson (m/w/d) Operationstechnik",
     "titleByLocale": {
-      "it": "Professionale (m/f/d) Terapia professionale",
-      "en": "Fachperson (m/w/d) Ergotherapie",
-      "de": "Fachperson (m/w/d) Ergotherapie",
-      "fr": "Professionnel (m/f/d) Ergothérapie"
+      "it": "Dipl. Projektleiter (m/w/d)",
+      "en": "Dipl. Fachperson (m/w/d) Operationstechnik",
+      "de": "Dipl. Fachperson (m/w/d) Operationstechnik",
+      "fr": "Dipl. Projektleiter (m/m/j)"
     },
     "company": "AMEOS Schweiz",
     "companyKey": "ameos-ch",
     "location": "Einsiedeln",
     "addressLocality": "Einsiedeln",
     "descriptionByLocale": {
-      "it": "AMEOS Svizzera — parte del Gruppo AMEOS (ospedali, policlinici, riabilitazione e assistenza). Località svizzere: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Lavoro: specialista (m/f/d) terapia occupazionale (Einsiedeln, SZ). Professionista (m/f/d) Terapia professionale Progettare il futuro in Einsiedeln con noi! Per rafforzare il nostro team di AMEOS Spital Einsiedeln stiamo cercando uno specialista (m/f/d) Ergotherapie40 - 100% I vostri vantaggiCondizioni di lavoro attraenti con orari di lavoro flessibiliSostegno in ulteriore istruzione e formazione Ambiente di lavoro Collegiale in una regione attraenteCo-design in un nuovo repartoRiparazioni responsabile in un team interdisplinario con un sacco di compiti orientati alla manovra Per ulteriori informazioni si prega di contattare il medico capo Geriatrics, la signora Cornelia Jungck, al tel. +41 (0)55 418 52 42 o via email a cornelia.jungck@einsiedeln.ameos.ch. Non vediamo l'ora di ricevere la vostra domanda. Solo le domande complete, incluse le lettere di copertura, i CV e i certificati, sono considerate tramite il nostro portale di candidati online. Seguici su Instagram@ameos groupNow Applicare Sopra tutto il negozio di salute ameos.eu... \"onload=\"this.removeAttribute('srcdoc')\" larghezza=\"320\" altezza=\"2130\" titolo=\"job Description\" id=\"job-details-frame\" style=\"larghezza: 100%;\" referrerpolicy=\"origin\"rolling=\"auto\">",
-      "en": "AMEOS Switzerland — part of the AMEOS Group (hospitals, polyclinics, rehabilitation and care facilities). Swiss locations: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Job: specialist (m/f/d) occupational therapy (Einsiedeln, SZ). Professional (m/f/d) Occupational therapy Design the future in Einsiedeln with us! In order to strengthen our team at the AMEOS Spital Einsiedeln we are looking for a specialist (m/f/d) Ergotherapie40 - 100% Your advantagesAttractive working conditions with flexible working hoursSupport in further education and training Collegial working environment in an attractive regionCo-design in a new departmentSelf-responsible work in an interdisplinary team with a lot of room for manoeuvre Your tasksImplementation of ergotherapeutic findings and treatments Creation of individual therapy plansWork with patients in the areas of geriatrics, orthopaedics and rehabilitation Completed training/study of occupational therapy or corresponding recognition by the SRKNovember and re-entrant are welcomeEmpathy, communication strength and pleasure in team-oriented working Self-employed, structured working method Have we aroused your interest? For further information please contact the Chief Physician Geriatrics, Mrs. Cornelia Jungck, at tel. +41 (0)55 418 52 42 or by email to cornelia.jungck@einsiedeln.ameos.ch.We look forward to receiving your application. Only complete applications, including cover letters, CVs and certificates, are considered via our online applicant portal. Follow us on Instagram@ameos groupNow Apply Above all health ameos.eu store... \"onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"job description\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\">",
-      "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Fachperson (m/w/d) Ergotherapie (Einsiedeln, SZ). Fachperson (m/w/d) Ergotherapie Gestalten Sie mit uns die Zukunft in Einsiedeln!Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir eineFachperson (m/w/d) Ergotherapie40 - 100%Ihre VorteileAttraktive Arbeitsbedingungen mit flexiblen ArbeitszeitenUnterstützung bei Fort- und WeiterbildungenKollegiales Arbeitsumfeld in einer attraktiven RegionMitgestalten in einer neuen AbteilungEigenverantwortliche Tätigkeit in einem interdisplinärem Team mit viel GestaltungsspielraumIhre AufgabenDurchführung ergotherapeutischer Befunderhebungen und Behandlungen Erstellung individueller TherapiepläneArbeit mit Patienten in den Bereichen Geriatrie, Orthopädie sowie Rehabilitation Ihr ProfilAbgeschlossene Ausbildung/Studium der Ergotherapie oder entsprechende Anerkennung durch das SRKBerufsanfänger und Wiedereinsteiger sind willkommenEmpathie, Kommunikationsstärke und Freude an teamorientiertem ArbeitenSelbstständige, strukturierte Arbeitsweise Haben wir Ihr Interesse geweckt? Für nähere Auskünfte wenden Sie sich bitte an die Chefärztin Geriatrie, Frau Cornelia Jungck, unter Tel. +41 (0)55 418 52 42 oder per E-Mail an cornelia.jungck@einsiedeln.ameos.ch.Wir freuen uns auf Ihre Bewerbung. Berücksichtigt werden nur vollständige Bewerbungen, die inkl. Anschreiben, Lebenslauf und Zeugnisse über unser Online-Bewerberportal eingereicht werden. Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
-      "fr": "AMEOS Suisse — faisant partie du groupe AMEOS (hôpitaux, polycliniques, centres de réadaptation et de soins). Lieux suisses: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zurich. Emploi: spécialiste (m/f/d) ergothérapie (Einsiedeln, SZ). Professionnel (m/f/d) Ergothérapie Concevoir l'avenir à Einsiedeln avec nous! Afin de renforcer notre équipe à l'AMEOS Spital Einsiedeln, nous recherchons un spécialiste (m/f/d) Ergotherapie40 - 100% Vos avantagesDes conditions de travail attrayantes avec des horaires de travail flexiblesSoutien à l'éducation et à la formation continues Un environnement de travail collégial dans une région attractiveCo-conception dans un nouveau départementUn travail auto-responsable dans une équipe interdisplinaire avec beaucoup de marge de manoeuvre Vos tâchesMise en oeuvre de résultats et de traitements ergonomiques Création de plans de thérapie individuelleTravail avec des patients dans les domaines de la gériatrie, de l'orthopédie et de la réadaptation Une formation/étude d'ergothérapie ou une reconnaissance correspondante par le SRKNovembre et le ré-entrant sont les bienvenus. Pour de plus amples informations, veuillez contacter le médecin en chef Geriatrics, Mme Cornelia Jungck, tél. +41 (0)55 418 52 42 ou par courriel à cornelia.jungck@einsiedeln.ameos.ch. Nous sommes impatients de recevoir votre demande. Seules les demandes complètes, y compris les lettres de motivation, les CV et les certificats, sont prises en considération via notre portail de candidats en ligne. Suivez-nous sur Instagram@ameos groupNow Apply Par-dessus tout santé ameos.eu store... \"onload\"this.removeAttribute('srcdoc')\" width\"320\" height\"2130\" title\" id\"job-details-frame\" style\"width: 100%;\" referrerpolicy\"origin\" scrolling\"auto\">"
+      "it": "AMEOS Svizzera — Parte del Gruppo AMEOS (Spitali, Polikliniken, Reha- und Pflegeeinrichtungen). Località svizzere: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. (m/w/d) Operazionestechnik (Einsiedeln, SZ). Dipl. Praktikant (m/w/d) Operazionestechnik Progettare il futuro a Einsiedeln con noi! Per rafforzare il nostro team nell'AMEOS Spital Einsiedeln stiamo cercando un accordo. Professions & Careers & Careers & Careers & Careers & Careers & Careers & Careers & Careers & Careers & Careers & Careers Per ulteriori informazioni si prega di contattare il nostro responsabile delle operazioni, Sig.ra Monika Bärtschi, Tel. +41 (0)55 418 52 15. Attendiamo con ansia la vostra applicazione. Vengono prese in considerazione solo le domande complete, che vengono presentate tramite il nostro Portale Applicante Online, incluse le lettere, il CV e i certificati. Seguici su Instagram@ameos groupOra applichi Sopra tutto il carico di salute ameos.eu... \" suload=\"this.removeAttribute('srcdoc')\" larghezza=\"320\" altezza=\"2130\" titolo=\"Stellenbeschreibung\" id=\"job-daten-frame\" style=\"larghezza: 100%;\" referrerpolicy=\"origin\"",
+      "en": "AMEOS Switzerland — Part of the AMEOS Group (Spitals, Polikliniken, Reha- und Pflegeeinrichtungen). Swiss locations: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. (m/w/d) Operationstechnik (Einsiedeln, SZ). Dipl. Praktikant (m/w/d) Operationstechnik Design the future in Einsiedeln with us! To strengthen our team in the AMEOS Spital Einsiedeln we are looking for an agreement. Professions & Careers & Careers & Careers & Careers & Careers & Careers & Careers & Careers & Careers & Careers & Careers For further information please contact our Head of Operations, Mrs Monika Bärtschi, Tel. +41 (0)55 418 52 15.We look forward to your application. Only complete applications are taken into account, which are submitted via our Online Applicant Portal, including lettering, CV and certificates. Follow us on Instagram@ameos groupNow apply Above all health ameos.eu loading... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-daten-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling",
+      "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Dipl. Fachperson (m/w/d) Operationstechnik (Einsiedeln, SZ). Dipl. Fachperson (m/w/d) Operationstechnik Gestalten Sie mit uns die Zukunft in Einsiedeln!Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir nach Vereinbarung eineDipl. Fachperson (m/w/d) Operationstechnik50 - 100 %Ihre VorteileEine interessante, vielseitige und anspruchsvolle TätigkeitEin aufgestelltes und motiviertes TeamEin angenehmes ArbeitsklimaZeitgemäße AnstellungsbedingungenAttraktives Angebot zur Fort- und WeiterbildungIhre AufgabenSelbstständiges InstrumentierenÜbernahme von SpringertätigkeitenBedienung aller technischen ApparateVorbereitung und Lagerung der Patienten für die OperationIhr ProfilAbgeschlossene Ausbildung zur Fachperson OperationstechnikFundierte Fachkenntnisse sowie Berufserfahrung in Orthopädie von VorteilAusgeprägte Sozial- und Fachkompetenz sowie hohes VerantwortungsbewusstseinHohes Mass an Eigenverantwortung, Selbstständigkeit und TeamfähigkeitFreude am Beruf sowie Interesse an der PflegeentwicklungVersierte PC-AnwenderkenntnisseGute Deutschkenntnisse in Wort und Schrift Haben wir Ihr Interesse geweckt? Für nähere Auskünfte wenden Sie sich bitte an unsere Leiterin Operationsbetrieb, Frau Monika Bärtschi, Tel. +41 (0)55 418 52 15.Wir freuen uns auf Ihre Bewerbung. Berücksichtigt werden nur vollständige Bewerbungen, die inkl. Anschreiben, Lebenslauf und Zeugnissen über unser Online-Bewerberportal eingereicht werden. Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
+      "fr": "AMEOS Suisse — Partie du groupe AMEOS (Spitals, Polikliniken, Reha- und Pflegeeinrichtungen). Lieux suisses: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. (m/w/d) Operationstechnik (Einsiedeln, SZ). Dipl. Praktikan (m/w/d) Operationstechnik Concevez l'avenir à Einsiedeln avec nous! Pour renforcer notre équipe dans l'AMEOS Spital Einsiedeln, nous cherchons un accord. Professions & Carrières & Carrières & Carrières & Carrières & Carrières & Carrières & Carrières & Carrières & Carrières & Carrières & Carrières & Carrières Pour plus d'informations, veuillez contacter notre responsable des opérations, Mme Monika Bärtschi, tél. +41 (0)55 418 52 15. Nous attendons avec impatience votre candidature. Seules les demandes complètes sont prises en compte, qui sont soumises via notre portail des candidats en ligne, y compris le lettrage, CV et certificats. Suivez-nous sur Instagram@ameos groupMaintenant appliquez surtout santé ameos.eu chargement... \"onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" titre=\"Stellenbeschreibung\" id=\"job-daten-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" défilement"
     },
     "slugByLocale": {
-      "it": "professionale-m-f-d-terapia-professionale-ameos-schweiz-einsiedeln",
-      "en": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
-      "de": "fachperson-m-w-d-ergotherapie-ameos-einsiedeln",
-      "fr": "professionnel-m-f-d-ergotherapie-ameos-schweiz-einsiedeln"
+      "it": "dipl-projektleiter-m-w-d-ameos-schweiz-einsiedeln",
+      "en": "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln",
+      "de": "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln",
+      "fr": "dipl-projektleiter-m-m-j-ameos-schweiz-einsiedeln"
     },
     "sector": "Sanità / Ospedali",
     "expiredAt": "2026-06-11T22:09:17.236Z",
     "previousSlugs": [
-      "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+      "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
     ],
     "previousSlugsByLocale": {
       "it": [
-        "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+        "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
       ],
       "fr": [
-        "fachperson-m-w-d-ergotherapie-ameos-einsiedeln"
+        "dipl-fachperson-m-w-d-operationstechnik-ameos-einsiedeln"
       ]
     },
     "postalCode": "8840",
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5354-dipl-fachperson-operationstechnik-in-einsiedeln",
+    "firstSeenAt": "2026-06-01T22:44:49.524Z"
   },
   {
     "slug": "consulente-senior-m-w-d-ameos-schweiz-einsiedeln-b7bf46",
@@ -1203,7 +1695,7 @@
       "fr": "dipl-consultant-principal-m-m-j-ameos-schweiz-einsiedeln"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-06-08T21:57:28.145Z",
+    "expiredAt": "2026-06-09T10:55:35.804Z",
     "previousSlugs": [
       "dipl-pflegefachperson-m-w-d-interdisziplinare-bettenstation-ameos-einsiedeln",
       "consulente-senior-m-w-d-ameos-schweiz-einsiedeln",
@@ -1249,7 +1741,46 @@
     "salaryMin": 68000,
     "salaryMax": 103000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/3575-dipl-pflegefachperson-interdisziplin%c3%a4re-bettenstation-in-einsiedeln",
+    "firstSeenAt": "2026-05-20T10:54:50.278Z",
+    "sourceIdentityHistory": [
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/11782-mitarbeiter-case-management-in-einsiedeln",
+        "firstSeenAt": "2026-09-08T13:32:50.748Z",
+        "title": "Mitarbeiter (m/w/d) Case Management"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/3556-experten-an%c3%a4sthesiepflege-nds-in-einsiedeln",
+        "firstSeenAt": "2026-05-20T10:54:52.098Z",
+        "title": "Experten (m/w/d) Anästhesiepflege NDS"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/3575-dipl-pflegefachperson-interdisziplin%c3%a4re-bettenstation-in-einsiedeln",
+        "firstSeenAt": "2026-05-20T10:54:50.278Z",
+        "title": "Dipl. Pflegefachperson (m/w/d) interdisziplinäre Bettenstation"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/3976-mitarbeiter-case-management-in-einsiedeln",
+        "firstSeenAt": "2026-05-20T10:54:43.374Z",
+        "title": "Mitarbeiter (m/w/d) Case Management"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5348-fachperson-gesundheit-rehabilitation-in-einsiedeln",
+        "firstSeenAt": "2026-06-01T22:44:52.628Z",
+        "title": "Fachperson (m/w/d) Gesundheit Rehabilitation"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5351-experten-an%c3%a4sthesiepflege-nds-in-einsiedeln",
+        "firstSeenAt": "2026-06-01T22:44:51.872Z",
+        "title": "Experten (m/w/d) Anästhesiepflege NDS"
+      },
+      {
+        "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/5369-dipl-pflegefachperson-interdisziplin%c3%a4re-bettenstation-in-einsiedeln",
+        "firstSeenAt": "2026-06-01T22:44:50.304Z",
+        "title": "Dipl. Pflegefachperson (m/w/d) interdisziplinäre Bettenstation"
+      }
+    ]
   },
   {
     "slug": "consulente-senior-m-w-d-ameos-schweiz-einsiedeln-6d9de1",
@@ -1277,7 +1808,7 @@
       "fr": "consultant-principal-m-m-j-ameos-schweiz-einsiedeln-6d9de1"
     },
     "sector": "Sanità / Ospedali",
-    "expiredAt": "2026-06-04T11:04:45.553Z",
+    "expiredAt": "2026-06-04T14:28:16.448Z",
     "previousSlugs": [
       "assistenzarzt-m-w-d-innere-medizin-ameos-einsiedeln"
     ],
@@ -1296,7 +1827,58 @@
     "salaryMin": 68000,
     "salaryMax": 103000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/4178-assistenzarzt-innere-medizin-in-einsiedeln",
+    "firstSeenAt": "2026-05-20T10:54:41.375Z"
+  },
+  {
+    "slug": "linea-m-f-d-anestesia-unita-di-monitoraggio-ameos-schweiz-einsiedeln",
+    "title": "Leitung (m/w/d) Anästhesie / Überwachungseinheit",
+    "titleByLocale": {
+      "it": "Linea (m/f/d) Anestesia / unità di monitoraggio",
+      "en": "Projektleiter (m/w/d)",
+      "de": "Leitung (m/w/d) Anästhesie / Überwachungseinheit",
+      "fr": "Projektleiter (m/m/j)"
+    },
+    "company": "AMEOS Schweiz",
+    "companyKey": "ameos-ch",
+    "location": "Einsiedeln",
+    "addressLocality": "Einsiedeln",
+    "descriptionByLocale": {
+      "it": "Descrizione AMEOS Svizzera — Parte del Gruppo AMEOS (Spitali, Polikliniken, Reha- und Pflegeeinrichtungen). Località svizzere: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Posizione: Testa (m/w/d) Anestesia / Unità di Sorveglianza (Single, SZ) --- Mansioni - Crea il futuro con noi a Einsiedeln! - leadership reattiva con spazio di progettazione - Lavorare in un team motivato e interprofessionale - Infrastrutture moderne - Opportunità di formazione - Condizioni di lavoro e prestazioni sociali - Stima della cultura aziendale con brevi percorsi decisionali - Gestione tecnica, organizzativa e del personale della cura dell'anestesia, IMCU, sveglia e clinica diurna - Responsabilità quotidiana e coordinamento OP - Partecipazione all'attività quotidiana dell'anestesia, nonché occasionale acquisizione dei servizi notturni e del fine settimana - Autodisciplina dell'anestesia generale sotto la responsabilità del medico dell'anestesia - Assicurare cure di alta qualità per i nostri pazienti - promozione e sviluppo dei dipendenti e attuazione dei colloqui dei dipendenti - Cooperazione interdisciplinare con medici e altri gruppi professionali - Lavorare con i progetti per sviluppare ulteriormente la fornitura stazionaria ---\n• Requisiti - Formazione completa come infermiera qualificata HF/FH con l'assistenza NDS anestesia o qualifica comparabile con il riconoscimento corrispondente - Esperienza professionale in IMCU o terapia intensiva - Esperienza di leadership di vantaggio - Alta competenza, competenze sociali e di leadership - competenze organizzative e un approccio strutturato e orientato alla soluzione - Carico, Responsabilità e Teamability --- Cosa? - 100% dei tuoi benefici --- Contatto Per ulteriori informazioni, rivolgersi al responsabile delle operazioni, Monika Bärtschi, Tel. +41 (0)55 418 52 15. Siamo felici di aspettarci la vostra applicazione. Solo le domande vengono prese in considerazione, che vengono presentate completamente (incluse le lettere, CV e certificati) tramite il nostro portale di applicazione online. Seguici su Instagram: @ameos gruppe.",
+      "en": "Descrizione AMEOS Switzerland — Part of the AMEOS Group (Spitals, Polikliniken, Reha- und Pflegeeinrichtungen). Swiss locations: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Position: Head (m/w/d) Anesthesia / Surveillance Unit (Single, SZ) --- Mansioni - Create the future with us in Einsiedeln! - Responsive leadership with design space - Working in a motivated and interprofessional team - Modern infrastructure - Attractive further and further training opportunities - Conditions of employment and social benefits - Estimating corporate culture with short decision paths - Technical, organizational and personnel management of anaesthesia care, IMCU, wake-up room and day clinic - Takeover of daily responsibility and OP coordination - Participation in the daily business of anaesthesia, as well as occasional takeover of night and weekend services - Self-employed conduct of general anaesthesia under the delegated responsibility of the anaesthesia doctor - Ensuring high-quality care for our patients - promotion and development of employees and implementation of employee talks - Interdisciplinary cooperation with doctors and other professional groups - Working with projects to further develop stationary supply ---\n• Requisiti - Completed training as a qualified nurse HF/FH with the NDS anesthesia care or comparable qualification with corresponding recognition - Professional experience in IMCU or intensive care - Leadership experience of advantage - High expertise, social and leadership skills - organisational skills and a structured and solution-oriented approach - Loadability, Responsibility and Teamability ---\n• Cosa offriamo - 100% your benefits --- Contatto For further information please contact the Head of Operations, Ms. Monika Bärtschi, Tel. +41 (0)55 418 52 15. We are happy to expect your application. Only applications are taken into account, which are submitted completely (incl. lettering, CV and certificates) via our online application portal. Follow us on Instagram: @ameos gruppe.",
+      "de": "AMEOS Schweiz — Teil der AMEOS-Gruppe (Spitäler, Polikliniken, Reha- und Pflegeeinrichtungen). Schweizer Standorte: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Stelle: Leitung (m/w/d) Anästhesie / Überwachungseinheit (Einsiedeln, SZ). Leitung (m/w/d) Anästhesie / Überwachungseinheit Gestalten Sie mit uns die Zukunft in Einsiedeln!Zur Verstärkung unseres Teams im AMEOS Spital Einsiedeln suchen wir per sofort oder nach Vereinbarung eine Leitung (m/w/d) Anästhesie / Überwachungseinheit100%Ihre VorteileVerantwortungsvolle Führungsfunktion mit GestaltungsspielraumMitarbeit in einem motivierten und interprofessionellen TeamModerne Infrastruktur Attraktive Fort- und WeiterbildungsmöglichkeitenZeitgemässe Anstellungsbedingungen und SozialleistungenWertschätzende Unternehmenskultur mit kurzen EntscheidungswegenIhre AufgabenFachliche, organisatorische und personelle Leitung der Anästhesiepflege, IMCU, Aufwachraum sowie TagesklinikÜbernahme der Tagesverantwortung und OP-KoordinationMitarbeit im Tagesgeschäft der Anästhesie, sowie gelegentliche Übernahme von Nacht- und WochenenddienstenSelbständige Durchführung von Allgemeinanästhesien unter der delegierten Verantwortung des AnästhesiearztesSicherstellung einer qualitativ hochwertigen Betreuung unserer Patientinnen und PatientenFörderung und Entwicklung der Mitarbeitenden sowie Durchführung von MitarbeitergesprächenInterdisziplinäre Zusammenarbeit mit Ärzten und weiteren BerufsgruppenMitarbeit bei Projekten zur Weiterentwicklung der stationären VersorgungIhr ProfilAbgeschlossene Ausbildung als diplomierte Pflegefachperson HF/FH mit dem NDS Anästhesiepflege oder vergleichbare Qualifikation mit entsprechender AnerkennungBerufserfahrung im Bereich IMCU- oder Intensivmedizin von VorteilFührungserfahrung von VorteilHohe Fach-, Sozial- und FührungskompetenzOrganisationsgeschick sowie eine strukturierte und lösungsorientierte ArbeitsweiseBelastbarkeit, Verantwortungsbewusstsein und Teamfähigkeit Haben wir Ihr Interesse geweckt? Für nähere Auskünfte wenden Sie sich bitte an die Leiterin Operationsbetrieb, Frau Monika Bärtschi, unter Tel. +41 (0)55 418 52 15.Gerne erwarten wir Ihre Bewerbung. Es werden nur Bewerbungen berücksichtigt, welche vollständig (inkl. Anschreiben, Lebenslauf und Zeugnissen) über unser Online-Bewerbungsportal eingereicht werden. Folge uns auf Instagram@ameos_gruppeJetzt bewerben Vor allem Gesundheit ameos.eu Laden... \" onload=\"this.removeAttribute('srcdoc')\" width=\"320\" height=\"2130\" title=\"Stellenbeschreibung\" id=\"job-details-frame\" style=\"width: 100%;\" referrerpolicy=\"origin\" scrolling=\"auto\" >",
+      "fr": "Descrizione AMEOS Suisse — Partie du groupe AMEOS (Spitals, Polikliniken, Reha- und Pflegeeinrichtungen). Lieux suisses: AMEOS Seeklinikum Brunnen (SZ), AMEOS Spital Einsiedeln (SZ), AMEOS Holding Zürich. Fonction: Chef (m/m/j) Unité d'anesthésie/surveillance (Single, SZ) --- Mansioni - Créez l'avenir avec nous à Einsiedeln ! - Leadership réactif avec espace design - Travailler dans une équipe motivée et interprofessionnelle - Infrastructures modernes - Possibilités de formation continue et de perfectionnement - Conditions d'emploi et prestations sociales - Estimation de la culture d'entreprise avec des pistes de décision courtes - Gestion technique, organisationnelle et du personnel des soins d'anesthésie, ICU, salle de réveil et clinique de jour - Prise en charge de la responsabilité quotidienne et coordination des OP - Participation à l'activité quotidienne d'anesthésie, ainsi que prise occasionnelle de services de nuit et de week-end - Conduite indépendante d'anesthésie générale sous la responsabilité déléguée du médecin de l'anesthésie - Assurer des soins de qualité pour nos patients - promotion et perfectionnement des employés et mise en oeuvre des discussions avec les employés - Coopération interdisciplinaire avec les médecins et autres groupes professionnels - Collaborer avec des projets pour développer l'approvisionnement stationnaire ---\n• Requisiti - Formation complétée en tant qu'infirmière qualifiée HF/FH avec les soins d'anesthésie NDS ou qualification comparable avec reconnaissance correspondante - Expérience professionnelle en IMCU ou soins intensifs - Expérience de leadership d'avantage - Haute expertise, compétences sociales et de leadership - les compétences organisationnelles et une approche structurée et orientée vers la solution - Chargeabilité, responsabilité et équipabilité ---\n• Cosa offriamo - 100% de vos prestations --- Contatto Pour de plus amples informations, veuillez contacter le chef des opérations, Mme Monika Bärtschi, tél. +41 (0)55 418 52 15. Nous sommes heureux d'attendre votre candidature. Seules les candidatures sont prises en compte, qui sont soumises complètement (y compris le lettrage, CV et certificats) via notre portail d'application en ligne. Suivez-nous sur Instagram : @ameos gruppe."
+    },
+    "slugByLocale": {
+      "it": "linea-m-f-d-anestesia-unita-di-monitoraggio-ameos-schweiz-einsiedeln",
+      "en": "projektleiter-m-w-d-ameos-schweiz-einsiedeln-363cdb",
+      "de": "leitung-m-w-d-anasthesie-uberwachungseinheit-ameos-einsiedeln",
+      "fr": "projektleiter-m-m-j-ameos-schweiz-einsiedeln-363cdb"
+    },
+    "sector": "Sanità / Ospedali",
+    "expiredAt": "2026-06-04T14:28:16.448Z",
+    "previousSlugs": [
+      "leitung-m-w-d-anasthesie-uberwachungseinheit-ameos-einsiedeln"
+    ],
+    "previousSlugsByLocale": {
+      "it": [
+        "leitung-m-w-d-anasthesie-uberwachungseinheit-ameos-einsiedeln"
+      ],
+      "en": [
+        "leitung-m-w-d-anasthesie-uberwachungseinheit-ameos-einsiedeln"
+      ],
+      "fr": [
+        "leitung-m-w-d-anasthesie-uberwachungseinheit-ameos-einsiedeln"
+      ]
+    },
+    "postalCode": "8840",
+    "salaryMin": 49500,
+    "salaryMax": 75000,
+    "salaryCurrency": "CHF",
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/4573-leitung-an%c3%a4sthesie-%c3%bcberwachungseinheit-in-einsiedeln",
+    "firstSeenAt": "2026-05-22T10:50:19.632Z"
   },
   {
     "slug": "infermiere-dipl-sss-m-f-d-servizio-notturno-ameos-schweiz-brunnen",
@@ -1337,6 +1919,8 @@
     "salaryMin": 49500,
     "salaryMax": 75000,
     "salaryCurrency": "CHF",
-    "salaryPeriod": "YEAR"
+    "salaryPeriod": "YEAR",
+    "sourceIdentity": "url:https://karriere.ameos.eu/offene-stellen/stelle/4967-dipl-pflegefachperson-hf-nachtdienst-in-brunnen",
+    "firstSeenAt": "2026-05-26T22:00:33.241Z"
   }
 ]

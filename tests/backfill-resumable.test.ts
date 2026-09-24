@@ -10,7 +10,7 @@ const gate = "steps.side_effect_gate.outputs.allow_side_effect == 'true' && step
 
 describe('backfill-expired-from-history.yml — durable checkpoints', () => {
   it('processes one crawler at a time and checkpoints partial batches', () => {
-    const backfillStart = workflow.indexOf('- name: Recover dropped jobs from history into expired slices (checkpointed batches)');
+    const backfillStart = workflow.indexOf('- name: Recover dropped jobs and repair active firstSeenAt metadata (checkpointed batches)');
     const reassembleStart = workflow.indexOf('- name: Reassemble dataset');
     const block = workflow.slice(backfillStart, reassembleStart);
 
@@ -20,7 +20,8 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('BACKFILL_CHECKPOINT_BATCH_SIZE');
     expect(block).toContain('CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs');
     expect(block).toContain('trap on_exit EXIT');
-    expect(block).toContain('has_dirty_expired_slices');
+    expect(block).toContain('has_dirty_slices');
+    expect(block).toContain('data/jobs/by-crawler data/jobs/expired/by-crawler');
     expect(block).toContain('node scripts/assemble-jobs-dataset.mjs');
     expect(block).toContain('npm run test:backfill');
     expect(block).toContain('node scripts/audit-expired-at-parsable.mjs');
