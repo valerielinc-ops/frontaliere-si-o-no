@@ -46,32 +46,28 @@ verificabile. Applica la label transitoria `agent:vision-approved` e cita questo
 contratto nel commento: è la prova che la riapertura segue VISION.md, non un
 bypass manuale della policy.
 
-Quando quella prova è presente, il fixer può rientrare nel ciclo, ma i domini
-F1/F7 e il control-plane restano veto deny-by-default sulla superficie issue:
-`agent:vision-approved` è provenienza del rientro e non sostituisce il risk
-gate. Restano obbligatori i controlli indipendenti: metadata e file-list
-completi, capability guard per workflow/secret, causa determinata, diff gate,
-test, review e gate `## LGTM`. Un blocco tecnico osservato durante il run torna
-ad `automation-deferred` e la label transitoria viene rimossa; il pre-pass lo
-riapre solo dopo un input diverso o una policy cambiata. Se invece manca una
-decisione del proprietario, l'agente posta `OWNER_DECISION_REQUEST`, mantiene
-`needs-human` e non procede finché la risposta non è stata aggiunta a
-`DECISIONS.md`.
+**Dal 2026-09-24 non esiste nessun veto sulla superficie issue** (istruzione
+diretta del proprietario, riga «Nessun veto sul ciclo autonomo» in
+`DECISIONS.md`). La risk policy (`f1-f7-v4`) riporta domini F1/F7,
+control-plane, path e categorie sconosciuti come evidenza per il fixer e per
+la review, ma non ferma il routing. Misurato prima del cambio: 135 issue
+aperte su 136 negate, backlog fermo. La supervisione resta sulla PR:
+file-list completa, test, review e gate `## LGTM`, HEAD esatta. Un blocco
+tecnico osservato durante il run torna ad `automation-deferred`; lo sweep
+giornaliero lo fa rientrare dopo aver cambiato l'input.
 
-### Protocollo per le decisioni mancanti
+### Nessuna domanda al proprietario
 
-Prima di aggiungere `needs-human`, ogni agente cerca la risposta in questo file,
-in `DECISIONS.md`, nel body e nei commenti dell'issue. Se la risposta esiste,
-la applica e cita il driver: non chiede nulla. Se non esiste, crea una sola
-domanda concreta con opzioni, evidenza necessaria e criterio di accettazione,
-posta `<!-- OWNER_DECISION_REQUEST: ... -->` e mantiene l'issue nel digest.
-
-Quando il proprietario risponde, l'agente che raccoglie la risposta aggiunge
-una riga a `DECISIONS.md` nella stessa modifica e lascia il riferimento
-all'issue. Il pre-pass riconosce la riga incondizionata, rimuove
-`needs-human`/`automation-deferred` e reimmette automaticamente l'issue in
-`agent:fix-queued` o `agent:decompose-queued`. Una risposta non può quindi
-restare solo nella conversazione né generare la stessa domanda in futuro.
+Dal 2026-09-24 il proprietario non vuole più righe da scrivere: parametri,
+soglie e scelte interne le decide l'agente con la direttiva unica **«non
+perdere pagine SEO, revenue o utenti»**, scegliendo il default più
+conservativo rispetto a quella direttiva e documentandolo nella PR o nel
+commento. Prima di scegliere, l'agente cerca la risposta in questo file, in
+`DECISIONS.md`, nel body e nei commenti dell'issue, e se esiste la applica
+citandola. `needs-human` non è più un canale di attesa: il pre-pass lo toglie
+e rimette la issue in coda. Resta solo come tracking storico. Quando il
+proprietario dà comunque un'istruzione, l'agente la aggiunge a `DECISIONS.md`
+nella stessa modifica, così non resta solo nella conversazione.
 
 ## Missione e north-star
 

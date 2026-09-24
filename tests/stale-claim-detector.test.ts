@@ -24,6 +24,7 @@ import {
   selectStaleClaims,
   referencedIssueNumbers,
   DEFAULT_STALE_CLAIM_HOURS,
+  DEFAULT_STALE_LOCAL_CLAIM_HOURS,
   claimOwner,
   hasClaimLabel,
   removeLabelArgs,
@@ -45,10 +46,27 @@ describe('selectStaleClaims', () => {
     expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([4248]);
   });
 
-  it('un claim locale vecchio NON viene rilasciato automaticamente', () => {
+  it('un claim locale sotto la soglia locale NON viene rilasciato', () => {
     const issues = [{ number: 4248, labels: LOCAL_CLAIM, updatedAt: hoursAgo(30) }];
     expect(claimOwner(LOCAL_CLAIM)).toBe('local');
     expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([]);
+  });
+
+  it('un claim locale fermo oltre la soglia locale (72h) senza PR viene rilasciato', () => {
+    expect(DEFAULT_STALE_LOCAL_CLAIM_HOURS).toBe(72);
+    const issues = [{ number: 8334, labels: LOCAL_CLAIM, updatedAt: hoursAgo(DEFAULT_STALE_LOCAL_CLAIM_HOURS + 1) }];
+    expect(nums(selectStaleClaims(issues, new Set(), NOW))).toEqual([8334]);
+  });
+
+  it('un claim locale vecchio con PR aperta resta protetto', () => {
+    const issues = [{ number: 8334, labels: LOCAL_CLAIM, updatedAt: hoursAgo(500) }];
+    expect(nums(selectStaleClaims(issues, new Set([8334]), NOW))).toEqual([]);
+  });
+
+  it('la soglia locale non è mai più corta di quella remota', () => {
+    const issues = [{ number: 8334, labels: LOCAL_CLAIM, updatedAt: hoursAgo(30) }];
+    expect(nums(selectStaleClaims(issues, new Set(), NOW, 48, 1))).toEqual([]);
+    expect(nums(selectStaleClaims(issues, new Set(), NOW, 12, 24))).toEqual([8334]);
   });
 
   it('un claim remoto vecchio resta liberabile dal detector', () => {

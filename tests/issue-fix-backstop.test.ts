@@ -114,20 +114,20 @@ describe('issue-fix F1/F7 policy gate', () => {
       ['follow-up'],
       'Suggested action: edit `unknown-zone/agent-target.ts`.',
     )).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'unknown-path',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
     expect(classifyIssue(
       'Follow-up: update the workflow',
       ['follow-up'],
       'Suggested action: edit `.github/workflows/issue-fix.yml`.',
     )).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'control-plane',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
   });
 
-  it('nega root-level, backslash, traversal e unknown; conserva i percorsi leciti', () => {
+  it('instrada root-level, backslash, traversal e unknown: i path sono evidenza (f1-f7-v4)', () => {
     const riskFor = (paths: string[]) => classifyAutomationRisk({
       title: 'Follow-up: update the source module',
       body: '',
@@ -138,20 +138,20 @@ describe('issue-fix F1/F7 policy gate', () => {
     });
 
     expect(riskFor(['REVIEW.md'])).toMatchObject({
-      blocked: true,
-      denyCode: 'control-plane',
+      blocked: false,
+      denyCode: null,
     });
     expect(riskFor(['scripts\\ci\\auto-merge-eval.mjs'])).toMatchObject({
-      blocked: true,
-      denyCode: 'control-plane',
+      blocked: false,
+      denyCode: null,
     });
     expect(riskFor(['scripts/../src/fix.ts'])).toMatchObject({
-      blocked: true,
-      denyCode: 'paths-unverifiable',
+      blocked: false,
+      denyCode: null,
     });
     expect(riskFor(['unknown-zone/agent-target.ts'])).toMatchObject({
-      blocked: true,
-      denyCode: 'unknown-path',
+      blocked: false,
+      denyCode: null,
     });
     expect(riskFor(['src/fix.ts'])).toMatchObject({
       blocked: false,
@@ -165,52 +165,52 @@ describe('issue-fix F1/F7 policy gate', () => {
 
   it('applica davvero l estrattore inline ai riferimenti dell issue', () => {
     expect(runInlineRisk('.env')).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'high-risk-domain',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
     expect(runInlineRisk('.npmrc')).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'unknown-path',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
     expect(runInlineRisk('.gitignore')).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'unknown-path',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
     expect(runInlineRisk('/.env')).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'paths-unverifiable',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
     expect(runInlineRisk('REVIEW.md')).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'control-plane',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
     expect(runInlineRisk(String.raw`scripts\ci\auto-merge-eval.mjs`)).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'control-plane',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
     expect(runInlineRisk('scripts//ci/auto-merge-eval.mjs')).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'paths-unverifiable',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
     expect(runInlineRisk('scripts/../src/fix.ts')).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'paths-unverifiable',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
     expect(runInlineRisk('unknown-zone/agent-target.ts')).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'unknown-path',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
     expect(runInlineRisk('src/fix.ts')).toMatchObject({
       automationBlocked: false,
       riskDecision: 'allow',
     });
     expect(runInlineRisk('Makefile')).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'unknown-path',
+      automationBlocked: false,
+      riskDenyCode: null,
     });
     expect(runInlineRisk('https://github.com/valerielinc-ops/frontaliere-si-o-no/blob/main/REVIEW.md')).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'control-plane',
+      automationBlocked: false,
+      riskDenyCode: null,
       pathsComplete: true,
     });
   });
@@ -235,8 +235,8 @@ describe('issue-fix F1/F7 policy gate', () => {
       + "git show origin/main:data/crawler-health.json | jq -r '.status'"
       + code;
     expect(runInlineRisk(commandBody)).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'unknown-path',
+      automationBlocked: false,
+      riskDenyCode: null,
       pathsComplete: true,
     });
     expect(runInlineRisk('Europe/Zurich gh/push REST/GraphQL github.event_name')).toMatchObject({
@@ -271,33 +271,33 @@ describe('issue-fix F1/F7 policy gate', () => {
     }
   });
 
-  it('nega URL GitHub con confine ref/path non verificabile', () => {
+  it('un URL GitHub con confine ref/path non verificabile resta instradabile, pathsComplete=false', () => {
     expect(runInlineRisk(
       'https://www.github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/docs/.github/workflows/issue-fix.yml',
     )).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'paths-unverifiable',
+      automationBlocked: false,
+      riskDenyCode: null,
       pathsComplete: false,
     });
     expect(runInlineRisk(
       'https://raw.githubusercontent.com/valerielinc-ops/frontaliere-si-o-no/feature/docs/.github/workflows/issue-fix.yml',
     )).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'paths-unverifiable',
+      automationBlocked: false,
+      riskDenyCode: null,
       pathsComplete: false,
     });
     expect(runInlineRisk(
       'https://github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/scripts/foo.mjs',
     )).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'paths-unverifiable',
+      automationBlocked: false,
+      riskDenyCode: null,
       pathsComplete: false,
     });
     expect(runInlineRisk(
       'https://www.github.com/valerielinc-ops/frontaliere-si-o-no/blob/feature/docs/foo.mjs',
     )).toMatchObject({
-      automationBlocked: true,
-      riskDenyCode: 'paths-unverifiable',
+      automationBlocked: false,
+      riskDenyCode: null,
       pathsComplete: false,
     });
   });

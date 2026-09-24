@@ -99,7 +99,11 @@ const VISION_PATH = new URL('../../VISION.md', import.meta.url);
 // coda piu' in fretta di quanto la si svuota — e sopra ~5 PR aperte i merge
 // rallentano da soli. A 10/giorno le 59 parcheggiate rientrano in circa una
 // settimana senza che nessun altro stadio se ne accorga.
-const MAX_PER_RUN = intFromEnv('PREPASS_MAX_PER_RUN', 10);
+// Alzato a 30 il 2026-09-24: ~90 issue differite dalla vecchia policy F1/F7
+// avrebbero impiegato nove giorni a rientrare. Rientrare significa solo
+// `agent:fix-queued`: la portata la governa il drainer (7 fixer in volo), non
+// questo cap, quindi la coda si allunga ma le PR aperte no.
+const MAX_PER_RUN = intFromEnv('PREPASS_MAX_PER_RUN', 30);
 // Cap SEPARATO, e non un'esenzione dal cap sopra. Sono due risorse diverse: il
 // cap di `MAX_PER_RUN` protegge la portata della coda del fixer (~15 PR/giorno,
 // sopra ~5 PR aperte i merge rallentano), mentre una nota non instrada niente —
@@ -598,6 +602,19 @@ function decideAction({ title = '', body = '', labels = [], verdict = null, reg,
         reason: `policy ancora in deny (${current.riskDenyCode || current.riskReason || 'non verificabile'}): nessun bypass automatico`,
       };
     }
+    // La policy che aveva prodotto il defer `risk` oggi consente il routing
+    // (f1-f7-v4, DECISIONS 2026-09-24): il defer non ha più causa, qualunque sia
+    // la famiglia. Prima questo ramo cadeva nel «famiglia non riconosciuta →
+    // keep» più sotto, cioè 51 issue ferme ad aspettare lo sweep a cap 15.
+    if (!(reg && reg.conditional.length)) {
+      if (verdict && PREPASS_VERDICT_BEATS_FAMILY.has(verdict)) {
+        if (verdict === 'max-turns' && isDecomposeEligible({ labels: labels.map((name) => ({ name })) })) {
+          return { action: 'decompose', reason: 'defer `risk` superato dalla policy corrente e turn-budget esaurito: scorporo' };
+        }
+        return { action: 'keep', reason: `defer \`risk\` superato, ma verdetto \`${verdict}\` non ri-accodabile a costo zero: lo riprende lo sweep` };
+      }
+      return { action: 'requeue', reason: 'defer `risk` superato: la policy corrente (f1-f7-v4) consente il routing' };
+    }
   }
 
   const monitor = MONITOR_TITLE_PATTERNS.find((re) => re.test(title));
@@ -665,6 +682,25 @@ function decideAction({ title = '', body = '', labels = [], verdict = null, reg,
 
   if (verdict && STALE_BLOCK_VERDICTS.has(verdict)) {
     return { action: 'requeue', reason: `verdetto \`${verdict}\` superato dalla decisione del 2026-08-24 sui secret` };
+  }
+
+  // `needs-human` non è più un canale di attesa (DECISIONS 2026-09-24: «nessun
+  // veto», «parametri e scelte interne sempre autonomi, mai una riga del
+  // proprietario»). Misurato lo stesso giorno: 39 issue `needs-human`, 28 erano
+  // blocchi tecnici etichettati dal vecchio triage F1/F7 e le restanti chiedevano
+  // scelte che il registro ora copre. Qualunque famiglia rientra: il solo freno
+  // che resta è una riga NEGATIVA o condizionata del registro (sopra non ha
+  // sbloccato) e il verdetto che il ri-accodo non cambia, che va allo scorporo
+  // se eleggibile o allo sweep giornaliero.
+  if (labels.includes('needs-human') && !labels.includes(AUTOMATION_DEFERRED_LABEL)
+      && !(reg && reg.conditional.length)) {
+    if (verdict && PREPASS_VERDICT_BEATS_FAMILY.has(verdict)) {
+      if (verdict === 'max-turns' && isDecomposeEligible({ labels: labels.map((name) => ({ name })) })) {
+        return { action: 'decompose', reason: 'needs-human senza decisione mancante e turn-budget esaurito: scorporo' };
+      }
+      return { action: 'keep', reason: `needs-human senza decisione mancante, ma verdetto \`${verdict}\` non ri-accodabile a costo zero: lo riprende lo sweep` };
+    }
+    return { action: 'requeue', reason: 'needs-human non è più un veto (DECISIONS 2026-09-24): lavoro autonomo' };
   }
 
   // Dopo il ramo secret perché quello ri-accoda un titolo QUALSIASI, anche non

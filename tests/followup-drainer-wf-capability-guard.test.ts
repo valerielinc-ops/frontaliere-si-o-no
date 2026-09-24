@@ -226,12 +226,12 @@ describe('#5544 — un tracker permanente non entra MAI nel pool del parked-retr
     expect(isReparkableCandidate(REAL_FOLLOWUP)).toBe(true);
   });
 
-  it('una follow-up SEO resta esclusa dal retry: il deny F1/F7 non si allenta', () => {
+  it('una follow-up SEO entra nel retry: F1/F7 è evidenza, non veto (f1-f7-v4)', () => {
     expect(isReparkableCandidate({
       ...REAL_FOLLOWUP,
       labels: REAL_FOLLOWUP.labels.map((label) =>
         label.name === 'funnel-ux' ? { name: 'funnel-seo' } : label),
-    })).toBe(false);
+    })).toBe(true);
   });
 
   it('gli altri filtri di ammissione restano attivi', () => {

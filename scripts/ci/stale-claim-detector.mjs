@@ -41,13 +41,18 @@
  *
  * ## Owner locale/remoto
  *
- * `agent:local` è un segnale esplicito di una sessione interattiva. Il detector
- * non lo rimuove automaticamente: una sessione locale può durare più del job CI
- * e non esiste un heartbeat affidabile da osservare via GitHub. Il comando locale
- * deve rilasciarlo con `CLAIM_ACTION=release`; in caso di abbandono, la label resta
- * visibile e richiede una verifica umana. `agent:remote`, invece, può essere
- * rilasciata dal detector quando è stale. Un claim senza owner resta legacy e si
- * comporta come quello remoto.
+ * `agent:local` è un segnale esplicito di una sessione interattiva. Una sessione
+ * locale può durare più del job CI e non espone un heartbeat affidabile via
+ * GitHub, quindi ha una soglia molto più lunga (`STALE_LOCAL_CLAIM_HOURS`,
+ * default 72h = 6× il tetto del fixer). Il comando locale resta il modo normale
+ * di rilasciarla (`CLAIM_ACTION=release`). Prima del 2026-09-24 restava appesa
+ * fino a una verifica umana: misurato quel giorno, le sole 5 issue
+ * `agent:fix-queued` portavano tutte `agent:local`, due ferme dal 20-09, e il
+ * drainer vedeva la coda vuota. Una verifica umana obbligatoria contraddice
+ * DECISIONS 2026-09-24 (nessun intervento umano nel ciclo). Un'attività sulla
+ * issue sposta `updatedAt` e rinvia il rilascio; una PR aperta lo impedisce.
+ * `agent:remote` e i claim senza owner usano la soglia normale; un claim conteso
+ * (entrambi gli owner) resta intoccato.
  *
  * ## La soglia
  *
@@ -86,6 +91,8 @@ const MARKER = '<!-- STALE-CLAIM-RELEASED -->';
 
 /** 2× il timeout-minutes di issue-fix.yml (360). Vedi l'intestazione. */
 export const DEFAULT_STALE_CLAIM_HOURS = 12;
+/** 6× il timeout del fixer: una sessione locale silenziosa per 3 giorni è morta. */
+export const DEFAULT_STALE_LOCAL_CLAIM_HOURS = 72;
 
 export function claimOwner(labels) {
   const names = new Set((labels || []).map((label) => String(label?.name || label || '')));
@@ -305,30 +312,38 @@ export function referencedIssueNumbers(prs) {
  * gira. `updatedAt` illeggibile → NON selezionata: in dubbio si tace, perché il
  * costo di un falso positivo qui è un secondo fixer in parallelo.
  */
-export function selectStaleClaims(issues, referenced, nowMs, maxAgeHours = DEFAULT_STALE_CLAIM_HOURS) {
+export function selectStaleClaims(
+  issues,
+  referenced,
+  nowMs,
+  maxAgeHours = DEFAULT_STALE_CLAIM_HOURS,
+  localMaxAgeHours = DEFAULT_STALE_LOCAL_CLAIM_HOURS,
+) {
   if (!Array.isArray(issues)) return [];
   const live = referenced instanceof Set ? referenced : new Set(referenced || []);
   const cutoff = nowMs - maxAgeHours * 3600 * 1000;
+  // A local session has no remotely observable heartbeat: it gets a much
+  // longer window, never shorter than the remote one.
+  const localCutoff = nowMs - Math.max(localMaxAgeHours, maxAgeHours) * 3600 * 1000;
   return issues.filter((iss) => {
     if (!iss || !Number.isInteger(iss.number)) return false;
     if (!hasClaimLabel(iss.labels)) return false;
-    // A local session has no remotely observable heartbeat. Releasing it by
-    // age would recreate the duplicate-PR race this detector is meant to stop.
-    // A contended claim is equally unsafe to mutate; leave both owner flags for
+    // A contended claim is unsafe to mutate; leave both owner flags for
     // explicit reconciliation.
     const owner = claimOwner(iss.labels);
-    if (owner === 'local' || owner === 'contended') return false;
+    if (owner === 'contended') return false;
     if (live.has(iss.number)) return false;
     const updated = Date.parse(iss.updatedAt || '');
     if (!Number.isFinite(updated)) return false;
-    return updated < cutoff;
+    return updated < (owner === 'local' ? localCutoff : cutoff);
   });
 }
 
 function main() {
   if (!REPO) { console.error('GH_REPO/GITHUB_REPOSITORY mancante'); process.exit(1); }
   const hours = Number(process.env.STALE_CLAIM_HOURS) || DEFAULT_STALE_CLAIM_HOURS;
-  console.log(`stale-claim-detector${DRY ? ' [DRY-RUN]' : ''} repo=${REPO} soglia=${hours}h`);
+  const localHours = Number(process.env.STALE_LOCAL_CLAIM_HOURS) || DEFAULT_STALE_LOCAL_CLAIM_HOURS;
+  console.log(`stale-claim-detector${DRY ? ' [DRY-RUN]' : ''} repo=${REPO} soglia=${hours}h (locale ${localHours}h)`);
 
   let issues, prs;
   try {
@@ -343,10 +358,10 @@ function main() {
   }
 
   const referenced = referencedIssueNumbers(prs || []);
-  const stale = selectStaleClaims(issues || [], referenced, Date.now(), hours);
+  const stale = selectStaleClaims(issues || [], referenced, Date.now(), hours, localHours);
 
   const localClaims = (issues || []).filter((iss) => claimOwner(iss.labels) === 'local').length;
-  console.log(`issue con ${CLAIM_LABEL}: ${(issues || []).length} — PR aperte che ne giustificano una: ${referenced.size} — claim locali protetti: ${localClaims}`);
+  console.log(`issue con ${CLAIM_LABEL}: ${(issues || []).length} — PR aperte che ne giustificano una: ${referenced.size} — claim locali (soglia ${localHours}h): ${localClaims}`);
   if (!stale.length) { console.log('Nessun claim stale.'); return; }
   console.log(`Claim stale: ${stale.length}`);
 
@@ -364,8 +379,10 @@ function main() {
     const owner = claimOwner(iss.labels);
     const removeLabels = [CLAIM_LABEL];
     if (owner === 'remote') removeLabels.push(CLAIM_OWNER_LABELS.remote);
+    if (owner === 'local') removeLabels.push(CLAIM_OWNER_LABELS.local);
+    const ownerHours = owner === 'local' ? Math.max(localHours, hours) : hours;
     const body = `🔓 **Lock rilasciato** (auto, zero-Claude): questa issue portava \`${CLAIM_LABEL}\` ` +
-      `da più di ${hours}h **senza nessuna PR aperta che lo giustificasse**.\n\n` +
+      `da più di ${ownerHours}h **senza nessuna PR aperta che lo giustificasse**.\n\n` +
       `\`${CLAIM_LABEL}\` non è uno stato, è un **lock di mutua esclusione**: finché è ` +
       'presente, ogni run di `issue-fix` vede il claim ed esce senza fare niente. Un run morto ' +
       'in modo non grazioso — o una sessione interattiva finita male — lo lascia appeso, e da ' +
@@ -374,8 +391,9 @@ function main() {
       'doppio del tetto di un run, senza PR in volo, il claim non appartiene più a niente di ' +
       'vivo. Se invece stai lavorando questa issue **ora**, ri-applica la label: il detector ' +
       'guarda le PR aperte, quindi appena ne apri una il claim viene rispettato. Un claim `' +
-      owner + '` senza PR viene liberato; un claim `agent:local` non viene mai ' +
-      'rimosso automaticamente perché una sessione locale non espone un heartbeat affidabile.\n\n' +
+      owner + '` senza PR viene liberato; un claim `agent:local` ha una soglia più lunga ' +
+      `(${Math.max(localHours, hours)}h) perché una sessione locale non espone un heartbeat ` +
+      'affidabile, ma non resta appeso per sempre.\n\n' +
       'La issue **non** è stata ri-accodata: rilasciare il lock ripristina l\'idoneità, ma ' +
       'decidere che vada rilavorata è un\'altra cosa. Per rimetterla in coda serve `agent:fix` ' +
       '(via PAT).\n\n' +

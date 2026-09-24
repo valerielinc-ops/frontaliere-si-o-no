@@ -159,7 +159,11 @@ export const ROUTING_LABELS = [
 
 /** Il secondo passaggio non deve riesaminare i pin già esclusi dal routing. */
 export function isTriagedButNotRouted(iss) {
-  const decision = classifyIssue(iss?.title, names(iss), iss?.body);
+  // Una riga senza titolo è un dato illeggibile, non una issue da instradare:
+  // dalla policy f1-f7-v4 la categoria sconosciuta non è più un deny, quindi
+  // l'integrità del record va verificata qui.
+  if (typeof iss?.title !== 'string' || !iss.title.trim()) return false;
+  const decision = classifyIssue(iss.title, names(iss), iss?.body);
   return decision.autofix === true
     && decision.route !== 'none'
     && !isFixerExempt(names(iss))

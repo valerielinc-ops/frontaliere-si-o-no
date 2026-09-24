@@ -1,4 +1,4 @@
-name: Automation backlog sweep (Codex Luna Max, weekly)
+name: Automation backlog sweep (Codex Luna Max, daily)
 
 # `needs-human` e `automation-deferred` sono due stati diversi: il primo è una
 # richiesta strutturata di decisione del proprietario, il secondo è un handoff
@@ -7,7 +7,9 @@ name: Automation backlog sweep (Codex Luna Max, weekly)
 # umano anche quando la decisione era già in VISION.md/DECISIONS.md.
 #
 # Questo sweep è l'UNICA porta di rientro dallo stato, ed è volutamente:
-#  - SETTIMANALE (1 run Codex Luna Max batch: frugalità di quota per architettura);
+#  - GIORNALIERO dal 2026-09-24 (1 run Codex Luna Max batch al giorno: era
+#    settimanale, ma senza più domande al proprietario è l'unica porta dei
+#    defer tecnici e dei `fu-parked`);
 #  - guidato da VISION.md e DECISIONS.md (i driver dicono cosa è decidibile in
 #    autonomia e il registro cosa ha già deciso il proprietario);
 #  - bounded (max 15 azioni per run, il resto al giro successivo).
@@ -20,14 +22,14 @@ name: Automation backlog sweep (Codex Luna Max, weekly)
 
 on:
   schedule:
-    - cron: '37 5 * * 1' # lunedì 05:37Z, fuori dalle ore di punta del ciclo
-    # Il pre-pass deterministico gira OGNI GIORNO; il run Claude resta settimanale
-    # (vedi l'`if:` del job `sweep`). Lo scarto e' la fix del 2026-08-24: un run
+    - cron: '37 5 * * *' # ogni giorno 05:37Z, dopo il pre-pass delle 04:37Z
+    # Il pre-pass deterministico gira OGNI GIORNO alle 04:37Z, il run agentico
+    # alle 05:37Z (vedi l'`if:` del job `sweep`). Storia: il 2026-08-24 un run
     # Claude a settimana con cap 15 contro 59 issue `needs-human` sono quattro
     # settimane di coda nel caso migliore, mentre VERDICT-EXIT (#6323) ne aggiunge
     # a ogni tick del drainer — 15 escalation nei primi 15 minuti dal suo merge.
     # Un'uscita che riceve piu' di quanto emette non e' un'uscita.
-    - cron: '37 4 * * *' # ogni giorno 04:37Z, un'ora prima dello sweep del lunedi'
+    - cron: '37 4 * * *' # ogni giorno 04:37Z, un'ora prima dello sweep agentico
   workflow_dispatch:
 
 concurrency:
@@ -114,11 +116,12 @@ jobs:
         run: node scripts/ci/needs-human-prepass.mjs
 
   sweep:
-    # Il run Claude resta SETTIMANALE: e' il giudizio, non il drenaggio. Gira sul
-    # cron del lunedi' e su dispatch, mai sul cron giornaliero del pre-pass —
-    # altrimenti il costo si moltiplicherebbe per sette senza che il lavoro da
-    # giudicare aumenti.
-    if: github.event_name != 'schedule' || github.event.schedule == '37 5 * * 1'
+    # Il run agentico gira sul cron delle 05:37Z e su dispatch, mai su quello
+    # del pre-pass. Era settimanale; giornaliero dal 2026-09-24 (DECISIONS
+    # «Nessun veto»): con zero domande al proprietario lo sweep è l'unica porta
+    # dei defer tecnici, e un giro a settimana a cap 15 lasciava ~90 issue ferme
+    # per mesi.
+    if: github.event_name != 'schedule' || github.event.schedule == '37 5 * * *'
     runs-on: ubuntu-latest
     timeout-minutes: 120
     steps:
@@ -210,24 +213,24 @@ jobs:
           # host-side usa solo App/PAT; il vuoto resta fail-closed nell'action.
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           prompt: |
-            Sei lo sweep settimanale del backlog `needs-human` + `automation-deferred` di questo repo. Il tuo compito: lasciare all'umano solo decisioni realmente mancanti e rimettere tutto il resto nel ciclo autonomo. NON implementi fix e NON apri PR.
+            Sei lo sweep giornaliero del backlog fermo (`needs-human`, `automation-deferred`, `fu-parked`) di questo repo. Il tuo compito: rimettere TUTTO nel ciclo autonomo. Dal 2026-09-24 il proprietario non vuole più domande (DECISIONS.md: «Nessun veto sul ciclo autonomo», «Parametri, soglie e scelte interne: sempre autonomi, mai una riga del proprietario»): ogni scelta la prendi tu con la direttiva unica «non perdere pagine SEO, revenue o utenti». NON implementi fix e NON apri PR.
 
             **Bootstrap:**
-            1. Leggi `VISION.md` PER INTERO per i driver di decisione e `DECISIONS.md` per il registro delle decisioni già prese: sono il tuo criterio di classificazione. La lista «Sempre umano» è stata RIMOSSA il 2026-08-24 (istruzione diretta del proprietario, registro in DECISIONS.md): non esiste più una categoria di business riservata all'umano.
-            2. Elenca entrambe le code, unisci per numero e ordina per updatedAt crescente (le più ferme prima):
+            1. Leggi `VISION.md` PER INTERO per i driver di decisione e `DECISIONS.md` per il registro delle decisioni già prese: sono il tuo criterio. Le righe più recenti prevalgono su quelle più vecchie che contraddicono.
+            2. Elenca le tre code, unisci per numero e ordina per updatedAt crescente (le più ferme prima):
                - `gh issue list --repo $REPO --state open --label needs-human --json number,title,labels,createdAt,updatedAt --limit 100`
                - `gh issue list --repo $REPO --state open --label automation-deferred --json number,title,labels,createdAt,updatedAt --limit 100`
+               - `gh issue list --repo $REPO --state open --label fu-parked --json number,title,labels,createdAt,updatedAt --limit 100`
 
             **Per ogni issue (MASSIMO 15 azioni totali in questo run — un'azione = un cambio di label/stato; le issue oltre il cap restano al giro successivo):**
-            1. Leggi body + commenti (`gh issue view N --json body,comments,labels`). Cerca PRIMA una decisione del proprietario già registrata (comando nel registro di DECISIONS.md): se c'è, la issue non è più una domanda — applicala.
-            2. Classifica in UNA delle quattro:
-               - **A — decisione del proprietario davvero mancante**: VISION.md e DECISIONS.md non rispondono alla scelta necessaria. NON formulare «serve indagine» o «approvare il fix»: posta una domanda decidibile con opzioni, evidenza richiesta e criterio di accettazione; aggiungi `needs-human` e il marker `<!-- OWNER_DECISION_REQUEST: ... -->`, rimuovi `automation-deferred` solo se era un handoff tecnico. Questa è l'unica uscita che può richiedere una risposta del proprietario.
-               - **B — capability/permessi o diagnosi tecnica**: la decisione esiste già nei documenti oppure il lavoro è eseguibile con le capacità attuali. Misura la causa, completa la scheda se manca, quindi rimuovi `needs-human`/`automation-deferred`/`fu-parked` e usa `agent:fix-queued` per una issue atomica o `agent:decompose-queued` per una grande/contenitore; aggiungi `agent:vision-approved` quando il rientro è autorizzato dal contratto VISION.
-               - **C — claim scaduta**: il difetto descritto non esiste più (verificalo con la misura più economica che decide: un comando dal body, un grep sul codice, una gh api). Commento con la misura osservata e il comando che la riproduce, poi `gh issue close N`. Se NON riesci a misurare, non chiudere: lasciala `automation-deferred` e completa il contesto.
-               - **D — defer tecnico ancora reale**: il fixer ha fallito per input/turn-budget/causa non convergente. Non chiedere nulla al proprietario: riscrivi il body/commento con ciò che manca, lascia `automation-deferred` e fai rientrare solo dopo avere cambiato l'input. Un terminale tecnico non diventa `needs-human`.
-            3. VINCOLI: mai chiudere ciò che non hai misurato; mai toccare le issue che il registro di DECISIONS.md riserva (famiglia job-alert: #5705 e affini); mai rimuovere `agent:no-age-out`; un'issue con PR aperta collegata non si tocca.
+            1. Leggi body + commenti (`gh issue view N --json body,comments,labels`). Cerca PRIMA una decisione già registrata in DECISIONS.md: se c'è, applicala.
+            2. Classifica in UNA delle tre:
+               - **B — lavoro eseguibile**: la decisione esiste nei documenti oppure la prendi tu (default più conservativo rispetto alla direttiva «non perdere pagine SEO, revenue o utenti», scritto nel commento con il driver citato). Misura la causa, completa la scheda se manca, quindi rimuovi `needs-human`/`automation-deferred`/`fu-parked` e usa `agent:fix-queued` per una issue atomica o `agent:decompose-queued` per una grande/contenitore; aggiungi `agent:vision-approved`.
+               - **C — claim scaduta**: il difetto descritto non esiste più (verificalo con la misura più economica che decide: un comando dal body, un grep sul codice, una gh api). Commento con la misura osservata e il comando che la riproduce, poi `gh issue close N`. Se NON riesci a misurare, non chiudere: trattala come D.
+               - **D — defer tecnico ancora reale**: il fixer ha fallito per input/turn-budget/causa non convergente. Riscrivi il body/commento con ciò che manca (causa misurata, file, criterio di accettazione), togli `needs-human` e fai rientrare con `agent:fix-queued` o `agent:decompose-queued` solo dopo avere cambiato l'input; se l'input non si può ancora cambiare lascia `automation-deferred`. Mai `needs-human`.
+            3. VINCOLI: mai chiudere ciò che non hai misurato; mai rimuovere `agent:no-age-out`/`keep-open`; un'issue con PR aperta collegata non si tocca.
 
-            **Digest (ultima azione, sempre):** una sola issue col titolo ESATTO `🧭 Decisioni del proprietario — digest` (cerca fra le aperte; se non esiste creala con label `needs-human,automation,agent:no-age-out`). Sostituisci/aggiorna il body con: l'elenco delle domande di classe A (numero, domanda decidibile, opzioni), le decisioni applicate in questo run (classe B/C, con issue e driver citato), e due conteggi residui separati: `needs-human` e `automation-deferred`. Il body deve restare leggibile in 2 minuti: le domande sono POCHE e decidibili, o lo sweep ha fallito il suo compito.
+            **Digest (ultima azione, sempre):** una sola issue col titolo ESATTO `🧭 Decisioni del proprietario — digest` (cerca fra le aperte; se non esiste creala con label `automation,agent:no-age-out`). Sostituisci/aggiorna il body con le decisioni prese in autonomia in questo run (issue, scelta, driver citato) e i conteggi residui separati di `needs-human`, `automation-deferred` e `fu-parked`. Nessuna domanda al proprietario.
 
             **Telemetria:** chiudi postando sul digest un commento con l'ultimo marker su riga propria: `<!-- SWEEP_OUTCOME: a=<n> b=<n> c=<n> d=<n> -->`.
 
