@@ -158,7 +158,10 @@ jobs:
           DRY_RUN: ${{ inputs.dry_run == true && '1' || '0' }}
           MAX_COMMITS: ${{ inputs.max_commits || '0' }}
           CRAWLER_KEYS: ${{ inputs.crawler_keys || '' }}
-          BACKFILL_CHECKPOINT_BATCH_SIZE: '16'
+          # Each checkpoint reruns the focused data gate before publishing.
+          # Keep enough crawler keys per batch to stay within the 90-minute job
+          # budget while bounding the amount retried after a runner failure.
+          BACKFILL_CHECKPOINT_BATCH_SIZE: '64'
         # The history walk writes each expired slice atomically, but the old
         # one-shot invocation only committed after the whole walk and the test
         # gate. A timeout or a later unrelated test failure therefore discarded
@@ -169,7 +172,7 @@ jobs:
         run: |
           set -euo pipefail
 
-          checkpoint_batch_size="${BACKFILL_CHECKPOINT_BATCH_SIZE:-16}"
+          checkpoint_batch_size="${BACKFILL_CHECKPOINT_BATCH_SIZE:-64}"
           case "$checkpoint_batch_size" in
             ''|*[!0-9]*|0)
               echo "::error::BACKFILL_CHECKPOINT_BATCH_SIZE must be a positive integer"
@@ -201,16 +204,27 @@ jobs:
               return 0
             fi
             checkpoint_active=1
-            echo "🧷 Checkpointing recovered slices (batch size: $checkpoint_count)"
-            # Keep the durable checkpoint fail-closed: every changed archive
-            # must still be valid JSON with an orderable expiredAt before it
-            # reaches main. The broader focused suite runs after all batches.
+            echo "🧷 Validating and checkpointing recovered slices (crawler keys: $checkpoint_count)"
+            # A durable checkpoint is also a complete data gate. This keeps a
+            # bad assembled artifact or invariant failure off main even when a
+            # later batch would otherwise make the overall run red.
+            if ! node scripts/assemble-jobs-dataset.mjs; then
+              checkpoint_failed=1
+              checkpoint_active=0
+              return 1
+            fi
+            if ! npm run test:backfill; then
+              checkpoint_failed=1
+              checkpoint_active=0
+              return 1
+            fi
             if ! node scripts/audit-expired-at-parsable.mjs; then
               checkpoint_failed=1
               checkpoint_active=0
               return 1
             fi
-            if ! checkpoint_output="$(mktemp)"; then
+            checkpoint_tmp_dir="${RUNNER_TEMP:-/tmp}"
+            if ! checkpoint_output="$(mktemp "$checkpoint_tmp_dir/backfill-checkpoint-output.XXXXXX")"; then
               echo '::error::Unable to allocate the checkpoint outcome file.'
               checkpoint_failed=1
               checkpoint_active=0
@@ -223,14 +237,27 @@ jobs:
               checkpoint_active=0
               return 1
             fi
-            # git-commit-data.sh deliberately returns 0 when the shared writer
-            # lease stays busy, even though it has not persisted anything.
-            # Require its explicit outcome marker so a checkpoint can never be
-            # reported as successful while the partial slices would disappear
-            # with the runner workspace.
-            if ! rg -q '^has_changes=(true|false)$' "$checkpoint_output"; then
+            # A false marker is a valid no-op only when this batch left no
+            # expired slice dirty. In particular, a busy shared writer (or any
+            # other path that returns success without a push) must not make us
+            # reset the batch counter and lose the workspace-only changes.
+            checkpoint_dirty=0
+            if has_dirty_expired_slices; then
+              checkpoint_dirty=1
+            fi
+            if rg -q '^has_changes=true$' "$checkpoint_output"; then
+              if ! git fetch --no-tags origin main || ! git reset --hard origin/main; then
+                rm -f "$checkpoint_output"
+                echo '::error::Checkpoint was reported as persisted but the workspace could not be aligned to origin/main.'
+                checkpoint_failed=1
+                checkpoint_active=0
+                return 1
+              fi
+            elif rg -q '^has_changes=false$' "$checkpoint_output" && [ "$checkpoint_dirty" -eq 0 ]; then
+              :
+            else
               rm -f "$checkpoint_output"
-              echo '::error::Checkpoint command returned without a persistence outcome.'
+              echo '::error::Checkpoint did not prove that the dirty batch was persisted.'
               checkpoint_failed=1
               checkpoint_active=0
               return 1

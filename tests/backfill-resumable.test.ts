@@ -21,13 +21,18 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs');
     expect(block).toContain('trap on_exit EXIT');
     expect(block).toContain('has_dirty_expired_slices');
+    expect(block).toContain('node scripts/assemble-jobs-dataset.mjs');
+    expect(block).toContain('npm run test:backfill');
     expect(block).toContain('node scripts/audit-expired-at-parsable.mjs');
     expect(block).toContain('GITHUB_OUTPUT="$checkpoint_output"');
     expect(block).toContain('git-commit-data.sh --slice-only');
-    expect(block).toContain("^has_changes=(true|false)$");
+    expect(block).toContain("^has_changes=true$");
+    expect(block).toContain("^has_changes=false$");
+    expect(block).toContain('git reset --hard origin/main');
     expect(block).toContain('mapfile -t key_list <<< "$keys"');
     expect(block).toContain('for key in "${key_list[@]}"; do');
     expect(block).toContain('checkpoint history backfill slices');
+    expect(block.indexOf('npm run test:backfill')).toBeLessThan(block.indexOf('git-commit-data.sh --slice-only'));
   });
 
   it('deploys after a successful rerun even when the checkpoint is already on main', () => {
