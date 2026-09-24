@@ -245,6 +245,28 @@ describe('policy automazione F1/F7', () => {
     });
   });
 
+  it('con snapshot incompleto conserva come evidenza i path citati nella prosa (review #9659)', () => {
+    const out = classifyAutomationRisk({
+      title: 'Follow-up: riallineare il triage',
+      body: 'Modificare `scripts/ci/triage-sweep.mjs` e `unknown-zone/agent-target.ts`.',
+      labels: [],
+      paths: ['src/safe.ts'],
+      pathsComplete: false,
+    });
+    expect(out).toMatchObject({ blocked: false, pathsComplete: false, controlPlane: true });
+    expect(out.domains).toContain('control-plane');
+    expect(out.unknownPaths).toContain('unknown-zone/agent-target.ts');
+
+    const complete = classifyAutomationRisk({
+      title: 'Follow-up: riallineare il triage',
+      body: 'Modificare `scripts/ci/triage-sweep.mjs`.',
+      labels: [],
+      paths: ['src/safe.ts'],
+      pathsComplete: true,
+    });
+    expect(complete).toMatchObject({ controlPlane: false, unknownPaths: [] });
+  });
+
   it('continua a negare metadata issue illeggibili (retry, non veto)', () => {
     expect(classifyAutomationRisk({ title: null, body: '', labels: [] })).toMatchObject({
       blocked: true,

@@ -404,19 +404,15 @@ function reviewTime(review) {
 /**
  * Classify an issue or a complete PR path snapshot without side effects.
  *
- * `paths` is optional for issue classification. When supplied, `pathsComplete`
- * must be true; otherwise the caller cannot prove which paths are in scope and
- * the result is explicitly non-verifiable. The pull-request surface requires
- * this complete, non-empty snapshot. It allows recognized and unknown paths,
- * including every F1/F7 domain; `needs-human` is not a PR-surface veto.
- * `surface` defaults to `issue`, which retains the original control-plane,
- * high-risk, unknown issue/path, and `needs-human` issue-routing behavior.
- * The deterministic pre-pass may add `agent:vision-approved` after checking
- * the VISION.md contract; that label is provenance for the explicit handoff,
- * not an authorization. F1/F7 and control-plane evidence on the issue surface
- * remain deny-by-default and must still pass the independent gates. A matching
- * title is useful provenance for the pre-pass, but is not itself an
- * authorization. Metadata and incomplete path snapshots still fail closed.
+ * `paths` is optional for issue classification. On the issue surface an
+ * incomplete snapshot is reported (`pathsComplete: false`) and the issue text
+ * is parsed as well, so every cited path stays in the evidence. The
+ * pull-request surface requires a complete, non-empty snapshot and fails
+ * closed without it. On both surfaces F1/F7 domains, control-plane paths,
+ * unknown paths/categories and `needs-human` are evidence, never a veto
+ * (f1-f7-v4, DECISIONS 2026-09-24). Only unreadable metadata still returns
+ * `deny`. `agent:vision-approved` is provenance of a pre-pass re-entry and is
+ * echoed as `visionApproved`.
  */
 export function classifyAutomationRisk({
   title = '',
@@ -514,9 +510,15 @@ export function classifyAutomationRisk({
     ...issueMatches,
     ...pathMatches,
   ]);
+  // La prosa della issue si legge ogni volta che lo snapshot non basta a
+  // descrivere il perimetro: assente oppure incompleto. Un elenco parziale non
+  // deve far sparire dall'evidenza i path control-plane o sconosciuti citati
+  // nel testo (review #9659).
+  const issuePathCandidates = isPullRequestSurface || (hasPathSnapshot && issuePathsComplete)
+    ? []
+    : extractIssuePathCandidates(issueText).filter((path) => !snapshotPaths.includes(normalizedPath(path)));
   const controlPlane = !isPullRequestSurface && (controlPlanePaths.length > 0
-    || (!hasPathSnapshot && extractIssuePathCandidates(issueText).some(isControlPlanePath)));
-  const issuePathCandidates = hasPathSnapshot ? [] : extractIssuePathCandidates(issueText);
+    || issuePathCandidates.some(isControlPlanePath));
   const unknownIssuePaths = issuePathCandidates.filter((path) => !isRecognizedAutomationPath(path));
   const unknown = unique([...unknownPaths, ...unknownIssuePaths]);
   const knownIssue = KNOWN_ISSUE_CATEGORIES.has(String(category).toLowerCase())
@@ -537,7 +539,9 @@ export function classifyAutomationRisk({
     humanLabel: hasHumanLabel,
     knownIssue: isPullRequestSurface || knownIssue,
     pathsComplete: issuePathsComplete,
-    domains: controlPlane ? domains : domains.filter((domain) => domain !== CONTROL_PLANE_DOMAIN),
+    domains: controlPlane
+      ? unique([CONTROL_PLANE_DOMAIN, ...domains])
+      : domains.filter((domain) => domain !== CONTROL_PLANE_DOMAIN),
     unknownPaths: unknown,
     evidence: {
       issue: issueMatches,
