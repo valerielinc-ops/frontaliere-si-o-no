@@ -41,18 +41,16 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource.match(/\{rewardedApplicationOfferJsx\}/g)?.length).toBeGreaterThanOrEqual(2);
   });
 
-  it('keeps the rewarded action account-gated and restores the detail gate', () => {
-    expect(jobBoardSource).toContain("assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid");
+  it('allows the rewarded request before sign-in while keeping the detail gate', () => {
+    expect(jobBoardSource).not.toContain("assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid");
     expect(jobBoardSource).toContain('const hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor;');
     expect(jobBoardSource).toContain('isCrawlerVisitorAgent');
   });
 
-  it('uses the original employer destination when the rewarded flow cannot complete', () => {
+  it('uses the original employer destination only after rewarded continue', () => {
+    expect(jobBoardSource).not.toContain("rewarded_application_inline_unavailable");
     expect(jobBoardSource).toMatch(
-      /const handleRewardedApplicationCompleted = \(\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_completed', true, true\);/,
-    );
-    expect(jobBoardSource).toMatch(
-      /const handleRewardedApplicationUnavailable = \(\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_unavailable', true, true\);/,
+      /const handleRewardedApplicationContinue = \(\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_completed', true, true\);/,
     );
     expect(jobBoardSource).toMatch(
       /if \(sameTab\) \{[\s\S]*?window\.location\.assign\(applyDestination\);/,
