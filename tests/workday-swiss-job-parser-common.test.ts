@@ -2,8 +2,15 @@ import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   createWorkdaySwissParser,
   resolveWorkdayPrimarySwissLocation,
+  workdayStructuredForeignPrimaryCountry,
+  isCompleteWorkdayBoard,
 } from '../scripts/lib/workday-swiss-job-parser-common.mjs';
-import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
+import { fetchWorkdayJobs } from '../scripts/lib/ats-clients/workday-client.mjs';
+import { evaluateAuthoritativeSnapshot } from '../scripts/lib/crawler-template.mjs';
+import {
+  authoritativeEmptySnapshotValidator,
+  isAuthoritativeEmptySnapshot,
+} from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
 /**
  * The publish gate reads the req's OWN primary workplace, never the union of
@@ -507,14 +514,306 @@ describe('createWorkdaySwissParser — HQ default is not a fallback on the facet
 });
 
 /**
- * issue 5253 / crawler-health-monitor: due casi misurati dal vivo il
- * 2026-09-24. georg-fischer pubblicava il cantone `Graubunden` per la sede
- * primaria `Seewis, Graubunden` (il BFS scrive «Seewis im Prättigau»), e
- * siemens-healthineers restava «broken» perché i tre annunci del facet
- * svizzero hanno tutti una sede primaria estera dichiarata solo dal campo
- * `country` del dettaglio (le sedi sono codici opachi: `CEY BO`, `TOI L 112`).
+ * Issue #9651 (siemens-healthineers). The Swiss facet returns only reqs that
+ * are cross-posted to a Swiss site while their PRIMARY workplace is abroad
+ * (live 2026-09-24: 3 listings, `N Locations` roll-ups, opaque primary codes,
+ * `jobRequisitionLocation.country` GB / DE / FR). The primary-only gate drops
+ * all of them by design, and the pipeline read the resulting bare `[]` as
+ * "aborted before looking" — keeping the 3 HQ-stamped records live forever.
+ *
+ * With `proveForeignOnlyBoardEmpty` the parser stamps that zero as
+ * source-proven. Every other empty stays a bare `[]`, which the runner's
+ * validator refuses (fail-closed, previous slice kept).
  */
-describe('createWorkdaySwissParser — canton-only segments and proven-empty facet', () => {
+describe('createWorkdaySwissParser — foreign-only Swiss board is a proven empty (#9651)', () => {
+  const ORIGINAL_FETCH = global.fetch;
+
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  const CROSS_POSTS = [
+    { site: 'AAA-BO', req: 'R-1', alpha2: 'GB', country: 'United Kingdom' },
+    { site: 'BBB-L-1', req: 'R-2', alpha2: 'DE', country: 'Germany' },
+    { site: 'CCC-BO', req: 'R-3', alpha2: 'FR', country: 'France' },
+  ];
+
+  function posting(p: { site: string; req: string }) {
+    return {
+      title: `Cross-posted role ${p.req}`,
+      externalPath: `/job/${p.site}/Cross-posted-role_${p.req}-1`,
+      locationsText: '6 Locations',
+      postedOn: 'Posted 3 Days Ago',
+      bulletFields: [p.req],
+    };
+  }
+
+  function detail(p: { site: string; alpha2?: string; country?: string }) {
+    const country = p.alpha2
+      ? { descriptor: p.country, id: 'x', alpha2Code: p.alpha2 }
+      : undefined;
+    return {
+      jobPostingInfo: {
+        title: 'Cross-posted role',
+        location: p.site.replace(/-/g, ' '),
+        additionalLocations: ['ZZZ T', 'MIL VIP'],
+        jobRequisitionLocation: { descriptor: p.site.replace(/-/g, ' '), ...(country ? { country } : {}) },
+        ...(p.country ? { country: { descriptor: p.country, id: 'x' } } : {}),
+        jobDescription: '<p>Role description</p>',
+      },
+    };
+  }
+
+  function mockBoard(
+    postings: any[],
+    details: Record<string, any>,
+    { listStatus = 200, total = postings.length }: { listStatus?: number; total?: unknown } = {},
+  ) {
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        if (listStatus !== 200) return new Response('blocked', { status: listStatus });
+        return new Response(JSON.stringify({ total, jobPostings: postings }), { status: 200 });
+      }
+      const hit = Object.keys(details).find((path) => urlStr.endsWith(path));
+      if (hit && details[hit]) return new Response(JSON.stringify(details[hit]), { status: 200 });
+      return new Response('', { status: 404 });
+    });
+  }
+
+  function parser(opts: Record<string, unknown> = {}) {
+    return createWorkdaySwissParser({
+      companyKey: 'testco',
+      companyName: 'Test Co',
+      companyDomain: 'testco.com',
+      tenantHost: 'testco.wd3.myworkdayjobs.com',
+      sitePath: 'Test_Careers',
+      defaultCanton: 'ZH',
+      defaultCity: 'Zurich',
+      proveForeignOnlyBoardEmpty: true,
+      ...opts,
+    });
+  }
+
+  function verdict(jobs: any) {
+    return evaluateAuthoritativeSnapshot(jobs, {
+      validateAuthoritativeSnapshot: authoritativeEmptySnapshotValidator('Test Co'),
+      allowAuthoritativeEmptySnapshot: true,
+      authoritativeSnapshotScope: 'empty-only',
+      companyLabel: 'Test Co',
+    });
+  }
+
+  const allDetails = () => Object.fromEntries(
+    CROSS_POSTS.map((p) => [posting(p).externalPath, detail(p)]),
+  );
+
+  it('stamps a whole board of foreign-primary cross-posts as a proven zero', async () => {
+    mockBoard(CROSS_POSTS.map(posting), allDetails());
+    const jobs = await parser().fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect((jobs as any).authoritativeEmptyEvidence).toMatch(/R-1:GB, R-2:DE, R-3:FR/);
+    expect(verdict(jobs)).toEqual({ authoritativeSnapshotVerified: true, authoritativeEmptySnapshot: true });
+  });
+
+  it('leaves other factory consumers unchanged: no opt-in, no stamp', async () => {
+    mockBoard(CROSS_POSTS.map(posting), allDetails());
+    const jobs = await parser({ proveForeignOnlyBoardEmpty: false }).fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('refuses the proof when one detail failed to load', async () => {
+    const details = allDetails();
+    details[posting(CROSS_POSTS[1]).externalPath] = null;
+    mockBoard(CROSS_POSTS.map(posting), details);
+    const jobs = await parser().fetchAllJobs();
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(() => verdict(jobs)).toThrow(/not a proven authoritative empty state/);
+  });
+
+  it('refuses the proof when one req states no structured country', async () => {
+    const details = allDetails();
+    details[posting(CROSS_POSTS[2]).externalPath] = detail({ site: CROSS_POSTS[2].site });
+    mockBoard(CROSS_POSTS.map(posting), details);
+    const jobs = await parser().fetchAllJobs();
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('refuses the proof on a zero-listing board (a facet the tenant stopped honouring looks the same)', async () => {
+    mockBoard([], {});
+    const jobs = await parser().fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+
+  it('refuses the proof on an anti-bot block', async () => {
+    mockBoard(CROSS_POSTS.map(posting), allDetails(), { listStatus: 403 });
+    const jobs = await parser().fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(() => verdict(jobs)).toThrow(/not a proven authoritative empty state/);
+  });
+
+  it('refuses the proof when a later page fails and the board is partial', async () => {
+    const many = Array.from({ length: 20 }, (_, i) => ({
+      site: `S${i}-BO`, req: `R-${100 + i}`, alpha2: 'GB', country: 'United Kingdom',
+    }));
+    // Page 0 is full; page 1 fails, which `fetchWorkdayJobs` swallows.
+    let calls = 0;
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        calls += 1;
+        if (calls > 1) return new Response('', { status: 404 });
+        return new Response(JSON.stringify({ total: 25, jobPostings: many.map(posting) }), { status: 200 });
+      }
+      const p = many.find((m) => urlStr.endsWith(posting(m).externalPath));
+      return p ? new Response(JSON.stringify(detail(p)), { status: 200 }) : new Response('', { status: 404 });
+    });
+    const jobs = await parser().fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  }, 30_000);
+
+  it('refuses the proof on a short page whose total announces more postings', async () => {
+    // Page 0 says 5 but ships 3 and is short, so pagination stops at 3.
+    mockBoard(CROSS_POSTS.map(posting), allDetails(), { total: 5 });
+    const jobs = await parser().fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    expect(() => verdict(jobs)).toThrow(/not a proven authoritative empty state/);
+  });
+
+  it('refuses the proof when page 0 carries no usable total', async () => {
+    for (const total of [0, null, '3']) {
+      mockBoard(CROSS_POSTS.map(posting), allDetails(), { total });
+      const jobs = await parser().fetchAllJobs();
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    }
+  });
+
+  it('refuses the proof when a req country code is not ISO 3166-1', async () => {
+    for (const code of ['UK', 'ZZ', 'XX', 'EU', 'G1']) {
+      const details = allDetails();
+      details[posting(CROSS_POSTS[0]).externalPath] = detail({ ...CROSS_POSTS[0], alpha2: code });
+      mockBoard(CROSS_POSTS.map(posting), details);
+      const jobs = await parser().fetchAllJobs();
+      expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+    }
+  });
+
+  it('never stamps a board that yields a Swiss-primary job', async () => {
+    const swiss = { site: 'Zug', req: 'R-9' };
+    mockBoard([...CROSS_POSTS.map(posting), posting(swiss)], {
+      ...allDetails(),
+      [posting(swiss).externalPath]: {
+        jobPostingInfo: {
+          location: 'Zug',
+          jobRequisitionLocation: { descriptor: 'Zug', country: { descriptor: 'Switzerland', alpha2Code: 'CH' } },
+          jobDescription: '<p>Swiss role</p>',
+        },
+      },
+    });
+    const jobs = await parser().fetchAllJobs();
+    expect(jobs.map((j: any) => j.location)).toEqual(['Zug']);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
+  });
+});
+
+describe('workdayStructuredForeignPrimaryCountry', () => {
+  it('reads the requisition alpha-2 first and ignores Switzerland', () => {
+    expect(workdayStructuredForeignPrimaryCountry({
+      jobRequisitionLocation: { country: { alpha2Code: 'gb', descriptor: 'United Kingdom' } },
+    })).toBe('GB');
+    expect(workdayStructuredForeignPrimaryCountry({
+      jobRequisitionLocation: { country: { alpha2Code: 'CH', descriptor: 'Switzerland' } },
+      country: { descriptor: 'Germany' },
+    })).toBe('');
+  });
+
+  it('falls back to an explicitly foreign country descriptor', () => {
+    expect(workdayStructuredForeignPrimaryCountry({ country: { descriptor: 'Germany' } })).toBe('Germany');
+    expect(workdayStructuredForeignPrimaryCountry({ country: { descriptor: 'Switzerland' } })).toBe('');
+  });
+
+  it('refuses a code that is not an assigned ISO 3166-1 alpha-2, and does not fall back to the descriptor', () => {
+    for (const code of ['UK', 'ZZ', 'XX', 'EU', 'QO', 'G1', 'GBR']) {
+      expect(workdayStructuredForeignPrimaryCountry({
+        jobRequisitionLocation: { country: { alpha2Code: code, descriptor: 'Germany' } },
+        country: { descriptor: 'Germany' },
+      })).toBe('');
+    }
+  });
+
+  it('never manufactures a verdict from missing or opaque data', () => {
+    expect(workdayStructuredForeignPrimaryCountry({})).toBe('');
+    expect(workdayStructuredForeignPrimaryCountry({ location: 'CEY BO' })).toBe('');
+    expect(workdayStructuredForeignPrimaryCountry(undefined as any)).toBe('');
+  });
+});
+
+describe('isCompleteWorkdayBoard — completeness evidence for the proven zero', () => {
+  it('accepts only yielded === collected === a positive first-page total, ended on its own terms', () => {
+    expect(isCompleteWorkdayBoard({ firstPageTotal: 3, yielded: 3, endReason: 'total-reached' }, 3)).toBe(true);
+    expect(isCompleteWorkdayBoard({ firstPageTotal: 3, yielded: 3, endReason: 'short-page' }, 3)).toBe(true);
+  });
+
+  it('fails closed on every other shape', () => {
+    expect(isCompleteWorkdayBoard({ firstPageTotal: 5, yielded: 3, endReason: 'short-page' }, 3)).toBe(false);
+    expect(isCompleteWorkdayBoard({ firstPageTotal: 3, yielded: 3, endReason: 'page-error' }, 3)).toBe(false);
+    expect(isCompleteWorkdayBoard({ firstPageTotal: 3, yielded: 3, endReason: 'max-pages' }, 3)).toBe(false);
+    expect(isCompleteWorkdayBoard({ firstPageTotal: 3, yielded: 3, endReason: 'total-reached' }, 2)).toBe(false);
+    expect(isCompleteWorkdayBoard({ firstPageTotal: 0, yielded: 0, endReason: 'empty-page' }, 0)).toBe(false);
+    expect(isCompleteWorkdayBoard({ firstPageTotal: null, yielded: 3, endReason: 'short-page' }, 3)).toBe(false);
+    expect(isCompleteWorkdayBoard({}, 0)).toBe(false);
+    expect(isCompleteWorkdayBoard(undefined as any, 0)).toBe(false);
+  });
+});
+
+describe('fetchWorkdayJobs — optional stats report how pagination ended', () => {
+  const ORIGINAL_FETCH = global.fetch;
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  const row = (i: number) => ({ title: `Role ${i}`, externalPath: `/job/Zug/Role_${i}`, locationsText: 'Zug' });
+
+  it('reports a swallowed later-page failure as page-error', async () => {
+    let call = 0;
+    global.fetch = vi.fn(async () => {
+      call += 1;
+      if (call === 1) return new Response(JSON.stringify({ total: 3, jobPostings: [row(1), row(2)] }), { status: 200 });
+      return new Response('', { status: 404 });
+    });
+    const stats: any = {};
+    const seen = [];
+    for await (const p of fetchWorkdayJobs('https://t.wd3.myworkdayjobs.com/wday/cxs/t/S', { pageSize: 2, minDelayMs: 0, stats })) seen.push(p);
+    expect(seen).toHaveLength(2);
+    expect(stats).toEqual({ firstPageTotal: 3, yielded: 2, endReason: 'page-error' });
+  });
+
+  it('reports a whole board as total-reached, and yields the same postings with or without stats', async () => {
+    global.fetch = vi.fn(async () => new Response(JSON.stringify({ total: 2, jobPostings: [row(1), row(2)] }), { status: 200 }));
+    const stats: any = {};
+    const withStats = [];
+    for await (const p of fetchWorkdayJobs('https://t.wd3.myworkdayjobs.com/wday/cxs/t/S', { minDelayMs: 0, stats })) withStats.push(p);
+    const without = [];
+    for await (const p of fetchWorkdayJobs('https://t.wd3.myworkdayjobs.com/wday/cxs/t/S', { minDelayMs: 0 })) without.push(p);
+    expect(withStats).toEqual(without);
+    expect(stats).toEqual({ firstPageTotal: 2, yielded: 2, endReason: 'total-reached' });
+  });
+});
+
+/**
+ * issue 5253 / crawler-health-monitor, misurato dal vivo il 2026-09-24:
+ * georg-fischer pubblicava il cantone `Graubunden` per la sede primaria
+ * `Seewis, Graubunden` (il BFS scrive «Seewis im Prättigau»).
+ */
+describe('createWorkdaySwissParser — canton-only segments', () => {
   const ORIGINAL_FETCH = global.fetch;
 
   afterEach(() => {
@@ -567,39 +866,5 @@ describe('createWorkdaySwissParser — canton-only segments and proven-empty fac
     );
     const jobs = await makeParser().fetchAllJobs();
     expect(jobs.map((job: any) => [job.location, job.canton])).toEqual([['Seewis', 'GR']]);
-  });
-
-  it('marks an authoritative empty snapshot when every facet posting has a declared foreign primary', async () => {
-    vi.spyOn(console, 'log').mockImplementation(() => {});
-    mockFacetTenant(
-      [
-        { title: 'Network Engineer', externalPath: '/job/CEY-BO/Network-Engineer_R-1', locationsText: '11 Locations', bulletFields: ['R-1'] },
-        { title: 'Medical Physicist', externalPath: '/job/TOI-L-112/Medical-Physicist_R-2', locationsText: '6 Locations', bulletFields: ['R-2'] },
-      ],
-      {
-        '/job/CEY-BO/Network-Engineer_R-1': { title: 'Network Engineer', location: 'CEY BO', additionalLocations: ['HEL AA'], country: { descriptor: 'United Kingdom' } },
-        '/job/TOI-L-112/Medical-Physicist_R-2': { title: 'Medical Physicist', location: 'TOI L 112', country: { descriptor: 'Germany' } },
-      },
-    );
-    const jobs = await makeParser().fetchAllJobs();
-    expect(jobs).toHaveLength(0);
-    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
-  });
-
-  it('does not prove a zero when a posting detail was not observed', async () => {
-    vi.spyOn(console, 'log').mockImplementation(() => {});
-    mockFacetTenant(
-      [
-        { title: 'Network Engineer', externalPath: '/job/CEY-BO/Network-Engineer_R-1', locationsText: '11 Locations', bulletFields: ['R-1'] },
-        { title: 'Medical Physicist', externalPath: '/job/TOI-L-112/Medical-Physicist_R-2', locationsText: '6 Locations', bulletFields: ['R-2'] },
-      ],
-      {
-        '/job/CEY-BO/Network-Engineer_R-1': { title: 'Network Engineer', location: 'CEY BO', country: { descriptor: 'United Kingdom' } },
-        '/job/TOI-L-112/Medical-Physicist_R-2': null,
-      },
-    );
-    const jobs = await makeParser().fetchAllJobs();
-    expect(jobs).toHaveLength(0);
-    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
   });
 });

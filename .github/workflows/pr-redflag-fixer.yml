@@ -1626,6 +1626,10 @@ jobs:
         run: rm -f /tmp/firebase-sa.json
 
       # Colore del job = LAVORO reale del round, non l'exit della CLI Claude.
+      #  • head remota non verificabile (fetch fallito o head cambiata fra le
+      #    due letture, dopo i retry) → RED esplicito PRIMA di ogni verdetto:
+      #    niente SUCCESS/SUPERSEDED su una fotografia stantia o intermedia;
+      #    claim failed-transient (retryable), marker di round conservato.
       #  • commit pushato sul branch della PR  → round SUCCESS (la re-review girerà;
       #    se 🔴 di nuovo, il round successivo o il round-cap → needs-human). Vale
       #    anche se Claude è morto error_max_turns DOPO il push (false-failure).
@@ -1663,8 +1667,56 @@ jobs:
         run: |
           set -uo pipefail
           HEAD_NOW=$(git rev-parse HEAD 2>/dev/null || echo "")
-          git fetch origin "$HEAD_REF" -q 2>/dev/null || true
-          REMOTE_SHA=$(git rev-parse "origin/$HEAD_REF" 2>/dev/null || echo "")
+          # Head remota verificata prima di classificare (#9730, come corpus
+          # #1771). Un fetch fallito lascerebbe origin/$HEAD_REF alla
+          # fotografia dello step align; una head che avanza fra fetch e
+          # lettura darebbe una fotografia intermedia. In entrambi i casi
+          # SUCCESS e SUPERSEDED (claim released) sarebbero decisi su una head
+          # non verificata. Si classifica solo su uno SHA confermato da due
+          # letture concordi (fetch con refspec esplicito + ls-remote), con
+          # retry bounded e backoff; altrimenti errore esplicito PRIMA di ogni
+          # ramo che scrive stato: niente SUPERSEDED, niente released, marker
+          # di round conservato. Ogni comando di rete ha un timeout proprio (il
+          # timeout del job non deve decidere l'esito) e l'esito transitorio
+          # viene esportato come CLAIM_STATUS=failed-transient: il finalize
+          # (`pr-fixer-claim.mjs --claim`, CLAIM_ACTION=finalize) lo eredita
+          # invece di ricostruire uno stato terminale dall'outcome dell'azione,
+          # quindi il claim resta retryable.
+          REMOTE_SHA=""
+          remote_head_attempts=3
+          remote_head_attempt=1
+          while [ "$remote_head_attempt" -le "$remote_head_attempts" ]; do
+            fetched_sha=""
+            reread_sha=""
+            if timeout 60 git fetch --no-tags -q origin "+refs/heads/$HEAD_REF:refs/remotes/origin/$HEAD_REF"; then
+              fetched_sha=$(git rev-parse --verify --quiet "refs/remotes/origin/$HEAD_REF^{commit}" 2>/dev/null) || fetched_sha=""
+              # Una rilettura che esce non-zero conta come fallita anche se ha
+              # stampato una riga: si usa l'output solo con exit 0.
+              if ls_remote_out=$(timeout 30 git ls-remote --exit-code origin "refs/heads/$HEAD_REF" 2>/dev/null); then
+                reread_sha=$(printf '%s\n' "$ls_remote_out" | awk 'NR == 1 { print $1 }')
+              fi
+              if [ -n "$fetched_sha" ] && [ "$fetched_sha" = "$reread_sha" ]; then
+                REMOTE_SHA="$fetched_sha"
+                break
+              fi
+              echo "::warning::head remota di $HEAD_REF non stabile (tentativo $remote_head_attempt/$remote_head_attempts): fetch=${fetched_sha:-<vuoto>} rilettura=${reread_sha:-<vuoto>}"
+            else
+              echo "::warning::git fetch di $HEAD_REF fallito (tentativo $remote_head_attempt/$remote_head_attempts)"
+            fi
+            if [ "$remote_head_attempt" -lt "$remote_head_attempts" ]; then
+              sleep $((remote_head_attempt * 5))
+            fi
+            remote_head_attempt=$((remote_head_attempt + 1))
+          done
+          if [ -z "$REMOTE_SHA" ]; then
+            CLAIM_STATUS=failed-transient
+            export CLAIM_STATUS
+            if [ -n "${GITHUB_ENV:-}" ]; then
+              echo 'CLAIM_STATUS=failed-transient' >> "$GITHUB_ENV"
+            fi
+            echo "::error::REMOTE_HEAD_UNVERIFIED: head remota di $HEAD_REF non determinabile dopo $remote_head_attempts tentativi (fetch fallito o head cambiata fra le letture) → classificazione BLOCCANTE, job ROSSO. Nessun SUCCESS, nessun SUPERSEDED: il marker di round resta contato; claim failed-transient (retryable)."
+            exit 1
+          fi
           echo "start=$START_SHA base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA action=$ACTION_OUTCOME"
           if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ "$HEAD_NOW" != "$BASE_SHA" ] && [ "$REMOTE_SHA" = "$HEAD_NOW" ]; then
             # Osservatore del trailer: gli hook sono disattivati per costruzione
