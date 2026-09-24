@@ -349,10 +349,19 @@ export function triageMarkerPersistenceExpectation(markerBody) {
   // item. E' il secondo finding 🔴 della review su questa PR.
   const legacyEmptyHeader = claimLines.length === 0
     && /zero outstanding items|backfill skipped/i.test(body);
-  const noBucketExpected = zeroClaim || legacyEmptyHeader;
+  // La variante osservata su #9286 usa prosa invece di `0`: dichiara nello
+  // stesso claim che non esiste alcun item per la PR e che il bucket numerato
+  // non è stato modificato. Il numero è contesto di audit, non una promessa
+  // di persistenza da verificare nel bucket.
+  const unchangedBucketZero = claimLines.some((line) =>
+    /\bnessun\s+item\s+per\s+questa\s+PR\b/i.test(line)
+    && /\bbucket\b[^#\r\n]*#[1-9]\d*\b[^\r\n]*\bnon\s+modificat[oa]\s+da\s+questa\s+PR\b/i.test(line));
+  const noBucketExpected = zeroClaim || unchangedBucketZero || legacyEmptyHeader;
   return {
-    buckets: uniqueBuckets,
-    requiresBucket: uniqueBuckets.length > 0 || !noBucketExpected,
+    // Un bucket citato da un esito zero è solo contesto: non deve riattivare
+    // la verifica di persistenza che ha causato la failure di #9286.
+    buckets: noBucketExpected ? [] : uniqueBuckets,
+    requiresBucket: !noBucketExpected,
   };
 }
 

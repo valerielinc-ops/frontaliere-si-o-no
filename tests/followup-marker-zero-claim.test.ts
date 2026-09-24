@@ -82,6 +82,29 @@ describe('claim di persistenza a zero', () => {
     const body = '## Post-merge follow-up triage\n\nCreated: 0 issue\nCreated/updated: 2 item\n';
     expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
   });
+
+  it('accetta il marker reale di #9286 con bucket invariato come zero', () => {
+    const body = [
+      '## Post-merge follow-up triage',
+      '',
+      'Created/updated: nessun item per questa PR; bucket giornaliero #9508 non modificato da questa PR.',
+    ].join('\n');
+    const expectation = triageMarkerPersistenceExpectation(body);
+    expect(expectation).toEqual({ buckets: [], requiresBucket: false });
+    expect(verifyTriageMarkerPersistence(body, 9435, () => {
+      throw new Error('un bucket invariato non va letto');
+    })).toBe(true);
+  });
+
+  it('non allarga il fallback: item senza prova di bucket resta fail-closed', () => {
+    for (const body of [
+      '## Post-merge follow-up triage\n\nCreated/updated: nessun item per questa PR.',
+      '## Post-merge follow-up triage\n\nCreated/updated: nessun item per questa PR; bucket giornaliero #9508 aggiornato da questa PR.',
+    ]) {
+      expect(triageMarkerPersistenceExpectation(body).requiresBucket).toBe(true);
+      expect(verifyTriageMarkerPersistence(body, 9435, () => null)).not.toBe(true);
+    }
+  });
 });
 
 describe('i due finding della review', () => {
