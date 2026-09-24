@@ -178,6 +178,10 @@ jobs:
         # backfill is already correct and would prevent a valid data refresh
         # from ever reaching the commit step. This focused gate covers the
         # recovered archive/assembly invariants and the no-repeat alert ledger.
+        # Measurement on 2026-09-24 with the 11-file gate: the concurrent
+        # invocation hit 3 x 15s subprocess timeouts; --maxWorkers=1 passed
+        # all 312 tests in 71.73s. Keep the serial setting until a new run
+        # demonstrates that parallelism is safe for these subprocess tests.
         run: npm run test:backfill
 
       - name: Commit and push
