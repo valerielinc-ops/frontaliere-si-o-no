@@ -4,20 +4,20 @@
   "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
   "sourceRepository": "valerielinc-ops/frontaliere-si-o-no",
   "sourceRef": "main",
-  "sourceCommit": "d3c5653e8e39a6581f45453cee4efb8c1b32aa34",
+  "sourceCommit": "12a413d1f42a9958cc7e0b0d142423f18d169878",
   "artifactObservation": {
     "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
     "sourceRef": "main",
-    "sourceCommit": "d3c5653e8e39a6581f45453cee4efb8c1b32aa34"
+    "sourceCommit": "12a413d1f42a9958cc7e0b0d142423f18d169878"
   },
   "groupCount": 24,
   "artifactCount": 25,
   "observerCount": 8,
-  "crawlerCount": 620,
+  "crawlerCount": 621,
   "crawlerGeneration": {
     "mode": "shadow",
     "rosterPath": "scripts/ci/crawler-generation-roster.json",
-    "rosterDigest": "sha256:b5bbdbe86b0373a8b49019f78f716f3290ba6bc4bc67b5d9693323c43afa0385",
+    "rosterDigest": "sha256:6e4506a55989a1ebf277b2ddb528dcd4a963102a265b99b64422305eae23d2b2",
     "artifactRetentionDays": 14,
     "dispatchesTranslation": false
   },
@@ -180,6 +180,7 @@
     "scripts/update-dic-sa-jobs.mjs",
     "scripts/update-dormakaba-jobs.mjs",
     "scripts/update-duferco-jobs.mjs",
+    "scripts/update-ecam-jobs.mjs",
     "scripts/update-edmond-de-rothschild-jobs.mjs",
     "scripts/update-ehc-vd-jobs.mjs",
     "scripts/update-ehnv-jobs.mjs",
@@ -1431,8 +1432,8 @@
     {
       "file": "crawler-group-23.yml",
       "sourceLogic": "crawler-group-23-logic.yml",
-      "sourceSha256": "fde6039f922c28a693cb58d0368e03085ee78fea51614a6ce609985e1d2e24d6",
-      "artifactSha256": "c80541c8e32061fc4b302d2df08b4e86a97df13ad085adc457d590e944716485",
+      "sourceSha256": "4337df2d8e69ae7501ec342b48cf457998585dda3c601893514cbcd4d2616df1",
+      "artifactSha256": "f22218b336b49e903c119b48abb31c5782f2158fffd2b379c1c0230e9ae74de1",
       "generatorSha256": "9fb227fa39c74241ca722a49708158dd2d2e50fbfbbde939bd2c2fa3d7eaf1f5",
       "members": [
         "albergo-gardenia",
@@ -1447,7 +1448,8 @@
         "nestle",
         "postauto",
         "postch",
-        "brefispersonal"
+        "brefispersonal",
+        "ecam"
       ]
     },
     {

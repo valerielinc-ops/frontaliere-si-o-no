@@ -2,7 +2,7 @@
 /**
  * Pôle Santé Pays-d'Enhaut (PSPE) job parser — jobup.ch feed (mask `hpe`).
  *
- * Public career site: https://www.pspe.ch/jcms/lav_5063/fr/offres-d-emploi
+ * Public career site: https://www.pspe.ch/jcms/pae_10619/fr/nos-offres-d-emplois
  * jobup feed:         https://www.jobup.ch/masks/hpe/list_hpe.asp?cmd=json
  *
  * Regional hospital / EMS in Château-d'Oex (VD), serving the upper Sarine
@@ -18,6 +18,8 @@ import { createJobupChFeedParser } from './jobup-ch-feed-common.mjs';
 export const POLE_SANTE_PAYS_ENHAUT_KEY = 'pole-sante-pays-enhaut';
 export const POLE_SANTE_PAYS_ENHAUT_COMPANY_NAME = 'Pôle Santé Pays-d\'Enhaut';
 export const POLE_SANTE_PAYS_ENHAUT_COMPANY_DOMAIN = 'pspe.ch';
+export const POLE_SANTE_PAYS_ENHAUT_CAREER_URL =
+  'https://www.pspe.ch/jcms/pae_10619/fr/nos-offres-d-emplois';
 
 const parser = createJobupChFeedParser({
   companyKey: POLE_SANTE_PAYS_ENHAUT_KEY,
@@ -27,7 +29,7 @@ const parser = createJobupChFeedParser({
   defaultCanton: 'VD',
   defaultCity: 'Château-d\'Oex',
   defaultPostalCode: '1660',
-  publicCareerUrl: 'https://www.pspe.ch/jcms/lav_5063/fr/offres-d-emploi',
+  publicCareerUrl: POLE_SANTE_PAYS_ENHAUT_CAREER_URL,
   defaultSourceLang: 'fr',
 });
 

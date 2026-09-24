@@ -30,6 +30,7 @@ import {
 import {
   POLE_SANTE_PAYS_ENHAUT_KEY,
   POLE_SANTE_PAYS_ENHAUT_COMPANY_NAME,
+  POLE_SANTE_PAYS_ENHAUT_CAREER_URL,
   isPoleSantePaysEnhautJob,
   isTrustedDomain as isPsTrusted,
 } from '../../scripts/lib/pole-sante-pays-enhaut-job-parser.mjs';
@@ -38,6 +39,8 @@ describe('jobup.ch employers — exported constants', () => {
   it('PSPE constants', () => {
     expect(POLE_SANTE_PAYS_ENHAUT_KEY).toBe('pole-sante-pays-enhaut');
     expect(POLE_SANTE_PAYS_ENHAUT_COMPANY_NAME).toMatch(/Pays-d'Enhaut/);
+    expect(POLE_SANTE_PAYS_ENHAUT_CAREER_URL)
+      .toBe('https://www.pspe.ch/jcms/pae_10619/fr/nos-offres-d-emplois');
   });
 });
 

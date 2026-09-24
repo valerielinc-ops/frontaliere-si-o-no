@@ -189,6 +189,7 @@ export const CRAWLED_COMPANY_LOGOS: Record<string, string> = {
  'diakoniewerk-neumuenster': cLogo('diakoniewerk-neumuenster.ch'),
  'duferco': '/images/brands/duferco.png',
  'dxt-commodities': 'https://dxt.com/wp-content/uploads/2025/04/logo-DXT.png',
+ 'ecam': cLogo('ecam.swiss'),
  'efg-international': '/images/logos/efg-international.svg',
  'ehc-vd': '/images/brands/ehc-vd.ico',
  'emil-frey': cLogo('emilfrey.ch'),

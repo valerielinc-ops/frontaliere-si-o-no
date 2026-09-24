@@ -1,7 +1,7 @@
 {
   "schemaVersion": 1,
   "groupCount": 24,
-  "crawlerCount": 620,
+  "crawlerCount": 621,
   "groups": {
     "10": [
       "atec-personal",
@@ -404,6 +404,7 @@
       "capri-holdings",
       "confederazione-ticino",
       "csd-engineers",
+      "ecam",
       "fust",
       "hugo-boss",
       "lidl-svizzera",
@@ -832,6 +833,7 @@
     "dormakaba": "data/jobs/by-crawler/dormakaba.json",
     "duferco": "data/jobs/by-crawler/duferco.json",
     "dxt-commodities": "data/jobs/by-crawler/dxt-commodities.json",
+    "ecam": "data/jobs/by-crawler/ecam.json",
     "edmond-de-rothschild": "data/jobs/by-crawler/edmond-de-rothschild.json",
     "efg-international": "data/jobs/by-crawler/efg-international.json",
     "ehc-vd": "data/jobs/by-crawler/ehc-vd.json",
@@ -1294,5 +1296,5 @@
     "zurich-insurance-sede-ticino": "data/jobs/by-crawler/zurich-insurance-sede-ticino.json",
     "zurzach-care": "data/jobs/by-crawler/zurzach-care.json"
   },
-  "digest": "sha256:b5bbdbe86b0373a8b49019f78f716f3290ba6bc4bc67b5d9693323c43afa0385"
+  "digest": "sha256:6e4506a55989a1ebf277b2ddb528dcd4a963102a265b99b64422305eae23d2b2"
 }
