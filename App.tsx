@@ -717,6 +717,8 @@ const App: React.FC = () => {
  const path = currentUrl.pathname.replace(/\/+$/, '') || '/';
  if (path !== '/auth/linkedin/callback' && path !== '/') return;
 
+ Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'callback-return');
+
  if (errorParam) {
  // User cancelled or LinkedIn returned an error
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'cancelled');
@@ -734,10 +736,12 @@ const App: React.FC = () => {
 
  if (!customToken) {
  setLinkedInCallbackError('Errore durante il login con LinkedIn. Riprova.');
+ Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'exchange-error');
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'error');
  return;
  }
 
+ Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'exchange-success');
  const user = await signInWithCustomAuthToken(customToken);
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', user ? 'success' : 'no-user');
 
@@ -754,12 +758,25 @@ const App: React.FC = () => {
  // (newsletter, calculator) don't pollute the job_auth funnel.
  if (savedJobCtx) {
  const emailDomain = email && email.includes('@') ? email.split('@')[1] : undefined;
+ Analytics.trackJobAuthGate('success', {
+  surface: savedJobCtx.surface || 'unknown',
+  method: 'linkedin',
+  authState: 'registered',
+  variant: savedJobCtx.variant,
+  experimentId: savedJobCtx.experimentId,
+  jobSlug: savedJobCtx.slug,
+ });
  Analytics.trackJobAuthFunnel('auth_success', {
  method: 'linkedin',
  emailDomain,
  company: savedJobCtx.company || undefined,
  location: savedJobCtx.location || undefined,
  category: savedJobCtx.category || undefined,
+ surface: savedJobCtx.surface || 'unknown',
+ authState: 'registered',
+ variant: savedJobCtx.variant,
+ experimentId: savedJobCtx.experimentId,
+ jobSlug: savedJobCtx.slug,
  });
  }
 
@@ -960,6 +977,17 @@ const App: React.FC = () => {
  reportCaughtError(authErr, 'app.newsletterConfirmAutologin');
  Analytics.trackUIInteraction('newsletter', 'confirm_autologin', 'error');
  }
+ }
+
+ if (!result.loginOnly) {
+  // The confirmation endpoint is the authoritative double-opt-in boundary;
+  // the earlier `subscribe` event only means that the request was submitted.
+  Analytics.setUserSegmentFlags({ isNewsletterSubscriber: true });
+  Analytics.trackNewsletter('confirm', undefined, {
+   sourceChannel: 'confirmation',
+   sourceCta: loginMode ? 'email_login_link' : 'newsletter_confirmation',
+   registrationMethod: 'email',
+  });
  }
 
  // CompanyAlert double opt-in (#5012 phase 2). An anonymous visitor who
