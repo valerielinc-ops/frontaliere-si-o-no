@@ -239,19 +239,32 @@ describe('audit-expired-at-parsable — the gate on a corrupt archive', () => {
         && /audit:expired-at-parsable|scripts\/audit-expired-at-parsable\.mjs/.test(line)
       )));
 
-    expect(callers.map(({ file }) => file)).toEqual(['reconcile-expired-route-duplicates.yml']);
-    for (const { source } of callers) {
+    expect(callers.map(({ file }) => file)).toEqual([
+      'backfill-expired-from-history.yml',
+      'reconcile-expired-route-duplicates.yml',
+    ]);
+    for (const { file, source } of callers) {
       const checkoutStart = source.indexOf('- name: Checkout');
       const setupStart = source.indexOf('- name: Setup Node.js', checkoutStart);
       expect(checkoutStart).toBeGreaterThanOrEqual(0);
       expect(setupStart).toBeGreaterThan(checkoutStart);
       const checkout = source.slice(checkoutStart, setupStart);
+      const checkoutConfig = checkout
+        .split('\n')
+        .filter((line) => !line.trim().startsWith('#'))
+        .join('\n');
       const auditAt = source.indexOf('scripts/audit-expired-at-parsable.mjs');
       expect(checkout).toContain('uses: actions/checkout@v5');
-      expect(checkout).not.toMatch(/sparse-checkout/);
-      expect(checkout).not.toMatch(/filter\s*:/);
+      expect(checkoutConfig).not.toMatch(/sparse-checkout/);
+      expect(checkoutConfig).not.toMatch(/filter\s*:/);
       expect(source).toContain('data/jobs/expired/by-crawler');
       expect(auditAt).toBeGreaterThan(setupStart);
+
+      if (file === 'backfill-expired-from-history.yml') {
+        expect(source).toContain('git-commit-data.sh --slice-only');
+        expect(source).toContain('- name: Trigger deploy after validated backfill');
+        continue;
+      }
 
       const commitAt = source.indexOf('- name: Commit and push changed slices');
       const convergenceAt = source.indexOf('- name: Verify persisted expired archive convergence');
