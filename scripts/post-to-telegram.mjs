@@ -138,9 +138,15 @@ async function buildForMode(mode, { env, repoRoot, now, log }) {
   const limitRaw = Number(env.TELEGRAM_JOBS_LIMIT);
   const limit = Number.isFinite(limitRaw) && limitRaw > 0 ? Math.floor(limitRaw) : DEFAULT_JOBS_LIMIT;
 
-  const jobs = loadJobs(repoRoot, log);
+  // The digest is branded "Offerte di lavoro in Ticino" and its hub CTA is
+  // /cerca-lavoro-ticino/, but the dataset is nationwide (~24k jobs): without
+  // this filter the 5 most recent jobs were picked from anywhere in
+  // Switzerland (run 35996812210: Martigny, Winterthur, Zofingen, Frauenfeld,
+  // Hinwil — zero in Ticino). Same class as the Germany-corridor exclusion in
+  // the Ticino-branded border digest (#4952).
+  const jobs = loadJobs(repoRoot, log).filter((j) => j?.canton === 'TI');
   if (jobs.length === 0) {
-    log('ℹ️', 'no jobs available');
+    log('ℹ️', 'no Ticino jobs available');
     return { text: '', onSent: null };
   }
 

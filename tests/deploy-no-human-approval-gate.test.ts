@@ -46,6 +46,10 @@ const APPROVAL_ENVIRONMENT = 'production-deploy';
 const CREDENTIAL_ENVIRONMENTS = new Set([
   'github-pages',
   'shard-secrets-overflow',
+  // Token di scrittura di CODEX_AUTH_JSON (codex-auth-rotate.yml): solo branch
+  // main, nessun reviewer richiesto, altrimenti la rotazione schedulata resta
+  // in attesa e il login scade.
+  'codex-auth-rotation',
 ]);
 
 function workflowFiles(): string[] {
