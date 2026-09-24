@@ -196,6 +196,7 @@ import {
  getRewardedApplicationAccessExpiresAt,
 } from '@/services/rewardedApplicationAccess';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
+import { preloadRewardedWebAd } from '@/services/rewardedWebAd';
 import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
@@ -3563,38 +3564,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
   : null;
  useEffect(() => {
   if (!shouldPreloadRewardedApplicationAd) return;
- let cancelled = false;
- let idleId: number | null = null;
- let timeoutId: number | null = null;
- let preloadPromise: Promise<unknown> | null = null;
- const idleWindow = window as Window & {
-   requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
-   cancelIdleCallback?: (id: number) => void;
- };
- const start = () => {
-   if (cancelled || !isAdsConsentGranted() || preloadPromise) return;
-   // Keep the rewarded/GPT implementation out of the initial JobBoard chunk.
-   // The page only downloads it for an eligible, consented detail view.
-   preloadPromise = import('@/services/rewardedWebAd')
-    .then(({ preloadRewardedWebAd }) => {
-     if (!cancelled) preloadRewardedWebAd();
-    })
-    .catch(() => {});
- };
-  if (typeof idleWindow.requestIdleCallback === 'function') {
-   idleId = idleWindow.requestIdleCallback(start, { timeout: 1000 });
-  } else {
-   timeoutId = window.setTimeout(start, 250);
-  }
-  const unsubscribe = onAdsConsentChange((value) => {
-   if (value === 'granted') start();
-  });
-  return () => {
-   cancelled = true;
+ // Start the auction as soon as an eligible, consented detail renders: a
+ // creative that is already ready when "Candidati" is clicked opens with no
+ // wait. A click that finds the request still pending or already ended gets
+ // its own auction from the offer (requestRewardedWebAd), and the video opens
+ // on rewardedSlotReady: GPT does not require a live user activation for
+ // makeRewardedVisible(), measured on production with the activation expired.
+ if (isAdsConsentGranted()) preloadRewardedWebAd();
+ const unsubscribe = onAdsConsentChange((value) => {
+   if (value === 'granted') preloadRewardedWebAd();
+ });
+ return () => {
    unsubscribe();
-   if (idleId !== null) idleWindow.cancelIdleCallback?.(idleId);
-   if (timeoutId !== null) window.clearTimeout(timeoutId);
-  };
+ };
  }, [shouldPreloadRewardedApplicationAd]);
  const assistedExposureKeysRef = useRef(new Set<string>());
  useEffect(() => {

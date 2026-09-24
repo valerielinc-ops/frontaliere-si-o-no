@@ -1,16 +1,16 @@
 {
   "key": "klinik-wyssholzli",
   "label": "Klinik Wysshölzli",
-  "generatedAt": "2026-09-24T00:11:34.228Z",
-  "total": 6,
+  "generatedAt": "2026-09-24T14:43:07.243Z",
+  "total": 5,
   "newCount": 0,
   "updatedCount": 4,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 5251,
-  "avgDurationMs": 5251,
+  "removedCount": 1,
+  "unchangedCount": 1,
+  "durationMs": 4138,
+  "avgDurationMs": 4138,
   "durationHistory": [
-    5251
+    4138
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -163,7 +163,49 @@
       }
     }
   ],
-  "removedJobs": [],
+  "removedJobs": [
+    {
+      "title": "Pflegefachfrau Hf 60–80% 012026",
+      "slug": "infermiera-hf-60-80-012026-klinik-wyssholzli-herzogenbuchsee",
+      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Pflegefachfrau-HF_60-80_012026.pdf",
+      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
+      "company": "Klinik Wysshölzli",
+      "companyKey": "klinik-wyssholzli",
+      "companyDomain": "wysshoelzli.ch",
+      "location": "Herzogenbuchsee",
+      "addressLocality": "Herzogenbuchsee",
+      "addressRegion": "BE",
+      "postalCode": "3360",
+      "addressCountry": "CH",
+      "canton": "BE",
+      "country": "CH",
+      "category": "health",
+      "sector": "Psychiatrie und Psychotherapie",
+      "employmentType": "full-time",
+      "contractType": "full-time",
+      "source": "klinik-wyssholzli-dedicated-crawler",
+      "sourceLang": "de",
+      "postedDate": "2026-05-20",
+      "validThrough": "",
+      "_meta": {
+        "sourceFilename": "Pflegefachfrau-HF_60-80_012026.pdf"
+      },
+      "id": "klinik-wyssholzli-96737af2d1de",
+      "firstSeenAt": "2026-05-20T05:18:02.474Z",
+      "salaryMin": 68000,
+      "salaryMax": 95200,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 2,
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
+    }
+  ],
   "unchangedJobs": [
     {
       "title": "Psychologin Psychotherapeutin 11.2026–60% 70 07/2026",
@@ -195,48 +237,6 @@
       "firstSeenAt": "2026-07-31T11:36:25.178Z",
       "salaryMin": 51000,
       "salaryMax": 71400,
-      "currency": "CHF",
-      "salarySource": "estimated",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true,
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
-    {
-      "title": "Pflegefachfrau Hf 60–80% 012026",
-      "slug": "infermiera-hf-60-80-012026-klinik-wyssholzli-herzogenbuchsee",
-      "url": "https://www.wysshoelzli.ch/uploads/Stelleninserate/Pflegefachfrau-HF_60-80_012026.pdf",
-      "applyUrl": "https://www.wysshoelzli.ch/jobs-karriere",
-      "company": "Klinik Wysshölzli",
-      "companyKey": "klinik-wyssholzli",
-      "companyDomain": "wysshoelzli.ch",
-      "location": "Herzogenbuchsee",
-      "addressLocality": "Herzogenbuchsee",
-      "addressRegion": "BE",
-      "postalCode": "3360",
-      "addressCountry": "CH",
-      "canton": "BE",
-      "country": "CH",
-      "category": "health",
-      "sector": "Psychiatrie und Psychotherapie",
-      "employmentType": "full-time",
-      "contractType": "full-time",
-      "source": "klinik-wyssholzli-dedicated-crawler",
-      "sourceLang": "de",
-      "postedDate": "2026-05-20",
-      "validThrough": "",
-      "_meta": {
-        "sourceFilename": "Pflegefachfrau-HF_60-80_012026.pdf"
-      },
-      "id": "klinik-wyssholzli-96737af2d1de",
-      "firstSeenAt": "2026-05-20T05:18:02.474Z",
-      "salaryMin": 68000,
-      "salaryMax": 95200,
       "currency": "CHF",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,

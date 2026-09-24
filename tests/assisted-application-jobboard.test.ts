@@ -23,10 +23,16 @@ describe('assisted application JobBoard handoff', () => {
     );
     expect(rewardedArm).toContain("'rewarded_application_offer_requested'");
     expect(rewardedArm).toContain("provider: 'google_gpt_rewarded_web'");
+    // The click opens the offer; the offer owns the Google request for that
+    // click and opens the video on rewardedSlotReady, so the click handler
+    // never decides no-fill from a request that is still pending.
+    expect(rewardedArm).not.toContain('showRewardedWebAd(');
+    expect(rewardedArm).not.toContain("'not_ready_on_candidate_click'");
     expect(rewardedArm).toContain('setRewardedApplicationJob(job)');
     expect(rewardedArm).toContain('if (!isJobDetailView) openDetail(job)');
     expect(jobBoardSource).toContain('RewardedApplicationOffer');
     expect(jobBoardSource).toContain('preloadRewardedWebAd');
+    expect(jobBoardSource).toContain("import { preloadRewardedWebAd } from '@/services/rewardedWebAd';");
     expect(jobBoardSource).toContain('shouldPreloadRewardedApplicationAd');
     expect(jobBoardSource).not.toContain('rewarded_application_native_offerwall');
     expect(jobBoardSource).not.toContain('RewardedApplicationPage');
