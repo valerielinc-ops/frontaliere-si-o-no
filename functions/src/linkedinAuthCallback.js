@@ -16,6 +16,7 @@
 import admin from 'firebase-admin';
 import { ensureAdminApp } from './newsletterResendWebhookCore.js';
 import { getRemoteConfigValue } from './remoteConfigSecrets.js';
+import { buildSignupAttributionFields } from './lib/signupAttribution.js';
 
 const REGISTRATION_TERMS_VERSION = '2026-09-16.1';
 const REGISTRATION_TERMS_TEXT = 'Registrandomi accetto le condizioni e mi iscrivo alle comunicazioni di Frontaliere Ticino. Condizioni (v. 2026-09-15.1).';
@@ -56,8 +57,10 @@ async function fetchLinkedInBasicProfile(accessToken) {
  *
  * @param {string} email - User email (document key)
  * @param {object} profileData - LinkedIn profile fields
+ * @param {unknown} [attribution] - surface that started the login (untrusted,
+ *   sanitized by buildSignupAttributionFields; never touches source/source_channel)
  */
-async function enrichSubscriberProfile(email, profileData) {
+async function enrichSubscriberProfile(email, profileData, attribution = null) {
  try {
  const db = admin.firestore();
  const normalizedEmail = email.trim().toLowerCase();
@@ -130,6 +133,9 @@ async function enrichSubscriberProfile(email, profileData) {
  updateData[key] = value;
  }
  }
+ // Origin page / CTA / component of the login. The callback page is
+ // /auth/linkedin/callback or `/`, so this is the only place they survive.
+ Object.assign(updateData, buildSignupAttributionFields(attribution, existing));
 
  await subRef.set(updateData, { merge: true });
  } catch (err) {
@@ -140,10 +146,10 @@ async function enrichSubscriberProfile(email, profileData) {
 
 /**
  * Exchange LinkedIn OAuth code for a Firebase custom token.
- * @param {{ code: string, redirectUri: string }} params
+ * @param {{ code: string, redirectUri: string, attribution?: unknown }} params
  * @returns {Promise<{ customToken: string }>}
  */
-export async function handleLinkedInCallback({ code, redirectUri }) {
+export async function handleLinkedInCallback({ code, redirectUri, attribution = null }) {
  ensureAdminApp();
 
  const [clientId, clientSecret] = await Promise.all([
@@ -256,7 +262,7 @@ export async function handleLinkedInCallback({ code, redirectUri }) {
  vanityName: basicProfile.vanityName,
  emailVerified,
  auth_locale: locale,
- });
+ }, attribution);
 
  // ── Mint Firebase custom token ─────────────────────────────────────────────
  const customToken = await admin.auth().createCustomToken(uid, { linkedIn: true });

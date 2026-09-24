@@ -21,9 +21,11 @@ type EmbedCall = { inputs: string[]; prefix: string };
 // model weights and never touch the network. These vectors are NOT e5 output
 // (real e5 scores are in tests/fixtures/local-mt-semantic-e5-scores.json);
 // they separate the two #9675 report cases on purpose, to exercise both arms.
+// The correct pair sits at cosine ~0.95: above the overwrite cutoff of #9676
+// and below its echo ceiling (0.97), where a same-language copy would score.
 const VECTORS: Record<string, number[]> = {
   'Gefängnisseelsorger': [1, 0, 0],
-  'Cappellano carcerario': [0.99, 0.05, 0],
+  'Cappellano carcerario': [0.95, 0.31, 0],
   'Prigionieri': [0.2, 0.98, 0],
   'Mitarbeiter Rezeption': [0, 0, 1],
   'Addetto alla reception': [0.05, 0, 0.99],
