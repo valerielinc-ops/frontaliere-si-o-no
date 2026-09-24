@@ -1,18 +1,56 @@
 {
   "key": "capri-holdings",
   "label": "Capri Holdings",
-  "generatedAt": "2026-09-23T13:48:51.024Z",
-  "total": 4,
-  "newCount": 0,
-  "updatedCount": 2,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 33922,
-  "avgDurationMs": 33922,
+  "generatedAt": "2026-09-23T23:59:36.756Z",
+  "total": 3,
+  "newCount": 1,
+  "updatedCount": 1,
+  "removedCount": 2,
+  "unchangedCount": 1,
+  "durationMs": 32697,
+  "avgDurationMs": 32697,
   "durationHistory": [
-    33922
+    32697
   ],
-  "newJobs": [],
+  "newJobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20-_R_786806",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Sales-Associate-Part-time-fixed-Term-20-_R_786806",
+      "title": "Sales Associate Part time fixed Term 20%",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Landquart",
+      "canton": "GR",
+      "country": "CH",
+      "addressLocality": "Landquart",
+      "addressRegion": "GR",
+      "addressCountry": "CH",
+      "postalCode": "7302",
+      "streetAddress": "Bahnhofstrasse 2",
+      "slug": "sales-associate-part-time-fixed-term-20-capri-holdings",
+      "category": "retail",
+      "datePosted": "2026-09-23",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "MID",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "GR",
+        "location": "Landquart"
+      },
+      "crawledAt": "",
+      "needsRetranslation": true,
+      "_qualityScore": 72,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
+        "translation": 8,
+        "completeness": 15
+      }
+    }
+  ],
   "updatedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Graubnden/Store-Manager--Landquart_R_786577",
@@ -52,48 +90,9 @@
         "translation": 25,
         "completeness": 15
       }
-    },
-    {
-      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
-      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
-      "title": "Payroll & Time & Attendance Integration Manager (EMEA)",
-      "company": "Capri Holdings (Michael Kors / Versace)",
-      "companyKey": "capri-holdings",
-      "location": "Manno",
-      "canton": "TI",
-      "country": "CH",
-      "addressLocality": "Manno",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6928",
-      "streetAddress": "Via Cantonale 2c",
-      "slug": "responsabile-dell-integrazione-paghe-tempo-e-presenze-emea-capri-holdings-michael-kors-versace-manno",
-      "category": "management",
-      "datePosted": "2026-05-30",
-      "source": "capri-holdings-workday-crawler",
-      "employmentType": "FULL_TIME",
-      "experienceLevel": "SENIOR",
-      "sourceLang": "en",
-      "sector": "Fashion / Luxury Retail",
-      "_brand": "Michael Kors",
-      "_targetScope": {
-        "canton": "TI",
-        "location": "Manno"
-      },
-      "id": "capri-holdings-6e41d510f493",
-      "firstSeenAt": "2026-05-30T10:16:45.294Z",
-      "crawledAt": "",
-      "_qualityScore": 89,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 24,
-        "translation": 25,
-        "completeness": 15
-      }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
       "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Senior-General-Ledger-Accountant_R_785638",
@@ -129,7 +128,6 @@
       "currency": "CHF",
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
       "_qualityScore": 94,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -177,6 +175,51 @@
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "unchangedJobs": [
+    {
+      "url": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
+      "applyUrl": "https://capri.wd1.myworkdayjobs.com/en-US/Michael_Kors/job/Manno/Payroll---Time---Attendance-Integration-Manager--EMEA-_R_784558",
+      "title": "Payroll & Time & Attendance Integration Manager (EMEA)",
+      "company": "Capri Holdings (Michael Kors / Versace)",
+      "companyKey": "capri-holdings",
+      "location": "Manno",
+      "canton": "TI",
+      "country": "CH",
+      "addressLocality": "Manno",
+      "addressRegion": "TI",
+      "addressCountry": "CH",
+      "postalCode": "6928",
+      "streetAddress": "Via Cantonale 2c",
+      "slug": "responsabile-dell-integrazione-paghe-tempo-e-presenze-emea-capri-holdings-michael-kors-versace-manno",
+      "category": "management",
+      "datePosted": "2026-05-30",
+      "source": "capri-holdings-workday-crawler",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "SENIOR",
+      "sourceLang": "en",
+      "sector": "Fashion / Luxury Retail",
+      "_brand": "Michael Kors",
+      "_targetScope": {
+        "canton": "TI",
+        "location": "Manno"
+      },
+      "id": "capri-holdings-6e41d510f493",
+      "firstSeenAt": "2026-05-30T10:16:45.294Z",
+      "crawledAt": "",
+      "salaryMin": 68000,
+      "salaryMax": 103000,
+      "currency": "CHF",
+      "salarySource": "estimated",
+      "crawlerMissStreak": 1,
+      "_qualityScore": 94,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 24,
         "translation": 25,
         "completeness": 20
       }
