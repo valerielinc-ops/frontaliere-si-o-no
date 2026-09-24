@@ -23,8 +23,9 @@ export interface GptRewardedAdProps {
   showUnavailableMessage?: boolean;
   enabled?: boolean;
   /**
-   * Start as soon as the preloaded slot is ready. The caller must only enable
-   * this after the user has already opted into the rewarded flow.
+   * Start as soon as the preloaded slot is ready after the caller's explicit
+   * user action. The caller owns the disclosure and must only enable this for
+   * a user-triggered rewarded flow.
    */
   autoStart?: boolean;
   /**
