@@ -22,6 +22,8 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('trap on_exit EXIT');
     expect(block).toContain('has_dirty_slices');
     expect(block).toContain('data/jobs/by-crawler data/jobs/expired/by-crawler');
+    expect(block).toContain('grep -q');
+    expect(block).not.toContain('rg -q');
     expect(block).toContain('node scripts/assemble-jobs-dataset.mjs');
     expect(block).toContain('npm run test:backfill');
     expect(block).toContain('node scripts/audit-expired-at-parsable.mjs');
