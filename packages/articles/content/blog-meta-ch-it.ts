@@ -1457,7 +1457,7 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.evoluzione-frontalieri-dati-ust.excerpt': 'Analisi dell\'Ufficio federale di statistica sul fenomeno del frontalierato: cresce la Lombardia, spicca il balzo della provincia di Monza e Brianza.',
     'blog.article.evoluzione-frontalieri-dati-ust.imageAlt': 'Veduta panoramica di Lugano e del suo lago con il contesto urbano svizzero',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.title': 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
-    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
+    'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.excerpt': 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
     'blog.article.terzo-pilastro-3a-vantaggi-2026-canton-san-gallo.imageAlt': 'Lugano e il Lago di Lugano',
     'blog.article.permesso-frontaliere-g-procedura-ticino.title': 'Permesso G per frontalieri: procedura e obblighi in Ticino',
     'blog.article.permesso-frontaliere-g-procedura-ticino.excerpt': 'Guida pratica alla richiesta del nuovo permesso G per frontalieri in Ticino: documenti, obblighi di notifica e tasse di procedura aggiornate.',

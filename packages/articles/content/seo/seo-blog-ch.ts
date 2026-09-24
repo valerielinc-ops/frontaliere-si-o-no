@@ -18817,16 +18817,16 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
 
   'blog-terzo-pilastro-3a-vantaggi-2026-canton-san-gallo': {
     title: 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
-    description: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026',
+    description: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026',
     keywords: 'frontalieri, ticino, svizzera, italia, terzo, pilastro, svizzero, vantaggi',
     ogTitle: 'Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo',
-    ogDescription: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
+    ogDescription: 'La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000.',
     canonicalPath: '/articoli-svizzera/terzo-pilastro-3a-vantaggi-2026-canton-san-gallo/',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Terzo pilastro 3a svizzero: vantaggi 2026 nel Canton San Gallo",
-      "description": "La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 dicembre 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026",
+      "description": "La convenzione doppie imposizioni Italia-Svizzera è stata firmata il 9 marzo 1976. I nuovi frontalieri hanno una franchigia di €10.000. Dati aggiornati 2026",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
