@@ -83,7 +83,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T11:52:48.559Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -180,7 +179,6 @@
         ]
       },
       "firstSeenAt": "2026-08-31T17:37:18.891Z",
-      "needsRetranslation": true,
       "salaryMin": 57500,
       "salaryMax": 87000,
       "salarySource": "estimated",
@@ -278,7 +276,6 @@
         ]
       },
       "firstSeenAt": "2026-09-07T15:24:10.211Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "salarySource": "estimated",
@@ -941,8 +938,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "omega-32658",
@@ -1045,8 +1041,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

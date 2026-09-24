@@ -300,7 +300,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.826Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -509,7 +508,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.824Z",
-      "needsRetranslation": true,
       "salaryMin": 58500,
       "salaryMax": 89000,
       "salarySource": "estimated",
@@ -591,7 +589,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:37:16.823Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 70000,
       "salarySource": "estimated",
@@ -612,7 +609,7 @@
       "slugByLocale": {
         "it": "gestione-della-funzionalita-m-f-d-komax-dierikon",
         "en": "facility-manager-w-m-d-komax-dierikon",
-        "de": "facility-manager-w-m-d-komax-ch",
+        "de": "facility-manager-w-m-d-komax-ch-ji9uhd",
         "fr": "gestionnaire-d-installations-h-f-d-komax-dierikon"
       },
       "company": "Komax",
@@ -846,8 +843,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "komax-401b132730ac",
