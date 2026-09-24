@@ -17,7 +17,9 @@ name: Codex auth rotate
 #             simulata, rete chiusa): verificabile da un branch.
 #   rotate  — solo su main, mai in dry run: preflight dei token di scrittura,
 #             prova generale, refresh reale, validazione, `gh secret set` su
-#             ogni target (sorgente per primo).
+#             ogni target (sorgente per primo), poi la copia senza
+#             refresh_token nel parametro Remote Config CODEX_AUTH_JSON che il
+#             rung Codex delle Cloud Functions legge (e non rinfresca mai).
 #   report  — apre/aggiorna l'alert deduplicato «Codex auth down» su un
 #             fallimento e registra il successo che permette a
 #             codex-auth-recovery.yml di chiuderlo.
@@ -43,7 +45,10 @@ name: Codex auth rotate
 #      rotazione lo propaga agli altri target. Target: variabile di repository
 #      CODEX_AUTH_ROTATE_TARGETS o input `targets` (il repo sorgente è
 #      obbligatorio e va per primo).
-#   4. Verifica: dispatch con dry_run=true, poi con force=true su main.
+#   4. Verifica: dispatch con dry_run=true, poi con force=true su main (la
+#      prima run reale popola anche la copia Remote Config delle functions;
+#      usa il secret di repository FIREBASE_SERVICE_ACCOUNT_JSON, che deve
+#      poter pubblicare il template Remote Config).
 
 run-name: ${{ inputs.dry_run == true && 'Codex auth rotate (dry run)' || (inputs.force == true && 'Codex auth rotate (forced)' || 'Codex auth rotate') }}
 
@@ -251,6 +256,18 @@ jobs:
           CODEX_SECRET_WRITER_TOKEN: ${{ secrets.CODEX_SECRET_WRITER_TOKEN }}
           CODEX_SECRET_WRITER_TOKEN_NANAKOKYOBASHI_RGB: ${{ secrets.CODEX_SECRET_WRITER_TOKEN_NANAKOKYOBASHI_RGB }}
         run: node scripts/ci/codex-auth-rotate.mjs write
+
+      # Copia per il rung Codex delle Cloud Functions (functions/src/codexFallback.js):
+      # stesso login SENZA refresh_token nel parametro Remote Config
+      # CODEX_AUTH_JSON, scritto con ETag. Gira anche se `write` è fallito: la
+      # copia non può rinfrescare, quindi non tocca la CI, e alle functions serve
+      # comunque l'access token fresco. Mai in dry run (il job non gira).
+      - name: Copy the login to Remote Config for the Cloud Functions
+        id: write_remote_config
+        if: ${{ !cancelled() && steps.refresh.outcome == 'success' }}
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: node scripts/ci/codex-auth-rotate.mjs write-remote-config
 
       - name: Remove the refreshed auth.json from the runner
         if: always()

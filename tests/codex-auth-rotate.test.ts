@@ -11,9 +11,11 @@
  * la rete o un file tracciato: tutto in os.tmpdir().
  */
 import { spawnSync } from 'node:child_process';
+import { generateKeyPairSync } from 'node:crypto';
 import fs from 'node:fs';
 import os from 'node:os';
 import path from 'node:path';
+import { pathToFileURL } from 'node:url';
 import { afterEach, describe, expect, it } from 'vitest';
 import YAML from 'yaml';
 import {
@@ -39,6 +41,8 @@ import {
   planAction,
   refreshDecision,
   rehearseRefresh,
+  REMOTE_CONFIG_PARAM,
+  remoteConfigLogin,
   rejectedDigests,
   reportOutcome,
   resolveWriterToken,
@@ -49,6 +53,8 @@ import {
   writeSecret,
   writerTokenEnvName,
 } from '../scripts/ci/codex-auth-rotate.mjs';
+import { RC_SCOPE, setRcParamWithEtag, stageRcParamValue } from '../scripts/lib/remote-config-admin.mjs';
+import { RC_TO_ENV } from '../scripts/load-rc-env.mjs';
 
 const HOUR = 3_600_000;
 const NOW = Date.now();
@@ -347,6 +353,17 @@ describe('marker dell\'alert e azione del piano', () => {
     expect(body).toContain('## Codex authentication rotation failed');
     expect(ALERT_TITLE).toBe('Codex auth down: CODEX_AUTH_JSON refresh token rejected');
   });
+
+  it('la copia Remote Config fallita ha il suo stage, con l\'azione per le Cloud Functions', () => {
+    const marker = failed({ stage: 'write-remote-config', consumed: false });
+    const { body } = alertTexts({ marker, runUrl: 'https://github.com/o/r/actions/runs/8', workflow: 'Codex auth rotate', sourceRepo: SOURCE });
+    expect(extractRotationMarkers(body)).toEqual([marker]);
+    expect(body).toContain('Stage: `write-remote-config`');
+    expect(body).toMatch(/Remote Config copy `CODEX_AUTH_JSON`[\s\S]*never refresh/u);
+    expect(body).toContain('FIREBASE_SERVICE_ACCOUNT_JSON');
+    // Un fallimento non consumante porta la run successiva in sync, che riscrive anche la copia.
+    expect(planAction({ decision: { due: false }, latestMarker: marker, currentDigest: DIGEST_A })).toEqual({ action: 'sync' });
+  });
 });
 
 describe('classifyRefreshLog', () => {
@@ -644,6 +661,212 @@ describe('comandi refresh + write', () => {
   });
 });
 
+// ─── Copia per le Cloud Functions in Remote Config ─────────────────────────
+
+describe('remoteConfigLogin — la copia per functions/src/codexFallback.js', () => {
+  it('stesso formato auth.json, senza refresh_token né OPENAI_API_KEY', () => {
+    const auth: Record<string, any> = { auth_mode: 'chatgpt', ...login() };
+    const copy = JSON.parse(remoteConfigLogin(auth));
+    expect(copy).toEqual({
+      auth_mode: 'chatgpt',
+      tokens: { id_token: auth.tokens.id_token, access_token: auth.tokens.access_token, account_id: auth.tokens.account_id },
+      last_refresh: auth.last_refresh,
+    });
+    expect(JSON.stringify(copy)).not.toContain(auth.tokens.refresh_token);
+    expect(REMOTE_CONFIG_PARAM).toBe('CODEX_AUTH_JSON');
+  });
+});
+
+type RcCall = { url: string; method: string; ifMatch: string | null; body: any };
+
+/** Remote Config REST finto: GET → template + ETag, PUT con If-Match; `conflicts` PUT rifiutate con 409. */
+function fakeRemoteConfig({ template = { parameters: {} } as any, conflicts = 0, putStatus = 200 } = {}) {
+  let etag = 1;
+  let current = structuredClone(template);
+  let conflictsLeft = conflicts;
+  const calls: RcCall[] = [];
+  const fetchImpl = async (url: string, init: any = {}) => {
+    const method = init.method ?? 'GET';
+    calls.push({ url: String(url), method, ifMatch: init.headers?.['If-Match'] ?? null, body: init.body ? JSON.parse(init.body) : null });
+    if (method === 'GET') return new Response(JSON.stringify({ ...current, version: { versionNumber: String(etag) } }), { status: 200, headers: { etag: `etag-${etag}` } });
+    if (conflictsLeft > 0) {
+      conflictsLeft -= 1;
+      // Un altro writer ha pubblicato nel frattempo: il suo parametro deve sopravvivere.
+      current = { ...current, parameters: { ...current.parameters, OTHER_WRITER: { defaultValue: { value: `v${etag}` } } } };
+      etag += 1;
+      return new Response(JSON.stringify({ error: { status: 'ABORTED', message: 'etag mismatch' } }), { status: 409 });
+    }
+    if (putStatus !== 200) return new Response(JSON.stringify({ error: { status: 'PERMISSION_DENIED', message: 'denied' } }), { status: putStatus });
+    const body = JSON.parse(init.body);
+    current = { conditions: body.conditions, parameters: body.parameters, parameterGroups: body.parameterGroups };
+    etag += 1;
+    return new Response('{}', { status: 200, headers: { etag: `etag-${etag}` } });
+  };
+  return { fetchImpl, calls, current: () => current };
+}
+
+const SA = { client_email: 'rc-writer@example.iam.gserviceaccount.com', private_key: 'unused', project_id: 'frontaliere-test' };
+const RC_URL = 'https://firebaseremoteconfig.googleapis.com/v1/projects/frontaliere-test/remoteConfig';
+
+describe('setRcParamWithEtag — concorrenza ottimistica sul template', () => {
+  const base = { credentials: SA, name: 'CODEX_AUTH_JSON', value: '{"tokens":{}}', sleep: async () => {}, getAccessToken: async () => 'ya29.fake' };
+
+  it('scrive con If-Match dell\'ETag letto e preserva il resto del template', async () => {
+    const rc = fakeRemoteConfig({ template: { parameters: { KEEP: { defaultValue: { value: 'k' } } }, conditions: [{ name: 'c', expression: 'true' }] } });
+    const scopes: string[] = [];
+    const result = await setRcParamWithEtag({ ...base, fetchImpl: rc.fetchImpl, getAccessToken: async (_c: unknown, scope: string) => { scopes.push(scope); return 'ya29.fake'; } });
+    expect(result).toEqual({ ok: true, changed: true, attempt: 1 });
+    expect(scopes).toEqual([RC_SCOPE]);
+    expect(rc.calls.map((call) => [call.method, call.url, call.ifMatch])).toEqual([['GET', RC_URL, null], ['PUT', RC_URL, 'etag-1']]);
+    const put = rc.calls[1].body;
+    expect(put.parameters.KEEP).toEqual({ defaultValue: { value: 'k' } });
+    expect(put.parameters.CODEX_AUTH_JSON).toMatchObject({ defaultValue: { value: '{"tokens":{}}' }, valueType: 'STRING' });
+    expect(put.conditions).toEqual([{ name: 'c', expression: 'true' }]);
+    expect(put.version).toEqual({ description: 'set CODEX_AUTH_JSON' });
+  });
+
+  it('su conflitto di ETag rilegge e riapplica sopra la versione nuova, mai con If-Match: *', async () => {
+    const rc = fakeRemoteConfig({ conflicts: 2 });
+    const result = await setRcParamWithEtag({ ...base, fetchImpl: rc.fetchImpl });
+    expect(result).toEqual({ ok: true, changed: true, attempt: 3 });
+    expect(rc.calls.map((call) => `${call.method}:${call.ifMatch ?? ''}`)).toEqual(['GET:', 'PUT:etag-1', 'GET:', 'PUT:etag-2', 'GET:', 'PUT:etag-3']);
+    expect(rc.calls.some((call) => call.ifMatch === '*')).toBe(false);
+    expect(rc.current().parameters).toMatchObject({ OTHER_WRITER: { defaultValue: { value: 'v2' } }, CODEX_AUTH_JSON: { defaultValue: { value: '{"tokens":{}}' } } });
+  });
+
+  it('conflitti oltre i tentativi → fallimento con dettaglio, senza valori', async () => {
+    const rc = fakeRemoteConfig({ conflicts: 10 });
+    const result = await setRcParamWithEtag({ ...base, fetchImpl: rc.fetchImpl, attempts: 3 });
+    expect(result).toEqual({ ok: false, attempt: 3, detail: 'PUT remoteConfig → HTTP 409 (ABORTED: etag mismatch)' });
+    expect(rc.calls.filter((call) => call.method === 'PUT')).toHaveLength(3);
+  });
+
+  it('dry run: legge e confronta, nessuna PUT', async () => {
+    const rc = fakeRemoteConfig();
+    expect(await setRcParamWithEtag({ ...base, fetchImpl: rc.fetchImpl, dryRun: true })).toEqual({ ok: true, changed: true, dryRun: true, attempt: 1 });
+    expect(rc.calls.map((call) => call.method)).toEqual(['GET']);
+  });
+
+  it('valore già uguale: nessuna PUT; permesso negato: nessun retry', async () => {
+    const same = fakeRemoteConfig({ template: { parameters: { CODEX_AUTH_JSON: { defaultValue: { value: base.value } } } } });
+    expect(await setRcParamWithEtag({ ...base, fetchImpl: same.fetchImpl })).toEqual({ ok: true, changed: false, attempt: 1 });
+    expect(same.calls.map((call) => call.method)).toEqual(['GET']);
+    const denied = fakeRemoteConfig({ putStatus: 403 });
+    expect(await setRcParamWithEtag({ ...base, fetchImpl: denied.fetchImpl })).toEqual({ ok: false, attempt: 1, detail: 'PUT remoteConfig → HTTP 403 (PERMISSION_DENIED: denied)' });
+  });
+
+  it('un parametro dentro un gruppo non si duplica al top level (le functions leggono solo quello)', () => {
+    const template = { parameters: {}, parameterGroups: { secrets: { parameters: { CODEX_AUTH_JSON: { defaultValue: { value: 'x' } } } } } };
+    expect(stageRcParamValue(template, 'CODEX_AUTH_JSON', 'y', '')).toMatchObject({ changed: false, error: expect.stringMatching(/parameter group "secrets"/u) });
+  });
+});
+
+/**
+ * Preload per il processo figlio: sostituisce fetch con l'authority OAuth di
+ * Google e Remote Config finti, e registra ogni chiamata (mai la rete).
+ */
+function fakeGoogle(dir: string, { conflicts = 0 } = {}) {
+  const log = path.join(dir, 'google-calls.jsonl');
+  const preload = path.join(dir, 'fake-google.mjs');
+  fs.writeFileSync(preload, `
+import fs from 'node:fs';
+let etag = 1;
+let conflictsLeft = ${conflicts};
+let template = { parameters: { KEEP: { defaultValue: { value: 'k' } } } };
+globalThis.fetch = async (url, init = {}) => {
+  const method = init.method ?? 'GET';
+  const headers = init.headers ?? {};
+  fs.appendFileSync(${JSON.stringify(log)}, JSON.stringify({ url: String(url), method, ifMatch: headers['If-Match'] ?? null, auth: headers.Authorization ?? null, body: typeof init.body === 'string' ? init.body : null }) + '\\n');
+  if (String(url) === 'https://oauth2.googleapis.com/token') {
+    return new Response(JSON.stringify({ access_token: 'ya29.google-access-token-value' }), { status: 200 });
+  }
+  if (method === 'GET') return new Response(JSON.stringify(template), { status: 200, headers: { etag: 'etag-' + etag } });
+  if (conflictsLeft > 0) { conflictsLeft -= 1; etag += 1; return new Response(JSON.stringify({ error: { status: 'ABORTED', message: 'etag mismatch' } }), { status: 409 }); }
+  template = JSON.parse(init.body);
+  etag += 1;
+  return new Response('{}', { status: 200, headers: { etag: 'etag-' + etag } });
+};
+`);
+  const calls = () => (fs.existsSync(log) ? fs.readFileSync(log, 'utf8').trim().split('\n').filter(Boolean).map((line) => JSON.parse(line)) : []);
+  return { preload, calls };
+}
+
+function runWithPreload(preload: string, command: string, env: Record<string, string>) {
+  const result = spawnSync(process.execPath, ['--import', pathToFileURL(preload).href, SCRIPT, command], {
+    encoding: 'utf8',
+    timeout: 60_000,
+    env: { PATH: `${path.dirname(process.execPath)}:/usr/bin:/bin`, ...env },
+  });
+  return { status: result.status, stdout: result.stdout, stderr: result.stderr };
+}
+
+describe('comando write-remote-config', () => {
+  const { privateKey } = generateKeyPairSync('rsa', { modulusLength: 2048, privateKeyEncoding: { type: 'pkcs8', format: 'pem' }, publicKeyEncoding: { type: 'spki', format: 'pem' } });
+  const serviceAccount = JSON.stringify({ type: 'service_account', project_id: 'frontaliere-test', client_email: 'rc-writer@example.iam.gserviceaccount.com', private_key: privateKey });
+
+  function prepared(stage = 'done') {
+    const dir = tmp();
+    const fresh = login({ tag: 'new' });
+    fs.writeFileSync(path.join(dir, 'codex-auth-rotate-new-auth.json'), JSON.stringify(fresh), { mode: 0o600 });
+    fs.writeFileSync(path.join(dir, 'codex-auth-rotate-state.json'), JSON.stringify({ stage, consumed: false }), { mode: 0o600 });
+    const state = () => JSON.parse(fs.readFileSync(path.join(dir, 'codex-auth-rotate-state.json'), 'utf8'));
+    return { dir, fresh, state };
+  }
+
+  it('copia il login senza refresh_token con If-Match, ritenta il conflitto e non stampa alcun valore', () => {
+    const { dir, fresh, state } = prepared();
+    const google = fakeGoogle(dir, { conflicts: 1 });
+    const run = runWithPreload(google.preload, 'write-remote-config', {
+      RUNNER_TEMP: dir, FIREBASE_SERVICE_ACCOUNT_JSON: serviceAccount, CODEX_AUTH_ROTATE_RETRY_DELAY_MS: '1',
+    });
+    expect(run.status, run.stdout + run.stderr).toBe(0);
+    const calls = google.calls();
+    expect(calls.map((call) => `${call.method}:${call.ifMatch ?? ''}`)).toEqual(['POST:', 'GET:', 'PUT:etag-1', 'GET:', 'PUT:etag-2']);
+    expect(calls.filter((call) => call.method !== 'POST').every((call) => call.url === RC_URL && call.auth === 'Bearer ya29.google-access-token-value')).toBe(true);
+    const written = JSON.parse(calls.at(-1).body);
+    expect(written.parameters.KEEP).toEqual({ defaultValue: { value: 'k' } });
+    const value = written.parameters.CODEX_AUTH_JSON.defaultValue.value;
+    expect(value).toBe(remoteConfigLogin(fresh));
+    expect(value).not.toContain(fresh.tokens.refresh_token);
+    expectOnlyMasked(run.stdout + run.stderr, [fresh.tokens.access_token, fresh.tokens.id_token, fresh.tokens.refresh_token, 'ya29.google-access-token-value', value]);
+    expect(run.stdout).toContain('::add-mask::ya29.google-access-token-value');
+    expect(run.stdout).toMatch(/Remote Config CODEX_AUTH_JSON updated \(attempt 2, refresh_token omitted\)/u);
+    expect(state()).toMatchObject({ stage: 'done', remoteConfig: 'written' });
+  });
+
+  it('dry run: nessuna PUT, stato invariato', () => {
+    const { dir, state } = prepared();
+    const google = fakeGoogle(dir);
+    const run = runWithPreload(google.preload, 'write-remote-config', {
+      RUNNER_TEMP: dir, FIREBASE_SERVICE_ACCOUNT_JSON: serviceAccount, CODEX_AUTH_ROTATE_DRY_RUN: 'true',
+    });
+    expect(run.status, run.stdout).toBe(0);
+    expect(google.calls().map((call) => call.method)).toEqual(['POST', 'GET']);
+    expect(run.stdout).toMatch(/Dry run: .*nothing was written/u);
+    expect(state()).toMatchObject({ stage: 'done', remoteConfig: 'dry-run' });
+  });
+
+  it('senza service account fallisce con il suo stage, senza coprire uno stage più grave', () => {
+    const ok = prepared('done');
+    const run = runCommand('write-remote-config', { RUNNER_TEMP: ok.dir });
+    expect(run.status).toBe(1);
+    expect(run.stdout).toMatch(/::error::FIREBASE_SERVICE_ACCOUNT_JSON is missing/u);
+    expect(ok.state()).toMatchObject({ stage: 'write-remote-config', remoteConfig: 'failed', consumed: false });
+    expectOnlyMasked(run.stdout, [ok.fresh.tokens.access_token, ok.fresh.tokens.refresh_token]);
+
+    const worse = prepared('write-secondary');
+    expect(runCommand('write-remote-config', { RUNNER_TEMP: worse.dir, FIREBASE_SERVICE_ACCOUNT_JSON: '{"not":"a service account"}' }).status).toBe(1);
+    expect(worse.state()).toMatchObject({ stage: 'write-secondary', remoteConfig: 'failed' });
+  });
+});
+
+describe('CODEX_AUTH_JSON non arriva mai alla CI da Remote Config', () => {
+  it('non è mappato in RC_TO_ENV, né come chiave né come variabile d\'arrivo', () => {
+    expect(RC_TO_ENV).not.toHaveProperty(REMOTE_CONFIG_PARAM);
+    expect(Object.values(RC_TO_ENV).flat()).not.toContain('CODEX_AUTH_JSON');
+  });
+});
+
 // ─── Wiring del workflow ────────────────────────────────────────────────────
 
 const WORKFLOW_TEXT = fs.readFileSync(path.resolve('.github/workflows/codex-auth-rotate.yml'), 'utf8');
@@ -695,8 +918,23 @@ describe('workflow codex-auth-rotate.yml', () => {
       (def.steps as Step[]).filter((step) => JSON.stringify(step.env ?? {}).includes(needle)).map((step) => `${job}:${step.id ?? step.name}`));
     expect(stepsWith('secrets.CODEX_AUTH_JSON')).toEqual(['plan:plan', 'rotate:refresh']);
     expect(stepsWith('secrets.CODEX_SECRET_WRITER_TOKEN')).toEqual(['rotate:preflight', 'rotate:write']);
+    expect(stepsWith('secrets.FIREBASE_SERVICE_ACCOUNT_JSON')).toEqual(['rotate:write_remote_config']);
     for (const job of Object.values<any>(WORKFLOW.jobs)) expect(JSON.stringify(job.env ?? {})).not.toContain('secrets.');
     expect(JSON.stringify(WORKFLOW.env)).not.toContain('secrets.');
+  });
+
+  it('la copia Remote Config segue la scrittura dei secret e precede la pulizia, solo col refresh validato', () => {
+    const steps = jobSteps('rotate');
+    const index = (id: string) => steps.findIndex((step) => step.id === id || step.name === id);
+    const copy = steps[index('write_remote_config')];
+    expect(copy.run).toBe('node scripts/ci/codex-auth-rotate.mjs write-remote-config');
+    expect(copy.if).toContain('!cancelled()');
+    expect(copy.if).toContain("steps.refresh.outcome == 'success'");
+    expect(index('write')).toBeLessThan(index('write_remote_config'));
+    expect(index('write_remote_config')).toBeLessThan(index('Remove the refreshed auth.json from the runner'));
+    expect(index('write_remote_config')).toBeLessThan(index('summary'));
+    // Mai nel job plan (che gira anche in dry run).
+    expect(JSON.stringify(jobSteps('plan'))).not.toContain('write-remote-config');
   });
 
   it('ogni owner dei target di default riceve il suo token di scrittura', () => {

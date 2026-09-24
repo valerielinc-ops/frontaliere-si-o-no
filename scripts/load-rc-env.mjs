@@ -271,6 +271,18 @@ export const RC_TO_ENV = {
   SERVER_TIKTOK_SANDBOX_CLIENT_KEY:    ['TIKTOK_SANDBOX_CLIENT_KEY'],
   SERVER_TIKTOK_SANDBOX_CLIENT_SECRET: ['TIKTOK_SANDBOX_CLIENT_SECRET'],
 
+  // CODEX_AUTH_JSON lives in Remote Config but is deliberately NOT mapped,
+  // the one exception to "every secret in RC is mapped here" (DECISIONS.md
+  // 2026-09-24). The RC copy exists only for functions/src/codexFallback.js
+  // and is written by codex-auth-rotate.yml WITHOUT refresh_token. CI jobs get
+  // the GitHub secret only as a step-level env/action input, so this script's
+  // own step never has it set and would NOT skip it: it would append
+  // CODEX_AUTH_JSON to $GITHUB_ENV, exposing the login to every later step of
+  // the job (the broker design forbids exactly that: setup-claude-haiku-fallback
+  // /action.yml, generate-crawler-group-workflows.mjs), and any step without
+  // the step-level secret would read the refresh-token-less copy. The GitHub
+  // secret stays the only CI source. Pinned by tests/codex-auth-rotate.test.ts.
+
   // LLM providers (AI model chain for articles + crawlers)
   GROQ_API_KEY:                   ['GROQ_API_KEY'],
   OPENROUTER_API_KEY:             ['OPENROUTER_API_KEY'],

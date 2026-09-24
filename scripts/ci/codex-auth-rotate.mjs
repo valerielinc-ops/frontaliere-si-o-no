@@ -46,11 +46,21 @@
  * token di scrittura), `chatgpt_base_url` e ogni proxy puntati a un sink locale,
  * quindi l'unico host raggiungibile è l'authority dei token.
  *
+ * Copia per le Cloud Functions (`write-remote-config`). Il rung Codex di
+ * functions/src/codexFallback.js si autentica con lo stesso login, letto dal
+ * parametro Remote Config `CODEX_AUTH_JSON`, e non rinfresca mai. Dopo il
+ * refresh validato (o in `sync`) questo script scrive lì il login SENZA
+ * `refresh_token` (`remoteConfigLogin`): alla function servono solo access
+ * token e account, e senza refresh token nessun lettore del template può
+ * consumare quello della CI. Scrittura con ETag (`setRcParamWithEtag`, mai
+ * `If-Match: *`), dopo i secret GitHub. Il parametro resta fuori da
+ * `RC_TO_ENV` (scripts/load-rc-env.mjs): la CI legge solo il secret GitHub.
+ *
  * Sicurezza: nessun token viene mai stampato. Ogni valore di token riceve un
  * `::add-mask::` prima di qualsiasi altro output; stdout/stderr della CLI non
  * vengono mai inoltrati al log (se ne estrae solo il codice d'errore).
  *
- *   node scripts/ci/codex-auth-rotate.mjs <plan|rehearse|preflight|refresh|write|summarize|report>
+ *   node scripts/ci/codex-auth-rotate.mjs <plan|rehearse|preflight|refresh|write|write-remote-config|summarize|report>
  */
 import { createHash, randomBytes } from 'node:crypto';
 import { spawn, spawnSync } from 'node:child_process';
@@ -60,6 +70,7 @@ import os from 'node:os';
 import path from 'node:path';
 import { pathToFileURL } from 'node:url';
 import { githubApiHeaders } from '../lib/githubApiHeaders.mjs';
+import { setRcParamWithEtag } from '../lib/remote-config-admin.mjs';
 
 const HOUR_MS = 3_600_000;
 
@@ -89,6 +100,8 @@ export const MIN_ALLOWED_VALID_HOURS = 3;
 export const DEFAULT_POLICY = Object.freeze({ marginHours: 48, maxAgeHours: 96, minValidHours: 12 });
 
 export const SECRET_NAME = 'CODEX_AUTH_JSON';
+/** Parametro Remote Config letto da functions/src/codexFallback.js. */
+export const REMOTE_CONFIG_PARAM = 'CODEX_AUTH_JSON';
 export const DEFAULT_TARGETS = Object.freeze([
   'valerielinc-ops/frontaliere-si-o-no',
   'nanakokyobashi-rgb/frontaliere-articles',
@@ -318,6 +331,21 @@ export function maskCommands(auth) {
   const values = [tokens.id_token, tokens.access_token, tokens.refresh_token, tokens.account_id]
     .filter((value) => typeof value === 'string' && value.length > 0);
   return [...new Set(values)].map((value) => `::add-mask::${escapeCommandValue(value)}`);
+}
+
+/**
+ * La copia del login per Remote Config: stesso formato auth.json, senza
+ * `refresh_token` (e senza OPENAI_API_KEY). functions/src/codexFallback.js usa
+ * solo access_token, account_id e il claim FedRAMP dell'id_token; il refresh
+ * token servirebbe solo a rinfrescare, cosa che lì non deve accadere mai.
+ */
+export function remoteConfigLogin(auth) {
+  const { id_token: idToken, access_token: accessToken, account_id: accountId } = auth.tokens;
+  return JSON.stringify({
+    ...(auth.auth_mode != null ? { auth_mode: auth.auth_mode } : {}),
+    tokens: { id_token: idToken, access_token: accessToken, account_id: accountId },
+    ...(auth.last_refresh != null ? { last_refresh: auth.last_refresh } : {}),
+  });
 }
 
 // ─── Target e token di scrittura (puri) ─────────────────────────────────────
@@ -812,6 +840,7 @@ const STAGE_ACTIONS = {
   'write-primary': 'The refreshed login could not be written back to the source repository. The stored login has spent its refresh token and works only until its access token expires: log in again before then.',
   'write-secondary': 'The source repository holds the fresh login but some targets still hold the previous one. The next scheduled run retries them; create or renew the writer token for those owners if the log says it is missing.',
   lifetime: 'The refreshed access token lives shorter than the guaranteed validity window: consumers may still refresh on their own. Lower `CODEX_AUTH_MIN_VALID_HOURS` only with evidence, or shorten the schedule.',
+  'write-remote-config': 'Every GitHub target holds the fresh login, but its Remote Config copy `CODEX_AUTH_JSON` (read by the Cloud Functions Codex rung, functions/src/codexFallback.js) was not updated. The functions keep the previous access token, never refresh it, and skip the rung once it expires; the next scheduled run retries. Check `FIREBASE_SERVICE_ACCOUNT_JSON` (Remote Config write access) and the run log.',
 };
 
 export function alertTexts({ marker, runUrl, workflow, sourceRepo, expiresAt = null }) {
@@ -1173,6 +1202,62 @@ async function commandWrite() {
   }
 }
 
+/**
+ * Copia del login validato nel parametro Remote Config delle Cloud Functions.
+ * Gira dopo `write`, anche se `write` è fallito: la copia non contiene il
+ * refresh token, quindi non può influire sulla CI, e un access token fresco
+ * serve comunque alle functions. Un suo fallimento diventa lo stage
+ * `write-remote-config` solo se il resto è riuscito (non copre mai uno stage
+ * più grave); il marker di fallimento porta la run successiva in `sync`, che
+ * riscrive anche questa copia. CODEX_AUTH_ROTATE_DRY_RUN=true: legge e
+ * confronta, nessuna scrittura.
+ */
+async function commandWriteRemoteConfig() {
+  const state = readState();
+  const failRemoteConfig = (message) => {
+    updateState({ stage: state.stage === 'done' ? 'write-remote-config' : state.stage ?? 'write-remote-config', remoteConfig: 'failed' });
+    fail(message);
+  };
+  const outFile = outPath();
+  if (!fs.existsSync(outFile)) { failRemoteConfig('No validated auth.json to copy to Remote Config.'); return; }
+  const { auth, errors } = parseAuthJson(fs.readFileSync(outFile, 'utf8'));
+  if (!auth) { failRemoteConfig(`Validated auth.json became unreadable: ${errors.join('; ')}.`); return; }
+  emitMasks(auth);
+  let credentials = null;
+  try { credentials = JSON.parse(process.env.FIREBASE_SERVICE_ACCOUNT_JSON ?? ''); } catch { credentials = null; }
+  if (!isPlainObject(credentials) || !credentials.client_email || !credentials.private_key || !credentials.project_id) {
+    failRemoteConfig(`FIREBASE_SERVICE_ACCOUNT_JSON is missing or is not a service account JSON: ${REMOTE_CONFIG_PARAM} was not copied to Remote Config.`);
+    return;
+  }
+  const value = remoteConfigLogin(auth);
+  const dryRun = process.env.CODEX_AUTH_ROTATE_DRY_RUN === 'true';
+  const redactValues = [auth.tokens.id_token, auth.tokens.access_token, auth.tokens.refresh_token, value, credentials.private_key];
+  let result;
+  try {
+    result = await setRcParamWithEtag({
+      credentials,
+      name: REMOTE_CONFIG_PARAM,
+      value,
+      description: 'Codex ChatGPT login (no refresh_token) for functions/src/codexFallback.js. Written by codex-auth-rotate.yml; never refreshed by the functions.',
+      versionDescription: `codex-auth-rotate: ${REMOTE_CONFIG_PARAM}`,
+      dryRun,
+      retryDelayMs: Number(process.env.CODEX_AUTH_ROTATE_RETRY_DELAY_MS || 2_000),
+      onAccessToken: (token) => { if (token) { redactValues.push(token); out(`::add-mask::${escapeCommandValue(token)}`); } },
+    });
+  } catch (error) {
+    result = { ok: false, attempt: 0, detail: `service account token exchange failed: ${String(error?.message ?? error)}` };
+  }
+  if (!result.ok) {
+    failRemoteConfig(`Could not copy ${REMOTE_CONFIG_PARAM} to Remote Config (attempt ${result.attempt}): ${redact(result.detail, redactValues) || 'no detail'}.`);
+    return;
+  }
+  const outcome = result.dryRun ? 'dry-run' : (result.changed ? 'written' : 'unchanged');
+  updateState({ remoteConfig: outcome });
+  out(result.dryRun
+    ? `Dry run: Remote Config ${REMOTE_CONFIG_PARAM} differs from the validated login; nothing was written.`
+    : `Remote Config ${REMOTE_CONFIG_PARAM} ${result.changed ? 'updated' : 'already up to date'} (attempt ${result.attempt}, refresh_token omitted).`);
+}
+
 function commandSummarize() {
   const state = readState();
   const stage = STAGE_RE.test(String(state.stage ?? '')) ? state.stage : 'unknown';
@@ -1189,6 +1274,7 @@ function commandSummarize() {
     `- stage: \`${stage}\``,
     `- written: ${valid(state.written).map((target) => `\`${target}\``).join(', ') || 'none'}`,
     `- pending: ${valid(state.pending).map((target) => `\`${target}\``).join(', ') || 'none'}`,
+    `- Remote Config copy (Cloud Functions): ${/^[a-z-]{1,20}$/u.test(String(state.remoteConfig ?? '')) ? state.remoteConfig : 'not written'}`,
   ].join('\n'));
 }
 
@@ -1221,7 +1307,7 @@ async function commandReport() {
   if (outcome.kind === 'none') { out('Nothing to record on the Codex auth alert.'); return; }
   const runUrl = `${process.env.GITHUB_SERVER_URL || 'https://github.com'}/${repo}/actions/runs/${process.env.GITHUB_RUN_ID}`;
   if (outcome.kind === 'succeeded') {
-    const body = `✅ Codex auth rotation succeeded (${runUrl}): every target holds the fresh login. \`codex-auth-recovery\` closes this alert once nothing else is blocked.\n\n${formatRotationMarker(outcome.marker)}`;
+    const body = `✅ Codex auth rotation succeeded (${runUrl}): every target and the Remote Config copy hold the fresh login. \`codex-auth-recovery\` closes this alert once nothing else is blocked.\n\n${formatRotationMarker(outcome.marker)}`;
     const { status } = await ghApi(fetch, token, `/repos/${repo}/issues/${state.alert.number}/comments`, { method: 'POST', body: { body } });
     if (status !== 201) fail(`Could not record the successful rotation on alert #${state.alert.number} (HTTP ${status}).`);
     else out(`Recorded the successful rotation on alert #${state.alert.number}.`);
@@ -1252,6 +1338,7 @@ const COMMANDS = {
   preflight: commandPreflight,
   refresh: commandRefresh,
   write: commandWrite,
+  'write-remote-config': commandWriteRemoteConfig,
   summarize: commandSummarize,
   report: commandReport,
 };
