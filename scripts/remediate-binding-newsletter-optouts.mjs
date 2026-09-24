@@ -122,15 +122,20 @@ function printPlanSummary(total, plans) {
   if (plans.length > 20) console.log(`  … altri ${plans.length - 20} record`);
 }
 
-async function applyPlans(db, plans) {
-  const fieldValue = admin.firestore.FieldValue;
+export async function applyPlans(db, plans, { fieldValue = admin.firestore.FieldValue } = {}) {
   let written = 0;
-  for (let offset = 0; offset < plans.length; offset += 200) {
-    const batch = db.batch();
-    const occurredAt = new Date().toISOString();
-    for (const plan of plans.slice(offset, offset + 200)) {
-      const repairFields = buildOptOutRepairFields(plan.data);
-      batch.set(plan.ref, {
+  for (const plan of plans) {
+    const applied = await db.runTransaction(async (transaction) => {
+      // `loadPlans()` is only a candidate snapshot. Re-read inside the
+      // transaction so a concurrent explicit re-opt-in wins over this repair.
+      const currentSnapshot = await transaction.get(plan.ref);
+      if (!currentSnapshot.exists) return false;
+      const currentData = currentSnapshot.data() || {};
+      if (!needsOptOutRepair(currentData)) return false;
+
+      const repairFields = buildOptOutRepairFields(currentData);
+      const occurredAt = new Date().toISOString();
+      transaction.set(plan.ref, {
         ...repairFields,
         opt_out_integrity_repaired_at: fieldValue.serverTimestamp(),
         opt_out_integrity_repairedAt: fieldValue.serverTimestamp(),
@@ -138,21 +143,21 @@ async function applyPlans(db, plans) {
         updatedAt: fieldValue.serverTimestamp(),
       }, { merge: true });
       const eventRef = plan.ref.collection('events').doc();
-      batch.set(eventRef, {
+      transaction.set(eventRef, {
         email: plan.id,
         event_type: EVENT_TYPE,
         source_channel: 'remediation',
         repair_reason: 'binding_opt_out',
-        previous_status: normalizeStatus(plan.data.status) || null,
-        previous_isActive: plan.data.isActive ?? null,
-        previous_active: plan.data.active ?? null,
+        previous_status: normalizeStatus(currentData.status) || null,
+        previous_isActive: currentData.isActive ?? null,
+        previous_active: currentData.active ?? null,
         repaired_status: repairFields.status,
         occurred_at: occurredAt,
         timestamp: fieldValue.serverTimestamp(),
       });
-    }
-    await batch.commit();
-    written += Math.min(200, plans.length - offset);
+      return true;
+    });
+    if (applied) written += 1;
   }
   return written;
 }
