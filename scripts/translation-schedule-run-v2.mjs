@@ -566,9 +566,6 @@ export async function runTranslationScheduleV2(options = {}) {
       dataDirectory: options.dataDirectory || path.join(repository, 'data/jobs/by-crawler'),
     });
 
-    phase = 'state_initialization';
-    const initialized = await stateStore.initialize();
-    lastStateCommit = initialized?.commit ?? null;
     phase = 'checkpoint_read';
     before = await stateStore.readSchedulerScope({ scopeKey });
     lastStateCommit = before.commit ?? lastStateCommit;
@@ -578,6 +575,9 @@ export async function runTranslationScheduleV2(options = {}) {
       stateRef: stateStore.ref,
       scopeKey,
     });
+    phase = 'state_initialization';
+    const initialized = await stateStore.initialize();
+    lastStateCommit = initialized?.commit ?? lastStateCommit;
 
     phase = 'memory_read';
     await attachTranslationMemories(stateStore, input);
