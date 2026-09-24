@@ -1,23 +1,24 @@
 {
   "key": "parmag",
   "label": "ParMag AG",
-  "generatedAt": "2026-09-23T23:39:05.309Z",
+  "generatedAt": "2026-09-24T14:18:17.742Z",
   "total": 20,
   "discovered": null,
   "parsed": 20,
   "lastFetchOutcome": null,
   "written": 20,
   "authoritativeEmptySnapshot": false,
-  "newCount": 9,
-  "updatedCount": 11,
+  "newCount": 0,
+  "updatedCount": 20,
   "removedCount": 0,
   "unchangedCount": 0,
-  "durationMs": 25824,
-  "avgDurationMs": 25824,
+  "durationMs": 25950,
+  "avgDurationMs": 25950,
   "durationHistory": [
-    25824
+    25950
   ],
-  "newJobs": [
+  "newJobs": [],
+  "updatedJobs": [
     {
       "id": "parmag-221b51c9536f",
       "slug": "kundenberatende-inbound-m-w-d-bern-parmag-ch",
@@ -30,7 +31,7 @@
       "url": "https://parmag.ch/stellen/385?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.301Z",
+      "crawledAt": "2026-09-24T14:18:10.922Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -44,11 +45,12 @@
       "featured": false,
       "postedDate": "2026-09-23",
       "applyUrl": "https://parmag.ch/stellen/385?view=joblisting",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-09-23T23:38:58.301Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -64,7 +66,7 @@
       "url": "https://parmag.ch/stellen/384?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.302Z",
+      "crawledAt": "2026-09-24T14:18:10.923Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -78,11 +80,12 @@
       "featured": false,
       "postedDate": "2026-09-23",
       "applyUrl": "https://parmag.ch/stellen/384?view=joblisting",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-09-23T23:38:58.302Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -98,7 +101,7 @@
       "url": "https://parmag.ch/stellen/373?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.304Z",
+      "crawledAt": "2026-09-24T14:18:10.924Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -112,11 +115,12 @@
       "featured": false,
       "postedDate": "2026-09-23",
       "applyUrl": "https://parmag.ch/stellen/373?view=joblisting",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-09-23T23:38:58.304Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -132,7 +136,7 @@
       "url": "https://parmag.ch/stellen/370?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.306Z",
+      "crawledAt": "2026-09-24T14:18:10.927Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -146,11 +150,12 @@
       "featured": false,
       "postedDate": "2026-09-23",
       "applyUrl": "https://parmag.ch/stellen/370?view=joblisting",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-09-23T23:38:58.306Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -166,7 +171,7 @@
       "url": "https://parmag.ch/stellen/360?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.308Z",
+      "crawledAt": "2026-09-24T14:18:10.928Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -180,11 +185,12 @@
       "featured": false,
       "postedDate": "2026-09-23",
       "applyUrl": "https://parmag.ch/stellen/360?view=joblisting",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-09-23T23:38:58.308Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -200,7 +206,7 @@
       "url": "https://parmag.ch/stellen/356?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.308Z",
+      "crawledAt": "2026-09-24T14:18:10.929Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -214,11 +220,12 @@
       "featured": false,
       "postedDate": "2026-09-23",
       "applyUrl": "https://parmag.ch/stellen/356?view=joblisting",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-09-23T23:38:58.308Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -234,7 +241,7 @@
       "url": "https://parmag.ch/stellen/355?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.309Z",
+      "crawledAt": "2026-09-24T14:18:10.929Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -248,11 +255,12 @@
       "featured": false,
       "postedDate": "2026-09-23",
       "applyUrl": "https://parmag.ch/stellen/355?view=joblisting",
-      "_qualityScore": 61,
+      "firstSeenAt": "2026-09-23T23:38:58.309Z",
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -268,7 +276,7 @@
       "url": "https://parmag.ch/stellen/353?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.310Z",
+      "crawledAt": "2026-09-24T14:18:10.930Z",
       "addressLocality": "Bern / Ittigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -282,11 +290,13 @@
       "featured": false,
       "postedDate": "2026-09-23",
       "applyUrl": "https://parmag.ch/stellen/353?view=joblisting",
-      "_qualityScore": 63,
+      "needsRetranslation": false,
+      "firstSeenAt": "2026-09-23T23:38:58.310Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -302,7 +312,7 @@
       "url": "https://parmag.ch/stellen/345?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.312Z",
+      "crawledAt": "2026-09-24T14:18:10.931Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -316,16 +326,15 @@
       "featured": false,
       "postedDate": "2026-09-23",
       "applyUrl": "https://parmag.ch/stellen/345?view=joblisting",
-      "_qualityScore": 63,
+      "firstSeenAt": "2026-09-23T23:38:58.312Z",
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 4,
+        "translation": 25,
         "completeness": 14
       }
-    }
-  ],
-  "updatedJobs": [
+    },
     {
       "id": "parmag-0d3fad45061e",
       "slug": "parmag-ag-basel-stadt-basellandschaft-parmag-ch",
@@ -338,7 +347,7 @@
       "url": "https://parmag.ch/stellen/387?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.299Z",
+      "crawledAt": "2026-09-24T14:18:10.919Z",
       "addressLocality": "Basel-Stadt, Basellandschaft",
       "addressRegion": "BS",
       "addressCountry": "CH",
@@ -354,11 +363,11 @@
       "applyUrl": "https://parmag.ch/stellen/387?view=joblisting",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:58:24.797Z",
-      "_qualityScore": 71,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 20,
         "completeness": 14
       }
     },
@@ -374,7 +383,7 @@
       "url": "https://parmag.ch/stellen/386?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.300Z",
+      "crawledAt": "2026-09-24T14:18:10.921Z",
       "addressLocality": "Biel, Neuenburg & Freiburg",
       "addressRegion": "NE",
       "addressCountry": "CH",
@@ -390,11 +399,11 @@
       "applyUrl": "https://parmag.ch/stellen/386?view=joblisting",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:58:24.800Z",
-      "_qualityScore": 71,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 20,
         "completeness": 14
       }
     },
@@ -410,7 +419,7 @@
       "url": "https://parmag.ch/stellen/377?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.303Z",
+      "crawledAt": "2026-09-24T14:18:10.923Z",
       "addressLocality": "Stadt Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -426,11 +435,11 @@
       "applyUrl": "https://parmag.ch/stellen/377?view=joblisting",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:58:24.803Z",
-      "_qualityScore": 71,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -446,7 +455,7 @@
       "url": "https://parmag.ch/stellen/371?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.305Z",
+      "crawledAt": "2026-09-24T14:18:10.926Z",
       "addressLocality": "Zürich oder Bern",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -462,11 +471,11 @@
       "applyUrl": "https://parmag.ch/stellen/371?view=joblisting",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:58:24.804Z",
-      "_qualityScore": 71,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -482,7 +491,7 @@
       "url": "https://parmag.ch/stellen/365?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.307Z",
+      "crawledAt": "2026-09-24T14:18:10.927Z",
       "addressLocality": "Region Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -496,13 +505,13 @@
       "featured": false,
       "postedDate": "2026-09-21",
       "applyUrl": "https://parmag.ch/stellen/365?view=joblisting",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-21T15:58:24.806Z",
-      "_qualityScore": 73,
+      "_qualityScore": 84,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 20,
-        "translation": 14,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -518,7 +527,7 @@
       "url": "https://parmag.ch/stellen/352?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.311Z",
+      "crawledAt": "2026-09-24T14:18:10.930Z",
       "addressLocality": "Bern / Ittigen",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -534,11 +543,11 @@
       "applyUrl": "https://parmag.ch/stellen/352?view=joblisting",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:58:24.809Z",
-      "_qualityScore": 71,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -554,7 +563,7 @@
       "url": "https://parmag.ch/stellen/327?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.313Z",
+      "crawledAt": "2026-09-24T14:18:10.936Z",
       "addressLocality": "Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -570,11 +579,11 @@
       "applyUrl": "https://parmag.ch/stellen/327?view=joblisting",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:58:24.810Z",
-      "_qualityScore": 71,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -590,7 +599,7 @@
       "url": "https://parmag.ch/stellen/322?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.313Z",
+      "crawledAt": "2026-09-24T14:18:10.937Z",
       "addressLocality": "St. Gallen",
       "addressRegion": "SG",
       "addressCountry": "CH",
@@ -606,11 +615,11 @@
       "applyUrl": "https://parmag.ch/stellen/322?view=joblisting",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:58:24.810Z",
-      "_qualityScore": 71,
+      "_qualityScore": 82,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 25,
         "completeness": 14
       }
     },
@@ -626,7 +635,7 @@
       "url": "https://parmag.ch/stellen/317?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.314Z",
+      "crawledAt": "2026-09-24T14:18:10.938Z",
       "addressLocality": "Bern oder Zürich",
       "addressRegion": "ZH",
       "addressCountry": "CH",
@@ -642,11 +651,11 @@
       "applyUrl": "https://parmag.ch/stellen/317?view=joblisting",
       "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:58:24.811Z",
-      "_qualityScore": 71,
+      "_qualityScore": 80,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 23,
         "completeness": 14
       }
     },
@@ -662,7 +671,7 @@
       "url": "https://parmag.ch/stellen/311?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.315Z",
+      "crawledAt": "2026-09-24T14:18:10.939Z",
       "addressLocality": "Region Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -676,13 +685,13 @@
       "featured": false,
       "postedDate": "2026-09-21",
       "applyUrl": "https://parmag.ch/stellen/311?view=joblisting",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-21T15:58:24.812Z",
-      "_qualityScore": 71,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 20,
         "completeness": 14
       }
     },
@@ -698,7 +707,7 @@
       "url": "https://parmag.ch/stellen/303?view=joblisting",
       "source": "ParMag AG Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-23T23:38:58.316Z",
+      "crawledAt": "2026-09-24T14:18:10.940Z",
       "addressLocality": "Bern",
       "addressRegion": "BE",
       "addressCountry": "CH",
@@ -712,13 +721,13 @@
       "featured": false,
       "postedDate": "2026-09-21",
       "applyUrl": "https://parmag.ch/stellen/303?view=joblisting",
-      "needsRetranslation": true,
+      "needsRetranslation": false,
       "firstSeenAt": "2026-09-21T15:58:24.813Z",
-      "_qualityScore": 71,
+      "_qualityScore": 77,
       "_qualityBreakdown": {
         "cleanliness": 25,
         "richness": 18,
-        "translation": 14,
+        "translation": 20,
         "completeness": 14
       }
     }
