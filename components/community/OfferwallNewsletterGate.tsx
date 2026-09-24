@@ -33,6 +33,9 @@ import {
   markNewsletterSubscribedLocally,
 } from '@/services/newsletterSubscribers';
 
+/** Last-touch attribution for a login started from this box (see authService). */
+const OFFERWALL_AUTH_ATTRIBUTION = { cta: 'offerwall_social', component: 'OfferwallNewsletterGate' } as const;
+
 type OfferwallLocale = 'it' | 'en' | 'de' | 'fr';
 
 // Self-contained 4-locale copy (the Offerwall passes its own language code, which
@@ -313,6 +316,7 @@ const OfferwallNewsletterGate: React.FC = () => {
               locale={activeLocale}
               errorContext="offerwallGate"
               googleWidth={360}
+              attribution={OFFERWALL_AUTH_ATTRIBUTION}
             />
 
             <div className="relative py-1">

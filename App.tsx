@@ -243,6 +243,8 @@ import {
  exchangeLinkedInCode,
  saveUserProfileToFirestore,
  consumeAuthJobContext,
+ consumeAuthAttributionContext,
+ sanitizeAuthReturnPath,
 } from '@/services/authService';
 import { settleNewsletterAutologin, parseNewsletterAutologin } from '@/services/newsletterAutologinSignal';
 import { claimOneTapPrompt, ONETAP_PENDING_KEY, ONETAP_PROMPTED_KEY } from '@/services/oneTapPromptGate';
@@ -711,6 +713,9 @@ const App: React.FC = () => {
  return;
  }
  if (!decodedState.startsWith('/')) return;
+ // Same-origin paths only: `//host` or `/\host` would make the final
+ // location.replace an open redirect.
+ if (!sanitizeAuthReturnPath(decodedState)) return;
 
  // Only handle on expected callback path OR on root (fallback when the
  // sessionStorage-based SPA restoration from /auth/linkedin/callback/ fails).
@@ -718,6 +723,10 @@ const App: React.FC = () => {
  if (path !== '/auth/linkedin/callback' && path !== '/') return;
 
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', 'callback-return');
+
+ // The surface that started the login, parked by signInWithLinkedIn under
+ // this exact `state`; without it the origin page is the state path itself.
+ const linkedInAttribution = consumeAuthAttributionContext({ linkedinState: state }) || { page: decodedState };
 
  if (errorParam) {
  // User cancelled or LinkedIn returned an error
@@ -730,7 +739,7 @@ const App: React.FC = () => {
 
  setLinkedInCallbackProcessing(true);
 
- const customToken = await exchangeLinkedInCode(code);
+ const customToken = await exchangeLinkedInCode(code, linkedInAttribution);
 
  if (cancelled) return;
 
@@ -746,11 +755,12 @@ const App: React.FC = () => {
  Analytics.trackUIInteraction('auth', 'linkedin', 'login', user ? 'success' : 'no-user');
 
  if (user) {
- // Best-effort: save/update user profile in Firestore for personalization
- saveUserProfileToFirestore(user, 'linkedin').catch(() => {});
+ const savedJobCtx = consumeAuthJobContext();
+ // Best-effort: save/update user profile in Firestore for personalization,
+ // with the job and surface contexts that started this LinkedIn login.
+ saveUserProfileToFirestore(user, 'linkedin', savedJobCtx, linkedInAttribution).catch(() => {});
 
  const email = getAuthEmail(user);
- const savedJobCtx = consumeAuthJobContext();
 
  // Google/Email emit job_auth_funnel:auth_success inline; LinkedIn lands here
  // after a full-page OAuth redirect so the success event must be emitted from

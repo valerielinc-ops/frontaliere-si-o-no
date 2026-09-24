@@ -222,7 +222,78 @@ export type NewsletterUpsertInput = {
   * deliberate `reconsent` keeps the DOI flow and is never skipped.
   */
  skipConfirmationEmail?: boolean;
+ /**
+  * How the last-touch attribution fields (`source_page`, `source_cta`,
+  * `source_component`, `source_route_family`) merge with an existing row.
+  * `overwrite` (default) is a real touch: the input replaces them. `fill`
+  * is a background reconciliation (session restore, login without a
+  * surface context): it only fills fields the row does not have yet, so a
+  * login never erases the box that actually produced the signup. First-touch
+  * `source` / `source_channel` are unaffected by either mode.
+  */
+ attributionMode?: 'overwrite' | 'fill';
 };
+
+const CREATION_STAMP_FIELDS = ['created_at', 'createdAt', 'subscribed_at', 'subscribedAt'] as const;
+
+/**
+ * True for a stored row that no subscription write has ever touched: no
+ * creation stamp, no status and no source channel (e.g. only the auth
+ * profile fields). The first capture on it is its real creation.
+ */
+export function isUncapturedSubscriberRow(existing: Record<string, any> | undefined): boolean {
+ if (!existing) return false;
+ if (CREATION_STAMP_FIELDS.some((field) => existing[field] != null)) return false;
+ return !sanitizeString(existing.status) && !sanitizeString(existing.source_channel);
+}
+
+export type SourceAttributionFields = {
+ source_page: string | null;
+ source_cta: string | null;
+ source_component: string | null;
+ source_route_family: string | null;
+};
+
+/**
+ * Merge the last-touch attribution of an upsert with the stored row.
+ *
+ * Overwrite: the page and its route family travel together — a new page
+ * without an explicit family takes the family derived from that page
+ * (`resolved`), not the stale family of an earlier touch.
+ */
+export function mergeSourceAttribution(
+ input: Pick<NewsletterUpsertInput, 'sourcePage' | 'sourceCta' | 'sourceComponent' | 'sourceRouteFamily' | 'attributionMode'>,
+ existing: Record<string, any> | undefined,
+ resolved: { sourcePage: string | null; sourceRouteFamily: string | null },
+): SourceAttributionFields {
+ const inputPage = sanitizeString(input.sourcePage);
+ const inputCta = sanitizeString(input.sourceCta);
+ const inputComponent = sanitizeString(input.sourceComponent);
+ const inputRouteFamily = sanitizeString(input.sourceRouteFamily);
+ const existingPage = sanitizeString(existing?.source_page);
+ const existingCta = sanitizeString(existing?.source_cta);
+ const existingComponent = sanitizeString(existing?.source_component);
+ const existingRouteFamily = sanitizeString(existing?.source_route_family);
+ const resolvedPage = sanitizeString(resolved.sourcePage);
+ const resolvedRouteFamily = sanitizeString(resolved.sourceRouteFamily);
+ if (input.attributionMode === 'fill') {
+  return {
+   source_page: existingPage || inputPage || resolvedPage,
+   source_cta: existingCta || inputCta,
+   source_component: existingComponent || inputComponent,
+   source_route_family: existingRouteFamily || inputRouteFamily || resolvedRouteFamily,
+  };
+ }
+ return {
+  source_page: inputPage || existingPage || resolvedPage,
+  source_cta: inputCta || existingCta,
+  source_component: inputComponent || existingComponent,
+  source_route_family: inputRouteFamily
+   || (inputPage ? resolvedRouteFamily : null)
+   || existingRouteFamily
+   || resolvedRouteFamily,
+ };
+}
 
 /**
  * The shared registration write used by alert and feature gates.
@@ -1430,10 +1501,7 @@ export async function captureNewsletterSubscriber(
  source_channel: sourceChannel === 'resubscribe_link'
  ? sourceChannel
  : (sanitizeString(existingData?.source_channel) || sourceChannel),
- source_page: sanitizeString(input.sourcePage) || sanitizeString(existingData?.source_page) || resolved.sourcePage,
- source_cta: sanitizeString(input.sourceCta) || sanitizeString(existingData?.source_cta),
- source_component: sanitizeString(input.sourceComponent) || sanitizeString(existingData?.source_component),
- source_route_family: sanitizeString(input.sourceRouteFamily) || sanitizeString(existingData?.source_route_family) || resolved.sourceRouteFamily,
+ ...mergeSourceAttribution(input, existingData, resolved),
  source_utm: input.sourceUtm || existingData?.source_utm || resolved.sourceUtm || null,
  locale: sanitizeString(input.locale) || sanitizeString(existingData?.locale) || resolved.locale,
  signup_locale: sanitizeString(input.signupLocale) || sanitizeString(existingData?.signup_locale) || resolved.signupLocale,
@@ -1595,6 +1663,16 @@ export async function captureNewsletterSubscriber(
   subscribed_at: serverTimestamp(),
   created_at: serverTimestamp(),
  }),
+ // A row that exists but was never captured (profile/login fields only, no
+ // status, no channel, no creation stamp) is created as a subscription by
+ // THIS write. Between 2026-09-12 and 2026-09-16 the auth writer created such
+ // rows, and every later capture treated them as existing, so they never got
+ // a creation date and dropped out of every report by creation day.
+ // `created_at` is not a state field in firestore.rules; the
+ // `subscribed_at` pair stays creation-only (see the comment above).
+ ...(existing.exists() && isUncapturedSubscriberRow(existingData) ? {
+  created_at: serverTimestamp(),
+ } : {}),
  ...(needsConfirmedStamp ? {
   confirmed_at: serverTimestamp(),
   confirmedAt: serverTimestamp(),

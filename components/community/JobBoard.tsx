@@ -6677,7 +6677,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  setAuthError(null);
  const jobContext = buildJobTrackingContext(job);
  try {
- const consented = await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`, 'email');
+ const consented = await autoNewsletterSubscribe(email, `job_gate:${job.company}:${sanitizeJobTitle(job.title).slice(0, 60)}`, 'email', 'job_board_email_unlock');
  localStorage.setItem(JOB_EMAIL_ACCESS_KEY, email.toLowerCase());
  setEmailAccessGranted(true);
  setAuthNotice({ kind: 'pending', email });
@@ -6755,6 +6755,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  email?: string,
  source?: string,
  registrationMethod: 'email' | 'authenticated' = 'email',
+ // Explicit CTA id; the fallback reads the registration method, never the
+ // source name (`job_gate:<company>:<title>` holds no "email").
+ sourceCta?: 'job_board_email_unlock' | 'job_board_social_unlock',
  ): Promise<boolean> => {
  if (!email) return false;
  try {
@@ -6764,7 +6767,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  ]);
  const firestore = getFirestore(await getApp());
  if (!firestore) return false;
- const normalizedSource = String(source || 'job_board_auth').toLowerCase();
  const sourceChannel = 'job_gate' as const;
  const focusedJob = selectedJob || sortedJobs[0] || null;
  const jobContext = focusedJob
@@ -6788,7 +6790,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  source: source || 'job_board_auth',
  sourceChannel,
  sourcePage: window.location.pathname,
- sourceCta: normalizedSource.includes('email') ? 'job_board_email_unlock' : 'job_board_social_unlock',
+ sourceCta: sourceCta || (registrationMethod === 'email' ? 'job_board_email_unlock' : 'job_board_social_unlock'),
  sourceComponent: 'JobBoard',
    sourceRouteFamily: 'job-board',
    locale: navigator.language || 'it-IT',
