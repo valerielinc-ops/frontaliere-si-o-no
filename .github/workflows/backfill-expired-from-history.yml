@@ -151,13 +151,124 @@ jobs:
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
-      - name: Recover dropped jobs from history into expired slices
+      - name: Recover dropped jobs from history into expired slices (checkpointed batches)
+        id: backfill
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
-        run: node scripts/backfill-expired-from-history.mjs
         env:
           DRY_RUN: ${{ inputs.dry_run == true && '1' || '0' }}
           MAX_COMMITS: ${{ inputs.max_commits || '0' }}
           CRAWLER_KEYS: ${{ inputs.crawler_keys || '' }}
+          BACKFILL_CHECKPOINT_BATCH_SIZE: '16'
+        # The history walk writes each expired slice atomically, but the old
+        # one-shot invocation only committed after the whole walk and the test
+        # gate. A timeout or a later unrelated test failure therefore discarded
+        # every slice produced earlier in the run. Process one crawler at a
+        # time, push a small batch, and keep an EXIT trap for a partial batch:
+        # the next run sees the already-enriched slices on main and naturally
+        # resumes from the first unfinished crawler.
+        run: |
+          set -euo pipefail
+
+          checkpoint_batch_size="${BACKFILL_CHECKPOINT_BATCH_SIZE:-16}"
+          case "$checkpoint_batch_size" in
+            ''|*[!0-9]*|0)
+              echo "::error::BACKFILL_CHECKPOINT_BATCH_SIZE must be a positive integer"
+              exit 2
+              ;;
+          esac
+
+          if [ -n "$CRAWLER_KEYS" ]; then
+            keys="$(printf '%s\n' "$CRAWLER_KEYS" | sed 's/[[:space:],][[:space:],]*/\n/g' | sed '/^$/d' | sort -u)"
+          else
+            keys="$(find data/jobs/by-crawler -maxdepth 1 -type f -name '*.json' -print | sed 's#^.*/##; s#\.json$##' | sort -u)"
+          fi
+
+          if [ -z "$keys" ]; then
+            echo 'ℹ️ No crawler slices matched; nothing to backfill.'
+            exit 0
+          fi
+
+          checkpoint_count=0
+          checkpoint_active=0
+          checkpoint_failed=0
+
+          has_dirty_expired_slices() {
+            git status --porcelain -- data/jobs/expired/by-crawler | rg -q '.'
+          }
+
+          checkpoint() {
+            if [ "$checkpoint_active" -eq 1 ]; then
+              return 0
+            fi
+            checkpoint_active=1
+            echo "🧷 Checkpointing recovered slices (batch size: $checkpoint_count)"
+            # Keep the durable checkpoint fail-closed: every changed archive
+            # must still be valid JSON with an orderable expiredAt before it
+            # reaches main. The broader focused suite runs after all batches.
+            if ! node scripts/audit-expired-at-parsable.mjs; then
+              checkpoint_failed=1
+              checkpoint_active=0
+              return 1
+            fi
+            if ! checkpoint_output="$(mktemp)"; then
+              echo '::error::Unable to allocate the checkpoint outcome file.'
+              checkpoint_failed=1
+              checkpoint_active=0
+              return 1
+            fi
+            if ! GITHUB_OUTPUT="$checkpoint_output" SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh --slice-only \
+              "chore(data): checkpoint history backfill slices for resumable recovery"; then
+              rm -f "$checkpoint_output"
+              checkpoint_failed=1
+              checkpoint_active=0
+              return 1
+            fi
+            # git-commit-data.sh deliberately returns 0 when the shared writer
+            # lease stays busy, even though it has not persisted anything.
+            # Require its explicit outcome marker so a checkpoint can never be
+            # reported as successful while the partial slices would disappear
+            # with the runner workspace.
+            if ! rg -q '^has_changes=(true|false)$' "$checkpoint_output"; then
+              rm -f "$checkpoint_output"
+              echo '::error::Checkpoint command returned without a persistence outcome.'
+              checkpoint_failed=1
+              checkpoint_active=0
+              return 1
+            fi
+            rm -f "$checkpoint_output"
+            checkpoint_count=0
+            checkpoint_active=0
+          }
+
+          on_exit() {
+            status=$?
+            trap - EXIT
+            # If the node process or a later shell command fails, persist every
+            # completed atomic slice still dirty in the workspace before the
+            # runner disappears. A failed push remains a real failure; the next
+            # invocation retries the same bounded batch.
+            if [ "$status" -ne 0 ] && [ "$checkpoint_failed" -eq 0 ] && has_dirty_expired_slices; then
+              echo '⚠️ Backfill failed; attempting one last durable slice checkpoint.'
+              if ! checkpoint; then
+                echo '::error::Unable to persist the partial backfill checkpoint.'
+              fi
+            fi
+            exit "$status"
+          }
+          trap on_exit EXIT
+
+          while IFS= read -r key; do
+            [ -n "$key" ] || continue
+            echo "──── Backfilling crawler: $key ────"
+            CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs
+            checkpoint_count=$((checkpoint_count + 1))
+            if [ "$checkpoint_count" -ge "$checkpoint_batch_size" ]; then
+              checkpoint
+            fi
+          done <<< "$keys"
+
+          checkpoint
+          echo '✅ History backfill completed with durable checkpoints.'
 
       - name: Reassemble dataset (so the test gate has data/jobs.json; not committed)
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
@@ -171,6 +282,7 @@ jobs:
         run: node scripts/assemble-jobs-dataset.mjs
 
       - name: Test gate (bot-direct-to-main — never poison main with a bad dump)
+        id: backfill_tests
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         # A workflow that pushes data straight to main is held to the same
         # relevant-test policy as a PR (AGENTS.md). The full suite is not the
@@ -184,24 +296,15 @@ jobs:
         # demonstrates that parallelism is safe for these subprocess tests.
         run: npm run test:backfill
 
-      - name: Commit and push
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
-        id: commit
-        # --slice-only already covers data/jobs/expired/by-crawler/. The
-        # monolithic data/expired-jobs.json is assembled at deploy, not committed
-        # per-crawler — the build plugin reads the uncapped slices directly.
-        run: |
-          SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh --slice-only \
-            "chore(data): backfill dropped jobs from history for orphan coverage"
-        env:
-          SKIP_AI_TRANSLATION: '1'
-
-      - name: Trigger deploy if data changed
-        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+      - name: Trigger deploy after validated backfill
+        if: steps.backfill.outcome == 'success' && steps.backfill_tests.outcome == 'success' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
         # fails the job, caught by "Report failure to GitHub Issues" below —
         # that GitHub issue IS this caller's recovery net (auto-triage picks
         # it up), so silencing the failure would just hide a real deploy gap.
+        # Do not gate this on has_changes: a previous attempt may have pushed
+        # its checkpoint and failed only in the test/deploy tail. A clean rerun
+        # must still publish the already-persisted data.
         run: bash scripts/lib/trigger-deploy.sh
         env:
           GITHUB_REPOSITORY: ${{ github.repository }}
