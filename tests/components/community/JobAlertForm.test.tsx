@@ -17,8 +17,11 @@
  */
 
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
-import { render, screen, fireEvent, cleanup, within } from '@testing-library/react';
+import { render, screen, fireEvent, cleanup, within, waitFor } from '@testing-library/react';
 import JobAlertForm from '@/components/community/JobAlertForm';
+import { Analytics } from '@/services/analytics';
+import { savePendingJobAlert } from '@/services/pendingJobAlert';
+import type { JobAlertConfig } from '@/services/jobAlertService';
 
 // Mock the service so the form can dynamic-import it without trying to talk
 // to a real Firestore (we don't assert on this — see the service-level tests
@@ -86,11 +89,38 @@ function getFieldset(): HTMLFieldSetElement {
 }
 
 beforeEach(() => {
-  // nothing to set up beyond the per-file mocks
+  localStorage.clear();
+  vi.mocked(Analytics.trackJobAlertCreated).mockClear();
 });
 
 afterEach(() => {
   cleanup();
+  localStorage.clear();
+});
+
+const pendingConfig: JobAlertConfig = {
+  keywords: ['infermiere'],
+  locations: [],
+  contractTypes: [],
+  sectors: [],
+  cantonFilter: null,
+  frequency: 'daily',
+  locale: 'it',
+};
+
+describe('JobAlertForm — post-auth attribution', () => {
+  it('replays the inline CTA surface and reports the auth path separately', async () => {
+    savePendingJobAlert(pendingConfig, 'inline_card');
+    render(<JobAlertForm authUser={authUser} />);
+
+    await waitFor(() => {
+      expect(Analytics.trackJobAlertCreated).toHaveBeenCalledWith(expect.objectContaining({
+        surface: 'inline_card',
+        ctaSurface: 'inline_card',
+        creationPath: 'post_auth_auto',
+      }));
+    });
+  });
 });
 
 describe('JobAlertForm — canton geo filter', () => {

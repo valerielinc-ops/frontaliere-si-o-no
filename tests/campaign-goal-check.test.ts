@@ -12,6 +12,7 @@ import {
   ALERT_CTA_SURFACE_DIMENSION,
   ALERT_CTA_SURFACE_NOT_SET,
   ALERT_CTA_SURFACE_MAX_NOT_SET_SHARE,
+  isAlertCtaSurface,
   buildAlertFunnelHogqlQuery,
   buildAlertFunnelGa4Filter,
   checkAlertCtaSurfaceDimension,
@@ -395,6 +396,11 @@ describe('alertFunnelOutcome (#7311 — person-scoped funnel)', () => {
 });
 
 describe('alert funnel surface attribution (#7763/#7764)', () => {
+  it('keeps auth replay as a diagnostic path, never as a funnel surface', () => {
+    expect(isAlertCtaSurface('inline_card')).toBe(true);
+    expect(isAlertCtaSurface('post_auth_auto')).toBe(false);
+  });
+
   it('keeps one seven-surface allowlist across HogQL and GA4', () => {
     expect(ALERT_CTA_SURFACES).toEqual([
       'inline_card',

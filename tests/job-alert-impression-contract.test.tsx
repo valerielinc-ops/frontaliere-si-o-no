@@ -148,13 +148,23 @@ describe('#5039 — no alert-CTA impression is emitted from a bare mount', () =>
   });
 });
 
-describe('#7311 — the created event carries the funnel surface dimension', () => {
-  it('job_alert_created reports cta_surface, the dimension the other funnel events use', () => {
+describe('#9576 — replay keeps the impression surface separate from auth path', () => {
+  it('job_alert_created reports the qualifying CTA surface and diagnostic path separately', () => {
     const src = fs.readFileSync(path.join(ROOT, 'services/analytics.ts'), 'utf-8');
-    const payload = src.slice(src.indexOf("log('job_alert_created'"));
-    expect(payload).toContain('cta_surface: surface');
+    const start = src.indexOf("log('job_alert_created'");
+    const payload = src.slice(start, src.indexOf('trackJobAlertDeleted', start));
+    expect(payload).toContain('cta_surface: ctaSurface');
+    expect(payload).toContain('creation_path: details.creationPath');
+    expect(payload).not.toContain('post_auth_auto');
     // Kept alongside, not replaced: the PostHog queries read `alert_surface`.
     expect(payload).toContain('alert_surface: surface');
+  });
+
+  it('the form stores the inline source before auth and reuses it on replay', () => {
+    const src = fs.readFileSync(path.join(ROOT, 'components/community/JobAlertForm.tsx'), 'utf-8');
+    expect(src).toContain("savePendingJobAlert(pendingConfig, 'inline_card')");
+    expect(src).toContain('pending.ctaSurface');
+    expect(src).toContain("'post_auth_auto'");
   });
 });
 

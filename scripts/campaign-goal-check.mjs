@@ -109,9 +109,11 @@ function fmtNum(n) {
   return n === null || n === undefined || Number.isNaN(n) ? 'n/a' : (Math.round(n * 100) / 100).toString();
 }
 
-// Issue #7763: only these surfaces emit the preceding
-// `job_alert_cta_shown` impression. The other `job_alert_created` surfaces are
-// valid product events, but they do not belong in this impression funnel.
+// Issue #7763/#9576: only these surfaces emit the preceding
+// `job_alert_cta_shown` impression. `post_auth_auto` is a creation path, not a
+// surface; auth replay must carry the original surface in `cta_surface`. The
+// other `job_alert_created` surfaces are valid product events, but they do not
+// belong in this impression funnel.
 export const ALERT_CTA_SURFACES = Object.freeze([
   'inline_card',
   'job_detail_button',
@@ -121,6 +123,10 @@ export const ALERT_CTA_SURFACES = Object.freeze([
   'sticky_banner',
   'end_card',
 ]);
+
+export function isAlertCtaSurface(surface) {
+  return typeof surface === 'string' && ALERT_CTA_SURFACES.includes(surface);
+}
 export const ALERT_FUNNEL_EVENT_NAMES = Object.freeze(['job_alert_cta_shown', 'job_alert_created']);
 export const ALERT_CTA_SURFACE_DIMENSION = 'customEvent:cta_surface';
 export const ALERT_CTA_SURFACE_NOT_SET = '(not set)';

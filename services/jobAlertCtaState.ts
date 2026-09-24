@@ -14,6 +14,29 @@
 export const JOB_ALERT_SUBSCRIBED_KEY = 'job_alert_subscribed';
 
 /**
+ * Surfaces accepted by the alert-funnel conversion goal. Each one has a
+ * corresponding `job_alert_cta_shown` event; an authentication/replay path is
+ * deliberately not a CTA surface.
+ */
+export const JOB_ALERT_CTA_SURFACES = [
+  'inline_card',
+  'job_detail_button',
+  'job_detail_prompt',
+  'job_board_filters',
+  'job_match_pill',
+  'sticky_banner',
+  'end_card',
+] as const;
+
+export type JobAlertCtaSurface = (typeof JOB_ALERT_CTA_SURFACES)[number];
+
+export type JobAlertCreationPath = 'direct' | 'post_auth_auto';
+
+export function isJobAlertCtaSurface(value: unknown): value is JobAlertCtaSurface {
+  return typeof value === 'string' && JOB_ALERT_CTA_SURFACES.includes(value as JobAlertCtaSurface);
+}
+
+/**
  * True when this visitor has successfully created at least one job alert
  * (set by components/community/JobAlertForm.tsx on every successful
  * `persistAlert` call, manual or post-auth-replay).

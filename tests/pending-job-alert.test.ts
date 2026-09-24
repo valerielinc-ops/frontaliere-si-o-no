@@ -28,12 +28,17 @@ describe('pendingJobAlert', () => {
 
   it('round-trips a saved config', () => {
     savePendingJobAlert(config);
-    expect(consumePendingJobAlert()).toEqual(config);
+    expect(consumePendingJobAlert()).toEqual({ config, ctaSurface: 'inline_card' });
+  });
+
+  it('round-trips the impression-bearing CTA surface separately from the config', () => {
+    savePendingJobAlert(config, 'job_detail_prompt');
+    expect(consumePendingJobAlert()).toEqual({ config, ctaSurface: 'job_detail_prompt' });
   });
 
   it('consumes once — a second consume returns null', () => {
     savePendingJobAlert(config);
-    expect(consumePendingJobAlert()).toEqual(config);
+    expect(consumePendingJobAlert()).toEqual({ config, ctaSurface: 'inline_card' });
     expect(consumePendingJobAlert()).toBeNull();
   });
 
@@ -55,7 +60,7 @@ describe('pendingJobAlert', () => {
     vi.setSystemTime(new Date('2026-06-22T10:00:00Z'));
     savePendingJobAlert(config);
     vi.setSystemTime(new Date('2026-06-22T10:14:00Z'));
-    expect(consumePendingJobAlert()).toEqual(config);
+    expect(consumePendingJobAlert()).toEqual({ config, ctaSurface: 'inline_card' });
   });
 
   it('clear removes a pending entry', () => {
@@ -79,6 +84,11 @@ describe('pendingJobAlert', () => {
     expect(sessionStorage.getItem('pending_job_alert')).toBeNull();
     // A fresh page context (new tab / post-redirect reload) reads the same
     // shared localStorage and recovers the config.
-    expect(consumePendingJobAlert()).toEqual(config);
+    expect(consumePendingJobAlert()).toEqual({ config, ctaSurface: 'inline_card' });
+  });
+
+  it('defaults legacy config-only records to the inline surface', () => {
+    localStorage.setItem('pending_job_alert', JSON.stringify({ value: config, savedAt: Date.now() }));
+    expect(consumePendingJobAlert()).toEqual({ config, ctaSurface: 'inline_card' });
   });
 });

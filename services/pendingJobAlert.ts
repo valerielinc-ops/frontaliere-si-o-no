@@ -14,20 +14,46 @@
  */
 
 import type { JobAlertConfig } from '@/services/jobAlertService';
+import {
+  isJobAlertCtaSurface,
+  type JobAlertCtaSurface,
+} from '@/services/jobAlertCtaState';
 import { saveIntent, consumeIntent, clearIntent } from '@/services/pendingIntentStore';
 
 const KEY = 'pending_job_alert';
 
-export function savePendingJobAlert(config: JobAlertConfig): void {
-  saveIntent(KEY, config);
+export interface PendingJobAlert {
+  config: JobAlertConfig;
+  ctaSurface: JobAlertCtaSurface;
+}
+
+export function savePendingJobAlert(
+  config: JobAlertConfig,
+  ctaSurface: JobAlertCtaSurface = 'inline_card',
+): void {
+  saveIntent<PendingJobAlert>(KEY, { config, ctaSurface });
 }
 
 /**
  * Return the pending alert config and clear it, but only if it was saved within
  * the TTL. Returns null when absent, expired, or malformed.
  */
-export function consumePendingJobAlert(): JobAlertConfig | null {
-  return consumeIntent<JobAlertConfig>(KEY);
+export function consumePendingJobAlert(): PendingJobAlert | null {
+  const pending = consumeIntent<PendingJobAlert | JobAlertConfig>(KEY);
+  if (!pending) return null;
+
+  // Intent records written before the attribution field was introduced stored
+  // the config directly. Replay those safely as the form's inline surface.
+  if (typeof pending === 'object' && pending !== null && 'config' in pending) {
+    return {
+      config: pending.config,
+      ctaSurface: isJobAlertCtaSurface(pending.ctaSurface)
+        ? pending.ctaSurface
+        : 'inline_card',
+    };
+  }
+
+  return { config: pending, ctaSurface: 'inline_card' };
 }
 
 export function clearPendingJobAlert(): void {

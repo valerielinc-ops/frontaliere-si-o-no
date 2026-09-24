@@ -111,6 +111,11 @@ import {
 } from './benignErrorPatterns';
 import { safeAffiliateToken } from '../functions/src/lib/affiliateLinks.js';
 import { readBuildIdForTelemetry } from './buildInfo';
+import {
+ isJobAlertCtaSurface,
+ type JobAlertCtaSurface,
+ type JobAlertCreationPath,
+} from './jobAlertCtaState';
 
 export interface AnalyticsPageViewIdentity {
  jobSlug?: string;
@@ -2539,7 +2544,11 @@ export const Analytics = {
  keywords?: string;
  location?: string;
  frequency?: string;
- surface?: 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'sticky_banner' | 'end_card' | 'preferences' | 'post_auth_auto' | 'job_match_pill' | 'job_board_filters' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button';
+ surface?: JobAlertCtaSurface | 'preferences' | 'saved_jobs_nudge' | 'calculator_results' | 'company_follow_button';
+ /** Explicit impression-bearing source; auth replay must preserve this value. */
+ ctaSurface?: JobAlertCtaSurface;
+ /** Diagnostic path, kept separate from the CTA surface used by the funnel. */
+ creationPath?: JobAlertCreationPath;
  } = {}) => {
  // Defensive: collapse undefined/empty to clear sentinels rather than null
  // so PostHog HogQL queries never see mixed null/empty values for the same
@@ -2550,20 +2559,22 @@ export const Analytics = {
  const keywords = redactPersonalData((details.keywords || '').trim(), { inferNamesFromCapitalisation: false }).text;
  const location = redactPersonalData((details.location || '').trim(), { inferNamesFromCapitalisation: false }).text;
  const frequency = (details.frequency || 'daily').trim();
- const surface = details.surface || 'inline_card';
+ const surface = details.surface || details.ctaSurface || 'inline_card';
+ const ctaSurface = details.ctaSurface && isJobAlertCtaSurface(details.ctaSurface)
+  ? details.ctaSurface
+  : isJobAlertCtaSurface(surface)
+   ? surface
+   : undefined;
+ const createdParams = {
+  alert_keywords: keywords || '(none)',
+  alert_location: location || '(none)',
+  alert_frequency: frequency || 'daily',
+  alert_surface: surface,
+  ...(ctaSurface ? { cta_surface: ctaSurface } : {}),
+  ...(details.creationPath ? { creation_path: details.creationPath } : {}),
+ };
  log('job_alert_created', {
- alert_keywords: keywords || '(none)',
- alert_location: location || '(none)',
- alert_frequency: frequency || 'daily',
- alert_surface: surface,
- // Same value under the name the OTHER two funnel events use
- // (`job_alert_cta_shown`/`job_alert_cta_click`). `alert_surface` is not a
- // registered GA4 custom dimension, so on the GA4 fallback path — the only
- // path there is since PostHog went dark on 2026-07-23 — every creation
- // reported `(not set)` and the alert_funnel_conversion goal (#4298/#7311)
- // could not be attributed to the surface that produced it. `cta_surface`
- // IS registered; `alert_surface` stays for the PostHog queries that read it.
- cta_surface: surface,
+ ...createdParams,
  });
  },
 

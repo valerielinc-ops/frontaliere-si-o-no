@@ -17,7 +17,11 @@ import { savePendingJobAlert, consumePendingJobAlert } from '@/services/pendingJ
 import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
 import { SECTORS } from './jobAlertConstants';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
-import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
+import {
+  JOB_ALERT_SUBSCRIBED_KEY,
+  type JobAlertCtaSurface,
+  type JobAlertCreationPath,
+} from '@/services/jobAlertCtaState';
 import {
   loadGatingState,
   saveGatingState,
@@ -245,7 +249,13 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
   const configIsEmpty = (c: JobAlertConfig): boolean => c.keywords.length === 0 && c.locations.length === 0;
 
   const persistAlert = useCallback(
-    async (uid: string, email: string, config: JobAlertConfig, surface: 'inline_card' | 'post_auth_auto'): Promise<JobAlert> => {
+    async (
+      uid: string,
+      email: string,
+      config: JobAlertConfig,
+      ctaSurface: JobAlertCtaSurface,
+      creationPath: JobAlertCreationPath = 'direct',
+    ): Promise<JobAlert> => {
       const { createAlert } = await import("@/services/jobAlertService");
       const alert = await createAlert(uid, email, config);
       setAlerts((prev) => [alert, ...prev]);
@@ -255,7 +265,9 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
             keywords: config.keywords.join(", "),
             location: config.locations.join(", "),
             frequency: config.frequency,
-            surface,
+            surface: ctaSurface,
+            ctaSurface,
+            creationPath,
           }),
         )
         .catch(() => {});
@@ -314,7 +326,13 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
     pendingConsumedRef.current = true;
     (async () => {
       try {
-        const created = await persistAlert(authUser.uid, authUser.email || "", pending, "post_auth_auto");
+        const created = await persistAlert(
+          authUser.uid,
+          authUser.email || "",
+          pending.config,
+          pending.ctaSurface,
+          'post_auth_auto',
+        );
         showToast(t("jobAlert.created") || "Alert creata! Riceverai una email con le nuove offerte.");
         // Reset like the manual path so the now-authenticated user can't re-submit
         // the still-populated form and create a duplicate alert.
@@ -334,7 +352,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  const handleCreate = async () => {
  if (!authUser) {
  const pendingConfig = buildConfig();
-          if (!configIsEmpty(pendingConfig)) savePendingJobAlert(pendingConfig);
+          if (!configIsEmpty(pendingConfig)) savePendingJobAlert(pendingConfig, 'inline_card');
           onRequireAuth?.();
  return;
  }
