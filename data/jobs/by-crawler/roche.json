@@ -404,7 +404,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:25:07.123Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -645,7 +644,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:25:00.884Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1130,7 +1128,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:24:51.716Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1209,7 +1206,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:24:50.801Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -1286,7 +1282,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:12:51.791Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -1698,8 +1693,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "needsRetranslation": true
+      "addressRegion": "BS"
     },
     {
       "id": "roche-a7ff9354a13b",
@@ -1850,7 +1844,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:24:06.344Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -2007,7 +2000,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:24:03.583Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -3213,7 +3205,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:17:57.040Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -3547,7 +3538,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:16:05.075Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -3877,7 +3867,6 @@
         ]
       },
       "firstSeenAt": "2026-05-24T23:08:32.100Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -4033,7 +4022,6 @@
         ]
       },
       "firstSeenAt": "2026-05-27T13:43:18.848Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -4351,7 +4339,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T23:27:58.803Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4432,7 +4419,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T23:27:57.937Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4665,7 +4651,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T23:27:55.483Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4744,7 +4729,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T23:27:54.605Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -4901,7 +4885,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T23:27:52.847Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -4980,7 +4963,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T23:27:51.948Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -5061,7 +5043,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T23:27:51.125Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -5142,7 +5123,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T23:27:49.470Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -5215,7 +5195,6 @@
         ]
       },
       "firstSeenAt": "2026-05-30T23:27:48.548Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -5236,7 +5215,7 @@
       "slug": "medical-direttore-cvm-roche-basel",
       "slugByLocale": {
         "it": "medical-direttore-cvm-roche-basel",
-        "en": "medical-director-cvm-roche-ch",
+        "en": "medical-director-cvm-roche-ch-iufblz",
         "de": "medical-direktor-cvm-roche-basel",
         "fr": "directeur-medical-cvm-roche-basel"
       },
@@ -5314,7 +5293,8 @@
           "medical-direttore-cvm-roche-basel"
         ],
         "en": [
-          "medical-director-cvm-roche-ch-iufblz"
+          "medical-director-cvm-roche-ch-iufblz",
+          "medical-director-cvm-roche-ch"
         ],
         "de": [
           "medical-director-cvm-roche-ch"
@@ -5347,7 +5327,7 @@
       "slug": "direttore-medico-cvm-roche-basel",
       "slugByLocale": {
         "it": "direttore-medico-cvm-roche-basel",
-        "en": "medical-director-cvm-roche-ch",
+        "en": "medical-director-cvm-roche-ch-iufbmm",
         "de": "medical-direktor-cvm-roche-basel",
         "fr": "medical-director-cvm-roche-ch-iufbmm"
       },
@@ -5408,7 +5388,8 @@
           "direttore-medico-cvm-roche-basel"
         ],
         "en": [
-          "medical-director-cvm-roche-ch-iufbmm"
+          "medical-director-cvm-roche-ch-iufbmm",
+          "medical-director-cvm-roche-ch"
         ],
         "de": [
           "medical-director-cvm-roche-ch"
@@ -5497,7 +5478,22 @@
         }
       },
       "addressRegion": "BS",
-      "firstSeenAt": "2026-09-23T23:47:41.801Z"
+      "firstSeenAt": "2026-09-23T23:47:41.801Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "medical-direttore-cvm-roche-basel-a4vrka",
+          "medical-direktor-cvm-roche-basel",
+          "medical-direttore-cvm-roche-basel"
+        ],
+        "de": [
+          "medical-direktor-cvm-roche-basel"
+        ]
+      },
+      "previousSlugs": [
+        "medical-direttore-cvm-roche-basel-a4vrka",
+        "medical-direktor-cvm-roche-basel",
+        "medical-direttore-cvm-roche-basel"
+      ]
     },
     {
       "id": "roche-03fad513af01",
@@ -5562,7 +5558,6 @@
         ]
       },
       "firstSeenAt": "2026-06-02T14:30:51.106Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -5730,7 +5725,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:06:10.967Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -5809,7 +5803,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:06:10.000Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -6049,7 +6042,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T12:33:18.412Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -6334,7 +6326,6 @@
         ]
       },
       "firstSeenAt": "2026-06-09T23:05:02.127Z",
-      "needsRetranslation": true,
       "salaryMin": 50000,
       "salaryMax": 76000,
       "salarySource": "estimated",
@@ -6415,7 +6406,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:22:26.211Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -6498,7 +6488,6 @@
         ]
       },
       "firstSeenAt": "2026-06-11T23:22:25.472Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -6816,7 +6805,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:22:18.985Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -6982,7 +6970,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:14:00.725Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -7061,7 +7048,6 @@
         ]
       },
       "firstSeenAt": "2026-06-16T14:20:52.389Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -7203,7 +7189,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:20:36.851Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -7667,7 +7652,6 @@
         ]
       },
       "firstSeenAt": "2026-06-22T23:32:16.361Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -7746,7 +7730,6 @@
         ]
       },
       "firstSeenAt": "2026-06-19T13:19:18.002Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -7839,8 +7822,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "needsRetranslation": true
+      "addressRegion": "BS"
     },
     {
       "id": "roche-269c0f774942",
@@ -8460,7 +8442,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T13:54:56.983Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -8536,7 +8517,6 @@
         ]
       },
       "firstSeenAt": "2026-06-23T23:04:09.371Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -8615,7 +8595,6 @@
         ]
       },
       "firstSeenAt": "2026-06-28T22:29:31.725Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -8697,7 +8676,6 @@
         ]
       },
       "firstSeenAt": "2026-06-29T13:54:35.357Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -8941,7 +8919,6 @@
         ]
       },
       "firstSeenAt": "2026-06-25T23:12:52.196Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -9230,7 +9207,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T12:49:48.896Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -9314,7 +9290,7 @@
       "slug": "solution-architetto-dia-r-d-roche-basel",
       "slugByLocale": {
         "it": "solution-architetto-dia-r-d-roche-basel",
-        "en": "solution-architect-dia-r-d-roche-ch",
+        "en": "solution-architect-dia-r-d-roche-ch-3i9uyi",
         "de": "losungsarchitekt-dia-r-d-roche-basel",
         "fr": "solution-architecte-dia-r-d-roche-basel"
       },
@@ -9709,7 +9685,6 @@
         ]
       },
       "firstSeenAt": "2026-06-30T12:25:07.843Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -9880,7 +9855,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:17:05.909Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -9956,7 +9930,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T12:16:58.946Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -10273,7 +10246,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T11:59:30.057Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -10348,7 +10320,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:13:46.961Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -10424,7 +10395,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T11:59:13.085Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -10503,7 +10473,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T11:59:12.194Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -10595,7 +10564,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T11:59:10.450Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -10674,7 +10642,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:22:08.357Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -10825,7 +10792,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:06.524Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -10899,7 +10865,6 @@
         ]
       },
       "firstSeenAt": "2026-07-08T22:08:44.699Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -11268,7 +11233,6 @@
         ]
       },
       "firstSeenAt": "2026-06-05T22:43:09.457Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -11696,7 +11660,6 @@
         ]
       },
       "firstSeenAt": "2026-07-10T22:04:17.551Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -12081,7 +12044,6 @@
         ]
       },
       "firstSeenAt": "2026-07-15T22:02:58.251Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -12465,7 +12427,6 @@
         ]
       },
       "firstSeenAt": "2026-07-01T23:08:09.988Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -12700,7 +12661,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:33:35.598Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -12776,7 +12736,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:33:17.141Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -12855,7 +12814,6 @@
         ]
       },
       "firstSeenAt": "2026-07-06T15:33:16.325Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -13557,7 +13515,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:08:25.835Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -13807,7 +13764,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:16:46.359Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -13888,7 +13844,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:07:34.578Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -14086,7 +14041,6 @@
         ]
       },
       "firstSeenAt": "2026-07-23T22:08:07.829Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -14162,7 +14116,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T11:12:26.590Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -14235,7 +14188,6 @@
         ]
       },
       "firstSeenAt": "2026-07-24T22:08:30.915Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -14309,7 +14261,6 @@
         ]
       },
       "firstSeenAt": "2026-07-25T21:58:15.026Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -14515,7 +14466,6 @@
         ]
       },
       "firstSeenAt": "2026-07-28T22:08:43.594Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -14742,7 +14692,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T11:17:11.998Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -15065,7 +15014,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:10:08.377Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -15372,7 +15320,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:09:59.823Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -15451,7 +15398,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:52.340Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -15608,7 +15554,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:48.819Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -15778,7 +15723,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:44.525Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -15857,7 +15801,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:43.662Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -16014,7 +15957,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:40.230Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -16093,7 +16035,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:36.785Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -16683,7 +16624,6 @@
         ]
       },
       "firstSeenAt": "2026-08-03T22:12:49.171Z",
-      "needsRetranslation": true,
       "salaryMin": 109000,
       "salaryMax": 187000,
       "salarySource": "estimated",
@@ -16756,7 +16696,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T22:17:47.506Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -17054,7 +16993,6 @@
         ]
       },
       "firstSeenAt": "2026-08-04T11:34:03.143Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -17141,7 +17079,6 @@
         ]
       },
       "firstSeenAt": "2026-07-14T10:55:36.689Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -17225,7 +17162,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T11:30:23.476Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -17395,7 +17331,6 @@
         "l-etude-commence-le-plomb-roche-kyiv"
       ],
       "firstSeenAt": "2026-08-04T22:17:50.256Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -17477,11 +17412,25 @@
       "firstSeenAt": "2026-09-23T23:45:22.944Z",
       "previousSlugsByLocale": {
         "it": [
-          "solution-architetto-dia-r-d-roche-basel-3ip55s"
+          "solution-architetto-dia-r-d-roche-basel-3ip55s",
+          "solution-architetto-dia-r-d-roche-basel-5h1clm",
+          "losungsarchitekt-dia-r-d-roche-basel-0934f1",
+          "solution-architecte-dia-r-d-roche-basel",
+          "solution-architetto-dia-r-d-roche-basel"
+        ],
+        "de": [
+          "losungsarchitekt-dia-r-d-roche-basel-0934f1"
+        ],
+        "fr": [
+          "solution-architecte-dia-r-d-roche-basel"
         ]
       },
       "previousSlugs": [
-        "solution-architetto-dia-r-d-roche-basel-3ip55s"
+        "solution-architetto-dia-r-d-roche-basel-3ip55s",
+        "solution-architetto-dia-r-d-roche-basel-5h1clm",
+        "losungsarchitekt-dia-r-d-roche-basel-0934f1",
+        "solution-architecte-dia-r-d-roche-basel",
+        "solution-architetto-dia-r-d-roche-basel"
       ]
     },
     {
@@ -17771,7 +17720,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:10:37.691Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -17847,7 +17795,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:10:36.809Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -17926,7 +17873,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T10:10:35.946Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -18006,7 +17952,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:44:15.477Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -18159,7 +18104,6 @@
         ]
       },
       "firstSeenAt": "2026-08-07T21:44:02.849Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -18406,7 +18350,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:33:44.935Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -18710,7 +18653,6 @@
         ]
       },
       "firstSeenAt": "2026-08-10T10:27:35.510Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -18789,7 +18731,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:10:26.876Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -19016,7 +18957,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:04:22.675Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -19095,7 +19035,6 @@
         ]
       },
       "firstSeenAt": "2026-08-11T10:10:11.178Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -19414,7 +19353,6 @@
         "partner-del-viaggio-paziente-ophthalmology-roche-basel"
       ],
       "firstSeenAt": "2026-08-12T10:17:31.695Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -19949,7 +19887,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T10:18:29.572Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -20216,7 +20153,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:49:05.301Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -20795,7 +20731,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T09:53:45.770Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -20874,7 +20809,6 @@
         ]
       },
       "firstSeenAt": "2026-08-17T09:53:44.976Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -21109,7 +21043,10 @@
         "senior-medical-science-manager-immunology-roche-ch",
         "senior-medical-science-manager-immunologie-roche-basel",
         "directeur-des-sciences-medicales-immunologie-roche-basel",
-        "senior-medical-science-manager-immunology-roche-basel"
+        "senior-medical-science-manager-immunology-roche-basel",
+        "senior-direttore-scientifico-medico-bc-roche-basel",
+        "senior-medizinischer-leiter-bc-roche-basel",
+        "aine-gestionnaire-des-sciences-medicales-bc-roche-basel"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21118,17 +21055,22 @@
           "senior-medical-science-manager-immunology-roche-ch",
           "senior-medical-science-manager-immunologie-roche-basel",
           "directeur-des-sciences-medicales-immunologie-roche-basel",
-          "senior-medical-science-manager-immunology-roche-basel"
+          "senior-medical-science-manager-immunology-roche-basel",
+          "senior-direttore-scientifico-medico-bc-roche-basel",
+          "senior-medizinischer-leiter-bc-roche-basel",
+          "aine-gestionnaire-des-sciences-medicales-bc-roche-basel"
         ],
         "en": [
           "senior-medical-science-manager-bc-roche-ch",
           "senior-medical-science-manager-immunology-roche-ch"
         ],
         "de": [
-          "senior-medical-science-manager-immunologie-roche-basel"
+          "senior-medical-science-manager-immunologie-roche-basel",
+          "senior-medizinischer-leiter-bc-roche-basel"
         ],
         "fr": [
-          "directeur-des-sciences-medicales-immunologie-roche-basel"
+          "directeur-des-sciences-medicales-immunologie-roche-basel",
+          "aine-gestionnaire-des-sciences-medicales-bc-roche-basel"
         ]
       },
       "firstSeenAt": "2026-08-18T09:45:03.844Z",
@@ -21287,7 +21229,6 @@
         ]
       },
       "firstSeenAt": "2026-08-18T09:44:54.510Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -21761,7 +21702,6 @@
         ]
       },
       "firstSeenAt": "2026-08-22T09:38:26.489Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -21840,7 +21780,6 @@
         ]
       },
       "firstSeenAt": "2026-08-22T09:38:23.935Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -22574,7 +22513,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:15:49.319Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -22653,7 +22591,6 @@
         ]
       },
       "firstSeenAt": "2026-07-07T22:15:07.351Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -22732,7 +22669,6 @@
         ]
       },
       "firstSeenAt": "2026-08-22T09:37:20.273Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -22915,7 +22851,6 @@
         ]
       },
       "firstSeenAt": "2026-08-22T09:37:10.775Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -23232,7 +23167,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:34:10.662Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -23576,7 +23510,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:33:45.190Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -23649,7 +23582,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:33:44.092Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -23807,7 +23739,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:33:37.445Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -23961,7 +23892,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:33:25.367Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -24196,7 +24126,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:33:01.818Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -24421,7 +24350,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:32:29.422Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -24683,7 +24611,6 @@
         ]
       },
       "firstSeenAt": "2026-08-25T21:32:14.838Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -24994,7 +24921,6 @@
         ]
       },
       "firstSeenAt": "2026-08-26T09:54:41.990Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -25233,7 +25159,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:35:32.304Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -25314,7 +25239,6 @@
         ]
       },
       "firstSeenAt": "2026-08-13T21:49:12.355Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -25983,7 +25907,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:17:16.518Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -26062,7 +25985,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:17:12.695Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -26141,7 +26063,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:16:55.855Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -26435,7 +26356,6 @@
         ]
       },
       "firstSeenAt": "2026-09-13T14:02:42.045Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -26508,7 +26428,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T07:25:22.867Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -26748,7 +26667,6 @@
         ]
       },
       "firstSeenAt": "2026-06-03T15:21:06.449Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -26829,7 +26747,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T07:25:14.636Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -27464,7 +27381,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T07:24:26.111Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -27708,7 +27624,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T07:24:15.902Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -28130,7 +28045,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T07:23:53.633Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -28280,7 +28194,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T07:23:44.977Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -28747,7 +28660,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:56.605Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -28820,7 +28732,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T13:33:55.576Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -29051,7 +28962,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:07:36.359Z",
-      "needsRetranslation": true,
       "salaryMin": 178000,
       "salaryMax": 313000,
       "salarySource": "estimated",
@@ -29501,7 +29411,6 @@
         ]
       },
       "firstSeenAt": "2026-07-30T22:10:05.740Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -29574,7 +29483,6 @@
         ]
       },
       "firstSeenAt": "2026-08-22T09:38:09.415Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -29739,7 +29647,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:33:54.285Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -29890,7 +29797,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:07:25.861Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -30050,7 +29956,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:11:36.512Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
@@ -30493,7 +30398,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:26:58.820Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -30572,7 +30476,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:26:55.327Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -30809,7 +30712,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:26:42.154Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -30888,7 +30790,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:26:31.500Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -30967,7 +30868,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T22:55:50.400Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -31274,7 +31174,6 @@
         ]
       },
       "firstSeenAt": "2026-09-05T22:46:59.340Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -31918,7 +31817,6 @@
         ]
       },
       "firstSeenAt": "2026-08-12T10:17:30.239Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -32179,7 +32077,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T08:40:07.465Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -32355,7 +32252,7 @@
       "slug": "erp-business-analista-roche-basel",
       "slugByLocale": {
         "it": "erp-business-analista-roche-basel",
-        "en": "erp-business-analyst-roche-ch",
+        "en": "erp-business-analyst-roche-ch-1dxbq4",
         "de": "erp-business-analyst-roche-ch-1dxbq4",
         "fr": "erp-business-analyste-roche-basel"
       },
@@ -32466,7 +32363,6 @@
         "erp-business-analista-roche-basel"
       ],
       "firstSeenAt": "2026-09-03T13:34:06.180Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -32789,7 +32685,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:34:34.363Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -33094,7 +32989,6 @@
         ]
       },
       "firstSeenAt": "2026-08-06T11:33:34.480Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -33162,7 +33056,10 @@
         "senior-regulatory-business-analista-roche-basel",
         "senior-regulatory-business-analyst-roche-ch",
         "senior-regulatory-business-analyste-roche-basel",
-        "senior-business-analista-roche-basel"
+        "senior-business-analista-roche-basel",
+        "senior-business-analsyt-roche-ch",
+        "senior-business-analyst-roche-ch-2",
+        "analsyt-d-entreprise-senior-roche-madrid"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -33171,7 +33068,10 @@
           "senior-regulatory-business-analista-roche-basel",
           "senior-regulatory-business-analyst-roche-ch",
           "senior-regulatory-business-analyste-roche-basel",
-          "senior-business-analista-roche-basel"
+          "senior-business-analista-roche-basel",
+          "senior-business-analsyt-roche-ch",
+          "senior-business-analyst-roche-ch-2",
+          "analsyt-d-entreprise-senior-roche-madrid"
         ],
         "en": [
           "senior-regulatory-business-analyst-roche-ch"
@@ -33648,8 +33548,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "needsRetranslation": true
+      "addressRegion": "BS"
     },
     {
       "id": "roche-d48b27446a11",
@@ -33714,7 +33613,6 @@
         ]
       },
       "firstSeenAt": "2026-09-08T23:18:53.044Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -33866,7 +33764,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:32.838Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -33942,7 +33839,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:32.062Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -34018,7 +33914,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:31.291Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -34096,7 +33991,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:28.702Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -34175,7 +34069,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:27.097Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -34338,7 +34231,6 @@
         ]
       },
       "firstSeenAt": "2026-07-31T22:09:38.472Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -34510,7 +34402,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:11.923Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -34589,7 +34480,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:11.133Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -34668,7 +34558,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:10.347Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -34747,7 +34636,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:07.297Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -34823,7 +34711,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:05.786Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -34899,7 +34786,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T08:40:08.611Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -35046,7 +34932,6 @@
         ]
       },
       "firstSeenAt": "2026-08-28T05:16:40.413Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -35119,7 +35004,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:08:13.678Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -35367,7 +35251,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:08:09.533Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -35446,7 +35329,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:08:08.688Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -35852,7 +35734,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:55.444Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -35930,7 +35811,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:54.555Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -36501,7 +36381,6 @@
         ]
       },
       "firstSeenAt": "2026-09-02T23:07:29.531Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -36742,7 +36621,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:38.187Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -37534,7 +37412,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:26.604Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -37695,7 +37572,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:23.544Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -38244,7 +38120,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:15.574Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -38325,7 +38200,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:14.019Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -38632,7 +38506,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:07:03.133Z",
-      "needsRetranslation": true,
       "salaryMin": 123000,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -38873,7 +38746,6 @@
         ]
       },
       "firstSeenAt": "2026-09-10T23:06:57.495Z",
-      "needsRetranslation": true,
       "salaryMin": 63000,
       "salaryMax": 112000,
       "salarySource": "estimated",
@@ -39119,7 +38991,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:34:44.729Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -39276,7 +39147,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:34:41.014Z",
-      "needsRetranslation": true,
       "salaryMin": 123000,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -39355,7 +39225,6 @@
         ]
       },
       "firstSeenAt": "2026-07-20T22:03:51.715Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -39497,7 +39366,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:34:36.193Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -39572,7 +39440,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:34:35.132Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -39809,7 +39676,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:34:15.416Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -39885,7 +39751,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:34:14.548Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -40213,7 +40078,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T13:34:30.269Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -40369,7 +40233,6 @@
         "responsabile-categoria-semiconduttori-roche-basel"
       ],
       "firstSeenAt": "2026-09-11T23:06:40.212Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -40442,7 +40305,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T23:06:39.346Z",
-      "needsRetranslation": true,
       "salaryMin": 123000,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -40929,7 +40791,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T23:06:32.292Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -41158,7 +41019,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T23:06:13.640Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -41312,7 +41172,6 @@
         ]
       },
       "firstSeenAt": "2026-09-12T12:53:56.324Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -41549,7 +41408,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:31.782Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -41625,7 +41483,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:30.948Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -42246,7 +42103,6 @@
         "expert-en-technologie-de-developpement-de-logiciels-roche-basel"
       ],
       "firstSeenAt": "2026-06-03T15:14:05.561Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -42371,7 +42227,6 @@
         "intern-inclusion-and-belonging-m-w-d-roche-basel"
       ],
       "firstSeenAt": "2026-09-01T14:10:46.414Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -42455,8 +42310,7 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS",
-      "needsRetranslation": true
+      "addressRegion": "BS"
     },
     {
       "id": "roche-5d06e6dbb48f",
@@ -42777,7 +42631,6 @@
           "global-sourcing-material-manager-roche-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:51:09.188Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -42992,7 +42845,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:03.214Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
@@ -43063,7 +42915,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:58:36.194Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
@@ -43140,7 +42991,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:51:01.714Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -43376,7 +43226,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:57.874Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -43860,7 +43709,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:44.718Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -44025,7 +43873,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:42.467Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -44105,7 +43952,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:39.516Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -44241,7 +44087,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:35.751Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -44326,7 +44171,6 @@
         "head-ophthalmology-precision-medicine-medical-direttore-md-roche-welwyn"
       ],
       "firstSeenAt": "2026-07-01T12:49:57.975Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -44465,7 +44309,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:31.328Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -44622,7 +44465,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:27.563Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -45284,7 +45126,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:10.470Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -45668,7 +45509,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:04.419Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -45746,7 +45586,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:50:01.350Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -46131,7 +45970,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:30.520Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -46378,7 +46216,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:11:34.795Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -46457,7 +46294,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:50.863Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -47251,7 +47087,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:37.133Z",
-      "needsRetranslation": true,
       "salaryMin": 123000,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -47332,7 +47167,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:34.884Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -47764,7 +47598,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:29.033Z",
-      "needsRetranslation": true,
       "salaryMin": 74000,
       "salaryMax": 113500,
       "salarySource": "estimated",
@@ -48119,7 +47952,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Sao-Paulo/Coordenador-de-Estratgias-e-Solues-Integradas_202609-123330-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:49:23.887Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -48285,7 +48117,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:21.628Z",
-      "needsRetranslation": true,
       "salaryMin": 123000,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -48358,7 +48189,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:20.199Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -48596,7 +48426,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:17.325Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -48825,7 +48654,6 @@
           "responsabile-test-erp-aspire-roche-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:49:14.338Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -48974,7 +48802,6 @@
           "solution-architect-pharma-r-d-roche-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:56:54.526Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -49289,7 +49116,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:07.131Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -49370,7 +49196,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:06.364Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -49449,7 +49274,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:42.349Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -49530,7 +49354,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:40.526Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -49609,7 +49432,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T13:44:39.055Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -49680,7 +49502,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:57:08.933Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -49993,7 +49814,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:58.807Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -50142,7 +49962,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:55.939Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -50204,7 +50023,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Kaiseraugst/Intern_202609-122757",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "intern-roche-ch",
         "praktikant-roche-kaiseraugst",
@@ -50456,7 +50274,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:47.292Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -50659,7 +50476,6 @@
         ]
       },
       "firstSeenAt": "2026-09-01T14:10:43.242Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -50945,7 +50761,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-19T22:48:39.834Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -51108,7 +50923,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:35.302Z",
-      "needsRetranslation": true,
       "salaryMin": 107000,
       "salaryMax": 187500,
       "salarySource": "estimated",
@@ -51187,7 +51001,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:34.581Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -51267,7 +51080,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:33.870Z",
-      "needsRetranslation": true,
       "salaryMin": 52000,
       "salaryMax": 78500,
       "salarySource": "estimated",
@@ -51343,7 +51155,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:33.169Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 151000,
       "salarySource": "estimated",
@@ -51500,7 +51311,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:31.715Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -51968,7 +51778,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:24.537Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -52047,7 +51856,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:23.736Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -52126,7 +51934,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:22.298Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -52202,7 +52009,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:18.525Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -52285,7 +52091,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:48:17.691Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -52519,7 +52324,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:56:28.410Z",
-      "needsRetranslation": true,
       "salaryMin": 72500,
       "salaryMax": 110500,
       "salarySource": "estimated",
@@ -52746,7 +52550,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:55:59.731Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -52819,7 +52622,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:56:27.610Z",
-      "needsRetranslation": true,
       "salaryMin": 99500,
       "salaryMax": 169500,
       "salarySource": "estimated",
@@ -53037,7 +52839,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Pleasanton/Associate-International-Product-Manager---Sequencing-System_202609-123694-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:56:25.217Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -53187,7 +52988,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:56:23.610Z",
-      "needsRetranslation": true,
       "salaryMin": 94500,
       "salaryMax": 167000,
       "salarySource": "estimated",
@@ -53328,7 +53128,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Mississauga/Early-Talent-Program-Associate---PDR_202609-123685",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:56:21.898Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -53399,7 +53198,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Mississauga/Early-Talent-Program-Associate---APQR_202609-123906",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:56:21.108Z",
       "salaryMin": 62000,
       "salaryMax": 94000,
@@ -53470,7 +53268,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Chennai/Regional-Manager---Core-Lab_202607-118728-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:56:20.316Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -53858,7 +53655,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:56:16.423Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -53934,7 +53730,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:11:32.949Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -54084,7 +53879,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T23:11:33.830Z",
-      "needsRetranslation": true,
       "salaryMin": 103500,
       "salaryMax": 159500,
       "salarySource": "estimated",
@@ -54163,7 +53957,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:27:17.438Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -54244,7 +54037,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:56:11.308Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -54475,7 +54267,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:56:08.929Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -54537,7 +54328,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Pune/RDT-M-A-Data-Transfer-Delivery-Lead_202609-122756-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:56:08.165Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -54630,7 +54420,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:56:06.493Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -54709,7 +54498,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:56:05.499Z",
-      "needsRetranslation": true,
       "salaryMin": 123000,
       "salaryMax": 165500,
       "salarySource": "estimated",
@@ -55034,7 +54822,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T15:56:00.608Z",
-      "needsRetranslation": true,
       "salaryMin": 69500,
       "salaryMax": 93500,
       "salarySource": "estimated",
@@ -55096,7 +54883,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Mississauga/Senior-Principal-DSX-Data-Scientist_202609-123923-1",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:55:56.304Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -55171,7 +54957,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "firstSeenAt": "2026-09-21T15:55:54.634Z",
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "squad-lead-ophthalmology-roche-ch"
@@ -55263,7 +55048,6 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:34:03.681Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -55429,7 +55213,6 @@
           "clinical-development-lead-medical-scientific-writing-roche-basel"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:55:51.915Z",
       "salaryMin": 99500,
       "salaryMax": 169500,
@@ -55570,7 +55353,6 @@
       "applyUrl": "https://roche.wd3.myworkdayjobs.com/en/roche-ext/job/Mississauga/Business-Analyst---RDT-Pharma-Technical-Operations_202606-115566",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-21T15:55:50.179Z",
       "previousSlugsByLocale": {
         "it": [
@@ -55746,7 +55528,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T23:58:24.330Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -55822,7 +55603,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T23:58:23.547Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -55972,7 +55752,6 @@
         "automation-business-analyst-roche-ch",
         "automation-business-analista-roche-san-jose-costa-rica"
       ],
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -56126,7 +55905,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T23:58:20.231Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -56280,7 +56058,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:49:35.606Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -56424,7 +56201,6 @@
         "business-operations-associate-digital-marketing-mandarin-speaking-roche-ch",
         "business-operations-associate-digital-marketing-in-via-di-comunicazione-roche-petaling-jaya"
       ],
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-11T13:34:25.622Z",
       "salaryMin": 69500,
       "salaryMax": 93500,
@@ -56841,7 +56617,6 @@
         ]
       },
       "firstSeenAt": "2026-09-04T13:27:14.755Z",
-      "needsRetranslation": true,
       "salaryMin": 64500,
       "salaryMax": 110000,
       "salarySource": "estimated",
@@ -57861,7 +57636,6 @@
           "gpc-service-performance-lead-roche-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:51:19.354Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -59143,7 +58917,6 @@
         "content-review-operations-coordinatore-roche-san-jose-costa-rica"
       ],
       "firstSeenAt": "2026-09-11T23:06:12.789Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -60292,7 +60065,6 @@
         ]
       },
       "firstSeenAt": "2026-09-09T23:03:52.909Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -61460,8 +61232,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-0d6d72fbd260",
@@ -61532,8 +61303,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-027dab1e2e23",
@@ -61762,8 +61532,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-0390317d6214",
@@ -61845,8 +61614,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-6ebac729d1a6",
@@ -62000,8 +61768,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-4fd1d7193ee8",
@@ -62465,8 +62232,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-39f3aaf7f543",
@@ -62543,8 +62309,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-947014cb8034",
@@ -62770,8 +62535,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-b9cb0bd84f57",
@@ -62995,8 +62759,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-d454a3cfce88",
@@ -63603,8 +63366,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-7b1df170f455",
@@ -63758,8 +63520,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-d99422e771cb",
@@ -63830,8 +63591,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-38aa805c3568",
@@ -64300,8 +64060,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-867bef468e87",
@@ -64378,8 +64137,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-551346f92893",
@@ -64770,8 +64528,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-20e0b3d47aa2",
@@ -65458,8 +65215,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-eb8cadb7a32a",
@@ -66243,8 +65999,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-de6b353a557b",
@@ -66403,8 +66158,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-7e84a48b81d8",
@@ -66798,8 +66552,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-2890085b390d",
@@ -66876,8 +66629,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-28b646b6e990",
@@ -66954,8 +66706,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-253b0b0f01c9",
@@ -67127,8 +66878,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-e5836626fb7d",
@@ -67441,8 +67191,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-9d56a38f94ce",
@@ -67655,8 +67404,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "roche-436233ef1951",
@@ -68116,8 +67864,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "roche-89907c344e84",
@@ -68273,8 +68020,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "roche-948512fb137c",
@@ -68515,7 +68261,6 @@
           "senior-compliance-expert-roche-ch"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:51:06.997Z",
       "salaryMin": 85500,
       "salaryMax": 129500,
@@ -68756,8 +68501,7 @@
         }
       },
       "addressRegion": "BS",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "roche-76523b3895b3",

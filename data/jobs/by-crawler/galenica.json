@@ -123,7 +123,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -256,7 +255,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -316,11 +314,13 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-bern"
+          "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-bern",
+          "apotheker-apothekerin-come-stellvertretung-m-w-d-galenica-bern-nx1laf"
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-bern"
+        "galenica-galenica-apotheker-apothekerin-als-stellvertretung-w-m-d-bern",
+        "apotheker-apothekerin-come-stellvertretung-m-w-d-galenica-bern-nx1laf"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -556,7 +556,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -729,7 +728,6 @@
       },
       "id": "galenica-33b52b62c807",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -787,7 +785,6 @@
       },
       "id": "galenica-036abf965803",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -911,7 +908,6 @@
       },
       "id": "galenica-6edf7909759a",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1506,7 +1502,6 @@
       },
       "id": "galenica-c4a7cf950765",
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -1913,11 +1908,20 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
-          "galenica-galenica-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern"
+          "galenica-galenica-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern",
+          "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-nx3ix5",
+          "apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-m-w-d-galenica-bern",
+          "apothicaire-pour-la-gestion-des-finances-publiques-apothicaire-pour-la-gestion-des-finances-publiques-h-f-d-galenica"
+        ],
+        "fr": [
+          "apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-m-w-d-galenica-bern"
         ]
       },
       "previousSlugs": [
-        "galenica-galenica-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern"
+        "galenica-galenica-apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-w-m-d-bern",
+        "apotheker-come-geschaftsfuhrer-apothekerin-come-geschaftsfuhrerin-m-w-d-galenica-nx3ix5",
+        "apotheker-als-geschaftsfuhrer-apothekerin-als-geschaftsfuhrerin-m-w-d-galenica-bern",
+        "apothicaire-pour-la-gestion-des-finances-publiques-apothicaire-pour-la-gestion-des-finances-publiques-h-f-d-galenica"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -2441,7 +2445,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -2512,7 +2515,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -2584,7 +2586,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -2660,11 +2661,27 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1qg"
+          "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1qg",
+          "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12a",
+          "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12d",
+          "pharmaassistent-in-afc-amavita-galenica-geneve",
+          "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc14t",
+          "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1s2",
+          "afc-pharmacy-assistant-amavita-galenica-geneve",
+          "pharmaassistentin-afc-amavita-galenica-geneve",
+          "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1tt"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1qg"
+        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1qg",
+        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12a",
+        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc12d",
+        "pharmaassistent-in-afc-amavita-galenica-geneve",
+        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc14t",
+        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1s2",
+        "afc-pharmacy-assistant-amavita-galenica-geneve",
+        "pharmaassistentin-afc-amavita-galenica-geneve",
+        "galenica-amavita-assistente-di-farmacia-afc-geneve-1nc1tt"
       ]
     },
     {
@@ -2721,7 +2738,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -2800,7 +2816,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -2876,11 +2891,25 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1"
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0dc",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go",
+          "pharmaassistent-in-afc-amavita-galenica-zurich",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
+          "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc17d",
+          "afc-pharmacy-assistant-amavita-galenica-zurich"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1"
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e1",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0dc",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0e2",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc0go",
+        "pharmaassistent-in-afc-amavita-galenica-zurich",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc15s",
+        "galenica-amavita-assistente-di-farmacia-afc-zurich-1nc17d",
+        "afc-pharmacy-assistant-amavita-galenica-zurich"
       ]
     },
     {
@@ -2941,7 +2970,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -3090,7 +3118,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -3183,7 +3210,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -3254,7 +3280,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -3320,7 +3345,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -3388,7 +3412,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -3459,7 +3482,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -3596,7 +3618,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -3742,7 +3763,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -3927,7 +3947,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -4002,7 +4021,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -4079,7 +4097,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -4155,11 +4172,20 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr",
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-geneve",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmn"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-geneve"
         ]
       },
       "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh"
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmh",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbyxr",
+        "afc-pharmacy-assistant-sun-store-apotheke-galenica-geneve",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-geneve-1nbzmn"
       ]
     },
     {
@@ -4220,7 +4246,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -4291,7 +4316,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -4362,7 +4386,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -4436,7 +4459,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -4512,11 +4534,25 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc0f1"
+          "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc0f1",
+          "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc17f",
+          "afc-pharmacy-assistant-amavita-galenica-st-gallen",
+          "pharmaassistent-in-efz-amavita-galenica-st-gallen",
+          "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc1qe"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-amavita-galenica-st-gallen"
+        ],
+        "de": [
+          "pharmaassistent-in-efz-amavita-galenica-st-gallen"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc0f1"
+        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc0f1",
+        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc17f",
+        "afc-pharmacy-assistant-amavita-galenica-st-gallen",
+        "pharmaassistent-in-efz-amavita-galenica-st-gallen",
+        "galenica-amavita-assistente-di-farmacia-afc-st-gallen-1nc1qe"
       ]
     },
     {
@@ -4573,7 +4609,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -4644,7 +4679,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -4712,7 +4746,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -4787,7 +4820,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -4858,7 +4890,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -4929,7 +4960,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -5000,7 +5030,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -5083,7 +5112,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -5154,7 +5182,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -5222,7 +5249,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -5293,7 +5319,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -5365,7 +5390,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -5436,7 +5460,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -5517,7 +5540,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -5588,7 +5610,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -5666,7 +5687,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -5737,7 +5757,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -5812,7 +5831,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -5885,7 +5903,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -5956,7 +5973,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -6031,7 +6047,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -6107,11 +6122,18 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-conthey"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-conthey"
         ]
       },
       "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx"
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzkx",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-conthey-1nbzng",
+        "afc-pharmacy-assistant-sun-store-apotheke-galenica-conthey"
       ]
     },
     {
@@ -6172,7 +6194,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -6243,7 +6264,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -6314,7 +6334,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -6387,7 +6406,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -6463,11 +6481,20 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0f2"
+          "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0f2",
+          "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0gm",
+          "afc-pharmacy-assistant-amavita-galenica-winterthur",
+          "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc17g"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-amavita-galenica-winterthur"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0f2"
+        "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0f2",
+        "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc0gm",
+        "afc-pharmacy-assistant-amavita-galenica-winterthur",
+        "galenica-amavita-assistente-di-farmacia-afc-winterthur-1nc17g"
       ]
     },
     {
@@ -6524,7 +6551,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -6678,11 +6704,26 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzk3"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzk3",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyv2",
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-lausanne",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyxm",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyyj",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyz9",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzmp"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-lausanne"
         ]
       },
       "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzk3"
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzk3",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyv2",
+        "afc-pharmacy-assistant-sun-store-apotheke-galenica-lausanne",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyxm",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyyj",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbyz9",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-lausanne-1nbzmp"
       ]
     },
     {
@@ -6739,7 +6780,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -6885,7 +6925,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -7036,7 +7075,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -7107,7 +7145,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -7178,7 +7215,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -7244,7 +7280,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -7319,7 +7354,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -7390,7 +7424,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -7543,7 +7576,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -7611,7 +7643,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -7686,7 +7717,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -7832,7 +7862,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -7908,11 +7937,23 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1a2yvh"
+          "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1a2yvh",
+          "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1nc1sx",
+          "afc-pharmacy-assistant-amavita-galenica-biel-bienne",
+          "apotheken-assistent-in-afc-amavita-galenica-biel-bienne"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-amavita-galenica-biel-bienne"
+        ],
+        "de": [
+          "apotheken-assistent-in-afc-amavita-galenica-biel-bienne"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1a2yvh"
+        "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1a2yvh",
+        "galenica-amavita-assistente-di-farmacia-afc-biel-bienne-1nc1sx",
+        "afc-pharmacy-assistant-amavita-galenica-biel-bienne",
+        "apotheken-assistent-in-afc-amavita-galenica-biel-bienne"
       ]
     },
     {
@@ -8042,7 +8083,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -8110,7 +8150,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -8181,7 +8220,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -8252,7 +8290,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -8323,7 +8360,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -8399,7 +8435,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -8537,7 +8572,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -8608,7 +8642,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -8701,7 +8734,6 @@
         "afc-logistikmitarbeiter-in-unione-farmaceutica-distribuzione-sa-galenica-lugano"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 49500,
       "salaryMax": 75000,
       "currency": "CHF",
@@ -8772,7 +8804,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -8843,7 +8874,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -8909,7 +8939,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -8969,15 +8998,25 @@
       "needsRetranslation": true,
       "previousSlugsByLocale": {
         "de": [
-          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen"
+          "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen",
+          "apothekenassistent-afc-amavita-galenica-riehen"
         ],
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1qb"
+          "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1qb",
+          "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1s4",
+          "afc-pharmacy-assistant-amavita-galenica-riehen",
+          "apothekenassistent-afc-amavita-galenica-riehen"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-amavita-galenica-riehen"
         ]
       },
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-riehen",
-        "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1qb"
+        "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1qb",
+        "galenica-amavita-assistente-di-farmacia-afc-riehen-1nc1s4",
+        "afc-pharmacy-assistant-amavita-galenica-riehen",
+        "apothekenassistent-afc-amavita-galenica-riehen"
       ],
       "salaryMin": 88000,
       "salaryMax": 123000,
@@ -9047,7 +9086,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -9123,11 +9161,21 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpx"
+          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpx",
+          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpa",
+          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc08v",
+          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc092",
+          "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc0bh",
+          "afc-pharmacy-assistant-coop-vitality-galenica-basel"
         ]
       },
       "previousSlugs": [
-        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpx"
+        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpx",
+        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nbzpa",
+        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc08v",
+        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc092",
+        "galenica-coop-vitality-assistente-di-farmacia-afc-basel-1nc0bh",
+        "afc-pharmacy-assistant-coop-vitality-galenica-basel"
       ]
     },
     {
@@ -9184,7 +9232,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -9255,7 +9302,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -9326,7 +9372,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -9389,12 +9434,21 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern"
         ],
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd"
+          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd",
+          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
+          "afc-pharmacy-assistant-amavita-galenica-bern",
+          "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0ft"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-amavita-galenica-bern"
         ]
       },
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-bern",
-        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd"
+        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0dd",
+        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc13x",
+        "afc-pharmacy-assistant-amavita-galenica-bern",
+        "galenica-amavita-assistente-di-farmacia-afc-bern-1nc0ft"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -9467,7 +9521,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -9538,7 +9591,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -9698,11 +9750,24 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1sw"
+          "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1sw",
+          "galenica-amavita-assistente-di-farmacia-afc-basel-1nc0ew",
+          "afc-pharmacy-assistant-amavita-galenica-basel",
+          "pharmaassistent-in-afc-amavita-galenica-basel",
+          "galenica-amavita-assistente-di-farmacia-afc-basel-1nc17b",
+          "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1s6"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-amavita-galenica-basel"
         ]
       },
       "previousSlugs": [
-        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1sw"
+        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1sw",
+        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc0ew",
+        "afc-pharmacy-assistant-amavita-galenica-basel",
+        "pharmaassistent-in-afc-amavita-galenica-basel",
+        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc17b",
+        "galenica-amavita-assistente-di-farmacia-afc-basel-1nc1s6"
       ]
     },
     {
@@ -9791,7 +9856,6 @@
         "assistente-di-farmacia-afc-amavita-apotheke-galenica-bern-1nc0ex"
       ],
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -9862,7 +9926,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -10006,7 +10069,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -10077,7 +10139,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -10153,11 +10214,23 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1"
+          "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1",
+          "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq0",
+          "afc-pharmacy-assistant-coop-vitality-galenica-kriens",
+          "pharma-assistent-in-efz-coop-vitality-galenica-kriens"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-coop-vitality-galenica-kriens"
+        ],
+        "de": [
+          "pharma-assistent-in-efz-coop-vitality-galenica-kriens"
         ]
       },
       "previousSlugs": [
-        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1"
+        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq1",
+        "galenica-coop-vitality-assistente-di-farmacia-afc-kriens-1nbzq0",
+        "afc-pharmacy-assistant-coop-vitality-galenica-kriens",
+        "pharma-assistent-in-efz-coop-vitality-galenica-kriens"
       ]
     },
     {
@@ -10214,7 +10287,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -10293,7 +10365,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -10426,7 +10497,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -10507,7 +10577,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -10578,7 +10647,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -10649,7 +10717,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -10724,7 +10791,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -10879,7 +10945,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -11083,7 +11148,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -11154,7 +11218,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -11225,7 +11288,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -11296,7 +11358,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -11367,7 +11428,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -11449,7 +11509,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -11519,7 +11578,8 @@
         "afc-pharmacy-assistant-amavita-galenica-lausanne",
         "apothekenassistent-afc-amavita-galenica-lausanne",
         "aide-a-la-recherche-agricole-amavita-galenica-lausanne",
-        "afc-pharmacy-assistant-amavita-galenica-cheseaux-lausanne"
+        "afc-pharmacy-assistant-amavita-galenica-cheseaux-lausanne",
+        "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc11b"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -11533,7 +11593,8 @@
           "galenica-amavita-assistente-di-farmacia-afc-lausanne",
           "afc-pharmacy-assistant-amavita-galenica-lausanne",
           "apothekenassistent-afc-amavita-galenica-lausanne",
-          "aide-a-la-recherche-agricole-amavita-galenica-lausanne"
+          "aide-a-la-recherche-agricole-amavita-galenica-lausanne",
+          "galenica-amavita-assistente-di-farmacia-afc-lausanne-1nc11b"
         ],
         "en": [
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-lausanne",
@@ -11550,7 +11611,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -11626,11 +11686,18 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbzkv"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbzkv",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbyvx",
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-nyon"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-nyon"
         ]
       },
       "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbzkv"
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbzkv",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-nyon-1nbyvx",
+        "afc-pharmacy-assistant-sun-store-apotheke-galenica-nyon"
       ]
     },
     {
@@ -11770,11 +11837,20 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbzlr"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbzlr",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye",
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-sion",
+          "assistante-di-farmacia-afc-sun-store-apotheke-galenica-sion"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-sion"
         ]
       },
       "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbzlr"
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbzlr",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-sion-1nbyye",
+        "afc-pharmacy-assistant-sun-store-apotheke-galenica-sion",
+        "assistante-di-farmacia-afc-sun-store-apotheke-galenica-sion"
       ]
     },
     {
@@ -11906,7 +11982,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -11977,7 +12052,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -12125,7 +12199,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -12188,12 +12261,21 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-chur"
         ],
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-chur-1nc0f0"
+          "galenica-amavita-assistente-di-farmacia-afc-chur-1nc0f0",
+          "galenica-amavita-assistente-di-farmacia-afc-chur-1nc1s5",
+          "afc-pharmacy-assistant-amavita-galenica-chur",
+          "pharma-assistent-in-efz-amavita-galenica-chur"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-amavita-galenica-chur"
         ]
       },
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-chur",
-        "galenica-amavita-assistente-di-farmacia-afc-chur-1nc0f0"
+        "galenica-amavita-assistente-di-farmacia-afc-chur-1nc0f0",
+        "galenica-amavita-assistente-di-farmacia-afc-chur-1nc1s5",
+        "afc-pharmacy-assistant-amavita-galenica-chur",
+        "pharma-assistent-in-efz-amavita-galenica-chur"
       ],
       "salaryMin": 81500,
       "salaryMax": 114000,
@@ -12266,7 +12348,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -12337,7 +12418,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -12408,7 +12488,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -12479,7 +12558,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -12550,7 +12628,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -12621,7 +12698,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -12693,7 +12769,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -12764,7 +12839,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -12832,7 +12906,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -12910,7 +12983,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -12984,7 +13056,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -13055,7 +13126,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -13126,7 +13196,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -13197,7 +13266,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -13344,7 +13412,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -13415,7 +13482,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -13486,7 +13552,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -13557,7 +13622,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -13698,7 +13762,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -13761,12 +13824,19 @@
           "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-moutier"
         ],
         "it": [
-          "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs"
+          "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs",
+          "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc10h",
+          "afc-pharmacy-assistant-amavita-galenica-moutier"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-amavita-galenica-moutier"
         ]
       },
       "previousSlugs": [
         "galenica-amavita-fachmann-frau-apotheke-efz-alt-pharma-assistent-in-efz-moutier",
-        "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs"
+        "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc0zs",
+        "galenica-amavita-assistente-di-farmacia-afc-moutier-1nc10h",
+        "afc-pharmacy-assistant-amavita-galenica-moutier"
       ],
       "salaryMin": 85000,
       "salaryMax": 119000,
@@ -13844,11 +13914,18 @@
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
       "previousSlugsByLocale": {
         "it": [
-          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre-1nbyxk"
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre-1nbyxk",
+          "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre-1nbyzb",
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-marin-centre"
+        ],
+        "en": [
+          "afc-pharmacy-assistant-sun-store-apotheke-galenica-marin-centre"
         ]
       },
       "previousSlugs": [
-        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre-1nbyxk"
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre-1nbyxk",
+        "galenica-sun-store-apotheke-assistente-di-farmacia-afc-marin-centre-1nbyzb",
+        "afc-pharmacy-assistant-sun-store-apotheke-galenica-marin-centre"
       ]
     },
     {
@@ -13905,7 +13982,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -13976,7 +14052,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -14129,7 +14204,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -14291,7 +14365,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -14362,7 +14435,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -14433,7 +14505,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -14723,7 +14794,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -14946,7 +15016,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -15017,7 +15086,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -15088,7 +15156,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -15171,7 +15238,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -15239,7 +15305,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -15310,7 +15375,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -15391,7 +15455,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 88000,
       "salaryMax": 123000,
       "currency": "CHF",
@@ -15459,7 +15522,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -15658,7 +15720,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -15724,7 +15785,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -15795,7 +15855,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -15956,7 +16015,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -16179,7 +16237,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -16480,7 +16537,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -16551,7 +16607,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -16622,7 +16677,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -16693,7 +16747,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 81500,
       "salaryMax": 114000,
       "currency": "CHF",
@@ -16831,7 +16884,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -16902,7 +16954,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -16977,7 +17028,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86500,
       "salaryMax": 120500,
       "currency": "CHF",
@@ -17124,7 +17174,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -17270,7 +17319,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -17338,7 +17386,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -17487,7 +17534,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -17638,7 +17684,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -17713,7 +17758,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -17942,7 +17986,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -18021,7 +18064,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 70500,
       "salaryMax": 98500,
       "currency": "CHF",
@@ -18092,7 +18134,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 86000,
       "salaryMax": 120000,
       "currency": "CHF",
@@ -18237,7 +18278,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -18303,7 +18343,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 91500,
       "salaryMax": 128000,
       "currency": "CHF",
@@ -18378,7 +18417,6 @@
         ]
       },
       "firstSeenAt": "2026-04-13T21:44:00.314Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "currency": "CHF",
@@ -18452,7 +18490,6 @@
       },
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 1,
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-senior-hr-consultant-w-m-d-bern"
@@ -18519,7 +18556,6 @@
       },
       "employmentType": "FULL_TIME",
       "crawlerMissStreak": 1,
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "galenica-galenica-ag-senior-hr-consultant-f-h-d-bern"
@@ -18598,8 +18634,7 @@
         }
       },
       "employmentType": "FULL_TIME",
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "title": "Assistente di farmacia AFC",

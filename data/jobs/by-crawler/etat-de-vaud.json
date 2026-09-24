@@ -155,7 +155,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -262,7 +261,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.035Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -580,7 +578,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -661,7 +658,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -742,7 +738,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:25.866Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -1065,7 +1060,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1328,8 +1322,8 @@
       "slugByLocale": {
         "it": "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
         "en": "legal-officer-etat-de-vaud-administration-cantonale-vaudoise-lausanne",
-        "de": "juriste-etat-de-vaud-lausanne",
-        "fr": "juriste-etat-de-vaud-lausanne"
+        "de": "juriste-etat-de-vaud-lausanne-j6x9me",
+        "fr": "juriste-etat-de-vaud-lausanne-j6x9me"
       },
       "company": "État de Vaud (Administration cantonale vaudoise)",
       "companyKey": "etat-de-vaud",
@@ -1383,6 +1377,12 @@
           "ufficiale-legale-etat-de-vaud-administration-cantonale-vaudoise-lausanne"
         ],
         "en": [
+          "juriste-etat-de-vaud-lausanne"
+        ],
+        "de": [
+          "juriste-etat-de-vaud-lausanne"
+        ],
+        "fr": [
           "juriste-etat-de-vaud-lausanne"
         ]
       },
@@ -1629,7 +1629,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1707,7 +1706,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2028,7 +2026,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -2434,7 +2431,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.041Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2755,7 +2751,6 @@
         ]
       },
       "firstSeenAt": "2026-07-05T11:43:20.864Z",
-      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -3405,8 +3400,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-5785",
@@ -3487,8 +3481,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-5818",
@@ -3729,8 +3722,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-5844",
@@ -3809,8 +3801,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "etat-de-vaud-5871",
@@ -4288,8 +4279,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     }
   ]
 }

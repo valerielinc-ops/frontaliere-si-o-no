@@ -230,7 +230,6 @@
         "specialista-warehouse-m-w-d-heineken-switzerland-luzern"
       ],
       "firstSeenAt": "2026-09-07T23:43:35.597Z",
-      "needsRetranslation": true,
       "salaryMin": 68500,
       "salaryMax": 104000,
       "currency": "CHF",
@@ -396,8 +395,7 @@
           "maxValue": 127000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "heineken-ch-420d6c1cd516",
@@ -742,7 +740,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T23:10:19.910Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "currency": "CHF",
@@ -907,8 +904,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     }
   ]
 }

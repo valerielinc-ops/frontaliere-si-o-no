@@ -262,7 +262,6 @@
         ]
       },
       "firstSeenAt": "2026-06-15T13:52:39.813Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -672,7 +671,6 @@
         ]
       },
       "firstSeenAt": "2026-07-16T23:17:49.687Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1230,7 +1228,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T00:46:27.116Z",
-      "needsRetranslation": true,
       "salaryMin": 71000,
       "salaryMax": 107500,
       "salarySource": "estimated",
@@ -1402,8 +1399,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "audemars-piguet-44a8e63d0423",
@@ -1618,7 +1614,6 @@
         ]
       },
       "firstSeenAt": "2026-09-11T23:14:35.734Z",
-      "needsRetranslation": true,
       "salaryMin": 97500,
       "salaryMax": 148000,
       "salarySource": "estimated",
@@ -1693,7 +1688,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:59:21.276Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -1881,8 +1875,7 @@
           "maxValue": 107500,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "audemars-piguet-34a371e6b421",
@@ -2109,7 +2102,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:59:21.251Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2190,7 +2182,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:59:21.273Z",
-      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -2517,8 +2508,7 @@
           "unitText": "YEAR"
         }
       },
-      "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "crawlerMissStreak": 1
     },
     {
       "id": "audemars-piguet-1c880b7ef0ec",
@@ -2584,7 +2574,6 @@
         }
       },
       "crawlerMissStreak": 1,
-      "needsRetranslation": true,
       "previousSlugsByLocale": {
         "it": [
           "tech-lead-digital-audemars-piguet-le-brassus-vd-switzerland"

@@ -197,7 +197,6 @@
         ]
       },
       "firstSeenAt": "2026-08-05T22:29:30.500Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -371,7 +370,6 @@
         ]
       },
       "firstSeenAt": "2026-09-19T22:58:50.159Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -528,7 +526,6 @@
         ]
       },
       "firstSeenAt": "2026-07-03T23:19:12.435Z",
-      "needsRetranslation": true,
       "salaryMin": 85500,
       "salaryMax": 129500,
       "salarySource": "estimated",
@@ -608,7 +605,6 @@
         ]
       },
       "firstSeenAt": "2026-08-27T20:05:58.713Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -702,8 +698,7 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "thermo-fisher-scientific-cdee167510fa",
@@ -883,8 +878,7 @@
           "maxValue": 151000,
           "unitText": "YEAR"
         }
-      },
-      "needsRetranslation": true
+      }
     },
     {
       "id": "thermo-fisher-scientific-43729f895211",

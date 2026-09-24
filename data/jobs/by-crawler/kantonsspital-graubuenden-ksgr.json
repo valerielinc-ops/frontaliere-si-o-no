@@ -75,7 +75,10 @@
       "crawledAt": "2026-09-23T23:48:45.016Z",
       "slug": "medizinische-r-praxisassistent-in-zentrale-notfallstation-kantonsspital-graubunden-chur",
       "slugByLocale": {
-        "de": "medizinische-r-praxisassistent-in-zentrale-notfallstation-kantonsspital-graubunden-chur"
+        "de": "medizinische-r-praxisassistent-in-zentrale-notfallstation-kantonsspital-graubunden-chur",
+        "it": "medizinische-r-praxisassistent-in-zentrale-notfallstation-kantonsspital-graubunden-chur",
+        "en": "medizinische-r-praxisassistent-in-zentrale-notfallstation-kantonsspital-graubunden-chur",
+        "fr": "medizinische-r-praxisassistent-in-zentrale-notfallstation-kantonsspital-graubunden-chur"
       },
       "titleByLocale": {
         "de": "Medizinische:r Praxisassistent:in Zentrale Notfallstation",
@@ -105,7 +108,25 @@
       "salaryMax": 114000,
       "currency": "CHF",
       "salarySource": "reported",
-      "firstSeenAt": "2026-09-23T23:48:45.016Z"
+      "firstSeenAt": "2026-09-23T23:48:45.016Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "assistente-medico-medico-dipartimento-centrale-di-pronto-soccorso-kantonsspital-graubunden-chur",
+          "medical-practice-assistant-central-emergency-department-kantonsspital-graubunden-chur",
+          "assistant-de-pratique-medicale-au-service-central-des-urgences-kantonsspital-graubunden-chur"
+        ],
+        "en": [
+          "medical-practice-assistant-central-emergency-department-kantonsspital-graubunden-chur"
+        ],
+        "fr": [
+          "assistant-de-pratique-medicale-au-service-central-des-urgences-kantonsspital-graubunden-chur"
+        ]
+      },
+      "previousSlugs": [
+        "assistente-medico-medico-dipartimento-centrale-di-pronto-soccorso-kantonsspital-graubunden-chur",
+        "medical-practice-assistant-central-emergency-department-kantonsspital-graubunden-chur",
+        "assistant-de-pratique-medicale-au-service-central-des-urgences-kantonsspital-graubunden-chur"
+      ]
     },
     {
       "id": "10195679",
