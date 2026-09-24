@@ -6665,6 +6665,12 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.tubercolosi-svizzera-aumento-2025.title': 'Tuberculosis in Switzerland: 544 cases in 2025, maximum since 2018',
     'blog.article.tubercolosi-svizzera-aumento-2025.excerpt': 'In 2025, Switzerland recorded 544 cases of tuberculosis, 112 more than in 2024; the rate rose from 4.8 to 6.0 per 100,000 inhabitants, the highest level since 2018.',
     'blog.article.tubercolosi-svizzera-aumento-2025.imageAlt': 'Swiss healthcare worker analyzing tuberculosis test results in a clinic with Alpine view',
+    'blog.article.indennita-maltempo-sei-mesi.title': 'Interim: weather allowance after six months',
+    'blog.article.indennita-maltempo-sei-mesi.excerpt': 'The National Council approves the protection of temporary workers employed for at least six months in continuous relationships against interruptions due to bad weather.',
+    'blog.article.indennita-maltempo-sei-mesi.imageAlt': 'Swiss parliamentary chamber during a debate on protections for temporary workers.',
+    'blog.article.ubs-capitale-90-bns.title': 'UBS, SNB approves 90% capital requirements',
+    'blog.article.ubs-capitale-90-bns.excerpt': 'The SNB approves the decision of the Council of States: UBS\'s foreign subsidiaries will have to be covered 90% with CET1 capital.',
+    'blog.article.ubs-capitale-90-bns.imageAlt': 'Swiss bank building with a national flag in a financial news scene',
 };
 
 export default blogMetaChEn;
