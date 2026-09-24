@@ -257,6 +257,10 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   // `side_effect_gate` and a `schedule:` appears in exactly one of the two
   // inventories. Enumerated 2026-09-18: 12 were in neither.
   'sync-articles-sitemaps.yml',
+  // The weekly expired-archive sweep is an autonomous, non-destructive
+  // repair: it preserves cap-refused route components and only persists
+  // route-collapsed slices after the workflow's own test and audit gates.
+  'reconcile-expired-route-duplicates.yml',
   // Recovery is an approved scheduled write: it remains non-destructive and
   // its backfill/commit steps keep their own dry-run guards in depth.
   'recover-prev-slugs.yml',
@@ -1038,9 +1042,9 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
   });
 
   it('arms trusted schedules only on workflows whose schedules apply side effects', () => {
-    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(20);
+    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(21);
     expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(9);
-    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(29);
+    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(30);
 
     for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {
       const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
