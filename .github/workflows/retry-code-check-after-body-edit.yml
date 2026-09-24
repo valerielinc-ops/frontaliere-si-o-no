@@ -357,13 +357,30 @@ jobs:
               const attempt = Number(value);
               return Number.isSafeInteger(attempt) && attempt > 0 ? attempt : null;
             }
-            async function retryReasonForCompletedRun(number, pr, latest) {
+            const INTERRUPTED_CONCLUSIONS = ['cancelled', 'timed_out'];
+            async function retryReasonForCompletedRun(number, pr, latest, existing = null) {
               // A body edit cannot repair a code/test or provider failure. A
               // completed green run still needs one revalidation because the
               // body is part of the trusted review input; red runs are
               // retried only when the failed steps prove a body/review cause.
               if (latest.conclusion === 'success') {
                 return 'the PR body changed; revalidate the review input revision';
+              }
+              if (INTERRUPTED_CONCLUSIONS.includes(latest.conclusion)) {
+                // After the edit no other event brings the HEAD back to a
+                // verdict (tests.yml has no `edited` trigger), so an
+                // interrupted run is rerun once. Bounded per HEAD + body
+                // digest: when the durable marker already records an
+                // interrupted-run retry for this exact pair, a repeated
+                // delivery or a rerun that is cancelled again stays as is.
+                const state = existing?.state;
+                if (state?.interruptedRetry === true
+                    && state.headSha === pr.head.sha
+                    && state.bodyRevision === BODY_REVISION(pr.body)) {
+                  core.info(`Run ${latest.id} ended ${latest.conclusion} again for HEAD ${pr.head.sha} and the same body: already retried once, no loop.`);
+                  return '';
+                }
+                return `it ended ${latest.conclusion} (or was still running on the previous body)`;
               }
               if (latest.conclusion !== 'failure') return '';
               if (await hasCodexAuthBlockedCheckpoint(number, pr, latest)) {
@@ -414,10 +431,19 @@ jobs:
                 throw new Error(`run ${latest.id} attempt non verificabile: marker resta pending`);
               }
               if (currentRun.data.status !== 'completed') {
+                // A duplicate edit delivery can arrive while the interrupted-run
+                // retry is still active: keep its one-retry flag for the same
+                // HEAD + body digest, or a second cancellation would earn a
+                // second retry.
+                const bodyDigest = BODY_REVISION(pr.body);
+                const keepInterruptedRetry = existing?.state?.interruptedRetry === true
+                  && existing.state.headSha === pr.head.sha
+                  && existing.state.bodyRevision === bodyDigest;
                 await persistMarker(number, {
                   version: 1, status: 'pending', prNumber: number, runId: latest.id,
                   runAttempt: observedAttempt, headSha: pr.head.sha,
-                  bodyRevision: BODY_REVISION(pr.body),
+                  bodyRevision: bodyDigest,
+                  ...(keepInterruptedRetry ? { interruptedRetry: true } : {}),
                 }, existing);
                 core.info(`Tests run ${latest.id} ancora attiva: marker durevole, retry demandato a workflow_run.`);
                 return;
@@ -456,6 +482,7 @@ jobs:
                 runAttempt: nextAttempt, headSha: pr.head.sha, bodyRevision,
                 reconcileAttempts: Number(existing?.state?.reconcileAttempts || 0),
                 queuedAt: new Date().toISOString(),
+                ...(INTERRUPTED_CONCLUSIONS.includes(latest.conclusion) ? { interruptedRetry: true } : {}),
               };
               const queuedMarker = await persistMarker(number, queuedState, existing);
               try {
@@ -544,7 +571,7 @@ jobs:
                 await retryCompletedRun(number, pr, latest, existing, 'the tests run was still active when the body changed');
                 return;
               }
-              const reason = await retryReasonForCompletedRun(number, pr, latest);
+              const reason = await retryReasonForCompletedRun(number, pr, latest, existing);
               if (!reason) {
                 await completeWithoutRetry(number, pr, latest, existing,
                   'the completed run was not caused by the body edit');
@@ -635,7 +662,7 @@ jobs:
                 if (existing.state.status !== 'pending' || !exactRun) continue;
                 const latest = await runForHead(run.head_sha, number);
                 const candidate = latest && markerMatchesRun(existing.state, latest) ? latest : run;
-                const reason = await retryReasonForCompletedRun(number, pr, candidate);
+                const reason = await retryReasonForCompletedRun(number, pr, candidate, existing);
                 if (!reason) {
                   await completeWithoutRetry(number, pr, candidate, existing,
                     'the completed run was not caused by the body edit');
