@@ -143,6 +143,36 @@ describe('record-loop-fleet-evidence', () => {
     expect(() => validateLoopRegistry(undeclared)).toThrow(/references undeclared/);
   });
 
+  it('allows only declared historical outcome source refs during ledger replay', () => {
+    const historicalOutcome = {
+      recordType: 'outcome',
+      schemaVersion: 1,
+      outcomeId: 'useful-action',
+      status: 'partial',
+      independent: false,
+      sourceRefs: ['gsc', 'posthog-landing-path'],
+      primaryMetric: 'useful_action_per_1000_eligible_landing_sessions',
+      numerator: null,
+      denominator: null,
+      requiredFieldsPresent: ['generatedAt'],
+      missingFields: ['numerator', 'denominator'],
+      reason: 'historical outcome predates the L2 oracle migration',
+      observedAt: NOW.toISOString(),
+      allowNumeratorExceedDenominator: false,
+      recordedAt: NOW.toISOString(),
+    };
+
+    expect(() => validateOutcomeAgainstPolicy(registry, 'L2', historicalOutcome))
+      .toThrow(/sourceRefs must exactly match/);
+    expect(() => validateOutcomeAgainstPolicy(registry, 'L2', historicalOutcome, { allowHistoricalSourceRefs: true }))
+      .not.toThrow();
+
+    expect(() => validateOutcomeAgainstPolicy(registry, 'L2', {
+      ...historicalOutcome,
+      sourceRefs: ['gsc', 'posthog'],
+    }, { allowHistoricalSourceRefs: true })).toThrow(/sourceRefs must exactly match/);
+  });
+
   it('fails closed when the registry action map is incomplete or has stale entries', () => {
     const missing = { ...registry, actionAutonomy: { ...registry.actionAutonomy } };
     delete missing.actionAutonomy.observe;

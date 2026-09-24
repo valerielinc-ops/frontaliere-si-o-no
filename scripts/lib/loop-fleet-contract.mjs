@@ -165,6 +165,20 @@ function requireTextArrayAllowEmpty(value, name) {
   return value;
 }
 
+function requireSourceRefSets(value, name) {
+  if (value === undefined || (Array.isArray(value) && value.length === 0)) return [];
+  if (!Array.isArray(value) || value.length === 0) fail(`${name} must be a non-empty array`);
+  const seen = new Set();
+  const sets = value.map((sourceRefs, index) => {
+    const normalized = [...requireTextArray(sourceRefs, `${name}[${index}]`)];
+    const key = JSON.stringify([...normalized].sort());
+    if (seen.has(key)) fail(`${name} contains duplicate source reference set`);
+    seen.add(key);
+    return normalized;
+  });
+  return sets;
+}
+
 function requireOutcomeContract(value, name) {
   if (!value || typeof value !== 'object' || Array.isArray(value)) fail(`${name} must be an object`);
   if (value.allowNumeratorExceedDenominator !== undefined
@@ -174,6 +188,7 @@ function requireOutcomeContract(value, name) {
   return {
     outcomeId: requireText(value.outcomeId, `${name}.outcomeId`),
     sourceRefs: [...requireTextArray(value.sourceRefs, `${name}.sourceRefs`)],
+    historicalSourceRefs: requireSourceRefSets(value.historicalSourceRefs, `${name}.historicalSourceRefs`),
     requiredFields: [...requireTextArray(value.requiredFields, `${name}.requiredFields`)],
     allowNumeratorExceedDenominator: value.allowNumeratorExceedDenominator === true,
   };
@@ -353,6 +368,13 @@ export function validateLoopRegistry(registry) {
       if (!Object.hasOwn(sourceCatalog, sourceRef)) fail(`${id}.outcome.sourceRefs references undeclared ${sourceRef}`);
       if (!loop.sourceRefs.includes(sourceRef)) fail(`${id}.outcome.sourceRefs is not declared by ${id}.sourceRefs: ${sourceRef}`);
     }
+    for (const [index, historicalSourceRefs] of outcome.historicalSourceRefs.entries()) {
+      for (const sourceRef of historicalSourceRefs) {
+        if (!Object.hasOwn(sourceCatalog, sourceRef)) {
+          fail(`${id}.outcome.historicalSourceRefs[${index}] references undeclared ${sourceRef}`);
+        }
+      }
+    }
     const lifecycle = requireLifecycle(loop.lifecycle, `${id}.lifecycle`);
     const actionPolicy = requireActionPolicy(loop.actionPolicy, `${id}.actionPolicy`);
     const hasAllocationRequirement = policyRequirements.includes('allocation');
@@ -517,7 +539,20 @@ export function validateActionClassAgainstPolicy(registry, loopId, actionClass) 
   };
 }
 
-export function validateOutcomeAgainstPolicy(registry, loopId, outcome) {
+function sourceRefsMatch(actual, expected) {
+  return Array.isArray(actual)
+    && Array.isArray(expected)
+    && actual.length === expected.length
+    && actual.every((sourceRef) => expected.includes(sourceRef))
+    && expected.every((sourceRef) => actual.includes(sourceRef));
+}
+
+export function validateOutcomeAgainstPolicy(
+  registry,
+  loopId,
+  outcome,
+  { allowHistoricalSourceRefs = false } = {},
+) {
   const policy = findLoopPolicy(registry, loopId);
   if (!outcome || typeof outcome !== 'object' || Array.isArray(outcome)) {
     fail(`${loopId}.outcome must be an object`);
@@ -532,9 +567,10 @@ export function validateOutcomeAgainstPolicy(registry, loopId, outcome) {
   if (normalized.allowNumeratorExceedDenominator !== policy.outcome.allowNumeratorExceedDenominator) {
     fail(`${loopId}.outcome denominator policy does not match the registry`);
   }
-  const missingSourceRefs = policy.outcome.sourceRefs.filter((sourceRef) => !normalized.sourceRefs.includes(sourceRef));
-  const extraSourceRefs = normalized.sourceRefs.filter((sourceRef) => !policy.outcome.sourceRefs.includes(sourceRef));
-  if (missingSourceRefs.length || extraSourceRefs.length) {
+  const currentSourceRefsMatch = sourceRefsMatch(normalized.sourceRefs, policy.outcome.sourceRefs);
+  const historicalSourceRefsMatch = allowHistoricalSourceRefs
+    && policy.outcome.historicalSourceRefs.some((sourceRefs) => sourceRefsMatch(normalized.sourceRefs, sourceRefs));
+  if (!currentSourceRefsMatch && !historicalSourceRefsMatch) {
     fail(`${loopId}.outcome.sourceRefs must exactly match the registry declaration`);
   }
   const undeclaredPresentFields = normalized.requiredFieldsPresent

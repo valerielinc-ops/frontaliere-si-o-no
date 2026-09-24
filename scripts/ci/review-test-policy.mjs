@@ -104,7 +104,7 @@ function validateLedgerRecordAgainstRegistry(record, expectedType, registry) {
     } else {
       validateActionClassAgainstPolicy(registry, record.loopId, record.actionClass);
       if (expectedType === 'decision') validateDecisionLifecycle(registry, record.loopId, record);
-      validateOutcomeAgainstPolicy(registry, record.loopId, record.outcome);
+      validateOutcomeAgainstPolicy(registry, record.loopId, record.outcome, { allowHistoricalSourceRefs: true });
     }
     return '';
   } catch (error) {
