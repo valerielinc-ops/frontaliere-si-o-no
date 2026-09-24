@@ -274,21 +274,21 @@ jobs:
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         # Regenerates the assembled artifacts (data/jobs.json, expired-jobs.json)
         # that the vitest gate reads. These are deploy-assembled, not committed by
-        # the --slice-only commit below. We deliberately do NOT run
+        # the --slice-only checkpoint commits above. We deliberately do NOT run
         # reconcile-job-slugs.mjs here: it mutates the funnel-critical tracked
         # registry (data/orphan-indexed-job-slugs.json) which --slice-only would
         # write-then-discard, and reconciliation is the sync-gsc-orphans pipeline's
         # job — this workflow only recovers expired slice content.
         run: node scripts/assemble-jobs-dataset.mjs
 
-      - name: Test gate (bot-direct-to-main — never poison main with a bad dump)
+      - name: Test gate (bot-direct-to-main — validate before deploy)
         id: backfill_tests
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         # A workflow that pushes data straight to main is held to the same
         # relevant-test policy as a PR (AGENTS.md). The full suite is not the
         # gate here: its unrelated corpus/environment tests can fail after the
-        # backfill is already correct and would prevent a valid data refresh
-        # from ever reaching the commit step. This focused gate covers the
+        # backfill is already correct and would turn a persisted checkpoint
+        # into a red run while blocking its deploy. This focused gate covers the
         # recovered archive/assembly invariants and the no-repeat alert ledger.
         # Measurement on 2026-09-24 with the 11-file gate: the concurrent
         # invocation hit 3 x 15s subprocess timeouts; --maxWorkers=1 passed
