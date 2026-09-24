@@ -578,7 +578,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Nuovo Accordo Italia-Svizzera: vecchi e nuovi frontalieri</h2>
         <p>Il Nuovo Accordo fiscale, firmato il 23 dicembre 2020 e in vigore dal 1° gennaio 2024 (ratificato in Italia con la Legge 83/2023), distingue due categorie. I "vecchi" frontalieri, che lavoravano già come tali prima del 17 luglio 2023, restano nel regime transitorio 2024-2033 con esenzione di €7'500. I "nuovi" frontalieri sono soggetti a tassazione concorrente: imposta alla fonte all'80% in Svizzera più IRPEF in Italia sul reddito eccedente la franchigia di €10'000. Il confronto numerico completo è nella guida <a href="${siblingOldNew.it}">vecchio vs nuovo frontaliere</a>.</p>
         <h2>Doppia imposizione: come viene evitata</h2>
-        <p>La Convenzione Italia-Svizzera contro le doppie imposizioni, firmata il 9 dicembre 1976, stabilisce che il reddito da lavoro frontaliere non venga tassato due volte: l'Italia riconosce un credito d'imposta per le imposte già pagate in Svizzera, da indicare nel quadro CE del modello 730 o Redditi PF.</p>
+        <p>La Convenzione Italia-Svizzera contro le doppie imposizioni, firmata il 9 marzo 1976, stabilisce che il reddito da lavoro frontaliere non venga tassato due volte: l'Italia riconosce un credito d'imposta per le imposte già pagate in Svizzera, da indicare nel quadro CE del modello 730 o Redditi PF.</p>
         <h2>Detrazioni fiscali deducibili</h2>
         <p>Sia in Svizzera sia in Italia esistono voci deducibili che riducono l'imponibile: contributi previdenziali (LPP, terzo pilastro), spese mediche e, sul lato italiano, oneri riconosciuti dall'Agenzia delle Entrate e dal MEF in dichiarazione dei redditi. L'elenco completo delle detrazioni applicabili ai frontalieri è nell'articolo <a href="${deductionsHref.it}">Detrazioni fiscali per frontalieri in Italia</a>.</p>
         <h2>Per approfondire</h2>
@@ -614,7 +614,7 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         <h2>Nouvel accord Italie-Suisse : anciens et nouveaux frontaliers</h2>
         <p>Le nouvel accord fiscal, signé le 23 décembre 2020 et en vigueur depuis le 1er janvier 2024 (ratifié en Italie par la loi 83/2023), distingue deux catégories. Les "anciens" frontaliers, déjà actifs comme tels avant le 17 juillet 2023, restent sous le régime transitoire 2024-2033 avec une exonération de 7'500 €. Les "nouveaux" frontaliers sont soumis à une imposition concurrente : impôt à la source à 80% en Suisse plus IRPEF italien sur le revenu dépassant la franchise de 10'000 €. La comparaison chiffrée complète figure dans le <a href="${siblingOldNew.fr}">guide anciens vs nouveaux frontaliers</a>.</p>
         <h2>Double imposition : comment elle est évitée</h2>
-        <p>La convention italo-suisse contre les doubles impositions, signée le 9 décembre 1976, garantit que le revenu du travail frontalier n'est pas taxé deux fois : l'Italie accorde un crédit d'impôt pour les impôts déjà payés en Suisse, à reporter dans le cadre CE de la déclaration 730/Redditi PF.</p>
+        <p>La convention italo-suisse contre les doubles impositions, signée le 9 mars 1976, garantit que le revenu du travail frontalier n'est pas taxé deux fois : l'Italie accorde un crédit d'impôt pour les impôts déjà payés en Suisse, à reporter dans le cadre CE de la déclaration 730/Redditi PF.</p>
         <h2>Déductions fiscales</h2>
         <p>La Suisse comme l'Italie prévoient des postes déductibles qui réduisent le revenu imposable : cotisations de prévoyance (LPP, 3e pilier), frais médicaux et, côté italien, charges reconnues par l'Agenzia delle Entrate et le MEF dans la déclaration de revenus. La liste complète figure dans l'article <a href="${deductionsHref.fr}">Déductions fiscales pour frontaliers en Italie</a>.</p>
         <h2>Pour aller plus loin</h2>
@@ -625,25 +625,25 @@ export const EVERGREEN_ARTICLES: EvergreenArticle[] = [
         { q: 'Chi tassa lo stipendio di un frontaliere, Italia o Svizzera?', a: 'L\'imposta sul reddito da lavoro viene trattenuta alla fonte solo in Svizzera. L\'Italia evita la doppia imposizione riconoscendo un credito d\'imposta nel quadro CE del modello 730.' },
         { q: 'Cosa cambia tra vecchi e nuovi frontalieri?', a: 'I vecchi frontalieri (attivi prima del 17/7/2023) restano nel regime transitorio 2024-2033 con esenzione di €7\'500. I nuovi sono soggetti a tassazione concorrente con franchigia di €10\'000.' },
         { q: 'Quando è entrato in vigore il Nuovo Accordo fiscale?', a: 'Il Nuovo Accordo è stato firmato il 23 dicembre 2020 ed è in vigore dal 1° gennaio 2024, ratificato in Italia con la Legge 83/2023.' },
-        { q: 'Come si evita la doppia imposizione?', a: 'Grazie alla Convenzione Italia-Svizzera del 9 dicembre 1976: l\'Italia riconosce un credito d\'imposta per le imposte già pagate in Svizzera.' },
+        { q: 'Come si evita la doppia imposizione?', a: 'Grazie alla Convenzione Italia-Svizzera del 9 marzo 1976: l\'Italia riconosce un credito d\'imposta per le imposte già pagate in Svizzera.' },
       ];
       if (locale === 'en') return [
         { q: 'Who taxes a cross-border worker\'s salary, Italy or Switzerland?', a: 'Employment income tax is withheld at source only in Switzerland. Italy avoids double taxation by granting a tax credit in the CE section of the 730 return.' },
         { q: 'What changes between old and new cross-border workers?', a: 'Old cross-border workers (active before 17 July 2023) remain under the 2024-2033 transitional regime with a €7,500 exemption. New ones face concurrent taxation with a €10,000 allowance.' },
         { q: 'When did the New Tax Agreement come into force?', a: 'The New Agreement was signed on 23 December 2020 and has been in force since 1 January 2024, ratified in Italy by Law 83/2023.' },
-        { q: 'How is double taxation avoided?', a: 'Through the 9 December 1976 Italy-Switzerland treaty: Italy grants a tax credit for taxes already paid in Switzerland.' },
+        { q: 'How is double taxation avoided?', a: 'Through the 9 March 1976 Italy-Switzerland treaty: Italy grants a tax credit for taxes already paid in Switzerland.' },
       ];
       if (locale === 'de') return [
         { q: 'Wer besteuert das Gehalt eines Grenzgängers, Italien oder die Schweiz?', a: 'Die Erwerbseinkommensteuer wird nur in der Schweiz an der Quelle einbehalten. Italien vermeidet Doppelbesteuerung durch eine Steuergutschrift im Abschnitt CE der Steuererklärung 730.' },
         { q: 'Was ändert sich zwischen alten und neuen Grenzgängern?', a: 'Alte Grenzgänger (tätig vor dem 17.7.2023) bleiben bis 2033 in der Übergangsregelung mit Freibetrag von €7\'500. Neue unterliegen der konkurrierenden Besteuerung mit Freibetrag von €10\'000.' },
         { q: 'Wann trat das neue Steuerabkommen in Kraft?', a: 'Das neue Abkommen wurde am 23. Dezember 2020 unterzeichnet und gilt seit 1. Januar 2024, ratifiziert in Italien mit Gesetz 83/2023.' },
-        { q: 'Wie wird Doppelbesteuerung vermieden?', a: 'Durch das Abkommen Italien-Schweiz vom 9. Dezember 1976: Italien gewährt eine Steuergutschrift für bereits in der Schweiz bezahlte Steuern.' },
+        { q: 'Wie wird Doppelbesteuerung vermieden?', a: 'Durch das Abkommen Italien-Schweiz vom 9. März 1976: Italien gewährt eine Steuergutschrift für bereits in der Schweiz bezahlte Steuern.' },
       ];
       return [
         { q: 'Qui taxe le salaire d\'un frontalier, l\'Italie ou la Suisse ?', a: 'L\'impôt sur le revenu du travail est retenu à la source uniquement en Suisse. L\'Italie évite la double imposition en accordant un crédit d\'impôt dans le cadre CE de la déclaration 730.' },
         { q: 'Que change-t-il entre anciens et nouveaux frontaliers ?', a: 'Les anciens frontaliers (actifs avant le 17/7/2023) restent sous le régime transitoire 2024-2033 avec une exonération de 7\'500 €. Les nouveaux sont soumis à une imposition concurrente avec une franchise de 10\'000 €.' },
         { q: 'Quand le nouvel accord fiscal est-il entré en vigueur ?', a: 'Le nouvel accord a été signé le 23 décembre 2020 et est en vigueur depuis le 1er janvier 2024, ratifié en Italie par la loi 83/2023.' },
-        { q: 'Comment la double imposition est-elle évitée ?', a: 'Grâce à la convention italo-suisse du 9 décembre 1976 : l\'Italie accorde un crédit d\'impôt pour les impôts déjà payés en Suisse.' },
+        { q: 'Comment la double imposition est-elle évitée ?', a: 'Grâce à la convention italo-suisse du 9 mars 1976 : l\'Italie accorde un crédit d\'impôt pour les impôts déjà payés en Suisse.' },
       ];
     },
     relatedScenarioFilter: (s) => s.salary === 80_000 && s.frontierType === 'NEW' && s.maritalStatus === 'SINGLE' && s.children === 0,
