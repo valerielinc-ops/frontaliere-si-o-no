@@ -7,6 +7,7 @@ import {
 import { saveIntent } from '@/services/pendingIntentStore';
 import { savePendingSalaryAlert } from '@/services/pendingSalaryAlert';
 import { savePendingSaveJobIntent } from '@/services/pendingSaveJob';
+import { savePendingCompanyFollow } from '@/services/companyFollowIntent';
 import { readFileSync } from 'node:fs';
 import { resolve } from 'node:path';
 import type { JobAlertConfig } from '@/services/jobAlertService';
@@ -138,14 +139,17 @@ describe('pendingJobAlert', () => {
 
   // Same class, sibling intents (sibling-patterns gate): the stash outcome
   // reaches the caller, and each caller keeps an in-tab recovery path.
-  it('the sibling salary-alert and save-job stashes report a failed write too', () => {
+  it('the sibling salary-alert, save-job and company-follow stashes report a failed write too', () => {
+    const follow = { company: 'Board International SA', companyKey: null, locale: 'it' as const, sourceJobSlug: null, sourceJobUrl: null, sourceJobTitle: null, email: 'anon@example.com' };
     expect(savePendingSalaryAlert(config)).toBe(true);
     expect(savePendingSaveJobIntent({ kind: 'show_saved_only' })).toBe(true);
+    expect(savePendingCompanyFollow(follow)).toBe(true);
     vi.spyOn(window.localStorage, 'setItem').mockImplementation(() => {
       throw new DOMException('QuotaExceededError', 'QuotaExceededError');
     });
     expect(savePendingSalaryAlert(config)).toBe(false);
     expect(savePendingSaveJobIntent({ kind: 'show_saved_only' })).toBe(false);
+    expect(savePendingCompanyFollow({ ...follow, company: 'Coop' })).toBe(false);
   });
 
   it('the sibling callers keep an in-memory fallback that every reader consults', () => {
@@ -163,5 +167,9 @@ describe('pendingJobAlert', () => {
     for (const reader of readers) expect(reader).toContain('?? pendingSaveFallbackRef.current');
     // No direct stash left that would drop the outcome again.
     expect(board.match(/savePendingSaveJobIntent\(/g) ?? []).toHaveLength(1);
+
+    const followButton = readFileSync(resolve(root, 'components/community/CompanyFollowButton.tsx'), 'utf8');
+    expect(followButton).toContain('const parked = savePendingCompanyFollow({');
+    expect(followButton).toMatch(/if \(!parked\) \{\s*setStatus\('error'\);/);
   });
 });

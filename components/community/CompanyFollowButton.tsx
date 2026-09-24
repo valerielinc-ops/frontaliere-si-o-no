@@ -181,7 +181,7 @@ export default function CompanyFollowButton({
    * company-specific replay intent.
    */
   const handleEmailRequested = useCallback((requestedEmail: string) => {
-    savePendingCompanyFollow({
+    const parked = savePendingCompanyFollow({
       company,
       companyKey: companyKey ?? null,
       locale: locale as 'it' | 'en' | 'de' | 'fr',
@@ -191,7 +191,14 @@ export default function CompanyFollowButton({
       email: requestedEmail,
     });
     onOptInRequested?.(requestedEmail);
-  }, [company, companyKey, locale, onOptInRequested, sourceJobSlug, sourceJobTitle, sourceJobUrl]);
+    // Issue 9575: storage refused the follow, so the confirmation link will
+    // replay nothing. Surface it (accept→error, visible retry message) instead
+    // of letting "check your email" promise a follow that no longer exists.
+    if (!parked) {
+      setStatus('error');
+      onErrored?.(new Error('pending_follow_storage_unavailable'));
+    }
+  }, [company, companyKey, locale, onErrored, onOptInRequested, sourceJobSlug, sourceJobTitle, sourceJobUrl]);
 
   // Social sign-in completes in the shared prompt. Once the parent supplies
   // the authenticated identity, close the prompt and perform the same follow
