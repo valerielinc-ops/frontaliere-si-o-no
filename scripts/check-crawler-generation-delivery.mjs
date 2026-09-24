@@ -60,7 +60,15 @@ export function parseArgs(argv) {
 }
 
 export function readLedgerEntries(ledgerPath) {
-  const raw = fs.readFileSync(ledgerPath, 'utf8');
+  let raw;
+  try {
+    raw = fs.readFileSync(ledgerPath, 'utf8');
+  } catch (error) {
+    // No ledger yet means no generation was ever finalized: judge it as empty
+    // (no settled generation -> undelivered) instead of crashing before the marker.
+    if (error?.code === 'ENOENT') return [];
+    throw error;
+  }
   if (raw.length > 0 && !raw.endsWith('\n')) throw new InputError('Crawler generation ledger has a partial final record');
   return raw.split('\n').filter((line) => line.length > 0).map((line, index) => {
     let entry;
@@ -73,6 +81,8 @@ export function readLedgerEntries(ledgerPath) {
 
 export function runCrawlerGenerationDeliveryCheck(options, io = {}) {
   const stdout = io.stdout ?? ((text) => process.stdout.write(text));
+  // With --json, stdout stays one parseable document; marker and annotation go to stderr.
+  const annotate = options.json ? (io.stderr ?? ((text) => process.stderr.write(text))) : stdout;
   const summaryPath = io.summaryPath ?? process.env.GITHUB_STEP_SUMMARY;
   const entries = readLedgerEntries(options.ledger);
   let roster;
@@ -82,6 +92,7 @@ export function runCrawlerGenerationDeliveryCheck(options, io = {}) {
 
   let token = options.token;
   let skipped = [];
+  let tokenlessSince;
   if (token === null) {
     const selection = selectSettledGenerationToken(entries, {
       now: options.now ?? Date.now(),
@@ -90,24 +101,25 @@ export function runCrawlerGenerationDeliveryCheck(options, io = {}) {
     });
     token = selection.token;
     skipped = selection.skipped;
+    tokenlessSince = selection.firstAt;
+  } else {
+    tokenlessSince = Math.min(...entries
+      .filter((entry) => entry.generationToken === token)
+      .map((entry) => Date.parse(entry.checkedAt)));
   }
-  const report = token === null
-    ? {
-      generationToken: null, expectedGroups: expectedGroupIds.length,
-      counts: { published: 0, green_undelivered: 0, crawler_failed: 0, token_missing: 0, not_persisted: expectedGroupIds.length },
-      unexpectedGroups: [], delivered: false, groups: {},
-    }
-    : evaluateCrawlerGenerationDelivery({ entries, generationToken: token, expectedGroupIds });
+  // Without a judged generation every tokenless record is evidence against it.
+  if (token === null || !Number.isFinite(tokenlessSince)) tokenlessSince = -Infinity;
+  const report = evaluateCrawlerGenerationDelivery({ entries, generationToken: token, expectedGroupIds, tokenlessSince });
   const result = { ...report, skippedTokens: skipped };
 
   if (options.json) stdout(`${JSON.stringify(result, null, 2)}\n`);
   else stdout(formatCrawlerDeliveryMarkdown(report));
-  stdout(`${formatCrawlerDeliveryMarker(report)}\n`);
+  annotate(`${formatCrawlerDeliveryMarker(report)}\n`);
   if (!report.delivered) {
     const why = token === null
-      ? 'no settled generation in the ledger'
-      : `${report.counts.published}/${report.expectedGroups} groups published, ${report.counts.green_undelivered} green run(s) without delivery`;
-    stdout(`::error title=Crawler generation not delivered::${why}\n`);
+      ? `no settled generation in the ledger (${report.counts.token_missing} group(s) with tokenless records)`
+      : `${report.counts.published}/${report.expectedGroups} groups published, ${report.counts.green_undelivered} green run(s) without delivery, ${report.counts.token_missing} without generation token`;
+    annotate(`::error title=Crawler generation not delivered::${why}\n`);
   }
   if (summaryPath) {
     try { fs.appendFileSync(summaryPath, formatCrawlerDeliveryMarkdown(report)); } catch { /* summary is best-effort */ }

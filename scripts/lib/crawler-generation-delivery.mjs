@@ -62,13 +62,14 @@ export function selectSettledGenerationToken(entries, { now, settleMs = DEFAULT_
   const byToken = new Map();
   for (const entry of entries) {
     if (typeof entry?.generationToken !== 'string') continue;
-    const bucket = byToken.get(entry.generationToken) ?? { groups: new Set(), lastAt: -Infinity };
+    const bucket = byToken.get(entry.generationToken) ?? { groups: new Set(), firstAt: Infinity, lastAt: -Infinity };
     bucket.groups.add(entry.group);
+    bucket.firstAt = Math.min(bucket.firstAt, entryTime(entry));
     bucket.lastAt = Math.max(bucket.lastAt, entryTime(entry));
     byToken.set(entry.generationToken, bucket);
   }
   const candidates = [...byToken.entries()]
-    .map(([token, bucket]) => ({ token, groups: bucket.groups.size, lastAt: bucket.lastAt }))
+    .map(([token, bucket]) => ({ token, groups: bucket.groups.size, firstAt: bucket.firstAt, lastAt: bucket.lastAt }))
     .sort((left, right) => right.lastAt - left.lastAt || compareCodePoint(right.token, left.token));
   const skipped = [];
   for (const candidate of candidates) {
@@ -77,21 +78,39 @@ export function selectSettledGenerationToken(entries, { now, settleMs = DEFAULT_
     } else if (now - candidate.lastAt < settleMs) {
       skipped.push({ token: candidate.token, groups: candidate.groups, reason: 'unsettled' });
     } else {
-      return { token: candidate.token, skipped };
+      return { token: candidate.token, firstAt: candidate.firstAt, skipped };
     }
   }
-  return { token: null, skipped };
+  return { token: null, firstAt: null, skipped };
 }
 
-/** Fleet verdict for one generation token; `delivered` is true only at N/N published. */
-export function evaluateCrawlerGenerationDelivery({ entries, generationToken, expectedGroupIds }) {
+/**
+ * Fleet verdict for one generation token; `delivered` is true only at N/N published.
+ *
+ * A tokenless record carries no generation to group by, so it would otherwise
+ * be invisible and let an older, fully published generation pass. Every
+ * tokenless record written at or after `tokenlessSince` (the first write of
+ * the judged generation) counts against its group as `token_missing` unless
+ * a newer token-bound record supersedes it.
+ */
+export function evaluateCrawlerGenerationDelivery({ entries, generationToken, expectedGroupIds, tokenlessSince = null }) {
   const expected = [...expectedGroupIds].sort(compareCodePoint);
   const latestByGroup = new Map();
-  for (const entry of entries) {
-    if (entry?.generationToken !== generationToken) continue;
-    const previous = latestByGroup.get(entry.group);
+  const keepNewest = (map, entry) => {
+    const previous = map.get(entry.group);
     // Reruns append a new record; the newest verdict wins, file order breaks ties.
-    if (!previous || entryTime(entry) >= entryTime(previous.entry)) latestByGroup.set(entry.group, { entry });
+    if (!previous || entryTime(entry) >= entryTime(previous.entry)) map.set(entry.group, { entry });
+  };
+  const tokenlessByGroup = new Map();
+  for (const entry of entries) {
+    if (generationToken !== null && entry?.generationToken === generationToken) keepNewest(latestByGroup, entry);
+    else if (entry?.generationToken === null && tokenlessSince !== null && entryTime(entry) >= tokenlessSince) {
+      keepNewest(tokenlessByGroup, entry);
+    }
+  }
+  for (const [group, tokenless] of tokenlessByGroup) {
+    const bound = latestByGroup.get(group);
+    if (!bound || entryTime(tokenless.entry) >= entryTime(bound.entry)) latestByGroup.set(group, tokenless);
   }
   const counts = Object.fromEntries(CRAWLER_DELIVERY_STATES.map((state) => [state, 0]));
   const groups = {};
@@ -142,7 +161,8 @@ export function formatCrawlerDeliveryMarkdown(report) {
   for (const group of Object.keys(report.groups).sort(compareCodePoint)) {
     const detail = report.groups[group];
     if (detail.state === 'published') continue;
-    lines.push(`| ${group} | ${detail.state} | ${detail.reasons.join(', ') || '—'} | ${detail.callerRunId ?? '—'} |`);
+    const cell = (value) => String(value).replace(/[|\r\n]/g, ' ');
+    lines.push(`| ${group} | ${detail.state} | ${cell(detail.reasons.join(', ') || '—')} | ${cell(detail.callerRunId ?? '—')} |`);
   }
   if (report.unexpectedGroups.length > 0) lines.push('', `Unexpected groups in ledger: ${report.unexpectedGroups.join(', ')}`);
   return `${lines.join('\n')}\n`;

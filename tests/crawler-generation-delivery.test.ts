@@ -158,6 +158,70 @@ describe('check-crawler-generation-delivery CLI', () => {
     expect(result.generationToken).toBeNull();
   });
 
+  it('does not let tokenless records of a newer wave hide behind an older published generation', () => {
+    const files = fixture([
+      ...GROUPS.map((group) => entry({ group, token: '500-1', reasons: [], at })),
+      entry({ group: '02', token: null, reasons: ['generation_token_missing', 'receipt_missing'], at: '2026-09-24T15:00:00.000Z', runId: '600' }),
+      entry({ group: '03', token: null, reasons: ['generation_token_missing', 'receipt_missing'], at: '2026-09-24T15:05:00.000Z', runId: '601' }),
+    ]);
+    let out = '';
+    const result = runCrawlerGenerationDeliveryCheck(
+      parseArgs(['--ledger', files.ledger, '--roster', files.roster, '--now', now]),
+      { stdout: (text: string) => { out += text; }, summaryPath: files.summary },
+    );
+    expect(result.generationToken).toBe('500-1');
+    expect(result.delivered).toBe(false);
+    expect(result.counts).toMatchObject({ published: 2, token_missing: 2 });
+    expect(result.groups['02']).toMatchObject({ state: 'token_missing', callerRunId: '600' });
+    expect(out).toContain('token_missing=2');
+  });
+
+  it('lets a newer token-bound rerun supersede an older tokenless record', () => {
+    const files = fixture([
+      entry({ group: '01', token: null, reasons: ['generation_token_missing', 'receipt_missing'], at: '2026-09-24T09:00:00.000Z' }),
+      ...GROUPS.map((group) => entry({ group, token: '500-1', reasons: [], at })),
+    ]);
+    const result = runCrawlerGenerationDeliveryCheck(
+      parseArgs(['--ledger', files.ledger, '--roster', files.roster, '--token', '500-1']),
+      { stdout: () => {}, summaryPath: files.summary },
+    );
+    expect(result.delivered).toBe(true);
+  });
+
+  it('counts tokenless records when no settled generation exists', () => {
+    const files = fixture([
+      entry({ group: '01', token: null, reasons: ['generation_token_missing', 'receipt_missing'], at }),
+    ]);
+    const result = runCrawlerGenerationDeliveryCheck(
+      parseArgs(['--ledger', files.ledger, '--roster', files.roster, '--now', now]),
+      { stdout: () => {}, summaryPath: files.summary },
+    );
+    expect(result.generationToken).toBeNull();
+    expect(result.counts).toMatchObject({ token_missing: 1, not_persisted: 3 });
+  });
+
+  it('keeps --json stdout parseable and routes the marker to stderr', () => {
+    const files = fixture([entry({ group: '01', token: '500-1', reasons: GREEN_UNDELIVERED, at })]);
+    let out = '';
+    let err = '';
+    runCrawlerGenerationDeliveryCheck(
+      parseArgs(['--ledger', files.ledger, '--roster', files.roster, '--token', '500-1', '--json']),
+      { stdout: (text: string) => { out += text; }, stderr: (text: string) => { err += text; }, summaryPath: files.summary },
+    );
+    expect(JSON.parse(out).counts.green_undelivered).toBe(1);
+    expect(err).toContain('CRAWLER_GENERATION_DELIVERY:');
+  });
+
+  it('judges a missing ledger as undelivered instead of crashing', () => {
+    const files = fixture([]);
+    fs.rmSync(files.ledger);
+    const result = runCrawlerGenerationDeliveryCheck(
+      parseArgs(['--ledger', files.ledger, '--roster', files.roster, '--now', now]),
+      { stdout: () => {}, summaryPath: files.summary },
+    );
+    expect(result).toMatchObject({ delivered: false, generationToken: null });
+  });
+
   it('rejects a tampered ledger record instead of judging it', () => {
     const tampered = { ...entry({ group: '01', token: '500-1', reasons: GREEN_UNDELIVERED, at }), valid: true, reasons: [] };
     const files = fixture([tampered]);
