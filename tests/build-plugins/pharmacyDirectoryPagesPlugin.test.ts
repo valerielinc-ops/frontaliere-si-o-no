@@ -26,10 +26,16 @@ afterEach(() => {
   while (tempRoots.length > 0) fs.rmSync(tempRoots.pop()!, { recursive: true, force: true });
 });
 
+// Live-data counts: data/pharmacies-*.json are re-synced nightly, so a pinned
+// literal (749, 266) turns this gate red on every legitimate refresh. Derive
+// the expectation from the same snapshot the plugin reads.
+const TOTAL_PHARMACIES = TICINO_PHARMACIES.length + ITALY_BORDER_PHARMACIES.length;
+const italyProvinceCount = (code: string) => ITALY_BORDER_PHARMACIES.filter((pharmacy) => pharmacy.province === code).length;
+
 describe('pharmacy directory page matrix', () => {
   it('emits hubs, areas, city pages and one detail descriptor per pharmacy', () => {
     const descriptors = pharmacyPageDescriptors();
-    expect(descriptors.filter((descriptor) => descriptor.kind === 'pharmacy')).toHaveLength(749);
+    expect(descriptors.filter((descriptor) => descriptor.kind === 'pharmacy')).toHaveLength(TOTAL_PHARMACIES);
     expect(descriptors.some((descriptor) => descriptor.kind === 'country' && descriptor.country === 'IT')).toBe(true);
     expect(descriptors.filter((descriptor) => descriptor.kind === 'area')).toHaveLength(3);
     expect(descriptors.filter((descriptor) => descriptor.kind === 'city' && descriptor.country === 'IT').length).toBeGreaterThan(200);
@@ -224,7 +230,7 @@ describe('pharmacy directory page matrix', () => {
     const page = buildPharmacyDirectoryPage(hub!, 'it', '/tmp/pharmacy-dist');
     const schemas = [...page.html.matchAll(/<script type="application\/ld\+json">([\s\S]*?)<\/script>/g)].map((match) => JSON.parse(match[1]));
     const collection = schemas.find((schema) => schema['@type'] === 'CollectionPage');
-    expect(collection.mainEntity.numberOfItems).toBe(749);
+    expect(collection.mainEntity.numberOfItems).toBe(TOTAL_PHARMACIES);
     expect(collection.mainEntity.itemListElement).toHaveLength(10);
   });
 
@@ -237,7 +243,7 @@ describe('pharmacy directory page matrix', () => {
     expect(page.indexable).toBe(true);
     expect(Buffer.byteLength(page.html, 'utf8')).toBeLessThan(260 * 1024);
     expect(nav.match(/<li\b/g) || []).toHaveLength(3);
-    for (const [areaSlug, count] of [['como', 193], ['varese', 266], ['verbano-cusio-ossola', 83] ] as const) {
+    for (const [areaSlug, count] of [['como', italyProvinceCount('CO')], ['varese', italyProvinceCount('VA')], ['verbano-cusio-ossola', italyProvinceCount('VB')]] as const) {
       const areaPath = buildPharmacyPath({ kind: 'area', country: 'IT', areaSlug, locale }, locale);
       expect(nav).toContain(`href="${areaPath}"`);
       expect(nav).toContain(String(count));
