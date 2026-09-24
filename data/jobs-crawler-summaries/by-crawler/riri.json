@@ -1,21 +1,21 @@
 {
   "key": "riri",
   "label": "Riri Group",
-  "generatedAt": "2026-09-22T00:05:53.033Z",
-  "total": 2,
+  "generatedAt": "2026-09-24T14:25:48.007Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
-  "written": 2,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 2584,
-  "avgDurationMs": 2584,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 2996,
+  "avgDurationMs": 2996,
   "durationHistory": [
-    2584
+    2996
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -44,7 +44,7 @@
       "applyUrl": "https://careers.oerlikon.com/job/Mendrisio-Receptionist-TI-6850/1435381533/?feedId=null&utm_source=J2WRSS&utm_medium=rss&utm_campaign=J2W_RSS",
       "source": "Riri Group Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-22T00:05:48.381Z",
+      "crawledAt": "2026-09-24T14:25:38.241Z",
       "firstSeenAt": "2026-09-09T23:09:36.396Z",
       "_qualityScore": 85,
       "_qualityBreakdown": {
@@ -55,8 +55,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
+  "removedJobs": [
     {
       "id": "riri-c04d84002705",
       "slug": "servizio-clienti-specialista-riri-zippers-riri-group-mendrisio",
@@ -97,5 +96,6 @@
         "completeness": 22
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
