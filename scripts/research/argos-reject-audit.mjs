@@ -19,7 +19,7 @@
  * Nothing here is a re-implementation: the candidate predicate (needsWork), the
  * slot selection (missingSlots), the request masking (buildMopupRequest), the
  * exit transform (finalizeMopupTranslation) and the whole rejection chain
- * (classifyMopupWrite) are IMPORTED from scripts/local-mt-mopup.mjs, and the
+ * (classifyMopupStructure) are IMPORTED from scripts/local-mt-mopup.mjs, and the
  * translation itself is the same scripts/local-mt-translate.py the nightly runs.
  * A private copy of any of them would be measuring a gate that does not exist.
  *
@@ -73,7 +73,7 @@ import {
   needsWork,
   missingSlots,
   buildMopupRequest,
-  classifyMopupWrite,
+  classifyMopupStructure,
   shouldApplyMopupWrite,
 } from '../local-mt-mopup.mjs';
 import { titleLooksUntranslated } from '../lib/job-locale-utils.mjs';
@@ -261,7 +261,7 @@ export function classifyNormalizationArm({
   rawText,
   protectedTokens = [],
 }) {
-  const result = classifyMopupWrite({ job, locale, field, rawText, protectedTokens });
+  const result = classifyMopupStructure({ job, locale, field, rawText, protectedTokens });
   return {
     ...result,
     wouldApply: shouldApplyMopupWrite({
@@ -439,7 +439,7 @@ function renderMarkdown(report) {
 - Seed: **nessuno** — campionamento deterministico; ordine dei file da \`listSliceFileNames\`, aziende ordinate per bucket e nome.
 - Corpus: snapshot \`origin/main\` estratto con \`git archive\` in una directory temporanea; nessuna scrittura in \`data/\`.
 
-Il braccio OpusMT è stato eseguito solo sui **${rejectedCases.length}** slot in cui Argos ha prodotto un output ma la decisione del guard non era \`write\`. Il confronto usa la stessa richiesta già costruita da \`buildMopupRequest\`, gli stessi token protetti e la stessa \`classifyMopupWrite\`/finalizzazione.
+Il braccio OpusMT è stato eseguito solo sui **${rejectedCases.length}** slot in cui Argos ha prodotto un output ma la decisione del guard non era \`write\`. Il confronto usa la stessa richiesta già costruita da \`buildMopupRequest\`, gli stessi token protetti e la stessa \`classifyMopupStructure\`/finalizzazione.
 
 Il braccio di normalizzazione è stato eseguito solo sui **${normalization.calls}** rifiuti Argos con causa \`binnen-i\`; la causa è la decisione del detector sul candidato Argos, non una ricerca testuale parallela. Il sorgente è stato normalizzato prima di ricostruire la richiesta con \`buildMopupRequest\`; masking, finalizzazione e write guard restano quelli condivisi.
 
@@ -626,7 +626,7 @@ async function generate() {
     const raw = raws.get(id);
     if (raw === undefined) continue; // call failure, not a refusal — out of scope
     const { job, locale, field, request, protectedTokens, sourceText } = tgt;
-    const argos = classifyMopupWrite({
+    const argos = classifyMopupStructure({
       job, locale, field, rawText: raw, protectedTokens,
     });
     // Why the slot was queued at all — separates the entry gate
@@ -698,7 +698,7 @@ async function generate() {
       const opusRaw = await translateWithLocalOpusMt(request.text, request.from, request.to);
       const opusCallElapsedMs = Date.now() - opusCallStarted;
       opusElapsedMs += opusCallElapsedMs;
-      const opus = classifyMopupWrite({
+      const opus = classifyMopupStructure({
         job,
         locale,
         field,
@@ -744,7 +744,7 @@ async function generate() {
 
   // 6. The third arm uses the SAME Argos worker and the SAME request masking.
   // `buildMopupRequest` owns maskProtectedTokens; classifyNormalizationArm
-  // delegates finalization to classifyMopupWrite (which owns
+  // delegates finalization to classifyMopupStructure (which owns
   // finalizeMopupTranslation) and checks shouldApplyMopupWrite. Only the input
   // source differs from the first arm.
   let normalizationRun = { raws: new Map(), failed: 0, elapsedMs: 0 };

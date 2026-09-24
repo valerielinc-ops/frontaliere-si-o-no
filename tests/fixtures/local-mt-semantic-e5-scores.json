@@ -1,0 +1,73 @@
+{
+  "schemaVersion": 1,
+  "description": "Cosine similarity source vs candidate, measured once with the default local embedder of scripts/lib/local-mt-semantic-judge.mjs and recorded so the judge can be exercised on the calibration dataset without loading model weights. Input to #9676.",
+  "model": "Xenova/multilingual-e5-small",
+  "dtype": "fp32",
+  "prefix": "passage",
+  "measuredAt": "2026-09-24",
+  "datasetPath": "tests/fixtures/local-mt-semantic-cases.json",
+  "scores": {
+    "preserved-01": 0.8814,
+    "preserved-02": 0.8897,
+    "preserved-03": 0.9104,
+    "preserved-04": 0.9344,
+    "inversion-01": 0.8469,
+    "inversion-02": 0.9025,
+    "inversion-03": 0.9411,
+    "inversion-04": 0.8478,
+    "loss-01": 0.8889,
+    "loss-02": 0.8568,
+    "loss-03": 0.8837,
+    "loss-04": 0.821,
+    "wrong-language-01": 1.0,
+    "wrong-language-02": 0.9805,
+    "wrong-language-03": 0.9956,
+    "wrong-language-04": 1.0,
+    "equal-01": 0.8361,
+    "equal-02": 0.9244,
+    "equal-03": 0.9213,
+    "equal-04": 0.8931,
+    "unclear-01": 0.8911,
+    "unclear-02": 0.9106,
+    "unclear-03": 0.8738,
+    "unclear-04": 0.8569
+  },
+  "reportCases": [
+    {
+      "id": "report-prison-inverted",
+      "sourceLang": "de",
+      "targetLocale": "it",
+      "source": "Gefängnisseelsorger",
+      "candidate": "Prigionieri",
+      "label": "inversion",
+      "score": 0.8996
+    },
+    {
+      "id": "report-prison-preserved",
+      "sourceLang": "de",
+      "targetLocale": "it",
+      "source": "Gefängnisseelsorger",
+      "candidate": "Cappellano carcerario",
+      "label": "preserved",
+      "score": 0.9123
+    },
+    {
+      "id": "report-reception-inverted",
+      "sourceLang": "de",
+      "targetLocale": "it",
+      "source": "Mitarbeiter Rezeption",
+      "candidate": "Ricevimento dei dipendenti",
+      "label": "inversion",
+      "score": 0.9246
+    },
+    {
+      "id": "report-reception-preserved",
+      "sourceLang": "de",
+      "targetLocale": "it",
+      "source": "Mitarbeiter Rezeption",
+      "candidate": "Addetto alla reception",
+      "label": "preserved",
+      "score": 0.8855
+    }
+  ]
+}
