@@ -7302,9 +7302,9 @@
     },
     {
       "id": "ubs-00ccef578f2f",
-      "slug": "strategy-operations-manager-asset-management-coo-ubs-zurich",
+      "slug": "responsabile-strategia-e-operazioni-coo-asset-management-ubs-zurich",
       "slugByLocale": {
-        "it": "strategy-operations-manager-asset-management-coo-ubs-zurich",
+        "it": "responsabile-strategia-e-operazioni-coo-asset-management-ubs-zurich",
         "en": "strategy-operations-manager-asset-management-coo-ubs-zurich",
         "de": "strategy-operations-manager-asset-management-coo-ubs-zurich",
         "fr": "gestionnaire-de-la-strategie-et-des-operations-gestion-des-biens-ubs-zurich"
@@ -7370,13 +7370,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "strategy-operations-manager-asset-management-coo-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "strategy-operations-manager-asset-management-coo-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-f4466587f3c1",
-      "slug": "senior-business-strategist-personal-banking-chief-strategy-office-ubs-zurich",
+      "slug": "senior-business-strategist-personal-banking-ufficio-strategia-principale-ubs-zurich",
       "slugByLocale": {
-        "it": "senior-business-strategist-personal-banking-chief-strategy-office-ubs-zurich",
+        "it": "senior-business-strategist-personal-banking-ufficio-strategia-principale-ubs-zurich",
         "en": "senior-business-strategist-personal-banking-chief-strategy-office-ubs-zurich",
         "de": "senior-business-strategist-personal-banking-chief-strategy-office-ubs-zurich",
         "fr": "stratege-d-affaires-senior-banques-personnelles-bureau-strategique-principal-ubs-zurich"
@@ -7442,7 +7450,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-business-strategist-personal-banking-chief-strategy-office-ubs-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "senior-business-strategist-personal-banking-chief-strategy-office-ubs-zurich"
+      ]
     },
     {
       "id": "ubs-639d79cf9b50",

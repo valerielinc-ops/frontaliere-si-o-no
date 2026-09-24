@@ -1467,7 +1467,7 @@
       "slugByLocale": {
         "it": "designer-di-interazione-sonova-staefa-switzerland",
         "en": "interaction-designer-sonova-ch",
-        "de": "interaction-designer-sonova-ch",
+        "de": "interaktionsdesigner-sonova-staefa-switzerland",
         "fr": "conception-de-l-interaction-sonova-staefa-switzerland"
       },
       "company": "Sonova",
@@ -1529,6 +1529,9 @@
         ],
         "fr": [
           "interaction-designer-sonova-ch"
+        ],
+        "de": [
+          "interaction-designer-sonova-ch"
         ]
       },
       "previousSlugs": [
@@ -1538,9 +1541,9 @@
     },
     {
       "id": "sonova-ec78c23d0cf7",
-      "slug": "procurement-manager-npi-sonova-ch",
+      "slug": "responsabile-degli-approvvigionamenti-npi-sonova-staefa-switzerland",
       "slugByLocale": {
-        "it": "procurement-manager-npi-sonova-ch",
+        "it": "responsabile-degli-approvvigionamenti-npi-sonova-staefa-switzerland",
         "en": "procurement-manager-npi-sonova-ch",
         "de": "beschaffungsmanager-npi-sonova-staefa-switzerland",
         "fr": "gestionnaire-des-achats-sonova-staefa-switzerland"
@@ -1596,7 +1599,15 @@
           "maxValue": 154000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "procurement-manager-npi-sonova-ch"
+        ]
+      },
+      "previousSlugs": [
+        "procurement-manager-npi-sonova-ch"
+      ]
     },
     {
       "id": "sonova-786be3ecd5d4",

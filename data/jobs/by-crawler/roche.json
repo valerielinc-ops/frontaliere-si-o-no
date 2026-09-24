@@ -42721,7 +42721,7 @@
       "slugByLocale": {
         "it": "gestore-globale-di-sourcing-e-materiali-roche-basel",
         "en": "global-sourcing-material-manager-roche-ch",
-        "de": "global-sourcing-material-manager-roche-ch",
+        "de": "globaler-sourcing-und-materialmanager-roche-basel",
         "fr": "gestionnaire-mondial-d-approvisionnement-et-de-materiaux-roche-basel"
       },
       "company": "Roche",
@@ -42771,6 +42771,9 @@
           "gestore-globale-di-sourcing-e-materiali-roche-basel"
         ],
         "fr": [
+          "global-sourcing-material-manager-roche-ch"
+        ],
+        "de": [
           "global-sourcing-material-manager-roche-ch"
         ]
       },
@@ -48073,9 +48076,9 @@
     },
     {
       "id": "roche-ed02157012a9",
-      "slug": "coordenador-de-estrategias-e-solucoes-integradas-roche-ch",
+      "slug": "coordinatore-di-strategie-e-soluzioni-integrate-roche-basel",
       "slugByLocale": {
-        "it": "coordenador-de-estrategias-e-solucoes-integradas-roche-ch",
+        "it": "coordinatore-di-strategie-e-soluzioni-integrate-roche-basel",
         "en": "coordenador-de-estrategias-e-solucoes-integradas-roche-ch",
         "de": "coordenador-de-estrategias-e-solucoes-integradas-roche-ch",
         "fr": "coordenador-de-estrategias-e-solucoes-integradas-roche-ch"
@@ -48132,7 +48135,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "coordenador-de-estrategias-e-solucoes-integradas-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "coordenador-de-estrategias-e-solucoes-integradas-roche-ch"
+      ]
     },
     {
       "id": "roche-58307607a462",
@@ -48916,7 +48927,7 @@
       "slugByLocale": {
         "it": "solution-architect-pharma-r-d-roche-ch-2",
         "en": "solution-architect-pharma-r-d-roche-ch",
-        "de": "solution-architect-pharma-r-d-roche-ch-2",
+        "de": "losungsarchitekt-pharma-f-e-roche-hyderabad",
         "fr": "solution-architect-pharma-r-d-roche-ch-2"
       },
       "company": "Roche",
@@ -50236,9 +50247,9 @@
     },
     {
       "id": "roche-643722ecb50a",
-      "slug": "utilities-manager-roche-ch",
+      "slug": "responsabile-dei-servizi-pubblici-roche-basel",
       "slugByLocale": {
-        "it": "utilities-manager-roche-ch",
+        "it": "responsabile-dei-servizi-pubblici-roche-basel",
         "en": "utilities-manager-roche-basel",
         "de": "utilities-manager-roche-ch",
         "fr": "gestionnaire-des-services-publics-roche-basel"
@@ -50281,11 +50292,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "gestionnaire-des-services-publics-roche-basel"
+        "gestionnaire-des-services-publics-roche-basel",
+        "utilities-manager-roche-ch"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "gestionnaire-des-services-publics-roche-basel"
+          "gestionnaire-des-services-publics-roche-basel",
+          "utilities-manager-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -53272,9 +53285,9 @@
     },
     {
       "id": "roche-0daf216283a3",
-      "slug": "early-talent-program-associate-pdr-roche-ch",
+      "slug": "associato-del-programma-talento-iniziale-pdr-roche-mississauga",
       "slugByLocale": {
-        "it": "early-talent-program-associate-pdr-roche-ch",
+        "it": "associato-del-programma-talento-iniziale-pdr-roche-mississauga",
         "en": "early-talent-program-associate-pdr-roche-ch",
         "de": "early-talent-program-associate-pdr-roche-ch",
         "fr": "associe-du-programme-des-premiers-talents-pdr-roche-mississauga"
@@ -53331,13 +53344,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "early-talent-program-associate-pdr-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "early-talent-program-associate-pdr-roche-ch"
+      ]
     },
     {
       "id": "roche-a5b465ee9744",
-      "slug": "early-talent-program-associate-apqr-roche-ch",
+      "slug": "associato-del-programma-talenti-iniziali-apqr-roche-mississauga",
       "slugByLocale": {
-        "it": "early-talent-program-associate-apqr-roche-ch",
+        "it": "associato-del-programma-talenti-iniziali-apqr-roche-mississauga",
         "en": "early-talent-program-associate-apqr-roche-ch",
         "de": "early-talent-program-associate-apqr-roche-ch",
         "fr": "associe-du-programme-des-premiers-talents-apqr-roche-mississauga"
@@ -53394,13 +53415,21 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "early-talent-program-associate-apqr-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "early-talent-program-associate-apqr-roche-ch"
+      ]
     },
     {
       "id": "roche-53eb33b01596",
-      "slug": "regional-manager-core-lab-roche-ch",
+      "slug": "responsabile-regionale-core-lab-roche-chennai",
       "slugByLocale": {
-        "it": "regional-manager-core-lab-roche-ch",
+        "it": "responsabile-regionale-core-lab-roche-chennai",
         "en": "regional-manager-core-lab-roche-ch",
         "de": "regionalmanager-core-lab-roche-chennai",
         "fr": "gestionnaire-regional-core-lab-roche-chennai"
@@ -53457,7 +53486,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "regional-manager-core-lab-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "regional-manager-core-lab-roche-ch"
+      ]
     },
     {
       "id": "roche-e232f3f6a31d",
@@ -54461,7 +54498,7 @@
       "slugByLocale": {
         "it": "modulo-di-consegna-del-trasferimento-dati-rdt-m-a-roche-pune",
         "en": "rdt-m-a-data-transfer-delivery-lead-roche-ch",
-        "de": "rdt-m-a-data-transfer-delivery-lead-roche-ch",
+        "de": "leitung-der-rdt-m-a-datenubertragung-roche-pune",
         "fr": "rdt-responsable-de-la-transmission-des-donnees-roche-pune"
       },
       "company": "Roche",
@@ -54523,6 +54560,9 @@
           "modulo-di-consegna-del-trasferimento-dati-rdt-m-a-roche-pune"
         ],
         "fr": [
+          "rdt-m-a-data-transfer-delivery-lead-roche-ch"
+        ],
+        "de": [
           "rdt-m-a-data-transfer-delivery-lead-roche-ch"
         ]
       },
@@ -55014,11 +55054,11 @@
     },
     {
       "id": "roche-f5474487e901",
-      "slug": "senior-principal-dsx-data-scientist-roche-ch",
+      "slug": "scienziato-senior-dei-dati-dsx-roche-mississauga",
       "slugByLocale": {
-        "it": "senior-principal-dsx-data-scientist-roche-ch",
+        "it": "scienziato-senior-dei-dati-dsx-roche-mississauga",
         "en": "senior-principal-dsx-data-scientist-roche-ch",
-        "de": "senior-principal-dsx-data-scientist-roche-ch",
+        "de": "leitender-dsx-datenwissenschaftler-roche-mississauga",
         "fr": "chercheur-principal-principal-principal-des-donnees-dsx-roche-mississauga"
       },
       "company": "Roche",
@@ -55073,7 +55113,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "BS"
+      "addressRegion": "BS",
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-principal-dsx-data-scientist-roche-ch"
+        ],
+        "de": [
+          "senior-principal-dsx-data-scientist-roche-ch"
+        ]
+      },
+      "previousSlugs": [
+        "senior-principal-dsx-data-scientist-roche-ch"
+      ]
     },
     {
       "id": "roche-4655e651c48b",
@@ -55481,7 +55532,7 @@
       "slugByLocale": {
         "it": "business-analista-rdt-pharma-technical-operations-roche-mississauga",
         "en": "business-analyst-rdt-pharma-technical-operations-roche-ch",
-        "de": "business-analyst-rdt-pharma-technical-operations-roche-ch",
+        "de": "geschaftsanalyst-rdt-pharma-technische-ablaufe-roche-mississauga",
         "fr": "business-analyste-rdt-pharma-technical-operations-roche-mississauga"
       },
       "company": "Roche",
@@ -55529,6 +55580,9 @@
           "business-analista-rdt-pharma-technical-operations-roche-mississauga"
         ],
         "fr": [
+          "business-analyst-rdt-pharma-technical-operations-roche-ch"
+        ],
+        "de": [
           "business-analyst-rdt-pharma-technical-operations-roche-ch"
         ]
       },
@@ -55868,10 +55922,10 @@
       "id": "roche-bc2f30eaed85",
       "slug": "automation-business-analista-roche-san-jose-costa-rica",
       "slugByLocale": {
-        "it": "automation-business-analista-roche-san-jose-costa-rica",
         "en": "automation-business-analyst-roche-ch",
-        "de": "automation-business-analista-roche-san-jose-costa-rica",
-        "fr": "automation-business-analyste-roche-san-jose-costa-rica"
+        "it": "automation-business-analista-roche-san-jose-costa-rica",
+        "fr": "automation-business-analyste-roche-san-jose-costa-rica",
+        "de": "automatisierungs-geschaftsanalyst-roche-san-jose-costa-rica"
       },
       "company": "Roche",
       "companyKey": "roche",
@@ -57769,7 +57823,7 @@
       "slugByLocale": {
         "it": "lead-delle-prestazioni-di-servizio-gpc-roche-sant-cugat-del-valles",
         "en": "gpc-service-performance-lead-roche-ch",
-        "de": "gpc-service-performance-lead-roche-ch",
+        "de": "leiter-der-gpc-serviceleistung-roche-sant-cugat-del-valles",
         "fr": "responsable-du-rendement-du-service-de-gpc-roche-sant-cugat-del-valles"
       },
       "company": "Roche",
@@ -57817,6 +57871,9 @@
         "it": [
           "gpc-service-performance-lead-roche-ch",
           "lead-delle-prestazioni-di-servizio-gpc-roche-sant-cugat-del-valles"
+        ],
+        "de": [
+          "gpc-service-performance-lead-roche-ch"
         ]
       },
       "needsRetranslation": true,
@@ -65532,7 +65589,7 @@
       "slugByLocale": {
         "it": "servizi-di-manufacturing-directory-rdt-gestione-dell-identita-e-dell-accesso-roche-pune",
         "en": "manufacturing-directory-services-rdt-identity-access-management-roche-ch",
-        "de": "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2",
+        "de": "fertigungsverzeichnisdienste-rdt-identitats-und-zugriffsverwaltung-roche-pune",
         "fr": "services-d-annuaires-de-fabrication-rdt-gestion-de-l-identite-et-de-l-acces-roche-pune"
       },
       "company": "Roche",
@@ -65585,6 +65642,9 @@
         "fr": [
           "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2",
           "manufacturing-directory-services-rdt-identity-access-management-roche-pune"
+        ],
+        "de": [
+          "manufacturing-directory-services-rdt-identity-access-management-roche-ch-2"
         ]
       },
       "needsRetranslation": true,
@@ -68451,7 +68511,7 @@
       "slugByLocale": {
         "it": "esperto-di-conformita-senior-roche-basel",
         "en": "senior-compliance-expert-roche-ch",
-        "de": "esperto-di-conformita-senior-roche-basel",
+        "de": "senior-compliance-experte-roche-basel",
         "fr": "expert-principal-en-matiere-de-conformite-roche-basel"
       },
       "company": "Roche",

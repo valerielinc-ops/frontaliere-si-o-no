@@ -1108,9 +1108,9 @@
       "id": "marriott-96b1ff964283",
       "slug": "servizio-eventi-shiftleader-marriott-international-zurich-9b19fa",
       "slugByLocale": {
-        "it": "servizio-eventi-shiftleader-marriott-international-zurich-9b19fa",
         "en": "event-service-shiftleader-marriott-zurich",
-        "de": "event-service-shiftleader-marriott-zurich",
+        "it": "servizio-eventi-shiftleader-marriott-international-zurich-9b19fa",
+        "de": "ereignisdienst-schichtleiter-marriott-international-zurich",
         "fr": "chef-de-quart-de-service-d-evenement-marriott-international-zurich-9b19fa"
       },
       "company": "Marriott International",
@@ -1182,13 +1182,14 @@
           "servizio-eventi-shiftleader-marriott-international-zurich",
           "servizio-eventi-shiftleader-marriott-international-zurich-9b19fa"
         ],
-        "de": [
-          "event-service-shiftleader-marriott-international-zurich",
-          "schichtleiter-im-veranstaltungsdienst-marriott-international-zurich"
-        ],
         "fr": [
           "event-service-shiftleader-marriott-zurich",
           "chef-de-quart-de-service-d-evenement-marriott-international-zurich"
+        ],
+        "de": [
+          "event-service-shiftleader-marriott-international-zurich",
+          "schichtleiter-im-veranstaltungsdienst-marriott-international-zurich",
+          "event-service-shiftleader-marriott-zurich"
         ]
       },
       "previousSlugs": [
@@ -2962,8 +2963,7 @@
         "gestione-eventi-marriott-international-zurich",
         "veranstaltungsleiter-marriott-international-zurich",
         "gestionnaire-d-evenements-marriott-international-zurich",
-        "event-manager-marriott-zurich-ekq4c5",
-        "event-manager-marriott-zurich-55lwvs"
+        "event-manager-marriott-zurich-ekq4c5"
       ],
       "previousSlugsByLocale": {
         "it": [

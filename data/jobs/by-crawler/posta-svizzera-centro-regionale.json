@@ -2259,12 +2259,12 @@
         "en": "Deputy Team Leader Sorting Parcels",
         "fr": "Chef adjoint d'équipe pour le tri des colis"
       },
-      "slug": "stv-teamleader-in-sortierung-pakete-post",
+      "slug": "vice-capo-squadra-smistamento-dei-pacchi-die-schweizerische-post-harkingen",
       "slugByLocale": {
-        "it": "stv-teamleader-in-sortierung-pakete-post",
-        "en": "stv-teamleader-in-sortierung-pakete-post",
+        "it": "vice-capo-squadra-smistamento-dei-pacchi-die-schweizerische-post-harkingen",
+        "en": "deputy-team-leader-sorting-parcels-die-schweizerische-post-harkingen",
         "de": "stv-teamleader-in-sortierung-pakete-post",
-        "fr": "stv-teamleader-in-sortierung-pakete-post"
+        "fr": "chef-adjoint-d-equipe-pour-le-tri-des-colis-die-schweizerische-post-harkingen"
       },
       "sourceLang": "de",
       "department": "",
@@ -2299,7 +2299,21 @@
       },
       "addressLocality": "Härkingen",
       "addressRegion": "SO",
-      "firstSeenAt": "2026-09-23T12:05:10.032Z"
+      "firstSeenAt": "2026-09-23T12:05:10.032Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-teamleader-in-sortierung-pakete-post"
+        ],
+        "en": [
+          "stv-teamleader-in-sortierung-pakete-post"
+        ],
+        "fr": [
+          "stv-teamleader-in-sortierung-pakete-post"
+        ]
+      },
+      "previousSlugs": [
+        "stv-teamleader-in-sortierung-pakete-post"
+      ]
     },
     {
       "url": "https://job.post.ch/default/job/Zustellerin-Briefe-und-Pakete/74799-de_DE",
@@ -2390,9 +2404,9 @@
       "slug": "stv-teamleader-in-zustellung-lettere-e-pacchi-die-schweizerische-post-oensingen",
       "slugByLocale": {
         "it": "stv-teamleader-in-zustellung-lettere-e-pacchi-die-schweizerische-post-oensingen",
-        "en": "stv-teamleader-in-zustellung-briefe-und-pakete-post",
+        "en": "deputy-team-leader-delivery-letters-and-parcels-die-schweizerische-post-oensingen",
         "de": "stv-teamleader-in-zustellung-briefe-und-pakete-post",
-        "fr": "stv-teamleader-in-zustellung-briefe-und-pakete-post"
+        "fr": "chef-adjoint-d-equipe-lettres-de-livraison-et-colis-die-schweizerische-post-oensingen"
       },
       "sourceLang": "de",
       "department": "",
@@ -2430,6 +2444,12 @@
       "firstSeenAt": "2026-09-23T12:05:10.032Z",
       "previousSlugsByLocale": {
         "it": [
+          "stv-teamleader-in-zustellung-briefe-und-pakete-post"
+        ],
+        "en": [
+          "stv-teamleader-in-zustellung-briefe-und-pakete-post"
+        ],
+        "fr": [
           "stv-teamleader-in-zustellung-briefe-und-pakete-post"
         ]
       },
@@ -8250,7 +8270,6 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-nm88xs",
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
@@ -8687,7 +8706,6 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-8envbw",
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },
@@ -8764,7 +8782,6 @@
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ],
         "de": [
-          "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post-il9bz5",
           "lehre-als-logistiker-in-efz-distribution-gemischte-zustellung-briefe-und-pakete-post"
         ]
       },

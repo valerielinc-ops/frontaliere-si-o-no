@@ -18835,9 +18835,9 @@
     },
     {
       "id": "swiss-re-2d4321981d90",
-      "slug": "risk-manager-emea-p-c-swiss-re-ch",
+      "slug": "responsabile-del-rischio-emea-danni-swiss-re-paris-fr",
       "slugByLocale": {
-        "it": "risk-manager-emea-p-c-swiss-re-ch",
+        "it": "responsabile-del-rischio-emea-danni-swiss-re-paris-fr",
         "en": "risk-manager-emea-p-c-swiss-re-ch",
         "de": "risikomanager-emea-p-c-swiss-re-paris-fr",
         "fr": "gestionnaire-des-risques-emea-p-c-swiss-re-paris-fr"
@@ -18894,7 +18894,15 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "previousSlugsByLocale": {
+        "it": [
+          "risk-manager-emea-p-c-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "risk-manager-emea-p-c-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-15caff8a9a7d",
@@ -19041,10 +19049,10 @@
     },
     {
       "id": "swiss-re-39a40244fda7",
-      "slug": "key-account-manager-asia-swiss-re-ch",
+      "slug": "responsabile-dei-conti-chiave-asia-swiss-re-hong-kong-hk",
       "slugByLocale": {
-        "it": "key-account-manager-asia-swiss-re-ch",
         "en": "key-account-manager-asia-swiss-re-ch",
+        "it": "responsabile-dei-conti-chiave-asia-swiss-re-hong-kong-hk",
         "de": "key-account-manager-asien-swiss-re-hong-kong-hk",
         "fr": "key-account-manager-asie-swiss-re-hong-kong-hk"
       },
@@ -19100,7 +19108,15 @@
         }
       },
       "addressRegion": "ZH",
-      "firstSeenAt": "2026-09-19T22:53:08.709Z"
+      "firstSeenAt": "2026-09-19T22:53:08.709Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "key-account-manager-asia-swiss-re-ch"
+        ]
+      },
+      "previousSlugs": [
+        "key-account-manager-asia-swiss-re-ch"
+      ]
     },
     {
       "id": "swiss-re-573527d698be",

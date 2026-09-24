@@ -4464,10 +4464,10 @@
       "id": "richemont-03595504e465",
       "slug": "progetto-di-esperienza-cliente-jaeger-lecoultre-meyrin",
       "slugByLocale": {
-        "it": "progetto-di-esperienza-cliente-jaeger-lecoultre-meyrin",
         "en": "client-experience-project-manager-richemont-meyrin",
-        "de": "progetto-di-esperienza-cliente-jaeger-lecoultre-meyrin",
-        "fr": "gestionnaire-du-projet-d-experience-cliente-jaeger-lecoultre-meyrin"
+        "it": "progetto-di-esperienza-cliente-jaeger-lecoultre-meyrin",
+        "fr": "gestionnaire-du-projet-d-experience-cliente-jaeger-lecoultre-meyrin",
+        "de": "projektmanager-fur-kundenerfahrung-jaeger-lecoultre-meyrin"
       },
       "company": "Jaeger-LeCoultre",
       "companyKey": "richemont",
@@ -12506,9 +12506,9 @@
     },
     {
       "id": "richemont-39b950a43765",
-      "slug": "apprenti-polymecanicien-cfc-richemont-le-cret-du-locle",
+      "slug": "apprendisti-polymecanicien-cfc-cartier-manufacture-le-cret-du-locle",
       "slugByLocale": {
-        "it": "apprenti-polymecanicien-cfc-richemont-le-cret-du-locle",
+        "it": "apprendisti-polymecanicien-cfc-cartier-manufacture-le-cret-du-locle",
         "en": "apprenti-polymecanicien-cfc-richemont-le-cret-du-locle",
         "de": "anwendende-polymecanicien-cfc-cartier-manufacture-le-cret-du-locle",
         "fr": "apprenti-polymecanicien-cfc-cartier-manufacture-le-cret-du-locle"
@@ -12566,7 +12566,15 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-polymecanicien-cfc-richemont-le-cret-du-locle"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-polymecanicien-cfc-richemont-le-cret-du-locle"
+      ]
     },
     {
       "id": "richemont-9c9099902d5d",
@@ -13651,9 +13659,9 @@
       "slug": "chef-de-projet-qualite-richemont-le-cret-du-locle",
       "slugByLocale": {
         "it": "chef-de-projet-qualite-richemont-le-cret-du-locle",
-        "en": "chef-de-projet-qualite-richemont-le-cret-du-locle",
-        "de": "chef-de-projet-qualite-richemont-le-cret-du-locle",
-        "fr": "chef-de-projet-qualite-richemont-le-cret-du-locle"
+        "en": "quality-project-chef-cartier-manufacture-le-cret-du-locle",
+        "de": "qualitatsprojektkoch-cartier-manufacture-le-cret-du-locle",
+        "fr": "chef-de-pro-qualite-cartier-manufacture-le-cret-du-locle"
       },
       "company": "Cartier Manufacture",
       "companyKey": "richemont",
@@ -14156,9 +14164,9 @@
     },
     {
       "id": "richemont-65c8d2bbd231",
-      "slug": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
+      "slug": "apprendista-operatore-di-orologeria-afp-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
-        "it": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
+        "it": "apprendista-operatore-di-orologeria-afp-cartier-manufacture-villars-sur-glane",
         "en": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane",
         "de": "anwendende-operateur-en-horlogerie-afp-cartier-manufacture-villars-sur-glane",
         "fr": "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
@@ -14216,7 +14224,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-operateur-en-horlogerie-afp-richemont-villars-sur-glane"
+      ]
     },
     {
       "id": "richemont-4089a0558ec9",
@@ -14300,9 +14316,9 @@
     },
     {
       "id": "richemont-f99235cecc8f",
-      "slug": "apprenti-polymecanicien-cfc-richemont-villars-sur-glane",
+      "slug": "apprendisti-polymecanicien-cfc-cartier-manufacture-villars-sur-glane",
       "slugByLocale": {
-        "it": "apprenti-polymecanicien-cfc-richemont-villars-sur-glane",
+        "it": "apprendisti-polymecanicien-cfc-cartier-manufacture-villars-sur-glane",
         "en": "apprenti-polymecanicien-cfc-richemont-villars-sur-glane",
         "de": "anwendende-polymecanicien-cfc-cartier-manufacture-villars-sur-glane",
         "fr": "apprenti-polymecanicien-cfc-cartier-manufacture-villars-sur-glane"
@@ -14360,7 +14376,15 @@
           "maxValue": 104000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "apprenti-polymecanicien-cfc-richemont-villars-sur-glane"
+        ]
+      },
+      "previousSlugs": [
+        "apprenti-polymecanicien-cfc-richemont-villars-sur-glane"
+      ]
     },
     {
       "id": "richemont-fae4f8abd4e6",
