@@ -68,6 +68,11 @@ import { buildTrafficPriority, formatPriorityReport, isFreshJob, TRAFFIC_SOURCE_
 import { MIN_TITLE_CHARS } from './lib/translation-quality.mjs';
 import { translateWithLocalOpusMt } from './lib/local-opus-mt.mjs';
 import { writeJsonAtomic as writeJson } from './lib/atomic-write-json.mjs';
+import {
+  createSemanticRunGuard,
+  evaluateSemanticCandidate,
+  semanticPolicyEnabled,
+} from './lib/local-mt-semantic-policy.mjs';
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = path.dirname(__filename);
@@ -90,6 +95,8 @@ const WRITE_GUARD_DECISIONS = [
   'skip:source-locale',
   'skip:empty-raw',
   'skip:no-op',
+  'skip:semantic-threshold',
+  'skip:semantic-unclear',
 ];
 const OPUS_MT_RESCUE_DECISIONS = new Set([
   'skip:candidate-untranslated',
@@ -121,6 +128,11 @@ export function languageAwareOverwriteEnabled(value) {
 
 const LANG_AWARE_OVERWRITE = languageAwareOverwriteEnabled(process.env.LOCAL_MT_LANG_AWARE_OVERWRITE);
 
+// The semantic comparator is deliberately a second, OFF-by-default switch.
+// #9674 owns the versioned case set; until it is available and a run emits a
+// ready calibration, enabling this arm must still fail closed in the writer.
+const SEMANTIC_POLICY_ENABLED = semanticPolicyEnabled(process.env.LOCAL_MT_SEMANTIC_POLICY);
+
 /** Rollout switch for the Opus-MT rescue pass. Default OFF. */
 export function opusMtRescueEnabled(value) {
   return String(value || '0') === '1';
@@ -130,7 +142,7 @@ const OPUS_MT_RESCUE = opusMtRescueEnabled(process.env.LOCAL_MT_OPUSMT_RESCUE);
 
 function negativeCacheTierSignature() {
   return process.env.LOCAL_MT_TIER_SIGNATURE
-    || `argos-v1|opus-rescue:${OPUS_MT_RESCUE ? 'on' : 'off'}|lang-aware:${LANG_AWARE_OVERWRITE ? 'on' : 'off'}`;
+    || `argos-v1|opus-rescue:${OPUS_MT_RESCUE ? 'on' : 'off'}|lang-aware:${LANG_AWARE_OVERWRITE ? 'on' : 'off'}|semantic:${SEMANTIC_POLICY_ENABLED ? 'on' : 'off'}`;
 }
 
 const PYTHON = process.env.LOCAL_MT_PYTHON || 'python3';
@@ -566,6 +578,10 @@ export function classifyMopupWrite({
   rawText,
   protectedTokens = [],
   langAware = true,
+  semanticPolicy = false,
+  semanticAssessment = null,
+  semanticCalibration = null,
+  semanticRequireCalibration = true,
 }) {
   const srcLang = job.sourceLang || 'it';
   const bag = field === 'title' ? 'titleByLocale' : 'descriptionByLocale';
@@ -675,16 +691,38 @@ export function classifyMopupWrite({
         languageDriven: true,
       };
     }
+    const semantic = semanticPolicy
+      ? evaluateSemanticCandidate({
+          ...(semanticAssessment && typeof semanticAssessment === 'object' ? semanticAssessment : {}),
+          sourceText: normalizedSourceText,
+          existingText: existing,
+          candidateText: incoming,
+        }, {
+          calibration: semanticCalibration,
+          requireCalibration: semanticRequireCalibration,
+        })
+      : null;
+    if (semantic && !semantic.shouldWrite) {
+      return {
+        ...base,
+        incoming,
+        decision: semantic.verdict === 'unclear' ? 'skip:semantic-unclear' : 'skip:semantic-threshold',
+        reason: semantic.reason,
+        languageDriven: true,
+        semantic,
+      };
+    }
     return {
       ...base,
       incoming,
       decision: 'write',
       reason: existingVerdict.reason,
       languageDriven: true,
+      semantic,
     };
   }
 
-  return { ...base, incoming, decision: 'write' };
+  return { ...base, incoming, decision: 'write', semantic: null };
 }
 
 /**
@@ -698,8 +736,14 @@ export function shouldApplyMopupWrite({
   decision,
   languageDriven = false,
   langAwareOverwrite = false,
+  semanticPolicy = false,
+  semanticResult = null,
+  semanticRunEnabled = true,
 }) {
   if (decision !== 'write') return false;
+  if (languageDriven && semanticPolicy) {
+    return Boolean(semanticRunEnabled && semanticResult?.shouldWrite === true);
+  }
   return !languageDriven || langAwareOverwrite;
 }
 
@@ -720,6 +764,8 @@ export async function rescueMopupRejects({
   budgetOk = () => true,
   translate = translateWithLocalOpusMt,
   langAwareOverwrite = LANG_AWARE_OVERWRITE,
+  semanticPolicy = SEMANTIC_POLICY_ENABLED,
+  semanticCalibration = null,
 }) {
   const decisionTally = Object.fromEntries(WRITE_GUARD_DECISIONS.map((decision) => [decision, 0]));
   const eligible = [];
@@ -733,6 +779,8 @@ export async function rescueMopupRejects({
       field: target.field,
       rawText,
       protectedTokens: target.protectedTokens,
+      semanticPolicy,
+      semanticCalibration,
     });
     if (OPUS_MT_RESCUE_DECISIONS.has(argos.decision)) eligible.push({ id, target });
   }
@@ -760,6 +808,8 @@ export async function rescueMopupRejects({
       field: target.field,
       rawText,
       protectedTokens: target.protectedTokens,
+      semanticPolicy,
+      semanticCalibration,
     });
     decisionTally[opus.decision] = (decisionTally[opus.decision] || 0) + 1;
     attempted++;
@@ -772,6 +822,8 @@ export async function rescueMopupRejects({
       decision: opus.decision,
       languageDriven: opus.languageDriven,
       langAwareOverwrite,
+      semanticPolicy,
+      semanticResult: opus.semantic,
     })) {
       writes.set(id, { rawText });
       recovered++;
@@ -1030,6 +1082,7 @@ async function main() {
         results,
         budgetOk: rescueBudgetOk,
         langAwareOverwrite: LANG_AWARE_OVERWRITE,
+        semanticPolicy: SEMANTIC_POLICY_ENABLED,
       })
     : null;
   if (opusRescue) logOpusMtRescueReport(opusRescue);
@@ -1057,6 +1110,10 @@ async function main() {
   const langSkipReasons = {};
   let shadowWithheld = 0;
   let languageFieldsRewritten = 0;
+  let semanticWithheld = 0;
+  let semanticUnclear = 0;
+  let semanticRollback = false;
+  const semanticRunGuard = SEMANTIC_POLICY_ENABLED ? createSemanticRunGuard() : null;
 
   for (const [file, edits] of byFile) {
     if (!budgetOk()) {
@@ -1093,8 +1150,15 @@ async function main() {
       // The whole chain (empty-raw → finalize-empty → source-copy →
       // existing-good → language arm) lives in classifyMopupWrite() so the
       // reject audit can observe it.
-      const { decision, incoming, reason, languageDriven } = classifyMopupWrite({
-        job, locale, field, rawText: text, protectedTokens,
+      const {
+        decision, incoming, reason, languageDriven, semantic,
+      } = classifyMopupWrite({
+        job,
+        locale,
+        field,
+        rawText: text,
+        protectedTokens,
+        semanticPolicy: SEMANTIC_POLICY_ENABLED,
       });
       decisionTally[decision] = (decisionTally[decision] || 0) + 1;
       if (languageDriven) {
@@ -1112,8 +1176,17 @@ async function main() {
             field,
             rawText: rescue.rawText,
             protectedTokens,
+            semanticPolicy: SEMANTIC_POLICY_ENABLED,
           })
-        : { decision, incoming, languageDriven };
+        : { decision, incoming, languageDriven, semantic };
+      const semanticRunStatus = SEMANTIC_POLICY_ENABLED && finalCandidate.languageDriven
+        ? semanticRunGuard.observe(finalCandidate.semantic)
+        : null;
+      if (semanticRunStatus?.rollback) semanticRollback = true;
+      if (finalCandidate.semantic && !finalCandidate.semantic.shouldWrite) {
+        semanticWithheld++;
+        if (finalCandidate.semantic.verdict === 'unclear') semanticUnclear++;
+      }
       if (rescue && finalCandidate.decision === 'write') {
         if (negativeCache.entries[negativeCacheKey]) {
           delete negativeCache.entries[negativeCacheKey];
@@ -1130,6 +1203,9 @@ async function main() {
         decision: finalCandidate.decision,
         languageDriven: finalCandidate.languageDriven,
         langAwareOverwrite: LANG_AWARE_OVERWRITE,
+        semanticPolicy: SEMANTIC_POLICY_ENABLED,
+        semanticResult: finalCandidate.semantic,
+        semanticRunEnabled: semanticRunStatus?.enabled ?? true,
       })) {
         if (decision === 'write' && languageDriven) {
           shadowWithheld++;
@@ -1209,6 +1285,14 @@ async function main() {
   for (const [reason, n] of sorted(langSkipReasons)) console.log(`      candidate was ${reason.padEnd(21)} ${String(n).padStart(6)}`);
   if (!LANG_AWARE_OVERWRITE && langWrites > 0) {
     console.log(`   ℹ️  Set repo variable LOCAL_MT_LANG_AWARE_OVERWRITE=1 to apply these ${langWrites} writes.`);
+  }
+  console.log(`
+🧭 [local-mt] Semantic overwrite policy — LOCAL_MT_SEMANTIC_POLICY=${SEMANTIC_POLICY_ENABLED ? '1 (ENFORCING)' : '0 (OFF; no production writes)'}`);
+  if (SEMANTIC_POLICY_ENABLED) {
+    const semanticStatus = semanticRunGuard.status();
+    console.log(`   ${semanticWithheld} language-driven swaps withheld by semantic policy (${semanticUnclear} unclear/unavailable)`);
+    console.log(`   rollback=${semanticStatus.rollback ? '1' : '0'} reason=${semanticStatus.reason} regressionRate=${semanticStatus.regressionRate ?? 'n/a'}`);
+    if (semanticRollback) console.log('   ⛔ semantic rollback valve is closed; existing locale values were preserved.');
   }
   console.log('✅ [local-mt] Local MT mop-up complete.');
 }
