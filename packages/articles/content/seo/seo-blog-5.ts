@@ -47536,16 +47536,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-insegnanti-frontalieri-stipendio-requisiti-ticino': {
     title: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
-    description: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730). Dati aggiornati 2026 per',
+    description: 'La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730). Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, insegnante, scuola, stipendio, requisiti',
     ogTitle: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
-    ogDescription: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
+    ogDescription: 'La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
     canonicalPath: '/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Frontaliere insegnante scuola Ticino stipendio requisiti",
-      "description": "La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d'imposta (quadro CE del 730). Dati aggiornati 2026 per",
+      "description": "La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d'imposta (quadro CE del 730). Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -73122,16 +73122,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-vivere-fagnano-olona-lavorare-ticino': {
     title: 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
-    description: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, vivere, fagnano, olona, lavorare',
     ogTitle: 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
-    ogDescription: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976',
+    ogDescription: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976',
     canonicalPath: '/articoli-frontaliere/vivere-fagnano-olona-lavorare-ticino',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Vivere a Fagnano Olona e lavorare in Ticino da frontaliere",
-      "description": "Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
