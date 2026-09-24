@@ -6785,18 +6785,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const handleRewardedApplicationUnavailable = (reason: string) => {
   const job = rewardedApplicationJob;
   if (!job) return;
-  // A no-fill/ineligible request has no paid impression to recover. Keep the
-  // reason on the rewarded funnel event, then hand the visitor directly to the
-  // employer instead of asking them to reload the same empty auction.
-  trackAssistedApplicationEvent(
-   'rewarded_application_inline_unavailable',
-   {
-    ...assistedApplicationJobContext(job, assistedApplicationVariant),
-    surface: 'job_detail_rewarded_inline',
-    reason: reason || 'unavailable',
-    handoff: 'direct_external',
-   },
-  );
+  // The offer already records the technical reason and direct handoff on the
+  // rewarded_ad_unavailable event. This callback only owns navigation.
+  void reason;
   setRewardedApplicationJob(null);
   redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true);
  };

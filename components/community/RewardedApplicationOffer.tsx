@@ -117,6 +117,7 @@ export default function RewardedApplicationOffer({
       companyId,
       surface: SURFACE,
       reason,
+      handoff: 'direct_external',
     });
     // There is no monetizable impression when Google returns no-fill or the
     // request is ineligible. Do not ask the visitor to reload the same empty
