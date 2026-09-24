@@ -90,7 +90,15 @@ import {
   validateCrawlerGenerationRoster,
 } from './lib/crawler-generation-contract.mjs';
 import { GLOBAL_DATA_PIPELINE_LEASE_BUSY_EXIT } from './lib/global-data-pipeline-lease.mjs';
-import { CORPUS_OBSERVER_FILES } from './ci/prepare-crawler-workflow-corpus-sync.mjs';
+import {
+  CORPUS_OBSERVER_FILES,
+  PORTABLE_CORPUS_SITE_PREFIX,
+  assertEmittedFamiliesRegistered,
+  crawlerWorkflowFilesFromContract,
+  diffEmittedFamiliesAgainstRegistry,
+  listPortableTreeSitePaths,
+  registeredCorpusSitePaths,
+} from './ci/prepare-crawler-workflow-corpus-sync.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 const REPO_ROOT = path.resolve(__dirname, '..');
@@ -2708,6 +2716,14 @@ export function generateCrossRepoExecutionArtifacts({
     },
     artifacts,
   };
+  // Lockstep (#9621): ogni famiglia emessa deve essere una mappa del trasporto,
+  // che la registra come voce `identical` del loop-sync manifest del corpus.
+  // Una famiglia nuova emessa senza mappa non verrebbe ne' copiata ne' censita:
+  // fallisci qui, prima di scrivere, invece di lasciarla al censimento notturno.
+  assertEmittedFamiliesRegistered({
+    emittedSitePaths: emittedCorpusSitePaths({ workflowFiles: [...workflowPayloads.keys()], observerPayloads }),
+    registeredSitePaths: registeredCorpusSitePaths(crawlerWorkflowFilesFromContract(contract)),
+  });
   if (write) {
     fs.mkdirSync(outDir, { recursive: true });
     fs.mkdirSync(path.dirname(contractPath), { recursive: true });
@@ -2728,6 +2744,30 @@ export function generateCrossRepoExecutionArtifacts({
     workflowContents: Object.fromEntries(workflowPayloads),
     observerContents: Object.fromEntries(observerPayloads.map(({ source, content }) => [source, content])),
   };
+}
+
+/** SitePath portabili di tutto cio' che il generatore emette per il corpus. */
+function emittedCorpusSitePaths({ workflowFiles, observerPayloads }) {
+  return [
+    ...workflowFiles,
+    ...observerPayloads.map(({ source }) => source),
+    'contract.json',
+  ].map((relative) => `${PORTABLE_CORPUS_SITE_PREFIX}${relative}`);
+}
+
+/**
+ * Confronta l'albero portabile COMMITTATO con il registro lockstep derivato dal
+ * suo contratto. Coglie un file aggiunto a mano (o da un generatore futuro)
+ * sotto `.github/corpus-workflows/` che il trasporto non registrerebbe.
+ */
+export function checkPortableTreeLockstep({
+  portableDir = PORTABLE_CORPUS_DIR,
+  contract = loadJson(path.join(portableDir, 'contract.json')),
+} = {}) {
+  return diffEmittedFamiliesAgainstRegistry({
+    emittedSitePaths: listPortableTreeSitePaths(portableDir),
+    registeredSitePaths: registeredCorpusSitePaths(crawlerWorkflowFilesFromContract(contract)),
+  });
 }
 
 /** Render every generated artifact without writing and report committed drift. */
@@ -2765,7 +2805,8 @@ export function checkGeneratedArtifacts({ profileRenderer = computeProfiledText 
   if (canonicalJson(loadJson(PORTABLE_CONTRACT_PATH)) !== canonicalJson(cross.contract)) {
     changed.push(PORTABLE_CONTRACT_PATH);
   }
-  return { changed, groupResults, logicArtifacts, cross };
+  const lockstep = checkPortableTreeLockstep({ portableDir: PORTABLE_CORPUS_DIR, contract: cross.contract });
+  return { changed, lockstep, groupResults, logicArtifacts, cross };
 }
 
 export function generate({
@@ -2943,10 +2984,19 @@ if (isMain) {
     throw new Error('--cross-repo-out-dir and --cross-repo-contract must be passed together');
   }
   if (check) {
-    const { changed } = checkGeneratedArtifacts();
+    const { changed, lockstep } = checkGeneratedArtifacts();
+    if (lockstep.unregistered.length > 0 || lockstep.unemitted.length > 0) {
+      throw new Error([
+        'Crawler family lockstep violated in .github/corpus-workflows/:',
+        ...lockstep.unregistered.map((sitePath) => `  unregistered committed family: ${sitePath}`),
+        ...lockstep.unemitted.map((sitePath) => `  registered but missing: ${sitePath}`),
+        'Register the family in scripts/ci/prepare-crawler-workflow-corpus-sync.mjs or remove the file.',
+      ].join('\n'));
+    }
     if (changed.length > 0) {
       throw new Error(`Generated crawler artifacts are stale:\n${changed.map((filePath) => `  ${path.relative(REPO_ROOT, filePath)}`).join('\n')}`);
     }
+    console.log(`Crawler family lockstep: ${listPortableTreeSitePaths(PORTABLE_CORPUS_DIR).length} emitted files, 0 unregistered.`);
     console.log('Generated crawler artifacts are up to date; wrote nothing.');
     process.exit(0);
   }
