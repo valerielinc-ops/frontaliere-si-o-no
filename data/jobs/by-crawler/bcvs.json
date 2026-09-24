@@ -1,6 +1,6 @@
 {
   "crawlerKey": "bcvs",
-  "assembledAt": "2026-09-19T23:07:40.527Z",
+  "assembledAt": "2026-09-24T00:12:09.741Z",
   "jobs": [
     {
       "id": "bcvs-8ddcea45e662",
@@ -9,7 +9,7 @@
         "it": "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "en": "personnel-credit-back-office-banque-cantonale-du-valais-sion",
         "de": "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-        "fr": "personnel-departement-crediteur-banque-cantonale-du-valais-sion"
+        "fr": "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
@@ -33,7 +33,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/sachbearbeiter-in-kredit-backoffice-2513",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "de",
-      "crawledAt": "2026-09-19T23:07:35.635Z",
+      "crawledAt": "2026-09-24T00:12:05.227Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -53,18 +53,22 @@
       "previousSlugs": [
         "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
         "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+        "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
+        "personale-credito-back-office-banque-cantonale-du-valais-sion",
         "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
           "sachbearbeiter-in-kredit-backoffice-bcvs-sion",
-          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
+          "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+          "personale-credito-back-office-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion"
         ],
         "fr": [
           "sachbearbeiter-in-kredit-backoffice-banque-cantonale-du-valais-sion",
+          "personnel-departement-crediteur-banque-cantonale-du-valais-sion",
           "employe-de-bureau-de-pret-banque-cantonale-du-valais-sion"
         ]
       },
@@ -114,7 +118,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-conseillere-clientele-des-entreprises-valais-central-2598",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:07:35.089Z",
+      "crawledAt": "2026-09-24T00:12:04.767Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -146,11 +150,13 @@
         ]
       },
       "previousSlugs": [
-        "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
+        "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion",
+        "business-advisor-vallese-centrale-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
+          "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion",
+          "business-advisor-vallese-centrale-banque-cantonale-du-valais-sion"
         ],
         "en": [
           "conseiller-conseillere-clientele-des-entreprises-valais-central-bcvs-sion"
@@ -160,6 +166,7 @@
         ]
       },
       "firstSeenAt": "2026-07-07T12:01:18.698Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -205,7 +212,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-1-2640",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:07:34.657Z",
+      "crawledAt": "2026-09-24T00:12:04.155Z",
       "addressLocality": "Conthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -240,11 +247,13 @@
       },
       "previousSlugs": [
         "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey",
-        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-conthey"
+        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-conthey",
+        "consulente-privato-cliente-individuale-banque-cantonale-du-valais-conthey"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey"
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey",
+          "consulente-privato-cliente-individuale-banque-cantonale-du-valais-conthey"
         ],
         "en": [
           "conseiller-ere-clientele-des-prives-individuelle-bcvs-conthey"
@@ -257,6 +266,7 @@
         ]
       },
       "firstSeenAt": "2026-08-17T21:29:03.955Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -302,7 +312,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/hr-business-partner-1-2656",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:07:34.223Z",
+      "crawledAt": "2026-09-24T00:12:03.695Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -338,20 +348,26 @@
       },
       "previousSlugs": [
         "hr-business-partner-bcvs-sion",
-        "hr-business-partner-banque-cantonale-du-valais-sion"
+        "hr-business-partner-banque-cantonale-du-valais-sion",
+        "risorse-umane-business-partner-banque-cantonale-du-valais-sion"
       ],
       "previousSlugsByLocale": {
         "it": [
+          "hr-business-partner-bcvs-sion",
+          "risorse-umane-business-partner-banque-cantonale-du-valais-sion"
+        ],
+        "de": [
           "hr-business-partner-bcvs-sion"
         ],
         "fr": [
           "hr-business-partner-banque-cantonale-du-valais-sion"
-        ],
-        "de": [
-          "hr-business-partner-bcvs-sion"
         ]
       },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3431,
+      "retranslationAttempts": 3,
       "firstSeenAt": "2026-09-01T23:22:50.970Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -364,10 +380,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 3431
+      }
     },
     {
       "id": "bcvs-9cc0ad298f60",
@@ -400,7 +413,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2-2654",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:07:33.669Z",
+      "crawledAt": "2026-09-24T00:12:03.088Z",
       "addressLocality": "Savièse",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -435,11 +448,13 @@
       },
       "previousSlugs": [
         "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese",
-        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-saviese"
+        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-saviese",
+        "clienti-privati-individuali-banque-cantonale-du-valais-saviese"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese"
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese",
+          "clienti-privati-individuali-banque-cantonale-du-valais-saviese"
         ],
         "en": [
           "conseiller-ere-clientele-des-prives-individuelle-bcvs-saviese"
@@ -452,6 +467,7 @@
         ]
       },
       "firstSeenAt": "2026-09-01T23:22:50.557Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -497,7 +513,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/collaborateur-trice-clientele-des-prives-1-2663",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:07:33.238Z",
+      "crawledAt": "2026-09-24T00:12:02.485Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -533,7 +549,8 @@
         "private-client-collaborator-banque-cantonale-du-valais-sion",
         "private-client-mitarbeiter-banque-cantonale-du-valais-sion",
         "collaborateur-trice-clientele-des-prives-bcvs-sion",
-        "collaborateur-trice-clientele-des-prives-banque-cantonale-du-valais-sion"
+        "collaborateur-trice-clientele-des-prives-banque-cantonale-du-valais-sion",
+        "collaboratore-privato-del-cliente-banque-cantonale-du-valais-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -542,7 +559,8 @@
           "private-client-collaborator-banque-cantonale-du-valais-sion",
           "private-client-mitarbeiter-banque-cantonale-du-valais-sion",
           "collaborateur-trice-clientele-des-prives-bcvs-sion",
-          "collaborateur-trice-clientele-des-prives-banque-cantonale-du-valais-sion"
+          "collaborateur-trice-clientele-des-prives-banque-cantonale-du-valais-sion",
+          "collaboratore-privato-del-cliente-banque-cantonale-du-valais-martigny"
         ],
         "en": [
           "collaborateur-trice-clientele-des-prives-bcvs-martigny",
@@ -559,6 +577,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:37.490Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -604,7 +623,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/conseiller-ere-clientele-des-prives-individuelle-2665",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:07:32.773Z",
+      "crawledAt": "2026-09-24T00:12:01.875Z",
       "addressLocality": "Martigny",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -638,11 +657,13 @@
       },
       "previousSlugs": [
         "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
-        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-martigny"
+        "conseiller-ere-clientele-des-prives-individuelle-banque-cantonale-du-valais-martigny",
+        "consulente-privato-cliente-individuale-banque-cantonale-du-valais-martigny"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
+          "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny",
+          "consulente-privato-cliente-individuale-banque-cantonale-du-valais-martigny"
         ],
         "en": [
           "conseiller-ere-clientele-des-prives-individuelle-bcvs-martigny"
@@ -655,6 +676,7 @@
         ]
       },
       "firstSeenAt": "2026-09-03T13:49:34.583Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -700,7 +722,7 @@
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/responsable-des-agences-de-la-rive-gauche-valais-central-2671",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:07:32.340Z",
+      "crawledAt": "2026-09-24T00:12:01.346Z",
       "addressLocality": "Vex/Nendaz",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -734,11 +756,13 @@
         ]
       },
       "previousSlugs": [
-        "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
+        "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz",
+        "capo-delle-agenzie-della-rive-gauche-vallese-centrale-banque-cantonale-du-valais-vex-nendaz"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
+          "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz",
+          "capo-delle-agenzie-della-rive-gauche-vallese-centrale-banque-cantonale-du-valais-vex-nendaz"
         ],
         "en": [
           "responsable-des-agences-de-la-rive-gauche-valais-central-bcvs-vex-nendaz"
@@ -748,6 +772,7 @@
         ]
       },
       "firstSeenAt": "2026-09-08T13:48:06.057Z",
+      "needsRetranslation": true,
       "salaryMin": 83500,
       "salaryMax": 126500,
       "salarySource": "estimated",
@@ -766,34 +791,34 @@
       "id": "bcvs-31a876dda1ca",
       "slug": "collaboratore-privato-del-cliente-banque-cantonale-du-valais-monthey",
       "slugByLocale": {
-        "fr": "collaborateur-trice-clientele-des-prives-bcvs-monthey",
         "it": "collaboratore-privato-del-cliente-banque-cantonale-du-valais-monthey",
         "en": "private-client-collaborator-banque-cantonale-du-valais-monthey",
-        "de": "private-client-mitarbeiter-banque-cantonale-du-valais-monthey"
+        "de": "private-client-mitarbeiter-banque-cantonale-du-valais-monthey",
+        "fr": "collaborateur-trice-clientele-des-prives-bcvs-monthey"
       },
       "company": "Banque Cantonale du Valais",
       "companyKey": "bcvs",
       "companyDomain": "bcvs.ch",
       "title": "Collaborateur-trice clientèle des privés",
       "titleByLocale": {
-        "fr": "Collaborateur-trice clientèle des privés",
         "it": "Collaboratore privato del cliente",
         "en": "Private Client Collaborator",
-        "de": "Private Client Mitarbeiter"
+        "de": "Private Client Mitarbeiter",
+        "fr": "Collaborateur-trice clientèle des privés"
       },
       "description": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nCollaborateur-trice clientèle des privés\n\n• Monthey\n\n• 100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une première expérience du monde bancaire et/ou administrative ? Si vous recherchez une opportunité où valoriser vos compétences et potentiellement évoluer vers des activités de conseil à la clientèle, ce poste est votre chance.\n\nConcrètement ?\n\n• Vous assisterez les conseillers à la clientèle des privés par des activités de soutien au conseil et à la vente\n\n• Vous répondrez aux demandes des clients aussi bien pour les prestations de base que les aspects liés aux crédits et placements\n\n• Vous vous formerez de manière permanente sur les directives et développerez vos connaissances des prestations et produits à disposition de ce type de clientèle (crédits hypothécaires et placements).\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale avec d’excellentes habiletés relationnelles\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et appréciez le travail en équipe.\n\n• Maîtrisant les outils informatiques, vous avez de fortes capacités analytiques\n\n• Vous êtes capable de gérer vos priorités et de travailler de manière autonome\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à l’adresse : recrutement@bcvs.ch .",
       "descriptionByLocale": {
-        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nCollaborateur-trice clientèle des privés\n\n• Monthey\n\n• 100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une première expérience du monde bancaire et/ou administrative ? Si vous recherchez une opportunité où valoriser vos compétences et potentiellement évoluer vers des activités de conseil à la clientèle, ce poste est votre chance.\n\nConcrètement ?\n\n• Vous assisterez les conseillers à la clientèle des privés par des activités de soutien au conseil et à la vente\n\n• Vous répondrez aux demandes des clients aussi bien pour les prestations de base que les aspects liés aux crédits et placements\n\n• Vous vous formerez de manière permanente sur les directives et développerez vos connaissances des prestations et produits à disposition de ce type de clientèle (crédits hypothécaires et placements).\n\nLe défi vous tente ?\n Ce poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale avec d’excellentes habiletés relationnelles\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et appréciez le travail en équipe.\n\n• Maîtrisant les outils informatiques, vous avez de fortes capacités analytiques\n\n• Vous êtes capable de gérer vos priorités et de travailler de manière autonome\n\nRencontrons-nous !\n Vous souhaitez nous rejoindre ?\n Nous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à l’adresse : recrutement@bcvs.ch .",
-        "it": "Nessun risultato\n\n•\n\nContatta un consulente Contatta un consulente\n\nGatto\n\nCollaboratore privato del cliente\n\n• Monessi\n\n• 100%\n\nState beneficiando della formazione commerciale e avete un'esperienza iniziale nel mondo bancario e/o amministrativo? Se siete alla ricerca di un'opportunità per valutare le vostre competenze e potenzialmente evolvere in attività di consulenza clienti, questa posizione è la vostra occasione.\n\nIn particolare?\n\n• Aiuterai i clienti privati con attività di consulenza e assistenza alle vendite\n\n• Risponderai alle richieste dei clienti sia per i benefici di base che per gli aspetti di credito e di investimento\n\n• Ti allenerai continuamente sulle linee guida e svilupperai la tua conoscenza dei benefici e dei prodotti disponibili a tali clienti (crediti e investimenti mobili).\n\nLa sfida ti sta tentando?\n Questo post è per voi se...\n\n• Hai una formazione commerciale con eccellenti capacità relazionali\n\n• Dinamica e pragmatica, si beneficia di un forte senso di iniziativa e apprezzare il lavoro di squadra.\n\n• Mastering strumenti per computer, hai forti capacità analitiche\n\n• Siete in grado di gestire le vostre priorità e lavorare in modo indipendente\n\nIncontriamoci!\n Vuoi unirti a noi?\n Non vediamo l'ora di scoprire la tua applicazione.\nPer fare questo, invia il tuo file completo a: recruit@bcvs.ch .",
-        "en": "No results\n\n•\n\nContact an advisor Contact an advisor\n\nCat\n\nPrivate Client Collaborator\n\n• Monthey\n\n• 100%\n\nAre you benefiting from commercial training and have an initial experience in the banking and/or administrative world? If you are looking for an opportunity to value your skills and potentially evolve into customer advisory activities, this position is your chance.\n\nSpecifically?\n\n• You will assist private clients with counselling and sales support activities\n\n• You will respond to customer requests for both basic benefits and credit and investment aspects\n\n• You will continuously train on the guidelines and develop your knowledge of the benefits and products available to such customers (mortgage credits and investments).\n\nThe challenge is tempting you?\n This post is for you if...\n\n• You have commercial training with excellent relational skills\n\n• Dynamic and pragmatic, you benefit from a strong sense of initiative and appreciate teamwork.\n\n• Mastering computer tools, you have strong analytical capabilities\n\n• You are able to manage your priorities and work independently\n\nLet's meet!\n Would you like to join us?\n We look forward to discovering your application.\nTo do this, send your complete file to: recruitment@bcvs.ch .",
-        "de": "Keine Ergebnisse\n\n•\n\nKontaktieren Sie einen Berater Kontaktieren Sie einen Berater\n\nKatze\n\nPrivate Client Mitarbeiter\n\n• Monthey\n\n• 100%\n\nProfitieren Sie von einer kaufmännischen Ausbildung und haben eine erste Erfahrung in der Bank- und / oder Verwaltungswelt? Wenn Sie nach einer Möglichkeit suchen, Ihre Fähigkeiten zu schätzen und sich möglicherweise in Kundenberatungsaktivitäten zu entwickeln, ist diese Position Ihre Chance.\n\nKonkret?\n\n• Sie unterstützen Privatkunden bei der Beratung und Verkaufsunterstützung\n\n• Sie werden auf Kundenanfragen sowohl für grundlegende Vorteile als auch für Kredit- und Investitionsaspekte antworten.\n\n• Sie werden sich kontinuierlich an den Richtlinien orientieren und Ihr Wissen über die Vorteile und Produkte entwickeln, die diesen Kunden zur Verfügung stehen (Hypothekenkredite und Investitionen).\n\nDie Herausforderung verlockt dich?\n Dieser Artikel ist für dich, wenn...\n\n• Sie haben eine kaufmännische Ausbildung mit hervorragenden relationalen Fähigkeiten\n\n• Dynamisch und pragmatisch profitieren Sie von einem starken Sinn für Initiative und schätzen Teamwork.\n\n• Mastering Computer-Tools, haben Sie starke analytische Fähigkeiten\n\n• Sie können Ihre Prioritäten verwalten und unabhängig arbeiten\n\nTreffen wir uns!\n Möchten Sie sich uns anschließen?\n Wir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständige Datei an: recruitment@bcvs.ch ."
+        "it": "Nessun risultato\n\n•\n\nContatta un consulente Contatta un consulente\n\nGatto\n\nCollaboratore privato del cliente\n\n• Monessi\n\n• 100%\n\nState beneficiando della formazione commerciale e avete un'esperienza iniziale nel mondo bancario e/o amministrativo? Se siete alla ricerca di un'opportunità per valutare le vostre competenze e potenzialmente evolvere in attività di consulenza clienti, questa posizione è la vostra occasione.\n\nIn particolare?\n\n• Aiuterai i clienti privati con attività di consulenza e assistenza alle vendite\n\n• Risponderai alle richieste dei clienti sia per i benefici di base che per gli aspetti di credito e di investimento\n\n• Ti allenerai continuamente sulle linee guida e svilupperai la tua conoscenza dei benefici e dei prodotti disponibili a tali clienti (crediti e investimenti mobili).\n\nLa sfida ti sta tentando?\nQuesto post è per voi se...\n\n• Hai una formazione commerciale con eccellenti capacità relazionali\n\n• Dinamica e pragmatica, si beneficia di un forte senso di iniziativa e apprezzare il lavoro di squadra.\n\n• Mastering strumenti per computer, hai forti capacità analitiche\n\n• Siete in grado di gestire le vostre priorità e lavorare in modo indipendente\n\nIncontriamoci!\nVuoi unirti a noi?\nNon vediamo l'ora di scoprire la tua applicazione.\nPer fare questo, invia il tuo file completo a: recruit@bcvs.ch .",
+        "en": "No results\n\n•\n\nContact an advisor Contact an advisor\n\nCat\n\nPrivate Client Collaborator\n\n• Monthey\n\n• 100%\n\nAre you benefiting from commercial training and have an initial experience in the banking and/or administrative world? If you are looking for an opportunity to value your skills and potentially evolve into customer advisory activities, this position is your chance.\n\nSpecifically?\n\n• You will assist private clients with counselling and sales support activities\n\n• You will respond to customer requests for both basic benefits and credit and investment aspects\n\n• You will continuously train on the guidelines and develop your knowledge of the benefits and products available to such customers (mortgage credits and investments).\n\nThe challenge is tempting you?\nThis post is for you if...\n\n• You have commercial training with excellent relational skills\n\n• Dynamic and pragmatic, you benefit from a strong sense of initiative and appreciate teamwork.\n\n• Mastering computer tools, you have strong analytical capabilities\n\n• You are able to manage your priorities and work independently\n\nLet's meet!\nWould you like to join us?\nWe look forward to discovering your application.\nTo do this, send your complete file to: recruitment@bcvs.ch .",
+        "de": "Keine Ergebnisse\n\n•\n\nKontaktieren Sie einen Berater Kontaktieren Sie einen Berater\n\nKatze\n\nPrivate Client Mitarbeiter\n\n• Monthey\n\n• 100%\n\nProfitieren Sie von einer kaufmännischen Ausbildung und haben eine erste Erfahrung in der Bank- und / oder Verwaltungswelt? Wenn Sie nach einer Möglichkeit suchen, Ihre Fähigkeiten zu schätzen und sich möglicherweise in Kundenberatungsaktivitäten zu entwickeln, ist diese Position Ihre Chance.\n\nKonkret?\n\n• Sie unterstützen Privatkunden bei der Beratung und Verkaufsunterstützung\n\n• Sie werden auf Kundenanfragen sowohl für grundlegende Vorteile als auch für Kredit- und Investitionsaspekte antworten.\n\n• Sie werden sich kontinuierlich an den Richtlinien orientieren und Ihr Wissen über die Vorteile und Produkte entwickeln, die diesen Kunden zur Verfügung stehen (Hypothekenkredite und Investitionen).\n\nDie Herausforderung verlockt dich?\nDieser Artikel ist für dich, wenn...\n\n• Sie haben eine kaufmännische Ausbildung mit hervorragenden relationalen Fähigkeiten\n\n• Dynamisch und pragmatisch profitieren Sie von einem starken Sinn für Initiative und schätzen Teamwork.\n\n• Mastering Computer-Tools, haben Sie starke analytische Fähigkeiten\n\n• Sie können Ihre Prioritäten verwalten und unabhängig arbeiten\n\nTreffen wir uns!\nMöchten Sie sich uns anschließen?\nWir freuen uns auf Ihre Bewerbung.\nSenden Sie dazu Ihre vollständige Datei an: recruitment@bcvs.ch .",
+        "fr": "Pas de résultats\n\n•\n\nContacter un conseiller Contacter un conseiller\n\nChat\n\nCollaborateur-trice clientèle des privés\n\n• Monthey\n\n• 100%\n\nVous êtes au bénéfice d’une formation commerciale et disposez d’une première expérience du monde bancaire et/ou administrative ? Si vous recherchez une opportunité où valoriser vos compétences et potentiellement évoluer vers des activités de conseil à la clientèle, ce poste est votre chance.\n\nConcrètement ?\n\n• Vous assisterez les conseillers à la clientèle des privés par des activités de soutien au conseil et à la vente\n\n• Vous répondrez aux demandes des clients aussi bien pour les prestations de base que les aspects liés aux crédits et placements\n\n• Vous vous formerez de manière permanente sur les directives et développerez vos connaissances des prestations et produits à disposition de ce type de clientèle (crédits hypothécaires et placements).\n\nLe défi vous tente ?\nCe poste est fait pour vous si…\n\n• Vous disposez d’une formation commerciale avec d’excellentes habiletés relationnelles\n\n• Dynamique et pragmatique, vous bénéficiez d’un fort sens de l’initiative et appréciez le travail en équipe.\n\n• Maîtrisant les outils informatiques, vous avez de fortes capacités analytiques\n\n• Vous êtes capable de gérer vos priorités et de travailler de manière autonome\n\nRencontrons-nous !\nVous souhaitez nous rejoindre ?\nNous nous réjouissons de découvrir votre candidature.\nPour ce faire, envoyez votre dossier complet à l’adresse : recrutement@bcvs.ch ."
       },
       "location": "Monthey",
       "canton": "VS",
       "url": "https://www.bcvs.ch/la-bcvs/carriere/ressources-humaines/offres-demploi/job/collaborateur-trice-clientele-des-prives-2683",
       "source": "Banque Cantonale du Valais Dedicated Parser",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T23:07:31.905Z",
+      "crawledAt": "2026-09-24T00:12:00.877Z",
       "addressLocality": "Monthey",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -822,6 +847,24 @@
           "Vous êtes capable de gérer vos priorités et de travailler de manière autonome"
         ]
       },
+      "previousSlugs": [
+        "collaborateur-trice-clientele-des-prives-bcvs-monthey",
+        "collaboratore-privato-del-cliente-banque-cantonale-du-valais-monthey"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "collaborateur-trice-clientele-des-prives-bcvs-monthey",
+          "collaboratore-privato-del-cliente-banque-cantonale-du-valais-monthey"
+        ],
+        "en": [
+          "collaborateur-trice-clientele-des-prives-bcvs-monthey"
+        ],
+        "de": [
+          "collaborateur-trice-clientele-des-prives-bcvs-monthey"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T23:07:31.905Z",
+      "needsRetranslation": true,
       "salaryMin": 60500,
       "salaryMax": 91500,
       "salarySource": "estimated",
@@ -834,22 +877,7 @@
           "maxValue": 91500,
           "unitText": "YEAR"
         }
-      },
-      "firstSeenAt": "2026-09-19T23:07:31.905Z",
-      "previousSlugsByLocale": {
-        "it": [
-          "collaborateur-trice-clientele-des-prives-bcvs-monthey"
-        ],
-        "en": [
-          "collaborateur-trice-clientele-des-prives-bcvs-monthey"
-        ],
-        "de": [
-          "collaborateur-trice-clientele-des-prives-bcvs-monthey"
-        ]
-      },
-      "previousSlugs": [
-        "collaborateur-trice-clientele-des-prives-bcvs-monthey"
-      ]
+      }
     }
   ]
 }
