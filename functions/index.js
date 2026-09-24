@@ -1215,14 +1215,14 @@ export const linkedinAuthCallback = onRequest(
  return;
  }
 
- const { code, redirectUri } = req.body || {};
+ const { code, redirectUri, attribution } = req.body || {};
  if (!code || !redirectUri) {
  res.status(400).json({ ok: false, error: 'missing_code_or_redirect_uri' });
  return;
  }
 
  try {
- const result = await handleLinkedInCallback({ code, redirectUri });
+ const result = await handleLinkedInCallback({ code, redirectUri, attribution });
  res.status(200).json({ ok: true, ...result });
  } catch (err) {
  const status = err.status || 500;
