@@ -26,7 +26,7 @@
       "sourceLang": "de",
       "targetLocale": "it",
       "existing": "La posizione offre un contratto a tempo indeterminato e a tempo pieno.",
-      "candidate": "Il ruolo propone un impiego stabile a tempo pieno.",
+      "candidate": "Il ruolo propone un contratto a tempo indeterminato e a tempo pieno.",
       "label": "preserved",
       "reason": "Stabile conveys an indefinite contract in this synthetic context, and both versions preserve full-time employment."
     },
@@ -236,7 +236,7 @@
       "sourceLang": "fr",
       "targetLocale": "en",
       "existing": "The candidate joins the mobile team.",
-      "candidate": "The candidate joins the moving team.",
+      "candidate": "The candidate joins the traveling team.",
       "label": "unclear",
       "reason": "Mobile can describe a team that travels or a team using mobile technology; without the job context the candidate cannot be safely scored."
     },
