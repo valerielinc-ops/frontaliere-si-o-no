@@ -18,6 +18,7 @@ import ProfileEnrichmentPrompt from './ProfileEnrichmentPrompt';
 import { SECTORS } from './jobAlertConstants';
 import { loadEnrichmentProfileFields } from '@/services/profileFirestore';
 import { JOB_ALERT_SUBSCRIBED_KEY } from '@/services/jobAlertCtaState';
+import { useImpressionTracker } from '@/hooks/useImpressionTracker';
 import {
   loadGatingState,
   saveGatingState,
@@ -66,6 +67,20 @@ const CONTRACT_TYPES = [
  { value: 'internship', labelKey: 'jobBoard.contract.internship' },
 ];
 
+type InlineCtaAction = 'open' | 'accept' | 'success' | 'error';
+
+function trackInlineCtaAction(action: InlineCtaAction, keyword?: string): void {
+ import('@/services/analytics')
+   .then(({ Analytics }) => Analytics.trackJobAlertCtaClick('inline_card', action, keyword))
+   .catch(() => {});
+}
+
+function trackInlineCtaShown(keyword?: string): void {
+ import('@/services/analytics')
+   .then(({ Analytics }) => Analytics.trackJobAlertCtaShown('inline_card', keyword))
+   .catch(() => {});
+}
+
 // ── Component ────────────────────────────────────────────────
 
 export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword = '', initialCantonCode = null }: JobAlertFormProps) {
@@ -92,6 +107,11 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  const oneTapKeyword = initialKeyword.trim();
  const [oneTapEligible, setOneTapEligible] = useState(false);
+
+ const inlineCtaKeyword = keyword.trim() || oneTapKeyword;
+ const impressionRef = useImpressionTracker(() => {
+   trackInlineCtaShown(inlineCtaKeyword || undefined);
+ });
 
  // A known user with an active search already supplied the alert criterion.
  // Reuse the shared resolver (and its session cache) so the one-tap CTA is
@@ -148,12 +168,6 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  if (distinctSearchesRef.current.size >= 2) {
  autoExpandedRef.current = true;
  setExpanded(true);
- // Impression, not intent — kept out of `cta_click` so the funnel
- // ratio open→accept stays meaningful (auto_expand was 380 vs 33
- // real opens in 14 days, fully drowning the "open" signal).
- import('@/services/analytics')
- .then(({ Analytics }) => Analytics.trackJobAlertCtaShown('inline_card', k))
- .catch(() => {});
  }
  }, 800);
  return () => window.clearTimeout(timer);
@@ -344,15 +358,19 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  return;
  }
 
+ const config = buildConfig();
+ const actionKeyword = config.keywords.join(', ') || config.locations.join(', ');
+ trackInlineCtaAction('accept', actionKeyword || undefined);
  setSaving(true);
  try {
- const config = buildConfig();
       const created = await persistAlert(authUser.uid, authUser.email || '', config, 'inline_card');
+      trackInlineCtaAction('success', actionKeyword || undefined);
  showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
  resetForm();
       if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
       try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
  } catch (err: any) {
+ trackInlineCtaAction('error', actionKeyword || undefined);
  showToast(err?.message || 'Errore durante la creazione dell\'alert.');
  } finally {
  setSaving(false);
@@ -361,16 +379,19 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  const handleOneTapCreate = async () => {
    if (!authUser?.uid || !authUser.email || !oneTapEligible || !oneTapKeyword) return;
+   trackInlineCtaAction('accept', oneTapKeyword);
    setSaving(true);
    try {
      const config = buildOneTapConfig();
      const created = await persistAlert(authUser.uid, authUser.email, config, 'inline_card');
+     trackInlineCtaAction('success', oneTapKeyword);
      showToast(t('jobAlert.created') || 'Alert creata! Riceverai una email con le nuove offerte.');
      setOneTapEligible(false);
      resetForm();
      if (authUser.email) maybeShowEnrichmentPrompt(authUser.email, created);
      try { localStorage.setItem(JOB_ALERT_SUBSCRIBED_KEY, 'true'); } catch { /* no-op */ }
    } catch (err: any) {
+     trackInlineCtaAction('error', oneTapKeyword);
      showToast(err?.message || (t('jobAlert.error.generic') as string) || 'Errore durante la creazione dell\'alert.');
    } finally {
      setSaving(false);
@@ -473,6 +494,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
 
  return (
  <div className="mt-4 mb-6">
+ <div ref={impressionRef}>
  {oneTapEligible && !expanded && (
  <div className="mb-2">
         <button
@@ -494,9 +516,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  type="button"
  onClick={() => {
  if (!expanded) {
- import('@/services/analytics')
- .then(({ Analytics }) => Analytics.trackJobAlertCtaClick('inline_card', 'open', initialKeyword))
- .catch(() => {});
+ trackInlineCtaAction('open', inlineCtaKeyword || undefined);
  }
  setExpanded(!expanded);
  }}
@@ -533,6 +553,7 @@ export default function JobAlertForm({ authUser, onRequireAuth, initialKeyword =
  {expanded ? <ChevronUp className="w-4 h-4" /> : <ChevronDown className="w-4 h-4" />}
  </span>
  </button>
+ </div>
 
  {/* Expanded form */}
  {expanded && (
