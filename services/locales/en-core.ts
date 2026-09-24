@@ -1661,7 +1661,7 @@ const enCore: Record<string, string> = {
  'faq.questions.taxes.q7': 'What is Quadro RW and when must it be filed?',
  'faq.questions.taxes.a7': 'Quadro RW in the Modello Redditi is for fiscal monitoring of foreign assets. Cross-border workers use it to declare: Swiss bank accounts, 2nd pillar (LPP), 3rd pillar, securities in Swiss deposits. It does not generate additional taxes on current accounts (IVAFE exemption).',
  'faq.questions.taxes.q8': 'How much IRPEF does a cross-border worker pay in 2026?',
- 'faq.questions.taxes.a8': 'It depends on income and status (old/new agreement). New workers (from 2024): IRPEF on income exceeding €10,000, with credit for Swiss taxes. Old workers: IRPEF exemption up to €10,000, then standard brackets (23% up to €28,000, 35% up to €50,000, 43% above).',
+ 'faq.questions.taxes.a8': 'It depends on income and status (old/new agreement). New workers (from 2024): IRPEF on income exceeding €10,000, with credit for Swiss taxes. Old workers: IRPEF exemption up to €10,000, then standard brackets (23% up to €28,000, 33% up to €50,000, 43% above).',
  'faq.questions.permits.q1': 'What is the difference between Permit G and Permit B?',
  'faq.questions.permits.a1': 'Permit G is for cross-border workers (residence in Italy, work in CH, weekly return). Permit B is for Swiss residents.',
  'faq.questions.permits.q2': 'Do I have to return to Italy every day with Permit G?',

@@ -130,15 +130,15 @@ export const FAQ_TRANSLATIONS: FaqLocaleMap = {
  "Il frontaliere deve pagare l'IRPEF in Italia?": {
  en: {
  q: "Does a cross-border worker have to pay IRPEF in Italy?",
- a: "IRPEF is calculated on the Swiss income converted to EUR minus the €10,000 exemption, using the progressive brackets (23%, 35%, 43%). A tax credit is applied for the Swiss withholding tax paid to avoid double taxation. The regional and municipal surtaxes are also due."
+ a: "IRPEF is calculated on the Swiss income converted to EUR minus the €10,000 exemption, using the progressive brackets (23%, 33%, 43%). A tax credit is applied for the Swiss withholding tax paid to avoid double taxation. The regional and municipal surtaxes are also due."
  },
  de: {
  q: "Muss ein Grenzgänger in Italien IRPEF zahlen?",
- a: "Die IRPEF wird auf das in EUR umgerechnete Schweizer Einkommen abzüglich des Freibetrags von 10.000 € berechnet, unter Anwendung der Progressionsstufen (23 %, 35 %, 43 %). Für die in der Schweiz gezahlte Quellensteuer wird eine Steuergutschrift gewährt, um Doppelbesteuerung zu vermeiden. Regionale und kommunale Zuschläge fallen ebenfalls an."
+ a: "Die IRPEF wird auf das in EUR umgerechnete Schweizer Einkommen abzüglich des Freibetrags von 10.000 € berechnet, unter Anwendung der Progressionsstufen (23 %, 33 %, 43 %). Für die in der Schweiz gezahlte Quellensteuer wird eine Steuergutschrift gewährt, um Doppelbesteuerung zu vermeiden. Regionale und kommunale Zuschläge fallen ebenfalls an."
  },
  fr: {
  q: "Le frontalier doit-il payer l'IRPEF en Italie ?",
- a: "L'IRPEF est calculée sur le revenu suisse converti en EUR moins la franchise de 10 000 €, selon les tranches progressives (23 %, 35 %, 43 %). Un crédit d'impôt est accordé pour l'impôt à la source suisse payé afin d'éviter la double imposition. Les surtaxes régionales et communales s'appliquent également."
+ a: "L'IRPEF est calculée sur le revenu suisse converti en EUR moins la franchise de 10 000 €, selon les tranches progressives (23 %, 33 %, 43 %). Un crédit d'impôt est accordé pour l'impôt à la source suisse payé afin d'éviter la double imposition. Les surtaxes régionales et communales s'appliquent également."
  }
  },
 

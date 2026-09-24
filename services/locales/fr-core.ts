@@ -1657,7 +1657,7 @@ const frCore: Record<string, string> = {
  'faq.questions.taxes.q7': 'Qu\'est-ce que le Quadro RW et quand doit-il être rempli ?',
  'faq.questions.taxes.a7': 'Le Quadro RW du Modello Redditi sert au suivi fiscal des actifs étrangers. Les frontaliers y déclarent : comptes bancaires suisses, 2e pilier (LPP), 3e pilier, titres dans des dépôts suisses. Il ne génère pas d\'impôts supplémentaires sur les comptes courants (exemption IVAFE).',
  'faq.questions.taxes.q8': 'Combien d\'IRPEF paie un frontalier en 2026 ?',
- 'faq.questions.taxes.a8': 'Cela dépend du revenu et du statut (ancien/nouvel accord). Nouveaux frontaliers (depuis 2024) : IRPEF sur le revenu dépassant 10 000 €, avec crédit pour les impôts suisses. Anciens frontaliers : exonération IRPEF jusqu\'à 10 000 €, puis tranches standard (23% jusqu\'à 28 000 €, 35% jusqu\'à 50 000 €, 43% au-delà).',
+ 'faq.questions.taxes.a8': 'Cela dépend du revenu et du statut (ancien/nouvel accord). Nouveaux frontaliers (depuis 2024) : IRPEF sur le revenu dépassant 10 000 €, avec crédit pour les impôts suisses. Anciens frontaliers : exonération IRPEF jusqu\'à 10 000 €, puis tranches standard (23% jusqu\'à 28 000 €, 33% jusqu\'à 50 000 €, 43% au-delà).',
  'faq.questions.permits.q1': 'Quelle est la différence entre le Permis G et le Permis B ?',
  'faq.questions.permits.a1': 'Le Permis G est pour les frontaliers (résidence en Italie, travail en CH, retour hebdomadaire). Le Permis B est pour les résidents en Suisse.',
  'faq.questions.permits.q2': 'Dois-je rentrer en Italie chaque jour avec le Permis G ?',

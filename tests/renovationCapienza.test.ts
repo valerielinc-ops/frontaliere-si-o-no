@@ -20,26 +20,26 @@ describe('calculateIrpefGross', () => {
     expect(calculateIrpefGross(28000)).toBe(6440);
   });
 
-  it('applies 23% + 35% for income in second bracket (€40,000)', () => {
+  it('applies 23% + 33% for income in second bracket (€40,000)', () => {
     // 28000 * 0.23 = 6440
-    // 12000 * 0.35 = 4200
-    // Total = 10640
-    expect(calculateIrpefGross(40000)).toBe(10640);
+    // 12000 * 0.33 = 3960 (2026: L. 199/2025 lowered 35% -> 33%)
+    // Total = 10400
+    expect(calculateIrpefGross(40000)).toBe(10400);
   });
 
-  it('applies 23% + 35% for income at second bracket boundary (€50,000)', () => {
+  it('applies 23% + 33% for income at second bracket boundary (€50,000)', () => {
     // 28000 * 0.23 = 6440
-    // 22000 * 0.35 = 7700
-    // Total = 14140
-    expect(calculateIrpefGross(50000)).toBe(14140);
+    // 22000 * 0.33 = 7260
+    // Total = 13700
+    expect(calculateIrpefGross(50000)).toBe(13700);
   });
 
   it('applies all three brackets for income above €50,000 (€80,000)', () => {
     // 28000 * 0.23 = 6440
-    // 22000 * 0.35 = 7700
+    // 22000 * 0.33 = 7260
     // 30000 * 0.43 = 12900
-    // Total = 27040
-    expect(calculateIrpefGross(80000)).toBe(27040);
+    // Total = 26600
+    expect(calculateIrpefGross(80000)).toBe(26600);
   });
 
   it('handles small income correctly (€1,000)', () => {
@@ -48,9 +48,9 @@ describe('calculateIrpefGross', () => {
 
   it('handles very large income (€200,000)', () => {
     // 28000 * 0.23 = 6440
-    // 22000 * 0.35 = 7700
+    // 22000 * 0.33 = 7260
     // 150000 * 0.43 = 64500
-    // Total = 78640
-    expect(calculateIrpefGross(200000)).toBe(78640);
+    // Total = 78200
+    expect(calculateIrpefGross(200000)).toBe(78200);
   });
 });

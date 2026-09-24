@@ -155,7 +155,7 @@ const enStats: Record<string, string> = {
  'glossary.terms.impostaAllaFonte.example': 'On a gross salary of CHF 5,000/month, a single person without children in Lugano pays about 12% withholding tax.',
  'glossary.terms.irpef.title': 'IRPEF',
  'glossary.terms.irpef.desc': 'Italian Personal Income Tax. The main Italian income tax with progressive rates from 23% to 43%.',
- 'glossary.terms.irpef.example': 'Income €30,000: first €28,000 at 23%, remaining €2,000 at 35% → gross IRPEF €7,140.',
+ 'glossary.terms.irpef.example': 'Income €30,000: first €28,000 at 23%, remaining €2,000 at 33% → gross IRPEF €7,100.',
  'glossary.terms.franchigia.title': '€10,000 Allowance',
  'glossary.terms.franchigia.desc': 'Under the 2026 agreement, newly hired cross-border workers benefit from a €10,000 IRPEF-free allowance.',
  'glossary.terms.franchigia.example': 'Gross income €40,000: with the allowance, only €30,000 is subject to IRPEF.',
