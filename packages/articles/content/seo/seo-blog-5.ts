@@ -92854,6 +92854,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-pensione-pubblica-svizzera-non-tassata-italia': {
+    title: 'Pensione pubblica svizzera: nessuna tassazione in Italia',
+    description: 'Scopri come la risposta a interpello n. 177/2026 dell’Agenzia delle Entrate esclude la tassazione in Italia sulle pensioni pubbliche svizzere erogate dal DDPS',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, pubblica, nessuna, tassazione',
+    ogTitle: 'Pensione pubblica svizzera: nessuna tassazione in Italia',
+    ogDescription: 'La risposta a interpello n. 177/2026 dell’Agenzia delle Entrate chiarisce che le pensioni pubbliche svizzere erogate dalla Cassa PUBLICA del DDPS non sono tassabili in Italia per i soggetti con doppia cittadinanza italiana e svizzera, grazie',
+    canonicalPath: '/articoli-frontaliere/pensione-pubblica-svizzera-non-tassata-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione pubblica svizzera: nessuna tassazione in Italia",
+      "description": "Scopri come la risposta a interpello n. 177/2026 dell’Agenzia delle Entrate esclude la tassazione in Italia sulle pensioni pubbliche svizzere erogate dal DDPS",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensione-pubblica-svizzera-non-tassata-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul lago di Lugano con montagne sullo sfondo, rappresentante la vita finanziaria transfrontaliera in Ticino"
+      },
+      "datePublished": "2026-09-24T18:59:17+00:00",
+      "dateModified": "2026-09-24T18:59:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensione-pubblica-svizzera-non-tassata-italia/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
