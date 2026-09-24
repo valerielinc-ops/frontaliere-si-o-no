@@ -2248,6 +2248,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'ubs-capitale-90-bns': { it: 'ubs-capitale-90-bns', en: 'ubs-capital-90-snb', de: 'ubs-kapital-90-snb', fr: 'ubs-capital-90-bns' },
  'mozione-costi-manifestazioni-stati': { it: 'mozione-costi-manifestazioni-stati', en: 'motion-states-organizers-pay-safety-costs', de: 'motion-staaten-die-organisatoren-zahlen-die-sicherheitskosten', fr: 'motion-etats-les-organisateurs-paient-les-frais-de-securite' },
  'bns-tasso-guida-zero-2026': { it: 'bns-tasso-guida-zero-2026', en: 'snb-leaves-guide-rate-at-0-and-raises-gdp-estimates-2026', de: 'snb-lasst-leitzins-bei-0-und-erhoht-schatzungen-bip-2026', fr: 'la-bns-laisse-un-taux-directeur-a-0-et-releve-ses-estimations-de-pib-2026' },
+ 'turismo-agosto-ospiti-estero': { it: 'turismo-agosto-ospiti-estero', en: 'swiss-tourism-august-foreign-guests', de: 'schweiz-tourismus-august-auslandgaeste', fr: 'tourisme-suisse-aout-visiteurs-etrangers' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */

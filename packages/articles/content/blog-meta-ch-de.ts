@@ -6677,6 +6677,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.bns-tasso-guida-zero-2026.title': 'SNB lässt Leitzins bei 0% und erhöht Schätzungen BIP 2026',
     'blog.article.bns-tasso-guida-zero-2026.excerpt': 'Der SNB-Leitzins liegt seit Juni 2025 bei 0%; Inflation im August bei 0,8%; BIP 2026 zwischen 1,5% und 2%.',
     'blog.article.bns-tasso-guida-zero-2026.imageAlt': 'Blick auf den Luganer See mit Bergen und Finanzgebäuden im Hintergrund',
+    'blog.article.turismo-agosto-ospiti-estero.title': 'Spätsommer mit weniger ausländischen Touristen in der Schweiz',
+    'blog.article.turismo-agosto-ospiti-estero.excerpt': 'Im August gingen die Logiernächte in der Schweiz im Jahresvergleich um 1,9% zurück: Ausländische Gäste belasten, aber auch die Inlandsnachfrage geht zurück.',
+    'blog.article.turismo-agosto-ospiti-estero.imageAlt': 'Touristen an einer Schweizer Seepromenade in einer Spätsommerszene.',
 };
 
 export default blogMetaChDe;

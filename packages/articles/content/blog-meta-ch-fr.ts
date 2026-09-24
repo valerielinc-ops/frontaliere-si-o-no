@@ -6677,6 +6677,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.bns-tasso-guida-zero-2026.title': 'La BNS laisse un taux directeur à 0% et relève ses estimations de PIB 2026',
     'blog.article.bns-tasso-guida-zero-2026.excerpt': 'Le taux directeur BNS reste à 0% à partir de juin 2025 ; inflation août à 0,8% ; PIB 2026 attendu entre 1,5% et 2%.',
     'blog.article.bns-tasso-guida-zero-2026.imageAlt': 'Vue sur le lac de Lugano avec montagnes et bâtiments financiers en arrière-plan',
+    'blog.article.turismo-agosto-ospiti-estero.title': 'Fin d\'été avec moins de touristes étrangers en Suisse',
+    'blog.article.turismo-agosto-ospiti-estero.excerpt': 'En août, les nuitées en Suisse ont chuté de 1,9% sur une base annuelle : les hôtes étrangers pèsent, mais la demande intérieure recule également.',
+    'blog.article.turismo-agosto-ospiti-estero.imageAlt': 'Touristes sur une promenade au bord d\'un lac suisse en fin d\'été.',
 };
 
 export default blogMetaChFr;
