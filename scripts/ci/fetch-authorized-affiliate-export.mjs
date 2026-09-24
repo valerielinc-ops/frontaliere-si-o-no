@@ -94,6 +94,7 @@ function readClicks(raw) {
 export function normalizeAuthorizedAffiliateExport(raw, {
   sourceUrl,
   sourceLabel = null,
+  amountFormat = null,
 } = {}) {
   const rows = readRows(raw);
   if (!Array.isArray(rows)) {
@@ -132,19 +133,19 @@ export function normalizeAuthorizedAffiliateExport(raw, {
   const source = text(sourceLabel)
     || text(existingEvidence?.source)
     || safeSourceRef(sourceUrl);
-  const amountFormat = text(readField(raw, 'amountFormat'));
+  const resolvedAmountFormat = text(readField(raw, 'amountFormat')) || text(amountFormat);
   const period = readPeriod(raw);
   const clicks = readClicks(raw);
 
   return {
     schemaVersion: 1,
     loopId: LOOP_ID,
-    generatedAt,
     // The endpoint is owner-configured as the independent commercial source;
     // this flag is explicit in the generated envelope, never inferred from
     // PostHog telemetry.
+    generatedAt,
     independent: true,
-    ...(amountFormat ? { amountFormat } : {}),
+    ...(resolvedAmountFormat ? { amountFormat: resolvedAmountFormat } : {}),
     ...(period ? { period } : {}),
     ...(clicks ? { clicks } : {}),
     exposures,
@@ -167,6 +168,7 @@ export async function fetchAuthorizedAffiliateExport({
   token = process.env.AFFILIATE_REVENUE_EXPORT_TOKEN,
   authHeader = process.env.AFFILIATE_REVENUE_EXPORT_AUTH_HEADER,
   sourceLabel = process.env.AFFILIATE_REVENUE_EXPORT_SOURCE,
+  amountFormat = process.env.AFFILIATE_REVENUE_AMOUNT_FORMAT,
   timeoutMs = DEFAULT_TIMEOUT_MS,
   fetchImpl = globalThis.fetch,
 } = {}) {
@@ -230,7 +232,7 @@ export async function fetchAuthorizedAffiliateExport({
   return {
     available: true,
     reason: null,
-    export: normalizeAuthorizedAffiliateExport(raw, { sourceUrl: endpoint.href, sourceLabel }),
+    export: normalizeAuthorizedAffiliateExport(raw, { sourceUrl: endpoint.href, sourceLabel, amountFormat }),
   };
 }
 
@@ -258,6 +260,7 @@ export async function main({
     token: env.AFFILIATE_REVENUE_EXPORT_TOKEN,
     authHeader: env.AFFILIATE_REVENUE_EXPORT_AUTH_HEADER,
     sourceLabel: env.AFFILIATE_REVENUE_EXPORT_SOURCE,
+    amountFormat: env.AFFILIATE_REVENUE_AMOUNT_FORMAT,
     fetchImpl,
   });
   writeJson(outputPath, result.export);

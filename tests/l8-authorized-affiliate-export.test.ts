@@ -24,7 +24,7 @@ const COMMERCIAL_RESPONSE = {
     },
   ],
   evidence: { source: 'network-export', sourceRefs: ['network-ledger'] },
-  accountEmail: 'must-not-be-persisted@example.invalid',
+  accountIdentifier: 'must-not-be-persisted',
 };
 
 describe('L8 authorised commercial export fetcher', () => {
@@ -60,7 +60,7 @@ describe('L8 authorised commercial export fetcher', () => {
         sourceRefs: ['network-ledger', 'authorised-affiliate-commercial-export', 'l8.external-commercial-endpoint'],
       },
     });
-    expect(JSON.stringify(result.export)).not.toContain('must-not-be-persisted@example.invalid');
+    expect(result.export).not.toHaveProperty('accountIdentifier');
   });
 
   it('uses a bearer token when a complete authorization header is not configured', async () => {
@@ -79,6 +79,24 @@ describe('L8 authorised commercial export fetcher', () => {
       },
     });
     expect(authorization).toBe('Bearer configured-token');
+  });
+
+  it('uses the Remote Config amount format when the response omits it', async () => {
+    let payload;
+    await fetchAuthorizedAffiliateExport({
+      url: 'https://reports.example.test/l8',
+      amountFormat: 'grouped',
+      fetchImpl: async () => ({
+        ok: true,
+        status: 200,
+        headers: { get: () => null },
+        text: async () => JSON.stringify({
+          ...COMMERCIAL_RESPONSE,
+          amountFormat: undefined,
+        }),
+      }),
+    }).then((result) => { payload = result.export; });
+    expect(payload.amountFormat).toBe('grouped');
   });
 
   it('leaves the runner-local input explicitly unavailable when the URL is absent', async () => {
