@@ -39,6 +39,11 @@ const REMOTE_CONFIG_DEFAULTS: Record<string, string> = {
  // assisted-application split when no global arm is forced.
  ASSISTED_APPLICATION_EXPERIMENT_VARIANT: 'auto',
  AUTHGATE_HEADLINE_VARIANT: 'control',
+ // jobgate-v3 (services/jobGateExperiment.ts): OFF by default, so a failed
+ // public-config fetch keeps every visitor on today's gate.
+ JOBGATE_EXPERIMENT_ENABLED: 'false',
+ JOBGATE_EXPERIMENT_ARMS: '{"control":100}',
+ JOBGATE_EXPERIMENT_FORCE: '',
  ADBLOCK_GATE_EXPERIMENT_ENABLED: 'true',
  ADBLOCK_GATE_TEST_SHARE: '0.30',
  GOOGLE_MAPS_API_KEY: '',
