@@ -11939,6 +11939,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-24.imageAlt': 'I numeri del giorno per i frontalieri – 24 settembre 2026: attese ai valichi, prezzi benzina, cambio franco-euro e annunci di lavoro',
     'blog.article.bollettino-frontaliere-2026-09-24.seoDescription': 'Bollettino frontalieri del 24 settembre 2026: code ai valichi stamattina, dove la benzina costa meno, cambio franco-euro e nuovi annunci di lavoro in Svizzera.',
     'blog.article.bollettino-frontaliere-2026-09-24.ogDescription': 'I numeri del 24 settembre 2026 per i frontalieri: quanto si aspetta a ogni valico stamattina, in quali comuni conviene fare il pieno, quanto vale oggi il franco e quanti annunci di lavoro sono usciti in Svizzera.',
+    'blog.article.decisione-bns-cambio-franco-euro.title': 'Decisione BNS: franco in calo, euro in risalita',
+    'blog.article.decisione-bns-cambio-franco-euro.excerpt': 'La BNS mantiene il tasso di riferimento allo 0%, portando l\'euro sopra 0,94 franchi e il dollaro ai massimi annuali.',
+    'blog.article.decisione-bns-cambio-franco-euro.imageAlt': 'Vista panoramica di Lugano, centro finanziario del Canton Ticino',
 };
 
 export default blogMetaIt;

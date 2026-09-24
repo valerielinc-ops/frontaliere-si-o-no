@@ -11937,6 +11937,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.bollettino-frontaliere-2026-09-24.imageAlt': 'Die Zahlen des Tages für Grenzgänger – 24. September 2026: Wartezeiten, Benzinpreise, CHF-EUR-Kurs und Stellenangebote',
     'blog.article.bollettino-frontaliere-2026-09-24.seoDescription': 'Grenzgänger-Bulletin vom 24. September 2026: Wartezeiten an den Grenzübergängen, günstigstes Benzin, Franken-Euro-Kurs und neue Stellenangebote in der Schweiz.',
     'blog.article.bollettino-frontaliere-2026-09-24.ogDescription': 'Die Zahlen vom 24. September 2026 für Grenzgänger: wie lange man heute Morgen an jedem Übergang wartet, in welchen Gemeinden das Benzin am günstigsten ist, was der Franken heute wert ist und wie viele Stellen neu dazugekommen sind.',
+    'blog.article.decisione-bns-cambio-franco-euro.title': 'SNB-Beschluss: Franken sinken, Euro steigen',
+    'blog.article.decisione-bns-cambio-franco-euro.excerpt': 'Die SNB hält den Referenzzinssatz bei 0% und bringt den Euro über 0,94 Franken und den Dollar auf Jahreshoch.',
+    'blog.article.decisione-bns-cambio-franco-euro.imageAlt': 'Panoramablick auf Lugano, Finanzzentrum des Kantons Tessin',
 };
 
 export default blogMetaDe;
