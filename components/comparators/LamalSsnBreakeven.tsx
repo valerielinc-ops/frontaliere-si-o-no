@@ -19,6 +19,7 @@ import React, { useMemo, useState } from 'react';
 import { Scale, Mail, Loader2, CheckCircle2, AlertCircle } from 'lucide-react';
 import { useTranslation, useLocale } from '@/services/i18n';
 import { Analytics } from '@/services/analytics';
+import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput';
 import PartnerRecommendations from '@/components/shared/PartnerRecommendations';
 import EmailConsentCheckbox from '@/components/shared/EmailConsentCheckbox';
@@ -70,6 +71,13 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  const [email, setEmail] = useState('');
  const [sendStatus, setSendStatus] = useState<'idle' | 'loading' | 'pending' | 'success' | 'error'>('idle');
  const [sendError, setSendError] = useState<'email' | 'send' | null>(null);
+ // Visibility denominator for the email → PDF box; the submit below carries
+ // the same `lamal_ssn.email_pdf.<…>.lamal_ssn_tool` shape so the two pair.
+ const impressionRef = useCaptureImpression({
+  page: 'lamal_ssn',
+  section: 'email_pdf',
+  variant: 'lamal_ssn_tool',
+ });
 
  const ageGroup: BreakevenAgeGroup = age < 19 ? '0-18' : age <= 25 ? '19-25' : '26+';
  const franchises = ageGroup === '0-18' ? franchisesChild : franchisesAdult;
@@ -157,6 +165,7 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  throw new Error(`http_${resp.status}`);
  }
  Analytics.trackFunnelStep('lamal_ssn_email_submitted', { funnel: 'newsletter_lamal_ssn' });
+ Analytics.trackUIInteraction('lamal_ssn', 'email_pdf', 'submit', 'lamal_ssn_tool');
  const needsConfirmation = upsert != null
   && upsert.optedOut !== true
   && upsert.status === 'pending'
@@ -259,7 +268,7 @@ const LamalSsnBreakeven: React.FC<LamalSsnBreakevenProps> = ({
  </div>
 
  {/* Email → PDF CTA */}
- <form onSubmit={handleSendPdf} className="mt-3">
+ <form ref={impressionRef} onSubmit={handleSendPdf} className="mt-3">
  <p className="text-sm font-bold text-strong mb-2 flex items-center gap-2">
  <Mail size={16} className="text-accent" aria-hidden="true" />
  {t('health.lamalSsn.emailCtaTitle')}

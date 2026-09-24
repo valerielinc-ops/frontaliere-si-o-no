@@ -50,6 +50,7 @@ const NewsletterMount: React.FC = () => {
             headingOverride={t.props.heading}
             subtitleOverride={t.props.subtitle}
             acquisitionSource={t.props.acquisitionSource}
+            impressionPlacement="island"
           />,
           t.el,
           `newsletter-mount-${i}`,
