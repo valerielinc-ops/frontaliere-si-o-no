@@ -1,0 +1,183 @@
+name: auth-signup-subscriber-monitor
+
+# Osservatore del buco iscrizioni-da-login del 12-15 settembre 2026.
+#
+# #8341 ha separato il login dall'iscrizione (per scelta); #8754 lo ha rimesso
+# dentro la relazione di comunicazione con i termini di registrazione. Per
+# quattro giorni le creazioni `newsletter_subscribers` con `source_channel`
+# `auth_*` sono state 3/1/1/1 al giorno contro 60-80, e nessun monitor lo ha
+# detto: il job gate via email continuava e il totale non sembrava un guasto.
+#
+# LE DUE MISURE (dettaglio in scripts/lib/authSignupSubscriberMetrics.mjs)
+#   - iscritti `auth_*` creati nelle ultime 24h (per `created_at`) < 10
+#     mentre gli account Firebase Auth nuovi sono >= 10     -> priority 1
+#   - quota di account Auth nuovi senza iscrizione (stub di solo profilo o
+#     documento assente) > 20%                              -> priority 2
+#   - zero account Auth nuovi in 24h (login rotto o lettura cieca) -> priority 2
+# Gli account nuovi sono il segnale di traffico: senza di loro la soglia sugli
+# iscritti non viene valutata.
+#
+# REPLAY misurato il 2026-09-24 in sola lettura: il primo giro dopo il deploy
+# di #8341 (13/09 07:25Z) avrebbe aperto `auth_subscribers_below_floor` con 0
+# iscritti auth_* su 54 account nuovi; i giri dell'11/09 e del 17/09 sono verdi.
+
+on:
+  schedule:
+    # 07:25 UTC: fra autologin-refusal-monitor (07:10) e
+    # unsubscribe-credential-monitor (07:40), stessa finestra mattutina.
+    - cron: '25 7 * * *'
+  workflow_dispatch:
+    inputs:
+      hours:
+        description: 'Ampiezza della finestra in ore (default 24)'
+        required: false
+        default: '24'
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: auth-signup-subscriber-monitor
+  cancel-in-progress: false
+
+jobs:
+  check:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          fetch-depth: 0
+          # Stessa scelta di unsubscribe-credential-monitor.yml: blob:none tiene
+          # la storia dei commit (serve al commit-back sotto) e rimanda i blob.
+          filter: blob:none
+          persist-credentials: true
+        timeout-minutes: 7
+
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      - name: Install dependencies
+        run: npm ci --omit=dev --ignore-scripts
+
+      # Lo script legge Firestore e Firebase Auth: serve firebase-admin, che e'
+      # una devDependency potata da --omit=dev. Stesso schema del gemello.
+      - name: Install firebase-admin
+        run: npm install --no-save firebase-admin
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          set -euo pipefail
+          if [ -z "${FIREBASE_SERVICE_ACCOUNT_JSON:-}" ]; then
+            # Fail-closed: senza credenziali il monitor e' cieco, e un monitor
+            # cieco che esce verde e' il guasto che deve prevenire.
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON mancante — impossibile leggere Firestore/Auth."
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          chmod 600 /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Check auth signup subscribers
+        id: check
+        continue-on-error: true
+        env:
+          HOURS: ${{ github.event.inputs.hours || '24' }}
+        run: node scripts/check-auth-signup-subscribers.mjs --hours="${HOURS}"
+
+      - name: Commit history
+        # `if: always()`: la serie va persistita anche nei giri che allarmano.
+        if: always()
+        run: |
+          set -uo pipefail
+          ec=0
+          bash scripts/lib/git-commit-data.sh "📊 Auto-generated auth signup subscriber metrics" docs/auth-signup-subscribers/ || ec=$?
+          # 42 = contesa sul push, si risana al giro dopo (vedi git-commit-data.sh).
+          if [ "$ec" -eq 42 ]; then
+            echo "::warning::Push in contesa (42) — lo stato si ricommitta al prossimo giro."
+            exit 0
+          fi
+          exit "$ec"
+
+      - name: Open issue on threshold breach
+        if: steps.check.outcome == 'failure'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          if [ ! -f docs/auth-signup-subscribers/alert.json ]; then
+            echo "::error::Lo script e' uscito !=0 senza scrivere alert.json — crash, non soglia superata."
+            exit 1
+          fi
+          TITLE=$(jq -r '.title' docs/auth-signup-subscribers/alert.json)
+          PRIORITY=$(jq -r '.priority' docs/auth-signup-subscribers/alert.json)
+          jq -r '.body' docs/auth-signup-subscribers/alert.json > /tmp/auth-signup-alert-body.md
+
+          # github-issue-creator.mjs deduplica sui primi 60 caratteri del
+          # titolo: il codice del finding sta PRIMO, cosi' un buco che dura
+          # piu' giorni commenta la issue canonica invece di aprirne una al giorno.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "$TITLE" \
+            --description "$(cat /tmp/auth-signup-alert-body.md)" \
+            --priority "$PRIORITY" \
+            --label auth-signup-gap \
+            --workflow "${{ github.workflow }}"
+
+      - name: Close recovered auth-signup issues
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail
+          # La condizione di chiusura e' l'assenza di alert.json, che lo script
+          # cancella quando il giro e' pulito — stessa forma dei gemelli.
+          if [ -f docs/auth-signup-subscribers/alert.json ]; then
+            echo "Alert ancora attivo — nessuna chiusura."
+            exit 0
+          fi
+          gh issue list --state open --limit 200 \
+            --json number,title --jq '.[] | select(.title | test("^\\[auth-signup\\] ")) | .number' \
+            > /tmp/auth-signup-issues.txt || true
+          # #7505: lista su fd 9, cosi' `gh issue close` non consuma lo stdin del loop.
+          while read -r -u 9 num; do
+            [ -n "$num" ] || continue
+            echo "Chiudo #$num — nessun alert nell'ultimo giro."
+            gh issue close "$num" --repo "$GH_REPO" \
+              --comment "✅ Auto-chiusa: l'ultimo giro di \`auth-signup-subscriber-monitor\` non ha alert (iscrizioni da login sopra soglia). Storico: \`docs/auth-signup-subscribers/history.json\`." \
+              || echo "Chiusura di #$num fallita (continuo)."
+          done 9< /tmp/auth-signup-issues.txt
+
+      - name: Fail if threshold breached
+        id: failgate
+        if: steps.check.outcome == 'failure'
+        run: |
+          echo "Soglia superata — vedi la issue aperta sopra."
+          exit 1
+
+      - name: Report unexpected failure to GitHub Issues
+        if: failure() && steps.failgate.conclusion != 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito (crash fuori dalla detection)
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          Nota: il monitor e' fallito prima/fuori dallo step di misura — nessuna issue di soglia e' stata aperta, quindi le iscrizioni da login NON sono state lette oggi." \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
