@@ -51,6 +51,11 @@ concurrency:
 
 permissions:
   contents: write
+  # The failure reporter below opens/comments the canonical issue. Without
+  # this scope an explicit permissions block zeroes `issues`, and run
+  # 35988019883 (2026-09-24) got `HTTP 403: Resource not accessible by
+  # integration` on createIssue — silent, because the step is continue-on-error.
+  issues: write
 
 jobs:
   backfill:
@@ -196,7 +201,7 @@ jobs:
           checkpoint_failed=0
 
           has_dirty_slices() {
-            git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler | rg -q '.'
+            git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler | grep . >/dev/null
           }
 
           checkpoint() {
@@ -245,7 +250,7 @@ jobs:
             if has_dirty_slices; then
               checkpoint_dirty=1
             fi
-            if rg -q '^has_changes=true$' "$checkpoint_output"; then
+            if grep -q '^has_changes=true$' "$checkpoint_output"; then
               if ! git fetch --no-tags origin main || ! git reset --hard origin/main; then
                 rm -f "$checkpoint_output"
                 echo '::error::Checkpoint was reported as persisted but the workspace could not be aligned to origin/main.'
@@ -253,7 +258,7 @@ jobs:
                 checkpoint_active=0
                 return 1
               fi
-            elif rg -q '^has_changes=false$' "$checkpoint_output" && [ "$checkpoint_dirty" -eq 0 ]; then
+            elif grep -q '^has_changes=false$' "$checkpoint_output" && [ "$checkpoint_dirty" -eq 0 ]; then
               :
             else
               rm -f "$checkpoint_output"

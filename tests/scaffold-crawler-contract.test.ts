@@ -22,7 +22,8 @@ const CONTRACT_ALIGNED_PARSERS = [
   'alcon',
   'ardian',
   'csl-behring',
-  'medtronic',
+  // medtronic: ora un consumatore della factory Workday condivisa, coperta in
+  // tests/workday-employment-contract-consistency.test.ts (issue 5253).
   'rituals-cosmetics',
   'stryker',
 ];

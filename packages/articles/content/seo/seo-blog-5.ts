@@ -47536,16 +47536,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-insegnanti-frontalieri-stipendio-requisiti-ticino': {
     title: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
-    description: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730). Dati aggiornati 2026 per',
+    description: 'La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730). Dati aggiornati 2026 per',
     keywords: 'frontalieri, ticino, svizzera, italia, insegnante, scuola, stipendio, requisiti',
     ogTitle: 'Frontaliere insegnante scuola Ticino stipendio requisiti',
-    ogDescription: 'La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
+    ogDescription: 'La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d\'imposta (quadro CE del 730).',
     canonicalPath: '/articoli-frontaliere/insegnanti-frontalieri-stipendio-requisiti-ticino',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Frontaliere insegnante scuola Ticino stipendio requisiti",
-      "description": "La nuova convenzione italo-svizzera del 9 dicembre 1976 evita la doppia imposizione con il credito d'imposta (quadro CE del 730). Dati aggiornati 2026 per",
+      "description": "La nuova convenzione italo-svizzera del 9 marzo 1976 evita la doppia imposizione con il credito d'imposta (quadro CE del 730). Dati aggiornati 2026 per",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -73122,16 +73122,16 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
 
   'blog-vivere-fagnano-olona-lavorare-ticino': {
     title: 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
-    description: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976. Dati aggiornati 2026 per frontalieri in Ticino.',
+    description: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976. Dati aggiornati 2026 per frontalieri in Ticino.',
     keywords: 'frontalieri, ticino, svizzera, italia, vivere, fagnano, olona, lavorare',
     ogTitle: 'Vivere a Fagnano Olona e lavorare in Ticino da frontaliere',
-    ogDescription: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976',
+    ogDescription: 'Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976',
     canonicalPath: '/articoli-frontaliere/vivere-fagnano-olona-lavorare-ticino',
     structuredData: {
       "@context": "https://schema.org",
       "@type": "NewsArticle",
       "headline": "Vivere a Fagnano Olona e lavorare in Ticino da frontaliere",
-      "description": "Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 dicembre 1976. Dati aggiornati 2026 per frontalieri in Ticino.",
+      "description": "Convenzione italo-svizzera contro le doppie imposizioni: firmata il 9 marzo 1976. Dati aggiornati 2026 per frontalieri in Ticino.",
       "image": {
         "@type": "ImageObject",
         "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
@@ -92811,6 +92811,84 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
       },
       "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
       "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/decisione-bns-cambio-franco-euro/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-cgil-regio-insubrica-incontro-novembre': {
+    title: 'Cgil chiede al Piemonte soluzione tassa salute',
+    description: 'La Cgil chiede al Piemonte di chiudere la partita sulla tassa della salute: contributo sanitario senza decreti, ristorni 2026 a 108 milioni, tavolo',
+    keywords: 'frontalieri, ticino, svizzera, italia, cgil, chiede, piemonte, soluzione',
+    ogTitle: 'Cgil chiede al Piemonte soluzione tassa salute',
+    ogDescription: 'La Cgil sollecita il Piemonte a utilizzare la presidenza della Regio Insubrica per risolvere la questione della tassa sulla salute, ancora senza decreti attuativi dopo due anni e mezzo, mentre i ristorni 2026 raggiungono 108 milioni di euro',
+    canonicalPath: '/articoli-frontaliere/cgil-regio-insubrica-incontro-novembre',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Cgil chiede al Piemonte soluzione tassa salute",
+      "description": "La Cgil chiede al Piemonte di chiudere la partita sulla tassa della salute: contributo sanitario senza decreti, ristorni 2026 a 108 milioni, tavolo",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/cgil-regio-insubrica-incontro-novembre.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Frontaliere che cammina vicino al lago di Lugano con le Alpi sullo sfondo"
+      },
+      "datePublished": "2026-09-24T18:07:31+00:00",
+      "dateModified": "2026-09-24T18:07:31+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/cgil-regio-insubrica-incontro-novembre/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
+  'blog-pensione-pubblica-svizzera-non-tassata-italia': {
+    title: 'Pensione pubblica svizzera: nessuna tassazione in Italia',
+    description: 'Scopri come la risposta a interpello n. 177/2026 dell’Agenzia delle Entrate esclude la tassazione in Italia sulle pensioni pubbliche svizzere erogate dal DDPS',
+    keywords: 'frontalieri, ticino, svizzera, italia, pensione, pubblica, nessuna, tassazione',
+    ogTitle: 'Pensione pubblica svizzera: nessuna tassazione in Italia',
+    ogDescription: 'La risposta a interpello n. 177/2026 dell’Agenzia delle Entrate chiarisce che le pensioni pubbliche svizzere erogate dalla Cassa PUBLICA del DDPS non sono tassabili in Italia per i soggetti con doppia cittadinanza italiana e svizzera, grazie',
+    canonicalPath: '/articoli-frontaliere/pensione-pubblica-svizzera-non-tassata-italia',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Pensione pubblica svizzera: nessuna tassazione in Italia",
+      "description": "Scopri come la risposta a interpello n. 177/2026 dell’Agenzia delle Entrate esclude la tassazione in Italia sulle pensioni pubbliche svizzere erogate dal DDPS",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/pensione-pubblica-svizzera-non-tassata-italia.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista sul lago di Lugano con montagne sullo sfondo, rappresentante la vita finanziaria transfrontaliera in Ticino"
+      },
+      "datePublished": "2026-09-24T18:59:17+00:00",
+      "dateModified": "2026-09-24T18:59:17+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/laura-bianchi/#person",
+        "name": "Laura Bianchi",
+        "url": "https://frontaliereticino.ch/autori/laura-bianchi/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/pensione-pubblica-svizzera-non-tassata-italia/`,
       "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
     }
   },

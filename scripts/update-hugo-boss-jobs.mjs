@@ -19,6 +19,7 @@
 import fs from 'node:fs';
 import path from 'node:path';
 import { resolveFallbackAddress } from '../build-plugins/shared/companyHqAddresses.mjs';
+import { resolveLocalityAddress } from './lib/swiss-structured-address.mjs';
 import { exitCrawlerOnError } from './lib/crawler-template.mjs';
 import { fileURLToPath } from 'node:url';
 import { snapshotJobSlugs, computeCrawlDiff, printCrawlChangeSummary, writeCrawlChangeSummaryToGH, setCrawlerStartTime, getCrawlerElapsedMs } from './jobs-url-helper.mjs';
@@ -238,13 +239,17 @@ export async function fetchJobs({ fetchHtml = fetchPage } = {}) {
     // otherwise use the coherent canton fallback as the locality too.
     const sourceCity = isKnownSwissCity(raw.city, canton) ? raw.city : '';
     const fallbackAddress = resolveFallbackAddress(undefined, sourceCity, canton);
+    // Una città reale senza via/NPA resta la località della vacancy: il
+    // capoluogo di ripiego la sostituiva (issue 5253).
     const resolvedAddress = sourceCity && raw.address && raw.postalCode
       ? {
         addressLocality: sourceCity,
         streetAddress: raw.address,
         postalCode: raw.postalCode,
       }
-      : fallbackAddress;
+      : sourceCity
+        ? resolveLocalityAddress({ city: sourceCity, canton })
+        : fallbackAddress;
     const location = resolvedAddress.addressLocality;
     const detailUrl = buildDetailUrl(raw);
     const locationToken = location || canton;

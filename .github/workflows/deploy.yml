@@ -847,6 +847,33 @@ jobs:
         if: matrix.locale == 'it'
         run: node scripts/validate-build-profile-markers.mjs /tmp/build.log
 
+      # A production IT build is the full-corpus measurement. Keep this
+      # fail-closed on marker/bridge evidence, while leaving the historical
+      # 2 GB improvement target as a measured root-cause/revert signal rather
+      # than turning an observed performance miss into a blind deploy gate.
+      - name: Validate full-corpus jobs SEO evidence
+        if: always() && matrix.locale == 'it'
+        shell: bash
+        env:
+          JOBS_SEO_BUILD_LOG: /tmp/build.log
+          JOBS_SEO_MARKERS_OUT: ${{ runner.temp }}/jobs-seo-markers.txt
+          JOBS_SEO_WALL_SECONDS: ${{ steps.build_step.outputs.wall_seconds }}
+        run: |
+          node scripts/ci/report-jobs-seo-build-metrics.mjs "$JOBS_SEO_BUILD_LOG" \
+            --require-full-corpus \
+            --markers-out="$JOBS_SEO_MARKERS_OUT" \
+            --summary-label="production/${{ matrix.locale }}" \
+            --wall-seconds="${JOBS_SEO_WALL_SECONDS:-?}"
+
+      - name: Upload full-corpus jobs SEO markers
+        if: always() && matrix.locale == 'it'
+        uses: actions/upload-artifact@v7
+        with:
+          name: jobs-seo-full-corpus-markers-${{ github.run_id }}
+          path: ${{ runner.temp }}/jobs-seo-markers.txt
+          retention-days: 14
+          if-no-files-found: warn
+
       # The in-build BUILD_LOCALE filter only gates WriteCollector writes;
       # direct-fs.writeFileSync emitters (redirect/bridge/weather/alias) still
       # write every locale. This removes the non-owned locale output the same
@@ -3225,13 +3252,29 @@ jobs:
             !/data/jobs-crawler-summaries/
           sparse-checkout-cone-mode: false
 
+      # A run dispatched with GITHUB_TOKEN (actor github-actions[bot]) never
+      # fires `workflow_run` downstream, so deploy-publish.yml was never started
+      # for a re-armed build: it went green and its artifact was never deployed
+      # (e.g. runs 35896695642, 35956754182). Dispatch with the App token so the
+      # re-armed build is published like any push build. The App token is used
+      # only when its installation grants `actions: write` (APP_TOKEN_ACTIONS,
+      # read from the minted token's own permissions): a token that can mint
+      # but not dispatch would 403 here and silently leave the build unpublished.
+      - name: Mint GitHub App token (so the re-armed run triggers deploy-publish)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
       - name: Re-arm the build pipeline if it has stopped with work outstanding
         # Never fail the deploy over this. A red job here would be a second
         # failure stacked on the one that stopped the pipeline, and
         # pages-publish-lag-watchdog.yml remains the backstop either way.
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           # At most this many build attempts per commit. The caller's own run
           # counts, so the default of 2 means exactly ONE automatic retry: a
           # commit whose build is genuinely broken is retried once and then left
