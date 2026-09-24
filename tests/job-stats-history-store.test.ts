@@ -102,6 +102,67 @@ describe('job stats history store', () => {
     });
   });
 
+  it('slims the current shard past days without taking values from the canonical history', () => {
+    withTempRoot((root) => {
+      const shardPath = path.join(root, 'data/jobs-stats-history/2026-09.json');
+      fs.mkdirSync(path.dirname(shardPath), { recursive: true });
+      // A past day still carrying its full "today" payload, as the writer used
+      // to keep it (GH001: 2026-09.json reached 105 MB on its fifth day).
+      fs.writeFileSync(shardPath, JSON.stringify({ entries: [entry('2026-09-19', {
+        added: 2,
+        updated: 2,
+        removed: 1,
+        addedKeys: ['url:a', 'url:b'],
+        updatedKeys: ['url:u1', 'url:u2'],
+        removedKeys: ['url:r1'],
+        companyStats: [
+          { key: 'acme', addedKeys: ['url:a'], updatedKeys: ['url:u1'], removedKeys: ['url:r1'] },
+          { key: 'updated-only-co', addedKeys: [], updatedKeys: ['url:u2'], removedKeys: [] },
+        ],
+        locationStats: [
+          { key: 'lugano', addedKeys: ['url:a', 'url:b'], updatedKeys: ['url:u1'], removedKeys: [] },
+          { key: 'updated-only-loc', addedKeys: [], updatedKeys: ['url:u2'], removedKeys: ['url:r1'] },
+        ],
+        titleStats: [
+          { key: 'dev', addedKeys: ['url:a'], updatedKeys: [], removedKeys: [] },
+          { key: 'updated-only-title', addedKeys: [], updatedKeys: ['url:u1', 'url:u2'], removedKeys: [] },
+        ],
+      })] }));
+
+      const history = { entries: [
+        entry('2026-09-19', { added: 99, addedKeys: ['url:should-not-replace-old-day'] }),
+        entry('2026-09-20', { totalJobs: 13, updated: 1, updatedKeys: ['url:today'] }),
+      ] };
+      writeJobsStatsHistory(history, root, { currentDate: '2026-09-20' });
+
+      const written = fs.readFileSync(shardPath, 'utf8');
+      expect(JSON.parse(written).entries).toEqual([
+        entry('2026-09-19', {
+          added: 2,
+          updated: 2,
+          removed: 1,
+          addedKeys: ['url:a', 'url:b'],
+          companyStats: [
+            { key: 'acme', addedKeys: ['url:a'], updatedKeys: [], removedKeys: [], updatedCount: 1, removedCount: 1 },
+            { key: 'updated-only-co', addedKeys: [], updatedKeys: [], removedKeys: [], updatedCount: 1 },
+          ],
+          locationStats: [
+            { key: 'lugano', addedKeys: ['url:a', 'url:b'], updatedKeys: [], removedKeys: [], updatedCount: 1 },
+          ],
+          titleStats: [
+            { key: 'dev', addedKeys: ['url:a'], updatedKeys: [], removedKeys: [] },
+          ],
+        }),
+        // The still-accumulating day keeps its full key arrays.
+        entry('2026-09-20', { totalJobs: 13, updated: 1, updatedKeys: ['url:today'] }),
+      ]);
+
+      // Fixed point: a slimmed day is not rewritten by later runs.
+      expect(writeJobsStatsHistory(history, root, { currentDate: '2026-09-20' }).shardChanged).toBe(false);
+      expect(fs.readFileSync(shardPath, 'utf8')).toBe(written);
+    });
+  });
+
   it('reconciles existing shards with compacted history and prunes expired entries', () => {
     withTempRoot((root) => {
       const oldShardPath = path.join(root, 'data/jobs-stats-history/2026-07.json');

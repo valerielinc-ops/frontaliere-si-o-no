@@ -29,6 +29,50 @@ function numeric(value) {
   return Number.isFinite(n) ? n : 0;
 }
 
+function arrayLength(value) {
+  return Array.isArray(value) ? value.length : 0;
+}
+
+// Past-day readers use locationStats/titleStats rows only through their
+// `addedKeys` (30-day added leaders, job-market snapshot roles, cities and
+// sectors), so a past row without them is dead weight: ~19k updated-only
+// title rows per day at 27k jobs. companyStats rows are all kept, because the
+// job-market snapshot counts updated/removed-only companies as active
+// employers and the employer profiles read `removedCount`.
+const ADDED_KEYS_ONLY_PAST_BUCKETS = new Set(['locationStats', 'titleStats']);
+
+/**
+ * Slim a day that no longer accumulates to the fields its readers use.
+ * `updatedKeys`/`removedKeys` collapse into their scalar counts (entry
+ * `updated`/`removed`, bucket `updatedCount`/`removedCount`) and location/title
+ * rows without `addedKeys` are dropped. Counts are never lowered and the result
+ * is a fixed point, so a compacted day stays byte-identical on later rewrites.
+ * Mutates and returns `entry`.
+ */
+export function slimPastJobStatsHistoryEntry(entry) {
+  entry.updated = Math.max(numeric(entry.updated), arrayLength(entry.updatedKeys));
+  entry.removed = Math.max(numeric(entry.removed), arrayLength(entry.removedKeys));
+  entry.updatedKeys = [];
+  entry.removedKeys = [];
+  for (const bucketKey of ['companyStats', 'locationStats', 'titleStats']) {
+    if (!Array.isArray(entry[bucketKey])) continue;
+    for (const item of entry[bucketKey]) {
+      if (!item || typeof item !== 'object') continue;
+      const updatedCount = Math.max(arrayLength(item.updatedKeys), numeric(item.updatedCount));
+      const removedCount = Math.max(arrayLength(item.removedKeys), numeric(item.removedCount));
+      item.updatedKeys = [];
+      item.removedKeys = [];
+      // Omit zero counts to keep the file lean; absent === 0 for consumers.
+      if (updatedCount > 0) item.updatedCount = updatedCount; else delete item.updatedCount;
+      if (removedCount > 0) item.removedCount = removedCount; else delete item.removedCount;
+    }
+    if (ADDED_KEYS_ONLY_PAST_BUCKETS.has(bucketKey)) {
+      entry[bucketKey] = entry[bucketKey].filter((item) => arrayLength(item?.addedKeys) > 0);
+    }
+  }
+  return entry;
+}
+
 function sortedUniqueStrings(...values) {
   return [...new Set(values.flatMap((value) => (Array.isArray(value) ? value : [])))]
     .filter((value) => typeof value === 'string')
@@ -197,7 +241,8 @@ export function readJobsStatsHistory(rootDir = process.cwd()) {
  * post-migration run writes today's complete entry, and the reader keeps older
  * legacy dates visible without a 50+ MB diff. Existing shards are rebuilt from
  * the canonical history so compaction and retention are not bypassed after the
- * shard's month has stopped receiving daily writes.
+ * shard's month has stopped receiving daily writes. The current shard keeps its
+ * own past-day values, slimmed with slimPastJobStatsHistoryEntry().
  */
 export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), options = {}) {
   const entries = historyEntries(history);
@@ -228,10 +273,17 @@ export function writeJobsStatsHistory(history = {}, rootDir = process.cwd(), opt
       const canonicalEntry = canonicalByDate.get(existingEntry.date);
       if (!canonicalEntry) continue;
       // The current shard remains authoritative for its already-written past
-      // days. Closed-month shards use the canonical, compacted representation
-      // so they cannot retain verbose payloads after the month rolls over.
-      const nextEntry = shardFile === filePath ? existingEntry : canonicalEntry;
-      shardEntries.set(existingEntry.date, clone(nextEntry));
+      // days (append-forward: a run never rewrites persisted values from its
+      // canonical view), but stores them slimmed like the canonical past days.
+      // Keeping them verbatim kept each day's full "today" payload (~20 MB at
+      // 27k jobs) and pushed 2026-09.json past GitHub's 100 MB limit on the
+      // fifth day (GH001, persist-job-stats run 35995267599). Closed-month
+      // shards use the canonical, compacted representation so they cannot
+      // retain verbose payloads after the month rolls over.
+      const nextEntry = shardFile === filePath
+        ? slimPastJobStatsHistoryEntry(clone(existingEntry))
+        : clone(canonicalEntry);
+      shardEntries.set(existingEntry.date, nextEntry);
     }
     if (shardFile === filePath) shardEntries.set(currentDate, clone(currentEntry));
 
