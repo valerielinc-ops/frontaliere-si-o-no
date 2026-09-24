@@ -23,12 +23,6 @@ export interface GptRewardedAdProps {
   showUnavailableMessage?: boolean;
   enabled?: boolean;
   /**
-   * Start as soon as the preloaded slot is ready after the caller's explicit
-   * user action. The caller owns the disclosure and must only enable this for
-   * a user-triggered rewarded flow.
-   */
-  autoStart?: boolean;
-  /**
    * Retry only after the visitor explicitly asks to retry a dismissed ad.
    * A known no-fill keeps its original request so the caller can choose its
    * deterministic fallback without creating concurrent rewarded requests.
@@ -57,7 +51,6 @@ export default function GptRewardedAd({
   unavailableLabel,
   showUnavailableMessage = true,
   enabled = true,
-  autoStart = false,
   retryToken = 0,
   onOptIn,
   onReady,
@@ -69,8 +62,6 @@ export default function GptRewardedAd({
   const [adsConsentTick, setAdsConsentTick] = useState(0);
   const requestIdRef = useRef(0);
   const lastEventSequenceRef = useRef(0);
-  const autoStartRequestIdRef = useRef(0);
-  const autoShownRequestIdRef = useRef(0);
   const unavailableNotifiedRequestIdRef = useRef<number | null>(null);
   const onOptInRef = useRef(onOptIn);
   const onReadyRef = useRef(onReady);
@@ -106,8 +97,6 @@ export default function GptRewardedAd({
     if (!active) {
       disposeRewardedWebAd(adUnitPath);
       requestIdRef.current = 0;
-      autoStartRequestIdRef.current = 0;
-      autoShownRequestIdRef.current = 0;
       notifyUnavailable(getRewardedWebAdEligibilityReason(enabled) ?? 'ineligible');
       return;
     }
@@ -129,34 +118,26 @@ export default function GptRewardedAd({
     });
   }, [snapshot.events, notifyUnavailable]);
 
-  useEffect(() => {
-    if (!autoStart || state !== 'ready') return;
-    const requestId = requestIdRef.current;
-    if (!requestId || autoStartRequestIdRef.current === requestId || autoShownRequestIdRef.current === requestId) return;
-
-    autoStartRequestIdRef.current = requestId;
-    autoShownRequestIdRef.current = requestId;
-    onOptInRef.current?.();
-    try {
-      if (!showRewardedWebAd(adUnitPath)) notifyUnavailable();
-    } catch {
-      notifyUnavailable();
-    }
-  }, [adUnitPath, autoStart, notifyUnavailable, state, snapshot.requestId]);
-
   const handleOptIn = () => {
     if (state !== 'ready') return;
     onOptInRef.current?.();
     try {
-      if (!showRewardedWebAd(adUnitPath)) notifyUnavailable();
+      if (!showRewardedWebAd(adUnitPath)) {
+        const latest = getRewardedWebAdSnapshot();
+        const reason = latest.lastEvent?.requestId === latest.requestId
+          && latest.lastEvent.type === 'unavailable'
+          ? latest.lastEvent.reason
+          : getRewardedWebAdEligibilityReason(enabled) ?? 'show_not_started';
+        notifyUnavailable(reason);
+      }
     } catch {
-      notifyUnavailable();
+      notifyUnavailable('show_error');
     }
   };
 
   return (
     <div className="space-y-2">
-      {(state === 'loading' || state === 'showing' || (autoStart && state === 'ready')) && (
+      {(state === 'loading' || state === 'showing') && (
         <div
           role="status"
           aria-live="polite"
@@ -164,10 +145,10 @@ export default function GptRewardedAd({
           className="flex min-h-[50px] items-center justify-center gap-2 rounded-stripe border border-edge bg-surface-raised px-4 py-3 text-sm font-semibold text-body"
         >
           <Loader2 className="h-4 w-4 animate-spin motion-reduce:animate-none" aria-hidden="true" />
-          {state === 'showing' || (autoStart && state === 'ready') ? showingLabel : loadingLabel}
+          {state === 'showing' ? showingLabel : loadingLabel}
         </div>
       )}
-      {state === 'ready' && !autoStart && (
+      {state === 'ready' && (
         <button
           type="button"
           onClick={handleOptIn}

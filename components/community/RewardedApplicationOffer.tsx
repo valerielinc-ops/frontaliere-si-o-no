@@ -218,15 +218,7 @@ export default function RewardedApplicationOffer({
               showingLabel="Video in riproduzione…"
               unavailableLabel="Il video non è disponibile in questo momento."
               showUnavailableMessage={false}
-              autoStart
               retryToken={retryToken}
-              onOptIn={() => trackAssistedApplicationEvent('rewarded_ad_opt_in', {
-                variant: 'rewarded_ad',
-                jobId,
-                companyId,
-                surface: SURFACE,
-                trigger: 'candidate_click',
-              })}
               onGranted={handleGranted}
               onVideoCompleted={handleVideoCompleted}
               onClosed={handleClosed}
