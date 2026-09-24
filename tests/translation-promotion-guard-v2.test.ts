@@ -28,6 +28,10 @@ describe('translation promotion guard v2', () => {
     expect(evaluateTranslationPromotionGuardV2({
       env: { [TRANSLATION_SCHEDULER_PUBLISH_ENABLED_ENV]: '1' },
     }).enabled).toBe(true);
+    expect(evaluateTranslationPromotionGuardV2({
+      env: { [TRANSLATION_SCHEDULER_PUBLISH_ENABLED_ENV]: '0' },
+      publishEnabled: true,
+    })).toMatchObject({ enabled: false, source: 'environment' });
   });
 
   it('captures the prior checkpoint and permits one explicit rollback only', async () => {

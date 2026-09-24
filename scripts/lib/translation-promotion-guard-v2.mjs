@@ -51,11 +51,6 @@ function normalizeBooleanFlag(value, label) {
 }
 
 function readFlag(options) {
-  const hasOverride = Object.hasOwn(options, 'publishEnabled') && options.publishEnabled !== undefined;
-  if (hasOverride) {
-    return { ...normalizeBooleanFlag(options.publishEnabled, 'publishEnabled'), source: 'option' };
-  }
-
   const environment = options.env === undefined ? process.env : options.env;
   if (environment === null || typeof environment !== 'object') {
     return {
@@ -65,21 +60,20 @@ function readFlag(options) {
       source: 'environment',
     };
   }
-  if (!Object.hasOwn(environment, TRANSLATION_SCHEDULER_PUBLISH_ENABLED_ENV)) {
+  if (Object.hasOwn(environment, TRANSLATION_SCHEDULER_PUBLISH_ENABLED_ENV)) {
     return {
-      enabled: false,
-      rawValue: null,
-      reason: 'default_off',
-      source: 'default',
+      ...normalizeBooleanFlag(
+        environment[TRANSLATION_SCHEDULER_PUBLISH_ENABLED_ENV],
+        TRANSLATION_SCHEDULER_PUBLISH_ENABLED_ENV,
+      ),
+      source: 'environment',
     };
   }
-  return {
-    ...normalizeBooleanFlag(
-      environment[TRANSLATION_SCHEDULER_PUBLISH_ENABLED_ENV],
-      TRANSLATION_SCHEDULER_PUBLISH_ENABLED_ENV,
-    ),
-    source: 'environment',
-  };
+  const hasOverride = Object.hasOwn(options, 'publishEnabled') && options.publishEnabled !== undefined;
+  if (hasOverride) {
+    return { ...normalizeBooleanFlag(options.publishEnabled, 'publishEnabled'), source: 'option' };
+  }
+  return { enabled: false, rawValue: null, reason: 'default_off', source: 'default' };
 }
 
 /**
