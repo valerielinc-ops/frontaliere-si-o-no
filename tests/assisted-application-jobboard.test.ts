@@ -72,17 +72,18 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource.match(/data-testid="rewarded-cta-disclosure">\{rewardedCtaDisclosure\}/g)).toHaveLength(2);
   });
 
-  it('treats a double click on Candidati as one rewarded request', () => {
+  it('treats a double click on Candidati as one application offer', () => {
     const start = jobBoardSource.indexOf('const handleApply =');
     const end = jobBoardSource.indexOf('const handleShare =', start);
     const handleApply = jobBoardSource.slice(start, end);
-    const guard = "if (assistedApplicationVariant === 'rewarded_ad' && rewardedOfferOpenRef.current) return;";
+    const guard = 'if (applicationOfferOpenRef.current) return;';
 
     expect(handleApply.indexOf(guard)).toBeGreaterThan(-1);
     expect(handleApply.indexOf(guard)).toBeLessThan(handleApply.indexOf('trackPublisherApplySignals('));
-    expect(handleApply).toMatch(/rewardedOfferOpenRef\.current = true;\s*setRewardedApplicationJob\(job\);/);
+    expect(handleApply).toMatch(/applicationOfferOpenRef\.current = true;\s*setRewardedApplicationJob\(job\);/);
+    expect(handleApply).toMatch(/applicationOfferOpenRef\.current = true;\s*setAssistedApplicationJob\(job\);/);
     expect(jobBoardSource).toMatch(
-      /useEffect\(\(\) => \{\s*if \(!rewardedApplicationJob\) rewardedOfferOpenRef\.current = false;\s*\}, \[rewardedApplicationJob\]\);/,
+      /useEffect\(\(\) => \{\s*if \(!rewardedApplicationJob && !assistedApplicationJob\) applicationOfferOpenRef\.current = false;\s*\}, \[assistedApplicationJob, rewardedApplicationJob\]\);/,
     );
   });
 

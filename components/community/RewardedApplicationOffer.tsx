@@ -2,6 +2,7 @@ import { useEffect, useRef, useState } from 'react';
 import { createPortal } from 'react-dom';
 import { CheckCircle2, RefreshCw, ShieldCheck, X } from 'lucide-react';
 import GptRewardedAd, { type GptRewardedAdCallbackInfo } from '@/components/shared/GptRewardedAd';
+import { useApplicationOfferBackdropDismiss } from '@/components/community/useApplicationOfferBackdropDismiss';
 import {
   ASSISTED_APPLICATION_REWARDED_AD_UNIT_PATH,
   REWARDED_WEB_AD_FORMAT,
@@ -15,10 +16,6 @@ import {
 
 const SURFACE = 'job_detail_rewarded_inline';
 const TRIGGER = 'candidate_click';
-// A double click on "Candidati" lands its second click on the freshly opened
-// backdrop. Ignore backdrop dismissals inside that window so the same gesture
-// cannot open and immediately cancel the Google request.
-const BACKDROP_DISMISS_GRACE_MS = 600;
 
 const now = () => (typeof performance !== 'undefined' ? performance.now() : Date.now());
 
@@ -53,6 +50,7 @@ export default function RewardedApplicationOffer({
   const [retryToken, setRetryToken] = useState(0);
   const grantedRef = useRef(false);
   const openedAtRef = useRef(now());
+  const handleBackdropClick = useApplicationOfferBackdropDismiss(onDismiss);
 
   // Shared shape of every rewarded event of this offer: the job context, the
   // ad inventory, and the Google request id that joins it to the
@@ -151,11 +149,7 @@ export default function RewardedApplicationOffer({
   const modal = (
     <div
       className="fixed inset-0 z-[1000] isolate flex min-h-[100dvh] items-end justify-center overflow-y-auto bg-black/55 px-3 py-4 pb-[calc(env(safe-area-inset-bottom,0px)+1rem)] pt-[calc(env(safe-area-inset-top,0px)+1rem)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-6"
-      onClick={(event) => {
-        if (event.target !== event.currentTarget) return;
-        if (now() - openedAtRef.current < BACKDROP_DISMISS_GRACE_MS) return;
-        onDismiss?.();
-      }}
+      onClick={handleBackdropClick}
       data-testid="rewarded-application-offer"
     >
       <div
