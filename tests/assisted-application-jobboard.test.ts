@@ -41,14 +41,17 @@ describe('assisted application JobBoard handoff', () => {
     expect(jobBoardSource.match(/\{rewardedApplicationOfferJsx\}/g)?.length).toBeGreaterThanOrEqual(2);
   });
 
-  it('allows the rewarded request before sign-in while keeping the detail gate', () => {
-    expect(jobBoardSource).not.toContain("assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid");
+  it('keeps the anonymous job-board login gate while allowing the detail request', () => {
+    expect(jobBoardSource).toContain("assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView");
     expect(jobBoardSource).toContain('const hasAccess = isLoggedIn || emailAccessGranted || isCrawlerVisitor;');
     expect(jobBoardSource).toContain('isCrawlerVisitorAgent');
   });
 
   it('uses the original employer destination only after rewarded continue', () => {
-    expect(jobBoardSource).not.toContain("rewarded_application_inline_unavailable");
+    // Direct no-fill handoff is covered by the source contract below.
+    expect(jobBoardSource).toMatch(
+      /const handleRewardedApplicationUnavailable = \(reason: string\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_unavailable', true, true\);/,
+    );
     expect(jobBoardSource).toMatch(
       /const handleRewardedApplicationContinue = \(\) => \{[\s\S]*?redirectExternalApplication\(job, 'rewarded_application_inline_completed', true, true\);/,
     );

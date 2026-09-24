@@ -1,0 +1,24 @@
+{
+  "companyKey": "hanseisenring",
+  "companyName": "Hans Eisenring AG",
+  "companyHost": "hanseisenring.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://hanseisenring.ch/unternehmen/karriere/jobportal"
+  ],
+  "detailTemplate": "/unternehmen/karriere/jobportal/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Mehr erfahren",
+    "Mehr erfahren",
+    "Mehr erfahren",
+    "Mehr erfahren",
+    "Mehr erfahren"
+  ],
+  "canton": "SO",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-24T09:59:34.307Z"
+}

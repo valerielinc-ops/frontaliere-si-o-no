@@ -6782,6 +6782,16 @@ const JobBoard: React.FC<JobBoardProps> = ({
   redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true);
  };
 
+ const handleRewardedApplicationUnavailable = (reason: string) => {
+  const job = rewardedApplicationJob;
+  if (!job) return;
+  // The offer already records the technical reason and direct handoff on the
+  // rewarded_ad_unavailable event. This callback only owns navigation.
+  void reason;
+  setRewardedApplicationJob(null);
+  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true);
+ };
+
  const handleAssistedPaid = async () => {
   const job = assistedApplicationJob;
   if (!job || assistedApplicationVariant !== 'assisted_application' || assistedCheckoutBusy) return;
@@ -6844,6 +6854,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
   const isExternal = isExternalApplicationJob(job);
+  if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView) {
+   // Keep anonymous job-board visitors on the sign-in/subscription funnel.
+   // The detail view is the only surface allowed to request the rewarded ad
+   // before sign-in, because it owns the canonical rewarded offer host.
+   onRequireAuth?.();
+   return;
+  }
   const rewardedAccessExpiresAt = isExternal && assistedApplicationVariant === 'rewarded_ad'
    ? getRewardedApplicationAccessExpiresAt()
    : null;
@@ -7265,6 +7282,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     companyName={rewardedApplicationJob.company}
     jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
     onContinue={handleRewardedApplicationContinue}
+    onUnavailable={handleRewardedApplicationUnavailable}
     onDismiss={() => setRewardedApplicationJob(null)}
    />
   </Suspense>
