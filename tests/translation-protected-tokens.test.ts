@@ -585,9 +585,12 @@ describe('local-mt mop-up (Argos tier) — the third writer uses the same exit p
     expect(Object.keys(mopup).sort()).toEqual([
       'MOPUP_TRAFFIC_LANE',
       'buildMopupRequest',
+      'classifyMopupStructure',
       'classifyMopupWrite',
+      'commitMopupCandidate',
       'createFreshCoverageMeter',
       'finalizeMopupTranslation',
+      'judgeMopupWrite',
       'languageAwareOverwriteEnabled',
       'masculineGermanTitle',
       'missingSlots',

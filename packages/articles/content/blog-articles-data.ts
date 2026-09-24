@@ -368,6 +368,7 @@ const RAW_ARTICLES = [
  id: 'tassazione-individuale-lavoro-ticino',
  category: 'fiscale',
  date: '2026-02-19T08:34:53.901Z',
+ updatedAt: '2026-09-24',
  image: '/images/blog/tassazione-individuale-lavoro-ticino.webp',
  hasCalculator: true,
  authorSlug: 'redazione',
@@ -35572,6 +35573,15 @@ const RAW_ARTICLES = [
  hasCalculator: true,
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'cgil-regio-insubrica-incontro-novembre',
+ category: 'novita',
+ date: '2026-09-24T18:07:31.723Z',
+ image: '/images/blog/cgil-regio-insubrica-incontro-novembre.webp',
+ hasCalculator: true,
+ authorSlug: 'laura-bianchi',
+ authorName: 'Laura Bianchi',
  },
 ] satisfies Article[];
 

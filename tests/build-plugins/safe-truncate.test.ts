@@ -53,4 +53,33 @@ describe('stripLoneSurrogates', () => {
   it('preserves valid surrogate pairs', () => {
     expect(stripLoneSurrogates(`a${HANDSHAKE}b`)).toBe(`a${HANDSHAKE}b`);
   });
+
+  // #9609 FU-034: exact output on every boundary shape, compared with an
+  // independent regex oracle (lone high at the end, lone low at the start,
+  // reversed pair, adjacent lone units, pairs next to lone units).
+  it('matches an independent oracle on boundary shapes', () => {
+    const oracle = (s: string): string =>
+      s.replace(/([\uD800-\uDBFF][\uDC00-\uDFFF])|[\uD800-\uDFFF]/g, (_m, pair: string | undefined) => pair ?? '');
+    const shapes = [
+      '', 'plain', '\uD83E', '\uDD1D', `\uDD1D${HANDSHAKE}`, `${HANDSHAKE}\uD83E`,
+      '\uDD1D\uD83E', '\uD83E\uD83E\uDD1D', `x\uD83E\uD83Ey${HANDSHAKE}\uDD1D\uDD1Dz`,
+    ];
+    for (const shape of shapes) expect(stripLoneSurrogates(shape)).toBe(oracle(shape));
+  });
+
+  // #9609 FU-034: the helper is the defensive pass for text of unknown
+  // provenance, so it must stay linear on large inputs. The old
+  // per-code-unit `output +=` loop took ~7-14 s on 10M units (one rope node
+  // per character); copying clean runs with `slice` takes well under a second.
+  it('stays linear on a 10M-unit input with sparse lone surrogates', () => {
+    const block = `${'x'.repeat(995)}${HANDSHAKE}\uD83Eyy`;
+    const input = block.repeat(10_000);
+    const expected = `${'x'.repeat(995)}${HANDSHAKE}yy`.repeat(10_000);
+    const started = performance.now();
+    const output = stripLoneSurrogates(input);
+    const elapsed = performance.now() - started;
+    expect(output.length).toBe(expected.length);
+    expect(output === expected).toBe(true);
+    expect(elapsed).toBeLessThan(3000);
+  }, 30_000);
 });
