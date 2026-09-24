@@ -40,6 +40,12 @@ import {
   MAX_TRANSLATION_STATE_BATCH_V2,
   createTranslationStateStoreV2,
 } from './lib/translation-state-store-v2.mjs';
+import {
+  TRANSLATION_GENERATION_CLOSURE_SCHEMA_VERSION,
+  TRANSLATION_GENERATION_WORKFLOW_FILE,
+  createTranslationGenerationClosure,
+  digestTranslationGenerationClosure,
+} from './lib/translation-generation-closure-v2.mjs';
 import { digestTranslationDocumentV2 } from './lib/translation-unit-identity-v2.mjs';
 
 const execFile = promisify(execFileCallback);
@@ -452,6 +458,120 @@ async function writeReport(report, reportPath) {
   await writeFile(absolute, `${JSON.stringify(report, null, 2)}\n`);
 }
 
+function nullableRunValue(value) {
+  if (value === undefined || value === null || value === '') return null;
+  return String(value);
+}
+
+function stableProviderModulePath(modulePath, repository, provider) {
+  const raw = modulePath || provider?.moduleUrl || 'scripts/lib/translation-shadow-provider-v2.mjs';
+  if (raw.startsWith('data:')) return 'data:';
+  let candidate = raw;
+  if (raw.startsWith('file:')) {
+    try {
+      candidate = fileURLToPath(raw);
+    } catch {
+      return 'external:invalid-file-url';
+    }
+  }
+  if (path.isAbsolute(candidate)) {
+    const relative = path.relative(repository, candidate);
+    if (relative === '' || (!relative.startsWith('..') && !path.isAbsolute(relative))) {
+      return relative.split(path.sep).join('/');
+    }
+    return `external:${path.basename(candidate)}`;
+  }
+  return candidate.replace(/^\.\//u, '').split(path.sep).join('/');
+}
+
+function createRunBinding(options) {
+  const env = process.env;
+  return {
+    event: options.eventName ?? nullableRunValue(env.GITHUB_EVENT_NAME),
+    repository: options.runRepository ?? nullableRunValue(env.GITHUB_REPOSITORY),
+    runAttempt: options.runAttempt !== undefined
+      ? nullableRunValue(options.runAttempt) : nullableRunValue(env.GITHUB_RUN_ATTEMPT),
+    runId: options.runId !== undefined
+      ? nullableRunValue(options.runId) : nullableRunValue(env.GITHUB_RUN_ID),
+    workflow: options.workflowFile
+      || env.TRANSLATION_SHADOW_WORKFLOW_FILE
+      || TRANSLATION_GENERATION_WORKFLOW_FILE,
+    workflowRef: options.workflowRef ?? nullableRunValue(env.GITHUB_WORKFLOW_REF),
+    workflowSha: options.workflowSha
+      ?? nullableRunValue(env.TRANSLATION_SHADOW_WORKFLOW_SHA || env.GITHUB_WORKFLOW_SHA),
+  };
+}
+
+function createProviderContract({ provider, modulePath, repository, gateVersion }) {
+  return {
+    schemaVersion: provider.schemaVersion,
+    costClass: provider.costClass,
+    engineVersion: provider.engineVersion,
+    executionClass: provider.executionClass,
+    exportName: provider.exportName,
+    gateVersion,
+    module: stableProviderModulePath(modulePath, repository, provider),
+  };
+}
+
+function createGenerationClosure({
+  report,
+  plan,
+  settlement,
+  provider,
+  providerModule,
+  repository,
+  gateVersion,
+  scopeKey,
+  sourceCommit,
+  stateRef,
+  generationEnabled,
+  options,
+}) {
+  const closure = createTranslationGenerationClosure({
+    schemaVersion: TRANSLATION_GENERATION_CLOSURE_SCHEMA_VERSION,
+    scopeKey,
+    generation: plan.cursorAfter.generation,
+    sourceCommit,
+    stateRef,
+    stateTip: settlement.commit,
+    providerContract: createProviderContract({
+      provider,
+      modulePath: providerModule,
+      repository,
+      gateVersion,
+    }),
+    canary: {
+      name: 'translation-schedule-v2-shadow',
+      mode: 'shadow',
+      generationEnabled: generationEnabled === true,
+      mainPublish: false,
+    },
+    runBinding: createRunBinding(options),
+    plan: {
+      hash: plan.planHash,
+      scanDigest: plan.scanDigest,
+      cursorBeforeHash: plan.cursorBeforeHash,
+      cursorAfterHash: plan.cursorAfter.cursorHash,
+      generation: plan.cursorAfter.generation,
+    },
+    settlement: {
+      hash: settlement.settlement.settlementHash,
+      planHash: settlement.settlement.planHash,
+      cursorHash: settlement.settlement.cursor.cursorHash,
+      metrics: settlement.settlement.metrics,
+    },
+    result: {
+      status: report.status,
+      selectedJobs: report.scheduler.selectedJobs,
+      selectedUnits: report.scheduler.selectedUnits,
+      outcomeCounts: report.scheduler.outcomeCounts,
+      candidateCounts: report.candidates,
+    },
+  });
+  return { closure, closureDigest: digestTranslationGenerationClosure(closure) };
+}
+
 /**
  * Run one bounded shadow scheduling cycle.
  *
@@ -487,9 +607,10 @@ export async function runTranslationScheduleV2(options = {}) {
     repository,
     ref: options.stateRef || process.env.TRANSLATION_STATE_REF_V2,
   });
+  const providerModule = options.providerModule || process.env.TRANSLATION_SCHEDULER_PROVIDER_MODULE;
   const provider = options.provider || normalizeProvider({
     repository,
-    providerModule: options.providerModule || process.env.TRANSLATION_SCHEDULER_PROVIDER_MODULE,
+    providerModule,
     providerExportName: options.providerExportName || process.env.TRANSLATION_SCHEDULER_PROVIDER_EXPORT || 'translate',
     engineVersion,
   });
@@ -532,6 +653,8 @@ export async function runTranslationScheduleV2(options = {}) {
       scan: input.metrics,
       scheduler: { selectedJobs: 0, selectedUnits: 0, outcomeCounts: {} },
       state: { before: before.commit, after: before.commit, reserved: false, settled: false },
+      closure: null,
+      closureDigest: null,
     };
     await writeReport(report, options.reportPath || process.env.TRANSLATION_SHADOW_REPORT_PATH);
     logger.log(`translation scheduler v2 shadow: empty queue (${input.metrics.pendingJobs} pending jobs scanned)`);
@@ -588,6 +711,23 @@ export async function runTranslationScheduleV2(options = {}) {
       settled: settled.changed,
     },
   };
+  const generationClosure = createGenerationClosure({
+    report,
+    plan: planned.plan,
+    settlement: settled,
+    provider,
+    providerModule,
+    repository,
+    gateVersion,
+    scopeKey,
+    sourceCommit: baselineMainSha,
+    stateRef: stateStore.ref,
+    generationEnabled: options.generationEnabled
+      ?? process.env.TRANSLATION_SHADOW_ENABLE_GENERATION === '1',
+    options,
+  });
+  report.closure = generationClosure.closure;
+  report.closureDigest = generationClosure.closureDigest;
   await writeReport(report, options.reportPath || process.env.TRANSLATION_SHADOW_REPORT_PATH);
   logger.log(`translation scheduler v2 shadow: ${report.scheduler.selectedUnits} unit(s), ${JSON.stringify(report.scheduler.outcomeCounts)}`);
   logger.log(`translation scheduler v2 state ref: ${stateStore.ref} @ ${settled.commit}`);
