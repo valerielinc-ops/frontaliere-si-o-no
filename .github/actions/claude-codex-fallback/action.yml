@@ -40,6 +40,10 @@ inputs:
     description: "Codex model_reasoning_effort: `max` (default, unchanged for every caller) or `high`. Recorded in the structured evidence and validated by the review gate."
     required: false
     default: "max"
+  exec_timeout_minutes:
+    description: "Internal watchdog for the Codex process, in whole minutes (1-300). Default 15 fits reviews; agentic fixers pass a larger value that stays below their step `timeout-minutes`."
+    required: false
+    default: "15"
 
 outputs:
   execution_file:
@@ -454,6 +458,7 @@ runs:
         CODEX_PROMPT: ${{ inputs.prompt }}
         CODEX_REVIEW_MARKER: ${{ inputs.review_marker }}
         CODEX_REASONING_EFFORT: ${{ inputs.reasoning_effort }}
+        CODEX_EXEC_TIMEOUT_MINUTES: ${{ inputs.exec_timeout_minutes }}
         CODEX_OUTPUT: ${{ runner.temp }}/codex-fallback-${{ github.run_id }}-${{ github.run_attempt }}.txt
       run: |
         set -euo pipefail
@@ -1140,8 +1145,17 @@ runs:
         # shorter provider-process cap so this action can stop the bridges,
         # restore git config, publish its outcome, and let the workflow's
         # retry path run instead of leaving the review step in progress until
-        # GitHub kills the whole step.
-        codex_exec_timeout_seconds=900
+        # GitHub kills the whole step. Reviews keep the 15-minute default;
+        # agentic fixers raise it via `exec_timeout_minutes`.
+        codex_exec_timeout_minutes="${CODEX_EXEC_TIMEOUT_MINUTES:-15}"
+        case "$codex_exec_timeout_minutes" in
+          ''|*[!0-9]*|0*) echo "::error::Unsupported exec_timeout_minutes '$codex_exec_timeout_minutes' (whole minutes 1-300)."; exit 1 ;;
+        esac
+        if [ "$codex_exec_timeout_minutes" -gt 300 ]; then
+          echo "::error::Unsupported exec_timeout_minutes '$codex_exec_timeout_minutes' (whole minutes 1-300)."
+          exit 1
+        fi
+        codex_exec_timeout_seconds=$((codex_exec_timeout_minutes * 60))
         codex_exec_kill_grace_seconds=30
         codex_timeout_bin=/usr/bin/timeout
         [ -x "$codex_timeout_bin" ] || {
@@ -1177,7 +1191,7 @@ runs:
         codex_timed_out=false
         if [ "$codex_status" -eq 124 ]; then
           codex_timed_out=true
-          echo '::error::Codex primary exceeded its 15-minute internal watchdog.'
+          echo "::error::Codex primary exceeded its ${codex_exec_timeout_minutes}-minute internal watchdog."
         fi
         if [ "$CODEX_OUTPUT" != "$codex_output_destination" ] && [ -f "$CODEX_OUTPUT" ]; then
           cp -- "$CODEX_OUTPUT" "$codex_output_destination" || echo "::warning::Codex output could not be copied to the workflow artifact path."

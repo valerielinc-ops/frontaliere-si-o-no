@@ -1328,6 +1328,10 @@ jobs:
         # fix, evita drift tra copie duplicate).
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          # Watchdog interno di Codex: il default 15min dell'action è tarato
+          # sulle review e uccideva i fix reali (run 36021092053). Sta sotto
+          # il `timeout-minutes: 120` dello step per lasciare WIP e telemetria.
+          exec_timeout_minutes: "110"
           github_token: ${{ env.APP_TOKEN }}
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           prompt: |

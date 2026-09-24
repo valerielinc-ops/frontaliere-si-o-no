@@ -44,3 +44,27 @@ describe('issue-fix snapshot fingerprint', () => {
     expect(workflow.slice(start, end)).toContain('remove_label_idempotently "agent:vision-approved"');
   });
 });
+
+describe('watchdog Codex dei lane agentici', () => {
+  // Il default 15min dell'action è tarato sulle review; il 2026-09-24 uccideva
+  // i fix reali (run 36021092053). Ogni lane lungo alza il watchdog restando
+  // sotto il `timeout-minutes` del proprio step Codex.
+  for (const [file, stepId] of [
+    ['issue-fix.yml', 'codex_fix'],
+    ['issue-decompose.yml', 'codex_decompose'],
+    ['needs-human-sweep.yml', 'codex_sweep'],
+  ] as const) {
+    it(`${file}: exec_timeout_minutes > 15 e sotto il tetto dello step`, () => {
+      const wf = readFileSync(new URL(`.github/workflows/${file}`, root), 'utf8');
+      const idAt = wf.indexOf(`id: ${stepId}\n`);
+      expect(idAt).toBeGreaterThan(0);
+      const stepStart = wf.lastIndexOf('      - name:', idAt);
+      const nextStep = wf.indexOf('\n      - ', idAt);
+      const step = wf.slice(stepStart, nextStep === -1 ? undefined : nextStep);
+      const stepCap = Number(/timeout-minutes: (\d+)/.exec(step)?.[1]);
+      const watchdog = Number(/exec_timeout_minutes: "(\d+)"/.exec(step)?.[1]);
+      expect(watchdog).toBeGreaterThan(15);
+      expect(watchdog).toBeLessThan(stepCap);
+    });
+  }
+});

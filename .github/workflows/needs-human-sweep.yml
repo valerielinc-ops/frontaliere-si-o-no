@@ -208,6 +208,8 @@ jobs:
           REPO: ${{ github.repository }}
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          # Sotto il `timeout-minutes: 110` dello step (default action: 15).
+          exec_timeout_minutes: "100"
           github_token: ${{ env.APP_TOKEN }}
           # Lo sweep modifica label/issue e riattiva il ciclo: il bridge
           # host-side usa solo App/PAT; il vuoto resta fail-closed nell'action.
