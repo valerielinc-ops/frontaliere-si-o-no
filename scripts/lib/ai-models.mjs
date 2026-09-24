@@ -935,13 +935,31 @@ function getOmniRouteUrl() { return (process.env.OMNIROUTE_URL || OMNIROUTE_DEFA
 // key, so keep a sentinel, same pattern as Local/getLocalLlmApiKey.
 function getOmniRouteApiKey() { return (process.env.OMNIROUTE_API_KEY || 'omniroute-no-key').trim(); }
 
-// ── Claude CLI Haiku fallback (opt-in via RC, absolute last resort) ──
-// ENABLE_HAIKU_ARTICLE_FALLBACK is loaded from Firebase Remote Config by
-// load-rc-env.mjs (default unset → OFF). Gated on BOTH the flag and the OAuth
-// token so a flag flipped on without the workflow secret wired doesn't attempt
-// (and fail) every run.
+// ── Claude CLI Haiku fallback: SPENTO nel codice ──
+// Decisione del proprietario (2026-09-24, «Disattiva haiku! Voglio solo
+// codex»): la lane Claude Haiku e' spenta qui, non solo dal kill-switch di
+// Remote Config. ENABLE_HAIKU_ARTICLE_FALLBACK resta caricato da load-rc-env.mjs
+// perche' e' anche il gate storico della lane Codex (setup-claude-haiku-fallback
+// ne deriva CODEX_ARTICLE_LANE_GATE), ma non rende piu' disponibile
+// `claude-cli/haiku`: con questa funzione a false getApiKeyForProvider(CLAUDE_CLI)
+// e' vuota, quindi isModelAvailable e la cascata di callLLM lo saltano anche se
+// arriva da `prefer`, `AI_MODELS_PREFER`, `model` o `chain`. Stessa regola del
+// gemello in frontaliere-articles (generator/scripts/lib/ai-models.mjs), cosi'
+// un trasporto sito→corpus non puo' riaccenderla.
+//
+// L'unica eccezione e' il seam di test qui sotto: i test della macchina
+// claude-cli (stream-json, timeout, cap di chiamate, fallback indiretto a
+// Codex) la esercitano attraverso callLLM, che passa da questa funzione. Il
+// seam non legge env ne' Remote Config, resetState() lo rispegne, e
+// tests/scripts/ai-models-haiku-lane-disabled.test.ts verifica che nessun file
+// fuori da tests/ lo chiami.
+let _claudeCliLaneEnabledForTests = false;
+export function __enableClaudeCliLaneForTests(enabled = true) {
+  _claudeCliLaneEnabledForTests = enabled === true;
+}
 function isClaudeCliFallbackEnabled() {
-  return /^(1|true|yes|on)$/i.test((process.env.ENABLE_HAIKU_ARTICLE_FALLBACK || '').trim());
+  return _claudeCliLaneEnabledForTests
+    && /^(1|true|yes|on)$/i.test((process.env.ENABLE_HAIKU_ARTICLE_FALLBACK || '').trim());
 }
 function isCodexCliPrimaryEnabled() {
   return /^(1|true|yes|on)$/i.test((process.env.ENABLE_CODEX_ARTICLE_FALLBACK || '').trim())
@@ -1638,8 +1656,9 @@ function getApiKeyForProvider(provider) {
     // for each request in the current job.
     case PROVIDER.CODEX_CLI:   return isCodexCliPrimaryEnabled() ? 'codex-cli-no-key' : '';
     // No real key — auth is the CLAUDE_CODE_OAUTH_TOKEN env var, read directly
-    // by the `claude` CLI subprocess. Gate on RC flag + token presence so the
-    // chain only offers this model when both are actually usable. Mirrors Local.
+    // by the `claude` CLI subprocess. Spenta dal proprietario il 2026-09-24:
+    // isClaudeCliFallbackEnabled() e' false, quindi questa voce e' sempre ''
+    // e ogni claude-cli/* viene saltato con «no API key», flag e token o no.
     case PROVIDER.CLAUDE_CLI:  return (!_claudeCliBinaryMissing && !_claudeCliTimeoutStormDetected && isClaudeCliFallbackEnabled() && hasClaudeCodeOauthToken()) ? 'claude-cli-no-key' : '';
     // OmniRoute needs no real key from us either; gate purely on the opt-in
     // flag, same sentinel pattern as Local. '' when disabled → every
@@ -4305,6 +4324,7 @@ export function resetState() {
   _claudeCliMaxCallsWarned = false;
   _responseCache.clear();
   _claudeCliBinaryMissing = false;
+  _claudeCliLaneEnabledForTests = false;
   _claudeCliConsecutiveTimeouts = 0;
   _claudeCliTimeoutStormDetected = false;
   _omniRouteConsecutiveFailures = 0;

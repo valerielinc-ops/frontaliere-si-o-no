@@ -12004,7 +12004,7 @@ if (invokedDirectly) {
       + ` contro un cap massimo di ${maxSkippedReqLimit} (oltre di ~${over}).`
       + ` NON e' un esaurimento di quota: nessuna finestra oraria rimpicciolisce un prompt, quindi differire qui e' un ciclo infinito`
       + ` (issue #313: 60+ run 'success' consecutive senza un articolo). Accorciare il prompt di almeno ${over} token,`
-      + ` oppure rendere raggiungibile un modello con contesto adeguato (claude-cli/haiku).`,
+      + ` oppure rendere raggiungibile un modello con contesto adeguato (codex-cli, lane CODEX_AUTH_JSON).`,
     );
     console.error(`::error::roster-cannot-serve-prompt: est=${estimatedRequestTokens} best_cap=${maxSkippedReqLimit} over=${over} refusals=${refusals}`);
     process.exit(EXIT_ROSTER_CANNOT_SERVE_PROMPT);
