@@ -2,6 +2,7 @@ import { useEffect } from 'react';
 import { createPortal } from 'react-dom';
 import { ArrowUpRight, Check, Loader2, Shield, X } from 'lucide-react';
 import { useTranslation } from '@/services/i18n';
+import { useApplicationOfferBackdropDismiss } from '@/components/community/useApplicationOfferBackdropDismiss';
 import {
   ASSISTED_APPLICATION_PRICE_EUR_CENTS,
   trackAssistedApplicationEvent,
@@ -34,6 +35,7 @@ export default function AssistedApplicationOffer({
   error = null,
 }: AssistedApplicationOfferProps) {
   const { t } = useTranslation();
+  const handleBackdropClick = useApplicationOfferBackdropDismiss(onClose);
 
   useEffect(() => {
     trackAssistedApplicationEvent('assisted_application_offer_viewed', {
@@ -60,7 +62,7 @@ export default function AssistedApplicationOffer({
   const modal = (
     <div
       className="fixed inset-0 z-[1000] isolate flex min-h-[100dvh] items-end justify-center overflow-y-auto bg-black/55 px-3 py-4 pb-[calc(env(safe-area-inset-bottom,0px)+1rem)] pt-[calc(env(safe-area-inset-top,0px)+1rem)] backdrop-blur-sm sm:items-center sm:px-4 sm:py-6"
-      onClick={(event) => { if (event.target === event.currentTarget) onClose(); }}
+      onClick={handleBackdropClick}
       data-testid="assisted-application-offer"
     >
       <div
