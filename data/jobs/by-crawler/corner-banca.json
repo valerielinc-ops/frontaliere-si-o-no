@@ -1162,7 +1162,7 @@
       "title": "Customer Advisor Evening and Weekend 40% - ref. 1014",
       "titleByLocale": {
         "it": "Customer Consulente Evening and Weekend 40% - ref. 1014",
-        "en": "Customer Advisor Evening and Weekend 40% - ref. 1014",
+        "en": "Customer Advisor Evening ande 1014",
         "de": "Customer Berater Evening and Weekend 40% - ref. 1014",
         "fr": "Customer Conseiller Evening and Weekend 40% - ref. 1014"
       },
@@ -1211,7 +1211,6 @@
       "sourceLang": "it",
       "crawledAt": "2026-09-24T00:07:19.196Z",
       "firstSeenAt": "2026-09-19T23:09:44.967Z",
-      "needsRetranslation": true,
       "salaryMin": 33200,
       "salaryMax": 51000,
       "salarySource": "estimated",
@@ -1226,7 +1225,8 @@
         }
       },
       "addressRegion": "ZH",
-      "employmentType": "FULL_TIME"
+      "employmentType": "FULL_TIME",
+      "needsRetranslation": true
     }
   ]
 }

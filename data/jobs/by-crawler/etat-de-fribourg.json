@@ -7484,7 +7484,7 @@
       "title": "Laboratory Technician Position in Pharmacology",
       "titleByLocale": {
         "it": "Laboratorio Posizione Tecnica in Farmacologia",
-        "en": "Laboratory Technician Position in Pharmacology",
+        "en": "Position of Laboratory Technician in Pharmacology",
         "de": "Laboratory Techniker Position in Pharmacology",
         "fr": "Laboratory Technicien Position in Pharmacology"
       },
@@ -7533,7 +7533,6 @@
         ]
       },
       "firstSeenAt": "2026-09-21T16:12:31.483Z",
-      "needsRetranslation": true,
       "salaryMin": 85000,
       "salaryMax": 119000,
       "salarySource": "estimated",
@@ -7548,7 +7547,8 @@
         }
       },
       "streetAddress": "Rue des Chanoines 17",
-      "addressRegion": "FR"
+      "addressRegion": "FR",
+      "needsRetranslation": true
     },
     {
       "id": "etat-de-fribourg-543213108d08",

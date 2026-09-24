@@ -6464,7 +6464,7 @@
       "title": "Middleware- Platform Engineer (m/w/d)",
       "titleByLocale": {
         "it": "Middleware- Platform Ingegnere (m/w/d)",
-        "en": "Middleware- Platform Engineer (m/w/d)",
+        "en": "Middleware Platform Engineer (m/f/d)",
         "de": "Middleware- Platform Ingenieur (m/w/d)",
         "fr": "Middleware- Platform Ingénieur (m/w/d)"
       },
@@ -6475,7 +6475,6 @@
         "de": "Als Middleware Engineer gestaltest du die Schnittstellen, die unsere Anwendungen und Services miteinander vernetzen. Du arbeitest in einem dynamischen Umfeld mit technologisch spannenden Aufgaben. Dabei stehen für uns nicht nur deine fachlichen Fähigkeiten im Vordergrund – uns ist es vor allem wichtig, wie wir als Team zusammenarbeiten, voneinander lernen und uns gegenseitig unterstützen.<br/><br/>Zur Verstärkung unseres Teams Middleware & Integration in St. Gallen suchen wir per sofort oder nach Vereinbarung eine kommunikative und lösungsorientierte Persönlichkeit als Middleware-Platform Engineer (m/w/d).\n\nAufgaben:\n• Engineering, Betrieb und Weiterentwicklung der Middleware-Plattform (Kafka, Message, Call und File)\n\n• Unterstützung der Entwickler bei der Integration von Applikationen\n\n• Zusammenarbeit mit Experten aus Netzwerk, Storage, OS und Datenbanken\n\n• Automatisierung von Routineaufgaben\n\nAnforderungen:\n• Abgeschlossene Ausbildung in Informatik oder vergleichbare Berufserfahrung\n\n• Mindestens 1 Jahr Erfahrung mit Kafka, idealerweise mit Red Hat Streams auf OpenShift\n\n• Fundierte Erfahrung im Umgang mit APIs (Design, Integration und Betrieb)\n\n• Kenntnisse in IBM MQ sind wünschenswert\n\n• Routine im Umgang mit Enterprise-Betriebssystemen wie AIX, Linux und Windows\n\n• Kenntnisse in Kotlin, Java sowie Argo CD in Verbindung mit Helm sind von Vorteil\n\n• Bereitschaft für Piketteinsätze\n\n• Sehr gute Deutschkenntnisse (mindestens Niveau C1)\n\nWir bieten:\nDie Work-Life-Balance unserer Mitarbeitenden ist uns wichtig. Deshalb schaffen wir die Voraussetzungen dafür, dass die Arbeitszeit flexibel gestaltet werden kann – mit Angeboten für mobiles Arbeiten, Homeoffice und Teilzeit-Pensen.",
         "fr": "En tant qu'ingénieur en middleware, vous concevez les interfaces qui relient nos applications et nos services. Vous travaillez dans un environnement dynamique avec des tâches technologiquement passionnantes. Pour nous, ce ne sont pas seulement vos compétences professionnelles qui sont à l'avant-garde, c'est avant tout important pour nous comment nous travaillons ensemble en équipe, nous apprenons les uns des autres et nous soutenons mutuellement. <br/><br/ >Pour renforcer notre équipe Middleware & Integration à St. Gallen, nous recherchons une personnalité communicative et orientée vers la solution en tant qu'ingénieur de plate-forme Middleware (h/f/d).\n\nTâches:\n• Ingénierie, fonctionnement et développement ultérieur de la plate-forme intergiciel (Kafka, Message, Call and File)\n\n• Soutenir les développeurs dans l'intégration des applications\n\n• Collaboration avec des experts du réseau, du stockage, du système d'exploitation et des bases de données\n\n• Automatisation des tâches courantes\n\nExigences\n• Formation en informatique ou expérience professionnelle comparable\n\n• Au moins 1 an d'expérience avec Kafka, idéalement avec Red Hat sur OpenShift\n\n• Expérience approfondie dans le traitement des API (conception, intégration et fonctionnement)\n\n• La connaissance de IBM MQ est souhaitable\n\n• La routine dans le traitement des systèmes d'exploitation d'entreprise tels que AIX, Linux et Windows\n\n• Connaissance de Kotlin, Java et Argo CD en lien avec le casque sont avantageux\n\n• Préparation pour les piquettes\n\n• Très bonne connaissance de l'allemand (au moins niveau C1)\n\nNous offrons:\nL'équilibre entre le travail et la vie personnelle de nos employés est important pour nous. C'est pourquoi nous créons les conditions pour des horaires de travail flexibles – avec des offres pour le travail mobile, bureau à domicile et à temps partiel."
       },
-      "needsRetranslation": true,
       "location": "St. Gallen",
       "canton": "SG",
       "url": "https://jobs.raiffeisen.ch/offene-stellen/middleware-platform-engineer-m-w-d/7b34e4a5-555e-4e96-aa90-9a98d8397aae",
@@ -6525,7 +6524,8 @@
           "maxValue": 114000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "raiffeisen-25869dcb2c51",
