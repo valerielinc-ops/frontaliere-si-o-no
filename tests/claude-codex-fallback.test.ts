@@ -1066,7 +1066,9 @@ describe('copertura workflow diretti', () => {
     expect(codexBlock).toContain('"$codex_bin" sandbox');
     expect(codexBlock).toContain('"$codex_bin" exec');
     expect(codexBlock).toContain('/usr/bin/timeout');
-    expect(codexBlock).toContain('codex_exec_timeout_seconds=900');
+    expect(action).toMatch(/exec_timeout_minutes:\n\s+description:[^\n]*\n\s+required: false\n\s+default: "15"/);
+    expect(codexBlock).toContain('codex_exec_timeout_minutes="${CODEX_EXEC_TIMEOUT_MINUTES:-15}"');
+    expect(codexBlock).toContain('codex_exec_timeout_seconds=$((codex_exec_timeout_minutes * 60))');
     expect(codexBlock).toContain('codex_exec_kill_grace_seconds=30');
     expect(codexBlock).toContain('--signal=TERM');
     expect(codexBlock).toContain('--kill-after="${codex_exec_kill_grace_seconds}s"');

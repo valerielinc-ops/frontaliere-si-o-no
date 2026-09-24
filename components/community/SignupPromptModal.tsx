@@ -20,6 +20,10 @@ import { getApp } from '@/services/firebase';
 import { Analytics } from '@/services/analytics';
 import { reportCaughtError } from '@/services/errorReporter';
 
+/** Last-touch attribution for a login started from this prompt (see authService). */
+const FOLLOW_PROMPT_AUTH_ATTRIBUTION = { cta: 'company_follow_social', component: 'CompanyFollowButton' } as const;
+const SAVE_PROMPT_AUTH_ATTRIBUTION = { cta: 'save_signin_prompt_social', component: 'SaveSignInPromptModal' } as const;
+
 export type SignupPromptIntent = 'save' | 'follow';
 
 export interface SignupPromptModalProps {
@@ -174,6 +178,7 @@ export default function SignupPromptModal({
               locale={locale}
               errorContext={`signupPrompt.${intent}`}
               googleWidth={360}
+              attribution={isFollow ? FOLLOW_PROMPT_AUTH_ATTRIBUTION : SAVE_PROMPT_AUTH_ATTRIBUTION}
             />
 
             <div className="flex items-center gap-3">
