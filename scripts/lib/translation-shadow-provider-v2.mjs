@@ -3,13 +3,13 @@ import { freeTranslateWithRetryDetailed } from './free-translate.mjs';
 /**
  * Production provider seam for the v2 shadow scheduler.
  *
- * The scheduler keeps generation disabled unless the operator explicitly
- * enables it. The callback protocol is intentionally synchronous at the
- * boundary: the isolated worker requires the provider to return undefined
- * after starting its asynchronous work.
+ * The scheduler owns the deterministic cohort gate and only invokes this
+ * provider for selected units. The callback protocol is intentionally
+ * synchronous at the boundary: the isolated worker requires the provider to
+ * return undefined after starting its asynchronous work.
  */
 export function translate(request, { signal, succeedText, fail }) {
-  if (signal.aborted || process.env.TRANSLATION_SHADOW_ENABLE_GENERATION !== '1') {
+  if (signal.aborted) {
     fail();
     return;
   }

@@ -33,6 +33,7 @@ type SchedulerOutcomeStatus =
   | 'already_valid'
   | 'ambiguous_target'
   | 'applied'
+  | 'canary_skipped'
   | 'conflict'
   | 'duplicate_attempt'
   | 'generation_failed'
@@ -582,7 +583,7 @@ describe('translation completion scheduler v2', () => {
 
   it('accepts every public executor terminal status as a non-patch scheduler outcome', () => {
     const executorStatuses: SchedulerOutcomeStatus[] = [
-      'conflict', 'duplicate_attempt', 'generation_failed', 'negative_cache',
+      'canary_skipped', 'conflict', 'duplicate_attempt', 'generation_failed', 'negative_cache',
       'rejected_candidate', 'retryable_reject', 'reused', 'stale_scan', 'validated',
     ];
     for (const status of executorStatuses) {
