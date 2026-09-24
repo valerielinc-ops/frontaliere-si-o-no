@@ -592,7 +592,6 @@
         "publishEndDate": "2026-10-31T07:26:00.000Z"
       },
       "firstSeenAt": "2026-09-19T23:20:39.379Z",
-      "needsRetranslation": true,
       "salaryMin": 72000,
       "salaryMax": 90500,
       "salarySource": "estimated",
@@ -920,8 +919,7 @@
       "previousSlugs": [
         "lenox-bar-shiftleader-marriott-zurich",
         "responsabile-turno-bar-lenox-marriott-international-zurich"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "marriott-9d046e498237",
@@ -1199,8 +1197,7 @@
         "schichtleiter-im-veranstaltungsdienst-marriott-international-zurich",
         "chef-de-quart-de-service-d-evenement-marriott-international-zurich",
         "servizio-eventi-shiftleader-marriott-international-zurich-9b19fa"
-      ],
-      "needsRetranslation": true
+      ]
     },
     {
       "id": "marriott-533553381a65",
@@ -1552,12 +1549,20 @@
         "commis-de-cuisine-bankette-marriott-international-zurich",
         "commission-de-cuisine-banquets-marriott-international-zurich",
         "commis-de-cuisine-banquets-marriott-zurich",
-        "commissione-de-cuisine-banquets-marriott-international-zurich"
+        "commissione-de-cuisine-banquets-marriott-international-zurich",
+        "commissione-de-cuisine-banquets-marriott-international-zurich-m9fjx4",
+        "commis-de-cuisine-banquets-marriott-zurich-m9fjx4",
+        "banquets-della-cucina-marriott-international-zurich",
+        "kochen-clerk-bankette-marriott-international-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "commis-de-cuisine-banquets-marriott-zurich",
-          "commissione-de-cuisine-banquets-marriott-international-zurich"
+          "commissione-de-cuisine-banquets-marriott-international-zurich",
+          "commissione-de-cuisine-banquets-marriott-international-zurich-m9fjx4",
+          "commis-de-cuisine-banquets-marriott-zurich-m9fjx4",
+          "banquets-della-cucina-marriott-international-zurich",
+          "kochen-clerk-bankette-marriott-international-zurich"
         ],
         "de": [
           "commis-de-cuisine-bankette-marriott-international-zurich"
@@ -2148,8 +2153,7 @@
         }
       },
       "addressRegion": "VS",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "marriott-f5368494b5aa",
@@ -2525,8 +2529,7 @@
         }
       },
       "addressRegion": "ZH",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "marriott-9602896187d4",
@@ -2634,8 +2637,7 @@
         }
       },
       "addressRegion": "VS",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "marriott-9ed3f031b50c",
@@ -3394,8 +3396,7 @@
         }
       },
       "addressRegion": "VS",
-      "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "crawlerMissStreak": 2
     },
     {
       "id": "marriott-3bbdb9f11632",
