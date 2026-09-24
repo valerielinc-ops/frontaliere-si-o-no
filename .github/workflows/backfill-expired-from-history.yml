@@ -257,7 +257,8 @@ jobs:
           }
           trap on_exit EXIT
 
-          while IFS= read -r key; do
+          mapfile -t key_list <<< "$keys"
+          for key in "${key_list[@]}"; do
             [ -n "$key" ] || continue
             echo "──── Backfilling crawler: $key ────"
             CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs
@@ -265,7 +266,7 @@ jobs:
             if [ "$checkpoint_count" -ge "$checkpoint_batch_size" ]; then
               checkpoint
             fi
-          done <<< "$keys"
+          done
 
           checkpoint
           echo '✅ History backfill completed with durable checkpoints.'

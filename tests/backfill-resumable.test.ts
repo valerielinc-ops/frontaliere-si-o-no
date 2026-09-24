@@ -25,6 +25,8 @@ describe('backfill-expired-from-history.yml — durable checkpoints', () => {
     expect(block).toContain('GITHUB_OUTPUT="$checkpoint_output"');
     expect(block).toContain('git-commit-data.sh --slice-only');
     expect(block).toContain("^has_changes=(true|false)$");
+    expect(block).toContain('mapfile -t key_list <<< "$keys"');
+    expect(block).toContain('for key in "${key_list[@]}"; do');
     expect(block).toContain('checkpoint history backfill slices');
   });
 
