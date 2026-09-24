@@ -26,8 +26,13 @@ import { resolveJobDiffKey } from './lib/job-match-key.mjs';
 import { truncateSlugAtWordBoundary } from './lib/slug-truncate.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
 import { intFromEnv } from './lib/int-from-env.mjs';
-import { collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
+import {
+  collapseDuplicateRouteEntries,
+  mergeSourceIdentityHistory,
+  normalizeExpiredAtEntries,
+} from './lib/expired-jobs-archive.mjs';
 import { isSliceFile } from './lib/crawler-slice-files.mjs';
+import { buildStableJobIdentity } from './lib/job-identity.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
@@ -117,6 +122,7 @@ const EXPIRED_JOBS_CAP = 5000;
  * Build an expired-job archive entry from a job object.
  */
 function buildExpiredEntry(job) {
+  const sourceIdentity = job?.sourceIdentity || (job?.url ? buildStableJobIdentity(job) : '');
   const entry = {
     slug: job.slug,
     title: job.title || '',
@@ -151,6 +157,10 @@ function buildExpiredEntry(job) {
     // and age-based expirations. Preserves SEO continuity without losing the
     // signal that this job was a within-slice slug-collision loser.
     dedupArchive: job.dedupArchive === true ? true : undefined,
+    sourceIdentityHistory:
+      Array.isArray(job.sourceIdentityHistory) && job.sourceIdentityHistory.length > 0
+        ? JSON.parse(JSON.stringify(job.sourceIdentityHistory))
+        : undefined,
   };
   // Clean up empty fields
   if (!entry.postalCode) delete entry.postalCode;
@@ -158,6 +168,9 @@ function buildExpiredEntry(job) {
   if (!entry.salaryMin) delete entry.salaryMin;
   if (!entry.salaryMax) delete entry.salaryMax;
   if (entry.dedupArchive !== true) delete entry.dedupArchive;
+  if (sourceIdentity) entry.sourceIdentity = sourceIdentity;
+  if (job.firstSeenAt) entry.firstSeenAt = job.firstSeenAt;
+  if (!entry.sourceIdentityHistory) delete entry.sourceIdentityHistory;
   return entry;
 }
 
@@ -270,7 +283,10 @@ function archiveExpiredJobs(removedJobs, allJobsById) {
   for (const r of removedJobs) {
     const job = allJobsById.get(r.id);
     if (!job || !job.slug) continue;
-    bySlug.set(archiveKey(job), buildExpiredEntry(job));
+    const entry = buildExpiredEntry(job);
+    const key = archiveKey(job);
+    mergeSourceIdentityHistory(entry, bySlug.get(key));
+    bySlug.set(key, entry);
     added++;
   }
 
@@ -322,7 +338,9 @@ function archiveExpiredJobsPerCrawler(removedJobs, allJobsById, crawlerKey) {
   for (const r of removedJobs) {
     const job = allJobsById.get(r.id);
     if (!job || !job.slug) continue;
-    bySlug.set(job.slug, buildExpiredEntry(job));
+    const entry = buildExpiredEntry(job);
+    mergeSourceIdentityHistory(entry, bySlug.get(job.slug));
+    bySlug.set(job.slug, entry);
     added++;
   }
 

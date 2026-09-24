@@ -25,10 +25,15 @@ import path from 'node:path';
 import { fileURLToPath } from 'node:url';
 import { isInvokedDirectly } from './lib/is-invoked-directly.mjs';
 import { writeJsonAtomic } from './lib/atomic-write-json.mjs';
-import { collapseDuplicateRouteEntries, normalizeExpiredAtEntries } from './lib/expired-jobs-archive.mjs';
+import {
+  collapseDuplicateRouteEntries,
+  mergeSourceIdentityHistory,
+  normalizeExpiredAtEntries,
+} from './lib/expired-jobs-archive.mjs';
 import { readAllKnownJobSlugs, writeAllKnownJobSlugs } from './lib/all-known-job-slugs-store.mjs';
 import { hasUsableJobId } from './lib/job-match-key.mjs';
 import { compareExpiredAt } from './lib/compare-expired-at.mjs';
+import { buildStableJobIdentity } from './lib/job-identity.mjs';
 import { SECTION_LEGACY_TI as SECTION_BY_LOCALE } from '../build-plugins/shared/cantonResolvers.mjs';
 
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
@@ -394,6 +399,11 @@ export function buildBackfillExpiredEntry(job, expiredAt, overrideSlug = null) {
     salaryCurrency,
     salaryPeriod,
   };
+  if (job?.sourceIdentity || job?.url) entry.sourceIdentity = job.sourceIdentity || buildStableJobIdentity(job);
+  if (job?.firstSeenAt) entry.firstSeenAt = job.firstSeenAt;
+  if (Array.isArray(job?.sourceIdentityHistory) && job.sourceIdentityHistory.length > 0) {
+    entry.sourceIdentityHistory = JSON.parse(JSON.stringify(job.sourceIdentityHistory));
+  }
   return entry;
 }
 
@@ -667,8 +677,10 @@ export function dedupAgainstExisting(proposedByCrawler, loadExisting) {
       const prior = bySlug.get(k);
       if (prior) {
         droppedDuplicates += 1;
+        mergeSourceIdentityHistory(prior, entry);
         // Keep the entry with the most recent expiredAt.
         if (compareExpiredAt(entry.expiredAt, prior.expiredAt) > 0) {
+          mergeSourceIdentityHistory(entry, prior);
           bySlug.set(k, entry);
         }
         continue;
