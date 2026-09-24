@@ -6156,8 +6156,12 @@ Rispondi SOLO con JSON valido, senza markdown.` },
 
   let itRaw;
   if (useGeminiDirect) {
-    itRaw = await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
-    console.error(`  ↪ Completato con Gemini ${AI_MODELS.GEMINI_FLASH}`);
+    // Lo slot `gemini` della rotazione (tentativo 3) e' un modello di
+    // partenza come gli altri: passa dalla stessa preferenza del ramo sotto,
+    // o quel tentativo salta Codex e parte dalla sola cascata free
+    // (review di frontaliere-articles#1751).
+    itRaw = await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, prefer: PREFERRED_GENERATION_MODELS, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
+    console.error(`  ↪ Completato (slot Gemini ${AI_MODELS.GEMINI_FLASH})`);
   } else {
     itRaw = await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, prefer: PREFERRED_GENERATION_MODELS, temperature, maxTokens: IT_GENERATION_MAX_TOKENS, jsonMode: true, jsonSchema: articleSchema });
   }
@@ -6185,7 +6189,7 @@ Rispondi SOLO con JSON valido, senza markdown.` },
     console.error(`  🔄 Retry IT con maxTokens=${retryTokens}${isTruncation ? ' (troncamento rilevato)' : ''}...`);
     try {
       const itRaw2 = useGeminiDirect
-        ? await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema })
+        ? await callLLM(llmMessages, { model: AI_MODELS.GEMINI_FLASH, prefer: PREFERRED_GENERATION_MODELS, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema })
         : await callLLM(llmMessages, { model: forceModel || GH_MODEL_HEAVY, prefer: PREFERRED_GENERATION_MODELS, temperature: 0.3, maxTokens: retryTokens, jsonMode: true, jsonSchema: articleSchema });
       itData = JSON.parse(repairLlmJson(itRaw2));
       console.error(`  ✅ Retry IT riuscito`);
