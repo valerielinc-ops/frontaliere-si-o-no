@@ -343,11 +343,21 @@ describe('loop fleet workflow contract', () => {
       expect(source, name).toContain("GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'");
       expect(source, name).toContain("basic_auth=$(printf 'x-access-token:%s' \"$GH_TOKEN\" | base64 | tr -d '\\n')");
       expect(source, name).toContain('GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"');
-      expect(source, name).toContain('unset basic_auth');
       expect(source, name).toContain('bounded_remote git fetch origin main');
       expect(source, name).toContain('bounded_remote git ls-remote --exit-code --heads origin');
       expect(source, name).toContain('bounded_remote git fetch origin "$ledger_branch"');
       expect(source, name).toContain('export GIT_TERMINAL_PROMPT=0');
+
+      const wrapperStart = source.indexOf('bounded_remote() {');
+      const firstRemoteCall = source.indexOf('bounded_remote git fetch origin main');
+      expect(wrapperStart, name).toBeGreaterThanOrEqual(0);
+      expect(source.slice(wrapperStart, firstRemoteCall), name).toContain(
+        "GIT_CONFIG_KEY_0='http.https://github.com/.extraheader'",
+      );
+      expect(source.slice(wrapperStart, firstRemoteCall), name).toContain(
+        'GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}"',
+      );
+      expect(source.indexOf('basic_auth=$(printf', wrapperStart), name).toBeLessThan(firstRemoteCall);
     }
   });
 

@@ -118,7 +118,10 @@ jobs:
           bounded_remote() {
             local operation="${1:-remote-command}"
             local status
-            if timeout --signal=TERM --kill-after=10s "${remote_timeout_seconds}s" "$@"; then
+            if GIT_CONFIG_COUNT=1 \
+              GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
+              GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}" \
+              timeout --signal=TERM --kill-after=10s "${remote_timeout_seconds}s" "$@"; then
               return 0
             else
               status=$?
@@ -139,6 +142,7 @@ jobs:
             exit 1
           fi
           export GH_TOKEN="$write_token"
+          basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
 
           git config user.name 'frontaliere-automation[bot]'
           git config user.email '41898282+frontaliere-automation[bot]@users.noreply.github.com'
@@ -183,15 +187,9 @@ jobs:
               echo "::error::durable ledger branch contains non-JSONL files: $invalid_ledger_files"
               exit 1
             fi
-            basic_auth=$(printf 'x-access-token:%s' "$GH_TOKEN" | base64 | tr -d '\n')
-            if GIT_CONFIG_COUNT=1 \
-              GIT_CONFIG_KEY_0='http.https://github.com/.extraheader' \
-              GIT_CONFIG_VALUE_0="AUTHORIZATION: basic ${basic_auth}" \
-              bounded_remote git -C "$ledger_worktree" push origin "HEAD:refs/heads/$ledger_branch"; then
-              unset basic_auth
+            if bounded_remote git -C "$ledger_worktree" push origin "HEAD:refs/heads/$ledger_branch"; then
               exit 0
             fi
-            unset basic_auth
             if bounded_remote git fetch origin "$ledger_branch"; then
               # Rebase only the isolated ledger worktree onto the fetched tip;
               # the main worktree keeps the current validator and registry.
