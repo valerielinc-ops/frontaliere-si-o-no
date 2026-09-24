@@ -1,21 +1,21 @@
 {
   "key": "crr-suva-sion",
   "label": "Clinique romande de réadaptation (CRR Suva)",
-  "generatedAt": "2026-09-19T22:53:06.690Z",
-  "total": 3,
+  "generatedAt": "2026-09-23T23:43:10.550Z",
+  "total": 1,
   "discovered": null,
   "parsed": 1,
   "lastFetchOutcome": null,
-  "written": 3,
+  "written": 1,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 2,
-  "durationMs": 2773,
-  "avgDurationMs": 2773,
+  "removedCount": 2,
+  "unchangedCount": 0,
+  "durationMs": 2965,
+  "avgDurationMs": 2965,
   "durationHistory": [
-    2773
+    2965
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -32,7 +32,7 @@
       "url": "https://www.crr-suva.ch/clinique-readaptation/maitre-socioprofessionnel-2428.html",
       "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
       "sourceLang": "fr",
-      "crawledAt": "2026-09-19T22:52:59.617Z",
+      "crawledAt": "2026-09-23T23:43:03.602Z",
       "addressLocality": "Sion",
       "addressRegion": "VS",
       "addressCountry": "CH",
@@ -57,48 +57,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "crr-suva-sion-eac3a8b254f2",
-      "slug": "senior-ict-engineer-microsoft-cloud-hybrid-platforms-clinique-romande-de-readaptation-crr-suva-sion",
-      "company": "Clinique romande de réadaptation (CRR Suva)",
-      "companyKey": "crr-suva-sion",
-      "companyDomain": "crr-suva.ch",
-      "title": "Ingénieur/e ICT senior – Microsoft Cloud & plateformes hybrides",
-      "location": "Sion",
-      "canton": "VS",
-      "url": "https://www.crr-suva.ch/clinique-readaptation/ingenieur-senior-microsoft-cloud-plateformes-2424.html",
-      "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
-      "sourceLang": "fr",
-      "crawledAt": "2026-08-17T09:59:57.544Z",
-      "addressLocality": "Sion",
-      "addressRegion": "VS",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "1950",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "PART_TIME",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-07-30",
-      "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/ingenieur-senior-microsoft-cloud-plateformes-2424.html",
-      "firstSeenAt": "2026-07-30T22:22:15.064Z",
-      "salaryMin": 97500,
-      "salaryMax": 165500,
-      "crawlerMissStreak": 2,
-      "salarySource": "estimated",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 18,
-        "translation": 25,
-        "completeness": 22
-      }
-    },
+  "removedJobs": [
     {
       "id": "crr-suva-sion-1ef627a9dcec",
       "slug": "assistente-di-qualita-e-processo-clinique-romande-de-readaptation-crr-suva-sion",
@@ -139,6 +98,47 @@
         "translation": 25,
         "completeness": 22
       }
+    },
+    {
+      "id": "crr-suva-sion-eac3a8b254f2",
+      "slug": "senior-ict-engineer-microsoft-cloud-hybrid-platforms-clinique-romande-de-readaptation-crr-suva-sion",
+      "company": "Clinique romande de réadaptation (CRR Suva)",
+      "companyKey": "crr-suva-sion",
+      "companyDomain": "crr-suva.ch",
+      "title": "Ingénieur/e ICT senior – Microsoft Cloud & plateformes hybrides",
+      "location": "Sion",
+      "canton": "VS",
+      "url": "https://www.crr-suva.ch/clinique-readaptation/ingenieur-senior-microsoft-cloud-plateformes-2424.html",
+      "source": "Clinique romande de réadaptation (CRR Suva) Dedicated Parser (Custom HTML)",
+      "sourceLang": "fr",
+      "crawledAt": "2026-08-17T09:59:57.544Z",
+      "addressLocality": "Sion",
+      "addressRegion": "VS",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "1950",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "PART_TIME",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-30",
+      "applyUrl": "https://www.crr-suva.ch/clinique-readaptation/ingenieur-senior-microsoft-cloud-plateformes-2424.html",
+      "firstSeenAt": "2026-07-30T22:22:15.064Z",
+      "salaryMin": 97500,
+      "salaryMax": 165500,
+      "crawlerMissStreak": 2,
+      "salarySource": "estimated",
+      "_qualityScore": 90,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 22
+      }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
