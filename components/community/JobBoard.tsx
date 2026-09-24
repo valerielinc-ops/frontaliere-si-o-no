@@ -196,6 +196,7 @@ import {
  getRewardedApplicationAccessExpiresAt,
 } from '@/services/rewardedApplicationAccess';
 import { isAdsConsentGranted, onAdsConsentChange } from '@/services/adsConsent';
+import { preloadRewardedWebAd } from '@/services/rewardedWebAd';
 import {
  createAssistedApplicationCheckout,
  ensureAssistedApplicationAuth,
@@ -2476,6 +2477,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const [appliedJobId, setAppliedJobId] = useState<string | null>(null);
  const [assistedApplicationJob, setAssistedApplicationJob] = useState<JobListing | null>(null);
  const [rewardedApplicationJob, setRewardedApplicationJob] = useState<JobListing | null>(null);
+ // Synchronous twin of the two application offers' state: a double click on
+ // "Candidati" runs handleApply twice before React re-renders, and the second
+ // run must not emit a second apply/offer event pair (or a second rewarded
+ // request) for the same gesture.
+ const applicationOfferOpenRef = useRef(false);
+ useEffect(() => {
+  if (!rewardedApplicationJob && !assistedApplicationJob) applicationOfferOpenRef.current = false;
+ }, [assistedApplicationJob, rewardedApplicationJob]);
  const [assistedCheckoutBusy, setAssistedCheckoutBusy] = useState(false);
  const [assistedCheckoutError, setAssistedCheckoutError] = useState<string | null>(null);
  const [jobDetailPromptCategory, setJobDetailPromptCategory] = useState<string | null>(null);
@@ -3529,49 +3538,45 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const userEmail = authUser?.email || null;
  const userId = authUser?.uid || null;
  const assistedApplicationOrderId = readAssistedApplicationOrderId();
+ // Preload only where "Candidati" is actually reachable: anonymous visitors
+ // see the login gate instead of the CTA, so a request for them could never
+ // be shown and would only inflate the unit's unfilled requests.
  const shouldPreloadRewardedApplicationAd = Boolean(
   isJobDetailView
   && authResolved
+  && hasAccess
   && assistedApplicationVariant === 'rewarded_ad'
   && !killSwitches.rewardedApplicationAd
   && selectedJob
   && isExternalApplicationJob(selectedJob)
   && getRewardedApplicationAccessExpiresAt() === null,
  );
+ // The Candidati click is the visitor's opt-in to the rewarded video, which
+ // then opens without a second click. Google's rewarded-web policy requires
+ // that choice to be informed, so every labelled Candidati CTA that will open
+ // the video says so.
+ const rewardedCtaDisclosure = selectedJob
+  && isExternalApplicationJob(selectedJob)
+  && assistedApplicationVariant === 'rewarded_ad'
+  && !killSwitches.rewardedApplicationAd
+  && getRewardedApplicationAccessExpiresAt() === null
+  ? t('jobBoard.assisted.rewardedTitle')
+  : null;
  useEffect(() => {
   if (!shouldPreloadRewardedApplicationAd) return;
- let cancelled = false;
- let idleId: number | null = null;
- let timeoutId: number | null = null;
- let preloadPromise: Promise<unknown> | null = null;
- const idleWindow = window as Window & {
-   requestIdleCallback?: (callback: () => void, options?: { timeout: number }) => number;
-   cancelIdleCallback?: (id: number) => void;
- };
- const start = () => {
-   if (cancelled || !isAdsConsentGranted() || preloadPromise) return;
-   // Keep the rewarded/GPT implementation out of the initial JobBoard chunk.
-   // The page only downloads it for an eligible, consented detail view.
-   preloadPromise = import('@/services/rewardedWebAd')
-    .then(({ preloadRewardedWebAd }) => {
-     if (!cancelled) preloadRewardedWebAd();
-    })
-    .catch(() => {});
- };
-  if (typeof idleWindow.requestIdleCallback === 'function') {
-   idleId = idleWindow.requestIdleCallback(start, { timeout: 1000 });
-  } else {
-   timeoutId = window.setTimeout(start, 250);
-  }
-  const unsubscribe = onAdsConsentChange((value) => {
-   if (value === 'granted') start();
-  });
-  return () => {
-   cancelled = true;
+ // Start the auction as soon as an eligible, consented detail renders: a
+ // creative that is already ready when "Candidati" is clicked opens with no
+ // wait. A click that finds the request still pending or already ended gets
+ // its own auction from the offer (requestRewardedWebAd), and the video opens
+ // on rewardedSlotReady: GPT does not require a live user activation for
+ // makeRewardedVisible(), measured on production with the activation expired.
+ if (isAdsConsentGranted()) preloadRewardedWebAd();
+ const unsubscribe = onAdsConsentChange((value) => {
+   if (value === 'granted') preloadRewardedWebAd();
+ });
+ return () => {
    unsubscribe();
-   if (idleId !== null) idleWindow.cancelIdleCallback?.(idleId);
-   if (timeoutId !== null) window.clearTimeout(timeoutId);
-  };
+ };
  }, [shouldPreloadRewardedApplicationAd]);
  const assistedExposureKeysRef = useRef(new Set<string>());
  useEffect(() => {
@@ -6928,7 +6933,13 @@ const JobBoard: React.FC<JobBoardProps> = ({
  return eventId;
  };
 
- const redirectExternalApplication = (job: JobListing, surface: string, trackHandoff: boolean, sameTab = false) => {
+ const redirectExternalApplication = (
+  job: JobListing,
+  surface: string,
+  trackHandoff: boolean,
+  sameTab = false,
+  extraParams: Record<string, string> = {},
+ ) => {
   const applyDestination = buildReferralUrl(job);
   if (!applyDestination) return;
   if (trackHandoff) {
@@ -6939,7 +6950,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   }
   trackAssistedApplicationEvent(
    'external_apply_redirected',
-   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface },
+   { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, ...extraParams },
   );
   if (sameTab) {
    window.location.assign(applyDestination);
@@ -6974,17 +6985,22 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // This callback happens after the visitor has explicitly chosen to continue
   // from the rewarded modal, so use the current tab: a late window.open is
   // commonly blocked by the browser.
-  redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true);
+  redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true, {
+   handoff: 'rewarded_granted',
+  });
  };
 
  const handleRewardedApplicationUnavailable = (reason: string) => {
   const job = rewardedApplicationJob;
   if (!job) return;
-  // The offer already records the technical reason and direct handoff on the
-  // rewarded_ad_unavailable event. This callback only owns navigation.
-  void reason;
+  // No Google creative to show (no-fill, timeout, consent, eligibility): the
+  // offer has already tracked the technical detail, and the same click goes
+  // straight to the employer. No retry, no local video, no second click.
   setRewardedApplicationJob(null);
-  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true);
+  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true, {
+   handoff: 'direct_external',
+   reason,
+  });
  };
 
  const handleAssistedPaid = async () => {
@@ -7048,6 +7064,9 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [rewardedApplicationJob, authResolved, isJobDetailView]);
 
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
+  // An application offer for this click is already open (double click, or a
+  // click that reached the page behind the dialog): one gesture, one offer.
+  if (applicationOfferOpenRef.current) return;
   const isExternal = isExternalApplicationJob(job);
   if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid && !isJobDetailView) {
    // Keep anonymous job-board visitors on the sign-in/subscription funnel.
@@ -7109,6 +7128,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
    'rewarded_application_offer_requested',
    { ...assistedApplicationJobContext(job, assistedApplicationVariant), surface, provider: 'google_gpt_rewarded_web' },
   );
+  applicationOfferOpenRef.current = true;
   setRewardedApplicationJob(job);
   if (!isJobDetailView) openDetail(job);
   return;
@@ -7122,6 +7142,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
   // clicks through the detail render, where `assistedApplicationOfferJsx` is
   // mounted, so the treatment CTA never becomes an invisible state update.
   setAssistedCheckoutError(null);
+  applicationOfferOpenRef.current = true;
   setAssistedApplicationJob(job);
   if (!isJobDetailView) openDetail(job);
   return;
@@ -9725,6 +9746,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  </div>
  ) : (
+ <>
  <button
   type="button"
  className="hybrid-ab-cta"
@@ -9732,6 +9754,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  >
  {t('jobBoard.apply')}
  </button>
+ {rewardedCtaDisclosure && (
+  <p className="mt-1.5 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p>
+ )}
+ </>
  )}
 
  {!(selectedJob as unknown as { publisherJobId?: string }).publisherJobId && (
@@ -10160,7 +10186,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  width={28}
  height={28}
  loading="lazy"
- onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {appliedNoticeJsx}
+ onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
  {detailAlertCtaJsx}
  {isPublisherAd && userId && userEmail && (
  <Suspense fallback={null}>

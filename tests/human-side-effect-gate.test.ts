@@ -46,6 +46,13 @@ const APPROVED_SCHEDULE_INPUT = {
   approvalTrustedSchedule: 'true',
 };
 
+const APPROVED_WORKFLOW_RUN_INPUT = {
+  ...APPROVED_SCHEDULE_INPUT,
+  event: 'workflow_run',
+  approvalTrustedSchedule: 'false',
+  approvalTrustedWorkflowRun: 'true',
+};
+
 const SOURCE_SHA = 'aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa';
 
 const VALID_PUBLISHER_EVENT = {
@@ -258,6 +265,10 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   // two inventories. Enumerated 2026-09-18: 12 were in neither. The closure
   // now lives at the end of the arming test below.
   'sync-articles-sitemaps.yml',
+  // The weekly expired-archive sweep is an autonomous, non-destructive
+  // repair: it preserves cap-refused route components and only persists
+  // route-collapsed slices after the workflow's own test and audit gates.
+  'reconcile-expired-route-duplicates.yml',
   // Recovery is an approved scheduled write: it remains non-destructive and
   // its backfill/commit steps keep their own dry-run guards in depth.
   'recover-prev-slugs.yml',
@@ -274,7 +285,8 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   // 2026-11-01.
   // La scrittura e' non distruttiva: ricostruisce
   // `data/jobs/expired/by-crawler/*` camminando la history con `git show`,
-  // passa `npm run test:backfill` come gate PRIMA del commit, e i suoi 7 step usano tutti
+  // checkpointa i slice prima del reassemble/test tail, passa
+  // `npm run test:backfill` prima del deploy, e i suoi step usano tutti
   // l'APPROVED_GATE_IF esatto, quindi `dry_run` continua a valere sul dispatch
   // manuale.
   'backfill-expired-from-history.yml',
@@ -292,7 +304,6 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   'discover-404s.yml',
   'discover-404s-via-cloudflare.yml',
   'publisher-jobs-sync.yml',
-  'reconcile-expired-route-duplicates.yml',
   'refresh-keyword-config.yml',
   'sync-gsc-orphans.yml',
   'update-fuel-prices.yml',
@@ -388,8 +399,7 @@ const GATED_SIDE_EFFECT_STEPS: Record<string, RegExp[]> = {
   'backfill-expired-from-history.yml': [
     /Recover dropped jobs/u,
     /Reassemble dataset/u,
-    /Commit and push$/u,
-    /Trigger deploy if data changed/u,
+    /Trigger deploy after validated backfill/u,
   ],
   'discover-404s.yml': [
     /Run URL Inspection sweep/u,
@@ -493,6 +503,22 @@ describe('human-side-effect-gate policy', () => {
     expect(decision.reason).toBe('trusted-schedule-approved');
     expect(decision.nonce).toMatch(/^[a-f0-9]{64}$/);
     expect(decision.nonce).toBe(deriveApprovalNonce(APPROVED_SCHEDULE_INPUT));
+  });
+
+  it('allows only a caller-verified first-attempt workflow_run handoff', () => {
+    const decision = evaluateHumanApproval(APPROVED_WORKFLOW_RUN_INPUT);
+    expect(decision.allow).toBe(true);
+    expect(decision.effectiveDryRun).toBe(false);
+    expect(decision.reason).toBe('trusted-workflow-run-approved');
+    expect(decision.nonce).toMatch(/^[a-f0-9]{64}$/);
+
+    const untrusted = evaluateHumanApproval({
+      ...APPROVED_WORKFLOW_RUN_INPUT,
+      approvalTrustedWorkflowRun: 'false',
+    });
+    expect(untrusted.allow).toBe(false);
+    expect(untrusted.effectiveDryRun).toBe(true);
+    expect(untrusted.reasons).toContain('event-not-workflow-dispatch');
   });
 
   it.each([
@@ -1104,5 +1130,24 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
         return Boolean(triggers && typeof triggers === 'object' && 'schedule' in triggers);
       });
     expect(unclassifiedSchedules).toEqual([]);
+  });
+
+  it('chains newsletter only from the primary job-alert slot and keeps the cron fallback', () => {
+    const alerts = workflow('send-job-alerts.yml');
+    expect(alerts).toContain('Create primary newsletter handoff marker');
+    expect(alerts).toContain("steps.send-alerts.outcome == 'success' && github.event_name == 'schedule'");
+    expect(alerts).toContain("github.event.schedule == '33 0 * * *'");
+    expect(alerts).toContain('newsletter-handoff-${{ github.run_id }}');
+    expect(alerts).toContain('source_workflow_path: ".github/workflows/send-job-alerts.yml"');
+
+    const newsletter = workflow('send-newsletter.yml');
+    expect(newsletter).toContain('workflow_run:');
+    expect(newsletter).toContain('- Send Job Alert Emails');
+    expect(newsletter).toContain('actions/download-artifact@v7');
+    expect(newsletter).toContain('APPROVAL_TRUSTED_WORKFLOW_RUN');
+    expect(newsletter).toContain('group: newsletter');
+    expect(newsletter).toContain('cancel-in-progress: false');
+    expect(newsletter).toContain('NEWSLETTER_TRIGGER_KEY');
+    expect(newsletter).toContain('campaign_sends ledger');
   });
 });

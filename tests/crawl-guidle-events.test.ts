@@ -250,6 +250,21 @@ describe('mapDetailPageToLocaleData', () => {
     expect(mapped?.performer).toEqual([{ '@type': 'Person', name: 'Artista Guidle' }]);
   });
 
+  it('fills source people from the full itemprop description when JSON-LD is abbreviated', () => {
+    const html = buildDetailHtml({
+      jsonLd: JSON.stringify({
+        '@type': 'Event',
+        name: 'Autechre',
+        description: 'Chaotisch, roh, faszinierend.',
+        startDate: '2026-09-25T20:00',
+        location: { name: 'Rote Fabrik', address: { addressLocality: 'Zurigo' } },
+      }),
+    }).replace('</body>', '<p itemprop="description">Präsentiert von Noise Reduction &amp; Musikbüro Rote Fabrik<br>Mitwirkende und Zusatzinformationen:<br>Autechre</p></body>');
+    const mapped = mapDetailPageToLocaleData(html, 'de');
+    expect(mapped?.organizer).toEqual({ '@type': 'Organization', name: 'Noise Reduction & Musikbüro Rote Fabrik' });
+    expect(mapped?.performer).toEqual({ name: 'Autechre' });
+  });
+
   it('returns null when the page has no usable Event JSON-LD', () => {
     expect(mapDetailPageToLocaleData('<html></html>', 'de')).toBeNull();
     expect(mapDetailPageToLocaleData('', 'de')).toBeNull();

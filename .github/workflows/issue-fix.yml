@@ -126,6 +126,10 @@ jobs:
             (''|*[!0-9]*) echo "::error::numero issue non verificabile"; exit 1 ;;
           esac
           gh issue view "$ISSUE_NUMBER" --repo "$REPO" --json number,state,title,body,labels,comments > "$issue_file"
+          # `agent:vision-approved` resta fuori dal fingerprint: questo job la
+          # rimuove quando la policy consente il run, e il verify del job `fix`
+          # ricalcola la snapshot dopo. Contarla faceva fallire ogni issue
+          # rientrata dal pre-pass (misurato 2026-09-24, dopo #9659).
           snapshot=$(jq -ceS --arg repo "$REPO" --argjson issue_number "$ISSUE_NUMBER" '
             if (.number == $issue_number)
               and (.state == "OPEN")
@@ -140,7 +144,7 @@ jobs:
               state: .state,
               title: .title,
               body: (.body // ""),
-              labels: ([.labels[].name] | sort),
+              labels: ([.labels[].name] | map(select(. != "agent:vision-approved")) | sort),
               comments: (.comments | sort_by([(.createdAt // ""), (.id // ""), (.body // "")]))
             }
             else error("issue snapshot non verificabile")
@@ -400,7 +404,7 @@ jobs:
               state: .state,
               title: .title,
               body: (.body // ""),
-              labels: ([.labels[].name] | sort),
+              labels: ([.labels[].name] | map(select(. != "agent:vision-approved")) | sort),
               comments: (.comments | sort_by([(.createdAt // ""), (.id // ""), (.body // "")]))
             }
             else error("issue snapshot non verificabile")
