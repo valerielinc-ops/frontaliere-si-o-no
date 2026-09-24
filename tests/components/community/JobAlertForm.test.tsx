@@ -19,25 +19,33 @@
 import { describe, it, expect, vi, beforeEach, afterEach } from 'vitest';
 import { render, screen, fireEvent, cleanup, within, waitFor } from '@testing-library/react';
 import JobAlertForm from '@/components/community/JobAlertForm';
-import { Analytics } from '@/services/analytics';
 import { savePendingJobAlert } from '@/services/pendingJobAlert';
 import type { JobAlertConfig } from '@/services/jobAlertService';
+
+const { createAlertMock, trackJobAlertCreatedMock } = vi.hoisted(() => ({
+  createAlertMock: vi.fn(async () => ({ id: 'x' })),
+  trackJobAlertCreatedMock: vi.fn(),
+}));
 
 // Mock the service so the form can dynamic-import it without trying to talk
 // to a real Firestore (we don't assert on this — see the service-level tests
 // for the payload contract).
 vi.mock('@/services/jobAlertService', () => ({
-  createAlert: vi.fn(async () => ({ id: 'x' })),
+  createAlert: createAlertMock,
   getUserAlerts: vi.fn(async () => []),
   deleteAlert: vi.fn(async () => undefined),
   updateAlert: vi.fn(async () => undefined),
+}));
+
+vi.mock('@/services/profileFirestore', () => ({
+  loadEnrichmentProfileFields: vi.fn(async () => ({})),
 }));
 
 vi.mock('@/services/analytics', () => ({
   Analytics: {
     trackJobAlertCtaClick: vi.fn(),
     trackJobAlertCtaShown: vi.fn(),
-    trackJobAlertCreated: vi.fn(),
+    trackJobAlertCreated: trackJobAlertCreatedMock,
     trackJobAlertDeleted: vi.fn(),
   },
 }));
@@ -90,7 +98,8 @@ function getFieldset(): HTMLFieldSetElement {
 
 beforeEach(() => {
   localStorage.clear();
-  vi.mocked(Analytics.trackJobAlertCreated).mockClear();
+  createAlertMock.mockClear();
+  trackJobAlertCreatedMock.mockClear();
 });
 
 afterEach(() => {
@@ -114,7 +123,7 @@ describe('JobAlertForm — post-auth attribution', () => {
     render(<JobAlertForm authUser={authUser} />);
 
     await waitFor(() => {
-      expect(Analytics.trackJobAlertCreated).toHaveBeenCalledWith(expect.objectContaining({
+      expect(trackJobAlertCreatedMock).toHaveBeenCalledWith(expect.objectContaining({
         surface: 'inline_card',
         ctaSurface: 'inline_card',
         creationPath: 'post_auth_auto',
