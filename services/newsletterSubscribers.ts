@@ -234,6 +234,19 @@ export type NewsletterUpsertInput = {
  attributionMode?: 'overwrite' | 'fill';
 };
 
+const CREATION_STAMP_FIELDS = ['created_at', 'createdAt', 'subscribed_at', 'subscribedAt'] as const;
+
+/**
+ * True for a stored row that no subscription write has ever touched: no
+ * creation stamp, no status and no source channel (e.g. only the auth
+ * profile fields). The first capture on it is its real creation.
+ */
+export function isUncapturedSubscriberRow(existing: Record<string, any> | undefined): boolean {
+ if (!existing) return false;
+ if (CREATION_STAMP_FIELDS.some((field) => existing[field] != null)) return false;
+ return !sanitizeString(existing.status) && !sanitizeString(existing.source_channel);
+}
+
 export type SourceAttributionFields = {
  source_page: string | null;
  source_cta: string | null;
@@ -1650,6 +1663,16 @@ export async function captureNewsletterSubscriber(
   subscribed_at: serverTimestamp(),
   created_at: serverTimestamp(),
  }),
+ // A row that exists but was never captured (profile/login fields only, no
+ // status, no channel, no creation stamp) is created as a subscription by
+ // THIS write. Between 2026-09-12 and 2026-09-16 the auth writer created such
+ // rows, and every later capture treated them as existing, so they never got
+ // a creation date and dropped out of every report by creation day.
+ // `created_at` is not a state field in firestore.rules; the
+ // `subscribed_at` pair stays creation-only (see the comment above).
+ ...(existing.exists() && isUncapturedSubscriberRow(existingData) ? {
+  created_at: serverTimestamp(),
+ } : {}),
  ...(needsConfirmedStamp ? {
   confirmed_at: serverTimestamp(),
   confirmedAt: serverTimestamp(),
