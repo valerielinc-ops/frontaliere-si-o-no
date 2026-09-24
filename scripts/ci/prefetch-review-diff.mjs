@@ -58,8 +58,9 @@ export function movedSinceReview({
   base, head, reviewedFrom, exclusions, reviewedBase = null, cwd = process.cwd(),
 }) {
   sha(base); sha(head); sha(reviewedFrom);
+  // `sha()` returns the value it validated, so both branches bind a checked SHA.
   if (reviewedBase) {
-    sha(reviewedBase);
+    reviewedBase = sha(reviewedBase);
   } else {
     try {
       reviewedBase = sha(run(gitCommand(), ['merge-base', reviewedFrom, base], { cwd, stdio: ['ignore', 'pipe', 'pipe'] }).trim());

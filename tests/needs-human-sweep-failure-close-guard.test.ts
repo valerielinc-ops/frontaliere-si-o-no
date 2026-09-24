@@ -34,6 +34,10 @@ describe('needs-human sweep: failure issues close only after a green run', () =>
     expect(prompt).toMatch(/status == completed/);
     expect(prompt).toMatch(/conclusion == success` e una data successiva a `createdAt` dell'issue/);
     expect(prompt).toMatch(/step esatto `Run <slug>`/);
+    // Review of #9723: the crawler branch must carry the issue timestamp too, or
+    // an older green run could authorize closing a newer crawler failure.
+    const crawlerBranch = prompt.slice(prompt.indexOf('Per `Crawler Failure: Run <slug>`'));
+    expect(crawlerBranch).toMatch(/^[^\n]*?deve essere `success` e la run deve avere `createdAt` successivo a `createdAt` dell'issue/);
   });
 
   it('keeps the issue open when the last run is red, cancelled, missing or unreadable', () => {

@@ -3,7 +3,7 @@ import { mkdtempSync, mkdirSync, readFileSync, rmSync, writeFileSync } from 'nod
 import { tmpdir } from 'node:os';
 import { join } from 'node:path';
 import { execFileSync } from 'node:child_process';
-import { main, writeReviewDiff } from '../scripts/ci/prefetch-review-diff.mjs';
+import { main, movedSinceReview, writeReviewDiff } from '../scripts/ci/prefetch-review-diff.mjs';
 
 const roots: string[] = [];
 afterEach(() => roots.splice(0).forEach(root => rmSync(root, { recursive: true, force: true })));
@@ -182,6 +182,32 @@ describe('host-prepared complete review patch', () => {
       INCREMENTAL_BASE: lastRev, REVIEW_DIFF_EXCLUSIONS: 'data',
     }, { api: (endpoint: string) => api[endpoint], cwd: f.repo });
     expect(readFileSync(join(viaMain, 'delta-files.txt'), 'utf8')).toBe('shared.mjs\n');
+  });
+
+  // Review of #9723: both ways of obtaining the reviewed base must bind a real,
+  // validated SHA (local merge-base and the explicit value from the compare API)
+  // and add what main moved between the two bases; an invalid explicit base is
+  // rejected instead of reaching `git diff` as `undefined`.
+  it('binds a validated reviewed base on both the local and the explicit path', () => {
+    const f = fixture();
+    writeFileSync(join(f.repo, 'owned.mjs'), 'export const owned = 1;\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'reviewed');
+    const lastRev = f.git('rev-parse', 'HEAD');
+    f.git('checkout', '-q', '-b', 'main-advanced', f.base);
+    writeFileSync(join(f.repo, 'main-only.mjs'), 'export const m = 1;\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'main moves');
+    const mainTip = f.git('rev-parse', 'HEAD');
+    f.git('checkout', '-q', '-b', 'pr', mainTip);
+    writeFileSync(join(f.repo, 'owned.mjs'), 'export const owned = 1;\n');
+    f.git('add', '.'); f.git('commit', '-qm', 'rebased head');
+    const head = f.git('rev-parse', 'HEAD');
+    const args = { base: mainTip, head, reviewedFrom: lastRev, exclusions: ['data'], cwd: f.repo };
+    const local = movedSinceReview(args);
+    const explicit = movedSinceReview({ ...args, reviewedBase: f.base });
+    expect(local).toBeInstanceOf(Set);
+    expect([...local!].sort()).toEqual(['main-only.mjs']);
+    expect([...explicit!].sort()).toEqual(['main-only.mjs']);
+    expect(() => movedSinceReview({ ...args, reviewedBase: 'not-a-sha' })).toThrow('Expected a pinned commit SHA');
   });
 
   it('falls back to the full PR contribution when the reviewed base cannot be located', () => {
