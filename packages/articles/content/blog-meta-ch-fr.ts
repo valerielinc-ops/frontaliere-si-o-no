@@ -6665,6 +6665,12 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.tubercolosi-svizzera-aumento-2025.title': 'Tuberculose en Suisse : 544 cas en 2025, maximum depuis 2018',
     'blog.article.tubercolosi-svizzera-aumento-2025.excerpt': 'En 2025, la Suisse a enregistré 544 cas de tuberculose, soit 112 de plus qu\'en 2024 ; le taux est passé de 4,8 à 6,0 pour 100\'000 habitants, son niveau le plus élevé depuis 2018.',
     'blog.article.tubercolosi-svizzera-aumento-2025.imageAlt': 'Travailleur de la santé suisse analysant les résultats des tests de tuberculose dans une clinique avec vue sur les Alpes',
+    'blog.article.indennita-maltempo-sei-mesi.title': 'Intermédiaires : indemnités pour intempéries après six mois',
+    'blog.article.indennita-maltempo-sei-mesi.excerpt': 'Le Conseil national approuve la protection des intérimaires employés depuis au moins six mois dans les relations continues contre les interruptions dues aux intempéries.',
+    'blog.article.indennita-maltempo-sei-mesi.imageAlt': 'Salle parlementaire suisse lors d\'un débat sur la protection des travailleurs temporaires.',
+    'blog.article.ubs-capitale-90-bns.title': 'UBS, la BNS approuve les exigences de fonds propres à 90 %',
+    'blog.article.ubs-capitale-90-bns.excerpt': 'La BNS approuve la décision du Conseil des Etats : les filiales étrangères d\'UBS devront être couvertes à 90 % par du capital CET1.',
+    'blog.article.ubs-capitale-90-bns.imageAlt': 'Bâtiment bancaire suisse avec drapeau national dans une scène financière',
 };
 
 export default blogMetaChFr;
