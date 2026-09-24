@@ -1,19 +1,23 @@
 name: "Setup Codex Luna Max article lane"
 description: >-
   Installs the pinned Codex CLI and exposes a private broker for the
-  gpt-5.6-luna subscription lane. The historical Remote Config flag remains
-  the kill-switch for this optional article lane, while the provider itself is
-  enabled only after the broker is ready. CODEX_AUTH_JSON is consumed only by
-  the bootstrap step, kept in broker memory, and never exported to the job.
+  gpt-5.6-luna subscription lane. The lane's only switch is
+  ENABLE_CODEX_ARTICLE_FALLBACK (Remote Config via load-rc-env.mjs): unset
+  means ON, only an explicit 0/false/no/off turns it off, and the provider is
+  usable only after the broker is ready. ENABLE_HAIKU_ARTICLE_FALLBACK has no
+  effect any more (Haiku is disabled in code since 2026-09-24): it used to be
+  the fallback of this gate, so turning Haiku off would have turned Codex off.
+  CODEX_AUTH_JSON is consumed only by the bootstrap step, kept in broker
+  memory, and never exported to the job.
   CORRECTED CLAIM (was wrong in this file since generate-article.yml run
   29676088799, propagated into setup-omniroute/action.yml via PR #4816):
   env.* is NOT immune to the null/unset->0 coercion previously blamed only
   on vars.* — `if: env.X != '0'` also evaluates FALSE when env.X was never
-  set anywhere (confirmed live: this repo's RC value for
-  ENABLE_HAIKU_ARTICLE_FALLBACK happens to be the explicit string 'true',
-  so this action's gate has never actually exercised the true-unset path in
-  production). Fixed below by resolving the default in bash — where
-  `${ENABLE_HAIKU_ARTICLE_FALLBACK:-1}` unambiguously treats unset as
+  set anywhere (confirmed live: this repo's RC value for the historical
+  ENABLE_HAIKU_ARTICLE_FALLBACK gate happened to be the explicit string
+  'true', so the gate never exercised the true-unset path in production).
+  Fixed below by resolving the default in bash — where
+  `${ENABLE_CODEX_ARTICLE_FALLBACK:-1}` unambiguously treats unset as
   `1` — before the `if:` expression ever sees it, same pattern as
   setup-omniroute/action.yml and translate-pending.yml's
   TRANSLATE_ARGOS_FIRST_DISABLE (`!= '1'`) gate.
@@ -37,10 +41,16 @@ runs:
     # bash instead of GitHub Actions' `if:` expression language, which
     # evaluates a true-unset env.X as equal to '0' rather than as ''. See
     # the CORRECTED CLAIM note above.
+    # Only the Codex switch counts; ENABLE_HAIKU_ARTICLE_FALLBACK is ignored.
+    # Same normalization as isCodexArticleLaneSwitchOn() in ai-models.mjs.
     - name: Resolve Codex Luna Max article gate
       shell: bash
       run: |
-        resolved_gate="${ENABLE_CODEX_ARTICLE_FALLBACK:-${ENABLE_HAIKU_ARTICLE_FALLBACK:-1}}"
+        codex_switch="${ENABLE_CODEX_ARTICLE_FALLBACK:-1}"
+        case "${codex_switch,,}" in
+          0|false|no|off) resolved_gate=0 ;;
+          *) resolved_gate=1 ;;
+        esac
         echo "CODEX_ARTICLE_LANE_GATE=$resolved_gate" >> "$GITHUB_ENV"
         echo "ENABLE_CODEX_ARTICLE_FALLBACK=$resolved_gate" >> "$GITHUB_ENV"
 
@@ -595,7 +605,7 @@ runs:
         CODEX_CLI_BIN: ${{ steps.install_codex_cli.outputs.codex_bin }}
       run: |
         echo "ENABLE_CODEX_ARTICLE_FALLBACK=${ENABLE_CODEX_ARTICLE_FALLBACK:-<unset>} (resolved provider flag)"
-        echo "ENABLE_HAIKU_ARTICLE_FALLBACK=${ENABLE_HAIKU_ARTICLE_FALLBACK:-<unset>} (legacy RC value)"
+        echo "ENABLE_HAIKU_ARTICLE_FALLBACK=${ENABLE_HAIKU_ARTICLE_FALLBACK:-<unset>} (ignored: Haiku is disabled and no longer gates Codex)"
         echo "CODEX_ARTICLE_LANE_GATE=${CODEX_ARTICLE_LANE_GATE:-<unset>} (resolved gate)"
         if [ -n "$CODEX_CLI_BIN" ]; then
           echo "codex CLI: attested at $CODEX_CLI_BIN (version 0.153.4)"

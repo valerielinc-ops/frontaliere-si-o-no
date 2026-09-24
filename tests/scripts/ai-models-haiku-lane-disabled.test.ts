@@ -77,6 +77,19 @@ describe('lane Claude Haiku spenta nel codice, Codex unica lane CLI', () => {
     expect(isModelAvailable(CODEX)).toBe(true);
   });
 
+  it('il flag Haiku non governa Codex: conta solo ENABLE_CODEX_ARTICLE_FALLBACK', () => {
+    process.env.ENABLE_HAIKU_ARTICLE_FALLBACK = '0';
+    delete process.env.ENABLE_CODEX_ARTICLE_FALLBACK;
+    expect(isModelAvailable(CODEX), 'interruttore Codex non impostato: la lane resta accesa').toBe(true);
+    for (const off of ['0', 'false', 'OFF', 'no']) {
+      process.env.ENABLE_CODEX_ARTICLE_FALLBACK = off;
+      expect(isModelAvailable(CODEX), `ENABLE_CODEX_ARTICLE_FALLBACK=${off}`).toBe(false);
+    }
+    process.env.ENABLE_CODEX_ARTICLE_FALLBACK = '1';
+    delete process.env.CODEX_AUTH_BROKER_SOCKET;
+    expect(isModelAvailable(CODEX), 'senza il socket del broker Codex non e\' disponibile').toBe(false);
+  });
+
   it('nessuna preferenza lo riporta in testa', () => {
     expect(getPreferredModel({ chain: [HAIKU, RIVALE], prefer: [HAIKU] })).toBe(RIVALE);
     expect(getPreferredModel({ chain: [RIVALE, HAIKU], prefer: HAIKU })).toBe(RIVALE);

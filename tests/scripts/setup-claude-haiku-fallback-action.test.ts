@@ -79,7 +79,8 @@ describe('Codex Luna Max article lane setup action', () => {
     const gate = steps.find((step) => step.name === 'Resolve Codex Luna Max article gate')?.run ?? '';
     const resolver = steps.find((step) => step.id === 'trusted_toolchain')?.run ?? '';
     const install = steps.find((step) => step.id === 'install_codex_cli')?.run ?? '';
-    expect(gate).toContain('resolved_gate="${ENABLE_CODEX_ARTICLE_FALLBACK:-${ENABLE_HAIKU_ARTICLE_FALLBACK:-1}}"');
+    expect(gate).toContain('codex_switch="${ENABLE_CODEX_ARTICLE_FALLBACK:-1}"');
+    expect(gate).not.toContain('ENABLE_HAIKU_ARTICLE_FALLBACK');
     expect(gate).toContain('ENABLE_CODEX_ARTICLE_FALLBACK=$resolved_gate');
     expect(gate).not.toContain('ENABLE_CODEX_ARTICLE_FALLBACK=0');
     expect(resolver).toContain('report_runtime_candidates()');
@@ -108,6 +109,52 @@ describe('Codex Luna Max article lane setup action', () => {
     expect(action).toContain('codex-luna-max-codex-cli.XXXXXX');
     expect(action).not.toContain('CODEX_AUTH_BROKER_SOCKET=');
     expect(action).not.toContain('CODEX_AUTH_FILE=');
+  });
+
+  // Fino al 2026-09-24 il gate ricadeva su ENABLE_HAIKU_ARTICLE_FALLBACK: spegnere
+  // Haiku da Remote Config avrebbe spento anche Codex. Il test ESEGUE il bash
+  // del gate: conta solo ENABLE_CODEX_ARTICLE_FALLBACK, acceso se non impostato.
+  describe('Codex lane gate', () => {
+    const gateScript = () => {
+      const document = YAML.parse(fs.readFileSync(actionPath, 'utf8')) as {
+        runs?: { steps?: Array<{ name?: string; run?: string }> };
+      };
+      return document.runs?.steps?.find((step) => step.name === 'Resolve Codex Luna Max article gate')?.run ?? '';
+    };
+    const runGate = (env: Record<string, string>) => {
+      const root = fs.mkdtempSync(path.join(os.tmpdir(), 'codex-lane-gate-'));
+      try {
+        const githubEnv = path.join(root, 'github-env');
+        fs.writeFileSync(githubEnv, '');
+        const result = spawnSync('/bin/bash', ['--noprofile', '--norc', '-e', '-o', 'pipefail', '-c', gateScript()], {
+          encoding: 'utf8',
+          env: { PATH: '/usr/bin:/bin', GITHUB_ENV: githubEnv, ...env },
+        });
+        expect(result.status, result.stderr).toBe(0);
+        return Object.fromEntries(
+          fs.readFileSync(githubEnv, 'utf8').trim().split('\n').map((line) => line.split('=') as [string, string]),
+        );
+      } finally {
+        fs.rmSync(root, { recursive: true, force: true });
+      }
+    };
+
+    it('ignores ENABLE_HAIKU_ARTICLE_FALLBACK entirely', () => {
+      for (const haiku of ['0', 'false', 'true', '']) {
+        const env = runGate({ ENABLE_HAIKU_ARTICLE_FALLBACK: haiku });
+        expect(env.CODEX_ARTICLE_LANE_GATE, `Haiku=${JSON.stringify(haiku)}`).toBe('1');
+        expect(env.ENABLE_CODEX_ARTICLE_FALLBACK).toBe('1');
+      }
+    });
+
+    it('turns the lane off only on an explicit Codex off value', () => {
+      for (const off of ['0', 'false', 'Off', 'no']) {
+        const env = runGate({ ENABLE_CODEX_ARTICLE_FALLBACK: off, ENABLE_HAIKU_ARTICLE_FALLBACK: 'true' });
+        expect(env.CODEX_ARTICLE_LANE_GATE, `ENABLE_CODEX_ARTICLE_FALLBACK=${off}`).toBe('0');
+        expect(env.ENABLE_CODEX_ARTICLE_FALLBACK).toBe('0');
+      }
+      expect(runGate({ ENABLE_CODEX_ARTICLE_FALLBACK: 'true' }).CODEX_ARTICLE_LANE_GATE).toBe('1');
+    });
   });
 
   describe.skipIf(process.platform !== 'linux')('broker step with the checksum-pinned Node runtime', () => {

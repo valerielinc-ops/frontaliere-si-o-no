@@ -938,10 +938,10 @@ function getOmniRouteApiKey() { return (process.env.OMNIROUTE_API_KEY || 'omniro
 // ── Claude CLI Haiku fallback: SPENTO nel codice ──
 // Decisione del proprietario (2026-09-24, «Disattiva haiku! Voglio solo
 // codex»): la lane Claude Haiku e' spenta qui, non solo dal kill-switch di
-// Remote Config. ENABLE_HAIKU_ARTICLE_FALLBACK resta caricato da load-rc-env.mjs
-// perche' e' anche il gate storico della lane Codex (setup-claude-haiku-fallback
-// ne deriva CODEX_ARTICLE_LANE_GATE), ma non rende piu' disponibile
-// `claude-cli/haiku`: con questa funzione a false getApiKeyForProvider(CLAUDE_CLI)
+// Remote Config. ENABLE_HAIKU_ARTICLE_FALLBACK non ha piu' alcun effetto in
+// produzione: non rende disponibile `claude-cli/haiku` e non apre ne' chiude
+// Codex, che ha il suo interruttore (isCodexArticleLaneSwitchOn qui sotto).
+// Con questa funzione a false getApiKeyForProvider(CLAUDE_CLI)
 // e' vuota, quindi isModelAvailable e la cascata di callLLM lo saltano anche se
 // arriva da `prefer`, `AI_MODELS_PREFER`, `model` o `chain`. Stessa regola del
 // gemello in frontaliere-articles (generator/scripts/lib/ai-models.mjs), cosi'
@@ -961,8 +961,19 @@ function isClaudeCliFallbackEnabled() {
   return _claudeCliLaneEnabledForTests
     && /^(1|true|yes|on)$/i.test((process.env.ENABLE_HAIKU_ARTICLE_FALLBACK || '').trim());
 }
+// L'interruttore della lane Codex Luna Max e' SOLO ENABLE_CODEX_ARTICLE_FALLBACK
+// (mappato in load-rc-env.mjs, acceso quando non e' impostato: lo spegne solo
+// un valore esplicito 0/false/no/off), piu' il socket del broker che la setup
+// action pubblica quando CODEX_AUTH_JSON c'e' e il broker e' pronto. Fino al
+// 2026-09-24 il gate dell'action ricadeva su ENABLE_HAIKU_ARTICLE_FALLBACK:
+// spegnere Haiku da Remote Config avrebbe spento anche Codex. Stessa regola del
+// bash del gate in setup-claude-haiku-fallback/action.yml e del gemello corpus.
+const CODEX_ARTICLE_LANE_OFF_RE = /^(0|false|no|off)$/i;
+function isCodexArticleLaneSwitchOn() {
+  return !CODEX_ARTICLE_LANE_OFF_RE.test((process.env.ENABLE_CODEX_ARTICLE_FALLBACK || '').trim());
+}
 function isCodexCliPrimaryEnabled() {
-  return /^(1|true|yes|on)$/i.test((process.env.ENABLE_CODEX_ARTICLE_FALLBACK || '').trim())
+  return isCodexArticleLaneSwitchOn()
     && !!String(process.env.CODEX_AUTH_BROKER_SOCKET || '').trim();
 }
 function hasClaudeCodeOauthToken() {

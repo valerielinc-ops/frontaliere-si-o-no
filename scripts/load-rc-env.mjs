@@ -335,13 +335,18 @@ export const RC_TO_ENV = {
   // by default — code falls back to the built-in 0.86 baseline. Lets a single
   // test window relax the threshold without a code change or redeploy.
   NEAR_DUP_COSINE:                ['NEAR_DUP_COSINE'],
-  // Historical gate of the article CLI lane. It still opens the Codex Luna Max
-  // lane (setup-claude-haiku-fallback/action.yml resolves
-  // CODEX_ARTICLE_LANE_GATE from it), but since 2026-09-24 it no longer
-  // enables the `claude` CLI: the owner disabled the Haiku lane in code
-  // ("only Codex"), and isClaudeCliFallbackEnabled() in ai-models.mjs is
-  // hard-wired to false.
+  // Historical gate of the article CLI lane. Since 2026-09-24 it has NO
+  // effect: the owner disabled the Haiku lane in code ("only Codex"),
+  // isClaudeCliFallbackEnabled() in ai-models.mjs is hard-wired to false, and
+  // the Codex lane has its own switch (ENABLE_CODEX_ARTICLE_FALLBACK below).
+  // Still mapped so an existing RC value keeps loading without a warning.
   ENABLE_HAIKU_ARTICLE_FALLBACK:  ['ENABLE_HAIKU_ARTICLE_FALLBACK'],
+  // The Codex Luna Max article lane's own switch (setup-claude-haiku-fallback
+  // action + isCodexCliPrimaryEnabled in ai-models.mjs). Unset = ON; only an
+  // explicit 0/false/no/off turns the lane off. Since 2026-09-24 it replaces
+  // ENABLE_HAIKU_ARTICLE_FALLBACK as the Codex gate, so turning Haiku off can
+  // no longer turn Codex off.
+  ENABLE_CODEX_ARTICLE_FALLBACK:  ['ENABLE_CODEX_ARTICLE_FALLBACK'],
 
   // JSON array of {provider, name, apiKey} — decrypted OmniRoute provider
   // connections synced from a local ~/.omniroute/storage.sqlite via
