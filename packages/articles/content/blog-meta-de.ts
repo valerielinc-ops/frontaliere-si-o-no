@@ -11940,6 +11940,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.decisione-bns-cambio-franco-euro.title': 'SNB-Beschluss: Franken sinken, Euro steigen',
     'blog.article.decisione-bns-cambio-franco-euro.excerpt': 'Die SNB hält den Referenzzinssatz bei 0% und bringt den Euro über 0,94 Franken und den Dollar auf Jahreshoch.',
     'blog.article.decisione-bns-cambio-franco-euro.imageAlt': 'Panoramablick auf Lugano, Finanzzentrum des Kantons Tessin',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.title': 'Cgil bittet das Piemont um eine Krankenversicherungsgebühr',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.excerpt': 'Die Gesundheitsabgabe ist seit zweieinhalb Jahren ohne Durchführungsdekrete in Kraft; die Erstattungen 2026 sind von 89 auf 108 Millionen Euro gestiegen und der Vorsitz der Regio Insubrica ist auf das Piemont übergegangen, mit einem interministeriellen Tisch, der für Anfang November geplant ist.',
+    'blog.article.cgil-regio-insubrica-incontro-novembre.imageAlt': 'Grenzgänger, der nahe dem Luganer See spaziert, mit den Alpen im Hintergrund',
 };
 
 export default blogMetaDe;
