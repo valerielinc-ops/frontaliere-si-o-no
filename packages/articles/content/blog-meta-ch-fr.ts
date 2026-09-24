@@ -6674,6 +6674,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.mozione-costi-manifestazioni-stati.title': 'Motion États : les organisateurs paient les frais de sécurité',
     'blog.article.mozione-costi-manifestazioni-stati.excerpt': 'Les Etats approuvent la motion 24-18 avec 3 abstentions : le Conseil fédéral devra préparer une base légale pour faire payer aux organisateurs les frais d\'intervention et de sécurité des manifestations, après les émeutes du 11 octobre à Berne.',
     'blog.article.mozione-costi-manifestazioni-stati.imageAlt': 'Manifestation suisse avec les forces de l\'ordre au premier plan',
+    'blog.article.bns-tasso-guida-zero-2026.title': 'La BNS laisse un taux directeur à 0% et relève ses estimations de PIB 2026',
+    'blog.article.bns-tasso-guida-zero-2026.excerpt': 'Le taux directeur BNS reste à 0% à partir de juin 2025 ; inflation août à 0,8% ; PIB 2026 attendu entre 1,5% et 2%.',
+    'blog.article.bns-tasso-guida-zero-2026.imageAlt': 'Vue sur le lac de Lugano avec montagnes et bâtiments financiers en arrière-plan',
 };
 
 export default blogMetaChFr;

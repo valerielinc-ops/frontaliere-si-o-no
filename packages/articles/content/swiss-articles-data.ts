@@ -19994,6 +19994,15 @@ const RAW_SWISS_ARTICLES: Article[] = [
     authorSlug: 'redazione',
     authorName: 'Redazione Frontaliere Ticino',
    },
+   {
+    id: 'bns-tasso-guida-zero-2026',
+    category: 'novita',
+    date: '2026-09-24T22:00:35.813Z',
+    image: '/images/blog/bns-tasso-guida-zero-2026.webp',
+    hasCalculator: true,
+    authorSlug: 'redazione',
+    authorName: 'Redazione Frontaliere Ticino',
+   },
 ];
 
 // Full blog hero images are served from jsDelivr (CDN) and deleted from the

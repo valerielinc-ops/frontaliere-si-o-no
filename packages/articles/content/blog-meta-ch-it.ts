@@ -6674,6 +6674,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.mozione-costi-manifestazioni-stati.title': 'Mozione Stati: gli organizzatori pagano i costi sicurezza',
     'blog.article.mozione-costi-manifestazioni-stati.excerpt': 'Gli Stati approvano la mozione 24-18 con 3 astensioni: il Consiglio federale dovrà preparare una base legale per far pagare agli organizzatori i costi di intervento e sicurezza delle manifestazioni, dopo i disordini dell\'11 ottobre a Berna.',
     'blog.article.mozione-costi-manifestazioni-stati.imageAlt': 'Manifestazione svizzera con forze dell\'ordine in primo piano',
+    'blog.article.bns-tasso-guida-zero-2026.title': 'BNS lascia tasso guida allo 0% e rialza stime PIL 2026',
+    'blog.article.bns-tasso-guida-zero-2026.excerpt': 'Il tasso guida BNS resta allo 0% da giugno 2025; inflazione agosto allo 0,8%; PIL 2026 previsto tra 1,5% e 2%.',
+    'blog.article.bns-tasso-guida-zero-2026.imageAlt': 'Vista del lago di Lugano con montagne e edifici finanziari sullo sfondo',
 };
 
 export default blogMetaChIt;

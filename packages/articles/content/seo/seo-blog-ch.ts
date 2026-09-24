@@ -86522,6 +86522,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-bns-tasso-guida-zero-2026': {
+    title: 'BNS lascia tasso guida allo 0% e rialza stime PIL 2026',
+    description: 'La Banca nazionale svizzera mantiene il tasso guida allo 0% da giugno 2025. Inflazione agosto allo 0,8%; PIL 2026 previsto tra 1,5% e 2%, PIL 2027 intorno',
+    keywords: 'frontalieri, ticino, svizzera, italia, lascia, tasso, allo, rialza',
+    ogTitle: 'BNS lascia tasso guida allo 0% e rialza stime PIL 2026',
+    ogDescription: 'La decisione della BNS di lasciare il tasso guida allo 0% influisce sull\'inflazione, prevista allo 0,8% ad agosto e con ulteriori variazioni nei prossimi anni, e sulle stime di crescita del PIL svizzero, ora riviste al rialzo per il 2026 tra l\'1,5%',
+    canonicalPath: '/articoli-svizzera/bns-tasso-guida-zero-2026/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "BNS lascia tasso guida allo 0% e rialza stime PIL 2026",
+      "description": "La Banca nazionale svizzera mantiene il tasso guida allo 0% da giugno 2025. Inflazione agosto allo 0,8%; PIL 2026 previsto tra 1,5% e 2%, PIL 2027 intorno",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/bns-tasso-guida-zero-2026.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Vista del lago di Lugano con montagne e edifici finanziari sullo sfondo"
+      },
+      "datePublished": "2026-09-24T22:00:35+00:00",
+      "dateModified": "2026-09-24T22:00:35+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/bns-tasso-guida-zero-2026/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;
