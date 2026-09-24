@@ -151,7 +151,7 @@ jobs:
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
-      - name: Recover dropped jobs from history into expired slices (checkpointed batches)
+      - name: Recover dropped jobs and repair active firstSeenAt metadata (checkpointed batches)
         id: backfill
         if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
         env:
@@ -195,8 +195,8 @@ jobs:
           checkpoint_active=0
           checkpoint_failed=0
 
-          has_dirty_expired_slices() {
-            git status --porcelain -- data/jobs/expired/by-crawler | rg -q '.'
+          has_dirty_slices() {
+            git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler | rg -q '.'
           }
 
           checkpoint() {
@@ -242,7 +242,7 @@ jobs:
             # other path that returns success without a push) must not make us
             # reset the batch counter and lose the workspace-only changes.
             checkpoint_dirty=0
-            if has_dirty_expired_slices; then
+            if has_dirty_slices; then
               checkpoint_dirty=1
             fi
             if rg -q '^has_changes=true$' "$checkpoint_output"; then
@@ -274,7 +274,7 @@ jobs:
             # completed atomic slice still dirty in the workspace before the
             # runner disappears. A failed push remains a real failure; the next
             # invocation retries the same bounded batch.
-            if [ "$status" -ne 0 ] && [ "$checkpoint_failed" -eq 0 ] && has_dirty_expired_slices; then
+            if [ "$status" -ne 0 ] && [ "$checkpoint_failed" -eq 0 ] && has_dirty_slices; then
               echo '⚠️ Backfill failed; attempting one last durable slice checkpoint.'
               if ! checkpoint; then
                 echo '::error::Unable to persist the partial backfill checkpoint.'

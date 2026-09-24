@@ -225,7 +225,47 @@ export function createFirstSeenMetadataIndex() {
     return { enrichedEntries, enrichedFields };
   }
 
-  return { add, enrich };
+  /**
+   * Repair active crawler entries without letting a shared historical slug
+   * replace their current source identity. A crawler can publish two open
+   * vacancies with the same title at different locations; the URL identity
+   * must win whenever Git history contains that exact URL.
+   */
+  function enrichActive(entries) {
+    let enrichedEntries = 0;
+    let enrichedFields = 0;
+    for (const entry of Array.isArray(entries) ? entries : []) {
+      if (!entry || typeof entry !== 'object') continue;
+      const identity = entry.sourceIdentity || buildStableJobIdentity(entry);
+      const exactCandidates = identity
+        ? (byIdentity.get(identity) || []).filter((candidate) => samePostingTitle(entry, candidate))
+        : [];
+      const candidates = exactCandidates.length > 0 ? exactCandidates : findMatches(entry);
+      if (candidates.length === 0) continue;
+
+      const primary = candidates
+        .filter((candidate) => usableTimestamp(candidate.firstSeenAt))
+        .sort((a, b) => Date.parse(a.firstSeenAt) - Date.parse(b.firstSeenAt))[0];
+      let changed = false;
+
+      if (identity && entry.sourceIdentity !== identity) {
+        entry.sourceIdentity = identity;
+        enrichedFields++;
+        changed = true;
+      }
+      if (primary?.firstSeenAt && usableTimestamp(primary.firstSeenAt)
+        && (!usableTimestamp(entry.firstSeenAt)
+          || Date.parse(primary.firstSeenAt) < Date.parse(entry.firstSeenAt))) {
+        entry.firstSeenAt = primary.firstSeenAt;
+        enrichedFields++;
+        changed = true;
+      }
+      if (changed) enrichedEntries++;
+    }
+    return { enrichedEntries, enrichedFields };
+  }
+
+  return { add, enrich, enrichActive };
 }
 
 /**
