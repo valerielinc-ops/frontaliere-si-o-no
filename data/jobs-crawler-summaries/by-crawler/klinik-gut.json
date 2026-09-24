@@ -1,7 +1,7 @@
 {
   "key": "klinik-gut",
   "label": "Klinik Gut AG",
-  "generatedAt": "2026-09-19T23:04:17.084Z",
+  "generatedAt": "2026-09-23T23:43:13.199Z",
   "total": 7,
   "discovered": null,
   "parsed": 6,
@@ -9,16 +9,18 @@
   "written": 7,
   "authoritativeEmptySnapshot": false,
   "newCount": 0,
-  "updatedCount": 1,
+  "updatedCount": 0,
   "removedCount": 0,
-  "unchangedCount": 0,
-  "durationMs": 4303,
-  "avgDurationMs": 4303,
+  "unchangedCount": 1,
+  "durationMs": 3016,
+  "avgDurationMs": 3016,
   "durationHistory": [
-    4303
+    3016
   ],
   "newJobs": [],
-  "updatedJobs": [
+  "updatedJobs": [],
+  "removedJobs": [],
+  "unchangedJobs": [
     {
       "id": "klinik-gut-3196-3b9699224a0c",
       "slug": "assistente-ambulatoriale-medico-60-80-stagione-invernale-2026-27-klinik-gut-ag-st-moritz",
@@ -50,7 +52,7 @@
       "salaryMin": 81500,
       "salaryMax": 114000,
       "salarySource": "estimated",
-      "crawlerMissStreak": 1,
+      "crawlerMissStreak": 2,
       "_qualityScore": 90,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -59,7 +61,5 @@
         "completeness": 22
       }
     }
-  ],
-  "removedJobs": [],
-  "unchangedJobs": []
+  ]
 }
