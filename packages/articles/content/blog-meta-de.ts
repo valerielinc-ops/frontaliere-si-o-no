@@ -11943,6 +11943,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.cgil-regio-insubrica-incontro-novembre.title': 'Cgil bittet das Piemont um eine Krankenversicherungsgebühr',
     'blog.article.cgil-regio-insubrica-incontro-novembre.excerpt': 'Die Gesundheitsabgabe ist seit zweieinhalb Jahren ohne Durchführungsdekrete in Kraft; die Erstattungen 2026 sind von 89 auf 108 Millionen Euro gestiegen und der Vorsitz der Regio Insubrica ist auf das Piemont übergegangen, mit einem interministeriellen Tisch, der für Anfang November geplant ist.',
     'blog.article.cgil-regio-insubrica-incontro-novembre.imageAlt': 'Grenzgänger, der nahe dem Luganer See spaziert, mit den Alpen im Hintergrund',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.title': 'Öffentliche Rente Schweiz: Keine Besteuerung in Italien',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.excerpt': 'Antwort auf Anfrage Nr. 177/2026 der Agentur der Einnahmen: Öffentliche Rente VBS, die von der Cassa PUBLICA ohne Steuern in Italien für Personen mit doppelter italienisch-schweizerischer Staatsbürgerschaft gezahlt wird.',
+    'blog.article.pensione-pubblica-svizzera-non-tassata-italia.imageAlt': 'Blick auf den Luganer See mit Bergen im Hintergrund, das grenzüberschreitende Finanzleben in der Tessin darstellend',
 };
 
 export default blogMetaDe;

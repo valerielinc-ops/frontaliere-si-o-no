@@ -1,10 +1,18 @@
-import { describe, it, expect } from 'vitest';
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { describe, it, expect, afterEach, vi } from 'vitest';
 import {
   SIEMENS_HEALTHINEERS_KEY,
   SIEMENS_HEALTHINEERS_COMPANY_NAME,
+  fetchAllSiemensHealthineersJobs,
   isSiemensHealthineersJob,
   isTrustedDomain,
 } from '../scripts/lib/siemens-healthineers-job-parser.mjs';
+import {
+  authoritativeEmptySnapshotValidator,
+  isAuthoritativeEmptySnapshot,
+} from '../scripts/lib/authoritative-empty-snapshot.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
 describe('Siemens Healthineers crawler parser', () => {
@@ -125,5 +133,64 @@ describe('Siemens Healthineers crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(validJob.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+/**
+ * Issue #9651: the live Swiss facet holds only reqs cross-posted to a Swiss
+ * site whose primary workplace is abroad. The parser must turn that into a
+ * source-proven zero and the runner must accept it; a bare `[]` must still be
+ * refused, so a blocked or broken run keeps the previous slice.
+ */
+describe('Siemens Healthineers — foreign-only Swiss board (#9651)', () => {
+  const ORIGINAL_FETCH = global.fetch;
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  it('publishes a proven zero when every Swiss-faceted req is worked abroad', async () => {
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const u = String(url);
+      if (u.includes('onehealthineers.wd3.myworkdayjobs.com') && u.endsWith('/jobs') && init?.method === 'POST') {
+        return new Response(JSON.stringify({
+          total: 1,
+          jobPostings: [{
+            title: 'Cross-posted role',
+            externalPath: '/job/AAA-BO/Cross-posted-role_R-1-1',
+            locationsText: '11 Locations',
+            postedOn: 'Posted 3 Days Ago',
+            bulletFields: ['R-1'],
+          }],
+        }), { status: 200 });
+      }
+      if (u.endsWith('/job/AAA-BO/Cross-posted-role_R-1-1')) {
+        return new Response(JSON.stringify({
+          jobPostingInfo: {
+            location: 'AAA BO',
+            additionalLocations: ['ZZZ T'],
+            jobRequisitionLocation: { descriptor: 'AAA BO', country: { descriptor: 'United Kingdom', alpha2Code: 'GB' } },
+          },
+        }), { status: 200 });
+      }
+      return new Response('', { status: 404 });
+    });
+    const jobs = await fetchAllSiemensHealthineersJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+    expect(authoritativeEmptySnapshotValidator(SIEMENS_HEALTHINEERS_COMPANY_NAME)(jobs)).toBe(true);
+  });
+
+  it('keeps a bare empty batch fail-closed', () => {
+    expect(() => authoritativeEmptySnapshotValidator(SIEMENS_HEALTHINEERS_COMPANY_NAME)([]))
+      .toThrow(/not a proven authoritative empty state/);
+  });
+
+  it('the runner asks for the proof, empty-only', () => {
+    const root = path.resolve(path.dirname(fileURLToPath(import.meta.url)), '..');
+    const runner = fs.readFileSync(path.join(root, 'scripts/update-siemens-healthineers-jobs.mjs'), 'utf8');
+    expect(runner).toMatch(/validateAuthoritativeSnapshot:\s*authoritativeEmptySnapshotValidator\(SIEMENS_HEALTHINEERS_COMPANY_NAME\)/);
+    expect(runner).toMatch(/allowAuthoritativeEmptySnapshot:\s*true/);
+    expect(runner).toMatch(/authoritativeSnapshotScope:\s*'empty-only'/);
   });
 });
