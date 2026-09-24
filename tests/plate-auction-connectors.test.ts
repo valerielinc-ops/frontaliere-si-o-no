@@ -403,6 +403,30 @@ describe('eCari explicit empty catalogue', () => {
     expect(isEcariCatalogueExplicitlyEmpty(unlabelledFixedPriceTab)).toBe(false);
   });
 
+  it('never calls a truncated page empty when a tab the connector reads is missing', () => {
+    // Review #9715: a response cut after `tabContent1` still carries the
+    // auction tab's own empty label. Validating only the tabs that survived
+    // accepted it as an authoritative empty catalogue, so live rows in the
+    // lost tabs would be closed as absent instead of failing `zero_rows`.
+    const truncated = ECARI_NO_RUNNING_AUCTION.slice(0, ECARI_NO_RUNNING_AUCTION.indexOf('<div id="tabContent2"'));
+    expect(truncated).toContain('Keine laufende Versteigerung');
+    expect(isEcariCatalogueExplicitlyEmpty(truncated)).toBe(false);
+    for (const sourceKey of ['nw', 'ow']) {
+      expect(isExplicitlyEmptyCatalogue(parseExpandedEcari(sourceKey, truncated)), sourceKey).toBe(false);
+    }
+    for (const rows of [parseGrAuctionRows(truncated), parseSgAuctionRows(truncated), parseSzAuctionRows(truncated), parseTiAuctionRows(truncated)]) {
+      expect(isExplicitlyEmptyCatalogue(rows)).toBe(false);
+    }
+    // Only the last tab lost: still not a complete observation.
+    const withoutWanted = ECARI_NO_RUNNING_AUCTION.replace(/<div id="tabContent4"[\s\S]*$/, '');
+    expect(isEcariCatalogueExplicitlyEmpty(withoutWanted)).toBe(false);
+    // A connector that reads fewer tabs (VS: 1, 2, 4) is judged on its own set.
+    const withoutFixedPrice = ECARI_NO_RUNNING_AUCTION.replace(/<div id="tabContent3"[\s\S]*?(?=<div id="tabContent4")/, '');
+    expect(isEcariCatalogueExplicitlyEmpty(withoutFixedPrice, ['tabContent1', 'tabContent2', 'tabContent4'])).toBe(true);
+    expect(isEcariCatalogueExplicitlyEmpty(withoutFixedPrice)).toBe(false);
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION, [])).toBe(false);
+  });
+
   it('never calls a page empty when it holds rows the parser cannot read', () => {
     // A markup change that breaks the row parser while one section still
     // shows the empty label must not become "nothing is listed".

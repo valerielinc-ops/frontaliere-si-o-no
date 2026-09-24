@@ -3229,7 +3229,10 @@ jobs:
       # fires `workflow_run` downstream, so deploy-publish.yml was never started
       # for a re-armed build: it went green and its artifact was never deployed
       # (e.g. runs 35896695642, 35956754182). Dispatch with the App token so the
-      # re-armed build is published like any push build.
+      # re-armed build is published like any push build. The App token is used
+      # only when its installation grants `actions: write` (APP_TOKEN_ACTIONS,
+      # read from the minted token's own permissions): a token that can mint
+      # but not dispatch would 403 here and silently leave the build unpublished.
       - name: Mint GitHub App token (so the re-armed run triggers deploy-publish)
         continue-on-error: true
         env:
@@ -3244,7 +3247,7 @@ jobs:
         # pages-publish-lag-watchdog.yml remains the backstop either way.
         continue-on-error: true
         env:
-          GH_TOKEN: ${{ env.APP_TOKEN || secrets.GITHUB_TOKEN }}
+          GH_TOKEN: ${{ env.APP_TOKEN_ACTIONS == 'true' && env.APP_TOKEN || secrets.GITHUB_TOKEN }}
           # At most this many build attempts per commit. The caller's own run
           # counts, so the default of 2 means exactly ONE automatic retry: a
           # commit whose build is genuinely broken is retried once and then left

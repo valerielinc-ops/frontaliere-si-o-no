@@ -31,7 +31,7 @@ export function parseGrAuctionRows(html, { fetchedAt = new Date().toISOString() 
       idPrefix,
       detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(GR_AUCTION_URL, sourceRecordId),
     },
-  )), html);
+  )), html, tabs.map(([tab]) => tab));
 }
 
 export async function fetchGrPlateAuctions() {

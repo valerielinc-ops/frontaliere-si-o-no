@@ -49,7 +49,7 @@ export async function fetchVsPlateAuctions() {
   const fetchedAt = new Date().toISOString();
   return withEcariEmptyState(VS_TAB_SECTIONS.flatMap(({ tabContentId, auctionStatus, listingType, idPrefix }) =>
     parseVsAuctionRows(extractTabSection(html, tabContentId), { fetchedAt, auctionStatus, listingType, idPrefix }),
-  ), html);
+  ), html, VS_TAB_SECTIONS.map(({ tabContentId }) => tabContentId));
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {

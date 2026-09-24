@@ -84,13 +84,18 @@ const ECARI_EMPTY_TAB_RE = /Keine\s+laufende\s+Versteigerung|Kontrollschilder\s+
  * the others: NW and OW served exactly that on 2026-09-24, after all 21 rows
  * of each had ended on 2026-09-21, and were reported `zero_rows` on every run.
  *
- * Fail-closed on purpose: every tab on the page must carry its empty label
- * and no table row may hold anything else. A page whose real rows the parser
- * no longer understands, or a shell without the labels (a truncated or error
- * response), is never mistaken for an empty catalogue.
+ * Fail-closed on purpose: every tab the connector reads (`expectedTabIds`)
+ * must be on the page, every tab on the page must carry its empty label and
+ * no table row may hold anything else. A page whose real rows the parser no
+ * longer understands, a shell without the labels, or a truncated response
+ * that kept only an empty first tab is never mistaken for an empty catalogue.
  */
-export function isEcariCatalogueExplicitlyEmpty(html) {
-  const tabs = ECARI_TAB_IDS.map((tabId) => extractEcariTabSection(html, tabId)).filter(Boolean);
+export function isEcariCatalogueExplicitlyEmpty(html, expectedTabIds = ECARI_TAB_IDS) {
+  if (!Array.isArray(expectedTabIds) || expectedTabIds.length === 0) return false;
+  if (expectedTabIds.some((tabId) => !extractEcariTabSection(html, tabId))) return false;
+  const tabs = [...new Set([...expectedTabIds, ...ECARI_TAB_IDS])]
+    .map((tabId) => extractEcariTabSection(html, tabId))
+    .filter(Boolean);
   if (!ECARI_NO_RUNNING_AUCTION_RE.test(htmlText(extractEcariTabSection(html, 'tabContent1')))) return false;
   return tabs.every((section) => ECARI_EMPTY_TAB_RE.test(htmlText(section))
     && [...section.matchAll(/<tr\b[^>]*>([\s\S]*?)<\/tr>/gi)]
@@ -109,9 +114,13 @@ export function isExplicitlyEmptyCatalogue(rows) {
   return Array.isArray(rows) && rows.length === 0 && rows.explicitlyEmpty === true;
 }
 
-/** The parsed rows, or the explicitly-empty catalogue when eCari itself says nothing is listed. */
-export function withEcariEmptyState(rows, html) {
-  if (rows.length > 0 || !isEcariCatalogueExplicitlyEmpty(html)) return rows;
+/**
+ * The parsed rows, or the explicitly-empty catalogue when eCari itself says
+ * nothing is listed. `expectedTabIds` are the tabs the caller parsed: each one
+ * must be on the page for the empty state to count.
+ */
+export function withEcariEmptyState(rows, html, expectedTabIds = ECARI_TAB_IDS) {
+  if (rows.length > 0 || !isEcariCatalogueExplicitlyEmpty(html, expectedTabIds)) return rows;
   return Object.defineProperty([], 'explicitlyEmpty', { value: true });
 }
 

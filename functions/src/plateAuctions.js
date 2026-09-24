@@ -152,12 +152,13 @@ const CONNECTORS = {
     url: 'https://eauktion.gr.ch/',
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
-      return withEcariEmptyState([
+      const tabs = [
         ['tabContent1', 'active', 'auction', 'gr'],
         ['tabContent2', 'upcoming', 'future-registration', 'gr-future'],
         ['tabContent3', 'active', 'fixed-price', 'gr-fixed'],
         ['tabContent4', 'upcoming', 'wanted', 'gr-wanted'],
-      ].flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
+      ];
+      return withEcariEmptyState(tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
         canton: 'Grigioni',
         plateCode: 'GR',
         officialAuctionUrl: 'https://eauktion.gr.ch/',
@@ -166,7 +167,7 @@ const CONNECTORS = {
         listingType,
         idPrefix,
         detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://eauktion.gr.ch/', sourceRecordId),
-      })), html);
+      })), html, tabs.map(([tab]) => tab));
     },
   },
   nw: makeEcariConnector({ canton: 'Nidvaldo', plateCode: 'NW', url: 'https://ecarinwprod.ilz.info/ecari-auction/' }),
@@ -178,11 +179,12 @@ const CONNECTORS = {
     url: 'https://ecari.vs.ch/ecari-auction/',
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
-      return withEcariEmptyState([
+      const tabs = [
         ['tabContent1', 'active', 'auction', 'vs'],
         ['tabContent2', 'upcoming', 'future-registration', 'vs-future'],
         ['tabContent4', 'upcoming', 'wanted', 'vs-wanted'],
-      ].flatMap(([tab, status, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
+      ];
+      return withEcariEmptyState(tabs.flatMap(([tab, status, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
         canton: 'Vallese',
         plateCode: 'VS',
         officialAuctionUrl: 'https://ecari.vs.ch/ecari-auction/',
@@ -191,7 +193,7 @@ const CONNECTORS = {
         listingType,
         idPrefix,
         detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://ecari.vs.ch/ecari-auction/', sourceRecordId),
-      })), html);
+      })), html, tabs.map(([tab]) => tab));
     },
   },
   vd: makeCardConnector({
@@ -206,12 +208,13 @@ const CONNECTORS = {
     url: 'https://www.carieauktion.ti.ch/ecari-auktion/',
     parserVersion: '2.0.0',
     parse(html, fetchedAt) {
-      return withEcariEmptyState([
+      const tabs = [
         ['tabContent1', 'active', 'auction', 'ti'],
         ['tabContent2', 'upcoming', 'future-registration', 'ti-future'],
         ['tabContent3', 'active', 'fixed-price', 'ti-fixed'],
         ['tabContent4', 'upcoming', 'wanted', 'ti-wanted'],
-      ].flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
+      ];
+      return withEcariEmptyState(tabs.flatMap(([tab, auctionStatus, listingType, idPrefix]) => parseEcariAuctionRows(extractEcariTabSection(html, tab), {
         canton: 'Ticino',
         plateCode: 'TI',
         officialAuctionUrl: 'https://www.carieauktion.ti.ch/ecari-auktion/',
@@ -220,7 +223,7 @@ const CONNECTORS = {
         listingType,
         idPrefix,
         detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl('https://www.carieauktion.ti.ch/ecari-auktion/', sourceRecordId),
-      })), html);
+      })), html, tabs.map(([tab]) => tab));
     },
   },
   lu: makeFixedPriceConnector({ sourceKey: 'lu', parse: parseLuFixedPricePdfText }),
@@ -318,7 +321,7 @@ function parseEcariSource(html, { canton, plateCode, officialAuctionUrl, fetched
       idPrefix: idSuffix === 'auction' ? plateCode.toLowerCase() : `${plateCode.toLowerCase()}-${idSuffix}`,
       detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(officialAuctionUrl, sourceRecordId),
     },
-  )), html);
+  )), html, tabs.map(([tabContentId]) => tabContentId));
 }
 
 function parseCardSource(html, { canton, plateCode, officialAuctionUrl, detailBaseUrl, fetchedAt }) {

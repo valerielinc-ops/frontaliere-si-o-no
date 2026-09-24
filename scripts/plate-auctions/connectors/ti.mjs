@@ -35,7 +35,7 @@ export function parseTiAuctionRows(html, { fetchedAt = new Date().toISOString() 
       idPrefix,
       detailUrlBuilder: (sourceRecordId) => buildEcariDetailUrl(TI_AUCTION_URL, sourceRecordId),
     }),
-  ), html);
+  ), html, TI_TAB_SECTIONS.map(({ tabContentId }) => tabContentId));
 }
 
 export async function fetchTiPlateAuctions() {

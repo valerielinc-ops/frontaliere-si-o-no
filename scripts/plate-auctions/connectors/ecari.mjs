@@ -46,7 +46,7 @@ export function parseEcariCantonAuctions(
   );
   // No rows is either the portal's own "no auction running" page or a page
   // we could not read; only the first is a healthy empty catalogue.
-  return withEcariEmptyState(rows, html);
+  return withEcariEmptyState(rows, html, tabs.map(([tabContentId]) => tabContentId));
 }
 
 export async function fetchEcariCantonAuctions(config) {
