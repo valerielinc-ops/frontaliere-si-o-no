@@ -6674,6 +6674,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.mozione-costi-manifestazioni-stati.title': 'Motion Staaten: Die Organisatoren zahlen die Sicherheitskosten',
     'blog.article.mozione-costi-manifestazioni-stati.excerpt': 'Die Staaten stimmen der Motion 24-18 mit 3 Enthaltungen zu: Der Bundesrat muss eine gesetzliche Grundlage schaffen, damit die Organisatoren die Kosten für den Einsatz und die Sicherheit der Demonstrationen nach den Unruhen vom 11. Oktober in Bern bezahlen können.',
     'blog.article.mozione-costi-manifestazioni-stati.imageAlt': 'Schweizer Demonstration mit Polizeikräften im Vordergrund',
+    'blog.article.bns-tasso-guida-zero-2026.title': 'SNB lässt Leitzins bei 0% und erhöht Schätzungen BIP 2026',
+    'blog.article.bns-tasso-guida-zero-2026.excerpt': 'Der SNB-Leitzins liegt seit Juni 2025 bei 0%; Inflation im August bei 0,8%; BIP 2026 zwischen 1,5% und 2%.',
+    'blog.article.bns-tasso-guida-zero-2026.imageAlt': 'Blick auf den Luganer See mit Bergen und Finanzgebäuden im Hintergrund',
 };
 
 export default blogMetaChDe;

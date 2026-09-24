@@ -6674,6 +6674,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.mozione-costi-manifestazioni-stati.title': 'Motion States: organizers pay safety costs',
     'blog.article.mozione-costi-manifestazioni-stati.excerpt': 'The States approve the motion 24-18 with 3 abstentions: the Federal Council will have to prepare a legal basis to make the organizers pay the costs of intervention and security of the demonstrations, after the riots of October 11 in Bern.',
     'blog.article.mozione-costi-manifestazioni-stati.imageAlt': 'Swiss demonstration with police forces in the foreground',
+    'blog.article.bns-tasso-guida-zero-2026.title': 'SNB leaves guide rate at 0% and raises GDP estimates 2026',
+    'blog.article.bns-tasso-guida-zero-2026.excerpt': 'The SNB guide rate remains at 0% from June 2025; August inflation at 0.8%; GDP 2026 forecast between 1.5% and 2%.',
+    'blog.article.bns-tasso-guida-zero-2026.imageAlt': 'Lake Lugano view with mountains and financial buildings in the background',
 };
 
 export default blogMetaChEn;
