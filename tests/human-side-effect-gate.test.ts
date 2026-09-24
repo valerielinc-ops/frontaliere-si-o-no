@@ -273,7 +273,7 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   // 2026-11-01.
   // La scrittura e' non distruttiva: ricostruisce
   // `data/jobs/expired/by-crawler/*` camminando la history con `git show`,
-  // passa `npm test` come gate PRIMA del commit, e i suoi 7 step usano tutti
+  // passa `npm run test:backfill` come gate PRIMA del commit, e i suoi 7 step usano tutti
   // l'APPROVED_GATE_IF esatto, quindi `dry_run` continua a valere sul dispatch
   // manuale.
   'backfill-expired-from-history.yml',
