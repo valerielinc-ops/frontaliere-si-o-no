@@ -19,7 +19,8 @@ import {
   isAuthChannel,
   AUTH_SUBSCRIBER_FLOOR,
 } from '../scripts/lib/authSignupSubscriberMetrics.mjs';
-import { runCheck, parseArgs, buildIssueBody } from '../scripts/check-auth-signup-subscribers.mjs';
+import { runCheck, parseArgs, buildIssueBody, readCreatedSubscribers, gateOutputLines } from '../scripts/check-auth-signup-subscribers.mjs';
+import { parse as parseYaml } from 'yaml';
 
 type Cls = 'missing' | 'stub' | 'subscribed';
 const accountsOf = (n: Record<Cls, number>, hasCreatedAt = true) => (Object.entries(n) as Array<[Cls, number]>)
@@ -109,24 +110,41 @@ describe('decisione sui numeri misurati', () => {
 
 /* ── Guscio: runCheck con Firestore/Auth finti ──────────────── */
 
+/**
+ * Firestore finto con paginazione vera: `orderBy` e' obbligatorio (senza,
+ * `startAfter` non ha un ordine deterministico), `startAfter` riparte dopo il
+ * documento passato, `limit` taglia la pagina.
+ */
+function fakeCreatedCollection(created: Array<{ source_channel: string | null }>, calls: { gets: number }) {
+  const all = created.map((row, i) => ({ __i: i, get: (k: string) => (row as any)[k] }));
+  const make = (state: { ordered: boolean; after: number; limit: number }): any => ({
+    where: () => make(state),
+    orderBy: (field: string) => { expect(field).toBe('created_at'); return make({ ...state, ordered: true }); },
+    startAfter: (d: { __i: number }) => make({ ...state, after: d.__i + 1 }),
+    limit: (n: number) => make({ ...state, limit: n }),
+    get: async () => {
+      calls.gets++;
+      expect(state.ordered, 'query paginata senza orderBy').toBe(true);
+      const docs = all.slice(state.after, state.after + state.limit);
+      return { size: docs.length, docs };
+    },
+    doc: (id: string) => ({ id }),
+  });
+  return make({ ordered: false, after: 0, limit: Infinity });
+}
+
 function fakeDeps(opts: {
   created: Array<{ source_channel: string | null }>;
   users: Array<{ email?: string; creationTime: string; providerId?: string }>;
   docs: Record<string, Record<string, unknown>>;
+  failListUsers?: boolean;
 }) {
+  const calls = { gets: 0 };
   const db = {
+    calls,
     collection: (name: string) => {
       expect(name).toBe('newsletter_subscribers');
-      const q: any = {
-        where: () => q,
-        limit: () => q,
-        get: async () => ({
-          size: opts.created.length,
-          docs: opts.created.map((row) => ({ get: (k: string) => (row as any)[k] })),
-        }),
-        doc: (id: string) => ({ id }),
-      };
-      return q;
+      return fakeCreatedCollection(opts.created, calls);
     },
     getAll: async (...refs: Array<{ id: string }>) => refs.map((r) => ({
       exists: r.id in opts.docs,
@@ -135,6 +153,7 @@ function fakeDeps(opts: {
   };
   const auth = {
     listUsers: async (_n: number, token?: string) => {
+      if (opts.failListUsers) throw new Error('PERMISSION_DENIED: auth/insufficient-permission');
       // Due pagine, per coprire la paginazione.
       const half = Math.ceil(opts.users.length / 2);
       const slice = token ? opts.users.slice(half) : opts.users.slice(0, half);
@@ -206,6 +225,106 @@ describe('runCheck — guscio I/O', () => {
     const outDir = tmp();
     await runCheck({ ...fakeDeps({ created: [], users: [], docs: {} }), until, outDir, dryRun: true });
     expect(fs.readdirSync(outDir)).toEqual([]);
+  });
+});
+
+describe('lettura paginata — nessun verdetto su una popolazione troncata', () => {
+  const since = new Date('2026-09-12T07:25:00Z');
+  const until = new Date('2026-09-13T07:25:00Z');
+
+  it('legge tutte le pagine oltre la dimensione di pagina', async () => {
+    const created = Array.from({ length: 2500 }, (_, i) => ({ source_channel: i % 2 ? 'auth_google' : 'job_gate' }));
+    const { db } = fakeDeps({ created, users: [], docs: {} });
+    const rows = await readCreatedSubscribers(db, since, until, { pageSize: 1000 });
+    expect(rows).toHaveLength(2500);
+    expect(rows.filter((r: any) => r.source_channel === 'auth_google')).toHaveLength(1250);
+    expect(db.calls.gets).toBe(3);
+  });
+
+  it('una pagina esattamente piena chiede la successiva (vuota) e si ferma', async () => {
+    const created = Array.from({ length: 1000 }, () => ({ source_channel: 'auth_google' }));
+    const { db } = fakeDeps({ created, users: [], docs: {} });
+    const rows = await readCreatedSubscribers(db, since, until, { pageSize: 1000 });
+    expect(rows).toHaveLength(1000);
+    expect(db.calls.gets).toBe(2);
+  });
+
+  it('oltre il tetto di pagine lancia invece di dare un verdetto', async () => {
+    const created = Array.from({ length: 30 }, () => ({ source_channel: 'auth_google' }));
+    const { db } = fakeDeps({ created, users: [], docs: {} });
+    await expect(readCreatedSubscribers(db, since, until, { pageSize: 10, maxPages: 2 })).rejects.toThrow(/nessun verdetto/);
+  });
+
+  it('runCheck conta l\'intera finestra anche su piu\' pagine', async () => {
+    const created = Array.from({ length: 25 }, () => ({ source_channel: 'auth_google' }));
+    const users = Array.from({ length: 12 }, (_, i) => ({ email: `p${i}@example.com`, creationTime: '2026-09-12T20:00:00Z', providerId: 'google.com' }));
+    const docs = Object.fromEntries(users.map((u) => [u.email, { status: 'confirmed', created_at: 1 }]));
+    const { agg } = await runCheck({ ...fakeDeps({ created, users, docs }), until, dryRun: true, pageSize: 10 });
+    expect(agg.authSubscribers).toBe(25);
+  });
+});
+
+describe('gate di chiusura — solo dopo una misura riuscita e verde', () => {
+  const dirs: string[] = [];
+  afterEach(() => { for (const d of dirs.splice(0)) fs.rmSync(d, { recursive: true, force: true }); });
+  const tmp = () => { const d = fs.mkdtempSync(path.join(os.tmpdir(), 'auth-signup-gate-')); dirs.push(d); return d; };
+  const until = new Date('2026-09-13T07:25:00Z');
+  const cleanUsers = Array.from({ length: 12 }, (_, i) => ({ email: `g${i}@example.com`, creationTime: '2026-09-12T20:00:00Z', providerId: 'google.com' }));
+  const cleanDocs = Object.fromEntries(cleanUsers.map((u) => [u.email, { status: 'confirmed', created_at: 1 }]));
+  const cleanCreated = Array.from({ length: 12 }, () => ({ source_channel: 'auth_google' }));
+
+  it('gateOutputLines dichiara la misura e il verdetto', () => {
+    expect(gateOutputLines({ alert: false })).toEqual(['measured=true', 'alert=false']);
+    expect(gateOutputLines({ alert: true })).toEqual(['measured=true', 'alert=true']);
+  });
+
+  it('giro pulito: GITHUB_OUTPUT riceve measured=true e alert=false', async () => {
+    const dir = tmp();
+    const out = path.join(dir, 'gh-output');
+    await runCheck({ ...fakeDeps({ created: cleanCreated, users: cleanUsers, docs: cleanDocs }), until, outDir: dir, githubOutput: out });
+    expect(fs.readFileSync(out, 'utf8').trim().split('\n')).toEqual(['measured=true', 'alert=false']);
+  });
+
+  it('crash di lettura Auth: nessun measured, alert.json esistente intatto', async () => {
+    const dir = tmp();
+    const out = path.join(dir, 'gh-output');
+    fs.writeFileSync(path.join(dir, 'alert.json'), '{"title":"[auth-signup] x"}');
+    await expect(runCheck({
+      ...fakeDeps({ created: cleanCreated, users: cleanUsers, docs: cleanDocs, failListUsers: true }),
+      until, outDir: dir, githubOutput: out,
+    })).rejects.toThrow(/PERMISSION_DENIED/);
+    expect(fs.existsSync(out)).toBe(false);
+    expect(fs.existsSync(path.join(dir, 'alert.json'))).toBe(true);
+  });
+
+  it('il workflow chiude le issue solo con measured=true e alert=false, e instrada il crash al reporter', () => {
+    const wf = parseYaml(fs.readFileSync(path.join(__dirname, '..', '.github/workflows/auth-signup-subscriber-monitor.yml'), 'utf8'));
+    const steps: Array<{ name: string; id?: string; if?: string }> = wf.jobs.check.steps;
+    const byName = (re: RegExp) => { const s = steps.find((x) => re.test(x.name)); expect(s, String(re)).toBeDefined(); return s!; };
+    const cond = (s: { if?: string }) => String(s.if || '').replace(/\s+/g, ' ');
+
+    const close = byName(/^Close recovered/);
+    expect(cond(close)).toContain("steps.check.outputs.measured == 'true'");
+    expect(cond(close)).toContain("steps.check.outputs.alert == 'false'");
+
+    for (const s of [byName(/^Open issue/), byName(/^Fail if threshold/)]) {
+      expect(cond(s)).toContain("steps.check.outputs.measured == 'true'");
+      expect(cond(s)).toContain("steps.check.outputs.alert == 'true'");
+      expect(cond(s)).not.toMatch(/steps\.check\.outcome == 'failure'\s*$/);
+    }
+
+    const crash = byName(/^Fail if measurement did not complete/);
+    expect(cond(crash)).toContain("steps.check.outputs.measured != 'true'");
+    const reporter = byName(/^Report unexpected failure/);
+    expect(cond(reporter)).toContain("steps.failgate.conclusion != 'failure'");
+    expect(steps.indexOf(crash)).toBeLessThan(steps.indexOf(reporter));
+    expect(byName(/^Fail if threshold/).id).toBe('failgate');
+  });
+
+  it('firebase-admin arriva dal lockfile, non da latest', () => {
+    const src = fs.readFileSync(path.join(__dirname, '..', '.github/workflows/auth-signup-subscriber-monitor.yml'), 'utf8');
+    expect(src).not.toMatch(/npm install --no-save firebase-admin\s*$/m);
+    expect(src).toMatch(/package-lock\.json'\)\.packages\['node_modules\/firebase-admin'\]\.version/);
   });
 });
 

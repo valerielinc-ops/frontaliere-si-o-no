@@ -64,8 +64,14 @@ const ROOT = path.resolve(__dirname, '..');
 const DEFAULT_OUT_DIR = path.resolve(ROOT, 'docs', 'auth-signup-subscribers');
 const HISTORY_DAYS = 90;
 const DEFAULT_HOURS = 24;
-/** Tetto ai documenti letti per `created_at`: ~100/giorno misurati, 5000 copre un dispatch di settimane. */
-const SUBSCRIBER_DOC_CAP = 5000;
+/** Pagina della lettura per `created_at` (~100 documenti/giorno misurati). */
+const SUBSCRIBER_PAGE_SIZE = 1000;
+/**
+ * Tetto di sicurezza sulle pagine. Raggiungerlo NON produce un verdetto su una
+ * popolazione troncata: la lettura lancia e il run finisce nel ramo di errore
+ * (issue `Workflow Failure`), non in un verde o in un rosso calcolati a meta'.
+ */
+const SUBSCRIBER_MAX_PAGES = 50;
 /** getAll per blocchi: stesso ordine di grandezza degli altri lettori Firestore del repo. */
 const GET_ALL_CHUNK = 100;
 
@@ -113,17 +119,39 @@ async function initAdmin() {
 
 /* ── Letture ────────────────────────────────────────────────── */
 
-async function readCreatedSubscribers(db, since, until) {
-  const snap = await db.collection('newsletter_subscribers')
-    .where('created_at', '>=', since)
-    .where('created_at', '<', until)
-    .limit(SUBSCRIBER_DOC_CAP)
-    .get();
-  if (snap.size >= SUBSCRIBER_DOC_CAP) {
-    log(`⚠️  Tetto documenti raggiunto (${SUBSCRIBER_DOC_CAP}): la finestra non e' stata letta per intero.`);
+/**
+ * Legge TUTTI i documenti con `created_at` nella finestra, a pagine ordinate
+ * (`orderBy('created_at')` + `startAfter` sull'ultimo documento). Un solo
+ * campo in range e in ordinamento: basta l'indice a campo singolo.
+ */
+export async function readCreatedSubscribers(db, since, until, { pageSize = SUBSCRIBER_PAGE_SIZE, maxPages = SUBSCRIBER_MAX_PAGES } = {}) {
+  const rows = [];
+  let cursor = null;
+  for (let page = 0; ; page++) {
+    if (page >= maxPages) {
+      throw new Error(`lettura iscritti oltre ${maxPages} pagine da ${pageSize}: finestra troppo ampia, nessun verdetto su una popolazione troncata`);
+    }
+    let q = db.collection('newsletter_subscribers')
+      .where('created_at', '>=', since)
+      .where('created_at', '<', until)
+      .orderBy('created_at');
+    if (cursor) q = q.startAfter(cursor);
+    const snap = await q.limit(pageSize).get();
+    // Solo il canale: nessun altro campo del documento esce da qui.
+    for (const d of snap.docs) rows.push({ source_channel: d.get('source_channel') ?? null });
+    if (snap.docs.length < pageSize) return rows;
+    cursor = snap.docs[snap.docs.length - 1];
   }
-  // Solo il canale: nessun altro campo del documento esce da qui.
-  return snap.docs.map((d) => ({ source_channel: d.get('source_channel') ?? null }));
+}
+
+/**
+ * Le uscite che il workflow legge per decidere apertura e chiusura della
+ * issue. `measured=true` si scrive SOLO dopo una misura completa: un crash
+ * di lettura lascia il file senza `measured`, e il workflow non puo'
+ * scambiarlo per un giro pulito e chiudere le issue aperte.
+ */
+export function gateOutputLines(verdict) {
+  return ['measured=true', `alert=${verdict.alert ? 'true' : 'false'}`];
 }
 
 async function readNewAccounts(auth, since, until) {
@@ -250,10 +278,10 @@ function loadHistory(outDir) {
  * @param {{ collection: Function, getAll: Function }} deps.db
  * @param {{ listUsers: Function }} deps.auth
  */
-export async function runCheck({ db, auth, hours = DEFAULT_HOURS, until = new Date(), outDir = DEFAULT_OUT_DIR, dryRun = false }) {
+export async function runCheck({ db, auth, hours = DEFAULT_HOURS, until = new Date(), outDir = DEFAULT_OUT_DIR, dryRun = false, githubOutput = null, pageSize = SUBSCRIBER_PAGE_SIZE }) {
   const since = new Date(until.getTime() - hours * 3600_000);
   const [subscriberRows, rawAccounts] = await Promise.all([
-    readCreatedSubscribers(db, since, until),
+    readCreatedSubscribers(db, since, until, { pageSize }),
     readNewAccounts(auth, since, until),
   ]);
   const accounts = await classifyAccounts(db, rawAccounts);
@@ -300,6 +328,8 @@ export async function runCheck({ db, auth, hours = DEFAULT_HOURS, until = new Da
   } else {
     log('[dry-run] nessuna scrittura su storia o alert.json.');
   }
+  // Ultima cosa: la misura e' completa e storia/alert sono gia' scritti.
+  if (githubOutput) fs.appendFileSync(githubOutput, `${gateOutputLines(verdict).join('\n')}\n`, 'utf8');
   return { agg, verdict, meta };
 }
 
@@ -319,6 +349,7 @@ async function main() {
     hours: args.hours,
     until: args.until || new Date(),
     dryRun: args.dryRun,
+    githubOutput: process.env.GITHUB_OUTPUT || null,
   });
   if (args.json) console.log(JSON.stringify({ meta, agg, verdict }, null, 2));
   process.exit(verdict.alert ? 1 : 0);

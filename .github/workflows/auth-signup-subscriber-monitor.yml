@@ -66,9 +66,14 @@ jobs:
         run: npm ci --omit=dev --ignore-scripts
 
       # Lo script legge Firestore e Firebase Auth: serve firebase-admin, che e'
-      # una devDependency potata da --omit=dev. Stesso schema del gemello.
-      - name: Install firebase-admin
-        run: npm install --no-save firebase-admin
+      # una devDependency potata da --omit=dev. Si installa la versione
+      # risolta in package-lock.json, non `latest`: il monitor gira con lo
+      # stesso SDK dei test.
+      - name: Install firebase-admin (versione del lockfile)
+        run: |
+          set -euo pipefail
+          FA_VERSION=$(node -p "require('./package-lock.json').packages['node_modules/firebase-admin'].version")
+          npm install --no-save --no-package-lock "firebase-admin@${FA_VERSION}"
 
       - name: Prepare Firebase credentials
         env:
@@ -88,6 +93,10 @@ jobs:
       - name: Load push credentials from Remote Config
         run: node scripts/load-rc-env.mjs
 
+      # Uscite dello step (scritte dallo script SOLO a misura completa):
+      #   measured=true + alert=false -> giro pulito: si chiudono le issue
+      #   measured=true + alert=true  -> soglia: si apre/commenta la issue
+      #   measured assente            -> crash: nessuna chiusura, reporter d'errore
       - name: Check auth signup subscribers
         id: check
         continue-on-error: true
@@ -110,7 +119,8 @@ jobs:
           exit "$ec"
 
       - name: Open issue on threshold breach
-        if: steps.check.outcome == 'failure'
+        # always(): un commit-back fallito non deve zittire un allarme misurato.
+        if: always() && steps.check.outputs.measured == 'true' && steps.check.outputs.alert == 'true'
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
@@ -134,15 +144,18 @@ jobs:
             --workflow "${{ github.workflow }}"
 
       - name: Close recovered auth-signup issues
-        if: always()
+        # Solo dopo una misura corrente riuscita e verde. Un `alert.json`
+        # assente NON basta: un crash di lettura Firebase lo lascerebbe assente
+        # e chiuderebbe issue ancora vere.
+        if: always() && steps.check.outputs.measured == 'true' && steps.check.outputs.alert == 'false'
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           GH_REPO: ${{ github.repository }}
         run: |
           set -uo pipefail
-          # La condizione di chiusura e' l'assenza di alert.json, che lo script
-          # cancella quando il giro e' pulito — stessa forma dei gemelli.
+          # Difesa in profondita': con measured=true e alert=false lo script ha
+          # gia' cancellato alert.json; se c'e' ancora, qualcosa non torna.
           if [ -f docs/auth-signup-subscribers/alert.json ]; then
             echo "Alert ancora attivo — nessuna chiusura."
             exit 0
@@ -161,9 +174,18 @@ jobs:
 
       - name: Fail if threshold breached
         id: failgate
-        if: steps.check.outcome == 'failure'
+        if: steps.check.outputs.measured == 'true' && steps.check.outputs.alert == 'true'
         run: |
           echo "Soglia superata — vedi la issue aperta sopra."
+          exit 1
+
+      # Misura non completata (credenziali, permesso listUsers, lettura
+      # Firestore, tetto di pagine): rosso, e il reporter qui sotto apre
+      # `Workflow Failure` invece di lasciar credere a un giro pulito.
+      - name: Fail if measurement did not complete
+        if: always() && steps.check.outcome == 'failure' && steps.check.outputs.measured != 'true'
+        run: |
+          echo "::error::La misura non e' stata completata — nessuna issue chiusa, nessun verdetto."
           exit 1
 
       - name: Report unexpected failure to GitHub Issues
