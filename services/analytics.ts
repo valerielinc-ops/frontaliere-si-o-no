@@ -377,19 +377,21 @@ const logFirebaseOnly = (eventName: string, params?: Record<string, any>) => {
 };
 
 const log = (eventName: string, params?: Record<string, any>) => {
+ const enrichedParams = enrichEventParams(params);
  // Mirror to PostHog (fire-and-forget, independent of Firebase)
  if (eventName === 'page_view') {
- const pagePath = params?.page_path || window.location.pathname;
+ const pagePath = enrichedParams.page_path || window.location.pathname;
  posthogCapture('$pageview', {
-  $current_url: params?.page_location || window.location.origin + pagePath,
-  title: params?.page_title || document.title,
-  emission_id: params?.emission_id ?? null,
+  ...enrichedParams,
+  $current_url: enrichedParams.page_location || window.location.origin + pagePath,
+  title: enrichedParams.page_title || document.title,
+  emission_id: enrichedParams.emission_id ?? null,
  });
  } else {
- posthogCapture(eventName, params);
+ posthogCapture(eventName, enrichedParams);
  }
 
- logFirebaseOnly(eventName, params);
+ logFirebaseOnly(eventName, enrichedParams);
 };
 
 const setProps = (properties: Record<string, string>) => {
@@ -415,6 +417,7 @@ let currentScreen = '/';
 let previousScreen = '';
 let lastTrackedPageAt = 0;
 let _maxScrollDepth = 0;
+let sessionLandingPath = '';
 const ATTRIBUTION_KEY = 'ft_attribution_v1';
 const ATTRIBUTION_LOGGED_KEY = 'ft_attribution_logged_v1';
 const QUALIFIED_JOB_SESSION_KEY = 'ft_job_qualified_session_v1';
@@ -449,6 +452,59 @@ type AttributionContext = {
 };
 
 const truncate = (v: string, max = 120): string => v.slice(0, max);
+
+/** Keep session attribution useful for joins without retaining query strings. */
+function normalizeAnalyticsPath(input: string): string {
+ try {
+  const base = typeof window !== 'undefined' ? window.location.origin : 'https://frontaliereticino.ch';
+  return new URL(input || '/', base).pathname || '/';
+ } catch {
+  return String(input || '/').split(/[?#]/, 1)[0] || '/';
+ }
+}
+
+function readStoredAttribution(): AttributionContext | null {
+ try {
+  const raw = sessionStorage.getItem(ATTRIBUTION_KEY);
+  if (!raw) return null;
+  const parsed = JSON.parse(raw) as AttributionContext;
+  return {
+   ...parsed,
+   landing_path: normalizeAnalyticsPath(parsed.landing_path),
+  };
+ } catch {
+  return null;
+ }
+}
+
+/**
+ * Attach the stable page/landing context to every event. This makes weekly
+ * reports joinable even when the event itself is emitted by a nested widget.
+ * The explicit event fields still win, so existing callers keep their intent.
+ */
+function enrichEventParams(params?: Record<string, any>): Record<string, any> {
+ const eventPath = typeof params?.page_path === 'string' && params.page_path
+  ? params.page_path
+  : currentScreen !== '/' || typeof window === 'undefined' || window.location.pathname === '/'
+   ? currentScreen
+   : window.location.pathname;
+ const pageContext = deriveAnalyticsPageContext(eventPath);
+ const storedAttribution = readStoredAttribution();
+ const landingPath = sessionLandingPath
+  || storedAttribution?.landing_path
+  || normalizeAnalyticsPath(typeof window !== 'undefined' ? window.location.pathname : '/');
+
+ return {
+  page_path: eventPath,
+  page_template: pageContext.pageTemplate,
+  content_group: pageContext.contentGroup,
+  site_section: pageContext.siteSection,
+  content_locale: pageContext.contentLocale,
+  route_family: pageContext.routeFamily,
+  landing_path: landingPath,
+  ...(params || {}),
+ };
+}
 
 // ─── Error Tracking Helpers ────────────────────────────────────
 
@@ -700,7 +756,7 @@ function captureAttribution(): AttributionContext {
  term: truncate(params.get('utm_term') || '(none)', 80),
  content: truncate(params.get('utm_content') || '(none)', 80),
  referrer_host: truncate(refHost || 'direct', 80),
- landing_path: truncate(`${window.location.pathname}${window.location.search}`, 180),
+ landing_path: normalizeAnalyticsPath(window.location.pathname),
  click_id: truncate(clickId || '(none)', 120),
  };
 
@@ -920,6 +976,7 @@ export const Analytics = {
  locale: navigator.language || 'it-IT',
  });
  const attribution = captureAttribution();
+ sessionLandingPath = normalizeAnalyticsPath(attribution.landing_path);
  setProps({
  traffic_source: attribution.source || 'direct',
  traffic_medium: attribution.medium || 'direct',
@@ -2082,8 +2139,12 @@ export const Analytics = {
  /**
  * Newsletter — subscribe is NOT a generate_lead (reserved for simulation_complete)
  */
- trackNewsletter: (action: 'view_form' | 'subscribe' | 'unsubscribe' | 'error', emailDomain?: string) => {
- log('newsletter', { action, email_domain: emailDomain });
+ trackNewsletter: (
+  action: 'view_form' | 'subscribe_attempt' | 'subscribe' | 'unsubscribe' | 'error',
+  emailDomain?: string,
+  sourceCta?: string,
+ ) => {
+ log('newsletter', { action, email_domain: emailDomain, source_cta: sourceCta });
  },
 
  trackNewsletterEvent: (
@@ -2407,7 +2468,7 @@ export const Analytics = {
  // services/employerSuggestions.ts, whose entire input is how many ads an
  // employer has open and whether you already follow it — folding it into
  // 'company_follow_button' would leave that criterion unmeasurable.
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired' | 'company_follow_city' | 'company_follow_hub' | 'company_follow_suggestion',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_detail_button' | 'job_detail_anonymous' | 'job_match_pill' | 'job_board_filters' | 'company_follow_button' | 'company_follow_gate' | 'company_follow_profile' | 'company_follow_below_floor' | 'company_follow_orphan' | 'company_follow_expired' | 'company_follow_city' | 'company_follow_hub' | 'company_follow_suggestion',
  action: 'open' | 'dismiss' | 'accept' | 'success' | 'error',
  keyword?: string,
  ) => {
@@ -2432,7 +2493,7 @@ export const Analytics = {
   * intent-only.
   */
  trackJobAlertCtaShown: (
- surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill' | 'job_board_filters' | 'job_detail_button' | 'company_follow_button',
+ surface: 'sticky_banner' | 'end_card' | 'inline_card' | 'job_detail_prompt' | 'job_match_pill' | 'job_board_filters' | 'job_detail_button' | 'job_detail_anonymous' | 'company_follow_button',
  keyword?: string,
  ) => {
  log('job_alert_cta_shown', {

@@ -12,6 +12,7 @@ import { ErrorBoundary, SilentErrorBoundary } from '@/components/shared/ErrorBou
 
 import { reportCaughtError } from '@/services/errorReporter';
 import { fetchCommitHash } from '@/services/buildInfo';
+import { getContextualConversionContext } from '@/services/conversionContext';
 const GamificationWidget = lazyRetry(() => import('@/components/community/GamificationWidget'));
 // Newsletter/community popups are NON-CRITICAL overlays. Use React.lazy (NOT
 // lazyRetry) + SilentErrorBoundary (see SafeLazy below) so a chunk-load failure
@@ -27,6 +28,7 @@ const PdfDownloadGate = React.lazy(() => import('@/components/shared/PdfDownload
 // AdBlock detection gate + A/B bucket (#3654). Client-only overlay, never SSR.
 const AdBlockGate = React.lazy(() => import('@/components/community/AdBlockGate'));
 const NewsletterInline = lazyRetry(() => import('@/components/community/Newsletter'));
+const ContextualConversionCard = React.lazy(() => import('@/components/shared/ContextualConversionCard'));
 const NewsletterMount = React.lazy(() => import('@/components/community/NewsletterMount'));
 // CompanyAlert island (#5012 phase 2): hydrates the "Segui questa azienda" CTA
 // into the [data-company-follow-mount] placeholder the SSG employer-profile
@@ -374,6 +376,12 @@ const App: React.FC = () => {
  suppressNextRouteSyncForTabRef,
  handleTabChange: navHandleTabChange, handleSearchNavigate,
  } = useNavigationState();
+
+ const contextualPath = typeof window !== 'undefined' ? window.location.pathname : '/';
+ const contextualConversion = useMemo(
+  () => getContextualConversionContext(contextualPath, locale),
+  [contextualPath, locale],
+ );
 
  // UI state: dark mode, translations, deferred widgets, analytics init
  const { isDarkMode, isFocusMode, showDeferredHomeWidgets, translationsReady, toggleTheme, setIsFocusMode } = useUIState(activeTab);
@@ -3161,6 +3169,16 @@ const App: React.FC = () => {
  </div>
  )}
 
+ {!staticOverlay && contextualConversion && (
+  <SafeLazy boundary="contextual-conversion">
+   <ContextualConversionCard
+    locale={locale}
+    path={typeof window !== 'undefined' ? window.location.pathname : '/'}
+    activeTab={activeTab}
+   />
+  </SafeLazy>
+ )}
+
  {ctaItems.length > 0 && (
  <div className="mt-8">
  <div className="bg-surface border border-edge rounded-2xl p-4 sm:p-6">
@@ -3274,8 +3292,15 @@ const App: React.FC = () => {
  <SafeLazy boundary="footer-weather" fallback={<SkeletonFooterSlot height="min-h-[36px]" />}><FooterWeather /></SafeLazy>
 
  {/* Newsletter signup — inline in footer for persistent visibility */}
- <div className="max-w-xl mx-auto">
- <SafeLazy boundary="footer-newsletter"><NewsletterInline compact /></SafeLazy>
+ <div id="footer-newsletter" className="max-w-xl mx-auto scroll-mt-24">
+ <SafeLazy boundary="footer-newsletter">
+  <NewsletterInline
+   compact
+   headingOverride={contextualConversion?.newsletterHeading}
+   subtitleOverride={contextualConversion?.newsletterSubtitle}
+   acquisitionSource={contextualConversion?.source}
+  />
+ </SafeLazy>
  </div>
 
  {/* Donation banner */}
