@@ -146,20 +146,11 @@ export function buildL8AttributionExport({
       : (Array.isArray(suppliedCommercial.rows) ? suppliedCommercial.rows : null))
     : null;
   const commercialRowsPresent = Array.isArray(rows);
-  const evidence = suppliedCommercial
-    ? attributionEvidence({
-      telemetryWindow: window,
-      commercial: suppliedCommercial,
-      commercialRowsPresent,
-    })
-    : {
-      source: 'posthog-affiliate-attribution-export',
-      sourceRefs: ['posthog.affiliate_experiment_exposure', 'posthog.affiliate_click'],
-      status: 'missing',
-      commercialLedger: 'missing',
-      reason: text(reason) || 'live PostHog attribution export unavailable',
-      telemetryWindow: window,
-    };
+  const evidence = attributionEvidence({
+    telemetryWindow: window,
+    commercial: suppliedCommercial,
+    commercialRowsPresent,
+  });
   return {
     ...(suppliedCommercial || {}),
     schemaVersion: 1,
@@ -209,6 +200,20 @@ export function buildUnavailableL8AttributionExport({
       : (Array.isArray(suppliedCommercial.rows) ? suppliedCommercial.rows : null))
     : null;
   const commercialRowsPresent = Array.isArray(rows);
+  const evidence = suppliedCommercial
+    ? attributionEvidence({
+      telemetryWindow: window,
+      commercial: suppliedCommercial,
+      commercialRowsPresent,
+    })
+    : {
+      source: 'posthog-affiliate-attribution-export',
+      sourceRefs: ['posthog.affiliate_experiment_exposure', 'posthog.affiliate_click'],
+      status: 'missing',
+      commercialLedger: 'missing',
+      reason: text(reason) || 'live PostHog attribution export unavailable',
+      telemetryWindow: window,
+    };
   return {
     ...(suppliedCommercial || {}),
     schemaVersion: 1,
@@ -217,11 +222,7 @@ export function buildUnavailableL8AttributionExport({
     // telemetry timestamp must never make an old commercial ledger fresh.
     generatedAt: text(suppliedCommercial?.generatedAt) || generated,
     independent: suppliedCommercial?.independent === true && commercialRowsPresent,
-    evidence: attributionEvidence({
-      telemetryWindow: window,
-      commercial: suppliedCommercial,
-      commercialRowsPresent,
-    }),
+    evidence,
     period: suppliedCommercial?.period || periodFromWindow(window),
     clicks: { web: null, email: null, relevant: null, total: null },
     exposures: suppliedCommercial?.exposures || { web: null, email: null },

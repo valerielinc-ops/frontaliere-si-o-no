@@ -33,6 +33,7 @@ function nonNegativeNumber(value) {
 }
 
 function isoDate(value) {
+  if (value === null || value === undefined || (typeof value === 'string' && value.trim() === '')) return null;
   const parsed = new Date(value);
   return Number.isFinite(parsed.getTime()) ? parsed.toISOString() : null;
 }
