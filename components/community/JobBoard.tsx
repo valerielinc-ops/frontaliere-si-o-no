@@ -3529,7 +3529,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
  const shouldPreloadRewardedApplicationAd = Boolean(
   isJobDetailView
   && authResolved
-  && userId
   && assistedApplicationVariant === 'rewarded_ad'
   && !killSwitches.rewardedApplicationAd
   && selectedJob
@@ -6773,23 +6772,14 @@ const JobBoard: React.FC<JobBoardProps> = ({
   );
  };
 
- const handleRewardedApplicationCompleted = () => {
+ const handleRewardedApplicationContinue = () => {
   const job = rewardedApplicationJob;
   if (!job) return;
   setRewardedApplicationJob(null);
-  // This callback happens after GPT's reward/video lifecycle, so use the
-  // current tab: a late window.open is commonly blocked by the browser.
+  // This callback happens after the visitor has explicitly chosen to continue
+  // from the rewarded modal, so use the current tab: a late window.open is
+  // commonly blocked by the browser.
   redirectExternalApplication(job, 'rewarded_application_inline_completed', true, true);
- };
-
- const handleRewardedApplicationUnavailable = () => {
-  const job = rewardedApplicationJob;
-  if (!job) return;
-  setRewardedApplicationJob(null);
-  // Reaching this callback means the Google path and its deterministic
-  // fallback could not be shown (or the request was ineligible). Preserve the
-  // original employer destination and the same-tab handoff.
-  redirectExternalApplication(job, 'rewarded_application_inline_unavailable', true, true);
  };
 
  const handleAssistedPaid = async () => {
@@ -6854,13 +6844,6 @@ const JobBoard: React.FC<JobBoardProps> = ({
 
  const handleApply = (job: JobListing, surface = 'job_board_apply') => {
   const isExternal = isExternalApplicationJob(job);
-  if (isExternal && assistedApplicationVariant === 'rewarded_ad' && !authUser?.uid) {
-   // The rewarded treatment is an account feature: do not create an ad
-   // request, publisher apply event, or destination handoff until the user is
-   // authenticated. The job content itself remains public for SEO.
-   onRequireAuth?.();
-   return;
-  }
   const rewardedAccessExpiresAt = isExternal && assistedApplicationVariant === 'rewarded_ad'
    ? getRewardedApplicationAccessExpiresAt()
    : null;
@@ -7281,8 +7264,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
     companyId={String(rewardedApplicationJob.companyKey || rewardedApplicationJob.company || 'unknown')}
     companyName={rewardedApplicationJob.company}
     jobTitle={sanitizeJobTitle(rewardedApplicationJob.titleByLocale?.[locale] ?? rewardedApplicationJob.title)}
-    onCompleted={handleRewardedApplicationCompleted}
-    onUnavailable={handleRewardedApplicationUnavailable}
+    onContinue={handleRewardedApplicationContinue}
     onDismiss={() => setRewardedApplicationJob(null)}
    />
   </Suspense>
