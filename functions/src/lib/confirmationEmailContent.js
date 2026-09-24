@@ -194,15 +194,106 @@ export function confirmationReminderBanner(locale, { frame, firstSentAt } = {}) 
 /**
  * The subject line for each frame.
  *
+ * With a `jobContext` (lib/confirmationJobContext.js) the line names the offer
+ * the person signed up from; without one it is the generic subject, unchanged.
+ *
  * @param {string} locale
- * @param {{frame?: string}} [options]
+ * @param {{frame?: string, jobContext?: object|null}} [options]
  * @returns {string}
  */
-export function confirmationEmailSubject(locale, { frame } = {}) {
+export function confirmationEmailSubject(locale, { frame, jobContext } = {}) {
   const lang = normalizeLocale(locale);
+  const jobSubject = confirmationJobSubject(lang, jobContext);
+  if (jobSubject) {
+    // Same frame rule as the generic subjects: the reminder says it is one, the
+    // last says it is the last, and the rest of the line is request #1's.
+    if (frame === CONFIRMATION_FRAMES.LAST) return `${t(lang, 'confirmJobReminderLastPrefix')}${jobSubject}`;
+    if (frame === CONFIRMATION_FRAMES.REMINDER) return `${t(lang, 'confirmJobReminderPrefix')}${jobSubject}`;
+    return jobSubject;
+  }
   if (frame === CONFIRMATION_FRAMES.LAST) return t(lang, 'confirmReminderLastSubject');
   if (frame === CONFIRMATION_FRAMES.REMINDER) return t(lang, 'confirmReminderSubject');
   return t(lang, 'confirmSubject');
+}
+
+/**
+ * Put already-safe values into a translation without `String.replace`'s
+ * replacement patterns: a job title containing `$&` or `$'` would otherwise be
+ * rewritten by `t()`'s own interpolation.
+ *
+ * @param {string} template
+ * @param {Record<string, string>} values
+ * @returns {string}
+ */
+function fill(template, values) {
+  let out = template;
+  for (const [k, v] of Object.entries(values)) out = out.split(`{${k}}`).join(v);
+  return out;
+}
+
+/** Plain-text subject line: no markup, no line breaks. */
+const plain = (v) => String(v || '').replace(/[\r\n\t]+/g, ' ').trim();
+
+/**
+ * The job-context subject of request #1, or null for the generic one.
+ *
+ * @param {string} lang
+ * @param {import('./confirmationJobContext.js').ConfirmationJobContext|null|undefined} jobContext
+ * @returns {string|null}
+ */
+function confirmationJobSubject(lang, jobContext) {
+  if (!jobContext || (!jobContext.title && !jobContext.company)) return null;
+  return jobContext.title
+    ? fill(t(lang, 'confirmJobSubjectTitle'), { title: plain(jobContext.title) })
+    : fill(t(lang, 'confirmJobSubjectCompany'), { company: plain(jobContext.company) });
+}
+
+/**
+ * Does the confirm link lead back to a page other than the home page?
+ *
+ * The «takes you straight back to the job» sentence is printed only when this
+ * is true: the return path comes from the caller (the SPA's pathname, or the
+ * `source_page` the follow-up runner reads), and a sentence promising the job
+ * above a link that lands on the home page would be a small lie in a consent
+ * request.
+ *
+ * @param {string} confirmUrl
+ * @returns {boolean}
+ */
+function confirmUrlReturnsToPage(confirmUrl) {
+  try {
+    const { pathname } = new URL(confirmUrl);
+    return pathname.length > 1;
+  } catch {
+    return false;
+  }
+}
+
+/**
+ * The job-context intro paragraph, or null for the generic one.
+ *
+ * @param {string} lang
+ * @param {import('./confirmationJobContext.js').ConfirmationJobContext|null|undefined} jobContext
+ * @param {string} confirmUrl
+ * @returns {string|null} HTML
+ */
+export function confirmationJobIntroHtml(lang, jobContext, confirmUrl) {
+  if (!jobContext || (!jobContext.title && !jobContext.company)) return null;
+  const title = jobContext.title ? escapeHtml(jobContext.title) : null;
+  const company = jobContext.company ? escapeHtml(jobContext.company) : null;
+  const labelKey = title && company
+    ? 'confirmJobLabelTitleCompany'
+    : (title ? 'confirmJobLabelTitle' : 'confirmJobLabelCompany');
+  const job = fill(t(lang, labelKey), { title: title || '', company: company || '' });
+  const where = jobContext.location
+    ? fill(t(lang, 'confirmJobWhere'), { location: escapeHtml(jobContext.location) })
+    : '';
+  const introKey = jobContext.kind === 'expired' ? 'confirmJobIntroExpired' : 'confirmJobIntroUnlocked';
+  const intro = fill(t(lang, introKey), { job, where });
+  const back = jobContext.kind !== 'expired' && confirmUrlReturnsToPage(confirmUrl)
+    ? ` ${t(lang, 'confirmJobReturn')}`
+    : '';
+  return `${intro}${back}`;
 }
 
 /**
@@ -212,21 +303,32 @@ export function confirmationEmailSubject(locale, { frame } = {}) {
  * existing caller — and the test that has rendered this template since 2024 —
  * gets exactly the bytes it got before.
  *
+ * `options.jobContext` swaps exactly three strings — subject, intro, button
+ * label — for their job-context versions. The banner logic, the link, the
+ * weekly list and the footer are the same bytes, so a reminder is still the
+ * first request plus a banner, whichever of the two variants the first was.
+ *
  * @param {string} confirmUrl
  * @param {string} [locale]
- * @param {{frame?: string, firstSentAt?: number|null}} [options]
+ * @param {{frame?: string, firstSentAt?: number|null, jobContext?: object|null}} [options]
  * @returns {string}
  */
 export function buildNewsletterConfirmationEmailHtml(confirmUrl, locale = 'it', options = {}) {
  const lang = normalizeLocale(locale);
  const year = new Date().getFullYear();
  const banner = confirmationReminderBanner(lang, options);
+ const jobIntro = confirmationJobIntroHtml(lang, options.jobContext, confirmUrl);
+ const subject = jobIntro
+   ? escapeHtml(confirmationEmailSubject(lang, options))
+   : confirmationEmailSubject(lang, options);
+ const intro = jobIntro || t(lang, 'confirmIntro');
+ const button = jobIntro ? t(lang, 'confirmJobButton') : t(lang, 'confirmButton');
  return `<!DOCTYPE html>
 <html lang="${htmlLang(lang)}">
 <head>
  <meta charset="UTF-8">
  <meta name="viewport" content="width=device-width, initial-scale=1.0">
- <title>${confirmationEmailSubject(lang, options)}</title>
+ <title>${subject}</title>
 </head>
 <body style="margin:0;padding:0;background:${LIGHT_BG};font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;">
  <table width="100%" cellpadding="0" cellspacing="0" style="background:${LIGHT_BG};padding:32px 16px;">
@@ -242,12 +344,12 @@ export function buildNewsletterConfirmationEmailHtml(confirmUrl, locale = 'it', 
  <tr><td style="background:${CARD_BG};border:1px solid ${BORDER_COLOR};border-radius:16px;padding:32px 28px;">
  ${banner}<div style="font-size:28px;font-weight:800;color:${BRAND_DARK};padding-bottom:8px;">${t(lang, 'confirmTitle')}</div>
  <div style="font-size:15px;line-height:1.6;color:${TEXT_COLOR};padding-bottom:20px;">
- ${t(lang, 'confirmIntro')}
+ ${intro}
  </div>
  <table width="100%" cellpadding="0" cellspacing="0" style="margin:24px 0;">
  <tr><td align="center">
  <a target="_blank" rel="noopener noreferrer" href="${escapeHtml(confirmUrl)}" style="display:inline-block;background:${BRAND_BLUE};color:#ffffff;text-decoration:none;padding:16px 32px;border-radius:12px;font-size:16px;font-weight:700;letter-spacing:.02em;">
- ${t(lang, 'confirmButton')}
+ ${button}
  </a>
  </td></tr>
  </table>
@@ -379,23 +481,31 @@ export function confirmationConfirmUrl({ email, token, sourcePath, mode }) {
  * confirmation`; passwordless access requests use `newsletter_login`, because
  * they are transactional authentication mail and not consent requests.
  *
- * @param {{locale?: string, confirmUrl: string, frame?: string, firstSentAt?: number|null, login?: boolean}} args
+ * `jobContext` (lib/confirmationJobContext.js) is ignored for a login link —
+ * an access email is not a consent request and names no offer — and, when it
+ * is used, adds a `context: job` tag so the provider-side numbers can tell the
+ * two variants apart without a second system.
+ *
+ * @param {{locale?: string, confirmUrl: string, frame?: string, firstSentAt?: number|null, login?: boolean, jobContext?: object|null}} args
  * @returns {{subject: string, html: string, tags: Array<{name: string, value: string}>, frame: string}}
  */
-export function buildConfirmationRequestEmail({ locale, confirmUrl, frame, firstSentAt, login = false } = {}) {
+export function buildConfirmationRequestEmail({ locale, confirmUrl, frame, firstSentAt, login = false, jobContext = null } = {}) {
   const lang = normalizeLocale(locale);
   const resolved = login ? 'login' : (frame || CONFIRMATION_FRAMES.FIRST);
+  const withJob = !login && !!confirmationJobSubject(lang, jobContext);
+  const context = withJob ? jobContext : null;
   return {
     frame: resolved,
-    subject: login ? t(lang, 'loginSubject') : confirmationEmailSubject(lang, { frame: resolved }),
+    subject: login ? t(lang, 'loginSubject') : confirmationEmailSubject(lang, { frame: resolved, jobContext: context }),
     html: login
       ? buildNewsletterLoginEmailHtml(confirmUrl, lang)
-      : buildNewsletterConfirmationEmailHtml(confirmUrl, lang, { frame: resolved, firstSentAt }),
+      : buildNewsletterConfirmationEmailHtml(confirmUrl, lang, { frame: resolved, firstSentAt, jobContext: context }),
     tags: [
       { name: 'campaign_id', value: login ? 'newsletter_login' : 'confirmation' },
       { name: 'type', value: 'transactional' },
       { name: 'locale', value: lang },
       { name: 'frame', value: resolved },
+      ...(withJob ? [{ name: 'context', value: 'job' }] : []),
     ],
   };
 }
