@@ -475,6 +475,24 @@ jobs:
           df -h /
           echo "::endgroup::"
 
+      - name: Restore runner CA trust before checkout (#9681)
+        shell: bash
+        run: |
+          set -euo pipefail
+          # A hosted runner intermittently reached actions/checkout with no
+          # libcurl CAfile (run 35913755610: "CAfile: none"). Rebuild the
+          # standard bundle only when it is missing, then make the trust paths
+          # explicit for the checkout action. Never disable certificate checks.
+          ca_file=/etc/ssl/certs/ca-certificates.crt
+          if [[ ! -s "$ca_file" ]]; then
+            sudo update-ca-certificates --fresh
+          fi
+          test -s "$ca_file"
+          {
+            echo "GIT_SSL_CAINFO=$ca_file"
+            echo "GIT_SSL_CAPATH=/etc/ssl/certs"
+          } >> "$GITHUB_ENV"
+
       - name: Checkout
         uses: actions/checkout@v5
 

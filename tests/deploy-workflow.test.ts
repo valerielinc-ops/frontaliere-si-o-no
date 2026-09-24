@@ -592,6 +592,33 @@ describe('deploy.yml — shard push mode and advisory delta verification', () =>
   });
 });
 
+describe('deploy.yml — build-locale checkout has an explicit CA bundle (#9681)', () => {
+  const workflow = YAML.parse(DEPLOY_YML) as any;
+  const steps: Array<Record<string, any>> = workflow.jobs['build-locale'].steps;
+  const caStepIndex = steps.findIndex(
+    (step) => step.name === 'Restore runner CA trust before checkout (#9681)',
+  );
+  const checkoutIndex = steps.findIndex(
+    (step) => step.name === 'Checkout' && step.uses === 'actions/checkout@v5',
+  );
+
+  it('repairs a missing bundle and exports explicit trust paths before checkout', () => {
+    expect(caStepIndex).toBeGreaterThanOrEqual(0);
+    expect(checkoutIndex).toBeGreaterThan(caStepIndex);
+
+    const caStep = steps[caStepIndex];
+    expect(caStep.run).toContain('sudo update-ca-certificates --fresh');
+    expect(caStep.run).toContain('test -s "$ca_file"');
+    expect(caStep.run).toContain('GIT_SSL_CAINFO=$ca_file');
+    expect(caStep.run).toContain('GIT_SSL_CAPATH=/etc/ssl/certs');
+  });
+
+  it('does not weaken TLS verification while handling the runner defect', () => {
+    const caStep = steps[caStepIndex];
+    expect(caStep.run).not.toMatch(/GIT_SSL_NO_VERIFY|sslVerify\s+false/i);
+  });
+});
+
 describe('deploy.yml — benchmark-only controls never enter production', () => {
   it('does not set the experiment stop, sample, or benchmark guard', () => {
     expect(DEPLOY_YML).not.toContain('BUILD_STOP_AFTER');
