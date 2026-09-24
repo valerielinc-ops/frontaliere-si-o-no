@@ -7186,6 +7186,31 @@ const JobBoard: React.FC<JobBoardProps> = ({
  </Suspense>
  ) : null;
 
+ // Anonymous job-detail visitors have the strongest intent signal before the
+ // apply click, but the authenticated prompt above cannot serve them. Keep a
+ // visible, category-based alert CTA in the detail header and hand anonymous
+ // clicks back to the list, where JobAlertForm owns email capture and auth.
+ const detailAlertCategoryLabel = selectedJob
+  ? (t(categoryTranslationKey(selectedJob)) || '').trim()
+  : '';
+ const detailAlertCtaJsx = enableJobAlerts && isJobDetailView && selectedJob && detailAlertCategoryLabel && (!userId || !userEmail) ? (
+  <Suspense fallback={null}>
+   <JobBoardFilterAlertCta
+    userId={null}
+    email={null}
+    locale={locale}
+    context="category"
+    keywordLabel={detailAlertCategoryLabel}
+    cantonCode={selectedJob.canton ?? null}
+    onImpression={() => Analytics.trackJobAlertCtaShown('job_detail_anonymous', detailAlertCategoryLabel)}
+    onAnonymousOpen={() => {
+     Analytics.trackJobAlertCtaClick('job_detail_anonymous', 'open', detailAlertCategoryLabel);
+     backToList();
+    }}
+   />
+  </Suspense>
+ ) : null;
+
  // Saved-jobs alert nudge toast (#4467).
  //
  // The `&& !jobDetailPromptVisible` that used to be here was the ONLY overlap
@@ -9454,6 +9479,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  <div className="mt-3">{sectorContextWidget}</div>
  )}
  </article>
+ {detailAlertCtaJsx}
  {jobDetailPromptJsx}
  {savedJobsNudgeJsx}
  {saveAuthPromptJsx}
@@ -9838,6 +9864,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  height={28}
  loading="lazy"
  onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {appliedNoticeJsx}
+ {detailAlertCtaJsx}
  {isPublisherAd && userId && userEmail && (
  <Suspense fallback={null}>
  <JobDetailJobAlertButton

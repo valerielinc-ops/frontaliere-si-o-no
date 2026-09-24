@@ -28,6 +28,15 @@ describe('deriveAnalyticsPageContext', () => {
       pageTemplate: 'jobs_company',
       contentLocale: 'de',
     });
+
+    expect(
+      deriveAnalyticsPageContext('/en/find-jobs-zurich'),
+    ).toMatchObject({
+      contentGroup: 'jobs',
+      pageTemplate: 'jobs_index',
+      routeFamily: 'jobs_index',
+      contentLocale: 'en',
+    });
   });
 
   it('keeps sector hubs out of the job-detail template', () => {
@@ -61,6 +70,30 @@ describe('deriveAnalyticsPageContext', () => {
     ).toMatchObject({
       contentGroup: 'stats',
       pageTemplate: 'stats_index',
+    });
+  });
+
+  it('classifies fuel, health and border-wait detail pages', () => {
+    expect(deriveAnalyticsPageContext('/en/fuel-prices/today')).toMatchObject({
+      contentGroup: 'stats',
+      pageTemplate: 'fuel_detail',
+      siteSection: 'stats',
+      routeFamily: 'fuel',
+      contentLocale: 'en',
+    });
+
+    expect(deriveAnalyticsPageContext('/premi-cassa-malati/ticino')).toMatchObject({
+      contentGroup: 'stats',
+      pageTemplate: 'health_detail',
+      routeFamily: 'health',
+    });
+
+    expect(deriveAnalyticsPageContext('/fr/temps-attente-frontiere/chiasso')).toMatchObject({
+      contentGroup: 'guides',
+      pageTemplate: 'border_wait',
+      siteSection: 'guide',
+      routeFamily: 'border_wait',
+      contentLocale: 'fr',
     });
   });
 });
