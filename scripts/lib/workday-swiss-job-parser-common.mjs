@@ -23,7 +23,8 @@
 import { createHash } from 'node:crypto';
 import { detectLang, isLocationExplicitlyForeign } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
-import { inferSwissTargetCanton } from './target-swiss-locations.mjs';
+import { inferSwissTargetCanton, isCantonOnlyLabel } from './target-swiss-locations.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   buildWorkdayApiBase,
   fetchWorkdayJobs,
@@ -57,8 +58,15 @@ function cleanWorkdayLocation(raw = '') {
   const noSuffix = trimmed.replace(/,?\s*(switzerland|schweiz|suisse|svizzera)\s*$/i, '').trim();
   const parts = noSuffix.split(/\s*[-,]\s*/).map((p) => p.trim()).filter(Boolean);
   if (parts.length === 0) return '';
-  for (const p of parts) {
-    if (inferSwissTargetCanton(p)) return p;
+  for (let index = 0; index < parts.length; index += 1) {
+    const p = parts[index];
+    if (!inferSwissTargetCanton(p)) continue;
+    // Un cantone non sostituisce la località che lo precede: `Seewis,
+    // Graubunden` (il BFS scrive «Seewis im Prättigau») usciva `Graubunden`,
+    // cioè un cantone pubblicato come località (georg-fischer, issue 5253).
+    // La località resta, qualificata dal cantone che la rende riconoscibile.
+    if (index > 0 && isCantonOnlyLabel(p)) return parts.slice(0, index + 1).join(', ');
+    return p;
   }
   return parts[0];
 }
@@ -293,6 +301,7 @@ export function createWorkdaySwissParser(config) {
 
     const jobs = [];
     let missingDetailUrlCount = 0;
+    let foreignPrimaryCount = 0;
     for (const listing of listings) {
       const title = normalizeSpace(listing.title || '');
       if (!title || title.length < 3) continue;
@@ -337,11 +346,18 @@ export function createWorkdaySwissParser(config) {
         ...(Array.isArray(detailInfo.additionalLocations) ? detailInfo.additionalLocations : []),
       ].map(locationDescriptor).filter(Boolean);
       const detailLocation = resolveWorkdayPrimarySwissLocation({ location: primaryLocationField });
-      const detailIsForeignOnly = detailLocations.length > 0
-        && !detailLocation
-        && detailLocations.some((value) => isLocationExplicitlyForeign(value));
+      // Alcuni tenant nominano le sedi con codici opachi (`CEY BO`, `TOI L 112`,
+      // siemens-healthineers) che nessun matcher riconosce: il paese dichiarato
+      // dal dettaglio (`jobPostingInfo.country`) è allora la sola evidenza del
+      // luogo primario, ed è esplicita.
+      const detailCountry = locationDescriptor(detailInfo.country);
+      const detailIsForeignOnly = !detailLocation && (
+        (detailLocations.length > 0 && detailLocations.some((value) => isLocationExplicitlyForeign(value)))
+        || Boolean(detailCountry && isLocationExplicitlyForeign(detailCountry))
+      );
       if (detailIsForeignOnly) {
-        console.log(`  ⏭️  Skipped foreign detail location: ${detailLocations.join(' | ')} — ${title}`);
+        foreignPrimaryCount += 1;
+        console.log(`  ⏭️  Skipped foreign detail location: ${[...detailLocations, detailCountry].filter(Boolean).join(' | ')} — ${title}`);
         continue;
       }
       // Carry the PRIMARY's state through every fallback below.
@@ -482,6 +498,16 @@ export function createWorkdaySwissParser(config) {
     }
 
     console.log(`\n📋 Total ${companyName} jobs discovered: ${jobs.length}`);
+    // Zero provato dalla fonte: il facet svizzero ha restituito annunci e il
+    // dettaglio di OGNUNO dichiara una sede primaria estera. È un'osservazione
+    // completa, non un «non ho visto nulla»: un fetch fallito o un dettaglio
+    // non risolto non entra nel conteggio e lascia il `[]` non provato.
+    if (jobs.length === 0 && facetApplied && listings.length > 0 && foreignPrimaryCount === listings.length) {
+      markAuthoritativeEmptySnapshot(
+        jobs,
+        `Workday Swiss facet listed ${listings.length} posting(s), every primary workplace explicitly foreign`,
+      );
+    }
     jobs.missingDetailUrlCount = missingDetailUrlCount;
     return jobs;
   }

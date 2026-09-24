@@ -37,7 +37,7 @@
  *   - slugify() / stripHtml()  — Re-exported from crawler-template.mjs
  */
 import { createHash } from 'node:crypto';
-import { resolveFallbackAddress } from '../../build-plugins/shared/companyHqAddresses.mjs';
+import { resolveLocalityAddress } from './swiss-structured-address.mjs';
 import { XMLParser, XMLValidator } from 'fast-xml-parser';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
@@ -789,7 +789,9 @@ export async function fetchAllNordAngliaJobs() {
       );
       continue;
     }
-    const fallbackAddress = resolveFallbackAddress(undefined, location, canton);
+    // La località della vacancy, non il capoluogo di ripiego: `Pully` usciva
+    // come `addressLocality: Lausanne` (audit-parser-quality, issue 5253).
+    const fallbackAddress = resolveLocalityAddress({ city: location, canton });
     const description = descriptionText || `${jobTitle} presso ${NORD_ANGLIA_COMPANY_NAME} a ${location}, Svizzera.`;
     const sourceLang = detail?.language || detectLang(descriptionText || jobTitle, 'en');
     const jobSlug = slugify(`${jobTitle} nord-anglia ${location}`);

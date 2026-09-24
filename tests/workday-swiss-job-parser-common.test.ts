@@ -3,6 +3,7 @@ import {
   createWorkdaySwissParser,
   resolveWorkdayPrimarySwissLocation,
 } from '../scripts/lib/workday-swiss-job-parser-common.mjs';
+import { isAuthoritativeEmptySnapshot } from '../scripts/lib/authoritative-empty-snapshot.mjs';
 
 /**
  * The publish gate reads the req's OWN primary workplace, never the union of
@@ -502,5 +503,103 @@ describe('createWorkdaySwissParser — HQ default is not a fallback on the facet
     expect(jobs.some((j: any) => j.title === 'Opaque site role')).toBe(false);
     expect(jobs.map((j: any) => j.title)).toEqual(['Real Swiss role']);
     expect(jobs[0]).toMatchObject({ location: 'Zug', canton: 'ZG' });
+  });
+});
+
+/**
+ * issue 5253 / crawler-health-monitor: due casi misurati dal vivo il
+ * 2026-09-24. georg-fischer pubblicava il cantone `Graubunden` per la sede
+ * primaria `Seewis, Graubunden` (il BFS scrive «Seewis im Prättigau»), e
+ * siemens-healthineers restava «broken» perché i tre annunci del facet
+ * svizzero hanno tutti una sede primaria estera dichiarata solo dal campo
+ * `country` del dettaglio (le sedi sono codici opachi: `CEY BO`, `TOI L 112`).
+ */
+describe('createWorkdaySwissParser — canton-only segments and proven-empty facet', () => {
+  const ORIGINAL_FETCH = global.fetch;
+
+  afterEach(() => {
+    global.fetch = ORIGINAL_FETCH;
+    vi.restoreAllMocks();
+  });
+
+  function mockFacetTenant(postings: any[], details: Record<string, any>) {
+    global.fetch = vi.fn(async (url: string, init: any = {}) => {
+      const urlStr = String(url);
+      if (urlStr.endsWith('/jobs') && init?.method === 'POST') {
+        return new Response(JSON.stringify({ total: postings.length, jobPostings: postings }), { status: 200 });
+      }
+      const key = Object.keys(details).find((path) => urlStr.endsWith(path));
+      if (!key || details[key] === null) return new Response('', { status: 404 });
+      return new Response(JSON.stringify({ jobPostingInfo: details[key] }), { status: 200 });
+    });
+  }
+
+  const makeParser = () => createWorkdaySwissParser({
+    companyKey: 'testco',
+    companyName: 'Test Co',
+    companyDomain: 'testco.com',
+    tenantHost: 'testco.wd3.myworkdayjobs.com',
+    sitePath: 'Test_Careers',
+    careerUrl: 'https://testco.com/careers',
+    defaultCanton: 'ZH',
+    defaultCity: 'Zürich',
+  });
+
+  it('keeps the locality before a canton segment instead of publishing the canton', async () => {
+    // `Conters` è «Conters im Prättigau» nel BFS e non ha alias: prima usciva
+    // il solo `Graubunden`, come per la sede GF di Seewis.
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    mockFacetTenant(
+      [{ title: 'Quality Engineer Production', externalPath: '/job/Conters-Graubunden/Quality-Engineer_JR10665', locationsText: 'Conters, Graubunden', bulletFields: ['JR10665'] }],
+      { '/job/Conters-Graubunden/Quality-Engineer_JR10665': { title: 'Quality Engineer Production', location: 'Conters, Graubunden', country: { descriptor: 'Switzerland' } } },
+    );
+    const jobs = await makeParser().fetchAllJobs();
+    expect(jobs).toHaveLength(1);
+    expect(jobs[0].location).toBe('Conters, Graubunden');
+    expect(jobs[0].canton).toBe('GR');
+  });
+
+  it('publishes the short commune name once the gazetteer knows it (Seewis)', async () => {
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    mockFacetTenant(
+      [{ title: 'Quality Engineer Production', externalPath: '/job/Seewis-Graubunden/Quality-Engineer_JR10665', locationsText: 'Seewis, Graubunden', bulletFields: ['JR10665'] }],
+      { '/job/Seewis-Graubunden/Quality-Engineer_JR10665': { title: 'Quality Engineer Production', location: 'Seewis, Graubunden', country: { descriptor: 'Switzerland' } } },
+    );
+    const jobs = await makeParser().fetchAllJobs();
+    expect(jobs.map((job: any) => [job.location, job.canton])).toEqual([['Seewis', 'GR']]);
+  });
+
+  it('marks an authoritative empty snapshot when every facet posting has a declared foreign primary', async () => {
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    mockFacetTenant(
+      [
+        { title: 'Network Engineer', externalPath: '/job/CEY-BO/Network-Engineer_R-1', locationsText: '11 Locations', bulletFields: ['R-1'] },
+        { title: 'Medical Physicist', externalPath: '/job/TOI-L-112/Medical-Physicist_R-2', locationsText: '6 Locations', bulletFields: ['R-2'] },
+      ],
+      {
+        '/job/CEY-BO/Network-Engineer_R-1': { title: 'Network Engineer', location: 'CEY BO', additionalLocations: ['HEL AA'], country: { descriptor: 'United Kingdom' } },
+        '/job/TOI-L-112/Medical-Physicist_R-2': { title: 'Medical Physicist', location: 'TOI L 112', country: { descriptor: 'Germany' } },
+      },
+    );
+    const jobs = await makeParser().fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(true);
+  });
+
+  it('does not prove a zero when a posting detail was not observed', async () => {
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    mockFacetTenant(
+      [
+        { title: 'Network Engineer', externalPath: '/job/CEY-BO/Network-Engineer_R-1', locationsText: '11 Locations', bulletFields: ['R-1'] },
+        { title: 'Medical Physicist', externalPath: '/job/TOI-L-112/Medical-Physicist_R-2', locationsText: '6 Locations', bulletFields: ['R-2'] },
+      ],
+      {
+        '/job/CEY-BO/Network-Engineer_R-1': { title: 'Network Engineer', location: 'CEY BO', country: { descriptor: 'United Kingdom' } },
+        '/job/TOI-L-112/Medical-Physicist_R-2': null,
+      },
+    );
+    const jobs = await makeParser().fetchAllJobs();
+    expect(jobs).toHaveLength(0);
+    expect(isAuthoritativeEmptySnapshot(jobs)).toBe(false);
   });
 });
