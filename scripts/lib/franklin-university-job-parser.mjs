@@ -145,8 +145,8 @@ function extractLocationField(bodyText = '') {
  */
 export function parseListingPage(html = '') {
   const jobs = [];
-  jobs.missingDetailUrlCount = 0;
   if (!html) return jobs;
+  let missingDetailUrlCount = 0;
   const { document } = new JSDOM(html).window;
 
   const accordions = document.querySelectorAll('.paragraph--type-single-accordion, [class*="paragraph--type-single-accordion"], [class*="single-accordion"]');
@@ -170,13 +170,14 @@ export function parseListingPage(html = '') {
 
     const anchor = String(node.getAttribute('id') || '').trim();
     if (!DETAIL_ANCHOR_RE.test(anchor)) {
-      jobs.missingDetailUrlCount += 1;
+      missingDetailUrlCount += 1;
       continue;
     }
 
     jobs.push({ title, url: `${CAREER_URL}#${anchor}`, snippet: bodyText, location: location || HQ.city });
   }
 
+  if (missingDetailUrlCount > 0) jobs.missingDetailUrlCount = missingDetailUrlCount;
   return jobs;
 }
 
@@ -194,14 +195,16 @@ export async function fetchAllFranklinUniversityJobs() {
     throw new Error(`Franklin University: failed to fetch the careers page: ${err.message}`, { cause: err });
   }
   const listings = parseListingPage(html);
-  const { missingDetailUrlCount } = listings;
+  const missingDetailUrlCount = listings.missingDetailUrlCount || 0;
   console.log(`  Jobs found on listing page: ${listings.length}`);
   if (missingDetailUrlCount > 0) {
     console.warn(`  ⚠️ ${missingDetailUrlCount} vacancy(ies) without a per-vacancy anchor dropped (no list-page fallback)`);
   }
 
   const jobs = [];
-  jobs.missingDetailUrlCount = missingDetailUrlCount;
+  // Only a real loss is attached: a clean crawl stays a plain array, so an
+  // empty page still reads as the genuine empty result `[]`.
+  if (missingDetailUrlCount > 0) jobs.missingDetailUrlCount = missingDetailUrlCount;
   if (!listings.length) return jobs;
 
   for (const listing of listings) {

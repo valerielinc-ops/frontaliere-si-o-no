@@ -50,7 +50,8 @@ describe('Franklin University parser — per-vacancy detail URL (#9679)', () => 
       `${CAREER_URL}#para_4660`,
       `${CAREER_URL}#para_4700`,
     ]);
-    expect(listings.missingDetailUrlCount).toBe(0);
+    // A clean parse stays a plain array (no loss property to compare against).
+    expect(listings.missingDetailUrlCount).toBeUndefined();
   });
 
   it('drops a vacancy without an anchor and counts it, never falling back to the list URL', async () => {
