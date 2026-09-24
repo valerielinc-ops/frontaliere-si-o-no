@@ -368,6 +368,7 @@ const RAW_ARTICLES = [
  id: 'tassazione-individuale-lavoro-ticino',
  category: 'fiscale',
  date: '2026-02-19T08:34:53.901Z',
+ updatedAt: '2026-09-24',
  image: '/images/blog/tassazione-individuale-lavoro-ticino.webp',
  hasCalculator: true,
  authorSlug: 'redazione',
