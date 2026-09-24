@@ -35,6 +35,7 @@ import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
 import { slugify, stripHtml } from './crawler-template.mjs';
 import { inferAnyCanton, normalizeCantonCode } from './target-swiss-locations.mjs';
+import { markAuthoritativeEmptySnapshot } from './authoritative-empty-snapshot.mjs';
 import {
   createBrowser,
   createPoliteContext,
@@ -227,6 +228,9 @@ async function discoverAllJobPostings() {
   let browser;
   const rawPostings = [];
   const seenIds = new Set();
+  // Corpi delle risposte `jobposting/search` catturate: servono a distinguere
+  // «la fonte ha risposto 0 annunci» da «la risposta non è mai arrivata».
+  const searchBodies = [];
 
   try {
     browser = await createBrowser({ userAgent: BROWSER_UA });
@@ -276,6 +280,7 @@ async function discoverAllJobPostings() {
     };
 
     for (const body of capturedResponses) collectFrom(body);
+    searchBodies.push(...capturedResponses);
 
     for (let pageNum = 1; pageNum < MAX_PAGES; pageNum += 1) {
       const nextBtn = page.locator('.ant-pagination-next:not(.ant-pagination-disabled)').first();
@@ -287,6 +292,7 @@ async function discoverAllJobPostings() {
       await page.waitForTimeout(4000);
       if (capturedResponses.length === beforeCount) break; // no new response fired
 
+      searchBodies.push(capturedResponses[capturedResponses.length - 1]);
       if (!collectFrom(capturedResponses[capturedResponses.length - 1])) break;
     }
 
@@ -295,7 +301,30 @@ async function discoverAllJobPostings() {
     await closeAll(browser);
   }
 
-  return rawPostings;
+  return { postings: rawPostings, searchBodies };
+}
+
+/**
+ * Esito delle risposte `jobposting/search` catturate.
+ *
+ * Il crawler pubblicava lo stesso `[]` sia quando Dayforce rispondeva zero
+ * annunci sia quando la risposta non arrivava mai (challenge Cloudflare, XHR
+ * rinominata): crawler-health-monitor lo leggeva come «broken» per sempre,
+ * senza dire quale dei due. Uno zero è provato solo se ALMENO una risposta è
+ * stata catturata e ognuna dichiara `maxCount: 0` senza annunci; nessuna
+ * risposta resta un `[]` non provato, che tiene la slice precedente.
+ *
+ * @param {any[]} searchBodies
+ * @returns {{ observed: boolean, provenEmpty: boolean }}
+ */
+export function summarizeDayforceSearch(searchBodies = []) {
+  const bodies = (Array.isArray(searchBodies) ? searchBodies : []).filter((body) => body && typeof body === 'object');
+  const observed = bodies.length > 0;
+  const provenEmpty = observed && bodies.every((body) => (
+    Number(body.maxCount) === 0
+    && (!Array.isArray(body.jobPostings) || body.jobPostings.length === 0)
+  ));
+  return { observed, provenEmpty };
 }
 
 /**
@@ -405,15 +434,23 @@ export async function fetchAllBuchererJobs() {
   console.log(`   Source: ${LISTING_URL}\n`);
 
   let postings;
+  let searchBodies;
   try {
-    postings = await discoverAllJobPostings();
+    ({ postings, searchBodies } = await discoverAllJobPostings());
   } catch (err) {
     console.warn(`⚠️ Bucherer Dayforce fetch failed: ${err?.message || err}`);
     throw err;
   }
 
   if (!postings || postings.length === 0) {
-    console.warn('⚠️ No job listings returned.');
+    const { observed, provenEmpty } = summarizeDayforceSearch(searchBodies);
+    if (provenEmpty) {
+      console.log('ℹ️ Dayforce jobposting/search answered maxCount 0 — no open Bucherer postings.');
+      return markAuthoritativeEmptySnapshot([], 'Dayforce jobposting/search response declared maxCount 0');
+    }
+    console.warn(observed
+      ? '⚠️ No job listings returned (search response carried no postings but no zero count either).'
+      : '⚠️ No job listings returned: the jobposting/search response was never captured (Cloudflare challenge or changed XHR?).');
     return [];
   }
 

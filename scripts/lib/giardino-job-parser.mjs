@@ -1,15 +1,21 @@
 /**
- * Giardino Group job parser — WordPress REST API.
+ * Giardino Group job parser — microsito «Giardino Talents».
+ *
+ * Dal 2026-09 le offerte non sono più nel post type WordPress `jobs`
+ * (`/wp-json/wp/v2/jobs` risponde `[]`, `/giardino-group/jobs/` reindirizza
+ * alla home): vivono nel microsito statico https://giardinohotels.ch/talents/
+ * — una `a.job-card` per vacancy nella sezione `#stellen`, e una pagina
+ * `job-*.html` per vacancy con JSON-LD JobPosting e le sezioni #aboutthejob /
+ * #aboutyou / #talentculture. Il crawler leggeva ancora l'API vuota e
+ * pubblicava zero da tre run (crawler-health-monitor: giardino broken).
+ * Le note sotto sul formato WordPress restano per gli helper ancora esportati.
  *
  * Giardino Group operates luxury hotels in Switzerland:
  *   - Giardino Mountain (Champfèr / St. Moritz, GR)
  *   - Giardino Ascona (Ascona, TI)
  *   - Giardino Lago (Minusio / Locarno, TI)
  *
- * The career page at giardinohotels.ch runs WordPress 6.9+ with a custom
- * "jobs" post type. The REST API at /wp-json/wp/v2/jobs returns structured
- * JSON with full HTML content per job — no pagination needed (~3 jobs).
- *
+ * Formato del vecchio post type WordPress (solo per gli helper WP esportati):
  * Content structure per job (German):
  *   <div id="introduction">
  *     <h3>#aboutus</h3>         — company boilerplate (skip)
@@ -25,14 +31,12 @@
  *     <h3>Kontakt</h3>          — contact (skip)
  *   </div>
  *
- * Location is derived from the content text pattern
- *   "Giardino {Mountain|Ascona|Lago} in {city}" or WordPress categories.
- *
- * Source: https://giardinohotels.ch/en/giardino-group/jobs/
+ * Source: https://giardinohotels.ch/talents/
  */
 import { createHash } from 'node:crypto';
 import { detectLang } from './dedicated-crawler-common.mjs';
-import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace, warnIfListingAtCap, fetchJson } from './crawler-template.mjs';
+import { slugify, stripHtml, normalizeSpace, normalizeDescriptionSpace } from './crawler-template.mjs';
+import { fetchHtml } from './hospital-custom-html-helpers.mjs';
 import {  inferSwissTargetCanton, inferAnyCanton  } from './target-swiss-locations.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
@@ -41,13 +45,9 @@ export const GIARDINO_KEY = 'giardino';
 export const GIARDINO_COMPANY_NAME = 'Giardino Group';
 export const GIARDINO_COMPANY_DOMAIN = 'giardinohotels.ch';
 
-const LISTING_PAGE_CAP = 50;
 const SITE_BASE = 'https://giardinohotels.ch';
-const API_URL = `${SITE_BASE}/wp-json/wp/v2/jobs?per_page=${LISTING_PAGE_CAP}`;
-// English translations live behind their own locale-prefixed REST route, with
-// their own slugs — the only place the real /en/ permalink can be read from.
-// locale-segment-ok: rotta REST del sito ESTERNO giardinohotels.ch (WPML), non un path per-locale nostro
-const EN_API_URL = `${SITE_BASE}/en/wp-json/wp/v2/jobs?per_page=${LISTING_PAGE_CAP}`;
+// Listing tedesco del microsito Talents: il tedesco è la lingua sorgente.
+const TALENTS_URL = `${SITE_BASE}/talents/`;
 
 /* ── Hotel → location mapping ─────────────────────────────── */
 
@@ -393,35 +393,131 @@ export function resolvePublicUrl(listing, enIndex) {
   return wpSlug ? `${SITE_BASE}/de/jobs/${wpSlug}/` : `${SITE_BASE}/de/jobs/`;
 }
 
-/* ── WordPress API Fetch ──────────────────────────────────── */
+/* ── Microsito Talents ──────────────────────────────────────── */
 
-/**
- * Fetch job listings from the WordPress REST API.
- */
-// Uses the shared fetchJson() (crawler-template.mjs): retries transient
-// failures (5xx/429, network blips, and a 200-but-non-JSON WAF "challenge"
-// body — the same class of intermittent block that broke the Bucher + Suter
-// WP REST listing, #4247) via exponential backoff instead of hard-failing
-// the whole crawler on one blip.
-function fetchJobListings() {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  return fetchJson(API_URL, { timeoutMs, label: 'Giardino Group wp-json job-listings' });
+/** `data-loc` delle job-card → hotel del gruppo. */
+const TALENTS_LOC_HOTEL = {
+  stmoritz: 'mountain',
+  champfer: 'mountain',
+  ascona: 'ascona',
+  lago: 'lago',
+  locarno: 'lago',
+  minusio: 'lago',
+};
+
+/** Località pubblicata per hotel, come la fonte la scrive nel badge/JSON-LD. */
+const TALENTS_HOTEL_LABEL_RX = {
+  mountain: /moritz|champf/i,
+  ascona: /ascona/i,
+  lago: /locarno|minusio|lago/i,
+};
+
+function decodeHtmlText(value = '') {
+  return normalizeSpace(decodeWpEntities(stripHtml(String(value || '')).replace(/&nbsp;|&#160;/g, ' ')));
 }
 
 /**
- * Fetch the English listing, used only to resolve permalinks. A failure here
- * degrades the apply links to their German permalink — it must never fail the
- * crawl, since the German listing is the source of truth for the jobs.
+ * Job-card della sezione `#stellen` del listing Talents.
+ *
+ * @param {string} html
+ * @param {string} [baseUrl]
+ * @returns {{ title: string, url: string, slug: string, locKeys: string[], locationLabel: string, department: string }[]}
  */
-async function fetchEnglishListings() {
-  const timeoutMs = Number(process.env.JOBS_CRAWLER_TIMEOUT_MS) || 20000;
-  try {
-    const listings = await fetchJson(EN_API_URL, { timeoutMs, label: 'Giardino Group wp-json job-listings (en)' });
-    return Array.isArray(listings) ? listings : [];
-  } catch (err) {
-    console.warn(`⚠️ English job listing unavailable (${err?.message || err}) — falling back to German permalinks.`);
-    return [];
+export function parseTalentsListing(html = '', baseUrl = TALENTS_URL) {
+  const out = [];
+  const seen = new Set();
+  const cardRx = /<a\b([^>]*\bclass="[^"]*\bjob-card\b[^"]*"[^>]*)>([\s\S]*?)<\/a>/gi;
+  let match;
+  while ((match = cardRx.exec(String(html || '')))) {
+    const attrs = match[1];
+    const body = match[2];
+    const href = attrs.match(/\bhref="([^"]+)"/i)?.[1] || '';
+    if (!/(?:^|\/)job-[^/]+\.html$/i.test(href)) continue;
+    let url;
+    try { url = new URL(href, baseUrl).href; } catch { continue; }
+    if (!isTrustedDomain(url) || seen.has(url)) continue;
+    const title = decodeHtmlText(body.match(/<h3[^>]*>([\s\S]*?)<\/h3>/i)?.[1] || '');
+    if (!title) continue;
+    seen.add(url);
+    out.push({
+      title,
+      url,
+      slug: url.split('/').pop().replace(/\.html$/i, ''),
+      locKeys: (attrs.match(/\bdata-loc="([^"]*)"/i)?.[1] || '').split(/\s+/).filter(Boolean),
+      locationLabel: decodeHtmlText(body.match(/class="job-badge loc"[^>]*>([\s\S]*?)<\/span>/i)?.[1] || ''),
+      department: decodeHtmlText(body.match(/class="job-badge dep"[^>]*>([\s\S]*?)<\/span>/i)?.[1] || ''),
+    });
   }
+  return out;
+}
+
+/** Testo del paragrafo/lista che segue l'intestazione `#<hash>` di una sezione. */
+function talentsSection(html, hash) {
+  const rx = new RegExp(`<span class="hash">#<\\/span>${hash}<\\/h2>([\\s\\S]*?)(?=<h2\\b|<\\/aside>|<\\/section>)`, 'i');
+  return rx.exec(html)?.[1] || '';
+}
+
+function listItems(html = '') {
+  const items = [];
+  const liRx = /<li[^>]*>([\s\S]*?)<\/li>/gi;
+  let m;
+  while ((m = liRx.exec(html))) {
+    const text = normalizeDescriptionSpace(decodeHtmlText(m[1]));
+    if (text.length > 2) items.push(text);
+  }
+  return items;
+}
+
+/**
+ * Pagina `job-*.html` del microsito. Il titolo è l'H1: il JSON-LD della fonte
+ * riusa a volte quello di un'altra vacancy (la pagina Night Auditor dichiara
+ * «Chef de Partie», misurato il 2026-09-24), quindi dal JSON-LD si leggono solo
+ * tipo d'impiego, data e località.
+ *
+ * @param {string} html
+ */
+export function parseTalentsDetail(html = '') {
+  const src = String(html || '');
+  let jsonLd = {};
+  for (const block of src.matchAll(/<script[^>]*application\/ld\+json[^>]*>([\s\S]*?)<\/script>/gi)) {
+    try {
+      const node = JSON.parse(block[1]);
+      if (node?.['@type'] === 'JobPosting') { jsonLd = node; break; }
+    } catch { /* blocco non valido: si ignora */ }
+  }
+  return {
+    title: decodeHtmlText(src.match(/<h1[^>]*>([\s\S]*?)<\/h1>/i)?.[1] || ''),
+    intro: decodeHtmlText(src.match(/<p class="intro"[^>]*>([\s\S]*?)<\/p>/i)?.[1] || ''),
+    locationLabel: normalizeSpace(jsonLd?.jobLocation?.address?.addressLocality || '')
+      || decodeHtmlText(src.match(/class="job-badge loc"[^>]*>([\s\S]*?)<\/span>/i)?.[1] || ''),
+    employmentType: normalizeSpace(jsonLd?.employmentType || '').toUpperCase(),
+    postedDate: /^\d{4}-\d{2}-\d{2}/.test(String(jsonLd?.datePosted || '')) ? String(jsonLd.datePosted).slice(0, 10) : '',
+    sections: {
+      aboutJob: decodeHtmlText(talentsSection(src, 'aboutthejob')),
+      aboutYou: listItems(talentsSection(src, 'aboutyou')),
+      talentCulture: listItems(talentsSection(src, 'talentculture')),
+    },
+  };
+}
+
+/**
+ * Hotel e località pubblicata di una vacancy Talents. Un solo hotel nella
+ * card decide da sé; una vacancy stagionale su due hotel (`Ascona · St.
+ * Moritz`) prende l'hotel della frase d'apertura («Für unser Power Retreat
+ * Giardino Mountain in Champfèr-St.Moritz …»), dove si inizia. La località è
+ * quella che la fonte scrive (`St. Moritz`, `Ascona`), non un default.
+ */
+export function resolveTalentsLocation(locKeys = [], locationLabel = '', intro = '') {
+  const hotels = [...new Set(locKeys.map((key) => TALENTS_LOC_HOTEL[String(key).toLowerCase()]).filter(Boolean))];
+  const detected = detectHotel(intro);
+  const hotelKey = hotels.length === 1
+    ? hotels[0]
+    : (hotels.includes(detected) ? detected : (hotels[0] || detected));
+  const labels = String(locationLabel || '').split(/\s*[·|,/]\s*/).map((part) => part.trim()).filter(Boolean);
+  const city = labels.find((label) => TALENTS_HOTEL_LABEL_RX[hotelKey]?.test(label))
+    || labels[0]
+    || getHotelLocation(hotelKey).city;
+  return { hotelKey, city, canton: inferAnyCanton(city) || getHotelLocation(hotelKey).canton };
 }
 
 /* ── Main Fetch ───────────────────────────────────────────── */
@@ -435,68 +531,46 @@ async function fetchEnglishListings() {
  */
 export async function fetchAllGiardinoJobs() {
   console.log('🔍 Fetching Giardino Group jobs');
-  console.log(`   Source: ${API_URL}\n`);
+  console.log(`   Source: ${TALENTS_URL}\n`);
 
-  const listings = await fetchJobListings();
-  if (!Array.isArray(listings) || listings.length === 0) {
-    console.warn('⚠️ No job listings returned from WordPress API.');
+  const listingHtml = await fetchHtml(TALENTS_URL);
+  const listings = parseTalentsListing(listingHtml, TALENTS_URL);
+  if (listings.length === 0) {
+    console.warn('⚠️ No job cards found on the Giardino Talents listing.');
     return [];
   }
-
-  console.log(`  📋 WordPress jobs found: ${listings.length}`);
-  warnIfListingAtCap({ label: 'Giardino Group WP REST listing', count: listings.length, cap: LISTING_PAGE_CAP });
-
-  const enIndex = buildEnglishIndex(await fetchEnglishListings(), listings);
-  console.log(`  🌐 English permalinks available: ${enIndex.bySlug.size}`);
+  console.log(`  📋 Talents job cards found: ${listings.length}`);
 
   const jobs = [];
   for (const listing of listings) {
-    // WordPress REST API fields
-    const wpTitle = decodeWpEntities(listing.title?.rendered || '');
-    const contentHtml = listing.content?.rendered || '';
-    const categories = listing.categories || [];
-    const wpDate = listing.date || '';
-    const wpModified = listing.modified || '';
-    const wpId = listing.id;
-
-    // Extract clean title from <h1> inside content, fallback to WP title
-    const h1Title = extractH1Title(contentHtml);
-    const title = normalizeSpace(h1Title || wpTitle);
+    let detail;
+    try {
+      detail = parseTalentsDetail(await fetchHtml(listing.url));
+    } catch (err) {
+      console.warn(`  ⚠️ Detail fetch failed for ${listing.title}: ${err?.message || err}`);
+      continue;
+    }
+    const title = normalizeSpace(detail.title || listing.title);
     if (!title || title.length < 3) continue;
 
-    // Detect hotel and location
-    const hotelKey = detectHotel(contentHtml, categories);
-    const loc = getHotelLocation(hotelKey);
-    const city = loc.city;
-    const canton = loc.canton;
-    const postalCode = loc.postalCode;
-
-    // Parse content sections
-    const sections = parseContentSections(contentHtml);
-
-    // Build structured description
-    const description = buildDescription(sections, title, hotelKey, city);
-
-    // Public URL — English permalink when translated, German one otherwise
-    const publicUrl = resolvePublicUrl(listing, enIndex);
-
-    // Stable ID from WordPress post ID
-    const idHash = createHash('sha1')
-      .update(`wp-${wpId}`)
-      .digest('hex')
-      .slice(0, 12);
-
-    const sourceLang = 'de'; // Content is always in German
+    const { hotelKey, city, canton } = resolveTalentsLocation(
+      listing.locKeys,
+      detail.locationLabel || listing.locationLabel,
+      detail.intro,
+    );
+    if (!canton) {
+      console.warn(`  ⏭️  ${title}: no Swiss canton for "${city}" — skipping`);
+      continue;
+    }
+    const description = buildDescription(detail.sections, title, hotelKey, city);
+    const idHash = createHash('sha1').update(`talents-${listing.slug}`).digest('hex').slice(0, 12);
+    const sourceLang = 'de';
     const jobSlug = slugify(`${title} giardino-group ${city}`);
+    const employmentType = ['FULL_TIME', 'PART_TIME', 'TEMPORARY', 'CONTRACTOR', 'INTERN'].includes(detail.employmentType)
+      ? detail.employmentType
+      : 'FULL_TIME';
 
-    // Posted date from WordPress
-    const postedDate = wpModified
-      ? wpModified.split('T')[0]
-      : wpDate
-        ? wpDate.split('T')[0]
-        : new Date().toISOString().split('T')[0];
-
-    const job = {
+    jobs.push({
       // ── Required fields ──
       id: `giardino-${idHash}`,
       slug: jobSlug,
@@ -510,31 +584,30 @@ export async function fetchAllGiardinoJobs() {
       descriptionByLocale: { [sourceLang]: description },
       location: city,
       canton,
-      url: publicUrl,
-      source: 'Giardino Group Dedicated Parser',
+      // La pagina tedesca: l'alternate EN della fonte può puntare a un'altra
+      // vacancy (Night Auditor → `en/job-chef-de-partie-kopie.html`).
+      url: listing.url,
+      source: 'Giardino Group Dedicated Parser (Talents)',
       sourceLang,
       crawledAt: new Date().toISOString(),
 
       // ── Recommended fields ──
       addressLocality: city,
-      postalCode,
       addressRegion: canton,
       addressCountry: 'CH',
       country: 'CH',
       category: detectCategory(title),
-      contract: 'full-time',
-      employmentType: 'FULL_TIME',
+      contract: employmentType === 'PART_TIME' ? 'part-time' : 'full-time',
+      employmentType,
       experienceLevel: detectExperienceLevel(title),
       sector: 'Ospitalità / Hotellerie',
       currency: 'CHF',
       featured: false,
-      postedDate,
-      applyUrl: publicUrl,
-      requirements: sections.aboutYou,
-      requirementsByLocale: { [sourceLang]: sections.aboutYou },
-    };
-
-    jobs.push(job);
+      postedDate: detail.postedDate || new Date().toISOString().split('T')[0],
+      applyUrl: listing.url,
+      requirements: detail.sections.aboutYou,
+      requirementsByLocale: { [sourceLang]: detail.sections.aboutYou },
+    });
   }
 
   console.log(`\n📋 Total Giardino Group jobs discovered: ${jobs.length}`);

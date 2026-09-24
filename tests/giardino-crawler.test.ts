@@ -14,13 +14,20 @@
  *   - Slug generation
  *   - Public URL construction
  */
-import { describe, it, expect } from 'vitest';
+import { readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { afterEach, describe, it, expect, vi } from 'vitest';
 import {
   GIARDINO_KEY,
   GIARDINO_COMPANY_NAME,
   GIARDINO_COMPANY_DOMAIN,
   isGiardinoJob,
   isTrustedDomain,
+  fetchAllGiardinoJobs,
+  parseTalentsListing,
+  parseTalentsDetail,
+  resolveTalentsLocation,
   decodeWpEntities,
   detectHotel,
   getHotelLocation,
@@ -778,5 +785,79 @@ describe('job shape', () => {
 
   it('has postal code', () => {
     expect(validJob.postalCode).toMatch(/^\d{4}$/);
+  });
+});
+
+/**
+ * Microsito «Giardino Talents» (crawler-health-monitor: giardino broken da tre
+ * run). Dal 2026-09 `/wp-json/wp/v2/jobs` risponde `[]` e le offerte vivono in
+ * https://giardinohotels.ch/talents/ — fixture reali ridotte del 2026-09-24.
+ */
+describe('Giardino Talents microsite', () => {
+  const FIXTURES = path.join(path.dirname(fileURLToPath(import.meta.url)), 'fixtures', 'giardino');
+  const listingHtml = readFileSync(path.join(FIXTURES, 'talents-listing-de.html'), 'utf8');
+  const detailHtml = readFileSync(path.join(FIXTURES, 'talents-detail-night-auditor.html'), 'utf8');
+
+  afterEach(() => {
+    vi.unstubAllGlobals();
+    vi.restoreAllMocks();
+  });
+
+  it('reads every job card of the #stellen section', () => {
+    const cards = parseTalentsListing(listingHtml, 'https://giardinohotels.ch/talents/');
+    expect(cards.map((card) => card.url)).toEqual([
+      'https://giardinohotels.ch/talents/job-restaurant-manager.html',
+      'https://giardinohotels.ch/talents/job-chef-de-rang.html',
+      'https://giardinohotels.ch/talents/job-night-auditor.html',
+      'https://giardinohotels.ch/talents/job-chef-de-rang-50-hide-seek-50-ecco.html',
+    ]);
+    expect(cards[0]).toMatchObject({ title: 'Restaurant Manager (m/w)', locKeys: ['ascona', 'stmoritz'], locationLabel: 'Ascona · St. Moritz' });
+    expect(cards[2]).toMatchObject({ title: 'Night Auditor (m/w)', locKeys: ['stmoritz'], department: 'Front Office' });
+  });
+
+  it('takes the title from the H1, not from the source JSON-LD that names another vacancy', () => {
+    const detail = parseTalentsDetail(detailHtml);
+    expect(detail.title).toBe('Night Auditor (m/w)');
+    expect(detail.locationLabel).toBe('St. Moritz');
+    expect(detail.postedDate).toMatch(/^\d{4}-\d{2}-\d{2}$/);
+    expect(detail.sections.aboutJob.length).toBeGreaterThan(100);
+    expect(detail.sections.aboutYou.length).toBeGreaterThan(3);
+    expect(detail.sections.talentCulture.length).toBeGreaterThan(3);
+  });
+
+  it('publishes the location the source writes, picking the starting hotel of a two-hotel season', () => {
+    expect(resolveTalentsLocation(['stmoritz'], 'St. Moritz', '')).toMatchObject({ hotelKey: 'mountain', city: 'St. Moritz', canton: 'GR' });
+    expect(resolveTalentsLocation(
+      ['ascona', 'stmoritz'],
+      'Ascona · St. Moritz',
+      'Für unser Power Retreat Giardino Mountain in Champfèr-St.Moritz suchen wir …',
+    )).toMatchObject({ hotelKey: 'mountain', city: 'St. Moritz', canton: 'GR' });
+    expect(resolveTalentsLocation(['ascona'], 'Ascona', 'Für das Giardino Ascona suchen wir …'))
+      .toMatchObject({ hotelKey: 'ascona', city: 'Ascona', canton: 'TI' });
+  });
+
+  it('builds jobs from the microsite and never publishes the JSON-LD title', async () => {
+    vi.stubGlobal('fetch', vi.fn(async (url: string) => new Response(
+      String(url).endsWith('/talents/') ? listingHtml : detailHtml,
+      { status: 200 },
+    )));
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    const jobs = await fetchAllGiardinoJobs();
+    expect(jobs).toHaveLength(4);
+    for (const job of jobs) {
+      expect(job.title).toBe('Night Auditor (m/w)');
+      expect(job.location).toBe('St. Moritz');
+      expect(job.canton).toBe('GR');
+      expect(job.url).toMatch(/^https:\/\/giardinohotels\.ch\/talents\/job-[^/]+\.html$/);
+      expect(job.description).toContain('## Anforderungen');
+    }
+    expect(new Set(jobs.map((job) => job.id)).size).toBe(4);
+  });
+
+  it('returns no jobs when the listing has no job cards', async () => {
+    vi.stubGlobal('fetch', vi.fn(async () => new Response('<html><body><section id="stellen"></section></body></html>', { status: 200 })));
+    vi.spyOn(console, 'log').mockImplementation(() => {});
+    vi.spyOn(console, 'warn').mockImplementation(() => {});
+    expect(await fetchAllGiardinoJobs()).toEqual([]);
   });
 });

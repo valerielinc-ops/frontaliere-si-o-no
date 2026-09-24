@@ -5,6 +5,7 @@ import {
   isBuchererJob,
   isTrustedDomain,
   parsePostings,
+  summarizeDayforceSearch,
 } from '../scripts/lib/bucherer-job-parser.mjs';
 import { slugify } from '../scripts/lib/crawler-template.mjs';
 
@@ -368,5 +369,21 @@ describe('Bucherer crawler parser', () => {
     it('slug is URL-safe', () => {
       expect(job.slug).toMatch(/^[a-z0-9][a-z0-9-]*[a-z0-9]$/);
     });
+  });
+});
+
+describe('summarizeDayforceSearch — proven zero vs unobserved (crawler-health-monitor)', () => {
+  it('proves a zero only from a captured search response that declares maxCount 0', () => {
+    expect(summarizeDayforceSearch([{ maxCount: 0, jobPostings: [] }])).toEqual({ observed: true, provenEmpty: true });
+    expect(summarizeDayforceSearch([{ maxCount: 0 }])).toEqual({ observed: true, provenEmpty: true });
+  });
+
+  it('never proves a zero when no response was captured or the count is missing', () => {
+    // Nessuna risposta catturata: challenge Cloudflare o XHR cambiata, la
+    // fonte NON è stata osservata vuota.
+    expect(summarizeDayforceSearch([])).toEqual({ observed: false, provenEmpty: false });
+    expect(summarizeDayforceSearch(undefined as any)).toEqual({ observed: false, provenEmpty: false });
+    expect(summarizeDayforceSearch([{ jobPostings: [] }])).toEqual({ observed: true, provenEmpty: false });
+    expect(summarizeDayforceSearch([{ maxCount: 3, jobPostings: [] }])).toEqual({ observed: true, provenEmpty: false });
   });
 });
