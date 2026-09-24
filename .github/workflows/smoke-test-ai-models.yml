@@ -94,7 +94,10 @@ jobs:
           AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
         run: |
           mkdir -p .tmp
-          node scripts/smoke-test-ai-models.mjs > .tmp/smoke.json 2> .tmp/smoke.log
+          # Exit code conservato (gate Mistral `-latest`, #892) ma riportato solo
+          # DOPO il summary: con `bash -e` un exit non-zero qui saltava il report.
+          SMOKE_RC=0
+          node scripts/smoke-test-ai-models.mjs > .tmp/smoke.json 2> .tmp/smoke.log || SMOKE_RC=$?
           {
             echo "## Smoke-test summary"
             echo '```json'
@@ -104,11 +107,11 @@ jobs:
             echo "## GitHub Models publisher-prefix verification"
             node -e "const r=require('./.tmp/smoke.json').githubModelsVerification; console.log('- state: \`'+r.state+'\`'); console.log('- bare roster observed: '+r.observedCount+'/'+r.rosterBareCount); console.log('- affected models: '+r.affectedModels.length);"
             echo ""
-            echo "## Dead models (HTTP 404)"
+            echo "## Dead models (HTTP 404/410)"
           } >> "$GITHUB_STEP_SUMMARY"
           node -e "
             const r=require('./.tmp/smoke.json');
-            const dead=(r.results||[]).filter(x=>x.status==='http_404');
+            const dead=(r.results||[]).filter(x=>x.status==='http_404'||x.status==='http_410');
             if(!dead.length){console.log('_None._');}
             else{
               console.log('| Model | Detail |');
@@ -116,6 +119,37 @@ jobs:
               for(const d of dead){console.log('| \`'+d.model+'\` | '+(d.detail||'').replace(/\\|/g,'\\\\|').slice(0,120)+' |');}
             }
           " >> "$GITHUB_STEP_SUMMARY"
+
+          # Salute della flotta: il gate Mistral era l'unico a far fallire la run,
+          # quindi il crollo dell'intera flotta (4/104 pass il 2026-09-24) restava
+          # verde. Sotto `minHealthyLanes` provider con almeno un pass la run
+          # fallisce: il report qui sotto apre l'issue deduplicata e
+          # close-recovered-failure-issues la chiude alla prima run verde. 402 e
+          # no_key sono cause esterne: non si correggono qui, si rendono visibili.
+          node -e "
+            const h=require('./.tmp/smoke.json').fleetHealth;
+            const lanes=(xs)=>xs.length?xs.join(', '):'nessuna';
+            const lines=[
+              '## Fleet health',
+              '',
+              '- corsie sane (provider con >=1 pass): **'+h.healthyLanes.length+'** (minimo '+h.minHealthyLanes+') — '+lanes(h.healthyLanes),
+              '- modelli pass: '+h.passCount+'/'+h.modelCount,
+              '- HTTP 402 (credito/abbonamento, esterno): '+lanes(h.billingLanes),
+              '- no_key (chiave assente dal Remote Config, esterno): '+lanes(h.noKeyLanes),
+              '- ritirati (HTTP 404/410): '+(h.retiredModels.length?h.retiredModels.join(', '):'nessuno'),
+              '- broker Codex (corsia primaria): '+(h.codexBrokerWired?'attivo':'NON attivo — codex-cli non pingato'),
+            ];
+            require('fs').writeFileSync('.tmp/fleet-health.md', lines.join('\n')+'\n');
+          "
+          cat .tmp/fleet-health.md >> "$GITHUB_STEP_SUMMARY"
+          if node -e "process.exit(require('./.tmp/smoke.json').fleetHealth.collapsed ? 0 : 1)"; then
+            node -e "
+              const h=require('./.tmp/smoke.json').fleetHealth;
+              console.log('::error title=AI model fleet collapsed::solo '+h.healthyLanes.length+' provider con almeno un pass (minimo '+h.minHealthyLanes+'): '+(h.healthyLanes.join(', ')||'nessuno')+'. 402: '+(h.billingLanes.join(', ')||'-')+'; no_key: '+(h.noKeyLanes.join(', ')||'-')+'; broker Codex '+(h.codexBrokerWired?'attivo':'non attivo')+'.');
+            "
+            exit 1
+          fi
+          exit "$SMOKE_RC"
 
       - name: Upload smoke-test artifact
         if: always()
@@ -151,7 +185,9 @@ jobs:
             --description "## Workflow fallito
           **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
           **Trigger:** ${{ github.event_name }}
-          **Ref:** ${{ github.ref_name }}" \
+          **Ref:** ${{ github.ref_name }}
+
+          $(cat .tmp/fleet-health.md 2>/dev/null || true)" \
             --priority 2 \
             --label Bug \
             --workflow "${{ github.workflow }}"
