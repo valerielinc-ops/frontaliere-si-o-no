@@ -209,13 +209,6 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/40163",
       "requirements": [],
       "requirementsByLocale": {},
-      "previousSlugs": [
-        "wir-suchen-sie-eine-heilpadagogin-einen-heilpadagogen-fur-die-1-klasse-7-lektionen-40163",
-        "wir-suchen-sie-eine-heilpadagogin-einen-heilpadagogen-fur-die-1-klasse-7-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-bienne",
-        "siamo-alla-ricerca-di-voi-un-insegnante-di-guarigione-per-le-lezioni-di-primo-grado-7-ksml-kantonaler-stellenmarkt-40163",
-        "we-are-looking-for-you-a-healing-teacher-for-1st-grade-7-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40163",
-        "nous-vous-recherchons-un-professeur-de-guerison-pour-les-cours-de-1ere-annee-ksml-kantonaler-stellenmarkt-fur-40163"
-      ],
       "previousSlugsByLocale": {
         "it": [
           "wir-suchen-sie-eine-heilpadagogin-einen-heilpadagogen-fur-die-1-klasse-7-lektionen-40163",
@@ -230,7 +223,13 @@
           "nous-vous-recherchons-un-professeur-de-guerison-pour-les-cours-de-1ere-annee-ksml-kantonaler-stellenmarkt-fur-40163"
         ]
       },
-      "firstSeenAt": "2026-09-21T16:10:29.273Z",
+      "previousSlugs": [
+        "wir-suchen-sie-eine-heilpadagogin-einen-heilpadagogen-fur-die-1-klasse-7-lektionen-40163",
+        "wir-suchen-sie-eine-heilpadagogin-einen-heilpadagogen-fur-die-1-klasse-7-lektionen-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-biel-bienne",
+        "siamo-alla-ricerca-di-voi-un-insegnante-di-guarigione-per-le-lezioni-di-primo-grado-7-ksml-kantonaler-stellenmarkt-40163",
+        "we-are-looking-for-you-a-healing-teacher-for-1st-grade-7-lessons-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40163",
+        "nous-vous-recherchons-un-professeur-de-guerison-pour-les-cours-de-1ere-annee-ksml-kantonaler-stellenmarkt-fur-40163"
+      ],
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -243,7 +242,8 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-21T16:10:29.273Z"
     },
     {
       "id": "ksml-69e470468199",
@@ -527,27 +527,25 @@
       "applyUrl": "https://www.ksml.apps.be.ch/ksml/?q=stellen/ad/37425",
       "requirements": [],
       "requirementsByLocale": {},
+      "previousSlugsByLocale": {
+        "it": [
+          "wir-suchen-dich-lehrperson-4-6-lektionen-3-klasse-schule-neumatt-in-belp-belp-37425",
+          "ti-stiamo-cercando-if-maestro-6-lezioni-di-terza-classe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425"
+        ],
+        "de": [
+          "wir-suchen-dich-lehrperson-4-6-lektionen-3-klasse-schule-neumatt-in-belp-belp-37425"
+        ],
+        "en": [
+          "wir-suchen-dich-lehrperson-4-6-lektionen-3-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp",
+          "we-are-looking-for-you-if-teacher-6-lessons-3rd-class-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425"
+        ]
+      },
       "previousSlugs": [
         "wir-suchen-dich-lehrperson-4-6-lektionen-3-klasse-schule-neumatt-in-belp-belp-37425",
         "wir-suchen-dich-lehrperson-4-6-lektionen-3-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp",
         "ti-stiamo-cercando-if-maestro-6-lezioni-di-terza-classe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425",
         "we-are-looking-for-you-if-teacher-6-lessons-3rd-class-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425"
       ],
-      "previousSlugsByLocale": {
-        "it": [
-          "wir-suchen-dich-lehrperson-4-6-lektionen-3-klasse-schule-neumatt-in-belp-belp-37425",
-          "ti-stiamo-cercando-if-maestro-6-lezioni-di-terza-classe-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425"
-        ],
-        "en": [
-          "wir-suchen-dich-lehrperson-4-6-lektionen-3-klasse-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-belp",
-          "we-are-looking-for-you-if-teacher-6-lessons-3rd-class-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-37425"
-        ],
-        "de": [
-          "wir-suchen-dich-lehrperson-4-6-lektionen-3-klasse-schule-neumatt-in-belp-belp-37425"
-        ]
-      },
-      "firstSeenAt": "2026-09-21T16:10:29.273Z",
-      "needsRetranslation": true,
       "salaryMin": 59000,
       "salaryMax": 108500,
       "salarySource": "estimated",
@@ -560,7 +558,9 @@
           "maxValue": 108500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "firstSeenAt": "2026-09-21T16:10:29.273Z",
+      "needsRetranslation": true
     },
     {
       "id": "ksml-22184dd81d4a",
@@ -3626,10 +3626,10 @@
       "id": "ksml-1521e4dfd694",
       "slug": "stellvertretung-schulleiter-in-per-la-primarschule-schlossmatt-ca-25-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-grunerstrasse-7",
       "slugByLocale": {
-        "it": "stellvertretung-schulleiter-in-per-la-primarschule-schlossmatt-ca-25-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-grunerstrasse-7",
-        "en": "stellvertretung-schulleiter-in-fur-die-primarschule-schlossmatt-ca-25-primarschule-40345",
         "de": "stellvertretung-schulleiter-in-fur-die-primarschule-schlossmatt-ca-25-primarschule-40345",
-        "fr": "stellvertretung-schulleiter-in-fur-die-primarschule-schlossmatt-ca-25-primarschule-40345"
+        "it": "stellvertretung-schulleiter-in-per-la-primarschule-schlossmatt-ca-25-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-grunerstrasse-7",
+        "en": "deputy-headmaster-for-the-primary-school-schlossmatt-approx-25-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40345",
+        "fr": "directeur-adjoint-de-l-ecole-primaire-schlossmatt-environ-25-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-40345"
       },
       "slugDisambiguator": "40345",
       "company": "KSML — Kantonaler Stellenmarkt für Lehrerinnen und Lehrer (Kanton Bern)",
@@ -3677,6 +3677,12 @@
         "it": [
           "stellvertretung-schulleiter-in-fur-die-primarschule-schlossmatt-ca-25-primarschule-40345",
           "stellvertretung-schulleiter-in-per-la-primarschule-schlossmatt-ca-25-ksml-kantonaler-stellenmarkt-fur-lehrerinnen-und-lehrer-kanton-bern-burgdorf-grunerstrasse-7"
+        ],
+        "en": [
+          "stellvertretung-schulleiter-in-fur-die-primarschule-schlossmatt-ca-25-primarschule-40345"
+        ],
+        "fr": [
+          "stellvertretung-schulleiter-in-fur-die-primarschule-schlossmatt-ca-25-primarschule-40345"
         ]
       },
       "previousSlugs": [

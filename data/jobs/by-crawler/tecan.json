@@ -164,9 +164,9 @@
       "id": "tecan-4d9b42b4b490",
       "slug": "responsabile-vendite-di-servizi-tecan-china",
       "slugByLocale": {
-        "it": "responsabile-vendite-di-servizi-tecan-china",
         "en": "service-sales-manager-tecan-china",
-        "de": "service-sales-manager-tecan-china",
+        "it": "responsabile-vendite-di-servizi-tecan-china",
+        "de": "service-verkaufsleiter-tecan-china",
         "fr": "directeur-des-ventes-de-services-tecan-china"
       },
       "company": "Tecan",
@@ -229,6 +229,9 @@
           "responsabile-vendite-di-servizi-tecan-china"
         ],
         "fr": [
+          "service-sales-manager-tecan-china"
+        ],
+        "de": [
           "service-sales-manager-tecan-china"
         ]
       },
@@ -1439,10 +1442,10 @@
     },
     {
       "id": "tecan-305ba83a2f41",
-      "slug": "post-wave-qa-tecan-united-states",
+      "slug": "qa-post-ondata-tecan-united-states",
       "slugByLocale": {
         "en": "post-wave-qa-tecan-united-states",
-        "it": "post-wave-qa-tecan-united-states",
+        "it": "qa-post-ondata-tecan-united-states",
         "de": "nachwelle-qa-tecan-united-states",
         "fr": "post-wave-qa-tecan-united-states"
       },
@@ -1506,10 +1509,14 @@
       "previousSlugsByLocale": {
         "fr": [
           "apres-la-vague-qa-tecan-united-states"
+        ],
+        "it": [
+          "post-wave-qa-tecan-united-states"
         ]
       },
       "previousSlugs": [
-        "apres-la-vague-qa-tecan-united-states"
+        "apres-la-vague-qa-tecan-united-states",
+        "post-wave-qa-tecan-united-states"
       ]
     }
   ]

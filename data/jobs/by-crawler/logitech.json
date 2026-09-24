@@ -321,11 +321,11 @@
     },
     {
       "id": "logitech-b591bfe0cc9b",
-      "slug": "pws-global-marketing-manager-logitech-ch",
+      "slug": "responsabile-marketing-globale-di-pws-logitech-lausanne",
       "slugByLocale": {
-        "it": "pws-global-marketing-manager-logitech-ch",
         "en": "pws-global-marketing-manager-logitech-ch",
-        "de": "pws-global-marketing-manager-logitech-ch",
+        "it": "responsabile-marketing-globale-di-pws-logitech-lausanne",
+        "de": "pws-globaler-marketingleiter-logitech-lausanne",
         "fr": "gestionnaire-mondial-de-marketing-pws-logitech-lausanne"
       },
       "company": "Logitech",
@@ -380,7 +380,18 @@
         }
       },
       "addressRegion": "VD",
-      "firstSeenAt": "2026-09-19T23:13:03.509Z"
+      "firstSeenAt": "2026-09-19T23:13:03.509Z",
+      "previousSlugsByLocale": {
+        "it": [
+          "pws-global-marketing-manager-logitech-ch"
+        ],
+        "de": [
+          "pws-global-marketing-manager-logitech-ch"
+        ]
+      },
+      "previousSlugs": [
+        "pws-global-marketing-manager-logitech-ch"
+      ]
     }
   ]
 }

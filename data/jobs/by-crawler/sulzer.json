@@ -21163,7 +21163,7 @@
       "slugByLocale": {
         "it": "programmatore-ps-sulzer-leeds",
         "en": "ps-scheduler-sulzer-ch",
-        "de": "ps-scheduler-sulzer-leeds",
+        "de": "ps-planer-sulzer-leeds",
         "fr": "programmeur-ps-sulzer-leeds"
       },
       "company": "Sulzer",
@@ -21206,7 +21206,8 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "ps-scheduler-sulzer-ch",
-        "programmatore-ps-sulzer-leeds"
+        "programmatore-ps-sulzer-leeds",
+        "ps-scheduler-sulzer-leeds"
       ],
       "previousSlugsByLocale": {
         "it": [
@@ -21215,6 +21216,9 @@
         ],
         "fr": [
           "ps-scheduler-sulzer-ch"
+        ],
+        "de": [
+          "ps-scheduler-sulzer-leeds"
         ]
       },
       "firstSeenAt": "2026-09-07T15:18:44.868Z",
@@ -21549,7 +21553,7 @@
       "slugByLocale": {
         "it": "responsabile-vendite-regionale-sulzer-suzhou",
         "en": "regional-sales-manager-sulzer-ch",
-        "de": "regional-sales-manager-sulzer-ch-2",
+        "de": "regionaler-vertriebsleiter-sulzer-suzhou",
         "fr": "directeur-regional-des-ventes-sulzer-suzhou"
       },
       "company": "Sulzer",
@@ -21602,6 +21606,9 @@
           "responsabile-vendite-regionale-sulzer-suzhou"
         ],
         "fr": [
+          "regional-sales-manager-sulzer-ch-2"
+        ],
+        "de": [
           "regional-sales-manager-sulzer-ch-2"
         ]
       },
@@ -22806,7 +22813,7 @@
         "it": "estagiario-a-de-engenharia-sulzer-ch",
         "en": "estagiario-a-de-engenharia-sulzer-ch",
         "de": "estagiario-a-de-engenharia-sulzer-ch",
-        "fr": "estagiario-a-de-engenharia-sulzer-ch"
+        "fr": "estagiario-a-d-engenharia-est-une-ville-d-espagne-sulzer-jundiai"
       },
       "company": "Sulzer",
       "companyKey": "sulzer",
@@ -23701,9 +23708,9 @@
     },
     {
       "id": "sulzer-f7664e4e35a7",
-      "slug": "master-planner-sulzer-ch-2",
+      "slug": "maestro-pianificatore-sulzer-cuautitlan-izcalli",
       "slugByLocale": {
-        "it": "master-planner-sulzer-ch-2",
+        "it": "maestro-pianificatore-sulzer-cuautitlan-izcalli",
         "en": "master-planner-sulzer-ch",
         "de": "master-planner-sulzer-cuautitlan-izcalli",
         "fr": "planificateur-principal-sulzer-cuautitlan-izcalli"
@@ -23749,11 +23756,13 @@
       "previousSlugs": [
         "master-planner-sulzer-ch",
         "masterplaner-sulzer-cuautitlan-izcalli",
-        "master-planner-sulzer-cuautitlan-izcalli"
+        "master-planner-sulzer-cuautitlan-izcalli",
+        "master-planner-sulzer-ch-2"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "master-planner-sulzer-ch"
+          "master-planner-sulzer-ch",
+          "master-planner-sulzer-ch-2"
         ],
         "de": [
           "masterplaner-sulzer-cuautitlan-izcalli",
@@ -24028,9 +24037,9 @@
     },
     {
       "id": "sulzer-c836754c65f5",
-      "slug": "area-sales-manager-sulzer-ch-7",
+      "slug": "responsabile-vendite-di-area-sulzer-tiller",
       "slugByLocale": {
-        "it": "area-sales-manager-sulzer-ch-7",
+        "it": "responsabile-vendite-di-area-sulzer-tiller",
         "en": "area-sales-manager-sulzer-ch",
         "de": "bereich-sales-manager-sulzer-tiller",
         "fr": "directeur-regional-des-ventes-sulzer-tiller"
@@ -24074,11 +24083,13 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "area-sales-manager-sulzer-ch"
+        "area-sales-manager-sulzer-ch",
+        "area-sales-manager-sulzer-ch-7"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "area-sales-manager-sulzer-ch"
+          "area-sales-manager-sulzer-ch",
+          "area-sales-manager-sulzer-ch-7"
         ]
       },
       "firstSeenAt": "2026-09-17T07:28:42.887Z",
@@ -26539,11 +26550,11 @@
     },
     {
       "id": "sulzer-e076af59d635",
-      "slug": "engenheiro-de-vendas-pump-services-sulzer-ch",
+      "slug": "engenheiro-de-vendas-servizi-di-pompa-sulzer-jundiai",
       "slugByLocale": {
-        "it": "engenheiro-de-vendas-pump-services-sulzer-ch",
+        "it": "engenheiro-de-vendas-servizi-di-pompa-sulzer-jundiai",
         "en": "engenheiro-de-vendas-pump-services-sulzer-ch",
-        "de": "engenheiro-de-vendas-pump-services-sulzer-ch",
+        "de": "engenheiro-de-vendas-pumpendienste-sulzer-jundiai",
         "fr": "engenheiro-de-vendas-pump-services-sulzer-ch"
       },
       "company": "Sulzer",
@@ -26598,7 +26609,18 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "previousSlugsByLocale": {
+        "it": [
+          "engenheiro-de-vendas-pump-services-sulzer-ch"
+        ],
+        "de": [
+          "engenheiro-de-vendas-pump-services-sulzer-ch"
+        ]
+      },
+      "previousSlugs": [
+        "engenheiro-de-vendas-pump-services-sulzer-ch"
+      ]
     },
     {
       "id": "sulzer-267aa2666881",
@@ -26827,7 +26849,7 @@
       "slugByLocale": {
         "it": "generatore-di-piombo-winder-sulzer-pasadena",
         "en": "lead-generator-winder-sulzer-ch",
-        "de": "lead-generator-winder-sulzer-ch",
+        "de": "bleigenerator-wickler-sulzer-pasadena",
         "fr": "ventilateur-generateur-de-plomb-sulzer-pasadena"
       },
       "company": "Sulzer",
@@ -26889,6 +26911,9 @@
           "generatore-di-piombo-winder-sulzer-pasadena"
         ],
         "fr": [
+          "lead-generator-winder-sulzer-ch"
+        ],
+        "de": [
           "lead-generator-winder-sulzer-ch"
         ]
       },
@@ -27617,7 +27642,7 @@
       "slugByLocale": {
         "it": "responsabile-ingegneria-ame-sulzer-cuautitlan-izcalli",
         "en": "engineering-manager-ame-sulzer-ch",
-        "de": "engineering-manager-ame-sulzer-ch",
+        "de": "ingenieurleiter-ame-sulzer-cuautitlan-izcalli",
         "fr": "directeur-technique-ame-sulzer-cuautitlan-izcalli"
       },
       "company": "Sulzer",
@@ -27668,6 +27693,9 @@
           "responsabile-ingegneria-ame-sulzer-cuautitlan-izcalli"
         ],
         "fr": [
+          "engineering-manager-ame-sulzer-ch"
+        ],
+        "de": [
           "engineering-manager-ame-sulzer-ch"
         ]
       },

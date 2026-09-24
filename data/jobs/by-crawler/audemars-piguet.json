@@ -2449,7 +2449,7 @@
       "slugByLocale": {
         "it": "business-analista-it-brand-retail-audemars-piguet-le-brassus",
         "en": "business-analyst-it-brand-retail-audemars-piguet-le-brassus-vd-switzerland",
-        "de": "business-analyst-it-brand-retail-audemars-piguet-le-brassus-vd-switzerland",
+        "de": "business-analyst-it-markenhandel-audemars-piguet-le-brassus-vd-switzerland",
         "fr": "business-analyst-it-brand-retail-audemars-piguet-le-brassus-vd-switzerland"
       },
       "company": "Audemars Piguet",
@@ -2498,6 +2498,9 @@
       "previousSlugsByLocale": {
         "it": [
           "business-analyst-it-brand-retail-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "de": [
+          "business-analyst-it-brand-retail-audemars-piguet-le-brassus-vd-switzerland"
         ]
       },
       "firstSeenAt": "2026-09-19T22:59:21.284Z",
@@ -2519,11 +2522,11 @@
     },
     {
       "id": "audemars-piguet-1c880b7ef0ec",
-      "slug": "tech-lead-digital-audemars-piguet-le-brassus-vd-switzerland",
+      "slug": "responsabile-tecnico-digitale-audemars-piguet-le-brassus-vd-switzerland",
       "slugByLocale": {
-        "it": "tech-lead-digital-audemars-piguet-le-brassus-vd-switzerland",
+        "it": "responsabile-tecnico-digitale-audemars-piguet-le-brassus-vd-switzerland",
         "en": "tech-lead-digital-audemars-piguet-le-brassus-vd-switzerland",
-        "de": "tech-lead-digital-audemars-piguet-le-brassus-vd-switzerland",
+        "de": "technischer-leiter-digital-audemars-piguet-le-brassus-vd-switzerland",
         "fr": "tech-lead-digital-audemars-piguet-le-brassus-vd-switzerland"
       },
       "company": "Audemars Piguet",
@@ -2581,7 +2584,18 @@
         }
       },
       "crawlerMissStreak": 1,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "previousSlugsByLocale": {
+        "it": [
+          "tech-lead-digital-audemars-piguet-le-brassus-vd-switzerland"
+        ],
+        "de": [
+          "tech-lead-digital-audemars-piguet-le-brassus-vd-switzerland"
+        ]
+      },
+      "previousSlugs": [
+        "tech-lead-digital-audemars-piguet-le-brassus-vd-switzerland"
+      ]
     }
   ]
 }

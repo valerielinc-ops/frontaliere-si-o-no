@@ -241,7 +241,7 @@
       "slug": "people-development-specialist-m-w-d-rheinmetall-air-defence-ag-zurich",
       "slugByLocale": {
         "it": "people-development-specialist-m-w-d-rheinmetall-air-defence-ag-zurich",
-        "en": "people-development-specialist-m-w-d-rheinmetall-air-defence-ag-zurich",
+        "en": "quality-it-specialist-m-f-d-rheinmetall-air-defence-ag-zurich",
         "de": "people-development-specialist-m-w-d-rheinmetall-air-defence-ag-zurich",
         "fr": "people-development-specialist-m-w-d-rheinmetall-air-defence-ag-zurich"
       },
@@ -875,18 +875,7 @@
         "departmentName": "Unternehmensbereich Defence",
         "contractTypeLabel": "Unbefristeter Vertrag"
       },
-      "previousSlugs": [
-        "specialista-doganale-m-f-d-rheinmetall-air-defence-ag-zurich",
-        "spezialist-zoll-m-w-d-rheinmetall-air-defence-ag-zurich"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "specialista-doganale-m-f-d-rheinmetall-air-defence-ag-zurich",
-          "spezialist-zoll-m-w-d-rheinmetall-air-defence-ag-zurich"
-        ]
-      },
       "firstSeenAt": "2026-09-12T13:06:54.688Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -899,7 +888,18 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "specialista-doganale-m-f-d-rheinmetall-air-defence-ag-zurich",
+          "spezialist-zoll-m-w-d-rheinmetall-air-defence-ag-zurich"
+        ]
+      },
+      "previousSlugs": [
+        "specialista-doganale-m-f-d-rheinmetall-air-defence-ag-zurich",
+        "spezialist-zoll-m-w-d-rheinmetall-air-defence-ag-zurich"
+      ],
+      "needsRetranslation": true
     },
     {
       "id": "rheinmetall-air-defence-786d423fe956",
@@ -5290,7 +5290,6 @@
         ]
       },
       "firstSeenAt": "2026-07-04T11:46:20.497Z",
-      "needsRetranslation": true,
       "salaryMin": 73500,
       "salaryMax": 111500,
       "salarySource": "estimated",
@@ -5303,7 +5302,8 @@
           "maxValue": 111500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "rheinmetall-air-defence-65a127d66b2e",

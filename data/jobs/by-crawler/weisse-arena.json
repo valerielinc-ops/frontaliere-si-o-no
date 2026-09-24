@@ -2013,7 +2013,6 @@
       "jobNumber": "WAG02501",
       "pensum": "100%",
       "contractLabel": "Festanstellung",
-      "needsRetranslation": true,
       "previousSlugs": [
         "guest-experience-coordinatore-con-schichtverantwortung-weisse-arena-gruppe-laax",
         "guest-experience-coordinator-shift-lead-weisse-arena-gruppe-laax",
@@ -2059,7 +2058,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "GR"
+      "addressRegion": "GR",
+      "needsRetranslation": true
     },
     {
       "id": "weisse-arena-f6ce30fb41b4",
@@ -4183,9 +4183,9 @@
       "id": "weisse-arena-9696e1a1fe83",
       "slug": "capo-squadra-di-servizio-weisse-arena-gruppe-laax",
       "slugByLocale": {
-        "it": "capo-squadra-di-servizio-weisse-arena-gruppe-laax",
-        "en": "service-teamlead-weisse-arena-ch",
         "de": "service-teamlead-weisse-arena-ch",
+        "it": "capo-squadra-di-servizio-weisse-arena-gruppe-laax",
+        "en": "service-team-lead-weisse-arena-gruppe-laax",
         "fr": "service-teamlead-weisse-arena-gruppe-laax"
       },
       "company": "Weisse Arena Gruppe",
@@ -4253,6 +4253,9 @@
         ],
         "fr": [
           "chef-d-equipe-weisse-arena-gruppe-laax"
+        ],
+        "en": [
+          "service-teamlead-weisse-arena-ch"
         ]
       },
       "previousSlugs": [
@@ -4726,8 +4729,7 @@
       "previousSlugs": [
         "koch-kochin-weisse-arena-ch",
         "cucina-kochin-weisse-arena-gruppe-laax",
-        "koch-kochin-weisse-arena-gruppe-laax",
-        "koch-kochin-weisse-arena-ch-s26q0e"
+        "koch-kochin-weisse-arena-gruppe-laax"
       ],
       "previousSlugsByLocale": {
         "it": [

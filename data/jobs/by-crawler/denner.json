@@ -596,12 +596,12 @@
     },
     {
       "id": "denner-f99951b5247c",
-      "slug": "stv-filialleiter-in-denner",
+      "slug": "vice-direttore-di-filiale-denner-kirchberg",
       "slugByLocale": {
-        "it": "stv-filialleiter-in-denner",
-        "en": "stv-filialleiter-in-denner-kirchberg",
+        "it": "vice-direttore-di-filiale-denner-kirchberg",
+        "en": "deputy-branch-manager-denner-kirchberg",
         "de": "stv-filialleiter-in-denner-kirchberg",
-        "fr": "stv-filialleiter-in-denner-kirchberg"
+        "fr": "directeur-adjoint-de-la-succursale-denner-kirchberg"
       },
       "company": "Denner",
       "companyKey": "denner",
@@ -672,7 +672,22 @@
           "maxValue": 90500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "previousSlugsByLocale": {
+        "it": [
+          "stv-filialleiter-in-denner"
+        ],
+        "en": [
+          "stv-filialleiter-in-denner-kirchberg"
+        ],
+        "fr": [
+          "stv-filialleiter-in-denner-kirchberg"
+        ]
+      },
+      "previousSlugs": [
+        "stv-filialleiter-in-denner",
+        "stv-filialleiter-in-denner-kirchberg"
+      ]
     },
     {
       "id": "company-n86px3",
