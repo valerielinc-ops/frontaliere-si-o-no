@@ -2245,6 +2245,7 @@ export const SWISS_SLUGS: Record<string, Record<ArticleLocale, string>> = {
  'parlamento-nega-naturalizzazione-dopo-5-anni': { it: 'parlamento-nega-naturalizzazione-dopo-5-anni', en: 'parliament-rejects-naturalization-after-5-years', de: 'parlament-lehnt-naturalisierung-nach-5-jahren-ab', fr: 'parlement-rejette-naturalisation-apres-5-ans' },
  'tubercolosi-svizzera-aumento-2025': { it: 'tubercolosi-svizzera-aumento-2025', en: 'tuberculosis-switzerland-increase-2025', de: 'tuberkulose-schweiz-zunahme-2025', fr: 'tuberculose-suisse-hausse-2025' },
  'indennita-maltempo-sei-mesi': { it: 'indennita-maltempo-sei-mesi', en: 'temporary-workers-weather-allowance', de: 'temporaerarbeiter-wetterentschaedigung', fr: 'travailleurs-temporaires-intemperies' },
+ 'ubs-capitale-90-bns': { it: 'ubs-capitale-90-bns', en: 'ubs-capital-90-snb', de: 'ubs-kapital-90-snb', fr: 'ubs-capital-90-bns' },
 };
 
 /** See BLOG_SLUG_FALLBACK_REASONS in routerBlogData.ts. */
