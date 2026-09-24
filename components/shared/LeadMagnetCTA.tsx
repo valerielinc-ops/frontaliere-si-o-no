@@ -34,6 +34,7 @@ import EmailInput, { validateEmailStrict } from '@/components/shared/EmailInput'
 import { useAuth, renderGoogleButtonWithReadiness, isLinkedInSignInAvailable, signInWithLinkedIn } from '@/services/authService';
 import SocialSignInButtons from '@/components/shared/SocialSignInButtons';
 import { NEWSLETTER_SUBSCRIBED_KEY as SUBSCRIBED_KEY } from '@/services/newsletterCtaState';
+import { useCaptureImpression } from '@/hooks/useCaptureImpression';
 
 // ─── Types ───────────────────────────────────────────────────────────────
 
@@ -819,6 +820,15 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  tryAuth();
  }, []);
 
+ // Visibility denominator, same shape as the existing `lead_magnet.banner.dismiss.<variant>`
+ // and paired on the variant with `lead_magnet.form.subscribe.success_<variant>`.
+ const impressionRef = useCaptureImpression({
+  page: 'lead_magnet',
+  section: 'banner',
+  variant,
+  enabled: visible && !user,
+ });
+
  const handleDismiss = useCallback(() => {
  localStorage.setItem(DISMISSED_KEY, String(Date.now()));
  setVisible(false);
@@ -932,7 +942,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
  // ─── Compact variant ───────────────────────────────────────────────
  if (compact) {
  return (
- <div className={`relative mt-4 p-4 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-xl`}>
+ <div ref={impressionRef} className={`relative mt-4 p-4 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-xl`}>
  <button
  onClick={handleDismiss}
  className="absolute top-2 right-2 p-1 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-body rounded-lg transition-colors"
@@ -1016,7 +1026,7 @@ const LeadMagnetCTA: React.FC<LeadMagnetCTAProps> = ({
 
  // ─── Full variant ──────────────────────────────────────────────────
  return (
- <div className={`relative mt-6 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-2xl overflow-hidden`}>
+ <div ref={impressionRef} className={`relative mt-6 bg-gradient-to-r ${colors.gradient} border ${colors.border} rounded-2xl overflow-hidden`}>
  <button
  onClick={handleDismiss}
  className="absolute top-3 right-3 p-1 min-w-[44px] min-h-[44px] flex items-center justify-center text-muted hover:text-body rounded-lg transition-colors z-10"
