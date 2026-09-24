@@ -178,6 +178,7 @@ describe('authoritative empty zero — jobs.ch family, umantis and fondation-dom
     ['scripts/update-jsafrasarasin-jobs.mjs'],
     ['scripts/update-apleona-schweiz-ag-jobs.mjs'],
     ['scripts/update-hofweissbad-jobs.mjs'],
+    ['scripts/update-giardino-jobs.mjs'],
   ])('%s asks the pipeline for a source-proven zero', (runner) => {
     const source = readRepoFile(runner);
     // recruitingapp-2677 proves a complete foreign snapshot before allowing
