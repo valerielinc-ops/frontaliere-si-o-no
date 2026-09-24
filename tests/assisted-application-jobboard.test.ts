@@ -59,6 +59,19 @@ describe('assisted application JobBoard handoff', () => {
     expect(condition).toContain('getRewardedApplicationAccessExpiresAt() === null');
   });
 
+  it('discloses the rewarded video on the labelled Candidati CTAs that open it', () => {
+    const start = jobBoardSource.indexOf('const rewardedCtaDisclosure = selectedJob');
+    const end = jobBoardSource.indexOf(': null;', start);
+    const condition = jobBoardSource.slice(start, end);
+
+    expect(condition).toContain('isExternalApplicationJob(selectedJob)');
+    expect(condition).toContain("assistedApplicationVariant === 'rewarded_ad'");
+    expect(condition).toContain('!killSwitches.rewardedApplicationAd');
+    expect(condition).toContain('getRewardedApplicationAccessExpiresAt() === null');
+    expect(condition).toContain("t('jobBoard.assisted.rewardedTitle')");
+    expect(jobBoardSource.match(/data-testid="rewarded-cta-disclosure">\{rewardedCtaDisclosure\}/g)).toHaveLength(2);
+  });
+
   it('treats a double click on Candidati as one rewarded request', () => {
     const start = jobBoardSource.indexOf('const handleApply =');
     const end = jobBoardSource.indexOf('const handleShare =', start);

@@ -3549,6 +3549,17 @@ const JobBoard: React.FC<JobBoardProps> = ({
   && isExternalApplicationJob(selectedJob)
   && getRewardedApplicationAccessExpiresAt() === null,
  );
+ // The Candidati click is the visitor's opt-in to the rewarded video, which
+ // then opens without a second click. Google's rewarded-web policy requires
+ // that choice to be informed, so every labelled Candidati CTA that will open
+ // the video says so.
+ const rewardedCtaDisclosure = selectedJob
+  && isExternalApplicationJob(selectedJob)
+  && assistedApplicationVariant === 'rewarded_ad'
+  && !killSwitches.rewardedApplicationAd
+  && getRewardedApplicationAccessExpiresAt() === null
+  ? t('jobBoard.assisted.rewardedTitle')
+  : null;
  useEffect(() => {
   if (!shouldPreloadRewardedApplicationAd) return;
  let cancelled = false;
@@ -9751,6 +9762,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  />
  </div>
  ) : (
+ <>
  <button
   type="button"
  className="hybrid-ab-cta"
@@ -9758,6 +9770,10 @@ const JobBoard: React.FC<JobBoardProps> = ({
  >
  {t('jobBoard.apply')}
  </button>
+ {rewardedCtaDisclosure && (
+  <p className="mt-1.5 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p>
+ )}
+ </>
  )}
 
  {!(selectedJob as unknown as { publisherJobId?: string }).publisherJobId && (
@@ -10186,7 +10202,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  width={28}
  height={28}
  loading="lazy"
- onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {appliedNoticeJsx}
+ onError={handleCompanyLogoError} /> ) : ( <Building2 className="w-4 h-4 text-muted" /> )} </div> <div className="min-w-0"> <h3 className="text-sm font-bold font-display text-heading">{t('jobBoard.companyHeading')}</h3> <p className="text-sm text-subtle mt-1"> {selectedJob.company} · {selectedJob.location} ({selectedJob.canton}) </p> <p className="text-sm text-muted mt-2"> {/* BLOCK-B: Regionalize for national expansion — currently hardcodes Ticino/Tessin text */} Frontaliere Ticino ha scovato questa opportunità nel monitoraggio aziende. </p> </div> </div> </a> <div className="flex flex-wrap gap-3 pt-1"> <button onClick={() => handleApply(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display bg-accent hover:bg-accent-hover text-on-accent rounded-lg transition-colors" > <ArrowUpRight className="w-4 h-4" /> {t('jobBoard.apply')} </button> <button type="button" onClick={() => void handleShare(selectedJob)} className="inline-flex items-center gap-2 px-4 py-2 min-h-[44px] text-sm font-semibold font-display border border-edge text-body text-strong rounded-lg hover:bg-surface-raised" > <ArrowUpRight className="w-4 h-4" /> {t('common.share')} </button> </div> {rewardedCtaDisclosure && ( <p className="mt-2 text-xs text-muted" data-testid="rewarded-cta-disclosure">{rewardedCtaDisclosure}</p> )} {appliedNoticeJsx}
  {detailAlertCtaJsx}
  {isPublisherAd && userId && userEmail && (
  <Suspense fallback={null}>
