@@ -230,5 +230,7 @@ describe('needs-human-sweep.yml — il DATO che il pre-pass legge, non solo i su
     expect(bootstrap, 'la label tecnica deve avere un bootstrap esplicito').toBeGreaterThanOrEqual(0);
     expect(prepass.slice(bootstrap, runner), 'il bootstrap deve precedere lo script che usa la label')
       .toMatch(/gh label create automation-deferred/);
+    expect(prepass.slice(bootstrap, runner)).toMatch(/--description "Lavoro automatico differito da policy\/capacità; rientra nello sweep"/);
+    expect(prepass.slice(bootstrap, runner)).toMatch(/--force/);
   });
 });
