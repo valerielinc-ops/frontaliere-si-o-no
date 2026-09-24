@@ -219,8 +219,47 @@ function stripFencedBlocks(text) {
 }
 
 /**
+ * Field labels of ONE issue record: the 5-field sheet (`CAUSA`/`FIX`/`METRICA`/...),
+ * the follow-up item schema and the `Workflow Failure` header (`Run`/`Job`/...).
+ * Kept as a closed list on purpose: a generic "bold text + colon" rule would also
+ * hide real bold-lead enumerations such as `1. **Auth**: …` / `2. **Owner**: …`.
+ */
+const RECORD_FIELD_LABELS = [
+  'CAUSA', 'FIX', 'METRICA', 'OSSERVATORE', 'COMANDO', 'REPO', 'MODE',
+  'Run', 'Job', 'Trigger', 'Ref', 'Workflow', 'Commit', 'Branch',
+  'Fallito in', 'Esito della run', 'Run consecutive fallite',
+  'State', 'Stato', 'Stato dichiarato nella PR', 'Target repository', 'Target file',
+  'Acceptance token', 'Sources?', 'Rationale', 'Suggested action', 'Original text',
+  'Funnel impact', 'Funnel area', 'Blocked on', 'Motivo', 'Prossimo passo',
+];
+const RECORD_FIELD_BULLET_RE = new RegExp(
+  `^([ \\t]*(?:[-*]|\\d+[.)])[ \\t]+(?:\\[[ xX]\\][ \\t]*)?)\\*\\*[ \\t]*`
+    + `(${RECORD_FIELD_LABELS.join('|')})[ \\t]*(:?)[ \\t]*\\*\\*([ \\t]*:?)`,
+  'i',
+);
+
+/**
+ * Un-bold the lead of field-label bullets (`- **CAUSA:** …`, `- **Run:** …`) so the
+ * shared enumeration detector does not count two fields of ONE record as two items
+ * (FU-2026-09-12-006). Only a label followed by a colon qualifies; the line itself is
+ * kept, so it still breaks the bold-lead look-ahead of the preceding bullet.
+ * @param {string} body
+ * @returns {string}
+ */
+export function unboldRecordFieldBullets(body) {
+  return String(body || '')
+    .split('\n')
+    .map((line) => line.replace(RECORD_FIELD_BULLET_RE, (match, lead, label, inner, outer) => (
+      inner || outer.includes(':') ? `${lead}${label}${inner}${outer}` : match
+    )))
+    .join('\n');
+}
+
+/**
  * Aggregate follow-up: never short-circuit on one match (one item resolved ≠ all). Three
  * detectors, OR'd: explicit title count, keyword fallback, body enumeration.
+ * The enumeration detector ignores field-label bullets of a single record (see
+ * `unboldRecordFieldBullets`); real bold-lead items and h2/h3 item headings still count.
  *
  * The pre-flight gate treats aggregate keywords in the body as live evidence. Analytics
  * deliberately opts out of that one signal: its historical contract counted `batch` /
@@ -247,7 +286,7 @@ function isAggregateWithKeywordScope(title, body, { includeBodyKeywords = true }
   const bodyText = maskInlineCodeSpans(stripFencedBlocks(body));
   const keywordText = includeBodyKeywords ? `${titleText}\n${bodyText}` : titleText;
   if (AGGREGATE_KEYWORD_RE.test(keywordText)) return true;
-  return hasEnumeratedItems(body);
+  return hasEnumeratedItems(unboldRecordFieldBullets(body));
 }
 
 export function isAggregate(title, body) {
