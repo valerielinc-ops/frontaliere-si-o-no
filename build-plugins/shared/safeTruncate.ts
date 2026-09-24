@@ -31,23 +31,34 @@ export function truncateCodeUnits(input: string, max: number): string {
   return input.slice(0, end);
 }
 
-/** Remove any unpaired surrogate code unit (high without low, or low without high). */
+/**
+ * Remove any unpaired surrogate code unit (high without low, or low without high).
+ *
+ * Copies clean runs with `slice` instead of appending one code unit at a time:
+ * the per-unit `output +=` loop built one rope node per character (~7 s and
+ * ~250 MB of heap on a 10M-unit input, follow-up FU-2026-09-24-034 of #9609).
+ * A well-formed input is returned as is, without any copy.
+ */
 export function stripLoneSurrogates(input: string): string {
-  let output = '';
+  let parts: string[] | null = null;
+  let runStart = 0;
   for (let index = 0; index < input.length; index += 1) {
     const code = input.charCodeAt(index);
-    if (code >= 0xd800 && code <= 0xdbff) {
+    if (code < 0xd800 || code > 0xdfff) continue;
+    if (code <= 0xdbff) {
       const next = input.charCodeAt(index + 1);
       if (next >= 0xdc00 && next <= 0xdfff) {
-        output += input[index] + input[index + 1];
         index += 1;
+        continue;
       }
-      continue;
     }
-    if (code >= 0xdc00 && code <= 0xdfff) continue;
-    output += input[index];
+    // Lone surrogate: keep the clean run before it and skip this unit.
+    (parts ??= []).push(input.slice(runStart, index));
+    runStart = index + 1;
   }
-  return output;
+  if (parts === null) return input;
+  parts.push(input.slice(runStart));
+  return parts.join('');
 }
 
 /** Google's practical limit for JSON-LD `description` values. */

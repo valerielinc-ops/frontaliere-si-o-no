@@ -1066,12 +1066,9 @@ describe('copertura workflow diretti', () => {
     expect(codexBlock).toContain('"$codex_bin" sandbox');
     expect(codexBlock).toContain('"$codex_bin" exec');
     expect(codexBlock).toContain('/usr/bin/timeout');
-    // Il watchdog è per-caller: default 900 dall'input, override verificati
-    // nel test dedicato qui sotto.
-    expect(codexBlock).toContain('codex_exec_timeout_seconds="${CODEX_EXEC_TIMEOUT_SECONDS:-900}"');
-    expect(codexBlock).toContain('CODEX_EXEC_TIMEOUT_SECONDS: ${{ inputs.exec_timeout_seconds }}');
-    expect(codexBlock).toContain('exceeded its ${codex_exec_timeout_seconds}-second internal watchdog');
-    expect(codexBlock).not.toContain('15-minute internal watchdog');
+    expect(action).toMatch(/exec_timeout_minutes:\n\s+description:[^\n]*\n\s+required: false\n\s+default: "15"/);
+    expect(codexBlock).toContain('codex_exec_timeout_minutes="${CODEX_EXEC_TIMEOUT_MINUTES:-15}"');
+    expect(codexBlock).toContain('codex_exec_timeout_seconds=$((codex_exec_timeout_minutes * 60))');
     expect(codexBlock).toContain('codex_exec_kill_grace_seconds=30');
     expect(codexBlock).toContain('--signal=TERM');
     expect(codexBlock).toContain('--kill-after="${codex_exec_kill_grace_seconds}s"');
@@ -1487,13 +1484,17 @@ function codexActionStep(name: string): ActionStep {
   return step;
 }
 
-// Override espliciti del watchdog: solo i caller batch che hanno misurato
-// sessioni vicine o oltre il vecchio cap fisso da 900s (#1975/#1979, sweep
-// 35591877354, growth-report 658s). Tutti gli altri restano sul default.
+// Override espliciti del watchdog (minuti, input `exec_timeout_minutes` di
+// #9690): i lane agentici di main (issue-fix, issue-decompose,
+// needs-human-sweep) e i caller batch che hanno misurato sessioni vicine o
+// oltre il vecchio cap fisso da 15 min (#1975/#1979, growth-report 658s).
+// Tutti gli altri restano sul default.
 const EXEC_TIMEOUT_OVERRIDES: Record<string, string> = {
-  'post-merge-followup.yml': '1500',
-  'needs-human-sweep.yml': '1800',
-  'growth-report.yml': '1800',
+  'growth-report.yml': '30',
+  'issue-decompose.yml': '70',
+  'issue-fix.yml': '110',
+  'needs-human-sweep.yml': '100',
+  'post-merge-followup.yml': '25',
 };
 // Setup Codex (Node, CLI, sandbox apt: ~105s misurati il 2026-09-24), kill
 // grace di 30s e coda di finalize/cleanup: il watchdog deve lasciare questo
@@ -1502,18 +1503,18 @@ const EXEC_TIMEOUT_OVERRIDES: Record<string, string> = {
 const CODEX_SETUP_AND_TAIL_SECONDS = 300;
 
 describe('watchdog Codex per caller', () => {
-  it('ha default 900 e accetta solo secondi interi 60-7200', () => {
-    expect(codexActionDefinition().inputs.exec_timeout_seconds?.default).toBe('900');
+  it('ha default 15 minuti e accetta solo minuti interi 1-300', () => {
+    expect(codexActionDefinition().inputs.exec_timeout_minutes?.default).toBe('15');
     const codexStep = codexActionStep('Run Codex primary (one subscription attempt)');
     const script = codexStep.run!;
-    const start = script.indexOf('codex_exec_timeout_seconds="${CODEX_EXEC_TIMEOUT_SECONDS:-900}"');
+    const start = script.indexOf('codex_exec_timeout_minutes="${CODEX_EXEC_TIMEOUT_MINUTES:-15}"');
     const end = script.indexOf('codex_exec_kill_grace_seconds=30', start);
     expect(start).toBeGreaterThanOrEqual(0);
     expect(end).toBeGreaterThan(start);
     const validation = script.slice(start, end);
     const validate = (value: string | undefined) => {
       const env: Record<string, string> = { PATH: process.env.PATH || '/usr/bin:/bin' };
-      if (value !== undefined) env.CODEX_EXEC_TIMEOUT_SECONDS = value;
+      if (value !== undefined) env.CODEX_EXEC_TIMEOUT_MINUTES = value;
       const result = spawnSync('/bin/bash', ['-c', `set -euo pipefail\n${validation}\nprintf 'cap=%s\\n' "$codex_exec_timeout_seconds"`], {
         env,
         encoding: 'utf8',
@@ -1522,16 +1523,16 @@ describe('watchdog Codex per caller', () => {
     };
     expect(validate(undefined)).toBe('cap=900');
     expect(validate('')).toBe('cap=900');
-    expect(validate('1500')).toBe('cap=1500');
-    expect(validate('60')).toBe('cap=60');
-    expect(validate('7200')).toBe('cap=7200');
+    expect(validate('25')).toBe('cap=1500');
+    expect(validate('1')).toBe('cap=60');
+    expect(validate('300')).toBe('cap=18000');
     // 0 disattiverebbe GNU timeout: deve fallire, non ricadere sul default.
-    for (const invalid of ['0', '59', '7201', '0900', '15m', ' 900', '900s', '-1']) {
+    for (const invalid of ['0', '301', '015', '15m', ' 15', '900s', '-1']) {
       expect(validate(invalid), invalid).toBe('exit=1');
     }
   });
 
-  it('alza il cap solo sui caller batch e lo tiene sotto il tetto effettivo dello step', () => {
+  it('alza il cap solo sui caller dichiarati e lo tiene sotto il tetto effettivo dello step', () => {
     const overrides: Record<string, string> = {};
     for (const workflowName of workflowNames) {
       const parsed = YAML.parse(readFileSync(resolve(repoRoot, '.github', 'workflows', workflowName), 'utf8')) as {
@@ -1540,13 +1541,14 @@ describe('watchdog Codex per caller', () => {
       for (const job of Object.values(parsed.jobs ?? {})) {
         for (const step of job.steps ?? []) {
           if (step.uses !== './.github/actions/claude-codex-fallback') continue;
-          const value = step.with?.exec_timeout_seconds;
+          expect(step.with?.exec_timeout_seconds, `${workflowName}: input rimosso, usare exec_timeout_minutes`).toBeUndefined();
+          const value = step.with?.exec_timeout_minutes;
           if (value === undefined) continue;
           overrides[workflowName] = String(value);
           const caps = [step['timeout-minutes'], job['timeout-minutes']].filter((cap): cap is number => typeof cap === 'number');
           expect(caps.length, `${workflowName}: serve un timeout-minutes`).toBeGreaterThan(0);
           const effectiveSeconds = Math.min(...caps) * 60;
-          expect(Number(value) + CODEX_SETUP_AND_TAIL_SECONDS, `${workflowName}: watchdog oltre il kill del runner`)
+          expect(Number(value) * 60 + CODEX_SETUP_AND_TAIL_SECONDS, `${workflowName}: watchdog oltre il kill del runner`)
             .toBeLessThanOrEqual(effectiveSeconds);
         }
       }

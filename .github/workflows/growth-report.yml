@@ -113,10 +113,10 @@ jobs:
           # Il report crea/aggiorna issue instradate nel ciclo: bridge App/PAT
           # soltanto, con rifiuto fail-closed se il mint non è disponibile.
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
-          # Watchdog Codex 900s→1800s: l'ultima run sana (35854624246) ha
-          # misurato 658s, oltre il 70% del cap fisso da 900s. 1800s +
+          # Watchdog Codex 15→30 min: l'ultima run sana (35854624246) ha
+          # misurato 658s, oltre il 70% del cap fisso da 15 min. 30 min +
           # setup/coda restano sotto lo step da 80 min.
-          exec_timeout_seconds: '1800'
+          exec_timeout_minutes: "30"
           prompt: |
             Sei il growth report settimanale di frontaliereticino.ch. Il tuo compito: leggere i dati di prodotto DISPONIBILI e proporre al massimo 2 leve di crescita misurate, instradate nel ciclo autonomo. NON implementi nulla.
 

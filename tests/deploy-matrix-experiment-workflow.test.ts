@@ -7,6 +7,12 @@ import {
   buildMatrix,
   parseVariants,
 } from '../scripts/ci/matrix-experiment-variants.mjs';
+import {
+  JOBS_SEO_GCFREED_PROBE_CANDIDATES,
+  JOBS_SEO_GCFREED_PROBE_ENV,
+  parseJobsSeoGcFreedProbe,
+  parseJobsSeoRetentionProbe,
+} from '../build-plugins/shared/jobsSeoRetentionProbe';
 
 const ROOT = resolve(import.meta.dirname, '..');
 const WORKFLOWS_DIR = resolve(ROOT, '.github/workflows');
@@ -24,6 +30,7 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
       'FAST_BUILD',
       'INCREMENTAL_MANIFEST',
       'INCREMENTAL_MANIFEST_VERIFY',
+      'JOBS_SEO_GCFREED_PROBE',
       'JOBS_SEO_MEM_GC',
       'JOBS_SEO_REUSE',
       'JOBS_SEO_REUSE_PROBE',
@@ -189,6 +196,30 @@ describe('deploy-matrix-experiment.yml — variant matrix contract', () => {
         JOBS_SEO_REUSE_VERIFY_SAMPLE: '0.02',
       },
     }]);
+  });
+
+  // #9613: the extra gcFreed candidates are read from JOBS_SEO_GCFREED_PROBE,
+  // not from the `retention_probe` input (JOBS_SEO_RETENTION_PROBE), whose
+  // parser rejects them. A variant is the only dispatch channel that can name
+  // one of them, so every candidate must survive the variant parser verbatim.
+  it('routes exactly one extra gcFreed probe candidate through a variant', () => {
+    expect(JOBS_SEO_GCFREED_PROBE_CANDIDATES.length).toBeGreaterThan(0);
+    for (const candidate of JOBS_SEO_GCFREED_PROBE_CANDIDATES) {
+      expect(() => parseJobsSeoRetentionProbe(candidate)).toThrow(/JOBS_SEO_RETENTION_PROBE/);
+      const [variant] = parseVariants(
+        `gcfreed-${candidate.toLowerCase()}=${JOBS_SEO_GCFREED_PROBE_ENV}=${candidate},BUILD_STOP_AFTER=jobsSeoPages`,
+      );
+      expect(variant.env).toEqual({
+        [JOBS_SEO_GCFREED_PROBE_ENV]: candidate,
+        BUILD_STOP_AFTER: 'jobsSeoPages',
+      });
+      expect(parseJobsSeoGcFreedProbe(variant.env[JOBS_SEO_GCFREED_PROBE_ENV])).toBe(candidate);
+    }
+    const [row] = buildMatrix({
+      locales: 'it',
+      variants: `gcfreed-jobsbytoken=${JOBS_SEO_GCFREED_PROBE_ENV}=jobsByToken`,
+    });
+    expect(JSON.parse(row.env_json)).toEqual({ [JOBS_SEO_GCFREED_PROBE_ENV]: 'jobsByToken' });
   });
 
   it('accepts CPU profiling as a variant-local flag', () => {
