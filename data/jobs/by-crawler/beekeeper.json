@@ -53,7 +53,7 @@
       "jobReqId": "d743f232-8d35-4489-8226-dbb9f7f6ccb2",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-18T22:16:08.956Z",
+      "firstSeenAt": "2026-07-12T21:49:56.120Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -66,7 +66,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://job.lumapps.com/jobs/8052689-forward-deployed-engineer-fde-zurich"
     },
     {
       "id": "beekeeper-ad4c568442b2",
@@ -132,7 +133,7 @@
           "senior-account-manager-beekeeper-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-18T22:16:08.954Z",
+      "firstSeenAt": "2026-07-24T11:19:18.193Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -145,7 +146,8 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://job.lumapps.com/jobs/8081204-senior-account-manager"
     },
     {
       "id": "beekeeper-877c21c09c76",
@@ -231,7 +233,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://job.lumapps.com/jobs/8241616-business-development-representative-zurich"
     },
     {
       "id": "beekeeper-70cd41465d83",
@@ -298,7 +301,8 @@
         }
       },
       "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "needsRetranslation": true,
+      "sourceIdentity": "url:https://job.lumapps.com/jobs/7938577-customer-success-manager-fr-speaking"
     }
   ]
 }
