@@ -2,7 +2,7 @@
 import { cleanup, render, screen, within } from '@testing-library/react';
 import { afterEach, describe, expect, it, vi } from 'vitest';
 import PharmacyDirectory from '../components/pages/PharmacyDirectory';
-import { TICINO_CITIES } from '../services/pharmacies/data';
+import { ITALY_BORDER_PROVINCES, TICINO_CITIES, pharmaciesForProvince } from '../services/pharmacies/data';
 import { buildItalyDutyWeekModel, currentItalyDutyWeekStart } from '../services/pharmacies/italyDuty';
 import { buildPharmacyPath } from '../services/pharmacies/paths';
 import { parsePharmacyRoute } from '../services/pharmacies/routePaths';
@@ -22,14 +22,21 @@ afterEach(cleanup);
 afterEach(() => vi.useRealTimers());
 
 describe('pharmacy country SPA route', () => {
-  it.each(locales)('renders only the three province hubs and no 542-card listing (%s)', (locale) => {
+  it.each(locales)('renders only the three province hubs and no country-wide card listing (%s)', (locale) => {
     const { container } = render(<PharmacyDirectory page={{ kind: 'country', country: 'IT', locale }} />);
     const provinceList = screen.getByRole('list');
     const links = within(provinceList).getAllByRole('link');
 
     expect(links).toHaveLength(3);
     expect(links.map((link) => link.getAttribute('href'))).toEqual(provincePaths[locale]);
-    for (const [index, count] of ['193', '266', '83'].entries()) expect(links[index].textContent || '').toContain(count);
+    // Counts come from the dataset the page renders, not literals: the
+    // cross-border pharmacy release is refreshed by cron (Varese went 266→268)
+    // and a pinned number turned an unrelated PR red.
+    for (const [index, province] of ITALY_BORDER_PROVINCES.entries()) {
+      const count = pharmaciesForProvince(province.code).length;
+      expect(count).toBeGreaterThan(0);
+      expect(links[index].textContent || '').toContain(String(count));
+    }
     expect(container.querySelectorAll('article')).toHaveLength(0);
     expect(container.querySelector('#pharmacy-search')).toBeNull();
     expect(container.querySelector('#pharmacy-map-heading')).toBeNull();
