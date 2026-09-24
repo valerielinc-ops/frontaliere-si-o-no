@@ -44,4 +44,18 @@ describe('JobBoard category pages — results-first ordering', () => {
     expect(source).toContain('className="block min-h-[44px] cursor-pointer');
     expect(source).toContain('min-h-11 text-xs font-medium rounded-full border');
   });
+
+  it('keeps filter and card navigation work out of the urgent interaction lane', () => {
+    const adRefreshStart = source.indexOf('startTransition(() => setAdRefreshKey');
+    const filterEffectStart = source.lastIndexOf('useEffect(() => {', adRefreshStart);
+    const filterEffect = source.slice(filterEffectStart, source.indexOf('}, [deferredSearchQuery', filterEffectStart));
+    expect(filterEffect).toContain('startTransition(() => setAdRefreshKey((k) => k + 1));');
+
+    const openDetailStart = source.indexOf('const openDetail = useCallback(');
+    const openDetailEnd = source.indexOf('const renderJobCard =', openDetailStart);
+    const openDetail = source.slice(openDetailStart, openDetailEnd);
+    expect(openDetail).toContain('startTransition(() => {');
+    expect(openDetail).toContain('onJobRouteChange?.(deriveLocalizedJobSlug(job, locale), resolveJobCanton(job));');
+    expect(openDetail).toContain('}, [authResolved, behaviorData, enablePersonalization, jobMatchProfile, locale, onJobRouteChange, page, searchQuery, userProfile]);');
+  });
 });

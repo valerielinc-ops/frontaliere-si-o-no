@@ -5487,7 +5487,12 @@ const JobBoard: React.FC<JobBoardProps> = ({
  }, [editorialOfficialGazetteLanding, editorialJobTodayLanding, editorialLocationLanding, editorialLocationTypeLanding, editorialLocationSectorLanding, editorialSectorRegionLanding, editorialNursesHubLanding, editorialPartTimeLanding, editorialCareVariantLanding, jobs]);
 
  useEffect(() => {
- setAdRefreshKey((k) => k + 1);
+ // Keep the current, reserved ad slots available for the interaction paint.
+ // Refreshing their React keys is enhancement work: doing it in the urgent
+ // filter effect remounts every visible AdSense slot in the same turn as the
+ // control click. The low-priority update still refreshes the slots after the
+ // filter settles and never disables Auto Ads or removes their placeholders.
+ startTransition(() => setAdRefreshKey((k) => k + 1));
  if (skipPageReset.current) { skipPageReset.current = false; return; }
  setPage(1);
  setMobileJobLimit(10);
@@ -6407,13 +6412,19 @@ const JobBoard: React.FC<JobBoardProps> = ({
  };
  }, [inlineAuthGateVisible]);
 
- const openDetail = (job: JobListing) => {
+ // JobCard is memoized, so keep its selection handler stable across filter
+ // renders. The detail view is still a large branch of this monolith; mark
+ // only the route state handoff as non-urgent so the list can paint the click
+ // before React renders the detail branch.
+ const openDetail = useCallback((job: JobListing) => {
   if (!authResolved) return;
  // Always navigate to the detail page — the inline auth gate handles
  // unauthenticated users with a blurred preview + sign-in form,
  // giving more context than a modal popup and boosting conversion.
  savedListState.current = { page, scrollY: window.scrollY, query: searchQuery.trim() };
- onJobRouteChange?.(deriveLocalizedJobSlug(job, locale), resolveJobCanton(job));
+ startTransition(() => {
+  onJobRouteChange?.(deriveLocalizedJobSlug(job, locale), resolveJobCanton(job));
+ });
  window.scrollTo({ top: 0, behavior: 'instant' });
  Analytics.trackSelectContent('job_board_open_detail', `${job.company}_${job.title}`);
  if (enablePersonalization && behaviorData) {
@@ -6422,7 +6433,7 @@ const JobBoard: React.FC<JobBoardProps> = ({
  Analytics.trackJobMatchClick(topSignal, score);
  }
  }
- };
+ }, [authResolved, behaviorData, enablePersonalization, jobMatchProfile, locale, onJobRouteChange, page, searchQuery, userProfile]);
 
  const renderJobCard = (job: JobListing) => (
  <JobCard
