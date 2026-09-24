@@ -13,7 +13,8 @@ import {
 import {
   trackAssistedApplicationEvent,
 } from '@/services/assistedApplicationExperiment';
-import { POPUP_PRIORITY, releaseSlot, requestSlot } from '@/services/popupQueue';
+import { POPUP_PRIORITY } from '@/services/popupQueue';
+import { usePopupSlot } from '@/hooks/usePopupSlot';
 
 const SURFACE = 'job_detail_rewarded_inline';
 const TRIGGER = 'candidate_click';
@@ -76,11 +77,9 @@ export default function RewardedApplicationOffer({
   }, [companyId, jobId]);
 
   // Hold the popup queue for the whole offer: a queued popup (newsletter,
-  // prompts) must not cover or hide the Google video while it plays.
-  useEffect(() => {
-    requestSlot(POPUP_SLOT_ID, POPUP_PRIORITY.REWARDED_APPLICATION_OFFER);
-    return () => releaseSlot(POPUP_SLOT_ID);
-  }, []);
+  // prompts) must not cover or hide the Google video while it plays. The
+  // offer itself stays on screen whatever the queue answers.
+  usePopupSlot(POPUP_SLOT_ID, POPUP_PRIORITY.REWARDED_APPLICATION_OFFER);
 
   useEffect(() => {
     const previousOverflow = document.body.style.overflow;
