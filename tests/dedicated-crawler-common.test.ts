@@ -2,7 +2,7 @@ import { afterEach, beforeEach, describe, expect, it, vi } from 'vitest';
 import fs from 'fs';
 import os from 'os';
 import path from 'path';
-import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, isActiveJobPastRetirement, ACTIVE_JOB_RETIREMENT_DAYS, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
+import { hardenJobLocaleFields, mergeAndDeduplicate, mergePreserveLocaleData, eocContinuityKey, seedCrawlerSlicesFromDataJobs, addPreviousSlugForLocale, captureLostSlugs, hasFullLocaleCoverage, hasCorrectLocaleCoverage, normalizeContract, mergeLocaleTextMap, pickMergedPostedDate, pickMergedCrawledAt, isActiveJobPastRetirement, ACTIVE_JOB_RETIREMENT_DAYS, DEFAULT_PREV_SLUG_CAP, LEGACY_PREV_SLUGS_CAP } from '../scripts/lib/dedicated-crawler-common.mjs';
 
 const daysAgoIso = (days: number) => new Date(Date.now() - days * 86_400_000).toISOString();
 import { canonicalizeCompanyDefinition, legacyTruncatedCompanyKey, normalizeCompanyKey } from '../scripts/lib/company-key.mjs';
@@ -745,6 +745,113 @@ describe('mergePreserveLocaleData URL matching', () => {
     expect(merged[0].id).toBe('eta-qa-fresh');
     expect(merged[0].titleByLocale?.en).toBeUndefined();
     expect(merged[0].previousSlugs || []).not.toContain('polymechaniker-old');
+  });
+});
+
+describe('EOC Umantis source continuity across vacancy-ID rotation', () => {
+  const cfg = { minQualityScore: 0, minDescriptionChars: 0 };
+  let previousRegistryOverride;
+
+  beforeEach(() => {
+    previousRegistryOverride = process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    process.env.SLUG_REGISTRY_PATH_OVERRIDE = path.join(
+      fs.mkdtempSync(path.join(os.tmpdir(), 'ft-eoc-continuity-registry-')),
+      'slug-registry.json',
+    );
+  });
+
+  afterEach(() => {
+    if (previousRegistryOverride === undefined) delete process.env.SLUG_REGISTRY_PATH_OVERRIDE;
+    else process.env.SLUG_REGISTRY_PATH_OVERRIDE = previousRegistryOverride;
+  });
+
+  const baseJob = (overrides: Record<string, unknown> = {}) => ({
+    title: 'Medico Perito SAM con specializzazione in medicina interna generale',
+    company: 'EOC – Ente Ospedaliero Cantonale',
+    companyKey: 'eoc-ente-ospedaliero-cantonale',
+    location: 'Bellinzona',
+    canton: 'TI',
+    slug: 'medico-perito-sam-con-specializzazione-in-medicina-interna-generale-eoc-ente-ospedaliero-cantonale-bellinzona',
+    slugByLocale: {
+      it: 'medico-perito-sam-con-specializzazione-in-medicina-interna-generale-eoc-ente-ospedaliero-cantonale-bellinzona',
+    },
+    description: 'D'.repeat(140),
+    sourceLang: 'it',
+    ...overrides,
+  });
+
+  it('carries id, firstSeenAt, and URL lineage across a rotated vacancy number', () => {
+    const oldIdentity = 'url:https://recruitingapp-2761.umantis.com/vacancies/2670/description/4';
+    const existing = [baseJob({
+      id: 'eoc-old-id',
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2670/Description/4',
+      sourceIdentity: oldIdentity,
+      firstSeenAt: '2026-05-26T22:48:33.043Z',
+    })];
+    const fresh = [baseJob({
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2696/Description/4',
+      firstSeenAt: '2026-09-23T23:53:42.243Z',
+    })];
+
+    const result = mergeAndDeduplicate(existing, fresh, cfg, { continuityKey: eocContinuityKey });
+
+    expect(result.merged).toHaveLength(1);
+    expect(result.merged[0]).toMatchObject({
+      id: 'eoc-old-id',
+      url: fresh[0].url,
+      firstSeenAt: '2026-05-26T22:48:33.043Z',
+      sourceIdentity: 'url:https://recruitingapp-2761.umantis.com/vacancies/2696/description/4',
+    });
+    expect(result.merged[0].sourceIdentityHistory).toContainEqual({
+      sourceIdentity: oldIdentity,
+      firstSeenAt: '2026-05-26T22:48:33.043Z',
+      title: existing[0].title,
+    });
+  });
+
+  it('does not bridge a same-title record whose location differs', () => {
+    const existing = [baseJob({
+      id: 'eoc-bellinzona',
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2670/Description/4',
+      firstSeenAt: '2026-05-26T22:48:33.043Z',
+    })];
+    const fresh = [baseJob({
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2696/Description/4',
+      location: 'Lugano',
+      firstSeenAt: '2026-09-23T23:53:42.243Z',
+    })];
+
+    const result = mergeAndDeduplicate(existing, fresh, cfg, { continuityKey: eocContinuityKey });
+
+    expect(result.merged).toHaveLength(2);
+    expect(result.merged.some((job) => job.id === 'eoc-bellinzona')).toBe(true);
+    expect(result.merged.some((job) => job.url === fresh[0].url && job.id !== 'eoc-bellinzona')).toBe(true);
+  });
+
+  it('does not bridge when the semantic key is non-injective', () => {
+    const existing = [
+      baseJob({
+        id: 'eoc-old-a',
+        url: 'https://recruitingapp-2761.umantis.com/Vacancies/2670/Description/4',
+        firstSeenAt: '2026-05-26T22:48:33.043Z',
+      }),
+      baseJob({
+        id: 'eoc-old-b',
+        url: 'https://recruitingapp-2761.umantis.com/Vacancies/2671/Description/4',
+        firstSeenAt: '2026-05-27T22:48:33.043Z',
+      }),
+    ];
+    const fresh = [baseJob({
+      url: 'https://recruitingapp-2761.umantis.com/Vacancies/2696/Description/4',
+      firstSeenAt: '2026-09-23T23:53:42.243Z',
+    })];
+
+    const result = mergeAndDeduplicate(existing, fresh, cfg, { continuityKey: eocContinuityKey });
+
+    expect(result.merged).toHaveLength(3);
+    expect(result.merged.some((job) => job.id === 'eoc-old-a')).toBe(true);
+    expect(result.merged.some((job) => job.id === 'eoc-old-b')).toBe(true);
+    expect(result.merged.some((job) => job.url === fresh[0].url && !['eoc-old-a', 'eoc-old-b'].includes(job.id))).toBe(true);
   });
 });
 
