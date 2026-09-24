@@ -1,7 +1,814 @@
 {
   "crawlerKey": "svar-spitalverbund-ar",
-  "assembledAt": "2026-09-22T00:02:47.856Z",
+  "assembledAt": "2026-09-23T23:39:19.169Z",
   "jobs": [
+    {
+      "id": "svar-spitalverbund-ar-d1720aab5506",
+      "slug": "gestione-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "it": "gestione-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "application-manager-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+        "fr": "gestionnaire-d-applications-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Applikationsmanager/in (m/w/d)",
+      "titleByLocale": {
+        "it": "Gestione applicazioni (m/f/d)",
+        "en": "Application Manager (m/f/d)",
+        "de": "Applikationsmanager/in (m/w/d)",
+        "fr": "Gestionnaire d'applications (h/f/d)"
+      },
+      "description": "Ihre Aufgaben\n• Verantwortung für die Betreuung, Konfiguration, Testen und Weiterentwicklung des ERP-Systems Opale, Telefonie (Siemens), Patienten-Medien-Terminals und weiterer administrativer Applikationen\n• Anwender-Support inkl. Pikett-Dienst\n• Integration und Sicherstellung des stabilen Betriebs von Endgeräten und Applikationen\n• Begleitung von IT Vorhaben und Unterstützung im Patchmanagement\n• Erstellung und Pflege von System- und Betriebshandbüchern Mitarbeit in innovativen Projekten als Fachspezialist, sowie Leitung von Teilprojekten\n\nIhr Profil\n• Ausbildung als Informatiker/in EFZ oder mehrjährige Erfahrung im IT-Bereich\n• Gute Kenntnisse im IT Support (Betrieb und Einführung von IT Fachlösungen)\n• Erfahrung im Spitalbetrieb oder Umgang mit technischen/medizinischen Geräten von Vorteil\n• Kenntnisse der ITIL-Prozesse von Vorteil\n• Zuverlässige und lösungsorientierte Persönlichkeit\n• Gute mündliche und schriftliche Kommunikation\n• Freude an der Zusammenarbeit mit verschiedenen Berufsgruppen Gepflegtes Erscheinungsbild und gute Umgangsformen\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. September 2026",
+      "descriptionByLocale": {
+        "it": "I loro compiti\n• Responsabilità per il supporto, la configurazione, il test e l'ulteriore sviluppo del sistema Opale ERP, della telefonia (Siemens), dei terminali dei media dei pazienti e di altre applicazioni amministrative\n• Supporto utente incl. Servizio Picetting\n• Integrazione e garanzia del funzionamento stabile dei terminali e delle applicazioni\n• Supporto per progetti IT e supporto nella gestione delle patch\n• Preparazione e manutenzione di sistemi e manuali operativi Collaborazione in progetti innovativi come specialista, nonché gestione di sottoprogetti\n\nIl tuo profilo\n• Formazione come informatico o diversi anni di esperienza nel settore IT\n• Buona conoscenza del supporto IT (operazione e implementazione di soluzioni specialistiche IT)\n• L'esperienza nel funzionamento dell'ospedale o la gestione di attrezzature tecniche/mediche è vantaggiosa\n• La conoscenza dei processi ITIL è un vantaggio\n• Personalità affidabile e orientata alla soluzione\n• Buona comunicazione orale e scritta\n• Godimento di lavorare con diversi gruppi professionali\n\nInoltre, si beneficia di\n\nIngresso: 01. settembre 2026",
+        "en": "Their tasks\n• Responsibility for the support, configuration, testing and further development of the Opale ERP system, telephony (Siemens), patient media terminals and other administrative applications\n• User support incl. Picetting service\n• Integration and ensuring the stable operation of terminals and applications\n• Support for IT projects and support in patch management\n• Preparation and maintenance of system and operating manuals Collaboration in innovative projects as a specialist, as well as management of subprojects\n\nYour profile\n• Training as a computer scientist or several years of experience in the IT sector\n• Good knowledge of IT support (operation and implementation of IT specialist solutions)\n• Experience in hospital operation or handling of technical/medical equipment is advantageous\n• Knowledge of ITIL processes is an advantage\n• Reliable and solution-oriented personality\n• Good oral and written communication\n• Enjoyment of working with different professional groups Maintained appearance and good manners\n\nIn addition, you benefit from\n\nAdmission: 01. September 2026",
+        "de": "Ihre Aufgaben\n• Verantwortung für die Betreuung, Konfiguration, Testen und Weiterentwicklung des ERP-Systems Opale, Telefonie (Siemens), Patienten-Medien-Terminals und weiterer administrativer Applikationen\n• Anwender-Support inkl. Pikett-Dienst\n• Integration und Sicherstellung des stabilen Betriebs von Endgeräten und Applikationen\n• Begleitung von IT Vorhaben und Unterstützung im Patchmanagement\n• Erstellung und Pflege von System- und Betriebshandbüchern Mitarbeit in innovativen Projekten als Fachspezialist, sowie Leitung von Teilprojekten\n\nIhr Profil\n• Ausbildung als Informatiker/in EFZ oder mehrjährige Erfahrung im IT-Bereich\n• Gute Kenntnisse im IT Support (Betrieb und Einführung von IT Fachlösungen)\n• Erfahrung im Spitalbetrieb oder Umgang mit technischen/medizinischen Geräten von Vorteil\n• Kenntnisse der ITIL-Prozesse von Vorteil\n• Zuverlässige und lösungsorientierte Persönlichkeit\n• Gute mündliche und schriftliche Kommunikation\n• Freude an der Zusammenarbeit mit verschiedenen Berufsgruppen Gepflegtes Erscheinungsbild und gute Umgangsformen\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. September 2026",
+        "fr": "Leurs tâches\n• Responsable du support, de la configuration, des essais et du développement du système Opale ERP, de la téléphonie (Siemens), des terminaux de médias patients et d'autres applications administratives\n• Support utilisateur incl. Service de pistage\n• Intégration et garantie du fonctionnement stable des terminaux et des applications\n• Soutien aux projets informatiques et soutien à la gestion des patchs\n• Préparation et mise à jour des manuels d'exploitation et de systèmes Collaboration dans des projets innovants en tant que spécialiste, ainsi que gestion des sous-projets\n\nVotre profil\n• Formation en informatique ou plusieurs années d'expérience dans le secteur informatique\n• Bonne connaissance du soutien informatique (opération et mise en œuvre de solutions spécialisées en TI)\n• L'expérience dans le fonctionnement ou la manipulation d'équipements techniques/médicaux à l'hôpital est avantageuse\n• La connaissance des processus ITIL est un avantage\n• Personnalité fiable et orientée vers la solution\n• Bonne communication orale et écrite\n• Profitez de travailler avec différents groupes professionnels.\n\nEn outre, vous bénéficiez\n\nEntrée : 01. septembre 2026"
+      },
+      "needsRetranslation": false,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4066170",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:39:16.420Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-09",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4066170",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4066170",
+      "previousSlugs": [
+        "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+        "gestione-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
+          "gestione-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-09-09T23:04:31.479Z",
+      "salaryMin": 107000,
+      "salaryMax": 182000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 107000,
+          "maxValue": 182000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "svar-spitalverbund-ar-209971291d77",
+      "slug": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "it": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+        "fr": "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Oberärztin / Oberarzt Allgemeine Innere Medizin (m/w/d)",
+      "titleByLocale": {
+        "it": "Medico senior / Medicina interna generale (m/f/d)",
+        "en": "Senior physician / Senior physician General Internal Medicine (m/f/d)",
+        "de": "Oberärztin / Oberarzt Allgemeine Innere Medizin (m/w/d)",
+        "fr": "Médecin supérieur / Médecin supérieur Général Médecine interne (h/f/d)"
+      },
+      "description": "Ihre Aufgaben\n• Mitverantwortung für eine qualitativ hochstehende Diagnostik und Behandlung der internistischen Patientinnen und Patienten\n• Fachliche und personelle Führung und Weiterbildung der Assistenzärzte\n• Enge und erfolgreiche Zusammenarbeit mit den anderen Fachbereichen und den Zuweisern\n• Beteiligung am kaderärztlichen Hintergrunddienst der Inneren Medizin\n• Unterstützung des Chefarztes und der Leitenden Ärzte in der Führung der Klinik\n\nIhr Profil\n• Fachärztin/Facharzt für Allgemeine Innere Medizin (oder kurz vor Abschluss)\n• Interesse an Ultraschallmedizin mit dem Ziel, den Fähigkeitsausweis Sonografie zu erwerben\n• Aktive Mitarbeit in Projekten und Freude an interdisziplinärer Zusammenarbeit\n• Engagierte Persönlichkeit mit einer hohen Sozialkompetenz\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Dezember 2026",
+      "descriptionByLocale": {
+        "it": "I loro compiti\n• Responsabilità condivisa per una diagnosi di alta qualità e trattamento dei pazienti internisti\n• Gestione professionale e del personale e formazione continua dei medici assistenti\n• Cooperazione stretta e di successo con le altre aree specializzate e incarichi\n• Partecipazione al Servizio di Medicina Interna della Cattedrale\n• Supporto del medico principale e medici senior nella gestione della clinica\n\nIl tuo profilo\n• Specialista per Medicina Interna Generale (o poco prima della laurea)\n• Interessi nella medicina a ultrasuoni con l'obiettivo di ottenere il certificato di abilità sonografia\n• Partecipazione attiva ai progetti e godimento della cooperazione interdisciplinare\n• Personalità impegnata con un alto livello di competenza sociale\n\nInoltre, si beneficia di\n\nIngresso: 01. dicembre 2026",
+        "en": "Their tasks\n• Shared responsibility for a high-quality diagnosis and treatment of internist patients\n• Professional and personnel management and further training of assistant doctors\n• Close and successful cooperation with the other specialist areas and assignments\n• Participation in the Cathedral Background Service of Internal Medicine\n• Support of the chief physician and senior physicians in the management of the clinic\n\nYour profile\n• Specialist for General Internal Medicine (or shortly before graduation)\n• Interest in ultrasound medicine with the aim of obtaining the certificate of ability sonography\n• Active participation in projects and enjoyment of interdisciplinary cooperation\n• Engaged personality with a high level of social competence\n\nIn addition, you benefit from\n\nAdmission: 01. December 2026",
+        "de": "Ihre Aufgaben\n• Mitverantwortung für eine qualitativ hochstehende Diagnostik und Behandlung der internistischen Patientinnen und Patienten\n• Fachliche und personelle Führung und Weiterbildung der Assistenzärzte\n• Enge und erfolgreiche Zusammenarbeit mit den anderen Fachbereichen und den Zuweisern\n• Beteiligung am kaderärztlichen Hintergrunddienst der Inneren Medizin\n• Unterstützung des Chefarztes und der Leitenden Ärzte in der Führung der Klinik\n\nIhr Profil\n• Fachärztin/Facharzt für Allgemeine Innere Medizin (oder kurz vor Abschluss)\n• Interesse an Ultraschallmedizin mit dem Ziel, den Fähigkeitsausweis Sonografie zu erwerben\n• Aktive Mitarbeit in Projekten und Freude an interdisziplinärer Zusammenarbeit\n• Engagierte Persönlichkeit mit einer hohen Sozialkompetenz\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Dezember 2026",
+        "fr": "Leurs tâches\n• Responsabilité partagée pour un diagnostic et un traitement de qualité des patients internés\n• Gestion professionnelle et du personnel et formation continue des médecins auxiliaires\n• Coopération étroite et fructueuse avec les autres domaines et missions spécialisés\n• Participation au service de médecine interne de la cathédrale\n• Soutien du médecin en chef et des médecins principaux dans la gestion de la clinique\n\nVotre profil\n• Spécialiste en médecine interne générale (ou peu avant l'obtention du diplôme)\n• Intérêt pour la médecine à ultrasons dans le but d'obtenir le certificat d'aptitude sonographie\n• Participation active aux projets et jouissance de la coopération interdisciplinaire\n• Personnalité engagée avec un haut niveau de compétence sociale\n\nEn outre, vous bénéficiez\n\nEntrée : 01 décembre 2026"
+      },
+      "needsRetranslation": false,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4068568",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:39:15.759Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4068568",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4068568",
+      "previousSlugs": [
+        "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+        "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+          "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-09-11T13:33:11.778Z",
+      "salaryMin": 109000,
+      "salaryMax": 152500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 109000,
+          "maxValue": 152500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "svar-spitalverbund-ar-4c42d0bb67a1",
+      "slug": "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "it": "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-caregiver-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
+        "fr": "dipl-medecin-hf-gerontopsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Dipl. Pflegefachperson HF Gerontopsychiatrie",
+      "titleByLocale": {
+        "it": "Dipl. Carriera HF Gerontopsychiatry",
+        "en": "Dipl. Caregiver HF Gerontopsychiatry",
+        "de": "Dipl. Pflegefachperson HF Gerontopsychiatrie",
+        "fr": "Dipl. Médecin HF Gérontopsychiatrie"
+      },
+      "description": "Ihre Aufgaben\n• Verantwortung für die Sicherstellung sowie Umsetzung einer qualitativ hochstehenden Pflege und Betreuung der Patienten\n• Planen und Evaluieren der pflegerischen Versorgung der Patienten\n• Durchführung und Gestaltung von Gruppenangeboten sowie Planung und Durchführung von Einzelgesprächen\n• Mitgestaltung des Gruppenalltags\n• Kontaktpflege zu externen Bezugspersonen\n\nIhr Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF\n• Erfahrung in der Langzeitpflege von Vorteil\n• Flexibilität und Interesse auf verschieden Stationen die Teams bei Engpässen zu verstärken\n• Interesse an der Zusammenarbeit in einem interprofessionellen Behandlungsteam\n• Bereitschaft zur Schichtarbeit in einem 24 Stunden Betrieb\n• Freude an Situationen die teilweise nicht planbar sind\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
+      "descriptionByLocale": {
+        "it": "I loro compiti\n• Responsabilità per garantire e implementare la cura e la cura dei pazienti di alta qualità\n• Pianificazione e valutazione della cura dei pazienti\n• Attuazione e progettazione di offerte di gruppo, pianificazione e conduzione di singole riunioni\n• Partecipazione alla vita di gruppo\n• Mantenere il contatto con persone di riferimento esterne\n\nIl tuo profilo\n• Allenamento completato come Dipl. Professionista HF\n• L'esperienza nella cura a lungo termine è utile\n• Flessibilità e interesse in diverse stazioni per aumentare le squadre in caso di colli di bottiglia\n• Interessato a lavorare in un team di trattamento interprofessionale\n• Volontà a turni di lavoro in un'operazione di 24 ore\n• Gioia di situazioni che sono in parte inspiegabili\n\nInoltre, si beneficia di\n\nIngresso: 1 ottobre 2026",
+        "en": "Their tasks\n• Responsibility for ensuring and implementing high-quality patient care and care\n• Planning and evaluating patient care\n• Implementation and design of group offers as well as planning and conducting individual meetings\n• Participation in group life\n• Maintaining contact with external reference persons\n\nYour profile\n• Completed training as a Dipl. Care professional HF\n• Experience in long-term care is beneficial\n• Flexibility and interest in different stations to increase teams in case of bottlenecks\n• Interested in working in an interprofessional treatment team\n• Willingness to work shifts in a 24-hour operation\n• Joy of situations that are partly unplannable\n\nIn addition, you benefit from\n\nEntrance: October 1, 2026",
+        "de": "Ihre Aufgaben\n• Verantwortung für die Sicherstellung sowie Umsetzung einer qualitativ hochstehenden Pflege und Betreuung der Patienten\n• Planen und Evaluieren der pflegerischen Versorgung der Patienten\n• Durchführung und Gestaltung von Gruppenangeboten sowie Planung und Durchführung von Einzelgesprächen\n• Mitgestaltung des Gruppenalltags\n• Kontaktpflege zu externen Bezugspersonen\n\nIhr Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF\n• Erfahrung in der Langzeitpflege von Vorteil\n• Flexibilität und Interesse auf verschieden Stationen die Teams bei Engpässen zu verstärken\n• Interesse an der Zusammenarbeit in einem interprofessionellen Behandlungsteam\n• Bereitschaft zur Schichtarbeit in einem 24 Stunden Betrieb\n• Freude an Situationen die teilweise nicht planbar sind\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
+        "fr": "Leurs tâches\n• Responsabilité d'assurer et de mettre en œuvre des soins et des soins de qualité pour les patients\n• Planification et évaluation des soins aux patients\n• Mise en œuvre et conception des offres de groupe ainsi que planification et organisation de réunions individuelles\n• Participation à la vie de groupe\n• Maintenir le contact avec les personnes de référence externes\n\nVotre profil\n• La formation terminée en tant que dipl. Soins professionnels HF\n• L'expérience des soins de longue durée est bénéfique\n• Flexibilité et intérêt pour les différentes stations pour augmenter les équipes en cas de goulots d'étranglement\n• Intéressé à travailler dans une équipe interprofessionnelle de traitement\n• Volonté de travailler 24 heures sur 24\n• Joie de situations partiellement inplanifiables\n\nEn outre, vous bénéficiez\n\nEntrée : 1er octobre 2026"
+      },
+      "needsRetranslation": false,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4068838",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:39:15.092Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4068838",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4068838",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
+        "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
+          "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-09-11T13:33:11.167Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "svar-spitalverbund-ar-570939bb09c7",
+      "slug": "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "it": "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-care-specialist-hf-acute-care-unit-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
+        "fr": "dipl-specialiste-des-soins-hf-unite-de-soins-actifs-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Dipl. Pflegefachperson HF Akutstation",
+      "titleByLocale": {
+        "it": "Dipl. Specialista di cura HF unità di cura acuta",
+        "en": "Dipl. Care specialist HF acute care unit",
+        "de": "Dipl. Pflegefachperson HF Akutstation",
+        "fr": "Dipl. Spécialiste des soins HF unité de soins actifs"
+      },
+      "description": "Ihre Aufgaben\n• Professionelle Betreuung unserer Patienten als Bezugsperson im Pflegeprozess von Ein- bis Austritt in einem interdisziplinären Team\n• Durchführung und Gestaltung von Gruppenangeboten sowie Planung und Durchführung von regelmässigen Einzelgesprächen\n• Mitgestaltung des Stationsmilieus und der Stationsabläufe\n• Möglichkeit für weitere Spezialaufgaben oder Mitarbeit in Arbeitsgruppen\n• Unterstützung der Berufsbildner in der Ausbildung künftiger Pflegefachpersonen\n\nIhr Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau/-mann HF\n• 1-2 Jahre Erfahrung in der Akutpsychiatrie von Vorteil\n• Flexibilität und Interesse an der Zusammenarbeit in einem interprofessionellen Behandlungsteam\n• Bereitschaft und Freude in einem Umfeld mit sich schnell veränderten Situationen zu arbeiten\n• Bereitschaft zur Schichtarbeit in einem 24 Stunden Betrieb\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
+      "descriptionByLocale": {
+        "it": "I loro compiti\n• Cura professionale dei nostri pazienti come caregiver nel processo di cura dall'ingresso all'uscita in un team interdisciplinare\n• Attuazione e progettazione di offerte di gruppo, pianificazione e conduzione di riunioni individuali regolari\n• Co-design dell'ambiente della stazione e dei processi di stazione\n• Possibilità di ulteriori attività speciali o partecipazione a gruppi di lavoro\n• Sostegno ai formatori professionali nella formazione dei futuri infermieri\n\nIl tuo profilo\n• Allenamento completato come Dipl. Infermieristica professionale HF\n• 1-2 anni di esperienza nella psichiatria acuta è benefico\n• Flessibilità e interesse a lavorare in un team di trattamento interprofessionale\n• Volontà e gioia di lavorare in un ambiente con situazioni in rapida evoluzione\n• Volontà a turni di lavoro in un'operazione di 24 ore\n\nInoltre, si beneficia di\n\nIngresso: 1 ottobre 2026",
+        "en": "Their tasks\n• Professional care of our patients as a caregiver in the care process from entry to exit in an interdisciplinary team\n• Implementation and design of group offers as well as planning and conducting regular individual meetings\n• Co-design of the station environment and station processes\n• Possibility for further special tasks or participation in working groups\n• Support for vocational trainers in the training of future nurses\n\nYour profile\n• Completed training as a Dipl. Nursing professional HF\n• 1-2 years of experience in acute psychiatry is beneficial\n• Flexibility and interest in working in an interprofessional treatment team\n• Willingness and joy to work in an environment with rapidly changing situations\n• Willingness to work shifts in a 24-hour operation\n\nIn addition, you benefit from\n\nEntrance: October 1, 2026",
+        "de": "Ihre Aufgaben\n• Professionelle Betreuung unserer Patienten als Bezugsperson im Pflegeprozess von Ein- bis Austritt in einem interdisziplinären Team\n• Durchführung und Gestaltung von Gruppenangeboten sowie Planung und Durchführung von regelmässigen Einzelgesprächen\n• Mitgestaltung des Stationsmilieus und der Stationsabläufe\n• Möglichkeit für weitere Spezialaufgaben oder Mitarbeit in Arbeitsgruppen\n• Unterstützung der Berufsbildner in der Ausbildung künftiger Pflegefachpersonen\n\nIhr Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau/-mann HF\n• 1-2 Jahre Erfahrung in der Akutpsychiatrie von Vorteil\n• Flexibilität und Interesse an der Zusammenarbeit in einem interprofessionellen Behandlungsteam\n• Bereitschaft und Freude in einem Umfeld mit sich schnell veränderten Situationen zu arbeiten\n• Bereitschaft zur Schichtarbeit in einem 24 Stunden Betrieb\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
+        "fr": "Leurs tâches\n• Soins professionnels de nos patients en tant que soignant dans le processus de soins de l'entrée à la sortie dans une équipe interdisciplinaire\n• Mise en œuvre et conception des offres des groupes ainsi que planification et organisation de réunions individuelles régulières\n• Co-conception de l'environnement et des processus de la station\n• Possibilité de nouvelles tâches spéciales ou de participation à des groupes de travail\n• Appui aux formateurs professionnels dans la formation des futurs infirmiers\n\nVotre profil\n• La formation terminée en tant que dipl. Soins infirmiers professionnels HF\n• 1-2 ans d'expérience en psychiatrie aiguë est bénéfique\n• Flexibilité et intérêt à travailler dans une équipe interprofessionnelle de traitement\n• Volonté et joie de travailler dans un environnement où les situations évoluent rapidement\n• Volonté de travailler 24 heures sur 24\n\nEn outre, vous bénéficiez\n\nEntrée : 1er octobre 2026"
+      },
+      "needsRetranslation": false,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4068874",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:39:14.421Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4068874",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4068874",
+      "previousSlugs": [
+        "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
+        "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
+          "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-09-11T13:33:10.399Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "svar-spitalverbund-ar-16a66aeb0a54",
+      "slug": "controllore-senior-come-partner-commerciale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "it": "controllore-senior-come-partner-commerciale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau",
+        "de": "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau",
+        "fr": "controleur-senior-en-tant-que-partenaire-d-affaires-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Senior Controller/in als Business Partner/in (m/w/d)",
+      "titleByLocale": {
+        "it": "Controllore senior come partner commerciale (m/f/d)",
+        "en": "Senior Controller as Business Partner (m/f/d)",
+        "de": "Senior Controller/in als Business Partner/in (m/w/d)",
+        "fr": "Senior Controller/in als Business Partner/in (m/w/d)"
+      },
+      "description": "Attraktive Aufgaben\n• Fachliche und operative Verantwortung für das betriebliche Rechnungswesen mit Kostenstellen- und Kostenträgerrechnung nach REKOLE®\n• Ansprechperson in Fragen zur Kostenrechnung des SVAR für interne und externe Anspruchsgruppen\n• Durchführung regelmässiger REKOLE® Audits und Rezertifizierungen\n• Erstellen von Reports, Statistiken, Spezialanalysen und Wirtschaftlichkeitsrechnungen\n• Unterstützung beim Aufbau und in der Weiterentwicklung des Management-Informationssystems (MIS)\n\nDeshalb wollen wir Sie\n• Kaufmännische Grundausbildung mit betriebswirtschaftlicher Weiterbildung (HF, FH) oder eine vertiefte Ausbildung im Rechnungswesen (zum Beispiel eidg. Fachausweis)\n• Berufserfahrung in ähnlicher Funktion im Gesundheitswesen oder die Bereitschaft sich schnell und selbständig in neue Themengebiete einzuarbeiten\n• Kenntnisse in REKOLE® von Vorteil\n• Sehr gute Anwenderkenntnisse in MS Office (insbesondere in Excel) und ERP-Systemen\n• Zuverlässige, strukturierte und exakte Arbeitsweise\n• Hohe Dienstleistungsorientierung und kommunikative Fähigkeiten auch in hektischen Zeiten\n• Gute Integrations- und Teamfähigkeit\n• Zeitliche Flexibilität in Bezug auf Abschlussarbeiten und Reporting\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
+      "descriptionByLocale": {
+        "it": "Attività interessanti\n• Responsabilità professionale e operativa per la contabilità operativa con centro costi e contabilità costi al portatore secondo REKOLE®\n• Persona di contatto in questioni relative alla contabilità costi della SCAR per gli stakeholder interni ed esterni\n• Condurre regolari audit e ricertificazioni REKOLE®\n• Creazione di report, statistiche, analisi speciali e contabilità costi\n• Supporto allo sviluppo e all'ulteriore sviluppo del sistema informativo di gestione (MIS)\n\nPertanto vogliamo che tu sia\n• Formazione commerciale di base con formazione legata alle imprese (HF, FH) o una formazione più profonda in materia di contabilità (ad esempio.\n\nID professionale)\n• Esperienza professionale in una funzione simile nel settore sanitario o volontà di lavorare in modo rapido e indipendente in nuovi settori soggetti\n• Conoscenza di REKOLE® di vantaggio\n• Ottima conoscenza degli utenti in MS Office (soprattutto in Excel) ed ERP\n• Metodi di lavoro affidabili, strutturati e precisi\n• Elevata orientamento del servizio e competenze comunicative anche in tempi frenetici\n• Buona integrazione e competenze di squadra\n• Flessibilità temporale in termini di tesi e reporting\n\nInoltre, beneficiate di:\n\nIngresso: 01 ottobre 2026",
+        "en": "Attractive tasks\n• Professional and operational responsibility for operational accounting with cost centre and cost bearer accounting according to REKOLE®\n• Contact person in questions concerning cost accounting of the SCAR for internal and external stakeholders\n• Conducting regular REKOLE® audits and recertifications\n• Creating of reports, statistics, special analyses and cost accounting\n• Support in the development and further development of the management information system (MIS)\n\nTherefore we want you\n• Commercial basic training with business-related training (HF, FH) or a deeper training in accounting (e.g.\n\nProfessional ID)\n• Professional experience in a similar function in the health care sector or willingness to work quickly and independently in new subject areas\n• Knowledge of REKOLE® of advantage\n• Very good user knowledge in MS Office (especially in Excel) and ERP systems\n• Reliable, structured and precise working methods\n• High service orientation and communicative skills even in hectic times\n• Good integration and team skills\n• Time flexibility in terms of thesis and reporting\n\nIn addition, you benefit from:\n\nAdmission: 01 October 2026",
+        "de": "Attraktive Aufgaben\n• Fachliche und operative Verantwortung für das betriebliche Rechnungswesen mit Kostenstellen- und Kostenträgerrechnung nach REKOLE®\n• Ansprechperson in Fragen zur Kostenrechnung des SVAR für interne und externe Anspruchsgruppen\n• Durchführung regelmässiger REKOLE® Audits und Rezertifizierungen\n• Erstellen von Reports, Statistiken, Spezialanalysen und Wirtschaftlichkeitsrechnungen\n• Unterstützung beim Aufbau und in der Weiterentwicklung des Management-Informationssystems (MIS)\n\nDeshalb wollen wir Sie\n• Kaufmännische Grundausbildung mit betriebswirtschaftlicher Weiterbildung (HF, FH) oder eine vertiefte Ausbildung im Rechnungswesen (zum Beispiel eidg. Fachausweis)\n• Berufserfahrung in ähnlicher Funktion im Gesundheitswesen oder die Bereitschaft sich schnell und selbständig in neue Themengebiete einzuarbeiten\n• Kenntnisse in REKOLE® von Vorteil\n• Sehr gute Anwenderkenntnisse in MS Office (insbesondere in Excel) und ERP-Systemen\n• Zuverlässige, strukturierte und exakte Arbeitsweise\n• Hohe Dienstleistungsorientierung und kommunikative Fähigkeiten auch in hektischen Zeiten\n• Gute Integrations- und Teamfähigkeit\n• Zeitliche Flexibilität in Bezug auf Abschlussarbeiten und Reporting\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
+        "fr": "Tâches attractives\n• Responsabilité professionnelle et opérationnelle de la comptabilité opérationnelle avec centre de coûts et comptabilité au porteur selon REKOLE®\n• Personne-ressource en matière de comptabilité coûts de la SCAR pour les parties prenantes internes et externes\n• Réalisation régulière d'audits et de retouches REKOLE®\n• Création de rapports, de statistiques, d'analyses spéciales et de comptabilité coûts\n• Appui au développement et au développement du système d'information de gestion (SIG)\n\nNous vous souhaitons donc une formation de base commerciale avec une formation liée aux affaires (HF, FH) ou une formation plus approfondie en comptabilité (par exemple:\n\n• Expérience professionnelle dans une fonction similaire dans le secteur de la santé ou volonté de travailler rapidement et indépendamment dans de nouveaux domaines\n• Connaissance de REKOLE® d'avantage\n• Très bonne connaissance utilisateur dans MS Office (en particulier dans Excel) et les systèmes ERP\n• Méthodes de travail fiables, structurées et précises\n• Orientation de service élevée et compétences communicatives même en période de crise\n• Bonne intégration et compétences d'équipe\n• Flexibilité temporelle en termes de thèse et de rapport\n\nDe plus, vous bénéficiez de :\n\nEntrée : 01 octobre 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4066348",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:39:13.752Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Amministrazione",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-11",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4066348",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4066348",
+      "previousSlugs": [
+        "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau",
+        "senior-controller-in-als-business-partner-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "senior-controller-in-als-business-partner-in-80-100-m-w-d-svar-spitalverbund-ar",
+        "senior-controller-in-come-business-partner-in-80-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-spitalverbund-appenzell-ausserrhoden",
+        "controleur-senior-en-tant-que-partenaire-d-affaires-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "senior-controller-in-come-business-partner-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "controllore-senior-come-partner-commerciale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau",
+          "senior-controller-in-als-business-partner-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "senior-controller-in-als-business-partner-in-80-100-m-w-d-svar-spitalverbund-ar",
+          "senior-controller-in-come-business-partner-in-80-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-spitalverbund-appenzell-ausserrhoden",
+          "controleur-senior-en-tant-que-partenaire-d-affaires-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "senior-controller-in-come-business-partner-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "controllore-senior-come-partner-commerciale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "fr": [
+          "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau",
+          "senior-controller-in-als-business-partner-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ]
+      },
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1273,
+      "retranslationAttempts": 3,
+      "firstSeenAt": "2026-09-11T23:09:54.279Z",
+      "salaryMin": 89500,
+      "salaryMax": 136000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 89500,
+          "maxValue": 136000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "svar-spitalverbund-ar-eebd89d62be4",
+      "slug": "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "it": "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "specialist-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "fachspezialist-in-hr-svar-spitalverbund-ar-herisau",
+        "fr": "fachspezialist-in-ressources-humaines-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Fachspezialist/in HR",
+      "titleByLocale": {
+        "it": "Specialista HR",
+        "en": "Specialist HR",
+        "de": "Fachspezialist/in HR",
+        "fr": "Spécialiste des ressources humaines"
+      },
+      "description": "Ihre Aufgaben\n• Unterstützung der HR-Administration vom Eintritt bis zum Austritt\n• Selbstständige Bearbeitung von Aufgaben in den Bereichen Vertragswesen, Bewilligungen und Sozialversicherungen sowie behördliche Abklärungen\n• Verwaltung des Zeitmanagementsystems\n• Erfassung, Kontrolle und Abrechnung des Fremdpersonals\n• Aktive Mitgestaltung und Weiterentwicklung von HR-Prozessen und der HR-Administration\n• Verfassen von stilsicherer HR-Korrespondenz in deutscher Sprache\n\nIhr Profil\n• Kaufmännische Grundausbildung, idealerweise ergänzt durch eine Weiterbildung als HR-Fachfrau/HR-Fachmann mit eidg. Fachausweis\n• Mehrjährige Erfahrung in der HR-Administration\n• Ausgeprägte Dienstleistungsorientierung sowie eine strukturierte, lösungsorientierte Arbeitsweise\n• Hohe Zuverlässigkeit, Teamfähigkeit und Eigenverantwortung\n• Bereitschaft, Verantwortung zu übernehmen und in einem dynamischen Umfeld aktiv mitzugestalten\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
+      "descriptionByLocale": {
+        "it": "I loro compiti\n• Supporto per l'amministrazione HR dall'ingresso all'uscita\n• Elaborazione indipendente dei compiti nei settori dell'appalto, delle licenze e delle assicurazioni sociali nonché delle indagini ufficiali\n• Gestione del sistema\n• Raccolta, controllo e contabilità del personale esterno\n• Partecipazione attiva e ulteriore sviluppo dei processi HR e dell'amministrazione HR\n• Scrittura di corrispondenza HR elegante in tedesco\n\nIl tuo profilo\n• Formazione di base commerciale, idealmente completato da ulteriore formazione come specialista HR con la legge federale. Scheda specialistica\n• Diversi anni di esperienza nell'amministrazione HR\n• Forte orientamento al servizio e metodo di lavoro strutturato e orientato alla soluzione\n• Alta affidabilità, lavoro di squadra e responsabilità personale\n• La volontà di assumersi la responsabilità e partecipare attivamente ad un ambiente dinamico\n\nInoltre, si beneficia di\n\nIngresso: 1 ottobre 2026",
+        "en": "Their tasks\n• Support for HR administration from entry to exit\n• Independent processing of tasks in the areas of contracting, licensing and social insurance as well as official investigations\n• Time management system management\n• Collection, control and accounting of external staff\n• Active participation and further development of HR processes and HR administration\n• Writing of stylish HR correspondence in German\n\nYour profile\n• Commercial basic training, ideally supplemented by further training as HR specialist with federal law. Specialist card\n• Several years of experience in HR administration\n• Strong service orientation and a structured, solution-oriented working method\n• High reliability, teamwork and personal responsibility\n• Willingness to take responsibility and actively participate in a dynamic environment\n\nIn addition, you benefit from\n\nEntrance: October 1, 2026",
+        "de": "Ihre Aufgaben\n• Unterstützung der HR-Administration vom Eintritt bis zum Austritt\n• Selbstständige Bearbeitung von Aufgaben in den Bereichen Vertragswesen, Bewilligungen und Sozialversicherungen sowie behördliche Abklärungen\n• Verwaltung des Zeitmanagementsystems\n• Erfassung, Kontrolle und Abrechnung des Fremdpersonals\n• Aktive Mitgestaltung und Weiterentwicklung von HR-Prozessen und der HR-Administration\n• Verfassen von stilsicherer HR-Korrespondenz in deutscher Sprache\n\nIhr Profil\n• Kaufmännische Grundausbildung, idealerweise ergänzt durch eine Weiterbildung als HR-Fachfrau/HR-Fachmann mit eidg. Fachausweis\n• Mehrjährige Erfahrung in der HR-Administration\n• Ausgeprägte Dienstleistungsorientierung sowie eine strukturierte, lösungsorientierte Arbeitsweise\n• Hohe Zuverlässigkeit, Teamfähigkeit und Eigenverantwortung\n• Bereitschaft, Verantwortung zu übernehmen und in einem dynamischen Umfeld aktiv mitzugestalten\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
+        "fr": "Leurs tâches\n• Appui à l ' administration des ressources humaines de l ' entrée à la sortie\n• Traitement indépendant des tâches dans les domaines de la passation de marchés, de l'octroi de licences et de l'assurance sociale ainsi que des enquêtes officielles\n• Gestion du système de gestion du temps\n• Collecte, contrôle et comptabilité du personnel externe\n• Participation active et développement des processus de RH et de l'administration des RH\n• Rédaction de correspondance RH élégante en allemand\n\nVotre profil\n• Une formation de base commerciale, complétée idéalement par une formation continue en tant que spécialiste des ressources humaines en droit fédéral. Carte de spécialiste\n• Plusieurs années d'expérience dans l'administration des RH\n• Une forte orientation vers les services et une méthode de travail structurée et orientée vers la solution\n• Haute fiabilité, travail d'équipe et responsabilité personnelle\n• Volonté de prendre des responsabilités et de participer activement à un environnement dynamique\n\nEn outre, vous bénéficiez\n\nEntrée : 1er octobre 2026"
+      },
+      "needsRetranslation": false,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4069910",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:39:13.077Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4069910",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4069910",
+      "previousSlugs": [
+        "fachspezialist-in-hr-svar-spitalverbund-ar-herisau",
+        "fachspezialist-in-risorse-umane-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "fachspezialist-in-hr-svar-spitalverbund-ar-herisau",
+          "fachspezialist-in-risorse-umane-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "fachspezialist-in-hr-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "fachspezialist-in-hr-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:53:37.415Z",
+      "salaryMin": 65000,
+      "salaryMax": 98500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65000,
+          "maxValue": 98500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "svar-spitalverbund-ar-e08447460f0e",
+      "slug": "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "it": "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "dipl-nurse-or-specialist-health-haemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
+        "fr": "dipl-infirmiere-ou-specialiste-en-hemodialyse-de-la-sante-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Dipl. Pflegefachperson oder Fachperson Gesundheit Hämodialyse (m/w/d)",
+      "titleByLocale": {
+        "it": "Dipl. Infermiera o specialista Salute Emodialisi (m/f/d)",
+        "en": "Dipl. Nurse or specialist Health Haemodialysis (m/f/d)",
+        "de": "Dipl. Pflegefachperson oder Fachperson Gesundheit Hämodialyse (m/w/d)",
+        "fr": "Dipl. Infirmière ou spécialiste en hémodialyse de la santé (h/f/d)"
+      },
+      "description": "Ihre Aufgaben\n• Selbstständige Durchführung der Dialysebehandlungen in der Dialyseabteilung\n• Sicherstellung der Pflegequalität und interdisziplinäre Zusammenarbeit mit allen Berufsgruppen zur Gewährleistung einer optimalen Patientenversorgung\n• Sorgfältige, lückenlose und nachvollziehbare Führung der Pflegedokumentation und Verantwortung für die Ausführung ärztlicher Verordnungen\n• Sie haben ein Flair für medizinisch-technische Geräte\n• Sie verfügen über ein hohes Qualitätsbewusstsein\n\nIhr Profil\n• Ausbildung als diplomierte Pflegefachperson oder FaGe, mit Erfahrung im Akut-Spital, in der Dialyse oder auf einer nephrologischen Abteilung\n• Mehrjährige Berufserfahrung im Bereich Dialyse\n• Empathie, Kommunikationsstärke und Freude an interprofessioneller Zusammenarbeit\n• Leidenschaft für eine patientenzentrierte, professionelle Pflege\n• Einfühlungsvermögen im Umgang mit den Patientinnen und Patienten sowie hohe Eigenverantwortung\n• Gute PC-Anwenderkenntnisse, insbesondere in MS Office\n• Teamfähigkeit und Flexibilität\n\nZusätzlich profitieren Sie von\n\nEintritt: 16. September 2026",
+      "descriptionByLocale": {
+        "it": "I loro compiti\n• Applicazione indipendente dei trattamenti dialisi nel dipartimento di dialisi\n• Garantire la qualità della cura e la cooperazione interdisciplinare con tutti i gruppi professionali per garantire una cura ottimale del paziente\n• Gestione attenta, completa e tracciabile della documentazione di cura e della responsabilità per l'attuazione delle prescrizioni mediche\n• Hai un tocco per dispositivi medici\n• Hanno una consapevolezza di alta qualità\n\nIl tuo profilo\n• Formazione come infermiera qualificata o FaGe, con esperienza in ospedale acuto, dialisi o in un reparto nefrologico\n• Diversi anni di esperienza professionale nel campo della dialisi\n• Empatia, forza di comunicazione e godimento della cooperazione interprofessionale\n• Passione per la cura del paziente e professionale\n• Empatia nel trattare con i pazienti e alta responsabilità personale\n• Buona conoscenza dell'utente del PC, soprattutto in MS Office\n• Lavoro di squadra e flessibilità\n\nInoltre, si beneficia di\n\nIngresso: 16. settembre 2026",
+        "en": "Their tasks\n• Independent implementation of dialysis treatments in the dialysis department\n• Ensuring quality of care and interdisciplinary cooperation with all professional groups to ensure optimal patient care\n• Careful, complete and traceable management of nursing documentation and responsibility for the implementation of medical prescriptions\n• You have a flair for medical devices\n• They have a high quality awareness\n\nYour profile\n• Training as a qualified nurse or FaGe, with experience in acute hospital, dialysis or in a nephrological department\n• Several years of professional experience in the field of dialysis\n• Empathy, communication strength and enjoyment of interprofessional cooperation\n• Passion for patient-centered, professional care\n• Empathy in dealing with patients and high personal responsibility\n• Good PC user knowledge, especially in MS Office\n• Teamwork and flexibility\n\nIn addition, you benefit from\n\nEntrance: 16. September 2026",
+        "de": "Ihre Aufgaben\n• Selbstständige Durchführung der Dialysebehandlungen in der Dialyseabteilung\n• Sicherstellung der Pflegequalität und interdisziplinäre Zusammenarbeit mit allen Berufsgruppen zur Gewährleistung einer optimalen Patientenversorgung\n• Sorgfältige, lückenlose und nachvollziehbare Führung der Pflegedokumentation und Verantwortung für die Ausführung ärztlicher Verordnungen\n• Sie haben ein Flair für medizinisch-technische Geräte\n• Sie verfügen über ein hohes Qualitätsbewusstsein\n\nIhr Profil\n• Ausbildung als diplomierte Pflegefachperson oder FaGe, mit Erfahrung im Akut-Spital, in der Dialyse oder auf einer nephrologischen Abteilung\n• Mehrjährige Berufserfahrung im Bereich Dialyse\n• Empathie, Kommunikationsstärke und Freude an interprofessioneller Zusammenarbeit\n• Leidenschaft für eine patientenzentrierte, professionelle Pflege\n• Einfühlungsvermögen im Umgang mit den Patientinnen und Patienten sowie hohe Eigenverantwortung\n• Gute PC-Anwenderkenntnisse, insbesondere in MS Office\n• Teamfähigkeit und Flexibilität\n\nZusätzlich profitieren Sie von\n\nEintritt: 16. September 2026",
+        "fr": "Leurs tâches\n• Mise en œuvre indépendante des traitements de dialyse dans le département de dialyse\n• Assurer la qualité des soins et la coopération interdisciplinaire avec tous les groupes professionnels pour assurer des soins optimaux aux patients\n• Gestion soigneuse, complète et traçable de la documentation infirmière et responsabilité de la mise en oeuvre des prescriptions médicales\n• Vous avez un style pour les appareils médicaux\n• Ils ont une sensibilisation de haute qualité\n\nVotre profil\n• Formation en tant qu'infirmier qualifié ou FaGe, ayant une expérience en hôpital aigu, en dialyse ou dans un service néphrologique\n• Plusieurs années d'expérience professionnelle dans le domaine de la dialyse\n• Empathie, force de communication et jouissance de la coopération interprofessionnelle\n• Passion pour les soins professionnels centrés sur le patient\n• Empathie face aux patients et responsabilité personnelle élevée\n• Bonne connaissance des utilisateurs de PC, en particulier dans MS Office\n• Travail d'équipe et flexibilité\n\nEn outre, vous bénéficiez\n\nEntrée : 16 septembre 2026"
+      },
+      "needsRetranslation": false,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4070229",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:39:12.376Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4070229",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4070229",
+      "previousSlugs": [
+        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
+        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
+          "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+          "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar"
+        ],
+        "fr": [
+          "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:53:36.826Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "svar-spitalverbund-ar-282f0a147394",
+      "slug": "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+      "slugByLocale": {
+        "it": "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "en": "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+        "fr": "co-equipe-chef-soins-somatiques-aigus-focus-medecine-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Co-Teamleitung Pflege Akutsomatik Schwerpunkt Medizin (m/w/d)",
+      "titleByLocale": {
+        "it": "Co-Team Leader Care Acute Somatics Focus Medicine (m/f/d)",
+        "en": "Co-Team Leader Care Acute Somatics Focus Medicine (m/f/d)",
+        "de": "Co-Teamleitung Pflege Akutsomatik Schwerpunkt Medizin (m/w/d)",
+        "fr": "Co-équipe Chef Soins Somatiques aigus Focus Médecine (h/f/d)"
+      },
+      "description": "Ihre Aufgaben\n• Personelle und organisatorische Führung der Mitarbeitenden auf einer medizinischen Bettenstation mit 18 Betten\n• Geteilte Verantwortung in einer Co-Teamleitung (50:50)\n• Sie führen ein Team fachlich und personell mit ca. 20 bis 25 Mitarbeitenden\n• Förderung und ganzheitliche Betreuung von Patienten\n• Mitwirkung an Prozessen und Projekten\n• Implementierung von Konzepten, Vorgaben und Standards sowie Verantwortung für die Organisation und Einhaltung der Stationsabläufe\n• Personal- und Teamentwicklung sowie individuelle Förderung der Mitarbeitenden\n• Mitentscheid bei der Personalrekrutierung\n• Aktive Mitarbeit im Tagesgeschäft als Dipl. Pflegefachperson\n\nIhr Profil\n• Ausbildung als Dipl. Pflegefachfrau/-mann AKP/DNII/HF/FH\n• Führungserfahrung und Führungsausbildung gewünscht\n• Hohe Sozialkompetenz, Flexibilität, gutes Organisationsgeschick und ausgeprägte Kommunikationsfähigkeit\n• Freude an einer interdisziplinären und interprofessionellen Zusammenarbeit\n• Engagement, Kreativität und Innovation bei der Weiterentwicklung der Station und des Teams\n• Selbstständige Arbeitsweise sowie offene, durchsetzungsfähige und belastbare Persönlichkeit\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n\nEintritt: 16. September 2026",
+      "descriptionByLocale": {
+        "it": "I loro compiti\n• Personale e gestione organizzativa dei dipendenti su una stazione di letto medico con 18 letti\n• Responsabilità condivisa in una gestione co-team (50:50)\n• Si guida un team professionale e personale con circa 20 a 25 dipendenti\n• Promozione e cura olistica dei pazienti\n• Partecipazione a processi e progetti\n• Attuazione di concetti, specifiche e standard, nonché responsabilità per l'organizzazione e il rispetto dei processi di stazione\n• Sviluppo del personale e del team e supporto individuale per i dipendenti\n• Codecisione nel reclutamento\n• Partecipazione attiva al business quotidiano come Dipl. Infermieristica professionale\n\nIl tuo profilo\n• Allenamento come Dipl. ACP/DNII/HF/FH infermiera\n• Esperienza di leadership e formazione di leadership desiderata\n• Alte competenze sociali, flessibilità, buone capacità organizzative e forti capacità di comunicazione\n• Godere di una cooperazione interdisciplinare e interprofessionale\n• Impegno, creatività e innovazione nello sviluppo della stazione e del team\n• Lavoro indipendente così come una personalità aperta, assertiva e resiliente\n• Il piacere di svilupparsi in una società che promuove l'apprendimento e la buona cooperazione è un aspetto centrale per il trattamento dei pazienti\n• Un alto grado di competenza tecnica, sociale, auto-e metodologica ti distingue\n• In un contesto interdisciplinare, si agisce in modo sicuro e costruttivo\n\nInoltre, si beneficia di\n\nIngresso: 16. settembre 2026",
+        "en": "Their tasks\n• Personnel and organizational management of employees on a medical bed station with 18 beds\n• Shared responsibility in a co-team management (50:50)\n• You lead a professional and personnel team with approximately 20 to 25 employees\n• Promotion and holistic care of patients\n• Participation in processes and projects\n• Implementation of concepts, specifications and standards as well as responsibility for the organization and compliance with station processes\n• Personnel and team development as well as individual support for employees\n• Co-decision in recruitment\n• Active participation in day-to-day business as Dipl. Nursing professional\n\nYour profile\n• Training as a Dipl. ACP/DNII/HF/FH nurse\n• Leadership experience and leadership training desired\n• High social skills, flexibility, good organisational skills and strong communication skills\n• Enjoying an interdisciplinary and interprofessional cooperation\n• Commitment, creativity and innovation in the development of the station and the team\n• Independent work as well as an open, assertive and resilient personality\n• The pleasure of developing in a company that promotes learning and good cooperation is a central aspect for the treatment of patients\n• High degree of technical, social, self- and methodological competence distinguishes you\n• In an interdisciplinary context, you act safely and constructively\n\nIn addition, you benefit from\n\nEntrance: 16. September 2026",
+        "de": "Ihre Aufgaben\n• Personelle und organisatorische Führung der Mitarbeitenden auf einer medizinischen Bettenstation mit 18 Betten\n• Geteilte Verantwortung in einer Co-Teamleitung (50:50)\n• Sie führen ein Team fachlich und personell mit ca. 20 bis 25 Mitarbeitenden\n• Förderung und ganzheitliche Betreuung von Patienten\n• Mitwirkung an Prozessen und Projekten\n• Implementierung von Konzepten, Vorgaben und Standards sowie Verantwortung für die Organisation und Einhaltung der Stationsabläufe\n• Personal- und Teamentwicklung sowie individuelle Förderung der Mitarbeitenden\n• Mitentscheid bei der Personalrekrutierung\n• Aktive Mitarbeit im Tagesgeschäft als Dipl. Pflegefachperson\n\nIhr Profil\n• Ausbildung als Dipl. Pflegefachfrau/-mann AKP/DNII/HF/FH\n• Führungserfahrung und Führungsausbildung gewünscht\n• Hohe Sozialkompetenz, Flexibilität, gutes Organisationsgeschick und ausgeprägte Kommunikationsfähigkeit\n• Freude an einer interdisziplinären und interprofessionellen Zusammenarbeit\n• Engagement, Kreativität und Innovation bei der Weiterentwicklung der Station und des Teams\n• Selbstständige Arbeitsweise sowie offene, durchsetzungsfähige und belastbare Persönlichkeit\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n\nEintritt: 16. September 2026",
+        "fr": "Leurs tâches\n• Personnel et gestion organisationnelle des employés sur un lit médical avec 18 lits\n• Responsabilité partagée dans une co-gestion d'équipe (50:50)\n• Vous dirigez une équipe professionnelle et de personnel avec environ 20 à 25 employés\n• Promotion et soins holistiques des patients\n• Participation aux processus et projets\n• Mise en oeuvre des concepts, spécifications et normes ainsi que de la responsabilité de l'organisation et de la conformité aux processus de la station\n• Développement du personnel et de l'équipe ainsi que soutien individuel aux employés\n• Codécision en matière de recrutement\n• Participation active aux activités quotidiennes sous le nom de Dipl. Professionnels des soins infirmiers\n\nVotre profil\n• Entraînement comme dipl. Infirmière ACP/DNII/HF/FH\n• Expérience en leadership et formation en leadership souhaitée\n• Compétences sociales élevées, flexibilité, bonnes aptitudes organisationnelles et bonnes compétences en communication\n• Profitez d'une coopération interdisciplinaire et interprofessionnelle\n• Engagement, créativité et innovation dans le développement de la station et de l'équipe\n• Travail indépendant et personnalité ouverte, affirmée et résistante\n• Le plaisir de se développer dans une entreprise qui favorise l'apprentissage et la bonne coopération est un aspect central du traitement des patients\n• Un haut degré de compétence technique, sociale, personnelle et méthodologique vous distingue\n• Dans un contexte interdisciplinaire, vous agissez de façon sûre et constructive\n\nEn outre, vous bénéficiez\n\nEntrée : 16 septembre 2026"
+      },
+      "needsRetranslation": false,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4070348",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:39:11.653Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4070348",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4070348",
+      "previousSlugs": [
+        "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+        "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "it": [
+          "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
+          "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ],
+        "en": [
+          "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ],
+        "fr": [
+          "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:53:36.275Z",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "svar-spitalverbund-ar-d9c70e8fd7d6",
+      "slug": "hr-business-partnerin-svar-spitalverbund-ar-herisau",
+      "slugByLocale": {
+        "it": "hr-business-partnerin-svar-spitalverbund-ar-herisau",
+        "en": "hr-business-partner-spitalverbund-appenzell-ausserrhoden-svar-herisau",
+        "de": "hr-business-partnerin-svar-spitalverbund-ar-herisau",
+        "fr": "hr-business-partnerin-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "HR Business PartnerIn",
+      "titleByLocale": {
+        "it": "Risorse Umane Business PartnerIn",
+        "en": "HR Business Partner",
+        "de": "Personalwesen Business PartnerIn",
+        "fr": "HR Business PartnerIn"
+      },
+      "description": "Ihre Aufgaben\n• Du begleitest Führungskräfte im Alltag und unterstützt sie dabei, ihre Teams wirkungsvoll zu führen.\n• Selbstständige Rekrutierung in Zusammenarbeit mit der Linie, inklusive Bewerbungsprozesse, Interviews und Auswahl.\n• Beratung und Begleitung von Führungskräften in HR-Themen wie Personalplanung, Entwicklung, Performance, Honorierung und Konfliktmanagement\n• Du wirkst bei der Weiterentwicklung von HR-Prozessen mit und trägst dazu bei, Abläufe noch klarer, effizienter und menschenorientiert zu gestalten.\n• Du unterstützt Mitarbeitende in herausfordernden Situationen und trägst so zu einem gesunden, konstruktiven Arbeitsumfeld bei.\n• Du bringst Ideen ein, wie wir HR-Zahlen und Kennzahlen nutzen können, um gezielt Entscheidungen zu treffen und Entwicklungen sichtbar zu machen.\n• Du gestaltest Veränderungs- und Entwicklungsprozesse mit, sodass sie praktikabel, verständlich und nachhaltig umgesetzt werden.\n\nIhr Profil\n• Du hast eine HR-Ausbildung (z.B. eidg. Fachausweis HR-Fachfrau/-mann) und idealerweise Weiterbildungen auf HF/FH-Stufe (z.B. CAS/MAS HRM, Betriebswirtschaft oder Arbeitsrecht).\n• Du hast Erfahrung im HR, vorzugsweise in einer generalistischen oder Business-Partner-Rolle, und Freude daran, Führungskräfte zu begleiten.\n• Du bringst gute Kenntnisse im Arbeitsrecht mit und fühlst dich sicher in anspruchsvollen Gesprächs- und Konfliktsituationen.\n• Du interessierst dich für betriebswirtschaftliche Zusammenhänge und den Einsatz von Kennzahlen, um Entscheidungen zu unterstützen.\n• Du arbeitest strukturiert, lösungsorientiert und übernimmst Verantwortung, wo du etwas bewegen kannst.\n• Du bist offen dafür, bestehende Prozesse pragmatisch weiterzuentwickeln und aktiv Verbesserungsvorschläge einzubringen.\n• Du verfügst über sehr sichere Kenntnisse in MS Office (insbesondere Excel und PowerPoint); Erfahrung mit SwissSalary, PEP oder Haufe Umantis ist von Vorteil.\n• Du bringst sehr gute Deutschkenntnisse in Wort und Schrift mit.\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. November 2026",
+      "descriptionByLocale": {
+        "it": "I loro compiti\n• Accompagnate i leader nella vita di tutti i giorni e li sostenete nel guidare efficacemente le loro squadre.\n• Assunzione indipendente in collaborazione con la linea, compresi i processi di applicazione, le interviste e la selezione.\n• Consulenza e supporto ai manager in temi HR come pianificazione del personale, sviluppo, performance, premiazione e gestione dei conflitti\n• Contribuisci all'ulteriore sviluppo dei processi HR e contribuisci a rendere i processi ancora più chiari, più efficienti e orientati alle persone.\n• Sostiene i dipendenti in situazioni difficili e quindi contribuiscono a un ambiente di lavoro sano e costruttivo.\n• Voi portate idee su come possiamo utilizzare figure HR e figure chiave per prendere decisioni mirate e rendere visibili gli sviluppi.\n• Aiutate a modellare i processi di cambiamento e di sviluppo in modo che vengano implementati in modo pratico, comprensibile e sostenibile.\n\nIl tuo profilo\n• Hai un'educazione alle risorse umane (ad es. Certificato professionale HR) e formazione ideale a livello HF/FH (ad esempio CAS/MAS HRM, amministrazione aziendale o diritto del lavoro).\n• Hai esperienza nelle risorse umane, preferibilmente in un ruolo generalista o di business partner, e godere di leader di accompagnamento.\n• Porti una buona conoscenza del diritto del lavoro e ti senti sicuro nella discussione e nelle situazioni di conflitto difficili.\n• Sei interessato ai contesti aziendali e all'uso di figure chiave per sostenere le decisioni.\n• Si lavora strutturato, orientato alla soluzione e si assume la responsabilità dove si può fare la differenza.\n• Siete aperti a sviluppare pragmaticamente i processi esistenti e presentare attivamente suggerimenti per il miglioramento.\n• Hai una conoscenza molto sicura in MS Office (specialmente Excel e PowerPoint); l'esperienza con SwissSalary, PEP o Haufe Umantis è un vantaggio.\n• Porti molto buona conoscenza del tedesco in parola e scrittura.\n\nInoltre, si beneficia di\n\nIngresso: 01. novembre 2026",
+        "en": "Their tasks\n• You accompany leaders in everyday life and support them in leading their teams effectively.\n• Independent recruitment in cooperation with the line, including application processes, interviews and selection.\n• Advising and supporting managers in HR topics such as personnel planning, development, performance, rewarding and conflict management\n• You contribute to the further development of HR processes and contribute to making processes even clearer, more efficient and people-oriented.\n• You support employees in challenging situations and thus contribute to a healthy, constructive working environment.\n• You bring in ideas on how we can use HR figures and key figures to make targeted decisions and make developments visible.\n• You help shape change and development processes so that they are implemented in a practical, comprehensible and sustainable way.\n\nYour profile\n• You have an HR education (e.g. eidg. HR professional certificate) and ideally further training at HF/FH level (e.g. CAS/MAS HRM, business administration or employment law).\n• You have experience in HR, preferably in a generalist or business partner role, and enjoy accompanying leaders.\n• You bring good knowledge of employment law and feel safe in challenging discussion and conflict situations.\n• You are interested in business contexts and the use of key figures to support decisions.\n• You work structured, solution-oriented and take responsibility where you can make a difference.\n• You are open to pragmatically developing existing processes and actively submitting suggestions for improvement.\n• You have very secure knowledge in MS Office (especially Excel and PowerPoint); Experience with SwissSalary, PEP or Haufe Umantis is an advantage.\n• You bring very good knowledge of German in word and writing.\n\nIn addition, you benefit from\n\nAdmission: 01. November 2026",
+        "de": "Ihre Aufgaben\n• Du begleitest Führungskräfte im Alltag und unterstützt sie dabei, ihre Teams wirkungsvoll zu führen.\n• Selbstständige Rekrutierung in Zusammenarbeit mit der Linie, inklusive Bewerbungsprozesse, Interviews und Auswahl.\n• Beratung und Begleitung von Führungskräften in HR-Themen wie Personalplanung, Entwicklung, Performance, Honorierung und Konfliktmanagement\n• Du wirkst bei der Weiterentwicklung von HR-Prozessen mit und trägst dazu bei, Abläufe noch klarer, effizienter und menschenorientiert zu gestalten.\n• Du unterstützt Mitarbeitende in herausfordernden Situationen und trägst so zu einem gesunden, konstruktiven Arbeitsumfeld bei.\n• Du bringst Ideen ein, wie wir HR-Zahlen und Kennzahlen nutzen können, um gezielt Entscheidungen zu treffen und Entwicklungen sichtbar zu machen.\n• Du gestaltest Veränderungs- und Entwicklungsprozesse mit, sodass sie praktikabel, verständlich und nachhaltig umgesetzt werden.\n\nIhr Profil\n• Du hast eine HR-Ausbildung (z.B. eidg. Fachausweis HR-Fachfrau/-mann) und idealerweise Weiterbildungen auf HF/FH-Stufe (z.B. CAS/MAS HRM, Betriebswirtschaft oder Arbeitsrecht).\n• Du hast Erfahrung im HR, vorzugsweise in einer generalistischen oder Business-Partner-Rolle, und Freude daran, Führungskräfte zu begleiten.\n• Du bringst gute Kenntnisse im Arbeitsrecht mit und fühlst dich sicher in anspruchsvollen Gesprächs- und Konfliktsituationen.\n• Du interessierst dich für betriebswirtschaftliche Zusammenhänge und den Einsatz von Kennzahlen, um Entscheidungen zu unterstützen.\n• Du arbeitest strukturiert, lösungsorientiert und übernimmst Verantwortung, wo du etwas bewegen kannst.\n• Du bist offen dafür, bestehende Prozesse pragmatisch weiterzuentwickeln und aktiv Verbesserungsvorschläge einzubringen.\n• Du verfügst über sehr sichere Kenntnisse in MS Office (insbesondere Excel und PowerPoint); Erfahrung mit SwissSalary, PEP oder Haufe Umantis ist von Vorteil.\n• Du bringst sehr gute Deutschkenntnisse in Wort und Schrift mit.\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. November 2026",
+        "fr": "Leurs tâches\n• Vous accompagnez les leaders dans la vie quotidienne et les aidez à diriger efficacement leurs équipes.\n• Recrutement indépendant en coopération avec la ligne, y compris les processus de candidature, les entrevues et la sélection.\n• Conseiller et appuyer les gestionnaires dans des domaines comme la planification du personnel, le perfectionnement, le rendement, la récompense et la gestion des conflits\n• Vous contribuez au développement des processus RH et contribuez à rendre les processus encore plus clairs, plus efficaces et axés sur les gens.\n• Vous aidez les employés dans des situations difficiles et contribuez ainsi à un milieu de travail sain et constructif.\n• Vous apportez des idées sur la façon dont nous pouvons utiliser les chiffres des RH et les chiffres clés pour prendre des décisions ciblées et rendre les développements visibles.\n• Vous aidez à façonner les processus de changement et de développement afin qu'ils soient mis en œuvre de manière pratique, compréhensible et durable.\n\nVotre profil\n• Vous avez une formation en RH (p. ex. Certificat professionnel RH) et idéalement une formation complémentaire au niveau HF/FH (p. ex. CAS/MAS HRM, administration des entreprises ou droit du travail).\n• Vous avez de l'expérience en RH, de préférence dans un rôle de généraliste ou de partenaire d'affaires, et aimez accompagner les dirigeants.\n• Vous apportez une bonne connaissance du droit du travail et vous sentez en sécurité dans les discussions difficiles et les situations de conflit.\n• Vous êtes intéressé par les contextes d'affaires et l'utilisation de chiffres clés pour soutenir les décisions.\n• Vous travaillez structuré, orienté vers la solution et prenez des responsabilités là où vous pouvez faire une différence.\n• Vous êtes ouvert au développement pragmatique des processus existants et soumettez activement des suggestions d'amélioration.\n• Vous avez des connaissances très sécurisées dans MS Office (surtout Excel et PowerPoint); Expérience avec SwissSalary, PEP ou Haufe Umantis est un avantage.\n• Vous apportez une très bonne connaissance de l'allemand dans la parole et l'écriture.\n\nEn outre, vous bénéficiez\n\nEntrée : 01. novembre 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4069965",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:39:10.870Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Risorse Umane",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-19",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4069965",
+      "requirements": [],
+      "requirementsByLocale": {},
+      "externalId": "4069965",
+      "previousSlugs": [
+        "partenaire-operationnel-rh-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+      ],
+      "previousSlugsByLocale": {
+        "fr": [
+          "partenaire-operationnel-rh-spitalverbund-appenzell-ausserrhoden-svar-herisau"
+        ]
+      },
+      "firstSeenAt": "2026-09-19T22:53:35.572Z",
+      "salaryMin": 65000,
+      "salaryMax": 98500,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 65000,
+          "maxValue": 98500,
+          "unitText": "YEAR"
+        }
+      }
+    },
+    {
+      "id": "svar-spitalverbund-ar-0cf4e85b4635",
+      "slug": "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
+      "slugByLocale": {
+        "de": "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
+        "it": "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
+        "en": "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau",
+        "fr": "oberarzt-oberarztin-chirugie-svar-spitalverbund-ar-herisau"
+      },
+      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
+      "companyKey": "svar-spitalverbund-ar",
+      "companyDomain": "svar.ch",
+      "title": "Oberarzt / Oberärztin Chirugie",
+      "titleByLocale": {
+        "de": "Oberarzt / Oberärztin Chirugie",
+        "it": "Oberarzt / Oberärztin Chirugie",
+        "en": "Oberarzt / Oberärztin Chirugie",
+        "fr": "Oberarzt / Oberärztin Chirugie"
+      },
+      "description": "Ihre Aufgaben\n• Selbstständige Betreuung stationärer und ambulanter chirurgischer Patientinnen und Patienten\n• Durchführung und Assistenz chirurgischer Eingriffe entsprechend Ihrer Erfahrung und Qualifikation\n• Teilnahme am oberärztlichen Dienstsystem\n• Interdisziplinäre Zusammenarbeit mit allen beteiligten Fachbereichen\n• Supervision und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Aktive Mitwirkung an Qualitätsprojekten sowie an der Weiterentwicklung der Klinik\n\nIhr Profil\n• Facharzttitel Chirurgie (FMH oder äquivalente Anerkennung)\n• Fundierte Erfahrung in der Allgemein- und Viszeralchirurgie\n• Hohe fachliche Kompetenz sowie eine patientenorientierte Arbeitsweise\n• Freude an interdisziplinärer Zusammenarbeit und Ausbildung junger Kolleginnen und Kollegen\n• Verantwortungsbewusstsein, Eigeninitiative und Organisationsgeschick\n• Ausgeprägte Teamfähigkeit und hohe Sozialkompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2026",
+      "descriptionByLocale": {
+        "de": "Ihre Aufgaben\n• Selbstständige Betreuung stationärer und ambulanter chirurgischer Patientinnen und Patienten\n• Durchführung und Assistenz chirurgischer Eingriffe entsprechend Ihrer Erfahrung und Qualifikation\n• Teilnahme am oberärztlichen Dienstsystem\n• Interdisziplinäre Zusammenarbeit mit allen beteiligten Fachbereichen\n• Supervision und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Aktive Mitwirkung an Qualitätsprojekten sowie an der Weiterentwicklung der Klinik\n\nIhr Profil\n• Facharzttitel Chirurgie (FMH oder äquivalente Anerkennung)\n• Fundierte Erfahrung in der Allgemein- und Viszeralchirurgie\n• Hohe fachliche Kompetenz sowie eine patientenorientierte Arbeitsweise\n• Freude an interdisziplinärer Zusammenarbeit und Ausbildung junger Kolleginnen und Kollegen\n• Verantwortungsbewusstsein, Eigeninitiative und Organisationsgeschick\n• Ausgeprägte Teamfähigkeit und hohe Sozialkompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2026",
+        "it": "Ihre Aufgaben\n• Selbstständige Betreuung stationärer und ambulanter chirurgischer Patientinnen und Patienten\n• Durchführung und Assistenz chirurgischer Eingriffe entsprechend Ihrer Erfahrung und Qualifikation\n• Teilnahme am oberärztlichen Dienstsystem\n• Interdisziplinäre Zusammenarbeit mit allen beteiligten Fachbereichen\n• Supervision und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Aktive Mitwirkung an Qualitätsprojekten sowie an der Weiterentwicklung der Klinik\n\nIhr Profil\n• Facharzttitel Chirurgie (FMH oder äquivalente Anerkennung)\n• Fundierte Erfahrung in der Allgemein- und Viszeralchirurgie\n• Hohe fachliche Kompetenz sowie eine patientenorientierte Arbeitsweise\n• Freude an interdisziplinärer Zusammenarbeit und Ausbildung junger Kolleginnen und Kollegen\n• Verantwortungsbewusstsein, Eigeninitiative und Organisationsgeschick\n• Ausgeprägte Teamfähigkeit und hohe Sozialkompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2026",
+        "en": "Ihre Aufgaben\n• Selbstständige Betreuung stationärer und ambulanter chirurgischer Patientinnen und Patienten\n• Durchführung und Assistenz chirurgischer Eingriffe entsprechend Ihrer Erfahrung und Qualifikation\n• Teilnahme am oberärztlichen Dienstsystem\n• Interdisziplinäre Zusammenarbeit mit allen beteiligten Fachbereichen\n• Supervision und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Aktive Mitwirkung an Qualitätsprojekten sowie an der Weiterentwicklung der Klinik\n\nIhr Profil\n• Facharzttitel Chirurgie (FMH oder äquivalente Anerkennung)\n• Fundierte Erfahrung in der Allgemein- und Viszeralchirurgie\n• Hohe fachliche Kompetenz sowie eine patientenorientierte Arbeitsweise\n• Freude an interdisziplinärer Zusammenarbeit und Ausbildung junger Kolleginnen und Kollegen\n• Verantwortungsbewusstsein, Eigeninitiative und Organisationsgeschick\n• Ausgeprägte Teamfähigkeit und hohe Sozialkompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2026",
+        "fr": "Ihre Aufgaben\n• Selbstständige Betreuung stationärer und ambulanter chirurgischer Patientinnen und Patienten\n• Durchführung und Assistenz chirurgischer Eingriffe entsprechend Ihrer Erfahrung und Qualifikation\n• Teilnahme am oberärztlichen Dienstsystem\n• Interdisziplinäre Zusammenarbeit mit allen beteiligten Fachbereichen\n• Supervision und Weiterbildung der Assistenzärztinnen und Assistenzärzte\n• Aktive Mitwirkung an Qualitätsprojekten sowie an der Weiterentwicklung der Klinik\n\nIhr Profil\n• Facharzttitel Chirurgie (FMH oder äquivalente Anerkennung)\n• Fundierte Erfahrung in der Allgemein- und Viszeralchirurgie\n• Hohe fachliche Kompetenz sowie eine patientenorientierte Arbeitsweise\n• Freude an interdisziplinärer Zusammenarbeit und Ausbildung junger Kolleginnen und Kollegen\n• Verantwortungsbewusstsein, Eigeninitiative und Organisationsgeschick\n• Ausgeprägte Teamfähigkeit und hohe Sozialkompetenz\n• Sehr gute Deutschkenntnisse in Wort und Schrift\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Januar 2026"
+      },
+      "needsRetranslation": true,
+      "location": "Herisau",
+      "canton": "AR",
+      "url": "https://live.solique.ch/svar/job/details/4070324",
+      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-23T23:39:10.032Z",
+      "addressLocality": "Herisau",
+      "addressRegion": "AR",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "9100",
+      "category": "Sanità / Ospedali",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "senior",
+      "sector": "Sanità / Ospedali",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-23",
+      "applyUrl": "https://live.solique.ch/svar/job/details/4070324",
+      "requirements": [],
+      "requirementsByLocale": {
+        "de": []
+      },
+      "externalId": "4070324",
+      "salaryMin": 81000,
+      "salaryMax": 113000,
+      "salarySource": "estimated",
+      "baseSalary": {
+        "@type": "MonetaryAmount",
+        "currency": "CHF",
+        "value": {
+          "@type": "QuantitativeValue",
+          "minValue": 81000,
+          "maxValue": 113000,
+          "unitText": "YEAR"
+        }
+      },
+      "firstSeenAt": "2026-09-23T23:39:10.032Z"
+    },
     {
       "id": "svar-spitalverbund-ar-06f02987c89d",
       "slug": "medico-senior-per-la-nostra-anestesiologia-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
@@ -87,745 +894,8 @@
           "maxValue": 152500,
           "unitText": "YEAR"
         }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-d1720aab5506",
-      "slug": "gestione-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "gestione-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "application-manager-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "gestionnaire-d-applications-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
       },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Applikationsmanager/in (m/w/d)",
-      "titleByLocale": {
-        "it": "Gestione applicazioni (m/f/d)",
-        "en": "Application Manager (m/f/d)",
-        "de": "Applikationsmanager/in (m/w/d)",
-        "fr": "Gestionnaire d'applications (h/f/d)"
-      },
-      "description": "Ihre Aufgaben\n• Verantwortung für die Betreuung, Konfiguration, Testen und Weiterentwicklung des ERP-Systems Opale, Telefonie (Siemens), Patienten-Medien-Terminals und weiterer administrativer Applikationen\n• Anwender-Support inkl. Pikett-Dienst\n• Integration und Sicherstellung des stabilen Betriebs von Endgeräten und Applikationen\n• Begleitung von IT Vorhaben und Unterstützung im Patchmanagement\n• Erstellung und Pflege von System- und Betriebshandbüchern Mitarbeit in innovativen Projekten als Fachspezialist, sowie Leitung von Teilprojekten\n\nIhr Profil\n• Ausbildung als Informatiker/in EFZ oder mehrjährige Erfahrung im IT-Bereich\n• Gute Kenntnisse im IT Support (Betrieb und Einführung von IT Fachlösungen)\n• Erfahrung im Spitalbetrieb oder Umgang mit technischen/medizinischen Geräten von Vorteil\n• Kenntnisse der ITIL-Prozesse von Vorteil\n• Zuverlässige und lösungsorientierte Persönlichkeit\n• Gute mündliche und schriftliche Kommunikation\n• Freude an der Zusammenarbeit mit verschiedenen Berufsgruppen Gepflegtes Erscheinungsbild und gute Umgangsformen\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. September 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Responsabilità per il supporto, la configurazione, il test e l'ulteriore sviluppo del sistema Opale ERP, della telefonia (Siemens), dei terminali dei media dei pazienti e di altre applicazioni amministrative\n• Supporto utente incl. Servizio Picetting\n• Integrazione e garanzia del funzionamento stabile dei terminali e delle applicazioni\n• Supporto per progetti IT e supporto nella gestione delle patch\n• Preparazione e manutenzione di sistemi e manuali operativi Collaborazione in progetti innovativi come specialista, nonché gestione di sottoprogetti\n\nIl tuo profilo\n• Formazione come informatico o diversi anni di esperienza nel settore IT\n• Buona conoscenza del supporto IT (operazione e implementazione di soluzioni specialistiche IT)\n• L'esperienza nel funzionamento dell'ospedale o la gestione di attrezzature tecniche/mediche è vantaggiosa\n• La conoscenza dei processi ITIL è un vantaggio\n• Personalità affidabile e orientata alla soluzione\n• Buona comunicazione orale e scritta\n• Godimento di lavorare con diversi gruppi professionali\n\nInoltre, si beneficia di\n\nIngresso: 01. settembre 2026",
-        "en": "Their tasks\n• Responsibility for the support, configuration, testing and further development of the Opale ERP system, telephony (Siemens), patient media terminals and other administrative applications\n• User support incl. Picetting service\n• Integration and ensuring the stable operation of terminals and applications\n• Support for IT projects and support in patch management\n• Preparation and maintenance of system and operating manuals Collaboration in innovative projects as a specialist, as well as management of subprojects\n\nYour profile\n• Training as a computer scientist or several years of experience in the IT sector\n• Good knowledge of IT support (operation and implementation of IT specialist solutions)\n• Experience in hospital operation or handling of technical/medical equipment is advantageous\n• Knowledge of ITIL processes is an advantage\n• Reliable and solution-oriented personality\n• Good oral and written communication\n• Enjoyment of working with different professional groups Maintained appearance and good manners\n\nIn addition, you benefit from\n\nAdmission: 01. September 2026",
-        "de": "Ihre Aufgaben\n• Verantwortung für die Betreuung, Konfiguration, Testen und Weiterentwicklung des ERP-Systems Opale, Telefonie (Siemens), Patienten-Medien-Terminals und weiterer administrativer Applikationen\n• Anwender-Support inkl. Pikett-Dienst\n• Integration und Sicherstellung des stabilen Betriebs von Endgeräten und Applikationen\n• Begleitung von IT Vorhaben und Unterstützung im Patchmanagement\n• Erstellung und Pflege von System- und Betriebshandbüchern Mitarbeit in innovativen Projekten als Fachspezialist, sowie Leitung von Teilprojekten\n\nIhr Profil\n• Ausbildung als Informatiker/in EFZ oder mehrjährige Erfahrung im IT-Bereich\n• Gute Kenntnisse im IT Support (Betrieb und Einführung von IT Fachlösungen)\n• Erfahrung im Spitalbetrieb oder Umgang mit technischen/medizinischen Geräten von Vorteil\n• Kenntnisse der ITIL-Prozesse von Vorteil\n• Zuverlässige und lösungsorientierte Persönlichkeit\n• Gute mündliche und schriftliche Kommunikation\n• Freude an der Zusammenarbeit mit verschiedenen Berufsgruppen Gepflegtes Erscheinungsbild und gute Umgangsformen\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. September 2026",
-        "fr": "Leurs tâches\n• Responsable du support, de la configuration, des essais et du développement du système Opale ERP, de la téléphonie (Siemens), des terminaux de médias patients et d'autres applications administratives\n• Support utilisateur incl. Service de pistage\n• Intégration et garantie du fonctionnement stable des terminaux et des applications\n• Soutien aux projets informatiques et soutien à la gestion des patchs\n• Préparation et mise à jour des manuels d'exploitation et de systèmes Collaboration dans des projets innovants en tant que spécialiste, ainsi que gestion des sous-projets\n\nVotre profil\n• Formation en informatique ou plusieurs années d'expérience dans le secteur informatique\n• Bonne connaissance du soutien informatique (opération et mise en œuvre de solutions spécialisées en TI)\n• L'expérience dans le fonctionnement ou la manipulation d'équipements techniques/médicaux à l'hôpital est avantageuse\n• La connaissance des processus ITIL est un avantage\n• Personnalité fiable et orientée vers la solution\n• Bonne communication orale et écrite\n• Profitez de travailler avec différents groupes professionnels.\n\nEn outre, vous bénéficiez\n\nEntrée : 01. septembre 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4066170",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:02:42.426Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "IT",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-09",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4066170",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4066170",
-      "previousSlugs": [
-        "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "gestione-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau",
-          "gestione-applicazioni-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "en": [
-          "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
-        ],
-        "fr": [
-          "applikationsmanager-in-m-w-d-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-09-09T23:04:31.479Z",
-      "salaryMin": 107000,
-      "salaryMax": 182000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 107000,
-          "maxValue": 182000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-209971291d77",
-      "slug": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Oberärztin / Oberarzt Allgemeine Innere Medizin (m/w/d)",
-      "titleByLocale": {
-        "it": "Medico senior / Medicina interna generale (m/f/d)",
-        "en": "Senior physician / Senior physician General Internal Medicine (m/f/d)",
-        "de": "Oberärztin / Oberarzt Allgemeine Innere Medizin (m/w/d)",
-        "fr": "Médecin supérieur / Médecin supérieur Général Médecine interne (h/f/d)"
-      },
-      "description": "Ihre Aufgaben\n• Mitverantwortung für eine qualitativ hochstehende Diagnostik und Behandlung der internistischen Patientinnen und Patienten\n• Fachliche und personelle Führung und Weiterbildung der Assistenzärzte\n• Enge und erfolgreiche Zusammenarbeit mit den anderen Fachbereichen und den Zuweisern\n• Beteiligung am kaderärztlichen Hintergrunddienst der Inneren Medizin\n• Unterstützung des Chefarztes und der Leitenden Ärzte in der Führung der Klinik\n\nIhr Profil\n• Fachärztin/Facharzt für Allgemeine Innere Medizin (oder kurz vor Abschluss)\n• Interesse an Ultraschallmedizin mit dem Ziel, den Fähigkeitsausweis Sonografie zu erwerben\n• Aktive Mitarbeit in Projekten und Freude an interdisziplinärer Zusammenarbeit\n• Engagierte Persönlichkeit mit einer hohen Sozialkompetenz\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Dezember 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Responsabilità condivisa per una diagnosi di alta qualità e trattamento dei pazienti internisti\n• Gestione professionale e del personale e formazione continua dei medici assistenti\n• Cooperazione stretta e di successo con le altre aree specializzate e incarichi\n• Partecipazione al Servizio di Medicina Interna della Cattedrale\n• Supporto del medico principale e medici senior nella gestione della clinica\n\nIl tuo profilo\n• Specialista per Medicina Interna Generale (o poco prima della laurea)\n• Interessi nella medicina a ultrasuoni con l'obiettivo di ottenere il certificato di abilità sonografia\n• Partecipazione attiva ai progetti e godimento della cooperazione interdisciplinare\n• Personalità impegnata con un alto livello di competenza sociale\n\nInoltre, si beneficia di\n\nIngresso: 01. dicembre 2026",
-        "en": "Their tasks\n• Shared responsibility for a high-quality diagnosis and treatment of internist patients\n• Professional and personnel management and further training of assistant doctors\n• Close and successful cooperation with the other specialist areas and assignments\n• Participation in the Cathedral Background Service of Internal Medicine\n• Support of the chief physician and senior physicians in the management of the clinic\n\nYour profile\n• Specialist for General Internal Medicine (or shortly before graduation)\n• Interest in ultrasound medicine with the aim of obtaining the certificate of ability sonography\n• Active participation in projects and enjoyment of interdisciplinary cooperation\n• Engaged personality with a high level of social competence\n\nIn addition, you benefit from\n\nAdmission: 01. December 2026",
-        "de": "Ihre Aufgaben\n• Mitverantwortung für eine qualitativ hochstehende Diagnostik und Behandlung der internistischen Patientinnen und Patienten\n• Fachliche und personelle Führung und Weiterbildung der Assistenzärzte\n• Enge und erfolgreiche Zusammenarbeit mit den anderen Fachbereichen und den Zuweisern\n• Beteiligung am kaderärztlichen Hintergrunddienst der Inneren Medizin\n• Unterstützung des Chefarztes und der Leitenden Ärzte in der Führung der Klinik\n\nIhr Profil\n• Fachärztin/Facharzt für Allgemeine Innere Medizin (oder kurz vor Abschluss)\n• Interesse an Ultraschallmedizin mit dem Ziel, den Fähigkeitsausweis Sonografie zu erwerben\n• Aktive Mitarbeit in Projekten und Freude an interdisziplinärer Zusammenarbeit\n• Engagierte Persönlichkeit mit einer hohen Sozialkompetenz\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Dezember 2026",
-        "fr": "Leurs tâches\n• Responsabilité partagée pour un diagnostic et un traitement de qualité des patients internés\n• Gestion professionnelle et du personnel et formation continue des médecins auxiliaires\n• Coopération étroite et fructueuse avec les autres domaines et missions spécialisés\n• Participation au service de médecine interne de la cathédrale\n• Soutien du médecin en chef et des médecins principaux dans la gestion de la clinique\n\nVotre profil\n• Spécialiste en médecine interne générale (ou peu avant l'obtention du diplôme)\n• Intérêt pour la médecine à ultrasons dans le but d'obtenir le certificat d'aptitude sonographie\n• Participation active aux projets et jouissance de la coopération interdisciplinaire\n• Personnalité engagée avec un haut niveau de compétence sociale\n\nEn outre, vous bénéficiez\n\nEntrée : 01 décembre 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4068568",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:02:41.837Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-11",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4068568",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4068568",
-      "previousSlugs": [
-        "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-physician-senior-physician-general-internal-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "medecin-superieur-medecin-superieur-general-medecine-interne-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-          "medico-senior-medicina-interna-generale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "en": [
-          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
-        ],
-        "fr": [
-          "oberarztin-oberarzt-allgemeine-innere-medizin-m-w-d-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T13:33:11.778Z",
-      "salaryMin": 109000,
-      "salaryMax": 152500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 109000,
-          "maxValue": 152500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-4c42d0bb67a1",
-      "slug": "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-caregiver-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-medecin-hf-gerontopsychiatrie-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Dipl. Pflegefachperson HF Gerontopsychiatrie",
-      "titleByLocale": {
-        "it": "Dipl. Carriera HF Gerontopsychiatry",
-        "en": "Dipl. Caregiver HF Gerontopsychiatry",
-        "de": "Dipl. Pflegefachperson HF Gerontopsychiatrie",
-        "fr": "Dipl. Médecin HF Gérontopsychiatrie"
-      },
-      "description": "Ihre Aufgaben\n• Verantwortung für die Sicherstellung sowie Umsetzung einer qualitativ hochstehenden Pflege und Betreuung der Patienten\n• Planen und Evaluieren der pflegerischen Versorgung der Patienten\n• Durchführung und Gestaltung von Gruppenangeboten sowie Planung und Durchführung von Einzelgesprächen\n• Mitgestaltung des Gruppenalltags\n• Kontaktpflege zu externen Bezugspersonen\n\nIhr Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF\n• Erfahrung in der Langzeitpflege von Vorteil\n• Flexibilität und Interesse auf verschieden Stationen die Teams bei Engpässen zu verstärken\n• Interesse an der Zusammenarbeit in einem interprofessionellen Behandlungsteam\n• Bereitschaft zur Schichtarbeit in einem 24 Stunden Betrieb\n• Freude an Situationen die teilweise nicht planbar sind\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Responsabilità per garantire e implementare la cura e la cura dei pazienti di alta qualità\n• Pianificazione e valutazione della cura dei pazienti\n• Attuazione e progettazione di offerte di gruppo, pianificazione e conduzione di singole riunioni\n• Partecipazione alla vita di gruppo\n• Mantenere il contatto con persone di riferimento esterne\n\nIl tuo profilo\n• Allenamento completato come Dipl. Professionista HF\n• L'esperienza nella cura a lungo termine è utile\n• Flessibilità e interesse in diverse stazioni per aumentare le squadre in caso di colli di bottiglia\n• Interessato a lavorare in un team di trattamento interprofessionale\n• Volontà a turni di lavoro in un'operazione di 24 ore\n• Gioia di situazioni che sono in parte inspiegabili\n\nInoltre, si beneficia di\n\nIngresso: 1 ottobre 2026",
-        "en": "Their tasks\n• Responsibility for ensuring and implementing high-quality patient care and care\n• Planning and evaluating patient care\n• Implementation and design of group offers as well as planning and conducting individual meetings\n• Participation in group life\n• Maintaining contact with external reference persons\n\nYour profile\n• Completed training as a Dipl. Care professional HF\n• Experience in long-term care is beneficial\n• Flexibility and interest in different stations to increase teams in case of bottlenecks\n• Interested in working in an interprofessional treatment team\n• Willingness to work shifts in a 24-hour operation\n• Joy of situations that are partly unplannable\n\nIn addition, you benefit from\n\nEntrance: October 1, 2026",
-        "de": "Ihre Aufgaben\n• Verantwortung für die Sicherstellung sowie Umsetzung einer qualitativ hochstehenden Pflege und Betreuung der Patienten\n• Planen und Evaluieren der pflegerischen Versorgung der Patienten\n• Durchführung und Gestaltung von Gruppenangeboten sowie Planung und Durchführung von Einzelgesprächen\n• Mitgestaltung des Gruppenalltags\n• Kontaktpflege zu externen Bezugspersonen\n\nIhr Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachperson HF\n• Erfahrung in der Langzeitpflege von Vorteil\n• Flexibilität und Interesse auf verschieden Stationen die Teams bei Engpässen zu verstärken\n• Interesse an der Zusammenarbeit in einem interprofessionellen Behandlungsteam\n• Bereitschaft zur Schichtarbeit in einem 24 Stunden Betrieb\n• Freude an Situationen die teilweise nicht planbar sind\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
-        "fr": "Leurs tâches\n• Responsabilité d'assurer et de mettre en œuvre des soins et des soins de qualité pour les patients\n• Planification et évaluation des soins aux patients\n• Mise en œuvre et conception des offres de groupe ainsi que planification et organisation de réunions individuelles\n• Participation à la vie de groupe\n• Maintenir le contact avec les personnes de référence externes\n\nVotre profil\n• La formation terminée en tant que dipl. Soins professionnels HF\n• L'expérience des soins de longue durée est bénéfique\n• Flexibilité et intérêt pour les différentes stations pour augmenter les équipes en cas de goulots d'étranglement\n• Intéressé à travailler dans une équipe interprofessionnelle de traitement\n• Volonté de travailler 24 heures sur 24\n• Joie de situations partiellement inplanifiables\n\nEn outre, vous bénéficiez\n\nEntrée : 1er octobre 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4068838",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:02:41.246Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-11",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4068838",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4068838",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
-        "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau",
-          "dipl-carriera-hf-gerontopsychiatry-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "en": [
-          "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-gerontopsychiatrie-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T13:33:11.167Z",
-      "salaryMin": 81000,
-      "salaryMax": 113000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 113000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-570939bb09c7",
-      "slug": "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-care-specialist-hf-acute-care-unit-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
-        "fr": "dipl-specialiste-des-soins-hf-unite-de-soins-actifs-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Dipl. Pflegefachperson HF Akutstation",
-      "titleByLocale": {
-        "it": "Dipl. Specialista di cura HF unità di cura acuta",
-        "en": "Dipl. Care specialist HF acute care unit",
-        "de": "Dipl. Pflegefachperson HF Akutstation",
-        "fr": "Dipl. Spécialiste des soins HF unité de soins actifs"
-      },
-      "description": "Ihre Aufgaben\n• Professionelle Betreuung unserer Patienten als Bezugsperson im Pflegeprozess von Ein- bis Austritt in einem interdisziplinären Team\n• Durchführung und Gestaltung von Gruppenangeboten sowie Planung und Durchführung von regelmässigen Einzelgesprächen\n• Mitgestaltung des Stationsmilieus und der Stationsabläufe\n• Möglichkeit für weitere Spezialaufgaben oder Mitarbeit in Arbeitsgruppen\n• Unterstützung der Berufsbildner in der Ausbildung künftiger Pflegefachpersonen\n\nIhr Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau/-mann HF\n• 1-2 Jahre Erfahrung in der Akutpsychiatrie von Vorteil\n• Flexibilität und Interesse an der Zusammenarbeit in einem interprofessionellen Behandlungsteam\n• Bereitschaft und Freude in einem Umfeld mit sich schnell veränderten Situationen zu arbeiten\n• Bereitschaft zur Schichtarbeit in einem 24 Stunden Betrieb\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Cura professionale dei nostri pazienti come caregiver nel processo di cura dall'ingresso all'uscita in un team interdisciplinare\n• Attuazione e progettazione di offerte di gruppo, pianificazione e conduzione di riunioni individuali regolari\n• Co-design dell'ambiente della stazione e dei processi di stazione\n• Possibilità di ulteriori attività speciali o partecipazione a gruppi di lavoro\n• Sostegno ai formatori professionali nella formazione dei futuri infermieri\n\nIl tuo profilo\n• Allenamento completato come Dipl. Infermieristica professionale HF\n• 1-2 anni di esperienza nella psichiatria acuta è benefico\n• Flessibilità e interesse a lavorare in un team di trattamento interprofessionale\n• Volontà e gioia di lavorare in un ambiente con situazioni in rapida evoluzione\n• Volontà a turni di lavoro in un'operazione di 24 ore\n\nInoltre, si beneficia di\n\nIngresso: 1 ottobre 2026",
-        "en": "Their tasks\n• Professional care of our patients as a caregiver in the care process from entry to exit in an interdisciplinary team\n• Implementation and design of group offers as well as planning and conducting regular individual meetings\n• Co-design of the station environment and station processes\n• Possibility for further special tasks or participation in working groups\n• Support for vocational trainers in the training of future nurses\n\nYour profile\n• Completed training as a Dipl. Nursing professional HF\n• 1-2 years of experience in acute psychiatry is beneficial\n• Flexibility and interest in working in an interprofessional treatment team\n• Willingness and joy to work in an environment with rapidly changing situations\n• Willingness to work shifts in a 24-hour operation\n\nIn addition, you benefit from\n\nEntrance: October 1, 2026",
-        "de": "Ihre Aufgaben\n• Professionelle Betreuung unserer Patienten als Bezugsperson im Pflegeprozess von Ein- bis Austritt in einem interdisziplinären Team\n• Durchführung und Gestaltung von Gruppenangeboten sowie Planung und Durchführung von regelmässigen Einzelgesprächen\n• Mitgestaltung des Stationsmilieus und der Stationsabläufe\n• Möglichkeit für weitere Spezialaufgaben oder Mitarbeit in Arbeitsgruppen\n• Unterstützung der Berufsbildner in der Ausbildung künftiger Pflegefachpersonen\n\nIhr Profil\n• Abgeschlossene Ausbildung als Dipl. Pflegefachfrau/-mann HF\n• 1-2 Jahre Erfahrung in der Akutpsychiatrie von Vorteil\n• Flexibilität und Interesse an der Zusammenarbeit in einem interprofessionellen Behandlungsteam\n• Bereitschaft und Freude in einem Umfeld mit sich schnell veränderten Situationen zu arbeiten\n• Bereitschaft zur Schichtarbeit in einem 24 Stunden Betrieb\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
-        "fr": "Leurs tâches\n• Soins professionnels de nos patients en tant que soignant dans le processus de soins de l'entrée à la sortie dans une équipe interdisciplinaire\n• Mise en œuvre et conception des offres des groupes ainsi que planification et organisation de réunions individuelles régulières\n• Co-conception de l'environnement et des processus de la station\n• Possibilité de nouvelles tâches spéciales ou de participation à des groupes de travail\n• Appui aux formateurs professionnels dans la formation des futurs infirmiers\n\nVotre profil\n• La formation terminée en tant que dipl. Soins infirmiers professionnels HF\n• 1-2 ans d'expérience en psychiatrie aiguë est bénéfique\n• Flexibilité et intérêt à travailler dans une équipe interprofessionnelle de traitement\n• Volonté et joie de travailler dans un environnement où les situations évoluent rapidement\n• Volonté de travailler 24 heures sur 24\n\nEn outre, vous bénéficiez\n\nEntrée : 1er octobre 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4068874",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:02:40.646Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-11",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4068874",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4068874",
-      "previousSlugs": [
-        "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
-        "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau",
-          "dipl-specialista-di-cura-hf-unita-di-cura-acuta-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "en": [
-          "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-hf-akutstation-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T13:33:10.399Z",
-      "salaryMin": 81000,
-      "salaryMax": 113000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 113000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-16a66aeb0a54",
-      "slug": "controllore-senior-come-partner-commerciale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "controllore-senior-come-partner-commerciale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "de": "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "controleur-senior-en-tant-que-partenaire-d-affaires-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Senior Controller/in als Business Partner/in (m/w/d)",
-      "titleByLocale": {
-        "it": "Controllore senior come partner commerciale (m/f/d)",
-        "en": "Senior Controller as Business Partner (m/f/d)",
-        "de": "Senior Controller/in als Business Partner/in (m/w/d)",
-        "fr": "Contrôleur senior en tant que partenaire d'affaires (h/f/d)"
-      },
-      "description": "Attraktive Aufgaben\n• Fachliche und operative Verantwortung für das betriebliche Rechnungswesen mit Kostenstellen- und Kostenträgerrechnung nach REKOLE®\n• Ansprechperson in Fragen zur Kostenrechnung des SVAR für interne und externe Anspruchsgruppen\n• Durchführung regelmässiger REKOLE® Audits und Rezertifizierungen\n• Erstellen von Reports, Statistiken, Spezialanalysen und Wirtschaftlichkeitsrechnungen\n• Unterstützung beim Aufbau und in der Weiterentwicklung des Management-Informationssystems (MIS)\n\nDeshalb wollen wir Sie\n• Kaufmännische Grundausbildung mit betriebswirtschaftlicher Weiterbildung (HF, FH) oder eine vertiefte Ausbildung im Rechnungswesen (zum Beispiel eidg. Fachausweis)\n• Berufserfahrung in ähnlicher Funktion im Gesundheitswesen oder die Bereitschaft sich schnell und selbständig in neue Themengebiete einzuarbeiten\n• Kenntnisse in REKOLE® von Vorteil\n• Sehr gute Anwenderkenntnisse in MS Office (insbesondere in Excel) und ERP-Systemen\n• Zuverlässige, strukturierte und exakte Arbeitsweise\n• Hohe Dienstleistungsorientierung und kommunikative Fähigkeiten auch in hektischen Zeiten\n• Gute Integrations- und Teamfähigkeit\n• Zeitliche Flexibilität in Bezug auf Abschlussarbeiten und Reporting\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
-      "descriptionByLocale": {
-        "it": "Attività interessanti • Responsabilità professionale e operativa per la contabilità operativa con centro costi e contabilità costi al portatore secondo REKOLE® • Persona di contatto in questioni relative alla contabilità costi della SCAR per gli stakeholder interni ed esterni • Condurre regolari audit e ricertificazioni REKOLE® • Creazione di report, statistiche, analisi speciali e contabilità costi • Supporto allo sviluppo e all'ulteriore sviluppo del sistema informativo di gestione (MIS)\n\nPertanto vogliamo che tu sia • Formazione commerciale di base con formazione legata alle imprese (HF, FH) o una formazione più profonda in materia di contabilità (ad esempio.\n\nID professionale) • Esperienza professionale in una funzione simile nel settore sanitario o volontà di lavorare in modo rapido e indipendente in nuovi settori soggetti • Conoscenza di REKOLE® di vantaggio • Ottima conoscenza degli utenti in MS Office (soprattutto in Excel) ed ERP • Metodi di lavoro affidabili, strutturati e precisi • Elevata orientamento del servizio e competenze comunicative anche in tempi frenetici • Buona integrazione e competenze di squadra • Flessibilità temporale in termini di tesi e reporting\n\nInoltre, beneficiate di:\n\nIngresso: 01 ottobre 2026",
-        "en": "Attractive tasks • Professional and operational responsibility for operational accounting with cost centre and cost bearer accounting according to REKOLE® • Contact person in questions concerning cost accounting of the SCAR for internal and external stakeholders • Conducting regular REKOLE® audits and recertifications • Creating of reports, statistics, special analyses and cost accounting • Support in the development and further development of the management information system (MIS)\n\nTherefore we want you • Commercial basic training with business-related training (HF, FH) or a deeper training in accounting (e.g.\n\nProfessional ID) • Professional experience in a similar function in the health care sector or willingness to work quickly and independently in new subject areas • Knowledge of REKOLE® of advantage • Very good user knowledge in MS Office (especially in Excel) and ERP systems • Reliable, structured and precise working methods • High service orientation and communicative skills even in hectic times • Good integration and team skills • Time flexibility in terms of thesis and reporting\n\nIn addition, you benefit from:\n\nAdmission: 01 October 2026",
-        "de": "Attraktive Aufgaben\n• Fachliche und operative Verantwortung für das betriebliche Rechnungswesen mit Kostenstellen- und Kostenträgerrechnung nach REKOLE®\n• Ansprechperson in Fragen zur Kostenrechnung des SVAR für interne und externe Anspruchsgruppen\n• Durchführung regelmässiger REKOLE® Audits und Rezertifizierungen\n• Erstellen von Reports, Statistiken, Spezialanalysen und Wirtschaftlichkeitsrechnungen\n• Unterstützung beim Aufbau und in der Weiterentwicklung des Management-Informationssystems (MIS)\n\nDeshalb wollen wir Sie\n• Kaufmännische Grundausbildung mit betriebswirtschaftlicher Weiterbildung (HF, FH) oder eine vertiefte Ausbildung im Rechnungswesen (zum Beispiel eidg. Fachausweis)\n• Berufserfahrung in ähnlicher Funktion im Gesundheitswesen oder die Bereitschaft sich schnell und selbständig in neue Themengebiete einzuarbeiten\n• Kenntnisse in REKOLE® von Vorteil\n• Sehr gute Anwenderkenntnisse in MS Office (insbesondere in Excel) und ERP-Systemen\n• Zuverlässige, strukturierte und exakte Arbeitsweise\n• Hohe Dienstleistungsorientierung und kommunikative Fähigkeiten auch in hektischen Zeiten\n• Gute Integrations- und Teamfähigkeit\n• Zeitliche Flexibilität in Bezug auf Abschlussarbeiten und Reporting\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
-        "fr": "Tâches attractives • Responsabilité professionnelle et opérationnelle de la comptabilité opérationnelle avec centre de coûts et comptabilité au porteur selon REKOLE® • Personne-ressource en matière de comptabilité coûts de la SCAR pour les parties prenantes internes et externes • Réalisation régulière d'audits et de retouches REKOLE® • Création de rapports, de statistiques, d'analyses spéciales et de comptabilité coûts • Appui au développement et au développement du système d'information de gestion (SIG)\n\nNous vous souhaitons donc une formation de base commerciale avec une formation liée aux affaires (HF, FH) ou une formation plus approfondie en comptabilité (par exemple:\n\n• Expérience professionnelle dans une fonction similaire dans le secteur de la santé ou volonté de travailler rapidement et indépendamment dans de nouveaux domaines • Connaissance de REKOLE® d'avantage • Très bonne connaissance utilisateur dans MS Office (en particulier dans Excel) et les systèmes ERP • Méthodes de travail fiables, structurées et précises • Orientation de service élevée et compétences communicatives même en période de crise • Bonne intégration et compétences d'équipe • Flexibilité temporelle en termes de thèse et de rapport\n\nDe plus, vous bénéficiez de :\n\nEntrée : 01 octobre 2026"
-      },
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4066348",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:02:40.052Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Amministrazione",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "senior",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-11",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4066348",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4066348",
-      "previousSlugs": [
-        "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau",
-        "senior-controller-in-als-business-partner-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "senior-controller-in-als-business-partner-in-80-100-m-w-d-svar-spitalverbund-ar",
-        "senior-controller-in-come-business-partner-in-80-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-spitalverbund-appenzell-ausserrhoden",
-        "controleur-senior-en-tant-que-partenaire-d-affaires-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "senior-controller-in-come-business-partner-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "controllore-senior-come-partner-commerciale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau",
-          "senior-controller-in-als-business-partner-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "senior-controller-in-als-business-partner-in-80-100-m-w-d-svar-spitalverbund-ar",
-          "senior-controller-in-come-business-partner-in-80-100-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-spitalverbund-appenzell-ausserrhoden",
-          "controleur-senior-en-tant-que-partenaire-d-affaires-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "senior-controller-in-come-business-partner-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "controllore-senior-come-partner-commerciale-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "fr": [
-          "senior-controller-in-als-business-partner-in-m-w-d-svar-spitalverbund-ar-herisau",
-          "senior-controller-in-als-business-partner-in-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-09-11T23:09:54.279Z",
-      "salaryMin": 89500,
-      "salaryMax": 136000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 89500,
-          "maxValue": 136000,
-          "unitText": "YEAR"
-        }
-      },
-      "retranslationAttempts": 3,
-      "localeMismatchSuppressed": true,
-      "localeMismatchSuppressedLen": 1273
-    },
-    {
-      "id": "svar-spitalverbund-ar-eebd89d62be4",
-      "slug": "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "specialist-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "fachspezialist-in-hr-svar-spitalverbund-ar-herisau",
-        "fr": "fachspezialist-in-ressources-humaines-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Fachspezialist/in HR",
-      "titleByLocale": {
-        "it": "Specialista HR",
-        "en": "Specialist HR",
-        "de": "Fachspezialist/in HR",
-        "fr": "Spécialiste des ressources humaines"
-      },
-      "description": "Ihre Aufgaben\n• Unterstützung der HR-Administration vom Eintritt bis zum Austritt\n• Selbstständige Bearbeitung von Aufgaben in den Bereichen Vertragswesen, Bewilligungen und Sozialversicherungen sowie behördliche Abklärungen\n• Verwaltung des Zeitmanagementsystems\n• Erfassung, Kontrolle und Abrechnung des Fremdpersonals\n• Aktive Mitgestaltung und Weiterentwicklung von HR-Prozessen und der HR-Administration\n• Verfassen von stilsicherer HR-Korrespondenz in deutscher Sprache\n\nIhr Profil\n• Kaufmännische Grundausbildung, idealerweise ergänzt durch eine Weiterbildung als HR-Fachfrau/HR-Fachmann mit eidg. Fachausweis\n• Mehrjährige Erfahrung in der HR-Administration\n• Ausgeprägte Dienstleistungsorientierung sowie eine strukturierte, lösungsorientierte Arbeitsweise\n• Hohe Zuverlässigkeit, Teamfähigkeit und Eigenverantwortung\n• Bereitschaft, Verantwortung zu übernehmen und in einem dynamischen Umfeld aktiv mitzugestalten\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Supporto per l'amministrazione HR dall'ingresso all'uscita\n• Elaborazione indipendente dei compiti nei settori dell'appalto, delle licenze e delle assicurazioni sociali nonché delle indagini ufficiali\n• Gestione del sistema\n• Raccolta, controllo e contabilità del personale esterno\n• Partecipazione attiva e ulteriore sviluppo dei processi HR e dell'amministrazione HR\n• Scrittura di corrispondenza HR elegante in tedesco\n\nIl tuo profilo\n• Formazione di base commerciale, idealmente completato da ulteriore formazione come specialista HR con la legge federale. Scheda specialistica\n• Diversi anni di esperienza nell'amministrazione HR\n• Forte orientamento al servizio e metodo di lavoro strutturato e orientato alla soluzione\n• Alta affidabilità, lavoro di squadra e responsabilità personale\n• La volontà di assumersi la responsabilità e partecipare attivamente ad un ambiente dinamico\n\nInoltre, si beneficia di\n\nIngresso: 1 ottobre 2026",
-        "en": "Their tasks\n• Support for HR administration from entry to exit\n• Independent processing of tasks in the areas of contracting, licensing and social insurance as well as official investigations\n• Time management system management\n• Collection, control and accounting of external staff\n• Active participation and further development of HR processes and HR administration\n• Writing of stylish HR correspondence in German\n\nYour profile\n• Commercial basic training, ideally supplemented by further training as HR specialist with federal law. Specialist card\n• Several years of experience in HR administration\n• Strong service orientation and a structured, solution-oriented working method\n• High reliability, teamwork and personal responsibility\n• Willingness to take responsibility and actively participate in a dynamic environment\n\nIn addition, you benefit from\n\nEntrance: October 1, 2026",
-        "de": "Ihre Aufgaben\n• Unterstützung der HR-Administration vom Eintritt bis zum Austritt\n• Selbstständige Bearbeitung von Aufgaben in den Bereichen Vertragswesen, Bewilligungen und Sozialversicherungen sowie behördliche Abklärungen\n• Verwaltung des Zeitmanagementsystems\n• Erfassung, Kontrolle und Abrechnung des Fremdpersonals\n• Aktive Mitgestaltung und Weiterentwicklung von HR-Prozessen und der HR-Administration\n• Verfassen von stilsicherer HR-Korrespondenz in deutscher Sprache\n\nIhr Profil\n• Kaufmännische Grundausbildung, idealerweise ergänzt durch eine Weiterbildung als HR-Fachfrau/HR-Fachmann mit eidg. Fachausweis\n• Mehrjährige Erfahrung in der HR-Administration\n• Ausgeprägte Dienstleistungsorientierung sowie eine strukturierte, lösungsorientierte Arbeitsweise\n• Hohe Zuverlässigkeit, Teamfähigkeit und Eigenverantwortung\n• Bereitschaft, Verantwortung zu übernehmen und in einem dynamischen Umfeld aktiv mitzugestalten\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. Oktober 2026",
-        "fr": "Leurs tâches\n• Appui à l ' administration des ressources humaines de l ' entrée à la sortie\n• Traitement indépendant des tâches dans les domaines de la passation de marchés, de l'octroi de licences et de l'assurance sociale ainsi que des enquêtes officielles\n• Gestion du système de gestion du temps\n• Collecte, contrôle et comptabilité du personnel externe\n• Participation active et développement des processus de RH et de l'administration des RH\n• Rédaction de correspondance RH élégante en allemand\n\nVotre profil\n• Une formation de base commerciale, complétée idéalement par une formation continue en tant que spécialiste des ressources humaines en droit fédéral. Carte de spécialiste\n• Plusieurs années d'expérience dans l'administration des RH\n• Une forte orientation vers les services et une méthode de travail structurée et orientée vers la solution\n• Haute fiabilité, travail d'équipe et responsabilité personnelle\n• Volonté de prendre des responsabilités et de participer activement à un environnement dynamique\n\nEn outre, vous bénéficiez\n\nEntrée : 1er octobre 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4069910",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:02:39.433Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4069910",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4069910",
-      "previousSlugs": [
-        "fachspezialist-in-hr-svar-spitalverbund-ar-herisau",
-        "fachspezialist-in-risorse-umane-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "fachspezialist-in-hr-svar-spitalverbund-ar-herisau",
-          "fachspezialist-in-risorse-umane-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "specialista-hr-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "en": [
-          "fachspezialist-in-hr-svar-spitalverbund-ar-herisau"
-        ],
-        "fr": [
-          "fachspezialist-in-hr-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:53:37.415Z",
-      "salaryMin": 65000,
-      "salaryMax": 98500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65000,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-e08447460f0e",
-      "slug": "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "dipl-nurse-or-specialist-health-haemodialysis-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
-        "fr": "dipl-infirmiere-ou-specialiste-en-hemodialyse-de-la-sante-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Dipl. Pflegefachperson oder Fachperson Gesundheit Hämodialyse (m/w/d)",
-      "titleByLocale": {
-        "it": "Dipl. Infermiera o specialista Salute Emodialisi (m/f/d)",
-        "en": "Dipl. Nurse or specialist Health Haemodialysis (m/f/d)",
-        "de": "Dipl. Pflegefachperson oder Fachperson Gesundheit Hämodialyse (m/w/d)",
-        "fr": "Dipl. Infirmière ou spécialiste en hémodialyse de la santé (h/f/d)"
-      },
-      "description": "Ihre Aufgaben\n• Selbstständige Durchführung der Dialysebehandlungen in der Dialyseabteilung\n• Sicherstellung der Pflegequalität und interdisziplinäre Zusammenarbeit mit allen Berufsgruppen zur Gewährleistung einer optimalen Patientenversorgung\n• Sorgfältige, lückenlose und nachvollziehbare Führung der Pflegedokumentation und Verantwortung für die Ausführung ärztlicher Verordnungen\n• Sie haben ein Flair für medizinisch-technische Geräte\n• Sie verfügen über ein hohes Qualitätsbewusstsein\n\nIhr Profil\n• Ausbildung als diplomierte Pflegefachperson oder FaGe, mit Erfahrung im Akut-Spital, in der Dialyse oder auf einer nephrologischen Abteilung\n• Mehrjährige Berufserfahrung im Bereich Dialyse\n• Empathie, Kommunikationsstärke und Freude an interprofessioneller Zusammenarbeit\n• Leidenschaft für eine patientenzentrierte, professionelle Pflege\n• Einfühlungsvermögen im Umgang mit den Patientinnen und Patienten sowie hohe Eigenverantwortung\n• Gute PC-Anwenderkenntnisse, insbesondere in MS Office\n• Teamfähigkeit und Flexibilität\n\nZusätzlich profitieren Sie von\n\nEintritt: 16. September 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Applicazione indipendente dei trattamenti dialisi nel dipartimento di dialisi\n• Garantire la qualità della cura e la cooperazione interdisciplinare con tutti i gruppi professionali per garantire una cura ottimale del paziente\n• Gestione attenta, completa e tracciabile della documentazione di cura e della responsabilità per l'attuazione delle prescrizioni mediche\n• Hai un tocco per dispositivi medici\n• Hanno una consapevolezza di alta qualità\n\nIl tuo profilo\n• Formazione come infermiera qualificata o FaGe, con esperienza in ospedale acuto, dialisi o in un reparto nefrologico\n• Diversi anni di esperienza professionale nel campo della dialisi\n• Empatia, forza di comunicazione e godimento della cooperazione interprofessionale\n• Passione per la cura del paziente e professionale\n• Empatia nel trattare con i pazienti e alta responsabilità personale\n• Buona conoscenza dell'utente del PC, soprattutto in MS Office\n• Lavoro di squadra e flessibilità\n\nInoltre, si beneficia di\n\nIngresso: 16. settembre 2026",
-        "en": "Their tasks\n• Independent implementation of dialysis treatments in the dialysis department\n• Ensuring quality of care and interdisciplinary cooperation with all professional groups to ensure optimal patient care\n• Careful, complete and traceable management of nursing documentation and responsibility for the implementation of medical prescriptions\n• You have a flair for medical devices\n• They have a high quality awareness\n\nYour profile\n• Training as a qualified nurse or FaGe, with experience in acute hospital, dialysis or in a nephrological department\n• Several years of professional experience in the field of dialysis\n• Empathy, communication strength and enjoyment of interprofessional cooperation\n• Passion for patient-centered, professional care\n• Empathy in dealing with patients and high personal responsibility\n• Good PC user knowledge, especially in MS Office\n• Teamwork and flexibility\n\nIn addition, you benefit from\n\nEntrance: 16. September 2026",
-        "de": "Ihre Aufgaben\n• Selbstständige Durchführung der Dialysebehandlungen in der Dialyseabteilung\n• Sicherstellung der Pflegequalität und interdisziplinäre Zusammenarbeit mit allen Berufsgruppen zur Gewährleistung einer optimalen Patientenversorgung\n• Sorgfältige, lückenlose und nachvollziehbare Führung der Pflegedokumentation und Verantwortung für die Ausführung ärztlicher Verordnungen\n• Sie haben ein Flair für medizinisch-technische Geräte\n• Sie verfügen über ein hohes Qualitätsbewusstsein\n\nIhr Profil\n• Ausbildung als diplomierte Pflegefachperson oder FaGe, mit Erfahrung im Akut-Spital, in der Dialyse oder auf einer nephrologischen Abteilung\n• Mehrjährige Berufserfahrung im Bereich Dialyse\n• Empathie, Kommunikationsstärke und Freude an interprofessioneller Zusammenarbeit\n• Leidenschaft für eine patientenzentrierte, professionelle Pflege\n• Einfühlungsvermögen im Umgang mit den Patientinnen und Patienten sowie hohe Eigenverantwortung\n• Gute PC-Anwenderkenntnisse, insbesondere in MS Office\n• Teamfähigkeit und Flexibilität\n\nZusätzlich profitieren Sie von\n\nEintritt: 16. September 2026",
-        "fr": "Leurs tâches\n• Mise en œuvre indépendante des traitements de dialyse dans le département de dialyse\n• Assurer la qualité des soins et la coopération interdisciplinaire avec tous les groupes professionnels pour assurer des soins optimaux aux patients\n• Gestion soigneuse, complète et traçable de la documentation infirmière et responsabilité de la mise en oeuvre des prescriptions médicales\n• Vous avez un style pour les appareils médicaux\n• Ils ont une sensibilisation de haute qualité\n\nVotre profil\n• Formation en tant qu'infirmier qualifié ou FaGe, ayant une expérience en hôpital aigu, en dialyse ou dans un service néphrologique\n• Plusieurs années d'expérience professionnelle dans le domaine de la dialyse\n• Empathie, force de communication et jouissance de la coopération interprofessionnelle\n• Passion pour les soins professionnels centrés sur le patient\n• Empathie face aux patients et responsabilité personnelle élevée\n• Bonne connaissance des utilisateurs de PC, en particulier dans MS Office\n• Travail d'équipe et flexibilité\n\nEn outre, vous bénéficiez\n\nEntrée : 16 septembre 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4070229",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:02:38.840Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4070229",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4070229",
-      "previousSlugs": [
-        "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
-        "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar",
-          "dipl-pflegefachperson-o-fachperson-gesundheit-hamodialyse-m-w-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-          "dipl-infermiera-o-specialista-salute-emodialisi-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "en": [
-          "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar"
-        ],
-        "fr": [
-          "dipl-pflegefachperson-oder-fachperson-gesundheit-hamodialyse-m-w-d-svar-spitalverbund-ar"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:53:36.826Z",
-      "salaryMin": 81000,
-      "salaryMax": 113000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 113000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-282f0a147394",
-      "slug": "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-      "slugByLocale": {
-        "it": "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "en": "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "fr": "co-equipe-chef-soins-somatiques-aigus-focus-medecine-h-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "Co-Teamleitung Pflege Akutsomatik Schwerpunkt Medizin (m/w/d)",
-      "titleByLocale": {
-        "it": "Co-Team Leader Care Acute Somatics Focus Medicine (m/f/d)",
-        "en": "Co-Team Leader Care Acute Somatics Focus Medicine (m/f/d)",
-        "de": "Co-Teamleitung Pflege Akutsomatik Schwerpunkt Medizin (m/w/d)",
-        "fr": "Co-équipe Chef Soins Somatiques aigus Focus Médecine (h/f/d)"
-      },
-      "description": "Ihre Aufgaben\n• Personelle und organisatorische Führung der Mitarbeitenden auf einer medizinischen Bettenstation mit 18 Betten\n• Geteilte Verantwortung in einer Co-Teamleitung (50:50)\n• Sie führen ein Team fachlich und personell mit ca. 20 bis 25 Mitarbeitenden\n• Förderung und ganzheitliche Betreuung von Patienten\n• Mitwirkung an Prozessen und Projekten\n• Implementierung von Konzepten, Vorgaben und Standards sowie Verantwortung für die Organisation und Einhaltung der Stationsabläufe\n• Personal- und Teamentwicklung sowie individuelle Förderung der Mitarbeitenden\n• Mitentscheid bei der Personalrekrutierung\n• Aktive Mitarbeit im Tagesgeschäft als Dipl. Pflegefachperson\n\nIhr Profil\n• Ausbildung als Dipl. Pflegefachfrau/-mann AKP/DNII/HF/FH\n• Führungserfahrung und Führungsausbildung gewünscht\n• Hohe Sozialkompetenz, Flexibilität, gutes Organisationsgeschick und ausgeprägte Kommunikationsfähigkeit\n• Freude an einer interdisziplinären und interprofessionellen Zusammenarbeit\n• Engagement, Kreativität und Innovation bei der Weiterentwicklung der Station und des Teams\n• Selbstständige Arbeitsweise sowie offene, durchsetzungsfähige und belastbare Persönlichkeit\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n\nEintritt: 16. September 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Personale e gestione organizzativa dei dipendenti su una stazione di letto medico con 18 letti\n• Responsabilità condivisa in una gestione co-team (50:50)\n• Si guida un team professionale e personale con circa 20 a 25 dipendenti\n• Promozione e cura olistica dei pazienti\n• Partecipazione a processi e progetti\n• Attuazione di concetti, specifiche e standard, nonché responsabilità per l'organizzazione e il rispetto dei processi di stazione\n• Sviluppo del personale e del team e supporto individuale per i dipendenti\n• Codecisione nel reclutamento\n• Partecipazione attiva al business quotidiano come Dipl. Infermieristica professionale\n\nIl tuo profilo\n• Allenamento come Dipl. ACP/DNII/HF/FH infermiera\n• Esperienza di leadership e formazione di leadership desiderata\n• Alte competenze sociali, flessibilità, buone capacità organizzative e forti capacità di comunicazione\n• Godere di una cooperazione interdisciplinare e interprofessionale\n• Impegno, creatività e innovazione nello sviluppo della stazione e del team\n• Lavoro indipendente così come una personalità aperta, assertiva e resiliente\n• Il piacere di svilupparsi in una società che promuove l'apprendimento e la buona cooperazione è un aspetto centrale per il trattamento dei pazienti\n• Un alto grado di competenza tecnica, sociale, auto-e metodologica ti distingue\n• In un contesto interdisciplinare, si agisce in modo sicuro e costruttivo\n\nInoltre, si beneficia di\n\nIngresso: 16. settembre 2026",
-        "en": "Their tasks\n• Personnel and organizational management of employees on a medical bed station with 18 beds\n• Shared responsibility in a co-team management (50:50)\n• You lead a professional and personnel team with approximately 20 to 25 employees\n• Promotion and holistic care of patients\n• Participation in processes and projects\n• Implementation of concepts, specifications and standards as well as responsibility for the organization and compliance with station processes\n• Personnel and team development as well as individual support for employees\n• Co-decision in recruitment\n• Active participation in day-to-day business as Dipl. Nursing professional\n\nYour profile\n• Training as a Dipl. ACP/DNII/HF/FH nurse\n• Leadership experience and leadership training desired\n• High social skills, flexibility, good organisational skills and strong communication skills\n• Enjoying an interdisciplinary and interprofessional cooperation\n• Commitment, creativity and innovation in the development of the station and the team\n• Independent work as well as an open, assertive and resilient personality\n• The pleasure of developing in a company that promotes learning and good cooperation is a central aspect for the treatment of patients\n• High degree of technical, social, self- and methodological competence distinguishes you\n• In an interdisciplinary context, you act safely and constructively\n\nIn addition, you benefit from\n\nEntrance: 16. September 2026",
-        "de": "Ihre Aufgaben\n• Personelle und organisatorische Führung der Mitarbeitenden auf einer medizinischen Bettenstation mit 18 Betten\n• Geteilte Verantwortung in einer Co-Teamleitung (50:50)\n• Sie führen ein Team fachlich und personell mit ca. 20 bis 25 Mitarbeitenden\n• Förderung und ganzheitliche Betreuung von Patienten\n• Mitwirkung an Prozessen und Projekten\n• Implementierung von Konzepten, Vorgaben und Standards sowie Verantwortung für die Organisation und Einhaltung der Stationsabläufe\n• Personal- und Teamentwicklung sowie individuelle Förderung der Mitarbeitenden\n• Mitentscheid bei der Personalrekrutierung\n• Aktive Mitarbeit im Tagesgeschäft als Dipl. Pflegefachperson\n\nIhr Profil\n• Ausbildung als Dipl. Pflegefachfrau/-mann AKP/DNII/HF/FH\n• Führungserfahrung und Führungsausbildung gewünscht\n• Hohe Sozialkompetenz, Flexibilität, gutes Organisationsgeschick und ausgeprägte Kommunikationsfähigkeit\n• Freude an einer interdisziplinären und interprofessionellen Zusammenarbeit\n• Engagement, Kreativität und Innovation bei der Weiterentwicklung der Station und des Teams\n• Selbstständige Arbeitsweise sowie offene, durchsetzungsfähige und belastbare Persönlichkeit\n• Freude, sich in einem Unternehmen weiterzuentwickeln, welches Lernen fördert und die gute Zusammenarbeit ein zentraler Aspekt für die Behandlung der Patientinnen und Patienten ist\n• Hohes Mass an Fach-, Sozial-, Selbst- und Methodenkompetenz zeichnet Sie aus\n• In einem interdisziplinären Kontext agieren Sie sicher und konstruktiv\n\nZusätzlich profitieren Sie von\n\nEintritt: 16. September 2026",
-        "fr": "Leurs tâches\n• Personnel et gestion organisationnelle des employés sur un lit médical avec 18 lits\n• Responsabilité partagée dans une co-gestion d'équipe (50:50)\n• Vous dirigez une équipe professionnelle et de personnel avec environ 20 à 25 employés\n• Promotion et soins holistiques des patients\n• Participation aux processus et projets\n• Mise en oeuvre des concepts, spécifications et normes ainsi que de la responsabilité de l'organisation et de la conformité aux processus de la station\n• Développement du personnel et de l'équipe ainsi que soutien individuel aux employés\n• Codécision en matière de recrutement\n• Participation active aux activités quotidiennes sous le nom de Dipl. Professionnels des soins infirmiers\n\nVotre profil\n• Entraînement comme dipl. Infirmière ACP/DNII/HF/FH\n• Expérience en leadership et formation en leadership souhaitée\n• Compétences sociales élevées, flexibilité, bonnes aptitudes organisationnelles et bonnes compétences en communication\n• Profitez d'une coopération interdisciplinaire et interprofessionnelle\n• Engagement, créativité et innovation dans le développement de la station et de l'équipe\n• Travail indépendant et personnalité ouverte, affirmée et résistante\n• Le plaisir de se développer dans une entreprise qui favorise l'apprentissage et la bonne coopération est un aspect central du traitement des patients\n• Un haut degré de compétence technique, sociale, personnelle et méthodologique vous distingue\n• Dans un contexte interdisciplinaire, vous agissez de façon sûre et constructive\n\nEn outre, vous bénéficiez\n\nEntrée : 16 septembre 2026"
-      },
-      "needsRetranslation": false,
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4070348",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:02:38.230Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Sanità / Ospedali",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4070348",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4070348",
-      "previousSlugs": [
-        "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-        "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "it": [
-          "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau",
-          "co-team-leader-care-acute-somatics-focus-medicine-m-f-d-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ],
-        "en": [
-          "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau"
-        ],
-        "fr": [
-          "co-teamleitung-pflege-akutsomatik-schwerpunkt-medizin-m-w-d-svar-spitalverbund-ar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:53:36.275Z",
-      "salaryMin": 81000,
-      "salaryMax": 113000,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 81000,
-          "maxValue": 113000,
-          "unitText": "YEAR"
-        }
-      }
-    },
-    {
-      "id": "svar-spitalverbund-ar-d9c70e8fd7d6",
-      "slug": "hr-business-partnerin-svar-spitalverbund-ar-herisau",
-      "slugByLocale": {
-        "it": "hr-business-partnerin-svar-spitalverbund-ar-herisau",
-        "en": "hr-business-partner-spitalverbund-appenzell-ausserrhoden-svar-herisau",
-        "de": "hr-business-partnerin-svar-spitalverbund-ar-herisau",
-        "fr": "hr-business-partnerin-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      },
-      "company": "Spitalverbund Appenzell Ausserrhoden (SVAR)",
-      "companyKey": "svar-spitalverbund-ar",
-      "companyDomain": "svar.ch",
-      "title": "HR Business PartnerIn",
-      "titleByLocale": {
-        "it": "Risorse Umane Business PartnerIn",
-        "en": "HR Business Partner",
-        "de": "Personalwesen Business PartnerIn",
-        "fr": "HR Business PartnerIn"
-      },
-      "description": "Ihre Aufgaben\n• Du begleitest Führungskräfte im Alltag und unterstützt sie dabei, ihre Teams wirkungsvoll zu führen.\n• Selbstständige Rekrutierung in Zusammenarbeit mit der Linie, inklusive Bewerbungsprozesse, Interviews und Auswahl.\n• Beratung und Begleitung von Führungskräften in HR-Themen wie Personalplanung, Entwicklung, Performance, Honorierung und Konfliktmanagement\n• Du wirkst bei der Weiterentwicklung von HR-Prozessen mit und trägst dazu bei, Abläufe noch klarer, effizienter und menschenorientiert zu gestalten.\n• Du unterstützt Mitarbeitende in herausfordernden Situationen und trägst so zu einem gesunden, konstruktiven Arbeitsumfeld bei.\n• Du bringst Ideen ein, wie wir HR-Zahlen und Kennzahlen nutzen können, um gezielt Entscheidungen zu treffen und Entwicklungen sichtbar zu machen.\n• Du gestaltest Veränderungs- und Entwicklungsprozesse mit, sodass sie praktikabel, verständlich und nachhaltig umgesetzt werden.\n\nIhr Profil\n• Du hast eine HR-Ausbildung (z.B. eidg. Fachausweis HR-Fachfrau/-mann) und idealerweise Weiterbildungen auf HF/FH-Stufe (z.B. CAS/MAS HRM, Betriebswirtschaft oder Arbeitsrecht).\n• Du hast Erfahrung im HR, vorzugsweise in einer generalistischen oder Business-Partner-Rolle, und Freude daran, Führungskräfte zu begleiten.\n• Du bringst gute Kenntnisse im Arbeitsrecht mit und fühlst dich sicher in anspruchsvollen Gesprächs- und Konfliktsituationen.\n• Du interessierst dich für betriebswirtschaftliche Zusammenhänge und den Einsatz von Kennzahlen, um Entscheidungen zu unterstützen.\n• Du arbeitest strukturiert, lösungsorientiert und übernimmst Verantwortung, wo du etwas bewegen kannst.\n• Du bist offen dafür, bestehende Prozesse pragmatisch weiterzuentwickeln und aktiv Verbesserungsvorschläge einzubringen.\n• Du verfügst über sehr sichere Kenntnisse in MS Office (insbesondere Excel und PowerPoint); Erfahrung mit SwissSalary, PEP oder Haufe Umantis ist von Vorteil.\n• Du bringst sehr gute Deutschkenntnisse in Wort und Schrift mit.\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. November 2026",
-      "descriptionByLocale": {
-        "it": "I loro compiti\n• Accompagnate i leader nella vita di tutti i giorni e li sostenete nel guidare efficacemente le loro squadre.\n• Assunzione indipendente in collaborazione con la linea, compresi i processi di applicazione, le interviste e la selezione.\n• Consulenza e supporto ai manager in temi HR come pianificazione del personale, sviluppo, performance, premiazione e gestione dei conflitti\n• Contribuisci all'ulteriore sviluppo dei processi HR e contribuisci a rendere i processi ancora più chiari, più efficienti e orientati alle persone.\n• Sostiene i dipendenti in situazioni difficili e quindi contribuiscono a un ambiente di lavoro sano e costruttivo.\n• Voi portate idee su come possiamo utilizzare figure HR e figure chiave per prendere decisioni mirate e rendere visibili gli sviluppi.\n• Aiutate a modellare i processi di cambiamento e di sviluppo in modo che vengano implementati in modo pratico, comprensibile e sostenibile.\n\nIl tuo profilo\n• Hai un'educazione alle risorse umane (ad es. Certificato professionale HR) e formazione ideale a livello HF/FH (ad esempio CAS/MAS HRM, amministrazione aziendale o diritto del lavoro).\n• Hai esperienza nelle risorse umane, preferibilmente in un ruolo generalista o di business partner, e godere di leader di accompagnamento.\n• Porti una buona conoscenza del diritto del lavoro e ti senti sicuro nella discussione e nelle situazioni di conflitto difficili.\n• Sei interessato ai contesti aziendali e all'uso di figure chiave per sostenere le decisioni.\n• Si lavora strutturato, orientato alla soluzione e si assume la responsabilità dove si può fare la differenza.\n• Siete aperti a sviluppare pragmaticamente i processi esistenti e presentare attivamente suggerimenti per il miglioramento.\n• Hai una conoscenza molto sicura in MS Office (specialmente Excel e PowerPoint); l'esperienza con SwissSalary, PEP o Haufe Umantis è un vantaggio.\n• Porti molto buona conoscenza del tedesco in parola e scrittura.\n\nInoltre, si beneficia di\n\nIngresso: 01. novembre 2026",
-        "en": "Their tasks\n• You accompany leaders in everyday life and support them in leading their teams effectively.\n• Independent recruitment in cooperation with the line, including application processes, interviews and selection.\n• Advising and supporting managers in HR topics such as personnel planning, development, performance, rewarding and conflict management\n• You contribute to the further development of HR processes and contribute to making processes even clearer, more efficient and people-oriented.\n• You support employees in challenging situations and thus contribute to a healthy, constructive working environment.\n• You bring in ideas on how we can use HR figures and key figures to make targeted decisions and make developments visible.\n• You help shape change and development processes so that they are implemented in a practical, comprehensible and sustainable way.\n\nYour profile\n• You have an HR education (e.g. eidg. HR professional certificate) and ideally further training at HF/FH level (e.g. CAS/MAS HRM, business administration or employment law).\n• You have experience in HR, preferably in a generalist or business partner role, and enjoy accompanying leaders.\n• You bring good knowledge of employment law and feel safe in challenging discussion and conflict situations.\n• You are interested in business contexts and the use of key figures to support decisions.\n• You work structured, solution-oriented and take responsibility where you can make a difference.\n• You are open to pragmatically developing existing processes and actively submitting suggestions for improvement.\n• You have very secure knowledge in MS Office (especially Excel and PowerPoint); Experience with SwissSalary, PEP or Haufe Umantis is an advantage.\n• You bring very good knowledge of German in word and writing.\n\nIn addition, you benefit from\n\nAdmission: 01. November 2026",
-        "de": "Ihre Aufgaben\n• Du begleitest Führungskräfte im Alltag und unterstützt sie dabei, ihre Teams wirkungsvoll zu führen.\n• Selbstständige Rekrutierung in Zusammenarbeit mit der Linie, inklusive Bewerbungsprozesse, Interviews und Auswahl.\n• Beratung und Begleitung von Führungskräften in HR-Themen wie Personalplanung, Entwicklung, Performance, Honorierung und Konfliktmanagement\n• Du wirkst bei der Weiterentwicklung von HR-Prozessen mit und trägst dazu bei, Abläufe noch klarer, effizienter und menschenorientiert zu gestalten.\n• Du unterstützt Mitarbeitende in herausfordernden Situationen und trägst so zu einem gesunden, konstruktiven Arbeitsumfeld bei.\n• Du bringst Ideen ein, wie wir HR-Zahlen und Kennzahlen nutzen können, um gezielt Entscheidungen zu treffen und Entwicklungen sichtbar zu machen.\n• Du gestaltest Veränderungs- und Entwicklungsprozesse mit, sodass sie praktikabel, verständlich und nachhaltig umgesetzt werden.\n\nIhr Profil\n• Du hast eine HR-Ausbildung (z.B. eidg. Fachausweis HR-Fachfrau/-mann) und idealerweise Weiterbildungen auf HF/FH-Stufe (z.B. CAS/MAS HRM, Betriebswirtschaft oder Arbeitsrecht).\n• Du hast Erfahrung im HR, vorzugsweise in einer generalistischen oder Business-Partner-Rolle, und Freude daran, Führungskräfte zu begleiten.\n• Du bringst gute Kenntnisse im Arbeitsrecht mit und fühlst dich sicher in anspruchsvollen Gesprächs- und Konfliktsituationen.\n• Du interessierst dich für betriebswirtschaftliche Zusammenhänge und den Einsatz von Kennzahlen, um Entscheidungen zu unterstützen.\n• Du arbeitest strukturiert, lösungsorientiert und übernimmst Verantwortung, wo du etwas bewegen kannst.\n• Du bist offen dafür, bestehende Prozesse pragmatisch weiterzuentwickeln und aktiv Verbesserungsvorschläge einzubringen.\n• Du verfügst über sehr sichere Kenntnisse in MS Office (insbesondere Excel und PowerPoint); Erfahrung mit SwissSalary, PEP oder Haufe Umantis ist von Vorteil.\n• Du bringst sehr gute Deutschkenntnisse in Wort und Schrift mit.\n\nZusätzlich profitieren Sie von\n\nEintritt: 01. November 2026",
-        "fr": "Leurs tâches\n• Vous accompagnez les leaders dans la vie quotidienne et les aidez à diriger efficacement leurs équipes.\n• Recrutement indépendant en coopération avec la ligne, y compris les processus de candidature, les entrevues et la sélection.\n• Conseiller et appuyer les gestionnaires dans des domaines comme la planification du personnel, le perfectionnement, le rendement, la récompense et la gestion des conflits\n• Vous contribuez au développement des processus RH et contribuez à rendre les processus encore plus clairs, plus efficaces et axés sur les gens.\n• Vous aidez les employés dans des situations difficiles et contribuez ainsi à un milieu de travail sain et constructif.\n• Vous apportez des idées sur la façon dont nous pouvons utiliser les chiffres des RH et les chiffres clés pour prendre des décisions ciblées et rendre les développements visibles.\n• Vous aidez à façonner les processus de changement et de développement afin qu'ils soient mis en œuvre de manière pratique, compréhensible et durable.\n\nVotre profil\n• Vous avez une formation en RH (p. ex. Certificat professionnel RH) et idéalement une formation complémentaire au niveau HF/FH (p. ex. CAS/MAS HRM, administration des entreprises ou droit du travail).\n• Vous avez de l'expérience en RH, de préférence dans un rôle de généraliste ou de partenaire d'affaires, et aimez accompagner les dirigeants.\n• Vous apportez une bonne connaissance du droit du travail et vous sentez en sécurité dans les discussions difficiles et les situations de conflit.\n• Vous êtes intéressé par les contextes d'affaires et l'utilisation de chiffres clés pour soutenir les décisions.\n• Vous travaillez structuré, orienté vers la solution et prenez des responsabilités là où vous pouvez faire une différence.\n• Vous êtes ouvert au développement pragmatique des processus existants et soumettez activement des suggestions d'amélioration.\n• Vous avez des connaissances très sécurisées dans MS Office (surtout Excel et PowerPoint); Expérience avec SwissSalary, PEP ou Haufe Umantis est un avantage.\n• Vous apportez une très bonne connaissance de l'allemand dans la parole et l'écriture.\n\nEn outre, vous bénéficiez\n\nEntrée : 01. novembre 2026"
-      },
-      "location": "Herisau",
-      "canton": "AR",
-      "url": "https://live.solique.ch/svar/job/details/4069965",
-      "source": "Spitalverbund Appenzell Ausserrhoden (SVAR) Dedicated Parser (Solique careers portal)",
-      "sourceLang": "de",
-      "crawledAt": "2026-09-22T00:02:37.497Z",
-      "addressLocality": "Herisau",
-      "addressRegion": "AR",
-      "addressCountry": "CH",
-      "country": "CH",
-      "postalCode": "9100",
-      "category": "Risorse Umane",
-      "contract": "full-time",
-      "employmentType": "OTHER",
-      "experienceLevel": "mid",
-      "sector": "Sanità / Ospedali",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-19",
-      "applyUrl": "https://live.solique.ch/svar/job/details/4069965",
-      "requirements": [],
-      "requirementsByLocale": {},
-      "externalId": "4069965",
-      "previousSlugs": [
-        "partenaire-operationnel-rh-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-      ],
-      "previousSlugsByLocale": {
-        "fr": [
-          "partenaire-operationnel-rh-spitalverbund-appenzell-ausserrhoden-svar-herisau"
-        ]
-      },
-      "firstSeenAt": "2026-09-19T22:53:35.572Z",
-      "salaryMin": 65000,
-      "salaryMax": 98500,
-      "salarySource": "estimated",
-      "baseSalary": {
-        "@type": "MonetaryAmount",
-        "currency": "CHF",
-        "value": {
-          "@type": "QuantitativeValue",
-          "minValue": 65000,
-          "maxValue": 98500,
-          "unitText": "YEAR"
-        }
-      }
+      "crawlerMissStreak": 1
     }
   ]
 }
