@@ -46,6 +46,7 @@ import {
   isLowQualityLocalizedTitle as _isLowQualityLocalizedTitle,
   isLowQualityLocalizedSlug as _isLowQualityLocalizedSlug,
   fingerprintJob as _fingerprintJob,
+  eocContinuityKey as _eocContinuityKey,
   dedupHeuristicKey as _dedupHeuristicKey,
   ensureJobSlug as _ensureJobSlug,
   stableSlugHash as _stableSlugHash,
@@ -6212,6 +6213,7 @@ async function main() {
     resolveJobCompanyKey: companyKeyResolver.resolveRecord,
     contentReuse: crawlerConfig.contentReuse,
     localizeExistingOnly: localizeExistingOnly,
+    continuityKey: _eocContinuityKey,
   });
   let merged = mergeResult.merged;
   const {
