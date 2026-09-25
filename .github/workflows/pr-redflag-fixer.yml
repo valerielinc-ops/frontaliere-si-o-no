@@ -1635,7 +1635,7 @@ jobs:
       # è il commit vuoto che il prompt vieta (quello nasce da un round che non
       # ha fatto NIENTE e produce una seconda review sullo stesso lavoro —
       # storm #9066/#9074). Qui la condizione è l'opposta: si spinge solo se una
-      # modifica c'è stata, ed è limitata dal round cap a 2.
+      # modifica c'è stata, ed è limitata dal round cap (MAX_ROUNDS, oggi 3).
       - name: Advance HEAD after a PR-body fix (un body nuovo non è rivedibile senza un commit)
         id: body_advance
         if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
@@ -1691,8 +1691,8 @@ jobs:
           # si esce verdi. Si rende visibile e si attiva il percorso di sblocco.
           echo "::error::Push del commit di sblocco fallito: il body è corretto ma nessuna review nuova può essere emessa sulla HEAD $BASE_SHA."
           echo "advanced=push-failed" >> "$GITHUB_OUTPUT"
-          # Idempotente sul marker, come l'escalation del round cap: il round 2
-          # ripasserebbe di qui e riposterebbe la stessa diagnosi. Here-string,
+          # Idempotente sul marker, come l'escalation del round cap: un round
+          # successivo ripasserebbe di qui e riposterebbe la stessa diagnosi. Here-string,
           # non `printf | grep -q`: con pipefail il SIGPIPE su un elenco
           # commenti grande rende falso il guard (stessa trappola di #9283).
           comments=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
