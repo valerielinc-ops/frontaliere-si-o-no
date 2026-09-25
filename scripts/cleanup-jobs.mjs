@@ -29,6 +29,7 @@ import { intFromEnv } from './lib/int-from-env.mjs';
 import {
   collapseDuplicateRouteEntries,
   mergeSourceIdentityHistory,
+  normalizeExpiredEntryTitles,
   normalizeExpiredAtEntries,
 } from './lib/expired-jobs-archive.mjs';
 import { isSliceFile } from './lib/crawler-slice-files.mjs';
@@ -126,7 +127,7 @@ function buildExpiredEntry(job) {
   const entry = {
     slug: job.slug,
     title: job.title || '',
-    titleByLocale: job.titleByLocale || {},
+    titleByLocale: { ...(job.titleByLocale || {}) },
     company: job.company || '',
     companyKey: job.companyKey || '',
     location: job.location || '',
@@ -162,6 +163,7 @@ function buildExpiredEntry(job) {
         ? JSON.parse(JSON.stringify(job.sourceIdentityHistory))
         : undefined,
   };
+  normalizeExpiredEntryTitles(entry);
   // Clean up empty fields
   if (!entry.postalCode) delete entry.postalCode;
   if (!entry.streetAddress) delete entry.streetAddress;
