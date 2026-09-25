@@ -6689,6 +6689,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.urne-due-iniziative-2026.title': 'Note Suisse : neutralité et alimentation',
     'blog.article.urne-due-iniziative-2026.excerpt': 'Le 27 septembre 2026, la Suisse vote sur la neutralité et l\'alimentation. La source vous invite à participer au sondage de 20 minutes et Tamedia.',
     'blog.article.urne-due-iniziative-2026.imageAlt': 'Vote suisse sur neutralité et alimentation',
+    'blog.article.conferenza-protezione-popolazione-berna.title': 'Conférence sur la protection de la population : diffusion cellulaire accélérée',
+    'blog.article.conferenza-protezione-popolazione-berna.excerpt': 'Le 23 septembre 2026 à Berne, le Conseil fédéral accélère le cell broadcast et Marc Siegenthaler participe à la conférence.',
+    'blog.article.conferenza-protezione-popolazione-berna.imageAlt': 'Délégués cantonaux réunis à Berne pour discuter de la protection de la population et du cell broadcast.',
 };
 
 export default blogMetaChFr;
