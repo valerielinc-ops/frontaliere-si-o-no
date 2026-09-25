@@ -8,7 +8,7 @@ name: PR 🔴 fixer (bounded loop-closure on bot PRs)
 # resta esclusa.
 #
 # ANTI-LOOP: un marker nascosto `<!-- REDFLAG_FIX_ROUND: N HEAD: <sha> -->` sulla PR conta i
-# round. A N>=2 → label `needs-human` + escalation, STOP senza Claude: il limite
+# round. A N>=3 → label `needs-human` + escalation, STOP senza Claude: il limite
 # protegge il branch da tentativi ripetitivi che non producono progresso.
 
 on:
@@ -895,7 +895,7 @@ jobs:
         run: echo "Verdetto 🔴 già acquisito per questa PR+HEAD → nessun secondo round Claude."
 
       # ── Round cap + capability guard (deterministico, prima di Claude) ────
-      # Conta i marker `<!-- REDFLAG_FIX_ROUND: N -->` già sulla PR. A N>=2 →
+      # Conta i marker `<!-- REDFLAG_FIX_ROUND: N -->` già sulla PR. A N>=3 →
       # escalation a needs-human, STOP senza Claude. Altrimenti incrementa.
       # Capability guard: se la PR tocca .github/workflows/** e non c'è nessun token
       # capace, il push verrebbe rifiutato (scope workflows) → skip senza bruciare
@@ -935,7 +935,11 @@ jobs:
           HAS_PAT: ${{ env.APP_TOKEN_WORKFLOWS == 'true' || env.GITHUB_PAT != '' }}
         run: |
           set -uo pipefail
-          MAX_ROUNDS=2
+          # 3 dal 2026-09-25: con la risposta per anchor un round può servire a
+          # una contestazione (una re-review, non un fix), e sulle 46 PR bot del
+          # 15-25/09 una correzione convergeva al round successivo nel 45-54% dei
+          # casi (~75% entro 2 round, ~88% entro 3).
+          MAX_ROUNDS=3
 
           # GITHUB_TOKEN è un installation token di Actions, non un token utente:
           # `gh api user` non può identificarlo e fallisce anche se le API della
@@ -1566,7 +1570,7 @@ jobs:
           # 45->60 (2026-07-17, owner): bump fleet-wide di tutti i cap max-turns
           # Claude dopo l'ennesimo error_max_turns (pr-review-loop run 29556645538).
           prompt: |
-            Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/2.
+            Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/3.
 
             **Contratto documentale vincolante (prefetch zero-Claude):**
             Le sezioni vincolanti sono già dentro questa richiesta, non in un output del tool:
@@ -1578,7 +1582,7 @@ jobs:
             1. Usa il contratto documentale già incluso sopra: `REVIEW.md` (scopo + severity) e `AGENTS.md` (Non-Negotiables + Privacy). Se una sezione manca, considera il prefetch fallito e fermati: non procedere con un bundle incompleto.
             2. Il bundle deterministico è già pronto in `${{ runner.temp }}/redflag/redflag-bundle.md` (prefetch zero-Claude): PR metadata (title/body/headRefName), elenco file completo (REST paginata, non tronca a 100), ultima review Claude con i 🔴, e gli stati già dichiarati in `## Non implementato` (vedi Regole sotto). **Leggilo con `Read` come prima cosa; non rieseguire `gh pr view`, `gh api .../files` o `gh api .../reviews` per gli stessi dati** — solo se una sezione risulta vuota/mancante e ti serve davvero, ripeti la singola chiamata mancante. Il branch è già checkoutato sulla head della PR.
 
-            **Obiettivo:** applica un fix CLASS-COMPLETE ai findings `🔴 Important` aperti su QUESTO branch: quelli della review più recente e quelli che il bundle elenca in «🔴 aperti secondo il gate» (il gate blocca anche su quelli). Se un 🔴 porta `Accettazione: <controllo>`, quel controllo è il criterio con cui la re-review giudicherà il tuo fix: eseguilo prima del push. NON mergiare.
+            **Obiettivo:** applica un fix CLASS-COMPLETE ai findings `🔴 Important` aperti su QUESTO branch: quelli della review più recente e quelli che il bundle elenca in «🔴 aperti secondo il gate» (il gate blocca anche su quelli). Se un 🔴 porta `Accettazione: <controllo>`, quel controllo è il criterio con cui la re-review giudicherà il tuo fix: eseguilo prima del push. Se non la porta, scegli tu un controllo verificabile che eserciti proprio il difetto (un test, un comando, un input con l'output atteso), eseguilo e dichiaralo nella risposta come `Accettazione proposta:`: il reviewer giudicherà il fix su quello. NON mergiare.
 
             **Verdetto deterministico dello scope — 🔴 SOLO-BODY: `${{ needs.scope.outputs.body_only }}`.**
             Quando vale `true`, il classificatore ha già stabilito che OGNI `🔴 Important` aperto si ancora a `PR body:L<n>` e non cita nessun file: **il difetto è nel BODY della PR, non nell'albero.** In quel caso:
@@ -1604,7 +1608,7 @@ jobs:
             - Aggiorna il body della PR: scrivi il testo completo nel file assoluto `$RUNNER_TEMP/pr-redflag-pr-body.md` (imposta `BODY_FILE` a quel path), poi esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e solo con exit 0 chiama `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"`. Non usare un body inline: il wrapper deterministico su `gh` blocca ogni riscrittura senza body-file o con body non conforme prima della chiamata remota. Mantieni `## Implementato` (aggiungi cosa hai fixato) + `## Non implementato (ancora)`. Ogni bullet della seconda sezione vuole uno STATO LETTERALE, scritto esattamente così: `in questa PR` / `PR concatenata #N` (col numero) / `per scelta` / `by construction` / `falso positivo` / `blocked: <causa esterna reale>` (AGENTS.md #8). La forma `PR concatenata` senza `#N` non è tracciabile, non chiude il bullet e va trattata come lavoro aperto. Non è cosmesi: `scripts/ci/followup-has-candidates.mjs` riapre come issue di follow-up ogni bullet `blocked: <causa tecnica>` **e ogni bullet senza stato** — un 🔴 che hai appena chiuso, descritto senza stato, torna indietro come issue nuova. Le deroghe decisionali (`per scelta`, `by construction`, `falso positivo`, `blocked: decisione del proprietario`) sono chiusure solo con `**Motivo:** <causa concreta>. **Prossimo passo:** <azione concreta>.` nello stesso bullet; una formula nuda, generica o con placeholder resta aperta e il gate la blocca. **Divieto: non scrivere MAI `per scelta` / `by construction` / `falso positivo` / `blocked: decisione del proprietario` su un item che stai SALTANDO in questo round** (sibling non sweepati, finding rimandati, lavoro che non hai fatto). Quei quattro stati chiudono la voce, e al round 2 saresti TU a rileggere il bullet che hai scritto tu come decisione già presa: ritireresti il 🔴 senza averlo fixato, con il round cap che non scatta mai perché ogni round si dichiara terminato. Per ciò che salti usa `PR concatenata #N` (col numero) o `blocked: <causa esterna reale>`; gli stati chiudenti valgono solo per ciò che hai deciso di non fare MAI, col motivo scritto dopo lo stato.
 
             **Risposta per finding (obbligatoria, anche senza commit).** Prima del push, o prima di terminare senza commit, scrivi `$RUNNER_TEMP/redflag-response.md` con UNA riga per ogni 🔴 aperto, usando l'anchor della review:
-            - `` `path:L<n>` — fixed: <cosa hai cambiato, con path:L>. Verifica: <comando dell'Accettazione, o test eseguito> → <esito> ``
+            - `` `path:L<n>` — fixed: <cosa hai cambiato, con path:L>. Verifica: <comando dell'Accettazione, o test eseguito> → <esito> `` (se il 🔴 non aveva `Accettazione:`, chiudi con `` Accettazione proposta: <il controllo eseguito> ``)
             - `` `path:L<n>` — disputed: <evidenza dal codice attuale (path:L) o bullet del body con stato chiudente, e perché il finding non si applica> ``
             - `` `path:L<n>` — not-fixable: <motivo concreto: decisione del proprietario, misura live, root cause non chiara> ``
             Lo step successivo la pubblica sulla PR; il reviewer la trova nel suo bundle e deve rispondere voce per voce (`Fix di …: ok` oppure 🔴 con `Replica:`), come prescrive REVIEW.md «Re-review convergence». `disputed` solo con evidenza concreta, mai per un finding che scegli di non fare. Il veto di uno stato dichiarato nel body (regole sopra) è un `disputed` che cita quel bullet. La risposta pubblicata vale come spiegazione: non serve un commento a parte.
@@ -1631,7 +1635,7 @@ jobs:
       # è il commit vuoto che il prompt vieta (quello nasce da un round che non
       # ha fatto NIENTE e produce una seconda review sullo stesso lavoro —
       # storm #9066/#9074). Qui la condizione è l'opposta: si spinge solo se una
-      # modifica c'è stata, ed è limitata dal round cap a 2.
+      # modifica c'è stata, ed è limitata dal round cap (MAX_ROUNDS, oggi 3).
       - name: Advance HEAD after a PR-body fix (un body nuovo non è rivedibile senza un commit)
         id: body_advance
         if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
@@ -1687,8 +1691,8 @@ jobs:
           # si esce verdi. Si rende visibile e si attiva il percorso di sblocco.
           echo "::error::Push del commit di sblocco fallito: il body è corretto ma nessuna review nuova può essere emessa sulla HEAD $BASE_SHA."
           echo "advanced=push-failed" >> "$GITHUB_OUTPUT"
-          # Idempotente sul marker, come l'escalation del round cap: il round 2
-          # ripasserebbe di qui e riposterebbe la stessa diagnosi. Here-string,
+          # Idempotente sul marker, come l'escalation del round cap: un round
+          # successivo ripasserebbe di qui e riposterebbe la stessa diagnosi. Here-string,
           # non `printf | grep -q`: con pipefail il SIGPIPE su un elenco
           # commenti grande rende falso il guard (stessa trappola di #9283).
           comments=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
@@ -1710,7 +1714,7 @@ jobs:
       # della PR. Su #9147 il fixer ha scritto «già risolto alla riga 282» e il
       # reviewer ha ripetuto lo stesso 🔴 in altre quattro review. Qui, se il
       # round non ha pushato codice e la risposta contiene un `disputed`, un
-      # commit vuoto (uno per round, round cap 2) chiede quel giudizio.
+      # commit vuoto (uno per round, round cap 3) chiede quel giudizio.
       - name: Publish the per-finding response (zero-Claude)
         id: response
         if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
@@ -1886,7 +1890,7 @@ jobs:
             exit 0
           fi
           if [ "$ACTION_OUTCOME" = "failure" ]; then
-            echo "::error::🔴-fix: nessun commit pushato e l'azione è fallita ('$ACTION_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
+            echo "::error::🔴-fix: nessun commit pushato e l'azione è fallita ('$ACTION_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=3)."
             exit 1
           fi
           # Un body riscritto SENZA una HEAD nuova non è un terminale
@@ -1905,7 +1909,7 @@ jobs:
           fi
           NOW_COMMENTS=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
           if [ "${NOW_COMMENTS:-0}" -le "${BASE_COMMENTS:-0}" ]; then
-            echo "::error::🔴-fix: nessun commit pushato, l'azione è uscita '$ACTION_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=2)."
+            echo "::error::🔴-fix: nessun commit pushato, l'azione è uscita '$ACTION_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=3)."
             exit 1
           fi
           echo "Nessun push ma l'azione è terminata pulita ('$ACTION_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."

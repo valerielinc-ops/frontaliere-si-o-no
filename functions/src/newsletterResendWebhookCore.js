@@ -11,6 +11,7 @@ import {
   mergeAccountDeletedSubscriberUpdate,
   HUMAN_DECLARED_SUPPRESSIONS,
   MACHINE_INFERRED_SUPPRESSIONS,
+  UNKNOWN_RECIPIENT,
 } from './lib/subscriberReactivation.js';
 import { normalizeEmailAddress } from './lib/parseEmailField.js';
 import { recordJobEmailRankingClick } from './lib/jobEmailRankingStore.js';
@@ -251,7 +252,8 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  // ── Route job-alert emails to job_alert_subscribers/{email} ──
  if (emailType === 'job-alert' || emailType === 'job-alert-retry') {
  const alertId = sanitizeString(tags.alert_id) || uniqueUnknownFallback(messageId, occurredAt);
- await applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl, linkLabel, occurredAt, rawEvent });
+ const jobAlertResult = await applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl, linkLabel, occurredAt, rawEvent });
+ if (jobAlertResult?.handled === false) return jobAlertResult;
  return { handled: true, email, type, collection: 'job_alert_subscribers', alertId };
  }
 
@@ -277,7 +279,7 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  // between this read and this write) can't be clobbered by a promotion
  // decision made from a stale read.
  const subscriberRef = db.collection('newsletter_subscribers').doc(email);
- await subscriberRef.firestore.runTransaction(async (tx) => {
+ const subscriberKnown = await subscriberRef.firestore.runTransaction(async (tx) => {
  // Read current subscriber status to avoid promoting pending users, plus
  // `bounce_severity` — the suppression-recovery decision below needs both
  // (a 'bounced' doc is recoverable only when the bounce was NOT hard) — plus
@@ -289,11 +291,12 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  let currentStatus = null;
  let currentBounceSeverity = null;
  const subscriberDoc = await tx.get(subscriberRef);
- if (subscriberDoc.exists) {
+ // A provider event never creates the subscriber record (see
+ // mergeAccountDeletedSubscriberUpdate in lib/subscriberReactivation.js).
+ if (!subscriberDoc.exists) return false;
  currentData = subscriberDoc.data() || null;
  currentStatus = currentData?.status || null;
  currentBounceSeverity = currentData?.bounce_severity || null;
- }
 
  const subscriberUpdate = buildSubscriberUpdate(type, {
  email,
@@ -338,7 +341,9 @@ export async function applyResendWebhookEvent(rawEvent, options = {}) {
  protectAccountDeletedSubscriberUpdate(subscriberUpdate, currentData),
  { merge: true },
  );
+ return true;
  });
+ if (!subscriberKnown) return { handled: false, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);
@@ -471,7 +476,7 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  // promotion. This used to be an UNCONDITIONAL `topUpdate.status = 'active'`,
  // which would overwrite 'complained' — a human's spam complaint — with a
  // machine's inference, and equally resurrect a proven-permanent hard bounce.
- await mergeAccountDeletedSubscriberUpdate(
+ const merged = await mergeAccountDeletedSubscriberUpdate(
  subscriberRef,
  topUpdate,
  type === 'delivered' || type === 'open' || type === 'click'
@@ -484,6 +489,7 @@ async function applyJobAlertEvent(db, { email, type, alertId, messageId, linkUrl
  : null,
  db,
  );
+ if (merged === null) return { handled: false, reason: UNKNOWN_RECIPIENT };
 
  if (bounceSeverity === 'soft') {
  await maybeEscalateSoftBounce(subscriberRef, bounceReasonText);

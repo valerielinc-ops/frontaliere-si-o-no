@@ -8,7 +8,11 @@
  * fa leggere `data/jobs/` a uno script che prima non lo leggeva e il job muore
  * in produzione con ENOENT. Qui quel cambiamento diventa una CI rossa.
  *
- * Controlla tre cose:
+ * Per i profili a esclusione (`/*` + `!/bucket/`) controlla tre cose, per le
+ * allow-list scritte a mano una (vedi sotto, dal 2026-09-25):
+ *   0. allow-list: ogni file di codice che il job carica — chiusura statica,
+ *      bersagli dei symlink compresi — e' materializzato (git decide la
+ *      corrispondenza, `pathsOutsideSparseRules`);
  *   1. nessun file di CODICE che il job carica finisce fra gli esclusi — per un
  *      job che esegue `tsc` questo include l'intero programma TypeScript
  *      (`tsProgramFiles()`, issue #6149), non solo gli entry point raggiunti
@@ -25,10 +29,11 @@
  *   node scripts/ci/verify-checkout-profiles.mjs
  */
 import fs from 'node:fs';
+import os from 'node:os';
 import path from 'node:path';
 import { execFileSync } from 'node:child_process';
 import YAML from 'yaml';
-import { analyzeWorkflow, ROOT, BUCKETS, CROSSOVER_MB, TREE_MB } from './checkout-profile-analyzer.mjs';
+import { analyzeWorkflow, transitiveClosure, ROOT, BUCKETS, CROSSOVER_MB, TREE_MB } from './checkout-profile-analyzer.mjs';
 
 const WF_DIR = path.join(ROOT, '.github/workflows');
 
@@ -140,6 +145,46 @@ export function importedDataOrPublicPathsIn(source) {
   return out;
 }
 
+/**
+ * I percorsi di `paths` che una lista di regole sparse NON materializza.
+ *
+ * Decide git stesso (`git sparse-checkout check-rules`, git >= 2.41), non una
+ * reimplementazione: le allow-list scritte a mano usano la sintassi gitignore
+ * non-cone (`scripts/` vale a ogni profondita', `scripts/lib/**`, negazioni) o
+ * la modalita' cone (directory, file di root sempre inclusi), e un matcher
+ * fatto in casa sbaglierebbe proprio sui casi limite. Senza git non si puo'
+ * rispondere: si lancia, e il chiamante lo trasforma in un problema — un
+ * controllo che non ha guardato non deve leggersi come «tutto coperto».
+ */
+export function pathsOutsideSparseRules(patterns, paths, { cone = false, cwd = ROOT } = {}) {
+  const list = [...new Set(paths)].filter(Boolean);
+  if (!list.length) return [];
+  const dir = fs.mkdtempSync(path.join(os.tmpdir(), 'sparse-rules-'));
+  try {
+    const rules = path.join(dir, 'rules');
+    fs.writeFileSync(rules, `${patterns.join('\n')}\n`);
+    const out = execFileSync(
+      'git',
+      ['sparse-checkout', 'check-rules', cone ? '--cone' : '--no-cone', '--rules-file', rules],
+      { cwd, input: `${list.join('\n')}\n`, maxBuffer: 1 << 26, stdio: ['pipe', 'pipe', 'pipe'] },
+    ).toString();
+    const inside = new Set(out.split('\n').filter(Boolean));
+    return list.filter((p) => !inside.has(p));
+  } finally {
+    fs.rmSync(dir, { recursive: true, force: true });
+  }
+}
+
+/**
+ * I file di codice che un job carica e che la sua allow-list sparse non
+ * materializza: chiusura STATICA degli entry point (piu' i moduli importati da
+ * heredoc/`node -e`), bersagli dei symlink compresi. Vuoto = coperta.
+ */
+export function uncoveredAllowListCode(lines, entries, { cone = false } = {}) {
+  const loaded = transitiveClosure([...new Set(entries)], { staticOnly: true }).map((r) => r.rel);
+  return pathsOutsideSparseRules(lines, loaded, { cone });
+}
+
 /** Un percorso e' fuori dal checkout, dati i pattern sparse non-cone. */
 export function isExcludedBy(patterns, p) {
   const list = Array.isArray(patterns) ? patterns : [];
@@ -171,7 +216,7 @@ export function isExcludedBy(patterns, p) {
 export function verifyCheckoutProfiles() {
   const pkg = JSON.parse(fs.readFileSync(path.join(ROOT, 'package.json'), 'utf8'));
   const problems = [];
-  let jobs = 0, withSparse = 0;
+  let jobs = 0, withSparse = 0, allowListsVerified = 0;
 
 
   for (const f of fs.readdirSync(WF_DIR).filter((x) => /\.ya?ml$/.test(x)).sort()) {
@@ -191,9 +236,40 @@ export function verifyCheckoutProfiles() {
       const where = `${f}:${job.jobId}`;
 
       const lines = String(sparse).split('\n').map((l) => l.trim()).filter(Boolean);
-      // Gli sparse scritti a mano possono usare una allow-list (un solo file):
-      // si riconoscono perche' non cominciano con `/*`, e non li si giudica qui.
-      if (lines[0] !== '/*') continue;
+      // Gli sparse scritti a mano possono usare una allow-list: si riconoscono
+      // perche' non cominciano con `/*`. Fino al 2026-09-25 qui si saltavano del
+      // tutto («non li si giudica qui»), e #9835 e' arrivata su main con un
+      // watchdog che importava `build-plugins/shared/articleSectionCore.mjs` —
+      // un symlink verso `packages/articles/engine/…`, fuori dalla sua
+      // allow-list: ERR_MODULE_NOT_FOUND alla prima run (36128534394), CI
+      // verde. Per una allow-list l'invariante e' lo stesso del punto 1 sotto:
+      // ogni file di codice che il job carica, bersagli dei symlink compresi
+      // (vedi transitiveClosure), deve essere materializzato. Si misura sulla
+      // chiusura STATICA (piu' i moduli importati da heredoc/`node -e`): e' cio'
+      // che Node collega prima di eseguire, e che quindi fallisce SEMPRE; un
+      // `import()` pigro su un ramo che il job non percorre non lo rompe.
+      if (lines[0] !== '/*') {
+        // Attribuibile solo se questo e' L'UNICO checkout del job, alla radice:
+        // con piu' checkout (matrix-equivalence-check.yml: uno sparse solo per
+        // l'action composita, poi `tooling/` e `build/` pieni) il codice gira
+        // da un altro albero e la chiusura non appartiene a questa allow-list.
+        const checkouts = (doc?.jobs?.[job.jobId]?.steps ?? [])
+          .filter((s) => typeof s?.uses === 'string' && s.uses.startsWith('actions/checkout@'));
+        if (checkouts.length !== 1 || step.with.path) continue;
+        const cone = step.with['sparse-checkout-cone-mode'] !== false;
+        allowListsVerified++;
+        let missing = [];
+        try {
+          missing = uncoveredAllowListCode(lines, [...(job.entries ?? []), ...(job.inlineEntries ?? [])], { cone });
+        } catch (e) {
+          problems.push(`${where}: allow-list sparse non verificabile (git sparse-checkout check-rules: ${String(e.message || e).split('\n')[0]})`);
+          continue;
+        }
+        for (const rel of missing) {
+          problems.push(`${where}: l'allow-list sparse non materializza ${rel}, che il job carica come codice`);
+        }
+        continue;
+      }
 
       // Sopra la soglia di convenienza lo sparse rallenta invece di aiutare:
       // un profilo li' sopra e' un difetto, non un'ottimizzazione.
@@ -276,12 +352,12 @@ export function verifyCheckoutProfiles() {
       }
     }
   }
-  return { problems, jobs, withSparse };
+  return { problems, jobs, withSparse, allowListsVerified };
 }
 
 if (import.meta.url === `file://${process.argv[1]}`) {
-  const { problems, jobs, withSparse } = verifyCheckoutProfiles();
-  console.log(`job esaminati: ${jobs} | con sparse-checkout: ${withSparse}`);
+  const { problems, jobs, withSparse, allowListsVerified } = verifyCheckoutProfiles();
+  console.log(`job esaminati: ${jobs} | con sparse-checkout: ${withSparse} | allow-list verificate: ${allowListsVerified}`);
   if (problems.length) {
     console.error(`\n❌ ${problems.length} problemi:`);
     for (const p of problems) console.error('   ' + p);

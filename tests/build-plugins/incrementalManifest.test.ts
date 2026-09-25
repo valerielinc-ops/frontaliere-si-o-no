@@ -7,6 +7,7 @@ import { fileURLToPath, pathToFileURL } from 'node:url';
 import { describe, expect, it } from 'vitest';
 import {
   buildMinimalJobInput,
+  buildActiveJobPageReuseInput,
   createIncrementalManifestInputCache,
   IncrementalManifest,
   INCREMENTAL_MANIFEST_ENABLED,
@@ -77,6 +78,34 @@ describe('incremental manifest input contract', () => {
       'active-job',
     );
     expect(secondHash).not.toBe(firstHash);
+  });
+
+  it('stores a publish hash separately from the active-page reuse hash', () => {
+    const input = {
+      jobId: 'active-job-1',
+      locale: 'it',
+      slug: 'active-role',
+      relatedArticlesDigest: 'feed-v2',
+      renderDateBucket: '2026-09-20',
+    };
+    const reuseInput = buildActiveJobPageReuseInput(input);
+    const manifest = new IncrementalManifest('it');
+    manifest.register('/jobs/active-role/', 'active-job', input, undefined, undefined, reuseInput);
+
+    expect(reuseInput).toEqual({
+      jobId: 'active-job-1',
+      locale: 'it',
+      slug: 'active-role',
+    });
+    expect(manifest.getHash('/jobs/active-role/', 'active-job')).toBe(
+      computeInputHash(input, 'active-job'),
+    );
+    expect(manifest.getReuseHash('/jobs/active-role/', 'active-job')).toBe(
+      computeInputHash(reuseInput, 'active-job'),
+    );
+    expect(manifest.getReuseHash('/jobs/active-role/', 'active-job')).not.toBe(
+      manifest.getHash('/jobs/active-role/', 'active-job'),
+    );
   });
 
   it('includes the resolved expired-page title in its reuse input', () => {

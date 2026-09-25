@@ -20,8 +20,15 @@
  *
  * The socket is deliberately the only job-wide hand-off. Its parent directory
  * is 0700 and the socket is 0600. A malformed request never receives auth or
- * consumes a request slot. The short idle TTL is a backstop for persistent
- * runners; callers should still invoke explicit cleanup at the end of a job.
+ * consumes a request slot. The idle TTL is a backstop for persistent runners:
+ * it restarts whenever a request is accepted or completes and never fires
+ * while a request is running or queued. Callers should still invoke explicit
+ * cleanup at the end of a job.
+ *
+ * Requests run one at a time, so a request can wait in the queue behind
+ * others. A client that sends `notifyStart: true` receives one
+ * CLIENT_START_SIGNAL byte when its own Codex process starts, and can time the
+ * execution from there instead of from connect().
  */
 
 import fs from 'node:fs';
@@ -45,6 +52,12 @@ const MAX_STDERR_TAIL_CHARS = 16 * 1024;
 // Sta nei 300 caratteri dell'errore che il broker restituisce, dopo il suo prefisso.
 const MAX_FAILURE_REASON_CHARS = 200;
 const CLIENT_LIVENESS_PROBE = '\0';
+// Scritto prima della riga JSON quando la richiesta esce dalla coda e Codex
+// parte. Il client misurava il timeout di esecuzione dalla connect(): con sei
+// chiamanti in coda ogni richiesta scadeva mentre era appena partita, il broker
+// uccideva quel Codex a meta' e passava al successivo, gia' quasi scaduto
+// anche lui (send-newsletter, run 36116142119: zero risposte in 16 minuti).
+const CLIENT_START_SIGNAL = '\x01';
 
 function argument(name, fallback = '') {
   const index = process.argv.indexOf(name);
@@ -514,7 +527,42 @@ function cleanupRuntime() {
 function cancelRequest(job) {
   if (!job || job.cancelled || job.responseStarted) return;
   job.cancelled = true;
+  // Una richiesta abbandonata mentre era in coda non ha mai eseguito Codex:
+  // non consuma uno dei --max-requests slot del job.
+  if (!job.started && job.requestAccepted) {
+    acceptedRequests = Math.max(0, acceptedRequests - 1);
+  }
   if (activeRequest === job) cleanupRuntime();
+}
+
+function hasQueuedWork() {
+  return !!activeRequest
+    || pendingRequests.some((job) => !job.cancelled && !job.client.destroyed);
+}
+
+/**
+ * Idle TTL, non una durata massima. Fino al 2026-09-25 questo timer partiva al
+ * listen() e non veniva mai rinnovato: a 30 minuti dall'avvio il broker
+ * chiudeva richiesta attiva e coda e cancellava il socket, cosi' ogni job che
+ * usava Codex oltre il minuto 30 perdeva la lane («closed without a response»,
+ * poi `connect ENOENT`; send-newsletter run 36116142119, broker partito alle
+ * 09:08:19.8 e chiuso alle 09:38:19.79). Riparte a ogni richiesta accettata o
+ * conclusa e, se scade mentre c'e' lavoro, si riarma invece di chiudere.
+ */
+function refreshIdleExpiry() {
+  if (closed) return;
+  clearTimeout(expiry);
+  expiry = setTimeout(expireIfIdle, ttlMs);
+  expiry.unref?.();
+}
+
+function expireIfIdle() {
+  if (closed) return;
+  if (hasQueuedWork()) {
+    refreshIdleExpiry();
+    return;
+  }
+  cleanup();
 }
 
 function cleanup() {
@@ -572,11 +620,17 @@ function startNextRequest() {
   }
   if (!job) return;
   activeRequest = job;
+  job.started = true;
   const timeoutMs = Number(job.parsed.timeoutMs);
   job.client.setTimeout(Math.max(5000, timeoutMs + 10_000), () => {
     cancelRequest(job);
     job.client.destroy();
   });
+  if (job.parsed.notifyStart === true) {
+    // Un client sparito nel frattempo emette 'error'/'close', che cancellano
+    // la richiesta come qualsiasi altra disconnessione.
+    try { job.client.write(CLIENT_START_SIGNAL); } catch { /* client gia' chiuso */ }
+  }
   const credential = authJson;
   runCodex({
     authJson: credential,
@@ -597,6 +651,7 @@ function startNextRequest() {
   ).finally(() => {
     activeChild = null;
     if (activeRequest === job) activeRequest = null;
+    refreshIdleExpiry();
     startNextRequest();
   });
 }
@@ -605,7 +660,7 @@ function handleClient(client) {
   let request = '';
   let bytes = 0;
   let handled = false;
-  const job = { client, parsed: null, requestAccepted: false, responseStarted: false, cancelled: false };
+  const job = { client, parsed: null, requestAccepted: false, responseStarted: false, cancelled: false, started: false };
   client.setEncoding('utf8');
   client.setTimeout(5000, () => client.destroy());
   const cancelOnDisconnect = () => {
@@ -665,6 +720,7 @@ function handleClient(client) {
     job.requestAccepted = true;
     client.setTimeout(0);
     pendingRequests.push(job);
+    refreshIdleExpiry();
     startNextRequest();
   });
 }
@@ -752,7 +808,7 @@ function start(auth, cliConfig) {
       process.exitCode = 1;
       return;
     }
-    expiry = setTimeout(cleanup, ttlMs);
+    refreshIdleExpiry();
   });
 }
 

@@ -23,24 +23,20 @@ name: Lighthouse CI
 # DEPLOYED site, so it only makes sense to run it AFTER a deploy has propagated
 # — never on a PR (the PR build is never live; a pre-merge run just re-measures
 # already-deployed prod). Triggers:
-#   - workflow_run on "Publish to GitHub Pages (deploy + validate)" completed →
-#     runs only when that publish concluded `success` (its validate-live job
-#     waits for the new build-id to go live, so prod reflects this deploy). The
-#     build/publish split moved deploy+validate out of "Deploy to GitHub Pages"
-#     (now build-only) into deploy-publish.yml, so we key on the publish run —
-#     keying on the build run would audit prod BEFORE the new dist went live.
-#   - schedule (daily 04:17 UTC) → the SAFETY NET, and the reason this workflow
-#     produces numbers at all. The workflow_run trigger above is necessary but
-#     NOT sufficient: it fires only when deploy-publish concludes `success`, and
-#     measured 2026-08-07 that has not happened in its last 40 runs (23
-#     cancelled, 3 failure, 14 skipped). Upstream, deploy.yml is cancelled 50 of
-#     its last 60 runs — by design, since `pages-build-run` uses GitHub's
-#     1-running + 1-pending cap and a deploy burst drops the superseded middle.
-#     Net effect: the audit's own last run was 2026-06-22 and every one of its
-#     last 6 runs concluded `skipped`. A post-deploy gate chained behind a
-#     workflow that never concludes `success` is a gate that never measures
-#     anything. The cron decouples the signal from that chain — prod is prod
-#     whether or not a deploy landed, so a daily audit is always meaningful.
+#   - schedule (daily 04:17 UTC) → the trigger that actually produces numbers.
+#     Prod is prod whether or not a deploy landed, so a daily audit is always
+#     meaningful.
+#   - NO `workflow_run` on "Publish to GitHub Pages (deploy + validate)" any
+#     more (removed 2026-09-25). It was meant to audit right after each publish,
+#     but GitHub never delivered it: deploy-publish.yml is itself started by
+#     `workflow_run`, and the next hop of that chain does not fire. Measured:
+#     last `workflow_run` run of this workflow 2026-06-22, while deploy-publish
+#     concluded `success` four times on 2026-09-24 alone; the runtime watchdog's
+#     identical trigger scored 0 of its last 100 runs. (The earlier diagnosis
+#     here — "deploy-publish never concludes success" — was true in August but
+#     is not the reason.) A post-publish audit, if wanted, has to be an
+#     explicit `gh workflow run lighthouse-ci.yml` from deploy-publish.yml, the
+#     way its `runtime-watchdog` job dispatches runtime-reliability-watch.yml.
 #   - workflow_dispatch for manual re-runs.
 #
 # Outcome handling (the audit stays NON-blocking — there is nothing to block
@@ -52,9 +48,6 @@ name: Lighthouse CI
 #     (no issue, no red), same self-healing behavior as before.
 
 on:
-  workflow_run:
-    workflows: ["Publish to GitHub Pages (deploy + validate)"]
-    types: [completed]
   schedule:
     # Daily 04:17 UTC — off the busy 07:xx monitor cron band, and low-traffic so
     # the Cloudflare edge is least likely to 429 the runner IP.
@@ -97,8 +90,7 @@ jobs:
     timeout-minutes: 20
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      github.event_name == 'schedule' ||
-      github.event.workflow_run.conclusion == 'success'
+      github.event_name == 'schedule'
     outputs:
       run_audit: ${{ steps.probe.outputs.run_audit }}
       urls: ${{ steps.probe.outputs.urls }}
@@ -197,15 +189,11 @@ jobs:
     # `cancelled`, indistinguishable at a glance from the concurrency
     # cancellations upstream — two independent faults were hiding each other.)
     timeout-minutes: 100
-    # Only audit after a SUCCESSFUL deploy (prod now reflects the new build), or
-    # on the daily cron / a manual dispatch. A failed/cancelled deploy left prod
-    # on the old build — auditing it via workflow_run would measure something
-    # this run did not produce; the cron measures prod-as-it-is, which is always
-    # a valid question to ask.
+    # Daily cron or manual dispatch only: both measure prod-as-it-is, which is
+    # always a valid question to ask (see the trigger notes in the header).
     if: >-
       github.event_name == 'workflow_dispatch' ||
-      github.event_name == 'schedule' ||
-      github.event.workflow_run.conclusion == 'success'
+      github.event_name == 'schedule'
 
     # Mobile and desktop are separate legs with separate configs and separate
     # tracked issues. fail-fast: false — a mobile regression must not cancel the
@@ -354,7 +342,7 @@ jobs:
       # strategic — owner/agent triages it manually (AGENTS.md: only crawler /
       # follow-up are auto-routable). Labelled funnel-monetization (CLS gates
       # AdSense RPM) + funnel-seo (category SEO score gates indexability).
-      # --reopen-within-hours 6: prod CWV are noisy and every deploy re-audits,
+      # --reopen-within-hours 6: prod CWV are noisy and every run re-audits,
       # so the gate flaps (fail → recovery closes → fail again). Without it the
       # second fail finds no OPEN issue and coins a duplicate; 6h lets it reopen
       # the canonical issue instead (matches the other post-deploy reporters in

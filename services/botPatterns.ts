@@ -99,6 +99,56 @@ export const BOT_UA_PATTERNS: readonly string[] = [
 ];
 
 /**
+ * Screen size of the automation fleet that hit the job gate from Singapore
+ * (GA4, 2026-09-01 → 09-12, back in bursts from 09-24: ~1,650 "people"/day,
+ * direct arrival, ~1 s on page, 100% new, zero conversions).
+ *
+ * Measured on GA4 2026-06-01 → 09-24: 100,855 people had a 1280x1200 screen
+ * from Singapore and 267 from other countries — every one of them Windows +
+ * desktop Chrome with an English UI, and ZERO from Italy or Switzerland.
+ * 1280x1200 (16:15) is not the CSS size of any shipping display at any
+ * Windows scale factor (the real 1280-wide ones are 1280x720/800/1024, all
+ * present in the same data): it is a headless/VM window size. The Chrome
+ * major version rotates across the fleet (106 → 133), so the UA string alone
+ * cannot pin it — the screen can.
+ *
+ * Time zone: GA4 does not expose it, and the fleet never reached PostHog, so
+ * it is not measured. The rule accepts the zone of the fleet's city
+ * (`Asia/Singapore`) and the bare UTC zones a cloud VM reports by default —
+ * never a zone a visitor in Ticino/Lombardy (or anywhere a person sets a
+ * local clock) would have.
+ */
+export const AUTOMATION_SCREEN_WIDTH = 1280;
+export const AUTOMATION_SCREEN_HEIGHT = 1200;
+export const AUTOMATION_TIME_ZONES: readonly string[] = ['Asia/Singapore', 'UTC', 'Etc/UTC', 'Etc/GMT', 'GMT'];
+
+/**
+ * Conservative match for that fleet. ALL of these must hold:
+ *  - screen exactly 1280x1200 CSS px;
+ *  - a Windows desktop Chrome UA (`windows nt` + `chrome/`, no `mobile`);
+ *  - English UI language AND a data-center time zone (`AUTOMATION_TIME_ZONES`).
+ * A real visitor would need a display size no hardware ships AND this exact
+ * browser AND an English UI AND a Singapore/UTC clock, so the rule cannot
+ * reach the site's audience: an English-speaking reader in Zurich on a
+ * 1280x1200 virtual screen still passes. Unknown time zone (Intl missing) →
+ * no match. `ua` is the lowercased user agent, as in `isLikelyBot()`.
+ */
+export function matchesAutomationScreenSignature(ua: string): boolean {
+  if (typeof window === 'undefined' || typeof navigator === 'undefined') return false;
+  const screen = window.screen;
+  if (!screen || screen.width !== AUTOMATION_SCREEN_WIDTH || screen.height !== AUTOMATION_SCREEN_HEIGHT) return false;
+  if (!ua.includes('windows nt') || !ua.includes('chrome/') || ua.includes('mobile')) return false;
+  if (!String(navigator.language || '').toLowerCase().startsWith('en')) return false;
+  let timeZone = '';
+  try {
+    timeZone = Intl.DateTimeFormat().resolvedOptions().timeZone || '';
+  } catch {
+    // Intl unavailable: time zone unknown, the rule does not fire.
+  }
+  return AUTOMATION_TIME_ZONES.includes(timeZone);
+}
+
+/**
  * Layered bot detection. Each layer cuts a different population:
  *  1. SSR / no UA      — never an ad-eligible session.
  *  2. webdriver flag   — Playwright/Selenium/Puppeteer base.
@@ -108,6 +158,8 @@ export const BOT_UA_PATTERNS: readonly string[] = [
  *     (empty languages, missing plugins on a real Chrome UA, missing
  *     `permissions` API). False-positive risk on iframes / restricted
  *     contexts is bounded by REQUIRING the UA to claim a "real" browser.
+ *  6. Automation screen signature — the 1280x1200 Windows/Chrome fleet
+ *     (`matchesAutomationScreenSignature`), which passes every layer above.
  *
  * On purpose NOT here: WebGL renderer / canvas fingerprint / TLS JA3.
  * Those add weight but are bypassable by `puppeteer-extra-plugin-stealth`
@@ -156,6 +208,8 @@ export function isLikelyBot(): boolean {
       return true;
     }
   }
+
+  if (matchesAutomationScreenSignature(ua)) return true;
 
   return false;
 }
