@@ -1,16 +1,16 @@
 {
   "key": "citta-di-bellinzona",
   "label": "Bellinzona",
-  "generatedAt": "2026-09-24T14:18:06.731Z",
-  "total": 2,
+  "generatedAt": "2026-09-25T14:43:26.752Z",
+  "total": 1,
   "newCount": 0,
   "updatedCount": 1,
-  "removedCount": 0,
-  "unchangedCount": 1,
-  "durationMs": 4621,
-  "avgDurationMs": 4621,
+  "removedCount": 1,
+  "unchangedCount": 0,
+  "durationMs": 2788,
+  "avgDurationMs": 2788,
   "durationHistory": [
-    4621
+    2788
   ],
   "newJobs": [],
   "updatedJobs": [
@@ -39,7 +39,7 @@
       "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=64ce8328-085b-4978-8175-2d7c37391d5e,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
       "source": "Bellinzona Dedicated Parser",
       "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:17:54.640Z",
+      "crawledAt": "2026-09-25T14:43:20.264Z",
       "firstSeenAt": "2026-09-18T23:10:50.201Z",
       "_qualityScore": 90,
       "_qualityBreakdown": {
@@ -50,43 +50,7 @@
       }
     }
   ],
-  "removedJobs": [],
-  "unchangedJobs": [
-    {
-      "id": "citta-di-bellinzona-agente-di-polizia-presso-la-polizia-comunale-bellinzona",
-      "slug": "agente-di-polizia-presso-la-polizia-comunale-bellinzona",
-      "company": "Città di Bellinzona",
-      "companyKey": "citta-di-bellinzona",
-      "companyDomain": "bellinzona.ch",
-      "title": "Agente di polizia, presso la Polizia comunale",
-      "location": "Bellinzona",
-      "canton": "TI",
-      "addressLocality": "Bellinzona",
-      "addressRegion": "TI",
-      "addressCountry": "CH",
-      "postalCode": "6500",
-      "streetAddress": "Piazza Nosetto",
-      "category": "public-admin",
-      "contract": "full-time",
-      "employmentType": "FULL_TIME",
-      "currency": "CHF",
-      "featured": false,
-      "postedDate": "2026-09-18",
-      "url": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=64ce8328-085b-4978-8175-2d7c37391d5e,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "pdfUrl": null,
-      "applyUrl": "https://bellinz.pi-asp.de/bewerber-web/?company=*-FIRMA-ID&tenant=&lang=IS#position,id=64ce8328-085b-4978-8175-2d7c37391d5e,jobportalid=7d51b858-e466-400d-8696-5e01d3b26140",
-      "source": "Bellinzona Dedicated Parser",
-      "sourceLang": "it",
-      "crawledAt": "2026-09-24T14:17:54.640Z",
-      "firstSeenAt": "2026-09-18T23:10:50.201Z",
-      "_qualityScore": 90,
-      "_qualityBreakdown": {
-        "cleanliness": 25,
-        "richness": 20,
-        "translation": 25,
-        "completeness": 20
-      }
-    },
+  "removedJobs": [
     {
       "id": "citta-di-bellinzona-assistente-dentale-presso-il-settore-attivita-sociali-servizio-clinica-dentaria-bellinzona",
       "slug": "assistente-dentale-presso-il-settore-attivita-sociali-servizio-clinica-dentaria-bellinzona",
@@ -118,6 +82,7 @@
       "salaryMax": 75000,
       "salarySource": "estimated",
       "crawlerMissStreak": 2,
+      "sourceIdentity": "url:https://bellinz.pi-asp.de/bewerber-web?company=*-firma-id&tenant=&lang=i",
       "_qualityScore": 95,
       "_qualityBreakdown": {
         "cleanliness": 25,
@@ -126,5 +91,6 @@
         "completeness": 25
       }
     }
-  ]
+  ],
+  "unchangedJobs": []
 }
