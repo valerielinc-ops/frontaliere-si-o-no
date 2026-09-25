@@ -35937,6 +35937,15 @@ const RAW_ARTICLES = [
  authorSlug: 'laura-bianchi',
  authorName: 'Laura Bianchi',
  },
+ {
+ id: 'chiusura-cantonale-neggia-fosano',
+ category: 'pratico',
+ date: '2026-09-25T12:46:46.495Z',
+ image: '/images/blog/chiusura-cantonale-neggia-fosano.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
 ] satisfies Article[];
 
 // Full blog hero images are served from jsDelivr (git-backed CDN, SHA-pinned)

@@ -11975,6 +11975,9 @@ const blogMetaDe: Record<string, string> = {
     'blog.article.eta-pensione-2030-ragioneria.title': 'Rentenalter: 67 Jahre und 6 Monate im Jahr 2030',
     'blog.article.eta-pensione-2030-ragioneria.excerpt': 'Die Staatliche Generalbuchhaltung sieht 2030 67 Jahre und 6 Monate sowie 2041 Rentenausgaben in Höhe von 17,1% des BIP vor.',
     'blog.article.eta-pensione-2030-ragioneria.imageAlt': 'Älterer Arbeitnehmer prüft Rentenunterlagen vor der Landschaft des Tessins',
+    'blog.article.chiusura-cantonale-neggia-fosano.title': 'Kanton geschlossen zwischen Neggia und Fosano am 28. September',
+    'blog.article.chiusura-cantonale-neggia-fosano.excerpt': 'Die Kantonsstraße zwischen Neggia und Fosano wird am Montag, dem 28. September, von 8 bis 16.30 Uhr wegen Belagsarbeiten in der Gemeinde Gambarogno vollständig gesperrt sein.',
+    'blog.article.chiusura-cantonale-neggia-fosano.imageAlt': 'Kantonsstrasse zwischen Neggia und Fosano wegen Belagsarbeiten gesperrt',
 };
 
 export default blogMetaDe;

@@ -11977,6 +11977,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.eta-pensione-2030-ragioneria.title': 'Età pensione: 67 anni e 6 mesi nel 2030',
     'blog.article.eta-pensione-2030-ragioneria.excerpt': 'La Ragioneria Generale dello Stato prevede 67 anni e 6 mesi nel 2030 e una spesa pensionistica al 17,1% del PIL nel 2041.',
     'blog.article.eta-pensione-2030-ragioneria.imageAlt': 'Lavoratore maturo consulta documenti sulla pensione con il paesaggio ticinese sullo sfondo',
+    'blog.article.chiusura-cantonale-neggia-fosano.title': 'Cantonale chiusa tra Neggia e Fosano il 28 settembre',
+    'blog.article.chiusura-cantonale-neggia-fosano.excerpt': 'La Cantonale tra Neggia e Fosano sarà totalmente sbarrata lunedì 28 settembre, dalle 8 alle 16.30, per lavori di pavimentazione nel comune di Gambarogno.',
+    'blog.article.chiusura-cantonale-neggia-fosano.imageAlt': 'Strada Cantonale tra Neggia e Fosano chiusa per lavori di pavimentazione',
 };
 
 export default blogMetaIt;
