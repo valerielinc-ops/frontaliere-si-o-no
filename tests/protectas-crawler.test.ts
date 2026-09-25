@@ -126,6 +126,36 @@ describe('Protectas SA crawler parser', () => {
         'Agente di sicurezza ausiliario',
         DETAIL_DESCRIPTION,
       )).toBe(true);
+      for (const title of [
+        'Agente di sicurezza informatica',
+        'Agent de sécurité informatique',
+        'IT-Sicherheitsmitarbeiter',
+      ]) {
+        expect(isPhysicalSecurityVacancy(title, DETAIL_DESCRIPTION)).toBe(false);
+      }
+    });
+
+    it('fails closed when a pagination page cannot be fetched', async () => {
+      const page2 = `${PROTECTAS_CAREER_URL}?page=2`;
+      vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+        if (String(input) === PROTECTAS_CAREER_URL) {
+          return new Response(`<a href="${page2}">2</a>${LISTING_HTML}`, { status: 200 });
+        }
+        throw new Error('upstream unavailable');
+      });
+
+      await expect(fetchAllProtectasJobs()).rejects.toThrow(/pagination page failed.*page=2/);
+    });
+
+    it('fails closed when pagination reaches the safety limit with more pages queued', async () => {
+      vi.spyOn(globalThis, 'fetch').mockImplementation(async (input) => {
+        const url = String(input);
+        const page = Number(new URL(url).searchParams.get('page') || 1);
+        const next = page < 13 ? `<a href="${PROTECTAS_CAREER_URL}?page=${page + 1}">${page + 1}</a>` : '';
+        return new Response(`${next}${LISTING_HTML}`, { status: 200 });
+      });
+
+      await expect(fetchAllProtectasJobs()).rejects.toThrow(/pagination exceeded the safety limit/);
     });
 
     it('fails closed when the official page exposes no vacancy links', async () => {

@@ -25,7 +25,8 @@ const DETAIL_PATH_RE = /\/(?:offerte-di-lavoro|offres-d-emploi|stellenangebote)\
 const LISTING_PATH_RE = /\/(?:it-ch\/carriere\/offerte-di-lavoro|fr-ch\/carriere\/offres-d-emploi|de-ch\/karriere\/stellenangebote)\/?$/i;
 const SWISS_COUNTRIES = new Set(['ch', 'switzerland', 'schweiz', 'suisse', 'svizzera']);
 const PHYSICAL_SECURITY_TITLE_RE = /\b(?:agente(?:\s+di)?\s+sicurezza|guardia(?:\s+giurata)?|security\s+(?:guard|officer)|security\s+agent|sicherheitsdienst|sicherheitsmitarbeiter|wachmann|agent(?:e)?\s+de\s+s[ée]curit(?:e|é)|surveill(?:ance|ant)|vigilanz|ronde|gardien)\b/i;
-const CYBER_OR_TECH_SECURITY_RE = /\b(?:cyber|cybers[eé]curit|information\s+security|it\s+security|infosec|security\s+(?:engineer|architect|analyst|specialist|consultant)|soc\s+analyst|penetration\s+test|application\s+security|cloud\s+security|network\s+security|gouvernance\s+(?:de\s+la\s+)?s[eé]curit)\b/i;
+const CYBER_OR_TECH_SECURITY_RE = /\b(?:cyber|cybers[eé]curit|sicurezza\s+informatica|s[ée]curit[ée]\s+informatique|information\s+security|it[-\s]?security|it[-\s]?sicherheitsmitarbeiter|infosec|security\s+(?:engineer|architect|analyst|specialist|consultant)|soc\s+analyst|penetration\s+test|application\s+security|cloud\s+security|network\s+security|gouvernance\s+(?:de\s+la\s+)?s[eé]curit)\b/i;
+const MAX_LISTING_PAGES = 12;
 
 /* ── Helpers ───────────────────────────────────────────────── */
 
@@ -225,7 +226,12 @@ async function fetchJobListings() {
   const vacancyUrls = new Set();
   let primaryPageFetched = false;
 
-  while (queue.length > 0 && visited.size < 12) {
+  while (queue.length > 0) {
+    if (visited.size >= MAX_LISTING_PAGES) {
+      throw new Error(
+        `Protectas pagination exceeded the safety limit of ${MAX_LISTING_PAGES} pages before traversal completed`,
+      );
+    }
     const pageUrl = queue.shift();
     if (visited.has(pageUrl)) continue;
     visited.add(pageUrl);
@@ -240,9 +246,10 @@ async function fetchJobListings() {
       });
       if (pageUrl === PROTECTAS_CAREER_URL) primaryPageFetched = true;
     } catch (error) {
-      if (pageUrl === PROTECTAS_CAREER_URL) throw error;
-      console.warn(`  ⚠️ Protectas pagination page failed: ${pageUrl} — ${error?.message || error}`);
-      continue;
+      throw new Error(
+        `Protectas pagination page failed: ${pageUrl} — ${error?.message || error}`,
+        { cause: error },
+      );
     }
 
     for (const url of extractProtectasVacancyUrls(html, pageUrl)) vacancyUrls.add(url);
