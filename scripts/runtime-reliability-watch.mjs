@@ -293,18 +293,19 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets, chunkG
     ...(graph?.purgeUrls || []),
   ])];
   const unhealthyAssets = assetResults.filter((asset) => asset.state !== 'healthy');
-  // A rollout explains the MARKER skew and nothing else. It is tempting to also
-  // excuse a `stale` asset — the edge holding the object the live HTML still
-  // references — but `classifyAssetResponses` only proves that two 200s hash
-  // differently: it cannot show the cached body is the generation the apex HTML
-  // actually wants, so an even older generation or an incompatible 200 would
-  // pass as "explained". Every asset therefore has to be healthy in both marker
-  // states, and `assetResults.length` is required because observing nothing is
-  // not the same as observing health. The chunk graph, when walked, has to be
-  // clean too: that is the part a browser actually links.
+  // A rollout explains the marker skew, not which generation a stable asset
+  // belongs to: `classifyAssetResponses` only proves that two 200s hash
+  // differently, so an even older generation or an incompatible 200 would pass
+  // as "explained". Every non-healthy asset therefore stays blocking in both
+  // marker states — and is purgeable in both (see the docblock above): the
+  // verdict turns green only once the post-purge probe finds the edge equal to
+  // R2. `assetResults.length` is required because observing nothing is not the
+  // same as observing health. The chunk graph, when walked, has to be clean
+  // too: that is the part a browser actually links.
+  const blockingAssets = unhealthyAssets;
   const ok = (markerState === 'coherent' || markerState === 'rollout_in_progress')
     && assetResults.length > 0
-    && unhealthyAssets.length === 0
+    && blockingAssets.length === 0
     && (graph ? graph.ok : true);
 
   const result = {
@@ -347,7 +348,7 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets, chunkG
       Number.isFinite(siteBehindMs) && siteBehindMs !== 0
         ? formatMarkerSkew(siteBehindMs)
         : null,
-      ...unhealthyAssets.map((asset) => `${asset.path}: ${asset.state}`),
+      ...blockingAssets.map((asset) => `${asset.path}: ${asset.state}`),
       ...(graph?.reasons || []),
     ].filter(Boolean),
   };

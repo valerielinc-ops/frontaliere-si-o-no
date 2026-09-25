@@ -169,11 +169,11 @@ describe('runtime reliability watchdog', () => {
   // for /assets/index.css and blocked the repair; seven hours later the edge
   // still served the previous object. The deploy had already purged every key
   // it re-uploaded, so R2's generation IS the intended edge state mid-rollout.
-  it('stays degraded mid-rollout when an asset is stale, and purges it', () => {
+  it('keeps a stale 200 asset blocking while the CDN rollout is in progress, and purges it', () => {
     const result = evaluateProbe({
-      siteCached: { body: '1789724819997', status: 200, ok: true },
-      siteFresh: { body: '1789724819997', status: 200, ok: true },
-      cdnMarker: { body: '1789734217605', status: 200, ok: true },
+      siteCached: { body: '1700000000000', status: 200, ok: true },
+      siteFresh: { body: '1700000000000', status: 200, ok: true },
+      cdnMarker: { body: '1700000000001', status: 200, ok: true },
       assets: [{
         path: '/assets/index.css',
         cached: { status: 200, ok: true, bytes: 3, hash: 'old' },

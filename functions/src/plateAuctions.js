@@ -5,6 +5,8 @@ import {
   fetchHtml,
   fetchPdfText,
   FIXED_PRICE_SOURCE_CONFIGS,
+  fetchGePlateAuctions,
+  GE_PLATE_AUCTION_SOURCE,
   resolveVariantPdfUrl,
   parseAiFixedPricePdfText,
   parseBsFixedPricePdfText,
@@ -145,6 +147,17 @@ const CONNECTORS = {
   bl: makeEcariConnector({ canton: 'Basilea Campagna', plateCode: 'BL', url: 'https://eauktion.bl.ch/ecari-auction/ui/app/init' }),
   bs: makeFixedPriceConnector({ sourceKey: 'bs', parse: parseBsFixedPricePdfText }),
   fr: makeEcariConnector({ canton: 'Friburgo', plateCode: 'FR', url: 'https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch' }),
+  // Ginevra: lista PDF dell'OCV su ge.ch (numeri e date, nessun prezzo);
+  // Ricardo è solo un link. Gira solo quando il registry la segna `active`.
+  ge: {
+    canton: GE_PLATE_AUCTION_SOURCE.canton,
+    plateCode: GE_PLATE_AUCTION_SOURCE.plateCode,
+    url: GE_PLATE_AUCTION_SOURCE.pageUrl,
+    parserVersion: GE_PLATE_AUCTION_SOURCE.parserVersion,
+    fetchSource({ fetchedAt, injectedFetcher } = {}) {
+      return fetchGePlateAuctions({ fetchedAt, now: new Date(fetchedAt), injectedFetcher });
+    },
+  },
   gl: makeFixedPriceConnector({ sourceKey: 'gl', parse: parseGlFixedPriceJson }),
   gr: {
     canton: 'Grigioni',
@@ -573,13 +586,10 @@ function sourceDocument(sourceKey, config, fetchedAt, patch = {}) {
 }
 
 /**
- * @param {{db?: any, fetcher?: (url: string, options?: Record<string, unknown>) => Promise<any>, now?: Date}} options
- */
-/**
  * Sources whose fetch and Firestore write dominate the run (BS: ~16'000 rows)
  * go last, so a slow or failing heavy source can never leave the small
- * catalogues after it — SZ among them, which the static collector reads
- * through the API relay — on an old snapshot.
+ * catalogues after it — SZ, FR and TI among them, which the static collector
+ * reads through the API relay — on an old snapshot.
  */
 const PLATE_AUCTION_HEAVY_SOURCES = new Set(['bs']);
 
@@ -590,6 +600,9 @@ export function plateAuctionRefreshOrder(keys) {
   ];
 }
 
+/**
+ * @param {{db?: any, fetcher?: (url: string, options?: Record<string, unknown>) => Promise<any>, now?: Date}} options
+ */
 export async function refreshPlateAuctions({ db = getAdminDb(), fetcher, now = new Date() } = {}) {
   const fetchedAt = now.toISOString();
   const summaries = {};

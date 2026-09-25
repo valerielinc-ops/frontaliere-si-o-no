@@ -164,6 +164,7 @@ const RAW_ARTICLES = [
  id: 'telelavoro-accordo-definitivo-italia',
  category: 'novita',
  date: '2026-02-18T11:17:51.792Z',
+ updatedAt: '2026-09-25',
  image: '/images/blog/telelavoro-accordo-definitivo-italia.webp',
  hasCalculator: true,
  authorSlug: 'marco-ferrari',
@@ -35666,6 +35667,24 @@ const RAW_ARTICLES = [
  hasCalculator: true,
  authorSlug: 'redazione',
  authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'ridurre-tempi-ripristino-a2-mezzovico',
+ category: 'pratico',
+ date: '2026-09-25T10:00:16.695Z',
+ image: '/images/blog/ridurre-tempi-ripristino-a2-mezzovico.webp',
+ hasCalculator: true,
+ authorSlug: 'redazione',
+ authorName: 'Redazione Frontaliere Ticino',
+ },
+ {
+ id: 'bollettino-frontaliere-2026-09-25',
+ category: 'novita',
+ date: '2026-09-25T10:05:05.881Z',
+ image: '/images/blog/bollettino-frontaliere-2026-09-25.webp',
+ hasCalculator: false,
+ authorSlug: 'marco-ferrari',
+ authorName: 'Marco Ferrari',
  },
 ] satisfies Article[];
 
