@@ -12005,6 +12005,9 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.barco-saronno-agitazione-sciopero-2026.title': 'Bateau Saronno : coupures, grève et état d\'agitation',
     'blog.article.barco-saronno-agitazione-sciopero-2026.excerpt': 'Fiom, Fim et Uilm ouvrent un état d\'agitation au Bateau de Saronno après l\'annonce de la réorganisation. Une heure de grève par tour, administrés et indéterminés.',
     'blog.article.barco-saronno-agitazione-sciopero-2026.imageAlt': 'Usine industrielle à Mendrisio avec arrière-plan montagneux',
+    'blog.article.kof-consensus-forecast-svizzera-2026.title': 'PIB suisse 2026 revu à la hausse : +1,7% selon le KOF',
+    'blog.article.kof-consensus-forecast-svizzera-2026.excerpt': 'Le KOF estime pour 2026 une croissance du PIB de 1,7 % (contre 0,9 % en juin) et une inflation à 0,6 % ; l’euro à 0,93 franc dans trois mois et à 0,92 dans un an.',
+    'blog.article.kof-consensus-forecast-svizzera-2026.imageAlt': 'Vue panoramique du lac de Lugano avec les Alpes en arrière-plan et des voiliers sur l\'eau',
 };
 
 export default blogMetaFr;
