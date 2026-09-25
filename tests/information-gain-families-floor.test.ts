@@ -20,7 +20,8 @@
  *
  * LE SOGLIE SONO I VALORI MISURATI, NON NUMERI SCELTI
  * ---------------------------------------------------------------------------
- * Ogni soglia è il valore misurato il 2026-08-24 meno un margine di 1 punto.
+ * Le soglie storiche sono il valore misurato il 2026-08-24 meno un margine di
+ * 1 punto; la soglia francese è stata ricalcolata il 2026-09-25 dopo #6444.
  * Il margine c'è perché la mediana di una famiglia si muove quando il dataset
  * cambia (un comune above-floor in più sposta i vicini di qualcuno), non per
  * lasciare spazio a una regressione: 1 punto è meno del contributo di UNA
@@ -218,7 +219,10 @@ const FAMILIES: Array<{ name: string; minMedian: number; render: () => Rendered[
   },
   {
     name: 'vivere-in-francia',
-    minMedian: 4.5, // misurato 5,6 % (era 0,0 %)
+    // Measured 22,1 % after the rent/population peer summaries (was 5,6 %).
+    // Keep a one-point observer margin; the live scan remains the source of
+    // truth for the 40 % opportunity target.
+    minMedian: 21.1,
     render: () =>
       FRENCH_ABOVE_FLOOR.map((m) =>
         renderFrench({ municipality: m, locale: 'it', dateStamp: '2026-08-24', distDir: DIST } as never),
