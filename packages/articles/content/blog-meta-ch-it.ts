@@ -6680,6 +6680,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.turismo-agosto-ospiti-estero.title': 'Fine estate con meno turisti stranieri in Svizzera',
     'blog.article.turismo-agosto-ospiti-estero.excerpt': 'In agosto i pernottamenti in Svizzera sono scesi dell\'1,9% su base annua: pesano gli ospiti stranieri, ma arretra anche la domanda interna.',
     'blog.article.turismo-agosto-ospiti-estero.imageAlt': 'Turisti sul lungolago svizzero in una scena di fine estate.',
+    'blog.article.salasso-alla-pompa-benzina.title': 'Salasso alla pompa: diesel caro, benzina in rialzo',
+    'blog.article.salasso-alla-pompa-benzina.excerpt': 'Il 24 settembre 2026 a Zurigo il diesel costa in media 2,46 CHF/l (picchi >2,50), la benzina 95 2,14 CHF/l, mentre il petrolio supera i 100 USD/barile.',
+    'blog.article.salasso-alla-pompa-benzina.imageAlt': 'Stazione di servizio a Zurigo con display prezzi diesel e benzina',
 };
 
 export default blogMetaChIt;

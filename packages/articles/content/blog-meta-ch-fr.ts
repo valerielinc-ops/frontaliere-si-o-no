@@ -6680,6 +6680,9 @@ const blogMetaChFr: Record<string, string> = {
     'blog.article.turismo-agosto-ospiti-estero.title': 'Fin d\'été avec moins de touristes étrangers en Suisse',
     'blog.article.turismo-agosto-ospiti-estero.excerpt': 'En août, les nuitées en Suisse ont chuté de 1,9% sur une base annuelle : les hôtes étrangers pèsent, mais la demande intérieure recule également.',
     'blog.article.turismo-agosto-ospiti-estero.imageAlt': 'Touristes sur une promenade au bord d\'un lac suisse en fin d\'été.',
+    'blog.article.salasso-alla-pompa-benzina.title': 'Salasso à la pompe : diesel cher, essence en hausse',
+    'blog.article.salasso-alla-pompa-benzina.excerpt': 'Le 24 septembre 2026 à Zurich, le diesel coûte en moyenne 2,46 CHF/l (pics >2,50), l\'essence 95 2,14 CHF/l, tandis que le pétrole dépasse 100 USD/baril.',
+    'blog.article.salasso-alla-pompa-benzina.imageAlt': 'Station-service à Zurich affichant les prix du diesel et de l\'essence',
 };
 
 export default blogMetaChFr;
