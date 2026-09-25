@@ -93,6 +93,34 @@ describe('BLS AG crawler parser', () => {
       expect(parseJobsApiResponse(json)[0].pensum).toBe('100%');
     });
 
+    it('extracts the slug and UUID from case-variant detail routes', () => {
+      const entries = parseJobsApiResponse({
+        Jobs: [{ Title: 'X', Lead: 'Bern, 100%', URL: 'https://jobs.bls.ch/Offene-Stellen/x/uuid-case' }],
+      });
+      expect(entries).toHaveLength(1);
+      expect(entries[0]).toMatchObject({ slug: 'x', uuid: 'uuid-case' });
+    });
+
+    it('accepts nested lower-case API records and root-relative detail URLs', () => {
+      const json = {
+        data: {
+          jobs: [{
+            title: 'Service technician',
+            lead: 'Bern, 80–100%',
+            url: '/offene-stellen/service-technician/uuid-relative',
+          }],
+        },
+      };
+      expect(parseJobsApiResponse(json)[0]).toMatchObject({
+        url: 'https://jobs.bls.ch/offene-stellen/service-technician/uuid-relative',
+        slug: 'service-technician',
+        uuid: 'uuid-relative',
+        title: 'Service technician',
+        locationRaw: 'Bern',
+        pensum: '80-100%',
+      });
+    });
+
     it('falls back to Region when Lead has no location prefix', () => {
       const json = {
         Jobs: [{ Title: 'X', Lead: '80%', Region: 'Bönigen', URL: 'https://jobs.bls.ch/offene-stellen/x/uuid-2' }],
@@ -102,6 +130,11 @@ describe('BLS AG crawler parser', () => {
 
     it('skips entries whose URL does not match the offene-stellen detail pattern', () => {
       const json = { Jobs: [{ Title: 'X', Lead: 'Bern, 100%', URL: 'https://jobs.bls.ch/1000754/jobabo?lang=en' }] };
+      expect(parseJobsApiResponse(json)).toHaveLength(0);
+    });
+
+    it('rejects detail URLs outside trusted BLS domains', () => {
+      const json = { Jobs: [{ Title: 'X', Lead: 'Bern, 100%', URL: 'https://example.com/offene-stellen/x/uuid-external' }] };
       expect(parseJobsApiResponse(json)).toHaveLength(0);
     });
 

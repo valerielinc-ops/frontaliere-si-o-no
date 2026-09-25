@@ -38,6 +38,14 @@ function normalizeSpace(s = '') {
   return String(s || '').replace(/\s+/g, ' ').trim();
 }
 
+function firstApiString(record, keys) {
+  for (const key of keys) {
+    const value = record?.[key];
+    if (typeof value === 'string' && normalizeSpace(value)) return value;
+  }
+  return '';
+}
+
 /* ── Company Matchers ──────────────────────────────────────── */
 
 /**
@@ -117,6 +125,34 @@ const JOBS_BASE = 'https://jobs.bls.ch';
 // parseListingPage() below matched 0 entries (2026-07, #4523). This endpoint
 // is what the widget itself calls and returns the full job list as JSON.
 const JOBS_API_URL = 'https://www.bls.ch/api/JobPortal/JobsInit?sc_lang=en';
+const API_RESPONSE_KEYS = ['', 'data', 'Data', 'result', 'Result', 'd', 'payload'];
+const API_JOB_ARRAY_KEYS = ['Jobs', 'jobs', 'JobListings', 'jobListings', 'Items', 'items'];
+
+function extractApiJobRecords(json) {
+  for (const responseKey of API_RESPONSE_KEYS) {
+    const container = responseKey ? json?.[responseKey] : json;
+    if (Array.isArray(container)) return container;
+
+    for (const jobKey of API_JOB_ARRAY_KEYS) {
+      if (Array.isArray(container?.[jobKey])) return container[jobKey];
+    }
+  }
+  return [];
+}
+
+function normalizeApiJobUrl(rawUrl = '') {
+  const value = normalizeSpace(rawUrl);
+  if (!value) return '';
+
+  try {
+    const parsed = new URL(value, JOBS_BASE);
+    if (!isTrustedDomain(parsed.href)) return '';
+    if (!/^\/offene-stellen\/[^/]+\/[^/?#]+$/i.test(parsed.pathname)) return '';
+    return parsed.href;
+  } catch {
+    return '';
+  }
+}
 
 /**
  * Fetch a URL and return HTML text with timeout handling.
@@ -216,23 +252,26 @@ export function parseListingPage(html = '') {
 /**
  * Parse the `/api/JobPortal/JobsInit` JSON response (see JOBS_API_URL above)
  * into the same entry shape as parseListingPage(): { url, slug, uuid, title,
- * locationRaw, pensum }. Each `Jobs[]` item's `Lead` field packs
+ * locationRaw, pensum }. The endpoint has returned `Jobs[]` and equivalent
+ * lower-case/nested variants over time; each item's `Lead` field packs
  * "<location>, <pensum>%" (e.g. "Frutigen, 80-100%").
  */
 export function parseJobsApiResponse(json) {
-  const rawJobs = Array.isArray(json?.Jobs) ? json.Jobs : [];
+  const rawJobs = extractApiJobRecords(json);
   const entries = [];
 
   for (const j of rawJobs) {
-    const url = String(j?.URL || '');
-    const match = url.match(/\/offene-stellen\/([^/]+)\/([^/?#]+)/);
+    const url = normalizeApiJobUrl(firstApiString(j, ['URL', 'Url', 'url', 'JobUrl', 'jobUrl', 'Link', 'link']));
+    // Keep extraction aligned with normalizeApiJobUrl(): the BLS route
+    // validator intentionally accepts case variants from the API.
+    const match = url.match(/\/offene-stellen\/([^/]+)\/([^/?#]+)/i);
     if (!match) continue;
 
     const slug = decodeURIComponent(match[1]);
     const uuid = match[2];
-    const title = normalizeSpace(stripHtml(j?.Title || '')) || slug.replace(/-/g, ' ');
+    const title = normalizeSpace(stripHtml(firstApiString(j, ['Title', 'title', 'Name', 'name']))) || slug.replace(/-/g, ' ');
 
-    const lead = normalizeSpace(j?.Lead || '');
+    const lead = normalizeSpace(firstApiString(j, ['Lead', 'lead']));
     const pctMatch = lead.match(/(\d{1,3})\s*(?:[-–]\s*(\d{1,3}))?\s*%/);
     const pensum = pctMatch
       ? pctMatch[2]
@@ -240,7 +279,7 @@ export function parseJobsApiResponse(json) {
         : `${pctMatch[1]}%`
       : '';
     const locationRaw = normalizeSpace(lead.replace(/,?\s*\d{1,3}\s*(?:[-–]\s*\d{1,3})?\s*%\s*$/, ''))
-      || normalizeSpace(j?.Region || '');
+      || normalizeSpace(firstApiString(j, ['Region', 'region', 'Location', 'location']));
 
     entries.push({ url, slug, uuid, title, locationRaw, pensum });
   }
