@@ -36,6 +36,7 @@ import { markLocationDerivedFromVacancyText } from './crawler-location-config.mj
 import { stripContactPII } from './strip-contact-pii.mjs';
 import { isSuccessFactorsWidgetText, sanitizeSuccessFactorsField } from './successfactors-jobs2web-widget-guard.mjs';
 import { parseSuccessFactorsMicrodataLocation } from './successfactors-shared-job-parser-common.mjs';
+import { hqPostalCodeForLocality } from './dedicated-crawler-common.mjs';
 
 /* ── Constants ─────────────────────────────────────────────── */
 
@@ -594,7 +595,8 @@ export async function fetchAllHirslandenJobs() {
         continue;
       }
       const canton = inferredCanton || 'ZH';
-      const postalCode = detail?.postalCode || parsedPostal || '8008';
+      // 8008 is the Zürich fallback of parseLocation: only for a Zürich vacancy (#9841).
+      const postalCode = detail?.postalCode || parsedPostal || hqPostalCodeForLocality(location, 'Zürich', '8008');
 
       let description = '';
       if (detail?.description && detail.description.split(/\s+/).length >= 50) {
