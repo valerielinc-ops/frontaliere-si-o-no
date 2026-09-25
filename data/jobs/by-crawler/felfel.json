@@ -132,7 +132,6 @@
       "jobReqId": "2798583",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-16T23:38:50.081Z",
       "salaryMin": 83000,
       "salaryMax": 127500,
@@ -155,8 +154,10 @@
       "previousSlugs": [
         "sales-representative-felfel-zurich"
       ],
-      "retranslationAttempts": 2,
-      "sourceIdentity": "url:https://felfel.jobs.personio.de/job/2798583"
+      "retranslationAttempts": 3,
+      "sourceIdentity": "url:https://felfel.jobs.personio.de/job/2798583",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 3277
     },
     {
       "id": "felfel-fab704df78ec",

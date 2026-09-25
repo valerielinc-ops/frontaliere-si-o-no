@@ -98,10 +98,11 @@ describe('plate-auction Firestore batching', () => {
     // getPublicPlateAuctionSnapshot filters them out today, so nothing leaks,
     // but a re-activation would then serve days-old bids before the first
     // successful fetch. The delete must happen, and only for the blocked source.
+    // JU (Ricardo, bloccato): TI, l'esempio precedente, è attivo dal 2026-09-25.
     const firestore = fakeFirestore([
       {
-        id: 'ti-stale', sourceKey: 'TI', canton: 'Ticino', platePrefix: 'TI',
-        normalizedPlate: 'TI1', auctionStatus: 'active', currentBidChf: 400,
+        id: 'ju-stale', sourceKey: 'JU', canton: 'Giura', platePrefix: 'JU',
+        normalizedPlate: 'JU1', auctionStatus: 'active', currentBidChf: 400,
         endsAt: '2026-09-20T18:00:00.000Z', sourceFetchedAt: '2026-09-15T06:00:00.000Z',
         lastVerifiedAt: '2026-09-15T06:00:00.000Z', dataConfidence: 'partial',
         firstSeenAt: '2026-09-15T06:00:00.000Z',
@@ -121,9 +122,9 @@ describe('plate-auction Firestore batching', () => {
       now: new Date('2026-09-18T12:00:00.000Z'),
     });
 
-    expect(firestore.deletes).toContain('ti-stale');
+    expect(firestore.deletes).toContain('ju-stale');
     expect(firestore.deletes).not.toContain('gr-live');
-    expect(result.summaries.ti).toMatchObject({ status: 'blocked', rowCount: 0 });
+    expect(result.summaries.ju).toMatchObject({ status: 'blocked', rowCount: 0 });
   });
 
   it('keeps a live row when the Cloud Function sees a partial non-empty feed', async () => {
@@ -142,14 +143,14 @@ describe('plate-auction Firestore batching', () => {
     expect(firestore.sourceSets.find((entry) => entry.id === 'gr')).toMatchObject({
       value: { status: 'degraded', errorCode: 'source_disappeared' },
     });
-    // TI is no longer fetched at all: its registry status is `blocked`, so the
-    // collector skips the connector and publishes the registry state instead of
-    // a `zero_rows` degradation it never measured.
-    expect(firestore.sourceSets.find((entry) => entry.id === 'ti')).toMatchObject({
+    // A blocked source (JU) is not fetched at all: the collector skips the
+    // connector and publishes the registry state instead of a `zero_rows`
+    // degradation it never measured.
+    expect(firestore.sourceSets.find((entry) => entry.id === 'ju')).toMatchObject({
       value: { status: 'blocked', rowCount: 0, errorCode: null },
     });
     expect(result.summaries.gr).toMatchObject({ status: 'degraded', errorCode: 'source_disappeared' });
-    expect(result.summaries.ti).toMatchObject({ status: 'blocked', rowCount: 0 });
+    expect(result.summaries.ju).toMatchObject({ status: 'blocked', rowCount: 0 });
     const agMetadata = firestore.sourceSets.find((entry) => entry.id === 'ag')?.value;
     expect(agMetadata).toMatchObject({
       officialUrl: 'https://www.auktion-ag.ch',
@@ -347,5 +348,60 @@ describe('plate-auction Firestore pipeline: an eCari page that says no auction i
     const result = await refresh(firestore, ECARI_NO_RUNNING_AUCTION.replaceAll('Keine laufende Versteigerung', ''));
     expect(result.summaries.nw).toMatchObject({ status: 'degraded', rowCount: 0 });
     expect(firestore.sources.get('nw')).toMatchObject({ status: 'degraded', errorCode: 'zero_rows' });
+  });
+});
+
+describe('plate-auction Cloud Function: FR e TI geo-fenced, raccolti da Zurigo', () => {
+  // Il 2026-09-25 FR e TI servono il catalogo eCari solo a IP svizzeri: la
+  // function in europe-west6 è il loro unico collector diretto e il collector
+  // statico legge le sue righe dal relay. Qui si prova che il giro li include.
+  const FR_URL = 'https://appls.ocn.ch/ecari-auction/ui/app/init?locale=fr_ch';
+  const TI_URL = 'https://www.carieauktion.ti.ch/ecari-auktion/';
+  const ECARI_FR = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction-fr.html'), 'utf8');
+  const ECARI_IT = readFileSync(join(dirname(fileURLToPath(import.meta.url)), 'fixtures/ecari-no-running-auction-it.html'), 'utf8');
+  const HOUR = 60 * 60 * 1000;
+  const now = new Date();
+  const liveRow = (sourceId: number, plate: number) => `
+    <div id="tabContent1"><table><tbody><tr class="L">
+      <td><a onclick="openDetails(${sourceId})"><div class="number">${plate}</div></a></td>
+      <td class="amount">500</td><td class="amount">50</td><td class="amount">700</td>
+      <td class="closingTime">${new Date(now.getTime() + 72 * HOUR).toISOString().slice(0, 19).replace('T', ' ').replaceAll('-', '/')}</td><td>2</td>
+    </tr></tbody></table></div>`;
+
+  it('fetches FR (with the SwissSign intermediate) and TI and publishes their rows', async () => {
+    const firestore = statefulFirestore();
+    const calls: Array<{ url: string; options?: Record<string, unknown> }> = [];
+    const result = await refreshPlateAuctions({
+      db: firestore.db as never,
+      fetcher: async (url: string, options?: Record<string, unknown>) => {
+        calls.push({ url, options });
+        if (url === FR_URL) return liveRow(1768, 691);
+        if (url === TI_URL) return liveRow(1532, 13457);
+        return '';
+      },
+      now,
+    });
+    expect(result.summaries.fr).toMatchObject({ status: 'active', rowCount: 1 });
+    expect(result.summaries.ti).toMatchObject({ status: 'active', rowCount: 1 });
+    expect(firestore.current.get('fr-1768')).toMatchObject({ sourceKey: 'FR', normalizedPlate: 'FR691', auctionStatus: 'active' });
+    expect(firestore.current.get('ti-1532')).toMatchObject({ sourceKey: 'TI', normalizedPlate: 'TI13457', auctionStatus: 'active' });
+    expect(firestore.sources.get('fr')).toMatchObject({ status: 'active', lastSuccessAt: now.toISOString(), rowCount: 1 });
+    expect(firestore.sources.get('ti')).toMatchObject({ status: 'active', lastSuccessAt: now.toISOString(), rowCount: 1 });
+    // appls.ocn.ch non invia l'intermedio SwissSign: senza `ca` la TLS fallisce.
+    expect(calls.find((call) => call.url === FR_URL)?.options?.ca).toEqual(expect.stringContaining('BEGIN CERTIFICATE'));
+    expect(calls.find((call) => call.url === TI_URL)?.options?.ca).toBeUndefined();
+  });
+
+  it('reads the French and Italian eCari empty pages as an answered, empty catalogue', async () => {
+    const firestore = statefulFirestore();
+    const result = await refreshPlateAuctions({
+      db: firestore.db as never,
+      fetcher: async (url: string) => (url === FR_URL ? ECARI_FR : url === TI_URL ? ECARI_IT : ''),
+      now,
+    });
+    expect(result.summaries.fr).toMatchObject({ status: 'active', rowCount: 0 });
+    expect(result.summaries.ti).toMatchObject({ status: 'active', rowCount: 0 });
+    expect(firestore.sources.get('fr')).toMatchObject({ status: 'active', errorCode: null });
+    expect(firestore.sources.get('ti')).toMatchObject({ status: 'active', errorCode: null });
   });
 });

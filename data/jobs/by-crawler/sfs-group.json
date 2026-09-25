@@ -216,7 +216,6 @@
       "requirementsByLocale": {
         "de": []
       },
-      "needsRetranslation": true,
       "salaryMin": 79000,
       "salaryMax": 120000,
       "salarySource": "estimated",
@@ -241,8 +240,7 @@
       },
       "previousSlugs": [
         "project-manager-m-f-d-sfs-group-heerbrugg"
-      ],
-      "retranslationAttempts": 1
+      ]
     },
     {
       "id": "sfs-group-58a024143e02",
@@ -980,7 +978,7 @@
       "companyDomain": "sfs.com",
       "title": "Kaltmassivumformer/in (m/f/d)",
       "titleByLocale": {
-        "it": "Massa fredda (in (m/f/d))",
+        "it": "Kaltmassivumformer / in (m/f/d)",
         "en": "Kaltmassivumformer/in (m/f/d)",
         "de": "Kaltmassivumformer/einbau (m/w/d)",
         "fr": "Opérateur/Opératrice de formage à froid (m/f/d)"
@@ -1077,7 +1075,7 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 1
+      "retranslationAttempts": 2
     },
     {
       "id": "sfs-group-b59c8a377e5d",
