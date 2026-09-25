@@ -6689,6 +6689,9 @@ const blogMetaChDe: Record<string, string> = {
     'blog.article.urne-due-iniziative-2026.title': 'Note Schweiz: Neutralität und Ernährung',
     'blog.article.urne-due-iniziative-2026.excerpt': 'Am 27. September 2026 stimmt die Schweiz über Neutralität und Ernährung ab. Die Quelle lädt zur Teilnahme an der 20-minütigen Umfrage und Tamedia ein.',
     'blog.article.urne-due-iniziative-2026.imageAlt': 'Schweizer Abstimmung über Neutralität und Ernährung',
+    'blog.article.conferenza-protezione-popolazione-berna.title': 'Bevölkerungsschutzkonferenz: Cell Broadcast Accelerated',
+    'blog.article.conferenza-protezione-popolazione-berna.excerpt': 'Am 23. September 2026 beschleunigt der Bundesrat in Bern den Cell Broadcast und Marc Siegenthaler nimmt an der Konferenz teil.',
+    'blog.article.conferenza-protezione-popolazione-berna.imageAlt': 'Kantonale Vertreter im Gespräch in Bern über den Bevölkerungsschutz und das Cell Broadcast System.',
 };
 
 export default blogMetaChDe;

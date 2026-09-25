@@ -86717,6 +86717,45 @@ const BLOG_CH_SEO_METADATA: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-conferenza-protezione-popolazione-berna': {
+    title: 'Conferenza protezione popolazione: cell broadcast accelerato',
+    description: 'Berna, 23 settembre 2026: la Conferenza dei capi ufficio discute resilienza e conflitto armato. Il Consiglio federale accelera il cell broadcast.',
+    keywords: 'frontalieri, ticino, svizzera, italia, conferenza, protezione, popolazione, cell',
+    ogTitle: 'Conferenza protezione popolazione: cell broadcast accelerato',
+    ogDescription: 'Il 23 settembre 2026 a Berna si è riunita la Conferenza dei capi ufficio della protezione della popolazione. Al centro dei lavori: il rafforzamento delle capacità, il progetto sul conflitto armato e l\'accelerazione del cell broadcast decisa',
+    canonicalPath: '/articoli-svizzera/conferenza-protezione-popolazione-berna/',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Conferenza protezione popolazione: cell broadcast accelerato",
+      "description": "Berna, 23 settembre 2026: la Conferenza dei capi ufficio discute resilienza e conflitto armato. Il Consiglio federale accelera il cell broadcast.",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/conferenza-protezione-popolazione-berna.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Rappresentanti dei cantoni riuniti in conferenza a Berna per discutere la protezione della popolazione e il cell broadcast."
+      },
+      "datePublished": "2026-09-25T04:12:08+00:00",
+      "dateModified": "2026-09-25T04:12:08+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-svizzera/conferenza-protezione-popolazione-berna/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_CH_SEO_METADATA;

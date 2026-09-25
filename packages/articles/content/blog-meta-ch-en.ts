@@ -6689,6 +6689,9 @@ const blogMetaChEn: Record<string, string> = {
     'blog.article.urne-due-iniziative-2026.title': 'Vote Switzerland: neutrality and nutrition',
     'blog.article.urne-due-iniziative-2026.excerpt': 'On September 27, 2026, Switzerland votes on neutrality and nutrition. The source invites you to participate in the 20-minute survey and Tamedia.',
     'blog.article.urne-due-iniziative-2026.imageAlt': 'Swiss vote on neutrality and food initiatives',
+    'blog.article.conferenza-protezione-popolazione-berna.title': 'Population protection conference: accelerated cell broadcast',
+    'blog.article.conferenza-protezione-popolazione-berna.excerpt': 'On 23 September 2026 in Bern, the Federal Council accelerates cell broadcasting and Marc Siegenthaler attends the conference.',
+    'blog.article.conferenza-protezione-popolazione-berna.imageAlt': 'Cantonal representatives meeting in Bern to discuss civil protection and the cell broadcast system.',
 };
 
 export default blogMetaChEn;
