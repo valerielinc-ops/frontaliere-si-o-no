@@ -533,7 +533,7 @@
           // Offerwall: suppress it alone, the consent and ad-block messages
           // this call also carries still show.
           var p = window.location && window.location.pathname || '';
-          if (!/^(?:\/(?:en|de|fr))?\/(?:cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im)-[a-z][a-z-]*(?:\/|$)/.test(p)) {
+          if (!/^(?:\/(?:it|en|de|fr))?\/(?:cerca-lavoro|find-jobs|trouver-emploi|jobs-in|jobs-im)-[a-z][a-z-]*(?:\/|$)/.test(p)) {
             window.__ftOfferwallGate = window.__ftOfferwallGate || { state: 'off_board', held: [] };
             message.proceed(false, [E.OFFERWALL]);
             return;

@@ -138,6 +138,9 @@ describe('job-board section pathname matcher (runtime)', () => {
     '/de/jobs-in-schweiz/',
     '/fr/trouver-emploi-tessin/',
     '/fr/trouver-emploi-suisse/emploi/',
+    // Optional `/it/` prefix, aligned with jobBoardSeoPure's CANTON_LANDING_RE.
+    '/it/cerca-lavoro-ticino/',
+    '/it/cerca-lavoro-ticino/slug/',
   ])('%s is inside a job-board section', (pathname) => {
     expect(isJobBoardSectionPathname(pathname)).toBe(true);
   });
@@ -153,7 +156,8 @@ describe('job-board section pathname matcher (runtime)', () => {
     '/en/jobs-lugano-nurse/',
     '/de/arbeit-lugano-pflege/',
     '/blog/cerca-lavoro-ticino/',
-    '/it/cerca-lavoro-ticino/',
+    '/it/',
+    '/es/cerca-lavoro-ticino/',
     '/aziende/eoc/',
     '/cerca-lavoro-1/',
   ])('%s is not a job-board section page', (pathname) => {

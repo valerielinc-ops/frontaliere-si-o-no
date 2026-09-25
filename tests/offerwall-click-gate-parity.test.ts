@@ -106,8 +106,9 @@ function message(): FakeMessage {
 const ENUM = { OFFERWALL: 1, AD_BLOCKING: 2 };
 
 // Every section shape the shared matcher documents: TI legacy, other cantons
-// (hyphenated slugs too), the Switzerland aggregator, every locale, and the
-// section root with and without its trailing slash.
+// (hyphenated slugs too), the Switzerland aggregator, every locale (optional
+// `/it|/en|/de|/fr` prefix), and the section root with and without its
+// trailing slash.
 const BOARD_PATHS = [
   '/cerca-lavoro-ticino/',
   '/cerca-lavoro-ticino',
@@ -126,6 +127,9 @@ const BOARD_PATHS = [
   '/fr/trouver-emploi-tessin/',
   '/fr/trouver-emploi-vaud/emploi-x/',
   '/fr/trouver-emploi-suisse/',
+  // Optional `/it/` prefix, as in jobBoardSeoPure's CANTON_LANDING_RE.
+  '/it/cerca-lavoro-ticino/',
+  '/it/cerca-lavoro-ticino/slug/',
 ];
 
 // Pages AdSense now includes but where "Candidati" does not exist: articles,
@@ -141,7 +145,8 @@ const OFF_BOARD_PATHS = [
   '/en/jobs-lugano-nurse/',
   '/cerca-lavoro/',
   '/blog/cerca-lavoro-ticino/',
-  '/it/cerca-lavoro-ticino/',
+  '/it/',
+  '/es/cerca-lavoro-ticino/',
   '/en/',
   '/aziende/esempio-sa/',
 ];

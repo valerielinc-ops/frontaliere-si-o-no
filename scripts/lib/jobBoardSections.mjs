@@ -72,8 +72,10 @@ export const JOB_BOARD_SECTION_RX =
 /**
  * Matches a browser pathname (`window.location.pathname`) inside a job-board
  * section, for every canton, the Switzerland aggregator and every locale
- * (optional `/en|/de|/fr` prefix): the section root, with or without its
- * trailing slash, and any page below it. Anchored at the start, unlike
+ * (optional `/it|/en|/de|/fr` prefix, like jobBoardSeoPure's
+ * CANTON_LANDING_RE: `/it/cerca-lavoro-…` is not served today, but it is a
+ * section-shaped path): the section root, with or without its trailing
+ * slash, and any page below it. Anchored at the start, unlike
  * JOB_BOARD_SECTION_RX, so `/blog/cerca-lavoro-ticino/` does not match.
  *
  * Runtime consumers: the rewarded "Candidati" surface
@@ -85,7 +87,7 @@ export const JOB_BOARD_SECTION_RX =
  * fingerprint.
  */
 export const JOB_BOARD_SECTION_PATHNAME_RX =
-  new RegExp(`^(?:/(?:en|de|fr))?/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*(?:/|$)`);
+  new RegExp(`^(?:/(?:it|en|de|fr))?/(?:${JOB_BOARD_SECTION_PREFIX_SOURCE})-[a-z][a-z-]*(?:/|$)`);
 
 /**
  * @param {string} pathname a browser pathname such as `window.location.pathname`.
