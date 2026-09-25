@@ -549,6 +549,11 @@ describe('extractTioPrice + enrichEventsWithPrice (offers/JSON-LD gap, tio.ch "P
     expect(extractTioDetailMetadata(html).performer).toBeUndefined();
   });
 
+  it('keeps an explicitly labelled Tio contributor', () => {
+    const html = '<div class="col-12 col-xl-8"><h1>Test</h1><p>Mitwirkende: Freude.</p></div>';
+    expect(extractTioDetailMetadata(html).performer).toEqual({ name: 'Freude' });
+  });
+
   it('enrichEventsWithPrice attaches price from the injected fetch, never mutates the source array', async () => {
     const events = [
       { id: 'tio-agenda:63071', url: 'https://www.tio.ch/agenda/day/20260704/63071' },

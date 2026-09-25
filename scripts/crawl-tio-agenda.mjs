@@ -290,6 +290,13 @@ export function extractTioDetailMetadata(html) {
     ? parsePriceText('entrata libera')
     : undefined);
   const sourcePeople = extractEventPeopleFromText(descriptionText);
+  // The broad text extractor intentionally understands ordinary `mit/con`
+  // prose for other sources. TIO detail copy also contains sentences such as
+  // "Veranstaltung mit Freude.", which is not performer attribution. Only
+  // copy its performer when the page uses a dedicated contributor label,
+  // `von und mit`/`Gestaltet ... von`, or an explicitly quoted name.
+  const hasExplicitPerformerAttribution = /(?:\bMitwirkende(?:\s+und\s+Zusatzinformationen)?\s*:|\bGestaltet\s+wird\b.+\bvon\b|\bvon\s+und\s+mit\b|\b(?:mit|con|avec|with|featuring|feat\.?)\s+[«“„"'])/iu.test(descriptionText);
+  const sourcePerformer = hasExplicitPerformerAttribution ? sourcePeople.performer : undefined;
   const descriptionPeople = extractEventPeopleFromTitle(descriptionText);
   const titlePeople = extractEventPeopleFromTitle(titleText);
   return {
@@ -298,7 +305,9 @@ export function extractTioDetailMetadata(html) {
     ...(values[0] ? { venue: values[0] } : {}),
     ...(price ? { price } : {}),
     ...(sourcePeople.organizer ? { organizer: sourcePeople.organizer } : {}),
-    ...(descriptionPeople.performer || titlePeople.performer ? { performer: descriptionPeople.performer || titlePeople.performer } : {}),
+    ...(descriptionPeople.performer || titlePeople.performer || sourcePerformer
+      ? { performer: descriptionPeople.performer || titlePeople.performer || sourcePerformer }
+      : {}),
   };
 }
 
