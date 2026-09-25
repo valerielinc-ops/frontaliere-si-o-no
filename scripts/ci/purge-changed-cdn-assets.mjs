@@ -83,8 +83,10 @@ import { MAX_TARGETED_FILES } from '../lib/cf-purge-limits.mjs';
 export const PURGE_BATCH_SIZE = MAX_TARGETED_FILES;
 
 /**
- * Defensive ceiling on how many keys one invocation will purge, applied AFTER
- * `selectPurgeKeys` has dropped source maps and put code first.
+ * Defensive budget for one invocation. Code keys always go in full (see
+ * `selectPurgeKeys`): capping them is how this bug happened. Non-code keys
+ * fill whatever the code leaves, so the cap only ever drops keys whose
+ * staleness is harmless.
  *
  * It used to be 1000, sized for a bucket of "~661 distinct `/assets/*` keys".
  * That stopped being true: deploy run 36088944074 (2026-09-25) re-uploaded
@@ -95,8 +97,7 @@ export const PURGE_BATCH_SIZE = MAX_TARGETED_FILES;
  * JobBoard.js was purged, so the job pages threw
  * `SyntaxError: … './shared-services.js' does not provide an export named
  * 'JOBGATE_RC_KEYS'` for every visitor until a manual purge. With maps out of
- * the list a code deploy needs ~2000 keys; 3000 leaves headroom, and the
- * ordering means a cap hit can only ever cost non-code keys first.
+ * the list a code deploy needs ~2000 keys; 3000 leaves headroom for the rest.
  */
 export const MAX_KEYS_PER_RUN = 3000;
 
@@ -112,14 +113,16 @@ const CODE_KEY_RE = /\.(?:m?js|css)$/i;
 const SOURCE_MAP_KEY_RE = /\.map$/i;
 
 /**
- * Which transferred keys to purge, in order: code first, then every other
- * non-map key, capped at `cap`. rclone logs in upload order, which has nothing
- * to do with how much a stale copy hurts; ordering here makes a cap hit drop
- * the harmless keys, never a chunk another chunk imports from.
+ * Which transferred keys to purge: EVERY code key, then the other non-map keys
+ * up to what `cap` leaves. rclone logs in upload order, which has nothing to do
+ * with how much a stale copy hurts. One stale chunk among fresh ones is a
+ * module that fails to link, so no count of code keys is ever "too many to
+ * purge" — a code set above `cap` is reported (`codeOverCap`) and still
+ * purged in full; only the harmless keys are ever dropped.
  *
  * @param {string[]} keys R2 keys from parseTransferredKeys
  * @param {number} [cap]
- * @returns {{ selected: string[], skippedMaps: number, droppedCode: number, droppedOther: number }}
+ * @returns {{ selected: string[], skippedMaps: number, droppedOther: number, codeOverCap: boolean }}
  */
 export function selectPurgeKeys(keys, cap = MAX_KEYS_PER_RUN) {
   const code = [];
@@ -130,11 +133,13 @@ export function selectPurgeKeys(keys, cap = MAX_KEYS_PER_RUN) {
     else if (CODE_KEY_RE.test(key)) code.push(key);
     else other.push(key);
   }
-  const ordered = [...code, ...other];
-  const selected = ordered.slice(0, Math.max(0, cap));
-  const droppedCode = Math.max(0, code.length - selected.length);
-  const droppedOther = ordered.length - selected.length - droppedCode;
-  return { selected, skippedMaps, droppedCode, droppedOther };
+  const otherKept = other.slice(0, Math.max(0, cap - code.length));
+  return {
+    selected: [...code, ...otherKept],
+    skippedMaps,
+    droppedOther: other.length - otherKept.length,
+    codeOverCap: code.length > cap,
+  };
 }
 
 export const DEFAULT_CDN_BASE = 'https://cdn.frontaliereticino.ch';
@@ -218,13 +223,18 @@ function main(argv) {
     console.log(`[purge-changed-cdn-assets] no ${keyPrefix}/ objects re-uploaded — edge stays warm, no purge needed`);
     return;
   }
-  const { selected: keys, skippedMaps, droppedCode, droppedOther } = selectPurgeKeys(transferred);
+  const { selected: keys, skippedMaps, droppedOther, codeOverCap } = selectPurgeKeys(transferred);
   if (skippedMaps > 0) {
     console.log(`[purge-changed-cdn-assets] ${skippedMaps} source map(s) not purged — no page loads them`);
   }
-  if (droppedCode + droppedOther > 0) {
+  if (codeOverCap) {
     console.log(
-      `::warning::[purge-changed-cdn-assets] ${transferred.length - skippedMaps} changed ${keyPrefix}/ keys exceeds MAX_KEYS_PER_RUN=${MAX_KEYS_PER_RUN} — ${droppedCode} code and ${droppedOther} other key(s) not purged (they fall back to their Cache-Control max-age)`,
+      `::warning::[purge-changed-cdn-assets] more changed code keys than MAX_KEYS_PER_RUN=${MAX_KEYS_PER_RUN} — purging all of them anyway (a stale chunk breaks module linking); check the rclone log parse if this is unexpected`,
+    );
+  }
+  if (droppedOther > 0) {
+    console.log(
+      `::warning::[purge-changed-cdn-assets] ${droppedOther} non-code ${keyPrefix}/ key(s) over MAX_KEYS_PER_RUN=${MAX_KEYS_PER_RUN} not purged (they fall back to their Cache-Control max-age)`,
     );
   }
   if (keys.length === 0) return;

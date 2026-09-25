@@ -138,21 +138,33 @@ describe('purge-changed-cdn-assets — rclone json log parsing', () => {
 
   it('purges code before anything else and never spends the budget on source maps', () => {
     const keys = ['assets/a.js.map', 'assets/logo.svg', 'assets/b.js', 'assets/c.css', 'assets/d.mjs'];
-    const { selected, skippedMaps, droppedCode, droppedOther } = selectPurgeKeys(keys);
+    const { selected, skippedMaps, droppedOther, codeOverCap } = selectPurgeKeys(keys);
     expect(selected).toEqual(['assets/b.js', 'assets/c.css', 'assets/d.mjs', 'assets/logo.svg']);
     expect(skippedMaps).toBe(1);
-    expect(droppedCode + droppedOther).toBe(0);
+    expect(droppedOther).toBe(0);
+    expect(codeOverCap).toBe(false);
   });
 
-  it('under the cap drops non-code keys first and reports what it dropped', () => {
+  it('under the cap drops non-code keys only, and reports what it dropped', () => {
     const keys = ['assets/x.woff2', 'assets/y.woff2', 'assets/a.js', 'assets/b.js'];
     expect(selectPurgeKeys(keys, 3)).toEqual({
       selected: ['assets/a.js', 'assets/b.js', 'assets/x.woff2'],
       skippedMaps: 0,
-      droppedCode: 0,
       droppedOther: 1,
+      codeOverCap: false,
     });
-    expect(selectPurgeKeys(keys, 1)).toMatchObject({ selected: ['assets/a.js'], droppedCode: 1, droppedOther: 2 });
+  });
+
+  it('never drops a code key, even when code alone is over the cap', () => {
+    // One stale chunk among fresh ones fails module linking for the whole
+    // page, so the cap is reported but never applied to code.
+    const keys = ['assets/x.woff2', 'assets/a.js', 'assets/b.js', 'assets/c.css'];
+    expect(selectPurgeKeys(keys, 1)).toEqual({
+      selected: ['assets/a.js', 'assets/b.js', 'assets/c.css'],
+      skippedMaps: 0,
+      droppedOther: 1,
+      codeOverCap: true,
+    });
   });
 
   it('replay of deploy 36088944074: the chunks rclone uploaded last are still purged', () => {
@@ -169,9 +181,10 @@ describe('purge-changed-cdn-assets — rclone json log parsing', () => {
       .join('\n');
     const transferred = parseTransferredKeys(log, 'assets');
     expect(transferred).toHaveLength(3951);
-    const { selected, skippedMaps, droppedCode } = selectPurgeKeys(transferred);
+    const { selected, skippedMaps, codeOverCap } = selectPurgeKeys(transferred);
     expect(skippedMaps).toBe(1975);
-    expect(droppedCode).toBe(0);
+    expect(codeOverCap).toBe(false);
+    expect(selected).toHaveLength(1976);
     expect(selected.length).toBeLessThanOrEqual(MAX_KEYS_PER_RUN);
     for (const name of late) expect(selected).toContain(`assets/${name}`);
     expect(selected).toContain('assets/index.css');
