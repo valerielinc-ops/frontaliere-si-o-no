@@ -13,10 +13,14 @@
  * scripts/lib/successfactors-shared-job-parser-common.mjs.
  */
 import { createSuccessFactorsParser } from './successfactors-shared-job-parser-common.mjs';
+import { sameLocalityAsHq } from './dedicated-crawler-common.mjs';
+import { isKnownSwissCity } from './target-swiss-locations.mjs';
 
 export const HELSANA_KEY = 'helsana';
 export const HELSANA_COMPANY_NAME = 'Helsana';
 export const HELSANA_COMPANY_DOMAIN = 'helsana.ch';
+const HELSANA_HQ_CITY = 'Dübendorf';
+const HELSANA_HQ_POSTAL_CODE = '8600';
 
 /**
  * Helsana's careers.helsana.ch (as of 2026-07) serves the exact same generic
@@ -65,8 +69,8 @@ const parser = createSuccessFactorsParser({
   sfCompanyId: 'Helsana',
   publicCareerUrl: 'https://careers.helsana.ch',
   defaultCanton: 'ZH',
-  defaultCity: 'Dübendorf',
-  defaultPostalCode: '8600',
+  defaultCity: HELSANA_HQ_CITY,
+  defaultPostalCode: HELSANA_HQ_POSTAL_CODE,
   defaultSourceLang: 'de',
   sourceLabel: 'Helsana Dedicated Parser (SuccessFactors CSB)',
   sector: 'Assicurazioni',
@@ -83,6 +87,19 @@ const parser = createSuccessFactorsParser({
 export async function fetchAllHelsanaJobs() {
   const jobs = await parser.fetchAllJobs();
   for (const job of jobs) {
+    // The detail page exposes no CAP, so the factory stamps the HQ one (8600)
+    // on every vacancy. It belongs to Dübendorf (and Dübendorf-Stettbach),
+    // not to a Chur or Worblaufen job (#9841): drop it there and let the
+    // assembler derive the CAP from the job's own city. An ambiguous name
+    // ("Biel") keeps it: the assembler's Swiss-municipality whitelist accepts
+    // such a locality only with a Swiss CAP on record, and the pages already
+    // refuse to print a CAP that belongs to another locality.
+    const city = job.location || job.addressLocality;
+    if (job.postalCode === HELSANA_HQ_POSTAL_CODE
+      && !sameLocalityAsHq(city, HELSANA_HQ_CITY)
+      && isKnownSwissCity(city)) {
+      delete job.postalCode;
+    }
     const block = helsanaStructuredBlock(
       job.title,
       HELSANA_COMPANY_NAME,

@@ -2,6 +2,7 @@ import { borderCrossings } from '../data/borderCrossings';
 import { haversineKm } from '../scripts/lib/haversine.mjs';
 import type { BorderCrossingId } from './router';
 import { slugifyCrossingName } from './borderCrossingSlug';
+import { postalCodeBelongsToLocality } from '../build-plugins/shared/postalCodes';
 
 type CrossingType = {
  id: BorderCrossingId;
@@ -360,9 +361,14 @@ export function getJobLocationSnapshot(input: {
 
  const seed = inferSeed(locality, input.postalCode);
  if (!seed) {
+ // A CAP the postal snapshot binds to another locality (a company-HQ CAP
+ // stamped on every vacancy) is omitted, not printed next to this city (#9841).
+ const explicitPostalCode = String(input.postalCode || '').trim();
  return {
  locality,
- postalCode: String(input.postalCode || '').trim() || undefined,
+ postalCode: explicitPostalCode && postalCodeBelongsToLocality(locality, explicitPostalCode)
+ ? explicitPostalCode
+ : undefined,
  crossings: [],
  };
  }

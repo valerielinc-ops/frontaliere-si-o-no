@@ -29,6 +29,28 @@ describe('jobLocationSnapshot', () => {
     });
     expect(snapshot?.locality).toBe('Zurich');
     expect(snapshot?.crossings).toEqual([]);
+    // …and must not print that CAP next to Zurich either (#9841).
+    expect(snapshot?.postalCode).toBeUndefined();
+  });
+
+  it('omits an HQ postal code that belongs to another locality (#9841)', () => {
+    // Helsana stamps 8600 (Dübendorf) on every vacancy: the SPA sidebar must
+    // not print "Chur · CAP 8600" or "Lausanne · CAP 8600".
+    for (const city of ['Chur', 'Lausanne', 'Worblaufen']) {
+      const snapshot = getJobLocationSnapshot({ location: city, addressLocality: city, postalCode: '8600' });
+      expect(snapshot?.locality).toBe(city);
+      expect(snapshot?.postalCode, city).toBeUndefined();
+    }
+    // Mentioning Bern later in the name does not inherit Bern's CAP.
+    expect(getJobLocationSnapshot({ addressLocality: 'Muri bei Bern', postalCode: '3001' })?.postalCode).toBeUndefined();
+  });
+
+  it('keeps an explicit postal code of the job locality, decorated or unknown to the snapshot', () => {
+    const stettbach = { location: 'Dübendorf-Stettbach', addressLocality: 'Dübendorf-Stettbach', postalCode: '8600' };
+    expect(getJobLocationSnapshot(stettbach)?.postalCode).toBe('8600');
+    expect(getJobLocationSnapshot({ addressLocality: 'Gossau SG', postalCode: '9200' })?.postalCode).toBe('9200');
+    // 8005 is not in the postal snapshot: no contradiction can be proven.
+    expect(getJobLocationSnapshot({ addressLocality: 'Zürich', postalCode: '8005' })?.postalCode).toBe('8005');
   });
 
   it('still trusts a postal code consistent with the locality', () => {
