@@ -647,7 +647,6 @@
           "chauffeur-cat-c-e-heineken-switzerland-luzern"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-10T23:22:07.997Z",
       "salaryMin": 69500,
       "salaryMax": 106000,
@@ -662,8 +661,7 @@
           "maxValue": 106000,
           "unitText": "YEAR"
         }
-      },
-      "retranslationAttempts": 1
+      }
     },
     {
       "id": "heineken-ch-a85de7fe0f2b",

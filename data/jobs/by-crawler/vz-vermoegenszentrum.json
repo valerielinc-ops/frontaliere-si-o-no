@@ -4495,7 +4495,6 @@
           "chef-de-produit-junior-vz-vermogenszentrum-zurich"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-09-19T22:52:16.360Z",
       "salaryMin": 71000,
       "salaryMax": 120500,
@@ -4510,7 +4509,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 1615
     },
     {
       "id": "vz-vermoegenszentrum-645436c6083c",
@@ -4957,8 +4958,9 @@
         }
       },
       "crawlerMissStreak": 2,
-      "needsRetranslation": true,
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2144
     }
   ]
 }

@@ -3310,7 +3310,6 @@
       "requirements": [],
       "requirementsByLocale": {},
       "department": "Klinik für Radio-Onkologie",
-      "needsRetranslation": true,
       "previousSlugs": [
         "physician-associate-ksw-ch",
         "medico-associato-kantonsspital-winterthur-ksw-winterthur",
@@ -3347,7 +3346,9 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2
+      "retranslationAttempts": 3,
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 4419
     },
     {
       "id": "ksw-dbfe0616409b",

@@ -366,7 +366,7 @@
       "titleByLocale": {
         "de": "Servicetechniker / - in (m/w/d)",
         "fr": "Servicetechniker/-in (w/m/d)",
-        "it": "Tecnico/a di assistenza (m/f/d)",
+        "it": "Tecnico di servizio (u/o)",
         "en": "Service Technician (m/f/d)"
       },
       "description": "Bei dormakaba gilt nicht nur «for every place that matters” sondern auch “a place where you matter”. Dieses Motto gilt für alle unsere Mitarbeiter, aber ganz besonders für unsere Montage- und Servicetechniker. Montage- und Servicetechniker stellen die Basis unserer Serviceorganisation dar, denn jedes Produkt ist am Ende nur so gut wie die Person, die es bei unseren Kunden installiert hat. Dementsprechend hoch ist auch die Wertschätzung unserer Kunden gegenüber unserem Montage- und Service Personal. Egal ob es um die Installation, Wartung oder Fehlerbehebung geht, unsere Spezialisten sind stets gerne gesehen.\n\nEin Job, der zählt: Deine Aufgaben\n\n- Du montierst und verdrahtest Antriebskomponenten und Sensorik\n- Du konfigurierst und nimmst automatischen Türen und Vereinzelungsanlagen in Betrieb\n- Du kümmerst dich um die Störungsbehebung an automatischen Türen und Vereinzelungsanlagen\n- Du reparierst und setzt automatischen Türen instand\n- Du modernisierst bestehenden Türanlagen\n- Mit deinen Kollegen übernimmst du im Turnus den natürlich bezahlten 24 Stunden Pikettdienst\n- Du unterstützt bei Montagen\n- Du dokumentierst die erbrachte Leistung (Abnahme und Prüfzeugnisse)\n- Du übergibst die Anlagen an die Kunden\n\nErfahrung, die zählt: Deine Fähigkeiten\n\n- Abgeschlossene technische Ausbildung, z.B. als Automatiker, Elektroinstallateur, Anlagen- und Apparatebauer oder Aus-/Weiterbildungen im Bereich Mechatroniker\n- Gute Informatikkenntnisse (MS Office; Umgang mit Parametriersoftware)\n- Handwerkliches Geschick und selbständiges, zuverlässiges Arbeiten\n- Problemlösungs- und dienstleistungsorientierte Arbeitsweise\n- Sehr gute Deutschkenntnisse in Wort und Schrift\n- Teamfähigkeit, Flexibilität und Belastbarkeit\n- Fahrausweis Kat. B\n- Sicheres und gepflegtes Auftreten, Erfahrung im Service\n\nEin Arbeitsplatz, der zählt: Unser Angebot\n\n- Beste Chancen in einem global agierenden Konzern mit der Kultur eines Familienunternehmens\n- Attraktives Gehaltspaket\n- Transparente und klar definierte Weiterentwicklungsmöglichkeiten\n- Unterstützung von Milizarbeit /Gemeinnützigen Projekten und auch während der Arbeitszeit\n\ndormakaba ist ein Arbeitgeber, welcher sich für Chancengleichheit, Inklusion und Vielfalt einsetzt. Wir ergreifen Massnahmen, um für alle Bewerbungen, ohne Rücksicht auf Ethnie, Hautfarbe, Religion, Geschlecht, sexuelle Orientierung, Geschlechtsidentität, nationale Herkunft, Behinderung oder andere gesetzlich geschützte Merkmale, Chancengleichheit zu gewährleisten.\n\nFÜR DIESE STELLE AKZEPTIEREN WIR KEINE DOSSIERS VON PERSONALVERMITTLUNGEN",
@@ -425,7 +425,6 @@
           "technicien-in-f-m-d-dormakaba-st-gallen"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -440,8 +439,10 @@
         }
       },
       "firstSeenAt": "2026-07-04T10:35:54.067Z",
-      "retranslationAttempts": 2,
-      "sourceIdentity": "url:https://jobs.dormakaba.com/job-invite/11162?locale=de_de"
+      "retranslationAttempts": 3,
+      "sourceIdentity": "url:https://jobs.dormakaba.com/job-invite/11162?locale=de_de",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 2573
     },
     {
       "id": "dormakaba-11917",
@@ -792,7 +793,6 @@
           "service-und-montegetechniker-m-w-d-region-zurich-dormakaba-ch"
         ]
       },
-      "needsRetranslation": true,
       "salaryMin": 67000,
       "salaryMax": 102000,
       "salarySource": "estimated",
@@ -807,7 +807,6 @@
         }
       },
       "firstSeenAt": "2026-07-04T10:35:54.059Z",
-      "retranslationAttempts": 2,
       "sourceIdentity": "url:https://jobs.dormakaba.com/job-invite/11716?locale=de_de"
     },
     {
@@ -824,10 +823,10 @@
       "companyDomain": "dormakaba.com",
       "title": "Configurable Materials Master Data Domain Lead",
       "titleByLocale": {
-        "it": "Responsabile Dominio Dati Master Materiali Configurabili",
+        "it": "Responsabile del dominio dei dati master dei materiali configurabili",
         "en": "Configurable Materials Master Data Domain Lead",
-        "de": "Leiter*in des Bereichs Konfigurierbare Materialstammdaten",
-        "fr": "Responsable du Domaine des Données Maîtres des Matériaux Configurables"
+        "de": "Leiter des Bereichs Konfigurierbare Material-Masterdaten",
+        "fr": "Matériaux configurables Chef de domaine de données principal"
       },
       "description": "## Position Overview\n\nWe are looking for a Configurable Materials Master Data Domain Lead whose core craft is Variant Configuration. SAP VC, including characteristics, classes, configuration profiles, dependencies, constraints, and super-BoMs, is the structural spine of how we define, price, manufacture, and service our products worldwide.\n You will own the strategic data roadmap for this domain, serve as Business Owner for SAP MDG-M and the SAP Variant Configuration landscape (LO-VC / AVC) , and orchestrate cross-functional initiatives that enable product innovation, operational excellence, analytics, and intelligent automation.\n This is a global role, reporting directly to the Global Head of Data Governance & MDM, with end-to-end accountability across R&D, Commercial, Procurement & Operations, and Finance, spanning Idea-to-Market (I2M), Market-to-Cash (M2C), Plan-to-Deliver (P2D), and Record-to-Report (R2R).\n If you have deep VC-modeling expertise and want to shape how a world-class industrial company builds its digital product thread, we want to hear from you.\n\n## What you will do\n Variant Configuration & Modeling\n\n- Own and evolve the SAP VC data model as the central spine of dormakaba's product definition: characteristics, characteristic values, classes, configuration profiles, object dependencies, constraints, and variant tables.\n- Drive the strategic evolution from classic LO-VC toward Advanced Variant Configuration (AVC), defining the migration roadmap, capability gaps, and business-case priorities together with the Global Process Experts and Enterprise Architecture.\n- Design and govern super-BoM and variant-BoM structures that translate configurable product definitions into executable manufacturing and procurement plans across global plants.\n- Define and maintain the material classification, codification, and hierarchy frameworks that underpin VC model selection and variant determination at scale.\n\nBoM Mastership & Digital Thread\n\n- Own the material-side BoM data strategy and mastership rules across the full digital thread: from engineering-BoM origins in PLM, through manufacturing-BoM refinement in ERP, to shop-floor execution in MES.\n- Build long-term standards for BoM structure, revision control, change propagation, and deviation management, ensuring a single source of truth that evolves with our product portfolio.\n- Architect integration patterns across the materials ecosystem (PLM Windchill, SAP MDG, S/4HANA, PIM/DAM, MES) with a focus on data consistency, real-time synchronization, and API-first connectivity.\n\nCommercial, Pricing & CPQ\n\n- Ensure the VC model drives accurate, scalable variant pricing by linking configuration logic to pricing procedures, condition techniques, and commercial rules in S/4HANA.\n- Support the integration of VC-based product models into CPQ platforms and digital sales channels, enabling self-service configuration with validated, real-time data.\n\nInstalled Base, Service & Aftermarket\n\n- Extend the materials master-data domain toward serialized equipment, service BoMs, and spare-parts management.\n- Define how VC-derived product structures translate into installed-base records and service-kit definitions, ensuring traceability from original configuration to aftermarket offerings.\n\nSustainability, Compliance & Regulatory Data\n\n- Embed material composition, weight, and substance data into the materials master record to support sustainability reporting and environmental compliance requirements.\n- Ensure compliance-related data (REACH, RoHS, and future regulations) is structurally linked to the VC model and BoM, enabling automatic variant-level compliance determination.\n- Drive the data standards that allow dormakaba to answer regulatory, customer, and investor questions about product composition and traceability.\n\nGovernance, Quality & Architecture\n\n- Own the strategic roadmap for Configurable Materials master data, aligning it with dormakaba's business, digitalization, and sustainability ambitions.\n- Evolve the global materials governance framework, including data ownership, stewardship, policies, and standards.\n- Champion data product thinking by treating master-data assets as products with defined consumers, SLAs, lineage, and lifecycle management.\n- Apply modern data architecture principles to create a scalable and interoperable materials data ecosystem.\n- Build and sustain an active external stakeholder network to benchmark practices and introduce emerging industry standards.\n\nTransformation, Systems & Change\n\n- Act as Business Owner for SAP MDG-M and the SAP Variant Configuration landscape (LO-VC / AVC), shaping their evolution to meet current and future business requirements.\n\n- Lead the materials master-data workstream within RECITE, dormakaba's global S/4HANA transformation, driving template design, localization requirements, testing, and master-data harmonization.\n- Serve as the direct data-domain counterpart to the onePLM program, ensuring PLM-to-ERP mapping, BoM synchronization, and digital-thread alignment.\n- Apply AI and intelligent automation to improve profiling, stewardship, anomaly detection, and rule management within the materials domain.\n- Lead the materials master-data community across dormakaba through structured communication, training, engagement, and change-management initiatives.\n\nOperating Model & Team Leadership\n\n- Define and implement a fit-for-purpose operating model for the materials data domain, optimizing the interplay of onshore, near-shore, and offshore resources.\n- Mentor and guide the materials data team, fostering accountability, continuous learning, and cross-functional collaboration.\n\n## What we require\n\nYou are a deep craftsperson in Variant Configuration and materials master data who can navigate complex global matrix organizations, build consensus among senior stakeholders, and translate intricate VC and BoM concepts into business value. You challenge the status quo constructively and energize others to follow. AI is a powerful multiplier in your hands; the VC model and the material master are the core you will never delegate to a tool.\n\n- 8–10 years of hands-on materials master-data and Variant Configuration leadership in multinational corporations, with a proven track record in configurable-products industries (industrial technology, engineered products, or similar).\n- Deep expertise in SAP LO-VC and a clear point of view on the evolution path toward AVC, including the data-model, process, and governance implications.\n- Demonstrable mastery of VC modeling objects: characteristics, classes, configuration profiles, object dependencies, constraints, variant tables, and their interplay in super-BoM and variant-BoM structures.\n- University degree in Data Management, Information Technology, Supply Chain, Engineering, Finance, or a related discipline.\n- Explicit experience owning BoM data strategy and mastership across PLM, ERP, and MES boundaries — engineering-BoM, manufacturing-BoM, and the change-propagation standards that keep them synchronized.\n- Strong understanding of data modelling, data architecture, and integration patterns.\n- Familiarity with modern data-management disciplines: data governance, data quality, data lineage, metadata management, data cataloguing, data observability, and data-mesh / data-fabric concepts.\n- Proven track record of leading data-quality improvement programs at scale, including data cleansing, standardization, and harmonization in global environments.\n- Experience working in or designing Shared Services and global delivery models.\n- Demonstrated ability to engage external stakeholders — industry forums, standards organizations, peer networks, and strategic partners — to benchmark practices, introduce innovation, and elevate internal data-management standards.\n- Comfortable applying AI/ML as an accelerator on top of deep domain expertise — e.g., intelligent profiling, automated rule generation, and agentic process automation — while maintaining ownership of the underlying VC and material-master logic.\n- Excellent stakeholder-management, communication, and presentation skills; fluent in English (written and spoken).\n- Pragmatic project-management skills with the ability to run multiple workstreams in parallel and deliver on time in ambitious transformation programs.\n\n## What we desire\n\n- Experience with PLM (Windchill or similar), PIM/DAM, and MES ecosystems is highly desirable.\n- Knowledge of SAP Signavio and LeanIX is advantageous.\n- Advanced qualifications (e.g., CDMP, DAMA-DMBOK, or SAP certifications) are a plus.\n- German language skills.\n\n## What we offer\n\n- Best opportunities in a globally operating company with a family business culture\n- Attractive salary package\n- Development opportunities\n- Employee support program\n- Additional benefits such as free parking and an on-site restaurant\n- Flexibility through a hybrid working model\n\n## Who we are\n We are at the heart of every place that matters. From automatic doors to cloud-based access management – as a leading global provider in the access solutions market for schools, banks, airports, hospitals, hotels, and many more, we enable seamless movement within secure, safe, and sustainable places. With over 160 years of experience and a focus on excellence and innovation, we offer exciting opportunities to grow in an environment where you can make a real impact. At dormakaba, you are encouraged to take initiative, develop your skills, and build your career alongside 16,000 experts worldwide who are setting industry standards every day.\n Work in a place where you matter – apply now!\n\ndormakaba Group is an equal opportunity employer that is committed to diversity and inclusion. We take action to ensure equal opportunity for all applicants without regard to age, race, color, religion, sex, sexual orientation, gender identity, national origin, disability, Veteran status, or other legally protected characteristics.\n\nWE DO NOT ACCEPT SUBMISSIONS FROM RECRUITMENT AGENCIES FOR THIS POSITION\n\n#LI-YC1",
       "descriptionByLocale": {
@@ -876,7 +875,6 @@
           "configurable-materials-master-data-domain-lead-dormakaba-rumlang"
         ]
       },
-      "needsRetranslation": true,
       "firstSeenAt": "2026-07-16T22:17:33.262Z",
       "salaryMin": 189000,
       "salaryMax": 331500,
@@ -891,8 +889,10 @@
           "unitText": "YEAR"
         }
       },
-      "retranslationAttempts": 2,
-      "sourceIdentity": "url:https://jobs.dormakaba.com/job-invite/11900?locale=en_us"
+      "retranslationAttempts": 3,
+      "sourceIdentity": "url:https://jobs.dormakaba.com/job-invite/11900?locale=en_us",
+      "localeMismatchSuppressed": true,
+      "localeMismatchSuppressedLen": 10042
     },
     {
       "id": "dormakaba-11909",
@@ -1351,11 +1351,13 @@
         "fr": []
       },
       "previousSlugs": [
-        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
+        "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
+        "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
+          "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch",
+          "specialiste-en-logiciels-de-controle-d-acces-m-w-d-dormakaba-le-mont-sur-lausanne"
         ],
         "en": [
           "specialiste-en-logiciels-de-controle-d-acces-f-m-d-dormakaba-ch"
