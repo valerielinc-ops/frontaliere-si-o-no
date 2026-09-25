@@ -93361,6 +93361,45 @@ const BLOG_SEO_METADATA_5: Record<string, SEOMetadata> = {
     }
   },
 
+  'blog-roberto-gatti-11-promozioni-podcast': {
+    title: 'Roberto Gatti a Figli di un gol minore: 11 promozioni',
+    description: 'L\'ex difensore del Varese e \'Mister Promozione\' con 11 salti di categoria tra Italia e Svizzera è protagonista del podcast Figli di un gol minore su Radio',
+    keywords: 'frontalieri, ticino, svizzera, italia, roberto, gatti, figli, minore',
+    ogTitle: 'Roberto Gatti: 11 promozioni da Chiasso alla Solbiatese',
+    ogDescription: 'L\'ex calciatore del Varese e allenatore \'Mister Promozione\' racconta le undici gioie tra Svizzera e Italia nel podcast Figli di un gol minore. Ascolta ogni giorno alle 12 su Radio Materia.',
+    canonicalPath: '/articoli-frontaliere/roberto-gatti-11-promozioni-podcast',
+    structuredData: {
+      "@context": "https://schema.org",
+      "@type": "NewsArticle",
+      "headline": "Roberto Gatti a Figli di un gol minore: 11 promozioni",
+      "description": "L'ex difensore del Varese e 'Mister Promozione' con 11 salti di categoria tra Italia e Svizzera è protagonista del podcast Figli di un gol minore su Radio",
+      "image": {
+        "@type": "ImageObject",
+        "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+        "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+        "creator": { "@type": "Organization", "name": "Frontaliere Ticino", "url": "https://frontaliereticino.ch/" },
+        "creditText": "Frontaliere Ticino",
+        "url": `${BASE_URL}/images/blog/roberto-gatti-11-promozioni-podcast.webp`,
+        "width": 1200,
+        "height": 675,
+        "caption": "Stadio di calcio a Lugano con montagne sullo sfondo"
+      },
+      "datePublished": "2026-09-25T15:46:26+00:00",
+      "dateModified": "2026-09-25T15:46:26+00:00",
+      "inLanguage": "it",
+      "author": {
+        "@type": "Person",
+        "@id": "https://frontaliereticino.ch/autori/redazione/#person",
+        "name": "Redazione Frontaliere Ticino",
+        "url": "https://frontaliereticino.ch/autori/redazione/"
+      },
+      "publisher": {"@id": "https://frontaliereticino.ch/#organization"},
+      "mainEntityOfPage": `${BASE_URL}/articoli-frontaliere/roberto-gatti-11-promozioni-podcast/`,
+      "speakable": { "@type": "SpeakableSpecification", "cssSelector": ["article h1", "article h2", "article p"] }
+    }
+  },
+
 };
 
 export default BLOG_SEO_METADATA_5;
