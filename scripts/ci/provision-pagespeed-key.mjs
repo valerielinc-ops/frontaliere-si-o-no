@@ -29,6 +29,7 @@
  * Uso: FIREBASE_SERVICE_ACCOUNT_JSON=… node scripts/ci/provision-pagespeed-key.mjs [--dry-run]
  */
 import { pathToFileURL } from 'node:url';
+import { googleApiJson } from '../lib/google-api-json.mjs';
 import { getServiceAccountAccessToken } from '../lib/google-service-account-token.mjs';
 import { setRcParamWithEtag } from '../lib/remote-config-admin.mjs';
 
@@ -70,22 +71,8 @@ export function restrictionsMatch(restrictions) {
 }
 
 async function googleJson(fetchImpl, url, { token, method = 'GET', body } = {}) {
-  const response = await fetchImpl(url, {
-    method,
-    headers: { Authorization: `Bearer ${token}`, ...(body ? { 'Content-Type': 'application/json' } : {}) },
-    ...(body ? { body: JSON.stringify(body) } : {}),
-    signal: AbortSignal.timeout(60_000),
-  });
-  const text = await response.text();
-  let json = null;
-  try { json = text ? JSON.parse(text) : {}; } catch { json = null; }
-  if (!response.ok) {
-    const message = json?.error?.message || text.slice(0, 300);
-    const reason = json?.error?.details?.find?.((detail) => detail?.reason)?.reason;
-    const hint = response.status === 403 ? ` — ${MISSING_ROLES_HINT}` : '';
-    throw new ProvisionError(`${method} ${url.replace(/\?.*$/u, '')} → HTTP ${response.status}${reason ? ` ${reason}` : ''}: ${message}${hint}`);
-  }
-  return json ?? {};
+  const { json } = await googleApiJson(fetchImpl, url, { token, method, body, forbiddenHint: MISSING_ROLES_HINT, ErrorClass: ProvisionError });
+  return json;
 }
 
 async function waitOperation(fetchImpl, base, operation, token, { sleep, attempts = 30, delayMs = 2_000 }) {

@@ -74,8 +74,16 @@ export function extractEcariTabSection(html, tabContentId) {
 }
 
 const ECARI_TAB_IDS = ['tabContent1', 'tabContent2', 'tabContent3', 'tabContent4'];
-const ECARI_NO_RUNNING_AUCTION_RE = /Keine\s+laufende\s+Versteigerung/i;
-const ECARI_EMPTY_TAB_RE = /Keine\s+laufende\s+Versteigerung|Kontrollschilder\s+nicht\s+verf(?:ü|&uuml;)gbar/i;
+// Le etichette dello stato vuoto seguono la lingua della pagina, non il
+// cantone: VS e FR servono fr_ch, TI it_CH (catena root → bootstrap →
+// props?locale=it_CH misurata da Zurigo il 2026-09-25, Globalping
+// 2PC0TDQSHF4T7OySI00021CPL e 2IcfQS3Fl9FHl7rNB00021CPM). Con il solo tedesco
+// un catalogo vuoto di queste tre fonti restava `zero_rows`. Testi misurati il
+// 2026-09-25 sulle schede vuote di NW (432.10.83, locale fr_ch e it_ch), VS (fr)
+// e GR (it): fr «Aucune enchère en cours» / «Plaques indisponibles»; in
+// italiano anche la scheda d'asta dice «Nessuna targa disponibile».
+const ECARI_NO_RUNNING_AUCTION_RE = /Keine\s+laufende\s+Versteigerung|Aucune\s+ench(?:è|&egrave;|&#232;)re\s+en\s+cours|Nessuna\s+targa\s+disponibile/i;
+const ECARI_EMPTY_TAB_RE = /Keine\s+laufende\s+Versteigerung|Kontrollschilder\s+nicht\s+verf(?:ü|&uuml;)gbar|Aucune\s+ench(?:è|&egrave;|&#232;)re\s+en\s+cours|Plaques\s+indisponibles|Nessuna\s+targa\s+disponibile/i;
 
 /**
  * True when an eCari page is the portal's OWN empty catalogue, not a page we
@@ -121,6 +129,16 @@ export function isExplicitlyEmptyCatalogue(rows) {
  */
 export function withEcariEmptyState(rows, html, expectedTabIds = ECARI_TAB_IDS) {
   if (rows.length > 0 || !isEcariCatalogueExplicitlyEmpty(html, expectedTabIds)) return rows;
+  return explicitlyEmptyCatalogue();
+}
+
+/**
+ * L'array vuoto con il flag letto da isExplicitlyEmptyCatalogue(): «la fonte
+ * ha risposto che oggi non c'è catalogo». Condiviso da eCari e dalla lista PDF
+ * di Ginevra, così i due collector trattano allo stesso modo ogni fonte che
+ * dichiara esplicitamente di non avere un'asta in corso.
+ */
+export function explicitlyEmptyCatalogue() {
   return Object.defineProperty([], 'explicitlyEmpty', { value: true });
 }
 
@@ -889,4 +907,233 @@ export async function fetchPdfText(url, {
     }
   }
   throw lastError;
+}
+
+/**
+ * Ginevra: l'OCV pubblica su ge.ch, per ogni sessione d'asta, un PDF con i
+ * numeri messi all'asta e la finestra della sessione («ce dès le 11 au 20 mai
+ * 2026, 11h00»), senza prezzi né offerte. Le offerte stanno solo su Ricardo,
+ * che non si legge mai: challenge Cloudflare, robots.txt che esclude
+ * /online-shop/, AGB 3.2/3.7 che vietano script e riuso delle offerte. Da
+ * ge.ch si estraggono solo fatti (numeri, date) e si linka il PDF, senza
+ * ripubblicarlo.
+ *
+ * Le liste escono ~2,5-4 settimane prima della sessione (primavera e
+ * autunno). Righe solo mentre la sessione è futura o in corso; dopo la fine
+ * il collector riceve il catalogo esplicitamente vuoto, come eCari fra due
+ * aste.
+ */
+export const GE_PLATE_AUCTION_SOURCE = Object.freeze({
+  canton: 'Ginevra',
+  plateCode: 'GE',
+  pageUrl: 'https://www.ge.ch/plaques/vente-aux-encheres-plaques',
+  // I due slug delle liste OCV presenti nella sitemap di ge.ch il 2026-09-25:
+  // maggio 2026 (documento 22794) e novembre 2025 (documento 15062). Durante
+  // una sessione la pagina d'asta linka anche la lista corrente (/node/<id>).
+  listDocumentUrls: Object.freeze([
+    'https://www.ge.ch/document/liste-numeros-plaques-mis-aux-encheres',
+    'https://www.ge.ch/document/liste-plaques-aux-encheres',
+  ]),
+  // Solo link, mai richiesto.
+  auctionUrl: 'https://www.ricardo.ch/fr/shop/ENCHERES-PLAQUES-GE/offers/',
+  parserVersion: 'ge-pdf-1.0.0',
+});
+
+const FRENCH_MONTHS = {
+  janvier: 1, fevrier: 2, février: 2, mars: 3, avril: 4, mai: 5, juin: 6, juillet: 7,
+  aout: 8, août: 8, septembre: 9, octobre: 10, novembre: 11, decembre: 12, décembre: 12,
+};
+
+function frenchMonth(value) {
+  return FRENCH_MONTHS[String(value || '').toLowerCase()];
+}
+
+function decodeHtmlAttribute(value) {
+  return String(value || '').replace(/&amp;/gi, '&').replace(/&#0?39;/g, "'");
+}
+
+/**
+ * Link alle liste dalla pagina d'asta: a sessione annunciata la pagina scrive
+ * «Liste des numéros proposés à la vente» verso /node/<id> (misurato nella
+ * copia Wayback del 2026-05-17); uno slug /document/…liste…plaques… vale
+ * uguale. Il testo o lo slug decidono, non la posizione nella pagina.
+ */
+export function extractGeListDocumentUrls(html, { baseUrl = GE_PLATE_AUCTION_SOURCE.pageUrl } = {}) {
+  const urls = [];
+  for (const match of String(html || '').matchAll(/<a\b[^>]*\bhref\s*=\s*["']([^"']+)["'][^>]*>([\s\S]*?)<\/a>/gi)) {
+    const href = decodeHtmlAttribute(match[1]);
+    const text = htmlText(match[2]);
+    const isList = /liste\s+des\s+num[ée]ros/i.test(text)
+      || /\/document\/[^/?#]*liste[^/?#]*plaques/i.test(href);
+    if (!isList || /telecharger/i.test(href)) continue;
+    try {
+      const url = new URL(href, baseUrl);
+      if (url.hostname !== 'www.ge.ch') continue;
+      if (!urls.includes(url.toString())) urls.push(url.toString());
+    } catch {
+      // href non valido: non è una lista.
+    }
+  }
+  return urls;
+}
+
+/**
+ * Da una pagina documento di ge.ch: il PDF (/document/<id>/telecharger), la
+ * data di aggiornamento (`og:updated_time`, altrimenti `<meta name="date">`)
+ * e il titolo. Undefined se la pagina non è una lista di plaques aux enchères.
+ */
+export function parseGeListDocumentPage(html, { baseUrl } = {}) {
+  const source = String(html || '');
+  const title = htmlText(source.match(/<title>([\s\S]*?)<\/title>/i)?.[1]);
+  if (!/plaques/i.test(title) || !/ench[èe]res/i.test(title)) return undefined;
+  const href = source.match(/href\s*=\s*["']([^"']*\/document\/\d+\/telecharger)["']/i)?.[1];
+  if (!href) return undefined;
+  const updated = source.match(/<meta\s+property="og:updated_time"\s+content="([^"]+)"/i)?.[1]
+    || source.match(/<meta\s+name="date"\s+content="([^"]+)"/i)?.[1];
+  const updatedMs = Date.parse(String(updated || '').replace(/([+-]\d{2})(\d{2})$/, '$1:$2'));
+  return {
+    title,
+    pdfUrl: new URL(decodeHtmlAttribute(href), baseUrl || GE_PLATE_AUCTION_SOURCE.pageUrl).toString(),
+    updatedAt: Number.isFinite(updatedMs) ? new Date(updatedMs).toISOString() : undefined,
+  };
+}
+
+/**
+ * «ce dès le 11 au 20 mai 2026, 11h00» → inizio e fine in UTC (Europe/Zurich).
+ * Il PDF dà l'ora solo per la chiusura: l'inizio è la mezzanotte del giorno
+ * indicato, così una riga non resta «upcoming» il giorno in cui si può già
+ * offrire. Senza ora di chiusura vale la fine della giornata.
+ */
+export function parseGeAuctionSessionWindow(value) {
+  const text = sourceText(value).replace(/\s+/g, ' ');
+  const match = text.match(/(?:d[èe]s\s+le|du)\s+(\d{1,2})(?:er)?(?:\s+([a-zà-ÿ]+))?(?:\s+(\d{4}))?\s+au\s+(\d{1,2})(?:er)?\s+([a-zà-ÿ]+)\s+(\d{4})(?:\s*,?\s*(\d{1,2})\s*h\s*(\d{2})?)?/i);
+  if (!match) return undefined;
+  const endMonth = frenchMonth(match[5]);
+  const startMonth = match[2] ? frenchMonth(match[2]) : endMonth;
+  if (!endMonth || !startMonth) return undefined;
+  const endYear = Number(match[6]);
+  const startYear = match[3] ? Number(match[3]) : (startMonth > endMonth ? endYear - 1 : endYear);
+  const endHour = match[7] !== undefined ? Number(match[7]) : 23;
+  const endMinute = match[7] !== undefined ? Number(match[8] || 0) : 59;
+  const startsAt = zurichLocalToUtcIso(startYear, startMonth, Number(match[1]), 0, 0, 0);
+  const endsAt = zurichLocalToUtcIso(endYear, endMonth, Number(match[4]), endHour, endMinute, 0);
+  if (Date.parse(startsAt) >= Date.parse(endsAt)) return undefined;
+  return { startsAt, endsAt, label: match[0] };
+}
+
+/**
+ * Numeri in vendita dal punto 8 della lista: «GE 6226» (auto), «Moto GE 2570»,
+ * «Lot plaques voiture et moto GE 100069» (stesso numero per auto e moto).
+ */
+export function parseGeAuctionListEntries(value) {
+  const text = sourceText(value).replace(/\s+/g, ' ');
+  const start = text.search(/seront\s+propos[ée]s\s+aux\s+ench[èe]res/i);
+  if (start < 0) return [];
+  const rest = text.slice(start);
+  const end = rest.search(/\(format\s+de\s+la\s+plaque|\s9\.\s/i);
+  const section = end > 0 ? rest.slice(0, end) : rest;
+  const entries = [];
+  const seen = new Set();
+  for (const match of section.matchAll(/(Lot\s+plaques\s+voiture\s+et\s+moto\s+|Moto\s+)?GE\s+(\d{1,6})\b/gi)) {
+    const kind = !match[1] ? 'car' : /^lot/i.test(match[1]) ? 'lot' : 'motorcycle';
+    const key = `${kind}-${match[2]}`;
+    if (seen.has(key)) continue;
+    seen.add(key);
+    entries.push({ kind, plateNumber: match[2], raw: match[0].trim() });
+  }
+  return entries;
+}
+
+/**
+ * Righe della lista GE per la sessione del PDF, oppure il catalogo
+ * esplicitamente vuoto se la sessione è già finita. Un PDF senza finestra o
+ * senza numeri è un errore: non si confonde con «nessuna asta».
+ *
+ * @param {unknown} value testo del PDF (stringa o `{ text, pages }` di fetchPdfText)
+ * @param {{ pdfUrl?: string, fetchedAt?: string, now?: Date }} [options]
+ */
+export function parseGePlateAuctionListPdfText(value, {
+  pdfUrl,
+  fetchedAt = new Date().toISOString(),
+  now = new Date(fetchedAt),
+} = {}) {
+  const session = parseGeAuctionSessionWindow(value);
+  if (!session) throw new Error('GE: the auction list has no parsable session window');
+  const entries = parseGeAuctionListEntries(value);
+  if (entries.length === 0) throw new Error('GE: the auction list has no plate numbers');
+  const nowMs = now.getTime();
+  if (nowMs >= Date.parse(session.endsAt)) return explicitlyEmptyCatalogue();
+  const { canton, plateCode, auctionUrl } = GE_PLATE_AUCTION_SOURCE;
+  const sessionKey = session.endsAt.slice(0, 10).replace(/-/g, '');
+  const auctionStatus = nowMs < Date.parse(session.startsAt) ? 'upcoming' : 'active';
+  return entries.map(({ kind, plateNumber, raw }) => {
+    const suffix = kind === 'car' ? plateNumber : `${kind}-${plateNumber}`;
+    const sourceRecordId = `${sessionKey}-${suffix}`;
+    return {
+      id: `${plateCode.toLowerCase()}-${sourceRecordId}`,
+      sourceKey: plateCode,
+      sourceRecordId,
+      canton,
+      platePrefix: plateCode,
+      plateNumber,
+      normalizedPlate: `${plateCode}${plateNumber}`,
+      listingType: 'auction',
+      vehicleType: kind === 'car' ? 'car' : kind === 'motorcycle' ? 'motorcycle' : 'other',
+      auctionStatus,
+      startsAt: session.startsAt,
+      endsAt: session.endsAt,
+      officialAuctionUrl: auctionUrl,
+      ...(pdfUrl ? { officialDetailUrl: pdfUrl } : {}),
+      sourceFetchedAt: fetchedAt,
+      lastVerifiedAt: fetchedAt,
+      firstSeenAt: fetchedAt,
+      lastSeenAt: fetchedAt,
+      sourceCategory: kind === 'lot' ? 'official-auction-list-lot-car-motorcycle' : 'official-auction-list',
+      // Numero e date ufficiali, ma nessun prezzo né offerta: mai `verified`.
+      dataConfidence: 'partial',
+      rawSnapshotHash: createHash('sha1').update(`${session.label}:${raw}`).digest('hex').slice(0, 12),
+    };
+  });
+}
+
+/**
+ * Pagina d'asta → liste candidate → la più recente → PDF → righe. Solo ge.ch:
+ * `auctionUrl` (Ricardo) non viene mai richiesto. `injectedFetcher` segue la
+ * firma dei connettori a prezzo fisso della Cloud Function.
+ *
+ * @param {{ fetchedAt?: string, now?: Date, injectedFetcher?: (url: string, options?: Record<string, unknown>) => Promise<any> }} [options]
+ */
+export async function fetchGePlateAuctions({
+  fetchedAt = new Date().toISOString(),
+  now = new Date(fetchedAt),
+  injectedFetcher,
+} = {}) {
+  const source = GE_PLATE_AUCTION_SOURCE;
+  const readHtml = (url) => (injectedFetcher
+    ? injectedFetcher(url, { responseType: 'html', timeoutMs: 20000 })
+    : fetchHtml(url));
+  const auctionPage = await readHtml(source.pageUrl);
+  const candidates = [...new Set([
+    ...extractGeListDocumentUrls(auctionPage, { baseUrl: source.pageUrl }),
+    ...source.listDocumentUrls,
+  ])];
+  const documents = [];
+  const failures = [];
+  for (const url of candidates) {
+    try {
+      const document = parseGeListDocumentPage(await readHtml(url), { baseUrl: url });
+      if (document) documents.push(document);
+      else failures.push(`${url}: not a plate-auction list`);
+    } catch (error) {
+      failures.push(`${url}: ${error instanceof Error ? error.message : String(error)}`);
+    }
+  }
+  const newest = documents
+    .filter((document, index) => documents.findIndex((other) => other.pdfUrl === document.pdfUrl) === index)
+    .sort((a, b) => (Date.parse(b.updatedAt || '') || 0) - (Date.parse(a.updatedAt || '') || 0))[0];
+  if (!newest) throw new Error(`GE: no plate-auction list found (${failures.join('; ') || 'no candidate'})`);
+  const pdf = injectedFetcher
+    ? await injectedFetcher(newest.pdfUrl, { responseType: 'pdf-text', timeoutMs: 30000 })
+    : await fetchPdfText(newest.pdfUrl);
+  return parseGePlateAuctionListPdfText(pdf, { pdfUrl: newest.pdfUrl, fetchedAt, now });
 }

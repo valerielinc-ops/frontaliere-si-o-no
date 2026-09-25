@@ -76,6 +76,9 @@ const EXPANDED_ECARI_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-ec
 const EXPANDED_CARD_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-auction-sample.html'), 'utf8');
 // NW/OW between two rounds: eCari's own empty state in every tab.
 const ECARI_NO_RUNNING_AUCTION = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction.html'), 'utf8');
+// Stesso stato vuoto in fr_ch (FR, VS) e it_CH (TI), catturato il 2026-09-25.
+const ECARI_NO_RUNNING_AUCTION_FR = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction-fr.html'), 'utf8');
+const ECARI_NO_RUNNING_AUCTION_IT = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction-it.html'), 'utf8');
 
 describe('expanded plate-auction connectors', () => {
   it('does not substitute an unrelated PDF when a configured pattern misses', () => {
@@ -385,6 +388,28 @@ describe('eCari explicit empty catalogue', () => {
     for (const rows of [parseGrAuctionRows(ECARI_NO_RUNNING_AUCTION), parseSgAuctionRows(ECARI_NO_RUNNING_AUCTION), parseSzAuctionRows(ECARI_NO_RUNNING_AUCTION), parseTiAuctionRows(ECARI_NO_RUNNING_AUCTION)]) {
       expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
     }
+  });
+
+  it('reads the French and Italian empty pages the same way (FR and VS serve fr_ch, TI it_CH)', () => {
+    // Con il solo tedesco il catalogo vuoto di FR, VS e TI restava `zero_rows`.
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION_FR)).toBe(true);
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION_IT)).toBe(true);
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION_FR, ['tabContent1', 'tabContent2', 'tabContent4'])).toBe(true);
+    const frRows = parseExpandedEcari('fr', ECARI_NO_RUNNING_AUCTION_FR);
+    expect(frRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(frRows)).toBe(true);
+    const tiRows = parseTiAuctionRows(ECARI_NO_RUNNING_AUCTION_IT);
+    expect(tiRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(tiRows)).toBe(true);
+    // Fail-closed invariato: senza etichetta, o troncata, non è vuota.
+    for (const [page, label] of [
+      [ECARI_NO_RUNNING_AUCTION_FR, 'Aucune enchère en cours'],
+      [ECARI_NO_RUNNING_AUCTION_IT, 'Nessuna targa disponibile'],
+    ] as const) {
+      expect(isEcariCatalogueExplicitlyEmpty(page.replaceAll(label, ''))).toBe(false);
+      expect(isEcariCatalogueExplicitlyEmpty(page.slice(0, page.indexOf('<div id="tabContent2"')))).toBe(false);
+    }
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION_FR.replaceAll('Plaques indisponibles', ''))).toBe(false);
   });
 
   it('keeps an empty parse WITHOUT the explicit label a failed parse', () => {

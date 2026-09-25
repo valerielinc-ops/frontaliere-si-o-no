@@ -25,9 +25,11 @@ jobs:
     runs-on: ubuntu-latest
     timeout-minutes: 25
     env:
-      # The SZ host rejects GitHub Actions egress intermittently. The
-      # connector may use the fresh Cloud Function API snapshot only after
-      # the official fetch fails and its source health/age checks pass.
+      # The SZ host rejects GitHub Actions egress intermittently, and FR/TI
+      # are geo-fenced to Swiss IPs (measured 2026-09-25). Their connectors
+      # (connectors/api-relay.mjs) may use the fresh Cloud Function API
+      # snapshot, collected in europe-west6, only after the official fetch
+      # fails and the source health/age checks pass.
       PLATE_AUCTION_ENABLE_API_RELAY: "1"
 
     steps:
@@ -95,6 +97,7 @@ jobs:
           npx vitest run
           tests/plate-auction-quality-checks.test.ts
           tests/plate-auction-connectors.test.ts
+          tests/plate-auction-api-relay.test.ts
           tests/plate-auction-registry.test.ts
           tests/plate-auction-functions-registry-parity.test.ts
           tests/plate-auction-public-snapshot.test.ts

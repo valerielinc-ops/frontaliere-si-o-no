@@ -1,0 +1,78 @@
+name: Plate auctions function run
+
+# Esegue subito il job Cloud Scheduler della function refreshPlateAuctions
+# (europe-west6, Zurigo) e aspetta che il relay getPlateAuctions mostri il giro
+# nuovo per ogni fonte attiva, con una tabella per fonte.
+#
+# Serve a verificare un deploy senza aspettare fino a 6 ore: dal 2026-09-25 la
+# function è l'unico collector diretto di FR e TI, geo-fenced su IP svizzeri, e
+# il collector statico li legge dal relay.
+#
+# Solo manuale, dry run di default (elenca il job e stampa lo stato del relay,
+# senza lanciare niente). Il service account di FIREBASE_SERVICE_ACCOUNT_JSON
+# deve poter elencare ed eseguire i job Cloud Scheduler
+# (roles/cloudscheduler.admin, o cloudscheduler.jobs.list + cloudscheduler.jobs.run);
+# se non può, la run fallisce dicendolo.
+
+run-name: ${{ inputs.dry_run == true && 'Plate auctions function run (dry run)' || 'Plate auctions function run' }}
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Only list the Cloud Scheduler job and print the current relay state; trigger nothing'
+        type: boolean
+        default: true
+
+permissions: {}
+
+concurrency:
+  group: plate-auctions-function-run
+  cancel-in-progress: false
+
+jobs:
+  run:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    permissions:
+      contents: read
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Trigger refreshPlateAuctions and wait for the relay
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+          PLATE_AUCTIONS_FUNCTION_RUN_DRY_RUN: ${{ inputs.dry_run == true && 'true' || 'false' }}
+        run: node scripts/ci/run-plate-auctions-function.mjs
