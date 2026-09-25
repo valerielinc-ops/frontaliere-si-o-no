@@ -6707,6 +6707,9 @@ const blogMetaChIt: Record<string, string> = {
     'blog.article.finanziamento-federale-universita-sup.title': 'Finanziamento federale università cantonali e SUP',
     'blog.article.finanziamento-federale-universita-sup.excerpt': 'Il Consiglio federale ha approvato il 25 settembre 2026 il rapporto sul finanziamento equo: 20% massimo per università cantonali, 30% massimo per SUP dal 1° gennaio 2027.',
     'blog.article.finanziamento-federale-universita-sup.imageAlt': 'Campus universitario moderno a Lugano con studenti e laboratori di ricerca sotto il cielo alpino',
+    'blog.article.fondi-integrazione-svizzera-2028.title': 'Più fondi federali per l\'integrazione 2028-2032',
+    'blog.article.fondi-integrazione-svizzera-2028.excerpt': 'Il Consiglio federale stanzia 334,5 milioni per l\'integrazione in Svizzera nel periodo 2028-2032, con 66,9 milioni annui per programmi cantonali e nazionali.',
+    'blog.article.fondi-integrazione-svizzera-2028.imageAlt': 'Sessione informativa svizzera sui programmi cantonali d\'integrazione',
 };
 
 export default blogMetaChIt;
