@@ -23,8 +23,10 @@
 // pair `Gefängnisseelsorger → Prigionieri` scores 0.900 against 0.912 for the
 // correct `Cappellano carcerario`. No threshold separates them, so 0.80 is
 // chosen to reject none of the measured correct candidates (lowest 0.836):
-// this gate adds the fail-closed boundary and catches gross mismatches, and
-// #9676 decides the signal and the number that make it discriminate.
+// this gate adds the fail-closed boundary and catches gross mismatches.
+// Replacing a stored value goes further: ./local-mt-semantic-policy.mjs (#9676)
+// adds deterministic meaning guards and a cutoff calibrated on that dataset.
+// Filling an empty slot still uses this bootstrap threshold.
 
 import { embedBatch } from './evidence/embeddingClient.mjs';
 

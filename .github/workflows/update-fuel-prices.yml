@@ -61,6 +61,12 @@ jobs:
           APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
           APPROVAL_CONSENT: ${{ inputs.human_approval }}
           APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
+          # I cron (orario su Firestore, giornaliero con commit + deploy) sono
+          # gli unici produttori. Non armati da #8895, negano
+          # (`event-not-workflow-dispatch`) ed escono verdi senza scrivere
+          # (run 36001849481): public/data/fuel-prices.json e' fermo a
+          # `generatedAt` 2026-09-16T12:02Z. Scrittura interna.
+          APPROVAL_TRUSTED_SCHEDULE: 'true'
           APPROVAL_SCOPE: update-fuel-prices
         run: node scripts/ci/human-side-effect-gate.mjs
 

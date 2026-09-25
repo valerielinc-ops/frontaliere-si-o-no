@@ -31,6 +31,7 @@ import { toMillis } from './firestoreTimestamp.mjs';
 import { isReprobeDue, REPROBE_AFTER_INACTIVE_DAYS, REPROBE_MAX_ATTEMPTS } from './reprobeGuard.mjs';
 import { isNewsletterOptOutBinding } from '../../services/newsletterOptOut.mjs';
 import { isCrossChannelStop } from '../../services/emailSuppression.mjs';
+import { hasSubscriptionBasis } from '../../services/subscriberConsent.mjs';
 
 const DAY_MS = 24 * 60 * 60 * 1000;
 
@@ -131,6 +132,13 @@ export function classifySunset(sub, nowMs) {
   // can step over it (#5688).
   if (isNewsletterOptOutBinding(sub)) {
     return { action: 'none', reason: 'recorded opt-out — not a lifecycle candidate' };
+  }
+
+  // A profile-only sign-in document has no subscription to wind down: its
+  // empty status would otherwise read as the legacy mailable `''` and earn a
+  // win-back email (or a status write) for a relationship that never existed.
+  if (!hasSubscriptionBasis(sub)) {
+    return { action: 'none', reason: 'no subscription basis — not a lifecycle candidate' };
   }
 
   // Already sunset: only ever resurrect on real engagement; otherwise leave be.

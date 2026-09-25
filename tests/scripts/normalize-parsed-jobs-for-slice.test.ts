@@ -12,6 +12,9 @@ import { normalizeParsedJobsForSlice } from '../../scripts/assemble-jobs-dataset
 interface JobLike {
   location?: string;
   url?: string;
+  applyUrl?: string;
+  applicationEmail?: string;
+  contactEmail?: string;
   canton?: string;
   addressLocality?: string;
   addressCountry?: string;
@@ -34,6 +37,21 @@ describe('normalizeParsedJobsForSlice', () => {
     const jobs = [{ location: 'Location: ottima conoscenza della lingua italiana e disponibilità' }];
     normalizeParsedJobsForSlice(jobs);
     expect(jobs[0].location).toBe('Ticino');
+  });
+
+  it('keeps the city of a "City & Homeoffice" location instead of the canton label (issue 5253)', () => {
+    // helsana: `Worblaufen & Homeoffice` usciva `Zurigo`, `Chur & Homeoffice` `Grigioni`.
+    const jobs: JobLike[] = [
+      { location: 'Worblaufen & Homeoffice', canton: 'BE' },
+      { location: 'Chur & Homeoffice', canton: 'GR' },
+      { location: 'Dübendorf-Stettbach & Homeoff', canton: 'ZH' },
+    ];
+    normalizeParsedJobsForSlice(jobs);
+    expect(jobs.map((job) => job.location)).toEqual(['Worblaufen', 'Chur', 'Dübendorf-Stettbach']);
+    // «home office» dentro una frase resta prosa.
+    const prose: JobLike[] = [{ location: 'Home office possible two days per week', canton: 'BE' }];
+    normalizeParsedJobsForSlice(prose);
+    expect(prose[0].location).not.toContain('Home office');
   });
 
   it('preserves a clean city location', () => {
@@ -123,5 +141,35 @@ describe('normalizeParsedJobsForSlice', () => {
     expect(jobs[0].url).toBeUndefined();
     expect(jobs[1].url).toBe('   ');
     expect(report.urlNormalized).toBe(0);
+  });
+
+  it('backfills applyUrl only from a recognized HTTPS job-detail URL', () => {
+    const jobs: JobLike[] = [
+      { url: 'https://jobs.hilcona.com/de/stelle/maschinenfuhrer-123' },
+      { url: 'https://jobs.davos.ch/de/stellenangebote/bergbahn_j_12345' },
+      { url: 'https://www.tarchinigroup.com/it/work/42/tecnico' },
+      { url: 'https://jobs.example.ch/de/stellenangebote/' },
+    ];
+
+    const report = normalizeParsedJobsForSlice(jobs);
+
+    expect(jobs[0].applyUrl).toBe(jobs[0].url);
+    expect(jobs[1].applyUrl).toBe(jobs[1].url);
+    expect(jobs[2].applyUrl).toBe(jobs[2].url);
+    expect(jobs[3].applyUrl).toBeUndefined();
+    expect(report.applyUrlBackfilled).toBe(3);
+  });
+
+  it('replaces a non-HTTPS detail handoff while preserving mailto provenance', () => {
+    const jobs: JobLike[] = [{
+      url: 'https://www.tarchinigroup.com/it/work/42/tecnico',
+      applyUrl: 'mailto:risorseumane@tarchinigroup.com?subject=Tecnico',
+    }];
+
+    const report = normalizeParsedJobsForSlice(jobs);
+
+    expect(jobs[0].applyUrl).toBe(jobs[0].url);
+    expect(jobs[0].applicationEmail).toBe('risorseumane@tarchinigroup.com');
+    expect(report.applyUrlBackfilled).toBe(1);
   });
 });

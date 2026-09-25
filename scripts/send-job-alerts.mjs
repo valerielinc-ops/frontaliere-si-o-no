@@ -1840,12 +1840,21 @@ function planAlertMatch(alert, {
   // inventory daily — see MATCH_WINDOW_MS). The boost never resurrects a
   // 0-score job: relevance still decides IF a job surfaces, freshness only
   // decides how high.
+  //
+  // The tiebreak timestamp is parsed ONCE per surviving entry, not twice per
+  // comparison (#9314): since #9471 the pool is the recipient's whole catch-up
+  // window (~20K rows per alert in production), and the comparator's two
+  // `new Date()` calls per compare were ~40% of the matching CPU. The value is
+  // the exact expression the comparator used (NaN included), so every
+  // pairwise result — and therefore the order — is unchanged.
   const sorted = eligibleJobs
     .map((job) => {
-      const relevance = scoreJobForAlert(job, profile, nlNormLocale(alert.locale), featureCache);
+      const relevance = scoreJobForAlert(job, profile, alertLocale, featureCache);
+      if (relevance <= 0) return { job, score: 0, firstSeenMs: 0 };
       return {
-        job: relevance > 0 ? { ...job, relevanceScore: relevance } : job,
-        score: relevance > 0 ? relevance + freshnessBoost(job, now) : 0,
+        job: { ...job, relevanceScore: relevance },
+        score: relevance + freshnessBoost(job, now),
+        firstSeenMs: job.firstSeenAt ? new Date(job.firstSeenAt).getTime() : 0,
       };
     })
     .filter((m) => m.score > 0)
@@ -1856,9 +1865,7 @@ function planAlertMatch(alert, {
       // Tiebreak: more recently first-seen jobs first. Without this, location-only
       // alerts (where every match has score=2) yielded an arbitrary insertion order
       // and stale jobs leaked into the subject line.
-      const aTime = a.job.firstSeenAt ? new Date(a.job.firstSeenAt).getTime() : 0;
-      const bTime = b.job.firstSeenAt ? new Date(b.job.firstSeenAt).getTime() : 0;
-      return bTime - aTime;
+      return b.firstSeenMs - a.firstSeenMs;
     });
 
   // Per-company cap: at most 2 jobs per company in the surfaced list. Without

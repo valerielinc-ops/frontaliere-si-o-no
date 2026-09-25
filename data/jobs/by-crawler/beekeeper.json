@@ -53,7 +53,7 @@
       "jobReqId": "d743f232-8d35-4489-8226-dbb9f7f6ccb2",
       "requirements": [],
       "requirementsByLocale": {},
-      "firstSeenAt": "2026-08-18T22:16:08.956Z",
+      "firstSeenAt": "2026-07-12T21:49:56.120Z",
       "salaryMin": 79000,
       "salaryMax": 134500,
       "salarySource": "estimated",
@@ -66,7 +66,8 @@
           "maxValue": 134500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://job.lumapps.com/jobs/8052689-forward-deployed-engineer-fde-zurich"
     },
     {
       "id": "beekeeper-ad4c568442b2",
@@ -120,19 +121,17 @@
       "requirements": [],
       "requirementsByLocale": {},
       "previousSlugs": [
-        "senior-account-manager-beekeeper-zurich",
-        "responsabile-account-senior-beekeeper-zurich"
+        "senior-account-manager-beekeeper-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
-          "senior-account-manager-beekeeper-zurich",
-          "responsabile-account-senior-beekeeper-zurich"
+          "senior-account-manager-beekeeper-zurich"
         ],
         "fr": [
           "senior-account-manager-beekeeper-zurich"
         ]
       },
-      "firstSeenAt": "2026-08-18T22:16:08.954Z",
+      "firstSeenAt": "2026-07-24T11:19:18.193Z",
       "salaryMin": 117000,
       "salaryMax": 180000,
       "salarySource": "estimated",
@@ -145,7 +144,8 @@
           "maxValue": 180000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://job.lumapps.com/jobs/8081204-senior-account-manager"
     },
     {
       "id": "beekeeper-877c21c09c76",
@@ -154,7 +154,7 @@
         "it": "rappresentante-per-lo-sviluppo-commerciale-zurich-beekeeper-zurich",
         "en": "business-development-representative-zurich-beekeeper-zurich",
         "de": "geschaftsentwicklungsbeauftragter-zurich-beekeeper-zurich",
-        "fr": "business-development-representative-zurich-beekeeper-zurich"
+        "fr": "representant-pour-le-developpement-des-entreprises-zurich-beekeeper-zurich"
       },
       "company": "Beekeeper",
       "companyKey": "beekeeper",
@@ -199,22 +199,18 @@
       "requirementsByLocale": {},
       "previousSlugs": [
         "business-development-representative-dach-beekeeper-zurich",
-        "business-development-representative-zurich-beekeeper-zurich",
-        "representant-pour-le-developpement-des-entreprises-zurich-beekeeper-zurich",
-        "rappresentante-per-lo-sviluppo-commerciale-zurich-beekeeper-zurich"
+        "business-development-representative-zurich-beekeeper-zurich"
       ],
       "previousSlugsByLocale": {
         "it": [
           "business-development-representative-dach-beekeeper-zurich",
-          "business-development-representative-zurich-beekeeper-zurich",
-          "rappresentante-per-lo-sviluppo-commerciale-zurich-beekeeper-zurich"
+          "business-development-representative-zurich-beekeeper-zurich"
         ],
         "de": [
           "business-development-representative-zurich-beekeeper-zurich"
         ],
         "fr": [
           "business-development-representative-dach-beekeeper-zurich",
-          "representant-pour-le-developpement-des-entreprises-zurich-beekeeper-zurich",
           "business-development-representative-zurich-beekeeper-zurich"
         ]
       },
@@ -231,7 +227,8 @@
           "maxValue": 127500,
           "unitText": "YEAR"
         }
-      }
+      },
+      "sourceIdentity": "url:https://job.lumapps.com/jobs/8241616-business-development-representative-zurich"
     },
     {
       "id": "beekeeper-70cd41465d83",
@@ -298,7 +295,7 @@
         }
       },
       "crawlerMissStreak": 2,
-      "needsRetranslation": true
+      "sourceIdentity": "url:https://job.lumapps.com/jobs/7938577-customer-success-manager-fr-speaking"
     }
   ]
 }

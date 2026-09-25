@@ -40,6 +40,10 @@ inputs:
     description: "Codex model_reasoning_effort: `max` (default, unchanged for every caller) or `high`. Recorded in the structured evidence and validated by the review gate."
     required: false
     default: "max"
+  exec_timeout_minutes:
+    description: "Internal watchdog for the Codex process, in whole minutes (1-300). Default 15 fits reviews; agentic fixers pass a larger value that stays below their step `timeout-minutes`."
+    required: false
+    default: "15"
 
 outputs:
   execution_file:
@@ -154,7 +158,14 @@ runs:
         /usr/bin/chmod 700 "$node_runtime_root"
         printf 'node_runtime_root=%s\n' "$node_runtime_root" >> "$GITHUB_OUTPUT"
         archive_path="$node_runtime_root/$node_archive"
+        # Download LIMITATO: senza tetto, una connessione appesa a nodejs.org ha
+        # tenuto questo step fermo 32 minuti fino al `timeout-minutes` del
+        # chiamante (post-merge-followup run 35735836333, 2026-09-22), senza
+        # log e senza il fallback. L'archivio (~30 MB) scende in pochi secondi:
+        # 120 s per tentativo e due retry sui guasti transitori bastano, e un
+        # blocco reale fallisce qui con un errore leggibile.
         /usr/bin/curl --fail --silent --show-error --location --proto '=https' --tlsv1.2 \
+          --connect-timeout 20 --max-time 120 --retry 2 --retry-delay 5 \
           --output "$archive_path" "$node_url"
         archive_sha256="$(/usr/bin/sha256sum -- "$archive_path" | /usr/bin/cut -d ' ' -f 1)"
         if [ "$archive_sha256" != "$node_archive_sha256" ]; then
@@ -454,6 +465,7 @@ runs:
         CODEX_PROMPT: ${{ inputs.prompt }}
         CODEX_REVIEW_MARKER: ${{ inputs.review_marker }}
         CODEX_REASONING_EFFORT: ${{ inputs.reasoning_effort }}
+        CODEX_EXEC_TIMEOUT_MINUTES: ${{ inputs.exec_timeout_minutes }}
         CODEX_OUTPUT: ${{ runner.temp }}/codex-fallback-${{ github.run_id }}-${{ github.run_attempt }}.txt
       run: |
         set -euo pipefail
@@ -1140,8 +1152,17 @@ runs:
         # shorter provider-process cap so this action can stop the bridges,
         # restore git config, publish its outcome, and let the workflow's
         # retry path run instead of leaving the review step in progress until
-        # GitHub kills the whole step.
-        codex_exec_timeout_seconds=900
+        # GitHub kills the whole step. Reviews keep the 15-minute default;
+        # agentic fixers raise it via `exec_timeout_minutes`.
+        codex_exec_timeout_minutes="${CODEX_EXEC_TIMEOUT_MINUTES:-15}"
+        case "$codex_exec_timeout_minutes" in
+          ''|*[!0-9]*|0*) echo "::error::Unsupported exec_timeout_minutes '$codex_exec_timeout_minutes' (whole minutes 1-300)."; exit 1 ;;
+        esac
+        if [ "$codex_exec_timeout_minutes" -gt 300 ]; then
+          echo "::error::Unsupported exec_timeout_minutes '$codex_exec_timeout_minutes' (whole minutes 1-300)."
+          exit 1
+        fi
+        codex_exec_timeout_seconds=$((codex_exec_timeout_minutes * 60))
         codex_exec_kill_grace_seconds=30
         codex_timeout_bin=/usr/bin/timeout
         [ -x "$codex_timeout_bin" ] || {
@@ -1155,6 +1176,13 @@ runs:
         : > "$codex_stderr"
         chmod 600 "$codex_stderr"
         set +e
+        # The stderr tee is a process substitution, which the shell never
+        # waits for; its stdout is the pipe into the `tee "$codex_log"` stage,
+        # which the shell does wait for and which only reaches EOF once the
+        # stderr tee has exited. So `$codex_stderr` and `$codex_log` are both
+        # complete before the auth grep below. With both tees as unwaited
+        # process substitutions, a fast refresh-token rejection could be
+        # grepped before it was flushed and skip the "Codex auth down" alert.
         printf '%s' "$prompt" | env -i "${codex_env[@]}" "$codex_timeout_bin" \
           --signal=TERM \
           --kill-after="${codex_exec_kill_grace_seconds}s" \
@@ -1171,13 +1199,12 @@ runs:
           -c shell_environment_policy.ignore_default_excludes=false \
           -c "shell_environment_policy.include_only=$codex_env_patterns" \
           --output-last-message "$CODEX_OUTPUT" \
-          - > >(/usr/bin/tee "$codex_log") \
-          2> >(/usr/bin/tee "$codex_stderr" | /usr/bin/tee -a "$codex_log" >&2)
+          - 2> >(/usr/bin/tee "$codex_stderr") | /usr/bin/tee "$codex_log"
         codex_status=${PIPESTATUS[1]}
         codex_timed_out=false
         if [ "$codex_status" -eq 124 ]; then
           codex_timed_out=true
-          echo '::error::Codex primary exceeded its 15-minute internal watchdog.'
+          echo "::error::Codex primary exceeded its ${codex_exec_timeout_minutes}-minute internal watchdog."
         fi
         if [ "$CODEX_OUTPUT" != "$codex_output_destination" ] && [ -f "$CODEX_OUTPUT" ]; then
           cp -- "$CODEX_OUTPUT" "$codex_output_destination" || echo "::warning::Codex output could not be copied to the workflow artifact path."
@@ -1378,6 +1405,79 @@ runs:
         body="$(printf '⚠️ **Codex review authentication blocked** — the ChatGPT refresh token was rejected or already consumed. The review is held; no blind rerun is scheduled. Re-login to Codex, replace the repository secret \`CODEX_AUTH_JSON\`, and the trusted recovery monitor will retry this exact PR run after the credential digest changes.\n\n<!-- CODEX_AUTH_BLOCKED: %s -->' "$marker")"
         "$trusted_gh" pr comment "$pr_number" --repo "$REPO" --body "$body" \
           || echo '::warning::Could not persist the Codex authentication checkpoint comment.'
+
+    # The PR checkpoint above is what makes codex-auth-recovery.yml open its
+    # alert, so a dead CODEX_AUTH_JSON used to turn every scheduled/dispatched
+    # Codex run (post-merge-followup #1978, needs-human-sweep, growth-report...)
+    # red with no "Codex auth down" issue at all. Non-PR callers raise the same
+    # deduplicated alert here: one issue per title, one comment per
+    # (credential digest, workflow). codex-auth-recovery.yml closes it once the
+    # secret digest has changed and no PR is still blocked.
+    - name: Raise Codex authentication alert for non-PR callers
+      if: always() && steps.finalize.outputs.codex_auth_failure == 'true' && env.PR_NUMBER == ''
+      continue-on-error: true
+      shell: bash
+      env:
+        # GITHUB_TOKEN, like the recovery monitor that owns this issue: an
+        # App/PAT-authored issue would wake issue-triage for a credential that
+        # no fixer can rotate.
+        GH_TOKEN: ${{ github.token }}
+        TRUSTED_GH: ${{ steps.trusted_node.outputs.gh_realpath }}
+        REPO: ${{ github.repository }}
+        SERVER_URL: ${{ github.server_url }}
+        WORKFLOW_NAME: ${{ github.workflow }}
+        AUTH_DIGEST: ${{ steps.finalize.outputs.codex_auth_digest }}
+        RUN_ID: ${{ github.run_id }}
+        RUN_ATTEMPT: ${{ github.run_attempt }}
+      run: |
+        set -euo pipefail
+        trusted_gh="${TRUSTED_GH:?Trusted GitHub CLI path unavailable}"
+        run_id="${RUN_ID:?Workflow run id unavailable}"
+        run_attempt="${RUN_ATTEMPT:?Workflow run attempt unavailable}"
+        [[ "$run_id" =~ ^[1-9][0-9]*$ ]] || { echo '::warning::Invalid workflow run id; auth alert skipped.'; exit 0; }
+        [[ "$run_attempt" =~ ^[1-9][0-9]*$ ]] || { echo '::warning::Invalid workflow run attempt; auth alert skipped.'; exit 0; }
+        auth_digest="${AUTH_DIGEST:-missing}"
+        [[ "$auth_digest" =~ ^[0-9a-f]{64}$ ]] || auth_digest=missing
+        workflow="${WORKFLOW_NAME:-unknown}"
+        run_url="${SERVER_URL:-https://github.com}/${REPO}/actions/runs/${run_id}"
+        # Exactly CODEX_AUTH_ALERT_TITLE of codex-auth-recovery.yml: the
+        # monitor finds, reuses and closes the alert by this title.
+        alert_title='Codex auth down: CODEX_AUTH_JSON refresh token rejected'
+        marker="$(jq -cn \
+          --argjson version 1 \
+          --arg status blocked \
+          --arg workflow "$workflow" \
+          --argjson runId "$run_id" \
+          --argjson runAttempt "$run_attempt" \
+          --arg authDigest "$auth_digest" \
+          '{version:$version,status:$status,workflow:$workflow,runId:$runId,runAttempt:$runAttempt,authDigest:$authDigest}')"
+        alert="$("$trusted_gh" api --paginate "repos/${REPO}/issues?state=open&labels=automation&per_page=100" \
+          | jq -cs --arg title "$alert_title" \
+            '[.[][] | select(.pull_request == null and .title == $title)] | max_by(.number) // empty')"
+        if [ -z "$alert" ]; then
+          body="$(printf '## Codex authentication blocked\n\nA Codex Luna Max run outside a pull request was rejected by ChatGPT: the refresh token in `CODEX_AUTH_JSON` is expired or was already consumed. Every Codex workflow of this repository fails the same way until the secret is replaced.\n\nWorkflow: `%s`\nRun: %s\n\n### Action\n1. Log in again with Codex locally.\n2. Replace the repository Actions secret `CODEX_AUTH_JSON` with the new auth.json.\n3. Leave this issue open: `codex-auth-recovery` closes it once the credential digest has changed and no pull request is still blocked; a run rejected again opens it again.\n\nThe issue contains no credential or token; only the workflow reference and the SHA-256 digest of the rejected auth.json are recorded.\n\n<!-- CODEX_AUTH_BLOCKED_RUN: %s -->' "$workflow" "$run_url" "$marker")"
+          "$trusted_gh" issue create --repo "$REPO" --title "$alert_title" --label automation --body "$body" >/dev/null
+          echo "Opened the Codex authentication alert for $workflow."
+          exit 0
+        fi
+        alert_number="$(printf '%s' "$alert" | jq -r '.number')"
+        [[ "$alert_number" =~ ^[1-9][0-9]*$ ]] || { echo '::warning::Invalid Codex auth alert number; alert skipped.'; exit 0; }
+        # Scheduled runs repeat the same rejection every few hours: record a
+        # (credential, workflow) pair once, from the issue body or a comment
+        # written by the automation identities only.
+        if { printf '%s\n' "$alert"; "$trusted_gh" api --paginate "repos/${REPO}/issues/${alert_number}/comments?per_page=100"; } \
+          | jq -es --arg digest "$auth_digest" --arg workflow "$workflow" '
+              [ .[] | if type == "array" then .[] else . end
+                | select((.user.login // "") | test("^(github-actions|frontaliere-automation)\\[bot\\]$"; "i"))
+                | (.body // "") | [match("<!-- CODEX_AUTH_BLOCKED_RUN: (\\{[^\n]*?\\}) -->"; "g").captures[0].string | fromjson?][]
+                | select(.authDigest == $digest and .workflow == $workflow) ]
+              | length > 0' >/dev/null; then
+          echo "Codex authentication alert #$alert_number already records $workflow for this credential."
+          exit 0
+        fi
+        comment="$(printf '🔁 Codex authentication still blocked in `%s` (%s).\n\n<!-- CODEX_AUTH_BLOCKED_RUN: %s -->' "$workflow" "$run_url" "$marker")"
+        "$trusted_gh" issue comment "$alert_number" --repo "$REPO" --body "$comment" >/dev/null
+        echo "Recorded $workflow on Codex authentication alert #$alert_number."
 
     - name: Cleanup ephemeral Codex CLI install
       if: always() && steps.codex_cli.outputs.codex_install_root != ''

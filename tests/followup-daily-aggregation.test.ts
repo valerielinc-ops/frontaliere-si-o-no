@@ -30,6 +30,7 @@ import {
   decideMintGate,
   mergeDailyBucketBodies,
   parseOpenFollowupPages,
+  resolveSourcePrTriage,
   retitleDailyBucket,
 } from '../scripts/ci/gate-minted-followups.mjs';
 import { dailyBucketCloseGate, reconcileDailyItems } from '../scripts/ci/reconcile-followups.mjs';
@@ -262,6 +263,38 @@ describe('daily follow-up identity and dedup', () => {
       sourcePrs: [8101],
       triagedPrs: [8101],
     })).toMatchObject({ eligible: false, reason: 'bucket-not-collecting' });
+  });
+
+  it('risolve una Source cross-repository nel gemello solo quando non e una PR qui', () => {
+    const marker = JSON.stringify({ comments: [{ body: '## Post-merge follow-up triage\n\nCreated/updated: 0 item.' }] });
+    const noMarker = JSON.stringify({ comments: [] });
+    const calls: string[] = [];
+    const lookup = (repo: string, answers: Record<number, unknown>) => ({
+      repo,
+      read: (n: number) => {
+        calls.push(`${repo}#${n}`);
+        return answers[n] ?? { ok: false, notPr: true };
+      },
+    });
+    const site = lookup('site/repo', {
+      9153: { ok: true, comments: marker },
+      9262: { ok: true, comments: noMarker },
+      7777: { ok: false, notPr: false },
+    });
+    const corpus = lookup('corpus/repo', { 1590: { ok: true, comments: marker } });
+    // PR del sito: decide il sito, il gemello non viene interrogato.
+    expect(resolveSourcePrTriage(9153, [site, corpus])).toMatchObject({ status: 'triaged', repo: 'site/repo', fallback: false });
+    expect(resolveSourcePrTriage(9262, [site, corpus])).toMatchObject({ status: 'untriaged', repo: 'site/repo' });
+    // #1590 nel sito e' una issue: si risolve nel corpus (bucket #9443).
+    expect(resolveSourcePrTriage(1590, [site, corpus])).toMatchObject({ status: 'triaged', repo: 'corpus/repo', fallback: true });
+    // Un guasto non e' «non e' una PR»: fail-closed, nessun tentativo altrove.
+    expect(resolveSourcePrTriage(7777, [site, corpus])).toMatchObject({ status: 'unavailable', repo: 'site/repo' });
+    // Non e' una PR da nessuna parte: non verificabile.
+    expect(resolveSourcePrTriage(4242, [site, corpus])).toMatchObject({ status: 'unavailable', notPrAnywhere: true });
+    expect(calls).toEqual([
+      'site/repo#9153', 'site/repo#9262', 'site/repo#1590', 'corpus/repo#1590',
+      'site/repo#7777', 'site/repo#4242', 'corpus/repo#4242',
+    ]);
   });
 
   it('legge Sources e Daily key solo fuori da fence/quote', () => {

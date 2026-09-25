@@ -260,9 +260,10 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   // packages/articles/content stopped being written at 2026-09-16T12:00:46Z.
   //
   // Four instances of one omission is the argument for the closure assertion
-  // this list still lacks: nothing asserts that every workflow with a
-  // `side_effect_gate` and a `schedule:` appears in exactly one of the two
-  // inventories. Enumerated 2026-09-18: 12 were in neither.
+  // this list lacked until 2026-09-24: nothing asserted that every workflow
+  // with a `side_effect_gate` and a `schedule:` appears in exactly one of the
+  // two inventories. Enumerated 2026-09-18: 12 were in neither. The closure
+  // now lives at the end of the arming test below.
   'sync-articles-sitemaps.yml',
   // The weekly expired-archive sweep is an autonomous, non-destructive
   // repair: it preserves cap-refused route components and only persists
@@ -289,6 +290,24 @@ const SCHEDULE_ARMED_WORKFLOWS = [
   // l'APPROVED_GATE_IF esatto, quindi `dry_run` continua a valere sul dispatch
   // manuale.
   'backfill-expired-from-history.yml',
+  // Armati il 2026-09-24: gli ultimi 9 data writer interni che #8889/#8895
+  // hanno messo dietro il gate il 2026-09-16 e che nessun giro di riarmo
+  // aveva inventariato. Ogni loro run schedulata logga
+  // `human-side-effect-gate: DENY (event-not-workflow-dispatch)` ed esce verde
+  // senza scrivere (misurato su tutti e 9 fra il 2026-09-20 e il 2026-09-24;
+  // p.es. data/events.json fermo al 2026-09-16T11:08Z, fuel-prices a
+  // 2026-09-16T12:02Z, nessun «Publisher jobs sync» dopo 2026-09-16T14:08Z).
+  // Sono refresh interni gia' attivi prima del gate — commit dati su main,
+  // sync Firestore/CDN, dispatch del deploy — e i loro step di scrittura usano
+  // l'APPROVED_GATE_IF esatto, quindi `dry_run` vale ancora sul dispatch.
+  'crawl-events.yml',
+  'discover-404s.yml',
+  'discover-404s-via-cloudflare.yml',
+  'publisher-jobs-sync.yml',
+  'refresh-keyword-config.yml',
+  'sync-gsc-orphans.yml',
+  'update-fuel-prices.yml',
+  'update-health-premiums.yml',
 ];
 
 const SCHEDULE_UNARMED_WORKFLOWS = [
@@ -301,6 +320,12 @@ const SCHEDULE_UNARMED_WORKFLOWS = [
   'probe-mailgun-scheduled.yml',
   'publisher-blast.yml',
   'reddit-jobs-daily-schedule.yml',
+  // Non armato in attesa di una decisione del proprietario, non per svista:
+  // il suo cron manda ai giornalisti l'email «il tuo articolo e' online», un
+  // effetto verso terzi come i social qui sopra. Dal 2026-09-16 ogni run
+  // (schedule e workflow_run) nega ed esce verde senza inviare (run
+  // 35979410137); armarlo va deciso dal proprietario, non riarmato in blocco.
+  'notify-journalist-article-live.yml',
 ];
 
 const SCHEDULE_SIDE_EFFECT_WORKFLOWS = [
@@ -504,6 +529,40 @@ describe('human-side-effect-gate policy', () => {
     expect(decision.allow).toBe(false);
     expect(decision.effectiveDryRun).toBe(true);
     expect(decision.reasons).toContain(reason);
+  });
+
+  it('allows only the bounded, explicitly approved history-backfill rerun', () => {
+    const resumable = evaluateHumanApproval({
+      ...APPROVED_INPUT,
+      workflow: 'Backfill Expired Jobs From History',
+      runAttempt: '2',
+      scope: 'backfill-expired-from-history',
+      approvalTrustedResumableRerun: 'true',
+    });
+    expect(resumable.allow).toBe(true);
+    expect(resumable.effectiveDryRun).toBe(false);
+    expect(resumable.nonce).toMatch(/^[a-f0-9]{64}$/);
+
+    for (const override of [
+      { runAttempt: '4' },
+      { approvalTrustedResumableRerun: 'false' },
+      { workflow: 'Send Newsletter' },
+      { scope: 'newsletter-send' },
+      { consent: 'false' },
+      { dryRun: 'true' },
+    ]) {
+      const decision = evaluateHumanApproval({
+        ...APPROVED_INPUT,
+        workflow: 'Backfill Expired Jobs From History',
+        runAttempt: '2',
+        scope: 'backfill-expired-from-history',
+        approvalTrustedResumableRerun: 'true',
+        ...override,
+      });
+      expect(decision.allow, JSON.stringify(override)).toBe(false);
+      expect(decision.effectiveDryRun, JSON.stringify(override)).toBe(true);
+      expect(decision.reasons, JSON.stringify(override)).toContain('run-is-a-rerun');
+    }
   });
 
   it('consumes a trusted schedule nonce only once, including through main()', () => {
@@ -1065,9 +1124,11 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
   });
 
   it('arms trusted schedules only on workflows whose schedules apply side effects', () => {
-    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(21);
-    expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(9);
-    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(30);
+    expect(SCHEDULE_ARMED_WORKFLOWS).toHaveLength(29);
+    expect(SCHEDULE_UNARMED_WORKFLOWS).toHaveLength(10);
+    expect(SCHEDULE_SIDE_EFFECT_WORKFLOWS).toHaveLength(39);
+    expect(new Set(SCHEDULE_SIDE_EFFECT_WORKFLOWS).size, 'a workflow is in both inventories')
+      .toBe(SCHEDULE_SIDE_EFFECT_WORKFLOWS.length);
 
     for (const name of SCHEDULE_SIDE_EFFECT_WORKFLOWS) {
       const document = YAML.parse(workflow(name)) as { jobs?: Record<string, { steps?: Array<Record<string, unknown>> }> };
@@ -1087,6 +1148,22 @@ describe('workflow wiring for the bounded F3/F4 side-effect surface', () => {
       .filter((name) => /\.ya?ml$/u.test(name) && !SCHEDULE_SIDE_EFFECT_WORKFLOWS.includes(name))
       .filter((name) => workflow(name).includes('APPROVAL_TRUSTED_SCHEDULE'));
     expect(armedElsewhere).toEqual([]);
+
+    // Chiusura: `armedElsewhere` vieta di armare senza classificare, ma non
+    // vietava di lasciare un cron gated fuori da entrambi gli inventari — il
+    // buco in cui sono caduti 13 workflow, rimasti verdi e inerti dal
+    // 2026-09-16. Ogni nuovo cron che invoca il gate deve dichiarare qui se
+    // e' armato o no.
+    const unclassifiedSchedules = fs.readdirSync(workflowDir)
+      .filter((name) => /\.ya?ml$/u.test(name) && !SCHEDULE_SIDE_EFFECT_WORKFLOWS.includes(name))
+      .filter((name) => workflow(name).includes('scripts/ci/human-side-effect-gate.mjs'))
+      .filter((name) => {
+        const triggers = (YAML.parse(workflow(name)) as { on?: unknown }).on;
+        if (typeof triggers === 'string') return triggers === 'schedule';
+        if (Array.isArray(triggers)) return triggers.includes('schedule');
+        return Boolean(triggers && typeof triggers === 'object' && 'schedule' in triggers);
+      });
+    expect(unclassifiedSchedules).toEqual([]);
   });
 
   it('chains newsletter only from the primary job-alert slot and keeps the cron fallback', () => {

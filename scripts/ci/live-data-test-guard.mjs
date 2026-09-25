@@ -183,6 +183,21 @@ export const KNOWN_LIVE_DATA_TESTS = Object.freeze([
   { file: 'tests/evergreen-pool-consumption.test.ts', roots: ['packages/articles/content/'], transitive: true },
   { file: 'tests/build-emit-skip-gate.test.ts', roots: ['packages/articles/'] },
   { file: 'tests/company-alert.test.ts', roots: ['services/locales/'] },
+  // Corpus genuinely the subject: this tax regression checks that the
+  // audience-facing 2026 IRPEF copy in the shipped locale bundles stays in
+  // sync with the calculator brackets. A fixture would miss a translation
+  // pipeline rewrite that reintroduced the old 35% wording.
+  { file: 'tests/irpef-brackets-2026.test.ts', roots: ['services/locales/'] },
+  // Corpus genuinely the subject: 'translates the arm copy in all four
+  // locales' checks that the jobgate-v3 arm copy keys (similar_alerts,
+  // email_first) are present in the SHIPPED it/en/de/fr locale bundles, not
+  // just referenced in code. The keys are consumed by JobBoard.tsx via the
+  // translation lookup, so a missing key in one locale is a real production
+  // gap (untranslated/blank copy for that audience) that only a read of the
+  // live locale source can catch — a pinned fixture would only prove the
+  // fixture still has the keys, not that the translation pipeline hasn't
+  // dropped one. Same reasoning as signup-prompt-funnel.test.ts below.
+  { file: 'tests/jobgate-v3-experiment.test.ts', roots: ['services/locales/'] },
   // Corpus genuinely the subject: this funnel contract checks that the
   // shipped locale bundles expose the follow-specific copy in all four
   // supported locales. A fixture would only prove the fixture, not that the

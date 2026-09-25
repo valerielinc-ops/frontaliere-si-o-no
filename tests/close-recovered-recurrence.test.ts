@@ -34,8 +34,11 @@ import {
   decideChronicDeescalation,
   countRecurrences,
   dropPhantomCancellations,
-  hasReadableAnnotationPages,
+  hasReadableAnnotations,
+  hasNoTimeoutEvidenceFromJobs,
   hasTimeoutAnnotation,
+  createRunHistoryMemo,
+  runHistoryMemoKey,
   alreadyRecurrenceHeld,
   recurrenceHoldNote,
   chronicEscalationNote,
@@ -435,7 +438,7 @@ test('un timeout nella pagina successiva di annotation resta una prova di fallim
 });
 
 test('annotation malformata resta fail-closed', () => {
-  eq(hasReadableAnnotationPages([[{}]]), false);
+  eq(hasReadableAnnotations([[{}]]), false);
 });
 
 test('senza il filtro la cancellazione a job-zero conta come fallimento', () => {
@@ -524,4 +527,114 @@ test('denominatore che si restringe: il tasso diventa più volatile, non più pe
   eq(d.failures, 1);
   eq(d.hold, false, 'un solo fallimento con 3 verdi dopo resta un transitorio (maxRecurrences)');
   ok(d.rate > DEFAULT_MAX_FAILURE_RATE, `1/4 = ${d.rate} sfonda la valvola del 2%: a chiudere è maxRecurrences, non il tasso`);
+});
+
+
+// --- issue #816 (corpus): la prova di timeout non si deduce dal silenzio ---------
+// Portati dal gemello corpus (PR nanakokyobashi-rgb/frontaliere-articles#837) con #9747.
+
+const TIMEOUT_MSG = 'The job running on runner GitHub Actions 4 has exceeded the maximum execution time of 30 minutes.';
+const jobsPayload = (...jobs: Array<Record<string, unknown>>) => ({ total_count: jobs.length, jobs });
+const cancelledJob = (name = 'typecheck (tsc --noEmit)') => ({
+  name, conclusion: 'cancelled', check_run_url: `https://api.github.com/repos/o/r/check-runs/${name}`,
+});
+const readsNothing = () => [];
+const readsEmptyPage = () => [[]];
+const readsTimeout = () => [[{ message: TIMEOUT_MSG }]];
+const readsUnrelated = () => [[{ message: 'Process completed with exit code 1.' }]];
+const readFails = () => null;
+
+test('#816 — pagine annotations vuote non sono la prova che il timeout non c\'è', () => {
+  // `--paginate --slurp` su un endpoint senza contenuto restituisce `[]` o `[[]]`: con il
+  // solo `.every()` entrambe erano vacuamente "leggibili", quindi "nessun timeout".
+  eq(hasReadableAnnotations([]), false, 'nessuna pagina = nessuna lettura');
+  eq(hasReadableAnnotations([[]]), false, 'una pagina vuota = nessuna lettura');
+  eq(hasReadableAnnotations([[], []]), false, 'tutte le pagine vuote = nessuna lettura');
+  eq(hasReadableAnnotations(null), false);
+  eq(hasReadableAnnotations([[{ message: 'x' }, { noMessage: true }]]), false, 'una annotation illeggibile invalida la lettura');
+  eq(hasReadableAnnotations([[], [{ message: 'x' }]]), true, 'una pagina vuota + una piena resta una lettura valida');
+  eq(hasReadableAnnotations(readsTimeout()), true);
+});
+
+test('#816 — un timeout con annotation vuote NON viene tolto dallo storico', () => {
+  for (const read of [readsNothing, readsEmptyPage, readFails]) {
+    eq(
+      hasNoTimeoutEvidenceFromJobs(jobsPayload(cancelledJob()), read),
+      false,
+      'senza una annotation letta non si conclude "nessun timeout": la run resta nello storico',
+    );
+  }
+  eq(hasNoTimeoutEvidenceFromJobs(jobsPayload(cancelledJob()), readsTimeout), false, 'timeout provato');
+  eq(hasNoTimeoutEvidenceFromJobs(jobsPayload(cancelledJob()), readsUnrelated), true, 'annotation lette, nessuna di timeout');
+});
+
+test('#816 — lo scarto in coda (#5333) resta phantom: non ha job, quindi non ha annotation', () => {
+  eq(hasNoTimeoutEvidenceFromJobs(jobsPayload(), readsNothing), true);
+  deepEq(
+    dropPhantomCancellations(
+      [{ conclusion: 'cancelled', databaseId: 1 }, { conclusion: 'failure', databaseId: 2 }],
+      () => true,
+    ),
+    [{ conclusion: 'failure', databaseId: 2 }],
+  );
+});
+
+test('#816 — una run cancelled con un job failure è un fallimento, non una cancellazione fantasma', () => {
+  const failedJob = { name: 'build', conclusion: 'failure' };
+  eq(
+    hasNoTimeoutEvidenceFromJobs(jobsPayload(failedJob, cancelledJob()), readsUnrelated),
+    false,
+    'il job rosso esce subito: la run non può sparire da numeratore e denominatore',
+  );
+  eq(
+    hasNoTimeoutEvidenceFromJobs(jobsPayload({ name: 'slow', conclusion: 'timed_out' }), readsUnrelated),
+    false,
+    '`timed_out` è un timeout già dichiarato dall\'API',
+  );
+  eq(
+    hasNoTimeoutEvidenceFromJobs(jobsPayload({ name: 'ok', conclusion: 'success' }, { name: 'skip', conclusion: 'skipped' }), readsUnrelated),
+    true,
+    'success/skipped non sono prove di fallimento',
+  );
+});
+
+test('#816 — payload troncato o job senza check-run: PROCEED-SAFE verso l\'hold', () => {
+  eq(hasNoTimeoutEvidenceFromJobs({ total_count: 3, jobs: [cancelledJob()] }, readsTimeout), false, 'listing troncato');
+  eq(hasNoTimeoutEvidenceFromJobs(null, readsUnrelated), false);
+  eq(hasNoTimeoutEvidenceFromJobs(jobsPayload({ name: 'x', conclusion: 'cancelled' }), readsUnrelated), false, 'senza check_run_url non c\'è niente da leggere');
+});
+
+test('#816 — hasTimeoutAnnotation riconosce entrambe le forme del messaggio GitHub', () => {
+  eq(hasTimeoutAnnotation([[{ message: TIMEOUT_MSG }]]), true);
+  eq(hasTimeoutAnnotation([[], [{ message: 'The job has exceeded the maximum number of minutes allowed.' }]]), true);
+  eq(hasTimeoutAnnotation(readsUnrelated()), false);
+});
+
+test('#9747 — il memo per passata distingue la popolazione main da quella shadow dei crawler', () => {
+  const calls: string[] = [];
+  const recent = createRunHistoryMemo((workflowName: string, repo: string, _token: unknown, options: { includeCrawlerShadowBranches?: boolean }) => {
+    const population = options?.includeCrawlerShadowBranches === true ? 'shadow' : 'main';
+    calls.push(`${repo}|${workflowName}|${population}`);
+    return population === 'shadow' ? [{ databaseId: 2, headBranch: 'crawler-generation-shadow-x' }] : [{ databaseId: 1, headBranch: 'main' }];
+  });
+  const mainRuns = recent('crawler-group-01.yml', 'o/r', undefined, {});
+  const shadowRuns = recent('crawler-group-01.yml', 'o/r', undefined, { includeCrawlerShadowBranches: true });
+  deepEq(mainRuns, [{ databaseId: 1, headBranch: 'main' }]);
+  deepEq(shadowRuns, [{ databaseId: 2, headBranch: 'crawler-generation-shadow-x' }], 'la popolazione shadow non riceve il listing main-only');
+  // Seconda issue sullo stesso workflow e popolazione: nessun nuovo fan-out.
+  recent('crawler-group-01.yml', 'o/r', undefined, { includeCrawlerShadowBranches: true });
+  recent('crawler-group-01.yml', 'o/r');
+  deepEq(calls, ['o/r|crawler-group-01.yml|main', 'o/r|crawler-group-01.yml|shadow']);
+  eq(
+    runHistoryMemoKey('w', 'o/r', { includeCrawlerShadowBranches: true }) === runHistoryMemoKey('w', 'o/r', {}),
+    false,
+  );
+});
+
+test('#9747 — anche null (listing fallito) è memoizzato: niente fan-out ripetuto con l\'API in crisi', () => {
+  let n = 0;
+  const recent = createRunHistoryMemo(() => { n += 1; return null; });
+  eq(recent('tests', 'o/r'), null);
+  eq(recent('tests', 'o/r'), null);
+  eq(n, 1);
 });

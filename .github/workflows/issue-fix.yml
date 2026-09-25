@@ -1328,6 +1328,10 @@ jobs:
         # fix, evita drift tra copie duplicate).
         with:
           codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          # Watchdog interno di Codex: il default 15min dell'action è tarato
+          # sulle review e uccideva i fix reali (run 36021092053). Sta sotto
+          # il `timeout-minutes: 120` dello step per lasciare WIP e telemetria.
+          exec_timeout_minutes: "110"
           github_token: ${{ env.APP_TOKEN }}
           codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
           prompt: |
@@ -1413,9 +1417,13 @@ jobs:
             git diff --name-only origin/main
             git ls-files --others --exclude-standard
           } | sort -u > "$paths_file"
+          # Albero pulito = niente da pushare, quindi niente da classificare.
+          # Succede negli esiti legittimi senza codice (`already-fixed`,
+          # `no-root-cause`, …): fallire qui colorava di rosso un run corretto
+          # (36079446155, #8789) e saltava la valutazione della delivery.
           if [ ! -s "$paths_file" ]; then
-            echo "::error::F1/F7 diff gate: nessun diff verificabile da consegnare; deny-by-default."
-            exit 1
+            echo "::notice::F1/F7 diff gate: nessun diff da consegnare; niente da classificare."
+            exit 0
           fi
           node --input-type=module - "$paths_file" <<'NODE'
           import fs from 'node:fs';
