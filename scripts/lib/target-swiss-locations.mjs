@@ -842,6 +842,36 @@ export function swissCityFromLocationField(value = '') {
   return canonicalSwissCityName(findSwissCityInText(value));
 }
 
+// A work mode written where a city would go: EN/DE/FR/IT forms seen on
+// Workday, Greenhouse and Personio boards (`Remote`, `Homeoffice`,
+// `Télétravail`, `Telelavoro`, `Hybrid`), alone or decorated with a country or
+// region (`Remote, Switzerland`, `Switzerland - Remote`, `Hybrid (CH)`).
+// Letter-bounded, so it never matches inside a longer word. The leading
+// boundary is captured (group 1) and put back by the replacement instead of
+// being a lookbehind: this module reaches client bundles, and a regex
+// lookbehind crashes older Safari/WebKit at parse time (#1996).
+const WORK_MODE_TOKEN_RE = /(^|[^\p{L}\p{N}])(?:remote|remoto|home[\s-]*office|work[\s-]+from[\s-]+home|hybrid|hybride|ibrido|t[eé]l[eé]travail|telelavoro|telearbeit|smart[\s-]*working)(?![\p{L}\p{N}])/giu;
+
+/**
+ * True when a location label names a work mode — "Remote", "Home Office",
+ * "Homeoffice", "Hybrid", "Télétravail", "Telelavoro", alone or with a
+ * country or region ("Remote, Switzerland", "Home Office - Switzerland",
+ * "Hybrid (CH)", "Telelavoro - Ticino") — and NO Swiss municipality. Such a
+ * label names no place, so a crawler must skip the job instead of stamping it
+ * with its HQ city or canton: unknown geography stays fail-closed (issue 9839).
+ *
+ * A label that also names a municipality is a place qualified by a work mode
+ * and returns false: "Remote - Zurich" and "Zürich Hybrid" name Zürich. A
+ * canton is not a municipality: "Hybrid (ZH)" names no place.
+ */
+export function isWorkModeLocationLabel(value = '') {
+  const text = String(value || '').trim();
+  if (!text) return false;
+  const withoutWorkMode = text.replace(WORK_MODE_TOKEN_RE, '$1 ');
+  if (withoutWorkMode === text) return false;
+  return !swissCityFromLocationField(withoutWorkMode);
+}
+
 // ─── Liechtenstein postal-code helper ──────────────────────────────────────
 // Liechtenstein (FL) shares CH-style 4-digit postcodes in the 9485-9498 range.
 // Crawlers must reject these because FL is not part of CH and is out of scope
