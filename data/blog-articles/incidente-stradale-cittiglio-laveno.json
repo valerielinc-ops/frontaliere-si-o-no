@@ -1,0 +1,40 @@
+{
+  "id": "incidente-stradale-cittiglio-laveno",
+  "slug": "incidente-stradale-cittiglio-laveno",
+  "publishedAt": "2026-05-10T06:06:05.332Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.7567837510165045,
+    "confidence": 0.8,
+    "finalScore": 5.405427000813204,
+    "topK": [
+      {
+        "slug": "incidente-stradale-laghi",
+        "cosine": 0.8420357099530428
+      },
+      {
+        "slug": "collisione-cadegliano-varese-ferito-54enne",
+        "cosine": 0.8148984775296143
+      },
+      {
+        "slug": "gavirate-incidente-frontalieri-2026",
+        "cosine": 0.8052142076665098
+      },
+      {
+        "slug": "auto-si-ribalta-sulla-sp1-tra-varese-e-gavirate",
+        "cosine": 0.805103795454199
+      },
+      {
+        "slug": "incidente-cassano-magnago-frontalieri-ticinesi",
+        "cosine": 0.7921429524705966
+      }
+    ],
+    "score": 2.702713500406602,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

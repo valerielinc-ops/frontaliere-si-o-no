@@ -1,0 +1,20 @@
+{
+  "companyKey": "muehle-tiefenbrunnen",
+  "companyName": "muehle-tiefenbrunnen",
+  "companyHost": "en.muehle-tiefenbrunnen.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://en.muehle-tiefenbrunnen.ch/jobs"
+  ],
+  "detailTemplate": "/fileadmin/5.6_Jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Temporary Service Staff—Immediate Hires",
+    "Rotating Chef de Partie, 80% full-time"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-08-28T15:59:19.794Z"
+}

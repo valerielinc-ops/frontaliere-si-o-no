@@ -1,0 +1,122 @@
+name: sync-pharmacy-duties-italy
+
+on:
+  schedule:
+    - cron: '37 4 * * *'
+  workflow_dispatch:
+
+permissions:
+  contents: write
+  # Serve allo step di allarme in fondo: prima questo workflow falliva in
+  # silenzio, senza aprire nessuna issue.
+  issues: write
+
+concurrency:
+  group: sync-pharmacy-duties-italy
+  cancel-in-progress: false
+
+jobs:
+  sync:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout main
+        uses: actions/checkout@v5
+        with:
+          ref: main
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+      - name: Setup Node
+        uses: actions/setup-node@v5
+        with:
+          node-version: '20'
+      - name: Install PDF tooling
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y --no-install-recommends poppler-utils
+      - name: Install dependencies
+        run: npm ci --ignore-scripts --no-audit --no-fund
+      - name: Prepare Firebase credentials for push auth
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for the Italy duty writer"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+      - name: Load push credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+      - name: Import official Italian duty calendars
+        run: node scripts/import-pharmacy-duties-italy.mjs
+      - name: Validate Italian duty release
+        run: node scripts/check-pharmacy-duties-italy.mjs
+      - name: Commit Italian duty snapshots
+        run: |
+          set -euo pipefail
+          if git diff --quiet -- data/pharmacy-duties-italy.json data/pharmacy-duties-italy-status.json; then
+            echo "No Italian pharmacy duty changes."
+            exit 0
+          fi
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add data/pharmacy-duties-italy.json data/pharmacy-duties-italy-status.json
+          git commit -m "chore(data): refresh Italian pharmacy duty release"
+          bash scripts/lib/git-push-with-retry.sh \
+            --regenerate-cmd '
+              node scripts/import-pharmacy-duties-italy.mjs
+              node scripts/check-pharmacy-duties-italy.mjs
+              git add data/pharmacy-duties-italy.json data/pharmacy-duties-italy-status.json
+            '
+
+      # Prima di questo step il workflow falliva MUTO: nessun
+      # `github-issue-creator.mjs`, nessuno step `if: failure()`. Le tre run
+      # rosse della sua storia non hanno prodotto alcun segnale operativo, ed e'
+      # per questo che un gate insoddisfacibile per costruzione ha potuto restare
+      # rotto dalla prima run senza che nessuno lo notasse.
+      #
+      # Titolo STABILE e senza contatori nei primi 60 caratteri: il dedup di
+      # github-issue-creator.mjs commenta sulla issue canonica invece di aprirne
+      # una nuova a ogni giro. Stesso idiom di
+      # .github/workflows/pharmacy-data-health-monitor.yml.
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: sync-pharmacy-duties-italy" \
+            --description "## Import dei turni farmacie italiani fallito
+
+          Il workflow importa i calendari ufficiali di turno delle province di confine (CO, VA, VB) e pubblica \`data/pharmacy-duties-italy.json\`.
+
+          Una provincia \`best-effort\` degradata NON fa fallire la run: il suo errore finisce in \`_bestEffortErrors\` e resta visibile nell'output dell'importer. Se questa issue si e' aperta, ha fallito qualcosa di **bloccante** — una provincia \`required\` (Como o Varese), la validazione della release, oppure il push.
+
+          Da leggere nell'output della run: \`state\`, \`provinces[].observedCalendarDays\` contro il minimo dichiarato, e \`errors\`.
+
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

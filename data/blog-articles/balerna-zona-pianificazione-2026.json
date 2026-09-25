@@ -1,0 +1,40 @@
+{
+  "id": "balerna-zona-pianificazione-2026",
+  "slug": "balerna-zona-pianificazione-2026",
+  "publishedAt": "2026-05-10T10:56:39.466Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 8.60412740988072,
+    "confidence": 0.8,
+    "finalScore": 6.883301927904576,
+    "topK": [
+      {
+        "slug": "dezonare-terreni-blenio-2026",
+        "cosine": 0.860412740988072
+      },
+      {
+        "slug": "esubero-leventina-zone-edificabili-2026",
+        "cosine": 0.8434725609345912
+      },
+      {
+        "slug": "permessi-dubbi-roveredo-insoddisfatta",
+        "cosine": 0.8402710355317977
+      },
+      {
+        "slug": "dezonamenti-ticino-2026-confronti",
+        "cosine": 0.833761367644156
+      },
+      {
+        "slug": "salute-prevenzione-burocrazia-svizzera",
+        "cosine": 0.8328526878448788
+      }
+    ],
+    "score": 0.6883301927904576,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

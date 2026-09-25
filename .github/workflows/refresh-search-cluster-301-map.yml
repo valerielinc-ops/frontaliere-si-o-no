@@ -1,0 +1,183 @@
+name: Refresh search-cluster 301 map
+
+# Issue #2918 item 3 (periodic regeneration + prune of stale entries):
+# data/search-cluster-301-map.json is a point-in-time snapshot mapping dead
+# legacy per-canton cluster URLs to a LIVE target (national cluster hub, or a
+# city/canton board fallback). As national clusters churn (a role+city
+# combination stops being live), a "specific" entry's target itself starts
+# 404ing, turning a working 301 into a dead-end 301→404.
+#
+# This workflow keeps the map self-maintaining instead of requiring a manual
+# run: it re-derives the map from the current live sitemaps + indexed-cluster
+# candidates (scripts/build-search-cluster-301-map.mjs), then drops any
+# "specific" entry whose target is no longer live
+# (scripts/prune-search-cluster-301-map.mjs — analogous to
+# prune-404-compat-paths.ts's "verify against live truth, drop what no
+# longer resolves" pattern).
+#
+# Sibling: refresh-indexed-cluster-urls.yml (same weekly cadence, same
+# regenerate + commit-if-changed shape) — this run is scheduled 50 minutes
+# after it so the freshly-refreshed data/indexed-cluster-urls.json (this
+# script's own input) has already landed on main before this workflow's
+# checkout.
+#
+# Neither build/prune script needs GSC/GA4/PostHog credentials — both only
+# hit the public live site's own sitemaps over plain fetch(). load-rc-env.mjs
+# + the App-token mint below serve TWO steps, not just the deploy dispatch:
+# a GITHUB_TOKEN push doesn't trigger other workflows (GitHub anti-loop
+# rule), so redeploying after data/seo-404-compat changes needs a PAT/App
+# token — and the direct push to `main` itself needs `GITHUB_PAT` as the
+# ruleset bypass identity (see "Prepare Firebase credentials" below; same
+# pattern as discover-404s.yml / sync-gsc-orphans.yml).
+
+on:
+  schedule:
+    - cron: '0 6 * * 1'  # Every Monday at 06:00 UTC (50 min after indexed-cluster-urls refresh)
+  workflow_dispatch: {}
+
+permissions:
+  contents: write
+  issues: write
+
+concurrency:
+  group: search-cluster-301-map-refresh
+  cancel-in-progress: false
+
+jobs:
+  refresh:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - uses: actions/checkout@v5
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+
+      - uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      # `load-rc-env.mjs` e' fail-open: senza GOOGLE_APPLICATION_CREDENTIALS
+      # stampa "skipping RC secret loading", esce 0 e lo step resta VERDE, ma
+      # `GITHUB_PAT` non viene popolato. Questo era l'unico dei dodici workflow
+      # che pushano su `main` a non preparare il service account (gli altri
+      # undici hanno tutti questo step), quindi `configure-main-push-auth.sh`
+      # ricadeva su `APP_TOKEN` e il push si autenticava come installation
+      # token dell'App. Il ruleset "main required CI checks" (creato il
+      # 2026-08-27) elenca `frontaliere-automation[bot]` fra i bypass con
+      # `actor_type: "User"`, ma un installation token si presenta come
+      # Integration e non matcha quell'attore: GH013 su tutti e 20 i
+      # tentativi, con i retry destinati a fallire. Ultimo push riuscito il
+      # 2026-08-24, tre giorni prima del ruleset.
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      # Primary identity for the deploy dispatch below = GitHub App installation
+      # token; falls back to env.GITHUB_PAT (#2861 item 1) — same pattern as
+      # discover-404s.yml / sync-gsc-orphans.yml.
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      - name: Regenerate search-cluster-301-map.json
+        run: node scripts/build-search-cluster-301-map.mjs
+
+      - name: Prune stale "specific" entries (target no longer live)
+        run: node scripts/prune-search-cluster-301-map.mjs
+
+      - name: Validate resolver contract before commit
+        # Keep this gate deterministic: the resolver suite uses explicit
+        # synthetic paths and does not scan changing production exports.
+        # The generator and pruner validate their own input/output contracts
+        # before this step.
+        run: npx vitest run tests/search-console-compat.test.ts
+
+      - name: Commit if changed
+        id: commit
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # data/seo-404-compat is now also written by build-search-cluster-301-map.mjs
+          # (issue #4590): every map entry IS a verified-dead legacy URL, so it
+          # belongs in the accumulator legacyRedirectsPlugin actually reads to
+          # emit a real bridge/redirect page — without this the map alone never
+          # produced a single live redirect. Sharded + merge-driven
+          # (.gitattributes merge=compat-shard), safe alongside concurrent
+          # writers (discover-404s.yml, sync-gsc-orphans.yml).
+          git add data/search-cluster-301-map.json data/seo-404-compat
+          if git diff --cached --quiet; then
+            echo "No change to search-cluster-301-map.json or seo-404-compat"
+            echo "compat_changed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          if git diff --cached --quiet -- data/seo-404-compat; then
+            echo "compat_changed=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "compat_changed=true" >> "$GITHUB_OUTPUT"
+          fi
+          git commit -m "chore(seo): refresh search-cluster 301 map (regen + prune stale targets)"
+          # `--max-attempts 20` invece del default 40: il budget di retry DEVE
+          # esaurirsi dentro `timeout-minutes: 20`, altrimenti il job muore di
+          # timeout e GitHub lo marca `cancelled`, non `failure` — e lo step
+          # "Report failure to GitHub Issues" qui sotto (`if: failure()`) viene
+          # SKIPPATO. E' esattamente quello che e' successo il 31-08, 07-09 e
+          # 14-09: tre fallimenti di fila, zero issue dal workflow stesso, e la
+          # mappa 301 ferma all'ultimo success del 24-08.
+          #
+          # Il numero viene da una misura, non a occhio (run 34840508579):
+          # "attempt 4/40" alle 11:59:00Z, "attempt 27/40" alle 12:13:28Z, cioe'
+          # 23 tentativi in 868 s = 37,7 s/tentativo, perche' ogni retry perso
+          # rigenera l'artefatto via `--regenerate-cmd` mentre `main` riceve
+          # ~147 commit/24h su `data/`. Lo step parte intorno al minuto 4 del
+          # job, quindi ha ~16 min utili: 20 x 37,7 s = 12,6 min, con margine.
+          # Rimisurare se il costo del regenerate cambia.
+          #
+          # NON si alza il timeout: 5->10->15->25->40 e' la leva gia' invalidata
+          # quattro volte. Qui l'obiettivo non e' far atterrare il push a tutti
+          # i costi, e' far RIEMERGERE il fallimento come `failure` osservabile.
+          bash scripts/lib/git-push-with-retry.sh \
+            --max-attempts 20 \
+            --regenerate-cmd "node scripts/build-search-cluster-301-map.mjs && node scripts/prune-search-cluster-301-map.mjs && git add data/search-cluster-301-map.json data/seo-404-compat"
+
+      - name: Trigger deploy if compat store changed
+        if: steps.commit.outputs.compat_changed == 'true'
+        env:
+          GITHUB_PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
+        # fails the job, caught by "Report failure to GitHub Issues" below —
+        # that GitHub issue IS this caller's recovery net (auto-triage picks
+        # it up), so silencing the failure would just hide a real deploy gap.
+        run: bash scripts/lib/trigger-deploy.sh
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

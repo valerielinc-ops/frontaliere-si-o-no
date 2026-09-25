@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2783",
+  "companyName": "kloeckner applicant management Stellen",
+  "companyHost": "recruitingapp-2783.de.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2783.de.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 50,
+  "sampleTitles": [
+    "Operations & Executive Office Lead",
+    "Expert Marketing & Communications (m/w/d)",
+    "Inhouse C#/.NET Entwickler (m/w/d) mit Integrations- und EDI-Schwerpunkt",
+    "Trockenbauer (m/w) 100 %",
+    "Lehrstelle als Logistiker EFZ, Fachrichtung Lager (M/W)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:26.543Z"
+}

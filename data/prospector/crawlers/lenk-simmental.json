@@ -1,0 +1,21 @@
+{
+  "companyKey": "lenk-simmental",
+  "companyName": "lenk-simmental",
+  "companyHost": "adelboden-lenk.ch",
+  "platform": "adelboden-lenk.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.adelboden-lenk.ch/jobs"
+  ],
+  "detailTemplate": "/Dokumente/Stelleninserate/Gastro/*",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Servicemitarbeitende, Standort Adelboden, Sommer 2026",
+    "Küchenchef Bergrestaurant Leiterli, ab November 2026, Jahresstelle 100%",
+    "Souschef Winter 26-27, Standort Lenk und Adelboden",
+    "Koch Winter 26-27, Standort Lenk und Adelboden",
+    "Hilfskoch Winter 26-27, Standort Lenk und Adelboden"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T10:02:04.096Z"
+}

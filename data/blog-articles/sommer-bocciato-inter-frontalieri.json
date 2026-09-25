@@ -1,0 +1,40 @@
+{
+  "id": "sommer-bocciato-inter-frontalieri",
+  "slug": "sommer-bocciato-inter-frontalieri",
+  "publishedAt": "2026-05-10T08:04:44.122Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 13.254392380624067,
+    "confidence": 0.8,
+    "finalScore": 10.603513904499254,
+    "topK": [
+      {
+        "slug": "ia-meteo-eventi-estremi",
+        "cosine": 0.7796701400367098
+      },
+      {
+        "slug": "san-gallo-vince-thun-ritardo-festa",
+        "cosine": 0.775192817042051
+      },
+      {
+        "slug": "asili-nido-bellinzona-iniziativa-firme-2026",
+        "cosine": 0.7690103187971364
+      },
+      {
+        "slug": "frontalieri-ticino-parchi-vandalismo-2026",
+        "cosine": 0.7671164505575077
+      },
+      {
+        "slug": "rinascita-praterie-sommerse-laghi-ticino",
+        "cosine": 0.7669792788815355
+      }
+    ],
+    "score": 1.3254392380624067,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

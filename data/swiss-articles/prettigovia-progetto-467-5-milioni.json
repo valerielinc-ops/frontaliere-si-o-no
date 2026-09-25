@@ -1,0 +1,40 @@
+{
+  "id": "prettigovia-progetto-467-5-milioni",
+  "slug": "prettigovia-progetto-467-5-milioni",
+  "publishedAt": "2026-06-24T14:01:46.000Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.366927440623498,
+    "confidence": 0.8,
+    "finalScore": 2.6935419524987987,
+    "topK": [
+      {
+        "slug": "maxi-piano-traffico-lago-como-2026",
+        "cosine": 0.8417318601558745
+      },
+      {
+        "slug": "lombardia-piano-ciclabile-115-milioni",
+        "cosine": 0.8396285599543198
+      },
+      {
+        "slug": "mezzo-milione-luganese-sviluppo-2026",
+        "cosine": 0.8380043505293661
+      },
+      {
+        "slug": "ffs-2027-ticino",
+        "cosine": 0.8353729342842791
+      },
+      {
+        "slug": "investimenti-sicurezza-turismo-valsolda-26",
+        "cosine": 0.8352217189882541
+      }
+    ],
+    "score": 1.3467709762493993,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

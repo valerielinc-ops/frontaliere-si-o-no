@@ -1,0 +1,799 @@
+# Translate Pending Jobs — logic (reusable workflow, on: workflow_call).
+#
+# Physically hosted here (frontaliere-si-o-no) as the single source of the
+# translation-pipeline logic — but invoked cross-repo from a minimal caller
+# workflow physically hosted in frontaliere-articles (account
+# nanakokyobashi-rgb), so the RUN and its concurrency-pool consumption are
+# billed against nanako's separate, less-saturated pool instead of
+# valerielinc-ops' saturated ~20-concurrent-job Free-plan pool.
+#
+# Same architectural pattern as the crawler-group-NN migration, validated end
+# -to-end by the crawler-group-23 pilot (frontaliere-si-o-no#6485 -> reverted
+# #6517 (composite action rejects background:/wait-all:) -> #6520 (reusable
+# workflow, dispatch-tested for real) / frontaliere-articles#594 -> #600 ->
+# #602): public/anonymous checkout of this repo -> node scripts/load-rc-env.mjs
+# -> `git remote set-url origin` with a GITHUB_PAT read from Remote Config,
+# before any step that pushes or opens issues. No `concurrency:` block here —
+# only the caller declares one (a duplicate same-named group on both sides
+# broke cross-repo workflow_call resolution in the pilot). Composite actions
+# used below are referenced by ABSOLUTE cross-repo path (`owner/repo/...@main`),
+# never `./...` (a relative path resolves in the CALLER's repo, where it
+# doesn't exist).
+#
+# This workflow does NOT use `background:`/`wait-all:` (unlike the
+# crawler-group-NN logic files) — its phases are already sequential in the
+# original, so the composite-action-vs-reusable-workflow distinction that
+# forced the crawler-group pattern doesn't apply here structurally. It is
+# still a reusable workflow (not a composite action) for consistency with the
+# rest of the migration and because composite actions cannot declare a
+# `secrets:` block for `workflow_call` — see the three secrets below.
+#
+# THREE further adaptations beyond the crawler-group pattern, all consequences
+# of the same underlying fact confirmed by the pilot: inside a workflow_call'd
+# job invoked CROSS-repo, the `github` context (github.repository,
+# github.workflow, the ambient GITHUB_TOKEN's scope) reflects the CALLING
+# repo (frontaliere-articles), not this one:
+#
+#  1. `github.event.schedule` / `github.event_name` / `inputs.*` ARE
+#     unaffected — the overall run's ORIGINAL triggering event (schedule,
+#     workflow_dispatch) propagates through workflow_call unchanged, and this
+#     workflow already read every dispatch input via the `inputs.` context
+#     (never `github.event.inputs.`), so every `if: inputs.*` guard needs NO
+#     change — the caller replicates the three translation cron strings, so
+#     `github.event.schedule` still matches on the daily run.
+#
+#  2. `scripts/lib/trigger-deploy.sh` (-> trigger-workflow.sh) resolves its
+#     target repo from the ambient `GITHUB_REPOSITORY` env var, which is the
+#     env-var mirror of `github.repository` — so it would try to dispatch
+#     deploy.yml against frontaliere-articles (wrong repo; deploy.yml only
+#     exists on frontaliere-si-o-no). Fixed by overriding GITHUB_REPOSITORY
+#     for that one invocation (GITHUB_PAT is unaffected: load-rc-env.mjs
+#     already wrote it to $GITHUB_ENV, so it is a normal env var by then, not
+#     one derived from `github.*`).
+#
+#  3. `.github/actions/report-failure`'s own script hardcoded
+#     `GH_REPO: ${{ github.repository }}` internally (no caller-facing way to
+#     override it) — same wrong-repo failure mode as #2, for the "Report
+#     failure to GitHub Issues" step specifically. Fixed at the root: that
+#     composite action gained an optional `repo:` input (backward compatible,
+#     defaults to `github.repository` — every other adopter is unaffected),
+#     passed explicitly here.
+#
+# The reactive `workflow_run: ["Orchestrate Job Crawlers"]` trigger could NOT
+# be replicated on the caller side: workflow_run only observes workflows in
+# the SAME repo, and orchestrate-crawlers.yml stays on frontaliere-si-o-no
+# (it dispatches the crawler-group callers cross-repo, but is not itself
+# migrated). Replicated instead by orchestrate-crawlers.yml's dispatch job
+# firing the frontaliere-articles caller directly (same GITHUB_PAT_NANAKO
+# cross-repo dispatch already used for every crawler-group target) as its
+# last step, `if: always()` — same timing as the old workflow_run (which
+# fired on `types: [completed]`, i.e. as soon as the orchestrator job itself
+# finished dispatching, not after the crawls complete). See
+# orchestrate-crawlers.yml's own "Dispatch translate-pending" step.
+name: Translate Pending Jobs (logic)
+
+on:
+  workflow_call:
+    inputs:
+      max_jobs:
+        description: 'Max jobs for the cascade. Wall-clock-bound, not quota-bound — the 90min cascade deadline stops it first.'
+        type: string
+        default: '900'
+      mopup_max_jobs:
+        description: 'Max jobs for the local-MT (Argos) mop-up — free + unlimited, drain the whole backlog'
+        type: string
+        default: '6000'
+      company_key:
+        description: 'Single company key to translate (e.g. a-group). Leave empty for all.'
+        type: string
+        default: ''
+      skip_housekeeping:
+        description: 'Deprecated compatibility input; housekeeping runs in its own workflow'
+        type: boolean
+        default: false
+      skip_translate:
+        description: 'Skip translations (only slug hardening)'
+        type: boolean
+        default: false
+      dry_run:
+        description: 'Dry run (no commit)'
+        type: boolean
+        default: false
+      collect_company_served:
+        description: 'Collect raw companyServed rows for the translation-thinking-ab measurement'
+        type: boolean
+        default: false
+    secrets:
+      FIREBASE_SERVICE_ACCOUNT_JSON:
+        required: false
+      CODEX_AUTH_JSON:
+        required: false
+# No concurrency: block here — see the header note (checklist point 3).
+permissions:
+  contents: read
+
+env:
+  NODE_OPTIONS: '--disable-warning=DEP0040 --disable-warning=DEP0169 --max-old-space-size=12288'
+  # Every translation consumer must use the one run-wide clock. The initializer
+  # below verifies the marker before any soft-failing phase can run.
+  TRANSLATE_RUN_CLOCK_REQUIRED: '1'
+  # Bounded, opt-out memo for repeated stats/observability language detection.
+  TRANSLATION_DETECTOR_MEMO: ${{ vars.TRANSLATION_DETECTOR_MEMO || '1' }}
+  # The existing thinking A/B remains opt-in: data collection must not change
+  # the scheduled translation behavior unless a caller explicitly asks for it.
+  TRANSLATION_THINKING_AB: ${{ inputs.collect_company_served == true && '1' || '' }}
+
+jobs:
+  translate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 350
+
+    steps:
+      # Bootstrap checkout #1: anonymous, read-only — see header note.
+      - name: Checkout frontaliere-si-o-no (public, read-only)
+        id: checkout
+        uses: actions/checkout@v5
+        with:
+          repository: valerielinc-ops/frontaliere-si-o-no
+          fetch-depth: 50
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Restore per-company translation cache
+        id: translation_cache_restore
+        continue-on-error: true
+        uses: actions/cache/restore@v5
+        with:
+          path: data/translation-cache
+          key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
+          restore-keys: translation-cache-v1-translate-pending-
+
+      - name: Prepare per-company translation cache
+        if: always()
+        env:
+          TRANSLATION_CACHE_MATCHED_KEY: ${{ steps.translation_cache_restore.outputs.cache-matched-key }}
+        run: |
+          mkdir -p data/translation-cache
+          if [ -n "$TRANSLATION_CACHE_MATCHED_KEY" ]; then
+            echo "✅ Per-company translation cache restored: $TRANSLATION_CACHE_MATCHED_KEY"
+            echo "translation-cache: hit ($TRANSLATION_CACHE_MATCHED_KEY)" >> "$GITHUB_STEP_SUMMARY"
+          else
+            echo "ℹ️ Per-company translation cache miss; translations will repopulate it."
+            echo "translation-cache: miss" >> "$GITHUB_STEP_SUMMARY"
+          fi
+
+      # One .cache/transformers holds the Opus-MT weights AND the ~470MB e5
+      # model of the Argos semantic gate (#9675). actions/cache never re-saves an
+      # exact key hit, so under the old immutable `opus-mt-models-v1` key the e5
+      # files downloaded after the restore were thrown away and fetched again on
+      # every run (#9677). The v2 key misses once, restores the Opus-MT weights
+      # through the old prefix and saves the directory with e5 in it.
+      - name: Cache local MT models (Opus-MT + e5 semantic judge)
+        uses: actions/cache@v5
+        with:
+          path: .cache/transformers
+          key: local-mt-models-v2-opus-e5
+          restore-keys: |
+            local-mt-models-
+            opus-mt-models-
+
+      - name: Cache Argos Translate models
+        uses: actions/cache@v5
+        with:
+          path: ~/.local/share/argos-translate/packages
+          key: argos-translate-models-v1
+          restore-keys: argos-translate-models-
+
+      - name: Prepare Firebase credentials (optional)
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          else
+            echo "ℹ️ Firebase secrets not set — will use file config only."
+            exit 0
+          fi
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load RC secrets
+        run: node scripts/load-rc-env.mjs
+
+      # Bootstrap checkout #2: reconfigure auth with GITHUB_PAT — see header
+      # note and crawler-group-NN-logic.yml's identical step for the full
+      # chicken-and-egg rationale.
+      - name: Bootstrap write auth for frontaliere-si-o-no (GITHUB_PAT from Remote Config)
+        run: |-
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::GITHUB_PAT missing from Remote Config (RC_TO_ENV in scripts/load-rc-env.mjs) — cannot push translated job data to valerielinc-ops/frontaliere-si-o-no or file pipeline-failure issues there. Aborting before any phase runs so this fails loud, not as a silent partial-run data loss."
+            exit 1
+          fi
+          git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/valerielinc-ops/frontaliere-si-o-no.git"
+          echo "GH_TOKEN=${GITHUB_PAT}" >> "$GITHUB_ENV"
+          echo "GH_REPO=valerielinc-ops/frontaliere-si-o-no" >> "$GITHUB_ENV"
+
+      # Housekeeping is a separate two-lane workflow. Keeping it outside this
+      # long translation run prevents URL validation from consuming the same
+      # single data-pipeline slot and makes its host-local bottleneck visible.
+      # ── Phase 2: Translate pending jobs (ARGOS-FIRST) ────────────────────
+      - name: Install Argos Translate (local MT engine)
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        continue-on-error: true
+        run: |
+          python3 -m pip install --quiet --upgrade pip
+          python3 -m pip install --quiet argostranslate
+          python3 scripts/local-mt-translate.py --install
+
+      # Seed the clock in a non-optional step. Phase 2a/2b/2c may continue on
+      # error, so relying on any one of them to publish the marker would let a
+      # later phase restart its budget from Date.now().
+      - name: Initialize translation run clock
+        if: inputs.skip_translate != true
+        run: |
+          node --input-type=module <<'NODE'
+          import { markRunStart, readRunStartMs } from './scripts/lib/translate-run-clock.mjs';
+
+          markRunStart(Date.now());
+          const startMs = readRunStartMs();
+          if (startMs === null) {
+            console.error('::error::translate-pending run-start marker could not be initialized');
+            process.exit(1);
+          }
+          console.log(`Translation run clock initialized at ${startMs}.`);
+          NODE
+
+      - name: Assemble dataset
+        if: inputs.skip_translate != true
+        env:
+          # Phase 2a is the first writer and the following cascade consumes its
+          # projection. If Argos is disabled, the initial assembly remains the
+          # full producer for relocalize/scatter; otherwise defer reconciliation
+          # to the separate full assembly pass.
+          JOBS_SKIP_RECONCILIATION: ${{ vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1' && '1' || '0' }}
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Record translation rollout context
+        env:
+          ROLLOUT_REPOSITORY: ${{ github.repository }}
+          ROLLOUT_SWITCH: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          OPUSMT_RESCUE_SWITCH: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
+        run: |
+          echo "Translation rollout repository=$ROLLOUT_REPOSITORY"
+          echo "LOCAL_MT_LANG_AWARE_OVERWRITE=$ROLLOUT_SWITCH"
+          echo "LOCAL_MT_SEMANTIC_MAX_OVERWRITES=$SEMANTIC_MAX_OVERWRITES"
+          echo "LOCAL_MT_OPUSMT_RESCUE=$OPUSMT_RESCUE_SWITCH"
+
+      - name: Log translation stats (before)
+        if: inputs.skip_translate != true
+        run: node scripts/log-translation-stats.mjs before
+
+      # ── Phase 2a: Local MT BULK (Argos / CTranslate2) — PRIMARY workhorse ──
+      - name: "Phase 2a: Local MT bulk translate (Argos)"
+        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
+        continue-on-error: true
+        env:
+          LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          # Budget arithmetic, measured from the shared run-start marker:
+          # 350min hard job cap − 210min run-wide deadline = 140min queue, of
+          # which ~6min are spent BEFORE the marker (checkout, npm ci, Argos
+          # install), so ~134min really remain for the post-translation queue.
+          # 280min (70min queue) was sized on 2026-09-08, when a data commit
+          # took 5-8min. Each `git-commit-data.sh --slice-only` call now
+          # re-3-way-merges every slice that diverged from origin/main during
+          # the run, 5-47min per call, and the queue has up to five of them.
+          # Corpus runs killed at the 350min cap with the queue unfinished:
+          # 35871986449 (2026-09-24, mop-up to 275min, the post-mop-up data
+          # commit alone 47min), 35897636278 (2026-09-24, mop-up to 276min,
+          # 73min of queue and still in the observability commit) and
+          # 35726632397 (2026-09-23, title lane to 240min, 109min of queue and
+          # still in the slug commit). Every one lost the slug regeneration, the
+          # translation-cache save and the deploy trigger, and a job timeout
+          # skips `always()` steps too, so the failure reporter never ran.
+          # The two 150min per-step caps below, and the Phase 2d/2e lanes, are
+          # all bounded by this one 210min run-wide deadline; not additive.
+          LOCAL_MT_MOPUP_DEADLINE_MS: '12600000' # 210 * 60 * 1000; reserve 140min.
+          # Rollout switch for the language-aware overwrite arm (workspace issue 16).
+          # Default '0' = the arm runs and COUNTS but withholds the write, so a run
+          # can be read before it is allowed to act. Set the repo variable to '1'.
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          # Argos semantic gate rollout (#9677). LOCAL_MT_LANG_AWARE_OVERWRITE above
+          # is its kill-switch: '0' keeps every overwrite in shadow (a bounded
+          # sample is judged and counted, nothing written). The cap bounds the
+          # overwrites one phase may write (hard max 2000 in the script). The
+          # run rollback is the #9676 guard in local-mt-semantic-policy.mjs.
+          # Counts per verdict and per withheld reason land in the log line
+          # LOCAL_MT_SEMANTIC_TELEMETRY and in the file below (uploaded).
+          LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2a.json
+          # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
+          # only after the rollout is approved.
+          LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
+          MT_LOCAL_OPUSMT: '1'
+          TRANSFORMERS_CACHE: .cache/transformers
+          INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
+        run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
+
+      # Keep this re-assemble on the default full form. The baseline and Phase
+      # 2b cascade consume the dataset produced here, so skipping summaries
+      # would compare different populations at the start and true-final ends
+      # and would hide pending summary work until a later run.
+      - name: Re-assemble dataset after Argos bulk
+        if: inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
+        env:
+          JOBS_SKIP_RECONCILIATION: '1'
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      # Persist the free bulk pass before the quota-bound cascade starts. This
+      # makes fresh arrivals visible on main as soon as 2a finishes and keeps a
+      # later timeout from hiding work that was already translated locally.
+      - name: Commit Argos translations before cascade
+        id: commit_argos_translations
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true && vars.LOCAL_MT_DISABLE != '1' && vars.TRANSLATE_ARGOS_FIRST_DISABLE != '1'
+        env:
+          SKIP_AI_TRANSLATION: '1'
+        run: |
+          before="$(git rev-parse HEAD)"
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs (Argos bulk)" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json
+          after="$(git rev-parse HEAD)"
+          if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
+
+      - name: "Phase 2 pre: Flag locale-mismatched job descriptions"
+        if: inputs.skip_translate != true
+        continue-on-error: true
+        run: node scripts/mark-locale-mismatched-jobs.mjs
+
+      - name: "Phase 2 pre: Flag wrong-language job titles"
+        if: inputs.skip_translate != true
+        continue-on-error: true
+        env:
+          TITLE_MISTRANSLATION_MARK_CAP: ${{ vars.TITLE_MISTRANSLATION_MARK_CAP || '100' }}
+          TITLE_MISTRANSLATION_QUEUE_CEILING: ${{ vars.TITLE_MISTRANSLATION_QUEUE_CEILING || '2000' }}
+        run: node scripts/mark-mistranslated-jobs.mjs
+
+      # Shadow-only baseline: hashes and aggregates only. The temporary snapshot
+      # is needed to calculate the final delta, but is never uploaded or committed.
+      - name: Capture translation observability baseline
+        id: translation_observability_before
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        run: |
+          test -f data/jobs.json
+          started_at="$(date -u +%Y-%m-%dT%H:%M:%SZ)"
+          echo "started_at=$started_at" >> "$GITHUB_OUTPUT"
+          echo "source_commit=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          node scripts/collect-translation-observability.mjs \
+            --mode start --jobs data/jobs.json \
+            --output "$RUNNER_TEMP/translation-observability-before.json" \
+            --now "$started_at"
+          echo "ready=true" >> "$GITHUB_OUTPUT"
+
+      - name: "Phase 2b: Translate pending jobs (cascade top-up)"
+        id: translation_shadow_preflight_v2_decision
+        if: inputs.skip_translate != true
+        env:
+          JOBS_CRAWLER_USE_FIRESTORE_CONFIG: '1'
+          # Translation and metadata calls deliberately keep the normal
+          # cascade; Codex preference is scoped to body generation inside
+          # create-article.
+          JOBS_CASCADE_DEADLINE_MS: ${{ vars.TRANSLATE_ARGOS_FIRST_DISABLE == '1' && '15000000' || '5400000' }}
+          MT_LOCAL_OPUSMT: '1'
+          TRANSFORMERS_CACHE: .cache/transformers
+          INPUT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
+          INPUT_COMPANY_KEY: ${{ inputs.company_key }}
+          SHADOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          SHADOW_RUN_ID: ${{ github.run_id }}
+          SHADOW_SOURCE_REPOSITORY: ${{ github.repository }}
+          SHADOW_SOURCE_WORKFLOW: ${{ github.workflow_ref }}
+          SHADOW_WORKFLOW_BLOB_SHA: ${{ github.workflow_sha }}
+        run: |
+          ARGS=(--max-jobs "$INPUT_MAX_JOBS")
+          if [ -n "$INPUT_COMPANY_KEY" ]; then
+            ARGS+=(--company-key "$INPUT_COMPANY_KEY")
+          fi
+          # Hash-bind the runtime library in the generated cross-repo contract:
+          # scripts/lib/translation-shadow-preflight-v2.mjs
+          ARGS+=(
+            --shadow-preflight-v2-output "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json"
+            --shadow-preflight-v2-baseline-main-sha "${{ steps.translation_observability_before.outputs.source_commit }}"
+            --shadow-preflight-v2-runner-temp "$RUNNER_TEMP"
+            --shadow-preflight-v2-repository "$SHADOW_SOURCE_REPOSITORY"
+            --shadow-preflight-v2-workflow "$SHADOW_SOURCE_WORKFLOW"
+            --shadow-preflight-v2-run-id "$SHADOW_RUN_ID"
+            --shadow-preflight-v2-run-attempt "$SHADOW_RUN_ATTEMPT"
+            --shadow-preflight-v2-workflow-blob-sha "$SHADOW_WORKFLOW_BLOB_SHA"
+          )
+          set +e
+          node scripts/relocalize-pending-jobs.mjs "${ARGS[@]}"
+          legacy_status=$?
+          set -e
+          expected_decision_digest=''
+          expected_contract_digest=''
+          while IFS= read -r binding; do
+            if [[ "$binding" =~ ^expected_decision_digest=sha256:[a-f0-9]{64}$ ]]; then
+              expected_decision_digest="${binding#*=}"
+            elif [[ "$binding" =~ ^expected_contract_digest=sha256:[a-f0-9]{64}$ ]]; then
+              expected_contract_digest="${binding#*=}"
+            fi
+          done < <(node scripts/translation-shadow-preflight-v2.mjs \
+            --mode capture \
+            --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" 2>/dev/null || true)
+          # Emit both declared step outputs on every path. An empty value is
+          # intentionally still an unbound proof and the observer keeps it
+          # missing/unmeasurable; the explicit keys make the conditional
+          # producer visible to the workflow contract audit.
+          printf 'expected_decision_digest=%s\n' "$expected_decision_digest" >> "$GITHUB_OUTPUT"
+          printf 'expected_contract_digest=%s\n' "$expected_contract_digest" >> "$GITHUB_OUTPUT"
+          exit "$legacy_status"
+
+      - name: Scatter changes back to per-crawler slices
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        run: node scripts/scatter-jobs-to-slices.mjs
+
+      # ── Phase 2c mop-up: catch the cascade's leftovers (in-process, $0) ──
+      - name: "Phase 2c mop-up: local MT (Argos Translate, in-process)"
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        continue-on-error: true
+        env:
+          LOCAL_MT_TIME_BUDGET_MS: '9000000'  # 150 * 60 * 1000
+          LOCAL_MT_MOPUP_DEADLINE_MS: '12600000' # same 210min run-wide ceiling; 140min queue margin.
+          # Rollout switch for the language-aware overwrite arm (workspace issue 16).
+          # Default '0' = the arm runs and COUNTS but withholds the write, so a run
+          # can be read before it is allowed to act. Set the repo variable to '1'.
+          LOCAL_MT_LANG_AWARE_OVERWRITE: ${{ vars.LOCAL_MT_LANG_AWARE_OVERWRITE || '0' }}
+          # Argos semantic gate rollout (#9677). LOCAL_MT_LANG_AWARE_OVERWRITE above
+          # is its kill-switch: '0' keeps every overwrite in shadow (a bounded
+          # sample is judged and counted, nothing written). The cap bounds the
+          # overwrites one phase may write (hard max 2000 in the script). The
+          # run rollback is the #9676 guard in local-mt-semantic-policy.mjs.
+          # Counts per verdict and per withheld reason land in the log line
+          # LOCAL_MT_SEMANTIC_TELEMETRY and in the file below (uploaded).
+          LOCAL_MT_SEMANTIC_MAX_OVERWRITES: ${{ vars.LOCAL_MT_SEMANTIC_MAX_OVERWRITES || '100' }}
+          LOCAL_MT_SEMANTIC_TELEMETRY_PATH: ${{ runner.temp }}/local-mt-semantic-telemetry-phase-2c.json
+          # Default '0' = OpusMT rescue is not invoked. Set the repo variable to '1'
+          # only after the rollout is approved.
+          LOCAL_MT_OPUSMT_RESCUE: ${{ vars.LOCAL_MT_OPUSMT_RESCUE || '0' }}
+          MT_LOCAL_OPUSMT: '1'
+          TRANSFORMERS_CACHE: .cache/transformers
+          INPUT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
+        run: node scripts/local-mt-mopup.mjs --max-jobs "$INPUT_MOPUP_MAX_JOBS"
+
+      # Phase 2c mutates slices only. Re-assemble slice -> dataset; scattering
+      # the stale assembled file in this direction would erase its new fills.
+      - name: Re-assemble dataset after Phase 2c mop-up
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        env:
+          JOBS_SKIP_RECONCILIATION: '1'
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Commit translations
+        id: commit_translations
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          SKIP_AI_TRANSLATION: '1'
+        run: |
+          before="$(git rev-parse HEAD)"
+          bash scripts/lib/git-commit-data.sh --slice-only "🌐 Auto-translate pending jobs" data/jobs/by-crawler/ data/translation-cache/ data/local-mt-negative-cache.json data/jobs-crawler-config.json data/slug-registry.json data/translation-stats-history.json data/cascade-company-skip.json
+          after="$(git rev-parse HEAD)"
+          if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
+
+      # ── Codex Luna Max: last-resort tier of Phases 2d/2e only ────────────
+      # Owner decision (2026-09-25): in translate-pending Codex translates
+      # only AFTER Argos (Phases 2a and 2c above) and after every tier that
+      # spends no quota. So the broker starts here, after the Argos mop-up and
+      # its commit, and only Phases 2d/2e receive its socket, with
+      # FREE_TRANSLATE_CODEX_TIER=last: free-translate.mjs then tries Codex
+      # solely for a text that every other tier of the cascade left
+      # untranslated. The Phase 2b cascade never sees the socket. The idle TTL
+      # covers the 210-minute envelope of those phases, where Codex can stay
+      # unused for a long stretch. Without the secret or the lane the step
+      # does nothing and the phases keep the cascade they always had.
+      - id: setup_claude_haiku_fallback
+        if: github.event_name == 'schedule' && inputs.skip_translate != true && inputs.dry_run != true
+        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/setup-claude-haiku-fallback@main
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          broker_idle_ttl_ms: '12600000'
+
+      # ── Phase 2d: Fix source-copy titles (once-daily repair lane)
+      - name: "Phase 2d: Fix untranslated titles (free cascade)"
+        # The original cron expression survives the cross-repo workflow_call.
+        # Run this cheap repair once daily; its queue ordering is starvation-safe.
+        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          # Same 210min run-wide envelope as the Argos mop-up (see Phase 2a):
+          # it leaves 140min before the 350min hard cap for the title commit,
+          # final assemble, publication-tree stats, observability, slugs and
+          # uploads. At 240min run 35726632397 (2026-09-23) was killed in the
+          # slug commit after 109min of queue. Healthy runs currently close in
+          # ~125-155min, so this lane gets ~55-85min before it stops.
+          UNTRANSLATED_TITLE_FIX_DEADLINE_MS: '12600000' # 210 * 60 * 1000; 140min remain.
+          # Codex last resort (see the broker step above): at most 30 calls
+          # and 15 minutes per run, because the subscription is shared with
+          # the owner's interactive use and this lane runs every day.
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_TIER: last
+          FREE_TRANSLATE_CODEX_MAX_CALLS: '30'
+          FREE_TRANSLATE_CODEX_MAX_MS: '900000'
+        run: node scripts/fix-untranslated-titles.mjs
+
+      - name: Commit title fixes
+        id: commit_title_fixes
+        if: github.event_name == 'schedule' && github.event.schedule == '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          SKIP_AI_TRANSLATION: '1'
+        run: |
+          before="$(git rev-parse HEAD)"
+          bash scripts/lib/git-commit-data.sh --slice-only "🔤 Fix untranslated titles (free cascade)" data/jobs/by-crawler/ data/translation-cache/ data/translation-title-fix-attempts.json
+          after="$(git rev-parse HEAD)"
+          if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
+
+      # ── Phase 2e: Fix source-copy descriptions (bounded repair lane) ──────
+      # The shorter runs retain this lane, with an explicit item cap so a
+      # pathological backlog cannot consume the commit window.
+      - name: "Phase 2e: Fix untranslated descriptions (free cascade)"
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          # Same 210min run-wide envelope as Phase 2d; 140min remain before
+          # the 350min hard cap for commits, final assemble, and publication.
+          UNTRANSLATED_DESCRIPTION_FIX_DEADLINE_MS: '12600000' # shared with title fixes; not additive.
+          UNTRANSLATED_DESCRIPTION_FIX_MAX: ${{ vars.UNTRANSLATED_DESCRIPTION_FIX_MAX || '2000' }}
+          # Codex last resort, same per-run budget as Phase 2d (the two
+          # phases never run in the same run).
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          FREE_TRANSLATE_CODEX_TIER: last
+          FREE_TRANSLATE_CODEX_MAX_CALLS: '30'
+          FREE_TRANSLATE_CODEX_MAX_MS: '900000'
+        run: node scripts/fix-untranslated-descriptions.mjs --max "$UNTRANSLATED_DESCRIPTION_FIX_MAX"
+
+      - name: Commit description fixes
+        id: commit_description_fixes
+        if: github.event_name == 'schedule' && github.event.schedule != '0 7 * * *' && inputs.skip_translate != true && inputs.dry_run != true
+        env:
+          SKIP_AI_TRANSLATION: '1'
+        run: |
+          before="$(git rev-parse HEAD)"
+          bash scripts/lib/git-commit-data.sh --slice-only "📝 Fix untranslated descriptions (free cascade)"
+          after="$(git rev-parse HEAD)"
+          if [ "$before" != "$after" ]; then echo "final_commit=$after" >> "$GITHUB_OUTPUT"; fi
+
+      - name: Cleanup Codex auth broker
+        if: always()
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |-
+          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then exit 0; fi
+          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" || echo "::warning::Codex auth broker cleanup did not complete"
+
+      # Phases 2d/2e write slices. This is the final translation-bearing
+      # persistence barrier; Phase 3 below changes only slugs.
+      - name: Re-assemble true-final translation dataset
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        env:
+          JOBS_SKIP_RECONCILIATION: '1'
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      # The commit helper refreshes origin/main, performs its private-index
+      # 3-way merge, measures that candidate tree, and stages the history blob
+      # before commit-tree. The checkout ref remains deliberately untouched.
+      # Keep always(): a failed preceding phase must still leave an observable
+      # point for the tree that was (or can be) published.
+      - name: Log translation stats (after)
+        if: always() && steps.checkout.outcome == 'success' && inputs.skip_translate != true
+        run: |
+          if [ "${{ inputs.dry_run }}" = "true" ]; then
+            node scripts/log-translation-stats.mjs after
+          else
+            SKIP_AI_TRANSLATION=1 TRANSLATION_STATS_AFTER_TREE=1 bash scripts/lib/git-commit-data.sh --slice-only "📊 Translation stats (after)" data/translation-stats-history.json
+          fi
+
+      - name: Capture final translation observability (shadow)
+        if: always() && steps.translation_observability_before.outputs.ready == 'true'
+        env:
+          OBSERVABILITY_OUTCOME: ${{ job.status }}
+        run: |
+          node scripts/collect-translation-observability.mjs \
+            --mode finish --jobs data/jobs.json \
+            --before "$RUNNER_TEMP/translation-observability-before.json" \
+            --state data/translation-observability-state.json \
+            --state-output data/translation-observability-state.json \
+            --advance-state "${{ job.status == 'success' && inputs.dry_run != true }}" \
+            --output "$RUNNER_TEMP/translation-observability.json" \
+            --run-id "${{ github.run_id }}" \
+            --started-at "${{ steps.translation_observability_before.outputs.started_at }}" \
+            --source-commit "${{ steps.translation_observability_before.outputs.source_commit }}" --outcome "$OBSERVABILITY_OUTCOME"
+
+      # A report only claims a commit after the commit step completed. A dry run
+      # and a failed/no-op commit deliberately keep this field null.
+      - name: Finalize translation observability report
+        if: always() && steps.translation_observability_before.outputs.ready == 'true'
+        run: |
+          node scripts/collect-translation-observability.mjs \
+            --mode finalize --report "$RUNNER_TEMP/translation-observability.json" \
+            --output "$RUNNER_TEMP/translation-observability.json" \
+            --final-commit "${{ steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}"
+
+      - name: Finalize translation shadow preflight v2 observation
+        id: translation_shadow_preflight_v2_finalize
+        if: always() && steps.checkout.outcome == 'success'
+        continue-on-error: true
+        env:
+          SHADOW_DEFAULT_COMPANY_KEY: ${{ inputs.company_key }}
+          SHADOW_DEFAULT_DRY_RUN: ${{ inputs.dry_run }}
+          SHADOW_DEFAULT_MAX_JOBS: ${{ inputs.max_jobs || '900' }}
+          SHADOW_DEFAULT_MOPUP_MAX_JOBS: ${{ inputs.mopup_max_jobs || '6000' }}
+          SHADOW_DEFAULT_SKIP_HOUSEKEEPING: ${{ inputs.skip_housekeeping }}
+          SHADOW_DEFAULT_SKIP_TRANSLATE: ${{ inputs.skip_translate }}
+          SHADOW_EVENT_ACTION: ${{ github.event.action }}
+          SHADOW_EVENT_NAME: ${{ github.event_name }}
+          SHADOW_EXPECTED_CONTRACT_DIGEST: ${{ steps.translation_shadow_preflight_v2_decision.outputs.expected_contract_digest }}
+          SHADOW_EXPECTED_DECISION_DIGEST: ${{ steps.translation_shadow_preflight_v2_decision.outputs.expected_decision_digest }}
+          SHADOW_FINAL_TRANSLATION_COMMIT: ${{ steps.commit_description_fixes.outputs.final_commit || steps.commit_title_fixes.outputs.final_commit || steps.commit_translations.outputs.final_commit }}
+          SHADOW_OBSERVED_JOB_STATUS: ${{ job.status }}
+          SHADOW_RUN_ATTEMPT: ${{ github.run_attempt }}
+          SHADOW_RUN_ID: ${{ github.run_id }}
+          SHADOW_SOURCE_COMMIT: ${{ steps.translation_observability_before.outputs.source_commit }}
+          SHADOW_SOURCE_REPOSITORY: ${{ github.repository }}
+          SHADOW_SOURCE_WORKFLOW: ${{ github.workflow_ref }}
+          SHADOW_WORKFLOW_BLOB_SHA: ${{ github.workflow_sha }}
+        run: |
+          node scripts/translation-shadow-preflight-v2.mjs \
+            --mode observe \
+            --decision "$RUNNER_TEMP/translation-shadow-preflight-v2-decision.json" \
+            --output "$RUNNER_TEMP/translation-shadow-preflight-v2-observation.json" \
+            --expected-decision-digest "$SHADOW_EXPECTED_DECISION_DIGEST" \
+            --expected-contract-digest "$SHADOW_EXPECTED_CONTRACT_DIGEST" \
+            --event-name "$SHADOW_EVENT_NAME" \
+            --event-action "$SHADOW_EVENT_ACTION" \
+            --run-id "$SHADOW_RUN_ID" \
+            --run-attempt "$SHADOW_RUN_ATTEMPT" \
+            --default-max-jobs "$SHADOW_DEFAULT_MAX_JOBS" \
+            --default-mopup-max-jobs "$SHADOW_DEFAULT_MOPUP_MAX_JOBS" \
+            --default-company-key "$SHADOW_DEFAULT_COMPANY_KEY" \
+            --default-skip-housekeeping "$SHADOW_DEFAULT_SKIP_HOUSEKEEPING" \
+            --default-skip-translate "$SHADOW_DEFAULT_SKIP_TRANSLATE" \
+            --default-dry-run "$SHADOW_DEFAULT_DRY_RUN" \
+            --source-repository "$SHADOW_SOURCE_REPOSITORY" \
+            --source-workflow "$SHADOW_SOURCE_WORKFLOW" \
+            --source-commit "$SHADOW_SOURCE_COMMIT" \
+            --workflow-blob-sha "$SHADOW_WORKFLOW_BLOB_SHA" \
+            --final-translation-commit "$SHADOW_FINAL_TRANSLATION_COMMIT" \
+            --observed-job-status "$SHADOW_OBSERVED_JOB_STATUS"
+
+      - name: Upload translation shadow preflight v2 artifacts
+        if: always() && steps.translation_shadow_preflight_v2_finalize.outcome != 'skipped'
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-shadow-preflight-v2-${{ github.run_id }}-${{ github.run_attempt }}
+          path: |
+            ${{ runner.temp }}/translation-shadow-preflight-v2-decision.json
+            ${{ runner.temp }}/translation-shadow-preflight-v2-observation.json
+          retention-days: 14
+          if-no-files-found: warn
+
+      - name: Roll up translation observability history
+        if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
+        run: node scripts/rollup-translation-observability.mjs "$RUNNER_TEMP/translation-observability.json" data/translation-observability-history.json
+
+      - name: Upload cascade company rows
+        if: always() && inputs.skip_translate != true
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-cascade-companies-${{ github.run_id }}-${{ github.run_attempt }}.json
+          path: ${{ runner.temp }}/translation-cascade-companies.json
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Upload translation thinking A/B observations
+        if: always() && inputs.collect_company_served == true && inputs.skip_translate != true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-thinking-ab-${{ github.run_id }}-${{ github.run_attempt }}.json
+          path: ${{ runner.temp }}/translation-thinking-ab.json
+          retention-days: 30
+          if-no-files-found: error
+      # Argos semantic gate telemetry (#9677), one JSON per mop-up phase:
+      # verdicts accepted/rejected/unclear/error, writes by kind, withheld by
+      # reason (kill-switch/cap/rollback), cap and #9676 rollback-guard state.
+      - name: Upload Argos semantic telemetry
+        if: always() && inputs.skip_translate != true && vars.LOCAL_MT_DISABLE != '1'
+        continue-on-error: true
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: local-mt-semantic-telemetry-${{ github.run_id }}-${{ github.run_attempt }}
+          path: ${{ runner.temp }}/local-mt-semantic-telemetry-*.json
+          retention-days: 30
+          if-no-files-found: warn
+
+      - name: Commit translation observability history
+        if: always() && steps.translation_observability_before.outputs.ready == 'true' && inputs.dry_run != true
+        env:
+          SKIP_AI_TRANSLATION: '1'
+        run: |
+          telemetry_paths=(data/translation-observability-history.json)
+          if [ -f data/translation-observability-state.json ]; then
+            telemetry_paths+=(data/translation-observability-state.json)
+          fi
+          bash scripts/lib/git-commit-data.sh --slice-only "📊 Roll up translation observability" "${telemetry_paths[@]}"
+
+      - name: Upload translation observability report
+        if: always() && steps.translation_observability_before.outputs.ready == 'true'
+        uses: actions/upload-artifact@043fb46d1a93c77aae656e7c1c64a875d1fc6a0a # v7
+        with:
+          name: translation-observability-${{ github.run_id }}
+          path: ${{ runner.temp }}/translation-observability.json
+          retention-days: 14
+          if-no-files-found: error
+
+      # ── Phase 3: Regenerate slugs from translated titles ──────────────────
+      - name: "Phase 3: Regenerate locale slugs"
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        run: node scripts/regenerate-slugs-by-locale.mjs
+
+      - name: Commit slug regeneration
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        env:
+          SKIP_AI_TRANSLATION: '1'
+        run: bash scripts/lib/git-commit-data.sh --slice-only "🔗 Regenerate locale slugs (post-translation)"
+
+      - name: Save per-company translation cache
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: data/translation-cache
+          key: translation-cache-v1-translate-pending-${{ github.run_id }}-${{ github.run_attempt }}
+
+      # ── Phase 4: Validate + Deploy ──────────────────────────────────────
+      - name: Trigger deploy
+        if: always() && steps.checkout.outcome == 'success' && inputs.dry_run != true
+        # GITHUB_REPOSITORY overridden inline: trigger-workflow.sh (called by
+        # trigger-deploy.sh) resolves its dispatch target from that env var,
+        # which — like github.repository — reflects the CALLER
+        # (frontaliere-articles) inside a cross-repo workflow_call. deploy.yml
+        # only exists on frontaliere-si-o-no. GITHUB_PAT is unaffected (a
+        # normal env var by this point, not github.*-derived — see header
+        # note #2).
+        run: |
+          if node scripts/validate-translation-completeness.mjs 2>/dev/null; then
+            echo "✅ All translations complete — triggering deploy"
+            # Hard-fail by design (no `|| true`, #6936): a failed dispatch
+            # here fails the job, caught by "Report failure to GitHub Issues"
+            # below — that GitHub issue IS this caller's recovery net
+            # (auto-triage picks it up), so silencing it would just hide a
+            # real deploy gap.
+            GITHUB_REPOSITORY=valerielinc-ops/frontaliere-si-o-no bash scripts/lib/trigger-deploy.sh
+          else
+            echo "⏳ Some translations still incomplete — skipping deploy trigger"
+            echo "   The next cron run will retry and trigger deploy once all jobs are translated."
+          fi
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        uses: valerielinc-ops/frontaliere-si-o-no/.github/actions/report-failure@main
+        with:
+          title: 'Workflow Failure: Translate Pending Jobs'
+          closed-by: close-recovered-failure-issues
+          # Bootstrapped GITHUB_PAT-derived token, not secrets.GITHUB_TOKEN:
+          # the ambient token here is ready-only and scoped to
+          # frontaliere-articles (see header note #3) — env.GH_TOKEN was set
+          # by the "Bootstrap write auth" step above.
+          github-token: ${{ env.GH_TOKEN }}
+          repo: valerielinc-ops/frontaliere-si-o-no
+          workflow-name: 'Translate Pending Jobs'
+          workflow-file: '.github/workflows/translate-pending-logic.yml'
+          priority: '2'
+          labels: Bug
+          context: >-
+            La pipeline di traduzione è a fasi (fetch → translate → verify →
+            commit): lo step fallito qui sopra dice a quale fase si è fermata, e
+            i job non tradotti restano in coda per il prossimo cron.

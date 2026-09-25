@@ -1,0 +1,20 @@
+{
+  "companyKey": "baloise",
+  "companyName": "Basilese",
+  "companyHost": "helvetia.com",
+  "platform": "helvetia.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.helvetia.com/ch/web/it/ci-presentiamo/carriera.html"
+  ],
+  "detailTemplate": "/ch/web/it/ci-presentiamo/carriera/apprendistato/*",
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "comunicazione con la clientela AFC:Per saperne di più\" data-dtm-linkposition=\"page||pageInfo||linkPosition||Guidance Box\" target=\"_self\" role=\"button\"> Per sape",
+    "business digitale AFC:Saperne di più\" data-dtm-linkposition=\"page||pageInfo||linkPosition||Guidance Box\" target=\"_self\" role=\"button\"> Saperne di più",
+    "Per saperne di più"
+  ],
+  "canton": "TI",
+  "sourceLang": "it",
+  "learnedAt": "2026-08-21T10:02:09.980Z"
+}

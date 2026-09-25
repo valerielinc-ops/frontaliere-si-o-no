@@ -1,0 +1,21 @@
+{
+  "companyKey": "nerinvest",
+  "companyName": "Nerinvest AG",
+  "companyHost": "nerinvest.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://nerinvest.ch/aktuelles/jobs-karriere/"
+  ],
+  "detailTemplate": "/aktuelles/jobs-karriere/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Sachbearbeiter*in Rechnungswesen 50-60%",
+    "Zeichner*in Architektur als Praxisbildner*in mit Möglichkeit zur Projektleitung"
+  ],
+  "canton": "FR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-18T09:58:35.341Z"
+}

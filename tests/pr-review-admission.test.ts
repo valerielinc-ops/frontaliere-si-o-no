@@ -1,0 +1,671 @@
+import { spawnSync } from 'node:child_process';
+import { readFileSync } from 'node:fs';
+import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
+import {
+  admissionCli,
+  boundReviewsToFirstHeadVerdict,
+  firstTerminalBotReviewOnHead,
+  normalizeReviewBody,
+  parseReviewPages,
+  reviewBodyIsApproving,
+  reviewHasLgtm,
+  reviewHasZeroFindings,
+  shouldRunRedflagFixer,
+  shouldSkipModelReview,
+  verdictBodyDefects,
+} from '../scripts/ci/lib/pr-review-admission.mjs';
+import { reviewBodyDefects } from '../scripts/ci/lib/review-findings.mjs';
+import {
+  evaluateNativeAutoMerge,
+  revalidateNativeAutoMerge,
+  reviewIsApproved,
+} from '../scripts/ci/native-automerge-gate.mjs';
+import { runReviewGate } from '../scripts/ci/review-gate.mjs';
+import { reviewInputRevisionFromBody } from '../scripts/ci/lib/review-input-revision.mjs';
+
+const HEAD = 'a'.repeat(40);
+const OLD_HEAD = 'b'.repeat(40);
+const PR_BODY = '## Implementato\n- skip\n\n## Non implementato (ancora)\n- corpus twins, in questa PR, per scelta. **Motivo:** adapted. **Prossimo passo:** nessuno.';
+const REVIEW_REVISION = reviewInputRevisionFromBody(PR_BODY);
+const OLD_REVIEW_REVISION = `body:${'d'.repeat(64)}`;
+const REVIEW_MARKER = `<!-- REVIEW_INPUT_REVISION: ${REVIEW_REVISION} -->`;
+const OLD_REVIEW_MARKER = `<!-- REVIEW_INPUT_REVISION: ${OLD_REVIEW_REVISION} -->`;
+const CLEAN = `${REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`;
+const LGTM_WITHOUT_FINDINGS = `${REVIEW_MARKER}\n## Scope\nReviewed the delta.\n\n## LGTM`;
+const IMPORTANT = `${REVIEW_MARKER}\n## Findings (Important: 1, Nit: 0)\n\n\`scripts/lib/foo.mjs:L12\`: 🔴 Important: pagination is incomplete.\n`;
+// Shape osservata sulla review 5258385493 della PR #9315 (commit e1fe8e3e): il
+// titolo `## Findings` è nudo e il conteggio sta nella sezione, una riga sotto.
+const CLEAN_COUNT_IN_SECTION = `${REVIEW_MARKER}
+## Scope
+
+Workflow tier: \`incremental-high\`.
+
+## Findings
+
+Important: 0
+
+## Adversarial check
+
+- ❓ q: Is the fallback acceptable for the build-time budget? — deferred, non funnel-critical.
+
+## LGTM`;
+// Stesso formato, ma il reviewer dichiara due Important senza 🔴 nel corpo.
+const IMPORTANT_COUNT_IN_SECTION = `${REVIEW_MARKER}
+## Findings
+
+Important: 2
+
+## LGTM`;
+// Titolo Findings presente, nessun conteggio riconoscibile in sezione.
+const FINDINGS_WITHOUT_COUNT = `${REVIEW_MARKER}
+## Findings
+
+Nothing worth blocking on.
+
+## LGTM`;
+
+function botReview(body: string, commit_id = HEAD, submitted_at = '2026-09-18T01:00:00Z', overrides: Record<string, unknown> = {}) {
+  return {
+    id: 1,
+    user: { type: 'Bot', login: 'frontaliere-automation[bot]' },
+    state: 'COMMENTED',
+    body,
+    commit_id,
+    submitted_at,
+    ...overrides,
+  };
+}
+
+// Forma della review 5308507769 sulla PR #9705 (HEAD 418eccc): body passato
+// inline con `--body "..."`, backtick eseguiti dalla shell (`Fix di : ok.`) e
+// `\n` rimasti letterali. Normalizzato contiene `## LGTM`, ma il gate lo scarta
+// come `empty-fix-anchor`.
+const MALFORMED_LGTM = `<!-- CODEX_FALLBACK_REVIEW -->\\n${REVIEW_MARKER}\\n\\n## Scope\\nIncremental review of the delta (tier: incremental-high)\\n\\nFix di : ok.\\nFix di : ok.\\n\\n## Findings (Important: 0, Nit: 0)\\nNessun finding aperto.\\n\\n## LGTM`;
+
+function vitest(overrides: Record<string, unknown> = {}) {
+  return {
+    id: 101,
+    name: 'vitest (unit + integration)',
+    head_sha: HEAD,
+    status: 'completed',
+    conclusion: 'success',
+    created_at: '2026-09-18T01:00:00Z',
+    completed_at: '2026-09-18T01:01:00Z',
+    ...overrides,
+  };
+}
+
+function pr(overrides: Record<string, unknown> = {}) {
+  return {
+    state: 'OPEN',
+    isDraft: false,
+    baseRefName: 'main',
+    title: 'fix(ci): stabilize PR review loop',
+    body: PR_BODY,
+    labels: [],
+    headRefOid: HEAD,
+    autoMergeRequest: null,
+    changedFiles: ['scripts/ci/lib/pr-review-admission.mjs'],
+    changedFilesComplete: true,
+    ...overrides,
+  };
+}
+
+function runCli(mode: string, args: string[], reviews: unknown) {
+  const result = spawnSync(process.execPath, [
+    'scripts/ci/lib/pr-review-admission.mjs',
+    mode,
+    ...args,
+  ], {
+    input: JSON.stringify(reviews),
+    encoding: 'utf8',
+    cwd: new URL('..', import.meta.url).pathname,
+  });
+  return result;
+}
+
+describe('9066/9074 review-loop admission', () => {
+  it('skips a second model review on the same HEAD even when the event is edited', () => {
+    const lgtm = botReview(CLEAN, HEAD, '2026-09-18T04:04:10Z', { id: 27 });
+    expect(shouldSkipModelReview({
+      headSha: HEAD,
+      reviews: [lgtm],
+      eventAction: 'edited',
+      reviewRevision: REVIEW_REVISION,
+    })).toBe(true);
+    expect(shouldSkipModelReview({
+      headSha: HEAD,
+      reviews: [lgtm],
+      eventAction: 'synchronize',
+      reviewRevision: REVIEW_REVISION,
+    })).toBe(true);
+    expect(shouldSkipModelReview({
+      headSha: HEAD,
+      reviews: [lgtm],
+      eventAction: 'opened',
+      reviewRevision: REVIEW_REVISION,
+    })).toBe(true);
+  });
+
+  it('does not skip when the only terminal review names an older SHA', () => {
+    expect(shouldSkipModelReview({
+      headSha: HEAD,
+      reviews: [botReview(CLEAN, OLD_HEAD)],
+      eventAction: 'edited',
+      reviewRevision: REVIEW_REVISION,
+    })).toBe(false);
+  });
+
+  it('ignores historical non-terminal review states without treating them as current input', () => {
+    const current = botReview(CLEAN, HEAD, '2026-09-18T04:04:10Z', { id: 30 });
+    const pending = botReview(CLEAN, HEAD, '2026-09-18T05:00:00Z', { id: 31, state: 'PENDING' });
+    const dismissed = botReview(CLEAN, HEAD, '2026-09-18T06:00:00Z', { id: 32, state: 'DISMISSED' });
+    expect(firstTerminalBotReviewOnHead([pending, dismissed, current], HEAD, { reviewRevision: REVIEW_REVISION })?.id)
+      .toBe(30);
+    expect(shouldSkipModelReview({
+      headSha: HEAD,
+      reviews: [pending, dismissed, current],
+      reviewRevision: REVIEW_REVISION,
+    })).toBe(true);
+  });
+
+  it('re-arms one complete review when the body revision changes on the same HEAD', () => {
+    const oldBodyReview = botReview(
+      `${OLD_REVIEW_MARKER}\n## Findings (Important: 0, Nit: 0)\n\n## LGTM`,
+      HEAD,
+      '2026-09-18T04:04:10Z',
+      { id: 28 },
+    );
+    expect(shouldSkipModelReview({
+      headSha: HEAD,
+      reviews: [oldBodyReview],
+      eventAction: 'edited',
+      reviewRevision: REVIEW_REVISION,
+    })).toBe(false);
+  });
+
+  it('deduplicates duplicate body-edit deliveries for the current revision', () => {
+    const current = botReview(CLEAN, HEAD, '2026-09-18T04:04:10Z', { id: 29 });
+    const duplicate = { ...current };
+    const reviews = [current, duplicate];
+    expect(firstTerminalBotReviewOnHead(reviews, HEAD, { reviewRevision: REVIEW_REVISION })?.id).toBe(29);
+    expect(boundReviewsToFirstHeadVerdict(reviews, HEAD, { reviewRevision: REVIEW_REVISION })).toHaveLength(1);
+    expect(shouldSkipModelReview({
+      headSha: HEAD,
+      reviews,
+      eventAction: 'edited',
+      reviewRevision: REVIEW_REVISION,
+    })).toBe(true);
+  });
+
+  it('treats ## LGTM without a Findings heading as approving when there is no 🔴 Important', () => {
+    expect(reviewHasLgtm(LGTM_WITHOUT_FINDINGS)).toBe(true);
+    expect(reviewHasZeroFindings(LGTM_WITHOUT_FINDINGS)).toBe(true);
+    expect(reviewBodyIsApproving(LGTM_WITHOUT_FINDINGS)).toBe(true);
+    expect(reviewIsApproved(botReview(LGTM_WITHOUT_FINDINGS))).toBe(true);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [botReview(LGTM_WITHOUT_FINDINGS)],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: true });
+  });
+
+  it('reads Important: 0 from the Findings SECTION, not only from its heading', () => {
+    // Il conteggio sul titolo resta approvante (formato storico).
+    expect(reviewBodyIsApproving(CLEAN)).toBe(true);
+    // #9315/review 5258385493: titolo nudo, conteggio una riga sotto.
+    expect(reviewHasLgtm(CLEAN_COUNT_IN_SECTION)).toBe(true);
+    expect(reviewHasZeroFindings(CLEAN_COUNT_IN_SECTION)).toBe(true);
+    expect(reviewBodyIsApproving(CLEAN_COUNT_IN_SECTION)).toBe(true);
+    expect(reviewIsApproved(botReview(CLEAN_COUNT_IN_SECTION))).toBe(true);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [botReview(CLEAN_COUNT_IN_SECTION)],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: true });
+  });
+
+  it('blocks when the Findings section declares Important != 0, even without a 🔴', () => {
+    expect(reviewHasLgtm(IMPORTANT_COUNT_IN_SECTION)).toBe(true);
+    expect(reviewHasZeroFindings(IMPORTANT_COUNT_IN_SECTION)).toBe(false);
+    expect(reviewBodyIsApproving(IMPORTANT_COUNT_IN_SECTION)).toBe(false);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [botReview(IMPORTANT_COUNT_IN_SECTION)],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: false });
+  });
+
+  it('stays fail-closed when a Findings section carries no recognisable count', () => {
+    expect(reviewHasZeroFindings(FINDINGS_WITHOUT_COUNT)).toBe(false);
+    expect(reviewBodyIsApproving(FINDINGS_WITHOUT_COUNT)).toBe(false);
+  });
+
+  it('lets a 🔴 Important anywhere in the body override a zero count', () => {
+    const contradictory = `${REVIEW_MARKER}
+## Findings
+
+Important: 0
+
+\`scripts/lib/foo.mjs:L12\`: 🔴 Important: pagination is incomplete.
+
+## LGTM`;
+    expect(reviewHasZeroFindings(contradictory)).toBe(false);
+    expect(reviewBodyIsApproving(contradictory)).toBe(false);
+  });
+
+  it('keeps a current-HEAD 🔴 Important from opting into native auto-merge', () => {
+    const important = botReview(IMPORTANT);
+    expect(reviewBodyIsApproving(IMPORTANT)).toBe(false);
+    expect(reviewIsApproved(important)).toBe(false);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews: [important],
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: false });
+    expect(shouldSkipModelReview({
+      headSha: HEAD,
+      reviews: [important],
+      eventAction: 'edited',
+      reviewRevision: REVIEW_REVISION,
+    })).toBe(true);
+  });
+
+  it('does not let a later same-HEAD Important revoke a current-HEAD LGTM', () => {
+    const reviews = [
+      botReview(CLEAN, HEAD, '2026-09-18T04:04:10Z', { id: 27 }),
+      botReview(IMPORTANT, HEAD, '2026-09-18T04:40:15Z', { id: 28 }),
+    ];
+    expect(firstTerminalBotReviewOnHead(reviews, HEAD)?.id).toBe(27);
+    expect(shouldSkipModelReview({
+      headSha: HEAD,
+      reviews,
+      eventAction: 'edited',
+      reviewRevision: REVIEW_REVISION,
+    })).toBe(true);
+    expect(evaluateNativeAutoMerge({
+      pr: pr(),
+      reviews,
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: true });
+    expect(revalidateNativeAutoMerge({
+      pr: pr({ autoMergeRequest: { enabledAt: '2026-09-18T04:05:00Z' } }),
+      reviews,
+      checkRuns: [vitest()],
+    })).toMatchObject({ allow: true, action: 'retain' });
+  });
+
+  it('runs the 🔴 fixer only for the first terminal Important on the current HEAD', () => {
+    const first = botReview(IMPORTANT, HEAD, '2026-09-18T03:42:58Z', { id: 26 });
+    const second = botReview(IMPORTANT, HEAD, '2026-09-18T04:40:15Z', { id: 28 });
+    expect(shouldRunRedflagFixer({
+      reviews: [first],
+      headSha: HEAD,
+      reviewId: 26,
+      reviewCommit: HEAD,
+      reviewRevision: REVIEW_REVISION,
+    })).toBe(true);
+    expect(shouldRunRedflagFixer({
+      reviews: [botReview(`${OLD_REVIEW_MARKER}\n## Findings (Important: 1, Nit: 0)\n\n🔴 Important: old body revision.`, HEAD, '2026-09-18T03:42:58Z', { id: 25 })],
+      headSha: HEAD,
+      reviewId: 25,
+      reviewCommit: HEAD,
+      reviewRevision: REVIEW_REVISION,
+    })).toBe(false);
+    expect(shouldRunRedflagFixer({
+      reviews: [first, second],
+      headSha: HEAD,
+      reviewId: 28,
+      reviewCommit: HEAD,
+    })).toBe(false);
+    expect(shouldRunRedflagFixer({
+      reviews: [botReview(CLEAN, HEAD, '2026-09-18T04:04:10Z', { id: 27 }), second],
+      headSha: HEAD,
+      reviewId: 28,
+      reviewCommit: HEAD,
+    })).toBe(false);
+    expect(shouldRunRedflagFixer({
+      reviews: [first],
+      headSha: HEAD,
+      reviewId: 26,
+      reviewCommit: OLD_HEAD,
+    })).toBe(false);
+  });
+
+  it('drives the shipped skip CLI used by tests.yml', () => {
+    const reviews = [botReview(CLEAN, HEAD, '2026-09-18T04:04:10Z', { id: 27 })];
+    const skipped = runCli('skip', ['--head', HEAD, '--event', 'edited', '--revision', REVIEW_REVISION], reviews);
+    expect(skipped.status).toBe(0);
+    expect(skipped.stdout.trim()).toBe('skip=true');
+    expect(skipped.stderr).toMatch(/nessuna seconda review, anche dopo un evento edited/i);
+
+    const fresh = runCli('skip', ['--head', HEAD, '--event', 'edited', '--revision', REVIEW_REVISION], []);
+    expect(fresh.status).toBe(0);
+    expect(fresh.stdout.trim()).toBe('skip=false');
+  });
+
+  it('fails closed when the review input revision is missing or the reviews API is malformed', () => {
+    const missingRevision = runCli('skip', ['--head', HEAD, '--event', 'edited'], [botReview(CLEAN)]);
+    expect(missingRevision.status).toBe(1);
+    expect(missingRevision.stdout.trim()).toBe('skip=false');
+    const malformed = runCli('skip', ['--head', HEAD, '--event', 'edited', '--revision', REVIEW_REVISION], '{');
+    expect(malformed.status).toBe(1);
+    expect(malformed.stdout.trim()).toBe('skip=false');
+    for (const malformedPage of [[null], [[null]], [{ id: 1 }]]) {
+      const result = runCli(
+        'skip',
+        ['--head', HEAD, '--event', 'edited', '--revision', REVIEW_REVISION],
+        malformedPage,
+      );
+      expect(result.status).toBe(1);
+      expect(result.stdout.trim()).toBe('skip=false');
+    }
+  });
+
+  it('accepts only complete flat entries or one-level paginated review pages', () => {
+    const review = botReview(CLEAN, HEAD, '2026-09-18T04:04:10Z', { id: 27 });
+    const flat = runCli('skip', ['--head', HEAD, '--event', 'edited', '--revision', REVIEW_REVISION], [review]);
+    const pages = runCli('skip', ['--head', HEAD, '--event', 'edited', '--revision', REVIEW_REVISION], [[review]]);
+    expect(flat.status).toBe(0);
+    expect(flat.stdout.trim()).toBe('skip=true');
+    expect(pages.status).toBe(0);
+    expect(pages.stdout.trim()).toBe('skip=true');
+  });
+
+  it('shares strict validation for decoded API pages used by the native/review gates', () => {
+    const review = botReview(CLEAN, HEAD, '2026-09-18T04:04:10Z', { id: 27 });
+    expect(parseReviewPages([[review]])).toEqual([review]);
+    expect(parseReviewPages([review])).toEqual([review]);
+    expect(parseReviewPages([[{ ...review, state: undefined }]])).toBeNull();
+    expect(parseReviewPages([[{ ...review, user: { type: 'Bot' } }]])).toBeNull();
+    expect(parseReviewPages('not-json')).toBeNull();
+  });
+
+  it('drives the shipped fixer CLI used by pr-redflag-fixer.yml', () => {
+    const first = botReview(IMPORTANT, HEAD, '2026-09-18T03:42:58Z', { id: 26 });
+    const second = botReview(IMPORTANT, HEAD, '2026-09-18T04:40:15Z', { id: 28 });
+    const allowed = runCli('fixer', ['--head', HEAD, '--review-id', '26', '--review-commit', HEAD, '--revision', REVIEW_REVISION], [first]);
+    expect(allowed.status).toBe(0);
+    expect(allowed.stdout.trim()).toBe('actionable=true');
+
+    const denied = runCli('fixer', ['--head', HEAD, '--review-id', '28', '--review-commit', HEAD, '--revision', REVIEW_REVISION], [first, second]);
+    expect(denied.status).toBe(0);
+    expect(denied.stdout.trim()).toBe('actionable=false');
+
+    const unavailable = runCli('fixer', ['--head', HEAD, '--review-id', '26', '--review-commit', HEAD, '--revision', REVIEW_REVISION], '{');
+    expect(unavailable.status).toBe(1);
+    expect(unavailable.stdout.trim()).toBe('actionable=false');
+  });
+
+  it('keeps stdout as the GitHub output line when admissionCli is called in-process', () => {
+    const chunks: string[] = [];
+    const originalWrite = process.stdout.write.bind(process.stdout);
+    process.stdout.write = ((chunk: string | Uint8Array) => {
+      chunks.push(String(chunk));
+      return true;
+    }) as typeof process.stdout.write;
+    try {
+      const status = admissionCli(
+        ['node', 'pr-review-admission.mjs', 'skip', '--head', HEAD, '--event', 'edited', '--revision', REVIEW_REVISION],
+        JSON.stringify([botReview(CLEAN)]),
+      );
+      expect(status).toBe(0);
+      expect(chunks.join('')).toBe('skip=true\n');
+    } finally {
+      process.stdout.write = originalWrite;
+    }
+  });
+});
+
+describe('review gate uses the first HEAD verdict', () => {
+  it('does not let a later same-HEAD Important fail a current-HEAD LGTM', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD,
+      reviews: [[
+        botReview(CLEAN, HEAD, '2026-09-18T04:04:10Z', { id: 27 }),
+        botReview(IMPORTANT, HEAD, '2026-09-18T04:40:15Z', { id: 28 }),
+      ]],
+      mutate: false,
+    });
+    expect(result.approved).toBe(true);
+    expect(boundReviewsToFirstHeadVerdict([
+      botReview(CLEAN, HEAD, '2026-09-18T04:04:10Z', { id: 27 }),
+      botReview(IMPORTANT, HEAD, '2026-09-18T04:40:15Z', { id: 28 }),
+    ], HEAD)).toHaveLength(1);
+  });
+
+  it('still blocks when the first terminal review on HEAD is Important', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 1,
+      headSha: HEAD,
+      reviews: [[botReview(IMPORTANT, HEAD, '2026-09-18T03:42:58Z', { id: 26 })]],
+      mutate: false,
+      classifyAndMintReviewFn: async () => ({
+        findings: [{ text: IMPORTANT }],
+        outside: [],
+        inScope: [{ text: IMPORTANT }],
+        unresolved: [],
+        outsideOnly: false,
+        blocking: true,
+      }),
+    });
+    expect(result.approved).toBe(false);
+  });
+});
+
+describe('a malformed review body is not the HEAD verdict (#9705)', () => {
+  const sequence9705 = () => [
+    botReview(MALFORMED_LGTM, HEAD, '2026-09-24T18:27:06Z', { id: 5308507769 }),
+    botReview(CLEAN, HEAD, '2026-09-24T18:28:35Z', { id: 5308522421 }),
+    botReview(CLEAN, HEAD, '2026-09-24T18:28:48Z', { id: 5308524540 }),
+  ];
+
+  it('takes the first readable review as the verdict and drops the rest', () => {
+    const reviews = sequence9705();
+    expect(firstTerminalBotReviewOnHead(reviews, HEAD, { reviewRevision: REVIEW_REVISION })?.id).toBe(5308522421);
+    expect(boundReviewsToFirstHeadVerdict(reviews, HEAD, { reviewRevision: REVIEW_REVISION })
+      .map((review) => review.id)).toEqual([5308522421]);
+    expect(shouldSkipModelReview({ headSha: HEAD, reviews, reviewRevision: REVIEW_REVISION })).toBe(true);
+  });
+
+  it('lets the review gate approve the corrected review instead of discarding the malformed one', async () => {
+    const result = await runReviewGate({
+      repo: 'owner/repo',
+      pr: 9705,
+      headSha: HEAD,
+      reviews: [sequence9705()],
+      mutate: false,
+    });
+    expect(String(result.reason ?? '')).not.toMatch(/malformato/);
+    expect(result.approved).toBe(true);
+  });
+
+  it('does not skip the model reviewer when the HEAD has only malformed reviews', () => {
+    const reviews = [botReview(MALFORMED_LGTM, HEAD, '2026-09-24T18:27:06Z', { id: 5308507769 })];
+    expect(firstTerminalBotReviewOnHead(reviews, HEAD)).toBeNull();
+    expect(shouldSkipModelReview({ headSha: HEAD, reviews, reviewRevision: REVIEW_REVISION })).toBe(false);
+    const cli = runCli('skip', ['--head', HEAD, '--revision', REVIEW_REVISION], reviews);
+    expect(cli.status).toBe(0);
+    expect(cli.stdout.trim()).toBe('skip=false');
+  });
+
+  it('keeps the admission copy of the malformed-body rule equal to review-findings', () => {
+    const bodies = [
+      MALFORMED_LGTM,
+      CLEAN,
+      IMPORTANT,
+      CLEAN_COUNT_IN_SECTION,
+      '## Findings\n\n- Fix di ``: ok.\n',
+      '## Findings (Important: 0, Nit: 0)\n\n- Fix di `a.mjs:L3`: ok.\n\n## LGTM',
+      '## Findings (Important: 0, Nit: 0)\n\n```text\nFix di : ok\n```\n\n## LGTM',
+      '## Findings (Important: 0, Nit: 0)\n\n~~~\nFix di ` `: ok\n~~~\n\nFix di : ok\n',
+      '## Findings (Important: 0, Nit: 0)\n\n```\nnever closed\nFix di : ok\n',
+      'prosa che cita la regex `\\n` una volta sola\n\n## LGTM',
+      'a\\nb\\nc\\nd',
+      '```\na\\nb\\nc\\nd\n```\n## LGTM',
+      '',
+    ];
+    for (const body of bodies) {
+      const normalized = normalizeReviewBody(body);
+      expect(verdictBodyDefects(normalized), JSON.stringify(body)).toEqual(reviewBodyDefects(normalized));
+    }
+    expect(verdictBodyDefects(normalizeReviewBody(MALFORMED_LGTM))).toEqual(['empty-fix-anchor']);
+  });
+});
+
+describe('workflow wiring for one review per HEAD', () => {
+  const testsYml = readFileSync(new URL('../.github/workflows/tests.yml', import.meta.url), 'utf8');
+  const fixerYml = readFileSync(new URL('../.github/workflows/pr-redflag-fixer.yml', import.meta.url), 'utf8');
+  const redcheckYml = readFileSync(new URL('../.github/workflows/pr-redcheck-fixer.yml', import.meta.url), 'utf8');
+  const staleRescuerYml = readFileSync(new URL('../.github/workflows/stale-pr-rescuer.yml', import.meta.url), 'utf8');
+  const bodyRecoveryYml = readFileSync(new URL('../.github/workflows/retry-code-check-after-body-edit.yml', import.meta.url), 'utf8');
+  const reviewGateSource = readFileSync(new URL('../scripts/ci/review-gate.mjs', import.meta.url), 'utf8');
+  const trustedPolicySources = [
+    'scripts/ci/fetch-pr-files.mjs',
+    'scripts/ci/review-test-policy.mjs',
+    'scripts/ci/lib/review-carry-forward.mjs',
+    'scripts/ci/report-vitest-failure.mjs',
+  ].map(path => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
+  const tests = YAML.parse(testsYml);
+
+  it('tests.yml skip guard calls the shipped helper and does not re-review on edited', () => {
+    const guard = tests.jobs.vitest.steps.find((step: { id?: string }) => step.id === 'guard');
+    expect(guard?.run).toContain('node "$REVIEW_POLICY_ROOT/scripts/ci/lib/pr-review-admission.mjs" skip');
+    expect(guard?.run).toContain('"$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews"');
+    expect(guard?.run).toContain('--revision "$REVIEW_REVISION"');
+    const input = tests.jobs.vitest.steps.find((step: { id?: string }) => step.id === 'review_input');
+    expect(input?.run).toContain('review-input-revision.mjs" hash-pr-json');
+    expect(testsYml).toContain('REVIEW_INPUT_REVISION: ${{ steps.review_input.outputs.review_revision }}');
+    expect(testsYml).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    expect(reviewGateSource).toContain('process.env.TRUSTED_GH_BIN');
+    expect(guard?.run).not.toContain('PR metadata modificata → review piena');
+    expect(guard?.env?.EVENT_ACTION).toBeUndefined();
+    const gate = tests.jobs.vitest.steps.find((step: { id?: string }) => step.id === 'review_gate');
+    expect(gate?.if).toContain("steps.resolve.outputs.should_review == 'true'");
+    expect(gate?.if).not.toContain("steps.guard.outputs.skip != 'true'");
+    expect(testsYml).toContain("steps.review_gate.outcome == 'skipped'");
+    expect(testsYml).not.toMatch(/steps\.guard\.outputs\.skip != 'true' && steps\.review_gate\.outcome == 'skipped'/);
+  });
+
+  it('pr-redflag-fixer admits only the first terminal Important and forbids empty commits', () => {
+    expect(fixerYml).toContain('node "$TRUSTED_POLICY_ROOT/scripts/ci/lib/pr-review-admission.mjs" fixer');
+    expect(fixerYml).toContain('node "$TRUSTED_POLICY_ROOT/scripts/ci/lib/review-input-revision.mjs" hash-pr-json');
+    expect(fixerYml).toContain('Bootstrap trusted fixer policy (no PR code)');
+    expect(fixerYml).toContain('Resolve trusted GitHub CLI (before PR checkout)');
+    expect(fixerYml).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    expect(fixerYml).toContain('"$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}"');
+    expect(fixerYml).toContain('Refresh trusted fixer policy before claim');
+    expect(fixerYml).toContain('Refresh trusted fixer policy immediately before final claim');
+    expect(fixerYml).toContain('TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_claim_final.outputs.root }}');
+    expect(fixerYml).toContain('Refresh trusted fixer policy after model');
+    expect(fixerYml).toContain('TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_post_model.outputs.root }}');
+    expect(fixerYml).toContain('--revision "$review_revision"');
+    expect(fixerYml).toMatch(/Reviews API illeggibile.*nessun Codex/s);
+    expect(fixerYml).toContain('Admit only the first terminal');
+    // L'invariante è che il MODELLO non fabbrichi una HEAD nuova su lavoro che
+    // non ha fatto (storm #9066/#9074): il prompt glielo vieta, e glielo deve
+    // continuare a vietare.
+    expect(fixerYml).toMatch(/Niente commit vuoto|non pushare un commit vuoto/i);
+    // L'unico `--allow-empty` ammesso è quello deterministico che sblocca il
+    // 🔴 solo-body, ed è l'opposto del caso vietato: parte solo DOPO che il
+    // body è cambiato davvero, e serve perché `tests.yml` non è triggerato da
+    // `edited` e il re-review guard salta su una review terminale già presente
+    // — senza una HEAD nuova nessuna review può giudicare il body corretto e
+    // la PR resta ferma in silenzio.
+    //
+    // Il secondo (2026-09-25) è lo stesso caso per una CONTESTAZIONE: il fixer
+    // ha risposto `disputed` con un'evidenza e non ha pushato codice. Senza una
+    // HEAD nuova il reviewer non la giudica mai (#9147: quattro review
+    // identiche dopo «già risolto alla riga 282»). Anche questo è
+    // deterministico, uno per round, e parte solo se la HEAD è ferma.
+    const emptyCommits = fixerYml.match(/git commit --allow-empty/gu) ?? [];
+    expect(emptyCommits).toHaveLength(2);
+    const stepBody = (name: string) => {
+      const start = fixerYml.indexOf(`- name: ${name}`);
+      expect(start, name).toBeGreaterThan(0);
+      const end = fixerYml.indexOf('\n      - name:', start + 1);
+      return fixerYml.slice(start, end);
+    };
+    const advance = stepBody('Advance HEAD after a PR-body fix');
+    expect(advance).toContain('git commit --allow-empty');
+    expect(advance).toContain('BASE_BODY_DIGEST');
+    const dispute = stepBody('Publish the per-finding response (zero-Claude)');
+    expect(dispute).toContain('git commit --allow-empty');
+    expect(dispute).toContain('disputed');
+    expect(dispute).toMatch(/"\$head_now" != "\$\{BASE_SHA:-\}"/);
+  });
+
+  it('attesta il CLI anche prima del preflight e nel watcher di superseded HEAD', () => {
+    const preflightStart = fixerYml.indexOf('steps:\n      # The preflight itself');
+    const preflightEnd = fixerYml.indexOf('\n  # Lo scope viene deciso prima', preflightStart);
+    expect(preflightStart).toBeGreaterThanOrEqual(0);
+    expect(preflightEnd).toBeGreaterThan(preflightStart);
+    const preflight = fixerYml.slice(preflightStart, preflightEnd);
+    expect(preflight).toContain('Resolve trusted GitHub CLI (before preflight)');
+    expect(preflight).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    expect(preflight).not.toMatch(/^\s+gh (?:api|pr|run)\s/m);
+
+    const watcherStart = testsYml.indexOf('- name: Start superseded-head watcher');
+    const watcherEnd = testsYml.indexOf('\n      # `git checkout` scrive', watcherStart);
+    expect(watcherStart).toBeGreaterThanOrEqual(0);
+    expect(watcherEnd).toBeGreaterThan(watcherStart);
+    const watcher = testsYml.slice(watcherStart, watcherEnd);
+    expect(watcher).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    expect(watcher).toContain('"$TRUSTED_GH_BIN" api -X POST');
+    expect(watcher).not.toMatch(/^\s+gh (?:api|pr|run)\s/m);
+
+    expect(staleRescuerYml).toContain('Resolve trusted GitHub CLI (before checkout)');
+    expect(staleRescuerYml).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+    expect(staleRescuerYml).not.toMatch(/^\s+gh (?:api|pr|run)\s/m);
+  });
+
+  it('binds every post-checkout review publisher to the attested GitHub CLI', () => {
+    for (const source of trustedPolicySources) {
+      expect(source).toContain('TRUSTED_GH_BIN');
+      expect(source).not.toContain("execFileSync('gh'");
+    }
+    expect(testsYml).toContain('id: test_only_review');
+    expect(testsYml).toContain('id: carry_forward_review');
+    for (const workflow of [fixerYml, redcheckYml]) {
+      expect(workflow).toContain('TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}');
+      expect(workflow).toContain('"$TRUSTED_GH_BIN" api');
+      expect(workflow).toContain('node "$TRUSTED_POLICY_ROOT/scripts/ci/fetch-pr-files.mjs"');
+    }
+  });
+
+  it('does not resolve trusted review tools from a PR-controlled PATH', () => {
+    const trustedSources = [
+      'scripts/ci/prefetch-review-diff.mjs',
+      'scripts/ci/auto-merge-eval.mjs',
+      'scripts/ci/lib/mergePreviewCheck.mjs',
+      'scripts/ci/review-gate.mjs',
+      'scripts/lib/github-issue-creator.mjs',
+    ].map(path => readFileSync(new URL(`../${path}`, import.meta.url), 'utf8'));
+    expect(trustedSources[0]).toContain('TRUSTED_GIT_BIN');
+    expect(trustedSources[2]).toContain('TRUSTED_GIT_BIN');
+    for (const source of trustedSources.filter((_, index) => index !== 2)) {
+      expect(source).toContain('TRUSTED_GH_BIN');
+      expect(source).not.toContain("execFileSync('gh'");
+      expect(source).not.toContain("execFileSync('git'");
+    }
+    expect(trustedSources[2]).not.toContain("execFileSync('git'");
+    expect(testsYml).toContain('TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}');
+    expect(fixerYml).toContain('TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}');
+    expect(testsYml).toContain("node \"$REVIEW_POLICY_ROOT/scripts/ci/prefetch-review-diff.mjs\"");
+  });
+
+  it('keeps title-only edits out while body edits revalidate the trusted review input', () => {
+    expect(testsYml).toMatch(/types:\s*\[opened, synchronize, reopened, ready_for_review\]/);
+    expect(bodyRecoveryYml).toContain('types: [edited]');
+    expect(bodyRecoveryYml).toContain("github.event_name == 'workflow_run' || github.event_name == 'schedule' || github.event.changes.body != null");
+    expect(bodyRecoveryYml).toContain('workflows: [tests]');
+    expect(bodyRecoveryYml).toContain('BODY_REVIEW_RECOVERY_PENDING');
+    expect(bodyRecoveryYml).not.toContain('setTimeout');
+    expect(bodyRecoveryYml).toContain('the PR body changed; revalidate the review input revision');
+    expect(bodyRecoveryYml).toContain('tests.yml');
+  });
+});

@@ -1,0 +1,22 @@
+{
+  "companyKey": "cardis-sotheby",
+  "companyName": "Cardis Sotheby\\",
+  "companyHost": "cardis.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.cardis.ch/careers",
+    "https://www.cardis.ch/career",
+    "https://www.cardis.ch/jobs",
+    "https://www.cardis.ch/karriere",
+    "https://www.cardis.ch/offene-stellen",
+    "https://www.cardis.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.930Z"
+}

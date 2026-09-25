@@ -1,0 +1,22 @@
+{
+  "companyKey": "bulgari-logistica",
+  "companyName": "Bulgari (logistica)",
+  "companyHost": "bulgari.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.bulgari.com/careers",
+    "https://www.bulgari.com/career",
+    "https://www.bulgari.com/jobs",
+    "https://www.bulgari.com/karriere",
+    "https://www.bulgari.com/offene-stellen",
+    "https://www.bulgari.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.929Z"
+}

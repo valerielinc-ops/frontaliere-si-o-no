@@ -1,0 +1,40 @@
+{
+  "id": "aquile-mannheim-coppa-spengler-2026",
+  "slug": "aquile-mannheim-coppa-spengler-2026",
+  "publishedAt": "2026-05-08T11:12:17.880Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.727388827171573,
+    "confidence": 0.8,
+    "finalScore": 5.381911061737259,
+    "topK": [
+      {
+        "slug": "mondiali-hockey-svizzera-2026",
+        "cosine": 0.8409236033964467
+      },
+      {
+        "slug": "svizzera-hockey-sconfitta-finlandia",
+        "cosine": 0.8229879137171695
+      },
+      {
+        "slug": "svizzera-hockey-finlandia-2026",
+        "cosine": 0.8197876956706176
+      },
+      {
+        "slug": "casa-hockey-lugano-ambri-2026",
+        "cosine": 0.8167072177538763
+      },
+      {
+        "slug": "casa-hockey-ticino-2026",
+        "cosine": 0.8159441304753555
+      }
+    ],
+    "score": 0.538191106173726,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

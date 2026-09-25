@@ -1,0 +1,23 @@
+{
+  "companyKey": "fisba",
+  "companyName": "FISBA AG",
+  "companyHost": "fisba.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://fisba.com/en/current-vacancies"
+  ],
+  "detailTemplate": "/en/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Spontaneous / unsolicited application",
+    "Lernende/r: Feinwerkoptiker/in EFZ für 2027",
+    "Lernende/r: Physiklaborant/in EFZ für 2027",
+    "Lernende/r: Mechanikpraktiker/in EBA (Werkstoff Glas) für 2027"
+  ],
+  "canton": "SG",
+  "sourceLang": "en",
+  "learnedAt": "2026-09-22T10:48:12.856Z"
+}

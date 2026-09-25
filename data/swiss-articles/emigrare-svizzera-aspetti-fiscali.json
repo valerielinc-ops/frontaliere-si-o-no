@@ -1,0 +1,40 @@
+{
+  "id": "emigrare-svizzera-aspetti-fiscali",
+  "slug": "emigrare-svizzera-aspetti-fiscali",
+  "publishedAt": "2026-06-22T12:29:59.093Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.412485623328368,
+    "confidence": 0.8,
+    "finalScore": 3.5299884986626946,
+    "topK": [
+      {
+        "slug": "svizzera-istruzioni-uso-2026",
+        "cosine": 0.8822111957854373
+      },
+      {
+        "slug": "frontalieri-ticino-spese-svizzera-2026",
+        "cosine": 0.8817359067686705
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.8789109154032333
+      },
+      {
+        "slug": "lohnausweis-frontalieri-ticino",
+        "cosine": 0.8788827819579933
+      },
+      {
+        "slug": "tassa-immigrazione-frontalieri-2026",
+        "cosine": 0.8778630641713171
+      }
+    ],
+    "score": 1.7649942493313473,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

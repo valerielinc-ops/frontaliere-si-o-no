@@ -1,0 +1,40 @@
+{
+  "id": "disoccupazione-frontalieri-naspi",
+  "slug": "disoccupazione-frontalieri-naspi",
+  "publishedAt": "2026-07-14T11:05:45.667Z",
+  "cluster": "pratico",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.639040546491911,
+    "confidence": 0.8,
+    "finalScore": 5.311232437193529,
+    "topK": [
+      {
+        "slug": "disoccupazione-frontalieri-residenti",
+        "cosine": 0.8892783716614016
+      },
+      {
+        "slug": "frontalieri-disoccupazione-svizzera-2026",
+        "cosine": 0.8837698022743724
+      },
+      {
+        "slug": "disoccupazione-frontalieri-ue-svizzera-2026",
+        "cosine": 0.8809834868948634
+      },
+      {
+        "slug": "frontalieri-disoccupazione-stato-lavoro",
+        "cosine": 0.8792762687598681
+      },
+      {
+        "slug": "naspi-svizzera-frontalieri",
+        "cosine": 0.8719924572340436
+      }
+    ],
+    "score": 5.311232437193529,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

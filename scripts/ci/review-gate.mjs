@@ -1,0 +1,2284 @@
+#!/usr/bin/env node
+
+/**
+ * Gate della review Claude per tests.yml.
+ *
+ * Un finding 🔴 Important puo' essere declassato solo quando tutti i file che
+ * cita sono risolti nel tree della PR e nessuno appartiene al diff corrente.
+ * Le review successive non possono cancellare uno storico Important: resta
+ * aperto finche' una review successiva conferma esplicitamente il fix dell'ancora
+ * (`Fix di \`path:L<linea>\`: ok.` oppure, per un finding senza citazioni,
+ * `Fix di \`testo normalizzato\`: ok.`; per il body vale anche l'ancora
+ * `Fix di \`PR body:L<linea>\`: ok.`), oppure il finding viene classificato
+ * fuori dal diff.
+ * Ogni informazione mancante resta bloccante: una lista incompleta, vuota o un
+ * tree non risolvibile non autorizzano mai un'inferenza «fuori dal diff».
+ * La review deve inoltre riportare il digest della body revision trusted
+ * corrente; una review sulla sola HEAD non è sufficiente dopo un body edit.
+ */
+import { isReviewTestPath, findTestOnlyApproval } from './review-test-policy.mjs';
+import { execFileSync } from 'node:child_process';
+import { realpathSync, readFileSync, appendFileSync } from 'node:fs';
+import { isAbsolute } from 'node:path';
+import { pathToFileURL } from 'node:url';
+import { REDFLAG_IMPORTANT_RE } from './lib/constants.mjs';
+import { boundReviewsToFirstHeadVerdict } from './lib/pr-review-admission.mjs';
+import {
+  contributionFingerprint,
+  isCarryForwardReview,
+  verifyCarryForwardReview,
+} from './lib/review-carry-forward.mjs';
+import {
+  isTerminalManagedReview,
+  parseReviewPages,
+} from './lib/pr-review-admission.mjs';
+import {
+  acceptedReviewInputRevisionsFromPullRequest,
+  normalizeReviewInputRevisionInput,
+  reviewHasInputRevision,
+  reviewInputRevisionFromPullRequest,
+} from './lib/review-input-revision.mjs';
+import {
+  changedLinesFromPatch,
+  dedupeFindingsById,
+  isMalformedReviewBody,
+  reviewBodyDefects,
+  stableFindingId,
+  unchangedLineImportants,
+} from './lib/review-findings.mjs';
+import { fetchPrFiles } from './lib/fetchPrFiles.mjs';
+import { createGithubIssue } from '../lib/github-issue-creator.mjs';
+import {
+  isValidCodexFallbackEvidence,
+  parseCodexFallbackEvidence,
+  FALLBACK_STATUS,
+} from './claude-codex-fallback.mjs';
+
+export const FOLLOWUP_MARKER = 'OUT_OF_SCOPE_REVIEW_FOLLOWUP';
+const MAX_FOLLOWUP_BODY_LEN = 60_000;
+const ZERO_IMPORTANT_RE = /^(?:0|none|nessuno)\s*$/iu;
+const NEGATIVE_IMPORTANT_SUMMARY_PREFIX_RE = /^\s*(?:[-*+>]\s*)?(?:nessun[oa]?|no)\s+$/iu;
+const IMPORTANT_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]\s*|(?=\s+\S))/u;
+const FINDING_MARKER_RE = /🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?:[:—-]|(?=\s+\S))|🔴|🟡\s*\*{0,2}\s*Nit\s*\*{0,2}(?:[:—-]|(?=\s+\S))|🟣\s*\*{0,2}\s*Pre-existing\s*\*{0,2}(?:[:—-]|(?=\s+\S))|❓\s*q\s*:/gu;
+const QUESTION_MARKER_RE = /❓\s*q\s*:/iu;
+// A question is disposable only with the explicit review suffix used by the
+// contract. Words such as "deferred" inside the question itself stay open.
+const NON_FUNNEL_QUESTION_RE = /(?:^|[—–])\s*(?:deferred\s*,\s*)?(?:non[-\s]?funnel(?:[-\s]?critical)?|not[-\s]?funnel(?:[-\s]?critical)?|deferred)\s*[.!]?\s*$/iu;
+const REVIEWER_LOGIN_RE = /^(?:claude(?:\[bot\])?|frontaliere-automation\[bot\])$/iu;
+// This is deliberately narrower than REVIEWER_LOGIN_RE and is accepted only
+// together with a validated Codex evidence file plus an exact HEAD commit and
+// review marker. It does not broaden ordinary Claude reviewer identity.
+const CODEX_REVIEWER_LOGIN_RE = /^(?:github-actions\[bot\]|frontaliere-automation\[bot\])$/iu;
+export const CODEX_REVIEW_MARKER = '<!-- CODEX_FALLBACK_REVIEW -->';
+const FIX_CONFIRMATION_RE = /^\s*(?:[-*]\s*)?Fix di\s+`([^`\n]+)`\s*:\s*ok\b/iu;
+
+/**
+ * Some review clients serialize the Markdown body as one JSON-like string and
+ * send literal `\\n` separators to GitHub. Treat that shape, including a body
+ * that mixes real and serialized newlines, as Markdown only when it is
+ * unmistakably a complete review; arbitrary prose containing the two
+ * characters `\\n` must remain untouched. Without this normalization the
+ * gate cannot see section boundaries or the explicit `Fix di ...: ok.`
+ * confirmations, so it resurrects already-fixed historical findings.
+ */
+export function normalizeReviewBody(body) {
+  const text = String(body || '');
+  if (!text.includes('\\n')) return text;
+  if (!text.includes('## Findings') && !text.includes('## LGTM')) return text;
+  return text.replace(/\\r\\n/gu, '\n').replace(/\\n/gu, '\n');
+}
+// L'alternanza delle estensioni e' first-match-wins: senza il lookahead finale
+// `ts` vince su `tsx` e `js` su `json`/`jsx`, e la citazione viene troncata a un
+// path che non esiste (`Foo.tsx:L107` -> `Foo.ts`). Un path non risolvibile e'
+// bloccante per progetto, quindi il refuso teneva aperto per sempre un finding
+// gia' confermato risolto. Il lookahead impone che l'estensione finisca davvero
+// li', e rende l'ordine delle alternative irrilevante. I caratteri validi nei
+// nomi file dopo l'estensione sono esclusi: altrimenti `foo.ts.bak` verrebbe
+// ancora letto come la citazione troncata `foo.ts`.
+const FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|rules|sh|ts|tsx|txt|toml|yaml|yml|jsx)(?![A-Za-z0-9_.@-]))(?:`?[:#]L?\d+(?:[-–]\d+)?)?/giu;
+
+/**
+ * Normalize a review citation without turning an unsafe/ambiguous path into a
+ * different valid path. GitHub review locations may use `a/`, `b/` or `./`.
+ */
+export function normalizePath(value, { stripGitPrefix = true } = {}) {
+  let path = String(value || '')
+    .trim()
+    .replace(/^['"`([{<]+|['"`\])}>.,;!?]+$/gu, '')
+    .replace(/\\/gu, '/');
+  if (!path || /^(?:[A-Za-z][A-Za-z\d+.-]*:|\/|~\/)/u.test(path)) return '';
+  if (path.split('/').includes('..')) return '';
+  path = path.replace(/^\.\//u, '');
+  if (stripGitPrefix) path = path.replace(/^[ab]\//u, '');
+  return path.replace(/[:#]L?\d+(?:[-–]\d+)?$/iu, '');
+}
+
+function citationPathAndLine(rawPath, fullMatch) {
+  const lineMatch = String(fullMatch || '').match(/[:#]L?(\d+)(?:[-–]\d+)?$/iu);
+  return {
+    path: normalizePath(rawPath),
+    line: lineMatch ? Number(lineMatch[1]) : null,
+  };
+}
+
+/** Extract file-like citations from one finding, deduplicated by path+line. */
+function extractFileCitationsWith(
+  text,
+  pattern,
+  { dedupe = true, includeMatchIndex = false } = {},
+) {
+  const citations = [];
+  pattern.lastIndex = 0;
+  for (const match of String(text || '').matchAll(pattern)) {
+    const citation = citationPathAndLine(match[1], match[0]);
+    if (citation.path) {
+      citations.push(includeMatchIndex
+        ? {
+          ...citation,
+          __pathStart: match.index + match[0].indexOf(match[1]),
+        }
+        : citation);
+    }
+  }
+  if (!dedupe) return citations;
+  const seen = new Set();
+  return citations.filter((citation) => {
+    const key = `${citation.path}:${citation.line || ''}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+}
+
+export function extractFileCitations(text, options) {
+  return extractFileCitationsWith(text, FILE_CITATION_RE, options);
+}
+
+// Historical audit oracle: this mirrors the pre-#8189 parser so the audit can
+// quantify findings the old first-match extension bug would have left open.
+const LEGACY_FILE_CITATION_RE = /(?:^|[\s([{"'`])(?:\\(?=\.))?((?:\.\.?\/)?(?:[A-Za-z0-9_.@-]+\/)*[A-Za-z0-9_.@-]+\.(?:cjs|css|html|js|json|md|mjs|sh|ts|tsx|txt|toml|yaml|yml|jsx))(?:[:#]L?\d+(?:[-–]\d+)?)?/giu;
+
+function extractLegacyFileCitations(text, options) {
+  return extractFileCitationsWith(text, LEGACY_FILE_CITATION_RE, options);
+}
+
+function isInsideCodeSpan(line, index) {
+  return (String(line).slice(0, index).match(/`/gu) || []).length % 2 === 1;
+}
+
+function firstFindingMarker(line) {
+  FINDING_MARKER_RE.lastIndex = 0;
+  for (const match of String(line || '').matchAll(FINDING_MARKER_RE)) {
+    if (!isInsideCodeSpan(line, match.index)) return match;
+  }
+  return null;
+}
+
+/**
+ * A finding normally starts with `path:Lx:` before its severity marker. A
+ * marker without a location is still a finding (and will remain unresolved),
+ * while a marker quoted inside another finding is not a new boundary.
+ */
+function isFindingStart(line, marker, extractCitations = extractFileCitations) {
+  if (!marker) return false;
+  const prefix = String(line).slice(0, marker.index).trim();
+  const structuralPrefix = prefix
+    .replace(/^(?:[-*+>]\s*)+/u, '')
+    .replace(/^(?:[_*~`]\s*)+/u, '')
+    .trim();
+  if (!structuralPrefix || /^[#*_~`]+$/u.test(structuralPrefix)) return true;
+  if (extractCitations(structuralPrefix).length > 0) return true;
+  return /(?:^|\s)(?:L?\d+)(?:[-–]\d+)?\s*:\s*$/iu.test(structuralPrefix)
+    || /^PR\s+body\s*[:#]\s*L?\d+(?:[-–]\d+)?\s*:\s*$/iu.test(structuralPrefix)
+    || /`[^`\n]+`\s*:\s*$/u.test(structuralPrefix);
+}
+
+function importantFindingLine(line, { inLgtm = false } = {}) {
+  REDFLAG_IMPORTANT_RE.lastIndex = 0;
+  if (!REDFLAG_IMPORTANT_RE.test(String(line || ''))) return false;
+  const candidates = [...String(line || '').matchAll(
+    new RegExp(IMPORTANT_MARKER_RE.source, 'gu'),
+  )];
+  const marker = candidates.find((candidate) => !isInsideCodeSpan(line, candidate.index));
+  // A marker quoted inside a code span is not a verdict. The shared regex is
+  // deliberately the first gate, but this positional check also covers a
+  // quoted marker preceded by ordinary text inside the span.
+  if (!marker) return false;
+  // A reviewer may summarize an approving review as `Nessun 🔴 Important: ...`
+  // in the LGTM section. The negative prefix is a verdict about the count, not
+  // a finding; keep this exception scoped to that summary section and to a
+  // line whose marker is not preceded by a file/location citation.
+  if (inLgtm && NEGATIVE_IMPORTANT_SUMMARY_PREFIX_RE.test(
+    String(line).slice(0, marker.index),
+  )) return false;
+  // `🔴 Important: 0`/`none`/`nessuno` is a count row only when the whole
+  // remainder is that value. `🔴 Important: none of the branches...` remains a
+  // real finding, even when its prose begins with a count word.
+  return !ZERO_IMPORTANT_RE.test(String(line).slice(marker.index + marker[0].length).trim());
+}
+
+/**
+ * Parse every real Important finding. Its text ends at the next finding of any
+ * severity or at the next H2, so `## Adversarial check` and the summary cannot
+ * leak paths into the previous finding.
+ */
+function parseImportantFindings(body, extractCitations) {
+  const lines = normalizeReviewBody(body).split(/\r?\n/u);
+  const markerLines = lines
+    .map((line, index) => ({ line, index, marker: firstFindingMarker(line) }))
+    .filter(({ marker }) => marker);
+  const starts = markerLines
+    .filter(({ line, marker }) => isFindingStart(line, marker, extractCitations))
+    .map(({ index }) => index);
+  let inLgtm = false;
+  const markers = [];
+  for (const [index, line] of lines.entries()) {
+    if (/^##\s/u.test(line)) inLgtm = /^##\s+LGTM\b/iu.test(line);
+    if (importantFindingLine(line, { inLgtm })) markers.push({ line, index });
+  }
+
+  return markers.map(({ line, index }, markerIndex) => {
+    const nextFinding = starts.find((start) => start > index) ?? lines.length;
+    const nextH2 = lines.findIndex((candidate, candidateIndex) =>
+      candidateIndex > index && /^##\s/u.test(candidate));
+    const end = Math.min(nextFinding, nextH2 === -1 ? lines.length : nextH2);
+    const text = lines.slice(index, end).join('\n').trim();
+    const parserUncertain = markerLines.some(({ line: markerLine, index: markerIndex, marker }) =>
+      markerIndex > index
+      && markerIndex < end
+      && !isFindingStart(markerLine, marker, extractCitations));
+    const citations = extractFindingCitations(text, extractCitations);
+    const precisePaths = new Set(
+      citations.filter(citation => citation.line !== null).map(citation => citation.path),
+    );
+    const citationsWithoutRepeatedBarePaths = citations.filter((citation) =>
+      citation.line !== null || !precisePaths.has(citation.path),
+    );
+    // When precise locations exist, bare filenames in the explanation are
+    // context, not additional anchors. Preserve every explicit path/line.
+    const hasPreciseAnchor = citationsWithoutRepeatedBarePaths.some(citation => citation.line !== null);
+    return {
+      line,
+      text,
+      lineNumber: index + 1,
+      findingNumber: markerIndex + 1,
+      citations: hasPreciseAnchor
+        ? citationsWithoutRepeatedBarePaths.filter(citation =>
+          citation.line !== null || citation.path.includes('/'))
+        : citationsWithoutRepeatedBarePaths,
+      parserUncertain,
+    };
+  }).filter(finding => finding.parserUncertain || !finding.citations.length
+    || !finding.citations.every(citation => isReviewTestPath(citation.path)));
+}
+
+export function importantFindings(body) {
+  return parseImportantFindings(body, extractFileCitations);
+}
+
+function suffixMatches(candidate, wanted) {
+  return candidate === wanted || candidate.endsWith(`/${wanted}`);
+}
+
+/** Resolve a citation against a complete tree, or against the diff only. */
+export function resolveCitedPath(citation, repositoryPaths) {
+  const wanted = normalizePath(citation?.path);
+  const paths = Array.isArray(repositoryPaths)
+    ? [...new Set(repositoryPaths.map((path) => normalizePath(path, { stripGitPrefix: false })).filter(Boolean))]
+    : [];
+  if (!wanted) return { status: 'non-risolubile', path: null, candidates: [] };
+
+  const candidates = paths.filter((path) => wanted.includes('/')
+    ? suffixMatches(path, wanted)
+    : path === wanted || path.endsWith(`/${wanted}`));
+  if (candidates.length === 1) return { status: 'resolved', path: candidates[0], candidates };
+  if (candidates.length > 1) return { status: 'non-risolubile', path: null, candidates };
+  return { status: 'non-risolubile', path: null, candidates: [] };
+}
+
+function changedContains(changedFiles, resolvedPath) {
+  return changedFiles.some((file) => file === resolvedPath || file.endsWith(`/${resolvedPath}`));
+}
+
+function emptyClassification(findings = []) {
+  return {
+    findings,
+    outside: [],
+    inScope: [],
+    unresolved: [],
+    outsideOnly: false,
+    blocking: false,
+  };
+}
+
+// An adversarial `❓ q:` may still describe a funnel-critical risk. The
+// outside-only exception is safe without `## LGTM` only when the reviewer
+// explicitly disposes of every question as non-funnel/deferred.
+function hasUnresolvedFunnelQuestion(body) {
+  return normalizeReviewBody(body).split(/\r?\n/u).some((line) =>
+    QUESTION_MARKER_RE.test(line) && !NON_FUNNEL_QUESTION_RE.test(line));
+}
+
+/**
+ * Pure fail-closed classifier. `complete` must be exactly true and `files`
+ * must be non-empty before a finding can be considered outside the diff.
+ */
+export function classifyReview(body, {
+  files,
+  complete,
+  reason = 'diff non verificabile',
+  repositoryPaths = null,
+  // Proof that a path is ignored by the repository. Default `false` keeps this
+  // pure classifier fail-closed: only a caller holding a real checkout can
+  // prove the carve-out, and everything unproven keeps blocking.
+  isIgnoredPath = () => false,
+  // The deterministic PR-body contract of this same run passed on the current
+  // body. It is the single source of truth for the body: a model 🔴 anchored
+  // only on `PR body:L<n>` is then at most a Nit and never blocks (20% of the
+  // 🔴 measured on 2026-09-19 were body findings on a green contract).
+  bodyContractPassed = false,
+  // Current PR body, needed to prove that the anchored line lies inside
+  // `## Non implementato`, the section the contract validates. Without it
+  // nothing is declassified.
+  prBody = null,
+  // Id stabili (`review-findings.mjs`) dei 🔴 già emessi dalle review
+  // precedenti. Un finding il cui id è qui non è nuovo e non viene mai
+  // declassato dalla regola sulle righe non cambiate.
+  priorFindingIds = null,
+  // Map path → Set(righe) toccate DALL'ultima review a questa HEAD, ricavata
+  // dal patch. `null` = delta non calcolabile → nessuna declassazione.
+  changedLinesSince = null,
+} = {}) {
+  const findings = importantFindings(body);
+  if (findings.length === 0) return emptyClassification(findings);
+
+  const validFiles = Array.isArray(files)
+    && files.length > 0
+    && files.every((file) => typeof file === 'string' && Boolean(normalizePath(file, { stripGitPrefix: false })));
+  if (complete !== true || !validFiles) {
+    const diffReason = complete !== true
+      ? `elenco file incompleto (${reason})`
+      : 'elenco file vuoto o non valido';
+    return {
+      ...emptyClassification(findings),
+      unresolved: findings.map((finding) => ({
+        ...finding,
+        reason: `diff non verificabile: ${diffReason}`,
+      })),
+      blocking: true,
+    };
+  }
+
+  const changed = [...new Set(files.map((file) => normalizePath(file, { stripGitPrefix: false })).filter(Boolean))];
+  // When the tree is unavailable, resolve only against the changed list. This
+  // can prove an in-diff exact path, but cannot prove that another path is
+  // outside the diff; the latter remains unresolved and therefore blocking.
+  const knownPaths = Array.isArray(repositoryPaths) ? repositoryPaths : changed;
+  const outside = [];
+  const inScope = [];
+  const unresolved = [];
+  const ignoredCitations = [];
+  const bodyDeclassified = [];
+
+  // Righe realmente confrontate fra l'ultima review e questa HEAD. Il seed con
+  // l'elenco file della PR è la parte che rende la regola utile: dopo un merge
+  // di main che NON tocca i file della PR il patch è vuoto, e senza il seed
+  // ogni path citato risulterebbe «mai confrontato» — cioè l'esatto caso
+  // (#9238) che la regola deve coprire.
+  const comparedLines = changedLinesSince instanceof Map
+    ? new Map(changed.map((file) => [file, changedLinesSince.get(file) ?? new Set()]))
+    : null;
+  // Un finding che il parser non sa delimitare non è un finding di cui si
+  // possa dire «punta a una riga non cambiata»: non si sa nemmeno dove
+  // finisca, quindi non entra proprio nel calcolo. L'insieme dei candidati
+  // alla declassazione si costruisce QUI, sui soli finding certi: così la
+  // proprietà non dipende dall'ordine dei controlli nel loop sotto, che è
+  // com'era scritta prima e che bastava invertire per lasciar passare una
+  // review malformata.
+  const certainFindings = findings.filter((finding) => !finding.parserUncertain);
+  const staleImportants = comparedLines
+    ? unchangedLineImportants({
+      findings: certainFindings,
+      priorFindingIds: priorFindingIds instanceof Set ? priorFindingIds : new Set(priorFindingIds || []),
+      changedLines: comparedLines,
+    })
+    : [];
+  const staleIds = new Set(staleImportants.map((finding) => finding.findingNumber));
+  const staleDeclassified = [];
+
+  for (const finding of findings) {
+    if (finding.parserUncertain) {
+      unresolved.push({ ...finding, reason: 'struttura della review ambigua' });
+      continue;
+    }
+    if (staleIds.has(finding.findingNumber)) {
+      staleDeclassified.push({ ...finding, stableId: stableFindingId(finding) });
+      continue;
+    }
+    if (bodyContractPassed && finding.citations.length === 0
+        && isContractDomainBodyFinding(finding, prBody)) {
+      bodyDeclassified.push(finding);
+      continue;
+    }
+    if (finding.citations.length === 0) {
+      unresolved.push({ ...finding, reason: 'nessun file citato' });
+      continue;
+    }
+    // A path the repository ignores is absent from the tree by construction,
+    // so it cannot be part of the PR diff and cannot be a second edit target.
+    // Such a citation is context: drop it instead of failing the whole finding.
+    // Only a proven ignore qualifies; a missing or misspelled path stays
+    // unresolved and therefore blocking.
+    const ignoredPaths = [];
+    const citations = finding.citations.filter((citation) => {
+      const result = resolveCitedPath(citation, knownPaths);
+      if (result.status === 'resolved') return true;
+      // An ambiguous citation is not proven to be anything: a basename that
+      // happens to match an ignore rule must stay blocking, so only a
+      // zero-candidate path qualifies.
+      if (result.candidates.length > 0) return true;
+      const path = normalizePath(citation.path, { stripGitPrefix: false });
+      if (!path) return true;
+      // A path in the changed list is in the diff whatever git says about
+      // ignoring it: a deleted or newly ignored file still belongs to this PR.
+      if (changedContains(changed, path) || changed.includes(path)) return true;
+      if (!isIgnoredPath(path)) return true;
+      ignoredCitations.push({ findingNumber: finding.findingNumber, path });
+      ignoredPaths.push(path);
+      return false;
+    });
+    if (citations.length === 0) {
+      // Every citation is an ignored path: the finding cannot describe the
+      // diff. It is still declassed rather than dropped, so the aggregate
+      // follow-up records what the reviewer said.
+      outside.push({
+        ...finding,
+        resolvedFiles: [...new Set(ignoredPaths.filter(Boolean))],
+        resolved: [],
+        ignoredOnly: true,
+      });
+      continue;
+    }
+    const resolved = citations.map((citation) => ({
+      citation,
+      result: resolveCitedPath(citation, knownPaths),
+    }));
+    const bad = resolved.find(({ result }) => result.status !== 'resolved');
+    if (bad) {
+      unresolved.push({
+        ...finding,
+        reason: bad.result.candidates.length ? 'path ambiguo' : 'file non risolto',
+        candidates: bad.result.candidates,
+        resolved,
+      });
+      continue;
+    }
+
+    const resolvedFiles = [...new Set(resolved.map(({ result }) => result.path))];
+    const classified = { ...finding, resolvedFiles, resolved };
+    if (resolvedFiles.some((file) => changedContains(changed, file))) inScope.push(classified);
+    else outside.push(classified);
+  }
+
+  return {
+    findings,
+    outside,
+    inScope,
+    unresolved,
+    ignoredCitations,
+    bodyDeclassified,
+    staleDeclassified,
+    outsideOnly: (outside.length + bodyDeclassified.length + staleDeclassified.length) > 0
+      && inScope.length === 0 && unresolved.length === 0,
+    blocking: inScope.length > 0 || unresolved.length > 0,
+  };
+}
+
+/** Line anchor of a finding whose only anchor is the PR description. */
+export function prBodyFindingLine(finding) {
+  const fromText = prBodyAnchor(finding?.text);
+  if (fromText !== null) return fromText;
+  const match = String(finding?.line || '').match(/`?PR body[:#]L?([1-9]\d*)/iu);
+  return match ? Number(match[1]) : null;
+}
+
+// Claims the contract cannot judge (REVIEW.md step 7: perf/optimization claim
+// without a baseline) keep blocking even when anchored on the body.
+const NON_CONTRACT_BODY_RE = /\b(?:baseline|perf|performance|speed-?up|misura|misurat|pre\/post|revert|ottimizzazion|optimi[sz]ation|claim)\w*/iu;
+
+/**
+ * A 🔴 anchored only on `PR body:L<n>`, on a line inside `## Non implementato`
+ * (the section the deterministic contract validates), about a contract rule.
+ * Anything else — a line elsewhere in the body, a perf claim, no body text to
+ * prove the position — stays blocking.
+ */
+export function isContractDomainBodyFinding(finding, prBody) {
+  const line = prBodyFindingLine(finding);
+  if (line === null || typeof prBody !== 'string' || !prBody) return false;
+  if (NON_CONTRACT_BODY_RE.test(String(finding?.text || ''))) return false;
+  const lines = prBody.split(/\r?\n/u);
+  if (line > lines.length) return false;
+  let section = null;
+  for (let index = 0; index < line; index += 1) {
+    const heading = lines[index].match(/^\s{0,3}#{2,3}\s+(.+?)\s*$/u);
+    if (heading) section = heading[1];
+  }
+  return Boolean(section && /^Non implementato\b/iu.test(section));
+}
+
+function safeText(value) {
+  return String(value || '').replace(/\r?\n/gu, ' ').trim();
+}
+
+function distinctiveToken(text) {
+  const tokens = [];
+  for (const match of String(text || '').matchAll(/`([^`\n]{3,90})`/gu)) {
+    const token = match[1].trim();
+    if (normalizePath(token)) continue;
+    if (!token.includes('/') && /[(){}'" ]|::|=>|\.\w|:\d|>=|<=/u.test(token)) tokens.push(token);
+  }
+  return tokens.sort((a, b) => b.length - a.length)[0] || null;
+}
+
+function followupItemBodies(findings) {
+  return findings.map((finding) => {
+    const paths = [...new Set((finding.resolvedFiles || []).filter(Boolean))];
+    if (paths.length === 0) throw new Error('finding fuori scope senza path risolto');
+    const path = paths[0];
+    const pathText = paths.map((item) => `\`${item}\``).join(', ');
+    const anchor = finding.citations?.[0]?.line
+      ? `${path} alla riga ${finding.citations[0].line}`
+      : paths.join(', ');
+    const token = distinctiveToken(finding.text || finding.line);
+    const action = token
+      ? `Applicare la correzione indicata dal reviewer in ${anchor} e verificare \`${token}\`.`
+      : `Applicare la correzione indicata dal reviewer in ${anchor} e verificare la riga citata.`;
+    return [
+      `Finding fuori dal diff: ${pathText}`,
+      '- Source: reviewer 🔴 Important fuori dal diff',
+      '- Stato dichiarato nella PR: nessuno',
+      '- Original text:',
+      `  > ${safeText(finding.text || finding.line)}`,
+      '- Funnel impact: superficie pubblicata / contratto col sito',
+      '- Rationale: il finding è stato risolto su un file presente nel tree ma fuori dal diff corrente; il fix resta tracciato senza bloccare questa PR.',
+      `- Suggested action: ${action}`,
+    ].join('\n');
+  });
+}
+
+/** Read item sections from the body that the follow-up drainer actually sees. */
+export function followupItemsFromBody(body) {
+  const lines = String(body || '').split(/\r?\n/u);
+  const items = [];
+  let inItems = false;
+  let fence = false;
+  let current = [];
+  const flush = () => {
+    if (current.length > 0 && current.join('\n').trim()) items.push(current.join('\n').trim());
+    current = [];
+  };
+  for (const line of lines) {
+    if (!fence && /^##\s+Item\b/iu.test(line)) {
+      inItems = true;
+      continue;
+    }
+    if (!inItems) continue;
+    if (!fence && /^##\s+/u.test(line)) break;
+    if (/^\s*```/u.test(line)) fence = !fence;
+    if (!fence && /^###\s+\d+\.\s*/u.test(line)) {
+      flush();
+      current.push(line.replace(/^###\s+\d+\.\s*/u, ''));
+    } else if (current.length > 0) {
+      current.push(line);
+    }
+  }
+  flush();
+  return items;
+}
+
+function itemKey(item) {
+  return String(item).replace(/\s+/gu, ' ').trim().toLowerCase();
+}
+
+export function mergeFollowupItems(existingBody, freshItems) {
+  const merged = [];
+  const seen = new Set();
+  for (const item of [...followupItemsFromBody(existingBody), ...freshItems]) {
+    const key = itemKey(item);
+    if (!key || seen.has(key)) continue;
+    seen.add(key);
+    merged.push(item);
+  }
+  return merged;
+}
+
+function renderFollowupBody({ repo, pr, prUrl, items }) {
+  const originUrl = prUrl || `https://github.com/${repo}/pull/${pr}`;
+  const header = [
+    `<!-- ${FOLLOWUP_MARKER}: ${repo}#${pr} -->`,
+    '## Origine',
+    '',
+    `- PR: #${pr}`,
+    `- URL: ${originUrl}`,
+    '',
+    '## Item',
+    '',
+  ].join('\n');
+  const numbered = items.map((item, index) => `### ${index + 1}. ${item}`).join('\n\n');
+  const body = `${header}${numbered}\n`;
+  if (body.length > MAX_FOLLOWUP_BODY_LEN) {
+    throw new Error('body follow-up oltre il limite sicuro; rifiuto il declassamento');
+  }
+  return body;
+}
+
+/** Build the single aggregate body for all out-of-diff findings of one PR. */
+export function followupIssueBody({ repo, pr, prUrl, findings, existingBody = '' }) {
+  const freshItems = followupItemBodies(findings);
+  return renderFollowupBody({
+    repo,
+    pr,
+    prUrl,
+    items: mergeFollowupItems(existingBody, freshItems),
+  });
+}
+
+function gh(args, { json = true, allowFail = false } = {}) {
+  try {
+    const trustedGhBin = process.env.TRUSTED_GH_BIN || '';
+    if (!isAbsolute(trustedGhBin)) {
+      throw new Error('TRUSTED_GH_BIN mancante o non assoluto');
+    }
+    const output = execFileSync(trustedGhBin, args, {
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    });
+    return json ? JSON.parse(output) : output;
+  } catch (error) {
+    if (allowFail) return json ? null : '';
+    throw error;
+  }
+}
+
+function trustedGitBin() {
+  const configured = String(process.env.TRUSTED_GIT_BIN || '').trim();
+  // The review workflow attests and passes this path before any PR checkout
+  // can alter PATH. Keep the local/test fallback for pure helpers imported
+  // outside Actions; the authoritative workflow always supplies the variable.
+  const value = configured || '/usr/bin/git';
+  if (!isAbsolute(value) || value.includes('\0')) {
+    throw new Error('TRUSTED_GIT_BIN mancante o non assoluto');
+  }
+  return value;
+}
+
+function reviewerList(raw) {
+  if (!Array.isArray(raw)) return [];
+  return raw.flatMap((page) => Array.isArray(page) ? page : [page]);
+}
+
+/**
+ * `findingKey()` is the stable identity for an unanchored Important finding
+ * across review retries; keep its normalization contract explicit and tested.
+ */
+export function findingKey(finding) {
+  const anchors = (finding?.citations || [])
+    .map((citation) => `${normalizePath(citation.path)}:${citation.line || ''}`)
+    .sort()
+    .join('|');
+  return anchors || String(finding?.text || finding?.line || '')
+    .replace(/`/gu, '')
+    .replace(/\s+/gu, ' ')
+    .trim();
+}
+
+// PR metadata is not a repository path: keep it out of diff classification.
+// Only an explicit line anchor can resolve a historical body finding.
+function prBodyAnchor(text) {
+  const match = String(text || '').match(/^\s*(?:[-*]\s*)?`?PR body[:#]L?([1-9]\d*)(?:[-–]\d+)?(?=$|[`:\s])/iu);
+  return match ? Number(match[1]) : null;
+}
+
+function fixConfirmations(body) {
+  const confirmations = [];
+  for (const line of normalizeReviewBody(body).split(/\r?\n/u)) {
+    const match = line.match(FIX_CONFIRMATION_RE);
+    if (!match) continue;
+    const text = match[1].trim();
+    confirmations.push({
+      citations: extractFileCitations(text),
+      bodyAnchor: prBodyAnchor(text),
+      key: findingKey({ citations: [], text }),
+    });
+  }
+  return confirmations;
+}
+
+// Una conferma aggancia una citazione quando denotano lo stesso file e la riga
+// coincide in modo stretto. Se la riga e' cambiata, la conferma puo' seguire
+// l'anchor spostato solo quando quel path identifica una singola citazione nel
+// finding e un singolo finding aperto: cosi' non chiude in blocco citazioni
+// multiple o basename omonimi. Il path puo' differire in specificita' — una
+// review cita spesso il nome nudo (`foo.js`) e la conferma il path completo
+// (`dir/foo.js`) — e quello e' lo stesso suffix-matching che `resolveCitedPath`
+// usa gia'. Una conferma senza riga conserva la stessa guardia di unicita'.
+function citationPathMatches(candidate, wanted) {
+  return candidate === wanted
+    || suffixMatches(candidate, wanted)
+    || suffixMatches(wanted, candidate);
+}
+
+function confirmationHasUniqueTarget(
+  candidate,
+  finding,
+  openFindings,
+  { ignoreLine = false, allowSharedBarePath = false, confirmations = [] } = {},
+) {
+  const matchesCitation = (citation) => citationPathMatches(candidate.path, citation.path)
+    && (ignoreLine || candidate.line === null || candidate.line === citation.line);
+  const findingMatches = finding.citations.filter(matchesCitation);
+  if (findingMatches.length !== 1) return false;
+
+  // When a review carries two distinct Important findings on the same file
+  // across a line-moving fix, the new line numbers are individually
+  // unambiguous only as a set. A path-only uniqueness check sees both open
+  // findings and rejects both confirmations forever. Pair one precise
+  // confirmation per one-citation finding by stable line order, but require
+  // the complete cardinality and exact path so one confirmation can never
+  // close two findings.
+  if (ignoreLine && candidate.line !== null) {
+    const samePathFindings = openFindings
+      .map((openFinding) => ({
+        finding: openFinding,
+        citations: openFinding.citations.filter((citation) =>
+          citation.line !== null && citationPathMatches(citation.path, candidate.path)),
+      }))
+      .filter((entry) => entry.citations.length === 1);
+    const candidates = [...new Map(
+      confirmations
+        .flatMap((confirmation) => confirmation.citations)
+        .filter((confirmation) => confirmation.line !== null
+          && citationPathMatches(confirmation.path, candidate.path))
+        .map((confirmation) => [`${confirmation.path}:${confirmation.line}`, confirmation]),
+    ).values()];
+    if (samePathFindings.length > 1
+        && candidates.length === samePathFindings.length) {
+      const orderedFindings = [...samePathFindings]
+        .sort((left, right) => left.citations[0].line - right.citations[0].line);
+      const orderedCandidates = [...candidates]
+        .sort((left, right) => left.line - right.line);
+      const findingIndex = orderedFindings.findIndex((entry) => entry.finding === finding);
+      if (findingIndex >= 0) return orderedCandidates[findingIndex].line === candidate.line;
+    }
+  }
+
+  // A fully qualified path plus an explicit line is already an unambiguous
+  // anchor, even when two historical findings carry the same anchor while
+  // describing different companion paths. Basenames and path-only confirms
+  // still need the global uniqueness guard below.
+  if (!ignoreLine && candidate.line !== null
+      && candidate.path.includes('/')
+      && findingMatches[0].path === candidate.path) return true;
+
+  // A single exact confirmation can cover a shared bare companion path when
+  // the caller has already confirmed every other, line-specific anchor of the
+  // same finding. This is safe for the common reviewer form where one helper
+  // file is cited as context by two related findings; precise same-path
+  // findings still use the ambiguity guard below.
+  if (allowSharedBarePath && candidate.line !== null
+      && findingMatches[0].line === null
+      && candidate.path.includes('/')) return true;
+
+  const openMatches = openFindings.filter((openFinding) =>
+    openFinding.citations.some(matchesCitation),
+  );
+  return openMatches.length === 1;
+}
+
+/**
+ * Le citazioni precise che condividono un path dentro lo STESSO finding. Sono
+ * il caso normale, non un'anomalia: si citano due punti dello stesso file
+ * perche' vanno corretti entrambi.
+ */
+function ambiguousCitationGroups(finding) {
+  const precise = finding.citations.filter((citation) => citation.line !== null);
+  const groups = [];
+  const grouped = new Set();
+  for (const citation of precise) {
+    if (grouped.has(citation)) continue;
+    const group = precise.filter((other) => citationPathMatches(other.path, citation.path));
+    if (group.length < 2) continue;
+    for (const member of group) grouped.add(member);
+    groups.push(group);
+  }
+  return groups;
+}
+
+/**
+ * Accoppiamento per cardinalita'. Quando le righe si spostano — cioe' appena il
+ * file viene corretto — `citationConfirmed` passa dal ramo `movedLine` e chiede
+ * a `confirmationHasUniqueTarget(..., { ignoreLine: true })` un bersaglio unico;
+ * con due citazioni dello stesso path `findingMatches.length === 2` e OGNI
+ * conferma viene rifiutata. L'unica che chiuderebbe il finding e' quella sulle
+ * righe originali, che nel file non esistono piu': il finding diventa
+ * non-confermabile per sempre e la PR resta rossa con qualunque review
+ * successiva (misurato su #9341: due `## LGTM` con `Important: 0` e verdetto
+ * BLOCKING invariato).
+ *
+ * La regola che scioglie lo stallo senza allargare il gate e' contare: quando
+ * un path compare N volte fra le citazioni del finding servono N conferme
+ * DISTINTE di quel path, accoppiate in ordine e consumate una per citazione.
+ * Con meno di N conferme nessuna citazione del gruppo si chiude — una sola
+ * conferma non puo' valere per due punti da correggere, che e' la proprieta'
+ * per cui la guardia di unicita' esiste. Restano invariate: la guardia globale
+ * (un ALTRO finding aperto che cita lo stesso path tiene l'anchor ambiguo fra
+ * finding, e il conteggio non puo' risolverlo) e il caso a citazione singola,
+ * che non entra mai qui.
+ */
+function cardinalityPairedCitations(finding, confirmations, openFindings) {
+  const paired = new Set();
+  const groups = ambiguousCitationGroups(finding);
+  if (groups.length === 0) return paired;
+
+  // Una conferma ripetuta sulla stessa riga e' un duplicato, non una seconda
+  // conferma: deduplicare per path+riga tiene onesto il conteggio.
+  const candidates = [];
+  const seen = new Set();
+  for (const confirmation of confirmations) {
+    for (const candidate of confirmation.citations) {
+      if (candidate.line === null) continue;
+      const key = `${candidate.path}:${candidate.line}`;
+      if (seen.has(key)) continue;
+      seen.add(key);
+      candidates.push(candidate);
+    }
+  }
+
+  // La guardia globale di `confirmationHasUniqueTarget`, riusata candidato per
+  // candidato: un path che denota piu' di un finding aperto resta ambiguo FRA
+  // finding, e la cardinalita' dentro un singolo finding non puo' scioglierlo.
+  // Senza questo controllo una conferma sul basename nudo `foo.js` chiuderebbe
+  // due citazioni `a/foo.js` mentre un altro finding aperto cita `b/foo.js`:
+  // il suffix-matching le fa denotare entrambe, e il conteggio del gruppo non
+  // se ne accorge perche' confronta `b/foo.js` con `a/foo.js`, non col
+  // candidato.
+  const candidateHasSingleOpenTarget = (candidate) => openFindings.filter(
+    (openFinding) => openFinding.citations.some(
+      (citation) => citationPathMatches(candidate.path, citation.path),
+    ),
+  ).length === 1;
+
+  for (const group of groups) {
+    const matchesGroup = (path) => group.some((citation) => citationPathMatches(path, citation.path));
+    const otherOpen = openFindings.filter((openFinding) => openFinding !== finding
+      && openFinding.citations.some((citation) => matchesGroup(citation.path)));
+    if (otherOpen.length > 0) continue;
+
+    const pool = candidates.filter((candidate) => matchesGroup(candidate.path)
+      && candidateHasSingleOpenTarget(candidate));
+    if (pool.length < group.length) continue;
+
+    const consumed = new Set();
+    const assigned = [];
+    for (const citation of group) {
+      const available = pool.filter((candidate) => !consumed.has(candidate)
+        && citationPathMatches(candidate.path, citation.path));
+      // Il path identico prima del suffix-match: con `foo.js` e `dir/foo.js`
+      // nello stesso gruppo l'accoppiamento greedy resta quello ovvio.
+      const match = available.find((candidate) => candidate.path === citation.path)
+        || available[0];
+      if (!match) break;
+      consumed.add(match);
+      assigned.push(citation);
+    }
+    if (assigned.length !== group.length) continue;
+    for (const citation of assigned) paired.add(citation);
+  }
+  return paired;
+}
+
+/**
+ * `citationConfirmed()` follows a moved path+line anchor only when the path
+ * still identifies one finding, preserving convergence without broad matching.
+ */
+export function citationConfirmed(
+  citation,
+  confirmations,
+  finding,
+  openFindings,
+  { allowSharedBarePath = false } = {},
+) {
+  return confirmations.some((confirmation) => confirmation.citations.some((candidate) => {
+    if (!citationPathMatches(candidate.path, citation.path)) return false;
+    const sameLine = candidate.line === citation.line
+      || (candidate.line === null && citation.line !== null);
+    const movedLine = candidate.line !== null
+      && citation.line !== null
+      && candidate.line !== citation.line;
+    // A historical finding may mention a full companion path without a line
+    // while the follow-up confirms that same unique file at its exact fix
+    // line. Treat that as the same anchor, but keep the uniqueness guard so a
+    // line-specific confirmation cannot close two same-path findings.
+    const barePathConfirmedAtLine = citation.line === null && candidate.line !== null;
+    if (!sameLine && !movedLine && !barePathConfirmedAtLine) return false;
+    return confirmationHasUniqueTarget(candidate, finding, openFindings, {
+      ignoreLine: movedLine || barePathConfirmedAtLine,
+      allowSharedBarePath: allowSharedBarePath && barePathConfirmedAtLine,
+      confirmations,
+    });
+  }));
+}
+
+function findingConfirmed(
+  finding,
+  confirmations,
+  openFindings = [finding],
+  { repositoryPaths = null, repositoryPathsFromFallback = false } = {},
+) {
+  if (finding.citations.length === 0) {
+    const bodyAnchor = prBodyAnchor(finding.line);
+    return confirmations.some((confirmation) => confirmation.key === findingKey(finding)
+      || (bodyAnchor !== null && confirmation.bodyAnchor === bodyAnchor));
+  }
+  // Le citazioni chiuse dall'accoppiamento per cardinalita' non passano da
+  // `citationConfirmed`: li' l'ambiguita' di path dentro lo stesso finding e'
+  // per costruzione irrisolvibile, e il conteggio l'ha gia' risolta.
+  const cardinalityPaired = cardinalityPairedCitations(finding, confirmations, openFindings);
+  const anchorConfirmed = (citation, options = {}) => cardinalityPaired.has(citation)
+    || citationConfirmed(citation, confirmations, finding, openFindings, options);
+  const preciseCitations = finding.citations.filter((citation) => citation.line !== null);
+  const preciseAnchorsConfirmed = preciseCitations.length > 0
+    && preciseCitations.every((citation) => anchorConfirmed(citation))
+    // The tree only ever *tightens* this anchor check, so a locally rebuilt
+    // tree would newly close findings on PRs that pass today. The fallback is
+    // allowed to prove that a path is outside the diff, never to raise the bar
+    // here: under a fallback tree this clause keeps the tree-unavailable
+    // posture. Only an authoritative API tree tightens it.
+    && (repositoryPathsFromFallback
+      || !Array.isArray(repositoryPaths)
+      || preciseCitations.every((citation) =>
+        resolveCitedPath(citation, repositoryPaths).status === 'resolved'));
+  return finding.citations.every((citation) => {
+    const isBareCompanion = citation.line === null && citation.path.includes('/');
+    // Review prose often uses illustrative paths that are not repository
+    // files. Once every precise repository anchor is confirmed, a bare path
+    // with no HEAD-tree match is context rather than a second edit target.
+    // Keep the default strict when the tree is unavailable, and never apply
+    // this exception to precise or resolvable paths. A fallback tree does not
+    // qualify either: it may only prove that a path is outside the diff, so it
+    // must not close a historical Important whose bare companion is
+    // unconfirmed. That keeps the whole of `findingConfirmed` at the
+    // tree-unavailable posture whenever the provenance is the local fallback.
+    const isUnresolvableBareContext = isBareCompanion
+      && preciseAnchorsConfirmed
+      && Array.isArray(repositoryPaths)
+      && !repositoryPathsFromFallback
+      && resolveCitedPath(citation, repositoryPaths).status === 'non-risolubile'
+      && resolveCitedPath(citation, repositoryPaths).candidates.length === 0;
+    if (isUnresolvableBareContext) return true;
+    const otherAnchorsConfirmed = isBareCompanion
+      && finding.citations
+        .filter((other) => other !== citation)
+        .some((other) => other.line !== null)
+      && finding.citations
+        .filter((other) => other !== citation)
+        .every((other) => anchorConfirmed(other));
+    return anchorConfirmed(citation, {
+      allowSharedBarePath: otherAnchorsConfirmed,
+    });
+  });
+}
+
+/**
+ * Return Important findings opened by an earlier bot review and not explicitly
+ * closed by a later `Fix di ...: ok.` confirmation. GitHub already persists the
+ * review bodies; this preserves the path+line anchors without adding storage.
+ * `includeLatest` is used by the reviewer bundle, before the new review exists.
+ */
+export function historicalImportantFindings(reviews, options = {}) {
+  return partitionHistoricalImportantFindings(reviews, options).open;
+}
+
+/**
+ * Stesso cammino di `historicalImportantFindings`, ma restituisce ANCHE i
+ * finding usciti dall'insieme aperto, e solo quelli usciti per una conferma
+ * esplicita `Fix di ...: ok`. Il ledger nel bundle non può dedurre
+ * «confirmed-fixed» per sottrazione (`tutti` meno `aperti`): un finding
+ * declassato per scope o per riga non cambiata non è stato confermato da
+ * nessuno, e dirlo al reviewer lo autorizza a sopprimere un rilievo ancora
+ * valido.
+ */
+export function partitionHistoricalImportantFindings(
+  reviews,
+  {
+    includeLatest = false,
+    citationExtractor = extractFileCitations,
+    repositoryPaths = null,
+    repositoryPathsFromFallback = false,
+  } = {},
+) {
+  const bots = reviewerList(reviews).filter((review) =>
+    review?.user?.type === 'Bot'
+      && REVIEWER_LOGIN_RE.test(review.user.login || '')
+      && isTerminalManagedReview(review),
+  );
+  if (bots.length < (includeLatest ? 1 : 2)) return { open: [], confirmed: [] };
+
+  const open = new Map();
+  const confirmed = [];
+  const latestIndex = bots.length - 1;
+  for (const [index, review] of bots.entries()) {
+    const confirmations = fixConfirmations(review?.body);
+    const openFindings = [...open.values()].map(({ finding }) => finding);
+    for (const [key, entry] of open.entries()) {
+      if (entry.reviewIndex >= index) continue;
+      if (findingConfirmed(entry.finding, confirmations, openFindings, {
+        repositoryPaths,
+        repositoryPathsFromFallback,
+      })) {
+        confirmed.push(entry.finding);
+        open.delete(key);
+      }
+    }
+    if (!includeLatest && index === latestIndex) break;
+
+    for (const finding of parseImportantFindings(review?.body, citationExtractor)) {
+      open.set(findingKey(finding), {
+        finding,
+        reviewIndex: index,
+        reviewCommit: review.commit_id || '',
+      });
+    }
+  }
+
+  return {
+    open: [...open.values()].map(({ finding, reviewCommit }) => ({
+      ...finding,
+      reviewCommit,
+    })),
+    confirmed,
+  };
+}
+
+function truncatedPathCandidates(citation, repositoryPaths) {
+  const wanted = normalizePath(citation?.path);
+  if (!wanted || !Array.isArray(repositoryPaths)) return [];
+  const marker = `/${wanted}`;
+  return repositoryPaths.filter((path) => {
+    const normalized = normalizePath(path, { stripGitPrefix: false });
+    if (!normalized || normalized === wanted || suffixMatches(normalized, wanted)) return false;
+    const markerIndex = normalized.lastIndexOf(marker);
+    const suffix = markerIndex === -1 && normalized.startsWith(wanted)
+      ? normalized.slice(wanted.length)
+      : markerIndex === -1
+        ? ''
+        : normalized.slice(markerIndex + marker.length);
+    return suffix.length > 0 && /^[A-Za-z0-9_.@-]+$/u.test(suffix);
+  });
+}
+
+/**
+ * Audit a persisted review history against the final repository tree. The
+ * legacy count is an evidence line for the old extension parser; the current
+ * count is the fail-closed result that must be zero before the audit passes.
+ *
+ * The audit declares historical anchors clean, so it needs an authoritative
+ * tree. The refusal of a fallback tree lives here rather than at the call site:
+ * this function is exported, and a caller that forgot the provenance would
+ * otherwise get an authoritative-looking verdict from a locally rebuilt tree.
+ */
+export function auditHistoricalCitations(reviews, repositoryPaths, { fromFallback = false } = {}) {
+  if (fromFallback) throw new Error('tree di fallback non ammesso per audit storico');
+  const list = reviewerList(reviews);
+  const findingCitations = (extractCitations) => list.flatMap((review, reviewIndex) =>
+    parseImportantFindings(review?.body, extractCitations).flatMap((finding) =>
+      finding.citations.map((citation) => ({ reviewIndex, citation }))));
+  const citations = findingCitations(extractFileCitations);
+  const legacyCitations = findingCitations(extractLegacyFileCitations);
+  const truncated = citations.flatMap(({ reviewIndex, citation }) => {
+    if (resolveCitedPath(citation, repositoryPaths).status === 'resolved') return [];
+    return truncatedPathCandidates(citation, repositoryPaths).map((candidate) => ({
+      reviewIndex,
+      citation,
+      candidate,
+    }));
+  });
+  const seen = new Set();
+  const uniqueTruncated = truncated.filter(({ reviewIndex, citation, candidate }) => {
+    const key = `${reviewIndex}:${citation.path}:${citation.line || ''}:${candidate}`;
+    if (seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
+  const legacyTruncated = legacyCitations.flatMap(({ reviewIndex, citation }) => {
+    if (resolveCitedPath(citation, repositoryPaths).status === 'resolved') return [];
+    return truncatedPathCandidates(citation, repositoryPaths).map((candidate) => ({
+      reviewIndex,
+      citation,
+      candidate,
+    }));
+  });
+  const legacySeen = new Set();
+  const uniqueLegacyTruncated = legacyTruncated.filter(({ reviewIndex, citation, candidate }) => {
+    const key = `${reviewIndex}:${citation.path}:${citation.line || ''}:${candidate}`;
+    if (legacySeen.has(key)) return false;
+    legacySeen.add(key);
+    return true;
+  });
+  const current = historicalImportantFindings(list, { includeLatest: true });
+  const legacy = historicalImportantFindings(list, {
+    includeLatest: true,
+    citationExtractor: extractLegacyFileCitations,
+  });
+  return {
+    reviewCount: list.length,
+    citationCount: citations.length,
+    truncatedUnresolvable: uniqueTruncated,
+    legacyTruncatedUnresolvable: uniqueLegacyTruncated,
+    legacyOpenFindings: legacy,
+    openFindings: current,
+  };
+}
+
+/** Insert inherited findings before the latest review's LGTM marker. */
+export function reviewBodyWithHistoricalFindings(body, historicalFindings) {
+  const current = importantFindings(body);
+  const currentKeys = new Set(current.map(findingKey));
+  // L'id stabile è il secondo criterio, non il primo: `findingKey` ancora al
+  // path:riga, quindi una riga che si sposta lo cambia e lo stesso rilievo
+  // veniva riportato UNA SECONDA VOLTA sotto «Findings ereditati» (9 duplicati
+  // parola per parola misurati il 19-09). L'id stabile non contiene la riga.
+  const currentIds = new Set(current.map(stableFindingId));
+  const carry = dedupeFindingsById(
+    (historicalFindings || []).filter((finding) =>
+      !currentKeys.has(findingKey(finding)) && !currentIds.has(stableFindingId(finding))),
+  );
+  if (carry.length === 0) return String(body || '');
+
+  const section = [
+    '## Findings ereditati da review precedenti',
+    '',
+    ...carry.map((finding) => finding.text),
+    '',
+  ].join('\n');
+  const lgtm = String(body || '').search(/^## LGTM\b/imu);
+  if (lgtm === -1) return `${String(body || '').trimEnd()}\n\n${section}`;
+  return `${String(body || '').slice(0, lgtm)}${section}${String(body || '').slice(lgtm)}`;
+}
+
+/**
+ * Ultima review gestita PRIMA di `latest`, su un commit diverso. Il commit
+ * diverso non è un dettaglio: è la finestra su cui si misura «righe non
+ * cambiate». Due review sulla stessa HEAD hanno delta vuoto per costruzione e
+ * declasserebbero qualunque rilievo nuovo. Il filtro `isTerminalManagedReview`
+ * è lo stesso che `latestReviewer` applica: una review non terminale non
+ * definisce una finestra di confronto.
+ */
+function priorManagedReview(reviews, latest) {
+  const bots = reviewerList(reviews).filter((review) =>
+    review?.user?.type === 'Bot'
+      && REVIEWER_LOGIN_RE.test(review.user.login || '')
+      && isTerminalManagedReview(review),
+  );
+  const index = bots.findIndex((review) => String(review?.id) === String(latest?.id));
+  const before = index === -1 ? bots : bots.slice(0, index);
+  for (let cursor = before.length - 1; cursor >= 0; cursor -= 1) {
+    const candidate = before[cursor];
+    const commit = String(candidate?.commit_id || '');
+    if (/^[0-9a-f]{40}$/iu.test(commit) && commit !== String(latest?.commit_id || '')) return candidate;
+  }
+  return null;
+}
+
+function latestReviewer(reviews, { reviewRevision } = {}) {
+  const revision = reviewRevision === undefined
+    ? undefined
+    : normalizeReviewInputRevisionInput(reviewRevision);
+  const bots = reviewerList(reviews).filter((review) =>
+    review?.user?.type === 'Bot'
+      && REVIEWER_LOGIN_RE.test(review.user.login || '')
+      && isTerminalManagedReview(review)
+      && (revision === undefined || reviewHasInputRevision(review?.body, revision)),
+  );
+  return bots.length ? bots[bots.length - 1] : null;
+}
+
+function latestCodexReviewer(reviews, headSha, { reviewRevision } = {}) {
+  const revision = reviewRevision === undefined
+    ? undefined
+    : normalizeReviewInputRevisionInput(reviewRevision);
+  const list = reviewerList(reviews);
+  for (let index = list.length - 1; index >= 0; index -= 1) {
+    const review = list[index];
+    if (review?.user?.type !== 'Bot' || !CODEX_REVIEWER_LOGIN_RE.test(review.user.login || '')) continue;
+    if (!isTerminalManagedReview(review)) continue;
+    if (String(review.commit_id || '') !== String(headSha || '')) continue;
+    if (!String(review.body || '').includes(CODEX_REVIEW_MARKER)) continue;
+    if (revision !== undefined && !reviewHasInputRevision(review.body, revision)) continue;
+    return review;
+  }
+  return null;
+}
+
+function readCodexEvidenceFile(file) {
+  if (!file) return null;
+  try {
+    return parseCodexFallbackEvidence(readFileSync(realpathSync(file), 'utf8'));
+  } catch {
+    return null;
+  }
+}
+
+/**
+ * Full tree of this repository from the local checkout.
+ *
+ * On a repository this size the API tree is unusable: GitHub flags it
+ * `truncated`, and the local coordinator caps a response body at 8 MiB
+ * (`MAX_BODY_BYTES`), which cuts the JSON mid-string and makes it unparseable.
+ * `git ls-tree` has neither limit and needs no network.
+ *
+ * Only the requested SHA is read, never `HEAD`: resolving citations against a
+ * different tree could declass a path as outside the diff on the strength of a
+ * tree that is not the one under review. If that SHA is not in the local
+ * checkout the tree stays unavailable and the strict posture holds.
+ */
+function localTreePaths(sha) {
+  for (const ref of [/^[0-9a-f]{40}$/iu.test(String(sha || '')) ? String(sha) : null]) {
+    if (!ref) continue;
+    try {
+      const output = execFileSync(trustedGitBin(), ['ls-tree', '-r', '--name-only', ref], {
+        encoding: 'utf8',
+        maxBuffer: 64 * 1024 * 1024,
+        stdio: ['ignore', 'pipe', 'ignore'],
+      });
+      const paths = [...new Set(String(output).split(/\r?\n/u)
+        .map((path) => normalizePath(path, { stripGitPrefix: false }))
+        .filter(Boolean))];
+      if (paths.length) return paths;
+    } catch {
+      // try the next ref; an unusable local tree keeps the strict default
+    }
+  }
+  return null;
+}
+
+/**
+ * Resolve the repository tree, reporting where it came from.
+ *
+ * `fromFallback` is not cosmetic: a locally rebuilt tree may only prove that a
+ * path is outside the diff. It must not tighten `preciseAnchorsConfirmed`,
+ * which would newly close findings on PRs that pass today.
+ */
+function fetchRepositoryTreePaths(repo, sha) {
+  let apiPaths = null;
+  try {
+    if (!/^[0-9a-f]{40}$/iu.test(String(sha || ''))) {
+      console.log('review-gate: tree API non recuperabile (SHA assente o non valida).');
+    } else {
+      const tree = gh(['api', `repos/${repo}/git/trees/${sha}?recursive=1`]);
+      if (tree?.truncated || !Array.isArray(tree?.tree) || tree.tree.length === 0) {
+        console.log('review-gate: tree API non recuperabile (risposta troncata o vuota).');
+      } else {
+        apiPaths = tree.tree
+          .filter((entry) => entry?.type === 'blob' && entry.path)
+          .map((entry) => normalizePath(entry.path, { stripGitPrefix: false }))
+          .filter(Boolean);
+        if (!apiPaths.length) apiPaths = null;
+      }
+    }
+  } catch (error) {
+    console.log(`review-gate: tree API non recuperabile (${String(error).slice(0, 160)}).`);
+  }
+  if (apiPaths) return { paths: apiPaths, fromFallback: false };
+
+  const paths = localTreePaths(sha);
+  if (!paths) {
+    console.log('review-gate: tree non recuperabile nemmeno da git ls-tree; resta la postura stretta.');
+    return { paths: null, fromFallback: false };
+  }
+  console.log(`review-gate: tree da fallback locale (git ls-tree) paths=${paths.length}; usato solo per provare che un path e' fuori dal diff.`);
+  return { paths, fromFallback: true };
+}
+
+function fetchRepositoryHeadPaths(repo, pr) {
+  const head = String(gh([
+    'api', `repos/${repo}/pulls/${pr}`, '--jq', '.head.sha',
+  ], { json: false })).trim();
+  return fetchRepositoryTreePaths(repo, head);
+}
+
+const ignoredPathCache = new Map();
+
+/**
+ * `git check-ignore` exits 0 only for a path the repository provably ignores.
+ * Exit 1 (not ignored), 128 (no checkout) and any spawn error all mean "not
+ * proven" and therefore keep the citation blocking.
+ */
+function gitPathIsIgnored(path) {
+  const wanted = normalizePath(path, { stripGitPrefix: false });
+  if (!wanted || wanted.includes('\0')) return false;
+  if (!ignoredPathCache.has(wanted)) {
+    let ignored = false;
+    try {
+      execFileSync(trustedGitBin(), ['check-ignore', '-q', '--', wanted], { stdio: 'ignore' });
+      ignored = true;
+    } catch {
+      ignored = false;
+    }
+    ignoredPathCache.set(wanted, ignored);
+  }
+  return ignoredPathCache.get(wanted);
+}
+
+function readPrBody(repo, pr) {
+  const view = gh(['api', `repos/${repo}/pulls/${pr}`], { allowFail: true });
+  return typeof view?.body === 'string' ? view.body : null;
+}
+
+function readReviews(repo, pr) {
+  const pages = gh(['api', `repos/${repo}/pulls/${pr}/reviews`, '--paginate', '--slurp']);
+  const reviews = parseReviewPages(pages);
+  if (!reviews) throw new Error('reviews PR: JSON/pagine/entry malformate');
+  return reviews;
+}
+
+/**
+ * Righe toccate fra due commit, nel formato della Map di `review-findings.mjs`.
+ * Deliberatamente a 2 punti: l'oggetto della regola è «cosa è cambiato sotto la
+ * review precedente», merge di main compresi, non il contributo della PR (per
+ * quello esiste il fingerprint). `null` = non calcolabile.
+ */
+function changedLinesBetween(fromSha, toSha) {
+  if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
+      || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
+  try {
+    const patch = execFileSync(trustedGitBin(), ['diff', '--unified=0', '--no-color', `${fromSha}..${toSha}`], {
+      encoding: 'utf8',
+      maxBuffer: 64 * 1024 * 1024,
+    });
+    return changedLinesFromPatch(String(patch));
+  } catch {
+    return null;
+  }
+}
+
+function changedPathsBetween(fromSha, toSha) {
+  if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
+      || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
+  try {
+    const output = execFileSync(trustedGitBin(), ['diff', '--name-only', `${fromSha}...${toSha}`], {
+      encoding: 'utf8',
+      maxBuffer: 4 * 1024 * 1024,
+    });
+    return [...new Set(String(output).split(/\r?\n/u)
+      .map((path) => normalizePath(path, { stripGitPrefix: false }))
+      .filter(Boolean))];
+  } catch {
+    return null;
+  }
+}
+
+// ── Delta riga-per-riga per il percorso `--scope` ───────────────────────────
+//
+// `runReviewGate()` gira in `tests.yml` su un checkout completo e ricava il
+// delta con `git diff`. Il job `scope` di `pr-redflag-fixer.yml` gira invece su
+// un checkout di `main` a `fetch-depth: 1` e SPARSE: i commit della PR non ci
+// sono, `git diff` esce non-zero e il delta risulterebbe sempre `null`. Fino al
+// 2026-09-20 `scopeMain()` non provava nemmeno a calcolarlo, quindi il fixer
+// ripartiva su 🔴 che il gate gemello aveva già declassato: 11 round su 47
+// (23%) nella finestra 18→19 settembre, ognuno un turno Codex piu' una run
+// completa di `tests.yml`.
+//
+// La sorgente qui e' la compare API, che non costa un fetch del repo. Due
+// vincoli la rendono equivalente al `git diff --unified=0 A..B` del gemello, e
+// vanno verificati entrambi prima di usarla:
+//
+//   1. la compare API e' a TRE punti (merge-base…head). Coincide con i due
+//      punti solo quando `merge_base_commit.sha === from`, cioe' quando la HEAD
+//      discende davvero dal commit della review precedente. Dopo un
+//      force-push/rebase i due insiemi divergono e il tre-punti e' piu' PICCOLO:
+//      userebbe «riga non cambiata» su righe che invece erano state riscritte.
+//      In quel caso qui si restituisce `null` (delta non calcolabile).
+//   2. una risposta TRONCATA (>= 300 file, o un file con `changes > 0` e nessun
+//      `patch`) non e' un delta parziale utilizzabile: `classifyReview()` semina
+//      la Map con TUTTI i file della PR e un path senza patch diventerebbe
+//      «confrontato e immutato». Anche qui: `null`.
+const COMPARE_FILES_HARD_LIMIT = 300;
+
+/**
+ * Map path → Set(righe) da una risposta della compare API, oppure `null`
+ * quando la risposta non prova il delta a due punti. Pura e testabile: la
+ * chiamata di rete sta in `changedLinesFromCompareApi()`.
+ */
+export function compareChangedLines(compare, fromSha) {
+  if (!compare || typeof compare !== 'object') return null;
+  if (!/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))) return null;
+  // Tre punti ≡ due punti solo se la base del confronto E' il commit di
+  // partenza: altrimenti c'e' stato un rebase/force-push in mezzo.
+  if (String(compare.merge_base_commit?.sha || '').toLowerCase() !== String(fromSha).toLowerCase()) {
+    return null;
+  }
+  const files = Array.isArray(compare.files) ? compare.files : null;
+  if (!files) return null;
+  if (files.length >= COMPARE_FILES_HARD_LIMIT) return null;
+  const map = new Map();
+  for (const file of files) {
+    const path = normalizePath(file?.filename, { stripGitPrefix: false });
+    if (!path) return null;
+    const changes = Number(file?.changes ?? 0);
+    if (Number.isFinite(changes) && changes > 0 && typeof file?.patch !== 'string') return null;
+    if (typeof file?.patch !== 'string') {
+      map.set(path, new Set());
+      continue;
+    }
+    // `changedLinesFromPatch()` e' la stessa copia della regola usata dal
+    // gemello: gli si ricostruisce solo l'intestazione di file che la compare
+    // API non include nel campo `patch`.
+    const parsed = changedLinesFromPatch(`+++ b/${path}\n${file.patch}`);
+    if (!(parsed instanceof Map)) return null;
+    map.set(path, parsed.get(path) ?? new Set());
+  }
+  return map;
+}
+
+/** Delta a due punti verificato, letto dalla compare API. `null` = non calcolabile. */
+export function changedLinesFromCompareApi(repo, fromSha, toSha, { ghFn = gh } = {}) {
+  if (!repo
+    || !/^[0-9a-f]{40}$/iu.test(String(fromSha || ''))
+    || !/^[0-9a-f]{40}$/iu.test(String(toSha || ''))) return null;
+  if (String(fromSha).toLowerCase() === String(toSha).toLowerCase()) return null;
+  const compare = ghFn(
+    ['api', `repos/${repo}/compare/${fromSha}...${toSha}`, '--paginate', '--slurp'],
+    { allowFail: true },
+  );
+  // `--paginate --slurp` restituisce un array di pagine: i `files` vanno
+  // concatenati, ma se una pagina manca il delta non e' completo.
+  const pages = Array.isArray(compare) ? compare : compare ? [compare] : null;
+  if (!pages || pages.length === 0) return null;
+  const merged = {
+    merge_base_commit: pages[0]?.merge_base_commit,
+    files: pages.flatMap((page) => Array.isArray(page?.files) ? page.files : []),
+  };
+  if (pages.some((page) => !Array.isArray(page?.files))) return null;
+  return compareChangedLines(merged, fromSha);
+}
+
+/**
+ * Delta per il percorso `--scope`: prima il `git diff` a due punti (esatto, e
+ * disponibile quando il job ha pre-fetchato `refs/pull/<n>/head`), poi la
+ * compare API.
+ *
+ * L'ordine non e' arbitrario, e' misurato: sulle 50 run replayate il
+ * 2026-09-20 la sola compare API risolveva 14 delta su 50 — GitHub risponde
+ * `422 "this diff is taking too long to generate"` sugli intervalli lunghi di
+ * questo repo — e risparmiava 5 round su 47; con il `git diff` davanti i delta
+ * risolti diventano 44 e i round risparmiati 11. La compare API resta come
+ * rete: copre il caso in cui il pre-fetch del workflow fallisce.
+ */
+export function changedLinesForScope(repo, fromSha, toSha, {
+  gitFn = changedLinesBetween,
+  apiFn = changedLinesFromCompareApi,
+} = {}) {
+  const local = gitFn(fromSha, toSha);
+  if (local instanceof Map) return local;
+  return apiFn(repo, fromSha, toSha);
+}
+
+/**
+ * Gli stessi due parametri che `runReviewGate()` calcola, ricavati per il
+ * percorso `--scope`. Esportata perche' e' la regola che il fixer condivide col
+ * gate: una seconda copia in bash divergerebbe in silenzio.
+ */
+export function scopeDeclassificationOptions({
+  reviews,
+  latest,
+  reviewCommit = '',
+  headSha,
+  repo,
+  repositoryPaths = null,
+  repositoryPathsFromFallback = false,
+  changedLinesFn = changedLinesForScope,
+} = {}) {
+  const parsed = reviewerList(reviews);
+  // La review che ha triggerato il workflow e' identificata dal suo commit:
+  // agganciarsi a `latestReviewer()` e basta sposterebbe la finestra di
+  // confronto se una review nuova arriva mentre il job gira.
+  const managed = parsed.filter((review) =>
+    review?.user?.type === 'Bot'
+      && REVIEWER_LOGIN_RE.test(review.user.login || '')
+      && isTerminalManagedReview(review));
+  const byCommit = /^[0-9a-f]{40}$/iu.test(String(reviewCommit || ''))
+    ? [...managed].reverse().find((review) =>
+      String(review?.commit_id || '').toLowerCase() === String(reviewCommit).toLowerCase())
+    : null;
+  const resolved = latest || byCommit || latestReviewer(parsed);
+  if (!resolved) return {};
+  const prior = priorManagedReview(parsed, resolved);
+  if (!prior) return {};
+  const priorFindingIds = new Set(
+    historicalImportantFindings(parsed, {
+      includeLatest: false,
+      repositoryPaths,
+      repositoryPathsFromFallback,
+    }).map(stableFindingId),
+  );
+  const changedLinesSince = changedLinesFn(repo, String(prior.commit_id || ''), String(headSha || ''));
+  return { priorFindingIds, changedLinesSince, priorReviewCommit: String(prior.commit_id || '') };
+}
+
+// ── Uscita esplicita del classificatore di scope ───────────────────────────
+//
+// `pr-redflag-fixer.yml` lancia il job `redflag-fix` solo quando lo scope e'
+// `blocking`. Ogni altra uscita e' un no-op VERDE, e fino al 2026-09-20 due di
+// quelle uscite non lasciavano nessuna traccia sulla PR:
+//
+//   • `bodyDeclassified` / `staleDeclassified` senza nessun `outside`: nessuna
+//     follow-up viene coniata (il mint guarda solo `outside`), il fixer e'
+//     skippato, la run e' verde e il 🔴 sparisce senza che nessuno lo legga.
+//     Irraggiungibile prima della fix qui sopra, raggiungibile 11 volte su 47
+//     subito dopo: le due fix sono accoppiate.
+//   • il 🔴 ancorato al solo `PR body:L<n>` (14 finding su 85 nella finestra,
+//     lo stesso ripetuto 4 volte su #9238 fino a `needs-human`): oggi finisce
+//     in `unresolved`, quindi il fixer parte ma cerca il difetto NELL'ALBERO,
+//     dove non c'e'.
+//
+// `scopeExit()` da' un nome a ciascuna uscita, cosi' il workflow puo' trattarle
+// diversamente invece di collassarle tutte in «verde, niente da fare».
+export const SCOPE_EXITS = Object.freeze({
+  NONE: 'none',
+  BLOCKING: 'blocking',
+  FOLLOWUP: 'followup',
+  DECLASSIFIED: 'declassified',
+});
+
+/** Il 🔴 non nomina nessun file e si ancora al body della PR. */
+export function isBodyAnchoredFinding(finding) {
+  return (finding?.citations?.length ?? 0) === 0 && prBodyFindingLine(finding) !== null;
+}
+
+/**
+ * Classifica l'uscita dello scope. `silent` e' vero esattamente quando la run
+ * uscirebbe verde senza lasciare niente sulla PR: e' il predicato che il
+ * workflow usa per emettere l'avviso e, se serve, il percorso di sblocco.
+ */
+export function scopeExit(classification) {
+  const findings = classification?.findings || [];
+  const bodyOnly = findings.length > 0 && findings.every(isBodyAnchoredFinding);
+  if (findings.length === 0) {
+    return { kind: SCOPE_EXITS.NONE, bodyOnly: false, silent: false, declassified: [] };
+  }
+  const declassified = [
+    ...(classification.bodyDeclassified || []).map((finding) => ({ finding, reason: 'body' })),
+    ...(classification.staleDeclassified || []).map((finding) => ({ finding, reason: 'stale' })),
+  ];
+  if (classification.blocking === true) {
+    return { kind: SCOPE_EXITS.BLOCKING, bodyOnly, silent: false, declassified };
+  }
+  // Un `outside` conia la follow-up aggregata: la traccia esiste gia'.
+  if ((classification.outside || []).length > 0) {
+    return { kind: SCOPE_EXITS.FOLLOWUP, bodyOnly, silent: false, declassified };
+  }
+  return { kind: SCOPE_EXITS.DECLASSIFIED, bodyOnly, silent: true, declassified };
+}
+
+function staleFallbackCarryForward({
+  reviews,
+  latest,
+  headSha,
+  reviewRevision,
+  changedPathsFn = changedPathsBetween,
+} = {}) {
+  // This optimization is only a replay of a fallback emitted for the current
+  // review input. A rebase changes the commit identity even when the cited
+  // paths are untouched; never let the historical-replay path bypass the
+  // exact-head rule below.
+  if (String(latest?.commit_id || '') !== String(headSha || '')) return null;
+  const latestBody = normalizeReviewBody(latest?.body || '');
+  if (!latestBody.includes(CODEX_REVIEW_MARKER)
+      || /^##\s+LGTM\b/imu.test(latestBody)) return null;
+  if (reviewRevision !== undefined && !reviewHasInputRevision(latestBody, reviewRevision)) return null;
+
+  const findings = importantFindings(latestBody);
+  // A fallback with a new, ambiguous or unanchored Important must still go
+  // through the normal fail-closed path. Carry-forward is only for an exact
+  // replay of an already reviewed finding.
+  if (findings.length === 0 || findings.some((finding) =>
+    finding.parserUncertain || finding.citations.length === 0)) return null;
+
+  const bots = reviewerList(reviews).filter((review) =>
+    review?.user?.type === 'Bot'
+      && isTerminalManagedReview(review)
+      && (REVIEWER_LOGIN_RE.test(review.user.login || '')
+        || CODEX_REVIEWER_LOGIN_RE.test(review.user.login || '')),
+  );
+  const latestIndex = bots.findIndex((review) => review === latest);
+  if (latestIndex < 1) return null;
+
+  let priorLgtmIndex = -1;
+  for (let index = latestIndex - 1; index >= 0; index -= 1) {
+    const reviewBody = String(bots[index]?.body || '');
+    if (/^##\s+LGTM\b/imu.test(reviewBody) && importantFindings(reviewBody).length === 0) {
+      priorLgtmIndex = index;
+      break;
+    }
+  }
+  if (priorLgtmIndex === -1) return null;
+
+  const priorFindings = bots.slice(0, priorLgtmIndex)
+    .flatMap((review) => importantFindings(review?.body));
+  const priorConfirmations = bots.slice(0, priorLgtmIndex + 1)
+    .flatMap((review) => fixConfirmations(review?.body));
+  const confirmedPriorKeys = new Set(priorFindings
+    .filter((finding) => findingConfirmed(finding, priorConfirmations, priorFindings))
+    .map(findingKey));
+
+  // Do not inspect only the latest body: a review between the clean LGTM and
+  // this fallback may have introduced an Important that the fallback omitted.
+  // Replay the whole post-LGTM sequence. Known findings stay ignored only when
+  // they were explicitly closed before the clean LGTM; newly introduced ones
+  // must be closed by a later review (including the current fallback review),
+  // and a finding introduced in the current body is never self-closed.
+  const postOpen = new Map();
+  for (let index = priorLgtmIndex + 1; index <= latestIndex; index += 1) {
+    const review = bots[index];
+    const confirmations = fixConfirmations(review?.body);
+    const openFindings = [...postOpen.values()].map(({ finding }) => finding);
+    for (const [key, entry] of postOpen.entries()) {
+      if (findingConfirmed(entry.finding, confirmations, openFindings)) postOpen.delete(key);
+    }
+    for (const finding of importantFindings(review?.body)) {
+      if (confirmedPriorKeys.has(findingKey(finding))) continue;
+      postOpen.set(findingKey(finding), { finding, reviewIndex: index });
+    }
+  }
+  if (postOpen.size > 0) return null;
+
+  if (!findings.every((finding) => confirmedPriorKeys.has(findingKey(finding)))) return null;
+
+  const priorCommit = String(bots[priorLgtmIndex]?.commit_id || '');
+  if (!/^[0-9a-f]{40}$/iu.test(priorCommit)) return null;
+  let changedPaths;
+  try {
+    changedPaths = changedPathsFn(priorCommit, headSha);
+  } catch {
+    changedPaths = null;
+  }
+  if (!Array.isArray(changedPaths)) return null;
+  const normalizedChangedPaths = [...new Set(changedPaths
+    .map((path) => normalizePath(path, { stripGitPrefix: false }))
+    .filter(Boolean))];
+  const citedPathChanged = findings.some((finding) => finding.citations.some((citation) =>
+    normalizedChangedPaths.some((path) => citationPathMatches(path, citation.path)),
+  ));
+  if (citedPathChanged) return null;
+
+  return {
+    findings,
+    priorReview: bots[priorLgtmIndex],
+    changedPaths: normalizedChangedPaths,
+  };
+}
+
+export function reviewAppliesToHead(reviewCommit, headSha) {
+  return Boolean(reviewCommit && headSha && reviewCommit === headSha);
+}
+
+function writeApproved(value) {
+  if (process.env.GITHUB_OUTPUT) appendFileSync(process.env.GITHUB_OUTPUT, `approved=${value}\n`);
+}
+
+function postBlockedComment(repo, pr, headSha, runUrl, reason) {
+  const marker = '<!-- REVIEW_GATE_NO_LGTM -->';
+  const existing = gh([
+    'api', `repos/${repo}/issues/${pr}/comments`, '--paginate', '--jq', '.[].body',
+  ], { json: false, allowFail: true }) || '';
+  if (String(existing).includes(marker)) return;
+  const body = `${marker}
+⚠️ **Review gate bloccato** — la review Codex sulla HEAD ${headSha} non contiene un LGTM valido senza un finding Important bloccante. Il merge resta bloccato.
+
+Motivo: ${reason}
+
+Run: ${runUrl}`;
+  gh(['pr', 'comment', String(pr), '--repo', repo, '--body', body], { json: false, allowFail: true });
+}
+
+async function withRepo(repo, callback) {
+  const previous = process.env.GH_REPO;
+  process.env.GH_REPO = repo;
+  try {
+    return await callback();
+  } finally {
+    if (previous === undefined) delete process.env.GH_REPO;
+    else process.env.GH_REPO = previous;
+  }
+}
+
+function readFollowupBody(repo, number) {
+  return String(gh([
+    'issue', 'view', String(number), '--repo', repo, '--json', 'body', '--jq', '.body',
+  ], { json: false }));
+}
+
+async function mintFollowup({ repo, pr, prUrl, findings }) {
+  const body = followupIssueBody({ repo, pr, prUrl, findings });
+  const title = `follow-up(#${pr}): finding fuori dal diff`;
+  const result = await withRepo(repo, () => createGithubIssue({
+    title,
+    description: body,
+    priority: 2,
+    labels: ['follow-up'],
+    // A drained follow-up is a completed thread, not a reason to resurrect it.
+    reopenWithinHours: 0,
+  }));
+  if (!result || result.persisted !== true || result.number == null) {
+    throw new Error(`follow-up non persistita per PR #${pr}`);
+  }
+
+  // The generic writer comments on an existing open issue. The drainer reads
+  // the body, so merge fresh findings into that body before approving.
+  const current = readFollowupBody(repo, result.number);
+  if (!current.includes(FOLLOWUP_MARKER)) {
+    throw new Error(`body della follow-up #${result.number} non riconoscibile; rifiuto la sincronizzazione`);
+  }
+  const merged = followupIssueBody({ repo, pr, prUrl, findings, existingBody: current });
+  if (merged.trim() !== current.trim()) {
+    gh(['issue', 'edit', String(result.number), '--repo', repo, '--body', merged], { json: false });
+  }
+  return { number: result.number, url: result.url, bodySynced: true };
+}
+
+export function logClassification(classification) {
+  for (const finding of classification.bodyDeclassified ?? []) {
+    console.log(`review-gate: DECLASSIFIED-BODY finding=${finding.findingNumber} reason=deterministic PR-body contract passed on the current body; a body remark is at most a Nit`);
+  }
+  for (const finding of classification.staleDeclassified ?? []) {
+    console.log(`review-gate: DECLASSIFIED-UNCHANGED-LINE finding=${finding.findingNumber} id=${finding.stableId} reason=new Important anchored only on lines untouched since the previous review; declare 🔴 Important: [regression] to keep it blocking`);
+  }
+  for (const { findingNumber, path } of classification.ignoredCitations ?? []) {
+    console.log(`review-gate: DECLASSIFIED-IGNORED finding=${findingNumber} path=${path} reason=path ignored by git, cannot be in the PR diff`);
+  }
+  for (const finding of classification.outside) {
+    for (const path of finding.resolvedFiles) {
+      console.log(`review-gate: DECLASSIFIED finding=${finding.findingNumber} path=${path} reason=all cited files resolved outside current PR diff`);
+    }
+  }
+  for (const finding of classification.inScope) {
+    console.log(`review-gate: BLOCKING finding=${finding.findingNumber} path=${finding.resolvedFiles.join(',')} reason=at least one cited file is in the current PR diff`);
+  }
+  for (const finding of classification.unresolved) {
+    const expectedKey = finding.citations?.length === 0
+      ? ` expectedKey=${JSON.stringify(findingKey(finding))}`
+      : '';
+    console.log(`review-gate: BLOCKING finding=${finding.findingNumber} reason=${finding.reason}${expectedKey}`);
+  }
+}
+
+/**
+ * Fetch and classify one review, optionally minting its single aggregate
+ * follow-up. The optional commit pair is used by the red-flag fixer: a stale
+ * review is blocking, never an opportunity to mint a debt item.
+ */
+export async function classifyAndMintReview(body, {
+  repo,
+  pr,
+  prUrl,
+  mutate = true,
+  reviewCommit,
+  headSha,
+  repositoryPaths: suppliedRepositoryPaths,
+  bodyContractPassed = false,
+  prBody = null,
+  priorFindingIds = null,
+  changedLinesSince = null,
+} = {}) {
+  if (!repo || !/^\d+$/u.test(String(pr || ''))) {
+    throw new Error('repo o PR number non valido');
+  }
+
+  const findings = importantFindings(body);
+  if (findings.length === 0) return emptyClassification(findings);
+
+  const hasApplicabilityContext = reviewCommit !== undefined || headSha !== undefined;
+  if (hasApplicabilityContext && !reviewAppliesToHead(String(reviewCommit || ''), String(headSha || ''))) {
+    const classification = {
+      ...emptyClassification(findings),
+      unresolved: findings.map((finding) => ({
+        ...finding,
+        reason: 'review non applicabile alla HEAD corrente',
+      })),
+      blocking: true,
+      error: 'review non applicabile alla HEAD corrente',
+    };
+    logClassification(classification);
+    return classification;
+  }
+
+  const changed = fetchPrFiles(Number(pr), gh, repo);
+  const repositoryPaths = suppliedRepositoryPaths !== undefined
+    ? suppliedRepositoryPaths
+    : changed.complete === true && changed.files.length > 0
+      ? fetchRepositoryHeadPaths(repo, pr).paths
+    : null;
+  const classification = classifyReview(body, {
+    files: changed.files,
+    complete: changed.complete,
+    reason: changed.reason,
+    repositoryPaths,
+    isIgnoredPath: gitPathIsIgnored,
+    bodyContractPassed,
+    prBody: bodyContractPassed && prBody === null ? readPrBody(repo, pr) : prBody,
+    priorFindingIds,
+    changedLinesSince,
+  });
+  logClassification(classification);
+
+  let followup = null;
+  if (classification.outside.length > 0 && mutate) {
+    followup = await mintFollowup({
+      repo,
+      pr: Number(pr),
+      prUrl,
+      findings: classification.outside,
+    });
+    console.log(`review-gate: follow-up aggregata #${followup.number} sincronizzata nel body.`);
+  }
+  return { ...classification, changed, followup };
+}
+
+/** Execute the extracted decision; exported for integration harnesses. */
+export async function runReviewGate({
+  repo,
+  pr,
+  headSha,
+  runUrl,
+  prUrl,
+  mutate = true,
+  reviews,
+  codexEvidence,
+  codexEvidenceFile,
+  reviewRevision,
+  repositoryPaths,
+  repositoryPathsFromFallback = false,
+  changedPathsFn = changedPathsBetween,
+  changedLinesFn = changedLinesBetween,
+  classifyAndMintReviewFn = classifyAndMintReview,
+  carryFingerprintFn = contributionFingerprint,
+  bodyContractPassed = false,
+} = {}) {
+  if (!repo || !/^\d+$/u.test(String(pr || '')) || !/^[0-9a-f]{40}$/iu.test(String(headSha || ''))) {
+    throw new Error('repo, PR number or HEAD SHA non valido');
+  }
+
+  const expectedRevision = reviewRevision === undefined
+    ? undefined
+    : normalizeReviewInputRevisionInput(reviewRevision);
+  if (reviewRevision !== undefined && !expectedRevision) {
+    return { approved: false, reason: 'review input revision assente o non verificabile' };
+  }
+
+  // Keep the injected/test harness path under the same strict schema gate as
+  // the API path.  Otherwise a caller could pass a decoded array containing a
+  // malformed entry, bypass `readReviews()`/`parseReviewPages()`, and let the
+  // historical flattening logic treat a partial response as a real verdict.
+  let parsedReviews;
+  try {
+    parsedReviews = parseReviewPages(reviews === undefined ? readReviews(repo, pr) : reviews);
+  } catch {
+    parsedReviews = null;
+  }
+  if (!parsedReviews) {
+    return {
+      approved: false,
+      reason: 'nessuna review Codex verificabile: elenco review malformato o non disponibile',
+    };
+  }
+  const reviewHistory = boundReviewsToFirstHeadVerdict(
+    parsedReviews,
+    headSha,
+    { reviewRevision: expectedRevision },
+  );
+  const structuredCodexEvidence = codexEvidence
+    || readCodexEvidenceFile(codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
+  const automatic = findTestOnlyApproval(reviewHistory, headSha, {
+    ghFn: gh,
+    repo,
+    pr,
+    reviewRevision: expectedRevision,
+  });
+  if (automatic) return { approved: true, reason: 'tests-only owner policy', review: automatic, reviewCommit: headSha };
+  const codexEvidenceRequested = Boolean(codexEvidence || codexEvidenceFile || process.env.CODEX_FALLBACK_EVIDENCE_FILE);
+  if (codexEvidenceRequested
+      && (!isValidCodexFallbackEvidence(structuredCodexEvidence)
+        || structuredCodexEvidence.status !== FALLBACK_STATUS.SUCCESS)) {
+    return { approved: false, reason: 'evidenza Codex assente, non valida o fallita' };
+  }
+  const codexReview = structuredCodexEvidence?.status === FALLBACK_STATUS.SUCCESS
+    ? latestCodexReviewer(reviewHistory, headSha, { reviewRevision: expectedRevision })
+    : null;
+  if (codexEvidenceRequested && !codexReview) {
+    return { approved: false, reason: 'evidenza Codex valida ma nessuna review Codex marcata sulla HEAD' };
+  }
+  const latest = codexReview || latestReviewer(reviewHistory, { reviewRevision: expectedRevision });
+  if (!latest) {
+    return {
+      approved: false,
+      reason: expectedRevision === undefined
+        ? 'nessuna review Codex leggibile'
+        : 'nessuna review sulla revisione body corrente',
+    };
+  }
+  const body = normalizeReviewBody(latest.body || '');
+  // Un body malformato non è un verdetto. Le due forme misurate il 19-09 su 220
+  // review — `\n` letterali al posto delle righe e `Fix di ``: ok` con anchor
+  // vuoto — producono un testo che il parser legge come review valida ma che
+  // non contiene né finding né conferme leggibili: scartarlo è l'unica lettura
+  // onesta, e lascia il ciclo di re-review a rifare la review.
+  const bodyDefects = reviewBodyDefects(body);
+  if (isMalformedReviewBody(body)) {
+    return {
+      approved: false,
+      reason: `body della review malformato (${bodyDefects.join(', ')}): verdetto scartato`,
+      review: latest,
+      bodyDefects,
+    };
+  }
+  // A verdict carried onto this HEAD without a model run is accepted only
+  // after the gate re-derives, on its own, that the origin was an approving
+  // verdict and that the PR's code contribution is unchanged.
+  if (isCarryForwardReview(latest)) {
+    const carried = verifyCarryForwardReview({
+      review: latest,
+      reviews: reviewHistory,
+      headSha,
+      fingerprintFn: carryFingerprintFn,
+    });
+    if (!carried.ok) {
+      return { approved: false, reason: `carry-forward non verificato: ${carried.reason}`, review: latest };
+    }
+    console.log(`review-gate: ${carried.reason}.`);
+  }
+  const staleCarry = staleFallbackCarryForward({
+    reviews: reviewHistory,
+    latest,
+    headSha,
+    reviewRevision: expectedRevision,
+    changedPathsFn,
+  });
+  if (staleCarry) {
+    console.log(`review-gate: stale Codex fallback ignorato; finding già confermati dalla review ${staleCarry.priorReview.commit_id}.`);
+    return {
+      approved: true,
+      reason: 'stale fallback review duplicated confirmed findings',
+      reviewCommit: String(latest.commit_id || ''),
+      review: latest,
+      classification: emptyClassification([]),
+      staleFindings: staleCarry.findings,
+    };
+  }
+  const historical = historicalImportantFindings(reviewHistory, {
+    repositoryPaths: repositoryPaths ?? null,
+    repositoryPathsFromFallback,
+  });
+  const effectiveBody = reviewBodyWithHistoricalFindings(body, historical);
+  const findings = importantFindings(effectiveBody);
+  const reviewCommit = String(latest.commit_id || '');
+  let classification = emptyClassification(findings);
+
+  // Applicability comes before scope classification. Otherwise a stale review
+  // could mint a follow-up for a finding that belongs to an older head before
+  // the gate correctly blocks on the changed contribution.
+  const applies = reviewAppliesToHead(reviewCommit, headSha);
+  if (findings.length > 0 && applies) {
+    const classificationOptions = {
+      repo,
+      pr,
+      prUrl: prUrl || process.env.PR_URL,
+      mutate,
+      bodyContractPassed,
+    };
+    if (repositoryPaths !== undefined) classificationOptions.repositoryPaths = repositoryPaths;
+    const priorReview = priorManagedReview(reviewHistory, latest);
+    if (priorReview) {
+      classificationOptions.priorFindingIds = new Set(
+        historicalImportantFindings(reviewHistory, {
+          includeLatest: false,
+          repositoryPaths: repositoryPaths ?? null,
+          repositoryPathsFromFallback,
+        }).map(stableFindingId),
+      );
+      classificationOptions.changedLinesSince = changedLinesFn(
+        String(priorReview.commit_id || ''),
+        headSha,
+      );
+    }
+    classification = await classifyAndMintReviewFn(effectiveBody, classificationOptions);
+  } else if (findings.length > 0 && !applies) {
+    classification = {
+      ...emptyClassification(findings),
+      unresolved: findings.map((finding) => ({
+        ...finding,
+        reason: 'review non applicabile alla HEAD corrente',
+      })),
+      blocking: true,
+    };
+    logClassification(classification);
+  }
+
+  // A reviewer must not approve while an Important finding is still in scope
+  // (or cannot be resolved). Once every Important is conservatively classified
+  // outside this PR diff, however, the finding is debt recorded in the
+  // aggregate follow-up and the review has no in-scope blocker left to approve.
+  // Requiring a literal LGTM in that one case deadlocks otherwise safe PRs:
+  // Claude correctly withholds LGTM for the historical out-of-diff finding,
+  // while this gate correctly declassifies it. Keep the literal requirement
+  // for empty, in-scope, and unresolved verdicts.
+  const outsideOnlyWithoutLgtm = !body.includes('## LGTM')
+    && classification.outsideOnly
+    && !classification.blocking
+    && !hasUnresolvedFunnelQuestion(body);
+  if (!body.includes('## LGTM') && !outsideOnlyWithoutLgtm) {
+    return { approved: false, reason: 'manca ## LGTM', classification, review: latest };
+  }
+  if (classification.blocking) {
+    return { approved: false, reason: 'finding Important in-diff o non risolvibile', classification, review: latest };
+  }
+
+  if (!reviewCommit) return { approved: false, reason: 'review senza commit_id', classification, review: latest };
+  if (reviewCommit === headSha) {
+    return { approved: true, reviewCommit, classification, review: latest };
+  }
+
+  if (applies) {
+    return { approved: true, reviewCommit, classification, review: latest };
+  }
+  return { approved: false, reason: 'review non sulla HEAD e contributo cambiato', classification, review: latest };
+}
+
+async function main() {
+  const repo = process.env.REPO || process.env.GITHUB_REPOSITORY || '';
+  const pr = process.env.PR_NUMBER || '';
+  const headSha = process.env.HEAD_SHA || '';
+  const tree = fetchRepositoryHeadPaths(repo, pr);
+  // L'ELENCO degli schemi accettati: questo gate riusa anche review emesse da
+  // una run precedente, quindi da codice piu' vecchio di quello che sta
+  // girando ora (vedi `lib/review-input-revision.mjs`, 2026-09-19).
+  const reviewRevision = acceptedReviewInputRevisionsFromPullRequest(gh([
+    'api', `repos/${repo}/pulls/${pr}`,
+  ]));
+  const result = await runReviewGate({
+    repo,
+    pr,
+    headSha,
+    runUrl: process.env.RUN_URL,
+    prUrl: process.env.PR_URL,
+    repositoryPaths: tree.paths,
+    repositoryPathsFromFallback: tree.fromFallback,
+    reviewRevision,
+    bodyContractPassed: process.env.BODY_CONTRACT_OUTCOME === 'success',
+  });
+  writeApproved(result.approved);
+  if (!result.approved) {
+    postBlockedComment(repo, pr, headSha, process.env.RUN_URL || '', result.reason || 'verdetto non risolvibile');
+    throw new Error(result.reason || 'review gate bloccato');
+  }
+  console.log(`review-gate: approved=true (review commit ${result.reviewCommit}).`);
+}
+
+async function auditHistoricalCitationsMain() {
+  const repo = process.env.AUDIT_REPO
+    || process.env.REPO
+    || process.env.GITHUB_REPOSITORY
+    || 'valerielinc-ops/frontaliere-si-o-no';
+  const pr = process.env.AUDIT_PR || process.env.PR_NUMBER || '8158';
+  if (!/^\d+$/u.test(String(pr))) throw new Error('PR audit non valido');
+
+  const reviews = readReviews(repo, pr);
+  const { paths: repositoryPaths, fromFallback } = fetchRepositoryHeadPaths(repo, pr);
+  if (!repositoryPaths) throw new Error('tree HEAD non recuperabile per audit storico');
+  const result = auditHistoricalCitations(reviews, repositoryPaths, { fromFallback });
+  console.log(`review-gate: historical citation audit ${repo}#${pr}`);
+  console.log(`review-gate: reviews=${result.reviewCount} citations=${result.citationCount}`);
+  console.log(`review-gate: legacy-open-findings=${result.legacyOpenFindings.length}`);
+  console.log(`review-gate: current-open-findings=${result.openFindings.length}`);
+  console.log(`review-gate: legacy-truncated-unresolvable=${result.legacyTruncatedUnresolvable.length}`);
+  console.log(`review-gate: truncated-unresolvable=${result.truncatedUnresolvable.length}`);
+  for (const item of result.truncatedUnresolvable) {
+    console.log(`review-gate: truncated path=${item.citation.path} candidate=${item.candidate}`);
+  }
+  if (result.openFindings.length > 0 || result.truncatedUnresolvable.length > 0) {
+    throw new Error('audit storico non risolto');
+  }
+}
+
+async function scopeMain() {
+  const repo = process.env.REPO || process.env.GITHUB_REPOSITORY || '';
+  const pr = process.env.PR_NUMBER || '';
+  const headSha = process.env.HEAD_SHA || '';
+  const reviewBody = process.env.REVIEW_BODY || '';
+  const options = {
+    repo,
+    pr,
+    prUrl: process.env.PR_URL,
+    mutate: process.env.REVIEW_SCOPE_MUTATE !== 'false',
+    reviewCommit: process.env.REVIEW_COMMIT,
+    headSha,
+  };
+  // Senza nessun 🔴 il classificatore esce subito: gli input sotto costano tre
+  // chiamate API (tree della HEAD, review paginate, compare) e non cambiano un
+  // verdetto gia' vuoto.
+  const hasFindings = importantFindings(normalizeReviewBody(reviewBody)).length > 0;
+  // Gli stessi tre input che `runReviewGate()` passa gia' al classificatore e
+  // che questo percorso lasciava cadere: senza, ogni 🔴 ripetuto su righe che
+  // nessuno ha toccato rifaceva partire il fixer. Ogni lettura e' fail-open
+  // verso il BLOCCO: un dato che non si riesce a leggere lascia l'opzione
+  // assente, quindi nessuna declassazione.
+  const tree = hasFindings ? fetchRepositoryHeadPaths(repo, pr) : { paths: null, fromFallback: false };
+  if (tree.paths) options.repositoryPaths = tree.paths;
+  // NB: `bodyContractPassed` resta deliberatamente FUORI da questo percorso.
+  // Nel gate gemello declassa il 🔴 ancorato al body, che li' e' l'uscita
+  // giusta (il contratto deterministico ha gia' giudicato il body). Qui
+  // l'uscita giusta e' l'opposta: il fixer PUO' riscrivere il body, quindi il
+  // finding resta azionabile e viene instradato con `bodyOnly`.
+  let reviews = null;
+  try {
+    reviews = hasFindings ? readReviews(repo, pr) : null;
+  } catch {
+    reviews = null;
+  }
+  if (reviews) {
+    const declass = scopeDeclassificationOptions({
+      reviews,
+      reviewCommit: process.env.REVIEW_COMMIT || '',
+      headSha,
+      repo,
+      repositoryPaths: tree.paths ?? null,
+      repositoryPathsFromFallback: tree.fromFallback,
+    });
+    if (declass.priorFindingIds) options.priorFindingIds = declass.priorFindingIds;
+    if (declass.changedLinesSince instanceof Map) {
+      options.changedLinesSince = declass.changedLinesSince;
+    }
+  }
+  const result = await classifyAndMintReview(reviewBody, options);
+  const exit = scopeExit(result);
+  console.log(JSON.stringify({
+    blocking: result.blocking === true,
+    error: result.error || null,
+    outsideOnly: result.outsideOnly === true,
+    exit: exit.kind,
+    // Il 🔴 non e' nell'albero: e' nel body della PR, che il fixer PUO'
+    // riscrivere. Senza questo flag il round partiva a cercarlo nei file.
+    bodyOnly: exit.bodyOnly === true,
+    // Uscita verde che non lascerebbe niente sulla PR: il workflow deve
+    // renderla esplicita, mai passarci sopra in silenzio.
+    silentExit: exit.silent === true,
+    declassified: exit.declassified.map(({ finding, reason }) => ({
+      findingNumber: finding.findingNumber,
+      reason,
+      stableId: stableFindingId(finding),
+    })),
+    outside: result.outside.map((finding) => ({
+      findingNumber: finding.findingNumber,
+      paths: finding.resolvedFiles,
+    })),
+    inScope: result.inScope.map((finding) => ({
+      findingNumber: finding.findingNumber,
+      paths: finding.resolvedFiles,
+    })),
+    unresolved: result.unresolved.map((finding) => ({
+      findingNumber: finding.findingNumber,
+      reason: finding.reason,
+    })),
+    followup: result.followup ? { number: result.followup.number } : null,
+  }));
+}
+
+const isDirectRun = (() => {
+  try {
+    return import.meta.url === pathToFileURL(realpathSync(process.argv[1])).href;
+  } catch {
+    return false;
+  }
+})();
+
+/**
+ * A review can confirm earlier findings in the same paragraph as a new
+ * finding. Those `Fix di ...: ok.` lines are resolution evidence, not new
+ * anchors for the finding currently being classified.
+ */
+// `Accettazione:` e `Replica:` (REVIEW.md «Re-review convergence» / «Output format») citano
+// i MEZZI della verifica — un test, un comando, la riga indicata dal fixer —
+// non ancore da correggere. Se diventassero citazioni del finding, la
+// conferma `Fix di path:L<n>: ok` dell'anchor vero non basterebbe più a
+// chiuderlo: il gate pretenderebbe una conferma anche per il file di test
+// nominato nel controllo, e il ciclo non convergerebbe.
+const VERIFICATION_MARKER_RE = /\b(?:Accettazione|Replica)\s*:/u;
+
+// Il testo della riga da `Accettazione:` o `Replica:` in poi, anche inline sulla
+// stessa riga del finding, non produce ancore.
+function anchorText(line) {
+  const at = line.search(VERIFICATION_MARKER_RE);
+  return at === -1 ? line : line.slice(0, at);
+}
+
+function extractFindingCitations(text, extractCitations) {
+  const findingText = normalizeReviewBody(text)
+    .split(/\r?\n/u)
+    .filter((line) => !FIX_CONFIRMATION_RE.test(line))
+    .map(anchorText)
+    .join('\n');
+  const occurrences = extractCitations(findingText, {
+    dedupe: false,
+    includeMatchIndex: true,
+  });
+  const seen = new Set();
+  return occurrences
+    .filter((citation) => !isIllustrativeBareCitation(findingText, citation))
+    .filter((citation) => {
+      const key = `${citation.path}:${citation.line || ''}`;
+      if (seen.has(key)) return false;
+      seen.add(key);
+      return true;
+    })
+    .map(({ __pathStart, ...citation }) => citation);
+}
+
+/**
+ * A reviewer may cite a source file as an example of where a value comes
+ * from, not as a second edit anchor. Keep this carve-out deliberately narrow:
+ * an explicit line citation, or an imperative such as "also fix <path>",
+ * remains an actionable citation and must still be confirmed independently.
+ */
+function isIllustrativeBareCitation(text, citation) {
+  if (!citation || citation.line !== null) return false;
+  const escapedPath = String(citation.path || '').replace(/[.*+?^${}()|[\]\\]/gu, '\\$&');
+  if (!escapedPath) return false;
+  const backtick = String.fromCharCode(96);
+  const pathToken = `(?:${backtick}${escapedPath}${backtick}|${escapedPath})`;
+  const illustrativePattern = new RegExp(
+    `\\bpresent(?:\\s+only)?\\s+in\\s+${pathToken}\\s+(?:such\\s+as|for\\s+example|e\\.g\\.|come)`,
+    'igu',
+  );
+  const pathStart = Number.isInteger(citation.__pathStart) ? citation.__pathStart : null;
+  if (pathStart === null) return illustrativePattern.test(String(text || ''));
+  return [...String(text || '').matchAll(illustrativePattern)].some((match) => {
+    const start = match.index;
+    return Number.isInteger(start)
+      && pathStart >= start
+      && pathStart < start + match[0].length;
+  });
+}
+
+if (isDirectRun) {
+  try {
+    if (process.argv.includes('--audit-historical-citations')) await auditHistoricalCitationsMain();
+    else if (process.argv.includes('--scope')) await scopeMain();
+    else await main();
+  } catch (error) {
+    if (!process.argv.includes('--scope') && !process.argv.includes('--audit-historical-citations')) {
+      try { writeApproved(false); } catch { /* un write output fallito non puo' rendere verde il gate */ }
+    }
+    console.error(`review-gate: errore conservativo: ${String(error)}`);
+    process.exitCode = 1;
+  }
+}

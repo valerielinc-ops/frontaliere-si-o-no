@@ -1,0 +1,19 @@
+{
+  "id": "frontalieri-rallentamento-ticino-crescita-grigioni",
+  "slug": "frontalieri-rallentamento-ticino-crescita-grigioni",
+  "publishedAt": "2026-07-23T06:58:10.771Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 150.7259288888889,
+    "confidence": 1,
+    "finalScore": 150.7259288888889,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 75.36296444444444,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

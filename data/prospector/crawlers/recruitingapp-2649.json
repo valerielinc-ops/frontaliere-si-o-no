@@ -1,0 +1,20 @@
+{
+  "companyKey": "recruitingapp-2649",
+  "companyName": "Alexander von Humboldt-Stiftung Stellen",
+  "companyHost": "recruitingapp-2649.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2649.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Teamleitung (m/w/d) Finanzmanagement im Referat Finanzen",
+    "Referent (m/w/d) für Marketing in Teilzeit",
+    "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle in Teilzeit",
+    "Sachbearbeiter (m/w/d) für die finanzwirtschaftliche Programm- und Zuwendungsbetreuung im Referat Finanzen, Reisestelle"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T10:02:05.800Z"
+}

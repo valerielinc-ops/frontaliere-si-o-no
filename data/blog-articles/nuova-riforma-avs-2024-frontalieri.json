@@ -1,0 +1,40 @@
+{
+  "id": "nuova-riforma-avs-2024-frontalieri",
+  "slug": "nuova-riforma-avs-2024-frontalieri",
+  "publishedAt": "2026-05-08T12:38:57.573Z",
+  "cluster": "pensioni",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.310370779254983,
+    "confidence": 0.8,
+    "finalScore": 8.248296623403986,
+    "topK": [
+      {
+        "slug": "tredicesima-avs-finanziamento-contributi",
+        "cosine": 0.7635586718577425
+      },
+      {
+        "slug": "avs-dati-digitale-frontalieri",
+        "cosine": 0.7571285915498763
+      },
+      {
+        "slug": "calcolo-pensione-avs-inps",
+        "cosine": 0.7555300824917044
+      },
+      {
+        "slug": "riforma-cassa-malati-ticino-2029",
+        "cosine": 0.7495533095854814
+      },
+      {
+        "slug": "ticino-spitex-contributo-pressione",
+        "cosine": 0.7485379997078413
+      }
+    ],
+    "score": 4.124148311701993,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "novartis-superaspettative",
+  "slug": "novartis-superaspettative",
+  "publishedAt": "2026-07-21T05:54:39.697Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.258445706204842,
+    "confidence": 0.8,
+    "finalScore": 11.406756564963874,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8905860001525547
+      },
+      {
+        "slug": "successo-farmaceutica-ticino",
+        "cosine": 0.8851795861780352
+      },
+      {
+        "slug": "beko-cassinetta-risultati-2026",
+        "cosine": 0.8726294615288254
+      },
+      {
+        "slug": "novartis-calo-utile-2026",
+        "cosine": 0.8678314060881874
+      },
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8642699246039232
+      }
+    ],
+    "score": 11.406756564963874,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "companyKey": "centralvalchava",
+  "companyName": "Hotel Central",
+  "companyHost": "centralvalchava.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://centralvalchava.ch/it/lavora-con-noi/"
+  ],
+  "detailTemplate": "/it/lavora-con-noi/it/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Allegra nella Val Müstair",
+    "Alla scoperta della cultura",
+    "Area benessere"
+  ],
+  "canton": "GR",
+  "sourceLang": "it",
+  "learnedAt": "2026-09-14T09:44:21.843Z"
+}

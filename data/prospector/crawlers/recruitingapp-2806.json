@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2806",
+  "companyName": "eRecruiting SteelcoBelimed Infection Control Job Openings",
+  "companyHost": "recruitingapp-2806.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2806.umantis.com/Jobs/2?lang=eng&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/2",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Account Manager - New York/New Jersey (Associate level)",
+    "Salesforce Application Consultant (m/f/d)",
+    "Field Service Technician - Charlottesville, VA",
+    "Field Service Manager - East",
+    "SAP SD Consultant (m/f/d)"
+  ],
+  "sourceLang": "en",
+  "learnedAt": "2026-08-21T09:11:36.235Z"
+}

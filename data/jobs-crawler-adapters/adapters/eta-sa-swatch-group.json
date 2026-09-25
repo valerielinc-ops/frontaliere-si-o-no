@@ -1,0 +1,22 @@
+{
+  "companyKey": "eta-sa-swatch-group",
+  "companyName": "ETA SA (Swatch Group)",
+  "companyHost": "eta.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.eta.ch/careers",
+    "https://www.eta.ch/career",
+    "https://www.eta.ch/jobs",
+    "https://www.eta.ch/karriere",
+    "https://www.eta.ch/offene-stellen",
+    "https://www.eta.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.942Z"
+}

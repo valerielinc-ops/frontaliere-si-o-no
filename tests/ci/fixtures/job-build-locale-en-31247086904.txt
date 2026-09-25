@@ -1,0 +1,31 @@
+2026-08-08T09:26:26.0523298Z ##[endgroup]
+2026-08-08T09:26:43.4204317Z [prune-locale-shard] shard=[en] → pruned 241 top-level entries: .nojekyll, .well-known, .write-collisions.json, 39093e02a74b4a2dbf867c74bc53a7d8.txt, 404.html, BingSiteAuth.xml, CNAME, _headers, ads.txt, allerte, allerte-meteo, apple-touch-icon-precomposed.png …
+2026-08-08T09:26:43.4675023Z ##[group]Run node scripts/ci/validate-locale-shard-build.mjs dist
+2026-08-08T09:26:43.4677871Z node scripts/ci/validate-locale-shard-build.mjs dist
+2026-08-08T09:26:43.4700000Z shell: /usr/bin/bash -e {0}
+2026-08-08T09:26:43.4701000Z env:
+2026-08-08T09:26:43.4702000Z   BUILD_LOCALE: en
+2026-08-08T09:26:43.4703000Z   FAKE_API_KEY: ***
+2026-08-08T09:26:43.4704000Z   FAKE_SECRET_TOKEN: ***
+2026-08-08T09:26:43.4705000Z   FAKE_WEBHOOK_SECRET: ***
+2026-08-08T09:26:43.5053272Z ##[endgroup]
+2026-08-08T09:27:36.8275094Z Locale shard validation — BUILD_LOCALE=en → emit [en]
+2026-08-08T09:27:36.8280610Z dist: /home/runner/work/frontaliere-si-o-no/frontaliere-si-o-no/dist
+2026-08-08T09:27:36.8285455Z page counts: it=1  en=822192  de=0  fr=0
+2026-08-08T09:27:36.8299999Z ✓ en: en/index.html → complete hreflang (it/en/de/fr + x-default)
+2026-08-08T09:27:36.8302079Z 
+2026-08-08T09:27:36.8303376Z ✖ Locale shard validation FAILED:
+2026-08-08T09:27:36.8306081Z   - locale 'it' was NOT in the shard set but emitted 1 pages (filter leak)
+2026-08-08T09:27:36.9012066Z ##[error]Process completed with exit code 1.
+2026-08-08T09:27:37.0221194Z ##[group]Run node scripts/lib/github-issue-creator.mjs \
+2026-08-08T09:27:37.0223773Z node scripts/lib/github-issue-creator.mjs \
+2026-08-08T09:27:37.0226303Z   --title "CI Failure (build): Deploy to GitHub Pages" \
+2026-08-08T09:27:37.0228899Z   --description "## Build fallito
+2026-08-08T09:27:37.0231910Z **Run:** https://github.com/valerielinc-ops/frontaliere-si-o-no/actions/runs/31247086904
+2026-08-08T09:27:37.0234677Z **Branch:** main
+2026-08-08T09:27:37.0236895Z **Trigger:** workflow_dispatch" \
+2026-08-08T09:27:37.0239396Z   --priority 1 \
+2026-08-08T09:27:37.0241603Z   --reopen-within-hours 6 \
+2026-08-08T09:27:37.0243901Z   --label Bug \
+2026-08-08T09:27:37.0246133Z   --workflow "Deploy to GitHub Pages"
+2026-08-08T09:27:37.0295009Z shell: /usr/bin/bash -e {0}

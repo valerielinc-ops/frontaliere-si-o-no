@@ -1,0 +1,40 @@
+{
+  "id": "rimborso-cure-dentarie-ticino-2026",
+  "slug": "rimborso-cure-dentarie-ticino-2026",
+  "publishedAt": "2026-05-08T10:42:58.144Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.3513054989578865,
+    "confidence": 0.8,
+    "finalScore": 4.281044399166309,
+    "topK": [
+      {
+        "slug": "cure-dentarie-accessibili-ticino-2026",
+        "cosine": 0.8918842498263145
+      },
+      {
+        "slug": "cure-dentarie-ticino-2026",
+        "cosine": 0.8893557160948894
+      },
+      {
+        "slug": "assicurazione-dentaria-obbligatoria-ticino-2026",
+        "cosine": 0.8872378853708764
+      },
+      {
+        "slug": "votazioni-cure-dentarie-ticino-2024",
+        "cosine": 0.8841358344949914
+      },
+      {
+        "slug": "tassa-salute-ticino-riforme-invece-aggravi",
+        "cosine": 0.8507065256300919
+      }
+    ],
+    "score": 0.42810443991663094,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

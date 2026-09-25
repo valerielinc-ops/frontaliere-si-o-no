@@ -1,0 +1,22 @@
+{
+  "companyKey": "caffe-chicco-d",
+  "companyName": "Caffè Chicco d\\",
+  "companyHost": "chiccodoro.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.chiccodoro.ch/careers",
+    "https://www.chiccodoro.ch/career",
+    "https://www.chiccodoro.ch/jobs",
+    "https://www.chiccodoro.ch/karriere",
+    "https://www.chiccodoro.ch/offene-stellen",
+    "https://www.chiccodoro.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.929Z"
+}

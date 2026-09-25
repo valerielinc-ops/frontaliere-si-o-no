@@ -1,0 +1,40 @@
+{
+  "id": "frontalieri-astuti-confronto-territori",
+  "slug": "frontalieri-astuti-confronto-territori",
+  "publishedAt": "2026-05-13T13:35:32.217Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "varesenoi.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.618566047814564,
+    "confidence": 0.8,
+    "finalScore": 5.294852838251652,
+    "topK": [
+      {
+        "slug": "assegni-familiari-frontalieri-ticino-2026",
+        "cosine": 0.8273207559768205
+      },
+      {
+        "slug": "frontalieri-tassa-salute-scontro",
+        "cosine": 0.8265264497313691
+      },
+      {
+        "slug": "gadda-incalza-governo-frontalieri",
+        "cosine": 0.8218392641905867
+      },
+      {
+        "slug": "frontalieri-salari-dibattito-ticino",
+        "cosine": 0.815901412796625
+      },
+      {
+        "slug": "crans-montana-disgelo-italia-svizzera",
+        "cosine": 0.8147063851882749
+      }
+    ],
+    "score": 0.6618566047814565,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

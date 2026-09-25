@@ -1,0 +1,22 @@
+{
+  "companyKey": "pamp-sa",
+  "companyName": "PAMP SA",
+  "companyHost": "pamp.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.pamp.com/careers",
+    "https://www.pamp.com/career",
+    "https://www.pamp.com/jobs",
+    "https://www.pamp.com/karriere",
+    "https://www.pamp.com/offene-stellen",
+    "https://www.pamp.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.964Z"
+}

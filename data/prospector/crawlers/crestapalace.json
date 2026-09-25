@@ -1,0 +1,21 @@
+{
+  "companyKey": "crestapalace",
+  "companyName": "Cresta Palace",
+  "companyHost": "hotelcareer.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.hotelcareer.ch/jobs/cresta-palace-hotel-14426"
+  ],
+  "detailTemplate": "/jobs/cresta-palace-hotel-14426/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Spa & Beauty Professional (m/w) für die Wintersaison 2026/2027",
+    "Spezialitätenkoch Asiatisch (m/w) für die Wintersaison 2026/2027"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-12T08:50:53.268Z"
+}

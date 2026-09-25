@@ -1,0 +1,24 @@
+{
+  "companyKey": "belvedere-scuol",
+  "companyName": "Belvédère",
+  "companyHost": "rhb.ch",
+  "platform": "rhb.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.rhb.ch/de/"
+  ],
+  "detailTemplate": "/de/job/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Stelle ansehen",
+    "Stelle ansehen",
+    "Stelle ansehen",
+    "Stelle ansehen",
+    "Stelle ansehen"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-31T10:26:33.492Z"
+}

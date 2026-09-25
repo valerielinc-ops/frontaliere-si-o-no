@@ -1,0 +1,40 @@
+{
+  "id": "sanita-farmaceutica-svizzera",
+  "slug": "sanita-farmaceutica-svizzera",
+  "publishedAt": "2026-06-22T01:02:58.475Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.725043040818832,
+    "confidence": 0.8,
+    "finalScore": 9.380034432655066,
+    "topK": [
+      {
+        "slug": "rsi-mostra-storia-ticino",
+        "cosine": 0.8373605570999042
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-2026",
+        "cosine": 0.8320959010418449
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8298250218041348
+      },
+      {
+        "slug": "abbonamento-newsletter-ticino",
+        "cosine": 0.8285657871072599
+      },
+      {
+        "slug": "morte-bimbo-efamilia-ticino",
+        "cosine": 0.8278500887757198
+      }
+    ],
+    "score": 9.380034432655066,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

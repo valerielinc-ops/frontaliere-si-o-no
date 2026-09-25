@@ -1,0 +1,40 @@
+{
+  "id": "condanne-viareggio-svizzera",
+  "slug": "condanne-viareggio-svizzera",
+  "publishedAt": "2026-06-26T15:58:01.110Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.109875562903024,
+    "confidence": 0.8,
+    "finalScore": 7.28790045032242,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8269214706537825
+      },
+      {
+        "slug": "crans-montana-italia-risarcimento-300000-euro",
+        "cosine": 0.821443918388633
+      },
+      {
+        "slug": "incidente-riazzino-ciclista-condanna",
+        "cosine": 0.8202784695198818
+      },
+      {
+        "slug": "chiasso-assassinio-mancato-15-anni-carcere",
+        "cosine": 0.8194052451171069
+      },
+      {
+        "slug": "crans-montana-italia-parte-civile-2026",
+        "cosine": 0.8192395090453665
+      }
+    ],
+    "score": 0.728790045032242,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

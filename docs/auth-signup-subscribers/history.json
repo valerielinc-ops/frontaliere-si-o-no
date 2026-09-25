@@ -1,0 +1,32 @@
+{
+  "days": [
+    {
+      "date": "2026-09-24",
+      "windowHours": 24,
+      "subscribersCreated": 105,
+      "authSubscribers": 75,
+      "accountsTotal": 105,
+      "accountClasses": {
+        "subscribed": 104,
+        "stub": 0,
+        "missing": 1
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    },
+    {
+      "date": "2026-09-25",
+      "windowHours": 24,
+      "subscribersCreated": 105,
+      "authSubscribers": 66,
+      "accountsTotal": 102,
+      "accountClasses": {
+        "subscribed": 102,
+        "stub": 0,
+        "missing": 0
+      },
+      "subscribedWithoutCreatedAt": 0,
+      "findings": []
+    }
+  ]
+}

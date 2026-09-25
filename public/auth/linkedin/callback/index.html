@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Accesso LinkedIn — Frontaliere Ticino</title>
+    <!-- OAuth callback: save URL and redirect to SPA entry point -->
+    <script>
+      (function() {
+        sessionStorage.redirect = location.href;
+        location.replace('/');
+      })();
+    </script>
+  </head>
+  <body></body>
+</html>

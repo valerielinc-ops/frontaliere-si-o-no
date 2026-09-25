@@ -1,0 +1,273 @@
+name: Runtime reliability watchdog
+
+# Detects the production failure mode that a normal 200 probe cannot see:
+# stable CDN asset URLs still serving a previous edge object next to the new
+# generation of their importers. Since 2026-09-25 it walks the WHOLE chunk
+# graph of the four locales (scripts/ci/cdn-chunk-graph.mjs): every JS/CSS
+# chunk reachable from the entry pages, edge vs origin in both cache variants
+# (with and without `Origin`), and a link check of every named import against
+# what the edge serves — the `SyntaxError: … does not provide an export named`
+# that took the job board down on 2026-09-25 while this watchdog, then limited
+# to five files, stayed green. A degraded run purges only the divergent exact
+# URLs (batches of <= 30, never purge_everything), re-probes, and files the
+# issue if the graph is still broken. The deploy is never blocked: this is a
+# separate, post-deploy workflow — loud (annotations + issue), not a gate.
+
+on:
+  # The CDN half of a deploy lands in deploy.yml's BUILD leg: the IT shard
+  # syncs /assets/ to R2 and purges the keys it re-uploaded
+  # (deploy-it-pages-prep.sh → scripts/ci/purge-changed-cdn-assets.mjs). That
+  # is when a missed purge starts breaking pages — on 2026-09-25 ~1h36 after
+  # the build started, hours before deploy-publish.yml finished. So the first
+  # check fires on the completion of that build. It is the same one-hop
+  # `workflow_run` deploy-publish.yml itself is started by, and that one
+  # demonstrably fires.
+  #
+  # The previous trigger — `workflow_run` on "Publish to GitHub Pages (deploy
+  # + validate)" — never fired once: 0 of the last 100 runs (2026-09-14 →
+  # 2026-09-25) had event `workflow_run`, while that workflow completed 4-5
+  # real publishes a day. deploy-publish.yml is itself started by workflow_run,
+  # and GitHub does not deliver the next hop of that chain; its explicit
+  # `gh workflow run` dispatch (job `runtime-watchdog`) is what actually ran
+  # after a publish, and now runs after EVERY successful Pages deploy, not only
+  # when validate-live is green.
+  #
+  # A direct push is intentionally still not a trigger: nothing reaches the CDN
+  # before the build leg does.
+  workflow_run:
+    workflows: ["Deploy to GitHub Pages"]
+    types: [completed]
+    branches: [main]
+  # Backstop for drift between deploys. The nominal cadence is NOT the real
+  # one: measured 2026-09-14 → 2026-09-25, 71 scheduled runs in 11.2 days =
+  # 6.4/day against 96/day nominal, gap median 230 min (min 115, p90 315, max
+  # 413). No run was cancelled, so it is not this workflow's concurrency: it is
+  # GitHub's scheduled-dispatch backlog on a repo with ~190 cron workflows (the
+  # 2026-08-05 audit in scripts/ci/probe-cron-dispatch-delay.mjs measured
+  # 51–240 min). Tightening the cron would add nothing but queued events; the
+  # two deploy triggers above are the real latency fix.
+  schedule:
+    - cron: '*/15 * * * *'
+  workflow_dispatch: {}
+
+# `workflow_run` fires on every completion of the build, including the ones
+# deploy.yml's newest-wins lock cancels (121 of 141 in 48 h, #5251) and the
+# failed ones. Those runs skip the job, but a run joins its concurrency group before any `if:` is
+# evaluated, so they are routed to a per-run group and cannot evict a real
+# pending check (the same trap deploy-publish.yml documents).
+# cancel-in-progress: false — never interrupt a run between its purge and its
+# verification; the newest pending run still replaces an older pending one.
+concurrency:
+  group: ${{ (github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success') && 'runtime-reliability-watch' || format('runtime-reliability-watch-noop-{0}', github.run_id) }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  watch:
+    # Successful builds only: a failed one may have left R2 with a partial
+    # generation, and comparing (and purging) against it could spread that
+    # half-upload to the edge. The schedule and manual runs still cover it.
+    if: >-
+      ${{ github.event_name != 'workflow_run' ||
+          github.event.workflow_run.conclusion == 'success' }}
+    runs-on: ubuntu-latest
+    # Two graph walks (probe + post-purge verification), each bounded by
+    # DEFAULT_BUDGET_MS (5 min) in cdn-chunk-graph.mjs; ~40-60 s each measured.
+    timeout-minutes: 20
+    steps:
+      # Allow-list: every module the job loads must be listed, symlink TARGETS
+      # included — build-plugins/shared/articleSectionCore.mjs is a link into
+      # packages/articles/engine/, and the link alone is a dangling file
+      # (ERR_MODULE_NOT_FOUND, run 36128534394). Checked by
+      # scripts/ci/verify-checkout-profiles.mjs (tests/checkout-sparse-profiles.test.ts).
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            scripts/runtime-reliability-watch.mjs
+            scripts/
+            scripts/load-rc-env.mjs
+            scripts/lib/**
+            infra/cloudflare-worker/**
+            build-plugins/shared/cantonResolvers.mjs
+            build-plugins/shared/articleSectionCore.mjs
+            packages/articles/engine/shared/articleSectionCore.mjs
+          sparse-checkout-cone-mode: false
+
+      # The ~24.7k article-body chunks behind blogBodyLoader.js are walked in
+      # rotating windows (see FANOUT_SAMPLE_THRESHOLD). Pin the window once so
+      # the verification after a purge re-reads the same chunks.
+      - name: Pin chunk-graph sample window
+        run: echo "CHUNK_GRAPH_ROTATION=$(( $(date -u +%s) / 3600 ))" >> "$GITHUB_ENV"
+
+      - name: Restore runtime repair circuit state
+        id: circuit
+        uses: actions/cache/restore@v5
+        with:
+          path: .runtime-reliability-state
+          key: runtime-reliability-circuit-${{ github.run_id }}
+          restore-keys: runtime-reliability-circuit-
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load Cloudflare credentials from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Probe live runtime
+        id: probe
+        run: |
+          set -euo pipefail
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          import { evaluateRepairPolicy, probeRuntime, rotationFromEnv } from './scripts/runtime-reliability-watch.mjs';
+
+          const report = await probeRuntime({ chunkGraphOptions: { rotation: rotationFromEnv() } });
+          const statePath = '.runtime-reliability-state/state.json';
+          let previous = {};
+          try { previous = JSON.parse(fs.readFileSync(statePath, 'utf8')); } catch {}
+          const repair = evaluateRepairPolicy({ probe: report, previousState: previous });
+          fs.writeFileSync('runtime-reliability.json', `${JSON.stringify({ ...report, repair }, null, 2)}\n`);
+          NODE
+          status=0
+          purge_count="$(node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('runtime-reliability.json','utf8')); process.stdout.write(String((p.purgeUrls||[]).length));")"
+          repair_action="$(node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('runtime-reliability.json','utf8')); process.stdout.write(p.repair?.action||'none');")"
+          fingerprint="$(node --input-type=module -e "import fs from 'node:fs'; const p=JSON.parse(fs.readFileSync('runtime-reliability.json','utf8')); process.stdout.write(p.fingerprint||'unknown');")"
+          {
+            echo "exit_code=$status"
+            echo "purge_count=$purge_count"
+            echo "repair_action=$repair_action"
+            echo "fingerprint=$fingerprint"
+          } >> "$GITHUB_OUTPUT"
+
+      # Exact URLs only, in batches of <= 30 through cf-purge-cache.mjs
+      # `--files=` (which clears the variant with and without `Origin`); the
+      # list can be long now that the whole graph is compared, so it travels
+      # in the report file, not in a step output.
+      - name: Purge divergent CDN assets
+        id: purge
+        if: steps.probe.outputs.repair_action == 'purge'
+        continue-on-error: true
+        run: |
+          if [ -z "${CF_API_TOKEN:-}" ]; then
+            echo "::error::runtime reliability found ${{ steps.probe.outputs.purge_count }} stale CDN asset(s) but CF_API_TOKEN is unavailable; no automatic repair was attempted"
+            exit 1
+          fi
+          node scripts/runtime-reliability-watch.mjs --purge-from runtime-reliability.json
+
+      # Cloudflare's documented worst case for a purge to reach every PoP.
+      - name: Allow targeted purge propagation
+        if: steps.probe.outputs.repair_action == 'purge'
+        run: sleep 30
+
+      - name: Verify live runtime after repair
+        id: verify
+        run: |
+          set +e
+          node scripts/runtime-reliability-watch.mjs --json > runtime-reliability-final.json
+          status=$?
+          set -e
+          echo "exit_code=$status" >> "$GITHUB_OUTPUT"
+          if [ -s runtime-reliability-final.json ]; then
+            node scripts/runtime-reliability-watch.mjs --annotate runtime-reliability-final.json || true
+          fi
+          exit 0
+
+      - name: Persist runtime circuit state
+        if: always()
+        run: |
+          set -euo pipefail
+          mkdir -p .runtime-reliability-state
+          node --input-type=module <<'NODE'
+          import fs from 'node:fs';
+          const source = fs.existsSync('runtime-reliability-final.json')
+            ? 'runtime-reliability-final.json'
+            : 'runtime-reliability.json';
+          const report = JSON.parse(fs.readFileSync(source, 'utf8'));
+          const first = JSON.parse(fs.readFileSync('runtime-reliability.json', 'utf8'));
+          let previous = {};
+          try {
+            const candidate = JSON.parse(fs.readFileSync('.runtime-reliability-state/state.json', 'utf8'));
+            if (candidate && typeof candidate === 'object' && !Array.isArray(candidate)) previous = candidate;
+          } catch {}
+          const fingerprint = report.fingerprint || first.fingerprint || null;
+          const previousLastActionAt = typeof previous.lastActionAt === 'string'
+            && Number.isFinite(Date.parse(previous.lastActionAt))
+            ? previous.lastActionAt
+            : null;
+          const sameFingerprint = Boolean(fingerprint) && previous.fingerprint === fingerprint;
+          const purgeSucceeded = Boolean(fingerprint)
+            && first.fingerprint === fingerprint
+            && first.repair?.action === 'purge'
+            && '${{ steps.purge.outcome }}' === 'success';
+          const state = {
+            fingerprint,
+            lastActionAt: purgeSucceeded
+              ? new Date().toISOString()
+              : sameFingerprint ? previousLastActionAt : null,
+            lastAction: first.repair?.action || 'none',
+            markerState: report.markerState || null,
+          };
+          fs.writeFileSync('.runtime-reliability-state/state.json', `${JSON.stringify(state, null, 2)}\n`);
+          NODE
+
+      - name: Save runtime repair circuit state
+        if: always()
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: .runtime-reliability-state
+          key: runtime-reliability-circuit-${{ github.run_id }}
+
+      - name: Upload runtime evidence
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: runtime-reliability-${{ github.run_id }}
+          path: |
+            runtime-reliability.json
+            runtime-reliability-final.json
+          if-no-files-found: ignore
+          retention-days: 14
+
+      - name: Open or update reliability issue
+        if: steps.verify.outputs.exit_code != '0'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Runtime reliability: live build coherence" \
+            --description "$(node scripts/runtime-reliability-watch.mjs --issue-body runtime-reliability-final.json --first runtime-reliability.json)" \
+            --priority 1 \
+            --label Bug \
+            --label runtime-reliability \
+            --workflow "${{ github.workflow }}"
+
+      - name: Resolve reliability issue on green
+        if: steps.verify.outputs.exit_code == '0'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs --resolve \
+            --title "Runtime reliability: live build coherence" \
+            --workflow "${{ github.workflow }}" \
+            --run-url "https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Fail when runtime remains degraded
+        if: steps.verify.outputs.exit_code != '0'
+        run: |
+          echo "::error::Runtime reliability watchdog remains degraded after safe targeted repair attempt"
+          exit 1

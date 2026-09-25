@@ -1,0 +1,248 @@
+name: Deploy Failure Alarm
+
+# L'osservatore ESTERNO di `Deploy to GitHub Pages`, e il motivo per cui deve
+# stare fuori dal workflow osservato invece che dentro.
+#
+# 2026-09-19, 20:54Z → 2026-09-20, 07:14Z: 78 run di deploy rosse consecutive
+# su `main`, dieci ore e ventiquattro minuti, zero allarmi. Il ciclo di merge
+# mergiava normalmente e la produzione non riceveva piu' niente. Il rosso era
+# nel job `approve production promotion`, che gira PRIMA del build e muore in
+# ~20 secondi: tutti i reporter `if: failure()` del deploy sono step dentro
+# `build-locale`, che in quella run non e' rosso ma `skipped` — e uno step di
+# un job saltato non viene mai valutato. Non era la prima volta: stesso gate,
+# stesso danno il 2026-09-16.
+#
+# La ragione strutturale: nessun reporter che vive DENTRO un workflow puo'
+# vedere un guasto che impedisce al suo job di partire. Serve qualcuno che
+# guardi la run dall'esterno, a run conclusa — che e' esattamente cio' che
+# `workflow_run: types: [completed]` da'.
+#
+# NON e' un gate, e non puo' diventarlo. Gira dopo che la run osservata ha
+# gia' il suo verdetto, in un workflow separato: non e' un check di nessuna
+# PR, non ha `deployments:` write, non tocca l'ambiente Pages, e
+# `scripts/ci/report-deploy-run-failure.mjs` esce sempre 0. Non esiste un
+# percorso per cui questo file ritardi o blocchi un deploy, un merge o una PR
+# — che e' la condizione posta dal proprietario, che non vuole approvazioni
+# umane sul deploy.
+#
+# NIENTE RUMORE. `Deploy to GitHub Pages` e' il workflow piu' cancellato del
+# repo (91 righe `cancelled` su 100 nella misura del 2026-08-18, 38 su 40 il
+# 2026-09-20): sono scarti di coda della concorrenza newest-wins, con zero job
+# avviati. L'`if:` del job `alarm` elenca le conclusion di GUASTO invece di
+# negare `success`, quindi su un `cancelled` non parte nemmeno un runner. La
+# stessa decisione e' ri-testabile come funzione pura (`alarmVerdict`) in
+# `tests/deploy-failure-alarm.test.ts`, sui payload reali delle due run.
+#
+# UN PUNTO CIECO, coperto altrove. GitHub non emette `workflow_run` per una run
+# avviata con il GITHUB_TOKEN (actor `github-actions[bot]`, per esempio un
+# dispatch di ripiego del job `rearm`): per quelle run questo file non parte
+# mai. Le copre il job `in-run-alarm` di `deploy.yml`, che apre lo STESSO titolo
+# da dentro la run e solo per quell'actor — run 36065965021 del 2026-09-24,
+# rossa e mai vista da qui. `tests/deploy-in-run-alarm.test.ts` pinna che ogni
+# run rossa sia vista da uno dei due osservatori, e con lo stesso titolo.
+#
+# Titolo fisso => dedup: `scripts/lib/github-issue-creator.mjs` commenta 🔁 con
+# il contesto nuovo sulla issue canonica invece di coniarne una seconda, e la
+# chiude il job `resolve` qui sotto al primo deploy verde (piu' il reconciler
+# orario come seconda rete — il nome nel titolo e' quello del workflow
+# OSSERVATO, che e' quello che lui cerca con `gh run list -w`).
+
+on:
+  workflow_run:
+    # Obbligatorio e non vuoto: `workflow_run` senza `workflows:` non e' un
+    # trigger non filtrato, e' un FILE INVALIDO — ha gia' ucciso in silenzio
+    # ogni trigger di un altro workflow per 2,5 giorni (#6656).
+    workflows: ['Deploy to GitHub Pages']
+    types: [completed]
+    branches:
+      - main
+  workflow_dispatch:
+    inputs:
+      run_id:
+        description: >-
+          Id di una run passata di "Deploy to GitHub Pages" da rigiocare.
+          Serve a verificare l'osservatore su un guasto gia' avvenuto senza
+          doverne provocare uno nuovo. La conclusion viene letta dalla run.
+        required: true
+        type: string
+      dry_run:
+        description: 'Stampa il body e non tocca nessuna issue.'
+        required: false
+        default: true
+        type: boolean
+
+concurrency:
+  # Una chiave distinta per ogni run osservata evita che due eventi ravvicinati
+  # condividano l'unico slot pending del gruppo globale di GitHub Actions.
+  # `github.run_id` copre anche il replay manuale quando manca l'evento
+  # `workflow_run`; `cancel-in-progress: false` conserva ogni coda per-run.
+  group: deploy-failure-alarm-${{ github.event.workflow_run.id || inputs.run_id || github.run_id }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+  # Senza questa riga la Jobs API risponde 403 e il body degrada a «job non
+  # attribuito» IN SILENZIO: un blocco `permissions:` esplicito azzera gli
+  # scope non elencati.
+  actions: read
+
+env:
+  OBSERVED_WORKFLOW: Deploy to GitHub Pages
+
+jobs:
+  alarm:
+    name: open or update the deploy alarm
+    # Le conclusion di GUASTO, elencate. NON `!= 'success'`: quella forma
+    # farebbe partire un runner per ognuno dei ~90 `cancelled` al giorno.
+    if: >-
+      github.event_name == 'workflow_dispatch' ||
+      github.event.workflow_run.conclusion == 'failure' ||
+      github.event.workflow_run.conclusion == 'timed_out' ||
+      github.event.workflow_run.conclusion == 'startup_failure'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Digest the failing deploy run
+        id: digest
+        env:
+          # Tutti gli input passano da env, mai come testo di script:
+          # `scripts/ci/check-workflow-input-injection.mjs`.
+          ALARM_WORKFLOW_NAME: ${{ env.OBSERVED_WORKFLOW }}
+          ALARM_REPO: ${{ github.repository }}
+          ALARM_RUN_ID: ${{ github.event.workflow_run.id || inputs.run_id }}
+          ALARM_RUN_URL: ${{ github.event.workflow_run.html_url }}
+          ALARM_RUN_CONCLUSION: ${{ github.event.workflow_run.conclusion }}
+          ALARM_DESCRIPTION_FILE: alarm-description.md
+          GH_TOKEN: ${{ github.token }}
+        run: node scripts/ci/report-deploy-run-failure.mjs --mode report
+
+      - name: Open or update the deploy alarm issue
+        # Il primo ramo e' la condizione di esercizio e va scritto per esteso:
+        # e' quello che `isFailureGated` in
+        # `scripts/ci/failure-issue-inventory.mjs` legge per far entrare questo
+        # opener nell'inventario, cioe' per far VERIFICARE al gate di
+        # accoppiamento che qualcuno chiuda questo titolo. Il secondo copre il
+        # replay manuale e le due conclusion di guasto piu' rare.
+        if: >-
+          (github.event_name != 'workflow_dispatch' || !inputs.dry_run) &&
+          (github.event.workflow_run.conclusion == 'failure' ||
+           steps.digest.outputs.verdict == 'report')
+        env:
+          GH_TOKEN: ${{ github.token }}
+          ALARM_RUN_URL: ${{ github.event.workflow_run.html_url }}
+        run: |
+          # Se il digest non ha potuto scrivere il body (Jobs API 403, rete),
+          # l'allarme suona lo stesso con meno dettaglio: un osservatore che
+          # tace su un errore proprio e' il guasto che questo file ripara.
+          if [ ! -s alarm-description.md ]; then
+            cat > alarm-description.md <<'FALLBACK'
+          Il deploy e' rosso su main e il digest della run non e' stato
+          leggibile (Jobs API irraggiungibile o senza permessi). Il guasto
+          resta: apri la run del workflow osservato e leggi il primo job rosso.
+          FALLBACK
+          fi
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: Deploy to GitHub Pages" \
+            --description "$(cat alarm-description.md)" \
+            --priority 2 \
+            --label Bug \
+            --workflow "Deploy to GitHub Pages" \
+            --run-url "${ALARM_RUN_URL}"
+
+      - name: Preview only (dispatch dry-run)
+        if: github.event_name == 'workflow_dispatch' && inputs.dry_run
+        run: |
+          cat alarm-description.md \
+            || echo 'nessun body scritto - la run osservata non era un guasto'
+
+  resolve:
+    name: close the deploy alarm on green
+    if: github.event.workflow_run.conclusion == 'success'
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+
+      - name: Resolve the deploy alarm issue on green
+        # Il TITOLO DEVE essere identico a quello aperto sopra: il dedup e la
+        # chiusura sono la stessa chiave. Divergerli significa una issue che
+        # nessuno chiude piu'.
+        env:
+          GH_TOKEN: ${{ github.token }}
+          RUN_URL: ${{ github.event.workflow_run.html_url }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --resolve \
+            --title "Workflow Failure: Deploy to GitHub Pages" \
+            --workflow "Deploy to GitHub Pages" \
+            --run-url "${RUN_URL}"
+        # `--run-url` come env: il valore arriva dall'evento, non dal testo.

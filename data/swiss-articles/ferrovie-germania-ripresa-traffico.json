@@ -1,0 +1,40 @@
+{
+  "id": "ferrovie-germania-ripresa-traffico",
+  "slug": "ferrovie-germania-ripresa-traffico",
+  "publishedAt": "2026-06-26T15:16:26.081Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 8.439946894297,
+    "confidence": 0.8,
+    "finalScore": 6.7519575154376,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8639939038961639
+      },
+      {
+        "slug": "disoccupazione-frontalieri-parigi-berna",
+        "cosine": 0.8576871991224635
+      },
+      {
+        "slug": "boom-viaggiatori-treni-2026-ticino",
+        "cosine": 0.8489632712390429
+      },
+      {
+        "slug": "ripristino-treni-locarno-cadenazzo",
+        "cosine": 0.848448296214461
+      },
+      {
+        "slug": "riaperta-galleria-monte-ceneri",
+        "cosine": 0.846198434949425
+      }
+    ],
+    "score": 0.6751957515437601,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

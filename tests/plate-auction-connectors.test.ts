@@ -1,0 +1,472 @@
+import { readFileSync } from 'node:fs';
+import { dirname, join } from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { describe, expect, it, vi } from 'vitest';
+import {
+  extractPdfUrl,
+  fetchHtml,
+  FIXED_PRICE_SOURCE_CONFIGS,
+  isEcariCatalogueExplicitlyEmpty,
+  isExplicitlyEmptyCatalogue,
+  resolveVariantPdfUrl,
+  parseAiFixedPricePdfText,
+  parseBsFixedPricePdfText,
+  parseGlFixedPriceJson,
+  parseLuFixedPricePdfText,
+  parseUrFixedPricePdfText,
+} from '../functions/src/plateAuctionsCore.js';
+import { parseGrAuctionRows } from '../scripts/plate-auctions/connectors/gr.mjs';
+import { parseSgAuctionRows } from '../scripts/plate-auctions/connectors/sg.mjs';
+import { parseShAuctionRows } from '../scripts/plate-auctions/connectors/sh.mjs';
+import {
+  fetchSzPlateAuctions,
+  parseSzAuctionRows,
+  SZ_AUCTION_URL,
+  SZ_PUBLIC_API_RELAY_URL,
+} from '../scripts/plate-auctions/connectors/sz.mjs';
+import { parseTiAuctionRows } from '../scripts/plate-auctions/connectors/ti.mjs';
+import { parseTgAuctionRows } from '../scripts/plate-auctions/connectors/tg.mjs';
+import { parseZhAuctions } from '../scripts/plate-auctions/connectors/zh.mjs';
+import { parseExpandedCard, parseExpandedEcari } from '../scripts/plate-auctions/connectors/expanded.mjs';
+import { validatePlateAuction } from '../services/plateAuctions/types';
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
+
+const GR_SAMPLE = `
+<div id="tabContent1">
+<table><tbody>
+<tr class="L" style="border-bottom:1px solid #aaa">
+  <td><a onclick="openDetails(2230)" href="#"><div class="plaqueAuto"><div class="number">12219</div></div></a></td>
+  <td class="amount">500</td><td class="amount">50</td><td class="amount">900</td>
+  <td class="closingTime">2026/09/13 20:00:00</td><td>4</td><td>hidden-bidder</td>
+</tr>
+</tbody></table>
+</div><div id="tabContent2">Kontrollschilder nicht verfügbar</div>`;
+
+const ZH_SAMPLE = `
+<a href="/de/auction/43423" class="auction-element-link">
+  <figure title="ZH 626"><figcaption>ZH 626</figcaption></figure>
+  <div class="auction-element-title"><img src="/bundles/auction/icons/car.svg" alt="Icon eines Autos"/></div>
+  <div class="auction-current-bid">CHF&nbsp;11&nbsp;200</div>
+  <div class="auction-element-text"><div class="auction-number-bids">17 Gebote</div>
+  <div class="auction-ends-at-text">Endet am:</div><div>16.09.2026, 19:00:00</div></div>
+</a>`;
+
+const TI_SAMPLE = `
+<div id="tabContent1"><table><tbody><tr class="L">
+  <td><a onclick="openDetails(1532)" href="#"><div class="number">13457</div></a></td>
+  <td class="amount">500</td><td class="amount">50</td><td class="amount">650</td>
+  <td class="closingTime">2026/09/14 20:00:00</td><td>3</td><td>offerente privato</td>
+</tr></tbody></table></div>`;
+
+const CARD_SAMPLE = `
+<div class="auction-grid"><div class="auctions">
+  <div>Auktionsende am 23.09.2026</div>
+  <a href="/de/auction/109715" class="auction-element-link">
+    <figure title="TG 13926"><figcaption>TG 13926</figcaption></figure>
+    <div class="auction-element-title"><img src="/bundles/auction/icons/car.svg" alt="Icon eines Autos"/></div>
+    <div class="auction-current-bid">CHF&nbsp;600</div>
+    <div class="auction-element-text"><div class="auction-number-bids">1 Gebot</div>
+      <div class="auction-ends-at-text">Endet am:</div><div>19:00:00</div>
+    </div>
+  </a>
+</div></div>`;
+
+const EXPANDED_ECARI_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-ecari-auction-sample.html'), 'utf8');
+const EXPANDED_CARD_SAMPLE = readFileSync(join(__dirname, 'fixtures/expanded-card-auction-sample.html'), 'utf8');
+// NW/OW between two rounds: eCari's own empty state in every tab.
+const ECARI_NO_RUNNING_AUCTION = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction.html'), 'utf8');
+// Stesso stato vuoto in fr_ch (FR, VS) e it_CH (TI), catturato il 2026-09-25.
+const ECARI_NO_RUNNING_AUCTION_FR = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction-fr.html'), 'utf8');
+const ECARI_NO_RUNNING_AUCTION_IT = readFileSync(join(__dirname, 'fixtures/ecari-no-running-auction-it.html'), 'utf8');
+
+describe('expanded plate-auction connectors', () => {
+  it('does not substitute an unrelated PDF when a configured pattern misses', () => {
+    const html = '<a href="/cars.pdf">Cars</a><a href="/motorcycles.pdf">Motorcycles</a>';
+    expect(extractPdfUrl(html, { baseUrl: 'https://example.test/source', pattern: /trailer\.pdf/i })).toBeUndefined();
+    expect(extractPdfUrl(html, { baseUrl: 'https://example.test/source' })).toBe('https://example.test/cars.pdf');
+  });
+
+  it('retries transient catalogue fetch failures before degrading a source', async () => {
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockRejectedValueOnce(new TypeError('temporary network reset'))
+      .mockResolvedValueOnce(new Response('<html>ok</html>', { status: 200 }));
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
+  it('retries when the response body stream fails after headers arrive', async () => {
+    const firstResponse = {
+      ok: true,
+      text: vi.fn().mockRejectedValueOnce(new TypeError('temporary stream reset')),
+    } as unknown as Response;
+    const secondResponse = {
+      ok: true,
+      text: vi.fn().mockResolvedValue('<html>ok</html>'),
+    } as unknown as Response;
+    const fetchMock = vi.spyOn(globalThis, 'fetch')
+      .mockResolvedValueOnce(firstResponse)
+      .mockResolvedValueOnce(secondResponse);
+
+    try {
+      await expect(fetchHtml('https://example.test/catalogue', { retries: 1, retryDelayMs: 0 })).resolves.toBe('<html>ok</html>');
+      expect(fetchMock).toHaveBeenCalledTimes(2);
+    } finally {
+      fetchMock.mockRestore();
+    }
+  });
+
+  it('parses the GR eCari full-width row and never exposes bidder text', () => {
+    const [row] = parseGrAuctionRows(GR_SAMPLE, { fetchedAt: '2026-09-13T08:00:00.000Z' });
+    expect(row).toMatchObject({
+      id: 'gr-2230', sourceKey: 'GR', normalizedPlate: 'GR12219', startingPriceChf: 500,
+      minimumIncrementChf: 50, currentBidChf: 900, bidCount: 4, endsAt: '2026-09-13T18:00:00.000Z',
+    });
+    expect(JSON.stringify(row)).not.toContain('hidden-bidder');
+    expect(validatePlateAuction(row)).toEqual([]);
+  });
+
+  it('parses the ZH public card into a detail URL and Zurich UTC timestamp', () => {
+    const [row] = parseZhAuctions(ZH_SAMPLE, { fetchedAt: '2026-09-13T08:00:00.000Z' });
+    expect(row).toMatchObject({
+      id: 'zh-43423', sourceKey: 'ZH', normalizedPlate: 'ZH626', currentBidChf: 11200,
+      bidCount: 17, officialDetailUrl: 'https://www.auktion.stva.zh.ch/de/auction/43423',
+      endsAt: '2026-09-16T17:00:00.000Z',
+    });
+    expect(validatePlateAuction(row)).toEqual([]);
+  });
+
+  it('keeps direct-sale and wanted tabs public even when price/deadline cells are absent', () => {
+    const html = `
+      <div id="tabContent3"><table><tbody><tr class="L"><td><a onclick="openDetails(77)"><div class="number">8008</div></a></td><td class="amount">2500</td></tr></tbody></table></div>
+      <div id="tabContent4"><table><tbody><tr class="L"><td><a onclick="openDetails(78)"><div class="number">9009</div></a></td></tr></tbody></table></div>`;
+    const rows = parseGrAuctionRows(html, { fetchedAt: '2026-09-13T08:00:00.000Z' });
+    expect(rows).toHaveLength(2);
+    expect(rows[0]).toMatchObject({ id: 'gr-fixed-77', listingType: 'fixed-price', currentBidChf: 2500, auctionStatus: 'active' });
+    expect(rows[1]).toMatchObject({ id: 'gr-wanted-78', listingType: 'wanted', auctionStatus: 'upcoming' });
+    expect(rows.every((row) => validatePlateAuction(row).length === 0)).toBe(true);
+  });
+
+  it('reads the public Ticino eCari catalogue and keeps bidder data private', () => {
+    const [row] = parseTiAuctionRows(TI_SAMPLE, { fetchedAt: '2026-09-14T08:00:00.000Z' });
+    expect(row).toMatchObject({
+      id: 'ti-1532', sourceKey: 'TI', normalizedPlate: 'TI13457', currentBidChf: 650,
+      bidCount: 3, endsAt: '2026-09-14T18:00:00.000Z', officialAuctionUrl: 'https://www.carieauktion.ti.ch/ecari-auktion/',
+    });
+    expect(JSON.stringify(row)).not.toContain('offerente privato');
+    expect(validatePlateAuction(row)).toEqual([]);
+  });
+
+  it('reuses the eCari parser for San Gallo and Svitto', () => {
+    const sgRows = parseSgAuctionRows(TI_SAMPLE.replaceAll('TI', 'SG'), { fetchedAt: '2026-09-14T08:00:00.000Z' });
+    const szRows = parseSzAuctionRows(TI_SAMPLE.replaceAll('TI', 'SZ'), { fetchedAt: '2026-09-14T08:00:00.000Z' });
+    expect(sgRows[0]).toMatchObject({ id: 'sg-1532', sourceKey: 'SG', normalizedPlate: 'SG13457' });
+    expect(szRows[0]).toMatchObject({ id: 'sz-1532', sourceKey: 'SZ', normalizedPlate: 'SZ13457' });
+    expect(validatePlateAuction(sgRows[0])).toEqual([]);
+    expect(validatePlateAuction(szRows[0])).toEqual([]);
+  });
+
+  it('uses only a fresh healthy public API relay when SZ blocks CI egress', async () => {
+    const previousRelay = process.env.PLATE_AUCTION_ENABLE_API_RELAY;
+    process.env.PLATE_AUCTION_ENABLE_API_RELAY = '1';
+    const fetcher = vi.fn(async ({ officialAuctionUrl }: { officialAuctionUrl: string }) => {
+      if (officialAuctionUrl === SZ_AUCTION_URL) throw new TypeError('fetch failed');
+      throw new Error(`unexpected direct fetch: ${officialAuctionUrl}`);
+    });
+    const apiResponse = JSON.stringify({
+      sources: {
+        sz: {
+          status: 'active',
+          rowCount: 1,
+          lastSuccessAt: '2026-09-15T08:00:00.000Z',
+        },
+      },
+      auctions: [{
+        id: 'sz-42',
+        sourceKey: 'SZ',
+        normalizedPlate: 'SZ42',
+        officialAuctionUrl: 'https://cariegov.sz.ch/ecari-auction/ui/app/init?locale=de_ch',
+        sourceFetchedAt: '2026-09-15T08:00:00.000Z',
+        lastVerifiedAt: '2026-09-15T08:00:00.000Z',
+      }],
+    });
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = vi.fn(async (url: string | URL) => {
+      expect(String(url)).toBe(SZ_PUBLIC_API_RELAY_URL);
+      return new Response(apiResponse, { status: 200 });
+    }) as typeof fetch;
+
+    try {
+      const rows = await fetchSzPlateAuctions({
+        fetcher,
+        now: new Date('2026-09-15T09:00:00.000Z'),
+      });
+      expect(rows).toHaveLength(1);
+      expect(rows[0]).toMatchObject({
+        id: 'sz-42',
+        sourceKey: 'SZ',
+        officialAuctionUrl: SZ_AUCTION_URL,
+      });
+      expect(fetcher).toHaveBeenCalledWith({
+        canton: 'Svitto',
+        plateCode: 'SZ',
+        officialAuctionUrl: SZ_AUCTION_URL,
+      });
+    } finally {
+      globalThis.fetch = originalFetch;
+      if (previousRelay === undefined) delete process.env.PLATE_AUCTION_ENABLE_API_RELAY;
+      else process.env.PLATE_AUCTION_ENABLE_API_RELAY = previousRelay;
+    }
+  });
+
+  it('refuses a relay payload whose envelope is fresh but whose SZ source is stale', async () => {
+    // The relay envelope is NOT a freshness signal: getPublicPlateAuctionSnapshot
+    // stamps `generatedAt: new Date().toISOString()` at SERVE time, so a relay
+    // whose Firestore collector froze days ago still answers with a timestamp of
+    // "now". Measured on 2026-09-18: the live relay returned
+    // generatedAt=2026-09-18T20:02Z with sources.sz.lastSuccessAt=2026-09-15T05:42Z
+    // (86h). Only the per-source lastSuccessAt can reject that, and rejecting it
+    // is the point — widening the window would publish 86h-old bids as current.
+    const previousRelay = process.env.PLATE_AUCTION_ENABLE_API_RELAY;
+    process.env.PLATE_AUCTION_ENABLE_API_RELAY = '1';
+    const fetcher = vi.fn(async () => {
+      throw new TypeError('fetch failed');
+    });
+    const apiResponse = JSON.stringify({
+      generatedAt: '2026-09-18T20:02:53.923Z',
+      sources: { sz: { status: 'active', rowCount: 13, lastSuccessAt: '2026-09-15T05:42:05.789Z' } },
+      auctions: [{ id: 'sz-42', sourceKey: 'SZ', normalizedPlate: 'SZ42' }],
+    });
+    const originalFetch = globalThis.fetch;
+    globalThis.fetch = vi.fn(async () => new Response(apiResponse, { status: 200 })) as typeof fetch;
+
+    try {
+      await expect(fetchSzPlateAuctions({
+        fetcher,
+        now: new Date('2026-09-18T20:03:00.000Z'),
+      })).rejects.toThrow(/API relay source is too old/);
+    } finally {
+      globalThis.fetch = originalFetch;
+      if (previousRelay === undefined) delete process.env.PLATE_AUCTION_ENABLE_API_RELAY;
+      else process.env.PLATE_AUCTION_ENABLE_API_RELAY = previousRelay;
+    }
+  });
+
+  it('parses the configurable card platforms for Sciaffusa and Turgovia', () => {
+    const shRows = parseShAuctionRows(CARD_SAMPLE.replaceAll('TG', 'SH'), { fetchedAt: '2026-09-14T08:00:00.000Z' });
+    const tgRows = parseTgAuctionRows(CARD_SAMPLE, { fetchedAt: '2026-09-14T08:00:00.000Z' });
+    expect(shRows[0]).toMatchObject({ id: 'sh-109715', sourceKey: 'SH', normalizedPlate: 'SH13926', endsAt: '2026-09-23T17:00:00.000Z' });
+    expect(tgRows[0]).toMatchObject({ id: 'tg-109715', sourceKey: 'TG', normalizedPlate: 'TG13926', endsAt: '2026-09-23T17:00:00.000Z' });
+    expect(validatePlateAuction(shRows[0])).toEqual([]);
+    expect(validatePlateAuction(tgRows[0])).toEqual([]);
+  });
+
+  it('reuses the eCari contract for all newly verified public catalogues', () => {
+    for (const sourceKey of ['ar', 'bl', 'fr', 'nw', 'ow', 'so']) {
+      const [row] = parseExpandedEcari(sourceKey, EXPANDED_ECARI_SAMPLE, { fetchedAt: '2026-09-15T08:00:00.000Z' });
+      expect(row, sourceKey).toMatchObject({
+        id: `${sourceKey}-1768`,
+        sourceKey: sourceKey.toUpperCase(),
+        plateNumber: '691',
+        currentBidChf: 950,
+        officialDetailUrl: expect.stringContaining('/ui/app/details/app?id=1768'),
+      });
+      expect(JSON.stringify(row)).not.toContain('private bidder omitted');
+      expect(validatePlateAuction(row), sourceKey).toEqual([]);
+    }
+  });
+
+  it('reuses the card contract for AG, BE and VD after the portal migrations', () => {
+    for (const sourceKey of ['ag', 'be', 'vd']) {
+      const [row] = parseExpandedCard(sourceKey, EXPANDED_CARD_SAMPLE.replaceAll('AG', sourceKey.toUpperCase()), { fetchedAt: '2026-09-15T08:00:00.000Z' });
+      expect(row, sourceKey).toMatchObject({
+        id: `${sourceKey}-1768`,
+        sourceKey: sourceKey.toUpperCase(),
+        normalizedPlate: `${sourceKey.toUpperCase()}691`,
+        currentBidChf: 950,
+        officialDetailUrl: 'https://www.' + (sourceKey === 'vd' ? 'encheres-vd.ch' : sourceKey === 'ag' ? 'auktion-ag.ch' : 'auktion-be.ch') + '/de/auction/1768',
+      });
+      expect(validatePlateAuction(row), sourceKey).toEqual([]);
+    }
+  });
+
+  it('parses the five newly covered official fixed-price catalogues without auction fields', () => {
+    const options = {
+      officialUrl: 'https://example.test/official',
+      officialDetailUrl: 'https://example.test/source.pdf',
+      fetchedAt: '2026-09-15T08:00:00.000Z',
+    };
+    const ai = parseAiFixedPricePdfText('Fr. 2000 2674 3854 Fr. 1200 5367 | 6394 Fr. 300 10310', options);
+    const aiMotorcycle = parseAiFixedPricePdfText('Fr. 200 153 204 249', { ...options, vehicleType: 'motorcycle' });
+    const bs = parseBsFixedPricePdfText('BS 186 4,000.00 Nein Siehe Hinweis 1 BS 213 4,000.00 Ja', options);
+    const gl = parseGlFixedPriceJson({ data: [{ id: 1523, number: 3681, price: 800, available: 1, deleted: 0, registered: 0, platetype: 'car_long_plate' }] }, options);
+    const lu = parseLuFixedPricePdfText({ pages: [
+      'Wunschkontrollschilder Motorwagen; an Lager\nHochformat\nFr 1’000.- Fr 800.- Fr 800.- Fr 600.-\n21 694 30 129 58 139 65 032',
+      'Wunschkontrollschilder Motorrad; an Lager\nFr 200.- Fr 150.- Fr 150.-\n4 157 7 389 9 723',
+    ] }, options);
+    const ur = parseUrFixedPricePdfText("UR 2296 50 x 11 cm 1'000.--SFr. UR 3086 50 x 11 cm 700.--SFr.", options);
+    for (const [sourceKey, rows] of [['AI', ai], ['BS', bs], ['GL', gl], ['LU', lu], ['UR', ur]] as const) {
+      expect(rows.length, sourceKey).toBeGreaterThan(0);
+      expect(rows.every((row) => row.sourceKey === sourceKey && row.listingType === 'fixed-price')).toBe(true);
+      expect(rows.every((row) => row.bidCount === undefined && row.currentBidChf === undefined)).toBe(true);
+      expect(rows.every((row) => validatePlateAuction(row).length === 0)).toBe(true);
+    }
+    expect(lu.find((row) => row.vehicleType === 'motorcycle')).toMatchObject({ startingPriceChf: 200 });
+    expect(aiMotorcycle[0]).toMatchObject({ id: 'ai-motorcycle-153', vehicleType: 'motorcycle', startingPriceChf: 200 });
+    expect(ur.find((row) => row.plateNumber === '3086')).toMatchObject({ startingPriceChf: 700 });
+  });
+});
+
+describe('fixed-price PDF url resolution', () => {
+  const pageUrl = 'https://www.bs.ch/themen/mobilitaet/kontrollschilder/wunschkontrollschilder';
+  const carPattern = /\/wuko-pw-[^/]+\.pdf$/i;
+  const liveIndexHtml = '<a href="https://media.bs.ch/original_file/33ac87d5/wuko-pw-36.pdf">PW</a>';
+
+  it('reads the week the live page links, not a pinned one', () => {
+    expect(resolveVariantPdfUrl({ pdfUrlPattern: carPattern }, {
+      sourceKey: 'bs', pageUrl, indexHtml: liveIndexHtml,
+    })).toBe('https://media.bs.ch/original_file/33ac87d5/wuko-pw-36.pdf');
+  });
+
+  it('names the failure instead of silently substituting a pinned week', () => {
+    // The bug this replaces: `extractPdfUrl(...) || variant.fallbackPdfUrl`
+    // turned "the pattern matched nothing" into "fetch this hardcoded URL".
+    // BS pins one content-addressed PDF per ISO week, so on 2026-09-19 that
+    // substitute was week 35 against a live week 36 and answered HTTP 404 —
+    // and a hashed asset still answering 200 would instead have published a
+    // five-week-old catalogue as current. The miss has to be an error.
+    expect(() => resolveVariantPdfUrl({ pdfUrlPattern: carPattern }, {
+      sourceKey: 'bs', pageUrl, indexHtml: '<a href="/unrelated.pdf">x</a>',
+    })).toThrow(/bs: no PDF href matched .* on https:\/\/www\.bs\.ch/);
+  });
+
+  it('still honours an evergreen fallback, and says when it used one', () => {
+    // AI and LU point at canonical paths that are not week-pinned, so the
+    // fallback stays legitimate — but a pattern that stopped matching is the
+    // same signal that preceded the BS breakage, so it must be visible.
+    const warn = vi.spyOn(console, 'warn').mockImplementation(() => {});
+    try {
+      expect(resolveVariantPdfUrl({
+        pdfUrlPattern: /wunschschilder\.pdf$/i,
+        fallbackPdfUrl: 'https://strassenverkehrsamt.lu.ch/downloads/wunschschilder.pdf',
+      }, { sourceKey: 'lu', pageUrl, indexHtml: '<a href="/other.pdf">x</a>' }))
+        .toBe('https://strassenverkehrsamt.lu.ch/downloads/wunschschilder.pdf');
+      expect(warn).toHaveBeenCalledWith(expect.stringContaining('matched no href'));
+    } finally {
+      warn.mockRestore();
+    }
+  });
+
+  it('keeps every BS variant free of a hardcoded weekly PDF', () => {
+    // Re-adding one would re-arm the exact failure: a URL captured in one week
+    // that keeps being fetched in every later one.
+    const bs = FIXED_PRICE_SOURCE_CONFIGS.bs as Record<string, unknown> & {
+      pdfVariants: Record<string, unknown>[];
+    };
+    expect(bs.fallbackPdfUrl).toBeUndefined();
+    for (const variant of bs.pdfVariants) {
+      expect(variant.fallbackPdfUrl).toBeUndefined();
+      expect(variant.pdfUrlPattern).toBeInstanceOf(RegExp);
+    }
+  });
+});
+
+describe('eCari explicit empty catalogue', () => {
+  it('reads the NW/OW "Keine laufende Versteigerung" page as an empty catalogue, not a failed parse', () => {
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION)).toBe(true);
+    for (const sourceKey of ['nw', 'ow']) {
+      const rows = parseExpandedEcari(sourceKey, ECARI_NO_RUNNING_AUCTION);
+      expect(rows, sourceKey).toEqual([]);
+      expect(isExplicitlyEmptyCatalogue(rows), sourceKey).toBe(true);
+    }
+    // Same portal, own parsers: the class, not just the two cantons.
+    for (const rows of [parseGrAuctionRows(ECARI_NO_RUNNING_AUCTION), parseSgAuctionRows(ECARI_NO_RUNNING_AUCTION), parseSzAuctionRows(ECARI_NO_RUNNING_AUCTION), parseTiAuctionRows(ECARI_NO_RUNNING_AUCTION)]) {
+      expect(isExplicitlyEmptyCatalogue(rows)).toBe(true);
+    }
+  });
+
+  it('reads the French and Italian empty pages the same way (FR and VS serve fr_ch, TI it_CH)', () => {
+    // Con il solo tedesco il catalogo vuoto di FR, VS e TI restava `zero_rows`.
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION_FR)).toBe(true);
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION_IT)).toBe(true);
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION_FR, ['tabContent1', 'tabContent2', 'tabContent4'])).toBe(true);
+    const frRows = parseExpandedEcari('fr', ECARI_NO_RUNNING_AUCTION_FR);
+    expect(frRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(frRows)).toBe(true);
+    const tiRows = parseTiAuctionRows(ECARI_NO_RUNNING_AUCTION_IT);
+    expect(tiRows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(tiRows)).toBe(true);
+    // Fail-closed invariato: senza etichetta, o troncata, non è vuota.
+    for (const [page, label] of [
+      [ECARI_NO_RUNNING_AUCTION_FR, 'Aucune enchère en cours'],
+      [ECARI_NO_RUNNING_AUCTION_IT, 'Nessuna targa disponibile'],
+    ] as const) {
+      expect(isEcariCatalogueExplicitlyEmpty(page.replaceAll(label, ''))).toBe(false);
+      expect(isEcariCatalogueExplicitlyEmpty(page.slice(0, page.indexOf('<div id="tabContent2"')))).toBe(false);
+    }
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION_FR.replaceAll('Plaques indisponibles', ''))).toBe(false);
+  });
+
+  it('keeps an empty parse WITHOUT the explicit label a failed parse', () => {
+    // The page shell answered 200 but the auction tab lost its label: that is
+    // a truncated or changed page, and must stay `zero_rows` downstream.
+    const shell = ECARI_NO_RUNNING_AUCTION.replaceAll('Keine laufende Versteigerung', '');
+    expect(isEcariCatalogueExplicitlyEmpty(shell)).toBe(false);
+    expect(isExplicitlyEmptyCatalogue(parseExpandedEcari('nw', shell))).toBe(false);
+    expect(isExplicitlyEmptyCatalogue(parseExpandedEcari('nw', ''))).toBe(false);
+    // A tab without its own empty label is not known to be empty either.
+    const unlabelledFixedPriceTab = ECARI_NO_RUNNING_AUCTION.replace(
+      /<div id="tabContent3"[\s\S]*?(?=<div id="tabContent4")/,
+      (section) => section.replaceAll('Kontrollschilder nicht verfügbar', ''),
+    );
+    expect(unlabelledFixedPriceTab).not.toBe(ECARI_NO_RUNNING_AUCTION);
+    expect(isEcariCatalogueExplicitlyEmpty(unlabelledFixedPriceTab)).toBe(false);
+  });
+
+  it('never calls a truncated page empty when a tab the connector reads is missing', () => {
+    // Review #9715: a response cut after `tabContent1` still carries the
+    // auction tab's own empty label. Validating only the tabs that survived
+    // accepted it as an authoritative empty catalogue, so live rows in the
+    // lost tabs would be closed as absent instead of failing `zero_rows`.
+    const truncated = ECARI_NO_RUNNING_AUCTION.slice(0, ECARI_NO_RUNNING_AUCTION.indexOf('<div id="tabContent2"'));
+    expect(truncated).toContain('Keine laufende Versteigerung');
+    expect(isEcariCatalogueExplicitlyEmpty(truncated)).toBe(false);
+    for (const sourceKey of ['nw', 'ow']) {
+      expect(isExplicitlyEmptyCatalogue(parseExpandedEcari(sourceKey, truncated)), sourceKey).toBe(false);
+    }
+    for (const rows of [parseGrAuctionRows(truncated), parseSgAuctionRows(truncated), parseSzAuctionRows(truncated), parseTiAuctionRows(truncated)]) {
+      expect(isExplicitlyEmptyCatalogue(rows)).toBe(false);
+    }
+    // Only the last tab lost: still not a complete observation.
+    const withoutWanted = ECARI_NO_RUNNING_AUCTION.replace(/<div id="tabContent4"[\s\S]*$/, '');
+    expect(isEcariCatalogueExplicitlyEmpty(withoutWanted)).toBe(false);
+    // A connector that reads fewer tabs (VS: 1, 2, 4) is judged on its own set.
+    const withoutFixedPrice = ECARI_NO_RUNNING_AUCTION.replace(/<div id="tabContent3"[\s\S]*?(?=<div id="tabContent4")/, '');
+    expect(isEcariCatalogueExplicitlyEmpty(withoutFixedPrice, ['tabContent1', 'tabContent2', 'tabContent4'])).toBe(true);
+    expect(isEcariCatalogueExplicitlyEmpty(withoutFixedPrice)).toBe(false);
+    expect(isEcariCatalogueExplicitlyEmpty(ECARI_NO_RUNNING_AUCTION, [])).toBe(false);
+  });
+
+  it('never calls a page empty when it holds rows the parser cannot read', () => {
+    // A markup change that breaks the row parser while one section still
+    // shows the empty label must not become "nothing is listed".
+    const unreadableRow = ECARI_NO_RUNNING_AUCTION.replace(
+      '<div class="bikeContent"',
+      '<table><tbody><tr class="L"><td><a onclick="showAuction(1768)">OW 691</a></td><td>CHF 950</td></tr></tbody></table><div class="bikeContent"',
+    );
+    const rows = parseExpandedEcari('ow', unreadableRow);
+    expect(rows).toEqual([]);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(false);
+  });
+
+  it('leaves a catalogue with rows untouched', () => {
+    const rows = parseExpandedEcari('nw', EXPANDED_ECARI_SAMPLE);
+    expect(rows).toHaveLength(1);
+    expect(isExplicitlyEmptyCatalogue(rows)).toBe(false);
+  });
+});

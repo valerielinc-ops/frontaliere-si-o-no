@@ -1,0 +1,40 @@
+{
+  "id": "cassa-malati-spacchettamento-ticino",
+  "slug": "cassa-malati-spacchettamento-ticino",
+  "publishedAt": "2026-05-10T06:27:00.622Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.3417992452383,
+    "confidence": 0.8,
+    "finalScore": 8.273439396190641,
+    "topK": [
+      {
+        "slug": "spacchettamento-casse-malati-2026",
+        "cosine": 0.8274545255502029
+      },
+      {
+        "slug": "casse-malati-frontalieri-ticino",
+        "cosine": 0.8252468178745557
+      },
+      {
+        "slug": "casse-malati-dado-scissione-dossier",
+        "cosine": 0.8144365308597181
+      },
+      {
+        "slug": "cassa-malati-leghista-applicata-subito",
+        "cosine": 0.8141501440389531
+      },
+      {
+        "slug": "iniziative-casse-malati-dado-scissione-dossier",
+        "cosine": 0.8140166474255423
+      }
+    ],
+    "score": 4.1367196980953205,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "companyKey": "tilo-treni-regionali-ticino-lombardia",
+  "companyName": "TILO (Treni Regionali Ticino Lombardia)",
+  "companyHost": "tilo.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.tilo.ch/careers",
+    "https://www.tilo.ch/career",
+    "https://www.tilo.ch/jobs",
+    "https://www.tilo.ch/karriere",
+    "https://www.tilo.ch/offene-stellen",
+    "https://www.tilo.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.994Z"
+}

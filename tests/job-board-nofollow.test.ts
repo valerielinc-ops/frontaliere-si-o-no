@@ -1,0 +1,123 @@
+/**
+ * Phase 4B — Outbound ATS link nofollow guard.
+ *
+ * Semrush flags 671 outbound links to ATS partners (umantis.com, ncoreplat.com,
+ * recruitingapp-XXXX.umantis.com, login.org, tallyweijl.hire.trakstar.com, ...)
+ * as "external broken links" because those endpoints return HTTP 403 to the
+ * Semrush crawler user-agent. The 403s are false positives (real users get
+ * served fine), but they still pollute Site Audit.
+ *
+ * Fix: every outbound `<a>` that points to an ATS / external host on
+ * JobBoard.tsx and JobBridgeView.tsx must include `rel="nofollow noopener
+ * noreferrer"`. The `nofollow` keyword tells crawlers to skip the link, so
+ * Semrush stops fetching it and the issue clears.
+ *
+ * This test enforces the contract at the source level — any future outbound
+ * `<a target="_blank">` added without `nofollow` will fail CI.
+ */
+import fs from 'node:fs';
+import path from 'node:path';
+import { describe, expect, it } from 'vitest';
+
+const PROJECT_ROOT = process.cwd();
+const REL_PATTERN = /rel="nofollow noopener noreferrer"/;
+
+function readComponent(relativePath: string): string {
+  return fs.readFileSync(path.resolve(PROJECT_ROOT, relativePath), 'utf-8');
+}
+
+/**
+ * Extract every `<a ...>` opening tag from a TSX source. We only care about
+ * the attributes between `<a` and the next `>` (we ignore the children).
+ * This intentionally tolerates multi-line attribute lists.
+ */
+function extractAnchorOpeningTags(source: string): string[] {
+  const tags: string[] = [];
+  const re = /<a\b[^>]*>/gms;
+  let match: RegExpExecArray | null;
+  while ((match = re.exec(source)) !== null) {
+    tags.push(match[0]);
+  }
+  return tags;
+}
+
+/**
+ * An anchor is "outbound" when it can open in a new tab — either a literal
+ * `target="_blank"` or a conditional `target={cond ? undefined : '_blank'}`
+ * that resolves to `_blank` for the external case. The header apply links use
+ * the conditional form: external jobs open applyUrl in a new tab (outbound,
+ * must carry nofollow), in-house publisher ads scroll to the on-page
+ * #candidatura form (internal, no _blank). Either way, if `_blank` can appear
+ * the anchor must declare nofollow. Internal SPA navigations never use _blank.
+ */
+function isOutboundAnchor(tag: string): boolean {
+  return /target="_blank"/.test(tag) || /target=\{[^}]*'_blank'[^}]*\}/.test(tag);
+}
+
+describe('JobBoard outbound ATS links carry nofollow', () => {
+  const source = readComponent('components/community/JobBoard.tsx');
+  const anchors = extractAnchorOpeningTags(source);
+  const outbound = anchors.filter(isOutboundAnchor);
+
+  it('has at least one outbound anchor (sanity check)', () => {
+    // Header logo + header title + concorsi.ti.ch official-source link =
+    // 3 known outbound anchors. The apply CTA stopped being an anchor in
+    // #8757 (see the next-but-one test).
+    expect(outbound.length).toBeGreaterThanOrEqual(3);
+  });
+
+  it('every outbound <a target="_blank"> has rel="nofollow noopener noreferrer"', () => {
+    const offenders = outbound.filter((tag) => !REL_PATTERN.test(tag));
+    expect(offenders, `Outbound anchors missing nofollow:\n${offenders.join('\n---\n')}`).toEqual([]);
+  });
+
+  it('the apply CTA exposes no crawlable applyUrl link', () => {
+    // Hybrid A/B apply CTA — the most clicked outbound action on the site.
+    // Until #8757 it was `<a className="hybrid-ab-cta" href={applyUrl}
+    // target="_blank" rel="nofollow …">`. The assisted-application A/B made it
+    // a `<button>` routed through handleApply, which may show the assisted
+    // offer before handing off. A button has no href, so crawlers have nothing
+    // to follow: the nofollow invariant now holds by construction. Guard both
+    // halves: the CTA stays a hrefless button, and any anchor that ever takes
+    // the class back must carry nofollow again.
+    expect(source).toMatch(
+      /<button\s+type="button"\s+className="hybrid-ab-cta"\s+onClick=\{\(\) => handleApply\(selectedJob\)\}/,
+    );
+    const ctaAnchors = anchors.filter((tag) => /className="hybrid-ab-cta"/.test(tag));
+    for (const tag of ctaAnchors) expect(tag).toMatch(REL_PATTERN);
+    // The programmatic hand-off opens the ATS without leaking the opener or
+    // the referrer, like the rel the anchor used to carry.
+    expect(source).toContain("window.open(applyDestination, '_blank', 'noopener,noreferrer')");
+  });
+
+  it('the header logo and title apply links carry nofollow when outbound', () => {
+    // Header logo + title route in-house ads to the on-page #candidatura form
+    // and external jobs to applyUrl in a new tab; the outbound (_blank) case
+    // must still carry nofollow. Pull the two conditional blocks by their
+    // header analytics events.
+    const logoBlockMatch = source.match(
+      /href=\{isInHouseApply \? '#candidatura' : applyUrl\}\s+target=\{isInHouseApply \? undefined : '_blank'\}\s+rel="([^"]+)"[\s\S]*?job_board_apply_header_logo/,
+    );
+    const titleBlockMatch = source.match(
+      /href=\{isInHouseApply \? '#candidatura' : applyUrl\}\s+target=\{isInHouseApply \? undefined : '_blank'\}\s+rel="([^"]+)"[\s\S]*?job_board_apply_header_title/,
+    );
+
+    expect(logoBlockMatch?.[1]).toBe('nofollow noopener noreferrer');
+    expect(titleBlockMatch?.[1]).toBe('nofollow noopener noreferrer');
+  });
+});
+
+describe('JobBridgeView outbound links carry nofollow', () => {
+  const source = readComponent('components/community/JobBridgeView.tsx');
+  const anchors = extractAnchorOpeningTags(source);
+  const outbound = anchors.filter(isOutboundAnchor);
+
+  it('every outbound <a target="_blank"> has rel="nofollow noopener noreferrer"', () => {
+    // JobBridgeView currently has NO outbound anchors — every link is an
+    // internal SPA navigation built from prefix + sectionSlug. The check
+    // still runs so any future _blank link added to the bridge view inherits
+    // the nofollow contract automatically.
+    const offenders = outbound.filter((tag) => !REL_PATTERN.test(tag));
+    expect(offenders, `Outbound anchors missing nofollow:\n${offenders.join('\n---\n')}`).toEqual([]);
+  });
+});

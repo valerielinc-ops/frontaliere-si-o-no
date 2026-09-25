@@ -1,0 +1,40 @@
+{
+  "id": "giro-ditalia-silva-maglia-rosa",
+  "slug": "giro-ditalia-silva-maglia-rosa",
+  "publishedAt": "2026-05-10T11:03:55.812Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.6484761636140055,
+    "confidence": 0.8,
+    "finalScore": 6.118780930891205,
+    "topK": [
+      {
+        "slug": "vittoria-bagatin-tappa-turchia",
+        "cosine": 0.8023209755989679
+      },
+      {
+        "slug": "giro-italia-2026-bellinzona-cari-tappa",
+        "cosine": 0.787502053939141
+      },
+      {
+        "slug": "giro-ditalia-ticino-strade-chiuse",
+        "cosine": 0.7835555005970187
+      },
+      {
+        "slug": "giro-e-angera-verbania-2026",
+        "cosine": 0.7781259182816256
+      },
+      {
+        "slug": "galleria-gottardo-secondo-tubo-2026",
+        "cosine": 0.7698305393057071
+      }
+    ],
+    "score": 0.6118780930891206,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

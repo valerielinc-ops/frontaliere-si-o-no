@@ -1,0 +1,321 @@
+name: Transport generator code to nanako (staging, no cutover)
+
+# Cutover step 2 of docs/articles-generator-migration.md §5: "Stand up the moved
+# code in nanako without cutting main over." This copies the generator's MOVE
+# set (scripts/lib/**'s article-generation subset + the seven producer/helper
+# scripts, docs §2/§5.2) into nanakokyobashi-rgb/frontaliere-articles on a side
+# branch, so nanako-side work (wiring REWIREs, building CI, dry-running the
+# generator there) can start without main's generator ever stopping being the
+# one that actually writes the corpus. Nothing here disables, deletes, or
+# rewires anything in main. Nothing here can reach nanako's default branch.
+#
+# Why a workflow, not a one-off push from a dev machine: ARTICLES_REPO_PAT only
+# exists as a GitHub Actions secret in THIS repo. No credential available
+# outside Actions can write to nanako (the Remote Config PATs referenced
+# elsewhere in the migration doc are zero-scope, verified this session) — so
+# "run it from Actions, on demand" is the only transport that exists today, not
+# a stylistic choice. See mirror-articles-corpus.yml for the sibling workflow
+# this one deliberately imitates (auth shape, clone shape, guard discipline);
+# unlike the mirror, this one is workflow_dispatch-only, targets a side branch,
+# and refuses to ever delete.
+
+on:
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Resolve + stage only, print the diff, push nothing.'
+        type: boolean
+        required: false
+        default: true
+      target_branch:
+        description: 'Branch in the articles repo to push to. Never main/master.'
+        type: string
+        required: false
+        default: 'generator-transport'
+
+# Serialised, never cancelled: two transports racing would each clone nanako,
+# stage independently, and push — the second push would silently overwrite or
+# interleave with the first mid-flight. Same reasoning as the mirror's
+# concurrency group, and deliberately NOT scoped per target_branch, because two
+# dispatches with different branch names still race on the same underlying
+# nanako clone-and-push sequence from this workflow's point of view.
+concurrency:
+  group: transport-generator-to-nanako
+  cancel-in-progress: false
+
+# Read-only against THIS repo. This job never commits, pushes, or writes
+# anything back into frontaliere-si-o-no — every write happens inside a temp
+# clone of nanako, which needs no permission grant against main's own token.
+permissions:
+  contents: read
+
+jobs:
+  transport:
+    runs-on: ubuntu-latest
+    steps:
+      # v5, not v4: v4's Node runtime gate fails on this runner image (see the
+      # migration issue's "Trappole" section) — the repo standardises on v5.
+      #
+      # Sparse: this job reads the manifest and the ~67 files it names, nothing
+      # else. A full checkout materialises the whole working tree — 14k corpus
+      # files under packages/articles plus public/ — for no benefit here. The
+      # first attempt at this workflow (run 30719465152) sat in `checkout` for
+      # 17 minutes against the ~90s the rest of the repo's workflows take, and
+      # was cancelled; keeping the tree small removes that failure mode rather
+      # than hoping the runner behaves next time.
+      #
+      # If the manifest ever grows an entry outside these patterns, the
+      # "Resolve manifest" step's existence check fails loudly with the exact
+      # path — a missing sparse prefix cannot degrade into silently shipping
+      # fewer files.
+      #
+      # NON-cone mode, which is a deliberate downgrade from the original
+      # cone-mode list. The manifest now names six files outside scripts/, and
+      # cone mode can only select whole directories: pulling `data/` in whole
+      # would materialise 1.7 GB (3451 files, mostly border-wait history and
+      # events slices) and `build-plugins/` another 8.9 GB-adjacent 298 —
+      # i.e. exactly the 17-minute checkout that killed run 30719465152 and
+      # that this sparse list exists to avoid. Non-cone takes gitignore-style
+      # patterns, so the six files can be named individually and the checkout
+      # stays at scripts/ plus six blobs.
+      #
+      # Every pattern is anchored with a leading slash. Unanchored, `scripts`
+      # in gitignore syntax matches a directory of that name at ANY depth,
+      # which would drag in packages/**/scripts too.
+      - uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          sparse-checkout: |
+            /.github/transport/
+            /scripts/
+            /build-plugins/borderWaitData.ts
+            /data/borderCrossings.ts
+            /data/canton-url-slugs.json
+            /data/municipalities.ts
+            /services/borderCrossingSlug.ts
+            /services/borderWaitFormat.ts
+          sparse-checkout-cone-mode: false
+
+      - name: Guard - target branch must not be nanako's default branch
+        id: guard-branch
+        env:
+          # Via env, never `${{ }}` inside run:. A workflow_dispatch input is
+          # attacker-controlled text as far as the shell is concerned, and
+          # interpolating it directly would let a branch name like
+          # `x"; curl …; #` execute in a job that holds ARTICLES_REPO_PAT.
+          # Dispatch requires write access, so this is defence in depth rather
+          # than an open door — but the fix costs one line and the credential
+          # this job carries reaches a second repository.
+          TB: ${{ inputs.target_branch }}
+        run: |
+          set -euo pipefail
+          tb="$TB"
+          # Structural guard, not a convention reminder: this workflow must be
+          # incapable of touching nanako's default branch, because unlike the
+          # mirror (which is main-to-main by design), a transport landing on
+          # main/master would silently become a real cutover with none of the
+          # REWIRE/dry-run/pull-side work (§5 steps 3-5) done first.
+          if [ -z "$tb" ] || [ "$tb" = "main" ] || [ "$tb" = "master" ]; then
+            echo "::error::target_branch='$tb' is empty or a default-branch name — refusing. This workflow only pushes to side branches."
+            exit 1
+          fi
+          echo "target_branch=$tb" >> "$GITHUB_OUTPUT"
+
+      - name: Resolve manifest
+        id: resolve
+        run: |
+          set -euo pipefail
+          manifest=".github/transport/nanako-generator-manifest.txt"
+          resolved=/tmp/resolved-manifest.txt
+          : > "$resolved"
+
+          entry_count=0
+          while IFS= read -r raw || [ -n "$raw" ]; do
+            # Trim surrounding whitespace.
+            line="$(printf '%s' "$raw" | sed -e 's/^[[:space:]]*//' -e 's/[[:space:]]*$//')"
+            [ -z "$line" ] && continue
+            case "$line" in
+              '#'*) continue ;;
+            esac
+            entry_count=$((entry_count + 1))
+
+            if [ "${line%/\*\*}" != "$line" ]; then
+              # Directory glob (e.g. scripts/lib/discovery/**) — only used in
+              # the manifest for subtrees verified to be wholly in scope, so
+              # every file under it is fair game.
+              dir="${line%/\*\*}"
+              if [ ! -d "$dir" ]; then
+                echo "::error::manifest entry '$line' -> directory '$dir' does not exist"
+                exit 1
+              fi
+              find "$dir" -type f | sort >> "$resolved"
+            else
+              # Literal file path. A missing file is a stale manifest entry —
+              # fail loudly rather than silently shipping fewer files than the
+              # manifest claims (a silent scope shrink is worse than a red run).
+              if [ ! -f "$line" ]; then
+                echo "::error::manifest entry '$line' does not exist"
+                exit 1
+              fi
+              echo "$line" >> "$resolved"
+            fi
+          done < "$manifest"
+
+          sort -u -o "$resolved" "$resolved"
+          resolved_count=$(wc -l < "$resolved")
+          echo "manifest entries: $entry_count, resolved files: $resolved_count"
+          echo "entry_count=$entry_count" >> "$GITHUB_OUTPUT"
+          echo "resolved_count=$resolved_count" >> "$GITHUB_OUTPUT"
+
+      - name: Stage into a nanako clone
+        id: stage
+        env:
+          PAT: ${{ secrets.ARTICLES_REPO_PAT }}
+          TARGET_BRANCH: ${{ steps.guard-branch.outputs.target_branch }}
+        run: |
+          set -euo pipefail
+          # No credential reachable outside Actions can write nanako (verified
+          # this session — the Remote Config PATs are zero-scope). This is the
+          # only place ARTICLES_REPO_PAT is used, and it never leaves this step.
+          if [ -z "${PAT:-}" ]; then
+            echo "::error::ARTICLES_REPO_PAT is not set — cannot reach the articles repo"
+            exit 1
+          fi
+
+          work=$(mktemp -d)
+          echo "work=$work" >> "$GITHUB_OUTPUT"
+          git clone --depth 1 \
+            "https://x-access-token:${PAT}@github.com/nanakokyobashi-rgb/frontaliere-articles.git" \
+            "$work"
+
+          cd "$work"
+
+          # Continue the side branch when it already exists, instead of always
+          # branching off the freshly-cloned default branch.
+          #
+          # Without this the second run is guaranteed to fail: the clone only
+          # ever fetches the default branch, so HEAD is always a child of
+          # nanako's main, while the remote side branch is a *sibling* commit
+          # from the previous run. `push HEAD:$TARGET_BRANCH` is then a
+          # non-fast-forward and is rejected — the workflow would appear to
+          # work exactly once and then break, which is the kind of failure that
+          # gets misread as "the PAT expired".
+          #
+          # Fetching the branch (when present) and resetting onto it also makes
+          # the zero-deletions guard mean what it says: it compares against what
+          # is really on the branch, not against a default branch that never had
+          # generator/ at all.
+          if git ls-remote --exit-code --heads origin "$TARGET_BRANCH" >/dev/null 2>&1; then
+            echo "side branch '$TARGET_BRANCH' exists — continuing it"
+            git fetch --depth 1 origin "$TARGET_BRANCH"
+            git checkout -B "$TARGET_BRANCH" FETCH_HEAD
+          else
+            echo "side branch '$TARGET_BRANCH' does not exist yet — it will be created from the default branch"
+          fi
+          # Land generator code strictly under generator/, mirroring each
+          # resolved file's repo-relative path from main underneath it (e.g.
+          # scripts/create-article.mjs -> generator/scripts/create-article.mjs).
+          # Chosen prefix: "generator/". This can never collide with nanako's
+          # existing content/ or engine/ trees, and preserving the relative
+          # path under the prefix keeps every "./lib/x.mjs"-style import inside
+          # the moved code resolving correctly with zero path rewriting — this
+          # step is a structural transport, not the REWIRE work (§5 step 3).
+          #
+          # The directory is rebuilt from scratch every run (rm -rf then
+          # recopy) rather than overlaid, so a file dropped from the manifest
+          # disappears from nanako too on the next run instead of lingering as
+          # an orphan nobody notices. That is intentional and is exactly what
+          # the zero-deletions guard below is watching for: it should only ever
+          # fire because a human edited the manifest, never as a surprise.
+          rm -rf generator
+          while IFS= read -r f; do
+            mkdir -p "generator/$(dirname "$f")"
+            cp "$GITHUB_WORKSPACE/$f" "generator/$f"
+          done < /tmp/resolved-manifest.txt
+
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+          git add -A -- generator
+
+          if git diff --cached --quiet; then
+            echo "nothing to stage — nanako's generator/ already matches the manifest"
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Guard - refuse any deletion
+        env:
+          TARGET_BRANCH: ${{ steps.guard-branch.outputs.target_branch }}
+        run: |
+          set -euo pipefail
+          cd "${{ steps.stage.outputs.work }}"
+          # This transport only ever adds or updates files under generator/ on
+          # a purpose-built side branch — there is no legitimate reason for it
+          # to delete anything, unlike the mirror (which tolerates some churn
+          # and only trips at >200 deletions). Any deletion here means the
+          # manifest shrank or the clone is wrong; either way, stop and let a
+          # human look rather than silently narrowing what nanako has staged.
+          deleted=$(git diff --cached --diff-filter=D --name-only | wc -l)
+          echo "deletions staged: $deleted"
+          if [ "$deleted" -gt 0 ]; then
+            echo "::error::transport would delete $deleted file(s) in nanako — refusing. Files:"
+            git diff --cached --diff-filter=D --name-only
+            exit 1
+          fi
+
+      - name: Show staged diff (dry run)
+        if: ${{ inputs.dry_run }}
+        run: |
+          set -euo pipefail
+          cd "${{ steps.stage.outputs.work }}"
+          echo "== dry run: files that would be staged in nanako =="
+          cat /tmp/resolved-manifest.txt
+          echo
+          echo "== git diff --cached --stat =="
+          git diff --cached --stat || true
+          echo
+          echo "dry run — nothing pushed."
+
+      - name: Commit and push to the side branch
+        if: ${{ !inputs.dry_run }}
+        env:
+          TARGET_BRANCH: ${{ steps.guard-branch.outputs.target_branch }}
+        run: |
+          set -euo pipefail
+          cd "${{ steps.stage.outputs.work }}"
+
+          if [ "${{ steps.stage.outputs.has_changes }}" != "true" ]; then
+            echo "nothing changed — skipping commit/push"
+            exit 0
+          fi
+
+          git commit -q \
+            -m "Transport generator code from frontaliere-si-o-no@${GITHUB_SHA:0:8}" \
+            -m "Cutover step 2 (issue #4974 item 3, docs/articles-generator-migration.md §5.2): stand up the moved code in nanako without cutting main over. Main's generator keeps running unchanged; this only stages code on ${TARGET_BRANCH}."
+
+          git push origin "HEAD:${TARGET_BRANCH}"
+
+          echo "pushed to ${TARGET_BRANCH}:"
+          echo "https://github.com/nanakokyobashi-rgb/frontaliere-articles/compare/main...${TARGET_BRANCH}"
+
+      - name: Job summary
+        if: always()
+        env:
+          TARGET_BRANCH: ${{ steps.guard-branch.outputs.target_branch }}
+          # Boolean-typed, so it can only ever be `true`/`false` and is not an
+          # injection vector — routed through env anyway so that every
+          # user-supplied input in this file reaches the shell the same way.
+          DRY_RUN: ${{ inputs.dry_run }}
+        run: |
+          {
+            echo "### Transport generator code to nanako"
+            echo
+            echo "| | |"
+            echo "|---|---|"
+            echo "| Manifest entries | ${{ steps.resolve.outputs.entry_count }} |"
+            echo "| Resolved files | ${{ steps.resolve.outputs.resolved_count }} |"
+            echo "| Target branch | \`${TARGET_BRANCH:-unset}\` |"
+            echo "| Dry run | ${DRY_RUN} |"
+            echo "| Landing prefix in nanako | \`generator/\` |"
+          } >> "$GITHUB_STEP_SUMMARY"

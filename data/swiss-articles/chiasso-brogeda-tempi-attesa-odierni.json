@@ -1,0 +1,40 @@
+{
+  "id": "chiasso-brogeda-tempi-attesa-odierni",
+  "slug": "chiasso-brogeda-tempi-attesa-odierni",
+  "publishedAt": "2026-06-25T21:37:41.229Z",
+  "cluster": "pensioni",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 16.871196006667635,
+    "confidence": 0.8,
+    "finalScore": 13.496956805334108,
+    "topK": [
+      {
+        "slug": "chiasso-grenzubergang",
+        "cosine": 0.8680337704783544
+      },
+      {
+        "slug": "grandine-bellinzonese-allerta-lugano-chiasso-19-aprile-2026",
+        "cosine": 0.861336973669463
+      },
+      {
+        "slug": "a2-corsia-ritardi-lugano-2026",
+        "cosine": 0.8592767952770536
+      },
+      {
+        "slug": "restringimento-a2-ritardi-2026",
+        "cosine": 0.8591453602358057
+      },
+      {
+        "slug": "chiasso-comunita-evoluzione-sociale",
+        "cosine": 0.8573203413411553
+      }
+    ],
+    "score": 6.748478402667054,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pensioni"
+  }
+}

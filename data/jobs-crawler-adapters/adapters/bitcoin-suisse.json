@@ -1,0 +1,22 @@
+{
+  "companyKey": "bitcoin-suisse",
+  "companyName": "Bitcoin Suisse",
+  "companyHost": "bitcoinsuisse.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.bitcoinsuisse.com/careers",
+    "https://www.bitcoinsuisse.com/career",
+    "https://www.bitcoinsuisse.com/jobs",
+    "https://www.bitcoinsuisse.com/karriere",
+    "https://www.bitcoinsuisse.com/offene-stellen",
+    "https://www.bitcoinsuisse.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.928Z"
+}

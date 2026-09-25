@@ -1,0 +1,40 @@
+{
+  "id": "giro-ditalia-magnier-froidevaux-2026",
+  "slug": "giro-ditalia-magnier-froidevaux-2026",
+  "publishedAt": "2026-05-11T01:36:54.793Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.255132751527626,
+    "confidence": 0.8,
+    "finalScore": 5.804106201222101,
+    "topK": [
+      {
+        "slug": "giro-ditalia-ticino-strade-chiuse",
+        "cosine": 0.7634356604251987
+      },
+      {
+        "slug": "giro-italia-2026-bellinzona-cari-tappa",
+        "cosine": 0.7574074577091333
+      },
+      {
+        "slug": "giro-e-angera-verbania-2026",
+        "cosine": 0.7565082519226811
+      },
+      {
+        "slug": "vittoria-bagatin-tappa-turchia",
+        "cosine": 0.7514665070347831
+      },
+      {
+        "slug": "frontalieri-trottinetti-velocita-polizia",
+        "cosine": 0.7492582608535838
+      }
+    ],
+    "score": 5.804106201222101,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

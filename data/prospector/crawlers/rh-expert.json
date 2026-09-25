@@ -1,0 +1,24 @@
+{
+  "companyKey": "rh-expert",
+  "companyName": "RH-Expert",
+  "companyHost": "rh-expert.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://rh-expert.ch/fr/offres-demploi"
+  ],
+  "detailTemplate": "/fr/offres-demploi/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 5,
+  "sampleTitles": [
+    "En savoir plus",
+    "En savoir plus",
+    "En savoir plus",
+    "En savoir plus",
+    "En savoir plus"
+  ],
+  "canton": "GE",
+  "sourceLang": "fr",
+  "learnedAt": "2026-09-18T09:58:49.605Z"
+}

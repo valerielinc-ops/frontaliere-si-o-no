@@ -1,0 +1,22 @@
+{
+  "companyKey": "sta-pharmaceutical-wuxi",
+  "companyName": "STA Pharmaceutical (WuXi)",
+  "companyHost": "wuxiapptec.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.wuxiapptec.com/careers",
+    "https://www.wuxiapptec.com/career",
+    "https://www.wuxiapptec.com/jobs",
+    "https://www.wuxiapptec.com/karriere",
+    "https://www.wuxiapptec.com/offene-stellen",
+    "https://www.wuxiapptec.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.984Z"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "riordino-incentivi-imprese",
+  "slug": "riordino-incentivi-imprese",
+  "publishedAt": "2026-06-24T20:19:28.213Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "fiscoetasse.com",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.1572191160338186,
+    "confidence": 0.8,
+    "finalScore": 3.325775292827055,
+    "topK": [
+      {
+        "slug": "prevenzione-sanitaria-lavoro-2026",
+        "cosine": 0.8314438232067637
+      },
+      {
+        "slug": "nuova-riforma-avs-2024-frontalieri",
+        "cosine": 0.8283575961204617
+      },
+      {
+        "slug": "telelavoro-frontalieri-italia-svizzera",
+        "cosine": 0.8247432278690926
+      },
+      {
+        "slug": "decreto-lavoro-meloni-2026-frontalieri",
+        "cosine": 0.8236969091968048
+      },
+      {
+        "slug": "frontalieri-disoccupazione-svizzera-2026",
+        "cosine": 0.8229940388479091
+      }
+    ],
+    "score": 0.8314438232067638,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

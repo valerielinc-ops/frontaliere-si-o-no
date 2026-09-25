@@ -1,0 +1,22 @@
+{
+  "companyKey": "deloitte-ticino",
+  "companyName": "Deloitte Ticino",
+  "companyHost": "deloitte.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.deloitte.ch/careers",
+    "https://www.deloitte.ch/career",
+    "https://www.deloitte.ch/jobs",
+    "https://www.deloitte.ch/karriere",
+    "https://www.deloitte.ch/offene-stellen",
+    "https://www.deloitte.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.937Z"
+}

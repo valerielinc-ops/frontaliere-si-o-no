@@ -1,0 +1,40 @@
+{
+  "id": "giornate-soletta-finanza-2026",
+  "slug": "giornate-soletta-finanza-2026",
+  "publishedAt": "2026-07-01T10:29:56.020Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.990784917789535,
+    "confidence": 0.8,
+    "finalScore": 10.392627934231628,
+    "topK": [
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8379631914488708
+      },
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8359612053242418
+      },
+      {
+        "slug": "casa-artigianato-dongio-sostegno",
+        "cosine": 0.8305398199763305
+      },
+      {
+        "slug": "beko-cassinetta-risultati-2026",
+        "cosine": 0.8266144596863579
+      },
+      {
+        "slug": "lavori-giugno-sentiero-ronchitt-molinetto",
+        "cosine": 0.8261031475527435
+      }
+    ],
+    "score": 10.392627934231628,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

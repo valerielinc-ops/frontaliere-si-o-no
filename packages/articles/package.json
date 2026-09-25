@@ -1,0 +1,13 @@
+{
+  "name": "@frontaliereticino/articles",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "description": "Article content + rendering engine for frontaliereticino.ch, colocated as an npm workspace (issue #4881 Fase 6). See index.ts for the public API and engine/siteShell.ts for the SiteShellContract the host site must inject before rendering.",
+  "main": "index.ts",
+  "types": "index.ts",
+  "sideEffects": false,
+  "peerDependencies": {
+    "vite": "^6.2.0"
+  }
+}

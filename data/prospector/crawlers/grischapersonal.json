@@ -1,0 +1,24 @@
+{
+  "companyKey": "grischapersonal",
+  "companyName": "Grischa Personal AG",
+  "companyHost": "grischapersonal.ch",
+  "platform": "",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://grischapersonal.ch/stellen/"
+  ],
+  "detailTemplate": "/stellen/",
+  "detailEnrichment": false,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 38,
+  "sampleTitles": [
+    "CAD-ZEICHNER (m/w/d)",
+    "BAUFÜHRER TIEF- / STRASSENBAU (m/w/d)",
+    "ANLAGEN- UND APPARATEBAUER EFZ (m/w/d)",
+    "NETZELEKTIKER EFZ (m/w/d)",
+    "CNC-MASCHINENBEDIENER (m/w/d)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-19T09:32:18.663Z"
+}

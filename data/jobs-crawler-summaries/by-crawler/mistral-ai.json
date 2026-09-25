@@ -1,0 +1,59 @@
+{
+  "key": "mistral-ai",
+  "label": "Mistral AI",
+  "generatedAt": "2026-09-25T15:03:32.628Z",
+  "total": 1,
+  "discovered": null,
+  "parsed": 1,
+  "lastFetchOutcome": null,
+  "written": 1,
+  "authoritativeEmptySnapshot": false,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 2659,
+  "avgDurationMs": 2659,
+  "durationHistory": [
+    2659
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "mistral-ai-01b2b0d2cc89",
+      "slug": "ai-scientist-mistral-ai-ch",
+      "company": "Mistral AI",
+      "companyKey": "mistral-ai",
+      "companyDomain": "mistral.ai",
+      "title": "AI Scientist",
+      "location": "Zurich",
+      "canton": "ZH",
+      "url": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
+      "source": "Mistral AI Dedicated Parser",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-25T15:03:23.803Z",
+      "addressLocality": "Zurich",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Ricerca",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "mid",
+      "sector": "Intelligenza Artificiale / Ricerca",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-07-10",
+      "applyUrl": "https://jobs.ashbyhq.com/mistral.ai/865fced4-d279-4073-848d-f078c0053155",
+      "firstSeenAt": "2026-07-14T22:36:36.714Z",
+      "_qualityScore": 84,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 20,
+        "translation": 25,
+        "completeness": 14
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
+}

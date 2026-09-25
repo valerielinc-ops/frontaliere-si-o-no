@@ -1,0 +1,40 @@
+{
+  "id": "ufficio-postale-chiasso-aggiornamenti",
+  "slug": "ufficio-postale-chiasso-aggiornamenti",
+  "publishedAt": "2026-06-18T07:24:51.459Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 25.43149965522775,
+    "confidence": 0.8,
+    "finalScore": 20.3451997241822,
+    "topK": [
+      {
+        "slug": "trasferimento-ufficio-postale-chiasso",
+        "cosine": 0.9033231958302949
+      },
+      {
+        "slug": "chiasso-grenzubergang",
+        "cosine": 0.8863314543139373
+      },
+      {
+        "slug": "tassa-mensa-asilo-chiasso",
+        "cosine": 0.8835669715736798
+      },
+      {
+        "slug": "ufficio-postale-chiasso-trasloco",
+        "cosine": 0.8777875210375873
+      },
+      {
+        "slug": "documenti-necessari-frontaliere",
+        "cosine": 0.8773668471037133
+      }
+    ],
+    "score": 20.3451997241822,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

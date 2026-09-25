@@ -1,0 +1,100 @@
+{
+  "families": {
+    "articoli-frontaliere": {
+      "consecutiveBelowRuns": 3,
+      "lastCtr": 0.018905707049885152,
+      "lastPosition": 8.456848656183128,
+      "lastTargetCtr": 0.03,
+      "lastCheckedIso": "2026-09-20T18:36:55.355Z",
+      "lastError": null
+    },
+    "guida-frontaliere": {
+      "consecutiveBelowRuns": 3,
+      "lastCtr": 0.02177068214804064,
+      "lastPosition": 9.356615868408321,
+      "lastTargetCtr": 0.035,
+      "lastCheckedIso": "2026-09-20T18:36:55.355Z",
+      "lastError": null
+    },
+    "tasse-e-pensione": {
+      "consecutiveBelowRuns": 0,
+      "lastCtr": 0.030481643651060965,
+      "lastPosition": 6.795217244863591,
+      "lastTargetCtr": 0.03,
+      "lastCheckedIso": "2026-09-20T18:36:55.355Z",
+      "lastError": null
+    },
+    "cerca-lavoro-ticino": {
+      "consecutiveBelowRuns": 2,
+      "lastCtr": 0.04960697930869643,
+      "lastPosition": 8.113315986462922,
+      "lastTargetCtr": 0.05173664712880322,
+      "lastCheckedIso": "2026-09-20T18:36:55.355Z",
+      "lastError": null
+    },
+    "cerca-lavoro-svizzera": {
+      "consecutiveBelowRuns": 0,
+      "lastCtr": 0.04659954972176203,
+      "lastPosition": 16.912747971623975,
+      "lastTargetCtr": 0.042464175268680175,
+      "lastCheckedIso": "2026-09-20T18:36:55.355Z",
+      "lastError": null
+    },
+    "cerca-lavoro-grigioni": {
+      "consecutiveBelowRuns": 0,
+      "lastCtr": 0.04468482167542162,
+      "lastPosition": 9.5733688139342,
+      "lastTargetCtr": 0.03679185098147636,
+      "lastCheckedIso": "2026-09-20T18:36:55.355Z",
+      "lastError": null
+    },
+    "cerca-lavoro-zurigo": {
+      "consecutiveBelowRuns": 2,
+      "lastCtr": 0.03688877510647706,
+      "lastPosition": 7.732422556845951,
+      "lastTargetCtr": 0.06067495473270185,
+      "lastCheckedIso": "2026-09-20T18:36:55.355Z",
+      "lastError": null
+    },
+    "cerca-lavoro-vallese": {
+      "consecutiveBelowRuns": 0,
+      "lastCtr": 0.04703198027453723,
+      "lastPosition": 7.747911529827403,
+      "lastTargetCtr": 0.0412429485150701,
+      "lastCheckedIso": "2026-09-20T18:36:55.355Z",
+      "lastError": null
+    },
+    "prezzi-benzina": {
+      "consecutiveBelowRuns": 0,
+      "lastCtr": 0.014865788835219128,
+      "lastPosition": 6.736253556540727,
+      "lastTargetCtr": 0.01099348170449282,
+      "lastCheckedIso": "2026-09-20T18:36:55.355Z",
+      "lastError": null
+    },
+    "prezzi-diesel": {
+      "consecutiveBelowRuns": 2,
+      "lastCtr": 0.009021873174531058,
+      "lastPosition": 6.346465892126956,
+      "lastTargetCtr": 0.009354316219900044,
+      "lastCheckedIso": "2026-09-20T18:36:55.355Z",
+      "lastError": null
+    },
+    "cerca-lavoro-berna": {
+      "consecutiveBelowRuns": 0,
+      "lastCtr": 0.033889440928821714,
+      "lastPosition": 8.024972543277025,
+      "lastTargetCtr": 0.03,
+      "lastCheckedIso": "2026-09-20T18:36:55.355Z",
+      "lastError": null
+    },
+    "eventi": {
+      "consecutiveBelowRuns": 0,
+      "lastCtr": 0.0154572044663635,
+      "lastPosition": 9.28049275176669,
+      "lastTargetCtr": 0.0125,
+      "lastCheckedIso": "2026-09-20T18:36:55.355Z",
+      "lastError": null
+    }
+  }
+}

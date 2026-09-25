@@ -1,0 +1,40 @@
+{
+  "id": "boom-lavoro-ia-svizzera-frontalieri",
+  "slug": "boom-lavoro-ia-svizzera-frontalieri",
+  "publishedAt": "2026-06-22T07:06:20.595Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.224250674685014,
+    "confidence": 0.8,
+    "finalScore": 4.179400539748012,
+    "topK": [
+      {
+        "slug": "startup-investimenti-boom-ticino",
+        "cosine": 0.8707084457808357
+      },
+      {
+        "slug": "ia-aziende-svizzere-occupazione-ticino",
+        "cosine": 0.8593372434659255
+      },
+      {
+        "slug": "ai-lombardia-ticino-frontaliere-2026",
+        "cosine": 0.8577771535297463
+      },
+      {
+        "slug": "franco-svizzero-a-valori-record-2026",
+        "cosine": 0.8475870570793093
+      },
+      {
+        "slug": "ia-svizzera-uso-frontalieri-2026",
+        "cosine": 0.8472082950069708
+      }
+    ],
+    "score": 4.179400539748012,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

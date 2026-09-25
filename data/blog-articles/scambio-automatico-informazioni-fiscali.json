@@ -1,0 +1,40 @@
+{
+  "id": "scambio-automatico-informazioni-fiscali",
+  "slug": "scambio-automatico-informazioni-fiscali",
+  "publishedAt": "2026-07-15T23:08:03.632Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "commercialistatelematico.com",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.423573194638704,
+    "confidence": 0.8,
+    "finalScore": 11.538858555710965,
+    "topK": [
+      {
+        "slug": "nuovo-accordo-immobili-frontalieri-2026",
+        "cosine": 0.8472225336393442
+      },
+      {
+        "slug": "tassa-salute-frontalieri-accordo-frontalieri",
+        "cosine": 0.8468048326978836
+      },
+      {
+        "slug": "front-alieri-soci-sagl-nodi-fiscali-2026",
+        "cosine": 0.8466963264128139
+      },
+      {
+        "slug": "cooperazione-fiscale-dac9-traguardo",
+        "cosine": 0.8425510565355727
+      },
+      {
+        "slug": "cooperazione-giudiziaria-svizzera-italia",
+        "cosine": 0.8424655229762494
+      }
+    ],
+    "score": 2.884714638927741,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

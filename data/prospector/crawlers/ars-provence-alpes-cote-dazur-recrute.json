@@ -1,0 +1,23 @@
+{
+  "companyKey": "ars-provence-alpes-cote-dazur-recrute",
+  "companyName": "ARS PROVENCE-ALPES-COTE D AZUR",
+  "companyHost": "ars-provence-alpes-cote-dazur-recrute.talent-soft.com",
+  "platform": "talent-soft.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://ars-provence-alpes-cote-dazur-recrute.talent-soft.com/accueil.aspx?LCID=1036"
+  ],
+  "detailTemplate": "/offre-de-emploi/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 6,
+  "sampleTitles": [
+    "Flux RSS et autres flux",
+    "Chargé(e) de mission Soins non programmés H/F (Réf. : 2026-6689) - Pilote opérationnelle / opérationnel de dispositif ou projet",
+    "Responsable du service offre de soins hospitalière H/F (Réf. : 2026-6589) - Administratrice / administrateur de santé publique",
+    "Référent régional « Parcours complexes » H/F (Réf. : 2026-6707) - Pilote opérationnelle / opérationnel de dispositif ou projet",
+    "Chargé de mission – Service des Filières Urgentes & Intensive H/F (Réf. : 2026-6682) - Pilote opérationnelle / opérationnel de dispositif ou projet"
+  ],
+  "sourceLang": "fr",
+  "learnedAt": "2026-09-16T10:38:49.810Z"
+}

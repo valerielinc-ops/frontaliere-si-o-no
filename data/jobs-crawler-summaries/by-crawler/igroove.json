@@ -1,0 +1,63 @@
+{
+  "key": "igroove",
+  "label": "iGroove AG",
+  "generatedAt": "2026-09-25T14:59:25.141Z",
+  "total": 1,
+  "discovered": null,
+  "parsed": 1,
+  "lastFetchOutcome": null,
+  "written": 1,
+  "authoritativeEmptySnapshot": false,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 3043,
+  "avgDurationMs": 3043,
+  "durationHistory": [
+    3043
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "igroove-c5d93def086a",
+      "slug": "senior-data-pipeline-engineer-igroove-pfaffikon",
+      "company": "iGroove AG",
+      "companyKey": "igroove",
+      "companyDomain": "igroovemusic.com",
+      "title": "Senior Data Pipeline Engineer",
+      "location": "Pfäffikon",
+      "canton": "SZ",
+      "url": "https://igroove.jobs.personio.de/job/2588083",
+      "source": "iGroove Dedicated Parser (Personio)",
+      "sourceLang": "en",
+      "crawledAt": "2026-09-25T14:59:18.225Z",
+      "addressLocality": "Pfäffikon",
+      "addressRegion": "SZ",
+      "streetAddress": "Churerstrasse 135",
+      "postalCode": "8808",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "IT",
+      "contract": "full-time",
+      "employmentType": "FULL_TIME",
+      "experienceLevel": "senior",
+      "sector": "Media / Musica digitale",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-03-31",
+      "applyUrl": "https://igroove.jobs.personio.de/job/2588083",
+      "jobReqId": "2588083",
+      "firstSeenAt": "2026-07-03T21:58:03.200Z",
+      "_qualityScore": 88,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
+}

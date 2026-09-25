@@ -1,0 +1,40 @@
+{
+  "id": "tempi-attesa-dogana-chiasso-strada",
+  "slug": "tempi-attesa-dogana-chiasso-strada",
+  "publishedAt": "2026-06-30T00:24:16.253Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 21.096682251127643,
+    "confidence": 0.8,
+    "finalScore": 16.877345800902116,
+    "topK": [
+      {
+        "slug": "dogana-chiasso-traffico-2026",
+        "cosine": 0.8777120331576782
+      },
+      {
+        "slug": "lite-dogana-ponte-chiasso-ferito-contuso",
+        "cosine": 0.871470405347287
+      },
+      {
+        "slug": "multa-vignetta-pasqua-chiasso-2024",
+        "cosine": 0.8711365605848501
+      },
+      {
+        "slug": "dogana-chiasso-centro-tecnologico",
+        "cosine": 0.8698490480762932
+      },
+      {
+        "slug": "multe-vignetta-chiasso-pasqua-2026",
+        "cosine": 0.8665864523554037
+      }
+    ],
+    "score": 16.877345800902116,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

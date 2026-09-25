@@ -1,0 +1,22 @@
+{
+  "companyKey": "ail-aziende-industriali-lugano",
+  "companyName": "AIL (Aziende Industriali Lugano)",
+  "companyHost": "ail.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.ail.ch/careers",
+    "https://www.ail.ch/career",
+    "https://www.ail.ch/jobs",
+    "https://www.ail.ch/karriere",
+    "https://www.ail.ch/offene-stellen",
+    "https://www.ail.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.920Z"
+}

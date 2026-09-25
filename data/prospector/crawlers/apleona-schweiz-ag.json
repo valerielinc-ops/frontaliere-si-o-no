@@ -1,0 +1,21 @@
+{
+  "companyKey": "apleona-schweiz-ag",
+  "companyName": "Apleona Schweiz AG",
+  "companyHost": "recruitingapp-2765.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2765.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Immobilienbewirtschafter (m/w/d)",
+    "Gebäudetechniker Sanitär-/Heizungstechnik (m/w/d) - Du wählst deinen fixen Standort!",
+    "Mitarbeiter/in Labordienstleistungen – Pharma / Life Science (m/w/d)",
+    "Lehrstelle als Kauffrau / Kaufmann EFZ, Fachrichtung Treuhand / Immobilien per 1. August 2027",
+    "Lehrstelle als Kauffrau / Kaufmann EFZ, Fachrichtung Treuhand / Immobilien per 1. August 2027"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T04:29:01.493Z"
+}

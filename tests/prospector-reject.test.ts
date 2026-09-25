@@ -1,0 +1,165 @@
+/**
+ * Prospector — respingere una spec con causa accertata.
+ *
+ * Il verdetto e' terminale e libera uno slot di validazione ogni notte: deve
+ * colpire il candidato giusto (le chiavi candidato e crawler divergono),
+ * scrivere sempre la causa, e non poter spegnere un crawler gia' spedito.
+ */
+import { spawnSync } from 'node:child_process';
+import fs from 'node:fs';
+import os from 'node:os';
+import path from 'node:path';
+import { describe, expect, it } from 'vitest';
+import { rejectCandidates, resolveCandidateRef, SHIPPED_STATUSES } from '../scripts/lib/prospector/reject-candidates.mjs';
+import { unknownFlags } from '../scripts/lib/prospector/cli-flags.mjs';
+import { LEDGER_PATH } from '../scripts/lib/prospector/config.mjs';
+
+const ROOT = path.resolve(__dirname, '..');
+
+// Il registro e' un file committato: una transizione di test non deve finirci.
+const ledgerFile = path.join(fs.mkdtempSync(path.join(os.tmpdir(), 'prospect-reject-')), 'ledger.jsonl');
+const reject = (store: any, entries: any[]) => rejectCandidates(store, entries, { ledgerFile });
+
+const storeWith = (candidates: Record<string, any>) => ({ version: 1, updatedAt: null, candidates });
+
+const base = () => storeWith({
+  'picks.ch': { key: 'picks.ch', status: 'promoted', crawlerKey: 'picks' },
+  'recruitingapp-2316@umantis.com': { key: 'recruitingapp-2316@umantis.com', status: 'promoted', crawlerKey: 'kinderspital-zurich' },
+  'shipped.ch': { key: 'shipped.ch', status: 'production', crawlerKey: 'shipped' },
+});
+
+describe('rejection con causa accertata', () => {
+  it('risolve un ref sia per chiave candidato sia per chiave crawler', () => {
+    const store = base();
+    expect(resolveCandidateRef(store, 'picks.ch').candidate?.key).toBe('picks.ch');
+    expect(resolveCandidateRef(store, 'kinderspital-zurich').candidate?.key).toBe('recruitingapp-2316@umantis.com');
+    expect(resolveCandidateRef(store, 'sconosciuto').candidate).toBeNull();
+    expect(resolveCandidateRef(store, '').candidate).toBeNull();
+  });
+
+  it('rifiuta un ref che colpisce due record diversi invece di sceglierne uno', () => {
+    // Il caso reale che ha motivato la guardia: `vebego` e' insieme la chiave
+    // di un candidato `new` (stesso datore, visto solo per nome) e il
+    // crawlerKey della spec `vebego@castione` che occupa lo slot.
+    const store = storeWith({
+      'vebego@castione': { key: 'vebego@castione', status: 'promoted', crawlerKey: 'vebego' },
+      vebego: { key: 'vebego', status: 'new' },
+    });
+    const resolved = resolveCandidateRef(store, 'vebego');
+    expect(resolved.candidate).toBeNull();
+    expect(resolved.why).toContain('ambiguo');
+
+    const { applied, skipped } = reject(store, [{ ref: 'vebego', reason: 'UI agganciata' }]);
+    expect(applied).toEqual([]);
+    expect(skipped[0].why).toContain('ambiguo');
+    expect(store.candidates.vebego.status).toBe('new');
+    expect(store.candidates['vebego@castione'].status).toBe('promoted');
+  });
+
+  it('porta a rejected scrivendo la causa nel record', () => {
+    const store = base();
+    const { applied, skipped } = reject(store, [{ ref: 'picks', reason: 'aggregatore: annunci di altri datori' }]);
+    expect(skipped).toEqual([]);
+    expect(applied).toEqual([{ ref: 'picks', key: 'picks.ch', from: 'promoted', reason: 'aggregatore: annunci di altri datori' }]);
+    expect(store.candidates['picks.ch'].status).toBe('rejected');
+    expect(store.candidates['picks.ch'].reason).toBe('aggregatore: annunci di altri datori');
+    expect(store.candidates['picks.ch'].rejectedAt).toBeTruthy();
+  });
+
+  it('con ledgerFile null non scrive nessuna voce di registro (dry-run)', () => {
+    // L'assert misura la SCRITTURA, non l'assenza di un file mai nominato: lo
+    // stesso path viene prima esercitato per davvero, cosi' se domani
+    // `setStatus` normalizzasse `null` -> `LEDGER_PATH` (o sparisse la guardia
+    // di `appendLedger`) questo caso diventerebbe rosso invece di restare
+    // verde per costruzione.
+    const control = path.join(path.dirname(ledgerFile), 'dry-run-control.jsonl');
+    const scritto = base();
+    rejectCandidates(scritto, [{ ref: 'picks', reason: 'aggregatore' }], { ledgerFile: control });
+    const righeDopoScrittura = fs.readFileSync(control, 'utf8').trim().split('\n');
+    expect(righeDopoScrittura).toHaveLength(1);
+
+    // E sorveglia il registro COMMITTATO: un `null` normalizzato a
+    // `LEDGER_PATH` non scriverebbe su `control`, scriverebbe qui.
+    const size = (f: string) => (fs.existsSync(f) ? fs.statSync(f).size : -1);
+    const committedPrima = size(LEDGER_PATH);
+
+    const store = base();
+    const { applied } = rejectCandidates(store, [{ ref: 'picks', reason: 'aggregatore' }], { ledgerFile: null });
+    expect(applied).toHaveLength(1);
+    expect(store.candidates['picks.ch'].status).toBe('rejected');
+    expect(fs.readFileSync(control, 'utf8').trim().split('\n')).toEqual(righeDopoScrittura);
+    expect(size(LEDGER_PATH)).toBe(committedPrima);
+  });
+
+  it('non respinge senza causa: un rejected muto non e\' verificabile', () => {
+    const store = base();
+    const { applied, skipped } = reject(store, [{ ref: 'picks', reason: '   ' }]);
+    expect(applied).toEqual([]);
+    expect(skipped[0].why).toBe('causa mancante');
+    expect(store.candidates['picks.ch'].status).toBe('promoted');
+  });
+
+  it('non tocca un candidato gia\' spedito ne\' uno gia\' rejected', () => {
+    const store = base();
+    const { applied, skipped } = reject(store, [
+      { ref: 'shipped', reason: 'refuso di chiave' },
+      { ref: 'sconosciuto', reason: 'causa qualunque' },
+    ]);
+    expect(applied).toEqual([]);
+    expect(store.candidates['shipped.ch'].status).toBe('production');
+    expect(skipped.map((s) => s.why)).toEqual([
+      "stato production: gia' spedito, si ritira il crawler",
+      'candidato non trovato',
+    ]);
+    expect([...SHIPPED_STATUSES]).toContain('promoting');
+
+    const twice = reject(store, [{ ref: 'picks', reason: 'aggregatore' }, { ref: 'picks', reason: 'aggregatore' }]);
+    expect(twice.applied).toHaveLength(1);
+    expect(twice.skipped[0].why).toBe("gia' rejected");
+  });
+
+  it('non ingoia un flag sconosciuto: --dryrun non e\' --dry-run', () => {
+    // Il verdetto e' terminale e `setStatus` e' forward-only: un refuso sul
+    // flag che decide se la corsa scrive non ha rimedio a valle.
+    const rejectKnown = { booleans: ['dry-run'] };
+    expect(unknownFlags(['--dryrun', "picks='aggregatore'"], rejectKnown)).toEqual(['--dryrun']);
+    expect(unknownFlags(['-n'], rejectKnown)).toEqual(['-n']);
+    expect(unknownFlags(['--dry-run', "picks='aggregatore'"], rejectKnown)).toEqual([]);
+    // Valued di un booleano: `includes('--dry-run')` non lo vede, la corsa scriverebbe.
+    expect(unknownFlags(['--dry-run=1'], rejectKnown)).toEqual(['--dry-run=1']);
+    expect(unknownFlags(['--dry-run=true'], rejectKnown)).toEqual(['--dry-run=true']);
+    expect(unknownFlags(['--dry-run=false'], rejectKnown)).toEqual(['--dry-run=false']);
+    // `replace(/^-+/, '')` rendeva `-dry-run`/`---dry-run` uguali al nudo.
+    expect(unknownFlags(['-dry-run'], rejectKnown)).toEqual(['-dry-run']);
+    expect(unknownFlags(['---dry-run'], rejectKnown)).toEqual(['---dry-run']);
+    // Gli stadi con valore: `--limit=40` e' noto, `--limite=40` e `--limit` nudo no.
+    const mixed = { booleans: ['dry-run'], valued: ['limit'] };
+    expect(unknownFlags(['--limit=40', '--limite=40'], mixed)).toEqual(['--limite=40']);
+    expect(unknownFlags(['--limit'], mixed)).toEqual(['--limit']);
+    // Un call site che passa ancora l'array (vecchio contratto) fallisce chiuso.
+    expect(unknownFlags(['--dry-run'], ['dry-run'])).toEqual(['--dry-run']);
+  });
+
+  it.each(['--dryrun', '--dry-run=1', '--dry-run=true', '--dry-run=false', '-dry-run', '---dry-run'])(
+    'il CLI esce 2 su %s e non tocca candidates.json ne\' il ledger',
+    (flag) => {
+      // assertKnownFlags deve morire PRIMA di loadCandidates/saveCandidates: un
+      // refuso che arrivasse a setStatus scriverebbe un rejected terminale.
+      const candidates = path.join(ROOT, 'data/prospector/candidates.json');
+      const size = (f: string) => (fs.existsSync(f) ? fs.statSync(f).size : -1);
+      const candBefore = fs.statSync(candidates);
+      const ledgerBefore = size(LEDGER_PATH);
+      const res = spawnSync(
+        process.execPath,
+        ['scripts/prospect-reject.mjs', flag, "picks='aggregatore'"],
+        { cwd: ROOT, encoding: 'utf8' },
+      );
+      expect(res.status).toBe(2);
+      expect(res.stderr).toContain(`Flag sconosciuto: ${flag}`);
+      const candAfter = fs.statSync(candidates);
+      expect(candAfter.mtimeMs).toBe(candBefore.mtimeMs);
+      expect(candAfter.size).toBe(candBefore.size);
+      expect(size(LEDGER_PATH)).toBe(ledgerBefore);
+    },
+  );
+});

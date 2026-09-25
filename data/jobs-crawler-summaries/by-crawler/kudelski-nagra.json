@@ -1,0 +1,62 @@
+{
+  "key": "kudelski-nagra",
+  "label": "Kudelski NAGRA",
+  "generatedAt": "2026-09-25T15:03:34.592Z",
+  "total": 1,
+  "discovered": 14,
+  "parsed": 1,
+  "lastFetchOutcome": null,
+  "written": 1,
+  "authoritativeEmptySnapshot": false,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 5159,
+  "avgDurationMs": 5159,
+  "durationHistory": [
+    5159
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "kudelski-nagra-362f31b80bbf",
+      "slug": "security-operations-engineer-kudelski-nagra-ch",
+      "company": "Kudelski NAGRA",
+      "companyKey": "kudelski-nagra",
+      "companyDomain": "nagra.com",
+      "title": "Security Operations Engineer",
+      "location": "Zurich, Switzerland (Hybrid, onsite with client)",
+      "canton": "ZH",
+      "url": "https://careers.nagra.com/?page=advertisement_display&id=15828",
+      "source": "Kudelski NAGRA Dedicated Parser",
+      "sourceLang": "it",
+      "crawledAt": "2026-09-25T15:03:24.932Z",
+      "addressLocality": "Zurich, Switzerland (Hybrid, onsite with client)",
+      "addressRegion": "ZH",
+      "streetAddress": "Bahnhofstrasse 1",
+      "addressCountry": "CH",
+      "country": "CH",
+      "postalCode": "8001",
+      "category": "Ingegneria",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Sicurezza digitale / Media technology",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-08-20",
+      "applyUrl": "https://careers.nagra.com/?page=advertisement_display&id=15828",
+      "firstSeenAt": "2026-09-19T23:09:21.794Z",
+      "_qualityScore": 73,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 3,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
+}

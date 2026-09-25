@@ -1,0 +1,19 @@
+{
+  "id": "sospensioni-attivita-varesotto-sicurezza",
+  "slug": "sospensioni-attivita-varesotto-sicurezza",
+  "publishedAt": "2026-07-21T09:23:56.207Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "varesenoi.it",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 152.23400266666664,
+    "confidence": 1,
+    "finalScore": 152.23400266666664,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 38.05850066666666,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

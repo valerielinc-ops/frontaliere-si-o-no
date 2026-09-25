@@ -1,0 +1,40 @@
+{
+  "id": "calcolo-salario-netto-svizzera-frontalieri",
+  "slug": "calcolo-salario-netto-svizzera-frontalieri",
+  "publishedAt": "2026-05-25T07:41:17.464Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.033226966436309,
+    "confidence": 0.8,
+    "finalScore": 3.2265815731490473,
+    "topK": [
+      {
+        "slug": "stipendio-netto-2026",
+        "cosine": 0.8066453932872618
+      },
+      {
+        "slug": "strumenti-frontaliere-guida-comparatori",
+        "cosine": 0.7967616952562637
+      },
+      {
+        "slug": "tredicesima-frontaliere",
+        "cosine": 0.7873351765737775
+      },
+      {
+        "slug": "simulazione-fiscale-frontaliere-2026",
+        "cosine": 0.7871093337140781
+      },
+      {
+        "slug": "best-cross-border-worker-calculator-switzerland",
+        "cosine": 0.7546493579942998
+      }
+    ],
+    "score": 0.4033226966436309,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

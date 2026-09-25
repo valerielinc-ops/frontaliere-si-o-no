@@ -1,0 +1,24 @@
+{
+  "companyKey": "zucchetti-switzerland",
+  "companyName": "Zucchetti Switzerland SA",
+  "companyHost": "www.zucchetti.com",
+  "enabled": true,
+  "priority": 18,
+  "crawlerModes": [
+    "html"
+  ],
+  "seedUrls": [
+    "https://www.zucchetti.com/de/careers.html",
+    "https://zinrec.intervieweb.it/app.php?module=iframeAnnunci&lang=de&k=ef979e8b8a190b4c35ef4ea311478c7b&d=www.zucchetti.com&LAC=zucchettidach&utype=&act1=23&defgroup=name&gnavenable=on&desc=on&annType=published&typeView=small"
+  ],
+  "notes": "Dedicated Zucchetti crawler parses the InRecruiting/Intervieweb listing and detail pages, keeping only Ticino or Grigioni vacancies.",
+  "updatedAt": "2026-03-11T02:39:25.755Z",
+  "seedMetaByUrl": {
+    "https://zinrec.intervieweb.it/zucchettidach/jobs/software-developer-mfd-108010/de/": {
+      "location": "Mendrisio, Switzerland",
+      "canton": "TI",
+      "company": "Zucchetti Switzerland SA",
+      "postedDate": "2026-03-11"
+    }
+  }
+}

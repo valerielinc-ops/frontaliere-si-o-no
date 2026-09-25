@@ -1,0 +1,40 @@
+{
+  "id": "ddl-caregiver-frontalieri-ticino-2026",
+  "slug": "ddl-caregiver-frontalieri-ticino-2026",
+  "publishedAt": "2026-05-08T11:29:16.595Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.323458063230918,
+    "confidence": 0.8,
+    "finalScore": 5.058766450584734,
+    "topK": [
+      {
+        "slug": "parcheggi-ospedale-circolo-varese-2026",
+        "cosine": 0.7904322579038647
+      },
+      {
+        "slug": "varese-ospedale-parcheggi-personale-2026",
+        "cosine": 0.7741923312488946
+      },
+      {
+        "slug": "primo-maggio-varese-acli-lavoro-dignitoso",
+        "cosine": 0.7721498581214765
+      },
+      {
+        "slug": "sanita-manifesto-varese-2026",
+        "cosine": 0.7694093962856383
+      },
+      {
+        "slug": "varese-parcheggi-ospedale-sette-laghi-2026",
+        "cosine": 0.7674950550187873
+      }
+    ],
+    "score": 0.6323458063230918,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

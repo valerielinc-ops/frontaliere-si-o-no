@@ -1,0 +1,23 @@
+{
+  "companyKey": "grandalavorosocconsrl",
+  "companyName": "Granda Lavoro Soc. Cons R.L",
+  "companyHost": "grandalavorosocconsrl.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://grandalavorosocconsrl.altamiraweb.com/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "TIROCINIO BARISTA FULL TIME – SAVIGLIANO (CN)",
+    "APPRENDISTA IMPIEGATO/A AMMINISTRATIVO/A , SAVIGLIANO (CN)",
+    "IMPIEGATO/A DI SEGRETERIA DIDATTICA/AMMINISTRATIVA, CUNEO (CN)",
+    "PIZZAIOLO/A - CUNEO (CN)",
+    "IMPIEGATO/A COMMERCIALE JUNIOR, CUNEO (CN)"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:41.479Z"
+}

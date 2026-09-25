@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2924",
+  "companyName": "Bewerbermanagement Gesundheitszentrum Fricktal AG Stellen",
+  "companyHost": "recruitingapp-2924.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2924.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Assistenzärztin / Assistenzarzt Notfallstation (m/w/d)",
+    "Assistent:in Gesundheit & Soziales (m/w/d)",
+    "Dipl. Expert:in Anästhesiepflege (m/w/d)",
+    "Assistent:in Gesundheit und Soziales (AGS) EBA (m/w/d) in Ausbildung 2027",
+    "Perioperative Assistenz (m/w/d)"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:37.831Z"
+}

@@ -1,0 +1,159 @@
+name: Send CompanyAlert Emails (immediate)
+
+# CompanyAlert immediate cadence — issue #5012 phase 2.
+#
+# Trigger, not a cron: the issue asks for "immediato (email per ogni nuovo
+# job)", and the daily digest (send-job-alerts.yml, 00:33 UTC) cannot deliver
+# that. The crawlers and publisher-jobs-sync COMMIT the new listings to
+# data/jobs/by-crawler/*.json (scripts/lib/git-commit-data.sh --slice-only), so
+# a push filter on that path is literally "a new job was published" — no
+# polling, no 30-min cron burning CI minutes 48× a day.
+#
+# The hourly cron is a safety net only: a push run can be skipped when Actions
+# is congested or when a crawler group commits while another run is in flight
+# (concurrency below is cancel-in-progress: false, so runs queue rather than
+# cancel — but GitHub keeps at most one pending run per group and drops the
+# rest). The sender is idempotent by construction (per-alert sentJobIds), so an
+# extra run is free.
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - 'data/jobs/by-crawler/**'
+  schedule:
+    # Hourly safety net at :41 — off the :00/:15/:30/:45 marks GitHub Actions
+    # deprioritizes under load (same reasoning as send-job-alerts.yml's :33),
+    # and clear of publisher-jobs-sync's */30.
+    - cron: '41 * * * *'
+  workflow_dispatch:
+    inputs:
+      target_email:
+        description: 'Limit send to a single email (test mode). Empty = all immediate CompanyAlerts.'
+        required: false
+        default: ''
+        type: string
+      dry_run:
+        description: 'Build the emails but do not send.'
+        required: false
+        default: true
+        type: boolean
+concurrency:
+  # Never two concurrent runs: both would read the same pre-send sentJobIds and
+  # could mail the same job twice before either persists the dedup map.
+  group: company-alerts
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write # github-issue-creator on failure
+
+jobs:
+  send-company-alerts:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs
+
+      # data/jobs.json is gitignored — it is assembled from the committed
+      # by-crawler slices. The sender reads firstSeenAt off it.
+      # Content-addressed cache of the assembled dataset. The key is printed by
+      # the assembler itself (.github/actions/assemble-jobs-cache-key): sha256
+      # of every slice, of its local import closure, of the aux data files it
+      # reads, of package-lock.json and of the Node major. It is the SAME value
+      # the script checks before restoring, so a hit can only replay an output
+      # built from byte-identical inputs; no restore-keys fallback. Measured
+      # miss cost: 4m41 (run 35422626497).
+      - name: Compute assemble-jobs cache key
+        id: assemble_cache_key
+        uses: ./.github/actions/assemble-jobs-cache-key
+
+      - name: Restore assemble-jobs cache
+        id: assemble_cache
+        if: steps.assemble_cache_key.outputs.key != ''
+        uses: actions/cache/restore@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      - name: Assemble jobs dataset
+        id: assemble
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Save assemble-jobs cache
+        if: steps.assemble.outcome == 'success' && steps.assemble_cache_key.outputs.key != '' && steps.assemble_cache.outputs.cache-hit != 'true'
+        continue-on-error: true
+        uses: actions/cache/save@v5
+        with:
+          path: .cache/assemble-jobs
+          key: assemble-jobs-send-${{ runner.os }}-${{ steps.assemble_cache_key.outputs.key }}
+
+      - name: Send CompanyAlert emails
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        continue-on-error: true
+        id: send
+        env:
+          ENABLE_JOB_ALERTS: 'true'
+          TARGET_EMAIL: ${{ inputs.target_email }}
+          ALLOW_SIDE_EFFECT: 'true'
+          EFFECTIVE_DRY_RUN: ${{ inputs.dry_run == true || inputs.dry_run == 'true' }}
+        run: |
+          node scripts/send-company-alerts.mjs
+
+      - name: Report failure to GitHub Issues
+        if: steps.send.outcome == 'failure'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "CI Failure: ${{ github.workflow }}" \
+            --description "## CompanyAlert immediate send fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Branch:** ${{ github.ref_name }}
+          **Trigger:** ${{ github.event_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"
+
+      # Il rosso del run, DOPO l'apertura della issue: `continue-on-error` sullo
+      # step di invio tiene vivo il job perche' il reporter possa girare, non per
+      # dichiarare verde un run fallito. `close-recovered-failure-issues.yml`
+      # chiude `CI Failure: <workflow>` sulla premessa «ultimo run completato
+      # success dopo l'apertura»: con un run verde per costruzione la issue si
+      # chiude come recuperata al giro dopo, guasto ancora in piedi. Stesso idiom
+      # di `location-quality-audit.yml` (#7379, item 3).
+      - name: Fail job if the send step failed
+        if: steps.send.outcome == 'failure'
+        run: |
+          echo "::error::invio CompanyAlert fallito — vedi l'issue aperta sopra."
+          exit 1

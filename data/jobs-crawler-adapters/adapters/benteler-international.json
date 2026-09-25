@@ -1,0 +1,22 @@
+{
+  "companyKey": "benteler-international",
+  "companyName": "Benteler International",
+  "companyHost": "benteler.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.benteler.com/careers",
+    "https://www.benteler.com/career",
+    "https://www.benteler.com/jobs",
+    "https://www.benteler.com/karriere",
+    "https://www.benteler.com/offene-stellen",
+    "https://www.benteler.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.928Z"
+}

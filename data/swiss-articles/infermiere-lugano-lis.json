@@ -1,0 +1,18 @@
+{
+  "id": "infermiere-lugano-lis",
+  "slug": "infermiere-lugano-lis",
+  "publishedAt": "2026-06-16T20:28:19.794Z",
+  "cluster": "salute",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 0,
+    "confidence": 0.3,
+    "finalScore": 0,
+    "cluster": "salute",
+    "score": 0,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1
+  }
+}

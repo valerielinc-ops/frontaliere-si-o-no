@@ -1,0 +1,95 @@
+{
+  "generatedAt": "2026-07-16T23:05:07.079Z",
+  "source": "data/jobs.json via build-plugins/professionJobsAggregate.ts#aggregateProfessionJobs (TI-scoped)",
+  "minLiveCount": 5,
+  "presets": [
+    {
+      "id": "ingegnere",
+      "label": {
+        "it": "Ingegnere",
+        "en": "Engineer",
+        "de": "Ingenieur",
+        "fr": "Ingénieur"
+      },
+      "medianSalaryChf": 73000,
+      "liveCount": 55
+    },
+    {
+      "id": "infermiere",
+      "label": {
+        "it": "Infermiere",
+        "en": "Nurse",
+        "de": "Pflegefachperson",
+        "fr": "Infirmier·ère"
+      },
+      "medianSalaryChf": 75250,
+      "liveCount": 50
+    },
+    {
+      "id": "farmacista",
+      "label": {
+        "it": "Farmacista",
+        "en": "Pharmacist",
+        "de": "Apotheker",
+        "fr": "Pharmacien"
+      },
+      "medianSalaryChf": 84500,
+      "liveCount": 13
+    },
+    {
+      "id": "ostetrica",
+      "label": {
+        "it": "Ostetrica",
+        "en": "Midwife",
+        "de": "Hebamme",
+        "fr": "Sage-femme"
+      },
+      "medianSalaryChf": 84500,
+      "liveCount": 9
+    },
+    {
+      "id": "educatore",
+      "label": {
+        "it": "Educatore",
+        "en": "Social educator",
+        "de": "Sozialpädagoge",
+        "fr": "Éducateur"
+      },
+      "medianSalaryChf": 84500,
+      "liveCount": 7
+    },
+    {
+      "id": "cuoco",
+      "label": {
+        "it": "Cuoco",
+        "en": "Cook",
+        "de": "Koch",
+        "fr": "Cuisinier"
+      },
+      "medianSalaryChf": 69000,
+      "liveCount": 7
+    },
+    {
+      "id": "psicologo",
+      "label": {
+        "it": "Psicologo",
+        "en": "Psychologist",
+        "de": "Psychologe",
+        "fr": "Psychologue"
+      },
+      "medianSalaryChf": 75250,
+      "liveCount": 7
+    },
+    {
+      "id": "assistente-sociale",
+      "label": {
+        "it": "Assistente sociale",
+        "en": "Social worker",
+        "de": "Sozialarbeiter",
+        "fr": "Assistant social"
+      },
+      "medianSalaryChf": 84500,
+      "liveCount": 7
+    }
+  ]
+}

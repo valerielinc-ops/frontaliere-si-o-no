@@ -1,0 +1,22 @@
+{
+  "companyKey": "tenconi-sa",
+  "companyName": "Tenconi SA",
+  "companyHost": "tenconi.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.tenconi.ch/careers",
+    "https://www.tenconi.ch/career",
+    "https://www.tenconi.ch/jobs",
+    "https://www.tenconi.ch/karriere",
+    "https://www.tenconi.ch/offene-stellen",
+    "https://www.tenconi.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.993Z"
+}

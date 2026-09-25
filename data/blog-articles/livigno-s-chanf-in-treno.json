@@ -1,0 +1,40 @@
+{
+  "id": "livigno-s-chanf-in-treno",
+  "slug": "livigno-s-chanf-in-treno",
+  "publishedAt": "2026-07-23T19:36:48.648Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.858172566297736,
+    "confidence": 0.8,
+    "finalScore": 4.6865380530381895,
+    "topK": [
+      {
+        "slug": "vivere-valtellina-lavorare-grigioni-frontaliere",
+        "cosine": 0.836881795185391
+      },
+      {
+        "slug": "ospedale-universitario-ticino-2026",
+        "cosine": 0.8350509183192507
+      },
+      {
+        "slug": "progetto-sintab-sentiero-rio-dei-gioghi",
+        "cosine": 0.8333597497610403
+      },
+      {
+        "slug": "maxi-piano-traffico-lago-como-2026",
+        "cosine": 0.8303182199955152
+      },
+      {
+        "slug": "ffs-2027-ticino",
+        "cosine": 0.8302066726439938
+      }
+    ],
+    "score": 1.1716345132595474,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

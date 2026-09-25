@@ -1,0 +1,40 @@
+{
+  "id": "olimpiadi-2038-svizzera-non-referendum",
+  "slug": "olimpiadi-2038-svizzera-non-referendum",
+  "publishedAt": "2026-06-22T21:12:45.962Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.4952715013959867,
+    "confidence": 0.8,
+    "finalScore": 1.9962172011167896,
+    "topK": [
+      {
+        "slug": "congresso-varese-2026-fisco-lavoro-ticino",
+        "cosine": 0.8317571671319957
+      },
+      {
+        "slug": "svincolo-a2-sigirino-ritardo",
+        "cosine": 0.8313646447029543
+      },
+      {
+        "slug": "iniziativa-10-milioni-votazione-14-giugno",
+        "cosine": 0.8293668986987303
+      },
+      {
+        "slug": "grigioni-viabilita-olimpica-2026",
+        "cosine": 0.8288224159199781
+      },
+      {
+        "slug": "svizzera-10-milioni-votazione-ticino",
+        "cosine": 0.8270381374513892
+      }
+    ],
+    "score": 0.9981086005583948,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

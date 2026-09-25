@@ -1,0 +1,40 @@
+{
+  "id": "ristorazione-ticinese-ore-non-pagate",
+  "slug": "ristorazione-ticinese-ore-non-pagate",
+  "publishedAt": "2026-07-02T12:22:22.733Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "varesenoi.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.342779227107785,
+    "confidence": 0.8,
+    "finalScore": 3.4742233816862282,
+    "topK": [
+      {
+        "slug": "calo-frontalieri-non-tassa-salute",
+        "cosine": 0.8684541991077097
+      },
+      {
+        "slug": "ristorni-imprese-allarme-ticino",
+        "cosine": 0.8590079819152259
+      },
+      {
+        "slug": "blocco-ristorni-ticino-italia-2026",
+        "cosine": 0.8585567890296261
+      },
+      {
+        "slug": "tassa-salute-frontalieri-ticino-2026",
+        "cosine": 0.8580544965377886
+      },
+      {
+        "slug": "ristorni-congelati-scontro-ticino",
+        "cosine": 0.8569409490896255
+      }
+    ],
+    "score": 3.4742233816862282,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

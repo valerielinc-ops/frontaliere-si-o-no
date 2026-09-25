@@ -1,0 +1,40 @@
+{
+  "id": "salario-minimo-ticino-frontalieri-2029",
+  "slug": "salario-minimo-ticino-frontalieri-2029",
+  "publishedAt": "2026-05-25T07:28:24.881Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.519608902084149,
+    "confidence": 0.8,
+    "finalScore": 3.615687121667319,
+    "topK": [
+      {
+        "slug": "emolumenti-svizzera-tassazione-italia",
+        "cosine": 0.7858539027951075
+      },
+      {
+        "slug": "frontalieri-confine-disparita-fiscale",
+        "cosine": 0.7848236090035777
+      },
+      {
+        "slug": "tasse-mance-frontalieri-ticino",
+        "cosine": 0.7841296301607055
+      },
+      {
+        "slug": "lohnausweis-frontalieri-ticino",
+        "cosine": 0.7821004211090369
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.7818087191779315
+      }
+    ],
+    "score": 0.9039217804168298,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

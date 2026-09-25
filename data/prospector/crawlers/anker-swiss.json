@@ -1,0 +1,22 @@
+{
+  "companyKey": "anker-swiss",
+  "companyName": "Anker Swiss Ticino AG",
+  "companyHost": "anker-swiss.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://anker-swiss.ch/stellen/"
+  ],
+  "detailTemplate": "/stellen/*/",
+  "sampleVacancyCount": 222,
+  "sampleTitles": [
+    "Betonwerker,Schaler 100%",
+    "Bauarbeiter, Bauhauptgewerbe 100%",
+    "Kranführer 100%",
+    "Heizungsinstallateur 100%",
+    "Sanitärinstallateur 100%"
+  ],
+  "canton": "TI",
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T10:02:21.988Z"
+}

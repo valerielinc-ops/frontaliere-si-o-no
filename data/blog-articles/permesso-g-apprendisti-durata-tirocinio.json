@@ -1,0 +1,40 @@
+{
+  "id": "permesso-g-apprendisti-durata-tirocinio",
+  "slug": "permesso-g-apprendisti-durata-tirocinio",
+  "publishedAt": "2026-07-23T05:44:23.026Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.739167063673156,
+    "confidence": 0.8,
+    "finalScore": 5.391333650938525,
+    "topK": [
+      {
+        "slug": "apprendisti-frontalieri-permessi-g",
+        "cosine": 0.9172040434832742
+      },
+      {
+        "slug": "permesso-g-apprendisti-svolta-storica",
+        "cosine": 0.9126084656330586
+      },
+      {
+        "slug": "permesso-g-apprendisti-frontali",
+        "cosine": 0.9080650550472513
+      },
+      {
+        "slug": "ticino-svolta-per-apprendisti",
+        "cosine": 0.9029175900864868
+      },
+      {
+        "slug": "apprendisti-frontalieri-riforma-permesso-g",
+        "cosine": 0.8942595612780322
+      }
+    ],
+    "score": 2.6956668254692624,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

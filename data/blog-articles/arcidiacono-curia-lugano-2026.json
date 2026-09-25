@@ -1,0 +1,40 @@
+{
+  "id": "arcidiacono-curia-lugano-2026",
+  "slug": "arcidiacono-curia-lugano-2026",
+  "publishedAt": "2026-05-08T22:29:00.248Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.139141067142333,
+    "confidence": 0.8,
+    "finalScore": 7.311312853713867,
+    "topK": [
+      {
+        "slug": "nuova-direttrice-servizi-sociali-bellinzona",
+        "cosine": 0.8292858385124278
+      },
+      {
+        "slug": "ambasciatore-italiano-ritorno-berna",
+        "cosine": 0.8260343313787363
+      },
+      {
+        "slug": "abbonamento-newsletter-ticino",
+        "cosine": 0.8181655661956845
+      },
+      {
+        "slug": "due-ticinesi-guardie-svizzere-2026",
+        "cosine": 0.8169795710922214
+      },
+      {
+        "slug": "controllo-finanze-ticino-2026",
+        "cosine": 0.8164502226568905
+      }
+    ],
+    "score": 0.7311312853713867,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

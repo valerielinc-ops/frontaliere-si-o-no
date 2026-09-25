@@ -1,0 +1,22 @@
+{
+  "companyKey": "ticino-turismo",
+  "companyName": "Ticino Turismo",
+  "companyHost": "ticino.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.ticino.ch/careers",
+    "https://www.ticino.ch/career",
+    "https://www.ticino.ch/jobs",
+    "https://www.ticino.ch/karriere",
+    "https://www.ticino.ch/offene-stellen",
+    "https://www.ticino.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.994Z"
+}

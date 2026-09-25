@@ -1,0 +1,22 @@
+{
+  "companyKey": "engadinerhof",
+  "companyName": "Engadinerhof",
+  "companyHost": "engadinerhof.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.engadinerhof.com/career/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Rezeptionist/in (m/w/d)",
+    "Sous Chef (m/w/d)",
+    "Front Office Manager/in"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-06T09:05:01.962Z"
+}

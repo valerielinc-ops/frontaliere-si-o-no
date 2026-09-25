@@ -1,0 +1,40 @@
+{
+  "id": "lavoro-lugano-mercato-annunci",
+  "slug": "lavoro-lugano-mercato-annunci",
+  "publishedAt": "2026-06-25T20:56:12.383Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 19.02287160983718,
+    "confidence": 0.8,
+    "finalScore": 15.218297287869744,
+    "topK": [
+      {
+        "slug": "incendi-nel-luganese-arrestato-un-piromane",
+        "cosine": 0.8270813743407469
+      },
+      {
+        "slug": "furti-serie-automobili-luganese-arrestato",
+        "cosine": 0.8257418786367975
+      },
+      {
+        "slug": "pasto-vegetale-gratis-ticino-2026",
+        "cosine": 0.8212710302977377
+      },
+      {
+        "slug": "mezzo-milione-franchi-progetti-luganese-2026",
+        "cosine": 0.8205562645803137
+      },
+      {
+        "slug": "natura-tavola-cucina-vegetale-lugano-2024",
+        "cosine": 0.8204614607721702
+      }
+    ],
+    "score": 3.804574321967436,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

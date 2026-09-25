@@ -1,0 +1,40 @@
+{
+  "id": "traffico-migranti-tra-varese-e-il-ticino",
+  "slug": "traffico-migranti-tra-varese-e-il-ticino",
+  "publishedAt": "2026-05-17T04:03:30.781Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.250119001254656,
+    "confidence": 0.8,
+    "finalScore": 4.200095201003725,
+    "topK": [
+      {
+        "slug": "traffico-umani-valico-tresa-impatto-frontalieri",
+        "cosine": 0.8748386929123788
+      },
+      {
+        "slug": "frontalieri-ticino-dati-ust-2025",
+        "cosine": 0.8687697297375935
+      },
+      {
+        "slug": "ticinesi-e-frontalieri-comprano-case-su-laghi-verbano-e-ceresio",
+        "cosine": 0.8584655188206011
+      },
+      {
+        "slug": "camionisti-furbetti-governo-ticino-2026",
+        "cosine": 0.8563351598557847
+      },
+      {
+        "slug": "calo-entrate-irregolari-chiasso",
+        "cosine": 0.856004697439531
+      }
+    ],
+    "score": 2.1000476005018625,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

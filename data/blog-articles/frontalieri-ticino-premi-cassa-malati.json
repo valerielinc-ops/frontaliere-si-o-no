@@ -1,0 +1,18 @@
+{
+  "id": "frontalieri-ticino-premi-cassa-malati",
+  "slug": "frontalieri-ticino-premi-cassa-malati",
+  "publishedAt": "2026-05-14T07:40:19.022Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3.5,
+    "confidence": 0.3,
+    "finalScore": 1.05,
+    "cluster": "salute",
+    "score": 1.05,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "ferrovia-retica-taiwan",
+  "slug": "ferrovia-retica-taiwan",
+  "publishedAt": "2026-06-01T21:43:12.598Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.1096015524811635,
+    "confidence": 0.8,
+    "finalScore": 4.887681241984931,
+    "topK": [
+      {
+        "slug": "ferrovia-svizzera-300-progetti-2026",
+        "cosine": 0.8728500651402263
+      },
+      {
+        "slug": "nuove-tratte-estive-ffs-ticino-2026",
+        "cosine": 0.8586907137004165
+      },
+      {
+        "slug": "boom-viaggiatori-treni-2026-ticino",
+        "cosine": 0.8580045008061079
+      },
+      {
+        "slug": "lombardia-chiede-completamento-alptransit",
+        "cosine": 0.8566805420468546
+      },
+      {
+        "slug": "accordo-navigazione-costanza-2026",
+        "cosine": 0.8529722462518836
+      }
+    ],
+    "score": 4.887681241984931,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

@@ -1,0 +1,62 @@
+{
+  "key": "mueller-steinmaur",
+  "label": "mueller-steinmaur",
+  "generatedAt": "2026-09-24T14:26:24.781Z",
+  "total": 1,
+  "discovered": null,
+  "parsed": 1,
+  "lastFetchOutcome": null,
+  "written": 1,
+  "authoritativeEmptySnapshot": false,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 4744,
+  "avgDurationMs": 4744,
+  "durationHistory": [
+    4744
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "mueller-steinmaur-510b014742eb",
+      "slug": "betriebsmechaniker-in-landmaschinenmechaniker-in-50-100-steinmaur-zurich-mueller-steinmaur",
+      "company": "mueller-steinmaur",
+      "companyKey": "mueller-steinmaur",
+      "companyDomain": "mueller-steinmaur.ch",
+      "title": "Betriebsmechaniker:in / Landmaschinenmechaniker:in (50-100%)",
+      "location": "Steinmaur, Zürich",
+      "canton": "ZH",
+      "url": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
+      "source": "mueller-steinmaur Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-24T14:26:18.703Z",
+      "addressLocality": "Steinmaur",
+      "addressRegion": "Zürich",
+      "addressCountry": "Schweiz",
+      "country": "Schweiz",
+      "postalCode": "8162",
+      "streetAddress": "Im Gali",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "experienceLevel": "mid",
+      "sector": "Altro",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-21",
+      "applyUrl": "https://www.mueller-steinmaur.ch/job/betriebsmechanikerin-landmaschinenmechanikerin-50-100/",
+      "firstSeenAt": "2026-09-21T15:58:11.754Z",
+      "_qualityScore": 80,
+      "_qualityBreakdown": {
+        "cleanliness": 17,
+        "richness": 18,
+        "translation": 25,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
+}

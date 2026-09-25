@@ -1,0 +1,22 @@
+{
+  "companyKey": "dhl-express-ticino",
+  "companyName": "DHL Express Ticino",
+  "companyHost": "dhl.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.dhl.ch/careers",
+    "https://www.dhl.ch/career",
+    "https://www.dhl.ch/jobs",
+    "https://www.dhl.ch/karriere",
+    "https://www.dhl.ch/offene-stellen",
+    "https://www.dhl.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.937Z"
+}

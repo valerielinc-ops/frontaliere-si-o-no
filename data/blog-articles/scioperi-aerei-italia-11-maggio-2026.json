@@ -1,0 +1,40 @@
+{
+  "id": "scioperi-aerei-italia-11-maggio-2026",
+  "slug": "scioperi-aerei-italia-11-maggio-2026",
+  "publishedAt": "2026-05-10T09:41:31.802Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 15.010656957070498,
+    "confidence": 0.8,
+    "finalScore": 12.008525565656399,
+    "topK": [
+      {
+        "slug": "disagi-tilo-sciopero-italia",
+        "cosine": 0.790034576687921
+      },
+      {
+        "slug": "varese-milano-rallentamenti-treni-maggio-2026",
+        "cosine": 0.7874616277626548
+      },
+      {
+        "slug": "malpensa-carburante-rischio-frontalieri-2026",
+        "cosine": 0.7852210937234272
+      },
+      {
+        "slug": "aumento-kerosene-voli-cancellati-frontalieri-ticino",
+        "cosine": 0.7797056649369026
+      },
+      {
+        "slug": "malcontento-aeroporto-lugano-2026",
+        "cosine": 0.7788070678563632
+      }
+    ],
+    "score": 1.5010656957070498,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

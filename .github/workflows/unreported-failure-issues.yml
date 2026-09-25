@@ -1,0 +1,196 @@
+name: unreported-failure-issues
+
+# La rete di sicurezza GLOBALE sui workflow rossi e su quelli che hanno smesso
+# di girare. Razionale completo, misure e costi in
+# `scripts/ci/scan-unreported-failures.mjs`; qui sotto solo le scelte di YAML.
+#
+# ── Perche' centrale e non uno step per workflow ───────────────────────────
+# Misurato il 2026-09-18 su `origin/main`: 125 file di workflow su 283 hanno uno
+# step `if: failure()` che apre la issue, 158 no. Cablarlo nei 158 restanti non
+# chiuderebbe comunque il buco: uno startup failure con ZERO job non esegue
+# alcuno step (run 35343423193 di `sync-pharmacy-duties`, `jobs.total_count: 0`)
+# e un workflow dormiente non produce nessuna run da cui partire. E' la stessa
+# conclusione di `close-recovered-failure-issues.yml` per il lato che CHIUDE —
+# «without wiring a per-workflow step into ~300 YAML files» — applicata al lato
+# che APRE.
+#
+# ── Perche' NON `workflow_run` ─────────────────────────────────────────────
+# Un trigger `workflow_run` senza `workflows:` e' un file INVALIDO, non un
+# trigger non filtrato: GitHub smette di parsare il file e OGNI suo trigger
+# muore in silenzio. E' successo qui: revert #6656, dal 2026-08-28 09:17 il
+# gemello che chiude era completamente morto. Elencare ~283 nomi funzionerebbe e
+# smetterebbe di coprire ogni workflow aggiunto dopo, cioe' il difetto che
+# questo meccanismo esiste per impedire. Il cron e' l'unico strumento che
+# GitHub concede per «qualunque workflow, presente e futuro».
+# Nota: un `on:` modificato qui vale solo dal branch di DEFAULT, quindi questo
+# workflow comincia a girare col merge, non sulla PR che lo introduce.
+
+on:
+  schedule:
+    # Rossi: ogni ora al minuto 47. Sfasato di proposito dai cron gia' presenti
+    # (:10 job-timeout-monitor, :15, :17 close-recovered, :20, :23) e dai :9/:39
+    # del corpus: i due repo attingono allo STESSO bucket di rate limit Actions,
+    # e cron allineati sommano i picchi invece di distribuirli.
+    - cron: '47 * * * *'
+    # Dormienti: una volta al giorno. La modalita' costa una chiamata per
+    # workflow schedulato (oggi 180) sul bucket Actions, che e' separato da
+    # `core` e piu' stretto — `gh api rate_limit` puo' mostrare quota mentre una
+    # chiamata Actions rende 403. Oraria costerebbe 4.320 chiamate/giorno per
+    # rilevare con 24 h di anticipo una condizione la cui soglia piu' rapida e'
+    # di 3 ore: non vale il bucket.
+    - cron: '52 5 * * *'
+  workflow_dispatch:
+    inputs:
+      mode:
+        description: 'Quale scansione eseguire'
+        required: false
+        type: choice
+        default: both
+        options: [both, failures, dormant]
+      dry_run:
+        description: 'Elenca cosa aprirebbe senza aprire niente'
+        required: false
+        type: boolean
+        default: false
+
+# Gruppo distinto per cron. Con un gruppo unico GitHub tiene UN SOLO run pending
+# e scarta quello superato: la passata giornaliera sui dormienti, se accodata
+# dietro un'oraria, verrebbe buttata senza dirlo. La coda di concorrenza di
+# questo repo arriva a ~1 h di attesa reale, quindi non e' un caso teorico.
+concurrency:
+  group: unreported-failure-issues-${{ github.event.schedule || github.event_name }}
+  cancel-in-progress: false
+
+permissions:
+  contents: read
+  issues: write
+  actions: read # elencare le run, i loro job e il registro dei workflow
+
+jobs:
+  scan:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+
+      # Nessun `npm ci`: lo scanner e github-issue-creator usano solo builtin.
+
+      # ── Perche' il PAT, e perche' la sua assenza NON ferma la rete ────────
+      # Una issue creata dal GITHUB_TOKEN non emette l'evento `issues: opened`
+      # (anti-ricorsione GitHub), quindi nascerebbe fuori dal triage
+      # event-driven. Col PAT l'evento parte e `issue-triage` la classifica
+      # subito. Senza PAT il degrado e' MORBIDO e non silenzioso: le issue si
+      # aprono comunque — che e' l'intero scopo di questo workflow — e le
+      # raccoglie lo sweep periodico del triage. Far morire la rete di sicurezza
+      # perche' Remote Config non risponde significherebbe tornare al giorno in
+      # cui un workflow resta rosso 438 h senza che nessuno lo sappia.
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "::warning::FIREBASE_SERVICE_ACCOUNT_JSON assente — le issue si apriranno col GITHUB_TOKEN e le raccogliera' lo sweep del triage invece dell'evento immediato."
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Report PAT availability
+        run: |
+          if [ -n "${GITHUB_PAT:-}" ]; then
+            echo "GITHUB_PAT caricato: le issue nasceranno con l'evento issues:opened."
+          else
+            echo "::warning::GITHUB_PAT non caricato — issue aperte col GITHUB_TOKEN, triage via sweep e non via evento."
+          fi
+
+      # `continue-on-error` su entrambe le scansioni, perche' un guasto nella
+      # prima non deve nascondere la seconda: sono due buchi indipendenti. Il
+      # verdetto NON resta qui — lo decide l'ULTIMO step, che e' l'unico posto
+      # dove non puo' essere scavalcato da uno step successivo.
+      - name: Scan unreported workflow failures
+        id: failures
+        if: github.event.schedule == '47 * * * *' || github.event_name == 'workflow_dispatch' && (github.event.inputs.mode == 'both' || github.event.inputs.mode == 'failures')
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          IGNORE_WORKFLOWS: ''
+        run: |
+          ARGS=()
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS+=(--dry-run); fi
+          node scripts/ci/scan-unreported-failures.mjs "${ARGS[@]}"
+
+      - name: Scan dormant scheduled workflows
+        id: dormant
+        if: always() && (github.event.schedule == '52 5 * * *' || github.event_name == 'workflow_dispatch' && (github.event.inputs.mode == 'both' || github.event.inputs.mode == 'dormant'))
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ env.GITHUB_PAT || secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          IGNORE_WORKFLOWS: ''
+        run: |
+          ARGS=(--dormant)
+          if [ "${{ github.event.inputs.dry_run }}" = "true" ]; then ARGS+=(--dry-run); fi
+          node scripts/ci/scan-unreported-failures.mjs "${ARGS[@]}"
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      # ── Il verdetto, e perche' e' l'ULTIMO step ──────────────────────────
+      # Un verdetto in uno step intermedio e' gia' costato un verde falso in
+      # questo workspace: qualunque step successivo lo sovrascrive. Qui non c'e'
+      # nulla dopo. Si confronta `outcome` (l'esito REALE dello step, prima che
+      # `continue-on-error` lo mascheri) e solo con `failure`: `skipped` e'
+      # normale (ogni cron esegue una sola delle due scansioni) e `cancelled`
+      # NON e' un guasto — trattarlo come tale e' esattamente l'errore che
+      # questo meccanismo evita anche sulle run che osserva.
+      - name: Verdict
+        if: always()
+        run: |
+          FAILED=""
+          [ "${{ steps.failures.outcome }}" = "failure" ] && FAILED="$FAILED scan-failures"
+          [ "${{ steps.dormant.outcome }}" = "failure" ] && FAILED="$FAILED scan-dormant"
+          if [ -n "$FAILED" ]; then
+            echo "::error::La rete di sicurezza e' rotta:$FAILED. Un workflow rosso o dormiente puo' restare invisibile finche' non e' riparata."
+            exit 1
+          fi
+          echo "Scansioni completate (failures=${{ steps.failures.outcome }}, dormant=${{ steps.dormant.outcome }})."

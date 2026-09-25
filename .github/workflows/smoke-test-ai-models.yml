@@ -1,0 +1,195 @@
+name: Smoke-Test AI Models
+
+# Manual-only. One ping per model in DEFAULT_CHAIN; records pass/4xx/5xx/timeout.
+# Use after touching scripts/lib/ai-models.mjs to confirm new IDs work and to
+# spot newly deprecated models before they brick a production workflow
+# (cf. run 26534353239 where gemini-3.1-flash-lite-preview kept winning the
+# fallback selector after Google deprecated it).
+on:
+  workflow_dispatch: {}
+  # Scheduled so the Mistral `-latest` regression gate (issue #892) actually
+  # protects. A manual-only trigger never catches a silent no-op alias pass;
+  # the daily run fails CI the moment all Mistral `-latest` models go stale.
+  # Early in the UTC day so a regression surfaces before discovery would
+  # pre-exhaust the `-latest` chain for the rest of the day.
+  schedule:
+    - cron: '17 6 * * *'
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  smoke:
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Firebase secrets not set — Remote Config keys will not load."
+          fi
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      # ── OmniRoute (ON by default, RC kill-switch ENABLE_OMNIROUTE_FALLBACK='0')
+      # Self-hosted local AI gateway, offered in ai-models.mjs's DEFAULT_CHAIN
+      # as AI_MODELS.OMNIROUTE_AUTO. Wired here too so the smoke-test's
+      # one-ping-per-model sweep actually exercises this tier instead of
+      # silently no-op'ing on it. See
+      # .github/actions/setup-omniroute/action.yml for the full rationale.
+      - uses: ./.github/actions/setup-omniroute
+
+      # ── Codex Luna Max article lane (ON by default, kill-switch '0') ────
+      # Bounded Codex CLI broker used by the smoke test. Wired here so the
+      # one-ping-per-model sweep exercises this lane instead of no-op'ing.
+      - id: setup_claude_haiku_fallback
+        uses: ./.github/actions/setup-claude-haiku-fallback
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+
+      - name: Run smoke-test (one ping per model)
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+          AI_MODELS_PREFER: codex-cli/gpt-5.6-luna
+        run: |
+          mkdir -p .tmp
+          # Exit code conservato (gate Mistral `-latest`, #892) ma riportato solo
+          # DOPO il summary: con `bash -e` un exit non-zero qui saltava il report.
+          SMOKE_RC=0
+          node scripts/smoke-test-ai-models.mjs > .tmp/smoke.json 2> .tmp/smoke.log || SMOKE_RC=$?
+          {
+            echo "## Smoke-test summary"
+            echo '```json'
+            node -e "const r=require('./.tmp/smoke.json');console.log(JSON.stringify(r.summary,null,2))"
+            echo '```'
+            echo ""
+            echo "## GitHub Models publisher-prefix verification"
+            node -e "const r=require('./.tmp/smoke.json').githubModelsVerification; console.log('- state: \`'+r.state+'\`'); console.log('- bare roster observed: '+r.observedCount+'/'+r.rosterBareCount); console.log('- affected models: '+r.affectedModels.length);"
+            echo ""
+            echo "## Dead models (HTTP 404/410)"
+          } >> "$GITHUB_STEP_SUMMARY"
+          node -e "
+            const r=require('./.tmp/smoke.json');
+            const dead=(r.results||[]).filter(x=>x.status==='http_404'||x.status==='http_410');
+            if(!dead.length){console.log('_None._');}
+            else{
+              console.log('| Model | Detail |');
+              console.log('|-------|--------|');
+              for(const d of dead){console.log('| \`'+d.model+'\` | '+(d.detail||'').replace(/\\|/g,'\\\\|').slice(0,120)+' |');}
+            }
+          " >> "$GITHUB_STEP_SUMMARY"
+
+          # Salute della flotta: il gate Mistral era l'unico a far fallire la run,
+          # quindi il crollo dell'intera flotta (4/104 pass il 2026-09-24) restava
+          # verde. Sotto `minHealthyLanes` provider con almeno un pass la run
+          # fallisce: il report qui sotto apre l'issue deduplicata e
+          # close-recovered-failure-issues la chiude alla prima run verde. 402 e
+          # no_key sono cause esterne: non si correggono qui, si rendono visibili.
+          node -e "
+            const h=require('./.tmp/smoke.json').fleetHealth;
+            const lanes=(xs)=>xs.length?xs.join(', '):'nessuna';
+            const lines=[
+              '## Fleet health',
+              '',
+              '- corsie sane (provider con >=1 pass): **'+h.healthyLanes.length+'** (minimo '+h.minHealthyLanes+') — '+lanes(h.healthyLanes),
+              '- modelli pass: '+h.passCount+'/'+h.modelCount,
+              '- HTTP 402 (credito/abbonamento, esterno): '+lanes(h.billingLanes),
+              '- no_key (chiave assente dal Remote Config, esterno): '+lanes(h.noKeyLanes),
+              '- ritirati (HTTP 404/410): '+(h.retiredModels.length?h.retiredModels.join(', '):'nessuno'),
+              '- broker Codex (corsia primaria): '+(h.codexBrokerWired?'attivo':'NON attivo — codex-cli non pingato'),
+            ];
+            require('fs').writeFileSync('.tmp/fleet-health.md', lines.join('\n')+'\n');
+          "
+          cat .tmp/fleet-health.md >> "$GITHUB_STEP_SUMMARY"
+          if node -e "process.exit(require('./.tmp/smoke.json').fleetHealth.collapsed ? 0 : 1)"; then
+            node -e "
+              const h=require('./.tmp/smoke.json').fleetHealth;
+              console.log('::error title=AI model fleet collapsed::solo '+h.healthyLanes.length+' provider con almeno un pass (minimo '+h.minHealthyLanes+'): '+(h.healthyLanes.join(', ')||'nessuno')+'. 402: '+(h.billingLanes.join(', ')||'-')+'; no_key: '+(h.noKeyLanes.join(', ')||'-')+'; broker Codex '+(h.codexBrokerWired?'attivo':'non attivo')+'.');
+            "
+            exit 1
+          fi
+          exit "$SMOKE_RC"
+
+      - name: Upload smoke-test artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: ai-models-smoke-${{ github.run_id }}
+          path: |
+            .tmp/smoke.json
+            .tmp/smoke.log
+          retention-days: 30
+
+      - name: Cleanup Codex auth broker
+        if: always()
+        continue-on-error: true
+        env:
+          CODEX_AUTH_BROKER_SOCKET: ${{ steps.setup_claude_haiku_fallback.outputs.codex_auth_broker_socket }}
+        run: |
+          if [ -z "$CODEX_AUTH_BROKER_SOCKET" ] || [ ! -S "$CODEX_AUTH_BROKER_SOCKET" ]; then
+            exit 0
+          fi
+          node .github/actions/setup-claude-haiku-fallback/codex-auth-broker.mjs \
+            --cleanup --socket "$CODEX_AUTH_BROKER_SOCKET" \
+            || echo "::warning::Codex auth broker cleanup did not complete"
+
+      # Solo su main: un dispatch di verifica da un branch (es. controllo live
+      # della corsia Codex) non deve aprire o commentare l'issue canonica.
+      - name: Report failure to GitHub Issues
+        if: failure() && github.ref == 'refs/heads/main'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}
+
+          $(cat .tmp/fleet-health.md 2>/dev/null || true)" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

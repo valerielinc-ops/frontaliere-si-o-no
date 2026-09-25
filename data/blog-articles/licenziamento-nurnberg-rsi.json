@@ -1,0 +1,40 @@
+{
+  "id": "licenziamento-nurnberg-rsi",
+  "slug": "licenziamento-nurnberg-rsi",
+  "publishedAt": "2026-05-30T02:39:33.000Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.784386485376285,
+    "confidence": 0.8,
+    "finalScore": 3.0275091883010283,
+    "topK": [
+      {
+        "slug": "annunci-lavoro-dumping-ticino-governo",
+        "cosine": 0.8398166937522212
+      },
+      {
+        "slug": "svizzera-disoccupazione-frontalieri-quadri-2026",
+        "cosine": 0.8385584395228634
+      },
+      {
+        "slug": "disoccupazione-frontalieri-parigi-berna",
+        "cosine": 0.8373757520664075
+      },
+      {
+        "slug": "frontalieri-disoccupazione-stato-lavoro",
+        "cosine": 0.8319318816084837
+      },
+      {
+        "slug": "svizzera-disoccupazione-frontalieri-quadri",
+        "cosine": 0.8304760068956651
+      }
+    ],
+    "score": 3.0275091883010283,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

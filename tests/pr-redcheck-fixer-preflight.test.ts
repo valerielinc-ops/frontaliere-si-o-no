@@ -1,0 +1,271 @@
+import { chmodSync, mkdirSync, mkdtempSync, readFileSync, rmSync, writeFileSync } from 'node:fs';
+import { tmpdir } from 'node:os';
+import path from 'node:path';
+import { spawnSync } from 'node:child_process';
+import { describe, expect, it } from 'vitest';
+import YAML from 'yaml';
+
+const WORKFLOW = path.resolve(__dirname, '..', '.github', 'workflows', 'pr-redcheck-fixer.yml');
+const source = readFileSync(WORKFLOW, 'utf8');
+const workflow = YAML.parse(source) as {
+  jobs?: { preflight?: { steps?: Array<{ id?: string; run?: string }> } };
+};
+const preflight = workflow.jobs?.preflight?.steps?.find((step) => step.id === 'pre');
+if (!preflight?.run) throw new Error('preflight step not found in pr-redcheck-fixer.yml');
+const PREFLIGHT = preflight.run;
+
+const BODY_CONTRACT_STEP = 'PR-body completeness + multi-issue Closes (no checkout, all events)';
+const BODY_CONTRACT_COMPAT_STEP = 'PR-body completeness + multi-issue Closes (no checkout, pull requests)';
+const REVIEW_GATE_STEP = 'Require approving Claude review';
+const REVIEW_GATE_COMPAT_STEP = 'Require approving Codex review';
+const REVIEW_CLI_STEP = 'Resolve trusted GitHub CLI (before checkout)';
+const REVIEW_BOOTSTRAP_STEP = 'Bootstrap trusted review policy (no checkout)';
+const REVIEW_LEDGER_STEP = 'Publish bounded ledger-only automatic LGTM';
+const TEST_STEP = 'vitest related (PR diff)';
+const TSC_STEP = 'Collect independent source gates';
+const SOURCE_GUARD_STEP = 'Run source guards in parallel';
+
+type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'review-cli' | 'review-bootstrap' | 'review-ledger' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable' | 'pulls-api-unavailable' | 'failed-runs-unavailable';
+
+function failedStepForMode(mode: Mode) {
+  switch (mode) {
+    case 'body-contract':
+      return BODY_CONTRACT_STEP;
+    case 'body-contract-compat':
+      return BODY_CONTRACT_COMPAT_STEP;
+    case 'review-gate':
+      return REVIEW_GATE_STEP;
+    case 'review-gate-compat':
+      return REVIEW_GATE_COMPAT_STEP;
+    case 'review-cli':
+      return REVIEW_CLI_STEP;
+    case 'review-bootstrap':
+      return REVIEW_BOOTSTRAP_STEP;
+    case 'review-ledger':
+      return REVIEW_LEDGER_STEP;
+    case 'tsc':
+      return TSC_STEP;
+    case 'source-guard':
+      return SOURCE_GUARD_STEP;
+    default:
+      return TEST_STEP;
+  }
+}
+
+const DISPATCH_HEAD = '0123456789abcdef0123456789abcdef01234567';
+
+function runPreflight(
+  mode: Mode,
+  { openPrs = '42', dispatch = false, failedRuns = '123' }: { openPrs?: string; dispatch?: boolean; failedRuns?: string } = {},
+) {
+  const prHead = dispatch ? DISPATCH_HEAD : 'headsha';
+  const root = mkdtempSync(path.join(tmpdir(), 'redcheck-preflight-'));
+  const bin = path.join(root, 'bin');
+  const output = path.join(root, 'github-output');
+  const calls = path.join(root, 'gh-calls');
+  const gh = path.join(bin, 'gh');
+  mkdirSync(bin, { recursive: true });
+  writeFileSync(output, '');
+  writeFileSync(calls, '');
+  writeFileSync(
+    gh,
+    `#!/bin/sh
+set -eu
+printf '%s\\n' "$*" >> "${calls}"
+# Same flag validation as the real gh 2.x: \`--slurp\` cannot be combined with
+# \`--jq\`/\`--template\`. The previous double accepted any flag, which is how a
+# preflight that the real CLI rejects on every run stayed green here.
+case " $* " in
+  *" --slurp "*)
+    case " $* " in
+      *" --jq "*|*" --template "*|*" -q "*|*" -t "*)
+        echo 'the \`--slurp\` option is not supported with \`--jq\` or \`--template\`' >&2
+        exit 1
+        ;;
+    esac
+    ;;
+esac
+if [ "\${1:-}" = api ]; then
+  endpoint="\${2:-}"
+  case "$endpoint" in
+    *"/pulls?state=open"*)
+      if [ "\${FAIL_MODE:-}" = pulls ]; then exit 1; fi
+      # The real gh invocation applies --jq page by page to this response;
+      # emit its post-filtered lines here because this is a CLI double.
+      if [ -n "\${OPEN_PRS}" ]; then printf '%s\\n' "\${OPEN_PRS}"; fi
+      ;;
+    *"/pulls/42")
+      # Il dispatch legge solo \`--jq .head.sha\`: emetti il valore filtrato.
+      case " $* " in *" --jq "*) printf '%s\\n' "\${PR_HEAD_SHA}"; exit 0 ;; esac
+      printf '%s\\n' '{"state":"open","draft":false,"user":{"type":"Bot","login":"frontaliere-automation[bot]"},"head":{"ref":"fix/redcheck-test","sha":"'"\${PR_HEAD_SHA}"'"},"body":"## Implementato\\n- preflight\\n\\n## Non implementato (ancora)\\n- Nessuno"}'
+      ;;
+    *"/commits/\${PR_HEAD_SHA}/check-runs"*)
+      if [ "\${FAIL_MODE:-}" = check-runs ]; then exit 1; fi
+      printf '%s\\n' '["vitest (unit + integration)"]'
+      ;;
+    *"/actions/workflows/tests.yml/runs?head_sha=\${PR_HEAD_SHA}&status=failure"*)
+      if [ "\${FAIL_MODE:-}" = failed-runs ]; then exit 1; fi
+      # Post-\`--jq '.workflow_runs[0].id // empty'\`: l'id o niente.
+      if [ -n "\${FAILED_RUNS}" ]; then printf '%s\\n' "\${FAILED_RUNS}"; fi
+      ;;
+    *"/actions/runs/123/jobs"*)
+      if [ "\${FAIL_MODE:-}" = jobs ]; then exit 1; fi
+      printf '%s\\n' "\${JOBS_JSON}"
+      ;;
+    *)
+      exit 1
+      ;;
+  esac
+  exit 0
+fi
+if [ "\${1:-}" = run ] && [ "\${2:-}" = list ]; then
+  printf '%s\\n' '0'
+  exit 0
+fi
+exit 1
+`,
+  );
+  chmodSync(gh, 0o755);
+
+  const failedStep = failedStepForMode(mode);
+  const jobs = JSON.stringify([{
+    jobs: [{
+      name: 'vitest (unit + integration)',
+      status: 'completed',
+      conclusion: 'failure',
+      steps: [{ name: failedStep, conclusion: 'failure' }],
+    }],
+  }]);
+  // The shared gh coordinator prepends its shim to PATH when bash starts;
+  // re-prepend the fixture inside the shell so this test remains hermetic.
+  const result = spawnSync('bash', ['-euo', 'pipefail', '-c', `PATH="${bin}:$PATH"\n${PREFLIGHT}`], {
+    cwd: path.dirname(WORKFLOW),
+    encoding: 'utf8',
+    env: {
+      ...process.env,
+      PATH: `${bin}:${process.env.PATH ?? ''}`,
+      GITHUB_OUTPUT: output,
+      REPO: 'owner/repo',
+      EVENT_NAME: dispatch ? 'workflow_dispatch' : 'workflow_run',
+      DISPATCH_PR: dispatch ? '42' : '',
+      RUN_ID: dispatch ? '' : '123',
+      RUN_SHA: dispatch ? '' : 'headsha',
+      PR_HEAD_SHA: prHead,
+      FAILED_RUNS: failedRuns,
+      RUN_BRANCH: 'fix/redcheck-test',
+      FAIL_MODE: mode === 'check-api-unavailable' ? 'check-runs' : mode === 'jobs-api-unavailable' ? 'jobs' : mode === 'pulls-api-unavailable' ? 'pulls' : mode === 'failed-runs-unavailable' ? 'failed-runs' : '',
+      OPEN_PRS: openPrs,
+      JOBS_JSON: jobs,
+    },
+  });
+  const githubOutput = readFileSync(output, 'utf8');
+  const ghCalls = readFileSync(calls, 'utf8');
+  rmSync(root, { recursive: true, force: true });
+  return { result, githubOutput, ghCalls };
+}
+
+describe('pr-redcheck-fixer preflight classifies the consolidated tests job', () => {
+  it.each([
+    ['current all-events body contract', 'body-contract'],
+    ['origin/main pull-requests body contract', 'body-contract-compat'],
+  ] as const)('skips a %s failure before any fixer job can run', (_label, mode) => {
+    const { result, githubOutput, ghCalls } = runPreflight(mode);
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
+    expect(githubOutput).toContain('actionable=false');
+    expect(githubOutput).not.toContain('actionable=true');
+    expect(ghCalls).not.toMatch(/pr (comment|edit)/);
+  });
+
+  it.each([
+    ['current Claude review gate', 'review-gate'],
+    ['origin/main Codex review gate', 'review-gate-compat'],
+    ['trusted GitHub CLI resolution', 'review-cli'],
+    ['trusted review-policy bootstrap', 'review-bootstrap'],
+    ['bounded-ledger automatic LGTM', 'review-ledger'],
+  ] as const)('skips a %s failure before any fixer job can run', (_label, mode) => {
+    const { result, githubOutput, ghCalls } = runPreflight(mode);
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
+    expect(githubOutput).toContain('actionable=false');
+    expect(githubOutput).not.toContain('actionable=true');
+    expect(ghCalls).not.toMatch(/pr (comment|edit)/);
+  });
+
+  it('keeps a real Vitest failure actionable', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test');
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    expect(githubOutput, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toContain('actionable=true');
+    expect(githubOutput).toContain('failed_run_id=123');
+  });
+
+  it.each([
+    ['tsc/source gate', 'tsc'],
+    ['source guard', 'source-guard'],
+  ] as const)('keeps a verified %s failure actionable', (_label, mode) => {
+    const { result, githubOutput } = runPreflight(mode);
+    expect(result.status, `${result.stdout}\n${result.stderr}`).toBe(0);
+    expect(githubOutput).toContain('actionable=true');
+  });
+
+  it('fails closed when the check-runs API is unavailable', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('check-api-unavailable');
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+
+  it('fails closed when the step-level jobs API is unavailable', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('jobs-api-unavailable');
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+  it('resolves the PR without combining --slurp and --jq (rejected by the real gh)', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test');
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    const listCall = ghCalls.split('\n').find((line) => line.includes('pulls?state=open')) ?? '';
+    expect(listCall).toContain('--paginate');
+    expect(listCall).not.toContain('--slurp');
+    expect(githubOutput).toContain('actionable=true');
+  });
+
+  it('takes the first open PR when the paginated --jq emits several lines', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test', { openPrs: '42\n77' });
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    expect(ghCalls).toMatch(/pulls\/42$/m);
+    expect(ghCalls).not.toMatch(/pulls\/77/);
+    expect(githubOutput).toContain('actionable=true');
+  });
+
+  it('skips as a no-op when no open PR has the run branch', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test', { openPrs: '' });
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    expect(`${result.stdout}`).toContain('Nessuna PR aperta');
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+
+  it('fails closed instead of reporting «no PR» when the open-PR list is unreadable', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('pulls-api-unavailable');
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
+    expect(`${result.stdout}${result.stderr}`).toContain('Lista PR aperte illeggibile');
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+  it('dispatch: trova la run rossa per head_sha anche quando e\' fuori dalle ultime run del repo (#9695)', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test', { dispatch: true });
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    expect(ghCalls).toContain(`actions/workflows/tests.yml/runs?head_sha=${DISPATCH_HEAD}&status=failure`);
+    expect(ghCalls).not.toMatch(/^run list --repo owner\/repo --workflow=tests\.yml/m);
+    expect(githubOutput).toContain('actionable=true');
+    expect(githubOutput).toContain('failed_run_id=123');
+  });
+
+  it('dispatch: nessuna run rossa sulla HEAD e\' un no-op', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test', { dispatch: true, failedRuns: '' });
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    expect(result.stdout).toContain('Nessuna run tests fallita');
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+
+  it('dispatch: run illeggibili falliscono il job invece di sembrare «nessuna run»', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('failed-runs-unavailable', { dispatch: true });
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+});

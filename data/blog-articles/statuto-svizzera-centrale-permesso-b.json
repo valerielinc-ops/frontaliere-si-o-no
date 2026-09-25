@@ -1,0 +1,40 @@
+{
+  "id": "statuto-svizzera-centrale-permesso-b",
+  "slug": "statuto-svizzera-centrale-permesso-b",
+  "publishedAt": "2026-05-18T21:43:47.788Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.2946897853168045,
+    "confidence": 0.8,
+    "finalScore": 5.835751828253444,
+    "topK": [
+      {
+        "slug": "passaggio-statuto-s-permesso-b",
+        "cosine": 0.8886189250727029
+      },
+      {
+        "slug": "lo-statuto-s-non-deve-trasformarsi-in-permesso-b",
+        "cosine": 0.8774454144622915
+      },
+      {
+        "slug": "ucraini-in-ticino-aiuti-incognite",
+        "cosine": 0.8559072949884745
+      },
+      {
+        "slug": "votazioni-svizzera-10-milioni-frontalieri",
+        "cosine": 0.8550192449150115
+      },
+      {
+        "slug": "udc-bilaterali-2026-frontalieri",
+        "cosine": 0.8549141317815527
+      }
+    ],
+    "score": 5.835751828253444,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "id": "il-caldo-modifica-il-valore-degli-immobili",
+  "slug": "il-caldo-modifica-il-valore-degli-immobili",
+  "publishedAt": "2026-07-06T01:22:01.621Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.35770715600402,
+    "confidence": 0.8,
+    "finalScore": 9.886165724803217,
+    "topK": [
+      {
+        "slug": "abolizione-imposta-valore-locativo-2029",
+        "cosine": 0.8528814130318438
+      },
+      {
+        "slug": "stangata-nascosta-tasse-immobiliari",
+        "cosine": 0.8509688230534964
+      },
+      {
+        "slug": "svizzera-chiude-investitori-immobiliari-stranieri",
+        "cosine": 0.847712362959058
+      },
+      {
+        "slug": "sostituzione-caldaia-ticino-2026",
+        "cosine": 0.844931531636978
+      },
+      {
+        "slug": "bolla-immobiliare-ticino-2026",
+        "cosine": 0.8395264509816599
+      }
+    ],
+    "score": 9.886165724803217,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

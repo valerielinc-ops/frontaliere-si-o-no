@@ -1,0 +1,240 @@
+name: Housekeeping jobs logic
+
+on:
+  workflow_call:
+    inputs:
+      lane:
+        description: 'Housekeeping lane to process'
+        required: true
+        type: string
+    secrets:
+      FIREBASE_SERVICE_ACCOUNT_JSON:
+        required: false
+
+permissions:
+  contents: read
+  issues: write
+
+jobs:
+  housekeeping:
+    runs-on: ubuntu-latest
+    # The rest lane has 262 isolated slices in the current corpus. The previous
+    # four-worker cap reached this ceiling before the lane could drain; keep a
+    # hard job budget while giving the bounded fan-out enough headroom to finish.
+    # Revert-risk: eight workers may expose runner saturation or upstream rate
+    # limits before a live run supplies a stable pre/post comparison.
+    # Revert trigger: the first live run exceeds 50 minutes, reaches this
+    # timeout, reports OOM/runner starvation, or receives an upstream 429.
+    # Revert action: restore timeout-minutes to 45 and max_parallel to 4 before
+    # the next run; all worker and validation failures remain fail-closed.
+    timeout-minutes: 60
+    concurrency:
+      group: jobs-housekeeping-${{ inputs.lane }}
+      cancel-in-progress: false
+    env:
+      HOUSEKEEPING_LANE: ${{ inputs.lane }}
+      JOBS_SKIP_LOCALE_HARDENING: '1'
+    steps:
+      - name: Checkout source repository
+        uses: actions/checkout@v5
+        with:
+          repository: valerielinc-ops/frontaliere-si-o-no
+          ref: main
+          fetch-depth: 1
+          sparse-checkout: |
+            data/jobs/by-crawler
+            data/jobs/expired/by-crawler
+            package.json
+            package-lock.json
+            scripts
+          sparse-checkout-cone-mode: true
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Load production environment
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > "$RUNNER_TEMP/frontaliere-sa.json"
+            export GOOGLE_APPLICATION_CREDENTIALS="$RUNNER_TEMP/frontaliere-sa.json"
+          fi
+          node scripts/load-rc-env.mjs
+
+      - name: Bootstrap write auth for source repository
+        run: |
+          if [ -z "${GITHUB_PAT:-}" ]; then
+            echo "::error::GITHUB_PAT missing from Remote Config — cannot push housekeeping changes to valerielinc-ops/frontaliere-si-o-no."
+            exit 1
+          fi
+          git remote set-url origin "https://x-access-token:${GITHUB_PAT}@github.com/valerielinc-ops/frontaliere-si-o-no.git"
+          echo "GH_TOKEN=${GITHUB_PAT}" >> "$GITHUB_ENV"
+          echo "GH_REPO=valerielinc-ops/frontaliere-si-o-no" >> "$GITHUB_ENV"
+
+      - name: Validate and clean job slices
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          case "$HOUSEKEEPING_LANE" in
+            prospective)
+              lane_pattern='prospective\.ch'
+              ;;
+            rest)
+              lane_pattern='prospective\.ch'
+              ;;
+            *)
+              echo "Unknown housekeeping lane: $HOUSEKEEPING_LANE" >&2
+              exit 2
+              ;;
+          esac
+
+          if ! command -v grep >/dev/null 2>&1; then
+            echo "::error::grep is required to route housekeeping slices."
+            exit 127
+          fi
+
+          # Classify every slice before starting a mutating worker. A matcher
+          # failure must never leave a partially cleaned lane that looks ready
+          # to commit.
+          shopt -s nullglob
+          selected_slices=()
+          for slice in data/jobs/by-crawler/*.json; do
+            if grep -Ei -- "$lane_pattern" "$slice" >/dev/null; then
+              is_prospective=1
+            else
+              matcher_status=$?
+              if [ "$matcher_status" -ne 1 ]; then
+                echo "::error::Failed to classify $slice (grep exit $matcher_status)."
+                exit "$matcher_status"
+              fi
+              is_prospective=0
+            fi
+
+            if [ "$HOUSEKEEPING_LANE:$is_prospective" = prospective:0 ] || \
+               [ "$HOUSEKEEPING_LANE:$is_prospective" = rest:1 ]; then
+              continue
+            fi
+            selected_slices+=("$slice")
+          done
+
+          # Each worker owns one crawler slice and its matching expired archive.
+          # Keep the cross-slice fan-out bounded: cleanup-jobs already validates
+          # URLs concurrently inside a slice, so eight workers remove the
+          # serial process-start/network wait without opening an unbounded
+          # request burst or sharing a write target. Eight workers is
+          # still bounded and each worker owns one independent slice. Refill a free
+          # slot as soon as its worker exits; waiting for a whole batch would
+          # leave the lane idle behind one slow upstream slice.
+          # There is no stable pre-merge wall-time baseline for this lane:
+          # slice count and upstream response time vary with every run. The
+          # operational revert trigger is a first live run that approaches
+          # 50 minutes, reaches the 60-minute job timeout, reports OOM/runner
+          # starvation, or receives upstream 429 responses; lower this value
+          # to 4 before the next run if any signal appears.
+          readonly max_parallel=8
+          status_dir="$(mktemp -d "${RUNNER_TEMP:-${TMPDIR:-/tmp}}/housekeeping-status.XXXXXX")"
+          trap 'rm -rf "$status_dir"' EXIT
+          running_pids=()
+          running_slices=()
+          running_markers=()
+          running_count=0
+          processed=0
+          failed=0
+          next_slice=0
+
+          run_slice() {
+            local slice="$1"
+            local marker="$2"
+            local status=0
+            echo "🧹 [$HOUSEKEEPING_LANE] $slice"
+            JOBS_SLICE_FILE="$slice" \
+              JOBS_SKIP_LOCALE_HARDENING=1 \
+              node scripts/cleanup-jobs.mjs || status=$?
+            printf "%s\n" "$status" > "$marker"
+            return "$status"
+          }
+
+          start_slice() {
+            local slot="$1"
+            local slice="$2"
+            local marker="$status_dir/$slot.done"
+            rm -f "$marker"
+            run_slice "$slice" "$marker" &
+            running_pids[$slot]="$!"
+            running_slices[$slot]="$slice"
+            running_markers[$slot]="$marker"
+            running_count=$((running_count + 1))
+          }
+
+          reap_completed() {
+            local slot=0 status
+            while [ "$slot" -lt "$max_parallel" ]; do
+              if [ -n "${running_pids[$slot]-}" ] && [ -f "${running_markers[$slot]}" ]; then
+                if wait "${running_pids[$slot]}"; then
+                  processed=$((processed + 1))
+                else
+                  status=$?
+                  failed=1
+                  echo "::error::Housekeeping failed [$HOUSEKEEPING_LANE] ${running_slices[$slot]} (exit $status)."
+                fi
+                echo "Housekeeping lane $HOUSEKEEPING_LANE progress: $processed/${#selected_slices[@]} slice(s) completed."
+                running_pids[$slot]=""
+                running_slices[$slot]=""
+                running_markers[$slot]=""
+                running_count=$((running_count - 1))
+              fi
+              slot=$((slot + 1))
+            done
+          }
+
+          while [ "$next_slice" -lt "${#selected_slices[@]}" ] || [ "$running_count" -gt 0 ]; do
+            if [ "$failed" -eq 0 ]; then
+              slot=0
+              while [ "$slot" -lt "$max_parallel" ] && [ "$next_slice" -lt "${#selected_slices[@]}" ]; do
+                if [ -z "${running_pids[$slot]-}" ]; then
+                  start_slice "$slot" "${selected_slices[$next_slice]}"
+                  next_slice=$((next_slice + 1))
+                fi
+                slot=$((slot + 1))
+              done
+            fi
+
+            if [ "$running_count" -eq 0 ]; then
+              break
+            fi
+
+            previous_running="$running_count"
+            reap_completed
+            if [ "$running_count" -eq "$previous_running" ]; then
+              sleep 0.05
+            fi
+          done
+
+          if [ "$failed" -ne 0 ]; then
+            exit 1
+          fi
+
+          echo "Housekeeping lane $HOUSEKEEPING_LANE processed $processed slice(s)."
+
+      - name: Configure data remote
+        run: |
+          git remote get-url origin
+
+      - name: Commit housekeeping changes
+        env:
+          SKIP_AI_TRANSLATION: '1'
+          JOBS_SKIP_LOCALE_HARDENING: '1'
+        run: |
+          bash scripts/lib/git-commit-data.sh \
+            --slice-only \
+            "🧹 Housekeeping jobs ($HOUSEKEEPING_LANE)" \
+            data/jobs/by-crawler/ \
+            data/jobs/expired/by-crawler/

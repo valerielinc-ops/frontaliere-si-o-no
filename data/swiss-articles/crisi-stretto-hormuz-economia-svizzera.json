@@ -1,0 +1,40 @@
+{
+  "id": "crisi-stretto-hormuz-economia-svizzera",
+  "slug": "crisi-stretto-hormuz-economia-svizzera",
+  "publishedAt": "2026-07-16T14:12:40.421Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.580447891540801,
+    "confidence": 0.8,
+    "finalScore": 2.064358313232641,
+    "topK": [
+      {
+        "slug": "elcom-preoccupata-inverno-2026",
+        "cosine": 0.860149297180267
+      },
+      {
+        "slug": "fertilizzanti-crisi-hormuz-rincari-ticino-40",
+        "cosine": 0.8561731884954183
+      },
+      {
+        "slug": "crisi-turismo-golfo-persico",
+        "cosine": 0.8514160518805188
+      },
+      {
+        "slug": "guerra-iran-industria-alimentare-2026",
+        "cosine": 0.8486084220509579
+      },
+      {
+        "slug": "economia-svizzera-rischio-burocrazia",
+        "cosine": 0.843857487064483
+      }
+    ],
+    "score": 0.25804478915408013,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

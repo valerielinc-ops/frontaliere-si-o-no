@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2677",
+  "companyName": "E-Recruiting LLB-Gruppe Stellen",
+  "companyHost": "recruitingapp-2677.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2677.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 21,
+  "sampleTitles": [
+    "Kundenberater:in Service Direkt",
+    "Oracle Database Administrator (DBA)",
+    "Associate Institutional Banking",
+    "Legal & Compliance Officer",
+    "Leiter:in Prozessmanagement"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:33.059Z"
+}

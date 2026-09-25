@@ -1,0 +1,19 @@
+{
+  "id": "tragedia-lavoro-blenio-aquila",
+  "slug": "tragedia-lavoro-blenio-aquila",
+  "publishedAt": "2026-07-22T19:58:19.888Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "ilgiornaledelticino.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 150.27002549999997,
+    "confidence": 1,
+    "finalScore": 150.27002549999997,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 75.13501274999999,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

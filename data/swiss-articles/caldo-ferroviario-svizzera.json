@@ -1,0 +1,40 @@
+{
+  "id": "caldo-ferroviario-svizzera",
+  "slug": "caldo-ferroviario-svizzera",
+  "publishedAt": "2026-06-25T00:27:16.563Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 3.3657837162489725,
+    "confidence": 0.8,
+    "finalScore": 2.6926269729991783,
+    "topK": [
+      {
+        "slug": "comco-indaga-pubblicita-motori-ricerca",
+        "cosine": 0.8418281613781904
+      },
+      {
+        "slug": "tir-colonna-disagi-valico-brogeda",
+        "cosine": 0.8404072678778373
+      },
+      {
+        "slug": "comco-keyword-bidding-inchieste",
+        "cosine": 0.8380704881402289
+      },
+      {
+        "slug": "lavori-rete-ferroviaria-tilo",
+        "cosine": 0.8380089646202649
+      },
+      {
+        "slug": "mobilita-transfrontaliera-treni-autobus",
+        "cosine": 0.8350317978661959
+      }
+    ],
+    "score": 2.6926269729991783,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

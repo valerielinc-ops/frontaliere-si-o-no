@@ -1,0 +1,20 @@
+{
+  "companyKey": "community",
+  "companyName": "Personio Voyager Community: Das Netzwerk von Tausenden HR-Profis",
+  "companyHost": "community.personio.de",
+  "platform": "personio.de",
+  "mode": "template",
+  "seedUrls": [
+    "https://community.personio.de/"
+  ],
+  "detailTemplate": "/recruiting-2/erfahrungen-mit-spam-bewerbungen-bzw-bot-angriffen-ueber-karriereseite-17957",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Erfahrungen mit Spam-Bewerbungen bzw. Bot-Angriffen über Karriereseite <i class=\"icon--auto-width",
+    "<span class=\"thread-meta"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-09-17T10:09:04.522Z"
+}

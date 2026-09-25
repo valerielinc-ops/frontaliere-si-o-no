@@ -1,0 +1,22 @@
+{
+  "companyKey": "grantthornton",
+  "companyName": "Grant Thornton",
+  "companyHost": "grantthornton.com",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.grantthornton.com/insights/newsletters/tax/2022/hcb/march/create-pay-transparency-to-win-in-the-job-market"
+  ],
+  "detailTemplate": "/careers/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Experienced professionals",
+    "Bring your own self",
+    "Rewards & well-being"
+  ],
+  "canton": "GE",
+  "sourceLang": "en",
+  "learnedAt": "2026-09-18T09:58:22.019Z"
+}

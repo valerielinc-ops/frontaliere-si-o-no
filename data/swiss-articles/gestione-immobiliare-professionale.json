@@ -1,0 +1,40 @@
+{
+  "id": "gestione-immobiliare-professionale",
+  "slug": "gestione-immobiliare-professionale",
+  "publishedAt": "2026-07-29T17:10:13.613Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.825155672023795,
+    "confidence": 0.8,
+    "finalScore": 5.460124537619037,
+    "topK": [
+      {
+        "slug": "licenziamento-nurnberg-rsi",
+        "cosine": 0.8501830174466227
+      },
+      {
+        "slug": "divieti-social-media-minori",
+        "cosine": 0.8474856477219401
+      },
+      {
+        "slug": "varese-lavoro-specializzato-paradosso-2026",
+        "cosine": 0.8400150271790588
+      },
+      {
+        "slug": "guida-svizzera-frontalieri-2026",
+        "cosine": 0.8395901206944187
+      },
+      {
+        "slug": "swiss-300-uscite-volontarie-2026",
+        "cosine": 0.8392543615638891
+      }
+    ],
+    "score": 0.6825155672023796,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

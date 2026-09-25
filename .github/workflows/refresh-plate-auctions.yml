@@ -1,0 +1,183 @@
+name: Refresh Plate Auctions
+
+on:
+  schedule:
+    # Offset from the Firebase collector so the static snapshot has a clean
+    # source window before the deploy rebuilds the SEO pages and sitemap.
+    - cron: "17 */6 * * *"
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Keep the run preview-only unless explicitly disabled.'
+        required: false
+        default: true
+        type: boolean
+concurrency:
+  group: refresh-plate-auctions
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  refresh-plate-auctions:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+    env:
+      # The SZ host rejects GitHub Actions egress intermittently, and FR/TI
+      # are geo-fenced to Swiss IPs (measured 2026-09-25). Their connectors
+      # (connectors/api-relay.mjs) may use the fresh Cloud Function API
+      # snapshot, collected in europe-west6, only after the official fetch
+      # fails and the source health/age checks pass.
+      PLATE_AUCTION_ENABLE_API_RELAY: "1"
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: 22
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Refresh every active public catalogue
+        id: refresh
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/plate-auctions/ingest.mjs
+
+      - name: Fail a scheduled run whose refresh never executed
+        # A run is alive only if the producer actually ran. The drift check
+        # below re-validates the COMMITTED snapshot rather than a fresh fetch,
+        # so this step catches an unexpectedly skipped producer explicitly.
+        if: ${{ always() && github.event_name == 'schedule' && steps.refresh.outcome == 'skipped' }}
+        run: |
+          echo "::error::Scheduled refresh did not execute. The published snapshot is unchanged and its age is whatever the last real refresh left."
+          exit 1
+
+      - name: Fail closed on source health or snapshot drift
+        id: health
+        # The run still fails on any health error — see the final step, which
+        # holds the verdict. What this must NOT do any more is skip the commit,
+        # because that is what froze `previous` at 2026-09-15T06:58:44.350Z and
+        # made every later run measure a live catalogue against a four-day-old
+        # baseline. A degraded source is a fact about that source; it is not a
+        # reason to stop the other twenty-five from advancing.
+        continue-on-error: true
+        run: node scripts/plate-auctions/check-health.mjs
+
+      - name: Stop before publishing a structurally unusable snapshot
+        # Phrased against `!= 'false'` on purpose: `true` and a MISSING output
+        # (check-health threw before writing it) must both stop the publication.
+        # Testing for `== 'true'` would let a crashed health check through.
+        if: steps.health.outputs.blocking != 'false'
+        run: |
+          echo "::error::check-health did not clear the snapshot for publication (blocking=${{ steps.health.outputs.blocking }}). The snapshot is self-inconsistent or unreadable, so nothing is committed."
+          exit 1
+
+      - name: Run plate-auction regression tests
+        run: >-
+          npx vitest run
+          tests/plate-auction-quality-checks.test.ts
+          tests/plate-auction-connectors.test.ts
+          tests/plate-auction-api-relay.test.ts
+          tests/plate-auction-registry.test.ts
+          tests/plate-auction-functions-registry-parity.test.ts
+          tests/plate-auction-public-snapshot.test.ts
+          tests/plate-auction-pages.test.ts
+          tests/plate-auction-navigation.test.ts
+
+      - name: Check generated data diff
+        run: git diff --check
+
+      - name: Load push credentials from Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Commit and push static snapshot
+        id: commit
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add -f public/data/plate-auctions.json
+          if git diff --cached --quiet; then
+            echo "No plate-auction snapshot changes detected."
+            echo "has_changes=false" >> "$GITHUB_OUTPUT"
+          else
+            git commit -m "🚘 Refresh Swiss plate-auction snapshot"
+            bash scripts/lib/git-push-with-retry.sh \
+              --regenerate-cmd 'node scripts/plate-auctions/ingest.mjs && node scripts/plate-auctions/check-health.mjs --blocking-only && git add -f public/data/plate-auctions.json'
+            echo "has_changes=true" >> "$GITHUB_OUTPUT"
+            echo "expected_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          fi
+
+      - name: Trigger static deploy and sitemap rebuild
+        id: deploy
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          EXPECTED_SHA: ${{ steps.commit.outputs.expected_sha }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: |
+          set -euo pipefail
+          deploy_token="${GITHUB_PAT:-${GH_TOKEN:-}}"
+          if [ -z "$deploy_token" ]; then
+            echo "::error::No deploy token available; refusing to record an undeployed plate-auction snapshot."
+            exit 1
+          fi
+          dispatch_output="$(mktemp)"
+          trap 'rm -f "$dispatch_output"' EXIT
+          GITHUB_PAT="$deploy_token" \
+            GITHUB_OUTPUT="$dispatch_output" \
+            EXPECTED_SHA="$EXPECTED_SHA" \
+            bash scripts/lib/trigger-deploy.sh
+          if ! grep -qx 'dispatch_sent=true' "$dispatch_output"; then
+            echo "::error::Deploy trigger returned without dispatch_sent=true; refusing a false-green sitemap update."
+            exit 1
+          fi
+
+      - name: Fail the run on the source-health verdict
+        # The verdict has to be the LAST thing that decides the exit code, and
+        # it has to sit ABOVE the issue reporter: `failure()` below only sees a
+        # job that has already failed, so moving this after it would mean a
+        # health-only red run never opened an issue. Narrow on purpose —
+        # `steps.health.outcome == 'failure'` fires only when check-health
+        # actually reported errors, so a cancelled or skipped run is not
+        # relabelled as a health failure.
+        if: ${{ !cancelled() && steps.health.outcome == 'failure' }}
+        run: |
+          echo "::error::Plate-auction source health reported errors (see the 'Fail closed on source health or snapshot drift' step for the list). The snapshot was still committed if it was structurally sound, so the baseline advanced; this step keeps the run red so the degraded sources stay visible, including after a push-retry regeneration."
+          exit 1
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

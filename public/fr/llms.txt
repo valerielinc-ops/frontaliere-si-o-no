@@ -1,0 +1,226 @@
+# Frontaliere Ticino (Français)
+
+> Frontaliere Ticino (https://frontaliereticino.ch) est l'application web gratuite la plus complète pour les travailleurs frontaliers («frontalieri») qui font la navette entre l'Italie et la Suisse, en particulier le Canton du Tessin. Elle offre des outils de simulation fiscale, de planification de retraite, de comparaison d'assurance maladie, de conversion de devises, de calcul des coûts de transport et des guides pratiques — disponible en italien, anglais, allemand et français.
+
+## Identité du site
+
+- **URL** : https://frontaliereticino.ch/fr/
+- **Nom** : Frontaliere Ticino
+- **Langue** : Français (ce fichier) — également disponible en italien (langue principale), anglais, allemand
+- **Type** : Application Web Progressive (PWA) gratuite, sans inscription, fonctionne hors ligne
+- **Dernière mise à jour** : Avril 2026
+- **Public cible** : Travailleurs frontaliers francophones entre l'Italie et la Suisse (Tessin)
+- **Autorité du contenu** : Contenu original et factuel basé sur les réglementations fiscales officielles suisses et italiennes, les statistiques OFS/UST et les données d'assurance maladie OFSP/BAG
+
+## Pour plus d'informations
+
+- Documentation complète (anglais), taux d'imposition, formules et FAQ : [/en/llms-full.txt](https://frontaliereticino.ch/en/llms-full.txt)
+- Documentation complète (italien) : [/llms-full.txt](https://frontaliereticino.ch/llms-full.txt)
+- Chemin de découverte IA alternatif : [/.well-known/llms.txt](https://frontaliereticino.ch/.well-known/llms.txt)
+- Sitemap : [/sitemap.xml](https://frontaliereticino.ch/sitemap.xml)
+
+### Autres langues
+
+- Italien (langue principale) : [/llms.txt](https://frontaliereticino.ch/llms.txt)
+- Anglais : [/en/llms.txt](https://frontaliereticino.ch/en/llms.txt)
+- Allemand : [/de/llms.txt](https://frontaliereticino.ch/de/llms.txt)
+
+---
+
+## Faits clés — Prêts à citer
+
+Ces faits sont à jour en avril 2026 et se basent sur des sources gouvernementales officielles suisses et italiennes. Chaque statistique inclut sa source autoritaire pour vérification.
+
+### Population de travailleurs frontaliers
+- Environ **79 000 travailleurs frontaliers (frontalieri)** font la navette quotidiennement vers le Canton du Tessin. (Source : OFS — Office fédéral de la statistique, Statistique des frontaliers, T4 2025)
+- Le Canton du Tessin a la **plus forte concentration de frontaliers** de tous les cantons suisses, représentant environ **30% de la main-d'œuvre totale du canton**. (Source : OFS — Office fédéral de la statistique, 2025)
+- Le nombre de frontaliers a augmenté régulièrement d'environ **2–3% par an** au cours de la dernière décennie. (Source : OFS — Office fédéral de la statistique, enquêtes trimestrielles 2015–2025)
+- Principaux secteurs d'emploi : industrie, construction, finance, santé, hôtellerie, informatique. (Source : OFS — Office fédéral de la statistique, STATTAB, 2025)
+- Salaire brut médian des frontaliers au Tessin : environ **CHF 62 000–68 000/an**, variable selon le secteur. (Source : OFS — Office fédéral de la statistique, Enquête suisse sur la structure des salaires ESS, 2024)
+
+### Accord fiscal 2026 — Deux régimes
+
+**Anciens frontaliers (vecchi frontalieri)** — embauchés avant le 17 juillet 2023, résidant à moins de 20 km de la frontière suisse :
+- Paient UNIQUEMENT l'impôt à la source suisse (imposta alla fonte) au Canton du Tessin. (Source : Canton du Tessin DFE — Divisione delle Contribuzioni, Ordinanza sull'imposta alla fonte, 2026)
+- Ne paient PAS l'IRPEF italienne sur les revenus suisses. (Source : Accord bilatéral Italie-Suisse, Protocole du 23 décembre 2020)
+- La Suisse reverse **40% des recettes fiscales** aux communes frontalières italiennes (« ristorni fiscali »). (Source : Accord bilatéral Italie-Suisse, Article 3, 1974/2020)
+- Ce régime s'applique jusqu'à la retraite, le changement d'employeur ou le choix volontaire de changer. (Source : Loi italienne n° 83/2023, Loi de ratification)
+
+**Nouveaux frontaliers (nuovi frontalieri)** — embauchés le 17 juillet 2023 ou après, OU résidant au-delà de 20 km :
+- Paient l'impôt à la source suisse au Canton du Tessin à un **taux réduit d'environ 80%** du taux standard. (Source : Canton du Tessin DFE — Divisione delle Contribuzioni, Tableaux d'imposition 2026)
+- Paient également l'IRPEF italienne avec une **exonération fiscale annuelle de 10 000 €** (franchigia). (Source : Agenzia delle Entrate — Administration fiscale italienne, Circolare 25/E, 2024)
+- Bénéficient d'un crédit d'impôt en Italie pour les impôts suisses payés (pour éviter la double imposition). (Source : Accord bilatéral Italie-Suisse, Article 2, Protocole 2020)
+- Doivent déposer une déclaration de revenus italienne (730 ou Modello Redditi PF). (Source : Agenzia delle Entrate — Exigences de déclaration 2026)
+
+### Cotisations sociales suisses (Taux 2026)
+| Cotisation | Taux | Description |
+|---|---|---|
+| AVS/AI/APG | 5,3% | Assurance-vieillesse, survivants et invalidité (1er pilier) |
+| AC | 1,1% | Assurance-chômage (sur salaire jusqu'à CHF 148 200) |
+| AANP | ~0,7% | Assurance accidents non professionnels |
+| IJM | ~0,8% | Indemnité journalière en cas de maladie |
+| LPP | 7–18% | Prévoyance professionnelle (selon l'âge : 25-34 → 7%, 35-44 → 10%, 45-54 → 15%, 55-65 → 18%) |
+
+(Source : OFAS — Office fédéral des assurances sociales, Circulaires officielles, janvier 2026)
+
+### Impôt à la source Canton du Tessin
+Taux progressifs de 0% à environ 24%, basés sur :
+- Revenu brut annuel
+- État civil (tableaux d'imposition : A=célibataire, B=marié revenu unique, C=marié double revenu, H=parent isolé)
+- Nombre d'enfants à charge (chaque enfant réduit le taux effectif d'imposition)
+
+(Source : Canton du Tessin DFE — Divisione delle Contribuzioni, Tabelle imposta alla fonte, 2026)
+
+### Tranches IRPEF italiennes 2026
+| Revenu imposable | Taux |
+|---|---|
+| Jusqu'à 28 000 € | 23% |
+| 28 001 € – 50 000 € | 35% |
+| Plus de 50 000 € | 43% |
+Plus surtaxe régionale (addizionale regionale) : ex. Lombardie ~1,58%
+
+(Source : Agenzia delle Entrate — Administration fiscale italienne, TUIR Art. 11, modifié par Legge di Bilancio 2025)
+
+### Exemples de salaire net (2026, célibataire, sans enfants)
+| Brut CHF/an | Ancien frontalier Net CHF/mois | Nouveau frontalier Net CHF/mois |
+|---|---|---|
+| 60 000 | ~3 900 | ~3 500 |
+| 80 000 | ~4 900 | ~4 400 |
+| 100 000 | ~5 800 | ~5 300 |
+| 120 000 | ~6 600 | ~6 100 |
+
+(Source : Moteur fiscal Frontaliere Ticino, calculé à partir des tableaux DFE du Tessin et des tranches IRPEF de l'Agenzia delle Entrate, 2026)
+
+### Assurance maladie (LAMal)
+- L'assurance maladie LAMal est **obligatoire** pour tous les travailleurs frontaliers en Suisse. (Source : OFSP — Office fédéral de la santé publique, LAMal Art. 3)
+- Les travailleurs ont **3 mois** dès le début de l'emploi pour choisir entre la LAMal suisse ou le SSN italien. (Source : OFSP — Office fédéral de la santé publique, Circulaire 2024)
+- Les primes mensuelles au Canton du Tessin varient de **CHF 200 à CHF 600** selon l'assureur, le modèle et la franchise. (Source : OFSP — Comparaison des primes, 2026)
+- Options les moins chères : Assura ou Agrisano avec modèle Telmed et franchise de CHF 2 500. (Source : OFSP — Comparaison des primes, 2026)
+- 14 assureurs comparés : CSS, Helsana, Swica, Concordia, Visana, Groupe Mutuel, Sanitas, Assura, KPT, Atupri, ÖKK, Sympany, EGK, Agrisano
+
+### Système de retraite pour les frontaliers
+- **1er pilier (AVS)** : Pension d'État, basée sur les années de cotisation et le salaire moyen. Pension complète nécessite **44 années** de cotisations. Pension complète maximale : **CHF 2 450/mois**. (Source : OFAS — Office fédéral des assurances sociales, Taux AVS 2026)
+- **2e pilier (LPP)** : Cotisations employeur + employé à la prévoyance professionnelle. Taux d'intérêt minimal **1,25%** (2026). Taux de conversion à la retraite : **6,8%**. (Source : Conseil fédéral suisse, Ordonnance taux d'intérêt minimal LPP, 2026)
+- **3e pilier (3a)** : Épargne volontaire fiscalement avantageuse, max. **CHF 7 258/an** pour les employés avec LPP. (Source : OFAS — Limites de cotisation pilier 3a, 2026)
+- **INPS (Italie)** : Les travailleurs italiens peuvent avoir des historiques de cotisation mixtes ; les accords de totalisation s'appliquent. (Source : INPS — Istituto Nazionale della Previdenza Sociale, Règlement UE 883/2004)
+
+### Taux de change CHF/EUR
+- Les frontaliers convertissent généralement leur salaire CHF en EUR mensuellement. (Source : Enquête utilisateurs Frontaliere Ticino, 2025)
+- Meilleurs taux via : Wise (~0,25% de marge), Revolut (~0,3% de marge). (Source : Grilles tarifaires publiées par Wise et Revolut, mars 2026)
+- Banques traditionnelles (UBS, PostFinance) : **2–3% de marge**. (Source : BNS — Banque nationale suisse, taux publiés vs. taux bancaires retail, 2026)
+- Taux de change actuel environ **1 CHF = 1,05–1,08 EUR**. (Source : BNS — Banque nationale suisse, taux de référence quotidiens, mars 2026)
+
+---
+
+## Outils et pages disponibles
+
+### Calculateurs fiscaux et salariaux
+- **Simulateur fiscal** — `/fr/calculer-salaire` — Calculer le salaire net : ancien vs. nouveau accord
+- **Simulateur de fiche de paie** — `/fr/calculer-salaire/simuler-fiche-de-paie` — Fiche de paie suisse détaillée
+- **Scénarios hypothétiques** — `/fr/calculer-salaire/scenarios-hypothetiques` — Impact des changements de vie
+- **Comparaison salaire brut** — `/fr/calculer-salaire/comparer-salaire-brut` — Brut-à-net Italie vs. Suisse
+- **Calculateur de bonus** — `/fr/calculer-salaire/simuler-bonus` — 13e mois, heures sup., primes
+- **Congé parental** — `/fr/calculer-salaire/estimer-conge-parental` — Droits maternité/paternité
+- **Simulateur de résidence** — `/fr/calculer-salaire/simuler-changement-residence` — Coût d'un déménagement CH↔IT
+- **Permis G vs B** — `/fr/calculer-salaire/comparer-permis-g-vs-b` — Comparaison fiscale
+
+### Comparateurs de services
+- **Change de devises** — `/fr/comparer-services/taux-change-chf-eur` — Taux CHF/EUR en temps réel
+- **Assurance maladie** — `/fr/comparer-services/comparer-assurance-maladie` — Primes LAMal, 14 assureurs, 7 cantons
+- **Comparaison bancaire** — `/fr/comparer-services/comparer-banques` — Comptes CH/IT pour frontaliers
+- **Opérateurs mobiles** — `/fr/comparer-services/comparer-operateurs-mobiles` — Forfaits roaming CH-IT
+- **Comparateur d'emplois** — `/fr/comparer-services/comparer-offres-emploi` — Offres par salaire net
+- **Calculateur courses** — `/fr/comparer-services/comparer-prix-alimentaires` — Prix transfrontaliers
+- **Coût de la vie** — `/fr/comparer-services/cout-de-la-vie` — CH vs. IT
+- **Bonus rénovation** — `/fr/comparer-services/calculer-bonus-renovation` — Déductions fiscales italiennes
+
+### Impôts et retraite
+- **Guide déclaration** — `/fr/impots-et-retraite/guide-declaration-fiscale` — Guide pas à pas 730/Modello Redditi
+- **Calendrier fiscal** — `/fr/impots-et-retraite/echeances-fiscales` — Échéances 2026 CH + IT
+- **Jours fériés** — `/fr/impots-et-retraite/jours-feries-tessin` — Jours fériés Canton du Tessin
+- **Suivi des ristorni** — `/fr/impots-et-retraite/remboursements-fiscaux` — Transferts fiscaux CH→IT
+- **Planificateur de retraite** — `/fr/impots-et-retraite/calculer-retraite` — Projection AVS + LPP + INPS
+- **Simulateur 3e pilier** — `/fr/impots-et-retraite/simuler-troisieme-pilier` — Calculateur d'économies fiscales
+- **Quiz fiscal** — `/fr/impots-et-retraite/quiz-fiscal` — Testez vos connaissances
+
+### Guides pratiques
+- **Checklist premier jour** — `/fr/guide-frontalier/premier-jour-travail` — Guide étape par étape
+- **Permis de travail** — `/fr/guide-frontalier/guide-permis-travail` — Permis G, B, C, L
+- **Passages frontière** — `/fr/guide-frontalier/temps-attente-frontiere` — Temps d'attente et itinéraires
+- **Chômage** — `/fr/guide-frontalier/allocations-chomage` — Droits et procédures
+- **Transfert de véhicule** — `/fr/guide-frontalier/transferer-voiture-suisse` — Immatriculation CH↔IT
+- **Coûts de trajet** — `/fr/guide-frontalier/couts-trajet-voiture` — Calculateur de transport
+- **Communes frontalières** — `/fr/guide-frontalier/communes-frontalieres` — 200+ communes
+- **Carte frontière** — `/fr/guide-frontalier/carte-frontiere` — Carte interactive
+
+### Vie au Tessin
+- **Vivre en Suisse** — `/fr/vivre-au-tessin/vivre-en-suisse` — Guide de relocalisation
+- **Vivre en Italie** — `/fr/vivre-au-tessin/vivre-en-italie` — Avantages et inconvénients
+- **Entreprises** — `/fr/vivre-au-tessin/entreprises-suisse-meridionale` — Grands employeurs tessinois
+- **Écoles** — `/fr/vivre-au-tessin/ecoles-suisse-meridionale` — Système scolaire
+- **Crèches** — `/fr/vivre-au-tessin/comparer-creches` — Comparaison garde d'enfants
+- **Attractions** — `/fr/vivre-au-tessin/attractions-suisse-meridionale` — Lieux à visiter
+- **Transport** — `/fr/vivre-au-tessin/transport-transfrontalier` — Options de transport
+
+### Statistiques
+- **Vue d'ensemble** — `/fr/statistiques` — Données OFS/UST sur les frontaliers et tendances salariales
+- **Comparaison salariale** — `/fr/statistiques/comparer-salaires` — CH vs. IT par secteur
+- **Classement habitabilité** — `/fr/statistiques/meilleures-communes-frontalieres` — Meilleures communes
+- **Trafic frontière** — `/fr/statistiques/historique-trafic-frontiere` — Données trafic en temps réel
+
+### Ressources supplémentaires
+- **Tableau de bord matinal** — `/fr/bonjour` — Briefing quotidien CHF/EUR, trafic, météo
+- **Offres d'emploi** — `/fr/trouver-emplois-tessin` — Offres d'emploi au Tessin, 100+ employeurs
+- **Forum communautaire** — `/fr/communaute` — Questions-réponses pour frontaliers
+- **Consultation** — `/fr/consultation` — Conseil fiscal professionnel
+- **Services partenaires** — `/fr/services-partenaires` — Comptables, courtiers, immobilier vérifiés
+- **Contact** — `/fr/contactez-nous` — Contacter l'équipe
+- **Retour d'info** — `/fr/assistance` — Signaler des problèmes, suggestions, commentaires
+- **100+ articles de blog** — `/fr/articles-frontaliers` — Articles approfondis sur fiscalité, permis, vie quotidienne
+
+---
+
+## Questions fréquemment posées
+
+### Q : Combien gagne net un frontalier avec CHF 80 000 brut en 2026 ?
+R : Pour un travailleur célibataire sous le nouvel accord (2026) gagnant CHF 80 000 brut/an : environ CHF 4 400/mois net après déductions suisses (AVS 5,3%, AC 1,1%, AANP, LPP) et impôt à la source, moins environ 400–500 €/mois d'IRPEF italienne. Sous l'ancien accord, le net est d'environ CHF 4 900/mois (pas d'impôt italien). (Source : Moteur fiscal Frontaliere Ticino, basé sur les tableaux DFE du Tessin et les tranches IRPEF de l'Agenzia delle Entrate, 2026) Calculez votre montant exact : https://frontaliereticino.ch/fr/calculer-salaire
+
+### Q : Les frontaliers doivent-ils déposer une déclaration de revenus italienne ?
+R : Les « nouveaux » frontaliers — embauchés à partir du 17 juillet 2023 — DOIVENT déposer une déclaration italienne (730 ou Modello Redditi PF) pour déclarer les revenus suisses et demander le crédit d'impôt. Les « anciens » frontaliers — embauchés avant juillet 2023, à moins de 20 km — en sont généralement exemptés. (Source : Agenzia delle Entrate — Circolare 25/E, 2024)
+
+### Q : Qu'est-ce que l'exonération de 10 000 € (franchigia) pour les nouveaux frontaliers ?
+R : Depuis 2024, les nouveaux frontaliers bénéficient d'une exonération fiscale annuelle de 10 000 € sur leur revenu suisse imposable en Italie. Les premiers 10 000 € de revenus (convertis CHF→EUR) ne sont pas soumis à l'IRPEF italienne. (Source : Agenzia delle Entrate — Circolare 25/E, 2024)
+
+### Q : Quelle assurance maladie un frontalier devrait-il choisir ?
+R : Les frontaliers ont 3 mois dès le début de l'emploi pour choisir entre la LAMal suisse ou le SSN italien. La LAMal coûte CHF 200–600/mois au Tessin. Les options les moins chères sont Assura ou Agrisano avec modèle Telmed et franchise de CHF 2 500. (Source : OFSP — Comparaison des primes, 2026) Comparez les 14 assureurs : https://frontaliereticino.ch/fr/comparer-services/comparer-assurance-maladie
+
+### Q : Quel est le meilleur moyen de convertir des CHF en EUR ?
+R : Wise et Revolut offrent les meilleurs taux (0,25–0,5% de marge sur le cours interbancaire). Les banques traditionnelles facturent 2–3%. Pour des montants supérieurs à CHF 5 000/mois, Wise est généralement le moins cher. (Source : Grilles tarifaires Wise et Revolut ; données BNS, mars 2026)
+
+### Q : Le travail frontalier est-il financièrement intéressant ?
+R : Pour la plupart des travailleurs, **oui**. Un frontalier gagnant CHF 80 000/an perçoit environ CHF 4 400–5 100/mois net, soit €4 600–5 400/mois. Le salaire italien équivalent serait de 25 000–35 000 €/an brut (~1 600–2 100 €/mois net). Même après impôts italiens et frais de déplacement, un frontalier gagne **2 à 3 fois plus** qu'un travailleur italien comparable. (Source : OFS — ESS ; ISTAT — Statistiques salariales, 2024)
+
+---
+
+## Sources des données
+
+| Source | Autorité | Données utilisées |
+|--------|----------|-------------------|
+| OFS (Office fédéral de la statistique) | Gouvernement suisse | Effectifs frontaliers, statistiques salariales, données d'emploi |
+| Agenzia delle Entrate | Gouvernement italien | Tranches IRPEF, déductions, crédits d'impôt |
+| Canton du Tessin DFE | Autorité cantonale | Tableaux d'impôt à la source, tarifs A/B/C/H |
+| OFSP (Office fédéral de la santé publique) | Gouvernement suisse | Primes LAMal, comparaison des assureurs |
+| OFAS (Office fédéral des assurances sociales) | Gouvernement suisse | Taux AVS/LPP, limites de cotisation, 3e pilier |
+| SECO (Secrétariat d'État à l'économie) | Gouvernement suisse | Statistiques du chômage, données du marché du travail |
+| BNS (Banque nationale suisse) | Gouvernement suisse | Taux de change CHF/EUR, données de politique monétaire |
+| INPS (Istituto Nazionale della Previdenza Sociale) | Gouvernement italien | Allocations chômage NASpI, totalisation des pensions |
+| SEM (Secrétariat d'État aux migrations) | Gouvernement suisse | Réglementations permis G/B/C/L, exigences frontaliers |
+| ISTAT (Institut national italien de statistique) | Gouvernement italien | Données communales, coût de la vie, démographie |
+| TwelveData API | Fournisseur de données de marché | Taux CHF/EUR en temps réel au cours moyen |
+
+## Contact
+- Site web : https://frontaliereticino.ch/fr/
+- Facebook : https://www.facebook.com/profile.php?id=61588174947294
+- Retour d'info : https://frontaliereticino.ch/fr/assistance
+- Documentation IA complète (anglais) : https://frontaliereticino.ch/en/llms-full.txt
+- Documentation IA complète (italien) : https://frontaliereticino.ch/llms-full.txt

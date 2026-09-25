@@ -1,0 +1,44 @@
+name: 'assemble-jobs cache key'
+description: >-
+  Prints the key under which scripts/assemble-jobs-dataset.mjs looks up and
+  snapshots its output (.cache/assemble-jobs/<key>), for use as the
+  actions/cache key of that directory.
+
+  Why the script computes it and not hashFiles(): the script's fingerprint
+  (computeAssembleInputFingerprint) hashes every slice, its own local import
+  closure, the aux data files it reads, package-lock.json and the Node major.
+  A hashFiles() over a subset of those gives an EXACT actions/cache hit on a
+  directory whose internal key no longer matches: the script then re-assembles,
+  and actions/cache skips the save because its key already exists, so every
+  run pays the full assembly until the next slice commit.
+
+  Requires the checkout and `npm ci` (the assembler's module graph is loaded).
+  When the key cannot be computed the output is empty: callers skip
+  restore/save and the assembly runs uncached, with a ::warning::.
+inputs:
+  args:
+    description: >-
+      The assembler flags of the run the key is for (`--stats`,
+      `--no-summaries`): they are part of the key.
+    required: false
+    default: ''
+outputs:
+  key:
+    description: 'The cache key, e.g. 241957d459c4a1b2_nostats; empty on failure.'
+    value: ${{ steps.key.outputs.key }}
+runs:
+  using: composite
+  steps:
+    - id: key
+      shell: bash
+      env:
+        ASSEMBLE_ARGS: ${{ inputs.args }}
+      run: |
+        # shellcheck disable=SC2086 # ASSEMBLE_ARGS is a flag list by contract
+        if key="$(node scripts/assemble-jobs-dataset.mjs --print-cache-key $ASSEMBLE_ARGS | tail -n 1)" \
+          && printf '%s' "$key" | grep -Eq '^[0-9a-f]{16}_[a-z_]+$'; then
+          echo "key=$key" >> "$GITHUB_OUTPUT"
+          echo "assemble-jobs cache key: $key"
+        else
+          echo "::warning::assemble-jobs cache key not computable — full assembly without cache"
+        fi

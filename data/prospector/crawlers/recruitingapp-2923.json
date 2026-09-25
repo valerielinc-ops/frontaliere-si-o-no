@@ -1,0 +1,18 @@
+{
+  "companyKey": "recruitingapp-2923",
+  "companyName": "Jobs",
+  "companyHost": "blkb.ch",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.blkb.ch/die-blkb/jobs-und-karriere/jobs.html"
+  ],
+  "detailTemplate": "/die-blkb/jobs-und-karriere/*",
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Du bei der BLKB",
+    "Unsere Mitarbeitenden erzählen"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T10:02:11.489Z"
+}

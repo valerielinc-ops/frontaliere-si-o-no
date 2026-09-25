@@ -1,0 +1,40 @@
+{
+  "id": "costo-benzina-ticino-frontalieri-2026",
+  "slug": "costo-benzina-ticino-frontalieri-2026",
+  "publishedAt": "2026-05-16T02:47:07.194Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.6959394430889585,
+    "confidence": 0.8,
+    "finalScore": 3.756751554471167,
+    "topK": [
+      {
+        "slug": "aumento-prezzi-carburanti-maggio-2026",
+        "cosine": 0.8527969887552929
+      },
+      {
+        "slug": "caro-benzina-varese-accise-2026",
+        "cosine": 0.852682312111848
+      },
+      {
+        "slug": "caro-carburante-benzina-ticino",
+        "cosine": 0.8448981144732998
+      },
+      {
+        "slug": "ticino-carburante-alle-stelle-quadri-berna-riduca-tasse",
+        "cosine": 0.8378304752658624
+      },
+      {
+        "slug": "aumentare-gia-il-prezzo-della-benzina",
+        "cosine": 0.837590462935933
+      }
+    ],
+    "score": 3.756751554471167,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

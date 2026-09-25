@@ -1,0 +1,596 @@
+name: Recycle stale PRs (close + re-queue source issue)
+
+# R3-B: una PR flaggata `stale-review` da stale-pr-rescuer resta comunque ferma
+# se nessuno agisce (alert-only). Osservato 2026-06-02: #1073/#1075 ferme ~29h.
+# Far ripartire un branch vecchio contro un `main` che si è mosso di 100+ commit
+# è conflict-prone e di basso valore. Meglio RICICLARE: chiudere la PR
+# profondamente stale e ri-accodare la issue sorgente con `agent:fix` → fix
+# fresco contro il `main` corrente (issue-fix apre un branch nuovo).
+#
+# Conservativo: agisce SOLO su PR `stale-review` aperte >24h E senza commit nuovi
+# da >24h E con issue sorgente ancora OPEN. Daily (non urgente). dry_run per test.
+# Separato da stale-pr-rescuer (che fira a ogni review completion) per non
+# pagare npm ci + PAT ad ogni evento.
+
+on:
+  schedule:
+    - cron: '40 6 * * *'  # daily 06:40 UTC (cleanup non urgente)
+  workflow_dispatch:
+    inputs:
+      dry_run:
+        description: 'Solo log, niente close/re-queue'
+        type: boolean
+        default: true
+      max_age_hours:
+        description: 'Soglia "deeply stale" in ore (default 24)'
+        type: string
+        default: '24'
+      max_recycles:
+        description: 'Massimo di close+re-queue per run (default 5, max 20; lo scan riparte al run successivo)'
+        type: string
+        default: '5'
+
+permissions:
+  contents: write   # serve per il DELETE esplicito del ref dopo il guard SHA
+  pull-requests: write
+  issues: write
+
+concurrency:
+  group: recycle-stale-prs
+  cancel-in-progress: false
+
+jobs:
+  recycle:
+    runs-on: ubuntu-latest
+    # 15 = checkout/npm ci (~3 min) + recycle step (tetto 9, deadline interna
+    # 7) + i due step di digest. Il tetto del job non deve mai cadere dentro
+    # la finestra close -> DELETE -> agent:fix: la deadline interna smette di
+    # aprire nuove close ben prima.
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT da Remote Config non verrà caricato; il PAT/App token può ancora arrivare dall'handoff GitHub, altrimenti il recycle (close/ref-delete/re-queue) verrà SALTATO."
+          fi
+
+      - name: Load secrets from Remote Config (GITHUB_PAT)
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      # Primary identity = GitHub App installation token (`frontaliere-automation[bot]`):
+      # auto-mints, no expiry babysit, and the re-queue label push re-triggers
+      # issue-fix.yml just like the PAT (issue-fix.yml's sender gate already
+      # allowlists the App slug). Falls back to env.GITHUB_PAT (#2861 item 1).
+      - name: Mint App token (primary identity, PAT fallback)
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # PAT-down = degrado silenzioso a catena del loop autonomo (merge senza
+      # cascade, coda congelata, routing/re-queue inerti). Alert inline
+      # deterministico, dedup sul titolo canonico del monitor daily
+      # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
+      # GH_TOKEN = GITHUB_TOKEN, NON il PAT (e' la cosa rotta).
+      - name: Alert token-down (dedup, zero-Claude)
+        if: env.APP_TOKEN == '' && env.GITHUB_PAT == ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Recycle deeply-stale stale-review PRs
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PAT: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          REPO: ${{ github.repository }}
+          # Posture: lo SCHEDULE agisce (false) — è l'intento autonomo; il
+          # DISPATCH manuale resta safe-by-default (input default true) per test.
+          # Senza questo, il cron passa dry_run vuoto → permanentemente dry-run →
+          # non riciclerebbe mai (reviewer nit). I gate conservativi (>24h + no
+          # commit + issue OPEN) tengono il blast radius minimo.
+          DRY_RUN: ${{ github.event_name == 'schedule' && 'false' || github.event.inputs.dry_run }}
+          MAX_AGE_HOURS: ${{ github.event.inputs.max_age_hours || '24' }}
+          MAX_RECYCLES_PER_RUN: ${{ github.event.inputs.max_recycles || '5' }}
+          # Deadline interna: nessuna nuova close se il tempo restante dello
+          # step e' sotto il budget di un riciclo completo. Il budget e' un
+          # tetto DURO, non una stima: ogni chiamata gh del riciclo passa da
+          # `bounded` (timeout per comando) e un riciclo ne fa al massimo 16
+          # (rilettura, annuncio, probe capacita', close, 2 letture di
+          # attribuzione, 3 probe ref, DELETE, remove/verify/add/verify, un
+          # commento di recovery con fallback = 2) + 4 sleep da 2 s:
+          # 16 x (15 + 5 kill) + 8 = 328 s <= 330. L'ultimo riciclo ammesso
+          # parte entro 420 - 330 = 90 s e finisce entro 420 s, sotto il
+          # tetto di 9 minuti dello step.
+          RECYCLE_STEP_BUDGET_SECONDS: '420'
+          RECYCLE_PER_ITEM_BUDGET_SECONDS: '330'
+          RECYCLE_CMD_TIMEOUT_SECONDS: '15'
+        timeout-minutes: 9
+        run: |
+          set -uo pipefail
+          DRY="${DRY_RUN:-true}"
+          NOW=$(date -u +%s)
+          MAXAGE=$(( ${MAX_AGE_HOURS:-24} * 3600 ))
+          MAX_RECYCLES="${MAX_RECYCLES_PER_RUN:-5}"
+          if ! grep -qE '^[1-9][0-9]*$' <<<"$MAX_RECYCLES" || [ "${#MAX_RECYCLES}" -gt 3 ]; then
+            echo "::error::MAX_RECYCLES_PER_RUN deve essere un intero tra 1 e 20 (ricevuto: $MAX_RECYCLES)."
+            exit 1
+          fi
+          # 20 x 60s di budget per riciclo supera comunque la deadline: il cap
+          # e' un tetto di blast radius, la deadline sotto e' il tetto di tempo.
+          if [ "$MAX_RECYCLES" -gt 20 ]; then
+            echo "::error::MAX_RECYCLES_PER_RUN supera il limite operativo 20 (ricevuto: $MAX_RECYCLES)."
+            exit 1
+          fi
+          RECYCLE_ATTEMPTS=0
+          START_TS=$(date -u +%s)
+          STEP_BUDGET="${RECYCLE_STEP_BUDGET_SECONDS:-420}"
+          ITEM_BUDGET="${RECYCLE_PER_ITEM_BUDGET_SECONDS:-330}"
+          CMD_TIMEOUT="${RECYCLE_CMD_TIMEOUT_SECONDS:-15}"
+          TIMEOUT_BIN=$(command -v timeout 2>/dev/null || true)
+          if [ -z "$TIMEOUT_BIN" ]; then
+            echo "::error::coreutils timeout assente: senza un tetto per comando il riciclo non ha una deadline dura — recycle non eseguito."
+            exit 1
+          fi
+          # Ogni chiamata gh del riciclo ha un tetto: una gh appesa fallisce
+          # (exit 124) e cade nel ramo fail-closed/recovery invece di portare
+          # lo step al timeout fra la close e agent:fix.
+          bounded() {
+            "$TIMEOUT_BIN" -k 5 "$CMD_TIMEOUT" "$@"
+          }
+
+          # Commento di recovery durevole sulla issue/PR. Prova prima con
+          # l'identita' delle mutazioni; se quella e' morta a meta' run usa il
+          # GITHUB_TOKEN (un commento non innesca nulla, basta che resti).
+          recovery_note() {
+            GH_TOKEN="$PAT" bounded gh issue comment "$1" --repo "$REPO" --body "$2" 2>/dev/null \
+              || bounded gh issue comment "$1" --repo "$REPO" --body "$2" 2>/dev/null \
+              || echo "::error::commento di recovery su #$1 non pubblicato: $2"
+          }
+
+          # `gh pr list --limit 50` troncava in silenzio le PR più vecchie,
+          # proprio quelle eleggibili al recycle. Leggi tutte le pagine e
+          # filtra `stale-review` sul payload REST; una lettura incompleta è un
+          # errore, non una lista vuota da trattare come scan riuscito.
+          if ! prs=$(gh api --paginate "repos/$REPO/pulls?state=open&per_page=100" \
+            --jq '.[] | select(any(.labels[]?.name; . == "stale-review")) | {number, title, body, createdAt: .created_at, headRefName: .head.ref, labels: [.labels[] | {name}]}' \
+            | jq -s '.'); then
+            echo "::error::Query PR stale-review fallita o non valida: recycle non eseguito." >&2
+            exit 1
+          fi
+          COUNT=$(printf '%s' "$prs" | jq 'length')
+          echo "stale-review PRs aperte: $COUNT"
+
+          printf '%s' "$prs" | jq -c '.[]' | while read -r pr; do
+            N=$(printf '%s' "$pr" | jq -r '.number')
+            TITLE=$(printf '%s' "$pr" | jq -r '.title')
+            BODY=$(printf '%s' "$pr" | jq -r '.body // ""')
+            CREATED=$(printf '%s' "$pr" | jq -r '.createdAt')
+            BRANCH=$(printf '%s' "$pr" | jq -r '.headRefName // ""')
+            HAS_AUTOFIX=$(printf '%s' "$pr" | jq -r 'if any(.labels[]?.name; . == "agent:autofix") then "true" else "false" end')
+
+            # Questo workflow chiude e ri-accoda: può farlo solo il loop
+            # autonomo. Il precedente filtro `stale-review` da solo includeva
+            # anche PR umane etichettate manualmente. `fix/*` mantiene la
+            # compatibilità con le PR storiche; le altre richiedono il segnale
+            # esplicito agent:autofix.
+            if [ "$HAS_AUTOFIX" != "true" ] && ! grep -q '^fix/' <<<"$BRANCH"; then
+              echo "PR #$N non autonoma (branch '$BRANCH', senza agent:autofix) — skip recycle"; continue
+            fi
+
+            # Gate 1: PR aperta da >MAXAGE.
+            CS=$(date -u -d "$CREATED" +%s 2>/dev/null || echo "$NOW")
+            if [ $((NOW - CS)) -lt "$MAXAGE" ]; then echo "PR #$N non abbastanza vecchia — skip"; continue; fi
+
+            # Gate 0 — head ref protetto. La label segnala una coppia
+            # close+reopen rotta: preservare il branch e lasciare decidere a un
+            # operatore e' piu' sicuro che cancellarlo una seconda volta.
+            if printf '%s' "$pr" | jq -e '[.labels[].name] | index("autorebase-reopen-failed")' >/dev/null 2>&1; then
+              echo "PR #$N ha autorebase-reopen-failed (head ref da preservare) — skip"; continue
+            fi
+
+            # Gate 2: nessun commit nuovo da >MAXAGE (lavoro davvero abbandonato).
+            # Leggiamo insieme massimo delle date, ref e SHA per riusare la
+            # stessa guardia di liberazione del branch dopo la close.
+            PRMETA=$(gh pr view "$N" --repo "$REPO" --json commits,headRepository,headRepositoryOwner,headRefName,headRefOid 2>/dev/null || true)
+            LASTCOMMIT=$(printf '%s' "$PRMETA" | jq -r '[.commits[]?.committedDate | select(type == "string" and length > 0)] | max // empty' 2>/dev/null || true)
+            HEADREF=$(printf '%s' "$PRMETA" | jq -r '.headRefName // empty' 2>/dev/null || true)
+            HEADSHA=$(printf '%s' "$PRMETA" | jq -r '.headRefOid // empty' 2>/dev/null || true)
+            HEAD_REPO=$(printf '%s' "$PRMETA" | jq -r 'if (.headRepository.nameWithOwner // "") != "" then .headRepository.nameWithOwner elif (.headRepository.owner.login // "") != "" and (.headRepository.name // "") != "" then (.headRepository.owner.login + "/" + .headRepository.name) else empty end' 2>/dev/null || true)
+            # Un head ref senza repository verificabile puo' appartenere a un
+            # fork o a un target ormai cancellato: non e' autorizzato per il
+            # DELETE nel repo base.
+            if [ -z "${HEADREF:-}" ] || ! grep -qE '^[0-9a-fA-F]{40}$' <<<"$HEADSHA"; then
+              echo "PR #$N: metadata head ref/SHA non verificabile (${HEADREF:-UNKNOWN}, ${HEADSHA:-UNKNOWN}) — preservo il ref e skip recycle"; continue
+            fi
+            if [ -z "$HEAD_REPO" ] || [ "$HEAD_REPO" != "$REPO" ]; then
+              echo "PR #$N: head repository non verificabile o diverso dal base (${HEAD_REPO:-UNKNOWN} != $REPO) — preservo il ref e skip recycle"; continue
+            fi
+            # LASTCOMMIT vuoto = PR senza commit o head fork inaccessibile: NON
+            # ricicliamo (una chiusura con cancellazione implicita su un head
+            # fork può fallire silenziosamente lasciando il ref, e "0 commit" non è il lavoro
+            # abbandonato che R3-B mira a riciclare). Skip difensivo. Cfr. #1201
+            # item 3.
+            if [ "$HAS_AUTOFIX" != "true" ] && ! grep -q '^fix/' <<<"$HEADREF"; then
+              echo "PR #$N senza agent:autofix e branch non fix/* — skip recycle (solo PR autonome)"; continue
+            fi
+            if [ -z "$LASTCOMMIT" ]; then echo "PR #$N: nessun commit/head fork inaccessibile — skip recycle"; continue; fi
+            LCS=$(date -u -d "$LASTCOMMIT" +%s 2>/dev/null || echo 0)
+            if [ $((NOW - LCS)) -lt "$MAXAGE" ]; then echo "PR #$N ha commit recenti — skip (lavoro attivo)"; continue; fi
+
+            # Source issue: "(#N)" nel titolo o "Closes #N" nel body.
+            ISSUE=$(printf '%s' "$TITLE" | grep -oE '\(#[0-9]+\)' | tail -1 | grep -oE '[0-9]+' || true)
+            if [ -z "${ISSUE:-}" ]; then
+              ISSUE=$(printf '%s' "$BODY" | grep -oiE 'closes #[0-9]+' | head -1 | grep -oE '[0-9]+' || true)
+            fi
+            if [ -z "${ISSUE:-}" ]; then echo "PR #$N nessuna issue sorgente identificabile — skip (no recycle cieco)"; continue; fi
+
+            # La issue sorgente deve essere OPEN (altrimenti non c'è cosa ri-accodare).
+            IST=$(gh issue view "$ISSUE" --repo "$REPO" --json state --jq '.state' 2>/dev/null || echo "UNKNOWN")
+            if [ "$IST" != "OPEN" ]; then echo "PR #$N → issue #$ISSUE stato=$IST (non OPEN) — skip"; continue; fi
+
+            echo "::notice::PR #$N RICICLABILE → chiudi + re-queue issue #$ISSUE"
+            if [ "$DRY" = "true" ]; then echo "(dry-run) skip azione PR #$N"; continue; fi
+
+            # La close NON usa --delete-branch: quella opzione cancella il ref
+            # prima che possiamo confrontarlo con HEADSHA. Il nome viene
+            # liberato dal DELETE esplicito piu' sotto, dopo il guard SHA.
+            # Issue-fix ricrea il branch con nome DETERMINISTICO `fix/issue-N`
+            # e pusha con `git push -u` (no force); se il branch remoto
+            # sopravvive il push non-fast-forward fallisce e il recycle si ferma.
+            #
+            # Identita' unica: TUTTE le mutazioni (commento, close, DELETE del
+            # ref, label) usano $PAT. Prima usavamo GITHUB_TOKEN per close e
+            # DELETE e $PAT solo per il re-label: un PAT/App token scaduto
+            # lasciava PR chiusa e ref cancellato senza re-queue. Ora la prima
+            # mutazione (il commento di annuncio, non distruttivo) fallisce se
+            # il token e' invalido, e nulla resta a meta'.
+            if [ -z "${PAT:-}" ]; then
+              echo "⚠️ PAT assente — PR #$N NON chiusa e issue #$ISSUE NON ri-accodata."
+              continue
+            fi
+
+            # Deadline: il job ha un tetto; un timeout dopo close/DELETE e
+            # prima di agent:fix lascerebbe la issue senza fixer. Nessuna nuova
+            # close se il tempo restante non copre un riciclo completo.
+            ELAPSED=$(( $(date -u +%s) - START_TS ))
+            if [ $((ELAPSED + ITEM_BUDGET)) -gt "$STEP_BUDGET" ]; then
+              echo "::notice::Deadline: ${ELAPSED}s usati su ${STEP_BUDGET}s, un riciclo ne richiede fino a ${ITEM_BUDGET}s — fermo prima di un'altra close; il prossimo run riprende lo scan."
+              break
+            fi
+            if [ "$RECYCLE_ATTEMPTS" -ge "$MAX_RECYCLES" ]; then
+              echo "::notice::Cap $MAX_RECYCLES raggiunto: fermo prima di un'altra close."
+              break
+            fi
+            RECYCLE_ATTEMPTS=$((RECYCLE_ATTEMPTS + 1))
+
+            # Rilettura immediatamente prima della close: la PR deve essere
+            # ancora OPEN e sulla stessa head letta dai gate.
+            PRE_CLOSE=$(bounded gh pr view "$N" --repo "$REPO" --json state,headRefOid --jq '.state + " " + .headRefOid' 2>/dev/null || true)
+            if [ "$PRE_CLOSE" != "OPEN $HEADSHA" ]; then
+              echo "PR #$N cambiata prima della close (${PRE_CLOSE:-UNKNOWN}, attesa OPEN $HEADSHA) — skip recycle"
+              continue
+            fi
+
+            # Preflight delle capacita' del token, tutte PRIMA della close e
+            # tutte non distruttive:
+            # - commento di annuncio sulla ISSUE sorgente: prova issues:write,
+            #   la stessa capacita' che serve a remove/add di agent:fix, e
+            #   restituisce identita' ($ACTOR) e istante lato server ($MARK_AT)
+            #   che rendono la close attribuibile;
+            # - PATCH no-op del ref head sulla SHA che ha gia' (force=false):
+            #   prova contents:write sullo stesso ref che verra' cancellato, e
+            #   fallisce se il ref si e' mosso.
+            ANNOUNCE=$(printf '♻️ **recycle** (auto): PR ferma >%sh come \x60stale-review\x60 con branch indietro su un main mosso di molti commit. Viene chiusa; il ref remoto verra verificato e cancellato in sicurezza e issue sorgente #%s verra ri-accodata per un fix fresco contro main corrente (issue-fix aprira un branch nuovo con lo stesso nome). Il lavoro non e perso: la issue resta aperta.' "${MAX_AGE_HOURS:-24}" "$ISSUE")
+            MARK=$(GH_TOKEN="$PAT" bounded gh api -X POST "repos/${REPO}/issues/${ISSUE}/comments" -f body="$ANNOUNCE" --jq '(.user.login // "") + " " + (.created_at // "")' 2>/dev/null || true)
+            ACTOR=""; MARK_AT=""
+            read -r ACTOR MARK_AT <<<"$MARK"
+            if [ -z "$ACTOR" ] || ! grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$' <<<"$MARK_AT"; then
+              echo "::error::PR #$N: preflight del token PAT/App fallito (commento non scritto o identita' illeggibile) — nessuna mutazione eseguita; fermo il run."
+              break
+            fi
+            if ! GH_TOKEN="$PAT" bounded gh api -X PATCH "repos/${REPO}/git/refs/heads/${HEADREF}" -f sha="$HEADSHA" -F force=false >/dev/null 2>&1; then
+              echo "::error::PR #$N: il token PAT/App non puo' aggiornare il ref ${HEADREF} (contents:write assente o ref mosso) — PR NON chiusa; fermo il run."
+              recovery_note "$ISSUE" "♻️ recycle di PR stale #$N annullato prima della close: il token non ha potuto verificare contents:write sul ref \`${HEADREF}\`. La PR resta aperta."
+              break
+            fi
+
+            # Una close fallita o scaduta NON prova che GitHub non l'abbia
+            # applicata: il client puo' morire dopo la mutazione. In ogni caso
+            # si rilegge lo stato; solo `open` confermato lascia la PR alla
+            # scansione del prossimo run, tutto il resto passa dal controllo
+            # di attribuzione qui sotto.
+            CLOSE_RC=0
+            GH_TOKEN="$PAT" bounded gh pr close "$N" --repo "$REPO" 2>/dev/null || CLOSE_RC=$?
+            if [ "$CLOSE_RC" -ne 0 ]; then
+              echo "::warning::close PR #$N uscita con rc=$CLOSE_RC: rileggo lo stato prima di decidere."
+            fi
+
+            # `state == CLOSED` da solo non prova che la transizione l'abbia
+            # fatta questo run: un altro actor puo' chiudere nel frattempo
+            # (e `gh pr close` su una PR gia' chiusa esce 0). Serve che
+            # closed_by sia l'identita' del token e closed_at (ISO valido) non
+            # preceda il commento di preflight. Una lettura illeggibile si
+            # ritenta una volta; se resta illeggibile o non attribuibile:
+            # niente DELETE, niente re-queue, commento di recovery SEMPRE.
+            C_STATE=""; C_AT=""; C_BY=""
+            for close_read in 1 2; do
+              CLOSE_INFO=$(GH_TOKEN="$PAT" bounded gh api "repos/${REPO}/issues/${N}" --jq '(.state // "") + " " + (.closed_at // "-") + " " + (.closed_by.login // "-")' 2>/dev/null || true)
+              C_STATE=""; C_AT=""; C_BY=""
+              read -r C_STATE C_AT C_BY <<<"$CLOSE_INFO"
+              if [ "$C_STATE" = "open" ] || [ "$C_STATE" = "closed" ]; then break; fi
+              [ "$close_read" = "2" ] || sleep 2
+            done
+            if [ "$C_STATE" = "open" ]; then
+              echo "::warning::PR #$N ancora aperta dopo la close (rc=$CLOSE_RC): NON ri-accodo issue #$ISSUE; la PR resta nella scansione del prossimo run."
+              continue
+            fi
+            if [ "$C_STATE" != "closed" ] || [ "$C_BY" != "$ACTOR" ] \
+              || ! grep -qE '^[0-9]{4}-[0-9]{2}-[0-9]{2}T[0-9]{2}:[0-9]{2}:[0-9]{2}Z$' <<<"$C_AT" \
+              || [ "$C_AT" \< "$MARK_AT" ]; then
+              echo "::error::PR #$N: close non attribuibile a questo run (rc=$CLOSE_RC, state=${C_STATE:-UNKNOWN}, closed_by=${C_BY:-?}, closed_at=${C_AT:-?}, atteso $ACTOR >= $MARK_AT) — NON cancello il ref e NON ri-accodo issue #$ISSUE."
+              recovery_note "$ISSUE" "♻️ recovery: il recycle della PR stale #$N non ha potuto verificare una chiusura attribuibile (state=${C_STATE:-illeggibile}, closed_by=${C_BY:-?}, closed_at=${C_AT:-?}). Il branch \`${HEADREF}\` NON è stato toccato: se la PR è chiusa, rimuovere il ref e riapplicare \`agent:fix\` a mano."
+              continue
+            fi
+
+            # Un output vuoto e' "ref assente" SOLO con HTTP 404 confermato;
+            # 403/5xx/timeout e JSON malformato sono errori e bloccano.
+            ref_free=false
+            if [ -z "${HEADREF:-}" ]; then
+              echo "::warning::PR #$N: head ref sconosciuto, non posso verificare che sia libero"
+            else
+              for attempt in 1 2 3; do
+                probe_file=$(mktemp)
+                probe_err=$(mktemp)
+                if bounded gh api --include "repos/${REPO}/git/refs/heads/${HEADREF}" >"$probe_file" 2>"$probe_err"; then
+                  http_status=$(sed 's/\r$//' "$probe_file" | sed -n '1s/^HTTP\/[0-9.][0-9.]*[[:space:]]\{1,\}\([0-9][0-9][0-9]\).*/\1/p')
+                  probe_body=$(sed 's/\r$//' "$probe_file" | awk 'BEGIN { body=0 } body { print } /^$/ { body=1; next }')
+                  if [ "$http_status" != "200" ]; then
+                    echo "::error::PR #$N: probe ref ${HEADREF} ha HTTP ${http_status:-UNKNOWN}; NON considero il ref assente."
+                    rm -f "$probe_file" "$probe_err"
+                    break
+                  fi
+                  REF_SHA=$(printf '%s' "$probe_body" | jq -er '.object.sha | select(type == "string" and test("^[0-9a-fA-F]{40}$"))' 2>/dev/null || true)
+                  if [ -z "$REF_SHA" ]; then
+                    echo "::error::PR #$N: probe ref ${HEADREF} ha payload JSON malformato; NON considero il ref assente."
+                    rm -f "$probe_file" "$probe_err"
+                    break
+                  fi
+                else
+                  http_status=$(sed 's/\r$//' "$probe_file" | sed -n '1s/^HTTP\/[0-9.][0-9.]*[[:space:]]\{1,\}\([0-9][0-9][0-9]\).*/\1/p')
+                  if [ "$http_status" = "404" ]; then
+                    ref_free=true
+                    rm -f "$probe_file" "$probe_err"
+                    break
+                  fi
+                  echo "::error::PR #$N: probe ref ${HEADREF} fallita (HTTP ${http_status:-UNKNOWN}); NON considero il ref assente."
+                  rm -f "$probe_file" "$probe_err"
+                  break
+                fi
+                rm -f "$probe_file" "$probe_err"
+                if [ "$attempt" = "2" ]; then
+                  if [ -z "${HEADSHA:-}" ]; then
+                    echo "::warning::PR #$N: head SHA sconosciuta, skip DELETE del ref ${HEADREF}"
+                    break
+                  fi
+                  if [ "$REF_SHA" != "$HEADSHA" ]; then
+                    echo "::warning::PR #$N: ref ${HEADREF} punta a ${REF_SHA}, diverso dalla head chiusa ${HEADSHA}; skip DELETE"
+                    break
+                  fi
+                  if ! GH_TOKEN="$PAT" bounded gh api -X DELETE "repos/${REPO}/git/refs/heads/${HEADREF}" >/dev/null 2>&1; then
+                    echo "::error::PR #$N: DELETE del ref ${HEADREF} fallita; NON ri-accodo issue #$ISSUE."
+                    break
+                  fi
+                fi
+                sleep 2
+              done
+            fi
+            if [ "${ref_free}" != "true" ]; then
+              echo "::error::PR #$N: branch ${HEADREF:-?} ancora presente dopo la close — NON ri-accodo issue #$ISSUE."
+              recovery_note "$ISSUE" "♻️ PR stale #$N chiusa ma il branch \`${HEADREF:-?}\` non è stato cancellato o verificato: riapplicare \`agent:fix\` a mano dopo aver rimosso il ref."
+              continue
+            fi
+
+            # Re-queue: verifica entrambe le transizioni. Se remove fallisce o
+            # la label resta presente, NON eseguire add (evita retrigger falso).
+            if ! GH_TOKEN="$PAT" bounded gh issue edit "$ISSUE" --repo "$REPO" --remove-label agent:fix 2>/dev/null; then
+              echo "::error::remove-label agent:fix fallita issue #$ISSUE: NON ri-accodo (la label potrebbe essere ancora presente)."
+              recovery_note "$ISSUE" "♻️ PR stale #$N chiusa e branch liberato, ma la rimozione di \`agent:fix\` è fallita: rimuovere e riapplicare \`agent:fix\` a mano per un fix fresco."
+              continue
+            fi
+            label_payload=$(GH_TOKEN="$PAT" bounded gh issue view "$ISSUE" --repo "$REPO" --json labels 2>/dev/null || true)
+            label_present=$(printf '%s' "$label_payload" | jq -er '
+              if type != "object" or ((.labels? | type) != "array") then
+                error("labels payload non verificabile")
+              elif any(.labels[];
+                if type != "object" then true
+                elif (has("name") | not) then true
+                else (.name | type != "string")
+                end
+              ) then
+                error("label record non verificabile")
+              elif any(.labels[]; .name == "agent:fix") then "true"
+              else "false"
+              end
+            ' 2>/dev/null || true)
+            if [ "$label_present" != "false" ]; then
+              echo "::error::remove-label agent:fix non verificata issue #$ISSUE (stato=${label_present:-UNKNOWN}): NON eseguo add."
+              recovery_note "$ISSUE" "♻️ PR stale #$N chiusa e branch liberato, ma la rimozione di \`agent:fix\` non è verificabile: rimuovere e riapplicare \`agent:fix\` a mano per un fix fresco."
+              continue
+            fi
+            sleep 2
+            if ! GH_TOKEN="$PAT" bounded gh issue edit "$ISSUE" --repo "$REPO" --add-label agent:fix 2>/dev/null; then
+              echo "::error::add-label agent:fix fallita issue #$ISSUE (PR #$N gia' chiusa): riapplicarla a mano."
+              recovery_note "$ISSUE" "♻️ PR stale #$N chiusa ma il re-label \`agent:fix\` è fallito: riapplicarlo a mano per un fix fresco."
+              continue
+            fi
+            label_payload=$(GH_TOKEN="$PAT" bounded gh issue view "$ISSUE" --repo "$REPO" --json labels 2>/dev/null || true)
+            label_present=$(printf '%s' "$label_payload" | jq -er '
+              if type != "object" or ((.labels? | type) != "array") then
+                error("labels payload non verificabile")
+              elif any(.labels[];
+                if type != "object" then true
+                elif (has("name") | not) then true
+                else (.name | type != "string")
+                end
+              ) then
+                error("label record non verificabile")
+              elif any(.labels[]; .name == "agent:fix") then "true"
+              else "false"
+              end
+            ' 2>/dev/null || true)
+            if [ "$label_present" != "true" ]; then
+              echo "::error::add-label agent:fix non verificata issue #$ISSUE: riapplicarla a mano."
+              recovery_note "$ISSUE" "♻️ PR stale #$N chiusa ma il re-label \`agent:fix\` non è verificabile: riapplicarlo a mano per un fix fresco."
+              continue
+            fi
+            echo "issue #$ISSUE ri-accodata (agent:fix via PAT)"
+          done
+          echo "Recycle scan completo."
+
+      # Draft PR parcheggiate → `needs-human`. DEVE stare PRIMA del digest qui
+      # sotto, cosi' una draft etichettata in questo run compare gia' nella
+      # issue dello stesso run invece che 24h dopo.
+      #
+      # Il buco non e' in nessuno dei singoli strati: ognuno salta le draft con
+      # una buona ragione (pr-review-loop, auto-merge-eval, auto-merge-sweep,
+      # pr-autorebase, stale-pr-rescuer), e `recycle-stale-prs` qui sopra agisce
+      # solo su `stale-review`, che una draft non riceve MAI proprio perche' il
+      # rescuer la salta. Ogni singolo skip e' giusto; la loro SOMMA lascia una
+      # draft aperta fuori da tutto contemporaneamente — non revisionata, non
+      # mergiata, non rebasata, non etichettata stale e quindi non riciclata.
+      #
+      # Osservato su nanakokyobashi-rgb/frontaliere-articles#33, uno snapshot di
+      # sessione morta aperto come draft per rimandare una decisione: il
+      # contenitore sbagliato ha reso la decisione invisibile invece che
+      # rimandata, e ci e' voluto un umano che ci inciampasse. Qui lo stesso buco
+      # era aperto, senza nessun caso vivo che lo rivelasse.
+      #
+      # Solo label + commento: una draft parcheggiata puo' essere WIP vero, e
+      # chiuderla d'ufficio sarebbe l'errore opposto e peggiore.
+      # GITHUB_TOKEN basta (label + comment); nessun PAT, nessun Claude.
+      - name: Flag parked draft PRs (zero-Claude)
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+          # Stessa postura del recycle sopra: lo schedule agisce, il dispatch
+          # manuale resta dry-run per default.
+          PARKED_HOURS: '48'
+        run: |
+          if [ "${{ github.event_name }}" = "schedule" ] || [ "${{ github.event.inputs.dry_run }}" = "false" ]; then
+            node scripts/ci/parked-pr-detector.mjs
+          else
+            node scripts/ci/parked-pr-detector.mjs --dry-run
+          fi
+
+      # Visibilita' needs-human: per le PR, il 🔴-fixer al round-cap e lo step
+      # sopra per le draft parcheggiate segnalano un oggetto che richiede review.
+      # Per le issue questa label e' riservata alle decisioni reali del
+      # proprietario; i parcheggi tecnici del drainer e del closer usano
+      # `automation-deferred` e non entrano in questo digest. Sulle PR la label
+      # resta solo tracking: non blocca auto-merge, autorebase o dispatch.
+      #
+      # PERCHE' ANCHE LE ISSUE, e perche' QUI. Sulle issue `needs-human` resta
+      # un filtro di ESCLUSIONE: scripts/ci/followup-drainer.mjs
+      # la legge in isReparkableCandidate() (:794) per tenere una issue fuori dal
+      # pool dei retry parcheggiati, e a :1345 per escluderla dal rescue
+      # `agent:fix` dei crawler. Fino a questa PR nessun workflow dei due repo
+      # faceva `gh issue list --label needs-human`: una issue escalata usciva da
+      # ogni coda automatica e non entrava in nessuna coda umana. Misurato sul
+      # corpus il 2026-08-18: 13 issue aperte su 26 portavano la label.
+      # scripts/ci/loop-health-report.mjs (:251) ne pubblica il CONTEGGIO nel
+      # report giornaliero, ma un numero non dice quali sono e il corpus quel
+      # report non ce l'ha. Il canale giusto e' questo e non uno nuovo — e' la
+      # regola scritta in scripts/ci/parked-pr-detector.mjs («Riusarla significa
+      # che il segnale finisce in un canale che esiste gia' ed e' gia' letto,
+      # invece di aprirne un secondo che nessuno guarda»).
+      #
+      # Il TITOLO non cambia: e' la chiave di dedup di github-issue-creator.mjs,
+      # e rinominarlo orfanerebbe l'issue dedup gia' aperta (#5041 qui, #409 sul
+      # corpus), che nessuno chiuderebbe piu'. Le due liste stanno nel corpo.
+      - name: Surface needs-human PRs and issues (dedup, zero-Claude)
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: |
+          set -uo pipefail
+          PRS=$(gh pr list --repo "$GH_REPO" --state open --label needs-human \
+            --json number,title,updatedAt \
+            --jq '.[] | "- #\(.number) \(.title) (ultimo update \(.updatedAt))"')
+          # L'issue dedup di questo stesso step porta `automation`, non
+          # `needs-human`: non puo' auto-elencarsi.
+          ISSUES=$(gh issue list --repo "$GH_REPO" --state open --label needs-human \
+            --limit 200 --json number,title,updatedAt \
+            --jq '.[] | "- #\(.number) \(.title) (ultimo update \(.updatedAt))"')
+          if [ -z "$PRS" ] && [ -z "$ISSUES" ]; then
+            echo "Niente needs-human aperto (ne PR ne issue)."
+            exit 0
+          fi
+          PR_COUNT=0; [ -n "$PRS" ] && PR_COUNT=$(printf '%s\n' "$PRS" | wc -l | tr -d ' ')
+          ISSUE_COUNT=0; [ -n "$ISSUES" ] && ISSUE_COUNT=$(printf '%s\n' "$ISSUES" | wc -l | tr -d ' ')
+          echo "needs-human aperti: $PR_COUNT PR, $ISSUE_COUNT issue"
+          [ -n "$PRS" ] || PRS='_(nessuna)_'
+          [ -n "$ISSUES" ] || ISSUES='_(nessuna)_'
+          # Markdown backticks in this literal description are intentional.
+          # shellcheck disable=SC2016
+          DESC=$(printf 'La label `needs-human` e un segnale di tracking: sulla PR non e un veto di merge, mentre sulle issue indica esclusivamente una decisione reale del proprietario. I blocchi tecnici usano `automation-deferred` e rientrano nello sweep automatico.\n\n**PR** (%s) — il fixer dei red-flag ha raggiunto il round-cap (anti-loop), oppure sono draft parcheggiate. Questi gate spiegano perche la PR non e pronta; la sola label non impedisce auto-merge, autorebase o dispatch quando i gate normali passano:\n\n%s\n\n**Issue** (%s) — domande decidibili rimaste dopo la lettura di VISION.md e DECISIONS.md; richiedono una risposta esplicita del proprietario. I parcheggi tecnici del followup-drainer e del closer non compaiono qui:\n\n%s\n\n_Issue dedup giornaliera da recycle-stale-prs.yml (zero-Claude); si aggiorna con un commento di recurrence finche esiste qualcosa di needs-human. Chiudila quando entrambe le liste sono vuote._' "$PR_COUNT" "$PRS" "$ISSUE_COUNT" "$ISSUES")
+          # Il titolo sottostante e' una chiave di dedup storica: resta invariato
+          # per non creare una seconda issue, mentre il body distingue il
+          # tracking PR dalle decisioni reali del proprietario sulle issue.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "needs-human: PR bloccate in attesa di revisione umana" \
+            --description "$DESC" \
+            --priority 2 \
+            --label automation \
+            --workflow "Recycle stale PRs"

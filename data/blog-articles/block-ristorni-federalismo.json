@@ -1,0 +1,19 @@
+{
+  "id": "block-ristorni-federalismo",
+  "slug": "block-ristorni-federalismo",
+  "publishedAt": "2026-07-06T01:06:54.387Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 151.45302293333333,
+    "confidence": 1,
+    "finalScore": 151.45302293333333,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 151.45302293333333,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

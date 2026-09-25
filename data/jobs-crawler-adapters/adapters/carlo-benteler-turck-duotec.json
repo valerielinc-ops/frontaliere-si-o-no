@@ -1,0 +1,22 @@
+{
+  "companyKey": "carlo-benteler-turck-duotec",
+  "companyName": "Carlo Benteler (Turck Duotec)",
+  "companyHost": "turck-duotec.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.turck-duotec.com/careers",
+    "https://www.turck-duotec.com/career",
+    "https://www.turck-duotec.com/jobs",
+    "https://www.turck-duotec.com/karriere",
+    "https://www.turck-duotec.com/offene-stellen",
+    "https://www.turck-duotec.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.930Z"
+}

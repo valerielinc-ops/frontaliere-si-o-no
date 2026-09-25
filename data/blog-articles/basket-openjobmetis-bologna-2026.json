@@ -1,0 +1,40 @@
+{
+  "id": "basket-openjobmetis-bologna-2026",
+  "slug": "basket-openjobmetis-bologna-2026",
+  "publishedAt": "2026-05-10T06:55:23.320Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 8.892724568261713,
+    "confidence": 0.8,
+    "finalScore": 7.11417965460937,
+    "topK": [
+      {
+        "slug": "openjobmetis-materia-castronno-2026",
+        "cosine": 0.741060380688476
+      },
+      {
+        "slug": "vuoto-ginevra-olympic-basket",
+        "cosine": 0.7371774532961765
+      },
+      {
+        "slug": "sportello-lavoro-varese-frontalieri-ticino",
+        "cosine": 0.7332331447083272
+      },
+      {
+        "slug": "varese-celebra-san-vittore-girometta-oro-2026",
+        "cosine": 0.72748038224459
+      },
+      {
+        "slug": "varese-trento-playoff-basket-2026",
+        "cosine": 0.722667346590851
+      }
+    ],
+    "score": 1.7785449136523426,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

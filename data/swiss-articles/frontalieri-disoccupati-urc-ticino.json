@@ -1,0 +1,19 @@
+{
+  "id": "frontalieri-disoccupati-urc-ticino",
+  "slug": "frontalieri-disoccupati-urc-ticino",
+  "publishedAt": "2026-07-12T22:57:19.312Z",
+  "cluster": "lavoro",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 155.76341666666667,
+    "confidence": 1,
+    "finalScore": 155.76341666666667,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 15.576341666666668,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

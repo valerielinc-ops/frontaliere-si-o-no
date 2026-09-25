@@ -1,0 +1,22 @@
+{
+  "companyKey": "kuehne-nagel",
+  "companyName": "Kuehne + Nagel",
+  "companyHost": "kuehne-nagel.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.kuehne-nagel.com/careers",
+    "https://www.kuehne-nagel.com/career",
+    "https://www.kuehne-nagel.com/jobs",
+    "https://www.kuehne-nagel.com/karriere",
+    "https://www.kuehne-nagel.com/offene-stellen",
+    "https://www.kuehne-nagel.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.958Z"
+}

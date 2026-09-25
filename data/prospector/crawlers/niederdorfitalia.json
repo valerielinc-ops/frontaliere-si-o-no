@@ -1,0 +1,23 @@
+{
+  "companyKey": "niederdorfitalia",
+  "companyName": "NIEDERDORF ITALIA S.R.L.",
+  "companyHost": "niederdorfitalia.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://niederdorfitalia.altamiraweb.com/"
+  ],
+  "detailTemplate": "/annunci-lavoro/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Junior HR BUSINESS PARTNER",
+    "ASSISTENTE di DIREZIONE",
+    "HVAC TECHNICAL PRE-SALES PROMOTER - ITALIA",
+    "FINANCE MANAGER",
+    "MECHANICAL R&D- INNOVATION ENGINEER"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:31:43.323Z"
+}

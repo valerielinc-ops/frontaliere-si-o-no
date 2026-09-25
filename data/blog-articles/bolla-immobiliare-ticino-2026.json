@@ -1,0 +1,40 @@
+{
+  "id": "bolla-immobiliare-ticino-2026",
+  "slug": "bolla-immobiliare-ticino-2026",
+  "publishedAt": "2026-05-08T10:49:47.741Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.247291856909076,
+    "confidence": 0.8,
+    "finalScore": 7.397833485527261,
+    "topK": [
+      {
+        "slug": "case-lusso-svizzera-2026",
+        "cosine": 0.8823761594842212
+      },
+      {
+        "slug": "lusso-immobiliare-svizzera-2026",
+        "cosine": 0.8675806179157801
+      },
+      {
+        "slug": "frontalieri-casa-zurigo",
+        "cosine": 0.8609434229095551
+      },
+      {
+        "slug": "svizzera-chiude-investitori-immobiliari-stranieri",
+        "cosine": 0.8563612723341982
+      },
+      {
+        "slug": "stangata-nascosta-tasse-immobiliari",
+        "cosine": 0.8528863940535087
+      }
+    ],
+    "score": 0.7397833485527262,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

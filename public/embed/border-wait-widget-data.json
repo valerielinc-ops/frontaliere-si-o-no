@@ -1,0 +1,12 @@
+{
+  "_note": "Static snapshot read by /embed/border-wait-widget.html. Regenerated at every build by build-plugins/borderWaitPagesPlugin.ts from data/border-wait-current.json (refreshed every 15-30min by .github/workflows/traffic-scheduler.yml); this checked-in copy is only the pre-first-deploy fallback.",
+  "updatedAt": "2026-07-18T18:47:15.484Z",
+  "canonicalUrl": "https://frontaliereticino.ch/traffico-dogane/",
+  "crossings": [
+    { "slug": "chiasso-brogeda", "name": "Chiasso Brogeda", "waitMinutes": 0, "status": "green" },
+    { "slug": "chiasso-centro", "name": "Chiasso Centro", "waitMinutes": 0, "status": "green" },
+    { "slug": "gaggiolo", "name": "Gaggiolo (Cantello-Stabio)", "waitMinutes": 0, "status": "green" },
+    { "slug": "oria-gandria", "name": "Oria Gandria", "waitMinutes": 0, "status": "green" },
+    { "slug": "ponte-tresa", "name": "Ponte Tresa", "waitMinutes": 1, "status": "green" }
+  ]
+}

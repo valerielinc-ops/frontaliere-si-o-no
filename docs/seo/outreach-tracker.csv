@@ -1,0 +1,35 @@
+date,target_domain,contact_name,contact_email,topic,asset_offered,status,link_url,notes
+# Sprint 5 — link-building outreach tracker. Status values: new | sent | replied | link_acquired | declined | bounced
+# Tiers in notes column: A = priority (DA>=30, editorial), B = secondary (DA 10-30), C = long tail (DA<10 / nofollow)
+# Assets: annual-report = /report/frontalieri-2026/ | market-report = /reports/mercato-lavoro-frontalieri-ticino-2026/ | fiscal-guide = /guida/frontalieri-nuova-legge-2026/ | currency-widget = /embed/currency-widget.html
+,laregione.ch,,,annual salary report pitch,annual-report,new,,Tier A · Swiss Italian regional daily · economy desk
+,cdt.ch,,,annual salary report pitch,annual-report,new,,Tier A · Corriere del Ticino · economy desk
+,tio.ch,,,annual salary report pitch,annual-report,new,,Tier A · ticinonews.ch redirect · Bellinzona newsroom
+,ticinonline.ch,,,annual salary report pitch,annual-report,new,,Tier A · 20 Minuti network · lavoro section
+,rsi.ch,,,2026 tax agreement analysis,fiscal-guide,new,,Tier A · public broadcaster · Modem / Millevoci shows
+,ilsole24ore.com,,,annual salary report pitch,annual-report,new,,Tier A · Italian financial daily · Economia Frontiera
+,repubblica.it/economia,,,PPP Italy vs Switzerland data,annual-report,new,,Tier A · Repubblica Economia / Milano edition
+,corriere.it,,,cross-border workers data,annual-report,new,,Tier A · Corriere della Sera Economia desk
+,varesenews.it,,,varesini che lavorano in Ticino,annual-report,new,,Tier A · Varese regional daily · border coverage
+,laprovinciadicomo.it,,,frontalieri comaschi salary data,annual-report,new,,Tier A · Como daily · frontiera section
+,laprovinciadisondrio.it,,,Valtellina frontalieri data,annual-report,new,,Tier B · Sondrio daily
+,ilgiorno.it,,,Lombardia frontalieri,annual-report,new,,Tier B · QN Lombardia · border editions
+,quicomo.it,,,data study lifestyle,annual-report,new,,Tier B · Como online magazine
+,primalecco.it,,,Lecco frontalieri,annual-report,new,,Tier B · Lecco local news
+,ocst.ch,,,union partnership,annual-report,new,,Tier A · Organizzazione Cristiano Sociale Ticinese · main TI union
+,sit-syndicat.ch,,,union partnership,fiscal-guide,new,,Tier A · SIT · Sindacato Indipendente Ticinese
+,unia.ch,,,union partnership / federal,annual-report,new,,Tier A · Unia Ticino region
+,beecare.ch,,,healthcare partnership,currency-widget,new,,Tier A · frontalieri service provider · already has editorial blog
+,frontalieri.com,,,association partnership,annual-report,new,,Tier B · frontalieri community portal
+,comitatofrontalieri.it,,,association partnership,annual-report,new,,Tier B · Comitato Frontalieri Italia
+,commercialisti.it,,,commercialisti network,fiscal-guide,new,,Tier B · Ordine Nazionale Commercialisti · Varese/Como sections
+,immobiliare.it/blog,,,cost of living Lugano/Milano,annual-report,new,,Tier A · real estate blog · high DA
+,idealista.it/news,,,Milan vs Ticino rental data,annual-report,new,,Tier A · idealista blog · high DA
+,expatforum.com/forums,,,Italy to Switzerland thread,currency-widget,new,,Tier C · forum nofollow but brand awareness
+,quora.com,,,Italia Svizzera frontalieri topic,annual-report,new,,Tier C · answers only (nofollow)
+,reddit.com/r/italy,,,AMA / data share,annual-report,new,,Tier C · nofollow but traffic
+,reddit.com/r/switzerland,,,frontalieri data,annual-report,new,,Tier C · nofollow but traffic
+,it.wikipedia.org,,,citation for frontalieri article,annual-report,new,,Tier A if accepted · slow-burn editorial contribution
+,de.wikipedia.org,,,citation for Grenzgänger article,annual-report,new,,Tier A if accepted · DE version
+,local.ch,,,directory listing,,new,,Tier B · Swiss Yellow Pages — NAP only
+,paginegialle.it,,,directory listing,,new,,Tier B · Italian Yellow Pages — NAP only

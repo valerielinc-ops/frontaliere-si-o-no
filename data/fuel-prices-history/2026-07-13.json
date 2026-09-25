@@ -1,0 +1,462 @@
+{
+  "date": "2026-07-13",
+  "generatedAt": "2026-07-13T09:57:33.689Z",
+  "zones": {
+    "chiasso": {
+      "diesel": 1.978,
+      "benzina": 1.828
+    },
+    "mendrisio": {
+      "diesel": 1.99,
+      "benzina": 1.805
+    },
+    "lugano": {
+      "diesel": 1.98,
+      "benzina": 1.823
+    },
+    "bellinzona": {
+      "diesel": 1.814,
+      "benzina": 1.7
+    },
+    "locarno": {
+      "diesel": 1.89,
+      "benzina": 1.79
+    }
+  },
+  "regional": {
+    "diesel": 1.948,
+    "benzina": 1.814
+  },
+  "diesel": {
+    "source": "mixed",
+    "realCoveragePct": 92.6,
+    "realStationCount": 87,
+    "totalStationCount": 94
+  },
+  "italianCities": {
+    "como": {
+      "benzina": 1.889,
+      "diesel": 1.999,
+      "stationCount": 16,
+      "dieselStationCount": 16
+    },
+    "varese": {
+      "benzina": 1.889,
+      "diesel": 2.007,
+      "stationCount": 26,
+      "dieselStationCount": 26
+    },
+    "luino": {
+      "benzina": 1.899,
+      "diesel": 1.999,
+      "stationCount": 2,
+      "dieselStationCount": 2
+    },
+    "lavena-ponte-tresa": {
+      "benzina": null,
+      "diesel": null,
+      "stationCount": 0,
+      "dieselStationCount": 0
+    },
+    "gallarate": {
+      "benzina": 1.878,
+      "diesel": 1.989,
+      "stationCount": 21,
+      "dieselStationCount": 21
+    },
+    "cantu": {
+      "benzina": 1.85,
+      "diesel": 1.99,
+      "stationCount": 13,
+      "dieselStationCount": 13
+    },
+    "saronno": {
+      "benzina": 1.879,
+      "diesel": 1.983,
+      "stationCount": 15,
+      "dieselStationCount": 15
+    },
+    "menaggio": {
+      "benzina": 1.919,
+      "diesel": 2.049,
+      "stationCount": 1,
+      "dieselStationCount": 1
+    },
+    "porto-ceresio": {
+      "benzina": null,
+      "diesel": null,
+      "stationCount": 0,
+      "dieselStationCount": 0
+    },
+    "lecco": {
+      "benzina": null,
+      "diesel": null,
+      "stationCount": 0,
+      "dieselStationCount": 0
+    },
+    "sondrio": {
+      "benzina": 1.869,
+      "diesel": 2.008,
+      "stationCount": 8,
+      "dieselStationCount": 8
+    },
+    "tirano": {
+      "benzina": 1.879,
+      "diesel": 1.989,
+      "stationCount": 1,
+      "dieselStationCount": 1
+    },
+    "chiavenna": {
+      "benzina": 1.896,
+      "diesel": 1.986,
+      "stationCount": 3,
+      "dieselStationCount": 3
+    },
+    "morbegno": {
+      "benzina": 1.859,
+      "diesel": 1.969,
+      "stationCount": 2,
+      "dieselStationCount": 2
+    },
+    "cernobbio": {
+      "benzina": null,
+      "diesel": null,
+      "stationCount": 0,
+      "dieselStationCount": 0
+    }
+  },
+  "stations": {
+    "eni-via-valletta": {
+      "diesel": 1.77,
+      "benzina": 1.69
+    },
+    "avia-via-campagna-adorna": {
+      "diesel": 1.99,
+      "benzina": 1.78
+    },
+    "piccadilly-via-s-gottardo": {
+      "diesel": 1.99,
+      "benzina": 1.83
+    },
+    "silo-via-emilio-bossi": {
+      "diesel": 1.94,
+      "benzina": 1.79
+    },
+    "migrol-centro-commerciale-serfontana": {
+      "diesel": 1.97,
+      "benzina": 1.81
+    },
+    "ecsa-via-gaggiolo": {
+      "diesel": 1.99,
+      "benzina": 1.8
+    },
+    "ecsa-via-colombera": {
+      "diesel": 1.99,
+      "benzina": 1.8
+    },
+    "euro-via-colombera": {
+      "diesel": 1.97,
+      "benzina": 1.73
+    },
+    "texon-via-cantonale": {
+      "diesel": 1.95,
+      "benzina": 1.73
+    },
+    "euro-via-cantonale": {
+      "diesel": 1.98,
+      "benzina": 1.8
+    },
+    "anfra-via-cantonale": {
+      "diesel": 1.96,
+      "benzina": 1.72
+    },
+    "avia-via-casate": {
+      "diesel": 1.99,
+      "benzina": 1.83
+    },
+    "socar-via-maestri-comacini": {
+      "diesel": 1.99,
+      "benzina": 1.83
+    },
+    "eni-via-comacini": {
+      "diesel": 1.99,
+      "benzina": 1.83
+    },
+    "eni-via-del-breggia": {
+      "diesel": 1.97,
+      "benzina": 1.85
+    },
+    "socar-via-del-breggia": {
+      "diesel": 1.93,
+      "benzina": 1.85
+    },
+    "eni-via-san-gottardo": {
+      "diesel": 1.79,
+      "benzina": 1.69
+    },
+    "socar-via-lugano": {
+      "diesel": 1.97,
+      "benzina": 1.81
+    },
+    "migrol-via-lugano": {
+      "diesel": 1.97,
+      "benzina": 1.81
+    },
+    "righetti-via-cantonale": {
+      "diesel": 1.97,
+      "benzina": 1.81
+    },
+    "agrola-via-arch-a-da-ponte": {
+      "diesel": 1.98,
+      "benzina": 1.81
+    },
+    "pk-via-piodella": {
+      "diesel": 1.95,
+      "benzina": 1.79
+    },
+    "agrola-via-san-gottardo": {
+      "diesel": 1.78,
+      "benzina": 1.68
+    },
+    "socar-via-san-gottardo": {
+      "diesel": 1.82,
+      "benzina": 1.69
+    },
+    "coop-via-san-gottardo": {
+      "diesel": 1.85,
+      "benzina": 1.69
+    },
+    "piccadilly-via-franco-zorzi": {
+      "diesel": 1.79,
+      "benzina": 1.69
+    },
+    "eni-via-bellinzona": {
+      "diesel": 1.79,
+      "benzina": 1.69
+    },
+    "tamoil-san-gottardo": {
+      "diesel": 1.92,
+      "benzina": 1.84
+    },
+    "piccadilly-via-stefano-franscini": {
+      "diesel": 1.99,
+      "benzina": 1.83
+    },
+    "euro-via-monte-ceneri": {
+      "diesel": 1.8,
+      "benzina": 1.7
+    },
+    "socar-in-tirada": {
+      "diesel": 1.79,
+      "benzina": 1.72
+    },
+    "coop-via-monte-ceneri": {
+      "diesel": 1.79,
+      "benzina": 1.72
+    },
+    "garage-viale-c-olgiati": {
+      "diesel": 1.82,
+      "benzina": 1.72
+    },
+    "avia-via-cantonale": {
+      "diesel": 1.89,
+      "benzina": 1.79
+    },
+    "area-campagnola": {
+      "diesel": 2.64,
+      "benzina": 2.34
+    },
+    "eni-autostrada-a13": {
+      "diesel": 2.47,
+      "benzina": 2.39
+    },
+    "eni-via-motta": {
+      "diesel": 1.82,
+      "benzina": 1.72
+    },
+    "eni-via-cantonale": {
+      "diesel": 1.92,
+      "benzina": 1.79
+    },
+    "etzelpark-via-franco-zorzi": {
+      "diesel": 1.84,
+      "benzina": 1.72
+    },
+    "bp-via-del-breggia": {
+      "diesel": 1.99,
+      "benzina": 1.85
+    },
+    "righetti-via-circonvallazione": {
+      "diesel": 2.01,
+      "benzina": 1.85
+    },
+    "eni-via-gaggiolo": {
+      "diesel": 1.99,
+      "benzina": 1.83
+    },
+    "ecsa-via-cantonale": {
+      "diesel": 2,
+      "benzina": 1.84
+    },
+    "piccadilly-via-san-gottardo": {
+      "diesel": 1.82,
+      "benzina": 1.72
+    },
+    "migrol-via-san-gottardo": {
+      "diesel": 1.96,
+      "benzina": 1.82
+    },
+    "bp-via-maestri-comacini": {
+      "diesel": 1.99,
+      "benzina": 1.86
+    },
+    "tamoil-giulia": {
+      "diesel": 1.99,
+      "benzina": 1.83
+    },
+    "agrola-via-gaggiolo": {
+      "diesel": 1.89,
+      "benzina": 1.89
+    },
+    "eni-cassinone": {
+      "diesel": 1.97,
+      "benzina": 1.78
+    },
+    "eni-simplonstrasse": {
+      "diesel": 1.9,
+      "benzina": 1.74
+    },
+    "bp-simplonstrasse": {
+      "diesel": 1.94,
+      "benzina": 1.79
+    },
+    "ecsa-via-valmara": {
+      "diesel": 1.9,
+      "benzina": 1.8
+    },
+    "ecsa-via-r-leoncavallo": {
+      "diesel": 1.93,
+      "benzina": 1.82
+    },
+    "migrol-via-valmaggina": {
+      "diesel": 1.89,
+      "benzina": 1.78
+    },
+    "garage-furkastrasse": {
+      "diesel": 1.99,
+      "benzina": 1.82
+    },
+    "fahrzeug-furkastrasse": {
+      "diesel": 1.99,
+      "benzina": 1.83
+    },
+    "tamoil-furkastrasse": {
+      "diesel": 1.98,
+      "benzina": 1.83
+    },
+    "coop-nagereija": {
+      "diesel": 1.99,
+      "benzina": 1.88
+    },
+    "shell-via-ferrera": {
+      "diesel": 1.87,
+      "benzina": 1.77
+    },
+    "eni-via-vallemaggia": {
+      "diesel": 1.89,
+      "benzina": 1.79
+    },
+    "tamoil-locarno": {
+      "diesel": 1.89,
+      "benzina": 1.79
+    },
+    "stazione-via-cantonale": {
+      "diesel": 1.87,
+      "benzina": 1.77
+    },
+    "bp-furkastrasse": {
+      "diesel": 1.99,
+      "benzina": 1.88
+    },
+    "ikas-furkastrasse": {
+      "diesel": 2.05,
+      "benzina": 1.9
+    },
+    "eni-via-principala": {
+      "diesel": 2,
+      "benzina": 1.86
+    },
+    "bp-parc-rom": {
+      "diesel": 2.02,
+      "benzina": 1.86
+    },
+    "umbrail-28": {
+      "diesel": 1.98,
+      "benzina": 1.88
+    },
+    "shell-strada-cantonale": {
+      "diesel": 1.95,
+      "benzina": 1.75
+    },
+    "socar-strada-cantonale": {
+      "diesel": 1.83,
+      "benzina": 1.93
+    },
+    "shell-poststrasse": {
+      "diesel": 1.77,
+      "benzina": 1.69
+    },
+    "socar-stradon": {
+      "diesel": 1.93,
+      "benzina": 1.83
+    },
+    "socar-strada-del-pass": {
+      "diesel": 2.09,
+      "benzina": 1.93
+    },
+    "ruedi-hauptstrasse": {
+      "diesel": 1.97,
+      "benzina": 1.85
+    },
+    "serlas-via-maistra": {
+      "diesel": 1.88,
+      "benzina": 1.8
+    },
+    "avia-via-maistra": {
+      "diesel": 1.95,
+      "benzina": 1.85
+    },
+    "eni-roeven": {
+      "diesel": 1.95,
+      "benzina": 1.85
+    },
+    "migrol-via-chantunela": {
+      "diesel": 1.99,
+      "benzina": 1.86
+    },
+    "avia-hauptstr": {
+      "diesel": 2.02,
+      "benzina": 1.85
+    },
+    "dosch-julierstrasse": {
+      "diesel": 1.96,
+      "benzina": 1.86
+    },
+    "jubin-1946-bourg-st-pierre": {
+      "diesel": 1.97,
+      "benzina": 1.86
+    },
+    "combustia-route-de-molignon": {
+      "diesel": 1.98,
+      "benzina": 1.87
+    },
+    "tamoil-rte-du-grand-st-bernard": {
+      "diesel": 2.04,
+      "benzina": 1.86
+    },
+    "avia-stradun": {
+      "diesel": 2.03,
+      "benzina": 1.95
+    }
+  }
+}

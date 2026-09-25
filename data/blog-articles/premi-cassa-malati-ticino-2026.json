@@ -1,0 +1,40 @@
+{
+  "id": "premi-cassa-malati-ticino-2026",
+  "slug": "premi-cassa-malati-ticino-2026",
+  "publishedAt": "2026-05-13T05:48:55.645Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.631079764419823,
+    "confidence": 0.8,
+    "finalScore": 11.704863811535859,
+    "topK": [
+      {
+        "slug": "cassa-malati-leghista-applicata-subito",
+        "cosine": 0.8751035162327327
+      },
+      {
+        "slug": "iniziative-casse-malati-dado-scissione-dossier",
+        "cosine": 0.8737027855597268
+      },
+      {
+        "slug": "riforma-cassa-malati-ticino-2029",
+        "cosine": 0.8718721553478805
+      },
+      {
+        "slug": "spacchettamento-casse-malati-2026",
+        "cosine": 0.8686827347321444
+      },
+      {
+        "slug": "lista-morosi-cassa-malati-ticino",
+        "cosine": 0.8539401573290936
+      }
+    ],
+    "score": 2.9262159528839646,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

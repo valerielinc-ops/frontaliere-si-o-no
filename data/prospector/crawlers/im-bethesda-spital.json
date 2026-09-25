@@ -1,0 +1,21 @@
+{
+  "companyKey": "im-bethesda-spital",
+  "companyName": "& im Bethesda Spital",
+  "companyHost": "bethesda-spital.ch",
+  "platform": "umantis.com",
+  "mode": "jsonld",
+  "seedUrls": [
+    "https://www.bethesda-spital.ch/de/ueber-uns/karriere/jobs.html"
+  ],
+  "detailTemplate": "/de/ueber-uns/karriere/jobs.html",
+  "sampleVacancyCount": 13,
+  "sampleTitles": [
+    "Assistenzärztin/Assistenzarzt Klinik Rheumatologie und Schmerzmedizin 100%",
+    "Assistenzärztin/Assistenzarzt Physikalische Medizin/Rehabilitation (100%)",
+    "Berufsbildner/in Anästhesiepflege (80-100%)",
+    "Berufsbildner/in Operationstechnik im Wunschpensum 80 - 100%",
+    "Dipl. Fachperson Operationstechnik im Wunschpensum 40 - 100%"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T04:28:56.650Z"
+}

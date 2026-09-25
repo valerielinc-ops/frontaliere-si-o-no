@@ -1,0 +1,19 @@
+{
+  "id": "ticino-nuovi-rincari",
+  "slug": "ticino-nuovi-rincari",
+  "publishedAt": "2026-07-11T23:20:25.080Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 155.76341666666667,
+    "confidence": 1,
+    "finalScore": 155.76341666666667,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 77.88170833333334,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

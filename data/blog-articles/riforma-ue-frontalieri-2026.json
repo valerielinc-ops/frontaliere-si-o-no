@@ -1,0 +1,40 @@
+{
+  "id": "riforma-ue-frontalieri-2026",
+  "slug": "riforma-ue-frontalieri-2026",
+  "publishedAt": "2026-08-01T16:35:30.520Z",
+  "cluster": "novita",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.7497660714908916,
+    "confidence": 0.8,
+    "finalScore": 2.1998128571927134,
+    "topK": [
+      {
+        "slug": "costi-riforma-sulla-disoccupazione-dei-frontalieri",
+        "cosine": 0.9165886904969638
+      },
+      {
+        "slug": "svizzera-disoccupazione-frontalieri-quadri-2026",
+        "cosine": 0.9140017609509508
+      },
+      {
+        "slug": "frontalieri-disoccupati-ue-riforma-onerosa-ticino",
+        "cosine": 0.9046680741706373
+      },
+      {
+        "slug": "frontalieri-disoccupazione-stato-lavoro",
+        "cosine": 0.9003663235189371
+      },
+      {
+        "slug": "riforma-frontalieri-costi-svizzera",
+        "cosine": 0.8998082077552384
+      }
+    ],
+    "score": 2.1998128571927134,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

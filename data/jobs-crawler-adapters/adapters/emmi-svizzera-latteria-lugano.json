@@ -1,0 +1,22 @@
+{
+  "companyKey": "emmi-svizzera-latteria-lugano",
+  "companyName": "Emmi Svizzera (Latteria Lugano)",
+  "companyHost": "emmi.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.emmi.com/careers",
+    "https://www.emmi.com/career",
+    "https://www.emmi.com/jobs",
+    "https://www.emmi.com/karriere",
+    "https://www.emmi.com/offene-stellen",
+    "https://www.emmi.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.938Z"
+}

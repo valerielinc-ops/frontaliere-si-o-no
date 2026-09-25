@@ -1,0 +1,128 @@
+import { describe, it, expect } from 'vitest';
+import { isValidElement, type ReactElement } from 'react';
+import { buildFallbackCanonicalContent, renderFormattedDescription } from '../components/community/JobBoard';
+
+describe('jobboard – Italian lowercase list parsing (Amministrazione Cantonale pattern)', () => {
+ const ITALIAN_LIST_DESC = [
+ 'Compiti - organizzare e promuovere attività di osservazione individuali o di gruppo',
+ '- collaborare all\'elaborazione di un progetto individuale per gli utenti',
+ '- accompagnare il percorso individualizzato di persone con provvedimento professionale',
+ '- provvedere all\'organizzazione e al funzionamento del Settore Accertamento Giovani',
+ '- contribuire alla redazione dei rapporti di accertamento richiesti dal mandato',
+ '- partecipare a gruppi di lavoro',
+ '## Requisiti - bachelor universitario in Lavoro sociale o Pedagogia o titoli equivalenti',
+ '- comprovata esperienza lavorativa con utenza fragile',
+ '- ottima conoscenza del pacchetto Microsoft Office',
+ '- conoscenza del territorio e della rete sociale del Canton Ticino',
+ '- motivazione e spirito d\'iniziativa',
+ ].join(' ');
+
+ const FLAT_LIST_DESC = [
+ 'Compiti - organizzare e promuovere attività di osservazione individuali o di gruppo',
+ '- collaborare all\'elaborazione di un progetto individuale - accompagnare il percorso',
+ '- provvedere all\'organizzazione e al funzionamento - contribuire alla redazione dei rapporti',
+ '## Requisiti - bachelor universitario in Lavoro sociale - comprovata esperienza lavorativa',
+ '- ottima conoscenza del pacchetto Microsoft Office - motivazione e spirito d\'iniziativa',
+ ].join(' ');
+
+ it('splits responsibilities into multiple bullets (not one concatenated item)', () => {
+ const result = buildFallbackCanonicalContent(ITALIAN_LIST_DESC, [], 'it');
+ expect(result.responsibilities.length).toBeGreaterThan(2);
+ // Each bullet should not contain multiple ' - ' patterns
+ for (const bullet of result.responsibilities) {
+ const dashCount = (bullet.match(/ - /g) || []).length;
+ expect(dashCount).toBeLessThan(3);
+ }
+ });
+
+ it('splits requirements into multiple individual bullets', () => {
+ const result = buildFallbackCanonicalContent(ITALIAN_LIST_DESC, [], 'it');
+ expect(result.requirements.length).toBeGreaterThan(2);
+ });
+
+ it('does not include section-fragment garbage in highlights (no " - " in highlight chips)', () => {
+ const result = buildFallbackCanonicalContent(FLAT_LIST_DESC, [], 'it');
+ for (const highlight of result.highlights) {
+ const hasDash = / - /.test(highlight);
+ if (hasDash) {
+ const wordCount = highlight.split(/\s+/).length;
+ expect(wordCount).toBeLessThanOrEqual(3);
+ }
+ }
+ });
+
+ it('flat list description: each requirement is a separate item', () => {
+ const result = buildFallbackCanonicalContent(FLAT_LIST_DESC, [], 'it');
+ expect(result.requirements.length).toBeGreaterThan(1);
+ });
+});
+
+describe('renderFormattedDescription – Check A-bis (Italian lowercase inline dashes)', () => {
+ function flattenText(node: unknown): string {
+   if (node == null || node === false) return '';
+   if (typeof node === 'string' || typeof node === 'number') return String(node);
+   if (Array.isArray(node)) return node.map(flattenText).join('');
+   if (isValidElement(node)) {
+     const element = node as ReactElement<{ children?: unknown }>;
+     return flattenText(element.props?.children);
+   }
+   return '';
+ }
+
+ function collectByType(nodes: unknown, type: string): ReactElement[] {
+   const out: ReactElement[] = [];
+   const walk = (node: unknown): void => {
+     if (Array.isArray(node)) {
+       for (const child of node) walk(child);
+       return;
+     }
+     if (isValidElement(node)) {
+       const element = node as ReactElement<{ children?: unknown }>;
+       if (element.type === type) out.push(element);
+       walk(element.props?.children);
+     }
+   };
+   walk(nodes);
+   return out;
+ }
+
+ it('renders ## heading with lowercase Italian infinitive items as heading + bullet list', () => {
+   const input = '## Compiti - organizzare cose - collaborare con team - accompagnare persone - sviluppare progetti';
+   const rendered = renderFormattedDescription(input);
+
+   const headings = collectByType(rendered, 'h2');
+   const lists = collectByType(rendered, 'ul');
+
+   expect(headings.length).toBeGreaterThanOrEqual(1);
+   expect(lists.length).toBeGreaterThanOrEqual(1);
+
+   // Heading should be just "Compiti", not the concatenated text
+   const headingTexts = headings.map((h) => flattenText(h).trim());
+   expect(headingTexts).toContain('Compiti');
+
+   // The list should have 4 items (one per infinitive)
+   const items = collectByType(lists[0], 'li');
+   expect(items.length).toBe(4);
+
+   const itemTexts = items.map((li) => flattenText(li).trim());
+   expect(itemTexts).toEqual([
+     'organizzare cose',
+     'collaborare con team',
+     'accompagnare persone',
+     'sviluppare progetti',
+   ]);
+ });
+
+ it('does not concatenate the heading and items into a single h3 (regression)', () => {
+   const input = '## Compiti - organizzare cose - collaborare con team - accompagnare persone';
+   const rendered = renderFormattedDescription(input);
+
+   const headings = collectByType(rendered, 'h2');
+   for (const h of headings) {
+     const text = flattenText(h);
+     // No heading should contain the inline dash items
+     expect(text).not.toMatch(/ - organizzare/);
+     expect(text).not.toMatch(/ - collaborare/);
+   }
+ });
+});

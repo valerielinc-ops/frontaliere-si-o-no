@@ -1,0 +1,1023 @@
+import { describe, it, expect, afterEach } from 'vitest';
+import { spawn, spawnSync } from 'node:child_process';
+import { PassThrough } from 'node:stream';
+import {
+  chmodSync,
+  mkdirSync,
+  mkdtempSync,
+  readFileSync,
+  rmSync,
+  symlinkSync,
+  writeFileSync,
+} from 'node:fs';
+import { tmpdir } from 'node:os';
+import { join } from 'node:path';
+import { resolve } from 'node:path';
+import {
+  BODY_FILE_INFRA,
+  describePrBodySource,
+  extractPrBody,
+  hookStdinTimeoutMs,
+  isPrBodyWriteCommand,
+  readHookStdin,
+  validatePrBody,
+} from '../scripts/ci/pr-body-check-gate.mjs';
+import { EXIT_BLOCK } from '../scripts/ci/lib/hook-exit-codes.mjs';
+import { reviewInputRevisionFromBody } from '../scripts/ci/lib/review-input-revision.mjs';
+
+/**
+ * Analogous to sibling-check-gate's PreToolUse contract: this hook intercepts
+ * `gh pr create` and blocks (exit 1 + stderr) when the mandatory
+ * `## Implementato` / `## Non implementato` headers (AGENTS.md § Workflow,
+ * Non-Negotiable #8) are missing from the PR body. See #3325/#3326.
+ */
+
+const ROOT = resolve(import.meta.dirname, '..');
+const GATE = resolve(ROOT, 'scripts/ci/pr-body-check-gate.mjs');
+const SHIM = resolve(ROOT, 'scripts/gh-pr-body-check.mjs');
+const RUN_MUTATION_GATE = resolve(ROOT, 'scripts/ci/run-mutation-gate.mjs');
+const BODY_WRITE_GATE = resolve(ROOT, 'scripts/ci/pr-body-write-gate.mjs');
+
+const BOTH_HEADERS = '## Implementato\n\nfoo\n\n## Non implementato (ancora)\n\nNessuno';
+const MISSING_NON = '## Implementato\n\nfoo bar baz';
+const MISSING_IMPL = '## Non implementato (ancora)\n\nNessuno';
+const MISSING_BOTH = '## Summary\n\nfoo\n\n## Test plan\n\nbar';
+
+function runGate(command: string, extraPayload: Record<string, unknown> = {}) {
+  const payload = JSON.stringify({ tool_input: { command }, ...extraPayload });
+  return spawnSync('node', [GATE], { input: payload, encoding: 'utf8' });
+}
+
+function runReviewGate(
+  gate: string,
+  command: string,
+  env: Record<string, string> = {},
+  extraPayload: Record<string, unknown> = {},
+) {
+  const payload = JSON.stringify({ tool_input: { command }, ...extraPayload });
+  return spawnSync(process.execPath, [gate], {
+    input: payload,
+    encoding: 'utf8',
+    env: { ...process.env, ...env },
+  });
+}
+
+describe('extractPrBody', () => {
+  it('extracts a simple double-quoted --body', () => {
+    const cmdInline = `gh pr create --title "x" --body "hello world"`;
+    expect(extractPrBody(cmdInline)).toBe('hello world');
+  });
+
+  it('extracts a single-quoted --body', () => {
+    const cmd = `gh pr create --title 'x' --body 'hello world'`;
+    expect(extractPrBody(cmd)).toBe('hello world');
+  });
+
+  it('extracts a heredoc --body "$(cat <<\'EOF\' ... EOF)"', () => {
+    const cmd = [
+      'gh pr create --title "x" --body "$(cat <<\'EOF\'',
+      BOTH_HEADERS,
+      'EOF',
+      ')"',
+    ].join('\n');
+    expect(extractPrBody(cmd)).toBe(BOTH_HEADERS);
+  });
+
+  it('extracts --body-file content from disk', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-'));
+    const file = join(dir, 'body.md');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    try {
+      const cmd = `gh pr create --title "x" --body-file ${file}`;
+      expect(extractPrBody(cmd)).toBe(BOTH_HEADERS);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it('returns undefined when no --body/--body-file is present', () => {
+    expect(extractPrBody('gh pr create --title "x"')).toBeUndefined();
+  });
+
+  it('returns undefined when --body-file points at a missing path', () => {
+    expect(
+      extractPrBody('gh pr create --title "x" --body-file /nope/does-not-exist.md'),
+    ).toBeUndefined();
+  });
+
+  // 2026-08-25: neither this function nor localDiffPaths() resolved a RELATIVE
+  // --body-file against the directory the gated `gh pr create` was actually
+  // running in — both defaulted to `process.cwd()`, this hook subprocess's
+  // own ambient directory, which is NOT the worktree Claude Code's tracked
+  // `cwd` (payload.cwd) points at. See scripts/ci/lib/hook-target-cwd.mjs.
+  it('resolves a RELATIVE --body-file against the given cwd, not process.cwd()', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-'));
+    try {
+      writeFileSync(join(dir, 'body.md'), BOTH_HEADERS, 'utf8');
+      const cmd = `gh pr create --title "x" --body-file body.md`;
+      // No cwd → resolves against process.cwd() (this test file's cwd), where
+      // body.md does not exist.
+      expect(extractPrBody(cmd)).toBeUndefined();
+      // Given the worktree's cwd explicitly → finds it.
+      expect(extractPrBody(cmd, dir)).toBe(BOTH_HEADERS);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+});
+
+describe('pr-body-check-gate hook (process behavior)', () => {
+  const createdDirs: string[] = [];
+  afterEach(() => {
+    while (createdDirs.length) rmSync(createdDirs.pop()!, { recursive: true, force: true });
+  });
+
+  it('passes through (exit 0) for non gh-pr-create commands', () => {
+    const res = runGate('git status');
+    expect(res.status).toBe(0);
+  });
+
+  it('allows (exit 0) when both headers are present', () => {
+    const cmd = `gh pr create --title "x" --body '${BOTH_HEADERS}'`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(0);
+  });
+
+  it('blocks an ineffective or multi-issue closing reference before the PR is created', () => {
+    const body = `${BOTH_HEADERS}\n\nCloses #12 #34\nChiude #56`;
+    const res = runGate(`gh pr create --title "x" --body '${body}'`);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/multi-ref-close/);
+    expect(res.stderr).toMatch(/ineffective-closing-keyword/);
+  });
+
+  it('allows one effective closing keyword per issue', () => {
+    const body = `${BOTH_HEADERS}\n\nCloses #12\nCloses #34`;
+    const res = runGate(`gh pr create --title "x" --body '${body}'`);
+    expect(res.status).toBe(0);
+  });
+
+  it('still validates a corpus PR body while skipping the site-only diff advisory', () => {
+    const cmd = `gh pr create --repo nanakokyobashi-rgb/frontaliere-articles --title "x" --body '${MISSING_NON}'`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Non implementato/);
+  });
+
+  it('blocks (EXIT_BLOCK=2) when `## Non implementato` is missing', () => {
+    const cmd = `gh pr create --title "x" --body '${MISSING_NON}'`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Non implementato/);
+    expect(res.stderr).toMatch(/PR bloccata/);
+  });
+
+  it('blocks (EXIT_BLOCK=2) when `## Implementato` is missing', () => {
+    const cmd = `gh pr create --title "x" --body '${MISSING_IMPL}'`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Implementato/);
+  });
+
+  it('blocks (EXIT_BLOCK=2) when both headers are missing (## Summary/## Test plan variant)', () => {
+    const cmd = `gh pr create --title "x" --body '${MISSING_BOTH}'`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Implementato/);
+    expect(res.stderr).toMatch(/Non implementato/);
+  });
+
+  it('allows (exit 0) when both headers are present via --body-file', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    const cmd = `gh pr create --title "x" --body-file ${file}`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(0);
+  });
+
+  it('blocks (EXIT_BLOCK=2) when a header is missing via --body-file', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    writeFileSync(file, MISSING_NON, 'utf8');
+    const cmd = `gh pr create --title "x" --body-file ${file}`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Non implementato/);
+  });
+
+  it('blocks a create when the body cannot be extracted at all', () => {
+    // The remote PR body check still evaluates the resulting empty body, so
+    // the local write gate must reject a create that cannot provide one.
+    const res = runGate('gh pr create --title "x"');
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/body PR mancante o non leggibile/);
+  });
+
+  it('blocks an unparseable body write on gh pr edit', () => {
+    const res = runGate('gh pr edit 9132 --body "$PR_BODY"');
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/body PR mancante o non leggibile/);
+  });
+
+  it('blocks Markdown backticks in a double-quoted body before the shell expands them', () => {
+    const res = runGate(
+      'gh pr create --title "x" --body "## Implementato\\n\\n- usa `stationCount`\\n\\n## Non implementato (ancora)\\n\\nNessuno"',
+    );
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/body PR mancante o non leggibile/);
+  });
+
+  it('passes through a non-body gh pr edit', () => {
+    const res = runGate('gh pr edit 9132 --title "nuovo titolo"');
+    expect(res.status).toBe(0);
+  });
+
+  // #6300 / recidiva #6289: `PR concatenata` senza `#N` deve bloccare
+  // `gh pr create` (EXIT_BLOCK), non solo avvisare. Il gate remoto applica la
+  // stessa regola tramite la CLI `--body-file`.
+  it('blocks (EXIT_BLOCK=2) when a residual bullet says "PR concatenata" without #N', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- foo — PR concatenata, non ancora aperta\n';
+    const cmd = `gh pr create --title "x" --body '${body}'`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/PR concatenata/);
+    expect(res.stderr).toMatch(/PR bloccata/);
+  });
+
+  it('allows (exit 0) when the residual bullet is "PR concatenata #6287"', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- foo — PR concatenata #6287\n';
+    const cmd = `gh pr create --title "x" --body '${body}'`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(0);
+  });
+
+  it('blocks a generic stateless residual bullet before the PR is created', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- foo resta da fare più tardi\n';
+    const cmd = `gh pr create --title "x" --body '${body}'`;
+    const res = runGate(cmd);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/bullet-without-state/);
+  });
+
+  it('blocks a vague decision deferral before the PR is created', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- il residuo è per scelta\n';
+    const res = runGate(`gh pr create --title "x" --body '${body}'`);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/decision-deferral-not-specific/);
+    expect(res.stderr).toMatch(/Motivo/);
+    expect(res.stderr).toMatch(/Prossimo passo/);
+  });
+
+  it('allows a decision deferral with concrete reason and next action', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n'
+      + '- il residuo è per scelta. **Motivo:** il provider upstream è instabile. '
+      + '**Prossimo passo:** riaprire dopo due run verdi consecutivi.\n';
+    const res = runGate(`gh pr create --title "x" --body '${body}'`);
+    expect(res.status).toBe(0);
+  });
+
+  it('blocks a Markdown-formatted placeholder in a decision deferral', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n'
+      + '- il residuo è per scelta. **Motivo:** **TBD**. '
+      + '**Prossimo passo:** riaprire dopo due run verdi consecutivi.\n';
+    const res = runGate(`gh pr create --title "x" --body '${body}'`);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/decision-deferral-not-specific/);
+  });
+
+  it('uses the same strict pure validator for the hook and the workflow CLI', () => {
+    const body =
+      '## Implementato\n\n- fatto in questa PR\n\n## Non implementato (ancora)\n\n- foo resta da fare più tardi\n';
+    const result = validatePrBody(body);
+    expect(result.ok).toBe(false);
+    expect(result.violations.map((v) => v.type)).toContain('bullet-without-state');
+  });
+
+  it('returns EXIT_BLOCK from the workflow CLI for a contract violation', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-cli-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    writeFileSync(file, MISSING_NON, 'utf8');
+    const res = spawnSync('node', [GATE, '--body-file', file], { encoding: 'utf8' });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/body PR non conforme/);
+  });
+
+  it('returns a distinct infrastructure code when the workflow body file is unreadable', () => {
+    const file = join(tmpdir(), `missing-pr-body-${process.pid}-${Date.now()}.md`);
+    const res = spawnSync('node', [GATE, '--body-file', file], { encoding: 'utf8' });
+    expect(res.status).toBe(BODY_FILE_INFRA);
+    expect(res.stderr).toMatch(/body-file non leggibile/);
+  });
+
+  it('the workflow gh shim blocks a create that omits the body-file', () => {
+    const res = spawnSync('node', [SHIM, 'pr', 'create', '--title', 'x'], {
+      encoding: 'utf8',
+    });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/richiede `--body-file`/);
+  });
+
+  it('the workflow gh shim blocks inline body writes for create and edit', () => {
+    for (const args of [
+      ['pr', 'create', '--body', 'body'],
+      ['pr', 'edit', '123', '--body', 'body'],
+      ['pr', 'create', '-b', 'body'],
+      ['pr', 'edit', '123', '-b', 'body'],
+    ]) {
+      const res = spawnSync('node', [SHIM, ...args], { encoding: 'utf8' });
+      expect(res.status).toBe(EXIT_BLOCK);
+      expect(res.stderr).toMatch(/body.*inline/);
+    }
+  });
+
+  it('the workflow gh shim recognizes the short body-file alias', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    writeFileSync(file, MISSING_NON, 'utf8');
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '-F', file], {
+      encoding: 'utf8',
+    });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Non implementato/);
+  });
+
+  it('blocks a body edit when the trusted expected revision changed before the write', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    const edited = join(dir, 'edited');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    const currentBody = `${BOTH_HEADERS}\nconcurrent human edit`;
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(fakeGh, [
+      '#!/bin/sh',
+      'set -eu',
+      'if [ "$1" = api ] && [ "$2" = --include ]; then',
+      `  printf '%s\\n' 'HTTP/2 200' 'etag: "v1"' '' '${JSON.stringify({ body: currentBody })}'`,
+      '  exit 0',
+      'fi',
+      `touch '${edited}'`,
+    ].join('\n') + '\n', 'utf8');
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [
+      SHIM, 'pr', 'edit', '123', '--repo', 'owner/repo', '--body-file', file,
+    ], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+        PR_NUMBER: '123',
+        REPO: 'owner/repo',
+        PR_BODY_EXPECTED_REVISION: reviewInputRevisionFromBody(BOTH_HEADERS),
+      },
+    });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/cambiato concorrente/);
+    expect(() => readFileSync(edited)).toThrow();
+  });
+
+  it('uses an ETag conditional PATCH and fails closed on a concurrent body edit', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    const calls = join(dir, 'calls');
+    const edited = join(dir, 'edited');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(fakeGh, [
+      '#!/bin/sh',
+      'set -eu',
+      'if [ "$1" = api ] && [ "$2" = --include ]; then',
+      `  printf '%s\\n' 'HTTP/2 200' 'etag: "v1"' '' '${JSON.stringify({ body: BOTH_HEADERS })}'`,
+      '  exit 0',
+      'fi',
+      'if [ "$1" = api ] && [ "$2" = repos/owner/repo/pulls/123 ] && [ "$3" = --method ] && [ "$4" = PATCH ] && [ "$5" = --header ] && [ "$7" = --field ]; then',
+      `  printf '%s' 'HTTP 412: precondition failed' >&2`,
+      `  : > '${calls}'`,
+      '  exit 1',
+      'fi',
+      `: > '${edited}'`,
+    ].join('\n') + '\n', 'utf8');
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [
+      SHIM, 'pr', 'edit', '123', '--repo', 'owner/repo', '--body-file', file,
+    ], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+        PR_NUMBER: '123',
+        REPO: 'owner/repo',
+        PR_BODY_EXPECTED_REVISION: reviewInputRevisionFromBody(BOTH_HEADERS),
+      },
+    });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/CAS body rifiutato/);
+    expect(() => readFileSync(edited)).toThrow();
+    expect(readFileSync(calls, 'utf8')).toBe('');
+  });
+
+  it('writes a body with an ETag conditional PATCH when the revision is unchanged', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    const calls = join(dir, 'calls');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(fakeGh, [
+      '#!/bin/sh',
+      'set -eu',
+      'if [ "$1" = api ] && [ "$2" = --include ]; then',
+      `  printf '%s\\n' 'HTTP/2 200' 'etag: W/"v1"' '' '${JSON.stringify({ body: BOTH_HEADERS })}'`,
+      '  exit 0',
+      'fi',
+      'if [ "$1" = api ] && [ "$2" = repos/owner/repo/pulls/123 ] && [ "$3" = --method ] && [ "$4" = PATCH ] && [ "$5" = --header ] && [ "$7" = --field ]; then',
+      `  : > '${calls}'`,
+      `  printf '%s' '${JSON.stringify({ body: BOTH_HEADERS })}'`,
+      '  exit 0',
+      'fi',
+      `printf '%s' 'unexpected gh invocation' >&2`,
+      'exit 1',
+    ].join('\n') + '\n', 'utf8');
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [
+      SHIM, 'pr', 'edit', '123', '--repo', 'owner/repo', '--body-file', file,
+    ], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+        PR_NUMBER: '123',
+        REPO: 'owner/repo',
+        PR_BODY_EXPECTED_REVISION: reviewInputRevisionFromBody(BOTH_HEADERS),
+      },
+    });
+    expect(res.status).toBe(0);
+    expect(readFileSync(calls, 'utf8')).toBe('');
+  });
+
+  it('accepts an initially null remote body and still performs the CAS PATCH', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    const calls = join(dir, 'calls');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(fakeGh, [
+      '#!/bin/sh',
+      'set -eu',
+      'if [ "$1" = api ] && [ "$2" = --include ]; then',
+      `  printf '%s\\n' 'HTTP/2 200' 'etag: "v-null"' '' '${JSON.stringify({ body: null })}'`,
+      '  exit 0',
+      'fi',
+      'if [ "$1" = api ] && [ "$2" = repos/owner/repo/pulls/123 ] && [ "$3" = --method ] && [ "$4" = PATCH ] && [ "$5" = --header ] && [ "$7" = --field ]; then',
+      `  : > '${calls}'`,
+      `  printf '%s' '${JSON.stringify({ body: BOTH_HEADERS })}'`,
+      '  exit 0',
+      'fi',
+      'printf "%s" "unexpected gh invocation" >&2',
+      'exit 1',
+    ].join('\n') + '\n', 'utf8');
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [
+      SHIM, 'pr', 'edit', '123', '--repo', 'owner/repo', '--body-file', file,
+    ], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+        PR_NUMBER: '123',
+        REPO: 'owner/repo',
+        PR_BODY_EXPECTED_REVISION: reviewInputRevisionFromBody(''),
+      },
+    });
+    expect(res.status).toBe(0);
+    expect(readFileSync(calls, 'utf8')).toBe('');
+  });
+
+  it('blocks a body-file flag whose value is another option', () => {
+    for (const bodyFileArgs of [
+      ['-F', '--add-label', 'needs-human'],
+      ['--body-file=--add-label', 'needs-human'],
+    ]) {
+      const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', ...bodyFileArgs], {
+        encoding: 'utf8',
+      });
+      expect(res.status).toBe(EXIT_BLOCK);
+      expect(res.stderr).toMatch(/richiede.*body-file/);
+    }
+  });
+
+  it('passes through non-body `gh pr edit` mutations to the real gh', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(fakeGh, '#!/bin/sh\nprintf \'real-gh-called\\n\'\n', 'utf8');
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'edit', '123', '--add-label', 'needs-human'], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+      },
+    });
+    expect(res.status).toBe(0);
+    expect(res.stdout).toContain('real-gh-called');
+  });
+
+  it('reads -F - from stdin, validates it, and forwards the materialized file', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const fakeGh = join(dir, 'gh');
+    writeFileSync(
+      fakeGh,
+      '#!/bin/sh\n' +
+        'set -eu\n' +
+        'while [ "$#" -gt 0 ]; do\n' +
+        '  case "$1" in\n' +
+        '    --body-file|-F) body_file="$2"; shift 2 ;;\n' +
+        '    *) shift ;;\n' +
+        '  esac\n' +
+        'done\n' +
+        '/bin/cat "$body_file"\n',
+      'utf8',
+    );
+    chmodSync(fakeGh, 0o755);
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '-F', '-'], {
+      input: [BOTH_HEADERS, 'stdin-body'].join('\n'),
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: dir,
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+      },
+    });
+    expect(res.status).toBe(0);
+    expect(res.stdout).toContain('body PR conforme');
+    expect(res.stdout).toContain('stdin-body');
+  });
+
+  it('stops instead of recursively invoking itself when gh resolves to the shim', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const scriptsDir = join(dir, 'scripts');
+    mkdirSync(scriptsDir);
+    symlinkSync(resolve(ROOT, 'scripts', 'ci'), join(scriptsDir, 'ci'), 'dir');
+    const selfGh = join(scriptsDir, 'gh');
+    writeFileSync(selfGh, readFileSync(SHIM));
+    chmodSync(selfGh, 0o755);
+    const res = spawnSync(process.execPath, [selfGh, 'pr', 'edit', '123', '--add-label', 'needs-human'], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: scriptsDir,
+        PR_BODY_GATE_BIN: join(scriptsDir, 'wrapper-bin'),
+      },
+    });
+    expect(res.status).toBe(1);
+    expect(res.stderr).toMatch(/risolto sullo shim/);
+  });
+
+  it('the workflow gh shim skips an unreadable body-file without failing the job', () => {
+    const file = join(tmpdir(), `missing-shim-pr-body-${process.pid}-${Date.now()}.md`);
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '--body-file', file], {
+      encoding: 'utf8',
+    });
+    expect(res.status).toBe(0);
+    expect(res.stderr).toMatch(/nessun body PR scritto/);
+  });
+
+  it('the workflow gh shim treats a remote gh failure as infrastructure after validation', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    const statusFile = join(dir, 'status');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '--body-file', file], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: '',
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+        PR_BODY_GATE_STATUS_FILE: statusFile,
+      },
+    });
+    expect(res.status).toBe(0);
+    expect(res.stderr).toMatch(/gh non avviabile/);
+    expect(readFileSync(statusFile, 'utf8')).toBe('best-effort-failed\n');
+  });
+
+  it('returns failure when a best-effort gh failure cannot record its status', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-shim-'));
+    createdDirs.push(dir);
+    const file = join(dir, 'body.md');
+    const statusDirectory = join(dir, 'status-directory');
+    writeFileSync(file, BOTH_HEADERS, 'utf8');
+    mkdirSync(statusDirectory);
+    const res = spawnSync(process.execPath, [SHIM, 'pr', 'create', '--body-file', file], {
+      encoding: 'utf8',
+      env: {
+        ...process.env,
+        PATH: '',
+        PR_BODY_GATE_BIN: join(dir, 'wrapper-bin'),
+        PR_BODY_GATE_STATUS_FILE: statusDirectory,
+      },
+    });
+    expect(res.status).toBe(1);
+    expect(res.stderr).toMatch(/stato di consegna non scrivibile/);
+  });
+
+  // 2026-08-25: end-to-end proof that payload.cwd reaches extractPrBody, not
+  // just the unit-level default-parameter test above. Without the fix this
+  // command would exit 0 fail-safe (relative body-file unreadable from this
+  // hook subprocess's own ambient cwd → extractPrBody returns undefined →
+  // "can't verify, don't block") EVEN THOUGH the body is missing a header.
+  it('blocks (EXIT_BLOCK=2) via a RELATIVE --body-file resolved against payload.cwd', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-'));
+    createdDirs.push(dir);
+    writeFileSync(join(dir, 'body.md'), MISSING_NON, 'utf8');
+    const cmd = 'gh pr create --title "x" --body-file body.md';
+    const res = runGate(cmd, { cwd: dir });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Non implementato/);
+  });
+
+  it('blocks via a RELATIVE --body-file in the command worktree when payload.cwd points elsewhere', () => {
+    const tracked = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-tracked-'));
+    const worktree = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-worktree-'));
+    createdDirs.push(tracked, worktree);
+    writeFileSync(join(worktree, 'body.md'), MISSING_NON, 'utf8');
+    const cmd = `cd "${worktree}" && gh pr create --title "x" --body-file body.md`;
+    const res = runGate(cmd, { cwd: tracked });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/Non implementato/);
+  });
+
+  it('blocks an unreadable --body-file instead of reporting a header violation', () => {
+    const tracked = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-tracked-'));
+    createdDirs.push(tracked);
+    const res = runGate('gh pr create --title "x" --body-file missing-body.md', { cwd: tracked });
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/body PR mancante o non leggibile/);
+  });
+
+  it('without payload.cwd, the same relative --body-file is blocked as unreadable', () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-'));
+    createdDirs.push(dir);
+    writeFileSync(join(dir, 'body.md'), MISSING_NON, 'utf8');
+    const cmd = 'gh pr create --title "x" --body-file body.md';
+    const res = runGate(cmd); // no cwd in payload
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/body PR mancante o non leggibile/);
+  });
+});
+
+describe('B22 review-efficiency gates — process invariants', () => {
+  const createdDirs: string[] = [];
+
+  afterEach(() => {
+    while (createdDirs.length) rmSync(createdDirs.pop()!, { recursive: true, force: true });
+  });
+
+  function stateDir() {
+    const dir = mkdtempSync(join(tmpdir(), 'b22-hook-state-'));
+    createdDirs.push(dir);
+    return dir;
+  }
+
+  it('blocks `gh run rerun` without an explicit authorization reason', () => {
+    const res = runReviewGate(RUN_MUTATION_GATE, 'gh run rerun 123');
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toContain('384.354');
+    expect(res.stderr).toMatch(/log|verde/i);
+    expect(res.stderr).toContain('FRONTALIERE_RUN_MUTATION_REASON');
+  });
+
+  it('allows one authorized run mutation, then blocks above the per-run cap', () => {
+    const env = {
+      FRONTALIERE_HOOK_STATE_DIR: stateDir(),
+      FRONTALIERE_RUN_MUTATION_REASON: 'guasto ambiente esterno alla PR',
+    };
+    const first = runReviewGate(RUN_MUTATION_GATE, 'gh run rerun 123', env);
+    const second = runReviewGate(RUN_MUTATION_GATE, 'gh run rerun 123', env);
+
+    expect(first.status).toBe(0);
+    expect(second.status).toBe(EXIT_BLOCK);
+    expect(second.stderr).toMatch(/tetto|cap/i);
+  });
+
+  it('keeps the authorized run cap separate for repositories sharing a run number', () => {
+    const env = {
+      FRONTALIERE_HOOK_STATE_DIR: stateDir(),
+      FRONTALIERE_RUN_MUTATION_REASON: 'guasto ambiente esterno alla PR',
+    };
+    expect(runReviewGate(RUN_MUTATION_GATE, 'gh --repo owner/one run rerun 123', env).status).toBe(0);
+    expect(runReviewGate(RUN_MUTATION_GATE, 'gh --repo owner/two run rerun 123', env).status).toBe(0);
+    expect(runReviewGate(RUN_MUTATION_GATE, 'gh --repo owner/one run cancel 123', env).status).toBe(EXIT_BLOCK);
+  });
+
+  it.each([
+    ['quoted data', `printf '%s' 'gh run rerun 123'`],
+    ['heredoc data', "cat <<'EOF'\ngh run rerun 123\nEOF"],
+    [
+      'emoji-prefixed heredoc data',
+      `printf '%s' '${'🙂'.repeat(20)}' <<'EOF'\ngh run rerun 123\nEOF`,
+    ],
+    ['comment data', "# gh run rerun 123\nprintf '%s' ok"],
+  ])('passes when rerun words are %s, not an executed command', (_label, command) => {
+    const res = runReviewGate(RUN_MUTATION_GATE, command);
+    expect(res.status).toBe(0);
+  });
+
+  it('recognizes a mutation after an fd redirection', () => {
+    const res = runReviewGate(RUN_MUTATION_GATE, '2>/dev/null gh run cancel 456');
+    expect(res.status).toBe(EXIT_BLOCK);
+  });
+
+  it('passes when mutation state is unreadable (fail-safe)', () => {
+    const parent = mkdtempSync(join(tmpdir(), 'b22-hook-state-error-'));
+    createdDirs.push(parent);
+    const statePath = join(parent, 'state-file');
+    writeFileSync(statePath, 'not a directory', 'utf8');
+    const res = runReviewGate(RUN_MUTATION_GATE, 'gh run cancel 456', {
+      FRONTALIERE_HOOK_STATE_DIR: statePath,
+      FRONTALIERE_RUN_MUTATION_REASON: 'guasto ambiente esterno alla PR',
+    });
+    expect(res.status).toBe(0);
+  });
+
+  it('allows the first body write for a PR and blocks the second', () => {
+    const env = { FRONTALIERE_HOOK_STATE_DIR: stateDir() };
+    const command = 'gh pr edit 8076 --body-file /tmp/body.md';
+    const first = runReviewGate(BODY_WRITE_GATE, command, env);
+    const second = runReviewGate(BODY_WRITE_GATE, command, env);
+
+    expect(first.status).toBe(0);
+    expect(second.status).toBe(EXIT_BLOCK);
+    expect(second.stderr).toMatch(/seconda|second|riscrittura/i);
+    expect(second.stderr).toContain('FRONTALIERE_ALLOW_PR_BODY_REWRITE_REASON');
+  });
+
+  it('allows an explicitly authorized body correction after the first write', () => {
+    const env = { FRONTALIERE_HOOK_STATE_DIR: stateDir() };
+    const command = 'gh pr edit 8076 --body-file /tmp/body.md';
+    expect(runReviewGate(BODY_WRITE_GATE, command, env).status).toBe(0);
+    const override = runReviewGate(BODY_WRITE_GATE, command, {
+      ...env,
+      FRONTALIERE_ALLOW_PR_BODY_REWRITE_REASON: 'correzione richiesta dal gate del body',
+    });
+
+    expect(override.status).toBe(0);
+    expect(override.stderr).toContain('correzione richiesta dal gate del body');
+  });
+
+  it('keeps body state separate per PR and ignores non-body edits', () => {
+    const env = { FRONTALIERE_HOOK_STATE_DIR: stateDir() };
+    expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --add-label needs-human', env).status).toBe(0);
+    expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --body "first"', env).status).toBe(0);
+    expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8077 --body "first"', env).status).toBe(0);
+    expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --repo owner/one --body "first"', env).status).toBe(0);
+    expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --repo owner/two --body "first"', env).status).toBe(0);
+  });
+
+  it('recognizes gh global options before the pr subcommand', () => {
+    const env = { FRONTALIERE_HOOK_STATE_DIR: stateDir() };
+    const first = 'gh --repo owner/one pr edit 8076 --body-file /tmp/body.md';
+    const second = 'gh --repo owner/two pr edit 8076 --body-file /tmp/body.md';
+    expect(runReviewGate(BODY_WRITE_GATE, first, env).status).toBe(0);
+    expect(runReviewGate(BODY_WRITE_GATE, second, env).status).toBe(0);
+  });
+
+  it('normalizes explicit and environment repository identities to one marker', () => {
+    const env = {
+      FRONTALIERE_HOOK_STATE_DIR: stateDir(),
+      GITHUB_REPOSITORY: 'owner/repo',
+    };
+    expect(runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --body "first"', env).status).toBe(0);
+    expect(
+      runReviewGate(BODY_WRITE_GATE, 'gh pr edit 8076 --repo github.com/OWNER/REPO --body "second"', env).status,
+    ).toBe(EXIT_BLOCK);
+  });
+
+  it('passes on an unparseable command instead of blocking it', () => {
+    const res = runReviewGate(RUN_MUTATION_GATE, 'gh run "rerun 123');
+    expect(res.status).toBe(0);
+  });
+
+  it('passes when the hook payload itself is malformed', () => {
+    const res = spawnSync(process.execPath, [RUN_MUTATION_GATE], {
+      input: 'not-json: gh run rerun 123',
+      encoding: 'utf8',
+    });
+    expect(res.status).toBe(0);
+  });
+});
+
+describe('pr-body-check-gate — never hangs on an open stdin', () => {
+  // Riproduzione del 2026-09-19: dalla shell di un agente stdin e' un socket
+  // che non si chiude mai; `--help` (o nessun argomento) ricadeva nella
+  // modalita' hook e restava appeso per ore senza output.
+  function spawnWithOpenStdin(args: string[], env: Record<string, string> = {}) {
+    return new Promise<{ status: number | null; stdout: string; stderr: string; ms: number }>((done) => {
+      const started = Date.now();
+      const child = spawn(process.execPath, [GATE, ...args], {
+        stdio: ['pipe', 'pipe', 'pipe'],
+        env: { ...process.env, ...env },
+      });
+      let stdout = '';
+      let stderr = '';
+      child.stdout.on('data', (c) => { stdout += c; });
+      child.stderr.on('data', (c) => { stderr += c; });
+      const killer = setTimeout(() => child.kill('SIGKILL'), 15_000);
+      child.on('close', (status) => {
+        clearTimeout(killer);
+        child.stdin.destroy();
+        done({ status, stdout, stderr, ms: Date.now() - started });
+      });
+    });
+  }
+
+  it('prints usage and exits 0 on --help without reading stdin', async () => {
+    const res = await spawnWithOpenStdin(['--help']);
+    expect(res.status).toBe(0);
+    expect(res.stdout).toMatch(/--body-file <path>/);
+    expect(res.ms).toBeLessThan(5_000);
+  });
+
+  it('rejects an unknown argument with usage instead of waiting for a hook payload', async () => {
+    const res = await spawnWithOpenStdin(['--bogus']);
+    expect(res.status).toBe(EXIT_BLOCK);
+    expect(res.stderr).toMatch(/argomento non riconosciuto: --bogus/);
+    expect(res.ms).toBeLessThan(5_000);
+  });
+
+  it('gives up on a silent open stdin after the timeout with a clear message (hook fail-safe)', async () => {
+    const res = await spawnWithOpenStdin([], { PR_BODY_GATE_STDIN_TIMEOUT_MS: '300' });
+    expect(res.status).toBe(0);
+    expect(res.stderr).toMatch(/nessun payload hook su stdin entro 300 ms/);
+    expect(res.ms).toBeLessThan(5_000);
+  });
+
+  it('validates --body-file even when stdin stays open', async () => {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-check-gate-open-stdin-'));
+    const file = join(dir, 'body.md');
+    writeFileSync(file, MISSING_NON, 'utf8');
+    try {
+      const res = await spawnWithOpenStdin(['--body-file', file]);
+      expect(res.status).toBe(EXIT_BLOCK);
+      expect(res.stderr).toMatch(/body PR non conforme/);
+    } finally {
+      rmSync(dir, { recursive: true, force: true });
+    }
+  });
+
+  it.each([
+    'scripts/ci/sibling-check-gate.mjs',
+    'scripts/ci/pr-watch-register.mjs',
+    'scripts/ci/pr-body-write-gate.mjs',
+    'scripts/ci/run-mutation-gate.mjs',
+    'scripts/ci/pr-watch-gate.mjs',
+  ])('sibling hook %s also exits on a silent open stdin (lib/hook-stdin.mjs)', async (script) => {
+    const res = await new Promise<{ status: number | null; ms: number }>((done) => {
+      const started = Date.now();
+      const child = spawn(process.execPath, [resolve(ROOT, script)], {
+        stdio: ['pipe', 'ignore', 'ignore'],
+        env: { ...process.env, HOOK_STDIN_TIMEOUT_MS: '300' },
+      });
+      const killer = setTimeout(() => child.kill('SIGKILL'), 15_000);
+      child.on('close', (status) => {
+        clearTimeout(killer);
+        child.stdin.destroy();
+        done({ status, ms: Date.now() - started });
+      });
+    });
+    expect(res.status).toBe(0);
+    expect(res.ms).toBeLessThan(5_000);
+  });
+
+  it('readHookStdin returns what arrived and flags the timeout', async () => {
+    const stream = new PassThrough();
+    stream.write('{"partial":');
+    const res = await readHookStdin(stream, 50);
+    expect(res).toMatchObject({ raw: '{"partial":', timedOut: true });
+  });
+
+  it('readHookStdin resolves on EOF without timing out', async () => {
+    const stream = new PassThrough();
+    stream.end('{"tool_input":{"command":"ls"}}');
+    const res = await readHookStdin(stream, 5_000);
+    expect(res).toMatchObject({ raw: '{"tool_input":{"command":"ls"}}', timedOut: false });
+  });
+
+  it('hookStdinTimeoutMs honours the env override and ignores garbage', () => {
+    expect(hookStdinTimeoutMs({ PR_BODY_GATE_STDIN_TIMEOUT_MS: '250' })).toBe(250);
+    expect(hookStdinTimeoutMs({ PR_BODY_GATE_STDIN_TIMEOUT_MS: 'nope' })).toBe(5000);
+    expect(hookStdinTimeoutMs({})).toBe(5000);
+  });
+});
+
+/**
+ * A gate that reads a command line without running it has two failure modes
+ * that cost agents real time on 2026-09-20: it cannot see a variable, and it
+ * cannot tell a command from a quoted mention of one.
+ */
+describe('pr-body-check-gate: variables and quoted mentions', () => {
+  const dirs: string[] = [];
+  afterEach(() => {
+    while (dirs.length) rmSync(dirs.pop()!, { recursive: true, force: true });
+  });
+
+  const GH_CREATE = ['gh', 'pr', 'create'].join(' ');
+  const GH_EDIT = ['gh', 'pr', 'edit'].join(' ');
+
+  function bodyFile(content = BOTH_HEADERS) {
+    const dir = mkdtempSync(join(tmpdir(), 'pr-body-var-'));
+    dirs.push(dir);
+    const path = join(dir, 'body.md');
+    writeFileSync(path, content, 'utf8');
+    return path;
+  }
+
+  it('resolves a --body-file variable assigned in the same command', () => {
+    const path = bodyFile();
+    const result = runGate(`BODY=${path} ${GH_CREATE} --title t --body-file "$BODY"`);
+    expect(result.status).toBe(0);
+  });
+
+  it('resolves it when the assignment is its own statement', () => {
+    const path = bodyFile();
+    const result = runGate(`BODY=${path}; ${GH_CREATE} --title t --body-file "$BODY"`);
+    expect(result.status).toBe(0);
+  });
+
+  it('still judges the CONTENT behind the variable, it does not wave it through', () => {
+    const path = bodyFile(MISSING_NON);
+    const result = runGate(`BODY=${path} ${GH_CREATE} --title t --body-file "$BODY"`);
+    expect(result.status).toBe(EXIT_BLOCK);
+    expect(result.stderr).toMatch(/non conforme|missing/i);
+  });
+
+  it('names the unresolved variable instead of blaming the path', () => {
+    const result = runGate(`${GH_CREATE} --title t --body-file "$BODY"`);
+    expect(result.status).toBe(EXIT_BLOCK);
+    expect(result.stderr).toContain('$BODY');
+    expect(result.stderr).toContain("non vede l'ambiente della tua shell");
+  });
+
+  it('extractPrBody expands a same-command assignment', () => {
+    const path = bodyFile();
+    expect(extractPrBody(`BODY=${path} ${GH_CREATE} --body-file "$BODY"`)).toBe(BOTH_HEADERS);
+    expect(extractPrBody(`${GH_CREATE} --body-file "$NOWHERE"`)).toBeUndefined();
+  });
+
+  it('describePrBodySource reports the missing variable by name', () => {
+    const described = describePrBodySource(`${GH_CREATE} --body-file "$BODY"`);
+    expect(described).toMatchObject({ kind: 'body-file', ok: false, missing: ['BODY'] });
+    expect(described.reason).toContain('$BODY');
+  });
+
+  it('does not block a command that merely QUOTES a body write in a heredoc', () => {
+    // Reproduced twice on 2026-09-20: a commit message documenting this gate.
+    const command = [
+      "git commit -F - <<'MSG'",
+      'fix(hooks): document the gate',
+      '',
+      `  ${GH_EDIT} 1599 --repo owner/name --body-file /tmp/body.md`,
+      'MSG',
+    ].join('\n');
+    expect(isPrBodyWriteCommand(command)).toBe(false);
+    expect(runGate(command).status).toBe(0);
+  });
+
+  it('does not block on a body flag that is only an argument value', () => {
+    expect(isPrBodyWriteCommand(`echo ${GH_CREATE} --body-file x.md`)).toBe(false);
+    expect(isPrBodyWriteCommand(`git log --grep "${GH_EDIT} --body-file x.md"`)).toBe(false);
+  });
+
+  it('still recognizes the real write, including behind an assignment prefix', () => {
+    expect(isPrBodyWriteCommand(`${GH_CREATE} --title t --body-file b.md`)).toBe(true);
+    expect(isPrBodyWriteCommand(`GH_TOKEN=x ${GH_EDIT} 12 --body-file b.md`)).toBe(true);
+    expect(isPrBodyWriteCommand(`${GH_EDIT} 12 --add-label ready`)).toBe(false);
+  });
+
+  it('keeps the conservative grep when the shell syntax cannot be parsed', () => {
+    // An unterminated quote makes the lexer refuse; blocking is the safe half.
+    expect(isPrBodyWriteCommand(`${GH_CREATE} --title "t --body-file b.md`)).toBe(true);
+  });
+});

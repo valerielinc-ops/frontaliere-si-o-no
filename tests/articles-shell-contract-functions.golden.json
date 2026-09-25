@@ -1,0 +1,71 @@
+{
+  "esc": "a &amp; b &lt; c &gt; d &quot; e ' f",
+  "escEmpty": "",
+  "stripLiteralMarkdown": "Onkologie Ärzte ~~x~~ ==y==",
+  "clampMetaDescription": "xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx…",
+  "clampMetaDescriptionShort": "breve",
+  "truncateHeadline": "Un titolo molto…",
+  "buildTitleWithBrand": "Titolo | Frontaliere Ticino",
+  "truncateCodeUnits": "abcd",
+  "inlineScriptJson": "{\"a\":1,\"b\":\"\\u003c/script>\",\"c\":[\"x\"]}",
+  "railGuttersOn": {
+    "open": " <div class=\"ft-rail-grid xlw:grid xlw:grid-cols-[300px_minmax(0,1fr)_300px] xlw:gap-4 xlw:mx-auto xlw:max-w-[1768px]\">\n <aside id=\"rail-left-root\" class=\"ft-rail-aside hidden xlw:flex xlw:flex-col\" aria-hidden=\"true\"></aside>",
+    "close": "\n <aside id=\"rail-right-root\" class=\"ft-rail-aside hidden xlw:flex xlw:flex-col\" aria-hidden=\"true\"></aside>\n </div>"
+  },
+  "railGuttersOff": {
+    "open": "",
+    "close": ""
+  },
+  "rootShellWithBundle": "<div id=\"root\"><div class=\"ft-hdr-reserve\" aria-hidden=\"true\"></div></div>",
+  "rootShellNoBundle": "<div id=\"root\"></div>",
+  "asyncCssHeadBlockWith": "<link rel=\"stylesheet\" href=\"/assets/critical.css\" data-clarity-unmask=\"true\">\n    <link rel=\"preload\" as=\"style\" crossorigin href=\"/assets/main-abc123.css\" data-clarity-unmask=\"true\"><link rel=\"stylesheet\" crossorigin href=\"/assets/main-abc123.css\" media=\"print\" onload=\"this.media='all'\" data-clarity-unmask=\"true\"><noscript><link rel=\"stylesheet\" crossorigin href=\"/assets/main-abc123.css\" data-clarity-unmask=\"true\"></noscript>\n    <link rel=\"preload\" as=\"style\" crossorigin href=\"/assets/seo-static.css\" data-clarity-unmask=\"true\"><link rel=\"stylesheet\" crossorigin href=\"/assets/seo-static.css\" media=\"print\" onload=\"this.media='all'\" data-clarity-unmask=\"true\"><noscript><link rel=\"stylesheet\" crossorigin href=\"/assets/seo-static.css\" data-clarity-unmask=\"true\"></noscript>\n    <script>setTimeout(function(){var ls=document.querySelectorAll('link[media=\"print\"][href*=\"/assets/\"]');for(var i=0;i<ls.length;i++){ls[i].media='all'}if(ls[0]){try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:ls[0].href,delayMs:3000,pagePath:location.pathname+location.search,visibilityState:document.visibilityState||'unknown',ts:new Date().toISOString()}))}catch(e){}}},3000)</script>",
+  "asyncCssHeadBlockWithout": "<link rel=\"stylesheet\" href=\"/assets/critical.css\" data-clarity-unmask=\"true\">\n    <link rel=\"preload\" as=\"style\" crossorigin href=\"/assets/seo-static.css\" data-clarity-unmask=\"true\"><link rel=\"stylesheet\" crossorigin href=\"/assets/seo-static.css\" media=\"print\" onload=\"this.media='all'\" data-clarity-unmask=\"true\"><noscript><link rel=\"stylesheet\" crossorigin href=\"/assets/seo-static.css\" data-clarity-unmask=\"true\"></noscript>\n    <script>setTimeout(function(){var ls=document.querySelectorAll('link[media=\"print\"][href*=\"/assets/\"]');for(var i=0;i<ls.length;i++){ls[i].media='all'}if(ls[0]){try{sessionStorage.setItem('_cssFallbackInfo',JSON.stringify({href:ls[0].href,delayMs:3000,pagePath:location.pathname+location.search,visibilityState:document.visibilityState||'unknown',ts:new Date().toISOString()}))}catch(e){}}},3000)</script>",
+  "asyncCssLink": "<link rel=\"preload\" as=\"style\" crossorigin href=\"/assets/x.css\" data-clarity-unmask=\"true\"><link rel=\"stylesheet\" crossorigin href=\"/assets/x.css\" media=\"print\" onload=\"this.media='all'\" data-clarity-unmask=\"true\"><noscript><link rel=\"stylesheet\" crossorigin href=\"/assets/x.css\" data-clarity-unmask=\"true\"></noscript>",
+  "differentiateH1FromTitle": "Stesso testo (guida frontaliere)",
+  "stableChunkFile": "blog.js",
+  "stableChunkFiles": [
+    "blog.js",
+    "jobs.js"
+  ],
+  "writeCollectorShape": {
+    "hasAdd": true,
+    "hasFlush": true,
+    "skippedByHashInitial": 0
+  },
+  "imageObjectLd": {
+    "@type": "ImageObject",
+    "contentUrl": "https://x/y.webp",
+    "url": "https://x/y.webp",
+    "acquireLicensePage": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+    "copyrightNotice": "© 2024–2026 Frontaliere Ticino. Tutti i diritti riservati.",
+    "license": "https://frontaliereticino.ch/termini-di-servizio/#licenza-immagini",
+    "creator": {
+      "@type": "Organization",
+      "name": "Frontaliere Ticino",
+      "url": "https://frontaliereticino.ch/"
+    },
+    "creditText": "Frontaliere Ticino",
+    "caption": "c",
+    "width": 1200
+  },
+  "getAuthorBySlugKnown": {
+    "slug": "marco-ferrari",
+    "name": "Marco Ferrari",
+    "role": "Esperto fiscalità frontaliera",
+    "bio": "Marco Ferrari è specializzato in fiscalità transfrontaliera tra Italia e Svizzera, con particolare attenzione alla disciplina applicabile ai lavoratori frontalieri del Canton Ticino. Si occupa quotidianamente di dichiarazione dei redditi modello 730 e Redditi PF, di imposta alla fonte cantonale e federale, di ristorni IRPEF e di applicazione pratica del nuovo accordo Italia-Svizzera del 2026 sui frontalieri. Segue le novità dell'Agenzia delle Entrate, dell'AFC ticinese e dei comunicati congiunti del Ministero dell'Economia. Su Frontaliere Ticino cura le guide operative su acconti, scadenze, doppia imposizione e calcolo dell'imposta netta in CHF ed EUR. Pubblica analisi sulle implicazioni della soglia di 20 km dal confine, sulla figura del «nuovo frontaliere» e sui regimi transitori per chi ha iniziato a lavorare in Svizzera prima e dopo il 17 luglio 2023. Risponde a quesiti dei lettori sui casi limite della residenza fiscale italiana.",
+    "photoPath": "/images/authors/marco-ferrari.jpg",
+    "email": "marco.ferrari@frontaliereticino.ch",
+    "social": {
+      "linkedin": "https://www.linkedin.com/in/marco-ferrari-frontaliere-ticino/"
+    },
+    "expertise": [
+      "fiscalità frontaliera",
+      "730",
+      "dichiarazione redditi",
+      "imposta alla fonte",
+      "accordo Italia-Svizzera 2026"
+    ],
+    "joinedAt": "2024-09-01"
+  },
+  "getAuthorBySlugUnknown": null
+}

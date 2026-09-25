@@ -1,0 +1,491 @@
+/**
+ * stale-claim-detector.mjs — rilascia i lock `agent:in-progress` rimasti appesi
+ * su issue aperte (zero-Claude, deterministico).
+ *
+ * ## Il buco che chiude
+ *
+ * `agent:in-progress` **non è uno stato, è un lock di mutua esclusione**:
+ * `claim-issue-in-flight.mjs` lo mette come primo pre-flight di `issue-fix.yml`,
+ * e se lo trova già presente il fixer salta tutto, quota zero. È il meccanismo
+ * che ha chiuso la collisione #4788/#4793, dove una sessione interattiva e il
+ * fixer autonomo hanno lavorato la stessa issue producendo due PR concorrenti.
+ *
+ * Il lock ha un rilascio simmetrico (`if: always()` su ogni percorso terminale
+ * di `issue-fix.yml`), ma quel rilascio vive DENTRO il run: se il run muore in
+ * modo non grazioso — runner ucciso, cancellazione infrastrutturale — o se una
+ * sessione interattiva muore dopo aver reclamato, la label resta. E su una issue
+ * **aperta** un lock appeso la esclude dal fixer **per sempre, in silenzio**:
+ * ogni dispatch futuro vede il claim, salta, ed esce 0. Nessun allarme, nessun
+ * digest, nessuna scadenza. È successo sulla #4248 (`priority:high`), appesa da
+ * una sessione precedente.
+ *
+ * È la stessa forma della draft parcheggiata di `parked-pr-detector.mjs` — un
+ * segnale silenzioso che dura per sempre — su una superficie diversa e con una
+ * causa diversa.
+ *
+ * ## La trappola, che è il motivo per cui non basta l'età
+ *
+ * **Finché una PR è in volo il claim è CORRETTO e va lasciato.** Toglierlo
+ * mentre il fixer sta lavorando fa ripartire un secondo fixer in parallelo:
+ * ricrea esattamente la #4788/#4793 che il lock esiste per impedire, e la
+ * ricrea *causandola noi*. Un detector che guardasse solo l'età sarebbe peggio
+ * del problema che risolve.
+ *
+ * Quindi la condizione è doppia: claim presente **E** nessuna PR aperta che lo
+ * giustifichi. E l'estrazione dei riferimenti è deliberatamente GENEROSA
+ * (branch `fix/issue-N`, riferimenti `(#N #M)` nel titolo, `Closes/Fixes/Resolves #N`,
+ * `Addresses ... #N` e `Ref(s) #N` nel body): sovra-riconoscere una PR significa NON rilasciare, cioè sbagliare
+ * verso il lato sicuro. I due errori non costano uguale — un lock lasciato un
+ * giro in più costa una latenza, un lock tolto troppo presto costa due PR in
+ * conflitto e la quota per produrle.
+ *
+ * ## Owner locale/remoto
+ *
+ * `agent:local` è un segnale esplicito di una sessione interattiva. Una sessione
+ * locale può durare più del job CI e non espone un heartbeat affidabile via
+ * GitHub, quindi ha una soglia più lunga (`STALE_LOCAL_CLAIM_HOURS`,
+ * default 24h = 4× il tetto del fixer). Il comando locale resta il modo normale
+ * di rilasciarla (`CLAIM_ACTION=release`). Prima del 2026-09-24 restava appesa
+ * fino a una verifica umana: misurato quel giorno, le sole 5 issue
+ * `agent:fix-queued` portavano tutte `agent:local`, due ferme dal 20-09, e il
+ * drainer vedeva la coda vuota. Una verifica umana obbligatoria contraddice
+ * DECISIONS 2026-09-24 (nessun intervento umano nel ciclo). Una PR aperta
+ * impedisce il rilascio.
+ *
+ * Per il claim locale l'età si misura dall'ULTIMO evento `labeled
+ * agent:local`, non da `updatedAt`. Misurato il 2026-09-25: `updatedAt` si
+ * sposta a ogni commento o label dei bot (pre-pass, recurrence, triage), quindi
+ * un claim locale non scadeva mai. La #9285 era reclamata dal 22-09 e 26 issue
+ * `agent:fix-queued` su 32 restavano ferme sotto `agent:local`, mentre la
+ * sessione locale lavorava altre issue. Se gli eventi non sono leggibili si
+ * ricade su `updatedAt`, che è sempre ≥ del claim: il lato sicuro.
+ * `agent:remote` e i claim senza owner usano la soglia normale; un claim conteso
+ * (entrambi gli owner) resta intoccato.
+ *
+ * ## La soglia
+ *
+ * Default 12h = **2× il `timeout-minutes: 360` di `issue-fix.yml`**. Un run del
+ * fixer non può, per costruzione, durare più di 6h: oltre il doppio di quel
+ * tetto, senza una PR aperta, il claim non appartiene più a niente di vivo.
+ * L'età si legge da `updatedAt` della issue, che il claim stesso ha bumpato
+ * applicando la label — quindi `updatedAt` è sempre ≥ l'istante del claim, e
+ * una issue con attività recente (una sessione interattiva che ci commenta) non
+ * viene mai selezionata.
+ *
+ * ## Cosa fa, e cosa deliberatamente non fa
+ *
+ * RILASCIA il lock (rimuove la label) e commenta perché. Non ri-accoda: un
+ * `agent:fix` richiede il PAT e riaccenderebbe subito un run, mentre «questa
+ * issue va rilavorata» è una decisione separata da «questo lock non appartiene
+ * a nessuno». Rilasciare è ciò che ripristina l'idoneità — è il lock, non la
+ * coda, ad essere rotto.
+ *
+ * Nota la differenza di postura rispetto a `parked-pr-detector.mjs`, che
+ * etichetta e NON agisce: là l'azione giusta (chiudere una draft) distruggerebbe
+ * lavoro se sbagliata, qui l'azione giusta (togliere un lock morto) è
+ * reversibile e la non-azione è il danno permanente.
+ *
+ * Uso:  node scripts/ci/stale-claim-detector.mjs [--dry-run]
+ * Env:  GH_TOKEN, GH_REPO/GITHUB_REPOSITORY, STALE_CLAIM_HOURS (default 12).
+ */
+import { execFileSync } from 'node:child_process';
+
+const DRY = process.argv.includes('--dry-run');
+const REPO = process.env.GH_REPO || process.env.GITHUB_REPOSITORY || '';
+export const CLAIM_LABEL = 'agent:in-progress';
+export const CLAIM_OWNER_LABELS = Object.freeze({ local: 'agent:local', remote: 'agent:remote' });
+const CLAIM_SCAN_LABELS = [CLAIM_LABEL, ...Object.values(CLAIM_OWNER_LABELS)];
+const MARKER = '<!-- STALE-CLAIM-RELEASED -->';
+
+/** 2× il timeout-minutes di issue-fix.yml (360). Vedi l'intestazione. */
+export const DEFAULT_STALE_CLAIM_HOURS = 12;
+/** 4× il timeout del fixer, contato dal claim: oltre, senza PR, il claim non lavora. */
+export const DEFAULT_STALE_LOCAL_CLAIM_HOURS = 24;
+
+export function claimOwner(labels) {
+  const names = new Set((labels || []).map((label) => String(label?.name || label || '')));
+  const owners = Object.entries(CLAIM_OWNER_LABELS)
+    .filter(([, label]) => names.has(label))
+    .map(([owner]) => owner);
+  if (owners.length > 1) return 'contended';
+  return owners[0] || (names.has(CLAIM_LABEL) ? 'unknown' : '');
+}
+
+export function hasClaimLabel(labels) {
+  const names = new Set((labels || []).map((label) => String(label?.name || label || '')));
+  return CLAIM_SCAN_LABELS.some((label) => names.has(label));
+}
+
+export function removeLabelArgs(labels) {
+  return [...new Set((Array.isArray(labels) ? labels : [])
+    .map((label) => String(label || ''))
+    .filter(Boolean))]
+    .flatMap((label) => ['--remove-label', label]);
+}
+
+/**
+ * Legge il marker distinguendo «assente» da «lettura non riuscita».
+ *
+ * Il detector può rimuovere un lock solo quando sa che il motivo è già
+ * persistito. Una lettura fallita non è un elenco commenti vuoto: in quel caso
+ * il verso sicuro è lasciare il claim per il retry successivo.
+ * @returns {boolean|null} true/false se la lettura è riuscita, null altrimenti
+ */
+function readCommentMarker(num) {
+  try {
+    // `hasCommentMarker` è best-effort per i consumer osservatori e converte
+    // l'errore in «assente»; qui quella conversione sbloccherebbe il claim.
+    const comments = gh([
+      'api', `repos/${REPO}/issues/${num}/comments`, '--paginate',
+      '--jq', '[.[] | .body] | join("\\n")',
+    ], { json: false });
+    return String(comments || '').includes(MARKER);
+  } catch (e) {
+    console.log(`::warning::lettura marker ${MARKER} #${num} fallita: ${String(e).slice(0, 160)}`);
+    return null;
+  }
+}
+
+/**
+ * Contratto marker-before-release, con dipendenze iniettate per il test.
+ *
+ * Un marker già confermato è idempotente: si può ritentare solo la rimozione
+ * del claim. Se manca, il commento deve riuscire e risultare leggibile prima
+ * di sbloccare la issue. Un errore in uno dei passaggi lascia il claim per il
+ * giro successivo.
+ */
+export function releaseStaleClaim({
+  markerState,
+  postComment,
+  confirmMarker,
+  removeClaim,
+}) {
+  if (markerState !== true && markerState !== false) {
+    return { released: false, reason: 'marker-read-failed' };
+  }
+
+  if (!markerState) {
+    let posted = false;
+    try { posted = postComment() === true; } catch { /* retry next run */ }
+    if (!posted) return { released: false, reason: 'comment-failed' };
+
+    let persisted = false;
+    try { persisted = confirmMarker() === true; } catch { /* retry next run */ }
+    if (!persisted) return { released: false, reason: 'marker-not-persisted' };
+  }
+
+  let removed = false;
+  try { removed = removeClaim() === true; } catch { /* retry next run */ }
+  if (!removed) return { released: false, reason: 'claim-remove-failed' };
+  return { released: true, reason: markerState ? 'marker-existing' : 'marker-posted' };
+}
+
+function gh(args, { json = true, allowFail = false } = {}) {
+  try {
+    const out = execFileSync('gh', args, { encoding: 'utf8', maxBuffer: 32 * 1024 * 1024 });
+    return json ? JSON.parse(out) : out;
+  } catch (e) {
+    if (allowFail) return json ? null : '';
+    throw e;
+  }
+}
+
+/**
+ * Legge tutte le pagine di un endpoint REST e le appiattisce solo se GitHub ha
+ * restituito una sequenza completa di array. Una risposta parziale o malformata
+ * deve far saltare lo scan, non sembrare una lista vuota di PR vive.
+ */
+function paginatedApiItems(apiPath) {
+  const pages = gh(['api', apiPath, '--paginate', '--slurp']);
+  if (!Array.isArray(pages) || !pages.every(Array.isArray)) {
+    throw new Error(`risposta paginata non valida per ${apiPath}`);
+  }
+  const items = pages.flat();
+  if (!items.every((item) => item && typeof item === 'object' && !Array.isArray(item))) {
+    throw new Error(`elemento non valido nella risposta paginata per ${apiPath}`);
+  }
+  return items;
+}
+
+function loadClaimIssues() {
+  // GitHub's `labels=` filter is AND/one-value, not OR. Read every possible
+  // owner marker and de-duplicate by issue number: a partial label write can
+  // leave only `agent:local` or `agent:remote`, and that issue must still be
+  // visible to the stale scan instead of blocking the fixer forever in silence.
+  const items = CLAIM_SCAN_LABELS.flatMap((label) => paginatedApiItems(
+    `repos/${REPO}/issues?state=open&labels=${encodeURIComponent(label)}&per_page=100`,
+  ));
+  const issues = [...new Map(items
+    .filter((item) => !item.pull_request)
+    .map((item) => [item.number, item]))
+    .values()];
+  if (!issues.every((item) => Number.isInteger(item.number)
+    && typeof item.title === 'string'
+    && typeof item.updated_at === 'string'
+    && Array.isArray(item.labels)
+    && item.labels.every((label) => label && typeof label.name === 'string'))) {
+    throw new Error('issue claim response missing required fields');
+  }
+  return issues.map((item) => ({
+    number: item.number,
+    title: item.title,
+    updatedAt: item.updated_at,
+    labels: item.labels.map((label) => ({ name: label.name })),
+  }));
+}
+
+/**
+ * Istante dell'ultimo `labeled agent:local` sulla issue, o null se gli eventi
+ * non sono leggibili (il chiamante ricade su `updatedAt`).
+ */
+export function lastLocalClaimAt(events) {
+  if (!Array.isArray(events)) return null;
+  let last = null;
+  for (const ev of events) {
+    if (ev?.event !== 'labeled' || ev?.label?.name !== CLAIM_OWNER_LABELS.local) continue;
+    const at = Date.parse(ev.created_at || '');
+    if (Number.isFinite(at) && (last === null || at > last)) last = at;
+  }
+  return last === null ? null : new Date(last).toISOString();
+}
+
+function loadLocalClaimAt(num) {
+  try {
+    return lastLocalClaimAt(paginatedApiItems(`repos/${REPO}/issues/${num}/events?per_page=100`));
+  } catch (e) {
+    console.log(`::warning::eventi #${num} non leggibili: ${String(e).slice(0, 160)} — uso updatedAt.`);
+    return null;
+  }
+}
+
+function loadOpenPrs() {
+  const items = paginatedApiItems(`repos/${REPO}/pulls?state=open&per_page=100`);
+  if (!items.every((item) => Number.isInteger(item.number)
+    && typeof item.title === 'string'
+    && (typeof item.body === 'string' || item.body === null)
+    && typeof item.head?.ref === 'string')) {
+    throw new Error('open PR response missing required fields');
+  }
+  return items.map((item) => ({
+    number: item.number,
+    title: item.title,
+    body: item.body,
+    headRefName: item.head.ref,
+  }));
+}
+
+/**
+ * I numeri di issue che una PR aperta sta già lavorando — cioè i claim che
+ * NON vanno toccati.
+ *
+ * Cinque canali, tutti quelli con cui il ciclo lega una PR alla sua issue:
+ *   - `headRefName` `fix/issue-N`, il nome DETERMINISTICO che `issue-fix.yml`
+ *     dà al branch (ed è il canale più affidabile: esiste anche prima che il
+ *     body sia scritto bene);
+ *   - `(#N)` o `(#N #M)` nel titolo, la convenzione delle PR del fixer;
+ *   - `Closes/Fixes/Resolves #N` nel body;
+ *   - `Addresses ... #N` nel body, la forma non-closing usata dalle PR
+ *     aggregate: dice comunque che la PR sta lavorando quella issue e quindi
+ *     il claim non va rilasciato finché la PR resta aperta.
+ *   - `Ref(s) #N` nel body, la forma non-closing usata dalle PR aggregate.
+ *
+ * Puro → testabile, e generoso di proposito: ogni match in più è una PR che
+ * consideriamo viva, quindi un claim che NON rilasciamo.
+ */
+export function referencedIssueNumbers(prs) {
+  const out = new Set();
+  if (!Array.isArray(prs)) return out;
+  for (const pr of prs) {
+    if (!pr) continue;
+    const branch = String(pr.headRefName || '');
+    const mBranch = /^fix\/issue-(\d+)$/.exec(branch);
+    if (mBranch) out.add(Number(mBranch[1]));
+    for (const group of String(pr.title || '').matchAll(/\(([^)\n]*#[^)\n]*)\)/g)) {
+      for (const m of group[1].matchAll(/#(\d+)/g)) out.add(Number(m[1]));
+    }
+    const body = String(pr.body || '');
+    // Italian forms (issue #567 twin sweep, see followup-resolution-match.mjs
+    // CLOSE_KW_LIST): `chiud[eo]`/`risolv[eo]`/`super[ae]` plus the same
+    // bridge words ("anche", "la"/"le", "issue") between verb and `#N`. This
+    // detector is deliberately generous — an extra match means a claim is
+    // NOT released — so under-recognizing an Italian "Chiude anche #N" body
+    // is the unsafe direction: it would let a live claim look orphaned.
+    for (const m of body.matchAll(
+      /\b(?:close[sd]?|fix(?:e[sd])?|resolve[sd]?|chiud[eo]|risolv[eo]|super[ae])\b[:\s]+(?:anche\s+)?(?:l[ae]\s+)?(?:issue\s+)?#(\d+)/gi,
+    )) {
+      out.add(Number(m[1]));
+    }
+    // `Addresses item 1 e item 2 di #8039` is deliberately broader than a
+    // closing keyword: an aggregate PR can reference the source issue several
+    // words after `Addresses` and must still protect its in-flight claim. Scan
+    // every number on the matching line: a single `Addresses #A ... #B` line
+    // is one aggregate declaration, not permission to release #B.
+    for (const line of body.split('\n')) {
+      if (!/\baddresses?\b/i.test(line)) continue;
+      for (const m of line.matchAll(/#(\d+)/g)) out.add(Number(m[1]));
+    }
+    // Aggregate follow-up PRs also use `Ref #N`/`Refs #N` when the source issue
+    // must stay open. Scan only lines that declare that keyword, keeping the
+    // same conservative bias: an extra match protects a claim rather than
+    // releasing a live one.
+    for (const line of body.split('\n')) {
+      if (!/\brefs?\b/i.test(line)) continue;
+      for (const m of line.matchAll(/#(\d+)/g)) out.add(Number(m[1]));
+    }
+  }
+  return out;
+}
+
+/**
+ * Quali issue portano un lock che non appartiene più a niente.
+ *
+ * `nowMs` è un parametro e non `Date.now()`: una soglia temporale testata
+ * contro l'orologio reale è un test che cambia risposta a seconda di quando
+ * gira. `updatedAt` illeggibile → NON selezionata: in dubbio si tace, perché il
+ * costo di un falso positivo qui è un secondo fixer in parallelo.
+ */
+export function selectStaleClaims(
+  issues,
+  referenced,
+  nowMs,
+  maxAgeHours = DEFAULT_STALE_CLAIM_HOURS,
+  localMaxAgeHours = DEFAULT_STALE_LOCAL_CLAIM_HOURS,
+) {
+  if (!Array.isArray(issues)) return [];
+  const live = referenced instanceof Set ? referenced : new Set(referenced || []);
+  const cutoff = nowMs - maxAgeHours * 3600 * 1000;
+  // A local session has no remotely observable heartbeat: it gets a much
+  // longer window, never shorter than the remote one.
+  const localCutoff = nowMs - Math.max(localMaxAgeHours, maxAgeHours) * 3600 * 1000;
+  return issues.filter((iss) => {
+    if (!iss || !Number.isInteger(iss.number)) return false;
+    if (!hasClaimLabel(iss.labels)) return false;
+    // A contended claim is unsafe to mutate; leave both owner flags for
+    // explicit reconciliation.
+    const owner = claimOwner(iss.labels);
+    if (owner === 'contended') return false;
+    if (live.has(iss.number)) return false;
+    // Locale: conta dal claim, non dall'ultima attività dei bot (vedi l'intestazione).
+    const since = owner === 'local' && iss.claimedAt ? iss.claimedAt : iss.updatedAt;
+    const updated = Date.parse(since || '');
+    if (!Number.isFinite(updated)) return false;
+    return updated < (owner === 'local' ? localCutoff : cutoff);
+  });
+}
+
+function main() {
+  if (!REPO) { console.error('GH_REPO/GITHUB_REPOSITORY mancante'); process.exit(1); }
+  const hours = Number(process.env.STALE_CLAIM_HOURS) || DEFAULT_STALE_CLAIM_HOURS;
+  const localHours = Number(process.env.STALE_LOCAL_CLAIM_HOURS) || DEFAULT_STALE_LOCAL_CLAIM_HOURS;
+  console.log(`stale-claim-detector${DRY ? ' [DRY-RUN]' : ''} repo=${REPO} soglia=${hours}h (locale ${localHours}h)`);
+
+  let issues, prs;
+  try {
+    issues = loadClaimIssues();
+    prs = loadOpenPrs();
+  } catch (e) {
+    // Non fallire il job: questo è un segnale, non un gate. E soprattutto, un
+    // elenco di PR incompleto porterebbe a rilasciare un claim VIVO — quindi
+    // senza entrambe le liste non si decide niente.
+    console.error(`gh list fallito: ${String(e).slice(0, 160)} — skip.`);
+    process.exit(0);
+  }
+
+  const referenced = referencedIssueNumbers(prs || []);
+  for (const iss of issues || []) {
+    if (claimOwner(iss.labels) === 'local' && !referenced.has(iss.number)) {
+      iss.claimedAt = loadLocalClaimAt(iss.number);
+    }
+  }
+  const stale = selectStaleClaims(issues || [], referenced, Date.now(), hours, localHours);
+
+  const localClaims = (issues || []).filter((iss) => claimOwner(iss.labels) === 'local').length;
+  console.log(`issue con ${CLAIM_LABEL}: ${(issues || []).length} — PR aperte che ne giustificano una: ${referenced.size} — claim locali (soglia ${localHours}h): ${localClaims}`);
+  if (!stale.length) { console.log('Nessun claim stale.'); return; }
+  console.log(`Claim stale: ${stale.length}`);
+
+  for (const iss of stale) {
+    console.log(`  #${iss.number} fermo dal ${iss.claimedAt || iss.updatedAt} — ${String(iss.title).slice(0, 80)}`);
+
+    // ORDINE LOAD-BEARING, ed è l'INVERSO di parked-pr-detector.mjs perché la
+    // selezione è invertita: là si seleziona chi NON ha la label, qui chi ce
+    // l'ha. Commentando per primo, se la rimozione fallisce la issue viene
+    // ri-selezionata al run dopo, il marker impedisce il doppione e la
+    // rimozione viene riprovata. Rimuovendo per primo, un commento fallito non
+    // sarebbe mai più riprovato — il lock risulterebbe sparito senza che
+    // nessuno sappia perché, che è il modo peggiore di aggiustare un problema
+    // di segnali silenziosi.
+    const owner = claimOwner(iss.labels);
+    const removeLabels = [CLAIM_LABEL];
+    if (owner === 'remote') removeLabels.push(CLAIM_OWNER_LABELS.remote);
+    if (owner === 'local') removeLabels.push(CLAIM_OWNER_LABELS.local);
+    const ownerHours = owner === 'local' ? Math.max(localHours, hours) : hours;
+    const body = `🔓 **Lock rilasciato** (auto, zero-Claude): questa issue portava \`${CLAIM_LABEL}\` ` +
+      `da più di ${ownerHours}h **senza nessuna PR aperta che lo giustificasse**.\n\n` +
+      `\`${CLAIM_LABEL}\` non è uno stato, è un **lock di mutua esclusione**: finché è ` +
+      'presente, ogni run di `issue-fix` vede il claim ed esce senza fare niente. Un run morto ' +
+      'in modo non grazioso — o una sessione interattiva finita male — lo lascia appeso, e da ' +
+      'quel momento la issue è esclusa dal fixer **per sempre e in silenzio**.\n\n' +
+      `La soglia è ${hours}h perché \`issue-fix.yml\` ha \`timeout-minutes: 360\`: oltre il ` +
+      'doppio del tetto di un run, senza PR in volo, il claim non appartiene più a niente di ' +
+      'vivo. Se invece stai lavorando questa issue **ora**, ri-applica la label: il detector ' +
+      'guarda le PR aperte, quindi appena ne apri una il claim viene rispettato. Un claim `' +
+      owner + '` senza PR viene liberato; un claim `agent:local` ha una soglia più lunga ' +
+      `(${Math.max(localHours, hours)}h) perché una sessione locale non espone un heartbeat ` +
+      'affidabile, ma non resta appeso per sempre.\n\n' +
+      'La issue **non** è stata ri-accodata: rilasciare il lock ripristina l\'idoneità, ma ' +
+      'decidere che vada rilavorata è un\'altra cosa. Per rimetterla in coda serve `agent:fix` ' +
+      '(via PAT).\n\n' +
+      '_Segnale deterministico da `stale-claim-detector.mjs`. Il commento non si ripete._';
+
+    const markerState = readCommentMarker(iss.number);
+    if (markerState === null) {
+      console.log(`  #${iss.number}: marker non verificabile — claim conservato per il retry.`);
+      continue;
+    }
+    if (DRY) {
+      console.log(markerState
+        ? `  #${iss.number}: marker già presente — no comment (rilascio comunque riprovato).`
+        : `  [dry] comment ${MARKER} #${iss.number}`);
+      console.log(`  [dry] -label ${CLAIM_LABEL} #${iss.number}`);
+      continue;
+    }
+
+    const result = releaseStaleClaim({
+      markerState,
+      postComment: () => {
+        try {
+          gh(['issue', 'comment', String(iss.number), '--repo', REPO,
+            '--body', `${MARKER}\n${body}`], { json: false });
+          return true;
+        } catch (e) {
+          console.log(`::warning::commento marker #${iss.number} fallito: ${String(e).slice(0, 160)}`);
+          return false;
+        }
+      },
+      confirmMarker: () => readCommentMarker(iss.number),
+      removeClaim: () => {
+        try {
+          gh(['issue', 'edit', String(iss.number), '--repo', REPO,
+            ...removeLabelArgs(removeLabels)], { json: false });
+          return true;
+        } catch (e) {
+          console.log(`::warning::rilascio claim #${iss.number} fallito: ${String(e).slice(0, 160)}`);
+          return false;
+        }
+      },
+    });
+    if (result.released) {
+      console.log(markerState
+        ? `  #${iss.number}: marker già presente — claim rilasciato.`
+        : `  #${iss.number}: marker persistito — claim rilasciato.`);
+    } else {
+      console.log(`  #${iss.number}: ${result.reason} — claim conservato per il retry.`);
+    }
+  }
+  console.log('stale-claim scan completo.');
+}
+
+if (process.argv[1]?.endsWith('stale-claim-detector.mjs')) {
+  main();
+}

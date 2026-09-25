@@ -1,0 +1,40 @@
+{
+  "id": "ia-aziende-svizzere-occupazione-ticino",
+  "slug": "ia-aziende-svizzere-occupazione-ticino",
+  "publishedAt": "2026-05-28T05:49:42.388Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 18.84657818244748,
+    "confidence": 0.8,
+    "finalScore": 15.077262545957986,
+    "topK": [
+      {
+        "slug": "ia-svizzera-uso-frontalieri-2026",
+        "cosine": 0.8974561039260704
+      },
+      {
+        "slug": "ia-selezione-personale-rischi-ticino",
+        "cosine": 0.896553526974075
+      },
+      {
+        "slug": "ia-swiss-re-produttivita-ceo-berger",
+        "cosine": 0.891487442433212
+      },
+      {
+        "slug": "comco-ia-criteri-2026",
+        "cosine": 0.8879596696570005
+      },
+      {
+        "slug": "startup-investimenti-boom-ticino",
+        "cosine": 0.8873117481155468
+      }
+    ],
+    "score": 15.077262545957986,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

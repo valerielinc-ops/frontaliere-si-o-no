@@ -1,0 +1,40 @@
+{
+  "id": "whistleblower-zurigo-frontalieri-2026",
+  "slug": "whistleblower-zurigo-frontalieri-2026",
+  "publishedAt": "2026-05-10T10:42:16.669Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 8.61080106884976,
+    "confidence": 0.8,
+    "finalScore": 6.888640855079808,
+    "topK": [
+      {
+        "slug": "ospedale-zurigo-mancanze-cardiochirurgia",
+        "cosine": 0.8575427198742238
+      },
+      {
+        "slug": "mobilita-infermieri-ticino",
+        "cosine": 0.8494453604250066
+      },
+      {
+        "slug": "ospedale-zurigo-cardiochirurgia-scandalo",
+        "cosine": 0.8463547578307432
+      },
+      {
+        "slug": "reclutamento-infermieri-lombardia",
+        "cosine": 0.8423532390535193
+      },
+      {
+        "slug": "diploma-usa-non-riconosciuto-ticino",
+        "cosine": 0.8308498917873244
+      }
+    ],
+    "score": 0.6888640855079808,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

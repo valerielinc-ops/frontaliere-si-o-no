@@ -1,0 +1,40 @@
+{
+  "id": "ultimo-svizzero-rientra-incendio-crans-montana",
+  "slug": "ultimo-svizzero-rientra-incendio-crans-montana",
+  "publishedAt": "2026-05-08T08:35:43.151Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 22.735084868993788,
+    "confidence": 0.8,
+    "finalScore": 18.18806789519503,
+    "topK": [
+      {
+        "slug": "hantavirus-zurigo-crocerista-frontalieri",
+        "cosine": 0.8420401803331032
+      },
+      {
+        "slug": "hantavirus-zurigo-ricovero-crocerista",
+        "cosine": 0.8418333778955137
+      },
+      {
+        "slug": "hondius-frontalieri-ticino-2026",
+        "cosine": 0.837803692559877
+      },
+      {
+        "slug": "ambasciatore-italiano-ritorno-berna",
+        "cosine": 0.8371733972874261
+      },
+      {
+        "slug": "svizzera-italia-nuova-fase-relazioni",
+        "cosine": 0.8336031101225979
+      }
+    ],
+    "score": 1.818806789519503,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

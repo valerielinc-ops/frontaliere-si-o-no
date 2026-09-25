@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-1154",
+  "companyName": "SGKB Bewerbermanagement Stellen",
+  "companyHost": "recruitingapp-1154.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-1154.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 7,
+  "sampleTitles": [
+    "Teamleiter*in Sicherheit 100%",
+    "Chief Investment Officer (CIO) / Leiter(in) Investment Center 80 – 100%",
+    "Change & Release Manager*in 80 – 100%",
+    "Kundenberater*in Private Banking 80 – 100%",
+    "Fachspezialist*in Compliance 60 – 80%"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:39.353Z"
+}

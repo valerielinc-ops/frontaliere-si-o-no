@@ -1,0 +1,40 @@
+{
+  "id": "sicurezza-paziente-2026-svizzera",
+  "slug": "sicurezza-paziente-2026-svizzera",
+  "publishedAt": "2026-06-22T20:56:50.931Z",
+  "cluster": "pratico",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.854760618956505,
+    "confidence": 0.8,
+    "finalScore": 4.683808495165205,
+    "topK": [
+      {
+        "slug": "sicurezza-lavoro-ats-insubria-2026",
+        "cosine": 0.8363943741366436
+      },
+      {
+        "slug": "farmaci-competitiva-europa",
+        "cosine": 0.8339490912802688
+      },
+      {
+        "slug": "ospedale-zurigo-cardiochirurgia-scandalo",
+        "cosine": 0.8314884465033623
+      },
+      {
+        "slug": "infermiere-pratiche-avanzate-ticino-2024",
+        "cosine": 0.8313557089945846
+      },
+      {
+        "slug": "molestie-sul-lavoro-oltre-alle-segnalazioni",
+        "cosine": 0.8311901314833438
+      }
+    ],
+    "score": 4.683808495165205,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "pratico"
+  }
+}

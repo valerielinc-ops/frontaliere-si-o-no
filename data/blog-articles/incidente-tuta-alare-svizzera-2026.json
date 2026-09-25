@@ -1,0 +1,40 @@
+{
+  "id": "incidente-tuta-alare-svizzera-2026",
+  "slug": "incidente-tuta-alare-svizzera-2026",
+  "publishedAt": "2026-05-09T21:16:16.989Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.7810934349198275,
+    "confidence": 0.8,
+    "finalScore": 5.4248747479358626,
+    "topK": [
+      {
+        "slug": "momenti-paura-velivolo-swiss-2026",
+        "cosine": 0.8476366793649784
+      },
+      {
+        "slug": "incidente-arogno-31enne-gravi-condizioni",
+        "cosine": 0.8428429613909311
+      },
+      {
+        "slug": "cabov-precipita-forte-vento",
+        "cosine": 0.8371899596312838
+      },
+      {
+        "slug": "incidente-e-roller-lugano-2026",
+        "cosine": 0.8357493827452198
+      },
+      {
+        "slug": "swiss-guasti-voli-frontalieri-ticino-2026",
+        "cosine": 0.8355504390474187
+      }
+    ],
+    "score": 1.3562186869839656,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

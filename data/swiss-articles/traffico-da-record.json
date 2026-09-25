@@ -1,0 +1,40 @@
+{
+  "id": "traffico-da-record",
+  "slug": "traffico-da-record",
+  "publishedAt": "2026-07-17T08:31:56.480Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.904399970704468,
+    "confidence": 0.8,
+    "finalScore": 5.523519976563574,
+    "topK": [
+      {
+        "slug": "trasporti-pubblici-crescita-svizzera",
+        "cosine": 0.8630499963380585
+      },
+      {
+        "slug": "autotrasporto-rincari-confine-2026",
+        "cosine": 0.8599796837383715
+      },
+      {
+        "slug": "fattura-miliardaria-energia-2026",
+        "cosine": 0.855860975990537
+      },
+      {
+        "slug": "cina-turismo-interno-2026",
+        "cosine": 0.8532441138617495
+      },
+      {
+        "slug": "tir-colonna-disagi-valico-brogeda",
+        "cosine": 0.852130567752498
+      }
+    ],
+    "score": 2.761759988281787,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

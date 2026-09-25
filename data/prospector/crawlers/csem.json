@@ -1,0 +1,24 @@
+{
+  "companyKey": "csem",
+  "companyName": "CSEM Landquart",
+  "companyHost": "csem.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.csem.ch/en/jobs/"
+  ],
+  "detailTemplate": "/en/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 16,
+  "sampleTitles": [
+    "<path fill=\"#585",
+    "<path fill=\"#001121\" fill-opacity=\".2\" d=\"M144.851 111.053C135.5 118.5 84.291 150.214 56 170h267c31.075 0-16.",
+    "<path fill=\"#001121\" fill-opacity=\".2\" d=\"M144.851 111.053C135.5 118.5 84.291 150.214 56 170h267c31.075 0-16.",
+    "<path fill=\"#001121\" fill-opacity=\".2\" d=\"M144.851 111.053C135.5 118.5 84.291 150.214 56 170h267c31.075 0-16.",
+    "<path fill=\"#001121\" fill-opacity=\".2\" d=\"M144.851 111.053C135.5 118.5 84.291 150.214 56 170h267c31.075 0-16."
+  ],
+  "canton": "GR",
+  "sourceLang": "en",
+  "learnedAt": "2026-09-12T08:50:59.242Z"
+}

@@ -1,0 +1,40 @@
+{
+  "id": "abolire-tassa-salute-frontalieri",
+  "slug": "abolire-tassa-salute-frontalieri",
+  "publishedAt": "2026-05-13T00:07:23.930Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.907069493069719,
+    "confidence": 0.8,
+    "finalScore": 4.725655594455776,
+    "topK": [
+      {
+        "slug": "frontalieri-tassa-salute-teatro",
+        "cosine": 0.8161321694339048
+      },
+      {
+        "slug": "tassa-salute-frontalieri-vantaggio-ticino",
+        "cosine": 0.806178244180048
+      },
+      {
+        "slug": "frontalieri-tassa-salute-scontro",
+        "cosine": 0.8024141434474427
+      },
+      {
+        "slug": "tassa-salute-frontalieri-lombardia-isola-2026",
+        "cosine": 0.8004377391598849
+      },
+      {
+        "slug": "tassa-salute-lombardia-rinvio",
+        "cosine": 0.7988406462296576
+      }
+    ],
+    "score": 4.725655594455776,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

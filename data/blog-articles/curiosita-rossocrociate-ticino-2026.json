@@ -1,0 +1,40 @@
+{
+  "id": "curiosita-rossocrociate-ticino-2026",
+  "slug": "curiosita-rossocrociate-ticino-2026",
+  "publishedAt": "2026-05-10T05:34:13.396Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 12.537520464523972,
+    "confidence": 0.8,
+    "finalScore": 10.030016371619178,
+    "topK": [
+      {
+        "slug": "croce-rossa-160-anni-tagli-educatori",
+        "cosine": 0.7835950290327482
+      },
+      {
+        "slug": "ponte-chiasso-sanita-2026",
+        "cosine": 0.7776756525218665
+      },
+      {
+        "slug": "ex-pazienti-oncologici-aiutano-malati-ticino",
+        "cosine": 0.7623438834812406
+      },
+      {
+        "slug": "passi-solidarieta-porto-ceresio-2026",
+        "cosine": 0.7595764186705698
+      },
+      {
+        "slug": "reclutamento-infermieri-lombardia",
+        "cosine": 0.7549924477945715
+      }
+    ],
+    "score": 5.015008185809589,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

@@ -1,0 +1,168 @@
+name: AdSense format A/B report (weekly)
+
+# Historical companion to the canton in-feed-ad A/B test. The TI treatment was
+# rolled back on 2026-09-22 after the `/cerca-lavoro-ticino/` CLS regression;
+# no new comparison is queried until a new active surface is declared in
+# services/adExperiment.ts. Auto Ads remain enabled.
+#
+# Same structure as revenue-monitor.yml (secrets loading, history commit,
+# failure reporting) — see that workflow for the exact reference pattern.
+
+on:
+  schedule:
+    # Mondays 06:45 UTC — after revenue-monitor.yml (06:15), same digest window.
+    - cron: '45 6 * * 1'
+  workflow_dispatch: {}
+
+concurrency:
+  group: adsense-format-ab-report
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  issues: write
+
+jobs:
+  report:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: 'npm'
+
+      - name: Install dependencies
+        run: npm ci --ignore-scripts
+
+      - name: Write Service Account credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          fi
+
+      - name: Load secrets from Remote Config
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      - name: Record retired AdSense format A/B experiment
+        run: |
+          echo "AdSense in-feed A/B report paused: the TI treatment was rolled back on 2026-09-22; all job-board surfaces use the manual in-feed reserve and Auto Ads remain enabled." > /tmp/adsense-format-ab-report.md
+
+      - name: Print summary to job log
+        run: |
+          echo "## AdSense format A/B reports" >> "$GITHUB_STEP_SUMMARY"
+          cat /tmp/adsense-format-ab-report.md >> "$GITHUB_STEP_SUMMARY"
+
+      - name: Upload report artifact
+        if: always()
+        uses: actions/upload-artifact@v7
+        with:
+          name: adsense-format-ab-report
+          path: |
+            reports/adsense-format-ab-*.json
+            reports/adsense-format-ab-*.md
+          retention-days: 90
+          if-no-files-found: warn
+
+      - name: Commit AdSense format A/B history
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          # Full reports live under reports/ which is gitignored (preserved as
+          # build artifacts only, see "Upload report artifact" above). Only the
+          # compact append-only history file is committed so the next weekly
+          # run can compute each experiment's separate cumulative-sample trend
+          # (one tagged JSONL row per pair; same pattern as
+          # data/revenue-monitor-history.jsonl, see revenue-monitor.yml).
+          git add data/adsense-format-ab-history.jsonl
+          if git diff --cached --quiet; then
+            echo "No history changes to commit."
+            exit 0
+          fi
+          DATE=$(date -u +%Y-%m-%d)
+          git commit -m "📊 Weekly AdSense format A/B report — ${DATE}"
+          # Centralized rebase-retry helper survives concurrent pushes from
+          # other workflows. The history file is append-only, so on a rebase
+          # conflict keep the local commit and union both sides instead of
+          # regenerating.
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "$GITHUB_REF_NAME" \
+            --in-place-resolver-cmd "source scripts/lib/resolve-append-conflicts.sh && resolve_append_conflicts && git add -A"
+
+      - name: Open/update the weekly tracking issue
+        if: always()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          # Stable title → github-issue-creator.mjs dedups on it: week 1 opens
+          # the issue, every following week posts a 🔁 comment with the fresh
+          # report on the SAME issue instead of minting a new one — this is
+          # the "one place to see week-over-week" the owner asked for.
+          #
+          # Priority 4 (`priority:low`) + a custom, non-matching label
+          # deliberately: this is a scheduled DATA report, not an incident.
+          # `classify-issue.mjs` still auto-routes it (every issue gets
+          # `agent:fix-queued` — AGENTS.md "Issue automation", no category is
+          # exempt) but with the `revenue` label the category resolver would
+          # force `fu-prio:high` unconditionally, jumping this ahead of
+          # actually urgent revenue issues in the anti-starvation queue every
+          # single week. Omitting it lets this land as the gentler
+          # `category: other` / `fu-prio: low`.
+          node scripts/lib/github-issue-creator.mjs \
+            --title "AdSense in-feed A/B: monitor settimanale" \
+            --description "$(cat /tmp/adsense-format-ab-report.md)" \
+            --priority 4 \
+            --label adsense-ab-test \
+            --workflow "${{ github.workflow }}"
+
+      - name: Cleanup credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          node scripts/lib/github-issue-creator.mjs \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

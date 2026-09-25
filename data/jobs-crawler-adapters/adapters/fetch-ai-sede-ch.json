@@ -1,0 +1,22 @@
+{
+  "companyKey": "fetch-ai-sede-ch",
+  "companyName": "Fetch.ai (sede CH)",
+  "companyHost": "fetch.ai",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://fetch.ai/careers",
+    "https://fetch.ai/career",
+    "https://fetch.ai/jobs",
+    "https://fetch.ai/karriere",
+    "https://fetch.ai/offene-stellen",
+    "https://fetch.ai/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.944Z"
+}

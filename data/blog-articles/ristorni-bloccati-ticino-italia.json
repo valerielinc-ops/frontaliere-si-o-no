@@ -1,0 +1,40 @@
+{
+  "id": "ristorni-bloccati-ticino-italia",
+  "slug": "ristorni-bloccati-ticino-italia",
+  "publishedAt": "2026-05-11T01:15:18.538Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "ticinonews.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 4.90172003769021,
+    "confidence": 0.8,
+    "finalScore": 3.9213760301521683,
+    "topK": [
+      {
+        "slug": "ristorni-congelati-ticino-italia",
+        "cosine": 0.8928875221725093
+      },
+      {
+        "slug": "ristorni-congelati-scontro-ticino",
+        "cosine": 0.8807553963607887
+      },
+      {
+        "slug": "tassa-salute-scontro-ticino-berna",
+        "cosine": 0.8712608007669063
+      },
+      {
+        "slug": "ristorni-reazione-lombardia",
+        "cosine": 0.8696583857222945
+      },
+      {
+        "slug": "centrodestra-stop-ristorni-2026",
+        "cosine": 0.8601478094911933
+      }
+    ],
+    "score": 3.9213760301521683,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

@@ -1,0 +1,22 @@
+{
+  "companyKey": "netcomm-suisse",
+  "companyName": "NetComm Suisse",
+  "companyHost": "netcommsuisse.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.netcommsuisse.ch/careers",
+    "https://www.netcommsuisse.ch/career",
+    "https://www.netcommsuisse.ch/jobs",
+    "https://www.netcommsuisse.ch/karriere",
+    "https://www.netcommsuisse.ch/offene-stellen",
+    "https://www.netcommsuisse.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.962Z"
+}

@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2896",
+  "companyName": "Bewerbermanagement GZ Dielsdorf Stellen",
+  "companyHost": "recruitingapp-2896.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2896.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 10,
+  "sampleTitles": [
+    "Dipl. Pflegefachperson HF",
+    "HR-Assistent:in",
+    "Lehrstelle als Fachmann/-frau Hotellerie-Hauswirtschaft EFZ",
+    "Lehrstelle als Fachmann/-frau Gesundheit EFZ (stationäre oder ambulante Pflege)",
+    "Lehrstelle Fachfrau-/mann Gesundheit EFZ Spitex"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:37.038Z"
+}

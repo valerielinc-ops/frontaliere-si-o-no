@@ -1,0 +1,21 @@
+{
+  "companyKey": "fr",
+  "companyName": "Schweizerhof",
+  "companyHost": "fr.hotelcareer.ch",
+  "platform": "hotelcareer.ch",
+  "mode": "template",
+  "seedUrls": [
+    "https://fr.hotelcareer.ch/emploi/hotel-schweizerhof-sils-maria-4011"
+  ],
+  "detailTemplate": "/emploi/hotel-schweizerhof-sils-maria-4011/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Chef de Service (m/w)",
+    "Front Office & Reservation Staff (m/w) 04.12.2026 - 04.04.2027 (Wintersaison)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-11T09:06:13.289Z"
+}

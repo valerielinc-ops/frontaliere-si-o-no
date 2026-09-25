@@ -1,0 +1,18 @@
+{
+  "id": "premi-di-cassa-malati-ticino",
+  "slug": "premi-di-cassa-malati-ticino",
+  "publishedAt": "2026-06-10T00:23:37.214Z",
+  "cluster": "salute",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3,
+    "confidence": 0.3,
+    "finalScore": 0.8999999999999999,
+    "cluster": "salute",
+    "score": 0.8999999999999999,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1
+  }
+}

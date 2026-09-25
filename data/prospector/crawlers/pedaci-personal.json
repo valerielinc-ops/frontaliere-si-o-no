@@ -1,0 +1,24 @@
+{
+  "companyKey": "pedaci-personal",
+  "companyName": "Pedaci Personal GmbH",
+  "companyHost": "pedaci-personal.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://pedaci-personal.ch/aktuelle-jobs/"
+  ],
+  "detailTemplate": "/jobprofile/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Anlagen- und Apparatebauer",
+    "Bauarbeiter – Strassenbauer",
+    "Bauspengler",
+    "Betriebsmitarbeiter",
+    "Gerüstbauer"
+  ],
+  "canton": "SO",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-24T09:59:59.320Z"
+}

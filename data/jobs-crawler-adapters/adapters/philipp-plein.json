@@ -1,0 +1,22 @@
+{
+  "companyKey": "philipp-plein",
+  "companyName": "Philipp Plein",
+  "companyHost": "plein.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.plein.com/careers",
+    "https://www.plein.com/career",
+    "https://www.plein.com/jobs",
+    "https://www.plein.com/karriere",
+    "https://www.plein.com/offene-stellen",
+    "https://www.plein.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.967Z"
+}

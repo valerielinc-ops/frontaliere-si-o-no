@@ -1,0 +1,40 @@
+{
+  "id": "incendio-autostrada-piotta",
+  "slug": "incendio-autostrada-piotta",
+  "publishedAt": "2026-06-26T16:22:48.193Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.340030271617763,
+    "confidence": 0.8,
+    "finalScore": 4.27202421729421,
+    "topK": [
+      {
+        "slug": "incendio-auto-a2-camorino",
+        "cosine": 0.8900050452696271
+      },
+      {
+        "slug": "incendio-auto-bellinzona-sud-2026",
+        "cosine": 0.8699263821639837
+      },
+      {
+        "slug": "a2-corsia-ritardi-lugano-2026",
+        "cosine": 0.8615102344964252
+      },
+      {
+        "slug": "a2-traffico-ritardi-lugano-2026",
+        "cosine": 0.8498526048540642
+      },
+      {
+        "slug": "ritardi-a2-tra-chiasso-lugano",
+        "cosine": 0.8481888485294445
+      }
+    ],
+    "score": 0.427202421729421,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

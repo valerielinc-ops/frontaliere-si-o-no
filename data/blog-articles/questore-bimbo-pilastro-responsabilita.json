@@ -1,0 +1,40 @@
+{
+  "id": "questore-bimbo-pilastro-responsabilita",
+  "slug": "questore-bimbo-pilastro-responsabilita",
+  "publishedAt": "2026-05-11T02:12:23.765Z",
+  "cluster": "generic",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 34.18635226182577,
+    "confidence": 0.8,
+    "finalScore": 27.349081809460614,
+    "topK": [
+      {
+        "slug": "denuncia-soccorsi-crans-montana-2026",
+        "cosine": 0.7596967169294616
+      },
+      {
+        "slug": "crans-montana-soccorso-denunciato",
+        "cosine": 0.7544766308684551
+      },
+      {
+        "slug": "indagine-soccorsi-crans-montana-2026",
+        "cosine": 0.7503110584246395
+      },
+      {
+        "slug": "processo-quadroni-ex-capo-posto-contesta-accuse",
+        "cosine": 0.7475250173682209
+      },
+      {
+        "slug": "presunti-maltrattamenti-asilo-chiasso",
+        "cosine": 0.7465128376378802
+      }
+    ],
+    "score": 6.8372704523651535,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

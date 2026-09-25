@@ -1,0 +1,40 @@
+{
+  "id": "dsm-firmenich-cancella-1000-impieghi",
+  "slug": "dsm-firmenich-cancella-1000-impieghi",
+  "publishedAt": "2026-07-31T01:08:31.440Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 5.115184850249104,
+    "confidence": 0.8,
+    "finalScore": 4.092147880199284,
+    "topK": [
+      {
+        "slug": "swiss-300-uscite-volontarie-2026",
+        "cosine": 0.8525308083748506
+      },
+      {
+        "slug": "mobilita-infermieri-ticino",
+        "cosine": 0.8493121663759711
+      },
+      {
+        "slug": "multa-svapo-stazioni-ticino-2026",
+        "cosine": 0.8480836622386726
+      },
+      {
+        "slug": "kuhne-nagel-tagli-posti-ticino-2026",
+        "cosine": 0.8455110625125285
+      },
+      {
+        "slug": "medici-senza-permesso-svizzera-2026",
+        "cosine": 0.845406529719965
+      }
+    ],
+    "score": 4.092147880199284,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

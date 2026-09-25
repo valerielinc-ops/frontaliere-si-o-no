@@ -1,0 +1,22 @@
+{
+  "companyKey": "giorgio-armani-operations",
+  "companyName": "Giorgio Armani Operations",
+  "companyHost": "armani.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.armani.com/careers",
+    "https://www.armani.com/career",
+    "https://www.armani.com/jobs",
+    "https://www.armani.com/karriere",
+    "https://www.armani.com/offene-stellen",
+    "https://www.armani.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.946Z"
+}

@@ -1,0 +1,17 @@
+{
+  "companyKey": "migrolino",
+  "companyName": "migrolino",
+  "companyHost": "jobs.migros.ch",
+  "enabled": true,
+  "priority": 10,
+  "crawlerModes": [
+    "nuxt_ssr",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://jobs.migros.ch/de/unsere-unternehmen/migrolino/offene-stellen?text=&location=&RUBRIC=10189,10200,10241,10246,10239"
+  ],
+  "notes": "Dedicated migrolino crawler on the shared Migros jobs portal. Playwright paginates the migrolino tenant across all 26 Swiss cantons; each JobPosting keeps its source city, postal code and canton. Foreign or unresolved locations are dropped and no headquarters fallback is used.",
+  "updatedAt": "2026-09-17T00:00:00.000Z"
+}

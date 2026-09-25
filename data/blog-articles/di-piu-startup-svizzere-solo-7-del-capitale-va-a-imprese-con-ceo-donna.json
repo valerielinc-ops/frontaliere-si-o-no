@@ -1,0 +1,40 @@
+{
+  "id": "di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna",
+  "slug": "di-piu-startup-svizzere-solo-7-del-capitale-va-a-imprese-con-ceo-donna",
+  "publishedAt": "2026-07-19T07:35:42.903Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.868285009660083,
+    "confidence": 0.8,
+    "finalScore": 5.494628007728067,
+    "topK": [
+      {
+        "slug": "svizzeri-scelgono-capitale-pensione",
+        "cosine": 0.8585356262075103
+      },
+      {
+        "slug": "parita-paura-frontalieri-ticino",
+        "cosine": 0.8499943660718214
+      },
+      {
+        "slug": "startup-investimenti-boom-ticino",
+        "cosine": 0.8481321752013734
+      },
+      {
+        "slug": "iva-bassa-svizzera-immagine-ingannevole",
+        "cosine": 0.8475305111999414
+      },
+      {
+        "slug": "votazioni-svizzera-10-milioni-frontalieri",
+        "cosine": 0.8461983061293405
+      }
+    ],
+    "score": 5.494628007728067,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

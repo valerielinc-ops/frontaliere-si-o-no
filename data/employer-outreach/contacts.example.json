@@ -1,0 +1,15 @@
+{
+  "_comment": "Template registry contatti HR per l'outreach. Copia in contacts.json (untracked) e compila con le email reali raccolte in fase di enrichment. Chiave = employer key (slug) o nome esatto come appare nel report. Nessuna email reale va committata: contacts.json è in .gitignore.",
+  "casale-sa": {
+    "contactName": "",
+    "email": "",
+    "careersUrl": "",
+    "note": "es. trovata su pagina careers / LinkedIn"
+  },
+  "aldi-suisse": {
+    "contactName": "",
+    "email": "",
+    "careersUrl": "https://www.aldi.ch",
+    "note": ""
+  }
+}

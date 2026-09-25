@@ -1,0 +1,22 @@
+{
+  "companyKey": "credit-suisse-ora-ubs",
+  "companyName": "Credit Suisse (ora UBS)",
+  "companyHost": "ubs.com",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.ubs.com/careers",
+    "https://www.ubs.com/career",
+    "https://www.ubs.com/jobs",
+    "https://www.ubs.com/karriere",
+    "https://www.ubs.com/offene-stellen",
+    "https://www.ubs.com/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.936Z"
+}

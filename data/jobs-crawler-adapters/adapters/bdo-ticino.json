@@ -1,0 +1,22 @@
+{
+  "companyKey": "bdo-ticino",
+  "companyName": "BDO Ticino",
+  "companyHost": "bdo.ch",
+  "enabled": true,
+  "priority": 0,
+  "crawlerModes": [
+    "generic_ats",
+    "html",
+    "jsonld"
+  ],
+  "seedUrls": [
+    "https://www.bdo.ch/careers",
+    "https://www.bdo.ch/career",
+    "https://www.bdo.ch/jobs",
+    "https://www.bdo.ch/karriere",
+    "https://www.bdo.ch/offene-stellen",
+    "https://www.bdo.ch/lavora-con-noi"
+  ],
+  "notes": "",
+  "updatedAt": "2026-02-27T17:06:06.927Z"
+}

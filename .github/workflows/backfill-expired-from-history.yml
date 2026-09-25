@@ -1,0 +1,463 @@
+name: Backfill Expired Jobs From History
+
+# Recovers job content for "empty orphan" soft-landing pages.
+#
+# When a job disappears from a crawler's source (listing pulled, PDF removed) or
+# its slug churns, it can drop out of the by-crawler slice WITHOUT being archived
+# into data/jobs/expired/by-crawler/. Google keeps the old URL indexed, so the
+# soft-landing page renders with only a slug-derived title and NO description —
+# thin content with zero SEO value. `scripts/backfill-expired-from-history.mjs`
+# walks git history, finds those dropped jobs by id, and re-archives the most
+# recent version (full title/description/salary/slugByLocale) into the expired
+# slice. The build plugin (jobsSeoPagesPlugin) then resolves the orphan slug to
+# that recovered content via its slug-variant index — including the long tail
+# beyond the 5000-entry expired-jobs.json cap, which it now reads from the
+# uncapped per-crawler slices directly.
+#
+# Needs full git history (fetch-depth: 0) — the by-crawler slices are walked
+# commit-by-commit. Runs monthly as a safety net; the crawler pipeline archives
+# most drops in real time, so each run typically recovers only the few that
+# slipped through since the last one.
+on:
+  schedule:
+    - cron: '0 4 1 * *'  # 1st of each month, 04:00 UTC
+  workflow_dispatch:
+    inputs:
+      max_commits:
+        description: 'Cap history depth per slice (0 = unbounded)'
+        required: false
+        type: string
+        default: '0'
+      dry_run:
+        description: 'Dry run (no file writes, just report)'
+        required: false
+        type: boolean
+        default: true
+      crawler_keys:
+        description: 'Optional comma/newline-separated crawler keys for a bounded batch.'
+        required: false
+        type: string
+        default: ''
+
+concurrency:
+  group: jobs-data-pipeline
+  cancel-in-progress: false
+  queue: max
+
+permissions:
+  contents: write
+  # The failure reporter below opens/comments the canonical issue. Without
+  # this scope an explicit permissions block zeroes `issues`, and run
+  # 35988019883 (2026-09-24) got `HTTP 403: Resource not accessible by
+  # integration` on createIssue — silent, because the step is continue-on-error.
+  issues: write
+
+jobs:
+  backfill:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90
+
+    steps:
+      - name: Checkout (full history — required to walk by-crawler slices)
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+        # Tetto Checkout (classe #5145/#5144/#5162): senza, un fetch degenere
+        # consuma l'intero budget e il job muore `cancelled` — stato invisibile
+        # agli `if: failure()`, il buco che scan-job-timeouts.mjs tappa solo a
+        # posteriori. Col tetto e' un `failure` diagnosticabile.
+        #
+        # Il tetto era 20min, tarato sull'UNICA run completata disponibile
+        # (Checkout 166s il 2026-06-15, 3% di un cap da 90min). Quei 166s non
+        # descrivono piu' il repo: la run 33490566667 (2026-09-01) e' morta
+        # proprio qui, e il log dice che il tetto ha tagliato il FETCH, non il
+        # checkout dell'albero — `git fetch` dalle 09:07:33 alle 09:27:23, cioe'
+        # 19m50s dei 20min, e il `git checkout` dietro era al 11% (4526/41140
+        # file) dopo pochi secondi, quindi avrebbe finito in ~100s. Il tetto
+        # stava sotto il costo intrinseco del fetch: non e' severita', e' un
+        # rosso che nessuna modifica al repo puo' togliere.
+        #
+        # Perche' si alza il tetto invece di ridurre il fetch — le due cure
+        # abituali sono entrambe escluse, misurate:
+        #  - `filter: blob:none` e' VELENO qui, per la stessa ragione scritta nel
+        #    Checkout di recover-prev-slugs.yml: `backfill-expired-from-history.mjs`
+        #    non cammina solo i commit, legge il CONTENUTO di ogni revisione con
+        #    `git show <sha>:<path>` (una per commit, fino a ~640 per slice su 596
+        #    slice). Con un clone blobless ognuna di quelle letture e' un
+        #    lazy-fetch di rete.
+        #  - restringere la finestra (`--shallow-since`) non compra niente: la
+        #    history di questo repo e' TUTTA recente dopo il rewrite del
+        #    2026-05-27, 117'771 commit su main di cui 96'198 negli ultimi 3
+        #    mesi. Tagliare a 3 mesi togliere il 18% del fetch, non il costo.
+        # Resta quindi il tetto, alzato al costo reale con margine: 40min contro
+        # i 19m50s+ misurati. Il budget del job (90min) lo assorbe — l'ultima run
+        # riuscita ha speso 25m30s in TOTALE (walk 12m41s, reassemble 45s,
+        # npm test 7m51s, commit 1m04s), quindi 40 + ~23 = ~63min.
+        timeout-minutes: 40
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials for push auth
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set — cannot load GITHUB_PAT for a direct main push"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load push credentials from Remote Config
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        run: node scripts/load-rc-env.mjs
+
+      - name: Recover dropped jobs and repair active firstSeenAt metadata (checkpointed batches)
+        id: backfill
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        env:
+          DRY_RUN: ${{ inputs.dry_run == true && '1' || '0' }}
+          MAX_COMMITS: ${{ inputs.max_commits || '0' }}
+          CRAWLER_KEYS: ${{ inputs.crawler_keys || '' }}
+          # Each checkpoint reruns the focused data gate before publishing.
+          # A 64-key batch reached the 90-minute cap before its next commit in
+          # run 36073258478. Sixteen bounds the uncommitted loss while keeping
+          # the validation/push overhead below the job budget.
+          BACKFILL_CHECKPOINT_BATCH_SIZE: '16'
+          BACKFILL_PROGRESS_PATH: .github/backfill-expired-from-history-progress.tsv
+        # The history walk writes each expired slice atomically, but the old
+        # one-shot invocation only committed after the whole walk and the test
+        # gate. A timeout or a later unrelated test failure therefore discarded
+        # every slice produced earlier in the run. Process one crawler at a
+        # time, push a small batch, and keep an EXIT trap for a partial batch:
+        # the next run sees the already-enriched slices on main and naturally
+        # resumes from the first unfinished crawler.
+        run: |
+          set -euo pipefail
+
+          checkpoint_batch_size="${BACKFILL_CHECKPOINT_BATCH_SIZE:-64}"
+          case "$checkpoint_batch_size" in
+            ''|*[!0-9]*|0)
+              echo "::error::BACKFILL_CHECKPOINT_BATCH_SIZE must be a positive integer"
+              exit 2
+              ;;
+          esac
+
+          if [ -n "$CRAWLER_KEYS" ]; then
+            keys="$(printf '%s\n' "$CRAWLER_KEYS" | sed 's/[[:space:],][[:space:],]*/\n/g' | sed '/^$/d' | sort -u)"
+          else
+            keys="$(find data/jobs/by-crawler -maxdepth 1 -type f -name '*.json' -print | sed 's#^.*/##; s#\.json$##' | sort -u)"
+          fi
+
+          if [ -z "$keys" ]; then
+            echo 'ℹ️ No crawler slices matched; nothing to backfill.'
+            exit 0
+          fi
+
+          progress_path="${BACKFILL_PROGRESS_PATH:-.github/backfill-expired-from-history-progress.tsv}"
+          workset_hash="$(printf '%s\n' "$keys" | git hash-object --stdin)"
+          last_completed_key=''
+          saved_workset=''
+          saved_last=''
+          saved_status=''
+          if [ -f "$progress_path" ]; then
+            if ! IFS=$'\t' read -r saved_workset saved_last saved_status < "$progress_path"; then
+              echo "::error::Invalid backfill progress file: $progress_path"
+              exit 2
+            fi
+            case "$saved_status" in
+              active|complete) ;;
+              *)
+                echo "::error::Unknown backfill progress status '$saved_status' in $progress_path"
+                exit 2
+                ;;
+            esac
+          fi
+
+          # A completed workset starts a new monthly/manual pass. An active
+          # workset is the durable cursor left by a failed or cancelled run;
+          # skip only the keys confirmed by a pushed checkpoint.
+          # Bash treats tab as IFS whitespace and collapses an empty middle
+          # field. Persist '-' for an empty cursor so a progress line always
+          # round-trips as exactly three fields.
+          if [ "$saved_status" = 'active' ] && [ "$saved_workset" = "$workset_hash" ] && [ "$saved_last" != '-' ]; then
+            if ! printf '%s\n' "$keys" | grep -Fx "$saved_last" >/dev/null; then
+              echo "::error::Backfill progress cursor '$saved_last' is not in the current crawler workset."
+              exit 2
+            fi
+            last_completed_key="$saved_last"
+            keys="$(awk -v marker="$saved_last" '$0 == marker { found=1; next } found' <<< "$keys")"
+            echo "♻️ Resuming after durable crawler checkpoint: $saved_last"
+          elif [ "$saved_status" = 'active' ] && [ -n "$saved_workset" ] && [ "$saved_workset" != "$workset_hash" ]; then
+            echo 'ℹ️ Crawler workset changed; starting a fresh cursor.'
+          elif [ "$saved_status" = 'complete' ]; then
+            echo 'ℹ️ Previous crawler workset completed; starting a fresh pass.'
+          fi
+
+          checkpoint_count=0
+          checkpoint_active=0
+          checkpoint_failed=0
+
+          has_dirty_slices() {
+            git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler | grep . >/dev/null
+          }
+
+          has_dirty_checkpoint() {
+            git status --porcelain -- data/jobs/by-crawler data/jobs/expired/by-crawler "$progress_path" | grep . >/dev/null
+          }
+
+          checkpoint() {
+            checkpoint_final="${1:-0}"
+            if [ "$checkpoint_active" -eq 1 ]; then
+              return 0
+            fi
+            checkpoint_active=1
+            echo "🧷 Validating and checkpointing recovered slices (crawler keys: $checkpoint_count)"
+            checkpoint_status='active'
+            if [ "$checkpoint_final" = '1' ]; then
+              checkpoint_status='complete'
+            fi
+            mkdir -p "$(dirname "$progress_path")"
+            checkpoint_cursor="${last_completed_key:--}"
+            printf '%s\t%s\t%s\n' "$workset_hash" "$checkpoint_cursor" "$checkpoint_status" > "$progress_path"
+            # A durable checkpoint is also a complete data gate. This keeps a
+            # bad assembled artifact or invariant failure off main even when a
+            # later batch would otherwise make the overall run red.
+            if ! node scripts/assemble-jobs-dataset.mjs; then
+              checkpoint_failed=1
+              checkpoint_active=0
+              return 1
+            fi
+            if ! npm run test:backfill; then
+              checkpoint_failed=1
+              checkpoint_active=0
+              return 1
+            fi
+            if ! node scripts/audit-expired-at-parsable.mjs; then
+              checkpoint_failed=1
+              checkpoint_active=0
+              return 1
+            fi
+            checkpoint_tmp_dir="${RUNNER_TEMP:-/tmp}"
+            if ! checkpoint_output="$(mktemp "$checkpoint_tmp_dir/backfill-checkpoint-output.XXXXXX")"; then
+              echo '::error::Unable to allocate the checkpoint outcome file.'
+              checkpoint_failed=1
+              checkpoint_active=0
+              return 1
+            fi
+            if ! GITHUB_OUTPUT="$checkpoint_output" SKIP_AI_TRANSLATION=1 bash scripts/lib/git-commit-data.sh --slice-only \
+              "chore(data): checkpoint history backfill slices for resumable recovery" \
+              "$progress_path"; then
+              rm -f "$checkpoint_output"
+              checkpoint_failed=1
+              checkpoint_active=0
+              return 1
+            fi
+            # A false marker is a valid no-op only when this batch left no
+            # expired slice dirty. In particular, a busy shared writer (or any
+            # other path that returns success without a push) must not make us
+            # reset the batch counter and lose the workspace-only changes.
+            checkpoint_dirty=0
+            if has_dirty_slices; then
+              checkpoint_dirty=1
+            fi
+            if grep -q '^has_changes=true$' "$checkpoint_output"; then
+              if ! git fetch --no-tags origin main || ! git reset --hard origin/main; then
+                rm -f "$checkpoint_output"
+                echo '::error::Checkpoint was reported as persisted but the workspace could not be aligned to origin/main.'
+                checkpoint_failed=1
+                checkpoint_active=0
+                return 1
+              fi
+            elif grep -q '^has_changes=false$' "$checkpoint_output" && [ "$checkpoint_dirty" -eq 0 ]; then
+              :
+            else
+              rm -f "$checkpoint_output"
+              echo '::error::Checkpoint did not prove that the dirty batch was persisted.'
+              checkpoint_failed=1
+              checkpoint_active=0
+              return 1
+            fi
+            rm -f "$checkpoint_output"
+            checkpoint_count=0
+            checkpoint_active=0
+          }
+
+          on_exit() {
+            status=$?
+            trap - EXIT
+            # If the node process or a later shell command fails, persist every
+            # completed atomic slice still dirty in the workspace before the
+            # runner disappears. A failed push remains a real failure; the next
+            # invocation retries the same bounded batch.
+            if [ "$status" -ne 0 ] && [ "$checkpoint_failed" -eq 0 ] && has_dirty_checkpoint; then
+              echo '⚠️ Backfill failed; attempting one last durable slice checkpoint.'
+              if ! checkpoint; then
+                echo '::error::Unable to persist the partial backfill checkpoint.'
+              fi
+            fi
+            exit "$status"
+          }
+          trap on_exit EXIT
+
+          on_signal() {
+            signal_status="$1"
+            trap - EXIT TERM INT
+            # GitHub timeout/cancel sends SIGTERM while the crawler process is
+            # running. Bash may execute this trap after that child exits, which
+            # is the last reliable chance to publish completed atomic slices.
+            if [ "$checkpoint_active" -eq 0 ] && [ "$checkpoint_failed" -eq 0 ] && has_dirty_checkpoint; then
+              echo '⚠️ Backfill interrupted; attempting a durable checkpoint before exit.'
+              if ! checkpoint; then
+                echo '::error::Unable to persist the interrupted backfill checkpoint.'
+              fi
+            fi
+            exit "$signal_status"
+          }
+          trap 'on_signal 143' TERM
+          trap 'on_signal 130' INT
+
+          if [ -z "$keys" ]; then
+            # The prior attempt persisted the last key but was interrupted
+            # before it could mark the workset complete.
+            checkpoint 1
+            echo '✅ History backfill already had a durable cursor for every requested crawler.'
+            exit 0
+          fi
+
+          mapfile -t key_list <<< "$keys"
+          for key in "${key_list[@]}"; do
+            [ -n "$key" ] || continue
+            echo "──── Backfilling crawler: $key ────"
+            CRAWLER_KEYS="$key" node scripts/backfill-expired-from-history.mjs
+            last_completed_key="$key"
+            checkpoint_count=$((checkpoint_count + 1))
+            if [ "$checkpoint_count" -ge "$checkpoint_batch_size" ]; then
+              checkpoint
+            fi
+          done
+
+          checkpoint 1
+          echo '✅ History backfill completed with durable checkpoints.'
+
+      - name: Reassemble dataset (so the test gate has data/jobs.json; not committed)
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        # Regenerates the assembled artifacts (data/jobs.json, expired-jobs.json)
+        # that the vitest gate reads. These are deploy-assembled, not committed by
+        # the --slice-only checkpoint commits above. We deliberately do NOT run
+        # reconcile-job-slugs.mjs here: it mutates the funnel-critical tracked
+        # registry (data/orphan-indexed-job-slugs.json) which --slice-only would
+        # write-then-discard, and reconciliation is the sync-gsc-orphans pipeline's
+        # job — this workflow only recovers expired slice content.
+        run: node scripts/assemble-jobs-dataset.mjs
+
+      - name: Test gate (bot-direct-to-main — validate before deploy)
+        id: backfill_tests
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
+        # A workflow that pushes data straight to main is held to the same
+        # relevant-test policy as a PR (AGENTS.md). The full suite is not the
+        # gate here: its unrelated corpus/environment tests can fail after the
+        # backfill is already correct and would turn a persisted checkpoint
+        # into a red run while blocking its deploy. This focused gate covers the
+        # recovered archive/assembly invariants and the no-repeat alert ledger.
+        # Measurement on 2026-09-24 with the 11-file gate: the concurrent
+        # invocation hit 3 x 15s subprocess timeouts; --maxWorkers=1 passed
+        # all 312 tests in 71.73s. Keep the serial setting until a new run
+        # demonstrates that parallelism is safe for these subprocess tests.
+        run: npm run test:backfill
+
+      - name: Trigger deploy after validated backfill
+        if: steps.backfill.outcome == 'success' && steps.backfill_tests.outcome == 'success' && inputs.dry_run != true && inputs.dry_run != 'true'
+        # Hard-fail by design (no `|| true`, #6936): a failed dispatch here
+        # fails the job, caught by "Report failure to GitHub Issues" below —
+        # that GitHub issue IS this caller's recovery net (auto-triage picks
+        # it up), so silencing the failure would just hide a real deploy gap.
+        # Do not gate this on has_changes: a previous attempt may have pushed
+        # its checkpoint and failed only in the test/deploy tail. A clean rerun
+        # must still publish the already-persisted data.
+        run: bash scripts/lib/trigger-deploy.sh
+        env:
+          GITHUB_REPOSITORY: ${{ github.repository }}
+
+      # ─── Perche' questo step esiste ────────────────────────────────────────
+      # Il reporter qui sotto e' `run: node scripts/lib/github-issue-creator.mjs`,
+      # cioe' vive nell'albero che il Checkout materializza. Quando e' il Checkout
+      # A FALLIRE, quel file non esiste e il reporter muore con
+      # `Cannot find module .../scripts/lib/github-issue-creator.mjs` — e
+      # `continue-on-error: true` fa risultare lo step `success`, quindi il
+      # fallimento della rete di sicurezza e' INVISIBILE nella lista degli step.
+      # MISURA: 0 issue sulla run rossa 33490566667 (2026-09-01, Checkout morto a 20 min
+      # con 19m50s di fetch) = 415 h di silenzio su un cron MENSILE, dove la
+      # prossima occasione di accorgersene sarebbe il 2026-10-01.
+      #
+      # Il recupero va in un path SEPARATO, non nel workspace: un Checkout morto
+      # in timeout lascia l'albero PARZIALE, e un secondo checkout sullo stesso
+      # path lo ripulirebbe o litigherebbe con quello che c'e' gia'.
+      # `sparse-checkout: scripts/lib` basta, e non e' una stima: la chiusura
+      # degli import di github-issue-creator.mjs e' UN SOLO file, con soli
+      # builtin di node e zero dipendenze npm (misurata il 2026-09-19), quindi
+      # niente `npm ci` e niente `setup-node` da rifare.
+      #
+      # Perche' inline in due file invece di una composite action condivisa
+      # (AGENTS.md #6): una composite LOCALE non e' risolvibile senza checkout —
+      # e' il commento di .github/actions/report-failure/action.yml a dirlo,
+      # «lo step deve stare DOPO un actions/checkout». Una action che serve
+      # proprio quando il checkout e' fallito non puo' vivere nel repo:
+      # by construction, qui l'unica forma possibile e' `actions/checkout`.
+      - name: Recover the failure reporter (when the checkout is what failed)
+        if: failure()
+        continue-on-error: true
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 1
+          persist-credentials: false
+          path: .reporter
+          sparse-checkout: scripts/lib
+
+      - name: Report failure to GitHub Issues
+        if: failure()
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Rilievo 🔴 della review: senza questo, `repoFlag()` in
+          # github-issue-creator.mjs rende `[]` (riga 175) e `apiRepoPath()`
+          # lascia i placeholder `{owner}/{repo}` (riga 560), che `gh` risolve
+          # dal REMOTE GIT DELLA CWD. Se il Checkout fallito non ha lasciato un
+          # `.git` usabile, il reporter non sa su quale repo scrivere e la rete
+          # di sicurezza non parte — cioe' il reporter di recupero aveva la
+          # stessa dipendenza implicita dal checkout che stava riparando, un
+          # livello piu' in basso. Con GH_REPO esplicito non dipende piu' da
+          # nessun albero.
+          GH_REPO: ${{ github.repository }}
+        run: |
+          # L'albero puo' essere assente (Checkout fallito) o parziale: usa la
+          # copia recuperata solo se la canonica non c'e'.
+          SCRIPT=scripts/lib/github-issue-creator.mjs
+          [ -f "$SCRIPT" ] || SCRIPT=.reporter/scripts/lib/github-issue-creator.mjs
+          # Se anche il recupero e' fallito, questo step sotto
+          # `continue-on-error: true` risulterebbe `success` senza aver
+          # riportato niente — il «no-report riuscito in silenzio», che e'
+          # esattamente il difetto di partenza spostato di un passo. Un
+          # `::error::` lascia un'annotation visibile sulla run, e la issue la
+          # apre comunque la rete centrale (scripts/ci/scan-unreported-failures.mjs).
+          if [ ! -f "$SCRIPT" ]; then
+            echo "::error::reporter di fallimento non raggiungibile: ne' scripts/lib/ ne' .reporter/scripts/lib/ esistono. Nessuna issue aperta da questo workflow; la copertura resta su unreported-failure-issues.yml."
+            exit 0
+          fi
+          node "$SCRIPT" \
+            --title "Workflow Failure: ${{ github.workflow }}" \
+            --description "## Workflow fallito
+          **Run:** https://github.com/${{ github.repository }}/actions/runs/${{ github.run_id }}
+          **Trigger:** ${{ github.event_name }}
+          **Ref:** ${{ github.ref_name }}" \
+            --priority 2 \
+            --label Bug \
+            --workflow "${{ github.workflow }}"

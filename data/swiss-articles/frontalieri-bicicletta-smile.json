@@ -1,0 +1,19 @@
+{
+  "id": "frontalieri-bicicletta-smile",
+  "slug": "frontalieri-bicicletta-smile",
+  "publishedAt": "2026-07-13T10:15:09.116Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 156.06649333333334,
+    "confidence": 1,
+    "finalScore": 156.06649333333334,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 78.03324666666667,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

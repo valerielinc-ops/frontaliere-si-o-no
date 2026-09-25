@@ -1,0 +1,40 @@
+{
+  "id": "energia-verde-svizzera",
+  "slug": "energia-verde-svizzera",
+  "publishedAt": "2026-06-29T14:51:25.428Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.254422613717839,
+    "confidence": 0.8,
+    "finalScore": 5.803538090974271,
+    "topK": [
+      {
+        "slug": "aziende-svizzere-trimestrali-migliori-previsto",
+        "cosine": 0.8560616441567594
+      },
+      {
+        "slug": "petrolio-gas-svizzera-approvvigionamento-sicuro",
+        "cosine": 0.8553965736390802
+      },
+      {
+        "slug": "conflitto-medio-oriente-energia-ticino",
+        "cosine": 0.8435247719635812
+      },
+      {
+        "slug": "svizzera-credito-energetico-2026",
+        "cosine": 0.8424248897226403
+      },
+      {
+        "slug": "cinque-atti-parlamentari-ticino-mobilita",
+        "cosine": 0.8407820528747803
+      }
+    ],
+    "score": 2.9017690454871357,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

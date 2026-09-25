@@ -1,0 +1,23 @@
+{
+  "companyKey": "lumnezia",
+  "companyName": "Camping Lumnezia",
+  "companyHost": "lumnezia.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.lumnezia.ch/de/gemeinde/regionale-amtsstellen/zivilstandsamt-surselva"
+  ],
+  "detailTemplate": "/de/gemeinde/regionale-amtsstellen/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Berufsbeistandschaft",
+    "Betreibungsamt",
+    "KESB",
+    "Regionales Arbeitsvermittlungszentrum (RAV)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-10T09:01:52.380Z"
+}

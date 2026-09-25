@@ -1,0 +1,19 @@
+{
+  "id": "strada-maria-teresa-roveredo-recupero",
+  "slug": "strada-maria-teresa-roveredo-recupero",
+  "publishedAt": "2026-07-24T18:26:03.613Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "gsc",
+    "rawScore": 149.80582182222224,
+    "confidence": 1,
+    "finalScore": 149.80582182222224,
+    "matchedQuery": "offerte di lavoro ticino",
+    "score": 37.45145545555556,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

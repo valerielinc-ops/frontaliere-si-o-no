@@ -1,0 +1,40 @@
+{
+  "id": "ristorni-lombardia-ticino",
+  "slug": "ristorni-lombardia-ticino",
+  "publishedAt": "2026-07-02T11:17:14.429Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "wp-search:comozero.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 6.17972721962108,
+    "confidence": 0.8,
+    "finalScore": 4.9437817756968645,
+    "topK": [
+      {
+        "slug": "frontalieri-tassa-salute-lombardia",
+        "cosine": 0.8828181742315829
+      },
+      {
+        "slug": "tassa-salute-frontalieri-lombardia-isola-2026",
+        "cosine": 0.8802720191969077
+      },
+      {
+        "slug": "tassa-salute-frontalieri-lombardia-minacce-ticino",
+        "cosine": 0.87660133720871
+      },
+      {
+        "slug": "frontalieri-astuti-confronto-territori",
+        "cosine": 0.8723330860604823
+      },
+      {
+        "slug": "ristorni-frontalieri-scontro-ticino-lombardia",
+        "cosine": 0.8696817907934953
+      }
+    ],
+    "score": 0.4943781775696865,
+    "clusterDiversityBonus": 0.1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

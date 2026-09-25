@@ -1,0 +1,40 @@
+{
+  "id": "sulzer-primo-semestre-2026",
+  "slug": "sulzer-primo-semestre-2026",
+  "publishedAt": "2026-07-28T07:13:24.798Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.518333750047905,
+    "confidence": 0.8,
+    "finalScore": 6.014667000038324,
+    "topK": [
+      {
+        "slug": "swiss-risultati-trimestre-frontalieri",
+        "cosine": 0.8328623168359035
+      },
+      {
+        "slug": "beko-cassinetta-risultati-2026",
+        "cosine": 0.8269392861011284
+      },
+      {
+        "slug": "varese-lavoro-specializzato-paradosso-2026",
+        "cosine": 0.8195020916223078
+      },
+      {
+        "slug": "aeroporto-zurigo-traffico-crescita-2026",
+        "cosine": 0.8185762207407724
+      },
+      {
+        "slug": "premi-non-oltre-10-percento",
+        "cosine": 0.8167014430244424
+      }
+    ],
+    "score": 6.014667000038324,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

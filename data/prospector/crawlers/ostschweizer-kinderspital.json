@@ -1,0 +1,21 @@
+{
+  "companyKey": "ostschweizer-kinderspital",
+  "companyName": "Ostschweizer Kinderspital",
+  "companyHost": "oks.ch",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.oks.ch/stellen"
+  ],
+  "detailTemplate": "/de/stellen/*",
+  "sampleVacancyCount": 9,
+  "sampleTitles": [
+    "zu den offenen Stellen",
+    "zu den offenen Stellen",
+    "zu den offenen Stellen",
+    "zu den offenen Stellen",
+    "zu den offenen Stellen"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-22T04:29:02.779Z"
+}

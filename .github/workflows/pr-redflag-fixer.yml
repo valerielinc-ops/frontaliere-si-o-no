@@ -1,0 +1,1987 @@
+name: PR 🔴 fixer (bounded loop-closure on bot PRs)
+
+# Quando il reviewer Claude posta un `🔴` su una PR autonoma (bot-authored,
+# head `fix/*`, head riservata `automerge-*` o label `agent:autofix`), questo
+# workflow auto-applica il fix sullo stesso branch — in modo BOUNDED. Il push
+# ri-triggera pr-review-loop (re-review) → se pulito, auto-merge; se 🔴 di
+# nuovo, questo workflow ri-parte fino al round cap. Una PR umana non opt-in
+# resta esclusa.
+#
+# ANTI-LOOP: un marker nascosto `<!-- REDFLAG_FIX_ROUND: N HEAD: <sha> -->` sulla PR conta i
+# round. A N>=3 → label `needs-human` + escalation, STOP senza Claude: il limite
+# protegge il branch da tentativi ripetitivi che non producono progresso.
+
+on:
+  pull_request_review:
+    types: [submitted]
+
+# Un fixer alla volta per PR: evita due round Claude concorrenti sullo stesso
+# branch (push race) e cancella un writer body precedente prima del nuovo CAS.
+concurrency:
+  group: body-revision-${{ github.event.pull_request.number }}
+  cancel-in-progress: true
+
+permissions:
+  contents: write
+  pull-requests: write
+  issues: write
+  actions: read
+  id-token: write
+
+jobs:
+  # Preflight (no checkout, solo gh): porta i gate evento + verifica che la PR
+  # sia ancora AZIONABILE. Race benigna — tra il `review submitted` che triggera
+  # e il checkout del job di fix, la PR può essere stata mergiata/chiusa e il suo
+  # branch auto-cancellato (delete_branch_on_merge) → il `Checkout ref: head.ref`
+  # fallirebbe secco ("branch could not be found"), run ROSSO su una PR già
+  # risolta (osservato 2026-06-14 run 27509046723, fix/crawler-source-rewrites
+  # già merged). Stessa classe della race auto-merge (#1953): un workflow su una
+  # PR già risolta esce PULITO, non fallisce. actionable=false → redflag-fix
+  # skippato (verde no-op, nessun round consumato).
+  preflight:
+    # NB il `if:` usa `contains(..., '🔴')` BROAD (non `'🔴 Important'`): la stringa
+    # esatta `🔴 Important` è FRAGILE al markdown del reviewer. Osservato su PR #2211:
+    # round-1 "🔴 Important: ..." (match) → round-2 "🔴 **Important —** ..." (bold →
+    # `contains('🔴 Important')` FALSO → redflag-fix SKIPPATO → 🔴 round-2 mai
+    # indirizzato, PR bloccata, niente auto-merge). Questo `if:` resta un pre-filter
+    # ECONOMICO e volutamente ampio (solo "contiene un 🔴 qualsiasi"). Il match
+    # PRECISO (è davvero un finding Important, non un 🔴 decorativo o prosa che lo
+    # nega) lo fa il preflight sotto, con una regex tollerante al bold/spaziatura MA
+    # che richiede un delimitatore dopo "Important" oppure una location strutturale
+    # (`path:L<linea>:`) — impossibile in un'espressione `if:` YAML.
+    # NB: lo scope-check "PR autonoma" (bot-authored, head `fix/*`, head
+    # `automerge-*` o label `agent:autofix`) NON vive più
+    # in questo `if:` — vedi lo step sotto. Un `if:` di job che fallisce lascia il
+    # job intero SKIPPED senza eseguire una riga di script: per una PR umana con
+    # un vero 🔴 Important quel salto era invisibile ovunque (issue #5534, PR
+    # #5515 — check-run "skipped", zero commenti, zero label). Qui restano solo i
+    # pre-filtri economici che non richiedono distinguere lo scope.
+    # Reviewer set = the same bots tests.yml already treats as the review
+    # oracle (`claude*` + `frontaliere-automation[bot]`). A job-level
+    # `startsWith(..., 'claude')` alone skipped every App-bot 🔴 (PRs #7610
+    # and #7609): preflight never ran, check-run "skipped", fixer silent.
+    if: |
+      github.event.review.user.type == 'Bot' &&
+      (startsWith(github.event.review.user.login, 'claude') ||
+       github.event.review.user.login == 'frontaliere-automation[bot]') &&
+      contains(github.event.review.body, '🔴') &&
+      github.event.pull_request.draft == false
+    runs-on: ubuntu-latest
+    timeout-minutes: 3
+    outputs:
+      actionable: ${{ steps.pre.outputs.actionable }}
+    steps:
+      # The preflight itself reads PR metadata and must not resolve `gh` from a
+      # PATH that a later checkout/npm step could influence. Resolve and pin the
+      # runner-owned binary before the first API call, then pass that absolute
+      # path into the guard below.
+      - name: Resolve trusted GitHub CLI (before preflight)
+        id: trusted_gh
+        run: |
+          set -euo pipefail
+          gh_bin="$(command -v gh || true)"
+          if [ -z "$gh_bin" ] || [[ "$gh_bin" != /* ]] || [ ! -x "$gh_bin" ]; then
+            echo "::error::GitHub CLI path non assoluto o non eseguibile: ${gh_bin:-missing}"
+            exit 1
+          fi
+          gh_bin="$(realpath "$gh_bin")"
+          case "$gh_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::GitHub CLI risolve in un path controllabile dal runner: $gh_bin"
+              exit 1
+              ;;
+          esac
+          probe="$gh_bin"
+          while [ "$probe" != "/" ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::GitHub CLI o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+
+      - name: PR still actionable?
+        id: pre
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          REVIEW_BODY: ${{ github.event.review.body }}
+          PR_AUTHOR_TYPE: ${{ github.event.pull_request.user.type }}
+        run: |
+          set -uo pipefail
+          # Marker 🔴-Important tollerante al markdown: il reviewer a volte bolda
+          # ("🔴 **Important —**") o varia la spaziatura. Accetta il delimitatore
+          # (`:`, `—`, `-`) subito dopo "Important" (+ bold di chiusura opzionale)
+          # oppure il formato documentato `<file>:L<linea>: 🔴 Important problema`.
+          # Il bare marker è quindi ammesso solo quando è ancorato a una location;
+          # la prosa "zero 🔴 Important findings" (PR #3330) resta no-op e non
+          # consuma un round.
+          #
+          # `^[^🟡🟢❓]*` e `(?<!\`)` sono la terza variante della stessa classe, chiusa
+          # sulla POSIZIONE invece che sul vocabolario (corpus#909): un 🔴 Important
+          # CITATO dentro la riga di un altro finding, o dentro un code span, non è il
+          # marker di quella riga — e portava i due punti come quello vero, quindi il
+          # rimedio precedente non lo vedeva. grep è già orientato alla riga, quindi il
+          # pattern è REDFLAG_IMPORTANT_RE.source senza il `\n` nella classe negata.
+          # Stessa regex in scripts/ci/lib/constants.mjs — YAML `if:` non può
+          # importarla; il drift fra le tre copie lo prende il guard `mirror bash` di
+          # tests/redflag-important-marker.test.ts.
+          # Preflight esplicito del runner: un input vuoto non può matchare `a`, quindi
+          # exit 1 dimostra che `grep -P` ha compilato anche il verbo `(*UTF)`. Qualsiasi
+          # altro stato (opzione assente, verbo rifiutato o match inatteso) è un errore
+          # del guard, non «nessun finding».
+          # Redirezione da /dev/null, non `printf | grep -q`: con `pipefail` lo
+          # stato della pipeline puo' venire dal SIGPIPE di printf invece che da
+          # grep, e il preflight leggerebbe un exit != 1 come «grep -P rotto»,
+          # uscendo 1 su un runner sano. `< /dev/null` e' lo stesso input vuoto
+          # senza pipeline.
+          if grep -qP '(*UTF)a' < /dev/null; then
+            echo "::error::grep -P preflight inatteso: il pattern (*UTF)a ha matchato input vuoto."
+            exit 1
+          else
+            marker_probe_status=$?
+            if [ "$marker_probe_status" -ne 1 ]; then
+              echo "::error::grep -P non supporta il preflight (*UTF) (exit $marker_probe_status)."
+              exit 1
+            fi
+          fi
+          if grep -qP '(*UTF)^(?:[^🟡🟢]*(?<!\x60)🔴\s*\*{0,2}\s*Important\s*\*{0,2}\s*[:—-]|[ \t]*(?:[-*+>][ \t]*)?(?:\x60[^\x60\n]*:L?\d+(?:[-–]\d+)?\x60?|(?:PR[ \t]+body|[A-Za-z0-9_.@/-]+):L?\d+(?:[-–]\d+)?):[ \t]*🔴\s*\*{0,2}\s*Important\s*\*{0,2}(?=\s+\S))' <<< "$REVIEW_BODY"; then
+            :
+          else
+            marker_status=$?
+            if [ "$marker_status" -gt 1 ]; then
+              echo "::error::grep -P non ha potuto validare il marker 🔴 Important (exit $marker_status)."
+              exit "$marker_status"
+            fi
+            echo "Review contiene 🔴 ma nessun finding '🔴 Important' (decorativo) → skip 🔴-fix (no-op)."
+            echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          # Scope: il 🔴-fixer agisce SOLO su PR autonome. `fix/*`, il prefisso
+          # riservato `automerge-*` e autore Bot restano compatibilità/provenienza
+          # automatica; `agent:autofix` è il segnale persistente per i fixer
+          # locali/aggregati che usano un altro branch. Una PR umana non opt-in
+          # resta fuori scope: il prefisso/label è consenso esplicito, non
+          # un'inferenza dal solo nome dell'account.
+          PR_AUTOFIX=$("$TRUSTED_GH_BIN" pr view "$PR_NUMBER" --repo "$REPO" --json labels \
+            --jq 'if any(.labels[]?.name; . == "agent:autofix") then "true" else "false" end' \
+            2>/dev/null || echo false)
+          autonomous=false
+          case "$HEAD_REF" in
+            fix/*|automerge-*) autonomous=true ;;
+            *)
+              if [ "$PR_AUTHOR_TYPE" = "Bot" ] || [ "$PR_AUTOFIX" = "true" ]; then
+                autonomous=true
+              fi
+              ;;
+          esac
+          if [ "$autonomous" != "true" ]; then
+            echo "PR autore umano, branch non riservato e senza label agent:autofix → fuori scope autonomo (per design) → skip 🔴-fix."
+            already=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+              --jq '[.[] | select(.body | contains("REDFLAG_OUT_OF_SCOPE"))] | length' 2>/dev/null || echo 0)
+            if [ "${already:-0}" = "0" ]; then
+              "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_OUT_OF_SCOPE -->\nℹ️ 🔴-fixer: la review più recente contiene un finding \x60🔴 Important\x60, ma questa PR è fuori dallo scope autonomo (autore umano, branch non \x60fix/*\x60/\x60automerge-*\x60, senza \x60agent:autofix\x60) — nessun fix automatico verrà tentato (per design). Se il finding resta aperto senza un commit nuovo, serve intervento manuale o il label esplicito.')" \
+                2>/dev/null || true
+            fi
+            echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          state=$("$TRUSTED_GH_BIN" pr view "$PR_NUMBER" --repo "$REPO" --json state --jq '.state' 2>/dev/null || echo UNKNOWN)
+          if [ "$state" != "OPEN" ]; then
+            echo "PR #$PR_NUMBER non più OPEN (state=$state) → già risolta, skip 🔴-fix (no-op)."
+            echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if ! "$TRUSTED_GH_BIN" api "repos/$REPO/branches/$HEAD_REF" --jq '.name' >/dev/null 2>&1; then
+            echo "Branch '$HEAD_REF' sparito (PR risolta + delete_branch_on_merge) → skip 🔴-fix (no-op)."
+            echo "actionable=false" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "actionable=true" >> "$GITHUB_OUTPUT"
+
+  # Lo scope viene deciso prima del fixer: un Important interamente fuori dal
+  # diff è debito della follow-up, non un invito a modificare questa PR. Ogni
+  # errore del classificatore resta actionable, così l'incertezza non viene
+  # trasformata in uno skip verde.
+  scope:
+    needs: preflight
+    if: needs.preflight.outputs.actionable == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    outputs:
+      blocking: ${{ steps.scope.outputs.blocking }}
+      error: ${{ steps.scope.outputs.error }}
+      # Il 🔴 non nomina nessun file e si ancora a `PR body:L<n>`: il bersaglio
+      # del fix e' il body della PR, non l'albero. 14 finding su 85 nella
+      # finestra 18→19 settembre, lo stesso ripetuto 4 volte su #9238 fino a
+      # `needs-human`, perche' il fixer partiva a cercarlo nei file.
+      body_only: ${{ steps.scope.outputs.body_only }}
+      # Il classificatore uscirebbe VERDE senza lasciare niente sulla PR:
+      # nessuna follow-up coniata (il mint guarda solo `outside`), `redflag-fix`
+      # skippato dalla `if:` sotto, round fermo. Il job `declassified-notice`
+      # esiste per rendere esplicita esattamente questa uscita.
+      silent_exit: ${{ steps.scope.outputs.silent_exit }}
+      exit_kind: ${{ steps.scope.outputs.exit_kind }}
+      declassified: ${{ steps.scope.outputs.declassified }}
+      # I 🔴 aperti come li vede il gate (storici non confermati + ultima
+      # review), con id stabile e anchor: vedi lo step `open_findings`.
+      open_findings: ${{ steps.open_findings.outputs.text }}
+    steps:
+      # The scope classifier runs trusted policy from main and calls review-gate;
+      # attest the runner-owned CLI before checkout just like the fixer job.
+      - name: Resolve trusted GitHub CLI (before classifier checkout)
+        id: trusted_gh
+        run: |
+          set -euo pipefail
+          gh_bin="$(command -v gh || true)"
+          if [ -z "$gh_bin" ] || [[ "$gh_bin" != /* ]] || [ ! -x "$gh_bin" ]; then
+            echo "::error::GitHub CLI path non assoluto o non eseguibile: ${gh_bin:-missing}"
+            exit 1
+          fi
+          gh_bin="$(realpath "$gh_bin")"
+          case "$gh_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::GitHub CLI risolve in un path controllabile dalla PR: $gh_bin"
+              exit 1
+              ;;
+          esac
+          probe="$gh_bin"
+          while [ "$probe" != '/' ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::GitHub CLI o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+          git_bin="$(command -v git || true)"
+          if [ -z "$git_bin" ] || [[ "$git_bin" != /* ]] || [ ! -x "$git_bin" ]; then
+            echo "::error::Git path non assoluto o non eseguibile: ${git_bin:-missing}"
+            exit 1
+          fi
+          git_bin="$(realpath "$git_bin")"
+          case "$git_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::Git risolve in un path controllabile dalla PR: $git_bin"
+              exit 1
+              ;;
+          esac
+          probe="$git_bin"
+          while [ "$probe" != '/' ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::Git o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'git_path=%s\n' "$git_bin" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout trusted classifier from main
+        continue-on-error: true
+        uses: actions/checkout@v5
+        with:
+          # The classifier is executable JavaScript and must never come from
+          # the untrusted PR tree. It still receives the PR HEAD as data below
+          # and resolves the changed files through the GitHub API.
+          ref: main
+          fetch-depth: 1
+          # checkout sparse: generato da scripts/ci/apply-checkout-profiles.mjs
+          sparse-checkout: |
+            /*
+            !/public/images/
+            !/data/jobs/
+            !/data/seo-404-compat/
+            !/data/translation-cache/
+            !/packages/articles/content/
+            !/data/all-known-job-slugs/
+            !/data/orphan-enriched-data/
+            !/docs/
+            !/public/data/
+            !/data/related-search-candidates.json
+            !/data/cf-hot-404s.json
+            !/data/jobs-ai-cache.json
+            !/data/dist-size-history.jsonl
+            !/data/jobs-stats-history.json
+            !/data/url-first-seen.json
+            !/data/jobs-snapshots-history/
+            !/data/slug-registry.json
+            !/data/evidence-index.json
+            !/data/health-premiums/
+            !/data/jobs-crawler-summaries/
+          sparse-checkout-cone-mode: false
+
+      # Il delta «righe toccate dall'ultima review» e' l'input che decide se un
+      # 🔴 ripetuto fa ripartire il fixer. Il checkout qui sopra e' `main` a
+      # `fetch-depth: 1`: i commit della PR non ci sono e il `git diff` a due
+      # punti fallirebbe sempre. La compare API da sola non basta — su questo
+      # repo risponde `422 "this diff is taking too long to generate"` sugli
+      # intervalli lunghi: 14 delta risolti su 50 nel replay del 2026-09-20,
+      # contro 44 con questo pre-fetch. Blobless + depth: si scaricano solo i
+      # tree dei commit recenti della PR, che e' tutto cio' che serve a un
+      # `git diff A..B` (i blob dei soli file cambiati arrivano pigri dal
+      # promisor). `continue-on-error`: un pre-fetch fallito non e' un errore,
+      # e' il ritorno al fallback — e un delta non calcolabile non declassa
+      # niente, quindi il fixer resta azionabile.
+      - name: Prefetch the PR commit range (review delta)
+        continue-on-error: true
+        env:
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -uo pipefail
+          if ! "$TRUSTED_GIT_BIN" fetch --no-tags --filter=blob:none --depth=50 \
+              origin "+refs/pull/${PR_NUMBER}/head:refs/remotes/origin/pr/${PR_NUMBER}"; then
+            echo "::warning::refs/pull/${PR_NUMBER}/head non pre-fetchato → il classificatore ricade sulla compare API; un delta non calcolabile non declassa nulla."
+          fi
+
+      - name: Classify review scope
+        id: scope
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GIT_BIN: ${{ steps.trusted_gh.outputs.git_path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_URL: ${{ github.event.pull_request.html_url }}
+          REVIEW_BODY: ${{ github.event.review.body }}
+          REVIEW_COMMIT: ${{ github.event.review.commit_id }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_SCOPE_MUTATE: 'true'
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+        run: |
+          set -uo pipefail
+          set +e
+          output=$(node scripts/ci/review-gate.mjs --scope 2>&1)
+          status=$?
+          set -e
+          printf '%s\n' "$output"
+          if [ "$status" -ne 0 ]; then
+            echo "::error::scope classifier failed; keep the 🔴-fixer actionable (fail-closed)."
+            echo "blocking=true" >> "$GITHUB_OUTPUT"
+            echo "error=true" >> "$GITHUB_OUTPUT"
+            echo "body_only=false" >> "$GITHUB_OUTPUT"
+            echo "silent_exit=false" >> "$GITHUB_OUTPUT"
+            echo "exit_kind=error" >> "$GITHUB_OUTPUT"
+            echo "declassified=[]" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          json=$(printf '%s\n' "$output" | tail -n 1)
+          # Lo schema pretende ANCHE i tre campi nuovi: una copia vecchia del
+          # classificatore (checkout di `main` non ancora aggiornato) non deve
+          # poter produrre un verdetto in cui `silentExit` manca e l'uscita
+          # silenziosa torna a essere invisibile. Campo assente → fail-closed.
+          if ! printf '%s' "$json" | jq -e '(.blocking | type == "boolean") and (.error == null or (.error | type == "string")) and (.bodyOnly | type == "boolean") and (.silentExit | type == "boolean") and (.declassified | type == "array")' >/dev/null; then
+            echo "::error::scope classifier returned no valid JSON verdict; keep the 🔴-fixer actionable (fail-closed)."
+            echo "blocking=true" >> "$GITHUB_OUTPUT"
+            echo "error=true" >> "$GITHUB_OUTPUT"
+            echo "body_only=false" >> "$GITHUB_OUTPUT"
+            echo "silent_exit=false" >> "$GITHUB_OUTPUT"
+            echo "exit_kind=error" >> "$GITHUB_OUTPUT"
+            echo "declassified=[]" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          blocking=$(printf '%s' "$json" | jq -r '.blocking | tostring')
+          error=$(printf '%s' "$json" | jq -r 'if .error == null then "false" else "true" end')
+          echo "blocking=$blocking" >> "$GITHUB_OUTPUT"
+          echo "error=$error" >> "$GITHUB_OUTPUT"
+          echo "body_only=$(printf '%s' "$json" | jq -r '.bodyOnly | tostring')" >> "$GITHUB_OUTPUT"
+          echo "silent_exit=$(printf '%s' "$json" | jq -r '.silentExit | tostring')" >> "$GITHUB_OUTPUT"
+          echo "exit_kind=$(printf '%s' "$json" | jq -r '.exit // "unknown"')" >> "$GITHUB_OUTPUT"
+          echo "declassified=$(printf '%s' "$json" | jq -c '.declassified')" >> "$GITHUB_OUTPUT"
+
+      # Il fixer riceveva solo l'ultima review (letta senza paginazione), mentre
+      # il gate blocca anche sui 🔴 di review precedenti mai confermati con
+      # `Fix di`. Stesso calcolo del bundle del reviewer (`tests.yml`, «Prefetch
+      # review context»), eseguito dal checkout fidato di main di questo job:
+      # nessun codice della PR. `continue-on-error`: senza l'elenco il fixer
+      # lavora come prima, sull'ultima review.
+      - name: Render the gate's open findings for the fixer (zero-Claude)
+        id: open_findings
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          set -uo pipefail
+          reviews="$RUNNER_TEMP/redflag-scope-reviews.json"
+          if ! "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp > "$reviews"; then
+            echo "::warning::Review history illeggibile: il fixer riceverà solo l'ultima review."
+            exit 0
+          fi
+          if ! text=$(node --input-type=module - "$reviews" <<'NODE'
+          import { readFileSync } from 'node:fs';
+          import { pathToFileURL } from 'node:url';
+          const root = process.cwd();
+          const admission = await import(pathToFileURL(`${root}/scripts/ci/lib/pr-review-admission.mjs`).href);
+          const gate = await import(pathToFileURL(`${root}/scripts/ci/review-gate.mjs`).href);
+          const findings = await import(pathToFileURL(`${root}/scripts/ci/lib/review-findings.mjs`).href);
+          const parse = admission.parseReviewPages
+            ?? ((value) => {
+              const flat = admission.flattenReviewPages(value);
+              return Array.isArray(flat) ? flat : null;
+            });
+          const reviews = parse(JSON.parse(readFileSync(process.argv[2], 'utf8')));
+          if (!reviews) throw new Error('reviews API shape non verificabile');
+          const { open } = gate.partitionHistoricalImportantFindings(reviews, { includeLatest: true });
+          if (open.length === 0) {
+            console.log('Nessun 🔴 Important aperto secondo il gate.');
+          }
+          for (const finding of open) {
+            const anchors = finding.citations
+              .map((citation) => `${citation.path}${citation.line ? `:L${citation.line}` : ''}`)
+              .join(', ');
+            console.log(`- \`${findings.stableFindingId(finding)}\` (${anchors || 'anchor non risolvibile'}):`);
+            console.log(finding.text);
+            console.log('');
+          }
+          NODE
+          ); then
+            echo "::warning::Elenco dei 🔴 aperti non calcolabile: il fixer riceverà solo l'ultima review."
+            exit 0
+          fi
+          printf '%s\n' "$text"
+          delimiter="OPEN_FINDINGS_EOF_${GITHUB_RUN_ID:-0}"
+          # Nessun troncamento a byte: tagliare a metà un finding lo toglierebbe
+          # al fixer mentre il gate continua a bloccare su di lui.
+          {
+            echo "text<<$delimiter"
+            printf '%s\n' "$text"
+            echo "$delimiter"
+          } >> "$GITHUB_OUTPUT"
+
+  # ── Uscita esplicita al posto del verde muto ──────────────────────────────
+  #
+  # `redflag-fix` parte solo su `blocking`. Ogni altra uscita e' un no-op verde,
+  # e una di quelle non lasciava NIENTE sulla PR: quando l'unico 🔴 viene
+  # declassato per body o per riga non cambiata, `outside` e' vuoto, quindi la
+  # follow-up aggregata non viene coniata, il fixer e' skippato e la review
+  # sparisce senza commento, senza label e senza che il round avanzi.
+  #
+  # Prima del 2026-09-20 il caso era irraggiungibile da qui (il classificatore
+  # `--scope` non riceveva ne' `priorFindingIds` ne' `changedLinesSince`, quindi
+  # non declassava mai). La fix che glieli passa — 11 round Codex risparmiati su
+  # 47 nella finestra 18→19 settembre — lo rende raggiungibile 11 volte in due
+  # giorni e mezzo: le due correzioni sono accoppiate, e questa e' la seconda.
+  #
+  # Il commento e' idempotente sul marker nascosto: la stessa review non deve
+  # poter riportare lo stesso avviso a ogni re-trigger.
+  declassified-notice:
+    needs: [preflight, scope]
+    if: always() && needs.preflight.outputs.actionable == 'true' && needs.scope.result == 'success' && needs.scope.outputs.silent_exit == 'true'
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    permissions:
+      contents: read
+      pull-requests: write
+      issues: write
+    steps:
+      - name: Resolve trusted GitHub CLI (before notice)
+        id: trusted_gh
+        run: |
+          set -euo pipefail
+          gh_bin="$(command -v gh || true)"
+          if [ -z "$gh_bin" ] || [[ "$gh_bin" != /* ]] || [ ! -x "$gh_bin" ]; then
+            echo "::error::GitHub CLI path non assoluto o non eseguibile: ${gh_bin:-missing}"
+            exit 1
+          fi
+          gh_bin="$(realpath "$gh_bin")"
+          case "$gh_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::GitHub CLI risolve in un path controllabile dal runner: $gh_bin"
+              exit 1
+              ;;
+          esac
+          probe="$gh_bin"
+          while [ "$probe" != "/" ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::GitHub CLI o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+
+      - name: Announce the declassified 🔴 (no silent green)
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_URL: ${{ github.event.review.html_url }}
+          DECLASSIFIED: ${{ needs.scope.outputs.declassified }}
+          EXIT_KIND: ${{ needs.scope.outputs.exit_kind }}
+          RUN_URL: ${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}
+        run: |
+          set -uo pipefail
+          marker="<!-- REDFLAG_DECLASSED: ${HEAD_SHA} -->"
+          if ! comments=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq '[.[] | .body] | join("\n")' 2>/dev/null); then
+            echo "::error::Commenti PR illeggibili: impossibile garantire che l'uscita non sia silenziosa."
+            exit 1
+          fi
+          if grep -qF "$marker" <<<"$comments"; then
+            echo "Avviso di declassazione già presente per la HEAD $HEAD_SHA → nessun duplicato."
+            exit 0
+          fi
+          detail=$(printf '%s' "${DECLASSIFIED:-[]}" \
+            | jq -r 'if length == 0 then "- (elenco non disponibile)" else (.[] | "- finding #\(.findingNumber) — declassato per `\(.reason)` (id stabile `\(.stableId)`)") end' 2>/dev/null \
+            || echo '- (elenco non disponibile)')
+          body=$(printf '%s\n%s\n\n%s\n\n%s\n\n%s\n' \
+            "$marker" \
+            "ℹ️ **🔴-fixer: nessun round avviato, e il motivo è scritto qui.**" \
+            "Il classificatore di scope ha declassato ogni \`🔴 Important\` della [review più recente]($REVIEW_URL) (uscita \`${EXIT_KIND}\`): nessun finding resta in-diff, quindi non c'è niente che questo fixer possa correggere sul branch. Nessuna follow-up aggregata viene coniata perché nessun finding risolve fuori dal diff." \
+            "$detail" \
+            "Se uno di questi rilievi è ancora valido, il reviewer deve rialzarlo dichiarandolo \`🔴 Important: [regression] …\`: la classe \`regression\` è l'unica che la regola «riga non cambiata» non declassa. ([run]($RUN_URL))")
+          if ! "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$body"; then
+            echo "::error::Avviso di declassazione non postato: l'uscita resterebbe silenziosa. Fail-closed."
+            exit 1
+          fi
+          echo "✓ Uscita di scope resa esplicita sulla PR #$PR_NUMBER."
+
+  redflag-fix:
+    needs: [preflight, scope]
+    if: always() && needs.preflight.outputs.actionable == 'true' && (needs.scope.result != 'success' || needs.scope.outputs.blocking == 'true' || needs.scope.outputs.error == 'true')
+    runs-on: ubuntu-latest
+    # 30→40 (2026-07-17): headroom per il cap turni alzato 45→60.
+    timeout-minutes: 40
+    steps:
+      # Resolve the runner-owned GitHub CLI before checking out the PR.  Every
+      # later trusted-policy download uses this immutable absolute path, never
+      # a PR-controlled `gh` shim placed on PATH.
+      - name: Resolve trusted GitHub CLI (before PR checkout)
+        id: trusted_gh
+        run: |
+          set -euo pipefail
+          gh_bin="$(command -v gh || true)"
+          if [ -z "$gh_bin" ] || [[ "$gh_bin" != /* ]] || [ ! -x "$gh_bin" ]; then
+            echo "::error::GitHub CLI path non assoluto o non eseguibile: ${gh_bin:-missing}"
+            exit 1
+          fi
+          gh_bin="$(realpath "$gh_bin")"
+          case "$gh_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::GitHub CLI risolve in un path controllabile dalla PR: $gh_bin"
+              exit 1
+              ;;
+          esac
+          probe="$gh_bin"
+          while [ "$probe" != '/' ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::GitHub CLI o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'path=%s\n' "$gh_bin" >> "$GITHUB_OUTPUT"
+          git_bin="$(command -v git || true)"
+          if [ -z "$git_bin" ] || [[ "$git_bin" != /* ]] || [ ! -x "$git_bin" ]; then
+            echo "::error::Git path non assoluto o non eseguibile: ${git_bin:-missing}"
+            exit 1
+          fi
+          git_bin="$(realpath "$git_bin")"
+          case "$git_bin" in
+            "$GITHUB_WORKSPACE"/*|"$RUNNER_TEMP"/*)
+              echo "::error::Git risolve in un path controllabile dalla PR: $git_bin"
+              exit 1
+              ;;
+          esac
+          probe="$git_bin"
+          while [ "$probe" != '/' ]; do
+            if [ -w "$probe" ]; then
+              echo "::error::Git o una directory del suo path è scrivibile dal runner: $probe"
+              exit 1
+            fi
+            probe="$(dirname "$probe")"
+          done
+          printf 'git_path=%s\n' "$git_bin" >> "$GITHUB_OUTPUT"
+
+      - name: Checkout
+        uses: actions/checkout@v5
+        with:
+          fetch-depth: 0
+          ref: ${{ github.event.pull_request.head.ref }}
+          # Checkout 769-1379s su 3 run: il massimo è il 57% di un cap da 40min,
+          # e il lavoro qui è un run Claude (costoso da buttare). Blobless partial
+          # clone come issue-fix #4189, che è l'altro job Claude-driven con la
+          # stessa forma. Sicuro: il fixer legge/scrive file dell'head e fa
+          # `git merge origin/main` — servono i blob dei file toccati, non la
+          # storia dei blob.
+          filter: blob:none
+        # Tetto sullo step → `failure` diagnosticabile invece di `cancelled`.
+        timeout-minutes: 15
+
+      # Profilassi workflow-validation drift (anti-401): la GitHub App del reviewer
+      # esige che `.github/workflows/pr-review-loop.yml` sul branch sia BYTE-IDENTICO
+      # a `main`. Se `main` ha aggiornato un workflow di review DOPO il branch, la
+      # re-review (ri-triggerata dal push del fix sotto) fallirebbe `401 Workflow
+      # validation failed`, review vuota, niente `## LGTM`, niente auto-merge — e il
+      # 🔴-fix risulterebbe RED senza colpa propria (osservato 2× nel campione 7gg).
+      # Allineare i workflow PRIMA: `merge origin/main` no-op se già fresh; il merge
+      # viaggia poi sul push del fix dell'agent. Su conflitto → abort + warning
+      # (nessuna regressione: il branch resta com'era, comportamento pre-fix).
+      - name: Align review workflows (merge origin/main, anti-401 drift)
+        id: align
+        run: |
+          set -uo pipefail
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+          git fetch origin "+refs/heads/main:refs/remotes/origin/main" -q || true
+          # Il merge locale sottostante è intenzionale per allineare i workflow,
+          # ma non è un push del fixer. Conserva la baseline del branch remoto
+          # prima del merge per non classificarla poi come writer esterno.
+          echo "start_sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          if git merge --no-edit -m "$(printf 'Merge origin/main into the PR branch (redflag-fixer align)\n\nFixer: redflag-align')" origin/main; then
+            echo "✓ branch allineato a origin/main (workflow-validation drift evitato)."
+          else
+            echo "::warning::merge origin/main in conflitto → abort, branch invariato (no regressione; eventuale 401 drift resta possibile su questo branch)."
+            git merge --abort || true
+            # Prima del fix del refspec (#6074) `origin/main` non si risolveva mai
+            # ("unknown revision"), quindi questo `--abort` era sempre un no-op su un
+            # merge mai iniziato: il path di un conflitto GENUINO (MERGE_HEAD reale,
+            # marker di conflitto nel worktree) non è mai stato esercitato in
+            # produzione (#6089). `git merge --abort` è affidabile, ma qui non ci
+            # affidiamo alla sua riuscita silenziosa: verifichiamo esplicitamente che
+            # il worktree sia tornato pulito prima che gli step successivi (npm ci,
+            # l'agent Claude) lo usino, e forziamo il reset se non lo è.
+            if [ -n "$(git status --porcelain)" ]; then
+              echo "::warning::worktree non pulito dopo merge --abort, forzo reset a HEAD."
+              git reset --hard HEAD
+              git clean -fd
+            fi
+          fi
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      # Admission/claim predicates are security-sensitive.  The checkout above
+      # is the PR branch, so materialize their complete import cone from the
+      # immutable base before the first predicate is evaluated.
+      - name: Bootstrap trusted fixer policy (no PR code)
+        id: trusted_policy
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: main
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/redflag-trusted-policy-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
+          }
+          for trusted_path in \
+            scripts/ci/pr-fixer-claim.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/ci/fetch-pr-files.mjs \
+            scripts/ci/lib/fetchPrFiles.mjs \
+            scripts/lib/int-from-env.mjs; do
+            download_main "$trusted_path"
+          done
+          node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
+      - name: Admit only the first terminal 🔴 on this HEAD
+        id: admission
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_ID: ${{ github.event.review.id }}
+          REVIEW_COMMIT: ${{ github.event.review.commit_id }}
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy.outputs.root }}
+        run: |
+          set -euo pipefail
+          if [ ! -f "$TRUSTED_POLICY_ROOT/scripts/ci/lib/pr-review-admission.mjs" ]; then
+            echo "::error::helper admission assente anche dopo l'allineamento a origin/main → 🔴-fix bloccato, nessun Codex."
+            echo "actionable=false" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          pr_file="$RUNNER_TEMP/redflag-pr.json"
+          if ! "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" > "$pr_file"; then
+            echo "::error::PR metadata/body illeggibile → review input unavailable, nessun Codex."
+            exit 1
+          fi
+          review_revision=$(node "$TRUSTED_POLICY_ROOT/scripts/ci/lib/review-input-revision.mjs" hash-pr-json --file "$pr_file")
+          # Here-string, non `printf | grep -q`: con `pipefail` il SIGPIPE di
+          # printf quando grep -q esce al primo match rende falso il guard e
+          # blocca il 🔴-fix su una revision valida (stessa trappola di #9283).
+          grep -qE '^body:[0-9a-f]{64}$' <<<"$review_revision" || {
+            echo "::error::PR body non verificabile → review input unavailable, nessun Codex."
+            exit 1
+          }
+          if ! reviews=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate --slurp); then
+            echo "::error::Reviews API illeggibile → 🔴-fix bloccato, nessun Codex."
+            exit 1
+          fi
+          if ! decision=$(printf '%s' "$reviews" | node "$TRUSTED_POLICY_ROOT/scripts/ci/lib/pr-review-admission.mjs" fixer \
+            --head "$HEAD_SHA" --review-id "$REVIEW_ID" --review-commit "$REVIEW_COMMIT" \
+            --revision "$review_revision"); then
+            echo "::error::Review admission non verificabile → 🔴-fix bloccato, nessun Codex."
+            exit 1
+          fi
+          printf '%s\n' "$decision" >> "$GITHUB_OUTPUT"
+          echo "review_revision=$review_revision" >> "$GITHUB_OUTPUT"
+
+      - name: Install dependencies
+        if: steps.admission.outputs.actionable == 'true'
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        if: steps.admission.outputs.actionable == 'true'
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -n "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+            echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+          else
+            echo "⚠️ Nessuna Firebase SA — GITHUB_PAT non caricato; il push del fix userà GITHUB_TOKEN (non ri-triggera la re-review automatica)."
+          fi
+
+      - name: Load secrets from Remote Config (GITHUB_PAT)
+        if: steps.admission.outputs.actionable == 'true'
+        continue-on-error: true
+        run: node scripts/load-rc-env.mjs
+
+      # Primary identity for the fix push below = GitHub App installation token
+      # (`frontaliere-automation[bot]`): auto-mints, no expiry babysit, and its
+      # push re-triggers pr-review-loop just like the PAT (no GITHUB_TOKEN
+      # anti-recursion). Falls back to env.GITHUB_PAT (#2861/#2899).
+      - name: Mint App token (primary identity, PAT fallback)
+        if: steps.admission.outputs.actionable == 'true'
+        continue-on-error: true
+        env:
+          APP_ID: ${{ secrets.APP_ID }}
+          APP_PRIVATE_KEY: ${{ secrets.APP_PRIVATE_KEY }}
+          GITHUB_REPOSITORY: ${{ github.repository }}
+        run: node scripts/ci/mint-app-token.mjs
+
+      # npm ci, Remote Config loading, and the fixer action execute PR-controlled
+      # code on this runner.  Use a fresh trusted path for every later claim so
+      # none of those phases can replace the admission/claim predicate.
+      - name: Refresh trusted fixer policy before claim
+        id: trusted_policy_final
+        if: steps.admission.outputs.actionable == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: main
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/redflag-trusted-policy-final-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
+          }
+          for trusted_path in \
+            scripts/ci/pr-fixer-claim.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/ci/fetch-pr-files.mjs \
+            scripts/ci/lib/fetchPrFiles.mjs \
+            scripts/lib/int-from-env.mjs; do
+            download_main "$trusted_path"
+          done
+          node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
+      # Token-down = degrado silenzioso a catena del loop autonomo (merge senza
+      # cascade, coda congelata, routing/re-queue inerti). Alert inline
+      # deterministico, dedup sul titolo canonico del monitor daily
+      # (gh-pat-expiry-monitor.yml) che resta l'owner dell'auto-close.
+      # GH_TOKEN = GITHUB_TOKEN, NON l'App/PAT (e' la cosa rotta). Scatta solo se
+      # NESSUN token usabile (né App né PAT).
+      - name: Alert token-down (dedup, zero-Claude)
+        if: steps.admission.outputs.actionable == 'true' && env.APP_TOKEN == '' && env.GITHUB_PAT == ''
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+        run: node scripts/ci/alert-pat-down.mjs --workflow "${{ github.workflow }}" --run-url "${{ github.server_url }}/${{ github.repository }}/actions/runs/${{ github.run_id }}"
+
+      - name: Claim redflag PR + HEAD + review verdict (zero-Claude)
+        id: claim
+        if: steps.admission.outputs.actionable == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLAIM_ACTION: acquire
+          CLAIM_KIND: redflag
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
+          EVENT_KEY: review:${{ github.event.review.id }}
+          REVIEW_BODY: ${{ github.event.review.body }}
+          CLAIM_TTL_SEC: '3600'
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+        run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
+
+      - name: Revalidate redflag claim before model (bounded final snapshot)
+        id: claim_verify
+        if: steps.claim.outputs.claim_allowed == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLAIM_ACTION: verify
+          CLAIM_KIND: redflag
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
+          EVENT_KEY: review:${{ github.event.review.id }}
+          REVIEW_BODY: ${{ github.event.review.body }}
+          CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+        run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
+
+      - name: Stop when redflag claim changed before model
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid != 'true'
+        run: |
+          echo "::error::Claim redflag non più coerente con PR+HEAD+body revision+review id → nessun fixer Claude."
+          exit 1
+
+      - name: Fail closed when redflag claim is unreadable
+        if: steps.claim.outputs.claim_error == 'true'
+        run: |
+          echo "::error::Claim redflag PR+HEAD+verdict illeggibile o non verificabile → nessun fixer Claude."
+          exit 1
+
+      - name: Skip already-consumed redflag verdict (zero-Claude)
+        if: steps.claim.outputs.claim_allowed != 'true' && steps.claim.outputs.claim_error != 'true'
+        run: echo "Verdetto 🔴 già acquisito per questa PR+HEAD → nessun secondo round Claude."
+
+      # ── Round cap + capability guard (deterministico, prima di Claude) ────
+      # Conta i marker `<!-- REDFLAG_FIX_ROUND: N -->` già sulla PR. A N>=3 →
+      # escalation a needs-human, STOP senza Claude. Altrimenti incrementa.
+      # Capability guard: se la PR tocca .github/workflows/** e non c'è nessun token
+      # capace, il push verrebbe rifiutato (scope workflows) → skip senza bruciare
+      # un turno.
+      #
+      # HAS_PAT accetta ORA anche APP_TOKEN. Fino al 2026-08-06 era legato al solo
+      # GITHUB_PAT, e il commento lo giustificava con "la App installation token NON
+      # ha lo scope workflows": era vero, ha smesso di esserlo quando alla App
+      # `frontaliere-automation` è stato concesso `workflows: write`. Lasciarlo com'era
+      # avrebbe fatto continuare a saltare i fix su .github/workflows/** con la
+      # motivazione "serve un PAT abilitato" mentre il push sarebbe passato — cioè la
+      # stessa capability sbloccata in un posto e ancora rifiutata nel gemello.
+      #
+      # Allineato al push step più sotto, che era già token-aware
+      # (`env.APP_TOKEN || env.GITHUB_PAT`): erano i due lati della stessa decisione,
+      # tenuti in disaccordo.
+      #
+      # 2026-08-08 (#5288): si legge la CAPACITÀ, non la presenza. Il conio riesce
+      # (201, token valido) anche quando `workflows` è stato richiesto ma mai approvato
+      # sull'installazione — in quel caso il permesso non compare fra i `permissions` e
+      # `mint-app-token.mjs` scrive `APP_TOKEN_WORKFLOWS=false`. Con la vecchia
+      # condizione questo guard avrebbe lasciato PROCEDERE un fix su
+      # `.github/workflows/**` che il push avrebbe poi rifiutato: un turno Claude speso
+      # per intero e buttato, che è esattamente ciò che il guard evita. Fail-closed:
+      # variabile assente o diversa da 'true' → si ricade sul solo GITHUB_PAT.
+      - name: Round cap + capability guard + tier
+        id: guard
+        if: steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_final.outputs.root }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          EXPECTED_REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
+          HAS_PAT: ${{ env.APP_TOKEN_WORKFLOWS == 'true' || env.GITHUB_PAT != '' }}
+        run: |
+          set -uo pipefail
+          # 3 dal 2026-09-25: con la risposta per anchor un round può servire a
+          # una contestazione (una re-review, non un fix), e sulle 46 PR bot del
+          # 15-25/09 una correzione convergeva al round successivo nel 45-54% dei
+          # casi (~75% entro 2 round, ~88% entro 3).
+          MAX_ROUNDS=3
+
+          # GITHUB_TOKEN è un installation token di Actions, non un token utente:
+          # `gh api user` non può identificarlo e fallisce anche se le API della
+          # repository sono leggibili. I marker qui sotto vengono pubblicati con
+          # questo stesso token e la REST API li attribuisce a github-actions[bot].
+          # Fissiamo quindi l'identità attesa senza una chiamata `/user`, così un
+          # commento di un utente non può armare il round cap.
+          trusted_actor='github-actions[bot]'
+          if ! comments_json=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp 2>/dev/null); then
+            echo "::error::Commenti PR illeggibili: impossibile verificare il round cap redflag."
+            exit 1
+          fi
+          if ! printf '%s' "$comments_json" | jq -e 'type == "array" and all(.[]; type == "array" and all(.[]; type == "object"))' >/dev/null 2>&1; then
+            echo "::error::Pagine commenti PR malformate: impossibile verificare il round cap redflag."
+            exit 1
+          fi
+          if ! comments=$(printf '%s' "$comments_json" | jq -r '[.[].[] | (.body // "")] | join("\n")' 2>/dev/null); then
+            echo "::error::Corpo commenti PR illeggibile: impossibile verificare il round cap redflag."
+            exit 1
+          fi
+          # Un'assenza di marker e' l'unico caso legittimo di exit 1 di grep.
+          # Ogni altro errore del parser deve fermare il guard: procedere con
+          # ROUND=0 brucerebbe un turno Claude e potrebbe oltrepassare il cap.
+          round_matches=$(printf '%s' "$comments_json" | jq -r \
+            --arg actor "$trusted_actor" \
+            --arg expected_head "$HEAD_SHA" \
+            --arg expected_body "$EXPECTED_REVIEW_REVISION" '
+              [.[].[]
+               | select((.user.login // "") == $actor)
+               | (.body // "")
+               | if test("^<!-- REDFLAG_FIX_ROUND: [0-9]+ HEAD: [0-9a-fA-F]{40} BODY: body:[0-9a-fA-F]{64} -->\\n") then
+                   capture("^<!-- REDFLAG_FIX_ROUND: (?<round>[0-9]+) HEAD: (?<head>[0-9a-fA-F]{40}) BODY: (?<body>body:[0-9a-fA-F]{64}) -->\\n")
+                   | select(.head == $expected_head and .body == $expected_body)
+                   | .round
+                 elif test("^<!-- REDFLAG_FIX_ROUND: [0-9]+ HEAD: [0-9a-fA-F]{40} -->\\n") then
+                   capture("^<!-- REDFLAG_FIX_ROUND: (?<round>[0-9]+) HEAD: (?<head>[0-9a-fA-F]{40}) -->\\n")
+                   | select(.head == $expected_head)
+                   | .round
+                 else empty end] | .[]' 2>/dev/null)
+          round_status=$?
+          if [ "$round_status" -gt 1 ]; then
+            echo "::error::Parser dei marker REDFLAG_FIX_ROUND fallito (exit $round_status): stop fail-closed prima di Claude."
+            exit 1
+          fi
+          ROUND=0
+          if [ -n "$round_matches" ]; then
+            ROUND=$(printf '%s\n' "$round_matches" | sed -E 's/.*: ([0-9]+).*/\1/' | sort -rn | head -n 1)
+            if ! [[ "$ROUND" =~ ^[0-9]+$ ]]; then
+              echo "::error::Marker REDFLAG_FIX_ROUND non interpretabile: stop fail-closed prima di Claude."
+              exit 1
+            fi
+            ROUND=$(printf '%s' "$ROUND" | sed -E 's/^0+//')
+            ROUND=${ROUND:-0}
+          fi
+          # Non fare aritmetica su un marker enorme o corrotto: Bash puo'
+          # convertirlo in overflow prima del confronto con il cap. La forma
+          # canonica e il confronto lessicografico a parita' di lunghezza
+          # validano 0..MAX_ROUNDS senza perdere precisione.
+          if [ "${#ROUND}" -gt "${#MAX_ROUNDS}" ] || \
+             { [ "${#ROUND}" -eq "${#MAX_ROUNDS}" ] && [ "$ROUND" -gt "$MAX_ROUNDS" ]; }; then
+            echo "::error::Marker REDFLAG_FIX_ROUND fuori intervallo 0..$MAX_ROUNDS ($ROUND): claim retryable, nessun Claude."
+            exit 1
+          fi
+          NEXT=$((ROUND + 1))
+          echo "Round 🔴-fix correnti: $ROUND (cap $MAX_ROUNDS)"
+
+          if [ "$ROUND" -ge "$MAX_ROUNDS" ]; then
+            echo "::warning::Round cap raggiunto ($ROUND >= $MAX_ROUNDS) → escalation needs-human, no Claude."
+            # Idempotente: ogni nuova review/rosso oltre il cap ripassava di qui
+            # e ripostava label+commento (5 volte su #9202, 4 su #9238). Si
+            # posta una volta sola: il marker nascosto (o il testo storico,
+            # per le PR escalate prima del marker) dice che e' gia' stato fatto.
+            # Here-string, non `printf | grep -q`: con `pipefail` il SIGPIPE di
+            # printf su un elenco commenti grande rendeva falso il guard e
+            # ripostava l'escalation (review di #9283).
+            if grep -qF '<!-- NEEDS_HUMAN_ESCALATION: redflag -->' <<<"$comments" \
+               || grep -qF '**needs-human** (auto): il 🔴-fixer' <<<"$comments"; then
+              echo "needs-human gia' escalato su questa PR → nessun nuovo label/commento."
+            else
+              "$TRUSTED_GH_BIN" pr edit "$PR_NUMBER" --repo "$REPO" --add-label "needs-human" 2>/dev/null \
+                || echo "label needs-human assente — creala: gh label create needs-human"
+              "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- NEEDS_HUMAN_ESCALATION: redflag -->\n🛑 **needs-human** (auto): il 🔴-fixer ha già tentato %s round senza chiudere i findings 🔴. STOP automatico (anti-loop, nessun progresso). Serve revisione umana: leggi le review più recenti e applica il fix a mano.' "$ROUND")" \
+                2>/dev/null || true
+            fi
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # File cambiati dalla PR (per tier + capability guard). Fallback
+          # GraphQL→REST/cap-100 + `expected`/`files_complete` sono nel CLI
+          # condiviso `scripts/ci/fetch-pr-files.mjs` (issue #6233: prima erano
+          # una reimplementazione shell inline, tenuta allineata a mano alla
+          # stessa logica in `scripts/ci/pr-collision-detector.mjs` e nel
+          # gemello `pr-review-loop.yml`).
+          result=$(node "$TRUSTED_POLICY_ROOT/scripts/ci/fetch-pr-files.mjs" --repo "$REPO" --pr "$PR_NUMBER" 2>/dev/null || echo '{}')
+          expected=$(echo "$result" | jq -r '.expected // 0')
+          count=$(echo "$result" | jq -r '.count // 0')
+          files_complete=$(echo "$result" | jq -r 'if .complete then 1 else 0 end')
+          reason=$(echo "$result" | jq -r '.reason // "unknown"')
+          files=$(echo "$result" | jq -r '(.files // [])[]')
+          if [ "$files_complete" != "1" ]; then
+            if [ "$reason" = "rest-hard-limit" ]; then
+              echo "::warning::Elenco file INCOMPLETO ($count/$expected, causa: rest-hard-limit — tetto rigido di 3000 file della REST GitHub, non riparabile con retry) → capability guard e tier trattano la PR come se toccasse workflow + code funnel-critical."
+            else
+              echo "::warning::Elenco file INCOMPLETO ($count/$expected, causa: $reason) → capability guard e tier trattano la PR come se toccasse workflow + code funnel-critical."
+            fi
+          fi
+          touches_wf=$(echo "$files" | grep -E '^\.github/workflows/' || true)
+          # Elenco incompleto = «non lo so», e su un capability guard «non lo so»
+          # deve pesare come «si'»: il costo di sbagliare in questa direzione e'
+          # uno skip con commento, quello opposto e' un turno Claude bruciato e
+          # un push che fallisce alla fine.
+          if { [ -n "$touches_wf" ] || [ "$files_complete" != "1" ]; } && [ "$HAS_PAT" != "true" ]; then
+            # Il commento deve dire QUALE dei due operandi ha fatto scattare lo
+            # skip: affermare «la PR tocca i workflow» quando lo scatto viene
+            # dall'elenco incompleto manda chi legge a cercare una modifica che
+            # non c'e'.
+            bt=$(printf '\x60')
+            if [ -n "$touches_wf" ]; then
+              skip_why="la PR tocca ${bt}.github/workflows/**${bt}"
+            else
+              skip_why="l'elenco file è incompleto, quindi non si può escludere che la PR tocchi ${bt}.github/workflows/**${bt}"
+            fi
+            echo "::warning::Skip capability workflows (causa: $skip_why), manca PAT (scope workflows) → push rifiutato, skip senza bruciare un turno Claude."
+            "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" \
+              --body "⏭️ 🔴-fixer skip: ${skip_why} e non è disponibile un PAT con scope ${bt}workflows${bt} → il push fallirebbe. Applicare il fix dei 🔴 a mano." \
+              2>/dev/null || true
+            echo "proceed=false" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+
+          # Tier (mirror di pr-review-loop / issue-fix): high se la PR
+          # tocca CODE funnel-critical (tests/, build-plugins/, scripts/lib/,
+          # services/seo*), normal altrimenti. Modello UNIFICATO gpt-5.6-luna
+          # su entrambi i tier (Codex Luna Max, effort max); i tier
+          # restano distinti solo per telemetria/prompt.
+          crit=$(echo "$files" | grep -E '^(tests/|build-plugins/|scripts/lib/|services/seo)' || true)
+          if [ -n "$crit" ] || [ "$files_complete" != "1" ]; then
+            echo "tier=high"   >> "$GITHUB_OUTPUT"
+            echo "model=gpt-5.6-luna"   >> "$GITHUB_OUTPUT"
+          else
+            echo "tier=normal" >> "$GITHUB_OUTPUT"
+            echo "model=gpt-5.6-luna" >> "$GITHUB_OUTPUT"
+          fi
+
+          # Posta/incrementa il marker round PRIMA di invocare Claude (così se la
+          # run muore, il round è comunque contato → l'anti-loop tiene).
+          MARKER_BODY=$(printf '<!-- REDFLAG_FIX_ROUND: %s HEAD: %s BODY: %s -->\n_🔴-fixer round %s/%s avviato (auto)._' "$NEXT" "$HEAD_SHA" "$EXPECTED_REVIEW_REVISION" "$NEXT" "$MAX_ROUNDS")
+          refund_marker() {
+            local requested_id="${1:-}" pages='' candidate_ids='' candidate_id='' refund_ok='true'
+            if [[ "$requested_id" =~ ^[1-9][0-9]*$ ]] && "$TRUSTED_GH_BIN" api --method DELETE \
+              "repos/$REPO/issues/comments/$requested_id" >/dev/null 2>&1; then
+              return 0
+            fi
+            # POST response malformed or direct DELETE failed: bounded
+            # reconciliation by exact body + trusted actor. Delete every exact
+            # current-round match, never a user-forged marker or another HEAD.
+            for refund_attempt in 1 2 3; do
+              pages=''
+              if pages=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --slurp 2>/dev/null) \
+                 && candidate_ids=$(printf '%s' "$pages" | jq -r \
+                   --arg expected "$MARKER_BODY" --arg actor "$trusted_actor" \
+                   '[.[].[] | select((.user.login // "") == $actor and (.body // "") == $expected) | select((.id | type) == "number" and .id > 0) | .id] | unique | .[]' 2>/dev/null); then
+                if [ -n "$candidate_ids" ]; then
+                  refund_ok='true'
+                  while IFS= read -r candidate_id; do
+                    if ! [[ "$candidate_id" =~ ^[1-9][0-9]*$ ]] \
+                       || ! "$TRUSTED_GH_BIN" api --method DELETE \
+                         "repos/$REPO/issues/comments/$candidate_id" >/dev/null 2>&1; then
+                      refund_ok='false'
+                    fi
+                  done <<< "$candidate_ids"
+                  if [ "$refund_ok" = 'true' ]; then return 0; fi
+                fi
+              fi
+              if [ "$refund_attempt" -lt 3 ]; then sleep 2; fi
+            done
+            return 1
+          }
+          if ! marker_response=$(
+            "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" \
+              --method POST --raw-field "body=$MARKER_BODY" 2>/dev/null
+          ); then
+            echo "::error::Marker REDFLAG_FIX_ROUND non persistito: stop fail-closed prima di Claude."
+            exit 1
+          fi
+          marker_id=''
+          if ! marker_id=$(printf '%s' "$marker_response" \
+            | jq -er 'if (.id | type) == "number" and .id > 0 then .id else error("comment id mancante") end' 2>/dev/null); then
+            echo "::error::Risposta POST marker REDFLAG_FIX_ROUND senza id verificabile: avvio refund bounded, claim retryable, nessun Claude."
+            refund_marker || echo "::warning::Refund marker REDFLAG_FIX_ROUND non riconciliabile automaticamente: claim rilasciato, serve riconciliazione."
+            exit 1
+          fi
+          marker_author=''
+          if ! marker_author=$(printf '%s' "$marker_response" \
+            | jq -er 'if (.user.login | type) == "string" and (.user.login | length) > 0 then .user.login else error("autore mancante") end' 2>/dev/null) \
+             || [ "$marker_author" != "$trusted_actor" ]; then
+            echo "::error::Risposta POST marker REDFLAG_FIX_ROUND senza autore trusted: avvio refund bounded, claim retryable, nessun Claude."
+            refund_marker "$marker_id" || echo "::warning::Refund marker REDFLAG_FIX_ROUND non riconciliabile automaticamente: claim rilasciato, serve riconciliazione."
+            exit 1
+          fi
+          # La POST puo' essere visibile con ritardo o una lettura puo' fallire.
+          # Tre probe bounded evitano di consumare il round per consistenza
+          # eventuale; se nessun probe conferma il body esatto, cancelliamo il
+          # commento identificato e lasciamo il claim retryable.
+          marker_verified=false
+          marker_count=0
+          for marker_attempt in 1 2 3; do
+            comments_after=''
+            if comments_after=$(
+              "$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" \
+                --paginate --slurp 2>/dev/null
+            ); then
+              marker_count=''
+              if marker_count=$(printf '%s' "$comments_after" \
+                | jq --arg expected "$MARKER_BODY" --arg marker_id "$marker_id" --arg marker_author "$trusted_actor" \
+                  '[.[].[] | select((.id | tostring) == $marker_id and .user.login == $marker_author and .body == $expected)] | length' 2>/dev/null); then
+                if [[ "$marker_count" =~ ^1$ ]]; then
+                  marker_verified=true
+                  break
+                fi
+              fi
+            fi
+            if [ "$marker_attempt" -lt 3 ]; then sleep 2; fi
+          done
+          if [ "$marker_verified" != 'true' ]; then
+            if refund_marker "$marker_id"; then
+              echo "Marker REDFLAG_FIX_ROUND non verificabile dopo 3 probe: commento $marker_id cancellato, claim retryable, nessun Claude."
+            else
+              echo "::error::Marker REDFLAG_FIX_ROUND non verificabile e rimborso del commento $marker_id fallito: claim retryable, nessun Claude."
+            fi
+            exit 1
+          fi
+          {
+            echo "marker_id=$marker_id"
+            echo "proceed=true"
+            echo "round=$NEXT"
+          } >> "$GITHUB_OUTPUT"
+
+      - name: Configure git identity
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
+        run: |
+          git config user.name "Valerie Linc"
+          git config user.email "valerielinc@gmail.com"
+
+      # Push via App token (primario) / PAT (fallback) — ri-attiva pr-review-loop
+      # = re-review. Senza nessuno dei due il push userebbe GITHUB_TOKEN e la
+      # re-review non partirebbe (anti-ricorsione); il fix verrebbe comunque
+      # committato. Esposto come remote authenticato.
+      - name: Configure push remote (App token / PAT)
+        if: steps.guard.outputs.proceed == 'true' && (env.APP_TOKEN != '' || env.GITHUB_PAT != '') && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
+        env:
+          PUSH_TOKEN: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          REPO: ${{ github.repository }}
+        # Stessa classe del bug di pr-autorebase: `actions/checkout` persiste
+        # `http.https://github.com/.extraheader = AUTHORIZATION: basic <GITHUB_TOKEN>`,
+        # che sovrascrive lo `x-access-token:<token>` del remote set-url → il `git
+        # push origin` si autenticherebbe come github-actions[bot] (action_required,
+        # no re-review). Azzerare l'extraheader prima del set-url forza l'uso
+        # dell'App token/PAT.
+        run: |
+          git config --unset-all "http.https://github.com/.extraheader" || true
+          git remote set-url origin "https://x-access-token:${PUSH_TOKEN}@github.com/${REPO}.git"
+
+      # SHA di partenza (post-merge origin/main, pre-Codex): il classify finale lo
+      # confronta con la HEAD remota dopo Claude per capire se il round ha davvero
+      # pushato un fix → un round che pusha un fix è SUCCESS anche se la run Claude
+      # è poi morta `error_max_turns` in cleanup (false-failure: 28% dei fail nel
+      # campione 7gg pushavano un commit ma il job restava RED → failure-rate
+      # gonfiato nel loop-health-report #1951).
+      - name: Record base SHA (pre-Codex)
+        id: base
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+        run: |
+          echo "sha=$(git rev-parse HEAD)" >> "$GITHUB_OUTPUT"
+          # Baseline commenti PRE-Claude (dopo il marker round appena postato dal
+          # guard): serve al classify sotto per distinguere "Claude ha lasciato
+          # una spiegazione" da "Claude non ha fatto/detto nulla" quando esce
+          # 'success' senza push (issue #5534).
+          n=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo 0)
+          echo "comments=${n:-0}" >> "$GITHUB_OUTPUT"
+          # Digest del BODY pre-Codex. Un 🔴 ancorato a `PR body:L<n>` si chiude
+          # riscrivendo il body, non con un commit: senza questa baseline il
+          # classify finale leggeva «nessun push, nessun commento» e marcava RED
+          # un round che aveva fatto esattamente il lavoro richiesto.
+          body_digest=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '.body // ""' 2>/dev/null \
+            | shasum -a 256 | awk '{print $1}')
+          echo "body_digest=${body_digest:-unknown}" >> "$GITHUB_OUTPUT"
+
+      # Contesto della PR + della review, deterministico e BOUNDED, prima di
+      # spendere un turno Claude. Stesso pattern del gemello `pr-redcheck-fixer.yml`
+      # ("Collect failing check context") e del prefetch di `tests.yml`
+      # (`review-ctx`), applicato qui: il prompt sotto rifaceva da sé, a OGNI
+      # round, `gh pr view` (due volte — Bootstrap step 2 e il primo dei "tre
+      # comandi" sotto Regole, stesso campo `body`), `gh api .../files`,
+      # `gh api .../reviews`, un `git fetch`+`git show` di main e un node
+      # one-liner per calcolare gli stati già dichiarati in `## Non implementato`.
+      # Tutto deterministico → si calcola qui a costo zero, Claude legge un
+      # bundle con una sola `Read`.
+      - name: Collect PR + review context (zero-Claude)
+        id: ctx
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          OPEN_FINDINGS: ${{ needs.scope.outputs.open_findings }}
+        run: |
+          set -uo pipefail
+          OUT="$RUNNER_TEMP/redflag"
+          mkdir -p "$OUT"
+
+          "$TRUSTED_GH_BIN" pr view "$PR_NUMBER" --repo "$REPO" --json title,body,headRefName \
+            > "$OUT/pr.json" 2>/dev/null || echo '{}' > "$OUT/pr.json"
+          # NON `--json files`: tronca a 100 in silenzio (stessa trappola di
+          # tests.yml/fetch-pr-files.mjs). La REST paginata sotto no.
+          "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/files" --paginate --jq '.[].filename' \
+            > "$OUT/files.txt" 2>/dev/null || : > "$OUT/files.txt"
+          # `--paginate` + un body per riga: senza, oltre 30 review `last`
+          # prendeva l'ultima della PRIMA pagina, cioè una review vecchia.
+          "$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER/reviews" --paginate \
+            --jq '.[] | select(.user.login|test("^(claude(\\[bot\\])?|frontaliere-automation\\[bot\\])$";"i")) | .body | @json' \
+            > "$OUT/reviews.jsonl" 2>/dev/null || : > "$OUT/reviews.jsonl"
+          tail -n 1 "$OUT/reviews.jsonl" | jq -r '. // empty' > "$OUT/latest-review.md" 2>/dev/null || : > "$OUT/latest-review.md"
+
+          # Stati già dichiarati in `## Non implementato`: la tassonomia va letta
+          # da main (non dalla head di questa PR, che può precedere #5916 e non
+          # esportare `bulletState`) — stessa ragione per cui il prompt lo faceva
+          # con `git fetch`+`git show origin/main:...` invece di leggere il
+          # checkout locale.
+          # `pr-body-sections-check.mjs` importa `../ci/lib/false-positive-
+          # declaration.mjs` in modo RELATIVO (risolto da import.meta.url, non
+          # dalla cwd): appiattirlo in un file isolato rompe quell'import con
+          # ERR_MODULE_NOT_FOUND (bug preesistente nel one-liner che questo
+          # step sostituiva già in #6679, mai emerso perché il ramo "PR nata
+          # prima di #5916" è raro — misurato a mano riproducendo la catena
+          # d'import fuori dal repo). Preservare la STESSA struttura relativa
+          # (scripts/lib/ + scripts/ci/lib/) sotto $OUT lo risolve.
+          BASE_FETCHED=0
+          if git fetch --no-tags origin main:refs/remotes/origin/main >/dev/null 2>&1; then
+            BASE_FETCHED=1
+            mkdir -p "$OUT/scripts/lib" "$OUT/scripts/ci/lib"
+            git show origin/main:scripts/lib/pr-body-sections-check.mjs \
+              > "$OUT/scripts/lib/pr-body-sections-check.mjs" 2>/dev/null
+            git show origin/main:scripts/ci/lib/false-positive-declaration.mjs \
+              > "$OUT/scripts/ci/lib/false-positive-declaration.mjs" 2>/dev/null
+          fi
+          if [ -s "$OUT/scripts/lib/pr-body-sections-check.mjs" ]; then
+            printf '%s\n' \
+              'import { readFileSync, writeFileSync } from "node:fs";' \
+              'const [, , modPath, prJsonPath, outPath] = process.argv;' \
+              'const { extractSection, sectionBullets, bulletState, NON_IMPL_ANCORA_RE } = await import("file://" + modPath);' \
+              'const body = JSON.parse(readFileSync(prJsonPath, "utf8")).body ?? "";' \
+              'const sec = extractSection(body, NON_IMPL_ANCORA_RE) ?? "";' \
+              'const states = sectionBullets(sec).map((b) => ({ state: bulletState(b), bullet: b }));' \
+              'writeFileSync(outPath, JSON.stringify(states, null, 2));' \
+              > "$OUT/compute-states.mjs"
+            node "$OUT/compute-states.mjs" "$OUT/scripts/lib/pr-body-sections-check.mjs" "$OUT/pr.json" "$OUT/closing-states.json" \
+              2>/dev/null || echo '[]' > "$OUT/closing-states.json"
+          else
+            echo '[]' > "$OUT/closing-states.json"
+          fi
+
+          # Le sezioni vincolanti devono provenire dalla base canonica, non dalla
+          # head della PR: una PR che rinomina uno di questi heading non deve
+          # poter disabilitare il fixer che la esamina. Il fetch e l'estrazione
+          # sono fail-closed: se la base o un heading mancano, il bundle non
+          # viene prodotto e la run lascia un errore visibile.
+          if [ "$BASE_FETCHED" -ne 1 ]; then
+            echo "::error::Impossibile leggere origin/main per estrarre le sezioni vincolanti; bundle non generato."
+            exit 1
+          fi
+          mkdir -p "$OUT/canonical-docs"
+          for doc in REVIEW.md AGENTS.md; do
+            if ! git show "origin/main:$doc" > "$OUT/canonical-docs/$doc" 2>/dev/null; then
+              echo "::error::Documento vincolante assente in origin/main: $doc; bundle non generato."
+              exit 1
+            fi
+          done
+          if ! REDFLAG_DOC_ROOT="$OUT/canonical-docs" node scripts/ci/redflag-doc-sections.mjs > "$OUT/redflag-doc-sections.md"; then
+            echo "::error::Impossibile estrarre le sezioni vincolanti di REVIEW.md/AGENTS.md da origin/main; bundle non generato."
+            exit 1
+          fi
+
+          # Il documento non va letto dal modello con Read: oltre il limite del
+          # tool diventerebbe un <persisted-output> e arriverebbe solo il preview.
+          # Passarlo nell'input dell'action evita il percorso di troncamento.
+          # L'espansione multilinea di un env nel prompt non eredita il rientro
+          # del block scalar YAML: prefissare ogni riga mantiene il contratto
+          # visibilmente dentro il blocco delimitato anche a runtime.
+          {
+            echo 'REDFLAG_DOC_SECTIONS<<REDFLAG_DOC_SECTIONS_EOF'
+            sed 's/^/            /' "$OUT/redflag-doc-sections.md"
+            echo 'REDFLAG_DOC_SECTIONS_EOF'
+          } >> "$GITHUB_ENV"
+
+          {
+            echo "# Redflag-fix bundle — PR #$PR_NUMBER"
+            echo
+            echo "## PR metadata (title, body, headRefName)"
+            cat "$OUT/pr.json"
+            echo
+            echo "## Changed file list"
+            cat "$OUT/files.txt"
+            echo
+            echo '## Ultima review Claude (🔴 findings)'
+            cat "$OUT/latest-review.md"
+            echo
+            echo '## 🔴 aperti secondo il gate (id stabile + anchor, anche di review precedenti)'
+            if [ -n "${OPEN_FINDINGS:-}" ]; then
+              printf '%s\n' "$OPEN_FINDINGS"
+            else
+              echo "Non disponibile: usa i 🔴 dell'ultima review."
+            fi
+            echo
+            echo '## Stati già dichiarati in "## Non implementato" (bulletState calcolato da main)'
+            cat "$OUT/closing-states.json"
+          } > "$OUT/redflag-bundle.md"
+          echo "Prefetched redflag context in $OUT:"
+          ls -la "$OUT"
+
+      - name: Install deterministic PR body gate
+        id: body_gate
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
+        run: |
+          set -euo pipefail
+          gate_dir="$RUNNER_TEMP/pr-body-gate-bin"
+          mkdir -p "$gate_dir"
+          ln -sf "$GITHUB_WORKSPACE/scripts/gh-pr-body-check.mjs" "$gate_dir/gh"
+          echo "$gate_dir" >> "$GITHUB_PATH"
+          echo "PR_BODY_GATE_BIN=$gate_dir" >> "$GITHUB_ENV"
+
+      # `guard` and `ctx` execute code from the PR checkout.  They run after
+      # the previous refresh, so that path is no longer a safe final claim
+      # input.  Re-materialize the tiny predicate cone immediately before the
+      # last claim verification; no PR-controlled step may mutate this copy.
+      - name: Refresh trusted fixer policy immediately before final claim
+        id: trusted_policy_claim_final
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true' && steps.ctx.outcome == 'success' && steps.body_gate.outcome == 'success'
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: main
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/redflag-trusted-policy-claim-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
+          }
+          for trusted_path in \
+            scripts/ci/pr-fixer-claim.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/lib/int-from-env.mjs; do
+            download_main "$trusted_path"
+          done
+          node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
+      - name: Revalidate redflag claim immediately before model
+        id: claim_verify_final
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true' && steps.ctx.outcome == 'success' && steps.body_gate.outcome == 'success'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLAIM_ACTION: verify
+          CLAIM_KIND: redflag
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
+          EVENT_KEY: review:${{ github.event.review.id }}
+          REVIEW_BODY: ${{ github.event.review.body }}
+          CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_claim_final.outputs.root }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+        run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim
+
+      - name: Stop when final redflag claim changed before model
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify_final.outputs.claim_valid != 'true'
+        run: |
+          echo "::error::Claim redflag cambiato dopo il prefetch e prima del modello → nessun fixer Claude."
+          exit 1
+
+      - name: Revalidate redflag PR snapshot immediately before model
+        id: snapshot_final
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify_final.outputs.claim_valid == 'true' && steps.ctx.outcome == 'success' && steps.body_gate.outcome == 'success'
+        continue-on-error: true
+        env:
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          EXPECTED_HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          EXPECTED_REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
+          MARKER_ID: ${{ steps.guard.outputs.marker_id }}
+        run: |
+          set -uo pipefail
+          snapshot=''
+          reason=''
+          # GitHub può restituire per pochi secondi una rappresentazione stale
+          # del body subito dopo un evento review/edit. Ritenta l'intero snapshot
+          # prima di rilasciare il claim; un cambiamento persistente resta fail-closed.
+          for snapshot_attempt in 1 2 3; do
+            snapshot=''
+            reason=''
+            if ! snapshot=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" 2>/dev/null); then
+              reason='PR snapshot API illeggibile'
+            elif ! printf '%s' "$snapshot" | jq -e 'type == "object" and (.state | type) == "string" and (.draft | type) == "boolean" and (.head.sha | type) == "string" and ((.body == null) or ((.body | type) == "string"))' >/dev/null 2>&1; then
+              reason='PR snapshot malformato'
+            else
+              snapshot_state=$(printf '%s' "$snapshot" | jq -r '.state')
+              snapshot_draft=$(printf '%s' "$snapshot" | jq -r '.draft')
+              snapshot_head=$(printf '%s' "$snapshot" | jq -r '.head.sha')
+              # Hasha il body in streaming: jq -r + command substitution
+              # eliminerebbero i newline finali e farebbero divergere la
+              # revisione dalla preflight per un body valido.
+              # EXPECTED_REVIEW_REVISION viene da `review-input-revision.mjs
+              # hash-pr-json` (step admission), che dal 2026-09-20 (#9328)
+              # emette la serializzazione `jq-newline`: sha256(body + "\n").
+              # Senza il newline qui il digest non combaciava mai e ogni run
+              # usciva «PR snapshot cambiato» prima di Codex.
+              snapshot_revision=$({ printf '%s' "$snapshot" | jq -j '.body // ""'; printf '\n'; } | shasum -a 256 | awk '{print "body:" $1}')
+              if [ "$snapshot_state" != 'open' ] || [ "$snapshot_draft" != 'false' ] \
+                || [ "$snapshot_head" != "$EXPECTED_HEAD_SHA" ] \
+                || [ "$snapshot_revision" != "$EXPECTED_REVIEW_REVISION" ]; then
+                reason="PR snapshot cambiato (state=$snapshot_state draft=$snapshot_draft head=$snapshot_head revision=$snapshot_revision)"
+              fi
+            fi
+            if [ -z "$reason" ]; then
+              break
+            fi
+            if [ "$snapshot_attempt" -lt 3 ]; then
+              echo "::warning::Lettura snapshot PR non coerente al tentativo $snapshot_attempt/3; retry bounded prima di rilasciare claim."
+              sleep 2
+            fi
+          done
+          if [ -n "$reason" ]; then
+            echo "::error::$reason dopo il claim finale e prima di Codex: nessun fixer Claude."
+            echo 'CLAIM_STATUS=released' >> "$GITHUB_ENV"
+            if [[ "$MARKER_ID" =~ ^[1-9][0-9]*$ ]]; then
+              if "$TRUSTED_GH_BIN" api --method DELETE \
+                "repos/$REPO/issues/comments/$MARKER_ID" >/dev/null 2>&1; then
+                echo "Marker REDFLAG_FIX_ROUND $MARKER_ID cancellato: round rimborsato."
+              else
+                echo "::warning::Impossibile cancellare marker REDFLAG_FIX_ROUND $MARKER_ID; claim rilasciato ma il round potrebbe restare contato."
+              fi
+            else
+              echo "::warning::Marker REDFLAG_FIX_ROUND non identificato; claim rilasciato senza rimborso verificabile."
+            fi
+            echo 'snapshot_valid=false' >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          echo 'snapshot_valid=true' >> "$GITHUB_OUTPUT"
+
+      - name: Run Codex Luna Max 🔴-fix
+        # Tetto sullo step: senza, l'unico limite era il cap del job
+        # (40min) e la run ci moriva `cancelled` — che NON fa scattare
+        # nessun `if: failure()` e si vede solo dallo scan periodico
+        # (`scripts/ci/scan-job-timeouts.mjs`). Stessa classe di #7310.
+        # 30min = cap del job meno il setup pre-Codex misurato (~276s
+        # sulle ultime run) e una coda per gli step `if: always()`.
+        timeout-minutes: 30
+        id: codex_fix
+        if: steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify_final.outputs.claim_valid == 'true' && steps.snapshot_final.outputs.snapshot_valid == 'true'
+        # Non far fallire il job sull'exit non-zero della action: lo `Classify
+        # outcome` finale decide il colore in base al LAVORO reale (commit pushato),
+        # non al subtype della CLI. Un error_max_turns DOPO un push valido non è un
+        # fallimento del round. I fail genuini (nessun push) vengono ri-marcati RED
+        # dal classify → il segnale "non-progress" resta visibile nel loop-health.
+        continue-on-error: true
+        uses: ./.github/actions/claude-codex-fallback
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          PR_TITLE: ${{ github.event.pull_request.title }}
+          REPO: ${{ github.repository }}
+          PR_BODY_EXPECTED_REVISION: ${{ steps.admission.outputs.review_revision }}
+          FIX_TIER: ${{ steps.guard.outputs.tier }}
+          FIX_ROUND: ${{ steps.guard.outputs.round }}
+          # Verdetto deterministico dello scope: ogni 🔴 aperto si ancora al
+          # body della PR e non a un file. Il bersaglio del round è il body.
+          REDFLAG_BODY_ONLY: ${{ needs.scope.outputs.body_only }}
+        # `exec_timeout_minutes` = watchdog interno di Codex. Il default 15min
+        # dell'action e' tarato sulle review: qui uccideva fix ancora al lavoro
+        # (run 36114366113; 6 delle 9 esecuzioni riuscite nelle 48h prima del
+        # 2026-09-25 duravano gia' >= 840s). 25 = step da 30min meno setup e
+        # coda (CODEX_SETUP_AND_TAIL_SECONDS nel test del watchdog). Commento
+        # fuori da `with:`: il validatore conta l'intero mapping (#9742).
+        with:
+          codex_auth_json: ${{ secrets.CODEX_AUTH_JSON }}
+          exec_timeout_minutes: "25"
+          # Auth via subscription Max (zero API cost). MAI ANTHROPIC_API_KEY.
+          # `github_token` alimenta gli helper provider-neutral di quota/delivery;
+          # resta allineato alla catena App/PAT del push, ma non è il bridge Codex.
+          github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          # Il bridge host-side `gh`/Git può eseguire anche operazioni mutanti: passa solo
+          # l'identità operativa App/PAT. L'action esistente fa fail-closed prima di
+          # `codex exec` se l'input è vuoto; il token resta fuori dall'ambiente del modello.
+          codex_github_token: ${{ env.APP_TOKEN || env.GITHUB_PAT }}
+          # Le review/PR autonome sono di claude[bot] / github-actions[bot] /
+          # frontaliere-automation[bot] (App): le PR aggiornate via App token
+          # triggerano con actor = l'App → senza whitelist la action aborta
+          # "non-human actor: frontaliere-automation" (exit 1). Mai `*`.
+          # 30->45 (misurato 06-12): 25 fail vs 20 success in 7gg, TUTTI
+          # error_max_turns al cap 30 (run 27390252111/27375482475/27373263097)
+          # = peggior failure-rate del loop; ogni fail brucia ~8-14min di run
+          # senza commit e lascia il rosso alla escalation needs-human.
+          # 2026-07-02: --dangerously-skip-permissions sostituisce --allowedTools scoped
+          # (rationale completo: post-merge-followup.yml action-input comment, stesso
+          # fix, evita drift tra copie duplicate).
+          # 45->60 (2026-07-17, owner): bump fleet-wide di tutti i cap max-turns
+          # Claude dopo l'ennesimo error_max_turns (pr-review-loop run 29556645538).
+          prompt: |
+            Sei l'agent di chiusura 🔴 per la PR #${{ github.event.pull_request.number }} ("${{ github.event.pull_request.title }}"). Tier: ${{ steps.guard.outputs.tier }}. Round: ${{ steps.guard.outputs.round }}/3.
+
+            **Contratto documentale vincolante (prefetch zero-Claude):**
+            Le sezioni vincolanti sono già dentro questa richiesta, non in un output del tool:
+            --- BEGIN REDFLAG_DOC_SECTIONS (indented runtime injection) ---
+            ${{ env.REDFLAG_DOC_SECTIONS }}
+            --- END REDFLAG_DOC_SECTIONS ---
+
+            **Bootstrap:**
+            1. Usa il contratto documentale già incluso sopra: `REVIEW.md` (scopo + severity) e `AGENTS.md` (Non-Negotiables + Privacy). Se una sezione manca, considera il prefetch fallito e fermati: non procedere con un bundle incompleto.
+            2. Il bundle deterministico è già pronto in `${{ runner.temp }}/redflag/redflag-bundle.md` (prefetch zero-Claude): PR metadata (title/body/headRefName), elenco file completo (REST paginata, non tronca a 100), ultima review Claude con i 🔴, e gli stati già dichiarati in `## Non implementato` (vedi Regole sotto). **Leggilo con `Read` come prima cosa; non rieseguire `gh pr view`, `gh api .../files` o `gh api .../reviews` per gli stessi dati** — solo se una sezione risulta vuota/mancante e ti serve davvero, ripeti la singola chiamata mancante. Il branch è già checkoutato sulla head della PR.
+
+            **Obiettivo:** applica un fix CLASS-COMPLETE ai findings `🔴 Important` aperti su QUESTO branch: quelli della review più recente e quelli che il bundle elenca in «🔴 aperti secondo il gate» (il gate blocca anche su quelli). Se un 🔴 porta `Accettazione: <controllo>`, quel controllo è il criterio con cui la re-review giudicherà il tuo fix: eseguilo prima del push. Se non la porta, scegli tu un controllo verificabile che eserciti proprio il difetto (un test, un comando, un input con l'output atteso), eseguilo e dichiaralo nella risposta come `Accettazione proposta:`: il reviewer giudicherà il fix su quello. NON mergiare.
+
+            **Verdetto deterministico dello scope — 🔴 SOLO-BODY: `${{ needs.scope.outputs.body_only }}`.**
+            Quando vale `true`, il classificatore ha già stabilito che OGNI `🔴 Important` aperto si ancora a `PR body:L<n>` e non cita nessun file: **il difetto è nel BODY della PR, non nell'albero.** In quel caso:
+            - **NON cercare il fix nel codice.** Non aprire i file citati altrove nella review, non sweepare sibling, non committare: non c'è niente da correggere nel tree e un round speso a cercarlo è il round che ha portato la PR #9238 a `needs-human` dopo aver ripetuto lo stesso `PR body:L14` su quattro review consecutive.
+            - **Il fix è riscrivere il body**, ed è nel tuo potere: scrivi il testo completo in `$RUNNER_TEMP/pr-redflag-pr-body.md`, valida con `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e applica con `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"` (stessa procedura della regola sul body più sotto).
+            - **Correggere il body è necessario ma NON sufficiente, e non devi occupartene tu.** `tests.yml` non è triggerato da `edited` e il suo re-review guard salta quando esiste già una review terminale su questa HEAD: finché la HEAD non cambia, nessuna review potrà mai giudicare il body che hai appena corretto, e la PR resta ferma con il 🔴 terminale addosso. Lo step deterministico `Advance HEAD after a PR-body fix`, subito dopo di te, se ne accorge dal digest del body e spinge lui il commit che fa avanzare la HEAD. **Non pushare tu un commit vuoto per questo**: ne uscirebbero due.
+            - **Se il body NON si può correggere** (il finding chiede una decisione che non puoi prendere, o il gate deterministico rifiuta ogni riscrittura onesta), **non uscire in silenzio**: commenta sulla PR `🔴 solo-body non auto-fixabile: <motivo>` citando il bullet e il finding, così il round-cap può escalare a `needs-human` con la diagnosi giusta. Un'uscita senza body riscritto E senza commento viene marcata RED come non-progress silenzioso.
+
+            **Regole:**
+            - **PRIMA di applicare qualunque fix, leggi gli STATI GIÀ DICHIARATI nel body della PR — sono già calcolati nel bundle** (sezione "Stati già dichiarati...", `closing-states.json`): stessa logica `extractSection`/`sectionBullets`/`bulletState`/`NON_IMPL_ANCORA_RE` di `scripts/lib/pr-body-sections-check.mjs`, risolta da `main` (non dalla HEAD di questa PR, che può essere un branch nato PRIMA di #5916, dove `bulletState` non è esportato o il file non c'è affatto — la tassonomia che conta è quella di `main`, perché è `main` che poi giudica il body). **NON ricalcolarli con un fetch/parse tuo, e NON scrivere un secondo parser** né una regex tua: se il bundle mostra `[]` ma il body ha davvero una sezione `## Non implementato` non vuota, quello è un segnale che il prefetch è fallito (fetch di `main` non riuscito) — solo in quel caso rifai a mano `gh pr view $PR_NUMBER --json body -q .body`, poi `git fetch --no-tags origin main` e recupera **sia** `scripts/lib/pr-body-sections-check.mjs` **sia** `scripts/ci/lib/false-positive-declaration.mjs` con `git show FETCH_HEAD:...` (`mkdir -p /tmp/scripts/lib /tmp/scripts/ci/lib && git show FETCH_HEAD:scripts/lib/pr-body-sections-check.mjs > /tmp/scripts/lib/pr-body-sections-check.mjs && git show FETCH_HEAD:scripts/ci/lib/false-positive-declaration.mjs > /tmp/scripts/ci/lib/false-positive-declaration.mjs`), mantenendo la stessa struttura relativa (il primo importa il secondo con un percorso relativo, risolto dalla posizione del file — appiattirlo in un unico file isolato rompe l'import con `ERR_MODULE_NOT_FOUND`), e l'import delle stesse quattro funzioni (`extractSection`, `sectionBullets`, `bulletState`, `NON_IMPL_ANCORA_RE` — è `extractSection` che applica `stripNonContent`, senza il quale gli ESEMPI di tassonomia dentro un blocco fenced del body vengono letti come stati dichiarati). `scripts/ci/followup-has-candidates.mjs` importa le stesse funzioni: una tassonomia riscritta a mano diverge in silenzio dal gate che poi giudica lo stesso body.
+            - **Quali stati CHIUDONO un follow-up e quali no — `blocked:` NON è monolitico.** La lista canonica è la costante `CLOSING_STATES` di `scripts/ci/followup-has-candidates.mjs`, alimentata dalla stessa `bulletState`/tassonomia che il gate usa. Chiudono tutti e cinque: `in-this-pr` (`in questa PR`), `chained-pr` (`PR concatenata #N`), `by-choice` (`per scelta`), `by-construction` (`by construction`) e `blocked-owner` (`blocked: decisione del proprietario` / `blocked: owner decision`). I primi due indicano lavoro già tracciato; solo gli ultimi tre sono un NO motivato e richiedono il motivo scritto dopo lo stato. NON chiude `blocked-technical`, cioè ogni altro `blocked: <causa>`, che è lavoro aperto su una causa esterna e il cui 🔴 va comunque fixato: leggi la CAUSA, non il prefisso. `PR concatenata` senza `#N` non è uno stato chiudente e viola il contratto: trattala sempre come finding aperto.
+            - **Regola specifica del `pr-redflag-fixer`:** la tassonomia resta quella canonica a cinque stati, ma `in questa PR` e `PR concatenata #N` NON sono un veto sul finding della review corrente: dichiarano lavoro tracciato, non che l'implementazione sulla PR viva sia corretta. Per questo fixer il veto su quel finding vale solo per i tre NO motivati (`per scelta`, `by construction`, `blocked: decisione del proprietario`), con motivo valido dopo lo stato e senza negazione. `issue-fix.yml` può invece onorare tutti e cinque nel proprio contesto di follow-up.
+            - **Due controlli prima di onorare un veto.** `bulletState` vince sull'occorrenza più a SINISTRA, e questo si presta a un falso veto: verifica sul testo del bullet che (a) le parole dello stato non stiano dentro una NEGAZIONE — «il floor non è a 3 per scelta ma per un limite dell'API, il fix vero arriva in questa PR» viene classificato `by-choice` mentre dichiara l'opposto — e che (b) il MOTIVO venga DOPO lo stato, non prima e non altrove. Una menzione nuda di `per scelta` o `by construction`, senza motivo, non è una chiusura anche se `bulletState` trova il token: resta un finding aperto. Se uno dei due controlli non regge, lo stato NON copre il finding: fixa il 🔴 normalmente e scrivi nel commento che il bullet è ambiguo. E il veto vale solo per il bullet che copre il TEMA del finding, mai per uno che gli somiglia.
+            - **Quando il veto regge:** quel punto è chiuso per decisione, non rinviato — NON toccarlo, non implementarlo, non riscriverlo sotto `## Implementato`. Commenta sulla PR citando il bullet verbatim e lo stato letto (`🔴 non applicato: il body dichiara «<bullet>» → stato <per scelta|by construction|blocked: decisione del proprietario> con un motivo; lo stato dichiarato copre il finding`) e passa al finding successivo. Un fixer che riapre di iniziativa una voce chiusa contraddice una decisione già presa e ri-arma il round successivo su lavoro che nessuno vuole.
+            - **Terminale SENZA modifiche al codice: scrivi la risposta per finding (sotto) e FERMATI. Niente commit vuoto da parte tua**: se la risposta contiene un `disputed`, lo step deterministico successivo avanza la HEAD una volta, perché il reviewer giudichi la contestazione. Vale per ogni uscita senza diff — tutti i 🔴 coperti da uno stato dichiarato, oppure non auto-fixabili. Un commit senza modifiche creerebbe una HEAD nuova e una seconda review sullo stesso lavoro (storm #9066/#9074). La review terminale sulla HEAD corrente resta il verdetto: se è 🔴 Important il required check resta rosso e native auto-merge non opta-in; il prossimo model review arriva solo dopo un push di codice reale. Non pushare un commit vuoto.
+            - Fix CHIRURGICO alla CLASSE del bug (AGENTS.md non-negotiable #6): se il 🔴 segnala un pattern (regex/guard/floor/threshold/selector/idiom), `rg` i sibling funnel-critical (`scripts/update-*.mjs`, `scripts/lib/*-parser.mjs`, `build-plugins/**`, `services/seoService.ts`) e sweepa l'intera classe nella STESSA commit, oppure giustifica ogni sibling non toccato in `## Non implementato`.
+            - Mai abbassare quality gate/test/validation/SEO gate per "far passare" (#1). Mai disabilitare AdSense Auto Ads (#7). Mai path home assoluti o email personali (Privacy).
+            - CODE vs DATA: non scorrere i blob `data/**`/`public/**`; fixa il CODE che li genera.
+            - Esegui i test pertinenti: `npm test` (o il subset rilevante) per validare il fix prima di committare.
+            - Commit con identity canonica già configurata (Valerie Linc <valerielinc@gmail.com>), messaggio conventional, nessuna email non-canonica in coda.
+            - Ogni commit porta il trailer `Fixer: redflag-round-${{ steps.guard.outputs.round }}` (`git commit -m "<messaggio>" --trailer "Fixer: redflag-round-${{ steps.guard.outputs.round }}"`): l'identity e' la stessa degli agenti locali e il trailer e' l'unico modo di distinguere i tuoi push.
+            - Push sullo stesso branch: `git push origin HEAD:${{ github.event.pull_request.head.ref }}`. Il remote `origin` è già autenticato con l'App token (se disponibile, altrimenti PAT) → ri-attiva pr-review-loop (re-review). Se il push fallisce per scope/auth → documenta in un commento e TERMINA.
+            - Aggiorna il body della PR: scrivi il testo completo nel file assoluto `$RUNNER_TEMP/pr-redflag-pr-body.md` (imposta `BODY_FILE` a quel path), poi esegui `node scripts/ci/pr-body-check-gate.mjs --body-file "$BODY_FILE"` e solo con exit 0 chiama `gh pr edit "$PR_NUMBER" --repo "$REPO" --body-file "$BODY_FILE"`. Non usare un body inline: il wrapper deterministico su `gh` blocca ogni riscrittura senza body-file o con body non conforme prima della chiamata remota. Mantieni `## Implementato` (aggiungi cosa hai fixato) + `## Non implementato (ancora)`. Ogni bullet della seconda sezione vuole uno STATO LETTERALE, scritto esattamente così: `in questa PR` / `PR concatenata #N` (col numero) / `per scelta` / `by construction` / `falso positivo` / `blocked: <causa esterna reale>` (AGENTS.md #8). La forma `PR concatenata` senza `#N` non è tracciabile, non chiude il bullet e va trattata come lavoro aperto. Non è cosmesi: `scripts/ci/followup-has-candidates.mjs` riapre come issue di follow-up ogni bullet `blocked: <causa tecnica>` **e ogni bullet senza stato** — un 🔴 che hai appena chiuso, descritto senza stato, torna indietro come issue nuova. Le deroghe decisionali (`per scelta`, `by construction`, `falso positivo`, `blocked: decisione del proprietario`) sono chiusure solo con `**Motivo:** <causa concreta>. **Prossimo passo:** <azione concreta>.` nello stesso bullet; una formula nuda, generica o con placeholder resta aperta e il gate la blocca. **Divieto: non scrivere MAI `per scelta` / `by construction` / `falso positivo` / `blocked: decisione del proprietario` su un item che stai SALTANDO in questo round** (sibling non sweepati, finding rimandati, lavoro che non hai fatto). Quei quattro stati chiudono la voce, e al round 2 saresti TU a rileggere il bullet che hai scritto tu come decisione già presa: ritireresti il 🔴 senza averlo fixato, con il round cap che non scatta mai perché ogni round si dichiara terminato. Per ciò che salti usa `PR concatenata #N` (col numero) o `blocked: <causa esterna reale>`; gli stati chiudenti valgono solo per ciò che hai deciso di non fare MAI, col motivo scritto dopo lo stato.
+
+            **Risposta per finding (obbligatoria, anche senza commit).** Prima del push, o prima di terminare senza commit, scrivi `$RUNNER_TEMP/redflag-response.md` con UNA riga per ogni 🔴 aperto, usando l'anchor della review:
+            - `` `path:L<n>` — fixed: <cosa hai cambiato, con path:L>. Verifica: <comando dell'Accettazione, o test eseguito> → <esito> `` (se il 🔴 non aveva `Accettazione:`, chiudi con `` Accettazione proposta: <il controllo eseguito> ``)
+            - `` `path:L<n>` — disputed: <evidenza dal codice attuale (path:L) o bullet del body con stato chiudente, e perché il finding non si applica> ``
+            - `` `path:L<n>` — not-fixable: <motivo concreto: decisione del proprietario, misura live, root cause non chiara> ``
+            Lo step successivo la pubblica sulla PR; il reviewer la trova nel suo bundle e deve rispondere voce per voce (`Fix di …: ok` oppure 🔴 con `Replica:`), come prescrive REVIEW.md «Re-review convergence». `disputed` solo con evidenza concreta, mai per un finding che scegli di non fare. Il veto di uno stato dichiarato nel body (regole sopra) è un `disputed` che cita quel bullet. La risposta pubblicata vale come spiegazione: non serve un commento a parte.
+
+            **Constraint:**
+            - SOLO i 🔴 aperti (review corrente + «🔴 aperti secondo il gate»). Non rifare l'intera PR, non drive-by.
+            - Se i 🔴 non sono fixabili con confidenza (root cause non chiara / serve giudizio umano) → scrivi `not-fixable: <motivo>` nella risposta per finding e TERMINA senza commit: è il 🔴 non auto-fixabile che il round cap + needs-human escalano.
+            - Una sola passata: applica, valida, committa, pusha, aggiorna body, STOP.
+
+      # ── Un body riscritto senza una HEAD nuova è uno stallo, non un fix ──────
+      #
+      # `tests.yml` NON è più triggerato da `edited` (tolto il 2026-09-18: 33%
+      # delle run su PR nascevano da lì e rimisuravano codice immutato) e il suo
+      # `Re-review guard` salta quando esiste già una review terminale sulla
+      # HEAD. Le due cose insieme rendono un 🔴 che vive solo nel body
+      # ASSORBENTE: il fixer corregge il body, nessuna review nuova può essere
+      # emessa sulla stessa HEAD, il verdetto 🔴 resta terminale e la PR si
+      # ferma per sempre — in silenzio, con la run verde. Correggere il body è
+      # necessario e non sufficiente.
+      #
+      # Quindi: quando il body è cambiato in questo round e la HEAD NON è
+      # avanzata, qui si fa avanzare la HEAD. Il commit è vuoto nell'albero
+      # perché il lavoro del round sta nel body, che l'albero non contiene; non
+      # è il commit vuoto che il prompt vieta (quello nasce da un round che non
+      # ha fatto NIENTE e produce una seconda review sullo stesso lavoro —
+      # storm #9066/#9074). Qui la condizione è l'opposta: si spinge solo se una
+      # modifica c'è stata, ed è limitata dal round cap (MAX_ROUNDS, oggi 3).
+      - name: Advance HEAD after a PR-body fix (un body nuovo non è rivedibile senza un commit)
+        id: body_advance
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          BASE_SHA: ${{ steps.base.outputs.sha }}
+          BASE_BODY_DIGEST: ${{ steps.base.outputs.body_digest }}
+          BODY_ONLY: ${{ needs.scope.outputs.body_only }}
+          FIX_ROUND: ${{ steps.guard.outputs.round }}
+        run: |
+          set -uo pipefail
+          # Solo un round che lo scope ha dichiarato `body_only`. Senza questo
+          # filtro, un edit del body fatto da qualcun altro mentre il round
+          # girava avrebbe fatto avanzare la HEAD — e bruciato una re-review —
+          # su un round che di codice non aveva fatto niente (domanda `❓ q:`
+          # della review 5259835406). Il caso «body cambiato, HEAD ferma» resta
+          # comunque coperto: `Classify outcome` lo marca RED, mai verde.
+          if [ "${BODY_ONLY:-false}" != "true" ]; then
+            echo "Round non body-only (body_only=${BODY_ONLY:-false}) → nessun avanzamento di HEAD da qui."
+            echo "advanced=not-body-only" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          now_digest=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '.body // ""' 2>/dev/null \
+            | shasum -a 256 | awk '{print $1}')
+          if [ "${BASE_BODY_DIGEST:-unknown}" = "unknown" ] || [ -z "${now_digest:-}" ]; then
+            echo "Digest del body non confrontabile → nessuna decisione qui; il classify sotto resta l'arbitro."
+            echo "advanced=unknown" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          if [ "$now_digest" = "$BASE_BODY_DIGEST" ]; then
+            echo "Body invariato in questo round (body_only=${BODY_ONLY:-false}) → niente da sbloccare."
+            echo "advanced=no-body-change" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          head_now=$(git rev-parse HEAD 2>/dev/null || echo "")
+          if [ -n "$head_now" ] && [ "$head_now" != "$BASE_SHA" ]; then
+            echo "Body riscritto e HEAD già avanzata ($BASE_SHA → $head_now): la re-review parte dal push del fix."
+            echo "advanced=by-fix" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          echo "Body riscritto ma HEAD ferma su $BASE_SHA → senza un commit nuovo nessuna review può giudicare il body corretto."
+          if ! git commit --allow-empty \
+              -m "chore(pr-body): rendi rivedibile il body corretto dal 🔴-fixer (round ${FIX_ROUND:-?})" \
+              --trailer "Fixer: redflag-round-${FIX_ROUND:-0}"; then
+            echo "::error::Commit di sblocco non creato: la PR resterebbe ferma su una review terminale."
+            exit 1
+          fi
+          if git push origin "HEAD:${HEAD_REF}"; then
+            echo "✓ HEAD avanzata dopo la correzione del body → la re-review può essere emessa."
+            echo "advanced=by-unblock-commit" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          # Il push è l'unico modo di uscire dallo stallo: se non atterra, non
+          # si esce verdi. Si rende visibile e si attiva il percorso di sblocco.
+          echo "::error::Push del commit di sblocco fallito: il body è corretto ma nessuna review nuova può essere emessa sulla HEAD $BASE_SHA."
+          echo "advanced=push-failed" >> "$GITHUB_OUTPUT"
+          # Idempotente sul marker, come l'escalation del round cap: un round
+          # successivo ripasserebbe di qui e riposterebbe la stessa diagnosi. Here-string,
+          # non `printf | grep -q`: con pipefail il SIGPIPE su un elenco
+          # commenti grande rende falso il guard (stessa trappola di #9283).
+          comments=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate \
+            --jq '[.[] | .body] | join("\n")' 2>/dev/null || echo "")
+          if grep -qF '<!-- REDFLAG_BODY_DEADLOCK -->' <<<"$comments"; then
+            echo "Stallo del body già escalato su questa PR → nessun nuovo label/commento."
+          else
+            "$TRUSTED_GH_BIN" pr edit "$PR_NUMBER" --repo "$REPO" --add-label "needs-human" 2>/dev/null \
+              || echo "label needs-human assente — creala: gh label create needs-human"
+            "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body "$(printf '<!-- REDFLAG_BODY_DEADLOCK -->\n🛑 **needs-human** (auto): il 🔴-fixer ha corretto il body della PR, ma il push del commit che rende quel body rivedibile è fallito. Senza una HEAD nuova nessuna review può essere emessa (`tests.yml` non è triggerato da `edited` e il re-review guard salta su una review terminale già presente): la PR resterebbe ferma in silenzio. Serve un commit manuale sul branch.')" \
+              2>/dev/null || true
+          fi
+          exit 1
+
+      # La risposta per finding scritta dal fixer diventa un commento
+      # `REDFLAG_RESPONSE` che il bundle del reviewer (`tests.yml`) include.
+      # Una contestazione senza commit non arrivava mai a un giudice: senza una
+      # HEAD nuova non parte nessuna review, e il reviewer non legge i commenti
+      # della PR. Su #9147 il fixer ha scritto «già risolto alla riga 282» e il
+      # reviewer ha ripetuto lo stesso 🔴 in altre quattro review. Qui, se il
+      # round non ha pushato codice e la risposta contiene un `disputed`, un
+      # commit vuoto (uno per round, round cap 3) chiede quel giudizio.
+      - name: Publish the per-finding response (zero-Claude)
+        id: response
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          BASE_SHA: ${{ steps.base.outputs.sha }}
+          FIX_ROUND: ${{ steps.guard.outputs.round }}
+          REVIEW_ID: ${{ github.event.review.id }}
+        run: |
+          set -uo pipefail
+          response="$RUNNER_TEMP/redflag-response.md"
+          if [ ! -s "$response" ]; then
+            echo "Nessuna risposta per finding scritta dal fixer."
+            echo "published=none" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          head_now=$(git rev-parse HEAD 2>/dev/null || echo "")
+          comment="$RUNNER_TEMP/redflag-response-comment.md"
+          {
+            printf '<!-- REDFLAG_RESPONSE round=%s review=%s head=%s -->\n' "${FIX_ROUND:-?}" "${REVIEW_ID:-?}" "${head_now:0:12}"
+            printf '## Risposta del 🔴-fixer (round %s)\n\n' "${FIX_ROUND:-?}"
+            # Sotto il limite di 65.536 caratteri di un commento GitHub.
+            head -c 60000 "$response"
+            printf '\n'
+          } > "$comment"
+          if ! "$TRUSTED_GH_BIN" pr comment "$PR_NUMBER" --repo "$REPO" --body-file "$comment"; then
+            echo "::error::Risposta del fixer non pubblicata: il reviewer non la vedrà."
+            echo "published=failed" >> "$GITHUB_OUTPUT"
+            exit 1
+          fi
+          echo "published=yes" >> "$GITHUB_OUTPUT"
+          if [ -n "$head_now" ] && [ "$head_now" != "${BASE_SHA:-}" ]; then
+            echo "HEAD già avanzata in questo round (${BASE_SHA:-?} → $head_now): la re-review parte da quel push."
+            exit 0
+          fi
+          if ! grep -qiE '(^|[^[:alnum:]_-])disputed([^[:alnum:]_-]|$)' "$response"; then
+            echo "Nessuna contestazione e nessun commit: la risposta resta come spiegazione del round."
+            exit 0
+          fi
+          if ! git commit --allow-empty \
+              -m "chore(redflag): chiedi al reviewer di giudicare le contestazioni (round ${FIX_ROUND:-?})" \
+              --trailer "Fixer: redflag-round-${FIX_ROUND:-0}"; then
+            echo "::error::Commit che chiede la re-review non creato: la contestazione resta senza giudice."
+            exit 1
+          fi
+          if git push origin "HEAD:${HEAD_REF}"; then
+            echo "✓ Contestazione pubblicata e HEAD avanzata → il reviewer la giudica nella prossima review."
+            echo "advanced=yes" >> "$GITHUB_OUTPUT"
+            exit 0
+          fi
+          echo "::error::Push del commit che chiede la re-review fallito: la contestazione resta senza giudice."
+          exit 1
+
+      - name: Cleanup Firebase credentials
+        if: always()
+        run: rm -f /tmp/firebase-sa.json
+
+      # Colore del job = LAVORO reale del round, non l'exit della CLI Claude.
+      #  • head remota non verificabile (fetch fallito o head cambiata fra le
+      #    due letture, dopo i retry) → RED esplicito PRIMA di ogni verdetto:
+      #    niente SUCCESS/SUPERSEDED su una fotografia stantia o intermedia;
+      #    claim failed-transient (retryable), marker di round conservato.
+      #  • commit pushato sul branch della PR  → round SUCCESS (la re-review girerà;
+      #    se 🔴 di nuovo, il round successivo o il round-cap → needs-human). Vale
+      #    anche se Claude è morto error_max_turns DOPO il push (false-failure).
+      #  • branch remoto avanzato da un altro writer dopo la baseline → run
+      #    SUPERSEDED: il claim viene rilasciato e nessun round viene consumato.
+      #  • nessun push + Claude FAILED          → non-progress reale → RED (segnale
+      #    preservato per il loop-health-report + escalation round-cap).
+      #  • nessun push + Claude SUCCESS + NUOVO commento → terminale pulito (es.
+      #    "🔴 non auto-fixabile: <motivo>", come richiesto dal prompt) → GREEN.
+      #  • nessun push + Claude SUCCESS + NESSUN commento → non-progress SILENZIOSO
+      #    → RED. Prima del 2026-08-10 (issue #5534) questo caso era indistinguibile
+      #    da un round che ha davvero lavorato: 'success' senza push e senza traccia
+      #    usciva verde allo stesso modo di un fix pushato, e né stale-pr-rescuer né
+      #    il round-cap potevano più raccoglierlo (un round "riuscito" non ri-arma
+      #    niente). Il prompt chiede esplicitamente un commento quando non c'è nulla
+      #    da pushare — un round che non lo rispetta non è un terminale legittimo,
+      #    è lo stesso buco della PR #142 del repo gemello.
+      # I fail infra a monte (npm ci, setup, load-rc) restano RED da soli: quegli
+      # step non hanno continue-on-error. Mai fa-passare un gate: il round non ha
+      # gate, è telemetria di colore (cfr. #2288, disambigua intenzionale vs crash).
+      - name: Classify outcome (work-done, not CLI exit)
+        if: always() && steps.guard.outputs.proceed == 'true' && steps.claim.outputs.claim_allowed == 'true' && steps.claim_verify.outputs.claim_valid == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          REPO: ${{ github.repository }}
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_REF: ${{ github.event.pull_request.head.ref }}
+          START_SHA: ${{ steps.align.outputs.start_sha }}
+          BASE_SHA: ${{ steps.base.outputs.sha }}
+          BASE_COMMENTS: ${{ steps.base.outputs.comments }}
+          BASE_BODY_DIGEST: ${{ steps.base.outputs.body_digest }}
+          BODY_ONLY: ${{ needs.scope.outputs.body_only }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+          ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
+        run: |
+          set -uo pipefail
+          HEAD_NOW=$(git rev-parse HEAD 2>/dev/null || echo "")
+          # Head remota verificata prima di classificare (#9730, come corpus
+          # #1771). Un fetch fallito lascerebbe origin/$HEAD_REF alla
+          # fotografia dello step align; una head che avanza fra fetch e
+          # lettura darebbe una fotografia intermedia. In entrambi i casi
+          # SUCCESS e SUPERSEDED (claim released) sarebbero decisi su una head
+          # non verificata. Si classifica solo su uno SHA confermato da due
+          # letture concordi (fetch con refspec esplicito + ls-remote), con
+          # retry bounded e backoff; altrimenti errore esplicito PRIMA di ogni
+          # ramo che scrive stato: niente SUPERSEDED, niente released, marker
+          # di round conservato. Ogni comando di rete ha un timeout proprio (il
+          # timeout del job non deve decidere l'esito) e l'esito transitorio
+          # viene esportato come CLAIM_STATUS=failed-transient: il finalize
+          # (`pr-fixer-claim.mjs --claim`, CLAIM_ACTION=finalize) lo eredita
+          # invece di ricostruire uno stato terminale dall'outcome dell'azione,
+          # quindi il claim resta retryable.
+          REMOTE_SHA=""
+          remote_head_attempts=3
+          remote_head_attempt=1
+          while [ "$remote_head_attempt" -le "$remote_head_attempts" ]; do
+            fetched_sha=""
+            reread_sha=""
+            if timeout 60 git fetch --no-tags -q origin "+refs/heads/$HEAD_REF:refs/remotes/origin/$HEAD_REF"; then
+              fetched_sha=$(git rev-parse --verify --quiet "refs/remotes/origin/$HEAD_REF^{commit}" 2>/dev/null) || fetched_sha=""
+              # Una rilettura che esce non-zero conta come fallita anche se ha
+              # stampato una riga: si usa l'output solo con exit 0.
+              if ls_remote_out=$(timeout 30 git ls-remote --exit-code origin "refs/heads/$HEAD_REF" 2>/dev/null); then
+                reread_sha=$(printf '%s\n' "$ls_remote_out" | awk 'NR == 1 { print $1 }')
+              fi
+              if [ -n "$fetched_sha" ] && [ "$fetched_sha" = "$reread_sha" ]; then
+                REMOTE_SHA="$fetched_sha"
+                break
+              fi
+              echo "::warning::head remota di $HEAD_REF non stabile (tentativo $remote_head_attempt/$remote_head_attempts): fetch=${fetched_sha:-<vuoto>} rilettura=${reread_sha:-<vuoto>}"
+            else
+              echo "::warning::git fetch di $HEAD_REF fallito (tentativo $remote_head_attempt/$remote_head_attempts)"
+            fi
+            if [ "$remote_head_attempt" -lt "$remote_head_attempts" ]; then
+              sleep $((remote_head_attempt * 5))
+            fi
+            remote_head_attempt=$((remote_head_attempt + 1))
+          done
+          if [ -z "$REMOTE_SHA" ]; then
+            CLAIM_STATUS=failed-transient
+            export CLAIM_STATUS
+            if [ -n "${GITHUB_ENV:-}" ]; then
+              echo 'CLAIM_STATUS=failed-transient' >> "$GITHUB_ENV"
+            fi
+            echo "::error::REMOTE_HEAD_UNVERIFIED: head remota di $HEAD_REF non determinabile dopo $remote_head_attempts tentativi (fetch fallito o head cambiata fra le letture) → classificazione BLOCCANTE, job ROSSO. Nessun SUCCESS, nessun SUPERSEDED: il marker di round resta contato; claim failed-transient (retryable)."
+            exit 1
+          fi
+          echo "start=$START_SHA base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA action=$ACTION_OUTCOME"
+          if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ "$HEAD_NOW" != "$BASE_SHA" ] && [ "$REMOTE_SHA" = "$HEAD_NOW" ]; then
+            # Osservatore del trailer: gli hook sono disattivati per costruzione
+            # nel sandbox Codex (`sanitize-git-config.mjs` toglie core.hooksPath),
+            # quindi il trailer lo scrive l'agente e qui si misura se c'e'.
+            MISSING=$(git log --format='%H %(trailers:key=Fixer,valueonly,separator=%x2C)' "$BASE_SHA..$HEAD_NOW" 2>/dev/null | awk 'NF < 2 {print $1}' | tr '\n' ' ')
+            if [ -n "$MISSING" ]; then
+              echo "::warning::Commit del fixer senza trailer 'Fixer: redflag-round-N': $MISSING"
+            fi
+            echo "✓ Fix pushato questo round (HEAD avanzato e presente su origin/$HEAD_REF) → round SUCCESS. Job verde anche se l'azione è uscita '$ACTION_OUTCOME'."
+            exit 0
+          fi
+          if [ -n "$HEAD_NOW" ] && [ -n "$BASE_SHA" ] && [ -n "$REMOTE_SHA" ] \
+             && [ -n "${START_SHA:-}" ] && [ "$REMOTE_SHA" != "$START_SHA" ] \
+             && [ "$REMOTE_SHA" != "$HEAD_NOW" ]; then
+            if [ -n "${GITHUB_ENV:-}" ]; then
+              echo 'CLAIM_STATUS=released' >> "$GITHUB_ENV"
+            fi
+            echo "⚠️ Branch avanzato da un altro writer dopo l'avvio del round (start=$START_SHA base=$BASE_SHA local=$HEAD_NOW remote=$REMOTE_SHA) → run SUPERSEDED; claim rilasciato, nessun round consumato."
+            exit 0
+          fi
+          if [ "$ACTION_OUTCOME" = "failure" ]; then
+            echo "::error::🔴-fix: nessun commit pushato e l'azione è fallita ('$ACTION_OUTCOME') → non-progress reale. Job RED (segnale preservato; round-cap → needs-human a N>=3)."
+            exit 1
+          fi
+          # Un body riscritto SENZA una HEAD nuova non è un terminale
+          # legittimo: è lo stallo. `tests.yml` non è triggerato da `edited` e
+          # il suo re-review guard salta su una review terminale già presente,
+          # quindi nessuna review potrà mai giudicare il body corretto e la PR
+          # resta ferma. Lo step `Advance HEAD after a PR-body fix` esiste per
+          # impedirlo; se siamo qui, non ci è riuscito, e la cosa peggiore che
+          # si possa fare è uscire verdi.
+          NOW_BODY_DIGEST=$("$TRUSTED_GH_BIN" api "repos/$REPO/pulls/$PR_NUMBER" --jq '.body // ""' 2>/dev/null \
+            | shasum -a 256 | awk '{print $1}')
+          if [ -n "${NOW_BODY_DIGEST:-}" ] && [ "${BASE_BODY_DIGEST:-unknown}" != "unknown" ] \
+             && [ "$NOW_BODY_DIGEST" != "$BASE_BODY_DIGEST" ]; then
+            echo "::error::🔴-fix: body riscritto (digest ${BASE_BODY_DIGEST:0:12}→${NOW_BODY_DIGEST:0:12}, body_only=${BODY_ONLY:-false}) ma HEAD ferma su $BASE_SHA → nessuna review potrà giudicare il body corretto e la PR resta bloccata. Job RED (sblocco: label needs-human dallo step precedente, oppure un commit manuale sul branch)."
+            exit 1
+          fi
+          NOW_COMMENTS=$("$TRUSTED_GH_BIN" api "repos/$REPO/issues/$PR_NUMBER/comments" --paginate --jq 'length' 2>/dev/null || echo "${BASE_COMMENTS:-0}")
+          if [ "${NOW_COMMENTS:-0}" -le "${BASE_COMMENTS:-0}" ]; then
+            echo "::error::🔴-fix: nessun commit pushato, l'azione è uscita '$ACTION_OUTCOME', e nessun commento nuovo a spiegare perché (comments $BASE_COMMENTS→$NOW_COMMENTS) → non-progress SILENZIOSO, non un terminale legittimo. Job RED (segnale preservato; round-cap → needs-human a N>=3)."
+            exit 1
+          fi
+          echo "Nessun push ma l'azione è terminata pulita ('$ACTION_OUTCOME') con una spiegazione nuova sulla PR → terminale legittimo (es. non auto-fixabile). Job verde."
+          exit 0
+
+      # The model action can execute PR-controlled code after the previous
+      # refresh.  Re-materialize once more before finalizing the durable claim.
+      - name: Refresh trusted fixer policy after model
+        id: trusted_policy_post_model
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          POLICY_REF: main
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+        run: |
+          set -euo pipefail
+          policy_root="${RUNNER_TEMP}/redflag-trusted-policy-post-${GITHUB_RUN_ID}"
+          rm -rf "$policy_root"
+          mkdir -p "$policy_root"
+          # Un 404 qui vuol dire «${POLICY_REF} non ha questo file», non «rete
+          # giù»: il messaggio deve nominare file e ref, altrimenti il rosso
+          # arriva come «gate saltato» e manda a cercare la causa altrove.
+          download_main() {
+            local path="$1"
+            local destination="$policy_root/$path"
+            mkdir -p "$(dirname "$destination")"
+            if ! "$TRUSTED_GH_BIN" api "repos/${GITHUB_REPOSITORY}/contents/${path}?ref=${POLICY_REF}" \
+              --header 'Accept: application/vnd.github.raw+json' > "$destination" 2>"${destination}.err"; then
+              echo "::error::policy fidata: '${path}' non scaricabile da ${POLICY_REF} — $(tr -d '\n' < "${destination}.err" | tail -c 300)"
+              rm -f "$destination" "${destination}.err"
+              exit 1
+            fi
+            rm -f "${destination}.err"
+          }
+          for trusted_path in \
+            scripts/ci/pr-fixer-claim.mjs \
+            scripts/ci/lib/pr-review-admission.mjs \
+            scripts/ci/lib/review-input-revision.mjs \
+            scripts/ci/lib/constants.mjs \
+            scripts/lib/int-from-env.mjs; do
+            download_main "$trusted_path"
+          done
+          node --check "$policy_root/scripts/ci/pr-fixer-claim.mjs"
+          node --check "$policy_root/scripts/ci/lib/pr-review-admission.mjs"
+          node --check "$policy_root/scripts/ci/lib/review-input-revision.mjs"
+          printf 'root=%s\n' "$policy_root" >> "$GITHUB_OUTPUT"
+
+      - name: Finalize redflag PR + HEAD + review claim
+        if: always() && steps.claim.outputs.claim_acquired == 'true'
+        continue-on-error: true
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          GH_REPO: ${{ github.repository }}
+          CLAIM_ACTION: finalize
+          CLAIM_KIND: redflag
+          PR_NUMBER: ${{ github.event.pull_request.number }}
+          HEAD_SHA: ${{ github.event.pull_request.head.sha }}
+          REVIEW_REVISION: ${{ steps.admission.outputs.review_revision }}
+          EVENT_KEY: review:${{ github.event.review.id }}
+          REVIEW_BODY: ${{ github.event.review.body }}
+          CLAIM_TOKEN: ${{ steps.claim.outputs.claim_token }}
+          PROCEED: ${{ steps.guard.outputs.proceed }}
+          ACTION_OUTCOME: ${{ steps.codex_fix.outcome }}
+          EXEC_FILE: ''
+          GITHUB_RUN_ID: ${{ github.run_id }}
+          TRUSTED_POLICY_ROOT: ${{ steps.trusted_policy_post_model.outputs.root }}
+          TRUSTED_GH_BIN: ${{ steps.trusted_gh.outputs.path }}
+        run: node "$TRUSTED_POLICY_ROOT/scripts/ci/pr-fixer-claim.mjs" --claim

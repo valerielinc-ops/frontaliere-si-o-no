@@ -1,0 +1,43 @@
+{
+  "version": 1,
+  "generatedAt": "2026-09-24T00:00:00.000Z",
+  "timezone": "Europe/Zurich",
+  "scope": {
+    "country": "CH",
+    "canton": "GE"
+  },
+  "coverage": {
+    "validFrom": "2026-01-01",
+    "validTo": "2026-12-31",
+    "minimumCalendarDays": 365,
+    "requireContiguous": true
+  },
+  "sources": [
+    {
+      "key": "pharmageneve-garde-2026",
+      "name": "Pharmacies de garde 2026",
+      "sourceType": "association",
+      "accessMethod": "html-scrape",
+      "officialSourceUrl": "https://pharmageneve.swiss/pharmacie-de-garde/",
+      "fetchFrequency": "P1D",
+      "owner": "platform",
+      "status": "active",
+      "identityMode": "catalogue-required",
+      "identityAliases": [
+        {
+          "sourceLabel": "pharma24",
+          "pharmacyId": "ge-pharma24"
+        },
+        {
+          "sourceLabel": "Pharmacie du Museum",
+          "pharmacyId": "ge-pharmacie-du-museum"
+        },
+        {
+          "sourceLabel": "Pharmacie Plaza",
+          "pharmacyId": "ge-pharmacie-plaza"
+        }
+      ],
+      "notes": "La fonte allowlisted espone pharma24 come servizio esplicito 24h/24, 7j/7 e 365j/an, oltre a finestre datate aggiuntive. Il parser espande solo quella dichiarazione esplicita in intervalli giornalieri e risolve le identità nel catalogo verificato data/pharmacy-duties-geneva-catalogue.json."
+    }
+  ]
+}

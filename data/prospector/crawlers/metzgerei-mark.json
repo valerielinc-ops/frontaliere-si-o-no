@@ -1,0 +1,22 @@
+{
+  "companyKey": "metzgerei-mark",
+  "companyName": "Dorfladen Schiers - Metzgerei Mark",
+  "companyHost": "metzgerei-mark.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.metzgerei-mark.ch/de/jobs"
+  ],
+  "detailTemplate": "/de/job/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "Mehr erfahren",
+    "Mehr erfahren",
+    "Mehr erfahren"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-08T09:12:17.756Z"
+}

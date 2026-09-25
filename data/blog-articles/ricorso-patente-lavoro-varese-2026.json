@@ -1,0 +1,40 @@
+{
+  "id": "ricorso-patente-lavoro-varese-2026",
+  "slug": "ricorso-patente-lavoro-varese-2026",
+  "publishedAt": "2026-05-08T05:54:53.944Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "varesenews.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 10.181434412659561,
+    "confidence": 0.8,
+    "finalScore": 8.14514753012765,
+    "topK": [
+      {
+        "slug": "polizia-stradale-varese-1600-patenti",
+        "cosine": 0.7822373268252347
+      },
+      {
+        "slug": "problemi-casellario-giudiziale-varese-2026",
+        "cosine": 0.779807659192045
+      },
+      {
+        "slug": "caro-benzina-varese-accise-2026",
+        "cosine": 0.7764780215484766
+      },
+      {
+        "slug": "controlli-varese-esposto-espulsione",
+        "cosine": 0.7675932665490203
+      },
+      {
+        "slug": "varese-ospedale-parcheggi-personale-2026",
+        "cosine": 0.7672187187714768
+      }
+    ],
+    "score": 4.072573765063825,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

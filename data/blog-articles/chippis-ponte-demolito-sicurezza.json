@@ -1,0 +1,40 @@
+{
+  "id": "chippis-ponte-demolito-sicurezza",
+  "slug": "chippis-ponte-demolito-sicurezza",
+  "publishedAt": "2026-05-10T05:51:33.763Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "tvsvizzera.it",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 13.734163740919724,
+    "confidence": 0.8,
+    "finalScore": 10.98733099273578,
+    "topK": [
+      {
+        "slug": "sicurezza-frontalieri-ticino-2024",
+        "cosine": 0.8241797621606913
+      },
+      {
+        "slug": "restringimento-a2-ritardi-2026",
+        "cosine": 0.8228496723205303
+      },
+      {
+        "slug": "svincolo-a2-biasca-rischi-frontaliere",
+        "cosine": 0.8195643596924351
+      },
+      {
+        "slug": "piscina-chiasso-rinnovo-sicurezza",
+        "cosine": 0.8185143283136997
+      },
+      {
+        "slug": "dogana-chiasso-traffico-2026",
+        "cosine": 0.8184505149753851
+      }
+    ],
+    "score": 2.746832748183945,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

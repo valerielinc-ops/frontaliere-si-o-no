@@ -1,0 +1,40 @@
+{
+  "id": "contributo-sanita-vecchi-frontalieri",
+  "slug": "contributo-sanita-vecchi-frontalieri",
+  "publishedAt": "2026-07-29T23:36:57.180Z",
+  "cluster": "salute",
+  "_pool": "discovery",
+  "_pool_source": "news",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 11.732972385494904,
+    "confidence": 0.8,
+    "finalScore": 9.386377908395923,
+    "topK": [
+      {
+        "slug": "frontalieri-tassa-salute-lombardia",
+        "cosine": 0.869118690504277
+      },
+      {
+        "slug": "nuova-tassa-frontalieri-2026",
+        "cosine": 0.8674244716741296
+      },
+      {
+        "slug": "aumento-stipendi-frontalieri-lombardia-2026",
+        "cosine": 0.8666964278614512
+      },
+      {
+        "slug": "lombardia-tassa-sanitaria-frontalieri-2026",
+        "cosine": 0.8654594660642692
+      },
+      {
+        "slug": "lombardia-aumenta-stipendi-sanitari-2026",
+        "cosine": 0.864942063787755
+      }
+    ],
+    "score": 1.1732972385494904,
+    "clusterDiversityBonus": 0.125,
+    "sourceQualityMultiplier": 1,
+    "cluster": "salute"
+  }
+}

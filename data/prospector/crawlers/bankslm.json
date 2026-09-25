@@ -1,0 +1,20 @@
+{
+  "companyKey": "bankslm",
+  "companyName": "Bank SLM AG",
+  "companyHost": "karriere.bankslm.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://karriere.bankslm.ch/"
+  ],
+  "detailTemplate": "/jobs/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 3,
+  "sampleTitles": [
+    "<source srcset=\"https://images.teamtailor-cdn.com/images/s3/teamtailor-production/user_picture_800-v9/image_uplo"
+  ],
+  "canton": "BE",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-15T19:36:54.532Z"
+}

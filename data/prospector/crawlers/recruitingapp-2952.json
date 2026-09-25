@@ -1,0 +1,21 @@
+{
+  "companyKey": "recruitingapp-2952",
+  "companyName": "EBP",
+  "companyHost": "recruitingapp-2952.umantis.com",
+  "platform": "umantis.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://recruitingapp-2952.umantis.com/Jobs/1?lang=ger&ContentOnly=&message="
+  ],
+  "detailTemplate": "/Vacancies/*/Description/1",
+  "sampleVacancyCount": 8,
+  "sampleTitles": [
+    "Assistenz Beratungsprojekte",
+    "Lernende/r Gebäudeinformatiker/in EFZ Fachrichtung Planung",
+    "Junior Lichtdesigner/in",
+    "Teamleiter/in User Experience",
+    "BIM-Modellierer/in Infrastrukturbau"
+  ],
+  "sourceLang": "de",
+  "learnedAt": "2026-08-21T09:11:39.022Z"
+}

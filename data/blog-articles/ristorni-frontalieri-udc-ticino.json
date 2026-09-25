@@ -1,0 +1,40 @@
+{
+  "id": "ristorni-frontalieri-udc-ticino",
+  "slug": "ristorni-frontalieri-udc-ticino",
+  "publishedAt": "2026-05-26T09:42:51.978Z",
+  "cluster": "fiscale",
+  "_pool": "proven",
+  "_pool_source": "media.tio.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.55747914563229,
+    "confidence": 0.8,
+    "finalScore": 2.0459833165058323,
+    "topK": [
+      {
+        "slug": "tassa-salute-frontalieri-ticino-2026",
+        "cosine": 0.8524930485440967
+      },
+      {
+        "slug": "luino-pd-frontalieri-2026",
+        "cosine": 0.851275749788294
+      },
+      {
+        "slug": "frontalieri-astuti-confronto-territori",
+        "cosine": 0.8499904317580282
+      },
+      {
+        "slug": "frontalieri-tassa-salute-teatro",
+        "cosine": 0.8498473183256637
+      },
+      {
+        "slug": "tassa-salute-frontalieri-luino-verbania",
+        "cosine": 0.8447763418458595
+      }
+    ],
+    "score": 2.0459833165058323,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

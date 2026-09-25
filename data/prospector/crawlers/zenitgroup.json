@@ -1,0 +1,20 @@
+{
+  "companyKey": "zenitgroup",
+  "companyName": "Zenit Group Srl",
+  "companyHost": "zenitgroup.altamiraweb.com",
+  "platform": "altamiraweb.com",
+  "mode": "template",
+  "seedUrls": [
+    "https://zenitgroup.altamiraweb.com/"
+  ],
+  "detailTemplate": "/annunci-lavoro/*",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 2,
+  "sampleTitles": [
+    "Magazziniere con utilizzo muletto",
+    "Attrezzista centri di lavoro CNC"
+  ],
+  "sourceLang": "it",
+  "learnedAt": "2026-09-19T09:32:04.652Z"
+}

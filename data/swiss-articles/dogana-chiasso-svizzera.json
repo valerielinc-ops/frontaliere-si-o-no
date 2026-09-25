@@ -1,0 +1,40 @@
+{
+  "id": "dogana-chiasso-svizzera",
+  "slug": "dogana-chiasso-svizzera",
+  "publishedAt": "2026-06-19T03:04:10.850Z",
+  "cluster": "mobilita",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 21.13976074429,
+    "confidence": 0.8,
+    "finalScore": 16.911808595432003,
+    "topK": [
+      {
+        "slug": "multa-vignetta-pasqua-chiasso-2024",
+        "cosine": 0.8834710705229998
+      },
+      {
+        "slug": "lite-dogana-ponte-chiasso-ferito-contuso",
+        "cosine": 0.8815506190816039
+      },
+      {
+        "slug": "dogana-chiasso-centro-tecnologico",
+        "cosine": 0.8811916522896055
+      },
+      {
+        "slug": "dogana-chiasso-traffico-2026",
+        "cosine": 0.8654875950059311
+      },
+      {
+        "slug": "multe-vignetta-chiasso-pasqua-2026",
+        "cosine": 0.8647638493419291
+      }
+    ],
+    "score": 16.911808595432003,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

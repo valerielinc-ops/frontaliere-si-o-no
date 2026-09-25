@@ -1,0 +1,108 @@
+name: Collect Border-Crossing Traffic
+
+on:
+  # Cloud Scheduler calls this workflow through dispatchTrafficCollection in
+  # functions/index.js. GitHub's native schedule was removed after multi-hour
+  # dispatch delays made live traffic stale; manual and freshness self-heals
+  # keep using the same workflow_dispatch entrypoint.
+  workflow_dispatch: {}
+
+concurrency:
+  group: traffic-scheduler
+  # cancel-in-progress is FALSE so a freshness-watchdog re-dispatch (issue #1106
+  # item 2) can never cancel an in-flight run that is about to write the data
+  # file: under sustained stale (>90min) the hourly watchdog dispatches this
+  # workflow every hour, and with cancel=true an arriving dispatch would kill a
+  # */15 cron run mid-collect, leaving data stale → watchdog re-dispatches → loop.
+  # Runs are ≤10min and crons are spaced ≥15min, so serialized queueing (group
+  # without cancel) still prevents overlap without the cancellation race.
+  cancel-in-progress: false
+
+permissions:
+  contents: write
+  issues: write
+  # jobs API per il reporter diagnostico (.github/actions/report-failure, #5437):
+  # un blocco permissions esplicito azzera gli scope non elencati, quindi senza
+  # questa riga la chiamata risponde 403 e il body torna povero senza dirlo.
+  actions: read
+
+jobs:
+  collect:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v5
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: '22'
+          cache: npm
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Prepare Firebase credentials
+        env:
+          FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
+        run: |
+          if [ -z "$FIREBASE_SERVICE_ACCOUNT_JSON" ]; then
+            echo "::error::FIREBASE_SERVICE_ACCOUNT_JSON secret is not set"
+            exit 1
+          fi
+          printf '%s' "$FIREBASE_SERVICE_ACCOUNT_JSON" > /tmp/firebase-sa.json
+          echo "GOOGLE_APPLICATION_CREDENTIALS=/tmp/firebase-sa.json" >> "$GITHUB_ENV"
+
+      - name: Load secrets from Remote Config
+        run: node scripts/load-rc-env.mjs
+
+      - name: Collect traffic data
+        env:
+          ENABLE_WEBCAM_ANALYSIS: '1'
+        run: node scripts/collect-traffic.mjs
+
+      - name: Recompute rolling 30-day averages
+        run: node scripts/compute-border-wait-averages.mjs
+
+      # Publishes the 2x7-day aggregate the weekly ranking article is built from
+      # (issue #4974 item 3). Runs here rather than in the weekly workflow so the
+      # artifact is always fresh when the generator — which now lives in nanako —
+      # comes to fetch it, whatever hour its own cron fires at.
+      - name: Publish border-wait ranking window
+        run: node scripts/publish-border-wait-window.mjs
+
+      - name: Commit + push (with rebase-retry)
+        # Centralized rebase-retry helper (scripts/lib/git-push-with-retry.sh)
+        # survives concurrent pushes from other data-refresh workflows.
+        run: |
+          git config user.name 'github-actions[bot]'
+          git config user.email '41898282+github-actions[bot]@users.noreply.github.com'
+          git add data/border-wait-current.json public/data/border-wait-current.json data/border-wait-history data/border-wait-averages.json public/data/border-wait-averages.json public/data/border-wait-ranking-window.json
+          if git diff --staged --quiet; then
+            echo "No changes to commit"
+            exit 0
+          fi
+          git commit -m "chore(border-wait): live snapshot $(date -u +%Y-%m-%dT%H:%MZ)"
+          bash scripts/lib/git-push-with-retry.sh \
+            --branch "${GITHUB_REF_NAME:-main}" \
+            --regenerate-cmd "node scripts/collect-traffic.mjs && node scripts/compute-border-wait-averages.mjs && node scripts/publish-border-wait-window.mjs && git add data/border-wait-current.json public/data/border-wait-current.json data/border-wait-history data/border-wait-averages.json public/data/border-wait-averages.json public/data/border-wait-ranking-window.json"
+        # NOTE: Commit + push goes to main BUT deploy.yml has paths-ignore on
+        # data/border-wait-* so this won't trigger a deploy storm — periodic
+        # deploys will pick up the new JSON.
+
+      # Reporter diagnostico (#5437) al posto del body run/trigger/ref: dice
+      # quale step è morto (collect / compute averages / publish window / push)
+      # e quali script guardare, che è metà della diagnosi già fatta.
+      # CHI CHIUDE: close-recovered-failure-issues.mjs sul primo run verde — il
+      # titolo `Workflow Failure: <name:>` è esattamente il suo pattern.
+      - name: Report failure to GitHub Issues
+        if: failure()
+        uses: ./.github/actions/report-failure
+        with:
+          title: 'Workflow Failure: ${{ github.workflow }}'
+          closed-by: close-recovered-failure-issues
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          priority: '2'
+          labels: Bug

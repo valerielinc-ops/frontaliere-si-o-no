@@ -1,0 +1,40 @@
+{
+  "id": "regime-fiscale-frontaliere-svizzera",
+  "slug": "regime-fiscale-frontaliere-svizzera",
+  "publishedAt": "2026-05-25T06:53:03.525Z",
+  "cluster": "fiscale",
+  "_pool": "discovery",
+  "_pool_source": "suggest",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.368992285226833,
+    "confidence": 0.8,
+    "finalScore": 11.495193828181467,
+    "topK": [
+      {
+        "slug": "confine-fiscale-nuovi-comuni",
+        "cosine": 0.7982773491792685
+      },
+      {
+        "slug": "simulazione-fiscale-frontaliere-2026",
+        "cosine": 0.7858070498826788
+      },
+      {
+        "slug": "front-alieri-soci-sagl-nodi-fiscali-2026",
+        "cosine": 0.7843861356881792
+      },
+      {
+        "slug": "assegni-familiari-frontalieri-ticino-2026",
+        "cosine": 0.7840459916756329
+      },
+      {
+        "slug": "svizzera-istruzioni-uso-frontalieri",
+        "cosine": 0.7765802626111397
+      }
+    ],
+    "score": 11.495193828181467,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "fiscale"
+  }
+}

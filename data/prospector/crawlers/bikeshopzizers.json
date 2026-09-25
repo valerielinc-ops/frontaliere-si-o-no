@@ -1,0 +1,23 @@
+{
+  "companyKey": "bikeshopzizers",
+  "companyName": "Radsport Ullrich",
+  "companyHost": "bikeshopzizers.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://bikeshopzizers.ch/jobs/aushilfe-m-w-d-10/"
+  ],
+  "detailTemplate": "/jobs/*/",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 4,
+  "sampleTitles": [
+    "Aushilfe (m/w/d) 10%",
+    ".arla{fill:#999596;} Previous Article Praktikant (m/w/d) im Verkauf und als",
+    "Eventbarista (m/w/d) – Schweizweit",
+    "Fahrradmechaniker (m/w/d)"
+  ],
+  "canton": "GR",
+  "sourceLang": "de",
+  "learnedAt": "2026-09-10T09:01:57.119Z"
+}

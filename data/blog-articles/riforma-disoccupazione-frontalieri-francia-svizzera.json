@@ -1,0 +1,40 @@
+{
+  "id": "riforma-disoccupazione-frontalieri-francia-svizzera",
+  "slug": "riforma-disoccupazione-frontalieri-francia-svizzera",
+  "publishedAt": "2026-05-12T22:49:41.721Z",
+  "cluster": "novita",
+  "_pool": "proven",
+  "_pool_source": "rsi.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 2.753459199486934,
+    "confidence": 0.8,
+    "finalScore": 2.202767359589547,
+    "topK": [
+      {
+        "slug": "frontalieri-disoccupazione-stato-lavoro",
+        "cosine": 0.9178197331623112
+      },
+      {
+        "slug": "frontalieri-disoccupati-svizzera-indennita",
+        "cosine": 0.9117851439878911
+      },
+      {
+        "slug": "riforma-ue-disoccupazione-frontalieri",
+        "cosine": 0.9103202919417228
+      },
+      {
+        "slug": "riforma-frontalieri-costi-svizzera",
+        "cosine": 0.9065558886024546
+      },
+      {
+        "slug": "frontalieri-disoccupazione-svizzera-2026",
+        "cosine": 0.8995556301210375
+      }
+    ],
+    "score": 2.202767359589547,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1,
+    "cluster": "novita"
+  }
+}

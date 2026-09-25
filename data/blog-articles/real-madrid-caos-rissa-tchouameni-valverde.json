@@ -1,0 +1,40 @@
+{
+  "id": "real-madrid-caos-rissa-tchouameni-valverde",
+  "slug": "real-madrid-caos-rissa-tchouameni-valverde",
+  "publishedAt": "2026-05-08T06:27:23.735Z",
+  "cluster": "lavoro",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 9.331240178934081,
+    "confidence": 0.8,
+    "finalScore": 7.464992143147265,
+    "topK": [
+      {
+        "slug": "gestione-scontri-frontali-ticino",
+        "cosine": 0.7776033482445068
+      },
+      {
+        "slug": "scontri-lugano-pensilina-2024",
+        "cosine": 0.7727275853648358
+      },
+      {
+        "slug": "disordini-pensilina-botta-lugano-2026",
+        "cosine": 0.772475336149847
+      },
+      {
+        "slug": "scontri-lugano-politica-toni",
+        "cosine": 0.7724733777281004
+      },
+      {
+        "slug": "disordini-pensilina-lugano-intervento-veloce",
+        "cosine": 0.7700092181405909
+      }
+    ],
+    "score": 1.8662480357868163,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "lavoro"
+  }
+}

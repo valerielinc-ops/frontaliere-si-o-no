@@ -1,0 +1,40 @@
+{
+  "id": "ripristino-treni-locarno-cadenazzo",
+  "slug": "ripristino-treni-locarno-cadenazzo",
+  "publishedAt": "2026-05-30T01:51:34.094Z",
+  "cluster": "mobilita",
+  "_pool": "proven",
+  "_pool_source": "media.laregione.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 7.837719906296826,
+    "confidence": 0.8,
+    "finalScore": 6.270175925037461,
+    "topK": [
+      {
+        "slug": "guasto-tra-parabiago-e-rho",
+        "cosine": 0.8698283558554384
+      },
+      {
+        "slug": "restringimento-a2-ritardi-2026",
+        "cosine": 0.8532551538474906
+      },
+      {
+        "slug": "danni-riparati-centovallina",
+        "cosine": 0.8514942288563129
+      },
+      {
+        "slug": "ponti-primaverili-traffico-2026",
+        "cosine": 0.8491074248715534
+      },
+      {
+        "slug": "sciopero-train-tilo-28-29-maggio-2025",
+        "cosine": 0.8440349024487147
+      }
+    ],
+    "score": 3.1350879625187305,
+    "clusterDiversityBonus": 0.5,
+    "sourceQualityMultiplier": 1,
+    "cluster": "mobilita"
+  }
+}

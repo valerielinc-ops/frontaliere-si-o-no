@@ -1,0 +1,21 @@
+# CODEOWNERS — required reviewers per path.
+# https://docs.github.com/en/repositories/managing-your-repos-settings-and-features/customizing-your-repository/about-code-owners
+
+# single-writer invariant — see #794/#801
+# refresh-thin-promotions.yml + scripts/fetch-thin-page-promotions.mjs are the
+# ONLY automated writer of these files (rebase-retry loop assumes a single writer).
+#
+# Two complementary guards below:
+#  1. The data files themselves — gates any MANUAL edit inside a PR.
+#  2. The writer surface (workflow + fetch script) — gates introducing a SECOND
+#     automated writer, the actual failure mode of the invariant. NOTE: both only
+#     fire on PRs; automated direct-push to main (the existing writer's path) is
+#     NOT gated by CODEOWNERS — branch protection "Require review from Code
+#     Owners" is the enforcement, see ## Non implementato in the PR.
+data/thin-page-promotions*.json                     @valerielinc-ops
+data/thin-page-promotions.jsonl                     @valerielinc-ops
+.github/workflows/refresh-thin-promotions.yml       @valerielinc-ops
+scripts/fetch-thin-page-promotions.mjs              @valerielinc-ops
+
+# Self-ownership: a PR cannot remove/weaken this guard without owner review.
+/.github/CODEOWNERS                                  @valerielinc-ops

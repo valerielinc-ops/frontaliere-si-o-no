@@ -1,0 +1,20 @@
+{
+  "companyKey": "csbregaglia",
+  "companyName": "Arztpraxis Maloja",
+  "companyHost": "csbregaglia.ch",
+  "platform": "",
+  "mode": "template",
+  "seedUrls": [
+    "https://www.csbregaglia.ch/it/centro-sanitario/offerte-di-lavoro"
+  ],
+  "detailTemplate": "/it/centro-sanitario/offerte-di-lavoro/419-offerta-di-lavoro-medico-di-medicina-generale-o-internista",
+  "detailEnrichment": true,
+  "detailFetchWorkers": 4,
+  "sampleVacancyCount": 1,
+  "sampleTitles": [
+    "Offerta di lavoro: medico di medicina interna generale"
+  ],
+  "canton": "GR",
+  "sourceLang": "it",
+  "learnedAt": "2026-09-11T09:06:16.501Z"
+}

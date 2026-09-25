@@ -1,0 +1,40 @@
+{
+  "id": "parmelin-missione-economica-nordamerica",
+  "slug": "parmelin-missione-economica-nordamerica",
+  "publishedAt": "2026-06-25T07:59:29.187Z",
+  "cluster": "generic",
+  "_pool": "proven",
+  "_pool_source": "swissinfo.ch",
+  "_score_breakdown": {
+    "stage": "embedding",
+    "rawScore": 14.125874148117218,
+    "confidence": 0.8,
+    "finalScore": 11.300699318493775,
+    "topK": [
+      {
+        "slug": "berna-skopje-scambi-economici-2026",
+        "cosine": 0.8309337734186598
+      },
+      {
+        "slug": "parmelin-accordo-investimenti-bahrein-2026",
+        "cosine": 0.8297979566051512
+      },
+      {
+        "slug": "svizzera-usa-nuovi-negoziati-commerciali-2026",
+        "cosine": 0.8297350312155665
+      },
+      {
+        "slug": "parmelin-washington-dazi-usa-2026",
+        "cosine": 0.8277574356823106
+      },
+      {
+        "slug": "tajani-parmelin-crans-montana-2026",
+        "cosine": 0.8274591663117388
+      }
+    ],
+    "score": 2.825174829623444,
+    "clusterDiversityBonus": 0.25,
+    "sourceQualityMultiplier": 1,
+    "cluster": "generic"
+  }
+}

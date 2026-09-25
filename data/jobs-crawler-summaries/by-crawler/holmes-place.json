@@ -1,0 +1,60 @@
+{
+  "key": "holmes-place",
+  "label": "Holmes Place",
+  "generatedAt": "2026-09-25T14:55:31.434Z",
+  "total": 1,
+  "discovered": null,
+  "parsed": 2,
+  "lastFetchOutcome": null,
+  "written": 1,
+  "authoritativeEmptySnapshot": false,
+  "newCount": 0,
+  "updatedCount": 1,
+  "removedCount": 0,
+  "unchangedCount": 0,
+  "durationMs": 9076,
+  "avgDurationMs": 9076,
+  "durationHistory": [
+    9076
+  ],
+  "newJobs": [],
+  "updatedJobs": [
+    {
+      "id": "holmes-place-2c12260d3ad6",
+      "slug": "sich-bewerben-holmes-place-oberrieden",
+      "company": "Holmes Place",
+      "companyKey": "holmes-place",
+      "companyDomain": "holmesplace.ch",
+      "title": "sich bewerben",
+      "location": "Oberrieden",
+      "canton": "ZH",
+      "url": "https://www.holmesplace.ch/de/karriere",
+      "source": "Holmes Place Dedicated Parser",
+      "sourceLang": "de",
+      "crawledAt": "2026-09-25T14:55:26.033Z",
+      "addressLocality": "Oberrieden",
+      "addressRegion": "ZH",
+      "streetAddress": "Seestrasse 97",
+      "postalCode": "8942",
+      "addressCountry": "CH",
+      "country": "CH",
+      "category": "Altro",
+      "contract": "full-time",
+      "employmentType": "OTHER",
+      "sector": "Fitness / Wellness",
+      "currency": "CHF",
+      "featured": false,
+      "postedDate": "2026-09-25",
+      "applyUrl": "https://www.holmesplace.ch/de/karriere",
+      "_qualityScore": 56,
+      "_qualityBreakdown": {
+        "cleanliness": 25,
+        "richness": 7,
+        "translation": 4,
+        "completeness": 20
+      }
+    }
+  ],
+  "removedJobs": [],
+  "unchangedJobs": []
+}

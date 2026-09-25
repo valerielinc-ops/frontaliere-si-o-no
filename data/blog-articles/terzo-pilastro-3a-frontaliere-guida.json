@@ -1,0 +1,18 @@
+{
+  "id": "terzo-pilastro-3a-frontaliere-guida",
+  "slug": "terzo-pilastro-3a-frontaliere-guida",
+  "publishedAt": "2026-06-17T00:35:45.009Z",
+  "cluster": "pensioni",
+  "_pool": "discovery",
+  "_pool_source": "orphan",
+  "_score_breakdown": {
+    "stage": "cluster",
+    "rawScore": 3.5,
+    "confidence": 0.3,
+    "finalScore": 1.05,
+    "cluster": "pensioni",
+    "score": 1.05,
+    "clusterDiversityBonus": 1,
+    "sourceQualityMultiplier": 1
+  }
+}

@@ -1,0 +1,314 @@
+import { truncateSlugAtWordBoundary } from './slug-truncate.mjs';
+/**
+ * Artificialy — Career page HTML parser
+ *
+ * Source: https://www.artificialy.com/it/career
+ *   Career page listing open positions (Lugano TI / Zurich).
+ *   Site is behind Cloudflare managed challenge — may return 403.
+ *   When accessible, page contains job cards with title, location, description, and apply links.
+ *
+ * Extraction strategies (tried in order):
+ *   1. JSON-LD JobPosting structured data
+ *   2. HTML job cards (common career page patterns)
+ *   3. Link-based extraction (LinkedIn apply URLs with surrounding context)
+ */
+
+import {
+  isTargetSwissLocation,
+  inferAnyCanton,
+  swissCityFromLocationField,
+} from './target-swiss-locations.mjs';
+import { looksLikeAntiBotChallenge } from './jina-proxy.mjs';
+
+const BASE_URL = 'https://www.artificialy.com';
+
+function normalizeSpace(value = '') {
+  return String(value || '').replace(/\s+/g, ' ').trim();
+}
+
+function stripHtml(html = '') {
+  return html
+    .replace(/<br\s*\/?>/gi, '\n')
+    .replace(/<li[^>]*>/gi, '\n• ')
+    .replace(/<\/p>/gi, '\n')
+    .replace(/<\/li>/gi, '\n')
+    .replace(/<\/div>/gi, '\n')
+    .replace(/<[^>]+>/g, '')
+    .replace(/&amp;/g, '&')
+    .replace(/&lt;/g, '<')
+    .replace(/&gt;/g, '>')
+    .replace(/&quot;/g, '"')
+    .replace(/&#39;/g, "'")
+    .replace(/&nbsp;/g, ' ')
+    .replace(/\n{3,}/g, '\n\n')
+    .trim();
+}
+
+function slugify(value = '') {
+  return truncateSlugAtWordBoundary(String(value || '')
+    .toLowerCase()
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .replace(/[^\p{L}\p{N}]+/gu, '-')
+    .replace(/^-+|-+$/g, '')
+    .replace(/-{2,}/g, '-'), 180);
+}
+
+/**
+ * Identify the Cloudflare denial page returned by Artificialy instead of the
+ * career HTML. The shared challenge markers cover the 200-with-challenge
+ * variant; the additional Cloudflare + denial check covers the source's hard
+ * 403 body without treating an ordinary short/empty page as a valid crawl.
+ */
+export function isArtificialyCloudflareBlockedPage(html = '') {
+  const source = String(html || '');
+  if (looksLikeAntiBotChallenge(source)) return true;
+
+  const title = source.match(/<title[^>]*>([\s\S]*?)<\/title>/i)?.[1] || '';
+  const hasCloudflareTitle = /\bcloudflare\b/i.test(title);
+  const hasDeniedTitle = /\b(?:error\s*)?403\b|\bforbidden\b|\battention required\b|\baccess denied\b|\bblocked\b/i.test(title);
+  if (hasCloudflareTitle && hasDeniedTitle) return true;
+
+  // Cloudflare's hard-denial template keeps the denial evidence in a named
+  // error block. Restrict the match to that block so a healthy career page
+  // mentioning Cloudflare/403 in an unrelated script or help paragraph does
+  // not discard otherwise valid JSON-LD jobs.
+  const errorBlock = source.match(
+    /<(?:div|section|main)[^>]*class=["'][^"']*\b(?:cf-error-details|cf-error|challenge-error)\b[^"']*["'][^>]*>([\s\S]*?)<\/(?:div|section|main)>/i,
+  )?.[1] || '';
+  const hasDeniedErrorBlock = /\b(?:error\s*)?403\b|\bforbidden\b|\b(?:you\s+are|you['’]re)\s+blocked\b|\baccess denied\b|\bunable to access\b/i.test(errorBlock);
+  if (hasDeniedErrorBlock) return true;
+
+  // Some variants omit the class but expose both the Cloudflare Ray ID and a
+  // denial heading. The two markers must be structurally separate from
+  // arbitrary document prose; a generic whole-document AND is intentionally
+  // avoided here (review finding b995b43e1902).
+  const hasRayId = /\b(?:cloudflare\s+)?ray\s+id\b/i.test(source);
+  const hasDeniedHeading = /<h[1-2][^>]*>[\s\S]*?\b(?:error\s*)?403\b[\s\S]*?<\/h[1-2]>|<h[1-2][^>]*>[\s\S]*?\b(?:forbidden|access denied|blocked)\b[\s\S]*?<\/h[1-2]>/i.test(source);
+  return hasRayId && hasDeniedHeading;
+}
+
+/**
+ * Strategy 1: Extract jobs from JSON-LD JobPosting structured data.
+ */
+function extractJsonLdJobs(html) {
+  const items = [];
+  const scriptPattern = /<script[^>]*type\s*=\s*["']application\/ld\+json["'][^>]*>([\s\S]*?)<\/script>/gi;
+  let match;
+  while ((match = scriptPattern.exec(html)) !== null) {
+    try {
+      const data = JSON.parse(match[1]);
+      const postings = Array.isArray(data) ? data : data['@type'] === 'JobPosting' ? [data] : [];
+      for (const p of postings) {
+        if (p['@type'] !== 'JobPosting') continue;
+        const loc = p.jobLocation || {};
+        const address = loc.address || {};
+        items.push({
+          title: normalizeSpace(p.title || p.name || ''),
+          location: normalizeSpace(address.addressLocality || ''),
+          region: normalizeSpace(address.addressRegion || ''),
+          country: normalizeSpace(address.addressCountry || 'CH'),
+          description: stripHtml(p.description || ''),
+          applyUrl: p.url || p.directApply || '',
+          employmentType: p.employmentType || 'FULL_TIME',
+          datePosted: p.datePosted || '',
+          validThrough: p.validThrough || '',
+        });
+      }
+    } catch { /* ignore malformed JSON-LD */ }
+  }
+  return items;
+}
+
+/**
+ * Strategy 2: Extract jobs from HTML job cards.
+ * Looks for common career page patterns: sections/divs with job titles and locations.
+ */
+function extractHtmlJobCards(html) {
+  const items = [];
+
+  // Pattern: job card blocks — look for headings followed by location info
+  // Common patterns: <h2/h3 class="...">Title</h2> ... <span>Location</span> ... <a href="...">Apply</a>
+  const cardPatterns = [
+    // Pattern A: heading + location in nearby span/p + link
+    /<(?:h[2-4]|div)[^>]*class="[^"]*(?:job|position|role|opening|career)[^"]*"[^>]*>([\s\S]*?)<\/(?:h[2-4]|div)>/gi,
+    // Pattern B: article or section blocks
+    /<(?:article|section|div)[^>]*class="[^"]*(?:card|item|listing|vacancy)[^"]*"[^>]*>([\s\S]*?)<\/(?:article|section|div)>/gi,
+  ];
+
+  for (const pattern of cardPatterns) {
+    let match;
+    while ((match = pattern.exec(html)) !== null) {
+      const block = match[1] || match[0];
+      const titleMatch = block.match(/<(?:h[1-6])[^>]*>(.*?)<\/h[1-6]>/i);
+      const title = titleMatch ? stripHtml(titleMatch[1]) : '';
+      if (!title || title.length < 5) continue;
+
+      // Extract location
+      const location = swissCityFromLocationField(block);
+      // Tailwind's ubiquitous "items-center"/"items-start" utility classes make
+      // Pattern B's "item" keyword match almost any layout div (non-job hero
+      // sections included); a real card always carries a location keyword, so
+      // require one to reject these false positives (issue #3797).
+      if (!location) continue;
+
+      // Extract link
+      const linkMatch = block.match(/href="([^"]+)"/i);
+      const url = linkMatch ? linkMatch[1] : '';
+
+      // Extract description
+      const descMatch = block.match(/<p[^>]*>([\s\S]*?)<\/p>/i);
+      const description = descMatch ? stripHtml(descMatch[1]) : '';
+
+      items.push({
+        title,
+        location,
+        region: '',
+        country: 'CH',
+        description,
+        applyUrl: url.startsWith('http') ? url : url.startsWith('/') ? `${BASE_URL}${url}` : '',
+        employmentType: 'FULL_TIME',
+        datePosted: '',
+        validThrough: '',
+      });
+    }
+  }
+
+  return items;
+}
+
+/**
+ * Strategy 3: Extract jobs from links with job-related context.
+ * Looks for LinkedIn apply links or internal career links with surrounding text.
+ */
+function extractLinkBasedJobs(html) {
+  const items = [];
+  // Find all links that could be job application links
+  const linkPattern = /<a[^>]*href="([^"]*(?:linkedin\.com\/jobs|linkedin\.com\/company|apply|career)[^"]*)"[^>]*>([\s\S]*?)<\/a>/gi;
+  let match;
+  while ((match = linkPattern.exec(html)) !== null) {
+    const url = match[1];
+    const linkText = stripHtml(match[2]);
+    if (!linkText || linkText.length < 3) continue;
+
+    // Get surrounding context before the link. Real cards on this site put
+    // the location badge ~580-590 chars before the apply link (location ->
+    // employment-type badge -> title -> description -> apply link), so 500
+    // chars cut the location off; widen the window to fit it (issue #3797).
+    const pos = match.index;
+    const before = html.substring(Math.max(0, pos - 700), pos);
+
+    // Look for a heading before the link
+    const headingMatch = before.match(/<(?:h[1-6])[^>]*>(.*?)<\/h[1-6]>/gi);
+    const lastHeading = headingMatch ? stripHtml(headingMatch[headingMatch.length - 1]) : '';
+
+    // Resolve the location through the shared Swiss municipality dataset.
+    const contextBlock = before + match[0];
+    const location = swissCityFromLocationField(contextBlock);
+
+    if (lastHeading && lastHeading.length > 5) {
+      items.push({
+        title: lastHeading,
+        location,
+        region: '',
+        country: 'CH',
+        description: '',
+        applyUrl: url.startsWith('http') ? url : `${BASE_URL}${url}`,
+        employmentType: 'FULL_TIME',
+        datePosted: '',
+        validThrough: '',
+      });
+    }
+  }
+
+  return items;
+}
+
+/**
+ * Main parser: try all strategies and return deduplicated results.
+ * @param {string} html - Raw HTML of the career page
+ * @returns {{ items: Array }}
+ */
+export function parseArtificialyCareerPage(html = '') {
+  // Check this before the minimum-length guard: a short denial page is still
+  // an explicit block and must not be reported as a healthy empty crawl.
+  if (isArtificialyCloudflareBlockedPage(html)) {
+    return { items: [], blocked: true };
+  }
+
+  if (!html || html.length < 200) return { items: [] };
+
+  // Try strategies in order of reliability
+  let items = extractJsonLdJobs(html);
+  if (items.length === 0) items = extractHtmlJobCards(html);
+  if (items.length === 0) items = extractLinkBasedJobs(html);
+
+  // Deduplicate by title
+  const seen = new Set();
+  const unique = [];
+  for (const item of items) {
+    const key = item.title.toLowerCase();
+    if (seen.has(key)) continue;
+    seen.add(key);
+    unique.push(item);
+  }
+
+  return { items: unique, blocked: false };
+}
+
+/**
+ * Check if a job is in any Swiss target canton.
+ */
+export function isArtificialySwissRelevant(job = {}) {
+  return isTargetSwissLocation(`${job.location || ''} ${job.title || ''}`);
+}
+
+/**
+ * Infer canton from job data via the BFS municipality dataset.
+ */
+export function inferArtificialyCanton(job = {}) {
+  // Location-first: resolve the specific location before the broader region,
+  // so it wins over inferAnyCanton's TARGET_CANTONS array-order sensitivity.
+  return inferAnyCanton(job.location || '') || inferAnyCanton(job.region || '');
+}
+
+/**
+ * Map job title to a category.
+ */
+export function inferArtificialyCategory(title = '') {
+  const haystack = title.toLowerCase();
+  if (/machine learning|ml engineer|data scien|ai research/i.test(haystack)) return 'it';
+  if (/software|developer|engineer|platform|devops|mlops|cloud|backend|frontend|full.?stack/i.test(haystack)) return 'it';
+  if (/product|head of|director|cto|ceo|manager|lead/i.test(haystack)) return 'management';
+  if (/hr|human resource|admin|amministra|segretari/i.test(haystack)) return 'admin';
+  if (/design|ux|ui/i.test(haystack)) return 'it';
+  if (/sales|marketing|business/i.test(haystack)) return 'sales';
+  return 'it';
+}
+
+/**
+ * Build localized content for an Artificialy job.
+ */
+export function buildArtificialyLocalizedContent(job = {}) {
+  const title = String(job.title || '').trim();
+  const location = String(job.location || 'Lugano').trim();
+  const description = String(job.description || '').trim();
+
+  const fallbackDesc = `Artificialy cerca ${title} con sede a ${location}. Azienda svizzera specializzata in intelligenza artificiale con sedi a Lugano e Zurigo. Candidati online su artificialy.com.`;
+
+  return {
+    titleByLocale: { it: title, en: title, de: title, fr: title },
+    descriptionByLocale: {
+      it: description || fallbackDesc,
+      en: description || fallbackDesc,
+      de: description || fallbackDesc,
+      fr: description || fallbackDesc,
+    },
+    slugByLocale: {
+      it: slugify(`${title} artificialy ${location}`),
+      en: slugify(`${title} artificialy ${location}`),
+      de: slugify(`${title} artificialy ${location}`),
+      fr: slugify(`${title} artificialy ${location}`),
+    },
+  };
+}
