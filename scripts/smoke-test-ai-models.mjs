@@ -39,7 +39,7 @@ console.log = (...args) => console.error(...args);
 setScoreStoreReadOnly();
 
 // Run multi-provider discovery FIRST so dynamically-added models (OpenRouter,
-// Groq, Cerebras, Mistral) are included in the smoke test — otherwise we'd only
+// Groq, NVIDIA, Cohere) are included in the smoke test — otherwise we'd only
 // validate the static chain and never catch a bad auto-discovered id.
 await discoverFreeModels();
 
@@ -120,6 +120,9 @@ if (dead.length) {
 // chain. No-op without the key (nothing attempted) and emits nothing to stdout
 // (still the JSON-only contract). Bare `MISTRAL_API_KEY` check mirrors
 // getMistralApiKey() in lib/ai-models.mjs.
+// Dal 2026-09-25 Mistral e' in RETIRED_FREE_PROVIDERS (HTTP 402 permanente):
+// fuori da DEFAULT_CHAIN e dalla discovery, `mistralLatest` resta vuoto e il
+// gate non scatta finche' il provider non torna in catena.
 const hasMistralKey = Boolean((process.env.MISTRAL_API_KEY || '').trim());
 const mistralLatest = results.filter(
   r => r.model.startsWith('mistral/') && /-latest$/.test(r.model),
