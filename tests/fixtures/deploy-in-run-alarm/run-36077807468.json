@@ -1,0 +1,61 @@
+{
+  "_source": "gh run view 36077807468 --json conclusion,event,headBranch,jobs (2026-09-25), ridotto a nome/esito dei job e step falliti; actor/triggering_actor da GET actions/runs/36077807468",
+  "databaseId": 36077807468,
+  "event": "push",
+  "headBranch": "main",
+  "conclusion": "failure",
+  "actor": "valerielinc-ops",
+  "triggering_actor": "valerielinc-ops",
+  "jobs": [
+    {
+      "name": "validate production promotion trigger",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    },
+    {
+      "name": "matrix-setup",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    },
+    {
+      "name": "prep",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    },
+    {
+      "name": "build-locale (it)",
+      "status": "completed",
+      "conclusion": "failure",
+      "failedSteps": [
+        "Validate full-corpus jobs SEO evidence"
+      ]
+    },
+    {
+      "name": "build-locale (de)",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    },
+    {
+      "name": "build-locale (fr)",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    },
+    {
+      "name": "build-locale (en)",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    },
+    {
+      "name": "rearm",
+      "status": "completed",
+      "conclusion": "success",
+      "failedSteps": []
+    }
+  ]
+}
