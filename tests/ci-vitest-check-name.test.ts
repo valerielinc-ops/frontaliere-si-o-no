@@ -464,8 +464,21 @@ describe('job fuso: un check-run pesante, quattro cancelli, un lock', () => {
     expect(TESTS_YML).toContain(
       'if [ ! -s changed-paths.txt ] && [ -z "$PR_NUMBER" ] && [ -n "${compare_base:-}" ] && [ -n "$AFTER_SHA" ]; then',
     );
-    expect(TESTS_YML).toContain('git diff --name-only "$compare_base" "$AFTER_SHA" > changed-paths.txt');
+    expect(TESTS_YML).toContain('git diff --name-only "$compare_base" "$AFTER_SHA" > "$local_diff_file"');
+    expect(TESTS_YML).toContain('mv "$local_diff_file" changed-paths.txt');
     expect(TESTS_YML).toContain('fallback su diff locale degli SHA');
+  });
+
+  it('recupera il diff locale quando compare raggiunge il cap dei 300 file', () => {
+    const start = TESTS_YML.indexOf('- name: Collect changed paths');
+    const end = TESTS_YML.indexOf('\n      - name:', start + 1);
+    const collector = TESTS_YML.slice(start, end < 0 ? undefined : end);
+    const capFallback = collector.slice(collector.indexOf('if [ "$count" -ge "$cap" ]'));
+
+    expect(collector).toContain('use_local_sha_diff()');
+    expect(capFallback).toContain('use_local_sha_diff true');
+    expect(capFallback).toContain('diff locale completo: $count path toccati');
+    expect(capFallback).toContain("printf '%s\\n' partial > changed-paths-status.txt");
   });
 
   it('materializza gli artifact del diff sul solo percorso PR trusted', () => {
