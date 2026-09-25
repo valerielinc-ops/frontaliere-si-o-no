@@ -11967,6 +11967,11 @@ const blogMetaFr: Record<string, string> = {
     'blog.article.ridurre-tempi-ripristino-a2-mezzovico.title': 'Réduire les délais de rétablissement après l’incident A2 Mezzovico',
     'blog.article.ridurre-tempi-ripristino-a2-mezzovico.excerpt': 'Lorenzo Quadri (Lega) présente une motion visant à réduire les délais de rétablissement après l\'accident sur l\'A2 à Mezzovico : fermeture de plus de 5 heures, embouteillages jusqu\'à 13 km.',
     'blog.article.ridurre-tempi-ripristino-a2-mezzovico.imageAlt': 'Vue aérienne de l\'autoroute A2 près de Mezzovico avec embouteillage et véhicules de secours',
+    'blog.article.bollettino-frontaliere-2026-09-25.title': 'Bulletin du frontalier – 25 septembre 2026 : 1 716 nouvelles offres d\'emploi hier',
+    'blog.article.bollettino-frontaliere-2026-09-25.excerpt': 'Les chiffres du jour, 25 septembre 2026, pour les frontaliers : les attentes relevées ce matin à chaque douane, les communes où l\'essence coûte le moins cher, le taux franc-euro à la clôture et les offres d\'emploi parues en Suisse. Des données de notre suivi, relevées chaque jour.',
+    'blog.article.bollettino-frontaliere-2026-09-25.imageAlt': 'Les chiffres du jour pour les frontaliers – 25 septembre 2026 : attentes aux douanes, prix de l\'essence, taux CHF-EUR et offres d\'emploi',
+    'blog.article.bollettino-frontaliere-2026-09-25.seoDescription': 'Bulletin du frontalier du 25 septembre 2026 : les files aux douanes ce matin, l\'essence la moins chère, taux franc-euro et nouvelles offres d\'emploi en Suisse.',
+    'blog.article.bollettino-frontaliere-2026-09-25.ogDescription': 'Les chiffres du 25 septembre 2026 pour les frontaliers : combien de temps on attend ce matin à chaque douane, où l\'essence coûte le moins cher, ce que vaut le franc aujourd\'hui et combien d\'offres d\'emploi sont parues en Suisse.',
 };
 
 export default blogMetaFr;
