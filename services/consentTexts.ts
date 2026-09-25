@@ -362,7 +362,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsOptIn: entry({
     id: 'communications_opt_in',
-    version: '2026-09-16.1',
+    version: '2026-09-25.1',
     text: COMMUNICATIONS_OPT_IN.it,
     texts: COMMUNICATIONS_OPT_IN,
     displayed: true,
@@ -388,7 +388,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignIn: entry({
     id: 'communications_sign_in',
-    version: '2026-09-16.1',
+    version: '2026-09-25.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,
@@ -420,7 +420,7 @@ export const CONSENT_TEXTS = Object.freeze({
    */
   communicationsSignInEmail: entry({
     id: 'communications_sign_in_email',
-    version: '2026-09-16.1',
+    version: '2026-09-25.1',
     text: COMMUNICATIONS_SIGN_IN.it,
     texts: COMMUNICATIONS_SIGN_IN,
     displayed: true,

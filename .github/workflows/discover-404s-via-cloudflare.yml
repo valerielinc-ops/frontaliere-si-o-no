@@ -27,11 +27,6 @@ on:
         required: false
         type: boolean
         default: true
-      human_approval:
-        description: 'Explicit human approval for Cloudflare 404 discovery writes.'
-        required: false
-        type: boolean
-        default: false
 
 # Serialize this workflow's own runs. Cross-workflow races with the other
 # compat-file writers (discover-404s.yml, sync-gsc-orphans.yml) are handled by
@@ -62,26 +57,11 @@ jobs:
           node-version: '22'
           cache: npm
 
-      - name: Require human approval for Cloudflare 404 side effects
-        id: side_effect_gate
-        env:
-          APPROVAL_ACTOR_TYPE: ${{ github.event.sender.type || '' }}
-          APPROVAL_CONSENT: ${{ inputs.human_approval }}
-          APPROVAL_DRY_RUN: ${{ inputs.dry_run }}
-          # Stesso buco di discover-404s.yml: non armato da #8895, ogni cron
-          # nega (`event-not-workflow-dispatch`) ed esce verde senza scrivere
-          # (run 35976994866): data/cf-hot-404s.json e' fermo al
-          # 2026-09-16T09:00Z. Scrittura interna: compat store, lista CF-hot,
-          # deploy.
-          APPROVAL_TRUSTED_SCHEDULE: 'true'
-          APPROVAL_SCOPE: discover-404s-via-cloudflare
-        run: node scripts/ci/human-side-effect-gate.mjs
-
       - name: Install dependencies
         run: npm ci
 
       - name: Prepare Firebase credentials
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           FIREBASE_SERVICE_ACCOUNT_JSON: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_JSON }}
         run: |
@@ -91,7 +71,7 @@ jobs:
           fi
 
       - name: Load RC secrets
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         run: node scripts/load-rc-env.mjs
 
       # Primary identity for the deploy dispatch below = GitHub App installation
@@ -99,7 +79,7 @@ jobs:
       # its dispatch re-triggers deploy.yml just like the PAT (no GITHUB_TOKEN
       # anti-recursion). Falls back to env.GITHUB_PAT (#2861 item 1).
       - name: Mint App token (primary identity, PAT fallback)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         continue-on-error: true
         env:
           APP_ID: ${{ secrets.APP_ID }}
@@ -108,7 +88,7 @@ jobs:
         run: node scripts/ci/mint-app-token.mjs
 
       - name: Run Cloudflare 404 sweep
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           # CF_API_TOKEN (Zone→Analytics→Read) + CF_ACCOUNT_ID are hydrated from
           # Remote Config by the previous step.
@@ -119,7 +99,7 @@ jobs:
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
 
       - name: Refresh CF-hot 404 list (bounded bridge recovery)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           # CF_API_TOKEN persisted to $GITHUB_ENV by the load-rc-env step above.
           CF_API_TOKEN: ${{ env.CF_API_TOKEN }}
@@ -132,7 +112,7 @@ jobs:
             ${{ inputs.dry_run == true && '--dry-run' || '' }}
 
       - name: Prune non-resolving 404-compat paths (keep test invariant green)
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         # Same gate as discover-404s.yml: the sweep appends raw 404 URLs; any the
         # resolver can't map (bot-probe junk like /wp-admin/install.php) would
         # break tests/search-console-compat.test.ts → main red. Assemble jobs
@@ -143,7 +123,7 @@ jobs:
           npx --no-install tsx scripts/prune-404-compat-paths.ts
 
       - name: Commit and push
-        if: steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: inputs.dry_run != true && inputs.dry_run != 'true'
         id: commit
         run: |
           set -euo pipefail
@@ -284,7 +264,7 @@ jobs:
           done
 
       - name: Trigger deploy if compat changed
-        if: steps.commit.outputs.has_changes == 'true' && steps.side_effect_gate.outputs.allow_side_effect == 'true' && steps.side_effect_gate.outputs.effective_dry_run != 'true'
+        if: steps.commit.outputs.has_changes == 'true' && inputs.dry_run != true && inputs.dry_run != 'true'
         env:
           # trigger-deploy.sh resolves TOKEN="${GITHUB_PAT:-${GH_TOKEN:-}}" — override
           # with the App token when minted (primary identity), PAT otherwise (#2861

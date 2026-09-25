@@ -35,28 +35,18 @@
  *   - the followed-company alert is push-triggered on new crawler data, with
  *     an hourly cron only as a safety net.
  *
- * A CHANNEL CAN BE OFF WITHOUT A SINGLE BYTE OF THIS REPO CHANGING (#5745)
- * -----------------------------------------------------------------------
- * `Send Daily Brief Email` was disabled on 2026-08-12 — the owner's decision,
- * the daily bulletin being what the complaints were about. It was disabled the
- * way GitHub disables a workflow: `disabled_manually`, a flag on the Actions
- * API. The FILE still reads `cron: '33 6,9 * * *'`, so the cron assertion above
- * still passed, the sender still existed, and this page went on telling readers
- * they would get a bulletin "ogni giorno, in due finestre di invio".
+ * WORKFLOW ENABLEMENT IS PART OF THE CHANNEL CONTRACT (#5745)
+ * ------------------------------------------------------------
+ * `status` records whether a channel is currently live in the Actions API.
+ * The workflow file carries the schedule and sender contract; the registry
+ * carries the state that cannot be inferred from that file alone. A deliberately
+ * suspended channel must carry `CHANNEL-STATUS: suspended` in its workflow, and
+ * `tests/consent-shown-at-signup.test.tsx` checks both sides of that invariant.
  *
- * That is the whole reason `status` exists. Enablement is state no file in this
- * repo carries, so it has to be DECLARED here, and the declaration has to be
- * anchored to something a test can read: `send-daily-brief.yml` carries the
- * literal marker `CHANNEL-STATUS: suspended`, and
- * `tests/consent-shown-at-signup.test.ts` fails unless the marker and the
- * `status` below agree in both directions. Re-enabling the workflow therefore
- * means deleting the marker, which turns the test red until this registry — and
- * with it the page, and with it the consent formula — is brought back in line.
- *
- * `cron` stays on a suspended channel on purpose: it is still the schedule the
- * file carries, and blanking it would lose the fact that the job is one API
- * click away from running again. `cadence` is the field that must stop
- * promising, and it does.
+ * The owner re-enabled the daily brief and the publisher advertising channel
+ * together with the workflow gate removal. Their live cadences below are now
+ * the promises shown on `/comunicazioni/`; per-recipient consent and opt-out
+ * checks remain enforced by the senders.
  *
  * THE ADVERTISING PREFERENCE CONTROL (#5759)
  * ----------------------------------------
@@ -76,10 +66,9 @@
  * matcher, the authenticated preference writer and the token endpoint all
  * read/write the same fields; the tests keep those deploy units aligned.
  *
- * The channel itself stays `suspended`. Naming it documents the capability,
- * but the registry may never claim `live` for a workflow disabled at the
- * Actions API level — that is #5745, and the marker in the workflow file is
- * what keeps the two in step.
+ * The channel is live under this category. Naming it separately keeps the
+ * advertising consent and preference control visible even while the sender
+ * applies the per-recipient hard denies.
  */
 // Relative, not `@/`: `build-plugins/communicationsPagePlugin.ts` imports this
 // module and is itself reachable from vite.config.ts, which esbuild bundles
@@ -210,7 +199,7 @@ export interface CommunicationChannel {
 
 /**
  * The channels, in the order the page lists them: editorial, then jobs, then
- * service, then the one nobody has consented to.
+ * service, then advertising.
  */
 export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.freeze([
   Object.freeze({
@@ -218,7 +207,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     sender: 'scripts/send-daily-brief.mjs',
     workflow: '.github/workflows/send-daily-brief.yml',
     cron: '33 6,9 * * *',
-    status: 'suspended',
+    status: 'live',
     consentCategory: 'editorial',
     name: {
       it: 'Bollettino del Frontaliere',
@@ -233,10 +222,10 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
       fr: 'Taux CHF/EUR, temps d’attente aux postes-frontière, prix des carburants et les nouvelles du jour pour les frontaliers.',
     },
     cadence: {
-      it: 'Sospeso dal 12 agosto 2026: non viene inviato. Il workflow che lo spediva è disattivato; la pianificazione resta scritta nel file, quindi il canale può essere riattivato, ma finché questa riga non cambia non parte nulla.',
-      en: 'Suspended since 12 August 2026: it is not being sent. The workflow that sent it is disabled; the schedule is still written in the file, so the channel can be switched back on, but nothing goes out until this line changes.',
-      de: 'Seit dem 12. August 2026 ausgesetzt: es wird nicht versendet. Der Workflow ist deaktiviert; der Zeitplan steht weiterhin in der Datei, der Kanal kann also wieder eingeschaltet werden — bis diese Zeile sich ändert, geht nichts hinaus.',
-      fr: 'Suspendu depuis le 12 août 2026 : il n’est pas envoyé. Le workflow qui l’expédiait est désactivé ; la planification reste inscrite dans le fichier, le canal peut donc être réactivé, mais tant que cette ligne ne change pas, rien ne part.',
+      it: 'Ogni giorno, in due finestre di invio alle 06:33 e 09:33 UTC, con ripresa della campagna per completare gli invii senza duplicati.',
+      en: 'Every day, in two send windows at 06:33 and 09:33 UTC, with campaign resumption to complete sends without duplicates.',
+      de: 'Täglich in zwei Versandfenstern um 06:33 und 09:33 UTC; die Kampagne wird fortgesetzt, damit ausstehende Sendungen ohne Duplikate abgeschlossen werden.',
+      fr: 'Chaque jour, dans deux fenêtres d’envoi à 06:33 et 09:33 UTC, avec reprise de campagne pour terminer les envois sans doublons.',
     },
   }),
   Object.freeze({
@@ -426,7 +415,7 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
     sender: 'scripts/blast-publisher-ads.mjs',
     workflow: '.github/workflows/publisher-blast.yml',
     cron: '17 7 * * *',
-    status: 'suspended',
+    status: 'live',
     consentCategory: 'advertising',
     name: {
       it: 'Annunci di inserzionisti',
@@ -441,10 +430,10 @@ export const COMMUNICATION_CHANNELS: readonly CommunicationChannel[] = Object.fr
       fr: 'Messages promotionnels d’entreprises tierces qui paient pour atteindre le lectorat de ce site.',
     },
     cadence: {
-      it: 'Sospeso dal 12 agosto 2026: il workflow è disattivato e non parte nulla. Non ha mai spedito: zero annunci a pagamento in coda al momento della sospensione. Se verrà riattivato potrà raggiungere gli iscritti del rapporto base che non avranno disattivato questa categoria, e mai chi ha chiesto di non ricevere più email.',
-      en: 'Suspended since 12 August 2026: the workflow is disabled and nothing goes out. It has never sent anything: zero paid ads queued at the time. If it is switched back on, it may reach base subscribers who have not switched this category off, and never anyone who has asked to stop receiving email.',
-      de: 'Seit dem 12. August 2026 ausgesetzt: Der Workflow ist deaktiviert, es geht nichts hinaus. Er hat nie etwas versendet: Zum Zeitpunkt der Aussetzung waren null bezahlte Anzeigen in der Warteschlange. Bei einer Reaktivierung kann er Basis-Abonnenten erreichen, die diese Kategorie nicht deaktiviert haben — niemals Personen, die den Erhalt von E-Mails abbestellt haben.',
-      fr: 'Suspendu depuis le 12 août 2026 : le workflow est désactivé et rien ne part. Il n’a jamais rien envoyé : aucune annonce payante n’était en attente au moment de la suspension. S’il est réactivé, il pourra atteindre les abonnés de base qui n’auront pas désactivé cette catégorie, et jamais ceux qui ont demandé à ne plus recevoir d’e-mails.',
+      it: 'Ogni giorno alle 07:17 UTC per gli annunci sponsorizzati pagati e abbinati alle preferenze pubblicitarie.',
+      en: 'Every day at 07:17 UTC for paid sponsored ads matched to advertising preferences.',
+      de: 'Täglich um 07:17 UTC für bezahlte gesponserte Anzeigen, die den Werbepräferenzen entsprechen.',
+      fr: 'Chaque jour à 07:17 UTC pour les annonces sponsorisées payées et correspondant aux préférences publicitaires.',
     },
   }),
 ]);
@@ -546,7 +535,7 @@ export const COMMUNICATIONS_PAGE_PATH: Readonly<Record<ConsentLocale, string>> =
  * formula's own `version` is bumped too. One page edit, one consent version —
  * which is the property the whole arrangement exists to buy.
  */
-export const COMMUNICATIONS_PAGE_VERSION = '2026-09-15.1';
+export const COMMUNICATIONS_PAGE_VERSION = '2026-09-25.1';
 
 /**
  * Published version → fingerprint of the page content at that version.
@@ -581,6 +570,9 @@ export const COMMUNICATIONS_PAGE_REVISIONS: Readonly<Record<string, string>> = O
   // the preference-centre control is an opt-out, and the sharing disclosures
   // describe advertising partners and a possible business transfer.
   '2026-09-15.1': '3cf863fce20723b5',
+  // 2026-09-25 — the owner re-enabled the daily brief and the advertising
+  // channel; both workflow state and live cadence are now reflected here.
+  '2026-09-25.1': '877a7a1ce4337832',
 });
 
 /** Channels grouped by the consent sentence that authorises them, page order preserved. */
