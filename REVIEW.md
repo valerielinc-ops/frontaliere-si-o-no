@@ -213,12 +213,13 @@ Dopo prima review:
 - 🔴 senza file: se risolto, conferma «Fix di `<testo normalizzato>`: ok.» senza
   backtick interni.
 - No rilanciare nit già detti.
+- Bundle con `## Risposta del 🔴-fixer`: prima dei 🔴 nuovi giudica ogni voce (prevale sul riporto per anchor, anche a codice invariato). `fixed`: Accettazione soddisfatta? `disputed`: l'evidenza regge? Sì → `Fix di \`path:L<n>\`: ok` (+ `(ritirato: <motivo>)`); no → 🔴 con `Replica: <cosa manca>`, mai identico.
 
 ## Output format
 
 Una riga/finding:
 ```
-<file>:L<linea>: <prefix> <problema>. <fix>.
+<file>:L<linea>: <prefix> <problema>. <fix>. Accettazione: <test|comando|input→output>.
 ```
 
 Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
@@ -227,7 +228,7 @@ Prefix: `🔴 Important` / `🟡 Nit` / `🟣 Pre-existing` / `❓ q:`.
 
 **Drop:** "I noticed", "It seems", "perhaps/maybe", "You might want to", restating, "Great work but". No hedging.
 
-**Keep:** linea esatta, simboli in backtick, fix concreto, *perché* solo se non ovvio.
+**Keep:** linea esatta, simboli in backtick, un solo fix concreto, *perché* solo se non ovvio.
 
 ## Summary body
 

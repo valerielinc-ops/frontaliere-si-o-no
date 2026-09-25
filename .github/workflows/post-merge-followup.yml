@@ -199,7 +199,8 @@ jobs:
               echo '```'
               echo "Reviews:"
               echo '```json'
-              gh api "repos/$REPO/pulls/$n/reviews" 2>/dev/null || echo '[]'
+              # Paginata: oltre 30 review le ultime (quelle che contano) restavano fuori.
+              { gh api "repos/$REPO/pulls/$n/reviews?per_page=100" --paginate --slurp 2>/dev/null | jq 'add // []' 2>/dev/null; } || echo '[]'
               echo '```'
               echo
             } >> "$CTX_DIR/prs.md"

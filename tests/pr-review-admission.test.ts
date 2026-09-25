@@ -576,14 +576,27 @@ describe('workflow wiring for one review per HEAD', () => {
     // `edited` e il re-review guard salta su una review terminale già presente
     // — senza una HEAD nuova nessuna review può giudicare il body corretto e
     // la PR resta ferma in silenzio.
+    //
+    // Il secondo (2026-09-25) è lo stesso caso per una CONTESTAZIONE: il fixer
+    // ha risposto `disputed` con un'evidenza e non ha pushato codice. Senza una
+    // HEAD nuova il reviewer non la giudica mai (#9147: quattro review
+    // identiche dopo «già risolto alla riga 282»). Anche questo è
+    // deterministico, uno per round, e parte solo se la HEAD è ferma.
     const emptyCommits = fixerYml.match(/git commit --allow-empty/gu) ?? [];
-    expect(emptyCommits).toHaveLength(1);
-    const advanceStart = fixerYml.indexOf('- name: Advance HEAD after a PR-body fix');
-    expect(advanceStart).toBeGreaterThan(0);
-    const advanceEnd = fixerYml.indexOf('\n      - name:', advanceStart + 1);
-    const advance = fixerYml.slice(advanceStart, advanceEnd);
+    expect(emptyCommits).toHaveLength(2);
+    const stepBody = (name: string) => {
+      const start = fixerYml.indexOf(`- name: ${name}`);
+      expect(start, name).toBeGreaterThan(0);
+      const end = fixerYml.indexOf('\n      - name:', start + 1);
+      return fixerYml.slice(start, end);
+    };
+    const advance = stepBody('Advance HEAD after a PR-body fix');
     expect(advance).toContain('git commit --allow-empty');
     expect(advance).toContain('BASE_BODY_DIGEST');
+    const dispute = stepBody('Publish the per-finding response (zero-Claude)');
+    expect(dispute).toContain('git commit --allow-empty');
+    expect(dispute).toContain('disputed');
+    expect(dispute).toMatch(/"\$head_now" != "\$\{BASE_SHA:-\}"/);
   });
 
   it('attesta il CLI anche prima del preflight e nel watcher di superseded HEAD', () => {
