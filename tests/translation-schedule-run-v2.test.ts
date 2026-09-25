@@ -147,6 +147,15 @@ describe('translation scheduler v2 runtime wiring', () => {
     });
     expect(report.scheduler.selectedJobs).toBe(1);
     expect(report.scheduler.selectedUnits).toBe(1);
+    expect(report.canary).toMatchObject({
+      plannedUnits: 1,
+      eligibleUnits: 0,
+      selected: 0,
+      skipped: 1,
+    });
+    expect(report.scheduler.outcomeCounts).toMatchObject({ canary_skipped: 1 });
+    expect(report.scheduler.settlement).toMatchObject({ generated: 0, validated: 0 });
+    expect(report.candidates).toEqual({ validated: 0, rejected: 0 });
     expect(report.state.reserved).toBe(true);
     expect(report.state.settled).toBe(true);
     expect(report.stateRemote).toBe('origin');
@@ -158,6 +167,27 @@ describe('translation scheduler v2 runtime wiring', () => {
     expect(git(one, 'ls-remote', '--refs', remote, report.stateRef)).toContain(report.state.after);
     expect(git(one, 'ls-tree', '-r', '--name-only', report.state.after))
       .toContain('v2/scheduler/');
+  });
+
+  it('does not call the provider at the zero-exposure default', async () => {
+    const { one } = createRepositories();
+    writeFileSync(join(one, 'scripts/lib/translation-shadow-provider-v2.mjs'), `export function translate() {
+  throw new Error('provider must not be called for a zero-exposure canary');
+}
+`);
+
+    const report = await runTranslationScheduleV2({
+      repository: one,
+      publishEnabled: true,
+      maxJobs: 10,
+      maxUnits: 1,
+      providerTimeoutMs: 10_000,
+      logger: { log() {} },
+    });
+
+    expect(report.canary).toMatchObject({ selected: 0, skipped: 1 });
+    expect(report.scheduler.outcomeCounts.canary_skipped).toBe(1);
+    expect(report.scheduler.outcomeCounts).not.toHaveProperty('generation_failed');
   });
 
   it('returns an empty report when the live queue has no pending units', async () => {
