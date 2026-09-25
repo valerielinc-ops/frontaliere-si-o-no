@@ -1053,7 +1053,7 @@
       "slugByLocale": {
         "it": "med-assistente-pratico-assistente-pratico-mpa-centro-di-emergenza-universitatsspital-basel-basel",
         "en": "med-practical-assistant-practical-assistant-mpa-emergency-center-universitatsspital-basel-basel",
-        "de": "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel",
+        "de": "med-praxisassistentin-praxisassistent-mpa-notfallzentrum-universitatsspital-basel-basel-i2436r",
         "fr": "med-assistant-pratique-assistant-pratique-mpa-centre-d-urgence-universitatsspital-basel-basel"
       },
       "company": "Universitätsspital Basel",
@@ -1120,7 +1120,6 @@
         "med-assistente-pratico-assistente-pratico-mpa-centro-di-emergenza-universitatsspital-basel-basel"
       ],
       "firstSeenAt": "2026-05-22T13:24:58.839Z",
-      "needsRetranslation": true,
       "salaryMin": 62000,
       "salaryMax": 94000,
       "salarySource": "estimated",
@@ -1133,7 +1132,8 @@
           "maxValue": 94000,
           "unitText": "YEAR"
         }
-      }
+      },
+      "needsRetranslation": true
     },
     {
       "id": "unispital-basel-2b18bfb9f371",
@@ -5047,7 +5047,6 @@
       "applyUrl": "https://career012.successfactors.eu/career?company=USB&career_ns=job_application&career_job_req_id=27802",
       "requirements": [],
       "requirementsByLocale": {},
-      "needsRetranslation": true,
       "previousSlugs": [
         "business-support-facility-services-unispital-basel-ch",
         "servizi-di-assistenza-alle-imprese-universitatsspital-basel-basel"

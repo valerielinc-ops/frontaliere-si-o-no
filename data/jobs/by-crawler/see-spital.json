@@ -1078,7 +1078,7 @@
       "companyDomain": "see-spital.ch",
       "title": "Dipl. Expert*in Anästhesiepflege",
       "titleByLocale": {
-        "it": "Esperto di dipl.* nella cura dell'anestesia",
+        "it": "Esperto in anestesia",
         "en": "Dipl. Expert*in Anästhesiepflege",
         "de": "Dipl. Expert*in Anästhesiepflege",
         "fr": "Dipl. Expert*en soins anesthésiques"
@@ -1169,7 +1169,8 @@
           "unitText": "YEAR"
         }
       },
-      "addressRegion": "ZH"
+      "addressRegion": "ZH",
+      "retranslationAttempts": 2
     },
     {
       "id": "see-spital-d366c216c3fa",
