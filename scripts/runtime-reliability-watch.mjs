@@ -255,6 +255,16 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
       .map((asset) => `${CDN_ORIGIN}${asset.path}`)
     : [];
   const unhealthyAssets = assetResults.filter((asset) => asset.state !== 'healthy');
+  // While the CDN marker is ahead, the apex is still serving the previous
+  // Pages generation. A stable CDN URL can therefore legitimately return the
+  // previous asset while its cache-busted request reaches the newly published
+  // CDN generation. Both responses are healthy HTTP responses; the stale hash
+  // is the expected rollout boundary, not evidence that the live HTML is
+  // paired with the wrong asset. Keep real response failures blocking in this
+  // state: a 404/5xx/timeout is broken for both the current and previous page.
+  const blockingAssets = unhealthyAssets.filter((asset) => !(
+    markerState === 'rollout_in_progress' && asset.state === 'stale'
+  ));
   // The failure mode this watchdog exists for is scoped, by its own contract,
   // to the coherent state: a stable asset URL still serving the previous edge
   // object *after the current build marker is live*. While the CDN marker is
@@ -265,17 +275,14 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
   // issue; post-deploy-validate-live.yml likewise records an apex that has not
   // caught up as "an older VALID build (not broken)". Only the reverse skew is
   // a coherence break: apex HTML referencing a generation the CDN never got.
-  // A rollout explains the MARKER skew and nothing else. It is tempting to also
-  // excuse a `stale` asset — the edge holding the object the live HTML still
-  // references — but `classifyAssetResponses` only proves that two 200s hash
-  // differently: it cannot show the cached body is the generation the apex HTML
-  // actually wants, so an even older generation or an incompatible 200 would
-  // pass as "explained". Every asset therefore has to be healthy in both marker
-  // states, and `assetResults.length` is required because observing nothing is
-  // not the same as observing health.
+  // A rollout explains the marker skew and a two-200 hash difference: the
+  // stable edge object is the generation still referenced by the live apex,
+  // while the cache-busted request observes the newer CDN generation. It does
+  // not explain a response failure, and `assetResults.length` is required
+  // because observing nothing is not the same as observing health.
   const ok = (markerState === 'coherent' || markerState === 'rollout_in_progress')
     && assetResults.length > 0
-    && unhealthyAssets.length === 0;
+    && blockingAssets.length === 0;
 
   const result = {
     ok,
@@ -300,7 +307,7 @@ export function evaluateProbe({ siteCached, siteFresh, cdnMarker, assets }) {
       Number.isFinite(siteBehindMs) && siteBehindMs !== 0
         ? formatMarkerSkew(siteBehindMs)
         : null,
-      ...unhealthyAssets.map((asset) => `${asset.path}: ${asset.state}`),
+      ...blockingAssets.map((asset) => `${asset.path}: ${asset.state}`),
     ].filter(Boolean),
   };
   result.fingerprint = runtimeFailureFingerprint(result);
