@@ -11997,6 +11997,9 @@ const blogMetaEn: Record<string, string> = {
     'blog.article.ticket-stipendio-acquisti-ticino.title': 'Salary ticket: the proposal to buy in Ticino',
     'blog.article.ticket-stipendio-acquisti-ticino.excerpt': 'Ticket-salary in Ticino: the Young People of the Centre propose to allocate up to 5% of the salary to local purchases, with a tax voucher of 25%.',
     'blog.article.ticket-stipendio-acquisti-ticino.imageAlt': 'Salary voucher and purchases in a Ticino shop',
+    'blog.article.furti-auto-lusso-ticino.title': 'Luxury car thefts in Ticino: three arrested',
+    'blog.article.furti-auto-lusso-ticino.excerpt': 'Four high-end vehicles stolen in Manno, Lamone and Camorino. Three young men arrested and a fourth suspect wanted after joint investigations.',
+    'blog.article.furti-auto-lusso-ticino.imageAlt': 'Luxury car in a Ticino dealership',
 };
 
 export default blogMetaEn;

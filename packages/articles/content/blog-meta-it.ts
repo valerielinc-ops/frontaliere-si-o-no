@@ -11998,6 +11998,9 @@ const blogMetaIt: Record<string, string> = {
     'blog.article.ticket-stipendio-acquisti-ticino.title': 'Ticket-stipendio: la proposta per comprare in Ticino',
     'blog.article.ticket-stipendio-acquisti-ticino.excerpt': 'Ticket-stipendio in Ticino: i Giovani del Centro propongono di destinare fino al 5% dello stipendio agli acquisti locali, con un buono fiscale sul 25%.',
     'blog.article.ticket-stipendio-acquisti-ticino.imageAlt': 'Voucher salariale e acquisti in un negozio del Ticino',
+    'blog.article.furti-auto-lusso-ticino.title': 'Furti auto di lusso in Ticino: tre arrestati',
+    'blog.article.furti-auto-lusso-ticino.excerpt': 'Rubate quattro vetture di alta gamma a Manno, Lamone e Camorino. Tre giovani arrestati e un quarto sospettato ricercato dopo indagini congiunte.',
+    'blog.article.furti-auto-lusso-ticino.imageAlt': 'Auto di lusso in un rivenditore in Ticino',
 };
 
 export default blogMetaIt;
