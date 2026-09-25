@@ -72,6 +72,42 @@ const EXPIRED_JOBS_PATH = path.join(REPO_ROOT, 'public/data/expired-jobs.json');
 const MIN_JOBS = 3;
 const DRY_RUN = process.argv.includes('--dry-run');
 
+/**
+ * Zero TI già verificati come strutturali: il mercato watchmaking è
+ * concentrato fuori dal Ticino e l'audit del corpus non ha trovato una
+ * vacancy genuina di orologeria in TI. Questo è un'eccezione osservabile,
+ * non un'allowlist di silenziamento: resta applicata solo mentre il settore
+ * è davvero nello zero set calcolato qui sotto. Una vacancy TI verificata
+ * lo fa uscire automaticamente da questa classificazione.
+ */
+export const STRUCTURAL_TI_ZERO_EVIDENCE = Object.freeze({
+  orologeria: Object.freeze({
+    reason: 'Mercato watchmaking concentrato fuori TI; nessuna vacancy TI genuina verificata nel corpus.',
+    reclassifyWhen: 'Una vacancy TI verificata entra nel corpus pubblicato.',
+  }),
+});
+
+const STRUCTURAL_TI_ZERO_SECTOR_SET = new Set(Object.keys(STRUCTURAL_TI_ZERO_EVIDENCE));
+
+/**
+ * Separa gli zeri TI già spiegati da quelli che richiedono ancora una
+ * verifica di copertura. `zeroSectors` deriva da offerte reali pubblicate:
+ * non può quindi classificare strutturalmente un settore che abbia già una
+ * vacancy TI verificata.
+ *
+ * @param {Iterable<string>} zeroSectors
+ * @returns {{structuralZeroSectors: string[], actionableZeroSectors: string[]}}
+ */
+export function classifyTiSectorZeros(zeroSectors) {
+  const structuralZeroSectors = [];
+  const actionableZeroSectors = [];
+  for (const sector of zeroSectors) {
+    if (STRUCTURAL_TI_ZERO_SECTOR_SET.has(sector)) structuralZeroSectors.push(sector);
+    else actionableZeroSectors.push(sector);
+  }
+  return { structuralZeroSectors, actionableZeroSectors };
+}
+
 function log(emoji, msg) {
   console.log(`${emoji} ${msg}`);
 }
@@ -313,19 +349,40 @@ async function checkTiSectorHubs({ resolveJobCanton, jobs }) {
   const tiJobs = jobs.filter((job) => resolveJobCanton(job) === 'TI');
   const counts = countSectorJobsByLocale(tiJobs);
   const zeroSectors = SECTOR_HUB_KEYS.filter((sector) => (counts.it?.[sector] ?? 0) === 0);
+  const { structuralZeroSectors, actionableZeroSectors } = classifyTiSectorZeros(zeroSectors);
 
   if (zeroSectors.length === 0) {
     log('✅', 'All TI sector-hub pages have >=1 real job match.');
     return;
   }
 
-  log('⚠️', `${zeroSectors.length} TI sector(s) with 0 real job matches: ${zeroSectors.join(', ')}`);
+  if (structuralZeroSectors.length > 0) {
+    const details = structuralZeroSectors
+      .map((sector) => {
+        const evidence = STRUCTURAL_TI_ZERO_EVIDENCE[sector];
+        return `${sector} (${evidence.reason} ${evidence.reclassifyWhen})`;
+      })
+      .join('; ');
+    log('ℹ️', `Known structural TI zero(s), observed but not routed to crawler onboarding: ${details}`);
+  }
+
+  if (actionableZeroSectors.length === 0) {
+    log('✅', 'No unclassified TI sector coverage gaps require crawler onboarding.');
+    return;
+  }
+
+  log('⚠️', `${actionableZeroSectors.length} unclassified TI sector(s) with 0 real job matches: ${actionableZeroSectors.join(', ')}`);
 
   const description = `## Sector TI 0 match reali
 
-Le seguenti pagine \`/cerca-lavoro-ticino/{settore}/\` non hanno **nessuna offerta reale** per il canton Ticino in questo deploy. La pagina resta live/indicizzata (decisione owner 2026-07-16: nessuna soglia minima per i settori TI), ma il gap va investigato:
+Le seguenti pagine \`/cerca-lavoro-ticino/{settore}/\` non hanno **nessuna offerta reale** per il canton Ticino in questo deploy. La pagina resta live/indicizzata (decisione owner 2026-07-16: nessuna soglia minima per i settori TI), ma il gap non classificato va investigato:
 
-${zeroSectors.map((s) => `- \`/cerca-lavoro-ticino/${s}/\``).join('\n')}
+${actionableZeroSectors.map((s) => `- \`/cerca-lavoro-ticino/${s}/\``).join('\n')}
+${structuralZeroSectors.length > 0 ? `
+**Zero osservati ma strutturalmente classificati** (restano monitorati e non vengono instradati a onboarding crawler finché non entra una vacancy TI verificata):
+
+${structuralZeroSectors.map((s) => `- \`/cerca-lavoro-ticino/${s}/\` — ${STRUCTURAL_TI_ZERO_EVIDENCE[s].reason}`).join('\n')}
+` : ''}
 
 **Possibili cause da verificare:**
 - Gap di copertura crawler per questo settore/vertical (vedi #3337 — backlog aziende svizzere non ancora crawlate)
@@ -337,7 +394,7 @@ ${zeroSectors.map((s) => `- \`/cerca-lavoro-ticino/${s}/\``).join('\n')}
 
 ${buildScheda({
   causa: [
-    `(ipotesi, da confermare.) ${zeroSectors.length} settore/i TI non ha/hanno nessun match`,
+    `(ipotesi, da confermare.) ${actionableZeroSectors.length} settore/i TI non ha/hanno nessun match`,
     'reale nel corpus pubblicato. Il conteggio non distingue un crawler mancante da una',
     'categoria che non attraversa i matcher: questa distinzione va verificata sui titoli reali.',
   ],
@@ -345,7 +402,7 @@ ${buildScheda({
     'Dipende dalla causa confermata: onboarding di un crawler o correzione dei matcher del',
     'settore. | **REPO**: sito; non preassegnata qui.',
   ],
-  metrica: `prima=${zeroSectors.length} settori TI a 0 match atteso=0 settori TI a 0 match`,
+  metrica: `prima=${actionableZeroSectors.length} zero TI non classificati atteso=0 zero TI non classificati`,
   comando: 'npx --no-install tsx scripts/monitor-sector-coverage.mjs --dry-run',
   note: [
     'Il comando ripete il controllo sul corpus pubblicato senza scrivere l\'artefatto e senza',
