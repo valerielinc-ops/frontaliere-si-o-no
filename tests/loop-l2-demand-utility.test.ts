@@ -7,6 +7,8 @@ import { recordLoopEvidence } from '../scripts/ci/record-loop-fleet-evidence.mjs
 import {
   MAX_CANDIDATES,
   main,
+  OUTCOME_JOIN_ISSUE_TITLE,
+  OUTCOME_SAMPLE_ISSUE_TITLE,
   runL2,
   validateDemandSnapshot,
 } from '../scripts/ci/loop-l2-demand-utility.mjs';
@@ -168,6 +170,34 @@ describe('L2 Demand → Utility', () => {
       candidatesWritten: true,
     });
     expect(issues).toHaveLength(1);
+    expect(issues[0]).toMatchObject({ title: OUTCOME_JOIN_ISSUE_TITLE });
+  });
+
+  it('keeps a joined underpowered sample distinct from an unmeasurable join', async () => {
+    const input = tempFile(snapshot({
+      outcomes: { eligibleLandingSessions: 54, usefulActions: 0 },
+    }));
+    const issues: any[] = [];
+    const result = await runL2({
+      now: NOW,
+      sourcePath: input.file,
+      issue: true,
+      createIssueImpl: async (payload) => { issues.push(payload); },
+      logger: { log() {} },
+    });
+
+    expect(result.verdict).toMatchObject({ ok: false, quality: 'partial' });
+    expect(result.verdict.snapshot).toMatchObject({
+      outcomeJoin: 'joined',
+      minimumSample: 1000,
+      outcomes: { eligibleLandingSessions: 54, usefulActions: 0 },
+    });
+    expect(result.outcomes).toEqual({ eligibleLandingSessions: 54, usefulActions: 0 });
+    expect(issues).toHaveLength(1);
+    expect(issues[0]).toMatchObject({ title: OUTCOME_SAMPLE_ISSUE_TITLE });
+    expect(issues[0].description).toContain('- Outcome join: joined');
+    expect(issues[0].description).toContain('- Eligible landing sessions: 54');
+    expect(issues[0].description).toContain('- Minimum sample: 1000');
   });
 
   it('keeps a missing source unmeasurable with null metrics', async () => {
