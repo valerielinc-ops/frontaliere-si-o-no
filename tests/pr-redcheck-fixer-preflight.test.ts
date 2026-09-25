@@ -25,7 +25,7 @@ const TEST_STEP = 'vitest related (PR diff)';
 const TSC_STEP = 'Collect independent source gates';
 const SOURCE_GUARD_STEP = 'Run source guards in parallel';
 
-type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'review-cli' | 'review-bootstrap' | 'review-ledger' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable';
+type Mode = 'body-contract' | 'body-contract-compat' | 'review-gate' | 'review-gate-compat' | 'review-cli' | 'review-bootstrap' | 'review-ledger' | 'test' | 'tsc' | 'source-guard' | 'check-api-unavailable' | 'jobs-api-unavailable' | 'pulls-api-unavailable';
 
 function failedStepForMode(mode: Mode) {
   switch (mode) {
@@ -52,7 +52,7 @@ function failedStepForMode(mode: Mode) {
   }
 }
 
-function runPreflight(mode: Mode) {
+function runPreflight(mode: Mode, { openPrs = '42' }: { openPrs?: string } = {}) {
   const root = mkdtempSync(path.join(tmpdir(), 'redcheck-preflight-'));
   const bin = path.join(root, 'bin');
   const output = path.join(root, 'github-output');
@@ -66,13 +66,27 @@ function runPreflight(mode: Mode) {
     `#!/bin/sh
 set -eu
 printf '%s\\n' "$*" >> "${calls}"
+# Same flag validation as the real gh 2.x: \`--slurp\` cannot be combined with
+# \`--jq\`/\`--template\`. The previous double accepted any flag, which is how a
+# preflight that the real CLI rejects on every run stayed green here.
+case " $* " in
+  *" --slurp "*)
+    case " $* " in
+      *" --jq "*|*" --template "*|*" -q "*|*" -t "*)
+        echo 'the \`--slurp\` option is not supported with \`--jq\` or \`--template\`' >&2
+        exit 1
+        ;;
+    esac
+    ;;
+esac
 if [ "\${1:-}" = api ]; then
   endpoint="\${2:-}"
   case "$endpoint" in
     *"/pulls?state=open"*)
-      # The real gh invocation applies --jq to this response; emit its
-      # post-filtered scalar here because this is a CLI double, not the API.
-      printf '%s\\n' '42'
+      if [ "\${FAIL_MODE:-}" = pulls ]; then exit 1; fi
+      # The real gh invocation applies --jq page by page to this response;
+      # emit its post-filtered lines here because this is a CLI double.
+      if [ -n "\${OPEN_PRS}" ]; then printf '%s\\n' "\${OPEN_PRS}"; fi
       ;;
     *"/pulls/42")
       printf '%s\\n' '{"state":"open","draft":false,"user":{"type":"Bot","login":"frontaliere-automation[bot]"},"head":{"ref":"fix/redcheck-test","sha":"headsha"},"body":"## Implementato\\n- preflight\\n\\n## Non implementato (ancora)\\n- Nessuno"}'
@@ -124,7 +138,8 @@ exit 1
       RUN_ID: '123',
       RUN_SHA: 'headsha',
       RUN_BRANCH: 'fix/redcheck-test',
-      FAIL_MODE: mode === 'check-api-unavailable' ? 'check-runs' : mode === 'jobs-api-unavailable' ? 'jobs' : '',
+      FAIL_MODE: mode === 'check-api-unavailable' ? 'check-runs' : mode === 'jobs-api-unavailable' ? 'jobs' : mode === 'pulls-api-unavailable' ? 'pulls' : '',
+      OPEN_PRS: openPrs,
       JOBS_JSON: jobs,
     },
   });
@@ -185,6 +200,36 @@ describe('pr-redcheck-fixer preflight classifies the consolidated tests job', ()
   it('fails closed when the step-level jobs API is unavailable', () => {
     const { result, githubOutput, ghCalls } = runPreflight('jobs-api-unavailable');
     expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+  it('resolves the PR without combining --slurp and --jq (rejected by the real gh)', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test');
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    const listCall = ghCalls.split('\n').find((line) => line.includes('pulls?state=open')) ?? '';
+    expect(listCall).toContain('--paginate');
+    expect(listCall).not.toContain('--slurp');
+    expect(githubOutput).toContain('actionable=true');
+  });
+
+  it('takes the first open PR when the paginated --jq emits several lines', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test', { openPrs: '42\n77' });
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    expect(ghCalls).toMatch(/pulls\/42$/m);
+    expect(ghCalls).not.toMatch(/pulls\/77/);
+    expect(githubOutput).toContain('actionable=true');
+  });
+
+  it('skips as a no-op when no open PR has the run branch', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('test', { openPrs: '' });
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).toBe(0);
+    expect(`${result.stdout}`).toContain('Nessuna PR aperta');
+    expect(githubOutput).not.toContain('actionable=true');
+  });
+
+  it('fails closed instead of reporting «no PR» when the open-PR list is unreadable', () => {
+    const { result, githubOutput, ghCalls } = runPreflight('pulls-api-unavailable');
+    expect(result.status, `${result.stdout}\n${result.stderr}\n${ghCalls}`).not.toBe(0);
+    expect(`${result.stdout}${result.stderr}`).toContain('Lista PR aperte illeggibile');
     expect(githubOutput).not.toContain('actionable=true');
   });
 });
